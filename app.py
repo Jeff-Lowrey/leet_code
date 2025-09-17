@@ -21,6 +21,38 @@ DOCS_DIR = BASE_DIR / "docs"
 
 def get_categories() -> List[Dict[str, str]]:
     """Get all solution categories."""
+    category_descriptions = {
+        'arrays-hashing': 'Fundamental data structure problems using arrays and hash tables for efficient lookups.',
+        'backtracking': 'Explore all possibilities systematically to find solutions through recursive exploration.',
+        'binary-search': 'Efficiently find targets in sorted data by repeatedly dividing the search space in half.',
+        'bit-manipulation': 'Solve problems using bitwise operations for optimal space and time complexity.',
+        'design': 'Implement complex data structures and systems with specific functional requirements.',
+        'dynamic-programming': 'Break complex problems into overlapping subproblems and optimize with memoization.',
+        'graphs': 'Navigate relationships and connections using graph traversal algorithms like DFS and BFS.',
+        'greedy': 'Make locally optimal choices at each step to find globally optimal solutions.',
+        'heap': 'Use priority queues to efficiently track minimum or maximum elements.',
+        'interval': 'Handle overlapping ranges and time-based problems with interval merging techniques.',
+        'linked-list': 'Manipulate node-based linear data structures with pointer operations.',
+        'math': 'Apply mathematical concepts and number theory to solve algorithmic challenges.',
+        'matrix': 'Navigate and transform 2D grids using various traversal patterns.',
+        'monotonic-stack': 'Maintain element ordering to solve next greater/smaller element problems.',
+        'prefix-sum': 'Precompute cumulative sums for efficient range query operations.',
+        'queue': 'Process elements in FIFO order for level-order traversals and simulations.',
+        'recursion': 'Solve problems by breaking them into smaller instances of the same problem.',
+        'segment-tree': 'Perform efficient range queries and updates on array segments.',
+        'simulation': 'Model real-world processes and game mechanics step by step.',
+        'sliding-window': 'Optimize subarray/substring problems using a moving window technique.',
+        'sorting': 'Arrange elements in order and leverage sorted properties for problem solving.',
+        'stack': 'Use LIFO structure for parsing, evaluation, and tracking state.',
+        'string-manipulation': 'Transform and analyze text using various string processing techniques.',
+        'strings': 'Pattern matching, parsing, and character-based algorithm problems.',
+        'topological-sort': 'Order directed acyclic graph nodes based on dependencies.',
+        'trees': 'Traverse and manipulate hierarchical data structures including binary trees.',
+        'trie': 'Efficiently store and search strings using prefix tree structures.',
+        'two-pointers': 'Use two iterators to traverse data structures for optimal solutions.',
+        'union-find': 'Track connected components and detect cycles in disjoint sets.'
+    }
+
     categories = []
     for path in SOLUTIONS_DIR.iterdir():
         if path.is_dir() and not path.name.startswith('.'):
@@ -30,7 +62,8 @@ def get_categories() -> List[Dict[str, str]]:
                 categories.append({
                     'name': path.name.replace('-', ' ').title(),
                     'slug': path.name,
-                    'count': len(py_files)
+                    'count': len(py_files),
+                    'description': category_descriptions.get(path.name, 'Collection of algorithm problems and solutions.')
                 })
     return sorted(categories, key=lambda x: x['name'])
 
