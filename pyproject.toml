@@ -3,7 +3,7 @@ name = "leet-code"
 version = "0.1.0"
 description = "LeetCode solutions with web interface"
 readme = "README.md"
-requires-python = ">=3.11"
+requires-python = ">=3.13"
 dependencies = [
     "flask>=3.0.0",
     "markdown>=3.5",
@@ -24,14 +24,14 @@ build-backend = "hatchling.build"
 
 [tool.ruff]
 line-length = 120
-target-version = "py311"
+target-version = "py313"
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "N", "UP", "B", "C4", "SIM"]
 ignore = ["E501"]
 
 [tool.mypy]
-python_version = "3.11"
+python_version = "3.13"
 strict = true
 warn_return_any = true
 warn_unused_configs = true
@@ -39,3 +39,28 @@ warn_unused_configs = true
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 python_files = ["test_*.py", "*_test.py"]
+[tool.pdm]
+distribution = false
+
+[tool.pdm.scripts]
+dev = "python -m pip install -e ."
+test = "pytest tests/"
+lint = "ruff check ."
+format = "ruff format ."
+typecheck = "mypy ."
+
+[tool.pdm.dev-dependencies]
+test = [
+    "pytest>=7.0",
+    "pytest-asyncio>=0.21.0",
+    "pytest-cov>=4.0",
+]
+lint = [
+    "ruff>=0.1.0",
+    "mypy>=1.0",
+    "black>=23.0",
+]
+
+[tool.pdm.venv]
+in_project = true
+prompt = "{project_name}-{python_version}"
