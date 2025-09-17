@@ -9,7 +9,8 @@
 </head>
 <body>
     <nav class="navbar">
-        <div class="container">
+        <div class="nav-container">
+            <button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
             <a href="/" class="logo">LeetCode Solutions</a>
             <ul class="nav-links">
                 <li><a href="/">Categories</a></li>
@@ -18,14 +19,130 @@
         </div>
     </nav>
 
-    <main class="container">
-        {% block content %}{% endblock %}
-    </main>
+    <div class="layout-container">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h3>Table of Contents</h3>
+                <button class="sidebar-close" onclick="toggleSidebar()">×</button>
+            </div>
+            <nav class="sidebar-nav" id="sidebar-nav">
+                <!-- Dynamically populated -->
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <div class="container">
+                {% block content %}{% endblock %}
+            </div>
+        </main>
+    </div>
 
     <footer class="footer">
         <div class="container">
             <p>&copy; 2025 LeetCode Solutions. Built with Flask.</p>
         </div>
     </footer>
+
+    <script>
+        // Toggle sidebar visibility
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('active');
+            document.body.classList.toggle('sidebar-open');
+        }
+
+        // Build expandable table of contents
+        function buildTableOfContents() {
+            const nav = document.getElementById('sidebar-nav');
+            if (!nav) return;
+
+            // Get current page context
+            const currentPath = window.location.pathname;
+
+            // Fetch categories and build navigation
+            fetch('/api/categories')
+                .then(response => response.json())
+                .then(categories => {
+                    let html = '<ul class="toc-list">';
+
+                    categories.forEach(category => {
+                        const isActive = currentPath.includes(category.slug);
+                        html += `
+                            <li class="toc-item ${isActive ? 'active' : ''}">
+                                <div class="toc-category" onclick="toggleCategory('${category.slug}')">
+                                    <span class="toc-arrow">▶</span>
+                                    <a href="/category/${category.slug}">${category.name}</a>
+                                    <span class="toc-count">${category.count}</span>
+                                </div>
+                                <ul class="toc-solutions" id="toc-${category.slug}" style="display: ${isActive ? 'block' : 'none'};">
+                                    <li class="loading">Loading...</li>
+                                </ul>
+                            </li>
+                        `;
+                    });
+
+                    html += '</ul>';
+                    nav.innerHTML = html;
+
+                    // Load solutions for active category
+                    if (currentPath.includes('/category/')) {
+                        const categorySlug = currentPath.split('/category/')[1].split('/')[0];
+                        if (categorySlug) {
+                            loadCategorySolutions(categorySlug);
+                        }
+                    }
+                })
+                .catch(error => {
+                    nav.innerHTML = '<p class="error">Failed to load navigation</p>';
+                });
+        }
+
+        // Toggle category expansion
+        function toggleCategory(slug) {
+            const solutionsList = document.getElementById(`toc-${slug}`);
+            const arrow = solutionsList.parentElement.querySelector('.toc-arrow');
+
+            if (solutionsList.style.display === 'none') {
+                solutionsList.style.display = 'block';
+                arrow.style.transform = 'rotate(90deg)';
+                loadCategorySolutions(slug);
+            } else {
+                solutionsList.style.display = 'none';
+                arrow.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        // Load solutions for a category
+        function loadCategorySolutions(slug) {
+            const solutionsList = document.getElementById(`toc-${slug}`);
+
+            // Check if already loaded
+            if (solutionsList.dataset.loaded === 'true') return;
+
+            fetch(`/api/category/${slug}/solutions`)
+                .then(response => response.json())
+                .then(solutions => {
+                    let html = '';
+                    solutions.forEach(solution => {
+                        const currentSolution = window.location.pathname.includes(solution.filename);
+                        html += `
+                            <li class="${currentSolution ? 'active' : ''}">
+                                <a href="/solution/${slug}/${solution.filename}">
+                                    ${solution.number ? `#${solution.number} ` : ''}${solution.name}
+                                </a>
+                            </li>
+                        `;
+                    });
+                    solutionsList.innerHTML = html;
+                    solutionsList.dataset.loaded = 'true';
+                })
+                .catch(error => {
+                    solutionsList.innerHTML = '<li class="error">Failed to load solutions</li>';
+                });
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', buildTableOfContents);
+    </script>
 </body>
 </html>

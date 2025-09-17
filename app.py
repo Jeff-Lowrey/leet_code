@@ -189,5 +189,24 @@ def not_found(error):
     return render_template('404.html'), 404
 
 
+# API endpoints for sidebar navigation
+@app.route('/api/categories')
+def api_categories():
+    """API endpoint to get all categories."""
+    categories = get_categories()
+    return [{'name': cat['name'], 'slug': cat['slug'], 'count': cat['count']}
+            for cat in categories]
+
+
+@app.route('/api/category/<category>/solutions')
+def api_category_solutions(category):
+    """API endpoint to get solutions for a category."""
+    solutions = get_solutions(category)
+    if not solutions:
+        abort(404)
+    return [{'filename': sol['filename'], 'name': sol['name'], 'number': sol['number']}
+            for sol in solutions]
+
+
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
