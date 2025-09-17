@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}{{ category_name }} - LeetCode Solutions{% endblock %}
+
+{% block content %}
+<header class="page-header">
+    <nav class="breadcrumb">
+        <a href="/">Home</a> / <span>{{ category_name }}</span>
+    </nav>
+    <h1>{{ category_name }}</h1>
+    <p class="stats">{{ solutions|length }} solutions</p>
+</header>
+
+{% if documentation %}
+<section class="documentation">
+    <h2>Category Overview</h2>
+    <div class="doc-content">
+        {{ documentation|safe }}
+    </div>
+</section>
+{% endif %}
+
+<section class="solutions-list">
+    <h2>Problems</h2>
+    <div class="solutions-grid">
+        {% for solution in solutions %}
+        <a href="{{ url_for('solution_view', category=category, filename=solution.filename) }}" class="solution-card">
+            {% if solution.number %}
+            <span class="problem-number">#{{ solution.number }}</span>
+            {% endif %}
+            <h3>{{ solution.name }}</h3>
+        </a>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}{{ problem_name }} - LeetCode Solution{% endblock %}
+
+{% block extra_head %}
+<style>
+    {{ style }}
+    .highlight {
+        border-radius: 8px;
+        padding: 1rem;
+        overflow-x: auto;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<header class="page-header">
+    <nav class="breadcrumb">
+        <a href="/">Home</a> /
+        <a href="{{ url_for('category_view', category=category) }}">{{ category_name }}</a> /
+        <span>{{ problem_name }}</span>
+    </nav>
+    <h1>
+        {% if problem_number %}
+        <span class="problem-number">#{{ problem_number }}</span>
+        {% endif %}
+        {{ problem_name }}
+    </h1>
+</header>
+
+{% if documentation %}
+<section class="documentation">
+    <h2>Problem Explanation</h2>
+    <div class="doc-content">
+        {{ documentation|safe }}
+    </div>
+</section>
+{% endif %}
+
+<section class="solution-code">
+    <h2>Solution Code</h2>
+    {{ code|safe }}
+</section>
+
+<section class="navigation">
+    <a href="{{ url_for('category_view', category=category) }}" class="btn">← Back to {{ category_name }}</a>
+</section>
+{% endblock %}

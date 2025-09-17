@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}Documentation - LeetCode Solutions{% endblock %}
+
+{% block content %}
+<header class="page-header">
+    <h1>Documentation</h1>
+    <p>Comprehensive guides for each problem category</p>
+</header>
+
+<section class="docs-grid">
+    {% for doc in docs %}
+    <a href="{{ url_for('docs_view', category=doc.slug) }}" class="doc-card">
+        <h3>{{ doc.name }}</h3>
+        <p>View category documentation →</p>
+    </a>
+    {% endfor %}
+</section>
+{% endblock %}

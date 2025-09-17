@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}{{ category_name }} Documentation - LeetCode Solutions{% endblock %}
+
+{% block content %}
+<header class="page-header">
+    <nav class="breadcrumb">
+        <a href="/">Home</a> /
+        <a href="/docs">Documentation</a> /
+        <span>{{ category_name }}</span>
+    </nav>
+    <h1>{{ category_name }} Documentation</h1>
+</header>
+
+<section class="documentation">
+    <div class="doc-content">
+        {{ content|safe }}
+    </div>
+</section>
+
+<section class="navigation">
+    <a href="/docs" class="btn">← Back to Documentation</a>
+    <a href="{{ url_for('category_view', category=category) }}" class="btn btn-primary">View Solutions →</a>
+</section>
+{% endblock %}

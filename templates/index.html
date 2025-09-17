@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}LeetCode Solutions - Home{% endblock %}
+
+{% block content %}
+<header class="page-header">
+    <h1>LeetCode Solutions</h1>
+    <p class="stats">{{ total_solutions }} solutions across {{ total_categories }} categories</p>
+</header>
+
+<section class="categories-grid">
+    {% for category in categories %}
+    <a href="{{ url_for('category_view', category=category.slug) }}" class="category-card">
+        <h3>{{ category.name }}</h3>
+        <span class="count">{{ category.count }} solutions</span>
+    </a>
+    {% endfor %}
+</section>
+
+<section class="info-section">
+    <h2>About This Project</h2>
+    <p>A comprehensive collection of LeetCode problem solutions with detailed explanations, complexity analysis, and multiple approaches for each problem.</p>
+
+    <div class="features">
+        <div class="feature">
+            <h3>📚 Organized by Pattern</h3>
+            <p>Solutions grouped by problem-solving patterns for easy learning</p>
+        </div>
+        <div class="feature">
+            <h3>🚀 Optimized Solutions</h3>
+            <p>Focus on optimal time and space complexity</p>
+        </div>
+        <div class="feature">
+            <h3>📖 Detailed Explanations</h3>
+            <p>Step-by-step algorithm explanations and visual examples</p>
+        </div>
+    </div>
+</section>
+{% endblock %}

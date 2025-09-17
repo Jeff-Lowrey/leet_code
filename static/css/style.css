@@ -1,0 +1,353 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #2563eb;
+    --secondary-color: #10b981;
+    --dark-bg: #111827;
+    --light-bg: #f9fafb;
+    --text-primary: #111827;
+    --text-secondary: #6b7280;
+    --border-color: #e5e7eb;
+    --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text-primary);
+    background-color: var(--light-bg);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Navigation */
+.navbar {
+    background-color: white;
+    border-bottom: 1px solid var(--border-color);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+/* Main Content */
+main {
+    flex: 1;
+    padding: 2rem 0;
+}
+
+/* Page Header */
+.page-header {
+    margin-bottom: 2rem;
+}
+
+.page-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.page-header .stats {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+    margin-bottom: 1rem;
+    color: var(--text-secondary);
+}
+
+.breadcrumb a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+/* Grid Layouts */
+.categories-grid,
+.solutions-grid,
+.docs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+/* Cards */
+.category-card,
+.solution-card,
+.doc-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: all 0.2s;
+    display: block;
+}
+
+.category-card:hover,
+.solution-card:hover,
+.doc-card:hover {
+    box-shadow: var(--card-shadow);
+    transform: translateY(-2px);
+    border-color: var(--primary-color);
+}
+
+.category-card h3,
+.solution-card h3,
+.doc-card h3 {
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+}
+
+.count {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.problem-number {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-right: 0.5rem;
+}
+
+/* Info Section */
+.info-section {
+    margin-top: 3rem;
+    padding: 2rem 0;
+    border-top: 1px solid var(--border-color);
+}
+
+.info-section h2 {
+    margin-bottom: 1rem;
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.feature h3 {
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+/* Documentation Content */
+.documentation {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+
+.doc-content {
+    line-height: 1.8;
+}
+
+.doc-content h1,
+.doc-content h2,
+.doc-content h3 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.doc-content h1:first-child,
+.doc-content h2:first-child {
+    margin-top: 0;
+}
+
+.doc-content p {
+    margin-bottom: 1rem;
+}
+
+.doc-content pre {
+    background-color: #f6f8fa;
+    padding: 1rem;
+    border-radius: 6px;
+    overflow-x: auto;
+    margin: 1rem 0;
+}
+
+.doc-content code {
+    background-color: #f6f8fa;
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+}
+
+.doc-content pre code {
+    background-color: transparent;
+    padding: 0;
+}
+
+.doc-content ul,
+.doc-content ol {
+    margin-left: 2rem;
+    margin-bottom: 1rem;
+}
+
+.doc-content table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 1rem 0;
+}
+
+.doc-content th,
+.doc-content td {
+    border: 1px solid var(--border-color);
+    padding: 0.5rem 1rem;
+    text-align: left;
+}
+
+.doc-content th {
+    background-color: #f6f8fa;
+    font-weight: 600;
+}
+
+/* Solution Code */
+.solution-code {
+    margin: 2rem 0;
+}
+
+.solution-code h2 {
+    margin-bottom: 1rem;
+}
+
+/* Navigation Buttons */
+.navigation {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.5rem 1.5rem;
+    background-color: white;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    border-radius: 6px;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.btn:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #1d4ed8;
+}
+
+/* Error Page */
+.error-page {
+    text-align: center;
+    padding: 4rem 0;
+}
+
+.error-page h1 {
+    font-size: 6rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.error-page h2 {
+    margin-bottom: 1rem;
+}
+
+.error-page .btn {
+    margin-top: 2rem;
+}
+
+/* Footer */
+.footer {
+    background-color: white;
+    border-top: 1px solid var(--border-color);
+    padding: 2rem 0;
+    margin-top: auto;
+    text-align: center;
+    color: var(--text-secondary);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .page-header h1 {
+        font-size: 2rem;
+    }
+
+    .categories-grid,
+    .solutions-grid,
+    .docs-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .features {
+        grid-template-columns: 1fr;
+    }
+
+    .navigation {
+        flex-direction: column;
+    }
+
+    .nav-links {
+        gap: 1rem;
+    }
+}

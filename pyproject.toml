@@ -1,0 +1,41 @@
+[project]
+name = "leet-code"
+version = "0.1.0"
+description = "LeetCode solutions with web interface"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "flask>=3.0.0",
+    "markdown>=3.5",
+    "pygments>=2.17.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "mypy>=1.0",
+    "ruff>=0.1.0",
+    "pytest-cov>=4.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "UP", "B", "C4", "SIM"]
+ignore = ["E501"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+warn_return_any = true
+warn_unused_configs = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py", "*_test.py"]
