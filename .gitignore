@@ -1,5 +1,32 @@
+# Python
 .venv/
+venv/
 __pypackages__/
 *.pyc
+*.pyo
+*.pyd
 __pycache__/
 .pdm-python
+.python-version
+*.egg-info/
+dist/
+build/
+*.egg
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+.temp/
