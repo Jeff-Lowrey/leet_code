@@ -8,6 +8,43 @@ Example:
 Input: s = "babad"
 Output: "bab"
 Explanation: "aba" is also a valid answer.
+
+<details>
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### INTUITION:
+A palindrome reads the same forwards and backwards. We can find palindromes
+by expanding around centers - either single characters or between characters.
+
+### APPROACH (Expand Around Center):
+1. For each possible center (n + n-1 centers total)
+2. Expand outward while characters match
+3. Track the longest palindrome found
+4. Handle both odd-length (center = char) and even-length (center = between chars)
+
+### WHY THIS WORKS:
+- Every palindrome has a center
+- We can check all possible centers systematically
+- Expanding is more efficient than checking all substrings
+
+### EXAMPLE WALKTHROUGH:
+```
+s = "babad"
+Centers: b, ba, a, ab, b, ba, a, ad, d
+
+Center at 'a' (index 1): expand to "bab"
+Center at 'a' (index 3): expand to "aba"
+Both have length 3, return either
+```
+
+### ALTERNATIVE APPROACHES:
+- **DP**: O(n²) time, O(n²) space - check all substrings
+- **Manacher's**: O(n) time, O(n) space - advanced linear algorithm
+
+### TIME COMPLEXITY: O(n²)
+### SPACE COMPLEXITY: O(1)
+
+</details>
 """
 
 class Solution:

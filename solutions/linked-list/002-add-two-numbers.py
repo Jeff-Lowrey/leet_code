@@ -12,6 +12,59 @@ Example:
 Input: l1 = [2,4,3], l2 = [5,6,4]
 Output: [7,0,8]
 Explanation: 342 + 465 = 807.
+
+<details>
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### INTUITION:
+This mimics elementary school addition! Since digits are in reverse order,
+we can add from left to right (which corresponds to least significant digit first).
+We need to handle carries just like manual addition.
+
+### KEY INSIGHT:
+- Reverse order means we naturally process least significant digits first
+- Use a "carry" variable to handle sums ≥ 10
+- Continue until both lists are exhausted AND no carry remains
+
+### APPROACH:
+1. Create dummy head for result linked list
+2. Process both lists simultaneously with carry
+3. For each position: sum = val1 + val2 + carry
+4. Create new node with (sum % 10), update carry = sum // 10
+5. Continue until both lists empty and carry = 0
+
+### EXAMPLE WALKTHROUGH:
+```
+l1 = [2,4,3] represents 342
+l2 = [5,6,4] represents 465
+
+Step 1: 2 + 5 + 0(carry) = 7, carry = 0 → node(7)
+Step 2: 4 + 6 + 0(carry) = 10, carry = 1 → node(0)
+Step 3: 3 + 4 + 1(carry) = 8, carry = 0 → node(8)
+
+Result: [7,0,8] represents 807
+```
+
+### EDGE CASES:
+- **Different length lists**: treat missing digits as 0
+- **Final carry**: create additional node if carry > 0
+- **One list empty**: continue with other list + carry
+
+### WHY LINKED LIST?
+- Numbers can be arbitrarily large (beyond int/long limits)
+- Linked list allows dynamic size
+- Reverse order makes addition natural (no need to reverse)
+
+### ELEMENTARY MATH PARALLEL:
+```
+    342
+  + 465
+  -----
+    807
+```
+We add column by column from right, which corresponds to left-to-right in reversed lists.
+
+</details>
 """
 
 class ListNode:

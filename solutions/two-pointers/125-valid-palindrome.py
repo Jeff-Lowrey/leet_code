@@ -13,6 +13,74 @@ Input: s = "A man, a plan, a canal: Panama"
 Output: true
 """
 
+<details>
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### INTUITION:
+Use two pointers from both ends of the string, skipping non-alphanumeric characters and comparing characters case-insensitively. This avoids creating a cleaned string, saving space.
+
+### APPROACH (Two Pointers):
+1. **Initialize pointers**: left = 0, right = length - 1
+2. **Skip invalid characters**: Move pointers inward until alphanumeric characters are found
+3. **Compare characters**: Check if characters match (case-insensitive)
+4. **Move pointers**: Continue until pointers meet
+
+### WHY THIS WORKS:
+- Two pointers naturally check palindrome property (symmetric comparison)
+- Skipping non-alphanumeric characters handles the cleaning requirement
+- Case-insensitive comparison handles uppercase/lowercase requirement
+- O(1) space since we don't create a new string
+
+### TIME COMPLEXITY: O(n)
+### SPACE COMPLEXITY: O(1)
+
+### TWO APPROACHES:
+
+#### Approach 1: Two Pointers (Optimal)
+```python
+while left < right:
+    while left < right and not s[left].isalnum():
+        left += 1
+    while left < right and not s[right].isalnum():
+        right -= 1
+    if s[left].lower() != s[right].lower():
+        return False
+    left += 1
+    right -= 1
+```
+
+#### Approach 2: Clean String First
+```python
+cleaned = ''.join(char.lower() for char in s if char.isalnum())
+return cleaned == cleaned[::-1]
+```
+
+### EXAMPLE WALKTHROUGH:
+```
+Input: "A man, a plan, a canal: Panama"
+
+Step 1: left=0 (A), right=30 (a)
+A.lower() == a.lower() → True, continue
+
+Step 2: left=1 ( ), right=29 (m)
+Skip space: left=2 (m), right=29 (m)
+m.lower() == m.lower() → True, continue
+
+Step 3: left=3 (a), right=28 (a)
+a.lower() == a.lower() → True, continue
+
+... continue until pointers meet ...
+
+All comparisons match → return True
+```
+
+### KEY INSIGHTS:
+- Two pointers technique is perfect for palindrome checking
+- In-place character skipping avoids extra space for string cleaning
+- Always check bounds (left < right) when skipping characters
+
+</details>
+
 class Solution:
     def isPalindrome(self, s: str) -> bool:
         """

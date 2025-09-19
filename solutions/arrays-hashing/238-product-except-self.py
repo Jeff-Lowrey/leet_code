@@ -14,6 +14,51 @@ Input: nums = [1,2,3,4]
 Output: [24,12,8,6]
 """
 
+<details>
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### INTUITION:
+For each position i, the answer is the product of all elements to the left of i multiplied by the product of all elements to the right of i. We can compute this efficiently in two passes.
+
+### APPROACH:
+1. **Left pass**: For each position i, store the product of all elements to the left
+2. **Right pass**: For each position i, multiply by the product of all elements to the right
+3. **Space optimization**: Use the result array to store left products, then multiply in-place with right products
+
+### WHY THIS WORKS:
+- The product of all elements except nums[i] = (product of elements before i) × (product of elements after i)
+- By separating into left and right products, we avoid division and handle edge cases naturally
+- Two passes ensure we visit each element exactly twice
+
+### TIME COMPLEXITY: O(n)
+### SPACE COMPLEXITY: O(1) excluding output array
+
+### EXAMPLE WALKTHROUGH:
+```
+Input: nums = [1,2,3,4]
+
+Left pass (storing left products):
+i=0: left_product = 1, result[0] = 1, left_product *= nums[0] = 1
+i=1: left_product = 1, result[1] = 1, left_product *= nums[1] = 2
+i=2: left_product = 2, result[2] = 2, left_product *= nums[2] = 6
+i=3: left_product = 6, result[3] = 6, left_product *= nums[3] = 24
+result = [1,1,2,6]
+
+Right pass (multiplying by right products):
+i=3: right_product = 1, result[3] *= 1 = 6, right_product *= nums[3] = 4
+i=2: right_product = 4, result[2] *= 4 = 8, right_product *= nums[2] = 12
+i=1: right_product = 12, result[1] *= 12 = 12, right_product *= nums[1] = 24
+i=0: right_product = 24, result[0] *= 24 = 24, right_product *= nums[0] = 24
+result = [24,12,8,6]
+```
+
+### EDGE CASES:
+- Array with zeros → handled naturally (product becomes 0)
+- Single element → left and right products are both 1
+- Two elements → each element's result is the other element
+
+</details>
+
 class Solution:
     def productExceptSelf(self, nums: list[int]) -> list[int]:
         """

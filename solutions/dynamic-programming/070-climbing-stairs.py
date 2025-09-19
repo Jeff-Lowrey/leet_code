@@ -14,6 +14,38 @@ Explanation: There are three ways to climb to the top.
 1. 1 step + 1 step + 1 step
 2. 1 step + 2 steps
 3. 2 steps + 1 step
+
+<details>
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### INTUITION:
+This is the classic Fibonacci problem in disguise! To reach step n, you can
+either come from step (n-1) by taking 1 step, or from step (n-2) by taking 2 steps.
+So: ways(n) = ways(n-1) + ways(n-2)
+
+### PATTERN RECOGNITION:
+- n=1: 1 way (1)
+- n=2: 2 ways (1+1, 2)
+- n=3: 3 ways (1+1+1, 1+2, 2+1)
+- n=4: 5 ways (1+1+1+1, 1+1+2, 1+2+1, 2+1+1, 2+2)
+- Notice: 1, 2, 3, 5... This is Fibonacci sequence!
+
+### APPROACH:
+1. Base cases: ways(1)=1, ways(2)=2
+2. For any step n: ways(n) = ways(n-1) + ways(n-2)
+3. Use bottom-up DP to avoid redundant calculations
+
+### WHY FIBONACCI?
+- From step (n-1): one way to reach n (take 1 step)
+- From step (n-2): one way to reach n (take 2 steps)
+- These are the ONLY ways to reach step n
+- So total ways = ways to reach (n-1) + ways to reach (n-2)
+
+### OPTIMIZATION:
+Instead of storing all values, we only need the last two values,
+making space complexity O(1) instead of O(n).
+
+</details>
 """
 
 class Solution:

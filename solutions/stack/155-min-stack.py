@@ -20,6 +20,74 @@ Output:
 [null,null,null,null,-3,null,0,-2]
 """
 
+<details>
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### INTUITION:
+Maintain two stacks: one for actual values and another for tracking minimums. The key insight is to only push to the min stack when we encounter a new minimum or equal value.
+
+### APPROACH (Two Stacks):
+1. **Main stack**: Stores all pushed values
+2. **Min stack**: Stores minimum values at each point
+3. **Push**: Add to main stack, add to min stack only if new minimum
+4. **Pop**: Remove from main, remove from min stack if it's the current minimum
+5. **GetMin**: Return top of min stack
+
+### WHY THIS WORKS:
+- Min stack always has the minimum value at its top
+- When we pop a minimum, the previous minimum is revealed
+- Space optimization: min stack only stores actual minimums (not duplicates)
+
+### TIME COMPLEXITY: O(1) for all operations
+### SPACE COMPLEXITY: O(n) - worst case both stacks are full
+
+### TWO APPROACHES:
+
+#### Approach 1: Two Separate Stacks (Optimal)
+```python
+if not self.min_stack or val <= self.min_stack[-1]:
+    self.min_stack.append(val)
+```
+
+#### Approach 2: Single Stack with Pairs
+```python
+self.stack.append((val, current_min))
+```
+
+### EXAMPLE WALKTHROUGH:
+```
+Operations: push(-2), push(0), push(-3), getMin(), pop(), top(), getMin()
+
+Step 1: push(-2)
+main_stack: [-2]
+min_stack: [-2]  # -2 is new minimum
+
+Step 2: push(0)
+main_stack: [-2, 0]
+min_stack: [-2]  # 0 > -2, don't add to min_stack
+
+Step 3: push(-3)
+main_stack: [-2, 0, -3]
+min_stack: [-2, -3]  # -3 is new minimum
+
+Step 4: getMin() → -3 (top of min_stack)
+
+Step 5: pop() → remove -3
+main_stack: [-2, 0]
+min_stack: [-2]  # -3 was minimum, so remove from min_stack
+
+Step 6: top() → 0 (top of main_stack)
+
+Step 7: getMin() → -2 (top of min_stack)
+```
+
+### KEY INSIGHTS:
+- Store minimums only when they change (space optimization)
+- Use <= comparison to handle duplicate minimums correctly
+- Min stack top always contains current global minimum
+
+</details>
+
 class MinStack:
     """
     Approach: Two stacks

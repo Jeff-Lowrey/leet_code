@@ -12,6 +12,48 @@ Output: [[1,6],[8,10],[15,18]]
 Explanation: Since intervals [1,3] and [2,6] overlap, merge them into [1,6].
 """
 
+<details>
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### INTUITION:
+To merge overlapping intervals, we need to first sort them by start time, then walk through them sequentially, merging adjacent intervals when they overlap.
+
+### APPROACH:
+1. **Sort intervals** by start time to ensure we process them in order
+2. **Initialize merged list** with the first interval
+3. **For each remaining interval**:
+   - If it overlaps with the last merged interval (current.start ≤ last.end)
+   - Merge by extending the end time to max(current.end, last.end)
+   - Otherwise, add as a new separate interval
+
+### WHY THIS WORKS:
+- Sorting ensures we never miss potential merges between non-adjacent intervals
+- Since intervals are sorted by start time, we only need to check overlap with the most recently added interval
+- Two intervals [a,b] and [c,d] overlap if c ≤ b (assuming a ≤ c after sorting)
+
+### TIME COMPLEXITY: O(n log n)
+### SPACE COMPLEXITY: O(1) excluding output
+
+### EXAMPLE WALKTHROUGH:
+```
+Input: [[1,3],[2,6],[8,10],[15,18]]
+After sorting: [[1,3],[2,6],[8,10],[15,18]] (already sorted)
+
+Step 1: merged = [[1,3]]
+Step 2: [2,6] overlaps with [1,3] (2 ≤ 3) → merge to [1,6]
+Step 3: [8,10] doesn't overlap with [1,6] (8 > 6) → add separately
+Step 4: [15,18] doesn't overlap with [8,10] (15 > 10) → add separately
+Result: [[1,6],[8,10],[15,18]]
+```
+
+### EDGE CASES:
+- Single interval → return as-is
+- No overlaps → return sorted intervals
+- Complete overlap → one interval contains another
+- Adjacent intervals with touching endpoints → merge them
+
+</details>
+
 class Solution:
     def merge(self, intervals: list[list[int]]) -> list[list[int]]:
         """

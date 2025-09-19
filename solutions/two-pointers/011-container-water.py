@@ -15,6 +15,38 @@ Input: height = [1,8,6,2,5,4,8,3,7]
 Output: 49
 """
 
+<details>
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### INTUITION:
+To maximize water area, we need to maximize both width and height. Using two pointers at the extremes gives maximum width initially. The key insight is that moving the pointer with the smaller height might lead to a larger area.
+
+### APPROACH:
+1. **Two Pointers**: Start with pointers at both ends (maximum width)
+2. **Calculate Area**: area = min(height[left], height[right]) × (right - left)
+3. **Move Strategy**: Always move the pointer with the smaller height
+4. **Why Move Smaller**: Moving the larger height can only decrease area
+
+### WHY THIS WORKS:
+The area is limited by the shorter line. Moving the pointer with the taller line can only decrease the width without any chance of increasing the height (since it's already the taller one). Moving the shorter line gives a chance to find a taller line.
+
+### TIME COMPLEXITY: O(n)
+- Each element is visited at most once
+
+### SPACE COMPLEXITY: O(1)
+- Only using two pointers
+
+### EXAMPLE WALKTHROUGH:
+For height = [1,8,6,2,5,4,8,3,7]:
+1. left=0(1), right=8(7): area = min(1,7) × 8 = 8, move left (smaller)
+2. left=1(8), right=8(7): area = min(8,7) × 7 = 49, move right (smaller)
+3. Continue until pointers meet
+
+### PROOF OF CORRECTNESS:
+If we have heights h1 < h2 at positions i < j, moving from i gives area = h1 × width. Any position k between i and j will have area ≤ h1 × (smaller width), so we can safely skip these positions.
+
+</details>
+
 class Solution:
     def maxArea(self, height: list[int]) -> int:
         """

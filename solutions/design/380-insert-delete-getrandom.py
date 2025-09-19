@@ -20,6 +20,43 @@ Input:
 [[], [1], [2], [2], [], [1], [2], []]
 Output:
 [null, true, false, true, 2, true, false, 2]
+
+<details>
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### INTUITION:
+Need O(1) for insert, delete, and random access. Hash map gives O(1) insert/delete,
+but not random access. Array gives O(1) random access, but not deletion.
+**Combine both!**
+
+### KEY INSIGHT:
+- **Array**: Store actual values for O(1) random indexing
+- **Hash Map**: Store value → array index mapping for O(1) lookup
+- **Swap-and-Pop**: To delete in O(1), swap with last element, then pop
+
+### APPROACH:
+1. **Insert**: Add to end of array, record index in hash map
+2. **Remove**: Swap element with last, update hash map, pop last
+3. **GetRandom**: Generate random index, return array[index]
+
+### REMOVE TRICK:
+```
+Remove 5 from [1, 5, 3, 7]:
+1. Find 5 at index 1
+2. Swap with last: [1, 7, 3, 5]
+3. Update hash map: 7 now at index 1
+4. Pop last: [1, 7, 3]
+```
+
+### WHY THIS WORKS:
+- Array maintains contiguous indices for random access
+- Hash map enables instant value → index lookup
+- Swap-and-pop maintains array compactness
+
+### TIME COMPLEXITY: O(1) for all operations
+### SPACE COMPLEXITY: O(n)
+
+</details>
 """
 
 import random

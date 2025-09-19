@@ -22,6 +22,51 @@ Output: 5
 Explanation: Inserting 5 characters the string becomes "leetcodocteel".
 """
 
+<details>
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### INTUITION:
+To make a string palindromic with minimum insertions, we need to find the longest palindromic subsequence (LPS) first. The minimum insertions needed equals the string length minus the LPS length, because we only need to insert characters to match the "missing" ones.
+
+### APPROACH:
+1. **Find Longest Palindromic Subsequence**: Use DP to find the longest subsequence that reads the same forwards and backwards
+2. **Calculate Insertions**: minimum insertions = string length - LPS length
+3. **DP Recurrence**:
+   - If characters match: `dp[i][j] = dp[i+1][j-1] + 2`
+   - If not: `dp[i][j] = max(dp[i+1][j], dp[i][j-1])`
+
+### WHY THIS WORKS:
+The LPS represents the "skeleton" of characters we can keep without insertion. All other characters need to be "mirrored" by insertions. For example, in "mbadm", LPS is "mam" (length 3), so we need 5-3=2 insertions.
+
+### TIME COMPLEXITY: O(n²)
+- Filling n×n DP table with constant work per cell
+
+### SPACE COMPLEXITY: O(n²)
+- DP table storage, can be optimized to O(n)
+
+### EXAMPLE WALKTHROUGH:
+For s = "mbadm":
+1. Build LPS DP table:
+   - Single chars: all have LPS = 1
+   - "mb": different chars → LPS = 1
+   - "bad": LPS = 1 (just 'a')
+   - "madm": 'm' matches → LPS = 1 + LPS("ad") = 1 + 1 = 2
+   - "mbadm": 'm' matches → LPS = 2 + LPS("bad") = 2 + 1 = 3
+2. Minimum insertions = 5 - 3 = 2
+
+### ALTERNATIVE APPROACH:
+Direct DP where `dp[i][j]` represents minimum insertions for substring `s[i:j+1]`:
+- If `s[i] == s[j]`: `dp[i][j] = dp[i+1][j-1]`
+- Else: `dp[i][j] = 1 + min(dp[i+1][j], dp[i][j-1])`
+
+### EDGE CASES:
+- Already palindrome: return 0
+- Single character: return 0
+- All different characters: return n-1
+- Empty string: return 0
+
+</details>
+
 class Solution:
     def minInsertions(self, s: str) -> int:
         """

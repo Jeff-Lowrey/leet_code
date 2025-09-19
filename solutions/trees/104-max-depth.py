@@ -10,6 +10,53 @@ the root node down to the farthest leaf node.
 Example:
 Input: root = [3,9,20,null,null,15,7]
 Output: 3
+
+<details>
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### INTUITION:
+The depth of a tree is 1 + the maximum depth of its subtrees. This suggests
+a recursive approach where we solve smaller subproblems (subtrees).
+
+### RECURSIVE THINKING:
+- **Base case**: If node is null, depth is 0
+- **Recursive case**: depth = 1 + max(left_depth, right_depth)
+- The "1" accounts for the current node
+
+### APPROACH 1 (DFS Recursive):
+1. If root is null, return 0
+2. Recursively find depth of left subtree
+3. Recursively find depth of right subtree
+4. Return 1 + max(left_depth, right_depth)
+
+### APPROACH 2 (BFS Iterative):
+1. Use level-order traversal with queue
+2. Process one level at a time
+3. Count the number of levels processed
+4. Each level increases depth by 1
+
+### APPROACH 3 (DFS Iterative):
+1. Use stack with (node, depth) pairs
+2. Track maximum depth seen so far
+3. For each node, add children with depth+1
+
+### VISUALIZATION:
+```
+     3      ← depth 1
+   /   \
+  9     20  ← depth 2
+       /  \
+      15   7 ← depth 3
+
+Max depth = 3
+```
+
+### WHY MULTIPLE APPROACHES?
+- **Recursive**: Most intuitive, but uses call stack
+- **BFS**: Good for level-by-level processing
+- **DFS Iterative**: Avoids recursion stack overflow for deep trees
+
+</details>
 """
 
 from collections import deque

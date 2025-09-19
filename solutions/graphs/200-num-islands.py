@@ -17,6 +17,42 @@ Input: grid = [
   ["0","0","0","0","0"]
 ]
 Output: 1
+
+<details>
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### INTUITION:
+Think of this as finding connected components in a graph. Each '1' is a node,
+and adjacent '1's are connected. We need to count how many separate groups
+of connected '1's exist.
+
+### APPROACH (DFS):
+1. Iterate through every cell in the grid
+2. When we find a '1' (unvisited land):
+   - Increment island counter
+   - Start DFS to mark all connected land as visited
+3. DFS explores all 4 directions and marks visited cells as '0'
+4. This ensures each island is counted exactly once
+
+### WHY DFS WORKS:
+- DFS exhaustively explores all connected land from a starting point
+- By marking visited cells as '0', we prevent recounting
+- Each DFS call represents one complete island
+
+### VISUALIZATION:
+```
+Original:    After finding first '1':    After DFS:
+["1","1","0"]    ["1","1","0"]           ["0","0","0"]
+["1","0","1"]    ["1","0","1"]           ["0","0","1"]
+                  ^start here             islands=1
+```
+
+### ALTERNATIVE APPROACHES:
+- **BFS**: Use queue instead of recursion stack
+- **Union-Find**: Connect adjacent lands and count components
+- All have similar time complexity but different space usage patterns
+
+</details>
 """
 
 from collections import deque

@@ -11,6 +11,48 @@ Output: 10
 Explanation: The largest rectangle is shown in red, which has an area = 10 units.
 """
 
+<details>
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### INTUITION:
+For each bar, we want to find the largest rectangle that can be formed with that bar as the shortest height. This requires finding how far left and right we can extend while maintaining the current bar's height as the minimum.
+
+### APPROACH:
+1. Use a monotonic increasing stack to track bar indices
+2. When we encounter a shorter bar, it means we've found the right boundary for previous bars
+3. For each popped bar, calculate the rectangle area using that bar's height
+4. The width is determined by the current position and the bar below in the stack
+
+### WHY THIS WORKS:
+The stack maintains bars in increasing height order. When we encounter a shorter bar, we know the previous bars can't extend further right. For each popped bar, the width of its rectangle spans from the bar below it in the stack to the current position.
+
+### TIME COMPLEXITY: O(n)
+- Each bar is pushed and popped at most once
+
+### SPACE COMPLEXITY: O(n)
+- Stack can contain up to n elements in worst case
+
+### EXAMPLE WALKTHROUGH:
+For heights = [2,1,5,6,2,3]:
+1. Process 2: stack = [0]
+2. Process 1: pop 2, calculate area = 2*1 = 2, stack = [1]
+3. Process 5: stack = [1,2]
+4. Process 6: stack = [1,2,3]
+5. Process 2: pop 6 (area = 6*1 = 6), pop 5 (area = 5*2 = 10), stack = [1,4]
+6. Process 3: stack = [1,4,5]
+7. Final cleanup: calculate remaining areas
+
+### OPTIMIZATION:
+Adding sentinel values (0) at beginning and end eliminates edge case handling and simplifies the algorithm.
+
+### EDGE CASES:
+- Empty array: return 0
+- Single bar: return its height
+- All bars same height: return height * length
+- Increasing heights: calculate area when processing is complete
+
+</details>
+
 class Solution:
     def largestRectangleArea(self, heights: list[int]) -> int:
         """

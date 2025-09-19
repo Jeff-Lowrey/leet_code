@@ -20,6 +20,62 @@ Output:
 [null, null, true, false, true, null, true]
 """
 
+<details>
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### INTUITION:
+A Trie (prefix tree) stores strings in a tree structure where each path from root to a node represents a prefix. This allows for efficient string operations by sharing common prefixes between words.
+
+### APPROACH:
+1. **TrieNode Structure**: Each node contains:
+   - `children`: dictionary mapping characters to child nodes
+   - `is_end`: boolean marking if a word ends at this node
+2. **Insert**: Follow the path character by character, creating nodes as needed
+3. **Search**: Follow the path and check if we reach a word ending
+4. **StartsWith**: Follow the path and check if we can complete the prefix
+
+### WHY THIS WORKS:
+The tree structure naturally represents the prefix relationships between strings. Each level represents a character position, and paths represent actual strings. The `is_end` flag distinguishes between prefixes and complete words.
+
+### TIME COMPLEXITY: O(m)
+- m is the length of the word/prefix
+- All operations traverse exactly m nodes
+
+### SPACE COMPLEXITY: O(ALPHABET_SIZE × N × M)
+- N is number of words, M is average word length
+- In worst case, no prefixes are shared
+- For lowercase English: up to 26 children per node
+
+### EXAMPLE WALKTHROUGH:
+Inserting "apple" and "app":
+```
+      root
+       |
+       a
+       |
+       p
+       |
+       p (is_end=True for "app")
+       |
+       l
+       |
+       e (is_end=True for "apple")
+```
+
+### OPERATIONS:
+- **search("app")**: Follow a→p→p, find is_end=True → return True
+- **search("appl")**: Follow a→p→p→l, find is_end=False → return False
+- **startsWith("ap")**: Follow a→p, node exists → return True
+
+### APPLICATIONS:
+- Autocomplete/auto-suggestion
+- Spell checkers
+- Word games (Scrabble, Boggle)
+- IP routing tables
+- String matching with wildcards
+
+</details>
+
 class TrieNode:
     def __init__(self):
         self.children = {}

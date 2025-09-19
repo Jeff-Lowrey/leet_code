@@ -10,6 +10,51 @@ Input: s = "aab"
 Output: [["a","a","b"],["aa","b"]]
 """
 
+<details>
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### INTUITION:
+We need to find all possible ways to split a string where each part is a palindrome. This suggests a backtracking approach where we try different partition points and recursively solve subproblems.
+
+### APPROACH:
+1. **Backtracking**: At each position, try all possible palindromic substrings starting from that position
+2. **Palindrome Check**: For each substring, verify if it's a palindrome
+3. **Recursive Exploration**: If a substring is palindromic, add it to current path and explore the rest
+4. **Base Case**: When we reach the end of string, we found a valid partition
+
+### WHY THIS WORKS:
+Backtracking explores all possible partitioning combinations. By checking palindromes at each step and only proceeding with valid ones, we ensure all returned partitions contain only palindromic substrings.
+
+### TIME COMPLEXITY: O(n × 2^n)
+- 2^n possible partitions (each position can be a cut or not)
+- O(n) for palindrome checking for each partition
+
+### SPACE COMPLEXITY: O(n)
+- Recursion depth up to n levels
+- Not counting the output space
+
+### EXAMPLE WALKTHROUGH:
+For s = "aab":
+1. Start at position 0:
+   - Try "a" (palindrome) → recurse with "ab"
+     - Try "a" (palindrome) → recurse with "b"
+       - Try "b" (palindrome) → end reached → ["a","a","b"]
+     - Try "ab" (not palindrome) → skip
+   - Try "aa" (palindrome) → recurse with "b"
+     - Try "b" (palindrome) → end reached → ["aa","b"]
+   - Try "aab" (not palindrome) → skip
+
+### OPTIMIZATION:
+Pre-compute palindrome status using DP table to avoid repeated palindrome checks, reducing time complexity in practice.
+
+### EDGE CASES:
+- Single character: return [["c"]]
+- Empty string: return [[]]
+- All characters same: multiple valid partitions
+- No palindromes longer than 1: each character as separate partition
+
+</details>
+
 class Solution:
     def partition(self, s: str) -> list[list[str]]:
         """

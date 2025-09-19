@@ -12,6 +12,39 @@ extra space.
 Example:
 Input: nums = [1,3,4,2,2]
 Output: 2
+
+<details>
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### INTUITION:
+Since we can't modify the array or use extra space, we treat the array as a linked list.
+Each number points to the index of that number. A duplicate creates a cycle!
+
+### APPROACH (Floyd's Cycle Detection):
+1. **Phase 1**: Use slow/fast pointers to detect cycle existence
+2. **Phase 2**: Find the entrance of the cycle (the duplicate number)
+3. Move one pointer to start, keep other at intersection
+4. Move both one step until they meet - that's the duplicate
+
+### WHY THIS WORKS:
+- Array values [1,n] map to valid indices [1,n]
+- Duplicate number creates multiple paths to same index = cycle
+- Floyd's algorithm finds cycle entrance = duplicate value
+
+### EXAMPLE WALKTHROUGH:
+```
+nums = [1,3,4,2,2]
+Index: 0 1 2 3 4
+Value: 1 3 4 2 2
+
+Following pointers: 0→1→3→2→4→2→4→2... (cycle at 2)
+The duplicate is 2
+```
+
+### TIME COMPLEXITY: O(n)
+### SPACE COMPLEXITY: O(1)
+
+</details>
 """
 
 class Solution:

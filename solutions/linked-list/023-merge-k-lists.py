@@ -8,6 +8,48 @@ ascending order. Merge all the linked-lists into one sorted linked-list and retu
 Example:
 Input: lists = [[1,4,5],[1,3,4],[2,6]]
 Output: [1,1,2,3,4,4,5,6]
+
+<details>
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### INTUITION:
+We need to merge k sorted lists efficiently. Key insight: always pick the smallest
+available element from all list heads.
+
+### APPROACH 1 (Min Heap):
+1. Add first node of each list to min heap
+2. Pop minimum, add to result
+3. Add next node from that list to heap
+4. Repeat until heap is empty
+
+### APPROACH 2 (Divide & Conquer):
+1. Pair up lists and merge each pair
+2. Repeat until only one list remains
+3. Uses the classic "merge two sorted lists" as subroutine
+
+### APPROACH 3 (Sequential):
+1. Start with first list
+2. Merge with second list, then third, etc.
+3. Simple but less efficient
+
+### WHY MIN HEAP WORKS:
+- Always gives us the globally smallest element
+- Maintains sorted order automatically
+- Efficient insertion/deletion: O(log k)
+
+### EXAMPLE WALKTHROUGH (Heap):
+```
+Lists: [1,4,5], [1,3,4], [2,6]
+Heap: [1(list1), 1(list2), 2(list3)]
+Pop 1(list1) → add 4: [1(list2), 2(list3), 4(list1)]
+Pop 1(list2) → add 3: [2(list3), 4(list1), 3(list2)]
+...continue until heap empty
+```
+
+### TIME COMPLEXITY: O(n log k) where n = total nodes
+### SPACE COMPLEXITY: O(k) for heap
+
+</details>
 """
 
 import heapq

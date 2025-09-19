@@ -12,6 +12,57 @@ You must write an algorithm with O(log n) runtime complexity.
 Example:
 Input: nums = [5,7,7,8,8,10], target = 8
 Output: [3,4]
+
+<details>
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### INTUITION:
+Since we need O(log n) complexity on a sorted array, we must use binary search.
+However, standard binary search finds ANY occurrence. We need to find the
+FIRST and LAST occurrences specifically.
+
+### KEY INSIGHT:
+We can modify binary search to find boundaries:
+- For first occurrence: when we find target, continue searching LEFT
+- For last occurrence: when we find target, continue searching RIGHT
+
+### APPROACH:
+1. Use two separate binary searches
+2. First search: find leftmost (first) occurrence
+3. Second search: find rightmost (last) occurrence
+4. Both searches maintain the O(log n) complexity
+
+### FIRST OCCURRENCE ALGORITHM:
+1. When nums[mid] == target: record position but search LEFT (right = mid - 1)
+2. When nums[mid] < target: search RIGHT (left = mid + 1)
+3. When nums[mid] > target: search LEFT (right = mid - 1)
+
+### LAST OCCURRENCE ALGORITHM:
+1. When nums[mid] == target: record position but search RIGHT (left = mid + 1)
+2. When nums[mid] < target: search RIGHT (left = mid + 1)
+3. When nums[mid] > target: search LEFT (right = mid - 1)
+
+### EXAMPLE WALKTHROUGH:
+```
+nums = [5,7,7,8,8,10], target = 8
+
+Find first 8:
+- Search continues left even after finding 8
+- Eventually finds index 3
+
+Find last 8:
+- Search continues right even after finding 8
+- Eventually finds index 4
+
+Result: [3, 4]
+```
+
+### WHY TWO SEARCHES?
+- Single binary search can't determine boundaries in one pass
+- Two focused searches are still O(log n) each = O(log n) total
+- Each search has a specific goal (leftmost vs rightmost)
+
+</details>
 """
 
 class Solution:

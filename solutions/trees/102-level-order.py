@@ -10,6 +10,52 @@ Input: root = [3,9,20,null,null,15,7]
 Output: [[3],[9,20],[15,7]]
 """
 
+<details>
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### INTUITION:
+Level order traversal requires visiting all nodes at each level before moving to the next level. This naturally suggests using a queue (BFS) to process nodes in the order they should be visited.
+
+### APPROACH:
+1. **BFS with Queue**: Use a queue to process nodes level by level
+2. **Level Tracking**: For each level, track how many nodes are in the current level
+3. **Process Level**: Process all nodes in current level before adding their children
+4. **Collect Results**: Group nodes by their level in the output
+
+### WHY THIS WORKS:
+The queue ensures nodes are processed in the order they were added (FIFO). By processing exactly `level_size` nodes at each iteration, we maintain level boundaries and can group nodes appropriately.
+
+### TIME COMPLEXITY: O(n)
+- Each node is visited exactly once
+
+### SPACE COMPLEXITY: O(n)
+- Queue can contain up to the maximum width of the tree
+- In worst case (complete binary tree), bottom level has n/2 nodes
+
+### EXAMPLE WALKTHROUGH:
+For tree [3,9,20,null,null,15,7]:
+```
+     3
+   /   \
+  9     20
+       /  \
+      15   7
+```
+
+1. Level 0: queue=[3], process 3 → result=[[3]], queue=[9,20]
+2. Level 1: queue=[9,20], process both → result=[[3],[9,20]], queue=[15,7]
+3. Level 2: queue=[15,7], process both → result=[[3],[9,20],[15,7]]
+
+### ALTERNATIVE APPROACH:
+**DFS with Level Parameter**: Recursively visit nodes while tracking their level, adding nodes to appropriate level lists.
+
+### EDGE CASES:
+- Empty tree: return []
+- Single node: return [[node.val]]
+- Only left/right children: still processes correctly level by level
+
+</details>
+
 from collections import deque
 
 

@@ -10,6 +10,48 @@ Input: strs = ["flower","flow","flight"]
 Output: "fl"
 """
 
+<details>
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### INTUITION:
+The longest common prefix is the sequence of characters that all strings share from the beginning. We can find this by comparing characters at each position across all strings until we find a mismatch.
+
+### APPROACH:
+1. **Vertical Scanning**: Compare characters at the same position across all strings
+2. Start from position 0 and check if all strings have the same character at that position
+3. Continue until we find a mismatch or reach the end of any string
+4. Return the prefix found so far
+
+### WHY THIS WORKS:
+Since we're looking for a common prefix, all strings must have identical characters at each position from the start. The moment any string differs or ends, we've found the longest possible common prefix.
+
+### TIME COMPLEXITY: O(S)
+- S is the sum of all characters in all strings
+- In worst case, we examine every character once
+
+### SPACE COMPLEXITY: O(1)
+- Only using constant extra space for variables
+
+### EXAMPLE WALKTHROUGH:
+For strs = ["flower","flow","flight"]:
+1. Position 0: 'f', 'f', 'f' → all match
+2. Position 1: 'l', 'l', 'l' → all match
+3. Position 2: 'o', 'o', 'i' → mismatch found
+4. Return "fl"
+
+### ALTERNATIVE APPROACHES:
+1. **Sort and Compare**: Sort strings, then compare first and last (O(n log n))
+2. **Trie**: Build trie and follow single path until branching (O(S))
+3. **Horizontal**: Compare strings pairwise (O(S))
+
+### EDGE CASES:
+- Empty array: return ""
+- Empty string in array: return ""
+- Single string: return the string itself
+- No common prefix: return ""
+
+</details>
+
 class Solution:
     def longestCommonPrefix(self, strs: list[str]) -> str:
         """

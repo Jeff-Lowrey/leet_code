@@ -19,6 +19,57 @@ Input: isConnected = [[1,1,0],[1,1,0],[0,0,1]]
 Output: 2
 """
 
+<details>
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### INTUITION:
+This is a classic connected components problem. We need to find groups of cities that are directly or indirectly connected. Each connected component represents one province.
+
+### APPROACH:
+1. **Union-Find (Disjoint Set)**: Perfect for tracking connected components
+2. **Initialize**: Each city starts as its own province
+3. **Union Operations**: For each connection, union the two cities
+4. **Count Components**: Count the number of distinct root parents
+
+### WHY THIS WORKS:
+Union-Find efficiently maintains connected components. When we union two cities, we're merging their provinces. The number of unique root parents at the end equals the number of provinces.
+
+### TIME COMPLEXITY: O(n² × α(n))
+- n² to iterate through the matrix
+- α(n) is the inverse Ackermann function (practically constant)
+- With path compression and union by rank: nearly O(n²)
+
+### SPACE COMPLEXITY: O(n)
+- Union-Find parent and rank arrays
+
+### EXAMPLE WALKTHROUGH:
+For isConnected = [[1,1,0],[1,1,0],[0,0,1]]:
+```
+Cities: 0, 1, 2
+Connections: 0-1 (cities 0 and 1 connected)
+Initial: parent = [0, 1, 2], components = 3
+Union(0,1): parent = [0, 0, 2], components = 2
+Final: 2 provinces (cities {0,1} and {2})
+```
+
+### ALTERNATIVE APPROACHES:
+1. **DFS**: Visit all connected cities starting from each unvisited city
+2. **BFS**: Similar to DFS but using queue instead of recursion
+3. **Union-Find**: Most efficient for this specific problem type
+
+### EDGE CASES:
+- Single city: return 1
+- No connections: each city is its own province
+- All connected: return 1
+- Self-connections (diagonal): already handled in matrix
+
+### UNION-FIND OPTIMIZATIONS:
+- **Path Compression**: Make nodes point directly to root
+- **Union by Rank**: Attach smaller tree under root of larger tree
+- Together these make operations nearly O(1) amortized
+
+</details>
+
 class Solution:
     def findCircleNum(self, isConnected: list[list[int]]) -> int:
         """

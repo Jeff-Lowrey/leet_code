@@ -10,6 +10,42 @@ Each node in the graph contains a value (int) and a list (List[Node]) of its nei
 Example:
 Input: adjList = [[2,4],[1,3],[2,4],[1,3]]
 Output: [[2,4],[1,3],[2,4],[1,3]]
+
+<details>
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### INTUITION:
+To clone a graph, we need to create new nodes and preserve the neighbor relationships.
+The key challenge is handling cycles - we need to avoid infinite loops.
+
+### KEY INSIGHT:
+Use a hash map to track original → cloned node mappings. This serves two purposes:
+1. Avoid creating duplicate clones
+2. Handle cycles by referencing already-created clones
+
+### APPROACH (DFS):
+1. Start from given node, create its clone
+2. For each neighbor of current node:
+   - If neighbor not cloned yet, recursively clone it
+   - Add cloned neighbor to current clone's neighbor list
+3. Use hash map to track original → clone mapping
+
+### APPROACH (BFS):
+1. Use queue for level-by-level traversal
+2. Clone nodes and establish neighbor relationships
+3. Same hash map tracking as DFS
+
+### WHY HASH MAP IS CRUCIAL:
+```
+Graph: 1 ↔ 2
+Without map: Clone 1, clone 2, clone 1 again... infinite loop
+With map: Clone 1, clone 2, reference existing clone of 1
+```
+
+### TIME COMPLEXITY: O(V + E) - visit each node and edge once
+### SPACE COMPLEXITY: O(V) - hash map and recursion stack
+
+</details>
 """
 
 from collections import deque

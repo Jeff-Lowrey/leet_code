@@ -8,6 +8,34 @@ in the array, and return false if every element is distinct.
 Example:
 Input: nums = [1,2,3,1]
 Output: true
+
+<details>
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### INTUITION:
+If all elements are unique, then the array length equals the set length.
+If there are duplicates, the set will be smaller than the array.
+
+### APPROACH 1 (Set Comparison):
+- Convert array to set (removes duplicates)
+- Compare lengths: if different, duplicates exist
+- One-liner solution: `len(nums) != len(set(nums))`
+
+### APPROACH 2 (Early Termination):
+- Use set to track seen elements
+- For each element, check if already seen
+- Return True immediately when duplicate found
+- More memory efficient for arrays with early duplicates
+
+### WHY HASH SET?
+- O(1) average lookup time
+- Automatically handles uniqueness
+- Space trade-off for time efficiency
+
+### TIME COMPLEXITY: O(n)
+### SPACE COMPLEXITY: O(n)
+
+</details>
 """
 
 class Solution:

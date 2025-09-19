@@ -12,6 +12,53 @@ Input: nums = [-1,0,1,2,-1,-4]
 Output: [[-1,-1,2],[-1,0,1]]
 """
 
+<details>
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### INTUITION:
+Convert the 3Sum problem into multiple 2Sum problems. For each number, find pairs in the remaining array that sum to the negative of that number. Sorting helps avoid duplicates and enables two-pointer technique.
+
+### APPROACH:
+1. **Sort Array**: Enables two-pointer technique and easy duplicate handling
+2. **Fix First Element**: For each nums[i], find pairs that sum to -nums[i]
+3. **Two Pointers**: Use left and right pointers to find the required sum
+4. **Skip Duplicates**: Avoid duplicate triplets by skipping repeated values
+
+### WHY THIS WORKS:
+Sorting enables efficient duplicate skipping and the two-pointer technique. For each fixed first element, the problem reduces to finding two numbers that sum to a target, which is efficiently solved with two pointers.
+
+### TIME COMPLEXITY: O(n²)
+- O(n log n) for sorting
+- O(n²) for nested loops with two pointers
+- Overall: O(n²)
+
+### SPACE COMPLEXITY: O(1)
+- Excluding output space, only using constant extra space
+- Sorting can be done in-place
+
+### EXAMPLE WALKTHROUGH:
+For nums = [-1,0,1,2,-1,-4], after sorting: [-4,-1,-1,0,1,2]
+1. i=0, nums[i]=-4, target=4: no valid pairs
+2. i=1, nums[i]=-1, target=1: find pairs summing to 1
+   - left=2(-1), right=5(2): sum=1 ✓ → triplet [-1,-1,2]
+3. i=2: skip (duplicate -1)
+4. i=3, nums[i]=0, target=0: find pairs summing to 0
+   - left=4(1), right=5(2): sum=3 > 0, move right
+   - No valid pairs
+5. Continue...
+
+### DUPLICATE HANDLING:
+- Skip duplicate values for the first element
+- After finding a valid triplet, skip duplicates for left and right pointers
+- This ensures no duplicate triplets in the result
+
+### EDGE CASES:
+- Array length < 3: return []
+- All positive/negative numbers: return []
+- Array with all zeros: return [[0,0,0]] if length ≥ 3
+
+</details>
+
 class Solution:
     def threeSum(self, nums: list[int]) -> list[list[int]]:
         """

@@ -11,6 +11,44 @@ Input: s = "ADOBECODEBANC", t = "ABC"
 Output: "BANC"
 """
 
+<details>
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### INTUITION:
+Use a sliding window approach where we expand the window until it contains all characters from t, then contract it to find the minimum valid window.
+
+### APPROACH:
+1. Count frequency of characters in target string t
+2. Use two pointers (left, right) to maintain a sliding window
+3. Expand window by moving right pointer until all characters are included
+4. Once valid window found, contract from left to minimize window size
+5. Track the smallest valid window found
+
+### WHY THIS WORKS:
+The sliding window technique ensures we examine each character at most twice (once when expanding, once when contracting), making it efficient. By tracking character frequencies, we can quickly determine if our current window contains all required characters.
+
+### TIME COMPLEXITY: O(m + n)
+- m and n are lengths of strings s and t
+- Each character is visited at most twice
+
+### SPACE COMPLEXITY: O(k)
+- k is the number of unique characters in t
+- For storing character counts
+
+### EXAMPLE WALKTHROUGH:
+For s = "ADOBECODEBANC", t = "ABC":
+1. Expand window: A-D-O-B-E-C (contains A,B,C)
+2. Contract: ADOBEC → DOBEC → OBECC (invalid)
+3. Continue expanding and contracting
+4. Find minimum: "BANC"
+
+### EDGE CASES:
+- Empty strings: return ""
+- t longer than s: return ""
+- No valid window exists: return ""
+
+</details>
+
 from collections import Counter
 
 

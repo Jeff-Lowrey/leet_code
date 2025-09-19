@@ -17,6 +17,52 @@ Input:
 [[], [1], [2], [], [3], []]
 Output:
 [null, null, null, 1.5, null, 2.0]
+
+<details>
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### INTUITION:
+To find median efficiently, we need access to the "middle" elements. Using two heaps
+allows us to maintain the smaller half and larger half of numbers, with quick access
+to the elements closest to the median.
+
+### KEY INSIGHT:
+- Use max heap for smaller half (to get largest of small numbers)
+- Use min heap for larger half (to get smallest of large numbers)
+- Keep heaps balanced (size difference ≤ 1)
+- Median is either top of larger heap or average of both tops
+
+### TWO HEAP STRATEGY:
+```
+small_heap (max heap): [1, 2, 3] → top is 3
+large_heap (min heap): [4, 5, 6] → top is 4
+Median = (3 + 4) / 2 = 3.5
+```
+
+### ALGORITHM:
+1. Add to small heap first
+2. Move largest from small to large (maintain order)
+3. Balance heap sizes:
+   - If small has > large + 1: move top of small to large
+   - If large has > small: move top of large to small
+4. Find median:
+   - If small has more elements: return top of small
+   - Otherwise: return average of both tops
+
+### WHY THIS WORKS:
+- **Adding**: O(log n) for heap operations
+- **Finding median**: O(1) since we have direct access to middle elements
+- **Space**: O(n) for storing all numbers
+- **Maintains sorted order** implicitly through heap properties
+
+### EXAMPLE WALKTHROUGH:
+```
+Add 1: small=[1], large=[] → median = 1
+Add 2: small=[1], large=[2] → median = (1+2)/2 = 1.5
+Add 3: small=[2], large=[1,3] → rebalance → small=[1,2], large=[3] → median = 2
+```
+
+</details>
 """
 
 import heapq

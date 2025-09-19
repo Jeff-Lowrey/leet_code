@@ -14,6 +14,47 @@ Example:
 Input: coins = [1,2,5], amount = 11
 Output: 3
 Explanation: 11 = 5 + 5 + 1
+
+<details>
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### INTUITION:
+This is a classic "minimum path to target" DP problem. For any amount, we want
+the minimum coins needed. We can build this up from smaller amounts.
+
+### KEY INSIGHT:
+To make amount X, we can use any coin C and then optimally make amount (X-C).
+So: min_coins(X) = 1 + min(min_coins(X-C)) for all coins C where C <= X
+
+### APPROACH (Bottom-Up DP):
+1. Create DP array where dp[i] = minimum coins to make amount i
+2. Initialize dp[0] = 0 (0 coins needed for amount 0)
+3. For each amount from 1 to target:
+   - Try each coin that fits (coin <= amount)
+   - dp[amount] = min(dp[amount], dp[amount-coin] + 1)
+4. Return dp[target] if possible, else -1
+
+### EXAMPLE WALKTHROUGH:
+```
+coins = [1,2,5], amount = 11
+
+dp[0] = 0
+dp[1] = 1 (use coin 1)
+dp[2] = 1 (use coin 2)
+dp[3] = 2 (use coin 2 + coin 1)
+dp[4] = 2 (use coin 2 + coin 2)
+dp[5] = 1 (use coin 5)
+dp[6] = 2 (use coin 5 + coin 1)
+...
+dp[11] = 3 (use coin 5 + coin 5 + coin 1)
+```
+
+### WHY DP WORKS:
+- **Optimal substructure**: optimal solution contains optimal subsolutions
+- **Overlapping subproblems**: same amounts calculated multiple times
+- **Bottom-up**: ensures we solve smaller problems first
+
+</details>
 """
 
 class Solution:

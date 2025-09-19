@@ -13,6 +13,68 @@ Input: strs = ["eat","tea","tan","ate","nat","bat"]
 Output: [["bat"],["nat","tan"],["ate","eat","tea"]]
 """
 
+<details>
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### INTUITION:
+Group strings by their "anagram signature" - a canonical representation that's the same for all anagrams. Two common signatures: sorted characters or character frequency count.
+
+### APPROACH:
+1. **Create signature**: For each string, generate a canonical form (sorted chars or char counts)
+2. **Group by signature**: Use a hash map where signature is key, list of anagrams is value
+3. **Return groups**: Extract all value lists from the hash map
+
+### WHY THIS WORKS:
+- All anagrams have the same signature (sorted characters or character counts)
+- Hash map automatically groups strings with identical signatures
+- Different anagrams will have different signatures
+
+### TIME COMPLEXITY:
+- **Sorting approach**: O(n × k log k) where n = number of strings, k = max string length
+- **Counting approach**: O(n × k) - more efficient
+
+### SPACE COMPLEXITY: O(n × k)
+
+### TWO APPROACHES:
+
+#### Approach 1: Sorted String as Key
+```python
+key = ''.join(sorted(s))  # "eat" → "aet"
+```
+
+#### Approach 2: Character Count as Key (Optimal)
+```python
+count = [0] * 26
+for char in s:
+    count[ord(char) - ord('a')] += 1
+key = tuple(count)  # "eat" → (1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0)
+```
+
+### EXAMPLE WALKTHROUGH:
+```
+Input: ["eat","tea","tan","ate","nat","bat"]
+
+Using sorted string as key:
+"eat" → key "aet" → group 1
+"tea" → key "aet" → group 1
+"tan" → key "ant" → group 2
+"ate" → key "aet" → group 1
+"nat" → key "ant" → group 2
+"bat" → key "abt" → group 3
+
+Final groups:
+"aet": ["eat", "tea", "ate"]
+"ant": ["tan", "nat"]
+"abt": ["bat"]
+
+Output: [["eat","tea","ate"], ["tan","nat"], ["bat"]]
+```
+
+### KEY INSIGHT:
+The signature (sorted chars or char counts) acts as a unique identifier for all anagrams of the same set of characters.
+
+</details>
+
 from collections import defaultdict
 
 

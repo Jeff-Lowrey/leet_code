@@ -15,6 +15,49 @@ Output: [1,2]
 Explanation: The sum of 2 and 7 is 9. Therefore, index1 = 1, index2 = 2.
 """
 
+<details>
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### INTUITION:
+Since the array is sorted, we can use two pointers starting from both ends. If the sum is too small, move the left pointer right to increase the sum. If too large, move the right pointer left to decrease the sum.
+
+### APPROACH:
+1. **Two Pointers**: Start with left at beginning, right at end
+2. **Calculate Sum**: sum = numbers[left] + numbers[right]
+3. **Adjust Pointers**:
+   - If sum == target: found the answer
+   - If sum < target: move left pointer right (increase sum)
+   - If sum > target: move right pointer left (decrease sum)
+4. **Return 1-indexed**: Add 1 to both indices
+
+### WHY THIS WORKS:
+The sorted property guarantees that moving the left pointer right increases the sum, and moving the right pointer left decreases the sum. This allows us to efficiently converge to the target sum without missing any valid pairs.
+
+### TIME COMPLEXITY: O(n)
+- Each element is visited at most once
+- Linear scan with two pointers
+
+### SPACE COMPLEXITY: O(1)
+- Only using two pointer variables
+
+### EXAMPLE WALKTHROUGH:
+For numbers = [2,7,11,15], target = 9:
+1. left=0(2), right=3(15): sum = 2+15 = 17 > 9, move right left
+2. left=0(2), right=2(11): sum = 2+11 = 13 > 9, move right left
+3. left=0(2), right=1(7): sum = 2+7 = 9 == 9 ✓
+4. Return [1,2] (1-indexed)
+
+### COMPARISON WITH TWO SUM I:
+- **Two Sum I**: Unsorted array, use hash map, O(n) time, O(n) space
+- **Two Sum II**: Sorted array, use two pointers, O(n) time, O(1) space
+
+### EDGE CASES:
+- Minimum array size is 2 (problem guarantees solution exists)
+- All elements are same: not possible with unique solution guarantee
+- Target requires first and last elements: handled naturally
+
+</details>
+
 class Solution:
     def twoSum(self, numbers: list[int], target: int) -> list[int]:
         """

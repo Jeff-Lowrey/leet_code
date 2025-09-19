@@ -11,6 +11,44 @@ Insert newInterval into intervals such that intervals is still sorted and non-ov
 Example:
 Input: intervals = [[1,3],[6,9]], newInterval = [2,5]
 Output: [[1,5],[6,9]]
+
+<details>
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### INTUITION:
+Since intervals are sorted and non-overlapping, we can process them in three phases:
+1. Add intervals that come before newInterval
+2. Merge overlapping intervals with newInterval
+3. Add intervals that come after newInterval
+
+### APPROACH:
+1. **Before Phase**: Add all intervals that end before newInterval starts
+2. **Merge Phase**: Merge all overlapping intervals with newInterval
+3. **After Phase**: Add all remaining intervals
+
+### KEY INSIGHT:
+Two intervals [a,b] and [c,d] overlap if: `max(a,c) <= min(b,d)`
+Or equivalently: NOT (b < c OR d < a)
+
+### EXAMPLE WALKTHROUGH:
+```
+intervals = [[1,3],[6,9]], newInterval = [2,5]
+
+Phase 1: [1,3] overlaps with [2,5] (3 >= 2)
+Phase 2: Merge [1,3] and [2,5] → [1,5]
+Phase 3: [6,9] doesn't overlap (6 > 5) → add as-is
+
+Result: [[1,5],[6,9]]
+```
+
+### MERGE LOGIC:
+- **Start**: min(interval_start, newInterval_start)
+- **End**: max(interval_end, newInterval_end)
+
+### TIME COMPLEXITY: O(n)
+### SPACE COMPLEXITY: O(n) for result array
+
+</details>
 """
 
 class Solution:

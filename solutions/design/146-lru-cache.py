@@ -19,6 +19,38 @@ Input
 [[2], [1, 1], [2, 2], [1], [3, 3], [2], [4, 4], [1], [3], [4]]
 Output
 [null, null, null, 1, null, -1, null, -1, 3, 4]
+
+<details>
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### INTUITION:
+LRU needs O(1) access to both most and least recently used items.
+Combine hash map (O(1) access) with doubly linked list (O(1) insertion/deletion).
+
+### KEY INSIGHT:
+- **Hash Map**: key → node mapping for O(1) lookup
+- **Doubly Linked List**: maintains order (head=most recent, tail=least recent)
+- **Move to Head**: on access, move node to head (mark as recently used)
+- **Remove Tail**: when capacity exceeded, remove tail node
+
+### APPROACH:
+1. **Get**: Check hash map, move node to head if found
+2. **Put**: Add/update in hash map, add/move node to head
+3. **Eviction**: Remove tail node and its hash map entry when over capacity
+
+### DATA STRUCTURES:
+- `OrderedDict`: Python's built-in LRU-ready structure
+- `Double Linked List + HashMap`: Manual implementation for better understanding
+
+### WHY DOUBLY LINKED LIST?
+- Need to remove nodes from middle (requires previous pointer)
+- Need to add/remove from both ends efficiently
+- Maintains insertion order naturally
+
+### TIME COMPLEXITY: O(1) for both get and put
+### SPACE COMPLEXITY: O(capacity)
+
+</details>
 """
 
 from collections import OrderedDict

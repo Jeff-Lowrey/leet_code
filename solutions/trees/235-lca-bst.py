@@ -15,6 +15,55 @@ Output: 6
 Explanation: The LCA of nodes 2 and 8 is 6.
 """
 
+<details>
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### INTUITION:
+In a BST, we can use the ordered property to efficiently find the LCA. The LCA is the first node where the paths to p and q diverge. This happens when one target is in the left subtree and the other is in the right subtree.
+
+### APPROACH:
+1. **Leverage BST Property**: Use the fact that left < root < right
+2. **Path Divergence**: Find where paths to p and q split
+3. **Three Cases**:
+   - Both p and q < current → go left
+   - Both p and q > current → go right
+   - Otherwise → current is LCA (paths diverge here)
+
+### WHY THIS WORKS:
+The BST property ensures that if both nodes are on the same side of current node, their LCA must be further down that side. The first node where they're on different sides (or one equals the node) is their LCA.
+
+### TIME COMPLEXITY: O(h)
+- h is the height of the tree
+- In worst case (skewed tree): O(n)
+- In balanced tree: O(log n)
+
+### SPACE COMPLEXITY: O(1)
+- Iterative solution uses constant space
+- Recursive solution: O(h) for call stack
+
+### EXAMPLE WALKTHROUGH:
+For tree [6,2,8,0,4,7,9], finding LCA of 2 and 8:
+```
+      6
+    /   \
+   2     8
+  / \   / \
+ 0   4 7   9
+```
+
+1. Start at 6: p=2 < 6, q=8 > 6 → paths diverge → LCA is 6
+
+For LCA of 0 and 4:
+1. Start at 6: both 0,4 < 6 → go left to 2
+2. At 2: 0 < 2, 4 > 2 → paths diverge → LCA is 2
+
+### EDGE CASES:
+- One node is ancestor of other: that node is the LCA
+- Both nodes are the same: that node is the LCA
+- Root is one of the target nodes: root is the LCA
+
+</details>
+
 class TreeNode:
     def __init__(self, x):
         self.val = x

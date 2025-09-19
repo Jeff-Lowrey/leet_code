@@ -9,6 +9,69 @@ Input: root = [4,2,7,1,3,6,9]
 Output: [4,7,2,9,6,3,1]
 """
 
+<details>
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### INTUITION:
+Invert a binary tree by swapping left and right children of every node. This can be done recursively (DFS) or iteratively (BFS).
+
+### APPROACH (Recursive DFS):
+1. **Base case**: If node is null, return null
+2. **Swap children**: Exchange left and right children
+3. **Recurse**: Invert left and right subtrees
+4. **Return**: The current node (now inverted)
+
+### WHY THIS WORKS:
+- Swapping children at each node inverts the tree structure
+- Recursion ensures all nodes are processed
+- Post-order traversal ensures children are processed before parent
+
+### TIME COMPLEXITY: O(n) - visit each node once
+### SPACE COMPLEXITY: O(h) where h is tree height (recursion stack)
+
+### TWO APPROACHES:
+
+#### Approach 1: Recursive DFS (Elegant)
+```python
+root.left, root.right = root.right, root.left
+invertTree(root.left)
+invertTree(root.right)
+```
+
+#### Approach 2: Iterative BFS (Space-efficient for balanced trees)
+```python
+queue = [root]
+while queue:
+    node = queue.pop(0)
+    node.left, node.right = node.right, node.left
+    if node.left: queue.append(node.left)
+    if node.right: queue.append(node.right)
+```
+
+### EXAMPLE WALKTHROUGH:
+```
+Original:    4
+           /   \
+          2     7
+         / \   / \
+        1   3 6   9
+
+Step 1: Swap 2 and 7 at root
+Step 2: Recursively invert left subtree (rooted at 7)
+Step 3: Recursively invert right subtree (rooted at 2)
+
+Inverted:    4
+           /   \
+          7     2
+         / \   / \
+        9   6 3   1
+```
+
+### KEY INSIGHT:
+Tree inversion is a classic example of how recursion naturally handles tree structure. Each recursive call handles one level of swapping.
+
+</details>
+
 
 
 class TreeNode:
