@@ -26,6 +26,49 @@
         {% endif %}
         {{ problem_name }}
     </h1>
+
+    <!-- Download and format options -->
+    <div class="solution-actions">
+        <div class="format-options">
+            {% if not is_leetcode_format %}
+            <a href="{{ url_for('solution_leetcode_view', category=category, filename=filename) }}" class="btn btn-secondary">View LeetCode Format</a>
+            {% else %}
+            <a href="{{ url_for('solution_view', category=category, filename=filename) }}" class="btn btn-secondary">View Original Format</a>
+            {% endif %}
+            <a href="{{ url_for('upload_alternative_solution', category=category, filename=filename) }}" class="btn btn-secondary">Upload Solution</a>
+        </div>
+        <div class="download-options">
+            <span class="download-label">Download{% if current_language %} ({{ current_language }}){% endif %}:</span>
+            <a href="{{ url_for('download_solution', category=category, filename=filename, format='skeleton', language=current_language or 'Python') }}" class="btn btn-small">Skeleton</a>
+            <a href="{{ url_for('download_solution', category=category, filename=filename, format='solution', language=current_language or 'Python') }}" class="btn btn-small">Solution</a>
+            {% if not current_language or current_language == 'Python' %}
+            <a href="{{ url_for('download_solution', category=category, filename=filename, format='leetcode', language='Python') }}" class="btn btn-small">LeetCode</a>
+            {% endif %}
+            <a href="{{ url_for('download_solution', category=category, filename=filename, format='both', language=current_language or 'Python') }}" class="btn btn-primary btn-small">All (ZIP)</a>
+        </div>
+    </div>
+
+    <!-- Language selector if multiple languages available -->
+    {% if available_languages and available_languages|length > 1 %}
+    <div class="language-selector">
+        <span class="language-label">Available Languages:</span>
+        {% for lang in available_languages %}
+            {% if lang == 'Python' %}
+                {% if not current_language or current_language == 'Python' %}
+                    <span class="language-badge active">{{ lang }}</span>
+                {% else %}
+                    <a href="{{ url_for('solution_view', category=category, filename=filename) }}" class="language-badge">{{ lang }}</a>
+                {% endif %}
+            {% else %}
+                {% if current_language == lang %}
+                    <span class="language-badge active">{{ lang }}</span>
+                {% else %}
+                    <a href="{{ url_for('view_alternative_solution', category=category, filename=filename, language=lang) }}" class="language-badge">{{ lang }}</a>
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+    </div>
+    {% endif %}
 </header>
 
 {% if documentation %}

@@ -1,0 +1,155 @@
+{% extends "base.html" %}
+
+{% block title %}Upload Solution - {{ solution.name }}{% endblock %}
+
+{% block extra_head %}
+<style>
+    .upload-form {
+        background: white;
+        padding: 2rem;
+        border-radius: 8px;
+        margin: 2rem 0;
+        border: 1px solid var(--border-color);
+    }
+
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+
+    .form-label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+        color: var(--text-primary);
+    }
+
+    .form-select,
+    .form-file {
+        width: 100%;
+        padding: 0.75rem;
+        border: 1px solid var(--border-color);
+        border-radius: 6px;
+        font-size: 1rem;
+        background: white;
+        transition: border-color 0.2s;
+    }
+
+    .form-select:focus,
+    .form-file:focus {
+        outline: none;
+        border-color: var(--primary-color);
+    }
+
+    .form-help {
+        margin-top: 0.5rem;
+        font-size: 0.875rem;
+        color: var(--text-secondary);
+    }
+
+    .form-actions {
+        display: flex;
+        gap: 1rem;
+        margin-top: 2rem;
+    }
+
+    .supported-languages {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 0.5rem;
+        margin-top: 1rem;
+        padding: 1rem;
+        background: var(--light-bg);
+        border-radius: 6px;
+    }
+
+    .lang-badge {
+        padding: 0.25rem 0.5rem;
+        background: white;
+        border: 1px solid var(--border-color);
+        border-radius: 4px;
+        font-size: 0.875rem;
+        text-align: center;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<header class="page-header">
+    <nav class="breadcrumb">
+        <a href="/">Home</a> /
+        <a href="{{ url_for('category_view', category=category) }}">{{ category.replace('-', ' ').title() }}</a> /
+        <a href="{{ url_for('solution_view', category=category, filename=filename) }}">{{ solution.name }}</a> /
+        <span>Upload Solution</span>
+    </nav>
+    <h1>
+        Upload Alternative Solution
+    </h1>
+    <p class="subtitle">
+        Problem: #{{ solution.number }} - {{ solution.name }}
+    </p>
+</header>
+
+<form method="POST" enctype="multipart/form-data" class="upload-form">
+    <div class="form-group">
+        <label for="language" class="form-label">Programming Language</label>
+        <select name="language" id="language" class="form-select" required>
+            <option value="">Select a language...</option>
+            <option value="Java">Java</option>
+            <option value="C++">C++</option>
+            <option value="C">C</option>
+            <option value="JavaScript">JavaScript</option>
+            <option value="TypeScript">TypeScript</option>
+            <option value="Go">Go</option>
+            <option value="Rust">Rust</option>
+            <option value="C#">C#</option>
+            <option value="Swift">Swift</option>
+            <option value="Kotlin">Kotlin</option>
+            <option value="Ruby">Ruby</option>
+            <option value="PHP">PHP</option>
+            <option value="Scala">Scala</option>
+        </select>
+        <p class="form-help">Select the programming language of your solution</p>
+    </div>
+
+    <div class="form-group">
+        <label for="solution_file" class="form-label">Solution File</label>
+        <input type="file" name="solution_file" id="solution_file" class="form-file" required
+               accept=".java,.cpp,.c,.js,.ts,.go,.rs,.cs,.swift,.kt,.rb,.php,.scala,.txt">
+        <p class="form-help">Upload your solution file (max 1MB)</p>
+    </div>
+
+    <div class="form-group">
+        <p class="form-label">Supported File Extensions</p>
+        <div class="supported-languages">
+            <span class="lang-badge">.java</span>
+            <span class="lang-badge">.cpp</span>
+            <span class="lang-badge">.c</span>
+            <span class="lang-badge">.js</span>
+            <span class="lang-badge">.ts</span>
+            <span class="lang-badge">.go</span>
+            <span class="lang-badge">.rs</span>
+            <span class="lang-badge">.cs</span>
+            <span class="lang-badge">.swift</span>
+            <span class="lang-badge">.kt</span>
+            <span class="lang-badge">.rb</span>
+            <span class="lang-badge">.php</span>
+            <span class="lang-badge">.scala</span>
+        </div>
+    </div>
+
+    <div class="form-actions">
+        <button type="submit" class="btn btn-primary">Upload Solution</button>
+        <a href="{{ url_for('solution_view', category=category, filename=filename) }}" class="btn">Cancel</a>
+    </div>
+</form>
+
+<section class="info-section">
+    <h2>Guidelines</h2>
+    <ul>
+        <li>Ensure your solution follows the same method signatures as the original problem</li>
+        <li>Include comments explaining your approach</li>
+        <li>Test your solution on LeetCode before uploading</li>
+        <li>File size limit: 1MB</li>
+    </ul>
+</section>
+{% endblock %}

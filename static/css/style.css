@@ -295,7 +295,13 @@ main {
 }
 
 /* Grid Layouts */
-.categories-grid,
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
 .solutions-grid,
 .docs-grid {
     display: grid;
@@ -490,6 +496,221 @@ main {
 
 .btn-primary:hover {
     background-color: #1d4ed8;
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+    color: white;
+    border-color: var(--secondary-color);
+}
+
+.btn-secondary:hover {
+    background-color: #059669;
+}
+
+.btn-small {
+    padding: 0.375rem 1rem;
+    font-size: 0.875rem;
+}
+
+/* Solution Actions */
+.solution-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.format-options {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.download-options {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.download-label {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-right: 0.5rem;
+}
+
+/* Category Card with Dropdown */
+.category-card-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.category-card {
+    flex: 1;
+    margin-bottom: 0;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.solutions-dropdown {
+    position: relative;
+}
+
+.dropdown-toggle {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background: white;
+    border: 1px solid var(--border-color);
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    color: var(--primary-color);
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.dropdown-toggle:hover {
+    background: var(--light-bg);
+}
+
+.dropdown-toggle.active {
+    background: var(--primary-color);
+    color: white;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    margin-top: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: none;
+    z-index: 100;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.dropdown-menu.show {
+    display: block;
+}
+
+.dropdown-item {
+    display: block;
+    padding: 0.625rem 1rem;
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: 0.875rem;
+    border-bottom: 1px solid #f3f4f6;
+    transition: background 0.2s;
+}
+
+.dropdown-item:hover {
+    background: var(--light-bg);
+}
+
+.dropdown-item:first-child {
+    border-radius: 8px 8px 0 0;
+}
+
+.dropdown-item:last-child {
+    border-bottom: none;
+    border-radius: 0 0 8px 8px;
+}
+
+.dropdown-item .problem-num {
+    display: inline-block;
+    background: var(--primary-color);
+    color: white;
+    padding: 0.125rem 0.375rem;
+    border-radius: 3px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-right: 0.5rem;
+    min-width: 35px;
+    text-align: center;
+}
+
+.dropdown-more {
+    background: var(--light-bg);
+    font-weight: 500;
+    color: var(--primary-color);
+    text-align: center;
+}
+
+.dropdown-more:hover {
+    background: #e0f2fe;
+}
+
+/* Language Selector */
+.language-selector {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    padding: 1rem;
+    background: var(--light-bg);
+    border-radius: 6px;
+}
+
+.language-label {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-right: 0.5rem;
+    font-weight: 500;
+}
+
+.language-badge {
+    display: inline-block;
+    padding: 0.375rem 0.75rem;
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.language-badge:hover {
+    border-color: var(--primary-color);
+    background: var(--light-bg);
+}
+
+.language-badge.active {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+/* Flash Messages */
+.flash-messages {
+    margin: 1rem 0;
+}
+
+.flash-message {
+    padding: 1rem;
+    border-radius: 6px;
+    margin-bottom: 0.5rem;
+}
+
+.flash-message.success {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.flash-message.error {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
 }
 
 /* Error Page */

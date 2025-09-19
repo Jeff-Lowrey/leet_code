@@ -141,6 +141,39 @@
                 });
         }
 
+        // Toggle dropdown menu
+        function toggleDropdown(event, categorySlug) {
+            event.preventDefault();
+            event.stopPropagation();
+
+            const dropdown = document.getElementById(`dropdown-${categorySlug}`);
+            const button = event.target;
+
+            // Close all other dropdowns
+            document.querySelectorAll('.dropdown-menu.show').forEach(menu => {
+                if (menu !== dropdown) {
+                    menu.classList.remove('show');
+                    menu.previousElementSibling.querySelector('.dropdown-toggle').classList.remove('active');
+                }
+            });
+
+            // Toggle current dropdown
+            dropdown.classList.toggle('show');
+            button.classList.toggle('active');
+        }
+
+        // Close dropdowns when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!event.target.closest('.solutions-dropdown')) {
+                document.querySelectorAll('.dropdown-menu.show').forEach(menu => {
+                    menu.classList.remove('show');
+                });
+                document.querySelectorAll('.dropdown-toggle.active').forEach(button => {
+                    button.classList.remove('active');
+                });
+            }
+        });
+
         // Initialize on page load
         document.addEventListener('DOMContentLoaded', buildTableOfContents);
     </script>

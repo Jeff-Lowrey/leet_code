@@ -10,11 +10,33 @@
 
 <section class="categories-grid">
     {% for category in categories %}
-    <a href="{{ url_for('category_view', category=category.slug) }}" class="category-card">
-        <h3>{{ category.name }}</h3>
-        <p class="description">{{ category.description }}</p>
-        <span class="count">{{ category.count }} solutions</span>
-    </a>
+    <div class="category-card-wrapper">
+        <a href="{{ url_for('category_view', category=category.slug) }}" class="category-card">
+            <h3>{{ category.name }}</h3>
+            <p class="description">{{ category.description }}</p>
+            <span class="count">{{ category.count }} solutions</span>
+        </a>
+        <div class="solutions-dropdown">
+            <button class="dropdown-toggle" onclick="toggleDropdown(event, '{{ category.slug }}')">
+                Quick Access ▼
+            </button>
+            <div class="dropdown-menu" id="dropdown-{{ category.slug }}">
+                {% for solution in category.solutions[:10] %}
+                <a href="{{ url_for('solution_view', category=category.slug, filename=solution.filename) }}"
+                   class="dropdown-item">
+                    <span class="problem-num">#{{ solution.number }}</span>
+                    {{ solution.name }}
+                </a>
+                {% endfor %}
+                {% if category.count > 10 %}
+                <a href="{{ url_for('category_view', category=category.slug) }}"
+                   class="dropdown-item dropdown-more">
+                    View all {{ category.count }} solutions →
+                </a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
     {% endfor %}
 </section>
 
