@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """LeetCode Solutions Web Interface"""
 
+import argparse
 from pathlib import Path
 from typing import Any, cast
 
@@ -27,6 +28,29 @@ from .leetcode_converter import convert_to_leetcode_format, extract_solution_cla
 
 app = Flask(__name__, template_folder="../../templates", static_folder="../../static")
 app.config["SECRET_KEY"] = "dev-key-change-in-production"
+
+
+def get_syntax_highlighting_style() -> str:
+    """Get the appropriate syntax highlighting style based on theme preference."""
+    # Check for theme preference from cookies or headers
+    theme = request.cookies.get('theme', 'light')
+
+    # You can also check from localStorage via a query parameter if needed
+    theme_param = request.args.get('theme')
+    if theme_param in ['light', 'dark']:
+        theme = theme_param
+
+    # Return appropriate Pygments style
+    if theme == 'dark':
+        return "monokai"  # Dark theme
+    else:
+        return "default"  # Light theme
+
+
+def create_code_formatter() -> HtmlFormatter:
+    """Create a code formatter with appropriate theme."""
+    style = get_syntax_highlighting_style()
+    return HtmlFormatter(style=style, linenos=True)
 
 
 @app.route("/")
@@ -76,7 +100,7 @@ def solution_view(category: str, filename: str) -> str:
         abort(404)
 
     # Syntax highlighting for Python code
-    formatter = HtmlFormatter(style="monokai", linenos=True)
+    formatter = create_code_formatter()
     highlighted_code = highlight(solution_code, PythonLexer(), formatter)
 
     # Try to find corresponding documentation
@@ -122,7 +146,7 @@ def solution_leetcode_view(category: str, filename: str) -> str:
         abort(404)
 
     # Syntax highlighting
-    formatter = HtmlFormatter(style="monokai", linenos=True)
+    formatter = create_code_formatter()
     highlighted_code = highlight(solution_class, PythonLexer(), formatter)
 
     cat_data = category_manager.get_category(category)
@@ -397,7 +421,7 @@ def view_alternative_solution(category: str, filename: str, language: str) -> st
 
     # Get appropriate lexer for syntax highlighting
     lexer = get_lexer_for_language(language)
-    formatter = HtmlFormatter(style="monokai", linenos=True)
+    formatter = create_code_formatter()
     highlighted_code = highlight(code_content, lexer, formatter)
 
     # Get all available languages for this problem
@@ -562,4 +586,11 @@ def api_category_solutions(category: str) -> Response:
 
 
 if __name__ == "__main__":
-    app.run(debug=True, port=5000)
+    parser = argparse.ArgumentParser(description="LeetCode Solutions Web Interface")
+    parser.add_argument("--host", default="127.0.0.1", help="Hostname to bind to (default: 127.0.0.1)")
+    parser.add_argument("--port", type=int, default=9501, help="Port to bind to (default: 9501)")
+    parser.add_argument("--debug", action="store_true", default=True, help="Enable debug mode (default: True)")
+
+    args = parser.parse_args()
+
+    app.run(debug=args.debug, host=args.host, port=args.port)
