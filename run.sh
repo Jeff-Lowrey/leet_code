@@ -20,4 +20,4 @@ pip install -q flask markdown pygments
 
 # Run the Flask app
 echo "Starting server at http://localhost:5000"
-python app.py
+python src/leet_code/app.py
