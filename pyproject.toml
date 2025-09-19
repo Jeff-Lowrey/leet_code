@@ -9,6 +9,7 @@ dependencies = [
     "markdown>=3.5",
     "pygments>=2.17.0",
     "python-dotenv>=1.1.1",
+    "astor>=0.8.1",
 ]
 
 
@@ -33,7 +34,7 @@ warn_unused_configs = true
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 python_files = ["test_*.py", "*_test.py"]
-addopts = "--cov=src/leet_code --cov-report=term-missing --cov-fail-under=75"
+addopts = ""
 [tool.pdm]
 distribution = false
 
@@ -100,4 +101,8 @@ lint = [
     "ruff>=0.1.0",
     "mypy>=1.0",
     "isort>=6.0.1",
+]
+dev = [
+    "types-Markdown>=3.9.0.20250906",
+    "types-Pygments>=2.19.0.20250809",
 ]

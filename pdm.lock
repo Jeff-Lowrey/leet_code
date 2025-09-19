@@ -2,13 +2,24 @@
 # It is not intended for manual editing.
 
 [metadata]
-groups = ["default", "format", "lint", "test"]
+groups = ["default", "dev", "format", "lint", "test"]
 strategy = ["inherit_metadata"]
 lock_version = "4.5.0"
-content_hash = "sha256:d9da7c73fc1175abc92ecc1c01a2f32f0c68e4e1feaccd95fbc1fa6b8152b402"
+content_hash = "sha256:0c0ff967d0296cb7e9eb149d60ba882832e5767af6198607ecb3117c4e8c5881"
 
 [[metadata.targets]]
 requires_python = ">=3.13"
+
+[[package]]
+name = "astor"
+version = "0.8.1"
+requires_python = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,>=2.7"
+summary = "Read/rewrite/write Python ASTs"
+groups = ["default"]
+files = [
+    {file = "astor-0.8.1-py2.py3-none-any.whl", hash = "sha256:070a54e890cefb5b3739d19f30f5a5ec840ffc9c50ffa7d23cc9fc1a38ebbfc5"},
+    {file = "astor-0.8.1.tar.gz", hash = "sha256:6a6effda93f4e1ce9f618779b2dd1d9d84f1e32812c23a29b3fff6fd7f63fa5e"},
+]
 
 [[package]]
 name = "black"
@@ -493,6 +504,42 @@ files = [
     {file = "ruff-0.13.1-py3-none-win_amd64.whl", hash = "sha256:3a3fb595287ee556de947183489f636b9f76a72f0fa9c028bdcabf5bab2cc5e5"},
     {file = "ruff-0.13.1-py3-none-win_arm64.whl", hash = "sha256:c0bae9ffd92d54e03c2bf266f466da0a65e145f298ee5b5846ed435f6a00518a"},
     {file = "ruff-0.13.1.tar.gz", hash = "sha256:88074c3849087f153d4bb22e92243ad4c1b366d7055f98726bc19aa08dc12d51"},
+]
+
+[[package]]
+name = "types-docutils"
+version = "0.22.0.20250919"
+requires_python = ">=3.9"
+summary = "Typing stubs for docutils"
+groups = ["dev"]
+files = [
+    {file = "types_docutils-0.22.0.20250919-py3-none-any.whl", hash = "sha256:67fbc6e25a2ba61d63b639db01172d91debf2beccb8780e83006f97b5cc1c226"},
+    {file = "types_docutils-0.22.0.20250919.tar.gz", hash = "sha256:2b4e08d811e08e851f17808afbcf767bbf65f195be7e0080009cf983dc4312f0"},
+]
+
+[[package]]
+name = "types-markdown"
+version = "3.9.0.20250906"
+requires_python = ">=3.9"
+summary = "Typing stubs for Markdown"
+groups = ["dev"]
+files = [
+    {file = "types_markdown-3.9.0.20250906-py3-none-any.whl", hash = "sha256:afac4297e4e75f00b4043f9b3a989dc5924230d065996a233b9bce894c438cc2"},
+    {file = "types_markdown-3.9.0.20250906.tar.gz", hash = "sha256:f02dc1a2d130b093de4910c64b2d0a811ae7020f03624df41c667818d2fee050"},
+]
+
+[[package]]
+name = "types-pygments"
+version = "2.19.0.20250809"
+requires_python = ">=3.9"
+summary = "Typing stubs for Pygments"
+groups = ["dev"]
+dependencies = [
+    "types-docutils",
+]
+files = [
+    {file = "types_pygments-2.19.0.20250809-py3-none-any.whl", hash = "sha256:8e813e5fc25f741b81cadc1e181d402ebd288e34a9812862ddffee2f2b57db7c"},
+    {file = "types_pygments-2.19.0.20250809.tar.gz", hash = "sha256:01366fd93ef73c792e6ee16498d3abf7a184f1624b50b77f9506a47ed85974c2"},
 ]
 
 [[package]]
