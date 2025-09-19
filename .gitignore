@@ -1,24 +1,37 @@
 # Python
 .venv/
 venv/
+env/
+ENV/
+.Python
 __pypackages__/
-*.pyc
-*.pyo
-*.pyd
+*.py[cod]
+*$py.class
+*.so
 __pycache__/
 .pdm-python
+.pdm.toml
 .python-version
 *.egg-info/
 dist/
 build/
 *.egg
+*.whl
+pip-log.txt
+pip-delete-this-directory.txt
 
 # IDE
 .vscode/
 .idea/
 *.swp
 *.swo
+*.swn
 *~
+.project
+.pydevproject
+.settings/
+*.sublime-project
+*.sublime-workspace
 
 # OS
 .DS_Store
@@ -26,8 +39,59 @@ Thumbs.db
 
 # Logs
 *.log
+logs/
+*.pid
+*.seed
+*.pid.lock
+
+# Testing & Coverage
+.coverage
+.coverage.*
+.cache
+.pytest_cache/
+.tox/
+.nox/
+htmlcov/
+*.cover
+.hypothesis/
 
 # Temporary files
 *.tmp
 .temp/
-.coverage
+tmp/
+temp/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+*.env
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Flask specific
+instance/
+.webassets-cache
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# pytype static type analyzer
+.pytype/
+
+# Cython debug symbols
+cython_debug/
+
+# PDM
+pdm.lock
