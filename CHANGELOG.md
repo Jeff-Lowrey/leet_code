@@ -11,10 +11,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Disclaimer notices for educational use and warranty
 - Language-aware download system
 - Quick access dropdowns on category cards for direct solution navigation
+- Type hints throughout the codebase for better IDE support
+- Development type stubs for Markdown and Pygments
+- AST manipulation support with astor library
 
 ### Changed
 - Download buttons now respect currently selected language
 - ZIP downloads include language-specific files only
+- Standardized code formatting with consistent quote style
+- Enhanced .gitignore with comprehensive Python patterns
+- Made test coverage optional for development runs
+
+### Fixed
+- Minor formatting inconsistencies across all modules
+- Import organization and structure
 
 ## [2.0.0] - 2025-09-19
 
