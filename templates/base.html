@@ -12,10 +12,15 @@
         <div class="nav-container">
             <button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
             <a href="/" class="logo">LeetCode Learning Application</a>
-            <ul class="nav-links">
-                <li><a href="/">Categories</a></li>
-                <li><a href="/docs">Documentation</a></li>
-            </ul>
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <ul class="nav-links">
+                    <li><a href="/">Categories</a></li>
+                    <li><a href="/docs">Documentation</a></li>
+                </ul>
+                <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark/light mode">
+                    <span class="theme-icon">🌙</span>
+                </button>
+            </div>
         </div>
     </nav>
 
@@ -174,8 +179,72 @@
             }
         });
 
+        // Theme switching functionality
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+
+            // Update theme icon
+            const themeIcon = document.querySelector('.theme-icon');
+            const themeButton = document.querySelector('.theme-toggle');
+
+            if (newTheme === 'dark') {
+                themeIcon.textContent = '☀️';
+                themeButton.classList.add('dark-mode');
+            } else {
+                themeIcon.textContent = '🌙';
+                themeButton.classList.remove('dark-mode');
+            }
+
+            // Reload page to apply new syntax highlighting
+            if (window.location.pathname.includes('/solution/')) {
+                const url = new URL(window.location);
+                url.searchParams.set('theme', newTheme);
+                window.location.href = url.toString();
+            }
+        }
+
+        // Initialize theme on page load
+        function initializeTheme() {
+            // Check URL parameter first, then localStorage
+            const urlParams = new URLSearchParams(window.location.search);
+            const urlTheme = urlParams.get('theme');
+            const savedTheme = urlTheme || localStorage.getItem('theme') || 'light';
+
+            // Update localStorage if URL theme is different
+            if (urlTheme && urlTheme !== localStorage.getItem('theme')) {
+                localStorage.setItem('theme', urlTheme);
+            }
+
+            document.documentElement.setAttribute('data-theme', savedTheme);
+
+            const themeIcon = document.querySelector('.theme-icon');
+            const themeButton = document.querySelector('.theme-toggle');
+
+            if (savedTheme === 'dark') {
+                themeIcon.textContent = '☀️';
+                themeButton.classList.add('dark-mode');
+            } else {
+                themeIcon.textContent = '🌙';
+                themeButton.classList.remove('dark-mode');
+            }
+
+            // Clean up URL parameter after applying theme
+            if (urlTheme) {
+                const url = new URL(window.location);
+                url.searchParams.delete('theme');
+                window.history.replaceState({}, '', url.toString());
+            }
+        }
+
         // Initialize on page load
-        document.addEventListener('DOMContentLoaded', buildTableOfContents);
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeTheme();
+            buildTableOfContents();
+        });
     </script>
 </body>
 </html>
