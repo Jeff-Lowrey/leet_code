@@ -1,11 +1,8 @@
 """Unit tests for the leetcode_converter module."""
 
 import pytest
-from src.leet_code.leetcode_converter import (
-    LeetCodeConverter,
-    convert_to_leetcode_format,
-    extract_solution_class
-)
+
+from src.leet_code.leetcode_converter import LeetCodeConverter, convert_to_leetcode_format, extract_solution_class
 
 
 class TestLeetCodeConverter:
@@ -28,14 +25,14 @@ class TestLeetCodeConverter:
 
     def test_convert_function_def(self):
         """Test conversion of function definitions."""
-        code = '''
+        code = """
 class Solution:
     def two_sum(self, nums, target):
         return []
 
     def find_max_value(self, arr):
         return 0
-'''
+"""
         result = convert_to_leetcode_format(code)
         assert "def twoSum(" in result
         assert "def findMaxValue(" in result
@@ -43,7 +40,7 @@ class Solution:
 
     def test_convert_function_calls(self):
         """Test conversion of function calls within code."""
-        code = '''
+        code = """
 class Solution:
     def two_sum(self, nums, target):
         result = self.helper_method(nums)
@@ -51,7 +48,7 @@ class Solution:
 
     def helper_method(self, data):
         return []
-'''
+"""
         result = convert_to_leetcode_format(code)
         assert "def twoSum(" in result
         assert "self.helperMethod(" in result
@@ -59,13 +56,13 @@ class Solution:
 
     def test_preserve_builtins(self):
         """Test that built-in functions are not converted."""
-        code = '''
+        code = """
 class Solution:
     def my_function(self):
         max_len = max(len(s) for s in strings)
         min_val = min(values)
         return max_len
-'''
+"""
         result = convert_to_leetcode_format(code)
         assert "def myFunction(" in result
         assert "max(" in result  # Should not become "max("
@@ -74,7 +71,7 @@ class Solution:
 
     def test_extract_solution_class(self):
         """Test extraction of Solution class from code."""
-        code = '''
+        code = """
 # Some imports
 import math
 
@@ -87,7 +84,7 @@ class Solution:
 
 class TestSolution:
     pass
-'''
+"""
         result = extract_solution_class(code)
         assert "class Solution:" in result
         assert "def two_sum(" in result
@@ -97,17 +94,17 @@ class TestSolution:
 
     def test_extract_solution_class_not_found(self):
         """Test extraction when Solution class is not found."""
-        code = '''
+        code = """
 class MyClass:
     def method(self):
         pass
-'''
+"""
         result = extract_solution_class(code)
         assert result == code  # Should return original if no Solution class
 
     def test_complex_conversion(self):
         """Test conversion of complex code with multiple features."""
-        code = '''
+        code = """
 class Solution:
     def find_longest_substring(self, s: str) -> int:
         max_length = 0
@@ -133,7 +130,7 @@ class Solution:
                 stack.append(char)
 
         return not stack
-'''
+"""
         result = convert_to_leetcode_format(code)
         assert "def findLongestSubstring(" in result
         assert "def isValidParentheses(" in result

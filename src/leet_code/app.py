@@ -2,39 +2,49 @@
 """LeetCode Solutions Web Interface"""
 
 from pathlib import Path
+from typing import Any, cast
 
 import markdown
-from flask import Flask, Response, abort, flash, redirect, render_template, request, send_file, url_for
+from flask import Flask, Response, abort, flash, jsonify, redirect, render_template, request, url_for
 from pygments import highlight
 from pygments.formatters import HtmlFormatter
-from pygments.lexers import (CLexer, CppLexer, CSharpLexer, GoLexer,
-                                JavaLexer, JavascriptLexer, PythonLexer,
-                                RustLexer, SwiftLexer, TypeScriptLexer,
-                                get_lexer_by_name)
+from pygments.lexers import (
+    CLexer,
+    CppLexer,
+    CSharpLexer,
+    GoLexer,
+    JavaLexer,
+    JavascriptLexer,
+    PythonLexer,
+    RustLexer,
+    SwiftLexer,
+    TypeScriptLexer,
+    get_lexer_by_name,
+)
 
 from .category_data import category_manager
 from .leetcode_converter import convert_to_leetcode_format, extract_solution_class
 
-app = Flask(__name__,
-            template_folder='../../templates',
-            static_folder='../../static')
-app.config['SECRET_KEY'] = 'dev-key-change-in-production'
+app = Flask(__name__, template_folder="../../templates", static_folder="../../static")
+app.config["SECRET_KEY"] = "dev-key-change-in-production"
 
 
-@app.route('/')
-def index():
+@app.route("/")
+def index() -> str:
     """Home page showing all categories."""
     categories = category_manager.get_categories()
     stats = category_manager.get_statistics()
 
-    return render_template('index.html',
-                         categories=categories,
-                         total_solutions=stats['total_solutions'],
-                         total_categories=stats['total_categories'])
+    return render_template(
+        "index.html",
+        categories=categories,
+        total_solutions=stats["total_solutions"],
+        total_categories=stats["total_categories"],
+    )
 
 
-@app.route('/category/<category>')
-def category_view(category):
+@app.route("/category/<category>")
+def category_view(category: str) -> str:
     """View all solutions in a category."""
     cat_data = category_manager.get_category(category)
     if not cat_data:
@@ -42,20 +52,19 @@ def category_view(category):
 
     # Read category documentation
     doc_content = category_manager.read_documentation(category)
-    if doc_content:
-        doc_html = markdown.markdown(doc_content, extensions=['fenced_code', 'tables'])
-    else:
-        doc_html = None
+    doc_html = markdown.markdown(doc_content, extensions=["fenced_code", "tables"]) if doc_content else None
 
-    return render_template('category.html',
-                         category=category,
-                         category_name=cat_data.name,
-                         solutions=cat_data.solutions,
-                         documentation=doc_html)
+    return render_template(
+        "category.html",
+        category=category,
+        category_name=cat_data.name,
+        solutions=cat_data.solutions,
+        documentation=doc_html,
+    )
 
 
-@app.route('/solution/<category>/<filename>')
-def solution_view(category, filename):
+@app.route("/solution/<category>/<filename>")
+def solution_view(category: str, filename: str) -> str:
     """View a specific solution."""
     solution_code = category_manager.read_solution_content(category, filename)
     if not solution_code:
@@ -67,16 +76,13 @@ def solution_view(category, filename):
         abort(404)
 
     # Syntax highlighting for Python code
-    formatter = HtmlFormatter(style='monokai', linenos=True)
+    formatter = HtmlFormatter(style="monokai", linenos=True)
     highlighted_code = highlight(solution_code, PythonLexer(), formatter)
 
     # Try to find corresponding documentation
-    doc_name = filename.replace('.py', '')
+    doc_name = filename.replace(".py", "")
     doc_content = category_manager.read_documentation(category, doc_name)
-    if doc_content:
-        doc_html = markdown.markdown(doc_content, extensions=['fenced_code', 'tables'])
-    else:
-        doc_html = None
+    doc_html = markdown.markdown(doc_content, extensions=["fenced_code", "tables"]) if doc_content else None
 
     # Get category name
     cat_data = category_manager.get_category(category)
@@ -84,21 +90,23 @@ def solution_view(category, filename):
     # Get all available languages for this problem
     available_languages = get_available_languages(category, filename)
 
-    return render_template('solution.html',
-                         category=category,
-                         category_name=cat_data.name if cat_data else category.replace('-', ' ').title(),
-                         filename=filename,
-                         problem_number=solution.number,
-                         problem_name=solution.name,
-                         code=highlighted_code,
-                         documentation=doc_html,
-                         style=formatter.get_style_defs('.highlight'),
-                         is_leetcode_format=False,
-                         available_languages=available_languages)
+    return render_template(
+        "solution.html",
+        category=category,
+        category_name=cat_data.name if cat_data else category.replace("-", " ").title(),
+        filename=filename,
+        problem_number=solution.number,
+        problem_name=solution.name,
+        code=highlighted_code,
+        documentation=doc_html,
+        style=formatter.get_style_defs(".highlight"),  # type: ignore[no-untyped-call]
+        is_leetcode_format=False,
+        available_languages=available_languages,
+    )
 
 
-@app.route('/solution/<category>/<filename>/leetcode')
-def solution_leetcode_view(category, filename):
+@app.route("/solution/<category>/<filename>/leetcode")
+def solution_leetcode_view(category: str, filename: str) -> str:
     """View solution in LeetCode format (camelCase)."""
     solution_code = category_manager.read_solution_content(category, filename)
     if not solution_code:
@@ -114,43 +122,45 @@ def solution_leetcode_view(category, filename):
         abort(404)
 
     # Syntax highlighting
-    formatter = HtmlFormatter(style='monokai', linenos=True)
+    formatter = HtmlFormatter(style="monokai", linenos=True)
     highlighted_code = highlight(solution_class, PythonLexer(), formatter)
 
     cat_data = category_manager.get_category(category)
 
-    return render_template('solution.html',
-                         category=category,
-                         category_name=cat_data.name if cat_data else category.replace('-', ' ').title(),
-                         filename=filename,
-                         problem_number=solution.number,
-                         problem_name=solution.name + ' (LeetCode Format)',
-                         code=highlighted_code,
-                         documentation=None,
-                         style=formatter.get_style_defs('.highlight'),
-                         is_leetcode_format=True)
+    return render_template(
+        "solution.html",
+        category=category,
+        category_name=cat_data.name if cat_data else category.replace("-", " ").title(),
+        filename=filename,
+        problem_number=solution.number,
+        problem_name=solution.name + " (LeetCode Format)",
+        code=highlighted_code,
+        documentation=None,
+        style=formatter.get_style_defs(".highlight"),  # type: ignore[no-untyped-call]
+        is_leetcode_format=True,
+    )
 
 
-@app.route('/solution/<category>/<filename>/download/<format>')
-@app.route('/solution/<category>/<filename>/download/<format>/<language>')
-def download_solution(category, filename, format, language='Python'):
+@app.route("/solution/<category>/<filename>/download/<format>")
+@app.route("/solution/<category>/<filename>/download/<format>/<language>")
+def download_solution(category: str, filename: str, format: str, language: str = "Python") -> Response:
     """Download solution in specified format and language."""
     # Handle .py extension if present
-    if not filename.endswith('.py'):
-        filename = filename + '.py'
+    if not filename.endswith(".py"):
+        filename = filename + ".py"
 
     # Get the appropriate solution code based on language
-    if language == 'Python':
+    if language == "Python":
         solution_code = category_manager.read_solution_content(category, filename)
     else:
         # Get alternative language solution
-        base_name = filename.replace('.py', '')
+        base_name = filename.replace(".py", "")
         lang_extension = get_file_extension(language)
         alt_filename = f"{base_name}.{language.lower()}{lang_extension}"
         alt_path = Path(__file__).parent.parent.parent / "solutions" / category / "alternatives" / alt_filename
 
         if alt_path.exists():
-            with open(alt_path, 'r') as f:
+            with open(alt_path) as f:
                 solution_code = f.read()
         else:
             abort(404)
@@ -165,15 +175,15 @@ def download_solution(category, filename, format, language='Python'):
     base_name = f"{solution.number}_{solution.name.lower().replace(' ', '_')}_{language.lower()}"
 
     # Handle 'both' format - return a zip file with skeleton and solution for the specific language
-    if format == 'both':
+    if format == "both":
         import io
         import zipfile
 
         # Create in-memory zip file
         zip_buffer = io.BytesIO()
-        with zipfile.ZipFile(zip_buffer, 'w', zipfile.ZIP_DEFLATED) as zip_file:
+        with zipfile.ZipFile(zip_buffer, "w", zipfile.ZIP_DEFLATED) as zip_file:
             # Get the appropriate file extension
-            file_ext = get_file_extension(language) if language != 'Python' else '.py'
+            file_ext = get_file_extension(language) if language != "Python" else ".py"
 
             # Add skeleton
             skeleton_content = generate_skeleton(solution_code, solution)
@@ -183,7 +193,7 @@ def download_solution(category, filename, format, language='Python'):
             zip_file.writestr(f"{base_name}_solution{file_ext}", solution_code)
 
             # Only add LeetCode format for Python
-            if language == 'Python':
+            if language == "Python":
                 # Add LeetCode format solution (camelCase)
                 leetcode_code = convert_to_leetcode_format(solution_code)
                 leetcode_content = extract_solution_class(leetcode_code)
@@ -196,24 +206,24 @@ def download_solution(category, filename, format, language='Python'):
         zip_buffer.seek(0)
         return Response(
             zip_buffer.getvalue(),
-            mimetype='application/zip',
-            headers={'Content-Disposition': f'attachment; filename={base_name}.zip'}
+            mimetype="application/zip",
+            headers={"Content-Disposition": f"attachment; filename={base_name}.zip"},
         )
 
     # Generate appropriate content based on format
-    elif format == 'skeleton':
+    elif format == "skeleton":
         # Extract just the method signatures without implementation
         content = generate_skeleton(solution_code, solution)
-        file_ext = get_file_extension(language) if language != 'Python' else '.py'
+        file_ext = get_file_extension(language) if language != "Python" else ".py"
         download_name = f"{base_name}_skeleton{file_ext}"
-    elif format == 'solution':
+    elif format == "solution":
         # Full solution in original format
         content = solution_code
-        file_ext = get_file_extension(language) if language != 'Python' else '.py'
+        file_ext = get_file_extension(language) if language != "Python" else ".py"
         download_name = f"{base_name}_solution{file_ext}"
-    elif format == 'leetcode':
+    elif format == "leetcode":
         # Solution in LeetCode camelCase format (only for Python)
-        if language != 'Python':
+        if language != "Python":
             # For non-Python languages, just return the solution
             content = solution_code
             file_ext = get_file_extension(language)
@@ -227,13 +237,11 @@ def download_solution(category, filename, format, language='Python'):
 
     # Return as downloadable file
     return Response(
-        content,
-        mimetype='text/x-python',
-        headers={'Content-Disposition': f'attachment; filename={download_name}'}
+        content, mimetype="text/x-python", headers={"Content-Disposition": f"attachment; filename={download_name}"}
     )
 
 
-def generate_skeleton(code: str, solution, is_leetcode: bool = False) -> str:
+def generate_skeleton(code: str, solution: Any, is_leetcode: bool = False) -> str:
     """Generate a skeleton template from solution code.
 
     Args:
@@ -247,21 +255,21 @@ def generate_skeleton(code: str, solution, is_leetcode: bool = False) -> str:
     header_text = "LeetCode Submission Skeleton" if is_leetcode else "Problem Skeleton"
 
     skeleton_lines = [
-        f'"""',
-        f'{solution.number}. {solution.name}',
-        f'',
-        f'{header_text}',
-        f'TODO: Add problem description here',
-        f'"""',
-        f'',
-        f'',
+        '"""',
+        f"{solution.number}. {solution.name}",
+        "",
+        f"{header_text}",
+        "TODO: Add problem description here",
+        '"""',
+        "",
+        "",
     ]
 
     try:
         tree = ast.parse(code)
         for node in ast.walk(tree):
-            if isinstance(node, ast.ClassDef) and node.name == 'Solution':
-                skeleton_lines.append('class Solution:')
+            if isinstance(node, ast.ClassDef) and node.name == "Solution":
+                skeleton_lines.append("class Solution:")
                 for method in node.body:
                     if isinstance(method, ast.FunctionDef):
                         # Get method signature
@@ -270,73 +278,81 @@ def generate_skeleton(code: str, solution, is_leetcode: bool = False) -> str:
                             arg_str = arg.arg
                             if arg.annotation:
                                 # Get annotation as string
-                                ann_str = ast.unparse(arg.annotation) if hasattr(ast, 'unparse') else str(arg.annotation)
-                                arg_str += f': {ann_str}'
+                                ann_str = (
+                                    ast.unparse(arg.annotation) if hasattr(ast, "unparse") else str(arg.annotation)
+                                )
+                                arg_str += f": {ann_str}"
                             args.append(arg_str)
 
-                        args_str = ', '.join(args)
-                        returns = ''
+                        args_str = ", ".join(args)
+                        returns = ""
                         if method.returns:
-                            returns = f' -> {ast.unparse(method.returns) if hasattr(ast, "unparse") else str(method.returns)}'
+                            returns = (
+                                f' -> {ast.unparse(method.returns) if hasattr(ast, "unparse") else str(method.returns)}'
+                            )
 
-                        skeleton_lines.append(f'    def {method.name}({args_str}){returns}:')
+                        skeleton_lines.append(f"    def {method.name}({args_str}){returns}:")
 
                         # Add docstring if present
-                        if method.body and isinstance(method.body[0], ast.Expr) and isinstance(method.body[0].value, ast.Constant):
+                        if (
+                            method.body
+                            and isinstance(method.body[0], ast.Expr)
+                            and isinstance(method.body[0].value, ast.Constant)
+                        ):
                             docstring = method.body[0].value.value
-                            skeleton_lines.append(f'        """{docstring}"""')
+                            skeleton_lines.append(f'        """{docstring}"""')  # type: ignore[str-bytes-safe]
 
-                        skeleton_lines.append('        # TODO: Implement solution')
-                        skeleton_lines.append('        pass')
-                        skeleton_lines.append('')
-    except:
+                        skeleton_lines.append("        # TODO: Implement solution")
+                        skeleton_lines.append("        pass")
+                        skeleton_lines.append("")
+    except Exception:
         # Fallback to regex-based extraction
-        pattern = r'def\s+(\w+)\s*\([^)]*\)[^:]*:'
+        pattern = r"def\s+(\w+)\s*\([^)]*\)[^:]*:"
         matches = re.findall(pattern, code)
         if matches:
-            skeleton_lines.append('class Solution:')
+            skeleton_lines.append("class Solution:")
             for method_name in matches:
-                skeleton_lines.append(f'    def {method_name}(self, *args, **kwargs):')
-                skeleton_lines.append('        # TODO: Implement solution')
-                skeleton_lines.append('        pass')
-                skeleton_lines.append('')
+                skeleton_lines.append(f"    def {method_name}(self, *args, **kwargs):")
+                skeleton_lines.append("        # TODO: Implement solution")
+                skeleton_lines.append("        pass")
+                skeleton_lines.append("")
 
-    return '\n'.join(skeleton_lines)
+    return "\n".join(skeleton_lines)
 
 
-@app.route('/solution/<category>/<filename>/upload', methods=['GET', 'POST'])
-def upload_alternative_solution(category, filename):
+@app.route("/solution/<category>/<filename>/upload", methods=["GET", "POST"])
+def upload_alternative_solution(category: str, filename: str) -> str | Response:
     """Upload solution in a different programming language."""
     # Handle .py extension if present
-    if not filename.endswith('.py'):
-        filename = filename + '.py'
+    if not filename.endswith(".py"):
+        filename = filename + ".py"
 
     solution = category_manager.get_solution(category, filename)
     if not solution:
         abort(404)
 
-    if request.method == 'POST':
+    if request.method == "POST":
         # Check if file was uploaded (support both 'file' and 'solution_file')
-        file_field = 'file' if 'file' in request.files else 'solution_file'
+        file_field = "file" if "file" in request.files else "solution_file"
         if file_field not in request.files:
-            flash('No file selected', 'error')
-            return redirect(url_for('solution_view', category=category, filename=filename))
+            flash("No file selected", "error")
+            return cast(Response, redirect(url_for("solution_view", category=category, filename=filename)))
 
         file = request.files[file_field]
-        language = request.form.get('language')
+        language = request.form.get("language")
 
-        if file.filename == '':
-            flash('No file selected', 'error')
-            return redirect(url_for('solution_view', category=category, filename=filename))
+        if file.filename == "":
+            flash("No file selected", "error")
+            return cast(Response, redirect(url_for("solution_view", category=category, filename=filename)))
 
         if file and language:
             # Validate file extension matches language
             expected_ext = get_file_extension(language)
-            if not file.filename.endswith(expected_ext):
-                flash('Invalid file extension for selected language', 'error')
-                return redirect(url_for('solution_view', category=category, filename=filename))
+            if file.filename and not file.filename.endswith(expected_ext):
+                flash("Invalid file extension for selected language", "error")
+                return cast(Response, redirect(url_for("solution_view", category=category, filename=filename)))
             # Create language-specific filename
-            base_name = filename.replace('.py', '')
+            base_name = filename.replace(".py", "")
             lang_extension = get_file_extension(language)
             new_filename = f"{base_name}.{language.lower()}{lang_extension}"
 
@@ -348,29 +364,26 @@ def upload_alternative_solution(category, filename):
             file_path = alt_dir / new_filename
             file.save(str(file_path))
 
-            flash(f'Successfully uploaded {language} solution', 'success')
-            return redirect(url_for('solution_view', category=category, filename=filename))
+            flash(f"Successfully uploaded {language} solution", "success")
+            return cast(Response, redirect(url_for("solution_view", category=category, filename=filename)))
 
     # GET request - show upload form
-    return render_template('upload_solution.html',
-                         category=category,
-                         filename=filename,
-                         solution=solution)
+    return render_template("upload_solution.html", category=category, filename=filename, solution=solution)
 
 
-@app.route('/solution/<category>/<filename>/view/<language>')
-def view_alternative_solution(category, filename, language):
+@app.route("/solution/<category>/<filename>/view/<language>")
+def view_alternative_solution(category: str, filename: str, language: str) -> str:
     """View solution in a specific programming language."""
     # Handle .py extension if present
-    if not filename.endswith('.py'):
-        filename = filename + '.py'
+    if not filename.endswith(".py"):
+        filename = filename + ".py"
 
     solution = category_manager.get_solution(category, filename)
     if not solution:
         abort(404)
 
     # Get the alternative solution file
-    base_name = filename.replace('.py', '')
+    base_name = filename.replace(".py", "")
     lang_extension = get_file_extension(language)
     alt_filename = f"{base_name}.{language.lower()}{lang_extension}"
     alt_path = Path(__file__).parent / "solutions" / category / "alternatives" / alt_filename
@@ -379,12 +392,12 @@ def view_alternative_solution(category, filename, language):
         abort(404)
 
     # Read the alternative solution
-    with open(alt_path, 'r') as f:
+    with open(alt_path) as f:
         code_content = f.read()
 
     # Get appropriate lexer for syntax highlighting
     lexer = get_lexer_for_language(language)
-    formatter = HtmlFormatter(style='monokai', linenos=True)
+    formatter = HtmlFormatter(style="monokai", linenos=True)
     highlighted_code = highlight(code_content, lexer, formatter)
 
     # Get all available languages for this problem
@@ -392,85 +405,101 @@ def view_alternative_solution(category, filename, language):
 
     cat_data = category_manager.get_category(category)
 
-    return render_template('solution.html',
-                         category=category,
-                         category_name=cat_data.name if cat_data else category.replace('-', ' ').title(),
-                         filename=filename,
-                         problem_number=solution.number,
-                         problem_name=f"{solution.name} ({language})",
-                         code=highlighted_code,
-                         documentation=None,
-                         style=formatter.get_style_defs('.highlight'),
-                         is_leetcode_format=False,
-                         current_language=language,
-                         available_languages=available_languages)
+    return render_template(
+        "solution.html",
+        category=category,
+        category_name=cat_data.name if cat_data else category.replace("-", " ").title(),
+        filename=filename,
+        problem_number=solution.number,
+        problem_name=f"{solution.name} ({language})",
+        code=highlighted_code,
+        documentation=None,
+        style=formatter.get_style_defs(".highlight"),  # type: ignore[no-untyped-call]
+        is_leetcode_format=False,
+        current_language=language,
+        available_languages=available_languages,
+    )
 
 
-def get_file_extension(language):
+def get_file_extension(language: str) -> str:
     """Get file extension for a programming language."""
     extensions = {
-        'Python': '.py',
-        'Java': '.java',
-        'C++': '.cpp',
-        'C': '.c',
-        'JavaScript': '.js',
-        'TypeScript': '.ts',
-        'Go': '.go',
-        'Rust': '.rs',
-        'C#': '.cs',
-        'Swift': '.swift',
-        'Kotlin': '.kt',
-        'Ruby': '.rb',
-        'PHP': '.php',
-        'Scala': '.scala',
+        "Python": ".py",
+        "Java": ".java",
+        "C++": ".cpp",
+        "C": ".c",
+        "JavaScript": ".js",
+        "TypeScript": ".ts",
+        "Go": ".go",
+        "Rust": ".rs",
+        "C#": ".cs",
+        "Swift": ".swift",
+        "Kotlin": ".kt",
+        "Ruby": ".rb",
+        "PHP": ".php",
+        "Scala": ".scala",
     }
-    return extensions.get(language, '.txt')
+    return extensions.get(language, ".txt")
 
 
-def get_lexer_for_language(language):
+def get_lexer_for_language(language: str) -> Any:
     """Get Pygments lexer for a programming language."""
     lexers = {
-        'Python': PythonLexer(),
-        'Java': JavaLexer(),
-        'C++': CppLexer(),
-        'C': CLexer(),
-        'JavaScript': JavascriptLexer(),
-        'TypeScript': TypeScriptLexer(),
-        'Go': GoLexer(),
-        'Rust': RustLexer(),
-        'C#': CSharpLexer(),
-        'Swift': SwiftLexer(),
+        "Python": PythonLexer(),
+        "Java": JavaLexer(),
+        "C++": CppLexer(),
+        "C": CLexer(),
+        "JavaScript": JavascriptLexer(),
+        "TypeScript": TypeScriptLexer(),
+        "Go": GoLexer(),
+        "Rust": RustLexer(),
+        "C#": CSharpLexer(),
+        "Swift": SwiftLexer(),
     }
     return lexers.get(language, get_lexer_by_name(language.lower()))
 
 
-def get_available_languages(category, filename):
+def get_available_languages(category: str, filename: str) -> list[str]:
     """Get list of available programming languages for a solution."""
-    languages = ['Python']  # Always have Python
+    languages = ["Python"]  # Always have Python
 
     # Check alternatives directory
     alt_dir = Path(__file__).parent.parent.parent / "solutions" / category / "alternatives"
     if alt_dir.exists():
-        base_name = filename.replace('.py', '')
+        base_name = filename.replace(".py", "")
         for file_path in alt_dir.iterdir():
             if file_path.name.startswith(base_name):
                 # Extract language from filename
-                for lang in ['java', 'cpp', 'c', 'javascript', 'typescript', 'go', 'rust', 'cs', 'swift', 'kotlin', 'ruby', 'php', 'scala']:
+                for lang in [
+                    "java",
+                    "cpp",
+                    "c",
+                    "javascript",
+                    "typescript",
+                    "go",
+                    "rust",
+                    "cs",
+                    "swift",
+                    "kotlin",
+                    "ruby",
+                    "php",
+                    "scala",
+                ]:
                     if f".{lang}." in file_path.name.lower():
                         language_map = {
-                            'cpp': 'C++',
-                            'c': 'C',
-                            'javascript': 'JavaScript',
-                            'typescript': 'TypeScript',
-                            'go': 'Go',
-                            'rust': 'Rust',
-                            'cs': 'C#',
-                            'swift': 'Swift',
-                            'java': 'Java',
-                            'kotlin': 'Kotlin',
-                            'ruby': 'Ruby',
-                            'php': 'PHP',
-                            'scala': 'Scala',
+                            "cpp": "C++",
+                            "c": "C",
+                            "javascript": "JavaScript",
+                            "typescript": "TypeScript",
+                            "go": "Go",
+                            "rust": "Rust",
+                            "cs": "C#",
+                            "swift": "Swift",
+                            "java": "Java",
+                            "kotlin": "Kotlin",
+                            "ruby": "Ruby",
+                            "php": "PHP",
+                            "scala": "Scala",
                         }
                         languages.append(language_map.get(lang, lang.title()))
                         break
@@ -478,64 +507,59 @@ def get_available_languages(category, filename):
     return sorted(set(languages))
 
 
-@app.route('/docs')
-def docs_index():
+@app.route("/docs")
+def docs_index() -> Response:
     """Documentation index - redirect to README."""
-    return redirect(url_for('docs_readme'))
+    return cast(Response, redirect(url_for("docs_readme")))
 
 
-@app.route('/docs/README')
-def docs_readme():
+@app.route("/docs/README")
+def docs_readme() -> str:
     """View main documentation README."""
     docs_path = Path(__file__).parent.parent.parent / "docs" / "README.md"
     if docs_path.exists():
         doc_content = docs_path.read_text()
-        doc_html = markdown.markdown(doc_content, extensions=['fenced_code', 'tables', 'toc'])
-        return render_template('doc_view.html',
-                             category='README',
-                             doc_html=doc_html)
+        doc_html = markdown.markdown(doc_content, extensions=["fenced_code", "tables", "toc"])
+        return render_template("doc_view.html", category="README", category_name="README", content=doc_html)
     abort(404)
 
 
-@app.route('/docs/<category>')
-def docs_view(category):
+@app.route("/docs/<category>")
+def docs_view(category: str) -> str:
     """View category documentation."""
     doc_content = category_manager.read_documentation(category)
     if not doc_content:
         abort(404)
 
-    doc_html = markdown.markdown(doc_content, extensions=['fenced_code', 'tables', 'toc'])
+    doc_html = markdown.markdown(doc_content, extensions=["fenced_code", "tables", "toc"])
 
-    return render_template('doc_view.html',
-                         category=category,
-                         category_name=category.replace('-', ' ').title(),
-                         content=doc_html)
+    return render_template(
+        "doc_view.html", category=category, category_name=category.replace("-", " ").title(), content=doc_html
+    )
 
 
 @app.errorhandler(404)
-def not_found(error):
+def not_found(error: Any) -> tuple[str, int]:
     """404 error handler."""
-    return render_template('404.html'), 404
+    return render_template("404.html"), 404
 
 
 # API endpoints for sidebar navigation
-@app.route('/api/categories')
-def api_categories():
+@app.route("/api/categories")
+def api_categories() -> Response:
     """API endpoint to get all categories."""
     categories = category_manager.get_categories()
-    return [{'name': cat.name, 'slug': cat.slug, 'count': cat.count}
-            for cat in categories]
+    return jsonify([{"name": cat.name, "slug": cat.slug, "count": cat.count} for cat in categories])
 
 
-@app.route('/api/category/<category>/solutions')
-def api_category_solutions(category):
+@app.route("/api/category/<category>/solutions")
+def api_category_solutions(category: str) -> Response:
     """API endpoint to get solutions for a category."""
     cat_data = category_manager.get_category(category)
     if not cat_data:
         abort(404)
-    return [{'filename': sol.filename, 'name': sol.name, 'number': sol.number}
-            for sol in cat_data.solutions]
+    return jsonify([{"filename": sol.filename, "name": sol.name, "number": sol.number} for sol in cat_data.solutions])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     app.run(debug=True, port=5000)

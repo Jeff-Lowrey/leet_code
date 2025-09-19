@@ -1,13 +1,15 @@
 """Simple tests to improve coverage without complex mocking."""
 
-import pytest
 from pathlib import Path
-from src.leet_code.category_data import Solution, CategoryManager
+
+import pytest
+
+from src.leet_code.category_data import CategoryManager, Solution
 from src.leet_code.leetcode_converter import (
     convert_params_in_signature,
     convert_snake_case_params,
     extract_solution_class,
-    regex_based_conversion
+    regex_based_conversion,
 )
 
 
@@ -93,6 +95,6 @@ class Solution:
         manager._categories = []
 
         stats = manager.get_statistics()
-        assert stats['total_categories'] == 0
-        assert stats['total_solutions'] == 0
-        assert stats['average_per_category'] == 0
+        assert stats["total_categories"] == 0
+        assert stats["total_solutions"] == 0
+        assert stats["average_per_category"] == 0

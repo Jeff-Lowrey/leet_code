@@ -2,7 +2,7 @@
 
 # LeetCode Web App Runner
 
-echo "Starting LeetCode Solutions Web App..."
+echo "Starting Learning Web App for Leet Code problems..."
 
 # Check if virtual environment exists
 if [ ! -d "venv" ]; then
