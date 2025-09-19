@@ -1,8 +1,12 @@
 # LeetCode Solutions Documentation
 
-**Date**: 2025-09-16
-**Version**: 1.0
-**Status**: Complete
+> **⚠️ DISCLAIMER**
+>
+> This documentation is provided for educational purposes only. The code examples, solutions, and techniques described herein are provided "AS IS" without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose, and non-infringement.
+>
+> The solutions and approaches documented here are meant for learning and should not be used directly in production environments without proper review and testing. In no event shall the authors or copyright holders be liable for any claim, damages, or other liability arising from the use of this documentation or associated code.
+>
+> This project is not affiliated with, endorsed by, or connected to LeetCode in any way.
 
 ## 📚 Documentation Overview
 

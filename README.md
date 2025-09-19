@@ -1,273 +1,217 @@
-# LeetCode Practice & Solutions
+# LeetCode Solutions Platform
 
-**Date**: 2025-09-16
-**Type**: Project Documentation
-**Scope**: LeetCode problem solving, algorithms, and data structures practice
-**Status**: Active
+> **⚠️ DISCLAIMER**
+>
+> This is an educational tool provided for learning purposes only. The code and solutions in this repository are provided "AS IS" without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose, and non-infringement. In no event shall the authors or copyright holders be liable for any claim, damages, or other liability arising from the use of this software.
+>
+> This project is not affiliated with, endorsed by, or connected to LeetCode in any way.
+
+## 🚀 Features
+
+### Core Functionality
+- **Web Interface**: Flask-based solution browser with syntax highlighting
+- **Multi-Language Support**: Upload and view solutions in 13+ programming languages
+- **Python to LeetCode conversion **: Automatic conversion for LeetCode submission format
+- **Smart Downloads**: Language-aware download system with skeleton/solution/ZIP options
+- **Quick Navigation**: Dropdown menus on category cards for direct solution access
+- **API Support**: JSON endpoints for dynamic content loading
+
+### Solution Management
+- **Organized Categories**: Solutions grouped by problem-solving patterns
+- **Alternative Languages**: Upload solutions in Java, C++, JavaScript, Go, Rust, etc.
+- **Language Switching**: Toggle between different language implementations
+- **Format Options**: View in original format or LeetCode submission format
+- **Download Formats**:
+  - Skeleton (method signatures only)
+  - Full solution
+  - LeetCode formatted skelton and solution
+  - ZIP bundle with all formats
 
 ## 📋 Table of Contents
-1. [Project Overview](#project-overview)
-2. [Objectives](#objectives)
-3. [Problem Categories](#problem-categories)
-4. [Solution Approach](#solution-approach)
-5. [Progress Tracking](#progress-tracking)
-6. [Learning Resources](#learning-resources)
-7. [Implementation Strategy](#implementation-strategy)
-8. [Performance Optimization](#performance-optimization)
-9. [Project Structure](#project-structure)
-10. [Next Steps](#next-steps)
+1. [Features](#-features)
+2. [Installation](#installation)
+3. [Usage](#usage)
+4. [Project Structure](#project-structure)
+5. [Features in Detail](#features-in-detail)
+6. [Development](#development)
+7. [API Documentation](#api-documentation)
+8. [Progress Tracking](#progress-tracking)
+9. [Contributing](#contributing)
+10. [License](#license)
 
-## Project Overview
-[↑ Back to Table of Contents](#-table-of-contents)
+## Installation
 
-This project tracks LeetCode problem-solving progress, solution patterns, and algorithm implementations. It serves as a comprehensive knowledge base for interview preparation and algorithmic thinking development.
+### Prerequisites
+- Python 3.13+
+- PDM package manager
 
-**Focus Areas:**
-- Data structures and algorithms mastery
-- Problem-solving pattern recognition
-- Time and space complexity optimization
-- Interview preparation strategies
+### Setup
+```bash
+# Clone the repository
+git clone <repository-url>
+cd leet_code
 
-**Target Goals:**
-- Complete 500+ problems across all difficulty levels
-- Master 15+ problem-solving patterns
-- Achieve consistent optimal solutions
-- Build reusable solution templates
+# Install dependencies with PDM
+pdm install
 
-## Objectives
-[↑ Back to Table of Contents](#-table-of-contents)
-
-### Primary Objectives
-- **Technical Mastery**: Develop deep understanding of algorithms and data structures
-- **Pattern Recognition**: Identify and apply common problem-solving patterns
-- **Optimization Skills**: Consistently achieve optimal time/space complexity
-- **Interview Readiness**: Build confidence for technical interviews
-
-### Secondary Objectives
-- **Documentation**: Create comprehensive solution explanations
-- **Template Building**: Develop reusable code templates
-- **Performance Analysis**: Track improvement over time
-- **Knowledge Sharing**: Build reference material for future use
-
-## Problem Categories
-[↑ Back to Table of Contents](#-table-of-contents)
-
-### Data Structures
-- **Arrays & Strings**: Manipulation, searching, sorting
-- **Linked Lists**: Traversal, reversal, cycle detection
-- **Trees & Graphs**: Traversal, pathfinding, tree construction
-- **Stacks & Queues**: Monotonic stack, priority queues
-- **Hash Tables**: Frequency counting, mapping
-- **Heaps**: Top K problems, median finding
-
-### Algorithms
-- **Two Pointers**: Sliding window, fast/slow pointers
-- **Binary Search**: Search space reduction
-- **Dynamic Programming**: Optimization, memoization
-- **Backtracking**: Permutations, combinations
-- **Greedy**: Local optimization
-- **Divide & Conquer**: Problem decomposition
-
-### Advanced Topics
-- **Bit Manipulation**: Bitwise operations
-- **Math & Geometry**: Number theory, computational geometry
-- **System Design**: Scalability patterns
-- **Concurrency**: Thread safety, synchronization
-
-## Solution Approach
-[↑ Back to Table of Contents](#-table-of-contents)
-
-### Problem-Solving Framework
-
-```python
-def solve_problem(problem):
-    """
-    Standard approach for tackling LeetCode problems
-    """
-    # 1. Understand the problem
-    clarify_requirements()
-    identify_edge_cases()
-
-    # 2. Identify patterns
-    pattern = recognize_pattern(problem)
-
-    # 3. Design solution
-    approach = design_algorithm(pattern)
-
-    # 4. Implement
-    solution = implement_solution(approach)
-
-    # 5. Optimize
-    optimized = optimize_complexity(solution)
-
-    # 6. Test
-    verify_correctness(optimized)
-
-    return optimized
+# Run the development server
+pdm run python -m flask run
 ```
 
-### Solution Template Structure
-- **Problem Statement**: Clear description and constraints
-- **Approach**: Algorithm explanation
-- **Complexity Analysis**: Time and space complexity
-- **Code Implementation**: Clean, commented solution
-- **Test Cases**: Edge cases and examples
-- **Alternative Solutions**: Different approaches
+## Usage
 
-## Progress Tracking
-[↑ Back to Table of Contents](#-table-of-contents)
+### Viewing Solutions
+1. Navigate to `http://localhost:5000`
+2. Browse categories or use quick access dropdowns
+3. Click on any solution to view code with syntax highlighting
 
-### Difficulty Distribution
-| Difficulty | Target | Completed | Percentage |
-|------------|--------|-----------|------------|
-| Easy       | 150    | 0         | 0%         |
-| Medium     | 250    | 0         | 0%         |
-| Hard       | 100    | 0         | 0%         |
-| **Total**  | **500**| **0**     | **0%**     |
+### Uploading Alternative Languages
+1. Open any solution page
+2. Click "Upload Solution"
+3. Select programming language
+4. Upload your solution file
+5. Language badge will appear for switching
 
-### Pattern Mastery
-| Pattern | Problems Solved | Confidence Level |
-|---------|-----------------|------------------|
-| Two Pointers | 0 | Learning |
-| Sliding Window | 0 | Learning |
-| Binary Search | 0 | Learning |
-| DFS/BFS | 0 | Learning |
-| Dynamic Programming | 0 | Learning |
-| Backtracking | 0 | Learning |
+### Downloading Solutions
+- **Individual Downloads**: Click Skeleton/Solution/LeetCode buttons
+- **Language-Specific**: Downloads match currently selected language
+- **ZIP Bundle**: Download all formats for current language
 
-## Learning Resources
-[↑ Back to Table of Contents](#-table-of-contents)
-
-### Online Platforms
-- **LeetCode**: Primary practice platform
-- **NeetCode**: Curated problem lists and video explanations
-- **AlgoExpert**: Structured learning path
-- **Codeforces**: Competitive programming
-
-### Study Materials
-- **Books**:
-  - "Introduction to Algorithms" (CLRS)
-  - "Cracking the Coding Interview"
-  - "Elements of Programming Interviews"
-- **Courses**:
-  - Algorithms specialization on Coursera
-  - MIT 6.006 Introduction to Algorithms
-
-### Practice Strategy
-1. **Daily Practice**: 2-3 problems per day
-2. **Pattern Focus**: One pattern per week
-3. **Review Sessions**: Weekly review of solved problems
-4. **Mock Interviews**: Bi-weekly timed sessions
-
-## Implementation Strategy
-[↑ Back to Table of Contents](#-table-of-contents)
-
-### Phase 1: Foundation (Weeks 1-4)
-- Master basic data structures
-- Complete 50 easy problems
-- Learn fundamental patterns
-
-### Phase 2: Intermediate (Weeks 5-12)
-- Focus on medium difficulty
-- Master dynamic programming
-- Complete 150 medium problems
-
-### Phase 3: Advanced (Weeks 13-20)
-- Tackle hard problems
-- System design preparation
-- Complete 50 hard problems
-
-### Phase 4: Interview Prep (Weeks 21-24)
-- Company-specific problems
-- Mock interviews
-- Time-constrained practice
-
-## Performance Optimization
-[↑ Back to Table of Contents](#-table-of-contents)
-
-### Time Complexity Goals
-- **O(1)**: Constant time operations
-- **O(log n)**: Binary search applications
-- **O(n)**: Linear scans when necessary
-- **O(n log n)**: Efficient sorting
-- **Avoid O(n²)**: Unless unavoidable
-
-### Space Complexity Goals
-- **In-place modifications**: When possible
-- **O(1) space**: Optimize for constant space
-- **Trade-offs**: Balance time vs. space
-
-### Code Quality Standards
-- **Readability**: Clear variable names
-- **Modularity**: Reusable helper functions
-- **Comments**: Explain complex logic
-- **Edge Cases**: Handle all scenarios
+### Format Conversion
+- **View LeetCode Format**: Converts snake_case to camelCase
+- **Automatic Conversion**: Ready for copy-paste to LeetCode
+- **Download LeetCode Format**: Get submission-ready code
 
 ## Project Structure
-[↑ Back to Table of Contents](#-table-of-contents)
 
 ```
 leet_code/
-├── README.md                 # This file
-├── analysis/                 # Problem analysis and patterns
-│   ├── patterns/            # Pattern-specific analysis
-│   └── complexity/          # Time/space complexity studies
-├── decisions/               # Algorithm choice rationale
-├── tasks/                   # Current problem-solving tasks
-├── notes/                   # Problem-specific notes
-├── plans/                   # Study plans and schedules
-├── ideas/                   # Solution improvements
-└── solutions/               # Organized solutions
-    ├── easy/               # Easy problem solutions
-    ├── medium/             # Medium problem solutions
-    ├── hard/               # Hard problem solutions
-    └── patterns/           # Pattern-based solutions
+├── README.md                    # This file
+├── pyproject.toml              # PDM configuration
+├── pdm.lock                    # Lock file for dependencies
+├── app.py                      # Flask application
+├── category_data.py            # Solution data management
+├── leetcode_converter.py       # Snake_case to camelCase converter
+├── generate_docs.py            # Documentation generator
+│
+├── solutions/                  # Problem solutions
+│   ├── arrays-hashing/         # Category folders
+│   │   ├── 001-two-sum.py     # Python solutions
+│   │   └── alternatives/      # Other language solutions
+│   │       ├── 001-two-sum.java.java
+│   │       └── 001-two-sum.cpp.cpp
+│   ├── two-pointers/
+│   ├── sliding-window/
+│   └── ...
+│
+├── docs/                       # Problem documentation
+│   ├── arrays-hashing/
+│   └── ...
+│
+├── templates/                  # HTML templates
+│   ├── base.html
+│   ├── index.html
+│   ├── solution.html
+│   └── upload_solution.html
+│
+└── static/                     # Static assets
+    ├── css/
+    │   └── style.css
+    └── js/
 ```
 
-## Next Steps
-[↑ Back to Table of Contents](#-table-of-contents)
+## Features in Detail
 
-### Immediate Actions
-1. **Set up solution template**: Create standardized solution format
-2. **Begin daily practice**: Start with array/string problems
-3. **Create progress tracker**: Build tracking dashboard
-4. **Join study group**: Find accountability partners
+### Multi-Language Support
+Supported languages:
+- Python (default)
+- Java
+- C++/C
+- JavaScript/TypeScript
+- Go
+- Rust
+- C#
+- Swift
+- Kotlin
+- Ruby
+- PHP
+- Scala
 
-### Short-term Goals (Month 1)
-- Complete 50 easy problems
-- Master two-pointer technique
-- Document all solutions
-- Establish daily routine
+### Download System
+Each download is language-aware:
+- **Python**: `.py` files with optional LeetCode format
+- **Other Languages**: Native file extensions (.java, .cpp, etc.)
+- **ZIP Format**: Contains skeleton, solution, and LeetCode skeleton and solution
+  - Python code is converted to LeetCode format.
 
-### Long-term Goals (6 Months)
-- Complete 500+ problems
-- Master all major patterns
-- Achieve 80% optimal solutions
-- Interview readiness
+
+### Quick Access Dropdowns
+- Shows first 10 solutions per category
+- Direct navigation without intermediate pages
+- "View all" link for categories with 10+ solutions
+
+## Development
+
+### Adding New Solutions
+1. Create solution file in appropriate category folder
+2. Follow naming convention: `{number}-{problem-name}.py`
+3. Include problem description in docstring
+4. Run tests and linting before committing
+
+## API Documentation
+
+### Endpoints
+
+#### Categories API
+```
+GET /api/categories
+Returns: JSON list of all categories with solution counts
+```
+
+#### Solutions API
+```
+GET /api/category/{category}/solutions
+Returns: JSON list of solutions in category
+```
+
+#### Solution Views
+```
+GET /solution/{category}/{filename}
+GET /solution/{category}/{filename}/leetcode
+GET /solution/{category}/{filename}/view/{language}
+```
+
+#### Downloads
+```
+GET /solution/{category}/{filename}/download/{format}
+GET /solution/{category}/{filename}/download/{format}/{language}
+Formats: skeleton, solution, leetcode, both
+```
+
+#### Upload
+```
+GET/POST /solution/{category}/{filename}/upload
+Upload alternative language solution
+```
+
+## Progress Tracking
+
+### Current Statistics
+- **Total Solutions**: 50+ problems across 15+ categories
+- **Languages Supported**: 13 programming languages
+- **Categories**: Arrays, Two Pointers, Trees, Graphs, DP, and more
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch
+3. Run tests and linting
+4. Submit a pull request
+
+## License
+
+This project is for educational purposes.
 
 ---
 
-## Document Metadata
-
-**Document Type**: Project Documentation
-**Version**: 1.0
-**Last Updated**: 2025-09-16
-**Author**: Claude Code
-**Review Date**: 2025-09-16
-**Approval Status**: Active
-
-**Related Documents:**
-- [Current Tasks](./tasks/current-tasks.md): Active problem-solving tasks
-- [Pattern Analysis](./analysis/patterns/): Pattern-specific studies
-- [Study Plan](./plans/study-plan.md): Detailed learning schedule
-
-**Change History:**
-| Version | Date | Changes | Author |
-|---------|------|---------|--------|
-| 1.0 | 2025-09-16 | Initial project setup | Claude Code |
-
----
-
-*This project provides a structured approach to mastering LeetCode problems and preparing for technical interviews through systematic practice and pattern recognition.*
-
-[↑ Back to Table of Contents](#-table-of-contents)
+*A comprehensive LeetCode solutions platform with multi-language support, automatic format conversion, and modern development tools.*
