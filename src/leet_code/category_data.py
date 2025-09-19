@@ -3,7 +3,6 @@
 
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Dict, List, Optional
 
 
 @dataclass
@@ -12,7 +11,7 @@ class Category:
     slug: str
     name: str
     description: str
-    solutions: List['Solution'] = field(default_factory=list)
+    solutions: list['Solution'] = field(default_factory=list)
 
     @property
     def count(self) -> int:
@@ -30,17 +29,26 @@ class Solution:
 
     def __post_init__(self):
         """Process filename to extract metadata."""
-        if not self.slug:
-            self.slug = self.filename.replace('.py', '')
+        # Remove file extension to get base name
+        base_name = self.filename.replace('.py', '')
 
-        if not self.number and '-' in self.slug:
-            parts = self.slug.split('-', 1)
+        # Extract number and slug from filename like "042-trapping-water.py"
+        if '-' in base_name:
+            parts = base_name.split('-', 1)
             if parts[0].isdigit():
-                self.number = parts[0]
-                if not self.name:
-                    self.name = parts[1].replace('-', ' ').title()
+                if not self.number:
+                    self.number = parts[0]
+                if not self.slug:
+                    self.slug = parts[1]  # Just the problem name part
+            else:
+                if not self.slug:
+                    self.slug = base_name
+        else:
+            if not self.slug:
+                self.slug = base_name
 
-        if not self.name:
+        # Generate name from slug if not provided
+        if not self.name and self.slug:
             self.name = self.slug.replace('-', ' ').title()
 
 
@@ -80,14 +88,14 @@ class CategoryManager:
         'union-find': 'Track connected components and detect cycles in disjoint sets.'
     }
 
-    def __init__(self, base_dir: Optional[Path] = None):
+    def __init__(self, base_dir: Path | None = None):
         """Initialize the category manager."""
-        self.base_dir = base_dir or Path(__file__).parent
+        self.base_dir = base_dir or Path(__file__).parent.parent.parent
         self.solutions_dir = self.base_dir / "solutions"
         self.docs_dir = self.base_dir / "docs"
-        self._categories: Optional[List[Category]] = None
+        self._categories: list[Category] | None = None
 
-    def get_categories(self, force_refresh: bool = False) -> List[Category]:
+    def get_categories(self, force_refresh: bool = False) -> list[Category]:
         """Get all categories with their solutions."""
         if self._categories is not None and not force_refresh:
             return self._categories
@@ -131,7 +139,7 @@ class CategoryManager:
         self._categories = categories
         return categories
 
-    def get_category(self, slug: str) -> Optional[Category]:
+    def get_category(self, slug: str) -> Category | None:
         """Get a specific category by slug."""
         categories = self.get_categories()
         for category in categories:
@@ -139,7 +147,7 @@ class CategoryManager:
                 return category
         return None
 
-    def get_solution(self, category_slug: str, filename: str) -> Optional[Solution]:
+    def get_solution(self, category_slug: str, filename: str) -> Solution | None:
         """Get a specific solution by category and filename."""
         category = self.get_category(category_slug)
         if category:
@@ -148,14 +156,14 @@ class CategoryManager:
                     return solution
         return None
 
-    def read_solution_content(self, category_slug: str, filename: str) -> Optional[str]:
+    def read_solution_content(self, category_slug: str, filename: str) -> str | None:
         """Read the content of a solution file."""
         file_path = self.solutions_dir / category_slug / filename
         if file_path.exists() and file_path.suffix == '.py':
             return file_path.read_text()
         return None
 
-    def read_documentation(self, category_slug: str, doc_name: Optional[str] = None) -> Optional[str]:
+    def read_documentation(self, category_slug: str, doc_name: str | None = None) -> str | None:
         """Read documentation file for a category."""
         if doc_name:
             file_path = self.docs_dir / category_slug / f"{doc_name}.md"
@@ -166,7 +174,7 @@ class CategoryManager:
             return file_path.read_text()
         return None
 
-    def get_statistics(self) -> Dict[str, int]:
+    def get_statistics(self) -> dict[str, int]:
         """Get overall statistics."""
         categories = self.get_categories()
         total_solutions = sum(cat.count for cat in categories)

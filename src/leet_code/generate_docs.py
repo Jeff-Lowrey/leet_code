@@ -2,8 +2,6 @@
 Script to generate documentation for all LeetCode categories and problems
 """
 
-import os
-import re
 from pathlib import Path
 
 # Category information and descriptions
