@@ -19,6 +19,35 @@ Input: nums1 = [4,1,2], nums2 = [1,3,4,2]
 Output: [-1,3,-1]
 """
 
+<details>
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### INTUITION:
+Use a monotonic decreasing stack to efficiently find the next greater element for each number in nums2. The stack maintains elements in decreasing order, so when we find a larger element, we can pop and match all smaller elements with their next greater element.
+
+### APPROACH:
+1. Traverse nums2 with a stack
+2. For each element, pop all smaller elements from stack and map them to current element
+3. Push current element to stack
+4. Build result array by looking up each nums1 element in the mapping
+
+### WHY THIS WORKS:
+The monotonic stack ensures we process elements in the correct order. When we encounter a larger element, all smaller elements in the stack have found their next greater element. Elements remaining in the stack have no next greater element.
+
+### TIME COMPLEXITY: O(n + m)
+### SPACE COMPLEXITY: O(n)
+
+### EXAMPLE WALKTHROUGH:
+nums2 = [1,3,4,2], nums1 = [4,1,2]
+- Process 1: stack=[1]
+- Process 3: 3>1, map[1]=3, stack=[3]
+- Process 4: 4>3, map[3]=4, stack=[4]
+- Process 2: 2<4, stack=[4,2]
+- Final mapping: {1:3, 3:4, 4:-1, 2:-1}
+- Result for [4,1,2]: [-1,3,-1]
+
+</details>
+
 class Solution:
     def nextGreaterElement(self, nums1: list[int], nums2: list[int]) -> list[int]:
         """

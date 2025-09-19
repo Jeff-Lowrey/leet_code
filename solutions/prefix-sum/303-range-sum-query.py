@@ -19,6 +19,41 @@ Output:
 [null, 1, -1, -3]
 """
 
+<details>
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### INTUITION:
+Precompute prefix sums to answer range queries in O(1) time. The key insight is that sum(i,j) = prefixSum[j+1] - prefixSum[i], avoiding repeated calculations.
+
+### APPROACH:
+1. **Preprocessing**: Build prefix sum array where prefix[i] = sum of nums[0...i-1]
+2. **Query**: For range [left, right], return prefix[right+1] - prefix[left]
+
+### WHY THIS WORKS:
+Prefix sums store cumulative totals. To get sum from index i to j, we subtract the cumulative sum before index i from the cumulative sum up to index j. This eliminates the need to iterate through the range each time.
+
+### TIME COMPLEXITY: O(1) per query, O(n) preprocessing
+### SPACE COMPLEXITY: O(n)
+
+### EXAMPLE WALKTHROUGH:
+Array: [-2, 0, 3, -5, 2, -1]
+Prefix: [0, -2, -2, 1, -4, -2, -3]
+
+Query sumRange(0, 2):
+- prefix[3] - prefix[0] = 1 - 0 = 1
+- Represents sum(-2 + 0 + 3) = 1 ✓
+
+Query sumRange(2, 5):
+- prefix[6] - prefix[2] = -3 - (-2) = -1
+- Represents sum(3 + (-5) + 2 + (-1)) = -1 ✓
+
+### EDGE CASES:
+- Single element arrays
+- Negative numbers (handled naturally)
+- Full array queries
+
+</details>
+
 class NumArray:
     """
     Approach: Prefix sum

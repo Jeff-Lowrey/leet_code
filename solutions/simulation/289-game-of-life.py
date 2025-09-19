@@ -22,6 +22,44 @@ Input: board = [[0,1,0],[0,0,1],[1,1,1],[0,0,0]]
 Output: [[0,0,0],[1,0,1],[0,1,1],[0,1,0]]
 """
 
+<details>
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### INTUITION:
+The challenge is applying rules simultaneously to all cells. Use state encoding to track both current and next states in-place, avoiding extra space while ensuring all decisions are based on the original state.
+
+### APPROACH:
+1. **State Encoding**: Use 4 states instead of 2
+   - 0: dead → dead
+   - 1: live → live
+   - 2: live → dead (dying)
+   - 3: dead → live (born)
+2. **Two Passes**: First pass marks transitions, second pass finalizes states
+3. **Neighbor Counting**: Count neighbors considering only original states (0,1 and 2 were originally live)
+
+### WHY THIS WORKS:
+The encoding preserves original state information while tracking transitions. During neighbor counting, we can distinguish original live cells (1 or 2) from original dead cells (0 or 3), ensuring correct rule application.
+
+### TIME COMPLEXITY: O(m × n)
+### SPACE COMPLEXITY: O(1)
+
+### EXAMPLE WALKTHROUGH:
+```
+Initial: [0,1,0]    →    [0,0,0]
+         [0,0,1]    →    [1,0,1]
+         [1,1,1]    →    [0,1,1]
+         [0,0,0]    →    [0,1,0]
+```
+
+Live cell (1,2) has 3 neighbors → survives
+Dead cell (1,0) has 3 neighbors → becomes alive
+Dead cell (0,1) has 2 neighbors → stays dead
+
+### ALTERNATIVE APPROACH:
+For infinite boards, use sets to track only live cells and their neighbors, processing only cells that could potentially change state.
+
+</details>
+
 class Solution:
     def gameOfLife(self, board: list[list[int]]) -> None:
         """

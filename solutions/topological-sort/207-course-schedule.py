@@ -15,6 +15,46 @@ Explanation: There are a total of 2 courses to take. To take course 1 you should
 have finished course 0. So it is possible.
 """
 
+<details>
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### INTUITION:
+This is a cycle detection problem in a directed graph. If there's a cycle in the prerequisite dependencies, it's impossible to complete all courses. Topological sorting can detect cycles while finding a valid course order.
+
+### APPROACH (KAHN'S ALGORITHM):
+1. **Build Graph**: Create adjacency list and track in-degrees (number of prerequisites)
+2. **Start with No Prerequisites**: Add courses with in-degree 0 to queue
+3. **Process Courses**: For each course taken, reduce in-degree of dependent courses
+4. **Check Completeness**: If all courses are processed, no cycle exists
+
+### WHY THIS WORKS:
+In a DAG (Directed Acyclic Graph), there's always at least one vertex with in-degree 0. By repeatedly removing such vertices, we can process all vertices if and only if there's no cycle.
+
+### TIME COMPLEXITY: O(V + E)
+### SPACE COMPLEXITY: O(V + E)
+
+### ALTERNATIVE: DFS WITH CYCLE DETECTION
+- Use 3 states: unvisited, visiting, visited
+- Cycle detected if we encounter a "visiting" node
+- Same time/space complexity
+
+### EXAMPLE WALKTHROUGH:
+Prerequisites: [[1,0], [2,1], [3,2]]
+1. Build graph: 0→1→2→3
+2. In-degrees: [0,1,1,1]
+3. Start with course 0 (in-degree 0)
+4. Take 0 → course 1 now has in-degree 0
+5. Take 1 → course 2 now has in-degree 0
+6. Continue until all courses taken
+
+### CYCLE EXAMPLE:
+Prerequisites: [[1,0], [0,1]]
+- Creates cycle: 0→1→0
+- No course has in-degree 0 after initial setup
+- Cannot complete any course → return false
+
+</details>
+
 from collections import defaultdict, deque
 
 

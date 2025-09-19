@@ -9,6 +9,35 @@ Input: matrix = [[1,2,3],[4,5,6],[7,8,9]]
 Output: [1,2,3,6,9,8,7,4,5]
 """
 
+<details>
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### INTUITION:
+Think of traversing the matrix in layers, like peeling an onion. We traverse the outermost layer first (right → down → left → up), then move to the next inner layer and repeat the pattern.
+
+### APPROACH:
+1. Use four boundaries: top, bottom, left, right
+2. For each layer, traverse in spiral order:
+   - Move right along top row, then increment top
+   - Move down along right column, then decrement right
+   - Move left along bottom row (if still valid), then decrement bottom
+   - Move up along left column (if still valid), then increment left
+3. Continue until all boundaries converge
+
+### WHY THIS WORKS:
+By systematically shrinking the boundaries after each direction, we ensure we visit each element exactly once in spiral order. The boundary checks prevent revisiting elements or going out of bounds.
+
+### TIME COMPLEXITY: O(m × n)
+### SPACE COMPLEXITY: O(1) excluding output array
+
+### EXAMPLE WALKTHROUGH:
+Matrix: [[1,2,3],[4,5,6],[7,8,9]]
+- Layer 1: Right(1,2,3) → Down(6,9) → Left(8,7) → Up(4)
+- Layer 2: Center(5)
+- Result: [1,2,3,6,9,8,7,4,5]
+
+</details>
+
 class Solution:
     def spiralOrder(self, matrix: list[list[int]]) -> list[int]:
         """

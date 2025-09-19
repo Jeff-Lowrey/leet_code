@@ -19,6 +19,46 @@ Output:
 [null, 9, null, 8]
 """
 
+<details>
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### INTUITION:
+For mutable arrays, prefix sums become inefficient (O(n) updates). Segment trees provide a balanced solution with O(log n) for both updates and range queries by representing the array as a binary tree where each node stores the sum of its range.
+
+### APPROACH:
+1. **Tree Structure**: Complete binary tree where leaves are array elements
+2. **Internal Nodes**: Store sum of their children's ranges
+3. **Update**: Propagate changes up from leaf to root
+4. **Query**: Traverse tree to collect relevant range sums
+
+### WHY THIS WORKS:
+The tree height is log n, so we visit at most log n nodes for any operation. Each internal node represents a range, allowing us to quickly skip over irrelevant sections during queries.
+
+### TIME COMPLEXITY: O(log n) for both update and query
+### SPACE COMPLEXITY: O(n)
+
+### SEGMENT TREE VISUALIZATION:
+```
+Array: [1, 3, 5]
+Tree:     9
+        /   \
+       4     5
+      / \   /
+     1   3 5
+```
+
+### EXAMPLE WALKTHROUGH:
+- Initial: sumRange(0,2) = 9
+- Update index 1 to 2: Tree becomes [1,2,5], root = 8
+- Query sumRange(0,2) = 8
+
+### ALTERNATIVE: Binary Indexed Tree (Fenwick Tree)
+- More space efficient
+- Slightly more complex implementation
+- Same time complexity
+
+</details>
+
 class NumArray:
     """
     Approach: Segment Tree

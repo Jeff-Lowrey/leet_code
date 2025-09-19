@@ -11,6 +11,48 @@ Input: nums = [3,2,1,5,6,4], k = 2
 Output: 5
 """
 
+<details>
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### INTUITION:
+We don't need to sort the entire array. QuickSelect uses the partitioning idea from QuickSort but only recurses on one side, making it more efficient for finding a single element at a specific position.
+
+### APPROACH (QUICKSELECT):
+1. **Convert Problem**: kth largest = (n-k)th smallest
+2. **Partition**: Use QuickSort's partition to place pivot in correct position
+3. **Selective Recursion**: Only recurse on the side containing our target
+4. **Random Pivot**: Improves average case performance
+
+### WHY THIS WORKS:
+After partitioning, we know the exact position of the pivot. If it's our target position, we're done. Otherwise, we know which side contains our target and can ignore the other half.
+
+### TIME COMPLEXITY: O(n) average, O(n²) worst case
+### SPACE COMPLEXITY: O(1)
+
+### ALTERNATIVE APPROACHES:
+
+**Heap Approach**:
+- Maintain min-heap of size k
+- Time: O(n log k), Space: O(k)
+- Better when k << n
+
+**Sorting Approach**:
+- Sort entire array
+- Time: O(n log n), Space: O(1)
+- Simple but overkill
+
+### EXAMPLE WALKTHROUGH:
+Array: [3,2,1,5,6,4], k=2 (find 2nd largest)
+- Convert: Find (6-2)=4th smallest
+- Partition around pivot 4: [3,2,1,4,6,5]
+- Pivot at index 3, target at index 4 → recurse right
+- Continue until target found
+
+### KEY INSIGHT:
+QuickSelect eliminates half the search space each iteration on average, leading to linear time complexity.
+
+</details>
+
 import heapq
 import random
 

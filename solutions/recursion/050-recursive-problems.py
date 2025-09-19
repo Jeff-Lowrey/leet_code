@@ -5,6 +5,48 @@ This file contains various recursive problem solutions demonstrating different
 recursive patterns and techniques.
 """
 
+<details>
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### INTUITION:
+Recursion breaks complex problems into smaller, identical subproblems. The key patterns include: divide & conquer, backtracking, memoization, and tree construction. Each problem demonstrates a fundamental recursive technique.
+
+### RECURSIVE PATTERNS COVERED:
+
+1. **Fibonacci**: Classic memoization example
+   - Subproblem: F(n) = F(n-1) + F(n-2)
+   - Optimization: Cache results to avoid recomputation
+
+2. **K-th Grammar**: Pattern recognition recursion
+   - Observation: Each row generates next row by specific rules
+   - Optimization: Find position without building entire row
+
+3. **Unique BSTs**: Combinatorial generation
+   - Subproblem: For each root, combine left and right subtrees
+   - Generates all possible structures recursively
+
+4. **Different Ways to Add Parentheses**: Expression parsing
+   - Subproblem: Split at each operator, combine results
+   - Demonstrates divide-and-conquer with overlapping subproblems
+
+5. **Full Binary Trees**: Structural recursion
+   - Constraint: Full binary trees have odd number of nodes
+   - Subproblem: Try all valid left/right subtree combinations
+
+### WHY RECURSION WORKS HERE:
+These problems have optimal substructure (optimal solution contains optimal solutions to subproblems) and often overlapping subproblems (making memoization valuable).
+
+### TIME COMPLEXITY: Varies by problem (O(n) to O(2^n))
+### SPACE COMPLEXITY: O(n) to O(2^n) depending on problem and memoization
+
+### KEY TECHNIQUES:
+- **Memoization**: Cache results to avoid recomputation
+- **Base Cases**: Prevent infinite recursion
+- **State Reduction**: Express problem in terms of smaller instances
+- **Backtracking**: Explore all possibilities systematically
+
+</details>
+
 """
 509. Fibonacci Number
 Easy

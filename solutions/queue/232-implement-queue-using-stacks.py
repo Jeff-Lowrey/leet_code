@@ -23,6 +23,36 @@ Output:
 [null, null, null, 1, 1, false]
 """
 
+<details>
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### INTUITION:
+Use two stacks to reverse the order of elements. One stack handles input (newest elements on top), the other handles output (oldest elements on top). Transfer elements between stacks only when needed.
+
+### APPROACH:
+1. **Input Stack**: Receives all new elements (push operations)
+2. **Output Stack**: Serves elements in FIFO order (pop/peek operations)
+3. **Lazy Transfer**: Move elements from input to output stack only when output is empty and we need to access the front
+
+### WHY THIS WORKS:
+Stack reverses order (LIFO), so transferring from one stack to another reverses it back. This converts the LIFO behavior to FIFO. The lazy transfer ensures amortized O(1) performance.
+
+### TIME COMPLEXITY: O(1) amortized for all operations
+### SPACE COMPLEXITY: O(n)
+
+### EXAMPLE WALKTHROUGH:
+Operations: push(1), push(2), peek(), pop()
+
+1. push(1): input=[1], output=[]
+2. push(2): input=[2,1], output=[]
+3. peek(): Transfer! input=[], output=[1,2] → return 1
+4. pop(): output=[2] → return 1
+
+### KEY INSIGHT:
+Each element is moved at most twice (once to input, once to output), making operations amortized O(1).
+
+</details>
+
 class MyQueue:
     """
     Approach: Two stacks (input and output)
