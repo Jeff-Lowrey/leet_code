@@ -21,6 +21,7 @@ Output: 1
 
 from collections import deque
 
+
 class Solution:
     def numIslands(self, grid: list[list[str]]) -> int:
         """

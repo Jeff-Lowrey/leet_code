@@ -90,7 +90,7 @@ class Solution:
         Space Complexity: O(n)
         """
         # Transform string to avoid even/odd length issues
-        T = '#'.join('^{}$'.format(s))
+        T = '#'.join(f'^{s}$')
         n = len(T)
         P = [0] * n
         C = R = 0
@@ -99,7 +99,7 @@ class Solution:
             # Mirror of i with respect to center C
             i_mirror = 2 * C - i
 
-            if R > i:
+            if i < R:
                 P[i] = min(R - i, P[i_mirror])
 
             # Expand around i

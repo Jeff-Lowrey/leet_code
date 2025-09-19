@@ -15,7 +15,8 @@ Explanation: There are a total of 2 courses to take. To take course 1 you should
 have finished course 0. So it is possible.
 """
 
-from collections import deque, defaultdict
+from collections import defaultdict, deque
+
 
 class Solution:
     def canFinish(self, numCourses: int, prerequisites: list[list[int]]) -> bool:

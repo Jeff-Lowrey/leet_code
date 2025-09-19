@@ -10,8 +10,8 @@ Input: lists = [[1,4,5],[1,3,4],[2,6]]
 Output: [1,1,2,3,4,4,5,6]
 """
 
-from typing import List, Optional
 import heapq
+
 
 class ListNode:
     def __init__(self, val=0, next=None):
@@ -19,7 +19,7 @@ class ListNode:
         self.next = next
 
 class Solution:
-    def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
+    def mergeKLists(self, lists: list[ListNode | None]) -> ListNode | None:
         """
         Approach: Min heap
         Time Complexity: O(n log k) where n is total nodes, k is number of lists
@@ -49,7 +49,7 @@ class Solution:
 
         return dummy.next
 
-    def mergeKListsDivideConquer(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
+    def mergeKListsDivideConquer(self, lists: list[ListNode | None]) -> ListNode | None:
         """
         Approach: Divide and Conquer
         Time Complexity: O(n log k)
@@ -88,7 +88,7 @@ class Solution:
 
         return lists[0]
 
-    def mergeKListsBruteForce(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
+    def mergeKListsBruteForce(self, lists: list[ListNode | None]) -> ListNode | None:
         """
         Approach: Collect all values and sort
         Time Complexity: O(n log n)
@@ -146,11 +146,11 @@ if __name__ == "__main__":
         create_list([2, 6])
     ]
     result1 = solution.mergeKLists(lists1)
-    print(f"Input: [[1,4,5],[1,3,4],[2,6]]")
+    print("Input: [[1,4,5],[1,3,4],[2,6]]")
     print(f"Output: {list_to_array(result1)}")  # [1,1,2,3,4,4,5,6]
 
     # Test case 2
     lists2 = []
     result2 = solution.mergeKLists(lists2)
-    print(f"Input: []")
+    print("Input: []")
     print(f"Output: {list_to_array(result2)}")  # []

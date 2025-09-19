@@ -21,6 +21,7 @@ Output:
 
 import heapq
 
+
 class MedianFinder:
     """
     Approach: Two heaps (max heap for smaller half, min heap for larger half)
@@ -74,6 +75,7 @@ Output: [1.0,-1.0,-1.0,3.0,5.0,6.0]
 """
 
 from sortedcontainers import SortedList
+
 
 class SolutionSlidingMedian:
     def medianSlidingWindow(self, nums: list[int], k: int) -> list[float]:

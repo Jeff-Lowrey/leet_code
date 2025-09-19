@@ -10,8 +10,8 @@ Input: root = [3,9,20,null,null,15,7]
 Output: [[3],[9,20],[15,7]]
 """
 
-from typing import Optional, List
 from collections import deque
+
 
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
@@ -20,7 +20,7 @@ class TreeNode:
         self.right = right
 
 class Solution:
-    def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
+    def levelOrder(self, root: TreeNode | None) -> list[list[int]]:
         """
         Approach: BFS with queue
         Time Complexity: O(n)
@@ -49,7 +49,7 @@ class Solution:
 
         return result
 
-    def levelOrderDFS(self, root: Optional[TreeNode]) -> List[List[int]]:
+    def levelOrderDFS(self, root: TreeNode | None) -> list[list[int]]:
         """
         Approach: DFS with level tracking
         Time Complexity: O(n)
@@ -94,7 +94,7 @@ Output: true
 """
 
 class SolutionValidateBST:
-    def isValidBST(self, root: Optional[TreeNode]) -> bool:
+    def isValidBST(self, root: TreeNode | None) -> bool:
         """
         Approach: Recursion with bounds
         Time Complexity: O(n)
@@ -112,7 +112,7 @@ class SolutionValidateBST:
 
         return validate(root, float('-inf'), float('inf'))
 
-    def isValidBSTInorder(self, root: Optional[TreeNode]) -> bool:
+    def isValidBSTInorder(self, root: TreeNode | None) -> bool:
         """
         Approach: Inorder traversal
         Time Complexity: O(n)
@@ -129,7 +129,7 @@ class SolutionValidateBST:
                 return False
         return True
 
-    def isValidBSTIterative(self, root: Optional[TreeNode]) -> bool:
+    def isValidBSTIterative(self, root: TreeNode | None) -> bool:
         """
         Approach: Iterative inorder traversal
         Time Complexity: O(n)
@@ -168,7 +168,7 @@ Output: 1
 """
 
 class SolutionKthSmallest:
-    def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
+    def kthSmallest(self, root: TreeNode | None, k: int) -> int:
         """
         Approach: Iterative inorder traversal
         Time Complexity: O(k)
@@ -193,7 +193,7 @@ class SolutionKthSmallest:
 
         return -1  # Should not reach here
 
-    def kthSmallestRecursive(self, root: Optional[TreeNode], k: int) -> int:
+    def kthSmallestRecursive(self, root: TreeNode | None, k: int) -> int:
         """
         Approach: Recursive inorder with early termination
         Time Complexity: O(n) worst case

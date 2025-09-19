@@ -200,7 +200,7 @@ if __name__ == "__main__":
     print(f"Initial array: {nums}")
     print(f"Sum range [0, 2]: {obj.sumRange(0, 2)}")  # 9
     obj.update(1, 2)
-    print(f"After update index 1 to 2")
+    print("After update index 1 to 2")
     print(f"Sum range [0, 2]: {obj.sumRange(0, 2)}")  # 8
 
     print("\n" + "="*50 + "\n")
@@ -210,7 +210,7 @@ if __name__ == "__main__":
     obj_bit = NumArrayBIT([1, 3, 5])
     print(f"Sum range [0, 2]: {obj_bit.sumRange(0, 2)}")  # 9
     obj_bit.update(1, 2)
-    print(f"After update index 1 to 2")
+    print("After update index 1 to 2")
     print(f"Sum range [0, 2]: {obj_bit.sumRange(0, 2)}")  # 8
 
     print("\n" + "="*50 + "\n")

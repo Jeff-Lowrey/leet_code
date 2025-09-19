@@ -127,6 +127,7 @@ Output: 2
 
 import heapq
 
+
 class SolutionMeetingRoomsII:
     def minMeetingRooms(self, intervals: list[list[int]]) -> int:
         """

@@ -24,6 +24,7 @@ Output:
 
 import random
 
+
 class RandomizedSet:
     """
     Approach: Hash map + dynamic array
@@ -86,6 +87,7 @@ Output:
 
 from collections import defaultdict
 
+
 class RandomizedCollection:
     """
     Approach: Hash map with set of indices + array
@@ -143,7 +145,8 @@ Implement the Twitter class:
 """
 
 import heapq
-from collections import defaultdict, deque
+from collections import deque
+
 
 class Twitter:
     """

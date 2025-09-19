@@ -23,6 +23,7 @@ Output
 
 from collections import OrderedDict
 
+
 class LRUCache:
     """
     Approach: OrderedDict
@@ -134,6 +135,7 @@ Design and implement a data structure for a Least Frequently Used (LFU) cache.
 """
 
 from collections import defaultdict
+
 
 class LFUCache:
     """

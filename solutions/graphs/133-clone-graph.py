@@ -14,6 +14,7 @@ Output: [[2,4],[1,3],[2,4],[1,3]]
 
 from collections import deque
 
+
 class Node:
     def __init__(self, val = 0, neighbors = None):
         self.val = val
@@ -294,7 +295,7 @@ if __name__ == "__main__":
         [5, 1, 1, 2, 4]
     ]
     result = solution_water.pacificAtlantic(heights)
-    print(f"Heights matrix:")
+    print("Heights matrix:")
     for row in heights:
         print(row)
     print(f"Cells reaching both oceans: {result}\n")

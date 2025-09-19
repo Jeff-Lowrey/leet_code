@@ -9,7 +9,7 @@ Input: root = [4,2,7,1,3,6,9]
 Output: [4,7,2,9,6,3,1]
 """
 
-from typing import Optional
+
 
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
@@ -18,7 +18,7 @@ class TreeNode:
         self.right = right
 
 class Solution:
-    def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
+    def invertTree(self, root: TreeNode | None) -> TreeNode | None:
         """
         Approach: Recursive DFS
         Time Complexity: O(n)
@@ -36,7 +36,7 @@ class Solution:
 
         return root
 
-    def invertTreeIterative(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
+    def invertTreeIterative(self, root: TreeNode | None) -> TreeNode | None:
         """
         Approach: Iterative BFS using queue
         Time Complexity: O(n)
@@ -118,6 +118,6 @@ if __name__ == "__main__":
 
     # Test case 1
     root1 = create_tree([4, 2, 7, 1, 3, 6, 9])
-    print(f"Input: [4,2,7,1,3,6,9]")
+    print("Input: [4,2,7,1,3,6,9]")
     inverted1 = solution.invertTree(root1)
     print(f"Output: {tree_to_list(inverted1)}")  # [4,7,2,9,6,3,1]

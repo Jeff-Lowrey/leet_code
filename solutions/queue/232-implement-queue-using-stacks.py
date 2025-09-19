@@ -75,6 +75,7 @@ Output:
 
 from collections import deque
 
+
 class MyStack:
     """
     Approach: Single queue

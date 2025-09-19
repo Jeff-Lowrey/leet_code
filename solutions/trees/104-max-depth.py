@@ -12,8 +12,8 @@ Input: root = [3,9,20,null,null,15,7]
 Output: 3
 """
 
-from typing import Optional
 from collections import deque
+
 
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
@@ -22,7 +22,7 @@ class TreeNode:
         self.right = right
 
 class Solution:
-    def maxDepth(self, root: Optional[TreeNode]) -> int:
+    def maxDepth(self, root: TreeNode | None) -> int:
         """
         Approach: Recursive DFS
         Time Complexity: O(n)
@@ -36,7 +36,7 @@ class Solution:
 
         return 1 + max(left_depth, right_depth)
 
-    def maxDepthIterativeBFS(self, root: Optional[TreeNode]) -> int:
+    def maxDepthIterativeBFS(self, root: TreeNode | None) -> int:
         """
         Approach: Level-order traversal (BFS)
         Time Complexity: O(n)
@@ -61,7 +61,7 @@ class Solution:
 
         return depth
 
-    def maxDepthIterativeDFS(self, root: Optional[TreeNode]) -> int:
+    def maxDepthIterativeDFS(self, root: TreeNode | None) -> int:
         """
         Approach: Iterative DFS using stack
         Time Complexity: O(n)
@@ -116,10 +116,10 @@ if __name__ == "__main__":
 
     # Test case 1
     root1 = create_tree([3, 9, 20, None, None, 15, 7])
-    print(f"Input: [3,9,20,null,null,15,7]")
+    print("Input: [3,9,20,null,null,15,7]")
     print(f"Output: {solution.maxDepth(root1)}")  # 3
 
     # Test case 2
     root2 = create_tree([1, None, 2])
-    print(f"Input: [1,null,2]")
+    print("Input: [1,null,2]")
     print(f"Output: {solution.maxDepth(root2)}")  # 2

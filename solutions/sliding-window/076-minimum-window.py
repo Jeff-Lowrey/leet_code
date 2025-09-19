@@ -13,6 +13,7 @@ Output: "BANC"
 
 from collections import Counter
 
+
 class Solution:
     def minWindow(self, s: str, t: str) -> str:
         """
@@ -123,6 +124,7 @@ Output: [3,3,5,5,6,7]
 """
 
 from collections import deque
+
 
 class SolutionWindowMaximum:
     def maxSlidingWindow(self, nums: list[int], k: int) -> list[int]:
