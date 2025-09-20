@@ -80,6 +80,17 @@
 </section>
 {% endif %}
 
+{% if explanation %}
+<section class="solution-explanation">
+    <details open>
+        <summary><h2>🔍 Solution Explanation</h2></summary>
+        <div class="explanation-content">
+            {{ explanation|safe }}
+        </div>
+    </details>
+</section>
+{% endif %}
+
 <section class="solution-code">
     <h2>Solution Code</h2>
     {{ code|safe }}
