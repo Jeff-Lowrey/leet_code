@@ -25,9 +25,48 @@ from pygments.lexers import (
 
 from .category_data import category_manager
 from .leetcode_converter import convert_to_leetcode_format, extract_solution_class
+import re
+import ast
 
 app = Flask(__name__, template_folder="../../templates", static_folder="../../static")
 app.config["SECRET_KEY"] = "dev-key-change-in-production"
+
+
+def parse_docstring_explanation(code: str) -> tuple[str, str | None]:
+    """Parse Python code to extract explanation and clean code.
+
+    Returns:
+        Tuple of (clean_code_without_explanation, explanation_html)
+    """
+    try:
+        # Look for <details> sections anywhere in the code
+        details_pattern = r'<details>\s*<summary><b>🔍 SOLUTION EXPLANATION</b></summary>(.*?)</details>'
+        match = re.search(details_pattern, code, re.DOTALL)
+
+        if match:
+            explanation_content = match.group(1).strip()
+
+            # Convert markdown-style content to HTML
+            explanation_html = markdown.markdown(
+                explanation_content,
+                extensions=["fenced_code", "tables"]
+            )
+
+            # Remove the entire <details> section from the code
+            clean_code = re.sub(
+                r'<details>\s*<summary><b>🔍 SOLUTION EXPLANATION</b></summary>.*?</details>\s*',
+                '',
+                code,
+                flags=re.DOTALL
+            )
+
+            return clean_code, explanation_html
+
+        return code, None
+
+    except Exception:
+        # If parsing fails, return original code
+        return code, None
 
 
 def get_syntax_highlighting_style() -> str:
@@ -90,6 +129,10 @@ def category_view(category: str) -> str:
 @app.route("/solution/<category>/<filename>")
 def solution_view(category: str, filename: str) -> str:
     """View a specific solution."""
+    # Add .py extension if not present
+    if not filename.endswith(".py"):
+        filename = filename + ".py"
+
     solution_code = category_manager.read_solution_content(category, filename)
     if not solution_code:
         abort(404)
@@ -99,9 +142,12 @@ def solution_view(category: str, filename: str) -> str:
     if not solution:
         abort(404)
 
+    # Parse docstring to extract explanation
+    clean_code, explanation_html = parse_docstring_explanation(solution_code)
+
     # Syntax highlighting for Python code
     formatter = create_code_formatter()
-    highlighted_code = highlight(solution_code, PythonLexer(), formatter)
+    highlighted_code = highlight(clean_code, PythonLexer(), formatter)
 
     # Try to find corresponding documentation
     doc_name = filename.replace(".py", "")
@@ -114,15 +160,19 @@ def solution_view(category: str, filename: str) -> str:
     # Get all available languages for this problem
     available_languages = get_available_languages(category, filename)
 
+    # Remove .py from filename for URL display
+    display_filename = filename.replace(".py", "")
+
     return render_template(
         "solution.html",
         category=category,
         category_name=cat_data.name if cat_data else category.replace("-", " ").title(),
-        filename=filename,
+        filename=display_filename,
         problem_number=solution.number,
         problem_name=solution.name,
         code=highlighted_code,
         documentation=doc_html,
+        explanation=explanation_html,
         style=formatter.get_style_defs(".highlight"),  # type: ignore[no-untyped-call]
         is_leetcode_format=False,
         available_languages=available_languages,
@@ -132,6 +182,9 @@ def solution_view(category: str, filename: str) -> str:
 @app.route("/solution/<category>/<filename>/leetcode")
 def solution_leetcode_view(category: str, filename: str) -> str:
     """View solution in LeetCode format (camelCase)."""
+    # Add .py extension if not present
+    if not filename.endswith(".py"):
+        filename = filename + ".py"
     solution_code = category_manager.read_solution_content(category, filename)
     if not solution_code:
         abort(404)
@@ -151,17 +204,22 @@ def solution_leetcode_view(category: str, filename: str) -> str:
 
     cat_data = category_manager.get_category(category)
 
+    # Remove .py from filename for URL display
+    display_filename = filename.replace(".py", "")
+
     return render_template(
         "solution.html",
         category=category,
         category_name=cat_data.name if cat_data else category.replace("-", " ").title(),
-        filename=filename,
+        filename=display_filename,
         problem_number=solution.number,
         problem_name=solution.name + " (LeetCode Format)",
         code=highlighted_code,
         documentation=None,
+        explanation=None,
         style=formatter.get_style_defs(".highlight"),  # type: ignore[no-untyped-call]
         is_leetcode_format=True,
+        available_languages=[],
     )
 
 
@@ -360,21 +418,27 @@ def upload_alternative_solution(category: str, filename: str) -> str | Response:
         file_field = "file" if "file" in request.files else "solution_file"
         if file_field not in request.files:
             flash("No file selected", "error")
-            return cast(Response, redirect(url_for("solution_view", category=category, filename=filename)))
+            # Remove .py for redirect
+            display_filename = filename.replace(".py", "")
+            return cast(Response, redirect(url_for("solution_view", category=category, filename=display_filename)))
 
         file = request.files[file_field]
         language = request.form.get("language")
 
         if file.filename == "":
             flash("No file selected", "error")
-            return cast(Response, redirect(url_for("solution_view", category=category, filename=filename)))
+            # Remove .py for redirect
+            display_filename = filename.replace(".py", "")
+            return cast(Response, redirect(url_for("solution_view", category=category, filename=display_filename)))
 
         if file and language:
             # Validate file extension matches language
             expected_ext = get_file_extension(language)
             if file.filename and not file.filename.endswith(expected_ext):
                 flash("Invalid file extension for selected language", "error")
-                return cast(Response, redirect(url_for("solution_view", category=category, filename=filename)))
+                # Remove .py for redirect
+            display_filename = filename.replace(".py", "")
+            return cast(Response, redirect(url_for("solution_view", category=category, filename=display_filename)))
             # Create language-specific filename
             base_name = filename.replace(".py", "")
             lang_extension = get_file_extension(language)
@@ -389,10 +453,14 @@ def upload_alternative_solution(category: str, filename: str) -> str | Response:
             file.save(str(file_path))
 
             flash(f"Successfully uploaded {language} solution", "success")
-            return cast(Response, redirect(url_for("solution_view", category=category, filename=filename)))
+            # Remove .py for redirect
+            display_filename = filename.replace(".py", "")
+            return cast(Response, redirect(url_for("solution_view", category=category, filename=display_filename)))
 
     # GET request - show upload form
-    return render_template("upload_solution.html", category=category, filename=filename, solution=solution)
+    # Remove .py from filename for URL display
+    display_filename = filename.replace(".py", "")
+    return render_template("upload_solution.html", category=category, filename=display_filename, solution=solution)
 
 
 @app.route("/solution/<category>/<filename>/view/<language>")
@@ -429,15 +497,19 @@ def view_alternative_solution(category: str, filename: str, language: str) -> st
 
     cat_data = category_manager.get_category(category)
 
+    # Remove .py from filename for URL display
+    display_filename = filename.replace(".py", "")
+
     return render_template(
         "solution.html",
         category=category,
         category_name=cat_data.name if cat_data else category.replace("-", " ").title(),
-        filename=filename,
+        filename=display_filename,
         problem_number=solution.number,
         problem_name=f"{solution.name} ({language})",
         code=highlighted_code,
         documentation=None,
+        explanation=None,
         style=formatter.get_style_defs(".highlight"),  # type: ignore[no-untyped-call]
         is_leetcode_format=False,
         current_language=language,
