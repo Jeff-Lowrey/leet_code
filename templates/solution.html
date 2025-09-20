@@ -71,19 +71,10 @@
     {% endif %}
 </header>
 
-{% if documentation %}
-<section class="documentation">
-    <h2>Problem Explanation</h2>
-    <div class="doc-content">
-        {{ documentation|safe }}
-    </div>
-</section>
-{% endif %}
-
 {% if explanation %}
 <section class="solution-explanation">
-    <details open>
-        <summary><h2>🔍 Solution Explanation</h2></summary>
+    <details>
+        <summary><h2>📖 Problem & Solution Guide</h2></summary>
         <div class="explanation-content">
             {{ explanation|safe }}
         </div>
