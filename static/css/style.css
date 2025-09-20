@@ -443,6 +443,106 @@ main {
     margin-bottom: 2rem;
 }
 
+/* Solution Explanation */
+.solution-explanation {
+    background: white;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    border: 1px solid var(--border-color);
+}
+
+.solution-explanation details {
+    border: none;
+}
+
+.solution-explanation summary {
+    padding: 1.5rem 2rem;
+    cursor: pointer;
+    border-bottom: 1px solid var(--border-color);
+    background: var(--light-bg);
+    border-radius: 8px 8px 0 0;
+    transition: background-color 0.2s;
+    list-style: none;
+    position: relative;
+}
+
+.solution-explanation summary::-webkit-details-marker {
+    display: none;
+}
+
+.solution-explanation summary::before {
+    content: '▶';
+    position: absolute;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%) rotate(0deg);
+    transition: transform 0.2s;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.solution-explanation details[open] summary::before {
+    transform: translateY(-50%) rotate(90deg);
+}
+
+.solution-explanation summary:hover {
+    background: var(--border-color);
+}
+
+.solution-explanation summary h2 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.explanation-content {
+    padding: 2rem;
+}
+
+.explanation-content h3 {
+    color: var(--primary-color);
+    margin: 1.5rem 0 1rem 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.explanation-content h3:first-child {
+    margin-top: 0;
+}
+
+.explanation-content p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.explanation-content ul {
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.explanation-content li {
+    margin-bottom: 0.5rem;
+}
+
+.explanation-content pre {
+    background: var(--light-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 1rem;
+    margin: 1rem 0;
+    overflow-x: auto;
+    font-size: 0.9rem;
+}
+
+.explanation-content code {
+    background: var(--light-bg);
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+    font-size: 0.9rem;
+    font-family: 'Monaco', 'Courier New', monospace;
+}
+
 .doc-content {
     line-height: 1.8;
 }
