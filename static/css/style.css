@@ -543,6 +543,101 @@ main {
     font-family: 'Monaco', 'Courier New', monospace;
 }
 
+/* Combined content sections */
+.problem-documentation {
+    margin-bottom: 2rem;
+}
+
+.solution-details {
+    border-top: 1px solid var(--border-color);
+    padding-top: 2rem;
+}
+
+.problem-documentation h3,
+.solution-details h3 {
+    color: var(--primary-color);
+    margin: 0 0 1rem 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.problem-documentation .doc-content,
+.solution-details .explanation-content {
+    margin-top: 1rem;
+}
+
+/* Reorganized content sections */
+.content-section {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+}
+
+.content-section:not(:last-child) {
+    border-bottom: 1px solid var(--border-color);
+}
+
+.content-section h3 {
+    color: var(--primary-color);
+    margin: 0 0 1rem 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.content-section h4 {
+    color: var(--text-primary);
+    margin: 1.5rem 0 0.75rem 0;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.content-section h4:first-child {
+    margin-top: 0;
+}
+
+.content-section ul {
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.content-section li {
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+}
+
+.content-section p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.content-section pre {
+    background: var(--light-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 1rem;
+    margin: 1rem 0;
+    overflow-x: auto;
+    font-size: 0.9rem;
+}
+
+.content-section code {
+    background: var(--light-bg);
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+    font-size: 0.9rem;
+    font-family: 'Monaco', 'Courier New', monospace;
+}
+
+.content-section strong {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
 .doc-content {
     line-height: 1.8;
 }
