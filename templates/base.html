@@ -129,10 +129,11 @@
                 .then(solutions => {
                     let html = '';
                     solutions.forEach(solution => {
-                        const currentSolution = window.location.pathname.includes(solution.filename);
+                        const cleanFilename = solution.filename.replace('.py', '');
+                        const currentSolution = window.location.pathname.includes(cleanFilename);
                         html += `
                             <li class="${currentSolution ? 'active' : ''}">
-                                <a href="/solution/${slug}/${solution.filename}">
+                                <a href="/solution/${slug}/${cleanFilename}">
                                     ${solution.number ? `#${solution.number} ` : ''}${solution.name}
                                 </a>
                             </li>

@@ -24,7 +24,7 @@
     <h2>Problems</h2>
     <div class="solutions-grid">
         {% for solution in solutions %}
-        <a href="{{ url_for('solution_view', category=category, filename=solution.filename) }}" class="solution-card">
+        <a href="{{ url_for('solution_view', category=category, filename=solution.filename.replace('.py', '')) }}" class="solution-card">
             {% if solution.number %}
             <span class="problem-number">#{{ solution.number }}</span>
             {% endif %}

@@ -22,7 +22,7 @@
             </button>
             <div class="dropdown-menu" id="dropdown-{{ category.slug }}">
                 {% for solution in category.solutions[:10] %}
-                <a href="{{ url_for('solution_view', category=category.slug, filename=solution.filename) }}"
+                <a href="{{ url_for('solution_view', category=category.slug, filename=solution.filename.replace('.py', '')) }}"
                    class="dropdown-item">
                     <span class="problem-num">#{{ solution.number }}</span>
                     {{ solution.name }}
