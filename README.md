@@ -214,4 +214,4 @@ This project is for educational purposes.
 
 ---
 
-*A comprehensive LeetCode solutions platform with multi-language support, automatic format conversion, and modern development tools.*
+*A comprehensive LeetCode learning platform with multi-language support, automatic format conversion, and modern development tools.*
