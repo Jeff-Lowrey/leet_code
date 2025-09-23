@@ -95,3 +95,6 @@ cython_debug/
 
 # PDM
 pdm.lock
+
+# Workflow execution cache
+.workflow-cache/
