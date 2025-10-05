@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
-"""LeetCode Solutions Web Interface"""
+"""Leet Code Learning Tool Web Interface"""
 
 import argparse
+import ast
+import re
 from pathlib import Path
 from typing import Any, cast
 
@@ -25,11 +27,9 @@ from pygments.lexers import (
 
 from .category_data import category_manager
 from .leetcode_converter import convert_to_leetcode_format, extract_solution_class
-import re
-import ast
 
 app = Flask(__name__, template_folder="../../templates", static_folder="../../static")
-app.config["SECRET_KEY"] = "dev-key-change-in-production"
+app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY", "dev-key-change-in-production")
 
 
 def parse_docstring_explanation(code: str) -> tuple[str, str | None]:
@@ -40,24 +40,21 @@ def parse_docstring_explanation(code: str) -> tuple[str, str | None]:
     """
     try:
         # Look for <details> sections anywhere in the code
-        details_pattern = r'<details>\s*<summary><b>🔍 SOLUTION EXPLANATION</b></summary>(.*?)</details>'
+        details_pattern = r"<details>\s*<summary><b>🔍 SOLUTION EXPLANATION</b></summary>(.*?)</details>"
         match = re.search(details_pattern, code, re.DOTALL)
 
         if match:
             explanation_content = match.group(1).strip()
 
             # Convert markdown-style content to HTML
-            explanation_html = markdown.markdown(
-                explanation_content,
-                extensions=["fenced_code", "tables"]
-            )
+            explanation_html = markdown.markdown(explanation_content, extensions=["fenced_code", "tables"])
 
             # Remove the entire <details> section from the code
             clean_code = re.sub(
-                r'<details>\s*<summary><b>🔍 SOLUTION EXPLANATION</b></summary>.*?</details>\s*',
-                '',
+                r"<details>\s*<summary><b>🔍 SOLUTION EXPLANATION</b></summary>.*?</details>\s*",
+                "",
                 code,
-                flags=re.DOTALL
+                flags=re.DOTALL,
             )
 
             return clean_code, explanation_html
@@ -93,98 +90,98 @@ def merge_and_reorganize_content(documentation: str | None, explanation: str | N
     reorganized_parts = []
 
     # 1. Problem Description (prefer doc version, fallback to explanation)
-    problem_desc = doc_sections.get('problem_description') or exp_sections.get('problem_description')
+    problem_desc = doc_sections.get("problem_description") or exp_sections.get("problem_description")
     if problem_desc:
         reorganized_parts.append('<div class="content-section">')
-        reorganized_parts.append('<h3>📋 Problem</h3>')
+        reorganized_parts.append("<h3>📋 Problem</h3>")
         reorganized_parts.append(problem_desc)
-        reorganized_parts.append('</div>')
+        reorganized_parts.append("</div>")
 
     # 2. Solution Strategy (merge intuition and approach, include algorithm if brief)
     strategy_content = []
-    if exp_sections.get('intuition'):
-        strategy_content.append('<h4>Key Insight</h4>')
-        strategy_content.append(exp_sections['intuition'])
+    if exp_sections.get("intuition"):
+        strategy_content.append("<h4>Key Insight</h4>")
+        strategy_content.append(exp_sections["intuition"])
 
     # Choose the best approach content (prefer concise explanation over detailed docs when both exist)
     approach_content = None
-    if exp_sections.get('approach') and doc_sections.get('approach'):
+    if exp_sections.get("approach") and doc_sections.get("approach"):
         # If explanation approach is brief (< 500 chars) and doc approach is long, use explanation
-        exp_approach_length = len(exp_sections['approach'])
-        doc_approach_length = len(doc_sections['approach'])
+        exp_approach_length = len(exp_sections["approach"])
+        doc_approach_length = len(doc_sections["approach"])
         if exp_approach_length < 500 and doc_approach_length > 1000:
-            approach_content = exp_sections['approach']
+            approach_content = exp_sections["approach"]
         else:
-            approach_content = doc_sections['approach']
+            approach_content = doc_sections["approach"]
     else:
-        approach_content = doc_sections.get('approach') or exp_sections.get('approach')
+        approach_content = doc_sections.get("approach") or exp_sections.get("approach")
 
     if approach_content:
         # Clean up the approach content to remove redundant headings
         cleaned_approach = clean_approach_content(approach_content)
-        strategy_content.append('<h4>Approach</h4>')
+        strategy_content.append("<h4>Approach</h4>")
         strategy_content.append(cleaned_approach)
 
     if strategy_content:
         reorganized_parts.append('<div class="content-section">')
-        reorganized_parts.append('<h3>🔍 Solution Strategy</h3>')
+        reorganized_parts.append("<h3>🔍 Solution Strategy</h3>")
         reorganized_parts.extend(strategy_content)
-        reorganized_parts.append('</div>')
+        reorganized_parts.append("</div>")
 
     # 3. Algorithm Steps (only if significantly different from approach)
-    algorithm = doc_sections.get('algorithm')
-    if algorithm and not content_too_similar(approach_content or '', algorithm):
+    algorithm = doc_sections.get("algorithm")
+    if algorithm and not content_too_similar(approach_content or "", algorithm):
         reorganized_parts.append('<div class="content-section">')
-        reorganized_parts.append('<h3>⚙️ Algorithm Steps</h3>')
+        reorganized_parts.append("<h3>⚙️ Algorithm Steps</h3>")
         reorganized_parts.append(algorithm)
-        reorganized_parts.append('</div>')
+        reorganized_parts.append("</div>")
 
     # 4. Example Walkthrough (merge examples, prefer more detailed)
-    example = doc_sections.get('example') or exp_sections.get('example')
+    example = doc_sections.get("example") or exp_sections.get("example")
     if example:
         reorganized_parts.append('<div class="content-section">')
-        reorganized_parts.append('<h3>📝 Example</h3>')
+        reorganized_parts.append("<h3>📝 Example</h3>")
         reorganized_parts.append(example)
-        reorganized_parts.append('</div>')
+        reorganized_parts.append("</div>")
 
     # 5. Analysis (complexity, why it works)
     analysis_content = []
-    if exp_sections.get('why_works'):
-        analysis_content.append('<h4>Why This Works</h4>')
-        analysis_content.append(exp_sections['why_works'])
+    if exp_sections.get("why_works"):
+        analysis_content.append("<h4>Why This Works</h4>")
+        analysis_content.append(exp_sections["why_works"])
 
-    complexity = doc_sections.get('complexity')
+    complexity = doc_sections.get("complexity")
     if complexity:
-        analysis_content.append('<h4>Complexity Analysis</h4>')
+        analysis_content.append("<h4>Complexity Analysis</h4>")
         analysis_content.append(complexity)
 
     if analysis_content:
         reorganized_parts.append('<div class="content-section">')
-        reorganized_parts.append('<h3>📈 Analysis</h3>')
+        reorganized_parts.append("<h3>📈 Analysis</h3>")
         reorganized_parts.extend(analysis_content)
-        reorganized_parts.append('</div>')
+        reorganized_parts.append("</div>")
 
     # 6. Additional Information (alternatives, tips, variations)
     additional_content = []
-    if doc_sections.get('alternatives'):
-        additional_content.append('<h4>Alternative Approaches</h4>')
-        additional_content.append(doc_sections['alternatives'])
+    if doc_sections.get("alternatives"):
+        additional_content.append("<h4>Alternative Approaches</h4>")
+        additional_content.append(doc_sections["alternatives"])
 
-    if doc_sections.get('tips'):
-        additional_content.append('<h4>Key Takeaways</h4>')
-        additional_content.append(doc_sections['tips'])
+    if doc_sections.get("tips"):
+        additional_content.append("<h4>Key Takeaways</h4>")
+        additional_content.append(doc_sections["tips"])
 
-    if doc_sections.get('variations'):
-        additional_content.append('<h4>Common Variations</h4>')
-        additional_content.append(doc_sections['variations'])
+    if doc_sections.get("variations"):
+        additional_content.append("<h4>Common Variations</h4>")
+        additional_content.append(doc_sections["variations"])
 
     if additional_content:
         reorganized_parts.append('<div class="content-section">')
-        reorganized_parts.append('<h3>💡 Additional Insights</h3>')
+        reorganized_parts.append("<h3>💡 Additional Insights</h3>")
         reorganized_parts.extend(additional_content)
-        reorganized_parts.append('</div>')
+        reorganized_parts.append("</div>")
 
-    return '\n'.join(reorganized_parts) if reorganized_parts else None
+    return "\n".join(reorganized_parts) if reorganized_parts else None
 
 
 def extract_documentation_sections(html_content: str) -> dict[str, str]:
@@ -192,47 +189,47 @@ def extract_documentation_sections(html_content: str) -> dict[str, str]:
     sections = {}
 
     # Remove the title (h1) as it's redundant with page title
-    content = re.sub(r'<h1>.*?</h1>', '', html_content, flags=re.DOTALL)
+    content = re.sub(r"<h1>.*?</h1>", "", html_content, flags=re.DOTALL)
 
     # Extract problem description (everything before "Solution Explanation" or "Approach")
-    prob_match = re.search(r'<h2>Problem Description</h2>(.*?)(?=<h2>|$)', content, re.DOTALL)
+    prob_match = re.search(r"<h2>Problem Description</h2>(.*?)(?=<h2>|$)", content, re.DOTALL)
     if prob_match:
-        sections['problem_description'] = prob_match.group(1).strip()
+        sections["problem_description"] = prob_match.group(1).strip()
 
     # Extract approach/solution explanation
-    approach_match = re.search(r'<h2>Solution Explanation</h2>(.*?)(?=<h2>|$)', content, re.DOTALL)
+    approach_match = re.search(r"<h2>Solution Explanation</h2>(.*?)(?=<h2>|$)", content, re.DOTALL)
     if approach_match:
-        sections['approach'] = approach_match.group(1).strip()
+        sections["approach"] = approach_match.group(1).strip()
 
     # Extract algorithm steps
-    algo_match = re.search(r'<h3>Algorithm Steps</h3>(.*?)(?=<h[1-6]>|$)', content, re.DOTALL)
+    algo_match = re.search(r"<h3>Algorithm Steps</h3>(.*?)(?=<h[1-6]>|$)", content, re.DOTALL)
     if algo_match:
-        sections['algorithm'] = algo_match.group(1).strip()
+        sections["algorithm"] = algo_match.group(1).strip()
 
     # Extract visual example
-    example_match = re.search(r'<h3>Visual Example</h3>(.*?)(?=<h[1-6]>|$)', content, re.DOTALL)
+    example_match = re.search(r"<h3>Visual Example</h3>(.*?)(?=<h[1-6]>|$)", content, re.DOTALL)
     if example_match:
-        sections['example'] = example_match.group(1).strip()
+        sections["example"] = example_match.group(1).strip()
 
     # Extract complexity analysis
-    complexity_match = re.search(r'<h2>Complexity Analysis</h2>(.*?)(?=<h2>|$)', content, re.DOTALL)
+    complexity_match = re.search(r"<h2>Complexity Analysis</h2>(.*?)(?=<h2>|$)", content, re.DOTALL)
     if complexity_match:
-        sections['complexity'] = complexity_match.group(1).strip()
+        sections["complexity"] = complexity_match.group(1).strip()
 
     # Extract alternative approaches
-    alt_match = re.search(r'<h2>Alternative Approaches</h2>(.*?)(?=<h2>|$)', content, re.DOTALL)
+    alt_match = re.search(r"<h2>Alternative Approaches</h2>(.*?)(?=<h2>|$)", content, re.DOTALL)
     if alt_match:
-        sections['alternatives'] = alt_match.group(1).strip()
+        sections["alternatives"] = alt_match.group(1).strip()
 
     # Extract key takeaways
-    tips_match = re.search(r'<h2>Key Takeaways</h2>(.*?)(?=<h2>|$)', content, re.DOTALL)
+    tips_match = re.search(r"<h2>Key Takeaways</h2>(.*?)(?=<h2>|$)", content, re.DOTALL)
     if tips_match:
-        sections['tips'] = tips_match.group(1).strip()
+        sections["tips"] = tips_match.group(1).strip()
 
     # Extract variations
-    var_match = re.search(r'<h2>Common Variations</h2>(.*?)(?=<h2>|$)', content, re.DOTALL)
+    var_match = re.search(r"<h2>Common Variations</h2>(.*?)(?=<h2>|$)", content, re.DOTALL)
     if var_match:
-        sections['variations'] = var_match.group(1).strip()
+        sections["variations"] = var_match.group(1).strip()
 
     return sections
 
@@ -242,24 +239,24 @@ def extract_explanation_sections(html_content: str) -> dict[str, str]:
     sections = {}
 
     # Extract intuition
-    intuition_match = re.search(r'<h3>INTUITION:</h3>(.*?)(?=<h3>|$)', html_content, re.DOTALL)
+    intuition_match = re.search(r"<h3>INTUITION:</h3>(.*?)(?=<h3>|$)", html_content, re.DOTALL)
     if intuition_match:
-        sections['intuition'] = intuition_match.group(1).strip()
+        sections["intuition"] = intuition_match.group(1).strip()
 
     # Extract approach
-    approach_match = re.search(r'<h3>APPROACH:</h3>(.*?)(?=<h3>|$)', html_content, re.DOTALL)
+    approach_match = re.search(r"<h3>APPROACH:</h3>(.*?)(?=<h3>|$)", html_content, re.DOTALL)
     if approach_match:
-        sections['approach'] = approach_match.group(1).strip()
+        sections["approach"] = approach_match.group(1).strip()
 
     # Extract why this works
-    why_match = re.search(r'<h3>WHY THIS WORKS:</h3>(.*?)(?=<h3>|$)', html_content, re.DOTALL)
+    why_match = re.search(r"<h3>WHY THIS WORKS:</h3>(.*?)(?=<h3>|$)", html_content, re.DOTALL)
     if why_match:
-        sections['why_works'] = why_match.group(1).strip()
+        sections["why_works"] = why_match.group(1).strip()
 
     # Extract example walkthrough
-    example_match = re.search(r'<h3>EXAMPLE WALKTHROUGH:</h3>(.*?)(?=<h3>|$)', html_content, re.DOTALL)
+    example_match = re.search(r"<h3>EXAMPLE WALKTHROUGH:</h3>(.*?)(?=<h3>|$)", html_content, re.DOTALL)
     if example_match:
-        sections['example'] = example_match.group(1).strip()
+        sections["example"] = example_match.group(1).strip()
 
     return sections
 
@@ -267,13 +264,13 @@ def extract_explanation_sections(html_content: str) -> dict[str, str]:
 def clean_approach_content(content: str) -> str:
     """Clean approach content by removing redundant headings and formatting."""
     # Remove redundant h3 headings like "Approach:" or "Algorithm Steps"
-    content = re.sub(r'<h3>\s*(?:Approach[:\s]*|Algorithm Steps?[:\s]*).*?</h3>', '', content, flags=re.IGNORECASE)
+    content = re.sub(r"<h3>\s*(?:Approach[:\s]*|Algorithm Steps?[:\s]*).*?</h3>", "", content, flags=re.IGNORECASE)
 
     # Remove redundant h4 headings that repeat the same information
-    content = re.sub(r'<h4>\s*(?:Approach[:\s]*|Algorithm[:\s]*).*?</h4>', '', content, flags=re.IGNORECASE)
+    content = re.sub(r"<h4>\s*(?:Approach[:\s]*|Algorithm[:\s]*).*?</h4>", "", content, flags=re.IGNORECASE)
 
     # Clean up excessive whitespace
-    content = re.sub(r'\n\s*\n\s*\n', '\n\n', content)
+    content = re.sub(r"\n\s*\n\s*\n", "\n\n", content)
 
     return content.strip()
 
@@ -284,11 +281,11 @@ def content_too_similar(content1: str, content2: str) -> bool:
         return False
 
     # Remove HTML tags and normalize whitespace for comparison
-    text1 = re.sub(r'<[^>]+>', ' ', content1).lower()
-    text1 = re.sub(r'\s+', ' ', text1).strip()
+    text1 = re.sub(r"<[^>]+>", " ", content1).lower()
+    text1 = re.sub(r"\s+", " ", text1).strip()
 
-    text2 = re.sub(r'<[^>]+>', ' ', content2).lower()
-    text2 = re.sub(r'\s+', ' ', text2).strip()
+    text2 = re.sub(r"<[^>]+>", " ", content2).lower()
+    text2 = re.sub(r"\s+", " ", text2).strip()
 
     # If one is much shorter, they're probably different
     if len(text1) < 100 or len(text2) < 100:
@@ -310,21 +307,21 @@ def content_too_similar(content1: str, content2: str) -> bool:
 def get_syntax_highlighting_style() -> str:
     """Get the appropriate syntax highlighting style based on theme preference."""
     # Check for theme preference from cookies or headers
-    theme = request.cookies.get('theme', 'light')
+    theme = request.cookies.get("theme", "light")
 
     # You can also check from localStorage via a query parameter if needed
-    theme_param = request.args.get('theme')
-    if theme_param in ['light', 'dark']:
+    theme_param = request.args.get("theme")
+    if theme_param in ["light", "dark"]:
         theme = theme_param
 
     # Return appropriate Pygments style
-    if theme == 'dark':
+    if theme == "dark":
         return "monokai"  # Dark theme
     else:
         return "default"  # Light theme
 
 
-def create_code_formatter() -> HtmlFormatter:
+def create_code_formatter() -> HtmlFormatter[str]:
     """Create a code formatter with appropriate theme."""
     style = get_syntax_highlighting_style()
     return HtmlFormatter(style=style, linenos=True)
@@ -572,7 +569,6 @@ def generate_skeleton(code: str, solution: Any, is_leetcode: bool = False) -> st
         solution: Solution metadata object
         is_leetcode: If True, generates LeetCode-ready skeleton (for hidden file)
     """
-    import ast
     import re
 
     header_text = "LeetCode Submission Skeleton" if is_leetcode else "Problem Skeleton"
@@ -611,7 +607,7 @@ def generate_skeleton(code: str, solution: Any, is_leetcode: bool = False) -> st
                         returns = ""
                         if method.returns:
                             returns = (
-                                f' -> {ast.unparse(method.returns) if hasattr(ast, "unparse") else str(method.returns)}'
+                                f" -> {ast.unparse(method.returns) if hasattr(ast, 'unparse') else str(method.returns)}"
                             )
 
                         skeleton_lines.append(f"    def {method.name}({args_str}){returns}:")
@@ -678,23 +674,6 @@ def upload_alternative_solution(category: str, filename: str) -> str | Response:
             if file.filename and not file.filename.endswith(expected_ext):
                 flash("Invalid file extension for selected language", "error")
                 # Remove .py for redirect
-            display_filename = filename.replace(".py", "")
-            return cast(Response, redirect(url_for("solution_view", category=category, filename=display_filename)))
-            # Create language-specific filename
-            base_name = filename.replace(".py", "")
-            lang_extension = get_file_extension(language)
-            new_filename = f"{base_name}.{language.lower()}{lang_extension}"
-
-            # Create alternative solutions directory if it doesn't exist
-            alt_dir = Path(__file__).parent.parent.parent / "solutions" / category / "alternatives"
-            alt_dir.mkdir(parents=True, exist_ok=True)
-
-            # Save the file
-            file_path = alt_dir / new_filename
-            file.save(str(file_path))
-
-            flash(f"Successfully uploaded {language} solution", "success")
-            # Remove .py for redirect
             display_filename = filename.replace(".py", "")
             return cast(Response, redirect(url_for("solution_view", category=category, filename=display_filename)))
 
@@ -900,7 +879,7 @@ def api_category_solutions(category: str) -> Response:
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="LeetCode Solutions Web Interface")
+    parser = argparse.ArgumentParser(description="Leet Code Learning Tool Web Interface")
     parser.add_argument("--host", default="127.0.0.1", help="Hostname to bind to (default: 127.0.0.1)")
     parser.add_argument("--port", type=int, default=9501, help="Port to bind to (default: 9501)")
     parser.add_argument("--debug", action="store_true", default=True, help="Enable debug mode (default: True)")
