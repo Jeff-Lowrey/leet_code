@@ -1,9 +1,5 @@
 """Simple tests to improve coverage without complex mocking."""
 
-from pathlib import Path
-
-import pytest
-
 from src.leet_code.category_data import CategoryManager, Solution
 from src.leet_code.leetcode_converter import (
     convert_params_in_signature,

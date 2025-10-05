@@ -1,10 +1,7 @@
 """Integration tests for file upload and download functionality."""
 
-import json
-import tempfile
 import zipfile
 from io import BytesIO
-from pathlib import Path
 from unittest.mock import MagicMock, mock_open, patch
 
 import pytest
@@ -250,9 +247,7 @@ class TestLanguageViewing:
         mock_path_class.return_value.parent = mock_parent
 
         # Chain the path operations: parent / "solutions" / category / "alternatives" / filename
-        mock_parent.__truediv__.return_value.__truediv__.return_value.__truediv__.return_value.__truediv__.return_value = (
-            mock_path_instance
-        )
+        mock_parent.__truediv__.return_value.__truediv__.return_value.__truediv__.return_value.__truediv__.return_value = mock_path_instance
 
         response = client.get("/solution/arrays-hashing/001-two-sum.py/view/Java")
         assert response.status_code == 200
@@ -270,18 +265,12 @@ class TestLanguageViewing:
         # Mock helper function
         mock_get_ext.return_value = ".rs"
 
-        # Mock Path construction and file non-existence
-        mock_path_instance = MagicMock()
-        mock_path_instance.exists.return_value = False
+        # Mock Path(__file__).parent.parent.parent path construction
+        mock_alt_path = MagicMock()
+        mock_alt_path.exists.return_value = False
 
-        # Path(__file__).parent returns a mock that we can chain
-        mock_parent = MagicMock()
-        mock_path_class.return_value.parent = mock_parent
-
-        # Chain the path operations: parent / "solutions" / category / "alternatives" / filename
-        mock_parent.__truediv__.return_value.__truediv__.return_value.__truediv__.return_value.__truediv__.return_value = (
-            mock_path_instance
-        )
+        # Mock the complete path chain
+        mock_path_class.return_value.parent.parent.parent.__truediv__.return_value.__truediv__.return_value.__truediv__.return_value.__truediv__.return_value = mock_alt_path
 
         response = client.get("/solution/arrays-hashing/001-two-sum.py/view/Rust")
         assert response.status_code == 404

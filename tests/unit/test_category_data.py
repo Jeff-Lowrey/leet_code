@@ -1,9 +1,7 @@
 """Unit tests for the category_data module."""
 
 from pathlib import Path
-from unittest.mock import MagicMock, Mock, patch
-
-import pytest
+from unittest.mock import MagicMock, patch
 
 from src.leet_code.category_data import Category, CategoryManager, Solution
 

@@ -1,9 +1,6 @@
 """Integration tests for Flask routes."""
 
 import json
-import shutil
-import tempfile
-from pathlib import Path
 from unittest.mock import MagicMock, patch
 
 import pytest
@@ -53,7 +50,7 @@ class TestHomeRoute:
 
         response = client.get("/")
         assert response.status_code == 200
-        assert b"LeetCode Solutions" in response.data
+        assert b"Leet Code Learning Tool" in response.data
         assert b"Arrays &amp; Hashing" in response.data
         assert b"Two Pointers" in response.data
 
@@ -215,5 +212,5 @@ class TestErrorHandlers:
 
         # In testing mode, Flask will propagate the exception
         # So we just verify it doesn't return a normal 200 OK
-        with pytest.raises(Exception):
-            response = client.get("/")
+        with pytest.raises(Exception, match="Test error"):
+            client.get("/")

@@ -2,9 +2,6 @@
 
 from unittest.mock import MagicMock, patch
 
-import pytest
-from pygments.lexers import get_lexer_by_name
-
 from src.leet_code.app import get_available_languages, get_file_extension, get_lexer_for_language
 
 
@@ -70,9 +67,7 @@ class TestHelperFunctions:
         mock_alt_dir.iterdir.return_value = [mock_java_file, mock_cpp_file]
 
         # Mock the full path chain for alternatives directory
-        mock_path_class.return_value.parent.parent.parent.__truediv__.return_value.__truediv__.return_value.__truediv__.return_value.__truediv__.return_value = (
-            mock_alt_dir
-        )
+        mock_path_class.return_value.parent.parent.parent.__truediv__.return_value.__truediv__.return_value.__truediv__.return_value.__truediv__.return_value = mock_alt_dir
 
         result = get_available_languages("category", "001-two-sum.py")
 
