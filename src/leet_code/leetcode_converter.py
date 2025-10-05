@@ -11,6 +11,7 @@ class LeetCodeConverter(ast.NodeTransformer):
     def __init__(self) -> None:
         self.method_mapping: dict[str, str] = {}
         self.converted_methods: set[str] = set()
+        self.variable_mapping: dict[str, str] = {}
 
     def snake_to_camel(self, name: str) -> str:
         """Convert snake_case to camelCase."""
@@ -49,9 +50,13 @@ class LeetCodeConverter(ast.NodeTransformer):
         return node
 
     def visit_Name(self, node: ast.Name) -> ast.Name:
-        """Update references to renamed methods."""
-        if hasattr(node, "id") and node.id in self.method_mapping:
-            node.id = self.method_mapping[node.id]
+        """Update references to renamed methods and variables."""
+        if hasattr(node, "id"):
+            if node.id in self.method_mapping:
+                node.id = self.method_mapping[node.id]
+            elif "_" in node.id and not node.id.startswith("_"):
+                # Convert variable names on the fly
+                node.id = self.snake_to_camel(node.id)
         return node
 
     def visit_Attribute(self, node: ast.Attribute) -> ast.Attribute:
@@ -76,8 +81,13 @@ def convert_to_leetcode_format(code: str) -> str:
         # Parse the code into AST
         tree = ast.parse(code)
 
-        # Apply transformations
+        # Apply transformations in two passes
         converter = LeetCodeConverter()
+
+        # First pass: collect method names and build mapping
+        converter.visit(tree)
+
+        # Second pass: apply transformations using the complete mapping
         modified_tree = converter.visit(tree)
 
         # Convert back to source code

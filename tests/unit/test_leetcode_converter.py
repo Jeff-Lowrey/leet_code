@@ -1,7 +1,5 @@
 """Unit tests for the leetcode_converter module."""
 
-import pytest
-
 from src.leet_code.leetcode_converter import LeetCodeConverter, convert_to_leetcode_format, extract_solution_class
 
 
