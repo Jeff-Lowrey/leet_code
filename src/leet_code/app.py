@@ -719,7 +719,7 @@ def view_alternative_solution(category: str, filename: str, language: str) -> st
     base_name = filename.replace(".py", "")
     lang_extension = get_file_extension(language)
     alt_filename = f"{base_name}.{language.lower()}{lang_extension}"
-    alt_path = Path(__file__).parent / "solutions" / category / "alternatives" / alt_filename
+    alt_path = Path(__file__).parent.parent.parent / "solutions" / category / "alternatives" / alt_filename
 
     if not alt_path.exists():
         abort(404)
@@ -822,6 +822,7 @@ def get_available_languages(category: str, filename: str) -> list[str]:
                     "php",
                     "scala",
                 ]:
+                    # Check for pattern: base_name.language.extension
                     if f".{lang}." in file_path.name.lower():
                         language_map = {
                             "cpp": "C++",
