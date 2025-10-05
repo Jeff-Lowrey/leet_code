@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# LeetCode Web App Runner
+# Leet Code Learning Tool Runner
 
 echo "Starting Learning Web App for Leet Code problems..."
 

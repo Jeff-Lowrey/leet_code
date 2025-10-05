@@ -1,7 +1,7 @@
 [project]
 name = "leet-code"
 version = "0.1.0"
-description = "LeetCode solutions with web interface"
+description = "Leet Code Learning Tool with web interface"
 readme = "README.md"
 requires-python = ">=3.13,<3.14"
 dependencies = [
@@ -16,37 +16,39 @@ requires = [ "pdm-backend",]
 build-backend = "pdm.backend"
 
 [dependency-groups]
-format = [ "black>=25.9.0",]
-lint = [ "ruff>=0.1.0", "mypy>=1.0", "isort>=6.0.1",]
+lint = [ "ruff>=0.1.0", "mypy>=1.0",]
 dev = [ "types-Markdown>=3.9.0.20250906", "types-Pygments>=2.19.0.20250809",]
 
 [tool.ruff]
 line-length = 120
 target-version = "py313"
 
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
+
 [tool.mypy]
 python_version = "3.13"
 strict = true
 warn_return_any = true
 warn_unused_configs = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+disallow_any_generics = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+disallow_untyped_decorators = true
+no_implicit_optional = true
+warn_unreachable = true
+show_error_codes = true
+namespace_packages = true
+explicit_package_bases = true
 
 [tool.pdm]
 distribution = false
-
-[tool.black]
-line-length = 120
-target-version = [ "py313",]
-
-[tool.isort]
-profile = "black"
-line_length = 120
-multi_line_output = 3
-include_trailing_comma = true
-force_grid_wrap = 0
-use_parentheses = true
-ensure_newline_before_comments = true
-split_on_trailing_comma = true
-skip_gitignore = true
 
 [tool.ruff.lint]
 select = [ "E", "F", "I", "N", "UP", "B", "C4", "SIM",]
@@ -63,10 +65,9 @@ flask = "python -m flask run"
 test = "pytest"
 lint = "ruff check src/ --fix"
 lint-check = "ruff check src/"
-format = "black src/ tests/"
+format = "ruff format src/ tests/"
+format-check = "ruff format --check src/ tests/"
 typecheck = "mypy src/"
-isort = "isort src/ tests/"
-isort-check = "isort --check-only --diff src/ tests/"
 
 [tool.pdm.dev-dependencies]
 test = [ "pytest>=7.0", "pytest-asyncio>=0.21.0", "pytest-cov>=4.0",]

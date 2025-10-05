@@ -1,4 +1,4 @@
-# LeetCode Solutions Platform
+# Leet Code Learning Tool
 
 > **⚠️ DISCLAIMER**
 >
@@ -214,4 +214,4 @@ This project is for educational purposes.
 
 ---
 
-*A comprehensive LeetCode learning platform with multi-language support, automatic format conversion, and modern development tools.*
+*A comprehensive Leet Code Learning Tool with multi-language support, automatic format conversion, and modern development tools.*

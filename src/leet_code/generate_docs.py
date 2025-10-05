@@ -191,19 +191,19 @@ CATEGORIES = {
 
 def create_category_readme(category_key: str, category_info: dict[str, Any]) -> str:
     """Generate README content for a category"""
-    return f"""# {category_info['name']}
+    return f"""# {category_info["name"]}
 
 ## Category Overview
 
-{category_info['overview']}
+{category_info["overview"]}
 
 ## Common Patterns
 
-{chr(10).join(f"- **{pattern}**" for pattern in category_info['patterns'])}
+{chr(10).join(f"- **{pattern}**" for pattern in category_info["patterns"])}
 
 ## Complexity Analysis
 
-{category_info['complexity']}
+{category_info["complexity"]}
 
 ## Key Techniques
 
