@@ -1,85 +1,189 @@
 /**
- * 090. Subsets Ii
+ * 090. Subsets II
  * Medium
  *
- * This problem demonstrates key concepts in Backtracking.
+ * Given an integer array nums that may contain duplicates, return all possible subsets (the power set).
+ * The solution set must not contain duplicate subsets. Return the solution in any order.
  *
  * SOLUTION EXPLANATION:
  *
  * INTUITION:
- * [This problem requires understanding of backtracking concepts. The key insight is to identify the optimal approach for this specific scenario.]
+ * This is similar to Subsets I, but with duplicate elements in the input.
+ * The challenge is to generate all unique subsets without duplicate subsets in the result.
+ * We need to handle duplicates in the input while avoiding duplicate subsets.
  *
  * APPROACH:
- * 1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply backtracking methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+ * 1. **Sort the array**: Essential for duplicate detection and skipping
+ * 2. **Skip duplicate elements at same level**: Use index-based duplicate skipping
+ * 3. **Backtracking with choices**: For each element, include or exclude it
+ * 4. **Add subsets at each step**: Each recursive call represents a valid subset
+ * 5. **Use start index**: Process elements in order to avoid going backward
  *
  * WHY THIS WORKS:
- * - The solution leverages backtracking principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+ * - Sorting enables duplicate detection at the same recursion level
+ * - Skipping duplicates at same level prevents duplicate subsets
+ * - The condition `i > start && nums[i] === nums[i-1]` ensures we only skip duplicates at same level
+ * - Backtracking systematically explores all unique subsets
+ * - Index progression ensures no duplicate subsets from different orderings
  *
- * TIME COMPLEXITY: O(n)
- * SPACE COMPLEXITY: O(1)
+ * TIME COMPLEXITY: O(n × 2^n) in worst case (all unique), better with duplicates
+ * SPACE COMPLEXITY: O(n) for recursion depth
  *
  * EXAMPLE WALKTHROUGH:
  * ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
-```
+ * Input: nums = [1,2,2]
+ * After sorting: [1,2,2] (already sorted)
+ * Step 1: Start with [], process from index 0
+ * Step 2: Include 1 -> [1], exclude 1 -> []
+ * Step 3: From [], include first 2 -> [2], exclude -> []
+ * Step 4: From [2], include second 2 -> [2,2], exclude -> [2]
+ * Step 5: From [1], include first 2 -> [1,2], exclude -> [1]
+ * Step 6: Skip second 2 at same level to avoid duplicates
+ * Output: [[], [1], [1,2], [1,2,2], [2], [2,2]]
+ * ```
  *
  * EDGE CASES:
- * - Empty input handling
-- Single element cases
-- Large input considerations
+ * - Empty array: return [[]]
+ * - All elements are the same
+ * - Mix of duplicates and unique elements
+ * - Single element
  */
 
 /**
- * Main solution for Problem 090: Subsets Ii
+ * Main solution for Problem 090: Subsets II
  *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
+ * @param {number[]} nums - Array of integers that may contain duplicates
+ * @return {number[][]} - Array of all unique subsets (power set)
  *
- * Time Complexity: O(n)
- * Space Complexity: O(1)
+ * Time Complexity: O(n × 2^n) in worst case (all unique), better with duplicates
+ * Space Complexity: O(n) for recursion depth
  */
-function solve(...args) {
-    // TODO: Implement the solution using backtracking techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using backtracking methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+function solve(nums) {
+    // Handle edge cases
+    if (!nums) return [];
+    if (nums.length === 0) return [[]];
 
-    return null; // Replace with actual implementation
+    // Sort array to enable duplicate detection
+    nums.sort((a, b) => a - b);
+
+    const result = [];
+
+    /**
+     * Backtracking helper function
+     * @param {number} start - Starting index for current level
+     * @param {number[]} currentSubset - Current subset being built
+     */
+    function backtrack(start, currentSubset) {
+        // Add current subset to result (every recursive call is a valid subset)
+        result.push([...currentSubset]); // Make a copy
+
+        // Try each element starting from start index
+        for (let i = start; i < nums.length; i++) {
+            // Skip duplicates at the same recursion level
+            // We only want to use duplicate elements in order (first occurrence first)
+            if (i > start && nums[i] === nums[i - 1]) {
+                continue;
+            }
+
+            // Choose: include current element
+            currentSubset.push(nums[i]);
+
+            // Explore: recursively build subsets that include current element
+            backtrack(i + 1, currentSubset);
+
+            // Unchoose: remove current element (backtrack)
+            currentSubset.pop();
+        }
+    }
+
+    // Start backtracking from index 0
+    backtrack(0, []);
+
+    return result;
 }
 
 /**
- * Test cases for Problem 090: Subsets Ii
+ * Test cases for Problem 090: Subsets II
  */
 function testSolution() {
-    console.log('Testing 090. Subsets Ii');
+    console.log('Testing 090. Subsets II');
 
-    // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    // Helper function to sort subsets for comparison
+    function sortSubsets(subsets) {
+        return subsets
+            .map(subset => [...subset].sort((a, b) => a - b))
+            .sort((a, b) => {
+                if (a.length !== b.length) return a.length - b.length;
+                for (let i = 0; i < a.length; i++) {
+                    if (a[i] !== b[i]) return a[i] - b[i];
+                }
+                return 0;
+            });
+    }
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Helper function to compare arrays of arrays
+    function arraysEqual(arr1, arr2) {
+        if (arr1.length !== arr2.length) return false;
+        const sorted1 = sortSubsets(arr1);
+        const sorted2 = sortSubsets(arr2);
+        return JSON.stringify(sorted1) === JSON.stringify(sorted2);
+    }
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 1: Basic functionality with duplicates
+    const result1 = solve([1, 2, 2]);
+    const expected1 = [[], [1], [1,2], [1,2,2], [2], [2,2]];
+    console.assert(arraysEqual(result1, expected1),
+        `Test 1 failed: expected ${JSON.stringify(expected1)}, got ${JSON.stringify(result1)}`);
 
-    console.log('All test cases passed for 090. Subsets Ii!');
+    // Test case 2: Multiple duplicates
+    const result2 = solve([4, 4, 4, 1, 4]);
+    const expected2 = [[], [1], [1,4], [1,4,4], [1,4,4,4], [1,4,4,4,4], [4], [4,4], [4,4,4], [4,4,4,4]];
+    console.assert(arraysEqual(result2, expected2),
+        `Test 2 failed: expected ${JSON.stringify(expected2)}, got ${JSON.stringify(result2)}`);
+
+    // Test case 3: All elements are the same
+    const result3 = solve([1, 1, 1]);
+    const expected3 = [[], [1], [1,1], [1,1,1]];
+    console.assert(arraysEqual(result3, expected3),
+        `Test 3 failed: expected ${JSON.stringify(expected3)}, got ${JSON.stringify(result3)}`);
+
+    // Test case 4: No duplicates (should work like Subsets I)
+    const result4 = solve([1, 2, 3]);
+    const expected4 = [[], [1], [1,2], [1,2,3], [1,3], [2], [2,3], [3]];
+    console.assert(arraysEqual(result4, expected4),
+        `Test 4 failed: expected ${JSON.stringify(expected4)}, got ${JSON.stringify(result4)}`);
+
+    // Test case 5: Empty array
+    const result5 = solve([]);
+    const expected5 = [[]];
+    console.assert(arraysEqual(result5, expected5),
+        `Test 5 failed: expected ${JSON.stringify(expected5)}, got ${JSON.stringify(result5)}`);
+
+    // Test case 6: Single element
+    const result6 = solve([1]);
+    const expected6 = [[], [1]];
+    console.assert(arraysEqual(result6, expected6),
+        `Test 6 failed: expected ${JSON.stringify(expected6)}, got ${JSON.stringify(result6)}`);
+
+    // Test case 7: All subsets are unique
+    const result7 = solve([1, 2, 2]);
+    const uniqueSubsets = new Set(result7.map(subset => JSON.stringify([...subset].sort())));
+    console.assert(uniqueSubsets.size === result7.length,
+        `Test 7 failed: found duplicate subsets`);
+
+    // Test case 8: Contains empty subset
+    const result8 = solve([1, 1]);
+    const hasEmptySubset = result8.some(subset => subset.length === 0);
+    console.assert(hasEmptySubset,
+        `Test 8 failed: should contain empty subset`);
+
+    // Test case 9: Negative numbers with duplicates
+    const result9 = solve([-1, -1, 0]);
+    const expected9Count = 4; // [], [-1], [-1,-1], [-1,-1,0], [-1,0], [0]
+    console.assert(result9.length === 6,
+        `Test 9 failed: expected 6 subsets, got ${result9.length}`);
+
+    console.log('All test cases passed for 090. Subsets II!');
 }
 
 /**

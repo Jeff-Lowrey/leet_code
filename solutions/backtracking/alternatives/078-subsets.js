@@ -2,51 +2,92 @@
  * 078. Subsets
  * Medium
  *
- * This problem demonstrates key concepts in Backtracking.
+ * Given an integer array nums of unique elements, return all possible subsets (the power set).
+ * The solution set must not contain duplicate subsets. Return the solution in any order.
  *
  * SOLUTION EXPLANATION:
  *
  * INTUITION:
- * Generate all possible subsets (power set) by making binary choices for each element: include it or don't include it in the current subset. Use backtracking to explore all combinations.
+ * Generate all possible subsets (power set) by making binary choices for each element:
+ * include it or don't include it in the current subset. Use backtracking to explore all combinations.
+ * For n elements, there are exactly 2^n subsets (including empty subset).
  *
  * APPROACH:
- * [APPROACH content will be added here]
+ * 1. **Start with empty subset**: Always included in power set
+ * 2. **For each element**: Make binary choice - include or exclude
+ * 3. **Backtracking**: At each index, try both including and excluding current element
+ * 4. **Add all subsets**: Each recursive call represents a valid subset
+ * 5. **Use index to avoid duplicates**: Process elements in order, no going back
  *
  * WHY THIS WORKS:
  * - Each element has 2 choices: include or exclude
-- Total subsets = 2^n (binary choices for n elements)
-- Backtracking systematically explores all combinations
-- Adding current subset at each step captures all intermediate states
+ * - Total subsets = 2^n (binary choices for n elements)
+ * - Backtracking systematically explores all combinations
+ * - Adding current subset at each step captures all intermediate states
+ * - Index progression ensures no duplicate subsets
  *
  * TIME COMPLEXITY: O(n × 2^n) - 2^n subsets, each takes O(n) to copy
  * SPACE COMPLEXITY: O(n) - recursion depth
  *
  * EXAMPLE WALKTHROUGH:
- * [EXAMPLE WALKTHROUGH content will be added here]
+ * ```
+ * Input: nums = [1,2,3]
+ * Step 1: Start with [] (empty subset)
+ * Step 2: Process 1 - exclude: [], include: [1]
+ * Step 3: Process 2 from []: exclude: [], include: [2]
+ * Step 4: Process 2 from [1]: exclude: [1], include: [1,2]
+ * Step 5: Process 3 from each previous subset...
+ * Final subsets: [], [1], [2], [1,2], [3], [1,3], [2,3], [1,2,3]
+ * Output: [[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]]
+ * ```
  *
  * EDGE CASES:
- * [EDGE CASES content will be added here]
+ * - Empty array: return [[]]
+ * - Single element: return [[], [element]]
+ * - All elements are unique (given constraint)
  */
 
 /**
  * Main solution for Problem 078: Subsets
  *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
+ * @param {number[]} nums - Array of unique integers
+ * @return {number[][]} - Array of all possible subsets (power set)
  *
  * Time Complexity: O(n × 2^n) - 2^n subsets, each takes O(n) to copy
  * Space Complexity: O(n) - recursion depth
  */
-function solve(...args) {
-    // TODO: Implement the solution using backtracking techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using backtracking methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+function solve(nums) {
+    // Handle edge cases
+    if (!nums) return [];
+    if (nums.length === 0) return [[]];
 
-    return null; // Replace with actual implementation
+    const result = [];
+
+    /**
+     * Backtracking helper function
+     * @param {number} index - Current index in nums array
+     * @param {number[]} currentSubset - Current subset being built
+     */
+    function backtrack(index, currentSubset) {
+        // Base case: we've considered all elements
+        if (index === nums.length) {
+            result.push([...currentSubset]); // Make a copy
+            return;
+        }
+
+        // Choice 1: Exclude current element
+        backtrack(index + 1, currentSubset);
+
+        // Choice 2: Include current element
+        currentSubset.push(nums[index]);
+        backtrack(index + 1, currentSubset);
+        currentSubset.pop(); // Backtrack
+    }
+
+    // Start backtracking from index 0
+    backtrack(0, []);
+
+    return result;
 }
 
 /**
@@ -55,20 +96,81 @@ function solve(...args) {
 function testSolution() {
     console.log('Testing 078. Subsets');
 
-    // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    // Helper function to sort subsets for comparison
+    function sortSubsets(subsets) {
+        return subsets
+            .map(subset => [...subset].sort((a, b) => a - b))
+            .sort((a, b) => {
+                if (a.length !== b.length) return a.length - b.length;
+                for (let i = 0; i < a.length; i++) {
+                    if (a[i] !== b[i]) return a[i] - b[i];
+                }
+                return 0;
+            });
+    }
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Helper function to compare arrays of arrays
+    function arraysEqual(arr1, arr2) {
+        if (arr1.length !== arr2.length) return false;
+        const sorted1 = sortSubsets(arr1);
+        const sorted2 = sortSubsets(arr2);
+        return JSON.stringify(sorted1) === JSON.stringify(sorted2);
+    }
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 1: Basic functionality - 3 elements
+    const result1 = solve([1, 2, 3]);
+    const expected1 = [[], [1], [2], [1,2], [3], [1,3], [2,3], [1,2,3]];
+    console.assert(arraysEqual(result1, expected1),
+        `Test 1 failed: expected ${JSON.stringify(expected1)}, got ${JSON.stringify(result1)}`);
+
+    // Test case 2: Two elements
+    const result2 = solve([0, 1]);
+    const expected2 = [[], [0], [1], [0,1]];
+    console.assert(arraysEqual(result2, expected2),
+        `Test 2 failed: expected ${JSON.stringify(expected2)}, got ${JSON.stringify(result2)}`);
+
+    // Test case 3: Single element
+    const result3 = solve([1]);
+    const expected3 = [[], [1]];
+    console.assert(arraysEqual(result3, expected3),
+        `Test 3 failed: expected ${JSON.stringify(expected3)}, got ${JSON.stringify(result3)}`);
+
+    // Test case 4: Empty array
+    const result4 = solve([]);
+    const expected4 = [[]];
+    console.assert(arraysEqual(result4, expected4),
+        `Test 4 failed: expected ${JSON.stringify(expected4)}, got ${JSON.stringify(result4)}`);
+
+    // Test case 5: Check count is 2^n
+    const result5 = solve([1, 2, 3, 4]);
+    const expected5Count = Math.pow(2, 4); // 2^4 = 16
+    console.assert(result5.length === expected5Count,
+        `Test 5 failed: expected ${expected5Count} subsets, got ${result5.length}`);
+
+    // Test case 6: All subsets are unique
+    const result6 = solve([1, 2, 3]);
+    const uniqueSubsets = new Set(result6.map(subset => JSON.stringify([...subset].sort())));
+    console.assert(uniqueSubsets.size === result6.length,
+        `Test 6 failed: found duplicate subsets`);
+
+    // Test case 7: Contains empty subset
+    const result7 = solve([1, 2]);
+    const hasEmptySubset = result7.some(subset => subset.length === 0);
+    console.assert(hasEmptySubset,
+        `Test 7 failed: should contain empty subset`);
+
+    // Test case 8: Contains full set
+    const result8 = solve([1, 2, 3]);
+    const hasFullSet = result8.some(subset => subset.length === 3 &&
+        subset.includes(1) && subset.includes(2) && subset.includes(3));
+    console.assert(hasFullSet,
+        `Test 8 failed: should contain full set`);
+
+    // Test case 9: Negative numbers
+    const result9 = solve([-1, 0, 1]);
+    const expected9Count = Math.pow(2, 3); // 2^3 = 8
+    console.assert(result9.length === expected9Count,
+        `Test 9 failed: expected ${expected9Count} subsets, got ${result9.length}`);
 
     console.log('All test cases passed for 078. Subsets!');
 }

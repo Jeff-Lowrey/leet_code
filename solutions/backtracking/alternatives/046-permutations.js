@@ -1,52 +1,103 @@
 /**
  * 046. Permutations
- * Backtrack
+ * Medium
  *
- * This problem demonstrates key concepts in Backtracking.
+ * Given an array nums of distinct integers, return all the possible permutations.
+ * You can return the answer in any order.
  *
  * SOLUTION EXPLANATION:
  *
  * INTUITION:
- * Generate all permutations by systematically trying each unused element at each position. Use backtracking to explore all possibilities while maintaining state through choices and un-choices.
+ * Generate all permutations by systematically trying each unused element at each position.
+ * Use backtracking to explore all possibilities while maintaining state through choices and un-choices.
+ * Since all elements are distinct, we don't need to worry about duplicate permutations.
  *
  * APPROACH:
- * [APPROACH content will be added here]
+ * 1. **Use a boolean array to track used elements**: Maintain which elements are already in current permutation
+ * 2. **Backtracking**: At each position, try every unused element
+ * 3. **Base case**: When current permutation length equals input length, add to results
+ * 4. **Choose/Explore/Unchoose**: Add element, recurse, then remove element and mark as unused
  *
  * WHY THIS WORKS:
  * - Each permutation uses every element exactly once
-- Backtracking ensures we explore all n! permutations
-- Checking "not in current" ensures no duplicates within a permutation
-- Systematic exploration guarantees all permutations are found
+ * - Backtracking ensures we explore all n! permutations
+ * - Used array ensures no duplicates within a permutation
+ * - Systematic exploration guarantees all permutations are found
+ * - The choose/explore/unchoose pattern ensures proper state management
  *
  * TIME COMPLEXITY: O(n × n!) - n! permutations, each takes O(n) to build/copy
  * SPACE COMPLEXITY: O(n) - recursion depth and current permutation
  *
  * EXAMPLE WALKTHROUGH:
- * [EXAMPLE WALKTHROUGH content will be added here]
+ * ```
+ * Input: nums = [1,2,3]
+ * Step 1: Choose 1 -> [1], try remaining [2,3]
+ * Step 2: Choose 2 -> [1,2], try remaining [3]
+ * Step 3: Choose 3 -> [1,2,3], complete permutation
+ * Backtrack: Remove 3, try next option
+ * Continue: [1,3,2], [2,1,3], [2,3,1], [3,1,2], [3,2,1]
+ * Output: [[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]
+ * ```
  *
  * EDGE CASES:
- * [EDGE CASES content will be added here]
+ * - Empty array (return [[]])
+ * - Single element array (return [[element]])
+ * - All elements are the same (but problem states distinct integers)
  */
 
 /**
  * Main solution for Problem 046: Permutations
  *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
+ * @param {number[]} nums - Array of distinct integers
+ * @return {number[][]} - Array of all possible permutations
  *
  * Time Complexity: O(n × n!) - n! permutations, each takes O(n) to build/copy
  * Space Complexity: O(n) - recursion depth and current permutation
  */
-function solve(...args) {
-    // TODO: Implement the solution using backtracking techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using backtracking methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+function solve(nums) {
+    // Handle edge cases
+    if (!nums || nums.length === 0) {
+        return [[]];
+    }
 
-    return null; // Replace with actual implementation
+    const result = [];
+    const used = new Array(nums.length).fill(false);
+
+    /**
+     * Backtracking helper function
+     * @param {number[]} currentPermutation - Current permutation being built
+     */
+    function backtrack(currentPermutation) {
+        // Base case: we've used all elements
+        if (currentPermutation.length === nums.length) {
+            result.push([...currentPermutation]); // Make a copy
+            return;
+        }
+
+        // Try each unused element at the current position
+        for (let i = 0; i < nums.length; i++) {
+            // Skip if element is already used
+            if (used[i]) {
+                continue;
+            }
+
+            // Choose: add current element to permutation
+            currentPermutation.push(nums[i]);
+            used[i] = true;
+
+            // Explore: recursively build the rest of the permutation
+            backtrack(currentPermutation);
+
+            // Unchoose: remove current element and mark as unused (backtrack)
+            currentPermutation.pop();
+            used[i] = false;
+        }
+    }
+
+    // Start backtracking with empty permutation
+    backtrack([]);
+
+    return result;
 }
 
 /**
@@ -55,20 +106,67 @@ function solve(...args) {
 function testSolution() {
     console.log('Testing 046. Permutations');
 
-    // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    // Helper function to sort permutations for comparison
+    function sortPermutations(permutations) {
+        return permutations
+            .map(perm => [...perm])
+            .sort((a, b) => {
+                for (let i = 0; i < Math.min(a.length, b.length); i++) {
+                    if (a[i] !== b[i]) return a[i] - b[i];
+                }
+                return a.length - b.length;
+            });
+    }
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Helper function to compare arrays of arrays
+    function arraysEqual(arr1, arr2) {
+        if (arr1.length !== arr2.length) return false;
+        const sorted1 = sortPermutations(arr1);
+        const sorted2 = sortPermutations(arr2);
+        return JSON.stringify(sorted1) === JSON.stringify(sorted2);
+    }
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 1: Basic functionality - 3 elements
+    const result1 = solve([1, 2, 3]);
+    const expected1 = [[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]];
+    console.assert(arraysEqual(result1, expected1),
+        `Test 1 failed: expected ${JSON.stringify(expected1)}, got ${JSON.stringify(result1)}`);
+
+    // Test case 2: Two elements
+    const result2 = solve([0, 1]);
+    const expected2 = [[0, 1], [1, 0]];
+    console.assert(arraysEqual(result2, expected2),
+        `Test 2 failed: expected ${JSON.stringify(expected2)}, got ${JSON.stringify(result2)}`);
+
+    // Test case 3: Single element
+    const result3 = solve([1]);
+    const expected3 = [[1]];
+    console.assert(arraysEqual(result3, expected3),
+        `Test 3 failed: expected ${JSON.stringify(expected3)}, got ${JSON.stringify(result3)}`);
+
+    // Test case 4: Empty array
+    const result4 = solve([]);
+    const expected4 = [[]];
+    console.assert(arraysEqual(result4, expected4),
+        `Test 4 failed: expected ${JSON.stringify(expected4)}, got ${JSON.stringify(result4)}`);
+
+    // Test case 5: Four elements (larger case)
+    const result5 = solve([1, 2, 3, 4]);
+    const expected5Length = 24; // 4! = 24
+    console.assert(result5.length === expected5Length,
+        `Test 5 failed: expected ${expected5Length} permutations, got ${result5.length}`);
+
+    // Test case 6: Negative numbers
+    const result6 = solve([-1, 1]);
+    const expected6 = [[-1, 1], [1, -1]];
+    console.assert(arraysEqual(result6, expected6),
+        `Test 6 failed: expected ${JSON.stringify(expected6)}, got ${JSON.stringify(result6)}`);
+
+    // Test case 7: Check all permutations are unique
+    const result7 = solve([1, 2, 3]);
+    const uniquePermutations = new Set(result7.map(perm => JSON.stringify(perm)));
+    console.assert(uniquePermutations.size === result7.length,
+        `Test 7 failed: found duplicate permutations`);
 
     console.log('All test cases passed for 046. Permutations!');
 }
