@@ -34,7 +34,10 @@ next(5): queue=[10,3,5], avg=6.0 (removed 1)
 ```
  *
  * EDGE CASES:
- * [EDGE CASES content will be added here]
+ * - Window size of 1: Always return the current value
+ * - First few values: Average of existing values (less than window size)
+ * - Empty initialization: Handle size parameter validation
+ * - Large window size: Memory efficiency considerations
  */
 
 /**
