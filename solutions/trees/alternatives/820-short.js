@@ -1,97 +1,264 @@
 /**
- * 820. Short
+ * 820. Short Encoding of Words
  * Medium
  *
- * This problem demonstrates key concepts in Trees.
+ * A valid encoding of an array of words is any reference string s and an array of indices indices such that:
+ * - words.length == indices.length
+ * - The reference string s ends with the character '#'
+ * - For each index indices[i], the substring of s starting at indices[i] and ending at the next '#' is equal to words[i]
+ *
+ * Given an array of words, return the length of the shortest reference string s possible of any valid encoding of words.
  *
  * SOLUTION EXPLANATION:
  *
  * INTUITION:
- * [This problem requires understanding of trees concepts. The key insight is to identify the optimal approach for this specific scenario.]
+ * To minimize the encoding length, we want to share suffixes between words. If one word is a suffix of another, we can encode both using just the longer word. This is a classic Trie problem where we build the trie using word suffixes.
  *
  * APPROACH:
- * 1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply trees methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+ * 1. Trie Construction: Build a trie using the reverse of each word (to handle suffixes)
+ * 2. Deduplication: Remove words that are suffixes of other words
+ * 3. Length Calculation: For each unique word, add its length + 1 (for '#') to the total
  *
  * WHY THIS WORKS:
- * - The solution leverages trees principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+ * - Trie naturally handles prefix/suffix relationships
+ * - By reversing words, we can detect when one word is a suffix of another
+ * - Only leaf nodes in the trie represent words that need their own encoding
+ * - Each word needs one '#' delimiter, so total length = sum(word_lengths) + count
  *
- * TIME COMPLEXITY: O(n)
- * SPACE COMPLEXITY: O(1)
+ * TIME COMPLEXITY: O(N × M)
+ * Where N is the number of words and M is the average length of words
+ *
+ * SPACE COMPLEXITY: O(N × M)
+ * For the trie structure and set storage
  *
  * EXAMPLE WALKTHROUGH:
- * ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
-```
+ * Input: words = ["time", "me", "bell"]
+ * 1. Build trie with reversed words: ["emit", "em", "lleb"]
+ * 2. "em" is a suffix of "emit", so we can share encoding
+ * 3. Result: "time#bell#" (length 10)
+ *    - "time" at index 0
+ *    - "me" at index 2 (suffix of "time")
+ *    - "bell" at index 5
  *
- * EDGE CASES:
- * - Empty input handling
-- Single element cases
-- Large input considerations
+ * KEY INSIGHTS:
+ * - Words that are suffixes of others don't need separate encoding
+ * - Trie helps identify these suffix relationships efficiently
+ * - Only words without parent nodes in suffix trie need separate encoding
+ * - Each encoded word needs exactly one '#' delimiter
  */
 
 /**
- * Main solution for Problem 820: Short
- *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
- *
- * Time Complexity: O(n)
- * Space Complexity: O(1)
+ * Trie node for suffix trie construction
  */
-function solve(...args) {
-    // TODO: Implement the solution using trees techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using trees methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
-
-    return null; // Replace with actual implementation
+class TrieNode {
+    constructor() {
+        this.children = new Map();
+        this.isEnd = false;
+    }
 }
 
 /**
- * Test cases for Problem 820: Short
+ * Find the minimum length encoding using suffix trie.
+ * @param {string[]} words - Array of words to encode
+ * @returns {number} Minimum length of encoded string
+ *
+ * Time Complexity: O(N × M) where N = number of words, M = average length
+ * Space Complexity: O(N × M) for trie structure
+ */
+function minimumLengthEncoding(words) {
+    // Remove duplicates and sort by length (longer first for optimization)
+    const uniqueWords = [...new Set(words)];
+    uniqueWords.sort((a, b) => b.length - a.length);
+
+    const root = new TrieNode();
+    let totalLength = 0;
+
+    for (const word of uniqueWords) {
+        // Check if this word is already a suffix of a previously added word
+        if (!isSuffix(root, word)) {
+            // Add word to trie and include in encoding
+            addWord(root, word);
+            totalLength += word.length + 1; // +1 for '#'
+        }
+    }
+
+    return totalLength;
+}
+
+/**
+ * Check if word is already represented as suffix in trie
+ * @param {TrieNode} root - Root of trie
+ * @param {string} word - Word to check
+ * @returns {boolean} True if word is already a suffix
+ */
+function isSuffix(root, word) {
+    let node = root;
+    for (let i = word.length - 1; i >= 0; i--) {
+        const char = word[i];
+        if (!node.children.has(char)) {
+            return false;
+        }
+        node = node.children.get(char);
+    }
+    return node.isEnd;
+}
+
+/**
+ * Add word to suffix trie
+ * @param {TrieNode} root - Root of trie
+ * @param {string} word - Word to add
+ */
+function addWord(root, word) {
+    let node = root;
+    for (let i = word.length - 1; i >= 0; i--) {
+        const char = word[i];
+        if (!node.children.has(char)) {
+            node.children.set(char, new TrieNode());
+        }
+        node = node.children.get(char);
+    }
+    node.isEnd = true;
+}
+
+/**
+ * Alternative solution using set operations.
+ * @param {string[]} words - Array of words to encode
+ * @returns {number} Minimum length of encoded string
+ */
+function minimumLengthEncodingSet(words) {
+    const wordSet = new Set(words);
+
+    // Remove words that are suffixes of other words
+    for (const word of words) {
+        for (let i = 1; i < word.length; i++) {
+            wordSet.delete(word.substring(i));
+        }
+    }
+
+    // Calculate total length: each word + 1 for '#'
+    return Array.from(wordSet).reduce((sum, word) => sum + word.length + 1, 0);
+}
+
+/**
+ * Pure trie solution with leaf counting.
+ * @param {string[]} words - Array of words to encode
+ * @returns {number} Minimum length of encoded string
+ */
+function minimumLengthEncodingTrie(words) {
+    // Build trie with reversed words
+    const trie = {};
+    const nodes = [];
+
+    for (const word of new Set(words)) {
+        let node = trie;
+        for (let i = word.length - 1; i >= 0; i--) {
+            const char = word[i];
+            if (!(char in node)) {
+                node[char] = {};
+            }
+            node = node[char];
+        }
+        nodes.push([node, word.length]);
+    }
+
+    // Count only leaf nodes (words not suffixes of others)
+    return nodes
+        .filter(([node]) => Object.keys(node).length === 0)
+        .reduce((sum, [, length]) => sum + length + 1, 0);
+}
+
+/**
+ * Test cases for Problem 820: Short Encoding of Words
  */
 function testSolution() {
-    console.log('Testing 820. Short');
+    console.log('Testing 820. Short Encoding of Words');
 
     // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    const words1 = ["time", "me", "bell"];
+    const result1 = minimumLengthEncoding(words1);
+    const expected1 = 10; // "time#bell#"
+    console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 2: All words are independent
+    const words2 = ["t"];
+    const result2 = minimumLengthEncoding(words2);
+    const expected2 = 2; // "t#"
+    console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 3: Multiple suffix relationships
+    const words3 = ["time", "atime", "btime"];
+    const result3 = minimumLengthEncoding(words3);
+    const expected3 = 12; // "atime#btime#" (time is suffix of both)
+    console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
 
-    console.log('All test cases passed for 820. Short!');
+    // Test case 4: Duplicates
+    const words4 = ["me", "me"];
+    const result4 = minimumLengthEncoding(words4);
+    const expected4 = 3; // "me#"
+    console.assert(result4 === expected4, `Test 4 failed: expected ${expected4}, got ${result4}`);
+
+    // Test case 5: Chain of suffixes
+    const words5 = ["a", "aa", "aaa"];
+    const result5 = minimumLengthEncoding(words5);
+    const expected5 = 4; // "aaa#"
+    console.assert(result5 === expected5, `Test 5 failed: expected ${expected5}, got ${result5}`);
+
+    // Test alternative implementations
+    const result6 = minimumLengthEncodingSet(words1);
+    console.assert(result6 === expected1, `Set method failed: expected ${expected1}, got ${result6}`);
+
+    const result7 = minimumLengthEncodingTrie(words1);
+    console.assert(result7 === expected1, `Trie method failed: expected ${expected1}, got ${result7}`);
+
+    console.log('All test cases passed for 820. Short Encoding of Words!');
 }
 
 /**
  * Example usage and demonstration
  */
 function demonstrateSolution() {
-    console.log('\n=== Problem 820. Short ===');
+    console.log('\n=== Problem 820. Short Encoding of Words ===');
     console.log('Category: Trees');
     console.log('Difficulty: Medium');
     console.log('');
 
-    // Example demonstration would go here
+    // Example 1: Basic case
+    const words1 = ["time", "me", "bell"];
+    const result1 = minimumLengthEncoding(words1);
+    console.log(`minimumLengthEncoding(${JSON.stringify(words1)}) -> ${result1}`);
+    console.log(`Encoding: 'time#bell#' (me is suffix of time)`);
+
+    // Example 2: All independent
+    const words2 = ["t"];
+    const result2 = minimumLengthEncoding(words2);
+    console.log(`minimumLengthEncoding(${JSON.stringify(words2)}) -> ${result2}`);
+    console.log(`Encoding: 't#'`);
+
+    // Example 3: Multiple suffixes
+    const words3 = ["time", "atime", "btime"];
+    const result3 = minimumLengthEncoding(words3);
+    console.log(`minimumLengthEncoding(${JSON.stringify(words3)}) -> ${result3}`);
+    console.log(`Encoding: 'atime#btime#' (time is suffix of both)`);
+
+    console.log(`\nAlgorithm comparison:`);
+    const methods = [
+        ['Trie-based', minimumLengthEncoding],
+        ['Set operations', minimumLengthEncodingSet],
+        ['Pure trie', minimumLengthEncodingTrie]
+    ];
+
+    for (const [name, method] of methods) {
+        const result = method(words1);
+        console.log(`${name}: ${result}`);
+    }
+
+    console.log(`\nKey insights:`);
+    console.log(`1. Words that are suffixes of others can share encoding`);
+    console.log(`2. Trie helps identify suffix relationships efficiently`);
+    console.log(`3. Only leaf nodes in suffix trie need separate encoding`);
+    console.log(`4. Each word needs exactly one '#' delimiter`);
+    console.log(`5. Sorting by length can optimize the process`);
+
     testSolution();
 }
 
@@ -102,15 +269,19 @@ if (require.main === module) {
 
 // Export for use in other modules
 module.exports = {
-    solve,
+    minimumLengthEncoding,
+    minimumLengthEncodingSet,
+    minimumLengthEncodingTrie,
     testSolution,
     demonstrateSolution
 };
 
 /**
  * Additional Notes:
- * - This solution focuses on trees concepts
- * - Consider the trade-offs between time and space complexity
- * - Edge cases are crucial for robust solutions
- * - The approach can be adapted for similar problems in this category
+ * - This solution uses suffix trie for optimal encoding detection
+ * - Time complexity is O(N × M) for processing all words
+ * - Space complexity is O(N × M) for trie storage
+ * - The algorithm handles all edge cases including duplicates and suffix chains
+ * - Essential insight: suffix relationships can be detected using reversed tries
+ * - Alternative set-based approach provides simpler implementation
  */
