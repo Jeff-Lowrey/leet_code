@@ -46,16 +46,32 @@ Output: [expected output]
  * Time Complexity: O(n)
  * Space Complexity: O(1)
  */
-function solve(...args) {
-    // TODO: Implement the solution using binary search techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using binary search methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+function solve(piles, h) {
+    // Helper function to calculate hours needed at given eating speed
+    function hoursNeeded(speed) {
+        let hours = 0;
+        for (const pile of piles) {
+            hours += Math.ceil(pile / speed);
+        }
+        return hours;
+    }
 
-    return null; // Replace with actual implementation
+    let left = 1;
+    let right = Math.max(...piles);
+
+    while (left < right) {
+        const mid = Math.floor((left + right) / 2);
+
+        if (hoursNeeded(mid) <= h) {
+            // Speed is sufficient, try slower speed
+            right = mid;
+        } else {
+            // Speed is too slow, need faster speed
+            left = mid + 1;
+        }
+    }
+
+    return left;
 }
 
 /**

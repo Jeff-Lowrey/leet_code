@@ -2,60 +2,102 @@
  * 033. Search In Rotated Sorted Array
  * Medium
  *
- * This problem demonstrates key concepts in Binary Search.
+ * There is an integer array nums sorted in ascending order (with distinct values).
+ * Prior to being passed to your function, nums is possibly rotated at an unknown pivot index k.
+ * Given the array nums after the possible rotation and an integer target, return the index of target if it is in nums, or -1 if it is not in nums.
  *
  * SOLUTION EXPLANATION:
  *
  * INTUITION:
- * [This problem requires understanding of binary search concepts. The key insight is to identify the optimal approach for this specific scenario.]
+ * Although the array is rotated, we can still use binary search. The key insight is that in any rotated sorted array,
+ * at least one half (left or right) will always be properly sorted. We can determine which half is sorted
+ * and decide whether to search in that half or the other half.
  *
  * APPROACH:
- * 1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply binary search methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+ * 1. **Initialize pointers**: Set left = 0 and right = nums.length - 1
+ * 2. **Binary search with rotation logic**: While left <= right
+ * 3. **Calculate middle**: mid = Math.floor((left + right) / 2)
+ * 4. **Check if found**: If nums[mid] == target, return mid
+ * 5. **Determine sorted half**: Check if left half (nums[left] <= nums[mid]) or right half is sorted
+ * 6. **Search in appropriate half**: Based on target value and sorted half, eliminate one half
  *
  * WHY THIS WORKS:
- * - The solution leverages binary search principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+ * - At least one half of a rotated sorted array is always properly sorted
+ * - We can determine which half contains the target by comparing with the sorted half
+ * - Time complexity remains O(log n) as we eliminate half the search space each iteration
  *
- * TIME COMPLEXITY: O(n)
+ * TIME COMPLEXITY: O(log n)
  * SPACE COMPLEXITY: O(1)
  *
  * EXAMPLE WALKTHROUGH:
  * ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
-```
+ * Input: nums = [4,5,6,7,0,1,2], target = 0
+ * Step 1: left=0, right=6, mid=3, nums[3]=7, left half [4,5,6,7] is sorted
+ * Step 2: target=0 not in sorted left half, search right half
+ * Step 3: left=4, right=6, mid=5, nums[5]=1, right half [1,2] is sorted
+ * Step 4: target=0 not in sorted right half, search left part
+ * Step 5: left=4, right=4, mid=4, nums[4]=0 == target, return 4
+ * Output: 4
+ * ```
  *
  * EDGE CASES:
- * - Empty input handling
-- Single element cases
-- Large input considerations
+ * - Empty array: return -1
+ * - Single element: check if it equals target
+ * - Array not rotated: works like normal binary search
+ * - Target not found: return -1
  */
 
 /**
  * Main solution for Problem 033: Search In Rotated Sorted Array
  *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
+ * @param {number[]} nums - Rotated sorted array with distinct values
+ * @param {number} target - Target value to search for
+ * @return {number} - Index of target if found, -1 otherwise
  *
- * Time Complexity: O(n)
+ * Time Complexity: O(log n)
  * Space Complexity: O(1)
  */
-function solve(...args) {
-    // TODO: Implement the solution using binary search techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using binary search methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+function solve(nums, target) {
+    // Handle edge case: empty array
+    if (!nums || nums.length === 0) {
+        return -1;
+    }
 
-    return null; // Replace with actual implementation
+    let left = 0;
+    let right = nums.length - 1;
+
+    while (left <= right) {
+        const mid = Math.floor((left + right) / 2);
+
+        // Found the target
+        if (nums[mid] === target) {
+            return mid;
+        }
+
+        // Determine which half is sorted
+        if (nums[left] <= nums[mid]) {
+            // Left half is sorted
+            if (target >= nums[left] && target < nums[mid]) {
+                // Target is in the sorted left half
+                right = mid - 1;
+            } else {
+                // Target is in the right half
+                left = mid + 1;
+            }
+        } else {
+            // Right half is sorted
+            if (target > nums[mid] && target <= nums[right]) {
+                // Target is in the sorted right half
+                left = mid + 1;
+            } else {
+                // Target is in the left half
+                right = mid - 1;
+            }
+        }
+    }
+
+    // Target not found
+    return -1;
 }
 
 /**
@@ -64,20 +106,40 @@ function solve(...args) {
 function testSolution() {
     console.log('Testing 033. Search In Rotated Sorted Array');
 
-    // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    // Test case 1: Target found in rotated array
+    const result1 = solve([4,5,6,7,0,1,2], 0);
+    const expected1 = 4;
+    console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 2: Target not found
+    const result2 = solve([4,5,6,7,0,1,2], 3);
+    const expected2 = -1;
+    console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 3: Single element found
+    const result3 = solve([1], 1);
+    const expected3 = 0;
+    console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+
+    // Test case 4: Single element not found
+    const result4 = solve([1], 0);
+    const expected4 = -1;
+    console.assert(result4 === expected4, `Test 4 failed: expected ${expected4}, got ${result4}`);
+
+    // Test case 5: Array not rotated
+    const result5 = solve([1,2,3,4,5], 3);
+    const expected5 = 2;
+    console.assert(result5 === expected5, `Test 5 failed: expected ${expected5}, got ${result5}`);
+
+    // Test case 6: Target at beginning of rotated part
+    const result6 = solve([4,5,6,7,0,1,2], 4);
+    const expected6 = 0;
+    console.assert(result6 === expected6, `Test 6 failed: expected ${expected6}, got ${result6}`);
+
+    // Test case 7: Target in right half
+    const result7 = solve([4,5,6,7,0,1,2], 1);
+    const expected7 = 5;
+    console.assert(result7 === expected7, `Test 7 failed: expected ${expected7}, got ${result7}`);
 
     console.log('All test cases passed for 033. Search In Rotated Sorted Array!');
 }
@@ -91,7 +153,21 @@ function demonstrateSolution() {
     console.log('Difficulty: Medium');
     console.log('');
 
-    // Example demonstration would go here
+    console.log('Example 1:');
+    console.log('Input: nums = [4,5,6,7,0,1,2], target = 0');
+    console.log('Output:', solve([4,5,6,7,0,1,2], 0));
+    console.log('');
+
+    console.log('Example 2:');
+    console.log('Input: nums = [4,5,6,7,0,1,2], target = 3');
+    console.log('Output:', solve([4,5,6,7,0,1,2], 3));
+    console.log('');
+
+    console.log('Example 3:');
+    console.log('Input: nums = [1], target = 0');
+    console.log('Output:', solve([1], 0));
+    console.log('');
+
     testSolution();
 }
 
@@ -109,8 +185,9 @@ module.exports = {
 
 /**
  * Additional Notes:
- * - This solution focuses on binary search concepts
- * - Consider the trade-offs between time and space complexity
- * - Edge cases are crucial for robust solutions
- * - The approach can be adapted for similar problems in this category
+ * - The key insight is that at least one half of a rotated sorted array is always properly sorted
+ * - We determine which half is sorted by comparing nums[left] with nums[mid]
+ * - The condition nums[left] <= nums[mid] indicates the left half is sorted
+ * - Always use inclusive comparisons when checking if target is in the sorted half
+ * - This approach maintains O(log n) time complexity despite the rotation
  */

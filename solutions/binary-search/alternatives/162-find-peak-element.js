@@ -46,16 +46,24 @@ Output: [expected output]
  * Time Complexity: O(n)
  * Space Complexity: O(1)
  */
-function solve(...args) {
-    // TODO: Implement the solution using binary search techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using binary search methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+function solve(nums) {
+    let left = 0;
+    let right = nums.length - 1;
 
-    return null; // Replace with actual implementation
+    while (left < right) {
+        const mid = Math.floor((left + right) / 2);
+
+        if (nums[mid] < nums[mid + 1]) {
+            // There's a peak in the right half
+            left = mid + 1;
+        } else {
+            // There's a peak in the left half (including mid)
+            right = mid;
+        }
+    }
+
+    // left == right points to a peak element
+    return left;
 }
 
 /**

@@ -46,16 +46,33 @@ Output: [expected output]
  * Time Complexity: O(n)
  * Space Complexity: O(1)
  */
-function solve(...args) {
-    // TODO: Implement the solution using binary search techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using binary search methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+function solve(n, pick = 6) {
+    // Mock guess function for testing
+    function guess(num) {
+        if (num > pick) return -1;
+        if (num < pick) return 1;
+        return 0;
+    }
 
-    return null; // Replace with actual implementation
+    let left = 1;
+    let right = n;
+
+    while (left <= right) {
+        const mid = Math.floor((left + right) / 2);
+        const result = guess(mid);
+
+        if (result === 0) {
+            return mid;
+        } else if (result === -1) {
+            // My guess is too high, search lower half
+            right = mid - 1;
+        } else {
+            // My guess is too low, search higher half
+            left = mid + 1;
+        }
+    }
+
+    return -1; // Should never reach here
 }
 
 /**
