@@ -1,97 +1,224 @@
 /**
- * 146. Lru Cache
- * Get
+ * 146. LRU Cache
+ * Medium
  *
  * This problem demonstrates key concepts in Design.
  *
  * SOLUTION EXPLANATION:
  *
  * INTUITION:
- * [This problem requires understanding of design concepts. The key insight is to identify the optimal approach for this specific scenario.]
+ * LRU (Least Recently Used) Cache requires O(1) access time for both get and put operations.
+ * We need to track both the order of usage (for eviction) and provide fast access by key.
+ * This requires combining a hash map (for O(1) access) with a doubly-linked list (for O(1) insertion/deletion).
  *
  * APPROACH:
- * 1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply design methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+ * 1. **Hash Map**: Store key -> node mapping for O(1) access
+ * 2. **Doubly-Linked List**: Maintain usage order with O(1) insertion/deletion
+ * 3. **Move to Head**: On access, move node to head (most recently used)
+ * 4. **Remove Tail**: On capacity overflow, remove tail node (least recently used)
  *
  * WHY THIS WORKS:
- * - The solution leverages design principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+ * - Hash map provides O(1) key lookup
+ * - Doubly-linked list allows O(1) node removal and insertion
+ * - Head represents most recently used, tail represents least recently used
+ * - Moving accessed nodes to head maintains LRU order
  *
- * TIME COMPLEXITY: O(n)
- * SPACE COMPLEXITY: O(1)
+ * TIME COMPLEXITY: O(1) for both get and put operations
+ * SPACE COMPLEXITY: O(capacity) for storing up to capacity key-value pairs
  *
  * EXAMPLE WALKTHROUGH:
  * ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
-```
+ * LRUCache(2) -> capacity = 2
+ * put(1, 1) -> {1: 1}, order: [1]
+ * put(2, 2) -> {1: 1, 2: 2}, order: [2, 1]
+ * get(1) -> returns 1, order: [1, 2] (1 moved to head)
+ * put(3, 3) -> {1: 1, 3: 3}, order: [3, 1] (2 evicted as LRU)
+ * ```
  *
  * EDGE CASES:
- * - Empty input handling
-- Single element cases
-- Large input considerations
+ * - Capacity of 1: Single item cache
+ * - Updating existing key: Don't change size, update value and move to head
+ * - Getting non-existent key: Return -1
+ * - Full capacity: Evict least recently used before adding new item
  */
 
 /**
- * Main solution for Problem 146: Lru Cache
- *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
- *
- * Time Complexity: O(n)
- * Space Complexity: O(1)
+ * Node class for doubly-linked list
  */
-function solve(...args) {
-    // TODO: Implement the solution using design techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using design methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
-
-    return null; // Replace with actual implementation
+class ListNode {
+    constructor(key = 0, value = 0) {
+        this.key = key;
+        this.value = value;
+        this.prev = null;
+        this.next = null;
+    }
 }
 
 /**
- * Test cases for Problem 146: Lru Cache
+ * LRU Cache implementation
+ *
+ * @param {number} capacity - Maximum number of key-value pairs to store
+ */
+class LRUCache {
+    constructor(capacity) {
+        this.capacity = capacity;
+        this.cache = new Map(); // key -> node mapping
+
+        // Create dummy head and tail nodes for easier list manipulation
+        this.head = new ListNode();
+        this.tail = new ListNode();
+        this.head.next = this.tail;
+        this.tail.prev = this.head;
+    }
+
+    /**
+     * Get value for given key
+     * @param {number} key
+     * @return {number}
+     */
+    get(key) {
+        const node = this.cache.get(key);
+        if (!node) {
+            return -1;
+        }
+
+        // Move accessed node to head (most recently used)
+        this.moveToHead(node);
+        return node.value;
+    }
+
+    /**
+     * Put key-value pair in cache
+     * @param {number} key
+     * @param {number} value
+     */
+    put(key, value) {
+        const existingNode = this.cache.get(key);
+
+        if (existingNode) {
+            // Update existing key
+            existingNode.value = value;
+            this.moveToHead(existingNode);
+        } else {
+            // Add new key
+            const newNode = new ListNode(key, value);
+
+            if (this.cache.size >= this.capacity) {
+                // Remove least recently used (tail)
+                const tail = this.removeTail();
+                this.cache.delete(tail.key);
+            }
+
+            this.cache.set(key, newNode);
+            this.addToHead(newNode);
+        }
+    }
+
+    /**
+     * Add node right after head
+     * @param {ListNode} node
+     */
+    addToHead(node) {
+        node.prev = this.head;
+        node.next = this.head.next;
+        this.head.next.prev = node;
+        this.head.next = node;
+    }
+
+    /**
+     * Remove node from its current position
+     * @param {ListNode} node
+     */
+    removeNode(node) {
+        node.prev.next = node.next;
+        node.next.prev = node.prev;
+    }
+
+    /**
+     * Move node to head (mark as most recently used)
+     * @param {ListNode} node
+     */
+    moveToHead(node) {
+        this.removeNode(node);
+        this.addToHead(node);
+    }
+
+    /**
+     * Remove and return tail node (least recently used)
+     * @return {ListNode}
+     */
+    removeTail() {
+        const lastNode = this.tail.prev;
+        this.removeNode(lastNode);
+        return lastNode;
+    }
+}
+
+/**
+ * Factory function for creating LRU Cache instances
+ * @param {number} capacity
+ * @return {LRUCache}
+ */
+function solve(capacity) {
+    return new LRUCache(capacity);
+}
+
+/**
+ * Test cases for Problem 146: LRU Cache
  */
 function testSolution() {
-    console.log('Testing 146. Lru Cache');
+    console.log('Testing 146. LRU Cache');
 
     // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    const lru1 = new LRUCache(2);
+    lru1.put(1, 1);
+    lru1.put(2, 2);
+    console.assert(lru1.get(1) === 1, 'Test 1a failed');
+    lru1.put(3, 3); // evicts key 2
+    console.assert(lru1.get(2) === -1, 'Test 1b failed');
+    lru1.put(4, 4); // evicts key 1
+    console.assert(lru1.get(1) === -1, 'Test 1c failed');
+    console.assert(lru1.get(3) === 3, 'Test 1d failed');
+    console.assert(lru1.get(4) === 4, 'Test 1e failed');
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 2: Update existing key
+    const lru2 = new LRUCache(2);
+    lru2.put(1, 1);
+    lru2.put(2, 2);
+    lru2.put(1, 10); // update key 1
+    console.assert(lru2.get(1) === 10, 'Test 2a failed');
+    console.assert(lru2.get(2) === 2, 'Test 2b failed');
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 3: Capacity of 1
+    const lru3 = new LRUCache(1);
+    lru3.put(1, 1);
+    console.assert(lru3.get(1) === 1, 'Test 3a failed');
+    lru3.put(2, 2);
+    console.assert(lru3.get(1) === -1, 'Test 3b failed');
+    console.assert(lru3.get(2) === 2, 'Test 3c failed');
 
-    console.log('All test cases passed for 146. Lru Cache!');
+    // Test case 4: Access order affects eviction
+    const lru4 = new LRUCache(2);
+    lru4.put(1, 1);
+    lru4.put(2, 2);
+    lru4.get(1); // makes 1 most recently used
+    lru4.put(3, 3); // should evict 2, not 1
+    console.assert(lru4.get(1) === 1, 'Test 4a failed');
+    console.assert(lru4.get(2) === -1, 'Test 4b failed');
+    console.assert(lru4.get(3) === 3, 'Test 4c failed');
+
+    console.log('All test cases passed for 146. LRU Cache!');
 }
 
 /**
  * Example usage and demonstration
  */
 function demonstrateSolution() {
-    console.log('\n=== Problem 146. Lru Cache ===');
+    console.log('\n=== Problem 146. LRU Cache ===');
     console.log('Category: Design');
-    console.log('Difficulty: Get');
+    console.log('Difficulty: Medium');
     console.log('');
 
-    // Example demonstration would go here
     testSolution();
 }
 
@@ -102,6 +229,7 @@ if (require.main === module) {
 
 // Export for use in other modules
 module.exports = {
+    LRUCache,
     solve,
     testSolution,
     demonstrateSolution
@@ -109,8 +237,8 @@ module.exports = {
 
 /**
  * Additional Notes:
- * - This solution focuses on design concepts
- * - Consider the trade-offs between time and space complexity
- * - Edge cases are crucial for robust solutions
- * - The approach can be adapted for similar problems in this category
+ * - This solution uses classic LRU Cache design pattern
+ * - Doubly-linked list + HashMap is the standard approach for O(1) operations
+ * - Critical for system design interviews and real-world caching systems
+ * - The dummy head/tail nodes simplify edge case handling
  */

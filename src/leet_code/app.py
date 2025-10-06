@@ -508,54 +508,289 @@ def extract_js_problem_description(code: str) -> str | None:
 
 
 def generate_js_skeleton(code: str, solution: Any) -> str:
-    """Generate skeleton code for JavaScript solutions."""
+    """Generate comprehensive skeleton code for JavaScript solutions."""
     try:
-        # Simple JavaScript skeleton generation
-        # Extract function signatures from the code
+        # Enhanced JavaScript skeleton generation
+        # Extract function signatures, classes, and other structures
         function_pattern = r'function\s+(\w+)\s*\([^)]*\)\s*{'
+        class_pattern = r'class\s+(\w+)\s*(?:extends\s+\w+)?\s*{'
+
         functions = re.findall(function_pattern, code)
+        classes = re.findall(class_pattern, code)
 
-        skeleton_lines = []
-        skeleton_lines.append("/**")
-        skeleton_lines.append(f" * {solution.name} - JavaScript Skeleton")
-        skeleton_lines.append(" * TODO: Implement the solution")
-        skeleton_lines.append(" */")
-        skeleton_lines.append("")
+        # Enhanced header with problem context
+        skeleton_lines = [
+            "/**",
+            f" * {solution.number}. {solution.name}",
+            f" * Category: {solution.category.replace('-', ' ').title()}" if hasattr(solution, 'category') else "",
+            " *",
+            " * JavaScript Practice Template",
+            " *",
+            " * This skeleton provides the structure for implementing the solution.",
+            " * Fill in the TODO sections with your implementation.",
+            " *",
+            " * Key areas to implement:",
+            " * - Main algorithm logic",
+            " * - Edge case handling",
+            " * - Return statement with correct type",
+            " *",
+            " * Time Complexity: O(?)",
+            " * Space Complexity: O(?)",
+            " */",
+            "",
+        ]
 
+        # Add helper structures if needed
+        if "ListNode" in code:
+            skeleton_lines.extend([
+                "/**",
+                " * Definition for singly-linked list.",
+                " * function ListNode(val, next) {",
+                " *     this.val = (val===undefined ? 0 : val)",
+                " *     this.next = (next===undefined ? null : next)",
+                " * }",
+                " */",
+                "",
+            ])
+
+        if "TreeNode" in code:
+            skeleton_lines.extend([
+                "/**",
+                " * Definition for a binary tree node.",
+                " * function TreeNode(val, left, right) {",
+                " *     this.val = (val===undefined ? 0 : val)",
+                " *     this.left = (left===undefined ? null : left)",
+                " *     this.right = (right===undefined ? null : right)",
+                " * }",
+                " */",
+                "",
+            ])
+
+        # Handle classes first
+        for class_name in classes:
+            if class_name in ['Test', 'TestCase', 'Main']:
+                continue
+
+            skeleton_lines.extend([
+                f"class {class_name} {{",
+                "    /**",
+                f"     * {class_name} constructor - TODO: Add constructor description",
+                "     * @param {...any} args - TODO: Describe constructor parameters",
+                "     */",
+                "    constructor(...args) {",
+                "        // TODO: Initialize class properties",
+                "        // this.property = value;",
+                "    }",
+                "",
+            ])
+
+            # Extract methods from the class
+            class_methods_pattern = rf'class\s+{class_name}\s*(?:extends\s+\w+)?\s*\{{(.*?)\n\}}'
+            class_match = re.search(class_methods_pattern, code, re.DOTALL)
+            if class_match:
+                class_body = class_match.group(1)
+                method_pattern = r'(\w+)\s*\([^)]*\)\s*\{'
+                methods = re.findall(method_pattern, class_body)
+
+                for method_name in methods:
+                    if method_name not in ['constructor']:
+                        # Extract method signature
+                        method_match = re.search(rf'{method_name}\s*\([^)]*\)', class_body)
+                        if method_match:
+                            signature = method_match.group(0)
+                            skeleton_lines.extend([
+                                "    /**",
+                                f"     * {method_name} - TODO: Add method description",
+                                "     *",
+                                "     * Algorithm approach:",
+                                "     * 1. TODO: Describe step 1",
+                                "     * 2. TODO: Describe step 2",
+                                "     * 3. TODO: Describe step 3",
+                                "     *",
+                                "     * @param {...any} args - TODO: Describe parameters",
+                                "     * @return {any} - TODO: Describe return value",
+                                "     *",
+                                "     * Time Complexity: O(?)",
+                                "     * Space Complexity: O(?)",
+                                "     */",
+                                f"    {signature} {{",
+                                "        // TODO: Handle edge cases",
+                                "        // if (!input || input.length === 0) {",
+                                "        //     return defaultValue;",
+                                "        // }",
+                                "",
+                                "        // TODO: Initialize variables",
+                                "        // let variable = initialValue;",
+                                "",
+                                "        // TODO: Main algorithm implementation",
+                                "        // for/while loop or recursive logic here",
+                                "",
+                                "        // TODO: Return result",
+                                "        return null;",
+                                "    }",
+                                "",
+                            ])
+
+            skeleton_lines.append("}")
+            skeleton_lines.append("")
+
+        # Handle standalone functions
         for func_name in functions:
-            if func_name in ['runTests', 'main', 'test']:
+            if func_name in ['runTests', 'main', 'test', 'testSolution', 'demonstrateSolution']:
                 continue
 
             # Extract the full function signature
             func_match = re.search(rf'function\s+{func_name}\s*\([^)]*\)', code)
             if func_match:
                 signature = func_match.group(0)
-                skeleton_lines.append(f"{signature} {{")
-                skeleton_lines.append("    // TODO: Implement solution")
-                skeleton_lines.append("    return null;")
-                skeleton_lines.append("}")
-                skeleton_lines.append("")
+                skeleton_lines.extend([
+                    "/**",
+                    f" * {func_name} - TODO: Add function description",
+                    " *",
+                    " * Algorithm approach:",
+                    " * 1. TODO: Describe step 1",
+                    " * 2. TODO: Describe step 2",
+                    " * 3. TODO: Describe step 3",
+                    " *",
+                    " * @param {...any} args - TODO: Describe parameters",
+                    " * @return {any} - TODO: Describe return value",
+                    " *",
+                    " * Time Complexity: O(?)",
+                    " * Space Complexity: O(?)",
+                    " */",
+                    f"{signature} {{",
+                    "    // TODO: Handle edge cases",
+                    "    // if (!input || input.length === 0) {",
+                    "    //     return defaultValue;",
+                    "    // }",
+                    "",
+                    "    // TODO: Initialize variables",
+                    "    // let variable = initialValue;",
+                    "",
+                    "    // TODO: Main algorithm implementation",
+                    "    // for/while loop or recursive logic here",
+                    "",
+                    "    // TODO: Return result",
+                    "    return null;",
+                    "}",
+                    "",
+                ])
 
-        if not functions:
-            # Fallback if no functions found
-            skeleton_lines.append("function solution() {")
-            skeleton_lines.append("    // TODO: Implement solution")
-            skeleton_lines.append("    return null;")
-            skeleton_lines.append("}")
+        # Add test case template
+        skeleton_lines.extend([
+            "/**",
+            " * Test cases for the solution",
+            " */",
+            "function testSolution() {",
+            "    console.log('Testing solution...');",
+            "",
+            "    // TODO: Add test cases",
+            "    // Test case 1: Basic functionality",
+            "    // const result1 = functionName(testInput);",
+            "    // const expected1 = expectedOutput;",
+            "    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);",
+            "",
+            "    // TODO: Add edge cases",
+            "    // Test case 2: Edge case",
+            "    // Test case 3: Large input",
+            "",
+            "    console.log('All tests passed!');",
+            "}",
+            "",
+            "/**",
+            " * Example usage and demonstration",
+            " */",
+            "function demonstrateSolution() {",
+            `    console.log('\\n=== Problem ${solution.number}. ${solution.name} ===');`,
+            f"    console.log('Category: {solution.category.replace('-', ' ').title()}');" if hasattr(solution, 'category') else "",
+            "    console.log('');",
+            "",
+            "    testSolution();",
+            "}",
+            "",
+            "// Run tests if this file is executed directly",
+            "if (require.main === module) {",
+            "    demonstrateSolution();",
+            "}",
+            "",
+            "// Export for use in other modules",
+            "module.exports = {",
+            "    // TODO: Add exports",
+            "    testSolution,",
+            "    demonstrateSolution",
+            "};",
+        ])
+
+        # Fallback if no functions or classes found
+        if not functions and not classes:
+            skeleton_lines.extend([
+                "/**",
+                " * Main solution function - TODO: Add description",
+                " * @param {...any} args - TODO: Describe parameters",
+                " * @return {any} - TODO: Describe return value",
+                " */",
+                "function solve(...args) {",
+                "    // TODO: Implement solution",
+                "    return null;",
+                "}",
+            ])
 
         return "\n".join(skeleton_lines)
 
-    except Exception:
-        # Fallback skeleton
+    except Exception as e:
+        # Enhanced fallback skeleton
         return f"""/**
- * {solution.name} - JavaScript Skeleton
- * TODO: Implement the solution
+ * {solution.number}. {solution.name}
+ * JavaScript Practice Template
+ *
+ * Note: Could not parse original code structure (Error: {str(e)})
+ * Please implement the solution manually
+ *
+ * Time Complexity: O(?)
+ * Space Complexity: O(?)
  */
 
-function solution() {{
-    // TODO: Implement solution
+/**
+ * Main solution function - TODO: Add description
+ * @param {{...any}} args - TODO: Describe parameters
+ * @return {{any}} - TODO: Describe return value
+ */
+function solve(...args) {{
+    // TODO: Handle edge cases
+    // if (!input || input.length === 0) {{
+    //     return defaultValue;
+    // }}
+
+    // TODO: Initialize variables
+    // let variable = initialValue;
+
+    // TODO: Main algorithm implementation
+    // for/while loop or recursive logic here
+
+    // TODO: Return result
     return null;
-}}"""
+}}
+
+/**
+ * Test cases for the solution
+ */
+function testSolution() {{
+    console.log('Testing solution...');
+
+    // TODO: Add test cases
+    console.log('All tests passed!');
+}}
+
+// Run tests if this file is executed directly
+if (require.main === module) {{
+    testSolution();
+}}
+
+// Export for use in other modules
+module.exports = {{
+    solve,
+    testSolution
+}};"""
 
 
 def get_syntax_highlighting_style() -> str:
@@ -816,7 +1051,7 @@ def download_solution(category: str, filename: str, format: str, language: str =
 
 
 def generate_skeleton(code: str, solution: Any, is_leetcode: bool = False) -> str:
-    """Generate a skeleton template from solution code.
+    """Generate a comprehensive skeleton template from solution code.
 
     Args:
         code: The source code to extract skeleton from
@@ -825,27 +1060,71 @@ def generate_skeleton(code: str, solution: Any, is_leetcode: bool = False) -> st
     """
     import re
 
-    header_text = "LeetCode Submission Skeleton" if is_leetcode else "Problem Skeleton"
+    header_text = "LeetCode Submission Skeleton" if is_leetcode else "Problem Skeleton - Practice Template"
 
+    # Enhanced header with problem context
     skeleton_lines = [
         '"""',
         f"{solution.number}. {solution.name}",
+        f"Category: {solution.category.replace('-', ' ').title()}" if hasattr(solution, 'category') else "",
         "",
         f"{header_text}",
-        "TODO: Add problem description here",
-        '"""',
         "",
+        "This skeleton provides the structure for implementing the solution.",
+        "Fill in the TODO sections with your implementation.",
+        "",
+        "Key areas to implement:",
+        "- Main algorithm logic",
+        "- Edge case handling",
+        "- Return statement with correct type",
+        "",
+        "Time Complexity: O(?)",
+        "Space Complexity: O(?)",
+        '"""',
         "",
     ]
 
+    # Add necessary imports if LeetCode format
+    if is_leetcode:
+        skeleton_lines.extend([
+            "from typing import List, Optional",
+            "",
+        ])
+
+    # Add helper classes/structures if needed
+    if "ListNode" in code:
+        skeleton_lines.extend([
+            "# Definition for singly-linked list.",
+            "# class ListNode:",
+            "#     def __init__(self, val=0, next=None):",
+            "#         self.val = val",
+            "#         self.next = next",
+            "",
+        ])
+
+    if "TreeNode" in code:
+        skeleton_lines.extend([
+            "# Definition for a binary tree node.",
+            "# class TreeNode:",
+            "#     def __init__(self, val=0, left=None, right=None):",
+            "#         self.val = val",
+            "#         self.left = left",
+            "#         self.right = right",
+            "",
+        ])
+
     try:
         tree = ast.parse(code)
+        solution_class_found = False
+
         for node in ast.walk(tree):
             if isinstance(node, ast.ClassDef) and node.name == "Solution":
+                solution_class_found = True
                 skeleton_lines.append("class Solution:")
+
                 for method in node.body:
                     if isinstance(method, ast.FunctionDef):
-                        # Get method signature
+                        # Get method signature with full type annotations
                         args = []
                         for arg in method.args.args:
                             arg_str = arg.arg
@@ -866,29 +1145,94 @@ def generate_skeleton(code: str, solution: Any, is_leetcode: bool = False) -> st
 
                         skeleton_lines.append(f"    def {method.name}({args_str}){returns}:")
 
-                        # Add docstring if present
-                        if (
-                            method.body
-                            and isinstance(method.body[0], ast.Expr)
-                            and isinstance(method.body[0].value, ast.Constant)
-                        ):
-                            docstring = method.body[0].value.value
-                            skeleton_lines.append(f'        """{docstring}"""')  # type: ignore[str-bytes-safe]
+                        # Enhanced docstring with structure
+                        skeleton_lines.extend([
+                            '        """',
+                            f'        {method.name} - TODO: Add method description',
+                            '',
+                            '        Algorithm approach:',
+                            '        1. TODO: Describe step 1',
+                            '        2. TODO: Describe step 2',
+                            '        3. TODO: Describe step 3',
+                            '',
+                            '        Args:',
+                            '            TODO: Describe parameters',
+                            '',
+                            '        Returns:',
+                            '            TODO: Describe return value',
+                            '',
+                            '        Time Complexity: O(?)',
+                            '        Space Complexity: O(?)',
+                            '        """',
+                        ])
 
-                        skeleton_lines.append("        # TODO: Implement solution")
-                        skeleton_lines.append("        pass")
-                        skeleton_lines.append("")
-    except Exception:
-        # Fallback to regex-based extraction
-        pattern = r"def\s+(\w+)\s*\([^)]*\)[^:]*:"
-        matches = re.findall(pattern, code)
-        if matches:
-            skeleton_lines.append("class Solution:")
-            for method_name in matches:
-                skeleton_lines.append(f"    def {method_name}(self, *args, **kwargs):")
-                skeleton_lines.append("        # TODO: Implement solution")
-                skeleton_lines.append("        pass")
-                skeleton_lines.append("")
+                        # Implementation template with structure
+                        skeleton_lines.extend([
+                            "        # TODO: Handle edge cases",
+                            "        # if not input or len(input) == 0:",
+                            "        #     return default_value",
+                            "",
+                            "        # TODO: Initialize variables",
+                            "        # variable = initial_value",
+                            "",
+                            "        # TODO: Main algorithm implementation",
+                            "        # for/while loop or recursive logic here",
+                            "",
+                            "        # TODO: Return result",
+                            "        pass",
+                            "",
+                        ])
+
+                # Add test case template if not LeetCode format
+                if not is_leetcode:
+                    skeleton_lines.extend([
+                        "",
+                        "",
+                        "def test_solution():",
+                        '    """Test cases for the solution."""',
+                        "    solution = Solution()",
+                        "",
+                        "    # TODO: Add test cases",
+                        "    # Test case 1: Basic functionality",
+                        "    # result = solution.method_name(test_input)",
+                        "    # expected = expected_output",
+                        "    # assert result == expected, f'Test failed: expected {expected}, got {result}'",
+                        "",
+                        "    # TODO: Add edge cases",
+                        "    # Test case 2: Edge case",
+                        "    # Test case 3: Large input",
+                        "",
+                        '    print("All tests passed!")',
+                        "",
+                        "",
+                        'if __name__ == "__main__":',
+                        "    test_solution()",
+                    ])
+                break
+
+        if not solution_class_found:
+            # Fallback: create basic structure
+            skeleton_lines.extend([
+                "class Solution:",
+                "    def solve(self, *args, **kwargs):",
+                '        """',
+                '        TODO: Implement the main solution method',
+                '        """',
+                "        # TODO: Implement solution",
+                "        pass",
+            ])
+
+    except Exception as e:
+        # Enhanced fallback with error info
+        skeleton_lines.extend([
+            f"# Note: Could not parse original code structure (Error: {str(e)})",
+            "# Please implement the solution class manually",
+            "",
+            "class Solution:",
+            "    def solve(self, *args, **kwargs):",
+            '        """TODO: Implement the solution method"""',
+            "        pass",
+        ])
 
     return "\n".join(skeleton_lines)
 
