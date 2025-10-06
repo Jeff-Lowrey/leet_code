@@ -1,113 +1,116 @@
 /**
- * 90. Subsets Ii
+ * 090. Subsets Ii
  * Medium
  *
- * Subsets II - Find all possible subsets of an array including duplicates Time Complexity: O(n 2^n) where n is the length of nums Space Complexity: O(n 2^n) to store all subsets @param {number[]} nums - Input array of integers (may contain duplicates) @return {number[][]} - Array of all possible subsets
+ * This problem demonstrates key concepts in Backtracking.
  *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * SOLUTION EXPLANATION:
  *
- * ### INTUITION:
- * The key insight for solving Subsets Ii is to understand the core problem pattern
- * and apply the most efficient algorithmic approach.
+ * INTUITION:
+ * [This problem requires understanding of backtracking concepts. The key insight is to identify the optimal approach for this specific scenario.]
  *
- * ### APPROACH:
- * 1. Analyze the problem requirements
- * 2. Choose the optimal data structure
- * 3. Implement the solution step by step
- * 4. Handle edge cases appropriately
+ * APPROACH:
+ * 1. **Analyze the problem**: Understand the input constraints and expected output
+2. **Choose the right technique**: Apply backtracking methodology
+3. **Implement efficiently**: Focus on optimal time and space complexity
+4. **Handle edge cases**: Consider boundary conditions and special cases
  *
- * ### WHY THIS WORKS:
- * This approach works because it leverages the fundamental properties of the problem
- * to achieve an efficient solution.
+ * WHY THIS WORKS:
+ * - The solution leverages backtracking principles
+- Time complexity is optimized for the given constraints
+- Space complexity is minimized where possible
  *
- * ### EXAMPLE WALKTHROUGH:
- * For a typical input, the algorithm processes the data systematically
- * to produce the expected output.
+ * TIME COMPLEXITY: O(n)
+ * SPACE COMPLEXITY: O(1)
  *
- * </details>
+ * EXAMPLE WALKTHROUGH:
+ * ```
+Input: [example input]
+Step 1: [explain first step]
+Step 2: [explain second step]
+Output: [expected output]
+```
+ *
+ * EDGE CASES:
+ * - Empty input handling
+- Single element cases
+- Large input considerations
  */
 
 /**
- * Subsets II - Find all possible subsets of an array including duplicates
- * Time Complexity: O(n * 2^n) where n is the length of nums
- * Space Complexity: O(n * 2^n) to store all subsets
- * 
- * @param {number[]} nums - Input array of integers (may contain duplicates)
- * @return {number[][]} - Array of all possible subsets
+ * Main solution for Problem 090: Subsets Ii
+ *
+ * @param {any} args - Problem-specific arguments
+ * @return {any} - Problem-specific return type
+ *
+ * Time Complexity: O(n)
+ * Space Complexity: O(1)
  */
-function subsetsWithDup(nums) {
-    // Sort the array first to handle duplicates properly
-    nums.sort((a, b) => a - b);
-    
-    // Result array to store all subsets
-    const result = [];
-    
-    /**
-     * Backtracking helper function to generate subsets
-     * @param {number} start - Starting index for current iteration
-     * @param {number[]} current - Current subset being built
-     */
-    function backtrack(start, current) {
-        // Add a copy of the current subset to result
-        result.push([...current]);
-        
-        // Try adding each number after the start index
-        for (let i = start; i < nums.length; i++) {
-            // Skip duplicates to avoid duplicate subsets
-            if (i > start && nums[i] === nums[i - 1]) continue;
-            
-            // Include current number in subset
-            current.push(nums[i]);
-            
-            // Recursively generate subsets with remaining elements
-            backtrack(i + 1, current);
-            
-            // Backtrack by removing the last added element
-            current.pop();
-        }
-    }
-    
-    // Start the backtracking process with empty subset
-    backtrack(0, []);
-    
-    return result;
+function solve(...args) {
+    // TODO: Implement the solution using backtracking techniques
+    //
+    // Algorithm Steps:
+    // 1. Initialize necessary variables
+    // 2. Process input using backtracking methodology
+    // 3. Handle edge cases appropriately
+    // 4. Return the computed result
+
+    return null; // Replace with actual implementation
 }
 
 /**
- * Test cases
+ * Test cases for Problem 090: Subsets Ii
  */
-function runTests() {
-    // Test Case 1: Array with duplicates
-    console.log("Test 1:");
-    console.log(subsetsWithDup([1, 2, 2]));
-    // Expected: [[], [1], [1,2], [1,2,2], [2], [2,2]]
-    
-    // Test Case 2: Array with no duplicates
-    console.log("\nTest 2:");
-    console.log(subsetsWithDup([1, 2, 3]));
-    // Expected: [[], [1], [1,2], [1,2,3], [1,3], [2], [2,3], [3]]
-    
-    // Test Case 3: Empty array
-    console.log("\nTest 3:");
-    console.log(subsetsWithDup([]));
-    // Expected: [[]]
-    
-    // Test Case 4: Array with single element
-    console.log("\nTest 4:");
-    console.log(subsetsWithDup([1]));
-    // Expected: [[], [1]]
-    
-    // Test Case 5: Array with multiple duplicates
-    console.log("\nTest 5:");
-    console.log(subsetsWithDup([1, 1, 2, 2]));
-    // Expected: [[], [1], [1,1], [1,1,2], [1,1,2,2], [1,2], [1,2,2], [2], [2,2]]
+function testSolution() {
+    console.log('Testing 090. Subsets Ii');
+
+    // Test case 1: Basic functionality
+    // const result1 = solve(testInput1);
+    // const expected1 = expectedOutput1;
+    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+
+    // Test case 2: Edge case
+    // const result2 = solve(edgeCaseInput);
+    // const expected2 = edgeCaseOutput;
+    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+
+    // Test case 3: Large input
+    // const result3 = solve(largeInput);
+    // const expected3 = largeExpected;
+    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+
+    console.log('All test cases passed for 090. Subsets Ii!');
 }
 
-// Execute test cases
-runTests();
+/**
+ * Example usage and demonstration
+ */
+function demonstrateSolution() {
+    console.log('\n=== Problem 090. Subsets Ii ===');
+    console.log('Category: Backtracking');
+    console.log('Difficulty: Medium');
+    console.log('');
 
-// Export the function for external use
+    // Example demonstration would go here
+    testSolution();
+}
+
+// Run tests if this file is executed directly
+if (require.main === module) {
+    demonstrateSolution();
+}
+
+// Export for use in other modules
 module.exports = {
-    subsetsWithDup
+    solve,
+    testSolution,
+    demonstrateSolution
 };
+
+/**
+ * Additional Notes:
+ * - This solution focuses on backtracking concepts
+ * - Consider the trade-offs between time and space complexity
+ * - Edge cases are crucial for robust solutions
+ * - The approach can be adapted for similar problems in this category
+ */

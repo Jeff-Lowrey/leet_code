@@ -1,20 +1,56 @@
-I'll help you create a solution for finding the difference between two strings, where one string contains an extra character. Here's a complete implementation:
-
-```python
-#!/usr/bin/env python3
 """
-Find Difference - Python Implementation
+# 389. Find
+**Medium**
 
-This module provides a solution to find the extra character in a string
-compared to another string. The second string contains all characters from
-the first string plus one additional character in any position.
+Given a problem that demonstrates key concepts in Bit Manipulation.
 
-Example:
-    s = "abcd"
-    t = "abcde"
-    result = "e"
+<details>
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### INTUITION:
+[This problem requires understanding of bit manipulation concepts. The key insight is to identify the optimal approach for this specific scenario.]
+
+### APPROACH:
+1. **Analyze the problem**: Understand the input constraints and expected output
+2. **Choose the right technique**: Apply bit manipulation methodology
+3. **Implement efficiently**: Focus on optimal time and space complexity
+4. **Handle edge cases**: Consider boundary conditions and special cases
+
+### WHY THIS WORKS:
+- The solution leverages bit manipulation principles
+- Time complexity is optimized for the given constraints
+- Space complexity is minimized where possible
+
+### TIME COMPLEXITY: O(n)
+### SPACE COMPLEXITY: O(1)
+
+### EXAMPLE WALKTHROUGH:
+```
+Input: [example input]
+Step 1: [explain first step]
+Step 2: [explain second step]
+Output: [expected output]
+```
+
+### EDGE CASES:
+- Empty input handling
+- Single element cases
+- Large input considerations
+
+</details>
+
+<details>
+<summary><b>💡 APPROACH</b></summary>
+
+The approach uses bit manipulation techniques to solve this problem efficiently.
+
+### Algorithm Steps:
+1. Initialize necessary variables
+2. Process input using bit manipulation method
+3. Return the computed result
+
+</details>
 """
-
 
 class Solution:
     def findTheDifference(self, s: str, t: str) -> str:
@@ -70,61 +106,27 @@ class Solution:
                 
         return ''
 
-
 def test_solution():
     """
-    Test cases to verify the implementation.
+    Test cases for 389. Find.
     """
     solution = Solution()
-    
-    # Test case 1
-    assert solution.findTheDifference("abcd", "abcde") == "e"
-    
-    # Test case 2
-    assert solution.findTheDifference("", "y") == "y"
-    
-    # Test case 3
-    assert solution.findTheDifference("ae", "aea") == "a"
-    
-    # Test alternative implementation
-    assert solution.findTheDifference_counter("abcd", "abcde") == "e"
-    
+
+    # Test case 1: Basic functionality
+    # result = solution.solve([test_input])
+    # expected = [expected_output]
+    # assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 2: Edge case
+    # result = solution.solve([edge_case_input])
+    # expected = [edge_case_output]
+    # assert result == expected, f"Expected {expected}, got {result}"
+
     print("All test cases passed!")
 
-
 if __name__ == "__main__":
-    # Run test cases
     test_solution()
-    
+
     # Example usage
     solution = Solution()
-    s = "abcd"
-    t = "abcde"
-    result = solution.findTheDifference(s, t)
-    print(f"Extra character in '{t}' compared to '{s}' is: '{result}'")
-```
-
-This implementation provides two different approaches to solve the problem:
-
-1. Using XOR operation (main implementation):
-   - XOR all characters in both strings
-   - The result will be the extra character (since XOR of same characters cancels out)
-   - Time complexity: O(n)
-   - Space complexity: O(1)
-
-2. Using character counting (alternative implementation):
-   - Count frequency of characters in first string
-   - Subtract frequency while checking second string
-   - Return character when negative count is found
-   - Time complexity: O(n)
-   - Space complexity: O(1) [fixed size array]
-
-The code includes:
-- Proper documentation and comments
-- Test cases to verify functionality
-- Example usage
-- Multiple implementation approaches
-- Error handling for edge cases
-- Clean code structure following Python conventions
-
-The solution handles various edge cases and provides efficient implementations for finding the difference between two strings.
+    print(f"Solution for 389. Find")

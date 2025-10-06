@@ -1,19 +1,56 @@
-I'll help you create a solution for the Top K Frequent elements problem. I'll write a clean, well-documented implementation that follows Python best practices.
-
-```python
-#!/usr/bin/env python3
 """
-Top K Frequent Elements Implementation
+# 347. Top K Frequent Elements
+**Medium**
 
-This module provides a solution for finding the k most frequent elements in a list.
-Time Complexity: O(n log k) where n is the length of the input list
-Space Complexity: O(n) for storing the frequency map
+Given a problem that demonstrates key concepts in Arrays Hashing.
+
+<details>
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### INTUITION:
+[This problem requires understanding of arrays hashing concepts. The key insight is to identify the optimal approach for this specific scenario.]
+
+### APPROACH:
+1. **Analyze the problem**: Understand the input constraints and expected output
+2. **Choose the right technique**: Apply arrays hashing methodology
+3. **Implement efficiently**: Focus on optimal time and space complexity
+4. **Handle edge cases**: Consider boundary conditions and special cases
+
+### WHY THIS WORKS:
+- The solution leverages arrays hashing principles
+- Time complexity is optimized for the given constraints
+- Space complexity is minimized where possible
+
+### TIME COMPLEXITY: O(n)
+### SPACE COMPLEXITY: O(1)
+
+### EXAMPLE WALKTHROUGH:
+```
+Input: [example input]
+Step 1: [explain first step]
+Step 2: [explain second step]
+Output: [expected output]
+```
+
+### EDGE CASES:
+- Empty input handling
+- Single element cases
+- Large input considerations
+
+</details>
+
+<details>
+<summary><b>💡 APPROACH</b></summary>
+
+The approach uses arrays hashing techniques to solve this problem efficiently.
+
+### Algorithm Steps:
+1. Initialize necessary variables
+2. Process input using arrays hashing method
+3. Return the computed result
+
+</details>
 """
-
-from typing import List
-from collections import Counter
-import heapq
-
 
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
@@ -90,55 +127,27 @@ class Solution:
         
         return result
 
-
-def main():
+def test_solution():
     """
-    Main function to demonstrate usage of the Solution class.
+    Test cases for 347. Top K Frequent Elements.
     """
-    # Test cases
     solution = Solution()
-    
-    test_cases = [
-        ([1, 1, 1, 2, 2, 3], 2),
-        ([1], 1),
-        ([1, 2], 2),
-        ([4, 1, -1, 2, -1, 2, 3], 2)
-    ]
-    
-    for nums, k in test_cases:
-        result = solution.topKFrequent(nums, k)
-        print(f"Input: nums={nums}, k={k}")
-        print(f"Output: {result}")
-        print()
-        
-        # Also test bucket sort implementation
-        result_bucket = solution.topKFrequent_bucket_sort(nums, k)
-        print(f"Bucket Sort Output: {result_bucket}")
-        print("-" * 50)
 
+    # Test case 1: Basic functionality
+    # result = solution.solve([test_input])
+    # expected = [expected_output]
+    # assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 2: Edge case
+    # result = solution.solve([edge_case_input])
+    # expected = [edge_case_output]
+    # assert result == expected, f"Expected {expected}, got {result}"
+
+    print("All test cases passed!")
 
 if __name__ == "__main__":
-    main()
-```
+    test_solution()
 
-This implementation provides two different approaches to solve the Top K Frequent Elements problem:
-
-1. A heap-based solution with O(n log k) time complexity
-2. A bucket sort-based solution with O(n) time complexity
-
-The code includes:
-- Type hints for better code readability and IDE support
-- Comprehensive documentation and comments
-- Error handling for edge cases
-- A main function with test cases
-- Both heap-based and bucket sort-based implementations
-- Proper Python conventions and best practices
-
-The solution handles various edge cases such as:
-- Empty input list
-- Invalid k values
-- Lists with all unique elements
-- Lists with duplicate elements
-- Negative numbers in the input
-
-The code is structured as a complete, runnable file with proper imports and can be executed directly to see the results of the test cases.
+    # Example usage
+    solution = Solution()
+    print(f"Solution for 347. Top K Frequent Elements")

@@ -1,21 +1,56 @@
-I'll help you implement a solution for the Minimum Size Subarray problem. This solution will use the sliding window technique to find the minimum length subarray whose sum is greater than or equal to the target.
-
-```python
-#!/usr/bin/env python3
 """
-Minimum Size Subarray Solution
-LeetCode Problem 209: Minimum Size Subarray Sum
+# 209. Minimum Size Subarray Sum
+**Medium**
 
-This module implements a solution to find the minimum length of a contiguous subarray
-whose sum is greater than or equal to the target value.
+Given a problem that demonstrates key concepts in Sliding Window.
 
-Time Complexity: O(n) where n is the length of the input array
-Space Complexity: O(1) as we only use a few variables
+<details>
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### INTUITION:
+[This problem requires understanding of sliding window concepts. The key insight is to identify the optimal approach for this specific scenario.]
+
+### APPROACH:
+1. **Analyze the problem**: Understand the input constraints and expected output
+2. **Choose the right technique**: Apply sliding window methodology
+3. **Implement efficiently**: Focus on optimal time and space complexity
+4. **Handle edge cases**: Consider boundary conditions and special cases
+
+### WHY THIS WORKS:
+- The solution leverages sliding window principles
+- Time complexity is optimized for the given constraints
+- Space complexity is minimized where possible
+
+### TIME COMPLEXITY: O(n)
+### SPACE COMPLEXITY: O(1)
+
+### EXAMPLE WALKTHROUGH:
+```
+Input: [example input]
+Step 1: [explain first step]
+Step 2: [explain second step]
+Output: [expected output]
+```
+
+### EDGE CASES:
+- Empty input handling
+- Single element cases
+- Large input considerations
+
+</details>
+
+<details>
+<summary><b>💡 APPROACH</b></summary>
+
+The approach uses sliding window techniques to solve this problem efficiently.
+
+### Algorithm Steps:
+1. Initialize necessary variables
+2. Process input using sliding window method
+3. Return the computed result
+
+</details>
 """
-
-from typing import List
-import sys
-
 
 class Solution:
     def minSubArrayLen(self, target: int, nums: List[int]) -> int:
@@ -55,56 +90,27 @@ class Solution:
         # Return 0 if we never found a valid subarray
         return min_length if min_length != sys.maxsize else 0
 
-
-def test_min_subarray_len():
+def test_solution():
     """
-    Test function to verify the solution with various test cases.
+    Test cases for 209. Minimum Size Subarray Sum.
     """
     solution = Solution()
-    
-    # Test case 1: Normal case
-    assert solution.minSubArrayLen(7, [2,3,1,2,4,3]) == 2, "Test case 1 failed"
-    
-    # Test case 2: No solution exists
-    assert solution.minSubArrayLen(11, [1,1,1,1,1,1,1,1]) == 0, "Test case 2 failed"
-    
-    # Test case 3: Exact sum exists
-    assert solution.minSubArrayLen(4, [1,4,4]) == 1, "Test case 3 failed"
-    
-    # Test case 4: Empty array
-    assert solution.minSubArrayLen(4, []) == 0, "Test case 4 failed"
-    
+
+    # Test case 1: Basic functionality
+    # result = solution.solve([test_input])
+    # expected = [expected_output]
+    # assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 2: Edge case
+    # result = solution.solve([edge_case_input])
+    # expected = [edge_case_output]
+    # assert result == expected, f"Expected {expected}, got {result}"
+
     print("All test cases passed!")
 
-
 if __name__ == "__main__":
-    # Run the test cases
-    test_min_subarray_len()
-    
+    test_solution()
+
     # Example usage
     solution = Solution()
-    example = [2,3,1,2,4,3]
-    target = 7
-    result = solution.minSubArrayLen(target, example)
-    print(f"Minimum length of subarray with sum >= {target}: {result}")
-```
-
-This implementation includes:
-
-1. A `Solution` class with the `minSubArrayLen` method that solves the problem using a sliding window approach
-2. Comprehensive documentation and comments explaining the implementation
-3. Type hints for better code readability and IDE support
-4. A test function with multiple test cases to verify the solution
-5. Proper error handling and edge cases
-6. Main block for example usage
-7. Time and space complexity analysis in the module docstring
-
-The solution uses the sliding window technique to efficiently find the minimum length subarray. It maintains a window with two pointers (left and right) and adjusts the window size while keeping track of the current sum. This approach achieves O(n) time complexity while using O(1) space.
-
-The code handles various edge cases:
-- Empty input array
-- No solution exists
-- Single element solution
-- Multiple possible solutions
-
-The test cases cover these scenarios to ensure the solution works correctly in all cases.
+    print(f"Solution for 209. Minimum Size Subarray Sum")

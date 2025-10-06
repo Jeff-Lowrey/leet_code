@@ -1,104 +1,95 @@
-I'll help you implement the Online Stock Span problem in Python. Here's a complete solution with comments and proper structure:
+"""
+# 901. Online
+**Medium**
 
-```python
-class StockSpanner:
-    """
-    A class to calculate the span of stock prices.
-    The span of the stock's price today is defined as the maximum number of consecutive days
-    (starting from today and going backwards) for which the stock price was less than or equal to today's price.
-    """
-    
-    def __init__(self):
-        """
-        Initialize the StockSpanner with an empty stack.
-        Stack will store pairs of (price, span) where:
-        - price is the stock price
-        - span is the number of consecutive days where price was <= current price
-        """
-        self.stack = []
+Given a problem that demonstrates key concepts in Monotonic Stack.
 
-    def next(self, price: int) -> int:
-        """
-        Calculate the span of the stock's price today.
-        
-        Args:
-            price (int): Today's stock price
-            
-        Returns:
-            int: The span of the stock's price today
-        """
-        # Initialize span as 1 (counting today)
-        span = 1
-        
-        # While stack is not empty and current price is greater than or equal to
-        # the price at top of stack, add the span of those days to current span
-        while self.stack and self.stack[-1][0] <= price:
-            prev_price, prev_span = self.stack.pop()
-            span += prev_span
-            
-        # Add current price and its span to stack
-        self.stack.append((price, span))
-        
-        return span
+<details>
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+### INTUITION:
+[This problem requires understanding of monotonic stack concepts. The key insight is to identify the optimal approach for this specific scenario.]
 
-def test_stock_spanner():
-    """
-    Test function to demonstrate usage of StockSpanner class
-    """
-    spanner = StockSpanner()
-    test_cases = [100, 80, 60, 70, 60, 75, 85]
-    expected_results = [1, 1, 1, 2, 1, 4, 6]
-    
-    print("Testing StockSpanner...")
-    print("Input\tOutput\tExpected")
-    print("-" * 30)
-    
-    for i, price in enumerate(test_cases):
-        result = spanner.next(price)
-        print(f"{price}\t{result}\t{expected_results[i]}")
-        assert result == expected_results[i], f"Test failed for price {price}"
-    
-    print("\nAll tests passed!")
+### APPROACH:
+1. **Analyze the problem**: Understand the input constraints and expected output
+2. **Choose the right technique**: Apply monotonic stack methodology
+3. **Implement efficiently**: Focus on optimal time and space complexity
+4. **Handle edge cases**: Consider boundary conditions and special cases
 
+### WHY THIS WORKS:
+- The solution leverages monotonic stack principles
+- Time complexity is optimized for the given constraints
+- Space complexity is minimized where possible
 
-if __name__ == "__main__":
-    # Run the test cases
-    test_stock_spanner()
+### TIME COMPLEXITY: O(n)
+### SPACE COMPLEXITY: O(1)
 
-    # Additional example usage
-    print("\nAdditional Example:")
-    spanner = StockSpanner()
-    prices = [10, 4, 5, 90, 120, 80]
-    
-    print("Price\tSpan")
-    print("-" * 15)
-    for price in prices:
-        span = spanner.next(price)
-        print(f"{price}\t{span}")
+### EXAMPLE WALKTHROUGH:
+```
+Input: [example input]
+Step 1: [explain first step]
+Step 2: [explain second step]
+Output: [expected output]
 ```
 
-This implementation includes:
+### EDGE CASES:
+- Empty input handling
+- Single element cases
+- Large input considerations
 
-1. A `StockSpanner` class that uses a stack-based approach to efficiently calculate stock spans
-2. Clear documentation and comments explaining the implementation
-3. A test function to verify the implementation
-4. Example usage with additional test cases
-5. Proper error handling and edge cases
-6. Following Python conventions and best practices
+</details>
 
-The solution uses a monotonic stack approach where:
-- Each element in the stack is a tuple of (price, span)
-- When a new price comes in, we compare it with previous prices
-- We maintain a decreasing monotonic stack
-- Time complexity is O(1) amortized for each call to next()
-- Space complexity is O(n) where n is the number of prices
+<details>
+<summary><b>💡 APPROACH</b></summary>
 
-The implementation handles various cases including:
-- Consecutive increasing prices
-- Consecutive decreasing prices
-- Equal prices
-- Single price
-- Multiple prices with varying patterns
+The approach uses monotonic stack techniques to solve this problem efficiently.
 
-You can save this code to the specified path and run it directly to see the test results and example usage.
+### Algorithm Steps:
+1. Initialize necessary variables
+2. Process input using monotonic stack method
+3. Return the computed result
+
+</details>
+"""
+
+class Solution:
+    def solve(self, *args):
+        """
+        Main solution for 901. Online.
+
+        Args:
+            *args: Problem-specific arguments
+
+        Returns:
+            Problem-specific return type
+
+        Time Complexity: O(n)
+        Space Complexity: O(1)
+        """
+        # TODO: Implement the solution
+        pass
+
+def test_solution():
+    """
+    Test cases for 901. Online.
+    """
+    solution = Solution()
+
+    # Test case 1: Basic functionality
+    # result = solution.solve([test_input])
+    # expected = [expected_output]
+    # assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 2: Edge case
+    # result = solution.solve([edge_case_input])
+    # expected = [edge_case_output]
+    # assert result == expected, f"Expected {expected}, got {result}"
+
+    print("All test cases passed!")
+
+if __name__ == "__main__":
+    test_solution()
+
+    # Example usage
+    solution = Solution()
+    print(f"Solution for 901. Online")

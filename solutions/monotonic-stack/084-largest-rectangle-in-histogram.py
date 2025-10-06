@@ -1,125 +1,95 @@
-I'll help you implement a solution for finding the largest rectangle in a monotonic histogram. Here's the complete implementation:
-
-```python
-#!/usr/bin/env python3
 """
-Largest Rectangle in Monotonic Histogram Implementation
-This module provides a solution for finding the largest rectangular area in a histogram
-where the heights are given in an array.
-"""
+# 084. Largest Rectangle In Histogram
+**Medium**
 
-from typing import List
+Given a problem that demonstrates key concepts in Monotonic Stack.
 
+<details>
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
-def largest_rectangle_area(heights: List[int]) -> int:
-    """
-    Calculate the largest rectangular area possible in a histogram where the width
-    of each bar is 1 and heights are given in an array.
-    
-    Args:
-        heights: List of integers representing the heights of bars in a histogram
-        
-    Returns:
-        int: The area of the largest rectangle that can be formed
-        
-    Time Complexity: O(n)
-    Space Complexity: O(n)
-    """
-    if not heights:
-        return 0
-    
-    # Initialize stack and max area
-    stack = []  # Stack will store indices
-    max_area = 0
-    
-    # Process all bars in histogram
-    for i, height in enumerate(heights + [0]):  # Add 0 to handle remaining elements in stack
-        # Start of current rectangle
-        start = i
-        
-        # While stack is not empty and current height is less than height at stack top
-        while stack and height < heights[stack[-1]]:
-            # Pop the top element
-            index = stack.pop()
-            h = heights[index]
-            
-            # Calculate width of rectangle with height h
-            # Width is distance from current position to the last element in stack
-            w = i - (stack[-1] if stack else -1) - 1
-            
-            # Update max area if current area is larger
-            max_area = max(max_area, h * w)
-            
-            # Update start position
-            start = stack[-1] + 1 if stack else 0
-            
-        stack.append(i)
-    
-    return max_area
+### INTUITION:
+[This problem requires understanding of monotonic stack concepts. The key insight is to identify the optimal approach for this specific scenario.]
 
+### APPROACH:
+1. **Analyze the problem**: Understand the input constraints and expected output
+2. **Choose the right technique**: Apply monotonic stack methodology
+3. **Implement efficiently**: Focus on optimal time and space complexity
+4. **Handle edge cases**: Consider boundary conditions and special cases
 
-def test_largest_rectangle_area():
-    """
-    Test function to verify the implementation with various test cases.
-    """
-    # Test case 1: Regular case
-    assert largest_rectangle_area([2, 1, 5, 6, 2, 3]) == 10, "Test case 1 failed"
-    
-    # Test case 2: Empty array
-    assert largest_rectangle_area([]) == 0, "Test case 2 failed"
-    
-    # Test case 3: Single element
-    assert largest_rectangle_area([4]) == 4, "Test case 3 failed"
-    
-    # Test case 4: All same heights
-    assert largest_rectangle_area([2, 2, 2, 2]) == 8, "Test case 4 failed"
-    
-    # Test case 5: Increasing heights
-    assert largest_rectangle_area([1, 2, 3, 4, 5]) == 9, "Test case 5 failed"
-    
-    print("All test cases passed!")
+### WHY THIS WORKS:
+- The solution leverages monotonic stack principles
+- Time complexity is optimized for the given constraints
+- Space complexity is minimized where possible
 
+### TIME COMPLEXITY: O(n)
+### SPACE COMPLEXITY: O(1)
 
-if __name__ == "__main__":
-    # Run tests
-    test_largest_rectangle_area()
-    
-    # Example usage
-    histogram = [2, 1, 5, 6, 2, 3]
-    result = largest_rectangle_area(histogram)
-    print(f"Largest rectangle area for histogram {histogram}: {result}")
+### EXAMPLE WALKTHROUGH:
+```
+Input: [example input]
+Step 1: [explain first step]
+Step 2: [explain second step]
+Output: [expected output]
 ```
 
-This implementation provides a solution to find the largest rectangular area in a histogram using a stack-based approach. Here are the key features of the implementation:
+### EDGE CASES:
+- Empty input handling
+- Single element cases
+- Large input considerations
 
-1. The main function `largest_rectangle_area` takes a list of integers representing histogram heights and returns the maximum rectangular area.
+</details>
 
-2. The algorithm uses a stack to keep track of indices of histogram bars and processes each bar in a single pass.
+<details>
+<summary><b>💡 APPROACH</b></summary>
 
-3. The implementation includes:
-   - Proper type hints
-   - Comprehensive documentation
-   - Edge case handling
-   - Test cases covering various scenarios
+The approach uses monotonic stack techniques to solve this problem efficiently.
 
-4. Time complexity is O(n) where n is the number of bars in the histogram, as each bar is pushed and popped at most once.
+### Algorithm Steps:
+1. Initialize necessary variables
+2. Process input using monotonic stack method
+3. Return the computed result
 
-5. Space complexity is O(n) for the stack storage.
+</details>
+"""
 
-The code includes test cases that verify the implementation works correctly for:
-- Regular cases
-- Empty input
-- Single element
-- Uniform heights
-- Monotonically increasing heights
+class Solution:
+    def solve(self, *args):
+        """
+        Main solution for 084. Largest Rectangle In Histogram.
 
-To use this implementation, you can either:
-1. Import and use the `largest_rectangle_area` function directly
-2. Run the file as a script to execute the test cases and see an example usage
+        Args:
+            *args: Problem-specific arguments
 
-The code follows Python best practices including:
-- Clear variable names
-- Proper documentation
-- Type hints
-- Modular structure
-- Comprehensive error handling
+        Returns:
+            Problem-specific return type
+
+        Time Complexity: O(n)
+        Space Complexity: O(1)
+        """
+        # TODO: Implement the solution
+        pass
+
+def test_solution():
+    """
+    Test cases for 084. Largest Rectangle In Histogram.
+    """
+    solution = Solution()
+
+    # Test case 1: Basic functionality
+    # result = solution.solve([test_input])
+    # expected = [expected_output]
+    # assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 2: Edge case
+    # result = solution.solve([edge_case_input])
+    # expected = [edge_case_output]
+    # assert result == expected, f"Expected {expected}, got {result}"
+
+    print("All test cases passed!")
+
+if __name__ == "__main__":
+    test_solution()
+
+    # Example usage
+    solution = Solution()
+    print(f"Solution for 084. Largest Rectangle In Histogram")

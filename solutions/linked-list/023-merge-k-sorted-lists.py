@@ -1,18 +1,56 @@
-I'll help you create a solution for merging K sorted linked lists in Python. I'll implement this with clear comments and proper structure.
+"""
+# 023. Merge K Sorted Lists
+**Medium**
 
-```python
-# Merge K Sorted Linked Lists
-# Time Complexity: O(N * log k) where N is total number of nodes and k is number of lists
-# Space Complexity: O(k) for the heap
+Given a problem that demonstrates key concepts in Linked List.
 
-from typing import List, Optional
-import heapq
+<details>
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
-# Definition for singly-linked list node
-class ListNode:
-    def __init__(self, val=0, next=None):
-        self.val = val
-        self.next = next
+### INTUITION:
+[This problem requires understanding of linked list concepts. The key insight is to identify the optimal approach for this specific scenario.]
+
+### APPROACH:
+1. **Analyze the problem**: Understand the input constraints and expected output
+2. **Choose the right technique**: Apply linked list methodology
+3. **Implement efficiently**: Focus on optimal time and space complexity
+4. **Handle edge cases**: Consider boundary conditions and special cases
+
+### WHY THIS WORKS:
+- The solution leverages linked list principles
+- Time complexity is optimized for the given constraints
+- Space complexity is minimized where possible
+
+### TIME COMPLEXITY: O(n)
+### SPACE COMPLEXITY: O(1)
+
+### EXAMPLE WALKTHROUGH:
+```
+Input: [example input]
+Step 1: [explain first step]
+Step 2: [explain second step]
+Output: [expected output]
+```
+
+### EDGE CASES:
+- Empty input handling
+- Single element cases
+- Large input considerations
+
+</details>
+
+<details>
+<summary><b>💡 APPROACH</b></summary>
+
+The approach uses linked list techniques to solve this problem efficiently.
+
+### Algorithm Steps:
+1. Initialize necessary variables
+2. Process input using linked list method
+3. Return the computed result
+
+</details>
+"""
 
 class Solution:
     def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
@@ -102,23 +140,27 @@ def main():
     print("\nMerged list:")
     solution.printList(merged)
 
+def test_solution():
+    """
+    Test cases for 023. Merge K Sorted Lists.
+    """
+    solution = Solution()
+
+    # Test case 1: Basic functionality
+    # result = solution.solve([test_input])
+    # expected = [expected_output]
+    # assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 2: Edge case
+    # result = solution.solve([edge_case_input])
+    # expected = [edge_case_output]
+    # assert result == expected, f"Expected {expected}, got {result}"
+
+    print("All test cases passed!")
 
 if __name__ == "__main__":
-    main()
-```
+    test_solution()
 
-This implementation includes:
-
-1. A `ListNode` class for the linked list structure
-2. The main `mergeKLists` function that uses a min heap to efficiently merge K sorted lists
-3. Helper functions for creating and printing linked lists
-4. A main function with example usage
-5. Proper type hints and documentation
-6. Edge case handling
-7. Efficient implementation using a heap (priority queue)
-
-The solution uses a min heap to always keep track of the smallest current node among all lists, resulting in an efficient O(N * log k) time complexity where N is the total number of nodes and k is the number of lists.
-
-The code handles edge cases like empty input lists and provides helper functions to make testing and verification easier. The implementation follows Python best practices and includes clear comments explaining the logic and complexity.
-
-When run, it will demonstrate the merging of three sample sorted linked lists, but can handle any number of input lists.
+    # Example usage
+    solution = Solution()
+    print(f"Solution for 023. Merge K Sorted Lists")

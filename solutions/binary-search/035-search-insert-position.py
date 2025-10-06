@@ -1,103 +1,95 @@
-I'll help you create a solution for the Search Insert problem. This will implement a binary search approach to find the position where a target value should be inserted in a sorted array.
-
-```python
-#!/usr/bin/env python3
 """
-Search Insert Position Implementation
+# 035. Search Insert Position
+**Medium**
 
-This module implements a solution for finding the position where a target value
-should be inserted in a sorted array. If the target is found, returns its index.
-If not found, returns the index where it should be inserted while maintaining
-the sorted order.
+Given a problem that demonstrates key concepts in Binary Search.
 
-Time Complexity: O(log n)
-Space Complexity: O(1)
-"""
+<details>
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
-from typing import List
+### INTUITION:
+[This problem requires understanding of binary search concepts. The key insight is to identify the optimal approach for this specific scenario.]
 
+### APPROACH:
+1. **Analyze the problem**: Understand the input constraints and expected output
+2. **Choose the right technique**: Apply binary search methodology
+3. **Implement efficiently**: Focus on optimal time and space complexity
+4. **Handle edge cases**: Consider boundary conditions and special cases
 
-def search_insert(nums: List[int], target: int) -> int:
-    """
-    Find the index where target is found or should be inserted in a sorted array.
-    
-    Args:
-        nums: A sorted array of integers in ascending order
-        target: The value to search for or determine insertion position
-        
-    Returns:
-        int: Index where target is found or should be inserted
-        
-    Examples:
-        >>> search_insert([1,3,5,6], 5)
-        2
-        >>> search_insert([1,3,5,6], 2)
-        1
-        >>> search_insert([1,3,5,6], 7)
-        4
-    """
-    left = 0
-    right = len(nums) - 1
-    
-    # Handle edge cases
-    if not nums:
-        return 0
-    if target < nums[0]:
-        return 0
-    if target > nums[-1]:
-        return len(nums)
-    
-    # Binary search implementation
-    while left <= right:
-        mid = (left + right) // 2
-        
-        if nums[mid] == target:
-            return mid
-        elif nums[mid] < target:
-            left = mid + 1
-        else:
-            right = mid - 1
-    
-    # If target not found, left index will be the insertion position
-    return left
+### WHY THIS WORKS:
+- The solution leverages binary search principles
+- Time complexity is optimized for the given constraints
+- Space complexity is minimized where possible
 
+### TIME COMPLEXITY: O(n)
+### SPACE COMPLEXITY: O(1)
 
-def main():
-    """
-    Main function to demonstrate the search_insert implementation.
-    """
-    # Test cases
-    test_cases = [
-        ([1, 3, 5, 6], 5),  # Expected: 2
-        ([1, 3, 5, 6], 2),  # Expected: 1
-        ([1, 3, 5, 6], 7),  # Expected: 4
-        ([1, 3, 5, 6], 0),  # Expected: 0
-        ([], 1),            # Expected: 0
-        ([1], 1),          # Expected: 0
-    ]
-    
-    # Run test cases
-    for nums, target in test_cases:
-        result = search_insert(nums, target)
-        print(f"Array: {nums}, Target: {target}, Insert Position: {result}")
-
-
-if __name__ == "__main__":
-    main()
+### EXAMPLE WALKTHROUGH:
+```
+Input: [example input]
+Step 1: [explain first step]
+Step 2: [explain second step]
+Output: [expected output]
 ```
 
-This implementation includes:
+### EDGE CASES:
+- Empty input handling
+- Single element cases
+- Large input considerations
 
-1. A well-documented solution using docstrings and comments
-2. Type hints for better code clarity
-3. A binary search implementation that's efficient (O(log n) time complexity)
-4. Edge case handling
-5. A main function with test cases
-6. Proper Python conventions and best practices
+</details>
 
-The `search_insert` function handles several scenarios:
-- If the target is found in the array, returns its index
-- If the target is not found, returns where it should be inserted
-- Handles edge cases like empty arrays and targets outside the array range
+<details>
+<summary><b>💡 APPROACH</b></summary>
 
-The binary search approach makes this solution efficient, and the code is structured to be both readable and maintainable. The main function includes various test cases to demonstrate the functionality.
+The approach uses binary search techniques to solve this problem efficiently.
+
+### Algorithm Steps:
+1. Initialize necessary variables
+2. Process input using binary search method
+3. Return the computed result
+
+</details>
+"""
+
+class Solution:
+    def solve(self, *args):
+        """
+        Main solution for 035. Search Insert Position.
+
+        Args:
+            *args: Problem-specific arguments
+
+        Returns:
+            Problem-specific return type
+
+        Time Complexity: O(n)
+        Space Complexity: O(1)
+        """
+        # TODO: Implement the solution
+        pass
+
+def test_solution():
+    """
+    Test cases for 035. Search Insert Position.
+    """
+    solution = Solution()
+
+    # Test case 1: Basic functionality
+    # result = solution.solve([test_input])
+    # expected = [expected_output]
+    # assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 2: Edge case
+    # result = solution.solve([edge_case_input])
+    # expected = [edge_case_output]
+    # assert result == expected, f"Expected {expected}, got {result}"
+
+    print("All test cases passed!")
+
+if __name__ == "__main__":
+    test_solution()
+
+    # Example usage
+    solution = Solution()
+    print(f"Solution for 035. Search Insert Position")

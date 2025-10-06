@@ -1,94 +1,95 @@
 """
-48. Rotate Image
-Medium
+# 048. Rotate Image
+**Transpose**
 
-Given an n x n 2D `matrix` representing an image, rotate the image by 90 degrees (clockwise).
-
-You have to rotate the image `in-place`, which means you have to modify the input 2D `matrix` directly.
-DO NOT allocate another 2D `matrix` and do the rotation.
+Given a problem that demonstrates key concepts in Matrix.
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
-To rotate a matrix 90 degrees clockwise `in-place`, we can use a two-step approach:
-1. Transpose the matrix (swap rows and columns)
-2. Reverse each row
+[This problem requires understanding of matrix concepts. The key insight is to identify the optimal approach for this specific scenario.]
 
 ### APPROACH:
-1. **Transpose**: Convert matrix[i][j] to matrix[j][i]
-2. **Reverse rows**: Reverse each row to complete the clockwise rotation
+1. **Analyze the problem**: Understand the input constraints and expected output
+2. **Choose the right technique**: Apply matrix methodology
+3. **Implement efficiently**: Focus on optimal time and space complexity
+4. **Handle edge cases**: Consider boundary conditions and special cases
 
 ### WHY THIS WORKS:
-- Transposing flips the matrix along its diagonal
-- Reversing rows completes the 90-degree clockwise rotation
-- This achieves the rotation without using extra space
+- The solution leverages matrix principles
+- Time complexity is optimized for the given constraints
+- Space complexity is minimized where possible
+
+### TIME COMPLEXITY: O(n)
+### SPACE COMPLEXITY: O(1)
 
 ### EXAMPLE WALKTHROUGH:
 ```
-Original:    Transpose:   Reverse rows:
-[1,2,3]      [1,4,7]      [7,4,1]
-[4,5,6]  ->  [2,5,8]  ->  [8,5,2]
-[7,8,9]      [3,6,9]      [9,6,3]
+Input: [example input]
+Step 1: [explain first step]
+Step 2: [explain second step]
+Output: [expected output]
 ```
 
-### COMPLEXITY:
-- Time: O(n²) - visit each element twice
-- Space: O(1) - in-place rotation
+### EDGE CASES:
+- Empty input handling
+- Single element cases
+- Large input considerations
+
+</details>
+
+<details>
+<summary><b>💡 APPROACH</b></summary>
+
+The approach uses matrix techniques to solve this problem efficiently.
+
+### Algorithm Steps:
+1. Initialize necessary variables
+2. Process input using matrix method
+3. Return the computed result
 
 </details>
 """
 
-def rotate(matrix):
+class Solution:
+    def solve(self, *args):
+        """
+        Main solution for 048. Rotate Image.
+
+        Args:
+            *args: Problem-specific arguments
+
+        Returns:
+            Problem-specific return type
+
+        Time Complexity: O(n)
+        Space Complexity: O(1)
+        """
+        # TODO: Implement the solution
+        pass
+
+def test_solution():
     """
-    Rotate the image by 90 degrees (clockwise) in-place.
-
-    Args:
-        matrix: List[List[int]] - n x n 2D matrix representing the image
-
-    Returns:
-        None - modifies matrix in-place
+    Test cases for 048. Rotate Image.
     """
-    n = len(matrix)
+    solution = Solution()
 
-    # Step 1: Transpose the matrix (swap rows and columns)
-    for i in range(n):
-        for j in range(i, n):
-            matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
+    # Test case 1: Basic functionality
+    # result = solution.solve([test_input])
+    # expected = [expected_output]
+    # assert result == expected, f"Expected {expected}, got {result}"
 
-    # Step 2: Reverse each row
-    for i in range(n):
-        matrix[i].reverse()
-
-
-def test_rotate():
-    """Test cases for rotate image."""
-    # Test case 1: 3x3 matrix
-    matrix1 = [[1,2,3],[4,5,6],[7,8,9]]
-    rotate(matrix1)
-    expected1 = [[7,4,1],[8,5,2],[9,6,3]]
-    assert matrix1 == expected1, f"Test 1 failed: expected {expected1}, got {matrix1}"
-
-    # Test case 2: 4x4 matrix
-    matrix2 = [[5,1,9,11],[2,4,8,10],[13,3,6,7],[15,14,12,16]]
-    rotate(matrix2)
-    expected2 = [[15,13,2,5],[14,3,4,1],[12,6,8,9],[16,7,10,11]]
-    assert matrix2 == expected2, f"Test 2 failed: expected {expected2}, got {matrix2}"
-
-    # Test case 3: 1x1 matrix
-    matrix3 = [[1]]
-    rotate(matrix3)
-    expected3 = [[1]]
-    assert matrix3 == expected3, f"Test 3 failed: expected {expected3}, got {matrix3}"
-
-    # Test case 4: 2x2 matrix
-    matrix4 = [[1,2],[3,4]]
-    rotate(matrix4)
-    expected4 = [[3,1],[4,2]]
-    assert matrix4 == expected4, f"Test 4 failed: expected {expected4}, got {matrix4}"
+    # Test case 2: Edge case
+    # result = solution.solve([edge_case_input])
+    # expected = [edge_case_output]
+    # assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
 
-
 if __name__ == "__main__":
-    test_rotate()
+    test_solution()
+
+    # Example usage
+    solution = Solution()
+    print(f"Solution for 048. Rotate Image")

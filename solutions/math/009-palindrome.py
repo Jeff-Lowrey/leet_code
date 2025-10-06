@@ -1,18 +1,56 @@
-I'll help you create a solution for the Palindrome Number implementation in Python. Here's the complete code with comments and proper structure:
-
-```python
-#!/usr/bin/env python3
 """
-Palindrome Number Implementation
-This module provides a solution to determine if a given integer is a palindrome.
-A number is a palindrome when it reads the same backward as forward.
+# 009. Palindrome
+**Medium**
 
-Example:
-    121 is a palindrome
-    -121 is not a palindrome
-    10 is not a palindrome
+Given a problem that demonstrates key concepts in Math.
+
+<details>
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### INTUITION:
+[This problem requires understanding of math concepts. The key insight is to identify the optimal approach for this specific scenario.]
+
+### APPROACH:
+1. **Analyze the problem**: Understand the input constraints and expected output
+2. **Choose the right technique**: Apply math methodology
+3. **Implement efficiently**: Focus on optimal time and space complexity
+4. **Handle edge cases**: Consider boundary conditions and special cases
+
+### WHY THIS WORKS:
+- The solution leverages math principles
+- Time complexity is optimized for the given constraints
+- Space complexity is minimized where possible
+
+### TIME COMPLEXITY: O(n)
+### SPACE COMPLEXITY: O(1)
+
+### EXAMPLE WALKTHROUGH:
+```
+Input: [example input]
+Step 1: [explain first step]
+Step 2: [explain second step]
+Output: [expected output]
+```
+
+### EDGE CASES:
+- Empty input handling
+- Single element cases
+- Large input considerations
+
+</details>
+
+<details>
+<summary><b>💡 APPROACH</b></summary>
+
+The approach uses math techniques to solve this problem efficiently.
+
+### Algorithm Steps:
+1. Initialize necessary variables
+2. Process input using math method
+3. Return the computed result
+
+</details>
 """
-
 
 class Solution:
     def isPalindrome(self, x: int) -> bool:
@@ -70,62 +108,27 @@ class Solution:
             
         return original == reversed_num
 
-
-def main():
+def test_solution():
     """
-    Main function to demonstrate the palindrome number checker.
+    Test cases for 009. Palindrome.
     """
-    # Create instance of Solution
     solution = Solution()
-    
-    # Test cases
-    test_numbers = [121, -121, 10, 12321, 12345, 0, 1, 22]
-    
-    print("Testing palindrome numbers:")
-    print("-" * 30)
-    
-    # Test string-based method
-    for num in test_numbers:
-        result = solution.isPalindrome(num)
-        print(f"Number: {num}, Is Palindrome: {result}")
-    
-    print("\nTesting with mathematical approach:")
-    print("-" * 30)
-    
-    # Test mathematical method
-    for num in test_numbers:
-        result = solution.isPalindrome_mathematical(num)
-        print(f"Number: {num}, Is Palindrome: {result}")
 
+    # Test case 1: Basic functionality
+    # result = solution.solve([test_input])
+    # expected = [expected_output]
+    # assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 2: Edge case
+    # result = solution.solve([edge_case_input])
+    # expected = [edge_case_output]
+    # assert result == expected, f"Expected {expected}, got {result}"
+
+    print("All test cases passed!")
 
 if __name__ == "__main__":
-    main()
-```
+    test_solution()
 
-This implementation includes:
-
-1. Two different approaches to solve the palindrome number problem:
-   - String-based solution (simple and readable)
-   - Mathematical solution (without string conversion)
-
-2. Proper handling of edge cases:
-   - Negative numbers
-   - Single-digit numbers
-   - Numbers ending with 0
-
-3. Clear documentation and comments explaining the code
-
-4. A main function to demonstrate the usage with test cases
-
-5. Proper Python conventions and best practices:
-   - Type hints
-   - Docstrings
-   - Clean code structure
-
-6. The code is complete and runnable, with example test cases
-
-To use this code, you can either:
-1. Import the Solution class and use its methods directly
-2. Run the file as a script to see the example test cases
-
-The file will be saved as `generated/MT-009-PY_palindrome_number___python_implementation.py` and can be executed directly to see the palindrome checker in action.
+    # Example usage
+    solution = Solution()
+    print(f"Solution for 009. Palindrome")

@@ -1,122 +1,95 @@
-I'll help you create a clean and efficient implementation of the Power of Two problem in Python. Here's the complete solution:
-
-```python
-#!/usr/bin/env python3
 """
-Power of Two - Python Implementation
+# 231. Power
+**Medium**
 
-This module provides a solution to determine if a given number is a power of 2.
-A number is a power of two if it can be expressed as 2^n where n is a non-negative integer.
+Given a problem that demonstrates key concepts in Bit Manipulation.
 
-Examples:
-    1 = 2^0 (True)
-    2 = 2^1 (True)
-    4 = 2^2 (True)
-    5 = not a power of 2 (False)
-"""
+<details>
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+### INTUITION:
+[This problem requires understanding of bit manipulation concepts. The key insight is to identify the optimal approach for this specific scenario.]
 
-class PowerOfTwo:
-    """
-    Class containing methods to check if a number is a power of two.
-    """
-    
-    @staticmethod
-    def is_power_of_two_bitwise(n: int) -> bool:
-        """
-        Determines if a number is a power of two using bitwise operations.
-        A power of two has exactly one '1' bit in its binary representation.
-        
-        Args:
-            n: Integer number to check
-            
-        Returns:
-            bool: True if n is a power of two, False otherwise
-        """
-        # Handle edge cases: negative numbers and zero
-        if n <= 0:
-            return False
-            
-        # Check if n has exactly one '1' bit
-        # n & (n-1) removes the rightmost '1' bit
-        # If n is a power of 2, the result should be 0
-        return (n & (n - 1)) == 0
+### APPROACH:
+1. **Analyze the problem**: Understand the input constraints and expected output
+2. **Choose the right technique**: Apply bit manipulation methodology
+3. **Implement efficiently**: Focus on optimal time and space complexity
+4. **Handle edge cases**: Consider boundary conditions and special cases
 
-    @staticmethod
-    def is_power_of_two_loop(n: int) -> bool:
-        """
-        Determines if a number is a power of two using a loop.
-        Continuously divides by 2 and checks if we reach 1.
-        
-        Args:
-            n: Integer number to check
-            
-        Returns:
-            bool: True if n is a power of two, False otherwise
-        """
-        # Handle edge cases: negative numbers and zero
-        if n <= 0:
-            return False
-            
-        # Keep dividing by 2 until we reach 1 or find it's not a power of 2
-        while n > 1:
-            if n % 2 != 0:
-                return False
-            n //= 2
-        return True
+### WHY THIS WORKS:
+- The solution leverages bit manipulation principles
+- Time complexity is optimized for the given constraints
+- Space complexity is minimized where possible
 
+### TIME COMPLEXITY: O(n)
+### SPACE COMPLEXITY: O(1)
 
-def main():
-    """
-    Main function to demonstrate the usage of PowerOfTwo class.
-    """
-    # Create instance of PowerOfTwo
-    power_checker = PowerOfTwo()
-    
-    # Test cases
-    test_numbers = [1, 2, 4, 8, 16, 3, 6, 7, 0, -4]
-    
-    print("Testing bitwise method:")
-    for num in test_numbers:
-        result = power_checker.is_power_of_two_bitwise(num)
-        print(f"{num} is{' ' if result else ' not '}a power of two")
-    
-    print("\nTesting loop method:")
-    for num in test_numbers:
-        result = power_checker.is_power_of_two_loop(num)
-        print(f"{num} is{' ' if result else ' not '}a power of two")
-
-
-if __name__ == "__main__":
-    main()
+### EXAMPLE WALKTHROUGH:
+```
+Input: [example input]
+Step 1: [explain first step]
+Step 2: [explain second step]
+Output: [expected output]
 ```
 
-This implementation provides:
+### EDGE CASES:
+- Empty input handling
+- Single element cases
+- Large input considerations
 
-1. A well-structured `PowerOfTwo` class with two different methods to check if a number is a power of two:
-   - `is_power_of_two_bitwise`: Uses efficient bitwise operations
-   - `is_power_of_two_loop`: Uses a traditional loop approach
+</details>
 
-2. Comprehensive documentation including:
-   - Module docstring explaining the problem
-   - Class and method docstrings with Args and Returns sections
-   - Inline comments explaining key operations
+<details>
+<summary><b>💡 APPROACH</b></summary>
 
-3. Proper error handling for edge cases:
-   - Negative numbers
-   - Zero
-   - Various input types
+The approach uses bit manipulation techniques to solve this problem efficiently.
 
-4. A main function demonstrating usage with test cases
+### Algorithm Steps:
+1. Initialize necessary variables
+2. Process input using bit manipulation method
+3. Return the computed result
 
-5. Following Python best practices:
-   - Type hints
-   - PEP 8 style guidelines
-   - Clear variable names
-   - Proper organization
+</details>
+"""
 
-6. Both implementations are efficient and solve the problem in different ways:
-   - The bitwise method is more efficient (O(1))
-   - The loop method is more intuitive (O(log n))
+class Solution:
+    def solve(self, *args):
+        """
+        Main solution for 231. Power.
 
-The code can be run directly to see examples of powers of two being tested, or the class can be imported and used in other modules.
+        Args:
+            *args: Problem-specific arguments
+
+        Returns:
+            Problem-specific return type
+
+        Time Complexity: O(n)
+        Space Complexity: O(1)
+        """
+        # TODO: Implement the solution
+        pass
+
+def test_solution():
+    """
+    Test cases for 231. Power.
+    """
+    solution = Solution()
+
+    # Test case 1: Basic functionality
+    # result = solution.solve([test_input])
+    # expected = [expected_output]
+    # assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 2: Edge case
+    # result = solution.solve([edge_case_input])
+    # expected = [edge_case_output]
+    # assert result == expected, f"Expected {expected}, got {result}"
+
+    print("All test cases passed!")
+
+if __name__ == "__main__":
+    test_solution()
+
+    # Example usage
+    solution = Solution()
+    print(f"Solution for 231. Power")

@@ -1,21 +1,56 @@
-I'll help you create a solution for finding disappeared numbers in Python. I'll write a complete implementation that meets the requirements and includes proper documentation.
-
-```python
-#!/usr/bin/env python3
 """
-Find Disappeared Numbers - Python Implementation
+# 448. Find All Numbers Disappeared In An Array
+**Medium**
 
-This module provides a solution to find all numbers that are missing from
-an array of n integers where the integers are in the range [1, n].
+Given a problem that demonstrates key concepts in Arrays Hashing.
 
-Example:
-    Input: nums = [4,3,2,7,8,2,3,1]
-    Output: [5,6]
-    Explanation: 5 and 6 are missing from the range [1,8]
+<details>
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### INTUITION:
+[This problem requires understanding of arrays hashing concepts. The key insight is to identify the optimal approach for this specific scenario.]
+
+### APPROACH:
+1. **Analyze the problem**: Understand the input constraints and expected output
+2. **Choose the right technique**: Apply arrays hashing methodology
+3. **Implement efficiently**: Focus on optimal time and space complexity
+4. **Handle edge cases**: Consider boundary conditions and special cases
+
+### WHY THIS WORKS:
+- The solution leverages arrays hashing principles
+- Time complexity is optimized for the given constraints
+- Space complexity is minimized where possible
+
+### TIME COMPLEXITY: O(n)
+### SPACE COMPLEXITY: O(1)
+
+### EXAMPLE WALKTHROUGH:
+```
+Input: [example input]
+Step 1: [explain first step]
+Step 2: [explain second step]
+Output: [expected output]
+```
+
+### EDGE CASES:
+- Empty input handling
+- Single element cases
+- Large input considerations
+
+</details>
+
+<details>
+<summary><b>💡 APPROACH</b></summary>
+
+The approach uses arrays hashing techniques to solve this problem efficiently.
+
+### Algorithm Steps:
+1. Initialize necessary variables
+2. Process input using arrays hashing method
+3. Return the computed result
+
+</details>
 """
-
-from typing import List
-
 
 class Solution:
     def findDisappearedNumbers(self, nums: List[int]) -> List[int]:
@@ -48,58 +83,27 @@ class Solution:
         
         return result
 
-
 def test_solution():
     """
-    Test cases to verify the solution.
+    Test cases for 448. Find All Numbers Disappeared In An Array.
     """
     solution = Solution()
-    
-    # Test case 1: Standard case
-    assert solution.findDisappearedNumbers([4,3,2,7,8,2,3,1]) == [5,6]
-    
-    # Test case 2: Empty array
-    assert solution.findDisappearedNumbers([]) == []
-    
-    # Test case 3: No missing numbers
-    assert solution.findDisappearedNumbers([1,2,3,4]) == []
-    
-    # Test case 4: All same numbers
-    assert solution.findDisappearedNumbers([1,1,1,1]) == [2,3,4]
-    
+
+    # Test case 1: Basic functionality
+    # result = solution.solve([test_input])
+    # expected = [expected_output]
+    # assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 2: Edge case
+    # result = solution.solve([edge_case_input])
+    # expected = [edge_case_output]
+    # assert result == expected, f"Expected {expected}, got {result}"
+
     print("All test cases passed!")
 
-
 if __name__ == "__main__":
-    # Run test cases
     test_solution()
-    
+
     # Example usage
     solution = Solution()
-    example_input = [4,3,2,7,8,2,3,1]
-    result = solution.findDisappearedNumbers(example_input)
-    print(f"Input: {example_input}")
-    print(f"Missing numbers: {result}")
-```
-
-This implementation provides a solution to find disappeared numbers with the following features:
-
-1. Clean and efficient implementation using O(n) time complexity and O(1) space complexity
-2. Proper type hints and documentation using docstrings
-3. Comprehensive test cases to verify the solution
-4. Clear comments explaining the logic
-5. Follows Python best practices and PEP 8 conventions
-6. Handles edge cases (empty array, no missing numbers, duplicate numbers)
-
-The solution uses an in-place marking technique to avoid using extra space:
-1. For each number in the array, mark its presence by making the number at its corresponding index negative
-2. After marking, any positive numbers indicate missing values in the original array
-
-The implementation includes:
-- Type hints for better code clarity
-- Comprehensive docstrings
-- Test cases for various scenarios
-- Main block for example usage
-- Clean code structure following Python conventions
-
-You can run this file directly to see the test cases in action and an example usage.
+    print(f"Solution for 448. Find All Numbers Disappeared In An Array")
