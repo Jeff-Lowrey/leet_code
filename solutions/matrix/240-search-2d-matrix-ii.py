@@ -2,8 +2,8 @@
 240. Search a 2D Matrix II
 Medium
 
-Write an efficient algorithm that searches for a value target in an m x n integer matrix.
-This matrix has the following properties:
+Write an efficient algorithm that searches for a value `target` in an m x `n` integer `matrix`.
+This `matrix` has the following properties:
 - Integers in each row are sorted in ascending from left to right.
 - Integers in each column are sorted in ascending from top to bottom.
 
@@ -11,13 +11,13 @@ This matrix has the following properties:
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
-Unlike the previous matrix search problem, this matrix is only sorted row-wise and column-wise,
-but rows don't have the property where first element > last element of previous row.
-We can use the sorted properties to eliminate entire rows/columns efficiently.
+Unlike the previous `matrix` search problem, this `matrix` is only sorted `row-wise` and `column-wise`,
+but rows don't have the property where first `element > last` element of `previous` row.
+We can use the sorted properties to eliminate entire `rows/columns` efficiently.
 
 ### APPROACH:
-1. **Start from top-right corner** (or bottom-left): This gives us optimal elimination
-2. **Compare with target**:
+1. **Start from top-`right` corner** (or `bottom-left`): This gives us optimal elimination
+2. **Compare with `target`**:
    - If current > target: move left (eliminate current column)
    - If current < target: move down (eliminate current row)
    - If current == target: found it!
@@ -37,11 +37,11 @@ Matrix: [[1,4,7,11,15],
          [18,21,23,26,30]]
 Target: 5
 
-Start at (0,4): 15 > 5, move left
-At (0,3): 11 > 5, move left
-At (0,2): 7 > 5, move left
-At (0,1): 4 < 5, move down
-At (1,1): 5 == 5, found!
+Start at (0,4): `15 > 5`, move left
+At (0,3): `11 > 5`, move left
+At (0,2): `7 > 5`, move left
+At (0,1): `4 < 5`, move down
+At (1,1): `5 == 5`, found!
 ```
 
 ### COMPLEXITY:

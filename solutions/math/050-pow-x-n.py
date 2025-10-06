@@ -2,17 +2,17 @@
 50. Pow(x, n)
 Medium
 
-Implement pow(x, n), which calculates x raised to the power n (i.e., x^n).
+Implement pow(x, n), which calculates x raised to the power `n` (`i`.e., x^n).
 
 Example:
-Input: x = 2.00000, n = 10
+Input: `x = 2`.00000, `n` = 10
 Output: 1024.00000
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
-Naive approach of multiplying x by itself n times is O(n). We can do better
+Naive approach of multiplying x by itself `n` times is O(n). We can do better
 using **binary exponentiation** - repeatedly squaring and halving the exponent.
 
 ### KEY INSIGHT:
@@ -21,28 +21,28 @@ using **binary exponentiation** - repeatedly squaring and halving the exponent.
 - Split exponent in half, square the base
 
 ### APPROACH (Recursive):
-1. **Base case**: n = 0 → return 1
-2. **Even n**: return pow(x^2, n/2)
-3. **Odd n**: return x * pow(x^2, (n-1)/2)
-4. **Negative n**: return 1/pow(x, -n)
+1. **Base case**: `n` = 0 → return 1
+2. **Even n**: return pow(x^2, `n/2`)
+3. **Odd n**: return `x * pow`(x^2, (`n-1`)/2)
+4. **Negative n**: return `1/pow`(x, -n)
 
 ### APPROACH (Iterative):
-1. Handle negative exponents: x = 1/x, n = -n
-2. Use bit manipulation: if n is odd, multiply result by current x
-3. Square x and halve n in each iteration
+1. Handle negative exponents: x = `1/x`, `n` = -n
+2. Use bit manipulation: if `n` is odd, multiply `result` by `current` x
+3. Square x and halve `n` in each iteration
 
 ### EXAMPLE WALKTHROUGH:
 ```
 pow(2, 10):
-10 = 1010 in binary
-Result = 1
+`10 = 1010` in binary
+`Result = 1`
 
-Bit 1 (position 1): result *= 2^2 = 4
+Bit 1 (position 1): `result` *= 2^`2 = 4`
 Bit 0 (position 2): skip
-Bit 1 (position 3): result *= 2^8 = 256
+Bit 1 (position 3): `result` *= 2^`8 = 256`
 Bit 0 (position 4): skip
 
-Final: 4 * 256 = 1024
+Final: `4 * 256` = 1024
 ```
 
 ### TIME COMPLEXITY: O(log n)

@@ -2,16 +2,16 @@
 48. Rotate Image
 Medium
 
-Given an n x n 2D matrix representing an image, rotate the image by 90 degrees (clockwise).
+Given an n x n 2D `matrix` representing an image, rotate the image by 90 degrees (clockwise).
 
-You have to rotate the image in-place, which means you have to modify the input 2D matrix directly.
-DO NOT allocate another 2D matrix and do the rotation.
+You have to rotate the image `in-place`, which means you have to modify the input 2D `matrix` directly.
+DO NOT allocate another 2D `matrix` and do the rotation.
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
-To rotate a matrix 90 degrees clockwise in-place, we can use a two-step approach:
+To rotate a matrix 90 degrees clockwise `in-place`, we can use a two-step approach:
 1. Transpose the matrix (swap rows and columns)
 2. Reverse each row
 

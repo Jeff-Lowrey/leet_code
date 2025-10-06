@@ -2,7 +2,7 @@
 73. Set Matrix Zeroes
 Medium
 
-Given an m x n integer matrix, if an element is 0, set its entire row and column to 0's.
+Given an m x `n` integer `matrix`, if an element is 0, `set` its entire row and column to 0's.
 
 You must do it in place.
 
@@ -14,10 +14,10 @@ We need to mark which rows and columns should be zeroed without using extra spac
 We can use the first row and first column as markers.
 
 ### APPROACH:
-1. **Check if first row/column have zeros**: Store this information
-2. **Use first row/column as markers**: Mark which rows/columns need to be zeroed
-3. **Zero marked rows/columns**: Set elements to zero based on markers
-4. **Handle first row/column**: Zero them if they originally had zeros
+1. **Check if first `row/column` have zeros**: Store this information
+2. **Use first `row/column` as markers**: Mark which `rows/columns` need to be zeroed
+3. **Zero marked `rows/columns`**: Set elements to zero based on markers
+4. **Handle first `row/column`**: Zero them if they originally had zeros
 
 ### WHY THIS WORKS:
 - The first row and column serve as storage for which rows/columns to zero

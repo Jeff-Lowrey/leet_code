@@ -2,15 +2,15 @@
 287. Find the Duplicate Number
 Medium
 
-Given an array of integers nums containing n + 1 integers where each integer is
-in the range [1, n] inclusive. There is only one repeated number in nums, return
+Given an array of integers `nums` containing `n` + 1 integers where each integer is
+in the range [1, n] inclusive. There is only one repeated number in `nums`, return
 this repeated number.
 
-You must solve the problem without modifying the array nums and uses only constant
+You must solve the problem without modifying the array `nums` and uses only constant
 extra space.
 
 Example:
-Input: nums = [1,3,4,2,2]
+Input: `nums` = [1,3,4,2,2]
 Output: 2
 
 <details>
@@ -21,10 +21,10 @@ Since we can't modify the array or use extra space, we treat the array as a link
 Each number points to the index of that number. A duplicate creates a cycle!
 
 ### APPROACH (Floyd's Cycle Detection):
-1. **Phase 1**: Use slow/fast pointers to detect cycle existence
+1. **Phase 1**: Use `slow/fast` pointers to detect cycle existence
 2. **Phase 2**: Find the entrance of the cycle (the duplicate number)
-3. Move one pointer to start, keep other at intersection
-4. Move both one step until they meet - that's the duplicate
+3. Move one pointer to `start`, keep other at intersection
+4. Move both one step until they `meet - that`'s the duplicate
 
 ### WHY THIS WORKS:
 - Array values [1,n] map to valid indices [1,n]
@@ -33,7 +33,7 @@ Each number points to the index of that number. A duplicate creates a cycle!
 
 ### EXAMPLE WALKTHROUGH:
 ```
-nums = [1,3,4,2,2]
+`nums` = [1,3,4,2,2]
 Index: 0 1 2 3 4
 Value: 1 3 4 2 2
 

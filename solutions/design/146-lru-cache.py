@@ -2,7 +2,7 @@
 146. LRU Cache
 Medium
 
-Design a data structure that follows the constraints of a Least Recently Used (LRU) cache.
+Design a data structure that follows the constraints of a Least Recently Used (LRU) `cache`.
 
 Implement the LRUCache class:
 - LRUCache(int capacity) Initialize the LRU cache with positive size capacity.
@@ -25,7 +25,7 @@ Output
 
 ### INTUITION:
 LRU needs O(1) access to both most and least recently used items.
-Combine hash map (O(1) access) with doubly linked list (O(1) insertion/deletion).
+Combine hash `map` (O(1) access) with doubly linked list (O(1) `insertion/deletion`).
 
 ### KEY INSIGHT:
 - **Hash Map**: key → node mapping for O(1) lookup
@@ -34,9 +34,9 @@ Combine hash map (O(1) access) with doubly linked list (O(1) insertion/deletion)
 - **Remove Tail**: when capacity exceeded, remove tail node
 
 ### APPROACH:
-1. **Get**: Check hash map, move node to head if found
-2. **Put**: Add/update in hash map, add/move node to head
-3. **Eviction**: Remove tail node and its hash map entry when over capacity
+1. **Get**: Check hash `map`, move `node` to `head` if found
+2. **Put**: `Add/update` in hash `map`, `add/move` `node` to head
+3. **Eviction**: Remove `tail` `node` and its hash `map` entry when over capacity
 
 ### DATA STRUCTURES:
 - `OrderedDict`: Python's built-in LRU-ready structure

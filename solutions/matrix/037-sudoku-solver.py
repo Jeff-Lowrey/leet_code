@@ -5,9 +5,9 @@ Hard
 Write a program to solve a Sudoku puzzle by filling the empty cells.
 
 A sudoku solution must satisfy all of the following rules:
-1. Each of the digits 1-9 must occur exactly once in each row.
-2. Each of the digits 1-9 must occur exactly once in each column.
-3. Each of the digits 1-9 must occur exactly once in each of the 9 3x3 sub-boxes of the grid.
+1. Each of the digits `1-9` must occur exactly once in each row.
+2. Each of the digits `1-9` must occur exactly once in each column.
+3. Each of the digits `1-9` must occur exactly once in each of the 9 3x3 `sub-boxes` of the grid.
 
 The '.' character indicates empty cells.
 
@@ -15,13 +15,13 @@ The '.' character indicates empty cells.
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
-This is a classic backtracking problem. We need to try placing digits 1-9 in empty cells
-and validate if the placement is valid according to Sudoku rules. If we reach a dead end,
+This is a classic backtracking problem. We need to try placing digits `1-9` in empty cells
+and validate if the placement is valid according to Sudoku rules. If we reach a dead `end`,
 we backtrack and try the next possibility.
 
 ### APPROACH:
-1. **Find empty cell**: Look for next '.' in the board
-2. **Try digits 1-9**: For each digit, check if placement is valid
+1. **Find empty cell**: Look for `next` '.' in the board
+2. **Try digits `1-9`**: For each digit, check if placement is valid
 3. **Validate placement**: Check row, column, and 3x3 box constraints
 4. **Recursive solve**: If valid, place digit and recursively solve remaining
 5. **Backtrack**: If no solution found, remove digit and try next
@@ -38,7 +38,7 @@ we backtrack and try the next possibility.
 
 ### EXAMPLE WALKTHROUGH:
 ```
-Input board with '.' for empty cells:
+Input `board` with '.' for empty cells:
 [["5","3",".",".","7",".",".",".","."],
  ["6",".",".","1","9","5",".",".","."],
  [".","9","8",".",".",".",".","6","."],

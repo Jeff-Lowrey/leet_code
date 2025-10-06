@@ -25,7 +25,7 @@ Output:
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
-Need O(1) for insert, delete, and random access. Hash map gives O(1) insert/delete,
+Need O(1) for insert, delete, and random access. Hash `map` gives O(1) `insert/delete`,
 but not random access. Array gives O(1) random access, but not deletion.
 **Combine both!**
 
@@ -35,8 +35,8 @@ but not random access. Array gives O(1) random access, but not deletion.
 - **Swap-and-Pop**: To delete in O(1), swap with last element, then pop
 
 ### APPROACH:
-1. **Insert**: Add to end of array, record index in hash map
-2. **Remove**: Swap element with last, update hash map, pop last
+1. **Insert**: Add to `end` of array, record index in hash `map`
+2. **Remove**: Swap element with last, update hash `map`, pop last
 3. **GetRandom**: Generate random index, return array[index]
 
 ### REMOVE TRICK:
@@ -44,7 +44,7 @@ but not random access. Array gives O(1) random access, but not deletion.
 Remove 5 from [1, 5, 3, 7]:
 1. Find 5 at index 1
 2. Swap with last: [1, 7, 3, 5]
-3. Update hash map: 7 now at index 1
+3. Update hash `map`: 7 now at index 1
 4. Pop last: [1, 7, 3]
 ```
 

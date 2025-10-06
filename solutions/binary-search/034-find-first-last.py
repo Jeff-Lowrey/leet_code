@@ -2,15 +2,15 @@
 34. Find First and Last Position of Element in Sorted Array
 Medium
 
-Given an array of integers nums sorted in non-decreasing order, find the starting
-and ending position of a given target value.
+Given an array of integers `nums` sorted in `non-decreasing` order, find the starting
+and ending position of a given `target` value.
 
-If target is not found in the array, return [-1, -1].
+If `target` is not found in the array, return [-1, -1].
 
 You must write an algorithm with O(log n) runtime complexity.
 
 Example:
-Input: nums = [5,7,7,8,8,10], target = 8
+Input: `nums` = [5,7,7,8,8,10], `target` = 8
 Output: [3,4]
 
 <details>
@@ -33,18 +33,18 @@ We can modify binary search to find boundaries:
 4. Both searches maintain the O(log n) complexity
 
 ### FIRST OCCURRENCE ALGORITHM:
-1. When nums[mid] == target: record position but search LEFT (right = mid - 1)
-2. When nums[mid] < target: search RIGHT (left = mid + 1)
-3. When nums[mid] > target: search LEFT (right = mid - 1)
+1. When `nums`[mid] == `target`: record position but search LEFT (`right` = `mid` - 1)
+2. When `nums`[mid] < `target`: search RIGHT (`left` = `mid` + 1)
+3. When `nums`[mid] > `target`: search LEFT (`right` = `mid` - 1)
 
 ### LAST OCCURRENCE ALGORITHM:
-1. When nums[mid] == target: record position but search RIGHT (left = mid + 1)
-2. When nums[mid] < target: search RIGHT (left = mid + 1)
-3. When nums[mid] > target: search LEFT (right = mid - 1)
+1. When `nums`[mid] == `target`: record position but search RIGHT (`left` = `mid` + 1)
+2. When `nums`[mid] < `target`: search RIGHT (`left` = `mid` + 1)
+3. When `nums`[mid] > `target`: search LEFT (`right` = `mid` - 1)
 
 ### EXAMPLE WALKTHROUGH:
 ```
-nums = [5,7,7,8,8,10], target = 8
+`nums` = [5,7,7,8,8,10], `target` = 8
 
 Find first 8:
 - Search continues left even after finding 8

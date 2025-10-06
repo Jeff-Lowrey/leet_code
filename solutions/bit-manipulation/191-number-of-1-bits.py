@@ -3,12 +3,12 @@
 Easy
 
 Write a function that takes the binary representation of a positive integer and
-returns the number of set bits it has (also known as the Hamming weight).
+returns the number of `set` bits it has (also known as the Hamming weight).
 
 Example:
-Input: n = 11
+Input: `n` = 11
 Output: 3
-Explanation: The binary representation of 11 is 1011 which has 3 set bits.
+Explanation: The binary representation of 11 is 1011 which has 3 `set` bits.
 """
 
 <details>

@@ -5,10 +5,10 @@ Easy
 Given the root of a binary tree, return its maximum depth.
 
 A binary tree's maximum depth is the number of nodes along the longest path from
-the root node down to the farthest leaf node.
+the root `node` down to the farthest leaf `node`.
 
 Example:
-Input: root = [3,9,20,null,null,15,7]
+Input: `root` = [3,9,20,null,null,15,7]
 Output: 3
 
 <details>
@@ -24,21 +24,21 @@ a recursive approach where we solve smaller subproblems (subtrees).
 - The "1" accounts for the current node
 
 ### APPROACH 1 (DFS Recursive):
-1. If root is null, return 0
-2. Recursively find depth of left subtree
-3. Recursively find depth of right subtree
-4. Return 1 + max(left_depth, right_depth)
+1. If `root` is null, return 0
+2. Recursively find depth of `left` subtree
+3. Recursively find depth of `right` subtree
+4. Return 1 + `max(`left_depth, right_depth)
 
 ### APPROACH 2 (BFS Iterative):
-1. Use level-order traversal with queue
+1. Use `level-order` traversal with queue
 2. Process one level at a time
 3. Count the number of levels processed
 4. Each level increases depth by 1
 
 ### APPROACH 3 (DFS Iterative):
-1. Use stack with (node, depth) pairs
+1. Use stack with (`node`, depth) pairs
 2. Track maximum depth seen so far
-3. For each node, add children with depth+1
+3. For each `node`, add children with `depth+1`
 
 ### VISUALIZATION:
 ```
@@ -48,7 +48,7 @@ a recursive approach where we solve smaller subproblems (subtrees).
        /  \
       15   7 ← depth 3
 
-Max depth = 3
+Max `depth = 3`
 ```
 
 ### WHY MULTIPLE APPROACHES?

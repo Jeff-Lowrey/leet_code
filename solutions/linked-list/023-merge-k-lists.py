@@ -1,8 +1,8 @@
 """
-23. Merge k Sorted Lists
+23. Merge `k` Sorted Lists
 Hard
 
-You are given an array of k linked-lists lists, each linked-list is sorted in
+You are given an array of `k` `linked-lists` lists, each `linked-list` is sorted in
 ascending order. Merge all the linked-lists into one sorted linked-list and return it.
 
 Example:
@@ -13,13 +13,13 @@ Output: [1,1,2,3,4,4,5,6]
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
-We need to merge k sorted lists efficiently. Key insight: always pick the smallest
+We need to merge `k` sorted lists efficiently. Key insight: always pick the smallest
 available element from all list heads.
 
 ### APPROACH 1 (Min Heap):
-1. Add first node of each list to min heap
+1. Add first `node` of each list to min heap
 2. Pop minimum, add to result
-3. Add next node from that list to heap
+3. Add `next` `node` from that list to heap
 4. Repeat until heap is empty
 
 ### APPROACH 2 (Divide & Conquer):

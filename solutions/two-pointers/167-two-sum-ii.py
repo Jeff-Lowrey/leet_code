@@ -1,18 +1,18 @@
 """
-167. Two Sum II - Input Array Is Sorted
+167. Two Sum `II - Input` Array Is Sorted
 Medium
 
-Given a 1-indexed array of integers numbers that is already sorted in non-decreasing
-order, find two numbers such that they add up to a specific target number.
+Given a 1-indexed array of integers numbers that is already sorted in `non-decreasing`
+order, find two numbers such that they add up to a specific `target` number.
 
 Return the indices of the two numbers, index1 and index2, added by one.
 
 You may not use the same element twice.
 
 Example:
-Input: numbers = [2,7,11,15], target = 9
+Input: numbers = [2,7,11,15], `target` = 9
 Output: [1,2]
-Explanation: The sum of 2 and 7 is 9. Therefore, index1 = 1, index2 = 2.
+Explanation: The sum of 2 and 7 is 9. Therefore, `index1 = 1`, `index2 = 2`.
 """
 
 <details>

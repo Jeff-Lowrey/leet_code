@@ -1,10 +1,10 @@
 """
-307. Range Sum Query - Mutable
+307. Range Sum `Query - Mutable`
 Medium
 
-Given an integer array nums, handle multiple queries of the following types:
-1. Update the value of an element in nums.
-2. Calculate the sum of the elements of nums between indices left and right inclusive.
+Given an integer array `nums`, handle multiple queries of the following types:
+1. Update the value of an element in `nums`.
+2. Calculate the sum of the elements of `nums` between indices `left` and `right` inclusive.
 
 Implement the NumArray class:
 - NumArray(int[] nums) Initializes the object with the integer array nums.

@@ -2,7 +2,7 @@
 2. Add Two Numbers
 Medium
 
-You are given two non-empty linked lists representing two non-negative integers.
+You are given two `non-empty` linked lists representing two `non-negative` integers.
 The digits are stored in reverse order, and each of their nodes contains a single digit.
 Add the two numbers and return the sum as a linked list.
 
@@ -11,14 +11,14 @@ You may assume the two numbers do not contain any leading zero, except the numbe
 Example:
 Input: l1 = [2,4,3], l2 = [5,6,4]
 Output: [7,0,8]
-Explanation: 342 + 465 = 807.
+Explanation: `342 + 465` = 807.
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
-This mimics elementary school addition! Since digits are in reverse order,
-we can add from left to right (which corresponds to least significant digit first).
+This mimics elementary school `addition! Since` digits are in reverse order,
+we can add from `left` to `right` (which corresponds to least significant digit first).
 We need to handle carries just like manual addition.
 
 ### KEY INSIGHT:
@@ -27,20 +27,20 @@ We need to handle carries just like manual addition.
 - Continue until both lists are exhausted AND no carry remains
 
 ### APPROACH:
-1. Create dummy head for result linked list
+1. Create dummy `head` for `result` linked list
 2. Process both lists simultaneously with carry
-3. For each position: sum = val1 + val2 + carry
-4. Create new node with (sum % 10), update carry = sum // 10
-5. Continue until both lists empty and carry = 0
+3. For each position: `sum` = `val1 + val2` + carry
+4. Create new `node` with (`sum` % 10), update carry = `sum` // 10
+5. Continue until both lists empty and `carry = 0`
 
 ### EXAMPLE WALKTHROUGH:
 ```
 l1 = [2,4,3] represents 342
 l2 = [5,6,4] represents 465
 
-Step 1: 2 + 5 + 0(carry) = 7, carry = 0 → node(7)
-Step 2: 4 + 6 + 0(carry) = 10, carry = 1 → node(0)
-Step 3: 3 + 4 + 1(carry) = 8, carry = 0 → node(8)
+Step 1: `2 + 5` + 0(carry) = 7, `carry = 0` → node(7)
+Step 2: `4 + 6` + 0(carry) = 10, `carry = 1` → node(0)
+Step 3: `3 + 4` + 1(carry) = 8, `carry = 0` → node(8)
 
 Result: [7,0,8] represents 807
 ```
@@ -62,7 +62,7 @@ Result: [7,0,8] represents 807
   -----
     807
 ```
-We add column by column from right, which corresponds to left-to-right in reversed lists.
+We add column by column from `right`, which corresponds to `left-to`-`right` in reversed lists.
 
 </details>
 """

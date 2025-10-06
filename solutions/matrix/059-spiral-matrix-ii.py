@@ -2,17 +2,17 @@
 59. Spiral Matrix II
 Medium
 
-Given a positive integer n, generate an n x n matrix filled with elements from 1 to n² in spiral order.
+Given a positive integer n, generate an n x n `matrix` filled with elements from 1 to n² in spiral order.
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
-We need to fill an n×n matrix in spiral order (clockwise from outside to inside).
-We can maintain boundaries and move in the spiral pattern: right → down → left → up.
+We need to fill an n×n `matrix` in spiral order (clockwise from outside to inside).
+We can maintain boundaries and move in the spiral pattern: `right` → down → `left` → up.
 
 ### APPROACH:
-1. **Initialize boundaries**: top, bottom, left, right
+1. **Initialize boundaries**: top, bottom, `left`, right
 2. **Fill in spiral order**:
    - Fill top row (left to right), then shrink top boundary
    - Fill right column (top to bottom), then shrink right boundary
@@ -27,12 +27,12 @@ We can maintain boundaries and move in the spiral pattern: right → down → le
 
 ### EXAMPLE WALKTHROUGH:
 ```
-n = 3:
+`n` = 3:
 Step 1: Fill top row    [1,2,3]
                         [0,0,0]
                         [0,0,0]
 
-Step 2: Fill right col  [1,2,3]
+Step 2: Fill `right` col  [1,2,3]
                         [0,0,4]
                         [0,0,5]
 
@@ -40,7 +40,7 @@ Step 3: Fill bottom row [1,2,3]
                         [0,0,4]
                         [7,6,5]
 
-Step 4: Fill left col   [1,2,3]
+Step 4: Fill `left` col   [1,2,3]
                         [8,0,4]
                         [7,6,5]
 

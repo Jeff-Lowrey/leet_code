@@ -1,9 +1,9 @@
 """
-204. Count Primes - Python Implementation
+204. Count `Primes - Python` Implementation
 
 Given an integer n, return the number of prime numbers that are less than n.
 
-Time Complexity: O(n log log n)
+Time Complexity: O(`n` log log n)
 Space Complexity: O(n)
 """
 

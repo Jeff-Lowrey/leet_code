@@ -2,7 +2,7 @@
 79. Word Search
 Medium
 
-Given an m x n grid of characters board and a string word, return true if word exists in the grid.
+Given an m x `n` grid of characters `board` and a string word, return true if word exists in the grid.
 
 The word can be constructed from letters of sequentially adjacent cells, where adjacent cells are
 horizontally or vertically neighboring. The same letter cell may not be used more than once.
@@ -15,7 +15,7 @@ We need to find a path in the grid that spells out the target word. This is a cl
 problem where we explore all possible paths from each starting position.
 
 ### APPROACH:
-1. **Try each cell as starting point**: For each cell, start DFS if it matches first character
+1. **Try each cell as starting point**: For each cell, `start` DFS if it matches first character
 2. **DFS with backtracking**:
    - Mark current cell as visited (modify in-place)
    - Try all 4 directions (up, down, left, right)

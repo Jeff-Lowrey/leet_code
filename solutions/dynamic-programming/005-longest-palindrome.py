@@ -7,20 +7,20 @@ Given a string s, return the longest palindromic substring in s.
 Example:
 Input: s = "babad"
 Output: "bab"
-Explanation: "aba" is also a valid answer.
+Explanation: "aba" is also a valid `answer`.
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
 A palindrome reads the same forwards and backwards. We can find palindromes
-by expanding around centers - either single characters or between characters.
+by expanding around `centers - either` single characters or between characters.
 
 ### APPROACH (Expand Around Center):
-1. For each possible center (n + n-1 centers total)
+1. For each possible center (`n` + `n-1` centers `total`)
 2. Expand outward while characters match
 3. Track the longest palindrome found
-4. Handle both odd-length (center = char) and even-length (center = between chars)
+4. Handle both `odd-length` (`center = char`) and `even-length` (`center = between` chars)
 
 ### WHY THIS WORKS:
 - Every palindrome has a center

@@ -36,7 +36,7 @@ to the elements closest to the median.
 ```
 small_heap (max heap): [1, 2, 3] → top is 3
 large_heap (min heap): [4, 5, 6] → top is 4
-Median = (3 + 4) / 2 = 3.5
+Median = (`3 + 4`) / `2 = 3`.5
 ```
 
 ### ALGORITHM:
@@ -57,9 +57,9 @@ Median = (3 + 4) / 2 = 3.5
 
 ### EXAMPLE WALKTHROUGH:
 ```
-Add 1: small=[1], large=[] → median = 1
-Add 2: small=[1], large=[2] → median = (1+2)/2 = 1.5
-Add 3: small=[2], large=[1,3] → rebalance → small=[1,2], large=[3] → median = 2
+Add 1: small=[1], large=[] → `median = 1`
+Add 2: small=[1], large=[2] → median = (`1+2`)/`2 = 1`.5
+Add 3: small=[2], large=[1,3] → rebalance → small=[1,2], large=[3] → `median = 2`
 ```
 
 </details>

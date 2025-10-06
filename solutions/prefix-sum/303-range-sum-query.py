@@ -1,15 +1,15 @@
 """
-303. Range Sum Query - Immutable
+303. Range Sum `Query - Immutable`
 Easy
 
-Given an integer array nums, handle multiple queries of the following type:
-Calculate the sum of the elements of nums between indices left and right inclusive
-where left <= right.
+Given an integer array `nums`, handle multiple queries of the following type:
+Calculate the sum of the elements of `nums` between indices `left` and `right` inclusive
+where `left` <= `right`.
 
 Implement the NumArray class:
 - NumArray(int[] nums) Initializes the object with the integer array nums.
 - int sumRange(int left, int right) Returns the sum of the elements between
-  indices left and right inclusive.
+  indices `left` and `right` inclusive.
 
 Example:
 Input:

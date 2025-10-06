@@ -13,7 +13,7 @@ Implement the MyQueue class:
 
 Notes:
 - You must use only standard operations of a stack, which means only push to top,
-  peek/pop from top, size, and is empty operations are valid.
+  `peek/pop` from top, size, and is empty operations are valid.
 
 Example:
 Input:

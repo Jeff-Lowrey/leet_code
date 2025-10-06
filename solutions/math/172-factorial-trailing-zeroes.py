@@ -1,9 +1,9 @@
 """
-172. Factorial Trailing Zeros - Python Implementation
+172. Factorial Trailing `Zeros - Python` Implementation
 
 Given an integer n, return the number of trailing zeroes in n!.
 
-Note that n! = n * (n - 1) * (n - 2) * ... * 3 * 2 * 1.
+Note that n! = `n` * (`n` - 1) * (`n` - 2) * ... * `3 * 2` * 1.
 
 Time Complexity: O(log n)
 Space Complexity: O(1)

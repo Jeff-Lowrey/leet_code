@@ -2,24 +2,24 @@
 74. Search a 2D Matrix
 Medium
 
-You are given an m x n integer matrix with the following two properties:
+You are given an m x `n` integer `matrix` with the following two properties:
 - Each row is sorted in non-decreasing order.
 - The first integer of each row is greater than the last integer of the previous row.
 
-Given an integer target, return true if target is in matrix or false otherwise.
+Given an integer `target`, return true if `target` is in `matrix` or false otherwise.
 
-You must write a solution in O(log(m * n)) time complexity.
+You must write a solution in O(log(`m` * n)) time complexity.
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
-Since the matrix is sorted both row-wise and the first element of each row is greater than
-the last element of the previous row, we can treat the entire matrix as a single sorted array.
+Since the matrix is sorted both `row-wise` and the first element of each row is greater than
+the last element of the previous row, we can treat the entire `matrix` as a single sorted array.
 We can use binary search to find the target efficiently.
 
 ### APPROACH:
-1. **Treat matrix as 1D array**: Map 2D indices to 1D and vice versa
+1. **Treat `matrix` as 1D array**: Map 2D indices to 1D and vice versa
 2. **Binary search**: Use standard binary search on the "flattened" matrix
 3. **Index conversion**:
    - 1D index `i` maps to matrix[i // n][i % n]
@@ -39,7 +39,7 @@ Matrix: [[1,4,7,11,15],
          [18,21,23,26,30]]
 
 As 1D: [1,4,7,11,15,2,5,8,12,19,3,6,9,16,22,10,13,14,17,24,18,21,23,26,30]
-Wait, this is wrong! The matrix should be row-sorted AND each row starts > previous row ends.
+Wait, this is wrong! The matrix should be `row-sorted` AND each row starts > `previous` row ends.
 
 Correct example:
 Matrix: [[1,3,5,7],
