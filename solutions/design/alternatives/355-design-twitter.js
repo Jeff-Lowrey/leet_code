@@ -7,55 +7,164 @@
  * SOLUTION EXPLANATION:
  *
  * INTUITION:
- * [This problem requires understanding of design concepts. The key insight is to identify the optimal approach for this specific scenario.]
+ * Design a simplified Twitter that supports posting tweets, following users, and generating news feeds.
+ * The key challenge is efficiently retrieving the 10 most recent tweets from a user and their followees.
+ * We need to maintain tweets chronologically and user relationships.
  *
  * APPROACH:
- * 1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply design methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+ * 1. **Tweet Storage**: Use a global timestamp for chronological ordering
+ * 2. **User Tweets**: Map each user to their list of tweets with timestamps
+ * 3. **Follow Relationships**: Map each user to set of users they follow
+ * 4. **Feed Generation**: Merge and sort recent tweets from user + followees
  *
  * WHY THIS WORKS:
- * - The solution leverages design principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+ * - Global timestamp ensures chronological ordering across all users
+ * - HashMap provides O(1) access to user data
+ * - Set operations handle follow/unfollow efficiently
+ * - Merge-sort approach for feed generation handles multiple sources
  *
- * TIME COMPLEXITY: O(n)
- * SPACE COMPLEXITY: O(1)
+ * TIME COMPLEXITY:
+ * - postTweet: O(1)
+ * - follow/unfollow: O(1)
+ * - getNewsFeed: O(f * t) where f = number of followees, t = tweets per user
+ * SPACE COMPLEXITY: O(users + tweets + relationships)
  *
  * EXAMPLE WALKTHROUGH:
  * ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
-```
+ * Twitter twitter = new Twitter()
+ * postTweet(1, 5) -> user 1 posts tweet 5 with timestamp 0
+ * getNewsFeed(1) -> [5] (user 1's own tweet)
+ * follow(1, 2) -> user 1 follows user 2
+ * postTweet(2, 6) -> user 2 posts tweet 6 with timestamp 1
+ * getNewsFeed(1) -> [6, 5] (merge tweets from user 1 and 2, recent first)
+ * unfollow(1, 2) -> user 1 unfollows user 2
+ * getNewsFeed(1) -> [5] (only user 1's tweets)
+ * ```
  *
  * EDGE CASES:
- * - Empty input handling
-- Single element cases
-- Large input considerations
+ * - User with no tweets or followers
+ * - Self-following (should not affect feed)
+ * - Unfollowing someone not followed
+ * - Requesting feed for non-existent user
  */
 
 /**
- * Main solution for Problem 355: Design Twitter
- *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
- *
- * Time Complexity: O(n)
- * Space Complexity: O(1)
+ * Tweet class to store tweet information
  */
-function solve(...args) {
-    // TODO: Implement the solution using design techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using design methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+class Tweet {
+    constructor(tweetId, timestamp) {
+        this.tweetId = tweetId;
+        this.timestamp = timestamp;
+    }
+}
 
-    return null; // Replace with actual implementation
+/**
+ * Twitter class - Simplified Twitter implementation
+ *
+ * Core data structures:
+ * - userTweets: Map from userId to array of Tweet objects
+ * - followMap: Map from userId to Set of users they follow
+ * - timestamp: Global counter for chronological ordering
+ */
+class Twitter {
+    /**
+     * Initialize Twitter data structure.
+     */
+    constructor() {
+        this.userTweets = new Map();  // userId -> [Tweet, Tweet, ...]
+        this.followMap = new Map();   // userId -> Set(followeeIds)
+        this.timestamp = 0;           // Global timestamp for tweet ordering
+    }
+
+    /**
+     * Post a new tweet by user.
+     * @param {number} userId - User posting the tweet
+     * @param {number} tweetId - Unique tweet identifier
+     *
+     * Time Complexity: O(1)
+     * Space Complexity: O(1)
+     */
+    postTweet(userId, tweetId) {
+        if (!this.userTweets.has(userId)) {
+            this.userTweets.set(userId, []);
+        }
+
+        const tweet = new Tweet(tweetId, this.timestamp++);
+        this.userTweets.get(userId).push(tweet);
+    }
+
+    /**
+     * Retrieve the 10 most recent tweet IDs in user's news feed.
+     * @param {number} userId - User requesting the news feed
+     * @return {number[]} - Array of up to 10 most recent tweet IDs
+     *
+     * Time Complexity: O(f * t) where f = followees, t = tweets per user
+     * Space Complexity: O(f * t) for collecting tweets
+     */
+    getNewsFeed(userId) {
+        const allTweets = [];
+
+        // Collect user's own tweets
+        if (this.userTweets.has(userId)) {
+            allTweets.push(...this.userTweets.get(userId));
+        }
+
+        // Collect tweets from followed users
+        if (this.followMap.has(userId)) {
+            for (const followeeId of this.followMap.get(userId)) {
+                if (this.userTweets.has(followeeId)) {
+                    allTweets.push(...this.userTweets.get(followeeId));
+                }
+            }
+        }
+
+        // Sort by timestamp (most recent first) and take top 10
+        allTweets.sort((a, b) => b.timestamp - a.timestamp);
+        return allTweets.slice(0, 10).map(tweet => tweet.tweetId);
+    }
+
+    /**
+     * User starts following another user.
+     * @param {number} followerId - User who is following
+     * @param {number} followeeId - User being followed
+     *
+     * Time Complexity: O(1)
+     * Space Complexity: O(1)
+     */
+    follow(followerId, followeeId) {
+        // Users cannot follow themselves
+        if (followerId === followeeId) {
+            return;
+        }
+
+        if (!this.followMap.has(followerId)) {
+            this.followMap.set(followerId, new Set());
+        }
+
+        this.followMap.get(followerId).add(followeeId);
+    }
+
+    /**
+     * User stops following another user.
+     * @param {number} followerId - User who is unfollowing
+     * @param {number} followeeId - User being unfollowed
+     *
+     * Time Complexity: O(1)
+     * Space Complexity: O(1)
+     */
+    unfollow(followerId, followeeId) {
+        if (this.followMap.has(followerId)) {
+            this.followMap.get(followerId).delete(followeeId);
+        }
+    }
+}
+
+/**
+ * Factory function for creating Twitter instances
+ * @return {Twitter}
+ */
+function solve() {
+    return new Twitter();
 }
 
 /**
@@ -64,20 +173,57 @@ function solve(...args) {
 function testSolution() {
     console.log('Testing 355. Design Twitter');
 
-    // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    // Test case 1: Basic functionality - LeetCode example
+    const twitter1 = new Twitter();
+    twitter1.postTweet(1, 5);
+    const feed1 = twitter1.getNewsFeed(1);
+    console.assert(JSON.stringify(feed1) === JSON.stringify([5]), 'Test 1a failed: single tweet');
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    twitter1.follow(1, 2);
+    twitter1.postTweet(2, 6);
+    const feed2 = twitter1.getNewsFeed(1);
+    console.assert(JSON.stringify(feed2) === JSON.stringify([6, 5]), 'Test 1b failed: followed user tweet');
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    twitter1.unfollow(1, 2);
+    const feed3 = twitter1.getNewsFeed(1);
+    console.assert(JSON.stringify(feed3) === JSON.stringify([5]), 'Test 1c failed: after unfollow');
+
+    // Test case 2: Multiple users and tweets
+    const twitter2 = new Twitter();
+    twitter2.postTweet(1, 1);
+    twitter2.postTweet(2, 2);
+    twitter2.postTweet(1, 3);
+    twitter2.follow(1, 2);
+    const feed4 = twitter2.getNewsFeed(1);
+    console.assert(JSON.stringify(feed4) === JSON.stringify([3, 2, 1]), 'Test 2a failed: chronological order');
+
+    // Test case 3: Self-follow should be ignored
+    const twitter3 = new Twitter();
+    twitter3.postTweet(1, 1);
+    twitter3.follow(1, 1); // Self-follow should be ignored
+    const feed5 = twitter3.getNewsFeed(1);
+    console.assert(JSON.stringify(feed5) === JSON.stringify([1]), 'Test 3a failed: self-follow ignored');
+
+    // Test case 4: Empty feed for user with no tweets or follows
+    const twitter4 = new Twitter();
+    const feed6 = twitter4.getNewsFeed(99);
+    console.assert(JSON.stringify(feed6) === JSON.stringify([]), 'Test 4a failed: empty feed');
+
+    // Test case 5: More than 10 tweets
+    const twitter5 = new Twitter();
+    for (let i = 1; i <= 15; i++) {
+        twitter5.postTweet(1, i);
+    }
+    const feed7 = twitter5.getNewsFeed(1);
+    console.assert(feed7.length === 10, 'Test 5a failed: feed limited to 10');
+    console.assert(feed7[0] === 15 && feed7[9] === 6, 'Test 5b failed: most recent 10 tweets');
+
+    // Test case 6: Unfollow user not followed
+    const twitter6 = new Twitter();
+    twitter6.unfollow(1, 2); // Should not crash
+    twitter6.postTweet(1, 1);
+    const feed8 = twitter6.getNewsFeed(1);
+    console.assert(JSON.stringify(feed8) === JSON.stringify([1]), 'Test 6a failed: unfollow non-followed user');
 
     console.log('All test cases passed for 355. Design Twitter!');
 }
@@ -91,7 +237,32 @@ function demonstrateSolution() {
     console.log('Difficulty: Medium');
     console.log('');
 
-    // Example demonstration would go here
+    // Example demonstration
+    const twitter = new Twitter();
+    console.log('Creating Twitter instance');
+    console.log('');
+
+    console.log('User 1 posts tweet 5');
+    twitter.postTweet(1, 5);
+    console.log('User 1 news feed:', twitter.getNewsFeed(1)); // [5]
+
+    console.log('User 1 follows user 2');
+    twitter.follow(1, 2);
+
+    console.log('User 2 posts tweet 6');
+    twitter.postTweet(2, 6);
+    console.log('User 1 news feed:', twitter.getNewsFeed(1)); // [6, 5]
+
+    console.log('User 1 unfollows user 2');
+    twitter.unfollow(1, 2);
+    console.log('User 1 news feed:', twitter.getNewsFeed(1)); // [5]
+
+    console.log('User 2 posts tweet 7 (should not appear in user 1 feed)');
+    twitter.postTweet(2, 7);
+    console.log('User 1 news feed:', twitter.getNewsFeed(1)); // [5]
+    console.log('User 2 news feed:', twitter.getNewsFeed(2)); // [7, 6]
+    console.log('');
+
     testSolution();
 }
 
@@ -102,6 +273,8 @@ if (require.main === module) {
 
 // Export for use in other modules
 module.exports = {
+    Twitter,
+    Tweet,
     solve,
     testSolution,
     demonstrateSolution
@@ -109,8 +282,11 @@ module.exports = {
 
 /**
  * Additional Notes:
- * - This solution focuses on design concepts
- * - Consider the trade-offs between time and space complexity
- * - Edge cases are crucial for robust solutions
- * - The approach can be adapted for similar problems in this category
+ * - This solution prioritizes simplicity and correctness over scalability
+ * - Global timestamp ensures correct chronological ordering across all users
+ * - Real Twitter would use database indexes and more sophisticated feed algorithms
+ * - Could be optimized with priority queues or merge-k-lists for large-scale scenarios
+ * - The approach demonstrates fundamental social media feed generation concepts
+ * - Critical for system design interviews involving social networks
+ * - Follow relationships stored as adjacency list representation
  */

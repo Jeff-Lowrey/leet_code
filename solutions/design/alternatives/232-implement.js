@@ -1,97 +1,241 @@
 /**
- * 232. Implement
- * Medium
+ * 232. Implement Queue using Stacks
+ * Easy
  *
  * This problem demonstrates key concepts in Design.
  *
  * SOLUTION EXPLANATION:
  *
  * INTUITION:
- * [This problem requires understanding of design concepts. The key insight is to identify the optimal approach for this specific scenario.]
+ * Implement a first in first out (FIFO) queue using only two stacks.
+ * The challenge is to simulate queue behavior (FIFO) using stack operations (LIFO).
+ * We need two stacks: one for pushing elements and another for popping elements.
  *
  * APPROACH:
- * 1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply design methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+ * 1. **Two Stack Method**: Use inputStack for push operations, outputStack for pop/peek
+ * 2. **Lazy Transfer**: Only transfer elements when outputStack is empty
+ * 3. **FIFO Simulation**: Transfer reverses order, making oldest element accessible first
+ * 4. **Amortized Efficiency**: Each element is transferred at most once
  *
  * WHY THIS WORKS:
- * - The solution leverages design principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+ * - InputStack receives all new elements (acts like back of queue)
+ * - OutputStack provides elements in queue order (front of queue)
+ * - Transfer operation reverses LIFO to achieve FIFO behavior
+ * - Lazy transfer ensures optimal amortized performance
  *
- * TIME COMPLEXITY: O(n)
- * SPACE COMPLEXITY: O(1)
+ * TIME COMPLEXITY: O(1) amortized for all operations
+ * SPACE COMPLEXITY: O(n) for storing n elements
  *
  * EXAMPLE WALKTHROUGH:
  * ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
-```
+ * MyQueue queue = new MyQueue()
+ * queue.push(1) -> inputStack: [1], outputStack: []
+ * queue.push(2) -> inputStack: [1,2], outputStack: []
+ * queue.peek() -> transfer to outputStack: [2,1], return 1
+ * queue.pop() -> outputStack: [2], return 1
+ * queue.empty() -> false (outputStack has 2)
+ * ```
  *
  * EDGE CASES:
- * - Empty input handling
-- Single element cases
-- Large input considerations
+ * - Empty queue operations (peek/pop on empty queue)
+ * - Single element queue
+ * - Alternating push/pop operations
+ * - Large number of elements
  */
 
 /**
- * Main solution for Problem 232: Implement
+ * MyQueue class - Implements Queue using Stacks
  *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
- *
- * Time Complexity: O(n)
- * Space Complexity: O(1)
+ * Uses two stacks to simulate FIFO behavior:
+ * - inputStack: receives new elements (push operations)
+ * - outputStack: provides elements in queue order (pop/peek operations)
  */
-function solve(...args) {
-    // TODO: Implement the solution using design techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using design methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+class MyQueue {
+    /**
+     * Initialize the queue data structure.
+     */
+    constructor() {
+        this.inputStack = [];   // Stack for push operations
+        this.outputStack = [];  // Stack for pop/peek operations
+    }
 
-    return null; // Replace with actual implementation
+    /**
+     * Push element x to the back of queue.
+     * @param {number} x - Element to push
+     *
+     * Time Complexity: O(1)
+     * Space Complexity: O(1)
+     */
+    push(x) {
+        this.inputStack.push(x);
+    }
+
+    /**
+     * Removes the element from the front of queue and returns it.
+     * @return {number} - Front element
+     *
+     * Time Complexity: O(1) amortized, O(n) worst case
+     * Space Complexity: O(1)
+     */
+    pop() {
+        this.transferIfNeeded();
+        return this.outputStack.pop();
+    }
+
+    /**
+     * Get the front element without removing it.
+     * @return {number} - Front element
+     *
+     * Time Complexity: O(1) amortized, O(n) worst case
+     * Space Complexity: O(1)
+     */
+    peek() {
+        this.transferIfNeeded();
+        return this.outputStack[this.outputStack.length - 1];
+    }
+
+    /**
+     * Returns whether the queue is empty.
+     * @return {boolean} - True if empty, false otherwise
+     *
+     * Time Complexity: O(1)
+     * Space Complexity: O(1)
+     */
+    empty() {
+        return this.inputStack.length === 0 && this.outputStack.length === 0;
+    }
+
+    /**
+     * Transfer elements from inputStack to outputStack if outputStack is empty.
+     * This reverses the order, making the oldest element accessible first.
+     *
+     * Time Complexity: O(n) for transfer, but amortized O(1)
+     * Space Complexity: O(1)
+     */
+    transferIfNeeded() {
+        if (this.outputStack.length === 0) {
+            while (this.inputStack.length > 0) {
+                this.outputStack.push(this.inputStack.pop());
+            }
+        }
+    }
 }
 
 /**
- * Test cases for Problem 232: Implement
+ * Alternative implementation using single stack (less efficient)
+ */
+class MyQueueAlternative {
+    constructor() {
+        this.stack = [];
+    }
+
+    push(x) {
+        // To simulate queue behavior with single stack,
+        // we need to move all elements to maintain order
+        const temp = [];
+        while (this.stack.length > 0) {
+            temp.push(this.stack.pop());
+        }
+        this.stack.push(x);
+        while (temp.length > 0) {
+            this.stack.push(temp.pop());
+        }
+    }
+
+    pop() {
+        return this.stack.pop();
+    }
+
+    peek() {
+        return this.stack[this.stack.length - 1];
+    }
+
+    empty() {
+        return this.stack.length === 0;
+    }
+}
+
+/**
+ * Factory function for creating MyQueue instances
+ * @return {MyQueue}
+ */
+function solve() {
+    return new MyQueue();
+}
+
+/**
+ * Test cases for Problem 232: Implement Queue using Stacks
  */
 function testSolution() {
-    console.log('Testing 232. Implement');
+    console.log('Testing 232. Implement Queue using Stacks');
 
     // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    const queue1 = new MyQueue();
+    queue1.push(1);
+    queue1.push(2);
+    console.assert(queue1.peek() === 1, 'Test 1a failed: peek should return 1');
+    console.assert(queue1.pop() === 1, 'Test 1b failed: pop should return 1');
+    console.assert(!queue1.empty(), 'Test 1c failed: queue should not be empty');
+    console.assert(queue1.pop() === 2, 'Test 1d failed: pop should return 2');
+    console.assert(queue1.empty(), 'Test 1e failed: queue should be empty');
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 2: Alternating operations
+    const queue2 = new MyQueue();
+    queue2.push(1);
+    console.assert(queue2.pop() === 1, 'Test 2a failed');
+    queue2.push(2);
+    queue2.push(3);
+    console.assert(queue2.pop() === 2, 'Test 2b failed');
+    queue2.push(4);
+    console.assert(queue2.pop() === 3, 'Test 2c failed');
+    console.assert(queue2.pop() === 4, 'Test 2d failed');
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 3: Multiple peeks
+    const queue3 = new MyQueue();
+    queue3.push(5);
+    queue3.push(6);
+    console.assert(queue3.peek() === 5, 'Test 3a failed');
+    console.assert(queue3.peek() === 5, 'Test 3b failed: peek should be consistent');
+    console.assert(queue3.pop() === 5, 'Test 3c failed');
 
-    console.log('All test cases passed for 232. Implement!');
+    // Test case 4: Alternative implementation
+    const queue4 = new MyQueueAlternative();
+    queue4.push(1);
+    queue4.push(2);
+    console.assert(queue4.peek() === 1, 'Test 4a failed');
+    console.assert(queue4.pop() === 1, 'Test 4b failed');
+    console.assert(queue4.pop() === 2, 'Test 4c failed');
+    console.assert(queue4.empty(), 'Test 4d failed');
+
+    console.log('All test cases passed for 232. Implement Queue using Stacks!');
 }
 
 /**
  * Example usage and demonstration
  */
 function demonstrateSolution() {
-    console.log('\n=== Problem 232. Implement ===');
+    console.log('\n=== Problem 232. Implement Queue using Stacks ===');
     console.log('Category: Design');
-    console.log('Difficulty: Medium');
+    console.log('Difficulty: Easy');
     console.log('');
 
-    // Example demonstration would go here
+    // Example demonstration
+    const queue = new MyQueue();
+    console.log('Operations: push(1), push(2), peek(), pop(), empty()');
+
+    queue.push(1);
+    console.log('After push(1): queue has 1 element');
+
+    queue.push(2);
+    console.log('After push(2): queue has 2 elements');
+
+    console.log('peek():', queue.peek(), '(should be 1 - first element pushed)');
+    console.log('pop():', queue.pop(), '(should be 1 - FIFO behavior)');
+    console.log('empty():', queue.empty(), '(should be false)');
+    console.log('pop():', queue.pop(), '(should be 2)');
+    console.log('empty():', queue.empty(), '(should be true)');
+    console.log('');
+
     testSolution();
 }
 
@@ -102,6 +246,8 @@ if (require.main === module) {
 
 // Export for use in other modules
 module.exports = {
+    MyQueue,
+    MyQueueAlternative,
     solve,
     testSolution,
     demonstrateSolution
@@ -109,8 +255,10 @@ module.exports = {
 
 /**
  * Additional Notes:
- * - This solution focuses on design concepts
- * - Consider the trade-offs between time and space complexity
- * - Edge cases are crucial for robust solutions
- * - The approach can be adapted for similar problems in this category
+ * - This solution uses the classic two-stack approach for optimal amortized performance
+ * - Each element is transferred at most once, ensuring O(1) amortized time
+ * - The lazy transfer strategy minimizes unnecessary operations
+ * - Alternative single-stack approach has O(n) time for push operations
+ * - Critical for understanding stack/queue conversion patterns in system design
+ * - The approach demonstrates how to simulate one data structure using another
  */

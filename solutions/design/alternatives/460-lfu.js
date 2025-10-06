@@ -1,97 +1,321 @@
 /**
- * 460. Lfu
- * Medium
+ * 460. LFU Cache
+ * Hard
  *
  * This problem demonstrates key concepts in Design.
  *
  * SOLUTION EXPLANATION:
  *
  * INTUITION:
- * [This problem requires understanding of design concepts. The key insight is to identify the optimal approach for this specific scenario.]
+ * Design and implement a Least Frequently Used (LFU) cache with O(1) operations.
+ * The challenge is tracking both frequency of access AND recency within each frequency.
+ * We need to evict the least frequent item, breaking ties by least recently used.
  *
  * APPROACH:
- * 1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply design methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+ * 1. **Triple Data Structure**: HashMap for values, HashMap for frequencies, frequency-based LinkedList groups
+ * 2. **Frequency Tracking**: Each key has a frequency, keys with same frequency grouped together
+ * 3. **LRU within Frequency**: Within each frequency group, maintain LRU order
+ * 4. **Min Frequency Optimization**: Track minimum frequency for O(1) eviction
  *
  * WHY THIS WORKS:
- * - The solution leverages design principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+ * - Values map provides O(1) key-value access
+ * - Frequencies map tracks access count per key
+ * - FreqGroups map maintains LRU order within each frequency level
+ * - MinFreq variable enables O(1) identification of eviction candidates
  *
- * TIME COMPLEXITY: O(n)
- * SPACE COMPLEXITY: O(1)
+ * TIME COMPLEXITY: O(1) for both get and put operations
+ * SPACE COMPLEXITY: O(capacity) for storing up to capacity elements
  *
  * EXAMPLE WALKTHROUGH:
  * ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
-```
+ * LFU cache capacity = 2
+ * put(1,1) -> freq: {1:1}, minFreq: 1, group[1]: [1]
+ * put(2,2) -> freq: {1:1, 2:1}, minFreq: 1, group[1]: [2,1]
+ * get(1) -> freq: {1:2, 2:1}, minFreq: 1, group[1]: [2], group[2]: [1]
+ * put(3,3) -> evict key 2 (LFU), add 3: freq: {1:2, 3:1}, group[1]: [3], group[2]: [1]
+ * ```
  *
  * EDGE CASES:
- * - Empty input handling
-- Single element cases
-- Large input considerations
+ * - Cache at capacity (requires eviction)
+ * - Multiple keys with same frequency (LRU tiebreaker)
+ * - Single element cache
+ * - Get/put on non-existent keys
  */
 
 /**
- * Main solution for Problem 460: Lfu
- *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
- *
- * Time Complexity: O(n)
- * Space Complexity: O(1)
+ * Node class for doubly-linked list
  */
-function solve(...args) {
-    // TODO: Implement the solution using design techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using design methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
-
-    return null; // Replace with actual implementation
+class Node {
+    constructor(key = 0, value = 0) {
+        this.key = key;
+        this.value = value;
+        this.prev = null;
+        this.next = null;
+    }
 }
 
 /**
- * Test cases for Problem 460: Lfu
+ * DoublyLinkedList class for maintaining LRU order within frequency groups
+ */
+class DoublyLinkedList {
+    constructor() {
+        this.head = new Node();
+        this.tail = new Node();
+        this.head.next = this.tail;
+        this.tail.prev = this.head;
+        this.size = 0;
+    }
+
+    /**
+     * Add node right after head (most recently used)
+     */
+    addToHead(node) {
+        node.prev = this.head;
+        node.next = this.head.next;
+        this.head.next.prev = node;
+        this.head.next = node;
+        this.size++;
+    }
+
+    /**
+     * Remove node from its current position
+     */
+    removeNode(node) {
+        node.prev.next = node.next;
+        node.next.prev = node.prev;
+        this.size--;
+    }
+
+    /**
+     * Remove and return tail node (least recently used)
+     */
+    removeTail() {
+        if (this.size === 0) return null;
+        const lastNode = this.tail.prev;
+        this.removeNode(lastNode);
+        return lastNode;
+    }
+
+    /**
+     * Check if list is empty
+     */
+    isEmpty() {
+        return this.size === 0;
+    }
+}
+
+/**
+ * LFUCache class - Implements LFU Cache with O(1) operations
+ *
+ * Uses three main data structures:
+ * - values: Map from key to node (contains key-value pairs)
+ * - frequencies: Map from key to its access frequency
+ * - freqGroups: Map from frequency to doubly-linked list of nodes with that frequency
+ */
+class LFUCache {
+    /**
+     * Initialize LFU Cache with given capacity
+     * @param {number} capacity - Maximum number of key-value pairs
+     */
+    constructor(capacity) {
+        this.capacity = capacity;
+        this.values = new Map();      // key -> node
+        this.frequencies = new Map(); // key -> frequency
+        this.freqGroups = new Map();  // frequency -> DoublyLinkedList
+        this.minFreq = 0;            // minimum frequency for O(1) eviction
+    }
+
+    /**
+     * Get value for given key and update frequency
+     * @param {number} key
+     * @return {number} - Value if key exists, -1 otherwise
+     *
+     * Time Complexity: O(1)
+     * Space Complexity: O(1)
+     */
+    get(key) {
+        if (!this.values.has(key)) {
+            return -1;
+        }
+
+        // Update frequency and move node to appropriate frequency group
+        this.updateFreq(key);
+        return this.values.get(key).value;
+    }
+
+    /**
+     * Put key-value pair in cache
+     * @param {number} key
+     * @param {number} value
+     *
+     * Time Complexity: O(1)
+     * Space Complexity: O(1)
+     */
+    put(key, value) {
+        if (this.capacity === 0) return;
+
+        if (this.values.has(key)) {
+            // Update existing key
+            const node = this.values.get(key);
+            node.value = value;
+            this.updateFreq(key);
+        } else {
+            // Add new key
+            if (this.values.size >= this.capacity) {
+                this.evictLFU();
+            }
+
+            // Create new node and add to cache
+            const newNode = new Node(key, value);
+            this.values.set(key, newNode);
+            this.frequencies.set(key, 1);
+
+            // Add to frequency group 1
+            if (!this.freqGroups.has(1)) {
+                this.freqGroups.set(1, new DoublyLinkedList());
+            }
+            this.freqGroups.get(1).addToHead(newNode);
+            this.minFreq = 1;
+        }
+    }
+
+    /**
+     * Update frequency of a key and move to appropriate frequency group
+     * @param {number} key
+     */
+    updateFreq(key) {
+        const node = this.values.get(key);
+        const oldFreq = this.frequencies.get(key);
+        const newFreq = oldFreq + 1;
+
+        // Remove from old frequency group
+        const oldGroup = this.freqGroups.get(oldFreq);
+        oldGroup.removeNode(node);
+
+        // Update minFreq if necessary
+        if (this.minFreq === oldFreq && oldGroup.isEmpty()) {
+            this.minFreq++;
+        }
+
+        // Add to new frequency group
+        this.frequencies.set(key, newFreq);
+        if (!this.freqGroups.has(newFreq)) {
+            this.freqGroups.set(newFreq, new DoublyLinkedList());
+        }
+        this.freqGroups.get(newFreq).addToHead(node);
+    }
+
+    /**
+     * Evict the least frequently used (and least recently used in case of tie)
+     */
+    evictLFU() {
+        const minFreqGroup = this.freqGroups.get(this.minFreq);
+        const nodeToEvict = minFreqGroup.removeTail();
+
+        if (nodeToEvict) {
+            this.values.delete(nodeToEvict.key);
+            this.frequencies.delete(nodeToEvict.key);
+        }
+    }
+}
+
+/**
+ * Factory function for creating LFUCache instances
+ * @param {number} capacity
+ * @return {LFUCache}
+ */
+function solve(capacity) {
+    return new LFUCache(capacity);
+}
+
+/**
+ * Test cases for Problem 460: LFU Cache
  */
 function testSolution() {
-    console.log('Testing 460. Lfu');
+    console.log('Testing 460. LFU Cache');
 
-    // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    // Test case 1: Basic LFU behavior
+    const lfu1 = new LFUCache(2);
+    lfu1.put(1, 1);
+    lfu1.put(2, 2);
+    console.assert(lfu1.get(1) === 1, 'Test 1a failed');
+    lfu1.put(3, 3); // evicts key 2 (LFU)
+    console.assert(lfu1.get(2) === -1, 'Test 1b failed: key 2 should be evicted');
+    console.assert(lfu1.get(3) === 3, 'Test 1c failed');
+    lfu1.put(4, 4); // evicts key 1 (LFU after get operations)
+    console.assert(lfu1.get(1) === -1, 'Test 1d failed: key 1 should be evicted');
+    console.assert(lfu1.get(3) === 3, 'Test 1e failed');
+    console.assert(lfu1.get(4) === 4, 'Test 1f failed');
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 2: LRU tiebreaker within same frequency
+    const lfu2 = new LFUCache(2);
+    lfu2.put(1, 1);
+    lfu2.put(2, 2);
+    lfu2.put(3, 3); // should evict 1 (LRU among same frequency)
+    console.assert(lfu2.get(1) === -1, 'Test 2a failed: key 1 should be evicted');
+    console.assert(lfu2.get(2) === 2, 'Test 2b failed');
+    console.assert(lfu2.get(3) === 3, 'Test 2c failed');
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 3: Update existing key
+    const lfu3 = new LFUCache(2);
+    lfu3.put(1, 1);
+    lfu3.put(2, 2);
+    lfu3.put(1, 10); // update existing key
+    console.assert(lfu3.get(1) === 10, 'Test 3a failed: updated value');
+    console.assert(lfu3.get(2) === 2, 'Test 3b failed');
 
-    console.log('All test cases passed for 460. Lfu!');
+    // Test case 4: Single capacity cache
+    const lfu4 = new LFUCache(1);
+    lfu4.put(1, 1);
+    console.assert(lfu4.get(1) === 1, 'Test 4a failed');
+    lfu4.put(2, 2); // evicts 1
+    console.assert(lfu4.get(1) === -1, 'Test 4b failed');
+    console.assert(lfu4.get(2) === 2, 'Test 4c failed');
+
+    // Test case 5: Zero capacity cache
+    const lfu5 = new LFUCache(0);
+    lfu5.put(1, 1);
+    console.assert(lfu5.get(1) === -1, 'Test 5a failed: zero capacity');
+
+    console.log('All test cases passed for 460. LFU Cache!');
 }
 
 /**
  * Example usage and demonstration
  */
 function demonstrateSolution() {
-    console.log('\n=== Problem 460. Lfu ===');
+    console.log('\n=== Problem 460. LFU Cache ===');
     console.log('Category: Design');
-    console.log('Difficulty: Medium');
+    console.log('Difficulty: Hard');
     console.log('');
 
-    // Example demonstration would go here
+    // Example demonstration
+    const lfu = new LFUCache(2);
+    console.log('LFU Cache with capacity 2');
+    console.log('');
+
+    console.log('put(1, 1): Add key 1 with value 1');
+    lfu.put(1, 1);
+
+    console.log('put(2, 2): Add key 2 with value 2');
+    lfu.put(2, 2);
+
+    console.log('get(1):', lfu.get(1), '(increases frequency of key 1)');
+
+    console.log('put(3, 3): Add key 3, evicts key 2 (LFU)');
+    lfu.put(3, 3);
+
+    console.log('get(2):', lfu.get(2), '(should be -1, key 2 was evicted)');
+    console.log('get(3):', lfu.get(3), '(should be 3)');
+
+    console.log('put(4, 4): Add key 4, evicts key 1 (LFU after frequency update)');
+    lfu.put(4, 4);
+
+    console.log('get(1):', lfu.get(1), '(should be -1, key 1 was evicted)');
+    console.log('get(3):', lfu.get(3), '(should be 3)');
+    console.log('get(4):', lfu.get(4), '(should be 4)');
+    console.log('');
+
     testSolution();
 }
 
@@ -102,6 +326,9 @@ if (require.main === module) {
 
 // Export for use in other modules
 module.exports = {
+    LFUCache,
+    Node,
+    DoublyLinkedList,
     solve,
     testSolution,
     demonstrateSolution
@@ -109,8 +336,11 @@ module.exports = {
 
 /**
  * Additional Notes:
- * - This solution focuses on design concepts
- * - Consider the trade-offs between time and space complexity
- * - Edge cases are crucial for robust solutions
- * - The approach can be adapted for similar problems in this category
+ * - This solution achieves O(1) time complexity for both get and put operations
+ * - Uses three coordinated data structures: HashMap + frequency tracking + frequency-grouped doubly-linked lists
+ * - The minFreq optimization eliminates the need to search for minimum frequency
+ * - LRU ordering within each frequency group handles tie-breaking elegantly
+ * - More complex than LRU cache due to dual eviction criteria (frequency + recency)
+ * - Critical for advanced system design interviews and real-world caching systems
+ * - The approach demonstrates sophisticated coordination between multiple data structures
  */
