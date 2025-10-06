@@ -1,89 +1,132 @@
 """
 # 026. Remove Duplicates From Sorted Array
-**Medium**
+**Easy**
 
-Given a problem that demonstrates key concepts in Two Pointers.
+Given an integer array nums sorted in non-decreasing order, remove the duplicates in-place such that each unique element appears only once. The relative order of the elements should be kept the same.
+
+Since it is impossible to change the length of the array in some languages, you must instead have the result be placed in the first part of the array nums. More formally, if there are k elements after removing the duplicates, then the first k elements of nums should hold the final result.
+
+Return k after placing the final result in the first k slots of nums.
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
-[This problem requires understanding of two pointers concepts. The key insight is to identify the optimal approach for this specific scenario.]
+This is a classic two-pointers problem. Since the array is sorted, duplicates are adjacent. We use one pointer to iterate through the array and another to track the position where the next unique element should be placed.
 
 ### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply two pointers methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+1. **Two pointers**: Use `i` to iterate and `j` to track unique position
+2. **Skip duplicates**: Only advance `j` when we find a new unique element
+3. **In-place modification**: Copy unique elements to positions 0, 1, 2, etc.
+4. **Return count**: Return the number of unique elements
 
 ### WHY THIS WORKS:
-- The solution leverages two pointers principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+- Sorted array means duplicates are adjacent
+- Two pointers allow in-place removal without extra space
+- `j` tracks the "write" position for next unique element
+- `i` scans through all elements
 
 ### TIME COMPLEXITY: O(n)
+Single pass through the array
+
 ### SPACE COMPLEXITY: O(1)
+Only using constant extra space
 
 ### EXAMPLE WALKTHROUGH:
 ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
+Input: [1,1,2]
+i=0, j=0: nums[0]=1 (first element, place at j=0)
+i=1, j=1: nums[1]=1 == nums[0], skip
+i=2, j=1: nums[2]=2 != nums[0], place at j=1
+Result: [1,2,_], return k=2
 ```
 
-### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
-
-</details>
-
-<details>
-<summary><b>💡 APPROACH</b></summary>
-
-The approach uses two pointers techniques to solve this problem efficiently.
-
-### Algorithm Steps:
-1. Initialize necessary variables
-2. Process input using two pointers method
-3. Return the computed result
+### KEY INSIGHTS:
+- Start j at 1 since first element is always unique
+- Compare current element with previous unique element
+- Only increment j when placing a new unique element
+- Elements after position k don't matter
 
 </details>
 """
 
 class Solution:
-    def solve(self, *args):
+    def removeDuplicates(self, nums: list[int]) -> int:
         """
-        Main solution for 026. Remove Duplicates From Sorted Array.
+        Remove duplicates from sorted array in-place using two pointers.
 
         Args:
-            *args: Problem-specific arguments
+            nums: Sorted array in non-decreasing order
 
         Returns:
-            Problem-specific return type
+            Number of unique elements (length of modified array)
 
         Time Complexity: O(n)
         Space Complexity: O(1)
         """
-        # TODO: Implement the solution
-        pass
+        if not nums:
+            return 0
+
+        # j tracks the position for next unique element
+        j = 1
+
+        for i in range(1, len(nums)):
+            # If current element is different from previous unique element
+            if nums[i] != nums[j - 1]:
+                nums[j] = nums[i]
+                j += 1
+
+        return j
+
+    def removeDuplicatesAlternative(self, nums: list[int]) -> int:
+        """
+        Alternative implementation with explicit unique tracking.
+
+        Args:
+            nums: Sorted array
+
+        Returns:
+            Number of unique elements
+        """
+        if not nums:
+            return 0
+
+        unique_count = 1  # First element is always unique
+
+        for i in range(1, len(nums)):
+            if nums[i] != nums[unique_count - 1]:
+                nums[unique_count] = nums[i]
+                unique_count += 1
+
+        return unique_count
 
 def test_solution():
-    """
-    Test cases for 026. Remove Duplicates From Sorted Array.
-    """
+    """Test cases for 026. Remove Duplicates From Sorted Array."""
     solution = Solution()
 
-    # Test case 1: Basic functionality
-    # result = solution.solve([test_input])
-    # expected = [expected_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 1: Example case
+    nums1 = [1,1,2]
+    result1 = solution.removeDuplicates(nums1)
+    expected1 = 2
+    assert result1 == expected1 and nums1[:result1] == [1,2], f"Expected {expected1}, got {result1}"
 
-    # Test case 2: Edge case
-    # result = solution.solve([edge_case_input])
-    # expected = [edge_case_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 2: More duplicates
+    nums2 = [0,0,1,1,1,2,2,3,3,4]
+    result2 = solution.removeDuplicatesAlternative(nums2)
+    expected2 = 5
+    assert result2 == expected2 and nums2[:result2] == [0,1,2,3,4], f"Expected {expected2}, got {result2}"
+
+    # Test case 3: No duplicates
+    nums3 = [1,2,3]
+    result3 = solution.removeDuplicates(nums3)
+    expected3 = 3
+    assert result3 == expected3, f"Expected {expected3}, got {result3}"
+
+    # Test case 4: All same
+    nums4 = [1,1,1]
+    result4 = solution.removeDuplicates(nums4)
+    expected4 = 1
+    assert result4 == expected4, f"Expected {expected4}, got {result4}"
 
     print("All test cases passed!")
 
@@ -92,4 +135,6 @@ if __name__ == "__main__":
 
     # Example usage
     solution = Solution()
-    print(f"Solution for 026. Remove Duplicates From Sorted Array")
+    nums = [1,1,2,2,3]
+    k = solution.removeDuplicates(nums)
+    print(f"Unique elements: {k}, Array: {nums[:k]}")
