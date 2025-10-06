@@ -2,48 +2,115 @@
  * 169. Majority Element
  * Easy
  *
- * This problem demonstrates key concepts in Arrays Hashing.
+ * Given an array nums of size n, return the majority element.
+ * The majority element is the element that appears more than ⌊n / 2⌋ times.
  *
  * SOLUTION EXPLANATION:
  *
  * INTUITION:
- * This problem requires understanding of arrays hashing concepts.
+ * Since the majority element appears more than n/2 times, it will always "survive" any
+ * cancellation process. Boyer-Moore voting algorithm leverages this by maintaining a
+ * candidate and count, canceling out different elements.
  *
  * APPROACH:
- * Apply arrays hashing methodology to solve efficiently.
+ * 1. **Initialize**: Set candidate to null and count to 0
+ * 2. **Vote**: For each element, if count is 0, make it the new candidate
+ * 3. **Count**: If element matches candidate, increment count; otherwise decrement
+ * 4. **Result**: The surviving candidate is the majority element
  *
  * WHY THIS WORKS:
- * The solution leverages arrays hashing principles for optimal performance.
+ * - Majority element appears > n/2 times
+ * - Non-majority elements can at most cancel out n/2 occurrences
+ * - Majority element will always have positive net count
+ * - Each cancellation removes one majority and one non-majority element
  *
- * TIME COMPLEXITY: O(n)
- * SPACE COMPLEXITY: O(1)
+ * TIME COMPLEXITY: O(n) - single pass through array
+ * SPACE COMPLEXITY: O(1) - constant extra space
  *
  * EXAMPLE WALKTHROUGH:
- * Input: [example input]\nStep 1: [explain first step]\nOutput: [expected output]
+ * Input: [2,2,1,1,1,2,2]
+ * Step 1: num=2, count=0 → candidate=2, count=1
+ * Step 2: num=2, count=1 → count=2 (match)
+ * Step 3: num=1, count=2 → count=1 (different)
+ * Step 4: num=1, count=1 → count=0 (different)
+ * Step 5: num=1, count=0 → candidate=1, count=1
+ * Step 6: num=2, count=1 → count=0 (different)
+ * Step 7: num=2, count=0 → candidate=2, count=1
+ * Result: 2 (appears 4/7 times)
  *
  * EDGE CASES:
- * - Empty input handling\n- Single element cases\n- Large input considerations
+ * - Single element: return that element
+ * - All same elements: return that element
+ * - Different patterns but guaranteed majority exists
  */
 
 /**
- * Main solution for Problem 169: Majority Element
+ * Main solution for Problem 169: Majority Element using Boyer-Moore Voting Algorithm
  *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
+ * @param {number[]} nums - Array of integers
+ * @return {number} - The majority element
+ *
+ * Time Complexity: O(n) - single pass through array
+ * Space Complexity: O(1) - constant extra space
+ */
+function solve(nums) {
+    // Boyer-Moore Voting Algorithm
+    let candidate = null;
+    let count = 0;
+
+    // First pass: find the candidate
+    for (const num of nums) {
+        if (count === 0) {
+            candidate = num;
+            count = 1;
+        } else if (num === candidate) {
+            count++;
+        } else {
+            count--;
+        }
+    }
+
+    // The problem guarantees a majority element exists,
+    // so we don't need a second pass to verify
+    return candidate;
+}
+
+/**
+ * Alternative solution using Map for frequency counting
+ *
+ * @param {number[]} nums - Array of integers
+ * @return {number} - The majority element
  *
  * Time Complexity: O(n)
- * Space Complexity: O(1)
+ * Space Complexity: O(n) for the map
  */
-function solve(...args) {
-    // TODO: Implement the solution using arrays hashing techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using arrays hashing methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+function solveWithMap(nums) {
+    const freqMap = new Map();
+    const majorityCount = Math.floor(nums.length / 2);
 
-    return null; // Replace with actual implementation
+    for (const num of nums) {
+        freqMap.set(num, (freqMap.get(num) || 0) + 1);
+
+        // Early return when majority is found
+        if (freqMap.get(num) > majorityCount) {
+            return num;
+        }
+    }
+}
+
+/**
+ * Alternative solution using sorting
+ *
+ * @param {number[]} nums - Array of integers
+ * @return {number} - The majority element
+ *
+ * Time Complexity: O(n log n) for sorting
+ * Space Complexity: O(1) extra space
+ */
+function solveWithSorting(nums) {
+    nums.sort((a, b) => a - b);
+    // The majority element will always be at the middle position
+    return nums[Math.floor(nums.length / 2)];
 }
 
 /**
@@ -52,20 +119,41 @@ function solve(...args) {
 function testSolution() {
     console.log('Testing 169. Majority Element');
 
-    // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    // Test case 1: Basic case with clear majority
+    const result1 = solve([3, 2, 3]);
+    const expected1 = 3;
+    console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 2: Majority element pattern
+    const result2 = solve([2, 2, 1, 1, 1, 2, 2]);
+    const expected2 = 2;
+    console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 3: Single element
+    const result3 = solve([1]);
+    const expected3 = 1;
+    console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+
+    // Test case 4: All same elements
+    const result4 = solve([5, 5, 5, 5]);
+    const expected4 = 5;
+    console.assert(result4 === expected4, `Test 4 failed: expected ${expected4}, got ${result4}`);
+
+    // Test case 5: Minimal majority
+    const result5 = solve([6, 5, 5]);
+    const expected5 = 5;
+    console.assert(result5 === expected5, `Test 5 failed: expected ${expected5}, got ${result5}`);
+
+    // Test alternative approaches
+    // Map approach
+    const result6 = solveWithMap([3, 2, 3]);
+    const expected6 = 3;
+    console.assert(result6 === expected6, `Test 6 failed: expected ${expected6}, got ${result6}`);
+
+    // Sorting approach
+    const result7 = solveWithSorting([2, 2, 1, 1, 1, 2, 2]);
+    const expected7 = 2;
+    console.assert(result7 === expected7, `Test 7 failed: expected ${expected7}, got ${result7}`);
 
     console.log('All test cases passed for 169. Majority Element!');
 }
@@ -91,6 +179,8 @@ if (require.main === module) {
 // Export for use in other modules
 module.exports = {
     solve,
+    solveWithMap,
+    solveWithSorting,
     testSolution,
     demonstrateSolution
 };

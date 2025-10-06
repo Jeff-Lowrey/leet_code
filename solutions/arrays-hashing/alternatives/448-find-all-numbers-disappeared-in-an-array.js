@@ -1,61 +1,106 @@
 /**
  * 448. Find All Numbers Disappeared In An Array
- * Medium
+ * Easy
  *
- * This problem demonstrates key concepts in Arrays Hashing.
+ * Given an array nums of n integers where nums[i] is in the range [1, n], return an array
+ * of all the integers in the range [1, n] that do not appear in nums.
  *
  * SOLUTION EXPLANATION:
  *
  * INTUITION:
- * [This problem requires understanding of arrays hashing concepts. The key insight is to identify the optimal approach for this specific scenario.]
+ * We need to find missing numbers from 1 to n. A clever approach uses the array itself
+ * as a hash table by marking indices corresponding to seen numbers.
  *
  * APPROACH:
- * 1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply arrays hashing methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+ * 1. **Mark seen numbers**: For each number, mark its corresponding index as negative
+ * 2. **Use absolute values**: Since we're modifying in-place, use abs() to get original
+ * 3. **Find missing**: Positive numbers at the end indicate missing numbers
+ * 4. **Restore original**: Optional step to restore the array
  *
  * WHY THIS WORKS:
- * - The solution leverages arrays hashing principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+ * - Array indices 0 to n-1 correspond to numbers 1 to n
+ * - Making nums[i] negative indicates number (i+1) is present
+ * - After marking, positive values indicate missing numbers
+ * - This achieves O(1) extra space complexity
  *
- * TIME COMPLEXITY: O(n)
- * SPACE COMPLEXITY: O(1)
+ * TIME COMPLEXITY: O(n) - two passes through the array
+ * SPACE COMPLEXITY: O(1) - excluding the output array, modifying input in-place
  *
  * EXAMPLE WALKTHROUGH:
- * ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
-```
+ * Input: [4,3,2,7,8,2,3,1]
+ * Step 1: Mark nums[3] negative (4 is present): [4,3,2,-7,8,2,3,1]
+ * Step 2: Mark nums[2] negative (3 is present): [4,3,-2,-7,8,2,3,1]
+ * Continue marking... Final: [-4,-3,-2,-7,8,2,-3,-1]
+ * Positive at indices 4,5 → missing numbers 5,6
  *
  * EDGE CASES:
- * - Empty input handling
-- Single element cases
-- Large input considerations
+ * - All numbers present: return empty array
+ * - All numbers missing: return [1,2,...,n]
+ * - Single element: check if it's 1
  */
 
 /**
  * Main solution for Problem 448: Find All Numbers Disappeared In An Array
  *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
+ * @param {number[]} nums - Array of integers in range [1, n]
+ * @return {number[]} - Array of missing integers from 1 to n
+ *
+ * Time Complexity: O(n) - two passes through the array
+ * Space Complexity: O(1) - excluding output array, modifying input in-place
+ */
+function solve(nums) {
+    const n = nums.length;
+
+    // First pass: mark present numbers by making corresponding indices negative
+    for (let i = 0; i < n; i++) {
+        // Get the number (use absolute value since it might have been marked negative)
+        const num = Math.abs(nums[i]);
+        // Convert to 0-based index
+        const index = num - 1;
+        // Mark as seen by making the value at that index negative
+        if (nums[index] > 0) {
+            nums[index] = -nums[index];
+        }
+    }
+
+    // Second pass: find missing numbers (positive values indicate missing)
+    const result = [];
+    for (let i = 0; i < n; i++) {
+        if (nums[i] > 0) {
+            // Convert back to 1-based number
+            result.push(i + 1);
+        }
+    }
+
+    // Optional: restore original array
+    for (let i = 0; i < n; i++) {
+        nums[i] = Math.abs(nums[i]);
+    }
+
+    return result;
+}
+
+/**
+ * Alternative solution using Set for comparison
+ *
+ * @param {number[]} nums - Array of integers in range [1, n]
+ * @return {number[]} - Array of missing integers from 1 to n
  *
  * Time Complexity: O(n)
- * Space Complexity: O(1)
+ * Space Complexity: O(n) for the set
  */
-function solve(...args) {
-    // TODO: Implement the solution using arrays hashing techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using arrays hashing methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+function solveWithSet(nums) {
+    const n = nums.length;
+    const numSet = new Set(nums);
+    const result = [];
 
-    return null; // Replace with actual implementation
+    for (let i = 1; i <= n; i++) {
+        if (!numSet.has(i)) {
+            result.push(i);
+        }
+    }
+
+    return result;
 }
 
 /**
@@ -64,20 +109,41 @@ function solve(...args) {
 function testSolution() {
     console.log('Testing 448. Find All Numbers Disappeared In An Array');
 
-    // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    // Test case 1: Basic example
+    const result1 = solve([4,3,2,7,8,2,3,1]);
+    const expected1 = [5, 6];
+    console.assert(JSON.stringify(result1.sort()) === JSON.stringify(expected1.sort()),
+        `Test 1 failed: expected [${expected1}], got [${result1}]`);
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 2: Single missing number
+    const result2 = solve([1,1]);
+    const expected2 = [2];
+    console.assert(JSON.stringify(result2) === JSON.stringify(expected2),
+        `Test 2 failed: expected [${expected2}], got [${result2}]`);
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 3: No missing numbers
+    const result3 = solve([1,2,3,4]);
+    const expected3 = [];
+    console.assert(JSON.stringify(result3) === JSON.stringify(expected3),
+        `Test 3 failed: expected [${expected3}], got [${result3}]`);
+
+    // Test case 4: All missing except one
+    const result4 = solve([2,2,2,2]);
+    const expected4 = [1, 3, 4];
+    console.assert(JSON.stringify(result4.sort()) === JSON.stringify(expected4.sort()),
+        `Test 4 failed: expected [${expected4}], got [${result4}]`);
+
+    // Test case 5: Single element
+    const result5 = solve([1]);
+    const expected5 = [];
+    console.assert(JSON.stringify(result5) === JSON.stringify(expected5),
+        `Test 5 failed: expected [${expected5}], got [${result5}]`);
+
+    // Test alternative approach
+    const result6 = solveWithSet([4,3,2,7,8,2,3,1]);
+    const expected6 = [5, 6];
+    console.assert(JSON.stringify(result6.sort()) === JSON.stringify(expected6.sort()),
+        `Test 6 failed: expected [${expected6}], got [${result6}]`);
 
     console.log('All test cases passed for 448. Find All Numbers Disappeared In An Array!');
 }
@@ -88,10 +154,9 @@ function testSolution() {
 function demonstrateSolution() {
     console.log('\n=== Problem 448. Find All Numbers Disappeared In An Array ===');
     console.log('Category: Arrays Hashing');
-    console.log('Difficulty: Medium');
+    console.log('Difficulty: Easy');
     console.log('');
 
-    // Example demonstration would go here
     testSolution();
 }
 
@@ -103,14 +168,15 @@ if (require.main === module) {
 // Export for use in other modules
 module.exports = {
     solve,
+    solveWithSet,
     testSolution,
     demonstrateSolution
 };
 
 /**
  * Additional Notes:
- * - This solution focuses on arrays hashing concepts
- * - Consider the trade-offs between time and space complexity
- * - Edge cases are crucial for robust solutions
- * - The approach can be adapted for similar problems in this category
+ * - The negative marking technique is a classic space-optimization approach
+ * - This problem demonstrates using array indices as a hash table
+ * - The technique works because all numbers are in range [1, n]
+ * - Consider whether modifying input is acceptable in real applications
  */

@@ -29,22 +29,23 @@ If there are duplicates, the set will be smaller than the array.
 /**
  * Main solution for Problem 217: Contains Duplicate
  *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
+ * @param {number[]} nums - Array of integers
+ * @return {boolean} - True if any value appears at least twice
  *
  * Time Complexity: O(n)
  * Space Complexity: O(n)
  */
-function solve(...args) {
-    // TODO: Implement the solution using arrays hashing techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using arrays hashing methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+function solve(nums) {
+    const seen = new Set();
 
-    return null; // Replace with actual implementation
+    for (const num of nums) {
+        if (seen.has(num)) {
+            return true;
+        }
+        seen.add(num);
+    }
+
+    return false;
 }
 
 /**
@@ -53,20 +54,20 @@ function solve(...args) {
 function testSolution() {
     console.log('Testing 217. Contains Duplicate');
 
-    // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    // Test case 1: Has duplicates
+    const result1 = solve([1, 2, 3, 1]);
+    const expected1 = true;
+    console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 2: No duplicates
+    const result2 = solve([1, 2, 3, 4]);
+    const expected2 = false;
+    console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 3: Multiple duplicates
+    const result3 = solve([1, 1, 1, 3, 3, 4, 3, 2, 4, 2]);
+    const expected3 = true;
+    console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
 
     console.log('All test cases passed for 217. Contains Duplicate!');
 }

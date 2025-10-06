@@ -42,22 +42,27 @@ Step 2: `num=7`, `complement=2`, seen={2: 0} → `found! return` [0, 1]
 /**
  * Main solution for Problem 001: Two Sum
  *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
+ * @param {number[]} nums - Array of integers
+ * @param {number} target - Target sum
+ * @return {number[]} - Indices of the two numbers that add up to target
  *
- * Time Complexity: [TIME COMPLEXITY content will be added here]
- * Space Complexity: [SPACE COMPLEXITY content will be added here]
+ * Time Complexity: O(n)
+ * Space Complexity: O(n)
  */
-function solve(...args) {
-    // TODO: Implement the solution using arrays hashing techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using arrays hashing methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+function solve(nums, target) {
+    const seen = new Map();
 
-    return null; // Replace with actual implementation
+    for (let i = 0; i < nums.length; i++) {
+        const complement = target - nums[i];
+
+        if (seen.has(complement)) {
+            return [seen.get(complement), i];
+        }
+
+        seen.set(nums[i], i);
+    }
+
+    return [];
 }
 
 /**
@@ -67,19 +72,22 @@ function testSolution() {
     console.log('Testing 001. Two Sum');
 
     // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    const result1 = solve([2, 7, 11, 15], 9);
+    const expected1 = [0, 1];
+    console.assert(JSON.stringify(result1) === JSON.stringify(expected1),
+        `Test 1 failed: expected ${JSON.stringify(expected1)}, got ${JSON.stringify(result1)}`);
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 2: Different indices
+    const result2 = solve([3, 2, 4], 6);
+    const expected2 = [1, 2];
+    console.assert(JSON.stringify(result2) === JSON.stringify(expected2),
+        `Test 2 failed: expected ${JSON.stringify(expected2)}, got ${JSON.stringify(result2)}`);
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 3: Same numbers
+    const result3 = solve([3, 3], 6);
+    const expected3 = [0, 1];
+    console.assert(JSON.stringify(result3) === JSON.stringify(expected3),
+        `Test 3 failed: expected ${JSON.stringify(expected3)}, got ${JSON.stringify(result3)}`);
 
     console.log('All test cases passed for 001. Two Sum!');
 }

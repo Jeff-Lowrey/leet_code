@@ -1,97 +1,160 @@
 /**
- * 036. Valid Sudoku
+ * 36. Valid Sudoku
  * Medium
  *
- * This problem demonstrates key concepts in Arrays Hashing.
+ * Determine if a 9 x 9 Sudoku board is valid. Only the filled cells need to be validated
+ * according to the following rules:
+ * 1. Each row must contain the digits 1-9 without repetition.
+ * 2. Each column must contain the digits 1-9 without repetition.
+ * 3. Each of the nine 3 x 3 sub-boxes of the grid must contain the digits 1-9 without repetition.
  *
  * SOLUTION EXPLANATION:
  *
  * INTUITION:
- * [This problem requires understanding of arrays hashing concepts. The key insight is to identify the optimal approach for this specific scenario.]
+ * Use hash sets to track numbers in each row, column, and 3x3 box. For each filled cell,
+ * check if the number already exists in its row, column, or box.
  *
  * APPROACH:
- * 1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply arrays hashing methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+ * 1. **Initialize tracking**: Create sets for rows, columns, and boxes
+ * 2. **Iterate board**: Check each non-empty cell
+ * 3. **Validate constraints**: Ensure no duplicates in row, column, or box
+ * 4. **Update sets**: Add valid numbers to their respective sets
  *
  * WHY THIS WORKS:
- * - The solution leverages arrays hashing principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+ * - Each number can appear only once per row, column, and box
+ * - Sets provide O(1) lookup for duplicate detection
+ * - Box index calculation: (row // 3) * 3 + (col // 3)
+ * - Single pass through the board is sufficient
  *
- * TIME COMPLEXITY: O(n)
- * SPACE COMPLEXITY: O(1)
+ * TIME COMPLEXITY: O(1) - fixed 9x9 board size
+ * SPACE COMPLEXITY: O(1) - at most 9 numbers per row/column/box
  *
  * EXAMPLE WALKTHROUGH:
- * ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
-```
+ * Board with duplicate '5' in first row:
+ * [["5","3",".",".","7",".",".",".","."],
+ *  ["6",".",".","1","9","5",".",".","."],
+ *  ...
+ * Step 1: Process (0,0) = "5" → add to row[0], col[0], box[0]
+ * Step 2: Process (0,1) = "3" → add to row[0], col[1], box[0]
+ * Step 3: Process (0,4) = "7" → add to row[0], col[4], box[1]
+ * Result: Valid so far...
  *
  * EDGE CASES:
- * - Empty input handling
-- Single element cases
-- Large input considerations
+ * - Empty board (all dots): valid
+ * - Single number repeated in row/column/box: invalid
+ * - Numbers outside 1-9 range: invalid (but not in this problem)
  */
 
 /**
- * Main solution for Problem 036: Valid Sudoku
+ * Main solution for Problem 36: Valid Sudoku
  *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
+ * @param {character[][]} board - 9x9 sudoku board
+ * @return {boolean} - true if valid, false otherwise
  *
- * Time Complexity: O(n)
- * Space Complexity: O(1)
+ * Time Complexity: O(1) - fixed 9x9 board
+ * Space Complexity: O(1) - fixed size sets
  */
-function solve(...args) {
-    // TODO: Implement the solution using arrays hashing techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using arrays hashing methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+function solve(board) {
+    // Initialize sets to track numbers in rows, columns, and boxes
+    const rows = Array(9).fill(null).map(() => new Set());
+    const cols = Array(9).fill(null).map(() => new Set());
+    const boxes = Array(9).fill(null).map(() => new Set());
 
-    return null; // Replace with actual implementation
+    // Iterate through each cell in the 9x9 board
+    for (let i = 0; i < 9; i++) {
+        for (let j = 0; j < 9; j++) {
+            const val = board[i][j];
+
+            // Skip empty cells
+            if (val === '.') {
+                continue;
+            }
+
+            // Calculate box index (0-8) for current cell
+            const boxIndex = Math.floor(i / 3) * 3 + Math.floor(j / 3);
+
+            // Check if number already exists in current row, column, or box
+            if (rows[i].has(val) || cols[j].has(val) || boxes[boxIndex].has(val)) {
+                return false;
+            }
+
+            // Add number to respective sets
+            rows[i].add(val);
+            cols[j].add(val);
+            boxes[boxIndex].add(val);
+        }
+    }
+
+    return true;
 }
 
 /**
- * Test cases for Problem 036: Valid Sudoku
+ * Test cases for Problem 36: Valid Sudoku
  */
 function testSolution() {
-    console.log('Testing 036. Valid Sudoku');
+    console.log('Testing 36. Valid Sudoku');
 
-    // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    // Test case 1: Valid Sudoku board
+    const validBoard = [
+        ["5","3",".",".","7",".",".",".","."],
+        ["6",".",".","1","9","5",".",".","."],
+        [".","9","8",".",".",".",".","6","."],
+        ["8",".",".",".","6",".",".",".","3"],
+        ["4",".",".","8",".","3",".",".","1"],
+        ["7",".",".",".","2",".",".",".","6"],
+        [".","6",".",".",".",".","2","8","."],
+        [".",".",".","4","1","9",".",".","5"],
+        [".",".",".",".","8",".",".","7","9"]
+    ];
+    const result1 = solve(validBoard);
+    console.assert(result1 === true, `Test 1 failed: expected true, got ${result1}`);
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 2: Invalid Sudoku board (duplicate in row)
+    const invalidBoard = [
+        ["8","3",".",".","7",".",".",".","."],
+        ["6",".",".","1","9","5",".",".","."],
+        [".","9","8",".",".",".",".","6","."],
+        ["8",".",".",".","6",".",".",".","3"],
+        ["4",".",".","8",".","3",".",".","1"],
+        ["7",".",".",".","2",".",".",".","6"],
+        [".","6",".",".",".",".","2","8","."],
+        [".",".",".","4","1","9",".",".","5"],
+        [".",".",".",".","8",".",".","7","9"]
+    ];
+    const result2 = solve(invalidBoard);
+    console.assert(result2 === false, `Test 2 failed: expected false, got ${result2}`);
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 3: Empty board
+    const emptyBoard = Array(9).fill(null).map(() => Array(9).fill('.'));
+    const result3 = solve(emptyBoard);
+    console.assert(result3 === true, `Test 3 failed: expected true, got ${result3}`);
 
-    console.log('All test cases passed for 036. Valid Sudoku!');
+    // Test case 4: Invalid board (duplicate in column)
+    const invalidCol = [
+        [".",".",".",".","5",".",".","1","."],
+        [".","4",".","3",".",".",".",".","."],
+        [".",".",".",".",".","3",".",".","1"],
+        ["8",".",".",".",".",".",".","2","."],
+        [".",".","2",".","7",".",".",".","."],
+        [".","1","5",".",".",".",".",".","."],
+        [".",".",".",".",".","2",".",".","."],
+        [".","2",".","9",".",".",".",".","."],
+        [".",".","4",".",".",".",".",".","."]]
+    const result4 = solve(invalidCol);
+    console.assert(result4 === false, `Test 4 failed: expected false, got ${result4}`);
+
+    console.log('All test cases passed for 36. Valid Sudoku!');
 }
 
 /**
  * Example usage and demonstration
  */
 function demonstrateSolution() {
-    console.log('\n=== Problem 036. Valid Sudoku ===');
+    console.log('\n=== Problem 36. Valid Sudoku ===');
     console.log('Category: Arrays Hashing');
     console.log('Difficulty: Medium');
     console.log('');
 
-    // Example demonstration would go here
     testSolution();
 }
 
@@ -109,8 +172,8 @@ module.exports = {
 
 /**
  * Additional Notes:
- * - This solution focuses on arrays hashing concepts
- * - Consider the trade-offs between time and space complexity
- * - Edge cases are crucial for robust solutions
- * - The approach can be adapted for similar problems in this category
+ * - Box index calculation is key: (row // 3) * 3 + (col // 3)
+ * - This maps 9x9 grid to 9 boxes numbered 0-8
+ * - Sets provide efficient O(1) duplicate detection
+ * - Only need to validate filled cells, empty cells are ignored
  */

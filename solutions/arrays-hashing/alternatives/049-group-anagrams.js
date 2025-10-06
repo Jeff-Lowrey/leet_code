@@ -1,108 +1,162 @@
 /**
- * 049. Group Anagrams
+ * 49. Group Anagrams
  * Medium
  *
- * This problem demonstrates key concepts in Arrays Hashing.
+ * Given an array of strings strs, group the anagrams together. You can return the
+ * answer in any order.
  *
  * SOLUTION EXPLANATION:
  *
  * INTUITION:
- * Group strings by their "anagram signature" - a canonical representation that's the same for all anagrams. Two common signatures: sorted characters or character frequency count.
+ * Group strings by their "anagram signature" - a canonical representation that's the same
+ * for all anagrams. Two common signatures: sorted characters or character frequency count.
  *
  * APPROACH:
- * 1. **Create signature**: For each string, generate a canonical form (sorted chars or char counts)
-2. **Group by signature**: Use a hash map where signature is key, list of anagrams is value
-3. **Return groups**: Extract all value lists from the hash map
+ * 1. **Create signature**: For each string, generate a canonical form (sorted chars)
+ * 2. **Group by signature**: Use a Map where signature is key, list of anagrams is value
+ * 3. **Return groups**: Extract all value arrays from the Map
  *
  * WHY THIS WORKS:
- * - All anagrams have the same signature (sorted characters or character counts)
-- Hash map automatically groups strings with identical signatures
-- Different anagrams will have different signatures
+ * - All anagrams have the same signature (sorted characters)
+ * - Map automatically groups strings with identical signatures
+ * - Different anagrams will have different signatures
  *
- * TIME COMPLEXITY: - **Sorting approach**: O(n × k log k) where n = number of strings, k = max string length
-- **Counting approach**: O(n × k) - more efficient
- * SPACE COMPLEXITY: O(n × k)
+ * TIME COMPLEXITY: O(n × k log k) where n = number of strings, k = max string length
+ * SPACE COMPLEXITY: O(n × k) for storing the grouped strings
  *
  * EXAMPLE WALKTHROUGH:
- * ```
-Input: ["eat","tea","tan","ate","nat","bat"]
-
-Using sorted string as key:
-"eat" → key "aet" → group 1
-"tea" → key "aet" → group 1
-"tan" → key "ant" → group 2
-"ate" → key "aet" → group 1
-"nat" → key "ant" → group 2
-"bat" → key "abt" → group 3
-
-Final groups:
-"aet": ["eat", "tea", "ate"]
-"ant": ["tan", "nat"]
-"abt": ["bat"]
-
-Output: [["eat","tea","ate"], ["tan","nat"], ["bat"]]
-```
+ * Input: ["eat","tea","tan","ate","nat","bat"]
+ *
+ * Using sorted string as key:
+ * "eat" → key "aet" → group 1
+ * "tea" → key "aet" → group 1
+ * "tan" → key "ant" → group 2
+ * "ate" → key "aet" → group 1
+ * "nat" → key "ant" → group 2
+ * "bat" → key "abt" → group 3
+ *
+ * Final groups: [["eat","tea","ate"], ["tan","nat"], ["bat"]]
  *
  * EDGE CASES:
- * [EDGE CASES content will be added here]
+ * - Empty string array: return empty array
+ * - Single string: return array with single group
+ * - All strings are anagrams: return single group
  */
 
 /**
- * Main solution for Problem 049: Group Anagrams
+ * Main solution for Problem 49: Group Anagrams
  *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
+ * @param {string[]} strs - Array of strings to group
+ * @return {string[][]} - Array of grouped anagrams
  *
- * Time Complexity: - **Sorting approach**: O(n × k log k) where n = number of strings, k = max string length
-- **Counting approach**: O(n × k) - more efficient
- * Space Complexity: O(n × k)
+ * Time Complexity: O(n × k log k) where n = number of strings, k = max string length
+ * Space Complexity: O(n × k) for storing the groups
  */
-function solve(...args) {
-    // TODO: Implement the solution using arrays hashing techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using arrays hashing methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+function solve(strs) {
+    const anagramMap = new Map();
 
-    return null; // Replace with actual implementation
+    for (const str of strs) {
+        // Create signature by sorting characters
+        const signature = str.split('').sort().join('');
+
+        // Group strings with same signature
+        if (!anagramMap.has(signature)) {
+            anagramMap.set(signature, []);
+        }
+        anagramMap.get(signature).push(str);
+    }
+
+    // Return all groups as array
+    return Array.from(anagramMap.values());
 }
 
 /**
- * Test cases for Problem 049: Group Anagrams
+ * Alternative solution using character count as signature (more efficient)
+ *
+ * @param {string[]} strs - Array of strings to group
+ * @return {string[][]} - Array of grouped anagrams
+ *
+ * Time Complexity: O(n × k) where n = number of strings, k = max string length
+ * Space Complexity: O(n × k) for storing the groups
+ */
+function solveWithCharCount(strs) {
+    const anagramMap = new Map();
+
+    for (const str of strs) {
+        // Create character count signature
+        const charCount = new Array(26).fill(0);
+        for (const char of str) {
+            charCount[char.charCodeAt(0) - 'a'.charCodeAt(0)]++;
+        }
+
+        // Use character count array as signature
+        const signature = charCount.join(',');
+
+        // Group strings with same signature
+        if (!anagramMap.has(signature)) {
+            anagramMap.set(signature, []);
+        }
+        anagramMap.get(signature).push(str);
+    }
+
+    // Return all groups as array
+    return Array.from(anagramMap.values());
+}
+
+/**
+ * Test cases for Problem 49: Group Anagrams
  */
 function testSolution() {
-    console.log('Testing 049. Group Anagrams');
+    console.log('Testing 49. Group Anagrams');
 
-    // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    // Test case 1: Basic example
+    const result1 = solve(["eat","tea","tan","ate","nat","bat"]);
+    // Sort for comparison since order doesn't matter
+    const sorted1 = result1.map(group => group.sort()).sort();
+    const expected1 = [["ate","eat","tea"], ["bat"], ["nat","tan"]].map(group => group.sort()).sort();
+    console.assert(JSON.stringify(sorted1) === JSON.stringify(expected1),
+        `Test 1 failed: expected groups with same anagrams`);
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 2: Single string
+    const result2 = solve(["a"]);
+    const expected2 = [["a"]];
+    console.assert(JSON.stringify(result2) === JSON.stringify(expected2),
+        `Test 2 failed: expected [["a"]], got ${JSON.stringify(result2)}`);
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 3: Empty string
+    const result3 = solve([""]);
+    const expected3 = [[""]];
+    console.assert(JSON.stringify(result3) === JSON.stringify(expected3),
+        `Test 3 failed: expected [[""]], got ${JSON.stringify(result3)}`);
 
-    console.log('All test cases passed for 049. Group Anagrams!');
+    // Test case 4: No anagrams
+    const result4 = solve(["abc","def","ghi"]);
+    console.assert(result4.length === 3 && result4.every(group => group.length === 1),
+        `Test 4 failed: expected 3 groups of size 1 each`);
+
+    // Test case 5: All same anagrams
+    const result5 = solve(["abc","bac","cab"]);
+    console.assert(result5.length === 1 && result5[0].length === 3,
+        `Test 5 failed: expected 1 group with 3 strings`);
+
+    // Test alternative approach
+    const result6 = solveWithCharCount(["eat","tea","tan","ate","nat","bat"]);
+    const sorted6 = result6.map(group => group.sort()).sort();
+    console.assert(JSON.stringify(sorted6) === JSON.stringify(expected1),
+        `Test 6 failed: character count approach should give same result`);
+
+    console.log('All test cases passed for 49. Group Anagrams!');
 }
 
 /**
  * Example usage and demonstration
  */
 function demonstrateSolution() {
-    console.log('\n=== Problem 049. Group Anagrams ===');
+    console.log('\n=== Problem 49. Group Anagrams ===');
     console.log('Category: Arrays Hashing');
     console.log('Difficulty: Medium');
     console.log('');
 
-    // Example demonstration would go here
     testSolution();
 }
 
@@ -114,14 +168,15 @@ if (require.main === module) {
 // Export for use in other modules
 module.exports = {
     solve,
+    solveWithCharCount,
     testSolution,
     demonstrateSolution
 };
 
 /**
  * Additional Notes:
- * - This solution focuses on arrays hashing concepts
- * - Consider the trade-offs between time and space complexity
- * - Edge cases are crucial for robust solutions
- * - The approach can be adapted for similar problems in this category
+ * - Sorting approach is simpler to implement but O(k log k) per string
+ * - Character counting approach is O(k) per string but more complex
+ * - Both approaches work well for typical input sizes
+ * - Consider input constraints when choosing between approaches
  */

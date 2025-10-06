@@ -2,60 +2,131 @@
  * 128. Longest Consecutive Sequence
  * Medium
  *
- * This problem demonstrates key concepts in Arrays Hashing.
+ * Given an unsorted array of integers nums, return the length of the longest
+ * consecutive elements sequence.
  *
  * SOLUTION EXPLANATION:
  *
  * INTUITION:
- * [This problem requires understanding of arrays hashing concepts. The key insight is to identify the optimal approach for this specific scenario.]
+ * To find the longest consecutive sequence efficiently, we need to avoid sorting (O(n log n)).
+ * Use a Set for O(1) lookups and only start counting from the beginning of each sequence.
  *
  * APPROACH:
- * 1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply arrays hashing methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+ * 1. **Convert to Set**: For O(1) lookups and to handle duplicates
+ * 2. **Find sequence starts**: Only count from numbers that don't have (num-1) in the set
+ * 3. **Count consecutive**: For each start, count how many consecutive numbers exist
+ * 4. **Track maximum**: Keep track of the longest sequence found
  *
  * WHY THIS WORKS:
- * - The solution leverages arrays hashing principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+ * - Set provides O(1) lookup to check if consecutive numbers exist
+ * - Only starting from sequence beginnings avoids redundant counting
+ * - Each number is visited at most twice (once to check, once to count)
+ * - This achieves O(n) time complexity despite nested loops
  *
- * TIME COMPLEXITY: O(n)
- * SPACE COMPLEXITY: O(1)
+ * TIME COMPLEXITY: O(n) - each number visited at most twice
+ * SPACE COMPLEXITY: O(n) - for the Set storage
  *
  * EXAMPLE WALKTHROUGH:
- * ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
-```
+ * Input: [100,4,200,1,3,2]
+ * Set: {100, 4, 200, 1, 3, 2}
+ *
+ * Check 100: 99 not in set → start sequence
+ *   Count: 100 → length 1
+ * Check 4: 3 is in set → skip (not a start)
+ * Check 200: 199 not in set → start sequence
+ *   Count: 200 → length 1
+ * Check 1: 0 not in set → start sequence
+ *   Count: 1,2,3,4 → length 4
+ * Check 3: 2 is in set → skip
+ * Check 2: 1 is in set → skip
+ *
+ * Result: 4 (sequence 1,2,3,4)
  *
  * EDGE CASES:
- * - Empty input handling
-- Single element cases
-- Large input considerations
+ * - Empty array: return 0
+ * - Single element: return 1
+ * - No consecutive numbers: return 1
+ * - All same numbers: return 1
  */
 
 /**
  * Main solution for Problem 128: Longest Consecutive Sequence
  *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
+ * @param {number[]} nums - Array of integers
+ * @return {number} - Length of longest consecutive sequence
  *
- * Time Complexity: O(n)
- * Space Complexity: O(1)
+ * Time Complexity: O(n) - each number visited at most twice
+ * Space Complexity: O(n) - for the Set storage
  */
-function solve(...args) {
-    // TODO: Implement the solution using arrays hashing techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using arrays hashing methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+function solve(nums) {
+    if (!nums || nums.length === 0) {
+        return 0;
+    }
 
-    return null; // Replace with actual implementation
+    // Convert to Set for O(1) lookups and to handle duplicates
+    const numSet = new Set(nums);
+    let longestStreak = 0;
+
+    // Iterate through each unique number
+    for (const num of numSet) {
+        // Only start counting sequences from the beginning
+        // If (num - 1) exists, this isn't the start of a sequence
+        if (!numSet.has(num - 1)) {
+            let currentNum = num;
+            let currentStreak = 1;
+
+            // Count consecutive numbers starting from this number
+            while (numSet.has(currentNum + 1)) {
+                currentNum++;
+                currentStreak++;
+            }
+
+            // Update the longest streak found
+            longestStreak = Math.max(longestStreak, currentStreak);
+        }
+    }
+
+    return longestStreak;
+}
+
+/**
+ * Alternative solution using sorting (less efficient but simpler)
+ *
+ * @param {number[]} nums - Array of integers
+ * @return {number} - Length of longest consecutive sequence
+ *
+ * Time Complexity: O(n log n) - due to sorting
+ * Space Complexity: O(1) - if we can modify input, O(n) for sorted copy
+ */
+function solveWithSorting(nums) {
+    if (!nums || nums.length === 0) {
+        return 0;
+    }
+
+    // Sort the array
+    nums.sort((a, b) => a - b);
+
+    let longestStreak = 1;
+    let currentStreak = 1;
+
+    for (let i = 1; i < nums.length; i++) {
+        // Skip duplicates
+        if (nums[i] === nums[i - 1]) {
+            continue;
+        }
+
+        // Check if consecutive
+        if (nums[i] === nums[i - 1] + 1) {
+            currentStreak++;
+        } else {
+            // Reset streak
+            longestStreak = Math.max(longestStreak, currentStreak);
+            currentStreak = 1;
+        }
+    }
+
+    // Check final streak
+    return Math.max(longestStreak, currentStreak);
 }
 
 /**
@@ -64,20 +135,46 @@ function solve(...args) {
 function testSolution() {
     console.log('Testing 128. Longest Consecutive Sequence');
 
-    // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    // Test case 1: Basic example
+    const result1 = solve([100,4,200,1,3,2]);
+    const expected1 = 4; // sequence: 1,2,3,4
+    console.assert(result1 === expected1,
+        `Test 1 failed: expected ${expected1}, got ${result1}`);
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 2: No consecutive elements
+    const result2 = solve([0,3,7,2,5,8,4,6,0,1]);
+    const expected2 = 9; // sequence: 0,1,2,3,4,5,6,7,8
+    console.assert(result2 === expected2,
+        `Test 2 failed: expected ${expected2}, got ${result2}`);
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 3: Empty array
+    const result3 = solve([]);
+    const expected3 = 0;
+    console.assert(result3 === expected3,
+        `Test 3 failed: expected ${expected3}, got ${result3}`);
+
+    // Test case 4: Single element
+    const result4 = solve([1]);
+    const expected4 = 1;
+    console.assert(result4 === expected4,
+        `Test 4 failed: expected ${expected4}, got ${result4}`);
+
+    // Test case 5: Duplicates
+    const result5 = solve([1,2,0,1]);
+    const expected5 = 3; // sequence: 0,1,2
+    console.assert(result5 === expected5,
+        `Test 5 failed: expected ${expected5}, got ${result5}`);
+
+    // Test case 6: All same numbers
+    const result6 = solve([2,2,2,2]);
+    const expected6 = 1;
+    console.assert(result6 === expected6,
+        `Test 6 failed: expected ${expected6}, got ${result6}`);
+
+    // Test alternative approach
+    const result7 = solveWithSorting([100,4,200,1,3,2]);
+    console.assert(result7 === expected1,
+        `Test 7 failed: sorting approach should give same result`);
 
     console.log('All test cases passed for 128. Longest Consecutive Sequence!');
 }
@@ -91,7 +188,6 @@ function demonstrateSolution() {
     console.log('Difficulty: Medium');
     console.log('');
 
-    // Example demonstration would go here
     testSolution();
 }
 
@@ -103,14 +199,15 @@ if (require.main === module) {
 // Export for use in other modules
 module.exports = {
     solve,
+    solveWithSorting,
     testSolution,
     demonstrateSolution
 };
 
 /**
  * Additional Notes:
- * - This solution focuses on arrays hashing concepts
- * - Consider the trade-offs between time and space complexity
- * - Edge cases are crucial for robust solutions
- * - The approach can be adapted for similar problems in this category
+ * - The key insight is to only start counting from sequence beginnings
+ * - This avoids the O(n²) complexity of checking every possible sequence
+ * - The Set approach is optimal for this problem
+ * - Sorting approach is simpler but less efficient
  */
