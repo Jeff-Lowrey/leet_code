@@ -2,79 +2,91 @@
 # 039. Combination Sum
 **Medium**
 
-Given a problem that demonstrates key concepts in Backtracking.
+Given an array of distinct integers candidates and a target integer target,
+return a list of all unique combinations of candidates where the chosen numbers sum to target.
+You may return the combinations in any order.
+
+The same number may be chosen from candidates an unlimited number of times.
+Two combinations are unique if the frequency of at least one of the chosen numbers is different.
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
-[This problem requires understanding of backtracking concepts. The key insight is to identify the optimal approach for this specific scenario.]
+This is a classic backtracking problem where we need to find all combinations that sum to target.
+Since numbers can be reused unlimited times, we explore each candidate multiple times.
 
 ### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply backtracking methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+1. **Sort candidates**: For optimization and early termination
+2. **Use backtracking**: Build combinations incrementally
+3. **Two choices per element**: Include it (allowing reuse) or skip it
+4. **Base cases**: Sum equals target (valid) or exceeds target (invalid)
 
 ### WHY THIS WORKS:
-- The solution leverages backtracking principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+- Backtracking explores all possible combinations systematically
+- Sorting allows early termination when candidate > remaining sum
+- Using start index prevents duplicate combinations
 
-### TIME COMPLEXITY: O(n)
-### SPACE COMPLEXITY: O(1)
+### TIME COMPLEXITY: O(N^(T/M))
+Where N=len(candidates), T=target, M=minimal candidate value
+
+### SPACE COMPLEXITY: O(T/M)
+For recursion depth and storing combinations
 
 ### EXAMPLE WALKTHROUGH:
 ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
+Input: candidates = [2,3,6,7], target = 7
+Combinations found: [[2,2,3], [7]]
+- Try 2: [2] -> remaining=5, try 2 again: [2,2] -> remaining=3, try 3: [2,2,3] ✓
+- Try 7: [7] -> remaining=0 ✓
 ```
 
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- Target = 0: return [[]]
+- No valid combinations: return []
+- Single candidate equals target: return [[candidate]]
 
 </details>
 
 <details>
 <summary><b>💡 APPROACH</b></summary>
 
-The approach uses backtracking techniques to solve this problem efficiently.
+The backtracking approach systematically explores all combinations:
 
 ### Algorithm Steps:
-1. Initialize necessary variables
-2. Process input using backtracking method
-3. Return the computed result
+1. Sort candidates for optimization
+2. Use recursive backtracking function
+3. For each candidate, decide to include or skip
+4. If included, allow reuse (same index)
+5. Backtrack by removing last added number
+6. Collect all valid combinations
 
 </details>
 """
 
 class Solution:
-    def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
+    def combinationSum(self, candidates: list[int], target: int) -> list[list[int]]:
         """
         Find all unique combinations of numbers that sum up to the target.
         
         Args:
-            candidates (List[int]): List of distinct positive integers
+            candidates (list[int]): List of distinct positive integers
             target (int): Target sum to achieve
-            
+
         Returns:
-            List[List[int]]: List of all unique combinations that sum to target
+            list[list[int]]: List of all unique combinations that sum to target
             
         Time Complexity: O(N^(T/M)), where N is length of candidates,
                         T is target, M is minimal value in candidates
         Space Complexity: O(T/M) for recursion depth
         """
-        def backtrack(remain: int, combo: List[int], start: int) -> None:
+        def backtrack(remain: int, combo: list[int], start: int) -> None:
             """
             Helper function to perform backtracking and find combinations.
             
             Args:
                 remain (int): Remaining sum to achieve
-                combo (List[int]): Current combination being built
+                combo (list[int]): Current combination being built
                 start (int): Starting index in candidates to consider
             """
             if remain == 0:
@@ -107,14 +119,23 @@ def test_solution():
     solution = Solution()
 
     # Test case 1: Basic functionality
-    # result = solution.solve([test_input])
-    # expected = [expected_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    result = solution.combinationSum([2,3,6,7], 7)
+    expected = [[2,2,3], [7]]
+    assert len(result) == len(expected), f"Expected {len(expected)} combinations, got {len(result)}"
 
-    # Test case 2: Edge case
-    # result = solution.solve([edge_case_input])
-    # expected = [edge_case_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 2: Multiple reuse
+    result = solution.combinationSum([2,3,5], 8)
+    assert len(result) == 3, f"Expected 3 combinations for [2,3,5] target 8, got {len(result)}"
+
+    # Test case 3: No solution
+    result = solution.combinationSum([2], 3)
+    expected = []
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 4: Single element solution
+    result = solution.combinationSum([1], 2)
+    expected = [[1,1]]
+    assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
 
@@ -123,4 +144,7 @@ if __name__ == "__main__":
 
     # Example usage
     solution = Solution()
-    print(f"Solution for 039. Combination Sum")
+    print("=== 039. Combination Sum ===")
+    print(f"Input: [2,3,6,7], target=7 -> {solution.combinationSum([2,3,6,7], 7)}")
+    print(f"Input: [2,3,5], target=8 -> {solution.combinationSum([2,3,5], 8)}")
+    print(f"Input: [2], target=3 -> {solution.combinationSum([2], 3)}")

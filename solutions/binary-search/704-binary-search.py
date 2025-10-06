@@ -1,73 +1,102 @@
 """
 # 704. Binary Search
-**Medium**
+**Easy**
 
-Given a problem that demonstrates key concepts in Binary Search.
+Given an array of integers nums which is sorted in ascending order,
+and an integer target, write a function to search target in nums.
+If target exists, then return its index. Otherwise, return -1.
+
+You must write an algorithm with O(log n) runtime complexity.
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
-[This problem requires understanding of binary search concepts. The key insight is to identify the optimal approach for this specific scenario.]
+Binary search is the classic divide-and-conquer algorithm for searching
+in sorted arrays. We repeatedly divide the search space in half by
+comparing the target with the middle element.
 
 ### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply binary search methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+1. **Initialize pointers**: Set left=0, right=len(nums)-1
+2. **Divide search space**: Calculate mid = (left + right) // 2
+3. **Compare and eliminate**:
+   - If nums[mid] == target: found, return mid
+   - If nums[mid] < target: search right half (left = mid + 1)
+   - If nums[mid] > target: search left half (right = mid - 1)
+4. **Repeat until found or search space exhausted**
 
 ### WHY THIS WORKS:
-- The solution leverages binary search principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+- Sorted array property allows us to eliminate half the elements each iteration
+- Each comparison reduces search space by 50%
+- Guarantees O(log n) time complexity
 
-### TIME COMPLEXITY: O(n)
+### TIME COMPLEXITY: O(log n)
 ### SPACE COMPLEXITY: O(1)
 
 ### EXAMPLE WALKTHROUGH:
 ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
+Input: nums = [-1,0,3,5,9,12], target = 9
+Step 1: left=0, right=5, mid=2, nums[2]=3 < 9, search right
+Step 2: left=3, right=5, mid=4, nums[4]=9 == 9, found!
+Output: 4
 ```
 
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- Empty array: return -1
+- Single element: check if it equals target
+- Target not in array: return -1
+- Target at boundaries: first or last element
 
 </details>
 
 <details>
 <summary><b>💡 APPROACH</b></summary>
 
-The approach uses binary search techniques to solve this problem efficiently.
+Classic binary search implementation with left/right pointers:
 
 ### Algorithm Steps:
-1. Initialize necessary variables
-2. Process input using binary search method
-3. Return the computed result
+1. Initialize left and right boundaries
+2. While search space exists (left <= right):
+   - Calculate middle index
+   - Compare middle element with target
+   - Adjust boundaries based on comparison
+3. Return index if found, -1 otherwise
 
 </details>
 """
 
 class Solution:
-    def solve(self, *args):
+    def search(self, nums: list[int], target: int) -> int:
         """
-        Main solution for 704. Binary Search.
+        Binary search for target in sorted array.
 
         Args:
-            *args: Problem-specific arguments
+            nums: Sorted array of integers
+            target: Target value to search for
 
         Returns:
-            Problem-specific return type
+            Index of target if found, -1 otherwise
 
-        Time Complexity: O(n)
+        Time Complexity: O(log n)
         Space Complexity: O(1)
         """
-        # TODO: Implement the solution
-        pass
+        left, right = 0, len(nums) - 1
+
+        while left <= right:
+            mid = (left + right) // 2
+
+            if nums[mid] == target:
+                return mid
+            elif nums[mid] < target:
+                left = mid + 1
+            else:
+                right = mid - 1
+
+        return -1
+
+    def solve(self, nums: list[int], target: int) -> int:
+        """Legacy method for compatibility."""
+        return self.search(nums, target)
 
 def test_solution():
     """
@@ -75,15 +104,40 @@ def test_solution():
     """
     solution = Solution()
 
-    # Test case 1: Basic functionality
-    # result = solution.solve([test_input])
-    # expected = [expected_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 1: Target found in middle
+    result = solution.search([-1,0,3,5,9,12], 9)
+    expected = 4
+    assert result == expected, f"Expected {expected}, got {result}"
 
-    # Test case 2: Edge case
-    # result = solution.solve([edge_case_input])
-    # expected = [edge_case_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 2: Target not found
+    result = solution.search([-1,0,3,5,9,12], 2)
+    expected = -1
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 3: Target at beginning
+    result = solution.search([-1,0,3,5,9,12], -1)
+    expected = 0
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 4: Target at end
+    result = solution.search([-1,0,3,5,9,12], 12)
+    expected = 5
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 5: Single element found
+    result = solution.search([5], 5)
+    expected = 0
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 6: Single element not found
+    result = solution.search([5], 3)
+    expected = -1
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 7: Empty array
+    result = solution.search([], 1)
+    expected = -1
+    assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
 
@@ -92,4 +146,7 @@ if __name__ == "__main__":
 
     # Example usage
     solution = Solution()
-    print(f"Solution for 704. Binary Search")
+    print("=== 704. Binary Search ===")
+    print(f"search([-1,0,3,5,9,12], 9) -> {solution.search([-1,0,3,5,9,12], 9)}")
+    print(f"search([-1,0,3,5,9,12], 2) -> {solution.search([-1,0,3,5,9,12], 2)}")
+    print(f"search([5], 5) -> {solution.search([5], 5)}")
