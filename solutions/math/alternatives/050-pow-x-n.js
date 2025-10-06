@@ -11,10 +11,16 @@
 using **binary exponentiation** - repeatedly squaring and halving the exponent.
  *
  * APPROACH:
- * [APPROACH content will be added here]
+ * 1. **Handle negative exponents**: Convert to positive and invert result
+ * 2. **Binary exponentiation**: Use bits of n to determine which powers to multiply
+ * 3. **Iterative squaring**: Square base and halve exponent each iteration
+ * 4. **Accumulate result**: Multiply result when exponent bit is 1
  *
  * WHY THIS WORKS:
- * [WHY THIS WORKS content will be added here]
+ * - Any exponent can be represented as sum of powers of 2 (binary representation)
+ * - x^n = x^(2^a + 2^b + ...) = x^(2^a) * x^(2^b) * ...
+ * - Each power of 2 can be computed by repeated squaring
+ * - Reduces O(n) multiplications to O(log n)
  *
  * TIME COMPLEXITY: O(log n)
  * SPACE COMPLEXITY: O(log n) recursive, O(1) iterative

@@ -18,7 +18,10 @@
 3. **After Phase**: Add all remaining intervals
  *
  * WHY THIS WORKS:
- * [WHY THIS WORKS content will be added here]
+ * - Sorted input allows linear scan without backtracking
+ * - Three-phase approach handles all cases systematically
+ * - Merging happens in one pass by tracking min start and max end
+ * - No need to sort result since we process in order
  *
  * TIME COMPLEXITY: O(n)
  * SPACE COMPLEXITY: O(n) for result array

@@ -10,7 +10,10 @@
  * Use two pointers from both ends of the string, skipping non-alphanumeric characters and comparing characters case-insensitively. This avoids creating a cleaned string, saving space.
  *
  * APPROACH:
- * [APPROACH content will be added here]
+ * 1. **Initialize two pointers**: Start from beginning and end of string
+ * 2. **Skip non-alphanumeric**: Move pointers inward until alphanumeric characters
+ * 3. **Compare characters**: Check if characters match (case-insensitive)
+ * 4. **Continue or return**: If mismatch return false, otherwise continue until pointers meet
  *
  * WHY THIS WORKS:
  * - Two pointers naturally check palindrome property (symmetric comparison)

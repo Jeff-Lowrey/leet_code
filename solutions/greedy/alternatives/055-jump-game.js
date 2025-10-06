@@ -10,7 +10,10 @@
  * Use greedy approach to track the farthest position we can reach. If at any point our current position exceeds the farthest reachable position, we can't proceed further.
  *
  * APPROACH:
- * [APPROACH content will be added here]
+ * 1. **Track maximum reach**: Keep track of the farthest index we can reach
+ * 2. **Update maximum**: At each position, update the maximum reachable position
+ * 3. **Check feasibility**: If current position > maximum reach, return false
+ * 4. **Success condition**: If maximum reach >= last index, return true
  *
  * WHY THIS WORKS:
  * - We only need to know if the last index is reachable, not the actual path
@@ -21,10 +24,19 @@
  * SPACE COMPLEXITY: O(1)
  *
  * EXAMPLE WALKTHROUGH:
- * [EXAMPLE WALKTHROUGH content will be added here]
+ * ```
+ * nums = [2,3,1,1,4]
+ * i=0: maxReach = max(0, 0+2) = 2
+ * i=1: maxReach = max(2, 1+3) = 4 (can reach end!)
+ * i=2: maxReach = max(4, 2+1) = 4
+ * Result: true (maxReach >= 4)
+ * ```
  *
  * EDGE CASES:
- * [EDGE CASES content will be added here]
+ * - Single element array: Always true (already at last index)
+ * - First element is 0 and array length > 1: False (can't move)
+ * - All zeros except first: Depends on first element value
+ * - Large jumps: Clamp maximum reach to array bounds
  */
 
 /**
