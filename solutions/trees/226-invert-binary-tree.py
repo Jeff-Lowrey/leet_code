@@ -1,8 +1,8 @@
 """
 # 226. Invert Binary Tree
-**Medium**
+**Easy**
 
-Given a problem that demonstrates key concepts in Trees.
+Given the root of a binary tree, invert the tree, and return its root.
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -52,22 +52,39 @@ The approach uses trees techniques to solve this problem efficiently.
 </details>
 """
 
+# Definition for a binary tree node.
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
 class Solution:
-    def solve(self, *args):
+    def invertTree(self, root):
         """
-        Main solution for 226. Invert Binary Tree.
+        Invert binary tree recursively.
 
         Args:
-            *args: Problem-specific arguments
+            root: Root of the binary tree
 
         Returns:
-            Problem-specific return type
+            Root of the inverted binary tree
 
         Time Complexity: O(n)
-        Space Complexity: O(1)
+        Space Complexity: O(h) where h is height of tree
         """
-        # TODO: Implement the solution
-        pass
+        # Base case: empty tree
+        if not root:
+            return None
+
+        # Swap left and right children
+        root.left, root.right = root.right, root.left
+
+        # Recursively invert left and right subtrees
+        self.invertTree(root.left)
+        self.invertTree(root.right)
+
+        return root
 
 def test_solution():
     """
