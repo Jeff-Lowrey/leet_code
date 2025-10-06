@@ -19,10 +19,12 @@ We need to handle carries just like manual addition.
 5. Continue until both lists empty and `carry = 0`
  *
  * WHY THIS WORKS:
- * [WHY THIS WORKS content will be added here]
+ * Since digits are stored in reverse order, we can process from left to right
+ * which naturally handles the least significant digit first. The carry mechanism
+ * mimics manual addition, propagating overflow to the next position.
  *
- * TIME COMPLEXITY: [TIME COMPLEXITY content will be added here]
- * SPACE COMPLEXITY: [SPACE COMPLEXITY content will be added here]
+ * TIME COMPLEXITY: O(max(m, n)) where m, n are lengths of input lists
+ * SPACE COMPLEXITY: O(max(m, n)) for the result list
  *
  * EXAMPLE WALKTHROUGH:
  * ```
@@ -43,24 +45,105 @@ Result: [7,0,8] represents 807
  */
 
 /**
+ * Definition for singly-linked list.
+ */
+class ListNode {
+    constructor(val, next) {
+        this.val = (val === undefined ? 0 : val);
+        this.next = (next === undefined ? null : next);
+    }
+}
+
+/**
  * Main solution for Problem 002: Add Two Numbers
  *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
+ * @param {ListNode} l1 - First linked list representing a number
+ * @param {ListNode} l2 - Second linked list representing a number
+ * @return {ListNode} - Sum as a linked list
  *
- * Time Complexity: [TIME COMPLEXITY content will be added here]
- * Space Complexity: [SPACE COMPLEXITY content will be added here]
+ * Time Complexity: O(max(m, n)) where m, n are lengths of input lists
+ * Space Complexity: O(max(m, n)) for the result list
  */
-function solve(...args) {
-    // TODO: Implement the solution using linked list techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using linked list methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+function solve(l1, l2) {
+    const dummy = new ListNode(0);
+    let current = dummy;
+    let carry = 0;
 
-    return null; // Replace with actual implementation
+    // Process both lists while either has nodes or carry exists
+    while (l1 !== null || l2 !== null || carry !== 0) {
+        const val1 = l1 ? l1.val : 0;
+        const val2 = l2 ? l2.val : 0;
+        const sum = val1 + val2 + carry;
+
+        // Create new node with digit value (sum % 10)
+        current.next = new ListNode(sum % 10);
+        current = current.next;
+
+        // Update carry for next iteration
+        carry = Math.floor(sum / 10);
+
+        // Move to next nodes if they exist
+        if (l1) l1 = l1.next;
+        if (l2) l2 = l2.next;
+    }
+
+    return dummy.next;
+}
+
+/**
+ * Alternative iterative solution with explicit carry handling
+ */
+function solveAlternative(l1, l2) {
+    let result = new ListNode(0);
+    let current = result;
+    let carry = 0;
+
+    while (l1 || l2) {
+        const x = l1 ? l1.val : 0;
+        const y = l2 ? l2.val : 0;
+        const sum = carry + x + y;
+
+        carry = Math.floor(sum / 10);
+        current.next = new ListNode(sum % 10);
+        current = current.next;
+
+        if (l1) l1 = l1.next;
+        if (l2) l2 = l2.next;
+    }
+
+    // Handle final carry
+    if (carry > 0) {
+        current.next = new ListNode(carry);
+    }
+
+    return result.next;
+}
+
+/**
+ * Helper function to create linked list from array
+ */
+function createLinkedList(arr) {
+    if (!arr.length) return null;
+    const head = new ListNode(arr[0]);
+    let current = head;
+    for (let i = 1; i < arr.length; i++) {
+        current.next = new ListNode(arr[i]);
+        current = current.next;
+    }
+    return head;
+}
+
+/**
+ * Helper function to convert linked list to array
+ */
+function linkedListToArray(head) {
+    const result = [];
+    let current = head;
+    while (current) {
+        result.push(current.val);
+        current = current.next;
+    }
+    return result;
 }
 
 /**
@@ -69,20 +152,53 @@ function solve(...args) {
 function testSolution() {
     console.log('Testing 002. Add Two Numbers');
 
-    // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    // Test case 1: Basic example - [2,4,3] + [5,6,4] = [7,0,8]
+    const l1_1 = createLinkedList([2, 4, 3]);
+    const l2_1 = createLinkedList([5, 6, 4]);
+    const result1 = solve(l1_1, l2_1);
+    const expected1 = [7, 0, 8];
+    console.assert(JSON.stringify(linkedListToArray(result1)) === JSON.stringify(expected1),
+        `Test 1 failed: expected ${expected1}, got ${linkedListToArray(result1)}`);
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 2: Different lengths - [0] + [5,6,4] = [5,6,4]
+    const l1_2 = createLinkedList([0]);
+    const l2_2 = createLinkedList([5, 6, 4]);
+    const result2 = solve(l1_2, l2_2);
+    const expected2 = [5, 6, 4];
+    console.assert(JSON.stringify(linkedListToArray(result2)) === JSON.stringify(expected2),
+        `Test 2 failed: expected ${expected2}, got ${linkedListToArray(result2)}`);
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 3: Carry propagation - [9,9,9,9,9,9,9] + [9,9,9,9] = [8,9,9,9,0,0,0,1]
+    const l1_3 = createLinkedList([9, 9, 9, 9, 9, 9, 9]);
+    const l2_3 = createLinkedList([9, 9, 9, 9]);
+    const result3 = solve(l1_3, l2_3);
+    const expected3 = [8, 9, 9, 9, 0, 0, 0, 1];
+    console.assert(JSON.stringify(linkedListToArray(result3)) === JSON.stringify(expected3),
+        `Test 3 failed: expected ${expected3}, got ${linkedListToArray(result3)}`);
+
+    // Test case 4: Single digits - [5] + [5] = [0,1]
+    const l1_4 = createLinkedList([5]);
+    const l2_4 = createLinkedList([5]);
+    const result4 = solve(l1_4, l2_4);
+    const expected4 = [0, 1];
+    console.assert(JSON.stringify(linkedListToArray(result4)) === JSON.stringify(expected4),
+        `Test 4 failed: expected ${expected4}, got ${linkedListToArray(result4)}`);
+
+    // Test case 5: One empty list - [] + [1,2,3] = [1,2,3]
+    const l1_5 = null;
+    const l2_5 = createLinkedList([1, 2, 3]);
+    const result5 = solve(l1_5, l2_5);
+    const expected5 = [1, 2, 3];
+    console.assert(JSON.stringify(linkedListToArray(result5)) === JSON.stringify(expected5),
+        `Test 5 failed: expected ${expected5}, got ${linkedListToArray(result5)}`);
+
+    // Test case 6: Both single zeros - [0] + [0] = [0]
+    const l1_6 = createLinkedList([0]);
+    const l2_6 = createLinkedList([0]);
+    const result6 = solve(l1_6, l2_6);
+    const expected6 = [0];
+    console.assert(JSON.stringify(linkedListToArray(result6)) === JSON.stringify(expected6),
+        `Test 6 failed: expected ${expected6}, got ${linkedListToArray(result6)}`);
 
     console.log('All test cases passed for 002. Add Two Numbers!');
 }
@@ -108,6 +224,10 @@ if (require.main === module) {
 // Export for use in other modules
 module.exports = {
     solve,
+    solveAlternative,
+    ListNode,
+    createLinkedList,
+    linkedListToArray,
     testSolution,
     demonstrateSolution
 };

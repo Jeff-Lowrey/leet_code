@@ -7,55 +7,227 @@
  * SOLUTION EXPLANATION:
  *
  * INTUITION:
- * [This problem requires understanding of linked list concepts. The key insight is to identify the optimal approach for this specific scenario.]
+ * Process the linked list in chunks of k nodes. For each complete group of k nodes,
+ * reverse them while maintaining connections to the previous and next groups.
+ * If the remaining nodes are less than k, leave them unchanged.
  *
  * APPROACH:
- * 1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply linked list methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+ * 1. Count nodes to ensure we have at least k nodes to reverse
+ * 2. For each group: reverse k nodes while tracking group boundaries
+ * 3. Connect reversed group to previous group and next group
+ * 4. Move to next group and repeat until fewer than k nodes remain
  *
  * WHY THIS WORKS:
- * - The solution leverages linked list principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+ * - Group-wise reversal maintains overall list structure
+ * - Careful pointer management ensures no nodes are lost
+ * - Dummy head simplifies edge case handling
  *
  * TIME COMPLEXITY: O(n)
  * SPACE COMPLEXITY: O(1)
  *
  * EXAMPLE WALKTHROUGH:
  * ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
+Input: head = [1,2,3,4,5], k = 2
+Step 1: Group 1: [1,2] -> reverse to [2,1]
+Step 2: Group 2: [3,4] -> reverse to [4,3]
+Step 3: Remaining [5] < k, so leave unchanged
+Result: [2,1,4,3,5]
+
+Input: head = [1,2,3,4,5], k = 3
+Step 1: Group 1: [1,2,3] -> reverse to [3,2,1]
+Step 2: Remaining [4,5] < k, so leave unchanged
+Result: [3,2,1,4,5]
 ```
  *
  * EDGE CASES:
- * - Empty input handling
-- Single element cases
-- Large input considerations
+ * - Empty list or k = 1 (return original list)
+ * - List length less than k (return original list)
+ * - k equals list length (reverse entire list)
+ * - k greater than list length (return original list)
  */
+
+/**
+ * Definition for singly-linked list.
+ */
+class ListNode {
+    constructor(val, next) {
+        this.val = (val === undefined ? 0 : val);
+        this.next = (next === undefined ? null : next);
+    }
+}
 
 /**
  * Main solution for Problem 025: Reverse Nodes In K Group
  *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
+ * @param {ListNode} head - Head of the linked list
+ * @param {number} k - Size of each group to reverse
+ * @return {ListNode} - Head of modified list
  *
- * Time Complexity: O(n)
- * Space Complexity: O(1)
+ * Time Complexity: O(n) where n is number of nodes
+ * Space Complexity: O(1) using only constant extra space
  */
-function solve(...args) {
-    // TODO: Implement the solution using linked list techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using linked list methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+function solve(head, k) {
+    if (!head || k === 1) return head;
 
-    return null; // Replace with actual implementation
+    // Count total nodes
+    let count = 0;
+    let current = head;
+    while (current) {
+        count++;
+        current = current.next;
+    }
+
+    const dummy = new ListNode(0);
+    dummy.next = head;
+    let prevGroupEnd = dummy;
+
+    // Process groups of k nodes
+    while (count >= k) {
+        let groupStart = prevGroupEnd.next;
+        let groupEnd = groupStart;
+
+        // Find the end of current group
+        for (let i = 1; i < k; i++) {
+            groupEnd = groupEnd.next;
+        }
+
+        let nextGroupStart = groupEnd.next;
+
+        // Reverse the current group
+        const reversedGroupHead = reverseKNodes(groupStart, k);
+
+        // Connect with previous group
+        prevGroupEnd.next = reversedGroupHead;
+
+        // groupStart is now the last node of reversed group
+        groupStart.next = nextGroupStart;
+
+        // Update for next iteration
+        prevGroupEnd = groupStart;
+        count -= k;
+    }
+
+    return dummy.next;
+}
+
+/**
+ * Helper function to reverse exactly k nodes starting from head
+ */
+function reverseKNodes(head, k) {
+    let prev = null;
+    let current = head;
+
+    for (let i = 0; i < k; i++) {
+        const next = current.next;
+        current.next = prev;
+        prev = current;
+        current = next;
+    }
+
+    return prev; // new head of reversed group
+}
+
+/**
+ * Alternative solution using iterative approach with explicit group handling
+ */
+function solveAlternative(head, k) {
+    if (!head || k === 1) return head;
+
+    const dummy = new ListNode(0);
+    dummy.next = head;
+    let prev = dummy;
+
+    while (prev.next) {
+        // Check if we have k nodes remaining
+        let curr = prev.next;
+        for (let i = 0; i < k && curr; i++) {
+            curr = curr.next;
+        }
+
+        if (!curr && prev.next) {
+            // Less than k nodes remaining, break
+            break;
+        }
+
+        // We have exactly k nodes, reverse them
+        let start = prev.next;
+        let next = curr;
+
+        // Reverse k nodes
+        let current = start;
+        let previous = next;
+
+        for (let i = 0; i < k; i++) {
+            const temp = current.next;
+            current.next = previous;
+            previous = current;
+            current = temp;
+        }
+
+        prev.next = previous;
+        prev = start;
+    }
+
+    return dummy.next;
+}
+
+/**
+ * Recursive solution
+ */
+function solveRecursive(head, k) {
+    // Check if we have at least k nodes
+    let current = head;
+    let count = 0;
+    while (current && count < k) {
+        current = current.next;
+        count++;
+    }
+
+    // If we have k nodes, reverse them
+    if (count === k) {
+        // Recursively reverse the rest
+        current = solveRecursive(current, k);
+
+        // Reverse first k nodes
+        let prev = current;
+        current = head;
+        for (let i = 0; i < k; i++) {
+            const next = current.next;
+            current.next = prev;
+            prev = current;
+            current = next;
+        }
+        head = prev;
+    }
+
+    return head;
+}
+
+/**
+ * Helper function to create linked list from array
+ */
+function createLinkedList(arr) {
+    if (!arr || arr.length === 0) return null;
+    const head = new ListNode(arr[0]);
+    let current = head;
+    for (let i = 1; i < arr.length; i++) {
+        current.next = new ListNode(arr[i]);
+        current = current.next;
+    }
+    return head;
+}
+
+/**
+ * Helper function to convert linked list to array
+ */
+function linkedListToArray(head) {
+    const result = [];
+    let current = head;
+    while (current) {
+        result.push(current.val);
+        current = current.next;
+    }
+    return result;
 }
 
 /**
@@ -64,20 +236,54 @@ function solve(...args) {
 function testSolution() {
     console.log('Testing 025. Reverse Nodes In K Group');
 
-    // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    // Test case 1: Basic example - [1,2,3,4,5], k=2 -> [2,1,4,3,5]
+    const head1 = createLinkedList([1, 2, 3, 4, 5]);
+    const result1 = solve(head1, 2);
+    const expected1 = [2, 1, 4, 3, 5];
+    console.assert(JSON.stringify(linkedListToArray(result1)) === JSON.stringify(expected1),
+        `Test 1 failed: expected ${expected1}, got ${linkedListToArray(result1)}`);
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 2: Perfect groups - [1,2,3,4,5,6], k=3 -> [3,2,1,6,5,4]
+    const head2 = createLinkedList([1, 2, 3, 4, 5, 6]);
+    const result2 = solve(head2, 3);
+    const expected2 = [3, 2, 1, 6, 5, 4];
+    console.assert(JSON.stringify(linkedListToArray(result2)) === JSON.stringify(expected2),
+        `Test 2 failed: expected ${expected2}, got ${linkedListToArray(result2)}`);
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 3: k = 1 (no change) - [1,2,3,4,5], k=1 -> [1,2,3,4,5]
+    const head3 = createLinkedList([1, 2, 3, 4, 5]);
+    const result3 = solve(head3, 1);
+    const expected3 = [1, 2, 3, 4, 5];
+    console.assert(JSON.stringify(linkedListToArray(result3)) === JSON.stringify(expected3),
+        `Test 3 failed: expected ${expected3}, got ${linkedListToArray(result3)}`);
+
+    // Test case 4: k equals list length - [1,2,3], k=3 -> [3,2,1]
+    const head4 = createLinkedList([1, 2, 3]);
+    const result4 = solve(head4, 3);
+    const expected4 = [3, 2, 1];
+    console.assert(JSON.stringify(linkedListToArray(result4)) === JSON.stringify(expected4),
+        `Test 4 failed: expected ${expected4}, got ${linkedListToArray(result4)}`);
+
+    // Test case 5: k > list length - [1,2], k=3 -> [1,2]
+    const head5 = createLinkedList([1, 2]);
+    const result5 = solve(head5, 3);
+    const expected5 = [1, 2];
+    console.assert(JSON.stringify(linkedListToArray(result5)) === JSON.stringify(expected5),
+        `Test 5 failed: expected ${expected5}, got ${linkedListToArray(result5)}`);
+
+    // Test case 6: Empty list - [], k=2 -> []
+    const head6 = createLinkedList([]);
+    const result6 = solve(head6, 2);
+    const expected6 = [];
+    console.assert(JSON.stringify(linkedListToArray(result6)) === JSON.stringify(expected6),
+        `Test 6 failed: expected ${expected6}, got ${linkedListToArray(result6)}`);
+
+    // Test case 7: Single node - [1], k=1 -> [1]
+    const head7 = createLinkedList([1]);
+    const result7 = solve(head7, 1);
+    const expected7 = [1];
+    console.assert(JSON.stringify(linkedListToArray(result7)) === JSON.stringify(expected7),
+        `Test 7 failed: expected ${expected7}, got ${linkedListToArray(result7)}`);
 
     console.log('All test cases passed for 025. Reverse Nodes In K Group!');
 }
@@ -103,6 +309,12 @@ if (require.main === module) {
 // Export for use in other modules
 module.exports = {
     solve,
+    solveAlternative,
+    solveRecursive,
+    reverseKNodes,
+    ListNode,
+    createLinkedList,
+    linkedListToArray,
     testSolution,
     demonstrateSolution
 };

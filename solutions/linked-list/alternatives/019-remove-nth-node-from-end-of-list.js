@@ -7,55 +7,164 @@
  * SOLUTION EXPLANATION:
  *
  * INTUITION:
- * [This problem requires understanding of linked list concepts. The key insight is to identify the optimal approach for this specific scenario.]
+ * Use two pointers separated by n nodes. When the fast pointer reaches the end,
+ * the slow pointer will be at the node to remove. Use a dummy head to handle
+ * edge cases like removing the first node.
  *
  * APPROACH:
- * 1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply linked list methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+ * 1. Create dummy head pointing to the original head
+ * 2. Set fast pointer n+1 steps ahead of slow pointer
+ * 3. Move both pointers until fast reaches end
+ * 4. Skip the target node by updating slow.next
+ * 5. Return dummy.next
  *
  * WHY THIS WORKS:
- * - The solution leverages linked list principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+ * - Two-pointer technique maintains n-node gap
+ * - Dummy head simplifies edge case handling
+ * - Single pass solution with O(1) extra space
  *
  * TIME COMPLEXITY: O(n)
  * SPACE COMPLEXITY: O(1)
  *
  * EXAMPLE WALKTHROUGH:
  * ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
+Input: head = [1,2,3,4,5], n = 2
+Step 1: Create dummy(0) -> 1 -> 2 -> 3 -> 4 -> 5
+Step 2: fast = dummy, slow = dummy, move fast n+1=3 steps
+Step 3: fast at node 3, slow at dummy
+Step 4: Move both until fast reaches end
+Step 5: slow at node 3, remove node 4 by slow.next = slow.next.next
+Output: [1,2,3,5]
 ```
  *
  * EDGE CASES:
- * - Empty input handling
-- Single element cases
-- Large input considerations
+ * - Remove first node (n equals list length)
+ * - Single node list (remove the only node)
+ * - Remove last node (n = 1)
+ * - List with two nodes
  */
+
+/**
+ * Definition for singly-linked list.
+ */
+class ListNode {
+    constructor(val, next) {
+        this.val = (val === undefined ? 0 : val);
+        this.next = (next === undefined ? null : next);
+    }
+}
 
 /**
  * Main solution for Problem 019: Remove Nth Node From End Of List
  *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
+ * @param {ListNode} head - Head of the linked list
+ * @param {number} n - Position from end to remove (1-indexed)
+ * @return {ListNode} - Head of modified list
  *
- * Time Complexity: O(n)
- * Space Complexity: O(1)
+ * Time Complexity: O(L) where L is length of list
+ * Space Complexity: O(1) constant extra space
  */
-function solve(...args) {
-    // TODO: Implement the solution using linked list techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using linked list methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+function solve(head, n) {
+    // Create dummy node to simplify edge cases
+    const dummy = new ListNode(0);
+    dummy.next = head;
 
-    return null; // Replace with actual implementation
+    let fast = dummy;
+    let slow = dummy;
+
+    // Move fast pointer n+1 steps ahead
+    for (let i = 0; i <= n; i++) {
+        fast = fast.next;
+    }
+
+    // Move both pointers until fast reaches end
+    while (fast !== null) {
+        fast = fast.next;
+        slow = slow.next;
+    }
+
+    // Remove the nth node from end
+    slow.next = slow.next.next;
+
+    return dummy.next;
+}
+
+/**
+ * Alternative solution using two-pass approach
+ */
+function solveTwoPass(head, n) {
+    // First pass: count total nodes
+    let length = 0;
+    let current = head;
+    while (current) {
+        length++;
+        current = current.next;
+    }
+
+    // Edge case: remove first node
+    if (length === n) {
+        return head.next;
+    }
+
+    // Second pass: find node before target
+    current = head;
+    for (let i = 0; i < length - n - 1; i++) {
+        current = current.next;
+    }
+
+    // Remove target node
+    current.next = current.next.next;
+
+    return head;
+}
+
+/**
+ * Recursive solution
+ */
+function solveRecursive(head, n) {
+    function removeNthFromEnd(node) {
+        if (!node) return 0;
+
+        const position = removeNthFromEnd(node.next) + 1;
+
+        if (position === n + 1) {
+            node.next = node.next.next;
+        }
+
+        return position;
+    }
+
+    const dummy = new ListNode(0);
+    dummy.next = head;
+    removeNthFromEnd(dummy);
+    return dummy.next;
+}
+
+/**
+ * Helper function to create linked list from array
+ */
+function createLinkedList(arr) {
+    if (!arr.length) return null;
+    const head = new ListNode(arr[0]);
+    let current = head;
+    for (let i = 1; i < arr.length; i++) {
+        current.next = new ListNode(arr[i]);
+        current = current.next;
+    }
+    return head;
+}
+
+/**
+ * Helper function to convert linked list to array
+ */
+function linkedListToArray(head) {
+    const result = [];
+    let current = head;
+    while (current) {
+        result.push(current.val);
+        current = current.next;
+    }
+    return result;
 }
 
 /**
@@ -64,20 +173,47 @@ function solve(...args) {
 function testSolution() {
     console.log('Testing 019. Remove Nth Node From End Of List');
 
-    // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    // Test case 1: Remove 2nd from end - [1,2,3,4,5], n=2 -> [1,2,3,5]
+    const head1 = createLinkedList([1, 2, 3, 4, 5]);
+    const result1 = solve(head1, 2);
+    const expected1 = [1, 2, 3, 5];
+    console.assert(JSON.stringify(linkedListToArray(result1)) === JSON.stringify(expected1),
+        `Test 1 failed: expected ${expected1}, got ${linkedListToArray(result1)}`);
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 2: Remove only node - [1], n=1 -> []
+    const head2 = createLinkedList([1]);
+    const result2 = solve(head2, 1);
+    const expected2 = [];
+    console.assert(JSON.stringify(linkedListToArray(result2)) === JSON.stringify(expected2),
+        `Test 2 failed: expected ${expected2}, got ${linkedListToArray(result2)}`);
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 3: Remove first node - [1,2], n=2 -> [2]
+    const head3 = createLinkedList([1, 2]);
+    const result3 = solve(head3, 2);
+    const expected3 = [2];
+    console.assert(JSON.stringify(linkedListToArray(result3)) === JSON.stringify(expected3),
+        `Test 3 failed: expected ${expected3}, got ${linkedListToArray(result3)}`);
+
+    // Test case 4: Remove last node - [1,2,3], n=1 -> [1,2]
+    const head4 = createLinkedList([1, 2, 3]);
+    const result4 = solve(head4, 1);
+    const expected4 = [1, 2];
+    console.assert(JSON.stringify(linkedListToArray(result4)) === JSON.stringify(expected4),
+        `Test 4 failed: expected ${expected4}, got ${linkedListToArray(result4)}`);
+
+    // Test case 5: Two nodes, remove first - [1,2], n=2 -> [2]
+    const head5 = createLinkedList([1, 2]);
+    const result5 = solve(head5, 2);
+    const expected5 = [2];
+    console.assert(JSON.stringify(linkedListToArray(result5)) === JSON.stringify(expected5),
+        `Test 5 failed: expected ${expected5}, got ${linkedListToArray(result5)}`);
+
+    // Test case 6: Longer list, remove middle - [1,2,3,4,5,6], n=3 -> [1,2,3,5,6]
+    const head6 = createLinkedList([1, 2, 3, 4, 5, 6]);
+    const result6 = solve(head6, 3);
+    const expected6 = [1, 2, 3, 5, 6];
+    console.assert(JSON.stringify(linkedListToArray(result6)) === JSON.stringify(expected6),
+        `Test 6 failed: expected ${expected6}, got ${linkedListToArray(result6)}`);
 
     console.log('All test cases passed for 019. Remove Nth Node From End Of List!');
 }
@@ -103,6 +239,11 @@ if (require.main === module) {
 // Export for use in other modules
 module.exports = {
     solve,
+    solveTwoPass,
+    solveRecursive,
+    ListNode,
+    createLinkedList,
+    linkedListToArray,
     testSolution,
     demonstrateSolution
 };

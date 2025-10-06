@@ -7,55 +7,162 @@
  * SOLUTION EXPLANATION:
  *
  * INTUITION:
- * [This problem requires understanding of linked list concepts. The key insight is to identify the optimal approach for this specific scenario.]
+ * Since both lists are already sorted, we can merge them by comparing the smallest
+ * unprocessed elements from each list. Use a dummy head to simplify pointer management
+ * and avoid edge case handling.
  *
  * APPROACH:
- * 1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply linked list methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+ * 1. Create dummy head node to simplify result construction
+ * 2. Use current pointer to track the end of merged list
+ * 3. Compare heads of both lists, append smaller one
+ * 4. Advance pointer in the list we took from
+ * 5. When one list is exhausted, append remaining nodes
  *
  * WHY THIS WORKS:
- * - The solution leverages linked list principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+ * - Sorted property ensures optimal choice at each step
+ * - Dummy head eliminates special cases for empty result
+ * - Single pass through both lists guarantees efficiency
  *
- * TIME COMPLEXITY: O(n)
- * SPACE COMPLEXITY: O(1)
+ * TIME COMPLEXITY: O(m + n) where m, n are lengths of input lists
+ * SPACE COMPLEXITY: O(1) using only constant extra space
  *
  * EXAMPLE WALKTHROUGH:
  * ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
+Input: list1 = [1,2,4], list2 = [1,3,4]
+Step 1: dummy -> current, list1=1, list2=1 (equal, take list1)
+Step 2: dummy -> 1 -> current, list1=2, list2=1 (take list2)
+Step 3: dummy -> 1 -> 1 -> current, list1=2, list2=3 (take list1)
+Step 4: dummy -> 1 -> 1 -> 2 -> current, list1=4, list2=3 (take list2)
+Step 5: dummy -> 1 -> 1 -> 2 -> 3 -> current, list1=4, list2=4 (take list1)
+Step 6: dummy -> 1 -> 1 -> 2 -> 3 -> 4 -> current, list1=null, list2=4
+Step 7: Append remaining list2: dummy -> 1 -> 1 -> 2 -> 3 -> 4 -> 4
+Output: [1,1,2,3,4,4]
 ```
  *
  * EDGE CASES:
- * - Empty input handling
-- Single element cases
-- Large input considerations
+ * - One or both lists are empty (return the non-empty list)
+ * - Lists of different lengths (append remaining nodes)
+ * - All elements in one list smaller than the other
+ * - Duplicate elements across lists
  */
+
+/**
+ * Definition for singly-linked list.
+ */
+class ListNode {
+    constructor(val, next) {
+        this.val = (val === undefined ? 0 : val);
+        this.next = (next === undefined ? null : next);
+    }
+}
 
 /**
  * Main solution for Problem 021: Merge Two Sorted Lists
  *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
+ * @param {ListNode} list1 - First sorted linked list
+ * @param {ListNode} list2 - Second sorted linked list
+ * @return {ListNode} - Merged sorted linked list
  *
- * Time Complexity: O(n)
- * Space Complexity: O(1)
+ * Time Complexity: O(m + n) where m, n are lengths of input lists
+ * Space Complexity: O(1) using only constant extra space
  */
-function solve(...args) {
-    // TODO: Implement the solution using linked list techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using linked list methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+function solve(list1, list2) {
+    // Create dummy head to simplify edge cases
+    const dummy = new ListNode(0);
+    let current = dummy;
 
-    return null; // Replace with actual implementation
+    // Merge while both lists have nodes
+    while (list1 !== null && list2 !== null) {
+        if (list1.val <= list2.val) {
+            current.next = list1;
+            list1 = list1.next;
+        } else {
+            current.next = list2;
+            list2 = list2.next;
+        }
+        current = current.next;
+    }
+
+    // Append remaining nodes from non-empty list
+    current.next = list1 !== null ? list1 : list2;
+
+    return dummy.next;
+}
+
+/**
+ * Recursive solution for merging two sorted lists
+ */
+function solveRecursive(list1, list2) {
+    // Base cases
+    if (list1 === null) return list2;
+    if (list2 === null) return list1;
+
+    // Choose the smaller head and recursively merge the rest
+    if (list1.val <= list2.val) {
+        list1.next = solveRecursive(list1.next, list2);
+        return list1;
+    } else {
+        list2.next = solveRecursive(list1, list2.next);
+        return list2;
+    }
+}
+
+/**
+ * In-place merge without creating new nodes
+ */
+function solveInPlace(list1, list2) {
+    if (!list1) return list2;
+    if (!list2) return list1;
+
+    // Ensure list1 starts with the smaller value
+    if (list1.val > list2.val) {
+        [list1, list2] = [list2, list1];
+    }
+
+    const result = list1;
+    let prev = null;
+
+    while (list1 && list2) {
+        if (list1.val <= list2.val) {
+            prev = list1;
+            list1 = list1.next;
+        } else {
+            prev.next = list2;
+            const temp = list2.next;
+            list2.next = list1;
+            prev = list2;
+            list2 = temp;
+        }
+    }
+
+    return result;
+}
+
+/**
+ * Helper function to create linked list from array
+ */
+function createLinkedList(arr) {
+    if (!arr.length) return null;
+    const head = new ListNode(arr[0]);
+    let current = head;
+    for (let i = 1; i < arr.length; i++) {
+        current.next = new ListNode(arr[i]);
+        current = current.next;
+    }
+    return head;
+}
+
+/**
+ * Helper function to convert linked list to array
+ */
+function linkedListToArray(head) {
+    const result = [];
+    let current = head;
+    while (current) {
+        result.push(current.val);
+        current = current.next;
+    }
+    return result;
 }
 
 /**
@@ -64,20 +171,53 @@ function solve(...args) {
 function testSolution() {
     console.log('Testing 021. Merge Two Sorted Lists');
 
-    // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    // Test case 1: Basic merge - [1,2,4] + [1,3,4] = [1,1,2,3,4,4]
+    const list1_1 = createLinkedList([1, 2, 4]);
+    const list2_1 = createLinkedList([1, 3, 4]);
+    const result1 = solve(list1_1, list2_1);
+    const expected1 = [1, 1, 2, 3, 4, 4];
+    console.assert(JSON.stringify(linkedListToArray(result1)) === JSON.stringify(expected1),
+        `Test 1 failed: expected ${expected1}, got ${linkedListToArray(result1)}`);
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 2: Empty lists - [] + [] = []
+    const list1_2 = createLinkedList([]);
+    const list2_2 = createLinkedList([]);
+    const result2 = solve(list1_2, list2_2);
+    const expected2 = [];
+    console.assert(JSON.stringify(linkedListToArray(result2)) === JSON.stringify(expected2),
+        `Test 2 failed: expected ${expected2}, got ${linkedListToArray(result2)}`);
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 3: One empty list - [] + [0] = [0]
+    const list1_3 = createLinkedList([]);
+    const list2_3 = createLinkedList([0]);
+    const result3 = solve(list1_3, list2_3);
+    const expected3 = [0];
+    console.assert(JSON.stringify(linkedListToArray(result3)) === JSON.stringify(expected3),
+        `Test 3 failed: expected ${expected3}, got ${linkedListToArray(result3)}`);
+
+    // Test case 4: Different lengths - [1,2,3] + [4,5,6,7,8] = [1,2,3,4,5,6,7,8]
+    const list1_4 = createLinkedList([1, 2, 3]);
+    const list2_4 = createLinkedList([4, 5, 6, 7, 8]);
+    const result4 = solve(list1_4, list2_4);
+    const expected4 = [1, 2, 3, 4, 5, 6, 7, 8];
+    console.assert(JSON.stringify(linkedListToArray(result4)) === JSON.stringify(expected4),
+        `Test 4 failed: expected ${expected4}, got ${linkedListToArray(result4)}`);
+
+    // Test case 5: All duplicates - [1,1,1] + [1,1,1] = [1,1,1,1,1,1]
+    const list1_5 = createLinkedList([1, 1, 1]);
+    const list2_5 = createLinkedList([1, 1, 1]);
+    const result5 = solve(list1_5, list2_5);
+    const expected5 = [1, 1, 1, 1, 1, 1];
+    console.assert(JSON.stringify(linkedListToArray(result5)) === JSON.stringify(expected5),
+        `Test 5 failed: expected ${expected5}, got ${linkedListToArray(result5)}`);
+
+    // Test case 6: Interleaved values - [1,3,5] + [2,4,6] = [1,2,3,4,5,6]
+    const list1_6 = createLinkedList([1, 3, 5]);
+    const list2_6 = createLinkedList([2, 4, 6]);
+    const result6 = solve(list1_6, list2_6);
+    const expected6 = [1, 2, 3, 4, 5, 6];
+    console.assert(JSON.stringify(linkedListToArray(result6)) === JSON.stringify(expected6),
+        `Test 6 failed: expected ${expected6}, got ${linkedListToArray(result6)}`);
 
     console.log('All test cases passed for 021. Merge Two Sorted Lists!');
 }
@@ -103,6 +243,11 @@ if (require.main === module) {
 // Export for use in other modules
 module.exports = {
     solve,
+    solveRecursive,
+    solveInPlace,
+    ListNode,
+    createLinkedList,
+    linkedListToArray,
     testSolution,
     demonstrateSolution
 };
