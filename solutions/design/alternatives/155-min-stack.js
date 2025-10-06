@@ -1,61 +1,170 @@
 /**
  * 155. Min Stack
- * Medium
+ * Easy
  *
  * This problem demonstrates key concepts in Design.
  *
  * SOLUTION EXPLANATION:
  *
  * INTUITION:
- * [This problem requires understanding of design concepts. The key insight is to identify the optimal approach for this specific scenario.]
+ * Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.
+ * The key challenge is maintaining the minimum element in O(1) time. We can use
+ * two stacks: one for all elements and another to track minimums at each level.
  *
  * APPROACH:
- * 1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply design methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+ * 1. **Two Stack Method**: Use mainStack for elements, minStack for minimums
+ * 2. **Push Operation**: Always push to mainStack, conditionally to minStack
+ * 3. **Pop Operation**: Pop from mainStack, conditionally from minStack
+ * 4. **Min Tracking**: minStack top always contains current minimum
  *
  * WHY THIS WORKS:
- * - The solution leverages design principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+ * - Main stack handles normal stack operations
+ * - Min stack maintains minimum for each level of main stack
+ * - When we pop, we check if we're removing the current minimum
+ * - This ensures O(1) access to minimum at all times
  *
- * TIME COMPLEXITY: O(n)
- * SPACE COMPLEXITY: O(1)
+ * TIME COMPLEXITY: O(1) for all operations
+ * SPACE COMPLEXITY: O(n) - in worst case, minStack can have same size as mainStack
  *
  * EXAMPLE WALKTHROUGH:
  * ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
-```
+ * Operations: push(-2), push(0), push(-3)
+ * mainStack: [-2, 0, -3]
+ * minStack:  [-2, -3]
+ *
+ * getMin() returns -3 (top of minStack)
+ * pop() removes -3 from both stacks
+ * getMin() returns -2 (new top of minStack)
+ * ```
  *
  * EDGE CASES:
- * - Empty input handling
-- Single element cases
-- Large input considerations
+ * - Empty stack operations
+ * - Single element stack
+ * - Duplicate minimum values
+ * - All elements are the same
  */
 
 /**
- * Main solution for Problem 155: Min Stack
- *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
- *
- * Time Complexity: O(n)
- * Space Complexity: O(1)
+ * MinStack class implementation
  */
-function solve(...args) {
-    // TODO: Implement the solution using design techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using design methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+class MinStack {
+    /**
+     * Initialize the MinStack data structure.
+     *
+     * We use two stacks:
+     * - mainStack: stores all elements
+     * - minStack: stores minimum elements at each level
+     */
+    constructor() {
+        this.mainStack = [];
+        this.minStack = [];
+    }
 
-    return null; // Replace with actual implementation
+    /**
+     * Push element val onto stack.
+     *
+     * @param {number} val - The value to push
+     *
+     * Time Complexity: O(1)
+     * Space Complexity: O(1)
+     */
+    push(val) {
+        this.mainStack.push(val);
+
+        // Push to minStack if it's empty or val is <= current minimum
+        if (this.minStack.length === 0 || val <= this.minStack[this.minStack.length - 1]) {
+            this.minStack.push(val);
+        }
+    }
+
+    /**
+     * Remove the element on the top of the stack.
+     *
+     * Time Complexity: O(1)
+     * Space Complexity: O(1)
+     */
+    pop() {
+        if (this.mainStack.length === 0) {
+            return;
+        }
+
+        const poppedValue = this.mainStack.pop();
+
+        // If we're removing the current minimum, also pop from minStack
+        if (poppedValue === this.minStack[this.minStack.length - 1]) {
+            this.minStack.pop();
+        }
+    }
+
+    /**
+     * Get the top element of the stack.
+     *
+     * @return {number} - The top element
+     *
+     * Time Complexity: O(1)
+     * Space Complexity: O(1)
+     */
+    top() {
+        if (this.mainStack.length === 0) {
+            return undefined;
+        }
+        return this.mainStack[this.mainStack.length - 1];
+    }
+
+    /**
+     * Retrieve the minimum element in the stack.
+     *
+     * @return {number} - The minimum element
+     *
+     * Time Complexity: O(1)
+     * Space Complexity: O(1)
+     */
+    getMin() {
+        if (this.minStack.length === 0) {
+            return undefined;
+        }
+        return this.minStack[this.minStack.length - 1];
+    }
+}
+
+/**
+ * Alternative implementation using single stack with (value, currentMin) pairs
+ */
+class MinStackAlternative {
+    constructor() {
+        this.stack = []; // Each element is [value, currentMin]
+    }
+
+    push(val) {
+        const currentMin = this.stack.length === 0
+            ? val
+            : Math.min(val, this.stack[this.stack.length - 1][1]);
+        this.stack.push([val, currentMin]);
+    }
+
+    pop() {
+        if (this.stack.length > 0) {
+            this.stack.pop();
+        }
+    }
+
+    top() {
+        if (this.stack.length === 0) return undefined;
+        return this.stack[this.stack.length - 1][0];
+    }
+
+    getMin() {
+        if (this.stack.length === 0) return undefined;
+        return this.stack[this.stack.length - 1][1];
+    }
+}
+
+/**
+ * Factory function for creating MinStack instances
+ * @return {MinStack}
+ */
+function solve() {
+    return new MinStack();
 }
 
 /**
@@ -65,19 +174,39 @@ function testSolution() {
     console.log('Testing 155. Min Stack');
 
     // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    const minStack1 = new MinStack();
+    minStack1.push(-2);
+    minStack1.push(0);
+    minStack1.push(-3);
+    console.assert(minStack1.getMin() === -3, 'Test 1a failed');
+    minStack1.pop();
+    console.assert(minStack1.top() === 0, 'Test 1b failed');
+    console.assert(minStack1.getMin() === -2, 'Test 1c failed');
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 2: Single element
+    const minStack2 = new MinStack();
+    minStack2.push(5);
+    console.assert(minStack2.top() === 5, 'Test 2a failed');
+    console.assert(minStack2.getMin() === 5, 'Test 2b failed');
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 3: Duplicate minimums
+    const minStack3 = new MinStack();
+    minStack3.push(0);
+    minStack3.push(1);
+    minStack3.push(0);
+    console.assert(minStack3.getMin() === 0, 'Test 3a failed');
+    minStack3.pop();
+    console.assert(minStack3.getMin() === 0, 'Test 3b failed');
+
+    // Test case 4: Alternative implementation
+    const minStack4 = new MinStackAlternative();
+    minStack4.push(-2);
+    minStack4.push(0);
+    minStack4.push(-3);
+    console.assert(minStack4.getMin() === -3, 'Test 4a failed');
+    minStack4.pop();
+    console.assert(minStack4.top() === 0, 'Test 4b failed');
+    console.assert(minStack4.getMin() === -2, 'Test 4c failed');
 
     console.log('All test cases passed for 155. Min Stack!');
 }
@@ -88,10 +217,9 @@ function testSolution() {
 function demonstrateSolution() {
     console.log('\n=== Problem 155. Min Stack ===');
     console.log('Category: Design');
-    console.log('Difficulty: Medium');
+    console.log('Difficulty: Easy');
     console.log('');
 
-    // Example demonstration would go here
     testSolution();
 }
 
@@ -102,6 +230,8 @@ if (require.main === module) {
 
 // Export for use in other modules
 module.exports = {
+    MinStack,
+    MinStackAlternative,
     solve,
     testSolution,
     demonstrateSolution
@@ -109,8 +239,8 @@ module.exports = {
 
 /**
  * Additional Notes:
- * - This solution focuses on design concepts
- * - Consider the trade-offs between time and space complexity
- * - Edge cases are crucial for robust solutions
- * - The approach can be adapted for similar problems in this category
+ * - This solution uses classic two-stack approach for O(1) operations
+ * - Alternative single-stack approach trades space for simplicity
+ * - Critical for system design interviews and real-world applications
+ * - The approach can be adapted for other stack optimization problems
  */
