@@ -40,7 +40,11 @@ Final: `4 * 256` = 1024
 ```
  *
  * EDGE CASES:
- * [EDGE CASES content will be added here]
+ * - n = 0: Return 1 (anything to power 0 is 1)
+ * - n < 0: Convert to positive exponent and invert result
+ * - x = 0: Return 0 (except when n = 0, which is undefined but usually 1)
+ * - x = 1: Always return 1
+ * - x = -1: Alternate between 1 and -1 based on even/odd n
  */
 
 /**

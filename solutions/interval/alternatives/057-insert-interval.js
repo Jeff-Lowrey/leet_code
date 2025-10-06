@@ -38,7 +38,10 @@ Result: [[1,5],[6,9]]
 ```
  *
  * EDGE CASES:
- * [EDGE CASES content will be added here]
+ * - Empty intervals array: Just return [newInterval]
+ * - newInterval doesn't overlap with any: Insert in correct position
+ * - newInterval overlaps with all: Merge into one large interval
+ * - newInterval is completely contained: Return original intervals
  */
 
 /**

@@ -44,7 +44,11 @@ All comparisons match → return True
 ```
  *
  * EDGE CASES:
- * [EDGE CASES content will be added here]
+ * - Empty string: Valid palindrome (vacuously true)
+ * - Single character: Always valid palindrome
+ * - Only non-alphanumeric: Valid palindrome after cleaning
+ * - Mixed case: Handle case-insensitive comparison
+ * - All same characters: Always valid palindrome
  */
 
 /**
