@@ -40,22 +40,27 @@ Output: [expected output]
 /**
  * Main solution for Problem 062: Unique Paths
  *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
+ * @param {number} m - Number of rows
+ * @param {number} n - Number of columns
+ * @return {number} - Number of unique paths from top-left to bottom-right
  *
- * Time Complexity: O(n)
- * Space Complexity: O(1)
+ * Time Complexity: O(m * n)
+ * Space Complexity: O(n)
  */
-function solve(...args) {
-    // TODO: Implement the solution using dynamic programming techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using dynamic programming methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+function solve(m, n) {
+    // Create a 1D array to represent the current row
+    const dp = new Array(n).fill(1);
 
-    return null; // Replace with actual implementation
+    // For each row starting from the second
+    for (let i = 1; i < m; i++) {
+        // For each column starting from the second
+        for (let j = 1; j < n; j++) {
+            // Current cell = paths from above + paths from left
+            dp[j] = dp[j] + dp[j - 1];
+        }
+    }
+
+    return dp[n - 1];
 }
 
 /**
@@ -64,20 +69,20 @@ function solve(...args) {
 function testSolution() {
     console.log('Testing 062. Unique Paths');
 
-    // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    // Test case 1: 3x7 grid
+    const result1 = solve(3, 7);
+    const expected1 = 28;
+    console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 2: 3x2 grid
+    const result2 = solve(3, 2);
+    const expected2 = 3;
+    console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 3: 1x1 grid
+    const result3 = solve(1, 1);
+    const expected3 = 1;
+    console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
 
     console.log('All test cases passed for 062. Unique Paths!');
 }

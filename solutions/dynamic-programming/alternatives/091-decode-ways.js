@@ -7,7 +7,9 @@
  * SOLUTION EXPLANATION:
  *
  * INTUITION:
- * [This problem requires understanding of dynamic programming concepts. The key insight is to identify the optimal approach for this specific scenario.]
+ * We need to count the number of ways to decode a string of digits. Each digit or pair
+ * of digits can map to letters (1-26). This is a classic DP problem where the number
+ * of ways to decode up to position i depends on positions i-1 and i-2.
  *
  * APPROACH:
  * 1. **Analyze the problem**: Understand the input constraints and expected output
@@ -25,10 +27,12 @@
  *
  * EXAMPLE WALKTHROUGH:
  * ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
+Input: "226"
+dp[0] = 1 (empty string has 1 way)
+dp[1] = 1 ("2" -> B)
+dp[2] = 2 ("22" -> BB or V)
+dp[3] = 3 ("226" -> BBF, VF, or BZ)
+Output: 3
 ```
  *
  * EDGE CASES:
@@ -40,22 +44,40 @@ Output: [expected output]
 /**
  * Main solution for Problem 091: Decode Ways
  *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
+ * @param {string} s - String of digits to decode
+ * @return {number} - Number of ways to decode the string
  *
  * Time Complexity: O(n)
  * Space Complexity: O(1)
  */
-function solve(...args) {
-    // TODO: Implement the solution using dynamic programming techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using dynamic programming methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+function solve(s) {
+    if (!s || s.length === 0 || s[0] === '0') return 0;
 
-    return null; // Replace with actual implementation
+    const n = s.length;
+    // Use two variables instead of array for O(1) space
+    let prev2 = 1; // dp[i-2]
+    let prev1 = 1; // dp[i-1]
+
+    for (let i = 1; i < n; i++) {
+        let current = 0;
+
+        // Single digit decode (if current digit is not '0')
+        if (s[i] !== '0') {
+            current += prev1;
+        }
+
+        // Two digit decode (if forms valid number 10-26)
+        const twoDigit = parseInt(s.substring(i - 1, i + 1));
+        if (twoDigit >= 10 && twoDigit <= 26) {
+            current += prev2;
+        }
+
+        // Update for next iteration
+        prev2 = prev1;
+        prev1 = current;
+    }
+
+    return prev1;
 }
 
 /**
@@ -65,19 +87,34 @@ function testSolution() {
     console.log('Testing 091. Decode Ways');
 
     // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    const result1 = solve("12");
+    const expected1 = 2; // "AB" or "L"
+    console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 2: More complex case
+    const result2 = solve("226");
+    const expected2 = 3; // "BBF", "BZ", "VF"
+    console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 3: Edge case - starts with 0
+    const result3 = solve("06");
+    const expected3 = 0;
+    console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+
+    // Test case 4: Single digit
+    const result4 = solve("1");
+    const expected4 = 1;
+    console.assert(result4 === expected4, `Test 4 failed: expected ${expected4}, got ${result4}`);
+
+    // Test case 5: Contains 0
+    const result5 = solve("10");
+    const expected5 = 1; // Only "J"
+    console.assert(result5 === expected5, `Test 5 failed: expected ${expected5}, got ${result5}`);
+
+    // Test case 6: Invalid 0
+    const result6 = solve("101");
+    const expected6 = 1; // "JA"
+    console.assert(result6 === expected6, `Test 6 failed: expected ${expected6}, got ${result6}`);
 
     console.log('All test cases passed for 091. Decode Ways!');
 }

@@ -40,22 +40,29 @@ Output: [expected output]
 /**
  * Main solution for Problem 139: Word Break
  *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
+ * @param {string} s - The input string
+ * @param {string[]} wordDict - Dictionary of valid words
+ * @return {boolean} - True if string can be segmented using dictionary words
  *
- * Time Complexity: O(n)
- * Space Complexity: O(1)
+ * Time Complexity: O(n^2 * m) where n is string length, m is max word length
+ * Space Complexity: O(n)
  */
-function solve(...args) {
-    // TODO: Implement the solution using dynamic programming techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using dynamic programming methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+function solve(s, wordDict) {
+    const wordSet = new Set(wordDict);
+    const dp = new Array(s.length + 1).fill(false);
+    dp[0] = true;  // Empty string can always be segmented
 
-    return null; // Replace with actual implementation
+    for (let i = 1; i <= s.length; i++) {
+        for (let j = 0; j < i; j++) {
+            // If dp[j] is true and substring from j to i is in dictionary
+            if (dp[j] && wordSet.has(s.substring(j, i))) {
+                dp[i] = true;
+                break;
+            }
+        }
+    }
+
+    return dp[s.length];
 }
 
 /**
@@ -64,20 +71,20 @@ function solve(...args) {
 function testSolution() {
     console.log('Testing 139. Word Break');
 
-    // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    // Test case 1: Can be segmented
+    const result1 = solve('leetcode', ['leet', 'code']);
+    const expected1 = true;
+    console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 2: Can be segmented with reuse
+    const result2 = solve('applepenapple', ['apple', 'pen']);
+    const expected2 = true;
+    console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 3: Cannot be segmented
+    const result3 = solve('catsandog', ['cats', 'dog', 'sand', 'and', 'cat']);
+    const expected3 = false;
+    console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
 
     console.log('All test cases passed for 139. Word Break!');
 }

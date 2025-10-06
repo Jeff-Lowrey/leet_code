@@ -32,22 +32,27 @@ So: ways(n) = ways(`n-1`) + ways(`n-2`)
 /**
  * Main solution for Problem 070: Climbing Stairs
  *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
+ * @param {number} n - Number of steps to reach the top
+ * @return {number} - Number of distinct ways to climb to the top
  *
- * Time Complexity: [TIME COMPLEXITY content will be added here]
- * Space Complexity: [SPACE COMPLEXITY content will be added here]
+ * Time Complexity: O(n)
+ * Space Complexity: O(1)
  */
-function solve(...args) {
-    // TODO: Implement the solution using dynamic programming techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using dynamic programming methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+function solve(n) {
+    if (n <= 2) {
+        return n;
+    }
 
-    return null; // Replace with actual implementation
+    let prev2 = 1;  // ways to reach step i-2
+    let prev1 = 2;  // ways to reach step i-1
+
+    for (let i = 3; i <= n; i++) {
+        const current = prev1 + prev2;
+        prev2 = prev1;
+        prev1 = current;
+    }
+
+    return prev1;
 }
 
 /**
@@ -56,20 +61,20 @@ function solve(...args) {
 function testSolution() {
     console.log('Testing 070. Climbing Stairs');
 
-    // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    // Test case 1: n = 2
+    const result1 = solve(2);
+    const expected1 = 2;
+    console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 2: n = 3
+    const result2 = solve(3);
+    const expected2 = 3;
+    console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 3: n = 5
+    const result3 = solve(5);
+    const expected3 = 8;
+    console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
 
     console.log('All test cases passed for 070. Climbing Stairs!');
 }

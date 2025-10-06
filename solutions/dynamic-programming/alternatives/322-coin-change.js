@@ -41,22 +41,29 @@ dp[11] = 3 (use coin `5 + coin` `5 + coin` 1)
 /**
  * Main solution for Problem 322: Coin Change
  *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
+ * @param {number[]} coins - Coin denominations
+ * @param {number} amount - Target amount
+ * @return {number} - Minimum number of coins needed, or -1 if impossible
  *
- * Time Complexity: [TIME COMPLEXITY content will be added here]
- * Space Complexity: [SPACE COMPLEXITY content will be added here]
+ * Time Complexity: O(amount * coins.length)
+ * Space Complexity: O(amount)
  */
-function solve(...args) {
-    // TODO: Implement the solution using dynamic programming techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using dynamic programming methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+function solve(coins, amount) {
+    if (amount === 0) return 0;
 
-    return null; // Replace with actual implementation
+    // dp[i] represents minimum coins needed for amount i
+    const dp = new Array(amount + 1).fill(Infinity);
+    dp[0] = 0;
+
+    for (let i = 1; i <= amount; i++) {
+        for (const coin of coins) {
+            if (coin <= i) {
+                dp[i] = Math.min(dp[i], dp[i - coin] + 1);
+            }
+        }
+    }
+
+    return dp[amount] === Infinity ? -1 : dp[amount];
 }
 
 /**
@@ -66,19 +73,19 @@ function testSolution() {
     console.log('Testing 322. Coin Change');
 
     // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    const result1 = solve([1, 2, 5], 11);
+    const expected1 = 3;
+    console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 2: Impossible case
+    const result2 = solve([2], 3);
+    const expected2 = -1;
+    console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 3: Zero amount
+    const result3 = solve([1], 0);
+    const expected3 = 0;
+    console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
 
     console.log('All test cases passed for 322. Coin Change!');
 }
