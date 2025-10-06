@@ -11,13 +11,19 @@
 the minimum coins needed. We can build this up from smaller amounts.
  *
  * APPROACH:
- * [APPROACH content will be added here]
+ * 1. **Initialize DP array**: dp[i] = minimum coins needed for amount i
+ * 2. **Base case**: dp[0] = 0 (zero coins needed for amount 0)
+ * 3. **Fill DP table**: For each amount, try all coins and take minimum
+ * 4. **Transition**: dp[i] = min(dp[i], dp[i-coin] + 1) for all valid coins
  *
  * WHY THIS WORKS:
- * [WHY THIS WORKS content will be added here]
+ * - We build up solutions from smaller subproblems
+ * - For any amount, we consider using each coin and take the minimum
+ * - dp[i-coin] + 1 represents using one more coin to reach amount i
+ * - Infinity initialization handles impossible cases naturally
  *
- * TIME COMPLEXITY: [TIME COMPLEXITY content will be added here]
- * SPACE COMPLEXITY: [SPACE COMPLEXITY content will be added here]
+ * TIME COMPLEXITY: O(amount × coins.length) - nested loops through amounts and coins
+ * SPACE COMPLEXITY: O(amount) - DP array of size amount+1
  *
  * EXAMPLE WALKTHROUGH:
  * ```
@@ -35,7 +41,10 @@ dp[11] = 3 (use coin `5 + coin` `5 + coin` 1)
 ```
  *
  * EDGE CASES:
- * [EDGE CASES content will be added here]
+ * - amount = 0: Return 0 (no coins needed)
+ * - Impossible to make change: Return -1
+ * - Single coin type: Either exact division or impossible
+ * - Large denomination coins: May not contribute to smaller amounts
  */
 
 /**

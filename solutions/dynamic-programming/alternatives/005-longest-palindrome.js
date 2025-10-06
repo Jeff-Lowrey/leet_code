@@ -11,7 +11,10 @@
 by expanding around `centers - either` single characters or between characters.
  *
  * APPROACH:
- * [APPROACH content will be added here]
+ * 1. **Expand around centers**: For each possible center, expand outward
+ * 2. **Two types of centers**: Single character (odd length) and between characters (even length)
+ * 3. **Track maximum**: Keep track of the longest palindrome found so far
+ * 4. **Early termination**: Stop expanding when characters don't match
  *
  * WHY THIS WORKS:
  * - Every palindrome has a center
@@ -32,7 +35,11 @@ Both have length 3, return either
 ```
  *
  * EDGE CASES:
- * [EDGE CASES content will be added here]
+ * - Empty string: Return empty string
+ * - Single character: The character itself is a palindrome
+ * - No palindromes longer than 1: Return any single character
+ * - All characters same: Entire string is palindrome
+ * - Multiple palindromes of same max length: Return any valid one
  */
 
 /**

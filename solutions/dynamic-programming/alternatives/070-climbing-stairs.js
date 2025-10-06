@@ -17,16 +17,28 @@ So: ways(n) = ways(`n-1`) + ways(`n-2`)
 3. Use `bottom-up` DP to avoid redundant calculations
  *
  * WHY THIS WORKS:
- * [WHY THIS WORKS content will be added here]
+ * - Each step can only be reached from the previous step or two steps back
+ * - This creates a recurrence relation: f(n) = f(n-1) + f(n-2)
+ * - We build the solution iteratively to avoid repeated calculations
+ * - Space optimized by only keeping track of last two values
  *
- * TIME COMPLEXITY: [TIME COMPLEXITY content will be added here]
- * SPACE COMPLEXITY: [SPACE COMPLEXITY content will be added here]
+ * TIME COMPLEXITY: O(n) - single pass through all steps
+ * SPACE COMPLEXITY: O(1) - only storing two previous values
  *
  * EXAMPLE WALKTHROUGH:
- * [EXAMPLE WALKTHROUGH content will be added here]
+ * ```
+ * n = 4
+ * Step 1: prev2=1, prev1=2 (base cases)
+ * Step 2: i=3, current=1+2=3, prev2=2, prev1=3
+ * Step 3: i=4, current=2+3=5, prev2=3, prev1=5
+ * Result: 5 ways to reach step 4
+ * ```
  *
  * EDGE CASES:
- * [EDGE CASES content will be added here]
+ * - n=1: Only one way (1 step)
+ * - n=2: Two ways (1+1 or 2)
+ * - Large n: Handle efficiently with iterative approach
+ * - n=0: Would be 1 way (stay put), but not in problem constraints
  */
 
 /**
