@@ -11,7 +11,6 @@ word or phrase, typically using all the original letters exactly once.
 Example:
 Input: strs = ["eat","tea","tan","ate","nat","bat"]
 Output: [["bat"],["nat","tan"],["ate","eat","tea"]]
-"""
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -74,6 +73,7 @@ Output: [["eat","tea","ate"], ["tan","nat"], ["bat"]]
 The signature (sorted chars or char counts) acts as a unique identifier for all anagrams of the same set of characters.
 
 </details>
+"""
 
 from collections import defaultdict
 
