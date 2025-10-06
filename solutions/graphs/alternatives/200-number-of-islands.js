@@ -7,43 +7,78 @@
  * SOLUTION EXPLANATION:
  *
  * INTUITION:
- * This problem requires understanding of graphs concepts.
+ * Count connected components of '1's in a 2D grid. Each island is a connected
+ * component that can be found using DFS/BFS traversal.
  *
  * APPROACH:
- * Apply graphs methodology to solve efficiently.
+ * Iterate through each cell. When we find a '1', increment count and use DFS
+ * to mark all connected '1's as visited to avoid double counting.
  *
  * WHY THIS WORKS:
- * The solution leverages graphs principles for optimal performance.
+ * DFS explores the entire connected component (island) in one traversal,
+ * ensuring each island is counted exactly once.
  *
- * TIME COMPLEXITY: O(n)
- * SPACE COMPLEXITY: O(1)
+ * TIME COMPLEXITY: O(m * n) - visit each cell at most once
+ * SPACE COMPLEXITY: O(m * n) - recursion stack in worst case
  *
  * EXAMPLE WALKTHROUGH:
- * Input: [example input]\nStep 1: [explain first step]\nOutput: [expected output]
+ * Grid: [["1","1","0"],["0","1","0"],["0","0","1"]]
+ * 1. Find '1' at (0,0), DFS marks (0,0), (0,1), (1,1) - count = 1
+ * 2. Find '1' at (2,2), DFS marks (2,2) - count = 2
+ * Result: 2 islands
  *
  * EDGE CASES:
- * - Empty input handling\n- Single element cases\n- Large input considerations
+ * - Empty grid or null input
+ * - Grid with all water ('0's)
+ * - Grid with all land ('1's)
+ * - Single cell grid
  */
 
 /**
  * Main solution for Problem 200: Number Of Islands
  *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
+ * @param {string[][]} grid - 2D grid of '1's (land) and '0's (water)
+ * @return {number} - Number of islands (connected components of '1's)
  *
- * Time Complexity: O(n)
- * Space Complexity: O(1)
+ * Time Complexity: O(m * n) - visit each cell at most once
+ * Space Complexity: O(m * n) - recursion stack in worst case
  */
-function solve(...args) {
-    // TODO: Implement the solution using graphs techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using graphs methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+function solve(grid) {
+    if (!grid || grid.length === 0 || grid[0].length === 0) {
+        return 0;
+    }
 
-    return null; // Replace with actual implementation
+    const rows = grid.length;
+    const cols = grid[0].length;
+    let count = 0;
+
+    function dfs(row, col) {
+        // Base cases: out of bounds or water
+        if (row < 0 || row >= rows || col < 0 || col >= cols || grid[row][col] === '0') {
+            return;
+        }
+
+        // Mark current cell as visited by setting to '0'
+        grid[row][col] = '0';
+
+        // Explore all 4 directions
+        dfs(row + 1, col); // down
+        dfs(row - 1, col); // up
+        dfs(row, col + 1); // right
+        dfs(row, col - 1); // left
+    }
+
+    // Iterate through each cell in the grid
+    for (let row = 0; row < rows; row++) {
+        for (let col = 0; col < cols; col++) {
+            if (grid[row][col] === '1') {
+                count++; // Found a new island
+                dfs(row, col); // Mark entire island as visited
+            }
+        }
+    }
+
+    return count;
 }
 
 /**
@@ -52,20 +87,61 @@ function solve(...args) {
 function testSolution() {
     console.log('Testing 200. Number Of Islands');
 
-    // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    // Test case 1: Example from problem description
+    const grid1 = [
+        ["1","1","1","1","0"],
+        ["1","1","0","1","0"],
+        ["1","1","0","0","0"],
+        ["0","0","0","0","0"]
+    ];
+    const result1 = solve(JSON.parse(JSON.stringify(grid1))); // Deep copy
+    console.assert(result1 === 1, `Test 1 failed: expected 1, got ${result1}`);
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 2: Multiple islands
+    const grid2 = [
+        ["1","1","0","0","0"],
+        ["1","1","0","0","0"],
+        ["0","0","1","0","0"],
+        ["0","0","0","1","1"]
+    ];
+    const result2 = solve(JSON.parse(JSON.stringify(grid2)));
+    console.assert(result2 === 3, `Test 2 failed: expected 3, got ${result2}`);
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 3: No islands (all water)
+    const grid3 = [
+        ["0","0","0"],
+        ["0","0","0"],
+        ["0","0","0"]
+    ];
+    const result3 = solve(JSON.parse(JSON.stringify(grid3)));
+    console.assert(result3 === 0, `Test 3 failed: expected 0, got ${result3}`);
+
+    // Test case 4: All land (one big island)
+    const grid4 = [
+        ["1","1"],
+        ["1","1"]
+    ];
+    const result4 = solve(JSON.parse(JSON.stringify(grid4)));
+    console.assert(result4 === 1, `Test 4 failed: expected 1, got ${result4}`);
+
+    // Test case 5: Single cell island
+    const grid5 = [["1"]];
+    const result5 = solve(JSON.parse(JSON.stringify(grid5)));
+    console.assert(result5 === 1, `Test 5 failed: expected 1, got ${result5}`);
+
+    // Test case 6: Empty grid
+    const grid6 = [];
+    const result6 = solve(grid6);
+    console.assert(result6 === 0, `Test 6 failed: expected 0, got ${result6}`);
+
+    // Test case 7: Diagonal islands (not connected)
+    const grid7 = [
+        ["1","0","1"],
+        ["0","1","0"],
+        ["1","0","1"]
+    ];
+    const result7 = solve(JSON.parse(JSON.stringify(grid7)));
+    console.assert(result7 === 5, `Test 7 failed: expected 5, got ${result7}`);
 
     console.log('All test cases passed for 200. Number Of Islands!');
 }

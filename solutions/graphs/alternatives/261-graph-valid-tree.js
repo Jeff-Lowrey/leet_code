@@ -7,55 +7,106 @@
  * SOLUTION EXPLANATION:
  *
  * INTUITION:
- * [This problem requires understanding of graphs concepts. The key insight is to identify the optimal approach for this specific scenario.]
+ * A valid tree has exactly n-1 edges and is connected (no cycles).
+ * We can use Union-Find to detect cycles and ensure connectivity.
  *
  * APPROACH:
- * 1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply graphs methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+ * 1. Check if edges count is exactly n-1 (necessary condition for tree)
+ * 2. Use Union-Find to detect cycles while processing edges
+ * 3. Verify all nodes are in the same connected component
  *
  * WHY THIS WORKS:
- * - The solution leverages graphs principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+ * - Union-Find efficiently detects cycles during edge addition
+ * - A tree with n nodes must have exactly n-1 edges
+ * - All nodes must be connected (single component)
  *
- * TIME COMPLEXITY: O(n)
- * SPACE COMPLEXITY: O(1)
+ * TIME COMPLEXITY: O(n * α(n)) - Union-Find with path compression
+ * SPACE COMPLEXITY: O(n) - parent and rank arrays
  *
  * EXAMPLE WALKTHROUGH:
  * ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
+Input: n=5, edges=[[0,1],[0,2],[0,3],[1,4]]
+Step 1: Check edge count: 4 = 5-1 ✓
+Step 2: Process edges with Union-Find, no cycles found
+Step 3: All nodes connected in one component
+Output: true
 ```
  *
  * EDGE CASES:
- * - Empty input handling
-- Single element cases
-- Large input considerations
+ * - Single node (n=1) with no edges
+ * - Wrong number of edges (not n-1)
+ * - Disconnected components
+ * - Cycles in the graph
  */
+
+/**
+ * Union-Find data structure for cycle detection
+ */
+class UnionFind {
+    constructor(n) {
+        this.parent = Array.from({length: n}, (_, i) => i);
+        this.rank = new Array(n).fill(0);
+        this.components = n;
+    }
+
+    find(x) {
+        if (this.parent[x] !== x) {
+            this.parent[x] = this.find(this.parent[x]); // Path compression
+        }
+        return this.parent[x];
+    }
+
+    union(x, y) {
+        const rootX = this.find(x);
+        const rootY = this.find(y);
+
+        if (rootX === rootY) {
+            return false; // Cycle detected
+        }
+
+        // Union by rank
+        if (this.rank[rootX] < this.rank[rootY]) {
+            this.parent[rootX] = rootY;
+        } else if (this.rank[rootX] > this.rank[rootY]) {
+            this.parent[rootY] = rootX;
+        } else {
+            this.parent[rootY] = rootX;
+            this.rank[rootX]++;
+        }
+
+        this.components--;
+        return true;
+    }
+}
 
 /**
  * Main solution for Problem 261: Graph Valid Tree
  *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
+ * @param {number} n - Number of nodes (0 to n-1)
+ * @param {number[][]} edges - Array of edges [u, v]
+ * @return {boolean} - True if the graph forms a valid tree
  *
- * Time Complexity: O(n)
- * Space Complexity: O(1)
+ * Time Complexity: O(n * α(n)) - Union-Find with path compression
+ * Space Complexity: O(n) - parent and rank arrays
  */
-function solve(...args) {
-    // TODO: Implement the solution using graphs techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using graphs methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+function solve(n, edges) {
+    // A tree with n nodes must have exactly n-1 edges
+    if (edges.length !== n - 1) {
+        return false;
+    }
 
-    return null; // Replace with actual implementation
+    const uf = new UnionFind(n);
+
+    // Process each edge
+    for (const [u, v] of edges) {
+        // If union returns false, a cycle was detected
+        if (!uf.union(u, v)) {
+            return false;
+        }
+    }
+
+    // Check if all nodes are connected (exactly 1 component)
+    return uf.components === 1;
 }
 
 /**
@@ -64,20 +115,37 @@ function solve(...args) {
 function testSolution() {
     console.log('Testing 261. Graph Valid Tree');
 
-    // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    // Test case 1: Valid tree
+    const result1 = solve(5, [[0,1],[0,2],[0,3],[1,4]]);
+    console.assert(result1 === true, `Test 1 failed: expected true, got ${result1}`);
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 2: Has cycle
+    const result2 = solve(5, [[0,1],[1,2],[2,3],[1,3],[1,4]]);
+    console.assert(result2 === false, `Test 2 failed: expected false, got ${result2}`);
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 3: Not connected (too few edges)
+    const result3 = solve(5, [[0,1],[2,3]]);
+    console.assert(result3 === false, `Test 3 failed: expected false, got ${result3}`);
+
+    // Test case 4: Single node
+    const result4 = solve(1, []);
+    console.assert(result4 === true, `Test 4 failed: expected true, got ${result4}`);
+
+    // Test case 5: Two nodes connected
+    const result5 = solve(2, [[0,1]]);
+    console.assert(result5 === true, `Test 5 failed: expected true, got ${result5}`);
+
+    // Test case 6: Two nodes not connected
+    const result6 = solve(2, []);
+    console.assert(result6 === false, `Test 6 failed: expected false, got ${result6}`);
+
+    // Test case 7: Too many edges
+    const result7 = solve(3, [[0,1],[1,2],[0,2],[0,1]]);
+    console.assert(result7 === false, `Test 7 failed: expected false, got ${result7}`);
+
+    // Test case 8: Linear tree
+    const result8 = solve(4, [[0,1],[1,2],[2,3]]);
+    console.assert(result8 === true, `Test 8 failed: expected true, got ${result8}`);
 
     console.log('All test cases passed for 261. Graph Valid Tree!');
 }

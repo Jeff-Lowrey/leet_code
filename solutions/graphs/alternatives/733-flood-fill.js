@@ -7,43 +7,82 @@
  * SOLUTION EXPLANATION:
  *
  * INTUITION:
- * This problem requires understanding of graphs concepts.
+ * Classic flood fill algorithm - change all connected pixels of the same color
+ * to a new color. Use DFS to explore connected components.
  *
  * APPROACH:
- * Apply graphs methodology to solve efficiently.
+ * 1. Start from the given pixel position
+ * 2. If pixel is already the new color, return (no change needed)
+ * 3. Use DFS to visit all connected pixels with the original color
+ * 4. Change each visited pixel to the new color
  *
  * WHY THIS WORKS:
- * The solution leverages graphs principles for optimal performance.
+ * - DFS naturally explores all connected pixels of the same color
+ * - Base cases prevent infinite recursion and invalid access
+ * - Early termination when new color equals original color
  *
- * TIME COMPLEXITY: O(n)
- * SPACE COMPLEXITY: O(1)
+ * TIME COMPLEXITY: O(m * n) - might visit all pixels
+ * SPACE COMPLEXITY: O(m * n) - recursion stack in worst case
  *
  * EXAMPLE WALKTHROUGH:
- * Input: [example input]\nStep 1: [explain first step]\nOutput: [expected output]
+ * Image: [[1,1,1],[1,1,0],[1,0,1]], sr=1, sc=1, newColor=2
+ * Start at (1,1) with color 1, change to 2
+ * DFS visits all connected 1s: (0,0), (0,1), (0,2), (1,0), (1,1), (2,0)
+ * Result: [[2,2,2],[2,2,0],[2,0,1]]
  *
  * EDGE CASES:
- * - Empty input handling\n- Single element cases\n- Large input considerations
+ * - New color same as original color
+ * - Single pixel image
+ * - Target pixel at boundary
+ * - Empty image
  */
 
 /**
  * Main solution for Problem 733: Flood Fill
  *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
+ * @param {number[][]} image - 2D array representing the image
+ * @param {number} sr - Starting row position
+ * @param {number} sc - Starting column position
+ * @param {number} newColor - New color to fill with
+ * @return {number[][]} - Modified image after flood fill
  *
- * Time Complexity: O(n)
- * Space Complexity: O(1)
+ * Time Complexity: O(m * n) - might visit all pixels
+ * Space Complexity: O(m * n) - recursion stack in worst case
  */
-function solve(...args) {
-    // TODO: Implement the solution using graphs techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using graphs methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+function solve(image, sr, sc, newColor) {
+    if (!image || image.length === 0 || image[0].length === 0) {
+        return image;
+    }
 
-    return null; // Replace with actual implementation
+    const originalColor = image[sr][sc];
+
+    // If new color is same as original, no change needed
+    if (originalColor === newColor) {
+        return image;
+    }
+
+    const rows = image.length;
+    const cols = image[0].length;
+
+    function dfs(row, col) {
+        // Base cases: out of bounds or different color
+        if (row < 0 || row >= rows || col < 0 || col >= cols ||
+            image[row][col] !== originalColor) {
+            return;
+        }
+
+        // Change current pixel to new color
+        image[row][col] = newColor;
+
+        // Explore all 4 directions
+        dfs(row + 1, col); // down
+        dfs(row - 1, col); // up
+        dfs(row, col + 1); // right
+        dfs(row, col - 1); // left
+    }
+
+    dfs(sr, sc);
+    return image;
 }
 
 /**
@@ -52,20 +91,59 @@ function solve(...args) {
 function testSolution() {
     console.log('Testing 733. Flood Fill');
 
-    // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    // Helper function to compare 2D arrays
+    function arraysEqual(a, b) {
+        if (a.length !== b.length) return false;
+        for (let i = 0; i < a.length; i++) {
+            if (a[i].length !== b[i].length) return false;
+            for (let j = 0; j < a[i].length; j++) {
+                if (a[i][j] !== b[i][j]) return false;
+            }
+        }
+        return true;
+    }
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 1: Basic flood fill
+    const image1 = [[1,1,1],[1,1,0],[1,0,1]];
+    const result1 = solve(JSON.parse(JSON.stringify(image1)), 1, 1, 2);
+    const expected1 = [[2,2,2],[2,2,0],[2,0,1]];
+    console.assert(arraysEqual(result1, expected1),
+        `Test 1 failed: expected ${JSON.stringify(expected1)}, got ${JSON.stringify(result1)}`);
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 2: Same color (no change)
+    const image2 = [[0,0,0],[0,1,1]];
+    const result2 = solve(JSON.parse(JSON.stringify(image2)), 1, 1, 1);
+    const expected2 = [[0,0,0],[0,1,1]];
+    console.assert(arraysEqual(result2, expected2),
+        `Test 2 failed: expected ${JSON.stringify(expected2)}, got ${JSON.stringify(result2)}`);
+
+    // Test case 3: Single pixel
+    const image3 = [[1]];
+    const result3 = solve(JSON.parse(JSON.stringify(image3)), 0, 0, 2);
+    const expected3 = [[2]];
+    console.assert(arraysEqual(result3, expected3),
+        `Test 3 failed: expected ${JSON.stringify(expected3)}, got ${JSON.stringify(result3)}`);
+
+    // Test case 4: Corner pixel
+    const image4 = [[1,1,1],[1,0,1],[1,1,1]];
+    const result4 = solve(JSON.parse(JSON.stringify(image4)), 0, 0, 2);
+    const expected4 = [[2,2,2],[2,0,2],[2,2,2]];
+    console.assert(arraysEqual(result4, expected4),
+        `Test 4 failed: expected ${JSON.stringify(expected4)}, got ${JSON.stringify(result4)}`);
+
+    // Test case 5: Isolated pixel
+    const image5 = [[0,1,0],[1,1,1],[0,1,0]];
+    const result5 = solve(JSON.parse(JSON.stringify(image5)), 0, 0, 2);
+    const expected5 = [[2,1,0],[1,1,1],[0,1,0]];
+    console.assert(arraysEqual(result5, expected5),
+        `Test 5 failed: expected ${JSON.stringify(expected5)}, got ${JSON.stringify(result5)}`);
+
+    // Test case 6: Large connected area
+    const image6 = [[1,1,1],[1,1,1],[1,1,1]];
+    const result6 = solve(JSON.parse(JSON.stringify(image6)), 1, 1, 0);
+    const expected6 = [[0,0,0],[0,0,0],[0,0,0]];
+    console.assert(arraysEqual(result6, expected6),
+        `Test 6 failed: expected ${JSON.stringify(expected6)}, got ${JSON.stringify(result6)}`);
 
     console.log('All test cases passed for 733. Flood Fill!');
 }

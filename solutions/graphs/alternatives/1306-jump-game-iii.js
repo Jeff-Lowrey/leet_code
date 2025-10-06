@@ -7,43 +7,82 @@
  * SOLUTION EXPLANATION:
  *
  * INTUITION:
- * This problem requires understanding of graphs concepts.
+ * Model as graph traversal where each index can jump to two positions.
+ * Use BFS/DFS to explore all reachable positions from start.
  *
  * APPROACH:
- * Apply graphs methodology to solve efficiently.
+ * 1. Use BFS to explore all reachable positions from starting index
+ * 2. From index i, can jump to i+arr[i] or i-arr[i] (if valid)
+ * 3. Track visited positions to avoid cycles
+ * 4. Return true if we reach any index with value 0
  *
  * WHY THIS WORKS:
- * The solution leverages graphs principles for optimal performance.
+ * - BFS explores all reachable positions level by level
+ * - Visited array prevents infinite loops
+ * - Early termination when target (value 0) is found
  *
- * TIME COMPLEXITY: O(n)
- * SPACE COMPLEXITY: O(1)
+ * TIME COMPLEXITY: O(n) - visit each index at most once
+ * SPACE COMPLEXITY: O(n) - queue and visited array
  *
  * EXAMPLE WALKTHROUGH:
- * Input: [example input]\nStep 1: [explain first step]\nOutput: [expected output]
+ * arr=[4,2,3,0,3,1,2], start=5
+ * From 5: can jump to 5+1=6 or 5-1=4
+ * From 6: can jump to 6+2=8(invalid) or 6-2=4
+ * From 4: can jump to 4+3=7(invalid) or 4-3=1
+ * From 1: can jump to 1+2=3 or 1-2=-1(invalid)
+ * At index 3: arr[3]=0, return true
  *
  * EDGE CASES:
- * - Empty input handling\n- Single element cases\n- Large input considerations
+ * - Start position has value 0
+ * - No path to any 0
+ * - Single element array
+ * - Jumps go out of bounds
  */
 
 /**
  * Main solution for Problem 1306: Jump Game Iii
  *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
+ * @param {number[]} arr - Array of non-negative integers
+ * @param {number} start - Starting index
+ * @return {boolean} - True if can reach an index with value 0
  *
- * Time Complexity: O(n)
- * Space Complexity: O(1)
+ * Time Complexity: O(n) - visit each index at most once
+ * Space Complexity: O(n) - queue and visited array
  */
-function solve(...args) {
-    // TODO: Implement the solution using graphs techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using graphs methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+function solve(arr, start) {
+    if (!arr || arr.length === 0) return false;
 
-    return null; // Replace with actual implementation
+    const n = arr.length;
+    const visited = new Array(n).fill(false);
+    const queue = [start];
+    visited[start] = true;
+
+    while (queue.length > 0) {
+        const currentIndex = queue.shift();
+
+        // Check if current position has value 0
+        if (arr[currentIndex] === 0) {
+            return true;
+        }
+
+        const value = arr[currentIndex];
+
+        // Try jumping forward (i + arr[i])
+        const forwardIndex = currentIndex + value;
+        if (forwardIndex >= 0 && forwardIndex < n && !visited[forwardIndex]) {
+            visited[forwardIndex] = true;
+            queue.push(forwardIndex);
+        }
+
+        // Try jumping backward (i - arr[i])
+        const backwardIndex = currentIndex - value;
+        if (backwardIndex >= 0 && backwardIndex < n && !visited[backwardIndex]) {
+            visited[backwardIndex] = true;
+            queue.push(backwardIndex);
+        }
+    }
+
+    return false; // No index with value 0 is reachable
 }
 
 /**
@@ -52,20 +91,41 @@ function solve(...args) {
 function testSolution() {
     console.log('Testing 1306. Jump Game Iii');
 
-    // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    // Test case 1: Can reach 0
+    const result1 = solve([4,2,3,0,3,1,2], 5);
+    console.assert(result1 === true, `Test 1 failed: expected true, got ${result1}`);
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 2: Cannot reach 0
+    const result2 = solve([4,2,3,0,3,1,2], 0);
+    console.assert(result2 === true, `Test 2 failed: expected true, got ${result2}`);
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 3: Can reach 0 from middle
+    const result3 = solve([3,0,2,1,2], 2);
+    console.assert(result3 === false, `Test 3 failed: expected false, got ${result3}`);
+
+    // Test case 4: Cannot reach any 0
+    const result4 = solve([1,1,1,1,1], 0);
+    console.assert(result4 === false, `Test 4 failed: expected false, got ${result4}`);
+
+    // Test case 5: Single element with 0
+    const result5 = solve([0], 0);
+    console.assert(result5 === true, `Test 5 failed: expected true, got ${result5}`);
+
+    // Test case 6: Single element without 0
+    const result6 = solve([1], 0);
+    console.assert(result6 === false, `Test 6 failed: expected false, got ${result6}`);
+
+    // Test case 7: Multiple zeros
+    const result7 = solve([0,1,0], 1);
+    console.assert(result7 === true, `Test 7 failed: expected true, got ${result7}`);
+
+    // Test case 8: Cyclic path but no 0 reachable
+    const result8 = solve([1,1,2,2,1], 0);
+    console.assert(result8 === false, `Test 8 failed: expected false, got ${result8}`);
+
+    // Test case 9: Complex path to reach 0
+    const result9 = solve([4,2,1,0,2], 0);
+    console.assert(result9 === true, `Test 9 failed: expected true, got ${result9}`);
 
     console.log('All test cases passed for 1306. Jump Game Iii!');
 }

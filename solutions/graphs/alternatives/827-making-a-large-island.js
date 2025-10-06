@@ -7,43 +7,119 @@
  * SOLUTION EXPLANATION:
  *
  * INTUITION:
- * This problem requires understanding of graphs concepts.
+ * Find the maximum island size after changing at most one 0 to 1.
+ * Pre-compute all island sizes, then for each 0, calculate potential island size.
  *
  * APPROACH:
- * Apply graphs methodology to solve efficiently.
+ * 1. Label each island with unique ID and store its size
+ * 2. For each 0, check adjacent islands and sum their sizes + 1
+ * 3. Handle case where grid is already all 1s
  *
  * WHY THIS WORKS:
- * The solution leverages graphs principles for optimal performance.
+ * - Pre-computation avoids recalculating island sizes for each 0
+ * - Component labeling allows O(1) lookup of island sizes
+ * - Checking adjacent cells covers all possible connections
  *
- * TIME COMPLEXITY: O(n)
- * SPACE COMPLEXITY: O(1)
+ * TIME COMPLEXITY: O(n²) - two passes through the grid
+ * SPACE COMPLEXITY: O(n²) - island size map and labeled grid
  *
  * EXAMPLE WALKTHROUGH:
- * Input: [example input]\nStep 1: [explain first step]\nOutput: [expected output]
+ * Grid: [[1,0],[0,1]]
+ * 1. Label islands: [[2,0],[0,3]] with sizes {2:1, 3:1}
+ * 2. Check (0,1): adjacent to island 2, size = 1 + 1 = 2
+ * 3. Check (1,0): adjacent to island 3, size = 1 + 1 = 2
+ * Result: max(2, 2) = 2
  *
  * EDGE CASES:
- * - Empty input handling\n- Single element cases\n- Large input considerations
+ * - Grid already all 1s (return n²)
+ * - Single cell grid
+ * - No islands (all 0s)
+ * - Multiple adjacent islands when changing a 0
  */
 
 /**
  * Main solution for Problem 827: Making A Large Island
  *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
+ * @param {number[][]} grid - 2D grid of 0s and 1s
+ * @return {number} - Maximum possible island size after changing one 0 to 1
  *
- * Time Complexity: O(n)
- * Space Complexity: O(1)
+ * Time Complexity: O(n²) - two passes through the grid
+ * Space Complexity: O(n²) - island size map and labeled grid
  */
-function solve(...args) {
-    // TODO: Implement the solution using graphs techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using graphs methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+function solve(grid) {
+    if (!grid || grid.length === 0) return 1;
 
-    return null; // Replace with actual implementation
+    const n = grid.length;
+    const islandSizes = new Map();
+    let islandId = 2; // Start from 2 to distinguish from 0 and 1
+    const directions = [[0, 1], [1, 0], [0, -1], [-1, 0]];
+
+    // Step 1: Label all islands and calculate their sizes
+    function dfs(row, col, id) {
+        if (row < 0 || row >= n || col < 0 || col >= n || grid[row][col] !== 1) {
+            return 0;
+        }
+
+        grid[row][col] = id;
+        let size = 1;
+
+        for (const [dr, dc] of directions) {
+            size += dfs(row + dr, col + dc, id);
+        }
+
+        return size;
+    }
+
+    // Label all existing islands
+    for (let row = 0; row < n; row++) {
+        for (let col = 0; col < n; col++) {
+            if (grid[row][col] === 1) {
+                const size = dfs(row, col, islandId);
+                islandSizes.set(islandId, size);
+                islandId++;
+            }
+        }
+    }
+
+    // Step 2: Try changing each 0 to 1 and calculate resulting island size
+    let maxSize = 0;
+
+    // If there are existing islands, find their max size as baseline
+    for (const size of islandSizes.values()) {
+        maxSize = Math.max(maxSize, size);
+    }
+
+    for (let row = 0; row < n; row++) {
+        for (let col = 0; col < n; col++) {
+            if (grid[row][col] === 0) {
+                const adjacentIslands = new Set();
+
+                // Check all 4 directions for adjacent islands
+                for (const [dr, dc] of directions) {
+                    const newRow = row + dr;
+                    const newCol = col + dc;
+
+                    if (newRow >= 0 && newRow < n && newCol >= 0 && newCol < n) {
+                        const cellValue = grid[newRow][newCol];
+                        if (cellValue > 1) { // It's an island
+                            adjacentIslands.add(cellValue);
+                        }
+                    }
+                }
+
+                // Calculate total size if we change this 0 to 1
+                let totalSize = 1; // The cell itself
+                for (const islandId of adjacentIslands) {
+                    totalSize += islandSizes.get(islandId);
+                }
+
+                maxSize = Math.max(maxSize, totalSize);
+            }
+        }
+    }
+
+    // Special case: if grid is already all 1s, return n²
+    return maxSize === 0 ? 1 : maxSize;
 }
 
 /**
@@ -52,20 +128,54 @@ function solve(...args) {
 function testSolution() {
     console.log('Testing 827. Making A Large Island');
 
-    // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    // Test case 1: Basic case with separate islands
+    const grid1 = [[1,0],[0,1]];
+    const result1 = solve(JSON.parse(JSON.stringify(grid1)));
+    console.assert(result1 === 3, `Test 1 failed: expected 3, got ${result1}`);
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 2: Grid with one large island
+    const grid2 = [[1,1],[1,0]];
+    const result2 = solve(JSON.parse(JSON.stringify(grid2)));
+    console.assert(result2 === 4, `Test 2 failed: expected 4, got ${result2}`);
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 3: All water
+    const grid3 = [[0,0],[0,0]];
+    const result3 = solve(JSON.parse(JSON.stringify(grid3)));
+    console.assert(result3 === 1, `Test 3 failed: expected 1, got ${result3}`);
+
+    // Test case 4: All land
+    const grid4 = [[1,1],[1,1]];
+    const result4 = solve(JSON.parse(JSON.stringify(grid4)));
+    console.assert(result4 === 4, `Test 4 failed: expected 4, got ${result4}`);
+
+    // Test case 5: Single cell
+    const grid5 = [[0]];
+    const result5 = solve(JSON.parse(JSON.stringify(grid5)));
+    console.assert(result5 === 1, `Test 5 failed: expected 1, got ${result5}`);
+
+    // Test case 6: Single land cell
+    const grid6 = [[1]];
+    const result6 = solve(JSON.parse(JSON.stringify(grid6)));
+    console.assert(result6 === 1, `Test 6 failed: expected 1, got ${result6}`);
+
+    // Test case 7: Connecting multiple islands
+    const grid7 = [
+        [1,0,0,1],
+        [0,0,0,0],
+        [0,0,0,0],
+        [1,0,0,1]
+    ];
+    const result7 = solve(JSON.parse(JSON.stringify(grid7)));
+    console.assert(result7 === 3, `Test 7 failed: expected 3, got ${result7}`);
+
+    // Test case 8: Large connected component possible
+    const grid8 = [
+        [1,1,0],
+        [1,0,1],
+        [0,1,1]
+    ];
+    const result8 = solve(JSON.parse(JSON.stringify(grid8)));
+    console.assert(result8 === 7, `Test 8 failed: expected 7, got ${result8}`);
 
     console.log('All test cases passed for 827. Making A Large Island!');
 }
