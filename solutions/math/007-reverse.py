@@ -92,15 +92,45 @@ def test_solution():
     """
     solution = Solution()
 
-    # Test case 1: Basic functionality
-    # result = solution.solve([test_input])
-    # expected = [expected_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 1: Positive number
+    result = solution.reverse(123)
+    expected = 321
+    assert result == expected, f"Expected {expected}, got {result}"
 
-    # Test case 2: Edge case
-    # result = solution.solve([edge_case_input])
-    # expected = [edge_case_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 2: Negative number
+    result = solution.reverse(-123)
+    expected = -321
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 3: Number ending with zero
+    result = solution.reverse(120)
+    expected = 21
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 4: Single digit
+    result = solution.reverse(7)
+    expected = 7
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 5: Zero
+    result = solution.reverse(0)
+    expected = 0
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 6: Overflow case (32-bit integer limit)
+    result = solution.reverse(1534236469)  # Would reverse to 9646324351 (overflow)
+    expected = 0
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 7: Negative overflow case
+    result = solution.reverse(-2147483648)  # Would overflow
+    expected = 0
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 8: Large positive within bounds
+    result = solution.reverse(1463847412)  # Reverses to 2147483641 (within bounds)
+    expected = 2147483641
+    assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
 
@@ -109,4 +139,17 @@ if __name__ == "__main__":
 
     # Example usage
     solution = Solution()
-    print(f"Solution for 007. Reverse")
+    print("=== 007. Reverse Integer ===")
+
+    # Demonstrate various cases
+    test_cases = [123, -123, 120, 0, 1534236469, -2147483648]
+
+    for num in test_cases:
+        result = solution.reverse(num)
+        print(f"reverse({num}) -> {result}")
+
+    print("\nKey insights:")
+    print("- Handles sign preservation")
+    print("- Removes leading zeros automatically")
+    print("- Returns 0 for 32-bit integer overflow")
+    print("- Works with negative numbers correctly")
