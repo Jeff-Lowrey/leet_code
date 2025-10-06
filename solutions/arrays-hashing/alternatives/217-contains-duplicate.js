@@ -11,19 +11,32 @@
 If there are duplicates, the set will be smaller than the array.
  *
  * APPROACH:
- * [APPROACH content will be added here]
+ * 1. **Set-based detection**: Use a Set to track numbers we've seen
+ * 2. **Early termination**: Return true immediately when duplicate found
+ * 3. **Single pass**: Check each element once
  *
  * WHY THIS WORKS:
- * [WHY THIS WORKS content will be added here]
+ * - Set provides O(1) lookup time for duplicate checking
+ * - We only need to find one duplicate, so early termination is optimal
+ * - Space-time tradeoff: use O(n) space to achieve O(n) time
  *
  * TIME COMPLEXITY: O(n)
  * SPACE COMPLEXITY: O(n)
  *
  * EXAMPLE WALKTHROUGH:
- * [EXAMPLE WALKTHROUGH content will be added here]
+ * ```
+ * nums = [1,2,3,1]
+ * Step 1: seen={}, num=1 → add to seen={1}
+ * Step 2: seen={1}, num=2 → add to seen={1,2}
+ * Step 3: seen={1,2}, num=3 → add to seen={1,2,3}
+ * Step 4: seen={1,2,3}, num=1 → found duplicate! return true
+ * ```
  *
  * EDGE CASES:
- * [EDGE CASES content will be added here]
+ * - Empty array → false (no duplicates possible)
+ * - Single element → false (no duplicates possible)
+ * - All elements unique → false
+ * - All elements same → true (immediate duplicate)
  */
 
 /**

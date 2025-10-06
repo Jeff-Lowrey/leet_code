@@ -24,8 +24,8 @@ exists in our hash `map`. This allows us to find the pair in a single pass.
 - We only need to store numbers we've already seen
 - When we find a complement, we know the current index and the stored index
  *
- * TIME COMPLEXITY: [TIME COMPLEXITY content will be added here]
- * SPACE COMPLEXITY: [SPACE COMPLEXITY content will be added here]
+ * TIME COMPLEXITY: O(n) - single pass through array
+ * SPACE COMPLEXITY: O(n) - hash map can store up to n elements
  *
  * EXAMPLE WALKTHROUGH:
  * ```
@@ -36,7 +36,10 @@ Step 2: `num=7`, `complement=2`, seen={2: 0} → `found! return` [0, 1]
 ```
  *
  * EDGE CASES:
- * [EDGE CASES content will be added here]
+ * - No valid solution exists (guaranteed not to happen per problem constraints)
+ * - Duplicate numbers in array (use different indices)
+ * - Same number used twice (target = 2 * number)
+ * - Negative numbers and zero
  */
 
 /**
