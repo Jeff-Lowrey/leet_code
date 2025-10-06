@@ -3,6 +3,7 @@
 
 import argparse
 import ast
+import os
 import re
 from pathlib import Path
 from typing import Any, cast
@@ -32,11 +33,11 @@ app = Flask(__name__, template_folder="../../templates", static_folder="../../st
 app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY", "dev-key-change-in-production")
 
 
-def parse_docstring_explanation(code: str) -> tuple[str, str | None]:
-    """Parse Python code to extract explanation and clean code.
+def parse_docstring_explanation(code: str) -> tuple[str, dict[str, str] | None]:
+    """Parse Python code to extract explanation sections and clean code.
 
     Returns:
-        Tuple of (clean_code_without_explanation, explanation_html)
+        Tuple of (clean_code_without_explanation, explanation_sections_dict)
     """
     try:
         # Look for <details> sections anywhere in the code
@@ -46,8 +47,8 @@ def parse_docstring_explanation(code: str) -> tuple[str, str | None]:
         if match:
             explanation_content = match.group(1).strip()
 
-            # Convert markdown-style content to HTML
-            explanation_html = markdown.markdown(explanation_content, extensions=["fenced_code", "tables"])
+            # Parse into logical sections
+            sections = parse_explanation_into_sections(explanation_content)
 
             # Remove the entire <details> section from the code
             clean_code = re.sub(
@@ -57,13 +58,145 @@ def parse_docstring_explanation(code: str) -> tuple[str, str | None]:
                 flags=re.DOTALL,
             )
 
-            return clean_code, explanation_html
+            return clean_code, sections
 
         return code, None
 
     except Exception:
         # If parsing fails, return original code
         return code, None
+
+
+def parse_explanation_into_sections(content: str) -> dict[str, str]:
+    """Parse explanation content into logical sections."""
+    sections = {}
+
+    # Define section patterns with their display names
+    section_patterns = [
+        (r"### INTUITION:(.*?)(?=###|$)", "intuition"),
+        (r"### KEY INSIGHT:(.*?)(?=###|$)", "key_insight"),
+        (r"### APPROACH:(.*?)(?=###|$)", "approach"),
+        (r"### ALGORITHM:(.*?)(?=###|$)", "algorithm"),
+        (r"### WHY THIS WORKS:(.*?)(?=###|$)", "why_this_works"),
+        (r"### EXAMPLE WALKTHROUGH:(.*?)(?=###|$)", "example"),
+        (r"### EXAMPLES?:(.*?)(?=###|$)", "example"),
+        (r"### WALKTHROUGH:(.*?)(?=###|$)", "example"),
+        (r"### EDGE CASES:(.*?)(?=###|$)", "edge_cases"),
+        (r"### COMPLEXITY:(.*?)(?=###|$)", "complexity"),
+        (r"### TIME & SPACE COMPLEXITY:(.*?)(?=###|$)", "complexity"),
+        (r"### ANALYSIS:(.*?)(?=###|$)", "complexity"),
+        (r"### WHY LINKED LIST\?:(.*?)(?=###|$)", "additional_notes"),
+        (r"### WHY.*\?:(.*?)(?=###|$)", "additional_notes"),
+        (r"### NOTES?:(.*?)(?=###|$)", "additional_notes"),
+        (r"### INSIGHTS?:(.*?)(?=###|$)", "additional_notes"),
+        (r"### OPTIMIZATIONS?:(.*?)(?=###|$)", "optimizations"),
+        (r"### ALTERNATIVES?:(.*?)(?=###|$)", "alternatives"),
+    ]
+
+    # Extract each section
+    for pattern, section_key in section_patterns:
+        match = re.search(pattern, content, re.DOTALL | re.IGNORECASE)
+        if match:
+            section_content = match.group(1).strip()
+            # Convert to HTML
+            sections[section_key] = markdown.markdown(section_content, extensions=["fenced_code", "tables"])
+
+    return sections
+
+
+def parse_explanation_sections(content: str) -> dict[str, str]:
+    """Parse explanation content into structured sections."""
+    sections = {
+        "strategy": "",
+        "steps": "",
+        "analysis": "",
+        "insights": ""
+    }
+
+    # Convert to markdown first
+    content_html = markdown.markdown(content, extensions=["fenced_code", "tables"])
+
+    # Look for common section patterns
+    strategy_patterns = [
+        r"### INTUITION:(.*?)(?=###|$)",
+        r"### APPROACH:(.*?)(?=###|$)",
+        r"### STRATEGY:(.*?)(?=###|$)"
+    ]
+
+    steps_patterns = [
+        r"### ALGORITHM:(.*?)(?=###|$)",
+        r"### STEPS:(.*?)(?=###|$)",
+        r"### IMPLEMENTATION:(.*?)(?=###|$)"
+    ]
+
+    analysis_patterns = [
+        r"### COMPLEXITY:(.*?)(?=###|$)",
+        r"### ANALYSIS:(.*?)(?=###|$)",
+        r"### TIME & SPACE:(.*?)(?=###|$)"
+    ]
+
+    insights_patterns = [
+        r"### INSIGHTS:(.*?)(?=###|$)",
+        r"### NOTES:(.*?)(?=###|$)",
+        r"### ADDITIONAL:(.*?)(?=###|$)"
+    ]
+
+    # Extract strategy/intuition
+    for pattern in strategy_patterns:
+        match = re.search(pattern, content, re.DOTALL | re.IGNORECASE)
+        if match:
+            sections["strategy"] = markdown.markdown(match.group(1).strip(), extensions=["fenced_code", "tables"])
+            break
+
+    # Extract steps/algorithm
+    for pattern in steps_patterns:
+        match = re.search(pattern, content, re.DOTALL | re.IGNORECASE)
+        if match:
+            sections["steps"] = markdown.markdown(match.group(1).strip(), extensions=["fenced_code", "tables"])
+            break
+
+    # Extract complexity analysis
+    for pattern in analysis_patterns:
+        match = re.search(pattern, content, re.DOTALL | re.IGNORECASE)
+        if match:
+            sections["analysis"] = markdown.markdown(match.group(1).strip(), extensions=["fenced_code", "tables"])
+            break
+
+    # Extract additional insights
+    for pattern in insights_patterns:
+        match = re.search(pattern, content, re.DOTALL | re.IGNORECASE)
+        if match:
+            sections["insights"] = markdown.markdown(match.group(1).strip(), extensions=["fenced_code", "tables"])
+            break
+
+    # If no specific sections found, put everything in strategy
+    if not any(sections.values()):
+        sections["strategy"] = content_html
+
+    return sections
+
+
+def extract_problem_description(code: str) -> str | None:
+    """Extract problem description from the docstring."""
+    try:
+        # Look for the main docstring at the beginning
+        docstring_pattern = r'"""(.*?)"""'
+        match = re.search(docstring_pattern, code, re.DOTALL)
+
+        if match:
+            docstring = match.group(1).strip()
+
+            # Remove the solution explanation section if present
+            # Split at the first <details> tag
+            if "<details>" in docstring:
+                docstring = docstring.split("<details>")[0].strip()
+
+            # Convert to HTML
+            return markdown.markdown(docstring, extensions=["fenced_code", "tables"])
+
+        return None
+    except Exception:
+        return None
 
 
 def merge_and_reorganize_content(documentation: str | None, explanation: str | None) -> str | None:
@@ -304,6 +437,127 @@ def content_too_similar(content1: str, content2: str) -> bool:
     return similarity > 0.7
 
 
+def parse_jsdoc_explanation(code: str) -> tuple[str, dict[str, str] | None]:
+    """Parse JavaScript code to extract clean code and explanation sections from JSDoc comments."""
+    try:
+        # Look for the first JSDoc comment block
+        jsdoc_pattern = r'/\*\*(.*?)\*/'
+        match = re.search(jsdoc_pattern, code, re.DOTALL)
+
+        if not match:
+            # No JSDoc found, return code as-is
+            return code, None
+
+        jsdoc_content = match.group(1)
+
+        # Clean up JSDoc formatting (remove * at beginning of lines)
+        jsdoc_content = re.sub(r'^\s*\*\s?', '', jsdoc_content, flags=re.MULTILINE)
+
+        # Extract problem description (everything before <details>)
+        details_match = re.search(r'<details>', jsdoc_content, re.IGNORECASE)
+        if details_match:
+            problem_description = jsdoc_content[:details_match.start()].strip()
+            explanation_content = jsdoc_content[details_match.start():].strip()
+        else:
+            problem_description = jsdoc_content.strip()
+            explanation_content = ""
+
+        # Remove the JSDoc comment from code
+        clean_code = re.sub(jsdoc_pattern, '', code, flags=re.DOTALL).strip()
+
+        # Parse explanation sections if present
+        explanation_sections = None
+        if explanation_content and '<details>' in explanation_content:
+            explanation_sections = parse_explanation_into_sections(explanation_content)
+
+        return clean_code, explanation_sections
+
+    except Exception:
+        # If parsing fails, return original code
+        return code, None
+
+
+def extract_js_problem_description(code: str) -> str | None:
+    """Extract problem description from JSDoc comment."""
+    try:
+        # Look for the first JSDoc comment
+        jsdoc_pattern = r'/\*\*(.*?)\*/'
+        match = re.search(jsdoc_pattern, code, re.DOTALL)
+
+        if match:
+            jsdoc_content = match.group(1)
+
+            # Clean up JSDoc formatting
+            jsdoc_content = re.sub(r'^\s*\*\s?', '', jsdoc_content, flags=re.MULTILINE)
+
+            # Extract everything before <details> or the whole thing if no details
+            details_match = re.search(r'<details>', jsdoc_content, re.IGNORECASE)
+            if details_match:
+                problem_description = jsdoc_content[:details_match.start()].strip()
+            else:
+                problem_description = jsdoc_content.strip()
+
+            # Convert to HTML
+            problem_html = markdown.markdown(problem_description)
+            return problem_html
+
+    except Exception:
+        pass
+
+    return None
+
+
+def generate_js_skeleton(code: str, solution: Any) -> str:
+    """Generate skeleton code for JavaScript solutions."""
+    try:
+        # Simple JavaScript skeleton generation
+        # Extract function signatures from the code
+        function_pattern = r'function\s+(\w+)\s*\([^)]*\)\s*{'
+        functions = re.findall(function_pattern, code)
+
+        skeleton_lines = []
+        skeleton_lines.append("/**")
+        skeleton_lines.append(f" * {solution.name} - JavaScript Skeleton")
+        skeleton_lines.append(" * TODO: Implement the solution")
+        skeleton_lines.append(" */")
+        skeleton_lines.append("")
+
+        for func_name in functions:
+            if func_name in ['runTests', 'main', 'test']:
+                continue
+
+            # Extract the full function signature
+            func_match = re.search(rf'function\s+{func_name}\s*\([^)]*\)', code)
+            if func_match:
+                signature = func_match.group(0)
+                skeleton_lines.append(f"{signature} {{")
+                skeleton_lines.append("    // TODO: Implement solution")
+                skeleton_lines.append("    return null;")
+                skeleton_lines.append("}")
+                skeleton_lines.append("")
+
+        if not functions:
+            # Fallback if no functions found
+            skeleton_lines.append("function solution() {")
+            skeleton_lines.append("    // TODO: Implement solution")
+            skeleton_lines.append("    return null;")
+            skeleton_lines.append("}")
+
+        return "\n".join(skeleton_lines)
+
+    except Exception:
+        # Fallback skeleton
+        return f"""/**
+ * {solution.name} - JavaScript Skeleton
+ * TODO: Implement the solution
+ */
+
+function solution() {{
+    // TODO: Implement solution
+    return null;
+}}"""
+
+
 def get_syntax_highlighting_style() -> str:
     """Get the appropriate syntax highlighting style based on theme preference."""
     # Check for theme preference from cookies or headers
@@ -377,20 +631,19 @@ def solution_view(category: str, filename: str) -> str:
     if not solution:
         abort(404)
 
-    # Parse docstring to extract explanation
-    clean_code, explanation_html = parse_docstring_explanation(solution_code)
+    # Extract problem description from docstring
+    problem_description = extract_problem_description(solution_code)
+
+    # Parse docstring to extract explanation sections
+    clean_code, explanation_sections = parse_docstring_explanation(solution_code)
+
+    # Generate skeleton code
+    skeleton = generate_skeleton(clean_code, solution, is_leetcode=False)
 
     # Syntax highlighting for Python code
     formatter = create_code_formatter()
     highlighted_code = highlight(clean_code, PythonLexer(), formatter)
-
-    # Try to find corresponding documentation
-    doc_name = filename.replace(".py", "")
-    doc_content = category_manager.read_documentation(category, doc_name)
-    doc_html = markdown.markdown(doc_content, extensions=["fenced_code", "tables"]) if doc_content else None
-
-    # Merge and reorganize content to eliminate redundancy
-    merged_content = merge_and_reorganize_content(doc_html, explanation_html)
+    highlighted_skeleton = highlight(skeleton, PythonLexer(), formatter)
 
     # Get category name
     cat_data = category_manager.get_category(category)
@@ -408,9 +661,10 @@ def solution_view(category: str, filename: str) -> str:
         filename=display_filename,
         problem_number=solution.number,
         problem_name=solution.name,
+        problem_description=problem_description,
+        skeleton_code=highlighted_skeleton,
         code=highlighted_code,
-        documentation=None,  # No longer used separately
-        explanation=merged_content,  # Use merged content
+        explanation=explanation_sections,
         style=formatter.get_style_defs(".highlight"),  # type: ignore[no-untyped-call]
         is_leetcode_format=False,
         available_languages=available_languages,
@@ -476,7 +730,7 @@ def download_solution(category: str, filename: str, format: str, language: str =
         # Get alternative language solution
         base_name = filename.replace(".py", "")
         lang_extension = get_file_extension(language)
-        alt_filename = f"{base_name}.{language.lower()}{lang_extension}"
+        alt_filename = f"{base_name}{lang_extension}"
         alt_path = Path(__file__).parent.parent.parent / "solutions" / category / "alternatives" / alt_filename
 
         if alt_path.exists():
@@ -697,7 +951,7 @@ def view_alternative_solution(category: str, filename: str, language: str) -> st
     # Get the alternative solution file
     base_name = filename.replace(".py", "")
     lang_extension = get_file_extension(language)
-    alt_filename = f"{base_name}.{language.lower()}{lang_extension}"
+    alt_filename = f"{base_name}{lang_extension}"
     alt_path = Path(__file__).parent.parent.parent / "solutions" / category / "alternatives" / alt_filename
 
     if not alt_path.exists():
@@ -707,10 +961,24 @@ def view_alternative_solution(category: str, filename: str, language: str) -> st
     with open(alt_path) as f:
         code_content = f.read()
 
+    # Parse content based on language
+    if language.lower() == "javascript":
+        # Parse JavaScript code
+        clean_code, explanation_sections = parse_jsdoc_explanation(code_content)
+        problem_description = extract_js_problem_description(code_content)
+        skeleton_code = generate_js_skeleton(clean_code, solution)
+    else:
+        # For other languages, use basic parsing or add more language support as needed
+        clean_code = code_content
+        explanation_sections = None
+        problem_description = None
+        skeleton_code = None
+
     # Get appropriate lexer for syntax highlighting
     lexer = get_lexer_for_language(language)
     formatter = create_code_formatter()
-    highlighted_code = highlight(code_content, lexer, formatter)
+    highlighted_code = highlight(clean_code, lexer, formatter)
+    highlighted_skeleton = highlight(skeleton_code, lexer, formatter) if skeleton_code else None
 
     # Get all available languages for this problem
     available_languages = get_available_languages(category, filename)
@@ -727,9 +995,10 @@ def view_alternative_solution(category: str, filename: str, language: str) -> st
         filename=display_filename,
         problem_number=solution.number,
         problem_name=f"{solution.name} ({language})",
+        problem_description=problem_description,
+        skeleton_code=highlighted_skeleton,
         code=highlighted_code,
-        documentation=None,
-        explanation=None,
+        explanation=explanation_sections,
         style=formatter.get_style_defs(".highlight"),  # type: ignore[no-untyped-call]
         is_leetcode_format=False,
         current_language=language,
@@ -754,6 +1023,26 @@ def get_file_extension(language: str) -> str:
         "Ruby": ".rb",
         "PHP": ".php",
         "Scala": ".scala",
+        # Additional languages
+        "Lua": ".lua",
+        "Perl": ".pl",
+        "R": ".r",
+        "Julia": ".jl",
+        "Clojure": ".clj",
+        "Haskell": ".hs",
+        "Elixir": ".ex",
+        "OCaml": ".ml",
+        "Scheme": ".scm",
+        "Lisp": ".lisp",
+        # .NET languages
+        "VB.NET": ".vb",
+        "F#": ".fs",
+        # Shell scripts
+        "Bash": ".sh",
+        "Zsh": ".zsh",
+        "Fish": ".fish",
+        "PowerShell": ".ps1",
+        "Batch": ".bat",
     }
     return extensions.get(language, ".txt")
 
@@ -783,51 +1072,100 @@ def get_available_languages(category: str, filename: str) -> list[str]:
     alt_dir = Path(__file__).parent.parent.parent / "solutions" / category / "alternatives"
     if alt_dir.exists():
         base_name = filename.replace(".py", "")
+
+        # Map file extensions to languages
+        extension_to_language = {
+            ".js": "JavaScript",
+            ".java": "Java",
+            ".cpp": "C++",
+            ".c": "C",
+            ".ts": "TypeScript",
+            ".go": "Go",
+            ".rs": "Rust",
+            ".cs": "C#",
+            ".swift": "Swift",
+            ".kt": "Kotlin",
+            ".rb": "Ruby",
+            ".php": "PHP",
+            ".scala": "Scala",
+            # Additional languages
+            ".lua": "Lua",
+            ".pl": "Perl",
+            ".r": "R",
+            ".jl": "Julia",
+            ".clj": "Clojure",
+            ".hs": "Haskell",
+            ".ex": "Elixir",
+            ".ml": "OCaml",
+            ".scm": "Scheme",
+            ".lisp": "Lisp",
+            # .NET languages
+            ".vb": "VB.NET",
+            ".fs": "F#",
+            # Shell scripts
+            ".sh": "Bash",
+            ".bash": "Bash",
+            ".zsh": "Zsh",
+            ".fish": "Fish",
+            ".ps1": "PowerShell",
+            ".bat": "Batch",
+        }
+
         for file_path in alt_dir.iterdir():
-            if file_path.name.startswith(base_name):
-                # Extract language from filename
-                for lang in [
-                    "java",
-                    "cpp",
-                    "c",
-                    "javascript",
-                    "typescript",
-                    "go",
-                    "rust",
-                    "cs",
-                    "swift",
-                    "kotlin",
-                    "ruby",
-                    "php",
-                    "scala",
-                ]:
-                    # Check for pattern: base_name.language.extension
-                    if f".{lang}." in file_path.name.lower():
-                        language_map = {
-                            "cpp": "C++",
-                            "c": "C",
-                            "javascript": "JavaScript",
-                            "typescript": "TypeScript",
-                            "go": "Go",
-                            "rust": "Rust",
-                            "cs": "C#",
-                            "swift": "Swift",
-                            "java": "Java",
-                            "kotlin": "Kotlin",
-                            "ruby": "Ruby",
-                            "php": "PHP",
-                            "scala": "Scala",
-                        }
-                        languages.append(language_map.get(lang, lang.title()))
-                        break
+            if file_path.name.startswith(base_name) and file_path.is_file():
+                # Check for simple naming pattern: base_name.ext (e.g., "048-rotate-image.js")
+                file_extension = file_path.suffix.lower()
+                if file_extension in extension_to_language:
+                    language = extension_to_language[file_extension]
+                    languages.append(language)
 
     return sorted(set(languages))
 
 
 @app.route("/docs")
-def docs_index() -> Response:
-    """Documentation index - redirect to README."""
-    return cast(Response, redirect(url_for("docs_readme")))
+def docs_index() -> str:
+    """Documentation index - show available documentation categories."""
+    docs = []
+    docs_path = Path(__file__).parent.parent.parent / "docs"
+
+    if docs_path.exists():
+        for category_dir in sorted(docs_path.iterdir()):
+            if category_dir.is_dir() and not category_dir.name.startswith('.'):
+                readme_path = category_dir / "README.md"
+                if readme_path.exists():
+                    # Convert directory name to display name
+                    display_name = category_dir.name.replace('-', ' & ').title()
+                    if category_dir.name == "arrays-hashing":
+                        display_name = "Arrays & Hashing"
+                    elif category_dir.name == "two-pointers":
+                        display_name = "Two Pointers"
+                    elif category_dir.name == "dynamic-programming":
+                        display_name = "Dynamic Programming"
+                    elif category_dir.name == "binary-search":
+                        display_name = "Binary Search"
+                    elif category_dir.name == "bit-manipulation":
+                        display_name = "Bit Manipulation"
+                    elif category_dir.name == "topological-sort":
+                        display_name = "Topological Sort"
+                    elif category_dir.name == "string-manipulation":
+                        display_name = "String Manipulation"
+                    elif category_dir.name == "monotonic-stack":
+                        display_name = "Monotonic Stack"
+                    elif category_dir.name == "segment-tree":
+                        display_name = "Segment Tree"
+                    elif category_dir.name == "prefix-sum":
+                        display_name = "Prefix Sum"
+                    elif category_dir.name == "sliding-window":
+                        display_name = "Sliding Window"
+                    elif category_dir.name == "union-find":
+                        display_name = "Union Find"
+
+                    docs.append({
+                        'slug': category_dir.name,
+                        'name': display_name
+                    })
+
+    return render_template("docs.html", docs=docs)
 
 
 @app.route("/docs/README")
@@ -844,6 +1182,16 @@ def docs_readme() -> str:
 @app.route("/docs/<category>")
 def docs_view(category: str) -> str:
     """View category documentation."""
+    # Handle user guide specially
+    if category == "user_guide":
+        docs_path = Path(__file__).parent.parent.parent / "docs" / "user_guide.md"
+        if docs_path.exists():
+            doc_content = docs_path.read_text()
+            doc_html = markdown.markdown(doc_content, extensions=["fenced_code", "tables", "toc"])
+            return render_template("doc_view.html", category=category, category_name="User Guide", content=doc_html)
+        abort(404)
+
+    # Handle regular category documentation
     doc_content = category_manager.read_documentation(category)
     if not doc_content:
         abort(404)
