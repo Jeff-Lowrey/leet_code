@@ -11,6 +11,13 @@
         overflow-x: auto;
     }
 </style>
+<script>
+    function switchLanguage(url) {
+        if (url) {
+            window.location.href = url;
+        }
+    }
+</script>
 {% endblock %}
 
 {% block content %}
@@ -51,40 +58,167 @@
     <!-- Language selector if multiple languages available -->
     {% if available_languages and available_languages|length > 1 %}
     <div class="language-selector">
-        <span class="language-label">Available Languages:</span>
-        {% for lang in available_languages %}
-            {% if lang == 'Python' %}
-                {% if not current_language or current_language == 'Python' %}
-                    <span class="language-badge active">{{ lang }}</span>
-                {% else %}
-                    <a href="{{ url_for('solution_view', category=category, filename=filename) }}" class="language-badge">{{ lang }}</a>
-                {% endif %}
-            {% else %}
-                {% if current_language == lang %}
-                    <span class="language-badge active">{{ lang }}</span>
-                {% else %}
-                    <a href="{{ url_for('view_alternative_solution', category=category, filename=filename, language=lang) }}" class="language-badge">{{ lang }}</a>
-                {% endif %}
-            {% endif %}
-        {% endfor %}
+        <div class="language-info">
+            <span class="language-label">Available Languages:</span>
+            <span class="available-languages">{{ available_languages|join(', ') }}</span>
+        </div>
+        <div class="language-dropdown">
+            <label for="language-select" class="dropdown-label">Choose Language:</label>
+            <select id="language-select" class="language-select" onchange="switchLanguage(this.value)">
+                {% for lang in available_languages %}
+                    {% if lang == 'Python' %}
+                        <option value="{{ url_for('solution_view', category=category, filename=filename) }}"
+                                {% if not current_language or current_language == 'Python' %}selected{% endif %}>
+                            {{ lang }}
+                        </option>
+                    {% else %}
+                        <option value="{{ url_for('view_alternative_solution', category=category, filename=filename, language=lang) }}"
+                                {% if current_language == lang %}selected{% endif %}>
+                            {{ lang }}
+                        </option>
+                    {% endif %}
+                {% endfor %}
+            </select>
+        </div>
     </div>
     {% endif %}
 </header>
 
+<!-- Problem Statement Section (Non-collapsible) -->
+{% if problem_description %}
+<section class="problem-statement">
+    <h2>Problem Statement</h2>
+    <div class="problem-content">
+        {{ problem_description|safe }}
+    </div>
+</section>
+{% endif %}
+
 {% if explanation %}
 <section class="solution-explanation">
+
+    {% if explanation.intuition %}
     <details>
-        <summary><h2>📖 Problem & Solution Guide</h2></summary>
+        <summary>Intuition</summary>
         <div class="explanation-content">
-            {{ explanation|safe }}
+            {{ explanation.intuition|safe }}
+        </div>
+    </details>
+    {% endif %}
+
+    {% if explanation.key_insight %}
+    <details>
+        <summary>Key Insight</summary>
+        <div class="explanation-content">
+            {{ explanation.key_insight|safe }}
+        </div>
+    </details>
+    {% endif %}
+
+    {% if explanation.approach %}
+    <details>
+        <summary>Approach</summary>
+        <div class="explanation-content">
+            {{ explanation.approach|safe }}
+        </div>
+    </details>
+    {% endif %}
+
+    {% if explanation.algorithm %}
+    <details>
+        <summary>Algorithm</summary>
+        <div class="explanation-content">
+            {{ explanation.algorithm|safe }}
+        </div>
+    </details>
+    {% endif %}
+
+    {% if explanation.why_this_works %}
+    <details>
+        <summary>Why This Works</summary>
+        <div class="explanation-content">
+            {{ explanation.why_this_works|safe }}
+        </div>
+    </details>
+    {% endif %}
+
+    {% if explanation.example %}
+    <details>
+        <summary>Example Walkthrough</summary>
+        <div class="explanation-content">
+            {{ explanation.example|safe }}
+        </div>
+    </details>
+    {% endif %}
+
+    {% if explanation.edge_cases %}
+    <details>
+        <summary>Edge Cases</summary>
+        <div class="explanation-content">
+            {{ explanation.edge_cases|safe }}
+        </div>
+    </details>
+    {% endif %}
+
+    {% if explanation.complexity %}
+    <details>
+        <summary>Complexity Analysis</summary>
+        <div class="explanation-content">
+            {{ explanation.complexity|safe }}
+        </div>
+    </details>
+    {% endif %}
+
+    {% if explanation.additional_notes %}
+    <details>
+        <summary>Additional Notes</summary>
+        <div class="explanation-content">
+            {{ explanation.additional_notes|safe }}
+        </div>
+    </details>
+    {% endif %}
+
+    {% if explanation.optimizations %}
+    <details>
+        <summary>Optimizations</summary>
+        <div class="explanation-content">
+            {{ explanation.optimizations|safe }}
+        </div>
+    </details>
+    {% endif %}
+
+    {% if explanation.alternatives %}
+    <details>
+        <summary>Alternative Approaches</summary>
+        <div class="explanation-content">
+            {{ explanation.alternatives|safe }}
+        </div>
+    </details>
+    {% endif %}
+
+</section>
+{% endif %}
+
+<!-- Skeleton Code Section (Collapsible) -->
+{% if skeleton_code %}
+<section class="skeleton-code">
+    <details>
+        <summary>Skeleton Code</summary>
+        <div class="code-content">
+            {{ skeleton_code|safe }}
         </div>
     </details>
 </section>
 {% endif %}
 
+<!-- Solution Code Section (Collapsible) -->
 <section class="solution-code">
-    <h2>Solution Code</h2>
-    {{ code|safe }}
+    <details open>
+        <summary>Solution Code</summary>
+        <div class="code-content">
+            {{ code|safe }}
+        </div>
+    </details>
 </section>
 
 <section class="navigation">

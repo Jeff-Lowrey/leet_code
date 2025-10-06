@@ -9,6 +9,10 @@
 </header>
 
 <section class="docs-grid">
+    <a href="{{ url_for('docs_view', category='user_guide') }}" class="doc-card">
+        <h3>User Guide</h3>
+        <p>Complete guide to using the application →</p>
+    </a>
     {% for doc in docs %}
     <a href="{{ url_for('docs_view', category=doc.slug) }}" class="doc-card">
         <h3>{{ doc.name }}</h3>
