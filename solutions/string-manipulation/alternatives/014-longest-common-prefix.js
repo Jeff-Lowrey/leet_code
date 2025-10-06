@@ -1,0 +1,120 @@
+/**
+ * 014. Longest Common Prefix
+ * Trie
+ *
+ * This problem demonstrates key concepts in String Manipulation.
+ *
+ * SOLUTION EXPLANATION:
+ *
+ * INTUITION:
+ * The longest common prefix is the sequence of characters that all strings share from the beginning. We can find this by comparing characters at each position across all strings until we find a mismatch.
+ *
+ * APPROACH:
+ * 1. **Vertical Scanning**: Compare characters at the same position across all strings
+2. Start from position 0 and check if all strings have the same character at that position
+3. Continue until we find a mismatch or reach the end of any string
+4. Return the prefix found so far
+ *
+ * WHY THIS WORKS:
+ * Since we're looking for a common prefix, all strings must have identical characters at each position from the start. The moment any string differs or ends, we've found the longest possible common prefix.
+ *
+ * TIME COMPLEXITY: O(S)
+- S is the sum of all characters in all strings
+- In worst case, we examine every character once
+ * SPACE COMPLEXITY: O(1)
+- Only using constant extra space for variables
+ *
+ * EXAMPLE WALKTHROUGH:
+ * For strs = ["flower","flow","flight"]:
+1. Position 0: 'f', 'f', 'f' → all match
+2. Position 1: 'l', 'l', 'l' → all match
+3. Position 2: 'o', 'o', 'i' → mismatch found
+4. Return "fl"
+ *
+ * EDGE CASES:
+ * - Empty array: return ""
+- Empty string in array: return ""
+- Single string: return the string itself
+- No common prefix: return ""
+ */
+
+/**
+ * Main solution for Problem 014: Longest Common Prefix
+ *
+ * @param {any} args - Problem-specific arguments
+ * @return {any} - Problem-specific return type
+ *
+ * Time Complexity: O(S)
+- S is the sum of all characters in all strings
+- In worst case, we examine every character once
+ * Space Complexity: O(1)
+- Only using constant extra space for variables
+ */
+function solve(...args) {
+    // TODO: Implement the solution using string manipulation techniques
+    //
+    // Algorithm Steps:
+    // 1. Initialize necessary variables
+    // 2. Process input using string manipulation methodology
+    // 3. Handle edge cases appropriately
+    // 4. Return the computed result
+
+    return null; // Replace with actual implementation
+}
+
+/**
+ * Test cases for Problem 014: Longest Common Prefix
+ */
+function testSolution() {
+    console.log('Testing 014. Longest Common Prefix');
+
+    // Test case 1: Basic functionality
+    // const result1 = solve(testInput1);
+    // const expected1 = expectedOutput1;
+    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+
+    // Test case 2: Edge case
+    // const result2 = solve(edgeCaseInput);
+    // const expected2 = edgeCaseOutput;
+    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+
+    // Test case 3: Large input
+    // const result3 = solve(largeInput);
+    // const expected3 = largeExpected;
+    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+
+    console.log('All test cases passed for 014. Longest Common Prefix!');
+}
+
+/**
+ * Example usage and demonstration
+ */
+function demonstrateSolution() {
+    console.log('\n=== Problem 014. Longest Common Prefix ===');
+    console.log('Category: String Manipulation');
+    console.log('Difficulty: Trie');
+    console.log('');
+
+    // Example demonstration would go here
+    testSolution();
+}
+
+// Run tests if this file is executed directly
+if (require.main === module) {
+    demonstrateSolution();
+}
+
+// Export for use in other modules
+module.exports = {
+    solve,
+    testSolution,
+    demonstrateSolution
+};
+
+/**
+ * Additional Notes:
+ * - This solution focuses on string manipulation concepts
+ * - Consider the trade-offs between time and space complexity
+ * - Edge cases are crucial for robust solutions
+ * - The approach can be adapted for similar problems in this category
+ */

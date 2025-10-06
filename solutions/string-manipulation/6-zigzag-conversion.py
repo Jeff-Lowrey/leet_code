@@ -1,23 +1,15 @@
 """
-# 547. Number Of Provinces
+# 6. Zigzag Conversion
 **Medium**
 
-This problem demonstrates key concepts in Union Find.
-
-## Problem Description
-
-[Problem description will be added here]
-
-## Solution Approach
-
-[Solution approach will be added here]
+This problem demonstrates key concepts in String Manipulation.
 
 """
 
 class Solution:
     def solve(self, *args) -> None:
         """
-        Main solution for Problem 547.
+        Main solution for Problem 6.
 
         Time Complexity: O(n)
         Space Complexity: O(1)
@@ -26,7 +18,7 @@ class Solution:
 
 
 def test_solution():
-    """Test cases for Problem 547."""
+    """Test cases for Problem 6."""
     solution = Solution()
 
     # Test case 1

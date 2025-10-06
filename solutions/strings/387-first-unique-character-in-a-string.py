@@ -1,23 +1,15 @@
 """
-# 547. Number Of Provinces
-**Medium**
+# 387. First Unique Character In A String
+**Easy**
 
-This problem demonstrates key concepts in Union Find.
-
-## Problem Description
-
-[Problem description will be added here]
-
-## Solution Approach
-
-[Solution approach will be added here]
+This problem demonstrates key concepts in Strings.
 
 """
 
 class Solution:
     def solve(self, *args) -> None:
         """
-        Main solution for Problem 547.
+        Main solution for Problem 387.
 
         Time Complexity: O(n)
         Space Complexity: O(1)
@@ -26,7 +18,7 @@ class Solution:
 
 
 def test_solution():
-    """Test cases for Problem 547."""
+    """Test cases for Problem 387."""
     solution = Solution()
 
     # Test case 1

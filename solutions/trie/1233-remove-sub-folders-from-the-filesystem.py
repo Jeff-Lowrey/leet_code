@@ -1,8 +1,8 @@
 """
-# 547. Number Of Provinces
+# 1233. Remove Sub Folders From The Filesystem
 **Medium**
 
-This problem demonstrates key concepts in Union Find.
+This problem demonstrates key concepts in Trie.
 
 ## Problem Description
 
@@ -17,7 +17,7 @@ This problem demonstrates key concepts in Union Find.
 class Solution:
     def solve(self, *args) -> None:
         """
-        Main solution for Problem 547.
+        Main solution for Problem 1233.
 
         Time Complexity: O(n)
         Space Complexity: O(1)
@@ -26,7 +26,7 @@ class Solution:
 
 
 def test_solution():
-    """Test cases for Problem 547."""
+    """Test cases for Problem 1233."""
     solution = Solution()
 
     # Test case 1

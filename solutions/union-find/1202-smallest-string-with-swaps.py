@@ -1,5 +1,5 @@
 """
-# 547. Number Of Provinces
+# 1202. Smallest String With Swaps
 **Medium**
 
 This problem demonstrates key concepts in Union Find.
@@ -17,7 +17,7 @@ This problem demonstrates key concepts in Union Find.
 class Solution:
     def solve(self, *args) -> None:
         """
-        Main solution for Problem 547.
+        Main solution for Problem 1202.
 
         Time Complexity: O(n)
         Space Complexity: O(1)
@@ -26,7 +26,7 @@ class Solution:
 
 
 def test_solution():
-    """Test cases for Problem 547."""
+    """Test cases for Problem 1202."""
     solution = Solution()
 
     # Test case 1

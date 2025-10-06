@@ -1,8 +1,8 @@
 """
-# 547. Number Of Provinces
-**Medium**
+# 745. Prefix And Suffix Search
+**Hard**
 
-This problem demonstrates key concepts in Union Find.
+This problem demonstrates key concepts in Trie.
 
 ## Problem Description
 
@@ -17,7 +17,7 @@ This problem demonstrates key concepts in Union Find.
 class Solution:
     def solve(self, *args) -> None:
         """
-        Main solution for Problem 547.
+        Main solution for Problem 745.
 
         Time Complexity: O(n)
         Space Complexity: O(1)
@@ -26,7 +26,7 @@ class Solution:
 
 
 def test_solution():
-    """Test cases for Problem 547."""
+    """Test cases for Problem 745."""
     solution = Solution()
 
     # Test case 1

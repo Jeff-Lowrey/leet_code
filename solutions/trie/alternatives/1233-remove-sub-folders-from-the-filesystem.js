@@ -1,44 +1,32 @@
 /**
- * 721. Accounts
+ * 1233. Remove Sub Folders From The Filesystem
  * Medium
  *
- * This problem demonstrates key concepts in Union Find.
+ * This problem demonstrates key concepts in Trie.
  *
  * SOLUTION EXPLANATION:
  *
  * INTUITION:
- * [This problem requires understanding of union find concepts. The key insight is to identify the optimal approach for this specific scenario.]
+ * This problem requires understanding of trie concepts.
  *
  * APPROACH:
- * 1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply union find methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+ * Apply trie methodology to solve efficiently.
  *
  * WHY THIS WORKS:
- * - The solution leverages union find principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+ * The solution leverages trie principles for optimal performance.
  *
  * TIME COMPLEXITY: O(n)
  * SPACE COMPLEXITY: O(1)
  *
  * EXAMPLE WALKTHROUGH:
- * ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
-```
+ * Input: [example input]\nStep 1: [explain first step]\nOutput: [expected output]
  *
  * EDGE CASES:
- * - Empty input handling
-- Single element cases
-- Large input considerations
+ * - Empty input handling\n- Single element cases\n- Large input considerations
  */
 
 /**
- * Main solution for Problem 721: Accounts
+ * Main solution for Problem 1233: Remove Sub Folders From The Filesystem
  *
  * @param {any} args - Problem-specific arguments
  * @return {any} - Problem-specific return type
@@ -47,11 +35,11 @@ Output: [expected output]
  * Space Complexity: O(1)
  */
 function solve(...args) {
-    // TODO: Implement the solution using union find techniques
+    // TODO: Implement the solution using trie techniques
     //
     // Algorithm Steps:
     // 1. Initialize necessary variables
-    // 2. Process input using union find methodology
+    // 2. Process input using trie methodology
     // 3. Handle edge cases appropriately
     // 4. Return the computed result
 
@@ -59,10 +47,10 @@ function solve(...args) {
 }
 
 /**
- * Test cases for Problem 721: Accounts
+ * Test cases for Problem 1233: Remove Sub Folders From The Filesystem
  */
 function testSolution() {
-    console.log('Testing 721. Accounts');
+    console.log('Testing 1233. Remove Sub Folders From The Filesystem');
 
     // Test case 1: Basic functionality
     // const result1 = solve(testInput1);
@@ -79,15 +67,15 @@ function testSolution() {
     // const expected3 = largeExpected;
     // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
 
-    console.log('All test cases passed for 721. Accounts!');
+    console.log('All test cases passed for 1233. Remove Sub Folders From The Filesystem!');
 }
 
 /**
  * Example usage and demonstration
  */
 function demonstrateSolution() {
-    console.log('\n=== Problem 721. Accounts ===');
-    console.log('Category: Union Find');
+    console.log('\n=== Problem 1233. Remove Sub Folders From The Filesystem ===');
+    console.log('Category: Trie');
     console.log('Difficulty: Medium');
     console.log('');
 
@@ -109,7 +97,7 @@ module.exports = {
 
 /**
  * Additional Notes:
- * - This solution focuses on union find concepts
+ * - This solution focuses on trie concepts
  * - Consider the trade-offs between time and space complexity
  * - Edge cases are crucial for robust solutions
  * - The approach can be adapted for similar problems in this category

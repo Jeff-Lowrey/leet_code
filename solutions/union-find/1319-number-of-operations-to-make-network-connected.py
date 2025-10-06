@@ -1,5 +1,5 @@
 """
-# 547. Number Of Provinces
+# 1319. Number Of Operations To Make Network Connected
 **Medium**
 
 This problem demonstrates key concepts in Union Find.
@@ -15,9 +15,9 @@ This problem demonstrates key concepts in Union Find.
 """
 
 class Solution:
-    def solve(self, *args) -> None:
+    def partition(self, s: str) -> List[List[str]]:
         """
-        Main solution for Problem 547.
+        partition - Main solution for Problem 131.
 
         Time Complexity: O(n)
         Space Complexity: O(1)
@@ -26,7 +26,7 @@ class Solution:
 
 
 def test_solution():
-    """Test cases for Problem 547."""
+    """Test cases for Problem 1319."""
     solution = Solution()
 
     # Test case 1
