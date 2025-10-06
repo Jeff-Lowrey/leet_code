@@ -101,5 +101,6 @@ pdm.lock
 .workflow-cache/
 
 .claude_actions/
+.claude_functions/
 # Project-specific Claude rules
 CLAUDE.md
