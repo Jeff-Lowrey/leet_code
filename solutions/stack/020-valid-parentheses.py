@@ -1,53 +1,90 @@
 """
-# 020. Valid Parentheses
-**Medium**
+20. Valid Parentheses
+Easy
 
-Given a problem that demonstrates key concepts in Stack.
+Given a string s containing just the characters '(', ')', '{', '}', '[' and ']',
+determine if the input string is valid.
+
+An input string is valid if:
+1. Open brackets must be closed by the same type of brackets.
+2. Open brackets must be closed in the correct order.
+3. Every close bracket has a corresponding open bracket of the same type.
+
+Example 1:
+Input: s = "()"
+Output: true
+
+Example 2:
+Input: s = "()[]{}"
+Output: true
+
+Example 3:
+Input: s = "(]"
+Output: false
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
-[This problem requires understanding of stack concepts. The key insight is to identify the optimal approach for this specific scenario.]
+This is a classic stack problem. When we encounter an opening bracket, we push it onto the stack.
+When we encounter a closing bracket, we check if it matches the most recent opening bracket (top of stack).
+If all brackets are properly matched, the stack will be empty at the end.
 
 ### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply stack methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+1. **Use a stack** to track opening brackets
+2. **Push opening brackets** onto the stack
+3. **Pop and check** when encountering closing brackets
+4. **Validate matching** bracket types
+5. **Check empty stack** at the end
 
 ### WHY THIS WORKS:
-- The solution leverages stack principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+- Stack follows LIFO (Last In, First Out) principle
+- This naturally handles the "most recent unmatched opening bracket" requirement
+- Each closing bracket must match the most recent opening bracket
+- Empty stack at the end means all brackets were properly matched
 
 ### TIME COMPLEXITY: O(n)
-### SPACE COMPLEXITY: O(1)
+Single pass through the string
+
+### SPACE COMPLEXITY: O(n)
+Stack can contain up to n/2 opening brackets in worst case
 
 ### EXAMPLE WALKTHROUGH:
 ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
+Input: s = "([{}])"
+
+Step 1: '(' → push to stack: ['(']
+Step 2: '[' → push to stack: ['(', '[']
+Step 3: '{' → push to stack: ['(', '[', '{']
+Step 4: '}' → pop '{', matches ✓, stack: ['(', '[']
+Step 5: ']' → pop '[', matches ✓, stack: ['(']
+Step 6: ')' → pop '(', matches ✓, stack: []
+Result: Empty stack → True
 ```
 
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- Empty string: Valid (return True)
+- Single opening bracket: Invalid
+- Single closing bracket: Invalid
+- Odd length string: Invalid (can't have balanced brackets)
+- Wrong order: "([)]" → Invalid
 
 </details>
 
 <details>
 <summary><b>💡 APPROACH</b></summary>
 
-The approach uses stack techniques to solve this problem efficiently.
+Stack-based approach:
+1. Create a mapping of closing to opening brackets
+2. Use stack to track opening brackets
+3. For each character:
+   - If opening bracket: push to stack
+   - If closing bracket: check if it matches top of stack
+4. Return True if stack is empty at the end
 
-### Algorithm Steps:
-1. Initialize necessary variables
-2. Process input using stack method
-3. Return the computed result
+Alternative approaches:
+- Replace pairs iteratively (less efficient)
+- Recursive approach (more complex)
 
 </details>
 """
@@ -55,62 +92,114 @@ The approach uses stack techniques to solve this problem efficiently.
 class Solution:
     def isValid(self, s: str) -> bool:
         """
-        Determines if a string of parentheses is valid.
-        
+        Determine if parentheses string is valid using stack approach.
+
         Args:
-            s (str): The input string containing parentheses
-            
+            s: String containing only '(', ')', '{', '}', '[', ']'
+
         Returns:
-            bool: True if the parentheses are valid, False otherwise
+            True if string has valid parentheses, False otherwise
+
+        Time Complexity: O(n)
+        Space Complexity: O(n)
         """
-        # Initialize stack to store opening brackets
+        # Early termination: odd length can't be balanced
+        if len(s) % 2 == 1:
+            return False
+
+        # Stack to track opening brackets
         stack = []
-        
-        # Define mapping of closing to opening brackets
+
+        # Mapping of closing to opening brackets
         bracket_map = {
             ')': '(',
             '}': '{',
             ']': '['
         }
-        
-        # Iterate through each character in the string
+
         for char in s:
-            # If character is a closing bracket
             if char in bracket_map:
-                # Get the top element of stack if it exists, else use dummy value
-                top_element = stack.pop() if stack else '#'
-                
-                # Check if the mapping matches
-                if bracket_map[char] != top_element:
+                # Closing bracket
+                if not stack or stack.pop() != bracket_map[char]:
                     return False
             else:
-                # If it's an opening bracket, push to stack
+                # Opening bracket
                 stack.append(char)
-        
-        # String is valid if stack is empty (all brackets were matched)
+
+        # Valid if all brackets were matched (empty stack)
         return len(stack) == 0
 
+    def isValidAlternative(self, s: str) -> bool:
+        """
+        Alternative implementation with explicit opening bracket check.
+
+        Time Complexity: O(n)
+        Space Complexity: O(n)
+        """
+        stack = []
+        opening = {'(', '[', '{'}
+        pairs = {')': '(', ']': '[', '}': '{'}
+
+        for char in s:
+            if char in opening:
+                stack.append(char)
+            elif char in pairs:
+                if not stack or stack.pop() != pairs[char]:
+                    return False
+            # Ignore other characters (if any)
+
+        return len(stack) == 0
+
+    def isValidIterative(self, s: str) -> bool:
+        """
+        Alternative iterative replacement approach (less efficient).
+
+        Time Complexity: O(n²) in worst case
+        Space Complexity: O(n)
+        """
+        # Keep replacing valid pairs until no more changes
+        while '()' in s or '[]' in s or '{}' in s:
+            s = s.replace('()', '').replace('[]', '').replace('{}', '')
+
+        return s == ''
+
+
 def test_solution():
-    """
-    Test cases for 020. Valid Parentheses.
-    """
+    """Test cases for Valid Parentheses problem."""
     solution = Solution()
 
-    # Test case 1: Basic functionality
-    # result = solution.solve([test_input])
-    # expected = [expected_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 1: Simple valid cases
+    assert solution.isValid("()") == True, "Test 1a failed"
+    assert solution.isValid("[]") == True, "Test 1b failed"
+    assert solution.isValid("{}") == True, "Test 1c failed"
 
-    # Test case 2: Edge case
-    # result = solution.solve([edge_case_input])
-    # expected = [edge_case_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 2: Multiple brackets
+    assert solution.isValid("()[]{}") == True, "Test 2a failed"
+    assert solution.isValid("([{}])") == True, "Test 2b failed"
 
-    print("All test cases passed!")
+    # Test case 3: Invalid cases
+    assert solution.isValid("(]") == False, "Test 3a failed"
+    assert solution.isValid("([)]") == False, "Test 3b failed"
+    assert solution.isValid("((") == False, "Test 3c failed"
+    assert solution.isValid("))") == False, "Test 3d failed"
+
+    # Test case 4: Edge cases
+    assert solution.isValid("") == True, "Test 4a failed"
+    assert solution.isValid("(") == False, "Test 4b failed"
+    assert solution.isValid(")") == False, "Test 4c failed"
+
+    # Test case 5: Complex valid case
+    assert solution.isValid("((([{}])))") == True, "Test 5a failed"
+
+    # Test case 6: Complex invalid case
+    assert solution.isValid("([{}]))]") == False, "Test 6a failed"
+
+    # Test alternative implementations
+    assert solution.isValidAlternative("()[]{}") == True, "Alt test failed"
+    assert solution.isValidIterative("([{}])") == True, "Iterative test failed"
+
+    print("All test cases passed for Valid Parentheses!")
+
 
 if __name__ == "__main__":
     test_solution()
-
-    # Example usage
-    solution = Solution()
-    print(f"Solution for 020. Valid Parentheses")
