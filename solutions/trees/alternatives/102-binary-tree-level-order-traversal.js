@@ -61,6 +61,15 @@ class TreeNode {
 }
 
 /**
+ * Main solution for Problem 102: Binary Tree Level Order Traversal
+ * @param {TreeNode} root - Root of binary tree
+ * @returns {number[][]} List of lists, each containing values at that level
+ */
+function solve(root) {
+    return levelOrder(root);
+}
+
+/**
  * Return level order traversal using BFS with queue
  * @param {TreeNode} root - Root of binary tree
  * @returns {number[][]} List of lists, each containing values at that level
@@ -369,6 +378,7 @@ if (require.main === module) {
 
 // Export for use in other modules
 module.exports = {
+    solve,
     levelOrder,
     levelOrderRecursive,
     levelOrderIterative,

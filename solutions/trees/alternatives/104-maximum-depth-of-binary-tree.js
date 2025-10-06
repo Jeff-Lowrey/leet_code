@@ -64,6 +64,15 @@ class TreeNode {
 }
 
 /**
+ * Main solution for Problem 104: Maximum Depth of Binary Tree
+ * @param {TreeNode} root - Root of binary tree
+ * @returns {number} Maximum depth of the tree
+ */
+function solve(root) {
+    return maxDepth(root);
+}
+
+/**
  * Find maximum depth using recursive DFS
  * @param {TreeNode} root - Root of binary tree
  * @returns {number} Maximum depth of the tree
@@ -324,6 +333,7 @@ if (require.main === module) {
 
 // Export for use in other modules
 module.exports = {
+    solve,
     maxDepth,
     maxDepthBFS,
     maxDepthIterativeDFS,

@@ -1,61 +1,206 @@
 /**
  * 226. Invert Binary Tree
- * Medium
+ * Easy
  *
- * This problem demonstrates key concepts in Trees.
+ * This problem demonstrates tree manipulation through mirroring.
  *
  * SOLUTION EXPLANATION:
  *
  * INTUITION:
- * [This problem requires understanding of trees concepts. The key insight is to identify the optimal approach for this specific scenario.]
+ * To invert a binary tree, we need to swap the left and right children
+ * of every node. This creates a mirror image of the original tree.
+ * We can achieve this recursively or iteratively.
  *
  * APPROACH:
- * 1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply trees methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+ * 1. **Recursive**: Swap children, then recursively invert subtrees
+ * 2. **Iterative BFS**: Use queue to process nodes level by level
+ * 3. **Iterative DFS**: Use stack to process nodes depth-first
+ * 4. **Handle edge cases**: Null tree, single node
  *
  * WHY THIS WORKS:
- * - The solution leverages trees principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+ * - Swapping children at each node creates the mirror effect
+ * - Recursive structure naturally handles all subtrees
+ * - Iterative approaches use explicit data structures instead of call stack
+ * - All nodes must be processed exactly once
  *
- * TIME COMPLEXITY: O(n)
- * SPACE COMPLEXITY: O(1)
+ * TIME COMPLEXITY: O(n) where n is number of nodes
+ * Each node is visited exactly once
+ *
+ * SPACE COMPLEXITY:
+ *   - Recursive: O(h) where h is height (call stack)
+ *   - Iterative: O(w) where w is maximum width (queue/stack)
  *
  * EXAMPLE WALKTHROUGH:
  * ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
-```
+ * Input:     4
+ *           / \
+ *          2   7
+ *         / \ / \
+ *        1  3 6  9
+ *
+ * Step 1: Swap children of 4: 7 and 2
+ * Step 2: Swap children of 7: 9 and 6
+ * Step 3: Swap children of 2: 3 and 1
+ * Output:    4
+ *           / \
+ *          7   2
+ *         / \ / \
+ *        9  6 3  1
+ * ```
  *
  * EDGE CASES:
- * - Empty input handling
-- Single element cases
-- Large input considerations
+ * - Empty tree (return null)
+ * - Single node (return same node)
+ * - Linear trees (left or right skewed)
  */
+
+/**
+ * Definition for a binary tree node.
+ */
+function TreeNode(val, left, right) {
+    this.val = (val === undefined ? 0 : val);
+    this.left = (left === undefined ? null : left);
+    this.right = (right === undefined ? null : right);
+}
 
 /**
  * Main solution for Problem 226: Invert Binary Tree
  *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
+ * @param {TreeNode} root - Root of binary tree
+ * @return {TreeNode} - Root of inverted tree
  *
- * Time Complexity: O(n)
- * Space Complexity: O(1)
+ * Time Complexity: O(n) where n is number of nodes
+ * Space Complexity: O(h) where h is height of tree
  */
-function solve(...args) {
-    // TODO: Implement the solution using trees techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using trees methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+function solve(root) {
+    return invertTree(root);
+}
 
-    return null; // Replace with actual implementation
+/**
+ * Approach 1: Recursive inversion
+ *
+ * @param {TreeNode} root
+ * @return {TreeNode}
+ */
+function invertTree(root) {
+    if (!root) return null;
+
+    // Swap left and right children
+    const temp = root.left;
+    root.left = root.right;
+    root.right = temp;
+
+    // Recursively invert subtrees
+    invertTree(root.left);
+    invertTree(root.right);
+
+    return root;
+}
+
+/**
+ * Approach 2: Iterative BFS with queue
+ *
+ * @param {TreeNode} root
+ * @return {TreeNode}
+ */
+function invertTreeBFS(root) {
+    if (!root) return null;
+
+    const queue = [root];
+
+    while (queue.length > 0) {
+        const node = queue.shift();
+
+        // Swap children
+        const temp = node.left;
+        node.left = node.right;
+        node.right = temp;
+
+        // Add children to queue for processing
+        if (node.left) queue.push(node.left);
+        if (node.right) queue.push(node.right);
+    }
+
+    return root;
+}
+
+/**
+ * Approach 3: Iterative DFS with stack
+ *
+ * @param {TreeNode} root
+ * @return {TreeNode}
+ */
+function invertTreeDFS(root) {
+    if (!root) return null;
+
+    const stack = [root];
+
+    while (stack.length > 0) {
+        const node = stack.pop();
+
+        // Swap children
+        const temp = node.left;
+        node.left = node.right;
+        node.right = temp;
+
+        // Add children to stack for processing
+        if (node.left) stack.push(node.left);
+        if (node.right) stack.push(node.right);
+    }
+
+    return root;
+}
+
+/**
+ * Approach 4: Recursive with explicit swap function
+ *
+ * @param {TreeNode} root
+ * @return {TreeNode}
+ */
+function invertTreeSwap(root) {
+    function swap(node) {
+        if (!node) return;
+
+        // Swap children
+        [node.left, node.right] = [node.right, node.left];
+
+        // Recursively process children
+        swap(node.left);
+        swap(node.right);
+    }
+
+    swap(root);
+    return root;
+}
+
+/**
+ * Helper function to convert tree to array for testing
+ * @param {TreeNode} root
+ * @return {number[]}
+ */
+function treeToArray(root) {
+    if (!root) return [];
+
+    const result = [];
+    const queue = [root];
+
+    while (queue.length > 0) {
+        const node = queue.shift();
+        if (node) {
+            result.push(node.val);
+            queue.push(node.left);
+            queue.push(node.right);
+        } else {
+            result.push(null);
+        }
+    }
+
+    // Remove trailing nulls
+    while (result.length > 0 && result[result.length - 1] === null) {
+        result.pop();
+    }
+
+    return result;
 }
 
 /**
@@ -64,20 +209,60 @@ function solve(...args) {
 function testSolution() {
     console.log('Testing 226. Invert Binary Tree');
 
-    // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    // Test case 1: Standard tree
+    const tree1 = new TreeNode(4,
+        new TreeNode(2,
+            new TreeNode(1),
+            new TreeNode(3)
+        ),
+        new TreeNode(7,
+            new TreeNode(6),
+            new TreeNode(9)
+        )
+    );
+    const result1 = solve(tree1);
+    const expected1 = [4, 7, 2, 9, 6, 3, 1];
+    const actual1 = treeToArray(result1);
+    console.assert(JSON.stringify(actual1) === JSON.stringify(expected1),
+        `Test 1 failed: expected ${JSON.stringify(expected1)}, got ${JSON.stringify(actual1)}`);
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 2: Single node
+    const tree2 = new TreeNode(1);
+    const result2 = solve(tree2);
+    const expected2 = [1];
+    const actual2 = treeToArray(result2);
+    console.assert(JSON.stringify(actual2) === JSON.stringify(expected2),
+        `Test 2 failed: expected ${JSON.stringify(expected2)}, got ${JSON.stringify(actual2)}`);
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 3: Empty tree
+    const result3 = solve(null);
+    console.assert(result3 === null,
+        `Test 3 failed: expected null, got ${result3}`);
+
+    // Test case 4: Left-skewed tree
+    const tree4 = new TreeNode(1,
+        new TreeNode(2,
+            new TreeNode(3),
+            null
+        ),
+        null
+    );
+    const result4 = solve(tree4);
+    const expected4 = [1, null, 2, null, 3];
+    const actual4 = treeToArray(result4);
+    console.assert(JSON.stringify(actual4) === JSON.stringify(expected4),
+        `Test 4 failed: expected ${JSON.stringify(expected4)}, got ${JSON.stringify(actual4)}`);
+
+    // Test case 5: Simple tree
+    const tree5 = new TreeNode(2,
+        new TreeNode(1),
+        new TreeNode(3)
+    );
+    const result5 = solve(tree5);
+    const expected5 = [2, 3, 1];
+    const actual5 = treeToArray(result5);
+    console.assert(JSON.stringify(actual5) === JSON.stringify(expected5),
+        `Test 5 failed: expected ${JSON.stringify(expected5)}, got ${JSON.stringify(actual5)}`);
 
     console.log('All test cases passed for 226. Invert Binary Tree!');
 }
@@ -103,14 +288,26 @@ if (require.main === module) {
 // Export for use in other modules
 module.exports = {
     solve,
+    invertTree,
+    invertTreeBFS,
+    invertTreeDFS,
+    invertTreeSwap,
+    TreeNode,
+    treeToArray,
     testSolution,
     demonstrateSolution
 };
 
 /**
  * Additional Notes:
- * - This solution focuses on trees concepts
- * - Consider the trade-offs between time and space complexity
- * - Edge cases are crucial for robust solutions
- * - The approach can be adapted for similar problems in this category
+ * - Four different approaches with same time complexity:
+ *   1. Recursive: Most intuitive, uses call stack
+ *   2. BFS iterative: Level-by-level processing with queue
+ *   3. DFS iterative: Depth-first with explicit stack
+ *   4. Recursive with array destructuring: Modern JS syntax
+ * - All approaches modify tree in-place and return root
+ * - Time: O(n) for all approaches (visit each node once)
+ * - Space: O(h) recursive, O(w) iterative where h=height, w=width
+ * - Tree inversion is its own inverse (invert twice = original)
+ * - Famous problem: inspired by Google interview question
  */

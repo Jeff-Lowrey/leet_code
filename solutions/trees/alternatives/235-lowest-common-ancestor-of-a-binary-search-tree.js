@@ -1,61 +1,170 @@
 /**
  * 235. Lowest Common Ancestor Of A Binary Search Tree
- * Medium
+ * Easy
  *
- * This problem demonstrates key concepts in Trees.
+ * This problem leverages BST properties for efficient LCA finding.
  *
  * SOLUTION EXPLANATION:
  *
  * INTUITION:
- * [This problem requires understanding of trees concepts. The key insight is to identify the optimal approach for this specific scenario.]
+ * In a BST, we can use the ordering property to efficiently find LCA.
+ * If both nodes are smaller than current node, LCA is in left subtree.
+ * If both nodes are larger than current node, LCA is in right subtree.
+ * If nodes are on different sides, current node is the LCA.
  *
  * APPROACH:
- * 1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply trees methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+ * 1. **BST Property**: Use ordering to navigate without searching entire tree
+ * 2. **Three Cases**: Both left, both right, or split (LCA found)
+ * 3. **Iterative/Recursive**: Both approaches work efficiently
+ * 4. **Early Termination**: Stop as soon as split point is found
  *
  * WHY THIS WORKS:
- * - The solution leverages trees principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+ * - BST property guarantees all left < root < all right
+ * - LCA is the first node where paths to p and q diverge
+ * - No need to search both subtrees like in general binary tree
+ * - Path from root to any node follows BST ordering
  *
- * TIME COMPLEXITY: O(n)
- * SPACE COMPLEXITY: O(1)
+ * TIME COMPLEXITY: O(h) where h is height of tree
+ * Best case O(log n) for balanced BST, worst case O(n) for skewed
+ *
+ * SPACE COMPLEXITY:
+ *   - Recursive: O(h) for call stack
+ *   - Iterative: O(1) constant space
  *
  * EXAMPLE WALKTHROUGH:
  * ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
-```
+ * Input: root = [6,2,8,0,4,7,9,null,null,3,5], p = 2, q = 8
+ *        6
+ *       / \
+ *      2   8
+ *     / \ / \
+ *    0  4 7  9
+ *      / \
+ *     3   5
+ *
+ * Step 1: At node 6: p=2 < 6 and q=8 > 6 (split!) → LCA = 6
+ * Output: 6
+ * ```
  *
  * EDGE CASES:
- * - Empty input handling
-- Single element cases
-- Large input considerations
+ * - One node is ancestor of the other
+ * - Nodes are the same
+ * - Tree with only one or two nodes
  */
+
+/**
+ * Definition for a binary tree node.
+ */
+function TreeNode(val, left, right) {
+    this.val = (val === undefined ? 0 : val);
+    this.left = (left === undefined ? null : left);
+    this.right = (right === undefined ? null : right);
+}
 
 /**
  * Main solution for Problem 235: Lowest Common Ancestor Of A Binary Search Tree
  *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
+ * @param {TreeNode} root - Root of BST
+ * @param {TreeNode} p - First node
+ * @param {TreeNode} q - Second node
+ * @return {TreeNode} - Lowest common ancestor
  *
- * Time Complexity: O(n)
- * Space Complexity: O(1)
+ * Time Complexity: O(h) where h is height
+ * Space Complexity: O(1) iterative approach
  */
-function solve(...args) {
-    // TODO: Implement the solution using trees techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using trees methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+function solve(root, p, q) {
+    return lowestCommonAncestor(root, p, q);
+}
 
-    return null; // Replace with actual implementation
+/**
+ * Approach 1: Iterative solution (most efficient)
+ *
+ * @param {TreeNode} root
+ * @param {TreeNode} p
+ * @param {TreeNode} q
+ * @return {TreeNode}
+ */
+function lowestCommonAncestor(root, p, q) {
+    let current = root;
+
+    while (current) {
+        if (p.val < current.val && q.val < current.val) {
+            // Both are in left subtree
+            current = current.left;
+        } else if (p.val > current.val && q.val > current.val) {
+            // Both are in right subtree
+            current = current.right;
+        } else {
+            // Split point found - this is the LCA
+            return current;
+        }
+    }
+
+    return null;
+}
+
+/**
+ * Approach 2: Recursive solution
+ *
+ * @param {TreeNode} root
+ * @param {TreeNode} p
+ * @param {TreeNode} q
+ * @return {TreeNode}
+ */
+function lowestCommonAncestorRecursive(root, p, q) {
+    if (!root) return null;
+
+    if (p.val < root.val && q.val < root.val) {
+        return lowestCommonAncestorRecursive(root.left, p, q);
+    }
+
+    if (p.val > root.val && q.val > root.val) {
+        return lowestCommonAncestorRecursive(root.right, p, q);
+    }
+
+    return root;
+}
+
+/**
+ * Approach 3: Path-based solution (for comparison)
+ *
+ * @param {TreeNode} root
+ * @param {TreeNode} p
+ * @param {TreeNode} q
+ * @return {TreeNode}
+ */
+function lowestCommonAncestorPath(root, p, q) {
+    function getPath(node, target) {
+        const path = [];
+        let current = node;
+
+        while (current) {
+            path.push(current);
+            if (target.val < current.val) {
+                current = current.left;
+            } else if (target.val > current.val) {
+                current = current.right;
+            } else {
+                break;
+            }
+        }
+
+        return path;
+    }
+
+    const pathP = getPath(root, p);
+    const pathQ = getPath(root, q);
+
+    let lca = null;
+    for (let i = 0; i < Math.min(pathP.length, pathQ.length); i++) {
+        if (pathP[i] === pathQ[i]) {
+            lca = pathP[i];
+        } else {
+            break;
+        }
+    }
+
+    return lca;
 }
 
 /**
@@ -64,20 +173,70 @@ function solve(...args) {
 function testSolution() {
     console.log('Testing 235. Lowest Common Ancestor Of A Binary Search Tree');
 
-    // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    // Create test BST:     6
+    //                     / \
+    //                    2   8
+    //                   / \ / \
+    //                  0  4 7  9
+    //                    / \
+    //                   3   5
+    const root = new TreeNode(6,
+        new TreeNode(2,
+            new TreeNode(0),
+            new TreeNode(4,
+                new TreeNode(3),
+                new TreeNode(5)
+            )
+        ),
+        new TreeNode(8,
+            new TreeNode(7),
+            new TreeNode(9)
+        )
+    );
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 1: LCA of 2 and 8 should be 6
+    const p1 = root.left; // node 2
+    const q1 = root.right; // node 8
+    const result1 = solve(root, p1, q1);
+    console.assert(result1.val === 6,
+        `Test 1 failed: expected 6, got ${result1.val}`);
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 2: LCA of 2 and 4 should be 2
+    const p2 = root.left; // node 2
+    const q2 = root.left.right; // node 4
+    const result2 = solve(root, p2, q2);
+    console.assert(result2.val === 2,
+        `Test 2 failed: expected 2, got ${result2.val}`);
+
+    // Test case 3: LCA of 3 and 5 should be 4
+    const p3 = root.left.right.left; // node 3
+    const q3 = root.left.right.right; // node 5
+    const result3 = solve(root, p3, q3);
+    console.assert(result3.val === 4,
+        `Test 3 failed: expected 4, got ${result3.val}`);
+
+    // Test case 4: LCA of 7 and 9 should be 8
+    const p4 = root.right.left; // node 7
+    const q4 = root.right.right; // node 9
+    const result4 = solve(root, p4, q4);
+    console.assert(result4.val === 8,
+        `Test 4 failed: expected 8, got ${result4.val}`);
+
+    // Test case 5: Same node (LCA of 4 and 4 should be 4)
+    const p5 = root.left.right; // node 4
+    const q5 = root.left.right; // node 4
+    const result5 = solve(root, p5, q5);
+    console.assert(result5.val === 4,
+        `Test 5 failed: expected 4, got ${result5.val}`);
+
+    // Test alternative approaches
+    const resultRecursive = lowestCommonAncestorRecursive(root, p1, q1);
+    console.assert(resultRecursive.val === 6,
+        'Recursive approach should give same result');
+
+    const resultPath = lowestCommonAncestorPath(root, p1, q1);
+    console.assert(resultPath.val === 6,
+        'Path approach should give same result');
 
     console.log('All test cases passed for 235. Lowest Common Ancestor Of A Binary Search Tree!');
 }
@@ -103,14 +262,23 @@ if (require.main === module) {
 // Export for use in other modules
 module.exports = {
     solve,
+    lowestCommonAncestor,
+    lowestCommonAncestorRecursive,
+    lowestCommonAncestorPath,
+    TreeNode,
     testSolution,
     demonstrateSolution
 };
 
 /**
  * Additional Notes:
- * - This solution focuses on trees concepts
- * - Consider the trade-offs between time and space complexity
- * - Edge cases are crucial for robust solutions
- * - The approach can be adapted for similar problems in this category
+ * - Three different approaches with different trade-offs:
+ *   1. Iterative: O(h) time, O(1) space - most efficient
+ *   2. Recursive: O(h) time, O(h) space - clean and intuitive
+ *   3. Path-based: O(h) time, O(h) space - works for general binary trees
+ * - BST property enables much more efficient solution than general binary tree LCA
+ * - Key insight: LCA is first node where paths to p and q diverge
+ * - No need to search both subtrees unlike general binary tree case
+ * - Time complexity is O(h) not O(n) due to BST ordering property
+ * - Space can be optimized to O(1) with iterative approach
  */

@@ -63,6 +63,15 @@ class TreeNode {
 }
 
 /**
+ * Main solution for Problem 110: Balanced Binary Tree
+ * @param {TreeNode} root - Root of binary tree
+ * @returns {boolean} True if tree is balanced, false otherwise
+ */
+function solve(root) {
+    return isBalanced(root);
+}
+
+/**
  * Check if binary tree is height-balanced
  * @param {TreeNode} root - Root of binary tree
  * @returns {boolean} True if tree is balanced, false otherwise
@@ -359,6 +368,7 @@ if (require.main === module) {
 
 // Export for use in other modules
 module.exports = {
+    solve,
     isBalanced,
     isBalancedAlternative,
     isBalancedIterative,
