@@ -701,7 +701,7 @@ def generate_js_skeleton(code: str, solution: Any) -> str:
             " * Example usage and demonstration",
             " */",
             "function demonstrateSolution() {",
-            `    console.log('\\n=== Problem ${solution.number}. ${solution.name} ===');`,
+            f"    console.log('\\n=== Problem {solution.number}. {solution.name} ===');",
             f"    console.log('Category: {solution.category.replace('-', ' ').title()}');" if hasattr(solution, 'category') else "",
             "    console.log('');",
             "",
