@@ -7,43 +7,93 @@
  * SOLUTION EXPLANATION:
  *
  * INTUITION:
- * This problem requires understanding of prefix sum concepts.
+ * We need to remove the smallest subarray to make the remaining sum divisible by p.
+ * The key insight is that if total_sum % p = remainder, we need to find a subarray
+ * with sum % p = remainder. We use prefix sum modulo p and hash map to find the
+ * smallest such subarray.
  *
  * APPROACH:
- * Apply prefix sum methodology to solve efficiently.
+ * 1. Calculate total sum modulo p (this is what we need to remove)
+ * 2. If remainder is 0, array is already divisible
+ * 3. Use prefix sum with modulo to track (prefixSum % p)
+ * 4. For each position, look for a previous prefix where (currentMod - targetMod + p) % p exists
+ * 5. Track the minimum length of such subarrays
  *
  * WHY THIS WORKS:
- * The solution leverages prefix sum principles for optimal performance.
+ * If we remove subarray[i+1...j] with sum % p = remainder, then
+ * (total_sum - subarray_sum) % p = 0. Using prefix sums:
+ * subarray_sum = prefix[j] - prefix[i], so we need
+ * (prefix[j] - prefix[i]) % p = remainder
  *
- * TIME COMPLEXITY: O(n)
- * SPACE COMPLEXITY: O(1)
+ * TIME COMPLEXITY: O(n) - single pass through array
+ * SPACE COMPLEXITY: O(min(n, p)) - hash map stores at most min(n, p) entries
  *
  * EXAMPLE WALKTHROUGH:
- * Input: [example input]\nStep 1: [explain first step]\nOutput: [expected output]
+ * Input: nums = [3,1,4,2], p = 6
+ * Step 1: total = 10, remainder = 10 % 6 = 4 (need to remove subarray with sum % 6 = 4)
+ * Step 2: Use prefix sum mod 6: [3, 4, 2, 4]
+ * Step 3: At index 2, prefix=2, need (2-4+6)%6=4, found at index 1
+ * Step 4: Subarray [4] has length 1
+ * Output: 1
  *
  * EDGE CASES:
- * - Empty input handling\n- Single element cases\n- Large input considerations
+ * - Array already divisible by p: return 0
+ * - Need to remove entire array: return -1
+ * - Negative modulo handling with (x % p + p) % p
  */
 
 /**
  * Main solution for Problem 1590: Make Sum Divisible By P
  *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
+ * @param {number[]} nums - Array of integers
+ * @param {number} p - Divisor
+ * @return {number} - Length of smallest subarray to remove, or -1 if impossible
  *
  * Time Complexity: O(n)
- * Space Complexity: O(1)
+ * Space Complexity: O(min(n, p))
  */
-function solve(...args) {
-    // TODO: Implement the solution using prefix sum techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using prefix sum methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+function solve(nums, p) {
+    const n = nums.length;
 
-    return null; // Replace with actual implementation
+    // Calculate total sum modulo p
+    let totalSum = 0;
+    for (const num of nums) {
+        totalSum = (totalSum + num) % p;
+    }
+
+    const target = totalSum % p;
+
+    // If already divisible, no need to remove anything
+    if (target === 0) {
+        return 0;
+    }
+
+    // Map to store most recent index of each prefix sum modulo p
+    const modMap = new Map();
+    modMap.set(0, -1); // Base case: empty prefix
+
+    let prefixSum = 0;
+    let minLength = n;
+
+    for (let i = 0; i < n; i++) {
+        prefixSum = (prefixSum + nums[i]) % p;
+
+        // We need to find a previous prefix where:
+        // (prefixSum - prevPrefix) % p = target
+        // So prevPrefix = (prefixSum - target + p) % p
+        const needed = (prefixSum - target + p) % p;
+
+        if (modMap.has(needed)) {
+            const length = i - modMap.get(needed);
+            minLength = Math.min(minLength, length);
+        }
+
+        // Store current prefix sum modulo
+        modMap.set(prefixSum, i);
+    }
+
+    // If we need to remove the entire array, it's impossible
+    return minLength === n ? -1 : minLength;
 }
 
 /**
@@ -52,20 +102,30 @@ function solve(...args) {
 function testSolution() {
     console.log('Testing 1590. Make Sum Divisible By P');
 
-    // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    // Test case 1: Example 1
+    const result1 = solve([3,1,4,2], 6);
+    const expected1 = 1;
+    console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 2: Example 2
+    const result2 = solve([6,3,5,2], 9);
+    const expected2 = 2;
+    console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 3: Example 3 - impossible case
+    const result3 = solve([1,2,3], 3);
+    const expected3 = 0;
+    console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+
+    // Test case 4: Already divisible
+    const result4 = solve([1,2,3], 6);
+    const expected4 = 0;
+    console.assert(result4 === expected4, `Test 4 failed: expected ${expected4}, got ${result4}`);
+
+    // Test case 5: Need to remove entire array
+    const result5 = solve([1000000000], 3);
+    const expected5 = -1;
+    console.assert(result5 === expected5, `Test 5 failed: expected ${expected5}, got ${result5}`);
 
     console.log('All test cases passed for 1590. Make Sum Divisible By P!');
 }

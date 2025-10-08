@@ -38,24 +38,48 @@ Output: [expected output]
  */
 
 /**
- * Main solution for Problem 303: Range Sum Query
+ * NumArray class for range sum queries (LeetCode solution format)
  *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
+ * @param {number[]} nums - Array of integers
  *
- * Time Complexity: O(n)
- * Space Complexity: O(1)
+ * Time Complexity: O(n) for initialization
+ * Space Complexity: O(n) for prefix sum array
  */
-function solve(...args) {
-    // TODO: Implement the solution using prefix sum techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using prefix sum methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+class NumArray {
+    constructor(nums) {
+        // Build prefix sum array
+        // prefixSum[i] = sum of elements from index 0 to i-1
+        this.prefixSum = new Array(nums.length + 1).fill(0);
 
-    return null; // Replace with actual implementation
+        for (let i = 0; i < nums.length; i++) {
+            this.prefixSum[i + 1] = this.prefixSum[i] + nums[i];
+        }
+    }
+
+    /**
+     * Returns sum of elements between indices left and right (inclusive)
+     *
+     * @param {number} left - Left index
+     * @param {number} right - Right index
+     * @return {number} - Sum of range
+     *
+     * Time Complexity: O(1)
+     * Space Complexity: O(1)
+     */
+    sumRange(left, right) {
+        // Sum from left to right = prefixSum[right+1] - prefixSum[left]
+        return this.prefixSum[right + 1] - this.prefixSum[left];
+    }
+}
+
+/**
+ * Wrapper function for testing
+ *
+ * @param {number[]} nums - Array of integers
+ * @return {NumArray} - NumArray instance
+ */
+function solve(nums) {
+    return new NumArray(nums);
 }
 
 /**
@@ -64,20 +88,31 @@ function solve(...args) {
 function testSolution() {
     console.log('Testing 303. Range Sum Query');
 
-    // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    // Test case 1: Example from LeetCode
+    const numArray = new NumArray([-2, 0, 3, -5, 2, -1]);
+    const result1 = numArray.sumRange(0, 2);
+    const expected1 = 1;
+    console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    const result2 = numArray.sumRange(2, 5);
+    const expected2 = -1;
+    console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    const result3 = numArray.sumRange(0, 5);
+    const expected3 = -3;
+    console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+
+    // Test case 2: Single element
+    const numArray2 = new NumArray([5]);
+    const result4 = numArray2.sumRange(0, 0);
+    const expected4 = 5;
+    console.assert(result4 === expected4, `Test 4 failed: expected ${expected4}, got ${result4}`);
+
+    // Test case 3: All negative numbers
+    const numArray3 = new NumArray([-1, -2, -3, -4]);
+    const result5 = numArray3.sumRange(1, 3);
+    const expected5 = -9;
+    console.assert(result5 === expected5, `Test 5 failed: expected ${expected5}, got ${result5}`);
 
     console.log('All test cases passed for 303. Range Sum Query!');
 }

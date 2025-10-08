@@ -7,43 +7,75 @@
  * SOLUTION EXPLANATION:
  *
  * INTUITION:
- * This problem requires understanding of prefix sum concepts.
+ * Find the total number of continuous subarrays whose sum equals k.
+ * This is a classic prefix sum problem. If we have prefix sums at positions i and j,
+ * and prefix[j] - prefix[i] = k, then subarray from i+1 to j has sum k.
+ * We use a hash map to count occurrences of each prefix sum.
  *
  * APPROACH:
- * Apply prefix sum methodology to solve efficiently.
+ * 1. Use hash map to store frequency of each prefix sum
+ * 2. For each element, calculate running prefix sum
+ * 3. Check if (currentSum - k) exists in map
+ * 4. Add the frequency of (currentSum - k) to result
+ * 5. Update frequency of current sum in map
  *
  * WHY THIS WORKS:
- * The solution leverages prefix sum principles for optimal performance.
+ * If we're at position j with sum S_j, and we previously had sum S_i = S_j - k,
+ * then the subarray from i+1 to j has sum exactly k.
+ * By storing all prefix sum frequencies, we count all valid subarrays efficiently.
  *
- * TIME COMPLEXITY: O(n)
- * SPACE COMPLEXITY: O(1)
+ * TIME COMPLEXITY: O(n) - single pass through array
+ * SPACE COMPLEXITY: O(n) - hash map stores at most n different sums
  *
  * EXAMPLE WALKTHROUGH:
- * Input: [example input]\nStep 1: [explain first step]\nOutput: [expected output]
+ * Input: nums = [1,1,1], k = 2
+ * Step 1: sum=0, map={0:1}
+ * Step 2: sum=1, check (1-2)=-1 (not in map), map={0:1, 1:1}, count=0
+ * Step 3: sum=2, check (2-2)=0 (in map, freq=1), map={0:1, 1:1, 2:1}, count=1
+ * Step 4: sum=3, check (3-2)=1 (in map, freq=1), map={0:1, 1:1, 2:1, 3:1}, count=2
+ * Output: 2 (subarrays [1,1] at positions 0-1 and 1-2)
  *
  * EDGE CASES:
- * - Empty input handling\n- Single element cases\n- Large input considerations
+ * - Negative numbers allowed
+ * - k can be 0
+ * - Multiple subarrays with same sum
+ * - Single element equals k
  */
 
 /**
  * Main solution for Problem 560: Subarray Sum Equals K
  *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
+ * @param {number[]} nums - Array of integers
+ * @param {number} k - Target sum
+ * @return {number} - Number of subarrays with sum k
  *
  * Time Complexity: O(n)
- * Space Complexity: O(1)
+ * Space Complexity: O(n)
  */
-function solve(...args) {
-    // TODO: Implement the solution using prefix sum techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using prefix sum methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+function solve(nums, k) {
+    // Map to store frequency of each prefix sum
+    const prefixSumCount = new Map();
+    prefixSumCount.set(0, 1); // Base case: sum 0 appears once
 
-    return null; // Replace with actual implementation
+    let currentSum = 0;
+    let count = 0;
+
+    for (const num of nums) {
+        currentSum += num;
+
+        // Check if there's a prefix sum that gives us sum k
+        // We need: currentSum - previousSum = k
+        // So: previousSum = currentSum - k
+        const needed = currentSum - k;
+        if (prefixSumCount.has(needed)) {
+            count += prefixSumCount.get(needed);
+        }
+
+        // Update frequency of current sum
+        prefixSumCount.set(currentSum, (prefixSumCount.get(currentSum) || 0) + 1);
+    }
+
+    return count;
 }
 
 /**
@@ -52,20 +84,30 @@ function solve(...args) {
 function testSolution() {
     console.log('Testing 560. Subarray Sum Equals K');
 
-    // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    // Test case 1: Example 1
+    const result1 = solve([1,1,1], 2);
+    const expected1 = 2;
+    console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 2: Example 2
+    const result2 = solve([1,2,3], 3);
+    const expected2 = 2;
+    console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 3: With negative numbers
+    const result3 = solve([1,-1,0], 0);
+    const expected3 = 3;
+    console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+
+    // Test case 4: Single element equals k
+    const result4 = solve([5], 5);
+    const expected4 = 1;
+    console.assert(result4 === expected4, `Test 4 failed: expected ${expected4}, got ${result4}`);
+
+    // Test case 5: No subarray equals k
+    const result5 = solve([1,2,3], 10);
+    const expected5 = 0;
+    console.assert(result5 === expected5, `Test 5 failed: expected ${expected5}, got ${result5}`);
 
     console.log('All test cases passed for 560. Subarray Sum Equals K!');
 }

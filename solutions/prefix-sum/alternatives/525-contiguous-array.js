@@ -7,43 +7,70 @@
  * SOLUTION EXPLANATION:
  *
  * INTUITION:
- * This problem requires understanding of prefix sum concepts.
+ * Find the longest contiguous subarray with equal number of 0s and 1s.
+ * Transform the problem: treat 0 as -1 and 1 as +1. Now we need to find
+ * the longest subarray with sum = 0. Use prefix sum with hash map to track
+ * when we've seen each cumulative sum before.
  *
  * APPROACH:
- * Apply prefix sum methodology to solve efficiently.
+ * 1. Convert problem: replace 0 with -1, keep 1 as +1
+ * 2. Use hash map to store first occurrence of each prefix sum
+ * 3. If we see the same prefix sum again, the subarray between has sum 0
+ * 4. Track the maximum length found
  *
  * WHY THIS WORKS:
- * The solution leverages prefix sum principles for optimal performance.
+ * If prefix[j] = prefix[i], then sum(i+1...j) = 0, meaning equal 0s and 1s.
+ * By storing the first occurrence of each prefix sum, we maximize the length
+ * of subarrays with sum 0.
  *
- * TIME COMPLEXITY: O(n)
- * SPACE COMPLEXITY: O(1)
+ * TIME COMPLEXITY: O(n) - single pass through array
+ * SPACE COMPLEXITY: O(n) - hash map stores at most n different sums
  *
  * EXAMPLE WALKTHROUGH:
- * Input: [example input]\nStep 1: [explain first step]\nOutput: [expected output]
+ * Input: nums = [0,1,0]
+ * Step 1: Transform to [-1,1,-1]
+ * Step 2: Prefix sums: [-1, 0, -1]
+ * Step 3: At index 1, sum=0 matches initial (index -1), length = 2
+ * Output: 2 (subarray [0,1])
  *
  * EDGE CASES:
- * - Empty input handling\n- Single element cases\n- Large input considerations
+ * - All 0s or all 1s: return 0
+ * - Empty array: return 0
+ * - Equal number of 0s and 1s in entire array
  */
 
 /**
  * Main solution for Problem 525: Contiguous Array
  *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
+ * @param {number[]} nums - Binary array (0s and 1s)
+ * @return {number} - Length of longest contiguous subarray
  *
  * Time Complexity: O(n)
- * Space Complexity: O(1)
+ * Space Complexity: O(n)
  */
-function solve(...args) {
-    // TODO: Implement the solution using prefix sum techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using prefix sum methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+function solve(nums) {
+    // Map to store first occurrence of each cumulative sum
+    const sumIndexMap = new Map();
+    sumIndexMap.set(0, -1); // Base case: sum 0 before array starts
 
-    return null; // Replace with actual implementation
+    let sum = 0;
+    let maxLength = 0;
+
+    for (let i = 0; i < nums.length; i++) {
+        // Treat 0 as -1, 1 as +1
+        sum += nums[i] === 0 ? -1 : 1;
+
+        if (sumIndexMap.has(sum)) {
+            // Found a subarray with equal 0s and 1s
+            const length = i - sumIndexMap.get(sum);
+            maxLength = Math.max(maxLength, length);
+        } else {
+            // Store first occurrence of this sum
+            sumIndexMap.set(sum, i);
+        }
+    }
+
+    return maxLength;
 }
 
 /**
@@ -52,20 +79,30 @@ function solve(...args) {
 function testSolution() {
     console.log('Testing 525. Contiguous Array');
 
-    // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    // Test case 1: Example 1
+    const result1 = solve([0,1]);
+    const expected1 = 2;
+    console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 2: Example 2
+    const result2 = solve([0,1,0]);
+    const expected2 = 2;
+    console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 3: Longer array
+    const result3 = solve([0,1,1,0,1,1,1,0]);
+    const expected3 = 4;
+    console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+
+    // Test case 4: All zeros
+    const result4 = solve([0,0,0]);
+    const expected4 = 0;
+    console.assert(result4 === expected4, `Test 4 failed: expected ${expected4}, got ${result4}`);
+
+    // Test case 5: All ones
+    const result5 = solve([1,1,1]);
+    const expected5 = 0;
+    console.assert(result5 === expected5, `Test 5 failed: expected ${expected5}, got ${result5}`);
 
     console.log('All test cases passed for 525. Contiguous Array!');
 }

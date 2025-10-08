@@ -7,43 +7,79 @@
  * SOLUTION EXPLANATION:
  *
  * INTUITION:
- * This problem requires understanding of prefix sum concepts.
+ * Count the number of non-empty subarrays whose sum is divisible by k.
+ * Key insight: if two prefix sums have the same remainder when divided by k,
+ * the subarray between them has sum divisible by k.
+ * Mathematical property: (a - b) % k = 0 if and only if a % k = b % k.
  *
  * APPROACH:
- * Apply prefix sum methodology to solve efficiently.
+ * 1. Use hash map to count frequency of each (prefix sum % k)
+ * 2. For each position, calculate running sum modulo k
+ * 3. If this remainder was seen n times before, add n to result
+ * 4. Update the frequency of current remainder
  *
  * WHY THIS WORKS:
- * The solution leverages prefix sum principles for optimal performance.
+ * If prefix[j] % k = prefix[i] % k, then (prefix[j] - prefix[i]) % k = 0.
+ * This means subarray from i+1 to j has sum divisible by k.
+ * For each remainder, if it appeared n times, we can form n new subarrays
+ * ending at current position.
  *
- * TIME COMPLEXITY: O(n)
- * SPACE COMPLEXITY: O(1)
+ * TIME COMPLEXITY: O(n) - single pass through array
+ * SPACE COMPLEXITY: O(k) - hash map stores at most k different remainders
  *
  * EXAMPLE WALKTHROUGH:
- * Input: [example input]\nStep 1: [explain first step]\nOutput: [expected output]
+ * Input: nums = [4,5,0,-2,-3,1], k = 5
+ * Step 1: Prefix sums: [4, 9, 9, 7, 4, 5]
+ * Step 2: Remainders (mod 5): [4, 4, 4, 2, 4, 0]
+ * Step 3: Count pairs with same remainder:
+ *   - Remainder 4 appears 4 times -> C(4,2) = 6 pairs
+ *   - Remainder 0 appears 1 time -> 1 subarray
+ * Output: 7
  *
  * EDGE CASES:
- * - Empty input handling\n- Single element cases\n- Large input considerations
+ * - Negative numbers: use (sum % k + k) % k for positive remainder
+ * - k = 1: all subarrays are valid
+ * - Single element divisible by k
  */
 
 /**
  * Main solution for Problem 974: Subarray Sums Divisible By K
  *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
+ * @param {number[]} nums - Array of integers
+ * @param {number} k - Divisor
+ * @return {number} - Number of subarrays with sum divisible by k
  *
  * Time Complexity: O(n)
- * Space Complexity: O(1)
+ * Space Complexity: O(k)
  */
-function solve(...args) {
-    // TODO: Implement the solution using prefix sum techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using prefix sum methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+function solve(nums, k) {
+    // Map to store frequency of each remainder
+    const remainderCount = new Map();
+    remainderCount.set(0, 1); // Base case: remainder 0 appears once
 
-    return null; // Replace with actual implementation
+    let prefixSum = 0;
+    let count = 0;
+
+    for (const num of nums) {
+        prefixSum += num;
+
+        // Calculate remainder (handle negative with + k)
+        let remainder = prefixSum % k;
+        if (remainder < 0) {
+            remainder += k;
+        }
+
+        // If this remainder was seen before, all those positions
+        // can form valid subarrays ending at current position
+        if (remainderCount.has(remainder)) {
+            count += remainderCount.get(remainder);
+        }
+
+        // Update frequency of current remainder
+        remainderCount.set(remainder, (remainderCount.get(remainder) || 0) + 1);
+    }
+
+    return count;
 }
 
 /**
@@ -52,20 +88,30 @@ function solve(...args) {
 function testSolution() {
     console.log('Testing 974. Subarray Sums Divisible By K');
 
-    // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    // Test case 1: Example 1
+    const result1 = solve([4,5,0,-2,-3,1], 5);
+    const expected1 = 7;
+    console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 2: Simple case
+    const result2 = solve([5], 5);
+    const expected2 = 1;
+    console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 3: With negative numbers
+    const result3 = solve([-1,2,9], 2);
+    const expected3 = 2;
+    console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+
+    // Test case 4: All elements divisible by k
+    const result4 = solve([3,6,9], 3);
+    const expected4 = 6;
+    console.assert(result4 === expected4, `Test 4 failed: expected ${expected4}, got ${result4}`);
+
+    // Test case 5: k = 1 (all subarrays valid)
+    const result5 = solve([1,2,3], 1);
+    const expected5 = 6;
+    console.assert(result5 === expected5, `Test 5 failed: expected ${expected5}, got ${result5}`);
 
     console.log('All test cases passed for 974. Subarray Sums Divisible By K!');
 }
