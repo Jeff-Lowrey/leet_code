@@ -1,5 +1,5 @@
 /**
- * 009. Palindrome
+ * 009. Palindrome Number
  * Medium
  *
  * This problem demonstrates key concepts in Math.
@@ -7,79 +7,117 @@
  * SOLUTION EXPLANATION:
  *
  * INTUITION:
- * [This problem requires understanding of math concepts. The key insight is to identify the optimal approach for this specific scenario.]
+ * Determine if an integer is a palindrome without converting to a string.
+ * A palindrome reads the same forwards and backwards (e.g., 121, 12321).
+ * Negative numbers are not palindromes due to the minus sign.
  *
  * APPROACH:
- * 1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply math methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+ * 1. **Quick rejections**: Negative numbers and numbers ending in 0 (except 0 itself)
+ * 2. **Reverse half the number**: Build the reversed second half while reducing the first half
+ * 3. **Compare halves**: Check if first half equals reversed second half
+ * 4. **Handle odd length**: For odd-length numbers, ignore the middle digit
  *
  * WHY THIS WORKS:
- * - The solution leverages math principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+ * - Only need to reverse half the number to check palindrome property
+ * - Avoids string conversion overhead and stays in mathematical domain
+ * - Efficient: processes only log(n) digits
  *
- * TIME COMPLEXITY: O(n)
+ * TIME COMPLEXITY: O(log(x)) - process half the digits
  * SPACE COMPLEXITY: O(1)
  *
  * EXAMPLE WALKTHROUGH:
  * ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
+Input: 12321
+Step 1: x = 12321, reversed = 0
+Step 2: x = 1232, reversed = 1 (extracted 1)
+Step 3: x = 123, reversed = 12 (extracted 2)
+Step 4: x = 12, reversed = 123 (extracted 3)
+Step 5: x = 12, reversed = 123 -> x < reversed, stop
+Output: true (12 === 123/10)
 ```
  *
  * EDGE CASES:
- * - Empty input handling
-- Single element cases
-- Large input considerations
+ * - Negative numbers: Always false
+ * - Numbers ending in 0: False (except 0 itself)
+ * - Single digit: Always true
+ * - Odd vs even length: Handle middle digit for odd length
  */
 
 /**
- * Main solution for Problem 009: Palindrome
+ * Main solution for Problem 009: Palindrome Number
  *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
+ * @param {number} x - Integer to check
+ * @return {boolean} - True if x is a palindrome, false otherwise
  *
- * Time Complexity: O(n)
+ * Time Complexity: O(log(x))
  * Space Complexity: O(1)
  */
-function solve(...args) {
-    // TODO: Implement the solution using math techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using math methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+function solve(x) {
+    // Negative numbers and numbers ending in 0 (except 0) are not palindromes
+    if (x < 0 || (x % 10 === 0 && x !== 0)) {
+        return false;
+    }
 
-    return null; // Replace with actual implementation
+    // Single digit numbers are palindromes
+    if (x < 10) {
+        return true;
+    }
+
+    let reversedHalf = 0;
+
+    // Reverse the second half of the number
+    while (x > reversedHalf) {
+        reversedHalf = reversedHalf * 10 + (x % 10);
+        x = Math.floor(x / 10);
+    }
+
+    // For even length: x === reversedHalf
+    // For odd length: x === Math.floor(reversedHalf / 10) (ignore middle digit)
+    return x === reversedHalf || x === Math.floor(reversedHalf / 10);
 }
 
 /**
- * Test cases for Problem 009: Palindrome
+ * Test cases for Problem 009: Palindrome Number
  */
 function testSolution() {
-    console.log('Testing 009. Palindrome');
+    console.log('Testing 009. Palindrome Number');
 
-    // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    // Test case 1: Positive palindrome (even length)
+    const result1 = solve(1221);
+    const expected1 = true;
+    console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 2: Positive palindrome (odd length)
+    const result2 = solve(12321);
+    const expected2 = true;
+    console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 3: Not a palindrome
+    const result3 = solve(123);
+    const expected3 = false;
+    console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
 
-    console.log('All test cases passed for 009. Palindrome!');
+    // Test case 4: Negative number
+    const result4 = solve(-121);
+    const expected4 = false;
+    console.assert(result4 === expected4, `Test 4 failed: expected ${expected4}, got ${result4}`);
+
+    // Test case 5: Number ending in zero
+    const result5 = solve(10);
+    const expected5 = false;
+    console.assert(result5 === expected5, `Test 5 failed: expected ${expected5}, got ${result5}`);
+
+    // Test case 6: Single digit
+    const result6 = solve(7);
+    const expected6 = true;
+    console.assert(result6 === expected6, `Test 6 failed: expected ${expected6}, got ${result6}`);
+
+    // Test case 7: Zero
+    const result7 = solve(0);
+    const expected7 = true;
+    console.assert(result7 === expected7, `Test 7 failed: expected ${expected7}, got ${result7}`);
+
+    console.log('All test cases passed for 009. Palindrome Number!');
 }
 
 /**

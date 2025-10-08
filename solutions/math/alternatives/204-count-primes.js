@@ -7,55 +7,82 @@
  * SOLUTION EXPLANATION:
  *
  * INTUITION:
- * [This problem requires understanding of math concepts. The key insight is to identify the optimal approach for this specific scenario.]
+ * Count prime numbers less than n using the Sieve of Eratosthenes algorithm.
+ * Instead of checking each number for primality, mark all multiples of known
+ * primes as composite. This is much more efficient for counting many primes.
  *
  * APPROACH:
- * 1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply math methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+ * 1. **Create boolean array**: isPrime[i] indicates if i is prime
+ * 2. **Initialize all as prime**: Start assuming all numbers >= 2 are prime
+ * 3. **Mark composites**: For each prime p, mark p*p, p*p+p, p*p+2p, ... as composite
+ * 4. **Optimization**: Only check up to sqrt(n) for outer loop
+ * 5. **Count primes**: Count remaining true values in array
  *
  * WHY THIS WORKS:
- * - The solution leverages math principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+ * - Every composite number has a prime factor <= its square root
+ * - By marking multiples, we eliminate composites efficiently
+ * - Starting at p*p (not 2*p) avoids redundant work
+ * - Classic algorithm dating back to ancient Greece
  *
- * TIME COMPLEXITY: O(n)
- * SPACE COMPLEXITY: O(1)
+ * TIME COMPLEXITY: O(n log log n) - Sieve of Eratosthenes complexity
+ * SPACE COMPLEXITY: O(n) - boolean array
  *
  * EXAMPLE WALKTHROUGH:
  * ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
+Input: n = 10
+Step 1: isPrime = [F,F,T,T,T,T,T,T,T,T] (0,1 not prime, rest initially true)
+Step 2: p=2: Mark 4,6,8 as composite -> [F,F,T,T,F,T,F,T,F,T]
+Step 3: p=3: Mark 9 as composite -> [F,F,T,T,F,T,F,T,F,F]
+Step 4: p=5: 5*5=25 > 10, done
+Step 5: Count true values: 2,3,5,7 = 4
+Output: 4
 ```
  *
  * EDGE CASES:
- * - Empty input handling
-- Single element cases
-- Large input considerations
+ * - n <= 2: Return 0 (no primes less than 2)
+ * - n = 3: Return 1 (only 2 is prime)
+ * - Large n: Efficient algorithm handles well
  */
 
 /**
  * Main solution for Problem 204: Count Primes
  *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
+ * @param {number} n - Upper bound (exclusive)
+ * @return {number} - Count of prime numbers less than n
  *
- * Time Complexity: O(n)
- * Space Complexity: O(1)
+ * Time Complexity: O(n log log n)
+ * Space Complexity: O(n)
  */
-function solve(...args) {
-    // TODO: Implement the solution using math techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using math methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+function solve(n) {
+    if (n <= 2) {
+        return 0;
+    }
 
-    return null; // Replace with actual implementation
+    // Initialize array: isPrime[i] = true means i is prime
+    const isPrime = new Array(n).fill(true);
+    isPrime[0] = false;
+    isPrime[1] = false;
+
+    // Sieve of Eratosthenes
+    for (let i = 2; i * i < n; i++) {
+        if (isPrime[i]) {
+            // Mark all multiples of i as composite
+            // Start at i*i because smaller multiples already marked
+            for (let j = i * i; j < n; j += i) {
+                isPrime[j] = false;
+            }
+        }
+    }
+
+    // Count remaining primes
+    let count = 0;
+    for (let i = 2; i < n; i++) {
+        if (isPrime[i]) {
+            count++;
+        }
+    }
+
+    return count;
 }
 
 /**
@@ -64,20 +91,40 @@ function solve(...args) {
 function testSolution() {
     console.log('Testing 204. Count Primes');
 
-    // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    // Test case 1: n = 10 (primes: 2, 3, 5, 7)
+    const result1 = solve(10);
+    const expected1 = 4;
+    console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 2: n = 0
+    const result2 = solve(0);
+    const expected2 = 0;
+    console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 3: n = 1
+    const result3 = solve(1);
+    const expected3 = 0;
+    console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+
+    // Test case 4: n = 2
+    const result4 = solve(2);
+    const expected4 = 0;
+    console.assert(result4 === expected4, `Test 4 failed: expected ${expected4}, got ${result4}`);
+
+    // Test case 5: n = 3
+    const result5 = solve(3);
+    const expected5 = 1;
+    console.assert(result5 === expected5, `Test 5 failed: expected ${expected5}, got ${result5}`);
+
+    // Test case 6: n = 20 (primes: 2,3,5,7,11,13,17,19)
+    const result6 = solve(20);
+    const expected6 = 8;
+    console.assert(result6 === expected6, `Test 6 failed: expected ${expected6}, got ${result6}`);
+
+    // Test case 7: n = 100
+    const result7 = solve(100);
+    const expected7 = 25;
+    console.assert(result7 === expected7, `Test 7 failed: expected ${expected7}, got ${result7}`);
 
     console.log('All test cases passed for 204. Count Primes!');
 }

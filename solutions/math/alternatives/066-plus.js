@@ -1,85 +1,122 @@
 /**
- * 066. Plus
- * Medium
+ * 066. Plus One
+ * Easy
  *
  * This problem demonstrates key concepts in Math.
  *
  * SOLUTION EXPLANATION:
  *
  * INTUITION:
- * [This problem requires understanding of math concepts. The key insight is to identify the optimal approach for this specific scenario.]
+ * Given an array representing digits of a non-negative integer, add one to it.
+ * The key challenge is handling carries, especially cascading 9s (e.g., [9,9,9] -> [1,0,0,0]).
  *
  * APPROACH:
- * 1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply math methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+ * 1. **Start from rightmost digit**: Add 1 to last element
+ * 2. **Handle carries**: If digit becomes 10, set to 0 and carry to next position
+ * 3. **Propagate carry**: Continue until no carry or reach beginning
+ * 4. **Handle overflow**: If carry remains after leftmost digit, prepend 1
  *
  * WHY THIS WORKS:
- * - The solution leverages math principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+ * - Simulates manual addition from right to left
+ * - Most cases: only last digit changes (no carry)
+ * - Worst case: all 9s require full traversal plus array expansion
  *
- * TIME COMPLEXITY: O(n)
- * SPACE COMPLEXITY: O(1)
+ * TIME COMPLEXITY: O(n) where n is the number of digits
+ * SPACE COMPLEXITY: O(1) excluding output (in-place modification), O(n) including output
  *
  * EXAMPLE WALKTHROUGH:
  * ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
+Input: [1, 2, 9]
+Step 1: digits[2] = 9 + 1 = 10, set to 0, carry = 1
+Step 2: digits[1] = 2 + 1 = 3, carry = 0, done
+Output: [1, 3, 0]
+
+Input: [9, 9, 9]
+Step 1: digits[2] = 9 + 1 = 10, set to 0, carry = 1
+Step 2: digits[1] = 9 + 1 = 10, set to 0, carry = 1
+Step 3: digits[0] = 9 + 1 = 10, set to 0, carry = 1
+Step 4: Prepend 1 to array
+Output: [1, 0, 0, 0]
 ```
  *
  * EDGE CASES:
- * - Empty input handling
-- Single element cases
-- Large input considerations
+ * - Single digit: [5] -> [6]
+ * - All 9s: [9,9,9] -> [1,0,0,0]
+ * - No carry: [1,2,3] -> [1,2,4]
+ * - Single 9: [9] -> [1,0]
  */
 
 /**
- * Main solution for Problem 066: Plus
+ * Main solution for Problem 066: Plus One
  *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
+ * @param {number[]} digits - Array of digits representing a number
+ * @return {number[]} - Array of digits after adding one
  *
  * Time Complexity: O(n)
- * Space Complexity: O(1)
+ * Space Complexity: O(1) excluding output
  */
-function solve(...args) {
-    // TODO: Implement the solution using math techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using math methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+function solve(digits) {
+    const n = digits.length;
 
-    return null; // Replace with actual implementation
+    // Start from the rightmost digit
+    for (let i = n - 1; i >= 0; i--) {
+        // If digit is less than 9, just add 1 and return
+        if (digits[i] < 9) {
+            digits[i]++;
+            return digits;
+        }
+        // Otherwise, set to 0 and continue (carry over)
+        digits[i] = 0;
+    }
+
+    // If we're here, all digits were 9s
+    // Need to prepend 1 to the array
+    return [1, ...digits];
 }
 
 /**
- * Test cases for Problem 066: Plus
+ * Test cases for Problem 066: Plus One
  */
 function testSolution() {
-    console.log('Testing 066. Plus');
+    console.log('Testing 066. Plus One');
 
-    // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    // Helper function to compare arrays
+    const arraysEqual = (a, b) => {
+        if (a.length !== b.length) return false;
+        return a.every((val, idx) => val === b[idx]);
+    };
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 1: Basic increment
+    const result1 = solve([1, 2, 3]);
+    const expected1 = [1, 2, 4];
+    console.assert(arraysEqual(result1, expected1), `Test 1 failed: expected ${expected1}, got ${result1}`);
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 2: Carry needed
+    const result2 = solve([1, 2, 9]);
+    const expected2 = [1, 3, 0];
+    console.assert(arraysEqual(result2, expected2), `Test 2 failed: expected ${expected2}, got ${result2}`);
 
-    console.log('All test cases passed for 066. Plus!');
+    // Test case 3: All 9s
+    const result3 = solve([9, 9, 9]);
+    const expected3 = [1, 0, 0, 0];
+    console.assert(arraysEqual(result3, expected3), `Test 3 failed: expected ${expected3}, got ${result3}`);
+
+    // Test case 4: Single digit (not 9)
+    const result4 = solve([5]);
+    const expected4 = [6];
+    console.assert(arraysEqual(result4, expected4), `Test 4 failed: expected ${expected4}, got ${result4}`);
+
+    // Test case 5: Single 9
+    const result5 = solve([9]);
+    const expected5 = [1, 0];
+    console.assert(arraysEqual(result5, expected5), `Test 5 failed: expected ${expected5}, got ${result5}`);
+
+    // Test case 6: Multiple carries
+    const result6 = solve([8, 9, 9]);
+    const expected6 = [9, 0, 0];
+    console.assert(arraysEqual(result6, expected6), `Test 6 failed: expected ${expected6}, got ${result6}`);
+
+    console.log('All test cases passed for 066. Plus One!');
 }
 
 /**
