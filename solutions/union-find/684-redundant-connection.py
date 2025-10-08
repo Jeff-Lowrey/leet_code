@@ -51,6 +51,7 @@ Return [2,3]
 </details>
 """
 
+
 class UnionFind:
     """Union-Find data structure with path compression."""
 
@@ -81,6 +82,7 @@ class UnionFind:
             self.rank[root_x] += 1
 
         return True
+
 
 class Solution:
     def findRedundantConnection(self, edges: list[list[int]]) -> list[int]:
@@ -158,31 +160,31 @@ def test_solution():
     solution = Solution()
 
     # Test case 1: Simple triangle
-    edges1 = [[1,2],[1,3],[2,3]]
+    edges1 = [[1, 2], [1, 3], [2, 3]]
     result1 = solution.findRedundantConnection(edges1)
-    expected1 = [2,3]  # Last edge that creates cycle
+    expected1 = [2, 3]  # Last edge that creates cycle
     assert result1 == expected1, f"Expected {expected1}, got {result1}"
 
     # Test case 2: Larger cycle
-    edges2 = [[1,2],[2,3],[3,4],[1,4],[1,5]]
+    edges2 = [[1, 2], [2, 3], [3, 4], [1, 4], [1, 5]]
     result2 = solution.findRedundantConnection(edges2)
-    expected2 = [1,4]  # Edge that completes cycle 1-2-3-4-1
+    expected2 = [1, 4]  # Edge that completes cycle 1-2-3-4-1
     assert result2 == expected2, f"Expected {expected2}, got {result2}"
 
     # Test case 3: Linear then cycle
-    edges3 = [[1,2],[2,3],[3,4],[2,5],[5,4]]
+    edges3 = [[1, 2], [2, 3], [3, 4], [2, 5], [5, 4]]
     result3 = solution.findRedundantConnection(edges3)
-    expected3 = [5,4]  # Creates cycle through 2-3-4-5-2
+    expected3 = [5, 4]  # Creates cycle through 2-3-4-5-2
     assert result3 == expected3, f"Expected {expected3}, got {result3}"
 
     # Test case 4: Simple cycle at end
-    edges4 = [[1,2],[2,3],[1,3]]
+    edges4 = [[1, 2], [2, 3], [1, 3]]
     result4 = solution.findRedundantConnection(edges4)
-    expected4 = [1,3]  # Last edge creates triangle
+    expected4 = [1, 3]  # Last edge creates triangle
     assert result4 == expected4, f"Expected {expected4}, got {result4}"
 
     # Test case 5: Complex graph
-    edges5 = [[2,7],[7,8],[3,6],[2,3],[6,7],[2,8],[1,8]]
+    edges5 = [[2, 7], [7, 8], [3, 6], [2, 3], [6, 7], [2, 8], [1, 8]]
     result5 = solution.findRedundantConnection(edges5)
     # Expected: The first edge that creates a cycle
     print(f"Complex graph result: {result5}")
@@ -202,13 +204,13 @@ if __name__ == "__main__":
     print("=== 684. Redundant Connection ===")
 
     # Example 1
-    edges1 = [[1,2],[1,3],[2,3]]
+    edges1 = [[1, 2], [1, 3], [2, 3]]
     result1 = solution.findRedundantConnection(edges1)
     print(f"findRedundantConnection({edges1}) -> {result1}")
     print("Explanation: Forms triangle, [2,3] is the last edge\n")
 
     # Example 2
-    edges2 = [[1,2],[2,3],[3,4],[1,4],[1,5]]
+    edges2 = [[1, 2], [2, 3], [3, 4], [1, 4], [1, 5]]
     result2 = solution.findRedundantConnection(edges2)
     print(f"findRedundantConnection({edges2}) -> {result2}")
     print("Explanation: [1,4] completes cycle 1→2→3→4→1\n")

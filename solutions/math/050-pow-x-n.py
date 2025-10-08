@@ -51,6 +51,7 @@ Final: `4 * 256` = 1024
 </details>
 """
 
+
 class Solution:
     def myPow(self, x: float, n: int) -> float:
         """
@@ -115,6 +116,7 @@ Explanation: The square root of 8 is 2.82842..., and since we round it down to
 the nearest integer, 2 is returned.
 """
 
+
 class SolutionSqrt:
     def mySqrt(self, x: int) -> int:
         """
@@ -174,6 +176,7 @@ Input: dividend = 10, divisor = 3
 Output: 3
 """
 
+
 class SolutionDivide:
     def divide(self, dividend: int, divisor: int) -> int:
         """
@@ -182,7 +185,7 @@ class SolutionDivide:
         Space Complexity: O(1)
         """
         MAX_INT = 2**31 - 1
-        MIN_INT = -2**31
+        MIN_INT = -(2**31)
 
         # Handle overflow case
         if dividend == MIN_INT and divisor == -1:
@@ -224,7 +227,7 @@ if __name__ == "__main__":
         result = solution_pow.myPow(x, n)
         print(f"pow({x}, {n}) = {result}")
 
-    print("\n" + "="*50 + "\n")
+    print("\n" + "=" * 50 + "\n")
 
     # Test Sqrt
     solution_sqrt = SolutionSqrt()
@@ -235,7 +238,7 @@ if __name__ == "__main__":
         result = solution_sqrt.mySqrt(x)
         print(f"sqrt({x}) = {result}")
 
-    print("\n" + "="*50 + "\n")
+    print("\n" + "=" * 50 + "\n")
 
     # Test Divide
     solution_divide = SolutionDivide()

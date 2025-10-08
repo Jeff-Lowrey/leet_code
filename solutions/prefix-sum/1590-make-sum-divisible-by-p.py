@@ -67,6 +67,7 @@ Result: [3,1,2] sums to 6, which is divisible by 6
 </details>
 """
 
+
 class Solution:
     def minSubarray(self, nums: list[int], p: int) -> int:
         """
@@ -195,22 +196,22 @@ def test_solution():
     solution = Solution()
 
     # Test case 1: Basic example
-    result1 = solution.minSubarray([3,1,4,2], 6)
+    result1 = solution.minSubarray([3, 1, 4, 2], 6)
     expected1 = 1  # Remove [4], remaining [3,1,2] sums to 6
     assert result1 == expected1, f"Expected {expected1}, got {result1}"
 
     # Test case 2: Already divisible
-    result2 = solution.minSubarray([6,3,5,2], 9)
+    result2 = solution.minSubarray([6, 3, 5, 2], 9)
     expected2 = 2  # Remove [5,2], remaining [6,3] sums to 9
     assert result2 == expected2, f"Expected {expected2}, got {result2}"
 
     # Test case 3: Already divisible
-    result3 = solution.minSubarray([1,2,3], 3)
+    result3 = solution.minSubarray([1, 2, 3], 3)
     expected3 = 0  # Sum is 6, already divisible by 3
     assert result3 == expected3, f"Expected {expected3}, got {result3}"
 
     # Test case 4: Impossible
-    result4 = solution.minSubarray([1,2,3], 7)
+    result4 = solution.minSubarray([1, 2, 3], 7)
     expected4 = -1  # Cannot make sum divisible by 7 without removing all
     assert result4 == expected4, f"Expected {expected4}, got {result4}"
 
@@ -220,14 +221,14 @@ def test_solution():
     assert result5 == expected5, f"Expected {expected5}, got {result5}"
 
     # Test case 6: Remove from beginning
-    result6 = solution.minSubarray([4,4,2], 7)
+    result6 = solution.minSubarray([4, 4, 2], 7)
     expected6 = 2  # Remove [4,4], remaining [2] has sum 2 % 7 ≠ 0, try [4] at start
     # Actually sum=10, 10%7=3, need subarray with sum%7=3
     # Recalculating: we can remove [4,4] (sum=8, 8%7=1) no, remove [2] (sum=2,2%7=2) no
     # Let's trace: prefix: [4%7=4, 8%7=1, 10%7=3], target=3
     # At i=2: current=3, need=(3-3)%7=0, found at -1, length=3 (whole array)
     # Actually this should return -1 or find minimum
-    result6_actual = solution.minSubarray([4,4,2], 7)
+    result6_actual = solution.minSubarray([4, 4, 2], 7)
     # Manual check: total=10, need remainder 3
     # Subarray [4] has sum 4%7=4, remaining=6%7=6
     # Subarray [4] (second) has sum 4%7=4, remaining=6%7=6
@@ -238,17 +239,17 @@ def test_solution():
     assert result6_actual == expected6, f"Expected {expected6}, got {result6_actual}"
 
     # Test case 7: Large values
-    result7 = solution.minSubarray([8,32,31,18,34,20,21,13,1,27,23,22,11,15,30,4,2], 148)
+    result7 = solution.minSubarray([8, 32, 31, 18, 34, 20, 21, 13, 1, 27, 23, 22, 11, 15, 30, 4, 2], 148)
     expected7 = 7
     assert result7 == expected7, f"Expected {expected7}, got {result7}"
 
     # Test brute force solution
-    result8 = solution.minSubarrayBruteForce([3,1,4,2], 6)
+    result8 = solution.minSubarrayBruteForce([3, 1, 4, 2], 6)
     expected8 = 1
     assert result8 == expected8, f"Expected {expected8}, got {result8}"
 
     # Test alternative solution
-    result9 = solution.minSubarrayAlternative([6,3,5,2], 9)
+    result9 = solution.minSubarrayAlternative([6, 3, 5, 2], 9)
     expected9 = 2
     assert result9 == expected9, f"Expected {expected9}, got {result9}"
 
@@ -263,21 +264,16 @@ if __name__ == "__main__":
     print("=== 1590. Make Sum Divisible By P ===")
 
     # Demonstrate with examples
-    test_cases = [
-        ([3,1,4,2], 6),
-        ([6,3,5,2], 9),
-        ([1,2,3], 3),
-        ([1,2,3], 7)
-    ]
+    test_cases = [([3, 1, 4, 2], 6), ([6, 3, 5, 2], 9), ([1, 2, 3], 3), ([1, 2, 3], 7)]
 
     for nums, p in test_cases:
         result = solution.minSubarray(nums, p)
         total = sum(nums)
-        print(f"minSubarray({nums}, p={p}) -> {result} (total={total}, remainder={total%p})")
+        print(f"minSubarray({nums}, p={p}) -> {result} (total={total}, remainder={total % p})")
 
     # Show detailed walkthrough
-    print(f"\nDetailed example: nums=[3,1,4,2], p=6")
-    nums, p = [3,1,4,2], 6
+    print("\nDetailed example: nums=[3,1,4,2], p=6")
+    nums, p = [3, 1, 4, 2], 6
     total = sum(nums)
     target = total % p
     print(f"Array: {nums}, p={p}")
@@ -295,7 +291,9 @@ if __name__ == "__main__":
 
         if need_rem in remainder_map:
             length = i - remainder_map[need_rem]
-            print(f"Index {i}: prefix_sum={prefix}, remainder={curr_rem}, need={need_rem}, found at {remainder_map[need_rem]}, length={length}")
+            print(
+                f"Index {i}: prefix_sum={prefix}, remainder={curr_rem}, need={need_rem}, found at {remainder_map[need_rem]}, length={length}"
+            )
             min_len = min(min_len, length)
         else:
             print(f"Index {i}: prefix_sum={prefix}, remainder={curr_rem}, need={need_rem}, not found")

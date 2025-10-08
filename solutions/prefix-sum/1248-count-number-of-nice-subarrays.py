@@ -56,6 +56,7 @@ Total: 2 nice subarrays
 </details>
 """
 
+
 class Solution:
     def numberOfSubarrays(self, nums: list[int], k: int) -> int:
         """
@@ -109,6 +110,7 @@ class Solution:
         Time Complexity: O(n)
         Space Complexity: O(1)
         """
+
         def at_most_k_odd(nums, k):
             """Count subarrays with at most k odd numbers."""
             if k < 0:
@@ -203,22 +205,22 @@ def test_solution():
     solution = Solution()
 
     # Test case 1: Basic example
-    result1 = solution.numberOfSubarrays([1,1,2,1,1], 3)
+    result1 = solution.numberOfSubarrays([1, 1, 2, 1, 1], 3)
     expected1 = 2
     assert result1 == expected1, f"Expected {expected1}, got {result1}"
 
     # Test case 2: k = 1
-    result2 = solution.numberOfSubarrays([2,4,6], 1)
+    result2 = solution.numberOfSubarrays([2, 4, 6], 1)
     expected2 = 0
     assert result2 == expected2, f"Expected {expected2}, got {result2}"
 
     # Test case 3: All odd numbers
-    result3 = solution.numberOfSubarrays([1,3,5], 2)
+    result3 = solution.numberOfSubarrays([1, 3, 5], 2)
     expected3 = 2  # [1,3] and [3,5]
     assert result3 == expected3, f"Expected {expected3}, got {result3}"
 
     # Test case 4: k = 0 (no odd numbers required)
-    result4 = solution.numberOfSubarrays([2,2,2,1,2,2,1,2,2,2], 2)
+    result4 = solution.numberOfSubarrays([2, 2, 2, 1, 2, 2, 1, 2, 2, 2], 2)
     expected4 = 16
     assert result4 == expected4, f"Expected {expected4}, got {result4}"
 
@@ -228,27 +230,27 @@ def test_solution():
     assert result5 == expected5, f"Expected {expected5}, got {result5}"
 
     # Test case 6: k larger than total odd numbers
-    result6 = solution.numberOfSubarrays([1,2,3], 4)
+    result6 = solution.numberOfSubarrays([1, 2, 3], 4)
     expected6 = 0
     assert result6 == expected6, f"Expected {expected6}, got {result6}"
 
     # Test case 7: Complex case
-    result7 = solution.numberOfSubarrays([2,2,2,1,2,2,1,2,2,2], 2)
+    result7 = solution.numberOfSubarrays([2, 2, 2, 1, 2, 2, 1, 2, 2, 2], 2)
     expected7 = 16
     assert result7 == expected7, f"Expected {expected7}, got {result7}"
 
     # Test sliding window approach
-    result8 = solution.numberOfSubarraysSlidingWindow([1,1,2,1,1], 3)
+    result8 = solution.numberOfSubarraysSlidingWindow([1, 1, 2, 1, 1], 3)
     expected8 = 2
     assert result8 == expected8, f"Expected {expected8}, got {result8}"
 
     # Test optimized approach
-    result9 = solution.numberOfSubarraysOptimized([1,1,2,1,1], 3)
+    result9 = solution.numberOfSubarraysOptimized([1, 1, 2, 1, 1], 3)
     expected9 = 2
     assert result9 == expected9, f"Expected {expected9}, got {result9}"
 
     # Test brute force approach
-    result10 = solution.numberOfSubarraysBruteForce([1,1,2,1,1], 3)
+    result10 = solution.numberOfSubarraysBruteForce([1, 1, 2, 1, 1], 3)
     expected10 = 2
     assert result10 == expected10, f"Expected {expected10}, got {result10}"
 
@@ -263,12 +265,7 @@ if __name__ == "__main__":
     print("=== 1248. Count Number Of Nice Subarrays ===")
 
     # Test different approaches
-    test_cases = [
-        ([1,1,2,1,1], 3),
-        ([2,4,6], 1),
-        ([1,3,5], 2),
-        ([2,2,2,1,2,2,1,2,2,2], 2)
-    ]
+    test_cases = [([1, 1, 2, 1, 1], 3), ([2, 4, 6], 1), ([1, 3, 5], 2), ([2, 2, 2, 1, 2, 2, 1, 2, 2, 2], 2)]
 
     for nums, k in test_cases:
         print(f"\nInput: nums={nums}, k={k}")
@@ -282,16 +279,16 @@ if __name__ == "__main__":
         print(f"Optimized approach:     {result3}")
 
     # Detailed walkthrough
-    print(f"\nDetailed example: nums=[1,1,2,1,1], k=3")
-    nums = [1,1,2,1,1]
+    print("\nDetailed example: nums=[1,1,2,1,1], k=3")
+    nums = [1, 1, 2, 1, 1]
     print(f"Odd positions: {[i for i, x in enumerate(nums) if x % 2 == 1]}")
-    print(f"Nice subarrays with 3 odd numbers:")
-    print(f"- [1,1,2,1] (indices 0-3)")
-    print(f"- [1,2,1,1] (indices 1-4)")
+    print("Nice subarrays with 3 odd numbers:")
+    print("- [1,1,2,1] (indices 0-3)")
+    print("- [1,2,1,1] (indices 1-4)")
     print(f"Total: {solution.numberOfSubarrays(nums, 3)}")
 
     # Performance comparison
-    print(f"\nApproach complexities:")
-    print(f"Prefix sum:     O(n) time, O(n) space")
-    print(f"Sliding window: O(n) time, O(1) space")
-    print(f"Optimized:      O(n) time, O(n) space")
+    print("\nApproach complexities:")
+    print("Prefix sum:     O(n) time, O(n) space")
+    print("Sliding window: O(n) time, O(1) space")
+    print("Optimized:      O(n) time, O(n) space")

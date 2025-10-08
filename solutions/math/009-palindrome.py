@@ -52,40 +52,41 @@ The approach uses math techniques to solve this problem efficiently.
 </details>
 """
 
+
 class Solution:
     def isPalindrome(self, x: int) -> bool:
         """
         Determines if the given integer is a palindrome.
-        
+
         Args:
             x (int): The number to check
-            
+
         Returns:
             bool: True if the number is a palindrome, False otherwise
         """
         # Negative numbers are not palindromes
         if x < 0:
             return False
-        
+
         # Single digit numbers are palindromes
         if x < 10:
             return True
-        
+
         # Numbers ending with 0 are not palindromes (except 0 itself)
         if x % 10 == 0 and x != 0:
             return False
-        
+
         # Convert to string and check if it equals its reverse
         # This is a simple and readable solution
         return str(x) == str(x)[::-1]
-    
+
     def isPalindrome_mathematical(self, x: int) -> bool:
         """
         Alternative implementation using mathematical approach without string conversion.
-        
+
         Args:
             x (int): The number to check
-            
+
         Returns:
             bool: True if the number is a palindrome, False otherwise
         """
@@ -96,17 +97,18 @@ class Solution:
             return True
         if x % 10 == 0 and x != 0:
             return False
-        
+
         reversed_num = 0
         original = x
-        
+
         # Reverse the number
         while x > 0:
             digit = x % 10
             reversed_num = (reversed_num * 10) + digit
             x = x // 10
-            
+
         return original == reversed_num
+
 
 def test_solution():
     """
@@ -125,6 +127,7 @@ def test_solution():
     # assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

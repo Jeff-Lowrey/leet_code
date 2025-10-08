@@ -39,9 +39,9 @@ Use level-order traversal (BFS) and capture the last node at each level.
 ### EXAMPLE WALKTHROUGH:
 ```
 Tree:      1            <- Right view: 1
-         /   \
+         /   \\
         2     3          <- Right view: 3
-         \     \
+         \\     \\
           5     4        <- Right view: 4
 
 Result: [1, 3, 4]
@@ -142,9 +142,9 @@ def test_solution():
 
     # Test case 1: Example tree
     #       1
-    #      / \
+    #      / \\
     #     2   3
-    #      \   \
+    #      \\   \\
     #       5   4
     root1 = TreeNode(1)
     root1.left = TreeNode(2)
@@ -157,9 +157,9 @@ def test_solution():
 
     # Test case 2: Right-skewed tree
     #  1
-    #   \
+    #   \\
     #    3
-    #     \
+    #     \\
     #      4
     root2 = TreeNode(1)
     root2.right = TreeNode(3)
@@ -190,11 +190,11 @@ def test_solution():
 
     # Test case 6: Complex tree
     #        1
-    #       / \
+    #       / \\
     #      2   3
-    #     / \   \
+    #     / \\   \\
     #    4   5   6
-    #   /         \
+    #   /         \\
     #  7           8
     root6 = TreeNode(1)
     root6.left = TreeNode(2)
@@ -208,7 +208,7 @@ def test_solution():
     assert solution.rightSideView_dfs(root6) == [1, 3, 6, 8]
     print("Test case 6 passed: Complex tree")
 
-    print("\nAll test cases passed!")
+    print("\\nAll test cases passed!")
 
 
 if __name__ == "__main__":

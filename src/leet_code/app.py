@@ -444,14 +444,9 @@ def parse_jsdoc_explanation(code: str) -> tuple[str, dict[str, str] | None]:
         # Clean up JSDoc formatting (remove * at beginning of lines)
         jsdoc_content = re.sub(r"^\s*\*\s?", "", jsdoc_content, flags=re.MULTILINE)
 
-        # Extract problem description (everything before <details>)
+        # Extract explanation content (everything from <details> onward)
         details_match = re.search(r"<details>", jsdoc_content, re.IGNORECASE)
-        if details_match:
-            problem_description = jsdoc_content[: details_match.start()].strip()
-            explanation_content = jsdoc_content[details_match.start() :].strip()
-        else:
-            problem_description = jsdoc_content.strip()
-            explanation_content = ""
+        explanation_content = jsdoc_content[details_match.start() :].strip() if details_match else ""
 
         # Remove the JSDoc comment from code
         clean_code = re.sub(jsdoc_pattern, "", code, flags=re.DOTALL).strip()
@@ -492,7 +487,7 @@ def extract_js_problem_description(code: str) -> str | None:
             problem_html = markdown.markdown(problem_description)
             return problem_html
 
-    except Exception:
+    except Exception:  # nosec B110 - Intentional: return None on parsing failure
         pass
 
     return None

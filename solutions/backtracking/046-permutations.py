@@ -8,7 +8,6 @@ You can return the answer in any order.
 Example:
 Input: `nums` = [1,2,3]
 Output: [[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]
-"""
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -86,6 +85,7 @@ Result: [[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]
 - Total permutations = n! for n distinct elements
 
 </details>
+"""
 
 class Solution:
     def permute(self, nums: list[int]) -> list[list[int]]:

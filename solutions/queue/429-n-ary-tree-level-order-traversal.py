@@ -38,9 +38,9 @@ Use BFS to process nodes level by level, adding all children of each node to the
 ### EXAMPLE WALKTHROUGH:
 ```
 Tree:        1
-          /  |  \
+          /  |  \\
          3   2   4
-        / \
+        / \\
        5   6
 
 Level 0: [1]

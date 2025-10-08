@@ -20,8 +20,6 @@ Example:
 Input: s = "leetcode"
 Output: 5
 Explanation: Inserting 5 characters the string becomes "leetcodocteel".
-"""
-
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
@@ -66,6 +64,7 @@ Direct DP where `dp[i][j]` represents minimum insertions for substring `s[i:j+1]
 - Empty string: return 0
 
 </details>
+"""
 
 class Solution:
     def minInsertions(self, s: str) -> int:

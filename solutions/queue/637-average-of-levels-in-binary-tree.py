@@ -39,9 +39,9 @@ For each level, calculate the sum and count of nodes, then compute the average.
 ### EXAMPLE WALKTHROUGH:
 ```
 Tree:      3
-         /   \
+         /   \\
         9     20
-             /  \
+             /  \\
             15   7
 
 Level 0: sum = 3, count = 1, avg = 3.0

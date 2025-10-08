@@ -38,9 +38,9 @@ For each level, track the maximum value among all nodes at that level.
 ### EXAMPLE WALKTHROUGH:
 ```
 Tree:      1
-         /   \
+         /   \\
         3     2
-       / \     \
+       / \\     \\
       5   3     9
 
 Level 0: max = 1

@@ -17,8 +17,6 @@ element as described above.
 Example:
 Input: nums1 = [4,1,2], nums2 = [1,3,4,2]
 Output: [-1,3,-1]
-"""
-
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
@@ -47,6 +45,7 @@ nums2 = [1,3,4,2], nums1 = [4,1,2]
 - Result for [4,1,2]: [-1,3,-1]
 
 </details>
+"""
 
 class Solution:
     def nextGreaterElement(self, nums1: list[int], nums2: list[int]) -> list[int]:

@@ -40,9 +40,9 @@ The tree height is log n, so we visit at most log n nodes for any operation. Eac
 ```
 Array: [1, 3, 5]
 Tree:     9
-        /   \
+        /   \\
        4     5
-      / \   /
+      / \\   /
      1   3 5
 ```
 
@@ -246,7 +246,7 @@ if __name__ == "__main__":
     print("After update index 1 to 2")
     print(f"Sum range [0, 2]: {obj.sumRange(0, 2)}")  # 8
 
-    print("\n" + "=" * 50 + "\n")
+    print("\\n" + "=" * 50 + "\\n")
 
     # Test with BIT
     print("Using Binary Indexed Tree:")
@@ -256,7 +256,7 @@ if __name__ == "__main__":
     print("After update index 1 to 2")
     print(f"Sum range [0, 2]: {obj_bit.sumRange(0, 2)}")  # 8
 
-    print("\n" + "=" * 50 + "\n")
+    print("\\n" + "=" * 50 + "\\n")
 
     # Test Count Smaller
     solution = Solution()

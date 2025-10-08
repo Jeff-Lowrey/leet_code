@@ -39,9 +39,9 @@ Use a flag to track whether we should append values left-to-right or right-to-le
 ### EXAMPLE WALKTHROUGH:
 ```
 Tree:      3
-         /   \
+         /   \\
         9     20
-             /  \
+             /  \\
             15   7
 
 Level 0 (L->R): [3]

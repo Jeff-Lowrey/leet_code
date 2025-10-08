@@ -52,15 +52,16 @@ The approach uses union find techniques to solve this problem efficiently.
 </details>
 """
 
+
 class Solution:
     def solve(self, board: List[List[str]]) -> None:
         """
-        Captures all regions surrounded by 'X'. A region is captured by flipping all 'O's 
+        Captures all regions surrounded by 'X'. A region is captured by flipping all 'O's
         into 'X's in that surrounded region.
-        
+
         Args:
             board: The input board represented as a 2D list of 'X' and 'O' characters
-            
+
         Modifies the board in-place.
         """
         if not board or not board[0]:
@@ -71,19 +72,17 @@ class Solution:
         def dfs(row: int, col: int) -> None:
             """
             Depth-first search to mark all connected 'O's that should not be captured.
-            
+
             Args:
                 row: Current row index
                 col: Current column index
             """
             # Check boundaries and if current cell is 'O'
-            if (row < 0 or col < 0 or 
-                row >= rows or col >= cols or 
-                board[row][col] != 'O'):
+            if row < 0 or col < 0 or row >= rows or col >= cols or board[row][col] != "O":
                 return
 
             # Mark this cell as visited by changing it to a temporary character
-            board[row][col] = '#'
+            board[row][col] = "#"
 
             # Check all four adjacent cells
             dfs(row + 1, col)  # Down
@@ -92,7 +91,7 @@ class Solution:
             dfs(row, col - 1)  # Left
 
         # Step 1: Mark all 'O's connected to the border as '#'
-        
+
         # Check first and last row
         for col in range(cols):
             dfs(0, col)
@@ -106,10 +105,11 @@ class Solution:
         # Step 2: Flip all remaining 'O's to 'X's and restore '#'s to 'O's
         for row in range(rows):
             for col in range(cols):
-                if board[row][col] == 'O':
-                    board[row][col] = 'X'
-                elif board[row][col] == '#':
-                    board[row][col] = 'O'
+                if board[row][col] == "O":
+                    board[row][col] = "X"
+                elif board[row][col] == "#":
+                    board[row][col] = "O"
+
 
 def test_solution():
     """
@@ -129,9 +129,10 @@ def test_solution():
 
     print("All test cases passed!")
 
+
 if __name__ == "__main__":
     test_solution()
 
     # Example usage
     solution = Solution()
-    print(f"Solution for 130. Surrounded")
+    print("Solution for 130. Surrounded")

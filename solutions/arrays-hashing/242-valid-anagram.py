@@ -10,7 +10,6 @@ word or phrase, typically using all the original letters exactly once.
 Example:
 Input: s = "anagram", t = "nagaram"
 Output: true
-"""
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -68,6 +67,7 @@ Both have identical counts → True
 - Single character → direct comparison
 
 </details>
+"""
 
 from collections import Counter
 

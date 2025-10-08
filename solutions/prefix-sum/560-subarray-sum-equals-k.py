@@ -56,6 +56,7 @@ Result: 2 subarrays: [1,1] and [1,1]
 </details>
 """
 
+
 class Solution:
     def subarraySum(self, nums: list[int], k: int) -> int:
         """
@@ -196,17 +197,17 @@ def test_solution():
     solution = Solution()
 
     # Test case 1: Basic example
-    result1 = solution.subarraySum([1,1,1], 2)
+    result1 = solution.subarraySum([1, 1, 1], 2)
     expected1 = 2
     assert result1 == expected1, f"Expected {expected1}, got {result1}"
 
     # Test case 2: Mixed positive and negative
-    result2 = solution.subarraySum([1,2,3], 3)
+    result2 = solution.subarraySum([1, 2, 3], 3)
     expected2 = 2  # [3] and [1,2]
     assert result2 == expected2, f"Expected {expected2}, got {result2}"
 
     # Test case 3: No valid subarrays
-    result3 = solution.subarraySum([1,2,3], 7)
+    result3 = solution.subarraySum([1, 2, 3], 7)
     expected3 = 0
     assert result3 == expected3, f"Expected {expected3}, got {result3}"
 
@@ -216,27 +217,27 @@ def test_solution():
     assert result4 == expected4, f"Expected {expected4}, got {result4}"
 
     # Test case 5: Target is 0
-    result5 = solution.subarraySum([1,-1,0], 0)
+    result5 = solution.subarraySum([1, -1, 0], 0)
     expected5 = 3  # [1,-1], [0], and [1,-1,0]
     assert result5 == expected5, f"Expected {expected5}, got {result5}"
 
     # Test case 6: With negative numbers
-    result6 = solution.subarraySum([1,-1,1,-1], 0)
+    result6 = solution.subarraySum([1, -1, 1, -1], 0)
     expected6 = 4  # [1,-1], [-1,1], [1,-1,1,-1], [1,-1] (second occurrence)
     assert result6 == expected6, f"Expected {expected6}, got {result6}"
 
     # Test brute force solution
-    result7 = solution.subarraySumBruteForce([1,1,1], 2)
+    result7 = solution.subarraySumBruteForce([1, 1, 1], 2)
     expected7 = 2
     assert result7 == expected7, f"Expected {expected7}, got {result7}"
 
     # Test optimized solution
-    result8 = solution.subarraySumOptimized([1,2,3], 3)
+    result8 = solution.subarraySumOptimized([1, 2, 3], 3)
     expected8 = 2
     assert result8 == expected8, f"Expected {expected8}, got {result8}"
 
     # Test detailed solution
-    result9 = solution.subarraySumDetailed([1,-1,0], 0)
+    result9 = solution.subarraySumDetailed([1, -1, 0], 0)
     expected9 = 3
     assert result9 == expected9, f"Expected {expected9}, got {result9}"
 
@@ -251,20 +252,15 @@ if __name__ == "__main__":
     print("=== 560. Subarray Sum Equals K ===")
 
     # Demonstrate with examples
-    test_cases = [
-        ([1,1,1], 2),
-        ([1,2,3], 3),
-        ([1,-1,0], 0),
-        ([1], 1)
-    ]
+    test_cases = [([1, 1, 1], 2), ([1, 2, 3], 3), ([1, -1, 0], 0), ([1], 1)]
 
     for nums, k in test_cases:
         result = solution.subarraySum(nums, k)
         print(f"subarraySum({nums}, {k}) -> {result}")
 
     # Show detailed walkthrough
-    print(f"\nDetailed example: nums=[1,1,1], k=2")
-    nums, k = [1,1,1], 2
+    print("\nDetailed example: nums=[1,1,1], k=2")
+    nums, k = [1, 1, 1], 2
     print(f"Array: {nums}, Target: {k}")
     print("Prefix sums and valid subarrays:")
 

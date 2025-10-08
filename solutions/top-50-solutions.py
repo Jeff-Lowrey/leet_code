@@ -1,8 +1,6 @@
 """
 Top 50 Most Common LeetCode `Problems - Python` Solutions
 Organized by pattern and difficulty
-"""
-
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
@@ -60,6 +58,7 @@ Each problem handles specific edge cases including:
 - Boundary conditions
 
 </details>
+"""
 
 # ============================================================================
 # ARRAYS & HASHING

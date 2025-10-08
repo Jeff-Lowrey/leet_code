@@ -10,8 +10,6 @@ Notice that the solution `set` must not contain duplicate triplets.
 Example:
 Input: `nums` = [-1,0,1,2,-1,-4]
 Output: [[-1,-1,2],[-1,0,1]]
-"""
-
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
@@ -58,6 +56,7 @@ For nums = [-1,0,1,2,-1,-4], after sorting: [-4,-1,-1,0,1,2]
 - Array with all zeros: return [[0,0,0]] if length ≥ 3
 
 </details>
+"""
 
 class Solution:
     def threeSum(self, nums: list[int]) -> list[list[int]]:

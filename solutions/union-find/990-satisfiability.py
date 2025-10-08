@@ -59,6 +59,7 @@ Output: True
 </details>
 """
 
+
 class Solution:
     def equationsPossible(self, equations: list[str]) -> bool:
         """
@@ -90,17 +91,17 @@ class Solution:
 
         def char_to_index(c):
             """Convert character to index (a=0, b=1, etc.)."""
-            return ord(c) - ord('a')
+            return ord(c) - ord("a")
 
         # Step 1: Process all equality equations
         for eq in equations:
-            if eq[1] == '=':  # Equality equation "xi==xj"
+            if eq[1] == "=":  # Equality equation "xi==xj"
                 x, y = char_to_index(eq[0]), char_to_index(eq[3])
                 union(x, y)
 
         # Step 2: Check all inequality equations
         for eq in equations:
-            if eq[1] == '!':  # Inequality equation "xi!=xj"
+            if eq[1] == "!":  # Inequality equation "xi!=xj"
                 x, y = char_to_index(eq[0]), char_to_index(eq[3])
                 if find(x) == find(y):  # Same component = contradiction
                     return False
@@ -117,6 +118,7 @@ class Solution:
         Returns:
             True if satisfiable, False otherwise
         """
+
         class UnionFind:
             def __init__(self, n):
                 self.parent = list(range(n))
@@ -149,10 +151,10 @@ class Solution:
         inequalities = []
 
         for eq in equations:
-            if eq[1:3] == '==':
-                equalities.append((ord(eq[0]) - ord('a'), ord(eq[3]) - ord('a')))
+            if eq[1:3] == "==":
+                equalities.append((ord(eq[0]) - ord("a"), ord(eq[3]) - ord("a")))
             else:  # eq[1:3] == '!='
-                inequalities.append((ord(eq[0]) - ord('a'), ord(eq[3]) - ord('a')))
+                inequalities.append((ord(eq[0]) - ord("a"), ord(eq[3]) - ord("a")))
 
         # Process equalities
         for x, y in equalities:
@@ -165,22 +167,23 @@ class Solution:
 
         return True
 
+
 def test_solution():
     """Test cases for 990. Satisfiability of Equality Equations."""
     solution = Solution()
 
     # Test case 1: Contradiction
-    result1 = solution.equationsPossible(["a==b","b!=a"])
+    result1 = solution.equationsPossible(["a==b", "b!=a"])
     expected1 = False
     assert result1 == expected1, f"Expected {expected1}, got {result1}"
 
     # Test case 2: Consistent
-    result2 = solution.equationsPossible(["b==a","a==b"])
+    result2 = solution.equationsPossible(["b==a", "a==b"])
     expected2 = True
     assert result2 == expected2, f"Expected {expected2}, got {result2}"
 
     # Test case 3: Complex case
-    result3 = solution.equationsPossible(["a==b","b==c","a!=d"])
+    result3 = solution.equationsPossible(["a==b", "b==c", "a!=d"])
     expected3 = True
     assert result3 == expected3, f"Expected {expected3}, got {result3}"
 
@@ -190,16 +193,17 @@ def test_solution():
     assert result4 == expected4, f"Expected {expected4}, got {result4}"
 
     # Test alternative implementation
-    result5 = solution.equationsPossibleAlternative(["a==b","b!=a"])
+    result5 = solution.equationsPossibleAlternative(["a==b", "b!=a"])
     expected5 = False
     assert result5 == expected5, f"Expected {expected5}, got {result5}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()
 
     # Example usage
     solution = Solution()
-    equations = ["a==b","b==c","a!=d"]
+    equations = ["a==b", "b==c", "a!=d"]
     print(f"Equations {equations} satisfiable: {solution.equationsPossible(equations)}")

@@ -12,8 +12,6 @@ Example:
 Input: `nums` = [2,3,1,1,4]
 Output: true
 Explanation: Jump 1 step from index 0 to 1, then 3 steps to the last index.
-"""
-
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
@@ -77,6 +75,7 @@ Start from last position, work backwards:
 Greedy works because if we can reach the farthest possible position at each step, we maximize our chances of reaching the end. We don't need to consider suboptimal intermediate positions.
 
 </details>
+"""
 
 class Solution:
     def canJump(self, nums: list[int]) -> bool:

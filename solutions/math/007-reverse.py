@@ -52,17 +52,18 @@ The approach uses math techniques to solve this problem efficiently.
 </details>
 """
 
+
 class Solution:
     def reverse(self, x: int) -> int:
         """
         Reverses the digits of an integer while preserving its sign.
-        
+
         Args:
             x (int): The integer to be reversed
-            
+
         Returns:
             int: The reversed integer, or 0 if the result would overflow
-            
+
         Note:
             - Handles both positive and negative integers
             - Returns 0 if the reversed number exceeds 32-bit integer range
@@ -70,21 +71,22 @@ class Solution:
         """
         # Handle the sign separately
         sign = -1 if x < 0 else 1
-        
+
         # Convert to positive number and to string
         x_str = str(abs(x))
-        
+
         # Reverse the string
         reversed_str = x_str[::-1]
-        
+
         # Convert back to integer with original sign
         result = sign * int(reversed_str)
-        
+
         # Check for 32-bit integer overflow
-        if result < -2**31 or result > 2**31 - 1:
+        if result < -(2**31) or result > 2**31 - 1:
             return 0
-            
+
         return result
+
 
 def test_solution():
     """
@@ -133,6 +135,7 @@ def test_solution():
     assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

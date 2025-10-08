@@ -38,11 +38,11 @@ Input: root = [10,5,-3,3,2,null,11,3,-2,null,1], targetSum = 8
 
 Tree structure:
          10
-        /  \
+        /  \\
        5   -3
-      / \    \
+      / \\    \\
      3   2   11
-    / \   \
+    / \\   \\
    3  -2   1
 
 DFS traversal with prefix sums:
@@ -72,7 +72,7 @@ Total paths with sum 8: 3
 </details>
 """
 
-from typing import Optional
+
 
 # Definition for a binary tree node.
 class TreeNode:
@@ -83,7 +83,7 @@ class TreeNode:
 
 
 class Solution:
-    def pathSum(self, root: Optional[TreeNode], targetSum: int) -> int:
+    def pathSum(self, root: TreeNode | None, targetSum: int) -> int:
         """
         Count paths with sum equal to targetSum using prefix sum approach.
 
@@ -100,7 +100,7 @@ class Solution:
         # HashMap to store: prefix_sum -> frequency
         prefix_sum_count = {0: 1}  # Base case: empty path has sum 0
 
-        def dfs(node: Optional[TreeNode], current_sum: int) -> int:
+        def dfs(node: TreeNode | None, current_sum: int) -> int:
             if not node:
                 return 0
 
@@ -127,7 +127,7 @@ class Solution:
 
         return dfs(root, 0)
 
-    def pathSumAlternative(self, root: Optional[TreeNode], targetSum: int) -> int:
+    def pathSumAlternative(self, root: TreeNode | None, targetSum: int) -> int:
         """
         Alternative implementation with defaultdict.
 
@@ -140,8 +140,7 @@ class Solution:
         """
         from collections import defaultdict
 
-        def dfs(node: Optional[TreeNode], current_sum: int,
-                prefix_map: dict[int, int]) -> int:
+        def dfs(node: TreeNode | None, current_sum: int, prefix_map: dict[int, int]) -> int:
             if not node:
                 return 0
 
@@ -166,7 +165,7 @@ class Solution:
         prefix_map[0] = 1
         return dfs(root, 0, prefix_map)
 
-    def pathSumBruteForce(self, root: Optional[TreeNode], targetSum: int) -> int:
+    def pathSumBruteForce(self, root: TreeNode | None, targetSum: int) -> int:
         """
         Brute force solution checking all possible paths.
 
@@ -180,7 +179,8 @@ class Solution:
         Time Complexity: O(n²) - for each node, check all paths from that node
         Space Complexity: O(h) - recursion stack
         """
-        def count_paths_from_node(node: Optional[TreeNode], target: int) -> int:
+
+        def count_paths_from_node(node: TreeNode | None, target: int) -> int:
             """Count paths starting from given node."""
             if not node:
                 return 0
@@ -193,7 +193,7 @@ class Solution:
 
             return count
 
-        def dfs(node: Optional[TreeNode]) -> int:
+        def dfs(node: TreeNode | None) -> int:
             """Visit each node and count paths starting from it."""
             if not node:
                 return 0
@@ -209,7 +209,7 @@ class Solution:
 
         return dfs(root)
 
-    def pathSumVerbose(self, root: Optional[TreeNode], targetSum: int) -> int:
+    def pathSumVerbose(self, root: TreeNode | None, targetSum: int) -> int:
         """
         More verbose implementation with detailed comments.
 
@@ -223,7 +223,7 @@ class Solution:
         self.result = 0
         prefix_sums = {0: 1}
 
-        def traverse(node: Optional[TreeNode], path_sum: int) -> None:
+        def traverse(node: TreeNode | None, path_sum: int) -> None:
             if not node:
                 return
 
@@ -261,7 +261,7 @@ def test_solution():
     solution = Solution()
 
     # Helper function to build tree from list
-    def build_tree(values: list) -> Optional[TreeNode]:
+    def build_tree(values: list) -> TreeNode | None:
         """Build binary tree from level-order list."""
         if not values:
             return None
@@ -286,13 +286,13 @@ def test_solution():
         return root
 
     # Test case 1: Basic example
-    root1 = build_tree([10,5,-3,3,2,None,11,3,-2,None,1])
+    root1 = build_tree([10, 5, -3, 3, 2, None, 11, 3, -2, None, 1])
     result1 = solution.pathSum(root1, 8)
     expected1 = 3  # Paths: 5->3, 5->2->1, -3->11
     assert result1 == expected1, f"Expected {expected1}, got {result1}"
 
     # Test case 2: Simple path
-    root2 = build_tree([5,4,8,11,None,13,4,7,2,None,None,5,1])
+    root2 = build_tree([5, 4, 8, 11, None, 13, 4, 7, 2, None, None, 5, 1])
     result2 = solution.pathSum(root2, 22)
     expected2 = 3  # Multiple paths sum to 22
     assert result2 == expected2, f"Expected {expected2}, got {result2}"
@@ -304,13 +304,13 @@ def test_solution():
     assert result3 == expected3, f"Expected {expected3}, got {result3}"
 
     # Test case 4: No valid paths
-    root4 = build_tree([1,2,3])
+    root4 = build_tree([1, 2, 3])
     result4 = solution.pathSum(root4, 10)
     expected4 = 0
     assert result4 == expected4, f"Expected {expected4}, got {result4}"
 
     # Test case 5: Target sum is 0
-    root5 = build_tree([0,1,-1])
+    root5 = build_tree([0, 1, -1])
     result5 = solution.pathSum(root5, 0)
     expected5 = 3  # [0], [1,-1] from left, [1,-1] another way
     # Actually: [0], left subtree 1+-1=0? No, need downward path
@@ -319,19 +319,19 @@ def test_solution():
     # Actually we need to test this properly
 
     # Test case 6: All same values
-    root6 = build_tree([1,1,1])
+    root6 = build_tree([1, 1, 1])
     result6 = solution.pathSum(root6, 2)
     expected6 = 2  # [1,1] left path and [1,1] right path
     assert result6 == expected6, f"Expected {expected6}, got {result6}"
 
     # Test brute force solution
-    root7 = build_tree([10,5,-3,3,2,None,11,3,-2,None,1])
+    root7 = build_tree([10, 5, -3, 3, 2, None, 11, 3, -2, None, 1])
     result7 = solution.pathSumBruteForce(root7, 8)
     expected7 = 3
     assert result7 == expected7, f"Expected {expected7}, got {result7}"
 
     # Test alternative solution
-    root8 = build_tree([5,4,8,11,None,13,4,7,2,None,None,5,1])
+    root8 = build_tree([5, 4, 8, 11, None, 13, 4, 7, 2, None, None, 5, 1])
     result8 = solution.pathSumAlternative(root8, 22)
     expected8 = 3
     assert result8 == expected8, f"Expected {expected8}, got {result8}"
@@ -347,7 +347,7 @@ if __name__ == "__main__":
     print("=== 437. Path Sum III ===")
 
     # Helper function to build tree
-    def build_tree(values: list) -> Optional[TreeNode]:
+    def build_tree(values: list) -> TreeNode | None:
         if not values:
             return None
         root = TreeNode(values[0])
@@ -367,38 +367,38 @@ if __name__ == "__main__":
 
     # Demonstrate with examples
     print("\nExample 1:")
-    root1 = build_tree([10,5,-3,3,2,None,11,3,-2,None,1])
+    root1 = build_tree([10, 5, -3, 3, 2, None, 11, 3, -2, None, 1])
     result1 = solution.pathSum(root1, 8)
-    print(f"Tree: [10,5,-3,3,2,null,11,3,-2,null,1]")
-    print(f"Target sum: 8")
+    print("Tree: [10,5,-3,3,2,null,11,3,-2,null,1]")
+    print("Target sum: 8")
     print(f"Number of paths: {result1}")
 
     print("\nExample 2:")
-    root2 = build_tree([5,4,8,11,None,13,4,7,2,None,None,5,1])
+    root2 = build_tree([5, 4, 8, 11, None, 13, 4, 7, 2, None, None, 5, 1])
     result2 = solution.pathSum(root2, 22)
-    print(f"Tree: [5,4,8,11,null,13,4,7,2,null,null,5,1]")
-    print(f"Target sum: 22")
+    print("Tree: [5,4,8,11,null,13,4,7,2,null,null,5,1]")
+    print("Target sum: 22")
     print(f"Number of paths: {result2}")
 
     print("\nExample 3 (simple):")
-    root3 = build_tree([1,2,3])
+    root3 = build_tree([1, 2, 3])
     result3 = solution.pathSum(root3, 3)
-    print(f"Tree: [1,2,3]")
-    print(f"Target sum: 3")
+    print("Tree: [1,2,3]")
+    print("Target sum: 3")
     print(f"Number of paths: {result3}")
 
     # Show detailed walkthrough for small tree
     print("\nDetailed walkthrough:")
     print("Tree: [5,3,2,1,null,null,4], Target: 8")
     print("     5")
-    print("    / \\")
+    print("    / \\\\")
     print("   3   2")
-    print("  /     \\")
+    print("  /     \\\\")
     print(" 1       4")
     print("\nPaths with sum 8:")
     print("1. 5 -> 3 (sum = 8)")
     print("2. 5 -> 3 -> ? No")
     print("3. 5 -> 2 -> 4? No (5+2+4=11)")
-    root_demo = build_tree([5,3,2,1,None,None,4])
+    root_demo = build_tree([5, 3, 2, 1, None, None, 4])
     result_demo = solution.pathSum(root_demo, 8)
     print(f"Total paths: {result_demo}")

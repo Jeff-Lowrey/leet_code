@@ -10,8 +10,6 @@ The solution `set` must not contain duplicate subsets. Return the solution in an
 Example:
 Input: `nums` = [1,2,3]
 Output: [[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]]
-"""
-
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
@@ -98,6 +96,7 @@ Final result: [[], [1], [1,2], [1,2,3], [1,3], [2], [2,3], [3]]
 - Backtracking pattern: choose → recurse → unchoose
 
 </details>
+"""
 
 class Solution:
     def subsets(self, nums: list[int]) -> list[list[int]]:

@@ -52,31 +52,32 @@ The approach uses math techniques to solve this problem efficiently.
 </details>
 """
 
+
 class Solution:
     def isPowerOfThree(self, n: int) -> bool:
         """
         Determines if a given number is a power of three.
-        
+
         Args:
             n (int): The number to check
-            
+
         Returns:
             bool: True if n is a power of three, False otherwise
-            
+
         Time Complexity: O(log_3(n))
         Space Complexity: O(1)
         """
         # Handle edge cases
         if n <= 0:
             return False
-        
+
         # A number is a power of three if it can be divided by 3 repeatedly
         # until reaching 1, with no remainder at each step
         while n > 1:
             if n % 3 != 0:
                 return False
             n = n // 3
-            
+
         return True
 
     def isPowerOfThreeOptimized(self, n: int) -> bool:
@@ -84,17 +85,18 @@ class Solution:
         Alternative implementation using mathematical properties.
         3^19 = 1162261467 is the largest power of 3 that fits in a 32-bit integer.
         If n is a power of 3, it must divide 3^19 evenly.
-        
+
         Args:
             n (int): The number to check
-            
+
         Returns:
             bool: True if n is a power of three, False otherwise
-            
+
         Time Complexity: O(1)
         Space Complexity: O(1)
         """
         return n > 0 and 1162261467 % n == 0
+
 
 def test_solution():
     """
@@ -113,6 +115,7 @@ def test_solution():
     # assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

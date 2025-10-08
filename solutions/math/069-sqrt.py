@@ -52,17 +52,18 @@ The approach uses math techniques to solve this problem efficiently.
 </details>
 """
 
+
 class Solution:
     def mySqrt(self, x: int) -> int:
         """
         Calculate the square root of a non-negative integer x.
-        
+
         Args:
             x (int): Non-negative integer input
-            
+
         Returns:
             int: Floor value of the square root of x
-            
+
         Examples:
             >>> solution = Solution()
             >>> solution.mySqrt(4)
@@ -77,16 +78,16 @@ class Solution:
             return 0
         if x == 1:
             return 1
-        
+
         # Use binary search to find the square root
         left, right = 1, x
-        
+
         while left <= right:
             mid = (left + right) // 2
-            
+
             # Calculate square of middle point
             square = mid * mid
-            
+
             if square == x:
                 return mid
             elif square < x:
@@ -97,8 +98,9 @@ class Solution:
             else:
                 # If square is greater than x, search in left half
                 right = mid - 1
-        
+
         return result
+
 
 def test_solution():
     """
@@ -117,6 +119,7 @@ def test_solution():
     # assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

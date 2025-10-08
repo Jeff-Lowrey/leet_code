@@ -52,6 +52,7 @@ The approach uses prefix sum techniques to solve this problem efficiently.
 </details>
 """
 
+
 class NumArray:
     """
     Range Sum Query using prefix sum preprocessing.
@@ -89,6 +90,7 @@ class NumArray:
         """
         return self.prefix[right + 1] - self.prefix[left]
 
+
 class Solution:
     def solve(self, operations: list[str], values: list[list]) -> list:
         """
@@ -104,7 +106,7 @@ class Solution:
         result = []
         num_array = None
 
-        for op, val in zip(operations, values):
+        for op, val in zip(operations, values, strict=False):
             if op == "NumArray":
                 num_array = NumArray(val[0])  # Unpack the array from the list
                 result.append(None)
@@ -112,6 +114,7 @@ class Solution:
                 result.append(num_array.sumRange(val[0], val[1]))
 
         return result
+
 
 def test_solution():
     """
@@ -156,13 +159,14 @@ def test_solution():
 
     print("All test cases passed!")
 
+
 if __name__ == "__main__":
     test_solution()
 
     # Example usage
     nums = [-2, 0, 3, -5, 2, -1]
     num_array = NumArray(nums)
-    print(f"Solution for 303. Range Sum Query - Immutable:")
+    print("Solution for 303. Range Sum Query - Immutable:")
     print(f"Sum of range [0, 2]: {num_array.sumRange(0, 2)}")
     print(f"Sum of range [2, 5]: {num_array.sumRange(2, 5)}")
     print(f"Sum of range [0, 5]: {num_array.sumRange(0, 5)}")

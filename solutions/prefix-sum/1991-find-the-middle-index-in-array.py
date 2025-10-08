@@ -65,6 +65,7 @@ Index 3: left=4, right=16-4-8=4, equal! Return 3
 </details>
 """
 
+
 class Solution:
     def findMiddleIndex(self, nums: list[int]) -> int:
         """
@@ -142,7 +143,7 @@ class Solution:
             left_sum = sum(nums[:i])
 
             # Calculate right sum
-            right_sum = sum(nums[i+1:])
+            right_sum = sum(nums[i + 1 :])
 
             if left_sum == right_sum:
                 return i
@@ -187,17 +188,17 @@ def test_solution():
     solution = Solution()
 
     # Test case 1: Basic example
-    result1 = solution.findMiddleIndex([2,3,-1,8,4])
+    result1 = solution.findMiddleIndex([2, 3, -1, 8, 4])
     expected1 = 3  # left=[2,3,-1] sum=4, right=[4] sum=4
     assert result1 == expected1, f"Expected {expected1}, got {result1}"
 
     # Test case 2: Middle at start
-    result2 = solution.findMiddleIndex([1,-1,4])
+    result2 = solution.findMiddleIndex([1, -1, 4])
     expected2 = 2  # left=[1,-1] sum=0, right=[] sum=0
     assert result2 == expected2, f"Expected {expected2}, got {result2}"
 
     # Test case 3: No middle index
-    result3 = solution.findMiddleIndex([2,5])
+    result3 = solution.findMiddleIndex([2, 5])
     expected3 = -1
     assert result3 == expected3, f"Expected {expected3}, got {result3}"
 
@@ -207,32 +208,32 @@ def test_solution():
     assert result4 == expected4, f"Expected {expected4}, got {result4}"
 
     # Test case 5: Middle at index 0
-    result5 = solution.findMiddleIndex([0,0,0])
+    result5 = solution.findMiddleIndex([0, 0, 0])
     expected5 = 0  # left=[] sum=0, right=[0,0] sum=0
     assert result5 == expected5, f"Expected {expected5}, got {result5}"
 
     # Test case 6: All same values
-    result6 = solution.findMiddleIndex([1,2,1])
+    result6 = solution.findMiddleIndex([1, 2, 1])
     expected6 = 1  # left=[1] sum=1, right=[1] sum=1
     assert result6 == expected6, f"Expected {expected6}, got {result6}"
 
     # Test case 7: Negative numbers
-    result7 = solution.findMiddleIndex([-1,-1,-1,-1,-1,0])
+    result7 = solution.findMiddleIndex([-1, -1, -1, -1, -1, 0])
     expected7 = 2  # left=[-1,-1] sum=-2, right=[-1,-1,0] sum=-2
     assert result7 == expected7, f"Expected {expected7}, got {result7}"
 
     # Test brute force solution
-    result8 = solution.findMiddleIndexBruteForce([2,3,-1,8,4])
+    result8 = solution.findMiddleIndexBruteForce([2, 3, -1, 8, 4])
     expected8 = 3
     assert result8 == expected8, f"Expected {expected8}, got {result8}"
 
     # Test verbose solution
-    result9 = solution.findMiddleIndexVerbose([1,2,1])
+    result9 = solution.findMiddleIndexVerbose([1, 2, 1])
     expected9 = 1
     assert result9 == expected9, f"Expected {expected9}, got {result9}"
 
     # Test with prefix array solution
-    result10 = solution.findMiddleIndexWithPrefixArray([2,3,-1,8,4])
+    result10 = solution.findMiddleIndexWithPrefixArray([2, 3, -1, 8, 4])
     expected10 = 3
     assert result10 == expected10, f"Expected {expected10}, got {result10}"
 
@@ -247,21 +248,15 @@ if __name__ == "__main__":
     print("=== 1991. Find The Middle Index In Array ===")
 
     # Demonstrate with examples
-    test_cases = [
-        [2,3,-1,8,4],
-        [1,-1,4],
-        [2,5],
-        [1],
-        [1,2,1]
-    ]
+    test_cases = [[2, 3, -1, 8, 4], [1, -1, 4], [2, 5], [1], [1, 2, 1]]
 
     for nums in test_cases:
         result = solution.findMiddleIndex(nums)
         print(f"findMiddleIndex({nums}) -> {result}")
 
     # Show detailed walkthrough
-    print(f"\nDetailed example: nums=[2,3,-1,8,4]")
-    nums = [2,3,-1,8,4]
+    print("\nDetailed example: nums=[2,3,-1,8,4]")
+    nums = [2, 3, -1, 8, 4]
     total = sum(nums)
     print(f"Array: {nums}")
     print(f"Total sum: {total}")
@@ -277,7 +272,7 @@ if __name__ == "__main__":
             print(f"\nMiddle index found at position {i}")
             print(f"Left side: {nums[:i]} = {left_sum}")
             print(f"Middle: {num}")
-            print(f"Right side: {nums[i+1:]} = {right_sum}")
+            print(f"Right side: {nums[i + 1 :]} = {right_sum}")
             break
 
         left_sum += num

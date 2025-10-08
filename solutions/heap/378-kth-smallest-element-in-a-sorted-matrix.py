@@ -60,6 +60,7 @@ Step 8: pop 13 (8th smallest) -> return 13
 </details>
 """
 
+
 class Solution:
     def kthSmallest(self, matrix: list[list[int]], k: int) -> int:
         """
@@ -112,6 +113,7 @@ class Solution:
         Time Complexity: O(n log(max-min) log n)
         Space Complexity: O(1)
         """
+
         def count_less_equal(target):
             """Count elements <= target using sorted property."""
             count = 0
@@ -127,7 +129,7 @@ class Solution:
             return count
 
         n = len(matrix)
-        left, right = matrix[0][0], matrix[n-1][n-1]
+        left, right = matrix[0][0], matrix[n - 1][n - 1]
 
         while left < right:
             mid = (left + right) // 2
@@ -211,6 +213,7 @@ class Solution:
         Returns:
             The kth smallest element
         """
+
         def count_less_equal(x):
             """Efficiently count elements <= x."""
             count = 0
@@ -227,7 +230,7 @@ class Solution:
             return count
 
         n = len(matrix)
-        left, right = matrix[0][0], matrix[n-1][n-1]
+        left, right = matrix[0][0], matrix[n - 1][n - 1]
 
         while left < right:
             mid = left + (right - left) // 2
@@ -246,13 +249,13 @@ def test_solution():
     solution = Solution()
 
     # Test case 1: Basic 3x3 matrix
-    matrix1 = [[1,5,9],[10,11,13],[12,13,15]]
+    matrix1 = [[1, 5, 9], [10, 11, 13], [12, 13, 15]]
     result1 = solution.kthSmallest(matrix1, 8)
     expected1 = 13
     assert result1 == expected1, f"Expected {expected1}, got {result1}"
 
     # Test case 2: Matrix with duplicates
-    matrix2 = [[1,2],[1,3]]
+    matrix2 = [[1, 2], [1, 3]]
     result2 = solution.kthSmallest(matrix2, 2)
     expected2 = 1
     assert result2 == expected2, f"Expected {expected2}, got {result2}"
@@ -264,19 +267,19 @@ def test_solution():
     assert result3 == expected3, f"Expected {expected3}, got {result3}"
 
     # Test case 4: First element (k=1)
-    matrix4 = [[1,5,9],[10,11,13],[12,13,15]]
+    matrix4 = [[1, 5, 9], [10, 11, 13], [12, 13, 15]]
     result4 = solution.kthSmallest(matrix4, 1)
     expected4 = 1
     assert result4 == expected4, f"Expected {expected4}, got {result4}"
 
     # Test case 5: Last element (k=n²)
-    matrix5 = [[1,5,9],[10,11,13],[12,13,15]]
+    matrix5 = [[1, 5, 9], [10, 11, 13], [12, 13, 15]]
     result5 = solution.kthSmallest(matrix5, 9)
     expected5 = 15
     assert result5 == expected5, f"Expected {expected5}, got {result5}"
 
     # Test case 6: 2x2 matrix
-    matrix6 = [[1,3],[2,4]]
+    matrix6 = [[1, 3], [2, 4]]
     result6 = solution.kthSmallest(matrix6, 3)
     expected6 = 3
     assert result6 == expected6, f"Expected {expected6}, got {result6}"
@@ -302,7 +305,7 @@ def test_solution():
     assert result10 == expected10, f"Expected {expected10}, got {result10}"
 
     # Test case 7: Larger matrix
-    matrix7 = [[1,4,7,11],[2,5,8,12],[3,6,9,16],[10,13,14,17]]
+    matrix7 = [[1, 4, 7, 11], [2, 5, 8, 12], [3, 6, 9, 16], [10, 13, 14, 17]]
     result11 = solution.kthSmallest(matrix7, 5)
     expected11 = 5
     assert result11 == expected11, f"Expected {expected11}, got {result11}"
@@ -318,7 +321,7 @@ if __name__ == "__main__":
     print("=== 378. Kth Smallest Element In A Sorted Matrix ===")
 
     # Test different approaches
-    matrix = [[1,5,9],[10,11,13],[12,13,15]]
+    matrix = [[1, 5, 9], [10, 11, 13], [12, 13, 15]]
     k = 8
 
     print(f"Matrix: {matrix}")
@@ -343,7 +346,7 @@ if __name__ == "__main__":
         all_elements.extend(row)
     all_elements.sort()
     print(f"\nAll elements sorted: {all_elements}")
-    print(f"8th smallest (index 7): {all_elements[k-1]}")
+    print(f"8th smallest (index 7): {all_elements[k - 1]}")
 
     # Performance comparison
     print(f"\nApproach complexities:")

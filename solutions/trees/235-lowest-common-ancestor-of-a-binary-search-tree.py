@@ -33,11 +33,11 @@ For recursion stack, O(1) for iterative solution
 ### EXAMPLE WALKTHROUGH:
 ```
 BST:      6
-         / \
+         / \\
         2   8
-       / \ / \
+       / \\ / \\
       0  4 7  9
-        / \
+        / \\
        3   5
 
 Find LCA of 2 and 8:
@@ -216,11 +216,11 @@ def test_solution():
     solution = Solution()
 
     # Create BST:      6
-    #                 / \
+    #                 / \\
     #                2   8
-    #               / \ / \
+    #               / \\ / \\
     #              0  4 7  9
-    #                / \
+    #                / \\
     #               3   5
     root = TreeNode(6)
     root.left = TreeNode(2)
@@ -276,7 +276,7 @@ def test_solution():
 def create_simple_bst():
     """Create a simple BST for demonstration."""
     #     2
-    #    / \
+    #    / \\
     #   1   3
     root = TreeNode(2)
     root.left = TreeNode(1)
@@ -300,11 +300,11 @@ if __name__ == "__main__":
 
     # Create larger BST for more examples
     #       6
-    #      / \
+    #      / \\
     #     2   8
-    #    / \ / \
+    #    / \\ / \\
     #   0  4 7  9
-    #     / \
+    #     / \\
     #    3   5
     large_root = TreeNode(6)
     large_root.left = TreeNode(2)
@@ -321,14 +321,14 @@ if __name__ == "__main__":
     node_8 = large_root.right
     node_4 = large_root.left.right
 
-    print(f"\nIn larger BST:")
+    print(f"\\nIn larger BST:")
     print(f"LCA of nodes 2 and 8: {solution.lowestCommonAncestor(large_root, node_2, node_8).val}")
     print(f"LCA of nodes 2 and 4: {solution.lowestCommonAncestor(large_root, node_2, node_4).val}")
 
-    print(f"\nUsing iterative approach:")
+    print(f"\\nUsing iterative approach:")
     print(f"LCA of nodes 2 and 8: {solution.lowestCommonAncestorIterative(large_root, node_2, node_8).val}")
 
-    print(f"\nAlgorithm comparison for nodes 2 and 8:")
+    print(f"\\nAlgorithm comparison for nodes 2 and 8:")
     algorithms = [
         ("BST Recursive", solution.lowestCommonAncestor),
         ("BST Iterative", solution.lowestCommonAncestorIterative),

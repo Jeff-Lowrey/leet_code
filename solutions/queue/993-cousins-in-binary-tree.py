@@ -40,7 +40,7 @@ Use BFS to track both depth and parent information for each node.
 ### EXAMPLE WALKTHROUGH:
 ```
 Tree:      1
-         /   \
+         /   \\
         2     3
        /
       4

@@ -41,9 +41,9 @@ For each level, link each node to the next node in the queue.
 ### EXAMPLE WALKTHROUGH:
 ```
 Tree:        1
-           /   \
+           /   \\
           2     3
-         / \   / \
+         / \\   / \\
         4   5 6   7
 
 After connecting:

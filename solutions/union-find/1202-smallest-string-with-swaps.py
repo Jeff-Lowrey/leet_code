@@ -86,7 +86,7 @@ class Solution:
             indices.sort()
             chars.sort()
             # Assign sorted characters to sorted indices
-            for i, char in zip(indices, chars):
+            for i, char in zip(indices, chars, strict=False):
                 result[i] = char
 
         return "".join(result)

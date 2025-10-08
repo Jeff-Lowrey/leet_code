@@ -78,7 +78,7 @@ Output: [["John","john00@mail.com","john_newyork@mail.com","johnsmith@mail.com"]
 """
 
 from collections import defaultdict
-from typing import List
+
 
 class UnionFind:
     def __init__(self, n):
@@ -104,8 +104,9 @@ class UnionFind:
         if self.rank[px] == self.rank[py]:
             self.rank[px] += 1
 
+
 class Solution:
-    def accountsMerge(self, accounts: List[List[str]]) -> List[List[str]]:
+    def accountsMerge(self, accounts: list[list[str]]) -> list[list[str]]:
         """
         Merge accounts that share common emails using Union-Find.
 
@@ -151,7 +152,7 @@ class Solution:
 
         return result
 
-    def accountsMergeAlternative(self, accounts: List[List[str]]) -> List[List[str]]:
+    def accountsMergeAlternative(self, accounts: list[list[str]]) -> list[list[str]]:
         """
         Alternative implementation using DFS-based approach.
 
@@ -204,13 +205,13 @@ def test_solution():
         ["John", "johnsmith@mail.com", "john_newyork@mail.com"],
         ["John", "johnsmith@mail.com", "john00@mail.com"],
         ["Mary", "mary@mail.com"],
-        ["John", "johnnybravo@mail.com"]
+        ["John", "johnnybravo@mail.com"],
     ]
     result1 = solution.accountsMerge(accounts1)
     expected1 = [
         ["John", "john00@mail.com", "john_newyork@mail.com", "johnsmith@mail.com"],
         ["Mary", "mary@mail.com"],
-        ["John", "johnnybravo@mail.com"]
+        ["John", "johnnybravo@mail.com"],
     ]
     # Sort both for comparison since order doesn't matter
     result1.sort()
@@ -221,13 +222,13 @@ def test_solution():
     accounts2 = [
         ["Gabe", "Gabe0@m.co", "Gabe3@m.co", "Gabe1@m.co"],
         ["Kevin", "Kevin3@m.co", "Kevin5@m.co", "Kevin0@m.co"],
-        ["Ethan", "Ethan5@m.co", "Ethan4@m.co", "Ethan0@m.co"]
+        ["Ethan", "Ethan5@m.co", "Ethan4@m.co", "Ethan0@m.co"],
     ]
     result2 = solution.accountsMerge(accounts2)
     expected2 = [
         ["Gabe", "Gabe0@m.co", "Gabe1@m.co", "Gabe3@m.co"],
         ["Kevin", "Kevin0@m.co", "Kevin3@m.co", "Kevin5@m.co"],
-        ["Ethan", "Ethan0@m.co", "Ethan4@m.co", "Ethan5@m.co"]
+        ["Ethan", "Ethan0@m.co", "Ethan4@m.co", "Ethan5@m.co"],
     ]
     result2.sort()
     expected2.sort()
@@ -240,16 +241,9 @@ def test_solution():
     assert result3 == expected3, f"Expected {expected3}, got {result3}"
 
     # Test case 4: Complex merge case
-    accounts4 = [
-        ["Alex", "alex@gmail.com"],
-        ["Bob", "bob@gmail.com"],
-        ["Alex", "alex@yahoo.com", "alex@gmail.com"]
-    ]
+    accounts4 = [["Alex", "alex@gmail.com"], ["Bob", "bob@gmail.com"], ["Alex", "alex@yahoo.com", "alex@gmail.com"]]
     result4 = solution.accountsMerge(accounts4)
-    expected4 = [
-        ["Alex", "alex@gmail.com", "alex@yahoo.com"],
-        ["Bob", "bob@gmail.com"]
-    ]
+    expected4 = [["Alex", "alex@gmail.com", "alex@yahoo.com"], ["Bob", "bob@gmail.com"]]
     result4.sort()
     expected4.sort()
     assert result4 == expected4, f"Expected {expected4}, got {result4}"
@@ -274,7 +268,7 @@ if __name__ == "__main__":
         ["John", "johnsmith@mail.com", "john_newyork@mail.com"],
         ["John", "johnsmith@mail.com", "john00@mail.com"],
         ["Mary", "mary@mail.com"],
-        ["John", "johnnybravo@mail.com"]
+        ["John", "johnnybravo@mail.com"],
     ]
     result = solution.accountsMerge(accounts)
     print(f"Input: {accounts}")
@@ -282,18 +276,15 @@ if __name__ == "__main__":
     print("Analysis: John's first two accounts share 'johnsmith@mail.com' so they merge")
 
     # Example 2: No merging case
-    accounts2 = [
-        ["David", "david@gmail.com", "david@yahoo.com"],
-        ["Alex", "alex@gmail.com"]
-    ]
+    accounts2 = [["David", "david@gmail.com", "david@yahoo.com"], ["Alex", "alex@gmail.com"]]
     result2 = solution.accountsMerge(accounts2)
     print(f"\nInput: {accounts2}")
     print(f"Output: {result2}")
     print("Analysis: No shared emails, so accounts remain separate")
 
-    print(f"\nKey insights:")
-    print(f"1. Union-Find groups accounts with shared emails efficiently")
-    print(f"2. Email-to-account mapping detects shared emails")
-    print(f"3. Transitivity: if A shares with B and B shares with C, A-B-C merge")
-    print(f"4. Time: O(N×M×α(N)), Space: O(N×M)")
-    print(f"5. Result emails must be sorted alphabetically")
+    print("\nKey insights:")
+    print("1. Union-Find groups accounts with shared emails efficiently")
+    print("2. Email-to-account mapping detects shared emails")
+    print("3. Transitivity: if A shares with B and B shares with C, A-B-C merge")
+    print("4. Time: O(N×M×α(N)), Space: O(N×M)")
+    print("5. Result emails must be sorted alphabetically")

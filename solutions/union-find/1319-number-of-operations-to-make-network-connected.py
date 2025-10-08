@@ -59,6 +59,7 @@ Components: 1, Operations needed: 0
 </details>
 """
 
+
 class UnionFind:
     """Union-Find data structure with path compression and union by rank."""
 
@@ -167,32 +168,34 @@ def test_solution():
     solution = Solution()
 
     # Test case 1: Can connect all
-    result1 = solution.makeConnected(4, [[0,1],[0,2],[1,2],[1,3]])
+    result1 = solution.makeConnected(4, [[0, 1], [0, 2], [1, 2], [1, 3]])
     expected1 = 0
     assert result1 == expected1, f"Expected {expected1}, got {result1}"
 
     # Test case 2: Need 1 operation
-    result2 = solution.makeConnected(6, [[0,1],[0,2],[0,3],[1,2],[1,3]])
+    result2 = solution.makeConnected(6, [[0, 1], [0, 2], [0, 3], [1, 2], [1, 3]])
     expected2 = 2
     assert result2 == expected2, f"Expected {expected2}, got {result2}"
 
     # Test case 3: Not enough cables
-    result3 = solution.makeConnected(6, [[0,1],[0,2],[0,3],[1,2]])
+    result3 = solution.makeConnected(6, [[0, 1], [0, 2], [0, 3], [1, 2]])
     expected3 = -1
     assert result3 == expected3, f"Expected {expected3}, got {result3}"
 
     # Test case 4: Already connected
-    result4 = solution.makeConnected(5, [[0,1],[0,2],[1,2],[1,3],[1,4]])
+    result4 = solution.makeConnected(5, [[0, 1], [0, 2], [1, 2], [1, 3], [1, 4]])
     expected4 = 0
     assert result4 == expected4, f"Expected {expected4}, got {result4}"
 
     # Test case 5: Multiple components
-    result5 = solution.makeConnected(12, [[1,5],[1,7],[1,2],[1,4],[3,7],[4,7],[3,5],[0,6],[0,1],[0,4],[2,6],[0,3],[0,2]])
+    result5 = solution.makeConnected(
+        12, [[1, 5], [1, 7], [1, 2], [1, 4], [3, 7], [4, 7], [3, 5], [0, 6], [0, 1], [0, 4], [2, 6], [0, 3], [0, 2]]
+    )
     expected5 = 4
     assert result5 == expected5, f"Expected {expected5}, got {result5}"
 
     # Test alternative solution
-    result6 = solution.makeConnectedAlternative(4, [[0,1],[0,2],[1,2],[1,3]])
+    result6 = solution.makeConnectedAlternative(4, [[0, 1], [0, 2], [1, 2], [1, 3]])
     expected6 = 0
     assert result6 == expected6, f"Expected {expected6}, got {result6}"
 
@@ -205,6 +208,12 @@ if __name__ == "__main__":
     # Example usage
     solution = Solution()
     print("=== 1319. Number Of Operations To Make Network Connected ===")
-    print(f"makeConnected(4, [[0,1],[0,2],[1,2],[1,3]]) -> {solution.makeConnected(4, [[0,1],[0,2],[1,2],[1,3]])}")
-    print(f"makeConnected(6, [[0,1],[0,2],[0,3],[1,2],[1,3]]) -> {solution.makeConnected(6, [[0,1],[0,2],[0,3],[1,2],[1,3]])}")
-    print(f"makeConnected(6, [[0,1],[0,2],[0,3],[1,2]]) -> {solution.makeConnected(6, [[0,1],[0,2],[0,3],[1,2]])}")
+    print(
+        f"makeConnected(4, [[0,1],[0,2],[1,2],[1,3]]) -> {solution.makeConnected(4, [[0, 1], [0, 2], [1, 2], [1, 3]])}"
+    )
+    print(
+        f"makeConnected(6, [[0,1],[0,2],[0,3],[1,2],[1,3]]) -> {solution.makeConnected(6, [[0, 1], [0, 2], [0, 3], [1, 2], [1, 3]])}"
+    )
+    print(
+        f"makeConnected(6, [[0,1],[0,2],[0,3],[1,2]]) -> {solution.makeConnected(6, [[0, 1], [0, 2], [0, 3], [1, 2]])}"
+    )

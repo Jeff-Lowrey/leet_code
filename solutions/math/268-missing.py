@@ -52,19 +52,20 @@ The approach uses math techniques to solve this problem efficiently.
 </details>
 """
 
+
 class Solution:
     def missingNumber(self, nums: List[int]) -> int:
         """
         Find the missing number in a sequence of n numbers from 0 to n.
-        
+
         This implementation uses the mathematical formula for sum of first n numbers
         and subtracts the sum of given numbers to find the missing one.
         Time Complexity: O(n)
         Space Complexity: O(1)
-        
+
         Args:
             nums: List of integers containing n numbers from 0 to n with one missing
-        
+
         Returns:
             The missing number in the sequence
         """
@@ -79,14 +80,14 @@ class Solution:
     def missingNumber_xor(self, nums: List[int]) -> int:
         """
         Alternative implementation using XOR operation.
-        
+
         This method uses the property that a^a = 0 and a^0 = a
         Time Complexity: O(n)
         Space Complexity: O(1)
-        
+
         Args:
             nums: List of integers containing n numbers from 0 to n with one missing
-        
+
         Returns:
             The missing number in the sequence
         """
@@ -94,6 +95,7 @@ class Solution:
         for i in range(len(nums)):
             result ^= i ^ nums[i]
         return result
+
 
 def test_solution():
     """
@@ -112,6 +114,7 @@ def test_solution():
     # assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

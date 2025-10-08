@@ -11,8 +11,6 @@ Given a string s, return true if it is a palindrome, or false otherwise.
 Example:
 Input: s = "A man, a plan, a canal: Panama"
 Output: true
-"""
-
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
@@ -80,6 +78,7 @@ All comparisons match → return True
 - Always check bounds (left < right) when skipping characters
 
 </details>
+"""
 
 class Solution:
     def isPalindrome(self, s: str) -> bool:

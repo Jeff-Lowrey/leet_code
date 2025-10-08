@@ -56,6 +56,7 @@ Result: 2 connected components
 </details>
 """
 
+
 class Solution:
     def countComponents(self, n: int, edges: list[list[int]]) -> int:
         """
@@ -182,6 +183,7 @@ class Solution:
 
         return components
 
+
 def test_solution():
     """
     Test cases for 323. Number Of Connected Components In An Undirected Graph.
@@ -200,9 +202,10 @@ def test_solution():
 
     print("All test cases passed!")
 
+
 if __name__ == "__main__":
     test_solution()
 
     # Example usage
     solution = Solution()
-    print(f"Solution for 323. Number Of Connected Components In An Undirected Graph")
+    print("Solution for 323. Number Of Connected Components In An Undirected Graph")

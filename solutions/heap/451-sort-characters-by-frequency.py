@@ -50,6 +50,7 @@ Step 3: Build result: "eert" (or "eetr")
 import heapq
 from collections import Counter
 
+
 class Solution:
     def frequencySort(self, s: str) -> str:
         """
@@ -80,7 +81,7 @@ class Solution:
             freq = -neg_freq
             result.append(char * freq)
 
-        return ''.join(result)
+        return "".join(result)
 
     def frequencySortSimple(self, s: str) -> str:
         """
@@ -109,7 +110,7 @@ class Solution:
         for char, freq in sorted_chars:
             result.append(char * freq)
 
-        return ''.join(result)
+        return "".join(result)
 
     def frequencySortBucket(self, s: str) -> str:
         """
@@ -143,7 +144,7 @@ class Solution:
             for char in buckets[freq]:
                 result.append(char * freq)
 
-        return ''.join(result)
+        return "".join(result)
 
 
 def test_solution():
@@ -153,17 +154,17 @@ def test_solution():
     # Test case 1: Basic functionality
     result1 = solution.frequencySort("tree")
     # "eert" or "eetr" are both valid
-    assert len(result1) == 4 and result1.count('e') == 2, f"Failed test 1: {result1}"
+    assert len(result1) == 4 and result1.count("e") == 2, f"Failed test 1: {result1}"
 
     # Test case 2: All same frequency
     result2 = solution.frequencySort("cccaaa")
     # Should be "cccaaa" or "aaaccc"
-    assert (result2 == "cccaaa" or result2 == "aaaccc"), f"Failed test 2: {result2}"
+    assert result2 == "cccaaa" or result2 == "aaaccc", f"Failed test 2: {result2}"
 
     # Test case 3: Single character
     result3 = solution.frequencySort("Aabb")
     # Multiple valid answers, check length and content
-    assert len(result3) == 4 and 'A' in result3 and result3.count('b') == 2, f"Failed test 3: {result3}"
+    assert len(result3) == 4 and "A" in result3 and result3.count("b") == 2, f"Failed test 3: {result3}"
 
     # Test case 4: Empty string
     result4 = solution.frequencySort("")
@@ -171,11 +172,11 @@ def test_solution():
 
     # Test case 5: Test simple sort approach
     result5 = solution.frequencySortSimple("tree")
-    assert len(result5) == 4 and result5.count('e') == 2, f"Failed test 5: {result5}"
+    assert len(result5) == 4 and result5.count("e") == 2, f"Failed test 5: {result5}"
 
     # Test case 6: Test bucket sort approach
     result6 = solution.frequencySortBucket("tree")
-    assert len(result6) == 4 and result6.count('e') == 2, f"Failed test 6: {result6}"
+    assert len(result6) == 4 and result6.count("e") == 2, f"Failed test 6: {result6}"
 
     print("All test cases passed!")
 

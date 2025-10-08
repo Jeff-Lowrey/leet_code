@@ -62,6 +62,7 @@ Result: 2 provinces
 </details>
 """
 
+
 class UnionFind:
     """Union-Find data structure for tracking connected components."""
 
@@ -94,6 +95,7 @@ class UnionFind:
 
         self.components -= 1
         return True
+
 
 class Solution:
     def findCircleNum(self, isConnected: list[list[int]]) -> int:
@@ -193,19 +195,19 @@ def test_solution():
     solution = Solution()
 
     # Test case 1: Two provinces
-    isConnected1 = [[1,1,0],[1,1,0],[0,0,1]]
+    isConnected1 = [[1, 1, 0], [1, 1, 0], [0, 0, 1]]
     result1 = solution.findCircleNum(isConnected1)
     expected1 = 2
     assert result1 == expected1, f"Expected {expected1}, got {result1}"
 
     # Test case 2: Three provinces (all isolated)
-    isConnected2 = [[1,0,0],[0,1,0],[0,0,1]]
+    isConnected2 = [[1, 0, 0], [0, 1, 0], [0, 0, 1]]
     result2 = solution.findCircleNum(isConnected2)
     expected2 = 3
     assert result2 == expected2, f"Expected {expected2}, got {result2}"
 
     # Test case 3: One province (all connected)
-    isConnected3 = [[1,1,1],[1,1,1],[1,1,1]]
+    isConnected3 = [[1, 1, 1], [1, 1, 1], [1, 1, 1]]
     result3 = solution.findCircleNum(isConnected3)
     expected3 = 1
     assert result3 == expected3, f"Expected {expected3}, got {result3}"
@@ -217,7 +219,7 @@ def test_solution():
     assert result4 == expected4, f"Expected {expected4}, got {result4}"
 
     # Test case 5: Complex connections
-    isConnected5 = [[1,0,0,1],[0,1,1,0],[0,1,1,1],[1,0,1,1]]
+    isConnected5 = [[1, 0, 0, 1], [0, 1, 1, 0], [0, 1, 1, 1], [1, 0, 1, 1]]
     result5 = solution.findCircleNum(isConnected5)
     expected5 = 1  # All cities are connected through paths
     assert result5 == expected5, f"Expected {expected5}, got {result5}"
@@ -241,19 +243,19 @@ if __name__ == "__main__":
     print("=== 547. Number of Provinces ===")
 
     # Example 1: Two provinces
-    isConnected1 = [[1,1,0],[1,1,0],[0,0,1]]
+    isConnected1 = [[1, 1, 0], [1, 1, 0], [0, 0, 1]]
     result1 = solution.findCircleNum(isConnected1)
     print(f"findCircleNum({isConnected1}) -> {result1}")
     print("Explanation: Cities 0 and 1 form one province, city 2 forms another\n")
 
     # Example 2: Three isolated cities
-    isConnected2 = [[1,0,0],[0,1,0],[0,0,1]]
+    isConnected2 = [[1, 0, 0], [0, 1, 0], [0, 0, 1]]
     result2 = solution.findCircleNum(isConnected2)
     print(f"findCircleNum({isConnected2}) -> {result2}")
     print("Explanation: Each city is its own province\n")
 
     # Example 3: All connected
-    isConnected3 = [[1,1,1],[1,1,1],[1,1,1]]
+    isConnected3 = [[1, 1, 1], [1, 1, 1], [1, 1, 1]]
     result3 = solution.findCircleNum(isConnected3)
     print(f"findCircleNum({isConnected3}) -> {result3}")
     print("Explanation: All cities form one big province\n")
@@ -263,16 +265,16 @@ if __name__ == "__main__":
     approaches = [
         ("Union-Find", solution.findCircleNum),
         ("DFS", solution.findCircleNumDFS),
-        ("BFS", solution.findCircleNumBFS)
+        ("BFS", solution.findCircleNumBFS),
     ]
 
     for name, method in approaches:
         result = method(isConnected1)
         print(f"{name}: {result}")
 
-    print(f"\nKey insights:")
-    print(f"1. Connected components problem - find separate groups")
-    print(f"2. Union-Find efficiently manages component membership")
-    print(f"3. DFS/BFS can mark all cities in a component as visited")
-    print(f"4. Matrix is symmetric (undirected graph)")
-    print(f"5. Count unique components to get number of provinces")
+    print("\nKey insights:")
+    print("1. Connected components problem - find separate groups")
+    print("2. Union-Find efficiently manages component membership")
+    print("3. DFS/BFS can mark all cities in a component as visited")
+    print("4. Matrix is symmetric (undirected graph)")
+    print("5. Count unique components to get number of provinces")
