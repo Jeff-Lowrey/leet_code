@@ -3,7 +3,7 @@
 {% block title %}{{ category_name }} - Leet Code Learning Tool{% endblock %}
 
 {% block content %}
-<header class="page-header">
+<header class="page-header" data-category="{{ category }}">
     <nav class="breadcrumb">
         <a href="/">Home</a> / <span>{{ category_name }}</span>
     </nav>
@@ -22,7 +22,7 @@
 
 <section class="solutions-list">
     <h2>Problems</h2>
-    <div class="solutions-grid">
+    <div class="solutions-grid" data-category="{{ category }}">
         {% for solution in solutions %}
         <a href="{{ url_for('solution_view', category=category, filename=solution.filename.replace('.py', '')) }}" class="solution-card">
             {% if solution.number %}

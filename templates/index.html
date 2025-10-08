@@ -10,7 +10,7 @@
 
 <section class="categories-grid">
     {% for category in categories %}
-    <div class="category-card-wrapper">
+    <div class="category-card-wrapper" data-category="{{ category.slug }}">
         <a href="{{ url_for('category_view', category=category.slug) }}" class="category-card">
             <h3>{{ category.name }}</h3>
             <p class="description">{{ category.description }}</p>

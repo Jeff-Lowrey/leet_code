@@ -21,7 +21,7 @@
 {% endblock %}
 
 {% block content %}
-<header class="page-header">
+<header class="page-header" data-category="{{ category }}">
     <nav class="breadcrumb">
         <a href="/">Home</a> /
         <a href="{{ url_for('category_view', category=category) }}">{{ category_name }}</a> /

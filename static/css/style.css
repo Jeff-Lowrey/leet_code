@@ -6,14 +6,25 @@
 }
 
 :root {
-    --primary-color: #2563eb;
-    --secondary-color: #10b981;
+    --primary-color: #5b7bb5;
+    --secondary-color: #6b7280;
     --dark-bg: #111827;
-    --light-bg: #f9fafb;
-    --text-primary: #111827;
-    --text-secondary: #6b7280;
-    --border-color: #e5e7eb;
-    --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --light-bg: #f5f5f0;
+    --card-bg: #fdfdfc;
+    --text-primary: #1a1a1a;
+    --text-secondary: #4a4a4a;
+    --border-color: #e0e0dc;
+    --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+
+    /* Category colors - distinct accessible palette */
+    --cat-rust: #d47d5e;
+    --cat-steel-blue: #6890c9;
+    --cat-sage: #7fa87f;
+    --cat-amber: #d4a366;
+    --cat-plum: #ad85ad;
+    --cat-teal: #66a8a8;
+    --cat-burgundy: #c96680;
+    --cat-navy: #6882ad;
 }
 
 /* Dark mode variables */
@@ -30,14 +41,25 @@
 
 /* Light mode variables (default) */
 [data-theme="light"] {
-    --primary-color: #2563eb;
-    --secondary-color: #10b981;
+    --primary-color: #5b7bb5;
+    --secondary-color: #6b7280;
     --dark-bg: #111827;
-    --light-bg: #f9fafb;
-    --text-primary: #111827;
-    --text-secondary: #6b7280;
-    --border-color: #e5e7eb;
-    --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --light-bg: #f5f5f0;
+    --card-bg: #fdfdfc;
+    --text-primary: #1a1a1a;
+    --text-secondary: #4a4a4a;
+    --border-color: #e0e0dc;
+    --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+
+    /* Category colors - distinct accessible palette */
+    --cat-rust: #d47d5e;
+    --cat-steel-blue: #6890c9;
+    --cat-sage: #7fa87f;
+    --cat-amber: #d4a366;
+    --cat-plum: #ad85ad;
+    --cat-teal: #66a8a8;
+    --cat-burgundy: #c96680;
+    --cat-navy: #6882ad;
 }
 
 body {
@@ -84,7 +106,7 @@ body {
 
 /* Navigation */
 .navbar {
-    background-color: white;
+    background-color: var(--card-bg);
     border-bottom: 1px solid var(--border-color);
     padding: 1rem 0;
     position: sticky;
@@ -154,12 +176,12 @@ body {
     top: 60px;
     width: 300px;
     height: calc(100vh - 60px);
-    background: white;
+    background: var(--card-bg);
     border-right: 1px solid var(--border-color);
     transition: left 0.3s ease;
     z-index: 999;
     overflow-y: auto;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.08);
 }
 
 .sidebar.active {
@@ -198,7 +220,7 @@ body {
 }
 
 .sidebar-close:hover {
-    background: white;
+    background: var(--light-bg);
     color: var(--text-primary);
 }
 
@@ -272,7 +294,7 @@ body {
 }
 
 .toc-solutions li.active {
-    background: #e3f2fd;
+    background: #e8e8e4;
     font-weight: 500;
 }
 
@@ -288,7 +310,7 @@ body {
 }
 
 .toc-item.active > .toc-category {
-    background: #f0f7ff;
+    background: #ebebe6;
 }
 
 .toc-item.active .toc-arrow {
@@ -364,7 +386,7 @@ main {
 .category-card,
 .solution-card,
 .doc-card {
-    background: white;
+    background: var(--card-bg);
     padding: 1.5rem;
     border-radius: 8px;
     border: 1px solid var(--border-color);
@@ -403,12 +425,11 @@ main {
 }
 
 .problem-number {
-    background-color: var(--primary-color);
-    color: white;
+    background-color: transparent;
     padding: 0.25rem 0.5rem;
     border-radius: 4px;
     font-size: 0.875rem;
-    font-weight: 600;
+    font-weight: 700;
     margin-right: 0.5rem;
 }
 
@@ -437,7 +458,7 @@ main {
 
 /* Documentation Content */
 .documentation {
-    background: white;
+    background: var(--card-bg);
     padding: 2rem;
     border-radius: 8px;
     margin-bottom: 2rem;
@@ -445,7 +466,7 @@ main {
 
 /* Solution Explanation */
 .solution-explanation {
-    background: white;
+    background: var(--card-bg);
     border-radius: 8px;
     margin-bottom: 2rem;
     border: 1px solid var(--border-color);
@@ -459,34 +480,22 @@ main {
     padding: 1.5rem 2rem;
     cursor: pointer;
     border-bottom: 1px solid var(--border-color);
-    background: var(--light-bg);
+    background: var(--card-bg);
     border-radius: 8px 8px 0 0;
     transition: background-color 0.2s;
     list-style: none;
-    position: relative;
 }
 
 .solution-explanation summary::-webkit-details-marker {
     display: none;
 }
 
-.solution-explanation summary::before {
-    content: '▶';
-    position: absolute;
-    right: 2rem;
-    top: 50%;
-    transform: translateY(-50%) rotate(0deg);
-    transition: transform 0.2s;
-    font-size: 0.8rem;
-    color: var(--text-secondary);
-}
-
-.solution-explanation details[open] summary::before {
-    transform: translateY(-50%) rotate(90deg);
+.solution-explanation summary::marker {
+    display: none;
 }
 
 .solution-explanation summary:hover {
-    background: var(--border-color);
+    background: var(--light-bg);
 }
 
 .solution-explanation summary h2 {
@@ -516,13 +525,16 @@ main {
     line-height: 1.6;
 }
 
-.explanation-content ul {
-    margin-left: 1.5rem;
+.explanation-content ul,
+.explanation-content ol {
+    margin-left: 2rem;
     margin-bottom: 1rem;
+    padding-left: 0;
 }
 
 .explanation-content li {
     margin-bottom: 0.5rem;
+    line-height: 1.6;
 }
 
 .explanation-content pre {
@@ -663,7 +675,7 @@ main {
 }
 
 .doc-content pre {
-    background-color: #f6f8fa;
+    background-color: var(--light-bg);
     padding: 1rem;
     border-radius: 6px;
     overflow-x: auto;
@@ -671,7 +683,7 @@ main {
 }
 
 .doc-content code {
-    background-color: #f6f8fa;
+    background-color: var(--light-bg);
     padding: 0.2rem 0.4rem;
     border-radius: 3px;
     font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
@@ -702,7 +714,7 @@ main {
 }
 
 .doc-content th {
-    background-color: #f6f8fa;
+    background-color: var(--light-bg);
     font-weight: 600;
 }
 
@@ -725,7 +737,7 @@ main {
 .btn {
     display: inline-block;
     padding: 0.5rem 1.5rem;
-    background-color: white;
+    background-color: var(--card-bg);
     color: var(--primary-color);
     border: 1px solid var(--primary-color);
     border-radius: 6px;
@@ -744,7 +756,7 @@ main {
 }
 
 .btn-primary:hover {
-    background-color: #1d4ed8;
+    background-color: #4a6694;
 }
 
 .btn-secondary {
@@ -754,7 +766,7 @@ main {
 }
 
 .btn-secondary:hover {
-    background-color: #059669;
+    background-color: #5a6570;
 }
 
 .btn-small {
@@ -810,7 +822,7 @@ main {
 .dropdown-toggle {
     width: 100%;
     padding: 0.75rem 1rem;
-    background: white;
+    background: var(--card-bg);
     border: 1px solid var(--border-color);
     border-top: none;
     border-radius: 0 0 8px 8px;
@@ -835,11 +847,11 @@ main {
     top: 100%;
     left: 0;
     right: 0;
-    background: white;
+    background: var(--card-bg);
     border: 1px solid var(--border-color);
     border-radius: 8px;
     margin-top: 0.5rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08);
     display: none;
     z-index: 100;
     max-height: 400px;
@@ -856,7 +868,7 @@ main {
     color: var(--text-primary);
     text-decoration: none;
     font-size: 0.875rem;
-    border-bottom: 1px solid #f3f4f6;
+    border-bottom: 1px solid var(--border-color);
     transition: background 0.2s;
 }
 
@@ -894,7 +906,7 @@ main {
 }
 
 .dropdown-more:hover {
-    background: #e0f2fe;
+    background: #e8e8e4;
 }
 
 /* Language Selector */
@@ -941,7 +953,7 @@ main {
 
 .language-select {
     padding: 0.5rem 0.75rem;
-    background: white;
+    background: var(--card-bg);
     border: 1px solid var(--border-color);
     border-radius: 4px;
     color: var(--text-primary);
@@ -959,7 +971,7 @@ main {
 .language-select:focus {
     outline: none;
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+    box-shadow: 0 0 0 2px rgba(91, 123, 181, 0.25);
 }
 
 /* Flash Messages */
@@ -1007,7 +1019,7 @@ main {
 
 /* Footer */
 .footer {
-    background-color: white;
+    background-color: var(--card-bg);
     border-top: 1px solid var(--border-color);
     padding: 2rem 0;
     margin-top: auto;
@@ -1095,15 +1107,17 @@ main {
 }
 
 /* Solution Page Collapsible Sections */
-.problem-description {
-    background: var(--light-bg);
+.problem-description,
+.problem-statement {
+    background: var(--card-bg);
     border: 1px solid var(--border-color);
     border-radius: 8px;
     padding: 1.5rem;
     margin-bottom: 1.5rem;
 }
 
-.problem-description h2 {
+.problem-description h2,
+.problem-statement h2 {
     color: var(--primary-color);
     margin-bottom: 1rem;
     font-size: 1.5rem;
@@ -1119,7 +1133,7 @@ main {
 .solution-explanation details,
 .skeleton-code details,
 .solution-code details {
-    background: var(--light-bg);
+    background: var(--card-bg);
     border: 1px solid var(--border-color);
     border-radius: 8px;
     overflow: hidden;
@@ -1128,7 +1142,7 @@ main {
 .solution-explanation summary,
 .skeleton-code summary,
 .solution-code summary {
-    background: var(--light-bg);
+    background: var(--card-bg);
     border-bottom: 1px solid var(--border-color);
     color: var(--text-primary);
     padding: 1rem 1.5rem;
@@ -1142,7 +1156,7 @@ main {
 .solution-explanation summary:hover,
 .skeleton-code summary:hover,
 .solution-code summary:hover {
-    background: rgba(37, 99, 235, 0.05);
+    background: var(--light-bg);
 }
 
 .explanation-content,
@@ -1159,17 +1173,214 @@ main {
     display: none;
 }
 
-.solution-explanation details summary::before,
-.skeleton-code details summary::before,
-.solution-code details summary::before {
-    content: "▶";
-    margin-right: 0.75rem;
-    transition: transform 0.2s ease;
-    color: var(--text-secondary);
+.solution-explanation summary,
+.skeleton-code summary,
+.solution-code summary {
+    list-style: none;
 }
 
-.solution-explanation details[open] summary::before,
-.skeleton-code details[open] summary::before,
-.solution-code details[open] summary::before {
+.solution-explanation summary::marker,
+.skeleton-code summary::marker,
+.solution-code summary::marker {
+    display: none;
+}
+
+.solution-explanation details summary::after,
+.skeleton-code details summary::after,
+.solution-code details summary::after {
+    content: "▶";
+    margin-left: 0.75rem;
+    transition: transform 0.2s ease;
+    color: var(--text-secondary);
+    float: right;
+}
+
+.solution-explanation details[open] summary::after,
+.skeleton-code details[open] summary::after,
+.solution-code details[open] summary::after {
     transform: rotate(90deg);
 }
+
+/* Category-specific colors */
+
+/* Solution page title and number */
+.page-header[data-category="arrays-hashing"] .problem-number,
+.page-header[data-category="arrays-hashing"] h1 { color: var(--cat-rust); }
+
+/* Index page category cards */
+[data-category="arrays-hashing"] .category-card { border-left: 4px solid var(--cat-rust); }
+[data-category="arrays-hashing"] .category-card h3 { color: var(--cat-rust); }
+
+/* Category page solution cards */
+[data-category="arrays-hashing"] .solution-card h3 { color: var(--cat-rust); }
+
+/* Dropdown problem badges */
+[data-category="arrays-hashing"] .problem-num { background-color: var(--cat-rust); }
+
+.page-header[data-category="backtracking"] .problem-number,
+.page-header[data-category="backtracking"] h1 { color: var(--cat-steel-blue); }
+[data-category="backtracking"] .category-card { border-left: 4px solid var(--cat-steel-blue); }
+[data-category="backtracking"] .category-card h3 { color: var(--cat-steel-blue); }
+[data-category="backtracking"] .solution-card h3 { color: var(--cat-steel-blue); }
+[data-category="backtracking"] .problem-num { background-color: var(--cat-steel-blue); }
+
+.page-header[data-category="binary-search"] .problem-number,
+.page-header[data-category="binary-search"] h1 { color: var(--cat-sage); }
+[data-category="binary-search"] .category-card { border-left: 4px solid var(--cat-sage); }
+[data-category="binary-search"] .category-card h3 { color: var(--cat-sage); }
+[data-category="binary-search"] .solution-card h3 { color: var(--cat-sage); }
+[data-category="binary-search"] .problem-num { background-color: var(--cat-sage); }
+
+.page-header[data-category="bit-manipulation"] .problem-number,
+.page-header[data-category="bit-manipulation"] h1 { color: var(--cat-amber); }
+[data-category="bit-manipulation"] .category-card { border-left: 4px solid var(--cat-amber); }
+[data-category="bit-manipulation"] .category-card h3 { color: var(--cat-amber); }
+[data-category="bit-manipulation"] .solution-card h3 { color: var(--cat-amber); }
+[data-category="bit-manipulation"] .problem-num { background-color: var(--cat-amber); }
+
+.page-header[data-category="design"] .problem-number,
+.page-header[data-category="design"] h1 { color: var(--cat-plum); }
+[data-category="design"] .category-card { border-left: 4px solid var(--cat-plum); }
+[data-category="design"] .category-card h3 { color: var(--cat-plum); }
+[data-category="design"] .solution-card h3 { color: var(--cat-plum); }
+[data-category="design"] .problem-num { background-color: var(--cat-plum); }
+
+.page-header[data-category="dynamic-programming"] .problem-number,
+.page-header[data-category="dynamic-programming"] h1 { color: var(--cat-teal); }
+[data-category="dynamic-programming"] .category-card { border-left: 4px solid var(--cat-teal); }
+[data-category="dynamic-programming"] .category-card h3 { color: var(--cat-teal); }
+[data-category="dynamic-programming"] .solution-card h3 { color: var(--cat-teal); }
+[data-category="dynamic-programming"] .problem-num { background-color: var(--cat-teal); }
+
+.page-header[data-category="graphs"] .problem-number,
+.page-header[data-category="graphs"] h1 { color: var(--cat-burgundy); }
+[data-category="graphs"] .category-card { border-left: 4px solid var(--cat-burgundy); }
+[data-category="graphs"] .category-card h3 { color: var(--cat-burgundy); }
+[data-category="graphs"] .solution-card h3 { color: var(--cat-burgundy); }
+[data-category="graphs"] .problem-num { background-color: var(--cat-burgundy); }
+
+.page-header[data-category="greedy"] .problem-number,
+.page-header[data-category="greedy"] h1 { color: var(--cat-navy); }
+[data-category="greedy"] .category-card { border-left: 4px solid var(--cat-navy); }
+[data-category="greedy"] .category-card h3 { color: var(--cat-navy); }
+[data-category="greedy"] .solution-card h3 { color: var(--cat-navy); }
+[data-category="greedy"] .problem-num { background-color: var(--cat-navy); }
+
+.page-header[data-category="heap"] .problem-number,
+.page-header[data-category="heap"] h1 { color: var(--cat-rust); }
+[data-category="heap"] .category-card { border-left: 4px solid var(--cat-rust); }
+[data-category="heap"] .category-card h3 { color: var(--cat-rust); }
+[data-category="heap"] .solution-card h3 { color: var(--cat-rust); }
+[data-category="heap"] .problem-num { background-color: var(--cat-rust); }
+
+.page-header[data-category="interval"] .problem-number,
+.page-header[data-category="interval"] h1 { color: var(--cat-steel-blue); }
+[data-category="interval"] .category-card { border-left: 4px solid var(--cat-steel-blue); }
+[data-category="interval"] .category-card h3 { color: var(--cat-steel-blue); }
+[data-category="interval"] .solution-card h3 { color: var(--cat-steel-blue); }
+[data-category="interval"] .problem-num { background-color: var(--cat-steel-blue); }
+
+.page-header[data-category="linked-list"] .problem-number,
+.page-header[data-category="linked-list"] h1 { color: var(--cat-sage); }
+[data-category="linked-list"] .category-card { border-left: 4px solid var(--cat-sage); }
+[data-category="linked-list"] .category-card h3 { color: var(--cat-sage); }
+[data-category="linked-list"] .solution-card h3 { color: var(--cat-sage); }
+[data-category="linked-list"] .problem-num { background-color: var(--cat-sage); }
+
+.page-header[data-category="math"] .problem-number,
+.page-header[data-category="math"] h1 { color: var(--cat-amber); }
+[data-category="math"] .category-card { border-left: 4px solid var(--cat-amber); }
+[data-category="math"] .category-card h3 { color: var(--cat-amber); }
+[data-category="math"] .solution-card h3 { color: var(--cat-amber); }
+[data-category="math"] .problem-num { background-color: var(--cat-amber); }
+
+.page-header[data-category="matrix"] .problem-number,
+.page-header[data-category="matrix"] h1 { color: var(--cat-plum); }
+[data-category="matrix"] .category-card { border-left: 4px solid var(--cat-plum); }
+[data-category="matrix"] .category-card h3 { color: var(--cat-plum); }
+[data-category="matrix"] .solution-card h3 { color: var(--cat-plum); }
+[data-category="matrix"] .problem-num { background-color: var(--cat-plum); }
+
+.page-header[data-category="monotonic-stack"] .problem-number,
+.page-header[data-category="monotonic-stack"] h1 { color: var(--cat-teal); }
+[data-category="monotonic-stack"] .category-card { border-left: 4px solid var(--cat-teal); }
+[data-category="monotonic-stack"] .category-card h3 { color: var(--cat-teal); }
+[data-category="monotonic-stack"] .solution-card h3 { color: var(--cat-teal); }
+[data-category="monotonic-stack"] .problem-num { background-color: var(--cat-teal); }
+
+.page-header[data-category="prefix-sum"] .problem-number,
+.page-header[data-category="prefix-sum"] h1 { color: var(--cat-burgundy); }
+[data-category="prefix-sum"] .category-card { border-left: 4px solid var(--cat-burgundy); }
+[data-category="prefix-sum"] .category-card h3 { color: var(--cat-burgundy); }
+[data-category="prefix-sum"] .solution-card h3 { color: var(--cat-burgundy); }
+[data-category="prefix-sum"] .problem-num { background-color: var(--cat-burgundy); }
+
+.page-header[data-category="queue"] .problem-number,
+.page-header[data-category="queue"] h1 { color: var(--cat-navy); }
+[data-category="queue"] .category-card { border-left: 4px solid var(--cat-navy); }
+[data-category="queue"] .category-card h3 { color: var(--cat-navy); }
+[data-category="queue"] .solution-card h3 { color: var(--cat-navy); }
+[data-category="queue"] .problem-num { background-color: var(--cat-navy); }
+
+.page-header[data-category="recursion"] .problem-number,
+.page-header[data-category="recursion"] h1 { color: var(--cat-rust); }
+[data-category="recursion"] .category-card { border-left: 4px solid var(--cat-rust); }
+[data-category="recursion"] .category-card h3 { color: var(--cat-rust); }
+[data-category="recursion"] .solution-card h3 { color: var(--cat-rust); }
+[data-category="recursion"] .problem-num { background-color: var(--cat-rust); }
+
+.page-header[data-category="segment-tree"] .problem-number,
+.page-header[data-category="segment-tree"] h1 { color: var(--cat-steel-blue); }
+[data-category="segment-tree"] .category-card { border-left: 4px solid var(--cat-steel-blue); }
+[data-category="segment-tree"] .category-card h3 { color: var(--cat-steel-blue); }
+[data-category="segment-tree"] .solution-card h3 { color: var(--cat-steel-blue); }
+[data-category="segment-tree"] .problem-num { background-color: var(--cat-steel-blue); }
+
+.page-header[data-category="simulation"] .problem-number,
+.page-header[data-category="simulation"] h1 { color: var(--cat-sage); }
+[data-category="simulation"] .category-card { border-left: 4px solid var(--cat-sage); }
+[data-category="simulation"] .category-card h3 { color: var(--cat-sage); }
+[data-category="simulation"] .solution-card h3 { color: var(--cat-sage); }
+[data-category="simulation"] .problem-num { background-color: var(--cat-sage); }
+
+.page-header[data-category="sorting"] .problem-number,
+.page-header[data-category="sorting"] h1 { color: var(--cat-amber); }
+[data-category="sorting"] .category-card { border-left: 4px solid var(--cat-amber); }
+[data-category="sorting"] .category-card h3 { color: var(--cat-amber); }
+[data-category="sorting"] .solution-card h3 { color: var(--cat-amber); }
+[data-category="sorting"] .problem-num { background-color: var(--cat-amber); }
+
+.page-header[data-category="strings"] .problem-number,
+.page-header[data-category="strings"] h1 { color: var(--cat-plum); }
+[data-category="strings"] .category-card { border-left: 4px solid var(--cat-plum); }
+[data-category="strings"] .category-card h3 { color: var(--cat-plum); }
+[data-category="strings"] .solution-card h3 { color: var(--cat-plum); }
+[data-category="strings"] .problem-num { background-color: var(--cat-plum); }
+
+.page-header[data-category="topological-sort"] .problem-number,
+.page-header[data-category="topological-sort"] h1 { color: var(--cat-teal); }
+[data-category="topological-sort"] .category-card { border-left: 4px solid var(--cat-teal); }
+[data-category="topological-sort"] .category-card h3 { color: var(--cat-teal); }
+[data-category="topological-sort"] .solution-card h3 { color: var(--cat-teal); }
+[data-category="topological-sort"] .problem-num { background-color: var(--cat-teal); }
+
+.page-header[data-category="trees"] .problem-number,
+.page-header[data-category="trees"] h1 { color: var(--cat-burgundy); }
+[data-category="trees"] .category-card { border-left: 4px solid var(--cat-burgundy); }
+[data-category="trees"] .category-card h3 { color: var(--cat-burgundy); }
+[data-category="trees"] .solution-card h3 { color: var(--cat-burgundy); }
+[data-category="trees"] .problem-num { background-color: var(--cat-burgundy); }
+
+.page-header[data-category="trie"] .problem-number,
+.page-header[data-category="trie"] h1 { color: var(--cat-navy); }
+[data-category="trie"] .category-card { border-left: 4px solid var(--cat-navy); }
+[data-category="trie"] .category-card h3 { color: var(--cat-navy); }
+[data-category="trie"] .solution-card h3 { color: var(--cat-navy); }
+[data-category="trie"] .problem-num { background-color: var(--cat-navy); }
+
+.page-header[data-category="union-find"] .problem-number,
+.page-header[data-category="union-find"] h1 { color: var(--cat-rust); }
+[data-category="union-find"] .category-card { border-left: 4px solid var(--cat-rust); }
+[data-category="union-find"] .category-card h3 { color: var(--cat-rust); }
+[data-category="union-find"] .solution-card h3 { color: var(--cat-rust); }
+[data-category="union-find"] .problem-num { background-color: var(--cat-rust); }
