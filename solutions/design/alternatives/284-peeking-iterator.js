@@ -7,43 +7,131 @@
  * SOLUTION EXPLANATION:
  *
  * INTUITION:
- * This problem requires understanding of design concepts.
+ * Design an iterator wrapper that adds peek() functionality to any existing iterator.
+ * The key insight is to cache the next element so peek() can return it without
+ * consuming it from the underlying iterator. We maintain a buffer for the peeked value.
  *
  * APPROACH:
- * Apply design methodology to solve efficiently.
+ * 1. **Cache next element**: Store the next value and a flag indicating if it's valid
+ * 2. **peek()**: Return cached value without advancing the iterator
+ * 3. **next()**: Return cached value and advance to fetch the next one
+ * 4. **hasNext()**: Check if cached value exists or if underlying iterator has more
  *
  * WHY THIS WORKS:
- * The solution leverages design principles for optimal performance.
+ * - Buffering one element allows us to "look ahead" without consuming
+ * - We maintain iterator state by tracking whether we have a cached value
+ * - All operations remain O(1) time complexity
  *
- * TIME COMPLEXITY: O(n)
- * SPACE COMPLEXITY: O(1)
+ * TIME COMPLEXITY: O(1) for all operations (peek, next, hasNext)
+ * SPACE COMPLEXITY: O(1) - only stores one buffered element
  *
  * EXAMPLE WALKTHROUGH:
- * Input: [example input]\nStep 1: [explain first step]\nOutput: [expected output]
+ * ```
+ * Input: iterator = [1,2,3]
+ *
+ * Step 1: Initialize - cache = 1, hasCached = true
+ * Step 2: peek() returns 1 (no consumption)
+ * Step 3: peek() returns 1 again (still no consumption)
+ * Step 4: next() returns 1, cache = 2
+ * Step 5: next() returns 2, cache = 3
+ * Step 6: peek() returns 3
+ * Step 7: hasNext() returns true
+ * Step 8: next() returns 3, cache = null, hasCached = false
+ * Step 9: hasNext() returns false
+ * Output: Operations work as expected
+ * ```
  *
  * EDGE CASES:
- * - Empty input handling\n- Single element cases\n- Large input considerations
+ * - Empty iterator
+ * - Single element iterator
+ * - Multiple consecutive peeks
+ * - Alternating peek and next calls
  */
 
 /**
- * Main solution for Problem 284: Peeking Iterator
+ * Simple Iterator class for demonstration
+ * In LeetCode, this is provided
+ */
+class Iterator {
+    constructor(arr) {
+        this.arr = arr;
+        this.index = 0;
+    }
+
+    hasNext() {
+        return this.index < this.arr.length;
+    }
+
+    next() {
+        return this.arr[this.index++];
+    }
+}
+
+/**
+ * PeekingIterator class that wraps an iterator and adds peek functionality
  *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
- *
- * Time Complexity: O(n)
+ * Time Complexity: O(1) for all operations
  * Space Complexity: O(1)
  */
-function solve(...args) {
-    // TODO: Implement the solution using design techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using design methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+class PeekingIterator {
+    /**
+     * @param {Iterator} iterator
+     */
+    constructor(iterator) {
+        this.iterator = iterator;
+        this.cachedValue = null;
+        this.hasCached = false;
 
-    return null; // Replace with actual implementation
+        // Pre-fetch the first element if available
+        if (this.iterator.hasNext()) {
+            this.cachedValue = this.iterator.next();
+            this.hasCached = true;
+        }
+    }
+
+    /**
+     * Returns the next element without advancing the iterator
+     * @return {number}
+     */
+    peek() {
+        return this.cachedValue;
+    }
+
+    /**
+     * Returns the next element and advances the iterator
+     * @return {number}
+     */
+    next() {
+        const result = this.cachedValue;
+
+        // Fetch next value if available
+        if (this.iterator.hasNext()) {
+            this.cachedValue = this.iterator.next();
+            this.hasCached = true;
+        } else {
+            this.cachedValue = null;
+            this.hasCached = false;
+        }
+
+        return result;
+    }
+
+    /**
+     * Returns true if there are more elements to iterate
+     * @return {boolean}
+     */
+    hasNext() {
+        return this.hasCached;
+    }
+}
+
+/**
+ * Factory function for creating PeekingIterator instances
+ * @param {Iterator} iterator - Iterator to wrap
+ * @return {PeekingIterator}
+ */
+function solve(iterator) {
+    return new PeekingIterator(iterator);
 }
 
 /**
@@ -52,20 +140,43 @@ function solve(...args) {
 function testSolution() {
     console.log('Testing 284. Peeking Iterator');
 
-    // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    // Test case 1: Standard usage with peek and next
+    const iter1 = new PeekingIterator(new Iterator([1, 2, 3]));
+    console.assert(iter1.peek() === 1, 'Test 1a failed: first peek');
+    console.assert(iter1.next() === 1, 'Test 1b failed: first next');
+    console.assert(iter1.peek() === 2, 'Test 1c failed: second peek');
+    console.assert(iter1.next() === 2, 'Test 1d failed: second next');
+    console.assert(iter1.next() === 3, 'Test 1e failed: third next');
+    console.assert(iter1.hasNext() === false, 'Test 1f failed: hasNext after exhaustion');
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 2: Multiple consecutive peeks
+    const iter2 = new PeekingIterator(new Iterator([1, 2, 3]));
+    console.assert(iter2.peek() === 1, 'Test 2a failed');
+    console.assert(iter2.peek() === 1, 'Test 2b failed');
+    console.assert(iter2.peek() === 1, 'Test 2c failed');
+    console.assert(iter2.next() === 1, 'Test 2d failed');
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 3: Single element
+    const iter3 = new PeekingIterator(new Iterator([42]));
+    console.assert(iter3.hasNext() === true, 'Test 3a failed');
+    console.assert(iter3.peek() === 42, 'Test 3b failed');
+    console.assert(iter3.next() === 42, 'Test 3c failed');
+    console.assert(iter3.hasNext() === false, 'Test 3d failed');
+
+    // Test case 4: LeetCode example
+    const iter4 = new PeekingIterator(new Iterator([1, 2, 3]));
+    console.assert(iter4.next() === 1, 'Test 4a failed');
+    console.assert(iter4.peek() === 2, 'Test 4b failed');
+    console.assert(iter4.next() === 2, 'Test 4c failed');
+    console.assert(iter4.next() === 3, 'Test 4d failed');
+    console.assert(iter4.hasNext() === false, 'Test 4e failed');
+
+    // Test case 5: Peek without next
+    const iter5 = new PeekingIterator(new Iterator([5, 6, 7, 8]));
+    console.assert(iter5.peek() === 5, 'Test 5a failed');
+    console.assert(iter5.hasNext() === true, 'Test 5b failed');
+    console.assert(iter5.next() === 5, 'Test 5c failed');
+    console.assert(iter5.peek() === 6, 'Test 5d failed');
 
     console.log('All test cases passed for 284. Peeking Iterator!');
 }
@@ -79,7 +190,17 @@ function demonstrateSolution() {
     console.log('Difficulty: Medium');
     console.log('');
 
-    // Example demonstration would go here
+    // Example: Demonstrate peek functionality
+    console.log('Example: Iterator with [1, 2, 3]');
+    const peekIterator = new PeekingIterator(new Iterator([1, 2, 3]));
+
+    console.log('Operations:');
+    console.log(`next() -> ${peekIterator.next()} (returns 1, moves to 2)`);
+    console.log(`peek() -> ${peekIterator.peek()} (returns 2, no move)`);
+    console.log(`next() -> ${peekIterator.next()} (returns 2, moves to 3)`);
+    console.log(`next() -> ${peekIterator.next()} (returns 3, moves to end)`);
+    console.log(`hasNext() -> ${peekIterator.hasNext()} (returns false)\n`);
+
     testSolution();
 }
 
@@ -90,6 +211,8 @@ if (require.main === module) {
 
 // Export for use in other modules
 module.exports = {
+    Iterator,
+    PeekingIterator,
     solve,
     testSolution,
     demonstrateSolution
@@ -97,8 +220,9 @@ module.exports = {
 
 /**
  * Additional Notes:
- * - This solution focuses on design concepts
- * - Consider the trade-offs between time and space complexity
- * - Edge cases are crucial for robust solutions
- * - The approach can be adapted for similar problems in this category
+ * - Buffering pattern is common in iterator design for lookahead functionality
+ * - O(1) space overhead makes this practical for large data streams
+ * - Can be extended to support multi-element lookahead with a queue
+ * - The pattern is used in parsers, tokenizers, and stream processors
+ * - Maintains iterator contract while adding non-destructive read capability
  */
