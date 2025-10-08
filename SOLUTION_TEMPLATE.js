@@ -1,7 +1,4 @@
 /**
- * Problem Title
- * [Easy/Medium/Hard]
- *
  * [Problem description goes here. Use markdown formatting with `code` for inline code.]
  *
  * [Additional problem constraints or notes.]
