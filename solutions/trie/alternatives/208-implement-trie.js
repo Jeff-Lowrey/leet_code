@@ -1,61 +1,116 @@
 /**
- * 208. Implement Trie
- * Insert
+ * 208. Implement Trie (Prefix Tree)
+ * Medium
  *
  * This problem demonstrates key concepts in Trie.
  *
  * SOLUTION EXPLANATION:
  *
  * INTUITION:
- * [This problem requires understanding of trie concepts. The key insight is to identify the optimal approach for this specific scenario.]
+ * A Trie (prefix tree) is a tree-based data structure for storing strings efficiently.
+ * Each node represents a character, and paths from root to nodes form words.
+ * This allows for O(m) search, insert, and prefix matching where m is the key length.
  *
  * APPROACH:
- * 1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply trie methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+ * 1. Create a TrieNode class with children map and isEndOfWord flag
+ * 2. Insert: traverse/create nodes for each character, mark last node as word end
+ * 3. Search: traverse nodes for each character, check if last node marks word end
+ * 4. StartsWith: similar to search but don't check isEndOfWord flag
  *
  * WHY THIS WORKS:
- * - The solution leverages trie principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+ * - Each character maps to exactly one child node per level
+ * - isEndOfWord distinguishes complete words from prefixes
+ * - Map-based children allow O(1) character lookup
  *
- * TIME COMPLEXITY: O(n)
- * SPACE COMPLEXITY: O(1)
+ * TIME COMPLEXITY: O(m) for all operations where m is word/prefix length
+ * SPACE COMPLEXITY: O(n*m) where n is number of words, m is average word length
  *
  * EXAMPLE WALKTHROUGH:
  * ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
-```
+ * Trie trie = new Trie();
+ * trie.insert("apple");  // root -> a -> p -> p -> l -> e (isEnd=true)
+ * trie.search("apple");  // returns true (found path, isEnd=true)
+ * trie.search("app");    // returns false (found path, but isEnd=false)
+ * trie.startsWith("app"); // returns true (found path)
+ * ```
  *
  * EDGE CASES:
- * - Empty input handling
-- Single element cases
-- Large input considerations
+ * - Empty string handling
+ * - Single character words
+ * - Words that are prefixes of other words
  */
 
 /**
- * Main solution for Problem 208: Implement Trie
- *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
- *
- * Time Complexity: O(n)
- * Space Complexity: O(1)
+ * TrieNode represents a single node in the Trie
  */
-function solve(...args) {
-    // TODO: Implement the solution using trie techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using trie methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+class TrieNode {
+    constructor() {
+        this.children = new Map();
+        this.isEndOfWord = false;
+    }
+}
 
-    return null; // Replace with actual implementation
+/**
+ * Trie (Prefix Tree) implementation
+ */
+class Trie {
+    constructor() {
+        this.root = new TrieNode();
+    }
+
+    /**
+     * Inserts a word into the trie
+     * @param {string} word
+     * @return {void}
+     */
+    insert(word) {
+        let node = this.root;
+
+        for (const char of word) {
+            if (!node.children.has(char)) {
+                node.children.set(char, new TrieNode());
+            }
+            node = node.children.get(char);
+        }
+
+        node.isEndOfWord = true;
+    }
+
+    /**
+     * Returns if the word is in the trie
+     * @param {string} word
+     * @return {boolean}
+     */
+    search(word) {
+        let node = this.root;
+
+        for (const char of word) {
+            if (!node.children.has(char)) {
+                return false;
+            }
+            node = node.children.get(char);
+        }
+
+        return node.isEndOfWord;
+    }
+
+    /**
+     * Returns if there is any word in the trie that starts with the given prefix
+     * @param {string} prefix
+     * @return {boolean}
+     */
+    startsWith(prefix) {
+        let node = this.root;
+
+        for (const char of prefix) {
+            if (!node.children.has(char)) {
+                return false;
+            }
+            node = node.children.get(char);
+        }
+
+        return true;
+    }
 }
 
 /**
@@ -64,20 +119,36 @@ function solve(...args) {
 function testSolution() {
     console.log('Testing 208. Implement Trie');
 
-    // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    // Test case 1: Basic operations
+    const trie1 = new Trie();
+    trie1.insert("apple");
+    console.assert(trie1.search("apple") === true, 'Test 1a failed: should find "apple"');
+    console.assert(trie1.search("app") === false, 'Test 1b failed: "app" is not a complete word');
+    console.assert(trie1.startsWith("app") === true, 'Test 1c failed: should find prefix "app"');
+    trie1.insert("app");
+    console.assert(trie1.search("app") === true, 'Test 1d failed: should find "app" after insertion');
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 2: Multiple words with common prefixes
+    const trie2 = new Trie();
+    trie2.insert("car");
+    trie2.insert("card");
+    trie2.insert("care");
+    trie2.insert("careful");
+    console.assert(trie2.search("car") === true, 'Test 2a failed');
+    console.assert(trie2.search("card") === true, 'Test 2b failed');
+    console.assert(trie2.search("care") === true, 'Test 2c failed');
+    console.assert(trie2.search("careful") === true, 'Test 2d failed');
+    console.assert(trie2.search("ca") === false, 'Test 2e failed');
+    console.assert(trie2.startsWith("car") === true, 'Test 2f failed');
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 3: Single character words
+    const trie3 = new Trie();
+    trie3.insert("a");
+    trie3.insert("ab");
+    console.assert(trie3.search("a") === true, 'Test 3a failed');
+    console.assert(trie3.search("ab") === true, 'Test 3b failed');
+    console.assert(trie3.search("abc") === false, 'Test 3c failed');
+    console.assert(trie3.startsWith("a") === true, 'Test 3d failed');
 
     console.log('All test cases passed for 208. Implement Trie!');
 }
@@ -88,10 +159,9 @@ function testSolution() {
 function demonstrateSolution() {
     console.log('\n=== Problem 208. Implement Trie ===');
     console.log('Category: Trie');
-    console.log('Difficulty: Insert');
+    console.log('Difficulty: Medium');
     console.log('');
 
-    // Example demonstration would go here
     testSolution();
 }
 
@@ -102,15 +172,15 @@ if (require.main === module) {
 
 // Export for use in other modules
 module.exports = {
-    solve,
+    Trie,
     testSolution,
     demonstrateSolution
 };
 
 /**
  * Additional Notes:
- * - This solution focuses on trie concepts
- * - Consider the trade-offs between time and space complexity
- * - Edge cases are crucial for robust solutions
- * - The approach can be adapted for similar problems in this category
+ * - This is the fundamental Trie implementation
+ * - Can be extended with delete operation, auto-complete, etc.
+ * - Map provides better performance than object for character storage
+ * - Consider using arrays for fixed character sets (e.g., lowercase a-z)
  */

@@ -1,5 +1,5 @@
 /**
- * 1233. Remove Sub Folders From The Filesystem
+ * 1233. Remove Sub-Folders from the Filesystem
  * Medium
  *
  * This problem demonstrates key concepts in Trie.
@@ -7,79 +7,183 @@
  * SOLUTION EXPLANATION:
  *
  * INTUITION:
- * This problem requires understanding of trie concepts.
+ * A folder is a sub-folder if another folder path is its prefix.
+ * Using a Trie, we can efficiently detect parent-child relationships between paths.
+ * When inserting paths, if we encounter an existing folder end marker before reaching
+ * the end of current path, it's a sub-folder.
  *
  * APPROACH:
- * Apply trie methodology to solve efficiently.
+ * 1. Sort folders lexicographically - ensures parent folders come before children
+ * 2. Build Trie from sorted folders, split by '/'
+ * 3. During insertion, check if any ancestor path is already a complete folder
+ * 4. If yes, skip (it's a sub-folder); if no, insert and mark as folder end
+ * 5. Collect all non-sub-folders during insertion
  *
  * WHY THIS WORKS:
- * The solution leverages trie principles for optimal performance.
+ * - Sorting ensures we process parent folders first
+ * - Trie structure naturally represents folder hierarchy
+ * - isFolder flag at each node identifies complete folder paths
  *
- * TIME COMPLEXITY: O(n)
- * SPACE COMPLEXITY: O(1)
+ * TIME COMPLEXITY: O(n * m * log n) where n = number of folders, m = average path length
+ *                  Sorting: O(n log n), Trie operations: O(n * m)
+ * SPACE COMPLEXITY: O(n * m) for Trie storage
  *
  * EXAMPLE WALKTHROUGH:
- * Input: [example input]\nStep 1: [explain first step]\nOutput: [expected output]
+ * ```
+ * Input: ["/a","/a/b","/c/d","/c/d/e","/c/f"]
+ * After sorting: ["/a","/a/b","/c/d","/c/d/e","/c/f"]
+ * Process "/a": Insert -> ["a"] (isFolder=true)
+ * Process "/a/b": Found parent "/a" is folder -> Skip (sub-folder)
+ * Process "/c/d": Insert -> ["c","d"] (isFolder=true)
+ * Process "/c/d/e": Found parent "/c/d" is folder -> Skip (sub-folder)
+ * Process "/c/f": Insert -> ["c","f"] (isFolder=true)
+ * Output: ["/a","/c/d","/c/f"]
+ * ```
  *
  * EDGE CASES:
- * - Empty input handling\n- Single element cases\n- Large input considerations
+ * - Root folder "/" handling
+ * - Folders with similar prefixes but different paths ("/a/b" vs "/a/bc")
+ * - Single folder
+ * - No sub-folders present
  */
 
-/**
- * Main solution for Problem 1233: Remove Sub Folders From The Filesystem
- *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
- *
- * Time Complexity: O(n)
- * Space Complexity: O(1)
- */
-function solve(...args) {
-    // TODO: Implement the solution using trie techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using trie methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
-
-    return null; // Replace with actual implementation
+class TrieNode {
+    constructor() {
+        this.children = new Map();
+        this.isFolder = false;
+    }
 }
 
 /**
- * Test cases for Problem 1233: Remove Sub Folders From The Filesystem
+ * Main solution for Problem 1233: Remove Sub-Folders from the Filesystem
+ *
+ * @param {string[]} folder - Array of folder paths
+ * @return {string[]} - Array of folders after removing sub-folders
+ *
+ * Time Complexity: O(n * m * log n)
+ * Space Complexity: O(n * m)
+ */
+function removeSubfolders(folder) {
+    // Sort folders lexicographically
+    folder.sort();
+
+    const root = new TrieNode();
+    const result = [];
+
+    for (const path of folder) {
+        // Split path into components (skip empty first element from leading '/')
+        const parts = path.split('/').filter(p => p.length > 0);
+        let node = root;
+        let isSubFolder = false;
+
+        // Traverse/build path in Trie
+        for (let i = 0; i < parts.length; i++) {
+            const part = parts[i];
+
+            // If we encounter a folder marker before reaching the end,
+            // this path is a sub-folder
+            if (node.isFolder) {
+                isSubFolder = true;
+                break;
+            }
+
+            if (!node.children.has(part)) {
+                node.children.set(part, new TrieNode());
+            }
+            node = node.children.get(part);
+        }
+
+        // If not a sub-folder, mark as folder and add to result
+        if (!isSubFolder) {
+            node.isFolder = true;
+            result.push(path);
+        }
+    }
+
+    return result;
+}
+
+/**
+ * Alternative solution using simple string prefix checking
+ * Simpler but with similar time complexity
+ */
+function removeSubfoldersSimple(folder) {
+    folder.sort();
+    const result = [folder[0]];
+
+    for (let i = 1; i < folder.length; i++) {
+        const lastFolder = result[result.length - 1];
+        // Check if current folder starts with last added folder + '/'
+        // This ensures exact folder match (not just string prefix)
+        if (!folder[i].startsWith(lastFolder + '/')) {
+            result.push(folder[i]);
+        }
+    }
+
+    return result;
+}
+
+/**
+ * Test cases for Problem 1233: Remove Sub-Folders from the Filesystem
  */
 function testSolution() {
-    console.log('Testing 1233. Remove Sub Folders From The Filesystem');
+    console.log('Testing 1233. Remove Sub-Folders from the Filesystem');
 
-    // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    // Helper to compare arrays (order-independent)
+    const arraysEqual = (a, b) => {
+        if (a.length !== b.length) return false;
+        const sortedA = [...a].sort();
+        const sortedB = [...b].sort();
+        return sortedA.every((val, idx) => val === sortedB[idx]);
+    };
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 1: Example from problem
+    const result1 = removeSubfolders(["/a", "/a/b", "/c/d", "/c/d/e", "/c/f"]);
+    const expected1 = ["/a", "/c/d", "/c/f"];
+    console.assert(arraysEqual(result1, expected1),
+        `Test 1 failed: expected ${JSON.stringify(expected1)}, got ${JSON.stringify(result1)}`);
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 2: No sub-folders
+    const result2 = removeSubfolders(["/a", "/b", "/c"]);
+    const expected2 = ["/a", "/b", "/c"];
+    console.assert(arraysEqual(result2, expected2),
+        `Test 2 failed: expected ${JSON.stringify(expected2)}, got ${JSON.stringify(result2)}`);
 
-    console.log('All test cases passed for 1233. Remove Sub Folders From The Filesystem!');
+    // Test case 3: All are sub-folders except one
+    const result3 = removeSubfolders(["/a", "/a/b", "/a/b/c", "/a/b/c/d"]);
+    const expected3 = ["/a"];
+    console.assert(arraysEqual(result3, expected3),
+        `Test 3 failed: expected ${JSON.stringify(expected3)}, got ${JSON.stringify(result3)}`);
+
+    // Test case 4: Similar prefixes but different paths
+    const result4 = removeSubfolders(["/a/b/c", "/a/b/ca", "/a/b/d"]);
+    const expected4 = ["/a/b/c", "/a/b/ca", "/a/b/d"];
+    console.assert(arraysEqual(result4, expected4),
+        `Test 4 failed: expected ${JSON.stringify(expected4)}, got ${JSON.stringify(result4)}`);
+
+    // Test case 5: Complex hierarchy
+    const result5 = removeSubfolders(["/aa/ab/ac/ae", "/aa/ab/af/ag", "/ap/aq/ar/as", "/ap/aq/ar", "/ap/ax/ay/az", "/ap", "/ap/aq/ar/at", "/aa/ab/af/ah", "/aa/ai/aj/ak", "/aa"]);
+    const expected5 = ["/aa", "/ap"];
+    console.assert(arraysEqual(result5, expected5),
+        `Test 5 failed: expected ${JSON.stringify(expected5)}, got ${JSON.stringify(result5)}`);
+
+    // Test simple solution as well
+    const result6 = removeSubfoldersSimple(["/a", "/a/b", "/c/d", "/c/d/e", "/c/f"]);
+    console.assert(arraysEqual(result6, expected1),
+        `Test 6 (simple) failed: expected ${JSON.stringify(expected1)}, got ${JSON.stringify(result6)}`);
+
+    console.log('All test cases passed for 1233. Remove Sub-Folders from the Filesystem!');
 }
 
 /**
  * Example usage and demonstration
  */
 function demonstrateSolution() {
-    console.log('\n=== Problem 1233. Remove Sub Folders From The Filesystem ===');
+    console.log('\n=== Problem 1233. Remove Sub-Folders from the Filesystem ===');
     console.log('Category: Trie');
     console.log('Difficulty: Medium');
     console.log('');
 
-    // Example demonstration would go here
     testSolution();
 }
 
@@ -90,15 +194,16 @@ if (require.main === module) {
 
 // Export for use in other modules
 module.exports = {
-    solve,
+    removeSubfolders,
+    removeSubfoldersSimple,
     testSolution,
     demonstrateSolution
 };
 
 /**
  * Additional Notes:
- * - This solution focuses on trie concepts
- * - Consider the trade-offs between time and space complexity
- * - Edge cases are crucial for robust solutions
- * - The approach can be adapted for similar problems in this category
+ * - The Trie solution is more educational but the simple solution is more practical
+ * - Sorting is key to both approaches - ensures parent folders processed first
+ * - String prefix checking with '/' ensures exact folder boundaries
+ * - Both solutions have similar time complexity due to sorting
  */
