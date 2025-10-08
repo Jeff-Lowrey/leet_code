@@ -55,6 +55,13 @@
  * - Diagonal elements are always 1 (city connected to itself)
  * - Need to count connected components, not individual connections
  * - Union-Find provides optimal solution for this type of problem
+ *
+ * EDGE CASES:
+ * - Single city (n=1): returns 1 province
+ * - All cities isolated: returns n provinces
+ * - All cities connected: returns 1 province
+ * - Self-connections (diagonal): already handled, don't affect result
+ * - Empty matrix: returns 0 provinces
  */
 
 /**

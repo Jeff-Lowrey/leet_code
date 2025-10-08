@@ -54,6 +54,14 @@
  * - Current calculation happens in result and sign variables
  * - When exiting parentheses, combine subresult with previous state
  * - Handle spaces by ignoring them
+ *
+ * EDGE CASES:
+ * - Empty or whitespace-only strings: return 0
+ * - Single number: return the number itself
+ * - Nested parentheses: stack handles arbitrary nesting depth
+ * - Leading minus sign: handled by starting with sign=1 and result=0
+ * - Multiple spaces: ignored during processing
+ * - Large numbers: JavaScript handles within Number.MAX_SAFE_INTEGER
  */
 
 /**

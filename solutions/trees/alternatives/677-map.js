@@ -57,6 +57,14 @@
  * - Insert operations update all nodes along the path
  * - Key updates require handling the difference between old and new values
  * - Each node represents a potential prefix endpoint
+ *
+ * EDGE CASES:
+ * - Empty prefix: returns sum of all values in the map
+ * - Prefix with no matches: returns 0
+ * - Key updates: handle difference between old and new values
+ * - Duplicate insertions: update value and adjust sums
+ * - Single character keys: handled normally
+ * - Long keys: trie handles arbitrary length efficiently
  */
 
 /**

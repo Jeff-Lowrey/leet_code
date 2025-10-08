@@ -47,6 +47,14 @@
  * - Level size tracking enables level separation
  * - Multiple approaches: iterative BFS, recursive DFS with level tracking
  * - Result structure matches the level-by-level organization
+ *
+ * EDGE CASES:
+ * - Empty tree (null root): returns empty array []
+ * - Single node: returns [[root.val]]
+ * - Left-skewed tree: each level has one node
+ * - Right-skewed tree: each level has one node
+ * - Complete binary tree: levels double in size until last level
+ * - Unbalanced tree: varying number of nodes per level
  */
 
 /**

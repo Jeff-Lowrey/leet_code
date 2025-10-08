@@ -44,6 +44,13 @@
  * - Extra edge always creates exactly one cycle
  * - Union-Find detects cycles efficiently
  * - Process edges in order and return first cycle-creating edge
+ *
+ * EDGE CASES:
+ * - Minimum case (3 nodes, 3 edges): forms triangle
+ * - Linear chain then cycle: returns edge that completes cycle
+ * - Multiple possible answers: returns last occurrence in input
+ * - All edges create valid tree except last: last edge is redundant
+ * - Nodes labeled from 1 to n: Union-Find handles 1-indexed correctly
  */
 
 /**

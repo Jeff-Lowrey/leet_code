@@ -45,6 +45,14 @@
  * - Trie helps identify these suffix relationships efficiently
  * - Only words without parent nodes in suffix trie need separate encoding
  * - Each encoded word needs exactly one '#' delimiter
+ *
+ * EDGE CASES:
+ * - Empty words array: returns 0
+ * - Single word: returns length + 1 (for '#')
+ * - Duplicate words: deduplicate before processing
+ * - Word is suffix of another: only encode longer word
+ * - No shared suffixes: each word encoded separately
+ * - All words identical: encode once, return length + 1
  */
 
 /**

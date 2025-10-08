@@ -50,6 +50,14 @@
  * - BFS level-order traversal counts levels directly
  * - DFS with stack tracks maximum depth encountered
  * - Empty trees have depth 0, single nodes have depth 1
+ *
+ * EDGE CASES:
+ * - Empty tree (null root): returns 0
+ * - Single node tree: returns 1
+ * - Left-skewed tree: depth equals number of nodes
+ * - Right-skewed tree: depth equals number of nodes
+ * - Complete binary tree: depth is log2(n+1)
+ * - Perfect binary tree: all leaves at same level
  */
 
 /**

@@ -49,6 +49,13 @@
  * - Height difference constraint: |left_height - right_height| ≤ 1
  * - Early termination saves computation for unbalanced trees
  * - Bottom-up recursion is more efficient than top-down
+ *
+ * EDGE CASES:
+ * - Empty tree (null root): balanced by definition, returns true
+ * - Single node: balanced, returns true
+ * - Complete binary tree: always balanced
+ * - Left-skewed or right-skewed tree: unbalanced, returns false
+ * - Subtree unbalanced but root looks balanced: check all nodes
  */
 
 /**
