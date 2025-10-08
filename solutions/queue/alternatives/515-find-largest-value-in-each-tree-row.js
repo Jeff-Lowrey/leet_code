@@ -7,43 +7,81 @@
  * SOLUTION EXPLANATION:
  *
  * INTUITION:
- * This problem requires understanding of queue concepts.
+ * Use BFS level-order traversal to process nodes level by level.
+ * Track the maximum value encountered at each level.
  *
  * APPROACH:
- * Apply queue methodology to solve efficiently.
+ * 1. Use a queue for BFS traversal
+ * 2. Process nodes level by level
+ * 3. For each level, track the maximum value
+ * 4. Add the maximum value of each level to the result
  *
  * WHY THIS WORKS:
- * The solution leverages queue principles for optimal performance.
+ * BFS naturally groups nodes by level. By tracking the maximum value
+ * while processing each level, we can build the result efficiently.
  *
- * TIME COMPLEXITY: O(n)
- * SPACE COMPLEXITY: O(1)
+ * TIME COMPLEXITY: O(n) - Visit each node once
+ * SPACE COMPLEXITY: O(w) - Queue holds at most one level width
  *
  * EXAMPLE WALKTHROUGH:
- * Input: [example input]\nStep 1: [explain first step]\nOutput: [expected output]
+ * Input: root = [1,3,2,5,3,null,9]
+ *          1
+ *        /   \
+ *       3     2
+ *      / \     \
+ *     5   3     9
+ *
+ * Level 0: max = 1
+ * Level 1: max = 3 (comparing 3 and 2)
+ * Level 2: max = 9 (comparing 5, 3, and 9)
+ * Output: [1, 3, 9]
  *
  * EDGE CASES:
- * - Empty input handling\n- Single element cases\n- Large input considerations
+ * - Empty tree (null root)
+ * - Single node tree
+ * - Negative values
+ * - All values at a level are the same
  */
+
+// Definition for a binary tree node
+function TreeNode(val, left, right) {
+    this.val = (val === undefined ? 0 : val);
+    this.left = (left === undefined ? null : left);
+    this.right = (right === undefined ? null : right);
+}
 
 /**
  * Main solution for Problem 515: Find Largest Value In Each Tree Row
  *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
+ * @param {TreeNode} root - Root of the binary tree
+ * @return {number[]} - Largest value in each tree row
  *
  * Time Complexity: O(n)
- * Space Complexity: O(1)
+ * Space Complexity: O(w) where w is maximum width
  */
-function solve(...args) {
-    // TODO: Implement the solution using queue techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using queue methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+function solve(root) {
+    if (!root) return [];
 
-    return null; // Replace with actual implementation
+    const result = [];
+    const queue = [root];
+
+    while (queue.length > 0) {
+        const levelSize = queue.length;
+        let maxVal = -Infinity;
+
+        for (let i = 0; i < levelSize; i++) {
+            const node = queue.shift();
+            maxVal = Math.max(maxVal, node.val);
+
+            // Add children to queue
+            if (node.left) queue.push(node.left);
+            if (node.right) queue.push(node.right);
+        }
+
+        result.push(maxVal);
+    }
+
+    return result;
 }
 
 /**
@@ -52,20 +90,48 @@ function solve(...args) {
 function testSolution() {
     console.log('Testing 515. Find Largest Value In Each Tree Row');
 
-    // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    // Helper function to compare arrays
+    const arraysEqual = (a, b) => JSON.stringify(a) === JSON.stringify(b);
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 1: Standard tree
+    const tree1 = new TreeNode(1,
+        new TreeNode(3, new TreeNode(5), new TreeNode(3)),
+        new TreeNode(2, null, new TreeNode(9))
+    );
+    const result1 = solve(tree1);
+    const expected1 = [1, 3, 9];
+    console.assert(arraysEqual(result1, expected1),
+        `Test 1 failed: expected ${JSON.stringify(expected1)}, got ${JSON.stringify(result1)}`);
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 2: Empty tree
+    const result2 = solve(null);
+    const expected2 = [];
+    console.assert(arraysEqual(result2, expected2),
+        `Test 2 failed: expected ${JSON.stringify(expected2)}, got ${JSON.stringify(result2)}`);
+
+    // Test case 3: Single node
+    const tree3 = new TreeNode(1);
+    const result3 = solve(tree3);
+    const expected3 = [1];
+    console.assert(arraysEqual(result3, expected3),
+        `Test 3 failed: expected ${JSON.stringify(expected3)}, got ${JSON.stringify(result3)}`);
+
+    // Test case 4: Negative values
+    const tree4 = new TreeNode(-1,
+        new TreeNode(-5, new TreeNode(-10)),
+        new TreeNode(-3)
+    );
+    const result4 = solve(tree4);
+    const expected4 = [-1, -3, -10];
+    console.assert(arraysEqual(result4, expected4),
+        `Test 4 failed: expected ${JSON.stringify(expected4)}, got ${JSON.stringify(result4)}`);
+
+    // Test case 5: Left-skewed tree
+    const tree5 = new TreeNode(1, new TreeNode(2, new TreeNode(3)));
+    const result5 = solve(tree5);
+    const expected5 = [1, 2, 3];
+    console.assert(arraysEqual(result5, expected5),
+        `Test 5 failed: expected ${JSON.stringify(expected5)}, got ${JSON.stringify(result5)}`);
 
     console.log('All test cases passed for 515. Find Largest Value In Each Tree Row!');
 }
@@ -92,13 +158,14 @@ if (require.main === module) {
 module.exports = {
     solve,
     testSolution,
-    demonstrateSolution
+    demonstrateSolution,
+    TreeNode
 };
 
 /**
  * Additional Notes:
  * - This solution focuses on queue concepts
- * - Consider the trade-offs between time and space complexity
- * - Edge cases are crucial for robust solutions
- * - The approach can be adapted for similar problems in this category
+ * - Using -Infinity as initial max handles negative values correctly
+ * - The approach efficiently finds the maximum in a single pass per level
+ * - The solution can be adapted for finding minimum, sum, or other aggregates
  */

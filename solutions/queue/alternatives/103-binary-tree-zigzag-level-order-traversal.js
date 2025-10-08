@@ -7,43 +7,89 @@
  * SOLUTION EXPLANATION:
  *
  * INTUITION:
- * This problem requires understanding of queue concepts.
+ * Perform level-order traversal using BFS with a queue, but alternate the direction
+ * of processing nodes at each level (left-to-right, then right-to-left).
  *
  * APPROACH:
- * Apply queue methodology to solve efficiently.
+ * 1. Use a queue for BFS traversal
+ * 2. Track level depth to determine direction
+ * 3. For even levels (0, 2, 4...), add values left-to-right
+ * 4. For odd levels (1, 3, 5...), add values right-to-left
+ * 5. Use reverse() or unshift() to achieve zigzag pattern
  *
  * WHY THIS WORKS:
- * The solution leverages queue principles for optimal performance.
+ * BFS naturally processes nodes level by level. By tracking the level number,
+ * we can reverse the order of values for alternate levels to create a zigzag pattern.
  *
- * TIME COMPLEXITY: O(n)
- * SPACE COMPLEXITY: O(1)
+ * TIME COMPLEXITY: O(n) - Visit each node once
+ * SPACE COMPLEXITY: O(w) - Queue holds at most one level width
  *
  * EXAMPLE WALKTHROUGH:
- * Input: [example input]\nStep 1: [explain first step]\nOutput: [expected output]
+ * Input: root = [3,9,20,null,null,15,7]
+ *        3
+ *       / \
+ *      9  20
+ *        /  \
+ *       15   7
+ *
+ * Level 0 (left-to-right): [3]
+ * Level 1 (right-to-left): [20, 9]
+ * Level 2 (left-to-right): [15, 7]
+ * Output: [[3], [20, 9], [15, 7]]
  *
  * EDGE CASES:
- * - Empty input handling\n- Single element cases\n- Large input considerations
+ * - Empty tree (null root)
+ * - Single node tree
+ * - Unbalanced tree
  */
+
+// Definition for a binary tree node
+function TreeNode(val, left, right) {
+    this.val = (val === undefined ? 0 : val);
+    this.left = (left === undefined ? null : left);
+    this.right = (right === undefined ? null : right);
+}
 
 /**
  * Main solution for Problem 103: Binary Tree Zigzag Level Order Traversal
  *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
+ * @param {TreeNode} root - Root of the binary tree
+ * @return {number[][]} - Zigzag level order traversal
  *
  * Time Complexity: O(n)
- * Space Complexity: O(1)
+ * Space Complexity: O(w) where w is maximum width
  */
-function solve(...args) {
-    // TODO: Implement the solution using queue techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using queue methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+function solve(root) {
+    if (!root) return [];
 
-    return null; // Replace with actual implementation
+    const result = [];
+    const queue = [root];
+    let leftToRight = true;
+
+    while (queue.length > 0) {
+        const levelSize = queue.length;
+        const currentLevel = [];
+
+        for (let i = 0; i < levelSize; i++) {
+            const node = queue.shift();
+
+            // Add value based on direction
+            if (leftToRight) {
+                currentLevel.push(node.val);
+            } else {
+                currentLevel.unshift(node.val);
+            }
+
+            // Add children to queue
+            if (node.left) queue.push(node.left);
+            if (node.right) queue.push(node.right);
+        }
+
+        result.push(currentLevel);
+        leftToRight = !leftToRight;
+    }
+
+    return result;
 }
 
 /**
@@ -52,20 +98,38 @@ function solve(...args) {
 function testSolution() {
     console.log('Testing 103. Binary Tree Zigzag Level Order Traversal');
 
-    // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    // Helper function to compare arrays
+    const arraysEqual = (a, b) => JSON.stringify(a) === JSON.stringify(b);
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 1: Standard tree
+    const tree1 = new TreeNode(3,
+        new TreeNode(9),
+        new TreeNode(20, new TreeNode(15), new TreeNode(7))
+    );
+    const result1 = solve(tree1);
+    const expected1 = [[3], [20, 9], [15, 7]];
+    console.assert(arraysEqual(result1, expected1),
+        `Test 1 failed: expected ${JSON.stringify(expected1)}, got ${JSON.stringify(result1)}`);
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 2: Empty tree
+    const result2 = solve(null);
+    const expected2 = [];
+    console.assert(arraysEqual(result2, expected2),
+        `Test 2 failed: expected ${JSON.stringify(expected2)}, got ${JSON.stringify(result2)}`);
+
+    // Test case 3: Single node
+    const tree3 = new TreeNode(1);
+    const result3 = solve(tree3);
+    const expected3 = [[1]];
+    console.assert(arraysEqual(result3, expected3),
+        `Test 3 failed: expected ${JSON.stringify(expected3)}, got ${JSON.stringify(result3)}`);
+
+    // Test case 4: Left-skewed tree
+    const tree4 = new TreeNode(1, new TreeNode(2, new TreeNode(3)));
+    const result4 = solve(tree4);
+    const expected4 = [[1], [2], [3]];
+    console.assert(arraysEqual(result4, expected4),
+        `Test 4 failed: expected ${JSON.stringify(expected4)}, got ${JSON.stringify(result4)}`);
 
     console.log('All test cases passed for 103. Binary Tree Zigzag Level Order Traversal!');
 }
@@ -92,7 +156,8 @@ if (require.main === module) {
 module.exports = {
     solve,
     testSolution,
-    demonstrateSolution
+    demonstrateSolution,
+    TreeNode
 };
 
 /**

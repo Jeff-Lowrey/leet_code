@@ -7,43 +7,90 @@
  * SOLUTION EXPLANATION:
  *
  * INTUITION:
- * This problem requires understanding of queue concepts.
+ * Use BFS level-order traversal to calculate the sum of values at each level,
+ * then track which level has the maximum sum.
  *
  * APPROACH:
- * Apply queue methodology to solve efficiently.
+ * 1. Use a queue for BFS traversal
+ * 2. Process nodes level by level
+ * 3. Calculate sum for each level
+ * 4. Track the level with maximum sum (1-indexed)
+ * 5. Return the smallest level number if there's a tie
  *
  * WHY THIS WORKS:
- * The solution leverages queue principles for optimal performance.
+ * BFS processes nodes level by level, allowing us to calculate level sums
+ * naturally. By tracking the maximum sum and its level, we find the answer.
  *
- * TIME COMPLEXITY: O(n)
- * SPACE COMPLEXITY: O(1)
+ * TIME COMPLEXITY: O(n) - Visit each node once
+ * SPACE COMPLEXITY: O(w) - Queue holds at most one level width
  *
  * EXAMPLE WALKTHROUGH:
- * Input: [example input]\nStep 1: [explain first step]\nOutput: [expected output]
+ * Input: root = [1,7,0,7,-8,null,null]
+ *          1
+ *        /   \
+ *       7     0
+ *      / \
+ *     7  -8
+ *
+ * Level 1: sum = 1
+ * Level 2: sum = 7 + 0 = 7
+ * Level 3: sum = 7 + (-8) = -1
+ * Maximum sum is 7 at level 2
+ * Output: 2
  *
  * EDGE CASES:
- * - Empty input handling\n- Single element cases\n- Large input considerations
+ * - Single node tree
+ * - Negative values
+ * - Multiple levels with same sum (return smallest level)
  */
+
+// Definition for a binary tree node
+function TreeNode(val, left, right) {
+    this.val = (val === undefined ? 0 : val);
+    this.left = (left === undefined ? null : left);
+    this.right = (right === undefined ? null : right);
+}
 
 /**
  * Main solution for Problem 1161: Maximum Level Sum Of A Binary Tree
  *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
+ * @param {TreeNode} root - Root of the binary tree
+ * @return {number} - Level (1-indexed) with maximum sum
  *
  * Time Complexity: O(n)
- * Space Complexity: O(1)
+ * Space Complexity: O(w) where w is maximum width
  */
-function solve(...args) {
-    // TODO: Implement the solution using queue techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using queue methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+function solve(root) {
+    if (!root) return 0;
 
-    return null; // Replace with actual implementation
+    const queue = [root];
+    let maxSum = -Infinity;
+    let maxLevel = 1;
+    let currentLevel = 1;
+
+    while (queue.length > 0) {
+        const levelSize = queue.length;
+        let levelSum = 0;
+
+        for (let i = 0; i < levelSize; i++) {
+            const node = queue.shift();
+            levelSum += node.val;
+
+            // Add children to queue
+            if (node.left) queue.push(node.left);
+            if (node.right) queue.push(node.right);
+        }
+
+        // Update max sum and level
+        if (levelSum > maxSum) {
+            maxSum = levelSum;
+            maxLevel = currentLevel;
+        }
+
+        currentLevel++;
+    }
+
+    return maxLevel;
 }
 
 /**
@@ -52,20 +99,42 @@ function solve(...args) {
 function testSolution() {
     console.log('Testing 1161. Maximum Level Sum Of A Binary Tree');
 
-    // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    // Test case 1: Example from problem
+    const tree1 = new TreeNode(1,
+        new TreeNode(7, new TreeNode(7), new TreeNode(-8)),
+        new TreeNode(0)
+    );
+    const result1 = solve(tree1);
+    const expected1 = 2;
+    console.assert(result1 === expected1,
+        `Test 1 failed: expected ${expected1}, got ${result1}`);
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 2: Single node
+    const tree2 = new TreeNode(1);
+    const result2 = solve(tree2);
+    const expected2 = 1;
+    console.assert(result2 === expected2,
+        `Test 2 failed: expected ${expected2}, got ${result2}`);
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 3: Maximum at deeper level
+    const tree3 = new TreeNode(1,
+        new TreeNode(2, new TreeNode(10), new TreeNode(11)),
+        new TreeNode(3)
+    );
+    const result3 = solve(tree3);
+    const expected3 = 3;
+    console.assert(result3 === expected3,
+        `Test 3 failed: expected ${expected3}, got ${result3}`);
+
+    // Test case 4: Negative values
+    const tree4 = new TreeNode(-100,
+        new TreeNode(-200),
+        new TreeNode(-300)
+    );
+    const result4 = solve(tree4);
+    const expected4 = 1;
+    console.assert(result4 === expected4,
+        `Test 4 failed: expected ${expected4}, got ${result4}`);
 
     console.log('All test cases passed for 1161. Maximum Level Sum Of A Binary Tree!');
 }
@@ -92,7 +161,8 @@ if (require.main === module) {
 module.exports = {
     solve,
     testSolution,
-    demonstrateSolution
+    demonstrateSolution,
+    TreeNode
 };
 
 /**

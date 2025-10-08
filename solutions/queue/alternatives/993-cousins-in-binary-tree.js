@@ -7,43 +7,97 @@
  * SOLUTION EXPLANATION:
  *
  * INTUITION:
- * This problem requires understanding of queue concepts.
+ * Two nodes are cousins if they are at the same depth but have different parents.
+ * Use BFS to track depth and parent information for each node.
  *
  * APPROACH:
- * Apply queue methodology to solve efficiently.
+ * 1. Use a queue for BFS traversal
+ * 2. Store nodes with their parent information
+ * 3. Track the depth and parent of nodes x and y
+ * 4. Check if they are at the same depth with different parents
  *
  * WHY THIS WORKS:
- * The solution leverages queue principles for optimal performance.
+ * BFS processes nodes level by level, making it easy to track depth.
+ * By storing parent information with each node in the queue, we can
+ * verify the cousin relationship when we find both target nodes.
  *
- * TIME COMPLEXITY: O(n)
- * SPACE COMPLEXITY: O(1)
+ * TIME COMPLEXITY: O(n) - May visit all nodes in worst case
+ * SPACE COMPLEXITY: O(w) - Queue holds at most one level width
  *
  * EXAMPLE WALKTHROUGH:
- * Input: [example input]\nStep 1: [explain first step]\nOutput: [expected output]
+ * Input: root = [1,2,3,4], x = 4, y = 3
+ *          1
+ *        /   \
+ *       2     3
+ *      /
+ *     4
+ *
+ * Level 0: 1 (no matches)
+ * Level 1: 2 (parent=1), 3 (parent=1) - found y at depth 1
+ * Level 2: 4 (parent=2) - found x at depth 2
+ * Different depths → not cousins
+ * Output: false
  *
  * EDGE CASES:
- * - Empty input handling\n- Single element cases\n- Large input considerations
+ * - One or both values not in tree
+ * - Values are siblings (same parent)
+ * - Single node tree
+ * - Values at different depths
  */
+
+// Definition for a binary tree node
+function TreeNode(val, left, right) {
+    this.val = (val === undefined ? 0 : val);
+    this.left = (left === undefined ? null : left);
+    this.right = (right === undefined ? null : right);
+}
 
 /**
  * Main solution for Problem 993: Cousins In Binary Tree
  *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
+ * @param {TreeNode} root - Root of the binary tree
+ * @param {number} x - First value to check
+ * @param {number} y - Second value to check
+ * @return {boolean} - True if x and y are cousins
  *
  * Time Complexity: O(n)
- * Space Complexity: O(1)
+ * Space Complexity: O(w) where w is maximum width
  */
-function solve(...args) {
-    // TODO: Implement the solution using queue techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using queue methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+function solve(root, x, y) {
+    if (!root) return false;
 
-    return null; // Replace with actual implementation
+    // Queue stores [node, parent, depth]
+    const queue = [[root, null, 0]];
+    let xInfo = null;
+    let yInfo = null;
+
+    while (queue.length > 0) {
+        const [node, parent, depth] = queue.shift();
+
+        // Check if this is one of our target nodes
+        if (node.val === x) {
+            xInfo = { parent, depth };
+        }
+        if (node.val === y) {
+            yInfo = { parent, depth };
+        }
+
+        // If we found both, check if they're cousins
+        if (xInfo && yInfo) {
+            return xInfo.depth === yInfo.depth && xInfo.parent !== yInfo.parent;
+        }
+
+        // Add children to queue with current node as parent
+        if (node.left) {
+            queue.push([node.left, node, depth + 1]);
+        }
+        if (node.right) {
+            queue.push([node.right, node, depth + 1]);
+        }
+    }
+
+    // One or both nodes not found
+    return false;
 }
 
 /**
@@ -52,20 +106,56 @@ function solve(...args) {
 function testSolution() {
     console.log('Testing 993. Cousins In Binary Tree');
 
-    // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    // Test case 1: Not cousins (different depths)
+    const tree1 = new TreeNode(1,
+        new TreeNode(2, new TreeNode(4)),
+        new TreeNode(3)
+    );
+    const result1 = solve(tree1, 4, 3);
+    console.assert(result1 === false,
+        `Test 1 failed: expected false, got ${result1}`);
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 2: Are cousins
+    const tree2 = new TreeNode(1,
+        new TreeNode(2, null, new TreeNode(4)),
+        new TreeNode(3, null, new TreeNode(5))
+    );
+    const result2 = solve(tree2, 4, 5);
+    console.assert(result2 === true,
+        `Test 2 failed: expected true, got ${result2}`);
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 3: Siblings (same parent)
+    const tree3 = new TreeNode(1,
+        new TreeNode(2, new TreeNode(4), new TreeNode(5)),
+        new TreeNode(3)
+    );
+    const result3 = solve(tree3, 4, 5);
+    console.assert(result3 === false,
+        `Test 3 failed: expected false, got ${result3}`);
+
+    // Test case 4: Single node
+    const tree4 = new TreeNode(1);
+    const result4 = solve(tree4, 1, 2);
+    console.assert(result4 === false,
+        `Test 4 failed: expected false, got ${result4}`);
+
+    // Test case 5: More complex tree - are cousins
+    const tree5 = new TreeNode(1,
+        new TreeNode(2, new TreeNode(4), new TreeNode(5)),
+        new TreeNode(3, new TreeNode(6), new TreeNode(7))
+    );
+    const result5 = solve(tree5, 4, 6);
+    console.assert(result5 === true,
+        `Test 5 failed: expected true, got ${result5}`);
+
+    // Test case 6: Same depth but one is ancestor of other
+    const tree6 = new TreeNode(1,
+        new TreeNode(2),
+        new TreeNode(3)
+    );
+    const result6 = solve(tree6, 2, 3);
+    console.assert(result6 === false,
+        `Test 6 failed: expected false (siblings), got ${result6}`);
 
     console.log('All test cases passed for 993. Cousins In Binary Tree!');
 }
@@ -79,7 +169,9 @@ function demonstrateSolution() {
     console.log('Difficulty: Easy');
     console.log('');
 
-    // Example demonstration would go here
+    console.log('Cousins definition: Same depth, different parents');
+    console.log('');
+
     testSolution();
 }
 
@@ -92,13 +184,15 @@ if (require.main === module) {
 module.exports = {
     solve,
     testSolution,
-    demonstrateSolution
+    demonstrateSolution,
+    TreeNode
 };
 
 /**
  * Additional Notes:
  * - This solution focuses on queue concepts
- * - Consider the trade-offs between time and space complexity
- * - Edge cases are crucial for robust solutions
- * - The approach can be adapted for similar problems in this category
+ * - BFS is ideal for tracking depth information
+ * - Storing parent with each queue entry enables parent comparison
+ * - Early termination when both nodes are found improves efficiency
+ * - Alternative: Use DFS with depth tracking, but BFS is more natural
  */
