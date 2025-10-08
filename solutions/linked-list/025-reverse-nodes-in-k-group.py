@@ -52,22 +52,91 @@ The approach uses linked list techniques to solve this problem efficiently.
 </details>
 """
 
+class ListNode:
+    """Definition for singly-linked list."""
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
 class Solution:
-    def solve(self, *args):
+    def reverseKGroup(self, head: ListNode, k: int) -> ListNode:
         """
-        Main solution for 025. Reverse Nodes In K Group.
+        Reverse nodes in k-group. If remaining nodes < k, leave them as is.
 
         Args:
-            *args: Problem-specific arguments
+            head: Head of the linked list
+            k: Group size for reversal
 
         Returns:
-            Problem-specific return type
+            Head of the modified linked list
 
-        Time Complexity: O(n)
-        Space Complexity: O(1)
+        Time Complexity: O(n) - visit each node once
+        Space Complexity: O(1) - only using pointers
         """
-        # TODO: Implement the solution
-        pass
+        if not head or k == 1:
+            return head
+
+        # Create dummy node to handle head changes
+        dummy = ListNode(0)
+        dummy.next = head
+
+        # Initialize pointers
+        prev_group = dummy
+
+        while True:
+            # Check if there are k nodes remaining
+            kth = self.get_kth_node(prev_group, k)
+            if not kth:
+                break
+
+            # Save the next group's start
+            next_group = kth.next
+
+            # Reverse current group
+            prev, curr = kth.next, prev_group.next
+
+            while curr != next_group:
+                temp = curr.next
+                curr.next = prev
+                prev = curr
+                curr = temp
+
+            # Connect with previous group
+            temp = prev_group.next
+            prev_group.next = kth
+            prev_group = temp
+
+        return dummy.next
+
+    def get_kth_node(self, curr: ListNode, k: int) -> ListNode:
+        """Get the kth node from current position."""
+        while curr and k > 0:
+            curr = curr.next
+            k -= 1
+        return curr
+
+    def solve(self, head: ListNode, k: int) -> ListNode:
+        """Wrapper method for consistency with template."""
+        return self.reverseKGroup(head, k)
+
+def list_to_array(head: ListNode) -> list:
+    """Convert linked list to array for testing."""
+    result = []
+    while head:
+        result.append(head.val)
+        head = head.next
+    return result
+
+def array_to_list(arr: list) -> ListNode:
+    """Convert array to linked list for testing."""
+    if not arr:
+        return None
+    head = ListNode(arr[0])
+    current = head
+    for val in arr[1:]:
+        current.next = ListNode(val)
+        current = current.next
+    return head
 
 def test_solution():
     """
@@ -75,15 +144,35 @@ def test_solution():
     """
     solution = Solution()
 
-    # Test case 1: Basic functionality
-    # result = solution.solve([test_input])
-    # expected = [expected_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 1: Basic k=2
+    head = array_to_list([1, 2, 3, 4, 5])
+    result = solution.solve(head, 2)
+    expected = [2, 1, 4, 3, 5]
+    assert list_to_array(result) == expected, f"Expected {expected}, got {list_to_array(result)}"
 
-    # Test case 2: Edge case
-    # result = solution.solve([edge_case_input])
-    # expected = [edge_case_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 2: k=3
+    head = array_to_list([1, 2, 3, 4, 5])
+    result = solution.solve(head, 3)
+    expected = [3, 2, 1, 4, 5]
+    assert list_to_array(result) == expected, f"Expected {expected}, got {list_to_array(result)}"
+
+    # Test case 3: k=1 (no change)
+    head = array_to_list([1, 2, 3])
+    result = solution.solve(head, 1)
+    expected = [1, 2, 3]
+    assert list_to_array(result) == expected, f"Expected {expected}, got {list_to_array(result)}"
+
+    # Test case 4: k equals list length
+    head = array_to_list([1, 2, 3, 4])
+    result = solution.solve(head, 4)
+    expected = [4, 3, 2, 1]
+    assert list_to_array(result) == expected, f"Expected {expected}, got {list_to_array(result)}"
+
+    # Test case 5: k > list length
+    head = array_to_list([1, 2])
+    result = solution.solve(head, 3)
+    expected = [1, 2]
+    assert list_to_array(result) == expected, f"Expected {expected}, got {list_to_array(result)}"
 
     print("All test cases passed!")
 
@@ -92,4 +181,6 @@ if __name__ == "__main__":
 
     # Example usage
     solution = Solution()
-    print(f"Solution for 025. Reverse Nodes In K Group")
+    head = array_to_list([1, 2, 3, 4, 5])
+    result = solution.solve(head, 2)
+    print(f"Solution for 025. Reverse Nodes In K Group: {list_to_array(result)}")

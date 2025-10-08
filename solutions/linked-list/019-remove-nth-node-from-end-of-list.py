@@ -52,22 +52,70 @@ The approach uses linked list techniques to solve this problem efficiently.
 </details>
 """
 
+class ListNode:
+    """Definition for singly-linked list."""
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
 class Solution:
-    def solve(self, *args):
+    def removeNthFromEnd(self, head: ListNode, n: int) -> ListNode:
         """
-        Main solution for 019. Remove Nth Node From End Of List.
+        Remove the nth node from the end of the list using two-pointer technique.
 
         Args:
-            *args: Problem-specific arguments
+            head: Head of the linked list
+            n: Position from the end to remove (1-indexed)
 
         Returns:
-            Problem-specific return type
+            Head of the modified linked list
 
-        Time Complexity: O(n)
-        Space Complexity: O(1)
+        Time Complexity: O(n) - single pass through the list
+        Space Complexity: O(1) - only using two pointers
         """
-        # TODO: Implement the solution
-        pass
+        # Create a dummy node to handle edge case where head is removed
+        dummy = ListNode(0)
+        dummy.next = head
+
+        # Initialize two pointers
+        fast = slow = dummy
+
+        # Move fast pointer n+1 steps ahead
+        for _ in range(n + 1):
+            fast = fast.next
+
+        # Move both pointers until fast reaches the end
+        while fast:
+            fast = fast.next
+            slow = slow.next
+
+        # Remove the nth node from end
+        slow.next = slow.next.next
+
+        return dummy.next
+
+    def solve(self, head: ListNode, n: int) -> ListNode:
+        """Wrapper method for consistency with template."""
+        return self.removeNthFromEnd(head, n)
+
+def list_to_array(head: ListNode) -> list:
+    """Convert linked list to array for testing."""
+    result = []
+    while head:
+        result.append(head.val)
+        head = head.next
+    return result
+
+def array_to_list(arr: list) -> ListNode:
+    """Convert array to linked list for testing."""
+    if not arr:
+        return None
+    head = ListNode(arr[0])
+    current = head
+    for val in arr[1:]:
+        current.next = ListNode(val)
+        current = current.next
+    return head
 
 def test_solution():
     """
@@ -75,15 +123,29 @@ def test_solution():
     """
     solution = Solution()
 
-    # Test case 1: Basic functionality
-    # result = solution.solve([test_input])
-    # expected = [expected_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 1: Remove from middle
+    head = array_to_list([1, 2, 3, 4, 5])
+    result = solution.solve(head, 2)
+    expected = [1, 2, 3, 5]
+    assert list_to_array(result) == expected, f"Expected {expected}, got {list_to_array(result)}"
 
-    # Test case 2: Edge case
-    # result = solution.solve([edge_case_input])
-    # expected = [edge_case_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 2: Remove head (single node)
+    head = array_to_list([1])
+    result = solution.solve(head, 1)
+    expected = []
+    assert list_to_array(result) == expected, f"Expected {expected}, got {list_to_array(result)}"
+
+    # Test case 3: Remove head (multiple nodes)
+    head = array_to_list([1, 2])
+    result = solution.solve(head, 2)
+    expected = [2]
+    assert list_to_array(result) == expected, f"Expected {expected}, got {list_to_array(result)}"
+
+    # Test case 4: Remove last node
+    head = array_to_list([1, 2, 3])
+    result = solution.solve(head, 1)
+    expected = [1, 2]
+    assert list_to_array(result) == expected, f"Expected {expected}, got {list_to_array(result)}"
 
     print("All test cases passed!")
 
@@ -92,4 +154,6 @@ if __name__ == "__main__":
 
     # Example usage
     solution = Solution()
-    print(f"Solution for 019. Remove Nth Node From End Of List")
+    head = array_to_list([1, 2, 3, 4, 5])
+    result = solution.solve(head, 2)
+    print(f"Solution for 019. Remove Nth Node From End Of List: {list_to_array(result)}")
