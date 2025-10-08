@@ -53,6 +53,32 @@ The approach uses math techniques to solve this problem efficiently.
 """
 
 class Solution:
+    def trailingZeroes(self, n: int) -> int:
+        """
+        Count trailing zeroes in n! (factorial).
+
+        Trailing zeroes come from factors of 10 = 2 * 5.
+        Since there are always more factors of 2 than 5,
+        we just need to count factors of 5.
+
+        Args:
+            n: Non-negative integer
+
+        Returns:
+            Number of trailing zeroes in n!
+
+        Time Complexity: O(log n)
+        Space Complexity: O(1)
+        """
+        count = 0
+
+        # Count how many numbers <= n are divisible by 5, 25, 125, etc.
+        while n >= 5:
+            n //= 5
+            count += n
+
+        return count
+
     def solve(self, *args):
         """
         Main solution for 172. Factorial Trailing Zeroes.
@@ -61,13 +87,13 @@ class Solution:
             *args: Problem-specific arguments
 
         Returns:
-            Problem-specific return type
+            Number of trailing zeroes
 
-        Time Complexity: O(n)
+        Time Complexity: O(log n)
         Space Complexity: O(1)
         """
-        # TODO: Implement the solution
-        pass
+        return self.trailingZeroes(*args)
+
 
 def test_solution():
     """
@@ -76,16 +102,42 @@ def test_solution():
     solution = Solution()
 
     # Test case 1: Basic functionality
-    # result = solution.solve([test_input])
-    # expected = [expected_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    result = solution.trailingZeroes(3)
+    expected = 0
+    assert result == expected, f"Expected {expected}, got {result}"
 
-    # Test case 2: Edge case
-    # result = solution.solve([edge_case_input])
-    # expected = [edge_case_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 2: n = 5 (5! = 120)
+    result = solution.trailingZeroes(5)
+    expected = 1
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 3: n = 10 (10! has 2 trailing zeroes)
+    result = solution.trailingZeroes(10)
+    expected = 2
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 4: n = 25 (includes 25 = 5*5)
+    result = solution.trailingZeroes(25)
+    expected = 6
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 5: n = 0
+    result = solution.trailingZeroes(0)
+    expected = 0
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 6: Large number
+    result = solution.trailingZeroes(100)
+    expected = 24
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 7: Power of 5
+    result = solution.trailingZeroes(125)
+    expected = 31
+    assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()
@@ -93,3 +145,5 @@ if __name__ == "__main__":
     # Example usage
     solution = Solution()
     print(f"Solution for 172. Factorial Trailing Zeroes")
+    for n in [3, 5, 10, 25]:
+        print(f"{n}! has {solution.trailingZeroes(n)} trailing zeroes")

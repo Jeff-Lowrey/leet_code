@@ -53,6 +53,43 @@ The approach uses math techniques to solve this problem efficiently.
 """
 
 class Solution:
+    def isHappy(self, n: int) -> bool:
+        """
+        Determine if a number is happy using Floyd's cycle detection.
+
+        A happy number is defined by repeatedly replacing the number
+        with the sum of the squares of its digits until either:
+        - The number equals 1 (happy)
+        - It loops endlessly in a cycle (not happy)
+
+        Args:
+            n: Positive integer
+
+        Returns:
+            True if n is a happy number, False otherwise
+
+        Time Complexity: O(log n)
+        Space Complexity: O(1)
+        """
+        def get_next(num: int) -> int:
+            """Calculate sum of squares of digits."""
+            total = 0
+            while num > 0:
+                digit = num % 10
+                total += digit * digit
+                num //= 10
+            return total
+
+        # Floyd's cycle detection (slow and fast pointers)
+        slow = n
+        fast = get_next(n)
+
+        while fast != 1 and slow != fast:
+            slow = get_next(slow)
+            fast = get_next(get_next(fast))
+
+        return fast == 1
+
     def solve(self, *args):
         """
         Main solution for 202. Happy Number.
@@ -61,13 +98,13 @@ class Solution:
             *args: Problem-specific arguments
 
         Returns:
-            Problem-specific return type
+            True if happy number, False otherwise
 
-        Time Complexity: O(n)
+        Time Complexity: O(log n)
         Space Complexity: O(1)
         """
-        # TODO: Implement the solution
-        pass
+        return self.isHappy(*args)
+
 
 def test_solution():
     """
@@ -75,17 +112,44 @@ def test_solution():
     """
     solution = Solution()
 
-    # Test case 1: Basic functionality
-    # result = solution.solve([test_input])
-    # expected = [expected_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 1: Happy number (19)
+    # 19 -> 82 -> 68 -> 100 -> 1
+    result = solution.isHappy(19)
+    expected = True
+    assert result == expected, f"Expected {expected}, got {result}"
 
-    # Test case 2: Edge case
-    # result = solution.solve([edge_case_input])
-    # expected = [edge_case_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 2: Not happy number (2)
+    result = solution.isHappy(2)
+    expected = False
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 3: Already 1
+    result = solution.isHappy(1)
+    expected = True
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 4: Happy number (7)
+    result = solution.isHappy(7)
+    expected = True
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 5: Not happy number (4)
+    result = solution.isHappy(4)
+    expected = False
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 6: Happy number (10)
+    result = solution.isHappy(10)
+    expected = True
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 7: Happy number (100)
+    result = solution.isHappy(100)
+    expected = True
+    assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()
@@ -93,3 +157,6 @@ if __name__ == "__main__":
     # Example usage
     solution = Solution()
     print(f"Solution for 202. Happy Number")
+    for n in [1, 2, 7, 19]:
+        result = "is" if solution.isHappy(n) else "is not"
+        print(f"{n} {result} a happy number")
