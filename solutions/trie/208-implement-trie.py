@@ -56,12 +56,14 @@ StartsWith "app": root → 'a' → 'p' → 'p' (exists) → True
 </details>
 """
 
+
 class TrieNode:
     """Node in the trie data structure."""
 
     def __init__(self):
         self.children = {}  # Dictionary mapping character to child node
         self.is_end_word = False  # True if this node represents end of a word
+
 
 class Trie:
     """
@@ -147,7 +149,7 @@ class TrieAlternative:
 
     def _char_index(self, char: str) -> int:
         """Convert character to array index."""
-        return ord(char) - ord('a')
+        return ord(char) - ord("a")
 
     def insert(self, word: str) -> None:
         """Insert word using array-based children."""
@@ -171,6 +173,7 @@ class TrieAlternative:
 
         self.is_word[current_idx] = True
 
+
 def test_solution():
     """Test cases for 208. Implement Trie."""
 
@@ -179,24 +182,25 @@ def test_solution():
 
     # Test insert and search
     trie.insert("apple")
-    assert trie.search("apple") == True
-    assert trie.search("app") == False
-    assert trie.startsWith("app") == True
+    assert trie.search("apple")
+    assert not trie.search("app")
+    assert trie.startsWith("app")
 
     trie.insert("app")
-    assert trie.search("app") == True
+    assert trie.search("app")
 
     # Test more complex operations
     trie.insert("application")
-    assert trie.search("application") == True
-    assert trie.startsWith("appl") == True
-    assert trie.search("appl") == False
+    assert trie.search("application")
+    assert trie.startsWith("appl")
+    assert not trie.search("appl")
 
     # Test non-existent words
-    assert trie.search("banana") == False
-    assert trie.startsWith("ban") == False
+    assert not trie.search("banana")
+    assert not trie.startsWith("ban")
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

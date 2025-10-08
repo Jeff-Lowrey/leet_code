@@ -68,11 +68,10 @@ Output: 2
 </details>
 """
 
-from typing import List
 
 
 class Solution:
-    def findNumberOfLIS(self, nums: List[int]) -> int:
+    def findNumberOfLIS(self, nums: list[int]) -> int:
         """
         Find number of longest increasing subsequences using DP.
 
@@ -90,7 +89,7 @@ class Solution:
 
         n = len(nums)
         lengths = [1] * n  # lengths[i] = length of LIS ending at i
-        counts = [1] * n   # counts[i] = count of LIS ending at i
+        counts = [1] * n  # counts[i] = count of LIS ending at i
 
         for i in range(n):
             for j in range(i):
@@ -105,9 +104,9 @@ class Solution:
 
         # Find maximum length and sum counts
         max_length = max(lengths)
-        return sum(c for l, c in zip(lengths, counts) if l == max_length)
+        return sum(c for l, c in zip(lengths, counts, strict=False) if l == max_length)
 
-    def findNumberOfLISSegmentTree(self, nums: List[int]) -> int:
+    def findNumberOfLISSegmentTree(self, nums: list[int]) -> int:
         """
         Solution using Segment Tree with coordinate compression.
 
@@ -153,10 +152,7 @@ class Solution:
                         self.update(2 * node, start, mid, idx, val)
                     else:
                         self.update(2 * node + 1, mid + 1, end, idx, val)
-                    self.tree[node] = self.merge(
-                        self.tree[2 * node],
-                        self.tree[2 * node + 1]
-                    )
+                    self.tree[node] = self.merge(self.tree[2 * node], self.tree[2 * node + 1])
 
             def query(self, node, start, end, l, r):
                 """Query max (length, count) in range [l, r]."""
@@ -190,7 +186,7 @@ class Solution:
         _, result = seg_tree.query(1, 0, m - 1, 0, m - 1)
         return result
 
-    def findNumberOfLISBIT(self, nums: List[int]) -> int:
+    def findNumberOfLISBIT(self, nums: list[int]) -> int:
         """
         Solution using Binary Indexed Tree.
 
@@ -268,7 +264,7 @@ def test_solution():
     solution = Solution()
 
     # Test case 1: Basic example
-    result1 = solution.findNumberOfLIS([1,3,5,4,7])
+    result1 = solution.findNumberOfLIS([1, 3, 5, 4, 7])
     expected1 = 2
     assert result1 == expected1, f"Expected {expected1}, got {result1}"
 
@@ -278,27 +274,27 @@ def test_solution():
     assert result2 == expected2, f"Expected {expected2}, got {result2}"
 
     # Test case 3: All increasing
-    result3 = solution.findNumberOfLIS([1,2,3,4,5])
+    result3 = solution.findNumberOfLIS([1, 2, 3, 4, 5])
     expected3 = 1
     assert result3 == expected3, f"Expected {expected3}, got {result3}"
 
     # Test case 4: All decreasing
-    result4 = solution.findNumberOfLIS([5,4,3,2,1])
+    result4 = solution.findNumberOfLIS([5, 4, 3, 2, 1])
     expected4 = 5  # Each element is LIS of length 1
     assert result4 == expected4, f"Expected {expected4}, got {result4}"
 
     # Test case 5: Two increasing sequences
-    result5 = solution.findNumberOfLIS([2,2,2,2,2])
+    result5 = solution.findNumberOfLIS([2, 2, 2, 2, 2])
     expected5 = 5  # Each element is LIS of length 1
     assert result5 == expected5, f"Expected {expected5}, got {result5}"
 
     # Test case 6: Complex example
-    result6 = solution.findNumberOfLIS([1,2,4,3,5,4,7,2])
+    result6 = solution.findNumberOfLIS([1, 2, 4, 3, 5, 4, 7, 2])
     expected6 = 3  # Three sequences of length 5
     assert result6 == expected6, f"Expected {expected6}, got {result6}"
 
     # Test segment tree approach
-    result7 = solution.findNumberOfLISSegmentTree([1,3,5,4,7])
+    result7 = solution.findNumberOfLISSegmentTree([1, 3, 5, 4, 7])
     expected7 = 2
     assert result7 == expected7, f"Expected {expected7}, got {result7}"
 
@@ -318,9 +314,9 @@ if __name__ == "__main__":
     print("=== 673. Number Of Longest Increasing Subsequence ===")
 
     test_cases = [
-        [1,3,5,4,7],
-        [2,2,2,2,2],
-        [1,2,4,3,5,4,7,2],
+        [1, 3, 5, 4, 7],
+        [2, 2, 2, 2, 2],
+        [1, 2, 4, 3, 5, 4, 7, 2],
     ]
 
     for nums in test_cases:
@@ -334,8 +330,8 @@ if __name__ == "__main__":
         print(f"Segment Tree: {result_seg}")
 
     # Detailed walkthrough
-    print(f"\nDetailed example: [1,3,5,4,7]")
-    nums = [1,3,5,4,7]
+    print("\nDetailed example: [1,3,5,4,7]")
+    nums = [1, 3, 5, 4, 7]
     n = len(nums)
     lengths = [1] * n
     counts = [1] * n
@@ -352,12 +348,12 @@ if __name__ == "__main__":
         print(f"  i={i}, nums[{i}]={nums[i]}, length={lengths[i]}, count={counts[i]}")
 
     max_length = max(lengths)
-    total_count = sum(c for l, c in zip(lengths, counts) if l == max_length)
+    total_count = sum(c for l, c in zip(lengths, counts, strict=False) if l == max_length)
     print(f"Maximum length: {max_length}")
     print(f"Number of LIS: {total_count}")
 
     # Performance comparison
-    print(f"\nApproach complexities:")
-    print(f"DP:           O(n²) time, O(n) space")
-    print(f"Segment Tree: O(n log n) time, O(n) space")
-    print(f"Binary IT:    O(n² log n) time, O(n) space")
+    print("\nApproach complexities:")
+    print("DP:           O(n²) time, O(n) space")
+    print("Segment Tree: O(n log n) time, O(n) space")
+    print("Binary IT:    O(n² log n) time, O(n) space")

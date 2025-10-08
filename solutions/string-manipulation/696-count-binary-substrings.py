@@ -82,7 +82,6 @@ Total: 2 + 2 + 2 = 6
 </details>
 """
 
-from typing import List
 
 
 class Solution:
@@ -169,6 +168,7 @@ class Solution:
         Time Complexity: O(n^2)
         Space Complexity: O(1)
         """
+
         def is_valid(substring: str) -> bool:
             """Check if substring has equal grouped 0s and 1s."""
             if len(substring) % 2 != 0:
@@ -179,9 +179,7 @@ class Solution:
             right = substring[mid:]
 
             # Check if left is all same and right is all same and different
-            return (len(set(left)) == 1 and
-                   len(set(right)) == 1 and
-                   left[0] != right[0])
+            return len(set(left)) == 1 and len(set(right)) == 1 and left[0] != right[0]
 
         count = 0
         for i in range(len(s)):
@@ -288,14 +286,7 @@ if __name__ == "__main__":
     solution = Solution()
     print("=== 696. Count Binary Substrings ===")
 
-    test_cases = [
-        "00110011",
-        "10101",
-        "00110",
-        "01",
-        "0011",
-        "000111"
-    ]
+    test_cases = ["00110011", "10101", "00110", "01", "0011", "000111"]
 
     for test in test_cases:
         result = solution.countBinarySubstrings(test)

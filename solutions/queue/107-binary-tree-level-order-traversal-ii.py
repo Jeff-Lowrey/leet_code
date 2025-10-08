@@ -57,11 +57,11 @@ Bottom-up: [[15, 7], [9, 20], [3]]
 """
 
 from collections import deque
-from typing import List, Optional
 
 
 class TreeNode:
     """Definition for a binary tree node."""
+
     def __init__(self, val=0, left=None, right=None):
         self.val = val
         self.left = left
@@ -69,7 +69,7 @@ class TreeNode:
 
 
 class Solution:
-    def levelOrderBottom(self, root: Optional[TreeNode]) -> List[List[int]]:
+    def levelOrderBottom(self, root: TreeNode | None) -> list[list[int]]:
         """
         Bottom-up level order traversal of binary tree.
 

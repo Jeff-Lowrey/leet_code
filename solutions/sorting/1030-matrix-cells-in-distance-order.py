@@ -75,11 +75,10 @@ Output: [[1,2],[0,2],[1,1],[0,1],[1,0],[0,0]]
 </details>
 """
 
-from typing import List
 
 
 class Solution:
-    def allCellsDistOrder(self, rows: int, cols: int, rCenter: int, cCenter: int) -> List[List[int]]:
+    def allCellsDistOrder(self, rows: int, cols: int, rCenter: int, cCenter: int) -> list[list[int]]:
         """
         Return all matrix cells sorted by Manhattan distance from center.
 
@@ -98,10 +97,10 @@ class Solution:
         # Generate all coordinates and sort by Manhattan distance
         return sorted(
             [[r, c] for r in range(rows) for c in range(cols)],
-            key=lambda coord: abs(coord[0] - rCenter) + abs(coord[1] - cCenter)
+            key=lambda coord: abs(coord[0] - rCenter) + abs(coord[1] - cCenter),
         )
 
-    def allCellsDistOrderBFS(self, rows: int, cols: int, rCenter: int, cCenter: int) -> List[List[int]]:
+    def allCellsDistOrderBFS(self, rows: int, cols: int, rCenter: int, cCenter: int) -> list[list[int]]:
         """
         BFS approach for O(R*C) time complexity.
 
@@ -137,7 +136,7 @@ class Solution:
 
         return result
 
-    def allCellsDistOrderBucket(self, rows: int, cols: int, rCenter: int, cCenter: int) -> List[List[int]]:
+    def allCellsDistOrderBucket(self, rows: int, cols: int, rCenter: int, cCenter: int) -> list[list[int]]:
         """
         Bucket sort approach for O(R*C) time complexity.
 
@@ -179,7 +178,7 @@ def test_solution():
     # Check that it's sorted by distance
     for i in range(len(result2) - 1):
         dist1 = abs(result2[i][0] - 1) + abs(result2[i][1] - 2)
-        dist2 = abs(result2[i+1][0] - 1) + abs(result2[i+1][1] - 2)
+        dist2 = abs(result2[i + 1][0] - 1) + abs(result2[i + 1][1] - 2)
         assert dist1 <= dist2, f"Not sorted by distance at index {i}"
 
     # Test case 3: Single cell

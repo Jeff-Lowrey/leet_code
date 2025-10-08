@@ -75,7 +75,6 @@ Join: "s'teL ekat edoCteeL tsetnoc"
 </details>
 """
 
-from typing import List
 
 
 class Solution:
@@ -93,7 +92,7 @@ class Solution:
         Space Complexity: O(n) for storing words and result
         """
         # Split by spaces, reverse each word, join back
-        return ' '.join(word[::-1] for word in s.split())
+        return " ".join(word[::-1] for word in s.split())
 
     def reverseWordsExplicit(self, s: str) -> str:
         """
@@ -115,7 +114,7 @@ class Solution:
             reversed_words.append(reversed_word)
 
         # Join back with spaces
-        return ' '.join(reversed_words)
+        return " ".join(reversed_words)
 
     def reverseWordsTwoPointer(self, s: str) -> str:
         """
@@ -136,13 +135,13 @@ class Solution:
 
         while i < n:
             # Skip spaces
-            if chars[i] == ' ':
+            if chars[i] == " ":
                 i += 1
                 continue
 
             # Find the end of current word
             j = i
-            while j < n and chars[j] != ' ':
+            while j < n and chars[j] != " ":
                 j += 1
 
             # Reverse the word from i to j-1
@@ -155,7 +154,7 @@ class Solution:
             # Move to next word
             i = j
 
-        return ''.join(chars)
+        return "".join(chars)
 
     def reverseWordsManual(self, s: str) -> str:
         """
@@ -171,12 +170,12 @@ class Solution:
         current_word = []
 
         for char in s:
-            if char == ' ':
+            if char == " ":
                 # End of word - add reversed word to result
                 if current_word:
                     result.extend(current_word[::-1])
                     current_word = []
-                result.append(' ')
+                result.append(" ")
             else:
                 current_word.append(char)
 
@@ -184,7 +183,7 @@ class Solution:
         if current_word:
             result.extend(current_word[::-1])
 
-        return ''.join(result)
+        return "".join(result)
 
     def reverseWordsStack(self, s: str) -> str:
         """
@@ -200,11 +199,11 @@ class Solution:
         stack = []
 
         for char in s:
-            if char == ' ':
+            if char == " ":
                 # Pop all characters from stack to get reversed word
                 while stack:
                     result.append(stack.pop())
-                result.append(' ')
+                result.append(" ")
             else:
                 stack.append(char)
 
@@ -212,7 +211,7 @@ class Solution:
         while stack:
             result.append(stack.pop())
 
-        return ''.join(result)
+        return "".join(result)
 
 
 def test_solution():
@@ -279,13 +278,7 @@ if __name__ == "__main__":
     solution = Solution()
     print("=== 557. Reverse Words in a String III ===")
 
-    test_cases = [
-        "Let's take LeetCode contest",
-        "God",
-        "Hello World",
-        "a b c d e",
-        "Python is awesome"
-    ]
+    test_cases = ["Let's take LeetCode contest", "God", "Hello World", "a b c d e", "Python is awesome"]
 
     for test in test_cases:
         result = solution.reverseWords(test)

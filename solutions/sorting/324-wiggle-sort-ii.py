@@ -75,11 +75,10 @@ Reversing: [1,2,1,2,1,1] → place from middle outward
 </details>
 """
 
-from typing import List
 
 
 class Solution:
-    def wiggleSort(self, nums: List[int]) -> None:
+    def wiggleSort(self, nums: list[int]) -> None:
         """
         Reorder array in strict wiggle pattern: nums[0] < nums[1] > nums[2] < ...
 
@@ -112,7 +111,7 @@ class Solution:
         for i in range(len(large)):
             nums[2 * i + 1] = large[i]
 
-    def wiggleSortSimple(self, nums: List[int]) -> None:
+    def wiggleSortSimple(self, nums: list[int]) -> None:
         """
         Simpler approach using sorting and direct interleaving.
 
@@ -135,7 +134,7 @@ class Solution:
             nums[i] = sorted_nums[j]
             j -= 1
 
-    def wiggleSortVirtualIndex(self, nums: List[int]) -> None:
+    def wiggleSortVirtualIndex(self, nums: list[int]) -> None:
         """
         Advanced O(n) time and O(1) space using virtual indexing.
 
@@ -165,7 +164,7 @@ class Solution:
             else:
                 j += 1
 
-    def findMedian(self, nums: List[int]) -> int:
+    def findMedian(self, nums: list[int]) -> int:
         """
         Find median using sorting (simple approach).
 
@@ -176,7 +175,7 @@ class Solution:
         return sorted_nums[(n - 1) // 2]
 
 
-def is_strict_wiggle(nums: List[int]) -> bool:
+def is_strict_wiggle(nums: list[int]) -> bool:
     """
     Check if array satisfies strict wiggle property.
 

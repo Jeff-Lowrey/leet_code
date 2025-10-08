@@ -88,11 +88,10 @@ Output: [3,4,2,3,2] (flip positions)
 </details>
 """
 
-from typing import List
 
 
 class Solution:
-    def pancakeSort(self, arr: List[int]) -> List[int]:
+    def pancakeSort(self, arr: list[int]) -> list[int]:
         """
         Sort array using pancake flips.
 
@@ -128,7 +127,7 @@ class Solution:
 
         return result
 
-    def flip(self, arr: List[int], k: int) -> None:
+    def flip(self, arr: list[int], k: int) -> None:
         """
         Reverse arr[0:k] in place.
 
@@ -138,7 +137,7 @@ class Solution:
         """
         arr[:k] = arr[:k][::-1]
 
-    def pancakeSortVerbose(self, arr: List[int]) -> List[int]:
+    def pancakeSortVerbose(self, arr: list[int]) -> list[int]:
         """
         Verbose version with detailed steps.
 
@@ -183,7 +182,7 @@ class Solution:
 
         return result
 
-    def pancakeSortOptimized(self, arr: List[int]) -> List[int]:
+    def pancakeSortOptimized(self, arr: list[int]) -> list[int]:
         """
         Optimized version that minimizes flips.
 
@@ -211,7 +210,7 @@ class Solution:
                 result.append(size)
             else:
                 # Two flips: bring to top, then to position
-                arr[:max_idx + 1] = arr[:max_idx + 1][::-1]
+                arr[: max_idx + 1] = arr[: max_idx + 1][::-1]
                 result.append(max_idx + 1)
 
                 arr[:size] = arr[:size][::-1]
@@ -249,7 +248,7 @@ def test_solution():
 
     # Test case 4: Single element
     arr4 = [1]
-    result4 = solution.pancakeSort(arr4.copy())
+    solution.pancakeSort(arr4.copy())
     assert arr4 == [1], f"Not sorted correctly: {arr4}"
 
     # Test case 5: Two elements

@@ -72,11 +72,10 @@ Output: 3
 </details>
 """
 
-from typing import List
 
 
 class Solution:
-    def hIndex(self, citations: List[int]) -> int:
+    def hIndex(self, citations: list[int]) -> int:
         """
         Calculate h-index using sorting approach.
 
@@ -102,7 +101,7 @@ class Solution:
 
         return h
 
-    def hIndexCounting(self, citations: List[int]) -> int:
+    def hIndexCounting(self, citations: list[int]) -> int:
         """
         Calculate h-index using counting approach for O(n) time.
 
@@ -133,7 +132,7 @@ class Solution:
 
         return 0
 
-    def hIndexSimple(self, citations: List[int]) -> int:
+    def hIndexSimple(self, citations: list[int]) -> int:
         """
         Simple approach: try each possible h-index from n down to 0.
 
@@ -151,7 +150,7 @@ class Solution:
 
         return 0
 
-    def hIndexOneLiner(self, citations: List[int]) -> int:
+    def hIndexOneLiner(self, citations: list[int]) -> int:
         """
         Concise one-liner solution using sorting.
 
@@ -228,7 +227,7 @@ if __name__ == "__main__":
     # Example usage
     solution = Solution()
     print("=== 274. H Index ===")
-    print(f"hIndex([3,0,6,1,5]) -> {solution.hIndex([3,0,6,1,5])}")
-    print(f"hIndex([1,3,1]) -> {solution.hIndex([1,3,1])}")
-    print(f"hIndex([100,100,100]) -> {solution.hIndex([100,100,100])}")
-    print(f"hIndexCounting([3,0,6,1,5]) -> {solution.hIndexCounting([3,0,6,1,5])}")
+    print(f"hIndex([3,0,6,1,5]) -> {solution.hIndex([3, 0, 6, 1, 5])}")
+    print(f"hIndex([1,3,1]) -> {solution.hIndex([1, 3, 1])}")
+    print(f"hIndex([100,100,100]) -> {solution.hIndex([100, 100, 100])}")
+    print(f"hIndexCounting([3,0,6,1,5]) -> {solution.hIndexCounting([3, 0, 6, 1, 5])}")

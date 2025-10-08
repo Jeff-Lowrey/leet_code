@@ -63,11 +63,11 @@ Result: [1, 3, 9]
 """
 
 from collections import deque
-from typing import List, Optional
 
 
 class TreeNode:
     """Definition for a binary tree node."""
+
     def __init__(self, val=0, left=None, right=None):
         self.val = val
         self.left = left
@@ -75,7 +75,7 @@ class TreeNode:
 
 
 class Solution:
-    def largestValues(self, root: Optional[TreeNode]) -> List[int]:
+    def largestValues(self, root: TreeNode | None) -> list[int]:
         """
         Find largest value in each row of binary tree.
 
@@ -96,7 +96,7 @@ class Solution:
 
         while queue:
             level_size = len(queue)
-            level_max = float('-inf')
+            level_max = float("-inf")
 
             # Process all nodes at current level
             for _ in range(level_size):
@@ -113,7 +113,7 @@ class Solution:
 
         return result
 
-    def largestValues_dfs(self, root: Optional[TreeNode]) -> List[int]:
+    def largestValues_dfs(self, root: TreeNode | None) -> list[int]:
         """
         Alternative DFS solution using depth tracking.
 
@@ -122,7 +122,7 @@ class Solution:
         """
         result = []
 
-        def dfs(node: Optional[TreeNode], depth: int) -> None:
+        def dfs(node: TreeNode | None, depth: int) -> None:
             if not node:
                 return
 

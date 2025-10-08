@@ -96,11 +96,10 @@ Output: [0,0,1,1,2,2] ✓
 </details>
 """
 
-from typing import List
 
 
 class Solution:
-    def sortColors(self, nums: List[int]) -> None:
+    def sortColors(self, nums: list[int]) -> None:
         """
         Sort colors in-place using Dutch National Flag algorithm.
 
@@ -129,7 +128,7 @@ class Solution:
                 right -= 1
                 # Don't increment mid yet, need to check swapped element
 
-    def sortColorsCountingSort(self, nums: List[int]) -> None:
+    def sortColorsCountingSort(self, nums: list[int]) -> None:
         """
         Sort using counting sort (two-pass).
 
@@ -148,7 +147,7 @@ class Solution:
                 nums[idx] = color
                 idx += 1
 
-    def sortColorsTwoPasses(self, nums: List[int]) -> None:
+    def sortColorsTwoPasses(self, nums: list[int]) -> None:
         """
         Sort using two passes of partitioning.
 

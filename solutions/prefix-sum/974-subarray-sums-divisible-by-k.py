@@ -134,7 +134,7 @@ class Solution:
         return count
 
 
-def test_solution():
+def test_solution() -> None:
     """Test cases for Problem 974."""
     solution = Solution()
 

@@ -89,7 +89,7 @@ class Solution:
         return bin(n).count("1")
 
 
-def test_solution():
+def test_solution() -> None:
     """Test cases for Problem 191."""
     solution = Solution()
 

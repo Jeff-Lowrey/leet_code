@@ -90,7 +90,6 @@ Result: "PAHNAPLSIIGYIR"
 </details>
 """
 
-from typing import List
 
 
 class Solution:
@@ -113,7 +112,7 @@ class Solution:
             return s
 
         # Create row buffers
-        rows = [''] * numRows
+        rows = [""] * numRows
         current_row = 0
         going_down = False
 
@@ -129,7 +128,7 @@ class Solution:
             current_row += 1 if going_down else -1
 
         # Concatenate all rows
-        return ''.join(rows)
+        return "".join(rows)
 
     def convertList(self, s: str, numRows: int) -> str:
         """
@@ -165,7 +164,7 @@ class Solution:
             current_row += direction
 
         # Join all rows
-        return ''.join(''.join(row) for row in rows)
+        return "".join("".join(row) for row in rows)
 
     def convertMathematical(self, s: str, numRows: int) -> str:
         """
@@ -197,7 +196,7 @@ class Solution:
                     if middle_idx < len(s):
                         result.append(s[middle_idx])
 
-        return ''.join(result)
+        return "".join(result)
 
     def convertVerbose(self, s: str, numRows: int) -> str:
         """
@@ -300,12 +299,7 @@ if __name__ == "__main__":
     solution = Solution()
     print("=== 6. Zigzag Conversion ===")
 
-    test_cases = [
-        ("PAYPALISHIRING", 3),
-        ("PAYPALISHIRING", 4),
-        ("ABCD", 2),
-        ("A", 1)
-    ]
+    test_cases = [("PAYPALISHIRING", 3), ("PAYPALISHIRING", 4), ("ABCD", 2), ("A", 1)]
 
     for s, numRows in test_cases:
         result = solution.convert(s, numRows)

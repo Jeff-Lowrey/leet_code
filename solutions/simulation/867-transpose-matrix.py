@@ -81,11 +81,10 @@ Result: 3×2 (3 rows, 2 cols)
 </details>
 """
 
-from typing import List
 
 
 class Solution:
-    def transpose(self, matrix: List[List[int]]) -> List[List[int]]:
+    def transpose(self, matrix: list[list[int]]) -> list[list[int]]:
         """
         Return transpose of matrix by swapping rows and columns.
 
@@ -110,7 +109,7 @@ class Solution:
 
         return result
 
-    def transposeZip(self, matrix: List[List[int]]) -> List[List[int]]:
+    def transposeZip(self, matrix: list[list[int]]) -> list[list[int]]:
         """
         Pythonic approach using zip.
 
@@ -119,9 +118,9 @@ class Solution:
         Time Complexity: O(m × n)
         Space Complexity: O(m × n)
         """
-        return [list(row) for row in zip(*matrix)]
+        return [list(row) for row in zip(*matrix, strict=False)]
 
-    def transposeComprehension(self, matrix: List[List[int]]) -> List[List[int]]:
+    def transposeComprehension(self, matrix: list[list[int]]) -> list[list[int]]:
         """
         List comprehension approach.
 
@@ -131,7 +130,7 @@ class Solution:
         m, n = len(matrix), len(matrix[0])
         return [[matrix[i][j] for i in range(m)] for j in range(n)]
 
-    def transposeInPlace(self, matrix: List[List[int]]) -> List[List[int]]:
+    def transposeInPlace(self, matrix: list[list[int]]) -> list[list[int]]:
         """
         In-place transpose for square matrices only.
 
@@ -154,14 +153,14 @@ class Solution:
 
         return matrix
 
-    def transposeOneLiner(self, matrix: List[List[int]]) -> List[List[int]]:
+    def transposeOneLiner(self, matrix: list[list[int]]) -> list[list[int]]:
         """
         Ultra-compact one-liner.
 
         Time Complexity: O(m × n)
         Space Complexity: O(m × n)
         """
-        return list(map(list, zip(*matrix)))
+        return list(map(list, zip(*matrix, strict=False)))
 
 
 def test_solution():
@@ -169,23 +168,23 @@ def test_solution():
     solution = Solution()
 
     # Test case 1: 3×3 square matrix
-    matrix1 = [[1,2,3],[4,5,6],[7,8,9]]
-    expected1 = [[1,4,7],[2,5,8],[3,6,9]]
+    matrix1 = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+    expected1 = [[1, 4, 7], [2, 5, 8], [3, 6, 9]]
     assert solution.transpose(matrix1) == expected1, "Test case 1 failed"
 
     # Test case 2: 2×3 rectangular matrix
-    matrix2 = [[1,2,3],[4,5,6]]
-    expected2 = [[1,4],[2,5],[3,6]]
+    matrix2 = [[1, 2, 3], [4, 5, 6]]
+    expected2 = [[1, 4], [2, 5], [3, 6]]
     assert solution.transpose(matrix2) == expected2, "Test case 2 failed"
 
     # Test case 3: Single row
-    matrix3 = [[1,2,3]]
-    expected3 = [[1],[2],[3]]
+    matrix3 = [[1, 2, 3]]
+    expected3 = [[1], [2], [3]]
     assert solution.transpose(matrix3) == expected3, "Test case 3 failed"
 
     # Test case 4: Single column
-    matrix4 = [[1],[2],[3]]
-    expected4 = [[1,2,3]]
+    matrix4 = [[1], [2], [3]]
+    expected4 = [[1, 2, 3]]
     assert solution.transpose(matrix4) == expected4, "Test case 4 failed"
 
     # Test case 5: Single cell
@@ -194,28 +193,28 @@ def test_solution():
     assert solution.transpose(matrix5) == expected5, "Test case 5 failed"
 
     # Test case 6: 2×2 square
-    matrix6 = [[1,2],[3,4]]
-    expected6 = [[1,3],[2,4]]
+    matrix6 = [[1, 2], [3, 4]]
+    expected6 = [[1, 3], [2, 4]]
     assert solution.transpose(matrix6) == expected6, "Test case 6 failed"
 
     # Test case 7: 4×2 matrix
-    matrix7 = [[1,2],[3,4],[5,6],[7,8]]
-    expected7 = [[1,3,5,7],[2,4,6,8]]
+    matrix7 = [[1, 2], [3, 4], [5, 6], [7, 8]]
+    expected7 = [[1, 3, 5, 7], [2, 4, 6, 8]]
     assert solution.transpose(matrix7) == expected7, "Test case 7 failed"
 
     # Test zip method
-    matrix8 = [[1,2,3],[4,5,6]]
-    expected8 = [[1,4],[2,5],[3,6]]
+    matrix8 = [[1, 2, 3], [4, 5, 6]]
+    expected8 = [[1, 4], [2, 5], [3, 6]]
     assert solution.transposeZip(matrix8) == expected8, "Zip method failed"
 
     # Test comprehension method
-    matrix9 = [[1,2,3],[4,5,6],[7,8,9]]
-    expected9 = [[1,4,7],[2,5,8],[3,6,9]]
+    matrix9 = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+    expected9 = [[1, 4, 7], [2, 5, 8], [3, 6, 9]]
     assert solution.transposeComprehension(matrix9) == expected9, "Comprehension method failed"
 
     # Test one-liner method
-    matrix10 = [[1,2],[3,4]]
-    expected10 = [[1,3],[2,4]]
+    matrix10 = [[1, 2], [3, 4]]
+    expected10 = [[1, 3], [2, 4]]
     assert solution.transposeOneLiner(matrix10) == expected10, "One-liner method failed"
 
     print("All test cases passed!")
@@ -229,7 +228,7 @@ if __name__ == "__main__":
     print("=== 867. Transpose Matrix ===\n")
 
     # Example 1: Square matrix
-    matrix1 = [[1,2,3],[4,5,6],[7,8,9]]
+    matrix1 = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
     print("Original matrix (3×3):")
     for row in matrix1:
         print(row)
@@ -240,7 +239,7 @@ if __name__ == "__main__":
     print()
 
     # Example 2: Rectangular matrix
-    matrix2 = [[1,2,3],[4,5,6]]
+    matrix2 = [[1, 2, 3], [4, 5, 6]]
     print("Original matrix (2×3):")
     for row in matrix2:
         print(row)
@@ -251,7 +250,7 @@ if __name__ == "__main__":
     print()
 
     # Example 3: Demonstrate different methods
-    matrix3 = [[1,2],[3,4],[5,6]]
+    matrix3 = [[1, 2], [3, 4], [5, 6]]
     print("Original matrix (3×2):")
     for row in matrix3:
         print(row)
@@ -262,17 +261,17 @@ if __name__ == "__main__":
         print(row)
 
     print("\nMethod 2 (Zip):")
-    result3b = solution.transposeZip([[1,2],[3,4],[5,6]])
+    result3b = solution.transposeZip([[1, 2], [3, 4], [5, 6]])
     for row in result3b:
         print(row)
 
     print("\nMethod 3 (List Comprehension):")
-    result3c = solution.transposeComprehension([[1,2],[3,4],[5,6]])
+    result3c = solution.transposeComprehension([[1, 2], [3, 4], [5, 6]])
     for row in result3c:
         print(row)
 
     print("\nMethod 4 (One-liner):")
-    result3d = solution.transposeOneLiner([[1,2],[3,4],[5,6]])
+    result3d = solution.transposeOneLiner([[1, 2], [3, 4], [5, 6]])
     for row in result3d:
         print(row)
 

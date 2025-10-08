@@ -105,7 +105,7 @@ class Solution:
         return False
 
 
-def test_solution():
+def test_solution() -> None:
     """Test cases for Problem 523."""
     solution = Solution()
 

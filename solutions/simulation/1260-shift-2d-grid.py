@@ -78,11 +78,10 @@ Result: [[9,1,2],[3,4,5],[6,7,8]]
 </details>
 """
 
-from typing import List
 
 
 class Solution:
-    def shiftGrid(self, grid: List[List[int]], k: int) -> List[List[int]]:
+    def shiftGrid(self, grid: list[list[int]], k: int) -> list[list[int]]:
         """
         Shift 2D grid k times using position mapping.
 
@@ -127,7 +126,7 @@ class Solution:
 
         return result
 
-    def shiftGridFlatten(self, grid: List[List[int]], k: int) -> List[List[int]]:
+    def shiftGridFlatten(self, grid: list[list[int]], k: int) -> list[list[int]]:
         """
         Alternative approach: Flatten, rotate, reshape.
 
@@ -156,7 +155,7 @@ class Solution:
 
         return result
 
-    def shiftGridInPlace(self, grid: List[List[int]], k: int) -> List[List[int]]:
+    def shiftGridInPlace(self, grid: list[list[int]], k: int) -> list[list[int]]:
         """
         Optimized approach with less auxiliary space.
 
@@ -189,15 +188,15 @@ def test_solution():
     solution = Solution()
 
     # Test case 1: Basic shift by 1
-    grid1 = [[1,2,3],[4,5,6],[7,8,9]]
+    grid1 = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
     k1 = 1
-    expected1 = [[9,1,2],[3,4,5],[6,7,8]]
+    expected1 = [[9, 1, 2], [3, 4, 5], [6, 7, 8]]
     assert solution.shiftGrid(grid1, k1) == expected1, "Test case 1 failed"
 
     # Test case 2: Multiple row shift
-    grid2 = [[3,8,1,9],[19,7,2,5],[4,6,11,10],[12,0,21,13]]
+    grid2 = [[3, 8, 1, 9], [19, 7, 2, 5], [4, 6, 11, 10], [12, 0, 21, 13]]
     k2 = 4
-    expected2 = [[12,0,21,13],[3,8,1,9],[19,7,2,5],[4,6,11,10]]
+    expected2 = [[12, 0, 21, 13], [3, 8, 1, 9], [19, 7, 2, 5], [4, 6, 11, 10]]
     assert solution.shiftGrid(grid2, k2) == expected2, "Test case 2 failed"
 
     # Test case 3: Single element
@@ -207,32 +206,32 @@ def test_solution():
     assert solution.shiftGrid(grid3, k3) == expected3, "Test case 3 failed"
 
     # Test case 4: No shift (k = 0)
-    grid4 = [[1,2],[3,4]]
+    grid4 = [[1, 2], [3, 4]]
     k4 = 0
-    expected4 = [[1,2],[3,4]]
+    expected4 = [[1, 2], [3, 4]]
     assert solution.shiftGrid(grid4, k4) == expected4, "Test case 4 failed"
 
     # Test case 5: k larger than grid size
-    grid5 = [[1,2,3],[4,5,6]]
+    grid5 = [[1, 2, 3], [4, 5, 6]]
     k5 = 8  # 6 elements, k=8 is same as k=2
-    expected5 = [[5,6,1],[2,3,4]]
+    expected5 = [[5, 6, 1], [2, 3, 4]]
     assert solution.shiftGrid(grid5, k5) == expected5, "Test case 5 failed"
 
     # Test case 6: Single row
-    grid6 = [[1,2,3,4]]
+    grid6 = [[1, 2, 3, 4]]
     k6 = 2
-    expected6 = [[3,4,1,2]]
+    expected6 = [[3, 4, 1, 2]]
     assert solution.shiftGrid(grid6, k6) == expected6, "Test case 6 failed"
 
     # Test case 7: Single column
-    grid7 = [[1],[2],[3]]
+    grid7 = [[1], [2], [3]]
     k7 = 1
-    expected7 = [[3],[1],[2]]
+    expected7 = [[3], [1], [2]]
     assert solution.shiftGrid(grid7, k7) == expected7, "Test case 7 failed"
 
     # Test flatten method
-    grid8 = [[1,2,3],[4,5,6],[7,8,9]]
-    expected8 = [[9,1,2],[3,4,5],[6,7,8]]
+    grid8 = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+    expected8 = [[9, 1, 2], [3, 4, 5], [6, 7, 8]]
     assert solution.shiftGridFlatten(grid8, 1) == expected8, "Flatten method failed"
 
     print("All test cases passed!")
@@ -246,7 +245,7 @@ if __name__ == "__main__":
     print("=== 1260. Shift 2D Grid ===\n")
 
     # Example 1
-    grid1 = [[1,2,3],[4,5,6],[7,8,9]]
+    grid1 = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
     k1 = 1
     print(f"Original grid: {grid1}")
     print(f"k = {k1}")
@@ -254,7 +253,7 @@ if __name__ == "__main__":
     print(f"After {k1} shift: {result1}\n")
 
     # Example 2
-    grid2 = [[3,8,1,9],[19,7,2,5],[4,6,11,10],[12,0,21,13]]
+    grid2 = [[3, 8, 1, 9], [19, 7, 2, 5], [4, 6, 11, 10], [12, 0, 21, 13]]
     k2 = 4
     print(f"Original grid: {grid2}")
     print(f"k = {k2}")
@@ -262,7 +261,7 @@ if __name__ == "__main__":
     print(f"After {k2} shifts: {result2}\n")
 
     # Demonstrate large k optimization
-    grid3 = [[1,2],[3,4]]
+    grid3 = [[1, 2], [3, 4]]
     k3 = 100  # Total = 4, so k=100 is same as k=0
     print(f"Original grid: {grid3}")
     print(f"k = {k3} (optimized to {k3 % 4})")

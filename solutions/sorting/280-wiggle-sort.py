@@ -71,11 +71,10 @@ Pair and swap:
 </details>
 """
 
-from typing import List
 
 
 class Solution:
-    def wiggleSort(self, nums: List[int]) -> None:
+    def wiggleSort(self, nums: list[int]) -> None:
         """
         Reorder array in wiggle pattern in-place using one-pass approach.
 
@@ -91,11 +90,10 @@ class Solution:
         for i in range(len(nums) - 1):
             # Even index: should be <= next
             # Odd index: should be >= next
-            if (i % 2 == 0 and nums[i] > nums[i + 1]) or \
-               (i % 2 == 1 and nums[i] < nums[i + 1]):
+            if (i % 2 == 0 and nums[i] > nums[i + 1]) or (i % 2 == 1 and nums[i] < nums[i + 1]):
                 nums[i], nums[i + 1] = nums[i + 1], nums[i]
 
-    def wiggleSortSorting(self, nums: List[int]) -> None:
+    def wiggleSortSorting(self, nums: list[int]) -> None:
         """
         Reorder array using sorting approach.
 
@@ -109,7 +107,7 @@ class Solution:
         for i in range(1, len(nums) - 1, 2):
             nums[i], nums[i + 1] = nums[i + 1], nums[i]
 
-    def wiggleSortMedian(self, nums: List[int]) -> None:
+    def wiggleSortMedian(self, nums: list[int]) -> None:
         """
         Sort and interleave using median partitioning approach.
 
@@ -135,7 +133,7 @@ class Solution:
                 right += 1
 
 
-def is_wiggle_sorted(nums: List[int]) -> bool:
+def is_wiggle_sorted(nums: list[int]) -> bool:
     """
     Check if array satisfies wiggle sort property.
 

@@ -65,6 +65,7 @@ Total: 1 + 1 + 1 = 3 teams
 </details>
 """
 
+
 class Solution:
     def numTeams(self, rating: list[int]) -> int:
         """
@@ -274,10 +275,7 @@ class Solution:
             for j in range(i + 1, n):
                 for k in range(j + 1, n):
                     # Check ascending order
-                    if rating[i] < rating[j] < rating[k]:
-                        count += 1
-                    # Check descending order
-                    elif rating[i] > rating[j] > rating[k]:
+                    if rating[i] < rating[j] < rating[k] or rating[i] > rating[j] > rating[k]:
                         count += 1
 
         return count
@@ -288,52 +286,52 @@ def test_solution():
     solution = Solution()
 
     # Test case 1: Basic example
-    result1 = solution.numTeams([2,5,3,4,1])
+    result1 = solution.numTeams([2, 5, 3, 4, 1])
     expected1 = 3
     assert result1 == expected1, f"Expected {expected1}, got {result1}"
 
     # Test case 2: Ascending sequence
-    result2 = solution.numTeams([2,1,3])
+    result2 = solution.numTeams([2, 1, 3])
     expected2 = 0
     assert result2 == expected2, f"Expected {expected2}, got {result2}"
 
     # Test case 3: Descending sequence
-    result3 = solution.numTeams([1,2,3,4])
+    result3 = solution.numTeams([1, 2, 3, 4])
     expected3 = 4  # (1,2,3), (1,2,4), (1,3,4), (2,3,4)
     assert result3 == expected3, f"Expected {expected3}, got {result3}"
 
     # Test case 4: Length < 3
-    result4 = solution.numTeams([1,2])
+    result4 = solution.numTeams([1, 2])
     expected4 = 0
     assert result4 == expected4, f"Expected {expected4}, got {result4}"
 
     # Test case 5: All equal elements
-    result5 = solution.numTeams([1,1,1])
+    result5 = solution.numTeams([1, 1, 1])
     expected5 = 0
     assert result5 == expected5, f"Expected {expected5}, got {result5}"
 
     # Test case 6: Mixed ascending/descending
-    result6 = solution.numTeams([1,4,2,3])
+    result6 = solution.numTeams([1, 4, 2, 3])
     expected6 = 1  # (4,2,1) is descending wait that's wrong order... (1,2,3) is ascending
     assert result6 == expected6, f"Expected {expected6}, got {result6}"
 
     # Test segment tree approach
-    result7 = solution.numTeamsSegmentTree([2,5,3,4,1])
+    result7 = solution.numTeamsSegmentTree([2, 5, 3, 4, 1])
     expected7 = 3
     assert result7 == expected7, f"Expected {expected7}, got {result7}"
 
     # Test BIT approach
-    result8 = solution.numTeamsBIT([2,5,3,4,1])
+    result8 = solution.numTeamsBIT([2, 5, 3, 4, 1])
     expected8 = 3
     assert result8 == expected8, f"Expected {expected8}, got {result8}"
 
     # Test brute force approach
-    result9 = solution.numTeamsBruteForce([2,5,3,4,1])
+    result9 = solution.numTeamsBruteForce([2, 5, 3, 4, 1])
     expected9 = 3
     assert result9 == expected9, f"Expected {expected9}, got {result9}"
 
     # Test case 7: Larger example
-    result10 = solution.numTeams([1,2,3,4,5])
+    result10 = solution.numTeams([1, 2, 3, 4, 5])
     expected10 = 10  # C(5,3) = 10 ascending teams
     assert result10 == expected10, f"Expected {expected10}, got {result10}"
 
@@ -348,12 +346,7 @@ if __name__ == "__main__":
     print("=== 1395. Count Number Of Teams ===")
 
     # Test different approaches
-    test_cases = [
-        [2,5,3,4,1],
-        [1,2,3,4],
-        [2,1,3],
-        [1,4,2,3]
-    ]
+    test_cases = [[2, 5, 3, 4, 1], [1, 2, 3, 4], [2, 1, 3], [1, 4, 2, 3]]
 
     for rating in test_cases:
         print(f"\nInput: rating = {rating}")
@@ -372,8 +365,8 @@ if __name__ == "__main__":
             print(f"Binary IT:        {result4}")
 
     # Detailed walkthrough
-    print(f"\nDetailed example: rating = [2,5,3,4,1]")
-    rating = [2,5,3,4,1]
+    print("\nDetailed example: rating = [2,5,3,4,1]")
+    rating = [2, 5, 3, 4, 1]
     print("Valid teams:")
     print("Ascending teams:")
     print("- (2,3,4) at indices (0,2,3)")
@@ -383,8 +376,8 @@ if __name__ == "__main__":
     print(f"Total: {solution.numTeams(rating)} teams")
 
     # Performance comparison
-    print(f"\nApproach complexities:")
-    print(f"Optimized:      O(n²) time, O(1) space")
-    print(f"Segment Tree:   O(n log n) time, O(n) space")
-    print(f"Binary IT:      O(n log n) time, O(n) space")
-    print(f"Brute Force:    O(n³) time, O(1) space")
+    print("\nApproach complexities:")
+    print("Optimized:      O(n²) time, O(1) space")
+    print("Segment Tree:   O(n log n) time, O(n) space")
+    print("Binary IT:      O(n log n) time, O(n) space")
+    print("Brute Force:    O(n³) time, O(1) space")

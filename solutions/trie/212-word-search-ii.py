@@ -82,7 +82,6 @@ Results: ["oath", "eat"]
 </details>
 """
 
-from typing import List, Set
 
 
 class TrieNode:
@@ -94,7 +93,7 @@ class TrieNode:
 
 
 class Solution:
-    def findWords(self, board: List[List[str]], words: List[str]) -> List[str]:
+    def findWords(self, board: list[list[str]], words: list[str]) -> list[str]:
         """
         Find all words from list that exist on the board.
 
@@ -133,7 +132,7 @@ class Solution:
             char = board[row][col]
 
             # Already visited or character not in trie
-            if char == '#' or char not in node.children:
+            if char == "#" or char not in node.children:
                 return
 
             # Move to next trie node
@@ -145,7 +144,7 @@ class Solution:
                 node.word = None  # Avoid duplicate results
 
             # Mark as visited
-            board[row][col] = '#'
+            board[row][col] = "#"
 
             # Explore all 4 directions
             dfs(row + 1, col, node)
@@ -158,7 +157,7 @@ class Solution:
 
             # Optimization: remove leaf nodes to prune trie
             if not node.children:
-                parent = root
+                pass
                 # This is a simple version; full optimization would track parent
 
         # Start DFS from each cell
@@ -172,7 +171,7 @@ class Solution:
 class SolutionWithSet:
     """Alternative using set to avoid duplicates."""
 
-    def findWords(self, board: List[List[str]], words: List[str]) -> List[str]:
+    def findWords(self, board: list[list[str]], words: list[str]) -> list[str]:
         """
         Find words using set for result collection.
 
@@ -193,13 +192,12 @@ class SolutionWithSet:
             node.word = word
 
         m, n = len(board), len(board[0])
-        result: Set[str] = set()
+        result: set[str] = set()
 
-        def dfs(row: int, col: int, node: TrieNode, visited: Set[tuple]):
+        def dfs(row: int, col: int, node: TrieNode, visited: set[tuple]):
             """DFS with visited set instead of modifying board."""
             # Bounds check
-            if (row < 0 or row >= m or col < 0 or col >= n or
-                    (row, col) in visited):
+            if row < 0 or row >= m or col < 0 or col >= n or (row, col) in visited:
                 return
 
             char = board[row][col]
@@ -240,12 +238,7 @@ def test_solution():
     solution = Solution()
 
     # Test case 1: Standard case
-    board1 = [
-        ["o", "a", "a", "n"],
-        ["e", "t", "a", "e"],
-        ["i", "h", "k", "r"],
-        ["i", "f", "l", "v"]
-    ]
+    board1 = [["o", "a", "a", "n"], ["e", "t", "a", "e"], ["i", "h", "k", "r"], ["i", "f", "l", "v"]]
     words1 = ["oath", "pea", "eat", "rain"]
     result1 = set(solution.findWords(board1, words1))
     expected1 = {"oath", "eat"}
@@ -271,12 +264,7 @@ def test_solution():
     assert len(result4) == 1 and result4[0] == "aa"
 
     # Test case 5: Complex board
-    board5 = [
-        ["o", "a", "b", "n"],
-        ["o", "t", "a", "e"],
-        ["a", "h", "k", "r"],
-        ["a", "f", "l", "v"]
-    ]
+    board5 = [["o", "a", "b", "n"], ["o", "t", "a", "e"], ["a", "h", "k", "r"], ["a", "f", "l", "v"]]
     words5 = ["oa", "oaa"]
     result5 = set(solution.findWords(board5, words5))
     assert "oa" in result5
@@ -292,12 +280,7 @@ if __name__ == "__main__":
 
     solution = Solution()
 
-    board = [
-        ["o", "a", "a", "n"],
-        ["e", "t", "a", "e"],
-        ["i", "h", "k", "r"],
-        ["i", "f", "l", "v"]
-    ]
+    board = [["o", "a", "a", "n"], ["e", "t", "a", "e"], ["i", "h", "k", "r"], ["i", "f", "l", "v"]]
     words = ["oath", "pea", "eat", "rain"]
 
     print("Board:")
@@ -312,11 +295,7 @@ if __name__ == "__main__":
     print("\nDemonstrating with alternative solution:")
     solution_set = SolutionWithSet()
 
-    board2 = [
-        ["a", "b", "c"],
-        ["a", "e", "d"],
-        ["a", "f", "g"]
-    ]
+    board2 = [["a", "b", "c"], ["a", "e", "d"], ["a", "f", "g"]]
     words2 = ["abcdefg", "gfedcbaaa", "eaabcdgfa", "befa", "aaa"]
 
     print("\nBoard:")

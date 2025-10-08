@@ -73,7 +73,6 @@ Process "/c/f":
 </details>
 """
 
-from typing import List
 
 
 class TrieNode:
@@ -85,7 +84,7 @@ class TrieNode:
 
 
 class Solution:
-    def removeSubfolders(self, folder: List[str]) -> List[str]:
+    def removeSubfolders(self, folder: list[str]) -> list[str]:
         """
         Remove all sub-folders from the list using Trie.
 
@@ -106,7 +105,7 @@ class Solution:
 
         for path in folder:
             # Parse path into components
-            components = path.split('/')
+            components = path.split("/")
             # Remove empty first component from leading '/'
             components = [comp for comp in components if comp]
 
@@ -114,7 +113,7 @@ class Solution:
             is_subfolder = False
 
             # Traverse/build trie
-            for i, component in enumerate(components):
+            for _i, component in enumerate(components):
                 # If we hit a folder end marker before processing all components,
                 # this is a sub-folder
                 if current.is_folder:
@@ -137,7 +136,7 @@ class Solution:
 class SolutionSimple:
     """Simpler solution using sorting and string prefix checking."""
 
-    def removeSubfolders(self, folder: List[str]) -> List[str]:
+    def removeSubfolders(self, folder: list[str]) -> list[str]:
         """
         Remove sub-folders by checking string prefixes.
 
@@ -152,7 +151,7 @@ class SolutionSimple:
         for path in folder:
             # If result is empty or current path is not a sub-folder of last added path
             # Check by seeing if path starts with last_path + '/'
-            if not result or not path.startswith(result[-1] + '/'):
+            if not result or not path.startswith(result[-1] + "/"):
                 result.append(path)
 
         return result

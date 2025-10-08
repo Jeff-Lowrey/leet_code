@@ -81,11 +81,10 @@ All checks pass → True
 </details>
 """
 
-from typing import List
 
 
 class Solution:
-    def isToeplitzMatrix(self, matrix: List[List[int]]) -> bool:
+    def isToeplitzMatrix(self, matrix: list[list[int]]) -> bool:
         """
         Check if matrix is Toeplitz by comparing adjacent diagonal elements.
 
@@ -108,7 +107,7 @@ class Solution:
 
         return True
 
-    def isToeplitzMatrixGrouping(self, matrix: List[List[int]]) -> bool:
+    def isToeplitzMatrixGrouping(self, matrix: list[list[int]]) -> bool:
         """
         Alternative approach using diagonal grouping.
 
@@ -135,7 +134,7 @@ class Solution:
 
         return True
 
-    def isToeplitzMatrixOneLine(self, matrix: List[List[int]]) -> bool:
+    def isToeplitzMatrixOneLine(self, matrix: list[list[int]]) -> bool:
         """
         Pythonic one-liner approach.
 
@@ -143,12 +142,10 @@ class Solution:
         Space Complexity: O(1)
         """
         return all(
-            matrix[i][j] == matrix[i + 1][j + 1]
-            for i in range(len(matrix) - 1)
-            for j in range(len(matrix[0]) - 1)
+            matrix[i][j] == matrix[i + 1][j + 1] for i in range(len(matrix) - 1) for j in range(len(matrix[0]) - 1)
         )
 
-    def isToeplitzMatrixStream(self, matrix: List[List[int]]) -> bool:
+    def isToeplitzMatrixStream(self, matrix: list[list[int]]) -> bool:
         """
         Follow-up: What if matrix is stored on disk and memory is limited?
 
@@ -170,7 +167,7 @@ class Solution:
 
         return True
 
-    def isToeplitzMatrixFollowUp(self, matrix: List[List[int]]) -> bool:
+    def isToeplitzMatrixFollowUp(self, matrix: list[list[int]]) -> bool:
         """
         Follow-up optimized version for streaming.
 
@@ -193,52 +190,52 @@ def test_solution():
     solution = Solution()
 
     # Test case 1: Valid Toeplitz matrix
-    matrix1 = [[1,2,3,4],[5,1,2,3],[9,5,1,2]]
-    assert solution.isToeplitzMatrix(matrix1) == True, "Test case 1 failed"
+    matrix1 = [[1, 2, 3, 4], [5, 1, 2, 3], [9, 5, 1, 2]]
+    assert solution.isToeplitzMatrix(matrix1), "Test case 1 failed"
 
     # Test case 2: Invalid Toeplitz matrix
-    matrix2 = [[1,2],[2,2]]
-    assert solution.isToeplitzMatrix(matrix2) == False, "Test case 2 failed"
+    matrix2 = [[1, 2], [2, 2]]
+    assert not solution.isToeplitzMatrix(matrix2), "Test case 2 failed"
 
     # Test case 3: Single row
-    matrix3 = [[1,2,3,4]]
-    assert solution.isToeplitzMatrix(matrix3) == True, "Test case 3 failed"
+    matrix3 = [[1, 2, 3, 4]]
+    assert solution.isToeplitzMatrix(matrix3), "Test case 3 failed"
 
     # Test case 4: Single column
-    matrix4 = [[1],[2],[3]]
-    assert solution.isToeplitzMatrix(matrix4) == True, "Test case 4 failed"
+    matrix4 = [[1], [2], [3]]
+    assert solution.isToeplitzMatrix(matrix4), "Test case 4 failed"
 
     # Test case 5: Single cell
     matrix5 = [[5]]
-    assert solution.isToeplitzMatrix(matrix5) == True, "Test case 5 failed"
+    assert solution.isToeplitzMatrix(matrix5), "Test case 5 failed"
 
     # Test case 6: 2×2 valid
-    matrix6 = [[1,2],[3,1]]
-    assert solution.isToeplitzMatrix(matrix6) == True, "Test case 6 failed"
+    matrix6 = [[1, 2], [3, 1]]
+    assert solution.isToeplitzMatrix(matrix6), "Test case 6 failed"
 
     # Test case 7: All same values
-    matrix7 = [[1,1,1],[1,1,1],[1,1,1]]
-    assert solution.isToeplitzMatrix(matrix7) == True, "Test case 7 failed"
+    matrix7 = [[1, 1, 1], [1, 1, 1], [1, 1, 1]]
+    assert solution.isToeplitzMatrix(matrix7), "Test case 7 failed"
 
     # Test case 8: Large valid matrix
-    matrix8 = [[18,66],[22,18],[21,22],[67,21]]
-    assert solution.isToeplitzMatrix(matrix8) == True, "Test case 8 failed"
+    matrix8 = [[18, 66], [22, 18], [21, 22], [67, 21]]
+    assert solution.isToeplitzMatrix(matrix8), "Test case 8 failed"
 
     # Test grouping method
-    matrix9 = [[1,2,3,4],[5,1,2,3],[9,5,1,2]]
-    assert solution.isToeplitzMatrixGrouping(matrix9) == True, "Grouping method failed"
+    matrix9 = [[1, 2, 3, 4], [5, 1, 2, 3], [9, 5, 1, 2]]
+    assert solution.isToeplitzMatrixGrouping(matrix9), "Grouping method failed"
 
     # Test one-liner method
-    matrix10 = [[1,2],[2,2]]
-    assert solution.isToeplitzMatrixOneLine(matrix10) == False, "One-liner method failed"
+    matrix10 = [[1, 2], [2, 2]]
+    assert not solution.isToeplitzMatrixOneLine(matrix10), "One-liner method failed"
 
     # Test stream method
-    matrix11 = [[1,2,3,4],[5,1,2,3],[9,5,1,2]]
-    assert solution.isToeplitzMatrixStream(matrix11) == True, "Stream method failed"
+    matrix11 = [[1, 2, 3, 4], [5, 1, 2, 3], [9, 5, 1, 2]]
+    assert solution.isToeplitzMatrixStream(matrix11), "Stream method failed"
 
     # Test follow-up method
-    matrix12 = [[1,2],[2,2]]
-    assert solution.isToeplitzMatrixFollowUp(matrix12) == False, "Follow-up method failed"
+    matrix12 = [[1, 2], [2, 2]]
+    assert not solution.isToeplitzMatrixFollowUp(matrix12), "Follow-up method failed"
 
     print("All test cases passed!")
 
@@ -251,7 +248,7 @@ if __name__ == "__main__":
     print("=== 766. Toeplitz Matrix ===\n")
 
     # Example 1: Valid Toeplitz
-    matrix1 = [[1,2,3,4],[5,1,2,3],[9,5,1,2]]
+    matrix1 = [[1, 2, 3, 4], [5, 1, 2, 3], [9, 5, 1, 2]]
     print("Matrix 1:")
     for row in matrix1:
         print(row)
@@ -267,7 +264,7 @@ if __name__ == "__main__":
     print()
 
     # Example 2: Invalid Toeplitz
-    matrix2 = [[1,2],[2,2]]
+    matrix2 = [[1, 2], [2, 2]]
     print("Matrix 2:")
     for row in matrix2:
         print(row)
@@ -277,7 +274,7 @@ if __name__ == "__main__":
     print()
 
     # Example 3: Demonstrate diagonal grouping
-    matrix3 = [[1,2,3],[4,1,2],[5,4,1]]
+    matrix3 = [[1, 2, 3], [4, 1, 2], [5, 4, 1]]
     print("Matrix 3:")
     for row in matrix3:
         print(row)

@@ -73,7 +73,6 @@ Final: ["cat sand dog", "cats and dog"]
 </details>
 """
 
-from typing import List, Dict
 
 
 class TrieNode:
@@ -85,7 +84,7 @@ class TrieNode:
 
 
 class Solution:
-    def wordBreak(self, s: str, wordDict: List[str]) -> List[str]:
+    def wordBreak(self, s: str, wordDict: list[str]) -> list[str]:
         """
         Find all possible ways to segment string into dictionary words.
 
@@ -110,9 +109,9 @@ class Solution:
             current.is_word = True
 
         # Memoization cache: position -> list of possible sentences
-        memo: Dict[int, List[str]] = {}
+        memo: dict[int, list[str]] = {}
 
-        def backtrack(start: int) -> List[str]:
+        def backtrack(start: int) -> list[str]:
             """Find all possible sentences starting from position start."""
             # Base case: reached end of string
             if start == len(s):
@@ -137,7 +136,7 @@ class Solution:
 
                 # Found a complete word, recursively solve for remaining string
                 if current.is_word:
-                    word = s[start:end + 1]
+                    word = s[start : end + 1]
                     # Get all possible sentences for remaining string
                     sub_sentences = backtrack(end + 1)
 
@@ -157,7 +156,7 @@ class Solution:
 class SolutionSimple:
     """Simpler solution using set-based lookup without Trie."""
 
-    def wordBreak(self, s: str, wordDict: List[str]) -> List[str]:
+    def wordBreak(self, s: str, wordDict: list[str]) -> list[str]:
         """
         Use set lookup instead of Trie.
 
@@ -165,9 +164,9 @@ class SolutionSimple:
         Space Complexity: O(N^2)
         """
         word_set = set(wordDict)
-        memo: Dict[int, List[str]] = {}
+        memo: dict[int, list[str]] = {}
 
-        def backtrack(start: int) -> List[str]:
+        def backtrack(start: int) -> list[str]:
             """Find all possible sentences starting from position start."""
             if start == len(s):
                 return [""]
@@ -200,7 +199,7 @@ class SolutionSimple:
 class SolutionOptimized:
     """Optimized solution with early termination."""
 
-    def wordBreak(self, s: str, wordDict: List[str]) -> List[str]:
+    def wordBreak(self, s: str, wordDict: list[str]) -> list[str]:
         """
         Add early termination by checking if segmentation is possible first.
 
@@ -228,9 +227,9 @@ class SolutionOptimized:
             return []
 
         # Proceed with backtracking
-        memo: Dict[int, List[str]] = {}
+        memo: dict[int, list[str]] = {}
 
-        def backtrack(start: int) -> List[str]:
+        def backtrack(start: int) -> list[str]:
             if start == len(s):
                 return [""]
 
@@ -324,7 +323,7 @@ if __name__ == "__main__":
 
     result = solution.wordBreak(s, wordDict)
 
-    print(f"\nAll possible segmentations:")
+    print("\nAll possible segmentations:")
     for sentence in result:
         print(f"  - {sentence}")
 
@@ -340,7 +339,7 @@ if __name__ == "__main__":
     result2 = solution_opt.wordBreak(s2, wordDict2)
 
     if result2:
-        print(f"\nAll possible segmentations:")
+        print("\nAll possible segmentations:")
         for sentence in result2:
             print(f"  - {sentence}")
     else:

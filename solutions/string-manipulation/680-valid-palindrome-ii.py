@@ -59,6 +59,7 @@ Result: True
 </details>
 """
 
+
 class Solution:
     def validPalindrome(self, s: str) -> bool:
         """
@@ -73,6 +74,7 @@ class Solution:
         Time Complexity: O(n) - at most two passes through string
         Space Complexity: O(1) - constant extra space
         """
+
         def is_palindrome(left: int, right: int) -> bool:
             """Check if substring s[left:right+1] is palindrome."""
             while left < right:
@@ -104,6 +106,7 @@ class Solution:
         Returns:
             True if can be palindrome with at most one deletion
         """
+
         def can_be_palindrome(left: int, right: int, deletions_used: int) -> bool:
             """Check palindrome with deletion tracking."""
             while left < right:
@@ -114,8 +117,9 @@ class Solution:
                     if deletions_used >= 1:
                         return False
                     # Try deleting either character
-                    return (can_be_palindrome(left + 1, right, deletions_used + 1) or
-                            can_be_palindrome(left, right - 1, deletions_used + 1))
+                    return can_be_palindrome(left + 1, right, deletions_used + 1) or can_be_palindrome(
+                        left, right - 1, deletions_used + 1
+                    )
             return True
 
         return can_be_palindrome(0, len(s) - 1, 0)
@@ -173,6 +177,7 @@ class Solution:
         Time Complexity: O(n)
         Space Complexity: O(n) - for string slicing
         """
+
         def is_palindrome(string: str) -> bool:
             """Check if string is palindrome."""
             return string == string[::-1]
@@ -184,7 +189,7 @@ class Solution:
         n = len(s)
         for i in range(n):
             # Try removing character at position i
-            modified = s[:i] + s[i+1:]
+            modified = s[:i] + s[i + 1 :]
             if is_palindrome(modified):
                 return True
 

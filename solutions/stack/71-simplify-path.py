@@ -81,7 +81,7 @@ class Solution:
         Time Complexity: O(n)
         Space Complexity: O(n)
         """
-        stack = []
+        stack: list[str] = []
 
         # Split by '/' and process each component
         for component in path.split("/"):
@@ -101,7 +101,7 @@ class Solution:
         return "/" + "/".join(stack)
 
 
-def test_solution():
+def test_solution() -> None:
     """Test cases for Problem 71."""
     solution = Solution()
 

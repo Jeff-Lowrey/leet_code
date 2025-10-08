@@ -77,11 +77,10 @@ Result: True (found path)
 </details>
 """
 
-from typing import List
 
 
 class Solution:
-    def exist(self, board: List[List[str]], word: str) -> bool:
+    def exist(self, board: list[list[str]], word: str) -> bool:
         """
         Check if word exists in board using DFS backtracking.
 
@@ -117,19 +116,20 @@ class Solution:
                 return True
 
             # Boundary checks
-            if (row < 0 or row >= m or col < 0 or col >= n or
-                    board[row][col] != word[index]):
+            if row < 0 or row >= m or col < 0 or col >= n or board[row][col] != word[index]:
                 return False
 
             # Mark current cell as visited
             temp = board[row][col]
-            board[row][col] = '#'
+            board[row][col] = "#"
 
             # Explore all 4 directions
-            found = (dfs(row + 1, col, index + 1) or
-                     dfs(row - 1, col, index + 1) or
-                     dfs(row, col + 1, index + 1) or
-                     dfs(row, col - 1, index + 1))
+            found = (
+                dfs(row + 1, col, index + 1)
+                or dfs(row - 1, col, index + 1)
+                or dfs(row, col + 1, index + 1)
+                or dfs(row, col - 1, index + 1)
+            )
 
             # Restore cell (backtrack)
             board[row][col] = temp
@@ -149,7 +149,7 @@ class Solution:
 class SolutionWithVisitedSet:
     """Alternative using visited set instead of modifying board."""
 
-    def exist(self, board: List[List[str]], word: str) -> bool:
+    def exist(self, board: list[list[str]], word: str) -> bool:
         """
         Use visited set to track visited cells.
 
@@ -168,18 +168,19 @@ class SolutionWithVisitedSet:
                 return True
 
             # Boundary and visit checks
-            if (row < 0 or row >= m or col < 0 or col >= n or
-                    (row, col) in visited or board[row][col] != word[index]):
+            if row < 0 or row >= m or col < 0 or col >= n or (row, col) in visited or board[row][col] != word[index]:
                 return False
 
             # Mark as visited
             visited.add((row, col))
 
             # Explore 4 directions
-            found = (dfs(row + 1, col, index + 1, visited) or
-                     dfs(row - 1, col, index + 1, visited) or
-                     dfs(row, col + 1, index + 1, visited) or
-                     dfs(row, col - 1, index + 1, visited))
+            found = (
+                dfs(row + 1, col, index + 1, visited)
+                or dfs(row - 1, col, index + 1, visited)
+                or dfs(row, col + 1, index + 1, visited)
+                or dfs(row, col - 1, index + 1, visited)
+            )
 
             # Backtrack
             visited.remove((row, col))
@@ -189,9 +190,8 @@ class SolutionWithVisitedSet:
         # Try each cell as starting point
         for i in range(m):
             for j in range(n):
-                if board[i][j] == word[0]:
-                    if dfs(i, j, 0, set()):
-                        return True
+                if board[i][j] == word[0] and dfs(i, j, 0, set()):
+                    return True
 
         return False
 
@@ -199,7 +199,7 @@ class SolutionWithVisitedSet:
 class SolutionOptimized:
     """Optimized solution with early pruning."""
 
-    def exist(self, board: List[List[str]], word: str) -> bool:
+    def exist(self, board: list[list[str]], word: str) -> bool:
         """
         Add early pruning optimizations.
 
@@ -213,6 +213,7 @@ class SolutionOptimized:
 
         # Early termination: check if all characters exist
         from collections import Counter
+
         board_chars = Counter()
         for row in board:
             for char in row:
@@ -232,17 +233,18 @@ class SolutionOptimized:
             if index == len(word):
                 return True
 
-            if (row < 0 or row >= m or col < 0 or col >= n or
-                    board[row][col] != word[index]):
+            if row < 0 or row >= m or col < 0 or col >= n or board[row][col] != word[index]:
                 return False
 
             temp = board[row][col]
-            board[row][col] = '#'
+            board[row][col] = "#"
 
-            found = (dfs(row + 1, col, index + 1) or
-                     dfs(row - 1, col, index + 1) or
-                     dfs(row, col + 1, index + 1) or
-                     dfs(row, col - 1, index + 1))
+            found = (
+                dfs(row + 1, col, index + 1)
+                or dfs(row - 1, col, index + 1)
+                or dfs(row, col + 1, index + 1)
+                or dfs(row, col - 1, index + 1)
+            )
 
             board[row][col] = temp
             return found
@@ -263,41 +265,33 @@ def test_solution():
     solution_opt = SolutionOptimized()
 
     # Test case 1: Standard case
-    board1 = [
-        ['A', 'B', 'C', 'E'],
-        ['S', 'F', 'C', 'S'],
-        ['A', 'D', 'E', 'E']
-    ]
-    assert solution.exist(board1, "ABCCED") == True
-    assert solution.exist(board1, "SEE") == True
-    assert solution.exist(board1, "ABCB") == False
+    board1 = [["A", "B", "C", "E"], ["S", "F", "C", "S"], ["A", "D", "E", "E"]]
+    assert solution.exist(board1, "ABCCED")
+    assert solution.exist(board1, "SEE")
+    assert not solution.exist(board1, "ABCB")
 
-    assert solution_visited.exist(board1, "ABCCED") == True
-    assert solution_opt.exist(board1, "SEE") == True
+    assert solution_visited.exist(board1, "ABCCED")
+    assert solution_opt.exist(board1, "SEE")
 
     # Test case 2: Single character
-    board2 = [['a']]
-    assert solution.exist(board2, "a") == True
-    assert solution.exist(board2, "b") == False
+    board2 = [["a"]]
+    assert solution.exist(board2, "a")
+    assert not solution.exist(board2, "b")
 
     # Test case 3: Word not in board
-    board3 = [['A', 'B'], ['C', 'D']]
-    assert solution.exist(board3, "ABDC") == True  # A->B->D->C path exists
-    assert solution.exist(board3, "CDBA") == True  # C->D->B->A path exists
-    assert solution.exist(board3, "XYZ") == False
+    board3 = [["A", "B"], ["C", "D"]]
+    assert solution.exist(board3, "ABDC")  # A->B->D->C path exists
+    assert solution.exist(board3, "CDBA")  # C->D->B->A path exists
+    assert not solution.exist(board3, "XYZ")
 
     # Test case 4: Long path
-    board4 = [
-        ['A', 'B', 'C'],
-        ['D', 'E', 'F'],
-        ['G', 'H', 'I']
-    ]
-    assert solution.exist(board4, "ABCFI") == True
-    assert solution.exist(board4, "ABEF") == True
+    board4 = [["A", "B", "C"], ["D", "E", "F"], ["G", "H", "I"]]
+    assert solution.exist(board4, "ABCFI")
+    assert solution.exist(board4, "ABEF")
 
     # Test case 5: Cannot reuse cell
-    board5 = [['A', 'A']]
-    assert solution.exist(board5, "AAA") == False  # Can't reuse same cell
+    board5 = [["A", "A"]]
+    assert not solution.exist(board5, "AAA")  # Can't reuse same cell
 
     print("All test cases passed!")
 
@@ -310,11 +304,7 @@ if __name__ == "__main__":
 
     solution = Solution()
 
-    board = [
-        ['A', 'B', 'C', 'E'],
-        ['S', 'F', 'C', 'S'],
-        ['A', 'D', 'E', 'E']
-    ]
+    board = [["A", "B", "C", "E"], ["S", "F", "C", "S"], ["A", "D", "E", "E"]]
 
     print("Board:")
     for row in board:
@@ -330,11 +320,7 @@ if __name__ == "__main__":
     print("\nDemonstrating optimized solution:")
     solution_opt = SolutionOptimized()
 
-    board2 = [
-        ['C', 'A', 'A'],
-        ['A', 'A', 'A'],
-        ['B', 'C', 'D']
-    ]
+    board2 = [["C", "A", "A"], ["A", "A", "A"], ["B", "C", "D"]]
 
     print("\nBoard:")
     for row in board2:

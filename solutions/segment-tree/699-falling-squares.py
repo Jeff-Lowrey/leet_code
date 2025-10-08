@@ -59,11 +59,10 @@ Heights: [2, 5, 5]
 </details>
 """
 
-from typing import List
 
 
 class Solution:
-    def fallingSquares(self, positions: List[List[int]]) -> List[int]:
+    def fallingSquares(self, positions: list[list[int]]) -> list[int]:
         """
         Simulate falling squares using segment tree with coordinate compression.
 
@@ -155,7 +154,7 @@ class Solution:
 
         return result
 
-    def fallingSquaresBruteForce(self, positions: List[List[int]]) -> List[int]:
+    def fallingSquaresBruteForce(self, positions: list[list[int]]) -> list[int]:
         """
         Brute force solution using list of intervals.
 
@@ -199,38 +198,38 @@ def test_solution():
     solution = Solution()
 
     # Test case 1: Basic example
-    result1 = solution.fallingSquares([[1,2],[2,3],[6,1]])
-    expected1 = [2,5,5]
+    result1 = solution.fallingSquares([[1, 2], [2, 3], [6, 1]])
+    expected1 = [2, 5, 5]
     assert result1 == expected1, f"Expected {expected1}, got {result1}"
 
     # Test case 2: Another example
-    result2 = solution.fallingSquares([[100,100],[200,100]])
-    expected2 = [100,100]
+    result2 = solution.fallingSquares([[100, 100], [200, 100]])
+    expected2 = [100, 100]
     assert result2 == expected2, f"Expected {expected2}, got {result2}"
 
     # Test case 3: Single square
-    result3 = solution.fallingSquares([[1,5]])
+    result3 = solution.fallingSquares([[1, 5]])
     expected3 = [5]
     assert result3 == expected3, f"Expected {expected3}, got {result3}"
 
     # Test case 4: Stacking squares
-    result4 = solution.fallingSquares([[1,1],[1,1],[1,1]])
-    expected4 = [1,2,3]
+    result4 = solution.fallingSquares([[1, 1], [1, 1], [1, 1]])
+    expected4 = [1, 2, 3]
     assert result4 == expected4, f"Expected {expected4}, got {result4}"
 
     # Test case 5: Non-overlapping squares
-    result5 = solution.fallingSquares([[1,2],[5,2],[10,2]])
-    expected5 = [2,2,2]
+    result5 = solution.fallingSquares([[1, 2], [5, 2], [10, 2]])
+    expected5 = [2, 2, 2]
     assert result5 == expected5, f"Expected {expected5}, got {result5}"
 
     # Test brute force approach
-    result6 = solution.fallingSquaresBruteForce([[1,2],[2,3],[6,1]])
-    expected6 = [2,5,5]
+    result6 = solution.fallingSquaresBruteForce([[1, 2], [2, 3], [6, 1]])
+    expected6 = [2, 5, 5]
     assert result6 == expected6, f"Expected {expected6}, got {result6}"
 
     # Test case 7: Overlapping but not completely
-    result7 = solution.fallingSquares([[1,3],[2,2],[3,3]])
-    expected7 = [3,5,8]
+    result7 = solution.fallingSquares([[1, 3], [2, 2], [3, 3]])
+    expected7 = [3, 5, 8]
     assert result7 == expected7, f"Expected {expected7}, got {result7}"
 
     print("All test cases passed!")
@@ -244,9 +243,9 @@ if __name__ == "__main__":
     print("=== 699. Falling Squares ===")
 
     test_cases = [
-        [[1,2],[2,3],[6,1]],
-        [[100,100],[200,100]],
-        [[1,1],[1,1],[1,1]],
+        [[1, 2], [2, 3], [6, 1]],
+        [[100, 100], [200, 100]],
+        [[1, 1], [1, 1], [1, 1]],
     ]
 
     for positions in test_cases:
@@ -260,8 +259,8 @@ if __name__ == "__main__":
         print(f"Brute Force:  {result_brute}")
 
     # Detailed walkthrough
-    print(f"\nDetailed example: [[1,2],[2,3],[6,1]]")
-    positions = [[1,2],[2,3],[6,1]]
+    print("\nDetailed example: [[1,2],[2,3],[6,1]]")
+    positions = [[1, 2], [2, 3], [6, 1]]
     print("Simulating square drops:")
 
     intervals = []
@@ -281,13 +280,13 @@ if __name__ == "__main__":
         max_height = max(max_height, new_height)
         heights.append(max_height)
 
-        print(f"Square {i+1}: [{left}, {right}) with size {size}")
+        print(f"Square {i + 1}: [{left}, {right}) with size {size}")
         print(f"  Lands on height {curr_max}, new height = {new_height}")
         print(f"  Max overall height: {max_height}")
 
     print(f"Result: {heights}")
 
     # Performance comparison
-    print(f"\nApproach complexities:")
-    print(f"Segment Tree: O(n² log n) time, O(n) space")
-    print(f"Brute Force:  O(n²) time, O(n) space")
+    print("\nApproach complexities:")
+    print("Segment Tree: O(n² log n) time, O(n) space")
+    print("Brute Force:  O(n²) time, O(n) space")

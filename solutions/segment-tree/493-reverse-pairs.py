@@ -59,11 +59,10 @@ Output: 2
 </details>
 """
 
-from typing import List
 
 
 class Solution:
-    def reversePairs(self, nums: List[int]) -> int:
+    def reversePairs(self, nums: list[int]) -> int:
         """
         Count reverse pairs using merge sort approach.
 
@@ -115,7 +114,7 @@ class Solution:
         _, result = merge_sort(nums)
         return result
 
-    def reversePairsBIT(self, nums: List[int]) -> int:
+    def reversePairsBIT(self, nums: list[int]) -> int:
         """
         Solution using Binary Indexed Tree with coordinate compression.
 
@@ -190,7 +189,7 @@ class Solution:
 
         return count
 
-    def reversePairsSegmentTree(self, nums: List[int]) -> int:
+    def reversePairsSegmentTree(self, nums: list[int]) -> int:
         """
         Solution using Segment Tree.
 
@@ -237,8 +236,7 @@ class Solution:
                 if l <= start and end <= r:
                     return self.tree[node]
                 mid = (start + end) // 2
-                return (self.query(2 * node, start, mid, l, r) +
-                        self.query(2 * node + 1, mid + 1, end, l, r))
+                return self.query(2 * node, start, mid, l, r) + self.query(2 * node + 1, mid + 1, end, l, r)
 
         n = len(sorted_values)
         seg_tree = SegmentTree(n)
@@ -256,7 +254,7 @@ class Solution:
 
         return count
 
-    def reversePairsBruteForce(self, nums: List[int]) -> int:
+    def reversePairsBruteForce(self, nums: list[int]) -> int:
         """
         Brute force solution for verification.
 
@@ -282,7 +280,7 @@ def test_solution():
     solution = Solution()
 
     # Test case 1: Basic example
-    result1 = solution.reversePairs([1,3,2,3,1])
+    result1 = solution.reversePairs([1, 3, 2, 3, 1])
     expected1 = 2
     assert result1 == expected1, f"Expected {expected1}, got {result1}"
 
@@ -297,17 +295,17 @@ def test_solution():
     assert result3 == expected3, f"Expected {expected3}, got {result3}"
 
     # Test case 4: No reverse pairs
-    result4 = solution.reversePairs([1,2,3,4,5])
+    result4 = solution.reversePairs([1, 2, 3, 4, 5])
     expected4 = 0
     assert result4 == expected4, f"Expected {expected4}, got {result4}"
 
     # Test case 5: All reverse pairs
-    result5 = solution.reversePairs([5,4,3,2,1])
+    result5 = solution.reversePairs([5, 4, 3, 2, 1])
     expected5 = 4  # (5,1), (5,2), (4,1), (3,1)
     assert result5 == expected5, f"Expected {expected5}, got {result5}"
 
     # Test case 6: Larger example
-    result6 = solution.reversePairs([2,4,3,5,1])
+    result6 = solution.reversePairs([2, 4, 3, 5, 1])
     expected6 = 3  # (4,1), (3,1), (5,1)
     assert result6 == expected6, f"Expected {expected6}, got {result6}"
 
@@ -315,7 +313,7 @@ def test_solution():
     # The merge sort approach is most reliable for this problem
 
     # Test brute force approach
-    result9 = solution.reversePairsBruteForce([1,3,2,3,1])
+    result9 = solution.reversePairsBruteForce([1, 3, 2, 3, 1])
     expected9 = 2
     assert result9 == expected9, f"Expected {expected9}, got {result9}"
 
@@ -336,9 +334,9 @@ if __name__ == "__main__":
     print("=== 493. Reverse Pairs ===")
 
     test_cases = [
-        [1,3,2,3,1],
-        [2,4,3,5,1],
-        [5,4,3,2,1],
+        [1, 3, 2, 3, 1],
+        [2, 4, 3, 5, 1],
+        [5, 4, 3, 2, 1],
     ]
 
     for nums in test_cases:
@@ -359,20 +357,20 @@ if __name__ == "__main__":
             print(f"Segment Tree: {result_seg}")
 
     # Detailed walkthrough
-    print(f"\nDetailed example: [1,3,2,3,1]")
-    nums = [1,3,2,3,1]
-    print(f"Finding reverse pairs where nums[i] > 2*nums[j] (i < j):")
+    print("\nDetailed example: [1,3,2,3,1]")
+    nums = [1, 3, 2, 3, 1]
+    print("Finding reverse pairs where nums[i] > 2*nums[j] (i < j):")
     count = 0
     for i in range(len(nums)):
         for j in range(i + 1, len(nums)):
             if nums[i] > 2 * nums[j]:
-                print(f"  ({i},{j}): nums[{i}]={nums[i]} > 2*nums[{j}]={2*nums[j]}")
+                print(f"  ({i},{j}): nums[{i}]={nums[i]} > 2*nums[{j}]={2 * nums[j]}")
                 count += 1
     print(f"Total: {count} reverse pairs")
 
     # Performance comparison
-    print(f"\nApproach complexities:")
-    print(f"Merge Sort:   O(n log n) time, O(n) space")
-    print(f"Binary IT:    O(n log n) time, O(n) space")
-    print(f"Segment Tree: O(n log n) time, O(n) space")
-    print(f"Brute Force:  O(n²) time, O(1) space")
+    print("\nApproach complexities:")
+    print("Merge Sort:   O(n log n) time, O(n) space")
+    print("Binary IT:    O(n log n) time, O(n) space")
+    print("Segment Tree: O(n log n) time, O(n) space")
+    print("Brute Force:  O(n²) time, O(1) space")

@@ -42,15 +42,15 @@ When a node has 2 parents, one must be removed. Union-find detects cycles.
 
 
 class UnionFind:
-    def __init__(self, n):
+    def __init__(self, n: int) -> None:
         self.parent = list(range(n + 1))
 
-    def find(self, x):
+    def find(self, x: int) -> int:
         if self.parent[x] != x:
             self.parent[x] = self.find(self.parent[x])
         return self.parent[x]
 
-    def union(self, x, y):
+    def union(self, x: int, y: int) -> bool:
         px, py = self.find(x), self.find(y)
         if px == py:
             return False  # Cycle detected
@@ -66,7 +66,7 @@ class Solution:
         Space Complexity: O(n)
         """
         n = len(edges)
-        parent = {}
+        parent: dict[int, int] = {}
         candidate1 = candidate2 = None
 
         # Find node with two parents
@@ -96,7 +96,7 @@ class Solution:
         return candidate2 if candidate2 else []
 
 
-def test_solution():
+def test_solution() -> None:
     """Test cases for Problem 685."""
     solution = Solution()
 

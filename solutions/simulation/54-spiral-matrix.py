@@ -86,11 +86,10 @@ Result: [1,2,3,6,9,8,7,4,5]
 </details>
 """
 
-from typing import List
 
 
 class Solution:
-    def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
+    def spiralOrder(self, matrix: list[list[int]]) -> list[int]:
         """
         Return elements in spiral order using boundary tracking.
 
@@ -138,7 +137,7 @@ class Solution:
 
         return result
 
-    def spiralOrderDirection(self, matrix: List[List[int]]) -> List[int]:
+    def spiralOrderDirection(self, matrix: list[list[int]]) -> list[int]:
         """
         Alternative approach using direction vectors.
 
@@ -167,9 +166,7 @@ class Solution:
             next_col = col + directions[current_dir][1]
 
             # Check if need to change direction
-            if (next_row < 0 or next_row >= m or
-                next_col < 0 or next_col >= n or
-                visited[next_row][next_col]):
+            if next_row < 0 or next_row >= m or next_col < 0 or next_col >= n or visited[next_row][next_col]:
                 # Change direction (turn right in spiral)
                 current_dir = (current_dir + 1) % 4
                 next_row = row + directions[current_dir][0]
@@ -179,7 +176,7 @@ class Solution:
 
         return result
 
-    def spiralOrderRecursive(self, matrix: List[List[int]]) -> List[int]:
+    def spiralOrderRecursive(self, matrix: list[list[int]]) -> list[int]:
         """
         Recursive approach processing layers.
 
@@ -227,13 +224,13 @@ def test_solution():
     solution = Solution()
 
     # Test case 1: 3x3 matrix
-    matrix1 = [[1,2,3],[4,5,6],[7,8,9]]
-    expected1 = [1,2,3,6,9,8,7,4,5]
+    matrix1 = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+    expected1 = [1, 2, 3, 6, 9, 8, 7, 4, 5]
     assert solution.spiralOrder(matrix1) == expected1, "Test case 1 failed"
 
     # Test case 2: 3x4 matrix
-    matrix2 = [[1,2,3,4],[5,6,7,8],[9,10,11,12]]
-    expected2 = [1,2,3,4,8,12,11,10,9,5,6,7]
+    matrix2 = [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]]
+    expected2 = [1, 2, 3, 4, 8, 12, 11, 10, 9, 5, 6, 7]
     assert solution.spiralOrder(matrix2) == expected2, "Test case 2 failed"
 
     # Test case 3: Single element
@@ -242,33 +239,33 @@ def test_solution():
     assert solution.spiralOrder(matrix3) == expected3, "Test case 3 failed"
 
     # Test case 4: Single row
-    matrix4 = [[1,2,3,4,5]]
-    expected4 = [1,2,3,4,5]
+    matrix4 = [[1, 2, 3, 4, 5]]
+    expected4 = [1, 2, 3, 4, 5]
     assert solution.spiralOrder(matrix4) == expected4, "Test case 4 failed"
 
     # Test case 5: Single column
-    matrix5 = [[1],[2],[3],[4]]
-    expected5 = [1,2,3,4]
+    matrix5 = [[1], [2], [3], [4]]
+    expected5 = [1, 2, 3, 4]
     assert solution.spiralOrder(matrix5) == expected5, "Test case 5 failed"
 
     # Test case 6: 2x2 matrix
-    matrix6 = [[1,2],[3,4]]
-    expected6 = [1,2,4,3]
+    matrix6 = [[1, 2], [3, 4]]
+    expected6 = [1, 2, 4, 3]
     assert solution.spiralOrder(matrix6) == expected6, "Test case 6 failed"
 
     # Test case 7: 4x3 matrix (more rows than columns)
-    matrix7 = [[1,2,3],[4,5,6],[7,8,9],[10,11,12]]
-    expected7 = [1,2,3,6,9,12,11,10,7,4,5,8]
+    matrix7 = [[1, 2, 3], [4, 5, 6], [7, 8, 9], [10, 11, 12]]
+    expected7 = [1, 2, 3, 6, 9, 12, 11, 10, 7, 4, 5, 8]
     assert solution.spiralOrder(matrix7) == expected7, "Test case 7 failed"
 
     # Test direction method
-    matrix8 = [[1,2,3],[4,5,6],[7,8,9]]
-    expected8 = [1,2,3,6,9,8,7,4,5]
+    matrix8 = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+    expected8 = [1, 2, 3, 6, 9, 8, 7, 4, 5]
     assert solution.spiralOrderDirection(matrix8) == expected8, "Direction method failed"
 
     # Test recursive method
-    matrix9 = [[1,2,3,4],[5,6,7,8],[9,10,11,12]]
-    expected9 = [1,2,3,4,8,12,11,10,9,5,6,7]
+    matrix9 = [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]]
+    expected9 = [1, 2, 3, 4, 8, 12, 11, 10, 9, 5, 6, 7]
     assert solution.spiralOrderRecursive(matrix9) == expected9, "Recursive method failed"
 
     print("All test cases passed!")
@@ -282,7 +279,7 @@ if __name__ == "__main__":
     print("=== 54. Spiral Matrix ===\n")
 
     # Example 1: 3x3 matrix
-    matrix1 = [[1,2,3],[4,5,6],[7,8,9]]
+    matrix1 = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
     print("Matrix:")
     for row in matrix1:
         print(row)
@@ -290,7 +287,7 @@ if __name__ == "__main__":
     print(f"Spiral order: {result1}\n")
 
     # Example 2: 3x4 matrix
-    matrix2 = [[1,2,3,4],[5,6,7,8],[9,10,11,12]]
+    matrix2 = [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]]
     print("Matrix:")
     for row in matrix2:
         print(row)
@@ -298,7 +295,7 @@ if __name__ == "__main__":
     print(f"Spiral order: {result2}\n")
 
     # Example 3: Visualize the spiral path
-    matrix3 = [[1,2,3,4,5],[6,7,8,9,10],[11,12,13,14,15],[16,17,18,19,20]]
+    matrix3 = [[1, 2, 3, 4, 5], [6, 7, 8, 9, 10], [11, 12, 13, 14, 15], [16, 17, 18, 19, 20]]
     print("Matrix:")
     for row in matrix3:
         print(row)

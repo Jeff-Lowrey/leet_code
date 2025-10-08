@@ -20,7 +20,6 @@ in the current state, where births and deaths occur simultaneously.
 Example:
 Input: `board` = [[0,1,0],[0,0,1],[1,1,1],[0,0,0]]
 Output: [[0,0,0],[1,0,1],[0,1,1],[0,1,0]]
-"""
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -59,6 +58,8 @@ Dead cell (0,1) has 2 neighbors → stays dead
 For infinite boards, use sets to track only live cells and their neighbors, processing only cells that could potentially change state.
 
 </details>
+"""
+
 
 class Solution:
     def gameOfLife(self, board: list[list[int]]) -> None:
@@ -80,8 +81,7 @@ class Solution:
 
         def count_live_neighbors(r, c):
             count = 0
-            directions = [(-1, -1), (-1, 0), (-1, 1), (0, -1),
-                         (0, 1), (1, -1), (1, 0), (1, 1)]
+            directions = [(-1, -1), (-1, 0), (-1, 1), (0, -1), (0, 1), (1, -1), (1, 0), (1, 1)]
 
             for dr, dc in directions:
                 nr, nc = r + dr, c + dc
@@ -177,6 +177,7 @@ Input: board = [["X",".",".","X"],[".",".",".","X"],[".",".",".","X"]]
 Output: 2
 """
 
+
 class SolutionBattleships:
     def countBattleships(self, board: list[list[str]]) -> int:
         """
@@ -192,11 +193,10 @@ class SolutionBattleships:
 
         for i in range(m):
             for j in range(n):
-                if board[i][j] == 'X':
+                if board[i][j] == "X":
                     # Check if it's the head of a battleship
                     # (no X above or to the left)
-                    if (i == 0 or board[i-1][j] == '.') and \
-                       (j == 0 or board[i][j-1] == '.'):
+                    if (i == 0 or board[i - 1][j] == ".") and (j == 0 or board[i][j - 1] == "."):
                         count += 1
 
         return count
@@ -213,10 +213,10 @@ class SolutionBattleships:
         m, n = len(board), len(board[0])
 
         def dfs(i, j):
-            if i < 0 or i >= m or j < 0 or j >= n or board[i][j] != 'X':
+            if i < 0 or i >= m or j < 0 or j >= n or board[i][j] != "X":
                 return
 
-            board[i][j] = '.'  # Mark as visited
+            board[i][j] = "."  # Mark as visited
             dfs(i + 1, j)
             dfs(i - 1, j)
             dfs(i, j + 1)
@@ -225,7 +225,7 @@ class SolutionBattleships:
         count = 0
         for i in range(m):
             for j in range(n):
-                if board[i][j] == 'X':
+                if board[i][j] == "X":
                     count += 1
                     dfs(i, j)
 
@@ -238,13 +238,11 @@ if __name__ == "__main__":
     solution = Solution()
 
     print("Game of Life:")
-    test_boards = [
-        [[0, 1, 0], [0, 0, 1], [1, 1, 1], [0, 0, 0]],
-        [[1, 1], [1, 0]]
-    ]
+    test_boards = [[[0, 1, 0], [0, 0, 1], [1, 1, 1], [0, 0, 0]], [[1, 1], [1, 0]]]
 
     for board in test_boards:
         import copy
+
         original = copy.deepcopy(board)
         solution.gameOfLife(board)
 
@@ -254,7 +252,7 @@ if __name__ == "__main__":
         print("\nNext generation:")
         for row in board:
             print(row)
-        print("\n" + "="*30 + "\n")
+        print("\n" + "=" * 30 + "\n")
 
     # Test Battleships
     solution_ships = SolutionBattleships()
@@ -262,7 +260,7 @@ if __name__ == "__main__":
     print("Battleships in a Board:")
     ship_boards = [
         [["X", ".", ".", "X"], [".", ".", ".", "X"], [".", ".", ".", "X"]],
-        [["X", ".", ".", "X"], [".", ".", ".", "X"], ["X", ".", ".", "X"]]
+        [["X", ".", ".", "X"], [".", ".", ".", "X"], ["X", ".", ".", "X"]],
     ]
 
     for board in ship_boards:

@@ -60,11 +60,11 @@ Result: [3.0, 14.5, 11.0]
 """
 
 from collections import deque
-from typing import List, Optional
 
 
 class TreeNode:
     """Definition for a binary tree node."""
+
     def __init__(self, val=0, left=None, right=None):
         self.val = val
         self.left = left
@@ -72,7 +72,7 @@ class TreeNode:
 
 
 class Solution:
-    def averageOfLevels(self, root: Optional[TreeNode]) -> List[float]:
+    def averageOfLevels(self, root: TreeNode | None) -> list[float]:
         """
         Calculate average value of nodes at each level.
 

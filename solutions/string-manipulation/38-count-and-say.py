@@ -82,7 +82,6 @@ For "1211" → "111221":
 </details>
 """
 
-from typing import List
 
 
 class Solution:
@@ -142,7 +141,7 @@ class Solution:
             # Move to the next different digit
             i += count
 
-        return ''.join(result)
+        return "".join(result)
 
     def countAndSayRecursive(self, n: int) -> str:
         """
@@ -178,7 +177,7 @@ class Solution:
             result.append(str(count) + digit)
             i += count
 
-        return ''.join(result)
+        return "".join(result)
 
     def countAndSayGroupBy(self, n: int) -> str:
         """
@@ -196,8 +195,7 @@ class Solution:
 
         for _ in range(n - 1):
             # Group consecutive identical digits
-            result = ''.join(str(len(list(group))) + digit
-                           for digit, group in groupby(result))
+            result = "".join(str(len(list(group))) + digit for digit, group in groupby(result))
 
         return result
 

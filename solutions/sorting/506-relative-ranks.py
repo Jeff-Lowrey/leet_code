@@ -82,11 +82,10 @@ Output: ["Gold Medal","Silver Medal","Bronze Medal","4","5"]
 </details>
 """
 
-from typing import List
 
 
 class Solution:
-    def findRelativeRanks(self, score: List[int]) -> List[str]:
+    def findRelativeRanks(self, score: list[int]) -> list[str]:
         """
         Assign ranks to athletes based on their scores.
 
@@ -120,7 +119,7 @@ class Solution:
 
         return result
 
-    def findRelativeRanksDict(self, score: List[int]) -> List[str]:
+    def findRelativeRanksDict(self, score: list[int]) -> list[str]:
         """
         Alternative approach using dictionary mapping.
 
@@ -144,7 +143,7 @@ class Solution:
         # Map original scores to ranks
         return [rank_map[s] for s in score]
 
-    def findRelativeRanksOneLiner(self, score: List[int]) -> List[str]:
+    def findRelativeRanksOneLiner(self, score: list[int]) -> list[str]:
         """
         Concise solution using sorted with key.
 
@@ -218,7 +217,7 @@ if __name__ == "__main__":
     # Example usage
     solution = Solution()
     print("=== 506. Relative Ranks ===")
-    print(f"findRelativeRanks([5,4,3,2,1]) -> {solution.findRelativeRanks([5,4,3,2,1])}")
-    print(f"findRelativeRanks([10,3,8,9,4]) -> {solution.findRelativeRanks([10,3,8,9,4])}")
+    print(f"findRelativeRanks([5,4,3,2,1]) -> {solution.findRelativeRanks([5, 4, 3, 2, 1])}")
+    print(f"findRelativeRanks([10,3,8,9,4]) -> {solution.findRelativeRanks([10, 3, 8, 9, 4])}")
     print(f"findRelativeRanks([100]) -> {solution.findRelativeRanks([100])}")
-    print(f"findRelativeRanks([1,2,3]) -> {solution.findRelativeRanks([1,2,3])}")
+    print(f"findRelativeRanks([1,2,3]) -> {solution.findRelativeRanks([1, 2, 3])}")

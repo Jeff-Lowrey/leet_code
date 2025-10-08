@@ -102,7 +102,7 @@ class Solution:
 
         # Count from end until we hit a space or reach the start
         for i in range(len(s) - 1, -1, -1):
-            if s[i] == ' ':
+            if s[i] == " ":
                 break
             count += 1
 
@@ -141,11 +141,11 @@ class Solution:
         length = 0
 
         # Skip trailing spaces
-        while i >= 0 and s[i] == ' ':
+        while i >= 0 and s[i] == " ":
             i -= 1
 
         # Count word characters
-        while i >= 0 and s[i] != ' ':
+        while i >= 0 and s[i] != " ":
             length += 1
             i -= 1
 
@@ -165,7 +165,7 @@ class Solution:
         count = 0
 
         for char in reversed(s):
-            if char != ' ':
+            if char != " ":
                 found_letter = True
                 count += 1
             elif found_letter:
@@ -251,14 +251,7 @@ if __name__ == "__main__":
     solution = Solution()
     print("=== 58. Length of Last Word ===")
 
-    test_cases = [
-        "Hello World",
-        "   fly me   to   the moon  ",
-        "luffy",
-        "a",
-        "Today is a nice day",
-        "Programming"
-    ]
+    test_cases = ["Hello World", "   fly me   to   the moon  ", "luffy", "a", "Today is a nice day", "Programming"]
 
     for test in test_cases:
         result = solution.lengthOfLastWord(test)

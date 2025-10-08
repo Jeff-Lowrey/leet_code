@@ -65,6 +65,7 @@ Each ring: rotate 4 elements simultaneously
 </details>
 """
 
+
 class Solution:
     def rotate(self, matrix: list[list[int]]) -> None:
         """
@@ -172,14 +173,14 @@ def test_solution():
     solution = Solution()
 
     # Test case 1: 3x3 matrix
-    matrix1 = [[1,2,3],[4,5,6],[7,8,9]]
-    expected1 = [[7,4,1],[8,5,2],[9,6,3]]
+    matrix1 = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+    expected1 = [[7, 4, 1], [8, 5, 2], [9, 6, 3]]
     solution.rotate(matrix1)
     assert matrix1 == expected1, f"Expected {expected1}, got {matrix1}"
 
     # Test case 2: 4x4 matrix
-    matrix2 = [[5,1,9,11],[2,4,8,10],[13,3,6,7],[15,14,12,16]]
-    expected2 = [[15,13,2,5],[14,3,4,1],[12,6,8,9],[16,7,10,11]]
+    matrix2 = [[5, 1, 9, 11], [2, 4, 8, 10], [13, 3, 6, 7], [15, 14, 12, 16]]
+    expected2 = [[15, 13, 2, 5], [14, 3, 4, 1], [12, 6, 8, 9], [16, 7, 10, 11]]
     solution.rotate(matrix2)
     assert matrix2 == expected2, f"Expected {expected2}, got {matrix2}"
 
@@ -190,26 +191,26 @@ def test_solution():
     assert matrix3 == expected3, f"Expected {expected3}, got {matrix3}"
 
     # Test case 4: 2x2 matrix
-    matrix4 = [[1,2],[3,4]]
-    expected4 = [[3,1],[4,2]]
+    matrix4 = [[1, 2], [3, 4]]
+    expected4 = [[3, 1], [4, 2]]
     solution.rotate(matrix4)
     assert matrix4 == expected4, f"Expected {expected4}, got {matrix4}"
 
     # Test ring rotation method
-    matrix5 = [[1,2,3],[4,5,6],[7,8,9]]
-    expected5 = [[7,4,1],[8,5,2],[9,6,3]]
+    matrix5 = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+    expected5 = [[7, 4, 1], [8, 5, 2], [9, 6, 3]]
     solution.rotateRings(matrix5)
     assert matrix5 == expected5, f"Expected {expected5}, got {matrix5}"
 
     # Test manual method
-    matrix6 = [[1,2],[3,4]]
-    expected6 = [[3,1],[4,2]]
+    matrix6 = [[1, 2], [3, 4]]
+    expected6 = [[3, 1], [4, 2]]
     solution.rotateManual(matrix6)
     assert matrix6 == expected6, f"Expected {expected6}, got {matrix6}"
 
     # Test counter-clockwise rotation
-    matrix7 = [[1,2,3],[4,5,6],[7,8,9]]
-    expected7 = [[3,6,9],[2,5,8],[1,4,7]]
+    matrix7 = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+    expected7 = [[3, 6, 9], [2, 5, 8], [1, 4, 7]]
     solution.rotateCounterClockwise(matrix7)
     assert matrix7 == expected7, f"Expected {expected7}, got {matrix7}"
 
@@ -224,7 +225,7 @@ if __name__ == "__main__":
     print("=== 48. Rotate Image ===")
 
     # Demonstrate rotation
-    matrix = [[1,2,3],[4,5,6],[7,8,9]]
+    matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
     print("Original matrix:")
     print_matrix(matrix)
 
@@ -233,7 +234,7 @@ if __name__ == "__main__":
     print_matrix(matrix)
 
     # Show 4x4 example
-    matrix_4x4 = [[1,2,3,4],[5,6,7,8],[9,10,11,12],[13,14,15,16]]
+    matrix_4x4 = [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 16]]
     print("Original 4x4 matrix:")
     print_matrix(matrix_4x4)
 

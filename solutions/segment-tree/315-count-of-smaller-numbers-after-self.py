@@ -55,6 +55,7 @@ Output: [2,1,1,0]
 </details>
 """
 
+
 class Solution:
     def countSmaller(self, nums: list[int]) -> list[int]:
         """
@@ -205,8 +206,7 @@ class Solution:
                 if l <= start and end <= r:
                     return self.tree[node]
                 mid = (start + end) // 2
-                return (self.query(2 * node, start, mid, l, r) +
-                        self.query(2 * node + 1, mid + 1, end, l, r))
+                return self.query(2 * node, start, mid, l, r) + self.query(2 * node + 1, mid + 1, end, l, r)
 
         n = len(sorted_unique)
         seg_tree = SegmentTree(n)
@@ -216,10 +216,7 @@ class Solution:
         for i in range(len(nums) - 1, -1, -1):
             rank_i = rank[nums[i]]
             # Query for count of elements with rank < rank_i
-            if rank_i > 0:
-                count = seg_tree.query(1, 0, n - 1, 0, rank_i - 1)
-            else:
-                count = 0
+            count = seg_tree.query(1, 0, n - 1, 0, rank_i - 1) if rank_i > 0 else 0
             result.append(count)
 
             # Update segment tree
@@ -255,8 +252,8 @@ def test_solution():
     solution = Solution()
 
     # Test case 1: Basic example
-    result1 = solution.countSmaller([5,2,6,1])
-    expected1 = [2,1,1,0]
+    result1 = solution.countSmaller([5, 2, 6, 1])
+    expected1 = [2, 1, 1, 0]
     assert result1 == expected1, f"Expected {expected1}, got {result1}"
 
     # Test case 2: Empty array
@@ -270,38 +267,38 @@ def test_solution():
     assert result3 == expected3, f"Expected {expected3}, got {result3}"
 
     # Test case 4: Decreasing array
-    result4 = solution.countSmaller([5,4,3,2,1])
-    expected4 = [4,3,2,1,0]
+    result4 = solution.countSmaller([5, 4, 3, 2, 1])
+    expected4 = [4, 3, 2, 1, 0]
     assert result4 == expected4, f"Expected {expected4}, got {result4}"
 
     # Test case 5: Increasing array
-    result5 = solution.countSmaller([1,2,3,4,5])
-    expected5 = [0,0,0,0,0]
+    result5 = solution.countSmaller([1, 2, 3, 4, 5])
+    expected5 = [0, 0, 0, 0, 0]
     assert result5 == expected5, f"Expected {expected5}, got {result5}"
 
     # Test case 6: Duplicates
-    result6 = solution.countSmaller([1,1,1,1])
-    expected6 = [0,0,0,0]
+    result6 = solution.countSmaller([1, 1, 1, 1])
+    expected6 = [0, 0, 0, 0]
     assert result6 == expected6, f"Expected {expected6}, got {result6}"
 
     # Test case 7: Mixed with negatives
-    result7 = solution.countSmaller([-1,2,-3,4])
-    expected7 = [1,1,0,0]
+    result7 = solution.countSmaller([-1, 2, -3, 4])
+    expected7 = [1, 1, 0, 0]
     assert result7 == expected7, f"Expected {expected7}, got {result7}"
 
     # Test BIT solution
-    result8 = solution.countSmallerBIT([5,2,6,1])
-    expected8 = [2,1,1,0]
+    result8 = solution.countSmallerBIT([5, 2, 6, 1])
+    expected8 = [2, 1, 1, 0]
     assert result8 == expected8, f"Expected {expected8}, got {result8}"
 
     # Test Segment Tree solution
-    result9 = solution.countSmallerSegmentTree([5,2,6,1])
-    expected9 = [2,1,1,0]
+    result9 = solution.countSmallerSegmentTree([5, 2, 6, 1])
+    expected9 = [2, 1, 1, 0]
     assert result9 == expected9, f"Expected {expected9}, got {result9}"
 
     # Test brute force solution
-    result10 = solution.countSmallerBruteForce([5,2,6,1])
-    expected10 = [2,1,1,0]
+    result10 = solution.countSmallerBruteForce([5, 2, 6, 1])
+    expected10 = [2, 1, 1, 0]
     assert result10 == expected10, f"Expected {expected10}, got {result10}"
 
     print("All test cases passed!")
@@ -314,12 +311,7 @@ if __name__ == "__main__":
     solution = Solution()
     print("=== 315. Count Of Smaller Numbers After Self ===")
 
-    test_cases = [
-        [5,2,6,1],
-        [1,2,3,4,5],
-        [5,4,3,2,1],
-        [-1,2,-3,4]
-    ]
+    test_cases = [[5, 2, 6, 1], [1, 2, 3, 4, 5], [5, 4, 3, 2, 1], [-1, 2, -3, 4]]
 
     for nums in test_cases:
         print(f"\nInput: {nums}")
@@ -334,17 +326,17 @@ if __name__ == "__main__":
         print(f"Segment Tree:  {result_seg}")
 
     # Detailed walkthrough
-    print(f"\nDetailed example: [5,2,6,1]")
-    nums = [5,2,6,1]
-    print(f"Processing right to left:")
-    print(f"Index 3 (1): No elements after it → count = 0")
-    print(f"Index 2 (6): Elements after [1], smaller count = 1")
-    print(f"Index 1 (2): Elements after [6,1], smaller count = 1")
-    print(f"Index 0 (5): Elements after [2,6,1], smaller count = 2")
+    print("\nDetailed example: [5,2,6,1]")
+    nums = [5, 2, 6, 1]
+    print("Processing right to left:")
+    print("Index 3 (1): No elements after it → count = 0")
+    print("Index 2 (6): Elements after [1], smaller count = 1")
+    print("Index 1 (2): Elements after [6,1], smaller count = 1")
+    print("Index 0 (5): Elements after [2,6,1], smaller count = 2")
     print(f"Result: {solution.countSmaller(nums)}")
 
     # Performance comparison demonstration
-    print(f"\nPerformance comparison on larger input:")
+    print("\nPerformance comparison on larger input:")
     large_input = list(range(100, 0, -1))  # Decreasing sequence
     print(f"Input size: {len(large_input)} (decreasing sequence)")
 

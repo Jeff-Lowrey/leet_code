@@ -75,11 +75,10 @@ Result: [1,2,4,7,5,3,6,8,9]
 </details>
 """
 
-from typing import List
 
 
 class Solution:
-    def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
+    def findDiagonalOrder(self, mat: list[list[int]]) -> list[int]:
         """
         Traverse matrix diagonally with alternating directions.
 
@@ -127,7 +126,7 @@ class Solution:
 
         return result
 
-    def findDiagonalOrderGrouping(self, mat: List[List[int]]) -> List[int]:
+    def findDiagonalOrderGrouping(self, mat: list[list[int]]) -> list[int]:
         """
         Alternative approach: Group elements by diagonal sum, then reverse alternates.
 
@@ -160,7 +159,7 @@ class Solution:
 
         return result
 
-    def findDiagonalOrderClean(self, mat: List[List[int]]) -> List[int]:
+    def findDiagonalOrderClean(self, mat: list[list[int]]) -> list[int]:
         """
         Clean implementation using direction vectors.
 
@@ -217,13 +216,13 @@ def test_solution():
     solution = Solution()
 
     # Test case 1: 3x3 matrix
-    mat1 = [[1,2,3],[4,5,6],[7,8,9]]
-    expected1 = [1,2,4,7,5,3,6,8,9]
+    mat1 = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+    expected1 = [1, 2, 4, 7, 5, 3, 6, 8, 9]
     assert solution.findDiagonalOrder(mat1) == expected1, "Test case 1 failed"
 
     # Test case 2: 2x2 matrix
-    mat2 = [[1,2],[3,4]]
-    expected2 = [1,2,3,4]
+    mat2 = [[1, 2], [3, 4]]
+    expected2 = [1, 2, 3, 4]
     assert solution.findDiagonalOrder(mat2) == expected2, "Test case 2 failed"
 
     # Test case 3: Single element
@@ -232,28 +231,28 @@ def test_solution():
     assert solution.findDiagonalOrder(mat3) == expected3, "Test case 3 failed"
 
     # Test case 4: Single row
-    mat4 = [[1,2,3,4]]
-    expected4 = [1,2,3,4]
+    mat4 = [[1, 2, 3, 4]]
+    expected4 = [1, 2, 3, 4]
     assert solution.findDiagonalOrder(mat4) == expected4, "Test case 4 failed"
 
     # Test case 5: Single column
-    mat5 = [[1],[2],[3],[4]]
-    expected5 = [1,2,3,4]
+    mat5 = [[1], [2], [3], [4]]
+    expected5 = [1, 2, 3, 4]
     assert solution.findDiagonalOrder(mat5) == expected5, "Test case 5 failed"
 
     # Test case 6: Non-square matrix (more columns)
-    mat6 = [[1,2,3],[4,5,6]]
-    expected6 = [1,2,4,5,3,6]
+    mat6 = [[1, 2, 3], [4, 5, 6]]
+    expected6 = [1, 2, 4, 5, 3, 6]
     assert solution.findDiagonalOrder(mat6) == expected6, "Test case 6 failed"
 
     # Test case 7: Non-square matrix (more rows)
-    mat7 = [[1,2],[3,4],[5,6]]
-    expected7 = [1,2,3,5,4,6]
+    mat7 = [[1, 2], [3, 4], [5, 6]]
+    expected7 = [1, 2, 3, 5, 4, 6]
     assert solution.findDiagonalOrder(mat7) == expected7, "Test case 7 failed"
 
     # Test grouping method
-    mat8 = [[1,2,3],[4,5,6],[7,8,9]]
-    expected8 = [1,2,4,7,5,3,6,8,9]
+    mat8 = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+    expected8 = [1, 2, 4, 7, 5, 3, 6, 8, 9]
     assert solution.findDiagonalOrderGrouping(mat8) == expected8, "Grouping method failed"
 
     # Test clean method - skip due to edge case complexity
@@ -272,7 +271,7 @@ if __name__ == "__main__":
     print("=== 498. Diagonal Traverse ===\n")
 
     # Example 1: 3x3 matrix
-    mat1 = [[1,2,3],[4,5,6],[7,8,9]]
+    mat1 = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
     print("Matrix:")
     for row in mat1:
         print(row)
@@ -280,7 +279,7 @@ if __name__ == "__main__":
     print(f"Diagonal order: {result1}\n")
 
     # Example 2: Non-square matrix
-    mat2 = [[1,2,3],[4,5,6]]
+    mat2 = [[1, 2, 3], [4, 5, 6]]
     print("Matrix:")
     for row in mat2:
         print(row)
@@ -288,7 +287,7 @@ if __name__ == "__main__":
     print(f"Diagonal order: {result2}\n")
 
     # Visualize diagonal traversal
-    mat3 = [[1,2,3,4],[5,6,7,8],[9,10,11,12]]
+    mat3 = [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]]
     print("Matrix:")
     for row in mat3:
         print(row)

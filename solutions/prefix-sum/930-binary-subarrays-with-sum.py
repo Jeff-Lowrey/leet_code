@@ -93,7 +93,7 @@ class Solution:
         Key insight: exactly(goal) = atMost(goal) - atMost(goal-1)
         """
 
-        def at_most(target):
+        def at_most(target: int) -> int:
             if target < 0:
                 return 0
 
@@ -137,7 +137,7 @@ class Solution:
         return count
 
 
-def test_solution():
+def test_solution() -> None:
     """Test cases for Problem 930."""
     solution = Solution()
 

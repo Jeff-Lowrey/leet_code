@@ -104,7 +104,7 @@ class Solution:
         return max_length
 
 
-def test_solution():
+def test_solution() -> None:
     """Test cases for Problem 525."""
     solution = Solution()
 

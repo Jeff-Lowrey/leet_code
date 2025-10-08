@@ -84,12 +84,11 @@ Output: [1,2,3,5]
 </details>
 """
 
-from typing import List
 import random
 
 
 class Solution:
-    def sortArray(self, nums: List[int]) -> List[int]:
+    def sortArray(self, nums: list[int]) -> list[int]:
         """
         Sort array using merge sort.
 
@@ -113,7 +112,7 @@ class Solution:
         # Conquer (merge)
         return self.merge(left, right)
 
-    def merge(self, left: List[int], right: List[int]) -> List[int]:
+    def merge(self, left: list[int], right: list[int]) -> list[int]:
         """Merge two sorted arrays."""
         result = []
         i = j = 0
@@ -130,14 +129,15 @@ class Solution:
         result.extend(right[j:])
         return result
 
-    def sortArrayQuickSort(self, nums: List[int]) -> List[int]:
+    def sortArrayQuickSort(self, nums: list[int]) -> list[int]:
         """
         Sort array using randomized quicksort.
 
         Time Complexity: O(n log n) average, O(n²) worst case
         Space Complexity: O(log n) for recursion stack
         """
-        def quicksort(arr: List[int], low: int, high: int) -> None:
+
+        def quicksort(arr: list[int], low: int, high: int) -> None:
             if low < high:
                 # Partition and get pivot index
                 pi = partition(arr, low, high)
@@ -146,7 +146,7 @@ class Solution:
                 quicksort(arr, low, pi - 1)
                 quicksort(arr, pi + 1, high)
 
-        def partition(arr: List[int], low: int, high: int) -> int:
+        def partition(arr: list[int], low: int, high: int) -> int:
             # Randomized pivot to avoid worst case
             pivot_idx = random.randint(low, high)
             arr[pivot_idx], arr[high] = arr[high], arr[pivot_idx]
@@ -165,14 +165,15 @@ class Solution:
         quicksort(nums, 0, len(nums) - 1)
         return nums
 
-    def sortArrayHeapSort(self, nums: List[int]) -> List[int]:
+    def sortArrayHeapSort(self, nums: list[int]) -> list[int]:
         """
         Sort array using heap sort.
 
         Time Complexity: O(n log n)
         Space Complexity: O(1) - in-place
         """
-        def heapify(arr: List[int], n: int, i: int) -> None:
+
+        def heapify(arr: list[int], n: int, i: int) -> None:
             """Maintain max heap property at index i."""
             largest = i
             left = 2 * i + 1
@@ -201,13 +202,14 @@ class Solution:
 
         return nums
 
-    def sortArrayMergeSortInPlace(self, nums: List[int]) -> List[int]:
+    def sortArrayMergeSortInPlace(self, nums: list[int]) -> list[int]:
         """
         Sort using in-place merge sort (modifies original array).
 
         Time Complexity: O(n log n)
         Space Complexity: O(log n) for recursion
         """
+
         def merge_sort_helper(left: int, right: int) -> None:
             if left >= right:
                 return
@@ -220,8 +222,8 @@ class Solution:
         def merge_inplace(left: int, mid: int, right: int) -> None:
             """Merge two sorted subarrays in-place."""
             # Create temporary arrays
-            left_arr = nums[left:mid + 1]
-            right_arr = nums[mid + 1:right + 1]
+            left_arr = nums[left : mid + 1]
+            right_arr = nums[mid + 1 : right + 1]
 
             i = j = 0
             k = left
@@ -317,7 +319,7 @@ if __name__ == "__main__":
     # Example usage
     solution = Solution()
     print("=== 912. Sort An Array ===")
-    print(f"Merge Sort: {solution.sortArray([5,2,3,1])}")
-    print(f"Quick Sort: {solution.sortArrayQuickSort([5,1,1,2,0,0])}")
-    print(f"Heap Sort: {solution.sortArrayHeapSort([5,4,3,2,1])}")
-    print(f"In-place Merge Sort: {solution.sortArrayMergeSortInPlace([9,8,7,6,5])}")
+    print(f"Merge Sort: {solution.sortArray([5, 2, 3, 1])}")
+    print(f"Quick Sort: {solution.sortArrayQuickSort([5, 1, 1, 2, 0, 0])}")
+    print(f"Heap Sort: {solution.sortArrayHeapSort([5, 4, 3, 2, 1])}")
+    print(f"In-place Merge Sort: {solution.sortArrayMergeSortInPlace([9, 8, 7, 6, 5])}")

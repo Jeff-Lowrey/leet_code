@@ -85,11 +85,10 @@ Result: [[137,141,137],[141,138,141],[137,141,137]]
 </details>
 """
 
-from typing import List
 
 
 class Solution:
-    def imageSmoother(self, img: List[List[int]]) -> List[List[int]]:
+    def imageSmoother(self, img: list[list[int]]) -> list[list[int]]:
         """
         Apply 3×3 averaging filter to smooth image.
 
@@ -106,9 +105,7 @@ class Solution:
         result = [[0] * n for _ in range(m)]
 
         # 8 directions + center
-        directions = [(-1, -1), (-1, 0), (-1, 1),
-                     (0, -1),  (0, 0),  (0, 1),
-                     (1, -1),  (1, 0),  (1, 1)]
+        directions = [(-1, -1), (-1, 0), (-1, 1), (0, -1), (0, 0), (0, 1), (1, -1), (1, 0), (1, 1)]
 
         for i in range(m):
             for j in range(n):
@@ -127,7 +124,7 @@ class Solution:
 
         return result
 
-    def imageSmootherCompact(self, img: List[List[int]]) -> List[List[int]]:
+    def imageSmootherCompact(self, img: list[list[int]]) -> list[list[int]]:
         """
         More compact version using max/min for boundary checks.
 
@@ -155,7 +152,7 @@ class Solution:
 
         return result
 
-    def imageSmootherInPlace(self, img: List[List[int]]) -> List[List[int]]:
+    def imageSmootherInPlace(self, img: list[list[int]]) -> list[list[int]]:
         """
         In-place solution using bit manipulation to store both old and new values.
 
@@ -188,7 +185,7 @@ class Solution:
 
         return img
 
-    def imageSmootherPadding(self, img: List[List[int]]) -> List[List[int]]:
+    def imageSmootherPadding(self, img: list[list[int]]) -> list[list[int]]:
         """
         Alternative using zero padding to simplify boundary handling.
 
@@ -219,8 +216,7 @@ class Solution:
 
                 # Adjust count for padding (need to recalculate properly)
                 # Actually, with padding we can simplify:
-                total = sum(padded[pi][pj] for pi in range(i, i + 3)
-                           for pj in range(j, j + 3))
+                total = sum(padded[pi][pj] for pi in range(i, i + 3) for pj in range(j, j + 3))
                 # Count actual cells (not padding)
                 count = 0
                 for pi in range(i, i + 3):
@@ -239,13 +235,13 @@ def test_solution():
     solution = Solution()
 
     # Test case 1: All ones with zero center
-    img1 = [[1,1,1],[1,0,1],[1,1,1]]
-    expected1 = [[0,0,0],[0,0,0],[0,0,0]]
+    img1 = [[1, 1, 1], [1, 0, 1], [1, 1, 1]]
+    expected1 = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
     assert solution.imageSmoother(img1) == expected1, "Test case 1 failed"
 
     # Test case 2: Larger values
-    img2 = [[100,200,100],[200,50,200],[100,200,100]]
-    expected2 = [[137,141,137],[141,138,141],[137,141,137]]
+    img2 = [[100, 200, 100], [200, 50, 200], [100, 200, 100]]
+    expected2 = [[137, 141, 137], [141, 138, 141], [137, 141, 137]]
     assert solution.imageSmoother(img2) == expected2, "Test case 2 failed"
 
     # Test case 3: Single cell
@@ -254,28 +250,28 @@ def test_solution():
     assert solution.imageSmoother(img3) == expected3, "Test case 3 failed"
 
     # Test case 4: Single row
-    img4 = [[1,2,3]]
-    expected4 = [[1,2,2]]
+    img4 = [[1, 2, 3]]
+    expected4 = [[1, 2, 2]]
     assert solution.imageSmoother(img4) == expected4, "Test case 4 failed"
 
     # Test case 5: Single column
-    img5 = [[1],[2],[3]]
-    expected5 = [[1],[2],[2]]
+    img5 = [[1], [2], [3]]
+    expected5 = [[1], [2], [2]]
     assert solution.imageSmoother(img5) == expected5, "Test case 5 failed"
 
     # Test case 6: 2x2
-    img6 = [[1,1],[1,1]]
-    expected6 = [[1,1],[1,1]]
+    img6 = [[1, 1], [1, 1]]
+    expected6 = [[1, 1], [1, 1]]
     assert solution.imageSmoother(img6) == expected6, "Test case 6 failed"
 
     # Test compact method
-    img7 = [[1,1,1],[1,0,1],[1,1,1]]
-    expected7 = [[0,0,0],[0,0,0],[0,0,0]]
+    img7 = [[1, 1, 1], [1, 0, 1], [1, 1, 1]]
+    expected7 = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
     assert solution.imageSmootherCompact(img7) == expected7, "Compact method failed"
 
     # Test in-place method
-    img8 = [[100,200,100],[200,50,200],[100,200,100]]
-    expected8 = [[137,141,137],[141,138,141],[137,141,137]]
+    img8 = [[100, 200, 100], [200, 50, 200], [100, 200, 100]]
+    expected8 = [[137, 141, 137], [141, 138, 141], [137, 141, 137]]
     assert solution.imageSmootherInPlace(img8) == expected8, "In-place method failed"
 
     print("All test cases passed!")
@@ -289,7 +285,7 @@ if __name__ == "__main__":
     print("=== 661. Image Smoother ===\n")
 
     # Example 1
-    img1 = [[1,1,1],[1,0,1],[1,1,1]]
+    img1 = [[1, 1, 1], [1, 0, 1], [1, 1, 1]]
     print("Original image:")
     for row in img1:
         print(row)
@@ -300,7 +296,7 @@ if __name__ == "__main__":
     print()
 
     # Example 2
-    img2 = [[100,200,100],[200,50,200],[100,200,100]]
+    img2 = [[100, 200, 100], [200, 50, 200], [100, 200, 100]]
     print("Original image:")
     for row in img2:
         print(row)
@@ -311,7 +307,7 @@ if __name__ == "__main__":
     print()
 
     # Demonstrate edge effects
-    img3 = [[10,20,30,40],[50,60,70,80],[90,100,110,120]]
+    img3 = [[10, 20, 30, 40], [50, 60, 70, 80], [90, 100, 110, 120]]
     print("Original image (3x4):")
     for row in img3:
         print(row)

@@ -86,11 +86,10 @@ Result: [[1,2,3,4]]
 </details>
 """
 
-from typing import List
 
 
 class Solution:
-    def matrixReshape(self, mat: List[List[int]], r: int, c: int) -> List[List[int]]:
+    def matrixReshape(self, mat: list[list[int]], r: int, c: int) -> list[list[int]]:
         """
         Reshape matrix if possible using index mapping.
 
@@ -127,7 +126,7 @@ class Solution:
 
         return result
 
-    def matrixReshapeFlatten(self, mat: List[List[int]], r: int, c: int) -> List[List[int]]:
+    def matrixReshapeFlatten(self, mat: list[list[int]], r: int, c: int) -> list[list[int]]:
         """
         Alternative approach: Flatten then reshape.
 
@@ -153,7 +152,7 @@ class Solution:
 
         return result
 
-    def matrixReshapeGenerator(self, mat: List[List[int]], r: int, c: int) -> List[List[int]]:
+    def matrixReshapeGenerator(self, mat: list[list[int]], r: int, c: int) -> list[list[int]]:
         """
         Pythonic approach using generator and list comprehension.
 
@@ -168,8 +167,7 @@ class Solution:
         # Generator to yield elements in row-major order
         def elements():
             for row in mat:
-                for val in row:
-                    yield val
+                yield from row
 
         gen = elements()
 
@@ -178,7 +176,7 @@ class Solution:
 
         return result
 
-    def matrixReshapeOneLiner(self, mat: List[List[int]], r: int, c: int) -> List[List[int]]:
+    def matrixReshapeOneLiner(self, mat: list[list[int]], r: int, c: int) -> list[list[int]]:
         """
         Ultra-compact one-liner approach (Pythonic but less readable).
 
@@ -199,33 +197,33 @@ def test_solution():
     solution = Solution()
 
     # Test case 1: Reshape 2x2 to 1x4
-    mat1 = [[1,2],[3,4]]
+    mat1 = [[1, 2], [3, 4]]
     r1, c1 = 1, 4
-    expected1 = [[1,2,3,4]]
+    expected1 = [[1, 2, 3, 4]]
     assert solution.matrixReshape(mat1, r1, c1) == expected1, "Test case 1 failed"
 
     # Test case 2: Invalid reshape (different total)
-    mat2 = [[1,2],[3,4]]
+    mat2 = [[1, 2], [3, 4]]
     r2, c2 = 2, 4
-    expected2 = [[1,2],[3,4]]
+    expected2 = [[1, 2], [3, 4]]
     assert solution.matrixReshape(mat2, r2, c2) == expected2, "Test case 2 failed"
 
     # Test case 3: Reshape 1x4 to 2x2
-    mat3 = [[1,2,3,4]]
+    mat3 = [[1, 2, 3, 4]]
     r3, c3 = 2, 2
-    expected3 = [[1,2],[3,4]]
+    expected3 = [[1, 2], [3, 4]]
     assert solution.matrixReshape(mat3, r3, c3) == expected3, "Test case 3 failed"
 
     # Test case 4: Reshape 2x2 to 4x1
-    mat4 = [[1,2],[3,4]]
+    mat4 = [[1, 2], [3, 4]]
     r4, c4 = 4, 1
-    expected4 = [[1],[2],[3],[4]]
+    expected4 = [[1], [2], [3], [4]]
     assert solution.matrixReshape(mat4, r4, c4) == expected4, "Test case 4 failed"
 
     # Test case 5: Same shape
-    mat5 = [[1,2],[3,4]]
+    mat5 = [[1, 2], [3, 4]]
     r5, c5 = 2, 2
-    expected5 = [[1,2],[3,4]]
+    expected5 = [[1, 2], [3, 4]]
     assert solution.matrixReshape(mat5, r5, c5) == expected5, "Test case 5 failed"
 
     # Test case 6: Single element
@@ -235,24 +233,24 @@ def test_solution():
     assert solution.matrixReshape(mat6, r6, c6) == expected6, "Test case 6 failed"
 
     # Test case 7: Larger matrix
-    mat7 = [[1,2,3,4],[5,6,7,8]]
+    mat7 = [[1, 2, 3, 4], [5, 6, 7, 8]]
     r7, c7 = 4, 2
-    expected7 = [[1,2],[3,4],[5,6],[7,8]]
+    expected7 = [[1, 2], [3, 4], [5, 6], [7, 8]]
     assert solution.matrixReshape(mat7, r7, c7) == expected7, "Test case 7 failed"
 
     # Test flatten method
-    mat8 = [[1,2],[3,4]]
-    expected8 = [[1,2,3,4]]
+    mat8 = [[1, 2], [3, 4]]
+    expected8 = [[1, 2, 3, 4]]
     assert solution.matrixReshapeFlatten(mat8, 1, 4) == expected8, "Flatten method failed"
 
     # Test generator method
-    mat9 = [[1,2,3,4]]
-    expected9 = [[1,2],[3,4]]
+    mat9 = [[1, 2, 3, 4]]
+    expected9 = [[1, 2], [3, 4]]
     assert solution.matrixReshapeGenerator(mat9, 2, 2) == expected9, "Generator method failed"
 
     # Test one-liner method
-    mat10 = [[1,2],[3,4]]
-    expected10 = [[1],[2],[3],[4]]
+    mat10 = [[1, 2], [3, 4]]
+    expected10 = [[1], [2], [3], [4]]
     assert solution.matrixReshapeOneLiner(mat10, 4, 1) == expected10, "One-liner method failed"
 
     print("All test cases passed!")
@@ -266,7 +264,7 @@ if __name__ == "__main__":
     print("=== 566. Reshape The Matrix ===\n")
 
     # Example 1: Reshape 2x2 to 1x4
-    mat1 = [[1,2],[3,4]]
+    mat1 = [[1, 2], [3, 4]]
     print("Original matrix (2x2):")
     for row in mat1:
         print(row)
@@ -277,7 +275,7 @@ if __name__ == "__main__":
     print()
 
     # Example 2: Reshape 1x6 to 2x3
-    mat2 = [[1,2,3,4,5,6]]
+    mat2 = [[1, 2, 3, 4, 5, 6]]
     print("Original matrix (1x6):")
     for row in mat2:
         print(row)
@@ -288,7 +286,7 @@ if __name__ == "__main__":
     print()
 
     # Example 3: Invalid reshape
-    mat3 = [[1,2],[3,4]]
+    mat3 = [[1, 2], [3, 4]]
     print("Original matrix (2x2):")
     for row in mat3:
         print(row)

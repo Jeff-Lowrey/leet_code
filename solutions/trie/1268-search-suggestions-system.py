@@ -70,7 +70,6 @@ Process 'mouse': ["mouse", "mousepad"]
 </details>
 """
 
-from typing import List
 
 
 class TrieNode:
@@ -82,7 +81,7 @@ class TrieNode:
 
 
 class Solution:
-    def suggestedProducts(self, products: List[str], searchWord: str) -> List[List[str]]:
+    def suggestedProducts(self, products: list[str], searchWord: str) -> list[list[str]]:
         """
         Return suggested products for each character typed.
 
@@ -132,7 +131,7 @@ class Solution:
 class SolutionBinarySearch:
     """Alternative solution using sorting and binary search."""
 
-    def suggestedProducts(self, products: List[str], searchWord: str) -> List[List[str]]:
+    def suggestedProducts(self, products: list[str], searchWord: str) -> list[list[str]]:
         """
         Use binary search to find products with matching prefix.
 
@@ -161,7 +160,7 @@ class SolutionBinarySearch:
 
         return result
 
-    def _find_start_index(self, products: List[str], prefix: str) -> int:
+    def _find_start_index(self, products: list[str], prefix: str) -> int:
         """Binary search for first index where product >= prefix."""
         left, right = 0, len(products)
 
@@ -178,7 +177,7 @@ class SolutionBinarySearch:
 class SolutionSimple:
     """Simple solution using filtering."""
 
-    def suggestedProducts(self, products: List[str], searchWord: str) -> List[List[str]]:
+    def suggestedProducts(self, products: list[str], searchWord: str) -> list[list[str]]:
         """
         Simple solution that filters products for each prefix.
 
@@ -213,7 +212,7 @@ def test_solution():
         ["mobile", "moneypot", "monitor"],
         ["mouse", "mousepad"],
         ["mouse", "mousepad"],
-        ["mouse", "mousepad"]
+        ["mouse", "mousepad"],
     ]
     assert solution.suggestedProducts(products1, searchWord1) == expected1
     assert solution_bs.suggestedProducts(products1, searchWord1) == expected1
@@ -230,12 +229,7 @@ def test_solution():
     # Test case 3: No matches
     products3 = ["bags", "baggage", "banner", "box", "cloths"]
     searchWord3 = "bags"
-    expected3 = [
-        ["baggage", "bags", "banner"],
-        ["baggage", "bags", "banner"],
-        ["baggage", "bags"],
-        ["bags"]
-    ]
+    expected3 = [["baggage", "bags", "banner"], ["baggage", "bags", "banner"], ["baggage", "bags"], ["bags"]]
     assert solution.suggestedProducts(products3, searchWord3) == expected3
     assert solution_bs.suggestedProducts(products3, searchWord3) == expected3
     assert solution_simple.suggestedProducts(products3, searchWord3) == expected3
@@ -243,11 +237,7 @@ def test_solution():
     # Test case 4: Partial prefix with no matches
     products4 = ["apple", "application", "applied"]
     searchWord4 = "apz"
-    expected4 = [
-        ["apple", "application", "applied"],
-        ["apple", "application", "applied"],
-        []
-    ]
+    expected4 = [["apple", "application", "applied"], ["apple", "application", "applied"], []]
     assert solution.suggestedProducts(products4, searchWord4) == expected4
     assert solution_bs.suggestedProducts(products4, searchWord4) == expected4
     assert solution_simple.suggestedProducts(products4, searchWord4) == expected4
@@ -282,8 +272,8 @@ if __name__ == "__main__":
 
     result = solution.suggestedProducts(products, searchWord)
 
-    for i, char in enumerate(searchWord):
-        prefix = searchWord[:i+1]
+    for i, _char in enumerate(searchWord):
+        prefix = searchWord[: i + 1]
         suggestions = result[i]
         print(f"  '{prefix}': {suggestions}")
 
@@ -297,8 +287,8 @@ if __name__ == "__main__":
 
     result2 = solution_bs.suggestedProducts(products2, searchWord2)
 
-    for i, char in enumerate(searchWord2):
-        prefix = searchWord2[:i+1]
+    for i, _char in enumerate(searchWord2):
+        prefix = searchWord2[: i + 1]
         suggestions = result2[i]
         print(f"  '{prefix}': {suggestions}")
 

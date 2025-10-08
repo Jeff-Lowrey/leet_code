@@ -84,7 +84,6 @@ Result: "apple" (lexicographically smaller than "apply")
 </details>
 """
 
-from typing import List
 
 
 class TrieNode:
@@ -97,7 +96,7 @@ class TrieNode:
 
 
 class Solution:
-    def longestWord(self, words: List[str]) -> str:
+    def longestWord(self, words: list[str]) -> str:
         """
         Find longest word that can be built one character at a time.
 
@@ -126,7 +125,6 @@ class Solution:
             node.word = word
 
         # DFS to find longest buildable word
-        longest = ""
 
         def dfs(node: TrieNode) -> str:
             """Find longest buildable word from this node."""
@@ -138,8 +136,7 @@ class Solution:
                     candidate = dfs(child_node)
 
                     # Update result if candidate is longer, or same length but smaller
-                    if (len(candidate) > len(result) or
-                        (len(candidate) == len(result) and candidate < result)):
+                    if len(candidate) > len(result) or (len(candidate) == len(result) and candidate < result):
                         result = candidate
 
             return result
@@ -151,7 +148,7 @@ class Solution:
 class SolutionBFS:
     """Alternative solution using BFS level by level."""
 
-    def longestWord(self, words: List[str]) -> str:
+    def longestWord(self, words: list[str]) -> str:
         """
         Find longest word using BFS.
 
@@ -181,8 +178,7 @@ class SolutionBFS:
             node = queue.pop(0)
 
             # Update longest if this node has a longer word
-            if len(node.word) > len(longest) or \
-               (len(node.word) == len(longest) and node.word < longest):
+            if len(node.word) > len(longest) or (len(node.word) == len(longest) and node.word < longest):
                 longest = node.word
 
             # Add children that are words (buildable)
@@ -196,7 +192,7 @@ class SolutionBFS:
 class SolutionSort:
     """Simple solution using sorting and set."""
 
-    def longestWord(self, words: List[str]) -> str:
+    def longestWord(self, words: list[str]) -> str:
         """
         Sort words and check if all prefixes exist.
 
@@ -226,7 +222,7 @@ class SolutionSort:
 class SolutionSimple:
     """Simplest solution checking all prefixes."""
 
-    def longestWord(self, words: List[str]) -> str:
+    def longestWord(self, words: list[str]) -> str:
         """
         Check each word's prefixes directly.
 
@@ -246,8 +242,7 @@ class SolutionSimple:
 
             if valid:
                 # Update longest
-                if len(word) > len(longest) or \
-                   (len(word) == len(longest) and word < longest):
+                if len(word) > len(longest) or (len(word) == len(longest) and word < longest):
                     longest = word
 
         return longest

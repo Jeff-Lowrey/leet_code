@@ -38,16 +38,16 @@ from collections import defaultdict
 
 
 class UnionFind:
-    def __init__(self, n):
+    def __init__(self, n: int) -> None:
         self.parent = list(range(n))
         self.rank = [0] * n
 
-    def find(self, x):
+    def find(self, x: int) -> int:
         if self.parent[x] != x:
             self.parent[x] = self.find(self.parent[x])
         return self.parent[x]
 
-    def union(self, x, y):
+    def union(self, x: int, y: int) -> None:
         px, py = self.find(x), self.find(y)
         if px == py:
             return
@@ -92,7 +92,7 @@ class Solution:
         return "".join(result)
 
 
-def test_solution():
+def test_solution() -> None:
     """Test cases for Problem 1202."""
     solution = Solution()
 

@@ -71,6 +71,7 @@ Returns: ["file1.txt"]
 </details>
 """
 
+
 class FileSystemNode:
     """Node representing either a file or directory in the file system."""
 
@@ -268,13 +269,13 @@ class FileSystemAlternative:
 
         for file_path in self.files:
             if file_path.startswith(prefix):
-                relative_path = file_path[len(prefix):]
+                relative_path = file_path[len(prefix) :]
                 if "/" not in relative_path:  # Direct child file
                     children.add(relative_path)
 
         for dir_path in self.dirs:
             if dir_path.startswith(prefix) and dir_path != path:
-                relative_path = dir_path[len(prefix):]
+                relative_path = dir_path[len(prefix) :]
                 if "/" not in relative_path:  # Direct child directory
                     children.add(relative_path)
 

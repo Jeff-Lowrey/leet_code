@@ -59,18 +59,18 @@ Result: [[1], [3, 2, 4], [5, 6]]
 """
 
 from collections import deque
-from typing import List, Optional
 
 
 class Node:
     """Definition for a N-ary tree node."""
+
     def __init__(self, val=None, children=None):
         self.val = val
         self.children = children if children is not None else []
 
 
 class Solution:
-    def levelOrder(self, root: Optional[Node]) -> List[List[int]]:
+    def levelOrder(self, root: Node | None) -> list[list[int]]:
         """
         Level order traversal of n-ary tree.
 

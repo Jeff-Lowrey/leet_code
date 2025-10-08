@@ -84,11 +84,10 @@ Result: ["a","2","b","2","c","3"] with length 6
 </details>
 """
 
-from typing import List
 
 
 class Solution:
-    def compress(self, chars: List[str]) -> int:
+    def compress(self, chars: list[str]) -> int:
         """
         Compress array of characters in-place.
 
@@ -105,7 +104,7 @@ class Solution:
             return 0
 
         write = 0  # Position to write compressed data
-        read = 0   # Position to read original data
+        read = 0  # Position to read original data
 
         while read < len(chars):
             current_char = chars[read]
@@ -129,7 +128,7 @@ class Solution:
 
         return write
 
-    def compressVerbose(self, chars: List[str]) -> int:
+    def compressVerbose(self, chars: list[str]) -> int:
         """
         More verbose implementation with detailed steps.
 
@@ -168,7 +167,7 @@ class Solution:
 
         return write_idx
 
-    def compressWithDeque(self, chars: List[str]) -> int:
+    def compressWithDeque(self, chars: list[str]) -> int:
         """
         Alternative using deque for count digits (less efficient).
 
@@ -212,10 +211,10 @@ def test_solution():
     solution = Solution()
 
     # Test case 1: Basic compression
-    chars1 = ["a","a","b","b","c","c","c"]
+    chars1 = ["a", "a", "b", "b", "c", "c", "c"]
     result1 = solution.compress(chars1)
     expected1 = 6
-    expected_chars1 = ["a","2","b","2","c","3"]
+    expected_chars1 = ["a", "2", "b", "2", "c", "3"]
     assert result1 == expected1, f"Expected {expected1}, got {result1}"
     assert chars1[:result1] == expected_chars1, f"Expected {expected_chars1}, got {chars1[:result1]}"
 
@@ -228,39 +227,39 @@ def test_solution():
     assert chars2[:result2] == expected_chars2, f"Expected {expected_chars2}, got {chars2[:result2]}"
 
     # Test case 3: All different characters
-    chars3 = ["a","b","c"]
+    chars3 = ["a", "b", "c"]
     result3 = solution.compress(chars3)
     expected3 = 3
-    expected_chars3 = ["a","b","c"]
+    expected_chars3 = ["a", "b", "c"]
     assert result3 == expected3, f"Expected {expected3}, got {result3}"
     assert chars3[:result3] == expected_chars3, f"Expected {expected_chars3}, got {chars3[:result3]}"
 
     # Test case 4: Long run requiring multi-digit count
-    chars4 = ["a","a","a","a","a","a","a","a","a","a","a","a"]
+    chars4 = ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a"]
     result4 = solution.compress(chars4)
     expected4 = 3
-    expected_chars4 = ["a","1","2"]
+    expected_chars4 = ["a", "1", "2"]
     assert result4 == expected4, f"Expected {expected4}, got {result4}"
     assert chars4[:result4] == expected_chars4, f"Expected {expected_chars4}, got {chars4[:result4]}"
 
     # Test case 5: Mixed compression
-    chars5 = ["a","b","b","b","b","b","b","b","b","b","b","b","b"]
+    chars5 = ["a", "b", "b", "b", "b", "b", "b", "b", "b", "b", "b", "b", "b"]
     result5 = solution.compress(chars5)
     expected5 = 4
-    expected_chars5 = ["a","b","1","2"]
+    expected_chars5 = ["a", "b", "1", "2"]
     assert result5 == expected5, f"Expected {expected5}, got {result5}"
     assert chars5[:result5] == expected_chars5, f"Expected {expected_chars5}, got {chars5[:result5]}"
 
     # Test case 6: Two characters repeated
-    chars6 = ["a","a"]
+    chars6 = ["a", "a"]
     result6 = solution.compress(chars6)
     expected6 = 2
-    expected_chars6 = ["a","2"]
+    expected_chars6 = ["a", "2"]
     assert result6 == expected6, f"Expected {expected6}, got {result6}"
     assert chars6[:result6] == expected_chars6, f"Expected {expected_chars6}, got {chars6[:result6]}"
 
     # Test verbose solution
-    chars7 = ["a","a","b","b","c","c","c"]
+    chars7 = ["a", "a", "b", "b", "c", "c", "c"]
     result7 = solution.compressVerbose(chars7)
     expected7 = 6
     assert result7 == expected7, f"Expected {expected7}, got {result7}"
@@ -276,11 +275,11 @@ if __name__ == "__main__":
     print("=== 443. String Compression ===")
 
     test_cases = [
-        ["a","a","b","b","c","c","c"],
+        ["a", "a", "b", "b", "c", "c", "c"],
         ["a"],
-        ["a","b","c"],
-        ["a","a","a","a","a","a","a","a","a","a","a","a"],
-        ["a","b","b","b","b","b","b","b","b","b","b","b","b"]
+        ["a", "b", "c"],
+        ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a"],
+        ["a", "b", "b", "b", "b", "b", "b", "b", "b", "b", "b", "b", "b"],
     ]
 
     for chars in test_cases:
@@ -292,7 +291,7 @@ if __name__ == "__main__":
 
     # Demonstrate the algorithm
     print("Step-by-step for ['a','a','b','b','c','c','c']:")
-    chars = ["a","a","b","b","c","c","c"]
+    chars = ["a", "a", "b", "b", "c", "c", "c"]
     print("Initial:", chars)
     print("1. Read 'a' x2, write ['a','2'] at position 0-1")
     print("2. Read 'b' x2, write ['b','2'] at position 2-3")

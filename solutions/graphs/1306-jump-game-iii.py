@@ -70,9 +70,9 @@ class Solution:
         Space Complexity: O(n)
         """
         n = len(arr)
-        visited = set()
+        visited: set[int] = set()
 
-        def dfs(index):
+        def dfs(index: int) -> bool:
             # Base cases
             if index < 0 or index >= n or index in visited:
                 return False
@@ -138,7 +138,7 @@ class Solution:
         return False
 
 
-def test_solution():
+def test_solution() -> None:
     """Test cases for Problem 1306."""
     solution = Solution()
 

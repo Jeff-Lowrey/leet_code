@@ -59,11 +59,11 @@ Result: [[3], [20, 9], [15, 7]]
 """
 
 from collections import deque
-from typing import List, Optional
 
 
 class TreeNode:
     """Definition for a binary tree node."""
+
     def __init__(self, val=0, left=None, right=None):
         self.val = val
         self.left = left
@@ -71,7 +71,7 @@ class TreeNode:
 
 
 class Solution:
-    def zigzagLevelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
+    def zigzagLevelOrder(self, root: TreeNode | None) -> list[list[int]]:
         """
         Zigzag level order traversal of binary tree.
 

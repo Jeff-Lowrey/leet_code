@@ -83,11 +83,10 @@ Result: [[1,2,3],[8,9,4],[7,6,5]]
 </details>
 """
 
-from typing import List
 
 
 class Solution:
-    def generateMatrix(self, n: int) -> List[List[int]]:
+    def generateMatrix(self, n: int) -> list[list[int]]:
         """
         Generate n×n matrix with numbers 1 to n² in spiral order.
 
@@ -137,7 +136,7 @@ class Solution:
 
         return matrix
 
-    def generateMatrixDirection(self, n: int) -> List[List[int]]:
+    def generateMatrixDirection(self, n: int) -> list[list[int]]:
         """
         Alternative approach using direction vectors.
 
@@ -162,9 +161,7 @@ class Solution:
             next_col = col + directions[current_dir][1]
 
             # Check if need to change direction
-            if (next_row < 0 or next_row >= n or
-                next_col < 0 or next_col >= n or
-                visited[next_row][next_col]):
+            if next_row < 0 or next_row >= n or next_col < 0 or next_col >= n or visited[next_row][next_col]:
                 # Turn right (next direction in spiral)
                 current_dir = (current_dir + 1) % 4
                 next_row = row + directions[current_dir][0]
@@ -174,7 +171,7 @@ class Solution:
 
         return matrix
 
-    def generateMatrixRecursive(self, n: int) -> List[List[int]]:
+    def generateMatrixRecursive(self, n: int) -> list[list[int]]:
         """
         Recursive approach filling layers.
 
@@ -229,7 +226,7 @@ def test_solution():
 
     # Test case 1: n = 3
     n1 = 3
-    expected1 = [[1,2,3],[8,9,4],[7,6,5]]
+    expected1 = [[1, 2, 3], [8, 9, 4], [7, 6, 5]]
     assert solution.generateMatrix(n1) == expected1, "Test case 1 failed"
 
     # Test case 2: n = 1
@@ -239,12 +236,12 @@ def test_solution():
 
     # Test case 3: n = 2
     n3 = 2
-    expected3 = [[1,2],[4,3]]
+    expected3 = [[1, 2], [4, 3]]
     assert solution.generateMatrix(n3) == expected3, "Test case 3 failed"
 
     # Test case 4: n = 4
     n4 = 4
-    expected4 = [[1,2,3,4],[12,13,14,5],[11,16,15,6],[10,9,8,7]]
+    expected4 = [[1, 2, 3, 4], [12, 13, 14, 5], [11, 16, 15, 6], [10, 9, 8, 7]]
     assert solution.generateMatrix(n4) == expected4, "Test case 4 failed"
 
     # Test case 5: n = 5
@@ -257,12 +254,12 @@ def test_solution():
 
     # Test direction method
     n6 = 3
-    expected6 = [[1,2,3],[8,9,4],[7,6,5]]
+    expected6 = [[1, 2, 3], [8, 9, 4], [7, 6, 5]]
     assert solution.generateMatrixDirection(n6) == expected6, "Direction method failed"
 
     # Test recursive method
     n7 = 2
-    expected7 = [[1,2],[4,3]]
+    expected7 = [[1, 2], [4, 3]]
     assert solution.generateMatrixRecursive(n7) == expected7, "Recursive method failed"
 
     print("All test cases passed!")

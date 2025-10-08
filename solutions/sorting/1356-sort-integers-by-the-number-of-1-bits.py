@@ -73,11 +73,10 @@ Output: [0,1,2,4,8,3,5,6,7]
 </details>
 """
 
-from typing import List
 
 
 class Solution:
-    def sortByBits(self, arr: List[int]) -> List[int]:
+    def sortByBits(self, arr: list[int]) -> list[int]:
         """
         Sort integers by count of 1-bits, then by value.
 
@@ -91,9 +90,9 @@ class Solution:
         Space Complexity: O(n) for result
         """
         # Sort by (bit_count, value) tuple
-        return sorted(arr, key=lambda x: (bin(x).count('1'), x))
+        return sorted(arr, key=lambda x: (bin(x).count("1"), x))
 
-    def sortByBitsBrianKernighan(self, arr: List[int]) -> List[int]:
+    def sortByBitsBrianKernighan(self, arr: list[int]) -> list[int]:
         """
         Sort using Brian Kernighan's algorithm for bit counting.
 
@@ -103,6 +102,7 @@ class Solution:
         Time Complexity: O(n log n)
         Space Complexity: O(n)
         """
+
         def count_bits(n: int) -> int:
             count = 0
             while n:
@@ -112,7 +112,7 @@ class Solution:
 
         return sorted(arr, key=lambda x: (count_bits(x), x))
 
-    def sortByBitsBuiltIn(self, arr: List[int]) -> List[int]:
+    def sortByBitsBuiltIn(self, arr: list[int]) -> list[int]:
         """
         Sort using Python 3.10+ int.bit_count() method.
 
@@ -121,7 +121,7 @@ class Solution:
         """
         return sorted(arr, key=lambda x: (x.bit_count(), x))
 
-    def sortByBitsLookupTable(self, arr: List[int]) -> List[int]:
+    def sortByBitsLookupTable(self, arr: list[int]) -> list[int]:
         """
         Sort using precomputed lookup table for bit counts.
 
@@ -135,7 +135,7 @@ class Solution:
 
         max_val = max(arr)
         # Precompute bit counts
-        bit_counts = [bin(i).count('1') for i in range(max_val + 1)]
+        bit_counts = [bin(i).count("1") for i in range(max_val + 1)]
 
         return sorted(arr, key=lambda x: (bit_counts[x], x))
 
@@ -200,6 +200,8 @@ if __name__ == "__main__":
     # Example usage
     solution = Solution()
     print("=== 1356. Sort Integers By The Number Of 1 Bits ===")
-    print(f"sortByBits([0,1,2,3,4,5,6,7,8]) -> {solution.sortByBits([0,1,2,3,4,5,6,7,8])}")
-    print(f"sortByBits([1024,512,256,128,64,32,16,8,4,2,1]) -> {solution.sortByBits([1024,512,256,128,64,32,16,8,4,2,1])}")
-    print(f"sortByBits([2,3,5,7,11,13,17,19]) -> {solution.sortByBits([2,3,5,7,11,13,17,19])}")
+    print(f"sortByBits([0,1,2,3,4,5,6,7,8]) -> {solution.sortByBits([0, 1, 2, 3, 4, 5, 6, 7, 8])}")
+    print(
+        f"sortByBits([1024,512,256,128,64,32,16,8,4,2,1]) -> {solution.sortByBits([1024, 512, 256, 128, 64, 32, 16, 8, 4, 2, 1])}"
+    )
+    print(f"sortByBits([2,3,5,7,11,13,17,19]) -> {solution.sortByBits([2, 3, 5, 7, 11, 13, 17, 19])}")

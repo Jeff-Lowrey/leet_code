@@ -48,6 +48,7 @@ next(5): queue=[10,3,5], avg=6.0 (removed 1)
 
 from collections import deque
 
+
 class MovingAverage:
     def __init__(self, size: int):
         """
@@ -79,7 +80,7 @@ class MovingAverage:
 if __name__ == "__main__":
     # Test case 1
     moving_avg = MovingAverage(3)
-    print(f"next(1): {moving_avg.next(1)}")    # 1.0
+    print(f"next(1): {moving_avg.next(1)}")  # 1.0
     print(f"next(10): {moving_avg.next(10)}")  # 5.5
-    print(f"next(3): {moving_avg.next(3)}")    # 4.67
-    print(f"next(5): {moving_avg.next(5)}")    # 6.0
+    print(f"next(3): {moving_avg.next(3)}")  # 4.67
+    print(f"next(5): {moving_avg.next(5)}")  # 6.0

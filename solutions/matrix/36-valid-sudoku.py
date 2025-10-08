@@ -88,9 +88,9 @@ class Solution:
         Space Complexity: O(1) - fixed space for sets
         """
         # Initialize sets for each row, column, and 3x3 box
-        rows = [set() for _ in range(9)]
-        cols = [set() for _ in range(9)]
-        boxes = [set() for _ in range(9)]
+        rows: list[set[str]] = [set() for _ in range(9)]
+        cols: list[set[str]] = [set() for _ in range(9)]
+        boxes: list[set[str]] = [set() for _ in range(9)]
 
         for i in range(9):
             for j in range(9):
@@ -120,7 +120,7 @@ class Solution:
         Time Complexity: O(1)
         Space Complexity: O(1)
         """
-        seen = set()
+        seen: set[tuple[int, str] | tuple[int, int, str]] = set()
 
         for i in range(9):
             for j in range(9):
@@ -130,9 +130,9 @@ class Solution:
                     continue
 
                 # Create unique keys for row, column, and box
-                row_key = (i, cell)
-                col_key = (cell, j)
-                box_key = (i // 3, j // 3, cell)
+                row_key: tuple[int, str] = (i, cell)
+                col_key: tuple[int, str] = (j, cell)  # Changed order to match type
+                box_key: tuple[int, int, str] = (i // 3, j // 3, cell)
 
                 if row_key in seen or col_key in seen or box_key in seen:
                     return False
@@ -144,7 +144,7 @@ class Solution:
         return True
 
 
-def test_solution():
+def test_solution() -> None:
     """Test cases for Problem 36."""
     solution = Solution()
 

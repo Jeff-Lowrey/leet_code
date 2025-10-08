@@ -80,7 +80,6 @@ Final: "bacd" + "feg" = "bacdfeg"
 </details>
 """
 
-from typing import List
 
 
 class Solution:
@@ -113,7 +112,7 @@ class Solution:
                 left += 1
                 right -= 1
 
-        return ''.join(chars)
+        return "".join(chars)
 
     def reverseStrSlicing(self, s: str, k: int) -> str:
         """
@@ -133,13 +132,13 @@ class Solution:
 
         for i in range(0, len(s), 2 * k):
             # Reverse the first k characters
-            segment = s[i:i + k]
+            segment = s[i : i + k]
             result.append(segment[::-1])
 
             # Append the next k characters unchanged (if they exist)
-            result.append(s[i + k:i + 2 * k])
+            result.append(s[i + k : i + 2 * k])
 
-        return ''.join(result)
+        return "".join(result)
 
     def reverseStrVerbose(self, s: str, k: int) -> str:
         """
@@ -174,7 +173,7 @@ class Solution:
             # Move to the next 2k chunk
             i += 2 * k
 
-        return ''.join(chars)
+        return "".join(chars)
 
     def reverseStrRecursive(self, s: str, k: int) -> str:
         """
@@ -194,7 +193,7 @@ class Solution:
             return s[:k][::-1] + s[k:]
 
         # Reverse first k, keep next k, recurse on rest
-        return s[:k][::-1] + s[k:2*k] + self.reverseStrRecursive(s[2*k:], k)
+        return s[:k][::-1] + s[k : 2 * k] + self.reverseStrRecursive(s[2 * k :], k)
 
 
 def test_solution():
@@ -261,13 +260,7 @@ if __name__ == "__main__":
     solution = Solution()
     print("=== 541. Reverse String II ===")
 
-    test_cases = [
-        ("abcdefg", 2),
-        ("abcd", 2),
-        ("abc", 5),
-        ("abcdefghij", 3),
-        ("a", 2)
-    ]
+    test_cases = [("abcdefg", 2), ("abcd", 2), ("abc", 5), ("abcdefghij", 3), ("a", 2)]
 
     for s, k in test_cases:
         result = solution.reverseStr(s, k)
@@ -276,7 +269,7 @@ if __name__ == "__main__":
     # Demonstrate the logic
     print("\nStep-by-step for s='abcdefg', k=2:")
     s, k = "abcdefg", 2
-    print(f"String: '{s}', k: {k}, 2k: {2*k}")
+    print(f"String: '{s}', k: {k}, 2k: {2 * k}")
     print("Chunk [0:4]: 'abcd' -> reverse first 2: 'bacd'")
     print("Chunk [4:8]: 'efg' -> reverse first 2: 'feg'")
     print(f"Result: '{solution.reverseStr(s, k)}'")

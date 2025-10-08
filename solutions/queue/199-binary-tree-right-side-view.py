@@ -61,11 +61,11 @@ Result: [1, 3, 4]
 """
 
 from collections import deque
-from typing import List, Optional
 
 
 class TreeNode:
     """Definition for a binary tree node."""
+
     def __init__(self, val=0, left=None, right=None):
         self.val = val
         self.left = left
@@ -73,7 +73,7 @@ class TreeNode:
 
 
 class Solution:
-    def rightSideView(self, root: Optional[TreeNode]) -> List[int]:
+    def rightSideView(self, root: TreeNode | None) -> list[int]:
         """
         Get right side view of binary tree.
 
@@ -111,7 +111,7 @@ class Solution:
 
         return result
 
-    def rightSideView_dfs(self, root: Optional[TreeNode]) -> List[int]:
+    def rightSideView_dfs(self, root: TreeNode | None) -> list[int]:
         """
         Alternative DFS solution.
 
@@ -120,7 +120,7 @@ class Solution:
         """
         result = []
 
-        def dfs(node: Optional[TreeNode], depth: int) -> None:
+        def dfs(node: TreeNode | None, depth: int) -> None:
             if not node:
                 return
 

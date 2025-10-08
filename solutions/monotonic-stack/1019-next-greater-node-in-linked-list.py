@@ -57,7 +57,7 @@ Result: [5,5,0]
 class ListNode:
     """Definition for singly-linked list."""
 
-    def __init__(self, val=0, next=None):
+    def __init__(self, val: int = 0, next: "ListNode | None" = None) -> None:
         self.val = val
         self.next = next
 
@@ -78,7 +78,7 @@ class Solution:
 
         n = len(values)
         answer = [0] * n
-        stack = []  # Stack of (index, value)
+        stack: list[tuple[int, int]] = []  # Stack of (index, value)
 
         for i, val in enumerate(values):
             # Pop all elements smaller than current
@@ -104,7 +104,7 @@ class Solution:
 
         n = len(values)
         answer = [0] * n
-        stack = []  # Stack of values
+        stack: list[int] = []  # Stack of values
 
         # Traverse from right to left
         for i in range(n - 1, -1, -1):
@@ -121,12 +121,12 @@ class Solution:
         return answer
 
 
-def test_solution():
+def test_solution() -> None:
     """Test cases for Problem 1019."""
     solution = Solution()
 
     # Helper to create linked list from list
-    def create_list(values):
+    def create_list(values: list[int]) -> ListNode | None:
         if not values:
             return None
         head = ListNode(values[0])

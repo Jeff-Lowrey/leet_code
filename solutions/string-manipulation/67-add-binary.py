@@ -122,7 +122,7 @@ class Solution:
             j -= 1
 
         # Result is built in reverse order
-        return ''.join(reversed(result))
+        return "".join(reversed(result))
 
     def addBinaryBuiltin(self, a: str, b: str) -> str:
         """
@@ -197,24 +197,24 @@ class Solution:
             total = bit_a + bit_b + carry
 
             if total == 0:
-                result.append('0')
+                result.append("0")
                 carry = 0
             elif total == 1:
-                result.append('1')
+                result.append("1")
                 carry = 0
             elif total == 2:
-                result.append('0')
+                result.append("0")
                 carry = 1
             else:  # total == 3
-                result.append('1')
+                result.append("1")
                 carry = 1
 
         # Add final carry if present
         if carry:
-            result.append('1')
+            result.append("1")
 
         # Reverse to get correct order
-        return ''.join(reversed(result))
+        return "".join(reversed(result))
 
 
 def test_solution():
@@ -276,14 +276,7 @@ if __name__ == "__main__":
     solution = Solution()
     print("=== 67. Add Binary ===")
 
-    test_cases = [
-        ("11", "1"),
-        ("1010", "1011"),
-        ("0", "0"),
-        ("1", "1"),
-        ("1111", "1111"),
-        ("100", "110010")
-    ]
+    test_cases = [("11", "1"), ("1010", "1011"), ("0", "0"), ("1", "1"), ("1111", "1111"), ("100", "110010")]
 
     for a, b in test_cases:
         result = solution.addBinary(a, b)

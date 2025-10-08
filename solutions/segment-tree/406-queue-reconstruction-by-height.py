@@ -65,11 +65,10 @@ Insert [4,4] at index 4: [[5,0],[7,0],[5,2],[6,1],[4,4],[7,1]]
 </details>
 """
 
-from typing import List
 
 
 class Solution:
-    def reconstructQueue(self, people: List[List[int]]) -> List[List[int]]:
+    def reconstructQueue(self, people: list[list[int]]) -> list[list[int]]:
         """
         Reconstruct queue using greedy approach with list insertion.
 
@@ -95,7 +94,7 @@ class Solution:
 
         return result
 
-    def reconstructQueueSegmentTree(self, people: List[List[int]]) -> List[List[int]]:
+    def reconstructQueueSegmentTree(self, people: list[list[int]]) -> list[list[int]]:
         """
         Reconstruct queue using segment tree to find k-th available position.
 
@@ -170,7 +169,7 @@ class Solution:
 
         return [list(p) for p in result]  # Convert to list of lists
 
-    def reconstructQueueBIT(self, people: List[List[int]]) -> List[List[int]]:
+    def reconstructQueueBIT(self, people: list[list[int]]) -> list[list[int]]:
         """
         Reconstruct queue using Binary Indexed Tree.
 
@@ -239,8 +238,8 @@ def test_solution():
     solution = Solution()
 
     # Test case 1: Basic example
-    result1 = solution.reconstructQueue([[7,0],[4,4],[7,1],[5,0],[6,1],[5,2]])
-    expected1 = [[5,0],[7,0],[5,2],[6,1],[4,4],[7,1]]
+    result1 = solution.reconstructQueue([[7, 0], [4, 4], [7, 1], [5, 0], [6, 1], [5, 2]])
+    expected1 = [[5, 0], [7, 0], [5, 2], [6, 1], [4, 4], [7, 1]]
     assert result1 == expected1, f"Expected {expected1}, got {result1}"
 
     # Test case 2: Empty array
@@ -249,25 +248,27 @@ def test_solution():
     assert result2 == expected2, f"Expected {expected2}, got {result2}"
 
     # Test case 3: Single person
-    result3 = solution.reconstructQueue([[7,0]])
-    expected3 = [[7,0]]
+    result3 = solution.reconstructQueue([[7, 0]])
+    expected3 = [[7, 0]]
     assert result3 == expected3, f"Expected {expected3}, got {result3}"
 
     # Test case 4: All same height
-    result4 = solution.reconstructQueue([[5,0],[5,1],[5,2]])
-    expected4 = [[5,0],[5,1],[5,2]]
+    result4 = solution.reconstructQueue([[5, 0], [5, 1], [5, 2]])
+    expected4 = [[5, 0], [5, 1], [5, 2]]
     assert result4 == expected4, f"Expected {expected4}, got {result4}"
 
     # Test case 5: Two people
-    result5 = solution.reconstructQueue([[6,0],[5,0]])
-    expected5 = [[5,0],[6,0]]
+    result5 = solution.reconstructQueue([[6, 0], [5, 0]])
+    expected5 = [[5, 0], [6, 0]]
     assert result5 == expected5, f"Expected {expected5}, got {result5}"
 
     # Note: Segment tree and BIT approaches for this problem are complex
     # The greedy approach is more reliable and commonly used
 
     # Test case 8: Larger example
-    result8 = solution.reconstructQueue([[9,0],[7,0],[1,9],[3,0],[2,7],[5,3],[6,0],[3,4],[6,2],[5,2]])
+    result8 = solution.reconstructQueue(
+        [[9, 0], [7, 0], [1, 9], [3, 0], [2, 7], [5, 3], [6, 0], [3, 4], [6, 2], [5, 2]]
+    )
     # Verify by checking each person's k value
     for i, (h, k) in enumerate(result8):
         count = sum(1 for j in range(i) if result8[j][0] >= h)
@@ -284,8 +285,8 @@ if __name__ == "__main__":
     print("=== 406. Queue Reconstruction By Height ===")
 
     test_cases = [
-        [[7,0],[4,4],[7,1],[5,0],[6,1],[5,2]],
-        [[6,0],[5,0],[4,0],[3,2],[2,2],[1,4]],
+        [[7, 0], [4, 4], [7, 1], [5, 0], [6, 1], [5, 2]],
+        [[6, 0], [5, 0], [4, 0], [3, 2], [2, 2], [1, 4]],
     ]
 
     for people in test_cases:
@@ -308,9 +309,9 @@ if __name__ == "__main__":
         print(f"Valid: {valid}")
 
     # Detailed walkthrough
-    print(f"\nDetailed example: [[7,0],[4,4],[7,1],[5,0],[6,1],[5,2]]")
-    people = [[7,0],[4,4],[7,1],[5,0],[6,1],[5,2]]
-    print(f"Step-by-step reconstruction:")
+    print("\nDetailed example: [[7,0],[4,4],[7,1],[5,0],[6,1],[5,2]]")
+    people = [[7, 0], [4, 4], [7, 1], [5, 0], [6, 1], [5, 2]]
+    print("Step-by-step reconstruction:")
     people_sorted = sorted(people, key=lambda x: (-x[0], x[1]))
     print(f"After sorting: {people_sorted}")
 
@@ -320,7 +321,7 @@ if __name__ == "__main__":
         print(f"Insert {person} at position {person[1]}: {result}")
 
     # Performance comparison
-    print(f"\nApproach complexities:")
-    print(f"Greedy:       O(n² log n) time, O(n) space")
-    print(f"Segment Tree: O(n log n) time, O(n) space")
-    print(f"Binary IT:    O(n log² n) time, O(n) space")
+    print("\nApproach complexities:")
+    print("Greedy:       O(n² log n) time, O(n) space")
+    print("Segment Tree: O(n log n) time, O(n) space")
+    print("Binary IT:    O(n log² n) time, O(n) space")

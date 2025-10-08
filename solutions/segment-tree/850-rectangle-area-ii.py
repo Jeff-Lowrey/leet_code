@@ -70,11 +70,10 @@ Total area = 1 + 1 + 1 + 1 + 1 + 1 = 6
 </details>
 """
 
-from typing import List
 
 
 class Solution:
-    def rectangleArea(self, rectangles: List[List[int]]) -> int:
+    def rectangleArea(self, rectangles: list[list[int]]) -> int:
         """
         Calculate total area using coordinate compression.
 
@@ -130,7 +129,7 @@ class Solution:
 
         return area
 
-    def rectangleAreaSweepLine(self, rectangles: List[List[int]]) -> int:
+    def rectangleAreaSweepLine(self, rectangles: list[list[int]]) -> int:
         """
         Calculate total area using sweep line algorithm.
 
@@ -151,7 +150,7 @@ class Solution:
         # Create events: (x, y1, y2, type) where type: 1=start, -1=end
         events = []
         for x1, y1, x2, y2 in rectangles:
-            events.append((x1, y1, y2, 1))   # Rectangle starts
+            events.append((x1, y1, y2, 1))  # Rectangle starts
             events.append((x2, y1, y2, -1))  # Rectangle ends
 
         # Sort events by x-coordinate
@@ -206,42 +205,42 @@ def test_solution():
     solution = Solution()
 
     # Test case 1: Basic example
-    result1 = solution.rectangleArea([[0,0,2,2],[1,0,2,3],[1,0,3,1]])
+    result1 = solution.rectangleArea([[0, 0, 2, 2], [1, 0, 2, 3], [1, 0, 3, 1]])
     expected1 = 6
     assert result1 == expected1, f"Expected {expected1}, got {result1}"
 
     # Test case 2: Non-overlapping rectangles
-    result2 = solution.rectangleArea([[0,0,1,1],[2,2,3,3]])
+    result2 = solution.rectangleArea([[0, 0, 1, 1], [2, 2, 3, 3]])
     expected2 = 2
     assert result2 == expected2, f"Expected {expected2}, got {result2}"
 
     # Test case 3: Single rectangle
-    result3 = solution.rectangleArea([[0,0,2,2]])
+    result3 = solution.rectangleArea([[0, 0, 2, 2]])
     expected3 = 4
     assert result3 == expected3, f"Expected {expected3}, got {result3}"
 
     # Test case 4: Completely overlapping
-    result4 = solution.rectangleArea([[0,0,2,2],[0,0,2,2]])
+    result4 = solution.rectangleArea([[0, 0, 2, 2], [0, 0, 2, 2]])
     expected4 = 4
     assert result4 == expected4, f"Expected {expected4}, got {result4}"
 
     # Test case 5: Partially overlapping
-    result5 = solution.rectangleArea([[0,0,2,2],[1,1,3,3]])
+    result5 = solution.rectangleArea([[0, 0, 2, 2], [1, 1, 3, 3]])
     expected5 = 7  # 4 + 4 - 1 (overlap)
     assert result5 == expected5, f"Expected {expected5}, got {result5}"
 
     # Test sweep line approach
-    result6 = solution.rectangleAreaSweepLine([[0,0,2,2],[1,0,2,3],[1,0,3,1]])
+    result6 = solution.rectangleAreaSweepLine([[0, 0, 2, 2], [1, 0, 2, 3], [1, 0, 3, 1]])
     expected6 = 6
     assert result6 == expected6, f"Expected {expected6}, got {result6}"
 
     # Test case 7: Three rectangles in a row
-    result7 = solution.rectangleArea([[0,0,1,1],[1,0,2,1],[2,0,3,1]])
+    result7 = solution.rectangleArea([[0, 0, 1, 1], [1, 0, 2, 1], [2, 0, 3, 1]])
     expected7 = 3
     assert result7 == expected7, f"Expected {expected7}, got {result7}"
 
     # Test case 8: Complex overlapping - recalculated
-    result8 = solution.rectangleArea([[0,0,3,3],[1,1,4,4],[2,2,5,5]])
+    result8 = solution.rectangleArea([[0, 0, 3, 3], [1, 1, 4, 4], [2, 2, 5, 5]])
     # Grid creates: actual area is 9 + 9 + 9 - overlaps = 19
     expected8 = 19
     assert result8 == expected8, f"Expected {expected8}, got {result8}"
@@ -257,9 +256,9 @@ if __name__ == "__main__":
     print("=== 850. Rectangle Area II ===")
 
     test_cases = [
-        [[0,0,2,2],[1,0,2,3],[1,0,3,1]],
-        [[0,0,1,1],[2,2,3,3]],
-        [[0,0,2,2],[1,1,3,3]],
+        [[0, 0, 2, 2], [1, 0, 2, 3], [1, 0, 3, 1]],
+        [[0, 0, 1, 1], [2, 2, 3, 3]],
+        [[0, 0, 2, 2], [1, 1, 3, 3]],
     ]
 
     for rectangles in test_cases:
@@ -273,8 +272,8 @@ if __name__ == "__main__":
         print(f"Sweep Line:             {result_sweep}")
 
     # Detailed walkthrough
-    print(f"\nDetailed example: [[0,0,2,2],[1,0,2,3],[1,0,3,1]]")
-    rectangles = [[0,0,2,2],[1,0,2,3],[1,0,3,1]]
+    print("\nDetailed example: [[0,0,2,2],[1,0,2,3],[1,0,3,1]]")
+    rectangles = [[0, 0, 2, 2], [1, 0, 2, 3], [1, 0, 3, 1]]
 
     # Extract coordinates
     x_coords = set()
@@ -292,11 +291,11 @@ if __name__ == "__main__":
     print(f"Unique Y coordinates: {y_sorted}")
 
     # Show grid
-    print(f"\nGrid cells:")
+    print("\nGrid cells:")
     for i in range(len(x_sorted) - 1):
         for j in range(len(y_sorted) - 1):
-            x1, x2 = x_sorted[i], x_sorted[i+1]
-            y1, y2 = y_sorted[j], y_sorted[j+1]
+            x1, x2 = x_sorted[i], x_sorted[i + 1]
+            y1, y2 = y_sorted[j], y_sorted[j + 1]
 
             # Check which rectangles cover this cell
             covered_by = []
@@ -311,7 +310,7 @@ if __name__ == "__main__":
     print(f"\nTotal area: {solution.rectangleArea(rectangles)}")
 
     # Performance comparison
-    print(f"\nApproach complexities:")
-    print(f"Coordinate Compression: O(n²) time, O(n) space")
-    print(f"Sweep Line:             O(n² log n) time, O(n) space")
-    print(f"\nNote: Result is modulo 10^9 + 7 for large areas")
+    print("\nApproach complexities:")
+    print("Coordinate Compression: O(n²) time, O(n) space")
+    print("Sweep Line:             O(n² log n) time, O(n) space")
+    print("\nNote: Result is modulo 10^9 + 7 for large areas")

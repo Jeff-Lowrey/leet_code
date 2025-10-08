@@ -8,7 +8,6 @@ If there is no common prefix, return an empty string "".
 Example:
 Input: strs = ["flower","flow","flight"]
 Output: "fl"
-"""
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -51,6 +50,8 @@ For strs = ["flower","flow","flight"]:
 - No common prefix: return ""
 
 </details>
+"""
+
 
 class Solution:
     def longestCommonPrefix(self, strs: list[str]) -> str:
@@ -124,7 +125,7 @@ class Solution:
             prefix.append(char)
             node = node.children[char]
 
-        return ''.join(prefix)
+        return "".join(prefix)
 
 
 """
@@ -138,6 +139,7 @@ Example:
 Input: haystack = "sadbutsad", needle = "sad"
 Output: 0
 """
+
 
 class SolutionStrStr:
     def strStr(self, haystack: str, needle: str) -> int:
@@ -197,7 +199,7 @@ class SolutionStrStr:
             return 0
 
         for i in range(len(haystack) - len(needle) + 1):
-            if haystack[i:i + len(needle)] == needle:
+            if haystack[i : i + len(needle)] == needle:
                 return i
 
         return -1
@@ -215,6 +217,7 @@ Input: s = "abab"
 Output: true
 Explanation: It is the substring "ab" twice.
 """
+
 
 class SolutionRepeated:
     def repeatedSubstringPattern(self, s: str) -> bool:
@@ -268,6 +271,7 @@ Explanation: We return 3 because by repeating a three times "abcdabcdabcd",
 b is a substring of it.
 """
 
+
 class SolutionRepeatedMatch:
     def repeatedStringMatch(self, a: str, b: str) -> int:
         """
@@ -292,13 +296,7 @@ if __name__ == "__main__":
     solution = Solution()
 
     print("Longest Common Prefix:")
-    test_cases = [
-        ["flower", "flow", "flight"],
-        ["dog", "racecar", "car"],
-        [""],
-        ["a"],
-        ["ab", "a"]
-    ]
+    test_cases = [["flower", "flow", "flight"], ["dog", "racecar", "car"], [""], ["a"], ["ab", "a"]]
 
     for strs in test_cases:
         result = solution.longestCommonPrefix(strs)
@@ -309,12 +307,7 @@ if __name__ == "__main__":
     solution_str = SolutionStrStr()
 
     print("Find First Occurrence:")
-    str_cases = [
-        ("sadbutsad", "sad"),
-        ("leetcode", "leeto"),
-        ("hello", "ll"),
-        ("aaaaa", "bba")
-    ]
+    str_cases = [("sadbutsad", "sad"), ("leetcode", "leeto"), ("hello", "ll"), ("aaaaa", "bba")]
 
     for haystack, needle in str_cases:
         result = solution_str.strStr(haystack, needle)
@@ -336,12 +329,7 @@ if __name__ == "__main__":
     solution_match = SolutionRepeatedMatch()
 
     print("Repeated String Match:")
-    match_cases = [
-        ("abcd", "cdabcdab"),
-        ("a", "aa"),
-        ("a", "a"),
-        ("abc", "cabcabca")
-    ]
+    match_cases = [("abcd", "cdabcdab"), ("a", "aa"), ("a", "a"), ("abc", "cabcabca")]
 
     for a, b in match_cases:
         result = solution_match.repeatedStringMatch(a, b)

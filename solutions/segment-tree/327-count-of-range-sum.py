@@ -60,11 +60,10 @@ Output: 3
 </details>
 """
 
-from typing import List
 
 
 class Solution:
-    def countRangeSum(self, nums: List[int], lower: int, upper: int) -> int:
+    def countRangeSum(self, nums: list[int], lower: int, upper: int) -> int:
         """
         Count range sums in [lower, upper] using merge sort approach.
 
@@ -130,7 +129,7 @@ class Solution:
 
         return merge_sort(0, len(prefix))
 
-    def countRangeSumBIT(self, nums: List[int], lower: int, upper: int) -> int:
+    def countRangeSumBIT(self, nums: list[int], lower: int, upper: int) -> int:
         """
         Solution using Binary Indexed Tree with coordinate compression.
 
@@ -199,7 +198,7 @@ class Solution:
 
         return count
 
-    def countRangeSumSegmentTree(self, nums: List[int], lower: int, upper: int) -> int:
+    def countRangeSumSegmentTree(self, nums: list[int], lower: int, upper: int) -> int:
         """
         Solution using Segment Tree.
 
@@ -254,8 +253,7 @@ class Solution:
                 if l <= start and end <= r:
                     return self.tree[node]
                 mid = (start + end) // 2
-                return (self.query(2 * node, start, mid, l, r) +
-                        self.query(2 * node + 1, mid + 1, end, l, r))
+                return self.query(2 * node, start, mid, l, r) + self.query(2 * node + 1, mid + 1, end, l, r)
 
         n = len(sorted_values)
         seg_tree = SegmentTree(n)
@@ -272,7 +270,7 @@ class Solution:
 
         return count
 
-    def countRangeSumBruteForce(self, nums: List[int], lower: int, upper: int) -> int:
+    def countRangeSumBruteForce(self, nums: list[int], lower: int, upper: int) -> int:
         """
         Brute force solution for verification.
 
@@ -393,18 +391,18 @@ if __name__ == "__main__":
             print(f"Segment Tree: {result_seg}")
 
     # Detailed walkthrough
-    print(f"\nDetailed example: nums = [-2,5,-1], lower = -2, upper = 2")
+    print("\nDetailed example: nums = [-2,5,-1], lower = -2, upper = 2")
     nums = [-2, 5, -1]
-    print(f"Prefix sums: [0, -2, 3, 2]")
-    print(f"Valid range sums:")
-    print(f"  S(0,0) = -2 (in [-2, 2])")
-    print(f"  S(0,2) = 2 (in [-2, 2])")
-    print(f"  S(2,2) = -1 (in [-2, 2])")
+    print("Prefix sums: [0, -2, 3, 2]")
+    print("Valid range sums:")
+    print("  S(0,0) = -2 (in [-2, 2])")
+    print("  S(0,2) = 2 (in [-2, 2])")
+    print("  S(2,2) = -1 (in [-2, 2])")
     print(f"Total: {solution.countRangeSum(nums, -2, 2)} valid ranges")
 
     # Performance comparison
-    print(f"\nApproach complexities:")
-    print(f"Merge Sort:   O(n log n) time, O(n) space")
-    print(f"Binary IT:    O(n log n) time, O(n) space")
-    print(f"Segment Tree: O(n log n) time, O(n) space")
-    print(f"Brute Force:  O(n²) time, O(n) space")
+    print("\nApproach complexities:")
+    print("Merge Sort:   O(n log n) time, O(n) space")
+    print("Binary IT:    O(n log n) time, O(n) space")
+    print("Segment Tree: O(n log n) time, O(n) space")
+    print("Brute Force:  O(n²) time, O(n) space")

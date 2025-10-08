@@ -61,11 +61,11 @@ Result: 2
 """
 
 from collections import deque
-from typing import Optional
 
 
 class TreeNode:
     """Definition for a binary tree node."""
+
     def __init__(self, val=0, left=None, right=None):
         self.val = val
         self.left = left
@@ -73,7 +73,7 @@ class TreeNode:
 
 
 class Solution:
-    def maxLevelSum(self, root: Optional[TreeNode]) -> int:
+    def maxLevelSum(self, root: TreeNode | None) -> int:
         """
         Find the level with maximum sum of node values.
 
@@ -89,7 +89,7 @@ class Solution:
         if not root:
             return 0
 
-        max_sum = float('-inf')
+        max_sum = float("-inf")
         max_level = 1
         current_level = 1
 

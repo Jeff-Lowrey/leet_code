@@ -64,12 +64,12 @@ Using the next pointers established at level i to connect level i+1 without a qu
 """
 
 from collections import deque
-from typing import Optional
 
 
 class Node:
     """Definition for a Node with next pointer."""
-    def __init__(self, val: int = 0, left: 'Node' = None, right: 'Node' = None, next: 'Node' = None):
+
+    def __init__(self, val: int = 0, left: "Node" = None, right: "Node" = None, next: "Node" = None):
         self.val = val
         self.left = left
         self.right = right
@@ -77,7 +77,7 @@ class Node:
 
 
 class Solution:
-    def connect(self, root: Optional[Node]) -> Optional[Node]:
+    def connect(self, root: Node | None) -> Node | None:
         """
         Populate next right pointers in perfect binary tree.
 
@@ -114,7 +114,7 @@ class Solution:
 
         return root
 
-    def connect_optimized(self, root: Optional[Node]) -> Optional[Node]:
+    def connect_optimized(self, root: Node | None) -> Node | None:
         """
         O(1) space solution using previously established next pointers.
 
@@ -148,7 +148,7 @@ class Solution:
         return root
 
 
-def print_levels_with_next(root: Optional[Node]) -> None:
+def print_levels_with_next(root: Node | None) -> None:
     """Helper function to print tree levels with next pointers."""
     if not root:
         print("Empty tree")

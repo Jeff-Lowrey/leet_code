@@ -89,7 +89,6 @@ f("app", "e"):
 </details>
 """
 
-from typing import List
 
 
 class TrieNode:
@@ -103,7 +102,7 @@ class TrieNode:
 class WordFilter:
     """Filter words by prefix and suffix using trie."""
 
-    def __init__(self, words: List[str]):
+    def __init__(self, words: list[str]):
         """
         Initialize filter with dictionary words.
 
@@ -171,7 +170,7 @@ class WordFilter:
 class WordFilterHashMap:
     """Alternative implementation using hash map."""
 
-    def __init__(self, words: List[str]):
+    def __init__(self, words: list[str]):
         """
         Initialize using hash map for all combinations.
 
@@ -199,7 +198,7 @@ class WordFilterHashMap:
 class WordFilterBruteForce:
     """Brute force solution for comparison."""
 
-    def __init__(self, words: List[str]):
+    def __init__(self, words: list[str]):
         """Store words list."""
         self.words = words
 
@@ -279,13 +278,7 @@ if __name__ == "__main__":
     print(f"Dictionary: {words}")
     print("\nSearching for words:")
 
-    queries = [
-        ("app", "e"),
-        ("app", "y"),
-        ("a", "e"),
-        ("ap", "ion"),
-        ("x", "y")
-    ]
+    queries = [("app", "e"), ("app", "y"), ("a", "e"), ("ap", "ion"), ("x", "y")]
 
     for prefix, suffix in queries:
         result = filter_system.f(prefix, suffix)

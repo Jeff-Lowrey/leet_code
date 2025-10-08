@@ -17,7 +17,6 @@ Input:
 [[[1, 3, 5]], [0, 2], [1, 2], [0, 2]]
 Output:
 [null, 9, null, 8]
-"""
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -58,6 +57,8 @@ Tree:     9
 - Same time complexity
 
 </details>
+"""
+
 
 class NumArray:
     """
@@ -155,6 +156,7 @@ Input: nums = [5,2,6,1]
 Output: [2,1,1,0]
 """
 
+
 class Solution:
     def countSmaller(self, nums: list[int]) -> list[int]:
         """
@@ -162,6 +164,7 @@ class Solution:
         Time Complexity: O(n log n)
         Space Complexity: O(n)
         """
+
         def merge_sort(indices):
             if len(indices) <= 1:
                 return indices
@@ -243,7 +246,7 @@ if __name__ == "__main__":
     print("After update index 1 to 2")
     print(f"Sum range [0, 2]: {obj.sumRange(0, 2)}")  # 8
 
-    print("\n" + "="*50 + "\n")
+    print("\n" + "=" * 50 + "\n")
 
     # Test with BIT
     print("Using Binary Indexed Tree:")
@@ -253,17 +256,12 @@ if __name__ == "__main__":
     print("After update index 1 to 2")
     print(f"Sum range [0, 2]: {obj_bit.sumRange(0, 2)}")  # 8
 
-    print("\n" + "="*50 + "\n")
+    print("\n" + "=" * 50 + "\n")
 
     # Test Count Smaller
     solution = Solution()
     print("Count of Smaller Numbers After Self:")
-    test_cases = [
-        [5, 2, 6, 1],
-        [-1],
-        [-1, -1],
-        [5, 2, 6, 1, 3]
-    ]
+    test_cases = [[5, 2, 6, 1], [-1], [-1, -1], [5, 2, 6, 1, 3]]
 
     for nums in test_cases:
         result = solution.countSmaller(nums)

@@ -51,6 +51,7 @@ Count: 3
 </details>
 """
 
+
 class Solution:
     def heightChecker(self, heights: list[int]) -> int:
         """
@@ -117,7 +118,7 @@ class Solution:
         Returns:
             Number of students in wrong positions
         """
-        return sum(h1 != h2 for h1, h2 in zip(heights, sorted(heights)))
+        return sum(h1 != h2 for h1, h2 in zip(heights, sorted(heights), strict=False))
 
 
 def test_solution():
@@ -125,17 +126,17 @@ def test_solution():
     solution = Solution()
 
     # Test case 1: Multiple mismatches
-    result1 = solution.heightChecker([1,1,4,2,1,3])
+    result1 = solution.heightChecker([1, 1, 4, 2, 1, 3])
     expected1 = 3
     assert result1 == expected1, f"Expected {expected1}, got {result1}"
 
     # Test case 2: Already sorted
-    result2 = solution.heightChecker([5,1,2,3,4])
+    result2 = solution.heightChecker([5, 1, 2, 3, 4])
     expected2 = 5
     assert result2 == expected2, f"Expected {expected2}, got {result2}"
 
     # Test case 3: Perfect order
-    result3 = solution.heightChecker([1,2,3,4,5])
+    result3 = solution.heightChecker([1, 2, 3, 4, 5])
     expected3 = 0
     assert result3 == expected3, f"Expected {expected3}, got {result3}"
 
@@ -145,17 +146,17 @@ def test_solution():
     assert result4 == expected4, f"Expected {expected4}, got {result4}"
 
     # Test case 5: Two elements
-    result5 = solution.heightChecker([2,1])
+    result5 = solution.heightChecker([2, 1])
     expected5 = 2
     assert result5 == expected5, f"Expected {expected5}, got {result5}"
 
     # Test counting sort solution
-    result6 = solution.heightCheckerCountingSort([1,1,4,2,1,3])
+    result6 = solution.heightCheckerCountingSort([1, 1, 4, 2, 1, 3])
     expected6 = 3
     assert result6 == expected6, f"Expected {expected6}, got {result6}"
 
     # Test one-liner solution
-    result7 = solution.heightCheckerOneLiner([1,1,4,2,1,3])
+    result7 = solution.heightCheckerOneLiner([1, 1, 4, 2, 1, 3])
     expected7 = 3
     assert result7 == expected7, f"Expected {expected7}, got {result7}"
 
@@ -168,6 +169,6 @@ if __name__ == "__main__":
     # Example usage
     solution = Solution()
     print("=== 1051. Height Checker ===")
-    print(f"heightChecker([1,1,4,2,1,3]) -> {solution.heightChecker([1,1,4,2,1,3])}")
-    print(f"heightChecker([5,1,2,3,4]) -> {solution.heightChecker([5,1,2,3,4])}")
-    print(f"heightChecker([1,2,3,4,5]) -> {solution.heightChecker([1,2,3,4,5])}")
+    print(f"heightChecker([1,1,4,2,1,3]) -> {solution.heightChecker([1, 1, 4, 2, 1, 3])}")
+    print(f"heightChecker([5,1,2,3,4]) -> {solution.heightChecker([5, 1, 2, 3, 4])}")
+    print(f"heightChecker([1,2,3,4,5]) -> {solution.heightChecker([1, 2, 3, 4, 5])}")

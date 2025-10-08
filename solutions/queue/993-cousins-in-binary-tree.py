@@ -70,11 +70,11 @@ x=2, y=3:
 """
 
 from collections import deque
-from typing import Optional
 
 
 class TreeNode:
     """Definition for a binary tree node."""
+
     def __init__(self, val=0, left=None, right=None):
         self.val = val
         self.left = left
@@ -82,7 +82,7 @@ class TreeNode:
 
 
 class Solution:
-    def isCousins(self, root: Optional[TreeNode], x: int, y: int) -> bool:
+    def isCousins(self, root: TreeNode | None, x: int, y: int) -> bool:
         """
         Check if two nodes are cousins in binary tree.
 
@@ -128,14 +128,15 @@ class Solution:
         # If we didn't find both nodes
         return False
 
-    def isCousins_dfs(self, root: Optional[TreeNode], x: int, y: int) -> bool:
+    def isCousins_dfs(self, root: TreeNode | None, x: int, y: int) -> bool:
         """
         Alternative DFS solution.
 
         Time Complexity: O(n)
         Space Complexity: O(h) where h is height (recursion stack)
         """
-        def dfs(node: Optional[TreeNode], parent: Optional[TreeNode], depth: int, target: int):
+
+        def dfs(node: TreeNode | None, parent: TreeNode | None, depth: int, target: int):
             """Returns (parent, depth) if target found, else None."""
             if not node:
                 return None
@@ -175,8 +176,8 @@ def test_solution():
     root1.left = TreeNode(2)
     root1.right = TreeNode(3)
     root1.left.left = TreeNode(4)
-    assert solution.isCousins(root1, 4, 3) == False  # Different depths
-    assert solution.isCousins_dfs(root1, 4, 3) == False
+    assert not solution.isCousins(root1, 4, 3)  # Different depths
+    assert not solution.isCousins_dfs(root1, 4, 3)
     print("Test case 1 passed: Different depths")
 
     # Test case 2: Siblings (not cousins)
@@ -190,7 +191,7 @@ def test_solution():
     root2.right = TreeNode(3)
     root2.left.left = TreeNode(4)
     root2.left.right = TreeNode(5)
-    assert solution.isCousins(root2, 4, 5) == False  # Same parent
+    assert not solution.isCousins(root2, 4, 5)  # Same parent
     print("Test case 2 passed: Siblings (same parent)")
 
     # Test case 3: True cousins
@@ -204,8 +205,8 @@ def test_solution():
     root3.right = TreeNode(3)
     root3.left.left = TreeNode(4)
     root3.right.right = TreeNode(5)
-    assert solution.isCousins(root3, 4, 5) == True  # Cousins!
-    assert solution.isCousins_dfs(root3, 4, 5) == True
+    assert solution.isCousins(root3, 4, 5)  # Cousins!
+    assert solution.isCousins_dfs(root3, 4, 5)
     print("Test case 3 passed: True cousins")
 
     # Test case 4: Nodes at root level
@@ -215,13 +216,13 @@ def test_solution():
     root4 = TreeNode(1)
     root4.left = TreeNode(2)
     root4.right = TreeNode(3)
-    assert solution.isCousins(root4, 2, 3) == False  # Same parent
+    assert not solution.isCousins(root4, 2, 3)  # Same parent
     print("Test case 4 passed: Children of root (same parent)")
 
     # Test case 5: One node doesn't exist
     root5 = TreeNode(1)
     root5.left = TreeNode(2)
-    assert solution.isCousins(root5, 2, 3) == False  # Node 3 doesn't exist
+    assert not solution.isCousins(root5, 2, 3)  # Node 3 doesn't exist
     print("Test case 5 passed: Node doesn't exist")
 
     # Test case 6: Complex tree with cousins
@@ -237,15 +238,15 @@ def test_solution():
     root6.left.right = TreeNode(5)
     root6.right.left = TreeNode(6)
     root6.right.right = TreeNode(7)
-    assert solution.isCousins(root6, 4, 6) == True  # Cousins
-    assert solution.isCousins(root6, 4, 5) == False  # Siblings
-    assert solution.isCousins(root6, 5, 7) == True  # Cousins
-    assert solution.isCousins_dfs(root6, 5, 7) == True
+    assert solution.isCousins(root6, 4, 6)  # Cousins
+    assert not solution.isCousins(root6, 4, 5)  # Siblings
+    assert solution.isCousins(root6, 5, 7)  # Cousins
+    assert solution.isCousins_dfs(root6, 5, 7)
     print("Test case 6 passed: Complex tree")
 
     # Test case 7: Single node
     root7 = TreeNode(1)
-    assert solution.isCousins(root7, 1, 2) == False
+    assert not solution.isCousins(root7, 1, 2)
     print("Test case 7 passed: Single node")
 
     print("\nAll test cases passed!")

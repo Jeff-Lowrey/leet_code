@@ -70,7 +70,6 @@ queryRange(16, 17): true (fully covered)
 </details>
 """
 
-from typing import List
 import bisect
 
 
@@ -130,7 +129,7 @@ class RangeModule:
             True if entire range is covered, False otherwise
         """
         # Binary search for interval that might contain [left, right)
-        i = bisect.bisect_left(self.intervals, (left, float('inf')))
+        i = bisect.bisect_left(self.intervals, (left, float("inf")))
 
         # Check previous interval (might contain left)
         if i > 0:
@@ -261,23 +260,23 @@ def test_solution():
 
     obj.addRange(10, 20)
     result1 = obj.queryRange(10, 14)
-    assert result1 == True, f"Expected True, got {result1}"
+    assert result1, f"Expected True, got {result1}"
 
     result2 = obj.queryRange(13, 15)
-    assert result2 == True, f"Expected True, got {result2}"
+    assert result2, f"Expected True, got {result2}"
 
     result3 = obj.queryRange(16, 17)
-    assert result3 == True, f"Expected True, got {result3}"
+    assert result3, f"Expected True, got {result3}"
 
     obj.removeRange(14, 16)
     result4 = obj.queryRange(10, 14)
-    assert result4 == True, f"Expected True, got {result4}"
+    assert result4, f"Expected True, got {result4}"
 
     result5 = obj.queryRange(13, 15)
-    assert result5 == False, f"Expected False, got {result5}"
+    assert not result5, f"Expected False, got {result5}"
 
     result6 = obj.queryRange(16, 17)
-    assert result6 == True, f"Expected True, got {result6}"
+    assert result6, f"Expected True, got {result6}"
 
     # Test segment tree approach
     print("Testing segment tree approach:")
@@ -285,25 +284,25 @@ def test_solution():
 
     obj2.addRange(10, 20)
     result7 = obj2.queryRange(10, 14)
-    assert result7 == True, f"Expected True, got {result7}"
+    assert result7, f"Expected True, got {result7}"
 
     obj2.removeRange(14, 16)
     result8 = obj2.queryRange(13, 15)
-    assert result8 == False, f"Expected False, got {result8}"
+    assert not result8, f"Expected False, got {result8}"
 
     # Test merging intervals
     obj3 = RangeModule()
     obj3.addRange(10, 20)
     obj3.addRange(15, 25)  # Should merge
     result9 = obj3.queryRange(10, 25)
-    assert result9 == True, f"Expected True, got {result9}"
+    assert result9, f"Expected True, got {result9}"
 
     # Test removing entire range
     obj4 = RangeModule()
     obj4.addRange(10, 20)
     obj4.removeRange(10, 20)
     result10 = obj4.queryRange(10, 20)
-    assert result10 == False, f"Expected False, got {result10}"
+    assert not result10, f"Expected False, got {result10}"
 
     print("All test cases passed!")
 
@@ -350,6 +349,6 @@ if __name__ == "__main__":
     print(f"After addRange(2, 4): {rm2.intervals}")
 
     # Performance comparison
-    print(f"\nApproach complexities:")
-    print(f"Sorted Intervals: O(n) worst case, O(log n) average per operation")
-    print(f"Segment Tree:     O(log n) per operation")
+    print("\nApproach complexities:")
+    print("Sorted Intervals: O(n) worst case, O(log n) average per operation")
+    print("Segment Tree:     O(log n) per operation")
