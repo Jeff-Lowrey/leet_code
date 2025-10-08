@@ -7,43 +7,108 @@
  * SOLUTION EXPLANATION:
  *
  * INTUITION:
- * This problem requires understanding of recursion concepts.
+ * Given an array of distinct integers and a target, find all unique combinations
+ * where the numbers sum to target. Each number may be used unlimited times.
+ * This is a classic backtracking problem where we explore all possible combinations.
  *
  * APPROACH:
- * Apply recursion methodology to solve efficiently.
+ * 1. **Backtracking with reusability**:
+ *    - For each candidate, decide to include it (possibly multiple times) or skip it
+ *    - Track current sum and combination
+ *    - Base case: sum equals target (add to results) or exceeds it (backtrack)
+ * 2. **Avoid duplicates**:
+ *    - Use a start index to only consider candidates at or after current position
+ *    - This ensures combinations like [2,3] and [3,2] are treated as the same
+ * 3. **Optimization**: Sort candidates and prune when sum exceeds target
  *
  * WHY THIS WORKS:
- * The solution leverages recursion principles for optimal performance.
+ * - Backtracking explores all possible ways to combine candidates
+ * - Allowing reuse of candidates by keeping same start index when recursing
+ * - Start index prevents duplicate combinations in different orders
  *
- * TIME COMPLEXITY: O(n)
- * SPACE COMPLEXITY: O(1)
+ * TIME COMPLEXITY: O(N^(T/M)) where N is number of candidates, T is target, M is min candidate
+ *   - In worst case, we explore a tree of height T/M with N branches at each level
+ * SPACE COMPLEXITY: O(T/M) - recursion depth and combination storage
  *
  * EXAMPLE WALKTHROUGH:
- * Input: [example input]\nStep 1: [explain first step]\nOutput: [expected output]
+ * ```
+ * Input: candidates = [2,3,6,7], target = 7
+ *
+ * Start with 2: [2] -> [2,2] -> [2,2,2] -> [2,2,2,2] -> sum > 7, backtrack
+ *                             -> [2,2,3] -> sum = 7 (valid!)
+ * Start with 3: [3] -> [3,3] -> [3,3,3] -> sum > 7, backtrack
+ *                             -> [3,7] -> sum > 7, backtrack
+ * Start with 7: [7] -> sum = 7 (valid!)
+ *
+ * Output: [[2,2,3], [7]]
+ * ```
  *
  * EDGE CASES:
- * - Empty input handling\n- Single element cases\n- Large input considerations
+ * - Empty candidates array
+ * - Target is 0 (return [[]])
+ * - No valid combinations (return [])
+ * - All candidates larger than target
  */
 
 /**
  * Main solution for Problem 39: Combination Sum
  *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
+ * @param {number[]} candidates - Array of distinct positive integers
+ * @param {number} target - Target sum
+ * @return {number[][]} - All unique combinations that sum to target
  *
- * Time Complexity: O(n)
- * Space Complexity: O(1)
+ * Time Complexity: O(N^(T/M))
+ * Space Complexity: O(T/M)
  */
-function solve(...args) {
-    // TODO: Implement the solution using recursion techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using recursion methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+function solve(candidates, target) {
+    const result = [];
 
-    return null; // Replace with actual implementation
+    // Sort candidates for optimization (optional but helps with pruning)
+    candidates.sort((a, b) => a - b);
+
+    /**
+     * Backtracking helper function
+     * @param {number} start - Starting index in candidates array
+     * @param {number} currentSum - Current sum of combination
+     * @param {number[]} combination - Current combination being built
+     */
+    function backtrack(start, currentSum, combination) {
+        // Base case: found valid combination
+        if (currentSum === target) {
+            result.push([...combination]);
+            return;
+        }
+
+        // Pruning: if current sum exceeds target, stop
+        if (currentSum > target) {
+            return;
+        }
+
+        // Try each candidate starting from 'start' index
+        for (let i = start; i < candidates.length; i++) {
+            const candidate = candidates[i];
+
+            // Pruning: if adding this candidate exceeds target, stop
+            // (works because array is sorted)
+            if (currentSum + candidate > target) {
+                break;
+            }
+
+            // Choose: add candidate to combination
+            combination.push(candidate);
+
+            // Explore: recurse with same index (allows reusing same number)
+            backtrack(i, currentSum + candidate, combination);
+
+            // Unchoose: backtrack
+            combination.pop();
+        }
+    }
+
+    // Start backtracking from index 0
+    backtrack(0, 0, []);
+
+    return result;
 }
 
 /**
@@ -52,20 +117,43 @@ function solve(...args) {
 function testSolution() {
     console.log('Testing 39. Combination Sum');
 
-    // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    // Helper function to compare 2D arrays (order doesn't matter)
+    function arraysEqual(a, b) {
+        if (a.length !== b.length) return false;
+        const sortedA = a.map(arr => [...arr].sort((x, y) => x - y)).sort((x, y) => JSON.stringify(x).localeCompare(JSON.stringify(y)));
+        const sortedB = b.map(arr => [...arr].sort((x, y) => x - y)).sort((x, y) => JSON.stringify(x).localeCompare(JSON.stringify(y)));
+        return JSON.stringify(sortedA) === JSON.stringify(sortedB);
+    }
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 1: Basic case
+    const result1 = solve([2,3,6,7], 7);
+    const expected1 = [[2,2,3], [7]];
+    console.assert(arraysEqual(result1, expected1),
+        `Test 1 failed: expected ${JSON.stringify(expected1)}, got ${JSON.stringify(result1)}`);
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 2: Multiple uses of same number
+    const result2 = solve([2,3,5], 8);
+    const expected2 = [[2,2,2,2], [2,3,3], [3,5]];
+    console.assert(arraysEqual(result2, expected2),
+        `Test 2 failed: expected ${JSON.stringify(expected2)}, got ${JSON.stringify(result2)}`);
+
+    // Test case 3: Single number
+    const result3 = solve([2], 1);
+    const expected3 = [];
+    console.assert(arraysEqual(result3, expected3),
+        `Test 3 failed: expected ${JSON.stringify(expected3)}, got ${JSON.stringify(result3)}`);
+
+    // Test case 4: Target equals candidate
+    const result4 = solve([1], 1);
+    const expected4 = [[1]];
+    console.assert(arraysEqual(result4, expected4),
+        `Test 4 failed: expected ${JSON.stringify(expected4)}, got ${JSON.stringify(result4)}`);
+
+    // Test case 5: No valid combinations
+    const result5 = solve([5,6,7], 3);
+    const expected5 = [];
+    console.assert(arraysEqual(result5, expected5),
+        `Test 5 failed: expected ${JSON.stringify(expected5)}, got ${JSON.stringify(result5)}`);
 
     console.log('All test cases passed for 39. Combination Sum!');
 }
@@ -79,7 +167,13 @@ function demonstrateSolution() {
     console.log('Difficulty: Medium');
     console.log('');
 
-    // Example demonstration would go here
+    console.log('Input: candidates = [2,3,6,7], target = 7');
+    console.log('Output:', JSON.stringify(solve([2,3,6,7], 7)));
+    console.log('');
+
+    console.log('Input: candidates = [2,3,5], target = 8');
+    console.log('Output:', JSON.stringify(solve([2,3,5], 8)));
+
     testSolution();
 }
 
@@ -97,8 +191,8 @@ module.exports = {
 
 /**
  * Additional Notes:
- * - This solution focuses on recursion concepts
- * - Consider the trade-offs between time and space complexity
- * - Edge cases are crucial for robust solutions
- * - The approach can be adapted for similar problems in this category
+ * - Key difference from other combination problems: numbers can be reused
+ * - Using same index 'i' in recursive call allows reusing the same number
+ * - Sorting helps with pruning but isn't strictly necessary
+ * - This pattern is useful for coin change and similar problems
  */
