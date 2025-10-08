@@ -7,8 +7,6 @@ Given an m x `n` matrix, return all elements of the matrix in spiral order.
 Example:
 Input: `matrix` = [[1,2,3],[4,5,6],[7,8,9]]
 Output: [1,2,3,6,9,8,7,4,5]
-"""
-
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
@@ -37,6 +35,8 @@ Matrix: [[1,2,3],[4,5,6],[7,8,9]]
 - Result: [1,2,3,6,9,8,7,4,5]
 
 </details>
+"""
+
 
 class Solution:
     def spiralOrder(self, matrix: list[list[int]]) -> list[int]:
@@ -92,6 +92,7 @@ Input: n = 3
 Output: [[1,2,3],[8,9,4],[7,6,5]]
 """
 
+
 class SolutionGenerate:
     def generateMatrix(self, n: int) -> list[list[int]]:
         """
@@ -142,7 +143,7 @@ if __name__ == "__main__":
         [[1, 2, 3], [4, 5, 6], [7, 8, 9]],
         [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]],
         [[1]],
-        [[1, 2], [3, 4]]
+        [[1, 2], [3, 4]],
     ]
 
     print("Spiral Order:")

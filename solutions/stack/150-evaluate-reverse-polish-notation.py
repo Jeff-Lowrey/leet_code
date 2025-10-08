@@ -183,5 +183,5 @@ if __name__ == "__main__":
     solution = Solution()
     print("=== 150. Evaluate Reverse Polish Notation ===")
     print(f"evalRPN(['2','1','+','3','*']) -> {solution.evalRPN(['2','1','+','3','*'])}")
-    print(f"evalRPN(['4','13','5','/,'+']) -> {solution.evalRPN(['4','13','5','/,'+'])}")
+    print(f"evalRPN(['4','13','5','/','+']) -> {solution.evalRPN(['4','13','5','/','+'])}")
     print(f"evalRPN(['42']) -> {solution.evalRPN(['42'])}")

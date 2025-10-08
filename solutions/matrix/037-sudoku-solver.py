@@ -60,6 +60,7 @@ The approach uses backtracking with constraint checking to solve Sudoku.
 </details>
 """
 
+
 class Solution:
     def solveSudoku(self, board: list[list[str]]) -> None:
         """
@@ -74,6 +75,7 @@ class Solution:
         Time Complexity: O(9^(n*n)) worst case
         Space Complexity: O(n*n) recursion stack
         """
+
         def is_valid(row: int, col: int, num: str) -> bool:
             """Check if placing num at (row, col) is valid."""
             # Check row
@@ -98,9 +100,9 @@ class Solution:
             # Find next empty cell
             for row in range(9):
                 for col in range(9):
-                    if board[row][col] == '.':
+                    if board[row][col] == ".":
                         # Try digits 1-9
-                        for num in '123456789':
+                        for num in "123456789":
                             if is_valid(row, col, num):
                                 board[row][col] = num
 
@@ -109,7 +111,7 @@ class Solution:
                                     return True
 
                                 # Backtrack
-                                board[row][col] = '.'
+                                board[row][col] = "."
 
                         return False
 
@@ -120,6 +122,7 @@ class Solution:
 
     # Alias for consistent interface
     solve = solveSudoku
+
 
 def test_solution():
     """
@@ -137,7 +140,7 @@ def test_solution():
         ["7", ".", ".", ".", "2", ".", ".", ".", "6"],
         [".", "6", ".", ".", ".", ".", "2", "8", "."],
         [".", ".", ".", "4", "1", "9", ".", ".", "5"],
-        [".", ".", ".", ".", "8", ".", ".", "7", "9"]
+        [".", ".", ".", ".", "8", ".", ".", "7", "9"],
     ]
     expected1 = [
         ["5", "3", "4", "6", "7", "8", "9", "1", "2"],
@@ -148,7 +151,7 @@ def test_solution():
         ["7", "1", "3", "9", "2", "4", "8", "5", "6"],
         ["9", "6", "1", "5", "3", "7", "2", "8", "4"],
         ["2", "8", "7", "4", "1", "9", "6", "3", "5"],
-        ["3", "4", "5", "2", "8", "6", "1", "7", "9"]
+        ["3", "4", "5", "2", "8", "6", "1", "7", "9"],
     ]
     solution.solveSudoku(board1)
     assert board1 == expected1, f"Test case 1 failed"
@@ -164,7 +167,7 @@ def test_solution():
         ["7", "1", "3", "9", "2", "4", "8", "5", "6"],
         ["9", "6", "1", "5", "3", "7", "2", "8", "4"],
         ["2", "8", "7", "4", "1", "9", "6", "3", "5"],
-        ["3", "4", "5", "2", "8", "6", "1", "7", "."]
+        ["3", "4", "5", "2", "8", "6", "1", "7", "."],
     ]
     solution.solveSudoku(board2)
     assert board2[-1][-1] == "9", f"Test case 2 failed"
@@ -180,15 +183,16 @@ def test_solution():
         [".", "9", "8", ".", ".", ".", "3", ".", "."],
         [".", ".", ".", "8", ".", "3", ".", "2", "."],
         [".", ".", ".", ".", ".", ".", ".", ".", "6"],
-        [".", ".", ".", "2", "7", "5", "9", ".", "."]
+        [".", ".", ".", "2", "7", "5", "9", ".", "."],
     ]
     solution.solveSudoku(board3)
     # Verify solution is valid (all rows, cols, boxes have 1-9)
     for row in board3:
-        assert set(row) == set('123456789'), f"Invalid row: {row}"
+        assert set(row) == set("123456789"), f"Invalid row: {row}"
     print("Test case 3 passed: Hard Sudoku")
 
     print("\nAll test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()
@@ -205,7 +209,7 @@ if __name__ == "__main__":
         ["7", ".", ".", ".", "2", ".", ".", ".", "6"],
         [".", "6", ".", ".", ".", ".", "2", "8", "."],
         [".", ".", ".", "4", "1", "9", ".", ".", "5"],
-        [".", ".", ".", ".", "8", ".", ".", "7", "9"]
+        [".", ".", ".", ".", "8", ".", ".", "7", "9"],
     ]
     print("Before:")
     for row in board:

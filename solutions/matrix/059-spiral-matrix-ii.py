@@ -70,6 +70,7 @@ The approach fills matrix in spiral layers from outside to inside.
 </details>
 """
 
+
 class Solution:
     def generateMatrix(self, n: int) -> list[list[int]]:
         """
@@ -125,6 +126,7 @@ class Solution:
     # Alias for consistent interface
     solve = generateMatrix
 
+
 def test_solution():
     """
     Test cases for 059. Spiral Matrix II.
@@ -145,12 +147,7 @@ def test_solution():
 
     # Test case 3: n = 4
     result3 = solution.generateMatrix(4)
-    expected3 = [
-        [1, 2, 3, 4],
-        [12, 13, 14, 5],
-        [11, 16, 15, 6],
-        [10, 9, 8, 7]
-    ]
+    expected3 = [[1, 2, 3, 4], [12, 13, 14, 5], [11, 16, 15, 6], [10, 9, 8, 7]]
     assert result3 == expected3, f"Test case 3 failed: expected {expected3}, got {result3}"
     print("Test case 3 passed: n = 4")
 
@@ -173,6 +170,7 @@ def test_solution():
     print("Test case 5 passed: n = 5")
 
     print("\nAll test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

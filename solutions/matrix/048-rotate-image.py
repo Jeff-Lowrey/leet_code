@@ -67,6 +67,7 @@ The approach uses matrix transpose followed by row reversal.
 </details>
 """
 
+
 class Solution:
     def rotate(self, matrix: list[list[int]]) -> None:
         """
@@ -95,6 +96,7 @@ class Solution:
     # Alias for consistent interface
     solve = rotate
 
+
 def test_solution():
     """
     Test cases for 048. Rotate Image.
@@ -109,18 +111,8 @@ def test_solution():
     print("Test case 1 passed: 3x3 matrix")
 
     # Test case 2: 4x4 matrix
-    matrix2 = [
-        [5, 1, 9, 11],
-        [2, 4, 8, 10],
-        [13, 3, 6, 7],
-        [15, 14, 12, 16]
-    ]
-    expected2 = [
-        [15, 13, 2, 5],
-        [14, 3, 4, 1],
-        [12, 6, 8, 9],
-        [16, 7, 10, 11]
-    ]
+    matrix2 = [[5, 1, 9, 11], [2, 4, 8, 10], [13, 3, 6, 7], [15, 14, 12, 16]]
+    expected2 = [[15, 13, 2, 5], [14, 3, 4, 1], [12, 6, 8, 9], [16, 7, 10, 11]]
     solution.rotate(matrix2)
     assert matrix2 == expected2, f"Test case 2 failed: expected {expected2}, got {matrix2}"
     print("Test case 2 passed: 4x4 matrix")
@@ -147,6 +139,7 @@ def test_solution():
     print("Test case 5 passed: Matrix with negative numbers")
 
     print("\nAll test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

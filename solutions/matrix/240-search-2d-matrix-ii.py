@@ -70,6 +70,7 @@ The approach uses staircase search from top-right corner.
 </details>
 """
 
+
 class Solution:
     def searchMatrix(self, matrix: list[list[int]], target: int) -> bool:
         """
@@ -110,6 +111,7 @@ class Solution:
     # Alias for consistent interface
     solve = searchMatrix
 
+
 def test_solution():
     """
     Test cases for 240. Search a 2D Matrix II.
@@ -117,24 +119,12 @@ def test_solution():
     solution = Solution()
 
     # Test case 1: Target exists in matrix
-    matrix1 = [
-        [1, 4, 7, 11, 15],
-        [2, 5, 8, 12, 19],
-        [3, 6, 9, 16, 22],
-        [10, 13, 14, 17, 24],
-        [18, 21, 23, 26, 30]
-    ]
+    matrix1 = [[1, 4, 7, 11, 15], [2, 5, 8, 12, 19], [3, 6, 9, 16, 22], [10, 13, 14, 17, 24], [18, 21, 23, 26, 30]]
     assert solution.searchMatrix(matrix1, 5) == True, "Test case 1 failed"
     print("Test case 1 passed: Target exists")
 
     # Test case 2: Target does not exist
-    matrix2 = [
-        [1, 4, 7, 11, 15],
-        [2, 5, 8, 12, 19],
-        [3, 6, 9, 16, 22],
-        [10, 13, 14, 17, 24],
-        [18, 21, 23, 26, 30]
-    ]
+    matrix2 = [[1, 4, 7, 11, 15], [2, 5, 8, 12, 19], [3, 6, 9, 16, 22], [10, 13, 14, 17, 24], [18, 21, 23, 26, 30]]
     assert solution.searchMatrix(matrix2, 20) == False, "Test case 2 failed"
     print("Test case 2 passed: Target does not exist")
 
@@ -192,19 +182,14 @@ def test_solution():
 
     print("\nAll test cases passed!")
 
+
 if __name__ == "__main__":
     test_solution()
 
     # Example usage
     solution = Solution()
     print("\nExample: Searching in 2D matrix")
-    matrix = [
-        [1, 4, 7, 11, 15],
-        [2, 5, 8, 12, 19],
-        [3, 6, 9, 16, 22],
-        [10, 13, 14, 17, 24],
-        [18, 21, 23, 26, 30]
-    ]
+    matrix = [[1, 4, 7, 11, 15], [2, 5, 8, 12, 19], [3, 6, 9, 16, 22], [10, 13, 14, 17, 24], [18, 21, 23, 26, 30]]
     print("Matrix:")
     for row in matrix:
         print(row)

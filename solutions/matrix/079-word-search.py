@@ -67,6 +67,7 @@ The approach uses DFS backtracking to search for word in grid.
 </details>
 """
 
+
 class Solution:
     def exist(self, board: list[list[str]], word: str) -> bool:
         """
@@ -113,14 +114,14 @@ class Solution:
 
             # Mark as visited
             temp = board[row][col]
-            board[row][col] = '#'
+            board[row][col] = "#"
 
             # Search in all 4 directions
             found = (
-                dfs(row + 1, col, index + 1) or
-                dfs(row - 1, col, index + 1) or
-                dfs(row, col + 1, index + 1) or
-                dfs(row, col - 1, index + 1)
+                dfs(row + 1, col, index + 1)
+                or dfs(row - 1, col, index + 1)
+                or dfs(row, col + 1, index + 1)
+                or dfs(row, col - 1, index + 1)
             )
 
             # Backtrack: unmark as visited
@@ -138,6 +139,7 @@ class Solution:
 
     # Alias for consistent interface
     solve = exist
+
 
 def test_solution():
     """
@@ -196,6 +198,7 @@ def test_solution():
     print("Test case 10 passed: Adjacent duplicates")
 
     print("\nAll test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()
