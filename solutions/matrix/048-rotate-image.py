@@ -1,73 +1,99 @@
 """
 # 048. Rotate Image
-**Transpose**
+**Transpose + Reverse**
 
-Given a problem that demonstrates key concepts in Matrix.
+Rotate an n x n 2D matrix 90 degrees clockwise in-place.
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
-[This problem requires understanding of matrix concepts. The key insight is to identify the optimal approach for this specific scenario.]
+Rotating 90 degrees clockwise can be achieved by two simple operations:
+1. Transpose the matrix (swap rows and columns)
+2. Reverse each row
+
+This avoids using extra space for a new matrix.
 
 ### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply matrix methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+1. **Transpose**: Convert matrix[i][j] to matrix[j][i] for all i, j
+2. **Reverse rows**: Reverse each row to complete the 90-degree rotation
+3. **In-place**: Both operations modify the matrix directly
 
 ### WHY THIS WORKS:
-- The solution leverages matrix principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+- Transpose flips the matrix along diagonal
+- Reversing rows completes the 90-degree clockwise rotation
+- Two simple operations replace complex rotation logic
+- No additional space needed
 
-### TIME COMPLEXITY: O(n)
-### SPACE COMPLEXITY: O(1)
+### TIME COMPLEXITY: O(n^2) where n is matrix dimension
+### SPACE COMPLEXITY: O(1) in-place modification
 
 ### EXAMPLE WALKTHROUGH:
 ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
+Input: [[1,2,3],
+        [4,5,6],
+        [7,8,9]]
+
+Step 1 (Transpose): [[1,4,7],
+                      [2,5,8],
+                      [3,6,9]]
+
+Step 2 (Reverse rows): [[7,4,1],
+                        [8,5,2],
+                        [9,6,3]]
+
+Output: [[7,4,1],
+         [8,5,2],
+         [9,6,3]]
 ```
 
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- 1x1 matrix (no change needed)
+- 2x2 matrix (minimal case)
+- Empty matrix (not per problem constraints)
 
 </details>
 
 <details>
 <summary><b>💡 APPROACH</b></summary>
 
-The approach uses matrix techniques to solve this problem efficiently.
+The approach uses matrix transpose followed by row reversal.
 
 ### Algorithm Steps:
-1. Initialize necessary variables
-2. Process input using matrix method
-3. Return the computed result
+1. Transpose the matrix (swap matrix[i][j] with matrix[j][i])
+2. Reverse each row
+3. Matrix is now rotated 90 degrees clockwise
 
 </details>
 """
 
 class Solution:
-    def solve(self, *args):
+    def rotate(self, matrix: list[list[int]]) -> None:
         """
-        Main solution for 048. Rotate Image.
+        Rotate n x n matrix 90 degrees clockwise in-place.
 
         Args:
-            *args: Problem-specific arguments
+            matrix: n x n 2D matrix
 
         Returns:
-            Problem-specific return type
+            None (modifies matrix in-place)
 
-        Time Complexity: O(n)
+        Time Complexity: O(n^2)
         Space Complexity: O(1)
         """
-        # TODO: Implement the solution
-        pass
+        n = len(matrix)
+
+        # Step 1: Transpose the matrix
+        for i in range(n):
+            for j in range(i + 1, n):
+                matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
+
+        # Step 2: Reverse each row
+        for i in range(n):
+            matrix[i].reverse()
+
+    # Alias for consistent interface
+    solve = rotate
 
 def test_solution():
     """
@@ -75,21 +101,64 @@ def test_solution():
     """
     solution = Solution()
 
-    # Test case 1: Basic functionality
-    # result = solution.solve([test_input])
-    # expected = [expected_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 1: 3x3 matrix
+    matrix1 = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+    expected1 = [[7, 4, 1], [8, 5, 2], [9, 6, 3]]
+    solution.rotate(matrix1)
+    assert matrix1 == expected1, f"Test case 1 failed: expected {expected1}, got {matrix1}"
+    print("Test case 1 passed: 3x3 matrix")
 
-    # Test case 2: Edge case
-    # result = solution.solve([edge_case_input])
-    # expected = [edge_case_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 2: 4x4 matrix
+    matrix2 = [
+        [5, 1, 9, 11],
+        [2, 4, 8, 10],
+        [13, 3, 6, 7],
+        [15, 14, 12, 16]
+    ]
+    expected2 = [
+        [15, 13, 2, 5],
+        [14, 3, 4, 1],
+        [12, 6, 8, 9],
+        [16, 7, 10, 11]
+    ]
+    solution.rotate(matrix2)
+    assert matrix2 == expected2, f"Test case 2 failed: expected {expected2}, got {matrix2}"
+    print("Test case 2 passed: 4x4 matrix")
 
-    print("All test cases passed!")
+    # Test case 3: 1x1 matrix (edge case)
+    matrix3 = [[1]]
+    expected3 = [[1]]
+    solution.rotate(matrix3)
+    assert matrix3 == expected3, f"Test case 3 failed: expected {expected3}, got {matrix3}"
+    print("Test case 3 passed: 1x1 matrix")
+
+    # Test case 4: 2x2 matrix
+    matrix4 = [[1, 2], [3, 4]]
+    expected4 = [[3, 1], [4, 2]]
+    solution.rotate(matrix4)
+    assert matrix4 == expected4, f"Test case 4 failed: expected {expected4}, got {matrix4}"
+    print("Test case 4 passed: 2x2 matrix")
+
+    # Test case 5: Matrix with negative numbers
+    matrix5 = [[-1, -2], [-3, -4]]
+    expected5 = [[-3, -1], [-4, -2]]
+    solution.rotate(matrix5)
+    assert matrix5 == expected5, f"Test case 5 failed: expected {expected5}, got {matrix5}"
+    print("Test case 5 passed: Matrix with negative numbers")
+
+    print("\nAll test cases passed!")
 
 if __name__ == "__main__":
     test_solution()
 
     # Example usage
     solution = Solution()
-    print(f"Solution for 048. Rotate Image")
+    print("\nExample: Rotating a 3x3 matrix")
+    matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+    print("Before rotation:")
+    for row in matrix:
+        print(row)
+    solution.rotate(matrix)
+    print("\nAfter 90-degree clockwise rotation:")
+    for row in matrix:
+        print(row)
