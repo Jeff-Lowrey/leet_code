@@ -53,21 +53,43 @@ The approach uses monotonic stack techniques to solve this problem efficiently.
 """
 
 class Solution:
-    def solve(self, *args):
+    def largestRectangleArea(self, heights: list[int]) -> int:
         """
-        Main solution for 084. Largest Rectangle In Histogram.
+        Find largest rectangle area in histogram using monotonic stack.
 
         Args:
-            *args: Problem-specific arguments
+            heights: Array of bar heights in histogram
 
         Returns:
-            Problem-specific return type
+            Maximum rectangle area
 
-        Time Complexity: O(n)
-        Space Complexity: O(1)
+        Time Complexity: O(n) - each element pushed/popped once
+        Space Complexity: O(n) - stack can hold all elements in worst case
         """
-        # TODO: Implement the solution
-        pass
+        stack = []  # Store indices of bars
+        max_area = 0
+
+        for i, h in enumerate(heights):
+            # Maintain increasing stack
+            while stack and heights[stack[-1]] > h:
+                height = heights[stack.pop()]
+                # Width is distance to current bar minus distance to previous bar
+                width = i if not stack else i - stack[-1] - 1
+                max_area = max(max_area, height * width)
+
+            stack.append(i)
+
+        # Process remaining bars in stack
+        while stack:
+            height = heights[stack.pop()]
+            width = len(heights) if not stack else len(heights) - stack[-1] - 1
+            max_area = max(max_area, height * width)
+
+        return max_area
+
+    def solve(self, heights: list[int]) -> int:
+        """Wrapper method for consistency with template."""
+        return self.largestRectangleArea(heights)
 
 def test_solution():
     """
@@ -75,15 +97,40 @@ def test_solution():
     """
     solution = Solution()
 
-    # Test case 1: Basic functionality
-    # result = solution.solve([test_input])
-    # expected = [expected_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 1: Classic example
+    result = solution.solve([2, 1, 5, 6, 2, 3])
+    expected = 10
+    assert result == expected, f"Expected {expected}, got {result}"
 
-    # Test case 2: Edge case
-    # result = solution.solve([edge_case_input])
-    # expected = [edge_case_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 2: Single bar
+    result = solution.solve([2])
+    expected = 2
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 3: Increasing heights
+    result = solution.solve([1, 2, 3, 4, 5])
+    expected = 9
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 4: Decreasing heights
+    result = solution.solve([5, 4, 3, 2, 1])
+    expected = 9
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 5: All same height
+    result = solution.solve([4, 4, 4, 4])
+    expected = 16
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 6: Empty array
+    result = solution.solve([])
+    expected = 0
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 7: Two bars
+    result = solution.solve([2, 4])
+    expected = 4
+    assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
 
@@ -92,4 +139,6 @@ if __name__ == "__main__":
 
     # Example usage
     solution = Solution()
-    print(f"Solution for 084. Largest Rectangle In Histogram")
+    heights = [2, 1, 5, 6, 2, 3]
+    result = solution.solve(heights)
+    print(f"Solution for 084. Largest Rectangle In Histogram: {result}")
