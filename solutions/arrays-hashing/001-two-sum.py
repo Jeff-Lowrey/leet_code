@@ -8,29 +8,41 @@ two numbers such that they add up to `target`.
 You may assume that each input would have exactly one solution, and you may
 not use the same element twice.
 
-Example:
+**Example:**
+
+```
 Input: nums = [2,7,11,15], target = 9
 Output: [0,1]
-Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].
+Explanation: Because nums[0] + nums[1] == 9, we return [0, 1]
+```
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
-The key insight is to use a hash map to store numbers we've seen so far. For each number, we check if its complement (target - current_number) exists in our hash map. This allows us to find the pair in a single pass.
+The key insight is to use a hash map to store numbers we've seen so far.
+
+For each number, we check if its complement (target - current_number) exists in our hash map.
+
+This allows us to find the pair in a single pass.
 
 ### APPROACH:
-1. Create a hash map to store number → index mapping
-2. For each number in the array:
-   - Calculate complement = target - current_number
-   - If complement exists in hash map, we found our answer
-   - Otherwise, store current number and its index in hash map
-3. Return the indices when complement is found
+We start by creating a hash map (dictionary) to store the numbers we've encountered along with their indices.
+
+As we iterate through the array, for each number we calculate its complement - the value that would sum with the current number to reach our target. The complement is simply `target - current_number`.
+
+Before adding the current number to our hash map, we first check if its complement already exists in the map. If we find the complement, we've discovered our pair and can immediately return both indices: the stored index from the hash map and the current index.
+
+If the complement doesn't exist yet, we store the current number and its index in the hash map. This prepares us for future iterations where this number might be the complement we're looking for.
+
+The beauty of this approach is that we only need to make a single pass through the array. Each lookup in the hash map is O(1), making this dramatically faster than checking all possible pairs.
 
 ### WHY THIS WORKS:
-- Instead of checking every pair (O(n²)), we use hash map for O(1) lookup
-- We only need to store numbers we've already seen
-- When we find a complement, we know the current index and the stored index
+Instead of checking every pair (O(n²)), we use hash map for O(1) lookup.
+
+We only need to store numbers we've already seen.
+
+When we find a complement, we know the current index and the stored index.
 
 ### EXAMPLE WALKTHROUGH:
 
@@ -43,17 +55,17 @@ nums = [2,7,11,15], target = 9
 
 **Step 2:** `num=7`, `complement=2`, `seen={2: 0}` → found! return `[0, 1]`
 
-### TIME COMPLEXITY: O(n)
-Single pass through array with O(1) hash map lookups
+### TIME COMPLEXITY:
+**O(n)** - Single pass through array with O(1) hash map lookups
 
-### SPACE COMPLEXITY: O(n)
-Hash map stores up to n elements in worst case
+### SPACE COMPLEXITY:
+**O(n)** - Hash map stores up to n elements in worst case
 
 ### EDGE CASES:
-- No solution exists: problem guarantees exactly one solution
-- Duplicate values: hash map handles correctly by index
-- Two same numbers sum to target: works if at different indices
-- Negative numbers: algorithm works for any integers
+- **No solution exists:** Problem guarantees exactly one solution
+- **Duplicate values:** Hash map handles correctly by index
+- **Two same numbers sum to target:** Works if at different indices
+- **Negative numbers:** Algorithm works for any integers
 
 </details>
 """
