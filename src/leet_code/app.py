@@ -1365,7 +1365,7 @@ def view_alternative_solution(category: str, filename: str, language: str) -> st
         category_name=cat_data.name if cat_data else category.replace("-", " ").title(),
         filename=display_filename,
         problem_number=solution.number,
-        problem_name=f"{solution.name} ({language})",
+        problem_name=solution.name,
         problem_description=problem_description,
         skeleton_code=highlighted_skeleton,
         code=highlighted_code,
