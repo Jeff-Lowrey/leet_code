@@ -52,7 +52,37 @@ The approach uses heap techniques to solve this problem efficiently.
 </details>
 """
 
+import heapq
+from typing import List
+
+
 class Solution:
+    def findKthLargest(self, nums: List[int], k: int) -> int:
+        """
+        Find the kth largest element in an unsorted array using a min heap.
+
+        Args:
+            nums: List of integers
+            k: The kth position (1-indexed)
+
+        Returns:
+            The kth largest element
+
+        Time Complexity: O(n log k)
+        Space Complexity: O(k)
+        """
+        # Maintain a min heap of size k
+        # The root will be the kth largest element
+        min_heap = []
+
+        for num in nums:
+            heapq.heappush(min_heap, num)
+            # Keep only k largest elements
+            if len(min_heap) > k:
+                heapq.heappop(min_heap)
+
+        return min_heap[0]
+
     def solve(self, *args):
         """
         Main solution for 215. Kth Largest Element In An Array.
@@ -63,11 +93,11 @@ class Solution:
         Returns:
             Problem-specific return type
 
-        Time Complexity: O(n)
-        Space Complexity: O(1)
+        Time Complexity: O(n log k)
+        Space Complexity: O(k)
         """
-        # TODO: Implement the solution
-        pass
+        return self.findKthLargest(*args)
+
 
 def test_solution():
     """
@@ -76,16 +106,37 @@ def test_solution():
     solution = Solution()
 
     # Test case 1: Basic functionality
-    # result = solution.solve([test_input])
-    # expected = [expected_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    result = solution.findKthLargest([3, 2, 1, 5, 6, 4], 2)
+    expected = 5
+    assert result == expected, f"Expected {expected}, got {result}"
 
-    # Test case 2: Edge case
-    # result = solution.solve([edge_case_input])
-    # expected = [edge_case_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 2: Another example
+    result = solution.findKthLargest([3, 2, 3, 1, 2, 4, 5, 5, 6], 4)
+    expected = 4
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 3: k equals array length (smallest element)
+    result = solution.findKthLargest([1, 2, 3], 3)
+    expected = 1
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 4: k equals 1 (largest element)
+    result = solution.findKthLargest([5, 1, 9, 3, 7], 1)
+    expected = 9
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 5: Single element
+    result = solution.findKthLargest([1], 1)
+    expected = 1
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 6: Duplicate elements
+    result = solution.findKthLargest([2, 2, 2, 2], 2)
+    expected = 2
+    assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()
@@ -93,3 +144,4 @@ if __name__ == "__main__":
     # Example usage
     solution = Solution()
     print(f"Solution for 215. Kth Largest Element In An Array")
+    print(f"Example: [3,2,1,5,6,4], k=2 -> {solution.findKthLargest([3,2,1,5,6,4], 2)}")

@@ -52,7 +52,58 @@ The approach uses heap techniques to solve this problem efficiently.
 </details>
 """
 
+import heapq
+from collections import Counter, deque
+from typing import List
+
+
 class Solution:
+    def leastInterval(self, tasks: List[str], n: int) -> int:
+        """
+        Calculate minimum intervals needed to complete all tasks with cooldown.
+
+        Args:
+            tasks: List of task names
+            n: Cooldown period between same tasks
+
+        Returns:
+            Minimum number of intervals required
+
+        Time Complexity: O(m * log k) where m is total tasks, k is unique tasks
+        Space Complexity: O(k) where k is unique tasks (at most 26)
+        """
+        # Count frequency of each task
+        count = Counter(tasks)
+
+        # Max heap of task frequencies (use negative for max heap)
+        max_heap = [-cnt for cnt in count.values()]
+        heapq.heapify(max_heap)
+
+        # Queue to track tasks in cooldown: (count, time_available)
+        queue = deque()
+
+        time = 0
+
+        while max_heap or queue:
+            time += 1
+
+            if max_heap:
+                # Process the most frequent task
+                cnt = heapq.heappop(max_heap)
+                cnt += 1  # Decrement count (it's negative)
+
+                if cnt != 0:
+                    # Task still has remaining instances
+                    # Add to queue with time when it can be used again
+                    queue.append((cnt, time + n))
+
+            # Check if any task in cooldown is ready
+            if queue and queue[0][1] == time:
+                cnt, _ = queue.popleft()
+                heapq.heappush(max_heap, cnt)
+
+        return time
+
     def solve(self, *args):
         """
         Main solution for 621. Task Scheduler.
@@ -61,13 +112,13 @@ class Solution:
             *args: Problem-specific arguments
 
         Returns:
-            Problem-specific return type
+            Minimum intervals needed
 
-        Time Complexity: O(n)
-        Space Complexity: O(1)
+        Time Complexity: O(m * log k)
+        Space Complexity: O(k)
         """
-        # TODO: Implement the solution
-        pass
+        return self.leastInterval(*args)
+
 
 def test_solution():
     """
@@ -76,16 +127,37 @@ def test_solution():
     solution = Solution()
 
     # Test case 1: Basic functionality
-    # result = solution.solve([test_input])
-    # expected = [expected_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    result = solution.leastInterval(["A", "A", "A", "B", "B", "B"], 2)
+    expected = 8
+    assert result == expected, f"Expected {expected}, got {result}"
 
-    # Test case 2: Edge case
-    # result = solution.solve([edge_case_input])
-    # expected = [edge_case_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 2: No cooldown needed
+    result = solution.leastInterval(["A", "A", "A", "B", "B", "B"], 0)
+    expected = 6
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 3: Different task frequencies
+    result = solution.leastInterval(["A", "A", "A", "A", "A", "A", "B", "C", "D", "E", "F", "G"], 2)
+    expected = 16
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 4: Single task type
+    result = solution.leastInterval(["A", "A", "A"], 2)
+    expected = 7
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 5: Many different tasks
+    result = solution.leastInterval(["A", "B", "C", "D", "E", "F"], 2)
+    expected = 6
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 6: Single task
+    result = solution.leastInterval(["A"], 5)
+    expected = 1
+    assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()
@@ -93,3 +165,6 @@ if __name__ == "__main__":
     # Example usage
     solution = Solution()
     print(f"Solution for 621. Task Scheduler")
+    tasks = ["A", "A", "A", "B", "B", "B"]
+    n = 2
+    print(f"Tasks: {tasks}, n={n} -> {solution.leastInterval(tasks, n)} intervals")

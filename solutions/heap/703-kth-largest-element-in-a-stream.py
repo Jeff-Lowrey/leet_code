@@ -52,6 +52,57 @@ The approach uses heap techniques to solve this problem efficiently.
 </details>
 """
 
+import heapq
+from typing import List
+
+
+class KthLargest:
+    """
+    Find kth largest element in a stream using a min heap.
+
+    Maintains a min heap of size k containing the k largest elements.
+    The root of the heap is always the kth largest element.
+    """
+
+    def __init__(self, k: int, nums: List[int]):
+        """
+        Initialize the data structure with k and initial array.
+
+        Args:
+            k: Position of element to track (1-indexed)
+            nums: Initial array of integers
+
+        Time Complexity: O(n log k)
+        Space Complexity: O(k)
+        """
+        self.k = k
+        self.min_heap = []
+
+        # Add all initial numbers
+        for num in nums:
+            self.add(num)
+
+    def add(self, val: int) -> int:
+        """
+        Add a value to the stream and return the kth largest element.
+
+        Args:
+            val: Value to add
+
+        Returns:
+            The kth largest element after adding val
+
+        Time Complexity: O(log k)
+        """
+        heapq.heappush(self.min_heap, val)
+
+        # Keep only k largest elements
+        if len(self.min_heap) > self.k:
+            heapq.heappop(self.min_heap)
+
+        return self.min_heap[0]
+
+
 class Solution:
     def solve(self, *args):
         """
@@ -61,35 +112,88 @@ class Solution:
             *args: Problem-specific arguments
 
         Returns:
-            Problem-specific return type
+            KthLargest instance
 
-        Time Complexity: O(n)
-        Space Complexity: O(1)
+        Time Complexity: O(n log k) for initialization, O(log k) per add
+        Space Complexity: O(k)
         """
-        # TODO: Implement the solution
-        pass
+        return KthLargest(*args)
+
 
 def test_solution():
     """
     Test cases for 703. Kth Largest Element In A Stream.
     """
-    solution = Solution()
-
     # Test case 1: Basic functionality
-    # result = solution.solve([test_input])
-    # expected = [expected_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    kthLargest = KthLargest(3, [4, 5, 8, 2])
 
-    # Test case 2: Edge case
-    # result = solution.solve([edge_case_input])
-    # expected = [edge_case_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    result = kthLargest.add(3)
+    expected = 4
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    result = kthLargest.add(5)
+    expected = 5
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    result = kthLargest.add(10)
+    expected = 5
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    result = kthLargest.add(9)
+    expected = 8
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    result = kthLargest.add(4)
+    expected = 8
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 2: k = 1 (always track maximum)
+    kthLargest2 = KthLargest(1, [1])
+
+    result = kthLargest2.add(2)
+    expected = 2
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    result = kthLargest2.add(3)
+    expected = 3
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 3: Empty initial array
+    kthLargest3 = KthLargest(2, [])
+
+    result = kthLargest3.add(1)
+    expected = 1
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    result = kthLargest3.add(2)
+    expected = 1
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    result = kthLargest3.add(3)
+    expected = 2
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 4: Negative numbers
+    kthLargest4 = KthLargest(2, [-1, -2, -3])
+
+    result = kthLargest4.add(0)
+    expected = -1
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    result = kthLargest4.add(1)
+    expected = 0
+    assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()
 
     # Example usage
-    solution = Solution()
     print(f"Solution for 703. Kth Largest Element In A Stream")
+    kthLargest = KthLargest(3, [4, 5, 8, 2])
+    print(f"Initial: k=3, nums=[4,5,8,2]")
+    print(f"Add 3: {kthLargest.add(3)}")
+    print(f"Add 5: {kthLargest.add(5)}")
+    print(f"Add 10: {kthLargest.add(10)}")
