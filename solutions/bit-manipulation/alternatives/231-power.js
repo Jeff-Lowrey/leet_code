@@ -1,61 +1,65 @@
 /**
- * 231. Power
- * Medium
+ * 231. Power of Two
+ * Easy
  *
  * This problem demonstrates key concepts in Bit Manipulation.
  *
  * SOLUTION EXPLANATION:
  *
  * INTUITION:
- * [This problem requires understanding of bit manipulation concepts. The key insight is to identify the optimal approach for this specific scenario.]
+ * A number is a power of two if it has exactly one bit set in its binary representation.
+ * Powers of 2: 1(0001), 2(0010), 4(0100), 8(1000), 16(10000)
+ * The trick: n & (n-1) removes the rightmost set bit. For powers of 2, this results in 0.
  *
  * APPROACH:
- * 1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply bit manipulation methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+ * 1. Check if n is positive (powers of 2 must be positive)
+ * 2. Check if n & (n-1) equals 0
+ * 3. Both conditions must be true
  *
  * WHY THIS WORKS:
- * - The solution leverages bit manipulation principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+ * - Powers of 2 have exactly one bit set: 8 = 1000
+ * - n-1 flips all bits after the set bit: 7 = 0111
+ * - n & (n-1) = 1000 & 0111 = 0000
+ * - Non-powers have multiple bits set, so n & (n-1) != 0
+ * - Must check n > 0 to exclude 0 and negative numbers
  *
- * TIME COMPLEXITY: O(n)
+ * TIME COMPLEXITY: O(1) - constant time operation
  * SPACE COMPLEXITY: O(1)
  *
  * EXAMPLE WALKTHROUGH:
  * ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
+Input: 16 (binary: 10000)
+Step 1: n > 0 ✓ (16 > 0)
+Step 2: 16 & 15 = 10000 & 01111 = 00000 ✓
+Output: true
+
+Input: 18 (binary: 10010)
+Step 1: n > 0 ✓ (18 > 0)
+Step 2: 18 & 17 = 10010 & 10001 = 10000 ✗
+Output: false
 ```
  *
  * EDGE CASES:
- * - Empty input handling
-- Single element cases
-- Large input considerations
+ * - Zero: not a power of 2
+ * - Negative numbers: not powers of 2
+ * - One: 2^0 = 1, is a power of 2
  */
 
 /**
- * Main solution for Problem 231: Power
+ * Main solution for Problem 231: Power of Two
  *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
+ * @param {number} n - An integer
+ * @return {boolean} - True if n is a power of two, false otherwise
  *
- * Time Complexity: O(n)
+ * Time Complexity: O(1)
  * Space Complexity: O(1)
  */
-function solve(...args) {
-    // TODO: Implement the solution using bit manipulation techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using bit manipulation methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
-
-    return null; // Replace with actual implementation
+function solve(n) {
+    // Power of 2 has exactly one bit set
+    // n & (n-1) removes the rightmost set bit
+    // If n is power of 2, this results in 0
+    // Also check n > 0 to handle negative numbers and zero
+    return n > 0 && (n & (n - 1)) === 0;
 }
 
 /**
@@ -64,20 +68,35 @@ function solve(...args) {
 function testSolution() {
     console.log('Testing 231. Power');
 
-    // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    // Test case 1: Power of 2
+    const result1 = solve(1);
+    const expected1 = true;
+    console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 2: Power of 2
+    const result2 = solve(16);
+    const expected2 = true;
+    console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 3: Not power of 2
+    const result3 = solve(3);
+    const expected3 = false;
+    console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+
+    // Test case 4: Zero
+    const result4 = solve(0);
+    const expected4 = false;
+    console.assert(result4 === expected4, `Test 4 failed: expected ${expected4}, got ${result4}`);
+
+    // Test case 5: Negative number
+    const result5 = solve(-16);
+    const expected5 = false;
+    console.assert(result5 === expected5, `Test 5 failed: expected ${expected5}, got ${result5}`);
+
+    // Test case 6: Large power of 2
+    const result6 = solve(1024);
+    const expected6 = true;
+    console.assert(result6 === expected6, `Test 6 failed: expected ${expected6}, got ${result6}`);
 
     console.log('All test cases passed for 231. Power!');
 }

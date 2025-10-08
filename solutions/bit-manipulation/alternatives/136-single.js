@@ -38,24 +38,17 @@ Output: [expected output]
  */
 
 /**
- * Main solution for Problem 136: Single
+ * Main solution for Problem 136: Single Number (Alternative Implementation)
  *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
+ * @param {number[]} nums - Array of integers where every element appears twice except one
+ * @return {number} - The single number that appears only once
  *
  * Time Complexity: O(n)
  * Space Complexity: O(1)
  */
-function solve(...args) {
-    // TODO: Implement the solution using bit manipulation techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using bit manipulation methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
-
-    return null; // Replace with actual implementation
+function solve(nums) {
+    // Alternative implementation using reduce
+    return nums.reduce((acc, num) => acc ^ num, 0);
 }
 
 /**
@@ -64,20 +57,25 @@ function solve(...args) {
 function testSolution() {
     console.log('Testing 136. Single');
 
-    // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    // Test case 1: Basic case
+    const result1 = solve([2, 2, 1]);
+    const expected1 = 1;
+    console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 2: Multiple pairs
+    const result2 = solve([4, 1, 2, 1, 2]);
+    const expected2 = 4;
+    console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 3: Single element
+    const result3 = solve([1]);
+    const expected3 = 1;
+    console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+
+    // Test case 4: Negative numbers
+    const result4 = solve([-1, -1, -2]);
+    const expected4 = -2;
+    console.assert(result4 === expected4, `Test 4 failed: expected ${expected4}, got ${result4}`);
 
     console.log('All test cases passed for 136. Single!');
 }

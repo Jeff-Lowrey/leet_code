@@ -7,43 +7,58 @@
  * SOLUTION EXPLANATION:
  *
  * INTUITION:
- * This problem requires understanding of bit manipulation concepts.
+ * Given an array where every element appears twice except for one, we need to find that single element.
+ * The XOR operation has a special property: a ^ a = 0 and a ^ 0 = a.
+ * This means if we XOR all elements together, duplicate pairs cancel out to 0,
+ * leaving only the single number.
  *
  * APPROACH:
- * Apply bit manipulation methodology to solve efficiently.
+ * 1. Initialize result to 0
+ * 2. XOR all elements in the array
+ * 3. Return the result
  *
  * WHY THIS WORKS:
- * The solution leverages bit manipulation principles for optimal performance.
+ * XOR is commutative and associative: [2,2,1] becomes (2^2^1) = (0^1) = 1
+ * All duplicate pairs XOR to 0, and 0 XOR with the single number returns that number.
  *
- * TIME COMPLEXITY: O(n)
- * SPACE COMPLEXITY: O(1)
+ * TIME COMPLEXITY: O(n) - single pass through array
+ * SPACE COMPLEXITY: O(1) - only using one variable
  *
  * EXAMPLE WALKTHROUGH:
- * Input: [example input]\nStep 1: [explain first step]\nOutput: [expected output]
+ * Input: [4,1,2,1,2]
+ * Step 1: result = 0
+ * Step 2: result = 0 ^ 4 = 4
+ * Step 3: result = 4 ^ 1 = 5
+ * Step 4: result = 5 ^ 2 = 7
+ * Step 5: result = 7 ^ 1 = 6
+ * Step 6: result = 6 ^ 2 = 4
+ * Output: 4
  *
  * EDGE CASES:
- * - Empty input handling\n- Single element cases\n- Large input considerations
+ * - Single element array: returns that element
+ * - All positive numbers
+ * - Mix of positive and negative numbers
  */
 
 /**
  * Main solution for Problem 136: Single Number
  *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
+ * @param {number[]} nums - Array of integers where every element appears twice except one
+ * @return {number} - The single number that appears only once
  *
  * Time Complexity: O(n)
  * Space Complexity: O(1)
  */
-function solve(...args) {
-    // TODO: Implement the solution using bit manipulation techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using bit manipulation methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+function solve(nums) {
+    let result = 0;
 
-    return null; // Replace with actual implementation
+    // XOR all numbers together
+    // Duplicate pairs will cancel out to 0
+    for (const num of nums) {
+        result ^= num;
+    }
+
+    return result;
 }
 
 /**
@@ -52,20 +67,30 @@ function solve(...args) {
 function testSolution() {
     console.log('Testing 136. Single Number');
 
-    // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    // Test case 1: Basic case with odd positioned single
+    const result1 = solve([2, 2, 1]);
+    const expected1 = 1;
+    console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 2: Single number at different position
+    const result2 = solve([4, 1, 2, 1, 2]);
+    const expected2 = 4;
+    console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 3: Single element array
+    const result3 = solve([1]);
+    const expected3 = 1;
+    console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+
+    // Test case 4: Negative numbers
+    const result4 = solve([-1, -1, -2]);
+    const expected4 = -2;
+    console.assert(result4 === expected4, `Test 4 failed: expected ${expected4}, got ${result4}`);
+
+    // Test case 5: Larger numbers
+    const result5 = solve([1000, 999, 1000]);
+    const expected5 = 999;
+    console.assert(result5 === expected5, `Test 5 failed: expected ${expected5}, got ${result5}`);
 
     console.log('All test cases passed for 136. Single Number!');
 }
