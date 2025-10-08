@@ -38,48 +38,86 @@ Output: [expected output]
  */
 
 /**
- * Main solution for Problem 240: Search 2D Matrix Ii
+ * Main solution for Problem 240: Search a 2D Matrix II
  *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
+ * @param {number[][]} matrix - m x n matrix sorted in ascending order (rows and columns)
+ * @param {number} target - Target value to search for
+ * @return {boolean} - True if target is found
  *
- * Time Complexity: O(n)
- * Space Complexity: O(1)
+ * Time Complexity: O(m + n) - worst case eliminate one row or column per iteration
+ * Space Complexity: O(1) - constant space
  */
-function solve(...args) {
-    // TODO: Implement the solution using matrix techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using matrix methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+function solve(matrix, target) {
+    if (!matrix || matrix.length === 0 || matrix[0].length === 0) {
+        return false;
+    }
 
-    return null; // Replace with actual implementation
+    const m = matrix.length;
+    const n = matrix[0].length;
+
+    // Start from top-right corner
+    let row = 0;
+    let col = n - 1;
+
+    while (row < m && col >= 0) {
+        const current = matrix[row][col];
+
+        if (current === target) {
+            return true;
+        } else if (current > target) {
+            // Current value is too large, move left (eliminate column)
+            col--;
+        } else {
+            // Current value is too small, move down (eliminate row)
+            row++;
+        }
+    }
+
+    return false;
 }
 
 /**
- * Test cases for Problem 240: Search 2D Matrix Ii
+ * Test cases for Problem 240: Search a 2D Matrix II
  */
 function testSolution() {
-    console.log('Testing 240. Search 2D Matrix Ii');
+    console.log('Testing 240. Search a 2D Matrix II');
 
-    // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    // Test case 1: Target exists in matrix
+    const matrix1 = [
+        [1, 4, 7, 11, 15],
+        [2, 5, 8, 12, 19],
+        [3, 6, 9, 16, 22],
+        [10, 13, 14, 17, 24],
+        [18, 21, 23, 26, 30]
+    ];
+    console.assert(solve(matrix1, 5) === true, 'Test 1 failed: 5 should be found');
+    console.assert(solve(matrix1, 20) === false, 'Test 2 failed: 20 should not be found');
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 2: Target at corners
+    console.assert(solve(matrix1, 1) === true, 'Test 3 failed: 1 (top-left) should be found');
+    console.assert(solve(matrix1, 30) === true, 'Test 4 failed: 30 (bottom-right) should be found');
+    console.assert(solve(matrix1, 15) === true, 'Test 5 failed: 15 (top-right) should be found');
+    console.assert(solve(matrix1, 18) === true, 'Test 6 failed: 18 (bottom-left) should be found');
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 3: Single element matrix
+    const matrix2 = [[5]];
+    console.assert(solve(matrix2, 5) === true, 'Test 7 failed: single element match');
+    console.assert(solve(matrix2, 1) === false, 'Test 8 failed: single element no match');
 
-    console.log('All test cases passed for 240. Search 2D Matrix Ii!');
+    // Test case 4: Single row
+    const matrix3 = [[1, 3, 5, 7, 9]];
+    console.assert(solve(matrix3, 3) === true, 'Test 9 failed: single row match');
+    console.assert(solve(matrix3, 4) === false, 'Test 10 failed: single row no match');
+
+    // Test case 5: Single column
+    const matrix4 = [[2], [4], [6], [8]];
+    console.assert(solve(matrix4, 6) === true, 'Test 11 failed: single column match');
+    console.assert(solve(matrix4, 5) === false, 'Test 12 failed: single column no match');
+
+    // Test case 6: Empty matrix
+    console.assert(solve([], 1) === false, 'Test 13 failed: empty matrix');
+
+    console.log('All test cases passed for 240. Search a 2D Matrix II!');
 }
 
 /**

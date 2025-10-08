@@ -40,22 +40,56 @@ Output: [expected output]
 /**
  * Main solution for Problem 079: Word Search
  *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
+ * @param {character[][]} board - m x n grid of letters
+ * @param {string} word - Word to search for
+ * @return {boolean} - True if word exists in grid
  *
- * Time Complexity: O(n)
- * Space Complexity: O(1)
+ * Time Complexity: O(m * n * 4^L) where L is word length
+ * Space Complexity: O(L) for recursion stack
  */
-function solve(...args) {
-    // TODO: Implement the solution using matrix techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using matrix methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+function solve(board, word) {
+    if (!board || board.length === 0 || !word) return false;
 
-    return null; // Replace with actual implementation
+    const m = board.length;
+    const n = board[0].length;
+
+    // DFS helper function
+    function dfs(row, col, index) {
+        // Base case: found the word
+        if (index === word.length) return true;
+
+        // Boundary checks and character match
+        if (row < 0 || row >= m || col < 0 || col >= n ||
+            board[row][col] !== word[index]) {
+            return false;
+        }
+
+        // Mark as visited
+        const temp = board[row][col];
+        board[row][col] = '#';
+
+        // Explore all 4 directions
+        const found = dfs(row + 1, col, index + 1) ||
+                     dfs(row - 1, col, index + 1) ||
+                     dfs(row, col + 1, index + 1) ||
+                     dfs(row, col - 1, index + 1);
+
+        // Backtrack: restore the cell
+        board[row][col] = temp;
+
+        return found;
+    }
+
+    // Try starting from each cell
+    for (let i = 0; i < m; i++) {
+        for (let j = 0; j < n; j++) {
+            if (board[i][j] === word[0] && dfs(i, j, 0)) {
+                return true;
+            }
+        }
+    }
+
+    return false;
 }
 
 /**
@@ -64,20 +98,45 @@ function solve(...args) {
 function testSolution() {
     console.log('Testing 079. Word Search');
 
-    // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    // Test case 1: Word exists
+    const board1 = [
+        ['A', 'B', 'C', 'E'],
+        ['S', 'F', 'C', 'S'],
+        ['A', 'D', 'E', 'E']
+    ];
+    console.assert(solve(board1, 'ABCCED') === true, 'Test 1 failed: ABCCED should exist');
+    console.assert(solve(board1, 'SEE') === true, 'Test 2 failed: SEE should exist');
+    console.assert(solve(board1, 'ABCB') === false, 'Test 3 failed: ABCB should not exist');
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 2: Single cell
+    const board2 = [['A']];
+    console.assert(solve(board2, 'A') === true, 'Test 4 failed: A should exist');
+    console.assert(solve(board2, 'AB') === false, 'Test 5 failed: AB should not exist');
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 3: Word requires backtracking
+    const board3 = [
+        ['A', 'B'],
+        ['C', 'D']
+    ];
+    console.assert(solve(board3, 'ABDC') === true, 'Test 6 failed: ABDC should exist');
+    console.assert(solve(board3, 'ACDB') === true, 'Test 7 failed: ACDB should exist');
+
+    // Test case 4: Longer word
+    const board4 = [
+        ['A', 'B', 'C', 'E'],
+        ['S', 'F', 'E', 'S'],
+        ['A', 'D', 'E', 'E']
+    ];
+    console.assert(solve(board4, 'ABCESEEEFS') === true, 'Test 8 failed: ABCESEEEFS should exist');
+
+    // Test case 5: Word not in board
+    const board5 = [
+        ['A', 'A', 'A', 'A'],
+        ['A', 'A', 'A', 'A'],
+        ['A', 'A', 'A', 'A']
+    ];
+    console.assert(solve(board5, 'AAAAAAAAAAAAA') === false, 'Test 9 failed: word too long');
+    console.assert(solve(board5, 'AAAA') === true, 'Test 10 failed: AAAA should exist');
 
     console.log('All test cases passed for 079. Word Search!');
 }

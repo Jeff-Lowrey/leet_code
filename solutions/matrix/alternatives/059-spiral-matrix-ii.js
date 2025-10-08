@@ -38,48 +38,108 @@ Output: [expected output]
  */
 
 /**
- * Main solution for Problem 059: Spiral Matrix Ii
+ * Main solution for Problem 059: Spiral Matrix II
  *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
+ * @param {number} n - Size of the matrix (n x n)
+ * @return {number[][]} - Matrix filled with numbers 1 to n^2 in spiral order
  *
- * Time Complexity: O(n)
- * Space Complexity: O(1)
+ * Time Complexity: O(n^2) - fill each cell once
+ * Space Complexity: O(n^2) for the output matrix
  */
-function solve(...args) {
-    // TODO: Implement the solution using matrix techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using matrix methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+function solve(n) {
+    // Initialize n x n matrix with zeros
+    const matrix = Array(n).fill(0).map(() => Array(n).fill(0));
 
-    return null; // Replace with actual implementation
+    let top = 0;
+    let bottom = n - 1;
+    let left = 0;
+    let right = n - 1;
+    let num = 1;
+
+    while (top <= bottom && left <= right) {
+        // Fill right along top row
+        for (let col = left; col <= right; col++) {
+            matrix[top][col] = num++;
+        }
+        top++;
+
+        // Fill down along right column
+        for (let row = top; row <= bottom; row++) {
+            matrix[row][right] = num++;
+        }
+        right--;
+
+        // Fill left along bottom row (if still valid)
+        if (top <= bottom) {
+            for (let col = right; col >= left; col--) {
+                matrix[bottom][col] = num++;
+            }
+            bottom--;
+        }
+
+        // Fill up along left column (if still valid)
+        if (left <= right) {
+            for (let row = bottom; row >= top; row--) {
+                matrix[row][left] = num++;
+            }
+            left++;
+        }
+    }
+
+    return matrix;
 }
 
 /**
- * Test cases for Problem 059: Spiral Matrix Ii
+ * Test cases for Problem 059: Spiral Matrix II
  */
 function testSolution() {
-    console.log('Testing 059. Spiral Matrix Ii');
+    console.log('Testing 059. Spiral Matrix II');
 
-    // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    // Helper function to compare matrices
+    function matricesEqual(mat1, mat2) {
+        if (mat1.length !== mat2.length) return false;
+        for (let i = 0; i < mat1.length; i++) {
+            if (mat1[i].length !== mat2[i].length) return false;
+            for (let j = 0; j < mat1[i].length; j++) {
+                if (mat1[i][j] !== mat2[i][j]) return false;
+            }
+        }
+        return true;
+    }
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 1: n = 3
+    const result1 = solve(3);
+    const expected1 = [
+        [1, 2, 3],
+        [8, 9, 4],
+        [7, 6, 5]
+    ];
+    console.assert(matricesEqual(result1, expected1), 'Test 1 failed: n=3 matrix incorrect');
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 2: n = 1
+    const result2 = solve(1);
+    const expected2 = [[1]];
+    console.assert(matricesEqual(result2, expected2), 'Test 2 failed: n=1 matrix incorrect');
 
-    console.log('All test cases passed for 059. Spiral Matrix Ii!');
+    // Test case 3: n = 4
+    const result3 = solve(4);
+    const expected3 = [
+        [1, 2, 3, 4],
+        [12, 13, 14, 5],
+        [11, 16, 15, 6],
+        [10, 9, 8, 7]
+    ];
+    console.assert(matricesEqual(result3, expected3), 'Test 3 failed: n=4 matrix incorrect');
+
+    // Test case 4: n = 2
+    const result4 = solve(2);
+    const expected4 = [
+        [1, 2],
+        [4, 3]
+    ];
+    console.assert(matricesEqual(result4, expected4), 'Test 4 failed: n=2 matrix incorrect');
+
+    console.log('All test cases passed for 059. Spiral Matrix II!');
 }
 
 /**

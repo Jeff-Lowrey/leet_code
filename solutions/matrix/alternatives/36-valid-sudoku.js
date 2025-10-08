@@ -28,22 +28,41 @@
 /**
  * Main solution for Problem 36: Valid Sudoku
  *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
+ * @param {character[][]} board - 9x9 sudoku board
+ * @return {boolean} - True if valid sudoku configuration
  *
- * Time Complexity: O(n)
- * Space Complexity: O(1)
+ * Time Complexity: O(1) - always 9x9 board, so O(81) = O(1)
+ * Space Complexity: O(1) - fixed size data structures (9 rows, 9 cols, 9 boxes)
  */
-function solve(...args) {
-    // TODO: Implement the solution using matrix techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using matrix methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+function solve(board) {
+    // Use sets to track seen numbers in each row, column, and 3x3 box
+    const rows = Array(9).fill(0).map(() => new Set());
+    const cols = Array(9).fill(0).map(() => new Set());
+    const boxes = Array(9).fill(0).map(() => new Set());
 
-    return null; // Replace with actual implementation
+    for (let i = 0; i < 9; i++) {
+        for (let j = 0; j < 9; j++) {
+            const num = board[i][j];
+
+            // Skip empty cells
+            if (num === '.') continue;
+
+            // Calculate which 3x3 box this cell belongs to
+            const boxIndex = Math.floor(i / 3) * 3 + Math.floor(j / 3);
+
+            // Check if number already exists in row, column, or box
+            if (rows[i].has(num) || cols[j].has(num) || boxes[boxIndex].has(num)) {
+                return false;
+            }
+
+            // Add number to respective sets
+            rows[i].add(num);
+            cols[j].add(num);
+            boxes[boxIndex].add(num);
+        }
+    }
+
+    return true;
 }
 
 /**
@@ -52,20 +71,75 @@ function solve(...args) {
 function testSolution() {
     console.log('Testing 36. Valid Sudoku');
 
-    // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    // Test case 1: Valid sudoku
+    const board1 = [
+        ["5","3",".",".","7",".",".",".","."],
+        ["6",".",".","1","9","5",".",".","."],
+        [".","9","8",".",".",".",".","6","."],
+        ["8",".",".",".","6",".",".",".","3"],
+        ["4",".",".","8",".","3",".",".","1"],
+        ["7",".",".",".","2",".",".",".","6"],
+        [".","6",".",".",".",".","2","8","."],
+        [".",".",".","4","1","9",".",".","5"],
+        [".",".",".",".","8",".",".","7","9"]
+    ];
+    console.assert(solve(board1) === true, 'Test 1 failed: valid sudoku should return true');
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 2: Invalid - duplicate in row
+    const board2 = [
+        ["8","3",".",".","7",".",".",".","."],
+        ["6",".",".","1","9","5",".",".","."],
+        [".","9","8",".",".",".",".","6","."],
+        ["8",".",".",".","6",".",".",".","3"],
+        ["4",".",".","8",".","3",".",".","1"],
+        ["7",".",".",".","2",".",".",".","6"],
+        [".","6",".",".",".",".","2","8","."],
+        [".",".",".","4","1","9",".",".","5"],
+        [".",".",".",".","8",".",".","7","9"]
+    ];
+    console.assert(solve(board2) === false, 'Test 2 failed: duplicate in column should return false');
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 3: Invalid - duplicate in 3x3 box
+    const board3 = [
+        ["5","3",".",".","7",".",".",".","."],
+        ["6",".",".","1","9","5",".",".","."],
+        [".","9","5",".",".",".",".","6","."],
+        ["8",".",".",".","6",".",".",".","3"],
+        ["4",".",".","8",".","3",".",".","1"],
+        ["7",".",".",".","2",".",".",".","6"],
+        [".","6",".",".",".",".","2","8","."],
+        [".",".",".","4","1","9",".",".","5"],
+        [".",".",".",".","8",".",".","7","9"]
+    ];
+    console.assert(solve(board3) === false, 'Test 3 failed: duplicate in 3x3 box should return false');
+
+    // Test case 4: All empty (valid)
+    const board4 = [
+        [".",".",".",".",".",".",".",".","."],
+        [".",".",".",".",".",".",".",".","."],
+        [".",".",".",".",".",".",".",".","."],
+        [".",".",".",".",".",".",".",".","."],
+        [".",".",".",".",".",".",".",".","."],
+        [".",".",".",".",".",".",".",".","."],
+        [".",".",".",".",".",".",".",".","."],
+        [".",".",".",".",".",".",".",".","."],
+        [".",".",".",".",".",".",".",".","."]
+    ];
+    console.assert(solve(board4) === true, 'Test 4 failed: all empty should be valid');
+
+    // Test case 5: Single number in each row/col/box
+    const board5 = [
+        ["1",".",".",".",".",".",".",".","."],
+        [".","2",".",".",".",".",".",".",".",],
+        [".",".","3",".",".",".",".",".",".",],
+        [".",".",".","4",".",".",".",".","."],
+        [".",".",".",".","5",".",".",".","."],
+        [".",".",".",".",".","6",".",".",".",],
+        [".",".",".",".",".",".","7",".",".",],
+        [".",".",".",".",".",".",".","8","."],
+        [".",".",".",".",".",".",".",".","9"]
+    ];
+    console.assert(solve(board5) === true, 'Test 5 failed: valid minimal sudoku should return true');
 
     console.log('All test cases passed for 36. Valid Sudoku!');
 }
