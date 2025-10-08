@@ -8,7 +8,6 @@ dependencies = [
     "flask>=3.0.0",
     "markdown>=3.5",
     "pygments>=2.17.0",
-    "astor>=0.8.1",
 ]
 
 [build-system]
@@ -74,7 +73,7 @@ format-check = "ruff format --check src/ tests/"
 typecheck = "mypy src/"
 
 [tool.pdm.dev-dependencies]
-test = [ "pytest>=7.0", "pytest-asyncio>=0.21.0", "pytest-cov>=4.0",]
+test = [ "pytest>=7.0", "pytest-cov>=4.0",]
 
 [tool.pdm.python]
 use_venv = true
