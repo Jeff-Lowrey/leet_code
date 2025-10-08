@@ -1,95 +1,210 @@
 """
-# 225. Implement
-**Medium**
+# 225. Implement Stack using Queues
+**Easy**
 
-Given a problem that demonstrates key concepts in Design.
+Implement a last-in-first-out (LIFO) stack using only two queues.
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
-[This problem requires understanding of design concepts. The key insight is to identify the optimal approach for this specific scenario.]
+A stack follows LIFO (Last In First Out), while a queue follows FIFO (First In First Out).
+To simulate stack behavior using queues, we need to reverse the order on every push or pop.
+The most efficient approach is to reverse on push, making pop O(1).
 
 ### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply design methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+1. **Single Queue Approach**: Use one main queue
+2. **push**: Add new element, then rotate queue to move it to front
+   - Add element to queue
+   - Rotate queue: for each existing element, dequeue and enqueue (n-1 times)
+   - This makes the newest element the front of the queue
+3. **pop**: Simply dequeue from front (now acts like stack top)
+4. **top**: Peek at front element
+5. **empty**: Check if queue is empty
 
 ### WHY THIS WORKS:
-- The solution leverages design principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+- By rotating the queue on every push, we maintain stack order
+- The most recently added element is always at the front
+- Pop and top operations become O(1)
+- Only push is O(n), which is acceptable
 
-### TIME COMPLEXITY: O(n)
-### SPACE COMPLEXITY: O(1)
+### TIME COMPLEXITY:
+- push: O(n) - need to rotate queue
+- pop: O(1)
+- top: O(1)
+- empty: O(1)
+
+### SPACE COMPLEXITY: O(n) for storing n elements
 
 ### EXAMPLE WALKTHROUGH:
 ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
+push(1): queue = [1]
+push(2): queue = [2] -> rotate -> [2, 1]
+push(3): queue = [3, 2, 1] -> rotate -> [3, 2, 1]
+top() -> 3
+pop() -> 3, queue = [2, 1]
+top() -> 2
 ```
 
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- Empty stack
+- Single element
+- Multiple push/pop operations
 
 </details>
 
 <details>
 <summary><b>💡 APPROACH</b></summary>
 
-The approach uses design techniques to solve this problem efficiently.
+The approach uses a single queue with rotation on push to maintain stack order.
 
 ### Algorithm Steps:
-1. Initialize necessary variables
-2. Process input using design method
-3. Return the computed result
+1. Use collections.deque for efficient queue operations
+2. On push: append element then rotate queue
+3. On pop/top: use standard queue operations
 
 </details>
 """
 
-class Solution:
-    def solve(self, *args):
+from collections import deque
+
+
+class MyStack:
+    """
+    Stack implementation using a single queue.
+
+    Implements LIFO behavior using FIFO queue with rotation.
+    """
+
+    def __init__(self):
         """
-        Main solution for 225. Implement.
+        Initialize the stack.
 
-        Args:
-            *args: Problem-specific arguments
-
-        Returns:
-            Problem-specific return type
-
-        Time Complexity: O(n)
+        Time Complexity: O(1)
         Space Complexity: O(1)
         """
-        # TODO: Implement the solution
-        pass
+        self.queue = deque()
+
+    def push(self, x: int) -> None:
+        """
+        Push element x onto stack.
+
+        Args:
+            x: Element to push
+
+        Time Complexity: O(n) where n is number of elements
+        Space Complexity: O(1)
+        """
+        # Add element to queue
+        self.queue.append(x)
+
+        # Rotate queue to move new element to front
+        # This maintains stack order (newest at front)
+        for _ in range(len(self.queue) - 1):
+            self.queue.append(self.queue.popleft())
+
+    def pop(self) -> int:
+        """
+        Remove and return the element on top of the stack.
+
+        Returns:
+            int: Top element
+
+        Time Complexity: O(1)
+        Space Complexity: O(1)
+        """
+        return self.queue.popleft()
+
+    def top(self) -> int:
+        """
+        Get the top element without removing it.
+
+        Returns:
+            int: Top element
+
+        Time Complexity: O(1)
+        Space Complexity: O(1)
+        """
+        return self.queue[0]
+
+    def empty(self) -> bool:
+        """
+        Check if the stack is empty.
+
+        Returns:
+            bool: True if empty, False otherwise
+
+        Time Complexity: O(1)
+        Space Complexity: O(1)
+        """
+        return len(self.queue) == 0
+
 
 def test_solution():
     """
-    Test cases for 225. Implement.
+    Test cases for MyStack.
     """
-    solution = Solution()
+    # Test case 1: Basic operations
+    stack1 = MyStack()
+    stack1.push(1)
+    stack1.push(2)
+    assert stack1.top() == 2
+    assert stack1.pop() == 2
+    assert stack1.empty() == False
+    assert stack1.top() == 1
+    assert stack1.pop() == 1
+    assert stack1.empty() == True
 
-    # Test case 1: Basic functionality
-    # result = solution.solve([test_input])
-    # expected = [expected_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 2: Multiple operations
+    stack2 = MyStack()
+    stack2.push(1)
+    stack2.push(2)
+    stack2.push(3)
+    stack2.push(4)
+    assert stack2.top() == 4
+    assert stack2.pop() == 4
+    assert stack2.pop() == 3
+    assert stack2.top() == 2
+    assert stack2.pop() == 2
+    assert stack2.pop() == 1
+    assert stack2.empty() == True
 
-    # Test case 2: Edge case
-    # result = solution.solve([edge_case_input])
-    # expected = [edge_case_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 3: Interleaved push and pop
+    stack3 = MyStack()
+    stack3.push(1)
+    assert stack3.top() == 1
+    stack3.push(2)
+    assert stack3.pop() == 2
+    stack3.push(3)
+    assert stack3.top() == 3
+    stack3.push(4)
+    assert stack3.pop() == 4
+    assert stack3.pop() == 3
+    assert stack3.top() == 1
+
+    # Test case 4: Single element
+    stack4 = MyStack()
+    stack4.push(42)
+    assert stack4.empty() == False
+    assert stack4.top() == 42
+    assert stack4.pop() == 42
+    assert stack4.empty() == True
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()
 
     # Example usage
-    solution = Solution()
-    print(f"Solution for 225. Implement")
+    print("MyStack demonstration:")
+    stack = MyStack()
+
+    stack.push(1)
+    stack.push(2)
+    print(f"top() = {stack.top()}")     # 2
+    print(f"pop() = {stack.pop()}")     # 2
+    print(f"empty() = {stack.empty()}") # False
+    print(f"top() = {stack.top()}")     # 1
+    print(f"pop() = {stack.pop()}")     # 1
+    print(f"empty() = {stack.empty()}") # True
