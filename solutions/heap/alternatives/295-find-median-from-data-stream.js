@@ -1,61 +1,214 @@
 /**
  * 295. Find Median From Data Stream
- * Medium
+ * Hard
  *
  * This problem demonstrates key concepts in Heap.
  *
  * SOLUTION EXPLANATION:
  *
  * INTUITION:
- * [This problem requires understanding of heap concepts. The key insight is to identify the optimal approach for this specific scenario.]
+ * To find the median efficiently, we need to maintain access to the middle elements of a sorted sequence.
+ * Using two heaps allows us to balance the data such that we always have quick access to the median.
  *
  * APPROACH:
- * 1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply heap methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+ * 1. **Use Two Heaps**: Maintain a max heap for the lower half and a min heap for the upper half
+ * 2. **Balance Heaps**: Keep heaps balanced so their sizes differ by at most 1
+ * 3. **Add Numbers**: Add to appropriate heap and rebalance if needed
+ * 4. **Find Median**: If heaps are equal size, median is average of both tops; otherwise, it's the top of the larger heap
  *
  * WHY THIS WORKS:
- * - The solution leverages heap principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+ * - Max heap stores smaller half (largest of small numbers at top)
+ * - Min heap stores larger half (smallest of large numbers at top)
+ * - The tops of these heaps are always the middle element(s)
+ * - This gives us O(1) median access after O(log n) insertion
  *
- * TIME COMPLEXITY: O(n)
- * SPACE COMPLEXITY: O(1)
+ * TIME COMPLEXITY: O(log n) for addNum, O(1) for findMedian
+ * SPACE COMPLEXITY: O(n) for storing all numbers
  *
  * EXAMPLE WALKTHROUGH:
  * ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
-```
+ * Input: addNum(1), addNum(2), findMedian(), addNum(3), findMedian()
+ * Step 1: Add 1 -> maxHeap: [1], minHeap: []
+ * Step 2: Add 2 -> maxHeap: [1], minHeap: [2]
+ * Step 3: findMedian() -> (1 + 2) / 2 = 1.5
+ * Step 4: Add 3 -> maxHeap: [1], minHeap: [2, 3]
+ * Step 5: findMedian() -> 2 (top of minHeap, which has more elements)
+ * ```
  *
  * EDGE CASES:
- * - Empty input handling
-- Single element cases
-- Large input considerations
+ * - Single element (median is that element)
+ * - Two elements (median is their average)
+ * - Negative numbers
+ * - Duplicate numbers
  */
 
 /**
- * Main solution for Problem 295: Find Median From Data Stream
- *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
- *
- * Time Complexity: O(n)
- * Space Complexity: O(1)
+ * MinHeap implementation for the upper half of numbers
  */
-function solve(...args) {
-    // TODO: Implement the solution using heap techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using heap methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+class MinHeap {
+    constructor() {
+        this.heap = [];
+    }
 
-    return null; // Replace with actual implementation
+    size() {
+        return this.heap.length;
+    }
+
+    peek() {
+        return this.heap[0];
+    }
+
+    push(val) {
+        this.heap.push(val);
+        this.bubbleUp(this.heap.length - 1);
+    }
+
+    pop() {
+        if (this.heap.length === 0) return null;
+        if (this.heap.length === 1) return this.heap.pop();
+
+        const top = this.heap[0];
+        this.heap[0] = this.heap.pop();
+        this.bubbleDown(0);
+        return top;
+    }
+
+    bubbleUp(index) {
+        while (index > 0) {
+            const parentIndex = Math.floor((index - 1) / 2);
+            if (this.heap[parentIndex] <= this.heap[index]) break;
+            [this.heap[parentIndex], this.heap[index]] = [this.heap[index], this.heap[parentIndex]];
+            index = parentIndex;
+        }
+    }
+
+    bubbleDown(index) {
+        while (true) {
+            let smallest = index;
+            const leftChild = 2 * index + 1;
+            const rightChild = 2 * index + 2;
+
+            if (leftChild < this.heap.length && this.heap[leftChild] < this.heap[smallest]) {
+                smallest = leftChild;
+            }
+            if (rightChild < this.heap.length && this.heap[rightChild] < this.heap[smallest]) {
+                smallest = rightChild;
+            }
+            if (smallest === index) break;
+
+            [this.heap[index], this.heap[smallest]] = [this.heap[smallest], this.heap[index]];
+            index = smallest;
+        }
+    }
+}
+
+/**
+ * MaxHeap implementation for the lower half of numbers
+ */
+class MaxHeap {
+    constructor() {
+        this.heap = [];
+    }
+
+    size() {
+        return this.heap.length;
+    }
+
+    peek() {
+        return this.heap[0];
+    }
+
+    push(val) {
+        this.heap.push(val);
+        this.bubbleUp(this.heap.length - 1);
+    }
+
+    pop() {
+        if (this.heap.length === 0) return null;
+        if (this.heap.length === 1) return this.heap.pop();
+
+        const top = this.heap[0];
+        this.heap[0] = this.heap.pop();
+        this.bubbleDown(0);
+        return top;
+    }
+
+    bubbleUp(index) {
+        while (index > 0) {
+            const parentIndex = Math.floor((index - 1) / 2);
+            if (this.heap[parentIndex] >= this.heap[index]) break;
+            [this.heap[parentIndex], this.heap[index]] = [this.heap[index], this.heap[parentIndex]];
+            index = parentIndex;
+        }
+    }
+
+    bubbleDown(index) {
+        while (true) {
+            let largest = index;
+            const leftChild = 2 * index + 1;
+            const rightChild = 2 * index + 2;
+
+            if (leftChild < this.heap.length && this.heap[leftChild] > this.heap[largest]) {
+                largest = leftChild;
+            }
+            if (rightChild < this.heap.length && this.heap[rightChild] > this.heap[largest]) {
+                largest = rightChild;
+            }
+            if (largest === index) break;
+
+            [this.heap[index], this.heap[largest]] = [this.heap[largest], this.heap[index]];
+            index = largest;
+        }
+    }
+}
+
+/**
+ * MedianFinder class - maintains median of a stream of numbers
+ */
+class MedianFinder {
+    constructor() {
+        this.maxHeap = new MaxHeap(); // Lower half
+        this.minHeap = new MinHeap(); // Upper half
+    }
+
+    /**
+     * Adds a number to the data structure
+     * @param {number} num
+     * @return {void}
+     */
+    addNum(num) {
+        // Add to max heap (lower half) first
+        if (this.maxHeap.size() === 0 || num <= this.maxHeap.peek()) {
+            this.maxHeap.push(num);
+        } else {
+            this.minHeap.push(num);
+        }
+
+        // Balance the heaps
+        if (this.maxHeap.size() > this.minHeap.size() + 1) {
+            this.minHeap.push(this.maxHeap.pop());
+        } else if (this.minHeap.size() > this.maxHeap.size()) {
+            this.maxHeap.push(this.minHeap.pop());
+        }
+    }
+
+    /**
+     * Returns the median of all elements so far
+     * @return {number}
+     */
+    findMedian() {
+        if (this.maxHeap.size() > this.minHeap.size()) {
+            return this.maxHeap.peek();
+        }
+        return (this.maxHeap.peek() + this.minHeap.peek()) / 2;
+    }
+}
+
+/**
+ * Main solution wrapper for consistency
+ */
+function solve() {
+    return MedianFinder;
 }
 
 /**
@@ -65,19 +218,40 @@ function testSolution() {
     console.log('Testing 295. Find Median From Data Stream');
 
     // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    const mf1 = new MedianFinder();
+    mf1.addNum(1);
+    mf1.addNum(2);
+    const result1 = mf1.findMedian();
+    console.assert(result1 === 1.5, `Test 1 failed: expected 1.5, got ${result1}`);
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 2: Odd number of elements
+    mf1.addNum(3);
+    const result2 = mf1.findMedian();
+    console.assert(result2 === 2, `Test 2 failed: expected 2, got ${result2}`);
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 3: More complex sequence
+    const mf2 = new MedianFinder();
+    mf2.addNum(6);
+    mf2.addNum(10);
+    mf2.addNum(2);
+    mf2.addNum(6);
+    mf2.addNum(5);
+    const result3 = mf2.findMedian();
+    console.assert(result3 === 6, `Test 3 failed: expected 6, got ${result3}`);
+
+    // Test case 4: Single element
+    const mf3 = new MedianFinder();
+    mf3.addNum(5);
+    const result4 = mf3.findMedian();
+    console.assert(result4 === 5, `Test 4 failed: expected 5, got ${result4}`);
+
+    // Test case 5: Negative numbers
+    const mf4 = new MedianFinder();
+    mf4.addNum(-1);
+    mf4.addNum(-2);
+    mf4.addNum(-3);
+    const result5 = mf4.findMedian();
+    console.assert(result5 === -2, `Test 5 failed: expected -2, got ${result5}`);
 
     console.log('All test cases passed for 295. Find Median From Data Stream!');
 }
@@ -88,10 +262,17 @@ function testSolution() {
 function demonstrateSolution() {
     console.log('\n=== Problem 295. Find Median From Data Stream ===');
     console.log('Category: Heap');
-    console.log('Difficulty: Medium');
+    console.log('Difficulty: Hard');
     console.log('');
 
-    // Example demonstration would go here
+    const medianFinder = new MedianFinder();
+    console.log('Adding numbers: 1, 2, 3');
+    medianFinder.addNum(1);
+    medianFinder.addNum(2);
+    console.log('Median after adding 1, 2:', medianFinder.findMedian()); // 1.5
+    medianFinder.addNum(3);
+    console.log('Median after adding 3:', medianFinder.findMedian()); // 2
+
     testSolution();
 }
 
@@ -103,14 +284,16 @@ if (require.main === module) {
 // Export for use in other modules
 module.exports = {
     solve,
+    MedianFinder,
     testSolution,
     demonstrateSolution
 };
 
 /**
  * Additional Notes:
- * - This solution focuses on heap concepts
- * - Consider the trade-offs between time and space complexity
- * - Edge cases are crucial for robust solutions
- * - The approach can be adapted for similar problems in this category
+ * - This solution uses two heaps to maintain the median efficiently
+ * - The max heap stores the smaller half of numbers
+ * - The min heap stores the larger half of numbers
+ * - Heaps are kept balanced to ensure O(1) median access
+ * - This is a classic streaming algorithm problem
  */

@@ -1,61 +1,151 @@
 /**
  * 703. Kth Largest Element In A Stream
- * Medium
+ * Easy
  *
  * This problem demonstrates key concepts in Heap.
  *
  * SOLUTION EXPLANATION:
  *
  * INTUITION:
- * [This problem requires understanding of heap concepts. The key insight is to identify the optimal approach for this specific scenario.]
+ * To find the kth largest element efficiently in a stream, we maintain a min heap of size k.
+ * The top of the heap is always the kth largest element.
  *
  * APPROACH:
- * 1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply heap methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+ * 1. **Initialize Min Heap**: Build heap with first k elements (or all if less than k)
+ * 2. **Add Method**: When adding a new element:
+ *    - If heap size < k, add element
+ *    - If element > heap top, replace top with element
+ * 3. **Return Top**: The top of min heap is always kth largest
  *
  * WHY THIS WORKS:
- * - The solution leverages heap principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+ * - Min heap of size k stores k largest elements
+ * - The smallest of these k elements (heap top) is the kth largest overall
+ * - When we see a larger element, we remove the smallest and add the new one
+ * - This maintains the invariant that heap contains k largest elements seen so far
  *
- * TIME COMPLEXITY: O(n)
- * SPACE COMPLEXITY: O(1)
+ * TIME COMPLEXITY: O(log k) for add operation, O(n log k) for initialization
+ * SPACE COMPLEXITY: O(k) for the heap
  *
  * EXAMPLE WALKTHROUGH:
  * ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
-```
+ * Input: k = 3, nums = [4, 5, 8, 2], then add(3), add(5), add(10), add(9), add(4)
+ * Step 1: Initialize heap with [4, 5, 8] -> heap = [4, 5, 8], return 4
+ * Step 2: add(3) -> 3 < 4, no change, return 4
+ * Step 3: add(5) -> 5 > 4, replace -> heap = [5, 5, 8], return 5
+ * Step 4: add(10) -> 10 > 5, replace -> heap = [5, 8, 10], return 5
+ * Step 5: add(9) -> 9 > 5, replace -> heap = [8, 9, 10], return 8
+ * ```
  *
  * EDGE CASES:
- * - Empty input handling
-- Single element cases
-- Large input considerations
+ * - Empty initial array
+ * - k = 1 (largest element)
+ * - Stream has fewer than k elements
+ * - Negative numbers
  */
 
 /**
- * Main solution for Problem 703: Kth Largest Element In A Stream
- *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
- *
- * Time Complexity: O(n)
- * Space Complexity: O(1)
+ * MinHeap implementation for maintaining k largest elements
  */
-function solve(...args) {
-    // TODO: Implement the solution using heap techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using heap methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+class MinHeap {
+    constructor() {
+        this.heap = [];
+    }
 
-    return null; // Replace with actual implementation
+    size() {
+        return this.heap.length;
+    }
+
+    peek() {
+        return this.heap[0];
+    }
+
+    push(val) {
+        this.heap.push(val);
+        this.bubbleUp(this.heap.length - 1);
+    }
+
+    pop() {
+        if (this.heap.length === 0) return null;
+        if (this.heap.length === 1) return this.heap.pop();
+
+        const top = this.heap[0];
+        this.heap[0] = this.heap.pop();
+        this.bubbleDown(0);
+        return top;
+    }
+
+    bubbleUp(index) {
+        while (index > 0) {
+            const parentIndex = Math.floor((index - 1) / 2);
+            if (this.heap[parentIndex] <= this.heap[index]) break;
+            [this.heap[parentIndex], this.heap[index]] = [this.heap[index], this.heap[parentIndex]];
+            index = parentIndex;
+        }
+    }
+
+    bubbleDown(index) {
+        while (true) {
+            let smallest = index;
+            const leftChild = 2 * index + 1;
+            const rightChild = 2 * index + 2;
+
+            if (leftChild < this.heap.length && this.heap[leftChild] < this.heap[smallest]) {
+                smallest = leftChild;
+            }
+            if (rightChild < this.heap.length && this.heap[rightChild] < this.heap[smallest]) {
+                smallest = rightChild;
+            }
+            if (smallest === index) break;
+
+            [this.heap[index], this.heap[smallest]] = [this.heap[smallest], this.heap[index]];
+            index = smallest;
+        }
+    }
+}
+
+/**
+ * KthLargest class - maintains kth largest element in a stream
+ */
+class KthLargest {
+    /**
+     * @param {number} k - The kth position to track
+     * @param {number[]} nums - Initial numbers
+     */
+    constructor(k, nums) {
+        this.k = k;
+        this.minHeap = new MinHeap();
+
+        // Add all initial numbers to heap
+        for (const num of nums) {
+            this.add(num);
+        }
+    }
+
+    /**
+     * Adds a value to the stream and returns the kth largest element
+     * @param {number} val - Value to add
+     * @return {number} - The kth largest element
+     */
+    add(val) {
+        // If heap has fewer than k elements, always add
+        if (this.minHeap.size() < this.k) {
+            this.minHeap.push(val);
+        }
+        // If new value is larger than smallest in top k, replace it
+        else if (val > this.minHeap.peek()) {
+            this.minHeap.pop();
+            this.minHeap.push(val);
+        }
+
+        return this.minHeap.peek();
+    }
+}
+
+/**
+ * Main solution wrapper for consistency
+ */
+function solve() {
+    return KthLargest;
 }
 
 /**
@@ -65,19 +155,36 @@ function testSolution() {
     console.log('Testing 703. Kth Largest Element In A Stream');
 
     // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    const kthLargest1 = new KthLargest(3, [4, 5, 8, 2]);
+    const result1_1 = kthLargest1.add(3);
+    console.assert(result1_1 === 4, `Test 1.1 failed: expected 4, got ${result1_1}`);
+    const result1_2 = kthLargest1.add(5);
+    console.assert(result1_2 === 5, `Test 1.2 failed: expected 5, got ${result1_2}`);
+    const result1_3 = kthLargest1.add(10);
+    console.assert(result1_3 === 5, `Test 1.3 failed: expected 5, got ${result1_3}`);
+    const result1_4 = kthLargest1.add(9);
+    console.assert(result1_4 === 8, `Test 1.4 failed: expected 8, got ${result1_4}`);
+    const result1_5 = kthLargest1.add(4);
+    console.assert(result1_5 === 8, `Test 1.5 failed: expected 8, got ${result1_5}`);
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 2: k = 1 (largest element)
+    const kthLargest2 = new KthLargest(1, [1, 2, 3]);
+    const result2 = kthLargest2.add(4);
+    console.assert(result2 === 4, `Test 2 failed: expected 4, got ${result2}`);
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 3: Empty initial array
+    const kthLargest3 = new KthLargest(2, []);
+    const result3_1 = kthLargest3.add(3);
+    console.assert(result3_1 === 3, `Test 3.1 failed: expected 3, got ${result3_1}`);
+    const result3_2 = kthLargest3.add(5);
+    console.assert(result3_2 === 3, `Test 3.2 failed: expected 3, got ${result3_2}`);
+    const result3_3 = kthLargest3.add(10);
+    console.assert(result3_3 === 5, `Test 3.3 failed: expected 5, got ${result3_3}`);
+
+    // Test case 4: Negative numbers
+    const kthLargest4 = new KthLargest(2, [-1, -2]);
+    const result4 = kthLargest4.add(0);
+    console.assert(result4 === -1, `Test 4 failed: expected -1, got ${result4}`);
 
     console.log('All test cases passed for 703. Kth Largest Element In A Stream!');
 }
@@ -88,10 +195,17 @@ function testSolution() {
 function demonstrateSolution() {
     console.log('\n=== Problem 703. Kth Largest Element In A Stream ===');
     console.log('Category: Heap');
-    console.log('Difficulty: Medium');
+    console.log('Difficulty: Easy');
     console.log('');
 
-    // Example demonstration would go here
+    const kthLargest = new KthLargest(3, [4, 5, 8, 2]);
+    console.log('Initialized with k=3, nums=[4, 5, 8, 2]');
+    console.log('add(3):', kthLargest.add(3)); // 4
+    console.log('add(5):', kthLargest.add(5)); // 5
+    console.log('add(10):', kthLargest.add(10)); // 5
+    console.log('add(9):', kthLargest.add(9)); // 8
+    console.log('add(4):', kthLargest.add(4)); // 8
+
     testSolution();
 }
 
@@ -103,14 +217,15 @@ if (require.main === module) {
 // Export for use in other modules
 module.exports = {
     solve,
+    KthLargest,
     testSolution,
     demonstrateSolution
 };
 
 /**
  * Additional Notes:
- * - This solution focuses on heap concepts
- * - Consider the trade-offs between time and space complexity
- * - Edge cases are crucial for robust solutions
- * - The approach can be adapted for similar problems in this category
+ * - This solution uses a min heap of size k to track k largest elements
+ * - The top of the min heap is always the kth largest element
+ * - Very efficient for streaming data: O(log k) per addition
+ * - Perfect example of using heap for maintaining top-k elements
  */

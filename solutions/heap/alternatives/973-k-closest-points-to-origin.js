@@ -7,55 +7,147 @@
  * SOLUTION EXPLANATION:
  *
  * INTUITION:
- * [This problem requires understanding of heap concepts. The key insight is to identify the optimal approach for this specific scenario.]
+ * We need to find k points closest to the origin. Using a max heap of size k allows us
+ * to efficiently track the k closest points without sorting all points.
  *
  * APPROACH:
- * 1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply heap methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+ * 1. **Calculate Distances**: For each point, calculate squared distance from origin
+ * 2. **Use Max Heap**: Maintain a max heap of size k
+ * 3. **Add Points**: For each point:
+ *    - If heap size < k, add point
+ *    - If point is closer than farthest in heap, replace it
+ * 4. **Extract Results**: Return all points from heap
  *
  * WHY THIS WORKS:
- * - The solution leverages heap principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+ * - Max heap keeps k closest points
+ * - The farthest of these k points (heap top) can be quickly compared
+ * - We avoid sorting all n points (O(n log n))
+ * - Distance squared avoids expensive sqrt calculation
  *
- * TIME COMPLEXITY: O(n)
- * SPACE COMPLEXITY: O(1)
+ * TIME COMPLEXITY: O(n log k) where n is number of points
+ * SPACE COMPLEXITY: O(k) for the heap
  *
  * EXAMPLE WALKTHROUGH:
  * ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
-```
+ * Input: points = [[1,3],[-2,2]], k = 1
+ * Step 1: Calculate distances: [1,3]->10, [-2,2]->8
+ * Step 2: Add [1,3] to heap (heap size < k)
+ * Step 3: Compare [-2,2] (8) with top (10), replace
+ * Output: [[-2,2]]
+ * ```
  *
  * EDGE CASES:
- * - Empty input handling
-- Single element cases
-- Large input considerations
+ * - k = 1 (single closest point)
+ * - k equals number of points (return all)
+ * - Points at same distance
+ * - Points on axes or at origin
  */
+
+/**
+ * MaxHeap implementation for [point, distance] pairs
+ */
+class MaxHeap {
+    constructor() {
+        this.heap = [];
+    }
+
+    size() {
+        return this.heap.length;
+    }
+
+    peek() {
+        return this.heap[0];
+    }
+
+    push(item) {
+        this.heap.push(item);
+        this.bubbleUp(this.heap.length - 1);
+    }
+
+    pop() {
+        if (this.heap.length === 0) return null;
+        if (this.heap.length === 1) return this.heap.pop();
+
+        const top = this.heap[0];
+        this.heap[0] = this.heap.pop();
+        this.bubbleDown(0);
+        return top;
+    }
+
+    bubbleUp(index) {
+        while (index > 0) {
+            const parentIndex = Math.floor((index - 1) / 2);
+            // Compare by distance (second element of pair)
+            if (this.heap[parentIndex][1] >= this.heap[index][1]) break;
+            [this.heap[parentIndex], this.heap[index]] = [this.heap[index], this.heap[parentIndex]];
+            index = parentIndex;
+        }
+    }
+
+    bubbleDown(index) {
+        while (true) {
+            let largest = index;
+            const leftChild = 2 * index + 1;
+            const rightChild = 2 * index + 2;
+
+            if (leftChild < this.heap.length && this.heap[leftChild][1] > this.heap[largest][1]) {
+                largest = leftChild;
+            }
+            if (rightChild < this.heap.length && this.heap[rightChild][1] > this.heap[largest][1]) {
+                largest = rightChild;
+            }
+            if (largest === index) break;
+
+            [this.heap[index], this.heap[largest]] = [this.heap[largest], this.heap[index]];
+            index = largest;
+        }
+    }
+}
+
+/**
+ * Calculate squared Euclidean distance from origin
+ * @param {number[]} point - [x, y] coordinates
+ * @return {number} - Squared distance
+ */
+function distanceSquared(point) {
+    return point[0] * point[0] + point[1] * point[1];
+}
 
 /**
  * Main solution for Problem 973: K Closest Points To Origin
  *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
+ * @param {number[][]} points - Array of [x, y] points
+ * @param {number} k - Number of closest points to find
+ * @return {number[][]} - K closest points
  *
- * Time Complexity: O(n)
- * Space Complexity: O(1)
+ * Time Complexity: O(n log k)
+ * Space Complexity: O(k)
  */
-function solve(...args) {
-    // TODO: Implement the solution using heap techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using heap methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+function solve(points, k) {
+    if (!points || points.length === 0 || k === 0) {
+        return [];
+    }
 
-    return null; // Replace with actual implementation
+    const maxHeap = new MaxHeap();
+
+    for (const point of points) {
+        const dist = distanceSquared(point);
+
+        if (maxHeap.size() < k) {
+            maxHeap.push([point, dist]);
+        } else if (dist < maxHeap.peek()[1]) {
+            maxHeap.pop();
+            maxHeap.push([point, dist]);
+        }
+    }
+
+    // Extract all points from heap
+    const result = [];
+    while (maxHeap.size() > 0) {
+        result.push(maxHeap.pop()[0]);
+    }
+
+    return result;
 }
 
 /**
@@ -64,20 +156,42 @@ function solve(...args) {
 function testSolution() {
     console.log('Testing 973. K Closest Points To Origin');
 
+    // Helper function to check if arrays contain same points (order doesn't matter)
+    function samePoints(arr1, arr2) {
+        if (arr1.length !== arr2.length) return false;
+        const set1 = new Set(arr1.map(p => JSON.stringify(p)));
+        const set2 = new Set(arr2.map(p => JSON.stringify(p)));
+        return set1.size === set2.size && [...set1].every(p => set2.has(p));
+    }
+
     // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    const result1 = solve([[1, 3], [-2, 2]], 1);
+    const expected1 = [[-2, 2]];
+    console.assert(samePoints(result1, expected1),
+        `Test 1 failed: expected ${JSON.stringify(expected1)}, got ${JSON.stringify(result1)}`);
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 2: Multiple points
+    const result2 = solve([[3, 3], [5, -1], [-2, 4]], 2);
+    const expected2 = [[3, 3], [-2, 4]];
+    console.assert(samePoints(result2, expected2),
+        `Test 2 failed: expected ${JSON.stringify(expected2)}, got ${JSON.stringify(result2)}`);
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 3: k equals number of points
+    const result3 = solve([[1, 1], [2, 2], [3, 3]], 3);
+    console.assert(result3.length === 3,
+        `Test 3 failed: expected 3 points, got ${result3.length}`);
+
+    // Test case 4: Single point
+    const result4 = solve([[0, 1]], 1);
+    const expected4 = [[0, 1]];
+    console.assert(samePoints(result4, expected4),
+        `Test 4 failed: expected ${JSON.stringify(expected4)}, got ${JSON.stringify(result4)}`);
+
+    // Test case 5: Points at origin
+    const result5 = solve([[0, 0], [1, 1]], 1);
+    const expected5 = [[0, 0]];
+    console.assert(samePoints(result5, expected5),
+        `Test 5 failed: expected ${JSON.stringify(expected5)}, got ${JSON.stringify(result5)}`);
 
     console.log('All test cases passed for 973. K Closest Points To Origin!');
 }
@@ -91,7 +205,15 @@ function demonstrateSolution() {
     console.log('Difficulty: Medium');
     console.log('');
 
-    // Example demonstration would go here
+    const points = [[1, 3], [-2, 2]];
+    const k = 1;
+    console.log(`Input: points = ${JSON.stringify(points)}, k = ${k}`);
+    const result = solve(points, k);
+    console.log(`Output: ${JSON.stringify(result)}`);
+    console.log('Explanation: Distance from (1,3) to origin is sqrt(10)');
+    console.log('             Distance from (-2,2) to origin is sqrt(8)');
+    console.log('             So [-2,2] is closer');
+
     testSolution();
 }
 
@@ -109,8 +231,9 @@ module.exports = {
 
 /**
  * Additional Notes:
- * - This solution focuses on heap concepts
- * - Consider the trade-offs between time and space complexity
- * - Edge cases are crucial for robust solutions
- * - The approach can be adapted for similar problems in this category
+ * - This solution uses a max heap to efficiently find k closest points
+ * - We use squared distance to avoid expensive sqrt calculations
+ * - Max heap of size k is more efficient than sorting all points
+ * - Time complexity O(n log k) beats naive O(n log n) sorting approach
+ * - Alternative: QuickSelect algorithm for O(n) average case
  */
