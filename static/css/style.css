@@ -425,12 +425,16 @@ main {
 }
 
 .problem-number {
-    background-color: transparent;
+    background-color: var(--primary-color);
+    color: var(--card-bg);
     padding: 0.25rem 0.5rem;
     border-radius: 4px;
     font-size: 0.875rem;
     font-weight: 700;
     margin-right: 0.5rem;
+    vertical-align: middle;
+    display: inline-block;
+    transform: translateY(-0.15em);
 }
 
 /* Info Section */
@@ -465,13 +469,6 @@ main {
 }
 
 /* Solution Explanation */
-.solution-explanation {
-    background: var(--card-bg);
-    border-radius: 8px;
-    margin-bottom: 2rem;
-    border: 1px solid var(--border-color);
-}
-
 .solution-explanation details {
     border: none;
 }
@@ -1098,6 +1095,80 @@ main {
     font-weight: 600;
 }
 
+/* Problem content styling - make examples stand out */
+.problem-content p {
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+.problem-content pre {
+    background: var(--light-bg);
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.25rem;
+    margin: 1.5rem 0;
+    overflow-x: auto;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.problem-content code {
+    background: var(--light-bg);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-family: 'Monaco', 'Courier New', monospace;
+    border: 1px solid var(--border-color);
+}
+
+.problem-content pre code {
+    background: transparent;
+    border: none;
+    padding: 0;
+    font-size: 0.95rem;
+}
+
+.problem-content strong {
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+/* Example definition list styling - structured appearance */
+.problem-content .example-details {
+    background: #f9f9f6;
+    border-left: 4px solid var(--primary-color);
+    padding: 1.25rem;
+    margin: 1.5rem 0;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+.problem-content .example-details dt {
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-top: 0.75rem;
+    margin-bottom: 0.25rem;
+    font-size: 0.95rem;
+}
+
+.problem-content .example-details dt:first-child {
+    margin-top: 0;
+}
+
+.problem-content .example-details dd {
+    margin-left: 0;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--text-primary);
+}
+
+.problem-content .example-details dd:last-child {
+    margin-bottom: 0;
+}
+
 .solution-explanation,
 .skeleton-code,
 .solution-code {
@@ -1111,6 +1182,8 @@ main {
     border: 1px solid var(--border-color);
     border-radius: 8px;
     overflow: hidden;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 .solution-explanation summary,
@@ -1136,11 +1209,31 @@ main {
 .code-content {
     padding: 1.5rem;
     line-height: 1.6;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow-x: auto;
 }
 
-.code-content .highlight,
-.code-content pre {
+/* Constrain Pygments generated code tables */
+.code-content .highlight {
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+.code-content .highlight table {
+    table-layout: fixed;
+    width: 100%;
+    max-width: 100%;
+}
+
+.code-content .highlight .linenos {
+    width: 3em;
+}
+
+.code-content .highlight pre {
     margin: 0;
+    white-space: pre;
+    overflow-x: auto;
 }
 
 /* Custom details marker */
@@ -1180,184 +1273,280 @@ main {
 
 /* Category-specific colors */
 
-/* Solution page title and number */
-.page-header[data-category="arrays-hashing"] .problem-number,
+/* Arrays Hashing - Rust */
+.page-header[data-category="arrays-hashing"] .problem-number { background-color: var(--cat-rust); color: var(--card-bg); }
 .page-header[data-category="arrays-hashing"] h1 { color: var(--cat-rust); }
-
-/* Index page category cards */
+.page-header[data-category="arrays-hashing"] .btn-secondary { background-color: var(--cat-rust); border-color: var(--cat-rust); color: var(--card-bg); }
 [data-category="arrays-hashing"] .category-card { border-left: 4px solid var(--cat-rust); }
 [data-category="arrays-hashing"] .category-card h3 { color: var(--cat-rust); }
-
-/* Category page solution cards */
-[data-category="arrays-hashing"] .solution-card h3 { color: var(--cat-rust); }
-
-/* Dropdown problem badges */
+[data-category="arrays-hashing"] .solution-card .problem-number { background-color: var(--cat-rust); color: var(--card-bg); }
+[data-category="arrays-hashing"] .solution-card .problem-number { background-color: var(--cat-rust); color: var(--card-bg); }
 [data-category="arrays-hashing"] .problem-num { background-color: var(--cat-rust); }
+.problem-statement[data-category="arrays-hashing"] h2 { color: var(--cat-rust); }
+.problem-statement[data-category="arrays-hashing"] .problem-content strong { color: var(--cat-rust); }
+.problem-statement[data-category="arrays-hashing"] .example-details { border-left-color: var(--cat-rust); }
+.problem-statement[data-category="arrays-hashing"] .example-details dt { color: var(--cat-rust); }
 
-.page-header[data-category="backtracking"] .problem-number,
+/* Backtracking - Steel Blue */
+.page-header[data-category="backtracking"] .problem-number { background-color: var(--cat-steel-blue); color: var(--card-bg); }
 .page-header[data-category="backtracking"] h1 { color: var(--cat-steel-blue); }
+.page-header[data-category="backtracking"] .btn-secondary { background-color: var(--cat-steel-blue); border-color: var(--cat-steel-blue); color: var(--card-bg); }
 [data-category="backtracking"] .category-card { border-left: 4px solid var(--cat-steel-blue); }
 [data-category="backtracking"] .category-card h3 { color: var(--cat-steel-blue); }
-[data-category="backtracking"] .solution-card h3 { color: var(--cat-steel-blue); }
+[data-category="backtracking"] .solution-card .problem-number { background-color: var(--cat-steel-blue); color: var(--card-bg); }
 [data-category="backtracking"] .problem-num { background-color: var(--cat-steel-blue); }
+[data-category="backtracking"] .problem-statement h2 { color: var(--cat-steel-blue); }
+[data-category="backtracking"] .problem-content strong { color: var(--cat-steel-blue); }
 
-.page-header[data-category="binary-search"] .problem-number,
+/* Binary Search - Sage */
+.page-header[data-category="binary-search"] .problem-number { background-color: var(--cat-sage); color: var(--card-bg); }
 .page-header[data-category="binary-search"] h1 { color: var(--cat-sage); }
+.page-header[data-category="binary-search"] .btn-secondary { background-color: var(--cat-sage); border-color: var(--cat-sage); color: var(--card-bg); }
 [data-category="binary-search"] .category-card { border-left: 4px solid var(--cat-sage); }
 [data-category="binary-search"] .category-card h3 { color: var(--cat-sage); }
-[data-category="binary-search"] .solution-card h3 { color: var(--cat-sage); }
+[data-category="binary-search"] .solution-card .problem-number { background-color: var(--cat-sage); color: var(--card-bg); }
 [data-category="binary-search"] .problem-num { background-color: var(--cat-sage); }
+[data-category="binary-search"] .problem-statement h2 { color: var(--cat-sage); }
+[data-category="binary-search"] .problem-content strong { color: var(--cat-sage); }
 
-.page-header[data-category="bit-manipulation"] .problem-number,
+/* Bit Manipulation - Amber */
+.page-header[data-category="bit-manipulation"] .problem-number { background-color: var(--cat-amber); color: var(--card-bg); }
 .page-header[data-category="bit-manipulation"] h1 { color: var(--cat-amber); }
+.page-header[data-category="bit-manipulation"] .btn-secondary { background-color: var(--cat-amber); border-color: var(--cat-amber); color: var(--card-bg); }
 [data-category="bit-manipulation"] .category-card { border-left: 4px solid var(--cat-amber); }
 [data-category="bit-manipulation"] .category-card h3 { color: var(--cat-amber); }
-[data-category="bit-manipulation"] .solution-card h3 { color: var(--cat-amber); }
+[data-category="bit-manipulation"] .solution-card .problem-number { background-color: var(--cat-amber); color: var(--card-bg); }
 [data-category="bit-manipulation"] .problem-num { background-color: var(--cat-amber); }
+[data-category="bit-manipulation"] .problem-statement h2 { color: var(--cat-amber); }
+[data-category="bit-manipulation"] .problem-content strong { color: var(--cat-amber); }
 
-.page-header[data-category="design"] .problem-number,
+/* Design - Plum */
+.page-header[data-category="design"] .problem-number { background-color: var(--cat-plum); color: var(--card-bg); }
 .page-header[data-category="design"] h1 { color: var(--cat-plum); }
+.page-header[data-category="design"] .btn-secondary { background-color: var(--cat-plum); border-color: var(--cat-plum); color: var(--card-bg); }
 [data-category="design"] .category-card { border-left: 4px solid var(--cat-plum); }
 [data-category="design"] .category-card h3 { color: var(--cat-plum); }
-[data-category="design"] .solution-card h3 { color: var(--cat-plum); }
+[data-category="design"] .solution-card .problem-number { background-color: var(--cat-plum); color: var(--card-bg); }
 [data-category="design"] .problem-num { background-color: var(--cat-plum); }
+[data-category="design"] .problem-statement h2 { color: var(--cat-plum); }
+[data-category="design"] .problem-content strong { color: var(--cat-plum); }
 
-.page-header[data-category="dynamic-programming"] .problem-number,
+/* Dynamic Programming - Teal */
+.page-header[data-category="dynamic-programming"] .problem-number { background-color: var(--cat-teal); color: var(--card-bg); }
 .page-header[data-category="dynamic-programming"] h1 { color: var(--cat-teal); }
+.page-header[data-category="dynamic-programming"] .btn-secondary { background-color: var(--cat-teal); border-color: var(--cat-teal); color: var(--card-bg); }
 [data-category="dynamic-programming"] .category-card { border-left: 4px solid var(--cat-teal); }
 [data-category="dynamic-programming"] .category-card h3 { color: var(--cat-teal); }
-[data-category="dynamic-programming"] .solution-card h3 { color: var(--cat-teal); }
+[data-category="dynamic-programming"] .solution-card .problem-number { background-color: var(--cat-teal); color: var(--card-bg); }
 [data-category="dynamic-programming"] .problem-num { background-color: var(--cat-teal); }
+[data-category="dynamic-programming"] .problem-statement h2 { color: var(--cat-teal); }
+[data-category="dynamic-programming"] .problem-content strong { color: var(--cat-teal); }
 
-.page-header[data-category="graphs"] .problem-number,
+/* Graphs - Burgundy */
+.page-header[data-category="graphs"] .problem-number { background-color: var(--cat-burgundy); color: var(--card-bg); }
 .page-header[data-category="graphs"] h1 { color: var(--cat-burgundy); }
+.page-header[data-category="graphs"] .btn-secondary { background-color: var(--cat-burgundy); border-color: var(--cat-burgundy); color: var(--card-bg); }
 [data-category="graphs"] .category-card { border-left: 4px solid var(--cat-burgundy); }
 [data-category="graphs"] .category-card h3 { color: var(--cat-burgundy); }
-[data-category="graphs"] .solution-card h3 { color: var(--cat-burgundy); }
+[data-category="graphs"] .solution-card .problem-number { background-color: var(--cat-burgundy); color: var(--card-bg); }
 [data-category="graphs"] .problem-num { background-color: var(--cat-burgundy); }
+[data-category="graphs"] .problem-statement h2 { color: var(--cat-burgundy); }
+[data-category="graphs"] .problem-content strong { color: var(--cat-burgundy); }
 
-.page-header[data-category="greedy"] .problem-number,
+/* Greedy - Navy */
+.page-header[data-category="greedy"] .problem-number { background-color: var(--cat-navy); color: var(--card-bg); }
 .page-header[data-category="greedy"] h1 { color: var(--cat-navy); }
+.page-header[data-category="greedy"] .btn-secondary { background-color: var(--cat-navy); border-color: var(--cat-navy); color: var(--card-bg); }
 [data-category="greedy"] .category-card { border-left: 4px solid var(--cat-navy); }
 [data-category="greedy"] .category-card h3 { color: var(--cat-navy); }
-[data-category="greedy"] .solution-card h3 { color: var(--cat-navy); }
+[data-category="greedy"] .solution-card .problem-number { background-color: var(--cat-navy); color: var(--card-bg); }
 [data-category="greedy"] .problem-num { background-color: var(--cat-navy); }
+[data-category="greedy"] .problem-statement h2 { color: var(--cat-navy); }
+[data-category="greedy"] .problem-content strong { color: var(--cat-navy); }
 
-.page-header[data-category="heap"] .problem-number,
+/* Heap - Rust */
+.page-header[data-category="heap"] .problem-number { background-color: var(--cat-rust); color: var(--card-bg); }
 .page-header[data-category="heap"] h1 { color: var(--cat-rust); }
+.page-header[data-category="heap"] .btn-secondary { background-color: var(--cat-rust); border-color: var(--cat-rust); color: var(--card-bg); }
 [data-category="heap"] .category-card { border-left: 4px solid var(--cat-rust); }
 [data-category="heap"] .category-card h3 { color: var(--cat-rust); }
-[data-category="heap"] .solution-card h3 { color: var(--cat-rust); }
+[data-category="heap"] .solution-card .problem-number { background-color: var(--cat-rust); color: var(--card-bg); }
 [data-category="heap"] .problem-num { background-color: var(--cat-rust); }
+[data-category="heap"] .problem-statement h2 { color: var(--cat-rust); }
+[data-category="heap"] .problem-content strong { color: var(--cat-rust); }
 
-.page-header[data-category="interval"] .problem-number,
+/* Interval - Steel Blue */
+.page-header[data-category="interval"] .problem-number { background-color: var(--cat-steel-blue); color: var(--card-bg); }
 .page-header[data-category="interval"] h1 { color: var(--cat-steel-blue); }
+.page-header[data-category="interval"] .btn-secondary { background-color: var(--cat-steel-blue); border-color: var(--cat-steel-blue); color: var(--card-bg); }
 [data-category="interval"] .category-card { border-left: 4px solid var(--cat-steel-blue); }
 [data-category="interval"] .category-card h3 { color: var(--cat-steel-blue); }
-[data-category="interval"] .solution-card h3 { color: var(--cat-steel-blue); }
+[data-category="interval"] .solution-card .problem-number { background-color: var(--cat-steel-blue); color: var(--card-bg); }
 [data-category="interval"] .problem-num { background-color: var(--cat-steel-blue); }
+[data-category="interval"] .problem-statement h2 { color: var(--cat-steel-blue); }
+[data-category="interval"] .problem-content strong { color: var(--cat-steel-blue); }
 
-.page-header[data-category="linked-list"] .problem-number,
+/* Linked List - Sage */
+.page-header[data-category="linked-list"] .problem-number { background-color: var(--cat-sage); color: var(--card-bg); }
 .page-header[data-category="linked-list"] h1 { color: var(--cat-sage); }
+.page-header[data-category="linked-list"] .btn-secondary { background-color: var(--cat-sage); border-color: var(--cat-sage); color: var(--card-bg); }
 [data-category="linked-list"] .category-card { border-left: 4px solid var(--cat-sage); }
 [data-category="linked-list"] .category-card h3 { color: var(--cat-sage); }
-[data-category="linked-list"] .solution-card h3 { color: var(--cat-sage); }
+[data-category="linked-list"] .solution-card .problem-number { background-color: var(--cat-sage); color: var(--card-bg); }
 [data-category="linked-list"] .problem-num { background-color: var(--cat-sage); }
+[data-category="linked-list"] .problem-statement h2 { color: var(--cat-sage); }
+[data-category="linked-list"] .problem-content strong { color: var(--cat-sage); }
 
-.page-header[data-category="math"] .problem-number,
+/* Math - Amber */
+.page-header[data-category="math"] .problem-number { background-color: var(--cat-amber); color: var(--card-bg); }
 .page-header[data-category="math"] h1 { color: var(--cat-amber); }
+.page-header[data-category="math"] .btn-secondary { background-color: var(--cat-amber); border-color: var(--cat-amber); color: var(--card-bg); }
 [data-category="math"] .category-card { border-left: 4px solid var(--cat-amber); }
 [data-category="math"] .category-card h3 { color: var(--cat-amber); }
-[data-category="math"] .solution-card h3 { color: var(--cat-amber); }
+[data-category="math"] .solution-card .problem-number { background-color: var(--cat-amber); color: var(--card-bg); }
 [data-category="math"] .problem-num { background-color: var(--cat-amber); }
+[data-category="math"] .problem-statement h2 { color: var(--cat-amber); }
+[data-category="math"] .problem-content strong { color: var(--cat-amber); }
 
-.page-header[data-category="matrix"] .problem-number,
+/* Matrix - Plum */
+.page-header[data-category="matrix"] .problem-number { background-color: var(--cat-plum); color: var(--card-bg); }
 .page-header[data-category="matrix"] h1 { color: var(--cat-plum); }
+.page-header[data-category="matrix"] .btn-secondary { background-color: var(--cat-plum); border-color: var(--cat-plum); color: var(--card-bg); }
 [data-category="matrix"] .category-card { border-left: 4px solid var(--cat-plum); }
 [data-category="matrix"] .category-card h3 { color: var(--cat-plum); }
-[data-category="matrix"] .solution-card h3 { color: var(--cat-plum); }
+[data-category="matrix"] .solution-card .problem-number { background-color: var(--cat-plum); color: var(--card-bg); }
 [data-category="matrix"] .problem-num { background-color: var(--cat-plum); }
+[data-category="matrix"] .problem-statement h2 { color: var(--cat-plum); }
+[data-category="matrix"] .problem-content strong { color: var(--cat-plum); }
 
-.page-header[data-category="monotonic-stack"] .problem-number,
+/* Monotonic Stack - Teal */
+.page-header[data-category="monotonic-stack"] .problem-number { background-color: var(--cat-teal); color: var(--card-bg); }
 .page-header[data-category="monotonic-stack"] h1 { color: var(--cat-teal); }
+.page-header[data-category="monotonic-stack"] .btn-secondary { background-color: var(--cat-teal); border-color: var(--cat-teal); color: var(--card-bg); }
 [data-category="monotonic-stack"] .category-card { border-left: 4px solid var(--cat-teal); }
 [data-category="monotonic-stack"] .category-card h3 { color: var(--cat-teal); }
-[data-category="monotonic-stack"] .solution-card h3 { color: var(--cat-teal); }
+[data-category="monotonic-stack"] .solution-card .problem-number { background-color: var(--cat-teal); color: var(--card-bg); }
 [data-category="monotonic-stack"] .problem-num { background-color: var(--cat-teal); }
+[data-category="monotonic-stack"] .problem-statement h2 { color: var(--cat-teal); }
+[data-category="monotonic-stack"] .problem-content strong { color: var(--cat-teal); }
 
-.page-header[data-category="prefix-sum"] .problem-number,
+/* Prefix Sum - Burgundy */
+.page-header[data-category="prefix-sum"] .problem-number { background-color: var(--cat-burgundy); color: var(--card-bg); }
 .page-header[data-category="prefix-sum"] h1 { color: var(--cat-burgundy); }
+.page-header[data-category="prefix-sum"] .btn-secondary { background-color: var(--cat-burgundy); border-color: var(--cat-burgundy); color: var(--card-bg); }
 [data-category="prefix-sum"] .category-card { border-left: 4px solid var(--cat-burgundy); }
 [data-category="prefix-sum"] .category-card h3 { color: var(--cat-burgundy); }
-[data-category="prefix-sum"] .solution-card h3 { color: var(--cat-burgundy); }
+[data-category="prefix-sum"] .solution-card .problem-number { background-color: var(--cat-burgundy); color: var(--card-bg); }
 [data-category="prefix-sum"] .problem-num { background-color: var(--cat-burgundy); }
+[data-category="prefix-sum"] .problem-statement h2 { color: var(--cat-burgundy); }
+[data-category="prefix-sum"] .problem-content strong { color: var(--cat-burgundy); }
 
-.page-header[data-category="queue"] .problem-number,
+/* Queue - Navy */
+.page-header[data-category="queue"] .problem-number { background-color: var(--cat-navy); color: var(--card-bg); }
 .page-header[data-category="queue"] h1 { color: var(--cat-navy); }
+.page-header[data-category="queue"] .btn-secondary { background-color: var(--cat-navy); border-color: var(--cat-navy); color: var(--card-bg); }
 [data-category="queue"] .category-card { border-left: 4px solid var(--cat-navy); }
 [data-category="queue"] .category-card h3 { color: var(--cat-navy); }
-[data-category="queue"] .solution-card h3 { color: var(--cat-navy); }
+[data-category="queue"] .solution-card .problem-number { background-color: var(--cat-navy); color: var(--card-bg); }
 [data-category="queue"] .problem-num { background-color: var(--cat-navy); }
+[data-category="queue"] .problem-statement h2 { color: var(--cat-navy); }
+[data-category="queue"] .problem-content strong { color: var(--cat-navy); }
 
-.page-header[data-category="recursion"] .problem-number,
+/* Recursion - Rust */
+.page-header[data-category="recursion"] .problem-number { background-color: var(--cat-rust); color: var(--card-bg); }
 .page-header[data-category="recursion"] h1 { color: var(--cat-rust); }
+.page-header[data-category="recursion"] .btn-secondary { background-color: var(--cat-rust); border-color: var(--cat-rust); color: var(--card-bg); }
 [data-category="recursion"] .category-card { border-left: 4px solid var(--cat-rust); }
 [data-category="recursion"] .category-card h3 { color: var(--cat-rust); }
-[data-category="recursion"] .solution-card h3 { color: var(--cat-rust); }
+[data-category="recursion"] .solution-card .problem-number { background-color: var(--cat-rust); color: var(--card-bg); }
 [data-category="recursion"] .problem-num { background-color: var(--cat-rust); }
+[data-category="recursion"] .problem-statement h2 { color: var(--cat-rust); }
+[data-category="recursion"] .problem-content strong { color: var(--cat-rust); }
 
-.page-header[data-category="segment-tree"] .problem-number,
+/* Segment Tree - Steel Blue */
+.page-header[data-category="segment-tree"] .problem-number { background-color: var(--cat-steel-blue); color: var(--card-bg); }
 .page-header[data-category="segment-tree"] h1 { color: var(--cat-steel-blue); }
+.page-header[data-category="segment-tree"] .btn-secondary { background-color: var(--cat-steel-blue); border-color: var(--cat-steel-blue); color: var(--card-bg); }
 [data-category="segment-tree"] .category-card { border-left: 4px solid var(--cat-steel-blue); }
 [data-category="segment-tree"] .category-card h3 { color: var(--cat-steel-blue); }
-[data-category="segment-tree"] .solution-card h3 { color: var(--cat-steel-blue); }
+[data-category="segment-tree"] .solution-card .problem-number { background-color: var(--cat-steel-blue); color: var(--card-bg); }
 [data-category="segment-tree"] .problem-num { background-color: var(--cat-steel-blue); }
+[data-category="segment-tree"] .problem-statement h2 { color: var(--cat-steel-blue); }
+[data-category="segment-tree"] .problem-content strong { color: var(--cat-steel-blue); }
 
-.page-header[data-category="simulation"] .problem-number,
+/* Simulation - Sage */
+.page-header[data-category="simulation"] .problem-number { background-color: var(--cat-sage); color: var(--card-bg); }
 .page-header[data-category="simulation"] h1 { color: var(--cat-sage); }
+.page-header[data-category="simulation"] .btn-secondary { background-color: var(--cat-sage); border-color: var(--cat-sage); color: var(--card-bg); }
 [data-category="simulation"] .category-card { border-left: 4px solid var(--cat-sage); }
 [data-category="simulation"] .category-card h3 { color: var(--cat-sage); }
-[data-category="simulation"] .solution-card h3 { color: var(--cat-sage); }
+[data-category="simulation"] .solution-card .problem-number { background-color: var(--cat-sage); color: var(--card-bg); }
 [data-category="simulation"] .problem-num { background-color: var(--cat-sage); }
+[data-category="simulation"] .problem-statement h2 { color: var(--cat-sage); }
+[data-category="simulation"] .problem-content strong { color: var(--cat-sage); }
 
-.page-header[data-category="sorting"] .problem-number,
+/* Sorting - Amber */
+.page-header[data-category="sorting"] .problem-number { background-color: var(--cat-amber); color: var(--card-bg); }
 .page-header[data-category="sorting"] h1 { color: var(--cat-amber); }
+.page-header[data-category="sorting"] .btn-secondary { background-color: var(--cat-amber); border-color: var(--cat-amber); color: var(--card-bg); }
 [data-category="sorting"] .category-card { border-left: 4px solid var(--cat-amber); }
 [data-category="sorting"] .category-card h3 { color: var(--cat-amber); }
-[data-category="sorting"] .solution-card h3 { color: var(--cat-amber); }
+[data-category="sorting"] .solution-card .problem-number { background-color: var(--cat-amber); color: var(--card-bg); }
 [data-category="sorting"] .problem-num { background-color: var(--cat-amber); }
+[data-category="sorting"] .problem-statement h2 { color: var(--cat-amber); }
+[data-category="sorting"] .problem-content strong { color: var(--cat-amber); }
 
-.page-header[data-category="strings"] .problem-number,
+/* Strings - Plum */
+.page-header[data-category="strings"] .problem-number { background-color: var(--cat-plum); color: var(--card-bg); }
 .page-header[data-category="strings"] h1 { color: var(--cat-plum); }
+.page-header[data-category="strings"] .btn-secondary { background-color: var(--cat-plum); border-color: var(--cat-plum); color: var(--card-bg); }
 [data-category="strings"] .category-card { border-left: 4px solid var(--cat-plum); }
 [data-category="strings"] .category-card h3 { color: var(--cat-plum); }
-[data-category="strings"] .solution-card h3 { color: var(--cat-plum); }
+[data-category="strings"] .solution-card .problem-number { background-color: var(--cat-plum); color: var(--card-bg); }
 [data-category="strings"] .problem-num { background-color: var(--cat-plum); }
+[data-category="strings"] .problem-statement h2 { color: var(--cat-plum); }
+[data-category="strings"] .problem-content strong { color: var(--cat-plum); }
 
-.page-header[data-category="topological-sort"] .problem-number,
+/* Topological Sort - Teal */
+.page-header[data-category="topological-sort"] .problem-number { background-color: var(--cat-teal); color: var(--card-bg); }
 .page-header[data-category="topological-sort"] h1 { color: var(--cat-teal); }
+.page-header[data-category="topological-sort"] .btn-secondary { background-color: var(--cat-teal); border-color: var(--cat-teal); color: var(--card-bg); }
 [data-category="topological-sort"] .category-card { border-left: 4px solid var(--cat-teal); }
 [data-category="topological-sort"] .category-card h3 { color: var(--cat-teal); }
-[data-category="topological-sort"] .solution-card h3 { color: var(--cat-teal); }
+[data-category="topological-sort"] .solution-card .problem-number { background-color: var(--cat-teal); color: var(--card-bg); }
 [data-category="topological-sort"] .problem-num { background-color: var(--cat-teal); }
+[data-category="topological-sort"] .problem-statement h2 { color: var(--cat-teal); }
+[data-category="topological-sort"] .problem-content strong { color: var(--cat-teal); }
 
-.page-header[data-category="trees"] .problem-number,
+/* Trees - Burgundy */
+.page-header[data-category="trees"] .problem-number { background-color: var(--cat-burgundy); color: var(--card-bg); }
 .page-header[data-category="trees"] h1 { color: var(--cat-burgundy); }
+.page-header[data-category="trees"] .btn-secondary { background-color: var(--cat-burgundy); border-color: var(--cat-burgundy); color: var(--card-bg); }
 [data-category="trees"] .category-card { border-left: 4px solid var(--cat-burgundy); }
 [data-category="trees"] .category-card h3 { color: var(--cat-burgundy); }
-[data-category="trees"] .solution-card h3 { color: var(--cat-burgundy); }
+[data-category="trees"] .solution-card .problem-number { background-color: var(--cat-burgundy); color: var(--card-bg); }
 [data-category="trees"] .problem-num { background-color: var(--cat-burgundy); }
+[data-category="trees"] .problem-statement h2 { color: var(--cat-burgundy); }
+[data-category="trees"] .problem-content strong { color: var(--cat-burgundy); }
 
-.page-header[data-category="trie"] .problem-number,
+/* Trie - Navy */
+.page-header[data-category="trie"] .problem-number { background-color: var(--cat-navy); color: var(--card-bg); }
 .page-header[data-category="trie"] h1 { color: var(--cat-navy); }
+.page-header[data-category="trie"] .btn-secondary { background-color: var(--cat-navy); border-color: var(--cat-navy); color: var(--card-bg); }
 [data-category="trie"] .category-card { border-left: 4px solid var(--cat-navy); }
 [data-category="trie"] .category-card h3 { color: var(--cat-navy); }
-[data-category="trie"] .solution-card h3 { color: var(--cat-navy); }
+[data-category="trie"] .solution-card .problem-number { background-color: var(--cat-navy); color: var(--card-bg); }
 [data-category="trie"] .problem-num { background-color: var(--cat-navy); }
+[data-category="trie"] .problem-statement h2 { color: var(--cat-navy); }
+[data-category="trie"] .problem-content strong { color: var(--cat-navy); }
 
-.page-header[data-category="union-find"] .problem-number,
+/* Union Find - Rust */
+.page-header[data-category="union-find"] .problem-number { background-color: var(--cat-rust); color: var(--card-bg); }
 .page-header[data-category="union-find"] h1 { color: var(--cat-rust); }
+.page-header[data-category="union-find"] .btn-secondary { background-color: var(--cat-rust); border-color: var(--cat-rust); color: var(--card-bg); }
 [data-category="union-find"] .category-card { border-left: 4px solid var(--cat-rust); }
 [data-category="union-find"] .category-card h3 { color: var(--cat-rust); }
-[data-category="union-find"] .solution-card h3 { color: var(--cat-rust); }
+[data-category="union-find"] .solution-card .problem-number { background-color: var(--cat-rust); color: var(--card-bg); }
 [data-category="union-find"] .problem-num { background-color: var(--cat-rust); }
+[data-category="union-find"] .problem-statement h2 { color: var(--cat-rust); }
+[data-category="union-find"] .problem-content strong { color: var(--cat-rust); }
