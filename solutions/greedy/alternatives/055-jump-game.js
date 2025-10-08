@@ -42,22 +42,31 @@
 /**
  * Main solution for Problem 055: Jump Game
  *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
+ * @param {number[]} nums - Array of jump lengths
+ * @return {boolean} - True if can reach last index, false otherwise
  *
  * Time Complexity: O(n)
  * Space Complexity: O(1)
  */
-function solve(...args) {
-    // TODO: Implement the solution using greedy techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using greedy methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+function solve(nums) {
+    let maxReach = 0;
 
-    return null; // Replace with actual implementation
+    for (let i = 0; i < nums.length; i++) {
+        // If current position is beyond our maximum reach, we can't proceed
+        if (i > maxReach) {
+            return false;
+        }
+
+        // Update maximum reachable position
+        maxReach = Math.max(maxReach, i + nums[i]);
+
+        // Early termination: if we can reach the last index
+        if (maxReach >= nums.length - 1) {
+            return true;
+        }
+    }
+
+    return true;
 }
 
 /**
@@ -66,20 +75,30 @@ function solve(...args) {
 function testSolution() {
     console.log('Testing 055. Jump Game');
 
-    // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    // Test case 1: Can reach end
+    const result1 = solve([2, 3, 1, 1, 4]);
+    const expected1 = true;
+    console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 2: Cannot reach end
+    const result2 = solve([3, 2, 1, 0, 4]);
+    const expected2 = false;
+    console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 3: Single element
+    const result3 = solve([0]);
+    const expected3 = true;
+    console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+
+    // Test case 4: Large first jump
+    const result4 = solve([5, 1, 1, 1, 1]);
+    const expected4 = true;
+    console.assert(result4 === expected4, `Test 4 failed: expected ${expected4}, got ${result4}`);
+
+    // Test case 5: All zeros except first
+    const result5 = solve([1, 0, 0, 0]);
+    const expected5 = false;
+    console.assert(result5 === expected5, `Test 5 failed: expected ${expected5}, got ${result5}`);
 
     console.log('All test cases passed for 055. Jump Game!');
 }

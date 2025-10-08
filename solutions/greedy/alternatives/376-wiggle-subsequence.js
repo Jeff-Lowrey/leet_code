@@ -7,55 +7,70 @@
  * SOLUTION EXPLANATION:
  *
  * INTUITION:
- * [This problem requires understanding of greedy concepts. The key insight is to identify the optimal approach for this specific scenario.]
+ * Count the peaks and valleys in the sequence. Each direction change represents
+ * a valid element in the wiggle subsequence. Greedy choice: include every peak
+ * and valley to maximize length.
  *
  * APPROACH:
- * 1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply greedy methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+ * 1. **Track previous difference**: Keep track of the last non-zero difference
+ * 2. **Detect direction change**: When diff sign changes, we found a wiggle point
+ * 3. **Count changes**: Each direction change adds to subsequence length
+ * 4. **Handle plateaus**: Skip consecutive equal values
  *
  * WHY THIS WORKS:
- * - The solution leverages greedy principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+ * - Every peak/valley is essential for maximum wiggle subsequence
+ * - Greedy choice: include all direction changes
+ * - Removing any peak/valley would reduce the length
+ * - The first element is always included, then count direction changes
  *
  * TIME COMPLEXITY: O(n)
  * SPACE COMPLEXITY: O(1)
  *
  * EXAMPLE WALKTHROUGH:
  * ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
-```
+ * nums = [1,7,4,9,2,5]
+ * i=0: start, length=1
+ * i=1: diff=6>0, prevDiff=0, direction change → length=2, prevDiff=6
+ * i=2: diff=-3<0, prevDiff=6>0, direction change → length=3, prevDiff=-3
+ * i=3: diff=5>0, prevDiff=-3<0, direction change → length=4, prevDiff=5
+ * i=4: diff=-7<0, prevDiff=5>0, direction change → length=5, prevDiff=-7
+ * i=5: diff=3>0, prevDiff=-7<0, direction change → length=6, prevDiff=3
+ * Result: 6
+ * ```
  *
  * EDGE CASES:
- * - Empty input handling
-- Single element cases
-- Large input considerations
+ * - Single element: Length 1
+ * - All equal: Length 1
+ * - Strictly increasing/decreasing: Length 2
+ * - Consecutive duplicates: Skip duplicates, count only direction changes
  */
 
 /**
  * Main solution for Problem 376: Wiggle Subsequence
  *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
+ * @param {number[]} nums - Array of integers
+ * @return {number} - Length of longest wiggle subsequence
  *
  * Time Complexity: O(n)
  * Space Complexity: O(1)
  */
-function solve(...args) {
-    // TODO: Implement the solution using greedy techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using greedy methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+function solve(nums) {
+    if (nums.length < 2) return nums.length;
 
-    return null; // Replace with actual implementation
+    let prevDiff = 0;
+    let length = 1;
+
+    for (let i = 1; i < nums.length; i++) {
+        const diff = nums[i] - nums[i - 1];
+
+        // Check for direction change (or first non-zero difference)
+        if ((diff > 0 && prevDiff <= 0) || (diff < 0 && prevDiff >= 0)) {
+            length++;
+            prevDiff = diff;
+        }
+    }
+
+    return length;
 }
 
 /**
@@ -64,20 +79,30 @@ function solve(...args) {
 function testSolution() {
     console.log('Testing 376. Wiggle Subsequence');
 
-    // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    // Test case 1: Example from problem
+    const result1 = solve([1, 7, 4, 9, 2, 5]);
+    const expected1 = 6;
+    console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 2: Another example
+    const result2 = solve([1, 17, 5, 10, 13, 15, 10, 5, 16, 8]);
+    const expected2 = 7;
+    console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 3: Strictly increasing
+    const result3 = solve([1, 2, 3, 4, 5]);
+    const expected3 = 2;
+    console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+
+    // Test case 4: With duplicates
+    const result4 = solve([1, 1, 7, 4, 9, 2, 5]);
+    const expected4 = 6;
+    console.assert(result4 === expected4, `Test 4 failed: expected ${expected4}, got ${result4}`);
+
+    // Test case 5: Single element
+    const result5 = solve([1]);
+    const expected5 = 1;
+    console.assert(result5 === expected5, `Test 5 failed: expected ${expected5}, got ${result5}`);
 
     console.log('All test cases passed for 376. Wiggle Subsequence!');
 }
