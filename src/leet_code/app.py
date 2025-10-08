@@ -441,8 +441,13 @@ def parse_jsdoc_explanation(code: str) -> tuple[str, dict[str, str] | None]:
 
         jsdoc_content = match.group(1)
 
-        # Clean up JSDoc formatting (remove * at beginning of lines)
-        jsdoc_content = re.sub(r"^\s*\*\s?", "", jsdoc_content, flags=re.MULTILINE)
+        # Clean up JSDoc formatting - preserve blank lines for markdown paragraph breaks
+        lines = []
+        for line in jsdoc_content.split('\n'):
+            # Remove leading whitespace and asterisk
+            cleaned = re.sub(r"^\s*\*\s?", "", line)
+            lines.append(cleaned)
+        jsdoc_content = '\n'.join(lines)
 
         # Extract explanation content (everything from <details> onward)
         details_match = re.search(r"<details>", jsdoc_content, re.IGNORECASE)
@@ -473,8 +478,13 @@ def extract_js_problem_description(code: str) -> str | None:
         if match:
             jsdoc_content = match.group(1)
 
-            # Clean up JSDoc formatting
-            jsdoc_content = re.sub(r"^\s*\*\s?", "", jsdoc_content, flags=re.MULTILINE)
+            # Clean up JSDoc formatting - preserve blank lines for markdown paragraph breaks
+            lines = []
+            for line in jsdoc_content.split('\n'):
+                # Remove leading whitespace and asterisk
+                cleaned = re.sub(r"^\s*\*\s?", "", line)
+                lines.append(cleaned)
+            jsdoc_content = '\n'.join(lines)
 
             # Extract everything before <details> or the whole thing if no details
             details_match = re.search(r"<details>", jsdoc_content, re.IGNORECASE)
