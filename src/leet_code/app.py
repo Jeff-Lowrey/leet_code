@@ -484,7 +484,7 @@ def extract_js_problem_description(code: str) -> str | None:
                 problem_description = jsdoc_content.strip()
 
             # Convert to HTML
-            problem_html = markdown.markdown(problem_description)
+            problem_html = markdown.markdown(problem_description, extensions=["fenced_code", "tables"])
             return problem_html
 
     except Exception:  # nosec B110 - Intentional: return None on parsing failure
