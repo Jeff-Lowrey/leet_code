@@ -43,6 +43,22 @@ This file contains the top 50 most frequently asked LeetCode problems, organized
 - Practice explaining solutions clearly
 - Implement without IDE assistance
 
+### TIME COMPLEXITY: Varies by problem
+Each solution includes specific time complexity in method docstring.
+Ranges from O(1) for simple lookups to O(n²) for certain graph problems.
+
+### SPACE COMPLEXITY: Varies by problem
+Each solution includes specific space complexity in method docstring.
+Common patterns: O(1) for in-place, O(n) for hash maps/arrays, O(h) for recursion.
+
+### EDGE CASES:
+Each problem handles specific edge cases including:
+- Empty inputs
+- Single element arrays
+- Duplicate values
+- Negative numbers
+- Boundary conditions
+
 </details>
 
 # ============================================================================
