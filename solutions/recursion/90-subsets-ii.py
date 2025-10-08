@@ -1,31 +1,210 @@
 """
-# 90. Subsets Ii
+# 90. Subsets II
 **Medium**
 
 This problem demonstrates key concepts in Recursion.
 
+<details>
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### INTUITION:
+Given an array that may contain duplicate integers, return all possible unique subsets.
+The challenge is avoiding duplicate subsets when the input array has duplicate values.
+We need to combine the subset generation logic with duplicate handling.
+
+### APPROACH:
+1. **Sort the array**: Groups duplicates together for efficient duplicate detection
+2. **Backtracking with duplicate handling**:
+   - Generate subsets using standard backtracking
+   - Skip duplicate elements at the same recursion level
+   - If current element equals previous and we're not at start, skip it
+3. **Key insight**:
+   - For [1,2,2], we want [1,2] and [1,2,2] but not [1,2] twice
+   - Sorting + skipping ensures we only use duplicates consecutively
+
+### WHY THIS WORKS:
+- Sorting groups duplicates together
+- The skip condition (i > start and nums[i] == nums[i-1]) ensures
+  we only use duplicate values in left-to-right order at each level
+- This prevents generating the same subset multiple times
+- Each duplicate is only added if we're continuing from previous duplicate
+
+### TIME COMPLEXITY: O(2^n * n) - 2^n subsets, O(n) to build each
+### SPACE COMPLEXITY: O(n) - recursion depth
+
+### EXAMPLE WALKTHROUGH:
+```
+Input: [1,2,2]
+After sorting: [1,2,2]
+
+Generate subsets:
+[] -> Add to result
+Include 1: [1] -> Add to result
+  Include first 2: [1,2] -> Add to result
+    Include second 2: [1,2,2] -> Add to result
+  Skip second 2 at same level (would create duplicate [1,2])
+Skip 1, Include first 2: [2] -> Add to result
+  Include second 2: [2,2] -> Add to result
+Skip both, Include second 2: SKIP (duplicate at same level)
+
+Output: [[],[1],[1,2],[1,2,2],[2],[2,2]]
+```
+
+### EDGE CASES:
+- All elements are the same (return subsets of different sizes)
+- No duplicates (behaves like Subsets I)
+- Empty array (return [[]])
+
+</details>
+
+<details>
+<summary><b>💡 APPROACH</b></summary>
+
+The approach uses backtracking with duplicate handling. The key difference from
+Subsets I is handling duplicate values to avoid generating duplicate subsets.
+
+### Algorithm Steps:
+1. Sort array to group duplicates
+2. Add current subset to results at each step
+3. For each remaining element, skip duplicates at same level
+4. Include element and recurse
+5. Backtrack by removing the element
+
+</details>
 """
 
+from typing import List
+
+
 class Solution:
-    def solve(self, *args) -> None:
+    def subsetsWithDup(self, nums: List[int]) -> List[List[int]]:
+        """
+        Generate all unique subsets of integers (may contain duplicates).
+
+        Args:
+            nums: Array of integers (may contain duplicates)
+
+        Returns:
+            List of all unique subsets
+
+        Time Complexity: O(2^n * n)
+        Space Complexity: O(n)
+        """
+        result = []
+
+        # Sort to group duplicates together
+        nums.sort()
+
+        def backtrack(start: int, subset: List[int]) -> None:
+            """
+            Backtracking helper to build subsets.
+
+            Args:
+                start: Starting index in nums array
+                subset: Current subset being built
+            """
+            # Add current subset to results
+            result.append(subset[:])
+
+            # Try adding each remaining number
+            for i in range(start, len(nums)):
+                # Skip duplicates at the same recursion level
+                # If current element equals previous and we're not at start, skip
+                if i > start and nums[i] == nums[i - 1]:
+                    continue
+
+                # Choose: add number to subset
+                subset.append(nums[i])
+
+                # Explore: recurse with next index
+                backtrack(i + 1, subset)
+
+                # Unchoose: backtrack
+                subset.pop()
+
+        # Start backtracking from index 0 with empty subset
+        backtrack(0, [])
+
+        return result
+
+    def solve(self, nums: List[int]) -> List[List[int]]:
         """
         Main solution for Problem 90.
 
-        Time Complexity: O(n)
-        Space Complexity: O(1)
+        Args:
+            nums: Array of integers (may contain duplicates)
+
+        Returns:
+            List of all unique subsets
+
+        Time Complexity: O(2^n * n)
+        Space Complexity: O(n)
         """
-        pass
+        return self.subsetsWithDup(nums)
 
 
 def test_solution():
     """Test cases for Problem 90."""
     solution = Solution()
 
-    # Test case 1
-    # assert solution.solve() == expected
+    def arrays_equal(a, b):
+        """Compare 2D arrays (order doesn't matter)."""
+        if len(a) != len(b):
+            return False
+        sorted_a = sorted([tuple(arr) for arr in a])
+        sorted_b = sorted([tuple(arr) for arr in b])
+        return sorted_a == sorted_b
+
+    # Test case 1: Array with duplicates
+    result = solution.solve([1, 2, 2])
+    expected = [[], [1], [1, 2], [1, 2, 2], [2], [2, 2]]
+    assert arrays_equal(result, expected), f"Expected {expected}, got {result}"
+    print("Test 1 passed: Array with duplicates")
+
+    # Test case 2: All same elements
+    result = solution.solve([1, 1, 1])
+    expected = [[], [1], [1, 1], [1, 1, 1]]
+    assert arrays_equal(result, expected), f"Expected {expected}, got {result}"
+    print("Test 2 passed: All same elements")
+
+    # Test case 3: Multiple different duplicates
+    result = solution.solve([4, 4, 4, 1, 4])
+    # Should have subsets with 0 to 4 4's, each potentially with or without 1
+    assert len(result) == 10, f"Expected 10 unique subsets, got {len(result)}"  # 5 choices for number of 4's * 2 choices for 1
+    print("Test 3 passed: Multiple different duplicates")
+
+    # Test case 4: No duplicates
+    result = solution.solve([1, 2, 3])
+    assert len(result) == 8, f"Expected 8 subsets, got {len(result)}"  # 2^3 = 8
+    print("Test 4 passed: No duplicates")
+
+    # Test case 5: Empty array
+    result = solution.solve([])
+    expected = [[]]
+    assert arrays_equal(result, expected), f"Expected {expected}, got {result}"
+    print("Test 5 passed: Empty array")
+
+    # Test case 6: Verify all subsets are unique
+    result = solution.solve([1, 2, 2])
+    result_set = set(tuple(s) for s in result)
+    assert len(result_set) == len(result), "Duplicate subsets found"
+    print("Test 6 passed: All subsets unique")
 
     print("All test cases passed!")
 
 
 if __name__ == "__main__":
     test_solution()
+
+    # Example usage
+    print(f"\nSolution for 90. Subsets II")
+    solution = Solution()
+
+    example1 = [1, 2, 2]
+    print(f"Input: {example1}")
+    print(f"Output: {solution.solve(example1)}")
+    print()
+
+    example2 = [0]
+    print(f"Input: {example2}")
+    print(f"Output: {solution.solve(example2)}")
