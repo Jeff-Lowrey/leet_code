@@ -7,55 +7,89 @@
  * SOLUTION EXPLANATION:
  *
  * INTUITION:
- * [This problem requires understanding of sliding window concepts. The key insight is to identify the optimal approach for this specific scenario.]
+ * Find the longest substring where we can replace at most k characters to make all characters the same.
+ * Use a sliding window with character frequency tracking and check if replacements needed <= k.
  *
  * APPROACH:
- * 1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply sliding window methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+ * 1. **Analyze the problem**: Find max length substring achievable with k replacements
+ * 2. **Choose the right technique**: Variable-size sliding window with frequency map
+ * 3. **Implement efficiently**: Track max frequency and window size
+ * 4. **Handle edge cases**: k=0, k>=length, empty string, single character
  *
  * WHY THIS WORKS:
- * - The solution leverages sliding window principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+ * - Window is valid if: windowLength - maxFrequency <= k
+ * - maxFrequency is the count of the most frequent character in window
+ * - Characters to replace = total characters - most frequent character
+ * - Expand window when valid, contract when invalid
+ * - We don't need to decrease maxFreq when shrinking (optimization)
  *
- * TIME COMPLEXITY: O(n)
- * SPACE COMPLEXITY: O(1)
+ * TIME COMPLEXITY: O(n) - single pass through string
+ * SPACE COMPLEXITY: O(26) = O(1) - at most 26 uppercase letters
  *
  * EXAMPLE WALKTHROUGH:
  * ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
-```
+ * Input: s = "AABABBA", k = 1
+ * Step 1: window="A", maxFreq=1, replacements=0, valid
+ * Step 2: window="AA", maxFreq=2, replacements=0, valid
+ * Step 3: window="AAB", maxFreq=2, replacements=1, valid, length=3
+ * Step 4: window="AABA", maxFreq=3, replacements=1, valid, length=4
+ * Step 5: window="AABAB", maxFreq=3, replacements=2, invalid, shrink
+ * Step 6: Continue process
+ * Output: 4
+ * ```
  *
  * EDGE CASES:
- * - Empty input handling
-- Single element cases
-- Large input considerations
+ * - Empty string: return 0
+ * - k = 0: find longest substring of same characters
+ * - k >= length-1: return length (can make entire string same)
+ * - All same characters: return length
  */
 
 /**
  * Main solution for Problem 424: Longest Repeating Character Replacement
  *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
+ * @param {string} s - Input string containing uppercase English letters
+ * @param {number} k - Maximum number of characters that can be replaced
+ * @return {number} - Length of longest substring after replacements
  *
  * Time Complexity: O(n)
  * Space Complexity: O(1)
  */
-function solve(...args) {
-    // TODO: Implement the solution using sliding window techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using sliding window methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+function solve(s, k) {
+    if (!s || s.length === 0) return 0;
+    if (k >= s.length - 1) return s.length;
 
-    return null; // Replace with actual implementation
+    const charCount = new Map();
+    let left = 0;
+    let maxFreq = 0;
+    let maxLength = 0;
+
+    for (let right = 0; right < s.length; right++) {
+        const char = s[right];
+
+        // Update character frequency
+        charCount.set(char, (charCount.get(char) || 0) + 1);
+
+        // Update max frequency seen in current window
+        maxFreq = Math.max(maxFreq, charCount.get(char));
+
+        // Check if current window is valid
+        // windowLength - maxFreq = number of replacements needed
+        const windowLength = right - left + 1;
+        const replacementsNeeded = windowLength - maxFreq;
+
+        // If invalid, shrink window from left
+        if (replacementsNeeded > k) {
+            const leftChar = s[left];
+            charCount.set(leftChar, charCount.get(leftChar) - 1);
+            left++;
+        }
+
+        // Update max length (window is guaranteed valid here)
+        maxLength = Math.max(maxLength, right - left + 1);
+    }
+
+    return maxLength;
 }
 
 /**
@@ -64,20 +98,53 @@ function solve(...args) {
 function testSolution() {
     console.log('Testing 424. Longest Repeating Character Replacement');
 
-    // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    // Test case 1: Basic example
+    const result1 = solve("ABAB", 2);
+    const expected1 = 4;
+    console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    console.log(`Test 1 passed: s="ABAB", k=2 -> ${result1}`);
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 2: More complex case
+    const result2 = solve("AABABBA", 1);
+    const expected2 = 4;
+    console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    console.log(`Test 2 passed: s="AABABBA", k=1 -> ${result2}`);
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 3: k = 0
+    const result3 = solve("AAABBB", 0);
+    const expected3 = 3;
+    console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    console.log(`Test 3 passed: s="AAABBB", k=0 -> ${result3}`);
+
+    // Test case 4: All same characters
+    const result4 = solve("AAAA", 2);
+    const expected4 = 4;
+    console.assert(result4 === expected4, `Test 4 failed: expected ${expected4}, got ${result4}`);
+    console.log(`Test 4 passed: s="AAAA", k=2 -> ${result4}`);
+
+    // Test case 5: k larger than needed
+    const result5 = solve("ABC", 5);
+    const expected5 = 3;
+    console.assert(result5 === expected5, `Test 5 failed: expected ${expected5}, got ${result5}`);
+    console.log(`Test 5 passed: s="ABC", k=5 -> ${result5}`);
+
+    // Test case 6: Single character
+    const result6 = solve("A", 0);
+    const expected6 = 1;
+    console.assert(result6 === expected6, `Test 6 failed: expected ${expected6}, got ${result6}`);
+    console.log(`Test 6 passed: s="A", k=0 -> ${result6}`);
+
+    // Test case 7: Empty string
+    const result7 = solve("", 2);
+    const expected7 = 0;
+    console.assert(result7 === expected7, `Test 7 failed: expected ${expected7}, got ${result7}`);
+    console.log(`Test 7 passed: s="", k=2 -> ${result7}`);
+
+    // Test case 8: Complex pattern
+    const result8 = solve("ABBB", 2);
+    const expected8 = 4;
+    console.assert(result8 === expected8, `Test 8 failed: expected ${expected8}, got ${result8}`);
+    console.log(`Test 8 passed: s="ABBB", k=2 -> ${result8}`);
 
     console.log('All test cases passed for 424. Longest Repeating Character Replacement!');
 }
@@ -91,7 +158,6 @@ function demonstrateSolution() {
     console.log('Difficulty: Medium');
     console.log('');
 
-    // Example demonstration would go here
     testSolution();
 }
 
@@ -113,4 +179,5 @@ module.exports = {
  * - Consider the trade-offs between time and space complexity
  * - Edge cases are crucial for robust solutions
  * - The approach can be adapted for similar problems in this category
+ * - The key insight is: replacements_needed = window_length - max_frequency
  */

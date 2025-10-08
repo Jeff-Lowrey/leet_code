@@ -1,61 +1,107 @@
 /**
  * 076. Minimum Window Substring
- * Medium
+ * Hard
  *
  * This problem demonstrates key concepts in Sliding Window.
  *
  * SOLUTION EXPLANATION:
  *
  * INTUITION:
- * [This problem requires understanding of sliding window concepts. The key insight is to identify the optimal approach for this specific scenario.]
+ * Find the smallest substring in s that contains all characters from t.
+ * Use a sliding window with two hash maps to track character frequencies.
  *
  * APPROACH:
- * 1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply sliding window methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+ * 1. **Analyze the problem**: Find minimum window containing all characters from t
+ * 2. **Choose the right technique**: Variable-size sliding window with character frequency tracking
+ * 3. **Implement efficiently**: Use two maps - one for target, one for window
+ * 4. **Handle edge cases**: Empty strings, no valid window, entire string is minimum
  *
  * WHY THIS WORKS:
- * - The solution leverages sliding window principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+ * - Expand window (right pointer) until all characters from t are included
+ * - Contract window (left pointer) while maintaining validity to find minimum
+ * - Track character frequencies to determine if window is valid
+ * - Keep track of the smallest valid window found
  *
- * TIME COMPLEXITY: O(n)
- * SPACE COMPLEXITY: O(1)
+ * TIME COMPLEXITY: O(m + n) where m is length of s, n is length of t
+ * SPACE COMPLEXITY: O(k) where k is number of unique characters in t
  *
  * EXAMPLE WALKTHROUGH:
  * ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
-```
+ * Input: s = "ADOBECODEBANC", t = "ABC"
+ * Step 1: Expand window until "ADOBEC" contains A, B, C
+ * Step 2: Contract from left: "DOBEC" still valid, "OBEC" invalid
+ * Step 3: Continue expanding and contracting
+ * Step 4: Find minimum window "BANC"
+ * Output: "BANC"
+ * ```
  *
  * EDGE CASES:
- * - Empty input handling
-- Single element cases
-- Large input considerations
+ * - Empty s or t: return ""
+ * - t longer than s: return ""
+ * - No valid window exists: return ""
+ * - Multiple minimum windows: return any one
  */
 
 /**
  * Main solution for Problem 076: Minimum Window Substring
  *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
+ * @param {string} s - Source string to search in
+ * @param {string} t - Target string containing required characters
+ * @return {string} - Minimum window substring or empty string
  *
- * Time Complexity: O(n)
- * Space Complexity: O(1)
+ * Time Complexity: O(m + n)
+ * Space Complexity: O(k)
  */
-function solve(...args) {
-    // TODO: Implement the solution using sliding window techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using sliding window methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+function solve(s, t) {
+    if (!s || !t || s.length < t.length) return "";
 
-    return null; // Replace with actual implementation
+    // Build frequency map for target string t
+    const targetMap = new Map();
+    for (const char of t) {
+        targetMap.set(char, (targetMap.get(char) || 0) + 1);
+    }
+
+    let left = 0;
+    let minLength = Infinity;
+    let minStart = 0;
+    let required = targetMap.size; // Number of unique chars in t
+    let formed = 0; // Number of unique chars in current window with desired frequency
+
+    const windowMap = new Map();
+
+    for (let right = 0; right < s.length; right++) {
+        const char = s[right];
+
+        // Add character to window
+        windowMap.set(char, (windowMap.get(char) || 0) + 1);
+
+        // Check if frequency of current character matches requirement
+        if (targetMap.has(char) && windowMap.get(char) === targetMap.get(char)) {
+            formed++;
+        }
+
+        // Try to contract the window until it's no longer valid
+        while (formed === required && left <= right) {
+            // Update result if this window is smaller
+            if (right - left + 1 < minLength) {
+                minLength = right - left + 1;
+                minStart = left;
+            }
+
+            // Remove leftmost character from window
+            const leftChar = s[left];
+            windowMap.set(leftChar, windowMap.get(leftChar) - 1);
+
+            // Check if removal breaks the validity
+            if (targetMap.has(leftChar) && windowMap.get(leftChar) < targetMap.get(leftChar)) {
+                formed--;
+            }
+
+            left++;
+        }
+    }
+
+    return minLength === Infinity ? "" : s.substring(minStart, minStart + minLength);
 }
 
 /**
@@ -64,20 +110,47 @@ function solve(...args) {
 function testSolution() {
     console.log('Testing 076. Minimum Window Substring');
 
-    // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    // Test case 1: Basic example
+    const result1 = solve("ADOBECODEBANC", "ABC");
+    const expected1 = "BANC";
+    console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    console.log(`Test 1 passed: s="ADOBECODEBANC", t="ABC" -> "${result1}"`);
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 2: Target with duplicate characters
+    const result2 = solve("a", "a");
+    const expected2 = "a";
+    console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    console.log(`Test 2 passed: s="a", t="a" -> "${result2}"`);
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 3: No valid window
+    const result3 = solve("a", "aa");
+    const expected3 = "";
+    console.assert(result3 === expected3, `Test 3 failed: expected "${expected3}", got "${result3}"`);
+    console.log(`Test 3 passed: s="a", t="aa" -> "${result3}"`);
+
+    // Test case 4: Entire string is minimum window
+    const result4 = solve("abc", "abc");
+    const expected4 = "abc";
+    console.assert(result4 === expected4, `Test 4 failed: expected ${expected4}, got ${result4}`);
+    console.log(`Test 4 passed: s="abc", t="abc" -> "${result4}"`);
+
+    // Test case 5: Complex case with duplicates
+    const result5 = solve("ADOBECODEBANC", "AABC");
+    const expected5 = "ADOBECODEBA";
+    console.assert(result5 === expected5, `Test 5 failed: expected ${expected5}, got ${result5}`);
+    console.log(`Test 5 passed: s="ADOBECODEBANC", t="AABC" -> "${result5}"`);
+
+    // Test case 6: Empty strings
+    const result6 = solve("", "a");
+    const expected6 = "";
+    console.assert(result6 === expected6, `Test 6 failed: expected "${expected6}", got "${result6}"`);
+    console.log(`Test 6 passed: s="", t="a" -> "${result6}"`);
+
+    // Test case 7: Minimum at the end
+    const result7 = solve("ab", "b");
+    const expected7 = "b";
+    console.assert(result7 === expected7, `Test 7 failed: expected ${expected7}, got ${result7}`);
+    console.log(`Test 7 passed: s="ab", t="b" -> "${result7}"`);
 
     console.log('All test cases passed for 076. Minimum Window Substring!');
 }
@@ -88,10 +161,9 @@ function testSolution() {
 function demonstrateSolution() {
     console.log('\n=== Problem 076. Minimum Window Substring ===');
     console.log('Category: Sliding Window');
-    console.log('Difficulty: Medium');
+    console.log('Difficulty: Hard');
     console.log('');
 
-    // Example demonstration would go here
     testSolution();
 }
 
