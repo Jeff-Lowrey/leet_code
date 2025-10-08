@@ -7,43 +7,71 @@
  * SOLUTION EXPLANATION:
  *
  * INTUITION:
- * This problem requires understanding of stack concepts.
+ * Simplify Unix-style file paths by handling '.', '..', and multiple slashes.
+ * A stack is perfect for this: push valid directories, pop when encountering '..'.
  *
  * APPROACH:
- * Apply stack methodology to solve efficiently.
+ * 1. **Split path**: Divide path by '/' to get components
+ * 2. **Use stack**: Process each component:
+ *    - Skip empty strings and '.'
+ *    - Pop from stack for '..' (if stack not empty)
+ *    - Push valid directory names
+ * 3. **Build result**: Join stack with '/' and prefix with '/'
  *
  * WHY THIS WORKS:
- * The solution leverages stack principles for optimal performance.
+ * - Stack naturally handles directory traversal (.. goes up one level = pop)
+ * - Splitting by '/' handles multiple consecutive slashes automatically
+ * - Empty components from split are filtered out
  *
- * TIME COMPLEXITY: O(n)
- * SPACE COMPLEXITY: O(1)
+ * TIME COMPLEXITY: O(n) - process each character once
+ * SPACE COMPLEXITY: O(n) - stack stores valid path components
  *
  * EXAMPLE WALKTHROUGH:
- * Input: [example input]\nStep 1: [explain first step]\nOutput: [expected output]
+ * ```
+ * Input: "/a/./b/../../c/"
+ * Step 1: Split → ["", "a", ".", "b", "..", "..", "c", ""]
+ * Step 2: Process → stack: [] → ["a"] → ["a"] → ["a","b"] → ["a"] → [] → ["c"]
+ * Output: "/c"
+ * ```
  *
  * EDGE CASES:
- * - Empty input handling\n- Single element cases\n- Large input considerations
+ * - Root path: "/" returns "/"
+ * - Path with only dots: "/../" returns "/"
+ * - Multiple slashes: "///" returns "/"
  */
 
 /**
  * Main solution for Problem 71: Simplify Path
  *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
+ * @param {string} path - Unix-style file path
+ * @return {string} - Simplified canonical path
  *
  * Time Complexity: O(n)
- * Space Complexity: O(1)
+ * Space Complexity: O(n)
  */
-function solve(...args) {
-    // TODO: Implement the solution using stack techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using stack methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+function solve(path) {
+    const stack = [];
+    const components = path.split('/');
 
-    return null; // Replace with actual implementation
+    for (const component of components) {
+        // Skip empty strings and current directory
+        if (component === '' || component === '.') {
+            continue;
+        }
+
+        // Go up one directory (if possible)
+        if (component === '..') {
+            if (stack.length > 0) {
+                stack.pop();
+            }
+        } else {
+            // Valid directory name
+            stack.push(component);
+        }
+    }
+
+    // Build canonical path
+    return '/' + stack.join('/');
 }
 
 /**
@@ -52,20 +80,25 @@ function solve(...args) {
 function testSolution() {
     console.log('Testing 71. Simplify Path');
 
-    // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    // Test case 1: Basic with dots and double dots
+    const result1 = solve("/a/./b/../../c/");
+    const expected1 = "/c";
+    console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 2: Root path
+    const result2 = solve("/../");
+    const expected2 = "/";
+    console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 3: Multiple slashes
+    const result3 = solve("/home//foo/");
+    const expected3 = "/home/foo";
+    console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+
+    // Test case 4: Complex path
+    const result4 = solve("/a/../../b/../c//.//");
+    const expected4 = "/c";
+    console.assert(result4 === expected4, `Test 4 failed: expected ${expected4}, got ${result4}`);
 
     console.log('All test cases passed for 71. Simplify Path!');
 }

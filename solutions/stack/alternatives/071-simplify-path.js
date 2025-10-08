@@ -7,55 +7,71 @@
  * SOLUTION EXPLANATION:
  *
  * INTUITION:
- * [This problem requires understanding of stack concepts. The key insight is to identify the optimal approach for this specific scenario.]
+ * Simplify Unix-style file paths by handling '.', '..', and multiple slashes.
+ * A stack is perfect for this: push valid directories, pop when encountering '..'.
  *
  * APPROACH:
- * 1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply stack methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+ * 1. **Split path**: Divide path by '/' to get components
+ * 2. **Use stack**: Process each component:
+ *    - Skip empty strings and '.'
+ *    - Pop from stack for '..' (if stack not empty)
+ *    - Push valid directory names
+ * 3. **Build result**: Join stack with '/' and prefix with '/'
  *
  * WHY THIS WORKS:
- * - The solution leverages stack principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+ * - Stack naturally handles directory traversal (.. goes up one level = pop)
+ * - Splitting by '/' handles multiple consecutive slashes automatically
+ * - Empty components from split are filtered out
  *
- * TIME COMPLEXITY: O(n)
- * SPACE COMPLEXITY: O(1)
+ * TIME COMPLEXITY: O(n) - process each character once
+ * SPACE COMPLEXITY: O(n) - stack stores valid path components
  *
  * EXAMPLE WALKTHROUGH:
  * ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
-```
+ * Input: "/a/./b/../../c/"
+ * Step 1: Split → ["", "a", ".", "b", "..", "..", "c", ""]
+ * Step 2: Process → stack: [] → ["a"] → ["a"] → ["a","b"] → ["a"] → [] → ["c"]
+ * Output: "/c"
+ * ```
  *
  * EDGE CASES:
- * - Empty input handling
-- Single element cases
-- Large input considerations
+ * - Root path: "/" returns "/"
+ * - Path with only dots: "/../" returns "/"
+ * - Multiple slashes: "///" returns "/"
  */
 
 /**
  * Main solution for Problem 071: Simplify Path
  *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
+ * @param {string} path - Unix-style file path
+ * @return {string} - Simplified canonical path
  *
  * Time Complexity: O(n)
- * Space Complexity: O(1)
+ * Space Complexity: O(n)
  */
-function solve(...args) {
-    // TODO: Implement the solution using stack techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using stack methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+function solve(path) {
+    const stack = [];
+    const components = path.split('/');
 
-    return null; // Replace with actual implementation
+    for (const component of components) {
+        // Skip empty strings and current directory
+        if (component === '' || component === '.') {
+            continue;
+        }
+
+        // Go up one directory (if possible)
+        if (component === '..') {
+            if (stack.length > 0) {
+                stack.pop();
+            }
+        } else {
+            // Valid directory name
+            stack.push(component);
+        }
+    }
+
+    // Build canonical path
+    return '/' + stack.join('/');
 }
 
 /**
@@ -64,20 +80,25 @@ function solve(...args) {
 function testSolution() {
     console.log('Testing 071. Simplify Path');
 
-    // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    // Test case 1: Basic with dots and double dots
+    const result1 = solve("/a/./b/../../c/");
+    const expected1 = "/c";
+    console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 2: Root path
+    const result2 = solve("/../");
+    const expected2 = "/";
+    console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 3: Multiple slashes
+    const result3 = solve("/home//foo/");
+    const expected3 = "/home/foo";
+    console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+
+    // Test case 4: Complex path
+    const result4 = solve("/a/../../b/../c//.//");
+    const expected4 = "/c";
+    console.assert(result4 === expected4, `Test 4 failed: expected ${expected4}, got ${result4}`);
 
     console.log('All test cases passed for 071. Simplify Path!');
 }

@@ -7,55 +7,71 @@
  * SOLUTION EXPLANATION:
  *
  * INTUITION:
- * [This problem requires understanding of stack concepts. The key insight is to identify the optimal approach for this specific scenario.]
+ * Generate all valid combinations of n pairs of parentheses using backtracking.
+ * We can only add '(' if we have remaining open parens, and ')' if it won't
+ * create an invalid sequence (open count > close count).
  *
  * APPROACH:
- * 1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply stack methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+ * 1. **Use backtracking**: Build strings character by character
+ * 2. **Track counts**: Keep track of open and close parentheses used
+ * 3. **Validate constraints**: Only add '(' if open < n, only add ')' if close < open
+ * 4. **Base case**: When current string length equals 2*n, add to result
  *
  * WHY THIS WORKS:
- * - The solution leverages stack principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+ * - By tracking open/close counts, we ensure validity at each step
+ * - Backtracking explores all valid combinations
+ * - Pruning invalid branches early optimizes the search space
  *
- * TIME COMPLEXITY: O(n)
- * SPACE COMPLEXITY: O(1)
+ * TIME COMPLEXITY: O(4^n / √n) - Catalan number for valid parentheses combinations
+ * SPACE COMPLEXITY: O(n) - recursion stack depth
  *
  * EXAMPLE WALKTHROUGH:
  * ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
-```
+ * Input: n = 3
+ * Step 1: Start with empty string, open=0, close=0
+ * Step 2: Try adding '(' → "(", open=1, close=0
+ * Step 3: Continue building: "((", "(()", "(())", "((()))", etc.
+ * Output: ["((()))","(()())","(())()","()(())","()()()"]
+ * ```
  *
  * EDGE CASES:
- * - Empty input handling
-- Single element cases
-- Large input considerations
+ * - n = 0: return [""] (empty string is valid)
+ * - n = 1: return ["()"]
+ * - Large n: exponential growth but pruned by constraints
  */
 
 /**
  * Main solution for Problem 022: Generate Parentheses
  *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
+ * @param {number} n - Number of pairs of parentheses
+ * @return {string[]} - All valid combinations of parentheses
  *
- * Time Complexity: O(n)
- * Space Complexity: O(1)
+ * Time Complexity: O(4^n / √n)
+ * Space Complexity: O(n)
  */
-function solve(...args) {
-    // TODO: Implement the solution using stack techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using stack methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+function solve(n) {
+    const result = [];
 
-    return null; // Replace with actual implementation
+    function backtrack(current, open, close) {
+        // Base case: we've used all n pairs
+        if (current.length === 2 * n) {
+            result.push(current);
+            return;
+        }
+
+        // Add opening parenthesis if we haven't used all n
+        if (open < n) {
+            backtrack(current + '(', open + 1, close);
+        }
+
+        // Add closing parenthesis if it won't create invalid sequence
+        if (close < open) {
+            backtrack(current + ')', open, close + 1);
+        }
+    }
+
+    backtrack('', 0, 0);
+    return result;
 }
 
 /**
@@ -64,20 +80,29 @@ function solve(...args) {
 function testSolution() {
     console.log('Testing 022. Generate Parentheses');
 
-    // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    // Test case 1: n = 3
+    const result1 = solve(3);
+    const expected1 = ["((()))","(()())","(())()","()(())","()()()"];
+    console.assert(
+        JSON.stringify(result1.sort()) === JSON.stringify(expected1.sort()),
+        `Test 1 failed: expected ${expected1}, got ${result1}`
+    );
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 2: n = 1
+    const result2 = solve(1);
+    const expected2 = ["()"];
+    console.assert(
+        JSON.stringify(result2) === JSON.stringify(expected2),
+        `Test 2 failed: expected ${expected2}, got ${result2}`
+    );
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 3: n = 2
+    const result3 = solve(2);
+    const expected3 = ["(())","()()"];
+    console.assert(
+        JSON.stringify(result3.sort()) === JSON.stringify(expected3.sort()),
+        `Test 3 failed: expected ${expected3}, got ${result3}`
+    );
 
     console.log('All test cases passed for 022. Generate Parentheses!');
 }

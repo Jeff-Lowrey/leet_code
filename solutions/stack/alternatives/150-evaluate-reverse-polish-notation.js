@@ -7,43 +7,86 @@
  * SOLUTION EXPLANATION:
  *
  * INTUITION:
- * This problem requires understanding of stack concepts.
+ * Reverse Polish Notation (RPN) places operators after operands. A stack is
+ * perfect: push numbers, when we see an operator, pop two operands, compute,
+ * and push the result back.
  *
  * APPROACH:
- * Apply stack methodology to solve efficiently.
+ * 1. **Initialize stack**: Store operands
+ * 2. **Process tokens**: For each token:
+ *    - If number: push to stack
+ *    - If operator: pop two operands, apply operation, push result
+ * 3. **Return result**: Final value left on stack
  *
  * WHY THIS WORKS:
- * The solution leverages stack principles for optimal performance.
+ * - RPN is designed for stack-based evaluation
+ * - Operators always have their operands already on the stack
+ * - Order of operations is implicit in the notation
  *
- * TIME COMPLEXITY: O(n)
- * SPACE COMPLEXITY: O(1)
+ * TIME COMPLEXITY: O(n) - process each token once
+ * SPACE COMPLEXITY: O(n) - stack stores operands
  *
  * EXAMPLE WALKTHROUGH:
- * Input: [example input]\nStep 1: [explain first step]\nOutput: [expected output]
+ * ```
+ * Input: ["2","1","+","3","*"]
+ * Step 1: Push 2 → stack: [2]
+ * Step 2: Push 1 → stack: [2,1]
+ * Step 3: '+' → pop 1,2 → compute 2+1=3 → push 3 → stack: [3]
+ * Step 4: Push 3 → stack: [3,3]
+ * Step 5: '*' → pop 3,3 → compute 3*3=9 → push 9 → stack: [9]
+ * Output: 9
+ * ```
  *
  * EDGE CASES:
- * - Empty input handling\n- Single element cases\n- Large input considerations
+ * - Single number: returns that number
+ * - Division: truncate toward zero
+ * - Negative numbers: handle correctly
  */
 
 /**
  * Main solution for Problem 150: Evaluate Reverse Polish Notation
  *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
+ * @param {string[]} tokens - Array of numbers and operators in RPN
+ * @return {number} - Evaluated result
  *
  * Time Complexity: O(n)
- * Space Complexity: O(1)
+ * Space Complexity: O(n)
  */
-function solve(...args) {
-    // TODO: Implement the solution using stack techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using stack methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+function solve(tokens) {
+    const stack = [];
+    const operators = new Set(['+', '-', '*', '/']);
 
-    return null; // Replace with actual implementation
+    for (const token of tokens) {
+        if (operators.has(token)) {
+            // Pop two operands (note: order matters for - and /)
+            const b = stack.pop();
+            const a = stack.pop();
+
+            let result;
+            switch (token) {
+                case '+':
+                    result = a + b;
+                    break;
+                case '-':
+                    result = a - b;
+                    break;
+                case '*':
+                    result = a * b;
+                    break;
+                case '/':
+                    // Truncate toward zero
+                    result = Math.trunc(a / b);
+                    break;
+            }
+
+            stack.push(result);
+        } else {
+            // It's a number
+            stack.push(parseInt(token));
+        }
+    }
+
+    return stack[0];
 }
 
 /**
@@ -52,20 +95,25 @@ function solve(...args) {
 function testSolution() {
     console.log('Testing 150. Evaluate Reverse Polish Notation');
 
-    // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    // Test case 1: Basic expression
+    const result1 = solve(["2","1","+","3","*"]);
+    const expected1 = 9;
+    console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 2: Division with truncation
+    const result2 = solve(["4","13","5","/","+"]);
+    const expected2 = 6;
+    console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 3: Complex expression
+    const result3 = solve(["10","6","9","3","+","-11","*","/","*","17","+","5","+"]);
+    const expected3 = 22;
+    console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+
+    // Test case 4: Negative division
+    const result4 = solve(["4","-2","/"]);
+    const expected4 = -2;
+    console.assert(result4 === expected4, `Test 4 failed: expected ${expected4}, got ${result4}`);
 
     console.log('All test cases passed for 150. Evaluate Reverse Polish Notation!');
 }

@@ -7,43 +7,76 @@
  * SOLUTION EXPLANATION:
  *
  * INTUITION:
- * This problem requires understanding of stack concepts.
+ * Calculate parentheses score where "()" = 1 and "(A)" = 2*score(A), and
+ * adjacent groups AB = score(A) + score(B). Use a stack to track scores at
+ * each nesting level.
  *
  * APPROACH:
- * Apply stack methodology to solve efficiently.
+ * 1. **Use stack**: Track cumulative scores at each depth level
+ * 2. **Process characters**:
+ *    - '(': Push 0 to start new nesting level
+ *    - ')': Pop current level score:
+ *      - If 0 (empty pair): score = 1
+ *      - Otherwise: score = 2 * current
+ *      - Add to new top of stack
+ * 3. **Return result**: Final value on stack
  *
  * WHY THIS WORKS:
- * The solution leverages stack principles for optimal performance.
+ * - Stack tracks scores at different nesting depths
+ * - Empty pair "()" creates score of 1
+ * - Nested pair doubles the inner score
+ * - Adjacent pairs add their scores (handled by accumulating on stack top)
  *
- * TIME COMPLEXITY: O(n)
- * SPACE COMPLEXITY: O(1)
+ * TIME COMPLEXITY: O(n) - single pass through string
+ * SPACE COMPLEXITY: O(n) - stack depth equals max nesting
  *
  * EXAMPLE WALKTHROUGH:
- * Input: [example input]\nStep 1: [explain first step]\nOutput: [expected output]
+ * ```
+ * Input: "(()(()))"
+ * Step 1: '(' → stack: [0]
+ * Step 2: '(' → stack: [0,0]
+ * Step 3: ')' → pop 0 → score=1 → add to top → stack: [0,1]
+ * Step 4: '(' → stack: [0,1,0]
+ * Step 5: '(' → stack: [0,1,0,0]
+ * Step 6: ')' → pop 0 → score=1 → add to top → stack: [0,1,0,1]
+ * Step 7: ')' → pop 1 → score=2*1=2 → add to top → stack: [0,1,2]
+ * Step 8: ')' → pop 3 → score=2*3=6 → add to top → stack: [0,6]
+ * Output: 6
+ * ```
  *
  * EDGE CASES:
- * - Empty input handling\n- Single element cases\n- Large input considerations
+ * - Single pair "()": returns 1
+ * - Nested pairs: correctly doubles
+ * - Adjacent pairs: correctly adds
  */
 
 /**
  * Main solution for Problem 856: Score Of Parentheses
  *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
+ * @param {string} s - Balanced parentheses string
+ * @return {number} - Calculated score
  *
  * Time Complexity: O(n)
- * Space Complexity: O(1)
+ * Space Complexity: O(n)
  */
-function solve(...args) {
-    // TODO: Implement the solution using stack techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using stack methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+function solve(s) {
+    const stack = [0]; // Initialize with 0 for the base level
 
-    return null; // Replace with actual implementation
+    for (const char of s) {
+        if (char === '(') {
+            // Start a new nesting level
+            stack.push(0);
+        } else {
+            // Close current level
+            const current = stack.pop();
+            const score = current === 0 ? 1 : 2 * current;
+
+            // Add score to the new top (parent level)
+            stack[stack.length - 1] += score;
+        }
+    }
+
+    return stack[0];
 }
 
 /**
@@ -52,20 +85,25 @@ function solve(...args) {
 function testSolution() {
     console.log('Testing 856. Score Of Parentheses');
 
-    // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    // Test case 1: Single pair
+    const result1 = solve("()");
+    const expected1 = 1;
+    console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 2: Nested pair
+    const result2 = solve("(())");
+    const expected2 = 2;
+    console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 3: Adjacent pairs
+    const result3 = solve("()()");
+    const expected3 = 2;
+    console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+
+    // Test case 4: Complex nesting
+    const result4 = solve("(()(()))");
+    const expected4 = 6;
+    console.assert(result4 === expected4, `Test 4 failed: expected ${expected4}, got ${result4}`);
 
     console.log('All test cases passed for 856. Score Of Parentheses!');
 }

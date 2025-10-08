@@ -7,55 +7,87 @@
  * SOLUTION EXPLANATION:
  *
  * INTUITION:
- * [This problem requires understanding of stack concepts. The key insight is to identify the optimal approach for this specific scenario.]
+ * Handle operator precedence (* and / before + and -) using a stack. Process
+ * numbers with their preceding operator. For * and /, compute immediately with
+ * stack top. For + and -, just push to stack. Sum stack at the end.
  *
  * APPROACH:
- * 1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply stack methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+ * 1. **Parse expression**: Extract numbers and track operators
+ * 2. **Use stack for precedence**:
+ *    - '+': push positive number
+ *    - '-': push negative number
+ *    - '*': pop, multiply, push result
+ *    - '/': pop, divide (truncate toward zero), push result
+ * 3. **Calculate result**: Sum all values in stack
  *
  * WHY THIS WORKS:
- * - The solution leverages stack principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+ * - Stack defers addition/subtraction until higher precedence ops are done
+ * - Immediate computation for * and / ensures correct precedence
+ * - Converting '-' to negative number simplifies final summation
  *
- * TIME COMPLEXITY: O(n)
- * SPACE COMPLEXITY: O(1)
+ * TIME COMPLEXITY: O(n) - single pass through string
+ * SPACE COMPLEXITY: O(n) - stack stores intermediate values
  *
  * EXAMPLE WALKTHROUGH:
  * ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
-```
+ * Input: "3+2*2"
+ * Step 1: num=3, operator='+' → push 3 → stack: [3]
+ * Step 2: num=2, operator='*' → push 2 → stack: [3,2]
+ * Step 3: num=2, operator='+' → pop 2, compute 2*2=4, push 4 → stack: [3,4]
+ * Step 4: Sum stack: 3+4=7
+ * Output: 7
+ * ```
  *
  * EDGE CASES:
- * - Empty input handling
-- Single element cases
-- Large input considerations
+ * - Spaces in string: skip them
+ * - Single number: return that number
+ * - Division by zero: problem guarantees valid input
  */
 
 /**
  * Main solution for Problem 227: Basic Calculator Ii
  *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
+ * @param {string} s - Mathematical expression string
+ * @return {number} - Evaluated result
  *
  * Time Complexity: O(n)
- * Space Complexity: O(1)
+ * Space Complexity: O(n)
  */
-function solve(...args) {
-    // TODO: Implement the solution using stack techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using stack methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+function solve(s) {
+    const stack = [];
+    let num = 0;
+    let operator = '+';
 
-    return null; // Replace with actual implementation
+    for (let i = 0; i < s.length; i++) {
+        const char = s[i];
+
+        // Build multi-digit numbers
+        if (char >= '0' && char <= '9') {
+            num = num * 10 + parseInt(char);
+        }
+
+        // Process operator (or end of string)
+        if ((char !== ' ' && isNaN(char)) || i === s.length - 1) {
+            if (operator === '+') {
+                stack.push(num);
+            } else if (operator === '-') {
+                stack.push(-num);
+            } else if (operator === '*') {
+                stack.push(stack.pop() * num);
+            } else if (operator === '/') {
+                // Truncate toward zero
+                const top = stack.pop();
+                stack.push(Math.trunc(top / num));
+            }
+
+            // Update operator for next iteration
+            operator = char;
+            num = 0;
+        }
+    }
+
+    // Sum all values in stack
+    return stack.reduce((sum, val) => sum + val, 0);
 }
 
 /**
@@ -64,20 +96,25 @@ function solve(...args) {
 function testSolution() {
     console.log('Testing 227. Basic Calculator Ii');
 
-    // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    // Test case 1: Mixed operators
+    const result1 = solve("3+2*2");
+    const expected1 = 7;
+    console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 2: Spaces in expression
+    const result2 = solve(" 3/2 ");
+    const expected2 = 1;
+    console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 3: Complex expression
+    const result3 = solve(" 3+5 / 2 ");
+    const expected3 = 5;
+    console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+
+    // Test case 4: Multiple operations
+    const result4 = solve("14-3/2");
+    const expected4 = 13;
+    console.assert(result4 === expected4, `Test 4 failed: expected ${expected4}, got ${result4}`);
 
     console.log('All test cases passed for 227. Basic Calculator Ii!');
 }
