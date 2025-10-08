@@ -1,5 +1,5 @@
 /**
- * 316. Remove
+ * 316. Remove Duplicate Letters
  * Medium
  *
  * This problem demonstrates key concepts in Monotonic Stack.
@@ -7,79 +7,133 @@
  * SOLUTION EXPLANATION:
  *
  * INTUITION:
- * [This problem requires understanding of monotonic stack concepts. The key insight is to identify the optimal approach for this specific scenario.]
+ * We need to remove duplicate letters while maintaining lexicographical order and ensuring each letter
+ * appears at least once. A greedy approach with a monotonic stack helps us build the smallest result
+ * by removing larger characters when a smaller one can replace them (if duplicates exist later).
  *
  * APPROACH:
- * 1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply monotonic stack methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+ * 1. Count frequency of each character to know if we can remove it
+ * 2. Use a stack to build result and a set to track characters already in stack
+ * 3. For each character: decrement its count
+ * 4. If already in result, skip it
+ * 5. While stack top > current char AND stack top appears later, pop it
+ * 6. Add current character to stack and mark as used
  *
  * WHY THIS WORKS:
- * - The solution leverages monotonic stack principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+ * - The stack maintains lexicographically smallest subsequence
+ * - We can safely remove a character if it appears later (count > 0)
+ * - The "used" set prevents duplicates in result
+ * - Greedy removal of larger characters when safe ensures optimal result
  *
- * TIME COMPLEXITY: O(n)
- * SPACE COMPLEXITY: O(1)
+ * TIME COMPLEXITY: O(n) - each character processed once
+ * SPACE COMPLEXITY: O(k) - where k is unique characters (at most 26 for lowercase letters)
  *
  * EXAMPLE WALKTHROUGH:
  * ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
-```
+ * Input: s = "bcabc"
+ * Count: {b:2, c:2, a:1}
+ *
+ * Process 'b': count={b:1,c:2,a:1}, stack=['b'], used={b}
+ * Process 'c': count={b:1,c:1,a:1}, stack=['b','c'], used={b,c}
+ * Process 'a': 'a'<'c' and count[c]>0, pop 'c'
+ *              'a'<'b' and count[b]>0, pop 'b'
+ *              stack=['a'], used={a}, count={b:1,c:1,a:0}
+ * Process 'b': stack=['a','b'], used={a,b}, count={b:0,c:1,a:0}
+ * Process 'c': stack=['a','b','c'], used={a,b,c}
+ *
+ * Result: "abc"
+ * ```
  *
  * EDGE CASES:
- * - Empty input handling
-- Single element cases
-- Large input considerations
+ * - Empty string: return ""
+ * - No duplicates: return original string
+ * - All same character: return single character
+ * - Already sorted: return deduplicated string
  */
 
 /**
- * Main solution for Problem 316: Remove
+ * Main solution for Problem 316: Remove Duplicate Letters
  *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
+ * @param {string} s - Input string
+ * @return {string} - Smallest lexicographical string with no duplicates
  *
  * Time Complexity: O(n)
- * Space Complexity: O(1)
+ * Space Complexity: O(k) where k is number of unique characters
  */
-function solve(...args) {
-    // TODO: Implement the solution using monotonic stack techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using monotonic stack methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+function solve(s) {
+    if (!s || s.length === 0) return "";
 
-    return null; // Replace with actual implementation
+    // Count frequency of each character
+    const count = {};
+    for (const char of s) {
+        count[char] = (count[char] || 0) + 1;
+    }
+
+    const stack = [];
+    const used = new Set();
+
+    for (const char of s) {
+        // Decrement count for current character
+        count[char]--;
+
+        // If already in result, skip
+        if (used.has(char)) {
+            continue;
+        }
+
+        // Remove characters that are larger and appear later
+        while (stack.length > 0 &&
+               stack[stack.length - 1] > char &&
+               count[stack[stack.length - 1]] > 0) {
+            const removed = stack.pop();
+            used.delete(removed);
+        }
+
+        // Add current character
+        stack.push(char);
+        used.add(char);
+    }
+
+    return stack.join('');
 }
 
 /**
- * Test cases for Problem 316: Remove
+ * Test cases for Problem 316: Remove Duplicate Letters
  */
 function testSolution() {
-    console.log('Testing 316. Remove');
+    console.log('Testing 316. Remove Duplicate Letters');
 
-    // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    // Test case 1: Example from problem
+    const result1 = solve("bcabc");
+    const expected1 = "abc";
+    console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 2: Another example
+    const result2 = solve("cbacdcbc");
+    const expected2 = "acdb";
+    console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 3: Single character repeated
+    const result3 = solve("aaaa");
+    const expected3 = "a";
+    console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
 
-    console.log('All test cases passed for 316. Remove!');
+    // Test case 4: No duplicates
+    const result4 = solve("abc");
+    const expected4 = "abc";
+    console.assert(result4 === expected4, `Test 4 failed: expected ${expected4}, got ${result4}`);
+
+    // Test case 5: Reverse order with duplicates
+    const result5 = solve("edcba");
+    const expected5 = "edcba";
+    console.assert(result5 === expected5, `Test 5 failed: expected ${expected5}, got ${result5}`);
+
+    // Test case 6: Complex case
+    const result6 = solve("abacb");
+    const expected6 = "abc";
+    console.assert(result6 === expected6, `Test 6 failed: expected ${expected6}, got ${result6}`);
+
+    console.log('All test cases passed for 316. Remove Duplicate Letters!');
 }
 
 /**

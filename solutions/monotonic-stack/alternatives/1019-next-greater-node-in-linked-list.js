@@ -7,43 +7,114 @@
  * SOLUTION EXPLANATION:
  *
  * INTUITION:
- * This problem requires understanding of monotonic stack concepts.
+ * For each node in a linked list, we need to find the first node after it with a greater value.
+ * A monotonic decreasing stack helps us efficiently track nodes waiting for their next greater value.
  *
  * APPROACH:
- * Apply monotonic stack methodology to solve efficiently.
+ * 1. Convert linked list to array (or process with indices)
+ * 2. Use a monotonic decreasing stack storing indices
+ * 3. When we find a larger value, pop all smaller values and update their results
+ * 4. The stack stores indices of elements waiting for their next greater element
  *
  * WHY THIS WORKS:
- * The solution leverages monotonic stack principles for optimal performance.
+ * - The stack maintains indices in decreasing order of values
+ * - When we encounter a larger value, all smaller values in stack have found their answer
+ * - Each element is pushed and popped at most once
+ * - Elements remaining in stack have no next greater element (result stays 0)
  *
- * TIME COMPLEXITY: O(n)
- * SPACE COMPLEXITY: O(1)
+ * TIME COMPLEXITY: O(n) - each node processed once
+ * SPACE COMPLEXITY: O(n) - for result array and stack
  *
  * EXAMPLE WALKTHROUGH:
- * Input: [example input]\nStep 1: [explain first step]\nOutput: [expected output]
+ * ```
+ * Input: head = [2,1,5]
+ *
+ * Convert to array: [2,1,5]
+ * Initialize result: [0,0,0], stack: []
+ *
+ * i=0, val=2: stack=[], push 0 → stack=[0]
+ * i=1, val=1: 1<2, push 1 → stack=[0,1]
+ * i=2, val=5: 5>1, pop 1, result[1]=5
+ *             5>2, pop 0, result[0]=5
+ *             push 2 → stack=[2]
+ *
+ * Result: [5,5,0]
+ * ```
  *
  * EDGE CASES:
- * - Empty input handling\n- Single element cases\n- Large input considerations
+ * - Empty list: return []
+ * - Single node: return [0]
+ * - Decreasing values: all zeros
+ * - Increasing values: last few are zero
  */
+
+/**
+ * Definition for singly-linked list node
+ */
+class ListNode {
+    constructor(val = 0, next = null) {
+        this.val = val;
+        this.next = next;
+    }
+}
 
 /**
  * Main solution for Problem 1019: Next Greater Node In Linked List
  *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
+ * @param {ListNode} head - Head of linked list
+ * @return {number[]} - Array of next greater values
  *
  * Time Complexity: O(n)
- * Space Complexity: O(1)
+ * Space Complexity: O(n)
  */
-function solve(...args) {
-    // TODO: Implement the solution using monotonic stack techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using monotonic stack methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+function solve(head) {
+    // Convert linked list to array for easier index access
+    const values = [];
+    let current = head;
+    while (current) {
+        values.push(current.val);
+        current = current.next;
+    }
 
-    return null; // Replace with actual implementation
+    const n = values.length;
+    const result = new Array(n).fill(0);
+    const stack = []; // Store indices
+
+    for (let i = 0; i < n; i++) {
+        // While stack not empty and current value > value at stack top index
+        while (stack.length > 0 && values[i] > values[stack[stack.length - 1]]) {
+            const index = stack.pop();
+            result[index] = values[i];
+        }
+        stack.push(i);
+    }
+
+    return result;
+}
+
+/**
+ * Helper function to create linked list from array
+ */
+function createLinkedList(arr) {
+    if (!arr || arr.length === 0) return null;
+    const head = new ListNode(arr[0]);
+    let current = head;
+    for (let i = 1; i < arr.length; i++) {
+        current.next = new ListNode(arr[i]);
+        current = current.next;
+    }
+    return head;
+}
+
+/**
+ * Helper function to compare arrays
+ */
+function arraysEqual(arr1, arr2) {
+    if (arr1.length !== arr2.length) return false;
+    for (let i = 0; i < arr1.length; i++) {
+        if (arr1[i] !== arr2[i]) return false;
+    }
+    return true;
 }
 
 /**
@@ -52,20 +123,30 @@ function solve(...args) {
 function testSolution() {
     console.log('Testing 1019. Next Greater Node In Linked List');
 
-    // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    // Test case 1: Example from problem
+    const result1 = solve(createLinkedList([2,1,5]));
+    const expected1 = [5,5,0];
+    console.assert(arraysEqual(result1, expected1), `Test 1 failed: expected [${expected1}], got [${result1}]`);
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 2: Another example
+    const result2 = solve(createLinkedList([2,7,4,3,5]));
+    const expected2 = [7,0,5,5,0];
+    console.assert(arraysEqual(result2, expected2), `Test 2 failed: expected [${expected2}], got [${result2}]`);
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 3: Single node
+    const result3 = solve(createLinkedList([1]));
+    const expected3 = [0];
+    console.assert(arraysEqual(result3, expected3), `Test 3 failed: expected [${expected3}], got [${result3}]`);
+
+    // Test case 4: Decreasing sequence
+    const result4 = solve(createLinkedList([5,4,3,2,1]));
+    const expected4 = [0,0,0,0,0];
+    console.assert(arraysEqual(result4, expected4), `Test 4 failed: expected [${expected4}], got [${result4}]`);
+
+    // Test case 5: Increasing sequence
+    const result5 = solve(createLinkedList([1,2,3,4,5]));
+    const expected5 = [2,3,4,5,0];
+    console.assert(arraysEqual(result5, expected5), `Test 5 failed: expected [${expected5}], got [${result5}]`);
 
     console.log('All test cases passed for 1019. Next Greater Node In Linked List!');
 }

@@ -1,5 +1,5 @@
 /**
- * 456. 132
+ * 456. 132 Pattern
  * Medium
  *
  * This problem demonstrates key concepts in Monotonic Stack.
@@ -7,79 +7,115 @@
  * SOLUTION EXPLANATION:
  *
  * INTUITION:
- * [This problem requires understanding of monotonic stack concepts. The key insight is to identify the optimal approach for this specific scenario.]
+ * A 132 pattern means: nums[i] < nums[k] < nums[j] where i < j < k.
+ * Scan from right to left, using a stack to track potential nums[k] (middle value).
+ * Keep track of the largest valid nums[k] found so far. If we find nums[i] < nums[k], we have a 132 pattern.
  *
  * APPROACH:
- * 1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply monotonic stack methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+ * 1. Traverse array from right to left
+ * 2. Use monotonic decreasing stack to find nums[k] candidates
+ * 3. Track the maximum nums[k] value seen (second largest in pattern)
+ * 4. When current element < nums[k], we found nums[i] completing the 132 pattern
+ * 5. While processing, pop smaller elements to update potential nums[k]
  *
  * WHY THIS WORKS:
- * - The solution leverages monotonic stack principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+ * - Processing right to left lets us find nums[j] and nums[k] first
+ * - Stack maintains decreasing order - when we see larger element, pop to find nums[k]
+ * - nums[k] is the largest value we've popped (it's between current and future nums[j])
+ * - If current < nums[k], we have i < k with nums[i] < nums[k], and j exists with nums[k] < nums[j]
  *
- * TIME COMPLEXITY: O(n)
- * SPACE COMPLEXITY: O(1)
+ * TIME COMPLEXITY: O(n) - each element pushed/popped once
+ * SPACE COMPLEXITY: O(n) - stack space
  *
  * EXAMPLE WALKTHROUGH:
  * ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
-```
+ * Input: nums = [3,1,4,2]
+ *
+ * i=3, val=2: stack=[], third=-Infinity, push 2, stack=[2]
+ * i=2, val=4: 4>2, pop 2, third=2, push 4, stack=[4]
+ * i=1, val=1: 1<third(2), found 132 pattern! (1<2<4)
+ *
+ * Pattern: nums[1]=1, nums[3]=2, nums[2]=4 → 1<2<4 ✓
+ * Return: true
+ * ```
  *
  * EDGE CASES:
- * - Empty input handling
-- Single element cases
-- Large input considerations
+ * - Array length < 3: return false
+ * - All increasing: no pattern
+ * - All decreasing: no pattern
+ * - Pattern at boundaries: handled by traversal
  */
 
 /**
- * Main solution for Problem 456: 132
+ * Main solution for Problem 456: 132 Pattern
  *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
+ * @param {number[]} nums - Array of integers
+ * @return {boolean} - True if 132 pattern exists
  *
  * Time Complexity: O(n)
- * Space Complexity: O(1)
+ * Space Complexity: O(n)
  */
-function solve(...args) {
-    // TODO: Implement the solution using monotonic stack techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using monotonic stack methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+function solve(nums) {
+    if (!nums || nums.length < 3) return false;
 
-    return null; // Replace with actual implementation
+    const stack = [];
+    let third = -Infinity; // This will be nums[k] - the middle value in 132 pattern
+
+    // Traverse from right to left
+    for (let i = nums.length - 1; i >= 0; i--) {
+        // If current element < third, we found nums[i]
+        if (nums[i] < third) {
+            return true;
+        }
+
+        // Pop smaller elements - they become candidates for nums[k]
+        while (stack.length > 0 && nums[i] > stack[stack.length - 1]) {
+            third = stack.pop(); // Update third to the largest popped value
+        }
+
+        stack.push(nums[i]);
+    }
+
+    return false;
 }
 
 /**
- * Test cases for Problem 456: 132
+ * Test cases for Problem 456: 132 Pattern
  */
 function testSolution() {
-    console.log('Testing 456. 132');
+    console.log('Testing 456. 132 Pattern');
 
-    // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    // Test case 1: Example with pattern
+    const result1 = solve([1,2,3,4]);
+    const expected1 = false;
+    console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 2: Example with pattern
+    const result2 = solve([3,1,4,2]);
+    const expected2 = true;
+    console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 3: Example without pattern
+    const result3 = solve([-1,3,2,0]);
+    const expected3 = true;
+    console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
 
-    console.log('All test cases passed for 456. 132!');
+    // Test case 4: Too short
+    const result4 = solve([1,2]);
+    const expected4 = false;
+    console.assert(result4 === expected4, `Test 4 failed: expected ${expected4}, got ${result4}`);
+
+    // Test case 5: Decreasing sequence
+    const result5 = solve([5,4,3,2,1]);
+    const expected5 = false;
+    console.assert(result5 === expected5, `Test 5 failed: expected ${expected5}, got ${result5}`);
+
+    // Test case 6: Complex pattern
+    const result6 = solve([3,5,0,3,4]);
+    const expected6 = true;
+    console.assert(result6 === expected6, `Test 6 failed: expected ${expected6}, got ${result6}`);
+
+    console.log('All test cases passed for 456. 132 Pattern!');
 }
 
 /**

@@ -1,85 +1,155 @@
 /**
- * 085. Maximal
- * Medium
+ * 085. Maximal Rectangle
+ * Hard
  *
  * This problem demonstrates key concepts in Monotonic Stack.
  *
  * SOLUTION EXPLANATION:
  *
  * INTUITION:
- * [This problem requires understanding of monotonic stack concepts. The key insight is to identify the optimal approach for this specific scenario.]
+ * We can treat each row as the base of a histogram where the height of each bar is
+ * the number of consecutive '1's above (including current position). Then we use the
+ * "Largest Rectangle in Histogram" algorithm to find the max area for each row.
  *
  * APPROACH:
- * 1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply monotonic stack methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+ * 1. For each row, build a height array tracking consecutive 1's from top
+ * 2. Apply monotonic stack histogram algorithm on each row's height array
+ * 3. Track the maximum area found across all rows
+ * 4. Use the same logic as problem 084 for finding largest rectangle
  *
  * WHY THIS WORKS:
- * - The solution leverages monotonic stack principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+ * - Each row can be viewed as a histogram problem
+ * - Heights accumulate when we see '1', reset to 0 when we see '0'
+ * - Monotonic stack efficiently finds max rectangle for each histogram
+ * - Processing all rows ensures we find the global maximum
  *
- * TIME COMPLEXITY: O(n)
- * SPACE COMPLEXITY: O(1)
+ * TIME COMPLEXITY: O(m * n) - process each cell once, histogram for each row
+ * SPACE COMPLEXITY: O(n) - height array and stack for each row
  *
  * EXAMPLE WALKTHROUGH:
  * ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
-```
+ * Input: matrix = [
+ *   ["1","0","1","0","0"],
+ *   ["1","0","1","1","1"],
+ *   ["1","1","1","1","1"],
+ *   ["1","0","0","1","0"]
+ * ]
+ *
+ * Row 0: heights = [1,0,1,0,0] → maxArea = 1
+ * Row 1: heights = [2,0,2,1,1] → maxArea = 3 (from [1,1,1])
+ * Row 2: heights = [3,1,3,2,2] → maxArea = 6 (from [3,2,2] or [1,3,2,2])
+ * Row 3: heights = [4,0,0,3,0] → maxArea = 6 (no change)
+ *
+ * Output: 6
+ * ```
  *
  * EDGE CASES:
- * - Empty input handling
-- Single element cases
-- Large input considerations
+ * - Empty matrix: return 0
+ * - All zeros: return 0
+ * - All ones: return rows * cols
+ * - Single cell: return the cell value
  */
 
 /**
- * Main solution for Problem 085: Maximal
- *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
- *
- * Time Complexity: O(n)
- * Space Complexity: O(1)
+ * Helper function to find largest rectangle in histogram
  */
-function solve(...args) {
-    // TODO: Implement the solution using monotonic stack techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using monotonic stack methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+function largestRectangleArea(heights) {
+    const stack = [];
+    let maxArea = 0;
+    let i = 0;
 
-    return null; // Replace with actual implementation
+    while (i < heights.length) {
+        if (stack.length === 0 || heights[i] >= heights[stack[stack.length - 1]]) {
+            stack.push(i);
+            i++;
+        } else {
+            const topIndex = stack.pop();
+            const height = heights[topIndex];
+            const width = stack.length === 0 ? i : i - stack[stack.length - 1] - 1;
+            maxArea = Math.max(maxArea, height * width);
+        }
+    }
+
+    while (stack.length > 0) {
+        const topIndex = stack.pop();
+        const height = heights[topIndex];
+        const width = stack.length === 0 ? i : i - stack[stack.length - 1] - 1;
+        maxArea = Math.max(maxArea, height * width);
+    }
+
+    return maxArea;
 }
 
 /**
- * Test cases for Problem 085: Maximal
+ * Main solution for Problem 085: Maximal Rectangle
+ *
+ * @param {string[][]} matrix - Binary matrix with '0' and '1'
+ * @return {number} - Maximum rectangle area containing only 1's
+ *
+ * Time Complexity: O(m * n)
+ * Space Complexity: O(n)
+ */
+function solve(matrix) {
+    if (!matrix || matrix.length === 0 || matrix[0].length === 0) return 0;
+
+    const rows = matrix.length;
+    const cols = matrix[0].length;
+    const heights = new Array(cols).fill(0);
+    let maxArea = 0;
+
+    for (let i = 0; i < rows; i++) {
+        for (let j = 0; j < cols; j++) {
+            // Update heights: increment if '1', reset to 0 if '0'
+            if (matrix[i][j] === '1') {
+                heights[j]++;
+            } else {
+                heights[j] = 0;
+            }
+        }
+        // Find max rectangle for current histogram
+        maxArea = Math.max(maxArea, largestRectangleArea(heights));
+    }
+
+    return maxArea;
+}
+
+/**
+ * Test cases for Problem 085: Maximal Rectangle
  */
 function testSolution() {
-    console.log('Testing 085. Maximal');
+    console.log('Testing 085. Maximal Rectangle');
 
-    // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    // Test case 1: Example from problem
+    const result1 = solve([
+        ["1","0","1","0","0"],
+        ["1","0","1","1","1"],
+        ["1","1","1","1","1"],
+        ["1","0","0","1","0"]
+    ]);
+    const expected1 = 6;
+    console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 2: Single cell with 1
+    const result2 = solve([["1"]]);
+    const expected2 = 1;
+    console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 3: All zeros
+    const result3 = solve([["0","0"],["0","0"]]);
+    const expected3 = 0;
+    console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
 
-    console.log('All test cases passed for 085. Maximal!');
+    // Test case 4: All ones
+    const result4 = solve([["1","1"],["1","1"]]);
+    const expected4 = 4;
+    console.assert(result4 === expected4, `Test 4 failed: expected ${expected4}, got ${result4}`);
+
+    // Test case 5: Complex pattern
+    const result5 = solve([["0","1"],["1","0"]]);
+    const expected5 = 1;
+    console.assert(result5 === expected5, `Test 5 failed: expected ${expected5}, got ${result5}`);
+
+    console.log('All test cases passed for 085. Maximal Rectangle!');
 }
 
 /**
