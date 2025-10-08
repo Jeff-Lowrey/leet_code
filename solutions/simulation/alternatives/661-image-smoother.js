@@ -7,43 +7,88 @@
  * SOLUTION EXPLANATION:
  *
  * INTUITION:
- * This problem requires understanding of simulation concepts.
+ * Simulate applying a 3×3 filter to each cell in the image. For each cell, calculate the
+ * average of itself and all valid surrounding cells (up to 8 neighbors). This is a common
+ * image processing technique called box blur.
  *
  * APPROACH:
- * Apply simulation methodology to solve efficiently.
+ * 1. Create a new result matrix of the same dimensions
+ * 2. For each cell (i, j):
+ *    - Check all 8 surrounding positions plus the cell itself
+ *    - Sum all valid neighboring values
+ *    - Count how many valid neighbors exist
+ *    - Set result[i][j] to floor(sum / count)
+ * 3. Handle edge/corner cells carefully (fewer neighbors)
  *
  * WHY THIS WORKS:
- * The solution leverages simulation principles for optimal performance.
+ * We simulate the smoothing filter by examining each cell's neighborhood. By creating a
+ * separate result matrix, we avoid modifying values while they're still needed for other
+ * calculations.
  *
- * TIME COMPLEXITY: O(n)
- * SPACE COMPLEXITY: O(1)
+ * TIME COMPLEXITY: O(m × n) - visit each cell once, check constant 9 neighbors
+ * SPACE COMPLEXITY: O(m × n) - space for result matrix
  *
  * EXAMPLE WALKTHROUGH:
- * Input: [example input]\nStep 1: [explain first step]\nOutput: [expected output]
+ * Input: [[1,1,1],[1,0,1],[1,1,1]]
+ * Cell (0,0): neighbors = [1,1,1,0] → sum=3, count=4 → floor(3/4)=0
+ * Cell (1,1): neighbors = [1,1,1,1,0,1,1,1,1] → sum=8, count=9 → floor(8/9)=0
+ * Result: [[0,0,0],[0,0,0],[0,0,0]]
  *
  * EDGE CASES:
- * - Empty input handling\n- Single element cases\n- Large input considerations
+ * - Single element: Returns the element itself
+ * - Corner cells: Have only 3 neighbors
+ * - Edge cells: Have only 5 neighbors
+ * - Center cells: Have all 8 neighbors
  */
 
 /**
  * Main solution for Problem 661: Image Smoother
  *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
+ * @param {number[][]} img - m x n image matrix
+ * @return {number[][]} - Smoothed image matrix
  *
- * Time Complexity: O(n)
- * Space Complexity: O(1)
+ * Time Complexity: O(m × n)
+ * Space Complexity: O(m × n)
  */
-function solve(...args) {
-    // TODO: Implement the solution using simulation techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using simulation methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+function solve(img) {
+    if (!img || img.length === 0 || img[0].length === 0) {
+        return img;
+    }
 
-    return null; // Replace with actual implementation
+    const m = img.length;
+    const n = img[0].length;
+    const result = Array(m).fill(0).map(() => Array(n).fill(0));
+
+    // All 8 directions plus center
+    const directions = [
+        [-1, -1], [-1, 0], [-1, 1],
+        [0, -1],  [0, 0],  [0, 1],
+        [1, -1],  [1, 0],  [1, 1]
+    ];
+
+    for (let i = 0; i < m; i++) {
+        for (let j = 0; j < n; j++) {
+            let sum = 0;
+            let count = 0;
+
+            // Check all neighbors including the cell itself
+            for (const [dr, dc] of directions) {
+                const newRow = i + dr;
+                const newCol = j + dc;
+
+                // Check if the neighbor is within bounds
+                if (newRow >= 0 && newRow < m && newCol >= 0 && newCol < n) {
+                    sum += img[newRow][newCol];
+                    count++;
+                }
+            }
+
+            // Store the average (floor division)
+            result[i][j] = Math.floor(sum / count);
+        }
+    }
+
+    return result;
 }
 
 /**
@@ -52,20 +97,47 @@ function solve(...args) {
 function testSolution() {
     console.log('Testing 661. Image Smoother');
 
-    // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    // Helper function to compare matrices
+    const matricesEqual = (mat1, mat2) => {
+        if (mat1.length !== mat2.length) return false;
+        for (let i = 0; i < mat1.length; i++) {
+            if (mat1[i].length !== mat2[i].length) return false;
+            for (let j = 0; j < mat1[i].length; j++) {
+                if (mat1[i][j] !== mat2[i][j]) return false;
+            }
+        }
+        return true;
+    };
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 1: Basic 3x3 matrix
+    const result1 = solve([[1,1,1],[1,0,1],[1,1,1]]);
+    const expected1 = [[0,0,0],[0,0,0],[0,0,0]];
+    console.assert(matricesEqual(result1, expected1),
+        `Test 1 failed: expected ${JSON.stringify(expected1)}, got ${JSON.stringify(result1)}`);
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 2: 3x3 with different values
+    const result2 = solve([[100,200,100],[200,50,200],[100,200,100]]);
+    const expected2 = [[137,141,137],[141,138,141],[137,141,137]];
+    console.assert(matricesEqual(result2, expected2),
+        `Test 2 failed: expected ${JSON.stringify(expected2)}, got ${JSON.stringify(result2)}`);
+
+    // Test case 3: Single element
+    const result3 = solve([[1]]);
+    const expected3 = [[1]];
+    console.assert(matricesEqual(result3, expected3),
+        `Test 3 failed: expected ${JSON.stringify(expected3)}, got ${JSON.stringify(result3)}`);
+
+    // Test case 4: Single row
+    const result4 = solve([[1,2,3]]);
+    const expected4 = [[1,2,2]];
+    console.assert(matricesEqual(result4, expected4),
+        `Test 4 failed: expected ${JSON.stringify(expected4)}, got ${JSON.stringify(result4)}`);
+
+    // Test case 5: 2x2 matrix
+    const result5 = solve([[1,1],[1,1]]);
+    const expected5 = [[1,1],[1,1]];
+    console.assert(matricesEqual(result5, expected5),
+        `Test 5 failed: expected ${JSON.stringify(expected5)}, got ${JSON.stringify(result5)}`);
 
     console.log('All test cases passed for 661. Image Smoother!');
 }

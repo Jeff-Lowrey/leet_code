@@ -7,43 +7,69 @@
  * SOLUTION EXPLANATION:
  *
  * INTUITION:
- * This problem requires understanding of simulation concepts.
+ * To rotate a matrix 90 degrees clockwise, we can simulate two transformations:
+ * transpose the matrix, then reverse each row. This simulates the rotation process.
  *
  * APPROACH:
- * Apply simulation methodology to solve efficiently.
+ * 1. Transpose the matrix: Swap elements across the main diagonal (matrix[i][j] ↔ matrix[j][i])
+ * 2. Reverse each row: Swap elements from both ends moving inward
  *
  * WHY THIS WORKS:
- * The solution leverages simulation principles for optimal performance.
+ * Mathematically, a 90-degree clockwise rotation can be decomposed into these two operations.
+ * For a point (i,j), after rotation it goes to (j, n-1-i). Transpose gives us (j,i), then
+ * reversing the row transforms (j,i) to (j, n-1-i).
  *
- * TIME COMPLEXITY: O(n)
- * SPACE COMPLEXITY: O(1)
+ * TIME COMPLEXITY: O(n²) - visit each element once during transpose and once during reverse
+ * SPACE COMPLEXITY: O(1) - in-place rotation with no extra space
  *
  * EXAMPLE WALKTHROUGH:
- * Input: [example input]\nStep 1: [explain first step]\nOutput: [expected output]
+ * Input: [[1,2,3],[4,5,6],[7,8,9]]
+ * After transpose: [[1,4,7],[2,5,8],[3,6,9]]
+ * After reverse rows: [[7,4,1],[8,5,2],[9,6,3]]
  *
  * EDGE CASES:
- * - Empty input handling\n- Single element cases\n- Large input considerations
+ * - Single element matrix (1x1): No change needed
+ * - 2x2 matrix: Both operations still work correctly
+ * - Empty matrix: Handle gracefully
  */
 
 /**
  * Main solution for Problem 48: Rotate Image
  *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
+ * @param {number[][]} matrix - n x n 2D matrix
+ * @return {void} - Modifies matrix in-place
  *
- * Time Complexity: O(n)
+ * Time Complexity: O(n²)
  * Space Complexity: O(1)
  */
-function solve(...args) {
-    // TODO: Implement the solution using simulation techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using simulation methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+function solve(matrix) {
+    if (!matrix || matrix.length === 0) {
+        return;
+    }
 
-    return null; // Replace with actual implementation
+    const n = matrix.length;
+
+    // Step 1: Transpose the matrix (swap across diagonal)
+    for (let i = 0; i < n; i++) {
+        for (let j = i + 1; j < n; j++) {
+            const temp = matrix[i][j];
+            matrix[i][j] = matrix[j][i];
+            matrix[j][i] = temp;
+        }
+    }
+
+    // Step 2: Reverse each row
+    for (let i = 0; i < n; i++) {
+        let left = 0;
+        let right = n - 1;
+        while (left < right) {
+            const temp = matrix[i][left];
+            matrix[i][left] = matrix[i][right];
+            matrix[i][right] = temp;
+            left++;
+            right--;
+        }
+    }
 }
 
 /**
@@ -52,20 +78,41 @@ function solve(...args) {
 function testSolution() {
     console.log('Testing 48. Rotate Image');
 
-    // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    // Helper function to compare matrices
+    const matricesEqual = (mat1, mat2) => {
+        if (mat1.length !== mat2.length) return false;
+        for (let i = 0; i < mat1.length; i++) {
+            if (mat1[i].length !== mat2[i].length) return false;
+            for (let j = 0; j < mat1[i].length; j++) {
+                if (mat1[i][j] !== mat2[i][j]) return false;
+            }
+        }
+        return true;
+    };
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 1: 3x3 matrix
+    const matrix1 = [[1,2,3],[4,5,6],[7,8,9]];
+    solve(matrix1);
+    const expected1 = [[7,4,1],[8,5,2],[9,6,3]];
+    console.assert(matricesEqual(matrix1, expected1), 'Test 1 failed: 3x3 rotation incorrect');
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 2: 4x4 matrix
+    const matrix2 = [[5,1,9,11],[2,4,8,10],[13,3,6,7],[15,14,12,16]];
+    solve(matrix2);
+    const expected2 = [[15,13,2,5],[14,3,4,1],[12,6,8,9],[16,7,10,11]];
+    console.assert(matricesEqual(matrix2, expected2), 'Test 2 failed: 4x4 rotation incorrect');
+
+    // Test case 3: 1x1 matrix (edge case)
+    const matrix3 = [[1]];
+    solve(matrix3);
+    const expected3 = [[1]];
+    console.assert(matricesEqual(matrix3, expected3), 'Test 3 failed: 1x1 matrix should remain unchanged');
+
+    // Test case 4: 2x2 matrix
+    const matrix4 = [[1,2],[3,4]];
+    solve(matrix4);
+    const expected4 = [[3,1],[4,2]];
+    console.assert(matricesEqual(matrix4, expected4), 'Test 4 failed: 2x2 rotation incorrect');
 
     console.log('All test cases passed for 48. Rotate Image!');
 }
