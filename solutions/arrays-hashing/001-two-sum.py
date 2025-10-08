@@ -1,5 +1,5 @@
 """
-1. Two Sum
+Two Sum
 Easy
 
 Given an array of integers `nums` and an integer `target`, return indices of the
@@ -9,25 +9,23 @@ You may assume that each input would have exactly one solution, and you may
 not use the same element twice.
 
 Example:
-Input: `nums` = [2,7,11,15], `target` = 9
+Input: nums = [2,7,11,15], target = 9
 Output: [0,1]
-Explanation: Because `nums`[0] + `nums`[1] == 9, we return [0, 1].
+Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
-The key insight is to use a hash `map` to store numbers we've seen so far.
-For each number, we check if its `complement` (`target` - current_number)
-exists in our hash `map`. This allows us to find the pair in a single pass.
+The key insight is to use a hash map to store numbers we've seen so far. For each number, we check if its complement (target - current_number) exists in our hash map. This allows us to find the pair in a single pass.
 
 ### APPROACH:
-1. Create a hash `map` to store number -> index mapping
+1. Create a hash map to store number → index mapping
 2. For each number in the array:
    - Calculate complement = target - current_number
    - If complement exists in hash map, we found our answer
    - Otherwise, store current number and its index in hash map
-3. Return the indices when `complement` is found
+3. Return the indices when complement is found
 
 ### WHY THIS WORKS:
 - Instead of checking every pair (O(n²)), we use hash map for O(1) lookup
@@ -35,12 +33,15 @@ exists in our hash `map`. This allows us to find the pair in a single pass.
 - When we find a complement, we know the current index and the stored index
 
 ### EXAMPLE WALKTHROUGH:
-```
-`nums` = [2,7,11,15], `target` = 9
 
-Step 1: `num=2`, `complement=7`, seen={} → store {2: 0}
-Step 2: `num=7`, `complement=2`, seen={2: 0} → `found! return` [0, 1]
+Input:
 ```
+nums = [2,7,11,15], target = 9
+```
+
+**Step 1:** `num=2`, `complement=7`, `seen={}` → store `{2: 0}`
+
+**Step 2:** `num=7`, `complement=2`, `seen={2: 0}` → found! return `[0, 1]`
 
 ### TIME COMPLEXITY: O(n)
 Single pass through array with O(1) hash map lookups
