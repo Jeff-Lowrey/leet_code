@@ -50,16 +50,24 @@
  * Space Complexity: O(1)
 - Only using constant extra space for variables
  */
-function solve(...args) {
-    // TODO: Implement the solution using string manipulation techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using string manipulation methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+function solve(strs) {
+    // Handle edge cases
+    if (!strs || strs.length === 0) return "";
+    if (strs.length === 1) return strs[0];
 
-    return null; // Replace with actual implementation
+    // Use the first string as a reference
+    let prefix = strs[0];
+
+    // Compare with each subsequent string
+    for (let i = 1; i < strs.length; i++) {
+        // Reduce prefix until it matches the start of current string
+        while (strs[i].indexOf(prefix) !== 0) {
+            prefix = prefix.substring(0, prefix.length - 1);
+            if (prefix === "") return "";
+        }
+    }
+
+    return prefix;
 }
 
 /**
@@ -69,19 +77,29 @@ function testSolution() {
     console.log('Testing 014. Longest Common Prefix');
 
     // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    const result1 = solve(["flower", "flow", "flight"]);
+    const expected1 = "fl";
+    console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 2: No common prefix
+    const result2 = solve(["dog", "racecar", "car"]);
+    const expected2 = "";
+    console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 3: Single string
+    const result3 = solve(["alone"]);
+    const expected3 = "alone";
+    console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+
+    // Test case 4: All same strings
+    const result4 = solve(["test", "test", "test"]);
+    const expected4 = "test";
+    console.assert(result4 === expected4, `Test 4 failed: expected ${expected4}, got ${result4}`);
+
+    // Test case 5: Empty array
+    const result5 = solve([]);
+    const expected5 = "";
+    console.assert(result5 === expected5, `Test 5 failed: expected ${expected5}, got ${result5}`);
 
     console.log('All test cases passed for 014. Longest Common Prefix!');
 }

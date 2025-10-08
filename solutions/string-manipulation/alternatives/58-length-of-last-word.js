@@ -7,43 +7,63 @@
  * SOLUTION EXPLANATION:
  *
  * INTUITION:
- * This problem requires understanding of string manipulation concepts.
+ * Find the length of the last word by traversing from the end of the string,
+ * skipping trailing spaces, then counting characters until we hit a space or
+ * the beginning of the string.
  *
  * APPROACH:
- * Apply string manipulation methodology to solve efficiently.
+ * 1. Start from the end of the string
+ * 2. Skip any trailing spaces
+ * 3. Count characters until we hit another space or reach the beginning
+ * 4. Return the count
  *
  * WHY THIS WORKS:
- * The solution leverages string manipulation principles for optimal performance.
+ * By starting from the end, we directly locate the last word without needing
+ * to process the entire string or split into words.
  *
  * TIME COMPLEXITY: O(n)
+ * - In worst case, we might traverse the entire string
  * SPACE COMPLEXITY: O(1)
+ * - Only using a counter variable
  *
  * EXAMPLE WALKTHROUGH:
- * Input: [example input]\nStep 1: [explain first step]\nOutput: [expected output]
+ * Input: "Hello World"
+ * Step 1: Start at 'd' (end)
+ * Step 2: Count back: d, l, r, o, W = 5 characters
+ * Step 3: Hit space, stop
+ * Output: 5
  *
  * EDGE CASES:
- * - Empty input handling\n- Single element cases\n- Large input considerations
+ * - Trailing spaces: Skip them before counting
+ * - Single word: Return its length
+ * - Multiple spaces between words: Stop at first space encountered
  */
 
 /**
  * Main solution for Problem 58: Length Of Last Word
  *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
+ * @param {string} s - Input string
+ * @return {number} - Length of the last word
  *
  * Time Complexity: O(n)
  * Space Complexity: O(1)
  */
-function solve(...args) {
-    // TODO: Implement the solution using string manipulation techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using string manipulation methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+function solve(s) {
+    let length = 0;
+    let i = s.length - 1;
 
-    return null; // Replace with actual implementation
+    // Skip trailing spaces
+    while (i >= 0 && s[i] === ' ') {
+        i--;
+    }
+
+    // Count characters in the last word
+    while (i >= 0 && s[i] !== ' ') {
+        length++;
+        i--;
+    }
+
+    return length;
 }
 
 /**
@@ -53,19 +73,29 @@ function testSolution() {
     console.log('Testing 58. Length Of Last Word');
 
     // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    const result1 = solve("Hello World");
+    const expected1 = 5;
+    console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 2: Trailing spaces
+    const result2 = solve("   fly me   to   the moon  ");
+    const expected2 = 4;
+    console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 3: Single word
+    const result3 = solve("luffy");
+    const expected3 = 5;
+    console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+
+    // Test case 4: Single word with spaces
+    const result4 = solve("   word   ");
+    const expected4 = 4;
+    console.assert(result4 === expected4, `Test 4 failed: expected ${expected4}, got ${result4}`);
+
+    // Test case 5: Two words
+    const result5 = solve("a b");
+    const expected5 = 1;
+    console.assert(result5 === expected5, `Test 5 failed: expected ${expected5}, got ${result5}`);
 
     console.log('All test cases passed for 58. Length Of Last Word!');
 }

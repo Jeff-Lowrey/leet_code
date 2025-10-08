@@ -7,43 +7,50 @@
  * SOLUTION EXPLANATION:
  *
  * INTUITION:
- * This problem requires understanding of string manipulation concepts.
+ * We need to reverse each word individually while maintaining the order of words.
+ * The simplest approach is to split by spaces, reverse each word, then join back.
  *
  * APPROACH:
- * Apply string manipulation methodology to solve efficiently.
+ * 1. Split the string by spaces to get individual words
+ * 2. Reverse each word individually
+ * 3. Join the reversed words back with spaces
  *
  * WHY THIS WORKS:
- * The solution leverages string manipulation principles for optimal performance.
+ * By splitting and joining, we preserve word boundaries while reversing
+ * the character order within each word independently.
  *
  * TIME COMPLEXITY: O(n)
- * SPACE COMPLEXITY: O(1)
+ * - We process each character once during split, reverse, and join
+ * SPACE COMPLEXITY: O(n)
+ * - We create an array of words and reversed strings
  *
  * EXAMPLE WALKTHROUGH:
- * Input: [example input]\nStep 1: [explain first step]\nOutput: [expected output]
+ * Input: "Let's take LeetCode contest"
+ * Step 1: Split into ["Let's", "take", "LeetCode", "contest"]
+ * Step 2: Reverse each word ["s'teL", "ekat", "edoCteeL", "tsetnoc"]
+ * Step 3: Join with spaces
+ * Output: "s'teL ekat edoCteeL tsetnoc"
  *
  * EDGE CASES:
- * - Empty input handling\n- Single element cases\n- Large input considerations
+ * - Single word: Just reverse the word
+ * - Empty string: Return empty string
+ * - Multiple spaces: Handled by split/join
  */
 
 /**
  * Main solution for Problem 557: Reverse Words In A String Iii
  *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
+ * @param {string} s - Input string with words separated by spaces
+ * @return {string} - String with each word reversed
  *
  * Time Complexity: O(n)
- * Space Complexity: O(1)
+ * Space Complexity: O(n)
  */
-function solve(...args) {
-    // TODO: Implement the solution using string manipulation techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using string manipulation methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
-
-    return null; // Replace with actual implementation
+function solve(s) {
+    // Split by spaces, reverse each word, then join back
+    return s.split(' ')
+        .map(word => word.split('').reverse().join(''))
+        .join(' ');
 }
 
 /**
@@ -53,19 +60,29 @@ function testSolution() {
     console.log('Testing 557. Reverse Words In A String Iii');
 
     // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    const result1 = solve("Let's take LeetCode contest");
+    const expected1 = "s'teL ekat edoCteeL tsetnoc";
+    console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 2: Single word
+    const result2 = solve("God");
+    const expected2 = "doG";
+    console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 3: Two words
+    const result3 = solve("hello world");
+    const expected3 = "olleh dlrow";
+    console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+
+    // Test case 4: Single character words
+    const result4 = solve("a b c");
+    const expected4 = "a b c";
+    console.assert(result4 === expected4, `Test 4 failed: expected ${expected4}, got ${result4}`);
+
+    // Test case 5: Mixed length words
+    const result5 = solve("I love coding");
+    const expected5 = "I evol gnidoc";
+    console.assert(result5 === expected5, `Test 5 failed: expected ${expected5}, got ${result5}`);
 
     console.log('All test cases passed for 557. Reverse Words In A String Iii!');
 }
