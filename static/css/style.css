@@ -476,28 +476,6 @@ main {
     border: none;
 }
 
-.solution-explanation summary {
-    padding: 1.5rem 2rem;
-    cursor: pointer;
-    border-bottom: 1px solid var(--border-color);
-    background: var(--card-bg);
-    border-radius: 8px 8px 0 0;
-    transition: background-color 0.2s;
-    list-style: none;
-}
-
-.solution-explanation summary::-webkit-details-marker {
-    display: none;
-}
-
-.solution-explanation summary::marker {
-    display: none;
-}
-
-.solution-explanation summary:hover {
-    background: var(--light-bg);
-}
-
 .solution-explanation summary h2 {
     margin: 0;
     font-size: 1.5rem;
@@ -506,7 +484,7 @@ main {
 }
 
 .explanation-content {
-    padding: 2rem;
+    padding: 1.5rem;
 }
 
 .explanation-content h3 {
@@ -719,17 +697,13 @@ main {
 }
 
 /* Solution Code */
-.solution-code {
-    margin: 2rem 0;
-}
-
 .solution-code h2 {
     margin-bottom: 1rem;
 }
 
 /* Navigation Buttons */
 .navigation {
-    margin-top: 2rem;
+    margin-top: 1.5rem;
     display: flex;
     gap: 1rem;
 }
@@ -1127,7 +1101,7 @@ main {
 .solution-explanation,
 .skeleton-code,
 .solution-code {
-    margin-bottom: 1rem;
+    margin-bottom: 0;
 }
 
 .solution-explanation details,
@@ -1145,7 +1119,7 @@ main {
     background: var(--card-bg);
     border-bottom: 1px solid var(--border-color);
     color: var(--text-primary);
-    padding: 1rem 1.5rem;
+    padding: 1.5rem;
     cursor: pointer;
     font-weight: 600;
     font-size: 1.1rem;
@@ -1159,11 +1133,14 @@ main {
     background: var(--light-bg);
 }
 
-.explanation-content,
-.skeleton-content,
-.solution-content {
+.code-content {
     padding: 1.5rem;
     line-height: 1.6;
+}
+
+.code-content .highlight,
+.code-content pre {
+    margin: 0;
 }
 
 /* Custom details marker */
