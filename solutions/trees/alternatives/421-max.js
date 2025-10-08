@@ -1,97 +1,169 @@
 /**
- * 421. Max
+ * 421. Maximum XOR of Two Numbers in an Array
  * Medium
  *
- * This problem demonstrates key concepts in Trees.
+ * Given an integer array nums, return the maximum result of nums[i] XOR nums[j],
+ * where 0 <= i <= j < n.
  *
  * SOLUTION EXPLANATION:
  *
  * INTUITION:
- * [This problem requires understanding of trees concepts. The key insight is to identify the optimal approach for this specific scenario.]
+ * Use a binary Trie to efficiently find the number that gives maximum XOR with each element.
+ * For XOR to be maximum, we want bits to be as different as possible, starting from MSB.
  *
  * APPROACH:
- * 1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply trees methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+ * 1. **Build a binary Trie**: Insert all numbers as 32-bit binary representations
+ * 2. **For each number**: Traverse Trie greedily, choosing opposite bit when possible
+ * 3. **Track maximum**: Keep track of the maximum XOR found
+ * 4. **Bit manipulation**: Work from MSB (bit 31) to LSB (bit 0)
  *
  * WHY THIS WORKS:
- * - The solution leverages trees principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+ * - Trie allows us to compare numbers bit-by-bit efficiently
+ * - Greedy approach: choosing opposite bit maximizes XOR at each position
+ * - MSB-first ensures we maximize the most significant bits first
+ * - O(1) lookup per bit position in the Trie
  *
- * TIME COMPLEXITY: O(n)
- * SPACE COMPLEXITY: O(1)
+ * TIME COMPLEXITY: O(n) where n is the length of nums (32 bits per number is constant)
+ * SPACE COMPLEXITY: O(n) for the Trie structure
  *
  * EXAMPLE WALKTHROUGH:
  * ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
+Input: [3, 10, 5, 25, 2, 8]
+Binary: [00011, 01010, 00101, 11001, 00010, 01000]
+Step 1: Build Trie with all numbers
+Step 2: For 3 (00011), find number with most opposite bits -> 25 (11001) gives 11010 (26)
+Step 3: Check all numbers, maximum XOR is 28 (5 XOR 25 = 00101 XOR 11001 = 11100)
+Output: 28
 ```
  *
  * EDGE CASES:
- * - Empty input handling
-- Single element cases
-- Large input considerations
+ * - Array with one element (XOR with itself = 0)
+ * - Array with two elements
+ * - Numbers with different bit lengths
  */
 
-/**
- * Main solution for Problem 421: Max
- *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
- *
- * Time Complexity: O(n)
- * Space Complexity: O(1)
- */
-function solve(...args) {
-    // TODO: Implement the solution using trees techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using trees methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
-
-    return null; // Replace with actual implementation
+class TrieNode {
+    constructor() {
+        this.children = new Map(); // 0 or 1
+    }
 }
 
 /**
- * Test cases for Problem 421: Max
+ * Main solution for Problem 421: Maximum XOR of Two Numbers in an Array
+ *
+ * @param {number[]} nums - Array of integers
+ * @return {number} - Maximum XOR value
+ *
+ * Time Complexity: O(n) where n = nums.length (32 bits is constant)
+ * Space Complexity: O(n) for Trie storage
+ */
+function solve(nums) {
+    if (nums.length < 2) return 0;
+
+    const root = new TrieNode();
+    const MAX_BITS = 31; // We work with 32-bit integers
+
+    // Insert a number into the Trie
+    function insert(num) {
+        let node = root;
+        for (let i = MAX_BITS; i >= 0; i--) {
+            const bit = (num >> i) & 1;
+            if (!node.children.has(bit)) {
+                node.children.set(bit, new TrieNode());
+            }
+            node = node.children.get(bit);
+        }
+    }
+
+    // Find maximum XOR for a given number
+    function findMaxXOR(num) {
+        let node = root;
+        let maxXOR = 0;
+
+        for (let i = MAX_BITS; i >= 0; i--) {
+            const bit = (num >> i) & 1;
+            // Try to go opposite direction for maximum XOR
+            const toggledBit = 1 - bit;
+
+            if (node.children.has(toggledBit)) {
+                maxXOR |= (1 << i); // Set this bit in result
+                node = node.children.get(toggledBit);
+            } else {
+                node = node.children.get(bit);
+            }
+        }
+
+        return maxXOR;
+    }
+
+    // Build Trie with all numbers
+    for (const num of nums) {
+        insert(num);
+    }
+
+    // Find maximum XOR
+    let maxResult = 0;
+    for (const num of nums) {
+        maxResult = Math.max(maxResult, findMaxXOR(num));
+    }
+
+    return maxResult;
+}
+
+/**
+ * Test cases for Problem 421: Maximum XOR of Two Numbers in an Array
  */
 function testSolution() {
-    console.log('Testing 421. Max');
+    console.log('Testing 421. Maximum XOR of Two Numbers in an Array');
 
     // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    const result1 = solve([3, 10, 5, 25, 2, 8]);
+    const expected1 = 28; // 5 XOR 25 = 28
+    console.assert(result1 === expected1,
+        `Test 1 failed: expected ${expected1}, got ${result1}`);
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 2: Two elements
+    const result2 = solve([14, 70, 53, 83, 49, 91, 36, 80, 92, 51, 66, 70]);
+    const expected2 = 127;
+    console.assert(result2 === expected2,
+        `Test 2 failed: expected ${expected2}, got ${result2}`);
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 3: Small array
+    const result3 = solve([8, 10, 2]);
+    const expected3 = 10; // 8 XOR 2 = 10
+    console.assert(result3 === expected3,
+        `Test 3 failed: expected ${expected3}, got ${result3}`);
 
-    console.log('All test cases passed for 421. Max!');
+    // Test case 4: Powers of 2
+    const result4 = solve([1, 2, 4, 8]);
+    const expected4 = 12; // 4 XOR 8 = 12
+    console.assert(result4 === expected4,
+        `Test 4 failed: expected ${expected4}, got ${result4}`);
+
+    // Test case 5: Single element
+    const result5 = solve([100]);
+    const expected5 = 0;
+    console.assert(result5 === expected5,
+        `Test 5 failed: expected ${expected5}, got ${result5}`);
+
+    console.log('All test cases passed for 421. Maximum XOR of Two Numbers!');
 }
 
 /**
  * Example usage and demonstration
  */
 function demonstrateSolution() {
-    console.log('\n=== Problem 421. Max ===');
-    console.log('Category: Trees');
+    console.log('\n=== Problem 421. Maximum XOR of Two Numbers in an Array ===');
+    console.log('Category: Trees/Trie');
     console.log('Difficulty: Medium');
     console.log('');
 
-    // Example demonstration would go here
+    console.log('Example: nums = [3, 10, 5, 25, 2, 8]');
+    const result = solve([3, 10, 5, 25, 2, 8]);
+    console.log('Maximum XOR:', result);
+    console.log('(5 XOR 25 = 28)');
+    console.log('');
+
     testSolution();
 }
 
@@ -109,8 +181,9 @@ module.exports = {
 
 /**
  * Additional Notes:
- * - This solution focuses on trees concepts
- * - Consider the trade-offs between time and space complexity
- * - Edge cases are crucial for robust solutions
- * - The approach can be adapted for similar problems in this category
+ * - This solution uses binary Trie for efficient bit-by-bit comparison
+ * - Greedy approach works because XOR prioritizes difference in higher bits
+ * - Alternative: Bit manipulation with HashSet (O(n) but less intuitive)
+ * - Trie approach clearly demonstrates the bit-matching strategy
+ * - Works with 32-bit integers (adjust MAX_BITS for different ranges)
  */

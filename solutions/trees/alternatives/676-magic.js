@@ -1,97 +1,235 @@
 /**
- * 676. Magic
+ * 676. Implement Magic Dictionary
  * Medium
  *
- * This problem demonstrates key concepts in Trees.
+ * Design a data structure that is initialized with a list of different words.
+ * Provided a string, you should determine if you can change exactly one character
+ * in this string to match any word in the data structure.
+ *
+ * Implement the MagicDictionary class:
+ * - MagicDictionary() Initializes the object.
+ * - void buildDict(String[] dictionary) Sets the data structure with an array of distinct strings.
+ * - bool search(String searchWord) Returns true if you can change exactly one character in
+ *   searchWord to match any string in the data structure, otherwise returns false.
  *
  * SOLUTION EXPLANATION:
  *
  * INTUITION:
- * [This problem requires understanding of trees concepts. The key insight is to identify the optimal approach for this specific scenario.]
+ * Use a Trie to store dictionary words. For searching, traverse the Trie while allowing
+ * exactly one character mismatch. Track whether we've used our "one change" allowance.
  *
  * APPROACH:
- * 1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply trees methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+ * 1. **Build a Trie**: Insert all dictionary words into the Trie
+ * 2. **DFS Search**: For each search, perform DFS allowing exactly one character difference
+ * 3. **Track mismatches**: Use a flag to ensure exactly one mismatch occurs
+ * 4. **Validate at end**: Ensure we reach a valid word AND used exactly one change
  *
  * WHY THIS WORKS:
- * - The solution leverages trees principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+ * - Trie provides efficient structure for prefix-based searching
+ * - DFS explores all possible paths with one character change
+ * - Tracking mismatch count ensures exactly one change is required
+ * - Must end at a valid word boundary (isWord = true)
  *
- * TIME COMPLEXITY: O(n)
- * SPACE COMPLEXITY: O(1)
+ * TIME COMPLEXITY:
+ * - buildDict: O(n * k) where n = words, k = average length
+ * - search: O(26 * k) = O(k) where k = search word length
+ * SPACE COMPLEXITY: O(n * k) for the Trie structure
  *
  * EXAMPLE WALKTHROUGH:
  * ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
+Input: buildDict(["hello", "leetcode"])
+       search("hello") -> false (no change needed)
+       search("hhllo") -> true (h->e makes "hello")
+       search("hell") -> false (different length)
+       search("leetcoded") -> false (different length)
+Step 1: Build Trie with "hello" and "leetcode"
+Step 2: Search "hhllo" -> try all paths with one mismatch
+Step 3: Path h-h(mismatch)-l-l-o matches "hello" with exactly one change
+Output: true
 ```
  *
  * EDGE CASES:
- * - Empty input handling
-- Single element cases
-- Large input considerations
+ * - Empty dictionary
+ * - Word that matches exactly (should return false)
+ * - Word with different length (should return false)
+ * - Word requiring more than one change
  */
 
-/**
- * Main solution for Problem 676: Magic
- *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
- *
- * Time Complexity: O(n)
- * Space Complexity: O(1)
- */
-function solve(...args) {
-    // TODO: Implement the solution using trees techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using trees methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+class TrieNode {
+    constructor() {
+        this.children = new Map();
+        this.isWord = false;
+    }
+}
 
-    return null; // Replace with actual implementation
+class MagicDictionary {
+    constructor() {
+        this.root = new TrieNode();
+    }
+
+    /**
+     * Build the dictionary with given words
+     * @param {string[]} dictionary - Array of words
+     */
+    buildDict(dictionary) {
+        this.root = new TrieNode(); // Reset
+
+        for (const word of dictionary) {
+            let node = this.root;
+            for (const char of word) {
+                if (!node.children.has(char)) {
+                    node.children.set(char, new TrieNode());
+                }
+                node = node.children.get(char);
+            }
+            node.isWord = true;
+        }
+    }
+
+    /**
+     * Search for a word with exactly one character change
+     * @param {string} searchWord - Word to search for
+     * @return {boolean} - True if word can be formed with exactly one change
+     */
+    search(searchWord) {
+        function dfs(node, index, usedChange) {
+            // Reached end of search word
+            if (index === searchWord.length) {
+                // Must be a valid word AND must have used exactly one change
+                return node.isWord && usedChange;
+            }
+
+            const char = searchWord[index];
+
+            // Try all possible characters at this position
+            for (const [trieChar, childNode] of node.children) {
+                if (trieChar === char) {
+                    // Character matches, continue without using change
+                    if (dfs(childNode, index + 1, usedChange)) {
+                        return true;
+                    }
+                } else {
+                    // Character differs
+                    if (!usedChange) {
+                        // Use our one change allowance
+                        if (dfs(childNode, index + 1, true)) {
+                            return true;
+                        }
+                    }
+                    // If already used change, can't take this path
+                }
+            }
+
+            return false;
+        }
+
+        return dfs(this.root, 0, false);
+    }
 }
 
 /**
- * Test cases for Problem 676: Magic
+ * Factory function for creating MagicDictionary instances
+ * This is the main solve function for testing
+ *
+ * @return {MagicDictionary} - New MagicDictionary instance
+ */
+function solve() {
+    return new MagicDictionary();
+}
+
+/**
+ * Test cases for Problem 676: Implement Magic Dictionary
  */
 function testSolution() {
-    console.log('Testing 676. Magic');
+    console.log('Testing 676. Implement Magic Dictionary');
 
     // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    const dict1 = new MagicDictionary();
+    dict1.buildDict(["hello", "leetcode"]);
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    const result1a = dict1.search("hello");
+    console.assert(result1a === false,
+        `Test 1a failed: expected false (exact match), got ${result1a}`);
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    const result1b = dict1.search("hhllo");
+    console.assert(result1b === true,
+        `Test 1b failed: expected true (one char diff), got ${result1b}`);
 
-    console.log('All test cases passed for 676. Magic!');
+    const result1c = dict1.search("hell");
+    console.assert(result1c === false,
+        `Test 1c failed: expected false (different length), got ${result1c}`);
+
+    const result1d = dict1.search("leetcoded");
+    console.assert(result1d === false,
+        `Test 1d failed: expected false (different length), got ${result1d}`);
+
+    // Test case 2: One character difference
+    const dict2 = new MagicDictionary();
+    dict2.buildDict(["hello", "hallo", "leetcode"]);
+
+    const result2a = dict2.search("hello");
+    console.assert(result2a === true,
+        `Test 2a failed: expected true ("hello" -> "hallo"), got ${result2a}`);
+
+    const result2b = dict2.search("hhllo");
+    console.assert(result2b === true,
+        `Test 2b failed: expected true (one char diff), got ${result2b}`);
+
+    const result2c = dict2.search("hell");
+    console.assert(result2c === false,
+        `Test 2c failed: expected false (different length), got ${result2c}`);
+
+    // Test case 3: Single character words
+    const dict3 = new MagicDictionary();
+    dict3.buildDict(["a", "b"]);
+
+    const result3a = dict3.search("a");
+    console.assert(result3a === true,
+        `Test 3a failed: expected true ("a" -> "b"), got ${result3a}`);
+
+    const result3b = dict3.search("c");
+    console.assert(result3b === true,
+        `Test 3b failed: expected true ("c" can become "a" or "b"), got ${result3b}`);
+
+    const result3c = dict3.search("ab");
+    console.assert(result3c === false,
+        `Test 3c failed: expected false (different length), got ${result3c}`);
+
+    // Test case 4: Multiple words same length
+    const dict4 = new MagicDictionary();
+    dict4.buildDict(["abc", "abd", "xyz"]);
+
+    const result4a = dict4.search("abc");
+    console.assert(result4a === true,
+        `Test 4a failed: expected true ("abc" -> "abd"), got ${result4a}`);
+
+    const result4b = dict4.search("aaa");
+    console.assert(result4b === false,
+        `Test 4b failed: expected false (two chars diff), got ${result4b}`);
+
+    console.log('All test cases passed for 676. Implement Magic Dictionary!');
 }
 
 /**
  * Example usage and demonstration
  */
 function demonstrateSolution() {
-    console.log('\n=== Problem 676. Magic ===');
-    console.log('Category: Trees');
+    console.log('\n=== Problem 676. Implement Magic Dictionary ===');
+    console.log('Category: Trees/Trie');
     console.log('Difficulty: Medium');
     console.log('');
 
-    // Example demonstration would go here
+    console.log('Example:');
+    const magicDict = new MagicDictionary();
+    magicDict.buildDict(["hello", "leetcode"]);
+
+    console.log('Dictionary: ["hello", "leetcode"]');
+    console.log('search("hello"):', magicDict.search("hello"), '(exact match, no change)');
+    console.log('search("hhllo"):', magicDict.search("hhllo"), '(one char different)');
+    console.log('search("hell"):', magicDict.search("hell"), '(different length)');
+    console.log('search("leetcoded"):', magicDict.search("leetcoded"), '(different length)');
+    console.log('');
+
     testSolution();
 }
 
@@ -103,14 +241,16 @@ if (require.main === module) {
 // Export for use in other modules
 module.exports = {
     solve,
+    MagicDictionary,
     testSolution,
     demonstrateSolution
 };
 
 /**
  * Additional Notes:
- * - This solution focuses on trees concepts
- * - Consider the trade-offs between time and space complexity
- * - Edge cases are crucial for robust solutions
- * - The approach can be adapted for similar problems in this category
+ * - This solution uses Trie with DFS for flexible one-character matching
+ * - DFS explores all paths while tracking whether we've used our one change
+ * - Must use exactly one change (not zero, not two or more)
+ * - Alternative: Store words by length in HashMap, compare each (less efficient)
+ * - Trie approach scales well with large dictionaries and frequent searches
  */
