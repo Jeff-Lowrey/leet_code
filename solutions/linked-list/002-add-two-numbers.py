@@ -64,6 +64,12 @@ Result: [7,0,8] represents 807
 ```
 We add column by column from `right`, which corresponds to `left-to`-`right` in reversed lists.
 
+### TIME COMPLEXITY: O(max(m, n))
+Where m and n are lengths of the two linked lists. Process each digit once.
+
+### SPACE COMPLEXITY: O(max(m, n))
+Result list length is max(m, n) or max(m, n) + 1 if final carry exists.
+
 </details>
 """
 

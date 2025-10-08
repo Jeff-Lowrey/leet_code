@@ -45,6 +45,18 @@ So: ways(n) = ways(`n-1`) + ways(`n-2`)
 Instead of storing all values, we only need the last two values,
 making space complexity O(1) instead of O(n).
 
+### TIME COMPLEXITY: O(n)
+Single pass from 3 to n, constant work per iteration
+
+### SPACE COMPLEXITY: O(1)
+Only store two variables (prev1, prev2), not full DP array
+
+### EDGE CASES:
+- n = 1: return 1 (one way)
+- n = 2: return 2 (two ways)
+- Large n: Fibonacci grows exponentially but algorithm is linear
+- n = 0: not in problem constraints
+
 </details>
 """
 

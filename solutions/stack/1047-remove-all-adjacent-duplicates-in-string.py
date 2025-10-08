@@ -10,6 +10,39 @@ We repeatedly make duplicate removals on s until we no longer can.
 Return the final string after all such duplicate removals have been made. It can be
 proven that the answer is unique.
 
+<details>
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### INTUITION:
+Use a stack to efficiently track characters. When we see a character that matches
+the top of the stack, we've found an adjacent duplicate pair - pop the stack.
+Otherwise, push the character onto the stack.
+
+### APPROACH:
+1. Use stack to track characters we've seen
+2. For each character:
+   - If it matches stack top: pop (remove duplicate pair)
+   - Otherwise: push character onto stack
+3. Join stack elements to form final string
+
+### WHY THIS WORKS:
+- Stack naturally maintains adjacency (top element is most recent)
+- Removing duplicates as we go handles cascading removals
+- Single pass is sufficient since we process left-to-right
+
+### TIME COMPLEXITY: O(n)
+Single pass through string with O(1) stack operations
+
+### SPACE COMPLEXITY: O(n)
+Stack stores up to n characters in worst case (no duplicates)
+
+### EDGE CASES:
+- Empty string: returns empty string
+- No duplicates: returns original string
+- All characters form duplicate pairs: returns empty string
+- Cascading removals: "abccba" → "abba" → "aa" → ""
+
+</details>
 """
 
 class Solution:

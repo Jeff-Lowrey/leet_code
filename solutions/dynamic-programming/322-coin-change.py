@@ -54,6 +54,18 @@ dp[11] = 3 (use coin `5 + coin` `5 + coin` 1)
 - **Overlapping subproblems**: same amounts calculated multiple times
 - **Bottom-up**: ensures we solve smaller problems first
 
+### TIME COMPLEXITY: O(amount × len(coins))
+For each amount from 1 to target, try all coins
+
+### SPACE COMPLEXITY: O(amount)
+DP array of size amount + 1
+
+### EDGE CASES:
+- Amount is 0: return 0 (no coins needed)
+- No solution possible: return -1
+- Single coin type: straightforward calculation
+- Large amounts: DP handles efficiently
+
 </details>
 """
 
