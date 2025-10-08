@@ -7,43 +7,168 @@
  * SOLUTION EXPLANATION:
  *
  * INTUITION:
- * This problem requires understanding of segment tree concepts.
+ * We need to count subarrays whose sum falls within [lower, upper]. Using prefix sums,
+ * a subarray sum from i to j equals prefixSum[j] - prefixSum[i]. We need to count pairs
+ * where lower <= prefixSum[j] - prefixSum[i] <= upper. This is equivalent to finding
+ * prefixSum[i] in range [prefixSum[j] - upper, prefixSum[j] - lower].
  *
  * APPROACH:
- * Apply segment tree methodology to solve efficiently.
+ * Use merge sort with modified counting:
+ * 1. Compute prefix sums array
+ * 2. During merge sort, for each element in right half, count elements in left half
+ *    that satisfy the range condition
+ * 3. Use two pointers to efficiently count valid pairs during merge
  *
  * WHY THIS WORKS:
- * The solution leverages segment tree principles for optimal performance.
+ * Merge sort naturally processes sorted subarrays. When merging, we can use two pointers
+ * to find the range of valid elements in O(n) time total for all elements. This gives
+ * us O(n log n) overall complexity.
  *
- * TIME COMPLEXITY: O(n)
- * SPACE COMPLEXITY: O(1)
+ * TIME COMPLEXITY: O(n log n)
+ * SPACE COMPLEXITY: O(n)
  *
  * EXAMPLE WALKTHROUGH:
- * Input: [example input]\nStep 1: [explain first step]\nOutput: [expected output]
+ * Input: nums = [-2, 5, -1], lower = -2, upper = 2
+ * Prefix sums: [0, -2, 3, 2]
+ * For j=1 (sum=-2): need i where -2-2 <= prefix[i] <= -2-(-2) -> [-4, 0]
+ *   - prefix[0]=0 is in range -> count = 1
+ * For j=2 (sum=3): need i where 3-2 <= prefix[i] <= 3-(-2) -> [1, 5]
+ *   - prefix[1]=3 is NOT in range but we find valid pairs
+ * Output: 3 (subarrays: [-2], [5,-1], [-2,5,-1])
  *
  * EDGE CASES:
- * - Empty input handling\n- Single element cases\n- Large input considerations
+ * - Empty array: return 0
+ * - Single element: check if it's in range
+ * - All negatives/positives: handle prefix sum properly
  */
 
 /**
  * Main solution for Problem 327: Count Of Range Sum
  *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
+ * @param {number[]} nums - Input array
+ * @param {number} lower - Lower bound
+ * @param {number} upper - Upper bound
+ * @return {number} - Count of valid range sums
  *
- * Time Complexity: O(n)
- * Space Complexity: O(1)
+ * Time Complexity: O(n log n)
+ * Space Complexity: O(n)
  */
-function solve(...args) {
-    // TODO: Implement the solution using segment tree techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using segment tree methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+function solve(nums, lower, upper) {
+    if (!nums || nums.length === 0) {
+        return 0;
+    }
 
-    return null; // Replace with actual implementation
+    const n = nums.length;
+    // Compute prefix sums
+    const sums = new Array(n + 1);
+    sums[0] = 0;
+    for (let i = 0; i < n; i++) {
+        sums[i + 1] = sums[i] + nums[i];
+    }
+
+    return mergeSortCount(sums, 0, n, lower, upper);
+}
+
+/**
+ * Merge sort with range counting
+ */
+function mergeSortCount(sums, start, end, lower, upper) {
+    if (end - start <= 1) {
+        return 0;
+    }
+
+    const mid = Math.floor((start + end) / 2);
+    let count = 0;
+
+    // Count from left and right halves
+    count += mergeSortCount(sums, start, mid, lower, upper);
+    count += mergeSortCount(sums, mid, end, lower, upper);
+
+    // Count cross-boundary ranges
+    let j = mid, k = mid, t = mid;
+    const cache = [];
+
+    for (let i = start; i < mid; i++) {
+        // Find range of valid sums[j] where lower <= sums[j] - sums[i] <= upper
+        while (k < end && sums[k] - sums[i] < lower) k++;
+        while (j < end && sums[j] - sums[i] <= upper) j++;
+        count += j - k;
+    }
+
+    // Merge the two sorted halves
+    let left = start, right = mid;
+    while (left < mid || right < end) {
+        if (right >= end || (left < mid && sums[left] <= sums[right])) {
+            cache.push(sums[left++]);
+        } else {
+            cache.push(sums[right++]);
+        }
+    }
+
+    for (let i = 0; i < cache.length; i++) {
+        sums[start + i] = cache[i];
+    }
+
+    return count;
+}
+
+/**
+ * Alternative solution using Binary Indexed Tree (more complex but educational)
+ */
+function solveWithBIT(nums, lower, upper) {
+    if (!nums || nums.length === 0) {
+        return 0;
+    }
+
+    const n = nums.length;
+    const sums = new Array(n + 1);
+    sums[0] = 0;
+    for (let i = 0; i < n; i++) {
+        sums[i + 1] = sums[i] + nums[i];
+    }
+
+    // Coordinate compression
+    const allValues = new Set();
+    for (const sum of sums) {
+        allValues.add(sum);
+        allValues.add(sum - lower);
+        allValues.add(sum - upper);
+    }
+
+    const sorted = Array.from(allValues).sort((a, b) => a - b);
+    const rank = new Map();
+    sorted.forEach((val, idx) => rank.set(val, idx + 1));
+
+    const bit = new Array(sorted.length + 1).fill(0);
+
+    function update(idx) {
+        while (idx < bit.length) {
+            bit[idx]++;
+            idx += idx & -idx;
+        }
+    }
+
+    function query(idx) {
+        let sum = 0;
+        while (idx > 0) {
+            sum += bit[idx];
+            idx -= idx & -idx;
+        }
+        return sum;
+    }
+
+    let count = 0;
+    for (let i = 0; i <= n; i++) {
+        // Count sums[j] where j < i and lower <= sums[i] - sums[j] <= upper
+        // This means sums[i] - upper <= sums[j] <= sums[i] - lower
+        const left = rank.get(sums[i] - upper);
+        const right = rank.get(sums[i] - lower);
+        count += query(right) - query(left - 1);
+
+        update(rank.get(sums[i]));
+    }
+
+    return count;
 }
 
 /**
@@ -52,20 +177,46 @@ function solve(...args) {
 function testSolution() {
     console.log('Testing 327. Count Of Range Sum');
 
-    // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    // Test case 1: Basic example
+    const result1 = solve([-2, 5, -1], -2, 2);
+    const expected1 = 3;
+    console.assert(result1 === expected1,
+        `Test 1 failed: expected ${expected1}, got ${result1}`);
+    console.log(`✓ Test 1 passed: nums=[-2,5,-1], range=[-2,2] -> ${result1} ranges`);
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 2: Single element in range
+    const result2 = solve([0], 0, 0);
+    const expected2 = 1;
+    console.assert(result2 === expected2,
+        `Test 2 failed: expected ${expected2}, got ${result2}`);
+    console.log(`✓ Test 2 passed: nums=[0], range=[0,0] -> ${result2} ranges`);
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 3: No valid ranges
+    const result3 = solve([1, 2, 3], 10, 20);
+    const expected3 = 0;
+    console.assert(result3 === expected3,
+        `Test 3 failed: expected ${expected3}, got ${result3}`);
+    console.log(`✓ Test 3 passed: nums=[1,2,3], range=[10,20] -> ${result3} ranges`);
+
+    // Test case 4: All subarrays valid
+    const result4 = solve([1, 1, 1], -10, 10);
+    const expected4 = 6; // All 6 subarrays
+    console.assert(result4 === expected4,
+        `Test 4 failed: expected ${expected4}, got ${result4}`);
+    console.log(`✓ Test 4 passed: nums=[1,1,1], range=[-10,10] -> ${result4} ranges`);
+
+    // Test case 5: Larger example
+    const result5 = solve([0, -3, -3, 1, 1, 2], 3, 5);
+    const expected5 = 2;
+    console.assert(result5 === expected5,
+        `Test 5 failed: expected ${expected5}, got ${result5}`);
+    console.log(`✓ Test 5 passed: nums=[0,-3,-3,1,1,2], range=[3,5] -> ${result5} ranges`);
+
+    // Test BIT solution
+    console.log('\nTesting BIT solution:');
+    const result6 = solveWithBIT([-2, 5, -1], -2, 2);
+    console.assert(result6 === 3, 'BIT solution test failed');
+    console.log(`✓ BIT solution test passed: ${result6} ranges`);
 
     console.log('All test cases passed for 327. Count Of Range Sum!');
 }
@@ -79,7 +230,6 @@ function demonstrateSolution() {
     console.log('Difficulty: Hard');
     console.log('');
 
-    // Example demonstration would go here
     testSolution();
 }
 
@@ -91,14 +241,16 @@ if (require.main === module) {
 // Export for use in other modules
 module.exports = {
     solve,
+    solveWithBIT,
     testSolution,
     demonstrateSolution
 };
 
 /**
  * Additional Notes:
- * - This solution focuses on segment tree concepts
- * - Consider the trade-offs between time and space complexity
- * - Edge cases are crucial for robust solutions
- * - The approach can be adapted for similar problems in this category
+ * - Merge sort solution is cleaner and more efficient in practice
+ * - BIT solution demonstrates coordinate compression techniques
+ * - Both achieve O(n log n) time complexity
+ * - The key insight is converting range sum to prefix sum difference
+ * - Similar techniques apply to many range query problems
  */

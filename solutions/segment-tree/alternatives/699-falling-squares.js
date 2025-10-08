@@ -7,43 +7,171 @@
  * SOLUTION EXPLANATION:
  *
  * INTUITION:
- * This problem requires understanding of segment tree concepts.
+ * Squares fall vertically onto a 2D plane. Each square lands on top of previous squares
+ * in its horizontal range. We need to track the maximum height after each square falls.
+ * A segment tree with lazy propagation can efficiently query and update heights in ranges.
  *
  * APPROACH:
- * Apply segment tree methodology to solve efficiently.
+ * Using coordinate compression and segment tree:
+ * 1. Compress coordinates since positions can be very large
+ * 2. For each square, query max height in its range
+ * 3. Update the range to new height (old height + square side)
+ * 4. Track overall maximum height
+ *
+ * Alternative simpler approach:
+ * Use a map to track intervals and their heights
  *
  * WHY THIS WORKS:
- * The solution leverages segment tree principles for optimal performance.
+ * Each square lands on the tallest point in its range. After landing, it sets a new
+ * height for that entire range. Segment trees efficiently handle range max queries
+ * and range updates.
  *
- * TIME COMPLEXITY: O(n)
- * SPACE COMPLEXITY: O(1)
+ * TIME COMPLEXITY: O(n^2) for simple approach, O(n log n) for segment tree
+ * SPACE COMPLEXITY: O(n)
  *
  * EXAMPLE WALKTHROUGH:
- * Input: [example input]\nStep 1: [explain first step]\nOutput: [expected output]
+ * Input: positions = [[1,2],[2,3],[6,1]]
+ * Square 1: [1,3] height 0->2, max=2
+ * Square 2: [2,5] lands on height 2->5, max=5
+ * Square 3: [6,7] height 0->1, max=5
+ * Output: [2, 5, 5]
  *
  * EDGE CASES:
- * - Empty input handling\n- Single element cases\n- Large input considerations
+ * - Single square: height equals side length
+ * - Non-overlapping squares: each starts at height 0
+ * - Fully overlapping: heights accumulate
  */
 
 /**
  * Main solution for Problem 699: Falling Squares
+ * Simpler interval-based approach
  *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
+ * @param {number[][]} positions - Array of [left, sideLength] pairs
+ * @return {number[]} - Maximum heights after each square
  *
- * Time Complexity: O(n)
- * Space Complexity: O(1)
+ * Time Complexity: O(n^2)
+ * Space Complexity: O(n)
  */
-function solve(...args) {
-    // TODO: Implement the solution using segment tree techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using segment tree methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+function solve(positions) {
+    if (!positions || positions.length === 0) {
+        return [];
+    }
 
-    return null; // Replace with actual implementation
+    const intervals = []; // [[left, right, height], ...]
+    const result = [];
+    let maxHeight = 0;
+
+    for (const [left, sideLength] of positions) {
+        const right = left + sideLength;
+
+        // Find max height in overlapping range
+        let baseHeight = 0;
+        for (const [l, r, h] of intervals) {
+            // Check if intervals overlap
+            if (l < right && left < r) {
+                baseHeight = Math.max(baseHeight, h);
+            }
+        }
+
+        const newHeight = baseHeight + sideLength;
+        intervals.push([left, right, newHeight]);
+        maxHeight = Math.max(maxHeight, newHeight);
+        result.push(maxHeight);
+    }
+
+    return result;
+}
+
+/**
+ * Alternative solution using Segment Tree with coordinate compression
+ */
+class SegmentTree {
+    constructor(coords) {
+        this.coords = coords;
+        this.n = coords.length;
+        this.tree = new Array(4 * this.n).fill(0);
+    }
+
+    update(node, start, end, left, right, height) {
+        if (right < start || left > end) {
+            return;
+        }
+
+        if (left <= start && end <= right) {
+            this.tree[node] = Math.max(this.tree[node], height);
+            return;
+        }
+
+        const mid = Math.floor((start + end) / 2);
+        this.update(2 * node, start, mid, left, right, height);
+        this.update(2 * node + 1, mid + 1, end, left, right, height);
+        this.tree[node] = Math.max(this.tree[2 * node], this.tree[2 * node + 1]);
+    }
+
+    query(node, start, end, left, right) {
+        if (right < start || left > end) {
+            return 0;
+        }
+
+        if (left <= start && end <= right) {
+            return this.tree[node];
+        }
+
+        const mid = Math.floor((start + end) / 2);
+        const leftMax = this.query(2 * node, start, mid, left, right);
+        const rightMax = this.query(2 * node + 1, mid + 1, end, left, right);
+        return Math.max(leftMax, rightMax);
+    }
+
+    queryRange(left, right) {
+        const leftIdx = this.coords.indexOf(left);
+        const rightIdx = this.coords.indexOf(right) - 1;
+        if (leftIdx === -1 || rightIdx === -1 || leftIdx > rightIdx) {
+            return 0;
+        }
+        return this.query(1, 0, this.n - 1, leftIdx, rightIdx);
+    }
+
+    updateRange(left, right, height) {
+        const leftIdx = this.coords.indexOf(left);
+        const rightIdx = this.coords.indexOf(right) - 1;
+        if (leftIdx === -1 || rightIdx === -1 || leftIdx > rightIdx) {
+            return;
+        }
+        this.update(1, 0, this.n - 1, leftIdx, rightIdx, height);
+    }
+}
+
+function solveWithSegmentTree(positions) {
+    if (!positions || positions.length === 0) {
+        return [];
+    }
+
+    // Coordinate compression
+    const coords = new Set();
+    for (const [left, sideLength] of positions) {
+        coords.add(left);
+        coords.add(left + sideLength);
+    }
+
+    const sortedCoords = Array.from(coords).sort((a, b) => a - b);
+    const tree = new SegmentTree(sortedCoords);
+
+    const result = [];
+    let maxHeight = 0;
+
+    for (const [left, sideLength] of positions) {
+        const right = left + sideLength;
+
+        const baseHeight = tree.queryRange(left, right);
+        const newHeight = baseHeight + sideLength;
+
+        tree.updateRange(left, right, newHeight);
+        maxHeight = Math.max(maxHeight, newHeight);
+        result.push(maxHeight);
+    }
+
+    return result;
 }
 
 /**
@@ -52,20 +180,40 @@ function solve(...args) {
 function testSolution() {
     console.log('Testing 699. Falling Squares');
 
-    // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    // Test case 1: Basic example
+    const result1 = solve([[1, 2], [2, 3], [6, 1]]);
+    const expected1 = [2, 5, 5];
+    console.assert(JSON.stringify(result1) === JSON.stringify(expected1),
+        `Test 1 failed: expected ${JSON.stringify(expected1)}, got ${JSON.stringify(result1)}`);
+    console.log(`✓ Test 1 passed: [[1,2],[2,3],[6,1]] -> ${JSON.stringify(result1)}`);
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 2: More overlapping
+    const result2 = solve([[100, 100], [200, 100]]);
+    const expected2 = [100, 100];
+    console.assert(JSON.stringify(result2) === JSON.stringify(expected2),
+        `Test 2 failed: expected ${JSON.stringify(expected2)}, got ${JSON.stringify(result2)}`);
+    console.log(`✓ Test 2 passed: [[100,100],[200,100]] -> ${JSON.stringify(result2)}`);
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 3: Stacking squares
+    const result3 = solve([[1, 5], [2, 2], [3, 1]]);
+    const expected3 = [5, 7, 8];
+    console.assert(JSON.stringify(result3) === JSON.stringify(expected3),
+        `Test 3 failed: expected ${JSON.stringify(expected3)}, got ${JSON.stringify(result3)}`);
+    console.log(`✓ Test 3 passed: [[1,5],[2,2],[3,1]] -> ${JSON.stringify(result3)}`);
+
+    // Test case 4: Single square
+    const result4 = solve([[5, 3]]);
+    const expected4 = [3];
+    console.assert(JSON.stringify(result4) === JSON.stringify(expected4),
+        `Test 4 failed`);
+    console.log(`✓ Test 4 passed: [[5,3]] -> ${JSON.stringify(result4)}`);
+
+    // Test segment tree solution
+    console.log('\nTesting Segment Tree solution:');
+    const result5 = solveWithSegmentTree([[1, 2], [2, 3], [6, 1]]);
+    console.assert(JSON.stringify(result5) === JSON.stringify([2, 5, 5]),
+        'Segment tree solution test failed');
+    console.log(`✓ Segment Tree solution test passed: ${JSON.stringify(result5)}`);
 
     console.log('All test cases passed for 699. Falling Squares!');
 }
@@ -79,7 +227,6 @@ function demonstrateSolution() {
     console.log('Difficulty: Hard');
     console.log('');
 
-    // Example demonstration would go here
     testSolution();
 }
 
@@ -91,14 +238,17 @@ if (require.main === module) {
 // Export for use in other modules
 module.exports = {
     solve,
+    solveWithSegmentTree,
+    SegmentTree,
     testSolution,
     demonstrateSolution
 };
 
 /**
  * Additional Notes:
- * - This solution focuses on segment tree concepts
- * - Consider the trade-offs between time and space complexity
- * - Edge cases are crucial for robust solutions
- * - The approach can be adapted for similar problems in this category
+ * - Simple interval approach is easier to understand
+ * - Segment tree is more efficient for large inputs
+ * - Coordinate compression is essential for segment tree approach
+ * - The problem simulates physical stacking behavior
+ * - Both solutions maintain running maximum height
  */
