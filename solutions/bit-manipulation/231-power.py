@@ -53,37 +53,78 @@ The approach uses bit manipulation techniques to solve this problem efficiently.
 """
 
 class Solution:
-    def solve(self, *args):
+    def isPowerOfTwo(self, n: int) -> bool:
         """
-        Main solution for 231. Power.
+        Check if a number is a power of two using bit manipulation.
 
         Args:
-            *args: Problem-specific arguments
+            n: Integer to check
 
         Returns:
-            Problem-specific return type
+            True if n is a power of 2, False otherwise
 
-        Time Complexity: O(n)
-        Space Complexity: O(1)
+        Time Complexity: O(1) - constant time bit operations
+        Space Complexity: O(1) - no extra space needed
         """
-        # TODO: Implement the solution
-        pass
+        # Power of 2 has exactly one bit set
+        # n & (n-1) removes the rightmost set bit
+        # For power of 2, this should result in 0
+        return n > 0 and (n & (n - 1)) == 0
+
+    def solve(self, n: int) -> bool:
+        """Wrapper method for consistency with template."""
+        return self.isPowerOfTwo(n)
 
 def test_solution():
     """
-    Test cases for 231. Power.
+    Test cases for 231. Power of Two.
     """
     solution = Solution()
 
-    # Test case 1: Basic functionality
-    # result = solution.solve([test_input])
-    # expected = [expected_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 1: Power of 2 - 1
+    result = solution.solve(1)
+    expected = True
+    assert result == expected, f"Expected {expected}, got {result}"
 
-    # Test case 2: Edge case
-    # result = solution.solve([edge_case_input])
-    # expected = [edge_case_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 2: Power of 2 - 16
+    result = solution.solve(16)
+    expected = True
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 3: Not power of 2 - 3
+    result = solution.solve(3)
+    expected = False
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 4: Power of 2 - 4
+    result = solution.solve(4)
+    expected = True
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 5: Not power of 2 - 5
+    result = solution.solve(5)
+    expected = False
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 6: Power of 2 - 1024
+    result = solution.solve(1024)
+    expected = True
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 7: Negative number
+    result = solution.solve(-16)
+    expected = False
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 8: Zero
+    result = solution.solve(0)
+    expected = False
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 9: Power of 2 - 2
+    result = solution.solve(2)
+    expected = True
+    assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
 
@@ -92,4 +133,8 @@ if __name__ == "__main__":
 
     # Example usage
     solution = Solution()
-    print(f"Solution for 231. Power")
+    test_values = [1, 2, 3, 4, 16, 17, 1024]
+    print(f"Solution for 231. Power of Two:")
+    for val in test_values:
+        result = solution.solve(val)
+        print(f"{val}: {result}")

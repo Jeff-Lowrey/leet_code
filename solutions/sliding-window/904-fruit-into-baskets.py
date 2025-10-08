@@ -53,21 +53,45 @@ The approach uses sliding window techniques to solve this problem efficiently.
 """
 
 class Solution:
-    def solve(self, *args):
+    def totalFruit(self, fruits: list[int]) -> int:
         """
-        Main solution for 904. Fruit Into Baskets.
+        Find maximum fruits collected with at most 2 types using sliding window.
 
         Args:
-            *args: Problem-specific arguments
+            fruits: Array where fruits[i] is the type of fruit at tree i
 
         Returns:
-            Problem-specific return type
+            Maximum number of fruits that can be collected
 
-        Time Complexity: O(n)
-        Space Complexity: O(1)
+        Time Complexity: O(n) - each element visited at most twice
+        Space Complexity: O(1) - hashmap contains at most 3 entries
         """
-        # TODO: Implement the solution
-        pass
+        # Track count of each fruit type in current window
+        basket = {}
+        left = 0
+        max_fruits = 0
+
+        for right in range(len(fruits)):
+            # Add current fruit to basket
+            fruit = fruits[right]
+            basket[fruit] = basket.get(fruit, 0) + 1
+
+            # Shrink window if more than 2 types
+            while len(basket) > 2:
+                left_fruit = fruits[left]
+                basket[left_fruit] -= 1
+                if basket[left_fruit] == 0:
+                    del basket[left_fruit]
+                left += 1
+
+            # Update maximum
+            max_fruits = max(max_fruits, right - left + 1)
+
+        return max_fruits
+
+    def solve(self, fruits: list[int]) -> int:
+        """Wrapper method for consistency with template."""
+        return self.totalFruit(fruits)
 
 def test_solution():
     """
@@ -75,15 +99,45 @@ def test_solution():
     """
     solution = Solution()
 
-    # Test case 1: Basic functionality
-    # result = solution.solve([test_input])
-    # expected = [expected_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 1: Classic example
+    result = solution.solve([1, 2, 1])
+    expected = 3
+    assert result == expected, f"Expected {expected}, got {result}"
 
-    # Test case 2: Edge case
-    # result = solution.solve([edge_case_input])
-    # expected = [edge_case_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 2: Multiple types
+    result = solution.solve([0, 1, 2, 2])
+    expected = 3
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 3: Long sequence
+    result = solution.solve([1, 2, 3, 2, 2])
+    expected = 4
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 4: All same type
+    result = solution.solve([3, 3, 3, 1, 2, 1, 1, 2, 3, 3, 4])
+    expected = 5
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 5: Single element
+    result = solution.solve([1])
+    expected = 1
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 6: Two types only
+    result = solution.solve([1, 2, 1, 2, 1, 2])
+    expected = 6
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 7: All different types
+    result = solution.solve([1, 2, 3, 4, 5])
+    expected = 2
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 8: Two elements
+    result = solution.solve([1, 2])
+    expected = 2
+    assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
 
@@ -92,4 +146,6 @@ if __name__ == "__main__":
 
     # Example usage
     solution = Solution()
-    print(f"Solution for 904. Fruit Into Baskets")
+    fruits = [1, 2, 3, 2, 2]
+    result = solution.solve(fruits)
+    print(f"Solution for 904. Fruit Into Baskets: {result}")

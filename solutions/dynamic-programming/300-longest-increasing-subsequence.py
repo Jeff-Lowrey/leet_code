@@ -53,21 +53,47 @@ The approach uses dynamic programming techniques to solve this problem efficient
 """
 
 class Solution:
-    def solve(self, *args):
+    def lengthOfLIS(self, nums: list[int]) -> int:
         """
-        Main solution for 300. Longest Increasing Subsequence.
+        Find length of longest increasing subsequence using binary search + DP.
 
         Args:
-            *args: Problem-specific arguments
+            nums: Array of integers
 
         Returns:
-            Problem-specific return type
+            Length of longest strictly increasing subsequence
 
-        Time Complexity: O(n)
-        Space Complexity: O(1)
+        Time Complexity: O(n log n) - binary search for each element
+        Space Complexity: O(n) - space for tails array
         """
-        # TODO: Implement the solution
-        pass
+        if not nums:
+            return 0
+
+        # tails[i] = smallest tail value for LIS of length i+1
+        tails = []
+
+        for num in nums:
+            # Binary search for position to insert/replace
+            left, right = 0, len(tails)
+
+            while left < right:
+                mid = (left + right) // 2
+                if tails[mid] < num:
+                    left = mid + 1
+                else:
+                    right = mid
+
+            # If left == len(tails), append; otherwise, replace
+            if left == len(tails):
+                tails.append(num)
+            else:
+                tails[left] = num
+
+        return len(tails)
+
+    def solve(self, nums: list[int]) -> int:
+        """Wrapper method for consistency with template."""
+        return self.lengthOfLIS(nums)
 
 def test_solution():
     """
@@ -75,15 +101,45 @@ def test_solution():
     """
     solution = Solution()
 
-    # Test case 1: Basic functionality
-    # result = solution.solve([test_input])
-    # expected = [expected_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 1: Classic example
+    result = solution.solve([10, 9, 2, 5, 3, 7, 101, 18])
+    expected = 4
+    assert result == expected, f"Expected {expected}, got {result}"
 
-    # Test case 2: Edge case
-    # result = solution.solve([edge_case_input])
-    # expected = [edge_case_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 2: All increasing
+    result = solution.solve([1, 2, 3, 4, 5])
+    expected = 5
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 3: All decreasing
+    result = solution.solve([5, 4, 3, 2, 1])
+    expected = 1
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 4: Single element
+    result = solution.solve([7])
+    expected = 1
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 5: Two elements increasing
+    result = solution.solve([1, 3])
+    expected = 2
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 6: Two elements decreasing
+    result = solution.solve([3, 1])
+    expected = 1
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 7: Duplicates
+    result = solution.solve([1, 3, 6, 7, 9, 4, 10, 5, 6])
+    expected = 6
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 8: Another example
+    result = solution.solve([0, 1, 0, 3, 2, 3])
+    expected = 4
+    assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
 
@@ -92,4 +148,6 @@ if __name__ == "__main__":
 
     # Example usage
     solution = Solution()
-    print(f"Solution for 300. Longest Increasing Subsequence")
+    nums = [10, 9, 2, 5, 3, 7, 101, 18]
+    result = solution.solve(nums)
+    print(f"Solution for 300. Longest Increasing Subsequence: {result}")
