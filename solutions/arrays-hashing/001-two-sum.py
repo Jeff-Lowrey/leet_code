@@ -10,11 +10,14 @@ not use the same element twice.
 
 **Example:**
 
-```
-Input: nums = [2,7,11,15], target = 9
-Output: [0,1]
-Explanation: Because nums[0] + nums[1] == 9, we return [0, 1]
-```
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>nums = [2,7,11,15], target = 9</dd>
+<dt>Output:</dt>
+<dd>[0,1]</dd>
+<dt>Explanation:</dt>
+<dd>Because nums[0] + nums[1] == 9, we return [0, 1]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
