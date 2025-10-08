@@ -7,55 +7,73 @@
  * SOLUTION EXPLANATION:
  *
  * INTUITION:
- * [This problem requires understanding of interval concepts. The key insight is to identify the optimal approach for this specific scenario.]
+ * Find the longest chain of pairs where pair[i][1] < pair[j][0] for chaining.
+ * Use greedy approach: always pick pair with earliest end to leave room for more pairs.
+ * This is similar to activity selection and non-overlapping intervals.
  *
  * APPROACH:
- * 1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply interval methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+ * 1. **Sort by end value**: Greedy choice - pick pair ending earliest
+ * 2. **Build chain greedily**: Add pair if its start > previous end
+ * 3. **Count chain length**: Track number of pairs in chain
+ * 4. **Handle edge cases**: Empty array, single pair
  *
  * WHY THIS WORKS:
- * - The solution leverages interval principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+ * - Greedy approach: always choose pair with smallest end value
+ * - This maximizes remaining space for future pairs
+ * - Sorting by end ensures optimal choices
+ * - For pair to follow another: next_start > current_end
+ * - Time complexity: O(n log n) for sorting
+ * - Space complexity: O(1) excluding sorting
  *
- * TIME COMPLEXITY: O(n)
+ * TIME COMPLEXITY: O(n log n) - dominated by sorting
  * SPACE COMPLEXITY: O(1)
  *
  * EXAMPLE WALKTHROUGH:
  * ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
+Input: [[1,2],[2,3],[3,4]]
+Sort by end: [[1,2],[2,3],[3,4]] (already sorted)
+Pick [1,2]: end=2, length=1
+Check [2,3]: 2 not > 2, skip
+Check [3,4]: 3 > 2, pick it, end=4, length=2
+Output: 2
 ```
  *
  * EDGE CASES:
- * - Empty input handling
-- Single element cases
-- Large input considerations
+ * - Empty array: return 0
+ * - Single pair: return 1
+ * - No pairs can chain: return 1
+ * - All pairs can chain: return n
  */
 
 /**
  * Main solution for Problem 646: Maximum Length Of Pair Chain
  *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
+ * @param {number[][]} pairs - Array of pairs [a, b]
+ * @return {number} - Maximum length of pair chain
  *
- * Time Complexity: O(n)
+ * Time Complexity: O(n log n)
  * Space Complexity: O(1)
  */
-function solve(...args) {
-    // TODO: Implement the solution using interval techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using interval methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+function solve(pairs) {
+    if (!pairs || pairs.length === 0) {
+        return 0;
+    }
 
-    return null; // Replace with actual implementation
+    // Sort pairs by second element (end value)
+    pairs.sort((a, b) => a[1] - b[1]);
+
+    let chainLength = 1;
+    let currentEnd = pairs[0][1];
+
+    for (let i = 1; i < pairs.length; i++) {
+        // If current pair's start is greater than previous end, extend chain
+        if (pairs[i][0] > currentEnd) {
+            chainLength++;
+            currentEnd = pairs[i][1];
+        }
+    }
+
+    return chainLength;
 }
 
 /**
@@ -65,19 +83,40 @@ function testSolution() {
     console.log('Testing 646. Maximum Length Of Pair Chain');
 
     // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    const result1 = solve([[1,2],[2,3],[3,4]]);
+    const expected1 = 2;
+    console.assert(result1 === expected1,
+        `Test 1 failed: expected ${expected1}, got ${result1}`);
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 2: Longer chain
+    const result2 = solve([[1,2],[7,8],[4,5]]);
+    const expected2 = 3;
+    console.assert(result2 === expected2,
+        `Test 2 failed: expected ${expected2}, got ${result2}`);
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 3: Single pair
+    const result3 = solve([[1,2]]);
+    const expected3 = 1;
+    console.assert(result3 === expected3,
+        `Test 3 failed: expected ${expected3}, got ${result3}`);
+
+    // Test case 4: No chaining possible
+    const result4 = solve([[1,10],[2,9],[3,8]]);
+    const expected4 = 1;
+    console.assert(result4 === expected4,
+        `Test 4 failed: expected ${expected4}, got ${result4}`);
+
+    // Test case 5: All can chain
+    const result5 = solve([[1,2],[3,4],[5,6],[7,8]]);
+    const expected5 = 4;
+    console.assert(result5 === expected5,
+        `Test 5 failed: expected ${expected5}, got ${result5}`);
+
+    // Test case 6: Unsorted input
+    const result6 = solve([[9,10],[2,3],[5,6],[1,2]]);
+    const expected6 = 4;
+    console.assert(result6 === expected6,
+        `Test 6 failed: expected ${expected6}, got ${result6}`);
 
     console.log('All test cases passed for 646. Maximum Length Of Pair Chain!');
 }

@@ -7,55 +7,73 @@
  * SOLUTION EXPLANATION:
  *
  * INTUITION:
- * [This problem requires understanding of interval concepts. The key insight is to identify the optimal approach for this specific scenario.]
+ * Find minimum arrows to burst all balloons. Each balloon is an interval [start, end].
+ * One arrow at position x bursts all balloons where start <= x <= end.
+ * This is equivalent to finding minimum points to cover all intervals.
  *
  * APPROACH:
- * 1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply interval methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+ * 1. **Sort by end position**: Greedy - shoot arrow at earliest end point
+ * 2. **Shoot arrow**: Place arrow at current balloon's end
+ * 3. **Skip overlapping**: Skip balloons that overlap with current arrow position
+ * 4. **Count arrows**: Each new arrow needed when no overlap found
  *
  * WHY THIS WORKS:
- * - The solution leverages interval principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+ * - Greedy approach: always shoot arrow at earliest possible end
+ * - This maximizes balloons burst by each arrow
+ * - Similar to non-overlapping intervals problem
+ * - Sort by end ensures we make optimal choices
+ * - Time complexity: O(n log n) for sorting
+ * - Space complexity: O(1) excluding sorting
  *
- * TIME COMPLEXITY: O(n)
+ * TIME COMPLEXITY: O(n log n) - dominated by sorting
  * SPACE COMPLEXITY: O(1)
  *
  * EXAMPLE WALKTHROUGH:
  * ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
+Input: [[10,16],[2,8],[1,6],[7,12]]
+Sort by end: [[1,6],[2,8],[7,12],[10,16]]
+Arrow 1 at x=6: bursts [1,6],[2,8] (both contain 6)
+Arrow 2 at x=12: bursts [7,12],[10,16] (both contain 12)
+Output: 2 arrows
 ```
  *
  * EDGE CASES:
- * - Empty input handling
-- Single element cases
-- Large input considerations
+ * - Empty array: return 0
+ * - Single balloon: return 1
+ * - All overlapping: return 1
+ * - No overlapping: return n
  */
 
 /**
  * Main solution for Problem 452: Minimum Number Of Arrows To Burst Balloons
  *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
+ * @param {number[][]} points - Array of balloon intervals [start, end]
+ * @return {number} - Minimum number of arrows needed
  *
- * Time Complexity: O(n)
+ * Time Complexity: O(n log n)
  * Space Complexity: O(1)
  */
-function solve(...args) {
-    // TODO: Implement the solution using interval techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using interval methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+function solve(points) {
+    if (!points || points.length === 0) {
+        return 0;
+    }
 
-    return null; // Replace with actual implementation
+    // Sort balloons by end position
+    points.sort((a, b) => a[1] - b[1]);
+
+    let arrows = 1;
+    let arrowPos = points[0][1]; // Shoot arrow at first balloon's end
+
+    for (let i = 1; i < points.length; i++) {
+        // If current balloon starts after arrow position, need new arrow
+        if (points[i][0] > arrowPos) {
+            arrows++;
+            arrowPos = points[i][1]; // Shoot new arrow at this balloon's end
+        }
+        // Otherwise, current arrow bursts this balloon too
+    }
+
+    return arrows;
 }
 
 /**
@@ -65,19 +83,40 @@ function testSolution() {
     console.log('Testing 452. Minimum Number Of Arrows To Burst Balloons');
 
     // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    const result1 = solve([[10,16],[2,8],[1,6],[7,12]]);
+    const expected1 = 2;
+    console.assert(result1 === expected1,
+        `Test 1 failed: expected ${expected1}, got ${result1}`);
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 2: All overlapping
+    const result2 = solve([[1,2],[3,4],[5,6],[7,8]]);
+    const expected2 = 4;
+    console.assert(result2 === expected2,
+        `Test 2 failed: expected ${expected2}, got ${result2}`);
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 3: All same balloon
+    const result3 = solve([[1,2],[2,3],[3,4],[4,5]]);
+    const expected3 = 2;
+    console.assert(result3 === expected3,
+        `Test 3 failed: expected ${expected3}, got ${result3}`);
+
+    // Test case 4: Single balloon
+    const result4 = solve([[1,2]]);
+    const expected4 = 1;
+    console.assert(result4 === expected4,
+        `Test 4 failed: expected ${expected4}, got ${result4}`);
+
+    // Test case 5: Empty array
+    const result5 = solve([]);
+    const expected5 = 0;
+    console.assert(result5 === expected5,
+        `Test 5 failed: expected ${expected5}, got ${result5}`);
+
+    // Test case 6: Touching balloons
+    const result6 = solve([[1,10],[3,9],[4,11],[6,7],[6,9],[8,12]]);
+    const expected6 = 2;
+    console.assert(result6 === expected6,
+        `Test 6 failed: expected ${expected6}, got ${result6}`);
 
     console.log('All test cases passed for 452. Minimum Number Of Arrows To Burst Balloons!');
 }

@@ -7,55 +7,67 @@
  * SOLUTION EXPLANATION:
  *
  * INTUITION:
- * [This problem requires understanding of interval concepts. The key insight is to identify the optimal approach for this specific scenario.]
+ * Given meeting time intervals, determine if a person can attend all meetings.
+ * A person cannot attend all meetings if any two meetings overlap.
  *
  * APPROACH:
- * 1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply interval methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+ * 1. **Sort intervals**: Sort by start time
+ * 2. **Check for overlaps**: For each consecutive pair, check if they overlap
+ * 3. **Return result**: If any overlap found, return false; otherwise true
+ * 4. **Handle edge cases**: Empty array or single meeting always returns true
  *
  * WHY THIS WORKS:
- * - The solution leverages interval principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+ * - Sorting ensures we only need to check consecutive intervals
+ * - Two intervals overlap if the second starts before the first ends
+ * - If start2 < end1, there's an overlap
+ * - Time complexity is O(n log n) for sorting
+ * - Space complexity is O(1) or O(log n) for sorting
  *
- * TIME COMPLEXITY: O(n)
- * SPACE COMPLEXITY: O(1)
+ * TIME COMPLEXITY: O(n log n) - dominated by sorting
+ * SPACE COMPLEXITY: O(1) - excluding sorting space
  *
  * EXAMPLE WALKTHROUGH:
  * ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
+Input: [[0,30],[5,10],[15,20]]
+Step 1: Sort by start time (already sorted)
+Step 2: Check [0,30] and [5,10]: 5 < 30 -> overlap found!
+Output: false
 ```
  *
  * EDGE CASES:
- * - Empty input handling
-- Single element cases
-- Large input considerations
+ * - Empty input: return true (no meetings to conflict)
+ * - Single meeting: return true (no conflicts)
+ * - All non-overlapping: return true
+ * - Adjacent meetings (end1 == start2): return true (no overlap)
  */
 
 /**
  * Main solution for Problem 252: Meeting Rooms
  *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
+ * @param {number[][]} intervals - Array of meeting time intervals [start, end]
+ * @return {boolean} - True if person can attend all meetings
  *
- * Time Complexity: O(n)
+ * Time Complexity: O(n log n)
  * Space Complexity: O(1)
  */
-function solve(...args) {
-    // TODO: Implement the solution using interval techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using interval methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+function solve(intervals) {
+    // Edge cases
+    if (!intervals || intervals.length <= 1) {
+        return true;
+    }
 
-    return null; // Replace with actual implementation
+    // Sort intervals by start time
+    intervals.sort((a, b) => a[0] - b[0]);
+
+    // Check for overlaps in consecutive intervals
+    for (let i = 1; i < intervals.length; i++) {
+        // If current meeting starts before previous ends, there's overlap
+        if (intervals[i][0] < intervals[i - 1][1]) {
+            return false;
+        }
+    }
+
+    return true;
 }
 
 /**
@@ -64,20 +76,41 @@ function solve(...args) {
 function testSolution() {
     console.log('Testing 252. Meeting Rooms');
 
-    // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    // Test case 1: Overlapping meetings
+    const result1 = solve([[0,30],[5,10],[15,20]]);
+    const expected1 = false;
+    console.assert(result1 === expected1,
+        `Test 1 failed: expected ${expected1}, got ${result1}`);
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 2: Non-overlapping meetings
+    const result2 = solve([[7,10],[2,4]]);
+    const expected2 = true;
+    console.assert(result2 === expected2,
+        `Test 2 failed: expected ${expected2}, got ${result2}`);
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 3: Adjacent meetings (no overlap)
+    const result3 = solve([[1,5],[5,10],[10,15]]);
+    const expected3 = true;
+    console.assert(result3 === expected3,
+        `Test 3 failed: expected ${expected3}, got ${result3}`);
+
+    // Test case 4: Single meeting
+    const result4 = solve([[1,5]]);
+    const expected4 = true;
+    console.assert(result4 === expected4,
+        `Test 4 failed: expected ${expected4}, got ${result4}`);
+
+    // Test case 5: Empty array
+    const result5 = solve([]);
+    const expected5 = true;
+    console.assert(result5 === expected5,
+        `Test 5 failed: expected ${expected5}, got ${result5}`);
+
+    // Test case 6: Multiple overlapping
+    const result6 = solve([[1,10],[2,5],[3,7]]);
+    const expected6 = false;
+    console.assert(result6 === expected6,
+        `Test 6 failed: expected ${expected6}, got ${result6}`);
 
     console.log('All test cases passed for 252. Meeting Rooms!');
 }

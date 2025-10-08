@@ -1,85 +1,164 @@
 /**
- * 759. Employee
- * Medium
+ * 759. Employee Free Time
+ * Hard
  *
  * This problem demonstrates key concepts in Interval.
  *
  * SOLUTION EXPLANATION:
  *
  * INTUITION:
- * [This problem requires understanding of interval concepts. The key insight is to identify the optimal approach for this specific scenario.]
+ * Given work schedules for multiple employees, find common free time intervals.
+ * Flatten all intervals, merge overlapping work periods, find gaps between merged intervals.
  *
  * APPROACH:
- * 1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply interval methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+ * 1. **Flatten all intervals**: Combine all employee schedules into one list
+ * 2. **Sort by start time**: Process intervals chronologically
+ * 3. **Merge overlapping intervals**: Find all busy periods
+ * 4. **Find gaps**: Gaps between merged intervals are free time
  *
  * WHY THIS WORKS:
- * - The solution leverages interval principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+ * - Flattening treats all work intervals equally
+ * - Merging finds all busy time periods
+ * - Gaps between busy periods are common free time
+ * - Sort ensures we process intervals in time order
+ * - Time complexity: O(n log n) where n is total intervals
+ * - Space complexity: O(n) for flattened and result arrays
  *
- * TIME COMPLEXITY: O(n)
- * SPACE COMPLEXITY: O(1)
+ * TIME COMPLEXITY: O(n log n) - where n is total number of intervals
+ * SPACE COMPLEXITY: O(n)
  *
  * EXAMPLE WALKTHROUGH:
  * ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
+Input: [[[1,3],[4,6]],[[1,4]],[[2,5],[7,9]]]
+Flatten: [[1,3],[4,6],[1,4],[2,5],[7,9]]
+Sort: [[1,3],[1,4],[2,5],[4,6],[7,9]]
+Merge: [[1,6],[7,9]]
+Gaps: [6,7]
+Output: [[6,7]]
 ```
  *
  * EDGE CASES:
- * - Empty input handling
-- Single element cases
-- Large input considerations
+ * - No employees: return []
+ * - No free time: return []
+ * - All time is free: return large interval
+ * - Single employee: find gaps in their schedule
  */
 
-/**
- * Main solution for Problem 759: Employee
- *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
- *
- * Time Complexity: O(n)
- * Space Complexity: O(1)
- */
-function solve(...args) {
-    // TODO: Implement the solution using interval techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using interval methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
-
-    return null; // Replace with actual implementation
+// Interval class for compatibility
+class Interval {
+    constructor(start, end) {
+        this.start = start;
+        this.end = end;
+    }
 }
 
 /**
- * Test cases for Problem 759: Employee
+ * Main solution for Problem 759: Employee Free Time
+ *
+ * @param {Interval[][]} schedule - Array of employee schedules
+ * @return {Interval[]} - Common free time intervals
+ *
+ * Time Complexity: O(n log n)
+ * Space Complexity: O(n)
+ */
+function solve(schedule) {
+    // Flatten all intervals from all employees
+    const allIntervals = [];
+    for (const employeeSchedule of schedule) {
+        for (const interval of employeeSchedule) {
+            allIntervals.push(interval);
+        }
+    }
+
+    if (allIntervals.length === 0) {
+        return [];
+    }
+
+    // Sort by start time
+    allIntervals.sort((a, b) => a.start - b.start);
+
+    // Merge overlapping intervals to find all busy periods
+    const merged = [allIntervals[0]];
+    for (let i = 1; i < allIntervals.length; i++) {
+        const current = allIntervals[i];
+        const last = merged[merged.length - 1];
+
+        if (current.start <= last.end) {
+            // Overlapping, merge them
+            last.end = Math.max(last.end, current.end);
+        } else {
+            // No overlap, add as new interval
+            merged.push(current);
+        }
+    }
+
+    // Find gaps between merged intervals (free time)
+    const freeTime = [];
+    for (let i = 1; i < merged.length; i++) {
+        freeTime.push(new Interval(merged[i - 1].end, merged[i].start));
+    }
+
+    return freeTime;
+}
+
+/**
+ * Test cases for Problem 759: Employee Free Time
  */
 function testSolution() {
-    console.log('Testing 759. Employee');
+    console.log('Testing 759. Employee Free Time');
+
+    // Helper function to compare intervals
+    const intervalsEqual = (a, b) => {
+        if (a.length !== b.length) return false;
+        for (let i = 0; i < a.length; i++) {
+            if (a[i].start !== b[i].start || a[i].end !== b[i].end) return false;
+        }
+        return true;
+    };
 
     // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    const schedule1 = [
+        [new Interval(1, 3), new Interval(4, 6)],
+        [new Interval(1, 4)],
+        [new Interval(2, 5), new Interval(7, 9)]
+    ];
+    const result1 = solve(schedule1);
+    const expected1 = [new Interval(6, 7)];
+    console.assert(intervalsEqual(result1, expected1),
+        `Test 1 failed`);
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 2: Multiple free periods
+    const schedule2 = [
+        [new Interval(1, 2), new Interval(5, 6)],
+        [new Interval(1, 3)],
+        [new Interval(4, 10)]
+    ];
+    const result2 = solve(schedule2);
+    const expected2 = [new Interval(3, 4)];
+    console.assert(intervalsEqual(result2, expected2),
+        `Test 2 failed`);
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 3: No free time
+    const schedule3 = [
+        [new Interval(1, 10)],
+        [new Interval(2, 5)],
+        [new Interval(3, 7)]
+    ];
+    const result3 = solve(schedule3);
+    const expected3 = [];
+    console.assert(intervalsEqual(result3, expected3),
+        `Test 3 failed`);
 
-    console.log('All test cases passed for 759. Employee!');
+    // Test case 4: Single employee with gaps
+    const schedule4 = [
+        [new Interval(1, 3), new Interval(6, 7)]
+    ];
+    const result4 = solve(schedule4);
+    const expected4 = [new Interval(3, 6)];
+    console.assert(intervalsEqual(result4, expected4),
+        `Test 4 failed`);
+
+    console.log('All test cases passed for 759. Employee Free Time!');
 }
 
 /**
