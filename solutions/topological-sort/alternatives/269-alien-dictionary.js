@@ -40,22 +40,74 @@ Output: [expected output]
 /**
  * Main solution for Problem 269: Alien Dictionary
  *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
+ * @param {string[]} words - Array of words in alien dictionary order
+ * @return {string} - String of unique letters in alien alphabet order, or empty string if invalid
  *
- * Time Complexity: O(n)
- * Space Complexity: O(1)
+ * Time Complexity: O(C) where C is total length of all words
+ * Space Complexity: O(1) - at most 26 characters in alphabet
  */
-function solve(...args) {
-    // TODO: Implement the solution using topological sort techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using topological sort methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+function solve(words) {
+    // Build graph and in-degree map
+    const graph = new Map();
+    const inDegree = new Map();
 
-    return null; // Replace with actual implementation
+    // Initialize all characters
+    for (const word of words) {
+        for (const char of word) {
+            if (!graph.has(char)) {
+                graph.set(char, new Set());
+                inDegree.set(char, 0);
+            }
+        }
+    }
+
+    // Build edges by comparing adjacent words
+    for (let i = 0; i < words.length - 1; i++) {
+        const word1 = words[i];
+        const word2 = words[i + 1];
+        const minLen = Math.min(word1.length, word2.length);
+
+        // Check for invalid case: word1 is prefix of word2 but comes after
+        if (word1.length > word2.length && word1.startsWith(word2)) {
+            return '';
+        }
+
+        // Find first different character
+        for (let j = 0; j < minLen; j++) {
+            if (word1[j] !== word2[j]) {
+                // Add edge: word1[j] comes before word2[j]
+                if (!graph.get(word1[j]).has(word2[j])) {
+                    graph.get(word1[j]).add(word2[j]);
+                    inDegree.set(word2[j], inDegree.get(word2[j]) + 1);
+                }
+                break;
+            }
+        }
+    }
+
+    // Kahn's algorithm for topological sort
+    const queue = [];
+    for (const [char, degree] of inDegree) {
+        if (degree === 0) {
+            queue.push(char);
+        }
+    }
+
+    const result = [];
+    while (queue.length > 0) {
+        const current = queue.shift();
+        result.push(current);
+
+        for (const neighbor of graph.get(current)) {
+            inDegree.set(neighbor, inDegree.get(neighbor) - 1);
+            if (inDegree.get(neighbor) === 0) {
+                queue.push(neighbor);
+            }
+        }
+    }
+
+    // If cycle detected, return empty string
+    return result.length === inDegree.size ? result.join('') : '';
 }
 
 /**
@@ -64,20 +116,28 @@ function solve(...args) {
 function testSolution() {
     console.log('Testing 269. Alien Dictionary');
 
-    // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    // Test case 1: Valid dictionary order
+    const result1 = solve(['wrt', 'wrf', 'er', 'ett', 'rftt']);
+    // Check that result is not empty (valid ordering exists)
+    console.assert(result1.length > 0, `Test 1 failed: got empty result`);
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 2: Another valid ordering
+    const result2 = solve(['z', 'x']);
+    const expected2 = 'zx';
+    console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 3: Invalid - longer word before its prefix
+    const result3 = solve(['abc', 'ab']);
+    const expected3 = '';
+    console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+
+    // Test case 4: Single word
+    const result4 = solve(['abc']);
+    console.assert(result4.length === 3, `Test 4 failed: expected length 3, got ${result4.length}`);
+
+    // Test case 5: All same characters
+    const result5 = solve(['aa', 'aaa']);
+    console.assert(result5 === 'a', `Test 5 failed: expected 'a', got ${result5}`);
 
     console.log('All test cases passed for 269. Alien Dictionary!');
 }

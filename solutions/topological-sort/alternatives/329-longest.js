@@ -38,48 +38,93 @@ Output: [expected output]
  */
 
 /**
- * Main solution for Problem 329: Longest
+ * Main solution for Problem 329: Longest Increasing Path in a Matrix
  *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
+ * @param {number[][]} matrix - 2D matrix of integers
+ * @return {number} - Length of longest increasing path
  *
- * Time Complexity: O(n)
- * Space Complexity: O(1)
+ * Time Complexity: O(m * n) where m and n are matrix dimensions
+ * Space Complexity: O(m * n) for memoization
  */
-function solve(...args) {
-    // TODO: Implement the solution using topological sort techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using topological sort methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+function solve(matrix) {
+    if (!matrix || matrix.length === 0 || matrix[0].length === 0) {
+        return 0;
+    }
 
-    return null; // Replace with actual implementation
+    const rows = matrix.length;
+    const cols = matrix[0].length;
+    const memo = Array.from({ length: rows }, () => new Array(cols).fill(0));
+    const directions = [[0, 1], [1, 0], [0, -1], [-1, 0]];
+
+    const dfs = (row, col) => {
+        // Return cached result if available
+        if (memo[row][col] !== 0) {
+            return memo[row][col];
+        }
+
+        let maxPath = 1;
+
+        // Explore all four directions
+        for (const [dr, dc] of directions) {
+            const newRow = row + dr;
+            const newCol = col + dc;
+
+            // Check bounds and increasing condition
+            if (newRow >= 0 && newRow < rows &&
+                newCol >= 0 && newCol < cols &&
+                matrix[newRow][newCol] > matrix[row][col]) {
+                maxPath = Math.max(maxPath, 1 + dfs(newRow, newCol));
+            }
+        }
+
+        memo[row][col] = maxPath;
+        return maxPath;
+    };
+
+    let longestPath = 0;
+
+    // Try starting from each cell
+    for (let i = 0; i < rows; i++) {
+        for (let j = 0; j < cols; j++) {
+            longestPath = Math.max(longestPath, dfs(i, j));
+        }
+    }
+
+    return longestPath;
 }
 
 /**
- * Test cases for Problem 329: Longest
+ * Test cases for Problem 329: Longest Increasing Path in a Matrix
  */
 function testSolution() {
-    console.log('Testing 329. Longest');
+    console.log('Testing 329. Longest Increasing Path in a Matrix');
 
-    // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    // Test case 1: Standard 3x3 matrix
+    const result1 = solve([[9, 9, 4], [6, 6, 8], [2, 1, 1]]);
+    const expected1 = 4; // Path: 1 -> 2 -> 6 -> 9
+    console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 2: Another 3x3 matrix
+    const result2 = solve([[3, 4, 5], [3, 2, 6], [2, 2, 1]]);
+    const expected2 = 4; // Path: 3 -> 4 -> 5 -> 6
+    console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 3: Single element
+    const result3 = solve([[1]]);
+    const expected3 = 1;
+    console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
 
-    console.log('All test cases passed for 329. Longest!');
+    // Test case 4: All same values
+    const result4 = solve([[5, 5], [5, 5]]);
+    const expected4 = 1;
+    console.assert(result4 === expected4, `Test 4 failed: expected ${expected4}, got ${result4}`);
+
+    // Test case 5: Linear increasing path
+    const result5 = solve([[1, 2, 3, 4]]);
+    const expected5 = 4;
+    console.assert(result5 === expected5, `Test 5 failed: expected ${expected5}, got ${result5}`);
+
+    console.log('All test cases passed for 329. Longest Increasing Path in a Matrix!');
 }
 
 /**

@@ -38,48 +38,86 @@ Output: [expected output]
  */
 
 /**
- * Main solution for Problem 802: Find
+ * Main solution for Problem 802: Find Eventual Safe States
  *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
+ * @param {number[][]} graph - Directed graph represented as adjacency list
+ * @return {number[]} - Sorted list of safe nodes
  *
- * Time Complexity: O(n)
- * Space Complexity: O(1)
+ * Time Complexity: O(V + E) where V is number of nodes and E is number of edges
+ * Space Complexity: O(V) for state tracking and result storage
  */
-function solve(...args) {
-    // TODO: Implement the solution using topological sort techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using topological sort methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+function solve(graph) {
+    const n = graph.length;
+    const state = new Array(n).fill(0); // 0: unvisited, 1: visiting, 2: safe
 
-    return null; // Replace with actual implementation
+    const isSafe = (node) => {
+        if (state[node] !== 0) {
+            return state[node] === 2;
+        }
+
+        // Mark as visiting (detect cycles)
+        state[node] = 1;
+
+        // Check all neighbors
+        for (const neighbor of graph[node]) {
+            if (!isSafe(neighbor)) {
+                // Found a cycle or path to cycle
+                return false;
+            }
+        }
+
+        // Mark as safe (terminal node or all paths lead to terminal)
+        state[node] = 2;
+        return true;
+    };
+
+    const result = [];
+    for (let i = 0; i < n; i++) {
+        if (isSafe(i)) {
+            result.push(i);
+        }
+    }
+
+    return result;
 }
 
 /**
- * Test cases for Problem 802: Find
+ * Test cases for Problem 802: Find Eventual Safe States
  */
 function testSolution() {
-    console.log('Testing 802. Find');
+    console.log('Testing 802. Find Eventual Safe States');
 
-    // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    // Test case 1: Mixed safe and unsafe nodes
+    const result1 = solve([[1, 2], [2, 3], [5], [0], [5], [], []]);
+    const expected1 = [2, 4, 5, 6];
+    console.assert(JSON.stringify(result1) === JSON.stringify(expected1),
+                   `Test 1 failed: expected ${JSON.stringify(expected1)}, got ${JSON.stringify(result1)}`);
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 2: All terminal nodes
+    const result2 = solve([[], [], []]);
+    const expected2 = [0, 1, 2];
+    console.assert(JSON.stringify(result2) === JSON.stringify(expected2),
+                   `Test 2 failed: expected ${JSON.stringify(expected2)}, got ${JSON.stringify(result2)}`);
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 3: All nodes in cycle
+    const result3 = solve([[1], [0]]);
+    const expected3 = [];
+    console.assert(JSON.stringify(result3) === JSON.stringify(expected3),
+                   `Test 3 failed: expected ${JSON.stringify(expected3)}, got ${JSON.stringify(result3)}`);
 
-    console.log('All test cases passed for 802. Find!');
+    // Test case 4: Single terminal node
+    const result4 = solve([[]]);
+    const expected4 = [0];
+    console.assert(JSON.stringify(result4) === JSON.stringify(expected4),
+                   `Test 4 failed: expected ${JSON.stringify(expected4)}, got ${JSON.stringify(result4)}`);
+
+    // Test case 5: Linear path to terminal
+    const result5 = solve([[1], [2], []]);
+    const expected5 = [0, 1, 2];
+    console.assert(JSON.stringify(result5) === JSON.stringify(expected5),
+                   `Test 5 failed: expected ${JSON.stringify(expected5)}, got ${JSON.stringify(result5)}`);
+
+    console.log('All test cases passed for 802. Find Eventual Safe States!');
 }
 
 /**
