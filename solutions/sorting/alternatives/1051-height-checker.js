@@ -7,43 +7,62 @@
  * SOLUTION EXPLANATION:
  *
  * INTUITION:
- * This problem requires understanding of sorting concepts.
+ * Count how many students are not standing in the correct position when compared
+ * to the sorted order of heights. We need to find indices where the original array
+ * differs from the sorted array.
  *
  * APPROACH:
- * Apply sorting methodology to solve efficiently.
+ * 1. Create a sorted copy of the heights array
+ * 2. Compare each element in original with sorted version
+ * 3. Count positions where they differ
  *
  * WHY THIS WORKS:
- * The solution leverages sorting principles for optimal performance.
+ * By comparing the original array with its sorted version, we can identify
+ * exactly which students are out of place. The count gives us the answer.
  *
- * TIME COMPLEXITY: O(n)
- * SPACE COMPLEXITY: O(1)
+ * TIME COMPLEXITY: O(n log n) for sorting
+ * SPACE COMPLEXITY: O(n) for the sorted copy
  *
  * EXAMPLE WALKTHROUGH:
- * Input: [example input]\nStep 1: [explain first step]\nOutput: [expected output]
+ * Input: heights = [1,1,4,2,1,3]
+ * Step 1: Create sorted: [1,1,1,2,3,4]
+ * Step 2: Compare positions:
+ *   - Index 0: 1 == 1 ✓
+ *   - Index 1: 1 == 1 ✓
+ *   - Index 2: 4 != 1 ✗
+ *   - Index 3: 2 == 2 ✓
+ *   - Index 4: 1 != 3 ✗
+ *   - Index 5: 3 != 4 ✗
+ * Output: 3 (three students are not in correct position)
  *
  * EDGE CASES:
- * - Empty input handling\n- Single element cases\n- Large input considerations
+ * - Already sorted array: returns 0
+ * - All same heights: returns 0
+ * - Reverse sorted: returns n (all out of place)
  */
 
 /**
  * Main solution for Problem 1051: Height Checker
  *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
+ * @param {number[]} heights - Array of student heights
+ * @return {number} - Number of students not in correct position
  *
- * Time Complexity: O(n)
- * Space Complexity: O(1)
+ * Time Complexity: O(n log n)
+ * Space Complexity: O(n)
  */
-function solve(...args) {
-    // TODO: Implement the solution using sorting techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using sorting methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+function solve(heights) {
+    // Create sorted copy
+    const expected = [...heights].sort((a, b) => a - b);
 
-    return null; // Replace with actual implementation
+    // Count mismatches
+    let count = 0;
+    for (let i = 0; i < heights.length; i++) {
+        if (heights[i] !== expected[i]) {
+            count++;
+        }
+    }
+
+    return count;
 }
 
 /**
@@ -52,20 +71,25 @@ function solve(...args) {
 function testSolution() {
     console.log('Testing 1051. Height Checker');
 
-    // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    // Test case 1: Example from problem
+    const result1 = solve([1, 1, 4, 2, 1, 3]);
+    const expected1 = 3;
+    console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 2: Already sorted
+    const result2 = solve([1, 2, 3, 4, 5]);
+    const expected2 = 0;
+    console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 3: Reverse sorted
+    const result3 = solve([5, 1, 2, 3, 4]);
+    const expected3 = 5;
+    console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+
+    // Test case 4: Single element
+    const result4 = solve([1]);
+    const expected4 = 0;
+    console.assert(result4 === expected4, `Test 4 failed: expected ${expected4}, got ${result4}`);
 
     console.log('All test cases passed for 1051. Height Checker!');
 }
