@@ -1,129 +1,176 @@
 /**
- * 001. Two Sum
- * Medium
+ * Problem 1: Two Sum
+ * Difficulty: Easy
  *
- * This problem demonstrates key concepts in Arrays Hashing.
+ * Given an array of integers `nums` and an integer `target`, return indices of the
+ * two numbers such that they add up to `target`.
  *
- * SOLUTION EXPLANATION:
+ * You may assume that each input would have exactly one solution, and you may
+ * not use the same element twice.
  *
- * INTUITION:
- * The key insight is to use a hash `map` to store numbers we've seen so far.
-For each number, we check if its `complement` (`target` - current_number)
-exists in our hash `map`. This allows us to find the pair in a single pass.
+ * **Example:**
  *
- * APPROACH:
- * 1. Create a hash `map` to store number -> index mapping
-2. For each number in the array:
-   - Calculate complement = target - current_number
-   - If complement exists in hash map, we found our answer
-   - Otherwise, store current number and its index in hash map
-3. Return the indices when `complement` is found
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>nums = [2,7,11,15], target = 9</dd>
+ * <dt>Output:</dt>
+ * <dd>[0,1]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>Because nums[0] + nums[1] == 9, we return [0, 1]</dd>
+ * </dl>
  *
- * WHY THIS WORKS:
- * - Instead of checking every pair (O(n²)), we use hash map for O(1) lookup
-- We only need to store numbers we've already seen
-- When we find a complement, we know the current index and the stored index
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * TIME COMPLEXITY: O(n) - single pass through array
- * SPACE COMPLEXITY: O(n) - hash map can store up to n elements
+ * ### INTUITION:
+ * The key insight is to use a hash map to store numbers we've seen so far.
  *
- * EXAMPLE WALKTHROUGH:
+ * For each number, we check if its complement (target - current_number) exists in our hash map.
+ *
+ * This allows us to find the pair in a single pass.
+ *
+ * ### APPROACH:
+ * We start by creating a hash map (Map) to store the numbers we've encountered along with their indices.
+ *
+ * As we iterate through the array, for each number we calculate its complement - the value that would sum with the current number to reach our target. The complement is simply `target - current_number`.
+ *
+ * Before adding the current number to our hash map, we first check if its complement already exists in the map. If we find the complement, we've discovered our pair and can immediately return both indices: the stored index from the hash map and the current index.
+ *
+ * If the complement doesn't exist yet, we store the current number and its index in the hash map. This prepares us for future iterations where this number might be the complement we're looking for.
+ *
+ * The beauty of this approach is that we only need to make a single pass through the array. Each lookup in the hash map is O(1), making this dramatically faster than checking all possible pairs.
+ *
+ * ### WHY THIS WORKS:
+ * Instead of checking every pair (O(n²)), we use hash map for O(1) lookup.
+ *
+ * We only need to store numbers we've already seen.
+ *
+ * When we find a complement, we know the current index and the stored index.
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ *
+ * Input:
  * ```
-`nums` = [2,7,11,15], `target` = 9
-
-Step 1: `num=2`, `complement=7`, seen={} → store {2: 0}
-Step 2: `num=7`, `complement=2`, seen={2: 0} → `found! return` [0, 1]
-```
+ * nums = [2,7,11,15], target = 9
+ * ```
  *
- * EDGE CASES:
- * - No valid solution exists (guaranteed not to happen per problem constraints)
- * - Duplicate numbers in array (use different indices)
- * - Same number used twice (target = 2 * number)
- * - Negative numbers and zero
+ * **Step 1:** `num=2`, `complement=7`, `seen={}` → store `{2: 0}`
+ *
+ * **Step 2:** `num=7`, `complement=2`, `seen={2: 0}` → found! return `[0, 1]`
+ *
+ * ### TIME COMPLEXITY:
+ * **O(n)** - Single pass through array with O(1) hash map lookups
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(n)** - Hash map stores up to n elements in worst case
+ *
+ * ### EDGE CASES:
+ * - **No solution exists:** Problem guarantees exactly one solution
+ * - **Duplicate values:** Hash map handles correctly by index
+ * - **Two same numbers sum to target:** Works if at different indices
+ * - **Negative numbers:** Algorithm works for any integers
  */
 
-/**
- * Main solution for Problem 001: Two Sum
- *
- * @param {number[]} nums - Array of integers
- * @param {number} target - Target sum
- * @return {number[]} - Indices of the two numbers that add up to target
- *
- * Time Complexity: O(n)
- * Space Complexity: O(n)
- */
-function solve(nums, target) {
-    const seen = new Map();
+class Solution {
+    /**
+     * Find two numbers that add up to target
+     * @param {number[]} nums - Array of integers
+     * @param {number} target - Target sum
+     * @return {number[]} - Indices of the two numbers
+     *
+     * Approach: Hash Map for O(n) lookup
+     * Time Complexity: O(n)
+     * Space Complexity: O(n)
+     */
+    twoSum(nums, target) {
+        // Map to store value -> index mapping
+        const seen = new Map();
 
-    for (let i = 0; i < nums.length; i++) {
-        const complement = target - nums[i];
+        for (let i = 0; i < nums.length; i++) {
+            // Calculate complement needed to reach target
+            const complement = target - nums[i];
 
-        if (seen.has(complement)) {
-            return [seen.get(complement), i];
+            // Check if complement exists in our hash map
+            if (seen.has(complement)) {
+                return [seen.get(complement), i];
+            }
+
+            // Store current number and its index
+            seen.set(nums[i], i);
         }
 
-        seen.set(nums[i], i);
+        // Should never reach here given problem constraints
+        return [];
     }
 
-    return [];
+    /**
+     * Brute force approach - check all pairs
+     * @param {number[]} nums - Array of integers
+     * @param {number} target - Target sum
+     * @return {number[]} - Indices of the two numbers
+     *
+     * Approach: Brute Force
+     * Time Complexity: O(n²)
+     * Space Complexity: O(1)
+     */
+    twoSumBruteForce(nums, target) {
+        const n = nums.length;
+
+        for (let i = 0; i < n; i++) {
+            for (let j = i + 1; j < n; j++) {
+                if (nums[i] + nums[j] === target) {
+                    return [i, j];
+                }
+            }
+        }
+
+        return [];
+    }
 }
 
-/**
- * Test cases for Problem 001: Two Sum
- */
-function testSolution() {
-    console.log('Testing 001. Two Sum');
-
-    // Test case 1: Basic functionality
-    const result1 = solve([2, 7, 11, 15], 9);
-    const expected1 = [0, 1];
-    console.assert(JSON.stringify(result1) === JSON.stringify(expected1),
-        `Test 1 failed: expected ${JSON.stringify(expected1)}, got ${JSON.stringify(result1)}`);
-
-    // Test case 2: Different indices
-    const result2 = solve([3, 2, 4], 6);
-    const expected2 = [1, 2];
-    console.assert(JSON.stringify(result2) === JSON.stringify(expected2),
-        `Test 2 failed: expected ${JSON.stringify(expected2)}, got ${JSON.stringify(result2)}`);
-
-    // Test case 3: Same numbers
-    const result3 = solve([3, 3], 6);
-    const expected3 = [0, 1];
-    console.assert(JSON.stringify(result3) === JSON.stringify(expected3),
-        `Test 3 failed: expected ${JSON.stringify(expected3)}, got ${JSON.stringify(result3)}`);
-
-    console.log('All test cases passed for 001. Two Sum!');
+// Export for module systems
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = Solution;
 }
 
-/**
- * Example usage and demonstration
- */
-function demonstrateSolution() {
-    console.log('\n=== Problem 001. Two Sum ===');
-    console.log('Category: Arrays Hashing');
-    console.log('Difficulty: Medium');
-    console.log('');
+// Test cases
+function runTests() {
+    const solution = new Solution();
 
-    // Example demonstration would go here
-    testSolution();
+    // Test case 1
+    console.log("Test Case 1:");
+    const nums1 = [2, 7, 11, 15];
+    const target1 = 9;
+    const result1 = solution.twoSum(nums1, target1);
+    console.log(`Input: nums = ${JSON.stringify(nums1)}, target = ${target1}`);
+    console.log(`Output: ${JSON.stringify(result1)}`);
+    console.log(`Expected: [0, 1]`);
+    console.log(`Pass: ${JSON.stringify(result1) === JSON.stringify([0, 1])}`);
+    console.log();
+
+    // Test case 2
+    console.log("Test Case 2:");
+    const nums2 = [3, 2, 4];
+    const target2 = 6;
+    const result2 = solution.twoSum(nums2, target2);
+    console.log(`Input: nums = ${JSON.stringify(nums2)}, target = ${target2}`);
+    console.log(`Output: ${JSON.stringify(result2)}`);
+    console.log(`Expected: [1, 2]`);
+    console.log(`Pass: ${JSON.stringify(result2) === JSON.stringify([1, 2])}`);
+    console.log();
+
+    // Test case 3
+    console.log("Test Case 3:");
+    const nums3 = [3, 3];
+    const target3 = 6;
+    const result3 = solution.twoSum(nums3, target3);
+    console.log(`Input: nums = ${JSON.stringify(nums3)}, target = ${target3}`);
+    console.log(`Output: ${JSON.stringify(result3)}`);
+    console.log(`Expected: [0, 1]`);
+    console.log(`Pass: ${JSON.stringify(result3) === JSON.stringify([0, 1])}`);
 }
 
-// Run tests if this file is executed directly
-if (require.main === module) {
-    demonstrateSolution();
+// Run tests if executed directly
+if (typeof require !== 'undefined' && require.main === module) {
+    runTests();
 }
-
-// Export for use in other modules
-module.exports = {
-    solve,
-    testSolution,
-    demonstrateSolution
-};
-
-/**
- * Additional Notes:
- * - This solution focuses on arrays hashing concepts
- * - Consider the trade-offs between time and space complexity
- * - Edge cases are crucial for robust solutions
- * - The approach can be adapted for similar problems in this category
- */
