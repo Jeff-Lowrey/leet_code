@@ -1,69 +1,94 @@
 """
-# 215. Kth Largest Element In An Array
+# 215. Kth Largest Element in an Array
 **Medium**
 
-Given a problem that demonstrates key concepts in Heap.
+Given an integer array nums and an integer k, return the kth largest element in the array.
+
+Note that it is the kth largest element in the sorted order, not the kth distinct element.
+
+Can you solve it without sorting?
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
-[This problem requires understanding of heap concepts. The key insight is to identify the optimal approach for this specific scenario.]
+Several approaches: min-heap (keep k largest), max-heap (pop k-1 times), or QuickSelect (partition-based like QuickSort). QuickSelect is optimal O(n) average case.
 
-### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply heap methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+### APPROACH (Min-Heap):
+1. **Build min-heap of size k**: Contains k largest elements
+2. **Iterate remaining elements**: If larger than heap root, replace root
+3. **Return heap root**: Smallest of k largest = kth largest
+
+### APPROACH (QuickSelect):
+1. **Choose pivot**: Partition array around pivot
+2. **Determine position**: Compare pivot position to k
+3. **Recurse**: Search left or right partition based on position
+4. **Base case**: When pivot is at position k from end
 
 ### WHY THIS WORKS:
-- The solution leverages heap principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+- **Heap**: Root of min-heap with k elements = kth largest
+- **QuickSelect**: Partially sorts to find kth element (like QuickSort but only one partition)
+- **Quick Select** doesn't need full sort, just correct position
 
-### TIME COMPLEXITY: O(n)
-### SPACE COMPLEXITY: O(1)
+### TIME COMPLEXITY:
+- Min-heap: O(n log k)
+- Max-heap: O(n + k log n)
+- QuickSelect: O(n) average, O(n²) worst
+- Sorting: O(n log n)
+
+### SPACE COMPLEXITY:
+- Min-heap: O(k)
+- QuickSelect: O(1) if in-place
+- Sorting: O(1) or O(n) depending on algorithm
 
 ### EXAMPLE WALKTHROUGH:
 ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
+nums = [3,2,1,5,6,4], k = 2
+
+Min-Heap approach:
+- Build heap with first k=2: [2, 3]
+- Process 1: 1 < 2, skip
+- Process 5: 5 > 2, replace: [3, 5]
+- Process 6: 6 > 3, replace: [5, 6]
+- Process 4: 4 < 5, skip
+- Result: heap[0] = 5
+
+QuickSelect approach:
+- Pivot 4: [3,2,1,4] | [5,6]
+- Position 4 from right, need position 2
+- Recurse right: [5,6]
+- Pivot 5: [5] | [6]
+- Position 2 from right = answer: 5
 ```
 
+### KEY INSIGHTS:
+- k largest = (n - k + 1) smallest (can use max-heap too)
+- QuickSelect modifies array, heap doesn't
+- For small k, heap better. For large k, QuickSelect better
+- Min-heap more intuitive for "largest" problems
+
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
-
-</details>
-
-<details>
-<summary><b>💡 APPROACH</b></summary>
-
-The approach uses heap techniques to solve this problem efficiently.
-
-### Algorithm Steps:
-1. Initialize necessary variables
-2. Process input using heap method
-3. Return the computed result
+- k = 1 (maximum)
+- k = n (minimum)
+- All elements same
+- Negative numbers
+- k > array length (invalid input)
 
 </details>
 """
 
 import heapq
-from typing import List
+import random
 
 
 class Solution:
-    def findKthLargest(self, nums: List[int], k: int) -> int:
+    def findKthLargest(self, nums: list[int], k: int) -> int:
         """
-        Find the kth largest element in an unsorted array using a min heap.
+        Find kth largest using min-heap.
 
         Args:
-            nums: List of integers
-            k: The kth position (1-indexed)
+            nums: Array of integers
+            k: Position of largest element (1-indexed)
 
         Returns:
             The kth largest element
@@ -71,71 +96,159 @@ class Solution:
         Time Complexity: O(n log k)
         Space Complexity: O(k)
         """
-        # Maintain a min heap of size k
-        # The root will be the kth largest element
-        min_heap = []
+        # Build min-heap of size k
+        heap = nums[:k]
+        heapq.heapify(heap)
 
-        for num in nums:
-            heapq.heappush(min_heap, num)
-            # Keep only k largest elements
-            if len(min_heap) > k:
-                heapq.heappop(min_heap)
+        # Process remaining elements
+        for i in range(k, len(nums)):
+            if nums[i] > heap[0]:
+                heapq.heapreplace(heap, nums[i])
 
-        return min_heap[0]
+        return heap[0]
 
-    def solve(self, *args):
+    def findKthLargestHeapNlogN(self, nums: list[int], k: int) -> int:
         """
-        Main solution for 215. Kth Largest Element In An Array.
-
-        Args:
-            *args: Problem-specific arguments
-
-        Returns:
-            Problem-specific return type
+        Simple approach using heapq.nlargest.
 
         Time Complexity: O(n log k)
         Space Complexity: O(k)
         """
-        return self.findKthLargest(*args)
+        return heapq.nlargest(k, nums)[-1]
+
+    def findKthLargestQuickSelect(self, nums: list[int], k: int) -> int:
+        """
+        QuickSelect algorithm (optimal average case).
+
+        Args:
+            nums: Array of integers
+            k: Position of largest element
+
+        Returns:
+            The kth largest element
+
+        Time Complexity: O(n) average, O(n²) worst
+        Space Complexity: O(1)
+        """
+
+        def partition(left: int, right: int, pivot_idx: int) -> int:
+            """Partition array around pivot, return pivot's final position."""
+            pivot_value = nums[pivot_idx]
+
+            # Move pivot to end
+            nums[pivot_idx], nums[right] = nums[right], nums[pivot_idx]
+
+            # Move all smaller elements to left
+            store_idx = left
+            for i in range(left, right):
+                if nums[i] < pivot_value:
+                    nums[i], nums[store_idx] = nums[store_idx], nums[i]
+                    store_idx += 1
+
+            # Move pivot to final position
+            nums[store_idx], nums[right] = nums[right], nums[store_idx]
+            return store_idx
+
+        def select(left: int, right: int, k_smallest: int) -> int:
+            """Find kth smallest element in nums[left:right+1]."""
+            if left == right:
+                return nums[left]
+
+            # Choose random pivot to avoid worst case
+            pivot_idx = random.randint(left, right)
+
+            # Partition and get pivot position
+            pivot_idx = partition(left, right, pivot_idx)
+
+            # Pivot is in its final sorted position
+            if k_smallest == pivot_idx:
+                return nums[k_smallest]
+            elif k_smallest < pivot_idx:
+                return select(left, pivot_idx - 1, k_smallest)
+            else:
+                return select(pivot_idx + 1, right, k_smallest)
+
+        # kth largest = (n - k)th smallest (0-indexed)
+        return select(0, len(nums) - 1, len(nums) - k)
+
+    def findKthLargestSort(self, nums: list[int], k: int) -> int:
+        """
+        Brute force: sort and return.
+
+        Time Complexity: O(n log n)
+        Space Complexity: O(1) or O(n) depending on sort algorithm
+        """
+        nums.sort(reverse=True)
+        return nums[k - 1]
+
+    def findKthLargestMaxHeap(self, nums: list[int], k: int) -> int:
+        """
+        Using max-heap: heapify and pop k-1 times.
+
+        Time Complexity: O(n + k log n)
+        Space Complexity: O(n)
+        """
+        # Python heapq is min-heap, so negate for max-heap
+        max_heap = [-num for num in nums]
+        heapq.heapify(max_heap)
+
+        # Pop k-1 times
+        for _ in range(k - 1):
+            heapq.heappop(max_heap)
+
+        return -heapq.heappop(max_heap)
 
 
-def test_solution():
-    """
-    Test cases for 215. Kth Largest Element In An Array.
-    """
+def test_solution() -> None:
+    """Test cases for Problem 215."""
     solution = Solution()
 
-    # Test case 1: Basic functionality
-    result = solution.findKthLargest([3, 2, 1, 5, 6, 4], 2)
-    expected = 5
-    assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 1: Basic example
+    assert solution.findKthLargest([3, 2, 1, 5, 6, 4], 2) == 5
+    print("Test case 1 passed")
 
-    # Test case 2: Another example
-    result = solution.findKthLargest([3, 2, 3, 1, 2, 4, 5, 5, 6], 4)
-    expected = 4
-    assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 2: k = 1 (maximum)
+    assert solution.findKthLargest([3, 2, 3, 1, 2, 4, 5, 5, 6], 1) == 6
+    print("Test case 2 passed")
 
-    # Test case 3: k equals array length (smallest element)
-    result = solution.findKthLargest([1, 2, 3], 3)
-    expected = 1
-    assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 3: k = n (minimum)
+    assert solution.findKthLargest([1, 2, 3], 3) == 1
+    print("Test case 3 passed")
 
-    # Test case 4: k equals 1 (largest element)
-    result = solution.findKthLargest([5, 1, 9, 3, 7], 1)
-    expected = 9
-    assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 4: All same
+    assert solution.findKthLargest([5, 5, 5, 5], 2) == 5
+    print("Test case 4 passed")
 
-    # Test case 5: Single element
-    result = solution.findKthLargest([1], 1)
-    expected = 1
-    assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 5: Negative numbers
+    assert solution.findKthLargest([-1, -2, -3, -4], 2) == -2
+    print("Test case 5 passed")
 
-    # Test case 6: Duplicate elements
-    result = solution.findKthLargest([2, 2, 2, 2], 2)
-    expected = 2
-    assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 6: Single element
+    assert solution.findKthLargest([1], 1) == 1
+    print("Test case 6 passed")
 
-    print("All test cases passed!")
+    # Test case 7: Two elements
+    assert solution.findKthLargest([2, 1], 1) == 2
+    assert solution.findKthLargest([2, 1], 2) == 1
+    print("Test case 7 passed")
+
+    # Test QuickSelect approach
+    assert solution.findKthLargestQuickSelect([3, 2, 1, 5, 6, 4], 2) == 5
+    print("Test case 8 passed: QuickSelect")
+
+    # Test sorting approach
+    assert solution.findKthLargestSort([3, 2, 1, 5, 6, 4], 2) == 5
+    print("Test case 9 passed: Sorting")
+
+    # Test max-heap approach
+    assert solution.findKthLargestMaxHeap([3, 2, 1, 5, 6, 4], 2) == 5
+    print("Test case 10 passed: Max-heap")
+
+    # Test nlargest approach
+    assert solution.findKthLargestHeapNlogN([3, 2, 1, 5, 6, 4], 2) == 5
+    print("Test case 11 passed: heapq.nlargest")
+
+    print("\nAll test cases passed!")
 
 
 if __name__ == "__main__":
@@ -143,5 +256,18 @@ if __name__ == "__main__":
 
     # Example usage
     solution = Solution()
-    print(f"Solution for 215. Kth Largest Element In An Array")
-    print(f"Example: [3,2,1,5,6,4], k=2 -> {solution.findKthLargest([3,2,1,5,6,4], 2)}")
+    print("\n=== 215. Kth Largest Element in an Array ===")
+
+    nums = [3, 2, 1, 5, 6, 4]
+    for k in range(1, 4):
+        result = solution.findKthLargest(nums.copy(), k)
+        print(f"findKthLargest({nums}, k={k}) -> {result}")
+
+    # Compare approaches
+    print("\n\nComparing approaches for nums=[3,2,1,5,6,4], k=2:")
+    nums = [3, 2, 1, 5, 6, 4]
+    print(f"Min-heap:      {solution.findKthLargest(nums.copy(), 2)}")
+    print(f"QuickSelect:   {solution.findKthLargestQuickSelect(nums.copy(), 2)}")
+    print(f"Sorting:       {solution.findKthLargestSort(nums.copy(), 2)}")
+    print(f"Max-heap:      {solution.findKthLargestMaxHeap(nums.copy(), 2)}")
+    print(f"heapq.nlargest: {solution.findKthLargestHeapNlogN(nums.copy(), 2)}")

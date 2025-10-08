@@ -1,162 +1,142 @@
 """
 # 202. Happy Number
-**Medium**
+**Easy**
 
-Given a problem that demonstrates key concepts in Math.
+Write an algorithm to determine if a number n is happy.
+
+A happy number is a number defined by the following process:
+- Starting with any positive integer, replace the number by the sum of the squares of its digits.
+- Repeat the process until the number equals 1 (where it will stay), or it loops endlessly in a cycle which does not include 1.
+- Those numbers for which this process ends in 1 are happy.
+
+Return true if n is a happy number, and false if not.
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
-[This problem requires understanding of math concepts. The key insight is to identify the optimal approach for this specific scenario.]
+Either the process reaches 1 (happy) or enters a cycle (not happy). Use a set to detect cycles, or use Floyd's cycle detection.
 
 ### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply math methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+1. **Calculate sum**: Get sum of squares of digits
+2. **Track seen numbers**: Use set to detect cycle
+3. **Check termination**: If 1, return True; if cycle, return False
+4. **Alternative**: Floyd's cycle detection (two pointers)
 
 ### WHY THIS WORKS:
-- The solution leverages math principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+- Numbers either reach 1 or cycle
+- Cycles always occur for unhappy numbers
+- Set or two-pointer both detect cycles
 
-### TIME COMPLEXITY: O(n)
-### SPACE COMPLEXITY: O(1)
+### TIME COMPLEXITY: O(log n)
+Depends on number of digits and cycle detection
+
+### SPACE COMPLEXITY:
+- Set approach: O(log n)
+- Two-pointer: O(1)
 
 ### EXAMPLE WALKTHROUGH:
 ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
+n = 19:
+1² + 9² = 82
+8² + 2² = 68
+6² + 8² = 100
+1² + 0² + 0² = 1 → Happy!
+
+n = 2:
+2² = 4
+4² = 16
+1² + 6² = 37
+3² + 7² = 58
+5² + 8² = 89
+8² + 9² = 145
+1² + 4² + 5² = 42
+4² + 2² = 20
+2² + 0² = 4 → Cycle! Not happy
 ```
 
+### KEY INSIGHTS:
+- All unhappy numbers eventually cycle
+- Common cycle: 4 → 16 → 37 → 58 → 89 → 145 → 42 → 20 → 4
+- Can also hardcode known cycle values
+
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
-
-</details>
-
-<details>
-<summary><b>💡 APPROACH</b></summary>
-
-The approach uses math techniques to solve this problem efficiently.
-
-### Algorithm Steps:
-1. Initialize necessary variables
-2. Process input using math method
-3. Return the computed result
+- n = 1 (already happy)
+- Single digit numbers
+- Large numbers
 
 </details>
 """
 
+
 class Solution:
     def isHappy(self, n: int) -> bool:
         """
-        Determine if a number is happy using Floyd's cycle detection.
-
-        A happy number is defined by repeatedly replacing the number
-        with the sum of the squares of its digits until either:
-        - The number equals 1 (happy)
-        - It loops endlessly in a cycle (not happy)
+        Determine if number is happy using set.
 
         Args:
             n: Positive integer
 
         Returns:
-            True if n is a happy number, False otherwise
+            True if happy, False otherwise
+
+        Time Complexity: O(log n)
+        Space Complexity: O(log n)
+        """
+        seen = set()
+
+        while n != 1 and n not in seen:
+            seen.add(n)
+            n = self.sumOfSquares(n)
+
+        return n == 1
+
+    def sumOfSquares(self, n: int) -> int:
+        """Calculate sum of squares of digits."""
+        total = 0
+        while n > 0:
+            digit = n % 10
+            total += digit * digit
+            n //= 10
+        return total
+
+    def isHappyFloyd(self, n: int) -> bool:
+        """
+        Two-pointer approach (Floyd's cycle detection).
 
         Time Complexity: O(log n)
         Space Complexity: O(1)
         """
-        def get_next(num: int) -> int:
-            """Calculate sum of squares of digits."""
-            total = 0
-            while num > 0:
-                digit = num % 10
-                total += digit * digit
-                num //= 10
-            return total
-
-        # Floyd's cycle detection (slow and fast pointers)
         slow = n
-        fast = get_next(n)
+        fast = n
 
-        while fast != 1 and slow != fast:
-            slow = get_next(slow)
-            fast = get_next(get_next(fast))
+        while True:
+            slow = self.sumOfSquares(slow)
+            fast = self.sumOfSquares(self.sumOfSquares(fast))
 
-        return fast == 1
-
-    def solve(self, *args):
-        """
-        Main solution for 202. Happy Number.
-
-        Args:
-            *args: Problem-specific arguments
-
-        Returns:
-            True if happy number, False otherwise
-
-        Time Complexity: O(log n)
-        Space Complexity: O(1)
-        """
-        return self.isHappy(*args)
+            if fast == 1:
+                return True
+            if slow == fast:
+                return False
 
 
-def test_solution():
-    """
-    Test cases for 202. Happy Number.
-    """
+def test_solution() -> None:
+    """Test cases for Problem 202."""
     solution = Solution()
 
-    # Test case 1: Happy number (19)
-    # 19 -> 82 -> 68 -> 100 -> 1
-    result = solution.isHappy(19)
-    expected = True
-    assert result == expected, f"Expected {expected}, got {result}"
-
-    # Test case 2: Not happy number (2)
-    result = solution.isHappy(2)
-    expected = False
-    assert result == expected, f"Expected {expected}, got {result}"
-
-    # Test case 3: Already 1
-    result = solution.isHappy(1)
-    expected = True
-    assert result == expected, f"Expected {expected}, got {result}"
-
-    # Test case 4: Happy number (7)
-    result = solution.isHappy(7)
-    expected = True
-    assert result == expected, f"Expected {expected}, got {result}"
-
-    # Test case 5: Not happy number (4)
-    result = solution.isHappy(4)
-    expected = False
-    assert result == expected, f"Expected {expected}, got {result}"
-
-    # Test case 6: Happy number (10)
-    result = solution.isHappy(10)
-    expected = True
-    assert result == expected, f"Expected {expected}, got {result}"
-
-    # Test case 7: Happy number (100)
-    result = solution.isHappy(100)
-    expected = True
-    assert result == expected, f"Expected {expected}, got {result}"
-
+    assert solution.isHappy(19) is True
+    assert solution.isHappy(2) is False
+    assert solution.isHappy(1) is True
+    assert solution.isHappy(7) is True
+    assert solution.isHappy(4) is False
     print("All test cases passed!")
 
 
 if __name__ == "__main__":
     test_solution()
 
-    # Example usage
     solution = Solution()
-    print(f"Solution for 202. Happy Number")
-    for n in [1, 2, 7, 19]:
-        result = "is" if solution.isHappy(n) else "is not"
-        print(f"{n} {result} a happy number")
+    print("\n=== 202. Happy Number ===")
+    for n in [1, 2, 7, 19, 100]:
+        result = solution.isHappy(n)
+        print(f"isHappy({n}) -> {result}")

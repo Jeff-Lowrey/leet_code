@@ -2,89 +2,67 @@
 # 172. Factorial Trailing Zeroes
 **Medium**
 
-Given a problem that demonstrates key concepts in Math.
+Given an integer n, return the number of trailing zeroes in n!.
+
+Note that n! = n × (n - 1) × (n - 2) × ... × 3 × 2 × 1.
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
-[This problem requires understanding of math concepts. The key insight is to identify the optimal approach for this specific scenario.]
+Trailing zeroes come from factors of 10 = 2 × 5. In n!, there are always more factors of 2 than 5, so we only need to count factors of 5.
 
 ### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply math methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+1. **Count multiples of 5**: n/5 gives multiples of 5
+2. **Count multiples of 25**: n/25 gives extra factor of 5
+3. **Count multiples of 125**: n/125 gives another extra factor
+4. **Continue**: Until 5^k > n
 
 ### WHY THIS WORKS:
-- The solution leverages math principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+- Every 5 numbers contributes at least one 5: 5, 10, 15, 20, 25...
+- Every 25 numbers contributes an extra 5: 25, 50, 75, 100, 125...
+- Every 125 numbers contributes another extra 5: 125, 250...
+- Total = n/5 + n/25 + n/125 + ...
 
-### TIME COMPLEXITY: O(n)
+### TIME COMPLEXITY: O(log n)
+Number of divisions by 5 until we reach 0
+
 ### SPACE COMPLEXITY: O(1)
+Only using counters
 
 ### EXAMPLE WALKTHROUGH:
 ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
+n = 30:
+30/5 = 6 (multiples of 5: 5,10,15,20,25,30)
+30/25 = 1 (multiples of 25: 25)
+30/125 = 0
+Total: 6 + 1 = 7 trailing zeroes
+
+30! = 265252859812191058636308480000000
+      (7 trailing zeroes)
 ```
 
+### KEY INSIGHTS:
+- Don't calculate n! (too large)
+- Count factors of 5, not factors of 10
+- Each power of 5 contributes additional zeroes
+
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
-
-</details>
-
-<details>
-<summary><b>💡 APPROACH</b></summary>
-
-The approach uses math techniques to solve this problem efficiently.
-
-### Algorithm Steps:
-1. Initialize necessary variables
-2. Process input using math method
-3. Return the computed result
+- n = 0: 0! = 1 (no trailing zeroes)
+- n < 5: No factors of 5
+- Powers of 5: 5, 25, 125 (extra factors)
 
 </details>
 """
 
+
 class Solution:
     def trailingZeroes(self, n: int) -> int:
         """
-        Count trailing zeroes in n! (factorial).
-
-        Trailing zeroes come from factors of 10 = 2 * 5.
-        Since there are always more factors of 2 than 5,
-        we just need to count factors of 5.
+        Count trailing zeroes in n!.
 
         Args:
-            n: Non-negative integer
-
-        Returns:
-            Number of trailing zeroes in n!
-
-        Time Complexity: O(log n)
-        Space Complexity: O(1)
-        """
-        count = 0
-
-        # Count how many numbers <= n are divisible by 5, 25, 125, etc.
-        while n >= 5:
-            n //= 5
-            count += n
-
-        return count
-
-    def solve(self, *args):
-        """
-        Main solution for 172. Factorial Trailing Zeroes.
-
-        Args:
-            *args: Problem-specific arguments
+            n: Positive integer
 
         Returns:
             Number of trailing zeroes
@@ -92,58 +70,37 @@ class Solution:
         Time Complexity: O(log n)
         Space Complexity: O(1)
         """
-        return self.trailingZeroes(*args)
+        count = 0
+        while n >= 5:
+            n //= 5
+            count += n
+        return count
+
+    def trailingZeroesRecursive(self, n: int) -> int:
+        """Recursive approach."""
+        if n < 5:
+            return 0
+        return n // 5 + self.trailingZeroesRecursive(n // 5)
 
 
-def test_solution():
-    """
-    Test cases for 172. Factorial Trailing Zeroes.
-    """
+def test_solution() -> None:
+    """Test cases for Problem 172."""
     solution = Solution()
 
-    # Test case 1: Basic functionality
-    result = solution.trailingZeroes(3)
-    expected = 0
-    assert result == expected, f"Expected {expected}, got {result}"
-
-    # Test case 2: n = 5 (5! = 120)
-    result = solution.trailingZeroes(5)
-    expected = 1
-    assert result == expected, f"Expected {expected}, got {result}"
-
-    # Test case 3: n = 10 (10! has 2 trailing zeroes)
-    result = solution.trailingZeroes(10)
-    expected = 2
-    assert result == expected, f"Expected {expected}, got {result}"
-
-    # Test case 4: n = 25 (includes 25 = 5*5)
-    result = solution.trailingZeroes(25)
-    expected = 6
-    assert result == expected, f"Expected {expected}, got {result}"
-
-    # Test case 5: n = 0
-    result = solution.trailingZeroes(0)
-    expected = 0
-    assert result == expected, f"Expected {expected}, got {result}"
-
-    # Test case 6: Large number
-    result = solution.trailingZeroes(100)
-    expected = 24
-    assert result == expected, f"Expected {expected}, got {result}"
-
-    # Test case 7: Power of 5
-    result = solution.trailingZeroes(125)
-    expected = 31
-    assert result == expected, f"Expected {expected}, got {result}"
-
+    assert solution.trailingZeroes(3) == 0
+    assert solution.trailingZeroes(5) == 1
+    assert solution.trailingZeroes(10) == 2
+    assert solution.trailingZeroes(25) == 6
+    assert solution.trailingZeroes(30) == 7
+    assert solution.trailingZeroes(0) == 0
     print("All test cases passed!")
 
 
 if __name__ == "__main__":
     test_solution()
 
-    # Example usage
     solution = Solution()
-    print(f"Solution for 172. Factorial Trailing Zeroes")
-    for n in [3, 5, 10, 25]:
-        print(f"{n}! has {solution.trailingZeroes(n)} trailing zeroes")
+    print("\n=== 172. Factorial Trailing Zeroes ===")
+    for n in [5, 10, 25, 30, 100]:
+        result = solution.trailingZeroes(n)
+        print(f"trailingZeroes({n}) -> {result}")

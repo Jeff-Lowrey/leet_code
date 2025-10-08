@@ -1,0 +1,7 @@
+# Bandit configuration for LeetCode solutions
+# This is a learning/algorithm practice repository, not production security-critical code
+
+# Skip B101 (assert_used) - assertions in test functions are standard practice
+# Skip B105 (hardcoded_password_string) - false positives on arithmetic operators
+# Skip B311 (random) - pseudo-random is acceptable for algorithm demonstrations
+skips: [B101, B105, B311]

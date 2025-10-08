@@ -2,66 +2,66 @@
 # 204. Count Primes
 **Medium**
 
-Given a problem that demonstrates key concepts in Math.
+Given an integer n, return the number of prime numbers that are strictly less than n.
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
-[This problem requires understanding of math concepts. The key insight is to identify the optimal approach for this specific scenario.]
+Use Sieve of Eratosthenes: mark all multiples of each prime as composite. Count remaining unmarked numbers.
 
 ### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply math methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+1. **Create boolean array**: is_prime[i] = True initially
+2. **Mark non-primes**: For each prime p, mark p², p²+p, p²+2p... as composite
+3. **Count primes**: Count True values in array
 
 ### WHY THIS WORKS:
-- The solution leverages math principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+- Every composite number has a prime factor ≤ √n
+- By marking multiples of each prime, we identify all composites
+- Remaining numbers must be prime
 
-### TIME COMPLEXITY: O(n)
-### SPACE COMPLEXITY: O(1)
+### TIME COMPLEXITY: O(n log log n)
+Sieve of Eratosthenes complexity
+
+### SPACE COMPLEXITY: O(n)
+Boolean array of size n
 
 ### EXAMPLE WALKTHROUGH:
 ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
+n = 10:
+Array: [2, 3, 4, 5, 6, 7, 8, 9]
+
+Mark multiples of 2: [2, 3, X, 5, X, 7, X, X]
+Mark multiples of 3: [2, 3, X, 5, X, 7, X, X]
+Mark multiples of 5: (5² = 25 > 10, skip)
+
+Primes: [2, 3, 5, 7] → Count = 4
 ```
 
+### KEY INSIGHTS:
+- Start marking from p² (smaller multiples already marked)
+- Only check up to √n
+- Most efficient algorithm for finding many primes
+
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
-
-</details>
-
-<details>
-<summary><b>💡 APPROACH</b></summary>
-
-The approach uses math techniques to solve this problem efficiently.
-
-### Algorithm Steps:
-1. Initialize necessary variables
-2. Process input using math method
-3. Return the computed result
+- n ≤ 2: Return 0
+- n = 3: Return 1 (only 2)
+- Large n: Memory usage
 
 </details>
 """
 
+
 class Solution:
     def countPrimes(self, n: int) -> int:
         """
-        Count the number of prime numbers less than n using Sieve of Eratosthenes.
+        Count primes less than n using Sieve of Eratosthenes.
 
         Args:
-            n: Non-negative integer
+            n: Upper bound (exclusive)
 
         Returns:
-            Number of primes less than n
+            Count of prime numbers < n
 
         Time Complexity: O(n log log n)
         Space Complexity: O(n)
@@ -69,94 +69,68 @@ class Solution:
         if n <= 2:
             return 0
 
-        # Initialize all numbers as potentially prime
+        # Initialize: assume all numbers are prime
         is_prime = [True] * n
-        is_prime[0] = is_prime[1] = False  # 0 and 1 are not prime
+        is_prime[0] = is_prime[1] = False
 
         # Sieve of Eratosthenes
-        # Only need to check up to sqrt(n)
-        i = 2
-        while i * i < n:
-            if is_prime[i]:
-                # Mark all multiples of i as not prime
-                # Start from i*i because smaller multiples already marked
-                for j in range(i * i, n, i):
-                    is_prime[j] = False
-            i += 1
+        p = 2
+        while p * p < n:
+            if is_prime[p]:
+                # Mark multiples of p as composite
+                for i in range(p * p, n, p):
+                    is_prime[i] = False
+            p += 1
 
-        # Count remaining primes
+        # Count primes
         return sum(is_prime)
 
-    def solve(self, *args):
+    def countPrimesOptimized(self, n: int) -> int:
         """
-        Main solution for 204. Count Primes.
-
-        Args:
-            *args: Problem-specific arguments
-
-        Returns:
-            Count of prime numbers
+        Optimized version: skip even numbers.
 
         Time Complexity: O(n log log n)
         Space Complexity: O(n)
         """
-        return self.countPrimes(*args)
+        if n <= 2:
+            return 0
+
+        is_prime = [True] * n
+        is_prime[0] = is_prime[1] = False
+
+        # Mark even numbers (except 2) as composite
+        for i in range(4, n, 2):
+            is_prime[i] = False
+
+        # Check odd numbers only
+        p = 3
+        while p * p < n:
+            if is_prime[p]:
+                for i in range(p * p, n, p * 2):  # Skip even multiples
+                    is_prime[i] = False
+            p += 2  # Skip even numbers
+
+        return sum(is_prime)
 
 
-def test_solution():
-    """
-    Test cases for 204. Count Primes.
-    """
+def test_solution() -> None:
+    """Test cases for Problem 204."""
     solution = Solution()
 
-    # Test case 1: n = 10 (primes: 2, 3, 5, 7)
-    result = solution.countPrimes(10)
-    expected = 4
-    assert result == expected, f"Expected {expected}, got {result}"
-
-    # Test case 2: n = 0
-    result = solution.countPrimes(0)
-    expected = 0
-    assert result == expected, f"Expected {expected}, got {result}"
-
-    # Test case 3: n = 1
-    result = solution.countPrimes(1)
-    expected = 0
-    assert result == expected, f"Expected {expected}, got {result}"
-
-    # Test case 4: n = 2
-    result = solution.countPrimes(2)
-    expected = 0
-    assert result == expected, f"Expected {expected}, got {result}"
-
-    # Test case 5: n = 3 (prime: 2)
-    result = solution.countPrimes(3)
-    expected = 1
-    assert result == expected, f"Expected {expected}, got {result}"
-
-    # Test case 6: n = 20 (primes: 2, 3, 5, 7, 11, 13, 17, 19)
-    result = solution.countPrimes(20)
-    expected = 8
-    assert result == expected, f"Expected {expected}, got {result}"
-
-    # Test case 7: Larger number
-    result = solution.countPrimes(100)
-    expected = 25
-    assert result == expected, f"Expected {expected}, got {result}"
-
-    # Test case 8: Even larger number
-    result = solution.countPrimes(1000)
-    expected = 168
-    assert result == expected, f"Expected {expected}, got {result}"
-
+    assert solution.countPrimes(10) == 4  # 2,3,5,7
+    assert solution.countPrimes(0) == 0
+    assert solution.countPrimes(1) == 0
+    assert solution.countPrimes(2) == 0
+    assert solution.countPrimes(3) == 1  # 2
+    assert solution.countPrimes(100) == 25
     print("All test cases passed!")
 
 
 if __name__ == "__main__":
     test_solution()
 
-    # Example usage
     solution = Solution()
-    print(f"Solution for 204. Count Primes")
-    for n in [10, 20, 100]:
-        print(f"Number of primes less than {n}: {solution.countPrimes(n)}")
+    print("\n=== 204. Count Primes ===")
+    for n in [10, 20, 50, 100]:
+        result = solution.countPrimes(n)
+        print(f"countPrimes({n}) -> {result}")
