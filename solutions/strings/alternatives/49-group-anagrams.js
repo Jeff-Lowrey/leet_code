@@ -28,22 +28,28 @@
 /**
  * Main solution for Problem 49: Group Anagrams
  *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
+ * @param {string[]} strs - Array of strings to group
+ * @return {string[][]} - Array of grouped anagrams
  *
- * Time Complexity: O(n)
- * Space Complexity: O(1)
+ * Time Complexity: O(n * k log k) where n is number of strings, k is max string length
+ * Space Complexity: O(n * k) for the hash map storage
  */
-function solve(...args) {
-    // TODO: Implement the solution using strings techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using strings methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+function solve(strs) {
+    const anagramGroups = new Map();
 
-    return null; // Replace with actual implementation
+    for (const str of strs) {
+        // Sort the string to create a key
+        const key = str.split('').sort().join('');
+
+        // Add to the group
+        if (!anagramGroups.has(key)) {
+            anagramGroups.set(key, []);
+        }
+        anagramGroups.get(key).push(str);
+    }
+
+    // Return all groups as an array
+    return Array.from(anagramGroups.values());
 }
 
 /**
@@ -52,20 +58,28 @@ function solve(...args) {
 function testSolution() {
     console.log('Testing 49. Group Anagrams');
 
-    // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    // Helper to sort arrays of arrays for comparison
+    const sortGroups = (groups) => {
+        return groups.map(g => g.sort()).sort((a, b) => a[0].localeCompare(b[0]));
+    };
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 1: Basic grouping
+    const result1 = solve(["eat","tea","tan","ate","nat","bat"]);
+    const expected1 = [["bat"],["nat","tan"],["ate","eat","tea"]];
+    console.assert(
+        JSON.stringify(sortGroups(result1)) === JSON.stringify(sortGroups(expected1)),
+        `Test 1 failed`
+    );
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 2: Empty string
+    const result2 = solve([""]);
+    console.assert(result2.length === 1 && result2[0].length === 1 && result2[0][0] === "",
+        `Test 2 failed`);
+
+    // Test case 3: Single character
+    const result3 = solve(["a"]);
+    console.assert(result3.length === 1 && result3[0][0] === "a",
+        `Test 3 failed`);
 
     console.log('All test cases passed for 49. Group Anagrams!');
 }

@@ -44,24 +44,45 @@
 /**
  * Main solution for Problem 1312: Minimum Insertions Palindrome
  *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
+ * @param {string} s - The input string
+ * @return {number} - Minimum number of insertions needed to make string palindrome
  *
- * Time Complexity: O(n²)
-- Filling n×n DP table with constant work per cell
- * Space Complexity: O(n²)
-- DP table storage, can be optimized to O(n)
+ * Time Complexity: O(n²) - Filling n×n DP table with constant work per cell
+ * Space Complexity: O(n²) - DP table storage, can be optimized to O(n)
  */
-function solve(...args) {
-    // TODO: Implement the solution using strings techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using strings methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+function solve(s) {
+    const n = s.length;
 
-    return null; // Replace with actual implementation
+    // dp[i][j] represents the length of longest palindromic subsequence
+    // in substring s[i...j]
+    const dp = Array(n).fill(0).map(() => Array(n).fill(0));
+
+    // Every single character is a palindrome of length 1
+    for (let i = 0; i < n; i++) {
+        dp[i][i] = 1;
+    }
+
+    // Build the DP table bottom-up
+    // len is the length of the substring
+    for (let len = 2; len <= n; len++) {
+        for (let i = 0; i <= n - len; i++) {
+            const j = i + len - 1;
+
+            if (s[i] === s[j]) {
+                // Characters match: add 2 to inner substring's LPS
+                dp[i][j] = dp[i + 1][j - 1] + 2;
+            } else {
+                // Characters don't match: take max of excluding either end
+                dp[i][j] = Math.max(dp[i + 1][j], dp[i][j - 1]);
+            }
+        }
+    }
+
+    // Longest palindromic subsequence of entire string
+    const lps = dp[0][n - 1];
+
+    // Minimum insertions = string length - LPS length
+    return n - lps;
 }
 
 /**
@@ -70,20 +91,25 @@ function solve(...args) {
 function testSolution() {
     console.log('Testing 1312. Minimum Insertions Palindrome');
 
-    // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    // Test case 1: "mbadm" - need 2 insertions to make "mbdadbm"
+    const result1 = solve("mbadm");
+    console.assert(result1 === 2, `Test 1 failed: expected 2, got ${result1}`);
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 2: Already a palindrome
+    const result2 = solve("leetcode");
+    console.assert(result2 === 5, `Test 2 failed: expected 5, got ${result2}`);
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 3: Single character (already palindrome)
+    const result3 = solve("g");
+    console.assert(result3 === 0, `Test 3 failed: expected 0, got ${result3}`);
+
+    // Test case 4: Two different characters
+    const result4 = solve("ab");
+    console.assert(result4 === 1, `Test 4 failed: expected 1, got ${result4}`);
+
+    // Test case 5: Palindrome already
+    const result5 = solve("aba");
+    console.assert(result5 === 0, `Test 5 failed: expected 0, got ${result5}`);
 
     console.log('All test cases passed for 1312. Minimum Insertions Palindrome!');
 }

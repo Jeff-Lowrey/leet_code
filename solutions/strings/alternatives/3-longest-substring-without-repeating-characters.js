@@ -28,22 +28,33 @@
 /**
  * Main solution for Problem 3: Longest Substring Without Repeating Characters
  *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
+ * @param {string} s - The input string
+ * @return {number} - Length of the longest substring without repeating characters
  *
- * Time Complexity: O(n)
- * Space Complexity: O(1)
+ * Time Complexity: O(n) where n is the length of the string
+ * Space Complexity: O(min(n, m)) where m is the character set size
  */
-function solve(...args) {
-    // TODO: Implement the solution using strings techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using strings methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+function solve(s) {
+    const charIndex = new Map();
+    let maxLength = 0;
+    let left = 0;
 
-    return null; // Replace with actual implementation
+    for (let right = 0; right < s.length; right++) {
+        const char = s[right];
+
+        // If character is already in window, move left pointer
+        if (charIndex.has(char) && charIndex.get(char) >= left) {
+            left = charIndex.get(char) + 1;
+        }
+
+        // Update character index
+        charIndex.set(char, right);
+
+        // Update max length
+        maxLength = Math.max(maxLength, right - left + 1);
+    }
+
+    return maxLength;
 }
 
 /**
@@ -52,20 +63,25 @@ function solve(...args) {
 function testSolution() {
     console.log('Testing 3. Longest Substring Without Repeating Characters');
 
-    // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    // Test case 1: "abc" has length 3
+    const result1 = solve("abcabcbb");
+    console.assert(result1 === 3, `Test 1 failed: expected 3, got ${result1}`);
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 2: All same characters
+    const result2 = solve("bbbbb");
+    console.assert(result2 === 1, `Test 2 failed: expected 1, got ${result2}`);
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 3: "wke" has length 3
+    const result3 = solve("pwwkew");
+    console.assert(result3 === 3, `Test 3 failed: expected 3, got ${result3}`);
+
+    // Test case 4: Empty string
+    const result4 = solve("");
+    console.assert(result4 === 0, `Test 4 failed: expected 0, got ${result4}`);
+
+    // Test case 5: All unique characters
+    const result5 = solve("abcdef");
+    console.assert(result5 === 6, `Test 5 failed: expected 6, got ${result5}`);
 
     console.log('All test cases passed for 3. Longest Substring Without Repeating Characters!');
 }

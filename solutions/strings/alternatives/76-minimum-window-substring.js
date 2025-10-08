@@ -28,22 +28,66 @@
 /**
  * Main solution for Problem 76: Minimum Window Substring
  *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
+ * @param {string} s - The source string to search in
+ * @param {string} t - The target string to find
+ * @return {string} - Minimum window substring containing all characters of t
  *
- * Time Complexity: O(n)
- * Space Complexity: O(1)
+ * Time Complexity: O(m + n) where m is s length, n is t length
+ * Space Complexity: O(k) where k is the number of unique characters in t
  */
-function solve(...args) {
-    // TODO: Implement the solution using strings techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using strings methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+function solve(s, t) {
+    if (s.length === 0 || t.length === 0 || s.length < t.length) {
+        return "";
+    }
 
-    return null; // Replace with actual implementation
+    // Count characters in target string
+    const targetCount = new Map();
+    for (const char of t) {
+        targetCount.set(char, (targetCount.get(char) || 0) + 1);
+    }
+
+    let required = targetCount.size;
+    let formed = 0;
+    const windowCounts = new Map();
+
+    let left = 0;
+    let right = 0;
+    let minLength = Infinity;
+    let minLeft = 0;
+
+    while (right < s.length) {
+        // Add character from right to window
+        const char = s[right];
+        windowCounts.set(char, (windowCounts.get(char) || 0) + 1);
+
+        // Check if current character frequency matches target
+        if (targetCount.has(char) && windowCounts.get(char) === targetCount.get(char)) {
+            formed++;
+        }
+
+        // Try to contract window from left
+        while (left <= right && formed === required) {
+            // Update minimum window
+            if (right - left + 1 < minLength) {
+                minLength = right - left + 1;
+                minLeft = left;
+            }
+
+            // Remove character from left
+            const leftChar = s[left];
+            windowCounts.set(leftChar, windowCounts.get(leftChar) - 1);
+
+            if (targetCount.has(leftChar) && windowCounts.get(leftChar) < targetCount.get(leftChar)) {
+                formed--;
+            }
+
+            left++;
+        }
+
+        right++;
+    }
+
+    return minLength === Infinity ? "" : s.substring(minLeft, minLeft + minLength);
 }
 
 /**
@@ -52,20 +96,30 @@ function solve(...args) {
 function testSolution() {
     console.log('Testing 76. Minimum Window Substring');
 
-    // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    // Test case 1: Basic case
+    const result1 = solve("ADOBECODEBANC", "ABC");
+    console.assert(result1 === "BANC",
+        `Test 1 failed: expected "BANC", got "${result1}"`);
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 2: Single character
+    const result2 = solve("a", "a");
+    console.assert(result2 === "a",
+        `Test 2 failed: expected "a", got "${result2}"`);
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 3: No valid window
+    const result3 = solve("a", "aa");
+    console.assert(result3 === "",
+        `Test 3 failed: expected "", got "${result3}"`);
+
+    // Test case 4: Entire string is minimum window
+    const result4 = solve("ab", "ab");
+    console.assert(result4 === "ab",
+        `Test 4 failed: expected "ab", got "${result4}"`);
+
+    // Test case 5: Multiple occurrences
+    const result5 = solve("aaaaaaaaaaaabbbbbcdd", "abcdd");
+    console.assert(result5 === "abbbbbcdd",
+        `Test 5 failed: expected "abbbbbcdd", got "${result5}"`);
 
     console.log('All test cases passed for 76. Minimum Window Substring!');
 }

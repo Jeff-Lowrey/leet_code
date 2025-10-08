@@ -28,22 +28,18 @@
 /**
  * Main solution for Problem 151: Reverse Words In A String
  *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
+ * @param {string} s - The input string with words
+ * @return {string} - The string with words in reverse order
  *
- * Time Complexity: O(n)
- * Space Complexity: O(1)
+ * Time Complexity: O(n) where n is the length of the string
+ * Space Complexity: O(n) for the result string
  */
-function solve(...args) {
-    // TODO: Implement the solution using strings techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using strings methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
-
-    return null; // Replace with actual implementation
+function solve(s) {
+    // Split by whitespace, filter out empty strings, reverse, and join
+    return s.trim()
+        .split(/\s+/)
+        .reverse()
+        .join(' ');
 }
 
 /**
@@ -52,20 +48,25 @@ function solve(...args) {
 function testSolution() {
     console.log('Testing 151. Reverse Words In A String');
 
-    // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    // Test case 1: Basic with multiple spaces
+    const result1 = solve("the sky is blue");
+    console.assert(result1 === "blue is sky the",
+        `Test 1 failed: expected "blue is sky the", got "${result1}"`);
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 2: Leading and trailing spaces
+    const result2 = solve("  hello world  ");
+    console.assert(result2 === "world hello",
+        `Test 2 failed: expected "world hello", got "${result2}"`);
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 3: Multiple spaces between words
+    const result3 = solve("a good   example");
+    console.assert(result3 === "example good a",
+        `Test 3 failed: expected "example good a", got "${result3}"`);
+
+    // Test case 4: Single word
+    const result4 = solve("hello");
+    console.assert(result4 === "hello",
+        `Test 4 failed: expected "hello", got "${result4}"`);
 
     console.log('All test cases passed for 151. Reverse Words In A String!');
 }

@@ -28,22 +28,31 @@
 /**
  * Main solution for Problem 383: Ransom Note
  *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
+ * @param {string} ransomNote - The ransom note to construct
+ * @param {string} magazine - The magazine to cut letters from
+ * @return {boolean} - True if ransom note can be constructed from magazine
  *
- * Time Complexity: O(n)
- * Space Complexity: O(1)
+ * Time Complexity: O(m + n) where m is magazine length, n is ransomNote length
+ * Space Complexity: O(1) - limited to 26 lowercase letters
  */
-function solve(...args) {
-    // TODO: Implement the solution using strings techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using strings methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+function solve(ransomNote, magazine) {
+    // Count character frequencies in magazine
+    const charCount = new Map();
 
-    return null; // Replace with actual implementation
+    for (const char of magazine) {
+        charCount.set(char, (charCount.get(char) || 0) + 1);
+    }
+
+    // Check if we can construct the ransom note
+    for (const char of ransomNote) {
+        const count = charCount.get(char) || 0;
+        if (count === 0) {
+            return false;
+        }
+        charCount.set(char, count - 1);
+    }
+
+    return true;
 }
 
 /**
@@ -52,20 +61,21 @@ function solve(...args) {
 function testSolution() {
     console.log('Testing 383. Ransom Note');
 
-    // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    // Test case 1: Cannot construct - not enough 'a'
+    const result1 = solve("a", "b");
+    console.assert(result1 === false, `Test 1 failed: expected false, got ${result1}`);
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 2: Cannot construct - not enough of each letter
+    const result2 = solve("aa", "ab");
+    console.assert(result2 === false, `Test 2 failed: expected false, got ${result2}`);
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 3: Can construct
+    const result3 = solve("aa", "aab");
+    console.assert(result3 === true, `Test 3 failed: expected true, got ${result3}`);
+
+    // Test case 4: Empty ransom note
+    const result4 = solve("", "abc");
+    console.assert(result4 === true, `Test 4 failed: expected true, got ${result4}`);
 
     console.log('All test cases passed for 383. Ransom Note!');
 }

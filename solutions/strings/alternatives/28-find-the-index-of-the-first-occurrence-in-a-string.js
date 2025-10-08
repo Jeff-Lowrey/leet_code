@@ -28,22 +28,35 @@
 /**
  * Main solution for Problem 28: Find The Index Of The First Occurrence In A String
  *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
+ * @param {string} haystack - The string to search in
+ * @param {string} needle - The substring to find
+ * @return {number} - Index of first occurrence, or -1 if not found
  *
- * Time Complexity: O(n)
+ * Time Complexity: O(n * m) where n is haystack length, m is needle length
  * Space Complexity: O(1)
  */
-function solve(...args) {
-    // TODO: Implement the solution using strings techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using strings methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+function solve(haystack, needle) {
+    // Edge case: empty needle
+    if (needle.length === 0) {
+        return 0;
+    }
 
-    return null; // Replace with actual implementation
+    // Check if needle can fit in remaining haystack
+    for (let i = 0; i <= haystack.length - needle.length; i++) {
+        // Check if substring matches needle
+        let match = true;
+        for (let j = 0; j < needle.length; j++) {
+            if (haystack[i + j] !== needle[j]) {
+                match = false;
+                break;
+            }
+        }
+        if (match) {
+            return i;
+        }
+    }
+
+    return -1;
 }
 
 /**
@@ -52,20 +65,21 @@ function solve(...args) {
 function testSolution() {
     console.log('Testing 28. Find The Index Of The First Occurrence In A String');
 
-    // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    // Test case 1: Found at index 0
+    const result1 = solve("sadbutsad", "sad");
+    console.assert(result1 === 0, `Test 1 failed: expected 0, got ${result1}`);
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 2: Not found
+    const result2 = solve("leetcode", "leeto");
+    console.assert(result2 === -1, `Test 2 failed: expected -1, got ${result2}`);
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 3: Found in middle
+    const result3 = solve("hello", "ll");
+    console.assert(result3 === 2, `Test 3 failed: expected 2, got ${result3}`);
+
+    // Test case 4: Needle equals haystack
+    const result4 = solve("a", "a");
+    console.assert(result4 === 0, `Test 4 failed: expected 0, got ${result4}`);
 
     console.log('All test cases passed for 28. Find The Index Of The First Occurrence In A String!');
 }

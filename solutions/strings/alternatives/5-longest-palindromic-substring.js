@@ -28,22 +28,44 @@
 /**
  * Main solution for Problem 5: Longest Palindromic Substring
  *
- * @param {any} args - Problem-specific arguments
- * @return {any} - Problem-specific return type
+ * @param {string} s - The input string
+ * @return {string} - The longest palindromic substring
  *
- * Time Complexity: O(n)
- * Space Complexity: O(1)
+ * Time Complexity: O(n^2) where n is the length of the string
+ * Space Complexity: O(1) - only storing indices
  */
-function solve(...args) {
-    // TODO: Implement the solution using strings techniques
-    //
-    // Algorithm Steps:
-    // 1. Initialize necessary variables
-    // 2. Process input using strings methodology
-    // 3. Handle edge cases appropriately
-    // 4. Return the computed result
+function solve(s) {
+    if (s.length < 2) return s;
 
-    return null; // Replace with actual implementation
+    let start = 0;
+    let maxLength = 1;
+
+    // Helper function to expand around center
+    const expandAroundCenter = (left, right) => {
+        while (left >= 0 && right < s.length && s[left] === s[right]) {
+            left--;
+            right++;
+        }
+        // Return length of palindrome
+        return right - left - 1;
+    };
+
+    for (let i = 0; i < s.length; i++) {
+        // Check for odd-length palindromes (single center)
+        const len1 = expandAroundCenter(i, i);
+        // Check for even-length palindromes (two centers)
+        const len2 = expandAroundCenter(i, i + 1);
+
+        const len = Math.max(len1, len2);
+
+        if (len > maxLength) {
+            maxLength = len;
+            // Calculate start position
+            start = i - Math.floor((len - 1) / 2);
+        }
+    }
+
+    return s.substring(start, start + maxLength);
 }
 
 /**
@@ -52,20 +74,30 @@ function solve(...args) {
 function testSolution() {
     console.log('Testing 5. Longest Palindromic Substring');
 
-    // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+    // Test case 1: Odd-length palindrome
+    const result1 = solve("babad");
+    console.assert(result1 === "bab" || result1 === "aba",
+        `Test 1 failed: expected "bab" or "aba", got "${result1}"`);
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+    // Test case 2: Even-length palindrome
+    const result2 = solve("cbbd");
+    console.assert(result2 === "bb",
+        `Test 2 failed: expected "bb", got "${result2}"`);
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+    // Test case 3: Single character
+    const result3 = solve("a");
+    console.assert(result3 === "a",
+        `Test 3 failed: expected "a", got "${result3}"`);
+
+    // Test case 4: All same characters
+    const result4 = solve("aaaa");
+    console.assert(result4 === "aaaa",
+        `Test 4 failed: expected "aaaa", got "${result4}"`);
+
+    // Test case 5: Entire string is palindrome
+    const result5 = solve("racecar");
+    console.assert(result5 === "racecar",
+        `Test 5 failed: expected "racecar", got "${result5}"`);
 
     console.log('All test cases passed for 5. Longest Palindromic Substring!');
 }
