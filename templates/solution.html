@@ -113,6 +113,20 @@
         {{ problem_name }}
     </h1>
 
+    <!-- Difficulty and Complexity Badges -->
+    <div class="solution-badges">
+        {% if difficulty %}
+        <a href="{{ url_for('difficulty_view', difficulty=difficulty) }}" class="badge difficulty-badge difficulty-{{ difficulty.lower() }}">
+            {{ difficulty }}
+        </a>
+        {% endif %}
+        {% if time_complexity or space_complexity %}
+        <a href="{{ url_for('complexity_view', time_complexity=time_complexity or 'any', space_complexity=space_complexity or 'any') }}" class="badge complexity-badge">
+            {% if time_complexity %}Time: {{ time_complexity }}{% endif %}{% if time_complexity and space_complexity %} | {% endif %}{% if space_complexity %}Space: {{ space_complexity }}{% endif %}
+        </a>
+        {% endif %}
+    </div>
+
     <!-- Download and format options -->
     <div class="solution-actions">
         <div class="format-options">

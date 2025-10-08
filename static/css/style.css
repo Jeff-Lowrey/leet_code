@@ -424,6 +424,39 @@ main {
     font-weight: 600;
 }
 
+/* Solution card metadata */
+.solution-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.category-label {
+    background-color: var(--border-color);
+    color: var(--text-secondary);
+    padding: 0.2rem 0.5rem;
+    border-radius: 3px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.complexity-info,
+.difficulty-info {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    margin-top: 0.25rem;
+}
+
+.complexity-filter {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    margin: 0.5rem 0;
+    font-weight: 600;
+}
+
 .problem-number {
     background-color: var(--primary-color);
     color: var(--card-bg);
@@ -435,6 +468,42 @@ main {
     vertical-align: middle;
     display: inline-block;
     transform: translateY(-0.15em);
+}
+
+/* Solution Badges Container */
+.solution-badges {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+    flex-wrap: wrap;
+}
+
+/* Badge Base Styles */
+.badge {
+    padding: 0.35rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.badge:hover {
+    opacity: 0.85;
+    transform: translateY(-1px);
+}
+
+/* Difficulty Badge */
+.difficulty-badge {
+    background-color: #7c3aed;
+    color: #ffffff;
+}
+
+/* Complexity Badge */
+.complexity-badge {
+    background-color: #14b8a6;
+    color: #ffffff;
 }
 
 /* Info Section */

@@ -862,6 +862,66 @@ def category_view(category: str) -> str:
     )
 
 
+@app.route("/difficulty/<difficulty>")
+def difficulty_view(difficulty: str) -> str:
+    """View all solutions of a specific difficulty level."""
+    # Get all categories and filter solutions by difficulty
+    all_categories = category_manager.get_categories()
+    filtered_solutions = []
+
+    for category in all_categories:
+        for solution in category.solutions:
+            if solution.difficulty.lower() == difficulty.lower():
+                # Add category info to solution for navigation
+                filtered_solutions.append({
+                    "solution": solution,
+                    "category": category.slug,
+                    "category_name": category.name,
+                })
+
+    if not filtered_solutions:
+        abort(404)
+
+    return render_template(
+        "difficulty.html",
+        difficulty=difficulty.capitalize(),
+        solutions=filtered_solutions,
+        total_count=len(filtered_solutions),
+    )
+
+
+@app.route("/complexity/<time_complexity>/<space_complexity>")
+def complexity_view(time_complexity: str, space_complexity: str) -> str:
+    """View all solutions with specific time/space complexity."""
+    # Get all categories and filter solutions by complexity
+    all_categories = category_manager.get_categories()
+    filtered_solutions = []
+
+    for category in all_categories:
+        for solution in category.solutions:
+            time_match = time_complexity == "any" or solution.time_complexity == time_complexity
+            space_match = space_complexity == "any" or solution.space_complexity == space_complexity
+
+            if time_match and space_match:
+                # Add category info to solution for navigation
+                filtered_solutions.append({
+                    "solution": solution,
+                    "category": category.slug,
+                    "category_name": category.name,
+                })
+
+    if not filtered_solutions:
+        abort(404)
+
+    return render_template(
+        "complexity.html",
+        time_complexity=time_complexity,
+        space_complexity=space_complexity,
+        solutions=filtered_solutions,
+        total_count=len(filtered_solutions),
+    )
+
+
 @app.route("/solution/<category>/<filename>")
 def solution_view(category: str, filename: str) -> str:
     """View a specific solution."""
@@ -915,6 +975,9 @@ def solution_view(category: str, filename: str) -> str:
         style=formatter.get_style_defs(".highlight"),  # type: ignore[no-untyped-call]
         is_leetcode_format=False,
         available_languages=available_languages,
+        difficulty=solution.difficulty,
+        time_complexity=solution.time_complexity,
+        space_complexity=solution.space_complexity,
     )
 
 
@@ -1374,6 +1437,9 @@ def view_alternative_solution(category: str, filename: str, language: str) -> st
         is_leetcode_format=False,
         current_language=language,
         available_languages=available_languages,
+        difficulty=solution.difficulty,
+        time_complexity=solution.time_complexity,
+        space_complexity=solution.space_complexity,
     )
 
 

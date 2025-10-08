@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Centralized category and solution data management for LeetCode solutions."""
 
+import re
 from dataclasses import dataclass, field
 from pathlib import Path
 
@@ -28,6 +29,9 @@ class Solution:
     name: str
     number: str = ""
     slug: str = ""
+    difficulty: str = ""
+    time_complexity: str = ""
+    space_complexity: str = ""
 
     def __post_init__(self) -> None:
         """Process filename to extract metadata."""
@@ -126,7 +130,16 @@ class CategoryManager:
                     if py_file.name in ["__init__.py", "top-50-solutions.py"]:
                         continue
 
-                    solution = Solution(filename=py_file.name, name="")
+                    # Parse metadata from file
+                    difficulty, time_comp, space_comp = self._parse_solution_metadata(py_file)
+
+                    solution = Solution(
+                        filename=py_file.name,
+                        name="",
+                        difficulty=difficulty,
+                        time_complexity=time_comp,
+                        space_complexity=space_comp
+                    )
                     category.solutions.append(solution)
 
                 categories.append(category)
@@ -161,6 +174,58 @@ class CategoryManager:
         if file_path.exists() and file_path.suffix == ".py":
             return file_path.read_text()
         return None
+
+    def _parse_solution_metadata(self, file_path: Path) -> tuple[str, str, str]:
+        """Parse difficulty and complexity from solution file.
+
+        Returns:
+            Tuple of (difficulty, time_complexity, space_complexity)
+        """
+        try:
+            content = file_path.read_text()
+
+            # Extract difficulty (Easy/Medium/Hard) from first few lines
+            difficulty = ""
+            difficulty_patterns = [
+                r"(?:Difficulty:|#)\s*(Easy|Medium|Hard)",
+                r"^(Easy|Medium|Hard)\s*$"
+            ]
+            for pattern in difficulty_patterns:
+                match = re.search(pattern, content[:500], re.MULTILINE | re.IGNORECASE)
+                if match:
+                    difficulty = match.group(1).capitalize()
+                    break
+
+            # Extract time complexity
+            time_comp = ""
+            time_patterns = [
+                r"Time Complexity:\s*(\*\*)?O\([^)]+\)(\*\*)?",
+                r"TIME COMPLEXITY:\s*(\*\*)?O\([^)]+\)(\*\*)?",
+                r"Time:\s*(\*\*)?O\([^)]+\)(\*\*)?"
+            ]
+            for pattern in time_patterns:
+                match = re.search(pattern, content)
+                if match:
+                    time_comp = re.search(r"O\([^)]+\)", match.group(0)).group(0) if match else ""
+                    break
+
+            # Extract space complexity
+            space_comp = ""
+            space_patterns = [
+                r"Space Complexity:\s*(\*\*)?O\([^)]+\)(\*\*)?",
+                r"SPACE COMPLEXITY:\s*(\*\*)?O\([^)]+\)(\*\*)?",
+                r"Space:\s*(\*\*)?O\([^)]+\)(\*\*)?"
+            ]
+            for pattern in space_patterns:
+                match = re.search(pattern, content)
+                if match:
+                    space_comp = re.search(r"O\([^)]+\)", match.group(0)).group(0) if match else ""
+                    break
+
+            return difficulty, time_comp, space_comp
+
+        except Exception:
+            return "", "", ""
 
     def read_documentation(self, category_slug: str, doc_name: str | None = None) -> str | None:
         """Read documentation file for a category."""
