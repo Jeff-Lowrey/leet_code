@@ -1,9 +1,22 @@
 """
-# 035. Search Insert Position
 # Difficulty: Easy
+
+# 035. Search Insert Position
+
 Given a sorted array of distinct integers and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.
 
 You must write an algorithm with O(log n) runtime complexity.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -23,12 +36,6 @@ This is a classic binary search problem where we need to find the insertion poin
 - When target found, return that index directly
 - When not found, left pointer is the correct insertion position
 
-### TIME COMPLEXITY: O(log n)
-Binary search through sorted array
-
-### SPACE COMPLEXITY: O(1)
-Only using constant extra space
-
 ### EXAMPLE WALKTHROUGH:
 ```
 Input: nums = [1,3,5,6], target = 5
@@ -47,11 +54,13 @@ Step 2: left pointer ends up at index 4 (end of array)
 Output: 4
 ```
 
-### KEY INSIGHTS:
-- Standard binary search template works with slight modification
-- Left pointer converges to insertion position when target not found
-- No need for special case handling - algorithm naturally handles all cases
-- Works for insertion at beginning, middle, or end of array
+### TIME COMPLEXITY:
+O(log n)
+Binary search through sorted array
+
+### SPACE COMPLEXITY:
+O(1)
+Only using constant extra space
 
 ### EDGE CASES:
 - Empty array: insert at position 0
