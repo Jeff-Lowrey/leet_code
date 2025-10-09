@@ -1,6 +1,5 @@
 /**
- * 1395. Count Number Of Teams
- * Medium
+
  *
  * This problem demonstrates key concepts in Segment Tree.
  *

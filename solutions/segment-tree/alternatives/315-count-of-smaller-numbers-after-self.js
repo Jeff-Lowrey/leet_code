@@ -1,6 +1,5 @@
 /**
- * 315. Count Of Smaller Numbers After Self
- * Hard
+
  *
  * This problem demonstrates key concepts in Segment Tree.
  *
@@ -13,10 +12,10 @@
  *
  * APPROACH:
  * Using merge sort with index tracking:
- * 1. Create index array to track original positions
- * 2. During merge sort, count how many elements from right subarray come before left elements
- * 3. This count represents smaller numbers after current element
- * 4. Build result array using tracked indices
+
+
+
+
  *
  * WHY THIS WORKS:
  * Merge sort naturally processes elements right-to-left. When merging, if we take an element

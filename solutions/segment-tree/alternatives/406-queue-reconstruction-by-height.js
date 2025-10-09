@@ -1,6 +1,5 @@
 /**
- * 406. Queue Reconstruction By Height
- * Medium
+
  *
  * This problem demonstrates key concepts in Segment Tree.
  *
@@ -13,14 +12,14 @@
  * find the k-th available position, but a simpler greedy approach also works.
  *
  * APPROACH:
- * 1. Sort by height descending, then by k ascending
- * 2. For each person, insert at position k in the result
- * 3. Since we process tallest first, position k is exactly where they should go
+
+
+
  *
  * Alternative with Segment Tree:
- * 1. Segment tree tracks available positions
- * 2. Find k-th available position using tree queries
- * 3. Mark position as used
+
+
+
  *
  * WHY THIS WORKS:
  * Processing tallest first means all future insertions won't affect current person's count.

@@ -1,6 +1,5 @@
 /**
- * 493. Reverse Pairs
- * Hard
+
  *
  * This problem demonstrates key concepts in Segment Tree.
  *
@@ -14,10 +13,10 @@
  *
  * APPROACH:
  * Use modified merge sort:
- * 1. Recursively count reverse pairs in left and right halves
- * 2. Count cross-boundary pairs: for each left element, count right elements where
+
+
  *    left > 2 * right using two pointers
- * 3. Merge the two halves normally for next iteration
+
  *
  * WHY THIS WORKS:
  * Merge sort processes elements in order. During merge, both halves are sorted,

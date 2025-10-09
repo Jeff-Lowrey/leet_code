@@ -1,6 +1,5 @@
 /**
- * 307. Range Sum Query - Mutable
- * Medium
+
  *
  * This problem demonstrates key concepts in Segment Tree.
  *
@@ -12,10 +11,10 @@
  * array as a binary tree where each node stores the sum of its range.
  *
  * APPROACH:
- * 1. **Tree Structure**: Complete binary tree where leaves are array elements
- * 2. **Internal Nodes**: Store sum of their children's ranges
- * 3. **Update**: Propagate changes up from leaf to root
- * 4. **Query**: Traverse tree to collect relevant range sums
+
+
+
+
  *
  * WHY THIS WORKS:
  * The tree height is log n, so we visit at most log n nodes for any operation. Each internal

@@ -1,6 +1,5 @@
 /**
- * 699. Falling Squares
- * Hard
+
  *
  * This problem demonstrates key concepts in Segment Tree.
  *
@@ -13,10 +12,10 @@
  *
  * APPROACH:
  * Using coordinate compression and segment tree:
- * 1. Compress coordinates since positions can be very large
- * 2. For each square, query max height in its range
- * 3. Update the range to new height (old height + square side)
- * 4. Track overall maximum height
+
+
+
+
  *
  * Alternative simpler approach:
  * Use a map to track intervals and their heights

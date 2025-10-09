@@ -1,6 +1,5 @@
 /**
- * 715. Range Module
- * Hard
+
  *
  * This problem demonstrates key concepts in Segment Tree.
  *
@@ -13,9 +12,9 @@
  *
  * APPROACH:
  * Using interval merging with TreeMap (simulated with sorted array):
- * 1. addRange: Merge new range with existing overlapping ranges
- * 2. queryRange: Check if entire range is covered
- * 3. removeRange: Split existing ranges to remove the specified range
+
+
+
  *
  * WHY THIS WORKS:
  * By maintaining non-overlapping intervals in sorted order, we can efficiently

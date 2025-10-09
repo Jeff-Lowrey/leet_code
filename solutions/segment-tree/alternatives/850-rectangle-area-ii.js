@@ -1,6 +1,5 @@
 /**
- * 850. Rectangle Area II
- * Hard
+
  *
  * This problem demonstrates key concepts in Segment Tree.
  *
@@ -13,10 +12,10 @@
  *
  * APPROACH:
  * Sweep line with coordinate compression:
- * 1. Create events for rectangle starts and ends (sorted by x-coordinate)
- * 2. For each x interval, calculate the active y-coverage
- * 3. Multiply y-coverage by x-interval width
- * 4. Sum all areas
+
+
+
+
  *
  * WHY THIS WORKS:
  * By sweeping from left to right, we can track which y-ranges are active at each x.

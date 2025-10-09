@@ -1,6 +1,5 @@
 /**
- * 673. Number Of Longest Increasing Subsequence
- * Medium
+
  *
  * This problem demonstrates key concepts in Segment Tree.
  *
@@ -14,12 +13,12 @@
  *
  * APPROACH:
  * Dynamic Programming:
- * 1. For each position i, maintain: lengths[i] = max LIS length ending at i
+
  *                                    counts[i] = number of LIS with that length
- * 2. For each j < i where nums[j] < nums[i]:
+
  *    - If lengths[j] + 1 > lengths[i]: update length and reset count
  *    - If lengths[j] + 1 == lengths[i]: add counts[j] to counts[i]
- * 3. Find maximum length and sum counts of all positions with that length
+
  *
  * WHY THIS WORKS:
  * Each element either starts a new subsequence or extends existing ones. By tracking

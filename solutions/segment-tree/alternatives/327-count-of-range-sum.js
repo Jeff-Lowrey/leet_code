@@ -1,6 +1,5 @@
 /**
- * 327. Count Of Range Sum
- * Hard
+
  *
  * This problem demonstrates key concepts in Segment Tree.
  *
@@ -14,10 +13,10 @@
  *
  * APPROACH:
  * Use merge sort with modified counting:
- * 1. Compute prefix sums array
- * 2. During merge sort, for each element in right half, count elements in left half
+
+
  *    that satisfy the range condition
- * 3. Use two pointers to efficiently count valid pairs during merge
+
  *
  * WHY THIS WORKS:
  * Merge sort naturally processes sorted subarrays. When merging, we can use two pointers
