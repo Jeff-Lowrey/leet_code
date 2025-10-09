@@ -1,5 +1,5 @@
 /**
- * 014. Longest Common Prefix
+
  * Trie
  *
  * This problem demonstrates key concepts in String Manipulation.
@@ -10,7 +10,7 @@
  * The longest common prefix is the sequence of characters that all strings share from the beginning. We can find this by comparing characters at each position across all strings until we find a mismatch.
  *
  * APPROACH:
- * 1. **Vertical Scanning**: Compare characters at the same position across all strings
+
 2. Start from position 0 and check if all strings have the same character at that position
 3. Continue until we find a mismatch or reach the end of any string
 4. Return the prefix found so far

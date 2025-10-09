@@ -1,6 +1,5 @@
 /**
- * 680. Valid Palindrome Ii
- * Easy
+
  *
  * This problem demonstrates key concepts in String Manipulation.
  *
@@ -12,12 +11,12 @@
  * either the left or right character and check if the remaining is a palindrome.
  *
  * APPROACH:
- * 1. Use two pointers, left and right, starting from ends
- * 2. Move pointers inward while characters match
- * 3. When mismatch found, try two options:
+
+
+
  *    a) Skip left character and check if rest is palindrome
  *    b) Skip right character and check if rest is palindrome
- * 4. If either option works, return true
+
  *
  * WHY THIS WORKS:
  * If we can delete at most one character, when we find a mismatch, one of

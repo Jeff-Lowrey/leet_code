@@ -1,6 +1,5 @@
 /**
- * 67. Add Binary
- * Easy
+
  *
  * This problem demonstrates key concepts in String Manipulation.
  *
@@ -11,11 +10,11 @@
  * start from the rightmost digits, add them with any carry, and move left.
  *
  * APPROACH:
- * 1. Start from the end of both strings (rightmost digits)
- * 2. Add corresponding digits plus any carry from previous addition
- * 3. Calculate new digit (sum % 2) and new carry (sum / 2)
- * 4. Continue until both strings are processed and carry is 0
- * 5. Reverse the result (we built it backwards)
+
+
+
+
+
  *
  * WHY THIS WORKS:
  * Binary addition follows the same principles as decimal addition:

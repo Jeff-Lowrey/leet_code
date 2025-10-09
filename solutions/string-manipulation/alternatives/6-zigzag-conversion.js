@@ -1,6 +1,5 @@
 /**
- * 6. Zigzag Conversion
- * Medium
+
  *
  * This problem demonstrates key concepts in String Manipulation.
  *
@@ -12,12 +11,12 @@
  * a direction flag to track when to reverse.
  *
  * APPROACH:
- * 1. Create an array of strings, one for each row
- * 2. Iterate through the input string
- * 3. Add each character to the current row
- * 4. Move to the next row (down or up based on current direction)
- * 5. Reverse direction when we hit the top or bottom row
- * 6. Concatenate all rows to get the final result
+
+
+
+
+
+
  *
  * WHY THIS WORKS:
  * By simulating the zigzag pattern row by row, we naturally build the output

@@ -1,6 +1,5 @@
 /**
- * 541. Reverse String Ii
- * Easy
+
  *
  * This problem demonstrates key concepts in String Manipulation.
  *
@@ -11,10 +10,10 @@
  * Process the string in chunks of 2k, reversing only the first k characters of each chunk.
  *
  * APPROACH:
- * 1. Convert string to array for easier manipulation
- * 2. Iterate through the string in steps of 2k
- * 3. For each chunk, reverse the first k characters (or all remaining if less than k)
- * 4. Join the array back into a string
+
+
+
+
  *
  * WHY THIS WORKS:
  * By processing in 2k chunks and only reversing the first k characters of each chunk,

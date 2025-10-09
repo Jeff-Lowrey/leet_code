@@ -1,6 +1,5 @@
 /**
- * 696. Count Binary Substrings
- * Easy
+
  *
  * This problem demonstrates key concepts in String Manipulation.
  *
@@ -12,9 +11,9 @@
  * group. The number of valid substrings is the minimum of the two group sizes.
  *
  * APPROACH:
- * 1. Count consecutive identical characters in groups
- * 2. For each adjacent pair of groups, add min(group1_size, group2_size) to result
- * 3. This represents the number of valid substrings between these two groups
+
+
+
  *
  * WHY THIS WORKS:
  * For two consecutive groups (e.g., "000" and "11"), we can form min(3,2) = 2

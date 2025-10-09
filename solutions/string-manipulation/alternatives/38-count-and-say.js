@@ -1,6 +1,5 @@
 /**
- * 38. Count And Say
- * Medium
+
  *
  * This problem demonstrates key concepts in String Manipulation.
  *
@@ -11,11 +10,11 @@
  * Each term describes the previous term by counting consecutive identical digits.
  *
  * APPROACH:
- * 1. Start with "1" for n=1
- * 2. For each subsequent term, read the previous term and generate the next:
+
+
  *    - Count consecutive identical characters
  *    - Append count + character to the result
- * 3. Repeat n-1 times
+
  *
  * WHY THIS WORKS:
  * We iterate through the string, counting consecutive identical characters,

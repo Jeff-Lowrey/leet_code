@@ -1,6 +1,5 @@
 /**
- * 443. String Compression
- * Medium
+
  *
  * This problem demonstrates key concepts in String Manipulation.
  *
@@ -12,10 +11,10 @@
  * read and one to write.
  *
  * APPROACH:
- * 1. Use a write pointer to track where to write compressed data
- * 2. Use a read pointer to count consecutive characters
- * 3. Write the character and its count (if > 1) to the array
- * 4. Return the length of the compressed array
+
+
+
+
  *
  * WHY THIS WORKS:
  * By using two pointers, we can modify the array in-place without extra space.

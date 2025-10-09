@@ -1,6 +1,5 @@
 /**
- * 58. Length Of Last Word
- * Easy
+
  *
  * This problem demonstrates key concepts in String Manipulation.
  *
@@ -12,10 +11,10 @@
  * the beginning of the string.
  *
  * APPROACH:
- * 1. Start from the end of the string
- * 2. Skip any trailing spaces
- * 3. Count characters until we hit another space or reach the beginning
- * 4. Return the count
+
+
+
+
  *
  * WHY THIS WORKS:
  * By starting from the end, we directly locate the last word without needing
