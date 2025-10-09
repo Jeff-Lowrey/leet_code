@@ -1,6 +1,5 @@
 /**
- * 394. Decode String
- * Medium
+
  *
  * This problem demonstrates key concepts in Stack.
  *
@@ -12,13 +11,13 @@
  * we hit ']', pop state and repeat the enclosed string.
  *
  * APPROACH:
- * 1. **Use two stacks**: One for counts, one for strings
- * 2. **Process characters**:
+
+
  *    - Digit: build the repeat count
  *    - '[': push count and current string to stacks, reset
  *    - ']': pop count and prev string, repeat current, append to prev
  *    - Letter: append to current string
- * 3. **Return result**: Current string after processing all characters
+
  *
  * WHY THIS WORKS:
  * - Stacks naturally handle nested structures

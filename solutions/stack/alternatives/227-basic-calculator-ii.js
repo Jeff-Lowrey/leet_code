@@ -1,6 +1,5 @@
 /**
- * 227. Basic Calculator Ii
- * Medium
+
  *
  * This problem demonstrates key concepts in Stack.
  *
@@ -12,13 +11,13 @@
  * stack top. For + and -, just push to stack. Sum stack at the end.
  *
  * APPROACH:
- * 1. **Parse expression**: Extract numbers and track operators
- * 2. **Use stack for precedence**:
+
+
  *    - '+': push positive number
  *    - '-': push negative number
  *    - '*': pop, multiply, push result
  *    - '/': pop, divide (truncate toward zero), push result
- * 3. **Calculate result**: Sum all values in stack
+
  *
  * WHY THIS WORKS:
  * - Stack defers addition/subtraction until higher precedence ops are done

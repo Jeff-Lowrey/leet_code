@@ -1,6 +1,5 @@
 /**
- * 224. Basic Calculator
- * Hard
+
  *
  * Given a string s representing a valid expression, implement a basic calculator to evaluate it, and return the result of the evaluation.
  *
@@ -14,10 +13,10 @@
  * This is a classic stack problem for parsing expressions with parentheses. The key insight is to use a stack to save the current state (result and sign) when entering a parenthesized subexpression, then restore it when exiting.
  *
  * APPROACH:
- * 1. Stack for State: Use stack to save [result, sign] when encountering '('
- * 2. Parse Numbers: Build numbers digit by digit as we scan
- * 3. Handle Operations: Apply operations (+/-) when we encounter operators or ')'
- * 4. Parentheses Logic: Push state on '(', pop and apply on ')'
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Stack naturally handles nested parentheses
@@ -34,19 +33,19 @@
  *
  * EXAMPLE WALKTHROUGH:
  * Input: "1 + 1"
- * 1. num=1, result=0, sign=1
- * 2. '+': result = 0 + 1*1 = 1, sign=1
- * 3. num=1: result = 1 + 1*1 = 2
+
+
+
  * Output: 2
  *
  * Input: "2-(1+1)"
- * 1. num=2, result=0, sign=1
- * 2. '-': result = 0 + 2*1 = 2, sign=-1
- * 3. '(': push [2, -1], reset result=0, sign=1
- * 4. num=1, result=0, sign=1
- * 5. '+': result = 0 + 1*1 = 1, sign=1
- * 6. num=1: result = 1 + 1*1 = 2
- * 7. ')': pop [2, -1], result = 2 + 2*(-1) = 0
+
+
+
+
+
+
+
  * Output: 0
  *
  * KEY INSIGHTS:

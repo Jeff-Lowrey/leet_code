@@ -1,6 +1,5 @@
 /**
- * 20. Valid Parentheses
- * Easy
+
  *
  * This problem demonstrates key concepts in Stack.
  *
@@ -12,11 +11,11 @@
  * track opening brackets and match them with their corresponding closing brackets.
  *
  * APPROACH:
- * 1. **Use a stack** to track opening brackets
- * 2. **Push opening brackets** onto the stack
- * 3. **Pop and check** when encountering closing brackets
- * 4. **Validate matching** bracket types
- * 5. **Check empty stack** at the end
+
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Stack follows LIFO (Last In, First Out) principle

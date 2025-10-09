@@ -1,6 +1,5 @@
 /**
- * 1047. Remove All Adjacent Duplicates In String
- * Easy
+
  *
  * This problem demonstrates key concepts in Stack.
  *
@@ -12,11 +11,11 @@
  * Otherwise, push the new character. This handles cascading removals naturally.
  *
  * APPROACH:
- * 1. **Initialize stack**: Use an array to store characters
- * 2. **Iterate through string**: For each character:
+
+
  *    - If stack top equals current char: pop (remove duplicate pair)
  *    - Otherwise: push current char
- * 3. **Build result**: Join stack to form final string
+
  *
  * WHY THIS WORKS:
  * - Stack naturally handles the "most recent" character comparison

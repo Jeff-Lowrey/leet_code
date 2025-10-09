@@ -1,6 +1,5 @@
 /**
- * 150. Evaluate Reverse Polish Notation
- * Medium
+
  *
  * This problem demonstrates key concepts in Stack.
  *
@@ -12,11 +11,11 @@
  * and push the result back.
  *
  * APPROACH:
- * 1. **Initialize stack**: Store operands
- * 2. **Process tokens**: For each token:
+
+
  *    - If number: push to stack
  *    - If operator: pop two operands, apply operation, push result
- * 3. **Return result**: Final value left on stack
+
  *
  * WHY THIS WORKS:
  * - RPN is designed for stack-based evaluation

@@ -1,6 +1,5 @@
 /**
- * 856. Score Of Parentheses
- * Medium
+
  *
  * This problem demonstrates key concepts in Stack.
  *
@@ -12,14 +11,14 @@
  * each nesting level.
  *
  * APPROACH:
- * 1. **Use stack**: Track cumulative scores at each depth level
- * 2. **Process characters**:
+
+
  *    - '(': Push 0 to start new nesting level
  *    - ')': Pop current level score:
  *      - If 0 (empty pair): score = 1
  *      - Otherwise: score = 2 * current
  *      - Add to new top of stack
- * 3. **Return result**: Final value on stack
+
  *
  * WHY THIS WORKS:
  * - Stack tracks scores at different nesting depths

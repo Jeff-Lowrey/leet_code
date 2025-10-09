@@ -43,7 +43,6 @@ Otherwise, push the character onto the stack.
 - Single pass is sufficient since we process left-to-right
 
 ### EXAMPLE WALKTHROUGH:
-
 Input:
 ```
 [example input]

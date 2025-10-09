@@ -1,6 +1,5 @@
 /**
- * 71. Simplify Path
- * Medium
+
  *
  * This problem demonstrates key concepts in Stack.
  *
@@ -11,12 +10,12 @@
  * A stack is perfect for this: push valid directories, pop when encountering '..'.
  *
  * APPROACH:
- * 1. **Split path**: Divide path by '/' to get components
- * 2. **Use stack**: Process each component:
+
+
  *    - Skip empty strings and '.'
  *    - Pop from stack for '..' (if stack not empty)
  *    - Push valid directory names
- * 3. **Build result**: Join stack with '/' and prefix with '/'
+
  *
  * WHY THIS WORKS:
  * - Stack naturally handles directory traversal (.. goes up one level = pop)

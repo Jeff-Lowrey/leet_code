@@ -1,6 +1,5 @@
 /**
- * 022. Generate Parentheses
- * Medium
+
  *
  * This problem demonstrates key concepts in Stack.
  *
@@ -12,10 +11,10 @@
  * create an invalid sequence (open count > close count).
  *
  * APPROACH:
- * 1. **Use backtracking**: Build strings character by character
- * 2. **Track counts**: Keep track of open and close parentheses used
- * 3. **Validate constraints**: Only add '(' if open < n, only add ')' if close < open
- * 4. **Base case**: When current string length equals 2*n, add to result
+
+
+
+
  *
  * WHY THIS WORKS:
  * - By tracking open/close counts, we ensure validity at each step
