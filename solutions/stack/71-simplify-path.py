@@ -1,7 +1,6 @@
 """
 71. Simplify Path
-Medium
-
+# Difficulty: Medium
 Given a string path, which is an absolute path (starting with a slash '/') to a file or
 directory in a Unix-style file system, convert it to the simplified canonical path.
 
@@ -73,7 +72,6 @@ Result: "/" + "c" = "/c"
 </details>
 """
 
-
 class Solution:
     def simplifyPath(self, path: str) -> str:
         """
@@ -99,7 +97,6 @@ class Solution:
 
         # Build canonical path
         return "/" + "/".join(stack)
-
 
 def test_solution() -> None:
     """Test cases for Problem 71."""
@@ -154,7 +151,6 @@ def test_solution() -> None:
     print("Test case 12 passed: All .. from root")
 
     print("\nAll test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

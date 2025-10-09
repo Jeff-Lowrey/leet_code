@@ -1,7 +1,6 @@
 """
 # 1047. Remove All Adjacent Duplicates In String
-**Easy**
-
+# Difficulty: Easy
 You are given a string s consisting of lowercase English letters. A duplicate removal
 consists of choosing two adjacent and equal characters and removing them.
 
@@ -70,7 +69,6 @@ class Solution:
 
         return ''.join(stack)
 
-
 def test_solution():
     """Test cases for Problem 1047."""
     solution = Solution()
@@ -79,7 +77,6 @@ def test_solution():
     # assert solution.solve() == expected
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

@@ -1,7 +1,6 @@
 """
 # 22. Generate Parentheses
-**Medium**
-
+# Difficulty: Medium
 Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.
 
 <details>
@@ -58,7 +57,6 @@ Result: ["((()))", "(()())", "(())()", "()(())", "()()()"]
 
 </details>
 """
-
 
 class Solution:
     def generateParenthesis(self, n: int) -> list[str]:
@@ -190,7 +188,6 @@ class Solution:
         backtrack([], 0, 0)
         return result
 
-
 def test_solution() -> None:
     """Test cases for Problem 22."""
     solution = Solution()
@@ -253,7 +250,6 @@ def test_solution() -> None:
     print("Test case 9 passed: All strings are valid")
 
     print("\nAll test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

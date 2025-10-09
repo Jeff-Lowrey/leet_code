@@ -1,7 +1,6 @@
 """
 # 224. Basic Calculator
-**Hard**
-
+# Difficulty: Hard
 Given a string s representing a valid expression, implement a basic calculator to evaluate it, and return the result of the evaluation.
 
 Note: You are not allowed to use any built-in function which evaluates strings as mathematical expressions, such as eval().
@@ -203,7 +202,6 @@ class Solution:
 
         return result
 
-
 def test_solution():
     """Test cases for Problem 224."""
     solution = Solution()
@@ -252,7 +250,6 @@ def test_solution():
     assert result9 == expected1, f"Simple: Expected {expected1}, got {result9}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

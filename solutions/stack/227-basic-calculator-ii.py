@@ -1,7 +1,6 @@
 """
 # 227. Basic Calculator Ii
-**Medium**
-
+# Difficulty: Medium
 Given a problem that demonstrates key concepts in Stack.
 
 <details>

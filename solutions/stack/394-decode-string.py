@@ -1,7 +1,6 @@
 """
 # 394. Decode String
-**Medium**
-
+# Difficulty: Medium
 Given an encoded string, return its decoded string.
 
 The encoding rule is: k[encoded_string], where the encoded_string inside the square brackets is being repeated exactly k times. Note that k is guaranteed to be a positive integer.
@@ -134,7 +133,6 @@ class Solution:
 
         return decode(0)[0]
 
-
 def test_solution():
     """Test cases for Problem 394."""
     solution = Solution()
@@ -175,7 +173,6 @@ def test_solution():
     assert result7 == expected7, f"Expected {expected7}, got {result7}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

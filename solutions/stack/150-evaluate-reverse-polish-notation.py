@@ -1,7 +1,6 @@
 """
 # 150. Evaluate Reverse Polish Notation
-**Medium**
-
+# Difficulty: Medium
 You are given an array of strings tokens that represents an arithmetic expression
 in Reverse Polish Notation.
 
@@ -133,7 +132,6 @@ class Solution:
 
         return stack[0]
 
-
 def test_solution():
     """Test cases for Problem 150."""
     solution = Solution()
@@ -174,7 +172,6 @@ def test_solution():
     assert result7 == expected7, f"Expected {expected7}, got {result7}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

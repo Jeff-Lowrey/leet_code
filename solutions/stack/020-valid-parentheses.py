@@ -1,7 +1,6 @@
 """
 20. Valid Parentheses
-Easy
-
+# Difficulty: Easy
 Given a string s containing just the characters '(', ')', '{', '}', '[' and ']',
 determine if the input string is valid.
 
@@ -163,7 +162,6 @@ class Solution:
 
         return s == ''
 
-
 def test_solution():
     """Test cases for Valid Parentheses problem."""
     solution = Solution()
@@ -199,7 +197,6 @@ def test_solution():
     assert solution.isValidIterative("([{}])") == True, "Iterative test failed"
 
     print("All test cases passed for Valid Parentheses!")
-
 
 if __name__ == "__main__":
     test_solution()

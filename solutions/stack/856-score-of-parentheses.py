@@ -1,7 +1,6 @@
 """
 # 856. Score Of Parentheses
-**Medium**
-
+# Difficulty: Medium
 Given a balanced parentheses string s, return the score of the string.
 
 The score of a balanced parentheses string is based on the following rule:
@@ -149,7 +148,6 @@ class Solution:
 
         return parse(0)[0]
 
-
 def test_solution():
     """Test cases for Problem 856."""
     solution = Solution()
@@ -195,7 +193,6 @@ def test_solution():
     assert result8 == expected8, f"Expected {expected8}, got {result8}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()
