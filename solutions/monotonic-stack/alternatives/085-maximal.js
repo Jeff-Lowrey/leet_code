@@ -1,52 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Monotonic Stack.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * We can treat each row as the base of a histogram where the height of each bar is
- * the number of consecutive '1's above (including current position). Then we use the
- * "Largest Rectangle in Histogram" algorithm to find the max area for each row.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Each row can be viewed as a histogram problem
- * - Heights accumulate when we see '1', reset to 0 when we see '0'
- * - Monotonic stack efficiently finds max rectangle for each histogram
- * - Processing all rows ensures we find the global maximum
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(m * n) - process each cell once, histogram for each row
- * SPACE COMPLEXITY: O(n) - height array and stack for each row
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: matrix = [
- *   ["1","0","1","0","0"],
- *   ["1","0","1","1","1"],
- *   ["1","1","1","1","1"],
- *   ["1","0","0","1","0"]
- * ]
- *
- * Row 0: heights = [1,0,1,0,0] → maxArea = 1
- * Row 1: heights = [2,0,2,1,1] → maxArea = 3 (from [1,1,1])
- * Row 2: heights = [3,1,3,2,2] → maxArea = 6 (from [3,2,2] or [1,3,2,2])
- * Row 3: heights = [4,0,0,3,0] → maxArea = 6 (no change)
- *
- * Output: 6
+ * [example input]
  * ```
  *
- * EDGE CASES:
- * - Empty matrix: return 0
- * - All zeros: return 0
- * - All ones: return rows * cols
- * - Single cell: return the cell value
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

@@ -1,52 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Monotonic Stack.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * To get the smallest number, we want smaller digits at the front. Use a monotonic increasing
- * stack - when we see a smaller digit, we can remove larger digits before it (if we have
- * removals left). This greedily builds the smallest possible number.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Monotonic increasing stack keeps smaller digits at front
- * - Removing larger digits when we see smaller ones minimizes the number
- * - Processing left to right ensures most significant positions get smallest digits
- * - Removing from end handles cases where all digits are increasing
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n) - each digit pushed and popped at most once
- * SPACE COMPLEXITY: O(n) - stack to store result
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: num = "1432219", k = 3
- *
- * Process '1': stack=['1'], k=3
- * Process '4': 4>1, stack=['1','4'], k=3
- * Process '3': 3<4, pop '4', stack=['1','3'], k=2
- * Process '2': 2<3, pop '3', stack=['1','2'], k=1
- * Process '2': 2=2, stack=['1','2','2'], k=1
- * Process '1': 1<2, pop '2', stack=['1','2','1'], k=0
- * Process '9': k=0, stack=['1','2','1','9']
- *
- * Result: "1219"
+ * [example input]
  * ```
  *
- * EDGE CASES:
- * - k >= num.length: return "0"
- * - All same digits: remove from end
- * - Leading zeros: strip them
- * - Result is empty: return "0"
- * - Increasing digits: remove from end
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

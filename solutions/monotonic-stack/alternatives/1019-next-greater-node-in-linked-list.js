@@ -1,50 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Monotonic Stack.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * For each node in a linked list, we need to find the first node after it with a greater value.
- * A monotonic decreasing stack helps us efficiently track nodes waiting for their next greater value.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - The stack maintains indices in decreasing order of values
- * - When we encounter a larger value, all smaller values in stack have found their answer
- * - Each element is pushed and popped at most once
- * - Elements remaining in stack have no next greater element (result stays 0)
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n) - each node processed once
- * SPACE COMPLEXITY: O(n) - for result array and stack
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: head = [2,1,5]
- *
- * Convert to array: [2,1,5]
- * Initialize result: [0,0,0], stack: []
- *
- * i=0, val=2: stack=[], push 0 → stack=[0]
- * i=1, val=1: 1<2, push 1 → stack=[0,1]
- * i=2, val=5: 5>1, pop 1, result[1]=5
- *             5>2, pop 0, result[0]=5
- *             push 2 → stack=[2]
- *
- * Result: [5,5,0]
+ * [example input]
  * ```
  *
- * EDGE CASES:
- * - Empty list: return []
- * - Single node: return [0]
- * - Decreasing values: all zeros
- * - Increasing values: last few are zero
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

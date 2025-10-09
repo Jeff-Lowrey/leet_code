@@ -1,53 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Monotonic Stack.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * We need to remove duplicate letters while maintaining lexicographical order and ensuring each letter
- * appears at least once. A greedy approach with a monotonic stack helps us build the smallest result
- * by removing larger characters when a smaller one can replace them (if duplicates exist later).
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - The stack maintains lexicographically smallest subsequence
- * - We can safely remove a character if it appears later (count > 0)
- * - The "used" set prevents duplicates in result
- * - Greedy removal of larger characters when safe ensures optimal result
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n) - each character processed once
- * SPACE COMPLEXITY: O(k) - where k is unique characters (at most 26 for lowercase letters)
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: s = "bcabc"
- * Count: {b:2, c:2, a:1}
- *
- * Process 'b': count={b:1,c:2,a:1}, stack=['b'], used={b}
- * Process 'c': count={b:1,c:1,a:1}, stack=['b','c'], used={b,c}
- * Process 'a': 'a'<'c' and count[c]>0, pop 'c'
- *              'a'<'b' and count[b]>0, pop 'b'
- *              stack=['a'], used={a}, count={b:1,c:1,a:0}
- * Process 'b': stack=['a','b'], used={a,b}, count={b:0,c:1,a:0}
- * Process 'c': stack=['a','b','c'], used={a,b,c}
- *
- * Result: "abc"
+ * [example input]
  * ```
  *
- * EDGE CASES:
- * - Empty string: return ""
- * - No duplicates: return original string
- * - All same character: return single character
- * - Already sorted: return deduplicated string
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

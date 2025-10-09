@@ -1,52 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Monotonic Stack.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Use a monotonic decreasing stack to efficiently find the next greater element for each number in nums2.
- * The stack maintains elements in decreasing order, so when we find a larger element, we can pop and match
- * all smaller elements with their next greater element.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - The monotonic stack ensures we process elements in the correct order
- * - When we encounter a larger element, all smaller elements in the stack have found their next greater element
- * - Elements remaining in the stack have no next greater element (default -1)
- * - HashMap lookup gives O(1) access for building result
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n + m) - where n is nums2.length, m is nums1.length
- * SPACE COMPLEXITY: O(n) - for the map and stack
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * nums2 = [1,3,4,2], nums1 = [4,1,2]
- *
- * Process 1: stack=[], push 1, stack=[1]
- * Process 3: 3>1, map[1]=3, push 3, stack=[3]
- * Process 4: 4>3, map[3]=4, push 4, stack=[4]
- * Process 2: 2<4, push 2, stack=[4,2]
- * Final mapping: {1→3, 3→4}
- *
- * Build result for [4,1,2]:
- * - nums1[0]=4: not in map → -1
- * - nums1[1]=1: map[1]=3 → 3
- * - nums1[2]=2: not in map → -1
- * Result: [-1,3,-1]
+ * [example input]
  * ```
  *
- * EDGE CASES:
- * - nums1 or nums2 empty: return empty array
- * - No next greater element: return -1
- * - All elements decreasing: all -1
- * - nums1 is subset of nums2: guaranteed by problem constraints
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

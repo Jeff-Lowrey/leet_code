@@ -1,57 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Monotonic Stack.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * For each day, we need to find how many days until a warmer temperature. A monotonic decreasing
- * stack helps us efficiently track days waiting for warmer weather. When we find a warmer day,
- * we can resolve all cooler days in the stack.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Stack maintains indices in decreasing order of temperatures
- * - When we find a warmer day, all cooler days in stack have found their answer
- * - Index difference gives the number of days to wait
- * - Each day is pushed and popped at most once, giving O(n) time
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n) - each day processed once
- * SPACE COMPLEXITY: O(n) - stack can hold all days in worst case
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: temperatures = [73,74,75,71,69,72,76,73]
- * Result: [0,0,0,0,0,0,0,0], stack: []
- *
- * i=0, T=73: stack=[], push 0, stack=[0]
- * i=1, T=74: 74>73, pop 0, result[0]=1-0=1, push 1, stack=[1]
- * i=2, T=75: 75>74, pop 1, result[1]=2-1=1, push 2, stack=[2]
- * i=3, T=71: 71<75, push 3, stack=[2,3]
- * i=4, T=69: 69<71, push 4, stack=[2,3,4]
- * i=5, T=72: 72>69, pop 4, result[4]=5-4=1
- *            72>71, pop 3, result[3]=5-3=2
- *            72<75, push 5, stack=[2,5]
- * i=6, T=76: 76>72, pop 5, result[5]=6-5=1
- *            76>75, pop 2, result[2]=6-2=4
- *            push 6, stack=[6]
- * i=7, T=73: 73<76, push 7, stack=[6,7]
- *
- * Result: [1,1,4,2,1,1,0,0]
+ * [example input]
  * ```
  *
- * EDGE CASES:
- * - Single day: return [0]
- * - All decreasing: all zeros
- * - All increasing: each is 1 except last
- * - No warmer days ahead: return 0
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

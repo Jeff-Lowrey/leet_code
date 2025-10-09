@@ -1,48 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Monotonic Stack.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * A 132 pattern means: nums[i] < nums[k] < nums[j] where i < j < k.
- * Scan from right to left, using a stack to track potential nums[k] (middle value).
- * Keep track of the largest valid nums[k] found so far. If we find nums[i] < nums[k], we have a 132 pattern.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Processing right to left lets us find nums[j] and nums[k] first
- * - Stack maintains decreasing order - when we see larger element, pop to find nums[k]
- * - nums[k] is the largest value we've popped (it's between current and future nums[j])
- * - If current < nums[k], we have i < k with nums[i] < nums[k], and j exists with nums[k] < nums[j]
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n) - each element pushed/popped once
- * SPACE COMPLEXITY: O(n) - stack space
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: nums = [3,1,4,2]
- *
- * i=3, val=2: stack=[], third=-Infinity, push 2, stack=[2]
- * i=2, val=4: 4>2, pop 2, third=2, push 4, stack=[4]
- * i=1, val=1: 1<third(2), found 132 pattern! (1<2<4)
- *
- * Pattern: nums[1]=1, nums[3]=2, nums[2]=4 → 1<2<4 ✓
- * Return: true
+ * [example input]
  * ```
  *
- * EDGE CASES:
- * - Array length < 3: return false
- * - All increasing: no pattern
- * - All decreasing: no pattern
- * - Pattern at boundaries: handled by traversal
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**
