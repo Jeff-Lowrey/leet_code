@@ -1,7 +1,20 @@
 """
-# 76. Minimum Window Substring
 # Difficulty: Hard
+
+# 76. Minimum Window Substring
+
 This problem demonstrates key concepts in Sliding Window and Hash Tables.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -25,14 +38,6 @@ minimum window.
 - "formed" counter tracks how many unique characters have required frequency
 - By expanding then contracting, we find all valid windows
 - Only the minimum valid window is kept
-
-### TIME COMPLEXITY: O(|s| + |t|)
-We iterate through `s` at most twice (once with right pointer, once with left pointer).
-Building the target frequency map takes O(|t|). Total is O(|s| + |t|).
-
-### SPACE COMPLEXITY: O(|s| + |t|)
-In the worst case, all characters in `s` and `t` are unique, so our hash maps store O(|s| + |t|)
-entries. In practice, for limited character sets (like ASCII), this is O(1).
 
 ### EXAMPLE WALKTHROUGH:
 ```
@@ -59,6 +64,16 @@ Step 5: Find minimum
 Output: "BANC"
 ```
 
+### TIME COMPLEXITY:
+O(|s| + |t|)
+We iterate through `s` at most twice (once with right pointer, once with left pointer).
+Building the target frequency map takes O(|t|). Total is O(|s| + |t|).
+
+### SPACE COMPLEXITY:
+O(|s| + |t|)
+In the worst case, all characters in `s` and `t` are unique, so our hash maps store O(|s| + |t|)
+entries. In practice, for limited character sets (like ASCII), this is O(1).
+
 ### EDGE CASES:
 - Empty `s` or `t`: Return empty string
 - `t` longer than `s`: Return empty string
@@ -67,33 +82,7 @@ Output: "BANC"
 - Multiple minimum windows: Return any one (first found)
 
 </details>
-
-<details>
-<summary><b>💡 APPROACH</b></summary>
-
-The approach uses the sliding window technique with two pointers and frequency maps.
-
-### Algorithm Steps:
-1. Build frequency map for target string `t`
-2. Initialize two pointers (left, right) and tracking variables
-3. Expand window by moving right pointer:
-   - Add character to window
-   - If character frequency matches target, increment "formed" counter
-4. When window is valid (formed == required):
-   - Try to contract by moving left pointer
-   - Update minimum window if current is smaller
-5. Return the minimum window substring
-
-### Key Variables:
-- `target_count`: Frequency map of characters in `t`
-- `window_counts`: Frequency map of characters in current window
-- `required`: Number of unique characters in `t` that must be in window
-- `formed`: Number of unique characters in window with desired frequency
-
-</details>
 """
-
-from collections import Counter
 
 class Solution:
     def solve(self, s: str, t: str) -> str:

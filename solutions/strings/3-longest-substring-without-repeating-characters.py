@@ -1,7 +1,20 @@
 """
-# 3. Longest Substring Without Repeating Characters
 # Difficulty: Medium
+
+# 3. Longest Substring Without Repeating Characters
+
 This problem demonstrates key concepts in Sliding Window and Hash Tables.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -24,15 +37,6 @@ if we encounter a duplicate, we shrink the window from the left until the duplic
 - Left pointer only moves forward, never backward
 - Each character is visited at most twice (once by right, once by left)
 - This efficiently finds the longest substring without checking all substrings
-
-### TIME COMPLEXITY: O(n)
-We iterate through the string once with the right pointer, and the left pointer moves at most n
-times total. Each character is processed at most twice. Total: O(2n) = O(n).
-
-### SPACE COMPLEXITY: O(min(n, m))
-Where n is the string length and m is the character set size. In the worst case (all unique
-characters), the hash map stores n entries. For ASCII (128 chars) or Unicode subsets, space
-is bounded by the character set size.
 
 ### EXAMPLE WALKTHROUGH:
 ```
@@ -80,32 +84,23 @@ right=7, left=5: 'b' (duplicate!)
 Output: 3 (from "abc")
 ```
 
+### TIME COMPLEXITY:
+O(n)
+We iterate through the string once with the right pointer, and the left pointer moves at most n
+times total. Each character is processed at most twice. Total: O(2n) = O(n).
+
+### SPACE COMPLEXITY:
+O(min(n, m))
+Where n is the string length and m is the character set size. In the worst case (all unique
+characters), the hash map stores n entries. For ASCII (128 chars) or Unicode subsets, space
+is bounded by the character set size.
+
 ### EDGE CASES:
 - Empty string: Return 0
 - Single character: Return 1
 - All unique characters: Return length of string
 - All same characters: Return 1
 - Two characters alternating: Return 2
-
-</details>
-
-<details>
-<summary><b>💡 APPROACH</b></summary>
-
-The approach uses the sliding window technique with a hash map to track character positions.
-
-### Algorithm Steps:
-1. Initialize left pointer, max_length, and character index map
-2. Iterate through string with right pointer:
-   - If character is already in window (index >= left):
-     - Move left pointer to (previous_index + 1)
-   - Update character's index in map
-   - Update max_length if current window is larger
-3. Return max_length
-
-### Key Optimization:
-Instead of removing characters one by one when duplicate found, we jump directly to the
-position after the duplicate using the stored index.
 
 </details>
 """

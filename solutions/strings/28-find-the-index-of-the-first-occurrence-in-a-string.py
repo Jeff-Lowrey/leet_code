@@ -1,7 +1,20 @@
 """
-# 28. Find The Index Of The First Occurrence In A String
 # Difficulty: Easy
+
+# 28. Find The Index Of The First Occurrence In A String
+
 This problem demonstrates key concepts in String matching and pattern searching.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -24,16 +37,6 @@ approach is to check each position in the haystack to see if the needle starts t
 - We stop early if we find a mismatch at any position within needle
 - The first match we find is guaranteed to be the earliest occurrence
 
-### TIME COMPLEXITY: O(n * m)
-Where n is the length of haystack and m is the length of needle. In the worst case, we check
-every position (n - m + 1) and for each position compare m characters.
-
-Note: More advanced algorithms like KMP or Rabin-Karp can achieve O(n + m), but for most
-practical purposes and typical inputs, the simple approach is sufficient and easier to understand.
-
-### SPACE COMPLEXITY: O(1)
-We only use a few variables regardless of input size.
-
 ### EXAMPLE WALKTHROUGH:
 ```
 Input: haystack = "sadbutsad", needle = "sad"
@@ -48,31 +51,24 @@ Step n: No match found
 Output: -1
 ```
 
+### TIME COMPLEXITY:
+O(n * m)
+Where n is the length of haystack and m is the length of needle. In the worst case, we check
+every position (n - m + 1) and for each position compare m characters.
+
+Note: More advanced algorithms like KMP or Rabin-Karp can achieve O(n + m), but for most
+practical purposes and typical inputs, the simple approach is sufficient and easier to understand.
+
+### SPACE COMPLEXITY:
+O(1)
+We only use a few variables regardless of input size.
+
 ### EDGE CASES:
 - Empty needle: Return 0 (convention)
 - Needle longer than haystack: Return -1
 - Needle equals haystack: Return 0
 - Needle not in haystack: Return -1
 - Multiple occurrences: Return first one
-
-</details>
-
-<details>
-<summary><b>💡 APPROACH</b></summary>
-
-The approach uses a sliding window pattern matching technique.
-
-### Algorithm Steps:
-1. Handle edge case: if needle is empty, return 0
-2. Calculate the last valid starting position (haystack length - needle length)
-3. For each valid position i in haystack:
-   - Compare substring haystack[i:i+len(needle)] with needle
-   - If match found, return i
-4. If no match found after checking all positions, return -1
-
-### Python Built-in Alternative:
-Python's str.find() method can also solve this, but implementing it manually demonstrates
-understanding of the algorithm.
 
 </details>
 """

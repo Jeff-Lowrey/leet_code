@@ -1,7 +1,20 @@
 """
-# 151. Reverse Words In A String
 # Difficulty: Medium
+
+# 151. Reverse Words In A String
+
 This problem demonstrates key concepts in String manipulation and parsing.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -23,13 +36,6 @@ and 3) reversing the word order while preserving word integrity.
 - Reversing a list in Python is O(n) and very efficient
 - Joining with a single space ensures proper formatting
 
-### TIME COMPLEXITY: O(n)
-Where n is the length of the string. We scan the string once to split, reverse the list (O(n)),
-and join back (O(n)).
-
-### SPACE COMPLEXITY: O(n)
-We create a list of words and the result string, both proportional to input size.
-
 ### EXAMPLE WALKTHROUGH:
 ```
 Input: s = "  hello   world  "
@@ -47,6 +53,15 @@ Step 4: Join: "example good a"
 Output: "example good a"
 ```
 
+### TIME COMPLEXITY:
+O(n)
+Where n is the length of the string. We scan the string once to split, reverse the list (O(n)),
+and join back (O(n)).
+
+### SPACE COMPLEXITY:
+O(n)
+We create a list of words and the result string, both proportional to input size.
+
 ### EDGE CASES:
 - Single word: Returns the same word
 - Empty string: Returns empty string
@@ -55,27 +70,7 @@ Output: "example good a"
 - Leading/trailing spaces: Removed by strip() or split()
 
 </details>
-
-<details>
-<summary><b>💡 APPROACH</b></summary>
-
-The approach leverages Python's powerful string methods for clean, efficient code.
-
-### Algorithm Steps:
-1. Use split() without arguments to split on whitespace and remove empty strings
-2. Use reverse() or slicing [::-1] to reverse the word order
-3. Use join(' ') to combine words with single spaces
-4. Return the result
-
-### Alternative Approaches:
-- Manual parsing: Iterate character by character (more complex, O(n))
-- Two-pass reversal: Reverse entire string, then reverse each word (O(n), no regex)
-- Deque: Use collections.deque for efficient reversals
-
-</details>
 """
-
-import re
 
 class Solution:
     def solve(self, s: str) -> str:

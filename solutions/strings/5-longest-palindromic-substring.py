@@ -1,7 +1,20 @@
 """
-# 5. Longest Palindromic Substring
 # Difficulty: Medium
+
+# 5. Longest Palindromic Substring
+
 This problem demonstrates key concepts in String manipulation and Dynamic Programming.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -24,14 +37,6 @@ palindrome has a center - either a single character (odd length) or between two 
 - Comparing characters from center outward ensures palindrome property
 - Checking all centers guarantees we find the longest one
 - This avoids checking all O(n²) substrings explicitly
-
-### TIME COMPLEXITY: O(n²)
-There are n possible centers (including between characters), and each expansion can take up to
-O(n) time in the worst case. Total: O(n²).
-
-### SPACE COMPLEXITY: O(1)
-We only store indices and don't create additional data structures proportional to input.
-The result substring is extracted at the end.
 
 ### EXAMPLE WALKTHROUGH:
 ```
@@ -58,35 +63,22 @@ Input: s = "cbbd"
 Output: "bb"
 ```
 
+### TIME COMPLEXITY:
+O(n²)
+There are n possible centers (including between characters), and each expansion can take up to
+O(n) time in the worst case. Total: O(n²).
+
+### SPACE COMPLEXITY:
+O(1)
+We only store indices and don't create additional data structures proportional to input.
+The result substring is extracted at the end.
+
 ### EDGE CASES:
 - Single character: Return that character
 - Empty string: Return empty string
 - All same characters: Return entire string
 - No palindrome longer than 1: Return first character
 - Entire string is palindrome: Return entire string
-
-</details>
-
-<details>
-<summary><b>💡 APPROACH</b></summary>
-
-The expand-around-center approach is optimal for this problem.
-
-### Algorithm Steps:
-1. Handle edge case: strings of length < 2
-2. Initialize variables to track longest palindrome (start index and length)
-3. For each possible center position:
-   - Expand around single character center (odd-length palindromes)
-   - Expand around two-character center (even-length palindromes)
-   - Update longest palindrome if current is longer
-4. Extract and return the longest palindromic substring
-
-### Helper Function:
-`expand_around_center(left, right)` - expands while characters match, returns length
-
-### Alternative Approaches:
-- Dynamic Programming: O(n²) time, O(n²) space
-- Manacher's Algorithm: O(n) time, O(n) space (complex to implement)
 
 </details>
 """

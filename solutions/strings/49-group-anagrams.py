@@ -1,7 +1,20 @@
 """
-# 49. Group Anagrams
 # Difficulty: Medium
+
+# 49. Group Anagrams
+
 This problem demonstrates key concepts in Hash Tables and String manipulation.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -23,13 +36,6 @@ or the same character frequency pattern.
 - Hash map provides O(1) average time for grouping
 - All words with the same signature are guaranteed to be anagrams
 - This approach naturally groups anagrams without comparing every pair
-
-### TIME COMPLEXITY: O(n * k log k)
-Where n is the number of strings and k is the maximum length of a string. For each string,
-we sort it (O(k log k)). If we use character counting instead, it's O(n * k).
-
-### SPACE COMPLEXITY: O(n * k)
-We store all n strings in the hash map, and the total space for storing them is O(n * k).
 
 ### EXAMPLE WALKTHROUGH:
 ```
@@ -62,6 +68,15 @@ Step 6: Process "bat"
 Output: [["eat","tea","ate"], ["tan","nat"], ["bat"]]
 ```
 
+### TIME COMPLEXITY:
+O(n * k log k)
+Where n is the number of strings and k is the maximum length of a string. For each string,
+we sort it (O(k log k)). If we use character counting instead, it's O(n * k).
+
+### SPACE COMPLEXITY:
+O(n * k)
+We store all n strings in the hash map, and the total space for storing them is O(n * k).
+
 ### EDGE CASES:
 - Empty array: Return empty array
 - Single string: Return array with one group containing that string
@@ -70,28 +85,7 @@ Output: [["eat","tea","ate"], ["tan","nat"], ["bat"]]
 - Empty strings: Empty strings are anagrams of each other
 
 </details>
-
-<details>
-<summary><b>💡 APPROACH</b></summary>
-
-The approach uses a hash map with sorted strings as keys.
-
-### Algorithm Steps:
-1. Create a defaultdict to store anagram groups
-2. For each string in the input:
-   - Sort the string to create a signature
-   - Add the original string to the group with that signature
-3. Return all groups as a list of lists
-
-### Alternative Approach (Character Count):
-Instead of sorting, count character frequencies and use the count tuple as key.
-This is O(n * k) instead of O(n * k log k), but requires more code.
-
-</details>
 """
-
-from collections import defaultdict
-from typing import List
 
 class Solution:
     def solve(self, strs: List[str]) -> List[List[str]]:
