@@ -1,7 +1,6 @@
 """
 # 128. Longest Consecutive Sequence
-**Medium**
-
+# Difficulty: Medium
 Given a problem that demonstrates key concepts in Arrays Hashing.
 
 <details>

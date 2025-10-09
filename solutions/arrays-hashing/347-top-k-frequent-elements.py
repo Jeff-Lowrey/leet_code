@@ -1,7 +1,6 @@
 """
 # 347. Top K Frequent Elements
-**Medium**
-
+# Difficulty: Medium
 Given a problem that demonstrates key concepts in Arrays Hashing.
 
 <details>

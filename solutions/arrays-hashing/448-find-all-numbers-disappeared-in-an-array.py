@@ -1,7 +1,6 @@
 """
 # 448. Find All Numbers Disappeared In An Array
-**Medium**
-
+# Difficulty: Medium
 Given a problem that demonstrates key concepts in Arrays Hashing.
 
 <details>

@@ -1,7 +1,6 @@
 """
 # 169. Majority Element
-**Easy**
-
+# Difficulty: Easy
 Given an array nums of size n, return the majority element.
 
 The majority element is the element that appears more than ⌊n / 2⌋ times.
@@ -146,7 +145,6 @@ class Solution:
             if count > len(nums) // 2:
                 return candidate
 
-
 def test_solution():
     """Test cases for Problem 169."""
     solution = Solution()
@@ -194,7 +192,6 @@ def test_solution():
     assert result8 == expected8, f"Expected {expected8}, got {result8}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

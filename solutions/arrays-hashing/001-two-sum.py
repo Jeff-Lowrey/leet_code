@@ -111,7 +111,6 @@ class Solution:
 
         return []
 
-
 # Test cases
 if __name__ == "__main__":
     solution = Solution()

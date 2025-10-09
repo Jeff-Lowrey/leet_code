@@ -1,7 +1,6 @@
 """
 49. Group Anagrams
-Medium
-
+# Difficulty: Medium
 Given an array of strings strs, group the anagrams together. You can return the
 `answer` in any order.
 
@@ -77,7 +76,6 @@ The signature (sorted chars or char counts) acts as a unique identifier for all 
 
 from collections import defaultdict
 
-
 class Solution:
     def groupAnagrams(self, strs: list[str]) -> list[list[str]]:
         """
@@ -113,7 +111,6 @@ class Solution:
             anagrams[key].append(s)
 
         return list(anagrams.values())
-
 
 # Test cases
 if __name__ == "__main__":

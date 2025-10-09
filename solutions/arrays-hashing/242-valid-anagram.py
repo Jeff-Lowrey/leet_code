@@ -1,7 +1,6 @@
 """
 242. Valid Anagram
-Easy
-
+# Difficulty: Easy
 Given two strings s and t, return true if t is an anagram of s, and false otherwise.
 
 An Anagram is a word or phrase formed by rearranging the letters of a different
@@ -71,7 +70,6 @@ Both have identical counts → True
 
 from collections import Counter
 
-
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
         """
@@ -113,7 +111,6 @@ class Solution:
         Space Complexity: O(1)
         """
         return sorted(s) == sorted(t)
-
 
 # Test cases
 if __name__ == "__main__":
