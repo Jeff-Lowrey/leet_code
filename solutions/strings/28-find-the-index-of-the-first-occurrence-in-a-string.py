@@ -1,7 +1,6 @@
 """
 # 28. Find The Index Of The First Occurrence In A String
-**Easy**
-
+# Difficulty: Easy
 This problem demonstrates key concepts in String matching and pattern searching.
 
 <details>
@@ -78,7 +77,6 @@ understanding of the algorithm.
 </details>
 """
 
-
 class Solution:
     def solve(self, haystack: str, needle: str) -> int:
         """
@@ -148,7 +146,6 @@ class Solution:
         """
         return haystack.find(needle)
 
-
 def test_solution():
     """
     Test cases for 28. Find The Index Of The First Occurrence In A String.
@@ -196,7 +193,6 @@ def test_solution():
     assert result10 == 0, f"Test 10 (builtin) failed: expected 0, got {result10}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

@@ -1,7 +1,6 @@
 """
 # 383. Ransom Note
-**Easy**
-
+# Difficulty: Easy
 This problem demonstrates key concepts in Strings and Hash Tables.
 
 <details>
@@ -78,7 +77,6 @@ Could also count both strings and compare counts: all ransomNote counts <= magaz
 
 from collections import Counter
 
-
 class Solution:
     def solve(self, ransomNote: str, magazine: str) -> bool:
         """
@@ -124,7 +122,6 @@ class Solution:
 
         return True
 
-
 def test_solution():
     """
     Test cases for 383. Ransom Note.
@@ -168,7 +165,6 @@ def test_solution():
     assert result9 == True, f"Test 9 (alternative) failed: expected True, got {result9}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

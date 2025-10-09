@@ -1,7 +1,6 @@
 """
 # 3. Longest Substring Without Repeating Characters
-**Medium**
-
+# Difficulty: Medium
 This problem demonstrates key concepts in Sliding Window and Hash Tables.
 
 <details>
@@ -111,7 +110,6 @@ position after the duplicate using the stored index.
 </details>
 """
 
-
 class Solution:
     def solve(self, s: str) -> int:
         """
@@ -170,7 +168,6 @@ class Solution:
 
         return max_length
 
-
 def test_solution():
     """
     Test cases for 3. Longest Substring Without Repeating Characters.
@@ -218,7 +215,6 @@ def test_solution():
     assert result10 == 3, f"Test 10 (set) failed: expected 3, got {result10}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

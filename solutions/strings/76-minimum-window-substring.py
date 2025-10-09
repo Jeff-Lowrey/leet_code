@@ -1,7 +1,6 @@
 """
 # 76. Minimum Window Substring
-**Hard**
-
+# Difficulty: Hard
 This problem demonstrates key concepts in Sliding Window and Hash Tables.
 
 <details>
@@ -96,7 +95,6 @@ The approach uses the sliding window technique with two pointers and frequency m
 
 from collections import Counter
 
-
 class Solution:
     def solve(self, s: str, t: str) -> str:
         """
@@ -158,7 +156,6 @@ class Solution:
         # Return the minimum window or empty string
         return "" if result[0] == float('inf') else s[result[1]:result[2] + 1]
 
-
 def test_solution():
     """
     Test cases for 76. Minimum Window Substring.
@@ -202,7 +199,6 @@ def test_solution():
     assert result9 == "Aa", f"Test 9 failed: expected 'Aa', got '{result9}'"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

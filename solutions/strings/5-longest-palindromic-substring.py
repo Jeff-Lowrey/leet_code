@@ -1,7 +1,6 @@
 """
 # 5. Longest Palindromic Substring
-**Medium**
-
+# Difficulty: Medium
 This problem demonstrates key concepts in String manipulation and Dynamic Programming.
 
 <details>
@@ -91,7 +90,6 @@ The expand-around-center approach is optimal for this problem.
 
 </details>
 """
-
 
 class Solution:
     def solve(self, s: str) -> str:
@@ -194,7 +192,6 @@ class Solution:
 
         return s[start:start + max_length]
 
-
 def test_solution():
     """
     Test cases for 5. Longest Palindromic Substring.
@@ -238,7 +235,6 @@ def test_solution():
     assert result9 in ["bab", "aba"], f"Test 9 (DP) failed: expected 'bab' or 'aba', got '{result9}'"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

@@ -1,7 +1,6 @@
 """
 # 344. Reverse String
-**Easy**
-
+# Difficulty: Easy
 This problem demonstrates key concepts in Strings.
 
 <details>
@@ -67,7 +66,6 @@ The approach uses the two-pointer technique, a fundamental pattern in array mani
 
 from typing import List
 
-
 class Solution:
     def solve(self, s: List[str]) -> None:
         """
@@ -90,7 +88,6 @@ class Solution:
             s[left], s[right] = s[right], s[left]
             left += 1
             right -= 1
-
 
 def test_solution():
     """
@@ -135,7 +132,6 @@ def test_solution():
     assert test6 == expected6, f"Test 6 failed: expected {expected6}, got {test6}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

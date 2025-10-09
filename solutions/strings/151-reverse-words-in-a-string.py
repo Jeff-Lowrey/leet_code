@@ -1,7 +1,6 @@
 """
 # 151. Reverse Words In A String
-**Medium**
-
+# Difficulty: Medium
 This problem demonstrates key concepts in String manipulation and parsing.
 
 <details>
@@ -78,7 +77,6 @@ The approach leverages Python's powerful string methods for clean, efficient cod
 
 import re
 
-
 class Solution:
     def solve(self, s: str) -> str:
         """
@@ -131,7 +129,6 @@ class Solution:
         # Reverse and join
         return ' '.join(reversed(words))
 
-
 def test_solution():
     """
     Test cases for 151. Reverse Words In A String.
@@ -175,7 +172,6 @@ def test_solution():
     assert result9 == "example good a", f"Test 9 (regex) failed: expected 'example good a', got '{result9}'"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

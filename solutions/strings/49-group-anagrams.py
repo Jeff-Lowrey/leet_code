@@ -1,7 +1,6 @@
 """
 # 49. Group Anagrams
-**Medium**
-
+# Difficulty: Medium
 This problem demonstrates key concepts in Hash Tables and String manipulation.
 
 <details>
@@ -94,7 +93,6 @@ This is O(n * k) instead of O(n * k log k), but requires more code.
 from collections import defaultdict
 from typing import List
 
-
 class Solution:
     def solve(self, strs: List[str]) -> List[List[str]]:
         """
@@ -144,7 +142,6 @@ class Solution:
             anagram_groups[key].append(s)
 
         return list(anagram_groups.values())
-
 
 def test_solution():
     """
@@ -196,7 +193,6 @@ def test_solution():
     assert sort_groups(result8) == sort_groups(expected8), f"Test 8 (count) failed"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

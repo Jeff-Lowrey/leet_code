@@ -1,7 +1,6 @@
 """
 1312. Minimum Insertion Steps to Make a String Palindrome
-Hard
-
+# Difficulty: Hard
 Given a string s, return the minimum number of insertions needed to make s a palindrome.
 
 A palindrome is a string that reads the same forward and backward.
@@ -152,7 +151,6 @@ class Solution:
 
         return helper(0, len(s) - 1)
 
-
 """
 Alternative formulation: Direct DP approach
 Instead of using LPS, directly calculate minimum insertions
@@ -220,7 +218,6 @@ class SolutionDirect:
         palindrome = build_palindrome(0, n - 1)
         return dp[0][n - 1], palindrome
 
-
 """
 Related Problem: Minimum deletions to make palindrome
 This is equivalent to finding minimum insertions
@@ -235,7 +232,6 @@ class SolutionDeletions:
         Space Complexity: O(n²)
         """
         return Solution().minInsertions(s)
-
 
 # Test cases
 if __name__ == "__main__":

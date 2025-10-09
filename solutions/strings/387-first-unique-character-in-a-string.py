@@ -1,7 +1,6 @@
 """
 # 387. First Unique Character In A String
-**Easy**
-
+# Difficulty: Easy
 This problem demonstrates key concepts in Hash Tables and String manipulation.
 
 <details>
@@ -80,7 +79,6 @@ The approach uses the Counter from collections module for efficient frequency co
 
 from collections import Counter
 
-
 class Solution:
     def solve(self, s: str) -> int:
         """
@@ -123,7 +121,6 @@ class Solution:
                 return i
 
         return -1
-
 
 def test_solution():
     """
@@ -168,7 +165,6 @@ def test_solution():
     assert result9 == 0, f"Test 9 (dict) failed: expected 0, got {result9}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()
