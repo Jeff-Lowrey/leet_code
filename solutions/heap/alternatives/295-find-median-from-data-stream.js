@@ -1,44 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Heap.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * To find the median efficiently, we need to maintain access to the middle elements of a sorted sequence.
- * Using two heaps allows us to balance the data such that we always have quick access to the median.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Max heap stores smaller half (largest of small numbers at top)
- * - Min heap stores larger half (smallest of large numbers at top)
- * - The tops of these heaps are always the middle element(s)
- * - This gives us O(1) median access after O(log n) insertion
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(log n) for addNum, O(1) for findMedian
- * SPACE COMPLEXITY: O(n) for storing all numbers
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: addNum(1), addNum(2), findMedian(), addNum(3), findMedian()
- * Step 1: Add 1 -> maxHeap: [1], minHeap: []
- * Step 2: Add 2 -> maxHeap: [1], minHeap: [2]
- * Step 3: findMedian() -> (1 + 2) / 2 = 1.5
- * Step 4: Add 3 -> maxHeap: [1], minHeap: [2, 3]
- * Step 5: findMedian() -> 2 (top of minHeap, which has more elements)
+ * [example input]
  * ```
  *
- * EDGE CASES:
- * - Single element (median is that element)
- * - Two elements (median is their average)
- * - Negative numbers
- * - Duplicate numbers
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

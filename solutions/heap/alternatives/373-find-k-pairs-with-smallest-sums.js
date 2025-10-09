@@ -1,44 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Heap.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Given two sorted arrays, we want to find K pairs with the smallest sums.
- * We can use a min heap to efficiently track and retrieve pairs in order of their sum.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Both arrays are sorted, so nums1[i] + nums2[j] <= nums1[i] + nums2[j+1]
- * - We start with smallest possible pairs (pairing with nums2[0])
- * - Heap ensures we always process the next smallest sum
- * - By only adding j+1 when we pop j, we avoid duplicates
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(k log k) - we process k pairs, each heap operation is O(log k)
- * SPACE COMPLEXITY: O(k) - heap stores at most k elements
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: nums1 = [1,7,11], nums2 = [2,4,6], k = 3
- * Step 1: Initialize heap with [1,2], [7,2], [11,2]
- * Step 2: Pop [1,2] (sum=3), add [1,4] to heap
- * Step 3: Pop [1,4] (sum=5), add [1,6] to heap
- * Step 4: Pop [7,2] (sum=9)
- * Output: [[1,2], [1,4], [7,2]]
+ * [example input]
  * ```
  *
- * EDGE CASES:
- * - Empty arrays
- * - k larger than total possible pairs
- * - k = 0
- * - Arrays with single element
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

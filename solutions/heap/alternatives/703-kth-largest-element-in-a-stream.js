@@ -1,45 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Heap.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * To find the kth largest element efficiently in a stream, we maintain a min heap of size k.
- * The top of the heap is always the kth largest element.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
- *    - If heap size < k, add element
- *    - If element > heap top, replace top with element
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Min heap of size k stores k largest elements
- * - The smallest of these k elements (heap top) is the kth largest overall
- * - When we see a larger element, we remove the smallest and add the new one
- * - This maintains the invariant that heap contains k largest elements seen so far
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(log k) for add operation, O(n log k) for initialization
- * SPACE COMPLEXITY: O(k) for the heap
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: k = 3, nums = [4, 5, 8, 2], then add(3), add(5), add(10), add(9), add(4)
- * Step 1: Initialize heap with [4, 5, 8] -> heap = [4, 5, 8], return 4
- * Step 2: add(3) -> 3 < 4, no change, return 4
- * Step 3: add(5) -> 5 > 4, replace -> heap = [5, 5, 8], return 5
- * Step 4: add(10) -> 10 > 5, replace -> heap = [5, 8, 10], return 5
- * Step 5: add(9) -> 9 > 5, replace -> heap = [8, 9, 10], return 8
+ * [example input]
  * ```
  *
- * EDGE CASES:
- * - Empty initial array
- * - k = 1 (largest element)
- * - Stream has fewer than k elements
- * - Negative numbers
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

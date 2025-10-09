@@ -1,45 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Heap.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * We need to schedule tasks with a cooling period. The key insight is to always schedule
- * the most frequent task first (greedy approach) to minimize idle time.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Scheduling most frequent tasks first minimizes total idle time
- * - Each round processes n+1 intervals (one execution + n cooling)
- * - Heap ensures we always pick the most frequent available task
- * - Queue tracks when tasks can be rescheduled
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n) where n is total number of tasks
- * SPACE COMPLEXITY: O(26) = O(1) for at most 26 unique tasks
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: tasks = ["A","A","A","B","B","B"], n = 2
- * Step 1: Frequencies: {A: 3, B: 3}
- * Step 2: Round 1: A B idle (heap: [2, 2])
- * Step 3: Round 2: A B idle (heap: [1, 1])
- * Step 4: Round 3: A B (heap: [])
- * Output: 8
+ * [example input]
  * ```
  *
- * EDGE CASES:
- * - n = 0 (no cooling needed)
- * - Single task type
- * - All tasks are different
- * - Very large n
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

@@ -1,46 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Heap.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * To reorganize a string so no two adjacent characters are the same, we should greedily
- * place the most frequent character first, but never place it adjacent to itself.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Placing most frequent characters first minimizes risk of running out of options
- * - By tracking previous character, we ensure no adjacent duplicates
- * - If a character appears more than (n+1)/2 times, it's impossible to reorganize
- * - Heap ensures we always pick optimally
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n log k) where k is number of unique characters
- * SPACE COMPLEXITY: O(k) for the heap and frequency map
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: s = "aab"
- * Step 1: Count: {a: 2, b: 1}
- * Step 2: Heap: [(a, 2), (b, 1)]
- * Step 3: Pick 'a' (freq=2), result="a", prev=(a,1)
- * Step 4: Pick 'b' (freq=1), result="ab", prev=(b,0)
- * Step 5: Pick 'a' (freq=1), result="aba", prev=(a,0)
- * Output: "aba"
+ * [example input]
  * ```
  *
- * EDGE CASES:
- * - Empty string
- * - Single character repeated (impossible if length > 1)
- * - All characters unique
- * - Character frequency > (n+1)/2 (impossible)
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

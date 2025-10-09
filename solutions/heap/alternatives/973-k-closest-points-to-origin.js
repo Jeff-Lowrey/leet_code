@@ -1,45 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Heap.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * We need to find k points closest to the origin. Using a max heap of size k allows us
- * to efficiently track the k closest points without sorting all points.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
- *    - If heap size < k, add point
- *    - If point is closer than farthest in heap, replace it
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Max heap keeps k closest points
- * - The farthest of these k points (heap top) can be quickly compared
- * - We avoid sorting all n points (O(n log n))
- * - Distance squared avoids expensive sqrt calculation
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n log k) where n is number of points
- * SPACE COMPLEXITY: O(k) for the heap
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: points = [[1,3],[-2,2]], k = 1
- * Step 1: Calculate distances: [1,3]->10, [-2,2]->8
- * Step 2: Add [1,3] to heap (heap size < k)
- * Step 3: Compare [-2,2] (8) with top (10), replace
- * Output: [[-2,2]]
+ * [example input]
  * ```
  *
- * EDGE CASES:
- * - k = 1 (single closest point)
- * - k equals number of points (return all)
- * - Points at same distance
- * - Points on axes or at origin
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

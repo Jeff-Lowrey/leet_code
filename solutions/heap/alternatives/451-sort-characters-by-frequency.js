@@ -1,42 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Heap.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * We need to sort characters by their frequency of occurrence. A max heap allows us
- * to efficiently retrieve characters in order of decreasing frequency.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Hash map gives us O(1) frequency counting
- * - Max heap ensures we process characters in descending frequency order
- * - Each pop gives us the next most frequent character
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n + k log k) where n is string length, k is unique characters
- * SPACE COMPLEXITY: O(n) for the result and frequency map
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: s = "tree"
- * Step 1: Count frequencies: {t: 1, r: 1, e: 2}
- * Step 2: Build heap: [(e, 2), (t, 1), (r, 1)]
- * Step 3: Pop and build: "ee" + "t" + "r" = "eetr"
- * Output: "eetr" (or "eert")
+ * [example input]
  * ```
  *
- * EDGE CASES:
- * - Empty string
- * - Single character
- * - All characters have same frequency
- * - All characters are unique
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**
