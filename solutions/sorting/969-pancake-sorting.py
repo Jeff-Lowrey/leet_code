@@ -1,7 +1,6 @@
 """
 # 969. Pancake Sorting
-**Medium**
-
+# Difficulty: Medium
 Given an array of integers arr, sort the array by performing a series of pancake flips.
 
 In one pancake flip we do the following steps:
@@ -87,8 +86,6 @@ Output: [3,4,2,3,2] (flip positions)
 
 </details>
 """
-
-
 
 class Solution:
     def pancakeSort(self, arr: list[int]) -> list[int]:
@@ -218,7 +215,6 @@ class Solution:
 
         return result
 
-
 def test_solution():
     """Test cases for Problem 969."""
     solution = Solution()
@@ -280,7 +276,6 @@ def test_solution():
     assert arr8 == sorted([3, 2, 4, 1]), f"Not sorted correctly: {arr8}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

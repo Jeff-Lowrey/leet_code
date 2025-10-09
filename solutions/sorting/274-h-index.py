@@ -1,7 +1,6 @@
 """
 # 274. H Index
-**Medium**
-
+# Difficulty: Medium
 Given an array of integers citations where citations[i] is the number of citations a researcher
 received for their ith paper, return the researcher's h-index.
 
@@ -71,8 +70,6 @@ Output: 3
 
 </details>
 """
-
-
 
 class Solution:
     def hIndex(self, citations: list[int]) -> int:
@@ -159,7 +156,6 @@ class Solution:
         """
         return sum(i < c for i, c in enumerate(sorted(citations, reverse=True)))
 
-
 def test_solution():
     """Test cases for Problem 274."""
     solution = Solution()
@@ -219,7 +215,6 @@ def test_solution():
     assert result11 == expected11, f"Expected {expected11}, got {result11}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

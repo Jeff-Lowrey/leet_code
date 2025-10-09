@@ -1,7 +1,6 @@
 """
 # 75. Sort Colors
-**Medium**
-
+# Difficulty: Medium
 Given an array nums with n objects colored red, white, or blue, sort them in-place so that objects
 of the same color are adjacent, with the colors in the order red, white, and blue.
 
@@ -96,8 +95,6 @@ Output: [0,0,1,1,2,2] ✓
 </details>
 """
 
-
-
 class Solution:
     def sortColors(self, nums: list[int]) -> None:
         """
@@ -172,7 +169,6 @@ class Solution:
                 nums[left], nums[i] = nums[i], nums[left]
                 left += 1
 
-
 def test_solution():
     """Test cases for Problem 75."""
     solution = Solution()
@@ -244,7 +240,6 @@ def test_solution():
     assert nums11 == expected11, f"Expected {expected11}, got {nums11}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

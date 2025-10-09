@@ -1,7 +1,6 @@
 """
 # 280. Wiggle Sort
-**Medium**
-
+# Difficulty: Medium
 Given an integer array nums, reorder it such that nums[0] <= nums[1] >= nums[2] <= nums[3]...
 
 You may assume the input array always has a valid answer.
@@ -71,8 +70,6 @@ Pair and swap:
 </details>
 """
 
-
-
 class Solution:
     def wiggleSort(self, nums: list[int]) -> None:
         """
@@ -132,7 +129,6 @@ class Solution:
                 nums[i] = temp[n - 1 - right]
                 right += 1
 
-
 def is_wiggle_sorted(nums: list[int]) -> bool:
     """
     Check if array satisfies wiggle sort property.
@@ -153,7 +149,6 @@ def is_wiggle_sorted(nums: list[int]) -> bool:
             if nums[i] < nums[i + 1]:
                 return False
     return True
-
 
 def test_solution():
     """Test cases for Problem 280."""
@@ -206,7 +201,6 @@ def test_solution():
     assert is_wiggle_sorted(nums9), f"Not wiggle sorted: {nums9}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

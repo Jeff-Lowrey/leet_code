@@ -1,7 +1,6 @@
 """
 # 1030. Matrix Cells In Distance Order
-**Easy**
-
+# Difficulty: Easy
 You are given four integers row, col, rCenter, and cCenter. There exists a rows x cols matrix
 and you are on the cell with the coordinates (rCenter, cCenter).
 
@@ -74,8 +73,6 @@ Output: [[1,2],[0,2],[1,1],[0,1],[1,0],[0,0]]
 
 </details>
 """
-
-
 
 class Solution:
     def allCellsDistOrder(self, rows: int, cols: int, rCenter: int, cCenter: int) -> list[list[int]]:
@@ -161,7 +158,6 @@ class Solution:
 
         return result
 
-
 def test_solution():
     """Test cases for Problem 1030."""
     solution = Solution()
@@ -202,7 +198,6 @@ def test_solution():
     assert len(result6) == 6, f"Should have 6 cells, got {len(result6)}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

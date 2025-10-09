@@ -1,7 +1,6 @@
 """
 # 912. Sort An Array
-**Medium**
-
+# Difficulty: Medium
 Given an array of integers nums, sort the array in ascending order and return it.
 
 You must solve the problem without using any built-in functions in O(nlog(n)) time complexity
@@ -85,7 +84,6 @@ Output: [1,2,3,5]
 """
 
 import random
-
 
 class Solution:
     def sortArray(self, nums: list[int]) -> list[int]:
@@ -250,7 +248,6 @@ class Solution:
         merge_sort_helper(0, len(nums) - 1)
         return nums
 
-
 def test_solution():
     """Test cases for Problem 912."""
     solution = Solution()
@@ -311,7 +308,6 @@ def test_solution():
     assert result11 == expected11, f"Expected {expected11}, got {result11}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

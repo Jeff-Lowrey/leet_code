@@ -1,7 +1,6 @@
 """
 # 1356. Sort Integers By The Number Of 1 Bits
-**Easy**
-
+# Difficulty: Easy
 You are given an integer array arr. Sort the integers in the array in ascending order by the number
 of 1's in their binary representation and in case of two or more integers have the same number of 1's
 you have to sort them in ascending order.
@@ -73,8 +72,6 @@ Output: [0,1,2,4,8,3,5,6,7]
 </details>
 """
 
-
-
 class Solution:
     def sortByBits(self, arr: list[int]) -> list[int]:
         """
@@ -139,7 +136,6 @@ class Solution:
 
         return sorted(arr, key=lambda x: (bit_counts[x], x))
 
-
 def test_solution():
     """Test cases for Problem 1356."""
     solution = Solution()
@@ -192,7 +188,6 @@ def test_solution():
     assert result8 == expected8, f"Expected {expected8}, got {result8}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

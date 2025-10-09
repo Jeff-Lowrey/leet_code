@@ -1,7 +1,6 @@
 """
 # 506. Relative Ranks
-**Easy**
-
+# Difficulty: Easy
 You are given an integer array score of size n, where score[i] is the score of the ith athlete
 in a competition. All the scores are guaranteed to be unique.
 
@@ -82,8 +81,6 @@ Output: ["Gold Medal","Silver Medal","Bronze Medal","4","5"]
 </details>
 """
 
-
-
 class Solution:
     def findRelativeRanks(self, score: list[int]) -> list[str]:
         """
@@ -155,7 +152,6 @@ class Solution:
         rank_map = {s: medals[i] if i < 3 else str(i + 1) for i, s in enumerate(sorted_scores)}
         return [rank_map[s] for s in score]
 
-
 def test_solution():
     """Test cases for Problem 506."""
     solution = Solution()
@@ -209,7 +205,6 @@ def test_solution():
     assert result9 == expected9, f"Expected {expected9}, got {result9}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

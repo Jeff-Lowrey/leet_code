@@ -1,7 +1,6 @@
 """
 # 324. Wiggle Sort II
-**Medium**
-
+# Difficulty: Medium
 Given an integer array nums, reorder it such that nums[0] < nums[1] > nums[2] < nums[3]...
 
 You may assume the input array always has a valid answer.
@@ -74,8 +73,6 @@ Reversing: [1,2,1,2,1,1] → place from middle outward
 
 </details>
 """
-
-
 
 class Solution:
     def wiggleSort(self, nums: list[int]) -> None:
@@ -174,7 +171,6 @@ class Solution:
         n = len(sorted_nums)
         return sorted_nums[(n - 1) // 2]
 
-
 def is_strict_wiggle(nums: list[int]) -> bool:
     """
     Check if array satisfies strict wiggle property.
@@ -195,7 +191,6 @@ def is_strict_wiggle(nums: list[int]) -> bool:
             if nums[i] <= nums[i + 1]:
                 return False
     return True
-
 
 def test_solution():
     """Test cases for Problem 324."""
@@ -250,7 +245,6 @@ def test_solution():
     assert is_strict_wiggle(nums8), f"Not strict wiggle: {nums8}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()
