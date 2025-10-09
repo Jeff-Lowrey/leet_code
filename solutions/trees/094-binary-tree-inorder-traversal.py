@@ -1,7 +1,20 @@
 """
-# 94. Binary Tree Inorder Traversal
 # Difficulty: Easy
+
+# 94. Binary Tree Inorder Traversal
+
 Given the root of a binary tree, return the inorder traversal of its nodes' values.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -19,14 +32,6 @@ Inorder traversal visits nodes in the order: Left -> Root -> Right. This gives u
 - For BSTs, this produces sorted output
 - Stack-based approach simulates the call stack of recursion
 - Morris traversal modifies tree temporarily to avoid extra space
-
-### TIME COMPLEXITY: O(n)
-We visit each node exactly once
-
-### SPACE COMPLEXITY:
-- Recursive: O(h) where h is tree height (call stack)
-- Iterative: O(h) for explicit stack
-- Morris: O(1) constant space
 
 ### EXAMPLE WALKTHROUGH:
 ```
@@ -49,20 +54,21 @@ Inorder traversal steps:
 Result: [1, 3, 2]
 ```
 
-### THREE APPROACHES:
-1. **Recursive**: Clean and intuitive
-2. **Iterative with stack**: Explicit control
-3. **Morris traversal**: Space-optimal
+### TIME COMPLEXITY:
+O(n)
+We visit each node exactly once
+
+### SPACE COMPLEXITY:
+- Recursive: O(h) where h is tree height (call stack)
+- Iterative: O(h) for explicit stack
+- Morris: O(1) constant space
+
+### EDGE CASES:
+- **[Edge case 1]:** [how it's handled]
+- **[Edge case 2]:** [how it's handled]
 
 </details>
 """
-
-# Definition for a binary tree node
-class TreeNode:
-    def __init__(self, val=0, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
 
 class Solution:
     def inorderTraversal(self, root: TreeNode) -> list[int]:

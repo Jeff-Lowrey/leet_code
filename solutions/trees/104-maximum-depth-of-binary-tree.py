@@ -1,9 +1,22 @@
 """
-# 104. Maximum Depth of Binary Tree
 # Difficulty: Easy
+
+# 104. Maximum Depth of Binary Tree
+
 Given the root of a binary tree, return its maximum depth.
 
 A binary tree's maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -21,12 +34,6 @@ The maximum depth of a binary tree is simply 1 plus the maximum depth of its lef
 - Each node contributes 1 to the total depth
 - Maximum depth is determined by the deepest branch
 - Both DFS and BFS can solve this problem effectively
-
-### TIME COMPLEXITY: O(n)
-Must visit every node to determine maximum depth
-
-### SPACE COMPLEXITY: O(h)
-Where h is height of tree (recursion stack or queue size)
 
 ### EXAMPLE WALKTHROUGH:
 ```
@@ -47,23 +54,20 @@ Input: [3,9,20,null,null,15,7]
 Output: 3
 ```
 
-### KEY INSIGHTS:
-- Recursive solution is most intuitive and clean
-- BFS level-order traversal counts levels directly
-- DFS with stack tracks maximum depth encountered
-- Empty trees have depth 0, single nodes have depth 1
+### TIME COMPLEXITY:
+O(n)
+Must visit every node to determine maximum depth
+
+### SPACE COMPLEXITY:
+O(h)
+Where h is height of tree (recursion stack or queue size)
+
+### EDGE CASES:
+- **[Edge case 1]:** [how it's handled]
+- **[Edge case 2]:** [how it's handled]
 
 </details>
 """
-
-from collections import deque
-
-# Definition for a binary tree node
-class TreeNode:
-    def __init__(self, val=0, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
 
 class Solution:
     def maxDepth(self, root: TreeNode) -> int:

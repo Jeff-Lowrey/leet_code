@@ -1,9 +1,22 @@
 """
-# 235. Lowest Common Ancestor of a Binary Search Tree
 # Difficulty: Medium
+
+# 235. Lowest Common Ancestor of a Binary Search Tree
+
 Given a binary search tree (BST), find the lowest common ancestor (LCA) of two given nodes in the BST.
 
 According to the definition of LCA on Wikipedia: "The lowest common ancestor is defined between two nodes p and q as the lowest node in T that has both p and q as descendants (where we allow a node to be a descendant of itself)."
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -22,12 +35,6 @@ In a BST, we can leverage the ordering property to find LCA efficiently. If both
 - The first node where p and q diverge (different subtrees) is the LCA
 - If one node equals current node, current node is the LCA
 - This is much more efficient than general tree LCA algorithms
-
-### TIME COMPLEXITY: O(h)
-Where h is the height of the tree. O(log n) for balanced BST, O(n) for skewed tree
-
-### SPACE COMPLEXITY: O(h)
-For recursion stack, O(1) for iterative solution
 
 ### EXAMPLE WALKTHROUGH:
 ```
@@ -49,21 +56,20 @@ Find LCA of 2 and 4:
 Output: 2
 ```
 
-### KEY INSIGHTS:
-- BST property makes LCA finding O(h) instead of O(n)
-- No need to search entire tree like in general binary tree
-- Can be solved iteratively or recursively
-- Works even when one node is ancestor of the other
+### TIME COMPLEXITY:
+O(h)
+Where h is the height of the tree. O(log n) for balanced BST, O(n) for skewed tree
+
+### SPACE COMPLEXITY:
+O(h)
+For recursion stack, O(1) for iterative solution
+
+### EDGE CASES:
+- **[Edge case 1]:** [how it's handled]
+- **[Edge case 2]:** [how it's handled]
 
 </details>
 """
-
-# Definition for a binary tree node
-class TreeNode:
-    def __init__(self, x):
-        self.val = x
-        self.left = None
-        self.right = None
 
 class Solution:
     def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':

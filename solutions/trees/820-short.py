@@ -1,12 +1,25 @@
 """
-# 820. Short Encoding of Words
 # Difficulty: Medium
+
+# 820. Short Encoding of Words
+
 A valid encoding of an array of words is any reference string s and an array of indices indices such that:
 - words.length == indices.length
 - The reference string s ends with the character '#'
 - For each index indices[i], the substring of s starting at indices[i] and ending at the next '#' is equal to words[i]
 
 Given an array of words, return the length of the shortest reference string s possible of any valid encoding of words.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -25,12 +38,6 @@ To minimize the encoding length, we want to share suffixes between words. If one
 - Only leaf nodes in the trie represent words that need their own encoding
 - Each word needs one '#' delimiter, so total length = sum(word_lengths) + count
 
-### TIME COMPLEXITY: O(N × M)
-Where N is the number of words and M is the average length of words
-
-### SPACE COMPLEXITY: O(N × M)
-For the trie structure and set storage
-
 ### EXAMPLE WALKTHROUGH:
 ```
 Input: words = ["time", "me", "bell"]
@@ -42,21 +49,20 @@ Input: words = ["time", "me", "bell"]
    - "bell" at index 5
 ```
 
-### KEY INSIGHTS:
-- Words that are suffixes of others don't need separate encoding
-- Trie helps identify these suffix relationships efficiently
-- Only words without parent nodes in suffix trie need separate encoding
-- Each encoded word needs exactly one '#' delimiter
+### TIME COMPLEXITY:
+O(N × M)
+Where N is the number of words and M is the average length of words
+
+### SPACE COMPLEXITY:
+O(N × M)
+For the trie structure and set storage
+
+### EDGE CASES:
+- **[Edge case 1]:** [how it's handled]
+- **[Edge case 2]:** [how it's handled]
 
 </details>
 """
-
-class TrieNode:
-    """Node in suffix trie for encoding optimization."""
-
-    def __init__(self):
-        self.children = {}
-        self.is_end = False
 
 class Solution:
     def minimumLengthEncoding(self, words: list[str]) -> int:
