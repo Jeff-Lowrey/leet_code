@@ -1,6 +1,6 @@
 """
-15. 3Sum
 # Difficulty: Medium
+
 Given an integer array `nums`, return all the triplets [`nums`[i], `nums`[j], `nums`[k]]
 such that `i` != `j`, `i` != `k`, and `j` != `k`, and `nums`[i] + `nums`[j] + `nums`[k] == 0.
 
@@ -9,6 +9,18 @@ Notice that the solution `set` must not contain duplicate triplets.
 Example:
 Input: `nums` = [-1,0,1,2,-1,-4]
 Output: [[-1,-1,2],[-1,0,1]]
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
+
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
@@ -24,15 +36,6 @@ Convert the 3Sum problem into multiple 2Sum problems. For each number, find pair
 ### WHY THIS WORKS:
 Sorting enables efficient duplicate skipping and the two-pointer technique. For each fixed first element, the problem reduces to finding two numbers that sum to a target, which is efficiently solved with two pointers.
 
-### TIME COMPLEXITY: O(n²)
-- O(n log n) for sorting
-- O(n²) for nested loops with two pointers
-- Overall: O(n²)
-
-### SPACE COMPLEXITY: O(1)
-- Excluding output space, only using constant extra space
-- Sorting can be done in-place
-
 ### EXAMPLE WALKTHROUGH:
 For nums = [-1,0,1,2,-1,-4], after sorting: [-4,-1,-1,0,1,2]
 1. i=0, nums[i]=-4, target=4: no valid pairs
@@ -44,10 +47,16 @@ For nums = [-1,0,1,2,-1,-4], after sorting: [-4,-1,-1,0,1,2]
    - No valid pairs
 5. Continue...
 
-### DUPLICATE HANDLING:
-- Skip duplicate values for the first element
-- After finding a valid triplet, skip duplicates for left and right pointers
-- This ensures no duplicate triplets in the result
+### TIME COMPLEXITY:
+O(n²)
+- O(n log n) for sorting
+- O(n²) for nested loops with two pointers
+- Overall: O(n²)
+
+### SPACE COMPLEXITY:
+O(1)
+- Excluding output space, only using constant extra space
+- Sorting can be done in-place
 
 ### EDGE CASES:
 - Array length < 3: return []

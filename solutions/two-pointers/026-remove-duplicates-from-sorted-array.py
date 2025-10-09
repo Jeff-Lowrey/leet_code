@@ -1,11 +1,24 @@
 """
-# 026. Remove Duplicates From Sorted Array
 # Difficulty: Easy
+
+# 026. Remove Duplicates From Sorted Array
+
 Given an integer array nums sorted in non-decreasing order, remove the duplicates in-place such that each unique element appears only once. The relative order of the elements should be kept the same.
 
 Since it is impossible to change the length of the array in some languages, you must instead have the result be placed in the first part of the array nums. More formally, if there are k elements after removing the duplicates, then the first k elements of nums should hold the final result.
 
 Return k after placing the final result in the first k slots of nums.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -25,12 +38,6 @@ This is a classic two-pointers problem. Since the array is sorted, duplicates ar
 - `j` tracks the "write" position for next unique element
 - `i` scans through all elements
 
-### TIME COMPLEXITY: O(n)
-Single pass through the array
-
-### SPACE COMPLEXITY: O(1)
-Only using constant extra space
-
 ### EXAMPLE WALKTHROUGH:
 ```
 Input: [1,1,2]
@@ -40,11 +47,17 @@ i=2, j=1: nums[2]=2 != nums[0], place at j=1
 Result: [1,2,_], return k=2
 ```
 
-### KEY INSIGHTS:
-- Start j at 1 since first element is always unique
-- Compare current element with previous unique element
-- Only increment j when placing a new unique element
-- Elements after position k don't matter
+### TIME COMPLEXITY:
+O(n)
+Single pass through the array
+
+### SPACE COMPLEXITY:
+O(1)
+Only using constant extra space
+
+### EDGE CASES:
+- **[Edge case 1]:** [how it's handled]
+- **[Edge case 2]:** [how it's handled]
 
 </details>
 """
