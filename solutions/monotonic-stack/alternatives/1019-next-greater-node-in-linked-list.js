@@ -1,6 +1,5 @@
 /**
- * 1019. Next Greater Node In Linked List
- * Medium
+
  *
  * This problem demonstrates key concepts in Monotonic Stack.
  *
@@ -11,10 +10,10 @@
  * A monotonic decreasing stack helps us efficiently track nodes waiting for their next greater value.
  *
  * APPROACH:
- * 1. Convert linked list to array (or process with indices)
- * 2. Use a monotonic decreasing stack storing indices
- * 3. When we find a larger value, pop all smaller values and update their results
- * 4. The stack stores indices of elements waiting for their next greater element
+
+
+
+
  *
  * WHY THIS WORKS:
  * - The stack maintains indices in decreasing order of values

@@ -1,6 +1,5 @@
 /**
- * 316. Remove Duplicate Letters
- * Medium
+
  *
  * This problem demonstrates key concepts in Monotonic Stack.
  *
@@ -12,12 +11,12 @@
  * by removing larger characters when a smaller one can replace them (if duplicates exist later).
  *
  * APPROACH:
- * 1. Count frequency of each character to know if we can remove it
- * 2. Use a stack to build result and a set to track characters already in stack
- * 3. For each character: decrement its count
- * 4. If already in result, skip it
- * 5. While stack top > current char AND stack top appears later, pop it
- * 6. Add current character to stack and mark as used
+
+
+
+
+
+
  *
  * WHY THIS WORKS:
  * - The stack maintains lexicographically smallest subsequence

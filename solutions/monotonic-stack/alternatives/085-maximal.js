@@ -1,6 +1,5 @@
 /**
- * 085. Maximal Rectangle
- * Hard
+
  *
  * This problem demonstrates key concepts in Monotonic Stack.
  *
@@ -12,10 +11,10 @@
  * "Largest Rectangle in Histogram" algorithm to find the max area for each row.
  *
  * APPROACH:
- * 1. For each row, build a height array tracking consecutive 1's from top
- * 2. Apply monotonic stack histogram algorithm on each row's height array
- * 3. Track the maximum area found across all rows
- * 4. Use the same logic as problem 084 for finding largest rectangle
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Each row can be viewed as a histogram problem

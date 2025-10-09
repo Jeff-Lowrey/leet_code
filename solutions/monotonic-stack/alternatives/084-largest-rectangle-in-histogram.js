@@ -1,6 +1,5 @@
 /**
- * 084. Largest Rectangle In Histogram
- * Hard
+
  *
  * This problem demonstrates key concepts in Monotonic Stack.
  *
@@ -12,11 +11,11 @@
  * A monotonic increasing stack helps us efficiently find these boundaries.
  *
  * APPROACH:
- * 1. Use a monotonic increasing stack to store indices of bars
- * 2. When we encounter a bar shorter than the stack top, we've found the right boundary
- * 3. Pop bars from stack and calculate area with each popped bar as the minimum height
- * 4. The left boundary is the new stack top, right boundary is current position
- * 5. Process remaining bars in stack after traversing all bars
+
+
+
+
+
  *
  * WHY THIS WORKS:
  * - The monotonic stack maintains indices in increasing order of heights

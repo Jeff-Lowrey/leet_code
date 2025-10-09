@@ -1,6 +1,5 @@
 /**
- * 901. Online Stock Span
- * Medium
+
  *
  * This problem demonstrates key concepts in Monotonic Stack.
  *
@@ -12,11 +11,11 @@
  * When we see a higher price, we can merge spans of lower prices.
  *
  * APPROACH:
- * 1. Use a stack to store [price, span] pairs
- * 2. For each new price, initialize span = 1
- * 3. While stack top price <= current price, pop and add its span to current span
- * 4. Push [current price, current span] to stack
- * 5. Return the span
+
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Stack maintains prices in decreasing order from bottom to top

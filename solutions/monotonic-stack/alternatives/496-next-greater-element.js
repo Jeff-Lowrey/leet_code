@@ -1,6 +1,5 @@
 /**
- * 496. Next Greater Element I
- * Easy
+
  *
  * This problem demonstrates key concepts in Monotonic Stack.
  *
@@ -12,10 +11,10 @@
  * all smaller elements with their next greater element.
  *
  * APPROACH:
- * 1. Traverse nums2 with a monotonic stack
- * 2. For each element, pop all smaller elements from stack and map them to current element
- * 3. Push current element to stack
- * 4. Build result array by looking up each nums1 element in the mapping
+
+
+
+
  *
  * WHY THIS WORKS:
  * - The monotonic stack ensures we process elements in the correct order

@@ -1,6 +1,5 @@
 /**
- * 402. Remove K Digits
- * Medium
+
  *
  * This problem demonstrates key concepts in Monotonic Stack.
  *
@@ -12,11 +11,11 @@
  * removals left). This greedily builds the smallest possible number.
  *
  * APPROACH:
- * 1. Use a stack to build result, maintaining increasing order when possible
- * 2. For each digit: while stack top > current digit AND k > 0, pop and decrement k
- * 3. Push current digit to stack
- * 4. After processing all digits, if k > 0, remove from end (largest digits)
- * 5. Remove leading zeros and handle empty result
+
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Monotonic increasing stack keeps smaller digits at front

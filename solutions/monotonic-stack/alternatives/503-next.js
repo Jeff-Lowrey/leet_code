@@ -1,6 +1,5 @@
 /**
- * 503. Next Greater Element II
- * Medium
+
  *
  * This problem demonstrates key concepts in Monotonic Stack.
  *
@@ -12,11 +11,11 @@
  * decreasing stack helps find the next greater element efficiently.
  *
  * APPROACH:
- * 1. Initialize result array with -1 (default when no greater element exists)
- * 2. Use monotonic decreasing stack storing indices
- * 3. Traverse array twice (2*n iterations) using modulo to simulate circular array
- * 4. For each element, pop indices with smaller values and update their results
- * 5. Only push indices in first pass to avoid duplicates
+
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Two passes ensure we check elements after wrapping around

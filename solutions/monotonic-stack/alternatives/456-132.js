@@ -1,6 +1,5 @@
 /**
- * 456. 132 Pattern
- * Medium
+
  *
  * This problem demonstrates key concepts in Monotonic Stack.
  *
@@ -12,11 +11,11 @@
  * Keep track of the largest valid nums[k] found so far. If we find nums[i] < nums[k], we have a 132 pattern.
  *
  * APPROACH:
- * 1. Traverse array from right to left
- * 2. Use monotonic decreasing stack to find nums[k] candidates
- * 3. Track the maximum nums[k] value seen (second largest in pattern)
- * 4. When current element < nums[k], we found nums[i] completing the 132 pattern
- * 5. While processing, pop smaller elements to update potential nums[k]
+
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Processing right to left lets us find nums[j] and nums[k] first

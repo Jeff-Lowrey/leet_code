@@ -1,6 +1,5 @@
 /**
- * 739. Daily Temperatures
- * Medium
+
  *
  * This problem demonstrates key concepts in Monotonic Stack.
  *
@@ -12,11 +11,11 @@
  * we can resolve all cooler days in the stack.
  *
  * APPROACH:
- * 1. Initialize result array with zeros (default when no warmer day exists)
- * 2. Use a monotonic decreasing stack storing indices
- * 3. For each day, pop indices with cooler temperatures and calculate wait days
- * 4. Push current day's index to stack
- * 5. Days remaining in stack have no warmer future day (already 0)
+
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Stack maintains indices in decreasing order of temperatures
