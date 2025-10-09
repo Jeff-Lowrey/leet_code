@@ -1,6 +1,6 @@
 """
-57. Insert Interval
 # Difficulty: Medium
+
 You are given an array of `non-overlapping` intervals where intervals[i] = [starti, endi]
 represent the start and the end of the ith interval and intervals is sorted in
 ascending order by starti. You are also given an interval newInterval = [`start`, end].
@@ -10,6 +10,17 @@ Insert newInterval into intervals such that intervals is still sorted and `non-o
 Example:
 Input: intervals = [[1,3],[6,9]], newInterval = [2,5]
 Output: [[1,5],[6,9]]
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -25,9 +36,8 @@ Since intervals are sorted and `non-overlapping`, we can process them in three p
 2. **Merge Phase**: Merge all overlapping intervals with newInterval
 3. **After Phase**: Add all remaining intervals
 
-### KEY INSIGHT:
-Two intervals [a,b] and [c,d] overlap if: `max(a,c) <= min(b,d)`
-Or equivalently: NOT (`b < c` OR `d < a`)
+### WHY THIS WORKS:
+- [Explanation of correctness]
 
 ### EXAMPLE WALKTHROUGH:
 ```
@@ -40,12 +50,15 @@ Phase 3: [6,9] doesn't overlap (`6 > 5`) → add `as-is`
 Result: [[1,5],[6,9]]
 ```
 
-### MERGE LOGIC:
-- **Start**: min(interval_start, newInterval_start)
-- **End**: max(interval_end, newInterval_end)
+### TIME COMPLEXITY:
+O(n)
 
-### TIME COMPLEXITY: O(n)
-### SPACE COMPLEXITY: O(n) for result array
+### SPACE COMPLEXITY:
+O(n) for result array
+
+### EDGE CASES:
+- **[Edge case 1]:** [how it's handled]
+- **[Edge case 2]:** [how it's handled]
 
 </details>
 """
