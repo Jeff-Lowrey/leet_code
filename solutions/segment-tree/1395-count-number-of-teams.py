@@ -1,7 +1,6 @@
 """
 # 1395. Count Number Of Teams
-**Medium**
-
+# Difficulty: Medium
 There are n soldiers standing in a line. Every soldier has a unique rating value.
 
 You have to form a team of 3 soldiers amongst them under the following rules:
@@ -64,7 +63,6 @@ Total: 1 + 1 + 1 = 3 teams
 
 </details>
 """
-
 
 class Solution:
     def numTeams(self, rating: list[int]) -> int:
@@ -280,7 +278,6 @@ class Solution:
 
         return count
 
-
 def test_solution():
     """Test cases for Problem 1395."""
     solution = Solution()
@@ -336,7 +333,6 @@ def test_solution():
     assert result10 == expected10, f"Expected {expected10}, got {result10}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

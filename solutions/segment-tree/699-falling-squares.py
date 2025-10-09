@@ -1,7 +1,6 @@
 """
 # 699. Falling Squares
-**Hard**
-
+# Difficulty: Hard
 There are several squares being dropped onto the X-axis of a 2D plane.
 
 You are given a 2D integer array positions where positions[i] = [lefti, sideLengthi] represents the ith square with a side length of sideLengthi that is dropped with its left edge aligned with X-coordinate lefti.
@@ -58,8 +57,6 @@ Heights: [2, 5, 5]
 
 </details>
 """
-
-
 
 class Solution:
     def fallingSquares(self, positions: list[list[int]]) -> list[int]:
@@ -192,7 +189,6 @@ class Solution:
 
         return result
 
-
 def test_solution():
     """Test cases for Problem 699."""
     solution = Solution()
@@ -233,7 +229,6 @@ def test_solution():
     assert result7 == expected7, f"Expected {expected7}, got {result7}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

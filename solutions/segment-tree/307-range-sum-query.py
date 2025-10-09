@@ -1,7 +1,6 @@
 """
 307. Range Sum `Query - Mutable`
-Medium
-
+# Difficulty: Medium
 Given an integer array `nums`, handle multiple queries of the following types:
 1. Update the value of an element in `nums`.
 2. Calculate the sum of the elements of `nums` between indices `left` and `right` inclusive.
@@ -59,7 +58,6 @@ Tree:     9
 </details>
 """
 
-
 class NumArray:
     """
     Approach: Segment Tree
@@ -106,7 +104,6 @@ class NumArray:
 
         return result
 
-
 class NumArrayBIT:
     """
     Approach: Binary Indexed Tree (Fenwick Tree)
@@ -143,11 +140,9 @@ class NumArrayBIT:
     def sumRange(self, left: int, right: int) -> int:
         return self._queryBIT(right + 1) - self._queryBIT(left)
 
-
 """
 315. Count of Smaller Numbers After Self
-Hard
-
+# Difficulty: Hard
 Given an integer array nums, return an integer array counts where counts[i] is
 the number of smaller elements to the right of nums[i].
 
@@ -155,7 +150,6 @@ Example:
 Input: nums = [5,2,6,1]
 Output: [2,1,1,0]
 """
-
 
 class Solution:
     def countSmaller(self, nums: list[int]) -> list[int]:
@@ -232,7 +226,6 @@ class Solution:
             bit.update(rank)
 
         return result[::-1]
-
 
 # Test cases
 if __name__ == "__main__":

@@ -1,7 +1,6 @@
 """
 # 673. Number Of Longest Increasing Subsequence
-**Medium**
-
+# Difficulty: Medium
 Given an integer array nums, return the number of longest increasing subsequences.
 
 Notice that the sequence has to be strictly increasing.
@@ -67,8 +66,6 @@ Output: 2
 
 </details>
 """
-
-
 
 class Solution:
     def findNumberOfLIS(self, nums: list[int]) -> int:
@@ -258,7 +255,6 @@ class Solution:
             result = bit.merge(result, bit.tree[i])
         return result[1]
 
-
 def test_solution():
     """Test cases for Problem 673."""
     solution = Solution()
@@ -304,7 +300,6 @@ def test_solution():
     assert result8 == expected8, f"Expected {expected8}, got {result8}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

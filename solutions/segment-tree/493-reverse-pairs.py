@@ -1,7 +1,6 @@
 """
 # 493. Reverse Pairs
-**Hard**
-
+# Difficulty: Hard
 Given an integer array nums, return the number of reverse pairs in the array.
 
 A reverse pair is a pair (i, j) where:
@@ -58,8 +57,6 @@ Output: 2
 
 </details>
 """
-
-
 
 class Solution:
     def reversePairs(self, nums: list[int]) -> int:
@@ -274,7 +271,6 @@ class Solution:
                     count += 1
         return count
 
-
 def test_solution():
     """Test cases for Problem 493."""
     solution = Solution()
@@ -324,7 +320,6 @@ def test_solution():
     assert result10 == expected10, f"Expected {expected10}, got {result10}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

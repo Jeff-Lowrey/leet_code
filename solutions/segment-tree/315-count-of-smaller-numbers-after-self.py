@@ -1,7 +1,6 @@
 """
 # 315. Count Of Smaller Numbers After Self
-**Hard**
-
+# Difficulty: Hard
 Given an integer array nums, return an integer array counts where counts[i] is the number of smaller elements to the right of nums[i].
 
 <details>
@@ -54,7 +53,6 @@ Output: [2,1,1,0]
 
 </details>
 """
-
 
 class Solution:
     def countSmaller(self, nums: list[int]) -> list[int]:
@@ -246,7 +244,6 @@ class Solution:
             result.append(count)
         return result
 
-
 def test_solution():
     """Test cases for Problem 315."""
     solution = Solution()
@@ -302,7 +299,6 @@ def test_solution():
     assert result10 == expected10, f"Expected {expected10}, got {result10}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

@@ -1,7 +1,6 @@
 """
 # 715. Range Module
-**Hard**
-
+# Difficulty: Hard
 A Range Module is a module that tracks ranges of numbers. Design a data structure to track the ranges represented as half-open intervals and query about them.
 
 A half-open interval [left, right) denotes all the real numbers x where left <= x < right.
@@ -71,7 +70,6 @@ queryRange(16, 17): true (fully covered)
 """
 
 import bisect
-
 
 class RangeModule:
     """
@@ -179,7 +177,6 @@ class RangeModule:
 
         self.intervals = new_intervals
 
-
 class RangeModuleSegmentTree:
     """
     Range module using segment tree with lazy propagation.
@@ -250,7 +247,6 @@ class RangeModuleSegmentTree:
         """Remove range [left, right)."""
         self._update(1, 0, self.MAX_VAL, left, right, 0)
 
-
 def test_solution():
     """Test cases for Problem 715."""
 
@@ -305,7 +301,6 @@ def test_solution():
     assert not result10, f"Expected False, got {result10}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

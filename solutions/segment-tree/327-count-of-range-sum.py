@@ -1,7 +1,6 @@
 """
 # 327. Count Of Range Sum
-**Hard**
-
+# Difficulty: Hard
 Given an integer array nums and two integers lower and upper, return the number of range sums that lie in [lower, upper] inclusive.
 
 Range sum S(i, j) is defined as the sum of the elements in nums between indices i and j inclusive, where i <= j.
@@ -59,8 +58,6 @@ Output: 3
 
 </details>
 """
-
-
 
 class Solution:
     def countRangeSum(self, nums: list[int], lower: int, upper: int) -> int:
@@ -302,7 +299,6 @@ class Solution:
 
         return count
 
-
 def test_solution():
     """Test cases for Problem 327."""
     solution = Solution()
@@ -358,7 +354,6 @@ def test_solution():
     assert result10 == expected10, f"Expected {expected10}, got {result10}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()
