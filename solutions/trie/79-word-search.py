@@ -1,9 +1,22 @@
 """
-# 79. Word Search
 # Difficulty: Medium
+
+# 79. Word Search
+
 Given an m x n grid of characters board and a string word, return true if word exists in the grid.
 
 The word can be constructed from letters of sequentially adjacent cells, where adjacent cells are horizontally or vertically neighboring. The same letter cell may not be used more than once.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -28,14 +41,6 @@ Optional Trie optimization: Pre-check if word's prefix exists (useful for multip
 - Base cases handle word completion and boundary conditions
 - Early termination avoids unnecessary exploration
 
-### TIME COMPLEXITY: O(M * N * 4^L)
-Where M*N is board size, L is word length
-- We try each cell as start: O(M*N)
-- From each cell, explore 4 directions recursively: O(4^L)
-
-### SPACE COMPLEXITY: O(L)
-For recursion stack depth (word length)
-
 ### EXAMPLE WALKTHROUGH:
 ```
 board = [['A','B','C','E'],
@@ -59,12 +64,15 @@ Try (0,0) 'A':
 Result: True (found path)
 ```
 
-### KEY INSIGHTS:
-- Need to try all cells as potential starting points
-- Backtracking is essential for exploring alternative paths
-- Marking with '#' or using visited set prevents cycles
-- Four-direction exploration covers all adjacent cells
-- No need for Trie for single word (but useful for multiple words)
+### TIME COMPLEXITY:
+O(M * N * 4^L)
+Where M*N is board size, L is word length
+- We try each cell as start: O(M*N)
+- From each cell, explore 4 directions recursively: O(4^L)
+
+### SPACE COMPLEXITY:
+O(L)
+For recursion stack depth (word length)
 
 ### EDGE CASES:
 - Word longer than total cells

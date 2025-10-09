@@ -1,9 +1,22 @@
 """
-# 212. Word Search II
 # Difficulty: Hard
+
+# 212. Word Search II
+
 Given an m x n board of characters and a list of strings words, return all words on the board.
 
 Each word must be constructed from letters of sequentially adjacent cells, where adjacent cells are horizontally or vertically neighboring. The same letter cell may not be used more than once in a word.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -24,15 +37,6 @@ Searching for multiple words on a board can be optimized using a Trie. Instead o
 - Single DFS traversal instead of separate search for each word
 - Prefix matching eliminates invalid paths early
 - Backtracking explores all possible paths while avoiding revisits
-
-### TIME COMPLEXITY: O(M * N * 4^L)
-Where M*N is board size, L is maximum word length
-- We visit each cell and explore 4 directions recursively
-- Trie operations are O(L)
-
-### SPACE COMPLEXITY: O(K * L)
-Where K is number of words, L is average word length
-- Trie storage for all words
 
 ### EXAMPLE WALKTHROUGH:
 ```
@@ -64,12 +68,16 @@ DFS from (1,0) 'e':
 Results: ["oath", "eat"]
 ```
 
-### KEY INSIGHTS:
-- Trie enables simultaneous multi-word search
-- Backtracking with visited set prevents cycles
-- Early termination when prefix not in Trie
-- Can optimize by removing found words from Trie
-- Shared prefixes save significant computation
+### TIME COMPLEXITY:
+O(M * N * 4^L)
+Where M*N is board size, L is maximum word length
+- We visit each cell and explore 4 directions recursively
+- Trie operations are O(L)
+
+### SPACE COMPLEXITY:
+O(K * L)
+Where K is number of words, L is average word length
+- Trie storage for all words
 
 ### EDGE CASES:
 - No words found on board
@@ -80,13 +88,6 @@ Results: ["oath", "eat"]
 
 </details>
 """
-
-class TrieNode:
-    """Node in the trie for word search."""
-
-    def __init__(self):
-        self.children = {}  # character -> TrieNode
-        self.word = None  # Complete word at this node (if any)
 
 class Solution:
     def findWords(self, board: list[list[str]], words: list[str]) -> list[str]:

@@ -1,9 +1,22 @@
 """
-# 720. Longest Word In Dictionary
 # Difficulty: Easy
+
+# 720. Longest Word In Dictionary
+
 Given an array of strings words representing an English Dictionary, return the longest word in words that can be built one character at a time by other words in words.
 
 If there is more than one possible answer, return the longest word with the smallest lexicographical order. If there is no answer, return the empty string.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -24,14 +37,6 @@ We need to find the longest word where all its prefixes exist as words in the di
 - DFS/BFS explores all buildable words systematically
 - Path validation ensures all prefixes exist
 - Lexicographic ordering handled by trie structure (or sorting)
-
-### TIME COMPLEXITY: O(N * L)
-Where N is number of words, L is average word length
-- Building trie: O(N * L)
-- DFS traversal: O(N * L)
-
-### SPACE COMPLEXITY: O(N * L)
-For trie storage
 
 ### EXAMPLE WALKTHROUGH:
 ```
@@ -66,12 +71,15 @@ Build Trie:
 Result: "apple" (lexicographically smaller than "apply")
 ```
 
-### KEY INSIGHTS:
-- All prefixes must be words in the dictionary
-- Trie structure makes prefix checking O(1) at each step
-- DFS naturally explores all valid buildable words
-- Sorting words first helps with lexicographic requirement
-- Can also use BFS level by level
+### TIME COMPLEXITY:
+O(N * L)
+Where N is number of words, L is average word length
+- Building trie: O(N * L)
+- DFS traversal: O(N * L)
+
+### SPACE COMPLEXITY:
+O(N * L)
+For trie storage
 
 ### EDGE CASES:
 - Empty word list
@@ -82,14 +90,6 @@ Result: "apple" (lexicographically smaller than "apply")
 
 </details>
 """
-
-class TrieNode:
-    """Node in the trie for dictionary words."""
-
-    def __init__(self):
-        self.children = {}  # character -> TrieNode
-        self.is_word = False  # True if this is end of a word
-        self.word = ""  # Store the actual word at end nodes
 
 class Solution:
     def longestWord(self, words: list[str]) -> str:
