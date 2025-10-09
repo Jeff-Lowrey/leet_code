@@ -1,51 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * Given an unsorted array of integers nums, return the length of the longest
- * consecutive elements sequence.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * To find the longest consecutive sequence efficiently, we need to avoid sorting (O(n log n)).
- * Use a Set for O(1) lookups and only start counting from the beginning of each sequence.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Set provides O(1) lookup to check if consecutive numbers exist
- * - Only starting from sequence beginnings avoids redundant counting
- * - Each number is visited at most twice (once to check, once to count)
- * - This achieves O(n) time complexity despite nested loops
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n) - each number visited at most twice
- * SPACE COMPLEXITY: O(n) - for the Set storage
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
- * Input: [100,4,200,1,3,2]
- * Set: {100, 4, 200, 1, 3, 2}
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
  *
- * Check 100: 99 not in set → start sequence
- *   Count: 100 → length 1
- * Check 4: 3 is in set → skip (not a start)
- * Check 200: 199 not in set → start sequence
- *   Count: 200 → length 1
- * Check 1: 0 not in set → start sequence
- *   Count: 1,2,3,4 → length 4
- * Check 3: 2 is in set → skip
- * Check 2: 1 is in set → skip
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * [example input]
+ * ```
  *
- * Result: 4 (sequence 1,2,3,4)
+ * **Step 1:** [description]
  *
- * EDGE CASES:
- * - Empty array: return 0
- * - Single element: return 1
- * - No consecutive numbers: return 1
- * - All same numbers: return 1
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

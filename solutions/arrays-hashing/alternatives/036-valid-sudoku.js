@@ -1,47 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * Determine if a 9 x 9 Sudoku board is valid. Only the filled cells need to be validated
- * according to the following rules:
-
-
-
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Use hash sets to track numbers in each row, column, and 3x3 box. For each filled cell,
- * check if the number already exists in its row, column, or box.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Each number can appear only once per row, column, and box
- * - Sets provide O(1) lookup for duplicate detection
- * - Box index calculation: (row // 3) * 3 + (col // 3)
- * - Single pass through the board is sufficient
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(1) - fixed 9x9 board size
- * SPACE COMPLEXITY: O(1) - at most 9 numbers per row/column/box
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
- * Board with duplicate '5' in first row:
- * [["5","3",".",".","7",".",".",".","."],
- *  ["6",".",".","1","9","5",".",".","."],
- *  ...
- * Step 1: Process (0,0) = "5" → add to row[0], col[0], box[0]
- * Step 2: Process (0,1) = "3" → add to row[0], col[1], box[0]
- * Step 3: Process (0,4) = "7" → add to row[0], col[4], box[1]
- * Result: Valid so far...
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
  *
- * EDGE CASES:
- * - Empty board (all dots): valid
- * - Single number repeated in row/column/box: invalid
- * - Numbers outside 1-9 range: invalid (but not in this problem)
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * [example input]
+ * ```
+ *
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

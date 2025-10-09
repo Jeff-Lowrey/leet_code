@@ -1,39 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * Given an integer array nums, return an array answer such that answer[i] is equal to the
- * product of all the elements of nums except nums[i].
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * We need to calculate the product of all elements except the current one. A naive approach
- * would be O(n²), but we can optimize using left and right products in two passes.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - For position i, we need: leftProduct[i] * rightProduct[i]
- * - First pass fills result with left products
- * - Second pass multiplies by right products in reverse order
- * - This avoids creating separate left/right arrays
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n) - two passes through the array
- * SPACE COMPLEXITY: O(1) - excluding the output array
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
- * Input: [1,2,3,4]
- * Left pass: [1,1,2,6] (products of elements to the left)
- * Right pass: [24,12,8,6] (multiply by products from the right)
- * Output: [24,12,8,6]
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
  *
- * EDGE CASES:
- * - Array with zeros: handle carefully to avoid zero products
- * - Single element: return [1]
- * - Two elements: [b, a] for input [a, b]
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * [example input]
+ * ```
+ *
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

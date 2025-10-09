@@ -1,41 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * Given an integer array nums and an integer k, return the k most frequent elements.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * We need to find the k most frequent elements efficiently. We can use a frequency map
- * combined with bucket sort or a heap approach for optimal performance.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Frequency counting gives us the foundation for ranking elements
- * - Bucket sort approach allows O(n) time complexity instead of O(n log n)
- * - Space complexity is optimized by using buckets instead of sorting
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n) - linear scan for counting and bucket traversal
- * SPACE COMPLEXITY: O(n) - for frequency map and buckets
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: nums = [1,1,1,2,2,3], k = 2
- * Step 1: Count frequencies: {1: 3, 2: 2, 3: 1}
- * Step 2: Create buckets: index 1: [3], index 2: [2], index 3: [1]
- * Step 3: Traverse from highest frequency: [1, 2]
- * Output: [1, 2]
+ * [example input]
  * ```
  *
- * EDGE CASES:
- * - Empty input: return empty array
- * - k >= unique elements: return all unique elements
- * - Single element: return that element
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**
