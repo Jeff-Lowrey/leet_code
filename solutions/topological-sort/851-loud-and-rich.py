@@ -1,7 +1,6 @@
 """
 # 851. Loud And Rich
-**Medium**
-
+# Difficulty: Medium
 Given a problem that demonstrates key concepts in Topological Sort.
 
 <details>

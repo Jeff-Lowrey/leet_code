@@ -1,7 +1,6 @@
 """
 # 630. Course
-**Medium**
-
+# Difficulty: Medium
 Given a problem that demonstrates key concepts in Topological Sort.
 
 <details>
