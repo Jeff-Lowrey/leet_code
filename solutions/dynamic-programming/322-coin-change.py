@@ -1,7 +1,6 @@
 """
 322. Coin Change
-Medium
-
+# Difficulty: Medium
 You are given an integer array coins representing coins of different denominations
 and an integer amount representing a total amount of money.
 
@@ -153,7 +152,6 @@ class Solution:
                         queue.append(next_amount)
 
         return -1
-
 
 # Test cases
 if __name__ == "__main__":

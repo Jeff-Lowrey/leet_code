@@ -1,7 +1,6 @@
 """
 5. Longest Palindromic Substring
-Medium
-
+# Difficulty: Medium
 Given a string s, return the longest palindromic substring in s.
 
 Example:
@@ -158,11 +157,9 @@ class Solution:
         start = (center_index - max_len) // 2
         return s[start:start + max_len]
 
-
 """
 647. Palindromic Substrings
-Medium
-
+# Difficulty: Medium
 Given a string s, return the number of palindromic substrings in it.
 
 Example:
@@ -226,11 +223,9 @@ class SolutionCount:
 
         return count
 
-
 """
 409. Longest Palindrome
-Easy
-
+# Difficulty: Easy
 Given a string s which consists of lowercase or uppercase letters, return the
 length of the longest palindrome that can be built with those letters.
 
@@ -279,7 +274,6 @@ class SolutionBuild:
 
         # Length is total chars minus odd chars (except one can be in middle)
         return len(s) - len(odd_chars) + (1 if odd_chars else 0)
-
 
 # Test cases
 if __name__ == "__main__":

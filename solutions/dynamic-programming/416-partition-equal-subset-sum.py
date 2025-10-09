@@ -1,7 +1,6 @@
 """
 # 416. Partition Equal Subset Sum
-**Medium**
-
+# Difficulty: Medium
 Given a problem that demonstrates key concepts in Dynamic Programming.
 
 <details>

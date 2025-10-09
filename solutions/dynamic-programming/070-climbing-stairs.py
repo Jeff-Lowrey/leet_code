@@ -1,7 +1,6 @@
 """
 70. Climbing Stairs
-Easy
-
+# Difficulty: Easy
 You are climbing a staircase. It takes `n` steps to reach the top.
 
 Each time you can either climb 1 or 2 steps. In how many distinct ways can you
@@ -118,7 +117,6 @@ class Solution:
             return memo[n]
 
         return helper(n)
-
 
 # Test cases
 if __name__ == "__main__":
