@@ -1,43 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Queue.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Use BFS level-order traversal to connect nodes at the same level.
- * For each level, connect each node to its right neighbor.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * BFS processes nodes level by level in left-to-right order. By connecting
- * each node to the next node in the same level, we establish the next pointers.
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n) - Visit each node once
- * SPACE COMPLEXITY: O(w) - Queue holds at most one level width
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
- * Input: root = [1,2,3,4,5,6,7]
- *          1
- *        /   \
- *       2  →  3
- *      / \   / \
- *     4→ 5→ 6→ 7
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
  *
- * Level 0: 1 → null
- * Level 1: 2 → 3 → null
- * Level 2: 4 → 5 → 6 → 7 → null
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * [example input]
+ * ```
  *
- * EDGE CASES:
- * - Empty tree (null root)
- * - Single node tree
- * - Perfect binary tree (guaranteed by problem)
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 // Definition for a Node
