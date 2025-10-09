@@ -497,6 +497,10 @@ def extract_js_problem_description(code: str) -> str | None:
             else:
                 problem_description = jsdoc_content.strip()
 
+            # Remove "Difficulty:" line from problem description
+            # This metadata is shown as a badge, not in the problem text
+            problem_description = re.sub(r'^Difficulty:\s*\w+\s*\n?', '', problem_description, flags=re.MULTILINE)
+
             # Convert to HTML
             problem_html = markdown.markdown(problem_description, extensions=["fenced_code", "tables"])
             return problem_html
