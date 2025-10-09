@@ -1,7 +1,6 @@
 """
 # 076. Minimum Window Substring
-**Medium**
-
+# Difficulty: Medium
 Given a problem that demonstrates key concepts in Sliding Window.
 
 <details>

@@ -1,7 +1,6 @@
 """
 # 209. Minimum Size Subarray Sum
-**Medium**
-
+# Difficulty: Medium
 Given a problem that demonstrates key concepts in Sliding Window.
 
 <details>

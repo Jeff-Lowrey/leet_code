@@ -1,7 +1,6 @@
 """
 # 904. Fruit Into Baskets
-**Medium**
-
+# Difficulty: Medium
 Given a problem that demonstrates key concepts in Sliding Window.
 
 <details>

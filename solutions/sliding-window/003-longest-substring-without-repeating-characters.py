@@ -1,7 +1,6 @@
 """
 # 003. Longest Substring Without Repeating Characters
-**Medium**
-
+# Difficulty: Medium
 Given a problem that demonstrates key concepts in Sliding Window.
 
 <details>

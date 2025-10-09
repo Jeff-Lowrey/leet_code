@@ -1,7 +1,6 @@
 """
 # 121. Best Time to Buy and Sell Stock
-**Easy**
-
+# Difficulty: Easy
 You are given an array prices where prices[i] is the price of a given stock on the ith day.
 
 You want to maximize your profit by choosing a single day to buy one stock and choosing a different day in the future to sell that stock.
@@ -151,7 +150,6 @@ class Solution:
 
         return max_profit
 
-
 def test_solution():
     """
     Test cases for 121. Best Time to Buy and Sell Stock.
@@ -198,7 +196,6 @@ def test_solution():
 
     print("All test cases passed!")
 
-
 def analyze_stock_example(prices: list[int]):
     """Analyze a stock price example step by step."""
     print(f"\nAnalyzing prices: {prices}")
@@ -237,7 +234,6 @@ def analyze_stock_example(prices: list[int]):
         print(f"Maximum profit: ${max_profit}")
     else:
         print(f"No profitable transaction possible")
-
 
 if __name__ == "__main__":
     test_solution()

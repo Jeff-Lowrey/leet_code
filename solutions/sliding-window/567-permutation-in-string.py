@@ -1,7 +1,6 @@
 """
 # 567. Permutation In String
-**Medium**
-
+# Difficulty: Medium
 Given a problem that demonstrates key concepts in Sliding Window.
 
 <details>

@@ -1,7 +1,6 @@
 """
 # 239. Sliding Window Maximum
-**Medium**
-
+# Difficulty: Medium
 Given a problem that demonstrates key concepts in Sliding Window.
 
 <details>

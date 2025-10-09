@@ -1,7 +1,6 @@
 """
 # 643. Maximum Average Subarray I
-**Medium**
-
+# Difficulty: Medium
 Given a problem that demonstrates key concepts in Sliding Window.
 
 <details>
