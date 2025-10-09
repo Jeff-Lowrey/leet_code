@@ -1,7 +1,20 @@
 """
-# 232. Implement Queue using Stacks
 # Difficulty: Easy
+
+# 232. Implement Queue using Stacks
+
 Implement a first-in-first-out (FIFO) queue using only two stacks.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -27,14 +40,6 @@ The key insight is to transfer elements between stacks when needed.
 - Amortized O(1) for all operations
 - Each element is moved at most twice (input -> output -> removed)
 
-### TIME COMPLEXITY:
-- push: O(1)
-- pop: Amortized O(1)
-- peek: Amortized O(1)
-- empty: O(1)
-
-### SPACE COMPLEXITY: O(n) for storing n elements
-
 ### EXAMPLE WALKTHROUGH:
 ```
 push(1): input=[1], output=[]
@@ -45,6 +50,15 @@ push(3): input=[3], output=[2]
 pop(): output=[2], return 2
 ```
 
+### TIME COMPLEXITY:
+- push: O(1)
+- pop: Amortized O(1)
+- peek: Amortized O(1)
+- empty: O(1)
+
+### SPACE COMPLEXITY:
+O(n) for storing n elements
+
 ### EDGE CASES:
 - Empty queue
 - Single element
@@ -52,172 +66,6 @@ pop(): output=[2], return 2
 - Alternating push/pop
 
 </details>
-
-<details>
-<summary><b>💡 APPROACH</b></summary>
-
-The approach uses two stacks with lazy transfer for efficient queue operations.
-
-### Algorithm Steps:
-1. Maintain input_stack for pushes
-2. Maintain output_stack for pops/peeks
-3. Transfer elements from input to output only when output is empty
-
-</details>
 """
 
-class MyQueue:
-    """
-    Queue implementation using two stacks.
 
-    Implements FIFO behavior using two LIFO stacks.
-    """
-
-    def __init__(self):
-        """
-        Initialize the queue.
-
-        Time Complexity: O(1)
-        Space Complexity: O(1)
-        """
-        self.input_stack = []   # For push operations
-        self.output_stack = []  # For pop/peek operations
-
-    def push(self, x: int) -> None:
-        """
-        Push element x to the back of queue.
-
-        Args:
-            x: Element to push
-
-        Time Complexity: O(1)
-        Space Complexity: O(1)
-        """
-        self.input_stack.append(x)
-
-    def pop(self) -> int:
-        """
-        Remove and return the element from front of queue.
-
-        Returns:
-            int: Front element
-
-        Time Complexity: Amortized O(1)
-        Space Complexity: O(1)
-        """
-        self._transfer_if_needed()
-        return self.output_stack.pop()
-
-    def peek(self) -> int:
-        """
-        Get the front element without removing it.
-
-        Returns:
-            int: Front element
-
-        Time Complexity: Amortized O(1)
-        Space Complexity: O(1)
-        """
-        self._transfer_if_needed()
-        return self.output_stack[-1]
-
-    def empty(self) -> bool:
-        """
-        Check if the queue is empty.
-
-        Returns:
-            bool: True if empty, False otherwise
-
-        Time Complexity: O(1)
-        Space Complexity: O(1)
-        """
-        return len(self.input_stack) == 0 and len(self.output_stack) == 0
-
-    def _transfer_if_needed(self) -> None:
-        """
-        Helper method to transfer elements from input to output stack.
-
-        Only transfers when output_stack is empty.
-
-        Time Complexity: O(n) for transfer, but amortized O(1)
-        Space Complexity: O(1)
-        """
-        if not self.output_stack:
-            while self.input_stack:
-                self.output_stack.append(self.input_stack.pop())
-
-def test_solution():
-    """
-    Test cases for MyQueue.
-    """
-    # Test case 1: Basic operations
-    queue1 = MyQueue()
-    queue1.push(1)
-    queue1.push(2)
-    assert queue1.peek() == 1
-    assert queue1.pop() == 1
-    assert queue1.empty() == False
-    assert queue1.peek() == 2
-    assert queue1.pop() == 2
-    assert queue1.empty() == True
-
-    # Test case 2: Multiple operations
-    queue2 = MyQueue()
-    queue2.push(1)
-    queue2.push(2)
-    queue2.push(3)
-    queue2.push(4)
-    assert queue2.peek() == 1
-    assert queue2.pop() == 1
-    assert queue2.pop() == 2
-    assert queue2.peek() == 3
-    assert queue2.pop() == 3
-    assert queue2.pop() == 4
-    assert queue2.empty() == True
-
-    # Test case 3: Interleaved push and pop
-    queue3 = MyQueue()
-    queue3.push(1)
-    assert queue3.peek() == 1
-    queue3.push(2)
-    assert queue3.pop() == 1
-    queue3.push(3)
-    assert queue3.peek() == 2
-    queue3.push(4)
-    assert queue3.pop() == 2
-    assert queue3.pop() == 3
-    assert queue3.peek() == 4
-
-    # Test case 4: Single element
-    queue4 = MyQueue()
-    queue4.push(42)
-    assert queue4.empty() == False
-    assert queue4.peek() == 42
-    assert queue4.pop() == 42
-    assert queue4.empty() == True
-
-    # Test case 5: Transfer stress test
-    queue5 = MyQueue()
-    for i in range(1, 6):
-        queue5.push(i)
-    for i in range(1, 6):
-        assert queue5.pop() == i
-    assert queue5.empty() == True
-
-    print("All test cases passed!")
-
-if __name__ == "__main__":
-    test_solution()
-
-    # Example usage
-    print("MyQueue demonstration:")
-    queue = MyQueue()
-
-    queue.push(1)
-    queue.push(2)
-    print(f"peek() = {queue.peek()}")   # 1
-    print(f"pop() = {queue.pop()}")     # 1
-    print(f"empty() = {queue.empty()}") # False
-    print(f"peek() = {queue.peek()}")   # 2
-    print(f"pop() = {queue.pop()}")     # 2
-    print(f"empty() = {queue.empty()}") # True
