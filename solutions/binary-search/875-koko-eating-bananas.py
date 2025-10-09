@@ -1,7 +1,6 @@
 """
 # 875. Koko Eating Bananas
-**Medium**
-
+# Difficulty: Medium
 Given a problem that demonstrates key concepts in Binary Search.
 
 <details>

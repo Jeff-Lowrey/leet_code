@@ -1,7 +1,6 @@
 """
 # 153. Find Minimum In Rotated Sorted Array
-**Medium**
-
+# Difficulty: Medium
 Given a problem that demonstrates key concepts in Binary Search.
 
 <details>

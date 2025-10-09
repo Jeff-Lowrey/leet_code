@@ -1,7 +1,6 @@
 """
 # 278. First Bad Version
-**Medium**
-
+# Difficulty: Medium
 Given a problem that demonstrates key concepts in Binary Search.
 
 <details>
@@ -80,7 +79,6 @@ class Solution:
                 
         # At this point, left == right and points to the first bad version
         return left
-
 
 # Example usage and test cases
 def main():
