@@ -1,44 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Segment Tree.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Squares fall vertically onto a 2D plane. Each square lands on top of previous squares
- * in its horizontal range. We need to track the maximum height after each square falls.
- * A segment tree with lazy propagation can efficiently query and update heights in ranges.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * Using coordinate compression and segment tree:
-
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * Alternative simpler approach:
- * Use a map to track intervals and their heights
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * WHY THIS WORKS:
- * Each square lands on the tallest point in its range. After landing, it sets a new
- * height for that entire range. Segment trees efficiently handle range max queries
- * and range updates.
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * TIME COMPLEXITY: O(n^2) for simple approach, O(n log n) for segment tree
- * SPACE COMPLEXITY: O(n)
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
  *
- * EXAMPLE WALKTHROUGH:
- * Input: positions = [[1,2],[2,3],[6,1]]
- * Square 1: [1,3] height 0->2, max=2
- * Square 2: [2,5] lands on height 2->5, max=5
- * Square 3: [6,7] height 0->1, max=5
- * Output: [2, 5, 5]
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * [example input]
+ * ```
  *
- * EDGE CASES:
- * - Single square: height equals side length
- * - Non-overlapping squares: each starts at height 0
- * - Fully overlapping: heights accumulate
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

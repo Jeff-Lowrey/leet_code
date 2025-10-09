@@ -1,45 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Segment Tree.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * We need to count teams of 3 soldiers where ratings are either strictly increasing
- * or strictly decreasing. While segment trees can solve this, a simpler O(n^2) approach
- * works well for the given constraints by counting valid left/right elements for each middle element.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * For each soldier as middle element:
- * - Count smaller/larger elements to the left
- * - Count smaller/larger elements to the right
- * - Multiply counts: (smaller_left * larger_right) for increasing teams
- * - Multiply counts: (larger_left * smaller_right) for decreasing teams
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * Any valid team has a middle element. By fixing the middle and counting valid
- * left/right combinations, we avoid triple loops while maintaining correctness.
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n^2) where n is array length
- * SPACE COMPLEXITY: O(1)
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
- * Input: rating = [2,5,3,4,1]
- * For i=1 (rating=5):
- *   - smaller_left=1 (2), larger_left=0
- *   - smaller_right=3 (3,4,1), larger_right=0
- *   - Increasing: 1*0=0, Decreasing: 0*3=0
- * For i=2 (rating=3):
- *   - smaller_left=1 (2), larger_left=1 (5)
- *   - smaller_right=1 (1), larger_right=1 (4)
- *   - Increasing: 1*1=1, Decreasing: 1*1=1
- * Total teams = 3
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
  *
- * EDGE CASES:
- * - Less than 3 soldiers: return 0
- * - All equal ratings: return 0
- * - Strictly increasing/decreasing: count combinations
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * [example input]
+ * ```
+ *
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

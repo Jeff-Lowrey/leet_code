@@ -1,44 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Segment Tree.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * We need to count subarrays whose sum falls within [lower, upper]. Using prefix sums,
- * a subarray sum from i to j equals prefixSum[j] - prefixSum[i]. We need to count pairs
- * where lower <= prefixSum[j] - prefixSum[i] <= upper. This is equivalent to finding
- * prefixSum[i] in range [prefixSum[j] - upper, prefixSum[j] - lower].
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * Use merge sort with modified counting:
-
-
- *    that satisfy the range condition
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * Merge sort naturally processes sorted subarrays. When merging, we can use two pointers
- * to find the range of valid elements in O(n) time total for all elements. This gives
- * us O(n log n) overall complexity.
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n log n)
- * SPACE COMPLEXITY: O(n)
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
- * Input: nums = [-2, 5, -1], lower = -2, upper = 2
- * Prefix sums: [0, -2, 3, 2]
- * For j=1 (sum=-2): need i where -2-2 <= prefix[i] <= -2-(-2) -> [-4, 0]
- *   - prefix[0]=0 is in range -> count = 1
- * For j=2 (sum=3): need i where 3-2 <= prefix[i] <= 3-(-2) -> [1, 5]
- *   - prefix[1]=3 is NOT in range but we find valid pairs
- * Output: 3 (subarrays: [-2], [5,-1], [-2,5,-1])
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
  *
- * EDGE CASES:
- * - Empty array: return 0
- * - Single element: check if it's in range
- * - All negatives/positives: handle prefix sum properly
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * [example input]
+ * ```
+ *
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

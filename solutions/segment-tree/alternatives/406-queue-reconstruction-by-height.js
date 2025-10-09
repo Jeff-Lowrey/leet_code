@@ -1,47 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Segment Tree.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Each person has [height, k] where k is the number of taller/equal people in front.
- * If we process people from tallest to shortest, we only need to worry about position k
- * since all previously placed people are taller or equal. A segment tree can efficiently
- * find the k-th available position, but a simpler greedy approach also works.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * Alternative with Segment Tree:
-
-
-
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * WHY THIS WORKS:
- * Processing tallest first means all future insertions won't affect current person's count.
- * When we insert person at position k, exactly k people (all taller/equal) are before them.
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * TIME COMPLEXITY: O(n^2) for greedy, O(n log n) for segment tree
- * SPACE COMPLEXITY: O(n)
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
  *
- * EXAMPLE WALKTHROUGH:
- * Input: [[7,0], [4,4], [7,1], [5,0], [6,1], [5,2]]
- * Sort: [[7,0], [7,1], [6,1], [5,0], [5,2], [4,4]]
- * Insert [7,0] at 0: [[7,0]]
- * Insert [7,1] at 1: [[7,0], [7,1]]
- * Insert [6,1] at 1: [[7,0], [6,1], [7,1]]
- * Insert [5,0] at 0: [[5,0], [7,0], [6,1], [7,1]]
- * ...
- * Output: [[5,0], [7,0], [5,2], [6,1], [4,4], [7,1]]
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * [example input]
+ * ```
  *
- * EDGE CASES:
- * - Single person: return as is
- * - All same height: sort by k
- * - k=0 for multiple people: handle correctly
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

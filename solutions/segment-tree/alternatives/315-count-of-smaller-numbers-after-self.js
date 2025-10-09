@@ -1,42 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Segment Tree.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * We need to count how many elements to the right are smaller than the current element.
- * A merge sort approach can solve this efficiently by counting inversions during the merge phase.
- * Alternatively, we can use a Binary Indexed Tree (Fenwick Tree) with coordinate compression.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * Using merge sort with index tracking:
-
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * Merge sort naturally processes elements right-to-left. When merging, if we take an element
- * from the right half before the left half, it means the right element is smaller and appears
- * after the left element in the original array.
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n log n)
- * SPACE COMPLEXITY: O(n)
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
- * Input: [5, 2, 6, 1]
- * - At index 0 (5): elements [2,1] are smaller -> count = 2
- * - At index 1 (2): element [1] is smaller -> count = 1
- * - At index 2 (6): element [1] is smaller -> count = 1
- * - At index 3 (1): no elements after -> count = 0
- * Output: [2, 1, 1, 0]
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
  *
- * EDGE CASES:
- * - Single element: return [0]
- * - Sorted ascending: return [0,0,...,0]
- * - Sorted descending: return [n-1, n-2, ..., 0]
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * [example input]
+ * ```
+ *
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**
