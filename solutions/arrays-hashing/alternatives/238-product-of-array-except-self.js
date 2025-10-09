@@ -1,6 +1,5 @@
 /**
- * 238. Product Of Array Except Self
- * Medium
+
  *
  * Given an integer array nums, return an array answer such that answer[i] is equal to the
  * product of all the elements of nums except nums[i].
@@ -12,9 +11,9 @@
  * would be O(n²), but we can optimize using left and right products in two passes.
  *
  * APPROACH:
- * 1. **Left pass**: Calculate product of all elements to the left of each position
- * 2. **Right pass**: Calculate product of all elements to the right and combine with left
- * 3. **Optimize space**: Use the result array to store left products, then modify in-place
+
+
+
  *
  * WHY THIS WORKS:
  * - For position i, we need: leftProduct[i] * rightProduct[i]

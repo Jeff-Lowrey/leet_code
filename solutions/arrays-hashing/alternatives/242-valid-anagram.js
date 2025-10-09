@@ -1,6 +1,5 @@
 /**
- * 242. Valid Anagram
- * Medium
+
  *
  * This problem demonstrates key concepts in Arrays Hashing.
  *
@@ -10,7 +9,7 @@
  * Two strings are anagrams if they contain the exact same characters with the same frequencies. We can verify this by counting character frequencies in both strings.
  *
  * APPROACH:
- * 1. **Length check**: If strings have different lengths, they can't be anagrams
+
 2. **Count characters**: Use a hash map or array to count frequency of each character
 3. **Compare counts**: Both strings should have identical character frequency distributions
  *

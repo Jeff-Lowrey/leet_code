@@ -1,6 +1,5 @@
 /**
- * 169. Majority Element
- * Easy
+
  *
  * Given an array nums of size n, return the majority element.
  * The majority element is the element that appears more than ⌊n / 2⌋ times.
@@ -13,10 +12,10 @@
  * candidate and count, canceling out different elements.
  *
  * APPROACH:
- * 1. **Initialize**: Set candidate to null and count to 0
- * 2. **Vote**: For each element, if count is 0, make it the new candidate
- * 3. **Count**: If element matches candidate, increment count; otherwise decrement
- * 4. **Result**: The surviving candidate is the majority element
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Majority element appears > n/2 times

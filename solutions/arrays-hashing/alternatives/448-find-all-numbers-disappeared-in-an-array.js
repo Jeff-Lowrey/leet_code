@@ -1,6 +1,5 @@
 /**
- * 448. Find All Numbers Disappeared In An Array
- * Easy
+
  *
  * Given an array nums of n integers where nums[i] is in the range [1, n], return an array
  * of all the integers in the range [1, n] that do not appear in nums.
@@ -12,10 +11,10 @@
  * as a hash table by marking indices corresponding to seen numbers.
  *
  * APPROACH:
- * 1. **Mark seen numbers**: For each number, mark its corresponding index as negative
- * 2. **Use absolute values**: Since we're modifying in-place, use abs() to get original
- * 3. **Find missing**: Positive numbers at the end indicate missing numbers
- * 4. **Restore original**: Optional step to restore the array
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Array indices 0 to n-1 correspond to numbers 1 to n

@@ -1,12 +1,11 @@
 /**
- * 36. Valid Sudoku
- * Medium
+
  *
  * Determine if a 9 x 9 Sudoku board is valid. Only the filled cells need to be validated
  * according to the following rules:
- * 1. Each row must contain the digits 1-9 without repetition.
- * 2. Each column must contain the digits 1-9 without repetition.
- * 3. Each of the nine 3 x 3 sub-boxes of the grid must contain the digits 1-9 without repetition.
+
+
+
  *
  * SOLUTION EXPLANATION:
  *
@@ -15,10 +14,10 @@
  * check if the number already exists in its row, column, or box.
  *
  * APPROACH:
- * 1. **Initialize tracking**: Create sets for rows, columns, and boxes
- * 2. **Iterate board**: Check each non-empty cell
- * 3. **Validate constraints**: Ensure no duplicates in row, column, or box
- * 4. **Update sets**: Add valid numbers to their respective sets
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Each number can appear only once per row, column, and box

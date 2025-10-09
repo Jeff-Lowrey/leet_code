@@ -1,6 +1,5 @@
 /**
- * 128. Longest Consecutive Sequence
- * Medium
+
  *
  * Given an unsorted array of integers nums, return the length of the longest
  * consecutive elements sequence.
@@ -12,10 +11,10 @@
  * Use a Set for O(1) lookups and only start counting from the beginning of each sequence.
  *
  * APPROACH:
- * 1. **Convert to Set**: For O(1) lookups and to handle duplicates
- * 2. **Find sequence starts**: Only count from numbers that don't have (num-1) in the set
- * 3. **Count consecutive**: For each start, count how many consecutive numbers exist
- * 4. **Track maximum**: Keep track of the longest sequence found
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Set provides O(1) lookup to check if consecutive numbers exist

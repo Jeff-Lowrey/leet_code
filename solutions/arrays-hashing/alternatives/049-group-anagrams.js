@@ -1,6 +1,5 @@
 /**
- * 49. Group Anagrams
- * Medium
+
  *
  * Given an array of strings strs, group the anagrams together. You can return the
  * answer in any order.
@@ -12,9 +11,9 @@
  * for all anagrams. Two common signatures: sorted characters or character frequency count.
  *
  * APPROACH:
- * 1. **Create signature**: For each string, generate a canonical form (sorted chars)
- * 2. **Group by signature**: Use a Map where signature is key, list of anagrams is value
- * 3. **Return groups**: Extract all value arrays from the Map
+
+
+
  *
  * WHY THIS WORKS:
  * - All anagrams have the same signature (sorted characters)

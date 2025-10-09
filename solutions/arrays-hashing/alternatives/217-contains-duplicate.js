@@ -1,6 +1,5 @@
 /**
- * 217. Contains Duplicate
- * Medium
+
  *
  * This problem demonstrates key concepts in Arrays Hashing.
  *
@@ -11,9 +10,9 @@
 If there are duplicates, the set will be smaller than the array.
  *
  * APPROACH:
- * 1. **Set-based detection**: Use a Set to track numbers we've seen
- * 2. **Early termination**: Return true immediately when duplicate found
- * 3. **Single pass**: Check each element once
+
+
+
  *
  * WHY THIS WORKS:
  * - Set provides O(1) lookup time for duplicate checking

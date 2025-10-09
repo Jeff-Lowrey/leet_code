@@ -1,6 +1,5 @@
 /**
- * 347. Top K Frequent Elements
- * Medium
+
  *
  * Given an integer array nums and an integer k, return the k most frequent elements.
  *
@@ -11,10 +10,10 @@
  * combined with bucket sort or a heap approach for optimal performance.
  *
  * APPROACH:
- * 1. **Count frequencies**: Use a Map to count frequency of each element
- * 2. **Bucket sort optimization**: Create buckets indexed by frequency
- * 3. **Collect results**: Traverse buckets from highest frequency to get k elements
- * 4. **Handle edge cases**: Empty arrays, k larger than unique elements
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Frequency counting gives us the foundation for ranking elements
