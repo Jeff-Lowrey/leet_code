@@ -1,6 +1,5 @@
 /**
- * 142. Linked List Cycle Ii
- * Medium
+
  *
  * This problem demonstrates key concepts in Linked List.
  *
@@ -12,10 +11,10 @@
  * head to cycle start equals distance from meeting point to cycle start.
  *
  * APPROACH:
- * 1. Phase 1: Use Floyd's algorithm to detect cycle (slow/fast pointers)
- * 2. Phase 2: If cycle exists, reset one pointer to head
- * 3. Move both pointers one step at a time until they meet
- * 4. Meeting point is the start of the cycle
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Mathematical proof: if cycle length is C and meeting happens at distance d

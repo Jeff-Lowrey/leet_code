@@ -1,6 +1,5 @@
 /**
- * 206. Reverse Linked List
- * Easy
+
  *
  * Given the head of a singly linked list, reverse the list, and return the reversed list.
  *
@@ -12,10 +11,10 @@
  * The key insight is to break and rebuild connections as we traverse.
  *
  * APPROACH:
- * 1. **Iterative approach**: Use three pointers (prev, current, next)
- * 2. **Traverse the list**: Move through each node once
- * 3. **Reverse links**: Point current.next to prev instead of next
- * 4. **Update pointers**: Move all pointers forward
+
+
+
+
  *
  * WHY THIS WORKS:
  * - We reverse one link at a time while maintaining references

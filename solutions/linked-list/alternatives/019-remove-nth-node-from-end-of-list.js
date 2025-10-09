@@ -1,6 +1,5 @@
 /**
- * 019. Remove Nth Node From End Of List
- * Medium
+
  *
  * This problem demonstrates key concepts in Linked List.
  *
@@ -12,11 +11,11 @@
  * edge cases like removing the first node.
  *
  * APPROACH:
- * 1. Create dummy head pointing to the original head
- * 2. Set fast pointer n+1 steps ahead of slow pointer
- * 3. Move both pointers until fast reaches end
- * 4. Skip the target node by updating slow.next
- * 5. Return dummy.next
+
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Two-pointer technique maintains n-node gap

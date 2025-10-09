@@ -1,6 +1,5 @@
 /**
- * 021. Merge Two Sorted Lists
- * Medium
+
  *
  * This problem demonstrates key concepts in Linked List.
  *
@@ -12,11 +11,11 @@
  * and avoid edge case handling.
  *
  * APPROACH:
- * 1. Create dummy head node to simplify result construction
- * 2. Use current pointer to track the end of merged list
- * 3. Compare heads of both lists, append smaller one
- * 4. Advance pointer in the list we took from
- * 5. When one list is exhausted, append remaining nodes
+
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Sorted property ensures optimal choice at each step

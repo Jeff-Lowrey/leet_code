@@ -1,6 +1,5 @@
 /**
- * 023. Merge K Sorted Lists
- * Medium
+
  *
  * This problem demonstrates key concepts in Linked List.
  *
@@ -12,10 +11,10 @@
  * than merging lists one by one as it minimizes redundant comparisons.
  *
  * APPROACH:
- * 1. Handle edge cases (empty array, null lists)
- * 2. Use divide and conquer: pair up lists and merge each pair
- * 3. Repeat until only one list remains
- * 4. Alternative: Use priority queue to always merge the smallest heads
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Divide and conquer reduces time complexity from O(k²n) to O(nk log k)

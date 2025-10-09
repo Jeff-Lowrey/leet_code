@@ -1,6 +1,5 @@
 /**
- * 002. Add Two Numbers
- * Medium
+
  *
  * This problem demonstrates key concepts in Linked List.
  *
@@ -12,7 +11,7 @@ we can add from `left` to `right` (which corresponds to least significant digit 
 We need to handle carries just like manual addition.
  *
  * APPROACH:
- * 1. Create dummy `head` for `result` linked list
+
 2. Process both lists simultaneously with carry
 3. For each position: `sum` = `val1 + val2` + carry
 4. Create new `node` with (`sum` % 10), update carry = `sum` // 10

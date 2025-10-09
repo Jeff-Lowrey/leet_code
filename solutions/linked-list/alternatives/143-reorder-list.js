@@ -1,6 +1,5 @@
 /**
- * 143. Reorder List
- * Medium
+
  *
  * This problem demonstrates key concepts in Linked List.
  *
@@ -12,10 +11,10 @@
  * pattern by using the fact that we need elements from both ends.
  *
  * APPROACH:
- * 1. Find the middle of the list using slow/fast pointers
- * 2. Split the list into two halves
- * 3. Reverse the second half
- * 4. Merge the two halves by alternating nodes
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Finding middle: slow/fast pointer ensures correct split

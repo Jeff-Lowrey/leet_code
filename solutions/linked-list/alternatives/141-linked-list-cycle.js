@@ -1,6 +1,5 @@
 /**
- * 141. Linked List Cycle
- * Medium
+
  *
  * This problem demonstrates key concepts in Linked List.
  *
@@ -12,10 +11,10 @@
  * If no cycle exists, the fast pointer will reach the end.
  *
  * APPROACH:
- * 1. Initialize two pointers: slow (moves 1 step) and fast (moves 2 steps)
- * 2. Traverse the list with both pointers
- * 3. If fast pointer reaches null, no cycle exists
- * 4. If slow and fast pointers meet, cycle exists
+
+
+
+
  *
  * WHY THIS WORKS:
  * - In a cycle, fast pointer gains 1 position on slow per iteration

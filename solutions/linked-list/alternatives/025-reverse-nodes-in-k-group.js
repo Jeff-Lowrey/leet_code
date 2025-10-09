@@ -1,6 +1,5 @@
 /**
- * 025. Reverse Nodes In K Group
- * Medium
+
  *
  * This problem demonstrates key concepts in Linked List.
  *
@@ -12,10 +11,10 @@
  * If the remaining nodes are less than k, leave them unchanged.
  *
  * APPROACH:
- * 1. Count nodes to ensure we have at least k nodes to reverse
- * 2. For each group: reverse k nodes while tracking group boundaries
- * 3. Connect reversed group to previous group and next group
- * 4. Move to next group and repeat until fewer than k nodes remain
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Group-wise reversal maintains overall list structure

@@ -1,6 +1,5 @@
 /**
- * 287. Find The Duplicate Number
- * Medium
+
  *
  * This problem demonstrates key concepts in Linked List.
  *
@@ -12,10 +11,10 @@
  * to find where the cycle begins - that index value is the duplicate number.
  *
  * APPROACH:
- * 1. Map array to implicit linked list: index i points to index nums[i]
- * 2. Use Floyd's algorithm to detect cycle existence
- * 3. Find cycle start using the two-phase approach
- * 4. The cycle start position gives us the duplicate number
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Duplicate number creates multiple pointers to same index (cycle)
