@@ -182,6 +182,10 @@ def extract_problem_description(code: str) -> str | None:
             if "<details>" in docstring:
                 docstring = docstring.split("<details>")[0].strip()
 
+            # Remove "# Difficulty:" line from problem description
+            # This metadata is shown as a badge, not in the problem text
+            docstring = re.sub(r'^#\s*Difficulty:\s*\w+\s*\n?', '', docstring, flags=re.MULTILINE)
+
             # Convert to HTML
             return markdown.markdown(docstring, extensions=["fenced_code", "tables"])
 
