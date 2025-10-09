@@ -1,7 +1,20 @@
 """
-# 17. Letter Combinations Of A Phone Number
 # Difficulty: Medium
+
+# 17. Letter Combinations Of A Phone Number
+
 This problem demonstrates key concepts in Recursion.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -25,12 +38,6 @@ where we explore all possible combinations by choosing one letter for each digit
 - We build combinations incrementally and collect complete ones
 - The recursion naturally handles all possible combinations
 
-### TIME COMPLEXITY: O(4^n * n) where n is length of digits
-- 4^n possible combinations (worst case with digits 7 and 9 that have 4 letters)
-- n to build each string
-
-### SPACE COMPLEXITY: O(n) for recursion stack depth
-
 ### EXAMPLE WALKTHROUGH:
 ```
 Input: "23"
@@ -51,6 +58,14 @@ c + f = "cf"
 Output: ["ad","ae","af","bd","be","bf","cd","ce","cf"]
 ```
 
+### TIME COMPLEXITY:
+O(4^n * n) where n is length of digits
+- 4^n possible combinations (worst case with digits 7 and 9 that have 4 letters)
+- n to build each string
+
+### SPACE COMPLEXITY:
+O(n) for recursion stack depth
+
 ### EDGE CASES:
 - Empty input string (return empty array)
 - Single digit (return all letters for that digit)
@@ -58,24 +73,7 @@ Output: ["ad","ae","af","bd","be","bf","cd","ce","cf"]
 - Only valid digits 2-9 in input
 
 </details>
-
-<details>
-<summary><b>💡 APPROACH</b></summary>
-
-The approach uses backtracking to systematically explore all possible letter combinations.
-Each digit maps to a set of letters, and we recursively build combinations by choosing
-one letter at a time from each digit's mapping.
-
-### Algorithm Steps:
-1. Create digit-to-letter mapping (phone keypad)
-2. Use backtracking to build combinations
-3. At each step, try all letters for current digit
-4. When combination is complete, add to results
-
-</details>
 """
-
-from typing import List
 
 class Solution:
     def letterCombinations(self, digits: str) -> List[str]:

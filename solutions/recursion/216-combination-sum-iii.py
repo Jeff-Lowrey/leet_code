@@ -1,7 +1,20 @@
 """
-# 216. Combination Sum III
 # Difficulty: Medium
+
+# 216. Combination Sum III
+
 This problem demonstrates key concepts in Recursion.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -29,9 +42,6 @@ multiple constraints: combination size and target sum.
 - Starting number parameter prevents duplicate combinations
 - Multiple constraints (count and sum) guide the search
 
-### TIME COMPLEXITY: O(C(9,k)) - choosing k numbers from 9 options
-### SPACE COMPLEXITY: O(k) - recursion depth and combination size
-
 ### EXAMPLE WALKTHROUGH:
 ```
 Input: k = 3, n = 7
@@ -44,6 +54,12 @@ Other combinations either don't sum to 7 or don't have exactly 3 numbers
 Output: [[1,2,4]]
 ```
 
+### TIME COMPLEXITY:
+O(C(9,k)) - choosing k numbers from 9 options
+
+### SPACE COMPLEXITY:
+O(k) - recursion depth and combination size
+
 ### EDGE CASES:
 - k > 9 (impossible - return empty array)
 - n > 45 (sum of 1-9, impossible - return empty array)
@@ -51,24 +67,7 @@ Output: [[1,2,4]]
 - Minimum sum for k numbers: 1+2+...+k = k(k+1)/2
 
 </details>
-
-<details>
-<summary><b>💡 APPROACH</b></summary>
-
-The approach uses backtracking with multiple constraints. We need to find combinations
-of exactly k numbers that sum to exactly n, using only digits 1-9 without repetition.
-
-### Algorithm Steps:
-1. Use backtracking to build combinations
-2. At each step, try numbers from start to 9
-3. Track both count and sum
-4. Prune when constraints violated
-5. When count equals k, check if sum equals n
-
-</details>
 """
-
-from typing import List
 
 class Solution:
     def combinationSum3(self, k: int, n: int) -> List[List[int]]:

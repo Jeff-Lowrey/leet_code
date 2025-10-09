@@ -1,7 +1,20 @@
 """
-# 024. Swap Nodes In Pairs
 # Difficulty: Medium
+
+# 024. Swap Nodes In Pairs
+
 Given a linked list, swap every two adjacent nodes and return its head. You must solve the problem without modifying the values in the list's nodes (i.e., only nodes themselves may be changed.)
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -15,17 +28,8 @@ We need to swap every pair of adjacent nodes in a linked list. This is a perfect
 3. **Link management**: Carefully update pointers to maintain list integrity
 4. **Return new head**: After swapping, the second node becomes the new head
 
-### WHY RECURSION WORKS:
-- Each pair swap is independent of others
-- Recursion naturally handles the "rest of the list"
-- Stack manages the complex pointer operations
-- Clean separation of concerns (current pair vs remaining list)
-
-### TIME COMPLEXITY: O(n)
-Visit each node exactly once
-
-### SPACE COMPLEXITY: O(n)
-Recursion stack depth proportional to number of pairs
+### WHY THIS WORKS:
+- [Explanation of correctness]
 
 ### EXAMPLE WALKTHROUGH:
 ```
@@ -37,10 +41,13 @@ Step 4: Link 2->4->3->1->NULL
 Output: 2->1->4->3->NULL
 ```
 
-### POINTER MANAGEMENT:
-- Save nodes before breaking links
-- Update pointers in correct order
-- Connect swapped pair to recursively processed rest
+### TIME COMPLEXITY:
+O(n)
+Visit each node exactly once
+
+### SPACE COMPLEXITY:
+O(n)
+Recursion stack depth proportional to number of pairs
 
 ### EDGE CASES:
 - Empty list: return None
@@ -48,39 +55,7 @@ Output: 2->1->4->3->NULL
 - Odd number of nodes: last node remains in place
 
 </details>
-
-<details>
-<summary><b>💡 APPROACH</b></summary>
-
-The recursive approach elegantly handles pointer manipulation:
-
-### Algorithm Steps:
-1. **Base case**: Return head if 0 or 1 nodes
-2. **Save references**: Store first and second nodes
-3. **Recursive call**: Process remaining list starting from third node
-4. **Swap current pair**: Update pointers to swap first two nodes
-5. **Link result**: Connect swapped pair to recursively processed rest
-
-### Alternative Iterative Approach:
-Use dummy node and three pointers to iteratively swap pairs.
-
-</details>
 """
-
-# Definition for singly-linked list
-class ListNode:
-    def __init__(self, val=0, next=None):
-        self.val = val
-        self.next = next
-
-    def __repr__(self):
-        """String representation for debugging."""
-        result = []
-        current = self
-        while current:
-            result.append(str(current.val))
-            current = current.next
-        return " -> ".join(result) + " -> NULL"
 
 class Solution:
     def swapPairs(self, head: ListNode) -> ListNode:

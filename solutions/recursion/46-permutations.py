@@ -1,7 +1,20 @@
 """
-# 46. Permutations
 # Difficulty: Medium
+
+# 46. Permutations
+
 This problem demonstrates key concepts in Recursion.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -28,12 +41,6 @@ problem where we explore all possible orderings systematically.
 - Backtracking explores all possible orderings systematically
 - The recursion tree has n! leaves (all permutations)
 
-### TIME COMPLEXITY: O(n! * n) where n is array length
-- n! permutations to generate
-- O(n) to copy each permutation
-
-### SPACE COMPLEXITY: O(n) - recursion depth and tracking set
-
 ### EXAMPLE WALKTHROUGH:
 ```
 Input: [1,2,3]
@@ -49,31 +56,21 @@ Choose 3: [3] -> Choose 1: [3,1] -> Choose 2: [3,1,2] ✓
 Output: [[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]
 ```
 
+### TIME COMPLEXITY:
+O(n! * n) where n is array length
+- n! permutations to generate
+- O(n) to copy each permutation
+
+### SPACE COMPLEXITY:
+O(n) - recursion depth and tracking set
+
 ### EDGE CASES:
 - Empty array (return [[]])
 - Single element (return [[element]])
 - All distinct integers (no duplicates in input)
 
 </details>
-
-<details>
-<summary><b>💡 APPROACH</b></summary>
-
-The approach uses backtracking to systematically generate all permutations.
-We track which elements have been used and build permutations one element
-at a time.
-
-### Algorithm Steps:
-1. Track which indices have been used
-2. At each step, try adding each unused element
-3. Recurse to fill the next position
-4. Backtrack by removing the element and marking it unused
-5. When permutation is complete, add to results
-
-</details>
 """
-
-from typing import List
 
 class Solution:
     def permute(self, nums: List[int]) -> List[List[int]]:
