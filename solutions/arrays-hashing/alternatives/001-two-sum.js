@@ -52,8 +52,10 @@
  * **O(n)** - Hash map stores up to n elements in worst case
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - **No solution exists:** Problem guarantees exactly one solution
+ * - **Duplicate values:** Hash map handles correctly by index
+ * - **Two same numbers sum to target:** Works if at different indices
+ * - **Negative numbers:** Algorithm works for any integers
  *
  * </details>
  */
