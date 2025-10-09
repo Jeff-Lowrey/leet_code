@@ -1,6 +1,5 @@
 /**
- * 173. Binary Search Tree Iterator
- * Medium
+
  *
  * This problem demonstrates key concepts in Design.
  *
@@ -12,10 +11,10 @@
  * initially, then process nodes one at a time.
  *
  * APPROACH:
- * 1. **Initialize with a stack**: Push all left nodes from root to leftmost leaf
- * 2. **next()**: Pop the top node, add its value, then push all left children of its right child
- * 3. **hasNext()**: Simply check if the stack is empty
- * 4. **Handle edge cases**: Empty trees, single nodes, skewed trees
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Stack maintains nodes to be visited in correct in-order sequence

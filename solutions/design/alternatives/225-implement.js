@@ -1,6 +1,5 @@
 /**
- * 225. Implement Stack using Queues
- * Easy
+
  *
  * This problem demonstrates key concepts in Design.
  *
@@ -12,10 +11,10 @@
  * We need to rearrange elements so the most recently added element is accessible first.
  *
  * APPROACH:
- * 1. **Two Queue Method**: Use mainQueue for storage, tempQueue for reordering
- * 2. **Push Operation**: Add element to mainQueue, then rotate to maintain LIFO order
- * 3. **Rotation Strategy**: Move all elements except the new one to tempQueue, then swap queues
- * 4. **LIFO Simulation**: After rotation, newest element is at front of mainQueue
+
+
+
+
  *
  * WHY THIS WORKS:
  * - MainQueue stores elements with newest at front (stack top)

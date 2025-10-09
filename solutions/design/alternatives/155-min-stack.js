@@ -1,6 +1,5 @@
 /**
- * 155. Min Stack
- * Easy
+
  *
  * This problem demonstrates key concepts in Design.
  *
@@ -12,10 +11,10 @@
  * two stacks: one for all elements and another to track minimums at each level.
  *
  * APPROACH:
- * 1. **Two Stack Method**: Use mainStack for elements, minStack for minimums
- * 2. **Push Operation**: Always push to mainStack, conditionally to minStack
- * 3. **Pop Operation**: Pop from mainStack, conditionally from minStack
- * 4. **Min Tracking**: minStack top always contains current minimum
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Main stack handles normal stack operations

@@ -1,6 +1,5 @@
 /**
- * 232. Implement Queue using Stacks
- * Easy
+
  *
  * This problem demonstrates key concepts in Design.
  *
@@ -12,10 +11,10 @@
  * We need two stacks: one for pushing elements and another for popping elements.
  *
  * APPROACH:
- * 1. **Two Stack Method**: Use inputStack for push operations, outputStack for pop/peek
- * 2. **Lazy Transfer**: Only transfer elements when outputStack is empty
- * 3. **FIFO Simulation**: Transfer reverses order, making oldest element accessible first
- * 4. **Amortized Efficiency**: Each element is transferred at most once
+
+
+
+
  *
  * WHY THIS WORKS:
  * - InputStack receives all new elements (acts like back of queue)

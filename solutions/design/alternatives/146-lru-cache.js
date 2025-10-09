@@ -1,6 +1,5 @@
 /**
- * 146. LRU Cache
- * Medium
+
  *
  * This problem demonstrates key concepts in Design.
  *
@@ -12,10 +11,10 @@
  * This requires combining a hash map (for O(1) access) with a doubly-linked list (for O(1) insertion/deletion).
  *
  * APPROACH:
- * 1. **Hash Map**: Store key -> node mapping for O(1) access
- * 2. **Doubly-Linked List**: Maintain usage order with O(1) insertion/deletion
- * 3. **Move to Head**: On access, move node to head (most recently used)
- * 4. **Remove Tail**: On capacity overflow, remove tail node (least recently used)
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Hash map provides O(1) key lookup

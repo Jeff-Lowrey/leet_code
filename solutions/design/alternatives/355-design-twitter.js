@@ -1,6 +1,5 @@
 /**
- * 355. Design Twitter
- * Medium
+
  *
  * This problem demonstrates key concepts in Design.
  *
@@ -12,10 +11,10 @@
  * We need to maintain tweets chronologically and user relationships.
  *
  * APPROACH:
- * 1. **Tweet Storage**: Use a global timestamp for chronological ordering
- * 2. **User Tweets**: Map each user to their list of tweets with timestamps
- * 3. **Follow Relationships**: Map each user to set of users they follow
- * 4. **Feed Generation**: Merge and sort recent tweets from user + followees
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Global timestamp ensures chronological ordering across all users

@@ -1,6 +1,5 @@
 /**
- * 460. LFU Cache
- * Hard
+
  *
  * This problem demonstrates key concepts in Design.
  *
@@ -12,10 +11,10 @@
  * We need to evict the least frequent item, breaking ties by least recently used.
  *
  * APPROACH:
- * 1. **Triple Data Structure**: HashMap for values, HashMap for frequencies, frequency-based LinkedList groups
- * 2. **Frequency Tracking**: Each key has a frequency, keys with same frequency grouped together
- * 3. **LRU within Frequency**: Within each frequency group, maintain LRU order
- * 4. **Min Frequency Optimization**: Track minimum frequency for O(1) eviction
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Values map provides O(1) key-value access

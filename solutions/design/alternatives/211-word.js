@@ -1,6 +1,5 @@
 /**
- * 211. Design Add and Search Words Data Structure
- * Medium
+
  *
  * This problem demonstrates key concepts in Design.
  *
@@ -12,10 +11,10 @@
  * The wildcard '.' requires DFS to explore all possible branches at that level.
  *
  * APPROACH:
- * 1. **Trie Structure**: Each TrieNode contains children map and isEndOfWord flag
- * 2. **addWord()**: Insert characters sequentially, creating nodes as needed
- * 3. **search()**: For regular chars, follow path; for '.', explore all children via DFS
- * 4. **Handle edge cases**: Empty strings, all wildcards, no matches
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Trie provides O(L) lookup for exact matches where L is word length

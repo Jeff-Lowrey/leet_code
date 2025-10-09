@@ -1,6 +1,5 @@
 /**
- * 380. Insert Delete GetRandom O(1)
- * Medium
+
  *
  * This problem demonstrates key concepts in Design.
  *
@@ -12,10 +11,10 @@
  * We need both O(1) random access and O(1) deletion, which requires a clever approach.
  *
  * APPROACH:
- * 1. **Array + HashMap Combination**: Use array for O(1) random access, map for O(1) lookup
- * 2. **Index Mapping**: Map stores value -> index in array for fast lookup
- * 3. **Swap-and-Pop Delete**: When deleting, swap with last element, then pop
- * 4. **Random Access**: Generate random index within array bounds
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Array provides O(1) random access via indexing

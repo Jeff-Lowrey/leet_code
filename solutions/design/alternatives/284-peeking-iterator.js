@@ -1,6 +1,5 @@
 /**
- * 284. Peeking Iterator
- * Medium
+
  *
  * This problem demonstrates key concepts in Design.
  *
@@ -12,10 +11,10 @@
  * consuming it from the underlying iterator. We maintain a buffer for the peeked value.
  *
  * APPROACH:
- * 1. **Cache next element**: Store the next value and a flag indicating if it's valid
- * 2. **peek()**: Return cached value without advancing the iterator
- * 3. **next()**: Return cached value and advance to fetch the next one
- * 4. **hasNext()**: Check if cached value exists or if underlying iterator has more
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Buffering one element allows us to "look ahead" without consuming
