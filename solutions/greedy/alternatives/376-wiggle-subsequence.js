@@ -1,47 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Greedy.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Count the peaks and valleys in the sequence. Each direction change represents
- * a valid element in the wiggle subsequence. Greedy choice: include every peak
- * and valley to maximize length.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Every peak/valley is essential for maximum wiggle subsequence
- * - Greedy choice: include all direction changes
- * - Removing any peak/valley would reduce the length
- * - The first element is always included, then count direction changes
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n)
- * SPACE COMPLEXITY: O(1)
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * nums = [1,7,4,9,2,5]
- * i=0: start, length=1
- * i=1: diff=6>0, prevDiff=0, direction change → length=2, prevDiff=6
- * i=2: diff=-3<0, prevDiff=6>0, direction change → length=3, prevDiff=-3
- * i=3: diff=5>0, prevDiff=-3<0, direction change → length=4, prevDiff=5
- * i=4: diff=-7<0, prevDiff=5>0, direction change → length=5, prevDiff=-7
- * i=5: diff=3>0, prevDiff=-7<0, direction change → length=6, prevDiff=3
- * Result: 6
+ * [example input]
  * ```
  *
- * EDGE CASES:
- * - Single element: Length 1
- * - All equal: Length 1
- * - Strictly increasing/decreasing: Length 2
- * - Consecutive duplicates: Skip duplicates, count only direction changes
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

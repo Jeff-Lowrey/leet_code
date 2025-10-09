@@ -1,52 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Greedy.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Find the last occurrence of each character. For each partition, extend it to
- * include all occurrences of characters seen so far. Greedy choice: partition
- * as early as possible when all characters in current partition are complete.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Each character must be contained in exactly one partition
- * - Greedy choice: make partition as small as possible while keeping chars together
- * - When we reach the last occurrence of all characters seen, we can partition
- * - This minimizes partition count while satisfying the constraint
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n)
- * SPACE COMPLEXITY: O(1) - at most 26 characters in the map
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * s = "ababcbacadefegdehijhklij"
- * Last positions: a:8, b:5, c:7, d:14, e:15, f:11, g:13, h:19, i:22, j:23, k:20, l:21
- *
- * i=0, char='a': end=8
- * i=1, char='b': end=max(8,5)=8
- * i=2, char='a': end=max(8,8)=8
- * i=3, char='b': end=max(8,5)=8
- * i=4, char='c': end=max(8,7)=8
- * i=5, char='b': end=max(8,5)=8
- * i=6, char='a': end=max(8,8)=8
- * i=7, char='c': end=max(8,7)=8
- * i=8, char='a': i==end → partition size=9, start=9
- * ...continues with more partitions
- * Result: [9, 7, 8]
+ * [example input]
  * ```
  *
- * EDGE CASES:
- * - All same character: One partition with length n
- * - All unique characters: n partitions of size 1 each
- * - Single character: One partition of size 1
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

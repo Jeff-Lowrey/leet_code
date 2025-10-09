@@ -1,51 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Greedy.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * For a palindrome, we can use all characters that appear an even number of times,
- * plus one character with odd count in the middle. Greedy choice: use as many
- * characters as possible while maintaining palindrome property.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Palindromes are symmetric, so we can use pairs of characters
- * - Greedy choice: use floor(count/2) * 2 for each character (maximize pairs)
- * - At most one character can have odd count in the middle
- * - This maximizes total length while maintaining palindrome property
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n)
- * SPACE COMPLEXITY: O(1) - at most 52 different characters (a-z, A-Z)
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * s = "abccccdd"
- * Counts: a:1, b:1, c:4, d:2
- *
- * Pairs:
- *   a: floor(1/2)*2 = 0, hasOdd=true
- *   b: floor(1/2)*2 = 0, hasOdd=true
- *   c: floor(4/2)*2 = 4
- *   d: floor(2/2)*2 = 2
- *
- * Total pairs: 0+0+4+2 = 6
- * Has odd: true → add 1
- * Result: 7 (e.g., "dccaccd")
+ * [example input]
  * ```
  *
- * EDGE CASES:
- * - All characters same: Use all if even count, all-1 if odd count, plus middle
- * - All characters unique: Use 1 (any single character)
- * - Empty string: Length 0
- * - Single character: Length 1
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

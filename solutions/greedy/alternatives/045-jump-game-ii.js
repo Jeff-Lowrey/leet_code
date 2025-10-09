@@ -1,44 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Greedy.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Use BFS-like greedy approach where we track the farthest position reachable
- * in the current "level" of jumps. Each jump creates a new level, similar to
- * BFS traversal where each level represents one more jump.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - We greedily explore the maximum reach at each level
- * - Each position can contribute to extending our reach for the next jump
- * - By tracking levels (jump boundaries), we ensure minimum jumps
- * - The greedy choice: always explore all positions reachable in current jump before moving to next
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n)
- * SPACE COMPLEXITY: O(1)
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * nums = [2,3,1,1,4]
- * Initial: jumps=0, currentEnd=0, farthest=0
- * i=0: farthest=max(0,0+2)=2, reach currentEnd(0), jumps=1, currentEnd=2
- * i=1: farthest=max(2,1+3)=4
- * i=2: farthest=max(4,2+1)=4, reach currentEnd(2), jumps=2, currentEnd=4
- * Result: 2 jumps (0→1→4 or 0→2→4)
+ * [example input]
  * ```
  *
- * EDGE CASES:
- * - Single element: 0 jumps needed (already at destination)
- * - All elements are 1: n-1 jumps needed
- * - Large first jump: Can reach end in 1 jump
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**
