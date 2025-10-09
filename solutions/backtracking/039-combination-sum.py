@@ -1,12 +1,25 @@
 """
-# 039. Combination Sum
 # Difficulty: Medium
+
+# 039. Combination Sum
+
 Given an array of distinct integers candidates and a target integer target,
 return a list of all unique combinations of candidates where the chosen numbers sum to target.
 You may return the combinations in any order.
 
 The same number may be chosen from candidates an unlimited number of times.
 Two combinations are unique if the frequency of at least one of the chosen numbers is different.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -26,12 +39,6 @@ Since numbers can be reused unlimited times, we explore each candidate multiple 
 - Sorting allows early termination when candidate > remaining sum
 - Using start index prevents duplicate combinations
 
-### TIME COMPLEXITY: O(N^(T/M))
-Where N=len(candidates), T=target, M=minimal candidate value
-
-### SPACE COMPLEXITY: O(T/M)
-For recursion depth and storing combinations
-
 ### EXAMPLE WALKTHROUGH:
 ```
 Input: candidates = [2,3,6,7], target = 7
@@ -40,25 +47,18 @@ Combinations found: [[2,2,3], [7]]
 - Try 7: [7] -> remaining=0 ✓
 ```
 
+### TIME COMPLEXITY:
+O(N^(T/M))
+Where N=len(candidates), T=target, M=minimal candidate value
+
+### SPACE COMPLEXITY:
+O(T/M)
+For recursion depth and storing combinations
+
 ### EDGE CASES:
 - Target = 0: return [[]]
 - No valid combinations: return []
 - Single candidate equals target: return [[candidate]]
-
-</details>
-
-<details>
-<summary><b>💡 APPROACH</b></summary>
-
-The backtracking approach systematically explores all combinations:
-
-### Algorithm Steps:
-1. Sort candidates for optimization
-2. Use recursive backtracking function
-3. For each candidate, decide to include or skip
-4. If included, allow reuse (same index)
-5. Backtrack by removing last added number
-6. Collect all valid combinations
 
 </details>
 """
