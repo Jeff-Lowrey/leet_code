@@ -1,48 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Linked List.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Since both lists are already sorted, we can merge them by comparing the smallest
- * unprocessed elements from each list. Use a dummy head to simplify pointer management
- * and avoid edge case handling.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Sorted property ensures optimal choice at each step
- * - Dummy head eliminates special cases for empty result
- * - Single pass through both lists guarantees efficiency
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(m + n) where m, n are lengths of input lists
- * SPACE COMPLEXITY: O(1) using only constant extra space
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
-Input: list1 = [1,2,4], list2 = [1,3,4]
-Step 1: dummy -> current, list1=1, list2=1 (equal, take list1)
-Step 2: dummy -> 1 -> current, list1=2, list2=1 (take list2)
-Step 3: dummy -> 1 -> 1 -> current, list1=2, list2=3 (take list1)
-Step 4: dummy -> 1 -> 1 -> 2 -> current, list1=4, list2=3 (take list2)
-Step 5: dummy -> 1 -> 1 -> 2 -> 3 -> current, list1=4, list2=4 (take list1)
-Step 6: dummy -> 1 -> 1 -> 2 -> 3 -> 4 -> current, list1=null, list2=4
-Step 7: Append remaining list2: dummy -> 1 -> 1 -> 2 -> 3 -> 4 -> 4
-Output: [1,1,2,3,4,4]
-```
+ * [example input]
+ * ```
  *
- * EDGE CASES:
- * - One or both lists are empty (return the non-empty list)
- * - Lists of different lengths (append remaining nodes)
- * - All elements in one list smaller than the other
- * - Duplicate elements across lists
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

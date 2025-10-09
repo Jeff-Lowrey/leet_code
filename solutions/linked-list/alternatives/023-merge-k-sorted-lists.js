@@ -1,46 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Linked List.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Extend the two-list merge approach to k lists. Use divide and conquer to
- * repeatedly merge pairs of lists until only one remains. This is more efficient
- * than merging lists one by one as it minimizes redundant comparisons.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Divide and conquer reduces time complexity from O(k²n) to O(nk log k)
- * - Each merge operation is O(n) where n is total nodes processed
- * - Log k levels of merging due to halving at each step
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n log k) where n is total nodes, k is number of lists
- * SPACE COMPLEXITY: O(1) for iterative, O(log k) for recursive stack
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
-Input: lists = [[1,4,5],[1,3,4],[2,6]]
-Step 1: Merge [1,4,5] and [1,3,4] -> [1,1,3,4,4,5]
-Step 2: Merge [1,1,3,4,4,5] and [2,6] -> [1,1,2,3,4,4,5,6]
-Output: [1,1,2,3,4,4,5,6]
-
-Divide & Conquer approach:
-Round 1: [0,1],[2] -> merge lists[0] & lists[1], lists[2] stays
-Round 2: [merged_result, lists[2]] -> final merge
-```
+ * [example input]
+ * ```
  *
- * EDGE CASES:
- * - Empty lists array (return null)
- * - Array with null/empty lists (filter them out)
- * - Single list in array (return that list)
- * - All lists are empty (return null)
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

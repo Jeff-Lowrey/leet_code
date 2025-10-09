@@ -1,49 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Linked List.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Split the list into two halves, reverse the second half, then merge them
- * alternately. This transforms L0→L1→...→Ln-1→Ln into L0→Ln→L1→Ln-1→...
- * pattern by using the fact that we need elements from both ends.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Finding middle: slow/fast pointer ensures correct split
- * - Reversing second half: gives us access to nodes from the end
- * - Alternating merge: creates the required reorder pattern
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n)
- * SPACE COMPLEXITY: O(1)
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
-Input: [1,2,3,4]
-Step 1: Find middle - split into [1,2] and [3,4]
-Step 2: Reverse second half - [1,2] and [4,3]
-Step 3: Merge alternately - 1→4→2→3
-Result: [1,4,2,3]
-
-Input: [1,2,3,4,5]
-Step 1: Find middle - split into [1,2,3] and [4,5]
-Step 2: Reverse second half - [1,2,3] and [5,4]
-Step 3: Merge alternately - 1→5→2→4→3
-Result: [1,5,2,4,3]
-```
+ * [example input]
+ * ```
  *
- * EDGE CASES:
- * - Empty list or single node (no reordering needed)
- * - Two nodes (swap them)
- * - Odd vs even length lists (middle handling)
- * - List modification in-place (no extra space)
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

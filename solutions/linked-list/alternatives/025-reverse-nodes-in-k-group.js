@@ -1,48 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Linked List.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Process the linked list in chunks of k nodes. For each complete group of k nodes,
- * reverse them while maintaining connections to the previous and next groups.
- * If the remaining nodes are less than k, leave them unchanged.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Group-wise reversal maintains overall list structure
- * - Careful pointer management ensures no nodes are lost
- * - Dummy head simplifies edge case handling
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n)
- * SPACE COMPLEXITY: O(1)
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
-Input: head = [1,2,3,4,5], k = 2
-Step 1: Group 1: [1,2] -> reverse to [2,1]
-Step 2: Group 2: [3,4] -> reverse to [4,3]
-Step 3: Remaining [5] < k, so leave unchanged
-Result: [2,1,4,3,5]
-
-Input: head = [1,2,3,4,5], k = 3
-Step 1: Group 1: [1,2,3] -> reverse to [3,2,1]
-Step 2: Remaining [4,5] < k, so leave unchanged
-Result: [3,2,1,4,5]
-```
+ * [example input]
+ * ```
  *
- * EDGE CASES:
- * - Empty list or k = 1 (return original list)
- * - List length less than k (return original list)
- * - k equals list length (reverse entire list)
- * - k greater than list length (return original list)
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

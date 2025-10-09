@@ -1,44 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * Given the head of a singly linked list, reverse the list, and return the reversed list.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * To reverse a linked list, we need to change the direction of all the links.
- * We can do this iteratively by keeping track of the previous, current, and next nodes.
- * The key insight is to break and rebuild connections as we traverse.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - We reverse one link at a time while maintaining references
- * - Previous becomes the new next, current becomes the new previous
- * - At the end, prev points to the new head of reversed list
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n) - visit each node exactly once
- * SPACE COMPLEXITY: O(1) - only use constant extra space
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: 1 -> 2 -> 3 -> 4 -> 5 -> null
- * Step 1: prev=null, curr=1, next=2. After: null <- 1, curr=2
- * Step 2: prev=1, curr=2, next=3. After: null <- 1 <- 2, curr=3
- * Step 3: prev=2, curr=3, next=4. After: null <- 1 <- 2 <- 3, curr=4
- * Step 4: prev=3, curr=4, next=5. After: null <- 1 <- 2 <- 3 <- 4, curr=5
- * Step 5: prev=4, curr=5, next=null. After: null <- 1 <- 2 <- 3 <- 4 <- 5, curr=null
- * Output: 5 -> 4 -> 3 -> 2 -> 1 -> null
+ * [example input]
  * ```
  *
- * EDGE CASES:
- * - Empty list (null): return null
- * - Single node: return the node unchanged
- * - Two nodes: reverse the connection
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**
