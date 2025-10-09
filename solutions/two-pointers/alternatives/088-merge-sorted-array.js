@@ -1,6 +1,5 @@
 /**
- * 088. Merge Sorted Array
- * Easy
+
  *
  * This problem demonstrates key concepts in Two Pointers.
  *
@@ -12,11 +11,11 @@
  * elements from the end of both arrays and place the larger one at the end of nums1.
  *
  * APPROACH:
- * 1. **Initialize three pointers**: p1 at end of nums1's elements (m-1),
+
  *    p2 at end of nums2 (n-1), p at end of nums1 (m+n-1)
- * 2. **Compare and place**: Compare nums1[p1] and nums2[p2], place larger at nums1[p]
- * 3. **Move pointers**: Decrement the pointer of the used element and p
- * 4. **Handle remaining**: If nums2 has remaining elements, copy them
+
+
+
  *
  * WHY THIS WORKS:
  * By filling from right to left, we never overwrite elements in nums1 that we

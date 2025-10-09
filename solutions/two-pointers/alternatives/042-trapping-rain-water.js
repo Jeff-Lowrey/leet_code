@@ -1,6 +1,5 @@
 /**
- * 042. Trapping Rain Water
- * Hard
+
  *
  * This problem demonstrates key concepts in Two Pointers.
  *
@@ -13,10 +12,10 @@
  * of these two maximums.
  *
  * APPROACH:
- * 1. **Initialize two pointers**: left at start, right at end
- * 2. **Track max heights**: leftMax and rightMax for each direction
- * 3. **Move pointers inward**: Always process the side with smaller max height
- * 4. **Calculate water**: At each position, water = min(leftMax, rightMax) - height[i]
+
+
+
+
  *
  * WHY THIS WORKS:
  * The key insight is that we can determine water at a position if we know the

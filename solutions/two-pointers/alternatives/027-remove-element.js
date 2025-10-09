@@ -1,6 +1,5 @@
 /**
- * 027. Remove Element
- * Easy
+
  *
  * This problem demonstrates key concepts in Two Pointers.
  *
@@ -12,10 +11,10 @@
  * first k positions.
  *
  * APPROACH:
- * 1. **Initialize slow pointer**: Tracks the position for the next valid element
- * 2. **Scan with fast pointer**: Iterates through the entire array
- * 3. **Filter elements**: When nums[fast] != val, copy it to nums[slow] and increment slow
- * 4. **Return count**: slow represents the count of elements not equal to val
+
+
+
+
  *
  * WHY THIS WORKS:
  * By maintaining a slow pointer for valid elements and a fast pointer to scan,

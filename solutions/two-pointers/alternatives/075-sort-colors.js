@@ -1,6 +1,5 @@
 /**
- * 075. Sort Colors
- * Medium
+
  *
  * This problem demonstrates key concepts in Two Pointers.
  *
@@ -13,13 +12,13 @@
  * with mid pointer.
  *
  * APPROACH:
- * 1. **Initialize three pointers**: low=0, mid=0, high=n-1
- * 2. **Scan with mid pointer**: Process each element
- * 3. **Swap based on value**:
+
+
+
  *    - If nums[mid]=0: swap with low, increment both low and mid
  *    - If nums[mid]=1: just increment mid
  *    - If nums[mid]=2: swap with high, decrement high (don't move mid yet)
- * 4. **Continue until mid > high**
+
  *
  * WHY THIS WORKS:
  * We maintain three regions: [0...low-1] contains 0s, [low...mid-1] contains 1s,

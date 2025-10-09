@@ -1,6 +1,5 @@
 /**
- * 011. Container With Most Water
- * Medium
+
  *
  * This problem demonstrates key concepts in Two Pointers.
  *
@@ -13,10 +12,10 @@
  * shorter line inward, as moving the taller line would only decrease the area.
  *
  * APPROACH:
- * 1. **Initialize two pointers**: Start with left at 0 and right at height.length - 1
- * 2. **Calculate area**: Area = min(height[left], height[right]) * (right - left)
- * 3. **Move pointers**: Move the pointer pointing to the shorter height inward
- * 4. **Track maximum**: Keep track of the maximum area encountered
+
+
+
+
  *
  * WHY THIS WORKS:
  * - The area is determined by the shorter line and the distance between lines

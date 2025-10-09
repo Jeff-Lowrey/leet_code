@@ -1,6 +1,5 @@
 /**
- * 026. Remove Duplicates From Sorted Array
- * Easy
+
  *
  * This problem demonstrates key concepts in Two Pointers.
  *
@@ -12,10 +11,10 @@
  * at the slow pointer's position and increment slow.
  *
  * APPROACH:
- * 1. **Initialize slow pointer**: Start at index 0 (first element is always unique)
- * 2. **Scan with fast pointer**: Iterate through array from index 1
- * 3. **Compare elements**: If nums[fast] != nums[slow], we found a new unique element
- * 4. **Update array**: Increment slow and copy nums[fast] to nums[slow]
+
+
+
+
  *
  * WHY THIS WORKS:
  * Since the array is sorted, all duplicates are adjacent. By comparing each element

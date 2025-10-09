@@ -1,6 +1,5 @@
 /**
- * 015. 3Sum
- * Medium
+
  *
  * This problem demonstrates key concepts in Two Pointers.
  *
@@ -10,7 +9,7 @@
  * Convert the 3Sum problem into multiple 2Sum problems. For each number, find pairs in the remaining array that sum to the negative of that number. Sorting helps avoid duplicates and enables two-pointer technique.
  *
  * APPROACH:
- * 1. **Sort Array**: Enables two-pointer technique and easy duplicate handling
+
 2. **Fix First Element**: For each nums[i], find pairs that sum to -nums[i]
 3. **Two Pointers**: Use left and right pointers to find the required sum
 4. **Skip Duplicates**: Avoid duplicate triplets by skipping repeated values

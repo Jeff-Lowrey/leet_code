@@ -1,6 +1,5 @@
 /**
- * 167. Two Sum II - Input Array Is Sorted
- * Medium
+
  *
  * This problem demonstrates key concepts in Two Pointers.
  *
@@ -13,13 +12,13 @@
  * than the hash map approach for sorted arrays.
  *
  * APPROACH:
- * 1. **Initialize two pointers**: left at start (0), right at end (length - 1)
- * 2. **Calculate sum**: sum = numbers[left] + numbers[right]
- * 3. **Compare with target**:
+
+
+
  *    - If sum == target: found the answer, return [left + 1, right + 1]
  *    - If sum < target: move left pointer right (need larger sum)
  *    - If sum > target: move right pointer left (need smaller sum)
- * 4. **Continue until found**: The problem guarantees exactly one solution
+
  *
  * WHY THIS WORKS:
  * The sorted property allows us to make intelligent decisions about which pointer

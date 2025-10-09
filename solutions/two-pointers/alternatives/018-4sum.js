@@ -1,6 +1,5 @@
 /**
- * 018. 4Sum
- * Medium
+
  *
  * This problem demonstrates key concepts in Two Pointers.
  *
@@ -12,10 +11,10 @@
  * and enables the two-pointer technique.
  *
  * APPROACH:
- * 1. **Sort Array**: Enables two-pointer technique and easy duplicate handling
- * 2. **Fix First Two Elements**: Use two nested loops to fix nums[i] and nums[j]
- * 3. **Two Pointers**: Use left and right pointers to find pairs summing to target - nums[i] - nums[j]
- * 4. **Skip Duplicates**: Avoid duplicate quadruplets by skipping repeated values
+
+
+
+
  *
  * WHY THIS WORKS:
  * By sorting and fixing two numbers, we reduce 4Sum to a 2Sum problem which can be
