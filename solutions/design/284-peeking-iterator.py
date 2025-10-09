@@ -1,7 +1,6 @@
 """
 # 284. Peeking Iterator
-**Medium**
-
+# Difficulty: Medium
 Design an iterator that supports the peek operation on an existing iterator in addition to the hasNext and the next operations.
 
 Implement the PeekingIterator class:
@@ -78,7 +77,6 @@ class Iterator:
         """Returns True if there are more elements."""
         return self.index < len(self.nums)
 
-
 class PeekingIterator:
     """
     Iterator that supports peek operation.
@@ -152,7 +150,6 @@ class PeekingIterator:
         """
         return self.has_cached
 
-
 class PeekingIteratorAlternative:
     """
     Alternative implementation using on-demand caching.
@@ -190,7 +187,6 @@ class PeekingIteratorAlternative:
     def hasNext(self):
         """Check if more elements available."""
         return self.is_peeked or self.iterator.hasNext()
-
 
 def test_solution():
     """Test cases for Problem 284."""
@@ -241,7 +237,6 @@ def test_solution():
     assert peekingIterator5.hasNext() == False, "Empty iterator should have no elements"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

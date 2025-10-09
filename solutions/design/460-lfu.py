@@ -1,7 +1,6 @@
 """
 # 460. LFU Cache
-**Hard**
-
+# Difficulty: Hard
 Design and implement a Least Frequently Used (LFU) cache.
 
 <details>
@@ -77,7 +76,6 @@ The approach uses hash maps and OrderedDict for O(1) LFU operations.
 
 from collections import OrderedDict, defaultdict
 from typing import Optional
-
 
 class LFUCache:
     """
@@ -189,7 +187,6 @@ class LFUCache:
         self.freq_to_keys[1][key] = value
         self.min_freq = 1
 
-
 def test_solution():
     """
     Test cases for LFU Cache.
@@ -265,7 +262,6 @@ def test_solution():
     assert cache7.get(3) == 3
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

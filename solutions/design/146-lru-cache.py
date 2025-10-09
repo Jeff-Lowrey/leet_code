@@ -1,7 +1,6 @@
 """
 # 146. LRU Cache
-**Medium**
-
+# Difficulty: Medium
 Design a data structure that follows the constraints of a Least Recently Used (LRU) cache.
 
 Implement the LRUCache class:
@@ -188,7 +187,6 @@ class LRUCacheOrderedDict:
                 self.cache.popitem(last=False)
             self.cache[key] = value
 
-
 def test_solution():
     """
     Test cases for 146. LRU Cache.
@@ -233,7 +231,6 @@ def test_solution():
     assert lru_od.get(2) == -1
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

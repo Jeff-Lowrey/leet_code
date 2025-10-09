@@ -1,7 +1,6 @@
 """
 # 225. Implement Stack using Queues
-**Easy**
-
+# Difficulty: Easy
 Implement a last-in-first-out (LIFO) stack using only two queues.
 
 <details>
@@ -67,7 +66,6 @@ The approach uses a single queue with rotation on push to maintain stack order.
 """
 
 from collections import deque
-
 
 class MyStack:
     """
@@ -139,7 +137,6 @@ class MyStack:
         """
         return len(self.queue) == 0
 
-
 def test_solution():
     """
     Test cases for MyStack.
@@ -191,7 +188,6 @@ def test_solution():
     assert stack4.empty() == True
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

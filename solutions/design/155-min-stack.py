@@ -1,7 +1,6 @@
 """
 # 155. Min Stack
-**Easy**
-
+# Difficulty: Easy
 Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.
 
 Implement the MinStack class:
@@ -154,7 +153,6 @@ class MinStackAlternative:
     def getMin(self) -> int:
         return self.stack[-1][1] if self.stack else None
 
-
 def test_solution():
     """
     Test cases for 155. Min Stack.
@@ -199,7 +197,6 @@ def test_solution():
     assert alt_stack.getMin() == -2
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

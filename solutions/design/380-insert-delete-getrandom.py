@@ -1,7 +1,6 @@
 """
 # 380. Insert Delete GetRandom O(1)
-**Medium**
-
+# Difficulty: Medium
 Design a data structure that supports insert, delete, and getRandom operations in average O(1) time.
 
 <details>
@@ -85,7 +84,6 @@ The approach uses list + dict combination for O(1) operations.
 import random
 from typing import Optional
 
-
 class RandomizedSet:
     """
     Data structure supporting insert, delete, and getRandom in O(1).
@@ -167,7 +165,6 @@ class RandomizedSet:
         """
         return random.choice(self.nums)
 
-
 def test_solution():
     """
     Test cases for RandomizedSet.
@@ -229,7 +226,6 @@ def test_solution():
     assert vals == {1, 2, 3}, f"Expected {{1, 2, 3}}, got {vals}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

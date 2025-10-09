@@ -1,7 +1,6 @@
 """
 # 355. Design Twitter
-**Medium**
-
+# Difficulty: Medium
 Design a simplified version of Twitter where users can post tweets, follow/unfollow users, and see a news feed.
 
 <details>
@@ -78,7 +77,6 @@ The approach uses hash maps for user data and a heap for efficient feed retrieva
 import heapq
 from collections import defaultdict
 from typing import List
-
 
 class Twitter:
     """
@@ -175,7 +173,6 @@ class Twitter:
         """
         self.following[followerId].discard(followeeId)
 
-
 def test_solution():
     """
     Test cases for Twitter.
@@ -237,7 +234,6 @@ def test_solution():
     assert feed8 == [1], f"Expected [1], got {feed8}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

@@ -1,7 +1,6 @@
 """
 # 232. Implement Queue using Stacks
-**Easy**
-
+# Difficulty: Easy
 Implement a first-in-first-out (FIFO) queue using only two stacks.
 
 <details>
@@ -66,7 +65,6 @@ The approach uses two stacks with lazy transfer for efficient queue operations.
 
 </details>
 """
-
 
 class MyQueue:
     """
@@ -148,7 +146,6 @@ class MyQueue:
             while self.input_stack:
                 self.output_stack.append(self.input_stack.pop())
 
-
 def test_solution():
     """
     Test cases for MyQueue.
@@ -208,7 +205,6 @@ def test_solution():
     assert queue5.empty() == True
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

@@ -1,7 +1,6 @@
 """
 # 211. Design Add and Search Words Data Structure
-**Medium**
-
+# Difficulty: Medium
 Design a data structure that supports adding new words and finding if a string matches any previously added string.
 
 <details>
@@ -61,7 +60,6 @@ The approach uses a Trie with DFS for wildcard searching.
 </details>
 """
 
-
 class TrieNode:
     """Node in the Trie data structure."""
 
@@ -69,7 +67,6 @@ class TrieNode:
         """Initialize a Trie node."""
         self.children = {}  # Map from character to TrieNode
         self.is_word = False  # True if this node marks the end of a word
-
 
 class WordDictionary:
     """
@@ -156,7 +153,6 @@ class WordDictionary:
 
         return self._search_helper(word, index + 1, node.children[char])
 
-
 def test_solution():
     """
     Test cases for WordDictionary.
@@ -219,7 +215,6 @@ def test_solution():
     assert wd5.search("r.nning") == True
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

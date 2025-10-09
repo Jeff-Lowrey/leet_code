@@ -1,7 +1,6 @@
 """
 # 173. Binary Search Tree Iterator
-**Medium**
-
+# Difficulty: Medium
 Implement the BSTIterator class that represents an iterator over the in-order traversal of a binary search tree (BST).
 
 <details>
@@ -60,14 +59,12 @@ The approach uses a stack-based controlled iteration to simulate in-order traver
 </details>
 """
 
-
 class TreeNode:
     """Definition for a binary tree node."""
     def __init__(self, val=0, left=None, right=None):
         self.val = val
         self.left = left
         self.right = right
-
 
 class BSTIterator:
     """
@@ -130,7 +127,6 @@ class BSTIterator:
         Space Complexity: O(1)
         """
         return len(self.stack) > 0
-
 
 def test_solution():
     """
@@ -208,7 +204,6 @@ def test_solution():
     assert iterator4.hasNext() == False
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()
