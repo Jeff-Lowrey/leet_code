@@ -1,7 +1,6 @@
 """
 # 47. Permutations II
-**Medium**
-
+# Difficulty: Medium
 This problem demonstrates key concepts in Recursion.
 
 <details>
@@ -71,7 +70,6 @@ duplicate permutations.
 """
 
 from typing import List
-
 
 class Solution:
     def permuteUnique(self, nums: List[int]) -> List[List[int]]:
@@ -150,7 +148,6 @@ class Solution:
         """
         return self.permuteUnique(nums)
 
-
 def test_solution():
     """Test cases for Problem 47."""
     solution = Solution()
@@ -198,7 +195,6 @@ def test_solution():
     print("Test 6 passed: All permutations unique")
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

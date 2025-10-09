@@ -1,7 +1,6 @@
 """
 # 17. Letter Combinations Of A Phone Number
-**Medium**
-
+# Difficulty: Medium
 This problem demonstrates key concepts in Recursion.
 
 <details>
@@ -77,7 +76,6 @@ one letter at a time from each digit's mapping.
 """
 
 from typing import List
-
 
 class Solution:
     def letterCombinations(self, digits: str) -> List[str]:
@@ -158,7 +156,6 @@ class Solution:
         """
         return self.letterCombinations(digits)
 
-
 def test_solution():
     """Test cases for Problem 17."""
     solution = Solution()
@@ -197,7 +194,6 @@ def test_solution():
     print("Test 6 passed: Multiple digits")
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

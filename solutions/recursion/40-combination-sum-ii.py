@@ -1,7 +1,6 @@
 """
 # 40. Combination Sum II
-**Medium**
-
+# Difficulty: Medium
 This problem demonstrates key concepts in Recursion.
 
 <details>
@@ -72,7 +71,6 @@ handle duplicates in the input array.
 """
 
 from typing import List
-
 
 class Solution:
     def combinationSum2(self, candidates: List[int], target: int) -> List[List[int]]:
@@ -156,7 +154,6 @@ class Solution:
         """
         return self.combinationSum2(candidates, target)
 
-
 def test_solution():
     """Test cases for Problem 40."""
     solution = Solution()
@@ -200,7 +197,6 @@ def test_solution():
     print("Test 5 passed: All same numbers")
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

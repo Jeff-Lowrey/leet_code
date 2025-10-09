@@ -1,7 +1,6 @@
 """
 # 77. Combinations
-**Medium**
-
+# Difficulty: Medium
 This problem demonstrates key concepts in Recursion.
 
 <details>
@@ -79,7 +78,6 @@ in different orders.
 
 from typing import List
 
-
 class Solution:
     def combine(self, n: int, k: int) -> List[List[int]]:
         """
@@ -148,7 +146,6 @@ class Solution:
         """
         return self.combine(n, k)
 
-
 def test_solution():
     """Test cases for Problem 77."""
     solution = Solution()
@@ -197,7 +194,6 @@ def test_solution():
     print("Test 6 passed: k=1")
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

@@ -1,7 +1,6 @@
 """
 # 216. Combination Sum III
-**Medium**
-
+# Difficulty: Medium
 This problem demonstrates key concepts in Recursion.
 
 <details>
@@ -70,7 +69,6 @@ of exactly k numbers that sum to exactly n, using only digits 1-9 without repeti
 """
 
 from typing import List
-
 
 class Solution:
     def combinationSum3(self, k: int, n: int) -> List[List[int]]:
@@ -162,7 +160,6 @@ class Solution:
         """
         return self.combinationSum3(k, n)
 
-
 def test_solution():
     """Test cases for Problem 216."""
     solution = Solution()
@@ -212,7 +209,6 @@ def test_solution():
     print("Test 6 passed: k=3, n=15")
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

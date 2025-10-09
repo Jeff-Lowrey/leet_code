@@ -1,7 +1,6 @@
 """
 # 024. Swap Nodes In Pairs
-**Medium**
-
+# Difficulty: Medium
 Given a linked list, swap every two adjacent nodes and return its head. You must solve the problem without modifying the values in the list's nodes (i.e., only nodes themselves may be changed.)
 
 <details>
@@ -82,7 +81,6 @@ class ListNode:
             result.append(str(current.val))
             current = current.next
         return " -> ".join(result) + " -> NULL"
-
 
 class Solution:
     def swapPairs(self, head: ListNode) -> ListNode:
@@ -181,7 +179,6 @@ class Solution:
 
         return swap_recursive(head)
 
-
 def create_linked_list(values):
     """Helper function to create linked list from values."""
     if not values:
@@ -194,7 +191,6 @@ def create_linked_list(values):
         current = current.next
     return head
 
-
 def linked_list_to_list(head):
     """Helper function to convert linked list to Python list."""
     result = []
@@ -203,7 +199,6 @@ def linked_list_to_list(head):
         result.append(current.val)
         current = current.next
     return result
-
 
 def test_solution():
     """Test cases for 024. Swap Nodes In Pairs."""
@@ -252,7 +247,6 @@ def test_solution():
     assert linked_list_to_list(result7) == expected7, f"Expected {expected7}, got {linked_list_to_list(result7)}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

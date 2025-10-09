@@ -1,7 +1,6 @@
 """
 # 39. Combination Sum
-**Medium**
-
+# Difficulty: Medium
 This problem demonstrates key concepts in Recursion.
 
 <details>
@@ -72,7 +71,6 @@ the same start index when recursing after including a candidate.
 """
 
 from typing import List
-
 
 class Solution:
     def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
@@ -151,7 +149,6 @@ class Solution:
         """
         return self.combinationSum(candidates, target)
 
-
 def test_solution():
     """Test cases for Problem 39."""
     solution = Solution()
@@ -201,7 +198,6 @@ def test_solution():
     print("Test 6 passed: Can reuse multiple times")
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

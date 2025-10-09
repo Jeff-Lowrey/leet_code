@@ -1,7 +1,6 @@
 """
 # 78. Subsets
-**Medium**
-
+# Difficulty: Medium
 This problem demonstrates key concepts in Recursion.
 
 <details>
@@ -77,7 +76,6 @@ when we reach a base case.
 
 from typing import List
 
-
 class Solution:
     def subsets(self, nums: List[int]) -> List[List[int]]:
         """
@@ -136,7 +134,6 @@ class Solution:
         """
         return self.subsets(nums)
 
-
 def test_solution():
     """Test cases for Problem 78."""
     solution = Solution()
@@ -185,7 +182,6 @@ def test_solution():
     print("Test 6 passed: All subsets unique")
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()
