@@ -1,41 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in String Manipulation.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * We need to reverse the first k characters for every 2k characters in the string.
- * Process the string in chunks of 2k, reversing only the first k characters of each chunk.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * By processing in 2k chunks and only reversing the first k characters of each chunk,
- * we naturally handle all edge cases including strings shorter than 2k.
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n)
- * - We traverse the string once, reversing takes O(k) per chunk
- * SPACE COMPLEXITY: O(n)
- * - We convert the string to an array
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
- * Input: s = "abcdefg", k = 2
- * Step 1: Reverse first 2 chars "ab" -> "ba"
- * Step 2: Skip next 2 chars "cd" -> "cd"
- * Step 3: Reverse next 2 chars "ef" -> "fe"
- * Step 4: Last char "g" (less than k) -> "g" reversed
- * Output: "bacdfeg"
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
  *
- * EDGE CASES:
- * - Less than k characters remaining: reverse all
- * - Between k and 2k characters remaining: reverse first k only
- * - String length less than k: reverse entire string
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * [example input]
+ * ```
+ *
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

@@ -1,42 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in String Manipulation.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Count substrings that have equal consecutive 0s and 1s. For each group of
- * consecutive identical characters, we can form substrings with the previous
- * group. The number of valid substrings is the minimum of the two group sizes.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * For two consecutive groups (e.g., "000" and "11"), we can form min(3,2) = 2
- * valid substrings: "0011" and "01". We can't form more because we run out
- * of characters from the smaller group.
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n)
- * - Single pass through the string
- * SPACE COMPLEXITY: O(1)
- * - Only using a few variables for counting
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
- * Input: "00110011"
- * Groups: [2, 2, 2, 2] (counts of consecutive chars)
- * Step 1: min(2, 2) = 2 valid substrings
- * Step 2: min(2, 2) = 2 valid substrings
- * Step 3: min(2, 2) = 2 valid substrings
- * Output: 6
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
  *
- * EDGE CASES:
- * - All same characters: No valid substrings
- * - Single character: No valid substrings
- * - Alternating characters: n-1 valid substrings
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * [example input]
+ * ```
+ *
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

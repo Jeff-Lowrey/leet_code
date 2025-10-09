@@ -1,44 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in String Manipulation.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Check if a string can be a palindrome after deleting at most one character.
- * Use two pointers from both ends. When we find a mismatch, try skipping
- * either the left or right character and check if the remaining is a palindrome.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
- *    a) Skip left character and check if rest is palindrome
- *    b) Skip right character and check if rest is palindrome
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * If we can delete at most one character, when we find a mismatch, one of
- * the two characters must be the one to delete. We test both possibilities.
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n)
- * - We traverse the string at most twice (once for main check, once for validation)
- * SPACE COMPLEXITY: O(1)
- * - Only using pointers, no extra data structures
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
- * Input: "abca"
- * Step 1: Compare 'a' and 'a' - match, continue
- * Step 2: Compare 'b' and 'c' - mismatch
- * Step 3: Try skipping 'b': "aca" is palindrome - true
- * Output: true
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
  *
- * EDGE CASES:
- * - Already a palindrome: Return true
- * - Single character: Return true
- * - Empty string: Return true
- * - Two different characters: Return true (delete one)
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * [example input]
+ * ```
+ *
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

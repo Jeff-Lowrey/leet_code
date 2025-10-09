@@ -1,43 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in String Manipulation.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Add two binary strings just like you would add decimal numbers by hand:
- * start from the rightmost digits, add them with any carry, and move left.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * Binary addition follows the same principles as decimal addition:
- * 0 + 0 = 0, 0 + 1 = 1, 1 + 1 = 10 (0 with carry 1)
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(max(m, n))
- * - Where m and n are the lengths of the two strings
- * SPACE COMPLEXITY: O(max(m, n))
- * - Result string will be at most max(m, n) + 1 characters
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
- * Input: a = "1010", b = "1011"
- * Step 1: 0 + 1 = 1, carry = 0
- * Step 2: 1 + 1 = 0, carry = 1
- * Step 3: 0 + 0 + carry = 1, carry = 0
- * Step 4: 1 + 1 = 0, carry = 1
- * Step 5: Add carry = 1
- * Output: "10101"
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
  *
- * EDGE CASES:
- * - Different length strings: Pad with implicit zeros
- * - Result has extra digit from final carry
- * - One or both strings are "0"
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * [example input]
+ * ```
+ *
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**
