@@ -1,12 +1,25 @@
 """
-# 274. H Index
 # Difficulty: Medium
+
+# 274. H Index
+
 Given an array of integers citations where citations[i] is the number of citations a researcher
 received for their ith paper, return the researcher's h-index.
 
 According to the definition of h-index on Wikipedia: The h-index is defined as the maximum value
 of h such that the given researcher has published at least h papers that have each been cited at
 least h times.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -26,12 +39,6 @@ Sorting helps us find this threshold efficiently. We can also use counting for O
 - If citations[i] >= i+1, we have at least i+1 papers with i+1+ citations
 - The h-index is the maximum such i+1 value
 - Counting approach: For each h, count papers with >= h citations
-
-### TIME COMPLEXITY: O(n log n)
-For sorting approach. Counting approach is O(n).
-
-### SPACE COMPLEXITY: O(1)
-If sorting in place, O(n) for sorting with extra space
 
 ### EXAMPLE WALKTHROUGH:
 ```
@@ -57,16 +64,19 @@ Papers with >= 4 citations: 6,5 = 2 papers (not enough for h=4)
 Output: 3
 ```
 
+### TIME COMPLEXITY:
+O(n log n)
+For sorting approach. Counting approach is O(n).
+
+### SPACE COMPLEXITY:
+O(1)
+If sorting in place, O(n) for sorting with extra space
+
 ### EDGE CASES:
 - All zeros (h-index = 0)
 - All citations > n (h-index = n)
 - Single paper
 - Empty array
-
-### OPTIMIZATIONS:
-- **Counting approach**: O(n) time using bucket counting
-- **Binary search**: Can also use binary search on sorted array
-- **No sorting needed**: Counting is more efficient
 
 </details>
 """

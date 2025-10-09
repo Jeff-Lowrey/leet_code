@@ -1,6 +1,8 @@
 """
-# 969. Pancake Sorting
 # Difficulty: Medium
+
+# 969. Pancake Sorting
+
 Given an array of integers arr, sort the array by performing a series of pancake flips.
 
 In one pancake flip we do the following steps:
@@ -12,6 +14,17 @@ sub-array [3,2,1], so arr = [1,2,3,4] after the pancake flip at k = 3.
 
 Return an array of the k-values corresponding to a sequence of pancake flips that sort arr.
 Any valid answer that sorts the array within 10 * arr.length flips will be accepted.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -33,14 +46,6 @@ top with one flip, then flip it to its final position. This guarantees sorting.
 - Second flip moves it to its correct position
 - Working from largest to smallest guarantees no interference
 - Maximum 2n flips (well within 10n limit)
-
-### TIME COMPLEXITY: O(n²)
-- n iterations (one per element)
-- Each iteration finds max: O(n)
-- Total: O(n²)
-
-### SPACE COMPLEXITY: O(n)
-For storing the flip sequence
 
 ### EXAMPLE WALKTHROUGH:
 ```
@@ -72,17 +77,22 @@ Result: [1,2,3,4]
 Output: [3,4,2,3,2] (flip positions)
 ```
 
+### TIME COMPLEXITY:
+O(n²)
+- n iterations (one per element)
+- Each iteration finds max: O(n)
+- Total: O(n²)
+
+### SPACE COMPLEXITY:
+O(n)
+For storing the flip sequence
+
 ### EDGE CASES:
 - Already sorted array
 - Single element
 - Reverse sorted
 - All elements equal
 - Two elements
-
-### OPTIMIZATIONS:
-- **Skip if already in position**: Don't flip if element already at correct spot
-- **Skip single flips**: If max is already at position 0, only need one flip
-- **Early termination**: Stop when remaining array is sorted
 
 </details>
 """

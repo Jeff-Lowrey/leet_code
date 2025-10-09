@@ -1,11 +1,24 @@
 """
-# 324. Wiggle Sort II
 # Difficulty: Medium
+
+# 324. Wiggle Sort II
+
 Given an integer array nums, reorder it such that nums[0] < nums[1] > nums[2] < nums[3]...
 
 You may assume the input array always has a valid answer.
 
 Follow up: Can you do it in O(n) time and/or in-place with O(1) extra space?
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -25,12 +38,6 @@ We need to interleave smaller and larger halves to avoid adjacent equal elements
 - Interleaving ensures no same-valued elements are adjacent
 - Reverse order within halves maximizes separation
 - Example: [1,2,3,4,5,6] → [1,4,2,5,3,6] → rearrange → [3,6,2,5,1,4]
-
-### TIME COMPLEXITY: O(n log n)
-For sorting. Can be O(n) with median-finding algorithm.
-
-### SPACE COMPLEXITY: O(n)
-For temporary sorted array. Can be O(1) with in-place virtual indexing.
 
 ### EXAMPLE WALKTHROUGH:
 ```
@@ -60,16 +67,19 @@ With [1,1,1,1,2,2], need clever placement:
 Reversing: [1,2,1,2,1,1] → place from middle outward
 ```
 
+### TIME COMPLEXITY:
+O(n log n)
+For sorting. Can be O(n) with median-finding algorithm.
+
+### SPACE COMPLEXITY:
+O(n)
+For temporary sorted array. Can be O(1) with in-place virtual indexing.
+
 ### EDGE CASES:
 - Array with many duplicate elements
 - All elements equal (impossible with strict inequality requirement)
 - Small arrays (length 2-3)
 - Even vs odd length arrays
-
-### OPTIMIZATIONS:
-- **Quickselect for median**: O(n) average time
-- **Virtual indexing**: Map [0,1,2,3,4,5] → [1,3,5,0,2,4] for in-place
-- **Three-way partitioning**: Dutch National Flag algorithm
 
 </details>
 """
