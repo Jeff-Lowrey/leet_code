@@ -138,7 +138,7 @@ class CategoryManager:
                         name="",
                         difficulty=difficulty,
                         time_complexity=time_comp,
-                        space_complexity=space_comp
+                        space_complexity=space_comp,
                     )
                     category.solutions.append(solution)
 
@@ -186,10 +186,7 @@ class CategoryManager:
 
             # Extract difficulty (Easy/Medium/Hard) from first few lines
             difficulty = ""
-            difficulty_patterns = [
-                r"(?:Difficulty:|#)\s*(Easy|Medium|Hard)",
-                r"^(Easy|Medium|Hard)\s*$"
-            ]
+            difficulty_patterns = [r"(?:Difficulty:|#)\s*(Easy|Medium|Hard)", r"^(Easy|Medium|Hard)\s*$"]
             for pattern in difficulty_patterns:
                 match = re.search(pattern, content[:500], re.MULTILINE | re.IGNORECASE)
                 if match:
@@ -201,12 +198,13 @@ class CategoryManager:
             time_patterns = [
                 r"Time Complexity:\s*(\*\*)?O\([^)]+\)(\*\*)?",
                 r"TIME COMPLEXITY:\s*(\*\*)?O\([^)]+\)(\*\*)?",
-                r"Time:\s*(\*\*)?O\([^)]+\)(\*\*)?"
+                r"Time:\s*(\*\*)?O\([^)]+\)(\*\*)?",
             ]
             for pattern in time_patterns:
                 match = re.search(pattern, content)
                 if match:
-                    time_comp = re.search(r"O\([^)]+\)", match.group(0)).group(0) if match else ""
+                    inner_match = re.search(r"O\([^)]+\)", match.group(0))
+                    time_comp = inner_match.group(0) if inner_match else ""
                     break
 
             # Extract space complexity
@@ -214,12 +212,13 @@ class CategoryManager:
             space_patterns = [
                 r"Space Complexity:\s*(\*\*)?O\([^)]+\)(\*\*)?",
                 r"SPACE COMPLEXITY:\s*(\*\*)?O\([^)]+\)(\*\*)?",
-                r"Space:\s*(\*\*)?O\([^)]+\)(\*\*)?"
+                r"Space:\s*(\*\*)?O\([^)]+\)(\*\*)?",
             ]
             for pattern in space_patterns:
                 match = re.search(pattern, content)
                 if match:
-                    space_comp = re.search(r"O\([^)]+\)", match.group(0)).group(0) if match else ""
+                    inner_match = re.search(r"O\([^)]+\)", match.group(0))
+                    space_comp = inner_match.group(0) if inner_match else ""
                     break
 
             return difficulty, time_comp, space_comp
