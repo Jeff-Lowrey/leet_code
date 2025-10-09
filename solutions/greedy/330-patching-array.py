@@ -1,7 +1,6 @@
 """
 # 330. Patching Array
-**Hard**
-
+# Difficulty: Hard
 You are given a sorted positive integer array nums and an integer n. You need to
 make it so that any integer in the range [1, n] can be formed by the sum of some
 elements from nums.

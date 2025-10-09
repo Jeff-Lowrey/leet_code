@@ -1,7 +1,6 @@
 """
 # 1221. Split A String In Balanced Strings
-**Easy**
-
+# Difficulty: Easy
 Balanced strings are those that have an equal quantity of 'L' and 'R' characters.
 
 Given a balanced string s, split it into some number of substrings such that:
@@ -110,7 +109,6 @@ Proof:
 
 from typing import List
 
-
 class Solution:
     def balancedStringSplit(self, s: str) -> int:
         """
@@ -216,7 +214,6 @@ class Solution:
 
         return count, substrings
 
-
 def test_solution():
     """Test cases for Problem 1221."""
     solution = Solution()
@@ -283,7 +280,6 @@ def test_solution():
         assert sub.count('R') == sub.count('L'), f"Substring {sub} is not balanced"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

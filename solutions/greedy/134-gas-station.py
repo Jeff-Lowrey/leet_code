@@ -1,7 +1,6 @@
 """
 # 134. Gas Station
-**Medium**
-
+# Difficulty: Medium
 There are n gas stations along a circular route, where the amount of gas at the
 ith station is gas[i].
 
@@ -88,7 +87,6 @@ Time: O(n²), Space: O(1)
 """
 
 from typing import List
-
 
 class Solution:
     def canCompleteCircuit(self, gas: List[int], cost: List[int]) -> int:
@@ -197,7 +195,6 @@ class Solution:
 
         return start
 
-
 def test_solution():
     """Test cases for Problem 134."""
     solution = Solution()
@@ -251,7 +248,6 @@ def test_solution():
     assert result9 == expected9, f"Expected {expected9}, got {result9}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

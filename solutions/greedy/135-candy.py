@@ -1,7 +1,6 @@
 """
 # 135. Candy
-**Hard**
-
+# Difficulty: Hard
 There are n children standing in a line. Each child is assigned a rating value given
 in the integer array ratings.
 
@@ -100,7 +99,6 @@ Total: 1 + 2 + 1 = 4
 """
 
 from typing import List
-
 
 class Solution:
     def candy(self, ratings: List[int]) -> int:
@@ -215,7 +213,6 @@ class Solution:
 
         return total
 
-
 def test_solution():
     """Test cases for Problem 135."""
     solution = Solution()
@@ -281,7 +278,6 @@ def test_solution():
     assert result12 == expected12, f"Expected {expected12}, got {result12}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

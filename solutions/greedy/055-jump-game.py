@@ -1,7 +1,6 @@
 """
 55. Jump Game
-Medium
-
+# Difficulty: Medium
 You are given an integer array `nums`. You are initially positioned at the array's
 first index, and each element in the array represents your maximum jump length
 at that position.
@@ -133,11 +132,9 @@ class Solution:
 
         return dp[n - 1]
 
-
 """
 45. Jump Game II
-Medium
-
+# Difficulty: Medium
 You are given a 0-indexed array of integers nums of length n.
 
 Your goal is to reach nums[n - 1] starting from nums[0] with the minimum number
@@ -209,11 +206,9 @@ class SolutionJumpII:
 
         return level
 
-
 """
 134. Gas Station
-Medium
-
+# Difficulty: Medium
 There are n gas stations along a circular route, where the amount of gas at the
 ith station is gas[i].
 
@@ -276,7 +271,6 @@ class SolutionGasStation:
                 return start
 
         return -1
-
 
 # Test cases
 if __name__ == "__main__":

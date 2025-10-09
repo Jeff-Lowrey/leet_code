@@ -1,7 +1,6 @@
 """
 # 860. Lemonade Change
-**Easy**
-
+# Difficulty: Easy
 At a lemonade stand, each lemonade costs $5. Customers are standing in a queue to buy from you and order one at a time (in the order specified by bills). Each customer will only buy one lemonade and pay with either a $5, $10, or $20 bill. You must provide the correct change to each customer so that the net transaction is that the customer pays $5.
 
 Note that you do not have any change in hand at first.
@@ -144,7 +143,6 @@ class Solution:
 
         return True
 
-
 def test_solution():
     """Test cases for Problem 860."""
     solution = Solution()
@@ -185,7 +183,6 @@ def test_solution():
     assert result7 == expected7, f"Expected {expected7}, got {result7}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

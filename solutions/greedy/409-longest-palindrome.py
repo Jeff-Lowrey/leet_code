@@ -1,7 +1,6 @@
 """
 # 409. Longest Palindrome
-**Easy**
-
+# Difficulty: Easy
 Given a string s which consists of lowercase or uppercase letters, return the length of the longest palindrome that can be built with those letters.
 
 Letters are case sensitive, for example, "Aa" is not considered a palindrome here.
@@ -172,7 +171,6 @@ class Solution:
         return sum(count // 2 for count in counts.values()) * 2 + \
                (1 if any(count % 2 for count in counts.values()) else 0)
 
-
 def test_solution():
     """Test cases for Problem 409."""
     solution = Solution()
@@ -226,7 +224,6 @@ def test_solution():
     assert result10 == expected10, f"Expected {expected10}, got {result10}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

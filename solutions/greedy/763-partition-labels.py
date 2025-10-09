@@ -1,7 +1,6 @@
 """
 # 763. Partition Labels
-**Medium**
-
+# Difficulty: Medium
 Given a problem that demonstrates key concepts in Greedy.
 
 <details>
