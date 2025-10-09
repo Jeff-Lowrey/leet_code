@@ -1,6 +1,5 @@
 /**
- * 378. Kth Smallest Element In A Sorted Matrix
- * Medium
+
  *
  * This problem demonstrates key concepts in Heap.
  *
@@ -11,10 +10,10 @@
  * and use a min heap to merge them efficiently, similar to merging k sorted lists.
  *
  * APPROACH:
- * 1. **Initialize Min Heap**: Add first element of each row to heap
- * 2. **Extract Minimum**: Pop smallest element k times
- * 3. **Add Next in Row**: When we pop element at [row, col], add element at [row, col+1]
- * 4. **Return Kth**: The kth popped element is our answer
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Each row is sorted, so the next smallest in a row is always to the right

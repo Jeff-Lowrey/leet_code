@@ -1,6 +1,5 @@
 /**
- * 451. Sort Characters By Frequency
- * Medium
+
  *
  * This problem demonstrates key concepts in Heap.
  *
@@ -11,10 +10,10 @@
  * to efficiently retrieve characters in order of decreasing frequency.
  *
  * APPROACH:
- * 1. **Count Frequencies**: Use a hash map to count each character's frequency
- * 2. **Build Max Heap**: Add all [char, frequency] pairs to a max heap
- * 3. **Extract in Order**: Pop from heap and append characters to result
- * 4. **Build Result**: For each character, append it frequency times
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Hash map gives us O(1) frequency counting

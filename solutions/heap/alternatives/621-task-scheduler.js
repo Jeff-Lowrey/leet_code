@@ -1,6 +1,5 @@
 /**
- * 621. Task Scheduler
- * Medium
+
  *
  * This problem demonstrates key concepts in Heap.
  *
@@ -11,11 +10,11 @@
  * the most frequent task first (greedy approach) to minimize idle time.
  *
  * APPROACH:
- * 1. **Count Frequencies**: Count how many times each task appears
- * 2. **Use Max Heap**: Store task frequencies in max heap
- * 3. **Simulate Scheduling**: Process tasks in rounds of (n+1) intervals
- * 4. **Track Cooldown**: Use a queue to track tasks in cooldown period
- * 5. **Calculate Time**: Total time includes both tasks and idle periods
+
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Scheduling most frequent tasks first minimizes total idle time

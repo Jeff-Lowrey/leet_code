@@ -1,6 +1,5 @@
 /**
- * 767. Reorganize String
- * Medium
+
  *
  * This problem demonstrates key concepts in Heap.
  *
@@ -11,11 +10,11 @@
  * place the most frequent character first, but never place it adjacent to itself.
  *
  * APPROACH:
- * 1. **Count Frequencies**: Count each character's frequency
- * 2. **Build Max Heap**: Store [char, frequency] pairs in max heap
- * 3. **Greedy Selection**: Always pick the most frequent available character
- * 4. **Track Previous**: Keep track of previously used character to avoid adjacency
- * 5. **Validate**: If we can't place all characters, return empty string
+
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Placing most frequent characters first minimizes risk of running out of options

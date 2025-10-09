@@ -1,6 +1,5 @@
 /**
- * 692. Top K Frequent Words
- * Medium
+
  *
  * This problem demonstrates key concepts in Heap.
  *
@@ -11,10 +10,10 @@
  * A min heap of size k allows us to efficiently track the top k elements.
  *
  * APPROACH:
- * 1. **Count Frequencies**: Use hash map to count word frequencies
- * 2. **Build Min Heap**: Maintain heap of size k with custom comparator
- * 3. **Heap Comparator**: Compare by frequency (ascending), then by word (descending)
- * 4. **Extract Results**: Pop all from heap and reverse for correct order
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Min heap keeps the k most frequent words

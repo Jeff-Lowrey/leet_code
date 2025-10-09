@@ -1,6 +1,5 @@
 /**
- * 973. K Closest Points To Origin
- * Medium
+
  *
  * This problem demonstrates key concepts in Heap.
  *
@@ -11,12 +10,12 @@
  * to efficiently track the k closest points without sorting all points.
  *
  * APPROACH:
- * 1. **Calculate Distances**: For each point, calculate squared distance from origin
- * 2. **Use Max Heap**: Maintain a max heap of size k
- * 3. **Add Points**: For each point:
+
+
+
  *    - If heap size < k, add point
  *    - If point is closer than farthest in heap, replace it
- * 4. **Extract Results**: Return all points from heap
+
  *
  * WHY THIS WORKS:
  * - Max heap keeps k closest points

@@ -1,6 +1,5 @@
 /**
- * 703. Kth Largest Element In A Stream
- * Easy
+
  *
  * This problem demonstrates key concepts in Heap.
  *
@@ -11,11 +10,11 @@
  * The top of the heap is always the kth largest element.
  *
  * APPROACH:
- * 1. **Initialize Min Heap**: Build heap with first k elements (or all if less than k)
- * 2. **Add Method**: When adding a new element:
+
+
  *    - If heap size < k, add element
  *    - If element > heap top, replace top with element
- * 3. **Return Top**: The top of min heap is always kth largest
+
  *
  * WHY THIS WORKS:
  * - Min heap of size k stores k largest elements

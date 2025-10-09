@@ -1,6 +1,5 @@
 /**
- * 215. Kth Largest Element In An Array
- * Medium
+
  *
  * This problem demonstrates key concepts in Heap.
  *
@@ -11,9 +10,9 @@
  * Alternatively, we can use quickselect algorithm for O(n) average time complexity.
  *
  * APPROACH:
- * 1. **Min-Heap Approach**: Maintain a min-heap of size k, where the root is always the kth largest element
- * 2. **Quickselect Approach**: Use partition logic similar to quicksort to find the kth largest element
- * 3. **Handle edge cases**: Single element, k equals array length, etc.
+
+
+
  *
  * WHY THIS WORKS:
  * - Min-heap ensures we always have the k largest elements, with the smallest of them (kth largest) at the root

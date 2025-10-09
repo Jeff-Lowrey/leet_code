@@ -1,6 +1,5 @@
 /**
- * 373. Find K Pairs With Smallest Sums
- * Medium
+
  *
  * This problem demonstrates key concepts in Heap.
  *
@@ -11,10 +10,10 @@
  * We can use a min heap to efficiently track and retrieve pairs in order of their sum.
  *
  * APPROACH:
- * 1. **Initialize Min Heap**: Start with pairs using the first element of nums2 with each element in nums1
- * 2. **Extract Minimum**: Pop the smallest sum pair from heap
- * 3. **Add Next Candidate**: When we pop [i, j], add [i, j+1] to explore the next pair
- * 4. **Repeat**: Continue until we have K pairs or exhaust possibilities
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Both arrays are sorted, so nums1[i] + nums2[j] <= nums1[i] + nums2[j+1]

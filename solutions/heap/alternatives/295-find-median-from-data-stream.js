@@ -1,6 +1,5 @@
 /**
- * 295. Find Median From Data Stream
- * Hard
+
  *
  * This problem demonstrates key concepts in Heap.
  *
@@ -11,10 +10,10 @@
  * Using two heaps allows us to balance the data such that we always have quick access to the median.
  *
  * APPROACH:
- * 1. **Use Two Heaps**: Maintain a max heap for the lower half and a min heap for the upper half
- * 2. **Balance Heaps**: Keep heaps balanced so their sizes differ by at most 1
- * 3. **Add Numbers**: Add to appropriate heap and rebalance if needed
- * 4. **Find Median**: If heaps are equal size, median is average of both tops; otherwise, it's the top of the larger heap
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Max heap stores smaller half (largest of small numbers at top)
