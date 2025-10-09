@@ -1,56 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * You are given n computers numbered from 0 to n - 1 connected by ethernet cables connections forming a network where connections[i] = [ai, bi] connects computers ai and bi.
+ * [Problem description goes here]
  *
- * Any computer can reach any other computer directly or indirectly through the network.
+ * **Example:**
  *
- * You are given an initial computer network connections. You can extract certain cables between two directly connected computers, and place them between any pair of disconnected computers to make them directly connected.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * Return the minimum number of times you need to do this to make all the computers connected. If it is not possible, return -1.
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * SOLUTION EXPLANATION:
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * INTUITION:
- * This is a classic Union-Find problem about connecting components. Key insights:
- * - To connect n computers, we need at least n-1 cables
- * - Extra cables can be moved to connect separate components
- * - Count disconnected components and check if we have enough spare cables
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * APPROACH:
-
-
-
-
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
  *
- * WHY THIS WORKS:
- * - Union-Find efficiently tracks connected components
- * - Each component merge requires exactly 1 cable
- * - Spare cables = total_cables - (n - components)
- * - Need (components - 1) cables to connect all components
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * [example input]
+ * ```
  *
- * TIME COMPLEXITY: O(n × α(n))
- * Where α is the inverse Ackermann function (nearly constant)
+ * **Step 1:** [description]
  *
- * SPACE COMPLEXITY: O(n)
- * For Union-Find parent and rank arrays
+ * **Step 2:** [description]
  *
- * EXAMPLE WALKTHROUGH:
- * n = 4, connections = [[0,1],[0,2],[1,2],[1,3]]
- * Total cables: 4, Need: 3, Spare: 1
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
  *
- * Union-Find process:
- * - Connect 0-1: components = {0,1}, {2}, {3}
- * - Connect 0-2: components = {0,1,2}, {3}
- * - Connect 1-2: redundant (already connected)
- * - Connect 1-3: components = {0,1,2,3}
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
  *
- * Components: 1, Operations needed: 0
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
  *
- * EDGE CASES:
- * - Not enough cables: return -1
- * - Already connected: return 0
- * - Multiple components with spare cables
+ * </details>
  */
 
 /**

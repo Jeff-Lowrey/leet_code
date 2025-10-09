@@ -1,48 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Union Find.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Regions of 'O' that are NOT surrounded by 'X' are those connected to the border.
- * Using Union-Find, we can connect all border 'O's to a dummy node, then connect
- * adjacent 'O's together. Any 'O' not connected to the dummy node is surrounded.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * Any 'O' connected to the border cannot be surrounded. Union-Find efficiently
- * identifies which cells belong to the "border-connected" component.
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(m * n * α(m*n)) where α is inverse Ackermann (nearly O(m*n))
- * SPACE COMPLEXITY: O(m * n) for the Union-Find structure
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: [["X","X","X","X"],
- *         ["X","O","O","X"],
- *         ["X","X","O","X"],
- *         ["X","O","X","X"]]
- * Step 1: Border 'O's (none in this case) would connect to dummy
- * Step 2: Interior 'O's at (1,1), (1,2), (2,2) form connected component
- * Step 3: Component (3,1) is separate and touches border at column 0
- * Step 4: Flip interior 'O's not connected to border
- * Output: [["X","X","X","X"],
- *          ["X","X","X","X"],
- *          ["X","X","X","X"],
- *          ["X","O","X","X"]]
+ * [example input]
  * ```
  *
- * EDGE CASES:
- * - Empty board or single row/column
- * - All 'X' or all 'O'
- * - Board with 'O's only on border
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 class UnionFind {

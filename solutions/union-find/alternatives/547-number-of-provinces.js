@@ -1,66 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * There are n cities. Some of them are connected, while some are not. If city a is connected directly with city b, and city b is connected directly with city c, then city a is connected indirectly with city c.
+ * [Problem description goes here]
  *
- * A province is a group of directly or indirectly connected cities and no other cities outside of the group.
+ * **Example:**
  *
- * You are given an n x n matrix isConnected where isConnected[i][j] = 1 if the ith city and the jth city are directly connected, and isConnected[i][j] = 0 otherwise.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * Return the total number of provinces.
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * SOLUTION EXPLANATION:
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * INTUITION:
- * This is a classic connected components problem. We need to find how many separate groups of cities exist. Cities in the same group are either directly or indirectly connected. Union-Find is perfect for this as it efficiently manages and counts connected components.
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * APPROACH:
-
-
-
-
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
  *
- * WHY THIS WORKS:
- * - Union-Find automatically groups connected cities into components
- * - Each connected component represents one province
- * - After processing all connections, count unique roots to get province count
- * - DFS alternative marks all cities in a component as visited
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * [example input]
+ * ```
  *
- * TIME COMPLEXITY: O(n² × α(n))
- * Where α is the inverse Ackermann function (nearly constant)
+ * **Step 1:** [description]
  *
- * SPACE COMPLEXITY: O(n)
- * For the Union-Find parent and rank arrays
+ * **Step 2:** [description]
  *
- * EXAMPLE WALKTHROUGH:
- * isConnected = [[1,1,0],
- *                [1,1,0],
- *                [0,0,1]]
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
  *
- * Cities: 0, 1, 2
- * Connections: 0-1 (direct), 2 (isolated)
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
  *
- * Union-Find process:
-
-
-
-
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
  *
- * Count unique roots: 1 (for cities 0,1) and 2 (for city 2)
- * Result: 2 provinces
- *
- * KEY INSIGHTS:
- * - Matrix is symmetric (undirected graph)
- * - Diagonal elements are always 1 (city connected to itself)
- * - Need to count connected components, not individual connections
- * - Union-Find provides optimal solution for this type of problem
- *
- * EDGE CASES:
- * - Single city (n=1): returns 1 province
- * - All cities isolated: returns n provinces
- * - All cities connected: returns 1 province
- * - Self-connections (diagonal): already handled, don't affect result
- * - Empty matrix: returns 0 provinces
+ * </details>
  */
 
 /**

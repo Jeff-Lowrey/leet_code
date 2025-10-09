@@ -1,58 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * You are given an array of strings equations that represent relationships between variables where each string equations[i] is of length 4 and takes one of two different forms: "xi==xj" or "xi!=xj".
+ * [Problem description goes here]
  *
- * Here, xi and xj are lowercase letters (not necessarily different) that represent one-letter variable names.
+ * **Example:**
  *
- * Return true if it is possible to assign integers to variable names so as to satisfy all the given equations, or false otherwise.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * SOLUTION EXPLANATION:
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * INTUITION:
- * This is a classic Union-Find problem. We need to check if equality and inequality constraints can be satisfied simultaneously. The key insight is to first process all equality constraints to group variables, then check if inequality constraints violate these groups.
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * APPROACH:
-
-
-
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * WHY THIS WORKS:
- * - Union-Find efficiently manages equivalence classes
- * - Equality constraints create connected components
- * - Inequality constraints must not connect variables in same component
- * - Two-pass approach separates grouping from validation
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
  *
- * TIME COMPLEXITY: O(N × α(N))
- * Where N is number of equations and α is inverse Ackermann function
- *
- * SPACE COMPLEXITY: O(1)
- * Since we only have 26 possible variables (a-z)
- *
- * EXAMPLE WALKTHROUGH:
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: ["a==b","b!=a"]
- * Step 1: Process equalities - Union('a', 'b')
- * Step 2: Check inequalities - "b!=a" but a and b are in same group
- * Output: false (contradiction)
- *
- * Input: ["a==b","b==c","a!=d"]
- * Step 1: Process equalities - Union('a','b'), Union('b','c') → {a,b,c} group
- * Step 2: Check inequalities - "a!=d" and d is separate → no conflict
- * Output: true
+ * [example input]
  * ```
  *
- * KEY INSIGHTS:
- * - Equality is transitive: if a==b and b==c, then a==c
- * - Union-Find naturally handles transitivity
- * - Process all equalities first to establish groups
- * - Inequality between variables in same group = contradiction
+ * **Step 1:** [description]
  *
- * EDGE CASES:
- * - No equations (vacuously true)
- * - Only equality equations
- * - Only inequality equations
- * - Self-reference equations like "a==a" or "a!=a"
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

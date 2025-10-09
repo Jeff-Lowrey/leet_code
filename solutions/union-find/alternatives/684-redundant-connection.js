@@ -1,55 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * In this problem, a tree is an undirected graph that is connected and has no cycles.
+ * [Problem description goes here]
  *
- * You are given a graph that started as a tree with n nodes labeled from 1 to n, with one additional edge added. The added edge has two vertices chosen from 1 to n, and was not an edge that already existed. The graph is represented as an array edges of length n where edges[i] = [ai, bi] indicates that there is an edge between nodes ai and bi in the graph.
+ * **Example:**
  *
- * Return an edge that can be removed so that the resulting graph is a tree of n nodes. If there are multiple answers, return the answer that occurs last in the input.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * SOLUTION EXPLANATION:
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * INTUITION:
- * This is a classic Union-Find cycle detection problem. In a tree with n nodes, there should be exactly n-1 edges. When we add one extra edge, it creates a cycle. We need to find the edge that completes this cycle.
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * APPROACH:
-
-
-
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * WHY THIS WORKS:
- * - Union-Find efficiently tracks connected components
- * - When we encounter an edge between two nodes already in the same component, that edge creates a cycle
- * - The first such edge we encounter (processing left to right) is the redundant one
- * - This edge can be removed while keeping the graph connected
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
  *
- * TIME COMPLEXITY: O(n × α(n))
- * Where α is the inverse Ackermann function (nearly constant for practical purposes)
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * [example input]
+ * ```
  *
- * SPACE COMPLEXITY: O(n)
- * For the Union-Find parent array
+ * **Step 1:** [description]
  *
- * EXAMPLE WALKTHROUGH:
- * edges = [[1,2],[1,3],[2,3]]
+ * **Step 2:** [description]
  *
- * Process edge [1,2]: 1 and 2 not connected → union them
- * Process edge [1,3]: 1 and 3 not connected → union them
- * Process edge [2,3]: 2 and 3 are already connected through 1 → redundant!
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
  *
- * Return [2,3]
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
  *
- * KEY INSIGHTS:
- * - Tree property: n nodes need exactly n-1 edges
- * - Extra edge always creates exactly one cycle
- * - Union-Find detects cycles efficiently
- * - Process edges in order and return first cycle-creating edge
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
  *
- * EDGE CASES:
- * - Minimum case (3 nodes, 3 edges): forms triangle
- * - Linear chain then cycle: returns edge that completes cycle
- * - Multiple possible answers: returns last occurrence in input
- * - All edges create valid tree except last: last edge is redundant
- * - Nodes labeled from 1 to n: Union-Find handles 1-indexed correctly
+ * </details>
  */
 
 /**

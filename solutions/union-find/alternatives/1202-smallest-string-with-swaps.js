@@ -1,43 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Union Find.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * If we can swap characters at indices i and j, and also swap j and k, then transitively
- * we can rearrange characters at indices i, j, and k in any order. This forms connected
- * components where all indices in a component can be freely rearranged. To get the
- * lexicographically smallest string, we sort characters within each component.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * Union-Find efficiently groups indices into components. Since we can perform unlimited
- * swaps within each component, sorting gives us the lexicographically smallest arrangement.
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n log n + m * α(n))
- *   - n log n for sorting characters within components
- *   - m * α(n) for union-find operations where m is number of pairs and α is inverse Ackermann
- * SPACE COMPLEXITY: O(n) for parent array and component storage
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
- * Input: s = "dcab", pairs = [[0,3],[1,2]]
- * Step 1: Union-Find groups: {0,3} and {1,2}
- * Step 2: Component {0,3} has chars ['d','b'] -> sorted: ['b','d']
- * Step 3: Component {1,2} has chars ['c','a'] -> sorted: ['a','c']
- * Step 4: Place back: indices [0,3] get ['b','d'], indices [1,2] get ['a','c']
- * Output: "bacd"
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
  *
- * EDGE CASES:
- * - Empty string or no pairs -> return original string
- * - Single character -> return as is
- * - No swaps possible (disjoint pairs) -> each component sorted independently
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * [example input]
+ * ```
+ *
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 class UnionFind {
