@@ -1,11 +1,24 @@
 """
-# 224. Basic Calculator
 # Difficulty: Hard
+
+# 224. Basic Calculator
+
 Given a string s representing a valid expression, implement a basic calculator to evaluate it, and return the result of the evaluation.
 
 Note: You are not allowed to use any built-in function which evaluates strings as mathematical expressions, such as eval().
 
 The expression string contains only '(', ')', '+', '-', non-negative integers and spaces ' '.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -26,12 +39,6 @@ This is a classic stack problem for parsing expressions with parentheses. The ke
 - When we see ')', we complete the subproblem and add back to previous result
 - Numbers and operators are processed left to right
 
-### TIME COMPLEXITY: O(n)
-Single pass through the string
-
-### SPACE COMPLEXITY: O(n)
-Stack can grow up to the depth of nested parentheses
-
 ### EXAMPLE WALKTHROUGH:
 ```
 Input: "1 + 1"
@@ -51,11 +58,17 @@ Input: "2-(1+1)"
 Output: 0
 ```
 
-### KEY INSIGHTS:
-- Stack stores the state before entering parentheses
-- Current calculation happens in result and sign variables
-- When exiting parentheses, combine subresult with previous state
-- Handle spaces by ignoring them
+### TIME COMPLEXITY:
+O(n)
+Single pass through the string
+
+### SPACE COMPLEXITY:
+O(n)
+Stack can grow up to the depth of nested parentheses
+
+### EDGE CASES:
+- **[Edge case 1]:** [how it's handled]
+- **[Edge case 2]:** [how it's handled]
 
 </details>
 """

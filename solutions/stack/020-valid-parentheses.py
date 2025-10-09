@@ -1,13 +1,13 @@
 """
-20. Valid Parentheses
 # Difficulty: Easy
+
 Given a string s containing just the characters '(', ')', '{', '}', '[' and ']',
 determine if the input string is valid.
 
 An input string is valid if:
-1. Open brackets must be closed by the same type of brackets.
-2. Open brackets must be closed in the correct order.
-3. Every close bracket has a corresponding open bracket of the same type.
+
+
+
 
 Example 1:
 Input: s = "()"
@@ -20,6 +20,17 @@ Output: true
 Example 3:
 Input: s = "(]"
 Output: false
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -42,12 +53,6 @@ If all brackets are properly matched, the stack will be empty at the end.
 - Each closing bracket must match the most recent opening bracket
 - Empty stack at the end means all brackets were properly matched
 
-### TIME COMPLEXITY: O(n)
-Single pass through the string
-
-### SPACE COMPLEXITY: O(n)
-Stack can contain up to n/2 opening brackets in worst case
-
 ### EXAMPLE WALKTHROUGH:
 ```
 Input: s = "([{}])"
@@ -61,29 +66,20 @@ Step 6: ')' → pop '(', matches ✓, stack: []
 Result: Empty stack → True
 ```
 
+### TIME COMPLEXITY:
+O(n)
+Single pass through the string
+
+### SPACE COMPLEXITY:
+O(n)
+Stack can contain up to n/2 opening brackets in worst case
+
 ### EDGE CASES:
 - Empty string: Valid (return True)
 - Single opening bracket: Invalid
 - Single closing bracket: Invalid
 - Odd length string: Invalid (can't have balanced brackets)
 - Wrong order: "([)]" → Invalid
-
-</details>
-
-<details>
-<summary><b>💡 APPROACH</b></summary>
-
-Stack-based approach:
-1. Create a mapping of closing to opening brackets
-2. Use stack to track opening brackets
-3. For each character:
-   - If opening bracket: push to stack
-   - If closing bracket: check if it matches top of stack
-4. Return True if stack is empty at the end
-
-Alternative approaches:
-- Replace pairs iteratively (less efficient)
-- Recursive approach (more complex)
 
 </details>
 """

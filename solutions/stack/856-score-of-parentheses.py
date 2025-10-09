@@ -1,12 +1,25 @@
 """
-# 856. Score Of Parentheses
 # Difficulty: Medium
+
+# 856. Score Of Parentheses
+
 Given a balanced parentheses string s, return the score of the string.
 
 The score of a balanced parentheses string is based on the following rule:
 - "()" has score 1.
 - AB has score A + B, where A and B are balanced parentheses strings.
 - (A) has score 2 * A, where A is a balanced parentheses string.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -30,12 +43,6 @@ We need to calculate scores based on nesting depth and adjacency. Key insights:
 - When we close a level, we either get 1 (empty) or double the inner score
 - Adjacent groups at same level add together
 
-### TIME COMPLEXITY: O(n)
-Single pass through the string
-
-### SPACE COMPLEXITY: O(n)
-Stack can grow to depth of nesting
-
 ### EXAMPLE WALKTHROUGH:
 ```
 Input: "(()(()))"
@@ -51,10 +58,17 @@ Stack: [0]
 Output: 6
 ```
 
-### THREE APPROACHES:
-1. **Stack**: Track scores at each level
-2. **Depth counting**: Count "()" at each depth
-3. **Recursive**: Parse and calculate recursively
+### TIME COMPLEXITY:
+O(n)
+Single pass through the string
+
+### SPACE COMPLEXITY:
+O(n)
+Stack can grow to depth of nesting
+
+### EDGE CASES:
+- **[Edge case 1]:** [how it's handled]
+- **[Edge case 2]:** [how it's handled]
 
 </details>
 """

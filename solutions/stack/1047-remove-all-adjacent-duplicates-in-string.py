@@ -1,6 +1,8 @@
 """
-# 1047. Remove All Adjacent Duplicates In String
 # Difficulty: Easy
+
+# 1047. Remove All Adjacent Duplicates In String
+
 You are given a string s consisting of lowercase English letters. A duplicate removal
 consists of choosing two adjacent and equal characters and removing them.
 
@@ -8,6 +10,17 @@ We repeatedly make duplicate removals on s until we no longer can.
 
 Return the final string after all such duplicate removals have been made. It can be
 proven that the answer is unique.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -29,10 +42,23 @@ Otherwise, push the character onto the stack.
 - Removing duplicates as we go handles cascading removals
 - Single pass is sufficient since we process left-to-right
 
-### TIME COMPLEXITY: O(n)
+### EXAMPLE WALKTHROUGH:
+
+Input:
+```
+[example input]
+```
+
+**Step 1:** [description]
+
+**Step 2:** [description]
+
+### TIME COMPLEXITY:
+O(n)
 Single pass through string with O(1) stack operations
 
-### SPACE COMPLEXITY: O(n)
+### SPACE COMPLEXITY:
+O(n)
 Stack stores up to n characters in worst case (no duplicates)
 
 ### EDGE CASES:
