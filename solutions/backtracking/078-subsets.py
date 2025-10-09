@@ -1,7 +1,6 @@
 """
 78. Subsets
-Medium
-
+# Difficulty: Medium
 Given an integer array `nums` of unique elements, return all possible subsets
 (the power `set`).
 
@@ -149,11 +148,9 @@ class Solution:
 
         return result
 
-
 """
 90. Subsets II
-Medium
-
+# Difficulty: Medium
 Given an integer array nums that may contain duplicates, return all possible
 subsets (the power set).
 
@@ -189,11 +186,9 @@ class SolutionUnique:
         backtrack(0, [])
         return result
 
-
 """
 39. Combination Sum
-Medium
-
+# Difficulty: Medium
 Given an array of distinct integers candidates and a target integer target,
 return a list of all unique combinations of candidates where the chosen numbers
 sum to target.
@@ -230,11 +225,9 @@ class SolutionCombSum:
         backtrack(target, [], 0)
         return result
 
-
 """
 40. Combination Sum II
-Medium
-
+# Difficulty: Medium
 Given a collection of candidate numbers (candidates) and a target number (target),
 find all unique combinations in candidates where the candidate numbers sum to target.
 
@@ -276,7 +269,6 @@ class SolutionCombSum2:
 
         backtrack(target, [], 0)
         return result
-
 
 # Test cases
 if __name__ == "__main__":

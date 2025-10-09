@@ -1,7 +1,6 @@
 """
 # 040. Combination Sum Ii
-**Medium**
-
+# Difficulty: Medium
 Given a problem that demonstrates key concepts in Backtracking.
 
 <details>

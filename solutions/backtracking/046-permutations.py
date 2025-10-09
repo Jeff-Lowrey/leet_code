@@ -1,7 +1,6 @@
 """
 46. Permutations
-Medium
-
+# Difficulty: Medium
 Given an array `nums` of distinct integers, return all the possible permutations.
 You can return the answer in any order.
 
@@ -131,11 +130,9 @@ class Solution:
         backtrack()
         return result
 
-
 """
 47. Permutations II
-Medium
-
+# Difficulty: Medium
 Given a collection of numbers, nums, that might contain duplicates, return all
 possible unique permutations in any order.
 
@@ -171,11 +168,9 @@ class SolutionUnique:
         backtrack([])
         return result
 
-
 """
 31. Next Permutation
-Medium
-
+# Difficulty: Medium
 A permutation of an array of integers is an arrangement of its members into a
 sequence or linear order.
 
@@ -216,7 +211,6 @@ class SolutionNext:
             nums[left], nums[right] = nums[right], nums[left]
             left += 1
             right -= 1
-
 
 # Test cases
 if __name__ == "__main__":

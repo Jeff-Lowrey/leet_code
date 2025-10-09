@@ -1,7 +1,6 @@
 """
 # 090. Subsets Ii
-**Medium**
-
+# Difficulty: Medium
 Given a problem that demonstrates key concepts in Backtracking.
 
 <details>
