@@ -1,42 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Prefix Sum.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Find an index where the sum of elements to the left equals the sum to the right.
- * This is a classic prefix sum problem - we maintain a running sum from the left
- * and compare it with the remaining sum on the right.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * At index i, if sum(0..i-1) = sum(i+1..n-1), then:
- * leftSum = sum(i+1..n-1) = totalSum - leftSum - nums[i]
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n) - two passes (one for total, one for finding index)
- * SPACE COMPLEXITY: O(1) - only using constant extra space
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
- * Input: nums = [2,3,-1,8,4]
- * Step 1: totalSum = 16
- * Step 2: i=0, leftSum=0, rightSum=16-0-2=14 (not equal)
- * Step 3: i=1, leftSum=2, rightSum=16-2-3=11 (not equal)
- * Step 4: i=2, leftSum=5, rightSum=16-5-(-1)=12 (not equal)
- * Step 5: i=3, leftSum=4, rightSum=16-4-8=4 (equal!)
- * Output: 3
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
  *
- * EDGE CASES:
- * - Single element: always return 0 (left and right are both empty)
- * - No middle index exists: return -1
- * - Multiple valid indices: return leftmost (first found)
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * [example input]
+ * ```
+ *
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

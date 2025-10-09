@@ -1,44 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Prefix Sum.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Count the number of non-empty subarrays whose sum is divisible by k.
- * Key insight: if two prefix sums have the same remainder when divided by k,
- * the subarray between them has sum divisible by k.
- * Mathematical property: (a - b) % k = 0 if and only if a % k = b % k.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * If prefix[j] % k = prefix[i] % k, then (prefix[j] - prefix[i]) % k = 0.
- * This means subarray from i+1 to j has sum divisible by k.
- * For each remainder, if it appeared n times, we can form n new subarrays
- * ending at current position.
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n) - single pass through array
- * SPACE COMPLEXITY: O(k) - hash map stores at most k different remainders
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
- * Input: nums = [4,5,0,-2,-3,1], k = 5
- * Step 1: Prefix sums: [4, 9, 9, 7, 4, 5]
- * Step 2: Remainders (mod 5): [4, 4, 4, 2, 4, 0]
- * Step 3: Count pairs with same remainder:
- *   - Remainder 4 appears 4 times -> C(4,2) = 6 pairs
- *   - Remainder 0 appears 1 time -> 1 subarray
- * Output: 7
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
  *
- * EDGE CASES:
- * - Negative numbers: use (sum % k + k) % k for positive remainder
- * - k = 1: all subarrays are valid
- * - Single element divisible by k
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * [example input]
+ * ```
+ *
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

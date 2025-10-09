@@ -1,44 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Prefix Sum.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Find the total number of continuous subarrays whose sum equals k.
- * This is a classic prefix sum problem. If we have prefix sums at positions i and j,
- * and prefix[j] - prefix[i] = k, then subarray from i+1 to j has sum k.
- * We use a hash map to count occurrences of each prefix sum.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * If we're at position j with sum S_j, and we previously had sum S_i = S_j - k,
- * then the subarray from i+1 to j has sum exactly k.
- * By storing all prefix sum frequencies, we count all valid subarrays efficiently.
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n) - single pass through array
- * SPACE COMPLEXITY: O(n) - hash map stores at most n different sums
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
- * Input: nums = [1,1,1], k = 2
- * Step 1: sum=0, map={0:1}
- * Step 2: sum=1, check (1-2)=-1 (not in map), map={0:1, 1:1}, count=0
- * Step 3: sum=2, check (2-2)=0 (in map, freq=1), map={0:1, 1:1, 2:1}, count=1
- * Step 4: sum=3, check (3-2)=1 (in map, freq=1), map={0:1, 1:1, 2:1, 3:1}, count=2
- * Output: 2 (subarrays [1,1] at positions 0-1 and 1-2)
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
  *
- * EDGE CASES:
- * - Negative numbers allowed
- * - k can be 0
- * - Multiple subarrays with same sum
- * - Single element equals k
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * [example input]
+ * ```
+ *
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

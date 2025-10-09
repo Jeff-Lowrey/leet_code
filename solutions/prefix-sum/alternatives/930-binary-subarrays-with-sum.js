@@ -1,42 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Prefix Sum.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Find the number of non-empty subarrays in a binary array with sum equal to goal.
- * Similar to "Subarray Sum Equals K", we use prefix sum with hash map.
- * For binary arrays, the sum is just the count of 1s.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * If prefix[j] - prefix[i] = goal, then subarray from i+1 to j has sum = goal.
- * By tracking all prefix sum frequencies, we count all valid subarrays in O(n).
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n) - single pass through array
- * SPACE COMPLEXITY: O(n) - hash map stores at most n different sums
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
- * Input: nums = [1,0,1,0,1], goal = 2
- * Step 1: Prefix sums: [1, 1, 2, 2, 3]
- * Step 2: At index 2, sum=2, need sum-goal=0, map has {0:1}, add 1
- * Step 3: At index 3, sum=2, need sum-goal=0, map has {0:1}, add 1
- * Step 4: At index 4, sum=3, need sum-goal=1, map has {1:2}, add 2
- * Output: 4
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
  *
- * EDGE CASES:
- * - All zeros: only valid if goal = 0
- * - All ones: sum keeps increasing
- * - goal = 0: count subarrays with all zeros
- * - Single element
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * [example input]
+ * ```
+ *
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**
