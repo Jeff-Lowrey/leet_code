@@ -1,6 +1,6 @@
 """
-541. Reverse String II
 # Difficulty: Easy
+
 Given a string s and an integer k, reverse the first k characters for every 2k
 characters counting from the start of the string.
 
@@ -15,6 +15,17 @@ Explanation:
 - First 2k (4) characters: "abcd" -> reverse first k (2): "bacd"
 - Next 2k (4) characters: "efg" -> reverse first k (2): "feg" (only 3 left)
 Result: "bacdfeg"
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -40,14 +51,6 @@ characters remain.
 - Range with step=2k automatically handles chunking
 - Edge cases are naturally handled by min(i+k, len(s))
 
-### TIME COMPLEXITY: O(n)
-- Visit each character once during iteration
-- Reversing k characters per 2k chunk is O(k) but amortized O(n)
-
-### SPACE COMPLEXITY: O(n)
-- Converting string to list requires O(n) space
-- Python strings are immutable, so this is necessary
-
 ### EXAMPLE WALKTHROUGH:
 ```
 Input: s = "abcdefg", k = 2
@@ -64,11 +67,15 @@ Chunks of 2k = 4:
 Final: "bacd" + "feg" = "bacdfeg"
 ```
 
-### KEY INSIGHTS:
-- Use range(0, len(s), 2*k) to iterate by 2k chunks
-- Reverse operation uses two pointers swapping from ends
-- min(i+k, len(chars)) handles cases where fewer than k characters remain
-- String slicing can also be used but less efficient than in-place swap
+### TIME COMPLEXITY:
+O(n)
+- Visit each character once during iteration
+- Reversing k characters per 2k chunk is O(k) but amortized O(n)
+
+### SPACE COMPLEXITY:
+O(n)
+- Converting string to list requires O(n) space
+- Python strings are immutable, so this is necessary
 
 ### EDGE CASES:
 - s length < k: Reverse entire string

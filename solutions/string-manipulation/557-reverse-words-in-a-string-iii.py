@@ -1,12 +1,23 @@
 """
-557. Reverse Words in a String III
 # Difficulty: Easy
+
 Given a string s, reverse the order of characters in each word within a sentence
 while still preserving whitespace and initial word order.
 
 Example:
 Input: s = "Let's take LeetCode contest"
 Output: "s'teL ekat edoCteeL tsetnoc"
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -32,17 +43,6 @@ Alternative approaches:
 - Joining preserves the original spacing structure
 - Each word is processed independently
 
-### TIME COMPLEXITY: O(n)
-- Splitting the string: O(n)
-- Reversing each word: O(n) total for all words
-- Joining: O(n)
-- Overall: O(n) where n is length of string
-
-### SPACE COMPLEXITY: O(n)
-- Storing split words: O(n)
-- Creating result string: O(n)
-- Overall: O(n)
-
 ### EXAMPLE WALKTHROUGH:
 ```
 Input: "Let's take LeetCode contest"
@@ -58,11 +58,18 @@ Reverse each:
 Join: "s'teL ekat edoCteeL tsetnoc"
 ```
 
-### KEY INSIGHTS:
-- Python's split() and join() methods are perfect for this problem
-- String slicing [::-1] is idiomatic Python for reversal
-- No need for complex pointer manipulation
-- Can be solved in one line with list comprehension
+### TIME COMPLEXITY:
+O(n)
+- Splitting the string: O(n)
+- Reversing each word: O(n) total for all words
+- Joining: O(n)
+- Overall: O(n) where n is length of string
+
+### SPACE COMPLEXITY:
+O(n)
+- Storing split words: O(n)
+- Creating result string: O(n)
+- Overall: O(n)
 
 ### EDGE CASES:
 - Empty string: Return empty

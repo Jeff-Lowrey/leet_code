@@ -1,7 +1,20 @@
 """
-# 680. Valid Palindrome II
 # Difficulty: Easy
+
+# 680. Valid Palindrome II
+
 Given a string s, return true if the s can be palindrome after deleting at most one character from it.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -23,12 +36,6 @@ We can use a two-pointer approach to check if a string is a palindrome. When we 
 - We only need to check the remaining substring after skipping one character
 - Two-pointer palindrome check is efficient and straightforward
 
-### TIME COMPLEXITY: O(n)
-In worst case, we check the string twice (once normally, once after skip)
-
-### SPACE COMPLEXITY: O(1)
-Only using constant extra space for pointers
-
 ### EXAMPLE WALKTHROUGH:
 ```
 Input: "aba"
@@ -43,11 +50,13 @@ Try skip left (delete 'b'): check "aca" → palindrome ✓
 Result: True
 ```
 
-### KEY INSIGHTS:
-- At most one character can be deleted
-- First mismatch determines the two possible deletion candidates
-- Helper function checks if substring is palindrome efficiently
-- Early termination when palindrome found
+### TIME COMPLEXITY:
+O(n)
+In worst case, we check the string twice (once normally, once after skip)
+
+### SPACE COMPLEXITY:
+O(1)
+Only using constant extra space for pointers
 
 ### EDGE CASES:
 - Empty string: palindrome

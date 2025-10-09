@@ -1,12 +1,23 @@
 """
-14. Longest Common Prefix
 # Difficulty: Easy
+
 Write a function to find the longest common prefix string amongst an array of strings.
 If there is no common prefix, return an empty string "".
 
 Example:
 Input: strs = ["flower","flow","flight"]
 Output: "fl"
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -23,13 +34,6 @@ The longest common prefix is the sequence of characters that all strings share f
 ### WHY THIS WORKS:
 Since we're looking for a common prefix, all strings must have identical characters at each position from the start. The moment any string differs or ends, we've found the longest possible common prefix.
 
-### TIME COMPLEXITY: O(S)
-- S is the sum of all characters in all strings
-- In worst case, we examine every character once
-
-### SPACE COMPLEXITY: O(1)
-- Only using constant extra space for variables
-
 ### EXAMPLE WALKTHROUGH:
 For strs = ["flower","flow","flight"]:
 1. Position 0: 'f', 'f', 'f' → all match
@@ -37,10 +41,14 @@ For strs = ["flower","flow","flight"]:
 3. Position 2: 'o', 'o', 'i' → mismatch found
 4. Return "fl"
 
-### ALTERNATIVE APPROACHES:
-1. **Sort and Compare**: Sort strings, then compare first and last (O(n log n))
-2. **Trie**: Build trie and follow single path until branching (O(S))
-3. **Horizontal**: Compare strings pairwise (O(S))
+### TIME COMPLEXITY:
+O(S)
+- S is the sum of all characters in all strings
+- In worst case, we examine every character once
+
+### SPACE COMPLEXITY:
+O(1)
+- Only using constant extra space for variables
 
 ### EDGE CASES:
 - Empty array: return ""

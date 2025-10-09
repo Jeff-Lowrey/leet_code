@@ -1,6 +1,6 @@
 """
-58. Length of Last Word
 # Difficulty: Easy
+
 Given a string s consisting of words and spaces, return the length of the last word
 in the string.
 
@@ -10,6 +10,17 @@ Example:
 Input: s = "Hello World"
 Output: 5
 Explanation: The last word is "World" with length 5.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -35,15 +46,6 @@ Alternative approaches:
 - Stops at first space encountered, which marks word boundary
 - Handles edge cases like multiple trailing spaces
 
-### TIME COMPLEXITY: O(n)
-- In worst case (no spaces), we scan the entire string
-- Typically much faster as we only process the last word
-
-### SPACE COMPLEXITY: O(1)
-- Only using a counter variable
-- No additional data structures needed
-- If using split(), space becomes O(n) for storing words
-
 ### EXAMPLE WALKTHROUGH:
 ```
 Input: "Hello World"
@@ -64,11 +66,16 @@ Method 1:
 Result: 4
 ```
 
-### KEY INSIGHTS:
-- Python's strip() method efficiently handles trailing spaces
-- Iterating backwards is optimal when we only need last word
-- split() method is clean but does more work than necessary
-- Edge cases: empty string, only spaces, single word
+### TIME COMPLEXITY:
+O(n)
+- In worst case (no spaces), we scan the entire string
+- Typically much faster as we only process the last word
+
+### SPACE COMPLEXITY:
+O(1)
+- Only using a counter variable
+- No additional data structures needed
+- If using split(), space becomes O(n) for storing words
 
 ### EDGE CASES:
 - Empty string: Return 0

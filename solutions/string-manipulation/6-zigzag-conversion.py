@@ -1,6 +1,6 @@
 """
-6. Zigzag Conversion
 # Difficulty: Medium
+
 The string "PAYPALISHIRING" is written in a zigzag pattern on a given number of rows
 like this:
 
@@ -15,6 +15,17 @@ Write the code that will take a string and make this conversion given a number o
 Example:
 Input: s = "PAYPALISHIRING", numRows = 3
 Output: "PAHNAPLSIIGYIR"
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -41,14 +52,6 @@ in the current direction, reversing direction when we hit the top or bottom.
 - Processing left to right with row tracking simulates the zigzag
 - No complex indexing needed, just direction tracking
 
-### TIME COMPLEXITY: O(n)
-- Process each character exactly once
-- Concatenating rows is O(n) as each character appears once
-
-### SPACE COMPLEXITY: O(n)
-- Store n characters across all row buffers
-- Result string requires O(n) space
-
 ### EXAMPLE WALKTHROUGH:
 ```
 Input: s = "PAYPALISHIRING", numRows = 3
@@ -74,11 +77,15 @@ Row 2: "YIR"
 Result: "PAHNAPLSIIGYIR"
 ```
 
-### KEY INSIGHTS:
-- Use list of strings as row buffers for efficient concatenation
-- Direction flag: 1 for down, -1 for up
-- Boundaries trigger direction reversal
-- Edge cases: numRows = 1 (no zigzag), numRows >= len(s) (return original)
+### TIME COMPLEXITY:
+O(n)
+- Process each character exactly once
+- Concatenating rows is O(n) as each character appears once
+
+### SPACE COMPLEXITY:
+O(n)
+- Store n characters across all row buffers
+- Result string requires O(n) space
 
 ### EDGE CASES:
 - numRows = 1: Return original string (no zigzag possible)

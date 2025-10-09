@@ -1,6 +1,6 @@
 """
-443. String Compression
 # Difficulty: Medium
+
 Given an array of characters chars, compress it using the following algorithm:
 
 Begin with an empty string s. For each group of consecutive repeating characters in chars:
@@ -18,6 +18,17 @@ You must write an algorithm that uses only constant extra space.
 Example:
 Input: chars = ["a","a","b","b","c","c","c"]
 Output: Return 6, and the first 6 characters of the input array should be: ["a","2","b","2","c","3"]
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -40,14 +51,6 @@ to the same array. This allows us to modify the array in-place with O(1) extra s
 - In-place modification is safe because we consume input faster than we produce output
 - Converting count to string and iterating over digits handles multi-digit counts
 
-### TIME COMPLEXITY: O(n)
-- Single pass through the array with read pointer
-- Writing compressed data is proportional to input size
-
-### SPACE COMPLEXITY: O(1)
-- Only using constant extra space (pointers and counters)
-- Modifying the array in-place
-
 ### EXAMPLE WALKTHROUGH:
 ```
 Input: ["a","a","b","b","c","c","c"]
@@ -68,11 +71,15 @@ Read pointer scans:
 Result: ["a","2","b","2","c","3"] with length 6
 ```
 
-### KEY INSIGHTS:
-- Compression never makes array longer (safe to modify in-place)
-- Count conversion to string handles multi-digit numbers elegantly
-- Read pointer moves faster than write pointer
-- Single character runs are written without count
+### TIME COMPLEXITY:
+O(n)
+- Single pass through the array with read pointer
+- Writing compressed data is proportional to input size
+
+### SPACE COMPLEXITY:
+O(1)
+- Only using constant extra space (pointers and counters)
+- Modifying the array in-place
 
 ### EDGE CASES:
 - Single character: Return 1
