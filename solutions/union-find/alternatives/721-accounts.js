@@ -1,6 +1,5 @@
 /**
- * 721. Accounts Merge
- * Medium
+
  *
  * Given a list of accounts where each element accounts[i] is a list of strings, where the first element accounts[i][0] is a name, and the rest of the elements are emails representing emails of the account.
  *
@@ -14,10 +13,10 @@
  * This is a classic Union-Find problem where we need to group accounts that belong to the same person. The key insight is that if two accounts share any email address, they belong to the same person and should be merged. We use Union-Find to efficiently group accounts with shared emails.
  *
  * APPROACH:
- * 1. **Map emails to accounts**: Create a mapping from emails to account indices
- * 2. **Union accounts with shared emails**: Use Union-Find to group accounts that share emails
- * 3. **Collect emails by parent**: Group all emails under their root parent account
- * 4. **Format result**: Create merged accounts with sorted emails
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Union-Find efficiently manages grouping of accounts

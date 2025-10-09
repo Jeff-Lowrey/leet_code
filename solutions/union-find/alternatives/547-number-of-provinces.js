@@ -1,6 +1,5 @@
 /**
- * 547. Number of Provinces
- * Medium
+
  *
  * There are n cities. Some of them are connected, while some are not. If city a is connected directly with city b, and city b is connected directly with city c, then city a is connected indirectly with city c.
  *
@@ -16,10 +15,10 @@
  * This is a classic connected components problem. We need to find how many separate groups of cities exist. Cities in the same group are either directly or indirectly connected. Union-Find is perfect for this as it efficiently manages and counts connected components.
  *
  * APPROACH:
- * 1. Union-Find Structure: Create a union-find data structure for n cities
- * 2. Process Connections: For each connection in the matrix, union the two cities
- * 3. Count Components: Count the number of unique root parents (components)
- * 4. Alternative DFS: Can also use DFS to mark visited cities in each component
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Union-Find automatically groups connected cities into components
@@ -42,10 +41,10 @@
  * Connections: 0-1 (direct), 2 (isolated)
  *
  * Union-Find process:
- * 1. Initialize: parent = [0,1,2], each city is its own component
- * 2. Process (0,1): union(0,1) → parent = [1,1,2]
- * 3. Process (1,0): already connected, skip
- * 4. Process (2,2): self-connection, skip
+
+
+
+
  *
  * Count unique roots: 1 (for cities 0,1) and 2 (for city 2)
  * Result: 2 provinces

@@ -1,6 +1,5 @@
 /**
- * 130. Surrounded Regions
- * Medium
+
  *
  * This problem demonstrates key concepts in Union Find.
  *
@@ -12,10 +11,10 @@
  * adjacent 'O's together. Any 'O' not connected to the dummy node is surrounded.
  *
  * APPROACH:
- * 1. Create a Union-Find structure with size (m*n + 1) where last index is dummy
- * 2. Union all border 'O' cells with the dummy node
- * 3. Union all adjacent 'O' cells (horizontally and vertically)
- * 4. Flip all 'O' cells that are NOT connected to the dummy node to 'X'
+
+
+
+
  *
  * WHY THIS WORKS:
  * Any 'O' connected to the border cannot be surrounded. Union-Find efficiently

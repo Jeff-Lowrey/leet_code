@@ -1,6 +1,5 @@
 /**
- * 684. Redundant Connection
- * Medium
+
  *
  * In this problem, a tree is an undirected graph that is connected and has no cycles.
  *
@@ -14,9 +13,9 @@
  * This is a classic Union-Find cycle detection problem. In a tree with n nodes, there should be exactly n-1 edges. When we add one extra edge, it creates a cycle. We need to find the edge that completes this cycle.
  *
  * APPROACH:
- * 1. Use Union-Find: Track connected components as we process edges
- * 2. Cycle detection: If two nodes are already connected and we try to add an edge between them, that edge creates a cycle
- * 3. Return last occurrence: The problem asks for the edge that occurs last in input if multiple answers exist
+
+
+
  *
  * WHY THIS WORKS:
  * - Union-Find efficiently tracks connected components

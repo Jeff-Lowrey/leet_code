@@ -1,6 +1,5 @@
 /**
- * 685. Redundant Connection II
- * Hard
+
  *
  * This problem demonstrates key concepts in Union Find.
  *
@@ -8,16 +7,16 @@
  *
  * INTUITION:
  * In a directed tree, there are two possible scenarios for a redundant edge:
- * 1. A node has two parents (violates tree property)
- * 2. A cycle exists (violates tree property)
+
+
  * We need to find which edge to remove to restore the tree structure.
  *
  * APPROACH:
- * 1. Check if any node has two parents (in-degree = 2)
- * 2. If yes, identify the two candidate edges that point to this node
- * 3. Try removing the second candidate first, check if remaining edges form valid tree
- * 4. If not, remove the first candidate instead
- * 5. If no node has two parents, find the edge that creates a cycle (like problem 684)
+
+
+
+
+
  *
  * WHY THIS WORKS:
  * There are exactly three cases:

@@ -1,6 +1,5 @@
 /**
- * 1202. Smallest String With Swaps
- * Medium
+
  *
  * This problem demonstrates key concepts in Union Find.
  *
@@ -13,10 +12,10 @@
  * lexicographically smallest string, we sort characters within each component.
  *
  * APPROACH:
- * 1. Use Union-Find to group indices that are connected through swap pairs
- * 2. For each connected component, collect all characters at those indices
- * 3. Sort the characters in each component lexicographically
- * 4. Place sorted characters back into their component indices (also sorted)
+
+
+
+
  *
  * WHY THIS WORKS:
  * Union-Find efficiently groups indices into components. Since we can perform unlimited

@@ -1,6 +1,5 @@
 /**
- * 323. Number Of Connected Components In An Undirected Graph
- * Medium
+
  *
  * This problem demonstrates key concepts in Union Find.
  *
@@ -12,12 +11,12 @@
  * This is a classic application of Union-Find for counting connected components.
  *
  * APPROACH:
- * 1. Initialize Union-Find with n nodes (each node is initially its own component)
- * 2. Start with component count = n
- * 3. For each edge [u, v]:
+
+
+
  *    - If u and v are already in the same component, skip
  *    - Otherwise, union them and decrement component count
- * 4. Return the final component count
+
  *
  * WHY THIS WORKS:
  * Union-Find efficiently tracks connected components. When we union two nodes

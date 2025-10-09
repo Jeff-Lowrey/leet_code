@@ -40,7 +40,6 @@ Valid tree requires: (1) all nodes have ≤1 parent, (2) no cycles.
 When a node has 2 parents, one must be removed. Union-find detects cycles.
 
 ### EXAMPLE WALKTHROUGH:
-
 Input:
 ```
 [example input]

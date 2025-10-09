@@ -39,7 +39,6 @@ If indices are transitively swappable, they form a connected component where any
 permutation is achievable. Lexicographically smallest = sort characters ascending.
 
 ### EXAMPLE WALKTHROUGH:
-
 Input:
 ```
 [example input]

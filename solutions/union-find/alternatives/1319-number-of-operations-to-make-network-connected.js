@@ -1,6 +1,5 @@
 /**
- * 1319. Number of Operations to Make Network Connected
- * Medium
+
  *
  * You are given n computers numbered from 0 to n - 1 connected by ethernet cables connections forming a network where connections[i] = [ai, bi] connects computers ai and bi.
  *
@@ -19,10 +18,10 @@
  * - Count disconnected components and check if we have enough spare cables
  *
  * APPROACH:
- * 1. Check minimum cables: Need at least n-1 cables total
- * 2. Union-Find: Group computers into connected components
- * 3. Count components: Find number of separate groups
- * 4. Calculate operations: (components - 1) operations needed to connect all
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Union-Find efficiently tracks connected components

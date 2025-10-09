@@ -1,6 +1,5 @@
 /**
- * 990. Satisfiability of Equality Equations
- * Medium
+
  *
  * You are given an array of strings equations that represent relationships between variables where each string equations[i] is of length 4 and takes one of two different forms: "xi==xj" or "xi!=xj".
  *
@@ -14,9 +13,9 @@
  * This is a classic Union-Find problem. We need to check if equality and inequality constraints can be satisfied simultaneously. The key insight is to first process all equality constraints to group variables, then check if inequality constraints violate these groups.
  *
  * APPROACH:
- * 1. **Process equalities**: Use Union-Find to group variables that must be equal
- * 2. **Check inequalities**: For each "!=" constraint, verify variables are in different groups
- * 3. **Return result**: True if no conflicts found, False otherwise
+
+
+
  *
  * WHY THIS WORKS:
  * - Union-Find efficiently manages equivalence classes

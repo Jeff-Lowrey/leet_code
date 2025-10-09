@@ -1,6 +1,5 @@
 /**
- * 305. Number of Islands II
- * Hard
+
  *
  * This problem demonstrates key concepts in Union Find.
  *
@@ -12,13 +11,13 @@
  * Union-Find is perfect for tracking connected components that change over time.
  *
  * APPROACH:
- * 1. Start with count = 0 islands
- * 2. For each position being added as land:
+
+
  *    - If already land, skip it
  *    - Otherwise, increment island count (new island created)
  *    - Check all 4 adjacent cells
  *    - For each adjacent land cell, union them and decrement count if they were separate
- * 3. Track the island count after each addition
+
  *
  * WHY THIS WORKS:
  * Union-Find efficiently tracks which land cells belong to the same island.
