@@ -1,7 +1,6 @@
 """
 # 452. Minimum Number Of Arrows To Burst Balloons
-**Medium**
-
+# Difficulty: Medium
 Given a problem that demonstrates key concepts in Interval.
 
 <details>

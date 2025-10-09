@@ -1,7 +1,6 @@
 """
 # 435. Non Overlapping Intervals
-**Medium**
-
+# Difficulty: Medium
 Given a problem that demonstrates key concepts in Interval.
 
 <details>

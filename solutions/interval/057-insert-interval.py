@@ -1,7 +1,6 @@
 """
 57. Insert Interval
-Medium
-
+# Difficulty: Medium
 You are given an array of `non-overlapping` intervals where intervals[i] = [starti, endi]
 represent the start and the end of the ith interval and intervals is sorted in
 ascending order by starti. You are also given an interval newInterval = [`start`, end].
@@ -82,11 +81,9 @@ class Solution:
 
         return result
 
-
 """
 435. Non-overlapping Intervals
-Medium
-
+# Difficulty: Medium
 Given an array of intervals where intervals[i] = [starti, endi], return the
 minimum number of intervals you need to remove to make the rest non-overlapping.
 
@@ -122,11 +119,9 @@ class SolutionRemove:
 
         return count
 
-
 """
 252. Meeting Rooms
-Easy
-
+# Difficulty: Easy
 Given an array of meeting time intervals where intervals[i] = [starti, endi],
 determine if a person could attend all meetings.
 
@@ -150,11 +145,9 @@ class SolutionMeetingRooms:
 
         return True
 
-
 """
 253. Meeting Rooms II
-Medium
-
+# Difficulty: Medium
 Given an array of meeting time intervals where intervals[i] = [starti, endi],
 return the minimum number of conference rooms required.
 
@@ -164,7 +157,6 @@ Output: 2
 """
 
 import heapq
-
 
 class SolutionMeetingRoomsII:
     def minMeetingRooms(self, intervals: list[list[int]]) -> int:
@@ -215,7 +207,6 @@ class SolutionMeetingRoomsII:
             max_rooms = max(max_rooms, current_rooms)
 
         return max_rooms
-
 
 # Test cases
 if __name__ == "__main__":

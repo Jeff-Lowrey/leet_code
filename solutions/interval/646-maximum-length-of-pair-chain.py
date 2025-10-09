@@ -1,7 +1,6 @@
 """
 # 646. Maximum Length Of Pair Chain
-**Medium**
-
+# Difficulty: Medium
 Given a problem that demonstrates key concepts in Interval.
 
 <details>
