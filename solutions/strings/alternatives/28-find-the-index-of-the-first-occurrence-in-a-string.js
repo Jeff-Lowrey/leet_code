@@ -1,6 +1,5 @@
 /**
- * 28. Find The Index Of The First Occurrence In A String
- * Easy
+
  *
  * This problem demonstrates key concepts in Strings.
  *

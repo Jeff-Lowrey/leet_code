@@ -1,6 +1,5 @@
 /**
- * 76. Minimum Window Substring
- * Hard
+
  *
  * This problem demonstrates key concepts in Strings.
  *

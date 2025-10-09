@@ -1,6 +1,5 @@
 /**
- * 3. Longest Substring Without Repeating Characters
- * Medium
+
  *
  * This problem demonstrates key concepts in Strings.
  *

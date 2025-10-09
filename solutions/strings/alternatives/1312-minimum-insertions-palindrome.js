@@ -1,6 +1,5 @@
 /**
- * 1312. Minimum Insertions Palindrome
- * Medium
+
  *
  * This problem demonstrates key concepts in Strings.
  *
@@ -10,7 +9,7 @@
  * To make a string palindromic with minimum insertions, we need to find the longest palindromic subsequence (LPS) first. The minimum insertions needed equals the string length minus the LPS length, because we only need to insert characters to match the "missing" ones.
  *
  * APPROACH:
- * 1. **Find Longest Palindromic Subsequence**: Use DP to find the longest subsequence that reads the same forwards and backwards
+
 2. **Calculate Insertions**: minimum insertions = string length - LPS length
 3. **DP Recurrence**:
    - If characters match: `dp[i][j] = dp[i+1][j-1] + 2`

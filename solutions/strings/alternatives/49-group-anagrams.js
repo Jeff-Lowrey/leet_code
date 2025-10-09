@@ -1,6 +1,5 @@
 /**
- * 49. Group Anagrams
- * Medium
+
  *
  * This problem demonstrates key concepts in Strings.
  *

@@ -1,6 +1,5 @@
 /**
- * 387. First Unique Character In A String
- * Easy
+
  *
  * This problem demonstrates key concepts in Strings.
  *

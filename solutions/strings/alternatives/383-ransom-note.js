@@ -1,6 +1,5 @@
 /**
- * 383. Ransom Note
- * Easy
+
  *
  * This problem demonstrates key concepts in Strings.
  *

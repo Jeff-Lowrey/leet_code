@@ -1,6 +1,5 @@
 /**
- * 5. Longest Palindromic Substring
- * Medium
+
  *
  * This problem demonstrates key concepts in Strings.
  *

@@ -1,6 +1,5 @@
 /**
- * 151. Reverse Words In A String
- * Medium
+
  *
  * This problem demonstrates key concepts in Strings.
  *

@@ -1,6 +1,5 @@
 /**
- * 344. Reverse String
- * Easy
+
  *
  * This problem demonstrates key concepts in Strings.
  *
