@@ -1,9 +1,22 @@
 """
-# 327. Count Of Range Sum
 # Difficulty: Hard
+
+# 327. Count Of Range Sum
+
 Given an integer array nums and two integers lower and upper, return the number of range sums that lie in [lower, upper] inclusive.
 
 Range sum S(i, j) is defined as the sum of the elements in nums between indices i and j inclusive, where i <= j.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -11,23 +24,11 @@ Range sum S(i, j) is defined as the sum of the elements in nums between indices 
 ### INTUITION:
 This is an advanced range sum counting problem. The key insight is to use prefix sums: if we have prefix[j] - prefix[i] in [lower, upper], then we need to count how many prefix[i] satisfy: prefix[j] - upper <= prefix[i] <= prefix[j] - lower. This transforms into a range counting problem solvable with merge sort or segment trees.
 
-### APPROACHES:
-1. **Brute Force**: Check all pairs (i,j) - O(n²)
-2. **Merge Sort**: Count during merge process - O(n log n)
-3. **Binary Indexed Tree**: With coordinate compression - O(n log n)
-4. **Segment Tree**: Range query and update - O(n log n)
+### APPROACH:
+[Detailed explanation of the solution approach]
 
-### WHY MERGE SORT WORKS:
-- Use prefix sums: prefix[i] = sum(nums[0:i])
-- For each j, count how many i < j satisfy: lower <= prefix[j] - prefix[i] <= upper
-- This is equivalent to: prefix[j] - upper <= prefix[i] <= prefix[j] - lower
-- During merge sort, left array is sorted, so we can use two pointers to count valid ranges
-
-### TIME COMPLEXITY: O(n log n)
-For merge sort and tree-based approaches
-
-### SPACE COMPLEXITY: O(n)
-For prefix sums and auxiliary structures
+### WHY THIS WORKS:
+- [Explanation of correctness]
 
 ### EXAMPLE WALKTHROUGH:
 ```
@@ -43,11 +44,13 @@ Range sums to check:
 Output: 3
 ```
 
-### KEY INSIGHTS:
-- Convert to prefix sum problem
-- Use merge sort to count inversions in a range
-- Two pointers technique during merge to count valid ranges
-- Coordinate compression for tree-based approaches
+### TIME COMPLEXITY:
+O(n log n)
+For merge sort and tree-based approaches
+
+### SPACE COMPLEXITY:
+O(n)
+For prefix sums and auxiliary structures
 
 ### EDGE CASES:
 - Empty array

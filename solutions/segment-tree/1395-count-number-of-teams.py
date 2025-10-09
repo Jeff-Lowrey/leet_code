@@ -1,6 +1,8 @@
 """
-# 1395. Count Number Of Teams
 # Difficulty: Medium
+
+# 1395. Count Number Of Teams
+
 There are n soldiers standing in a line. Every soldier has a unique rating value.
 
 You have to form a team of 3 soldiers amongst them under the following rules:
@@ -9,29 +11,28 @@ You have to form a team of 3 soldiers amongst them under the following rules:
 
 Return the number of teams you can form given the conditions. (soldiers can be used in multiple teams).
 
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
+
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
 This problem is about counting ordered triplets in an array. We can solve it using multiple approaches: brute force O(n³), dynamic programming O(n²), or advanced data structures like segment trees or Binary Indexed Trees for O(n log n). The key insight is that for each middle element, we count how many valid left and right elements exist.
 
-### APPROACHES:
-1. **Brute Force**: Check all triplets (i,j,k) where i < j < k
-2. **Optimized O(n²)**: For each j, count valid i's and k's
-3. **Segment Tree**: Use coordinate compression + segment tree for range counting
-4. **Binary Indexed Tree**: Similar to segment tree but more space efficient
+### APPROACH:
+[Detailed explanation of the solution approach]
 
-### WHY SEGMENT TREE WORKS:
-- For each position j, we need to count elements to the left that are smaller/larger
-- And count elements to the right that are larger/smaller
-- Segment tree allows efficient range sum queries for counting
-- Coordinate compression handles large rating values
-
-### TIME COMPLEXITY: O(n log n)
-For segment tree approach with coordinate compression
-
-### SPACE COMPLEXITY: O(n)
-For compressed coordinates and tree structure
+### WHY THIS WORKS:
+- [Explanation of correctness]
 
 ### EXAMPLE WALKTHROUGH:
 ```
@@ -49,11 +50,13 @@ For descending teams (i < j < k and rating[i] > rating[j] > rating[k]):
 Total: 1 + 1 + 1 = 3 teams
 ```
 
-### KEY INSIGHTS:
-- Fix middle element j, count valid left and right elements
-- Use segment tree for efficient counting with coordinate compression
-- Two patterns: ascending and descending
-- Multiplication principle: left_count × right_count
+### TIME COMPLEXITY:
+O(n log n)
+For segment tree approach with coordinate compression
+
+### SPACE COMPLEXITY:
+O(n)
+For compressed coordinates and tree structure
 
 ### EDGE CASES:
 - Array length < 3

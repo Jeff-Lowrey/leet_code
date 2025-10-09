@@ -1,7 +1,20 @@
 """
-# 315. Count Of Smaller Numbers After Self
 # Difficulty: Hard
+
+# 315. Count Of Smaller Numbers After Self
+
 Given an integer array nums, return an integer array counts where counts[i] is the number of smaller elements to the right of nums[i].
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -9,23 +22,11 @@ Given an integer array nums, return an integer array counts where counts[i] is t
 ### INTUITION:
 This is a classic "count inversions" problem that can be solved efficiently using various advanced data structures. The naive O(n²) approach checks every pair, but we can do better using merge sort, segment trees, or Binary Indexed Trees (Fenwick Trees).
 
-### APPROACHES:
-1. **Merge Sort**: Count inversions during merge process
-2. **Segment Tree**: Range query and update structure
-3. **Binary Indexed Tree**: Efficient prefix sum queries
-4. **Coordinate Compression**: Handle large value ranges
+### APPROACH:
+[Detailed explanation of the solution approach]
 
-### WHY ADVANCED STRUCTURES WORK:
-- For each element, we need to count how many smaller elements appear later
-- As we process from right to left, we maintain counts of seen elements
-- Range queries allow us to quickly count elements in a range
-- Coordinate compression handles large or sparse value ranges
-
-### TIME COMPLEXITY: O(n log n)
-For merge sort and tree-based approaches
-
-### SPACE COMPLEXITY: O(n)
-For auxiliary data structures
+### WHY THIS WORKS:
+- [Explanation of correctness]
 
 ### EXAMPLE WALKTHROUGH:
 ```
@@ -38,11 +39,13 @@ Process right to left:
 Output: [2,1,1,0]
 ```
 
-### KEY INSIGHTS:
-- Processing right to left allows building cumulative counts
-- Coordinate compression maps values to indices for tree structures
-- Each approach has trade-offs in implementation complexity vs performance
-- Merge sort approach is often most intuitive for interviews
+### TIME COMPLEXITY:
+O(n log n)
+For merge sort and tree-based approaches
+
+### SPACE COMPLEXITY:
+O(n)
+For auxiliary data structures
 
 ### EDGE CASES:
 - Empty array

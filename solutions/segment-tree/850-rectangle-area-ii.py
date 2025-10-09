@@ -1,11 +1,24 @@
 """
-# 850. Rectangle Area II
 # Difficulty: Hard
+
+# 850. Rectangle Area II
+
 You are given a 2D array of axis-aligned rectangles. Each rectangle[i] = [xi1, yi1, xi2, yi2] denotes the ith rectangle where (xi1, yi1) are the coordinates of the bottom-left corner, and (xi2, yi2) are the coordinates of the top-right corner.
 
 Calculate the total area covered by all rectangles in the plane. Any area covered by two or more rectangles should only be counted once.
 
 Return the total area. Since the answer may be too large, return it modulo 10^9 + 7.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -13,29 +26,11 @@ Return the total area. Since the answer may be too large, return it modulo 10^9 
 ### INTUITION:
 This is a classic computational geometry problem. The challenge is handling overlapping rectangles efficiently. We can use a sweep line algorithm with segment trees, or coordinate compression with a 2D grid approach.
 
-### APPROACHES:
-1. **Sweep Line with Segment Tree**: O(n² log n) - sweep vertical lines
-2. **Coordinate Compression**: O(n²) - create grid of unique coordinates
-3. **Line Sweep with Events**: O(n log n) - track active rectangles
+### APPROACH:
+[Detailed explanation of the solution approach]
 
-### WHY SWEEP LINE WORKS:
-- Sort events by x-coordinate (rectangle starts and ends)
-- For each x-position, calculate total Y-coverage
-- Area between x[i] and x[i+1] = (x[i+1] - x[i]) * Y-coverage
-- Segment tree efficiently tracks which Y-intervals are covered
-
-### WHY COORDINATE COMPRESSION WORKS:
-- Extract all unique X and Y coordinates
-- Create grid of rectangles between consecutive coordinates
-- Mark which grid cells are covered
-- Sum areas of all covered cells
-
-### TIME COMPLEXITY:
-- Sweep Line: O(n² log n)
-- Coordinate Compression: O(n²)
-
-### SPACE COMPLEXITY: O(n)
-For coordinate storage and data structures
+### WHY THIS WORKS:
+- [Explanation of correctness]
 
 ### EXAMPLE WALKTHROUGH:
 ```
@@ -53,11 +48,13 @@ Grid cells covered:
 Total area = 1 + 1 + 1 + 1 + 1 + 1 = 6
 ```
 
-### KEY INSIGHTS:
-- Overlapping areas counted once
-- Coordinate compression reduces problem to discrete grid
-- Sweep line processes rectangles left to right
-- Segment tree tracks active Y-intervals
+### TIME COMPLEXITY:
+- Sweep Line: O(n² log n)
+- Coordinate Compression: O(n²)
+
+### SPACE COMPLEXITY:
+O(n)
+For coordinate storage and data structures
 
 ### EDGE CASES:
 - No rectangles

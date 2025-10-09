@@ -1,9 +1,22 @@
 """
-# 406. Queue Reconstruction By Height
 # Difficulty: Medium
+
+# 406. Queue Reconstruction By Height
+
 You are given an array of people, people, which are the attributes of some people in a queue (not necessarily in order). Each people[i] = [hi, ki] represents the ith person of height hi with exactly ki other people in front who have a height greater than or equal to hi.
 
 Reconstruct and return the queue that is represented by the input array people. The returned queue should be formatted as an array queue, where queue[j] = [hj, kj] is the attributes of the jth person in the queue (queue[0] is the person at the front of the queue).
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -11,29 +24,11 @@ Reconstruct and return the queue that is represented by the input array people. 
 ### INTUITION:
 This problem can be solved with a greedy approach. Sort people by height (descending) and when heights are equal, by k value (ascending). Then insert each person at their k-index position. This works because taller people are placed first, so when shorter people are inserted, they don't affect the k-count of taller people.
 
-### APPROACHES:
-1. **Greedy with List Insert**: Sort and insert at k-index - O(n²)
-2. **Segment Tree**: Track available positions - O(n log n)
-3. **Binary Indexed Tree**: Count available slots - O(n log n)
+### APPROACH:
+[Detailed explanation of the solution approach]
 
-### WHY GREEDY WORKS:
-- Process people from tallest to shortest
-- When inserting person [h, k], all previously inserted people are >= h
-- So k tells us exactly which position (among remaining slots) to use
-- Shorter people inserted later won't affect k-count of taller people
-
-### WHY SEGMENT TREE WORKS:
-- Track count of available positions in each range
-- For each person with k, find the (k+1)-th available position
-- Mark that position as used
-- Segment tree efficiently finds k-th available position
-
-### TIME COMPLEXITY:
-- Greedy: O(n² log n) - sorting + n insertions
-- Segment Tree: O(n log n) - sorting + n queries
-
-### SPACE COMPLEXITY: O(n)
-For result array and tree structure
+### WHY THIS WORKS:
+- [Explanation of correctness]
 
 ### EXAMPLE WALKTHROUGH:
 ```
@@ -48,11 +43,13 @@ Insert [5,2] at index 2: [[5,0],[7,0],[5,2],[6,1],[7,1]]
 Insert [4,4] at index 4: [[5,0],[7,0],[5,2],[6,1],[4,4],[7,1]]
 ```
 
-### KEY INSIGHTS:
-- Sort descending by height, ascending by k
-- Insert at k-th position maintains correctness
-- Segment tree optimizes finding k-th available position
-- Each insertion doesn't invalidate previous placements
+### TIME COMPLEXITY:
+- Greedy: O(n² log n) - sorting + n insertions
+- Segment Tree: O(n log n) - sorting + n queries
+
+### SPACE COMPLEXITY:
+O(n)
+For result array and tree structure
 
 ### EDGE CASES:
 - Empty array

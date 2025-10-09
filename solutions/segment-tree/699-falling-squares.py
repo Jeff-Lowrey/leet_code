@@ -1,6 +1,8 @@
 """
-# 699. Falling Squares
 # Difficulty: Hard
+
+# 699. Falling Squares
+
 There are several squares being dropped onto the X-axis of a 2D plane.
 
 You are given a 2D integer array positions where positions[i] = [lefti, sideLengthi] represents the ith square with a side length of sideLengthi that is dropped with its left edge aligned with X-coordinate lefti.
@@ -9,29 +11,28 @@ Each square is dropped one at a time from a height above any landed squares. It 
 
 Return an integer array ans where ans[i] represents the height of the tallest stack of squares after dropping the ith square.
 
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
+
 <details>
-<parameter name="summary"><b>🔍 SOLUTION EXPLANATION</b></summary>
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
 This is a range maximum query problem with updates. For each falling square, we need to find the maximum height in its range [left, right), then update that range with the new height. Segment trees with lazy propagation are perfect for this.
 
-### APPROACHES:
-1. **Brute Force**: For each square, scan all previous squares - O(n²)
-2. **Segment Tree with Coordinate Compression**: O(n log n) per query
-3. **Lazy Propagation Segment Tree**: O(n log n) total
+### APPROACH:
+[Detailed explanation of the solution approach]
 
-### WHY SEGMENT TREE WORKS:
-- Each square lands on interval [left, left + side)
-- Need to find max height in that interval
-- Update that interval to new height
-- Coordinate compression handles sparse coordinates
-- Lazy propagation optimizes range updates
-
-### TIME COMPLEXITY: O(n² log n)
-Due to coordinate compression and segment tree operations
-
-### SPACE COMPLEXITY: O(n)
-For coordinate mapping and tree structure
+### WHY THIS WORKS:
+- [Explanation of correctness]
 
 ### EXAMPLE WALKTHROUGH:
 ```
@@ -42,11 +43,13 @@ Square 3: [6,7) no overlap → lands at 0, new height 1
 Heights: [2, 5, 5]
 ```
 
-### KEY INSIGHTS:
-- Squares are intervals on X-axis
-- Need range max query and range update
-- Coordinate compression maps sparse coordinates to dense array
-- Track cumulative maximum height after each drop
+### TIME COMPLEXITY:
+O(n² log n)
+Due to coordinate compression and segment tree operations
+
+### SPACE COMPLEXITY:
+O(n)
+For coordinate mapping and tree structure
 
 ### EDGE CASES:
 - Single square

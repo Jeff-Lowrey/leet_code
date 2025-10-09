@@ -1,11 +1,24 @@
 """
-# 493. Reverse Pairs
 # Difficulty: Hard
+
+# 493. Reverse Pairs
+
 Given an integer array nums, return the number of reverse pairs in the array.
 
 A reverse pair is a pair (i, j) where:
 - 0 <= i < j < nums.length and
 - nums[i] > 2 * nums[j]
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -13,24 +26,11 @@ A reverse pair is a pair (i, j) where:
 ### INTUITION:
 This is similar to counting inversions but with a modified condition (nums[i] > 2 * nums[j] instead of nums[i] > nums[j]). We can use merge sort to count these pairs efficiently during the merge process, or use segment trees / BIT with coordinate compression.
 
-### APPROACHES:
-1. **Brute Force**: Check all pairs - O(n²)
-2. **Merge Sort**: Count during merge - O(n log n)
-3. **Binary Indexed Tree**: With coordinate compression - O(n log n)
-4. **Segment Tree**: Range counting - O(n log n)
+### APPROACH:
+[Detailed explanation of the solution approach]
 
-### WHY MERGE SORT WORKS:
-- During merge, when comparing elements from left and right subarrays
-- Both subarrays are sorted
-- For each element in left subarray, count how many in right satisfy the condition
-- Use two pointers: one for merging, one for counting reverse pairs
-- Count pairs before actual merging to maintain correct order
-
-### TIME COMPLEXITY: O(n log n)
-For merge sort and tree-based approaches
-
-### SPACE COMPLEXITY: O(n)
-For auxiliary arrays and recursion stack
+### WHY THIS WORKS:
+- [Explanation of correctness]
 
 ### EXAMPLE WALKTHROUGH:
 ```
@@ -41,11 +41,13 @@ Reverse pairs:
 Output: 2
 ```
 
-### KEY INSIGHTS:
-- Count pairs BEFORE merging (when arrays are still sorted separately)
-- Use two-pointer technique for efficient counting
-- Coordinate compression handles large values for tree structures
-- Process from right to left for BIT approach
+### TIME COMPLEXITY:
+O(n log n)
+For merge sort and tree-based approaches
+
+### SPACE COMPLEXITY:
+O(n)
+For auxiliary arrays and recursion stack
 
 ### EDGE CASES:
 - Empty array
