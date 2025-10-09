@@ -1,6 +1,5 @@
 /**
- * 36. Valid Sudoku
- * Medium
+
  *
  * This problem demonstrates key concepts in Matrix.
  *

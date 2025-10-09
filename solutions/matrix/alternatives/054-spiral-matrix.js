@@ -1,6 +1,5 @@
 /**
- * 054. Spiral Matrix
- * Medium
+
  *
  * This problem demonstrates key concepts in Matrix.
  *
@@ -10,7 +9,7 @@
  * Think of traversing the matrix in layers, like peeling an onion. We traverse the outermost layer first (right → down → left → up), then move to the next inner layer and repeat the pattern.
  *
  * APPROACH:
- * 1. Use four boundaries: top, bottom, left, right
+
 2. For each layer, traverse in spiral order:
    - Move right along top row, then increment top
    - Move down along right column, then decrement right

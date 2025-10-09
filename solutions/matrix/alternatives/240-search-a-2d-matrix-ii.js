@@ -1,6 +1,5 @@
 /**
- * 240. Search A 2D Matrix Ii
- * Medium
+
  *
  * This problem demonstrates key concepts in Matrix.
  *

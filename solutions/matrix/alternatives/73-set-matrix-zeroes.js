@@ -1,6 +1,5 @@
 /**
- * 73. Set Matrix Zeroes
- * Medium
+
  *
  * This problem demonstrates key concepts in Matrix.
  *
