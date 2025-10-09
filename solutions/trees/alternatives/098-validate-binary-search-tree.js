@@ -1,60 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in BST validation.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * A valid BST has the property that for every node:
- * - All nodes in left subtree < node.val
- * - All nodes in right subtree > node.val
- * - Both left and right subtrees are also valid BSTs
- * We can validate this using bounds or inorder traversal.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Bounds method ensures all ancestors' constraints are maintained
- * - Inorder traversal of BST must be strictly increasing
- * - Recursive approach validates BST property locally and globally
- * - All methods have O(n) time but different space complexities
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n) - visit each node once
- * SPACE COMPLEXITY:
- *   - Bounds: O(h) where h is height (recursion stack)
- *   - Inorder: O(h) for recursion + O(n) for array
- *   - Iterative inorder: O(h) for stack
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input:     5
- *           / \
- *          3   8
- *         / \ / \
- *        2  4 7  9
- *
- * Bounds Method:
- * - Node 5: bounds (-∞, +∞) ✓
- * - Node 3: bounds (-∞, 5) ✓
- * - Node 8: bounds (5, +∞) ✓
- * - Node 2: bounds (-∞, 3) ✓
- * - Node 4: bounds (3, 5) ✓
- * - Node 7: bounds (5, 8) ✓
- * - Node 9: bounds (8, +∞) ✓
- * Output: true
+ * [example input]
  * ```
  *
- * EDGE CASES:
- * - Empty tree (valid BST)
- * - Single node (valid BST)
- * - Duplicate values (invalid BST)
- * - Integer overflow/underflow
- * - Subtree violating global BST property
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

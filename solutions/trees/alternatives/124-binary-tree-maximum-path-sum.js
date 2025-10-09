@@ -1,59 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates advanced tree traversal with global optimization.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * A path can go through any node and doesn't have to go through the root.
- * For each node, we can consider it as a "turning point" where paths from
- * left and right subtrees meet. The maximum path sum is either:
-
-
-
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Every possible path is considered exactly once
- * - Global variable tracks the maximum across all possible paths
- * - Negative paths are pruned to avoid reducing the sum
- * - Post-order traversal ensures children are processed before parent
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n) where n is number of nodes
- * Each node is visited exactly once
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * SPACE COMPLEXITY: O(h) where h is height of tree
- * Recursion stack depth equals tree height
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: [1,2,3]
- *        1
- *       / \
- *      2   3
- *
- * Step 1: Process leaf 2: max_ending_here = 2, global_max = 2
- * Step 2: Process leaf 3: max_ending_here = 3, global_max = 3
- * Step 3: Process root 1:
- *         - Left contribution: 2
- *         - Right contribution: 3
- *         - Path through node 1: 2 + 1 + 3 = 6
- *         - global_max = max(3, 6) = 6
- *         - Return: 1 + max(2, 3) = 4 (best path ending at 1)
- * Output: 6
+ * [example input]
  * ```
  *
- * EDGE CASES:
- * - Single node tree
- * - All negative values (return single largest value)
- * - Mixed positive/negative values
- * - Linear trees (left or right skewed)
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

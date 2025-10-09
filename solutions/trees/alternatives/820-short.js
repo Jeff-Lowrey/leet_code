@@ -1,57 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * A valid encoding of an array of words is any reference string s and an array of indices indices such that:
- * - words.length == indices.length
- * - The reference string s ends with the character '#'
- * - For each index indices[i], the substring of s starting at indices[i] and ending at the next '#' is equal to words[i]
+ * [Problem description goes here]
  *
- * Given an array of words, return the length of the shortest reference string s possible of any valid encoding of words.
+ * **Example:**
  *
- * SOLUTION EXPLANATION:
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * INTUITION:
- * To minimize the encoding length, we want to share suffixes between words. If one word is a suffix of another, we can encode both using just the longer word. This is a classic Trie problem where we build the trie using word suffixes.
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * APPROACH:
-
-
-
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * WHY THIS WORKS:
- * - Trie naturally handles prefix/suffix relationships
- * - By reversing words, we can detect when one word is a suffix of another
- * - Only leaf nodes in the trie represent words that need their own encoding
- * - Each word needs one '#' delimiter, so total length = sum(word_lengths) + count
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * TIME COMPLEXITY: O(N × M)
- * Where N is the number of words and M is the average length of words
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
  *
- * SPACE COMPLEXITY: O(N × M)
- * For the trie structure and set storage
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * [example input]
+ * ```
  *
- * EXAMPLE WALKTHROUGH:
- * Input: words = ["time", "me", "bell"]
-
-
-
- *    - "time" at index 0
- *    - "me" at index 2 (suffix of "time")
- *    - "bell" at index 5
+ * **Step 1:** [description]
  *
- * KEY INSIGHTS:
- * - Words that are suffixes of others don't need separate encoding
- * - Trie helps identify these suffix relationships efficiently
- * - Only words without parent nodes in suffix trie need separate encoding
- * - Each encoded word needs exactly one '#' delimiter
+ * **Step 2:** [description]
  *
- * EDGE CASES:
- * - Empty words array: returns 0
- * - Single word: returns length + 1 (for '#')
- * - Duplicate words: deduplicate before processing
- * - Word is suffix of another: only encode longer word
- * - No shared suffixes: each word encoded separately
- * - All words identical: encode once, return length + 1
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

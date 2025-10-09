@@ -1,62 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * Given the root of a binary tree, return its maximum depth.
+ * [Problem description goes here]
  *
- * A binary tree's maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.
+ * **Example:**
  *
- * SOLUTION EXPLANATION:
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * INTUITION:
- * The maximum depth of a binary tree is simply 1 plus the maximum depth of its left and right subtrees. This naturally suggests a recursive solution where we explore both subtrees and return the maximum depth.
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * APPROACH:
-
-
-
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * WHY THIS WORKS:
- * - Tree depth follows recursive structure naturally
- * - Each node contributes 1 to the total depth
- * - Maximum depth is determined by the deepest branch
- * - Both DFS and BFS can solve this problem effectively
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * TIME COMPLEXITY: O(n)
- * Must visit every node to determine maximum depth
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
  *
- * SPACE COMPLEXITY: O(h)
- * Where h is height of tree (recursion stack or queue size)
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * [example input]
+ * ```
  *
- * EXAMPLE WALKTHROUGH:
- * Input: [3,9,20,null,null,15,7]
- *        3
- *       / \
- *      9  20
- *        /  \
- *       15   7
+ * **Step 1:** [description]
  *
-
-
-
-
-
-
-
- * Output: 3
+ * **Step 2:** [description]
  *
- * KEY INSIGHTS:
- * - Recursive solution is most intuitive and clean
- * - BFS level-order traversal counts levels directly
- * - DFS with stack tracks maximum depth encountered
- * - Empty trees have depth 0, single nodes have depth 1
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
  *
- * EDGE CASES:
- * - Empty tree (null root): returns 0
- * - Single node tree: returns 1
- * - Left-skewed tree: depth equals number of nodes
- * - Right-skewed tree: depth equals number of nodes
- * - Complete binary tree: depth is log2(n+1)
- * - Perfect binary tree: all leaves at same level
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

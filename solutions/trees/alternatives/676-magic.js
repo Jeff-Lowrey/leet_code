@@ -1,57 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * Design a data structure that is initialized with a list of different words.
- * Provided a string, you should determine if you can change exactly one character
- * in this string to match any word in the data structure.
+ * [Problem description goes here]
  *
- * Implement the MagicDictionary class:
- * - MagicDictionary() Initializes the object.
- * - void buildDict(String[] dictionary) Sets the data structure with an array of distinct strings.
- * - bool search(String searchWord) Returns true if you can change exactly one character in
- *   searchWord to match any string in the data structure, otherwise returns false.
+ * **Example:**
  *
- * SOLUTION EXPLANATION:
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * INTUITION:
- * Use a Trie to store dictionary words. For searching, traverse the Trie while allowing
- * exactly one character mismatch. Track whether we've used our "one change" allowance.
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * APPROACH:
-
-
-
-
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * WHY THIS WORKS:
- * - Trie provides efficient structure for prefix-based searching
- * - DFS explores all possible paths with one character change
- * - Tracking mismatch count ensures exactly one change is required
- * - Must end at a valid word boundary (isWord = true)
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * TIME COMPLEXITY:
- * - buildDict: O(n * k) where n = words, k = average length
- * - search: O(26 * k) = O(k) where k = search word length
- * SPACE COMPLEXITY: O(n * k) for the Trie structure
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
-Input: buildDict(["hello", "leetcode"])
-       search("hello") -> false (no change needed)
-       search("hhllo") -> true (h->e makes "hello")
-       search("hell") -> false (different length)
-       search("leetcoded") -> false (different length)
-Step 1: Build Trie with "hello" and "leetcode"
-Step 2: Search "hhllo" -> try all paths with one mismatch
-Step 3: Path h-h(mismatch)-l-l-o matches "hello" with exactly one change
-Output: true
-```
+ * [example input]
+ * ```
  *
- * EDGE CASES:
- * - Empty dictionary
- * - Word that matches exactly (should return false)
- * - Word with different length (should return false)
- * - Word requiring more than one change
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 class TrieNode {

@@ -1,56 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates tree manipulation through mirroring.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * To invert a binary tree, we need to swap the left and right children
- * of every node. This creates a mirror image of the original tree.
- * We can achieve this recursively or iteratively.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Swapping children at each node creates the mirror effect
- * - Recursive structure naturally handles all subtrees
- * - Iterative approaches use explicit data structures instead of call stack
- * - All nodes must be processed exactly once
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n) where n is number of nodes
- * Each node is visited exactly once
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * SPACE COMPLEXITY:
- *   - Recursive: O(h) where h is height (call stack)
- *   - Iterative: O(w) where w is maximum width (queue/stack)
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input:     4
- *           / \
- *          2   7
- *         / \ / \
- *        1  3 6  9
- *
- * Step 1: Swap children of 4: 7 and 2
- * Step 2: Swap children of 7: 9 and 6
- * Step 3: Swap children of 2: 3 and 1
- * Output:    4
- *           / \
- *          7   2
- *         / \ / \
- *        9  6 3  1
+ * [example input]
  * ```
  *
- * EDGE CASES:
- * - Empty tree (return null)
- * - Single node (return same node)
- * - Linear trees (left or right skewed)
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

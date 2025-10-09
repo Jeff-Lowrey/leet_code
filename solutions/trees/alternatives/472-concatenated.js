@@ -1,47 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * Given an array of strings words (without duplicates), return all the concatenated words
- * in the given list of words. A concatenated word is defined as a string that is comprised
- * entirely of at least two shorter words in the given array.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Use a Trie to store all words, then for each word, check if it can be formed by
- * concatenating other words in the dictionary. Use DFS with memoization to check
- * all possible splits.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Trie enables efficient prefix matching during word splitting
- * - DFS explores all possible word combinations
- * - Memoization prevents redundant computation for the same position
- * - Must use at least 2 words, so we track the count
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n * L^2) where n is number of words, L is average length
- * SPACE COMPLEXITY: O(n * L) for Trie + memoization
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
-Input: ["cat", "cats", "catsdogcats", "dog", "dogcatsdog", "hippopotamuses", "rat", "ratcatdogcat"]
-Step 1: Build Trie with all words
-Step 2: Check "catsdogcats": can split as "cats" + "dog" + "cats" -> valid
-Step 3: Check "dogcatsdog": can split as "dog" + "cats" + "dog" -> valid
-Step 4: Check "ratcatdogcat": can split as "rat" + "cat" + "dog" + "cat" -> valid
-Output: ["catsdogcats", "dogcatsdog", "ratcatdogcat"]
-```
+ * [example input]
+ * ```
  *
- * EDGE CASES:
- * - Empty array
- * - Single word array
- * - Words that are substrings of each other
- * - Need at least 2 words to form concatenation
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 class TrieNode {

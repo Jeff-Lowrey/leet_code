@@ -1,61 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates tree serialization and reconstruction.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * We need to convert a binary tree to a string and back while preserving
- * the exact structure. Preorder traversal with null markers works well
- * because it processes root first, making reconstruction straightforward.
- * We use a delimiter to separate values and special marker for null nodes.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Preorder gives us root first, enabling top-down reconstruction
- * - Null markers preserve tree structure information
- * - String format is human-readable and easy to parse
- * - Recursive structure matches tree reconstruction naturally
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY:
- *   - Serialize: O(n) visit each node once
- *   - Deserialize: O(n) process each value once
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * SPACE COMPLEXITY:
- *   - Serialize: O(n) for string + O(h) for recursion
- *   - Deserialize: O(n) for array + O(h) for recursion
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input:     1
- *           / \
- *          2   3
- *             / \
- *            4   5
- *
- * Serialize (preorder):
- * - Visit 1: "1,"
- * - Visit 2: "1,2,"
- * - 2 has no children: "1,2,null,null,"
- * - Visit 3: "1,2,null,null,3,"
- * - Visit 4: "1,2,null,null,3,4,"
- * - 4 has no children: "1,2,null,null,3,4,null,null,"
- * - Visit 5: "1,2,null,null,3,4,null,null,5,null,null"
- *
- * Output: "1,2,null,null,3,4,null,null,5,null,null"
+ * [example input]
  * ```
  *
- * EDGE CASES:
- * - Empty tree (serialize to "null")
- * - Single node tree
- * - Skewed trees (all left or all right)
- * - Large values and negative numbers
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

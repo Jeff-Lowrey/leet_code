@@ -1,56 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Trees - specifically tree traversal.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Inorder traversal visits nodes in the order: left subtree -> root -> right subtree.
- * This creates a sorted sequence for BSTs. We can implement this recursively,
- * iteratively with a stack, or using Morris traversal for O(1) space.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Recursive approach leverages call stack naturally
- * - Iterative approach gives explicit control over stack
- * - Morris traversal modifies tree temporarily for constant space
- * - All maintain inorder property: left -> root -> right
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n) - visit each node exactly once
- * SPACE COMPLEXITY:
- *   - Recursive: O(h) where h is height (worst case O(n) for skewed tree)
- *   - Iterative: O(h) for explicit stack
- *   - Morris: O(1) constant space
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input:     1
- *           / \
- *          2   3
- *         / \
- *        4   5
- *
- * Inorder: Left -> Root -> Right
- * Step 1: Visit left subtree of 1 (which is 2)
- * Step 2: Visit left subtree of 2 (which is 4) -> output 4
- * Step 3: Visit root 2 -> output 2
- * Step 4: Visit right subtree of 2 (which is 5) -> output 5
- * Step 5: Visit root 1 -> output 1
- * Step 6: Visit right subtree of 1 (which is 3) -> output 3
- * Output: [4, 2, 5, 1, 3]
+ * [example input]
  * ```
  *
- * EDGE CASES:
- * - Empty tree (null root)
- * - Single node tree
- * - Left-skewed tree (worst case for stack space)
- * - Right-skewed tree
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**
