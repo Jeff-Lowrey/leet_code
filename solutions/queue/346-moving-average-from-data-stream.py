@@ -1,6 +1,6 @@
 """
-346. Moving Average from Data Stream
 # Difficulty: Easy
+
 Given a stream of integers and a window size, calculate the moving average of all integers in the sliding window.
 
 Implement the `MovingAverage` class:
@@ -11,6 +11,17 @@ Example:
 Input: ["MovingAverage", "next", "next", "next", "next"]
        [[3], [1], [10], [3], [5]]
 Output: [null, 1.0, 5.5, 4.66667, 6.0]
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -30,9 +41,6 @@ Use a queue to maintain the sliding window of values. When the window exceeds th
 - We keep exactly `size` elements (or fewer initially)
 - Sum and count give us the moving average efficiently
 
-### TIME COMPLEXITY: O(1) per operation
-### SPACE COMPLEXITY: O(size)
-
 ### EXAMPLE WALKTHROUGH:
 ```
 MovingAverage(3):
@@ -42,42 +50,17 @@ next(3): queue=[1,10,3], avg=4.67
 next(5): queue=[10,3,5], avg=6.0 (removed 1)
 ```
 
+### TIME COMPLEXITY:
+O(1) per operation
+
+### SPACE COMPLEXITY:
+O(size)
+
+### EDGE CASES:
+- **[Edge case 1]:** [how it's handled]
+- **[Edge case 2]:** [how it's handled]
+
 </details>
 """
 
-from collections import deque
 
-class MovingAverage:
-    def __init__(self, size: int):
-        """
-        Initialize data structure
-        Time Complexity: O(1)
-        Space Complexity: O(size)
-        """
-        self.size = size
-        self.queue = deque()
-        self.window_sum = 0
-
-    def next(self, val: int) -> float:
-        """
-        Calculate moving average with new value
-        Time Complexity: O(1)
-        Space Complexity: O(1)
-        """
-        self.queue.append(val)
-        self.window_sum += val
-
-        # Remove oldest element if window exceeds size
-        if len(self.queue) > self.size:
-            self.window_sum -= self.queue.popleft()
-
-        return self.window_sum / len(self.queue)
-
-# Test cases
-if __name__ == "__main__":
-    # Test case 1
-    moving_avg = MovingAverage(3)
-    print(f"next(1): {moving_avg.next(1)}")  # 1.0
-    print(f"next(10): {moving_avg.next(10)}")  # 5.5
-    print(f"next(3): {moving_avg.next(3)}")  # 4.67
-    print(f"next(5): {moving_avg.next(5)}")  # 6.0

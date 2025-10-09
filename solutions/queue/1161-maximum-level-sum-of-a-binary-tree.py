@@ -1,8 +1,21 @@
 """
-# 1161. Maximum Level Sum of a Binary Tree
 # Difficulty: Medium
+
+# 1161. Maximum Level Sum of a Binary Tree
+
 Given the root of a binary tree, the level of its root is 1, the level of its children is 2, and so on.
 Return the smallest level x such that the sum of all the values of nodes at level x is maximal.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -28,14 +41,6 @@ Track the level with maximum sum and return the smallest level if there are ties
 - By tracking level sums, we can find the level with maximum sum
 - Since we process levels in order (1, 2, 3, ...), the first maximum we find is the smallest level
 
-### TIME COMPLEXITY: O(n)
-- Visit each node exactly once
-- n = number of nodes in tree
-
-### SPACE COMPLEXITY: O(w)
-- Queue holds at most one level of nodes at a time
-- w = maximum width of tree (worst case: n/2 for complete tree)
-
 ### EXAMPLE WALKTHROUGH:
 ```
 Tree:      1
@@ -50,6 +55,16 @@ Level 3: sum = 7 + (-8) = -1
 Result: 2
 ```
 
+### TIME COMPLEXITY:
+O(n)
+- Visit each node exactly once
+- n = number of nodes in tree
+
+### SPACE COMPLEXITY:
+O(w)
+- Queue holds at most one level of nodes at a time
+- w = maximum width of tree (worst case: n/2 for complete tree)
+
 ### EDGE CASES:
 - Single node: Return 1
 - Negative values: Handle correctly with integer arithmetic
@@ -58,16 +73,6 @@ Result: 2
 
 </details>
 """
-
-from collections import deque
-
-class TreeNode:
-    """Definition for a binary tree node."""
-
-    def __init__(self, val=0, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
 
 class Solution:
     def maxLevelSum(self, root: TreeNode | None) -> int:

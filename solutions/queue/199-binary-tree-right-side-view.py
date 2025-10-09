@@ -1,8 +1,21 @@
 """
-# 199. Binary Tree Right Side View
 # Difficulty: Medium
+
+# 199. Binary Tree Right Side View
+
 Given the root of a binary tree, imagine yourself standing on the right side of it,
 return the values of the nodes you can see ordered from top to bottom.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -26,15 +39,6 @@ Use level-order traversal (BFS) and capture the last node at each level.
 - This is exactly what's visible from the right side
 - We collect these rightmost nodes from each level
 
-### TIME COMPLEXITY: O(n)
-- Visit each node exactly once
-- n = number of nodes in tree
-
-### SPACE COMPLEXITY: O(w)
-- Queue holds at most one level of nodes at a time
-- w = maximum width of tree (worst case: n/2 for complete tree)
-- Result storage: O(h) where h = height
-
 ### EXAMPLE WALKTHROUGH:
 ```
 Tree:      1            <- Right view: 1
@@ -46,28 +50,25 @@ Tree:      1            <- Right view: 1
 Result: [1, 3, 4]
 ```
 
+### TIME COMPLEXITY:
+O(n)
+- Visit each node exactly once
+- n = number of nodes in tree
+
+### SPACE COMPLEXITY:
+O(w)
+- Queue holds at most one level of nodes at a time
+- w = maximum width of tree (worst case: n/2 for complete tree)
+- Result storage: O(h) where h = height
+
 ### EDGE CASES:
 - Empty tree: Return []
 - Single node: Return [root.val]
 - Left-skewed tree: All nodes visible from right
 - Right-skewed tree: Only rightmost branch visible
 
-### ALTERNATIVE APPROACHES:
-1. DFS with depth tracking (visit right child first)
-2. Level-order traversal collecting all nodes but taking last of each level
-
 </details>
 """
-
-from collections import deque
-
-class TreeNode:
-    """Definition for a binary tree node."""
-
-    def __init__(self, val=0, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
 
 class Solution:
     def rightSideView(self, root: TreeNode | None) -> list[int]:

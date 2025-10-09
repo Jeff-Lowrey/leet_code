@@ -1,7 +1,20 @@
 """
-# 515. Find Largest Value in Each Tree Row
 # Difficulty: Medium
+
+# 515. Find Largest Value in Each Tree Row
+
 Given the root of a binary tree, return an array of the largest value in each row of the tree (0-indexed).
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -25,15 +38,6 @@ For each level, track the maximum value among all nodes at that level.
 - By processing level boundaries (queue size), we separate levels
 - Each level's maximum is independent of other levels
 
-### TIME COMPLEXITY: O(n)
-- Visit each node exactly once
-- n = number of nodes in tree
-
-### SPACE COMPLEXITY: O(w)
-- Queue holds at most one level of nodes at a time
-- w = maximum width of tree (worst case: n/2 for complete tree)
-- Result storage: O(h) where h = height
-
 ### EXAMPLE WALKTHROUGH:
 ```
 Tree:      1
@@ -48,28 +52,25 @@ Level 2: max = max(5, 3, 9) = 9
 Result: [1, 3, 9]
 ```
 
+### TIME COMPLEXITY:
+O(n)
+- Visit each node exactly once
+- n = number of nodes in tree
+
+### SPACE COMPLEXITY:
+O(w)
+- Queue holds at most one level of nodes at a time
+- w = maximum width of tree (worst case: n/2 for complete tree)
+- Result storage: O(h) where h = height
+
 ### EDGE CASES:
 - Empty tree: Return []
 - Single node: Return [root.val]
 - All negative values: Returns correct negative maximum
 - Skewed tree: Each level has one node
 
-### ALTERNATIVE APPROACHES:
-1. DFS with depth tracking and dictionary to store level maxima
-2. Recursive level-order traversal
-
 </details>
 """
-
-from collections import deque
-
-class TreeNode:
-    """Definition for a binary tree node."""
-
-    def __init__(self, val=0, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
 
 class Solution:
     def largestValues(self, root: TreeNode | None) -> list[int]:
