@@ -1,11 +1,23 @@
 """
-54. Spiral Matrix
 # Difficulty: Medium
+
 Given an m x `n` matrix, return all elements of the matrix in spiral order.
 
 Example:
 Input: `matrix` = [[1,2,3],[4,5,6],[7,8,9]]
 Output: [1,2,3,6,9,8,7,4,5]
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
+
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
@@ -24,14 +36,21 @@ Think of traversing the matrix in layers, like peeling an onion. We traverse the
 ### WHY THIS WORKS:
 By systematically shrinking the boundaries after each direction, we ensure we visit each element exactly once in spiral order. The boundary checks prevent revisiting elements or going out of bounds.
 
-### TIME COMPLEXITY: O(m × n)
-### SPACE COMPLEXITY: O(1) excluding output array
-
 ### EXAMPLE WALKTHROUGH:
 Matrix: [[1,2,3],[4,5,6],[7,8,9]]
 - Layer 1: Right(1,2,3) → Down(6,9) → Left(8,7) → Up(4)
 - Layer 2: Center(5)
 - Result: [1,2,3,6,9,8,7,4,5]
+
+### TIME COMPLEXITY:
+O(m × n)
+
+### SPACE COMPLEXITY:
+O(1) excluding output array
+
+### EDGE CASES:
+- **[Edge case 1]:** [how it's handled]
+- **[Edge case 2]:** [how it's handled]
 
 </details>
 """

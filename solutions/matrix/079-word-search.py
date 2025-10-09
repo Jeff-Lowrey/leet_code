@@ -1,8 +1,21 @@
 """
+# Difficulty: 
+
 # 079. Word Search
 **Backtracking + DFS**
 
 Given an m x n grid of characters and a string word, return true if word exists in the grid.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -24,9 +37,6 @@ cells temporarily to avoid reusing them in the current path, then unmark for oth
 - Visited marking prevents cycles in current path
 - Early termination when word found
 
-### TIME COMPLEXITY: O(m * n * 4^L) where L is word length
-### SPACE COMPLEXITY: O(L) for recursion stack
-
 ### EXAMPLE WALKTHROUGH:
 ```
 Board: [['A','B','C','E'],
@@ -44,25 +54,17 @@ Step 6: Try (2,3) 'D' - backtrack, try (1,3)
 Found: True
 ```
 
+### TIME COMPLEXITY:
+O(m * n * 4^L) where L is word length
+
+### SPACE COMPLEXITY:
+O(L) for recursion stack
+
 ### EDGE CASES:
 - Word longer than board cells
 - Single character word
 - Word not in board
 - Entire board is the word
-
-</details>
-
-<details>
-<summary><b>💡 APPROACH</b></summary>
-
-The approach uses DFS backtracking to search for word in grid.
-
-### Algorithm Steps:
-1. Iterate through each cell in the board
-2. If cell matches first letter, start DFS
-3. In DFS: check bounds, match, and visited status
-4. Mark cell as visited, recurse on neighbors
-5. Backtrack by unmarking cell
 
 </details>
 """

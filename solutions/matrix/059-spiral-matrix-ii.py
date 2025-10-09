@@ -1,8 +1,21 @@
 """
+# Difficulty: 
+
 # 059. Spiral Matrix II
 **Layer-by-Layer**
 
 Generate an n x n matrix filled with elements from 1 to n^2 in spiral order.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -25,9 +38,6 @@ Track boundaries and shrink them as each direction completes.
 - Four directional movements complete each layer
 - Counter increments sequentially from 1 to n^2
 
-### TIME COMPLEXITY: O(n^2) - visit each cell once
-### SPACE COMPLEXITY: O(n^2) - output matrix (O(1) excluding output)
-
 ### EXAMPLE WALKTHROUGH:
 ```
 Input: n = 3
@@ -48,24 +58,16 @@ Output: [[1,2,3],
          [7,6,5]]
 ```
 
+### TIME COMPLEXITY:
+O(n^2) - visit each cell once
+
+### SPACE COMPLEXITY:
+O(n^2) - output matrix (O(1) excluding output)
+
 ### EDGE CASES:
 - n = 1 (single cell)
 - Even vs odd n (center handling)
 - Boundary conditions
-
-</details>
-
-<details>
-<summary><b>💡 APPROACH</b></summary>
-
-The approach fills matrix in spiral layers from outside to inside.
-
-### Algorithm Steps:
-1. Initialize n x n matrix with zeros
-2. Track top, bottom, left, right boundaries
-3. Fill matrix moving: right → down → left → up
-4. Shrink boundaries after each direction
-5. Continue until all n^2 cells filled
 
 </details>
 """

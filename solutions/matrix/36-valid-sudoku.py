@@ -1,12 +1,12 @@
 """
-36. Valid Sudoku
 # Difficulty: Medium
+
 Determine if a 9 x 9 Sudoku board is valid. Only the filled cells need to be validated
 according to the following rules:
 
-1. Each row must contain the digits 1-9 without repetition.
-2. Each column must contain the digits 1-9 without repetition.
-3. Each of the nine 3 x 3 sub-boxes must contain the digits 1-9 without repetition.
+
+
+
 
 Note:
 - A Sudoku board (partially filled) could be valid but is not necessarily solvable.
@@ -25,6 +25,17 @@ Input: board =
 ,[".",".",".",".","8",".",".","7","9"]]
 Output: true
 
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
+
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
@@ -42,14 +53,6 @@ Make a single pass through the board, checking for duplicates in the appropriate
 Sets provide O(1) lookup, allowing us to efficiently check for duplicates.
 The box index formula maps each cell to one of 9 boxes (0-8).
 
-### TIME COMPLEXITY: O(1)
-- Board is fixed size 9x9 = 81 cells
-- Each cell processed once
-
-### SPACE COMPLEXITY: O(1)
-- At most 9 sets with 9 elements each
-- Fixed space regardless of input
-
 ### EXAMPLE WALKTHROUGH:
 ```
 For cell (0, 0) = "5":
@@ -65,10 +68,15 @@ For cell (0, 1) = "3":
 If we encounter "5" again in row 0, col 0, or box 0 → return False
 ```
 
-### ALTERNATIVE APPROACHES:
-1. **Bitmask**: Use integers with bit manipulation instead of sets
-2. **Single Set with Keys**: Use tuples like ("row", 0, "5") for unique keys
-3. **Array of Arrays**: Use 9x9 boolean arrays for each constraint
+### TIME COMPLEXITY:
+O(1)
+- Board is fixed size 9x9 = 81 cells
+- Each cell processed once
+
+### SPACE COMPLEXITY:
+O(1)
+- At most 9 sets with 9 elements each
+- Fixed space regardless of input
 
 ### EDGE CASES:
 - Empty cells (".") should be ignored

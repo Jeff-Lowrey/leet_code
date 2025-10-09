@@ -1,8 +1,21 @@
 """
+# Difficulty: 
+
 # 240. Search a 2D Matrix II
 **Staircase Search**
 
 Search for a target in an m x n matrix with sorted rows and columns.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -28,9 +41,6 @@ This creates a staircase search pattern with O(m+n) complexity.
 - Each step eliminates either a row or column
 - No need to search eliminated regions
 
-### TIME COMPLEXITY: O(m + n) - worst case visit m+n cells
-### SPACE COMPLEXITY: O(1) - only use constant space
-
 ### EXAMPLE WALKTHROUGH:
 ```
 Matrix: [[1,4,7,11,15],
@@ -47,25 +57,17 @@ Step 4: At (0,1) = 4 < 5 → move down
 Step 5: At (1,1) = 5 = 5 → found!
 ```
 
+### TIME COMPLEXITY:
+O(m + n) - worst case visit m+n cells
+
+### SPACE COMPLEXITY:
+O(1) - only use constant space
+
 ### EDGE CASES:
 - Empty matrix
 - Single row or column
 - Target not in matrix
 - Target at corners
-
-</details>
-
-<details>
-<summary><b>💡 APPROACH</b></summary>
-
-The approach uses staircase search from top-right corner.
-
-### Algorithm Steps:
-1. Start at top-right corner (0, n-1)
-2. Compare current value with target
-3. Move left if current > target
-4. Move down if current < target
-5. Return True if found, False if out of bounds
 
 </details>
 """

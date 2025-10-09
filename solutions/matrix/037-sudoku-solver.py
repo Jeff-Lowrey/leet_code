@@ -1,8 +1,21 @@
 """
+# Difficulty: 
+
 # 037. Sudoku Solver
 **Backtracking**
 
 Solve a Sudoku puzzle by filling the empty cells.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -25,9 +38,6 @@ valid digit can be placed.
 - Early pruning reduces search space
 - Modifies board in-place for efficiency
 
-### TIME COMPLEXITY: O(9^(n*n)) worst case, where n=9
-### SPACE COMPLEXITY: O(n*n) for recursion stack
-
 ### EXAMPLE WALKTHROUGH:
 ```
 Input: board with some filled cells and '.' for empty
@@ -38,24 +48,16 @@ Step 4: If contradiction found, backtrack and try '2'
 Output: Completed valid Sudoku board
 ```
 
+### TIME COMPLEXITY:
+O(9^(n*n)) worst case, where n=9
+
+### SPACE COMPLEXITY:
+O(n*n) for recursion stack
+
 ### EDGE CASES:
 - Board already solved
 - Multiple solutions (return first found)
 - Invalid input (unsolvable)
-
-</details>
-
-<details>
-<summary><b>💡 APPROACH</b></summary>
-
-The approach uses backtracking with constraint checking to solve Sudoku.
-
-### Algorithm Steps:
-1. Find next empty cell (marked with '.')
-2. Try each digit '1' through '9'
-3. Check if digit is valid in current position
-4. Recursively solve remaining cells
-5. Backtrack if no solution found
 
 </details>
 """
