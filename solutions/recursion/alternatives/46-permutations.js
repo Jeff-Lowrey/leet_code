@@ -1,6 +1,5 @@
 /**
- * 46. Permutations
- * Medium
+
  *
  * This problem demonstrates key concepts in Recursion.
  *
@@ -12,15 +11,15 @@
  * This is a classic backtracking problem where we explore all possible orderings.
  *
  * APPROACH:
- * 1. **Backtracking with tracking**:
+
  *    - At each position, try every unused number
  *    - Mark numbers as used to avoid duplicates in same permutation
  *    - When all positions filled, add permutation to results
- * 2. **Implementation strategy**:
+
  *    - Use a Set or boolean array to track used numbers
  *    - Recurse for each unused number
  *    - Backtrack by unmarking the number as used
- * 3. **Alternative approach**: Swap elements in-place
+
  *
  * WHY THIS WORKS:
  * - Each level of recursion chooses one number for current position

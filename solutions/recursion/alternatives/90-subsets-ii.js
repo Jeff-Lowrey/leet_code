@@ -1,6 +1,5 @@
 /**
- * 90. Subsets II
- * Medium
+
  *
  * This problem demonstrates key concepts in Recursion.
  *
@@ -12,12 +11,12 @@
  * We need to combine the subset generation logic with duplicate handling.
  *
  * APPROACH:
- * 1. **Sort the array**: Groups duplicates together for efficient duplicate detection
- * 2. **Backtracking with duplicate handling**:
+
+
  *    - Generate subsets using standard backtracking
  *    - Skip duplicate elements at the same recursion level
  *    - If current element equals previous and we're not at start, skip it
- * 3. **Key insight**:
+
  *    - For [1,2,2], we want [1,2] and [1,2,2] but not [1,2] twice
  *    - Sorting + skipping ensures we only use duplicates consecutively
  *

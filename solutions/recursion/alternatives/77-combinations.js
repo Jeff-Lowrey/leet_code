@@ -1,6 +1,5 @@
 /**
- * 77. Combinations
- * Medium
+
  *
  * This problem demonstrates key concepts in Recursion.
  *
@@ -12,14 +11,14 @@
  * we systematically explore all possible k-sized subsets.
  *
  * APPROACH:
- * 1. **Backtracking with size constraint**:
+
  *    - Start from number 1 and try including each number
  *    - Track current combination being built
  *    - When combination reaches size k, add to results
- * 2. **Avoid duplicates**:
+
  *    - Use a start parameter to only consider numbers >= current
  *    - This ensures combinations like [1,2] and [2,1] are treated as same
- * 3. **Pruning optimization**:
+
  *    - If remaining numbers can't fill k positions, stop early
  *
  * WHY THIS WORKS:

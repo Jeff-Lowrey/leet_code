@@ -1,6 +1,5 @@
 /**
- * 40. Combination Sum II
- * Medium
+
  *
  * This problem demonstrates key concepts in Recursion.
  *
@@ -12,12 +11,12 @@
  * The key challenge is avoiding duplicate combinations when the input contains duplicates.
  *
  * APPROACH:
- * 1. **Sort the array**: This groups duplicates together and enables efficient duplicate detection
- * 2. **Backtracking with duplicate handling**:
+
+
  *    - For each candidate, decide to include it or skip it
  *    - Skip duplicate candidates at the same recursion level
  *    - Move to next index after including a number (use only once)
- * 3. **Duplicate prevention**:
+
  *    - If current number equals previous and we didn't use previous, skip current
  *    - This ensures we don't create duplicate combinations
  *

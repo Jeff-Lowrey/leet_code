@@ -1,6 +1,5 @@
 /**
- * 216. Combination Sum III
- * Medium
+
  *
  * This problem demonstrates key concepts in Recursion.
  *
@@ -12,15 +11,15 @@
  * multiple constraints: combination size and target sum.
  *
  * APPROACH:
- * 1. **Backtracking with constraints**:
+
  *    - Start from number 1 and try each number up to 9
  *    - For each number, decide to include it or skip it
  *    - Track current sum and count of numbers used
  *    - Base cases: reached k numbers (check if sum equals n), or exceeded constraints
- * 2. **Pruning optimizations**:
+
  *    - Stop if current sum exceeds target
  *    - Stop if remaining numbers can't possibly reach target
- * 3. **Edge cases**: k > 9, n too large, n too small
+
  *
  * WHY THIS WORKS:
  * - Backtracking systematically explores all valid combinations

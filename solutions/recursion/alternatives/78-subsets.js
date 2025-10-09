@@ -1,6 +1,5 @@
 /**
- * 78. Subsets
- * Medium
+
  *
  * This problem demonstrates key concepts in Recursion.
  *
@@ -12,14 +11,14 @@
  * This is a classic backtracking problem where we explore include/exclude decisions.
  *
  * APPROACH:
- * 1. **Backtracking with include/exclude pattern**:
+
  *    - At each position, we have two choices: include or exclude the element
  *    - Add current subset to results at every step (not just at leaves)
  *    - Use start index to avoid duplicate subsets
- * 2. **Two implementation styles**:
+
  *    - Iterative add: Add subset after each inclusion
  *    - Include/exclude recursion: Explicitly make both choices at each step
- * 3. **Edge cases**: Empty array, single element
+
  *
  * WHY THIS WORKS:
  * - Each element can be included or excluded independently

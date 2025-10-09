@@ -1,6 +1,5 @@
 /**
- * 17. Letter Combinations Of A Phone Number
- * Medium
+
  *
  * This problem demonstrates key concepts in Recursion.
  *
@@ -12,12 +11,12 @@
  * backtracking problem where we explore all possible combinations.
  *
  * APPROACH:
- * 1. **Map digits to letters**: Create a mapping like phone keypads (2='abc', 3='def', etc.)
- * 2. **Backtracking recursion**:
+
+
  *    - Base case: When current combination length equals input length, add to results
  *    - For each letter mapped to current digit, add it to combination and recurse
  *    - Backtrack by removing the letter and trying the next one
- * 3. **Edge cases**: Handle empty input
+
  *
  * WHY THIS WORKS:
  * - Backtracking explores all possible paths through the decision tree

@@ -1,6 +1,5 @@
 /**
- * 024. Swap Nodes In Pairs
- * Medium
+
  *
  * This problem demonstrates key concepts in Recursion.
  *
@@ -11,13 +10,13 @@
  * The recursive approach naturally handles the swapping pattern by processing pairs from left to right.
  *
  * APPROACH:
- * 1. **Base Case**: If the list is empty or has only one node, return the head as-is
- * 2. **Recursive Case**:
+
+
  *    - Save references to the first two nodes
  *    - Recursively process the rest of the list (starting from the third node)
  *    - Swap the first two nodes by adjusting pointers
  *    - Return the new head (which was originally the second node)
- * 3. **Edge Cases**: Handle null lists and single-node lists
+
  *
  * WHY THIS WORKS:
  * - Recursion naturally breaks down the problem into smaller subproblems

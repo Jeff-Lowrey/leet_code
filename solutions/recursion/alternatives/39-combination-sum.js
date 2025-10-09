@@ -1,6 +1,5 @@
 /**
- * 39. Combination Sum
- * Medium
+
  *
  * This problem demonstrates key concepts in Recursion.
  *
@@ -12,14 +11,14 @@
  * This is a classic backtracking problem where we explore all possible combinations.
  *
  * APPROACH:
- * 1. **Backtracking with reusability**:
+
  *    - For each candidate, decide to include it (possibly multiple times) or skip it
  *    - Track current sum and combination
  *    - Base case: sum equals target (add to results) or exceeds it (backtrack)
- * 2. **Avoid duplicates**:
+
  *    - Use a start index to only consider candidates at or after current position
  *    - This ensures combinations like [2,3] and [3,2] are treated as the same
- * 3. **Optimization**: Sort candidates and prune when sum exceeds target
+
  *
  * WHY THIS WORKS:
  * - Backtracking explores all possible ways to combine candidates

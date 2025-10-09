@@ -1,6 +1,5 @@
 /**
- * 47. Permutations II
- * Medium
+
  *
  * This problem demonstrates key concepts in Recursion.
  *
@@ -12,12 +11,12 @@
  * We need to track which numbers we've used AND skip duplicates at the same recursion level.
  *
  * APPROACH:
- * 1. **Sort the array**: Groups duplicates together for efficient duplicate detection
- * 2. **Backtracking with duplicate handling**:
+
+
  *    - Track which indices have been used in current permutation
  *    - Skip a number if it equals the previous number AND the previous wasn't used
  *    - This prevents duplicate permutations from being generated
- * 3. **Key insight**:
+
  *    - If we have [1,1,2], we want [1,1,2] but not [1,1,2] again from swapping the 1's
  *    - Sorting + skipping ensures we only use duplicates in order
  *
