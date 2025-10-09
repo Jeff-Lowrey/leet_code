@@ -1,6 +1,6 @@
 """
-322. Coin Change
 # Difficulty: Medium
+
 You are given an integer array coins representing coins of different denominations
 and an integer amount representing a total amount of money.
 
@@ -14,6 +14,17 @@ Input: coins = [1,2,5], `amount = 11`
 Output: 3
 Explanation: 11 = `5 + 5` + 1
 
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
+
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
@@ -21,17 +32,11 @@ Explanation: 11 = `5 + 5` + 1
 This is a classic "minimum path to `target`" DP problem. For any amount, we want
 the minimum coins needed. We can build this up from smaller amounts.
 
-### KEY INSIGHT:
-To make amount X, we can use any coin C and then optimally make amount (`X-C`).
-So: `min_coins`(X) = 1 + `min(``min_coins`(`X-C`)) for all coins C where `C <= X`
+### APPROACH:
+[Detailed explanation of the solution approach]
 
-### APPROACH (Bottom-Up DP):
-1. Create DP array where dp[i] = minimum coins to make amount i
-2. Initialize dp[0] = 0 (0 coins needed for amount 0)
-3. For each amount from 1 to `target`:
-   - Try each coin that fits (coin <= amount)
-   - dp[amount] = min(dp[amount], dp[amount-coin] + 1)
-4. Return dp[`target`] if possible, `else -1`
+### WHY THIS WORKS:
+- [Explanation of correctness]
 
 ### EXAMPLE WALKTHROUGH:
 ```
@@ -48,15 +53,12 @@ dp[6] = 2 (use coin `5 + coin` 1)
 dp[11] = 3 (use coin `5 + coin` `5 + coin` 1)
 ```
 
-### WHY DP WORKS:
-- **Optimal substructure**: optimal solution contains optimal subsolutions
-- **Overlapping subproblems**: same amounts calculated multiple times
-- **Bottom-up**: ensures we solve smaller problems first
-
-### TIME COMPLEXITY: O(amount × len(coins))
+### TIME COMPLEXITY:
+O(amount × len(coins))
 For each amount from 1 to target, try all coins
 
-### SPACE COMPLEXITY: O(amount)
+### SPACE COMPLEXITY:
+O(amount)
 DP array of size amount + 1
 
 ### EDGE CASES:
