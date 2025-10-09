@@ -1,7 +1,6 @@
 """
 38. Count and Say
-Medium
-
+# Difficulty: Medium
 The count-and-say sequence is a sequence of digit strings defined by the recursive formula:
 - countAndSay(1) = "1"
 - countAndSay(n) is the way you would "say" the digit string from countAndSay(n-1),
@@ -81,8 +80,6 @@ For "1211" → "111221":
 
 </details>
 """
-
-
 
 class Solution:
     def countAndSay(self, n: int) -> str:
@@ -199,7 +196,6 @@ class Solution:
 
         return result
 
-
 def test_solution():
     """Test cases for Problem 38."""
     solution = Solution()
@@ -245,7 +241,6 @@ def test_solution():
     assert result8 == expected8, f"Expected {expected8}, got {result8}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

@@ -1,7 +1,6 @@
 """
 14. Longest Common Prefix
-Easy
-
+# Difficulty: Easy
 Write a function to find the longest common prefix string amongst an array of strings.
 If there is no common prefix, return an empty string "".
 
@@ -51,7 +50,6 @@ For strs = ["flower","flow","flight"]:
 
 </details>
 """
-
 
 class Solution:
     def longestCommonPrefix(self, strs: list[str]) -> str:
@@ -127,11 +125,9 @@ class Solution:
 
         return "".join(prefix)
 
-
 """
 28. Find the Index of the First Occurrence in a String
-Easy
-
+# Difficulty: Easy
 Given two strings needle and haystack, return the index of the first occurrence
 of needle in haystack, or -1 if needle is not part of haystack.
 
@@ -139,7 +135,6 @@ Example:
 Input: haystack = "sadbutsad", needle = "sad"
 Output: 0
 """
-
 
 class SolutionStrStr:
     def strStr(self, haystack: str, needle: str) -> int:
@@ -204,11 +199,9 @@ class SolutionStrStr:
 
         return -1
 
-
 """
 459. Repeated Substring Pattern
-Easy
-
+# Difficulty: Easy
 Given a string s, check if it can be constructed by taking a substring of it and
 appending multiple copies of the substring together.
 
@@ -217,7 +210,6 @@ Input: s = "abab"
 Output: true
 Explanation: It is the substring "ab" twice.
 """
-
 
 class SolutionRepeated:
     def repeatedSubstringPattern(self, s: str) -> bool:
@@ -255,11 +247,9 @@ class SolutionRepeated:
         pattern_len = lps[-1]
         return pattern_len > 0 and n % (n - pattern_len) == 0
 
-
 """
 686. Repeated String Match
-Medium
-
+# Difficulty: Medium
 Given two strings a and b, return the minimum number of times you should repeat
 string a so that string b is a substring of it. If it is impossible for b to be
 a substring of a after repeating it, return -1.
@@ -270,7 +260,6 @@ Output: 3
 Explanation: We return 3 because by repeating a three times "abcdabcdabcd",
 b is a substring of it.
 """
-
 
 class SolutionRepeatedMatch:
     def repeatedStringMatch(self, a: str, b: str) -> int:
@@ -288,7 +277,6 @@ class SolutionRepeatedMatch:
                 return reps
 
         return -1
-
 
 # Test cases
 if __name__ == "__main__":

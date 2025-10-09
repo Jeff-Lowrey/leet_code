@@ -1,7 +1,6 @@
 """
 557. Reverse Words in a String III
-Easy
-
+# Difficulty: Easy
 Given a string s, reverse the order of characters in each word within a sentence
 while still preserving whitespace and initial word order.
 
@@ -74,8 +73,6 @@ Join: "s'teL ekat edoCteeL tsetnoc"
 
 </details>
 """
-
-
 
 class Solution:
     def reverseWords(self, s: str) -> str:
@@ -213,7 +210,6 @@ class Solution:
 
         return "".join(result)
 
-
 def test_solution():
     """Test cases for Problem 557."""
     solution = Solution()
@@ -269,7 +265,6 @@ def test_solution():
     assert result10 == expected10, f"Expected {expected10}, got {result10}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

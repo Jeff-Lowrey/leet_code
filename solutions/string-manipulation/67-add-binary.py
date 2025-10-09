@@ -1,7 +1,6 @@
 """
 67. Add Binary
-Easy
-
+# Difficulty: Easy
 Given two binary strings a and b, return their sum as a binary string.
 
 Example:
@@ -85,7 +84,6 @@ Final carry: 1
 
 </details>
 """
-
 
 class Solution:
     def addBinary(self, a: str, b: str) -> str:
@@ -216,7 +214,6 @@ class Solution:
         # Reverse to get correct order
         return "".join(reversed(result))
 
-
 def test_solution():
     """Test cases for Problem 67."""
     solution = Solution()
@@ -267,7 +264,6 @@ def test_solution():
     assert result9 == expected9, f"Expected {expected9}, got {result9}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

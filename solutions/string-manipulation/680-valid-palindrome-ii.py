@@ -1,7 +1,6 @@
 """
 # 680. Valid Palindrome II
-**Easy**
-
+# Difficulty: Easy
 Given a string s, return true if the s can be palindrome after deleting at most one character from it.
 
 <details>
@@ -58,7 +57,6 @@ Result: True
 
 </details>
 """
-
 
 class Solution:
     def validPalindrome(self, s: str) -> bool:
@@ -195,7 +193,6 @@ class Solution:
 
         return False
 
-
 def test_solution():
     """Test cases for Problem 680."""
     solution = Solution()
@@ -256,7 +253,6 @@ def test_solution():
     assert result11 == expected11, f"Expected {expected11}, got {result11}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

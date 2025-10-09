@@ -1,7 +1,6 @@
 """
 6. Zigzag Conversion
-Medium
-
+# Difficulty: Medium
 The string "PAYPALISHIRING" is written in a zigzag pattern on a given number of rows
 like this:
 
@@ -89,8 +88,6 @@ Result: "PAHNAPLSIIGYIR"
 
 </details>
 """
-
-
 
 class Solution:
     def convert(self, s: str, numRows: int) -> str:
@@ -239,7 +236,6 @@ class Solution:
 
         return result
 
-
 def test_solution():
     """Test cases for Problem 6."""
     solution = Solution()
@@ -290,7 +286,6 @@ def test_solution():
     assert result9 == expected9, f"Expected {expected9}, got {result9}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

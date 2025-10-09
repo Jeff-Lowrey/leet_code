@@ -1,7 +1,6 @@
 """
 696. Count Binary Substrings
-Easy
-
+# Difficulty: Easy
 Given a binary string s, return the number of non-empty substrings that have the same
 number of 0's and 1's, and all the 0's and all the 1's in these substrings are grouped
 consecutively.
@@ -81,8 +80,6 @@ Total: 2 + 2 + 2 = 6
 
 </details>
 """
-
-
 
 class Solution:
     def countBinarySubstrings(self, s: str) -> int:
@@ -226,7 +223,6 @@ class Solution:
 
         return result
 
-
 def test_solution():
     """Test cases for Problem 696."""
     solution = Solution()
@@ -277,7 +273,6 @@ def test_solution():
     assert result9 == expected9, f"Expected {expected9}, got {result9}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

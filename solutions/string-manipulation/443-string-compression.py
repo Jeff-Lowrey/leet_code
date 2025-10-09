@@ -1,7 +1,6 @@
 """
 443. String Compression
-Medium
-
+# Difficulty: Medium
 Given an array of characters chars, compress it using the following algorithm:
 
 Begin with an empty string s. For each group of consecutive repeating characters in chars:
@@ -83,8 +82,6 @@ Result: ["a","2","b","2","c","3"] with length 6
 
 </details>
 """
-
-
 
 class Solution:
     def compress(self, chars: list[str]) -> int:
@@ -205,7 +202,6 @@ class Solution:
 
         return write
 
-
 def test_solution():
     """Test cases for Problem 443."""
     solution = Solution()
@@ -265,7 +261,6 @@ def test_solution():
     assert result7 == expected7, f"Expected {expected7}, got {result7}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

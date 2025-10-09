@@ -1,7 +1,6 @@
 """
 541. Reverse String II
-Easy
-
+# Difficulty: Easy
 Given a string s and an integer k, reverse the first k characters for every 2k
 characters counting from the start of the string.
 
@@ -79,8 +78,6 @@ Final: "bacd" + "feg" = "bacdfeg"
 
 </details>
 """
-
-
 
 class Solution:
     def reverseStr(self, s: str, k: int) -> str:
@@ -195,7 +192,6 @@ class Solution:
         # Reverse first k, keep next k, recurse on rest
         return s[:k][::-1] + s[k : 2 * k] + self.reverseStrRecursive(s[2 * k :], k)
 
-
 def test_solution():
     """Test cases for Problem 541."""
     solution = Solution()
@@ -251,7 +247,6 @@ def test_solution():
     assert result10 == expected10, f"Expected {expected10}, got {result10}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()
