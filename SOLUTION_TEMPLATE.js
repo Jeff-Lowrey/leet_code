@@ -20,22 +20,29 @@
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation that makes the solution work.
- * Keep this section brief - 1-3 sentences maximum.
- * Explain the "aha moment" or central idea.]
+ * [High-level insight or key observation that makes the solution work.]
+ *
+ * [Keep this section brief - 1-3 sentences maximum.]
+ *
+ * [Explain the "aha moment" or central idea.]
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach written in flowing prose.
- * Break down the algorithm step by step.
- * Explain why each step is necessary.
- * Use clear, descriptive language without numbered lists.
- * Focus on helping the reader understand the thought process.]
+ * [Detailed explanation of the solution approach written in flowing prose.]
+ *
+ * [Break down the algorithm step by step.]
+ *
+ * [Explain why each step is necessary.]
+ *
+ * [Use clear, descriptive language without numbered lists.]
+ *
+ * [Focus on helping the reader understand the thought process.]
  *
  * ### WHY THIS WORKS:
- * [Brief explanation of correctness.
- * Why does this approach solve the problem?
- * What properties make it work?
- * Use bullet points for clarity.]
+ * [Brief explanation of correctness.]
+ *
+ * [Why does this approach solve the problem?]
+ *
+ * [What properties make it work? Use bullet points for clarity.]
  *
  * ### EXAMPLE WALKTHROUGH:
  *
