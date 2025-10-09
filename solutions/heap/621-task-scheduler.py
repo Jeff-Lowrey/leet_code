@@ -1,11 +1,24 @@
 """
-# 621. Task Scheduler
 # Difficulty: Medium
+
+# 621. Task Scheduler
+
 Given a characters array tasks, representing the tasks a CPU needs to do, where each letter represents a different task. Tasks could be done in any order. Each task is done in one unit of time. For each unit of time, the CPU could complete either one task or just be idle.
 
 However, there is a non-negative integer n that represents the cooldown period between two same tasks (the same letter in the array), that is that there must be at least n units of time between any two same tasks.
 
 Return the least number of units of times that the CPU will take to finish all the given tasks.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -27,13 +40,6 @@ Schedule most frequent tasks first to minimize idle time. Use max-heap to always
 - By scheduling them first with optimal spacing, we minimize total idle time
 - Cooldown queue ensures we respect the n interval
 
-### TIME COMPLEXITY: O(n × m)
-Where n = cooldown, m = number of tasks (simulation approach)
-Math approach: O(m) where m = number of tasks
-
-### SPACE COMPLEXITY: O(1)
-At most 26 different tasks (letters)
-
 ### EXAMPLE WALKTHROUGH:
 ```
 tasks = ["A","A","A","B","B","B"], n = 2
@@ -52,11 +58,14 @@ Time 7: B (B done)
 Total: 8 units
 ```
 
-### KEY INSIGHTS:
-- Formula: max(len(tasks), (max_freq-1)*(n+1) + count_of_max_freq)
-- If idle slots can fit all other tasks, use formula
-- Otherwise, len(tasks) is sufficient
-- Greedy: always schedule most frequent available task
+### TIME COMPLEXITY:
+O(n × m)
+Where n = cooldown, m = number of tasks (simulation approach)
+Math approach: O(m) where m = number of tasks
+
+### SPACE COMPLEXITY:
+O(1)
+At most 26 different tasks (letters)
 
 ### EDGE CASES:
 - n = 0 (no cooldown, return len(tasks))
@@ -66,9 +75,6 @@ Total: 8 units
 
 </details>
 """
-
-import heapq
-from collections import Counter, deque
 
 class Solution:
     def leastInterval(self, tasks: list[str], n: int) -> int:

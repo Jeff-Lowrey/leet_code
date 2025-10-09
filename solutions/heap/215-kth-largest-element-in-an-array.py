@@ -1,11 +1,24 @@
 """
-# 215. Kth Largest Element in an Array
 # Difficulty: Medium
+
+# 215. Kth Largest Element in an Array
+
 Given an integer array nums and an integer k, return the kth largest element in the array.
 
 Note that it is the kth largest element in the sorted order, not the kth distinct element.
 
 Can you solve it without sorting?
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -13,32 +26,13 @@ Can you solve it without sorting?
 ### INTUITION:
 Several approaches: min-heap (keep k largest), max-heap (pop k-1 times), or QuickSelect (partition-based like QuickSort). QuickSelect is optimal O(n) average case.
 
-### APPROACH (Min-Heap):
-1. **Build min-heap of size k**: Contains k largest elements
-2. **Iterate remaining elements**: If larger than heap root, replace root
-3. **Return heap root**: Smallest of k largest = kth largest
-
-### APPROACH (QuickSelect):
-1. **Choose pivot**: Partition array around pivot
-2. **Determine position**: Compare pivot position to k
-3. **Recurse**: Search left or right partition based on position
-4. **Base case**: When pivot is at position k from end
+### APPROACH:
+[Detailed explanation of the solution approach]
 
 ### WHY THIS WORKS:
 - **Heap**: Root of min-heap with k elements = kth largest
 - **QuickSelect**: Partially sorts to find kth element (like QuickSort but only one partition)
 - **Quick Select** doesn't need full sort, just correct position
-
-### TIME COMPLEXITY:
-- Min-heap: O(n log k)
-- Max-heap: O(n + k log n)
-- QuickSelect: O(n) average, O(n²) worst
-- Sorting: O(n log n)
-
-### SPACE COMPLEXITY:
-- Min-heap: O(k)
-- QuickSelect: O(1) if in-place
-- Sorting: O(1) or O(n) depending on algorithm
 
 ### EXAMPLE WALKTHROUGH:
 ```
@@ -60,11 +54,16 @@ QuickSelect approach:
 - Position 2 from right = answer: 5
 ```
 
-### KEY INSIGHTS:
-- k largest = (n - k + 1) smallest (can use max-heap too)
-- QuickSelect modifies array, heap doesn't
-- For small k, heap better. For large k, QuickSelect better
-- Min-heap more intuitive for "largest" problems
+### TIME COMPLEXITY:
+- Min-heap: O(n log k)
+- Max-heap: O(n + k log n)
+- QuickSelect: O(n) average, O(n²) worst
+- Sorting: O(n log n)
+
+### SPACE COMPLEXITY:
+- Min-heap: O(k)
+- QuickSelect: O(1) if in-place
+- Sorting: O(1) or O(n) depending on algorithm
 
 ### EDGE CASES:
 - k = 1 (maximum)
@@ -75,9 +74,6 @@ QuickSelect approach:
 
 </details>
 """
-
-import heapq
-import random
 
 class Solution:
     def findKthLargest(self, nums: list[int], k: int) -> int:

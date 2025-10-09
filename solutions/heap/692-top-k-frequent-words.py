@@ -1,9 +1,22 @@
 """
-# 692. Top K Frequent Words
 # Difficulty: Medium
+
+# 692. Top K Frequent Words
+
 Given an array of strings words and an integer k, return the k most frequent strings.
 
 Return the answer sorted by the frequency from highest to lowest. Sort the words with the same frequency by their lexicographical order.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -23,12 +36,6 @@ This problem combines frequency counting with sorting. We need to find the k mos
 - For equal frequencies, lexicographically smaller words are "larger" in our heap
 - Final result needs reversal because heap gives us reverse order
 
-### TIME COMPLEXITY: O(N log k)
-Where N is number of words, k is the result size. Heap operations are O(log k).
-
-### SPACE COMPLEXITY: O(N + k)
-O(N) for frequency map, O(k) for heap
-
 ### EXAMPLE WALKTHROUGH:
 ```
 Input: words = ["i","love","leetcode","i","love","coding"], k = 2
@@ -43,11 +50,13 @@ Heap process:
 Result: ["i", "love"] (after reversing)
 ```
 
-### KEY INSIGHTS:
-- Use negative frequency for max-heap behavior with min-heap
-- Lexicographical tie-breaking requires careful comparator design
-- Heap maintains exactly k elements, evicting less frequent/larger lexicographical words
-- Final extraction gives reverse order, requiring reversal
+### TIME COMPLEXITY:
+O(N log k)
+Where N is number of words, k is the result size. Heap operations are O(log k).
+
+### SPACE COMPLEXITY:
+O(N + k)
+O(N) for frequency map, O(k) for heap
 
 ### EDGE CASES:
 - k equals number of unique words
