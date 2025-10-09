@@ -1,11 +1,22 @@
 """
-50. Pow(x, n)
 # Difficulty: Medium
+
 Implement pow(x, n), which calculates x raised to the power `n` (`i`.e., x^n).
 
 Example:
 Input: `x = 2`.00000, `n` = 10
 Output: 1024.00000
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -14,21 +25,11 @@ Output: 1024.00000
 Naive approach of multiplying x by itself `n` times is O(n). We can do better
 using **binary exponentiation** - repeatedly squaring and halving the exponent.
 
-### KEY INSIGHT:
-- x^8 = (x^4)^2 = ((x^2)^2)^2
-- x^9 = x * x^8 = x * (x^4)^2
-- Split exponent in half, square the base
+### APPROACH:
+[Detailed explanation of the solution approach]
 
-### APPROACH (Recursive):
-1. **Base case**: `n` = 0 → return 1
-2. **Even n**: return pow(x^2, `n/2`)
-3. **Odd n**: return `x * pow`(x^2, (`n-1`)/2)
-4. **Negative n**: return `1/pow`(x, -n)
-
-### APPROACH (Iterative):
-1. Handle negative exponents: x = `1/x`, `n` = -n
-2. Use bit manipulation: if `n` is odd, multiply `result` by `current` x
-3. Square x and halve `n` in each iteration
+### WHY THIS WORKS:
+- [Explanation of correctness]
 
 ### EXAMPLE WALKTHROUGH:
 ```
@@ -44,8 +45,15 @@ Bit 0 (position 4): skip
 Final: `4 * 256` = 1024
 ```
 
-### TIME COMPLEXITY: O(log n)
-### SPACE COMPLEXITY: O(log n) recursive, O(1) iterative
+### TIME COMPLEXITY:
+O(log n)
+
+### SPACE COMPLEXITY:
+O(log n) recursive, O(1) iterative
+
+### EDGE CASES:
+- **[Edge case 1]:** [how it's handled]
+- **[Edge case 2]:** [how it's handled]
 
 </details>
 """
