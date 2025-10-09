@@ -1,45 +1,52 @@
 /**
-
- * DP
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Dynamic Programming.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * A palindrome reads the same forwards and backwards. We can find palindromes
-by expanding around `centers - either` single characters or between characters.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Every palindrome has a center
-- We can check all possible centers systematically
-- Expanding is more efficient than checking all substrings
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n²)
- * SPACE COMPLEXITY: O(1)
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
-s = "babad"
-Centers: b, ba, a, ab, b, ba, a, ad, d
-
-Center at 'a' (index 1): expand to "bab"
-Center at 'a' (index 3): expand to "aba"
-Both have length 3, return either
-```
+ * [example input]
+ * ```
  *
- * EDGE CASES:
- * - Empty string: Return empty string
- * - Single character: The character itself is a palindrome
- * - No palindromes longer than 1: Return any single character
- * - All characters same: Entire string is palindrome
- * - Multiple palindromes of same max length: Return any valid one
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

@@ -1,49 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Dynamic Programming.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * This is a classic "minimum path to `target`" DP problem. For any amount, we want
-the minimum coins needed. We can build this up from smaller amounts.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - We build up solutions from smaller subproblems
- * - For any amount, we consider using each coin and take the minimum
- * - dp[i-coin] + 1 represents using one more coin to reach amount i
- * - Infinity initialization handles impossible cases naturally
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(amount × coins.length) - nested loops through amounts and coins
- * SPACE COMPLEXITY: O(amount) - DP array of size amount+1
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
-coins = [1,2,5], `amount = 11`
-
-dp[0] = 0
-dp[1] = 1 (use coin 1)
-dp[2] = 1 (use coin 2)
-dp[3] = 2 (use coin `2 + coin` 1)
-dp[4] = 2 (use coin `2 + coin` 2)
-dp[5] = 1 (use coin 5)
-dp[6] = 2 (use coin `5 + coin` 1)
-...
-dp[11] = 3 (use coin `5 + coin` `5 + coin` 1)
-```
+ * [example input]
+ * ```
  *
- * EDGE CASES:
- * - amount = 0: Return 0 (no coins needed)
- * - Impossible to make change: Return -1
- * - Single coin type: Either exact division or impossible
- * - Large denomination coins: May not contribute to smaller amounts
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

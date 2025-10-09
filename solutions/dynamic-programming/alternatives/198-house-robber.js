@@ -1,53 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * You are a professional robber planning to rob houses along a street.
- * Each house has a certain amount of money stashed, the only constraint
- * stopping you from robbing each of them is that adjacent houses have
- * security systems connected and it will automatically contact the police
- * if two adjacent houses were broken into on the same night.
+ * [Problem description goes here]
  *
- * Given an integer array nums representing the amount of money of each house,
- * return the maximum amount of money you can rob tonight without alerting the police.
+ * **Example:**
  *
- * SOLUTION EXPLANATION:
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * INTUITION:
- * This is a classic DP problem where we need to make optimal decisions at each house.
- * For each house, we can either rob it (and skip the previous) or skip it (and take
- * the best from previous houses). The key insight is that the answer depends on
- * optimal solutions to smaller subproblems.
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * APPROACH:
-
-
-
-
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * WHY THIS WORKS:
- * - At each house, we have two choices: rob or skip
- * - If we rob current house, we must skip previous (take dp[i-2] + current)
- * - If we skip current house, we take the best so far (dp[i-1])
- * - We choose the maximum of these two options
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * TIME COMPLEXITY: O(n)
- * SPACE COMPLEXITY: O(1)
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: [2,7,9,3,1]
- * Step 1: house0=2, best=2
- * Step 2: house1=7, best=max(2, 7)=7
- * Step 3: house2=9, best=max(7, 2+9)=11
- * Step 4: house3=3, best=max(11, 7+3)=11
- * Step 5: house4=1, best=max(11, 11+1)=12
- * Output: 12 (rob houses 0,2,4)
+ * [example input]
  * ```
  *
- * EDGE CASES:
- * - Empty array: return 0
- * - Single house: return that amount
- * - Two houses: return maximum of the two
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**
