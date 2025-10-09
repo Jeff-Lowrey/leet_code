@@ -1,50 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Stack.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Decode strings with nested patterns like "3[a2[c]]" → "accaccacc". Use a
- * stack to handle nested brackets. When we hit '[', save current state. When
- * we hit ']', pop state and repeat the enclosed string.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
- *    - Digit: build the repeat count
- *    - '[': push count and current string to stacks, reset
- *    - ']': pop count and prev string, repeat current, append to prev
- *    - Letter: append to current string
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Stacks naturally handle nested structures
- * - Saving state on '[' and restoring on ']' handles nesting
- * - Building strings incrementally avoids complex string manipulation
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(maxK * n) where maxK is max repeat count
- * SPACE COMPLEXITY: O(n) - stacks store intermediate states
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: "3[a2[c]]"
- * Step 1: '3' → count=3
- * Step 2: '[' → push(3,[]) → current=""
- * Step 3: 'a' → current="a"
- * Step 4: '2' → count=2
- * Step 5: '[' → push(2,"a") → current=""
- * Step 6: 'c' → current="c"
- * Step 7: ']' → pop(2,"a") → current="a"+"cc"="acc"
- * Step 8: ']' → pop(3,"") → current=""+"accaccacc"="accaccacc"
- * Output: "accaccacc"
+ * [example input]
  * ```
  *
- * EDGE CASES:
- * - No brackets: return original string
- * - Nested brackets: handled by stack
- * - Multiple digit counts: build number correctly
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

@@ -1,66 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * Given a string s representing a valid expression, implement a basic calculator to evaluate it, and return the result of the evaluation.
+ * [Problem description goes here]
  *
- * Note: You are not allowed to use any built-in function which evaluates strings as mathematical expressions, such as eval().
+ * **Example:**
  *
- * The expression string contains only '(', ')', '+', '-', non-negative integers and spaces ' '.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * SOLUTION EXPLANATION:
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * INTUITION:
- * This is a classic stack problem for parsing expressions with parentheses. The key insight is to use a stack to save the current state (result and sign) when entering a parenthesized subexpression, then restore it when exiting.
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * APPROACH:
-
-
-
-
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * WHY THIS WORKS:
- * - Stack naturally handles nested parentheses
- * - We maintain running result and current sign
- * - When we see '(', we start a fresh calculation (subproblem)
- * - When we see ')', we complete the subproblem and add back to previous result
- * - Numbers and operators are processed left to right
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
  *
- * TIME COMPLEXITY: O(n)
- * Single pass through the string
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * [example input]
+ * ```
  *
- * SPACE COMPLEXITY: O(n)
- * Stack can grow up to the depth of nested parentheses
+ * **Step 1:** [description]
  *
- * EXAMPLE WALKTHROUGH:
- * Input: "1 + 1"
-
-
-
- * Output: 2
+ * **Step 2:** [description]
  *
- * Input: "2-(1+1)"
-
-
-
-
-
-
-
- * Output: 0
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
  *
- * KEY INSIGHTS:
- * - Stack stores the state before entering parentheses
- * - Current calculation happens in result and sign variables
- * - When exiting parentheses, combine subresult with previous state
- * - Handle spaces by ignoring them
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
  *
- * EDGE CASES:
- * - Empty or whitespace-only strings: return 0
- * - Single number: return the number itself
- * - Nested parentheses: stack handles arbitrary nesting depth
- * - Leading minus sign: handled by starting with sign=1 and result=0
- * - Multiple spaces: ignored during processing
- * - Large numbers: JavaScript handles within Number.MAX_SAFE_INTEGER
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

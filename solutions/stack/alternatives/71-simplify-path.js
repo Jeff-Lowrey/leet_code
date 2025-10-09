@@ -1,42 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Stack.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Simplify Unix-style file paths by handling '.', '..', and multiple slashes.
- * A stack is perfect for this: push valid directories, pop when encountering '..'.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
- *    - Skip empty strings and '.'
- *    - Pop from stack for '..' (if stack not empty)
- *    - Push valid directory names
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Stack naturally handles directory traversal (.. goes up one level = pop)
- * - Splitting by '/' handles multiple consecutive slashes automatically
- * - Empty components from split are filtered out
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n) - process each character once
- * SPACE COMPLEXITY: O(n) - stack stores valid path components
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: "/a/./b/../../c/"
- * Step 1: Split → ["", "a", ".", "b", "..", "..", "c", ""]
- * Step 2: Process → stack: [] → ["a"] → ["a"] → ["a","b"] → ["a"] → [] → ["c"]
- * Output: "/c"
+ * [example input]
  * ```
  *
- * EDGE CASES:
- * - Root path: "/" returns "/"
- * - Path with only dots: "/../" returns "/"
- * - Multiple slashes: "///" returns "/"
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

@@ -1,42 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Stack.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Generate all valid combinations of n pairs of parentheses using backtracking.
- * We can only add '(' if we have remaining open parens, and ')' if it won't
- * create an invalid sequence (open count > close count).
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - By tracking open/close counts, we ensure validity at each step
- * - Backtracking explores all valid combinations
- * - Pruning invalid branches early optimizes the search space
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(4^n / √n) - Catalan number for valid parentheses combinations
- * SPACE COMPLEXITY: O(n) - recursion stack depth
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: n = 3
- * Step 1: Start with empty string, open=0, close=0
- * Step 2: Try adding '(' → "(", open=1, close=0
- * Step 3: Continue building: "((", "(()", "(())", "((()))", etc.
- * Output: ["((()))","(()())","(())()","()(())","()()()"]
+ * [example input]
  * ```
  *
- * EDGE CASES:
- * - n = 0: return [""] (empty string is valid)
- * - n = 1: return ["()"]
- * - Large n: exponential growth but pruned by constraints
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**
