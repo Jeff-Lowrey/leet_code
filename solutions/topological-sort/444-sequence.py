@@ -1,7 +1,20 @@
 """
-# 444. Sequence Reconstruction
 # Difficulty: Medium
+
+# 444. Sequence Reconstruction
+
 Check whether the original sequence org can be uniquely reconstructed from the sequences in seqs. The org sequence is a permutation of the integers from 1 to n, with 1 ≤ n ≤ 10^4. Reconstruction means building a shortest common supersequence of the sequences in seqs (i.e., a shortest sequence so that all sequences in seqs are subsequences of it). Determine whether there is only one sequence that can be reconstructed from seqs and it is the org sequence.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -20,12 +33,6 @@ This is a topological sort problem where we need to check if there's a unique to
 - Unique reconstruction means at each step, only one choice exists
 - If multiple nodes have in-degree 0 simultaneously, multiple valid orders exist
 - We need to verify that the unique order matches the original sequence
-
-### TIME COMPLEXITY: O(V + E)
-Where V is number of nodes (n) and E is total number of edges from seqs
-
-### SPACE COMPLEXITY: O(V + E)
-For the graph representation and auxiliary data structures
 
 ### EXAMPLE WALKTHROUGH:
 ```
@@ -46,11 +53,17 @@ Topological sort:
 Result: [1,2,3] matches org → True
 ```
 
-### KEY INSIGHTS:
-- Must check both validity of pairs and uniqueness of ordering
-- Uniqueness requires exactly one node with in-degree 0 at each step
-- All consecutive pairs in org must appear in some sequence in seqs
-- Graph must be connected through the sequences
+### TIME COMPLEXITY:
+O(V + E)
+Where V is number of nodes (n) and E is total number of edges from seqs
+
+### SPACE COMPLEXITY:
+O(V + E)
+For the graph representation and auxiliary data structures
+
+### EDGE CASES:
+- **[Edge case 1]:** [how it's handled]
+- **[Edge case 2]:** [how it's handled]
 
 </details>
 """

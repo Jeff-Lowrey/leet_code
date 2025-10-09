@@ -1,6 +1,6 @@
 """
-207. Course Schedule
 # Difficulty: Medium
+
 There are a total of numCourses courses you have to take, labeled from 0 to `numCourses - 1`.
 You are given an array prerequisites where prerequisites[i] = [ai, bi] indicates
 that you must take course bi first if you want to take course ai.
@@ -12,28 +12,29 @@ Input: `numCourses = 2`, prerequisites = [[1,0]]
 Output: true
 Explanation: There are a total of 2 courses to take. To take course 1 you should
 have finished course 0. So it is possible.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
+
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
 This is a cycle detection problem in a directed graph. If there's a cycle in the prerequisite dependencies, it's impossible to complete all courses. Topological sorting can detect cycles while finding a valid course order.
 
-### APPROACH (KAHN'S ALGORITHM):
-1. **Build Graph**: Create adjacency list and track in-degrees (number of prerequisites)
-2. **Start with No Prerequisites**: Add courses with in-degree 0 to queue
-3. **Process Courses**: For each course taken, reduce in-degree of dependent courses
-4. **Check Completeness**: If all courses are processed, no cycle exists
+### APPROACH:
+[Detailed explanation of the solution approach]
 
 ### WHY THIS WORKS:
 In a DAG (Directed Acyclic Graph), there's always at least one vertex with in-degree 0. By repeatedly removing such vertices, we can process all vertices if and only if there's no cycle.
-
-### TIME COMPLEXITY: O(V + E)
-### SPACE COMPLEXITY: O(V + E)
-
-### ALTERNATIVE: DFS WITH CYCLE DETECTION
-- Use 3 states: unvisited, visiting, visited
-- Cycle detected if we encounter a "visiting" node
-- Same time/space complexity
 
 ### EXAMPLE WALKTHROUGH:
 Prerequisites: [[1,0], [2,1], [3,2]]
@@ -44,16 +45,18 @@ Prerequisites: [[1,0], [2,1], [3,2]]
 5. Take 1 → course 2 now has in-degree 0
 6. Continue until all courses taken
 
-### CYCLE EXAMPLE:
-Prerequisites: [[1,0], [0,1]]
-- Creates cycle: 0→1→0
-- No course has in-degree 0 after initial setup
-- Cannot complete any course → return false
+### TIME COMPLEXITY:
+O(V + E)
+
+### SPACE COMPLEXITY:
+O(V + E)
+
+### EDGE CASES:
+- **[Edge case 1]:** [how it's handled]
+- **[Edge case 2]:** [how it's handled]
 
 </details>
 """
-
-from collections import defaultdict, deque
 
 class Solution:
     def canFinish(self, numCourses: int, prerequisites: list[list[int]]) -> bool:
