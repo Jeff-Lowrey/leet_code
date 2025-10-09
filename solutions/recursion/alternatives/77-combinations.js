@@ -1,57 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Recursion.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Given two integers n and k, return all possible combinations of k numbers
- * chosen from the range [1, n]. This is a classic backtracking problem where
- * we systematically explore all possible k-sized subsets.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
- *    - Start from number 1 and try including each number
- *    - Track current combination being built
- *    - When combination reaches size k, add to results
-
- *    - Use a start parameter to only consider numbers >= current
- *    - This ensures combinations like [1,2] and [2,1] are treated as same
-
- *    - If remaining numbers can't fill k positions, stop early
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Backtracking explores all possible ways to choose k numbers
- * - Start parameter ensures we only generate combinations (not permutations)
- * - Each recursive call adds one number and delegates rest to deeper calls
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(C(n,k) * k) where C(n,k) is binomial coefficient
- *   - C(n,k) combinations to generate
- *   - O(k) to copy each combination
- * SPACE COMPLEXITY: O(k) - recursion depth and combination storage
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: n = 4, k = 2
- *
- * Build combinations of size 2 from [1,2,3,4]:
- * Start with 1: [1] -> Add 2: [1,2] ✓
- *                   -> Add 3: [1,3] ✓
- *                   -> Add 4: [1,4] ✓
- * Start with 2: [2] -> Add 3: [2,3] ✓
- *                   -> Add 4: [2,4] ✓
- * Start with 3: [3] -> Add 4: [3,4] ✓
- * Start with 4: [4] -> Can't make size 2, stop
- *
- * Output: [[1,2],[1,3],[1,4],[2,3],[2,4],[3,4]]
+ * [example input]
  * ```
  *
- * EDGE CASES:
- * - k = 0 (return [[]])
- * - k = n (return [[1,2,...,n]])
- * - k > n (return [])
- * - n = 1 (return [[1]] if k=1, [] otherwise)
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

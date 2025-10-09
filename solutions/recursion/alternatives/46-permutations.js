@@ -1,55 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Recursion.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Given an array of distinct integers, return all possible permutations.
- * A permutation is an arrangement of all elements in different orders.
- * This is a classic backtracking problem where we explore all possible orderings.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
- *    - At each position, try every unused number
- *    - Mark numbers as used to avoid duplicates in same permutation
- *    - When all positions filled, add permutation to results
-
- *    - Use a Set or boolean array to track used numbers
- *    - Recurse for each unused number
- *    - Backtrack by unmarking the number as used
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Each level of recursion chooses one number for current position
- * - Tracking prevents using same number twice in one permutation
- * - Backtracking explores all possible orderings systematically
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n! * n) where n is array length
- *   - n! permutations to generate
- *   - O(n) to copy each permutation
- * SPACE COMPLEXITY: O(n) - recursion depth and tracking array
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: [1,2,3]
- *
- * Build permutations by choosing one number at a time:
- * Choose 1: [1] -> Choose 2: [1,2] -> Choose 3: [1,2,3] ✓
- *                          -> Choose 3: [1,3] -> Choose 2: [1,3,2] ✓
- * Choose 2: [2] -> Choose 1: [2,1] -> Choose 3: [2,1,3] ✓
- *                -> Choose 3: [2,3] -> Choose 1: [2,3,1] ✓
- * Choose 3: [3] -> Choose 1: [3,1] -> Choose 2: [3,1,2] ✓
- *                -> Choose 2: [3,2] -> Choose 1: [3,2,1] ✓
- *
- * Output: [[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]
+ * [example input]
  * ```
  *
- * EDGE CASES:
- * - Empty array (return [[]])
- * - Single element (return [[element]])
- * - All distinct integers (no duplicates in input)
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

@@ -1,53 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Recursion.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Given a string containing digits 2-9, return all possible letter combinations
- * that the number could represent (like old phone keypads). This is a classic
- * backtracking problem where we explore all possible combinations.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
- *    - Base case: When current combination length equals input length, add to results
- *    - For each letter mapped to current digit, add it to combination and recurse
- *    - Backtrack by removing the letter and trying the next one
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Backtracking explores all possible paths through the decision tree
- * - Each level of recursion represents choosing a letter for one digit
- * - We build combinations incrementally and collect complete ones
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(4^n * n) where n is length of digits
- *   - 4^n possible combinations (worst case with digits 7 and 9)
- *   - n to build each string
- * SPACE COMPLEXITY: O(n) for recursion stack depth
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: "23"
- * Digit 2 maps to: "abc"
- * Digit 3 maps to: "def"
- *
- * Build combinations:
- * a + d = "ad"
- * a + e = "ae"
- * a + f = "af"
- * b + d = "bd"
- * ... and so on
- *
- * Output: ["ad","ae","af","bd","be","bf","cd","ce","cf"]
+ * [example input]
  * ```
  *
- * EDGE CASES:
- * - Empty input string (return empty array)
- * - Single digit (return all letters for that digit)
- * - Digits 7 and 9 have 4 letters each
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

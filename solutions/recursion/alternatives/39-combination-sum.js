@@ -1,52 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Recursion.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Given an array of distinct integers and a target, find all unique combinations
- * where the numbers sum to target. Each number may be used unlimited times.
- * This is a classic backtracking problem where we explore all possible combinations.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
- *    - For each candidate, decide to include it (possibly multiple times) or skip it
- *    - Track current sum and combination
- *    - Base case: sum equals target (add to results) or exceeds it (backtrack)
-
- *    - Use a start index to only consider candidates at or after current position
- *    - This ensures combinations like [2,3] and [3,2] are treated as the same
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Backtracking explores all possible ways to combine candidates
- * - Allowing reuse of candidates by keeping same start index when recursing
- * - Start index prevents duplicate combinations in different orders
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(N^(T/M)) where N is number of candidates, T is target, M is min candidate
- *   - In worst case, we explore a tree of height T/M with N branches at each level
- * SPACE COMPLEXITY: O(T/M) - recursion depth and combination storage
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: candidates = [2,3,6,7], target = 7
- *
- * Start with 2: [2] -> [2,2] -> [2,2,2] -> [2,2,2,2] -> sum > 7, backtrack
- *                             -> [2,2,3] -> sum = 7 (valid!)
- * Start with 3: [3] -> [3,3] -> [3,3,3] -> sum > 7, backtrack
- *                             -> [3,7] -> sum > 7, backtrack
- * Start with 7: [7] -> sum = 7 (valid!)
- *
- * Output: [[2,2,3], [7]]
+ * [example input]
  * ```
  *
- * EDGE CASES:
- * - Empty candidates array
- * - Target is 0 (return [[]])
- * - No valid combinations (return [])
- * - All candidates larger than target
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

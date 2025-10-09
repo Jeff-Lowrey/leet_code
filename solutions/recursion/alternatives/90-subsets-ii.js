@@ -1,56 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Recursion.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Given an array that may contain duplicate integers, return all possible unique subsets.
- * The challenge is avoiding duplicate subsets when the input array has duplicate values.
- * We need to combine the subset generation logic with duplicate handling.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
- *    - Generate subsets using standard backtracking
- *    - Skip duplicate elements at the same recursion level
- *    - If current element equals previous and we're not at start, skip it
-
- *    - For [1,2,2], we want [1,2] and [1,2,2] but not [1,2] twice
- *    - Sorting + skipping ensures we only use duplicates consecutively
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Sorting groups duplicates together
- * - The skip condition (i > start && nums[i] === nums[i-1]) ensures
- *   we only use duplicate values in left-to-right order at each level
- * - This prevents generating the same subset multiple times
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(2^n * n) - 2^n subsets, O(n) to build each
- * SPACE COMPLEXITY: O(n) - recursion depth
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: [1,2,2]
- * After sorting: [1,2,2]
- *
- * Generate subsets:
- * [] -> Add to result
- * Include 1: [1] -> Add to result
- *   Include first 2: [1,2] -> Add to result
- *     Include second 2: [1,2,2] -> Add to result
- *   Skip second 2 at same level (would create duplicate [1,2])
- * Skip 1, Include first 2: [2] -> Add to result
- *   Include second 2: [2,2] -> Add to result
- * Skip both, Include second 2: SKIP (duplicate at same level)
- *
- * Output: [[],[1],[1,2],[1,2,2],[2],[2,2]]
+ * [example input]
  * ```
  *
- * EDGE CASES:
- * - All elements are the same (return subsets of different sizes)
- * - No duplicates (behaves like Subsets I)
- * - Empty array (return [[]])
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

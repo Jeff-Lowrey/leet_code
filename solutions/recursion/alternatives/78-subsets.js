@@ -1,56 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Recursion.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Given an array of distinct integers, return all possible subsets (the power set).
- * The power set includes all combinations of all possible lengths (0 to n).
- * This is a classic backtracking problem where we explore include/exclude decisions.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
- *    - At each position, we have two choices: include or exclude the element
- *    - Add current subset to results at every step (not just at leaves)
- *    - Use start index to avoid duplicate subsets
-
- *    - Iterative add: Add subset after each inclusion
- *    - Include/exclude recursion: Explicitly make both choices at each step
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Each element can be included or excluded independently
- * - By using start index, we ensure subsets are generated in lexicographic order
- * - Adding subset at each step captures all possible subset sizes
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(2^n * n) where n is array length
- *   - 2^n subsets to generate
- *   - O(n) to copy each subset
- * SPACE COMPLEXITY: O(n) - recursion depth
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: [1,2,3]
- *
- * Build subsets by choosing to include/exclude each element:
- * []
- * Include 1: [1]
- *   Include 2: [1,2]
- *     Include 3: [1,2,3]
- *   Exclude 2, Include 3: [1,3]
- * Exclude 1, Include 2: [2]
- *   Include 3: [2,3]
- * Exclude 1, Exclude 2, Include 3: [3]
- *
- * Output: [[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]]
+ * [example input]
  * ```
  *
- * EDGE CASES:
- * - Empty array (return [[]])
- * - Single element (return [[], [element]])
- * - All distinct integers (no duplicates)
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**
