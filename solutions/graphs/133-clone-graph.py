@@ -1,7 +1,6 @@
 """
 133. Clone Graph
-Medium
-
+# Difficulty: Medium
 Given a reference of a node in a connected undirected graph, return a deep copy
 (clone) of the graph.
 
@@ -49,7 +48,6 @@ With `map`: Clone 1, clone 2, reference existing clone of 1
 """
 
 from collections import deque
-
 
 class Node:
     def __init__(self, val = 0, neighbors = None):
@@ -108,11 +106,9 @@ class Solution:
 
         return visited[node]
 
-
 """
 417. Pacific Atlantic Water Flow
-Medium
-
+# Difficulty: Medium
 There is an m x n rectangular island that borders both the Pacific Ocean and
 Atlantic Ocean. The Pacific Ocean touches the island's left and top edges, and
 the Atlantic Ocean touches the island's right and bottom edges.
@@ -175,11 +171,9 @@ class SolutionWaterFlow:
         # Find intersection
         return [[r, c] for r, c in pacific & atlantic]
 
-
 """
 79. Word Search
-Medium
-
+# Difficulty: Medium
 Given an m x n grid of characters board and a string word, return true if word
 exists in the grid.
 
@@ -235,11 +229,9 @@ class SolutionWordSearch:
 
         return False
 
-
 """
 323. Number of Connected Components in an Undirected Graph
-Medium
-
+# Difficulty: Medium
 You have a graph of n nodes. You are given an integer n and an array edges where
 edges[i] = [ai, bi] indicates that there is an edge between ai and bi in the graph.
 
@@ -315,7 +307,6 @@ class SolutionComponents:
                 dfs(node)
 
         return components
-
 
 # Test cases
 if __name__ == "__main__":

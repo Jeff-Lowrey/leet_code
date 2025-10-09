@@ -1,7 +1,6 @@
 """
 # 417. Pacific Atlantic Water Flow
-**Medium**
-
+# Difficulty: Medium
 Given a problem that demonstrates key concepts in Graphs.
 
 <details>
@@ -158,7 +157,6 @@ class Solution:
         
         # Return intersection of both sets
         return list(pacific & atlantic)
-
 
 # Example usage and testing
 def test_solution():

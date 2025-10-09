@@ -1,7 +1,6 @@
 """
 # 827. Making A Large Island
-**Hard**
-
+# Difficulty: Hard
 You are given an n x n binary matrix grid. You are allowed to change at most one 0 to a 1.
 
 Return the size of the largest island in grid after applying this operation.
@@ -206,7 +205,6 @@ class Solution:
 
         return max_size if max_size > 0 else 1
 
-
 def test_solution():
     """Test cases for Problem 827."""
     solution = Solution()
@@ -230,7 +228,6 @@ def test_solution():
     assert result3 == expected3, f"Expected {expected3}, got {result3}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

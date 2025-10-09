@@ -1,7 +1,6 @@
 """
 # 733. Flood Fill
-**Easy**
-
+# Difficulty: Easy
 An image is represented by an m x n integer grid image where image[i][j] represents
 the pixel value of the image. You are also given three integers sr, sc, and color.
 You should perform a flood fill on the image starting from the pixel image[sr][sc].
@@ -162,7 +161,6 @@ class Solution:
 
         return image
 
-
 def test_solution():
     """Test cases for Problem 733."""
     solution = Solution()
@@ -198,7 +196,6 @@ def test_solution():
     assert result5 == expected5, f"Expected {expected5}, got {result5}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

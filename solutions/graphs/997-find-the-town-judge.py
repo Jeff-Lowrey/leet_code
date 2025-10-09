@@ -1,7 +1,6 @@
 """
 # 997. Find The Town Judge
-**Easy**
-
+# Difficulty: Easy
 In a town, there are n people labeled from 1 to n. There is a rumor that one of these people is secretly the town judge.
 
 If the town judge exists, then:
@@ -152,7 +151,6 @@ class Solution:
 
         return -1
 
-
 def test_solution():
     """Test cases for Problem 997."""
     solution = Solution()
@@ -208,7 +206,6 @@ def test_solution():
     assert result10 == expected10, f"Expected {expected10}, got {result10}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

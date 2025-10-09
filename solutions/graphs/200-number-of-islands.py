@@ -1,7 +1,6 @@
 """
 # 200. Number Of Islands
-**Medium**
-
+# Difficulty: Medium
 Given an m x n 2D binary grid which represents a map of '1's (land) and '0's (water), return the number of islands.
 
 An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. You may assume all four edges of the grid are all surrounded by water.
@@ -247,7 +246,6 @@ class Solution:
 
         return uf.count
 
-
 def test_solution():
     """Test cases for Problem 200."""
     solution = Solution()
@@ -284,7 +282,6 @@ def test_solution():
     assert result_dfs == result_bfs == result_uf == 2
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

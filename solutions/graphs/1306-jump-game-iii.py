@@ -1,7 +1,6 @@
 """
 1306. Jump Game III
-Medium
-
+# Difficulty: Medium
 Given an array of non-negative integers arr, you are initially positioned at start index.
 When you are at index i, you can jump to i + arr[i] or i - arr[i], check if you can reach
 any index with value 0.
@@ -60,7 +59,6 @@ DFS(3): arr[3]=0 → return true!
 """
 
 from collections import deque
-
 
 class Solution:
     def canReach(self, arr: list[int], start: int) -> bool:
@@ -137,7 +135,6 @@ class Solution:
 
         return False
 
-
 def test_solution() -> None:
     """Test cases for Problem 1306."""
     solution = Solution()
@@ -185,7 +182,6 @@ def test_solution() -> None:
     print("Test case 10 passed: Multiple zeros")
 
     print("\nAll test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

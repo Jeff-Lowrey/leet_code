@@ -1,7 +1,6 @@
 """
 # 261. Graph Valid Tree
-**Medium**
-
+# Difficulty: Medium
 Given a problem that demonstrates key concepts in Graphs.
 
 <details>
