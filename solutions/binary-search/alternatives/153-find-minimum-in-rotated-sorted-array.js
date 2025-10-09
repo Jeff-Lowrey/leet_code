@@ -1,6 +1,5 @@
 /**
- * 153. Find Minimum In Rotated Sorted Array
- * Medium
+
  *
  * Suppose an array of length n sorted in ascending order is rotated between 1 and n times.
  * Given the sorted rotated array nums of unique values, return the minimum element of this array.
@@ -14,11 +13,11 @@
  * If mid > right, minimum is in right half; otherwise, it's in left half (including mid).
  *
  * APPROACH:
- * 1. **Initialize pointers**: Set left = 0 and right = nums.length - 1
- * 2. **Binary search loop**: While left < right (not <=)
- * 3. **Calculate middle**: mid = Math.floor((left + right) / 2)
- * 4. **Compare with right**: If nums[mid] > nums[right], minimum is in right half; else in left half
- * 5. **Narrow search**: Adjust left or right accordingly
+
+
+
+
+
  *
  * WHY THIS WORKS:
  * - The array has a rotation point where the minimum element is located

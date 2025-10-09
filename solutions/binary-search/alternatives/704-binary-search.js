@@ -1,6 +1,5 @@
 /**
- * 704. Binary Search
- * Easy
+
  *
  * Given an array of integers nums which is sorted in ascending order, and an integer target,
  * write a function to search target in nums. If target exists, then return its index. Otherwise, return -1.
@@ -12,10 +11,10 @@
  * We repeatedly divide the search space in half by comparing the target with the middle element.
  *
  * APPROACH:
- * 1. **Initialize pointers**: Set left = 0 and right = nums.length - 1
- * 2. **Binary search loop**: While left <= right
- * 3. **Calculate middle**: mid = Math.floor((left + right) / 2)
- * 4. **Compare and adjust**: If nums[mid] == target, return mid; if nums[mid] < target, search right half; else search left half
+
+
+
+
  *
  * WHY THIS WORKS:
  * - The array is sorted, so we can eliminate half the search space at each step

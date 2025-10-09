@@ -1,6 +1,5 @@
 /**
- * 034. Find First And Last Position Of Element In Sorted Array
- * Medium
+
  *
  * Given an array of integers nums sorted in non-decreasing order, find the starting and ending position of a given target value.
  * If target is not found in the array, return [-1, -1].
@@ -14,10 +13,10 @@
  * This maintains O(log n) complexity as required.
  *
  * APPROACH:
- * 1. **Find leftmost position**: Use binary search to find the first occurrence of target
- * 2. **Find rightmost position**: Use binary search to find the last occurrence of target
- * 3. **Helper function**: Create a binary search function that can find either leftmost or rightmost occurrence
- * 4. **Handle edge cases**: Return [-1, -1] if target not found
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Two binary searches maintain O(log n) time complexity

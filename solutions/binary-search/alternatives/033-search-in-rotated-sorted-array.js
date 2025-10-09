@@ -1,6 +1,5 @@
 /**
- * 033. Search In Rotated Sorted Array
- * Medium
+
  *
  * There is an integer array nums sorted in ascending order (with distinct values).
  * Prior to being passed to your function, nums is possibly rotated at an unknown pivot index k.
@@ -14,12 +13,12 @@
  * and decide whether to search in that half or the other half.
  *
  * APPROACH:
- * 1. **Initialize pointers**: Set left = 0 and right = nums.length - 1
- * 2. **Binary search with rotation logic**: While left <= right
- * 3. **Calculate middle**: mid = Math.floor((left + right) / 2)
- * 4. **Check if found**: If nums[mid] == target, return mid
- * 5. **Determine sorted half**: Check if left half (nums[left] <= nums[mid]) or right half is sorted
- * 6. **Search in appropriate half**: Based on target value and sorted half, eliminate one half
+
+
+
+
+
+
  *
  * WHY THIS WORKS:
  * - At least one half of a rotated sorted array is always properly sorted

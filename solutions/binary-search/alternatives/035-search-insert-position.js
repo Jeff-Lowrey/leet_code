@@ -1,6 +1,5 @@
 /**
- * 035. Search Insert Position
- * Easy
+
  *
  * Given a sorted array of distinct integers and a target value, return the index if the target is found.
  * If not, return the index where it would be if it were inserted in order.
@@ -14,11 +13,11 @@
  * to the position where the target should be inserted to maintain sorted order.
  *
  * APPROACH:
- * 1. **Initialize pointers**: Set left = 0 and right = nums.length - 1
- * 2. **Binary search loop**: While left <= right
- * 3. **Calculate middle**: mid = Math.floor((left + right) / 2)
- * 4. **Compare and adjust**: If nums[mid] == target, return mid; if nums[mid] < target, search right; else search left
- * 5. **Return insertion point**: When loop ends, left is the insertion position
+
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Binary search naturally finds the correct insertion position

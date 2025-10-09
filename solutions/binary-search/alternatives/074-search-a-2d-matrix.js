@@ -1,6 +1,5 @@
 /**
- * 074. Search A 2D Matrix
- * Medium
+
  *
  * You are given an m x n integer matrix with the following two properties:
  * - Each row is sorted in non-decreasing order.
@@ -16,10 +15,10 @@
  * This allows us to use binary search with index conversion.
  *
  * APPROACH:
- * 1. **Treat as 1D array**: Convert 2D matrix to conceptual 1D sorted array
- * 2. **Binary search**: Use binary search on the conceptual 1D array
- * 3. **Index conversion**: Convert 1D index to 2D coordinates: row = index / cols, col = index % cols
- * 4. **Standard binary search**: Apply normal binary search logic
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Matrix properties ensure it behaves like a sorted 1D array when read row by row
