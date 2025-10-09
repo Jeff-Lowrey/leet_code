@@ -1,6 +1,5 @@
 /**
- * 429. N-ary Tree Level Order Traversal
- * Medium
+
  *
  * This problem demonstrates key concepts in Queue.
  *
@@ -11,10 +10,10 @@
  * but iterate through all children instead of just left and right.
  *
  * APPROACH:
- * 1. Use a queue for BFS traversal
- * 2. Process nodes level by level
- * 3. For each node, add all its children to the queue
- * 4. Group values by level in the result
+
+
+
+
  *
  * WHY THIS WORKS:
  * BFS processes nodes level by level. For N-ary trees, we simply need to

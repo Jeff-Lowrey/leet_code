@@ -1,6 +1,5 @@
 /**
- * 103. Binary Tree Zigzag Level Order Traversal
- * Medium
+
  *
  * This problem demonstrates key concepts in Queue.
  *
@@ -11,11 +10,11 @@
  * of processing nodes at each level (left-to-right, then right-to-left).
  *
  * APPROACH:
- * 1. Use a queue for BFS traversal
- * 2. Track level depth to determine direction
- * 3. For even levels (0, 2, 4...), add values left-to-right
- * 4. For odd levels (1, 3, 5...), add values right-to-left
- * 5. Use reverse() or unshift() to achieve zigzag pattern
+
+
+
+
+
  *
  * WHY THIS WORKS:
  * BFS naturally processes nodes level by level. By tracking the level number,

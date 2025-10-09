@@ -1,6 +1,5 @@
 /**
- * 116. Populating Next Right Pointers In Each Node
- * Medium
+
  *
  * This problem demonstrates key concepts in Queue.
  *
@@ -11,10 +10,10 @@
  * For each level, connect each node to its right neighbor.
  *
  * APPROACH:
- * 1. Use a queue for BFS traversal
- * 2. Process nodes level by level
- * 3. For each node in a level, connect it to the next node in the queue
- * 4. The last node in each level points to null
+
+
+
+
  *
  * WHY THIS WORKS:
  * BFS processes nodes level by level in left-to-right order. By connecting

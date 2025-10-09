@@ -1,6 +1,5 @@
 /**
- * 993. Cousins In Binary Tree
- * Easy
+
  *
  * This problem demonstrates key concepts in Queue.
  *
@@ -11,10 +10,10 @@
  * Use BFS to track depth and parent information for each node.
  *
  * APPROACH:
- * 1. Use a queue for BFS traversal
- * 2. Store nodes with their parent information
- * 3. Track the depth and parent of nodes x and y
- * 4. Check if they are at the same depth with different parents
+
+
+
+
  *
  * WHY THIS WORKS:
  * BFS processes nodes level by level, making it easy to track depth.

@@ -1,6 +1,5 @@
 /**
- * 107. Binary Tree Level Order Traversal II
- * Medium
+
  *
  * This problem demonstrates key concepts in Queue.
  *
@@ -11,10 +10,10 @@
  * the result to get bottom-up ordering.
  *
  * APPROACH:
- * 1. Use a queue for BFS traversal
- * 2. Process nodes level by level from top to bottom
- * 3. Store each level in the result array
- * 4. Reverse the result array to get bottom-up order
+
+
+
+
  *
  * WHY THIS WORKS:
  * BFS naturally processes nodes level by level from top to bottom. By reversing

@@ -1,6 +1,5 @@
 /**
- * 637. Average Of Levels In Binary Tree
- * Easy
+
  *
  * This problem demonstrates key concepts in Queue.
  *
@@ -11,11 +10,11 @@
  * Calculate the average of node values at each level.
  *
  * APPROACH:
- * 1. Use a queue for BFS traversal
- * 2. Process nodes level by level
- * 3. For each level, calculate the sum of all node values
- * 4. Divide the sum by the number of nodes to get the average
- * 5. Add the average to the result array
+
+
+
+
+
  *
  * WHY THIS WORKS:
  * BFS naturally groups nodes by level. By calculating the sum and count

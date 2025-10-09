@@ -1,6 +1,5 @@
 /**
- * 515. Find Largest Value In Each Tree Row
- * Medium
+
  *
  * This problem demonstrates key concepts in Queue.
  *
@@ -11,10 +10,10 @@
  * Track the maximum value encountered at each level.
  *
  * APPROACH:
- * 1. Use a queue for BFS traversal
- * 2. Process nodes level by level
- * 3. For each level, track the maximum value
- * 4. Add the maximum value of each level to the result
+
+
+
+
  *
  * WHY THIS WORKS:
  * BFS naturally groups nodes by level. By tracking the maximum value

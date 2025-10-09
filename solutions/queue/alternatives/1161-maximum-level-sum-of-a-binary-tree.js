@@ -1,6 +1,5 @@
 /**
- * 1161. Maximum Level Sum Of A Binary Tree
- * Medium
+
  *
  * This problem demonstrates key concepts in Queue.
  *
@@ -11,11 +10,11 @@
  * then track which level has the maximum sum.
  *
  * APPROACH:
- * 1. Use a queue for BFS traversal
- * 2. Process nodes level by level
- * 3. Calculate sum for each level
- * 4. Track the level with maximum sum (1-indexed)
- * 5. Return the smallest level number if there's a tie
+
+
+
+
+
  *
  * WHY THIS WORKS:
  * BFS processes nodes level by level, allowing us to calculate level sums

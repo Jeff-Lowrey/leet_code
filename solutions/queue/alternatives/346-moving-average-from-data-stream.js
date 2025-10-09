@@ -1,6 +1,5 @@
 /**
- * 346. Moving Average From Data Stream
- * Easy
+
  *
  * This problem demonstrates key concepts in Queue.
  *
@@ -10,8 +9,8 @@
  * Use a queue to maintain the sliding window of values. When the window exceeds the size limit, remove the oldest element and add the new one.
  *
  * APPROACH:
- * 1. **Initialize** a queue to store values and track the window size
- * 2. **For each new value**:
+
+
  *    - Add `val` to the queue
  *    - If queue size exceeds `size`, remove the front element
  *    - Calculate and return the average of current elements

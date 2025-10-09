@@ -1,6 +1,5 @@
 /**
- * 199. Binary Tree Right Side View
- * Medium
+
  *
  * This problem demonstrates key concepts in Queue.
  *
@@ -11,10 +10,10 @@
  * The rightmost node at each level is what we see from the right side.
  *
  * APPROACH:
- * 1. Use a queue for BFS traversal
- * 2. Process nodes level by level
- * 3. The last node processed at each level is the rightmost node
- * 4. Add each rightmost node to the result
+
+
+
+
  *
  * WHY THIS WORKS:
  * BFS processes nodes left to right at each level. The last node
