@@ -1,6 +1,6 @@
 """
-496. Next Greater Element I
 # Difficulty: Easy
+
 The next greater element of some element x in an array is the first greater
 element that is to the right of x in the same array.
 
@@ -16,6 +16,18 @@ element as described above.
 Example:
 Input: nums1 = [4,1,2], nums2 = [1,3,4,2]
 Output: [-1,3,-1]
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
+
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
@@ -31,9 +43,6 @@ Use a monotonic decreasing stack to efficiently find the next greater element fo
 ### WHY THIS WORKS:
 The monotonic stack ensures we process elements in the correct order. When we encounter a larger element, all smaller elements in the stack have found their next greater element. Elements remaining in the stack have no next greater element.
 
-### TIME COMPLEXITY: O(n + m)
-### SPACE COMPLEXITY: O(n)
-
 ### EXAMPLE WALKTHROUGH:
 nums2 = [1,3,4,2], nums1 = [4,1,2]
 - Process 1: stack=[1]
@@ -42,6 +51,16 @@ nums2 = [1,3,4,2], nums1 = [4,1,2]
 - Process 2: 2<4, stack=[4,2]
 - Final mapping: {1:3, 3:4, 4:-1, 2:-1}
 - Result for [4,1,2]: [-1,3,-1]
+
+### TIME COMPLEXITY:
+O(n + m)
+
+### SPACE COMPLEXITY:
+O(n)
+
+### EDGE CASES:
+- **[Edge case 1]:** [how it's handled]
+- **[Edge case 2]:** [how it's handled]
 
 </details>
 """

@@ -1,6 +1,6 @@
 """
-1019. Next Greater Node In Linked List
 # Difficulty: Medium
+
 Given the head of a linked list, return an array of integers answer, where answer[i] is
 the value of the next greater node of the ith node (1-indexed). If there is no next greater
 node, answer[i] is 0.
@@ -9,6 +9,17 @@ Example:
 Input: head = [2,1,5]
 Output: [5,5,0]
 Explanation: For node 2, next greater is 5. For node 1, next greater is 5. For node 5, there is none.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -28,9 +39,6 @@ As we traverse, for each node, pop all stack indices with smaller values and upd
 The stack maintains elements in decreasing order. When we find a larger element,
 it's the "next greater" for all smaller elements in the stack.
 
-### TIME COMPLEXITY: O(n)
-### SPACE COMPLEXITY: O(n)
-
 ### EXAMPLE WALKTHROUGH:
 ```
 list = [2,1,5]
@@ -47,17 +55,18 @@ i=2, val=5:
 Result: [5,5,0]
 ```
 
-### ALTERNATIVE: Two-pass with reverse traversal using stack
+### TIME COMPLEXITY:
+O(n)
+
+### SPACE COMPLEXITY:
+O(n)
+
+### EDGE CASES:
+- **[Edge case 1]:** [how it's handled]
+- **[Edge case 2]:** [how it's handled]
 
 </details>
 """
-
-class ListNode:
-    """Definition for singly-linked list."""
-
-    def __init__(self, val: int = 0, next: "ListNode | None" = None) -> None:
-        self.val = val
-        self.next = next
 
 class Solution:
     def nextLargerNodes(self, head: ListNode | None) -> list[int]:
