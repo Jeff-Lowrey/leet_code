@@ -1,7 +1,6 @@
 """
 # 1268. Search Suggestions System
-**Medium**
-
+# Difficulty: Medium
 You are given an array of strings products and a string searchWord.
 
 Design a system that suggests at most three product names from products after each character of searchWord is typed. Suggested products should have common prefix with searchWord. If there are more than three products with a common prefix return the three lexicographically minimums products.
@@ -70,15 +69,12 @@ Process 'mouse': ["mouse", "mousepad"]
 </details>
 """
 
-
-
 class TrieNode:
     """Node in the trie with stored suggestions."""
 
     def __init__(self):
         self.children = {}  # character -> TrieNode
         self.suggestions = []  # Up to 3 lexicographically smallest products
-
 
 class Solution:
     def suggestedProducts(self, products: list[str], searchWord: str) -> list[list[str]]:
@@ -127,7 +123,6 @@ class Solution:
 
         return result
 
-
 class SolutionBinarySearch:
     """Alternative solution using sorting and binary search."""
 
@@ -173,7 +168,6 @@ class SolutionBinarySearch:
 
         return left
 
-
 class SolutionSimple:
     """Simple solution using filtering."""
 
@@ -196,7 +190,6 @@ class SolutionSimple:
             result.append(matches[:3])
 
         return result
-
 
 def test_solution():
     """Test cases for 1268. Search Suggestions System."""
@@ -253,7 +246,6 @@ def test_solution():
     assert len(result5_simple) == 1 and len(result5_simple[0]) == 3
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

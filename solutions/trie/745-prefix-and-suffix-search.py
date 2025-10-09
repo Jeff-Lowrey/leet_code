@@ -1,7 +1,6 @@
 """
 # 745. Prefix And Suffix Search
-**Hard**
-
+# Difficulty: Hard
 Design a special dictionary that searches the words in it by a prefix and a suffix.
 
 Implement the WordFilter class:
@@ -89,15 +88,12 @@ f("app", "e"):
 </details>
 """
 
-
-
 class TrieNode:
     """Node in the trie storing word indices."""
 
     def __init__(self):
         self.children = {}  # character -> TrieNode
         self.index = -1  # Maximum word index at this node
-
 
 class WordFilter:
     """Filter words by prefix and suffix using trie."""
@@ -166,7 +162,6 @@ class WordFilter:
 
         return node.index
 
-
 class WordFilterHashMap:
     """Alternative implementation using hash map."""
 
@@ -194,7 +189,6 @@ class WordFilterHashMap:
         key = suff + "#" + pref
         return self.map.get(key, -1)
 
-
 class WordFilterBruteForce:
     """Brute force solution for comparison."""
 
@@ -216,7 +210,6 @@ class WordFilterBruteForce:
                 result = index  # Keep updating to get maximum
 
         return result
-
 
 def test_solution():
     """Test cases for 745. Prefix And Suffix Search."""
@@ -264,7 +257,6 @@ def test_solution():
     assert filter5.f("", "") == 0  # Both empty
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

@@ -1,7 +1,6 @@
 """
 # 588. Design In Memory File System
-**Hard**
-
+# Difficulty: Hard
 Design a data structure that simulates an in-memory file system.
 
 Implement the FileSystem class:
@@ -71,7 +70,6 @@ Returns: ["file1.txt"]
 </details>
 """
 
-
 class FileSystemNode:
     """Node representing either a file or directory in the file system."""
 
@@ -84,7 +82,6 @@ class FileSystemNode:
     def is_directory(self) -> bool:
         """Check if this node is a directory."""
         return not self.is_file
-
 
 class FileSystem:
     """In-memory file system implementation using trie-like structure."""
@@ -226,7 +223,6 @@ class FileSystem:
         except FileNotFoundError:
             raise FileNotFoundError(f"File not found: {filePath}")
 
-
 class FileSystemAlternative:
     """Alternative implementation using nested dictionaries."""
 
@@ -302,7 +298,6 @@ class FileSystemAlternative:
         filePath = self._normalize_path(filePath)
         return self.files.get(filePath, "")
 
-
 def test_solution():
     """Test cases for Problem 588."""
 
@@ -341,7 +336,6 @@ def test_solution():
     assert fs_alt.ls("/x/y/z") == ["test.txt"]
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

@@ -1,7 +1,6 @@
 """
 # 79. Word Search
-**Medium**
-
+# Difficulty: Medium
 Given an m x n grid of characters board and a string word, return true if word exists in the grid.
 
 The word can be constructed from letters of sequentially adjacent cells, where adjacent cells are horizontally or vertically neighboring. The same letter cell may not be used more than once.
@@ -77,8 +76,6 @@ Result: True (found path)
 </details>
 """
 
-
-
 class Solution:
     def exist(self, board: list[list[str]], word: str) -> bool:
         """
@@ -145,7 +142,6 @@ class Solution:
 
         return False
 
-
 class SolutionWithVisitedSet:
     """Alternative using visited set instead of modifying board."""
 
@@ -194,7 +190,6 @@ class SolutionWithVisitedSet:
                     return True
 
         return False
-
 
 class SolutionOptimized:
     """Optimized solution with early pruning."""
@@ -257,7 +252,6 @@ class SolutionOptimized:
 
         return False
 
-
 def test_solution():
     """Test cases for 79. Word Search."""
     solution = Solution()
@@ -294,7 +288,6 @@ def test_solution():
     assert not solution.exist(board5, "AAA")  # Can't reuse same cell
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

@@ -1,7 +1,6 @@
 """
 # 140. Word Break II
-**Hard**
-
+# Difficulty: Hard
 Given a string s and a dictionary of strings wordDict, add spaces in s to construct a sentence where each word is a valid dictionary word. Return all such possible sentences in any order.
 
 Note that the same word in the dictionary may be reused multiple times in the segmentation.
@@ -73,15 +72,12 @@ Final: ["cat sand dog", "cats and dog"]
 </details>
 """
 
-
-
 class TrieNode:
     """Node in the trie for word dictionary."""
 
     def __init__(self):
         self.children = {}  # character -> TrieNode
         self.is_word = False  # True if this represents end of a word
-
 
 class Solution:
     def wordBreak(self, s: str, wordDict: list[str]) -> list[str]:
@@ -152,7 +148,6 @@ class Solution:
 
         return backtrack(0)
 
-
 class SolutionSimple:
     """Simpler solution using set-based lookup without Trie."""
 
@@ -194,7 +189,6 @@ class SolutionSimple:
             return result
 
         return backtrack(0)
-
 
 class SolutionOptimized:
     """Optimized solution with early termination."""
@@ -255,7 +249,6 @@ class SolutionOptimized:
 
         return backtrack(0)
 
-
 def test_solution():
     """Test cases for 140. Word Break II."""
     solution = Solution()
@@ -305,7 +298,6 @@ def test_solution():
     assert "aa aa aa a" in result5
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

@@ -1,7 +1,6 @@
 """
 # 1233. Remove Sub Folders From The Filesystem
-**Medium**
-
+# Difficulty: Medium
 Given a list of folders, remove all sub-folders in those folders and return the folders in any order.
 
 If a folder[i] is located within another folder[j], it is called a sub-folder of it.
@@ -73,15 +72,12 @@ Process "/c/f":
 </details>
 """
 
-
-
 class TrieNode:
     """Node in the trie representing a folder component."""
 
     def __init__(self):
         self.children = {}  # folder name -> TrieNode
         self.is_folder = False  # True if this represents a complete folder path
-
 
 class Solution:
     def removeSubfolders(self, folder: list[str]) -> list[str]:
@@ -132,7 +128,6 @@ class Solution:
 
         return result
 
-
 class SolutionSimple:
     """Simpler solution using sorting and string prefix checking."""
 
@@ -155,7 +150,6 @@ class SolutionSimple:
                 result.append(path)
 
         return result
-
 
 def test_solution():
     """Test cases for 1233. Remove Sub Folders."""
@@ -199,7 +193,6 @@ def test_solution():
     assert sorted(solution_simple.removeSubfolders(folder6)) == sorted(expected6)
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

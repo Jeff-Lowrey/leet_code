@@ -1,7 +1,6 @@
 """
 # 642. Design Search Autocomplete System
-**Hard**
-
+# Difficulty: Hard
 Design a search autocomplete system for a search engine. Users may input a sentence (at least one word and end with a special character '#').
 
 You are given a string array sentences and an integer array times both of length n where sentences[i] is a previously typed sentence and times[i] is the corresponding number of times the sentence has been typed. For each input character except '#', return the top 3 historical hot sentences that have the same prefix as the part of the sentence already typed.
@@ -80,14 +79,12 @@ Input '#':
 
 from collections import defaultdict
 
-
 class TrieNode:
     """Node in autocomplete trie storing sentences and frequencies."""
 
     def __init__(self):
         self.children = {}  # character -> TrieNode
         self.sentences = {}  # sentence -> frequency
-
 
 class AutocompleteSystem:
     """Search autocomplete system with frequency-based ranking."""
@@ -179,7 +176,6 @@ class AutocompleteSystem:
             self.current_node = None
             return []
 
-
 class AutocompleteSystemSimple:
     """Simpler implementation without trie - filters all sentences."""
 
@@ -209,7 +205,6 @@ class AutocompleteSystemSimple:
         sorted_matches = sorted(matches.items(), key=lambda x: (-x[1], x[0]))
 
         return [sentence for sentence, _ in sorted_matches[:3]]
-
 
 def test_solution():
     """Test cases for 642. Design Search Autocomplete System."""
@@ -263,7 +258,6 @@ def test_solution():
     assert "test" in result4
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

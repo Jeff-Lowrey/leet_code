@@ -1,7 +1,6 @@
 """
 # 212. Word Search II
-**Hard**
-
+# Difficulty: Hard
 Given an m x n board of characters and a list of strings words, return all words on the board.
 
 Each word must be constructed from letters of sequentially adjacent cells, where adjacent cells are horizontally or vertically neighboring. The same letter cell may not be used more than once in a word.
@@ -82,15 +81,12 @@ Results: ["oath", "eat"]
 </details>
 """
 
-
-
 class TrieNode:
     """Node in the trie for word search."""
 
     def __init__(self):
         self.children = {}  # character -> TrieNode
         self.word = None  # Complete word at this node (if any)
-
 
 class Solution:
     def findWords(self, board: list[list[str]], words: list[str]) -> list[str]:
@@ -167,7 +163,6 @@ class Solution:
 
         return result
 
-
 class SolutionWithSet:
     """Alternative using set to avoid duplicates."""
 
@@ -232,7 +227,6 @@ class SolutionWithSet:
 
         return list(result)
 
-
 def test_solution():
     """Test cases for 212. Word Search II."""
     solution = Solution()
@@ -270,7 +264,6 @@ def test_solution():
     assert "oa" in result5
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()
