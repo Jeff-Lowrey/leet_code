@@ -1,41 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Math.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Reverse the digits of a signed 32-bit integer. The key challenge is handling
- * integer overflow - if the reversed integer exceeds 32-bit bounds, return 0.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Mathematical digit extraction avoids string conversion overhead
- * - Building number digit-by-digit allows overflow checking at each step
- * - Time complexity is based on number of digits (log10 of the number)
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(log(x)) - where x is the input number
- * SPACE COMPLEXITY: O(1)
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
-Input: 123
-Step 1: result = 0, x = 123, digit = 3, result = 3, x = 12
-Step 2: result = 3, x = 12, digit = 2, result = 32, x = 1
-Step 3: result = 32, x = 1, digit = 1, result = 321, x = 0
-Output: 321
-```
+ * [example input]
+ * ```
  *
- * EDGE CASES:
- * - Negative numbers: Handle sign separately
- * - Overflow: Return 0 if result exceeds 2^31 - 1 or falls below -2^31
- * - Trailing zeros: Naturally handled (e.g., 120 becomes 21)
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

@@ -1,46 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Math.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Count trailing zeros in n! without computing the factorial (which overflows quickly).
- * Trailing zeros come from factors of 10, which is 2*5. Since there are always more
- * factors of 2 than 5 in n!, we only need to count factors of 5.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Each multiple of 5 contributes one factor of 5
- * - Multiples of 25 contribute an extra factor of 5
- * - Multiples of 125 contribute yet another factor of 5, etc.
- * - Formula: n/5 + n/25 + n/125 + ...
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(log n) - divide by 5 each iteration
- * SPACE COMPLEXITY: O(1)
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
-Input: n = 25
-Step 1: 25 / 5 = 5 (numbers: 5, 10, 15, 20, 25)
-Step 2: 25 / 25 = 1 (additional 5 from 25)
-Step 3: 25 / 125 = 0 (done)
-Total: 5 + 1 = 6
-Output: 6
-
-Verification: 25! = ...000000 (has 6 trailing zeros)
-```
+ * [example input]
+ * ```
  *
- * EDGE CASES:
- * - n = 0 or n < 5: Return 0 (no factors of 5)
- * - Powers of 5: Handle multiple contributions correctly
- * - Large n: Algorithm handles without overflow
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

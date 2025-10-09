@@ -1,46 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Math.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Count prime numbers less than n using the Sieve of Eratosthenes algorithm.
- * Instead of checking each number for primality, mark all multiples of known
- * primes as composite. This is much more efficient for counting many primes.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Every composite number has a prime factor <= its square root
- * - By marking multiples, we eliminate composites efficiently
- * - Starting at p*p (not 2*p) avoids redundant work
- * - Classic algorithm dating back to ancient Greece
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n log log n) - Sieve of Eratosthenes complexity
- * SPACE COMPLEXITY: O(n) - boolean array
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
-Input: n = 10
-Step 1: isPrime = [F,F,T,T,T,T,T,T,T,T] (0,1 not prime, rest initially true)
-Step 2: p=2: Mark 4,6,8 as composite -> [F,F,T,T,F,T,F,T,F,T]
-Step 3: p=3: Mark 9 as composite -> [F,F,T,T,F,T,F,T,F,F]
-Step 4: p=5: 5*5=25 > 10, done
-Step 5: Count true values: 2,3,5,7 = 4
-Output: 4
-```
+ * [example input]
+ * ```
  *
- * EDGE CASES:
- * - n <= 2: Return 0 (no primes less than 2)
- * - n = 3: Return 1 (only 2 is prime)
- * - Large n: Efficient algorithm handles well
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

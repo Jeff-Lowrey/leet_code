@@ -1,45 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Math.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Determine if an integer is a palindrome without converting to a string.
- * A palindrome reads the same forwards and backwards (e.g., 121, 12321).
- * Negative numbers are not palindromes due to the minus sign.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Only need to reverse half the number to check palindrome property
- * - Avoids string conversion overhead and stays in mathematical domain
- * - Efficient: processes only log(n) digits
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(log(x)) - process half the digits
- * SPACE COMPLEXITY: O(1)
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
-Input: 12321
-Step 1: x = 12321, reversed = 0
-Step 2: x = 1232, reversed = 1 (extracted 1)
-Step 3: x = 123, reversed = 12 (extracted 2)
-Step 4: x = 12, reversed = 123 (extracted 3)
-Step 5: x = 12, reversed = 123 -> x < reversed, stop
-Output: true (12 === 123/10)
-```
+ * [example input]
+ * ```
  *
- * EDGE CASES:
- * - Negative numbers: Always false
- * - Numbers ending in 0: False (except 0 itself)
- * - Single digit: Always true
- * - Odd vs even length: Handle middle digit for odd length
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**
