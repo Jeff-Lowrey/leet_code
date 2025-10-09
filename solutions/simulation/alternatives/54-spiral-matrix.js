@@ -1,41 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Simulation.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Simulate traversing the matrix in layers, like peeling an onion. Start from the outermost
- * layer and spiral inward: right → down → left → up, then repeat for inner layers.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
- *    - Move right along top row, then increment top
- *    - Move down along right column, then decrement right
- *    - Move left along bottom row (if valid), then decrement bottom
- *    - Move up along left column (if valid), then increment left
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * By systematically shrinking boundaries after each direction, we visit each element exactly
- * once in spiral order. Boundary checks prevent revisiting elements.
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(m × n) - visit each element once
- * SPACE COMPLEXITY: O(1) - excluding output array, only constant extra space
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
- * Input: [[1,2,3],[4,5,6],[7,8,9]]
- * Layer 1: Right[1,2,3] → Down[6,9] → Left[8,7] → Up[4]
- * Layer 2: Center[5]
- * Result: [1,2,3,6,9,8,7,4,5]
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
  *
- * EDGE CASES:
- * - Empty matrix: Return empty array
- * - Single row: Only traverse right
- * - Single column: Only traverse down
- * - Single element: Return as-is
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * [example input]
+ * ```
+ *
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

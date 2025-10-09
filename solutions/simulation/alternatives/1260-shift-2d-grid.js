@@ -1,39 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Simulation.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * We need to shift all elements k positions to the right in a 2D grid. The key insight
- * is to treat the 2D grid as a flattened 1D array, perform the shift, then reconstruct
- * the 2D grid.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * Shifting in a 2D grid is equivalent to rotating a flattened 1D array. When an element
- * shifts past the end of a row, it wraps to the next row. When it shifts past the last
- * position, it wraps to position [0][0].
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(m * n) - where m is rows and n is cols
- * SPACE COMPLEXITY: O(m * n) - for the result array
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
- * Input: grid = [[1,2,3],[4,5,6],[7,8,9]], k = 1
- * Flattened: [1,2,3,4,5,6,7,8,9]
- * After shift by 1: [9,1,2,3,4,5,6,7,8]
- * Reshaped: [[9,1,2],[3,4,5],[6,7,8]]
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
  *
- * EDGE CASES:
- * - k = 0 or k is multiple of total elements (no change)
- * - Single row or single column grids
- * - k larger than total number of elements
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * [example input]
+ * ```
+ *
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

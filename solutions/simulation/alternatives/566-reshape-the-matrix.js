@@ -1,39 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Simulation.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Reshape a matrix by reading elements row-by-row and filling a new matrix with the
- * specified dimensions. If reshape is impossible (different total elements), return original.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
-
- *    - Read from original using: row = count / original_cols, col = count % original_cols
- *    - Write to new using: new_row = count / c, new_col = count % c
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * By treating the matrix as a linear sequence (row-major order), we can easily map
- * each position in the original matrix to the new matrix using division and modulo.
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(m × n) - iterate through all elements once
- * SPACE COMPLEXITY: O(r × c) - space for the new matrix (output)
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
- * Input: mat = [[1,2],[3,4]], r = 1, c = 4
- * Total elements: 2×2 = 4 = 1×4 ✓
- * Linear: [1,2,3,4]
- * Reshape to 1×4: [[1,2,3,4]]
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
  *
- * EDGE CASES:
- * - Impossible reshape: Return original matrix
- * - Same dimensions: Still works correctly
- * - Single element: Works for any valid reshape
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * [example input]
+ * ```
+ *
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

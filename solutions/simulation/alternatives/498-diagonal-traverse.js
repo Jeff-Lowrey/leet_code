@@ -1,42 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Simulation.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Traverse the matrix diagonally, alternating direction with each diagonal. Key insight:
- * diagonals can be identified by (row + col) sum. Even sums go up-right, odd sums go down-left.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
- *    - Up-right: If hit top row, move right; if hit right col, move down
- *    - Down-left: If hit left col, move down; if hit bottom row, move right
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * The simulation mimics the actual zigzag diagonal traversal pattern. By tracking current
- * position and direction, we handle all boundary cases and direction changes correctly.
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(m × n) - visit each element exactly once
- * SPACE COMPLEXITY: O(1) - excluding output array, only constant extra space
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
- * Input: [[1,2,3],[4,5,6],[7,8,9]]
- * Diag 0 (up): [1]
- * Diag 1 (down): [2,4]
- * Diag 2 (up): [7,5,3]
- * Diag 3 (down): [6,8]
- * Diag 4 (up): [9]
- * Result: [1,2,4,7,5,3,6,8,9]
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
  *
- * EDGE CASES:
- * - Single row or column: Only one direction needed
- * - Single element: Return as-is
- * - Empty matrix: Return empty array
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * [example input]
+ * ```
+ *
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**
