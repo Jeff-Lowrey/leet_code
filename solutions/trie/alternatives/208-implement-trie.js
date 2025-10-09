@@ -1,6 +1,5 @@
 /**
- * 208. Implement Trie (Prefix Tree)
- * Medium
+
  *
  * This problem demonstrates key concepts in Trie.
  *
@@ -12,10 +11,10 @@
  * This allows for O(m) search, insert, and prefix matching where m is the key length.
  *
  * APPROACH:
- * 1. Create a TrieNode class with children map and isEndOfWord flag
- * 2. Insert: traverse/create nodes for each character, mark last node as word end
- * 3. Search: traverse nodes for each character, check if last node marks word end
- * 4. StartsWith: similar to search but don't check isEndOfWord flag
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Each character maps to exactly one child node per level

@@ -1,6 +1,5 @@
 /**
- * 79. Word Search
- * Medium
+
  *
  * This problem demonstrates key concepts in Trie (but can also be solved with backtracking).
  *
@@ -12,11 +11,11 @@
  * While this can use Trie for optimization, backtracking DFS is more straightforward.
  *
  * APPROACH:
- * 1. For each cell in the board, try it as a starting point
- * 2. Use DFS with backtracking to explore all 4 directions
- * 3. Mark visited cells temporarily to avoid revisiting
- * 4. Backtrack by unmarking cells when exploring other paths
- * 5. Return true if any path matches the complete word
+
+
+
+
+
  *
  * WHY THIS WORKS:
  * - DFS explores all possible paths from each starting point

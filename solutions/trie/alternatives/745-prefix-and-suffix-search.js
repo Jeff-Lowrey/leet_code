@@ -1,6 +1,5 @@
 /**
- * 745. Prefix and Suffix Search
- * Hard
+
  *
  * This problem demonstrates key concepts in Trie.
  *
@@ -12,11 +11,11 @@
  * This allows single Trie traversal to find matches for both prefix and suffix.
  *
  * APPROACH:
- * 1. For each word with index i, create entries: {suffix}#{word} for all suffixes
- * 2. Insert all variations into Trie, storing the word index
- * 3. When searching for prefix+suffix, search for pattern: {suffix}#{prefix}
- * 4. Return the maximum index found (most recent word)
- * 5. Alternative: Use two Tries (one for prefix, one for suffix) and intersect results
+
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Combining suffix+word in Trie allows simultaneous matching

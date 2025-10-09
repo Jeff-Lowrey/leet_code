@@ -1,6 +1,5 @@
 /**
- * 1268. Search Suggestions System
- * Medium
+
  *
  * This problem demonstrates key concepts in Trie.
  *
@@ -12,11 +11,11 @@
  * in sorted order.
  *
  * APPROACH:
- * 1. Sort products array first (ensures lexicographic order)
- * 2. Build Trie from sorted products
- * 3. For each prefix of searchWord, navigate to that prefix in Trie
- * 4. From prefix node, perform DFS to find up to 3 words
- * 5. Since products were pre-sorted and inserted in order, DFS naturally finds smallest words
+
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Sorting ensures lexicographic order is maintained in Trie

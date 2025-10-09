@@ -1,6 +1,5 @@
 /**
- * 140. Word Break II
- * Hard
+
  *
  * This problem demonstrates key concepts in Trie.
  *
@@ -12,11 +11,11 @@
  * combined with backtracking to explore all possibilities and memoization to avoid recomputation.
  *
  * APPROACH:
- * 1. Build a Trie from dictionary words for O(m) word lookups
- * 2. Use DFS with backtracking starting from index 0
- * 3. At each position, try all possible words that start from current position
- * 4. Use memoization to cache results for each starting index
- * 5. When reaching end of string, we found a valid sentence
+
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Trie allows efficient prefix matching

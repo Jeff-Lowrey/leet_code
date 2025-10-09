@@ -1,6 +1,5 @@
 /**
- * 588. Design In-Memory File System
- * Hard
+
  *
  * This problem demonstrates key concepts in Trie.
  *
@@ -12,12 +11,12 @@
  * Path navigation is similar to Trie traversal with '/' as delimiter.
  *
  * APPROACH:
- * 1. Use Trie structure where each node represents a directory or file
- * 2. Each node stores: isFile flag, content (if file), children map
- * 3. ls: Navigate to path, return sorted list of children or file name
- * 4. mkdir: Create all directories in path
- * 5. addContentToFile: Navigate/create path, add content to file
- * 6. readContentFromFile: Navigate to file, return content
+
+
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Trie naturally represents hierarchical directory structure

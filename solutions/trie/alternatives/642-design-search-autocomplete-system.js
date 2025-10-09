@@ -1,6 +1,5 @@
 /**
- * 642. Design Search Autocomplete System
- * Hard
+
  *
  * This problem demonstrates key concepts in Trie.
  *
@@ -12,14 +11,14 @@
  * and ranking by popularity (hot degree).
  *
  * APPROACH:
- * 1. Build Trie storing sentences with their frequencies
- * 2. Track current search prefix as user types
- * 3. For each character input:
+
+
+
  *    - If '#', save current sentence to Trie and reset
  *    - Otherwise, find all sentences with current prefix
  *    - Sort by: frequency (desc), then lexicographically (asc)
  *    - Return top 3 results
- * 4. Store sentence frequencies at leaf nodes
+
  *
  * WHY THIS WORKS:
  * - Trie enables O(p) prefix matching where p is prefix length

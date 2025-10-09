@@ -1,6 +1,5 @@
 /**
- * 720. Longest Word in Dictionary
- * Easy
+
  *
  * This problem demonstrates key concepts in Trie.
  *
@@ -12,10 +11,10 @@
  * The longest word that satisfies this property is our answer.
  *
  * APPROACH:
- * 1. Build a Trie from all words
- * 2. For each word, check if all its prefixes are complete words (have isEndOfWord = true)
- * 3. Track the longest valid word (if tie, choose lexicographically smallest)
- * 4. Alternatively, use DFS from root to find longest path where all nodes are word ends
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Trie naturally stores prefix relationships

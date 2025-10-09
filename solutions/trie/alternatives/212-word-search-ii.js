@@ -1,6 +1,5 @@
 /**
- * 212. Word Search II
- * Hard
+
  *
  * This problem demonstrates key concepts in Trie.
  *
@@ -12,12 +11,12 @@
  * matching characters against the Trie structure.
  *
  * APPROACH:
- * 1. Build a Trie from all words in the dictionary
- * 2. For each cell in the board, start DFS
- * 3. During DFS, traverse both board and Trie simultaneously
- * 4. When we reach a word end in Trie, add to results
- * 5. Use backtracking to explore all paths
- * 6. Optimize by pruning: remove words from Trie once found
+
+
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Trie allows simultaneous search for all words

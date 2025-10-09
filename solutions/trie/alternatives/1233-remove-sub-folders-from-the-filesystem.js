@@ -1,6 +1,5 @@
 /**
- * 1233. Remove Sub-Folders from the Filesystem
- * Medium
+
  *
  * This problem demonstrates key concepts in Trie.
  *
@@ -13,11 +12,11 @@
  * the end of current path, it's a sub-folder.
  *
  * APPROACH:
- * 1. Sort folders lexicographically - ensures parent folders come before children
- * 2. Build Trie from sorted folders, split by '/'
- * 3. During insertion, check if any ancestor path is already a complete folder
- * 4. If yes, skip (it's a sub-folder); if no, insert and mark as folder end
- * 5. Collect all non-sub-folders during insertion
+
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Sorting ensures we process parent folders first
