@@ -1,6 +1,5 @@
 /**
- * 974. Subarray Sums Divisible By K
- * Medium
+
  *
  * This problem demonstrates key concepts in Prefix Sum.
  *
@@ -13,10 +12,10 @@
  * Mathematical property: (a - b) % k = 0 if and only if a % k = b % k.
  *
  * APPROACH:
- * 1. Use hash map to count frequency of each (prefix sum % k)
- * 2. For each position, calculate running sum modulo k
- * 3. If this remainder was seen n times before, add n to result
- * 4. Update the frequency of current remainder
+
+
+
+
  *
  * WHY THIS WORKS:
  * If prefix[j] % k = prefix[i] % k, then (prefix[j] - prefix[i]) % k = 0.

@@ -1,6 +1,5 @@
 /**
- * 1248. Count Number Of Nice Subarrays
- * Medium
+
  *
  * This problem demonstrates key concepts in Prefix Sum.
  *
@@ -13,10 +12,10 @@
  * to current position has exactly k odd numbers.
  *
  * APPROACH:
- * 1. Use a hash map to store the frequency of each odd count prefix
- * 2. Track the running count of odd numbers
- * 3. For each position, check if (oddCount - k) exists in our map
- * 4. Add the frequency of (oddCount - k) to result
+
+
+
+
  *
  * WHY THIS WORKS:
  * If prefix[j] has x odd numbers and prefix[i] has (x-k) odd numbers,

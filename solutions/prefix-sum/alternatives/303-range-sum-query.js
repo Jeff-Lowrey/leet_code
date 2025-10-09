@@ -1,5 +1,5 @@
 /**
- * 303. Range Sum Query
+
  * Preprocessing
  *
  * This problem demonstrates key concepts in Prefix Sum.
@@ -10,7 +10,7 @@
  * [This problem requires understanding of prefix sum concepts. The key insight is to identify the optimal approach for this specific scenario.]
  *
  * APPROACH:
- * 1. **Analyze the problem**: Understand the input constraints and expected output
+
 2. **Choose the right technique**: Apply prefix sum methodology
 3. **Implement efficiently**: Focus on optimal time and space complexity
 4. **Handle edge cases**: Consider boundary conditions and special cases

@@ -1,6 +1,5 @@
 /**
- * 930. Binary Subarrays With Sum
- * Medium
+
  *
  * This problem demonstrates key concepts in Prefix Sum.
  *
@@ -12,11 +11,11 @@
  * For binary arrays, the sum is just the count of 1s.
  *
  * APPROACH:
- * 1. Use hash map to store frequency of each prefix sum
- * 2. For each position, calculate running sum (count of 1s)
- * 3. Check if (currentSum - goal) exists in map
- * 4. Add the frequency of (currentSum - goal) to result
- * 5. Update frequency of current sum in map
+
+
+
+
+
  *
  * WHY THIS WORKS:
  * If prefix[j] - prefix[i] = goal, then subarray from i+1 to j has sum = goal.

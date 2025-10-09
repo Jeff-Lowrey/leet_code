@@ -1,6 +1,5 @@
 /**
- * 523. Continuous Subarray Sum
- * Medium
+
  *
  * This problem demonstrates key concepts in Prefix Sum.
  *
@@ -13,10 +12,10 @@
  * remainder to ensure length >= 2.
  *
  * APPROACH:
- * 1. Use hash map to store first occurrence of each (prefixSum % k)
- * 2. For each position, calculate running sum modulo k
- * 3. If this remainder was seen before and distance >= 2, return true
- * 4. Store the first occurrence of each remainder
+
+
+
+
  *
  * WHY THIS WORKS:
  * Mathematical property: (a - b) % k = 0 if and only if a % k == b % k.

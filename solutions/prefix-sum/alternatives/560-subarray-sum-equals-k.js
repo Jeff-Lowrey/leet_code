@@ -1,6 +1,5 @@
 /**
- * 560. Subarray Sum Equals K
- * Medium
+
  *
  * This problem demonstrates key concepts in Prefix Sum.
  *
@@ -13,11 +12,11 @@
  * We use a hash map to count occurrences of each prefix sum.
  *
  * APPROACH:
- * 1. Use hash map to store frequency of each prefix sum
- * 2. For each element, calculate running prefix sum
- * 3. Check if (currentSum - k) exists in map
- * 4. Add the frequency of (currentSum - k) to result
- * 5. Update frequency of current sum in map
+
+
+
+
+
  *
  * WHY THIS WORKS:
  * If we're at position j with sum S_j, and we previously had sum S_i = S_j - k,

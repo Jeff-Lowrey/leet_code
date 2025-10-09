@@ -1,6 +1,5 @@
 /**
- * 1590. Make Sum Divisible By P
- * Medium
+
  *
  * This problem demonstrates key concepts in Prefix Sum.
  *
@@ -13,11 +12,11 @@
  * smallest such subarray.
  *
  * APPROACH:
- * 1. Calculate total sum modulo p (this is what we need to remove)
- * 2. If remainder is 0, array is already divisible
- * 3. Use prefix sum with modulo to track (prefixSum % p)
- * 4. For each position, look for a previous prefix where (currentMod - targetMod + p) % p exists
- * 5. Track the minimum length of such subarrays
+
+
+
+
+
  *
  * WHY THIS WORKS:
  * If we remove subarray[i+1...j] with sum % p = remainder, then

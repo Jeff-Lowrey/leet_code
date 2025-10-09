@@ -1,6 +1,5 @@
 /**
- * 525. Contiguous Array
- * Medium
+
  *
  * This problem demonstrates key concepts in Prefix Sum.
  *
@@ -13,10 +12,10 @@
  * when we've seen each cumulative sum before.
  *
  * APPROACH:
- * 1. Convert problem: replace 0 with -1, keep 1 as +1
- * 2. Use hash map to store first occurrence of each prefix sum
- * 3. If we see the same prefix sum again, the subarray between has sum 0
- * 4. Track the maximum length found
+
+
+
+
  *
  * WHY THIS WORKS:
  * If prefix[j] = prefix[i], then sum(i+1...j) = 0, meaning equal 0s and 1s.

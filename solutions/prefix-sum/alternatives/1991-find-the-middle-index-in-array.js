@@ -1,6 +1,5 @@
 /**
- * 1991. Find The Middle Index In Array
- * Easy
+
  *
  * This problem demonstrates key concepts in Prefix Sum.
  *
@@ -12,11 +11,11 @@
  * and compare it with the remaining sum on the right.
  *
  * APPROACH:
- * 1. Calculate the total sum of the array
- * 2. Iterate through array maintaining leftSum
- * 3. At each index, rightSum = totalSum - leftSum - nums[i]
- * 4. If leftSum == rightSum, return current index
- * 5. Add current element to leftSum for next iteration
+
+
+
+
+
  *
  * WHY THIS WORKS:
  * At index i, if sum(0..i-1) = sum(i+1..n-1), then:
