@@ -1,7 +1,6 @@
 """
 # 54. Spiral Matrix
-**Medium**
-
+# Difficulty: Medium
 Given an m x n matrix, return all elements of the matrix in spiral order.
 
 Example 1:
@@ -85,8 +84,6 @@ Result: [1,2,3,6,9,8,7,4,5]
 
 </details>
 """
-
-
 
 class Solution:
     def spiralOrder(self, matrix: list[list[int]]) -> list[int]:
@@ -218,7 +215,6 @@ class Solution:
         m, n = len(matrix), len(matrix[0])
         return spiral_helper(0, m - 1, 0, n - 1)
 
-
 def test_solution():
     """Test cases for Problem 54."""
     solution = Solution()
@@ -269,7 +265,6 @@ def test_solution():
     assert solution.spiralOrderRecursive(matrix9) == expected9, "Recursive method failed"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

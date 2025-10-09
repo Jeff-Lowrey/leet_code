@@ -1,7 +1,6 @@
 """
 # 498. Diagonal Traverse
-**Medium**
-
+# Difficulty: Medium
 Given an m x n matrix mat, return an array of all the elements of the array in a diagonal order.
 
 Example 1:
@@ -74,8 +73,6 @@ Result: [1,2,4,7,5,3,6,8,9]
 
 </details>
 """
-
-
 
 class Solution:
     def findDiagonalOrder(self, mat: list[list[int]]) -> list[int]:
@@ -210,7 +207,6 @@ class Solution:
 
         return result
 
-
 def test_solution():
     """Test cases for Problem 498."""
     solution = Solution()
@@ -261,7 +257,6 @@ def test_solution():
     # assert solution.findDiagonalOrderClean(mat9) == expected9, "Clean method failed"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

@@ -1,7 +1,6 @@
 """
 # 566. Reshape The Matrix
-**Easy**
-
+# Difficulty: Easy
 In MATLAB, there is a handy function called reshape which can reshape an m x n matrix
 into a new one with a different size r x c keeping its original data.
 
@@ -85,8 +84,6 @@ Result: [[1,2,3,4]]
 
 </details>
 """
-
-
 
 class Solution:
     def matrixReshape(self, mat: list[list[int]], r: int, c: int) -> list[list[int]]:
@@ -191,7 +188,6 @@ class Solution:
         flat = [val for row in mat for val in row]
         return [flat[i * c : (i + 1) * c] for i in range(r)]
 
-
 def test_solution():
     """Test cases for Problem 566."""
     solution = Solution()
@@ -254,7 +250,6 @@ def test_solution():
     assert solution.matrixReshapeOneLiner(mat10, 4, 1) == expected10, "One-liner method failed"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

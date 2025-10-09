@@ -1,7 +1,6 @@
 """
 # 59. Spiral Matrix II
-**Medium**
-
+# Difficulty: Medium
 Given a positive integer n, generate an n x n matrix filled with elements from 1 to n²
 in spiral order.
 
@@ -82,8 +81,6 @@ Result: [[1,2,3],[8,9,4],[7,6,5]]
 
 </details>
 """
-
-
 
 class Solution:
     def generateMatrix(self, n: int) -> list[list[int]]:
@@ -212,13 +209,11 @@ class Solution:
         fill_layer(0, n - 1, 0, n - 1, 1)
         return matrix
 
-
 def print_matrix(matrix):
     """Helper to print matrix nicely."""
     for row in matrix:
         print(" ".join(f"{num:3}" for num in row))
     print()
-
 
 def test_solution():
     """Test cases for Problem 59."""
@@ -263,7 +258,6 @@ def test_solution():
     assert solution.generateMatrixRecursive(n7) == expected7, "Recursive method failed"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

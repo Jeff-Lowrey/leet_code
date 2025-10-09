@@ -1,7 +1,6 @@
 """
 # 1260. Shift 2D Grid
-**Easy**
-
+# Difficulty: Easy
 Given a 2D grid of size m x n and an integer k. You need to shift the grid k times.
 
 In one shift operation:
@@ -77,8 +76,6 @@ Result: [[9,1,2],[3,4,5],[6,7,8]]
 
 </details>
 """
-
-
 
 class Solution:
     def shiftGrid(self, grid: list[list[int]], k: int) -> list[list[int]]:
@@ -182,7 +179,6 @@ class Solution:
 
         return result
 
-
 def test_solution():
     """Test cases for Problem 1260."""
     solution = Solution()
@@ -235,7 +231,6 @@ def test_solution():
     assert solution.shiftGridFlatten(grid8, 1) == expected8, "Flatten method failed"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

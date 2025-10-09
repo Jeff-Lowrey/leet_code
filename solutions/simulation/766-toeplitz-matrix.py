@@ -1,7 +1,6 @@
 """
 # 766. Toeplitz Matrix
-**Easy**
-
+# Difficulty: Easy
 Given an m x n matrix, return true if the matrix is Toeplitz. Otherwise, return false.
 
 A matrix is Toeplitz if every diagonal from top-left to bottom-right has the same elements.
@@ -80,8 +79,6 @@ All checks pass → True
 
 </details>
 """
-
-
 
 class Solution:
     def isToeplitzMatrix(self, matrix: list[list[int]]) -> bool:
@@ -184,7 +181,6 @@ class Solution:
                     return False
         return True
 
-
 def test_solution():
     """Test cases for Problem 766."""
     solution = Solution()
@@ -238,7 +234,6 @@ def test_solution():
     assert not solution.isToeplitzMatrixFollowUp(matrix12), "Follow-up method failed"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

@@ -1,7 +1,6 @@
 """
 # 867. Transpose Matrix
-**Easy**
-
+# Difficulty: Easy
 Given a 2D integer array matrix, return the transpose of matrix.
 
 The transpose of a matrix is the matrix flipped over its main diagonal, switching
@@ -80,8 +79,6 @@ Result: 3×2 (3 rows, 2 cols)
 
 </details>
 """
-
-
 
 class Solution:
     def transpose(self, matrix: list[list[int]]) -> list[list[int]]:
@@ -162,7 +159,6 @@ class Solution:
         """
         return list(map(list, zip(*matrix, strict=False)))
 
-
 def test_solution():
     """Test cases for Problem 867."""
     solution = Solution()
@@ -218,7 +214,6 @@ def test_solution():
     assert solution.transposeOneLiner(matrix10) == expected10, "One-liner method failed"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

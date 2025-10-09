@@ -1,7 +1,6 @@
 """
 289. Game of Life
-Medium
-
+# Difficulty: Medium
 According to Wikipedia's article: "The Game of Life, also known simply as Life,
 is a cellular automaton devised by the British mathematician John Horton Conway in 1970."
 
@@ -59,7 +58,6 @@ For infinite boards, use sets to track only live cells and their neighbors, proc
 
 </details>
 """
-
 
 class Solution:
     def gameOfLife(self, board: list[list[int]]) -> None:
@@ -157,13 +155,11 @@ class Solution:
 
         return result
 
-
 """
 54. Spiral Matrix (Already exists, adding another simulation problem)
 
 419. Battleships in a Board
-Medium
-
+# Difficulty: Medium
 Given an m x n matrix board where each cell is a battleship 'X' or empty '.',
 return the number of the battleships on board.
 
@@ -176,7 +172,6 @@ Example:
 Input: board = [["X",".",".","X"],[".",".",".","X"],[".",".",".","X"]]
 Output: 2
 """
-
 
 class SolutionBattleships:
     def countBattleships(self, board: list[list[str]]) -> int:
@@ -230,7 +225,6 @@ class SolutionBattleships:
                     dfs(i, j)
 
         return count
-
 
 # Test cases
 if __name__ == "__main__":

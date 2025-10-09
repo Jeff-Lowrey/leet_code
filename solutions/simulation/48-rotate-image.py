@@ -1,7 +1,6 @@
 """
 # 48. Rotate Image
-**Medium**
-
+# Difficulty: Medium
 You are given an n x n 2D matrix representing an image, rotate the image by 90 degrees (clockwise).
 
 You have to rotate the image in-place, which means you have to modify the input 2D matrix directly. DO NOT allocate another 2D matrix and do the rotation.
@@ -64,7 +63,6 @@ Each ring: rotate 4 elements simultaneously
 
 </details>
 """
-
 
 class Solution:
     def rotate(self, matrix: list[list[int]]) -> None:
@@ -160,13 +158,11 @@ class Solution:
             for j in range(i + 1, n):
                 matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
 
-
 def print_matrix(matrix):
     """Helper function to print matrix nicely."""
     for row in matrix:
         print(" ".join(f"{num:2}" for num in row))
     print()
-
 
 def test_solution():
     """Test cases for Problem 48."""
@@ -215,7 +211,6 @@ def test_solution():
     assert matrix7 == expected7, f"Expected {expected7}, got {matrix7}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

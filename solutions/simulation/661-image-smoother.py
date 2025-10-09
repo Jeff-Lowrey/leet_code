@@ -1,7 +1,6 @@
 """
 # 661. Image Smoother
-**Easy**
-
+# Difficulty: Easy
 An image smoother is a filter of the size 3 x 3 that can be applied to each cell of an
 image by rounding down the average of the cell and the eight surrounding cells (or as
 many as there are if the cell is on an edge or corner).
@@ -84,8 +83,6 @@ Result: [[137,141,137],[141,138,141],[137,141,137]]
 
 </details>
 """
-
-
 
 class Solution:
     def imageSmoother(self, img: list[list[int]]) -> list[list[int]]:
@@ -229,7 +226,6 @@ class Solution:
 
         return result
 
-
 def test_solution():
     """Test cases for Problem 661."""
     solution = Solution()
@@ -275,7 +271,6 @@ def test_solution():
     assert solution.imageSmootherInPlace(img8) == expected8, "In-place method failed"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()
