@@ -1,7 +1,6 @@
 """
 # 721. Accounts Merge
-**Medium**
-
+# Difficulty: Medium
 Given a list of accounts where each element accounts[i] is a list of strings, where the first element accounts[i][0] is a name, and the rest of the elements are emails representing emails of the account.
 
 Now, we would like to merge these accounts. Two accounts definitely belong to the same person if there is some common email to both accounts. Note that even if two accounts have the same name, they may belong to different people as people could have the same name. A person can have any number of accounts initially, but all of their accounts definitely have the same name.
@@ -79,7 +78,6 @@ Output: [["John","john00@mail.com","john_newyork@mail.com","johnsmith@mail.com"]
 
 from collections import defaultdict
 
-
 class UnionFind:
     def __init__(self, n):
         self.parent = list(range(n))
@@ -103,7 +101,6 @@ class UnionFind:
         self.parent[py] = px
         if self.rank[px] == self.rank[py]:
             self.rank[px] += 1
-
 
 class Solution:
     def accountsMerge(self, accounts: list[list[str]]) -> list[list[str]]:
@@ -195,7 +192,6 @@ class Solution:
 
         return result
 
-
 def test_solution():
     """Test cases for 721. Accounts Merge."""
     solution = Solution()
@@ -254,7 +250,6 @@ def test_solution():
     assert result5 == expected1, f"Alternative: Expected {expected1}, got {result5}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

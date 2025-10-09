@@ -1,7 +1,6 @@
 """
 # 305. Number
-**Medium**
-
+# Difficulty: Medium
 Given a problem that demonstrates key concepts in Union Find.
 
 <details>
@@ -51,7 +50,6 @@ The approach uses union find techniques to solve this problem efficiently.
 
 </details>
 """
-
 
 class Solution:
     def numIslands2(self, m: int, n: int, positions: List[List[int]]) -> List[int]:
@@ -103,7 +101,6 @@ class Solution:
 
         return result
 
-
 # Example usage and test cases
 def test_solution():
     solution = Solution()
@@ -119,7 +116,6 @@ def test_solution():
     positions2 = [[0, 0]]
     result2 = solution.numIslands2(m2, n2, positions2)
     print(f"Test 2 Result: {result2}")  # Expected: [1]
-
 
 def test_solution():
     """
@@ -138,7 +134,6 @@ def test_solution():
     # assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

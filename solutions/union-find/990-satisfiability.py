@@ -1,7 +1,6 @@
 """
 # 990. Satisfiability of Equality Equations
-**Medium**
-
+# Difficulty: Medium
 You are given an array of strings equations that represent relationships between variables where each string equations[i] is of length 4 and takes one of two different forms: "xi==xj" or "xi!=xj".
 
 Here, xi and xj are lowercase letters (not necessarily different) that represent one-letter variable names.
@@ -58,7 +57,6 @@ Output: True
 
 </details>
 """
-
 
 class Solution:
     def equationsPossible(self, equations: list[str]) -> bool:
@@ -167,7 +165,6 @@ class Solution:
 
         return True
 
-
 def test_solution():
     """Test cases for 990. Satisfiability of Equality Equations."""
     solution = Solution()
@@ -198,7 +195,6 @@ def test_solution():
     assert result5 == expected5, f"Expected {expected5}, got {result5}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

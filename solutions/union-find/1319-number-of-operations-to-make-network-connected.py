@@ -1,7 +1,6 @@
 """
 # 1319. Number Of Operations To Make Network Connected
-**Medium**
-
+# Difficulty: Medium
 You are given n computers numbered from 0 to n - 1 connected by ethernet cables connections forming a network where connections[i] = [ai, bi] connects computers ai and bi.
 
 Any computer can reach any other computer directly or indirectly through the network.
@@ -59,7 +58,6 @@ Components: 1, Operations needed: 0
 </details>
 """
 
-
 class UnionFind:
     """Union-Find data structure with path compression and union by rank."""
 
@@ -92,7 +90,6 @@ class UnionFind:
 
         self.components -= 1
         return True
-
 
 class Solution:
     def makeConnected(self, n: int, connections: list[list[int]]) -> int:
@@ -162,7 +159,6 @@ class Solution:
         # Need (components - 1) operations to connect all
         return components - 1
 
-
 def test_solution():
     """Test cases for Problem 1319."""
     solution = Solution()
@@ -200,7 +196,6 @@ def test_solution():
     assert result6 == expected6, f"Expected {expected6}, got {result6}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

@@ -1,7 +1,6 @@
 """
 # 684. Redundant Connection
-**Medium**
-
+# Difficulty: Medium
 In this problem, a tree is an undirected graph that is connected and has no cycles.
 
 You are given a graph that started as a tree with n nodes labeled from 1 to n, with one additional edge added. The added edge has two vertices chosen from 1 to n, and was not an edge that already existed. The graph is represented as an array edges of length n where edges[i] = [ai, bi] indicates that there is an edge between nodes ai and bi in the graph.
@@ -51,7 +50,6 @@ Return [2,3]
 </details>
 """
 
-
 class UnionFind:
     """Union-Find data structure with path compression."""
 
@@ -82,7 +80,6 @@ class UnionFind:
             self.rank[root_x] += 1
 
         return True
-
 
 class Solution:
     def findRedundantConnection(self, edges: list[list[int]]) -> list[int]:
@@ -154,7 +151,6 @@ class Solution:
 
         return []
 
-
 def test_solution():
     """Test cases for Problem 684."""
     solution = Solution()
@@ -194,7 +190,6 @@ def test_solution():
     assert result6 == expected1, f"DFS: Expected {expected1}, got {result6}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

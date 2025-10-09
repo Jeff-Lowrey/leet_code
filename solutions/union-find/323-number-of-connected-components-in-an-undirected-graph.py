@@ -1,7 +1,6 @@
 """
 # 323. Number Of Connected Components In An Undirected Graph
-**Medium**
-
+# Difficulty: Medium
 You have a graph of n nodes labeled from 0 to n - 1. You are given an integer n and a list of edges where edges[i] = [ai, bi] indicates that there is an undirected edge between nodes ai and bi in the graph.
 
 Return the number of connected components in the graph.
@@ -55,7 +54,6 @@ Result: 2 connected components
 
 </details>
 """
-
 
 class Solution:
     def countComponents(self, n: int, edges: list[list[int]]) -> int:
@@ -183,7 +181,6 @@ class Solution:
 
         return components
 
-
 def test_solution():
     """
     Test cases for 323. Number Of Connected Components In An Undirected Graph.
@@ -201,7 +198,6 @@ def test_solution():
     # assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

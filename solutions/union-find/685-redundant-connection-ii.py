@@ -1,7 +1,6 @@
 """
 685. Redundant Connection II
-Hard
-
+# Difficulty: Hard
 In a directed graph, return an edge that can be removed so that the resulting graph is a tree.
 If there are multiple answers, return the answer that occurs last in the given input.
 
@@ -40,7 +39,6 @@ When a node has 2 parents, one must be removed. Union-find detects cycles.
 </details>
 """
 
-
 class UnionFind:
     def __init__(self, n: int) -> None:
         self.parent = list(range(n + 1))
@@ -56,7 +54,6 @@ class UnionFind:
             return False  # Cycle detected
         self.parent[px] = py
         return True
-
 
 class Solution:
     def findRedundantDirectedConnection(self, edges: list[list[int]]) -> list[int]:
@@ -95,7 +92,6 @@ class Solution:
         # No cycle when candidate2 removed
         return candidate2 if candidate2 else []
 
-
 def test_solution() -> None:
     """Test cases for Problem 685."""
     solution = Solution()
@@ -117,7 +113,6 @@ def test_solution() -> None:
     print("Test case 4 passed: Three node cycle")
 
     print("\nAll test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

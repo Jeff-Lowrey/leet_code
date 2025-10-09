@@ -1,7 +1,6 @@
 """
 # 547. Number of Provinces
-**Medium**
-
+# Difficulty: Medium
 There are n cities. Some of them are connected, while some are not. If city a is connected directly with city b, and city b is connected directly with city c, then city a is connected indirectly with city c.
 
 A province is a group of directly or indirectly connected cities and no other cities outside of the group.
@@ -62,7 +61,6 @@ Result: 2 provinces
 </details>
 """
 
-
 class UnionFind:
     """Union-Find data structure for tracking connected components."""
 
@@ -95,7 +93,6 @@ class UnionFind:
 
         self.components -= 1
         return True
-
 
 class Solution:
     def findCircleNum(self, isConnected: list[list[int]]) -> int:
@@ -189,7 +186,6 @@ class Solution:
 
         return provinces
 
-
 def test_solution():
     """Test cases for Problem 547."""
     solution = Solution()
@@ -233,7 +229,6 @@ def test_solution():
     assert result7 == expected1, f"BFS: Expected {expected1}, got {result7}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

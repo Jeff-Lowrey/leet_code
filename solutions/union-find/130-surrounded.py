@@ -1,7 +1,6 @@
 """
 # 130. Surrounded
-**Medium**
-
+# Difficulty: Medium
 Given a problem that demonstrates key concepts in Union Find.
 
 <details>
@@ -51,7 +50,6 @@ The approach uses union find techniques to solve this problem efficiently.
 
 </details>
 """
-
 
 class Solution:
     def solve(self, board: List[List[str]]) -> None:
@@ -110,7 +108,6 @@ class Solution:
                 elif board[row][col] == "#":
                     board[row][col] = "O"
 
-
 def test_solution():
     """
     Test cases for 130. Surrounded.
@@ -128,7 +125,6 @@ def test_solution():
     # assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

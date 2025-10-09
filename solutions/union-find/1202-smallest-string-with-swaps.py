@@ -1,7 +1,6 @@
 """
 1202. Smallest String With Swaps
-Medium
-
+# Difficulty: Medium
 You are given a string s, and an array of pairs where pairs[i] = [a, b] indicates 2 indices
 (0-indexed) that can be swapped. You can swap indices multiple times. Return the lexicographically
 smallest string that s can be transformed to after using the swaps.
@@ -36,7 +35,6 @@ permutation is achievable. Lexicographically smallest = sort characters ascendin
 
 from collections import defaultdict
 
-
 class UnionFind:
     def __init__(self, n: int) -> None:
         self.parent = list(range(n))
@@ -56,7 +54,6 @@ class UnionFind:
         self.parent[py] = px
         if self.rank[px] == self.rank[py]:
             self.rank[px] += 1
-
 
 class Solution:
     def smallestStringWithSwaps(self, s: str, pairs: list[list[int]]) -> str:
@@ -91,7 +88,6 @@ class Solution:
 
         return "".join(result)
 
-
 def test_solution() -> None:
     """Test cases for Problem 1202."""
     solution = Solution()
@@ -125,7 +121,6 @@ def test_solution() -> None:
     print("Test case 7 passed")
 
     print("\nAll test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()
