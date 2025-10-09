@@ -1,7 +1,20 @@
 """
-# 045. Jump Game Ii
 # Difficulty: Medium
+
+# 045. Jump Game Ii
+
 Given a problem that demonstrates key concepts in Greedy.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -20,9 +33,6 @@ Given a problem that demonstrates key concepts in Greedy.
 - Time complexity is optimized for the given constraints
 - Space complexity is minimized where possible
 
-### TIME COMPLEXITY: O(n)
-### SPACE COMPLEXITY: O(1)
-
 ### EXAMPLE WALKTHROUGH:
 ```
 Input: [example input]
@@ -31,22 +41,16 @@ Step 2: [explain second step]
 Output: [expected output]
 ```
 
+### TIME COMPLEXITY:
+O(n)
+
+### SPACE COMPLEXITY:
+O(1)
+
 ### EDGE CASES:
 - Empty input handling
 - Single element cases
 - Large input considerations
-
-</details>
-
-<details>
-<summary><b>💡 APPROACH</b></summary>
-
-The approach uses greedy techniques to solve this problem efficiently.
-
-### Algorithm Steps:
-1. Initialize necessary variables
-2. Process input using greedy method
-3. Return the computed result
 
 </details>
 """

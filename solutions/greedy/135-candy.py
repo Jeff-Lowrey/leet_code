@@ -1,6 +1,8 @@
 """
-# 135. Candy
 # Difficulty: Hard
+
+# 135. Candy
+
 There are n children standing in a line. Each child is assigned a rating value given
 in the integer array ratings.
 
@@ -10,6 +12,17 @@ You are giving candies to these children subjected to the following requirements
 
 Return the minimum number of candies you need to have to distribute the candies to
 the children.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -33,17 +46,6 @@ the maximum to satisfy both.
   - Taking max ensures both constraints satisfied
 - **Optimality**: Each assignment is minimal, so total is minimal
 
-### PROOF OF CORRECTNESS:
-After left pass, for all i: ratings[i] > ratings[i-1] → candies[i] > candies[i-1]
-After right pass, for all i: ratings[i] > ratings[i+1] → candies[i] > candies[i+1]
-Therefore, all constraints satisfied with minimum candies.
-
-### TIME COMPLEXITY: O(n)
-Two passes through the array
-
-### SPACE COMPLEXITY: O(n)
-Array to store candy counts (can be optimized to O(1) with complex logic)
-
 ### EXAMPLE WALKTHROUGH:
 ```
 Input: ratings = [1,0,2]
@@ -65,22 +67,13 @@ Right to left pass:
 Total: 2 + 1 + 2 = 5
 ```
 
-### DETAILED EXAMPLE:
-```
-Input: ratings = [1,2,2]
+### TIME COMPLEXITY:
+O(n)
+Two passes through the array
 
-Initial: candies = [1,1,1]
-
-Left to right:
-  i=1: 2 > 1 → candies[1] = 2 → [1,2,1]
-  i=2: 2 = 2 → no change → [1,2,1]
-
-Right to left:
-  i=1: 2 = 2 → no change → [1,2,1]
-  i=0: 1 < 2 → no change → [1,2,1]
-
-Total: 1 + 2 + 1 = 4
-```
+### SPACE COMPLEXITY:
+O(n)
+Array to store candy counts (can be optimized to O(1) with complex logic)
 
 ### EDGE CASES:
 - Single child: Return 1
@@ -90,15 +83,8 @@ Total: 1 + 2 + 1 = 4
 - Valley pattern: [2,1,2] → [2,1,2]
 - Peak pattern: [1,2,1] → [1,2,1]
 
-### COMMON MISTAKES:
-- Only doing one pass (fails for some patterns)
-- Not taking max in second pass (under-allocates candies)
-- Forgetting to initialize all children with 1 candy
-
 </details>
 """
-
-from typing import List
 
 class Solution:
     def candy(self, ratings: List[int]) -> int:

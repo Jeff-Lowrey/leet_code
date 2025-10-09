@@ -1,6 +1,8 @@
 """
-# 134. Gas Station
 # Difficulty: Medium
+
+# 134. Gas Station
+
 There are n gas stations along a circular route, where the amount of gas at the
 ith station is gas[i].
 
@@ -11,6 +13,17 @@ empty tank at one of the gas stations.
 Given two integer arrays gas and cost, return the starting gas station's index if
 you can travel around the circuit once in the clockwise direction, otherwise return -1.
 If there exists a solution, it is guaranteed to be unique.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -29,23 +42,8 @@ This problem can be solved greedily by recognizing two key insights:
 4. **Greedy choice**: We don't need to check previous stations again because if
    starting from j fails at i, then j+1, j+2, ..., i-1 will also fail
 
-### WHY THIS WORKS (PROOF):
-- **Claim 1**: If total_gas >= total_cost, a solution exists
-- **Claim 2**: If we can't reach station i from station j, then we can't reach
-  station i from any station between j and i
-- **Proof of Claim 2**:
-  - Let's say we start at j and reach station k (where j < k < i) with gas_k > 0
-  - If starting from j fails at i, then starting from k also fails at i
-  - Why? Because we have less gas starting from k than we would have if we
-    started from j and reached k
-  - Starting from j: gas_k = (gas[j] - cost[j]) + (gas[j+1] - cost[j+1]) + ...
-  - Starting from k: gas_start = 0, which is less than gas_k from route j->k
-
-### TIME COMPLEXITY: O(n)
-Single pass through the arrays
-
-### SPACE COMPLEXITY: O(1)
-Only using constant extra space
+### WHY THIS WORKS:
+- [Explanation of correctness]
 
 ### EXAMPLE WALKTHROUGH:
 ```
@@ -73,20 +71,22 @@ All positions checked, total_gas >= 0
 Output: 3
 ```
 
+### TIME COMPLEXITY:
+O(n)
+Single pass through the arrays
+
+### SPACE COMPLEXITY:
+O(1)
+Only using constant extra space
+
 ### EDGE CASES:
 - Single station: Only possible if gas[0] >= cost[0]
 - All gas equals all cost: First station with gas[i] >= cost[i] works
 - Multiple resets: The algorithm handles multiple candidate starting points
 - Impossible cases: Return -1 when total gas < total cost
 
-### ALTERNATIVE APPROACH (BRUTE FORCE):
-Try each station as starting point and simulate full circuit.
-Time: O(n²), Space: O(1)
-
 </details>
 """
-
-from typing import List
 
 class Solution:
     def canCompleteCircuit(self, gas: List[int], cost: List[int]) -> int:

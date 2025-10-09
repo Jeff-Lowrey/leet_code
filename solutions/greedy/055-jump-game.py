@@ -1,6 +1,6 @@
 """
-55. Jump Game
 # Difficulty: Medium
+
 You are given an integer array `nums`. You are initially positioned at the array's
 first index, and each element in the array represents your maximum jump length
 at that position.
@@ -11,67 +11,52 @@ Example:
 Input: `nums` = [2,3,1,1,4]
 Output: true
 Explanation: Jump 1 step from index 0 to 1, then 3 steps to the last index.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
+
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
 Use greedy approach to track the farthest position we can reach. If at any point our current position exceeds the farthest reachable position, we can't proceed further.
 
-### APPROACH (Greedy):
-1. **Track max_reach** - the farthest index we can reach so far
-2. **For each position i**:
-   - If i > max_reach, we can't reach this position → return False
-   - Update max_reach = max(max_reach, i + nums[i])
-   - If max_reach ≥ last index → return True
+### APPROACH:
+[Detailed explanation of the solution approach]
 
 ### WHY THIS WORKS:
 - We only need to know if the last index is reachable, not the actual path
 - Greedy choice: always try to reach the farthest possible position
 - If we can reach position i, and from i we can jump nums[i] steps, then we can reach any position up to i + nums[i]
 
-### TIME COMPLEXITY: O(n)
-### SPACE COMPLEXITY: O(1)
+### EXAMPLE WALKTHROUGH:
 
-### THREE APPROACHES:
-
-#### Approach 1: Forward Greedy (Optimal)
-Track maximum reachable position while moving forward
-
-#### Approach 2: Backward Greedy
-Start from end, work backwards to see if position 0 can reach the end
-
-#### Approach 3: Dynamic Programming
-Use DP array to track reachability of each position
-
-### EXAMPLE WALKTHROUGH (Forward Greedy):
+Input:
 ```
-Input: nums = [2,3,1,1,4]
-
-i=0: max_reach = max(0, 0+2) = 2
-     Can reach indices 0,1,2
-
-i=1: max_reach = max(2, 1+3) = 4
-     Can reach indices 0,1,2,3,4
-     Since 4 ≥ last index (4), return True
-
-Alternative example: nums = [3,2,1,0,4]
-
-i=0: max_reach = max(0, 0+3) = 3
-i=1: max_reach = max(3, 1+2) = 3
-i=2: max_reach = max(3, 2+1) = 3
-i=3: max_reach = max(3, 3+0) = 3
-i=4: 4 > 3 (max_reach), so position 4 is unreachable → return False
+[example input]
 ```
 
-### BACKWARD GREEDY INTUITION:
-```
-Start from last position, work backwards:
-- Find positions that can reach the current "good" position
-- If position 0 becomes "good", then we can reach the end
-```
+**Step 1:** [description]
 
-### KEY INSIGHT:
-Greedy works because if we can reach the farthest possible position at each step, we maximize our chances of reaching the end. We don't need to consider suboptimal intermediate positions.
+**Step 2:** [description]
+
+### TIME COMPLEXITY:
+O(n)
+
+### SPACE COMPLEXITY:
+O(1)
+
+### EDGE CASES:
+- **[Edge case 1]:** [how it's handled]
+- **[Edge case 2]:** [how it's handled]
 
 </details>
 """

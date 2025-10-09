@@ -1,9 +1,22 @@
 """
-# 409. Longest Palindrome
 # Difficulty: Easy
+
+# 409. Longest Palindrome
+
 Given a string s which consists of lowercase or uppercase letters, return the length of the longest palindrome that can be built with those letters.
 
 Letters are case sensitive, for example, "Aa" is not considered a palindrome here.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -17,17 +30,8 @@ A palindrome reads the same forwards and backwards. To maximize the palindrome l
 3. **Handle odd counts**: If any character has odd count, we can place one in center
 4. **Calculate result**: Sum of all pairs × 2, plus 1 if any odd count exists
 
-### WHY GREEDY WORKS:
-- Using maximum pairs is always optimal for palindrome length
-- Any leftover single character can be placed in center
-- We don't need to consider which specific characters to use
-- The greedy choice (use all pairs) leads to global optimum
-
-### TIME COMPLEXITY: O(n)
-Single pass to count characters
-
-### SPACE COMPLEXITY: O(1)
-At most 128 ASCII characters or 52 letters (constant space)
+### WHY THIS WORKS:
+- [Explanation of correctness]
 
 ### EXAMPLE WALKTHROUGH:
 ```
@@ -51,11 +55,13 @@ Result: 6 + 1 = 7
 Possible palindrome: "dccaccd"
 ```
 
-### MATHEMATICAL INSIGHT:
-For character with count c:
-- Contributes c//2 pairs (2 × (c//2) characters)
-- Leaves c%2 remainder characters
-- If any remainder exists, we can use 1 in center
+### TIME COMPLEXITY:
+O(n)
+Single pass to count characters
+
+### SPACE COMPLEXITY:
+O(1)
+At most 128 ASCII characters or 52 letters (constant space)
 
 ### EDGE CASES:
 - Empty string: length 0
