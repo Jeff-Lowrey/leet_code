@@ -1,7 +1,6 @@
 """
 # 085. Maximal
-**Medium**
-
+# Difficulty: Medium
 Given a problem that demonstrates key concepts in Monotonic Stack.
 
 <details>

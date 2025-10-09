@@ -1,7 +1,6 @@
 """
 1019. Next Greater Node In Linked List
-Medium
-
+# Difficulty: Medium
 Given the head of a linked list, return an array of integers answer, where answer[i] is
 the value of the next greater node of the ith node (1-indexed). If there is no next greater
 node, answer[i] is 0.
@@ -53,14 +52,12 @@ Result: [5,5,0]
 </details>
 """
 
-
 class ListNode:
     """Definition for singly-linked list."""
 
     def __init__(self, val: int = 0, next: "ListNode | None" = None) -> None:
         self.val = val
         self.next = next
-
 
 class Solution:
     def nextLargerNodes(self, head: ListNode | None) -> list[int]:
@@ -120,7 +117,6 @@ class Solution:
 
         return answer
 
-
 def test_solution() -> None:
     """Test cases for Problem 1019."""
     solution = Solution()
@@ -172,7 +168,6 @@ def test_solution() -> None:
     print("Test case 7 passed: Empty list")
 
     print("\nAll test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

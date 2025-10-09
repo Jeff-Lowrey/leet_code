@@ -1,7 +1,6 @@
 """
 # 084. Largest Rectangle In Histogram
-**Medium**
-
+# Difficulty: Medium
 Given a problem that demonstrates key concepts in Monotonic Stack.
 
 <details>

@@ -1,7 +1,6 @@
 """
 496. Next Greater Element I
-Easy
-
+# Difficulty: Easy
 The next greater element of some element x in an array is the first greater
 element that is to the right of x in the same array.
 
@@ -70,11 +69,9 @@ class Solution:
         # Build result for nums1
         return [next_greater[num] for num in nums1]
 
-
 """
 503. Next Greater Element II
-Medium
-
+# Difficulty: Medium
 Given a circular integer array nums, return the next greater number for every
 element in nums.
 
@@ -109,11 +106,9 @@ class SolutionCircular:
 
         return result
 
-
 """
 901. Online Stock Span
-Medium
-
+# Difficulty: Medium
 Design an algorithm that collects daily price quotes for some stock and returns
 the span of that stock's price for the current day.
 
@@ -147,11 +142,9 @@ class StockSpanner:
         self.stack.append((price, span))
         return span
 
-
 """
 402. Remove K Digits
-Medium
-
+# Difficulty: Medium
 Given string num representing a non-negative integer num, and an integer k,
 return the smallest possible integer after removing k digits from num.
 
@@ -183,11 +176,9 @@ class SolutionRemoveDigits:
         result = ''.join(stack).lstrip('0')
         return result if result else '0'
 
-
 """
 316. Remove Duplicate Letters
-Medium
-
+# Difficulty: Medium
 Given a string s, remove duplicate letters so that every letter appears once and
 only once. You must make sure your result is the smallest in lexicographical
 order among all possible results.
@@ -227,7 +218,6 @@ class SolutionRemoveDuplicates:
             in_stack.add(char)
 
         return ''.join(stack)
-
 
 # Test cases
 if __name__ == "__main__":
