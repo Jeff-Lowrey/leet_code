@@ -1,6 +1,5 @@
 /**
- * 498. Diagonal Traverse
- * Medium
+
  *
  * This problem demonstrates key concepts in Simulation.
  *
@@ -11,12 +10,12 @@
  * diagonals can be identified by (row + col) sum. Even sums go up-right, odd sums go down-left.
  *
  * APPROACH:
- * 1. Start at (0,0) moving up-right
- * 2. When hitting a boundary, change direction and move to next diagonal start
- * 3. Boundary rules:
+
+
+
  *    - Up-right: If hit top row, move right; if hit right col, move down
  *    - Down-left: If hit left col, move down; if hit bottom row, move right
- * 4. Toggle direction after each boundary hit
+
  *
  * WHY THIS WORKS:
  * The simulation mimics the actual zigzag diagonal traversal pattern. By tracking current

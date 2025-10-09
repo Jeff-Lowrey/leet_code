@@ -1,6 +1,5 @@
 /**
- * 566. Reshape The Matrix
- * Easy
+
  *
  * This problem demonstrates key concepts in Simulation.
  *
@@ -11,10 +10,10 @@
  * specified dimensions. If reshape is impossible (different total elements), return original.
  *
  * APPROACH:
- * 1. Check if reshape is valid: original_rows × original_cols must equal r × c
- * 2. If invalid, return the original matrix
- * 3. Create new matrix with r rows and c columns
- * 4. Use a counter to map from old to new positions:
+
+
+
+
  *    - Read from original using: row = count / original_cols, col = count % original_cols
  *    - Write to new using: new_row = count / c, new_col = count % c
  *

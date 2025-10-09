@@ -1,6 +1,5 @@
 /**
- * 54. Spiral Matrix
- * Medium
+
  *
  * This problem demonstrates key concepts in Simulation.
  *
@@ -11,13 +10,13 @@
  * layer and spiral inward: right → down → left → up, then repeat for inner layers.
  *
  * APPROACH:
- * 1. Use four boundaries: top, bottom, left, right
- * 2. For each layer, traverse in spiral order:
+
+
  *    - Move right along top row, then increment top
  *    - Move down along right column, then decrement right
  *    - Move left along bottom row (if valid), then decrement bottom
  *    - Move up along left column (if valid), then increment left
- * 3. Continue until boundaries converge
+
  *
  * WHY THIS WORKS:
  * By systematically shrinking boundaries after each direction, we visit each element exactly

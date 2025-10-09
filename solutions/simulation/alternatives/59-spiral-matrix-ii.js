@@ -1,6 +1,5 @@
 /**
- * 59. Spiral Matrix II
- * Medium
+
  *
  * This problem demonstrates key concepts in Simulation.
  *
@@ -11,15 +10,15 @@
  * a spiral, but instead we're writing values in spiral pattern: right → down → left → up.
  *
  * APPROACH:
- * 1. Create an n×n matrix initialized with zeros
- * 2. Use four boundaries: top, bottom, left, right
- * 3. Maintain a counter starting at 1
- * 4. For each layer, fill in spiral order:
+
+
+
+
  *    - Fill right along top row, increment top
  *    - Fill down along right column, decrement right
  *    - Fill left along bottom row, decrement bottom
  *    - Fill up along left column, increment left
- * 5. Increment counter after each cell filled
+
  *
  * WHY THIS WORKS:
  * By systematically filling cells layer by layer in spiral order and shrinking boundaries,

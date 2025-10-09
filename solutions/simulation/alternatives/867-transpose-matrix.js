@@ -1,6 +1,5 @@
 /**
- * 867. Transpose Matrix
- * Easy
+
  *
  * This problem demonstrates key concepts in Simulation.
  *
@@ -12,10 +11,10 @@
  * This simulates reflecting the matrix along its main diagonal.
  *
  * APPROACH:
- * 1. Create a new matrix with dimensions swapped: if original is m×n, result is n×m
- * 2. For each element at position (i, j) in original matrix:
+
+
  *    - Place it at position (j, i) in the result matrix
- * 3. Return the result matrix
+
  *
  * WHY THIS WORKS:
  * The transpose operation is simply a coordinate swap. By creating a new matrix with

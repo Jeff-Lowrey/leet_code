@@ -1,6 +1,5 @@
 /**
- * 289. Game Of Life
- * Medium
+
  *
  * This problem demonstrates key concepts in Simulation.
  *
@@ -10,7 +9,7 @@
  * The challenge is applying rules simultaneously to all cells. Use state encoding to track both current and next states in-place, avoiding extra space while ensuring all decisions are based on the original state.
  *
  * APPROACH:
- * 1. **State Encoding**: Use 4 states instead of 2
+
    - 0: dead → dead
    - 1: live → live
    - 2: live → dead (dying)

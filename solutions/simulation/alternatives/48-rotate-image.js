@@ -1,6 +1,5 @@
 /**
- * 48. Rotate Image
- * Medium
+
  *
  * This problem demonstrates key concepts in Simulation.
  *
@@ -11,8 +10,8 @@
  * transpose the matrix, then reverse each row. This simulates the rotation process.
  *
  * APPROACH:
- * 1. Transpose the matrix: Swap elements across the main diagonal (matrix[i][j] ↔ matrix[j][i])
- * 2. Reverse each row: Swap elements from both ends moving inward
+
+
  *
  * WHY THIS WORKS:
  * Mathematically, a 90-degree clockwise rotation can be decomposed into these two operations.

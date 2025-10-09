@@ -1,6 +1,5 @@
 /**
- * 661. Image Smoother
- * Easy
+
  *
  * This problem demonstrates key concepts in Simulation.
  *
@@ -12,13 +11,13 @@
  * image processing technique called box blur.
  *
  * APPROACH:
- * 1. Create a new result matrix of the same dimensions
- * 2. For each cell (i, j):
+
+
  *    - Check all 8 surrounding positions plus the cell itself
  *    - Sum all valid neighboring values
  *    - Count how many valid neighbors exist
  *    - Set result[i][j] to floor(sum / count)
- * 3. Handle edge/corner cells carefully (fewer neighbors)
+
  *
  * WHY THIS WORKS:
  * We simulate the smoothing filter by examining each cell's neighborhood. By creating a

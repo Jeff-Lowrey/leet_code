@@ -1,6 +1,5 @@
 /**
- * 1260. Shift 2D Grid
- * Easy
+
  *
  * This problem demonstrates key concepts in Simulation.
  *
@@ -12,10 +11,10 @@
  * the 2D grid.
  *
  * APPROACH:
- * 1. Flatten the 2D grid into a 1D array by reading row by row
- * 2. Calculate effective shifts: k % total_elements (to handle k > total elements)
- * 3. Rotate the 1D array by k positions to the right
- * 4. Reconstruct the 2D grid from the rotated 1D array
+
+
+
+
  *
  * WHY THIS WORKS:
  * Shifting in a 2D grid is equivalent to rotating a flattened 1D array. When an element

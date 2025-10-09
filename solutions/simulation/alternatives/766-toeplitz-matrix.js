@@ -1,6 +1,5 @@
 /**
- * 766. Toeplitz Matrix
- * Easy
+
  *
  * This problem demonstrates key concepts in Simulation.
  *
@@ -12,10 +11,10 @@
  * element at position (row-1, col-1).
  *
  * APPROACH:
- * 1. Iterate through the matrix starting from position (1, 1)
- * 2. For each element, compare it with the element diagonally above-left (row-1, col-1)
- * 3. If any element doesn't match its diagonal predecessor, return false
- * 4. If all elements match their diagonal predecessors, return true
+
+
+
+
  *
  * WHY THIS WORKS:
  * In a Toeplitz matrix, all elements on the same diagonal have the same value. By checking
