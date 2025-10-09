@@ -1,42 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Trie.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * A Trie (prefix tree) is a tree-based data structure for storing strings efficiently.
- * Each node represents a character, and paths from root to nodes form words.
- * This allows for O(m) search, insert, and prefix matching where m is the key length.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Each character maps to exactly one child node per level
- * - isEndOfWord distinguishes complete words from prefixes
- * - Map-based children allow O(1) character lookup
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(m) for all operations where m is word/prefix length
- * SPACE COMPLEXITY: O(n*m) where n is number of words, m is average word length
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Trie trie = new Trie();
- * trie.insert("apple");  // root -> a -> p -> p -> l -> e (isEnd=true)
- * trie.search("apple");  // returns true (found path, isEnd=true)
- * trie.search("app");    // returns false (found path, but isEnd=false)
- * trie.startsWith("app"); // returns true (found path)
+ * [example input]
  * ```
  *
- * EDGE CASES:
- * - Empty string handling
- * - Single character words
- * - Words that are prefixes of other words
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

@@ -1,49 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Trie.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * A folder is a sub-folder if another folder path is its prefix.
- * Using a Trie, we can efficiently detect parent-child relationships between paths.
- * When inserting paths, if we encounter an existing folder end marker before reaching
- * the end of current path, it's a sub-folder.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Sorting ensures we process parent folders first
- * - Trie structure naturally represents folder hierarchy
- * - isFolder flag at each node identifies complete folder paths
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n * m * log n) where n = number of folders, m = average path length
- *                  Sorting: O(n log n), Trie operations: O(n * m)
- * SPACE COMPLEXITY: O(n * m) for Trie storage
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: ["/a","/a/b","/c/d","/c/d/e","/c/f"]
- * After sorting: ["/a","/a/b","/c/d","/c/d/e","/c/f"]
- * Process "/a": Insert -> ["a"] (isFolder=true)
- * Process "/a/b": Found parent "/a" is folder -> Skip (sub-folder)
- * Process "/c/d": Insert -> ["c","d"] (isFolder=true)
- * Process "/c/d/e": Found parent "/c/d" is folder -> Skip (sub-folder)
- * Process "/c/f": Insert -> ["c","f"] (isFolder=true)
- * Output: ["/a","/c/d","/c/f"]
+ * [example input]
  * ```
  *
- * EDGE CASES:
- * - Root folder "/" handling
- * - Folders with similar prefixes but different paths ("/a/b" vs "/a/bc")
- * - Single folder
- * - No sub-folders present
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 class TrieNode {

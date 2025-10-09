@@ -1,50 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Trie.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Finding multiple words on a board is inefficient if we search for each word separately.
- * A Trie allows us to search for all words simultaneously by traversing the board once,
- * matching characters against the Trie structure.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Trie allows simultaneous search for all words
- * - Shared prefixes mean less work (traverse common paths once)
- * - Pruning found words prevents duplicates and improves performance
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(m*n*4^L) where m,n are board dimensions, L is max word length
- *                  Building Trie: O(k*w) where k = words count, w = avg word length
- * SPACE COMPLEXITY: O(k*w) for Trie storage
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * board = [["o","a","a","n"],
- *          ["e","t","a","e"],
- *          ["i","h","k","r"],
- *          ["i","f","l","v"]]
- * words = ["oath","pea","eat","rain"]
- * Build Trie with all words
- * DFS from each cell, matching against Trie
- * Found: "oath" starting from (0,0), "eat" starting from (1,0)
- * Output: ["oath","eat"]
+ * [example input]
  * ```
  *
- * EDGE CASES:
- * - Duplicate words in input (should return once)
- * - No words found
- * - Single cell board
- * - Words that are prefixes of other words
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 class TrieNode {

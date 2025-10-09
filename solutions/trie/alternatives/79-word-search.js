@@ -1,46 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Trie (but can also be solved with backtracking).
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Search for a word in a 2D board by exploring all paths. Starting from each cell,
- * we can move in 4 directions to match subsequent characters.
- * While this can use Trie for optimization, backtracking DFS is more straightforward.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - DFS explores all possible paths from each starting point
- * - Backtracking ensures we don't revisit cells in same path
- * - Early termination when character doesn't match
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(m*n*4^L) where m,n are board dimensions, L is word length
- *                  Worst case: explore all cells and all 4 directions for word length
- * SPACE COMPLEXITY: O(L) for recursion stack
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * board = [["A","B","C","E"],
- *          ["S","F","C","S"],
- *          ["A","D","E","E"]]
- * word = "ABCCED"
- * Start at (0,0) 'A' -> right (0,1) 'B' -> right (0,2) 'C' -> down (1,2) 'C' ->
- * down (2,2) 'E' -> right (2,3) 'D' -> Found!
+ * [example input]
  * ```
  *
- * EDGE CASES:
- * - Word longer than total board cells
- * - Word not present in board
- * - Single cell board
- * - Word requires visiting same area multiple times (different paths)
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

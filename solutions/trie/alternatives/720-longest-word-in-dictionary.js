@@ -1,44 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Trie.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * A word can be built one character at a time from other words if all its prefixes exist.
- * Using a Trie, we can efficiently check if all prefixes of a word exist in the dictionary.
- * The longest word that satisfies this property is our answer.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Trie naturally stores prefix relationships
- * - A word is valid only if every prefix from length 1 to n-1 is also a word
- * - DFS ensures we find the longest valid path
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n*m) where n = number of words, m = average word length
- * SPACE COMPLEXITY: O(n*m) for Trie storage
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: ["w","wo","wor","worl","world"]
- * Build Trie:
- *   root -> w(end) -> o(end) -> r(end) -> l(end) -> d(end)
- * Check "world": all prefixes "w","wo","wor","worl" exist -> valid
- * Check other words: shorter than "world"
- * Output: "world"
+ * [example input]
  * ```
  *
- * EDGE CASES:
- * - Multiple words with same length (choose lexicographically smallest)
- * - Single character words
- * - Empty word list
- * - Words that cannot be built incrementally
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 class TrieNode {
