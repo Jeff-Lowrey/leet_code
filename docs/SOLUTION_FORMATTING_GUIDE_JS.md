@@ -2,11 +2,31 @@
 
 This guide explains the standard format for JavaScript LeetCode solution files in this repository.
 
+## Table of Contents
+1. [Template Location](#template-location)
+2. [Key Formatting Rules](#key-formatting-rules)
+   - 2.1. [JSDoc Comment Structure](#1-jsdoc-comment-structure)
+   - 2.2. [Example Section Format](#2-example-section-format)
+   - 2.3. [Solution Explanation Sections](#3-solution-explanation-sections)
+   - 2.4. [Code Structure](#4-code-structure)
+   - 2.5. [Test Cases](#5-test-cases)
+   - 2.6. [Module Exports](#6-module-exports)
+3. [Visual Styling Notes](#visual-styling-notes)
+4. [JavaScript-Specific Conventions](#javascript-specific-conventions)
+5. [Best Practices](#best-practices)
+6. [Example: Two Sum in JavaScript](#example-two-sum-in-javascript)
+7. [Migration from Old Format](#migration-from-old-format)
+8. [File Naming Convention](#file-naming-convention)
+9. [Testing Your Solution](#testing-your-solution)
+10. [Additional Resources](#additional-resources)
+
 ## Template Location
+[↑ Back to Table of Contents](#table-of-contents)
 
 Use `SOLUTION_TEMPLATE.js` as the starting point for new solutions.
 
 ## Key Formatting Rules
+[↑ Back to Table of Contents](#table-of-contents)
 
 ### 1. JSDoc Comment Structure
 
@@ -190,6 +210,7 @@ if (typeof module !== 'undefined' && module.exports) {
 This allows the solution to be imported in other files or test runners.
 
 ## Visual Styling Notes
+[↑ Back to Table of Contents](#table-of-contents)
 
 When rendered on the web interface:
 
@@ -201,6 +222,8 @@ When rendered on the web interface:
 6. **Code blocks** - Monospace font, 2px border, padding, shadow
 
 ## JavaScript-Specific Conventions
+[↑ Back to Table of Contents](#table-of-contents)
+
 
 ### Variable Naming
 - Use camelCase for variables and functions
@@ -234,6 +257,8 @@ Use modern JavaScript array methods:
 - Template literals: `` `Result: ${value}` ``
 
 ## Best Practices
+[↑ Back to Table of Contents](#table-of-contents)
+
 
 1. ✅ Use `const` by default, `let` when reassignment is needed
 2. ✅ Avoid `var` - use `let` or `const` instead
@@ -249,6 +274,8 @@ Use modern JavaScript array methods:
 12. ❌ Don't skip required sections (INTUITION, APPROACH, etc.)
 
 ## Example: Two Sum in JavaScript
+[↑ Back to Table of Contents](#table-of-contents)
+
 
 ```javascript
 /**
@@ -324,6 +351,8 @@ class Solution {
 ```
 
 ## Migration from Old Format
+[↑ Back to Table of Contents](#table-of-contents)
+
 
 If converting from the old code block format:
 
@@ -353,6 +382,8 @@ Explanation: Because nums[0] + nums[1] == 9, we return [0, 1]
 ```
 
 ## File Naming Convention
+[↑ Back to Table of Contents](#table-of-contents)
+
 
 JavaScript solution files should follow the pattern:
 ```
@@ -365,6 +396,8 @@ Example:
 - `003-longest-substring-without-repeating-characters.js`
 
 ## Testing Your Solution
+[↑ Back to Table of Contents](#table-of-contents)
+
 
 Run your solution with:
 ```bash
@@ -374,6 +407,8 @@ node solutions/category-name/001-problem-name.js
 This will execute the `runTests()` function and display results.
 
 ## Additional Resources
+[↑ Back to Table of Contents](#table-of-contents)
+
 
 - See Python formatting guide: `SOLUTION_FORMATTING_GUIDE.md`
 - JavaScript template: `SOLUTION_TEMPLATE.js`

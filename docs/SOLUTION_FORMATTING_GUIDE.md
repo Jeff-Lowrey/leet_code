@@ -2,11 +2,27 @@
 
 This guide explains the standard format for LeetCode solution files in this repository.
 
+## Table of Contents
+1. [Template Location](#template-location)
+2. [Key Formatting Rules](#key-formatting-rules)
+   - 2.1. [Module Docstring Structure](#1-module-docstring-structure)
+   - 2.2. [Example Section Format](#2-example-section-format)
+   - 2.3. [Solution Explanation Sections](#3-solution-explanation-sections)
+   - 2.4. [Code Structure](#4-code-structure)
+   - 2.5. [Test Cases](#5-test-cases)
+3. [Visual Styling Notes](#visual-styling-notes)
+4. [Categories and Colors](#categories-and-colors)
+5. [Best Practices](#best-practices)
+6. [Migration from Old Format](#migration-from-old-format)
+7. [Reference Implementation](#reference-implementation)
+
 ## Template Location
+[↑ Back to Table of Contents](#table-of-contents)
 
 Use `SOLUTION_TEMPLATE.py` as the starting point for new solutions.
 
 ## Key Formatting Rules
+[↑ Back to Table of Contents](#table-of-contents)
 
 ### 1. Module Docstring Structure
 
@@ -128,6 +144,7 @@ if __name__ == "__main__":
 ```
 
 ## Visual Styling Notes
+[↑ Back to Table of Contents](#table-of-contents)
 
 When rendered on the web interface:
 
@@ -139,6 +156,7 @@ When rendered on the web interface:
 6. **Code blocks** - Monospace font, 2px border, padding, shadow
 
 ## Categories and Colors
+[↑ Back to Table of Contents](#table-of-contents)
 
 Each category has a distinct color applied to:
 - Page title
@@ -153,6 +171,7 @@ Example colors:
 - graphs: burgundy (#c96680)
 
 ## Best Practices
+[↑ Back to Table of Contents](#table-of-contents)
 
 1. ✅ Keep INTUITION section brief - the key insight only
 2. ✅ Write APPROACH as flowing prose, not numbered lists
@@ -165,6 +184,7 @@ Example colors:
 9. ❌ Don't skip required sections (INTUITION, APPROACH, etc.)
 
 ## Migration from Old Format
+[↑ Back to Table of Contents](#table-of-contents)
 
 If converting from the old code block format:
 
@@ -194,5 +214,6 @@ Explanation: Because nums[0] + nums[1] == 9, we return [0, 1]
 ```
 
 ## Reference Implementation
+[↑ Back to Table of Contents](#table-of-contents)
 
 See `solutions/arrays-hashing/001-two-sum.py` for a complete, correctly formatted example.
