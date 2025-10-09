@@ -1,6 +1,5 @@
 /**
- * 207. Course Schedule
- * Medium
+
  *
  * This problem demonstrates key concepts in Topological Sort.
  *
