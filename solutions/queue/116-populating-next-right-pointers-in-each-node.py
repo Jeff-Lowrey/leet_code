@@ -1,7 +1,6 @@
 """
 # 116. Populating Next Right Pointers in Each Node
-**Medium**
-
+# Difficulty: Medium
 You are given a perfect binary tree where all leaves are on the same level, and every parent has two children.
 Populate each next pointer to point to its next right node. If there is no next right node, the next pointer should be set to NULL.
 
@@ -65,7 +64,6 @@ Using the next pointers established at level i to connect level i+1 without a qu
 
 from collections import deque
 
-
 class Node:
     """Definition for a Node with next pointer."""
 
@@ -74,7 +72,6 @@ class Node:
         self.left = left
         self.right = right
         self.next = next
-
 
 class Solution:
     def connect(self, root: Node | None) -> Node | None:
@@ -147,7 +144,6 @@ class Solution:
 
         return root
 
-
 def print_levels_with_next(root: Node | None) -> None:
     """Helper function to print tree levels with next pointers."""
     if not root:
@@ -168,7 +164,6 @@ def print_levels_with_next(root: Node | None) -> None:
         print(" -> NULL")
         current = current.left
         level += 1
-
 
 def test_solution():
     """Test cases for Problem 116."""
@@ -226,7 +221,6 @@ def test_solution():
     print("Test case 4 passed!\n")
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

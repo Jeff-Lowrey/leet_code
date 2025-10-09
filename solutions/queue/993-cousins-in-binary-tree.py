@@ -1,7 +1,6 @@
 """
 # 993. Cousins in Binary Tree
-**Easy**
-
+# Difficulty: Easy
 Given the root of a binary tree with unique values and the values of two different nodes x and y,
 return true if the nodes corresponding to the values x and y are cousins, or false otherwise.
 
@@ -71,7 +70,6 @@ x=2, y=3:
 
 from collections import deque
 
-
 class TreeNode:
     """Definition for a binary tree node."""
 
@@ -79,7 +77,6 @@ class TreeNode:
         self.val = val
         self.left = left
         self.right = right
-
 
 class Solution:
     def isCousins(self, root: TreeNode | None, x: int, y: int) -> bool:
@@ -160,7 +157,6 @@ class Solution:
         y_parent, y_depth = y_info
 
         return x_depth == y_depth and x_parent != y_parent
-
 
 def test_solution():
     """Test cases for Problem 993."""
@@ -250,7 +246,6 @@ def test_solution():
     print("Test case 7 passed: Single node")
 
     print("\nAll test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

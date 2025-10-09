@@ -1,7 +1,6 @@
 """
 # 515. Find Largest Value in Each Tree Row
-**Medium**
-
+# Difficulty: Medium
 Given the root of a binary tree, return an array of the largest value in each row of the tree (0-indexed).
 
 <details>
@@ -64,7 +63,6 @@ Result: [1, 3, 9]
 
 from collections import deque
 
-
 class TreeNode:
     """Definition for a binary tree node."""
 
@@ -72,7 +70,6 @@ class TreeNode:
         self.val = val
         self.left = left
         self.right = right
-
 
 class Solution:
     def largestValues(self, root: TreeNode | None) -> list[int]:
@@ -139,7 +136,6 @@ class Solution:
 
         dfs(root, 0)
         return result
-
 
 def test_solution():
     """Test cases for Problem 515."""
@@ -213,7 +209,6 @@ def test_solution():
     print("Test case 6 passed: Complete binary tree")
 
     print("\nAll test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

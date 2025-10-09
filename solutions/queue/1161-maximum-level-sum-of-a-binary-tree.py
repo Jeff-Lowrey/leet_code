@@ -1,7 +1,6 @@
 """
 # 1161. Maximum Level Sum of a Binary Tree
-**Medium**
-
+# Difficulty: Medium
 Given the root of a binary tree, the level of its root is 1, the level of its children is 2, and so on.
 Return the smallest level x such that the sum of all the values of nodes at level x is maximal.
 
@@ -62,7 +61,6 @@ Result: 2
 
 from collections import deque
 
-
 class TreeNode:
     """Definition for a binary tree node."""
 
@@ -70,7 +68,6 @@ class TreeNode:
         self.val = val
         self.left = left
         self.right = right
-
 
 class Solution:
     def maxLevelSum(self, root: TreeNode | None) -> int:
@@ -118,7 +115,6 @@ class Solution:
             current_level += 1
 
         return max_level
-
 
 def test_solution():
     """Test cases for Problem 1161."""
@@ -197,7 +193,6 @@ def test_solution():
     print("Test case 6 passed: Right-skewed tree")
 
     print("\nAll test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

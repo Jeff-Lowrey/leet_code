@@ -1,7 +1,6 @@
 """
 # 199. Binary Tree Right Side View
-**Medium**
-
+# Difficulty: Medium
 Given the root of a binary tree, imagine yourself standing on the right side of it,
 return the values of the nodes you can see ordered from top to bottom.
 
@@ -62,7 +61,6 @@ Result: [1, 3, 4]
 
 from collections import deque
 
-
 class TreeNode:
     """Definition for a binary tree node."""
 
@@ -70,7 +68,6 @@ class TreeNode:
         self.val = val
         self.left = left
         self.right = right
-
 
 class Solution:
     def rightSideView(self, root: TreeNode | None) -> list[int]:
@@ -134,7 +131,6 @@ class Solution:
 
         dfs(root, 0)
         return result
-
 
 def test_solution():
     """Test cases for Problem 199."""
@@ -209,7 +205,6 @@ def test_solution():
     print("Test case 6 passed: Complex tree")
 
     print("\\nAll test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

@@ -1,7 +1,6 @@
 """
 # 637. Average of Levels in Binary Tree
-**Easy**
-
+# Difficulty: Easy
 Given the root of a binary tree, return the average value of the nodes on each level in the form of an array.
 
 <details>
@@ -61,7 +60,6 @@ Result: [3.0, 14.5, 11.0]
 
 from collections import deque
 
-
 class TreeNode:
     """Definition for a binary tree node."""
 
@@ -69,7 +67,6 @@ class TreeNode:
         self.val = val
         self.left = left
         self.right = right
-
 
 class Solution:
     def averageOfLevels(self, root: TreeNode | None) -> list[float]:
@@ -110,7 +107,6 @@ class Solution:
             result.append(level_sum / level_size)
 
         return result
-
 
 def test_solution():
     """Test cases for Problem 637."""
@@ -203,7 +199,6 @@ def test_solution():
     print("Test case 7 passed: Large values")
 
     print("\nAll test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

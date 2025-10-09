@@ -1,7 +1,6 @@
 """
 # 107. Binary Tree Level Order Traversal II
-**Medium**
-
+# Difficulty: Medium
 Given the root of a binary tree, return the bottom-up level order traversal of its nodes' values.
 (i.e., from left to right, level by level from leaf to root).
 
@@ -58,7 +57,6 @@ Bottom-up: [[15, 7], [9, 20], [3]]
 
 from collections import deque
 
-
 class TreeNode:
     """Definition for a binary tree node."""
 
@@ -66,7 +64,6 @@ class TreeNode:
         self.val = val
         self.left = left
         self.right = right
-
 
 class Solution:
     def levelOrderBottom(self, root: TreeNode | None) -> list[list[int]]:
@@ -107,7 +104,6 @@ class Solution:
 
         # Reverse to get bottom-up order
         return result[::-1]
-
 
 def test_solution():
     """Test cases for Problem 107."""
@@ -163,7 +159,6 @@ def test_solution():
     print("Test case 5 passed: Complete binary tree")
 
     print("\nAll test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

@@ -1,7 +1,6 @@
 """
 # 103. Binary Tree Zigzag Level Order Traversal
-**Medium**
-
+# Difficulty: Medium
 Given the root of a binary tree, return the zigzag level order traversal of its nodes' values.
 (i.e., from left to right, then right to left for the next level and alternate between).
 
@@ -60,7 +59,6 @@ Result: [[3], [20, 9], [15, 7]]
 
 from collections import deque
 
-
 class TreeNode:
     """Definition for a binary tree node."""
 
@@ -68,7 +66,6 @@ class TreeNode:
         self.val = val
         self.left = left
         self.right = right
-
 
 class Solution:
     def zigzagLevelOrder(self, root: TreeNode | None) -> list[list[int]]:
@@ -114,7 +111,6 @@ class Solution:
             left_to_right = not left_to_right
 
         return result
-
 
 def test_solution():
     """Test cases for Problem 103."""
@@ -175,7 +171,6 @@ def test_solution():
     print("Test case 5 passed: Complete binary tree")
 
     print("\nAll test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

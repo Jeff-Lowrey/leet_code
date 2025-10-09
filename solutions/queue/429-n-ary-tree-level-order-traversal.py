@@ -1,7 +1,6 @@
 """
 # 429. N-ary Tree Level Order Traversal
-**Medium**
-
+# Difficulty: Medium
 Given an n-ary tree, return the level order traversal of its nodes' values.
 
 <details>
@@ -60,14 +59,12 @@ Result: [[1], [3, 2, 4], [5, 6]]
 
 from collections import deque
 
-
 class Node:
     """Definition for a N-ary tree node."""
 
     def __init__(self, val=None, children=None):
         self.val = val
         self.children = children if children is not None else []
-
 
 class Solution:
     def levelOrder(self, root: Node | None) -> list[list[int]]:
@@ -105,7 +102,6 @@ class Solution:
             result.append(level_values)
 
         return result
-
 
 def test_solution():
     """Test cases for Problem 429."""
@@ -183,7 +179,6 @@ def test_solution():
     print("Test case 6 passed: Complex multi-level tree")
 
     print("\nAll test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

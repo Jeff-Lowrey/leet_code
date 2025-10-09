@@ -1,7 +1,6 @@
 """
 346. Moving Average from Data Stream
-Easy
-
+# Difficulty: Easy
 Given a stream of integers and a window size, calculate the moving average of all integers in the sliding window.
 
 Implement the `MovingAverage` class:
@@ -48,7 +47,6 @@ next(5): queue=[10,3,5], avg=6.0 (removed 1)
 
 from collections import deque
 
-
 class MovingAverage:
     def __init__(self, size: int):
         """
@@ -74,7 +72,6 @@ class MovingAverage:
             self.window_sum -= self.queue.popleft()
 
         return self.window_sum / len(self.queue)
-
 
 # Test cases
 if __name__ == "__main__":
