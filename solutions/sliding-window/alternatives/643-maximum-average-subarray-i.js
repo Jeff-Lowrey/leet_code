@@ -1,44 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Sliding Window.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Find the contiguous subarray of length k with the maximum average.
- * Use a fixed-size sliding window to track the sum efficiently.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Average of k elements = sum / k
- * - To maximize average, we need to maximize sum
- * - Fixed window of size k slides through array
- * - For each slide: subtract left element, add right element
- * - Track maximum sum found, convert to average at end
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n) - single pass through array
- * SPACE COMPLEXITY: O(1) - only using a few variables
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: nums = [1,12,-5,-6,50,3], k = 4
- * Step 1: Window [1,12,-5,-6], sum=2, maxSum=2
- * Step 2: Window [12,-5,-6,50], sum=51, maxSum=51
- * Step 3: Window [-5,-6,50,3], sum=42, maxSum=51
- * Output: 51/4 = 12.75
+ * [example input]
  * ```
  *
- * EDGE CASES:
- * - k equals array length: return average of entire array
- * - All negative numbers: still find maximum average
- * - Single element (k=1): return that element
- * - All elements same: return that value
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

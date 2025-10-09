@@ -1,47 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Sliding Window.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Find the longest substring where we can replace at most k characters to make all characters the same.
- * Use a sliding window with character frequency tracking and check if replacements needed <= k.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Window is valid if: windowLength - maxFrequency <= k
- * - maxFrequency is the count of the most frequent character in window
- * - Characters to replace = total characters - most frequent character
- * - Expand window when valid, contract when invalid
- * - We don't need to decrease maxFreq when shrinking (optimization)
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n) - single pass through string
- * SPACE COMPLEXITY: O(26) = O(1) - at most 26 uppercase letters
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: s = "AABABBA", k = 1
- * Step 1: window="A", maxFreq=1, replacements=0, valid
- * Step 2: window="AA", maxFreq=2, replacements=0, valid
- * Step 3: window="AAB", maxFreq=2, replacements=1, valid, length=3
- * Step 4: window="AABA", maxFreq=3, replacements=1, valid, length=4
- * Step 5: window="AABAB", maxFreq=3, replacements=2, invalid, shrink
- * Step 6: Continue process
- * Output: 4
+ * [example input]
  * ```
  *
- * EDGE CASES:
- * - Empty string: return 0
- * - k = 0: find longest substring of same characters
- * - k >= length-1: return length (can make entire string same)
- * - All same characters: return length
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

@@ -1,46 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Sliding Window.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Find all starting indices where a permutation (anagram) of p exists in s.
- * Use a fixed-size sliding window with character frequency comparison.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Anagrams have same character frequencies
- * - Use fixed window of size p.length
- * - Track how many unique characters have matching frequencies
- * - When all characters match, we found an anagram
- * - Slide window one position at a time
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n) where n is length of s
- * SPACE COMPLEXITY: O(1) - at most 26 lowercase letters
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: s = "cbaebabacd", p = "abc"
- * Step 1: Build frequency map for p: {a:1, b:1, c:1}
- * Step 2: Window "cba" -> frequencies match -> index 0
- * Step 3: Slide to "bae" -> no match
- * Step 4: Continue sliding
- * Step 5: Window "bac" -> frequencies match -> index 6
- * Output: [0, 6]
+ * [example input]
  * ```
  *
- * EDGE CASES:
- * - p longer than s: return []
- * - Empty s or p: return []
- * - s equals p: return [0]
- * - No anagrams found: return []
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

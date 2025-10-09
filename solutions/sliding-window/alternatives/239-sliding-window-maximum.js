@@ -1,47 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Sliding Window.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Find the maximum value in each sliding window of size k.
- * Use a deque (double-ended queue) to maintain potential maximums in decreasing order.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Deque front always contains index of maximum element in current window
- * - Remove indices outside current window from front
- * - Remove indices of smaller elements from back (they can never be max)
- * - This maintains a monotonically decreasing deque
- * - Each element is added and removed at most once: O(n) time
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n) - each element added and removed from deque once
- * SPACE COMPLEXITY: O(k) - deque stores at most k elements
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: nums = [1,3,-1,-3,5,3,6,7], k = 3
- * Window [1,3,-1]: deque=[1(idx 0),0(idx 1)], max=3
- * Window [3,-1,-3]: deque=[1], max=3
- * Window [-1,-3,5]: deque=[4], max=5
- * Window [-3,5,3]: deque=[4,5], max=5
- * Window [5,3,6]: deque=[6], max=6
- * Window [3,6,7]: deque=[7], max=7
- * Output: [3,3,5,5,6,7]
+ * [example input]
  * ```
  *
- * EDGE CASES:
- * - Empty array: return []
- * - k = 1: each element is its own maximum
- * - k >= array length: return max of entire array
- * - All elements same: return array of that element
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

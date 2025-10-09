@@ -1,45 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Sliding Window.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * The key insight is to use a sliding window with a hash map to track characters.
- * We expand the window when characters are unique and shrink it when duplicates appear.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - The sliding window expands by moving right pointer
- * - When duplicate found, left pointer jumps to position after last occurrence
- * - Map stores the most recent index of each character for O(1) lookup
- * - We track maximum length throughout the process
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n) - single pass through string
- * SPACE COMPLEXITY: O(min(n, m)) where m is charset size (at most 128 for ASCII)
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: s = "abcabcbb"
- * Step 1: left=0, right=0, char='a', map={'a':0}, maxLen=1
- * Step 2: left=0, right=1, char='b', map={'a':0,'b':1}, maxLen=2
- * Step 3: left=0, right=2, char='c', map={'a':0,'b':1,'c':2}, maxLen=3
- * Step 4: left=1, right=3, char='a' (duplicate), left moves to 1, maxLen=3
- * Step 5: Continue until right=7, maxLen remains 3
- * Output: 3
+ * [example input]
  * ```
  *
- * EDGE CASES:
- * - Empty string: return 0
- * - Single character: return 1
- * - All unique characters: return string length
- * - All same characters: return 1
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**
