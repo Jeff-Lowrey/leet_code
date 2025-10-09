@@ -1,35 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Sorting.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Return all cells in a matrix sorted by their Manhattan distance from a given cell (r0, c0).
- * The Manhattan distance between (r1, c1) and (r2, c2) is |r1 - r2| + |c1 - c2|.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * Generate all cells in the matrix, then sort them by their Manhattan distance from (r0, c0).
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * By calculating the distance for each cell and sorting, we get cells ordered by proximity
- * to the starting cell. The custom comparator ensures proper ordering.
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(rows * cols * log(rows * cols))
- * SPACE COMPLEXITY: O(rows * cols) for storing all cells
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
- * Input: rows = 2, cols = 2, rCenter = 0, cCenter = 1
- * Step 1: Generate cells: [[0,0], [0,1], [1,0], [1,1]]
- * Step 2: Calculate distances from [0,1]: [1, 0, 2, 1]
- * Step 3: Sort by distance: [[0,1], [0,0], [1,1], [1,0]]
- * Output: [[0,1], [0,0], [1,1], [1,0]]
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
  *
- * EDGE CASES:
- * - Single cell matrix: returns [[0,0]]
- * - Center at corner: properly orders from corner outward
- * - Large matrices: efficient with sorting algorithm
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * [example input]
+ * ```
+ *
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

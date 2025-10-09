@@ -1,48 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Sorting.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Unlike Wiggle Sort I, this version requires STRICT inequality: nums[0] < nums[1] > nums[2] < nums[3].
- * We need to avoid adjacent equal elements. The key insight is to sort the array and then
- * interleave the smaller half with the larger half in a specific pattern.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * By placing elements from the end of each half in reverse order, we maximize the
- * distance between potential duplicates. This ensures that even if there are duplicates,
- * they won't be adjacent in the final arrangement.
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n log n) for sorting
- * SPACE COMPLEXITY: O(n) for the temporary array
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
- * Input: nums = [1,5,1,1,6,4]
- * Step 1: Sort: [1,1,1,4,5,6]
- * Step 2: Split into halves:
- *   smaller: [1,1,1] (indices 0-2)
- *   larger:  [4,5,6] (indices 3-5)
- * Step 3: Interleave from the end:
- *   Position 0: smaller[2] = 1
- *   Position 1: larger[2] = 6
- *   Position 2: smaller[1] = 1
- *   Position 3: larger[1] = 5
- *   Position 4: smaller[0] = 1
- *   Position 5: larger[0] = 4
- * Output: [1,6,1,5,1,4] (satisfies nums[0] < nums[1] > nums[2] < nums[3]...)
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
  *
- * EDGE CASES:
- * - Two elements: simple case
- * - Many duplicates: placing from end helps separate them
- * - Odd/even length arrays: handled by proper half calculation
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * [example input]
+ * ```
+ *
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

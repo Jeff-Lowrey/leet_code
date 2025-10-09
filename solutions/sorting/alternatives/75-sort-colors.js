@@ -1,46 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Sorting.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Sort an array containing only 0s, 1s, and 2s (representing red, white, and blue).
- * The classic Dutch National Flag problem. We use three pointers to partition the
- * array into three sections: all 0s, all 1s, and all 2s.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * The left pointer tracks where the next 0 should go, and the right pointer tracks
- * where the next 2 should go. By swapping elements to their correct regions and
- * maintaining these invariants, we sort the array in a single pass.
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n) - single pass through the array
- * SPACE COMPLEXITY: O(1) - in-place sorting with only a few pointers
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
- * Input: nums = [2,0,2,1,1,0]
- * Initial: left=0, current=0, right=5
- * Step 1: nums[0]=2, swap with nums[5], nums=[0,0,2,1,1,2], right=4
- * Step 2: nums[0]=0, swap with nums[0] (no change), left=1, current=1
- * Step 3: nums[1]=0, swap with nums[1] (no change), left=2, current=2
- * Step 4: nums[2]=2, swap with nums[4], nums=[0,0,1,1,2,2], right=3
- * Step 5: nums[2]=1, current=3
- * Step 6: nums[3]=1, current=4
- * Step 7: current > right, done
- * Output: [0,0,1,1,2,2]
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
  *
- * EDGE CASES:
- * - All same color: already sorted
- * - Already sorted: no swaps needed
- * - Reverse sorted: maximum swaps
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * [example input]
+ * ```
+ *
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

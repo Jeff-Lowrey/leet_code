@@ -1,43 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Sorting.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Count how many students are not standing in the correct position when compared
- * to the sorted order of heights. We need to find indices where the original array
- * differs from the sorted array.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * By comparing the original array with its sorted version, we can identify
- * exactly which students are out of place. The count gives us the answer.
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n log n) for sorting
- * SPACE COMPLEXITY: O(n) for the sorted copy
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
- * Input: heights = [1,1,4,2,1,3]
- * Step 1: Create sorted: [1,1,1,2,3,4]
- * Step 2: Compare positions:
- *   - Index 0: 1 == 1 ✓
- *   - Index 1: 1 == 1 ✓
- *   - Index 2: 4 != 1 ✗
- *   - Index 3: 2 == 2 ✓
- *   - Index 4: 1 != 3 ✗
- *   - Index 5: 3 != 4 ✗
- * Output: 3 (three students are not in correct position)
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
  *
- * EDGE CASES:
- * - Already sorted array: returns 0
- * - All same heights: returns 0
- * - Reverse sorted: returns n (all out of place)
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * [example input]
+ * ```
+ *
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**
