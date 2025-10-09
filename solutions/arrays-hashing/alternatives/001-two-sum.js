@@ -6,6 +6,8 @@
  * You may assume that each input would have exactly one solution, and you may
  * not use the same element twice.
  *
+ * **Example:**
+ *
  * <dl class="example-details">
  * <dt>Input:</dt>
  * <dd>nums = [2,7,11,15], target = 9</dd>
