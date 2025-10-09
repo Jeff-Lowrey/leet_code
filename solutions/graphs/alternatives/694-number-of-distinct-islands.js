@@ -1,39 +1,50 @@
 /**
- * 694. Number Of Distinct Islands
- * Medium
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Graphs.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Count islands with unique shapes. Two islands are distinct if one cannot be
- * translated to match the other. Use path encoding during DFS to capture shape.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. For each island, perform DFS and record the path (sequence of directions)
- * 2. Normalize the path by making it relative to the starting position
- * 3. Use a Set to store unique island signatures
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Path encoding captures the relative shape of each island
- * - Normalization ensures translation-invariant comparison
- * - Set automatically handles duplicate shapes
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(m * n) - visit each cell once
- * SPACE COMPLEXITY: O(m * n) - path strings and recursion stack
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
- * Grid: [[1,1,0],[0,1,1],[0,0,0],[1,1,1],[0,1,0]]
- * Island 1: path "o,r,d" (origin, right, down) - L shape
- * Island 2: path "o,r,r" (origin, right, right) - line
- * Result: 2 distinct shapes
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
  *
- * EDGE CASES:
- * - Empty grid
- * - Single cell islands
- * - Identical vs rotated islands (only translation considered)
- * - All water or all land
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * [example input]
+ * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

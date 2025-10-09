@@ -1,12 +1,24 @@
 """
+# Difficulty: Hard
+
 # 827. Making A Large Island
-**Hard**
 
 You are given an n x n binary matrix grid. You are allowed to change at most one 0 to a 1.
 
 Return the size of the largest island in grid after applying this operation.
 
 An island is a group of 1's connected 4-directionally (horizontal or vertical). If there is no 0 to change, return the area of the whole grid.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -26,12 +38,6 @@ This problem extends island finding by allowing us to change one 0 to 1 to maxim
 - Sum of connected island sizes + 1 (the flipped cell) gives new island size
 - Handle edge case where grid is already all 1's
 
-### TIME COMPLEXITY: O(N²)
-Where N is grid dimension - two passes through the grid
-
-### SPACE COMPLEXITY: O(N²)
-For island labeling and size storage
-
 ### EXAMPLE WALKTHROUGH:
 ```
 Grid: [[1,0],[0,1]]
@@ -48,11 +54,17 @@ Flip (1,0): neighbors are [2,3] → new size = 1 + 1 + 1 = 3
 Maximum possible island size: 3
 ```
 
-### KEY INSIGHTS:
-- Use DFS to label and size islands in first pass
-- For each 0, check unique neighboring island IDs
-- Handle duplicate islands when calculating merged size
-- Consider case where entire grid is already land
+### TIME COMPLEXITY:
+O(N²)
+Where N is grid dimension - two passes through the grid
+
+### SPACE COMPLEXITY:
+O(N²)
+For island labeling and size storage
+
+### EDGE CASES:
+- **[Edge case 1]:** [how it's handled]
+- **[Edge case 2]:** [how it's handled]
 
 </details>
 """
@@ -206,7 +218,6 @@ class Solution:
 
         return max_size if max_size > 0 else 1
 
-
 def test_solution():
     """Test cases for Problem 827."""
     solution = Solution()
@@ -230,7 +241,6 @@ def test_solution():
     assert result3 == expected3, f"Expected {expected3}, got {result3}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

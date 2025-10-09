@@ -1,48 +1,50 @@
 /**
- * 300. Longest Increasing Subsequence
- * Medium
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Dynamic Programming.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * For each position i, we need to find the length of the longest increasing subsequence
- * ending at position i. We can build this by checking all previous elements and
- * extending the best subsequence that ends with a smaller value.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply dynamic programming methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - The solution leverages dynamic programming principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n²) for DP approach, O(n log n) for binary search approach
- * SPACE COMPLEXITY: O(n)
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
-Input: [10,9,2,5,3,7,101,18]
-dp[0] = 1 (10)
-dp[1] = 1 (9)
-dp[2] = 1 (2)
-dp[3] = 2 (2,5)
-dp[4] = 2 (2,3)
-dp[5] = 3 (2,3,7 or 2,5,7)
-dp[6] = 4 (2,3,7,101 or 2,5,7,101)
-dp[7] = 4 (2,3,7,18)
-Output: 4
-```
+ * [example input]
+ * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * EDGE CASES:
- * - Empty input handling
-- Single element cases
-- Large input considerations
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

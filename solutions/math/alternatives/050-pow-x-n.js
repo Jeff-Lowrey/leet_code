@@ -1,50 +1,50 @@
 /**
- * 050. Pow X N
- * Medium
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Math.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Naive approach of multiplying x by itself `n` times is O(n). We can do better
-using **binary exponentiation** - repeatedly squaring and halving the exponent.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. **Handle negative exponents**: Convert to positive and invert result
- * 2. **Binary exponentiation**: Use bits of n to determine which powers to multiply
- * 3. **Iterative squaring**: Square base and halve exponent each iteration
- * 4. **Accumulate result**: Multiply result when exponent bit is 1
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Any exponent can be represented as sum of powers of 2 (binary representation)
- * - x^n = x^(2^a + 2^b + ...) = x^(2^a) * x^(2^b) * ...
- * - Each power of 2 can be computed by repeated squaring
- * - Reduces O(n) multiplications to O(log n)
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(log n)
- * SPACE COMPLEXITY: O(log n) recursive, O(1) iterative
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
-pow(2, 10):
-`10 = 1010` in binary
-`Result = 1`
-
-Bit 1 (position 1): `result` *= 2^`2 = 4`
-Bit 0 (position 2): skip
-Bit 1 (position 3): `result` *= 2^`8 = 256`
-Bit 0 (position 4): skip
-
-Final: `4 * 256` = 1024
-```
+ * [example input]
+ * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * EDGE CASES:
- * - n = 0: Return 1 (anything to power 0 is 1)
- * - n < 0: Convert to positive exponent and invert result
- * - x = 0: Return 0 (except when n = 0, which is undefined but usually 1)
- * - x = 1: Always return 1
- * - x = -1: Alternate between 1 and -1 based on even/odd n
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

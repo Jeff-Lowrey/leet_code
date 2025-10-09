@@ -1,48 +1,50 @@
 /**
- * 042. Trapping Rain Water
- * Hard
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Two Pointers.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Water trapped at any position depends on the minimum of the maximum heights to its
- * left and right. We can use two pointers from both ends, tracking the maximum heights
- * seen so far from each direction, and calculate water trapped based on the smaller
- * of these two maximums.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. **Initialize two pointers**: left at start, right at end
- * 2. **Track max heights**: leftMax and rightMax for each direction
- * 3. **Move pointers inward**: Always process the side with smaller max height
- * 4. **Calculate water**: At each position, water = min(leftMax, rightMax) - height[i]
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * The key insight is that we can determine water at a position if we know the
- * maximum height in at least one direction is smaller. We move the pointer from
- * the side with the smaller maximum, as that side determines the water level.
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n)
- * - Single pass through the array with two pointers
- * SPACE COMPLEXITY: O(1)
- * - Only using constant extra space for pointers and max values
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: height = [0,1,0,2,1,0,1,3,2,1,2,1]
- * Step 1: left=0, right=11, leftMax=0, rightMax=1, process left
- * Step 2: left=1, right=11, leftMax=1, rightMax=1, process left
- * Step 3: left=2, right=11, leftMax=1, rightMax=1, water+=1 (1-0=1)
- * ...continue processing until left meets right
- * Output: 6 (total water trapped)
+ * [example input]
  * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * EDGE CASES:
- * - Empty array or less than 3 elements: return 0 (can't trap water)
- * - Flat array (all same height): return 0
- * - Ascending heights: return 0
- * - Descending heights: return 0
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

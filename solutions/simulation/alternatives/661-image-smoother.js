@@ -1,44 +1,50 @@
 /**
- * 661. Image Smoother
- * Easy
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Simulation.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Simulate applying a 3×3 filter to each cell in the image. For each cell, calculate the
- * average of itself and all valid surrounding cells (up to 8 neighbors). This is a common
- * image processing technique called box blur.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. Create a new result matrix of the same dimensions
- * 2. For each cell (i, j):
- *    - Check all 8 surrounding positions plus the cell itself
- *    - Sum all valid neighboring values
- *    - Count how many valid neighbors exist
- *    - Set result[i][j] to floor(sum / count)
- * 3. Handle edge/corner cells carefully (fewer neighbors)
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * We simulate the smoothing filter by examining each cell's neighborhood. By creating a
- * separate result matrix, we avoid modifying values while they're still needed for other
- * calculations.
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(m × n) - visit each cell once, check constant 9 neighbors
- * SPACE COMPLEXITY: O(m × n) - space for result matrix
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
- * Input: [[1,1,1],[1,0,1],[1,1,1]]
- * Cell (0,0): neighbors = [1,1,1,0] → sum=3, count=4 → floor(3/4)=0
- * Cell (1,1): neighbors = [1,1,1,1,0,1,1,1,1] → sum=8, count=9 → floor(8/9)=0
- * Result: [[0,0,0],[0,0,0],[0,0,0]]
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
  *
- * EDGE CASES:
- * - Single element: Returns the element itself
- * - Corner cells: Have only 3 neighbors
- * - Edge cells: Have only 5 neighbors
- * - Center cells: Have all 8 neighbors
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * [example input]
+ * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

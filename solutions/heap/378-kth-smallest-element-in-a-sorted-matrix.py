@@ -1,6 +1,7 @@
 """
+# Difficulty: Medium
+
 # 378. Kth Smallest Element In A Sorted Matrix
-**Medium**
 
 Given an n x n matrix where each of the rows and columns is sorted in ascending order, return the kth smallest element in the matrix.
 
@@ -8,29 +9,28 @@ Note that it is the kth smallest element in the sorted order, not the kth distin
 
 You must find a solution with a memory complexity better than O(n²).
 
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
+
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
 This problem involves finding the kth smallest element in a matrix where both rows and columns are sorted. We have multiple approaches: heap-based, binary search, and merge-like. The heap approach treats each row as a sorted list and uses a min-heap to efficiently find the kth smallest element.
 
-### APPROACHES:
-1. **Min-Heap**: Use heap to merge k sorted arrays (rows)
-2. **Binary Search**: Search for the answer in the value range
-3. **Max-Heap**: Keep track of k largest elements seen so far
-4. **Merge k sorted lists**: Similar to merging k sorted arrays
+### APPROACH:
+[Detailed explanation of the solution approach]
 
-### WHY HEAP WORKS:
-- Each row is sorted, so we can treat the matrix as k sorted arrays
-- Min-heap lets us always get the smallest unprocessed element
-- We only need to track the next candidate from each row
-- Time complexity is O(k log n) which is better than O(n²) for small k
-
-### TIME COMPLEXITY: O(k log n)
-Where n is matrix dimension and k is the target position
-
-### SPACE COMPLEXITY: O(n)
-For the heap storing at most n elements (one from each row)
+### WHY THIS WORKS:
+- [Explanation of correctness]
 
 ### EXAMPLE WALKTHROUGH:
 ```
@@ -45,11 +45,13 @@ Step 7: pop 12, add 13 -> heap = [(13,1,2), (13,2,1)]
 Step 8: pop 13 (8th smallest) -> return 13
 ```
 
-### KEY INSIGHTS:
-- Matrix sorted property allows efficient candidate generation
-- Heap maintains the frontier of smallest unprocessed elements
-- Binary search approach leverages the sorted property differently
-- Each approach has different trade-offs for memory and time
+### TIME COMPLEXITY:
+O(k log n)
+Where n is matrix dimension and k is the target position
+
+### SPACE COMPLEXITY:
+O(n)
+For the heap storing at most n elements (one from each row)
 
 ### EDGE CASES:
 - Single element matrix
@@ -59,7 +61,6 @@ Step 8: pop 13 (8th smallest) -> return 13
 
 </details>
 """
-
 
 class Solution:
     def kthSmallest(self, matrix: list[list[int]], k: int) -> int:
@@ -243,7 +244,6 @@ class Solution:
 
         return left
 
-
 def test_solution():
     """Test cases for Problem 378."""
     solution = Solution()
@@ -311,7 +311,6 @@ def test_solution():
     assert result11 == expected11, f"Expected {expected11}, got {result11}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

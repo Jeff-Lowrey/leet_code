@@ -1,51 +1,50 @@
 /**
- * 140. Word Break II
- * Hard
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Trie.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Find all possible ways to break a string into dictionary words.
- * A Trie can help efficiently check if a substring is a valid word,
- * combined with backtracking to explore all possibilities and memoization to avoid recomputation.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. Build a Trie from dictionary words for O(m) word lookups
- * 2. Use DFS with backtracking starting from index 0
- * 3. At each position, try all possible words that start from current position
- * 4. Use memoization to cache results for each starting index
- * 5. When reaching end of string, we found a valid sentence
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Trie allows efficient prefix matching
- * - Backtracking explores all valid combinations
- * - Memoization prevents redundant computation for same subproblems
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n * 2^n) worst case, where n is string length
- *                  With memoization: O(n^3) typical case
- * SPACE COMPLEXITY: O(n * 2^n) for storing all possible sentences
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * s = "catsanddog", wordDict = ["cat","cats","and","sand","dog"]
- * Build Trie with dictionary
- * Start at index 0:
- *   - Match "cat" -> recurse from index 3
- *     - Match "sand" -> recurse from index 7
- *       - Match "dog" -> end reached -> "cat sand dog"
- *   - Match "cats" -> recurse from index 4
- *     - Match "and" -> recurse from index 7
- *       - Match "dog" -> end reached -> "cats and dog"
- * Output: ["cat sand dog", "cats and dog"]
+ * [example input]
  * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * EDGE CASES:
- * - No valid word break exists
- * - String is a single word from dictionary
- * - Multiple ways to break with overlapping choices
- * - Empty string
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 class TrieNode {

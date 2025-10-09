@@ -1,47 +1,50 @@
 /**
- * 002. Add Two Numbers
- * Medium
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Linked List.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * This mimics elementary school `addition! Since` digits are in reverse order,
-we can add from `left` to `right` (which corresponds to least significant digit first).
-We need to handle carries just like manual addition.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. Create dummy `head` for `result` linked list
-2. Process both lists simultaneously with carry
-3. For each position: `sum` = `val1 + val2` + carry
-4. Create new `node` with (`sum` % 10), update carry = `sum` // 10
-5. Continue until both lists empty and `carry = 0`
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * Since digits are stored in reverse order, we can process from left to right
- * which naturally handles the least significant digit first. The carry mechanism
- * mimics manual addition, propagating overflow to the next position.
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(max(m, n)) where m, n are lengths of input lists
- * SPACE COMPLEXITY: O(max(m, n)) for the result list
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
-l1 = [2,4,3] represents 342
-l2 = [5,6,4] represents 465
-
-Step 1: `2 + 5` + 0(carry) = 7, `carry = 0` → node(7)
-Step 2: `4 + 6` + 0(carry) = 10, `carry = 1` → node(0)
-Step 3: `3 + 4` + 1(carry) = 8, `carry = 0` → node(8)
-
-Result: [7,0,8] represents 807
-```
+ * [example input]
+ * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * EDGE CASES:
- * - **Different length lists**: treat missing digits as 0
-- **Final carry**: create additional node if carry > 0
-- **One list empty**: continue with other list + carry
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

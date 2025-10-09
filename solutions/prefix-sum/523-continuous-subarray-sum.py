@@ -1,6 +1,5 @@
 """
-523. Continuous Subarray Sum
-Medium
+# Difficulty: Medium
 
 Given an integer array nums and an integer k, return true if nums has a continuous
 subarray of size at least two that sums to a multiple of k, or false otherwise.
@@ -12,6 +11,17 @@ Example:
 Input: nums = [23,2,4,6,7], k = 6
 Output: true
 Explanation: [2, 4] is a continuous subarray of size 2 whose sum is 6.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -31,9 +41,6 @@ in a hash map with their earliest index to ensure subarray length ≥ 2.
 If prefix_sum[i] % k == prefix_sum[j] % k, then sum(nums[i+1:j+1]) % k == 0.
 By storing earliest occurrence of each remainder, we maximize subarray length.
 
-### TIME COMPLEXITY: O(n)
-### SPACE COMPLEXITY: O(min(n, k))
-
 ### EXAMPLE WALKTHROUGH:
 ```
 nums = [23,2,4,6,7], k = 6
@@ -45,6 +52,12 @@ At index 1: remainder 1, store {5: 0, 1: 1}
 At index 2: remainder 5, seen at index 0, distance = 2 → return true
 ```
 
+### TIME COMPLEXITY:
+O(n)
+
+### SPACE COMPLEXITY:
+O(min(n, k))
+
 ### EDGE CASES:
 - k = 0: Division by zero (special handling or constraint)
 - Subarray length = 1: Must skip (requirement: length ≥ 2)
@@ -53,7 +66,6 @@ At index 2: remainder 5, seen at index 0, distance = 2 → return true
 
 </details>
 """
-
 
 class Solution:
     def checkSubarraySum(self, nums: list[int], k: int) -> bool:
@@ -104,7 +116,6 @@ class Solution:
 
         return False
 
-
 def test_solution() -> None:
     """Test cases for Problem 523."""
     solution = Solution()
@@ -150,7 +161,6 @@ def test_solution() -> None:
     print("Test case 10 passed: Remainder 1")
 
     print("\nAll test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

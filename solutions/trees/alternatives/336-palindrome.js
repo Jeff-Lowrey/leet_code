@@ -1,46 +1,50 @@
 /**
- * 336. Palindrome Pairs
- * Hard
+ * Difficulty: Medium
  *
- * Given a list of unique words, return all the pairs of distinct indices (i, j) such that
- * the concatenation of the two words words[i] + words[j] is a palindrome.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Use a Trie (prefix tree) to efficiently find palindrome pairs. For each word, we check:
- * 1. If reversing the word exists in our dictionary
- * 2. If we can split the word where one part is palindrome and reverse of other part exists
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. **Build a Trie**: Insert all words in reverse order with their indices
- * 2. **Search for pairs**: For each word, traverse the Trie looking for:
- *    - Exact reverse match (different index)
- *    - Prefix match where remaining suffix is palindrome
- *    - Complete word traversal where remaining Trie path forms palindrome
- * 3. **Handle edge cases**: Empty strings, single characters, duplicate checking
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Trie allows efficient prefix matching in O(k) where k is word length
- * - By storing reversed words, we can find potential palindrome pairs
- * - Checking palindromic suffixes/prefixes ensures we catch all valid pairs
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n * k^2) where n is number of words, k is average length
- * SPACE COMPLEXITY: O(n * k) for the Trie structure
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
-Input: ["abcd", "dcba", "lls", "s", "sssll"]
-Step 1: Build Trie with reversed words: "dcba", "abcd", "sll", "s", "llsss"
-Step 2: For "abcd", find "dcba" reversed matches -> pair [0,1]
-Step 3: For "lls", "s" + "lls" = "slls" (palindrome) -> pair [3,2]
-Output: [[0,1],[1,0],[3,2],[2,4]]
-```
+ * [example input]
+ * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * EDGE CASES:
- * - Empty string handling (empty + palindrome word)
- * - Same index checking (i != j)
- * - Single character words
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 class TrieNode {

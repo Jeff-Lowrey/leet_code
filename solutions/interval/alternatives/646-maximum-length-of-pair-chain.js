@@ -1,48 +1,50 @@
 /**
- * 646. Maximum Length Of Pair Chain
- * Medium
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Interval.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Find the longest chain of pairs where pair[i][1] < pair[j][0] for chaining.
- * Use greedy approach: always pick pair with earliest end to leave room for more pairs.
- * This is similar to activity selection and non-overlapping intervals.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. **Sort by end value**: Greedy choice - pick pair ending earliest
- * 2. **Build chain greedily**: Add pair if its start > previous end
- * 3. **Count chain length**: Track number of pairs in chain
- * 4. **Handle edge cases**: Empty array, single pair
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Greedy approach: always choose pair with smallest end value
- * - This maximizes remaining space for future pairs
- * - Sorting by end ensures optimal choices
- * - For pair to follow another: next_start > current_end
- * - Time complexity: O(n log n) for sorting
- * - Space complexity: O(1) excluding sorting
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n log n) - dominated by sorting
- * SPACE COMPLEXITY: O(1)
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
-Input: [[1,2],[2,3],[3,4]]
-Sort by end: [[1,2],[2,3],[3,4]] (already sorted)
-Pick [1,2]: end=2, length=1
-Check [2,3]: 2 not > 2, skip
-Check [3,4]: 3 > 2, pick it, end=4, length=2
-Output: 2
-```
+ * [example input]
+ * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * EDGE CASES:
- * - Empty array: return 0
- * - Single pair: return 1
- * - No pairs can chain: return 1
- * - All pairs can chain: return n
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

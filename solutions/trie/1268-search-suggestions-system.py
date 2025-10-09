@@ -1,12 +1,24 @@
 """
+# Difficulty: Medium
+
 # 1268. Search Suggestions System
-**Medium**
 
 You are given an array of strings products and a string searchWord.
 
 Design a system that suggests at most three product names from products after each character of searchWord is typed. Suggested products should have common prefix with searchWord. If there are more than three products with a common prefix return the three lexicographically minimums products.
 
 Return a list of lists of the suggested products after each character of searchWord is typed.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -28,14 +40,6 @@ Alternative: Sort products, then use binary search for each prefix
 - As we build the trie, we can maintain the lexicographically smallest suggestions
 - Navigation follows the typed prefix exactly
 
-### TIME COMPLEXITY: O(N * L + S)
-Where N is number of products, L is average length, S is searchWord length
-- Building trie with suggestions: O(N * L)
-- Processing search: O(S)
-
-### SPACE COMPLEXITY: O(N * L)
-For storing the trie structure
-
 ### EXAMPLE WALKTHROUGH:
 ```
 products = ["mobile","mouse","moneypot","monitor","mousepad"]
@@ -55,11 +59,15 @@ Process 'mous': ["mouse", "mousepad"]
 Process 'mouse': ["mouse", "mousepad"]
 ```
 
-### KEY INSIGHTS:
-- Pre-sorting products enables efficient suggestion collection
-- Each node stores its top 3 suggestions for O(1) retrieval
-- Once a prefix path is broken, all remaining results are empty
-- Lexicographic ordering is maintained throughout
+### TIME COMPLEXITY:
+O(N * L + S)
+Where N is number of products, L is average length, S is searchWord length
+- Building trie with suggestions: O(N * L)
+- Processing search: O(S)
+
+### SPACE COMPLEXITY:
+O(N * L)
+For storing the trie structure
 
 ### EDGE CASES:
 - SearchWord has no matching products
@@ -69,16 +77,6 @@ Process 'mouse': ["mouse", "mousepad"]
 
 </details>
 """
-
-
-
-class TrieNode:
-    """Node in the trie with stored suggestions."""
-
-    def __init__(self):
-        self.children = {}  # character -> TrieNode
-        self.suggestions = []  # Up to 3 lexicographically smallest products
-
 
 class Solution:
     def suggestedProducts(self, products: list[str], searchWord: str) -> list[list[str]]:
@@ -127,7 +125,6 @@ class Solution:
 
         return result
 
-
 class SolutionBinarySearch:
     """Alternative solution using sorting and binary search."""
 
@@ -173,7 +170,6 @@ class SolutionBinarySearch:
 
         return left
 
-
 class SolutionSimple:
     """Simple solution using filtering."""
 
@@ -196,7 +192,6 @@ class SolutionSimple:
             result.append(matches[:3])
 
         return result
-
 
 def test_solution():
     """Test cases for 1268. Search Suggestions System."""
@@ -253,7 +248,6 @@ def test_solution():
     assert len(result5_simple) == 1 and len(result5_simple[0]) == 3
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

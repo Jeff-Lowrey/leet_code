@@ -1,8 +1,20 @@
 """
+# Difficulty: Easy
+
 # 344. Reverse String
-**Easy**
 
 This problem demonstrates key concepts in Strings.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -25,12 +37,6 @@ move towards the center.
 - No additional space is needed beyond the two pointer variables
 - The algorithm naturally handles both odd and even length arrays
 
-### TIME COMPLEXITY: O(n)
-We iterate through half the array (n/2 swaps), which is O(n).
-
-### SPACE COMPLEXITY: O(1)
-Only two pointer variables are used, regardless of input size.
-
 ### EXAMPLE WALKTHROUGH:
 ```
 Input: ["h","e","l","l","o"]
@@ -40,6 +46,14 @@ Step 3: Position 2 is the center, done
 Output: ["o","l","l","e","h"]
 ```
 
+### TIME COMPLEXITY:
+O(n)
+We iterate through half the array (n/2 swaps), which is O(n).
+
+### SPACE COMPLEXITY:
+O(1)
+Only two pointer variables are used, regardless of input size.
+
 ### EDGE CASES:
 - Empty array: No swaps needed
 - Single element: No swaps needed
@@ -47,26 +61,7 @@ Output: ["o","l","l","e","h"]
 - Array already reversed: Still performs swaps (idempotent)
 
 </details>
-
-<details>
-<summary><b>💡 APPROACH</b></summary>
-
-The approach uses the two-pointer technique, a fundamental pattern in array manipulation.
-
-### Algorithm Steps:
-1. Initialize left pointer at index 0
-2. Initialize right pointer at index len(s) - 1
-3. While left < right:
-   - Swap s[left] and s[right]
-   - Increment left
-   - Decrement right
-4. Array is now reversed in-place
-
-</details>
 """
-
-from typing import List
-
 
 class Solution:
     def solve(self, s: List[str]) -> None:
@@ -90,7 +85,6 @@ class Solution:
             s[left], s[right] = s[right], s[left]
             left += 1
             right -= 1
-
 
 def test_solution():
     """
@@ -135,7 +129,6 @@ def test_solution():
     assert test6 == expected6, f"Test 6 failed: expected {expected6}, got {test6}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

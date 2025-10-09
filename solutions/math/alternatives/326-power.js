@@ -1,49 +1,50 @@
 /**
- * 326. Power of Three
- * Easy
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Math.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Determine if an integer n is a power of three (3^x for some integer x >= 0).
- * Several approaches: loop division, logarithms, or mathematical constraint.
- * Most elegant: use the fact that in 32-bit integers, max power of 3 is 3^19 = 1162261467.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. **Constraint approach**: Find max power of 3 in int32 range
- * 2. **Check divisibility**: If max_power % n == 0, then n is a power of 3
- * 3. **Handle edge cases**: n must be positive
- * 4. **Alternative (Loop)**: Repeatedly divide by 3, check if remainder is always 0
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - If n is a power of 3, then n divides the maximum power of 3
- * - 3 is prime, so 3^19 is only divisible by powers of 3
- * - More efficient than loop or log-based approaches
- * - No floating-point precision issues
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(1) - single modulo operation
- * SPACE COMPLEXITY: O(1)
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
-Input: 27
-Check: 1162261467 % 27 = 0? Yes
-Verification: 27 = 3^3
-Output: true
-
-Input: 45
-Check: 1162261467 % 45 = 22 (not 0)
-Verification: 45 = 3^2 * 5 (has factor 5)
-Output: false
-```
+ * [example input]
+ * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * EDGE CASES:
- * - n = 1: True (3^0 = 1)
- * - n <= 0: False (powers of 3 are always positive)
- * - n = 3: True (3^1)
- * - Large powers: 3^19 = 1162261467
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

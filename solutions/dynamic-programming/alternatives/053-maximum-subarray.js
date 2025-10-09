@@ -1,48 +1,50 @@
 /**
- * 53. Maximum Subarray (Kadane's Algorithm)
- * Medium
+ * Difficulty: Medium
  *
- * Given an integer array nums, find the contiguous subarray (containing at least one number)
- * which has the largest sum and return its sum.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * This is the classic Maximum Subarray problem solved using Kadane's Algorithm. The key insight
- * is that at each position, we decide whether to start a new subarray or extend the current one.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. **Initialize**: Start with first element as both current and maximum sum
- * 2. **Iterate**: For each element, choose max between starting new vs extending current
- * 3. **Track maximum**: Keep track of the largest sum seen so far
- * 4. **Optimal choice**: current_sum = max(num, current_sum + num)
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - If current_sum + num < num, it means previous subarray is dragging us down
- * - Starting fresh from current number would be better
- * - This greedy choice at each step leads to optimal global solution
- * - Kadane's algorithm guarantees we find the maximum subarray sum
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n) - single pass through array
- * SPACE COMPLEXITY: O(1) - only using constant extra space
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
- * Input: [-2,1,-3,4,-1,2,1,-5,4]
- * Step 1: current_sum = -2, max_sum = -2
- * Step 2: current_sum = max(1, -2+1) = 1, max_sum = 1
- * Step 3: current_sum = max(-3, 1-3) = -2, max_sum = 1
- * Step 4: current_sum = max(4, -2+4) = 4, max_sum = 4
- * Step 5: current_sum = max(-1, 4-1) = 3, max_sum = 4
- * Step 6: current_sum = max(2, 3+2) = 5, max_sum = 5
- * Step 7: current_sum = max(1, 5+1) = 6, max_sum = 6
- * Step 8: current_sum = max(-5, 6-5) = 1, max_sum = 6
- * Step 9: current_sum = max(4, 1+4) = 5, max_sum = 6
- * Result: 6 (subarray [4,-1,2,1])
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
  *
- * EDGE CASES:
- * - All negative numbers: return the least negative number
- * - All positive numbers: return sum of all numbers
- * - Single element: return that element
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * [example input]
+ * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

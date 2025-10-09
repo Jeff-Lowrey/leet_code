@@ -1,40 +1,50 @@
 /**
- * 997. Find The Town Judge
- * Easy
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Graphs.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * The town judge is trusted by everyone but trusts no one.
- * In graph terms: judge has indegree n-1 and outdegree 0.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. Calculate net trust score (indegree - outdegree) for each person
- * 2. Judge should have net score of n-1 (trusted by all others)
- * 3. Everyone else should have net score < n-1
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Judge: receives n-1 trust, gives 0 trust → net = n-1
- * - Others: give at least 1 trust to judge → net ≤ n-2
- * - Only one person can have net score of n-1
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(E) where E is number of trust relationships
- * SPACE COMPLEXITY: O(n) for trust score array
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
- * n=3, trust=[[1,3],[2,3]]
- * Person 1: gives 1, receives 0 → net = -1
- * Person 2: gives 1, receives 0 → net = -1
- * Person 3: gives 0, receives 2 → net = 2 = n-1
- * Judge: 3
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
  *
- * EDGE CASES:
- * - Single person (automatically judge)
- * - No judge exists (multiple candidates or none)
- * - Empty trust relationships
- * - Everyone trusts everyone
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * [example input]
+ * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

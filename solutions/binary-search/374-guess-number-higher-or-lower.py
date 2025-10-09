@@ -1,6 +1,7 @@
 """
+# Difficulty: Easy
+
 # 374. Guess Number Higher Or Lower
-**Easy**
 
 We are playing the Guess Game. The game is as follows:
 
@@ -14,6 +15,17 @@ You call a pre-defined API int guess(int num), which returns three possible resu
 - 0: Your guess is correct (i.e. num == pick).
 
 Return the number that I picked.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -33,12 +45,6 @@ This is a classic binary search problem where we need to find a target number us
 - Guaranteed to find the answer in O(log n) time
 - Similar to searching in a sorted array but using API instead of direct comparison
 
-### TIME COMPLEXITY: O(log n)
-Binary search through range [1, n]
-
-### SPACE COMPLEXITY: O(1)
-Only using constant extra space
-
 ### EXAMPLE WALKTHROUGH:
 ```
 Input: n = 10, pick = 6
@@ -56,11 +62,13 @@ Step 1: guess(1) returns 0 (correct!)
 Output: 1
 ```
 
-### KEY INSIGHTS:
-- Standard binary search template applies directly
-- API response guides the search direction
-- No need for array or list - just search the number space
-- Handle integer overflow in mid calculation
+### TIME COMPLEXITY:
+O(log n)
+Binary search through range [1, n]
+
+### SPACE COMPLEXITY:
+O(1)
+Only using constant extra space
 
 ### EDGE CASES:
 - Single number (n = 1): return 1
@@ -69,22 +77,6 @@ Output: 1
 
 </details>
 """
-
-# The guess API is already defined for you.
-# @param num, your guess
-# @return -1 if num is higher than the picked number
-#          1 if num is lower than the picked number
-#          0 if num is equal to the picked number
-def guess(num: int) -> int:
-    """Mock implementation for testing. In real problem, this is provided."""
-    # This will be replaced by the actual API in the real problem
-    pick = getattr(guess, 'pick', 6)  # Default pick for testing
-    if num > pick:
-        return -1
-    elif num < pick:
-        return 1
-    else:
-        return 0
 
 class Solution:
     def guessNumber(self, n: int) -> int:

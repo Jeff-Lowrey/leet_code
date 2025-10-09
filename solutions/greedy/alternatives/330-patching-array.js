@@ -1,54 +1,50 @@
 /**
- * 330. Patching Array
- * Hard
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Greedy.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Track the range [1, miss) that we can form. If next number in array is <= miss,
- * we can extend our range. Otherwise, we need to patch with 'miss' to double our range.
- * The greedy choice is always to add 'miss' when we can't extend the range.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. **Track missing number**: 'miss' is the smallest number we can't form yet
- * 2. **Use array elements**: If nums[i] <= miss, we can form up to miss + nums[i] - 1
- * 3. **Patch when needed**: If nums[i] > miss or no more elements, add 'miss' itself
- * 4. **Double range with patch**: Adding 'miss' extends range from [1, miss) to [1, 2*miss)
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - If we can form [1, miss), adding 'miss' lets us form [1, 2*miss)
- * - Greedy choice: always patch with 'miss' to maximally extend our range
- * - Using existing numbers when possible minimizes patches needed
- * - The algorithm guarantees optimal solution by always making locally best choice
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(m + log n) where m is array length, n is target
- * SPACE COMPLEXITY: O(1)
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * nums = [1, 3], n = 6
- * miss=1, patches=0
- *
- * nums[0]=1 <= miss=1:
- *   Can form [1,2), miss=1+1=2
- *
- * nums[1]=3 > miss=2:
- *   Need to patch with 2, patches=1
- *   Can form [1,4), miss=2+2=4
- *
- * nums[1]=3 <= miss=4:
- *   Can form [1,7), miss=4+3=7
- *
- * miss=7 > n=6, done
- * Result: 1 patch
+ * [example input]
  * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * EDGE CASES:
- * - Empty array: Need to patch [1, 2, 4, 8, ...] until reaching n
- * - Array already covers range: 0 patches
- * - Large n: Logarithmic patches due to doubling strategy
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

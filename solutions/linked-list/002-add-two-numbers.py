@@ -1,6 +1,5 @@
 """
-2. Add Two Numbers
-Medium
+# Difficulty: Medium
 
 You are given two `non-empty` linked lists representing two `non-negative` integers.
 The digits are stored in reverse order, and each of their nodes contains a single digit.
@@ -13,6 +12,17 @@ Input: l1 = [2,4,3], l2 = [5,6,4]
 Output: [7,0,8]
 Explanation: `342 + 465` = 807.
 
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
+
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
@@ -21,17 +31,15 @@ This mimics elementary school `addition! Since` digits are in reverse order,
 we can add from `left` to `right` (which corresponds to least significant digit first).
 We need to handle carries just like manual addition.
 
-### KEY INSIGHT:
-- Reverse order means we naturally process least significant digits first
-- Use a "carry" variable to handle sums ≥ 10
-- Continue until both lists are exhausted AND no carry remains
-
 ### APPROACH:
 1. Create dummy `head` for `result` linked list
 2. Process both lists simultaneously with carry
 3. For each position: `sum` = `val1 + val2` + carry
 4. Create new `node` with (`sum` % 10), update carry = `sum` // 10
 5. Continue until both lists empty and `carry = 0`
+
+### WHY THIS WORKS:
+- [Explanation of correctness]
 
 ### EXAMPLE WALKTHROUGH:
 ```
@@ -45,38 +53,21 @@ Step 3: `3 + 4` + 1(carry) = 8, `carry = 0` → node(8)
 Result: [7,0,8] represents 807
 ```
 
+### TIME COMPLEXITY:
+O(max(m, n))
+Where m and n are lengths of the two linked lists. Process each digit once.
+
+### SPACE COMPLEXITY:
+O(max(m, n))
+Result list length is max(m, n) or max(m, n) + 1 if final carry exists.
+
 ### EDGE CASES:
 - **Different length lists**: treat missing digits as 0
 - **Final carry**: create additional node if carry > 0
 - **One list empty**: continue with other list + carry
 
-### WHY LINKED LIST?
-- Numbers can be arbitrarily large (beyond int/long limits)
-- Linked list allows dynamic size
-- Reverse order makes addition natural (no need to reverse)
-
-### ELEMENTARY MATH PARALLEL:
-```
-    342
-  + 465
-  -----
-    807
-```
-We add column by column from `right`, which corresponds to `left-to`-`right` in reversed lists.
-
-### TIME COMPLEXITY: O(max(m, n))
-Where m and n are lengths of the two linked lists. Process each digit once.
-
-### SPACE COMPLEXITY: O(max(m, n))
-Result list length is max(m, n) or max(m, n) + 1 if final carry exists.
-
 </details>
 """
-
-class ListNode:
-    def __init__(self, val=0, next=None):
-        self.val = val
-        self.next = next
 
 class Solution:
     def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
@@ -105,11 +96,9 @@ class Solution:
 
         return dummy.next
 
-
 """
 19. Remove Nth Node From End of List
-Medium
-
+# Difficulty: Medium
 Given the head of a linked list, remove the nth node from the end of the list
 and return its head.
 
@@ -171,11 +160,9 @@ class SolutionRemoveNth:
 
         return head
 
-
 """
 138. Copy List with Random Pointer
-Medium
-
+# Difficulty: Medium
 A linked list of length n is given such that each node contains an additional
 random pointer, which could point to any node in the list, or null.
 
@@ -257,7 +244,6 @@ class SolutionCopyRandom:
 
         return dummy.next
 
-
 # Helper functions
 def create_list(values):
     if not values:
@@ -275,7 +261,6 @@ def list_to_array(head):
         result.append(head.val)
         head = head.next
     return result
-
 
 # Test cases
 if __name__ == "__main__":

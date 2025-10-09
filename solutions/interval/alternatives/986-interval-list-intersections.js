@@ -1,51 +1,50 @@
 /**
- * 986. Interval List Intersections
- * Medium
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Interval.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Given two sorted lists of closed intervals, find their intersections.
- * Use two pointers to traverse both lists simultaneously.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. **Two-pointer technique**: Track current position in both lists
- * 2. **Find intersection**: For each pair, check if they overlap
- * 3. **Calculate overlap**: Intersection is [max(start1,start2), min(end1,end2)]
- * 4. **Move pointer**: Advance pointer of interval that ends first
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Both lists are sorted, so we can process in linear time
- * - Two intervals overlap if max(start1,start2) <= min(end1,end2)
- * - The overlap is always [max(starts), min(ends)]
- * - Move pointer of interval ending first (it can't intersect with future intervals)
- * - Time complexity: O(m + n) where m, n are list lengths
- * - Space complexity: O(1) excluding output
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(m + n)
- * SPACE COMPLEXITY: O(1) - excluding output array
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
-Input: A = [[0,2],[5,10],[13,23],[24,25]]
-       B = [[1,5],[8,12],[15,24],[25,26]]
-Compare [0,2] and [1,5]: overlap [1,2], advance A
-Compare [5,10] and [1,5]: overlap [5,5], advance B
-Compare [5,10] and [8,12]: overlap [8,10], advance A
-Compare [13,23] and [8,12]: overlap [13,12] invalid, advance B
-Compare [13,23] and [15,24]: overlap [15,23], advance A
-Compare [24,25] and [15,24]: overlap [24,24], advance A
-Compare done, B has [25,26] but A exhausted
-Output: [[1,2],[5,5],[8,10],[15,23],[24,24]]
-```
+ * [example input]
+ * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * EDGE CASES:
- * - Empty list(s): return []
- * - No intersections: return []
- * - Complete overlap: return smaller interval
- * - Touching intervals (end1 == start2): valid intersection
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

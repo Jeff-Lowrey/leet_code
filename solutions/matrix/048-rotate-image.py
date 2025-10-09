@@ -1,8 +1,21 @@
 """
+# Difficulty: 
+
 # 048. Rotate Image
 **Transpose + Reverse**
 
 Rotate an n x n 2D matrix 90 degrees clockwise in-place.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -25,9 +38,6 @@ This avoids using extra space for a new matrix.
 - Two simple operations replace complex rotation logic
 - No additional space needed
 
-### TIME COMPLEXITY: O(n^2) where n is matrix dimension
-### SPACE COMPLEXITY: O(1) in-place modification
-
 ### EXAMPLE WALKTHROUGH:
 ```
 Input: [[1,2,3],
@@ -47,26 +57,19 @@ Output: [[7,4,1],
          [9,6,3]]
 ```
 
+### TIME COMPLEXITY:
+O(n^2) where n is matrix dimension
+
+### SPACE COMPLEXITY:
+O(1) in-place modification
+
 ### EDGE CASES:
 - 1x1 matrix (no change needed)
 - 2x2 matrix (minimal case)
 - Empty matrix (not per problem constraints)
 
 </details>
-
-<details>
-<summary><b>💡 APPROACH</b></summary>
-
-The approach uses matrix transpose followed by row reversal.
-
-### Algorithm Steps:
-1. Transpose the matrix (swap matrix[i][j] with matrix[j][i])
-2. Reverse each row
-3. Matrix is now rotated 90 degrees clockwise
-
-</details>
 """
-
 
 class Solution:
     def rotate(self, matrix: list[list[int]]) -> None:
@@ -95,7 +98,6 @@ class Solution:
 
     # Alias for consistent interface
     solve = rotate
-
 
 def test_solution():
     """
@@ -139,7 +141,6 @@ def test_solution():
     print("Test case 5 passed: Matrix with negative numbers")
 
     print("\nAll test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

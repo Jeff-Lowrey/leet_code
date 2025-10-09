@@ -1,48 +1,50 @@
 /**
- * 088. Merge Sorted Array
- * Easy
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Two Pointers.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Since nums1 has enough space at the end, we can merge from right to left. This
- * avoids the need to shift elements and allows us to merge in-place. We compare
- * elements from the end of both arrays and place the larger one at the end of nums1.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. **Initialize three pointers**: p1 at end of nums1's elements (m-1),
- *    p2 at end of nums2 (n-1), p at end of nums1 (m+n-1)
- * 2. **Compare and place**: Compare nums1[p1] and nums2[p2], place larger at nums1[p]
- * 3. **Move pointers**: Decrement the pointer of the used element and p
- * 4. **Handle remaining**: If nums2 has remaining elements, copy them
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * By filling from right to left, we never overwrite elements in nums1 that we
- * haven't processed yet. We're essentially doing a reverse merge of two sorted arrays.
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(m + n)
- * - Single pass through both arrays
- * SPACE COMPLEXITY: O(1)
- * - Merging in-place, no extra space needed
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3
- * Step 1: p1=2(3), p2=2(6), p=5, nums1[5]=6, p2--, p--
- * Step 2: p1=2(3), p2=1(5), p=4, nums1[4]=5, p2--, p--
- * Step 3: p1=2(3), p2=0(2), p=3, nums1[3]=3, p1--, p--
- * Step 4: p1=1(2), p2=0(2), p=2, nums1[2]=2 (or 2), either works
- * ...continue until all merged
- * Output: nums1 = [1,2,2,3,5,6]
+ * [example input]
  * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * EDGE CASES:
- * - nums2 is empty (n=0): nothing to merge
- * - nums1 is empty (m=0): copy all from nums2
- * - All nums1 elements larger than nums2: copy nums2 to front
- * - All nums2 elements larger than nums1: nums2 goes to end
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

@@ -1,6 +1,5 @@
 """
-191. Number of 1 Bits
-Easy
+# Difficulty: Easy
 
 Write a function that takes the binary representation of a positive integer and returns
 the number of set bits it has (also known as the Hamming weight).
@@ -9,6 +8,17 @@ Example:
 Input: n = 11
 Output: 3
 Explanation: The input binary string 1011 has three set bits.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -25,9 +35,6 @@ set bit, allowing us to count iterations until n becomes 0.
 ### WHY THIS WORKS:
 n-1 flips all bits after the rightmost 1 (including the 1 itself).
 AND-ing with n keeps only the bits that were 1 in both, effectively removing that rightmost 1.
-
-### TIME COMPLEXITY: O(k) where k is number of 1-bits
-### SPACE COMPLEXITY: O(1)
 
 ### EXAMPLE WALKTHROUGH:
 ```
@@ -46,14 +53,18 @@ n & (n-1) = 0000, count = 3
 Result: 3
 ```
 
-### ALTERNATIVE APPROACHES:
-1. **Check each bit**: Loop 32 times, check (n >> i) & 1
-2. **Built-in**: Use bin(n).count('1') in Python
-3. **Lookup table**: Precompute counts for all bytes
+### TIME COMPLEXITY:
+O(k) where k is number of 1-bits
+
+### SPACE COMPLEXITY:
+O(1)
+
+### EDGE CASES:
+- **[Edge case 1]:** [how it's handled]
+- **[Edge case 2]:** [how it's handled]
 
 </details>
 """
-
 
 class Solution:
     def hammingWeight(self, n: int) -> int:
@@ -87,7 +98,6 @@ class Solution:
         Space Complexity: O(k) for string conversion
         """
         return bin(n).count("1")
-
 
 def test_solution() -> None:
     """Test cases for Problem 191."""
@@ -134,7 +144,6 @@ def test_solution() -> None:
     print("Test case 9 passed: All methods consistent")
 
     print("\nAll test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

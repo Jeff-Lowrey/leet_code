@@ -1,49 +1,50 @@
 /**
- * 1268. Search Suggestions System
- * Medium
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Trie.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * For each prefix typed, we need to find up to 3 lexicographically smallest products.
- * A Trie allows efficient prefix matching, and we can use DFS to collect matching words
- * in sorted order.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. Sort products array first (ensures lexicographic order)
- * 2. Build Trie from sorted products
- * 3. For each prefix of searchWord, navigate to that prefix in Trie
- * 4. From prefix node, perform DFS to find up to 3 words
- * 5. Since products were pre-sorted and inserted in order, DFS naturally finds smallest words
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Sorting ensures lexicographic order is maintained in Trie
- * - DFS traversal in alphabetical order of children gives sorted results
- * - Limiting DFS to 3 results optimizes performance
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n*m + k*m) where n = products count, m = max word length, k = searchWord length
- *                  Building Trie: O(n*m), Searching: O(k*m)
- * SPACE COMPLEXITY: O(n*m) for Trie storage
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * products = ["mobile","mouse","moneypot","monitor","mousepad"], searchWord = "mouse"
- * After sorting: ["mobile","moneypot","monitor","mouse","mousepad"]
- * Build Trie, then search:
- * "m" -> DFS finds ["mobile","moneypot","monitor"]
- * "mo" -> DFS finds ["mobile","moneypot","monitor"]
- * "mou" -> DFS finds ["mouse","mousepad"] (only 2 matches)
- * "mous" -> DFS finds ["mouse","mousepad"]
- * "mouse" -> DFS finds ["mouse","mousepad"]
+ * [example input]
  * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * EDGE CASES:
- * - No matching products for a prefix
- * - Less than 3 products match
- * - Single character search
- * - Empty products array
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 class TrieNode {

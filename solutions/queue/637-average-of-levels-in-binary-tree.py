@@ -1,8 +1,20 @@
 """
+# Difficulty: Easy
+
 # 637. Average of Levels in Binary Tree
-**Easy**
 
 Given the root of a binary tree, return the average value of the nodes on each level in the form of an array.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -27,15 +39,6 @@ For each level, calculate the sum and count of nodes, then compute the average.
 - Average is simply sum of values divided by number of nodes
 - Each level's average is independent of other levels
 
-### TIME COMPLEXITY: O(n)
-- Visit each node exactly once
-- n = number of nodes in tree
-
-### SPACE COMPLEXITY: O(w)
-- Queue holds at most one level of nodes at a time
-- w = maximum width of tree (worst case: n/2 for complete tree)
-- Result storage: O(h) where h = height
-
 ### EXAMPLE WALKTHROUGH:
 ```
 Tree:      3
@@ -50,6 +53,17 @@ Level 2: sum = 22, count = 2, avg = 11.0
 Result: [3.0, 14.5, 11.0]
 ```
 
+### TIME COMPLEXITY:
+O(n)
+- Visit each node exactly once
+- n = number of nodes in tree
+
+### SPACE COMPLEXITY:
+O(w)
+- Queue holds at most one level of nodes at a time
+- w = maximum width of tree (worst case: n/2 for complete tree)
+- Result storage: O(h) where h = height
+
 ### EDGE CASES:
 - Empty tree: Return []
 - Single node: Return [root.val]
@@ -58,18 +72,6 @@ Result: [3.0, 14.5, 11.0]
 
 </details>
 """
-
-from collections import deque
-
-
-class TreeNode:
-    """Definition for a binary tree node."""
-
-    def __init__(self, val=0, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
-
 
 class Solution:
     def averageOfLevels(self, root: TreeNode | None) -> list[float]:
@@ -110,7 +112,6 @@ class Solution:
             result.append(level_sum / level_size)
 
         return result
-
 
 def test_solution():
     """Test cases for Problem 637."""
@@ -203,7 +204,6 @@ def test_solution():
     print("Test case 7 passed: Large values")
 
     print("\nAll test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

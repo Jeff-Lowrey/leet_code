@@ -1,44 +1,50 @@
 /**
- * 215. Kth Largest Element In An Array
- * Medium
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Heap.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * To find the kth largest element, we can use a min-heap of size k to keep track of the k largest elements seen so far.
- * Alternatively, we can use quickselect algorithm for O(n) average time complexity.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. **Min-Heap Approach**: Maintain a min-heap of size k, where the root is always the kth largest element
- * 2. **Quickselect Approach**: Use partition logic similar to quicksort to find the kth largest element
- * 3. **Handle edge cases**: Single element, k equals array length, etc.
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Min-heap ensures we always have the k largest elements, with the smallest of them (kth largest) at the root
- * - Quickselect has O(n) average time complexity by eliminating half the search space in each iteration
- * - Both approaches handle the problem efficiently with different trade-offs
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n log k) for heap, O(n) average for quickselect
- * SPACE COMPLEXITY: O(k) for heap, O(1) for quickselect
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: nums = [3,2,1,5,6,4], k = 2
- * Min-Heap Approach:
- * - Add 3, 2: heap = [2, 3]
- * - Add 1: heap = [2, 3] (1 < 2, don't add)
- * - Add 5: heap = [3, 5] (remove 2, add 5)
- * - Add 6: heap = [5, 6] (remove 3, add 6)
- * - Add 4: heap = [5, 6] (4 < 5, don't add)
- * - Result: 5 (root of min-heap)
+ * [example input]
  * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * EDGE CASES:
- * - k equals array length (return minimum element)
- * - k equals 1 (return maximum element)
- * - Single element array
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

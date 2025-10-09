@@ -1,6 +1,5 @@
 """
-696. Count Binary Substrings
-Easy
+# Difficulty: Easy
 
 Given a binary string s, return the number of non-empty substrings that have the same
 number of 0's and 1's, and all the 0's and all the 1's in these substrings are grouped
@@ -13,6 +12,17 @@ Input: s = "00110011"
 Output: 6
 Explanation: There are 6 substrings that have equal 0's and 1's: "0011", "01", "1100",
 "10", "0011", and "01".
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -40,15 +50,6 @@ Example: "00110" has groups [2, 2, 1]
 - Each valid substring takes equal number of digits from each group
 - Example: groups "000" (3) and "11" (2) → min(3, 2) = 2 substrings: "01", "0011"
 
-### TIME COMPLEXITY: O(n)
-- Single pass through string to count groups
-- Process each group once
-- Overall linear in string length
-
-### SPACE COMPLEXITY: O(n)
-- In worst case, store n groups (alternating 0s and 1s)
-- Can be optimized to O(1) by processing pairs on-the-fly
-
 ### EXAMPLE WALKTHROUGH:
 ```
 Input: s = "00110011"
@@ -67,11 +68,16 @@ Count valid substrings:
 Total: 2 + 2 + 2 = 6
 ```
 
-### KEY INSIGHTS:
-- Don't need to generate actual substrings, just count them
-- Only adjacent groups can form valid substrings
-- min(group_lengths) gives count of valid substrings
-- Can optimize to O(1) space by tracking only previous group length
+### TIME COMPLEXITY:
+O(n)
+- Single pass through string to count groups
+- Process each group once
+- Overall linear in string length
+
+### SPACE COMPLEXITY:
+O(n)
+- In worst case, store n groups (alternating 0s and 1s)
+- Can be optimized to O(1) by processing pairs on-the-fly
 
 ### EDGE CASES:
 - Single character: No valid substrings, return 0
@@ -81,8 +87,6 @@ Total: 2 + 2 + 2 = 6
 
 </details>
 """
-
-
 
 class Solution:
     def countBinarySubstrings(self, s: str) -> int:
@@ -226,7 +230,6 @@ class Solution:
 
         return result
 
-
 def test_solution():
     """Test cases for Problem 696."""
     solution = Solution()
@@ -277,7 +280,6 @@ def test_solution():
     assert result9 == expected9, f"Expected {expected9}, got {result9}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

@@ -1,46 +1,50 @@
 /**
- * 034. Find First And Last Position Of Element In Sorted Array
- * Medium
+ * Difficulty: Medium
  *
- * Given an array of integers nums sorted in non-decreasing order, find the starting and ending position of a given target value.
- * If target is not found in the array, return [-1, -1].
- * You must write an algorithm with O(log n) runtime complexity.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * To find the first and last position, we need to perform two separate binary searches:
- * one to find the leftmost (first) occurrence and another to find the rightmost (last) occurrence.
- * This maintains O(log n) complexity as required.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. **Find leftmost position**: Use binary search to find the first occurrence of target
- * 2. **Find rightmost position**: Use binary search to find the last occurrence of target
- * 3. **Helper function**: Create a binary search function that can find either leftmost or rightmost occurrence
- * 4. **Handle edge cases**: Return [-1, -1] if target not found
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Two binary searches maintain O(log n) time complexity
- * - We modify the search condition to continue searching even after finding the target
- * - For leftmost: when nums[mid] == target, continue searching left half
- * - For rightmost: when nums[mid] == target, continue searching right half
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(log n)
- * SPACE COMPLEXITY: O(1)
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: nums = [5,7,7,8,8,10], target = 8
- * Step 1: Find leftmost 8 -> binary search finds index 3
- * Step 2: Find rightmost 8 -> binary search finds index 4
- * Output: [3, 4]
+ * [example input]
  * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * EDGE CASES:
- * - Empty array: return [-1, -1]
- * - Target not found: return [-1, -1]
- * - Single occurrence: return [index, index]
- * - Target at boundaries: handle first/last positions
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

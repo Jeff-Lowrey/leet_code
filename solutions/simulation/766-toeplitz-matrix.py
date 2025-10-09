@@ -1,6 +1,7 @@
 """
+# Difficulty: Easy
+
 # 766. Toeplitz Matrix
-**Easy**
 
 Given an m x n matrix, return true if the matrix is Toeplitz. Otherwise, return false.
 
@@ -19,6 +20,17 @@ Input: matrix = [[1,2],[2,2]]
 Output: false
 Explanation:
 The diagonal "[1, 2]" has different elements.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -43,12 +55,6 @@ We can check this property for all valid positions.
 - Transitive property: if a==b and b==c, then a==c
 - Checking adjacent cells on diagonal ensures entire diagonal is same
 
-### TIME COMPLEXITY: O(m × n)
-- Check each cell once (except last row and column)
-
-### SPACE COMPLEXITY: O(1)
-- Only use constant extra space
-
 ### EXAMPLE WALKTHROUGH:
 ```
 matrix = [[1,2,3,4],
@@ -65,23 +71,22 @@ Check (1,2)==(2,3): 2==2 ✓
 All checks pass → True
 ```
 
+### TIME COMPLEXITY:
+O(m × n)
+- Check each cell once (except last row and column)
+
+### SPACE COMPLEXITY:
+O(1)
+- Only use constant extra space
+
 ### EDGE CASES:
 - Single row: Always Toeplitz
 - Single column: Always Toeplitz
 - Single cell: Always Toeplitz
 - 2×2 matrix: Check only (0,0) vs (1,1)
 
-### ALTERNATIVE APPROACHES:
-1. **Group by Diagonal**: Group elements by (row-col), check all same in each group
-2. **Hash Map**: Map diagonal index to first element, compare rest
-3. **Follow-up Optimizations**:
-   - Stream processing: Load one row at a time
-   - Large matrix: Process in chunks
-
 </details>
 """
-
-
 
 class Solution:
     def isToeplitzMatrix(self, matrix: list[list[int]]) -> bool:
@@ -184,7 +189,6 @@ class Solution:
                     return False
         return True
 
-
 def test_solution():
     """Test cases for Problem 766."""
     solution = Solution()
@@ -238,7 +242,6 @@ def test_solution():
     assert not solution.isToeplitzMatrixFollowUp(matrix12), "Follow-up method failed"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

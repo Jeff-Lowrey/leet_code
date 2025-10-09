@@ -1,48 +1,50 @@
 /**
- * 323. Number Of Connected Components In An Undirected Graph
- * Medium
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Union Find.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Initially, each node is its own component. As we process edges, we union
- * connected nodes. Each successful union reduces the component count by 1.
- * This is a classic application of Union-Find for counting connected components.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. Initialize Union-Find with n nodes (each node is initially its own component)
- * 2. Start with component count = n
- * 3. For each edge [u, v]:
- *    - If u and v are already in the same component, skip
- *    - Otherwise, union them and decrement component count
- * 4. Return the final component count
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * Union-Find efficiently tracks connected components. When we union two nodes
- * from different components, we're merging those components into one, so we
- * decrement the count. Path compression and union by rank ensure nearly O(1)
- * operations.
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(E * α(n)) where E is number of edges, α is inverse Ackermann
- * SPACE COMPLEXITY: O(n) for the Union-Find structure
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: n = 5, edges = [[0,1],[1,2],[3,4]]
- * Step 1: Initialize with 5 components: {0}, {1}, {2}, {3}, {4}
- * Step 2: Union 0 and 1 -> components: {0,1}, {2}, {3}, {4} (count = 4)
- * Step 3: Union 1 and 2 -> components: {0,1,2}, {3}, {4} (count = 3)
- * Step 4: Union 3 and 4 -> components: {0,1,2}, {3,4} (count = 2)
- * Output: 2
+ * [example input]
  * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * EDGE CASES:
- * - No edges (n disconnected components)
- * - Complete graph (1 component)
- * - Single node (1 component)
- * - Empty graph (0 components)
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 class UnionFind {

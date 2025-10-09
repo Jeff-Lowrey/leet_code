@@ -1,50 +1,50 @@
 /**
- * 167. Two Sum II - Input Array Is Sorted
- * Medium
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Two Pointers.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Since the array is sorted, we can use two pointers from both ends. If the sum
- * is too small, move the left pointer right (to increase sum). If the sum is too
- * large, move the right pointer left (to decrease sum). This is more efficient
- * than the hash map approach for sorted arrays.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. **Initialize two pointers**: left at start (0), right at end (length - 1)
- * 2. **Calculate sum**: sum = numbers[left] + numbers[right]
- * 3. **Compare with target**:
- *    - If sum == target: found the answer, return [left + 1, right + 1]
- *    - If sum < target: move left pointer right (need larger sum)
- *    - If sum > target: move right pointer left (need smaller sum)
- * 4. **Continue until found**: The problem guarantees exactly one solution
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * The sorted property allows us to make intelligent decisions about which pointer
- * to move. Moving left pointer increases the sum, moving right pointer decreases it.
- * This eliminates the need for extra space used by hash maps.
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n)
- * - Single pass through the array with two pointers
- * SPACE COMPLEXITY: O(1)
- * - Only using two pointers, no extra space
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: numbers = [2,7,11,15], target = 9
- * Step 1: left=0(2), right=3(15), sum=17 > 9, move right left
- * Step 2: left=0(2), right=2(11), sum=13 > 9, move right left
- * Step 3: left=0(2), right=1(7), sum=9 == 9, found!
- * Output: [1, 2] (1-indexed)
+ * [example input]
  * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * EDGE CASES:
- * - Minimum array size (2 elements): guaranteed to have solution
- * - Negative numbers: works the same way
- * - Target is sum of first and last: found immediately
- * - Solution uses adjacent elements: works correctly
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

@@ -1,59 +1,50 @@
 /**
- * 371. Sum of Two Integers
- * Medium
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Bit Manipulation.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Add two integers without using + or - operators. Use XOR for addition without carry,
- * and AND with left shift for calculating the carry. Repeat until there's no carry.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. While b is not zero:
- *    - Calculate carry: (a & b) << 1
- *    - Calculate sum without carry: a ^ b
- *    - Update a to sum, b to carry
- * 2. Return a when no carry remains
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - XOR (^) performs addition without considering carry
- *   Example: 5 ^ 3 = 101 ^ 011 = 110 (but this ignores carries)
- * - AND (&) finds positions where both bits are 1 (need carry)
- * - Left shift (<<) moves carry to the next position
- * - Repeat until no carry remains
- * - This simulates how binary addition works in hardware
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(1) - limited by 32-bit integer representation
- * SPACE COMPLEXITY: O(1)
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
-Input: a=1, b=2
-Iteration 1:
-  carry = (1 & 2) << 1 = (001 & 010) << 1 = 000 << 1 = 0
-  a = 1 ^ 2 = 001 ^ 010 = 011 = 3
-  b = 0
-Loop ends (b == 0)
-Output: 3
-
-Input: a=2, b=3
-Iteration 1:
-  carry = (2 & 3) << 1 = (010 & 011) << 1 = 010 << 1 = 100 = 4
-  a = 2 ^ 3 = 010 ^ 011 = 001 = 1
-  b = 4
-Iteration 2:
-  carry = (1 & 4) << 1 = (001 & 100) << 1 = 000 << 1 = 0
-  a = 1 ^ 4 = 001 ^ 100 = 101 = 5
-  b = 0
-Output: 5
-```
+ * [example input]
+ * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * EDGE CASES:
- * - Zero values: handled naturally
- * - Negative numbers: works due to two's complement
- * - Overflow: limited by 32-bit representation
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

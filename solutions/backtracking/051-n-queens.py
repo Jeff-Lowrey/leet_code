@@ -1,6 +1,7 @@
 """
+# Difficulty: Hard
+
 # 051. N Queens
-**Hard**
 
 The n-queens puzzle is the problem of placing n queens on an n×n chessboard
 such that no two queens attack each other.
@@ -18,6 +19,17 @@ Output: [[".Q..","...Q","Q...","..Q."],["..Q.","Q...","...Q",".Q.."]]
 Example 2:
 Input: n = 1
 Output: [["Q"]]
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -38,58 +50,31 @@ Place queens one row at a time and backtrack when conflicts arise. Queens attack
 - Backtracking explores all valid placements systematically
 - Early pruning prevents exploring invalid partial solutions
 
-### TIME COMPLEXITY: O(N!)
+### EXAMPLE WALKTHROUGH:
+Input:
+```
+[example input]
+```
+
+**Step 1:** [description]
+
+**Step 2:** [description]
+
+### TIME COMPLEXITY:
+O(N!)
 - In worst case, we try every possible placement
 - First queen has N choices, second has (N-1), etc.
 - But pruning significantly reduces actual combinations
 
-### SPACE COMPLEXITY: O(N)
+### SPACE COMPLEXITY:
+O(N)
 - Recursion depth is N (one call per row)
 - Additional space for tracking columns and diagonals
 - Board representation space
 
-### EXAMPLE WALKTHROUGH (N=4):
-```
-Row 0: Try col 0 -> Check conflicts -> No conflicts, place queen
-Row 1: Try col 0 -> Conflict (same column) -> Try col 1 -> Conflict (diagonal)
-       -> Try col 2 -> No conflicts, place queen
-Row 2: Try col 0 -> No conflicts, place queen
-Row 3: Try col 0 -> Conflict -> Try col 1 -> Conflict -> Try col 2 -> Conflict
-       -> Try col 3 -> No conflicts, place queen -> Solution found!
-
-Result: [".Q..", "...Q", "Q...", "..Q."]
-```
-
-### CONFLICT DETECTION:
-- **Column conflict**: column already used
-- **Diagonal conflicts**:
-  - Main diagonal (↘): row - col is same for conflicting positions
-  - Anti-diagonal (↙): row + col is same for conflicting positions
-
-### OPTIMIZATIONS:
-- Use sets for O(1) conflict checking instead of O(N) board scanning
-- Track conflicts directly instead of checking entire board each time
-- Early termination when conflicts detected
-
-</details>
-
-<details>
-<summary><b>💡 APPROACH</b></summary>
-
-The approach uses backtracking with conflict tracking:
-
-### Algorithm Steps:
-1. Create sets to track occupied columns and diagonals
-2. For each row, try placing queen in each column
-3. Check for conflicts using the tracking sets
-4. If no conflicts, place queen and recurse to next row
-5. If all rows filled, add solution to results
-6. Backtrack by removing queen and trying next position
-
-### Conflict Tracking:
-- `cols`: tracks occupied columns
-- `diag1`: tracks main diagonal (row - col)
-- `diag2`: tracks anti-diagonal (row + col)
+### EDGE CASES:
+- **[Edge case 1]:** [how it's handled]
+- **[Edge case 2]:** [how it's handled]
 
 </details>
 """

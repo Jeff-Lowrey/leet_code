@@ -1,10 +1,22 @@
 """
+# Difficulty: Medium
+
 # 280. Wiggle Sort
-**Medium**
 
 Given an integer array nums, reorder it such that nums[0] <= nums[1] >= nums[2] <= nums[3]...
 
 You may assume the input array always has a valid answer.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -27,12 +39,6 @@ by swapping elements when the pattern is violated, without sorting.
   - If nums[i] < nums[i+1], swap them
 - After swap, previous conditions remain satisfied
 - One pass is sufficient to fix all violations
-
-### TIME COMPLEXITY: O(n)
-Single pass through array with swaps
-
-### SPACE COMPLEXITY: O(1)
-In-place swaps only
 
 ### EXAMPLE WALKTHROUGH:
 ```
@@ -57,21 +63,22 @@ Pair and swap:
 - Verify: 2>=1<=4>=3<=6>=5 ✓
 ```
 
+### TIME COMPLEXITY:
+O(n)
+Single pass through array with swaps
+
+### SPACE COMPLEXITY:
+O(1)
+In-place swaps only
+
 ### EDGE CASES:
 - Array length 1 or 2 (already valid)
 - All elements equal
 - Already wiggle sorted
 - Reverse sorted array
 
-### OPTIMIZATIONS:
-- **One-pass O(n)**: No sorting needed
-- **In-place**: No extra space
-- **Proof of correctness**: Each swap fixes local violation without breaking previous fixes
-
 </details>
 """
-
-
 
 class Solution:
     def wiggleSort(self, nums: list[int]) -> None:
@@ -132,7 +139,6 @@ class Solution:
                 nums[i] = temp[n - 1 - right]
                 right += 1
 
-
 def is_wiggle_sorted(nums: list[int]) -> bool:
     """
     Check if array satisfies wiggle sort property.
@@ -153,7 +159,6 @@ def is_wiggle_sorted(nums: list[int]) -> bool:
             if nums[i] < nums[i + 1]:
                 return False
     return True
-
 
 def test_solution():
     """Test cases for Problem 280."""
@@ -206,7 +211,6 @@ def test_solution():
     assert is_wiggle_sorted(nums9), f"Not wiggle sorted: {nums9}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

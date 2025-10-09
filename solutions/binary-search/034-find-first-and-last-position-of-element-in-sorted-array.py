@@ -1,12 +1,24 @@
 """
+# Difficulty: Medium
+
 # 034. Find First And Last Position Of Element In Sorted Array
-**Medium**
 
 Given an array of integers nums sorted in non-decreasing order, find the starting and ending position of a given target value.
 
 If target is not found in the array, return [-1, -1].
 
 You must write an algorithm with O(log n) runtime complexity.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -26,12 +38,6 @@ This is a classic binary search problem that requires finding both the leftmost 
 - Template-based approach ensures correctness for boundary conditions
 - Early termination optimizes performance when target not found
 
-### TIME COMPLEXITY: O(log n)
-Two binary searches on array of size n
-
-### SPACE COMPLEXITY: O(1)
-Only using constant extra space
-
 ### EXAMPLE WALKTHROUGH:
 ```
 Input: nums = [5,7,7,8,8,10], target = 8
@@ -47,11 +53,13 @@ Step 1: Find first position of 6
 Output: [-1,-1] (early return)
 ```
 
-### KEY INSIGHTS:
-- Use modified binary search for finding boundaries
-- Search for first: when nums[mid] == target, continue searching left
-- Search for last: when nums[mid] == target, continue searching right
-- Template approach handles edge cases automatically
+### TIME COMPLEXITY:
+O(log n)
+Two binary searches on array of size n
+
+### SPACE COMPLEXITY:
+O(1)
+Only using constant extra space
 
 ### EDGE CASES:
 - Empty array: return [-1, -1]

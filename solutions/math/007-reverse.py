@@ -1,8 +1,20 @@
 """
+# Difficulty: Medium
+
 # 007. Reverse
-**Medium**
 
 Given a problem that demonstrates key concepts in Math.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -21,9 +33,6 @@ Given a problem that demonstrates key concepts in Math.
 - Time complexity is optimized for the given constraints
 - Space complexity is minimized where possible
 
-### TIME COMPLEXITY: O(n)
-### SPACE COMPLEXITY: O(1)
-
 ### EXAMPLE WALKTHROUGH:
 ```
 Input: [example input]
@@ -32,26 +41,19 @@ Step 2: [explain second step]
 Output: [expected output]
 ```
 
+### TIME COMPLEXITY:
+O(n)
+
+### SPACE COMPLEXITY:
+O(1)
+
 ### EDGE CASES:
 - Empty input handling
 - Single element cases
 - Large input considerations
 
 </details>
-
-<details>
-<summary><b>💡 APPROACH</b></summary>
-
-The approach uses math techniques to solve this problem efficiently.
-
-### Algorithm Steps:
-1. Initialize necessary variables
-2. Process input using math method
-3. Return the computed result
-
-</details>
 """
-
 
 class Solution:
     def reverse(self, x: int) -> int:
@@ -86,7 +88,6 @@ class Solution:
             return 0
 
         return result
-
 
 def test_solution():
     """
@@ -135,7 +136,6 @@ def test_solution():
     assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

@@ -1,8 +1,20 @@
 """
+# Difficulty: Medium
+
 # 22. Generate Parentheses
-**Medium**
 
 Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -24,13 +36,6 @@ Use backtracking to build valid parentheses strings. At each step, we can add '(
 - These rules guarantee valid parentheses strings
 - Backtracking explores all valid combinations
 
-### TIME COMPLEXITY: O(4^n / √n)
-Catalan number: C(n) = (2n)! / ((n+1)! * n!)
-Approximately O(4^n / √n) valid combinations
-
-### SPACE COMPLEXITY: O(n)
-Recursion stack depth is 2n (building string of length 2n)
-
 ### EXAMPLE WALKTHROUGH:
 ```
 n = 3:
@@ -45,11 +50,14 @@ Start: ""
 Result: ["((()))", "(()())", "(())()", "()(())", "()()()"]
 ```
 
-### KEY INSIGHTS:
-- This is essentially a decision tree where each node represents a choice
-- Pruning invalid branches (close > open) makes it efficient
-- Alternative: Generate all 2^(2n) strings and filter (much slower)
-- Stack implicitly tracks bracket balance
+### TIME COMPLEXITY:
+O(4^n / √n)
+Catalan number: C(n) = (2n)! / ((n+1)! * n!)
+Approximately O(4^n / √n) valid combinations
+
+### SPACE COMPLEXITY:
+O(n)
+Recursion stack depth is 2n (building string of length 2n)
 
 ### EDGE CASES:
 - n = 0: return [""]
@@ -58,7 +66,6 @@ Result: ["((()))", "(()())", "(())()", "()(())", "()()()"]
 
 </details>
 """
-
 
 class Solution:
     def generateParenthesis(self, n: int) -> list[str]:
@@ -190,7 +197,6 @@ class Solution:
         backtrack([], 0, 0)
         return result
 
-
 def test_solution() -> None:
     """Test cases for Problem 22."""
     solution = Solution()
@@ -253,7 +259,6 @@ def test_solution() -> None:
     print("Test case 9 passed: All strings are valid")
 
     print("\nAll test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

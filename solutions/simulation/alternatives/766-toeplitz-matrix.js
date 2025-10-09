@@ -1,41 +1,50 @@
 /**
- * 766. Toeplitz Matrix
- * Easy
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Simulation.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * A Toeplitz matrix has the property that every diagonal from top-left to bottom-right
- * contains the same element. We can verify this by checking if each element equals the
- * element at position (row-1, col-1).
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. Iterate through the matrix starting from position (1, 1)
- * 2. For each element, compare it with the element diagonally above-left (row-1, col-1)
- * 3. If any element doesn't match its diagonal predecessor, return false
- * 4. If all elements match their diagonal predecessors, return true
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * In a Toeplitz matrix, all elements on the same diagonal have the same value. By checking
- * each element against its immediate diagonal predecessor, we effectively verify all elements
- * on each diagonal are equal.
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(m × n) - check each element once (excluding first row and column)
- * SPACE COMPLEXITY: O(1) - only constant extra space used
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
- * Input: [[1,2,3,4],[5,1,2,3],[9,5,1,2]]
- * Check (1,1)=1 vs (0,0)=1 ✓
- * Check (1,2)=2 vs (0,1)=2 ✓
- * Check (2,1)=5 vs (1,0)=5 ✓
- * All checks pass → true
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
  *
- * EDGE CASES:
- * - Single row or column: Always Toeplitz (true)
- * - Single element: Always Toeplitz (true)
- * - Empty matrix: Return true
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * [example input]
+ * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

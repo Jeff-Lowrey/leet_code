@@ -1,46 +1,50 @@
 /**
- * 860. Lemonade Change
- * Easy
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Greedy.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Simulate the cashier process with greedy change-making. When giving change for $20,
- * prefer using $10+$5 over three $5 bills, because $5 bills are more versatile.
- * The greedy choice prioritizes preserving $5 bills.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. **Track bills**: Keep count of $5 and $10 bills in register
- * 2. **Process each customer**: Handle $5, $10, and $20 bills differently
- * 3. **Make change greedily**: For $20, prefer $10+$5 over $5+$5+$5
- * 4. **Check feasibility**: Return false if we can't make change
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - $5 bills are most versatile (can make any change)
- * - Greedy choice: preserve $5 bills by using $10 when possible
- * - For $20: prefer $10+$5 because it saves two $5 bills
- * - This maximizes our ability to make future change
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n)
- * SPACE COMPLEXITY: O(1)
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * bills = [5,5,5,10,20]
- * Customer 1: $5 → five=1, ten=0
- * Customer 2: $5 → five=2, ten=0
- * Customer 3: $5 → five=3, ten=0
- * Customer 4: $10 → give $5 change → five=2, ten=1
- * Customer 5: $20 → give $10+$5 change → five=1, ten=0
- * Result: true (all customers served)
+ * [example input]
  * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * EDGE CASES:
- * - First customer pays $10 or $20: Impossible (no change available)
- * - All customers pay exact change: Always possible
- * - Need to give change but out of bills: Return false
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

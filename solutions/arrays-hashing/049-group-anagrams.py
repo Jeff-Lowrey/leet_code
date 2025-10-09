@@ -1,6 +1,5 @@
 """
-49. Group Anagrams
-Medium
+# Difficulty: Medium
 
 Given an array of strings strs, group the anagrams together. You can return the
 `answer` in any order.
@@ -11,6 +10,17 @@ word or phrase, typically using all the original letters exactly once.
 Example:
 Input: strs = ["eat","tea","tan","ate","nat","bat"]
 Output: [["bat"],["nat","tan"],["ate","eat","tea"]]
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -27,27 +37,6 @@ Group strings by their "anagram signature" - a canonical representation that's t
 - All anagrams have the same signature (sorted characters or character counts)
 - Hash map automatically groups strings with identical signatures
 - Different anagrams will have different signatures
-
-### TIME COMPLEXITY:
-- **Sorting approach**: O(n × k log k) where n = number of strings, k = max string length
-- **Counting approach**: O(n × k) - more efficient
-
-### SPACE COMPLEXITY: O(n × k)
-
-### TWO APPROACHES:
-
-#### Approach 1: Sorted String as Key
-```python
-key = ''.join(sorted(s))  # "eat" → "aet"
-```
-
-#### Approach 2: Character Count as Key (Optimal)
-```python
-count = [0] * 26
-for char in s:
-    count[ord(char) - ord('a')] += 1
-key = tuple(count)  # "eat" → (1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0)
-```
 
 ### EXAMPLE WALKTHROUGH:
 ```
@@ -69,14 +58,19 @@ Final groups:
 Output: [["eat","tea","ate"], ["tan","nat"], ["bat"]]
 ```
 
-### KEY INSIGHT:
-The signature (sorted chars or char counts) acts as a unique identifier for all anagrams of the same set of characters.
+### TIME COMPLEXITY:
+- **Sorting approach**: O(n × k log k) where n = number of strings, k = max string length
+- **Counting approach**: O(n × k) - more efficient
+
+### SPACE COMPLEXITY:
+O(n × k)
+
+### EDGE CASES:
+- **[Edge case 1]:** [how it's handled]
+- **[Edge case 2]:** [how it's handled]
 
 </details>
 """
-
-from collections import defaultdict
-
 
 class Solution:
     def groupAnagrams(self, strs: list[str]) -> list[list[str]]:
@@ -113,7 +107,6 @@ class Solution:
             anagrams[key].append(s)
 
         return list(anagrams.values())
-
 
 # Test cases
 if __name__ == "__main__":

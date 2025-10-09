@@ -1,8 +1,20 @@
 """
+# Difficulty: Medium
+
 # 305. Number
-**Medium**
 
 Given a problem that demonstrates key concepts in Union Find.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -21,9 +33,6 @@ Given a problem that demonstrates key concepts in Union Find.
 - Time complexity is optimized for the given constraints
 - Space complexity is minimized where possible
 
-### TIME COMPLEXITY: O(n)
-### SPACE COMPLEXITY: O(1)
-
 ### EXAMPLE WALKTHROUGH:
 ```
 Input: [example input]
@@ -32,26 +41,19 @@ Step 2: [explain second step]
 Output: [expected output]
 ```
 
+### TIME COMPLEXITY:
+O(n)
+
+### SPACE COMPLEXITY:
+O(1)
+
 ### EDGE CASES:
 - Empty input handling
 - Single element cases
 - Large input considerations
 
 </details>
-
-<details>
-<summary><b>💡 APPROACH</b></summary>
-
-The approach uses union find techniques to solve this problem efficiently.
-
-### Algorithm Steps:
-1. Initialize necessary variables
-2. Process input using union find method
-3. Return the computed result
-
-</details>
 """
-
 
 class Solution:
     def numIslands2(self, m: int, n: int, positions: List[List[int]]) -> List[int]:
@@ -103,7 +105,6 @@ class Solution:
 
         return result
 
-
 # Example usage and test cases
 def test_solution():
     solution = Solution()
@@ -119,7 +120,6 @@ def test_solution():
     positions2 = [[0, 0]]
     result2 = solution.numIslands2(m2, n2, positions2)
     print(f"Test 2 Result: {result2}")  # Expected: [1]
-
 
 def test_solution():
     """
@@ -138,7 +138,6 @@ def test_solution():
     # assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

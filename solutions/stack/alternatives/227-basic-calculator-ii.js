@@ -1,47 +1,50 @@
 /**
- * 227. Basic Calculator Ii
- * Medium
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Stack.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Handle operator precedence (* and / before + and -) using a stack. Process
- * numbers with their preceding operator. For * and /, compute immediately with
- * stack top. For + and -, just push to stack. Sum stack at the end.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. **Parse expression**: Extract numbers and track operators
- * 2. **Use stack for precedence**:
- *    - '+': push positive number
- *    - '-': push negative number
- *    - '*': pop, multiply, push result
- *    - '/': pop, divide (truncate toward zero), push result
- * 3. **Calculate result**: Sum all values in stack
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Stack defers addition/subtraction until higher precedence ops are done
- * - Immediate computation for * and / ensures correct precedence
- * - Converting '-' to negative number simplifies final summation
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n) - single pass through string
- * SPACE COMPLEXITY: O(n) - stack stores intermediate values
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: "3+2*2"
- * Step 1: num=3, operator='+' → push 3 → stack: [3]
- * Step 2: num=2, operator='*' → push 2 → stack: [3,2]
- * Step 3: num=2, operator='+' → pop 2, compute 2*2=4, push 4 → stack: [3,4]
- * Step 4: Sum stack: 3+4=7
- * Output: 7
+ * [example input]
  * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * EDGE CASES:
- * - Spaces in string: skip them
- * - Single number: return that number
- * - Division by zero: problem guarantees valid input
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

@@ -1,17 +1,29 @@
 """
+# Difficulty: Easy
+
 # 997. Find The Town Judge
-**Easy**
 
 In a town, there are n people labeled from 1 to n. There is a rumor that one of these people is secretly the town judge.
 
 If the town judge exists, then:
-1. The town judge trusts nobody.
-2. Everybody (except for the town judge) trusts the town judge.
-3. There is exactly one person that satisfies properties 1 and 2.
+
+
+
 
 You are given an array trust where trust[i] = [ai, bi] representing that the person labeled ai trusts the person labeled bi.
 
 Return the label of the town judge if the town judge exists and can be identified, or return -1 otherwise.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -31,12 +43,6 @@ This is a graph problem where we need to find a node (person) with specific in-d
 - Net trust = in-degree - out-degree = (n-1) - 0 = n-1
 - All other people have net trust < n-1 (they either trust someone or aren't trusted by everyone)
 
-### TIME COMPLEXITY: O(T + N)
-Where T is the number of trust relationships and N is the number of people
-
-### SPACE COMPLEXITY: O(N)
-For storing trust counts
-
 ### EXAMPLE WALKTHROUGH:
 ```
 Input: n = 3, trust = [[1,3],[2,3]]
@@ -46,11 +52,13 @@ Person 3: trusts 0, trusted by 2 → net = 2 - 0 = 2 = n-1 ✓
 Output: 3 (person 3 is the judge)
 ```
 
-### KEY INSIGHTS:
-- Use net trust score to identify the judge efficiently
-- Judge has unique property: net trust = n-1
-- Single pass through trust relationships is sufficient
-- Handle edge cases: no trust relationships, impossible judge scenarios
+### TIME COMPLEXITY:
+O(T + N)
+Where T is the number of trust relationships and N is the number of people
+
+### SPACE COMPLEXITY:
+O(N)
+For storing trust counts
 
 ### EDGE CASES:
 - n = 1: Only one person, they are the judge by default
@@ -152,7 +160,6 @@ class Solution:
 
         return -1
 
-
 def test_solution():
     """Test cases for Problem 997."""
     solution = Solution()
@@ -208,7 +215,6 @@ def test_solution():
     assert result10 == expected10, f"Expected {expected10}, got {result10}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

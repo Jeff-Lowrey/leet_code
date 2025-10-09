@@ -1,51 +1,50 @@
 /**
- * 588. Design In-Memory File System
- * Hard
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Trie.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * A file system has hierarchical structure perfect for Trie representation.
- * Each node can be either a directory (has children) or a file (has content).
- * Path navigation is similar to Trie traversal with '/' as delimiter.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. Use Trie structure where each node represents a directory or file
- * 2. Each node stores: isFile flag, content (if file), children map
- * 3. ls: Navigate to path, return sorted list of children or file name
- * 4. mkdir: Create all directories in path
- * 5. addContentToFile: Navigate/create path, add content to file
- * 6. readContentFromFile: Navigate to file, return content
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Trie naturally represents hierarchical directory structure
- * - Map-based children allow O(1) access to subdirectories/files
- * - Each path component is a key in the Trie
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY:
- *   All operations: O(p) where p is path depth
- *   ls with sorting: O(p + k*log(k)) where k is children count
- * SPACE COMPLEXITY: O(n*m) where n is total files/dirs, m is average name length
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * mkdir("/a/b/c")
- *   root -> a -> b -> c (all directories)
- * addContentToFile("/a/b/c/d", "hello")
- *   root -> a -> b -> c -> d (file with content "hello")
- * ls("/a/b")
- *   Navigate to "b", return ["c"] (sorted children)
- * readContentFromFile("/a/b/c/d")
- *   Navigate to "d", return "hello"
+ * [example input]
  * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * EDGE CASES:
- * - Root directory listing
- * - Creating nested directories that don't exist
- * - Appending content to existing file
- * - Listing single file path
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 class FileNode {

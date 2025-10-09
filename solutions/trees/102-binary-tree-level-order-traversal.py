@@ -1,8 +1,20 @@
 """
+# Difficulty: Medium
+
 # 102. Binary Tree Level Order Traversal
-**Medium**
 
 Given the root of a binary tree, return the level order traversal of its nodes' values. (i.e., from left to right, level by level).
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -22,12 +34,6 @@ Level order traversal visits nodes level by level from left to right. This is a 
 - Children are added in left-to-right order for correct traversal
 - BFS naturally explores breadth before depth
 
-### TIME COMPLEXITY: O(n)
-Each node is visited exactly once
-
-### SPACE COMPLEXITY: O(w)
-Where w is maximum width of the tree (queue size)
-
 ### EXAMPLE WALKTHROUGH:
 ```
 Input: [3,9,20,null,null,15,7]
@@ -43,24 +49,20 @@ Level 2: [15, 7] → queue: []
 Output: [[3], [9, 20], [15, 7]]
 ```
 
-### KEY INSIGHTS:
-- BFS with queue is natural for level order traversal
-- Level size tracking enables level separation
-- Multiple approaches: iterative BFS, recursive DFS with level tracking
-- Result structure matches the level-by-level organization
+### TIME COMPLEXITY:
+O(n)
+Each node is visited exactly once
+
+### SPACE COMPLEXITY:
+O(w)
+Where w is maximum width of the tree (queue size)
+
+### EDGE CASES:
+- **[Edge case 1]:** [how it's handled]
+- **[Edge case 2]:** [how it's handled]
 
 </details>
 """
-
-from collections import deque
-from typing import List, Optional
-
-# Definition for a binary tree node
-class TreeNode:
-    def __init__(self, val=0, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
 
 class Solution:
     def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
@@ -199,7 +201,6 @@ class Solution:
         # Reverse for bottom-up order
         return result[::-1]
 
-
 def build_tree_from_list(values: List) -> Optional[TreeNode]:
     """Helper function to build tree from list representation."""
     if not values:
@@ -223,7 +224,6 @@ def build_tree_from_list(values: List) -> Optional[TreeNode]:
         i += 1
 
     return root
-
 
 def test_solution():
     """Test cases for Problem 102."""
@@ -277,7 +277,6 @@ def test_solution():
     assert result9 == expected9, f"Bottom-up: Expected {expected9}, got {result9}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

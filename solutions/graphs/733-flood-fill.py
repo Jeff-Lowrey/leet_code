@@ -1,6 +1,7 @@
 """
+# Difficulty: Easy
+
 # 733. Flood Fill
-**Easy**
 
 An image is represented by an m x n integer grid image where image[i][j] represents
 the pixel value of the image. You are also given three integers sr, sc, and color.
@@ -12,6 +13,17 @@ plus any pixels connected 4-directionally to those pixels (also with the same co
 and so on. Replace the color of all of the aforementioned pixels with color.
 
 Return the modified image after performing the flood fill.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -34,12 +46,6 @@ to the new color. It's like the paint bucket tool in image editors.
 - 4-directional connectivity mimics pixel adjacency
 - Recursion handles the spreading pattern automatically
 
-### TIME COMPLEXITY: O(m×n)
-Where m, n are image dimensions - worst case visit all pixels
-
-### SPACE COMPLEXITY: O(m×n)
-For recursion stack in worst case (straight line of same color)
-
 ### EXAMPLE WALKTHROUGH:
 ```
 Input: image = [[1,1,1],[1,1,0],[1,0,1]], sr = 1, sc = 1, color = 2
@@ -49,6 +55,14 @@ Step 2: Change (0,0) to 2, change (0,1) to 2, change (0,2) to 2
 Step 3: Change (1,0) to 2, change (2,0) to 2
 Output: [[2,2,2],[2,2,0],[2,0,1]]
 ```
+
+### TIME COMPLEXITY:
+O(m×n)
+Where m, n are image dimensions - worst case visit all pixels
+
+### SPACE COMPLEXITY:
+O(m×n)
+For recursion stack in worst case (straight line of same color)
 
 ### EDGE CASES:
 - Starting pixel already has target color
@@ -162,7 +176,6 @@ class Solution:
 
         return image
 
-
 def test_solution():
     """Test cases for Problem 733."""
     solution = Solution()
@@ -198,7 +211,6 @@ def test_solution():
     assert result5 == expected5, f"Expected {expected5}, got {result5}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

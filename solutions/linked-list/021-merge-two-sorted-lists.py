@@ -1,12 +1,24 @@
 """
+# Difficulty: Easy
+
 # 021. Merge Two Sorted Lists
-**Easy**
 
 You are given the heads of two sorted linked lists list1 and list2.
 
 Merge the two lists in a sorted manner and return the head of the merged linked list.
 
 The list should be made by splicing together the nodes of the first two lists.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -25,9 +37,6 @@ The list should be made by splicing together the nodes of the first two lists.
 - Time complexity is optimized for the given constraints
 - Space complexity is minimized where possible
 
-### TIME COMPLEXITY: O(n)
-### SPACE COMPLEXITY: O(1)
-
 ### EXAMPLE WALKTHROUGH:
 ```
 Input: [example input]
@@ -36,31 +45,19 @@ Step 2: [explain second step]
 Output: [expected output]
 ```
 
+### TIME COMPLEXITY:
+O(n)
+
+### SPACE COMPLEXITY:
+O(1)
+
 ### EDGE CASES:
 - Empty input handling
 - Single element cases
 - Large input considerations
 
 </details>
-
-<details>
-<summary><b>💡 APPROACH</b></summary>
-
-The approach uses linked list techniques to solve this problem efficiently.
-
-### Algorithm Steps:
-1. Initialize necessary variables
-2. Process input using linked list method
-3. Return the computed result
-
-</details>
 """
-
-# Definition for singly-linked list.
-class ListNode:
-    def __init__(self, val=0, next=None):
-        self.val = val
-        self.next = next
 
 class Solution:
     def mergeTwoLists(self, list1, list2):

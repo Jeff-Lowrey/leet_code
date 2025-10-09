@@ -1,8 +1,20 @@
 """
+# Difficulty: Medium
+
 # 78. Subsets
-**Medium**
 
 This problem demonstrates key concepts in Recursion.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -28,12 +40,6 @@ a classic backtracking problem where we explore include/exclude decisions.
 - Adding subset at each step captures all possible subset sizes
 - The decision tree naturally generates all 2^n subsets
 
-### TIME COMPLEXITY: O(2^n * n) where n is array length
-- 2^n subsets to generate
-- O(n) to copy each subset
-
-### SPACE COMPLEXITY: O(n) - recursion depth
-
 ### EXAMPLE WALKTHROUGH:
 ```
 Input: [1,2,3]
@@ -51,32 +57,21 @@ Exclude 1, Exclude 2, Include 3: [3]
 Output: [[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]]
 ```
 
+### TIME COMPLEXITY:
+O(2^n * n) where n is array length
+- 2^n subsets to generate
+- O(n) to copy each subset
+
+### SPACE COMPLEXITY:
+O(n) - recursion depth
+
 ### EDGE CASES:
 - Empty array (return [[]])
 - Single element (return [[], [element]])
 - All distinct integers (no duplicates)
 
 </details>
-
-<details>
-<summary><b>💡 APPROACH</b></summary>
-
-The approach uses backtracking to systematically generate all subsets. The key
-insight is that we add the current subset to results at each step, not just
-when we reach a base case.
-
-### Algorithm Steps:
-1. Add current subset to results
-2. For each remaining element, try including it
-3. Recurse with next index
-4. Backtrack by removing the element
-5. Continue with next element
-
-</details>
 """
-
-from typing import List
-
 
 class Solution:
     def subsets(self, nums: List[int]) -> List[List[int]]:
@@ -136,7 +131,6 @@ class Solution:
         """
         return self.subsets(nums)
 
-
 def test_solution():
     """Test cases for Problem 78."""
     solution = Solution()
@@ -185,7 +179,6 @@ def test_solution():
     print("Test 6 passed: All subsets unique")
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

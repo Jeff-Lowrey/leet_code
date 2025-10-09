@@ -1,6 +1,7 @@
 """
+# Difficulty: Medium
+
 # 54. Spiral Matrix
-**Medium**
 
 Given an m x n matrix, return all elements of the matrix in spiral order.
 
@@ -11,6 +12,17 @@ Output: [1,2,3,6,9,8,7,4,5]
 Example 2:
 Input: matrix = [[1,2,3,4],[5,6,7,8],[9,10,11,12]]
 Output: [1,2,3,4,8,12,11,10,9,5,6,7]
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -40,12 +52,6 @@ boundaries after completing each direction.
 - Shrinking boundaries after each direction naturally moves inward
 - Crossing boundaries indicates all cells have been visited
 
-### TIME COMPLEXITY: O(m × n)
-- Visit each element exactly once
-
-### SPACE COMPLEXITY: O(1)
-- Only use constant extra space (not counting output array)
-
 ### EXAMPLE WALKTHROUGH:
 ```
 matrix = [[1,2,3],
@@ -72,21 +78,22 @@ Step 5 - Right (middle): [5]
 Result: [1,2,3,6,9,8,7,4,5]
 ```
 
+### TIME COMPLEXITY:
+O(m × n)
+- Visit each element exactly once
+
+### SPACE COMPLEXITY:
+O(1)
+- Only use constant extra space (not counting output array)
+
 ### EDGE CASES:
 - Single element: [[1]] → [1]
 - Single row: [[1,2,3]] → [1,2,3]
 - Single column: [[1],[2],[3]] → [1,2,3]
 - Empty matrix: [] → []
 
-### ALTERNATIVE APPROACHES:
-1. **Direction Vector**: Use direction array and change direction when hitting boundary/visited cell
-2. **Visited Matrix**: Mark visited cells in separate boolean matrix
-3. **Recursive**: Process outer layer, recurse on inner matrix
-
 </details>
 """
-
-
 
 class Solution:
     def spiralOrder(self, matrix: list[list[int]]) -> list[int]:
@@ -218,7 +225,6 @@ class Solution:
         m, n = len(matrix), len(matrix[0])
         return spiral_helper(0, m - 1, 0, n - 1)
 
-
 def test_solution():
     """Test cases for Problem 54."""
     solution = Solution()
@@ -269,7 +275,6 @@ def test_solution():
     assert solution.spiralOrderRecursive(matrix9) == expected9, "Recursive method failed"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

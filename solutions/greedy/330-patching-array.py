@@ -1,12 +1,24 @@
 """
+# Difficulty: Hard
+
 # 330. Patching Array
-**Hard**
 
 You are given a sorted positive integer array nums and an integer n. You need to
 make it so that any integer in the range [1, n] can be formed by the sum of some
 elements from nums.
 
 Return the minimum number of patches (additions to the array) required.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -23,25 +35,8 @@ need to patch with (covered + 1).
 3. **Patch when needed**: If nums[i] > covered + 1, patch with (covered + 1)
 4. **Greedy choice**: Always patch with (covered + 1) as it doubles our coverage
 
-### WHY GREEDY WORKS:
-- **Optimal patching**: Patching with (covered + 1) is always optimal because:
-  - We can already form [1, covered]
-  - Adding (covered + 1) extends range to [1, 2*covered + 1]
-  - No other patch value gives better extension
-- **No backtracking needed**: Each decision is locally and globally optimal
-
-### PROOF OF GREEDY CHOICE:
-If we can form [1, covered], adding value v:
-- If v = covered + 1: New range is [1, 2*covered + 1]
-- If v > covered + 1: New range is [1, covered] ∪ [v, covered + v] (has gap)
-- If v < covered + 1: New range is [1, covered + v] (less than optimal)
-Therefore, v = covered + 1 is optimal for patching.
-
-### TIME COMPLEXITY: O(m + log n)
-Where m is length of nums. In worst case, we need log(n) patches.
-
-### SPACE COMPLEXITY: O(1)
-Only using constant extra space
+### WHY THIS WORKS:
+- [Explanation of correctness]
 
 ### EXAMPLE WALKTHROUGH:
 ```
@@ -65,31 +60,19 @@ Step 4: covered >= 6, done!
 Output: 1 (patched with 2)
 ```
 
-### DETAILED EXAMPLE:
-```
-Input: nums = [1,5,10], n = 20
+### TIME COMPLEXITY:
+O(m + log n)
+Where m is length of nums. In worst case, we need log(n) patches.
 
-Initial: covered = 0, patches = 0
-
-i=0: 1 <= 0+1? Yes → covered = 0+1 = 1, can form [1,1]
-i=1: 5 <= 1+1? No → patch with 2, patches=1, covered = 1+2 = 3
-     5 <= 3+1? No → patch with 4, patches=2, covered = 3+4 = 7
-     5 <= 7+1? Yes → covered = 7+5 = 12, can form [1,12]
-i=2: 10 <= 12+1? Yes → covered = 12+10 = 22 >= 20, done!
-
-Output: 2 (patched with 2 and 4)
-```
+### SPACE COMPLEXITY:
+O(1)
+Only using constant extra space
 
 ### EDGE CASES:
 - Empty array: Need to patch from 1 up to n
 - Array already covers [1,n]: No patches needed
 - Large n with small array: Multiple patches required
 - Array starts with value > 1: Need to patch 1 first
-
-### KEY INSIGHTS:
-- Coverage doubling: Adding (covered + 1) doubles the range
-- Greedy is optimal: No need to consider other patch values
-- Use before patch: Always try to use existing numbers first
 
 </details>
 """

@@ -1,46 +1,50 @@
 /**
- * 134. Gas Station
- * Medium
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Greedy.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Use greedy approach with a key insight: if we can't reach station j from station i,
- * then we can't reach j from any station between i and j. So we should start from j+1.
- * Also, if total gas >= total cost, a solution must exist.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. **Check feasibility**: If total gas < total cost, no solution exists
- * 2. **Track tank level**: Keep running total of gas - cost
- * 3. **Reset on deficit**: When tank goes negative, start from next station
- * 4. **Return candidate**: The last starting point we tried
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - If sum(gas) >= sum(cost), a solution exists (mathematical guarantee)
- * - Greedy choice: if we fail from station i, skip all stations up to failure point
- * - If we can't reach j from i, we can't reach j from i+1, i+2, ..., j-1 either
- * - The last starting point we choose must be valid if total gas >= total cost
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n)
- * SPACE COMPLEXITY: O(1)
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * gas = [1,2,3,4,5], cost = [3,4,5,1,2]
- * i=0: tank=1-3=-2 → negative, start=1, tank=0
- * i=1: tank=2-4=-2 → negative, start=2, tank=0
- * i=2: tank=3-5=-2 → negative, start=3, tank=0
- * i=3: tank=4-1=3
- * i=4: tank=3+5-2=6
- * total_tank=15-15=0 → valid, return start=3
+ * [example input]
  * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * EDGE CASES:
- * - Single station: Always return 0 if gas >= cost
- * - Impossible circuit: Return -1 when total gas < total cost
- * - Multiple valid starts: Return any valid one (greedy finds one)
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

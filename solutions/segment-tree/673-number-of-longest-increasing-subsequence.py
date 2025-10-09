@@ -1,10 +1,22 @@
 """
+# Difficulty: Medium
+
 # 673. Number Of Longest Increasing Subsequence
-**Medium**
 
 Given an integer array nums, return the number of longest increasing subsequences.
 
 Notice that the sequence has to be strictly increasing.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -12,32 +24,11 @@ Notice that the sequence has to be strictly increasing.
 ### INTUITION:
 This extends the classic LIS problem by not just finding the length, but also counting how many subsequences achieve that length. We can use dynamic programming or segment trees. For each position, we track both the longest length ending there and the count of such sequences.
 
-### APPROACHES:
-1. **Dynamic Programming**: O(n²) time - for each position, check all previous
-2. **Segment Tree**: O(n log n) with coordinate compression
-3. **Binary Indexed Tree**: Similar to segment tree
+### APPROACH:
+[Detailed explanation of the solution approach]
 
-### WHY DP WORKS:
-- For each index i, compute:
-  - length[i] = max length of LIS ending at i
-  - count[i] = number of such sequences
-- For all j < i where nums[j] < nums[i]:
-  - If length[j] + 1 > length[i]: length[i] = length[j] + 1, count[i] = count[j]
-  - If length[j] + 1 == length[i]: count[i] += count[j]
-
-### WHY SEGMENT TREE WORKS:
-- Store (max_length, count) for each range
-- For each number, query all numbers less than it
-- Get maximum length and count from that range
-- Update with new (length, count) pair
-- Coordinate compression handles value range
-
-### TIME COMPLEXITY:
-- DP: O(n²)
-- Segment Tree: O(n log n)
-
-### SPACE COMPLEXITY: O(n)
-For DP arrays or tree structure
+### WHY THIS WORKS:
+- [Explanation of correctness]
 
 ### EXAMPLE WALKTHROUGH:
 ```
@@ -51,11 +42,13 @@ i=4: nums[4]=7, length=4, count=2 (from both i=2 and i=3)
 Output: 2
 ```
 
-### KEY INSIGHTS:
-- Track both length and count at each position
-- When extending a sequence, carry forward the count
-- Multiple sequences can have same length
-- Final answer: sum counts where length equals maximum
+### TIME COMPLEXITY:
+- DP: O(n²)
+- Segment Tree: O(n log n)
+
+### SPACE COMPLEXITY:
+O(n)
+For DP arrays or tree structure
 
 ### EDGE CASES:
 - Empty array
@@ -67,8 +60,6 @@ Output: 2
 
 </details>
 """
-
-
 
 class Solution:
     def findNumberOfLIS(self, nums: list[int]) -> int:
@@ -258,7 +249,6 @@ class Solution:
             result = bit.merge(result, bit.tree[i])
         return result[1]
 
-
 def test_solution():
     """Test cases for Problem 673."""
     solution = Solution()
@@ -304,7 +294,6 @@ def test_solution():
     assert result8 == expected8, f"Expected {expected8}, got {result8}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

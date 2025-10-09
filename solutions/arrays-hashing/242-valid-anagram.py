@@ -1,6 +1,5 @@
 """
-242. Valid Anagram
-Easy
+# Difficulty: Easy
 
 Given two strings s and t, return true if t is an anagram of s, and false otherwise.
 
@@ -10,6 +9,17 @@ word or phrase, typically using all the original letters exactly once.
 Example:
 Input: s = "anagram", t = "nagaram"
 Output: true
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -27,27 +37,6 @@ Two strings are anagrams if they contain the exact same characters with the same
 - Character frequency is invariant under rearrangement
 - If two strings have the same character frequencies, they must be anagrams
 
-### TIME COMPLEXITY: O(n)
-### SPACE COMPLEXITY: O(1) - at most 26 lowercase letters
-
-### MULTIPLE APPROACHES:
-
-#### Approach 1: Counter (Most Concise)
-```python
-return Counter(s) == Counter(t)
-```
-
-#### Approach 2: Manual Counting (More Control)
-- Count characters in first string
-- Decrement counts for second string
-- All counts should be zero
-
-#### Approach 3: Sorting (Alternative)
-```python
-return sorted(s) == sorted(t)
-```
-Time: O(n log n), but very simple
-
 ### EXAMPLE WALKTHROUGH:
 ```
 s = "anagram", t = "nagaram"
@@ -61,6 +50,12 @@ n: 1, a: 3, g: 1, r: 1, m: 1
 Both have identical counts → True
 ```
 
+### TIME COMPLEXITY:
+O(n)
+
+### SPACE COMPLEXITY:
+O(1) - at most 26 lowercase letters
+
 ### EDGE CASES:
 - Empty strings → True (both empty)
 - Different lengths → False immediately
@@ -68,9 +63,6 @@ Both have identical counts → True
 
 </details>
 """
-
-from collections import Counter
-
 
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
@@ -113,7 +105,6 @@ class Solution:
         Space Complexity: O(1)
         """
         return sorted(s) == sorted(t)
-
 
 # Test cases
 if __name__ == "__main__":

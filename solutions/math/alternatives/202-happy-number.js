@@ -1,54 +1,50 @@
 /**
- * 202. Happy Number
- * Easy
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Math.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * A happy number eventually reaches 1 when replacing it with the sum of squares of
- * its digits repeatedly. Unhappy numbers cycle infinitely. Use Floyd's cycle detection
- * (slow/fast pointers) to detect cycles without extra space.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. **Helper function**: Calculate sum of squares of digits
- * 2. **Floyd's algorithm**: Use slow (1 step) and fast (2 steps) pointers
- * 3. **Detect cycle**: If slow == fast, there's a cycle
- * 4. **Check result**: If cycle point is 1, it's happy; otherwise unhappy
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Happy numbers eventually reach 1 (cycle at 1)
- * - Unhappy numbers cycle without reaching 1
- * - Floyd's algorithm detects cycles in O(1) space
- * - Two sequences converge at cycle point
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(log n) - number of digits decreases
- * SPACE COMPLEXITY: O(1) - only constant variables
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
-Input: 19
-Step 1: 1^2 + 9^2 = 1 + 81 = 82
-Step 2: 8^2 + 2^2 = 64 + 4 = 68
-Step 3: 6^2 + 8^2 = 36 + 64 = 100
-Step 4: 1^2 + 0^2 + 0^2 = 1
-Output: true (reached 1)
-
-Input: 2
-Step 1: 2^2 = 4
-Step 2: 4^2 = 16
-Step 3: 1^2 + 6^2 = 37
-Step 4: 3^2 + 7^2 = 58
-Step 5: 5^2 + 8^2 = 89
-...cycles without reaching 1
-Output: false
-```
+ * [example input]
+ * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * EDGE CASES:
- * - n = 1: Already happy (return true)
- * - Single digit: Various behaviors (1 is happy, most others cycle)
- * - Large numbers: Sum of squares reduces size quickly
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

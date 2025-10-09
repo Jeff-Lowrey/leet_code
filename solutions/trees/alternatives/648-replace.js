@@ -1,51 +1,50 @@
 /**
- * 648. Replace Words
- * Medium
+ * Difficulty: Medium
  *
- * In English, we have a concept called root, which can be followed by some other word
- * to form another longer word - let's call this word successor. For example, when the
- * root "an" is followed by the successor word "other", we can form a new word "another".
+ * [Problem description goes here]
  *
- * Given a dictionary consisting of many roots and a sentence, replace all the successors
- * in the sentence with the root forming it. If a successor can be replaced by more than
- * one root, replace it with the root that has the shortest length.
+ * **Example:**
  *
- * SOLUTION EXPLANATION:
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * INTUITION:
- * Use a Trie to store all root words. For each word in the sentence, traverse the Trie
- * to find the shortest root that is a prefix of that word.
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * APPROACH:
- * 1. **Build a Trie**: Insert all dictionary roots into the Trie
- * 2. **Process sentence**: Split sentence into words
- * 3. **Find shortest root**: For each word, traverse Trie to find shortest matching root
- * 4. **Replace or keep**: Use root if found, otherwise keep original word
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * WHY THIS WORKS:
- * - Trie provides efficient prefix matching in O(k) where k is word length
- * - Mark word endings to identify valid roots
- * - Shortest root found first due to Trie traversal order
- * - Early termination when root is found
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * TIME COMPLEXITY: O(d + s) where d = total chars in dictionary, s = chars in sentence
- * SPACE COMPLEXITY: O(d) for the Trie structure
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
-Input: dictionary = ["cat", "bat", "rat"], sentence = "the cattle was rattled by the battery"
-Step 1: Build Trie with "cat", "bat", "rat"
-Step 2: Process "cattle" -> find root "cat" -> replace with "cat"
-Step 3: Process "rattled" -> find root "rat" -> replace with "rat"
-Step 4: Process "battery" -> find root "bat" -> replace with "bat"
-Output: "the cat was rat by the bat"
-```
+ * [example input]
+ * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * EDGE CASES:
- * - Empty dictionary (no replacements)
- * - Empty sentence
- * - Word with no matching root
- * - Multiple roots match (use shortest)
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 class TrieNode {

@@ -1,44 +1,50 @@
 /**
- * 070. Climbing Stairs
- * Medium
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Dynamic Programming.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * This is the classic Fibonacci problem in `disguise! To` reach step `n`, you can
-either come from step (`n-1`) by taking 1 step, or from step (`n-2`) by taking 2 steps.
-So: ways(n) = ways(`n-1`) + ways(`n-2`)
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. Base cases: ways(1)=1, ways(2)=2
-2. For any step n: ways(n) = ways(`n-1`) + ways(`n-2`)
-3. Use `bottom-up` DP to avoid redundant calculations
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Each step can only be reached from the previous step or two steps back
- * - This creates a recurrence relation: f(n) = f(n-1) + f(n-2)
- * - We build the solution iteratively to avoid repeated calculations
- * - Space optimized by only keeping track of last two values
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n) - single pass through all steps
- * SPACE COMPLEXITY: O(1) - only storing two previous values
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * n = 4
- * Step 1: prev2=1, prev1=2 (base cases)
- * Step 2: i=3, current=1+2=3, prev2=2, prev1=3
- * Step 3: i=4, current=2+3=5, prev2=3, prev1=5
- * Result: 5 ways to reach step 4
+ * [example input]
  * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * EDGE CASES:
- * - n=1: Only one way (1 step)
- * - n=2: Two ways (1+1 or 2)
- * - Large n: Handle efficiently with iterative approach
- * - n=0: Would be 1 way (stay put), but not in problem constraints
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

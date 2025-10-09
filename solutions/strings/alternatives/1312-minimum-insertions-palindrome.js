@@ -1,44 +1,50 @@
 /**
- * 1312. Minimum Insertions Palindrome
- * Medium
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Strings.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * To make a string palindromic with minimum insertions, we need to find the longest palindromic subsequence (LPS) first. The minimum insertions needed equals the string length minus the LPS length, because we only need to insert characters to match the "missing" ones.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. **Find Longest Palindromic Subsequence**: Use DP to find the longest subsequence that reads the same forwards and backwards
-2. **Calculate Insertions**: minimum insertions = string length - LPS length
-3. **DP Recurrence**:
-   - If characters match: `dp[i][j] = dp[i+1][j-1] + 2`
-   - If not: `dp[i][j] = max(dp[i+1][j], dp[i][j-1])`
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * The LPS represents the "skeleton" of characters we can keep without insertion. All other characters need to be "mirrored" by insertions. For example, in "mbadm", LPS is "mam" (length 3), so we need 5-3=2 insertions.
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n²)
-- Filling n×n DP table with constant work per cell
- * SPACE COMPLEXITY: O(n²)
-- DP table storage, can be optimized to O(n)
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
- * For s = "mbadm":
-1. Build LPS DP table:
-   - Single chars: all have LPS = 1
-   - "mb": different chars → LPS = 1
-   - "bad": LPS = 1 (just 'a')
-   - "madm": 'm' matches → LPS = 1 + LPS("ad") = 1 + 1 = 2
-   - "mbadm": 'm' matches → LPS = 2 + LPS("bad") = 2 + 1 = 3
-2. Minimum insertions = 5 - 3 = 2
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
  *
- * EDGE CASES:
- * - Already palindrome: return 0
-- Single character: return 0
-- All different characters: return n-1
-- Empty string: return 0
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * [example input]
+ * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

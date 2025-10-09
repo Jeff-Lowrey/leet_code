@@ -1,6 +1,5 @@
 """
-78. Subsets
-Medium
+# Difficulty: Medium
 
 Given an integer array `nums` of unique elements, return all possible subsets
 (the power `set`).
@@ -10,17 +9,26 @@ The solution `set` must not contain duplicate subsets. Return the solution in an
 Example:
 Input: `nums` = [1,2,3]
 Output: [[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]]
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
+
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
 Generate all possible subsets (power set) by making binary choices for each element: include it or don't include it in the current subset. Use backtracking to explore all combinations.
 
-### APPROACH (Backtracking):
-1. **Start with empty subset** and iterate through array elements
-2. **For each element**: try including it (recurse) then excluding it (backtrack)
-3. **Add current subset** to result at each recursive call (not just at leaves)
-4. **Use start index** to avoid generating duplicate subsets
+### APPROACH:
+[Detailed explanation of the solution approach]
 
 ### WHY THIS WORKS:
 - Each element has 2 choices: include or exclude
@@ -28,72 +36,25 @@ Generate all possible subsets (power set) by making binary choices for each elem
 - Backtracking systematically explores all combinations
 - Adding current subset at each step captures all intermediate states
 
-### TIME COMPLEXITY: O(n × 2^n) - 2^n subsets, each takes O(n) to copy
-### SPACE COMPLEXITY: O(n) - recursion depth
-
-### THREE APPROACHES:
-
-#### Approach 1: Backtracking (Most Intuitive)
-```python
-def backtrack(start, current):
-    result.append(current[:])  # Add current subset
-    for i in range(start, len(nums)):
-        current.append(nums[i])
-        backtrack(i + 1, current)
-        current.pop()
+### EXAMPLE WALKTHROUGH:
+Input:
+```
+[example input]
 ```
 
-#### Approach 2: Bit Manipulation
-Each subset corresponds to a binary number where bit i indicates if nums[i] is included
+**Step 1:** [description]
 
-#### Approach 3: Iterative Building
-Start with [[]], for each new element, add it to all existing subsets
+**Step 2:** [description]
 
-### EXAMPLE WALKTHROUGH (Backtracking):
-```
-Input: nums = [1,2,3]
+### TIME COMPLEXITY:
+O(n × 2^n) - 2^n subsets, each takes O(n) to copy
 
-backtrack(0, []):
-  Add [] to result
+### SPACE COMPLEXITY:
+O(n) - recursion depth
 
-  Try i=0 (element 1):
-    current = [1]
-    backtrack(1, [1]):
-      Add [1] to result
-
-      Try i=1 (element 2):
-        current = [1,2]
-        backtrack(2, [1,2]):
-          Add [1,2] to result
-
-          Try i=2 (element 3):
-            current = [1,2,3]
-            backtrack(3, [1,2,3]):
-              Add [1,2,3] to result
-              No more elements, return
-            current = [1,2] (backtrack)
-          No more elements, return
-        current = [1] (backtrack)
-
-      Try i=2 (element 3):
-        current = [1,3]
-        backtrack(3, [1,3]):
-          Add [1,3] to result
-          No more elements, return
-        current = [1] (backtrack)
-
-      No more elements, return
-    current = [] (backtrack)
-
-  Try i=1 (element 2): ... continues similarly
-
-Final result: [[], [1], [1,2], [1,2,3], [1,3], [2], [2,3], [3]]
-```
-
-### KEY INSIGHTS:
-- Add current subset to result BEFORE recursing (not just at leaves)
-- Use start index to maintain order and avoid duplicates
-- Backtracking pattern: choose → recurse → unchoose
+### EDGE CASES:
+- **[Edge case 1]:** [how it's handled]
+- **[Edge case 2]:** [how it's handled]
 
 </details>
 """
@@ -149,11 +110,9 @@ class Solution:
 
         return result
 
-
 """
 90. Subsets II
-Medium
-
+# Difficulty: Medium
 Given an integer array nums that may contain duplicates, return all possible
 subsets (the power set).
 
@@ -189,11 +148,9 @@ class SolutionUnique:
         backtrack(0, [])
         return result
 
-
 """
 39. Combination Sum
-Medium
-
+# Difficulty: Medium
 Given an array of distinct integers candidates and a target integer target,
 return a list of all unique combinations of candidates where the chosen numbers
 sum to target.
@@ -230,11 +187,9 @@ class SolutionCombSum:
         backtrack(target, [], 0)
         return result
 
-
 """
 40. Combination Sum II
-Medium
-
+# Difficulty: Medium
 Given a collection of candidate numbers (candidates) and a target number (target),
 find all unique combinations in candidates where the candidate numbers sum to target.
 
@@ -276,7 +231,6 @@ class SolutionCombSum2:
 
         backtrack(target, [], 0)
         return result
-
 
 # Test cases
 if __name__ == "__main__":

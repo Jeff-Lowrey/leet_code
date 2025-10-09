@@ -1,63 +1,50 @@
 /**
- * 104. Maximum Depth of Binary Tree
- * Easy
+ * Difficulty: Medium
  *
- * Given the root of a binary tree, return its maximum depth.
+ * [Problem description goes here]
  *
- * A binary tree's maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.
+ * **Example:**
  *
- * SOLUTION EXPLANATION:
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * INTUITION:
- * The maximum depth of a binary tree is simply 1 plus the maximum depth of its left and right subtrees. This naturally suggests a recursive solution where we explore both subtrees and return the maximum depth.
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * APPROACH:
- * 1. Base Case: If node is null, depth is 0
- * 2. Recursive Case: Depth = 1 + max(left_depth, right_depth)
- * 3. Multiple Approaches: Recursive (DFS), iterative (BFS), and stack-based solutions
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * WHY THIS WORKS:
- * - Tree depth follows recursive structure naturally
- * - Each node contributes 1 to the total depth
- * - Maximum depth is determined by the deepest branch
- * - Both DFS and BFS can solve this problem effectively
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * TIME COMPLEXITY: O(n)
- * Must visit every node to determine maximum depth
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
  *
- * SPACE COMPLEXITY: O(h)
- * Where h is height of tree (recursion stack or queue size)
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * [example input]
+ * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * EXAMPLE WALKTHROUGH:
- * Input: [3,9,20,null,null,15,7]
- *        3
- *       / \
- *      9  20
- *        /  \
- *       15   7
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
  *
- * 1. maxDepth(3): 1 + max(maxDepth(9), maxDepth(20))
- * 2. maxDepth(9): 1 + max(0, 0) = 1
- * 3. maxDepth(20): 1 + max(maxDepth(15), maxDepth(7))
- * 4. maxDepth(15): 1 + max(0, 0) = 1
- * 5. maxDepth(7): 1 + max(0, 0) = 1
- * 6. maxDepth(20): 1 + max(1, 1) = 2
- * 7. maxDepth(3): 1 + max(1, 2) = 3
- * Output: 3
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
  *
- * KEY INSIGHTS:
- * - Recursive solution is most intuitive and clean
- * - BFS level-order traversal counts levels directly
- * - DFS with stack tracks maximum depth encountered
- * - Empty trees have depth 0, single nodes have depth 1
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
  *
- * EDGE CASES:
- * - Empty tree (null root): returns 0
- * - Single node tree: returns 1
- * - Left-skewed tree: depth equals number of nodes
- * - Right-skewed tree: depth equals number of nodes
- * - Complete binary tree: depth is log2(n+1)
- * - Perfect binary tree: all leaves at same level
+ * </details>
  */
 
 /**

@@ -1,6 +1,5 @@
 """
-57. Insert Interval
-Medium
+# Difficulty: Medium
 
 You are given an array of `non-overlapping` intervals where intervals[i] = [starti, endi]
 represent the start and the end of the ith interval and intervals is sorted in
@@ -11,6 +10,17 @@ Insert newInterval into intervals such that intervals is still sorted and `non-o
 Example:
 Input: intervals = [[1,3],[6,9]], newInterval = [2,5]
 Output: [[1,5],[6,9]]
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -26,9 +36,8 @@ Since intervals are sorted and `non-overlapping`, we can process them in three p
 2. **Merge Phase**: Merge all overlapping intervals with newInterval
 3. **After Phase**: Add all remaining intervals
 
-### KEY INSIGHT:
-Two intervals [a,b] and [c,d] overlap if: `max(a,c) <= min(b,d)`
-Or equivalently: NOT (`b < c` OR `d < a`)
+### WHY THIS WORKS:
+- [Explanation of correctness]
 
 ### EXAMPLE WALKTHROUGH:
 ```
@@ -41,12 +50,15 @@ Phase 3: [6,9] doesn't overlap (`6 > 5`) → add `as-is`
 Result: [[1,5],[6,9]]
 ```
 
-### MERGE LOGIC:
-- **Start**: min(interval_start, newInterval_start)
-- **End**: max(interval_end, newInterval_end)
+### TIME COMPLEXITY:
+O(n)
 
-### TIME COMPLEXITY: O(n)
-### SPACE COMPLEXITY: O(n) for result array
+### SPACE COMPLEXITY:
+O(n) for result array
+
+### EDGE CASES:
+- **[Edge case 1]:** [how it's handled]
+- **[Edge case 2]:** [how it's handled]
 
 </details>
 """
@@ -82,11 +94,9 @@ class Solution:
 
         return result
 
-
 """
 435. Non-overlapping Intervals
-Medium
-
+# Difficulty: Medium
 Given an array of intervals where intervals[i] = [starti, endi], return the
 minimum number of intervals you need to remove to make the rest non-overlapping.
 
@@ -122,11 +132,9 @@ class SolutionRemove:
 
         return count
 
-
 """
 252. Meeting Rooms
-Easy
-
+# Difficulty: Easy
 Given an array of meeting time intervals where intervals[i] = [starti, endi],
 determine if a person could attend all meetings.
 
@@ -150,11 +158,9 @@ class SolutionMeetingRooms:
 
         return True
 
-
 """
 253. Meeting Rooms II
-Medium
-
+# Difficulty: Medium
 Given an array of meeting time intervals where intervals[i] = [starti, endi],
 return the minimum number of conference rooms required.
 
@@ -164,7 +170,6 @@ Output: 2
 """
 
 import heapq
-
 
 class SolutionMeetingRoomsII:
     def minMeetingRooms(self, intervals: list[list[int]]) -> int:
@@ -215,7 +220,6 @@ class SolutionMeetingRoomsII:
             max_rooms = max(max_rooms, current_rooms)
 
         return max_rooms
-
 
 # Test cases
 if __name__ == "__main__":

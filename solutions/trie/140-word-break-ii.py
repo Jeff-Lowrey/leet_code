@@ -1,10 +1,22 @@
 """
+# Difficulty: Hard
+
 # 140. Word Break II
-**Hard**
 
 Given a string s and a dictionary of strings wordDict, add spaces in s to construct a sentence where each word is a valid dictionary word. Return all such possible sentences in any order.
 
 Note that the same word in the dictionary may be reused multiple times in the segmentation.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -25,15 +37,6 @@ Alternative: Use recursion with memoization without Trie (checking against word 
 - Backtracking explores all possible word boundaries
 - Memoization prevents exponential time by caching substring results
 - When we find a word end in trie, we recursively solve for remaining string
-
-### TIME COMPLEXITY: O(N^3 + M*L)
-Where N is string length, M is number of words, L is average word length
-- Trie building: O(M*L)
-- Backtracking with memoization: O(N^3) in worst case
-
-### SPACE COMPLEXITY: O(M*L + N^2)
-- Trie storage: O(M*L)
-- Memoization cache: O(N^2) for storing results
 
 ### EXAMPLE WALKTHROUGH:
 ```
@@ -57,11 +60,16 @@ At position 0 "catsanddog":
 Final: ["cat sand dog", "cats and dog"]
 ```
 
-### KEY INSIGHTS:
-- Trie allows us to find all valid word matches at each position efficiently
-- Memoization is crucial for performance on strings with many overlapping subproblems
-- Building sentences bottom-up from recursion results
-- Early termination when no valid word can be formed
+### TIME COMPLEXITY:
+O(N^3 + M*L)
+Where N is string length, M is number of words, L is average word length
+- Trie building: O(M*L)
+- Backtracking with memoization: O(N^3) in worst case
+
+### SPACE COMPLEXITY:
+O(M*L + N^2)
+- Trie storage: O(M*L)
+- Memoization cache: O(N^2) for storing results
 
 ### EDGE CASES:
 - No valid segmentation exists
@@ -72,16 +80,6 @@ Final: ["cat sand dog", "cats and dog"]
 
 </details>
 """
-
-
-
-class TrieNode:
-    """Node in the trie for word dictionary."""
-
-    def __init__(self):
-        self.children = {}  # character -> TrieNode
-        self.is_word = False  # True if this represents end of a word
-
 
 class Solution:
     def wordBreak(self, s: str, wordDict: list[str]) -> list[str]:
@@ -152,7 +150,6 @@ class Solution:
 
         return backtrack(0)
 
-
 class SolutionSimple:
     """Simpler solution using set-based lookup without Trie."""
 
@@ -194,7 +191,6 @@ class SolutionSimple:
             return result
 
         return backtrack(0)
-
 
 class SolutionOptimized:
     """Optimized solution with early termination."""
@@ -255,7 +251,6 @@ class SolutionOptimized:
 
         return backtrack(0)
 
-
 def test_solution():
     """Test cases for 140. Word Break II."""
     solution = Solution()
@@ -305,7 +300,6 @@ def test_solution():
     assert "aa aa aa a" in result5
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

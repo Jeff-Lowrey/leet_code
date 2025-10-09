@@ -1,8 +1,20 @@
 """
+# Difficulty: Easy
+
 # 226. Invert Binary Tree
-**Easy**
 
 Given the root of a binary tree, invert the tree, and return its root.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -21,9 +33,6 @@ Given the root of a binary tree, invert the tree, and return its root.
 - Time complexity is optimized for the given constraints
 - Space complexity is minimized where possible
 
-### TIME COMPLEXITY: O(n)
-### SPACE COMPLEXITY: O(1)
-
 ### EXAMPLE WALKTHROUGH:
 ```
 Input: [example input]
@@ -32,32 +41,19 @@ Step 2: [explain second step]
 Output: [expected output]
 ```
 
+### TIME COMPLEXITY:
+O(n)
+
+### SPACE COMPLEXITY:
+O(1)
+
 ### EDGE CASES:
 - Empty input handling
 - Single element cases
 - Large input considerations
 
 </details>
-
-<details>
-<summary><b>💡 APPROACH</b></summary>
-
-The approach uses trees techniques to solve this problem efficiently.
-
-### Algorithm Steps:
-1. Initialize necessary variables
-2. Process input using trees method
-3. Return the computed result
-
-</details>
 """
-
-# Definition for a binary tree node.
-class TreeNode:
-    def __init__(self, val=0, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
 
 class Solution:
     def invertTree(self, root):

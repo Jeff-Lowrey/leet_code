@@ -1,52 +1,50 @@
 /**
- * 173. Binary Search Tree Iterator
- * Medium
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Design.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Implement an iterator that performs in-order traversal of a BST. The key insight is to use
- * a stack to simulate the recursive in-order traversal iteratively. We only push left nodes
- * initially, then process nodes one at a time.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. **Initialize with a stack**: Push all left nodes from root to leftmost leaf
- * 2. **next()**: Pop the top node, add its value, then push all left children of its right child
- * 3. **hasNext()**: Simply check if the stack is empty
- * 4. **Handle edge cases**: Empty trees, single nodes, skewed trees
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Stack maintains nodes to be visited in correct in-order sequence
- * - Only stores nodes along the path to current position (O(h) space)
- * - Each node is pushed and popped exactly once (amortized O(1) per operation)
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(1) average for next() and hasNext()
- * SPACE COMPLEXITY: O(h) where h is the height of the tree
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: root = [7,3,15,null,null,9,20]
- *        7
- *       / \
- *      3  15
- *         / \
- *        9  20
- *
- * Step 1: Initialize - push 7, 3 onto stack (all left nodes)
- * Step 2: next() returns 3 (leftmost, no right child)
- * Step 3: next() returns 7, push 15, 9
- * Step 4: next() returns 9
- * Step 5: next() returns 15, push 20
- * Step 6: next() returns 20
- * Output: [3, 7, 9, 15, 20]
+ * [example input]
  * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * EDGE CASES:
- * - Single node tree
- * - Left-skewed tree (essentially a linked list)
- * - Right-skewed tree
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

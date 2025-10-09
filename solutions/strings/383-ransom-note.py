@@ -1,8 +1,20 @@
 """
+# Difficulty: Easy
+
 # 383. Ransom Note
-**Easy**
 
 This problem demonstrates key concepts in Strings and Hash Tables.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -24,14 +36,6 @@ if one string's character frequencies are a subset of another's character freque
 - Decrementing counts as we consume characters ensures we don't reuse
 - If any character is unavailable or exhausted, we return False immediately
 
-### TIME COMPLEXITY: O(m + n)
-Where m is the length of magazine and n is the length of ransomNote. We iterate through both
-strings once.
-
-### SPACE COMPLEXITY: O(1)
-Although we use a hash map, since we're limited to lowercase English letters (26 characters),
-the space is bounded by a constant.
-
 ### EXAMPLE WALKTHROUGH:
 ```
 Input: ransomNote = "aa", magazine = "aab"
@@ -48,6 +52,16 @@ Step 3: Check 'a' (second): count is 0, not available
 Output: False
 ```
 
+### TIME COMPLEXITY:
+O(m + n)
+Where m is the length of magazine and n is the length of ransomNote. We iterate through both
+strings once.
+
+### SPACE COMPLEXITY:
+O(1)
+Although we use a hash map, since we're limited to lowercase English letters (26 characters),
+the space is bounded by a constant.
+
 ### EDGE CASES:
 - Empty ransom note: Always True (can construct nothing from anything)
 - Empty magazine: False if ransom note is non-empty, True if both empty
@@ -55,29 +69,7 @@ Output: False
 - Ransom note with characters not in magazine: False
 
 </details>
-
-<details>
-<summary><b>💡 APPROACH</b></summary>
-
-The approach uses frequency counting with a hash map (Counter from collections module).
-
-### Algorithm Steps:
-1. Import Counter from collections for efficient character counting
-2. Count all characters in the magazine
-3. For each character in ransom note:
-   - Check if character is available (count > 0)
-   - If not available, return False
-   - If available, decrement the count
-4. If all characters processed successfully, return True
-
-### Alternative Approach:
-Could also count both strings and compare counts: all ransomNote counts <= magazine counts.
-
-</details>
 """
-
-from collections import Counter
-
 
 class Solution:
     def solve(self, ransomNote: str, magazine: str) -> bool:
@@ -124,7 +116,6 @@ class Solution:
 
         return True
 
-
 def test_solution():
     """
     Test cases for 383. Ransom Note.
@@ -168,7 +159,6 @@ def test_solution():
     assert result9 == True, f"Test 9 (alternative) failed: expected True, got {result9}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

@@ -1,45 +1,50 @@
 /**
- * 146. LRU Cache
- * Medium
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Design.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * LRU (Least Recently Used) Cache requires O(1) access time for both get and put operations.
- * We need to track both the order of usage (for eviction) and provide fast access by key.
- * This requires combining a hash map (for O(1) access) with a doubly-linked list (for O(1) insertion/deletion).
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. **Hash Map**: Store key -> node mapping for O(1) access
- * 2. **Doubly-Linked List**: Maintain usage order with O(1) insertion/deletion
- * 3. **Move to Head**: On access, move node to head (most recently used)
- * 4. **Remove Tail**: On capacity overflow, remove tail node (least recently used)
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Hash map provides O(1) key lookup
- * - Doubly-linked list allows O(1) node removal and insertion
- * - Head represents most recently used, tail represents least recently used
- * - Moving accessed nodes to head maintains LRU order
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(1) for both get and put operations
- * SPACE COMPLEXITY: O(capacity) for storing up to capacity key-value pairs
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * LRUCache(2) -> capacity = 2
- * put(1, 1) -> {1: 1}, order: [1]
- * put(2, 2) -> {1: 1, 2: 2}, order: [2, 1]
- * get(1) -> returns 1, order: [1, 2] (1 moved to head)
- * put(3, 3) -> {1: 1, 3: 3}, order: [3, 1] (2 evicted as LRU)
+ * [example input]
  * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * EDGE CASES:
- * - Capacity of 1: Single item cache
- * - Updating existing key: Don't change size, update value and move to head
- * - Getting non-existent key: Return -1
- * - Full capacity: Evict least recently used before adding new item
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

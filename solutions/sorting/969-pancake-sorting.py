@@ -1,6 +1,7 @@
 """
+# Difficulty: Medium
+
 # 969. Pancake Sorting
-**Medium**
 
 Given an array of integers arr, sort the array by performing a series of pancake flips.
 
@@ -13,6 +14,17 @@ sub-array [3,2,1], so arr = [1,2,3,4] after the pancake flip at k = 3.
 
 Return an array of the k-values corresponding to a sequence of pancake flips that sort arr.
 Any valid answer that sorts the array within 10 * arr.length flips will be accepted.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -34,14 +46,6 @@ top with one flip, then flip it to its final position. This guarantees sorting.
 - Second flip moves it to its correct position
 - Working from largest to smallest guarantees no interference
 - Maximum 2n flips (well within 10n limit)
-
-### TIME COMPLEXITY: O(n²)
-- n iterations (one per element)
-- Each iteration finds max: O(n)
-- Total: O(n²)
-
-### SPACE COMPLEXITY: O(n)
-For storing the flip sequence
 
 ### EXAMPLE WALKTHROUGH:
 ```
@@ -73,6 +77,16 @@ Result: [1,2,3,4]
 Output: [3,4,2,3,2] (flip positions)
 ```
 
+### TIME COMPLEXITY:
+O(n²)
+- n iterations (one per element)
+- Each iteration finds max: O(n)
+- Total: O(n²)
+
+### SPACE COMPLEXITY:
+O(n)
+For storing the flip sequence
+
 ### EDGE CASES:
 - Already sorted array
 - Single element
@@ -80,15 +94,8 @@ Output: [3,4,2,3,2] (flip positions)
 - All elements equal
 - Two elements
 
-### OPTIMIZATIONS:
-- **Skip if already in position**: Don't flip if element already at correct spot
-- **Skip single flips**: If max is already at position 0, only need one flip
-- **Early termination**: Stop when remaining array is sorted
-
 </details>
 """
-
-
 
 class Solution:
     def pancakeSort(self, arr: list[int]) -> list[int]:
@@ -218,7 +225,6 @@ class Solution:
 
         return result
 
-
 def test_solution():
     """Test cases for Problem 969."""
     solution = Solution()
@@ -280,7 +286,6 @@ def test_solution():
     assert arr8 == sorted([3, 2, 4, 1]), f"Not sorted correctly: {arr8}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

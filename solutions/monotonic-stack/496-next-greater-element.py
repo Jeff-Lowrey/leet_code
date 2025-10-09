@@ -1,6 +1,5 @@
 """
-496. Next Greater Element I
-Easy
+# Difficulty: Easy
 
 The next greater element of some element x in an array is the first greater
 element that is to the right of x in the same array.
@@ -17,6 +16,18 @@ element as described above.
 Example:
 Input: nums1 = [4,1,2], nums2 = [1,3,4,2]
 Output: [-1,3,-1]
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
+
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
@@ -32,9 +43,6 @@ Use a monotonic decreasing stack to efficiently find the next greater element fo
 ### WHY THIS WORKS:
 The monotonic stack ensures we process elements in the correct order. When we encounter a larger element, all smaller elements in the stack have found their next greater element. Elements remaining in the stack have no next greater element.
 
-### TIME COMPLEXITY: O(n + m)
-### SPACE COMPLEXITY: O(n)
-
 ### EXAMPLE WALKTHROUGH:
 nums2 = [1,3,4,2], nums1 = [4,1,2]
 - Process 1: stack=[1]
@@ -43,6 +51,16 @@ nums2 = [1,3,4,2], nums1 = [4,1,2]
 - Process 2: 2<4, stack=[4,2]
 - Final mapping: {1:3, 3:4, 4:-1, 2:-1}
 - Result for [4,1,2]: [-1,3,-1]
+
+### TIME COMPLEXITY:
+O(n + m)
+
+### SPACE COMPLEXITY:
+O(n)
+
+### EDGE CASES:
+- **[Edge case 1]:** [how it's handled]
+- **[Edge case 2]:** [how it's handled]
 
 </details>
 """
@@ -70,11 +88,9 @@ class Solution:
         # Build result for nums1
         return [next_greater[num] for num in nums1]
 
-
 """
 503. Next Greater Element II
-Medium
-
+# Difficulty: Medium
 Given a circular integer array nums, return the next greater number for every
 element in nums.
 
@@ -109,11 +125,9 @@ class SolutionCircular:
 
         return result
 
-
 """
 901. Online Stock Span
-Medium
-
+# Difficulty: Medium
 Design an algorithm that collects daily price quotes for some stock and returns
 the span of that stock's price for the current day.
 
@@ -147,11 +161,9 @@ class StockSpanner:
         self.stack.append((price, span))
         return span
 
-
 """
 402. Remove K Digits
-Medium
-
+# Difficulty: Medium
 Given string num representing a non-negative integer num, and an integer k,
 return the smallest possible integer after removing k digits from num.
 
@@ -183,11 +195,9 @@ class SolutionRemoveDigits:
         result = ''.join(stack).lstrip('0')
         return result if result else '0'
 
-
 """
 316. Remove Duplicate Letters
-Medium
-
+# Difficulty: Medium
 Given a string s, remove duplicate letters so that every letter appears once and
 only once. You must make sure your result is the smallest in lexicographical
 order among all possible results.
@@ -227,7 +237,6 @@ class SolutionRemoveDuplicates:
             in_stack.add(char)
 
         return ''.join(stack)
-
 
 # Test cases
 if __name__ == "__main__":

@@ -1,52 +1,50 @@
 /**
- * 051. N-Queens
- * Hard
+ * Difficulty: Medium
  *
- * The n-queens puzzle is the problem of placing n queens on an n×n chessboard
- * such that no two queens attack each other. Given an integer n, return all
- * distinct solutions to the n-queens puzzle. You may return the answer in any order.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * This is a classic constraint satisfaction problem solved with backtracking.
- * Queens attack horizontally, vertically, and diagonally. We place queens row by row
- * and check if the current placement conflicts with previously placed queens.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. **Place queens row by row**: Try each column in current row
- * 2. **Conflict checking**: Ensure no attacks with previously placed queens
- * 3. **Backtracking**: If no valid column in current row, backtrack to previous row
- * 4. **Base case**: When all n queens are placed, record the solution
- * 5. **Board representation**: Use array of strings for final output format
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Row-by-row placement ensures no row conflicts
- * - Column tracking prevents column conflicts
- * - Diagonal tracking prevents diagonal conflicts
- * - Backtracking explores all valid placements systematically
- * - The choose/explore/unchoose pattern ensures complete search
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(N!) - at most N choices for first queen, N-1 for second, etc.
- * SPACE COMPLEXITY: O(N^2) for board representation and recursion depth
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: n = 4
- * Step 1: Place queen at (0,0) -> conflicts found later, backtrack
- * Step 2: Place queen at (0,1) -> try (1,3) -> conflicts, backtrack
- * Step 3: Continue systematic search...
- * Valid solutions:
- * Solution 1: [".Q..", "...Q", "Q...", "..Q."]
- * Solution 2: ["..Q.", "Q...", "...Q", ".Q.."]
- * Output: Both valid board configurations
+ * [example input]
  * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * EDGE CASES:
- * - n = 1: Single queen at (0,0)
- * - n = 2 or n = 3: No solutions exist
- * - n = 0: Return empty array
- * - Large n: Exponential time complexity
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

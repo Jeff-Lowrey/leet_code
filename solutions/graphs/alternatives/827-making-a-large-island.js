@@ -1,40 +1,50 @@
 /**
- * 827. Making A Large Island
- * Hard
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Graphs.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Find the maximum island size after changing at most one 0 to 1.
- * Pre-compute all island sizes, then for each 0, calculate potential island size.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. Label each island with unique ID and store its size
- * 2. For each 0, check adjacent islands and sum their sizes + 1
- * 3. Handle case where grid is already all 1s
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Pre-computation avoids recalculating island sizes for each 0
- * - Component labeling allows O(1) lookup of island sizes
- * - Checking adjacent cells covers all possible connections
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n²) - two passes through the grid
- * SPACE COMPLEXITY: O(n²) - island size map and labeled grid
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
- * Grid: [[1,0],[0,1]]
- * 1. Label islands: [[2,0],[0,3]] with sizes {2:1, 3:1}
- * 2. Check (0,1): adjacent to island 2, size = 1 + 1 = 2
- * 3. Check (1,0): adjacent to island 3, size = 1 + 1 = 2
- * Result: max(2, 2) = 2
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
  *
- * EDGE CASES:
- * - Grid already all 1s (return n²)
- * - Single cell grid
- * - No islands (all 0s)
- * - Multiple adjacent islands when changing a 0
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * [example input]
+ * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

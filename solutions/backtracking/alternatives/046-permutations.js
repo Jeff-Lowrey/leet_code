@@ -1,48 +1,50 @@
 /**
- * 046. Permutations
- * Medium
+ * Difficulty: Medium
  *
- * Given an array nums of distinct integers, return all the possible permutations.
- * You can return the answer in any order.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Generate all permutations by systematically trying each unused element at each position.
- * Use backtracking to explore all possibilities while maintaining state through choices and un-choices.
- * Since all elements are distinct, we don't need to worry about duplicate permutations.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. **Use a boolean array to track used elements**: Maintain which elements are already in current permutation
- * 2. **Backtracking**: At each position, try every unused element
- * 3. **Base case**: When current permutation length equals input length, add to results
- * 4. **Choose/Explore/Unchoose**: Add element, recurse, then remove element and mark as unused
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Each permutation uses every element exactly once
- * - Backtracking ensures we explore all n! permutations
- * - Used array ensures no duplicates within a permutation
- * - Systematic exploration guarantees all permutations are found
- * - The choose/explore/unchoose pattern ensures proper state management
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n × n!) - n! permutations, each takes O(n) to build/copy
- * SPACE COMPLEXITY: O(n) - recursion depth and current permutation
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: nums = [1,2,3]
- * Step 1: Choose 1 -> [1], try remaining [2,3]
- * Step 2: Choose 2 -> [1,2], try remaining [3]
- * Step 3: Choose 3 -> [1,2,3], complete permutation
- * Backtrack: Remove 3, try next option
- * Continue: [1,3,2], [2,1,3], [2,3,1], [3,1,2], [3,2,1]
- * Output: [[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]
+ * [example input]
  * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * EDGE CASES:
- * - Empty array (return [[]])
- * - Single element array (return [[element]])
- * - All elements are the same (but problem states distinct integers)
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

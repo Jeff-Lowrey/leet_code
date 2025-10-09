@@ -1,46 +1,50 @@
 /**
- * 416. Partition Equal Subset Sum
- * Medium
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Dynamic Programming.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * If we can partition an array into two equal sum subsets, then each subset must
- * have sum = total_sum / 2. This reduces to: can we find a subset with sum = target?
- * This is the classic subset sum problem solved with DP.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply dynamic programming methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - The solution leverages dynamic programming principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n * sum)
- * SPACE COMPLEXITY: O(sum) with space optimization
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
-Input: [1,5,11,5]
-Sum = 22, target = 11
-dp[0] = true
-After 1: dp[1] = true
-After 5: dp[5] = true, dp[6] = true
-After 11: dp[11] = true, dp[16] = true, dp[17] = true
-After 5: dp[11] remains true
-Output: true
-```
+ * [example input]
+ * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * EDGE CASES:
- * - Empty input handling
-- Single element cases
-- Large input considerations
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

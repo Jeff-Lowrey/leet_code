@@ -1,36 +1,50 @@
 /**
- * 48. Rotate Image
- * Medium
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Simulation.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * To rotate a matrix 90 degrees clockwise, we can simulate two transformations:
- * transpose the matrix, then reverse each row. This simulates the rotation process.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. Transpose the matrix: Swap elements across the main diagonal (matrix[i][j] ↔ matrix[j][i])
- * 2. Reverse each row: Swap elements from both ends moving inward
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * Mathematically, a 90-degree clockwise rotation can be decomposed into these two operations.
- * For a point (i,j), after rotation it goes to (j, n-1-i). Transpose gives us (j,i), then
- * reversing the row transforms (j,i) to (j, n-1-i).
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n²) - visit each element once during transpose and once during reverse
- * SPACE COMPLEXITY: O(1) - in-place rotation with no extra space
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
- * Input: [[1,2,3],[4,5,6],[7,8,9]]
- * After transpose: [[1,4,7],[2,5,8],[3,6,9]]
- * After reverse rows: [[7,4,1],[8,5,2],[9,6,3]]
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
  *
- * EDGE CASES:
- * - Single element matrix (1x1): No change needed
- * - 2x2 matrix: Both operations still work correctly
- * - Empty matrix: Handle gracefully
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * [example input]
+ * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

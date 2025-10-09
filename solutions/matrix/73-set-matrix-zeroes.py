@@ -1,10 +1,22 @@
 """
+# Difficulty: Medium
+
 # 73. Set Matrix Zeroes
-**Medium**
 
 Given an m x n integer matrix, if an element is 0, set its entire row and column to 0's.
 
 You must do it in place.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -23,12 +35,6 @@ Cannot modify matrix while iterating as it affects future decisions. Need to mar
 - First row/column serve as O(1) space markers
 - By processing them last, we don't lose information
 - Separate flags handle the overlap at matrix[0][0]
-
-### TIME COMPLEXITY: O(m × n)
-Two passes through the matrix
-
-### SPACE COMPLEXITY: O(1)
-Only using two boolean flags
 
 ### EXAMPLE WALKTHROUGH:
 ```
@@ -51,10 +57,13 @@ Output:
 [1, 0, 1]
 ```
 
-### KEY INSIGHTS:
-- O(m+n) space solution: Use separate arrays for row/column flags
-- O(1) space solution: Use matrix itself as storage
-- Process first row/column last to avoid data corruption
+### TIME COMPLEXITY:
+O(m × n)
+Two passes through the matrix
+
+### SPACE COMPLEXITY:
+O(1)
+Only using two boolean flags
 
 ### EDGE CASES:
 - Single element
@@ -65,7 +74,6 @@ Output:
 
 </details>
 """
-
 
 class Solution:
     def setZeroes(self, matrix: list[list[int]]) -> None:
@@ -201,7 +209,6 @@ class Solution:
             for i in range(m):
                 matrix[i][0] = 0
 
-
 def test_solution() -> None:
     """Test cases for Problem 73."""
     solution = Solution()
@@ -281,7 +288,6 @@ def test_solution() -> None:
     print("Test case 12 passed: Compact solution")
 
     print("\nAll test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

@@ -1,12 +1,24 @@
 """
+# Difficulty: Easy
+
 # 1356. Sort Integers By The Number Of 1 Bits
-**Easy**
 
 You are given an integer array arr. Sort the integers in the array in ascending order by the number
 of 1's in their binary representation and in case of two or more integers have the same number of 1's
 you have to sort them in ascending order.
 
 Return the array after sorting it.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -26,14 +38,6 @@ so we can sort by value first, then by bit count. Or use a tuple key for simulta
 - Python sorts tuples lexicographically (first element, then second)
 - Stable sort maintains order when keys are equal
 - Lambda function provides clean, concise key
-
-### TIME COMPLEXITY: O(n log n)
-- Counting bits: O(log max_value) per number = O(n log max_value)
-- Sorting: O(n log n)
-- Total: O(n log n) dominates
-
-### SPACE COMPLEXITY: O(n)
-For the sorted result array
 
 ### EXAMPLE WALKTHROUGH:
 ```
@@ -59,21 +63,24 @@ Group by bit count (then sort by value):
 Output: [0,1,2,4,8,3,5,6,7]
 ```
 
+### TIME COMPLEXITY:
+O(n log n)
+- Counting bits: O(log max_value) per number = O(n log max_value)
+- Sorting: O(n log n)
+- Total: O(n log n) dominates
+
+### SPACE COMPLEXITY:
+O(n)
+For the sorted result array
+
 ### EDGE CASES:
 - Array with single element
 - All numbers have same bit count
 - Array with zeros
 - Large numbers (up to 10^4)
 
-### OPTIMIZATIONS:
-- **Brian Kernighan's algorithm**: n & (n-1) for bit counting
-- **Precompute bit counts**: If sorting many times
-- **Built-in bit_count()**: Python 3.10+ has int.bit_count()
-
 </details>
 """
-
-
 
 class Solution:
     def sortByBits(self, arr: list[int]) -> list[int]:
@@ -139,7 +146,6 @@ class Solution:
 
         return sorted(arr, key=lambda x: (bit_counts[x], x))
 
-
 def test_solution():
     """Test cases for Problem 1356."""
     solution = Solution()
@@ -192,7 +198,6 @@ def test_solution():
     assert result8 == expected8, f"Expected {expected8}, got {result8}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

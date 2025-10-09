@@ -1,43 +1,50 @@
 /**
- * 867. Transpose Matrix
- * Easy
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Simulation.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Transposing a matrix means swapping rows and columns. The element at position (i, j)
- * in the original matrix becomes the element at position (j, i) in the transposed matrix.
- * This simulates reflecting the matrix along its main diagonal.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. Create a new matrix with dimensions swapped: if original is m×n, result is n×m
- * 2. For each element at position (i, j) in original matrix:
- *    - Place it at position (j, i) in the result matrix
- * 3. Return the result matrix
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * The transpose operation is simply a coordinate swap. By creating a new matrix with
- * swapped dimensions and copying elements to their transposed positions, we achieve
- * the transpose in a single pass.
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(m × n) - iterate through all elements once
- * SPACE COMPLEXITY: O(n × m) - space for the transposed matrix (output)
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
- * Input: [[1,2,3],[4,5,6]]
- * Original dimensions: 2×3
- * Result dimensions: 3×2
- * (0,0)→(0,0): 1, (0,1)→(1,0): 2, (0,2)→(2,0): 3
- * (1,0)→(0,1): 4, (1,1)→(1,1): 5, (1,2)→(2,1): 6
- * Result: [[1,4],[2,5],[3,6]]
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
  *
- * EDGE CASES:
- * - Single element: Returns [[element]]
- * - Single row: Becomes single column
- * - Single column: Becomes single row
- * - Square matrix: Dimensions stay the same but values swap
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * [example input]
+ * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

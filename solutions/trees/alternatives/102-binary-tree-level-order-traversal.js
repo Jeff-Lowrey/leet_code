@@ -1,60 +1,50 @@
 /**
- * 102. Binary Tree Level Order Traversal
- * Medium
+ * Difficulty: Medium
  *
- * Given the root of a binary tree, return the level order traversal of its nodes' values. (i.e., from left to right, level by level).
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Level order traversal visits nodes level by level from left to right. This is a classic BFS (Breadth-First Search) problem where we use a queue to process nodes level by level, collecting values at each level separately.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. **BFS with Queue**: Use queue to process nodes level by level
- * 2. **Level Separation**: Track level size to separate levels in result
- * 3. **Left-to-Right Processing**: Add children left-to-right to maintain order
- * 4. **Result Structure**: Each level becomes a separate list in the result
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Queue ensures FIFO processing for level-by-level traversal
- * - Level size tracking allows us to process exactly one level at a time
- * - Children are added in left-to-right order for correct traversal
- * - BFS naturally explores breadth before depth
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n)
- * Each node is visited exactly once
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * SPACE COMPLEXITY: O(w)
- * Where w is maximum width of the tree (queue size)
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: [3,9,20,null,null,15,7]
- *        3
- *       / \
- *      9  20
- *        /  \
- *       15   7
- *
- * Level 0: [3] → queue: [9, 20]
- * Level 1: [9, 20] → queue: [15, 7]
- * Level 2: [15, 7] → queue: []
- * Output: [[3], [9, 20], [15, 7]]
+ * [example input]
  * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * KEY INSIGHTS:
- * - BFS with queue is natural for level order traversal
- * - Level size tracking enables level separation
- * - Multiple approaches: iterative BFS, recursive DFS with level tracking
- * - Result structure matches the level-by-level organization
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
  *
- * EDGE CASES:
- * - Empty tree (null root): returns empty array []
- * - Single node: returns [[root.val]]
- * - Left-skewed tree: each level has one node
- * - Right-skewed tree: each level has one node
- * - Complete binary tree: levels double in size until last level
- * - Unbalanced tree: varying number of nodes per level
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

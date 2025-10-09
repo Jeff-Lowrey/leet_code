@@ -1,45 +1,50 @@
 /**
- * 076. Minimum Window Substring
- * Hard
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Sliding Window.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Find the smallest substring in s that contains all characters from t.
- * Use a sliding window with two hash maps to track character frequencies.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. **Analyze the problem**: Find minimum window containing all characters from t
- * 2. **Choose the right technique**: Variable-size sliding window with character frequency tracking
- * 3. **Implement efficiently**: Use two maps - one for target, one for window
- * 4. **Handle edge cases**: Empty strings, no valid window, entire string is minimum
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Expand window (right pointer) until all characters from t are included
- * - Contract window (left pointer) while maintaining validity to find minimum
- * - Track character frequencies to determine if window is valid
- * - Keep track of the smallest valid window found
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(m + n) where m is length of s, n is length of t
- * SPACE COMPLEXITY: O(k) where k is number of unique characters in t
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: s = "ADOBECODEBANC", t = "ABC"
- * Step 1: Expand window until "ADOBEC" contains A, B, C
- * Step 2: Contract from left: "DOBEC" still valid, "OBEC" invalid
- * Step 3: Continue expanding and contracting
- * Step 4: Find minimum window "BANC"
- * Output: "BANC"
+ * [example input]
  * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * EDGE CASES:
- * - Empty s or t: return ""
- * - t longer than s: return ""
- * - No valid window exists: return ""
- * - Multiple minimum windows: return any one
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

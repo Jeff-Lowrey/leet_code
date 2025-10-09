@@ -1,48 +1,50 @@
 /**
- * 969. Pancake Sorting
- * Medium
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Sorting.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Sort an array using only pancake flips, where a flip reverses the first k elements.
- * The strategy is similar to selection sort: find the maximum element, move it to
- * the front (if needed), then flip it to its correct position at the end.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * For each position from the end:
- * 1. Find the index of the maximum element in the unsorted portion
- * 2. If it's not at the beginning, flip to bring it to the front
- * 3. Flip again to move it to its correct position
- * 4. Repeat for the next smaller element
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * By repeatedly moving the largest unsorted element to its final position,
- * we sort the array. Each element requires at most 2 flips (one to bring to front,
- * one to move to position), so we use at most 2n flips.
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n^2) - n iterations, each finding max and flipping
- * SPACE COMPLEXITY: O(n) - for storing the flip operations
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
- * Input: arr = [3,2,4,1]
- * Step 1: Find max in [3,2,4,1] -> 4 at index 2
- *   Flip first 3 elements: [4,2,3,1], record k=3
- *   Flip first 4 elements: [1,3,2,4], record k=4
- * Step 2: Find max in [1,3,2] -> 3 at index 1
- *   Flip first 2 elements: [3,1,2,4], record k=2
- *   Flip first 3 elements: [2,1,3,4], record k=3
- * Step 3: Find max in [2,1] -> 2 at index 0
- *   Already at front, flip first 2: [1,2,3,4], record k=2
- * Step 4: Array sorted, element 1 is in position
- * Output: [3,4,2,3,2]
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
  *
- * EDGE CASES:
- * - Already sorted: returns empty array
- * - Single element: returns empty array
- * - Max already in position: only needs one flip or none
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * [example input]
+ * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

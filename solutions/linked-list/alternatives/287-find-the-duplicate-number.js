@@ -1,50 +1,50 @@
 /**
- * 287. Find The Duplicate Number
- * Medium
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Linked List.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Treat the array as a linked list where nums[i] points to nums[nums[i]].
- * Since there's a duplicate, this creates a cycle. Use Floyd's cycle detection
- * to find where the cycle begins - that index value is the duplicate number.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. Map array to implicit linked list: index i points to index nums[i]
- * 2. Use Floyd's algorithm to detect cycle existence
- * 3. Find cycle start using the two-phase approach
- * 4. The cycle start position gives us the duplicate number
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Duplicate number creates multiple pointers to same index (cycle)
- * - Floyd's algorithm finds cycle, then locates the duplicate
- * - No modification of input array, O(1) space complexity
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n)
- * SPACE COMPLEXITY: O(1)
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
-Input: nums = [1,3,4,2,2]
-Array as linked list: 0->1->3->2->4->2 (cycle at index 2)
-Step 1: Floyd's detection - slow=0,1,3,2,4,2,4... fast=0,3,4,2,4,2,4...
-Step 2: They meet at index 4 (both pointing to value 2)
-Step 3: Reset slow to 0, move both one step: slow=0,1,3,2 fast=4,2,4,2
-Step 4: They meet at index 2, value is 2 (duplicate found)
-Output: 2
-
-Input: nums = [3,1,3,4,2]
-Array as linked list: 0->3->4->2->1->3 (cycle at index 3)
-Meeting point leads to duplicate value 3
-```
+ * [example input]
+ * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * EDGE CASES:
- * - Minimum case: n=2, one duplicate (e.g., [1,1])
- * - Duplicate appears multiple times (e.g., [2,2,2,2,2])
- * - Duplicate is at boundaries (smallest or largest value)
- * - Large arrays with single duplicate among many unique values
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

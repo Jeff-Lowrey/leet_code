@@ -1,6 +1,5 @@
 """
-1306. Jump Game III
-Medium
+# Difficulty: Medium
 
 Given an array of non-negative integers arr, you are initially positioned at start index.
 When you are at index i, you can jump to i + arr[i] or i - arr[i], check if you can reach
@@ -10,6 +9,17 @@ Example:
 Input: arr = [4,2,3,0,3,1,2], start = 5
 Output: true
 Explanation: Jump sequence: 5 → 4 → 1 → 3 (value is 0)
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -27,9 +37,6 @@ i+arr[i] and i-arr[i]. Use DFS or BFS to explore all reachable indices from star
 ### WHY THIS WORKS:
 Since we mark visited indices, we explore each node once, avoiding cycles.
 If any reachable node has value 0, we return true.
-
-### TIME COMPLEXITY: O(n)
-### SPACE COMPLEXITY: O(n) for visited set and recursion/queue
 
 ### EXAMPLE WALKTHROUGH:
 ```
@@ -54,13 +61,18 @@ DFS(1): arr[1]=2
 DFS(3): arr[3]=0 → return true!
 ```
 
-### ALTERNATIVE: BFS with queue for level-order exploration
+### TIME COMPLEXITY:
+O(n)
+
+### SPACE COMPLEXITY:
+O(n) for visited set and recursion/queue
+
+### EDGE CASES:
+- **[Edge case 1]:** [how it's handled]
+- **[Edge case 2]:** [how it's handled]
 
 </details>
 """
-
-from collections import deque
-
 
 class Solution:
     def canReach(self, arr: list[int], start: int) -> bool:
@@ -137,7 +149,6 @@ class Solution:
 
         return False
 
-
 def test_solution() -> None:
     """Test cases for Problem 1306."""
     solution = Solution()
@@ -185,7 +196,6 @@ def test_solution() -> None:
     print("Test case 10 passed: Multiple zeros")
 
     print("\nAll test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

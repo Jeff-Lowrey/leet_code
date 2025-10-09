@@ -1,11 +1,23 @@
 """
+# Difficulty: Medium
+
 # 912. Sort An Array
-**Medium**
 
 Given an array of integers nums, sort the array in ascending order and return it.
 
 You must solve the problem without using any built-in functions in O(nlog(n)) time complexity
 and with the smallest space complexity possible.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -34,14 +46,6 @@ achieve O(n log n) time. This problem tests understanding of fundamental sorting
 - **Quick Sort**: Average O(n log n), in-place, but O(n²) worst case
 - **Heap Sort**: Guaranteed O(n log n), in-place, not stable
 
-### TIME COMPLEXITY: O(n log n)
-All three algorithms achieve this complexity
-
-### SPACE COMPLEXITY:
-- Merge Sort: O(n) for merge array
-- Quick Sort: O(log n) for recursion stack
-- Heap Sort: O(1) in-place
-
 ### EXAMPLE WALKTHROUGH:
 ```
 Input: nums = [5,2,3,1]
@@ -67,6 +71,15 @@ Quick Sort:
 Output: [1,2,3,5]
 ```
 
+### TIME COMPLEXITY:
+O(n log n)
+All three algorithms achieve this complexity
+
+### SPACE COMPLEXITY:
+- Merge Sort: O(n) for merge array
+- Quick Sort: O(log n) for recursion stack
+- Heap Sort: O(1) in-place
+
 ### EDGE CASES:
 - Empty array
 - Single element
@@ -75,17 +88,8 @@ Output: [1,2,3,5]
 - Reverse sorted
 - Large arrays (up to 50,000 elements)
 
-### OPTIMIZATIONS:
-- **Randomized quicksort**: Avoid worst case O(n²)
-- **3-way quicksort**: Handle duplicates efficiently
-- **Hybrid approaches**: Use insertion sort for small subarrays
-- **Iterative implementations**: Reduce stack space
-
 </details>
 """
-
-import random
-
 
 class Solution:
     def sortArray(self, nums: list[int]) -> list[int]:
@@ -250,7 +254,6 @@ class Solution:
         merge_sort_helper(0, len(nums) - 1)
         return nums
 
-
 def test_solution():
     """Test cases for Problem 912."""
     solution = Solution()
@@ -311,7 +314,6 @@ def test_solution():
     assert result11 == expected11, f"Expected {expected11}, got {result11}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

@@ -1,49 +1,50 @@
 /**
- * 338. Counting Bits
- * Easy
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Bit Manipulation.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * For a number i, the count of 1 bits can be calculated from a previous result.
- * i >> 1 removes the last bit, and i & 1 tells us if the last bit is 1.
- * So: count[i] = count[i >> 1] + (i & 1)
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. Create result array of size n+1, initialize result[0] = 0
- * 2. For each number i from 1 to n:
- *    - count[i] = count[i >> 1] + (i & 1)
- *    - i >> 1 is i divided by 2 (removing rightmost bit)
- *    - i & 1 checks if rightmost bit is 1
- * 3. Return result array
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Dividing by 2 (right shift) removes the last bit
- * - We already know the count for i >> 1 from previous calculation
- * - Just add 1 if the last bit of i is 1, otherwise add 0
- * - Example: 5 (101) = 2 (10) has 1 bit, plus rightmost 1 = 2 total bits
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n) - single pass from 1 to n
- * SPACE COMPLEXITY: O(1) - excluding output array
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
-Input: n = 5
-i=0: result[0] = 0 (binary: 000)
-i=1: result[1] = result[0] + 1 = 1 (binary: 001)
-i=2: result[2] = result[1] + 0 = 1 (binary: 010)
-i=3: result[3] = result[1] + 1 = 2 (binary: 011)
-i=4: result[4] = result[2] + 0 = 1 (binary: 100)
-i=5: result[5] = result[2] + 1 = 2 (binary: 101)
-Output: [0,1,1,2,1,2]
-```
+ * [example input]
+ * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * EDGE CASES:
- * - n = 0: returns [0]
- * - Powers of 2 have exactly one 1 bit
- * - Works for any non-negative integer
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

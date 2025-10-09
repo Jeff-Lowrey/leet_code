@@ -1,8 +1,21 @@
 """
+# Difficulty: 
+
 # 073. Set Matrix Zeroes
 **In-Place Marking**
 
 Given an m x n matrix, if an element is 0, set its entire row and column to 0 in-place.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -23,9 +36,6 @@ Need separate flags for first row/column since they overlap at [0][0].
 - In-place modification requires no extra space
 - Process order prevents overwriting needed markers
 
-### TIME COMPLEXITY: O(m * n) - scan matrix twice
-### SPACE COMPLEXITY: O(1) - only use constant extra space
-
 ### EXAMPLE WALKTHROUGH:
 ```
 Input: [[1,1,1],
@@ -39,6 +49,12 @@ Step 3: Result [[1,0,1],
                 [1,0,1]]
 ```
 
+### TIME COMPLEXITY:
+O(m * n) - scan matrix twice
+
+### SPACE COMPLEXITY:
+O(1) - only use constant extra space
+
 ### EDGE CASES:
 - First row/column contains zeros
 - Single row or column matrix
@@ -46,21 +62,7 @@ Step 3: Result [[1,0,1],
 - 1x1 matrix
 
 </details>
-
-<details>
-<summary><b>💡 APPROACH</b></summary>
-
-The approach uses first row/column as marker arrays for O(1) space.
-
-### Algorithm Steps:
-1. Check if first row/column should be zeroed
-2. Use first row/column to mark zero positions
-3. Zero cells based on markers
-4. Handle first row/column separately
-
-</details>
 """
-
 
 class Solution:
     def setZeroes(self, matrix: list[list[int]]) -> None:
@@ -110,7 +112,6 @@ class Solution:
 
     # Alias for consistent interface
     solve = setZeroes
-
 
 def test_solution():
     """
@@ -175,7 +176,6 @@ def test_solution():
     print("Test case 8 passed: Single row with zero")
 
     print("\nAll test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

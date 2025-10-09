@@ -1,42 +1,50 @@
 /**
- * 199. Binary Tree Right Side View
- * Medium
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Queue.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Use BFS level-order traversal to visit nodes level by level.
- * The rightmost node at each level is what we see from the right side.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. Use a queue for BFS traversal
- * 2. Process nodes level by level
- * 3. The last node processed at each level is the rightmost node
- * 4. Add each rightmost node to the result
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * BFS processes nodes left to right at each level. The last node
- * processed at each level is the rightmost visible node from the right side.
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n) - Visit each node once
- * SPACE COMPLEXITY: O(w) - Queue holds at most one level width
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
- * Input: root = [1,2,3,null,5,null,4]
- *        1         <- visible (rightmost at level 0)
- *       / \
- *      2   3       <- 3 visible (rightmost at level 1)
- *       \   \
- *        5   4     <- 4 visible (rightmost at level 2)
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
  *
- * Output: [1, 3, 4]
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * [example input]
+ * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * EDGE CASES:
- * - Empty tree (null root)
- * - Single node tree
- * - Left-skewed tree (only left children)
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 // Definition for a binary tree node

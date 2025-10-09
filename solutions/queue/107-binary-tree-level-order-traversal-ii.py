@@ -1,9 +1,21 @@
 """
+# Difficulty: Medium
+
 # 107. Binary Tree Level Order Traversal II
-**Medium**
 
 Given the root of a binary tree, return the bottom-up level order traversal of its nodes' values.
 (i.e., from left to right, level by level from leaf to root).
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -26,16 +38,6 @@ Alternatively, we can prepend each level to the result instead of appending.
 - By reversing the result at the end, we get bottom-up order
 - Deque provides efficient O(1) operations for BFS
 
-### TIME COMPLEXITY: O(n)
-- Visit each node exactly once: O(n)
-- Reversing result: O(h) where h = height
-- Total: O(n)
-
-### SPACE COMPLEXITY: O(w)
-- Queue holds at most one level at a time
-- w = maximum width of tree (worst case: n/2 for complete tree)
-- Result storage: O(n)
-
 ### EXAMPLE WALKTHROUGH:
 ```
 Tree:      3
@@ -48,6 +50,18 @@ Level-order (top-down): [[3], [9, 20], [15, 7]]
 Bottom-up: [[15, 7], [9, 20], [3]]
 ```
 
+### TIME COMPLEXITY:
+O(n)
+- Visit each node exactly once: O(n)
+- Reversing result: O(h) where h = height
+- Total: O(n)
+
+### SPACE COMPLEXITY:
+O(w)
+- Queue holds at most one level at a time
+- w = maximum width of tree (worst case: n/2 for complete tree)
+- Result storage: O(n)
+
 ### EDGE CASES:
 - Empty tree: Return []
 - Single node: Return [[root.val]]
@@ -55,18 +69,6 @@ Bottom-up: [[15, 7], [9, 20], [3]]
 
 </details>
 """
-
-from collections import deque
-
-
-class TreeNode:
-    """Definition for a binary tree node."""
-
-    def __init__(self, val=0, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
-
 
 class Solution:
     def levelOrderBottom(self, root: TreeNode | None) -> list[list[int]]:
@@ -107,7 +109,6 @@ class Solution:
 
         # Reverse to get bottom-up order
         return result[::-1]
-
 
 def test_solution():
     """Test cases for Problem 107."""
@@ -163,7 +164,6 @@ def test_solution():
     print("Test case 5 passed: Complete binary tree")
 
     print("\nAll test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

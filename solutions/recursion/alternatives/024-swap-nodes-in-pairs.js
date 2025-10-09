@@ -1,45 +1,50 @@
 /**
- * 024. Swap Nodes In Pairs
- * Medium
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Recursion.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Given a linked list, we need to swap every two adjacent nodes and return the modified list.
- * The recursive approach naturally handles the swapping pattern by processing pairs from left to right.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. **Base Case**: If the list is empty or has only one node, return the head as-is
- * 2. **Recursive Case**:
- *    - Save references to the first two nodes
- *    - Recursively process the rest of the list (starting from the third node)
- *    - Swap the first two nodes by adjusting pointers
- *    - Return the new head (which was originally the second node)
- * 3. **Edge Cases**: Handle null lists and single-node lists
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Recursion naturally breaks down the problem into smaller subproblems
- * - Each recursive call swaps one pair and delegates the rest to the next call
- * - The base case ensures we don't process incomplete pairs
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n) - Visit each node once
- * SPACE COMPLEXITY: O(n) - Recursive call stack depth equals number of pairs
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: 1 -> 2 -> 3 -> 4
- * Step 1: Swap 1 and 2, recursively process 3 -> 4
- * Step 2: Swap 3 and 4, return to previous call
- * Step 3: Connect swapped pairs
- * Output: 2 -> 1 -> 4 -> 3
+ * [example input]
  * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * EDGE CASES:
- * - Empty list (null head)
- * - Single node (return as-is)
- * - Odd number of nodes (last node remains unswapped)
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 // Definition for singly-linked list node

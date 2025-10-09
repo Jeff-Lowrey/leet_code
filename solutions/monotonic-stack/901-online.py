@@ -1,8 +1,20 @@
 """
+# Difficulty: Medium
+
 # 901. Online
-**Medium**
 
 Given a problem that demonstrates key concepts in Monotonic Stack.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -21,9 +33,6 @@ Given a problem that demonstrates key concepts in Monotonic Stack.
 - Time complexity is optimized for the given constraints
 - Space complexity is minimized where possible
 
-### TIME COMPLEXITY: O(n)
-### SPACE COMPLEXITY: O(1)
-
 ### EXAMPLE WALKTHROUGH:
 ```
 Input: [example input]
@@ -32,66 +41,19 @@ Step 2: [explain second step]
 Output: [expected output]
 ```
 
+### TIME COMPLEXITY:
+O(n)
+
+### SPACE COMPLEXITY:
+O(1)
+
 ### EDGE CASES:
 - Empty input handling
 - Single element cases
 - Large input considerations
 
 </details>
-
-<details>
-<summary><b>💡 APPROACH</b></summary>
-
-The approach uses monotonic stack techniques to solve this problem efficiently.
-
-### Algorithm Steps:
-1. Initialize necessary variables
-2. Process input using monotonic stack method
-3. Return the computed result
-
-</details>
 """
-
-class StockSpanner:
-    """
-    Online stock span calculator using monotonic stack.
-    Calculates the span of stock's price for the current day.
-    Span = number of consecutive days (including today) where price <= today's price.
-    """
-
-    def __init__(self):
-        """
-        Initialize the stock spanner with an empty monotonic decreasing stack.
-        Stack stores pairs of (price, span).
-
-        Time Complexity: O(1)
-        Space Complexity: O(1)
-        """
-        self.stack = []  # Monotonic decreasing stack: (price, span)
-
-    def next(self, price: int) -> int:
-        """
-        Calculate span for the current price.
-
-        Args:
-            price: Today's stock price
-
-        Returns:
-            Number of consecutive days with price <= today's price
-
-        Time Complexity: O(1) amortized - each element pushed/popped once
-        Space Complexity: O(n) - stack can hold all prices in worst case
-        """
-        span = 1
-
-        # Pop all smaller or equal prices and accumulate their spans
-        while self.stack and self.stack[-1][0] <= price:
-            span += self.stack.pop()[1]
-
-        # Push current price with its span
-        self.stack.append((price, span))
-
-        return span
 
 class Solution:
     def solve(self, operations: list[str], values: list[list]) -> list:

@@ -1,56 +1,50 @@
 /**
- * 642. Design Search Autocomplete System
- * Hard
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Trie.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * An autocomplete system needs to suggest top sentences based on historical searches.
- * Trie structure combined with frequency tracking allows efficient prefix matching
- * and ranking by popularity (hot degree).
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. Build Trie storing sentences with their frequencies
- * 2. Track current search prefix as user types
- * 3. For each character input:
- *    - If '#', save current sentence to Trie and reset
- *    - Otherwise, find all sentences with current prefix
- *    - Sort by: frequency (desc), then lexicographically (asc)
- *    - Return top 3 results
- * 4. Store sentence frequencies at leaf nodes
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Trie enables O(p) prefix matching where p is prefix length
- * - Storing frequencies allows ranking by popularity
- * - DFS collects all matching sentences efficiently
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY:
- *   Constructor: O(k*l) where k = sentences count, l = average length
- *   Input: O(p + n*log(n)) where p = prefix length, n = matching sentences
- * SPACE COMPLEXITY: O(k*l) for Trie storage
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * sentences = ["i love you", "island", "iroman"], times = [5,3,2]
- * User types 'i':
- *   Find all sentences starting with "i"
- *   Sort by frequency: ["i love you"(5), "island"(3), "iroman"(2)]
- *   Return top 3: ["i love you", "island", "iroman"]
- * User types ' ':
- *   Current prefix "i "
- *   Only "i love you" matches
- *   Return ["i love you"]
- * User types '#':
- *   Save "i " as new sentence with frequency 1
+ * [example input]
  * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * EDGE CASES:
- * - Less than 3 matching sentences
- * - Multiple sentences with same frequency (sort lexicographically)
- * - New sentences not in initial data
- * - Empty initial sentences
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 class TrieNode {

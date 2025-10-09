@@ -1,44 +1,50 @@
 /**
- * 252. Meeting Rooms
- * Medium
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Interval.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Given meeting time intervals, determine if a person can attend all meetings.
- * A person cannot attend all meetings if any two meetings overlap.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. **Sort intervals**: Sort by start time
- * 2. **Check for overlaps**: For each consecutive pair, check if they overlap
- * 3. **Return result**: If any overlap found, return false; otherwise true
- * 4. **Handle edge cases**: Empty array or single meeting always returns true
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Sorting ensures we only need to check consecutive intervals
- * - Two intervals overlap if the second starts before the first ends
- * - If start2 < end1, there's an overlap
- * - Time complexity is O(n log n) for sorting
- * - Space complexity is O(1) or O(log n) for sorting
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n log n) - dominated by sorting
- * SPACE COMPLEXITY: O(1) - excluding sorting space
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
-Input: [[0,30],[5,10],[15,20]]
-Step 1: Sort by start time (already sorted)
-Step 2: Check [0,30] and [5,10]: 5 < 30 -> overlap found!
-Output: false
-```
+ * [example input]
+ * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * EDGE CASES:
- * - Empty input: return true (no meetings to conflict)
- * - Single meeting: return true (no conflicts)
- * - All non-overlapping: return true
- * - Adjacent meetings (end1 == start2): return true (no overlap)
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

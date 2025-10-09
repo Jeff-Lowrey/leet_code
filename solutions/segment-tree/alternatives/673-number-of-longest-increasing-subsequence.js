@@ -1,43 +1,50 @@
 /**
- * 673. Number Of Longest Increasing Subsequence
- * Medium
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Segment Tree.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * We need to find both the length of the longest increasing subsequence (LIS) and count
- * how many such subsequences exist. A dynamic programming approach tracks both length
- * and count at each position. While segment trees can optimize this, the DP solution
- * is more intuitive for this problem.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * Dynamic Programming:
- * 1. For each position i, maintain: lengths[i] = max LIS length ending at i
- *                                    counts[i] = number of LIS with that length
- * 2. For each j < i where nums[j] < nums[i]:
- *    - If lengths[j] + 1 > lengths[i]: update length and reset count
- *    - If lengths[j] + 1 == lengths[i]: add counts[j] to counts[i]
- * 3. Find maximum length and sum counts of all positions with that length
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * Each element either starts a new subsequence or extends existing ones. By tracking
- * both length and count, we can compute the total number of optimal subsequences.
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n^2)
- * SPACE COMPLEXITY: O(n)
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
- * Input: [1, 3, 5, 4, 7]
- * lengths: [1, 2, 3, 3, 4]
- * counts:  [1, 1, 1, 1, 2]
- * Max length = 4, count = 2 (sequences: [1,3,5,7] and [1,3,4,7])
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
  *
- * EDGE CASES:
- * - Single element: return 1
- * - All same: return n
- * - Strictly increasing: return 1
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * [example input]
+ * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

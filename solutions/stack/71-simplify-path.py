@@ -1,6 +1,5 @@
 """
-71. Simplify Path
-Medium
+# Difficulty: Medium
 
 Given a string path, which is an absolute path (starting with a slash '/') to a file or
 directory in a Unix-style file system, convert it to the simplified canonical path.
@@ -21,6 +20,17 @@ Return the simplified canonical path.
 Example:
 Input: path = "/home//foo/"
 Output: "/home/foo"
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -43,9 +53,6 @@ component: skip '.', pop for '..', push valid directory names. Finally, join wit
 Stack naturally handles the hierarchical nature of file paths.
 Going up (..) is a pop, going down (dirname) is a push.
 
-### TIME COMPLEXITY: O(n) where n is path length
-### SPACE COMPLEXITY: O(n) for stack and split components
-
 ### EXAMPLE WALKTHROUGH:
 ```
 path = "/a/./b/../../c/"
@@ -64,6 +71,12 @@ Process:
 Result: "/" + "c" = "/c"
 ```
 
+### TIME COMPLEXITY:
+O(n) where n is path length
+
+### SPACE COMPLEXITY:
+O(n) for stack and split components
+
 ### EDGE CASES:
 - Root directory: "/" → "/"
 - Go above root: "/../" → "/"
@@ -72,7 +85,6 @@ Result: "/" + "c" = "/c"
 
 </details>
 """
-
 
 class Solution:
     def simplifyPath(self, path: str) -> str:
@@ -99,7 +111,6 @@ class Solution:
 
         # Build canonical path
         return "/" + "/".join(stack)
-
 
 def test_solution() -> None:
     """Test cases for Problem 71."""
@@ -154,7 +165,6 @@ def test_solution() -> None:
     print("Test case 12 passed: All .. from root")
 
     print("\nAll test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

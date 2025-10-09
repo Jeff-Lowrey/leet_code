@@ -1,57 +1,50 @@
 /**
- * 084. Largest Rectangle In Histogram
- * Hard
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Monotonic Stack.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * For each bar in the histogram, we want to find the maximum rectangle that has this bar as the shortest bar.
- * The width of this rectangle is determined by the first smaller bar to the left and right of the current bar.
- * A monotonic increasing stack helps us efficiently find these boundaries.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. Use a monotonic increasing stack to store indices of bars
- * 2. When we encounter a bar shorter than the stack top, we've found the right boundary
- * 3. Pop bars from stack and calculate area with each popped bar as the minimum height
- * 4. The left boundary is the new stack top, right boundary is current position
- * 5. Process remaining bars in stack after traversing all bars
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - The monotonic stack maintains indices in increasing order of heights
- * - When we pop, we know exactly where the rectangle can extend (between boundaries)
- * - Each bar is pushed and popped exactly once, achieving O(n) time
- * - The stack holds indices, allowing us to calculate widths efficiently
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n) - each element pushed and popped once
- * SPACE COMPLEXITY: O(n) - stack can hold all bars in worst case
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: heights = [2,1,5,6,2,3]
- *
- * Step 1: i=0, h=2, stack=[] → push 0, stack=[0]
- * Step 2: i=1, h=1, h<2 → pop 0, area=2*1=2, push 1, stack=[1]
- * Step 3: i=2, h=5, h>1 → push 2, stack=[1,2]
- * Step 4: i=3, h=6, h>5 → push 3, stack=[1,2,3]
- * Step 5: i=4, h=2, h<6 → pop 3, area=6*1=6
- *                   h<5 → pop 2, area=5*2=10
- * Step 6: push 4, stack=[1,4]
- * Step 7: i=5, h=3, h>2 → push 5, stack=[1,4,5]
- * Step 8: Process remaining: pop 5, area=3*2=6
- *                           pop 4, area=2*4=8
- *                           pop 1, area=1*6=6
- *
- * Maximum area = 10
+ * [example input]
  * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * EDGE CASES:
- * - Empty array: return 0
- * - Single bar: return height of that bar
- * - All bars same height: return height * number of bars
- * - Increasing heights: process all at end
- * - Decreasing heights: process each immediately
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

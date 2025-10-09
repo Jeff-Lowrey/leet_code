@@ -1,44 +1,50 @@
 /**
- * 692. Top K Frequent Words
- * Medium
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Heap.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * We need to find k most frequent words, with lexicographical ordering as tiebreaker.
- * A min heap of size k allows us to efficiently track the top k elements.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. **Count Frequencies**: Use hash map to count word frequencies
- * 2. **Build Min Heap**: Maintain heap of size k with custom comparator
- * 3. **Heap Comparator**: Compare by frequency (ascending), then by word (descending)
- * 4. **Extract Results**: Pop all from heap and reverse for correct order
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Min heap keeps the k most frequent words
- * - Custom comparator ensures correct ordering
- * - Heap size k means O(log k) operations
- * - By using min heap, we can efficiently discard less frequent words
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n log k) where n is number of words
- * SPACE COMPLEXITY: O(n) for frequency map
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: words = ["i","love","leetcode","i","love","coding"], k = 2
- * Step 1: Count: {i: 2, love: 2, leetcode: 1, coding: 1}
- * Step 2: Build heap of top k: ["i", "love"]
- * Step 3: Sort by frequency desc, then lexicographically
- * Output: ["i", "love"]
+ * [example input]
  * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * EDGE CASES:
- * - Single word
- * - All words have same frequency
- * - k equals number of unique words
- * - Words with same frequency (lexicographical order)
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

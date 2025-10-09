@@ -1,40 +1,50 @@
 /**
- * 1356. Sort Integers By The Number Of 1 Bits
- * Easy
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Sorting.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Sort integers by the number of 1 bits in their binary representation (popcount).
- * If two numbers have the same number of 1 bits, sort them by their value.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. Create a helper function to count 1 bits in a number
- * 2. Use custom comparator: first by bit count, then by value
- * 3. Sort the array using this comparator
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * The custom comparator ensures proper ordering based on the problem requirements.
- * Bit counting can be done efficiently using bitwise operations.
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n log n) for sorting
- * SPACE COMPLEXITY: O(1) if we don't count the sorting space
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
- * Input: arr = [0,1,2,3,4,5,6,7,8]
- * Step 1: Count bits for each:
- *   0 (0000) = 0 bits, 1 (0001) = 1 bit, 2 (0010) = 1 bit, 3 (0011) = 2 bits
- *   4 (0100) = 1 bit, 5 (0101) = 2 bits, 6 (0110) = 2 bits, 7 (0111) = 3 bits, 8 (1000) = 1 bit
- * Step 2: Group by bit count: [0], [1,2,4,8], [3,5,6], [7]
- * Step 3: Within each group, sort by value
- * Output: [0,1,2,4,8,3,5,6,7]
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
  *
- * EDGE CASES:
- * - Single element: returns as is
- * - All same bit count: sorts by value
- * - Empty array: returns empty
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * [example input]
+ * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

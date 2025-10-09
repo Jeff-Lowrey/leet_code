@@ -1,10 +1,22 @@
 """
+# Difficulty: Medium
+
 # 560. Subarray Sum Equals K
-**Medium**
 
 Given an array of integers nums and an integer k, return the total number of subarrays whose sum is equal to k.
 
 A subarray is a contiguous non-empty sequence of elements within an array.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -25,12 +37,6 @@ This is a classic prefix sum problem. The key insight is that if we know the pre
 - Each occurrence represents a valid subarray ending at current position
 - Running prefix sum allows single pass solution
 
-### TIME COMPLEXITY: O(n)
-Single pass through the array with O(1) hashmap operations
-
-### SPACE COMPLEXITY: O(n)
-HashMap can store up to n different prefix sums
-
 ### EXAMPLE WALKTHROUGH:
 ```
 Input: nums = [1,1,1], k = 2
@@ -40,11 +46,13 @@ Index 2: sum=3, need=3-2=1, count=2, map={0:1, 1:1, 2:1, 3:1}
 Result: 2 subarrays: [1,1] and [1,1]
 ```
 
-### KEY INSIGHTS:
-- Initialize map with {0: 1} to handle subarrays starting from index 0
-- prefix_sum - k tells us what prefix sum we need to have seen before
-- Multiple occurrences of same prefix sum means multiple valid subarrays
-- Order matters: update count before updating map to avoid counting current element
+### TIME COMPLEXITY:
+O(n)
+Single pass through the array with O(1) hashmap operations
+
+### SPACE COMPLEXITY:
+O(n)
+HashMap can store up to n different prefix sums
 
 ### EDGE CASES:
 - Single element equals k
@@ -55,7 +63,6 @@ Result: 2 subarrays: [1,1] and [1,1]
 
 </details>
 """
-
 
 class Solution:
     def subarraySum(self, nums: list[int], k: int) -> int:
@@ -191,7 +198,6 @@ class Solution:
 
         return result
 
-
 def test_solution():
     """Test cases for Problem 560."""
     solution = Solution()
@@ -242,7 +248,6 @@ def test_solution():
     assert result9 == expected9, f"Expected {expected9}, got {result9}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

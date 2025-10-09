@@ -1,6 +1,5 @@
 """
-1312. Minimum Insertion Steps to Make a String Palindrome
-Hard
+# Difficulty: Hard
 
 Given a string s, return the minimum number of insertions needed to make s a palindrome.
 
@@ -20,6 +19,18 @@ Example:
 Input: s = "leetcode"
 Output: 5
 Explanation: Inserting 5 characters the string becomes "leetcodocteel".
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
+
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
@@ -36,12 +47,6 @@ To make a string palindromic with minimum insertions, we need to find the longes
 ### WHY THIS WORKS:
 The LPS represents the "skeleton" of characters we can keep without insertion. All other characters need to be "mirrored" by insertions. For example, in "mbadm", LPS is "mam" (length 3), so we need 5-3=2 insertions.
 
-### TIME COMPLEXITY: O(n²)
-- Filling n×n DP table with constant work per cell
-
-### SPACE COMPLEXITY: O(n²)
-- DP table storage, can be optimized to O(n)
-
 ### EXAMPLE WALKTHROUGH:
 For s = "mbadm":
 1. Build LPS DP table:
@@ -52,10 +57,13 @@ For s = "mbadm":
    - "mbadm": 'm' matches → LPS = 2 + LPS("bad") = 2 + 1 = 3
 2. Minimum insertions = 5 - 3 = 2
 
-### ALTERNATIVE APPROACH:
-Direct DP where `dp[i][j]` represents minimum insertions for substring `s[i:j+1]`:
-- If `s[i] == s[j]`: `dp[i][j] = dp[i+1][j-1]`
-- Else: `dp[i][j] = 1 + min(dp[i+1][j], dp[i][j-1])`
+### TIME COMPLEXITY:
+O(n²)
+- Filling n×n DP table with constant work per cell
+
+### SPACE COMPLEXITY:
+O(n²)
+- DP table storage, can be optimized to O(n)
 
 ### EDGE CASES:
 - Already palindrome: return 0
@@ -152,7 +160,6 @@ class Solution:
 
         return helper(0, len(s) - 1)
 
-
 """
 Alternative formulation: Direct DP approach
 Instead of using LPS, directly calculate minimum insertions
@@ -220,7 +227,6 @@ class SolutionDirect:
         palindrome = build_palindrome(0, n - 1)
         return dp[0][n - 1], palindrome
 
-
 """
 Related Problem: Minimum deletions to make palindrome
 This is equivalent to finding minimum insertions
@@ -235,7 +241,6 @@ class SolutionDeletions:
         Space Complexity: O(n²)
         """
         return Solution().minInsertions(s)
-
 
 # Test cases
 if __name__ == "__main__":

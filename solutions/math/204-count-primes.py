@@ -1,8 +1,20 @@
 """
+# Difficulty: Medium
+
 # 204. Count Primes
-**Medium**
 
 Given an integer n, return the number of prime numbers that are strictly less than n.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -20,12 +32,6 @@ Use Sieve of Eratosthenes: mark all multiples of each prime as composite. Count 
 - By marking multiples of each prime, we identify all composites
 - Remaining numbers must be prime
 
-### TIME COMPLEXITY: O(n log log n)
-Sieve of Eratosthenes complexity
-
-### SPACE COMPLEXITY: O(n)
-Boolean array of size n
-
 ### EXAMPLE WALKTHROUGH:
 ```
 n = 10:
@@ -38,10 +44,13 @@ Mark multiples of 5: (5² = 25 > 10, skip)
 Primes: [2, 3, 5, 7] → Count = 4
 ```
 
-### KEY INSIGHTS:
-- Start marking from p² (smaller multiples already marked)
-- Only check up to √n
-- Most efficient algorithm for finding many primes
+### TIME COMPLEXITY:
+O(n log log n)
+Sieve of Eratosthenes complexity
+
+### SPACE COMPLEXITY:
+O(n)
+Boolean array of size n
 
 ### EDGE CASES:
 - n ≤ 2: Return 0
@@ -50,7 +59,6 @@ Primes: [2, 3, 5, 7] → Count = 4
 
 </details>
 """
-
 
 class Solution:
     def countPrimes(self, n: int) -> int:
@@ -112,7 +120,6 @@ class Solution:
 
         return sum(is_prime)
 
-
 def test_solution() -> None:
     """Test cases for Problem 204."""
     solution = Solution()
@@ -124,7 +131,6 @@ def test_solution() -> None:
     assert solution.countPrimes(3) == 1  # 2
     assert solution.countPrimes(100) == 25
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

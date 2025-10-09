@@ -1,47 +1,50 @@
 /**
- * 121. Best Time To Buy And Sell Stock
- * Easy
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Sliding Window.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Track the minimum price seen so far and calculate maximum profit at each step.
- * This is essentially a sliding window problem where we track the valley (buy) and peak (sell).
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. **Analyze the problem**: Find maximum profit with one buy and one sell transaction
- * 2. **Choose the right technique**: Single pass tracking minimum and maximum profit
- * 3. **Implement efficiently**: Use two variables - minPrice and maxProfit
- * 4. **Handle edge cases**: Empty array, single element, prices always decreasing
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - We want to buy at the lowest price and sell at the highest price after buying
- * - Keep track of minimum price seen so far (potential buy point)
- * - At each price, calculate profit if we sell now (current - minPrice)
- * - Update maximum profit if current profit is higher
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n) - single pass through array
- * SPACE COMPLEXITY: O(1) - only using two variables
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: prices = [7,1,5,3,6,4]
- * Step 1: day 0, price=7, minPrice=7, maxProfit=0
- * Step 2: day 1, price=1, minPrice=1, maxProfit=0
- * Step 3: day 2, price=5, minPrice=1, maxProfit=4 (5-1)
- * Step 4: day 3, price=3, minPrice=1, maxProfit=4
- * Step 5: day 4, price=6, minPrice=1, maxProfit=5 (6-1)
- * Step 6: day 5, price=4, minPrice=1, maxProfit=5
- * Output: 5
+ * [example input]
  * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * EDGE CASES:
- * - Empty array or single element: return 0
- * - Prices always decreasing: return 0
- * - Prices always increasing: return last - first
- * - Multiple peaks and valleys: algorithm finds global maximum
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

@@ -1,44 +1,50 @@
 /**
- * 6. Zigzag Conversion
- * Medium
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in String Manipulation.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * The zigzag pattern alternates direction - going down, then diagonally up.
- * We can simulate this by using an array of strings (one for each row) and
- * a direction flag to track when to reverse.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. Create an array of strings, one for each row
- * 2. Iterate through the input string
- * 3. Add each character to the current row
- * 4. Move to the next row (down or up based on current direction)
- * 5. Reverse direction when we hit the top or bottom row
- * 6. Concatenate all rows to get the final result
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * By simulating the zigzag pattern row by row, we naturally build the output
- * in reading order without needing to calculate complex patterns.
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n)
- * - We visit each character once
- * SPACE COMPLEXITY: O(n)
- * - We store all characters in row strings
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
- * Input: "PAYPALISHIRING", numRows = 3
- * Row 0: P   A   H   N
- * Row 1: A P L S I I G
- * Row 2: Y   I   R
- * Output: "PAHNAPLSIIGYIR"
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
  *
- * EDGE CASES:
- * - numRows = 1: Return original string
- * - String shorter than numRows: Return original string
- * - Empty string: Return empty string
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * [example input]
+ * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

@@ -1,46 +1,50 @@
 /**
- * 150. Evaluate Reverse Polish Notation
- * Medium
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Stack.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Reverse Polish Notation (RPN) places operators after operands. A stack is
- * perfect: push numbers, when we see an operator, pop two operands, compute,
- * and push the result back.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. **Initialize stack**: Store operands
- * 2. **Process tokens**: For each token:
- *    - If number: push to stack
- *    - If operator: pop two operands, apply operation, push result
- * 3. **Return result**: Final value left on stack
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - RPN is designed for stack-based evaluation
- * - Operators always have their operands already on the stack
- * - Order of operations is implicit in the notation
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n) - process each token once
- * SPACE COMPLEXITY: O(n) - stack stores operands
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: ["2","1","+","3","*"]
- * Step 1: Push 2 → stack: [2]
- * Step 2: Push 1 → stack: [2,1]
- * Step 3: '+' → pop 1,2 → compute 2+1=3 → push 3 → stack: [3]
- * Step 4: Push 3 → stack: [3,3]
- * Step 5: '*' → pop 3,3 → compute 3*3=9 → push 9 → stack: [9]
- * Output: 9
+ * [example input]
  * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * EDGE CASES:
- * - Single number: returns that number
- * - Division: truncate toward zero
- * - Negative numbers: handle correctly
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

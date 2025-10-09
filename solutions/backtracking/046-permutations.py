@@ -1,6 +1,5 @@
 """
-46. Permutations
-Medium
+# Difficulty: Medium
 
 Given an array `nums` of distinct integers, return all the possible permutations.
 You can return the answer in any order.
@@ -9,17 +8,25 @@ Example:
 Input: `nums` = [1,2,3]
 Output: [[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]
 
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
+
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
 Generate all permutations by systematically trying each unused element at each position. Use backtracking to explore all possibilities while maintaining state through choices and un-choices.
 
-### APPROACH (Backtracking):
-1. **Build permutation** one element at a time
-2. **For each position**: try every element that hasn't been used yet
-3. **When permutation is complete** (length = n): add to result
-4. **Backtrack**: remove current choice and try next option
+### APPROACH:
+[Detailed explanation of the solution approach]
 
 ### WHY THIS WORKS:
 - Each permutation uses every element exactly once
@@ -27,62 +34,25 @@ Generate all permutations by systematically trying each unused element at each p
 - Checking "not in current" ensures no duplicates within a permutation
 - Systematic exploration guarantees all permutations are found
 
-### TIME COMPLEXITY: O(n × n!) - n! permutations, each takes O(n) to build/copy
-### SPACE COMPLEXITY: O(n) - recursion depth and current permutation
-
-### TWO APPROACHES:
-
-#### Approach 1: Include/Exclude with "not in" check
-```python
-for num in nums:
-    if num not in current:  # O(n) check
-        current.append(num)
-        backtrack(current)
-        current.pop()
+### EXAMPLE WALKTHROUGH:
+Input:
+```
+[example input]
 ```
 
-#### Approach 2: Swapping (More Efficient)
-```python
-for i in range(first, len(nums)):
-    nums[first], nums[i] = nums[i], nums[first]  # O(1) swap
-    backtrack(first + 1)
-    nums[first], nums[i] = nums[i], nums[first]  # backtrack
-```
+**Step 1:** [description]
 
-### EXAMPLE WALKTHROUGH (Approach 1):
-```
-Input: nums = [1,2,3]
+**Step 2:** [description]
 
-backtrack([]):
-  Try num=1: current=[1]
-    backtrack([1]):
-      Try num=2: current=[1,2]
-        backtrack([1,2]):
-          Try num=3: current=[1,2,3] → length=3, add to result
-          return
-        current=[1] (backtrack)
-      Try num=3: current=[1,3]
-        backtrack([1,3]):
-          Try num=2: current=[1,3,2] → length=3, add to result
-          return
-        current=[1] (backtrack)
-      return
-    current=[] (backtrack)
+### TIME COMPLEXITY:
+O(n × n!) - n! permutations, each takes O(n) to build/copy
 
-  Try num=2: current=[2]
-    ... similar process
+### SPACE COMPLEXITY:
+O(n) - recursion depth and current permutation
 
-  Try num=3: current=[3]
-    ... similar process
-
-Result: [[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]
-```
-
-### KEY INSIGHTS:
-- Add to result only when permutation is complete (length = n)
-- Use "not in current" to avoid duplicate elements in same permutation
-- Swapping approach is more efficient (avoids O(n) membership checks)
-- Total permutations = n! for n distinct elements
+### EDGE CASES:
+- **[Edge case 1]:** [how it's handled]
+- **[Edge case 2]:** [how it's handled]
 
 </details>
 """
@@ -131,11 +101,9 @@ class Solution:
         backtrack()
         return result
 
-
 """
 47. Permutations II
-Medium
-
+# Difficulty: Medium
 Given a collection of numbers, nums, that might contain duplicates, return all
 possible unique permutations in any order.
 
@@ -171,11 +139,9 @@ class SolutionUnique:
         backtrack([])
         return result
 
-
 """
 31. Next Permutation
-Medium
-
+# Difficulty: Medium
 A permutation of an array of integers is an arrangement of its members into a
 sequence or linear order.
 
@@ -216,7 +182,6 @@ class SolutionNext:
             nums[left], nums[right] = nums[right], nums[left]
             left += 1
             right -= 1
-
 
 # Test cases
 if __name__ == "__main__":

@@ -1,6 +1,7 @@
 """
+# Difficulty: Medium
+
 # 150. Evaluate Reverse Polish Notation
-**Medium**
 
 You are given an array of strings tokens that represents an arithmetic expression
 in Reverse Polish Notation.
@@ -13,6 +14,17 @@ Note that:
 - The division between two integers always truncates toward zero.
 - There will not be any division by zero.
 - The input represents a valid arithmetic expression in reverse polish notation.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -35,12 +47,6 @@ compute, and push result back.
 - Stack's LIFO property matches RPN's evaluation order
 - Each operator consumes exactly two operands and produces one result
 
-### TIME COMPLEXITY: O(n)
-Where n is the number of tokens - process each token once
-
-### SPACE COMPLEXITY: O(n)
-Stack can hold up to n/2 operands in worst case
-
 ### EXAMPLE WALKTHROUGH:
 ```
 Input: ["2","1","+","3","*"]
@@ -52,6 +58,14 @@ Stack operations:
 "*" -> [9]        (pop 3,3; compute 3*3=9; push 9)
 Output: 9
 ```
+
+### TIME COMPLEXITY:
+O(n)
+Where n is the number of tokens - process each token once
+
+### SPACE COMPLEXITY:
+O(n)
+Stack can hold up to n/2 operands in worst case
 
 ### EDGE CASES:
 - Single number: return that number
@@ -133,7 +147,6 @@ class Solution:
 
         return stack[0]
 
-
 def test_solution():
     """Test cases for Problem 150."""
     solution = Solution()
@@ -174,7 +187,6 @@ def test_solution():
     assert result7 == expected7, f"Expected {expected7}, got {result7}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

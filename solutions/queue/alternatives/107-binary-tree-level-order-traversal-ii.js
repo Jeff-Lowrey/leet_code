@@ -1,43 +1,50 @@
 /**
- * 107. Binary Tree Level Order Traversal II
- * Medium
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Queue.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Perform standard level-order traversal using BFS with a queue, then reverse
- * the result to get bottom-up ordering.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. Use a queue for BFS traversal
- * 2. Process nodes level by level from top to bottom
- * 3. Store each level in the result array
- * 4. Reverse the result array to get bottom-up order
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * BFS naturally processes nodes level by level from top to bottom. By reversing
- * the final result, we efficiently convert it to bottom-up order.
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n) - Visit each node once, plus O(h) for reversal
- * SPACE COMPLEXITY: O(w) - Queue holds at most one level width
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
- * Input: root = [3,9,20,null,null,15,7]
- *        3
- *       / \
- *      9  20
- *        /  \
- *       15   7
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
  *
- * BFS traversal: [[3], [9, 20], [15, 7]]
- * After reverse: [[15, 7], [9, 20], [3]]
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * [example input]
+ * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * EDGE CASES:
- * - Empty tree (null root)
- * - Single node tree
- * - Unbalanced tree
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 // Definition for a binary tree node

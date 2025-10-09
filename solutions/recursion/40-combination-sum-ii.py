@@ -1,8 +1,20 @@
 """
+# Difficulty: Medium
+
 # 40. Combination Sum II
-**Medium**
 
 This problem demonstrates key concepts in Recursion.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -28,9 +40,6 @@ The key challenge is avoiding duplicate combinations when the input contains dup
 - Moving to next index ensures each number used at most once
 - The condition (i > start and candidates[i] == candidates[i-1]) is key
 
-### TIME COMPLEXITY: O(2^n) - each element can be included or excluded
-### SPACE COMPLEXITY: O(n) - recursion depth
-
 ### EXAMPLE WALKTHROUGH:
 ```
 Input: candidates = [10,1,2,7,6,1,5], target = 8
@@ -46,6 +55,12 @@ Note: Duplicates like [1,1,6] from different 1's are prevented by skipping logic
 Output: [[1,1,6], [1,2,5], [1,7], [2,6]]
 ```
 
+### TIME COMPLEXITY:
+O(2^n) - each element can be included or excluded
+
+### SPACE COMPLEXITY:
+O(n) - recursion depth
+
 ### EDGE CASES:
 - Empty candidates array
 - All duplicates
@@ -53,26 +68,7 @@ Output: [[1,1,6], [1,2,5], [1,7], [2,6]]
 - Target equals single candidate
 
 </details>
-
-<details>
-<summary><b>💡 APPROACH</b></summary>
-
-The approach uses backtracking with duplicate handling. The key difference from
-Combination Sum I is that each number can be used at most once, and we need to
-handle duplicates in the input array.
-
-### Algorithm Steps:
-1. Sort candidates to group duplicates
-2. Use backtracking to build combinations
-3. Skip duplicate values at the same recursion level
-4. Move to next index after including a number
-5. Prune branches where sum exceeds target
-
-</details>
 """
-
-from typing import List
-
 
 class Solution:
     def combinationSum2(self, candidates: List[int], target: int) -> List[List[int]]:
@@ -156,7 +152,6 @@ class Solution:
         """
         return self.combinationSum2(candidates, target)
 
-
 def test_solution():
     """Test cases for Problem 40."""
     solution = Solution()
@@ -200,7 +195,6 @@ def test_solution():
     print("Test 5 passed: All same numbers")
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

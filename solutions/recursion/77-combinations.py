@@ -1,8 +1,20 @@
 """
+# Difficulty: Medium
+
 # 77. Combinations
-**Medium**
 
 This problem demonstrates key concepts in Recursion.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -30,12 +42,6 @@ explore all possible k-sized subsets.
 - Each recursive call adds one number and delegates rest to deeper calls
 - Pruning prevents exploring branches that can't possibly succeed
 
-### TIME COMPLEXITY: O(C(n,k) * k) where C(n,k) is binomial coefficient
-- C(n,k) combinations to generate
-- O(k) to copy each combination
-
-### SPACE COMPLEXITY: O(k) - recursion depth and combination storage
-
 ### EXAMPLE WALKTHROUGH:
 ```
 Input: n = 4, k = 2
@@ -52,6 +58,14 @@ Start with 4: [4] -> Can't make size 2, stop
 Output: [[1,2],[1,3],[1,4],[2,3],[2,4],[3,4]]
 ```
 
+### TIME COMPLEXITY:
+O(C(n,k) * k) where C(n,k) is binomial coefficient
+- C(n,k) combinations to generate
+- O(k) to copy each combination
+
+### SPACE COMPLEXITY:
+O(k) - recursion depth and combination storage
+
 ### EDGE CASES:
 - k = 0 (return [[]])
 - k = n (return [[1,2,...,n]])
@@ -59,26 +73,7 @@ Output: [[1,2],[1,3],[1,4],[2,3],[2,4],[3,4]]
 - n = 1 (return [[1]] if k=1, [] otherwise)
 
 </details>
-
-<details>
-<summary><b>💡 APPROACH</b></summary>
-
-The approach uses backtracking to systematically generate all k-sized combinations.
-The key insight is using a start parameter to avoid generating duplicate combinations
-in different orders.
-
-### Algorithm Steps:
-1. Use backtracking to build combinations
-2. At each step, try numbers from start to n
-3. Add number to combination and recurse
-4. Prune when not enough numbers remain
-5. When combination size equals k, add to results
-
-</details>
 """
-
-from typing import List
-
 
 class Solution:
     def combine(self, n: int, k: int) -> List[List[int]]:
@@ -148,7 +143,6 @@ class Solution:
         """
         return self.combine(n, k)
 
-
 def test_solution():
     """Test cases for Problem 77."""
     solution = Solution()
@@ -197,7 +191,6 @@ def test_solution():
     print("Test 6 passed: k=1")
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

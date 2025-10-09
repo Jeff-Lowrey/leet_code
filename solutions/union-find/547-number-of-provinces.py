@@ -1,6 +1,7 @@
 """
+# Difficulty: Medium
+
 # 547. Number of Provinces
-**Medium**
 
 There are n cities. Some of them are connected, while some are not. If city a is connected directly with city b, and city b is connected directly with city c, then city a is connected indirectly with city c.
 
@@ -9,6 +10,17 @@ A province is a group of directly or indirectly connected cities and no other ci
 You are given an n x n matrix isConnected where isConnected[i][j] = 1 if the ith city and the jth city are directly connected, and isConnected[i][j] = 0 otherwise.
 
 Return the total number of provinces.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -27,12 +39,6 @@ This is a classic connected components problem. We need to find how many separat
 - Each connected component represents one province
 - After processing all connections, count unique roots to get province count
 - DFS alternative marks all cities in a component as visited
-
-### TIME COMPLEXITY: O(n² × α(n))
-Where α is the inverse Ackermann function (nearly constant)
-
-### SPACE COMPLEXITY: O(n)
-For the Union-Find parent and rank arrays
 
 ### EXAMPLE WALKTHROUGH:
 ```
@@ -53,49 +59,20 @@ Count unique roots: 1 (for cities 0,1) and 2 (for city 2)
 Result: 2 provinces
 ```
 
-### KEY INSIGHTS:
-- Matrix is symmetric (undirected graph)
-- Diagonal elements are always 1 (city connected to itself)
-- Need to count connected components, not individual connections
-- Union-Find provides optimal solution for this type of problem
+### TIME COMPLEXITY:
+O(n² × α(n))
+Where α is the inverse Ackermann function (nearly constant)
+
+### SPACE COMPLEXITY:
+O(n)
+For the Union-Find parent and rank arrays
+
+### EDGE CASES:
+- **[Edge case 1]:** [how it's handled]
+- **[Edge case 2]:** [how it's handled]
 
 </details>
 """
-
-
-class UnionFind:
-    """Union-Find data structure for tracking connected components."""
-
-    def __init__(self, n: int):
-        self.parent = list(range(n))
-        self.rank = [0] * n
-        self.components = n
-
-    def find(self, x: int) -> int:
-        """Find root with path compression."""
-        if self.parent[x] != x:
-            self.parent[x] = self.find(self.parent[x])
-        return self.parent[x]
-
-    def union(self, x: int, y: int) -> bool:
-        """Union by rank. Returns True if union occurred."""
-        root_x, root_y = self.find(x), self.find(y)
-
-        if root_x == root_y:
-            return False  # Already connected
-
-        # Union by rank
-        if self.rank[root_x] < self.rank[root_y]:
-            self.parent[root_x] = root_y
-        elif self.rank[root_x] > self.rank[root_y]:
-            self.parent[root_y] = root_x
-        else:
-            self.parent[root_y] = root_x
-            self.rank[root_x] += 1
-
-        self.components -= 1
-        return True
-
 
 class Solution:
     def findCircleNum(self, isConnected: list[list[int]]) -> int:
@@ -189,7 +166,6 @@ class Solution:
 
         return provinces
 
-
 def test_solution():
     """Test cases for Problem 547."""
     solution = Solution()
@@ -233,7 +209,6 @@ def test_solution():
     assert result7 == expected1, f"BFS: Expected {expected1}, got {result7}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

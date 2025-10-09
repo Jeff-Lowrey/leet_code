@@ -1,43 +1,50 @@
 /**
- * 136. Single Number
- * Easy
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Bit Manipulation.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Given an array where every element appears twice except for one, we need to find that single element.
- * The XOR operation has a special property: a ^ a = 0 and a ^ 0 = a.
- * This means if we XOR all elements together, duplicate pairs cancel out to 0,
- * leaving only the single number.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. Initialize result to 0
- * 2. XOR all elements in the array
- * 3. Return the result
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * XOR is commutative and associative: [2,2,1] becomes (2^2^1) = (0^1) = 1
- * All duplicate pairs XOR to 0, and 0 XOR with the single number returns that number.
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n) - single pass through array
- * SPACE COMPLEXITY: O(1) - only using one variable
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
- * Input: [4,1,2,1,2]
- * Step 1: result = 0
- * Step 2: result = 0 ^ 4 = 4
- * Step 3: result = 4 ^ 1 = 5
- * Step 4: result = 5 ^ 2 = 7
- * Step 5: result = 7 ^ 1 = 6
- * Step 6: result = 6 ^ 2 = 4
- * Output: 4
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
  *
- * EDGE CASES:
- * - Single element array: returns that element
- * - All positive numbers
- * - Mix of positive and negative numbers
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * [example input]
+ * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

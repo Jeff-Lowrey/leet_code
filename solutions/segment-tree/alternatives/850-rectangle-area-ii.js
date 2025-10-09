@@ -1,40 +1,50 @@
 /**
- * 850. Rectangle Area II
- * Hard
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Segment Tree.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * We need to find the total area covered by overlapping rectangles. This is a classic
- * sweep line algorithm problem. We can use coordinate compression combined with a
- * segment tree, or a simpler approach using events and active intervals.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * Sweep line with coordinate compression:
- * 1. Create events for rectangle starts and ends (sorted by x-coordinate)
- * 2. For each x interval, calculate the active y-coverage
- * 3. Multiply y-coverage by x-interval width
- * 4. Sum all areas
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * By sweeping from left to right, we can track which y-ranges are active at each x.
- * The total area is the sum of (width * active_height) for each vertical strip.
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n^2) for simple approach, O(n^2 log n) with segment tree
- * SPACE COMPLEXITY: O(n)
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
- * Input: [[0,0,2,2], [1,0,2,3], [1,0,3,1]]
- * Sweep events create strips, calculate coverage for each
- * Output: 6
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
  *
- * EDGE CASES:
- * - No rectangles: return 0
- * - Single rectangle: return area
- * - Fully overlapping: return area of largest
- * - Non-overlapping: return sum of areas
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * [example input]
+ * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 const MOD = 1000000007;

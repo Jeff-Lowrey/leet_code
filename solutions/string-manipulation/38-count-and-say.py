@@ -1,6 +1,5 @@
 """
-38. Count and Say
-Medium
+# Difficulty: Medium
 
 The count-and-say sequence is a sequence of digit strings defined by the recursive formula:
 - countAndSay(1) = "1"
@@ -19,6 +18,17 @@ countAndSay(1) = "1"
 countAndSay(2) = say "1" = one 1 = "11"
 countAndSay(3) = say "11" = two 1s = "21"
 countAndSay(4) = say "21" = one 2 + one 1 = "1211"
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -43,15 +53,6 @@ counting how many times each digit appears consecutively, then building a new st
 - The pattern is deterministic and follows a clear rule
 - Building with a list and joining is efficient in Python
 
-### TIME COMPLEXITY: O(n * m)
-- n iterations to build up to the nth term
-- m is the length of the string at each iteration (grows exponentially)
-- Each iteration processes the entire string once
-
-### SPACE COMPLEXITY: O(m)
-- m is the length of the current string
-- We store the result string which grows with each iteration
-
 ### EXAMPLE WALKTHROUGH:
 ```
 n = 5:
@@ -68,11 +69,16 @@ For "1211" → "111221":
 - Result: "111221"
 ```
 
-### KEY INSIGHTS:
-- The sequence never contains digits other than 1, 2, and 3
-- The string length grows roughly by 30% each iteration
-- We only need to track consecutive runs of digits
-- Use list accumulation for efficient string building
+### TIME COMPLEXITY:
+O(n * m)
+- n iterations to build up to the nth term
+- m is the length of the string at each iteration (grows exponentially)
+- Each iteration processes the entire string once
+
+### SPACE COMPLEXITY:
+O(m)
+- m is the length of the current string
+- We store the result string which grows with each iteration
 
 ### EDGE CASES:
 - n = 1: Return "1" directly
@@ -81,8 +87,6 @@ For "1211" → "111221":
 
 </details>
 """
-
-
 
 class Solution:
     def countAndSay(self, n: int) -> str:
@@ -199,7 +203,6 @@ class Solution:
 
         return result
 
-
 def test_solution():
     """Test cases for Problem 38."""
     solution = Solution()
@@ -245,7 +248,6 @@ def test_solution():
     assert result8 == expected8, f"Expected {expected8}, got {result8}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

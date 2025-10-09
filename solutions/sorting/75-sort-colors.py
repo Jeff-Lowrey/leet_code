@@ -1,6 +1,7 @@
 """
+# Difficulty: Medium
+
 # 75. Sort Colors
-**Medium**
 
 Given an array nums with n objects colored red, white, or blue, sort them in-place so that objects
 of the same color are adjacent, with the colors in the order red, white, and blue.
@@ -9,8 +10,19 @@ We will use the integers 0, 1, and 2 to represent the color red, white, and blue
 
 You must solve this problem without using the library's sort function.
 
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
+
 <details>
-<parameter name="🔍 SOLUTION EXPLANATION</b></summary>
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
 This is the classic Dutch National Flag problem. We need to partition array into three sections:
@@ -31,12 +43,6 @@ all 0s, all 1s, all 2s. Use three pointers to maintain boundaries.
 - Mid pointer scans: checks and places elements
 - Invariants preserved throughout
 - Single pass is sufficient
-
-### TIME COMPLEXITY: O(n)
-Single pass through array
-
-### SPACE COMPLEXITY: O(1)
-In-place sorting with constant extra space
 
 ### EXAMPLE WALKTHROUGH:
 ```
@@ -80,6 +86,14 @@ Step 6: mid > right, done
 Output: [0,0,1,1,2,2] ✓
 ```
 
+### TIME COMPLEXITY:
+O(n)
+Single pass through array
+
+### SPACE COMPLEXITY:
+O(1)
+In-place sorting with constant extra space
+
 ### EDGE CASES:
 - All same color
 - Already sorted
@@ -87,16 +101,8 @@ Output: [0,0,1,1,2,2] ✓
 - Single element
 - Two elements
 
-### OPTIMIZATIONS:
-- **One-pass O(n)**: Optimal solution
-- **In-place**: No extra space
-- **Dutch National Flag**: Classic algorithm
-- **Counting sort**: Alternative O(n) with two passes
-
 </details>
 """
-
-
 
 class Solution:
     def sortColors(self, nums: list[int]) -> None:
@@ -172,7 +178,6 @@ class Solution:
                 nums[left], nums[i] = nums[i], nums[left]
                 left += 1
 
-
 def test_solution():
     """Test cases for Problem 75."""
     solution = Solution()
@@ -244,7 +249,6 @@ def test_solution():
     assert nums11 == expected11, f"Expected {expected11}, got {nums11}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

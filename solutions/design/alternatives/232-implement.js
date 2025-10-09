@@ -1,46 +1,50 @@
 /**
- * 232. Implement Queue using Stacks
- * Easy
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Design.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Implement a first in first out (FIFO) queue using only two stacks.
- * The challenge is to simulate queue behavior (FIFO) using stack operations (LIFO).
- * We need two stacks: one for pushing elements and another for popping elements.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. **Two Stack Method**: Use inputStack for push operations, outputStack for pop/peek
- * 2. **Lazy Transfer**: Only transfer elements when outputStack is empty
- * 3. **FIFO Simulation**: Transfer reverses order, making oldest element accessible first
- * 4. **Amortized Efficiency**: Each element is transferred at most once
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - InputStack receives all new elements (acts like back of queue)
- * - OutputStack provides elements in queue order (front of queue)
- * - Transfer operation reverses LIFO to achieve FIFO behavior
- * - Lazy transfer ensures optimal amortized performance
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(1) amortized for all operations
- * SPACE COMPLEXITY: O(n) for storing n elements
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * MyQueue queue = new MyQueue()
- * queue.push(1) -> inputStack: [1], outputStack: []
- * queue.push(2) -> inputStack: [1,2], outputStack: []
- * queue.peek() -> transfer to outputStack: [2,1], return 1
- * queue.pop() -> outputStack: [2], return 1
- * queue.empty() -> false (outputStack has 2)
+ * [example input]
  * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * EDGE CASES:
- * - Empty queue operations (peek/pop on empty queue)
- * - Single element queue
- * - Alternating push/pop operations
- * - Large number of elements
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

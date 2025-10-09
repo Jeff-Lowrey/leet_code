@@ -1,51 +1,50 @@
 /**
- * 1221. Split A String In Balanced Strings
- * Easy
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Greedy.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Use a greedy approach to count balanced substrings. Every time we reach a balanced
- * state (equal L's and R's), we can split there. The greedy choice is to split as
- * soon as we reach balance to maximize the count.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. **Track balance**: Use a counter that increments for 'L' and decrements for 'R'
- * 2. **Detect balance**: When counter reaches 0, we have equal L's and R's
- * 3. **Greedy split**: Count this as a balanced substring immediately
- * 4. **Continue scanning**: Keep looking for more balanced substrings
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - The greedy choice: split as early as possible when balanced
- * - Splitting early maximizes count (two small balanced strings > one large)
- * - Balance counter naturally tracks the state
- * - We're guaranteed the string is balanced, so greedy approach is safe
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n)
- * SPACE COMPLEXITY: O(1)
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * s = "RLRRLLRLRL"
- * i=0, R: balance=-1
- * i=1, L: balance=0 → count=1 (RL)
- * i=2, R: balance=-1
- * i=3, R: balance=-2
- * i=4, L: balance=-1
- * i=5, L: balance=0 → count=2 (RRLL)
- * i=6, R: balance=-1
- * i=7, L: balance=0 → count=3 (RL)
- * i=8, R: balance=-1
- * i=9, L: balance=0 → count=4 (RL)
- * Result: 4
+ * [example input]
  * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * EDGE CASES:
- * - Minimum case: "RL" → 1 balanced string
- * - All L's then all R's: "LLRR" → 1 balanced string
- * - Alternating: "RLRL" → 2 balanced strings
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

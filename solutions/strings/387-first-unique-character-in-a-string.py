@@ -1,8 +1,20 @@
 """
+# Difficulty: Easy
+
 # 387. First Unique Character In A String
-**Easy**
 
 This problem demonstrates key concepts in Hash Tables and String manipulation.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -24,15 +36,6 @@ of the first such character when reading left to right.
 - By iterating left to right in second pass, we find the first unique character
 - This approach is more efficient than checking each character's uniqueness separately
 
-### TIME COMPLEXITY: O(n)
-We make two passes through the string: one to count (O(n)) and one to find (O(n)).
-Total is O(2n) = O(n).
-
-### SPACE COMPLEXITY: O(1)
-Although we use a hash map, since we're limited to lowercase English letters (26 characters),
-the space is bounded by a constant. For general character sets, it would be O(k) where k is
-the character set size.
-
 ### EXAMPLE WALKTHROUGH:
 ```
 Input: s = "leetcode"
@@ -48,6 +51,17 @@ Step 4: Check s[2]='v': frequency is 1, found first unique!
 Output: 2
 ```
 
+### TIME COMPLEXITY:
+O(n)
+We make two passes through the string: one to count (O(n)) and one to find (O(n)).
+Total is O(2n) = O(n).
+
+### SPACE COMPLEXITY:
+O(1)
+Although we use a hash map, since we're limited to lowercase English letters (26 characters),
+the space is bounded by a constant. For general character sets, it would be O(k) where k is
+the character set size.
+
 ### EDGE CASES:
 - Empty string: Return -1
 - Single character: Return 0
@@ -56,30 +70,7 @@ Output: 2
 - String with only one unique character at the end: Return its index
 
 </details>
-
-<details>
-<summary><b>💡 APPROACH</b></summary>
-
-The approach uses the Counter from collections module for efficient frequency counting.
-
-### Algorithm Steps:
-1. Import Counter from collections
-2. Count all character frequencies in one pass
-3. Iterate through string indices
-4. For each character, check if its frequency is 1
-5. Return the index of the first character with frequency 1
-6. If no such character exists, return -1
-
-### Alternative Approaches:
-- Use regular dict instead of Counter (slightly more code)
-- Single pass with ordered dict (track order while counting)
-- indexOf + lastIndexOf comparison (less efficient)
-
-</details>
 """
-
-from collections import Counter
-
 
 class Solution:
     def solve(self, s: str) -> int:
@@ -124,7 +115,6 @@ class Solution:
 
         return -1
 
-
 def test_solution():
     """
     Test cases for 387. First Unique Character In A String.
@@ -168,7 +158,6 @@ def test_solution():
     assert result9 == 0, f"Test 9 (dict) failed: expected 0, got {result9}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

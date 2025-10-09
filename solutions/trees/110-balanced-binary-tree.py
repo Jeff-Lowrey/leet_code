@@ -1,10 +1,22 @@
 """
+# Difficulty: Easy
+
 # 110. Balanced Binary Tree
-**Easy**
 
 Given a binary tree, determine if it is height-balanced.
 
 A height-balanced binary tree is a binary tree in which the depth of the two subtrees of every node never differs by more than 1.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -24,12 +36,6 @@ A balanced binary tree requires that for every node, the heights of its left and
 - Bottom-up approach avoids redundant height calculations
 - Early termination optimizes for unbalanced trees
 
-### TIME COMPLEXITY: O(n)
-Each node is visited exactly once
-
-### SPACE COMPLEXITY: O(h)
-Where h is height of tree (recursion stack)
-
 ### EXAMPLE WALKTHROUGH:
 ```
 Input: [3,9,20,null,null,15,7]
@@ -47,21 +53,20 @@ Input: [3,9,20,null,null,15,7]
 Output: True
 ```
 
-### KEY INSIGHTS:
-- Balance condition must hold for every single node
-- Height difference constraint: |left_height - right_height| ≤ 1
-- Early termination saves computation for unbalanced trees
-- Bottom-up recursion is more efficient than top-down
+### TIME COMPLEXITY:
+O(n)
+Each node is visited exactly once
+
+### SPACE COMPLEXITY:
+O(h)
+Where h is height of tree (recursion stack)
+
+### EDGE CASES:
+- **[Edge case 1]:** [how it's handled]
+- **[Edge case 2]:** [how it's handled]
 
 </details>
 """
-
-# Definition for a binary tree node
-class TreeNode:
-    def __init__(self, val=0, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
 
 class Solution:
     def isBalanced(self, root: TreeNode) -> bool:
@@ -193,7 +198,6 @@ class Solution:
 
         return True
 
-
 def build_tree_from_list(values: list) -> TreeNode:
     """Helper function to build tree from list representation."""
     if not values:
@@ -217,7 +221,6 @@ def build_tree_from_list(values: list) -> TreeNode:
         i += 1
 
     return root
-
 
 def test_solution():
     """Test cases for Problem 110."""
@@ -267,7 +270,6 @@ def test_solution():
     assert result8 == expected1, f"Iterative: Expected {expected1}, got {result8}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

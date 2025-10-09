@@ -1,42 +1,50 @@
 /**
- * 525. Contiguous Array
- * Medium
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Prefix Sum.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Find the longest contiguous subarray with equal number of 0s and 1s.
- * Transform the problem: treat 0 as -1 and 1 as +1. Now we need to find
- * the longest subarray with sum = 0. Use prefix sum with hash map to track
- * when we've seen each cumulative sum before.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. Convert problem: replace 0 with -1, keep 1 as +1
- * 2. Use hash map to store first occurrence of each prefix sum
- * 3. If we see the same prefix sum again, the subarray between has sum 0
- * 4. Track the maximum length found
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * If prefix[j] = prefix[i], then sum(i+1...j) = 0, meaning equal 0s and 1s.
- * By storing the first occurrence of each prefix sum, we maximize the length
- * of subarrays with sum 0.
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n) - single pass through array
- * SPACE COMPLEXITY: O(n) - hash map stores at most n different sums
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
- * Input: nums = [0,1,0]
- * Step 1: Transform to [-1,1,-1]
- * Step 2: Prefix sums: [-1, 0, -1]
- * Step 3: At index 1, sum=0 matches initial (index -1), length = 2
- * Output: 2 (subarray [0,1])
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
  *
- * EDGE CASES:
- * - All 0s or all 1s: return 0
- * - Empty array: return 0
- * - Equal number of 0s and 1s in entire array
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * [example input]
+ * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

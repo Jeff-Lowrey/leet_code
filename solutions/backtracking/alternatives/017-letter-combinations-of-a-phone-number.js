@@ -1,45 +1,50 @@
 /**
- * 017. Letter Combinations Of A Phone Number
- * Medium
+ * Difficulty: Medium
  *
- * Given a string containing digits from 2-9 inclusive, return all possible letter combinations
- * that the number could represent. Return the answer in any order.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * This is a classic backtracking problem where we need to explore all possible combinations
- * by making choices at each digit position and backtracking when we complete a combination.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. **Map digits to letters**: Create a mapping from digits to their corresponding letters
- * 2. **Backtracking**: For each digit, try all possible letters and recursively build combinations
- * 3. **Base case**: When we've processed all digits, add the current combination to results
- * 4. **Backtrack**: Remove the last character and try the next possibility
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Systematically explores all possible combinations using choose/explore/unchoose pattern
- * - Each digit position represents a decision point with multiple choices
- * - Backtracking ensures we don't miss any valid combinations
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(3^N × 4^M) where N is digits with 3 letters, M is digits with 4 letters
- * SPACE COMPLEXITY: O(3^N × 4^M) for storing all combinations
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: "23"
- * Digit mapping: 2->"abc", 3->"def"
- * Step 1: Choose 'a' from "2", then choose 'd' from "3" -> "ad"
- * Step 2: Choose 'a' from "2", then choose 'e' from "3" -> "ae"
- * Step 3: Choose 'a' from "2", then choose 'f' from "3" -> "af"
- * Continue for 'b' and 'c' from "2"
- * Output: ["ad","ae","af","bd","be","bf","cd","ce","cf"]
+ * [example input]
  * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * EDGE CASES:
- * - Empty string: return empty array
- * - Single digit: return all letters for that digit
- * - Digits with different letter counts (3 vs 4 letters)
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

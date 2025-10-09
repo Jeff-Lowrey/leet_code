@@ -1,44 +1,50 @@
 /**
- * 1248. Count Number Of Nice Subarrays
- * Medium
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Prefix Sum.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * A "nice" subarray has exactly k odd numbers. We can use prefix sum with hash map
- * to track the count of odd numbers seen so far. The key insight is that if we have
- * seen a prefix with 'oddCount - k' odd numbers, then the subarray from that point
- * to current position has exactly k odd numbers.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. Use a hash map to store the frequency of each odd count prefix
- * 2. Track the running count of odd numbers
- * 3. For each position, check if (oddCount - k) exists in our map
- * 4. Add the frequency of (oddCount - k) to result
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * If prefix[j] has x odd numbers and prefix[i] has (x-k) odd numbers,
- * then subarray[i+1...j] has exactly k odd numbers.
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n) - single pass through array
- * SPACE COMPLEXITY: O(n) - hash map stores at most n different odd counts
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
- * Input: nums = [1,1,2,1,1], k = 3
- * Step 1: Initialize map with {0: 1}, oddCount = 0, result = 0
- * Step 2: nums[0]=1 (odd), oddCount=1, map={0:1, 1:1}, result += map[1-3] = 0
- * Step 3: nums[1]=1 (odd), oddCount=2, map={0:1, 1:1, 2:1}, result += map[2-3] = 0
- * Step 4: nums[2]=2 (even), oddCount=2, map={0:1, 1:1, 2:2}, result += map[2-3] = 0
- * Step 5: nums[3]=1 (odd), oddCount=3, map={0:1, 1:1, 2:2, 3:1}, result += map[3-3] = 1
- * Step 6: nums[4]=1 (odd), oddCount=4, map={0:1, 1:1, 2:2, 3:1, 4:1}, result += map[4-3] = 1
- * Output: 2
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
  *
- * EDGE CASES:
- * - All even numbers: return 0 if k > 0
- * - k = 0: count subarrays with no odd numbers
- * - Single element array
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * [example input]
+ * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

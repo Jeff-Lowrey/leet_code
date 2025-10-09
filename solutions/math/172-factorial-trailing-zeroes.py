@@ -1,10 +1,22 @@
 """
+# Difficulty: Medium
+
 # 172. Factorial Trailing Zeroes
-**Medium**
 
 Given an integer n, return the number of trailing zeroes in n!.
 
 Note that n! = n × (n - 1) × (n - 2) × ... × 3 × 2 × 1.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -24,12 +36,6 @@ Trailing zeroes come from factors of 10 = 2 × 5. In n!, there are always more f
 - Every 125 numbers contributes another extra 5: 125, 250...
 - Total = n/5 + n/25 + n/125 + ...
 
-### TIME COMPLEXITY: O(log n)
-Number of divisions by 5 until we reach 0
-
-### SPACE COMPLEXITY: O(1)
-Only using counters
-
 ### EXAMPLE WALKTHROUGH:
 ```
 n = 30:
@@ -42,10 +48,13 @@ Total: 6 + 1 = 7 trailing zeroes
       (7 trailing zeroes)
 ```
 
-### KEY INSIGHTS:
-- Don't calculate n! (too large)
-- Count factors of 5, not factors of 10
-- Each power of 5 contributes additional zeroes
+### TIME COMPLEXITY:
+O(log n)
+Number of divisions by 5 until we reach 0
+
+### SPACE COMPLEXITY:
+O(1)
+Only using counters
 
 ### EDGE CASES:
 - n = 0: 0! = 1 (no trailing zeroes)
@@ -54,7 +63,6 @@ Total: 6 + 1 = 7 trailing zeroes
 
 </details>
 """
-
 
 class Solution:
     def trailingZeroes(self, n: int) -> int:
@@ -82,7 +90,6 @@ class Solution:
             return 0
         return n // 5 + self.trailingZeroesRecursive(n // 5)
 
-
 def test_solution() -> None:
     """Test cases for Problem 172."""
     solution = Solution()
@@ -94,7 +101,6 @@ def test_solution() -> None:
     assert solution.trailingZeroes(30) == 7
     assert solution.trailingZeroes(0) == 0
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

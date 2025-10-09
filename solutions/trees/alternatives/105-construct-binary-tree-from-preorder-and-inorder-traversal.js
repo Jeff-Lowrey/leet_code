@@ -1,60 +1,50 @@
 /**
- * 105. Construct Binary Tree From Preorder And Inorder Traversal
- * Medium
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in tree construction from traversals.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Preorder gives us the root first, then left subtree, then right subtree.
- * Inorder gives us left subtree, then root, then right subtree.
- * By combining these patterns, we can uniquely reconstruct the binary tree.
- * The first element in preorder is always the root. Find this root in inorder
- * to determine left and right subtrees, then recursively build each subtree.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. **Identify Root**: First element in preorder is the root
- * 2. **Split Inorder**: Find root in inorder to separate left/right subtrees
- * 3. **Recursive Construction**: Recursively build left and right subtrees
- * 4. **Index Management**: Track preorder index and inorder boundaries
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Preorder traversal visits root before subtrees (Root-Left-Right)
- * - Inorder traversal visits left subtree, then root, then right (Left-Root-Right)
- * - Root position in inorder divides tree into left and right parts
- * - Recursive structure naturally builds the tree from top to bottom
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n) where n is number of nodes
- * Each node is processed once, hashmap lookups are O(1)
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * SPACE COMPLEXITY: O(n) for hashmap + O(h) for recursion stack
- * Where h is height of tree (worst case O(n) for skewed tree)
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: preorder = [3,9,20,15,7], inorder = [9,3,15,20,7]
- *
- * Step 1: Root = 3 (first in preorder)
- * Step 2: Find 3 in inorder at index 1
- *         Left subtree: [9], Right subtree: [15,20,7]
- * Step 3: Recursively build:
- *         - Left: preorder=[9], inorder=[9] → node 9
- *         - Right: preorder=[20,15,7], inorder=[15,20,7]
- *           - Root = 20, Left=[15], Right=[7]
- *
- * Output:     3
- *            / \
- *           9  20
- *             /  \
- *            15   7
+ * [example input]
  * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * EDGE CASES:
- * - Empty arrays (return null)
- * - Single element (return single node)
- * - Left-skewed or right-skewed trees
- * - All elements unique (guaranteed by problem)
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**
@@ -329,9 +319,9 @@ module.exports = {
 /**
  * Additional Notes:
  * - Three different approaches with different trade-offs:
- *   1. Optimized with HashMap: O(n) time, O(n) space - most efficient
- *   2. Simple recursive: O(n²) time due to array slicing, easier to understand
- *   3. Iterative with stack: O(n) time, O(h) space, avoids recursion
+
+
+
  * - Key insight: preorder gives root, inorder splits left/right subtrees
  * - HashMap optimization crucial for large inputs to avoid O(n²) behavior
  * - Recursive approach naturally follows the tree construction pattern

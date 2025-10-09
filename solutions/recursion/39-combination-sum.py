@@ -1,8 +1,20 @@
 """
+# Difficulty: Medium
+
 # 39. Combination Sum
-**Medium**
 
 This problem demonstrates key concepts in Recursion.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -28,11 +40,6 @@ backtracking problem where we explore all possible combinations with reusability
 - Start index prevents duplicate combinations in different orders
 - Pruning reduces unnecessary exploration when sum exceeds target
 
-### TIME COMPLEXITY: O(N^(T/M)) where N is number of candidates, T is target, M is min candidate
-- In worst case, we explore a tree of height T/M with N branches at each level
-
-### SPACE COMPLEXITY: O(T/M) - recursion depth and combination storage
-
 ### EXAMPLE WALKTHROUGH:
 ```
 Input: candidates = [2,3,6,7], target = 7
@@ -46,6 +53,13 @@ Start with 7: [7] -> sum = 7 (valid!)
 Output: [[2,2,3], [7]]
 ```
 
+### TIME COMPLEXITY:
+O(N^(T/M)) where N is number of candidates, T is target, M is min candidate
+- In worst case, we explore a tree of height T/M with N branches at each level
+
+### SPACE COMPLEXITY:
+O(T/M) - recursion depth and combination storage
+
 ### EDGE CASES:
 - Empty candidates array
 - Target is 0 (return [[]])
@@ -53,26 +67,7 @@ Output: [[2,2,3], [7]]
 - All candidates larger than target
 
 </details>
-
-<details>
-<summary><b>💡 APPROACH</b></summary>
-
-The approach uses backtracking to systematically explore all possible combinations.
-The key insight is that each candidate can be reused multiple times, so we keep
-the same start index when recursing after including a candidate.
-
-### Algorithm Steps:
-1. Sort candidates for optimization (enables early pruning)
-2. Use backtracking to build combinations
-3. At each step, try including current candidate (allowing reuse)
-4. Prune branches where sum exceeds target
-5. When sum equals target, add combination to results
-
-</details>
 """
-
-from typing import List
-
 
 class Solution:
     def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
@@ -151,7 +146,6 @@ class Solution:
         """
         return self.combinationSum(candidates, target)
 
-
 def test_solution():
     """Test cases for Problem 39."""
     solution = Solution()
@@ -201,7 +195,6 @@ def test_solution():
     print("Test 6 passed: Can reuse multiple times")
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

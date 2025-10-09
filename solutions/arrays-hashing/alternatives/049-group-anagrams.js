@@ -1,46 +1,50 @@
 /**
- * 49. Group Anagrams
- * Medium
+ * Difficulty: Medium
  *
- * Given an array of strings strs, group the anagrams together. You can return the
- * answer in any order.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Group strings by their "anagram signature" - a canonical representation that's the same
- * for all anagrams. Two common signatures: sorted characters or character frequency count.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. **Create signature**: For each string, generate a canonical form (sorted chars)
- * 2. **Group by signature**: Use a Map where signature is key, list of anagrams is value
- * 3. **Return groups**: Extract all value arrays from the Map
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - All anagrams have the same signature (sorted characters)
- * - Map automatically groups strings with identical signatures
- * - Different anagrams will have different signatures
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n × k log k) where n = number of strings, k = max string length
- * SPACE COMPLEXITY: O(n × k) for storing the grouped strings
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
- * Input: ["eat","tea","tan","ate","nat","bat"]
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
  *
- * Using sorted string as key:
- * "eat" → key "aet" → group 1
- * "tea" → key "aet" → group 1
- * "tan" → key "ant" → group 2
- * "ate" → key "aet" → group 1
- * "nat" → key "ant" → group 2
- * "bat" → key "abt" → group 3
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * [example input]
+ * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * Final groups: [["eat","tea","ate"], ["tan","nat"], ["bat"]]
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
  *
- * EDGE CASES:
- * - Empty string array: return empty array
- * - Single string: return array with single group
- * - All strings are anagrams: return single group
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

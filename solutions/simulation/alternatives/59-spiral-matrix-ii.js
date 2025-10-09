@@ -1,46 +1,50 @@
 /**
- * 59. Spiral Matrix II
- * Medium
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Simulation.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Generate an n×n matrix filled with numbers 1 to n² in spiral order. Similar to reading
- * a spiral, but instead we're writing values in spiral pattern: right → down → left → up.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. Create an n×n matrix initialized with zeros
- * 2. Use four boundaries: top, bottom, left, right
- * 3. Maintain a counter starting at 1
- * 4. For each layer, fill in spiral order:
- *    - Fill right along top row, increment top
- *    - Fill down along right column, decrement right
- *    - Fill left along bottom row, decrement bottom
- *    - Fill up along left column, increment left
- * 5. Increment counter after each cell filled
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * By systematically filling cells layer by layer in spiral order and shrinking boundaries,
- * we ensure each cell is filled exactly once with consecutive numbers.
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n²) - fill each cell once
- * SPACE COMPLEXITY: O(n²) - space for the output matrix
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
- * Input: n = 3
- * Fill right: [1,2,3] in top row
- * Fill down: [6,9] in right column
- * Fill left: [8,7] in bottom row
- * Fill up: [4] in left column
- * Fill center: [5]
- * Result: [[1,2,3],[8,9,4],[7,6,5]]
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
  *
- * EDGE CASES:
- * - n = 1: Single element matrix [[1]]
- * - n = 2: 2×2 matrix [[1,2],[4,3]]
- * - Large n: Algorithm scales linearly with n²
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * [example input]
+ * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

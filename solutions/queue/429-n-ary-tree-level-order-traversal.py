@@ -1,8 +1,20 @@
 """
+# Difficulty: Medium
+
 # 429. N-ary Tree Level Order Traversal
-**Medium**
 
 Given an n-ary tree, return the level order traversal of its nodes' values.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -26,15 +38,6 @@ Use BFS to process nodes level by level, adding all children of each node to the
 - For n-ary trees, we simply iterate through all children instead of just left/right
 - Deque provides O(1) append/popleft operations
 
-### TIME COMPLEXITY: O(n)
-- Visit each node exactly once
-- n = total number of nodes in tree
-
-### SPACE COMPLEXITY: O(w)
-- Queue holds at most one level of nodes at a time
-- w = maximum width of tree (max children at any level)
-- Result storage: O(n)
-
 ### EXAMPLE WALKTHROUGH:
 ```
 Tree:        1
@@ -49,6 +52,17 @@ Level 2: [5, 6]
 Result: [[1], [3, 2, 4], [5, 6]]
 ```
 
+### TIME COMPLEXITY:
+O(n)
+- Visit each node exactly once
+- n = total number of nodes in tree
+
+### SPACE COMPLEXITY:
+O(w)
+- Queue holds at most one level of nodes at a time
+- w = maximum width of tree (max children at any level)
+- Result storage: O(n)
+
 ### EDGE CASES:
 - Empty tree: Return []
 - Single node: Return [[root.val]]
@@ -57,17 +71,6 @@ Result: [[1], [3, 2, 4], [5, 6]]
 
 </details>
 """
-
-from collections import deque
-
-
-class Node:
-    """Definition for a N-ary tree node."""
-
-    def __init__(self, val=None, children=None):
-        self.val = val
-        self.children = children if children is not None else []
-
 
 class Solution:
     def levelOrder(self, root: Node | None) -> list[list[int]]:
@@ -105,7 +108,6 @@ class Solution:
             result.append(level_values)
 
         return result
-
 
 def test_solution():
     """Test cases for Problem 429."""
@@ -183,7 +185,6 @@ def test_solution():
     print("Test case 6 passed: Complex multi-level tree")
 
     print("\nAll test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

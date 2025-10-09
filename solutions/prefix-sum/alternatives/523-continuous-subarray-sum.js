@@ -1,42 +1,50 @@
 /**
- * 523. Continuous Subarray Sum
- * Medium
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Prefix Sum.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Check if there exists a subarray (length >= 2) whose sum is a multiple of k.
- * Key insight: if (prefixSum[j] % k) == (prefixSum[i] % k), then the subarray
- * between i and j has a sum divisible by k. We store the earliest index of each
- * remainder to ensure length >= 2.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. Use hash map to store first occurrence of each (prefixSum % k)
- * 2. For each position, calculate running sum modulo k
- * 3. If this remainder was seen before and distance >= 2, return true
- * 4. Store the first occurrence of each remainder
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * Mathematical property: (a - b) % k = 0 if and only if a % k == b % k.
- * So if two prefix sums have the same remainder when divided by k,
- * the subarray between them has sum divisible by k.
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n) - single pass through array
- * SPACE COMPLEXITY: O(min(n, k)) - hash map stores at most min(n, k) remainders
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
- * Input: nums = [23,2,4,6,7], k = 6
- * Step 1: prefix % 6: [5, 1, 5, 5, 0]
- * Step 2: At index 2, remainder 5 was seen at index 0, distance = 2
- * Output: true (subarray [2,4] or [23,2,4,6,7])
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
  *
- * EDGE CASES:
- * - Array length < 2: return false
- * - k = 0: handle specially (sum must be 0)
- * - Negative numbers: use (sum % k + k) % k for positive remainder
- * - Must be at least length 2
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * [example input]
+ * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

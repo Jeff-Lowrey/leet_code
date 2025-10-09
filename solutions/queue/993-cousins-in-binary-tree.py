@@ -1,11 +1,23 @@
 """
+# Difficulty: Easy
+
 # 993. Cousins in Binary Tree
-**Easy**
 
 Given the root of a binary tree with unique values and the values of two different nodes x and y,
 return true if the nodes corresponding to the values x and y are cousins, or false otherwise.
 
 Two nodes of a binary tree are cousins if they have the same depth but have different parents.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -29,14 +41,6 @@ Use BFS to track both depth and parent information for each node.
 - When we find both target values, we have all information needed to check if they're cousins
 - Early termination: Can stop as soon as we find both nodes
 
-### TIME COMPLEXITY: O(n)
-- In worst case, visit all nodes in tree
-- n = number of nodes in tree
-
-### SPACE COMPLEXITY: O(w)
-- Queue holds at most one level of nodes at a time
-- w = maximum width of tree (worst case: n/2 for complete tree)
-
 ### EXAMPLE WALKTHROUGH:
 ```
 Tree:      1
@@ -56,30 +60,24 @@ x=2, y=3:
 - Same parent → NOT cousins
 ```
 
+### TIME COMPLEXITY:
+O(n)
+- In worst case, visit all nodes in tree
+- n = number of nodes in tree
+
+### SPACE COMPLEXITY:
+O(w)
+- Queue holds at most one level of nodes at a time
+- w = maximum width of tree (worst case: n/2 for complete tree)
+
 ### EDGE CASES:
 - One or both nodes not in tree: Return false
 - Nodes at different depths: Return false
 - Nodes with same parent (siblings): Return false
 - Root node as one of the values: Cannot be cousin
 
-### ALTERNATIVE APPROACHES:
-1. DFS with depth and parent tracking
-2. Two separate BFS passes (one for each node)
-
 </details>
 """
-
-from collections import deque
-
-
-class TreeNode:
-    """Definition for a binary tree node."""
-
-    def __init__(self, val=0, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
-
 
 class Solution:
     def isCousins(self, root: TreeNode | None, x: int, y: int) -> bool:
@@ -160,7 +158,6 @@ class Solution:
         y_parent, y_depth = y_info
 
         return x_depth == y_depth and x_parent != y_parent
-
 
 def test_solution():
     """Test cases for Problem 993."""
@@ -250,7 +247,6 @@ def test_solution():
     print("Test case 7 passed: Single node")
 
     print("\nAll test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

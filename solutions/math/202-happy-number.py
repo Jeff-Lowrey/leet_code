@@ -1,6 +1,7 @@
 """
+# Difficulty: Easy
+
 # 202. Happy Number
-**Easy**
 
 Write an algorithm to determine if a number n is happy.
 
@@ -10,6 +11,17 @@ A happy number is a number defined by the following process:
 - Those numbers for which this process ends in 1 are happy.
 
 Return true if n is a happy number, and false if not.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -27,13 +39,6 @@ Either the process reaches 1 (happy) or enters a cycle (not happy). Use a set to
 - Numbers either reach 1 or cycle
 - Cycles always occur for unhappy numbers
 - Set or two-pointer both detect cycles
-
-### TIME COMPLEXITY: O(log n)
-Depends on number of digits and cycle detection
-
-### SPACE COMPLEXITY:
-- Set approach: O(log n)
-- Two-pointer: O(1)
 
 ### EXAMPLE WALKTHROUGH:
 ```
@@ -55,10 +60,13 @@ n = 2:
 2² + 0² = 4 → Cycle! Not happy
 ```
 
-### KEY INSIGHTS:
-- All unhappy numbers eventually cycle
-- Common cycle: 4 → 16 → 37 → 58 → 89 → 145 → 42 → 20 → 4
-- Can also hardcode known cycle values
+### TIME COMPLEXITY:
+O(log n)
+Depends on number of digits and cycle detection
+
+### SPACE COMPLEXITY:
+- Set approach: O(log n)
+- Two-pointer: O(1)
 
 ### EDGE CASES:
 - n = 1 (already happy)
@@ -67,7 +75,6 @@ n = 2:
 
 </details>
 """
-
 
 class Solution:
     def isHappy(self, n: int) -> bool:
@@ -119,7 +126,6 @@ class Solution:
             if slow == fast:
                 return False
 
-
 def test_solution() -> None:
     """Test cases for Problem 202."""
     solution = Solution()
@@ -130,7 +136,6 @@ def test_solution() -> None:
     assert solution.isHappy(7) is True
     assert solution.isHappy(4) is False
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

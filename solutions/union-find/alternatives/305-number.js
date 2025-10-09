@@ -1,48 +1,50 @@
 /**
- * 305. Number of Islands II
- * Hard
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Union Find.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * This is a dynamic connectivity problem where islands are added one at a time.
- * Each new land cell either creates a new island or merges existing adjacent islands.
- * Union-Find is perfect for tracking connected components that change over time.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. Start with count = 0 islands
- * 2. For each position being added as land:
- *    - If already land, skip it
- *    - Otherwise, increment island count (new island created)
- *    - Check all 4 adjacent cells
- *    - For each adjacent land cell, union them and decrement count if they were separate
- * 3. Track the island count after each addition
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * Union-Find efficiently tracks which land cells belong to the same island.
- * When two separate islands merge, we decrement the count. Path compression
- * and union by rank keep operations nearly constant time.
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(k * α(m*n)) where k is number of operations, α is inverse Ackermann
- * SPACE COMPLEXITY: O(m * n) for the Union-Find structure
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: m = 3, n = 3, positions = [[0,0],[0,1],[1,2],[2,1]]
- * Step 1: Add (0,0) -> 1 island: count = 1
- * Step 2: Add (0,1) adjacent to (0,0) -> merge: count = 1
- * Step 3: Add (1,2) isolated -> new island: count = 2
- * Step 4: Add (2,1) isolated -> new island: count = 3
- * Output: [1,1,2,3]
+ * [example input]
  * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * EDGE CASES:
- * - Empty positions array
- * - Duplicate positions
- * - Single cell grid
- * - All positions form one connected island
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 class UnionFind {

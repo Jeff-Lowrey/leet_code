@@ -1,11 +1,23 @@
 """
+# Difficulty: Easy
+
 # 169. Majority Element
-**Easy**
 
 Given an array nums of size n, return the majority element.
 
 The majority element is the element that appears more than ⌊n / 2⌋ times.
 You may assume that the majority element always exists in the array.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -25,12 +37,6 @@ Since the majority element appears more than n/2 times, it will always "survive"
 - Majority element will always have positive net count
 - Each cancellation removes one majority and one non-majority element
 
-### TIME COMPLEXITY: O(n)
-Single pass through the array
-
-### SPACE COMPLEXITY: O(1)
-Only using constant extra space
-
 ### EXAMPLE WALKTHROUGH:
 ```
 Input: [2,2,1,1,1,2,2]
@@ -44,10 +50,17 @@ Step 7: num=2, count=0 → candidate=2, count=1
 Result: 2 (which is correct, appears 4/7 times)
 ```
 
-### ALTERNATIVE APPROACHES:
-1. **HashMap counting**: O(n) time, O(n) space
-2. **Sorting**: O(n log n) time, O(1) space - middle element
-3. **Randomization**: Expected O(n) time, O(1) space
+### TIME COMPLEXITY:
+O(n)
+Single pass through the array
+
+### SPACE COMPLEXITY:
+O(1)
+Only using constant extra space
+
+### EDGE CASES:
+- **[Edge case 1]:** [how it's handled]
+- **[Edge case 2]:** [how it's handled]
 
 </details>
 """
@@ -146,7 +159,6 @@ class Solution:
             if count > len(nums) // 2:
                 return candidate
 
-
 def test_solution():
     """Test cases for Problem 169."""
     solution = Solution()
@@ -194,7 +206,6 @@ def test_solution():
     assert result8 == expected8, f"Expected {expected8}, got {result8}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

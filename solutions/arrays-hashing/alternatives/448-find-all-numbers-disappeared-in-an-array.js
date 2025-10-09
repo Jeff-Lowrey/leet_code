@@ -1,42 +1,50 @@
 /**
- * 448. Find All Numbers Disappeared In An Array
- * Easy
+ * Difficulty: Medium
  *
- * Given an array nums of n integers where nums[i] is in the range [1, n], return an array
- * of all the integers in the range [1, n] that do not appear in nums.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * We need to find missing numbers from 1 to n. A clever approach uses the array itself
- * as a hash table by marking indices corresponding to seen numbers.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. **Mark seen numbers**: For each number, mark its corresponding index as negative
- * 2. **Use absolute values**: Since we're modifying in-place, use abs() to get original
- * 3. **Find missing**: Positive numbers at the end indicate missing numbers
- * 4. **Restore original**: Optional step to restore the array
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Array indices 0 to n-1 correspond to numbers 1 to n
- * - Making nums[i] negative indicates number (i+1) is present
- * - After marking, positive values indicate missing numbers
- * - This achieves O(1) extra space complexity
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n) - two passes through the array
- * SPACE COMPLEXITY: O(1) - excluding the output array, modifying input in-place
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
- * Input: [4,3,2,7,8,2,3,1]
- * Step 1: Mark nums[3] negative (4 is present): [4,3,2,-7,8,2,3,1]
- * Step 2: Mark nums[2] negative (3 is present): [4,3,-2,-7,8,2,3,1]
- * Continue marking... Final: [-4,-3,-2,-7,8,2,-3,-1]
- * Positive at indices 4,5 → missing numbers 5,6
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
  *
- * EDGE CASES:
- * - All numbers present: return empty array
- * - All numbers missing: return [1,2,...,n]
- * - Single element: check if it's 1
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * [example input]
+ * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

@@ -1,52 +1,50 @@
 /**
- * 090. Subsets II
- * Medium
+ * Difficulty: Medium
  *
- * Given an integer array nums that may contain duplicates, return all possible subsets (the power set).
- * The solution set must not contain duplicate subsets. Return the solution in any order.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * This is similar to Subsets I, but with duplicate elements in the input.
- * The challenge is to generate all unique subsets without duplicate subsets in the result.
- * We need to handle duplicates in the input while avoiding duplicate subsets.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. **Sort the array**: Essential for duplicate detection and skipping
- * 2. **Skip duplicate elements at same level**: Use index-based duplicate skipping
- * 3. **Backtracking with choices**: For each element, include or exclude it
- * 4. **Add subsets at each step**: Each recursive call represents a valid subset
- * 5. **Use start index**: Process elements in order to avoid going backward
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Sorting enables duplicate detection at the same recursion level
- * - Skipping duplicates at same level prevents duplicate subsets
- * - The condition `i > start && nums[i] === nums[i-1]` ensures we only skip duplicates at same level
- * - Backtracking systematically explores all unique subsets
- * - Index progression ensures no duplicate subsets from different orderings
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n × 2^n) in worst case (all unique), better with duplicates
- * SPACE COMPLEXITY: O(n) for recursion depth
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: nums = [1,2,2]
- * After sorting: [1,2,2] (already sorted)
- * Step 1: Start with [], process from index 0
- * Step 2: Include 1 -> [1], exclude 1 -> []
- * Step 3: From [], include first 2 -> [2], exclude -> []
- * Step 4: From [2], include second 2 -> [2,2], exclude -> [2]
- * Step 5: From [1], include first 2 -> [1,2], exclude -> [1]
- * Step 6: Skip second 2 at same level to avoid duplicates
- * Output: [[], [1], [1,2], [1,2,2], [2], [2,2]]
+ * [example input]
  * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * EDGE CASES:
- * - Empty array: return [[]]
- * - All elements are the same
- * - Mix of duplicates and unique elements
- * - Single element
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

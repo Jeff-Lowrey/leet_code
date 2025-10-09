@@ -1,6 +1,7 @@
 """
+# Difficulty: Easy
+
 # 1030. Matrix Cells In Distance Order
-**Easy**
 
 You are given four integers row, col, rCenter, and cCenter. There exists a rows x cols matrix
 and you are on the cell with the coordinates (rCenter, cCenter).
@@ -10,6 +11,17 @@ from the smallest distance to the largest distance. You may return the answer in
 satisfies this condition.
 
 The distance between two cells (r1, c1) and (r2, c2) is |r1 - r2| + |c1 - c2|.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -29,14 +41,6 @@ The key insight is to generate all coordinates and use Python's built-in sorting
 - Python's stable sort maintains relative order for equal distances
 - Custom key function allows sorting by computed distance
 - List comprehension efficiently generates all coordinates
-
-### TIME COMPLEXITY: O(R*C * log(R*C))
-- Generating coordinates: O(R*C)
-- Sorting: O(R*C * log(R*C))
-- Total: O(R*C * log(R*C))
-
-### SPACE COMPLEXITY: O(R*C)
-For storing all coordinates in the result
 
 ### EXAMPLE WALKTHROUGH:
 ```
@@ -62,20 +66,23 @@ Distance 3: (0,0)
 Output: [[1,2],[0,2],[1,1],[0,1],[1,0],[0,0]]
 ```
 
+### TIME COMPLEXITY:
+O(R*C * log(R*C))
+- Generating coordinates: O(R*C)
+- Sorting: O(R*C * log(R*C))
+- Total: O(R*C * log(R*C))
+
+### SPACE COMPLEXITY:
+O(R*C)
+For storing all coordinates in the result
+
 ### EDGE CASES:
 - Single cell matrix (1x1)
 - Center at corner vs center of matrix
 - Large matrices (up to 100x100)
 
-### OPTIMIZATIONS:
-- **BFS approach**: Can achieve O(R*C) by using BFS from center
-- **Bucket sort**: Group by distance for O(R*C) time
-- Current approach is simple and efficient for constraint sizes
-
 </details>
 """
-
-
 
 class Solution:
     def allCellsDistOrder(self, rows: int, cols: int, rCenter: int, cCenter: int) -> list[list[int]]:
@@ -161,7 +168,6 @@ class Solution:
 
         return result
 
-
 def test_solution():
     """Test cases for Problem 1030."""
     solution = Solution()
@@ -202,7 +208,6 @@ def test_solution():
     assert len(result6) == 6, f"Should have 6 cells, got {len(result6)}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

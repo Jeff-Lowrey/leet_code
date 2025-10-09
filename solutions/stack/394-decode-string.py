@@ -1,12 +1,24 @@
 """
+# Difficulty: Medium
+
 # 394. Decode String
-**Medium**
 
 Given an encoded string, return its decoded string.
 
 The encoding rule is: k[encoded_string], where the encoded_string inside the square brackets is being repeated exactly k times. Note that k is guaranteed to be a positive integer.
 
 You may assume that the input string is always valid; no extra white spaces, square brackets are well-formed, etc. Furthermore, you may assume that the original data does not contain any digits and that digits are only for those repeat numbers, k.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -27,12 +39,6 @@ This is a classic stack problem where we need to process nested brackets. When w
 - Each '[' starts a new encoding level, ']' completes it
 - Numbers are always followed by '[', so we can parse them together
 
-### TIME COMPLEXITY: O(n × m)
-Where n is length of input, m is maximum decoded length
-
-### SPACE COMPLEXITY: O(n)
-For the stacks and intermediate strings
-
 ### EXAMPLE WALKTHROUGH:
 ```
 Input: "3[a2[c]]"
@@ -46,6 +52,14 @@ Input: "3[a2[c]]"
 8. ']': current = "acc" * 3 = "accaccacc"
 Output: "accaccacc"
 ```
+
+### TIME COMPLEXITY:
+O(n × m)
+Where n is length of input, m is maximum decoded length
+
+### SPACE COMPLEXITY:
+O(n)
+For the stacks and intermediate strings
 
 ### EDGE CASES:
 - No brackets: return original string
@@ -134,7 +148,6 @@ class Solution:
 
         return decode(0)[0]
 
-
 def test_solution():
     """Test cases for Problem 394."""
     solution = Solution()
@@ -175,7 +188,6 @@ def test_solution():
     assert result7 == expected7, f"Expected {expected7}, got {result7}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

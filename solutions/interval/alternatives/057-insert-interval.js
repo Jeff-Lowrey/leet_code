@@ -1,47 +1,50 @@
 /**
- * 057. Insert Interval
- * Start
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Interval.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Since intervals are sorted and `non-overlapping`, we can process them in three phases:
-1. Add intervals that come before newInterval
-2. Merge overlapping intervals with newInterval
-3. Add intervals that come after newInterval
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. **Before Phase**: Add all intervals that `end` before newInterval starts
-2. **Merge Phase**: Merge all overlapping intervals with newInterval
-3. **After Phase**: Add all remaining intervals
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Sorted input allows linear scan without backtracking
- * - Three-phase approach handles all cases systematically
- * - Merging happens in one pass by tracking min start and max end
- * - No need to sort result since we process in order
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n)
- * SPACE COMPLEXITY: O(n) for result array
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
-intervals = [[1,3],[6,9]], newInterval = [2,5]
-
-Phase 1: [1,3] overlaps with [2,5] (`3 >= 2`)
-Phase 2: Merge [1,3] and [2,5] → [1,5]
-Phase 3: [6,9] doesn't overlap (`6 > 5`) → add `as-is`
-
-Result: [[1,5],[6,9]]
-```
+ * [example input]
+ * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * EDGE CASES:
- * - Empty intervals array: Just return [newInterval]
- * - newInterval doesn't overlap with any: Insert in correct position
- * - newInterval overlaps with all: Merge into one large interval
- * - newInterval is completely contained: Return original intervals
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

@@ -1,9 +1,21 @@
 """
+# Difficulty: Medium
+
 # 103. Binary Tree Zigzag Level Order Traversal
-**Medium**
 
 Given the root of a binary tree, return the zigzag level order traversal of its nodes' values.
 (i.e., from left to right, then right to left for the next level and alternate between).
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -28,14 +40,6 @@ Use a flag to track whether we should append values left-to-right or right-to-le
 - Reversing alternate levels gives us the zigzag pattern
 - Deque provides O(1) append/popleft operations
 
-### TIME COMPLEXITY: O(n)
-- Visit each node exactly once
-- n = number of nodes in tree
-
-### SPACE COMPLEXITY: O(w)
-- Queue holds at most one level of nodes at a time
-- w = maximum width of tree (worst case: n/2 for complete tree)
-
 ### EXAMPLE WALKTHROUGH:
 ```
 Tree:      3
@@ -50,6 +54,16 @@ Level 2 (L->R): [15, 7]
 Result: [[3], [20, 9], [15, 7]]
 ```
 
+### TIME COMPLEXITY:
+O(n)
+- Visit each node exactly once
+- n = number of nodes in tree
+
+### SPACE COMPLEXITY:
+O(w)
+- Queue holds at most one level of nodes at a time
+- w = maximum width of tree (worst case: n/2 for complete tree)
+
 ### EDGE CASES:
 - Empty tree: Return []
 - Single node: Return [[root.val]]
@@ -57,18 +71,6 @@ Result: [[3], [20, 9], [15, 7]]
 
 </details>
 """
-
-from collections import deque
-
-
-class TreeNode:
-    """Definition for a binary tree node."""
-
-    def __init__(self, val=0, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
-
 
 class Solution:
     def zigzagLevelOrder(self, root: TreeNode | None) -> list[list[int]]:
@@ -114,7 +116,6 @@ class Solution:
             left_to_right = not left_to_right
 
         return result
-
 
 def test_solution():
     """Test cases for Problem 103."""
@@ -175,7 +176,6 @@ def test_solution():
     print("Test case 5 passed: Complete binary tree")
 
     print("\nAll test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

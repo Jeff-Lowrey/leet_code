@@ -1,47 +1,50 @@
 /**
- * 1047. Remove All Adjacent Duplicates In String
- * Easy
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Stack.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Use a stack to track characters. When we see a character that matches the
- * top of the stack, it means we found adjacent duplicates - pop the stack.
- * Otherwise, push the new character. This handles cascading removals naturally.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. **Initialize stack**: Use an array to store characters
- * 2. **Iterate through string**: For each character:
- *    - If stack top equals current char: pop (remove duplicate pair)
- *    - Otherwise: push current char
- * 3. **Build result**: Join stack to form final string
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Stack naturally handles the "most recent" character comparison
- * - Popping handles removal of duplicate pairs
- * - Cascading removals work because we always check the new top after popping
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n) - single pass through string
- * SPACE COMPLEXITY: O(n) - stack stores characters in worst case
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: "abbaca"
- * Step 1: 'a' → stack: ['a']
- * Step 2: 'b' → stack: ['a','b']
- * Step 3: 'b' → matches top, pop → stack: ['a']
- * Step 4: 'a' → matches top, pop → stack: []
- * Step 5: 'c' → stack: ['c']
- * Step 6: 'a' → stack: ['c','a']
- * Output: "ca"
+ * [example input]
  * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * EDGE CASES:
- * - Empty string: returns ""
- * - All duplicates: returns ""
- * - No duplicates: returns original string
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

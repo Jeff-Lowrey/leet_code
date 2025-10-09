@@ -1,53 +1,50 @@
 /**
- * 135. Candy
- * Hard
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Greedy.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Use two-pass greedy approach. First pass handles left-to-right comparisons,
- * second pass handles right-to-left. Each child must have more candy than
- * neighbors with lower ratings.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. **Initialize candies**: Give each child 1 candy initially
- * 2. **Left-to-right pass**: If rating[i] > rating[i-1], give candies[i] = candies[i-1] + 1
- * 3. **Right-to-left pass**: If rating[i] > rating[i+1], ensure candies[i] >= candies[i+1] + 1
- * 4. **Sum total**: Add up all candies
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Two passes ensure we satisfy both left and right neighbor constraints
- * - Greedy choice: give minimum candies that satisfy immediate constraints
- * - Left pass ensures child has more than left neighbor if rating is higher
- * - Right pass ensures child has more than right neighbor if rating is higher
- * - Taking max in right pass preserves left pass constraints
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n)
- * SPACE COMPLEXITY: O(n) for candies array
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * ratings = [1, 0, 2]
- * Initial: candies = [1, 1, 1]
- *
- * Left-to-right:
- *   i=1: ratings[1]=0 < ratings[0]=1, no change → [1, 1, 1]
- *   i=2: ratings[2]=2 > ratings[1]=0 → candies[2]=2 → [1, 1, 2]
- *
- * Right-to-left:
- *   i=1: ratings[1]=0 < ratings[2]=2, no change → [1, 1, 2]
- *   i=0: ratings[0]=1 > ratings[1]=0 → candies[0]=max(1, 1+1)=2 → [2, 1, 2]
- *
- * Total: 2 + 1 + 2 = 5
+ * [example input]
  * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * EDGE CASES:
- * - Single child: 1 candy
- * - All same ratings: n candies (1 each)
- * - Strictly increasing: 1+2+3+...+n candies
- * - Strictly decreasing: n+...+3+2+1 candies
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

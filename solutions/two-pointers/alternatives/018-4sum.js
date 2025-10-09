@@ -1,52 +1,50 @@
 /**
- * 018. 4Sum
- * Medium
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Two Pointers.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Extend the 3Sum approach by adding one more outer loop. Fix two numbers and use
- * two pointers to find the remaining two numbers. Sorting helps avoid duplicates
- * and enables the two-pointer technique.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. **Sort Array**: Enables two-pointer technique and easy duplicate handling
- * 2. **Fix First Two Elements**: Use two nested loops to fix nums[i] and nums[j]
- * 3. **Two Pointers**: Use left and right pointers to find pairs summing to target - nums[i] - nums[j]
- * 4. **Skip Duplicates**: Avoid duplicate quadruplets by skipping repeated values
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * By sorting and fixing two numbers, we reduce 4Sum to a 2Sum problem which can be
- * efficiently solved with two pointers. Careful duplicate skipping ensures unique results.
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n³)
- * - O(n log n) for sorting
- * - O(n³) for three nested loops with two pointers
- * - Overall: O(n³)
- * SPACE COMPLEXITY: O(1)
- * - Excluding output space, only using constant extra space
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: nums = [1,0,-1,0,-2,2], target = 0
- * After sorting: [-2,-1,0,0,1,2]
- * i=0, nums[i]=-2:
- *   j=1, nums[j]=-1, need sum=3:
- *     left=2(0), right=5(2): sum=2<3, move left
- *     left=3(0), right=5(2): sum=2<3, move left
- *     ...
- *   j=2, nums[j]=0, need sum=2:
- *     left=3(0), right=5(2): sum=2✓ → quadruplet [-2,0,0,2]
- * Continue for all combinations...
- * Output: [[-2,-1,1,2],[-2,0,0,2],[-1,0,0,1]]
+ * [example input]
  * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * EDGE CASES:
- * - Array length < 4: return []
- * - All same numbers: check if 4*nums[0] == target
- * - Integer overflow: use careful arithmetic
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

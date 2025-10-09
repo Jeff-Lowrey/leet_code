@@ -1,48 +1,50 @@
 /**
- * 745. Prefix and Suffix Search
- * Hard
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Trie.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Need to find words matching both prefix and suffix. A clever approach is to
- * insert modified versions of words into Trie that combine suffix + special char + word.
- * This allows single Trie traversal to find matches for both prefix and suffix.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. For each word with index i, create entries: {suffix}#{word} for all suffixes
- * 2. Insert all variations into Trie, storing the word index
- * 3. When searching for prefix+suffix, search for pattern: {suffix}#{prefix}
- * 4. Return the maximum index found (most recent word)
- * 5. Alternative: Use two Tries (one for prefix, one for suffix) and intersect results
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Combining suffix+word in Trie allows simultaneous matching
- * - Special delimiter (#) prevents false matches
- * - Storing indices allows returning most recent match
- * - All suffix variations ensure we can match any suffix
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY:
- *   Constructor: O(n * m^2) where n = words count, m = max word length
- *   Search: O(p + s) where p = prefix length, s = suffix length
- * SPACE COMPLEXITY: O(n * m^2) for Trie storage
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * words = ["apple"]
- * Insert variations:
- *   "e#apple", "le#apple", "ple#apple", "pple#apple", "apple#apple"
- * Search prefix="a", suffix="e":
- *   Look for "e#a" in Trie -> finds "e#apple" -> return index 0
+ * [example input]
  * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * EDGE CASES:
- * - No matching word
- * - Multiple words match (return highest index)
- * - Empty prefix or suffix
- * - Prefix or suffix longer than words
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 class TrieNode {

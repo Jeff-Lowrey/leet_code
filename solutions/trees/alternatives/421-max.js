@@ -1,45 +1,50 @@
 /**
- * 421. Maximum XOR of Two Numbers in an Array
- * Medium
+ * Difficulty: Medium
  *
- * Given an integer array nums, return the maximum result of nums[i] XOR nums[j],
- * where 0 <= i <= j < n.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Use a binary Trie to efficiently find the number that gives maximum XOR with each element.
- * For XOR to be maximum, we want bits to be as different as possible, starting from MSB.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. **Build a binary Trie**: Insert all numbers as 32-bit binary representations
- * 2. **For each number**: Traverse Trie greedily, choosing opposite bit when possible
- * 3. **Track maximum**: Keep track of the maximum XOR found
- * 4. **Bit manipulation**: Work from MSB (bit 31) to LSB (bit 0)
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Trie allows us to compare numbers bit-by-bit efficiently
- * - Greedy approach: choosing opposite bit maximizes XOR at each position
- * - MSB-first ensures we maximize the most significant bits first
- * - O(1) lookup per bit position in the Trie
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n) where n is the length of nums (32 bits per number is constant)
- * SPACE COMPLEXITY: O(n) for the Trie structure
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
-Input: [3, 10, 5, 25, 2, 8]
-Binary: [00011, 01010, 00101, 11001, 00010, 01000]
-Step 1: Build Trie with all numbers
-Step 2: For 3 (00011), find number with most opposite bits -> 25 (11001) gives 11010 (26)
-Step 3: Check all numbers, maximum XOR is 28 (5 XOR 25 = 00101 XOR 11001 = 11100)
-Output: 28
-```
+ * [example input]
+ * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * EDGE CASES:
- * - Array with one element (XOR with itself = 0)
- * - Array with two elements
- * - Numbers with different bit lengths
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 class TrieNode {

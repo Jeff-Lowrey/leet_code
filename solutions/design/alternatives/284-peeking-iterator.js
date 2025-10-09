@@ -1,51 +1,50 @@
 /**
- * 284. Peeking Iterator
- * Medium
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Design.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Design an iterator wrapper that adds peek() functionality to any existing iterator.
- * The key insight is to cache the next element so peek() can return it without
- * consuming it from the underlying iterator. We maintain a buffer for the peeked value.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. **Cache next element**: Store the next value and a flag indicating if it's valid
- * 2. **peek()**: Return cached value without advancing the iterator
- * 3. **next()**: Return cached value and advance to fetch the next one
- * 4. **hasNext()**: Check if cached value exists or if underlying iterator has more
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Buffering one element allows us to "look ahead" without consuming
- * - We maintain iterator state by tracking whether we have a cached value
- * - All operations remain O(1) time complexity
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(1) for all operations (peek, next, hasNext)
- * SPACE COMPLEXITY: O(1) - only stores one buffered element
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: iterator = [1,2,3]
- *
- * Step 1: Initialize - cache = 1, hasCached = true
- * Step 2: peek() returns 1 (no consumption)
- * Step 3: peek() returns 1 again (still no consumption)
- * Step 4: next() returns 1, cache = 2
- * Step 5: next() returns 2, cache = 3
- * Step 6: peek() returns 3
- * Step 7: hasNext() returns true
- * Step 8: next() returns 3, cache = null, hasCached = false
- * Step 9: hasNext() returns false
- * Output: Operations work as expected
+ * [example input]
  * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * EDGE CASES:
- * - Empty iterator
- * - Single element iterator
- * - Multiple consecutive peeks
- * - Alternating peek and next calls
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

@@ -1,47 +1,50 @@
 /**
- * 027. Remove Element
- * Easy
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Two Pointers.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Use two pointers to partition the array: elements not equal to val go to the front,
- * while elements equal to val are effectively removed by not being included in the
- * first k positions.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. **Initialize slow pointer**: Tracks the position for the next valid element
- * 2. **Scan with fast pointer**: Iterates through the entire array
- * 3. **Filter elements**: When nums[fast] != val, copy it to nums[slow] and increment slow
- * 4. **Return count**: slow represents the count of elements not equal to val
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * By maintaining a slow pointer for valid elements and a fast pointer to scan,
- * we effectively partition the array in-place, moving all valid elements to the front.
- * The relative order is preserved, and we use O(1) extra space.
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n)
- * - Single pass through the array
- * SPACE COMPLEXITY: O(1)
- * - Only using two pointers, no extra space
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: nums = [3,2,2,3], val = 3
- * Step 1: slow=0, fast=0, nums[0]=3 (equals val, skip)
- * Step 2: slow=0, fast=1, nums[1]=2 (not val, nums[0]=2, slow=1)
- * Step 3: slow=1, fast=2, nums[2]=2 (not val, nums[1]=2, slow=2)
- * Step 4: slow=2, fast=3, nums[3]=3 (equals val, skip)
- * Output: k=2, nums=[2,2,_,_]
+ * [example input]
  * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * EDGE CASES:
- * - Empty array: return 0
- * - All elements equal to val: return 0
- * - No elements equal to val: return original length
- * - Single element array
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

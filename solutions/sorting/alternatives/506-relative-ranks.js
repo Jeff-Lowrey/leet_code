@@ -1,47 +1,50 @@
 /**
- * 506. Relative Ranks
- * Easy
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Sorting.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Assign ranks to athletes based on their scores. The highest score gets "Gold Medal",
- * second gets "Silver Medal", third gets "Bronze Medal", and the rest get their numeric rank.
- * We need to maintain the original order while assigning ranks based on sorted order.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. Create an array of [score, originalIndex] pairs
- * 2. Sort by score in descending order
- * 3. Assign ranks based on sorted positions
- * 4. Map special medals for top 3 positions
- * 5. Place ranks back in original order
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * By pairing each score with its original index, we can sort while maintaining
- * the ability to place results back in the correct positions. Sorting in descending
- * order gives us the natural ranking from highest to lowest.
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n log n) for sorting
- * SPACE COMPLEXITY: O(n) for the result array and sorted pairs
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
- * Input: score = [5,4,3,2,1]
- * Step 1: Create pairs: [[5,0], [4,1], [3,2], [2,3], [1,4]]
- * Step 2: Sort by score (already sorted): [[5,0], [4,1], [3,2], [2,3], [1,4]]
- * Step 3: Assign ranks:
- *   [5,0] -> rank 1 -> "Gold Medal" at index 0
- *   [4,1] -> rank 2 -> "Silver Medal" at index 1
- *   [3,2] -> rank 3 -> "Bronze Medal" at index 2
- *   [2,3] -> rank 4 -> "4" at index 3
- *   [1,4] -> rank 5 -> "5" at index 4
- * Output: ["Gold Medal","Silver Medal","Bronze Medal","4","5"]
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
  *
- * EDGE CASES:
- * - Single athlete: gets "Gold Medal"
- * - Two athletes: first gets "Gold Medal", second gets "Silver Medal"
- * - Duplicate scores: problem assumes all scores are unique
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * [example input]
+ * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

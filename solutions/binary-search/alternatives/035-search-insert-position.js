@@ -1,52 +1,50 @@
 /**
- * 035. Search Insert Position
- * Easy
+ * Difficulty: Medium
  *
- * Given a sorted array of distinct integers and a target value, return the index if the target is found.
- * If not, return the index where it would be if it were inserted in order.
- * You must write an algorithm with O(log n) runtime complexity.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Since the array is sorted, we can use binary search to find the target or the insertion position.
- * If the target is found, return its index. If not found, the binary search will naturally converge
- * to the position where the target should be inserted to maintain sorted order.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. **Initialize pointers**: Set left = 0 and right = nums.length - 1
- * 2. **Binary search loop**: While left <= right
- * 3. **Calculate middle**: mid = Math.floor((left + right) / 2)
- * 4. **Compare and adjust**: If nums[mid] == target, return mid; if nums[mid] < target, search right; else search left
- * 5. **Return insertion point**: When loop ends, left is the insertion position
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Binary search naturally finds the correct insertion position
- * - When target is not found, left pointer ends up at the insertion position
- * - The insertion position maintains sorted order of the array
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(log n)
- * SPACE COMPLEXITY: O(1)
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: nums = [1,3,5,6], target = 5
- * Step 1: left=0, right=3, mid=1, nums[1]=3 < 5, search right half
- * Step 2: left=2, right=3, mid=2, nums[2]=5 == 5, return 2
- * Output: 2
- *
- * Input: nums = [1,3,5,6], target = 2
- * Step 1: left=0, right=3, mid=1, nums[1]=3 > 2, search left half
- * Step 2: left=0, right=0, mid=0, nums[0]=1 < 2, search right half
- * Step 3: left=1, right=0, loop ends, return left=1
- * Output: 1 (insert position)
+ * [example input]
  * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * EDGE CASES:
- * - Empty array: return 0 (insert at beginning)
- * - Target smaller than all elements: return 0
- * - Target larger than all elements: return nums.length
- * - Single element array: return appropriate position
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

@@ -1,49 +1,50 @@
 /**
- * 066. Plus One
- * Easy
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Math.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Given an array representing digits of a non-negative integer, add one to it.
- * The key challenge is handling carries, especially cascading 9s (e.g., [9,9,9] -> [1,0,0,0]).
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. **Start from rightmost digit**: Add 1 to last element
- * 2. **Handle carries**: If digit becomes 10, set to 0 and carry to next position
- * 3. **Propagate carry**: Continue until no carry or reach beginning
- * 4. **Handle overflow**: If carry remains after leftmost digit, prepend 1
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Simulates manual addition from right to left
- * - Most cases: only last digit changes (no carry)
- * - Worst case: all 9s require full traversal plus array expansion
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n) where n is the number of digits
- * SPACE COMPLEXITY: O(1) excluding output (in-place modification), O(n) including output
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
-Input: [1, 2, 9]
-Step 1: digits[2] = 9 + 1 = 10, set to 0, carry = 1
-Step 2: digits[1] = 2 + 1 = 3, carry = 0, done
-Output: [1, 3, 0]
-
-Input: [9, 9, 9]
-Step 1: digits[2] = 9 + 1 = 10, set to 0, carry = 1
-Step 2: digits[1] = 9 + 1 = 10, set to 0, carry = 1
-Step 3: digits[0] = 9 + 1 = 10, set to 0, carry = 1
-Step 4: Prepend 1 to array
-Output: [1, 0, 0, 0]
-```
+ * [example input]
+ * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * EDGE CASES:
- * - Single digit: [5] -> [6]
- * - All 9s: [9,9,9] -> [1,0,0,0]
- * - No carry: [1,2,3] -> [1,2,4]
- * - Single 9: [9] -> [1,0]
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

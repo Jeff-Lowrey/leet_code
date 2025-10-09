@@ -1,6 +1,5 @@
 """
-14. Longest Common Prefix
-Easy
+# Difficulty: Easy
 
 Write a function to find the longest common prefix string amongst an array of strings.
 If there is no common prefix, return an empty string "".
@@ -8,6 +7,17 @@ If there is no common prefix, return an empty string "".
 Example:
 Input: strs = ["flower","flow","flight"]
 Output: "fl"
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -24,13 +34,6 @@ The longest common prefix is the sequence of characters that all strings share f
 ### WHY THIS WORKS:
 Since we're looking for a common prefix, all strings must have identical characters at each position from the start. The moment any string differs or ends, we've found the longest possible common prefix.
 
-### TIME COMPLEXITY: O(S)
-- S is the sum of all characters in all strings
-- In worst case, we examine every character once
-
-### SPACE COMPLEXITY: O(1)
-- Only using constant extra space for variables
-
 ### EXAMPLE WALKTHROUGH:
 For strs = ["flower","flow","flight"]:
 1. Position 0: 'f', 'f', 'f' → all match
@@ -38,10 +41,14 @@ For strs = ["flower","flow","flight"]:
 3. Position 2: 'o', 'o', 'i' → mismatch found
 4. Return "fl"
 
-### ALTERNATIVE APPROACHES:
-1. **Sort and Compare**: Sort strings, then compare first and last (O(n log n))
-2. **Trie**: Build trie and follow single path until branching (O(S))
-3. **Horizontal**: Compare strings pairwise (O(S))
+### TIME COMPLEXITY:
+O(S)
+- S is the sum of all characters in all strings
+- In worst case, we examine every character once
+
+### SPACE COMPLEXITY:
+O(1)
+- Only using constant extra space for variables
 
 ### EDGE CASES:
 - Empty array: return ""
@@ -51,7 +58,6 @@ For strs = ["flower","flow","flight"]:
 
 </details>
 """
-
 
 class Solution:
     def longestCommonPrefix(self, strs: list[str]) -> str:
@@ -127,11 +133,9 @@ class Solution:
 
         return "".join(prefix)
 
-
 """
 28. Find the Index of the First Occurrence in a String
-Easy
-
+# Difficulty: Easy
 Given two strings needle and haystack, return the index of the first occurrence
 of needle in haystack, or -1 if needle is not part of haystack.
 
@@ -139,7 +143,6 @@ Example:
 Input: haystack = "sadbutsad", needle = "sad"
 Output: 0
 """
-
 
 class SolutionStrStr:
     def strStr(self, haystack: str, needle: str) -> int:
@@ -204,11 +207,9 @@ class SolutionStrStr:
 
         return -1
 
-
 """
 459. Repeated Substring Pattern
-Easy
-
+# Difficulty: Easy
 Given a string s, check if it can be constructed by taking a substring of it and
 appending multiple copies of the substring together.
 
@@ -217,7 +218,6 @@ Input: s = "abab"
 Output: true
 Explanation: It is the substring "ab" twice.
 """
-
 
 class SolutionRepeated:
     def repeatedSubstringPattern(self, s: str) -> bool:
@@ -255,11 +255,9 @@ class SolutionRepeated:
         pattern_len = lps[-1]
         return pattern_len > 0 and n % (n - pattern_len) == 0
 
-
 """
 686. Repeated String Match
-Medium
-
+# Difficulty: Medium
 Given two strings a and b, return the minimum number of times you should repeat
 string a so that string b is a substring of it. If it is impossible for b to be
 a substring of a after repeating it, return -1.
@@ -270,7 +268,6 @@ Output: 3
 Explanation: We return 3 because by repeating a three times "abcdabcdabcd",
 b is a substring of it.
 """
-
 
 class SolutionRepeatedMatch:
     def repeatedStringMatch(self, a: str, b: str) -> int:
@@ -288,7 +285,6 @@ class SolutionRepeatedMatch:
                 return reps
 
         return -1
-
 
 # Test cases
 if __name__ == "__main__":

@@ -1,42 +1,50 @@
 /**
- * 1306. Jump Game Iii
- * Medium
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Graphs.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Model as graph traversal where each index can jump to two positions.
- * Use BFS/DFS to explore all reachable positions from start.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. Use BFS to explore all reachable positions from starting index
- * 2. From index i, can jump to i+arr[i] or i-arr[i] (if valid)
- * 3. Track visited positions to avoid cycles
- * 4. Return true if we reach any index with value 0
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - BFS explores all reachable positions level by level
- * - Visited array prevents infinite loops
- * - Early termination when target (value 0) is found
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n) - visit each index at most once
- * SPACE COMPLEXITY: O(n) - queue and visited array
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
- * arr=[4,2,3,0,3,1,2], start=5
- * From 5: can jump to 5+1=6 or 5-1=4
- * From 6: can jump to 6+2=8(invalid) or 6-2=4
- * From 4: can jump to 4+3=7(invalid) or 4-3=1
- * From 1: can jump to 1+2=3 or 1-2=-1(invalid)
- * At index 3: arr[3]=0, return true
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
  *
- * EDGE CASES:
- * - Start position has value 0
- * - No path to any 0
- * - Single element array
- * - Jumps go out of bounds
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * [example input]
+ * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

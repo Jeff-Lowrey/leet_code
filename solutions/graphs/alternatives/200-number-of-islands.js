@@ -1,37 +1,50 @@
 /**
- * 200. Number Of Islands
- * Medium
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Graphs.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Count connected components of '1's in a 2D grid. Each island is a connected
- * component that can be found using DFS/BFS traversal.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * Iterate through each cell. When we find a '1', increment count and use DFS
- * to mark all connected '1's as visited to avoid double counting.
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * DFS explores the entire connected component (island) in one traversal,
- * ensuring each island is counted exactly once.
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(m * n) - visit each cell at most once
- * SPACE COMPLEXITY: O(m * n) - recursion stack in worst case
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
- * Grid: [["1","1","0"],["0","1","0"],["0","0","1"]]
- * 1. Find '1' at (0,0), DFS marks (0,0), (0,1), (1,1) - count = 1
- * 2. Find '1' at (2,2), DFS marks (2,2) - count = 2
- * Result: 2 islands
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
  *
- * EDGE CASES:
- * - Empty grid or null input
- * - Grid with all water ('0's)
- * - Grid with all land ('1's)
- * - Single cell grid
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * [example input]
+ * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

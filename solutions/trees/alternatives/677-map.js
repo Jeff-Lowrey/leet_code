@@ -1,70 +1,50 @@
 /**
- * 677. Map Sum Pairs
- * Medium
+ * Difficulty: Medium
  *
- * You are asked to implement a map that supports the following two operations:
- * 1. insert(key, val): Inserts a key-value pair into the map. If the key already existed, the original key-value pair will be overridden to the new one.
- * 2. sum(prefix): Returns the sum of all the pairs' value whose key starts with the prefix.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * This is a perfect Trie (prefix tree) problem. We need to store key-value pairs and efficiently compute sums for all keys with a given prefix. A trie naturally groups keys by their prefixes, making prefix sum queries efficient.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. Trie Structure: Use a trie where each node stores the sum of all values in its subtree
- * 2. Insert Operation: Add/update key in trie and propagate value changes up to root
- * 3. Sum Operation: Navigate to prefix node and return its accumulated sum
- * 4. Value Updates: Handle key updates by adjusting differences in trie nodes
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Trie groups keys by common prefixes naturally
- * - Each node stores sum of all keys in its subtree
- * - Insert/update operations maintain these sums correctly
- * - Sum queries are just lookups at the prefix node
- * - Time complexity is optimal for prefix-based operations
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY:
- * - Insert: O(k) where k is key length
- * - Sum: O(p) where p is prefix length
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * SPACE COMPLEXITY: O(TOTAL_KEY_LENGTH)
- * For storing all keys in the trie structure
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
  *
- * EXAMPLE WALKTHROUGH:
- * Operations:
- * insert("apple", 3)
- * insert("app", 2)
- * sum("ap") → 5 (apple: 3 + app: 2)
- * insert("app", 4)  // Update existing key
- * sum("ap") → 7 (apple: 3 + app: 4)
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * [example input]
+ * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * Trie structure after operations:
- *     root
- *      |
- *      a (sum: 7)
- *      |
- *      p (sum: 7)
- *      |
- *      p (sum: 7, has_app: 4)
- *      |
- *      l (sum: 3)
- *      |
- *      e (sum: 3, has_apple: 3)
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
  *
- * KEY INSIGHTS:
- * - Trie nodes store cumulative sums for efficient prefix queries
- * - Insert operations update all nodes along the path
- * - Key updates require handling the difference between old and new values
- * - Each node represents a potential prefix endpoint
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
  *
- * EDGE CASES:
- * - Empty prefix: returns sum of all values in the map
- * - Prefix with no matches: returns 0
- * - Key updates: handle difference between old and new values
- * - Duplicate insertions: update value and adjust sums
- * - Single character keys: handled normally
- * - Long keys: trie handles arbitrary length efficiently
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

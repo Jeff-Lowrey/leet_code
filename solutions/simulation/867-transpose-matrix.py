@@ -1,6 +1,7 @@
 """
+# Difficulty: Easy
+
 # 867. Transpose Matrix
-**Easy**
 
 Given a 2D integer array matrix, return the transpose of matrix.
 
@@ -14,6 +15,17 @@ Output: [[1,4,7],[2,5,8],[3,6,9]]
 Example 2:
 Input: matrix = [[1,2,3],[4,5,6]]
 Output: [[1,4],[2,5],[3,6]]
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -39,12 +51,6 @@ For an m×n matrix, transpose is n×m.
 - Creating new matrix with swapped dimensions accommodates the transformation
 - Each element lands in exactly one position
 
-### TIME COMPLEXITY: O(m × n)
-- Must visit every element once
-
-### SPACE COMPLEXITY: O(m × n)
-- Need to create new matrix of same total size (different dimensions)
-
 ### EXAMPLE WALKTHROUGH:
 ```
 matrix = [[1,2,3],
@@ -66,22 +72,22 @@ Result: 3×2 (3 rows, 2 cols)
  [3,6]]
 ```
 
+### TIME COMPLEXITY:
+O(m × n)
+- Must visit every element once
+
+### SPACE COMPLEXITY:
+O(m × n)
+- Need to create new matrix of same total size (different dimensions)
+
 ### EDGE CASES:
 - Square matrix (n×n): Transpose is also n×n
 - Single row: Becomes single column
 - Single column: Becomes single row
 - Single cell: Unchanged [[1]] → [[1]]
 
-### ALTERNATIVE APPROACHES:
-1. **In-place (Square Only)**: Swap elements across diagonal
-2. **Zip (Python)**: Use zip(*matrix) for clean code
-3. **List Comprehension**: Nested comprehension for compact solution
-4. **NumPy**: matrix.T in NumPy (if allowed)
-
 </details>
 """
-
-
 
 class Solution:
     def transpose(self, matrix: list[list[int]]) -> list[list[int]]:
@@ -162,7 +168,6 @@ class Solution:
         """
         return list(map(list, zip(*matrix, strict=False)))
 
-
 def test_solution():
     """Test cases for Problem 867."""
     solution = Solution()
@@ -218,7 +223,6 @@ def test_solution():
     assert solution.transposeOneLiner(matrix10) == expected10, "One-liner method failed"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

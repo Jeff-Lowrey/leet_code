@@ -1,6 +1,7 @@
 """
+# Difficulty: Medium
+
 # 1233. Remove Sub Folders From The Filesystem
-**Medium**
 
 Given a list of folders, remove all sub-folders in those folders and return the folders in any order.
 
@@ -9,6 +10,17 @@ If a folder[i] is located within another folder[j], it is called a sub-folder of
 The format of a path is one or more concatenated strings of the form: '/' followed by one or more lowercase English letters.
 
 For example, "/leetcode" and "/leetcode/problems" are valid paths while an empty string and "/" are not.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -30,14 +42,6 @@ Alternative: Sort paths and check if each path starts with previous path + '/'
 - Trie naturally represents hierarchical structure
 - Marking folder ends distinguishes complete folders from intermediate path components
 - When we encounter a folder end marker, we know any continuation is a sub-folder
-
-### TIME COMPLEXITY: O(N * L * log(N))
-Where N is number of folders and L is average path length
-- Sorting: O(N * L * log(N))
-- Trie operations: O(N * L)
-
-### SPACE COMPLEXITY: O(N * L)
-For storing the trie structure
 
 ### EXAMPLE WALKTHROUGH:
 ```
@@ -64,6 +68,16 @@ Process "/c/f":
   Result: ["/a", "/c/d", "/c/f"]
 ```
 
+### TIME COMPLEXITY:
+O(N * L * log(N))
+Where N is number of folders and L is average path length
+- Sorting: O(N * L * log(N))
+- Trie operations: O(N * L)
+
+### SPACE COMPLEXITY:
+O(N * L)
+For storing the trie structure
+
 ### EDGE CASES:
 - Single folder
 - No sub-folders
@@ -72,16 +86,6 @@ Process "/c/f":
 
 </details>
 """
-
-
-
-class TrieNode:
-    """Node in the trie representing a folder component."""
-
-    def __init__(self):
-        self.children = {}  # folder name -> TrieNode
-        self.is_folder = False  # True if this represents a complete folder path
-
 
 class Solution:
     def removeSubfolders(self, folder: list[str]) -> list[str]:
@@ -132,7 +136,6 @@ class Solution:
 
         return result
 
-
 class SolutionSimple:
     """Simpler solution using sorting and string prefix checking."""
 
@@ -155,7 +158,6 @@ class SolutionSimple:
                 result.append(path)
 
         return result
-
 
 def test_solution():
     """Test cases for 1233. Remove Sub Folders."""
@@ -199,7 +201,6 @@ def test_solution():
     assert sorted(solution_simple.removeSubfolders(folder6)) == sorted(expected6)
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

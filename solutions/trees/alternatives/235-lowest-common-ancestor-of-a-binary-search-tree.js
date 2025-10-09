@@ -1,55 +1,50 @@
 /**
- * 235. Lowest Common Ancestor Of A Binary Search Tree
- * Easy
+ * Difficulty: Medium
  *
- * This problem leverages BST properties for efficient LCA finding.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * In a BST, we can use the ordering property to efficiently find LCA.
- * If both nodes are smaller than current node, LCA is in left subtree.
- * If both nodes are larger than current node, LCA is in right subtree.
- * If nodes are on different sides, current node is the LCA.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. **BST Property**: Use ordering to navigate without searching entire tree
- * 2. **Three Cases**: Both left, both right, or split (LCA found)
- * 3. **Iterative/Recursive**: Both approaches work efficiently
- * 4. **Early Termination**: Stop as soon as split point is found
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - BST property guarantees all left < root < all right
- * - LCA is the first node where paths to p and q diverge
- * - No need to search both subtrees like in general binary tree
- * - Path from root to any node follows BST ordering
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(h) where h is height of tree
- * Best case O(log n) for balanced BST, worst case O(n) for skewed
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * SPACE COMPLEXITY:
- *   - Recursive: O(h) for call stack
- *   - Iterative: O(1) constant space
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: root = [6,2,8,0,4,7,9,null,null,3,5], p = 2, q = 8
- *        6
- *       / \
- *      2   8
- *     / \ / \
- *    0  4 7  9
- *      / \
- *     3   5
- *
- * Step 1: At node 6: p=2 < 6 and q=8 > 6 (split!) → LCA = 6
- * Output: 6
+ * [example input]
  * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * EDGE CASES:
- * - One node is ancestor of the other
- * - Nodes are the same
- * - Tree with only one or two nodes
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**
@@ -273,9 +268,9 @@ module.exports = {
 /**
  * Additional Notes:
  * - Three different approaches with different trade-offs:
- *   1. Iterative: O(h) time, O(1) space - most efficient
- *   2. Recursive: O(h) time, O(h) space - clean and intuitive
- *   3. Path-based: O(h) time, O(h) space - works for general binary trees
+
+
+
  * - BST property enables much more efficient solution than general binary tree LCA
  * - Key insight: LCA is first node where paths to p and q diverge
  * - No need to search both subtrees unlike general binary tree case

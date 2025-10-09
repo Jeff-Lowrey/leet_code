@@ -1,42 +1,50 @@
 /**
- * 217. Contains Duplicate
- * Medium
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Arrays Hashing.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * If all elements are unique, then the array length equals the set length.
-If there are duplicates, the set will be smaller than the array.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. **Set-based detection**: Use a Set to track numbers we've seen
- * 2. **Early termination**: Return true immediately when duplicate found
- * 3. **Single pass**: Check each element once
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Set provides O(1) lookup time for duplicate checking
- * - We only need to find one duplicate, so early termination is optimal
- * - Space-time tradeoff: use O(n) space to achieve O(n) time
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n)
- * SPACE COMPLEXITY: O(n)
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * nums = [1,2,3,1]
- * Step 1: seen={}, num=1 → add to seen={1}
- * Step 2: seen={1}, num=2 → add to seen={1,2}
- * Step 3: seen={1,2}, num=3 → add to seen={1,2,3}
- * Step 4: seen={1,2,3}, num=1 → found duplicate! return true
+ * [example input]
  * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * EDGE CASES:
- * - Empty array → false (no duplicates possible)
- * - Single element → false (no duplicates possible)
- * - All elements unique → false
- * - All elements same → true (immediate duplicate)
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

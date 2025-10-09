@@ -1,48 +1,50 @@
 /**
- * 993. Cousins In Binary Tree
- * Easy
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Queue.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Two nodes are cousins if they are at the same depth but have different parents.
- * Use BFS to track depth and parent information for each node.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. Use a queue for BFS traversal
- * 2. Store nodes with their parent information
- * 3. Track the depth and parent of nodes x and y
- * 4. Check if they are at the same depth with different parents
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * BFS processes nodes level by level, making it easy to track depth.
- * By storing parent information with each node in the queue, we can
- * verify the cousin relationship when we find both target nodes.
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n) - May visit all nodes in worst case
- * SPACE COMPLEXITY: O(w) - Queue holds at most one level width
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
- * Input: root = [1,2,3,4], x = 4, y = 3
- *          1
- *        /   \
- *       2     3
- *      /
- *     4
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
  *
- * Level 0: 1 (no matches)
- * Level 1: 2 (parent=1), 3 (parent=1) - found y at depth 1
- * Level 2: 4 (parent=2) - found x at depth 2
- * Different depths → not cousins
- * Output: false
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * [example input]
+ * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * EDGE CASES:
- * - One or both values not in tree
- * - Values are siblings (same parent)
- * - Single node tree
- * - Values at different depths
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 // Definition for a binary tree node

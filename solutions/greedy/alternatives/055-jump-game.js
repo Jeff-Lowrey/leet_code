@@ -1,42 +1,50 @@
 /**
- * 055. Jump Game
- * Medium
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Greedy.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Use greedy approach to track the farthest position we can reach. If at any point our current position exceeds the farthest reachable position, we can't proceed further.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. **Track maximum reach**: Keep track of the farthest index we can reach
- * 2. **Update maximum**: At each position, update the maximum reachable position
- * 3. **Check feasibility**: If current position > maximum reach, return false
- * 4. **Success condition**: If maximum reach >= last index, return true
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - We only need to know if the last index is reachable, not the actual path
-- Greedy choice: always try to reach the farthest possible position
-- If we can reach position i, and from i we can jump nums[i] steps, then we can reach any position up to i + nums[i]
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n)
- * SPACE COMPLEXITY: O(1)
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * nums = [2,3,1,1,4]
- * i=0: maxReach = max(0, 0+2) = 2
- * i=1: maxReach = max(2, 1+3) = 4 (can reach end!)
- * i=2: maxReach = max(4, 2+1) = 4
- * Result: true (maxReach >= 4)
+ * [example input]
  * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * EDGE CASES:
- * - Single element array: Always true (already at last index)
- * - First element is 0 and array length > 1: False (can't move)
- * - All zeros except first: Depends on first element value
- * - Large jumps: Clamp maximum reach to array bounds
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

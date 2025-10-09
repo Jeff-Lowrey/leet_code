@@ -1,47 +1,50 @@
 /**
- * 567. Permutation In String
- * Medium
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Sliding Window.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Check if any permutation of s1 exists as a substring in s2.
- * Use a fixed-size sliding window with character frequency matching.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. **Analyze the problem**: Find if permutation of s1 exists in s2
- * 2. **Choose the right technique**: Fixed-size sliding window with frequency comparison
- * 3. **Implement efficiently**: Track character frequencies and match count
- * 4. **Handle edge cases**: s1 longer than s2, empty strings, identical strings
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Permutations have the same character frequencies
- * - Use a fixed window of size s1.length in s2
- * - Track how many characters have matching frequencies
- * - If all match, we found a permutation
- * - Slide window through s2
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n) where n is length of s2
- * SPACE COMPLEXITY: O(1) - at most 26 lowercase letters
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: s1 = "ab", s2 = "eidbaooo"
- * Step 1: Build frequency for s1: {a:1, b:1}
- * Step 2: Window "ei" -> no match
- * Step 3: Window "id" -> no match
- * Step 4: Window "db" -> no match
- * Step 5: Window "ba" -> frequencies match! -> return true
- * Output: true
+ * [example input]
  * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * EDGE CASES:
- * - s1 longer than s2: return false
- * - Empty strings: return false
- * - s1 equals s2: return true
- * - No permutation found: return false
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

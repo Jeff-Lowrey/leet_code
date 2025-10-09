@@ -1,43 +1,50 @@
 /**
- * 346. Moving Average From Data Stream
- * Easy
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Queue.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Use a queue to maintain the sliding window of values. When the window exceeds the size limit, remove the oldest element and add the new one.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. **Initialize** a queue to store values and track the window size
- * 2. **For each new value**:
- *    - Add `val` to the queue
- *    - If queue size exceeds `size`, remove the front element
- *    - Calculate and return the average of current elements
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Queue maintains FIFO order for the sliding window
- * - We keep exactly `size` elements (or fewer initially)
- * - Sum and count give us the moving average efficiently
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(1) per operation
- * SPACE COMPLEXITY: O(size)
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * MovingAverage(3):
- * next(1): queue=[1], avg=1.0
- * next(10): queue=[1,10], avg=5.5
- * next(3): queue=[1,10,3], avg=4.67
- * next(5): queue=[10,3,5], avg=6.0 (removed 1)
+ * [example input]
  * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * EDGE CASES:
- * - Window size of 1: Always return the current value
- * - First few values: Average of existing values (less than window size)
- * - Empty initialization: Handle size parameter validation
- * - Large window size: Memory efficiency considerations
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

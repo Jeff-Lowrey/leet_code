@@ -1,49 +1,50 @@
 /**
- * 216. Combination Sum III
- * Medium
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Recursion.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Find all valid combinations of k numbers that sum to n, using only numbers 1-9,
- * where each number can be used at most once. This is a backtracking problem with
- * multiple constraints: combination size and target sum.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. **Backtracking with constraints**:
- *    - Start from number 1 and try each number up to 9
- *    - For each number, decide to include it or skip it
- *    - Track current sum and count of numbers used
- *    - Base cases: reached k numbers (check if sum equals n), or exceeded constraints
- * 2. **Pruning optimizations**:
- *    - Stop if current sum exceeds target
- *    - Stop if remaining numbers can't possibly reach target
- * 3. **Edge cases**: k > 9, n too large, n too small
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Backtracking systematically explores all valid combinations
- * - Pruning reduces unnecessary exploration
- * - Starting number parameter prevents duplicate combinations
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(C(9,k)) - choosing k numbers from 9 options
- * SPACE COMPLEXITY: O(k) - recursion depth and combination size
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: k = 3, n = 7
- * Try combinations of 3 numbers from 1-9 that sum to 7:
- * [1,2,3] -> sum = 6 (not valid)
- * [1,2,4] -> sum = 7 (valid!)
- * Other combinations either don't sum to 7 or don't have exactly 3 numbers
- * Output: [[1,2,4]]
+ * [example input]
  * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * EDGE CASES:
- * - k > 9 (impossible - return empty array)
- * - n > 45 (sum of 1-9, impossible - return empty array)
- * - k = 1 (return [n] if 1 <= n <= 9)
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

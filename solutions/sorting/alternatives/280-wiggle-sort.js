@@ -1,44 +1,50 @@
 /**
- * 280. Wiggle Sort
- * Medium
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Sorting.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Rearrange the array such that nums[0] <= nums[1] >= nums[2] <= nums[3]...
- * We can achieve this with a one-pass greedy approach by swapping elements
- * when they don't satisfy the wiggle property at their position.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. Iterate through the array starting from index 1
- * 2. For odd indices (1, 3, 5...): ensure nums[i] >= nums[i-1]
- * 3. For even indices (2, 4, 6...): ensure nums[i] <= nums[i-1]
- * 4. If the condition is violated, swap nums[i] and nums[i-1]
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * By ensuring each element satisfies the wiggle property relative to its
- * predecessor, we create the desired pattern. Swapping when needed is sufficient
- * because we only need to satisfy the local wiggle condition, not global ordering.
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n) - single pass through the array
- * SPACE COMPLEXITY: O(1) - in-place modification
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
- * Input: nums = [3,5,2,1,6,4]
- * Step 1: i=1 (odd): nums[1]=5 >= nums[0]=3 ✓ no swap
- * Step 2: i=2 (even): nums[2]=2 <= nums[1]=5 ✓ no swap
- * Step 3: i=3 (odd): nums[3]=1 >= nums[2]=2 ✗ swap → [3,5,2,2,6,4] wait, recalculate
- * Actually: i=3 (odd): nums[3]=1 < nums[2]=2, swap → [3,5,1,2,6,4]
- * Step 4: i=4 (even): nums[4]=6 <= nums[3]=2 ✗ swap → [3,5,1,6,2,4]
- * Step 5: i=5 (odd): nums[5]=4 >= nums[4]=2 ✓ no swap
- * Output: [3,5,1,6,2,4] (satisfies wiggle sort)
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
  *
- * EDGE CASES:
- * - Empty or single element: no changes needed
- * - Two elements: already wiggle sorted
- * - Duplicate values: can be part of valid wiggle sequence
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * [example input]
+ * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

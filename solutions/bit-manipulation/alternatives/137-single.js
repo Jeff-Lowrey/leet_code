@@ -1,45 +1,50 @@
 /**
- * 137. Single Number II
- * Medium
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Bit Manipulation.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Given an array where every element appears three times except for one element which appears once,
- * find that single element. We need to track bits that appear 1, 2, or 3 times using bit manipulation.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. Use two variables: ones (bits appearing 1 time mod 3) and twos (bits appearing 2 times mod 3)
- * 2. For each number, update twos with bits that were in ones and are appearing again
- * 3. Update ones by XORing with the current number
- * 4. Clear bits that appear 3 times from both ones and twos
- * 5. Return ones (the single number)
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - ones tracks bits that appear 1 time (mod 3)
- * - twos tracks bits that appear 2 times (mod 3)
- * - When a bit appears 3 times, we clear it from both
- * - After processing all numbers, ones contains the single number
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n) - single pass through array
- * SPACE COMPLEXITY: O(1) - only two variables
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
-Input: [2,2,3,2]
-Step 1: Process 2: ones=2, twos=0
-Step 2: Process 2: ones=0, twos=2
-Step 3: Process 3: ones=3, twos=2
-Step 4: Process 2: ones=3, twos=0 (2 appeared 3 times, cleared)
-Output: 3
-```
+ * [example input]
+ * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * EDGE CASES:
- * - Single element array: returns that element
- * - All elements appear exactly 3 times except one
- * - Negative numbers are handled correctly
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

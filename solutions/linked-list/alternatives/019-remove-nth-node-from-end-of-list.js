@@ -1,47 +1,50 @@
 /**
- * 019. Remove Nth Node From End Of List
- * Medium
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Linked List.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Use two pointers separated by n nodes. When the fast pointer reaches the end,
- * the slow pointer will be at the node to remove. Use a dummy head to handle
- * edge cases like removing the first node.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. Create dummy head pointing to the original head
- * 2. Set fast pointer n+1 steps ahead of slow pointer
- * 3. Move both pointers until fast reaches end
- * 4. Skip the target node by updating slow.next
- * 5. Return dummy.next
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Two-pointer technique maintains n-node gap
- * - Dummy head simplifies edge case handling
- * - Single pass solution with O(1) extra space
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n)
- * SPACE COMPLEXITY: O(1)
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
-Input: head = [1,2,3,4,5], n = 2
-Step 1: Create dummy(0) -> 1 -> 2 -> 3 -> 4 -> 5
-Step 2: fast = dummy, slow = dummy, move fast n+1=3 steps
-Step 3: fast at node 3, slow at dummy
-Step 4: Move both until fast reaches end
-Step 5: slow at node 3, remove node 4 by slow.next = slow.next.next
-Output: [1,2,3,5]
-```
+ * [example input]
+ * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * EDGE CASES:
- * - Remove first node (n equals list length)
- * - Single node list (remove the only node)
- * - Remove last node (n = 1)
- * - List with two nodes
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

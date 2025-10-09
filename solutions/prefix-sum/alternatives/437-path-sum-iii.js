@@ -1,45 +1,50 @@
 /**
- * 437. Path Sum III
- * Medium
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Prefix Sum.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Find the number of paths in a binary tree that sum to a target value.
- * Paths don't need to start at root or end at leaf, but must go downward.
- * Use prefix sum with hash map to track cumulative sums from root to current node.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. Use DFS to traverse the tree
- * 2. Maintain a running prefix sum from root to current node
- * 3. Use hash map to store frequency of each prefix sum
- * 4. For each node, check if (currentSum - targetSum) exists in map
- * 5. This indicates a valid path exists
- * 6. Add current prefix sum to map, recurse children, then remove (backtrack)
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * If prefix[node_j] - prefix[node_i] = targetSum, then the path from
- * node_i's child to node_j has sum equal to targetSum.
- * By storing all prefix sums in hash map, we can find all valid paths efficiently.
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n) - visit each node once
- * SPACE COMPLEXITY: O(h) - recursion depth and map size, where h is tree height
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
- * Input: root = [10,5,-3,3,2,null,11,3,-2,null,1], targetSum = 8
- * Using prefix sum map, we track cumulative sums and find:
- * - Path [5,3] = 8
- * - Path [5,2,1] = 8
- * - Path [-3,11] = 8
- * Output: 3
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
  *
- * EDGE CASES:
- * - Empty tree: return 0
- * - Single node: check if value equals target
- * - Negative values in tree
- * - Path can be a single node
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * [example input]
+ * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

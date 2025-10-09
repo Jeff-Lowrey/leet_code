@@ -1,51 +1,50 @@
 /**
- * 209. Minimum Size Subarray Sum
- * Medium
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Sliding Window.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Find the smallest contiguous subarray with sum >= target.
- * Use a variable-size sliding window that expands and contracts.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. **Analyze the problem**: Find minimum length subarray with sum >= target
- * 2. **Choose the right technique**: Variable-size sliding window with sum tracking
- * 3. **Implement efficiently**: Expand window to include elements, contract when sum is valid
- * 4. **Handle edge cases**: No valid subarray, entire array needed, single element sufficient
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Expand window by adding elements until sum >= target
- * - Once valid, try to shrink from left to find minimum length
- * - Keep track of smallest valid window found
- * - All elements are positive, so removing elements always decreases sum
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n) - each element visited at most twice (once by right, once by left)
- * SPACE COMPLEXITY: O(1) - only using a few variables
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: target = 7, nums = [2,3,1,2,4,3]
- * Step 1: right=0, sum=2, window=[2]
- * Step 2: right=1, sum=5, window=[2,3]
- * Step 3: right=2, sum=6, window=[2,3,1]
- * Step 4: right=3, sum=8, window=[2,3,1,2], valid! minLen=4
- * Step 5: left=1, sum=6, window=[3,1,2], invalid
- * Step 6: right=4, sum=10, window=[3,1,2,4], valid! continue...
- * Step 7: left=2, sum=7, window=[1,2,4], valid! minLen=3
- * Step 8: left=3, sum=6, window=[2,4], invalid
- * Step 9: right=5, sum=9, window=[2,4,3], valid! continue...
- * Step 10: left=4, sum=7, window=[4,3], valid! minLen=2
- * Output: 2
+ * [example input]
  * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * EDGE CASES:
- * - No valid subarray: return 0
- * - Single element >= target: return 1
- * - Entire array needed: return array length
- * - Empty array: return 0
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

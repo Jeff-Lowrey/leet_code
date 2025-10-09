@@ -182,6 +182,10 @@ def extract_problem_description(code: str) -> str | None:
             if "<details>" in docstring:
                 docstring = docstring.split("<details>")[0].strip()
 
+            # Remove "# Difficulty:" line from problem description
+            # This metadata is shown as a badge, not in the problem text
+            docstring = re.sub(r"^#\s*Difficulty:\s*\w+\s*\n?", "", docstring, flags=re.MULTILINE)
+
             # Convert to HTML
             return markdown.markdown(docstring, extensions=["fenced_code", "tables"])
 
@@ -441,19 +445,25 @@ def parse_jsdoc_explanation(code: str) -> tuple[str, dict[str, str] | None]:
 
         jsdoc_content = match.group(1)
 
-        # Clean up JSDoc formatting (remove * at beginning of lines)
-        jsdoc_content = re.sub(r"^\s*\*\s?", "", jsdoc_content, flags=re.MULTILINE)
+        # Clean up JSDoc formatting - preserve blank lines for markdown paragraph breaks
+        lines = []
+        for line in jsdoc_content.split("\n"):
+            # Remove leading whitespace and asterisk
+            cleaned = re.sub(r"^\s*\*\s?", "", line)
+            lines.append(cleaned)
+        jsdoc_content = "\n".join(lines)
 
-        # Extract explanation content (everything from <details> onward)
-        details_match = re.search(r"<details>", jsdoc_content, re.IGNORECASE)
-        explanation_content = jsdoc_content[details_match.start() :].strip() if details_match else ""
+        # Extract explanation content (content between <details> tags, like Python does)
+        details_pattern = r"<details>\s*<summary><b>🔍 SOLUTION EXPLANATION</b></summary>(.*?)</details>"
+        details_match = re.search(details_pattern, jsdoc_content, re.DOTALL | re.IGNORECASE)
+        explanation_content = details_match.group(1).strip() if details_match else ""
 
         # Remove the JSDoc comment from code
         clean_code = re.sub(jsdoc_pattern, "", code, flags=re.DOTALL).strip()
 
         # Parse explanation sections if present
         explanation_sections = None
-        if explanation_content and "<details>" in explanation_content:
+        if explanation_content:
             explanation_sections = parse_explanation_into_sections(explanation_content)
 
         return clean_code, explanation_sections
@@ -473,8 +483,13 @@ def extract_js_problem_description(code: str) -> str | None:
         if match:
             jsdoc_content = match.group(1)
 
-            # Clean up JSDoc formatting
-            jsdoc_content = re.sub(r"^\s*\*\s?", "", jsdoc_content, flags=re.MULTILINE)
+            # Clean up JSDoc formatting - preserve blank lines for markdown paragraph breaks
+            lines = []
+            for line in jsdoc_content.split("\n"):
+                # Remove leading whitespace and asterisk
+                cleaned = re.sub(r"^\s*\*\s?", "", line)
+                lines.append(cleaned)
+            jsdoc_content = "\n".join(lines)
 
             # Extract everything before <details> or the whole thing if no details
             details_match = re.search(r"<details>", jsdoc_content, re.IGNORECASE)
@@ -483,8 +498,12 @@ def extract_js_problem_description(code: str) -> str | None:
             else:
                 problem_description = jsdoc_content.strip()
 
+            # Remove "Difficulty:" line from problem description
+            # This metadata is shown as a badge, not in the problem text
+            problem_description = re.sub(r"^Difficulty:\s*\w+\s*\n?", "", problem_description, flags=re.MULTILINE)
+
             # Convert to HTML
-            problem_html = markdown.markdown(problem_description)
+            problem_html = markdown.markdown(problem_description, extensions=["fenced_code", "tables"])
             return problem_html
 
     except Exception:  # nosec B110 - Intentional: return None on parsing failure
@@ -852,6 +871,70 @@ def category_view(category: str) -> str:
     )
 
 
+@app.route("/difficulty/<difficulty>")
+def difficulty_view(difficulty: str) -> str:
+    """View all solutions of a specific difficulty level."""
+    # Get all categories and filter solutions by difficulty
+    all_categories = category_manager.get_categories()
+    filtered_solutions = []
+
+    for category in all_categories:
+        for solution in category.solutions:
+            if solution.difficulty.lower() == difficulty.lower():
+                # Add category info to solution for navigation
+                filtered_solutions.append(
+                    {
+                        "solution": solution,
+                        "category": category.slug,
+                        "category_name": category.name,
+                    }
+                )
+
+    if not filtered_solutions:
+        abort(404)
+
+    return render_template(
+        "difficulty.html",
+        difficulty=difficulty.capitalize(),
+        solutions=filtered_solutions,
+        total_count=len(filtered_solutions),
+    )
+
+
+@app.route("/complexity/<time_complexity>/<space_complexity>")
+def complexity_view(time_complexity: str, space_complexity: str) -> str:
+    """View all solutions with specific time/space complexity."""
+    # Get all categories and filter solutions by complexity
+    all_categories = category_manager.get_categories()
+    filtered_solutions = []
+
+    for category in all_categories:
+        for solution in category.solutions:
+            time_match = time_complexity == "any" or solution.time_complexity == time_complexity
+            space_match = space_complexity == "any" or solution.space_complexity == space_complexity
+
+            if time_match and space_match:
+                # Add category info to solution for navigation
+                filtered_solutions.append(
+                    {
+                        "solution": solution,
+                        "category": category.slug,
+                        "category_name": category.name,
+                    }
+                )
+
+    if not filtered_solutions:
+        abort(404)
+
+    return render_template(
+        "complexity.html",
+        time_complexity=time_complexity,
+        space_complexity=space_complexity,
+        solutions=filtered_solutions,
+        total_count=len(filtered_solutions),
+    )
+
+
 @app.route("/solution/<category>/<filename>")
 def solution_view(category: str, filename: str) -> str:
     """View a specific solution."""
@@ -905,6 +988,9 @@ def solution_view(category: str, filename: str) -> str:
         style=formatter.get_style_defs(".highlight"),  # type: ignore[no-untyped-call]
         is_leetcode_format=False,
         available_languages=available_languages,
+        difficulty=solution.difficulty,
+        time_complexity=solution.time_complexity,
+        space_complexity=solution.space_complexity,
     )
 
 
@@ -1355,7 +1441,7 @@ def view_alternative_solution(category: str, filename: str, language: str) -> st
         category_name=cat_data.name if cat_data else category.replace("-", " ").title(),
         filename=display_filename,
         problem_number=solution.number,
-        problem_name=f"{solution.name} ({language})",
+        problem_name=solution.name,
         problem_description=problem_description,
         skeleton_code=highlighted_skeleton,
         code=highlighted_code,
@@ -1364,6 +1450,9 @@ def view_alternative_solution(category: str, filename: str, language: str) -> st
         is_leetcode_format=False,
         current_language=language,
         available_languages=available_languages,
+        difficulty=solution.difficulty,
+        time_complexity=solution.time_complexity,
+        space_complexity=solution.space_complexity,
     )
 
 

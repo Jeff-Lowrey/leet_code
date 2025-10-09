@@ -1,51 +1,50 @@
 /**
- * 20. Valid Parentheses
- * Easy
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Stack.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Given a string s containing just the characters '(', ')', '{', '}', '[' and ']',
- * determine if the input string is valid. This is a classic stack problem where we
- * track opening brackets and match them with their corresponding closing brackets.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. **Use a stack** to track opening brackets
- * 2. **Push opening brackets** onto the stack
- * 3. **Pop and check** when encountering closing brackets
- * 4. **Validate matching** bracket types
- * 5. **Check empty stack** at the end
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Stack follows LIFO (Last In, First Out) principle
- * - This naturally handles the "most recent unmatched opening bracket" requirement
- * - Each closing bracket must match the most recent opening bracket
- * - Empty stack at the end means all brackets were properly matched
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n) - single pass through the string
- * SPACE COMPLEXITY: O(n) - stack can contain up to n/2 opening brackets in worst case
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: s = "([{}])"
- *
- * Step 1: '(' → push to stack: ['(']
- * Step 2: '[' → push to stack: ['(', '[']
- * Step 3: '{' → push to stack: ['(', '[', '{']
- * Step 4: '}' → pop '{', matches ✓, stack: ['(', '[']
- * Step 5: ']' → pop '[', matches ✓, stack: ['(']
- * Step 6: ')' → pop '(', matches ✓, stack: []
- * Result: Empty stack → true
+ * [example input]
  * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * EDGE CASES:
- * - Empty string: Valid (return true)
- * - Single opening bracket: Invalid
- * - Single closing bracket: Invalid
- * - Odd length string: Invalid (can't have balanced brackets)
- * - Wrong order: "([)]" → Invalid
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

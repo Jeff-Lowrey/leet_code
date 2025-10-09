@@ -1,41 +1,50 @@
 /**
- * 493. Reverse Pairs
- * Hard
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Segment Tree.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * A reverse pair (i,j) satisfies i < j and nums[i] > 2 * nums[j]. This is similar to
- * counting inversions but with a modified condition. Merge sort can efficiently count
- * these pairs during the merge phase by comparing elements from left half with 2x elements
- * from right half.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * Use modified merge sort:
- * 1. Recursively count reverse pairs in left and right halves
- * 2. Count cross-boundary pairs: for each left element, count right elements where
- *    left > 2 * right using two pointers
- * 3. Merge the two halves normally for next iteration
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * Merge sort processes elements in order. During merge, both halves are sorted,
- * so we can use two pointers to count valid pairs in O(n) time per level.
- * This gives O(n log n) overall complexity.
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n log n)
- * SPACE COMPLEXITY: O(n)
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
- * Input: [1, 3, 2, 3, 1]
- * Pairs: (3, 1) at indices (1, 4) and (3, 1) at indices (3, 4)
- * Output: 2
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
  *
- * EDGE CASES:
- * - Empty or single element: return 0
- * - All elements same: return 0
- * - Large numbers: ensure 2 * nums[j] doesn't overflow
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * [example input]
+ * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

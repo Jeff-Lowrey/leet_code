@@ -1,47 +1,50 @@
 /**
- * 069. Sqrt(x)
- * Easy
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Math.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Compute the integer square root of x (floor(sqrt(x))) without using built-in
- * sqrt functions. Binary search is perfect: if mid*mid <= x, answer is at least mid;
- * otherwise, it's less than mid.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. **Binary search range**: Search between 0 and x
- * 2. **Midpoint check**: For each mid, check if mid*mid <= x
- * 3. **Narrow search**: If mid*mid <= x, search right; else search left
- * 4. **Return result**: Last mid where mid*mid <= x
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Square root function is monotonically increasing
- * - Binary search efficiently finds the threshold point
- * - Avoids floating-point issues by working with integers
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(log x)
- * SPACE COMPLEXITY: O(1)
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
-Input: x = 8
-Step 1: left = 0, right = 8, mid = 4, 4*4 = 16 > 8, right = 3
-Step 2: left = 0, right = 3, mid = 1, 1*1 = 1 <= 8, left = 2, result = 1
-Step 3: left = 2, right = 3, mid = 2, 2*2 = 4 <= 8, left = 3, result = 2
-Step 4: left = 3, right = 3, mid = 3, 3*3 = 9 > 8, right = 2
-Step 5: left > right, return result = 2
-Output: 2
-```
+ * [example input]
+ * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * EDGE CASES:
- * - x = 0: Return 0
- * - x = 1: Return 1
- * - Perfect squares: e.g., 4 -> 2, 9 -> 3
- * - Non-perfect squares: e.g., 8 -> 2
- * - Large numbers: Handle overflow in mid*mid calculation
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

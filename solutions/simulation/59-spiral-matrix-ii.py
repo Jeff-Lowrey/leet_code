@@ -1,6 +1,7 @@
 """
+# Difficulty: Medium
+
 # 59. Spiral Matrix II
-**Medium**
 
 Given a positive integer n, generate an n x n matrix filled with elements from 1 to n²
 in spiral order.
@@ -12,6 +13,17 @@ Output: [[1,2,3],[8,9,4],[7,6,5]]
 Example 2:
 Input: n = 1
 Output: [[1]]
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -39,12 +51,6 @@ Use the same boundary-tracking technique, filling the matrix layer by layer from
 - Sequential counter ensures values go from 1 to n²
 - Shrinking boundaries naturally moves us inward
 
-### TIME COMPLEXITY: O(n²)
-- Fill each of n² cells once
-
-### SPACE COMPLEXITY: O(1)
-- Only use constant extra space (not counting output matrix)
-
 ### EXAMPLE WALKTHROUGH:
 ```
 n = 3, total = 9
@@ -70,20 +76,21 @@ Step 5 - Right (center): Fill [1,1]
 Result: [[1,2,3],[8,9,4],[7,6,5]]
 ```
 
+### TIME COMPLEXITY:
+O(n²)
+- Fill each of n² cells once
+
+### SPACE COMPLEXITY:
+O(1)
+- Only use constant extra space (not counting output matrix)
+
 ### EDGE CASES:
 - n = 1: Single element [[1]]
 - n = 2: [[1,2],[4,3]]
 - Even vs odd n: Different center handling
 
-### ALTERNATIVE APPROACHES:
-1. **Direction Vector**: Use direction array, change when hitting boundary
-2. **Recursive**: Fill outer layer, recurse on inner matrix
-3. **Mathematical**: Calculate position for each number directly
-
 </details>
 """
-
-
 
 class Solution:
     def generateMatrix(self, n: int) -> list[list[int]]:
@@ -212,13 +219,11 @@ class Solution:
         fill_layer(0, n - 1, 0, n - 1, 1)
         return matrix
 
-
 def print_matrix(matrix):
     """Helper to print matrix nicely."""
     for row in matrix:
         print(" ".join(f"{num:3}" for num in row))
     print()
-
 
 def test_solution():
     """Test cases for Problem 59."""
@@ -263,7 +268,6 @@ def test_solution():
     assert solution.generateMatrixRecursive(n7) == expected7, "Recursive method failed"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

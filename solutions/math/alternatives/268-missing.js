@@ -1,52 +1,50 @@
 /**
- * 268. Missing Number
- * Easy
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Math.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Given an array of n distinct numbers from [0, n], find the missing one.
- * Three elegant approaches: XOR (bit manipulation), Sum (mathematical), or Sorting.
- * XOR is optimal: a ^ a = 0, and 0 ^ a = a, so XORing all numbers cancels out pairs.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. **XOR all indices**: XOR 0, 1, 2, ..., n
- * 2. **XOR all values**: XOR all array values
- * 3. **Combine results**: Missing number is the XOR of these two results
- * 4. **Alternative (Sum)**: expected_sum - actual_sum = missing number
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - XOR is commutative and associative: order doesn't matter
- * - XORing a number with itself gives 0: a ^ a = 0
- * - XORing with 0 gives the number: 0 ^ a = a
- * - All numbers appear twice except the missing one (once in indices, once in values)
- * - The missing index has no corresponding value to cancel it out
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n)
- * SPACE COMPLEXITY: O(1)
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
-Input: [3, 0, 1]
-XOR approach:
-Step 1: XOR indices: 0 ^ 1 ^ 2 ^ 3 = 0
-Step 2: XOR values: 3 ^ 0 ^ 1 = 2
-Step 3: Combine: 0 ^ 2 = 2
-Output: 2
-
-Sum approach:
-Expected sum: 0+1+2+3 = 6
-Actual sum: 3+0+1 = 4
-Missing: 6-4 = 2
-```
+ * [example input]
+ * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * EDGE CASES:
- * - Missing 0: Array is [1, 2, ..., n]
- * - Missing n: Array is [0, 1, ..., n-1]
- * - Single element [0]: Missing 1
- * - Single element [1]: Missing 0
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

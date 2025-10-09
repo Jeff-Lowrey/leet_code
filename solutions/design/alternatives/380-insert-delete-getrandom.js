@@ -1,46 +1,50 @@
 /**
- * 380. Insert Delete GetRandom O(1)
- * Medium
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Design.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Design a data structure that supports insert, delete, and getRandom in O(1) average time.
- * The challenge is combining fast lookup (hash map) with fast random access (array).
- * We need both O(1) random access and O(1) deletion, which requires a clever approach.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. **Array + HashMap Combination**: Use array for O(1) random access, map for O(1) lookup
- * 2. **Index Mapping**: Map stores value -> index in array for fast lookup
- * 3. **Swap-and-Pop Delete**: When deleting, swap with last element, then pop
- * 4. **Random Access**: Generate random index within array bounds
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Array provides O(1) random access via indexing
- * - HashMap provides O(1) lookup to check existence and get index
- * - Swap-and-pop deletion avoids O(n) array shifting
- * - All operations maintain the invariant: map[value] = index in array
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(1) average for all operations
- * SPACE COMPLEXITY: O(n) for storing n elements
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * RandomizedSet rs = new RandomizedSet()
- * insert(1) -> nums: [1], map: {1: 0}, return true
- * insert(2) -> nums: [1,2], map: {1: 0, 2: 1}, return true
- * remove(1) -> swap with last: nums: [2], map: {2: 0}, return true
- * insert(3) -> nums: [2,3], map: {2: 0, 3: 1}, return true
- * getRandom() -> random index 0 or 1, return nums[randomIndex]
+ * [example input]
  * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * EDGE CASES:
- * - Insert duplicate value (return false)
- * - Remove non-existent value (return false)
- * - getRandom on single element set
- * - Operations on empty set (only getRandom should not be called)
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

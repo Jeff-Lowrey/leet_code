@@ -1,10 +1,22 @@
 """
+# Difficulty: Easy
+
 # 136. Single Number
-**Easy**
 
 Given a non-empty array of integers nums, every element appears twice except for one. Find that single one.
 
 You must implement a solution with a linear runtime complexity and use only constant extra space.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -28,12 +40,6 @@ So if we XOR all numbers together, the duplicates cancel out, leaving only the s
 - Order doesn't matter due to commutativity
 - All duplicates disappear, leaving only the single number
 
-### TIME COMPLEXITY: O(n)
-Single pass through the array
-
-### SPACE COMPLEXITY: O(1)
-Only using constant extra space
-
 ### EXAMPLE WALKTHROUGH:
 ```
 Input: [2,2,1]
@@ -44,12 +50,13 @@ Step 4: result = 0 ^ 1 = 1
 Output: 1 (the single number)
 ```
 
-### MATHEMATICAL PROOF:
-For array [a,a,b,b,c]:
-result = a ^ a ^ b ^ b ^ c
-       = (a ^ a) ^ (b ^ b) ^ c
-       = 0 ^ 0 ^ c
-       = c
+### TIME COMPLEXITY:
+O(n)
+Single pass through the array
+
+### SPACE COMPLEXITY:
+O(1)
+Only using constant extra space
 
 ### EDGE CASES:
 - Single element array
@@ -134,7 +141,6 @@ class Solution:
                 return nums[i]
         return nums[-1]  # Last element is the single one
 
-
 def test_solution():
     """Test cases for Problem 136."""
     solution = Solution()
@@ -181,7 +187,6 @@ def test_solution():
     assert result8 == expected8, f"Expected {expected8}, got {result8}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

@@ -1,8 +1,20 @@
 """
+# Difficulty: Medium
+
 # 47. Permutations II
-**Medium**
 
 This problem demonstrates key concepts in Recursion.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -29,9 +41,6 @@ We need to track which numbers we've used AND skip duplicates at the same recurs
 - This prevents generating the same permutation multiple times
 - Each duplicate is only considered if all previous duplicates were used
 
-### TIME COMPLEXITY: O(n! * n) - n! permutations, O(n) to build each
-### SPACE COMPLEXITY: O(n) - recursion depth and tracking array
-
 ### EXAMPLE WALKTHROUGH:
 ```
 Input: [1,1,2]
@@ -46,32 +55,19 @@ Use 2: [2] -> Use first 1: [2,1] -> Use second 1: [2,1,1] ✓
 Output: [[1,1,2],[1,2,1],[2,1,1]]
 ```
 
+### TIME COMPLEXITY:
+O(n! * n) - n! permutations, O(n) to build each
+
+### SPACE COMPLEXITY:
+O(n) - recursion depth and tracking array
+
 ### EDGE CASES:
 - All elements are the same (return single permutation)
 - No duplicates (behaves like Permutations I)
 - Empty array (return [[]])
 
 </details>
-
-<details>
-<summary><b>💡 APPROACH</b></summary>
-
-The approach uses backtracking with duplicate handling. The key difference from
-Permutations I is handling duplicate values in the input to avoid generating
-duplicate permutations.
-
-### Algorithm Steps:
-1. Sort array to group duplicates
-2. Track which indices have been used
-3. Skip duplicates at same recursion level
-4. Build permutations one element at a time
-5. When complete, add to results
-
-</details>
 """
-
-from typing import List
-
 
 class Solution:
     def permuteUnique(self, nums: List[int]) -> List[List[int]]:
@@ -150,7 +146,6 @@ class Solution:
         """
         return self.permuteUnique(nums)
 
-
 def test_solution():
     """Test cases for Problem 47."""
     solution = Solution()
@@ -198,7 +193,6 @@ def test_solution():
     print("Test 6 passed: All permutations unique")
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

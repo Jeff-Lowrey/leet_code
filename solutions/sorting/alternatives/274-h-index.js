@@ -1,44 +1,50 @@
 /**
- * 274. H Index
- * Medium
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Sorting.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * The h-index is defined as the maximum value of h such that the researcher has
- * published at least h papers with at least h citations each. By sorting the
- * citations in descending order, we can easily find this value.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. Sort the citations array in descending order
- * 2. Iterate through the sorted array
- * 3. For each position i (0-indexed), check if citations[i] >= i + 1
- * 4. The h-index is the largest i + 1 where this condition holds
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * After sorting in descending order, at position i, we know we have (i + 1) papers
- * with at least citations[i] citations. When citations[i] >= i + 1, it means we
- * have at least (i + 1) papers with at least (i + 1) citations.
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n log n) for sorting
- * SPACE COMPLEXITY: O(1) if we don't count the sorting space
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
- * Input: citations = [3,0,6,1,5]
- * Step 1: Sort descending: [6,5,3,1,0]
- * Step 2: Check each position:
- *   i=0: citations[0]=6 >= 1 ✓ (h-index could be 1)
- *   i=1: citations[1]=5 >= 2 ✓ (h-index could be 2)
- *   i=2: citations[2]=3 >= 3 ✓ (h-index could be 3)
- *   i=3: citations[3]=1 >= 4 ✗ (h-index cannot be 4)
- * Output: 3 (we have 3 papers with at least 3 citations)
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
  *
- * EDGE CASES:
- * - No papers: returns 0
- * - All citations are 0: returns 0
- * - Very high citations: h-index is limited by the number of papers
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * [example input]
+ * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

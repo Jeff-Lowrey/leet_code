@@ -1,51 +1,50 @@
 /**
- * 685. Redundant Connection II
- * Hard
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Union Find.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * In a directed tree, there are two possible scenarios for a redundant edge:
- * 1. A node has two parents (violates tree property)
- * 2. A cycle exists (violates tree property)
- * We need to find which edge to remove to restore the tree structure.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. Check if any node has two parents (in-degree = 2)
- * 2. If yes, identify the two candidate edges that point to this node
- * 3. Try removing the second candidate first, check if remaining edges form valid tree
- * 4. If not, remove the first candidate instead
- * 5. If no node has two parents, find the edge that creates a cycle (like problem 684)
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * There are exactly three cases:
- * - Case 1: Two parents, no cycle -> remove second edge creating two parents
- * - Case 2: Two parents with cycle -> remove the edge in cycle that creates two parents
- * - Case 3: One parent for all, but cycle exists -> remove last edge that creates cycle
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n * α(n)) where α is inverse Ackermann function
- * SPACE COMPLEXITY: O(n) for Union-Find structure and parent tracking
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
- * Input: [[1,2],[1,3],[2,3]]
- * Step 1: Node 3 has two parents: 1 and 2
- * Step 2: Candidates are [1,3] and [2,3]
- * Step 3: Try removing [2,3], check if [1,2],[1,3] forms valid tree -> Yes!
- * Output: [2,3]
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
  *
- * Input: [[1,2],[2,3],[3,4],[4,1],[1,5]]
- * Step 1: No node has two parents
- * Step 2: Find cycle: edges [1,2],[2,3],[3,4],[4,1] form cycle
- * Step 3: Return last edge that creates cycle: [4,1]
- * Output: [4,1]
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * [example input]
+ * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * EDGE CASES:
- * - Node with two parents and no cycle
- * - Node with two parents and cycle
- * - No node with two parents but cycle exists
- * - Minimum input (3 edges forming tree + 1 redundant)
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 class UnionFind {

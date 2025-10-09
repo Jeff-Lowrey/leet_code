@@ -1,53 +1,50 @@
 /**
- * 904. Fruit Into Baskets
- * Medium
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Sliding Window.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Find the longest contiguous subarray with at most 2 distinct types.
- * This is a classic variable-size sliding window problem with constraint on unique elements.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. **Analyze the problem**: Find max length subarray with at most 2 distinct fruit types
- * 2. **Choose the right technique**: Variable-size sliding window with frequency map
- * 3. **Implement efficiently**: Track fruit types and counts, expand/contract window
- * 4. **Handle edge cases**: Empty array, single type, two types, more than two types
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Use a map to track count of each fruit type in current window
- * - Expand window by adding fruits from right
- * - When we have more than 2 types, contract from left
- * - Track maximum window size seen
- * - This ensures we always maintain at most 2 types
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n) - each element visited at most twice
- * SPACE COMPLEXITY: O(1) - map stores at most 3 fruit types
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: fruits = [1,2,1,2,3,3,1,1]
- * Step 1: window=[1], types={1:1}, length=1
- * Step 2: window=[1,2], types={1:1,2:1}, length=2
- * Step 3: window=[1,2,1], types={1:2,2:1}, length=3
- * Step 4: window=[1,2,1,2], types={1:2,2:2}, length=4
- * Step 5: window=[1,2,1,2,3], types={1:2,2:2,3:1}, too many! shrink
- * Step 6: window=[2,1,2,3], types={1:1,2:2,3:1}, still too many! shrink
- * Step 7: window=[1,2,3], types={1:1,2:1,3:1}, still too many! shrink
- * Step 8: window=[2,3], types={2:1,3:1}, valid, continue
- * Step 9: window=[2,3,3], types={2:1,3:2}, length=3
- * Step 10: window=[2,3,3,1], types={2:1,3:2,1:1}, too many! shrink
- * Step 11: Continue until end, maxLength=4
- * Output: 4
+ * [example input]
  * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * EDGE CASES:
- * - Empty array: return 0
- * - Single fruit type: return array length
- * - Two fruit types: return array length
- * - All different types: return 2
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

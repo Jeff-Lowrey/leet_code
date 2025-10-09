@@ -1,12 +1,24 @@
 """
+# Difficulty: Medium
+
 # 017. Letter Combinations Of A Phone Number
-**Medium**
 
 Given a string containing digits from 2-9 inclusive, return all possible letter
 combinations that the number could represent. Return the answer in any order.
 
 A mapping of digit to letters (just like on the telephone buttons) is given below:
 2: ABC, 3: DEF, 4: GHI, 5: JKL, 6: MNO, 7: PQRS, 8: TUV, 9: WXYZ
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -27,12 +39,6 @@ where we explore all paths.
 - We build combinations incrementally and backtrack when needed
 - Each recursive call handles one digit at a time
 
-### TIME COMPLEXITY: O(3^N × 4^M)
-Where N is number of digits mapping to 3 letters, M is digits mapping to 4 letters
-
-### SPACE COMPLEXITY: O(3^N × 4^M)
-For storing all possible combinations
-
 ### EXAMPLE WALKTHROUGH:
 ```
 Input: "23"
@@ -41,28 +47,18 @@ Step 2: For each letter from '2', try letters from '3' -> 'd', 'e', 'f'
 Result: ["ad","ae","af","bd","be","bf","cd","ce","cf"]
 ```
 
+### TIME COMPLEXITY:
+O(3^N × 4^M)
+Where N is number of digits mapping to 3 letters, M is digits mapping to 4 letters
+
+### SPACE COMPLEXITY:
+O(3^N × 4^M)
+For storing all possible combinations
+
 ### EDGE CASES:
 - Empty string returns empty list
 - Single digit returns all its mapped letters
 - Invalid digits (0, 1) are ignored
-
-</details>
-
-<details>
-<summary><b>💡 APPROACH</b></summary>
-
-The approach uses backtracking to generate all combinations by:
-1. Creating a phone mapping dictionary
-2. Using recursive backtracking to build combinations
-3. Adding complete combinations to result list
-
-### Algorithm Steps:
-1. Handle edge case of empty input
-2. Create digit-to-letters mapping
-3. Use backtracking helper function
-4. For each digit, try all its letters
-5. Recursively process remaining digits
-6. Add complete combinations to result
 
 </details>
 """

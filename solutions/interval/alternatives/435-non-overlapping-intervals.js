@@ -1,49 +1,50 @@
 /**
- * 435. Non Overlapping Intervals
- * Medium
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Interval.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Find the minimum number of intervals to remove to make the rest non-overlapping.
- * This is equivalent to finding the maximum number of non-overlapping intervals (greedy).
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. **Sort by end time**: Greedy choice - always pick interval ending earliest
- * 2. **Track last end time**: Keep intervals that don't overlap with previous
- * 3. **Count non-overlapping**: Maximum intervals we can keep
- * 4. **Calculate removals**: Total intervals - kept intervals
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Greedy approach: always choose interval with earliest end time
- * - This leaves maximum room for future intervals
- * - Sorting by end time ensures we make optimal choices
- * - Similar to activity selection problem
- * - Time complexity: O(n log n) for sorting
- * - Space complexity: O(1) excluding sorting
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n log n) - dominated by sorting
- * SPACE COMPLEXITY: O(1)
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
-Input: [[1,2],[2,3],[3,4],[1,3]]
-Sort by end: [[1,2],[2,3],[1,3],[3,4]]
-Pick [1,2]: end=2, count=1
-Check [2,3]: 2>=2, pick it, end=3, count=2
-Check [1,3]: 1<3, skip (overlaps)
-Check [3,4]: 3>=3, pick it, end=4, count=3
-Kept: 3, Remove: 4-3=1
-Output: 1
-```
+ * [example input]
+ * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * EDGE CASES:
- * - Empty array: return 0
- * - Single interval: return 0
- * - All overlapping: return n-1
- * - No overlapping: return 0
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

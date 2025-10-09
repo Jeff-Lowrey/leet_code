@@ -1,8 +1,21 @@
 """
+# Difficulty: 
+
 # 303. Range Sum Query
 **Preprocessing**
 
 Given a problem that demonstrates key concepts in Prefix Sum.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -21,9 +34,6 @@ Given a problem that demonstrates key concepts in Prefix Sum.
 - Time complexity is optimized for the given constraints
 - Space complexity is minimized where possible
 
-### TIME COMPLEXITY: O(n)
-### SPACE COMPLEXITY: O(1)
-
 ### EXAMPLE WALKTHROUGH:
 ```
 Input: [example input]
@@ -32,64 +42,19 @@ Step 2: [explain second step]
 Output: [expected output]
 ```
 
+### TIME COMPLEXITY:
+O(n)
+
+### SPACE COMPLEXITY:
+O(1)
+
 ### EDGE CASES:
 - Empty input handling
 - Single element cases
 - Large input considerations
 
 </details>
-
-<details>
-<summary><b>💡 APPROACH</b></summary>
-
-The approach uses prefix sum techniques to solve this problem efficiently.
-
-### Algorithm Steps:
-1. Initialize necessary variables
-2. Process input using prefix sum method
-3. Return the computed result
-
-</details>
 """
-
-
-class NumArray:
-    """
-    Range Sum Query using prefix sum preprocessing.
-    """
-
-    def __init__(self, nums: list[int]):
-        """
-        Initialize with array and compute prefix sums.
-
-        Args:
-            nums: Input array of integers
-
-        Time Complexity: O(n) - compute prefix sum array
-        Space Complexity: O(n) - store prefix sum array
-        """
-        # Build prefix sum array
-        # prefix[i] = sum of nums[0:i]
-        self.prefix = [0]
-        for num in nums:
-            self.prefix.append(self.prefix[-1] + num)
-
-    def sumRange(self, left: int, right: int) -> int:
-        """
-        Calculate sum of elements from index left to right (inclusive).
-
-        Args:
-            left: Left boundary (inclusive)
-            right: Right boundary (inclusive)
-
-        Returns:
-            Sum of elements in range [left, right]
-
-        Time Complexity: O(1) - constant time lookup
-        Space Complexity: O(1) - no extra space
-        """
-        return self.prefix[right + 1] - self.prefix[left]
-
 
 class Solution:
     def solve(self, operations: list[str], values: list[list]) -> list:
@@ -114,7 +79,6 @@ class Solution:
                 result.append(num_array.sumRange(val[0], val[1]))
 
         return result
-
 
 def test_solution():
     """
@@ -158,7 +122,6 @@ def test_solution():
     assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

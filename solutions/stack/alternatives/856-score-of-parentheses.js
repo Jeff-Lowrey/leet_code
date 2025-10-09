@@ -1,53 +1,50 @@
 /**
- * 856. Score Of Parentheses
- * Medium
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Stack.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Calculate parentheses score where "()" = 1 and "(A)" = 2*score(A), and
- * adjacent groups AB = score(A) + score(B). Use a stack to track scores at
- * each nesting level.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. **Use stack**: Track cumulative scores at each depth level
- * 2. **Process characters**:
- *    - '(': Push 0 to start new nesting level
- *    - ')': Pop current level score:
- *      - If 0 (empty pair): score = 1
- *      - Otherwise: score = 2 * current
- *      - Add to new top of stack
- * 3. **Return result**: Final value on stack
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Stack tracks scores at different nesting depths
- * - Empty pair "()" creates score of 1
- * - Nested pair doubles the inner score
- * - Adjacent pairs add their scores (handled by accumulating on stack top)
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n) - single pass through string
- * SPACE COMPLEXITY: O(n) - stack depth equals max nesting
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: "(()(()))"
- * Step 1: '(' → stack: [0]
- * Step 2: '(' → stack: [0,0]
- * Step 3: ')' → pop 0 → score=1 → add to top → stack: [0,1]
- * Step 4: '(' → stack: [0,1,0]
- * Step 5: '(' → stack: [0,1,0,0]
- * Step 6: ')' → pop 0 → score=1 → add to top → stack: [0,1,0,1]
- * Step 7: ')' → pop 1 → score=2*1=2 → add to top → stack: [0,1,2]
- * Step 8: ')' → pop 3 → score=2*3=6 → add to top → stack: [0,6]
- * Output: 6
+ * [example input]
  * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * EDGE CASES:
- * - Single pair "()": returns 1
- * - Nested pairs: correctly doubles
- * - Adjacent pairs: correctly adds
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

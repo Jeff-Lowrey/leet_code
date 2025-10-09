@@ -73,7 +73,7 @@
                     categories.forEach(category => {
                         const isActive = currentPath.includes(category.slug);
                         html += `
-                            <li class="toc-item ${isActive ? 'active' : ''}">
+                            <li class="toc-item ${isActive ? 'active' : ''}" data-category="${category.slug}">
                                 <div class="toc-category" onclick="toggleCategory('${category.slug}')">
                                     <span class="toc-arrow">▶</span>
                                     <a href="/category/${category.slug}">${category.name}</a>

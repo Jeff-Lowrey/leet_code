@@ -1,11 +1,23 @@
 """
+# Difficulty: Medium
+
 # 240. Search a 2D Matrix II
-**Medium**
 
 Write an efficient algorithm that searches for a value target in an m x n integer matrix.
 This matrix has the following properties:
 - Integers in each row are sorted in ascending from left to right.
 - Integers in each column are sorted in ascending from top to bottom.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -26,12 +38,6 @@ Start from top-right (or bottom-left) corner. From top-right, we can eliminate e
 - Each comparison eliminates an entire row or column
 - Similar to searching in a BST where current node's left < node < right
 
-### TIME COMPLEXITY: O(m + n)
-At most m+n steps (eliminate one row or column per step)
-
-### SPACE COMPLEXITY: O(1)
-Only using constant extra space for pointers
-
 ### EXAMPLE WALKTHROUGH:
 ```
 Matrix:
@@ -49,10 +55,13 @@ At (0,1)=4: 5>4, go down
 At (1,1)=5: Found! Return True
 ```
 
-### KEY INSIGHTS:
-- Top-right and bottom-left are special positions with monotonic properties
-- Top-left and bottom-right don't work (no monotonic direction)
-- Alternative: binary search on each row (O(m log n))
+### TIME COMPLEXITY:
+O(m + n)
+At most m+n steps (eliminate one row or column per step)
+
+### SPACE COMPLEXITY:
+O(1)
+Only using constant extra space for pointers
 
 ### EDGE CASES:
 - Empty matrix
@@ -63,7 +72,6 @@ At (1,1)=5: Found! Return True
 
 </details>
 """
-
 
 class Solution:
     def searchMatrix(self, matrix: list[list[int]], target: int) -> bool:
@@ -173,7 +181,6 @@ class Solution:
 
         return False
 
-
 def test_solution() -> None:
     """Test cases for Problem 240."""
     solution = Solution()
@@ -223,7 +230,6 @@ def test_solution() -> None:
     print("Test case 8 passed: Binary search approach")
 
     print("\nAll test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

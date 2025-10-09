@@ -1,12 +1,24 @@
 """
+# Difficulty: Easy
+
 # 121. Best Time to Buy and Sell Stock
-**Easy**
 
 You are given an array prices where prices[i] is the price of a given stock on the ith day.
 
 You want to maximize your profit by choosing a single day to buy one stock and choosing a different day in the future to sell that stock.
 
 Return the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -26,12 +38,6 @@ To maximize profit, we need to buy at the lowest price and sell at the highest p
 - No need to track actual buy/sell days, just the maximum profit
 - Greedy approach: always buy at lowest available price
 
-### TIME COMPLEXITY: O(n)
-Single pass through the prices array
-
-### SPACE COMPLEXITY: O(1)
-Only using constant extra space
-
 ### EXAMPLE WALKTHROUGH:
 ```
 Input: prices = [7,1,5,3,6,4]
@@ -46,11 +52,13 @@ Day 5: price=4, min_price=1, profit=3, max_profit=5
 Result: 5 (buy at price 1, sell at price 6)
 ```
 
-### KEY INSIGHTS:
-- This is a variation of "maximum subarray" problem (Kadane's algorithm)
-- Can be viewed as finding maximum difference where j > i
-- Sliding window: maintain window of [min_price, current_price]
-- Dynamic programming: optimal substructure exists
+### TIME COMPLEXITY:
+O(n)
+Single pass through the prices array
+
+### SPACE COMPLEXITY:
+O(1)
+Only using constant extra space
 
 ### EDGE CASES:
 - Prices always decreasing: return 0 (no profit possible)
@@ -151,7 +159,6 @@ class Solution:
 
         return max_profit
 
-
 def test_solution():
     """
     Test cases for 121. Best Time to Buy and Sell Stock.
@@ -198,7 +205,6 @@ def test_solution():
 
     print("All test cases passed!")
 
-
 def analyze_stock_example(prices: list[int]):
     """Analyze a stock price example step by step."""
     print(f"\nAnalyzing prices: {prices}")
@@ -237,7 +243,6 @@ def analyze_stock_example(prices: list[int]):
         print(f"Maximum profit: ${max_profit}")
     else:
         print(f"No profitable transaction possible")
-
 
 if __name__ == "__main__":
     test_solution()

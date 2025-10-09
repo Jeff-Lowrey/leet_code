@@ -1,6 +1,7 @@
 """
+# Difficulty: Easy
+
 # 506. Relative Ranks
-**Easy**
 
 You are given an integer array score of size n, where score[i] is the score of the ith athlete
 in a competition. All the scores are guaranteed to be unique.
@@ -15,6 +16,17 @@ their rank:
 - For the 4th place to the nth place athlete, their rank is their placement number (i.e., the xth place athlete's rank is "x").
 
 Return an array answer of size n where answer[i] is the rank of the ith athlete.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -34,12 +46,6 @@ the original indices. Use sorting with indices or create a score-to-rank mapping
 - Tracking original indices lets us place ranks correctly
 - Dictionary mapping from score to rank is efficient
 - Special strings for top 3, numbers for rest
-
-### TIME COMPLEXITY: O(n log n)
-For sorting the scores
-
-### SPACE COMPLEXITY: O(n)
-For storing score-rank mappings and result
 
 ### EXAMPLE WALKTHROUGH:
 ```
@@ -68,21 +74,22 @@ answer[4] = "5"
 Output: ["Gold Medal","Silver Medal","Bronze Medal","4","5"]
 ```
 
+### TIME COMPLEXITY:
+O(n log n)
+For sorting the scores
+
+### SPACE COMPLEXITY:
+O(n)
+For storing score-rank mappings and result
+
 ### EDGE CASES:
 - Single athlete (gets Gold Medal)
 - Two athletes (Gold and Silver only)
 - Three athletes (Gold, Silver, Bronze)
 - Large number of athletes
 
-### OPTIMIZATIONS:
-- **Dictionary mapping**: O(n) lookup
-- **Enumerate**: Clean Pythonic approach
-- **Lambda sorting**: Concise key function
-
 </details>
 """
-
-
 
 class Solution:
     def findRelativeRanks(self, score: list[int]) -> list[str]:
@@ -155,7 +162,6 @@ class Solution:
         rank_map = {s: medals[i] if i < 3 else str(i + 1) for i, s in enumerate(sorted_scores)}
         return [rank_map[s] for s in score]
 
-
 def test_solution():
     """Test cases for Problem 506."""
     solution = Solution()
@@ -209,7 +215,6 @@ def test_solution():
     assert result9 == expected9, f"Expected {expected9}, got {result9}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

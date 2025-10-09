@@ -1,47 +1,50 @@
 /**
- * 637. Average Of Levels In Binary Tree
- * Easy
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Queue.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Use BFS level-order traversal to process nodes level by level.
- * Calculate the average of node values at each level.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. Use a queue for BFS traversal
- * 2. Process nodes level by level
- * 3. For each level, calculate the sum of all node values
- * 4. Divide the sum by the number of nodes to get the average
- * 5. Add the average to the result array
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * BFS naturally groups nodes by level. By calculating the sum and count
- * for each level, we can compute the average efficiently.
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n) - Visit each node once
- * SPACE COMPLEXITY: O(w) - Queue holds at most one level width
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
- * Input: root = [3,9,20,null,null,15,7]
- *        3
- *       / \
- *      9  20
- *        /  \
- *       15   7
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
  *
- * Level 0: sum = 3, count = 1, avg = 3.0
- * Level 1: sum = 29, count = 2, avg = 14.5
- * Level 2: sum = 22, count = 2, avg = 11.0
- * Output: [3.0, 14.5, 11.0]
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * [example input]
+ * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * EDGE CASES:
- * - Empty tree (null root)
- * - Single node tree
- * - Negative values
- * - Large values that may cause overflow
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 // Definition for a binary tree node

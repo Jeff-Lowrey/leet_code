@@ -1,50 +1,50 @@
 /**
- * 142. Linked List Cycle Ii
- * Medium
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Linked List.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Extend Floyd's cycle detection to find the cycle start node. After detecting
- * a cycle, use mathematical properties: when pointers meet, the distance from
- * head to cycle start equals distance from meeting point to cycle start.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. Phase 1: Use Floyd's algorithm to detect cycle (slow/fast pointers)
- * 2. Phase 2: If cycle exists, reset one pointer to head
- * 3. Move both pointers one step at a time until they meet
- * 4. Meeting point is the start of the cycle
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Mathematical proof: if cycle length is C and meeting happens at distance d
- * - Distance from head to cycle start = distance from meeting point to cycle start
- * - This property allows us to find the exact cycle start node
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n)
- * SPACE COMPLEXITY: O(1)
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
-Input: head = [3,2,0,-4], cycle starts at node with value 2
-Phase 1: Detect cycle using Floyd's algorithm
-  - slow and fast pointers meet inside the cycle
-Phase 2: Find cycle start
-  - Reset slow to head: slow=3, fast=meeting point
-  - Move both one step: slow=2, fast=2 (they meet!)
-  - Return node with value 2 (cycle start)
-
-Input: head = [1,2], no cycle
-Phase 1: fast reaches null before meeting slow
-Output: null (no cycle)
-```
+ * [example input]
+ * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * EDGE CASES:
- * - Empty list or no cycle (return null)
- * - Single node pointing to itself (return that node)
- * - Cycle starts at head (return head)
- * - Long list with small cycle at the end
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

@@ -1,43 +1,50 @@
 /**
- * 443. String Compression
- * Medium
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in String Manipulation.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Compress the array in-place by replacing consecutive identical characters with
- * the character followed by its count (if count > 1). Use two pointers: one to
- * read and one to write.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. Use a write pointer to track where to write compressed data
- * 2. Use a read pointer to count consecutive characters
- * 3. Write the character and its count (if > 1) to the array
- * 4. Return the length of the compressed array
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * By using two pointers, we can modify the array in-place without extra space.
- * The read pointer moves faster, counting consecutive characters, while the
- * write pointer only moves when we need to write compressed data.
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n)
- * - We traverse the array once
- * SPACE COMPLEXITY: O(1)
- * - Only using constant extra space for pointers and counters
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
- * Input: ["a","a","b","b","c","c","c"]
- * Step 1: Read 2 'a's, write 'a','2'
- * Step 2: Read 2 'b's, write 'b','2'
- * Step 3: Read 3 'c's, write 'c','3'
- * Output: Return 6 (array becomes ["a","2","b","2","c","3"])
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
  *
- * EDGE CASES:
- * - Single character: No compression needed
- * - All unique characters: No counts needed
- * - Count >= 10: Write each digit separately
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * [example input]
+ * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

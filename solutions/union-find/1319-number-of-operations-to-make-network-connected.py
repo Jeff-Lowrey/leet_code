@@ -1,6 +1,7 @@
 """
+# Difficulty: Medium
+
 # 1319. Number Of Operations To Make Network Connected
-**Medium**
 
 You are given n computers numbered from 0 to n - 1 connected by ethernet cables connections forming a network where connections[i] = [ai, bi] connects computers ai and bi.
 
@@ -9,6 +10,17 @@ Any computer can reach any other computer directly or indirectly through the net
 You are given an initial computer network connections. You can extract certain cables between two directly connected computers, and place them between any pair of disconnected computers to make them directly connected.
 
 Return the minimum number of times you need to do this to make all the computers connected. If it is not possible, return -1.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -31,12 +43,6 @@ This is a classic Union-Find problem about connecting components. Key insights:
 - Spare cables = total_cables - (n - components)
 - Need (components - 1) cables to connect all components
 
-### TIME COMPLEXITY: O(n × α(n))
-Where α is the inverse Ackermann function (nearly constant)
-
-### SPACE COMPLEXITY: O(n)
-For Union-Find parent and rank arrays
-
 ### EXAMPLE WALKTHROUGH:
 ```
 n = 4, connections = [[0,1],[0,2],[1,2],[1,3]]
@@ -51,6 +57,14 @@ Union-Find process:
 Components: 1, Operations needed: 0
 ```
 
+### TIME COMPLEXITY:
+O(n × α(n))
+Where α is the inverse Ackermann function (nearly constant)
+
+### SPACE COMPLEXITY:
+O(n)
+For Union-Find parent and rank arrays
+
 ### EDGE CASES:
 - Not enough cables: return -1
 - Already connected: return 0
@@ -58,41 +72,6 @@ Components: 1, Operations needed: 0
 
 </details>
 """
-
-
-class UnionFind:
-    """Union-Find data structure with path compression and union by rank."""
-
-    def __init__(self, n: int):
-        self.parent = list(range(n))
-        self.rank = [0] * n
-        self.components = n
-
-    def find(self, x: int) -> int:
-        """Find root with path compression."""
-        if self.parent[x] != x:
-            self.parent[x] = self.find(self.parent[x])
-        return self.parent[x]
-
-    def union(self, x: int, y: int) -> bool:
-        """Union by rank, returns True if components were merged."""
-        root_x, root_y = self.find(x), self.find(y)
-
-        if root_x == root_y:
-            return False  # Already connected
-
-        # Union by rank
-        if self.rank[root_x] < self.rank[root_y]:
-            self.parent[root_x] = root_y
-        elif self.rank[root_x] > self.rank[root_y]:
-            self.parent[root_y] = root_x
-        else:
-            self.parent[root_y] = root_x
-            self.rank[root_x] += 1
-
-        self.components -= 1
-        return True
-
 
 class Solution:
     def makeConnected(self, n: int, connections: list[list[int]]) -> int:
@@ -162,7 +141,6 @@ class Solution:
         # Need (components - 1) operations to connect all
         return components - 1
 
-
 def test_solution():
     """Test cases for Problem 1319."""
     solution = Solution()
@@ -200,7 +178,6 @@ def test_solution():
     assert result6 == expected6, f"Expected {expected6}, got {result6}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

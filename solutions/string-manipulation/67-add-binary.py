@@ -1,6 +1,5 @@
 """
-67. Add Binary
-Easy
+# Difficulty: Easy
 
 Given two binary strings a and b, return their sum as a binary string.
 
@@ -11,6 +10,17 @@ Output: "100"
 Example 2:
 Input: a = "1010", b = "1011"
 Output: "10101"
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -38,15 +48,6 @@ problem that mimics manual binary addition.
 - Using modulo and division correctly splits sum into bit and carry
 - Building result from right to left matches addition order
 
-### TIME COMPLEXITY: O(max(m, n))
-- m and n are lengths of input strings
-- Process each digit once
-- Building result string is O(max(m, n))
-
-### SPACE COMPLEXITY: O(max(m, n))
-- Result string length is at most max(m, n) + 1
-- Additional variables use O(1) space
-
 ### EXAMPLE WALKTHROUGH:
 ```
 Input: a = "1010", b = "1011"
@@ -71,11 +72,16 @@ Final carry: 1
   Result: "10101"
 ```
 
-### KEY INSIGHTS:
-- Use two pointers starting from the end
-- Carry can be at most 1 in binary addition
-- Sum of two bits plus carry: 0+0+0=0, 0+0+1=1, 0+1+0=1, 0+1+1=10, 1+1+0=10, 1+1+1=11
-- Build result using list for efficiency, then reverse and join
+### TIME COMPLEXITY:
+O(max(m, n))
+- m and n are lengths of input strings
+- Process each digit once
+- Building result string is O(max(m, n))
+
+### SPACE COMPLEXITY:
+O(max(m, n))
+- Result string length is at most max(m, n) + 1
+- Additional variables use O(1) space
 
 ### EDGE CASES:
 - Different length strings: Handle with pointer bounds checking
@@ -85,7 +91,6 @@ Final carry: 1
 
 </details>
 """
-
 
 class Solution:
     def addBinary(self, a: str, b: str) -> str:
@@ -216,7 +221,6 @@ class Solution:
         # Reverse to get correct order
         return "".join(reversed(result))
 
-
 def test_solution():
     """Test cases for Problem 67."""
     solution = Solution()
@@ -267,7 +271,6 @@ def test_solution():
     assert result9 == expected9, f"Expected {expected9}, got {result9}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

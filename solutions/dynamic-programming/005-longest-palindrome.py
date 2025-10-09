@@ -1,6 +1,5 @@
 """
-5. Longest Palindromic Substring
-Medium
+# Difficulty: Medium
 
 Given a string s, return the longest palindromic substring in s.
 
@@ -9,6 +8,17 @@ Input: s = "babad"
 Output: "bab"
 Explanation: "aba" is also a valid `answer`.
 
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
+
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
@@ -16,11 +26,8 @@ Explanation: "aba" is also a valid `answer`.
 A palindrome reads the same forwards and backwards. We can find palindromes
 by expanding around `centers - either` single characters or between characters.
 
-### APPROACH (Expand Around Center):
-1. For each possible center (`n` + `n-1` centers `total`)
-2. Expand outward while characters match
-3. Track the longest palindrome found
-4. Handle both `odd-length` (`center = char`) and `even-length` (`center = between` chars)
+### APPROACH:
+[Detailed explanation of the solution approach]
 
 ### WHY THIS WORKS:
 - Every palindrome has a center
@@ -37,12 +44,15 @@ Center at 'a' (index 3): expand to "aba"
 Both have length 3, return either
 ```
 
-### ALTERNATIVE APPROACHES:
-- **DP**: O(n²) time, O(n²) space - check all substrings
-- **Manacher's**: O(n) time, O(n) space - advanced linear algorithm
+### TIME COMPLEXITY:
+O(n²)
 
-### TIME COMPLEXITY: O(n²)
-### SPACE COMPLEXITY: O(1)
+### SPACE COMPLEXITY:
+O(1)
+
+### EDGE CASES:
+- **[Edge case 1]:** [how it's handled]
+- **[Edge case 2]:** [how it's handled]
 
 </details>
 """
@@ -158,11 +168,9 @@ class Solution:
         start = (center_index - max_len) // 2
         return s[start:start + max_len]
 
-
 """
 647. Palindromic Substrings
-Medium
-
+# Difficulty: Medium
 Given a string s, return the number of palindromic substrings in it.
 
 Example:
@@ -226,11 +234,9 @@ class SolutionCount:
 
         return count
 
-
 """
 409. Longest Palindrome
-Easy
-
+# Difficulty: Easy
 Given a string s which consists of lowercase or uppercase letters, return the
 length of the longest palindrome that can be built with those letters.
 
@@ -279,7 +285,6 @@ class SolutionBuild:
 
         # Length is total chars minus odd chars (except one can be in middle)
         return len(s) - len(odd_chars) + (1 if odd_chars else 0)
-
 
 # Test cases
 if __name__ == "__main__":

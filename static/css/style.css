@@ -6,38 +6,71 @@
 }
 
 :root {
-    --primary-color: #2563eb;
-    --secondary-color: #10b981;
+    --primary-color: #5b7bb5;
+    --secondary-color: #6b7280;
     --dark-bg: #111827;
-    --light-bg: #f9fafb;
-    --text-primary: #111827;
-    --text-secondary: #6b7280;
-    --border-color: #e5e7eb;
-    --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --light-bg: #f5f5f0;
+    --card-bg: #fdfdfc;
+    --text-primary: #1a1a1a;
+    --text-secondary: #4a4a4a;
+    --border-color: #e0e0dc;
+    --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+
+    /* Category colors - distinct accessible palette */
+    --cat-rust: #d47d5e;
+    --cat-steel-blue: #6890c9;
+    --cat-sage: #7fa87f;
+    --cat-amber: #d4a366;
+    --cat-plum: #ad85ad;
+    --cat-teal: #66a8a8;
+    --cat-burgundy: #c96680;
+    --cat-navy: #6882ad;
 }
 
 /* Dark mode variables */
 [data-theme="dark"] {
     --primary-color: #3b82f6;
     --secondary-color: #10b981;
-    --dark-bg: #111827;
-    --light-bg: #1f2937;
-    --text-primary: #f9fafb;
-    --text-secondary: #9ca3af;
-    --border-color: #374151;
-    --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    --dark-bg: #0f172a;
+    --light-bg: #1e293b;
+    --card-bg: #1e293b;
+    --text-primary: #f1f5f9;
+    --text-secondary: #94a3b8;
+    --border-color: #334155;
+    --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+
+    /* Dark mode category colors - brighter for dark background */
+    --cat-rust: #f87171;
+    --cat-steel-blue: #60a5fa;
+    --cat-sage: #4ade80;
+    --cat-amber: #fbbf24;
+    --cat-plum: #c084fc;
+    --cat-teal: #2dd4bf;
+    --cat-burgundy: #fb7185;
+    --cat-navy: #818cf8;
 }
 
 /* Light mode variables (default) */
 [data-theme="light"] {
-    --primary-color: #2563eb;
-    --secondary-color: #10b981;
+    --primary-color: #5b7bb5;
+    --secondary-color: #6b7280;
     --dark-bg: #111827;
-    --light-bg: #f9fafb;
-    --text-primary: #111827;
-    --text-secondary: #6b7280;
-    --border-color: #e5e7eb;
-    --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --light-bg: #f5f5f0;
+    --card-bg: #fdfdfc;
+    --text-primary: #1a1a1a;
+    --text-secondary: #4a4a4a;
+    --border-color: #e0e0dc;
+    --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+
+    /* Category colors - distinct accessible palette */
+    --cat-rust: #d47d5e;
+    --cat-steel-blue: #6890c9;
+    --cat-sage: #7fa87f;
+    --cat-amber: #d4a366;
+    --cat-plum: #ad85ad;
+    --cat-teal: #66a8a8;
+    --cat-burgundy: #c96680;
+    --cat-navy: #6882ad;
 }
 
 body {
@@ -65,8 +98,12 @@ body {
 [data-theme="dark"] .dropdown-menu,
 [data-theme="dark"] .dropdown-toggle,
 [data-theme="dark"] .language-select,
-[data-theme="dark"] .btn {
-    background-color: var(--light-bg);
+[data-theme="dark"] .btn,
+[data-theme="dark"] .problem-statement,
+[data-theme="dark"] .solution-explanation,
+[data-theme="dark"] .skeleton-code details,
+[data-theme="dark"] .solution-code details {
+    background-color: var(--card-bg);
     border-color: var(--border-color);
     color: var(--text-primary);
 }
@@ -74,6 +111,58 @@ body {
 [data-theme="dark"] .footer {
     background-color: var(--light-bg);
     border-color: var(--border-color);
+}
+
+/* Dark mode specific adjustments for better visibility */
+[data-theme="dark"] .category-label {
+    background-color: var(--border-color);
+    color: var(--text-primary);
+}
+
+[data-theme="dark"] .problem-content .example-details {
+    background-color: #1e293b;
+    border-left-color: var(--primary-color);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dark"] .problem-content .example-details dd {
+    color: var(--text-primary);
+}
+
+[data-theme="dark"] .breadcrumb a {
+    color: var(--primary-color);
+}
+
+[data-theme="dark"] .breadcrumb span {
+    color: var(--text-secondary);
+}
+
+/* Dark mode badge adjustments - make them slightly brighter */
+[data-theme="dark"] .difficulty-badge {
+    background-color: #8b5cf6;
+}
+
+[data-theme="dark"] .complexity-badge {
+    background-color: #14b8a6;
+}
+
+/* Dark mode code highlighting */
+[data-theme="dark"] .highlight {
+    background-color: #1e293b !important;
+    border: 1px solid var(--border-color);
+}
+
+[data-theme="dark"] .solution-explanation details summary,
+[data-theme="dark"] .skeleton-code details summary,
+[data-theme="dark"] .solution-code details summary {
+    background-color: var(--light-bg);
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] .solution-explanation details[open] summary,
+[data-theme="dark"] .skeleton-code details[open] summary,
+[data-theme="dark"] .solution-code details[open] summary {
+    border-bottom-color: var(--border-color);
 }
 
 .container {
@@ -84,7 +173,7 @@ body {
 
 /* Navigation */
 .navbar {
-    background-color: white;
+    background-color: var(--card-bg);
     border-bottom: 1px solid var(--border-color);
     padding: 1rem 0;
     position: sticky;
@@ -154,12 +243,12 @@ body {
     top: 60px;
     width: 300px;
     height: calc(100vh - 60px);
-    background: white;
+    background: var(--card-bg);
     border-right: 1px solid var(--border-color);
     transition: left 0.3s ease;
     z-index: 999;
     overflow-y: auto;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.08);
 }
 
 .sidebar.active {
@@ -198,7 +287,7 @@ body {
 }
 
 .sidebar-close:hover {
-    background: white;
+    background: var(--light-bg);
     color: var(--text-primary);
 }
 
@@ -272,7 +361,7 @@ body {
 }
 
 .toc-solutions li.active {
-    background: #e3f2fd;
+    background: #e8e8e4;
     font-weight: 500;
 }
 
@@ -288,7 +377,7 @@ body {
 }
 
 .toc-item.active > .toc-category {
-    background: #f0f7ff;
+    background: #ebebe6;
 }
 
 .toc-item.active .toc-arrow {
@@ -364,7 +453,7 @@ main {
 .category-card,
 .solution-card,
 .doc-card {
-    background: white;
+    background: var(--card-bg);
     padding: 1.5rem;
     border-radius: 8px;
     border: 1px solid var(--border-color);
@@ -402,14 +491,86 @@ main {
     font-weight: 600;
 }
 
+/* Solution card metadata */
+.solution-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.category-label {
+    background-color: var(--border-color);
+    color: var(--text-secondary);
+    padding: 0.2rem 0.5rem;
+    border-radius: 3px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.complexity-info,
+.difficulty-info {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    margin-top: 0.25rem;
+}
+
+.complexity-filter {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    margin: 0.5rem 0;
+    font-weight: 600;
+}
+
 .problem-number {
     background-color: var(--primary-color);
-    color: white;
+    color: var(--card-bg);
     padding: 0.25rem 0.5rem;
     border-radius: 4px;
     font-size: 0.875rem;
-    font-weight: 600;
+    font-weight: 700;
     margin-right: 0.5rem;
+    vertical-align: middle;
+    display: inline-block;
+    transform: translateY(-0.15em);
+}
+
+/* Solution Badges Container */
+.solution-badges {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+    flex-wrap: wrap;
+}
+
+/* Badge Base Styles */
+.badge {
+    padding: 0.35rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.badge:hover {
+    opacity: 0.85;
+    transform: translateY(-1px);
+}
+
+/* Difficulty Badge */
+.difficulty-badge {
+    background-color: #7c3aed;
+    color: #ffffff;
+}
+
+/* Complexity Badge */
+.complexity-badge {
+    background-color: #14b8a6;
+    color: #ffffff;
 }
 
 /* Info Section */
@@ -437,56 +598,15 @@ main {
 
 /* Documentation Content */
 .documentation {
-    background: white;
+    background: var(--card-bg);
     padding: 2rem;
     border-radius: 8px;
     margin-bottom: 2rem;
 }
 
 /* Solution Explanation */
-.solution-explanation {
-    background: white;
-    border-radius: 8px;
-    margin-bottom: 2rem;
-    border: 1px solid var(--border-color);
-}
-
 .solution-explanation details {
     border: none;
-}
-
-.solution-explanation summary {
-    padding: 1.5rem 2rem;
-    cursor: pointer;
-    border-bottom: 1px solid var(--border-color);
-    background: var(--light-bg);
-    border-radius: 8px 8px 0 0;
-    transition: background-color 0.2s;
-    list-style: none;
-    position: relative;
-}
-
-.solution-explanation summary::-webkit-details-marker {
-    display: none;
-}
-
-.solution-explanation summary::before {
-    content: '▶';
-    position: absolute;
-    right: 2rem;
-    top: 50%;
-    transform: translateY(-50%) rotate(0deg);
-    transition: transform 0.2s;
-    font-size: 0.8rem;
-    color: var(--text-secondary);
-}
-
-.solution-explanation details[open] summary::before {
-    transform: translateY(-50%) rotate(90deg);
-}
-
-.solution-explanation summary:hover {
-    background: var(--border-color);
 }
 
 .solution-explanation summary h2 {
@@ -497,7 +617,7 @@ main {
 }
 
 .explanation-content {
-    padding: 2rem;
+    padding: 1.5rem;
 }
 
 .explanation-content h3 {
@@ -516,13 +636,16 @@ main {
     line-height: 1.6;
 }
 
-.explanation-content ul {
-    margin-left: 1.5rem;
+.explanation-content ul,
+.explanation-content ol {
+    margin-left: 2rem;
     margin-bottom: 1rem;
+    padding-left: 0;
 }
 
 .explanation-content li {
     margin-bottom: 0.5rem;
+    line-height: 1.6;
 }
 
 .explanation-content pre {
@@ -663,7 +786,7 @@ main {
 }
 
 .doc-content pre {
-    background-color: #f6f8fa;
+    background-color: var(--light-bg);
     padding: 1rem;
     border-radius: 6px;
     overflow-x: auto;
@@ -671,7 +794,7 @@ main {
 }
 
 .doc-content code {
-    background-color: #f6f8fa;
+    background-color: var(--light-bg);
     padding: 0.2rem 0.4rem;
     border-radius: 3px;
     font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
@@ -702,22 +825,18 @@ main {
 }
 
 .doc-content th {
-    background-color: #f6f8fa;
+    background-color: var(--light-bg);
     font-weight: 600;
 }
 
 /* Solution Code */
-.solution-code {
-    margin: 2rem 0;
-}
-
 .solution-code h2 {
     margin-bottom: 1rem;
 }
 
 /* Navigation Buttons */
 .navigation {
-    margin-top: 2rem;
+    margin-top: 1.5rem;
     display: flex;
     gap: 1rem;
 }
@@ -725,7 +844,7 @@ main {
 .btn {
     display: inline-block;
     padding: 0.5rem 1.5rem;
-    background-color: white;
+    background-color: var(--card-bg);
     color: var(--primary-color);
     border: 1px solid var(--primary-color);
     border-radius: 6px;
@@ -744,7 +863,7 @@ main {
 }
 
 .btn-primary:hover {
-    background-color: #1d4ed8;
+    background-color: #4a6694;
 }
 
 .btn-secondary {
@@ -754,7 +873,7 @@ main {
 }
 
 .btn-secondary:hover {
-    background-color: #059669;
+    background-color: #5a6570;
 }
 
 .btn-small {
@@ -810,7 +929,7 @@ main {
 .dropdown-toggle {
     width: 100%;
     padding: 0.75rem 1rem;
-    background: white;
+    background: var(--card-bg);
     border: 1px solid var(--border-color);
     border-top: none;
     border-radius: 0 0 8px 8px;
@@ -835,11 +954,11 @@ main {
     top: 100%;
     left: 0;
     right: 0;
-    background: white;
+    background: var(--card-bg);
     border: 1px solid var(--border-color);
     border-radius: 8px;
     margin-top: 0.5rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08);
     display: none;
     z-index: 100;
     max-height: 400px;
@@ -856,7 +975,7 @@ main {
     color: var(--text-primary);
     text-decoration: none;
     font-size: 0.875rem;
-    border-bottom: 1px solid #f3f4f6;
+    border-bottom: 1px solid var(--border-color);
     transition: background 0.2s;
 }
 
@@ -894,7 +1013,7 @@ main {
 }
 
 .dropdown-more:hover {
-    background: #e0f2fe;
+    background: #e8e8e4;
 }
 
 /* Language Selector */
@@ -941,7 +1060,7 @@ main {
 
 .language-select {
     padding: 0.5rem 0.75rem;
-    background: white;
+    background: var(--card-bg);
     border: 1px solid var(--border-color);
     border-radius: 4px;
     color: var(--text-primary);
@@ -959,7 +1078,7 @@ main {
 .language-select:focus {
     outline: none;
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+    box-shadow: 0 0 0 2px rgba(91, 123, 181, 0.25);
 }
 
 /* Flash Messages */
@@ -1007,7 +1126,7 @@ main {
 
 /* Footer */
 .footer {
-    background-color: white;
+    background-color: var(--card-bg);
     border-top: 1px solid var(--border-color);
     padding: 2rem 0;
     margin-top: auto;
@@ -1095,43 +1214,121 @@ main {
 }
 
 /* Solution Page Collapsible Sections */
-.problem-description {
-    background: var(--light-bg);
+.problem-description,
+.problem-statement {
+    background: var(--card-bg);
     border: 1px solid var(--border-color);
     border-radius: 8px;
     padding: 1.5rem;
     margin-bottom: 1.5rem;
 }
 
-.problem-description h2 {
+.problem-description h2,
+.problem-statement h2 {
     color: var(--primary-color);
     margin-bottom: 1rem;
     font-size: 1.5rem;
     font-weight: 600;
 }
 
+/* Problem content styling - make examples stand out */
+.problem-content p {
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+.problem-content pre {
+    background: var(--light-bg);
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.25rem;
+    margin: 1.5rem 0;
+    overflow-x: auto;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.problem-content code {
+    background: var(--light-bg);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-family: 'Monaco', 'Courier New', monospace;
+    border: 1px solid var(--border-color);
+}
+
+.problem-content pre code {
+    background: transparent;
+    border: none;
+    padding: 0;
+    font-size: 0.95rem;
+}
+
+.problem-content strong {
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+/* Example definition list styling - structured appearance */
+.problem-content .example-details {
+    background: #f9f9f6;
+    border-left: 4px solid var(--primary-color);
+    padding: 1.25rem;
+    margin: 1.5rem 0;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+.problem-content .example-details dt {
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-top: 0.75rem;
+    margin-bottom: 0.25rem;
+    font-size: 0.95rem;
+}
+
+.problem-content .example-details dt:first-child {
+    margin-top: 0;
+}
+
+.problem-content .example-details dd {
+    margin-left: 0;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--text-primary);
+}
+
+.problem-content .example-details dd:last-child {
+    margin-bottom: 0;
+}
+
 .solution-explanation,
 .skeleton-code,
 .solution-code {
-    margin-bottom: 1rem;
+    margin-bottom: 0;
 }
 
 .solution-explanation details,
 .skeleton-code details,
 .solution-code details {
-    background: var(--light-bg);
+    background: var(--card-bg);
     border: 1px solid var(--border-color);
     border-radius: 8px;
     overflow: hidden;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 .solution-explanation summary,
 .skeleton-code summary,
 .solution-code summary {
-    background: var(--light-bg);
+    background: var(--card-bg);
     border-bottom: 1px solid var(--border-color);
     color: var(--text-primary);
-    padding: 1rem 1.5rem;
+    padding: 1.5rem;
     cursor: pointer;
     font-weight: 600;
     font-size: 1.1rem;
@@ -1142,14 +1339,37 @@ main {
 .solution-explanation summary:hover,
 .skeleton-code summary:hover,
 .solution-code summary:hover {
-    background: rgba(37, 99, 235, 0.05);
+    background: var(--light-bg);
 }
 
-.explanation-content,
-.skeleton-content,
-.solution-content {
+.code-content {
     padding: 1.5rem;
     line-height: 1.6;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow-x: auto;
+}
+
+/* Constrain Pygments generated code tables */
+.code-content .highlight {
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+.code-content .highlight table {
+    table-layout: fixed;
+    width: 100%;
+    max-width: 100%;
+}
+
+.code-content .highlight .linenos {
+    width: 3em;
+}
+
+.code-content .highlight pre {
+    margin: 0;
+    white-space: pre;
+    overflow-x: auto;
 }
 
 /* Custom details marker */
@@ -1159,17 +1379,310 @@ main {
     display: none;
 }
 
-.solution-explanation details summary::before,
-.skeleton-code details summary::before,
-.solution-code details summary::before {
-    content: "▶";
-    margin-right: 0.75rem;
-    transition: transform 0.2s ease;
-    color: var(--text-secondary);
+.solution-explanation summary,
+.skeleton-code summary,
+.solution-code summary {
+    list-style: none;
 }
 
-.solution-explanation details[open] summary::before,
-.skeleton-code details[open] summary::before,
-.solution-code details[open] summary::before {
+.solution-explanation summary::marker,
+.skeleton-code summary::marker,
+.solution-code summary::marker {
+    display: none;
+}
+
+.solution-explanation details summary::after,
+.skeleton-code details summary::after,
+.solution-code details summary::after {
+    content: "▶";
+    margin-left: 0.75rem;
+    transition: transform 0.2s ease;
+    color: var(--text-secondary);
+    float: right;
+}
+
+.solution-explanation details[open] summary::after,
+.skeleton-code details[open] summary::after,
+.solution-code details[open] summary::after {
     transform: rotate(90deg);
 }
+
+/* Category-specific colors */
+
+/* Arrays Hashing - Rust */
+.page-header[data-category="arrays-hashing"] .problem-number { background-color: var(--cat-rust); color: var(--card-bg); }
+.page-header[data-category="arrays-hashing"] h1 { color: var(--cat-rust); }
+.page-header[data-category="arrays-hashing"] .btn-secondary { background-color: var(--cat-rust); border-color: var(--cat-rust); color: var(--card-bg); }
+[data-category="arrays-hashing"] .category-card { border-left: 4px solid var(--cat-rust); }
+[data-category="arrays-hashing"] .category-card h3 { color: var(--cat-rust); }
+[data-category="arrays-hashing"] .solution-card .problem-number { background-color: var(--cat-rust); color: var(--card-bg); }
+[data-category="arrays-hashing"] .solution-card .problem-number { background-color: var(--cat-rust); color: var(--card-bg); }
+[data-category="arrays-hashing"] .problem-num { background-color: var(--cat-rust); }
+.problem-statement[data-category="arrays-hashing"] h2 { color: var(--cat-rust); }
+.problem-statement[data-category="arrays-hashing"] .problem-content strong { color: var(--cat-rust); }
+.problem-statement[data-category="arrays-hashing"] .example-details { border-left-color: var(--cat-rust); }
+.problem-statement[data-category="arrays-hashing"] .example-details dt { color: var(--cat-rust); }
+
+/* Backtracking - Steel Blue */
+.page-header[data-category="backtracking"] .problem-number { background-color: var(--cat-steel-blue); color: var(--card-bg); }
+.page-header[data-category="backtracking"] h1 { color: var(--cat-steel-blue); }
+.page-header[data-category="backtracking"] .btn-secondary { background-color: var(--cat-steel-blue); border-color: var(--cat-steel-blue); color: var(--card-bg); }
+[data-category="backtracking"] .category-card { border-left: 4px solid var(--cat-steel-blue); }
+[data-category="backtracking"] .category-card h3 { color: var(--cat-steel-blue); }
+[data-category="backtracking"] .solution-card .problem-number { background-color: var(--cat-steel-blue); color: var(--card-bg); }
+[data-category="backtracking"] .problem-num { background-color: var(--cat-steel-blue); }
+[data-category="backtracking"] .problem-statement h2 { color: var(--cat-steel-blue); }
+[data-category="backtracking"] .problem-content strong { color: var(--cat-steel-blue); }
+
+/* Binary Search - Sage */
+.page-header[data-category="binary-search"] .problem-number { background-color: var(--cat-sage); color: var(--card-bg); }
+.page-header[data-category="binary-search"] h1 { color: var(--cat-sage); }
+.page-header[data-category="binary-search"] .btn-secondary { background-color: var(--cat-sage); border-color: var(--cat-sage); color: var(--card-bg); }
+[data-category="binary-search"] .category-card { border-left: 4px solid var(--cat-sage); }
+[data-category="binary-search"] .category-card h3 { color: var(--cat-sage); }
+[data-category="binary-search"] .solution-card .problem-number { background-color: var(--cat-sage); color: var(--card-bg); }
+[data-category="binary-search"] .problem-num { background-color: var(--cat-sage); }
+[data-category="binary-search"] .problem-statement h2 { color: var(--cat-sage); }
+[data-category="binary-search"] .problem-content strong { color: var(--cat-sage); }
+
+/* Bit Manipulation - Amber */
+.page-header[data-category="bit-manipulation"] .problem-number { background-color: var(--cat-amber); color: var(--card-bg); }
+.page-header[data-category="bit-manipulation"] h1 { color: var(--cat-amber); }
+.page-header[data-category="bit-manipulation"] .btn-secondary { background-color: var(--cat-amber); border-color: var(--cat-amber); color: var(--card-bg); }
+[data-category="bit-manipulation"] .category-card { border-left: 4px solid var(--cat-amber); }
+[data-category="bit-manipulation"] .category-card h3 { color: var(--cat-amber); }
+[data-category="bit-manipulation"] .solution-card .problem-number { background-color: var(--cat-amber); color: var(--card-bg); }
+[data-category="bit-manipulation"] .problem-num { background-color: var(--cat-amber); }
+[data-category="bit-manipulation"] .problem-statement h2 { color: var(--cat-amber); }
+[data-category="bit-manipulation"] .problem-content strong { color: var(--cat-amber); }
+
+/* Design - Plum */
+.page-header[data-category="design"] .problem-number { background-color: var(--cat-plum); color: var(--card-bg); }
+.page-header[data-category="design"] h1 { color: var(--cat-plum); }
+.page-header[data-category="design"] .btn-secondary { background-color: var(--cat-plum); border-color: var(--cat-plum); color: var(--card-bg); }
+[data-category="design"] .category-card { border-left: 4px solid var(--cat-plum); }
+[data-category="design"] .category-card h3 { color: var(--cat-plum); }
+[data-category="design"] .solution-card .problem-number { background-color: var(--cat-plum); color: var(--card-bg); }
+[data-category="design"] .problem-num { background-color: var(--cat-plum); }
+[data-category="design"] .problem-statement h2 { color: var(--cat-plum); }
+[data-category="design"] .problem-content strong { color: var(--cat-plum); }
+
+/* Dynamic Programming - Teal */
+.page-header[data-category="dynamic-programming"] .problem-number { background-color: var(--cat-teal); color: var(--card-bg); }
+.page-header[data-category="dynamic-programming"] h1 { color: var(--cat-teal); }
+.page-header[data-category="dynamic-programming"] .btn-secondary { background-color: var(--cat-teal); border-color: var(--cat-teal); color: var(--card-bg); }
+[data-category="dynamic-programming"] .category-card { border-left: 4px solid var(--cat-teal); }
+[data-category="dynamic-programming"] .category-card h3 { color: var(--cat-teal); }
+[data-category="dynamic-programming"] .solution-card .problem-number { background-color: var(--cat-teal); color: var(--card-bg); }
+[data-category="dynamic-programming"] .problem-num { background-color: var(--cat-teal); }
+[data-category="dynamic-programming"] .problem-statement h2 { color: var(--cat-teal); }
+[data-category="dynamic-programming"] .problem-content strong { color: var(--cat-teal); }
+
+/* Graphs - Burgundy */
+.page-header[data-category="graphs"] .problem-number { background-color: var(--cat-burgundy); color: var(--card-bg); }
+.page-header[data-category="graphs"] h1 { color: var(--cat-burgundy); }
+.page-header[data-category="graphs"] .btn-secondary { background-color: var(--cat-burgundy); border-color: var(--cat-burgundy); color: var(--card-bg); }
+[data-category="graphs"] .category-card { border-left: 4px solid var(--cat-burgundy); }
+[data-category="graphs"] .category-card h3 { color: var(--cat-burgundy); }
+[data-category="graphs"] .solution-card .problem-number { background-color: var(--cat-burgundy); color: var(--card-bg); }
+[data-category="graphs"] .problem-num { background-color: var(--cat-burgundy); }
+[data-category="graphs"] .problem-statement h2 { color: var(--cat-burgundy); }
+[data-category="graphs"] .problem-content strong { color: var(--cat-burgundy); }
+
+/* Greedy - Navy */
+.page-header[data-category="greedy"] .problem-number { background-color: var(--cat-navy); color: var(--card-bg); }
+.page-header[data-category="greedy"] h1 { color: var(--cat-navy); }
+.page-header[data-category="greedy"] .btn-secondary { background-color: var(--cat-navy); border-color: var(--cat-navy); color: var(--card-bg); }
+[data-category="greedy"] .category-card { border-left: 4px solid var(--cat-navy); }
+[data-category="greedy"] .category-card h3 { color: var(--cat-navy); }
+[data-category="greedy"] .solution-card .problem-number { background-color: var(--cat-navy); color: var(--card-bg); }
+[data-category="greedy"] .problem-num { background-color: var(--cat-navy); }
+[data-category="greedy"] .problem-statement h2 { color: var(--cat-navy); }
+[data-category="greedy"] .problem-content strong { color: var(--cat-navy); }
+
+/* Heap - Rust */
+.page-header[data-category="heap"] .problem-number { background-color: var(--cat-rust); color: var(--card-bg); }
+.page-header[data-category="heap"] h1 { color: var(--cat-rust); }
+.page-header[data-category="heap"] .btn-secondary { background-color: var(--cat-rust); border-color: var(--cat-rust); color: var(--card-bg); }
+[data-category="heap"] .category-card { border-left: 4px solid var(--cat-rust); }
+[data-category="heap"] .category-card h3 { color: var(--cat-rust); }
+[data-category="heap"] .solution-card .problem-number { background-color: var(--cat-rust); color: var(--card-bg); }
+[data-category="heap"] .problem-num { background-color: var(--cat-rust); }
+[data-category="heap"] .problem-statement h2 { color: var(--cat-rust); }
+[data-category="heap"] .problem-content strong { color: var(--cat-rust); }
+
+/* Interval - Steel Blue */
+.page-header[data-category="interval"] .problem-number { background-color: var(--cat-steel-blue); color: var(--card-bg); }
+.page-header[data-category="interval"] h1 { color: var(--cat-steel-blue); }
+.page-header[data-category="interval"] .btn-secondary { background-color: var(--cat-steel-blue); border-color: var(--cat-steel-blue); color: var(--card-bg); }
+[data-category="interval"] .category-card { border-left: 4px solid var(--cat-steel-blue); }
+[data-category="interval"] .category-card h3 { color: var(--cat-steel-blue); }
+[data-category="interval"] .solution-card .problem-number { background-color: var(--cat-steel-blue); color: var(--card-bg); }
+[data-category="interval"] .problem-num { background-color: var(--cat-steel-blue); }
+[data-category="interval"] .problem-statement h2 { color: var(--cat-steel-blue); }
+[data-category="interval"] .problem-content strong { color: var(--cat-steel-blue); }
+
+/* Linked List - Sage */
+.page-header[data-category="linked-list"] .problem-number { background-color: var(--cat-sage); color: var(--card-bg); }
+.page-header[data-category="linked-list"] h1 { color: var(--cat-sage); }
+.page-header[data-category="linked-list"] .btn-secondary { background-color: var(--cat-sage); border-color: var(--cat-sage); color: var(--card-bg); }
+[data-category="linked-list"] .category-card { border-left: 4px solid var(--cat-sage); }
+[data-category="linked-list"] .category-card h3 { color: var(--cat-sage); }
+[data-category="linked-list"] .solution-card .problem-number { background-color: var(--cat-sage); color: var(--card-bg); }
+[data-category="linked-list"] .problem-num { background-color: var(--cat-sage); }
+[data-category="linked-list"] .problem-statement h2 { color: var(--cat-sage); }
+[data-category="linked-list"] .problem-content strong { color: var(--cat-sage); }
+
+/* Math - Amber */
+.page-header[data-category="math"] .problem-number { background-color: var(--cat-amber); color: var(--card-bg); }
+.page-header[data-category="math"] h1 { color: var(--cat-amber); }
+.page-header[data-category="math"] .btn-secondary { background-color: var(--cat-amber); border-color: var(--cat-amber); color: var(--card-bg); }
+[data-category="math"] .category-card { border-left: 4px solid var(--cat-amber); }
+[data-category="math"] .category-card h3 { color: var(--cat-amber); }
+[data-category="math"] .solution-card .problem-number { background-color: var(--cat-amber); color: var(--card-bg); }
+[data-category="math"] .problem-num { background-color: var(--cat-amber); }
+[data-category="math"] .problem-statement h2 { color: var(--cat-amber); }
+[data-category="math"] .problem-content strong { color: var(--cat-amber); }
+
+/* Matrix - Plum */
+.page-header[data-category="matrix"] .problem-number { background-color: var(--cat-plum); color: var(--card-bg); }
+.page-header[data-category="matrix"] h1 { color: var(--cat-plum); }
+.page-header[data-category="matrix"] .btn-secondary { background-color: var(--cat-plum); border-color: var(--cat-plum); color: var(--card-bg); }
+[data-category="matrix"] .category-card { border-left: 4px solid var(--cat-plum); }
+[data-category="matrix"] .category-card h3 { color: var(--cat-plum); }
+[data-category="matrix"] .solution-card .problem-number { background-color: var(--cat-plum); color: var(--card-bg); }
+[data-category="matrix"] .problem-num { background-color: var(--cat-plum); }
+[data-category="matrix"] .problem-statement h2 { color: var(--cat-plum); }
+[data-category="matrix"] .problem-content strong { color: var(--cat-plum); }
+
+/* Monotonic Stack - Teal */
+.page-header[data-category="monotonic-stack"] .problem-number { background-color: var(--cat-teal); color: var(--card-bg); }
+.page-header[data-category="monotonic-stack"] h1 { color: var(--cat-teal); }
+.page-header[data-category="monotonic-stack"] .btn-secondary { background-color: var(--cat-teal); border-color: var(--cat-teal); color: var(--card-bg); }
+[data-category="monotonic-stack"] .category-card { border-left: 4px solid var(--cat-teal); }
+[data-category="monotonic-stack"] .category-card h3 { color: var(--cat-teal); }
+[data-category="monotonic-stack"] .solution-card .problem-number { background-color: var(--cat-teal); color: var(--card-bg); }
+[data-category="monotonic-stack"] .problem-num { background-color: var(--cat-teal); }
+[data-category="monotonic-stack"] .problem-statement h2 { color: var(--cat-teal); }
+[data-category="monotonic-stack"] .problem-content strong { color: var(--cat-teal); }
+
+/* Prefix Sum - Burgundy */
+.page-header[data-category="prefix-sum"] .problem-number { background-color: var(--cat-burgundy); color: var(--card-bg); }
+.page-header[data-category="prefix-sum"] h1 { color: var(--cat-burgundy); }
+.page-header[data-category="prefix-sum"] .btn-secondary { background-color: var(--cat-burgundy); border-color: var(--cat-burgundy); color: var(--card-bg); }
+[data-category="prefix-sum"] .category-card { border-left: 4px solid var(--cat-burgundy); }
+[data-category="prefix-sum"] .category-card h3 { color: var(--cat-burgundy); }
+[data-category="prefix-sum"] .solution-card .problem-number { background-color: var(--cat-burgundy); color: var(--card-bg); }
+[data-category="prefix-sum"] .problem-num { background-color: var(--cat-burgundy); }
+[data-category="prefix-sum"] .problem-statement h2 { color: var(--cat-burgundy); }
+[data-category="prefix-sum"] .problem-content strong { color: var(--cat-burgundy); }
+
+/* Queue - Navy */
+.page-header[data-category="queue"] .problem-number { background-color: var(--cat-navy); color: var(--card-bg); }
+.page-header[data-category="queue"] h1 { color: var(--cat-navy); }
+.page-header[data-category="queue"] .btn-secondary { background-color: var(--cat-navy); border-color: var(--cat-navy); color: var(--card-bg); }
+[data-category="queue"] .category-card { border-left: 4px solid var(--cat-navy); }
+[data-category="queue"] .category-card h3 { color: var(--cat-navy); }
+[data-category="queue"] .solution-card .problem-number { background-color: var(--cat-navy); color: var(--card-bg); }
+[data-category="queue"] .problem-num { background-color: var(--cat-navy); }
+[data-category="queue"] .problem-statement h2 { color: var(--cat-navy); }
+[data-category="queue"] .problem-content strong { color: var(--cat-navy); }
+
+/* Recursion - Rust */
+.page-header[data-category="recursion"] .problem-number { background-color: var(--cat-rust); color: var(--card-bg); }
+.page-header[data-category="recursion"] h1 { color: var(--cat-rust); }
+.page-header[data-category="recursion"] .btn-secondary { background-color: var(--cat-rust); border-color: var(--cat-rust); color: var(--card-bg); }
+[data-category="recursion"] .category-card { border-left: 4px solid var(--cat-rust); }
+[data-category="recursion"] .category-card h3 { color: var(--cat-rust); }
+[data-category="recursion"] .solution-card .problem-number { background-color: var(--cat-rust); color: var(--card-bg); }
+[data-category="recursion"] .problem-num { background-color: var(--cat-rust); }
+[data-category="recursion"] .problem-statement h2 { color: var(--cat-rust); }
+[data-category="recursion"] .problem-content strong { color: var(--cat-rust); }
+
+/* Segment Tree - Steel Blue */
+.page-header[data-category="segment-tree"] .problem-number { background-color: var(--cat-steel-blue); color: var(--card-bg); }
+.page-header[data-category="segment-tree"] h1 { color: var(--cat-steel-blue); }
+.page-header[data-category="segment-tree"] .btn-secondary { background-color: var(--cat-steel-blue); border-color: var(--cat-steel-blue); color: var(--card-bg); }
+[data-category="segment-tree"] .category-card { border-left: 4px solid var(--cat-steel-blue); }
+[data-category="segment-tree"] .category-card h3 { color: var(--cat-steel-blue); }
+[data-category="segment-tree"] .solution-card .problem-number { background-color: var(--cat-steel-blue); color: var(--card-bg); }
+[data-category="segment-tree"] .problem-num { background-color: var(--cat-steel-blue); }
+[data-category="segment-tree"] .problem-statement h2 { color: var(--cat-steel-blue); }
+[data-category="segment-tree"] .problem-content strong { color: var(--cat-steel-blue); }
+
+/* Simulation - Sage */
+.page-header[data-category="simulation"] .problem-number { background-color: var(--cat-sage); color: var(--card-bg); }
+.page-header[data-category="simulation"] h1 { color: var(--cat-sage); }
+.page-header[data-category="simulation"] .btn-secondary { background-color: var(--cat-sage); border-color: var(--cat-sage); color: var(--card-bg); }
+[data-category="simulation"] .category-card { border-left: 4px solid var(--cat-sage); }
+[data-category="simulation"] .category-card h3 { color: var(--cat-sage); }
+[data-category="simulation"] .solution-card .problem-number { background-color: var(--cat-sage); color: var(--card-bg); }
+[data-category="simulation"] .problem-num { background-color: var(--cat-sage); }
+[data-category="simulation"] .problem-statement h2 { color: var(--cat-sage); }
+[data-category="simulation"] .problem-content strong { color: var(--cat-sage); }
+
+/* Sorting - Amber */
+.page-header[data-category="sorting"] .problem-number { background-color: var(--cat-amber); color: var(--card-bg); }
+.page-header[data-category="sorting"] h1 { color: var(--cat-amber); }
+.page-header[data-category="sorting"] .btn-secondary { background-color: var(--cat-amber); border-color: var(--cat-amber); color: var(--card-bg); }
+[data-category="sorting"] .category-card { border-left: 4px solid var(--cat-amber); }
+[data-category="sorting"] .category-card h3 { color: var(--cat-amber); }
+[data-category="sorting"] .solution-card .problem-number { background-color: var(--cat-amber); color: var(--card-bg); }
+[data-category="sorting"] .problem-num { background-color: var(--cat-amber); }
+[data-category="sorting"] .problem-statement h2 { color: var(--cat-amber); }
+[data-category="sorting"] .problem-content strong { color: var(--cat-amber); }
+
+/* Strings - Plum */
+.page-header[data-category="strings"] .problem-number { background-color: var(--cat-plum); color: var(--card-bg); }
+.page-header[data-category="strings"] h1 { color: var(--cat-plum); }
+.page-header[data-category="strings"] .btn-secondary { background-color: var(--cat-plum); border-color: var(--cat-plum); color: var(--card-bg); }
+[data-category="strings"] .category-card { border-left: 4px solid var(--cat-plum); }
+[data-category="strings"] .category-card h3 { color: var(--cat-plum); }
+[data-category="strings"] .solution-card .problem-number { background-color: var(--cat-plum); color: var(--card-bg); }
+[data-category="strings"] .problem-num { background-color: var(--cat-plum); }
+[data-category="strings"] .problem-statement h2 { color: var(--cat-plum); }
+[data-category="strings"] .problem-content strong { color: var(--cat-plum); }
+
+/* Topological Sort - Teal */
+.page-header[data-category="topological-sort"] .problem-number { background-color: var(--cat-teal); color: var(--card-bg); }
+.page-header[data-category="topological-sort"] h1 { color: var(--cat-teal); }
+.page-header[data-category="topological-sort"] .btn-secondary { background-color: var(--cat-teal); border-color: var(--cat-teal); color: var(--card-bg); }
+[data-category="topological-sort"] .category-card { border-left: 4px solid var(--cat-teal); }
+[data-category="topological-sort"] .category-card h3 { color: var(--cat-teal); }
+[data-category="topological-sort"] .solution-card .problem-number { background-color: var(--cat-teal); color: var(--card-bg); }
+[data-category="topological-sort"] .problem-num { background-color: var(--cat-teal); }
+[data-category="topological-sort"] .problem-statement h2 { color: var(--cat-teal); }
+[data-category="topological-sort"] .problem-content strong { color: var(--cat-teal); }
+
+/* Trees - Burgundy */
+.page-header[data-category="trees"] .problem-number { background-color: var(--cat-burgundy); color: var(--card-bg); }
+.page-header[data-category="trees"] h1 { color: var(--cat-burgundy); }
+.page-header[data-category="trees"] .btn-secondary { background-color: var(--cat-burgundy); border-color: var(--cat-burgundy); color: var(--card-bg); }
+[data-category="trees"] .category-card { border-left: 4px solid var(--cat-burgundy); }
+[data-category="trees"] .category-card h3 { color: var(--cat-burgundy); }
+[data-category="trees"] .solution-card .problem-number { background-color: var(--cat-burgundy); color: var(--card-bg); }
+[data-category="trees"] .problem-num { background-color: var(--cat-burgundy); }
+[data-category="trees"] .problem-statement h2 { color: var(--cat-burgundy); }
+[data-category="trees"] .problem-content strong { color: var(--cat-burgundy); }
+
+/* Trie - Navy */
+.page-header[data-category="trie"] .problem-number { background-color: var(--cat-navy); color: var(--card-bg); }
+.page-header[data-category="trie"] h1 { color: var(--cat-navy); }
+.page-header[data-category="trie"] .btn-secondary { background-color: var(--cat-navy); border-color: var(--cat-navy); color: var(--card-bg); }
+[data-category="trie"] .category-card { border-left: 4px solid var(--cat-navy); }
+[data-category="trie"] .category-card h3 { color: var(--cat-navy); }
+[data-category="trie"] .solution-card .problem-number { background-color: var(--cat-navy); color: var(--card-bg); }
+[data-category="trie"] .problem-num { background-color: var(--cat-navy); }
+[data-category="trie"] .problem-statement h2 { color: var(--cat-navy); }
+[data-category="trie"] .problem-content strong { color: var(--cat-navy); }
+
+/* Union Find - Rust */
+.page-header[data-category="union-find"] .problem-number { background-color: var(--cat-rust); color: var(--card-bg); }
+.page-header[data-category="union-find"] h1 { color: var(--cat-rust); }
+.page-header[data-category="union-find"] .btn-secondary { background-color: var(--cat-rust); border-color: var(--cat-rust); color: var(--card-bg); }
+[data-category="union-find"] .category-card { border-left: 4px solid var(--cat-rust); }
+[data-category="union-find"] .category-card h3 { color: var(--cat-rust); }
+[data-category="union-find"] .solution-card .problem-number { background-color: var(--cat-rust); color: var(--card-bg); }
+[data-category="union-find"] .problem-num { background-color: var(--cat-rust); }
+[data-category="union-find"] .problem-statement h2 { color: var(--cat-rust); }
+[data-category="union-find"] .problem-content strong { color: var(--cat-rust); }

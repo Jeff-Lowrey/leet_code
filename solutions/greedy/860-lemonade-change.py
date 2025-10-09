@@ -1,12 +1,24 @@
 """
+# Difficulty: Easy
+
 # 860. Lemonade Change
-**Easy**
 
 At a lemonade stand, each lemonade costs $5. Customers are standing in a queue to buy from you and order one at a time (in the order specified by bills). Each customer will only buy one lemonade and pay with either a $5, $10, or $20 bill. You must provide the correct change to each customer so that the net transaction is that the customer pays $5.
 
 Note that you do not have any change in hand at first.
 
 Given an integer array bills where bills[i] is the bill the ith customer pays, return true if you can provide the correct change to every customer, or false otherwise.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -20,17 +32,8 @@ This is a greedy problem about making change optimally. We need to track our cas
 3. **Make change greedily**: Use largest bills first for optimal change-making
 4. **Check feasibility**: Return false if we can't make proper change
 
-### WHY GREEDY WORKS:
-- $5 bills are most versatile (needed for all change scenarios)
-- $10 bills can only be used for $20 change
-- Using $10s first for $20 change preserves more flexible $5 bills
-- This greedy strategy maximizes our ability to handle future customers
-
-### TIME COMPLEXITY: O(n)
-Process each customer once
-
-### SPACE COMPLEXITY: O(1)
-Only tracking counts of two bill denominations
+### WHY THIS WORKS:
+- [Explanation of correctness]
 
 ### EXAMPLE WALKTHROUGH:
 ```
@@ -43,10 +46,13 @@ Step 5: 20 → need $15 change → use 1×$10 + 1×$5 → count_5=1, count_10=0 
 Output: True
 ```
 
-### CHANGE STRATEGIES:
-- **$5 payment**: No change needed, add to inventory
-- **$10 payment**: Give 1×$5 change
-- **$20 payment**: Give 1×$10 + 1×$5 OR 3×$5 (prefer first)
+### TIME COMPLEXITY:
+O(n)
+Process each customer once
+
+### SPACE COMPLEXITY:
+O(1)
+Only tracking counts of two bill denominations
 
 ### EDGE CASES:
 - Not enough $5 bills for $10 payment
@@ -144,7 +150,6 @@ class Solution:
 
         return True
 
-
 def test_solution():
     """Test cases for Problem 860."""
     solution = Solution()
@@ -185,7 +190,6 @@ def test_solution():
     assert result7 == expected7, f"Expected {expected7}, got {result7}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

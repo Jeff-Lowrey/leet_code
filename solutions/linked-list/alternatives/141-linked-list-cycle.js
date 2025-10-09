@@ -1,50 +1,50 @@
 /**
- * 141. Linked List Cycle
- * Medium
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Linked List.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Use Floyd's cycle detection algorithm (tortoise and hare). If there's a cycle,
- * the fast pointer (hare) will eventually meet the slow pointer (tortoise).
- * If no cycle exists, the fast pointer will reach the end.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. Initialize two pointers: slow (moves 1 step) and fast (moves 2 steps)
- * 2. Traverse the list with both pointers
- * 3. If fast pointer reaches null, no cycle exists
- * 4. If slow and fast pointers meet, cycle exists
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - In a cycle, fast pointer gains 1 position on slow per iteration
- * - Eventually, fast will catch up to slow if cycle exists
- * - If no cycle, fast will reach the end first
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n)
- * SPACE COMPLEXITY: O(1)
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
-Input: head = [3,2,0,-4], pos = 1 (cycle from node 1)
-Step 1: slow=3, fast=3
-Step 2: slow=2, fast=0 (fast moves 2 steps)
-Step 3: slow=0, fast=2 (fast moves 2 steps, cycles back)
-Step 4: slow=-4, fast=-4 (pointers meet!)
-Output: true (cycle detected)
-
-Input: head = [1,2], pos = -1 (no cycle)
-Step 1: slow=1, fast=1
-Step 2: slow=2, fast=null (fast reaches end)
-Output: false (no cycle)
-```
+ * [example input]
+ * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * EDGE CASES:
- * - Empty list (return false)
- * - Single node with no cycle (return false)
- * - Single node pointing to itself (return true)
- * - Two nodes with cycle (return true)
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

@@ -1,44 +1,50 @@
 /**
- * 912. Sort An Array
- * Medium
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Sorting.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Sort an array using an efficient sorting algorithm. While JavaScript provides
- * built-in sort, this problem often requires implementing a classic O(n log n)
- * algorithm. We'll implement merge sort for guaranteed O(n log n) performance.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * Merge Sort:
- * 1. Divide: Split the array into two halves
- * 2. Conquer: Recursively sort each half
- * 3. Combine: Merge the two sorted halves
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * Merge sort is a divide-and-conquer algorithm with guaranteed O(n log n) time
- * complexity. It's stable and works well for arrays. The merging step combines
- * two sorted arrays into one sorted array efficiently.
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n log n) - divide log n times, merge n elements each time
- * SPACE COMPLEXITY: O(n) - for temporary arrays during merging
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
- * Input: nums = [5,2,3,1]
- * Step 1: Split into [5,2] and [3,1]
- * Step 2: Split [5,2] into [5] and [2], split [3,1] into [3] and [1]
- * Step 3: Merge [5] and [2] -> [2,5], merge [3] and [1] -> [1,3]
- * Step 4: Merge [2,5] and [1,3] -> [1,2,3,5]
- * Output: [1,2,3,5]
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
  *
- * EDGE CASES:
- * - Empty array: returns empty
- * - Single element: returns as is
- * - Already sorted: still O(n log n)
- * - Reverse sorted: still O(n log n)
- * - Duplicates: handled correctly
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * [example input]
+ * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

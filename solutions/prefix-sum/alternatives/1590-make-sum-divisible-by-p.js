@@ -1,45 +1,50 @@
 /**
- * 1590. Make Sum Divisible By P
- * Medium
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Prefix Sum.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * We need to remove the smallest subarray to make the remaining sum divisible by p.
- * The key insight is that if total_sum % p = remainder, we need to find a subarray
- * with sum % p = remainder. We use prefix sum modulo p and hash map to find the
- * smallest such subarray.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. Calculate total sum modulo p (this is what we need to remove)
- * 2. If remainder is 0, array is already divisible
- * 3. Use prefix sum with modulo to track (prefixSum % p)
- * 4. For each position, look for a previous prefix where (currentMod - targetMod + p) % p exists
- * 5. Track the minimum length of such subarrays
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * If we remove subarray[i+1...j] with sum % p = remainder, then
- * (total_sum - subarray_sum) % p = 0. Using prefix sums:
- * subarray_sum = prefix[j] - prefix[i], so we need
- * (prefix[j] - prefix[i]) % p = remainder
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n) - single pass through array
- * SPACE COMPLEXITY: O(min(n, p)) - hash map stores at most min(n, p) entries
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
- * Input: nums = [3,1,4,2], p = 6
- * Step 1: total = 10, remainder = 10 % 6 = 4 (need to remove subarray with sum % 6 = 4)
- * Step 2: Use prefix sum mod 6: [3, 4, 2, 4]
- * Step 3: At index 2, prefix=2, need (2-4+6)%6=4, found at index 1
- * Step 4: Subarray [4] has length 1
- * Output: 1
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
  *
- * EDGE CASES:
- * - Array already divisible by p: return 0
- * - Need to remove entire array: return -1
- * - Negative modulo handling with (x % p + p) % p
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * [example input]
+ * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

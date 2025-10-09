@@ -1,54 +1,50 @@
 /**
- * 40. Combination Sum II
- * Medium
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Recursion.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Given an array of integers (may contain duplicates) and a target, find all unique
- * combinations where the numbers sum to target. Each number may be used only once.
- * The key challenge is avoiding duplicate combinations when the input contains duplicates.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. **Sort the array**: This groups duplicates together and enables efficient duplicate detection
- * 2. **Backtracking with duplicate handling**:
- *    - For each candidate, decide to include it or skip it
- *    - Skip duplicate candidates at the same recursion level
- *    - Move to next index after including a number (use only once)
- * 3. **Duplicate prevention**:
- *    - If current number equals previous and we didn't use previous, skip current
- *    - This ensures we don't create duplicate combinations
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Sorting enables duplicate detection by grouping same numbers
- * - Skipping duplicates at same level prevents duplicate combinations
- * - Moving to next index ensures each number used at most once
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(2^n) - each element can be included or excluded
- * SPACE COMPLEXITY: O(n) - recursion depth
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: candidates = [10,1,2,7,6,1,5], target = 8
- * After sorting: [1,1,2,5,6,7,10]
- *
- * Explore combinations:
- * [1,1,6] -> sum = 8 (valid!)
- * [1,2,5] -> sum = 8 (valid!)
- * [1,7] -> sum = 8 (valid!)
- * [2,6] -> sum = 8 (valid!)
- *
- * Note: Duplicates like [1,1,6] from different 1's are prevented by skipping logic
- * Output: [[1,1,6], [1,2,5], [1,7], [2,6]]
+ * [example input]
  * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * EDGE CASES:
- * - Empty candidates array
- * - All duplicates
- * - No valid combinations
- * - Target equals single candidate
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

@@ -1,57 +1,50 @@
 /**
- * 901. Online Stock Span
- * Medium
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Monotonic Stack.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * The stock span is the number of consecutive days (including today) where the price was less than
- * or equal to today's price. A monotonic decreasing stack helps track previous prices and their spans.
- * When we see a higher price, we can merge spans of lower prices.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. Use a stack to store [price, span] pairs
- * 2. For each new price, initialize span = 1
- * 3. While stack top price <= current price, pop and add its span to current span
- * 4. Push [current price, current span] to stack
- * 5. Return the span
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Stack maintains prices in decreasing order from bottom to top
- * - When we see price >= stack top, those days are included in current span
- * - By storing spans, we efficiently accumulate counts without recounting
- * - Each price is pushed once and popped at most once - amortized O(1) per call
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(1) amortized per next() call, O(n) total for n calls
- * SPACE COMPLEXITY: O(n) - stack can grow with number of calls
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input sequence: [100,80,60,70,60,75,85]
- *
- * next(100): stack=[], span=1, push [100,1], return 1, stack=[[100,1]]
- * next(80):  80<100, span=1, push [80,1], return 1, stack=[[100,1],[80,1]]
- * next(60):  60<80, span=1, push [60,1], return 1, stack=[[100,1],[80,1],[60,1]]
- * next(70):  70>60, pop [60,1], span=1+1=2
- *            70<80, push [70,2], return 2, stack=[[100,1],[80,1],[70,2]]
- * next(60):  60<70, span=1, push [60,1], return 1, stack=[[100,1],[80,1],[70,2],[60,1]]
- * next(75):  75>60, pop [60,1], span=1+1=2
- *            75>70, pop [70,2], span=2+2=4
- *            75<80, push [75,4], return 4, stack=[[100,1],[80,1],[75,4]]
- * next(85):  85>75, pop [75,4], span=1+4=5
- *            85>80, pop [80,1], span=5+1=6
- *            85<100, push [85,6], return 6, stack=[[100,1],[85,6]]
- *
- * Results: [1,1,1,2,1,4,6]
+ * [example input]
  * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * EDGE CASES:
- * - First call: always returns 1
- * - All increasing prices: each accumulates all previous
- * - All decreasing prices: each returns 1
- * - Price plateau: equal prices extend span
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

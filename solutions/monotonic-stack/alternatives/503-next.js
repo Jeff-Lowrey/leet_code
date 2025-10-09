@@ -1,55 +1,50 @@
 /**
- * 503. Next Greater Element II
- * Medium
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Monotonic Stack.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * In a circular array, the next element of the last element is the first element. To handle this,
- * we can simulate traversing the array twice - once normally, then circularly. A monotonic
- * decreasing stack helps find the next greater element efficiently.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. Initialize result array with -1 (default when no greater element exists)
- * 2. Use monotonic decreasing stack storing indices
- * 3. Traverse array twice (2*n iterations) using modulo to simulate circular array
- * 4. For each element, pop indices with smaller values and update their results
- * 5. Only push indices in first pass to avoid duplicates
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Two passes ensure we check elements after wrapping around
- * - Monotonic stack tracks elements waiting for their next greater value
- * - Using indices allows us to update result array directly
- * - Second pass doesn't push to avoid processing same element twice
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n) - each element processed at most twice
- * SPACE COMPLEXITY: O(n) - result array and stack
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: nums = [1,2,1]
- * Result: [-1,-1,-1], stack: []
- *
- * First pass (i=0 to 2):
- * i=0 (val=1): stack=[], push 0, stack=[0]
- * i=1 (val=2): 2>1, pop 0, result[0]=2, push 1, stack=[1]
- * i=2 (val=1): 1<2, push 2, stack=[1,2]
- *
- * Second pass (i=3 to 5, index=i%3):
- * i=3 (idx=0,val=1): 1<2, no pop
- * i=4 (idx=1,val=2): 2=2, no pop (but 2>1), pop 2, result[2]=2, stack=[1]
- * i=5 (idx=2,val=1): 1<2, no pop
- *
- * Result: [2,-1,2]
+ * [example input]
  * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * EDGE CASES:
- * - Single element: return [-1]
- * - All same values: all -1
- * - Decreasing values: last wraps to first
- * - Increasing values: each finds next except last
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

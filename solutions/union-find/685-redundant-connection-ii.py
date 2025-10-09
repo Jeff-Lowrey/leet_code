@@ -1,6 +1,5 @@
 """
-685. Redundant Connection II
-Hard
+# Difficulty: Hard
 
 In a directed graph, return an edge that can be removed so that the resulting graph is a tree.
 If there are multiple answers, return the answer that occurs last in the given input.
@@ -11,6 +10,17 @@ Example:
 Input: edges = [[1,2],[1,3],[2,3]]
 Output: [2,3]
 Explanation: Removing [2,3] creates a valid tree.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -29,34 +39,28 @@ Invalid scenarios: (1) node with 2 parents, (2) cycle. Use union-find to detect 
 Valid tree requires: (1) all nodes have ≤1 parent, (2) no cycles.
 When a node has 2 parents, one must be removed. Union-find detects cycles.
 
-### TIME COMPLEXITY: O(n α(n))
-### SPACE COMPLEXITY: O(n)
+### EXAMPLE WALKTHROUGH:
+Input:
+```
+[example input]
+```
 
-### CASES:
-- **Case 1**: Node has 2 parents, no cycle → remove later edge to that node
-- **Case 2**: Node has 2 parents, cycle exists → remove edge causing cycle
-- **Case 3**: No node with 2 parents, cycle exists → remove last edge in cycle
+**Step 1:** [description]
+
+**Step 2:** [description]
+
+### TIME COMPLEXITY:
+O(n α(n))
+
+### SPACE COMPLEXITY:
+O(n)
+
+### EDGE CASES:
+- **[Edge case 1]:** [how it's handled]
+- **[Edge case 2]:** [how it's handled]
 
 </details>
 """
-
-
-class UnionFind:
-    def __init__(self, n: int) -> None:
-        self.parent = list(range(n + 1))
-
-    def find(self, x: int) -> int:
-        if self.parent[x] != x:
-            self.parent[x] = self.find(self.parent[x])
-        return self.parent[x]
-
-    def union(self, x: int, y: int) -> bool:
-        px, py = self.find(x), self.find(y)
-        if px == py:
-            return False  # Cycle detected
-        self.parent[px] = py
-        return True
-
 
 class Solution:
     def findRedundantDirectedConnection(self, edges: list[list[int]]) -> list[int]:
@@ -95,7 +99,6 @@ class Solution:
         # No cycle when candidate2 removed
         return candidate2 if candidate2 else []
 
-
 def test_solution() -> None:
     """Test cases for Problem 685."""
     solution = Solution()
@@ -117,7 +120,6 @@ def test_solution() -> None:
     print("Test case 4 passed: Three node cycle")
 
     print("\nAll test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

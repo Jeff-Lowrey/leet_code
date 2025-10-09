@@ -1,47 +1,50 @@
 /**
- * 190. Reverse Bits
- * Easy
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Bit Manipulation.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Reverse the bits of a 32-bit unsigned integer. We need to take each bit from the right
- * and place it on the left, effectively mirroring the bit pattern.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. Initialize result to 0
- * 2. For each of the 32 bits:
- *    - Shift result left to make room for the next bit
- *    - Extract the least significant bit from n (using n & 1)
- *    - Add it to result (using OR)
- *    - Shift n right to process the next bit
- * 3. Return result as unsigned integer
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Left shifting result builds the reversed number from left to right
- * - n & 1 extracts the rightmost bit
- * - n >>>= 1 moves to the next bit (unsigned right shift)
- * - After 32 iterations, all bits are reversed
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(1) - always exactly 32 iterations
- * SPACE COMPLEXITY: O(1) - only one variable
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
-Input: 43261596 (00000010100101000001111010011100)
-Iteration 1: result=0, extract bit 0, result becomes 0
-Iteration 2: result=0, extract bit 0, result becomes 0
-...
-Iteration 32: Final reversed bit pattern
-Output: 964176192 (00111001011110000010100101000000)
-```
+ * [example input]
+ * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * EDGE CASES:
- * - All zeros: returns 0
- * - All ones: returns all ones
- * - Single bit set: moves to opposite end
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

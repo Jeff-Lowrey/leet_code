@@ -1,46 +1,50 @@
 /**
- * 225. Implement Stack using Queues
- * Easy
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Design.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Implement a last in first out (LIFO) stack using only two queues.
- * The challenge is to simulate stack behavior (LIFO) using queue operations (FIFO).
- * We need to rearrange elements so the most recently added element is accessible first.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. **Two Queue Method**: Use mainQueue for storage, tempQueue for reordering
- * 2. **Push Operation**: Add element to mainQueue, then rotate to maintain LIFO order
- * 3. **Rotation Strategy**: Move all elements except the new one to tempQueue, then swap queues
- * 4. **LIFO Simulation**: After rotation, newest element is at front of mainQueue
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - MainQueue stores elements with newest at front (stack top)
- * - Push operation requires rotating elements to maintain stack order
- * - Pop/top operations are simple since newest element is at queue front
- * - Two queues allow efficient element reordering
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n) for push, O(1) for pop/top/empty
- * SPACE COMPLEXITY: O(n) for storing n elements
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * MyStack stack = new MyStack()
- * stack.push(1) -> mainQueue: [1], tempQueue: []
- * stack.push(2) -> add 2, rotate: mainQueue: [2,1], tempQueue: []
- * stack.top() -> return 2 (front of mainQueue)
- * stack.pop() -> remove and return 2, mainQueue: [1]
- * stack.empty() -> false
+ * [example input]
  * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * EDGE CASES:
- * - Empty stack operations (top/pop on empty stack)
- * - Single element stack
- * - Multiple push/pop operations
- * - Large number of elements
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

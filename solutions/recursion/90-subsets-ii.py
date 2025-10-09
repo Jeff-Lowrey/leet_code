@@ -1,8 +1,20 @@
 """
+# Difficulty: Medium
+
 # 90. Subsets II
-**Medium**
 
 This problem demonstrates key concepts in Recursion.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -29,9 +41,6 @@ We need to combine the subset generation logic with duplicate handling.
 - This prevents generating the same subset multiple times
 - Each duplicate is only added if we're continuing from previous duplicate
 
-### TIME COMPLEXITY: O(2^n * n) - 2^n subsets, O(n) to build each
-### SPACE COMPLEXITY: O(n) - recursion depth
-
 ### EXAMPLE WALKTHROUGH:
 ```
 Input: [1,2,2]
@@ -50,31 +59,19 @@ Skip both, Include second 2: SKIP (duplicate at same level)
 Output: [[],[1],[1,2],[1,2,2],[2],[2,2]]
 ```
 
+### TIME COMPLEXITY:
+O(2^n * n) - 2^n subsets, O(n) to build each
+
+### SPACE COMPLEXITY:
+O(n) - recursion depth
+
 ### EDGE CASES:
 - All elements are the same (return subsets of different sizes)
 - No duplicates (behaves like Subsets I)
 - Empty array (return [[]])
 
 </details>
-
-<details>
-<summary><b>💡 APPROACH</b></summary>
-
-The approach uses backtracking with duplicate handling. The key difference from
-Subsets I is handling duplicate values to avoid generating duplicate subsets.
-
-### Algorithm Steps:
-1. Sort array to group duplicates
-2. Add current subset to results at each step
-3. For each remaining element, skip duplicates at same level
-4. Include element and recurse
-5. Backtrack by removing the element
-
-</details>
 """
-
-from typing import List
-
 
 class Solution:
     def subsetsWithDup(self, nums: List[int]) -> List[List[int]]:
@@ -142,7 +139,6 @@ class Solution:
         """
         return self.subsetsWithDup(nums)
 
-
 def test_solution():
     """Test cases for Problem 90."""
     solution = Solution()
@@ -191,7 +187,6 @@ def test_solution():
     print("Test 6 passed: All subsets unique")
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

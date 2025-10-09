@@ -1,11 +1,23 @@
 """
+# Difficulty: Medium
+
 # 451. Sort Characters By Frequency
-**Medium**
 
 Given a string s, sort it in decreasing order based on the frequency of the characters.
 The frequency of a character is the number of times it appears in the string.
 
 Return the sorted string. If there are multiple answers, return any of them.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -25,12 +37,6 @@ with hash maps for counting.
 - Heap/sorting organizes characters by frequency efficiently
 - Multiple characters can appear in any order at same frequency
 
-### TIME COMPLEXITY: O(n log k)
-Where n is string length, k is number of unique characters
-
-### SPACE COMPLEXITY: O(k)
-For storing character frequencies and heap
-
 ### EXAMPLE WALKTHROUGH:
 ```
 Input: s = "tree"
@@ -39,6 +45,14 @@ Step 2: Sort by frequency: [('e', 2), ('t', 1), ('r', 1)]
 Step 3: Build result: "eert" (or "eetr")
 ```
 
+### TIME COMPLEXITY:
+O(n log k)
+Where n is string length, k is number of unique characters
+
+### SPACE COMPLEXITY:
+O(k)
+For storing character frequencies and heap
+
 ### EDGE CASES:
 - Empty string: return empty
 - Single character: return as-is
@@ -46,10 +60,6 @@ Step 3: Build result: "eert" (or "eetr")
 
 </details>
 """
-
-import heapq
-from collections import Counter
-
 
 class Solution:
     def frequencySort(self, s: str) -> str:
@@ -146,7 +156,6 @@ class Solution:
 
         return "".join(result)
 
-
 def test_solution():
     """Test cases for Problem 451."""
     solution = Solution()
@@ -179,7 +188,6 @@ def test_solution():
     assert len(result6) == 4 and result6.count("e") == 2, f"Failed test 6: {result6}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

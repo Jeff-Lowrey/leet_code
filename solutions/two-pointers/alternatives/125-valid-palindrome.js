@@ -1,54 +1,50 @@
 /**
- * 125. Valid Palindrome
- * Medium
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Two Pointers.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Use two pointers from both ends of the string, skipping non-alphanumeric characters and comparing characters case-insensitively. This avoids creating a cleaned string, saving space.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. **Initialize two pointers**: Start from beginning and end of string
- * 2. **Skip non-alphanumeric**: Move pointers inward until alphanumeric characters
- * 3. **Compare characters**: Check if characters match (case-insensitive)
- * 4. **Continue or return**: If mismatch return false, otherwise continue until pointers meet
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Two pointers naturally check palindrome property (symmetric comparison)
-- Skipping non-alphanumeric characters handles the cleaning requirement
-- Case-insensitive comparison handles uppercase/lowercase requirement
-- O(1) space since we don't create a new string
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n)
- * SPACE COMPLEXITY: O(1)
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
-Input: "A man, a plan, a canal: Panama"
-
-Step 1: left=0 (A), right=30 (a)
-A.lower() == a.lower() → True, continue
-
-Step 2: left=1 ( ), right=29 (m)
-Skip space: left=2 (m), right=29 (m)
-m.lower() == m.lower() → True, continue
-
-Step 3: left=3 (a), right=28 (a)
-a.lower() == a.lower() → True, continue
-
-... continue until pointers meet ...
-
-All comparisons match → return True
-```
+ * [example input]
+ * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * EDGE CASES:
- * - Empty string: Valid palindrome (vacuously true)
- * - Single character: Always valid palindrome
- * - Only non-alphanumeric: Valid palindrome after cleaning
- * - Mixed case: Handle case-insensitive comparison
- * - All same characters: Always valid palindrome
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

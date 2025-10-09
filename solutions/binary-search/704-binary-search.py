@@ -1,12 +1,24 @@
 """
+# Difficulty: Easy
+
 # 704. Binary Search
-**Easy**
 
 Given an array of integers nums which is sorted in ascending order,
 and an integer target, write a function to search target in nums.
 If target exists, then return its index. Otherwise, return -1.
 
 You must write an algorithm with O(log n) runtime complexity.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -30,9 +42,6 @@ comparing the target with the middle element.
 - Each comparison reduces search space by 50%
 - Guarantees O(log n) time complexity
 
-### TIME COMPLEXITY: O(log n)
-### SPACE COMPLEXITY: O(1)
-
 ### EXAMPLE WALKTHROUGH:
 ```
 Input: nums = [-1,0,3,5,9,12], target = 9
@@ -41,26 +50,17 @@ Step 2: left=3, right=5, mid=4, nums[4]=9 == 9, found!
 Output: 4
 ```
 
+### TIME COMPLEXITY:
+O(log n)
+
+### SPACE COMPLEXITY:
+O(1)
+
 ### EDGE CASES:
 - Empty array: return -1
 - Single element: check if it equals target
 - Target not in array: return -1
 - Target at boundaries: first or last element
-
-</details>
-
-<details>
-<summary><b>💡 APPROACH</b></summary>
-
-Classic binary search implementation with left/right pointers:
-
-### Algorithm Steps:
-1. Initialize left and right boundaries
-2. While search space exists (left <= right):
-   - Calculate middle index
-   - Compare middle element with target
-   - Adjust boundaries based on comparison
-3. Return index if found, -1 otherwise
 
 </details>
 """

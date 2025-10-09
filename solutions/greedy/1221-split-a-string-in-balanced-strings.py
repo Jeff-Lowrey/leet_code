@@ -1,6 +1,7 @@
 """
+# Difficulty: Easy
+
 # 1221. Split A String In Balanced Strings
-**Easy**
 
 Balanced strings are those that have an equal quantity of 'L' and 'R' characters.
 
@@ -8,6 +9,17 @@ Given a balanced string s, split it into some number of substrings such that:
 - Each substring is balanced.
 
 Return the maximum number of balanced strings you can obtain.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -24,26 +36,8 @@ for future splits.
 3. **Split when balanced**: When counter reaches 0, we have a balanced substring
 4. **Count splits**: Increment split counter each time balance reaches 0
 
-### WHY GREEDY WORKS:
-- **Local optimum = Global optimum**: Splitting as soon as possible is always best
-- **Proof by contradiction**: If we don't split when balanced, we just delay the
-  inevitable split without gaining any advantage
-- **Each split is independent**: Finding one balanced substring doesn't affect the
-  ability to find others in the remaining string
-
-### GREEDY CHOICE PROPERTY:
-At any point where balance = 0, we have two choices:
-1. Split here (greedy choice)
-2. Continue without splitting
-
-If we continue, we eventually must split later. But splitting later gives us the
-same result or worse, never better. Therefore, splitting immediately is optimal.
-
-### TIME COMPLEXITY: O(n)
-Single pass through the string
-
-### SPACE COMPLEXITY: O(1)
-Only using counter and result variables
+### WHY THIS WORKS:
+- [Explanation of correctness]
 
 ### EXAMPLE WALKTHROUGH:
 ```
@@ -64,25 +58,13 @@ Output: 4
 Substrings: "RL", "RRLL", "RL", "RL"
 ```
 
-### ALTERNATIVE EXAMPLE:
-```
-Input: s = "RLRRRLLRLL"
+### TIME COMPLEXITY:
+O(n)
+Single pass through the string
 
-Balance tracking:
-R: -1
-L: 0 → SPLIT (1)
-R: -1
-R: -2
-R: -3
-L: -2
-L: -1
-R: -2
-L: -1
-L: 0 → SPLIT (2)
-
-Output: 2
-Substrings: "RL", "RRRLLRLL"
-```
+### SPACE COMPLEXITY:
+O(1)
+Only using counter and result variables
 
 ### EDGE CASES:
 - Minimum length: "RL" or "LR" → 1 split
@@ -90,26 +72,8 @@ Substrings: "RL", "RRRLLRLL"
 - Already optimal splits: "RLRL" → 2 splits
 - Long balanced section: "RRRRLLLLLLL" → 1 split
 
-### PROOF OF CORRECTNESS:
-Claim: Greedy splitting produces maximum number of balanced substrings.
-
-Proof:
-1. Input string is balanced (given)
-2. At each balance=0 point, we can split
-3. Not splitting at balance=0 means we include more characters in current substring
-4. More characters per substring → fewer total substrings
-5. Therefore, splitting at every balance=0 maximizes count
-
-### COMPARISON WITH OTHER APPROACHES:
-- **Dynamic Programming**: Unnecessary - greedy is simpler and optimal
-- **Backtracking**: Too slow - O(2^n) to try all split combinations
-- **Greedy**: O(n) and provably optimal
-
 </details>
 """
-
-from typing import List
-
 
 class Solution:
     def balancedStringSplit(self, s: str) -> int:
@@ -216,7 +180,6 @@ class Solution:
 
         return count, substrings
 
-
 def test_solution():
     """Test cases for Problem 1221."""
     solution = Solution()
@@ -283,7 +246,6 @@ def test_solution():
         assert sub.count('R') == sub.count('L'), f"Substring {sub} is not balanced"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

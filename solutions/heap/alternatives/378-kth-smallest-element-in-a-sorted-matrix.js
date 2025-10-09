@@ -1,44 +1,50 @@
 /**
- * 378. Kth Smallest Element In A Sorted Matrix
- * Medium
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Heap.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * The matrix is sorted both row-wise and column-wise. We can treat each row as a sorted list
- * and use a min heap to merge them efficiently, similar to merging k sorted lists.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
- * 1. **Initialize Min Heap**: Add first element of each row to heap
- * 2. **Extract Minimum**: Pop smallest element k times
- * 3. **Add Next in Row**: When we pop element at [row, col], add element at [row, col+1]
- * 4. **Return Kth**: The kth popped element is our answer
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Each row is sorted, so the next smallest in a row is always to the right
- * - Heap ensures we always process elements in ascending order
- * - By starting with first column, we guarantee we don't miss smaller elements
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(k log n) where n is number of rows
- * SPACE COMPLEXITY: O(n) for the heap
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: matrix = [[1,5,9],[10,11,13],[12,13,15]], k = 8
- * Step 1: Heap = [1, 10, 12]
- * Step 2: Pop 1, add 5 -> Heap = [5, 10, 12]
- * Step 3: Pop 5, add 9 -> Heap = [9, 10, 12]
- * ...continue until 8th element
- * Output: 13
+ * [example input]
  * ```
+ * **Step 1:** [description]
+ * **Step 2:** [description]
  *
- * EDGE CASES:
- * - Single element matrix
- * - k = 1 (smallest element)
- * - k = n*n (largest element)
- * - All elements are the same
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**
