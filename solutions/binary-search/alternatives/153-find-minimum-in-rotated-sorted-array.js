@@ -1,46 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * Suppose an array of length n sorted in ascending order is rotated between 1 and n times.
- * Given the sorted rotated array nums of unique values, return the minimum element of this array.
- * You must write an algorithm that runs in O(log n) time.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * In a rotated sorted array, the minimum element is at the rotation point.
- * We can use binary search to find this point by comparing the middle element with the rightmost element.
- * If mid > right, minimum is in right half; otherwise, it's in left half (including mid).
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - The array has a rotation point where the minimum element is located
- * - Comparing nums[mid] with nums[right] tells us which half contains the minimum
- * - If nums[mid] > nums[right], the array is rotated and minimum is in right half
- * - Otherwise, the minimum is in the left half (including mid)
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(log n)
- * SPACE COMPLEXITY: O(1)
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: nums = [3,4,5,1,2]
- * Step 1: left=0, right=4, mid=2, nums[2]=5 > nums[4]=2, search right half
- * Step 2: left=3, right=4, mid=3, nums[3]=1 <= nums[4]=2, search left half
- * Step 3: left=3, right=3, loop ends, return nums[3]=1
- * Output: 1
+ * [example input]
  * ```
  *
- * EDGE CASES:
- * - Array not rotated: minimum is first element
- * - Single element: return that element
- * - Rotation at any position: algorithm handles all cases
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

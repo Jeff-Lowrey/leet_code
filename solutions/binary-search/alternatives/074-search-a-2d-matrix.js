@@ -1,49 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * You are given an m x n integer matrix with the following two properties:
- * - Each row is sorted in non-decreasing order.
- * - The first integer of each row is greater than the last integer of the previous row.
- * Given an integer target, return true if target is in matrix or false otherwise.
- * You must write a solution in O(log(m * n)) time complexity.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Since the matrix is sorted both row-wise and the first element of each row is greater than
- * the last element of the previous row, we can treat the entire matrix as a single sorted array.
- * This allows us to use binary search with index conversion.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Matrix properties ensure it behaves like a sorted 1D array when read row by row
- * - Index conversion allows us to access 2D elements using 1D binary search
- * - Time complexity remains O(log(m * n)) as required
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(log(m * n))
- * SPACE COMPLEXITY: O(1)
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: matrix = [[1,4,7,11],[2,5,8,12],[3,6,9,16]], target = 5
- * Conceptual 1D array: [1,4,7,11,2,5,8,12,3,6,9,16] -> Wait, this is wrong!
- * Correct conceptual 1D: [1,4,7,11,2,5,8,12,3,6,9,16] -> Actually: [1,4,7,11,2,5,8,12,3,6,9,16]
- * Wait, let me fix: matrix = [[1,4,7,11],[2,5,8,12],[3,6,9,16]] is NOT valid for this problem
- * Correct example: matrix = [[1,4,7,11],[15,16,17,18],[23,24,25,26]], target = 16
- * Conceptual 1D: [1,4,7,11,15,16,17,18,23,24,25,26]
- * Binary search finds target 16 at index 5, converts to row=1, col=1
- * Output: true
+ * [example input]
  * ```
  *
- * EDGE CASES:
- * - Empty matrix: return false
- * - Single element: check if it equals target
- * - Target smaller/larger than all elements: return false
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

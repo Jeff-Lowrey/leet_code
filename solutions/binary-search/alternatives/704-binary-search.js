@@ -1,41 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * Given an array of integers nums which is sorted in ascending order, and an integer target,
- * write a function to search target in nums. If target exists, then return its index. Otherwise, return -1.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Since the array is sorted, we can use binary search to find the target efficiently.
- * We repeatedly divide the search space in half by comparing the target with the middle element.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - The array is sorted, so we can eliminate half the search space at each step
- * - Time complexity is logarithmic due to halving the search space
- * - Space complexity is constant as we only use a few variables
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(log n)
- * SPACE COMPLEXITY: O(1)
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: nums = [-1,0,3,5,9,12], target = 9
- * Step 1: left=0, right=5, mid=2, nums[2]=3 < 9, search right half
- * Step 2: left=3, right=5, mid=4, nums[4]=9 == 9, return 4
- * Output: 4
+ * [example input]
  * ```
  *
- * EDGE CASES:
- * - Empty array: return -1
- * - Single element: check if it equals target
- * - Target not found: return -1
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

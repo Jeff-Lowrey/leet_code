@@ -1,49 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * There is an integer array nums sorted in ascending order (with distinct values).
- * Prior to being passed to your function, nums is possibly rotated at an unknown pivot index k.
- * Given the array nums after the possible rotation and an integer target, return the index of target if it is in nums, or -1 if it is not in nums.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Although the array is rotated, we can still use binary search. The key insight is that in any rotated sorted array,
- * at least one half (left or right) will always be properly sorted. We can determine which half is sorted
- * and decide whether to search in that half or the other half.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - At least one half of a rotated sorted array is always properly sorted
- * - We can determine which half contains the target by comparing with the sorted half
- * - Time complexity remains O(log n) as we eliminate half the search space each iteration
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(log n)
- * SPACE COMPLEXITY: O(1)
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: nums = [4,5,6,7,0,1,2], target = 0
- * Step 1: left=0, right=6, mid=3, nums[3]=7, left half [4,5,6,7] is sorted
- * Step 2: target=0 not in sorted left half, search right half
- * Step 3: left=4, right=6, mid=5, nums[5]=1, right half [1,2] is sorted
- * Step 4: target=0 not in sorted right half, search left part
- * Step 5: left=4, right=4, mid=4, nums[4]=0 == target, return 4
- * Output: 4
+ * [example input]
  * ```
  *
- * EDGE CASES:
- * - Empty array: return -1
- * - Single element: check if it equals target
- * - Array not rotated: works like normal binary search
- * - Target not found: return -1
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**
