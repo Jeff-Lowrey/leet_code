@@ -1,6 +1,5 @@
 /**
- * 124. Binary Tree Maximum Path Sum
- * Hard
+
  *
  * This problem demonstrates advanced tree traversal with global optimization.
  *
@@ -10,15 +9,15 @@
  * A path can go through any node and doesn't have to go through the root.
  * For each node, we can consider it as a "turning point" where paths from
  * left and right subtrees meet. The maximum path sum is either:
- * 1. The maximum path in left subtree
- * 2. The maximum path in right subtree
- * 3. A path that goes through current node (left + node + right)
+
+
+
  *
  * APPROACH:
- * 1. **DFS with Global Maximum**: Use DFS to explore all paths while tracking global max
- * 2. **Node as Turning Point**: Consider each node as potential path junction
- * 3. **Return vs Update**: Return max path ending at current node, update global max
- * 4. **Handle Negative Paths**: Ignore negative contributing paths (use 0 instead)
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Every possible path is considered exactly once
@@ -309,9 +308,9 @@ module.exports = {
 /**
  * Additional Notes:
  * - Three different approaches with same time complexity:
- *   1. Recursive with global variable: Most intuitive and clean
- *   2. Class-based: Better encapsulation, good for OOP preference
- *   3. Iterative: Avoids recursion stack, uses explicit post-order traversal
+
+
+
  * - Key insight: each node can be a "turning point" for maximum path
  * - Global maximum tracking is essential since optimal path may not go through root
  * - Negative path pruning (using max(0, gain)) is crucial for optimization

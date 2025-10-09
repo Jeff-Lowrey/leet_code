@@ -1,6 +1,5 @@
 /**
- * 110. Balanced Binary Tree
- * Easy
+
  *
  * Given a binary tree, determine if it is height-balanced.
  *
@@ -12,10 +11,10 @@
  * A balanced binary tree requires that for every node, the heights of its left and right subtrees differ by at most 1. The key insight is to check this condition recursively while computing heights bottom-up.
  *
  * APPROACH:
- * 1. Recursive Height Calculation: Calculate height of each subtree recursively
- * 2. Balance Check: For each node, check if |left_height - right_height| ≤ 1
- * 3. Early Termination: If any subtree is unbalanced, immediately return False
- * 4. Bottom-Up: Check balance condition while returning heights
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Height-balanced property must hold for ALL nodes, not just root
@@ -37,11 +36,11 @@
  *        /  \
  *       15   7
  *
- * 1. Check node 9: height = 1, balanced ✓
- * 2. Check node 15: height = 1, balanced ✓
- * 3. Check node 7: height = 1, balanced ✓
- * 4. Check node 20: left_height = 1, right_height = 1, |1-1| = 0 ≤ 1 ✓
- * 5. Check node 3: left_height = 1, right_height = 2, |1-2| = 1 ≤ 1 ✓
+
+
+
+
+
  * Output: true
  *
  * KEY INSIGHTS:

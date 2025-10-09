@@ -1,10 +1,9 @@
 /**
- * 677. Map Sum Pairs
- * Medium
+
  *
  * You are asked to implement a map that supports the following two operations:
- * 1. insert(key, val): Inserts a key-value pair into the map. If the key already existed, the original key-value pair will be overridden to the new one.
- * 2. sum(prefix): Returns the sum of all the pairs' value whose key starts with the prefix.
+
+
  *
  * SOLUTION EXPLANATION:
  *
@@ -12,10 +11,10 @@
  * This is a perfect Trie (prefix tree) problem. We need to store key-value pairs and efficiently compute sums for all keys with a given prefix. A trie naturally groups keys by their prefixes, making prefix sum queries efficient.
  *
  * APPROACH:
- * 1. Trie Structure: Use a trie where each node stores the sum of all values in its subtree
- * 2. Insert Operation: Add/update key in trie and propagate value changes up to root
- * 3. Sum Operation: Navigate to prefix node and return its accumulated sum
- * 4. Value Updates: Handle key updates by adjusting differences in trie nodes
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Trie groups keys by common prefixes naturally

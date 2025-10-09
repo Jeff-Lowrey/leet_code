@@ -1,6 +1,5 @@
 /**
- * 098. Validate Binary Search Tree
- * Medium
+
  *
  * This problem demonstrates key concepts in BST validation.
  *
@@ -14,10 +13,10 @@
  * We can validate this using bounds or inorder traversal.
  *
  * APPROACH:
- * 1. **Bounds Method**: Pass min/max bounds down recursively
- * 2. **Inorder Traversal**: Check if inorder gives sorted sequence
- * 3. **Recursive Validation**: Check BST property at each node
- * 4. **Handle edge cases**: Empty tree, single node, duplicate values
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Bounds method ensures all ancestors' constraints are maintained
@@ -331,10 +330,10 @@ module.exports = {
 /**
  * Additional Notes:
  * - Four different approaches with different trade-offs:
- *   1. Bounds: Most intuitive and efficient O(h) space
- *   2. Inorder array: Easy to understand but uses O(n) space
- *   3. Optimized inorder: Single pass with O(h) space
- *   4. Iterative: Avoids recursion, good for deep trees
+
+
+
+
  * - Key insight: BST property must hold globally, not just locally
  * - Duplicate values make BST invalid (strictly less/greater)
  * - Integer overflow considerations for extreme values

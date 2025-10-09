@@ -1,6 +1,5 @@
 /**
- * 648. Replace Words
- * Medium
+
  *
  * In English, we have a concept called root, which can be followed by some other word
  * to form another longer word - let's call this word successor. For example, when the
@@ -17,10 +16,10 @@
  * to find the shortest root that is a prefix of that word.
  *
  * APPROACH:
- * 1. **Build a Trie**: Insert all dictionary roots into the Trie
- * 2. **Process sentence**: Split sentence into words
- * 3. **Find shortest root**: For each word, traverse Trie to find shortest matching root
- * 4. **Replace or keep**: Use root if found, otherwise keep original word
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Trie provides efficient prefix matching in O(k) where k is word length

@@ -1,6 +1,5 @@
 /**
- * 104. Maximum Depth of Binary Tree
- * Easy
+
  *
  * Given the root of a binary tree, return its maximum depth.
  *
@@ -12,9 +11,9 @@
  * The maximum depth of a binary tree is simply 1 plus the maximum depth of its left and right subtrees. This naturally suggests a recursive solution where we explore both subtrees and return the maximum depth.
  *
  * APPROACH:
- * 1. Base Case: If node is null, depth is 0
- * 2. Recursive Case: Depth = 1 + max(left_depth, right_depth)
- * 3. Multiple Approaches: Recursive (DFS), iterative (BFS), and stack-based solutions
+
+
+
  *
  * WHY THIS WORKS:
  * - Tree depth follows recursive structure naturally
@@ -36,13 +35,13 @@
  *        /  \
  *       15   7
  *
- * 1. maxDepth(3): 1 + max(maxDepth(9), maxDepth(20))
- * 2. maxDepth(9): 1 + max(0, 0) = 1
- * 3. maxDepth(20): 1 + max(maxDepth(15), maxDepth(7))
- * 4. maxDepth(15): 1 + max(0, 0) = 1
- * 5. maxDepth(7): 1 + max(0, 0) = 1
- * 6. maxDepth(20): 1 + max(1, 1) = 2
- * 7. maxDepth(3): 1 + max(1, 2) = 3
+
+
+
+
+
+
+
  * Output: 3
  *
  * KEY INSIGHTS:

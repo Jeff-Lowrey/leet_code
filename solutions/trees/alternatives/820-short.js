@@ -1,6 +1,5 @@
 /**
- * 820. Short Encoding of Words
- * Medium
+
  *
  * A valid encoding of an array of words is any reference string s and an array of indices indices such that:
  * - words.length == indices.length
@@ -15,9 +14,9 @@
  * To minimize the encoding length, we want to share suffixes between words. If one word is a suffix of another, we can encode both using just the longer word. This is a classic Trie problem where we build the trie using word suffixes.
  *
  * APPROACH:
- * 1. Trie Construction: Build a trie using the reverse of each word (to handle suffixes)
- * 2. Deduplication: Remove words that are suffixes of other words
- * 3. Length Calculation: For each unique word, add its length + 1 (for '#') to the total
+
+
+
  *
  * WHY THIS WORKS:
  * - Trie naturally handles prefix/suffix relationships
@@ -33,9 +32,9 @@
  *
  * EXAMPLE WALKTHROUGH:
  * Input: words = ["time", "me", "bell"]
- * 1. Build trie with reversed words: ["emit", "em", "lleb"]
- * 2. "em" is a suffix of "emit", so we can share encoding
- * 3. Result: "time#bell#" (length 10)
+
+
+
  *    - "time" at index 0
  *    - "me" at index 2 (suffix of "time")
  *    - "bell" at index 5

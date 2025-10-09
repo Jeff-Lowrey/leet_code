@@ -1,6 +1,5 @@
 /**
- * 297. Serialize And Deserialize Binary Tree
- * Hard
+
  *
  * This problem demonstrates tree serialization and reconstruction.
  *
@@ -13,10 +12,10 @@
  * We use a delimiter to separate values and special marker for null nodes.
  *
  * APPROACH:
- * 1. **Serialize**: Use preorder traversal with null markers
- * 2. **Delimiter**: Use comma to separate values, "null" for empty nodes
- * 3. **Deserialize**: Use preorder reconstruction from string array
- * 4. **Index Tracking**: Maintain global index during deserialization
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Preorder gives us root first, enabling top-down reconstruction

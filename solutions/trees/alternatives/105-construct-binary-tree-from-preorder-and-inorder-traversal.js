@@ -1,6 +1,5 @@
 /**
- * 105. Construct Binary Tree From Preorder And Inorder Traversal
- * Medium
+
  *
  * This problem demonstrates key concepts in tree construction from traversals.
  *
@@ -14,10 +13,10 @@
  * to determine left and right subtrees, then recursively build each subtree.
  *
  * APPROACH:
- * 1. **Identify Root**: First element in preorder is the root
- * 2. **Split Inorder**: Find root in inorder to separate left/right subtrees
- * 3. **Recursive Construction**: Recursively build left and right subtrees
- * 4. **Index Management**: Track preorder index and inorder boundaries
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Preorder traversal visits root before subtrees (Root-Left-Right)
@@ -329,9 +328,9 @@ module.exports = {
 /**
  * Additional Notes:
  * - Three different approaches with different trade-offs:
- *   1. Optimized with HashMap: O(n) time, O(n) space - most efficient
- *   2. Simple recursive: O(n²) time due to array slicing, easier to understand
- *   3. Iterative with stack: O(n) time, O(h) space, avoids recursion
+
+
+
  * - Key insight: preorder gives root, inorder splits left/right subtrees
  * - HashMap optimization crucial for large inputs to avoid O(n²) behavior
  * - Recursive approach naturally follows the tree construction pattern

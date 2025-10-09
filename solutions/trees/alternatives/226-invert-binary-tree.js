@@ -1,6 +1,5 @@
 /**
- * 226. Invert Binary Tree
- * Easy
+
  *
  * This problem demonstrates tree manipulation through mirroring.
  *
@@ -12,10 +11,10 @@
  * We can achieve this recursively or iteratively.
  *
  * APPROACH:
- * 1. **Recursive**: Swap children, then recursively invert subtrees
- * 2. **Iterative BFS**: Use queue to process nodes level by level
- * 3. **Iterative DFS**: Use stack to process nodes depth-first
- * 4. **Handle edge cases**: Null tree, single node
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Swapping children at each node creates the mirror effect
@@ -301,10 +300,10 @@ module.exports = {
 /**
  * Additional Notes:
  * - Four different approaches with same time complexity:
- *   1. Recursive: Most intuitive, uses call stack
- *   2. BFS iterative: Level-by-level processing with queue
- *   3. DFS iterative: Depth-first with explicit stack
- *   4. Recursive with array destructuring: Modern JS syntax
+
+
+
+
  * - All approaches modify tree in-place and return root
  * - Time: O(n) for all approaches (visit each node once)
  * - Space: O(h) recursive, O(w) iterative where h=height, w=width

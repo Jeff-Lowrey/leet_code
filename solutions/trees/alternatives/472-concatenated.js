@@ -1,6 +1,5 @@
 /**
- * 472. Concatenated Words
- * Hard
+
  *
  * Given an array of strings words (without duplicates), return all the concatenated words
  * in the given list of words. A concatenated word is defined as a string that is comprised
@@ -14,10 +13,10 @@
  * all possible splits.
  *
  * APPROACH:
- * 1. **Build a Trie**: Insert all words into a Trie for efficient prefix matching
- * 2. **Sort by length**: Process shorter words first (they can't be concatenated)
- * 3. **DFS Search**: For each word, try to split it into valid dictionary words
- * 4. **Memoization**: Cache results to avoid redundant computation
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Trie enables efficient prefix matching during word splitting

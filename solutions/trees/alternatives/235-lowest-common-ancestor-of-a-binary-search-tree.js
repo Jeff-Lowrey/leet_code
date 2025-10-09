@@ -1,6 +1,5 @@
 /**
- * 235. Lowest Common Ancestor Of A Binary Search Tree
- * Easy
+
  *
  * This problem leverages BST properties for efficient LCA finding.
  *
@@ -13,10 +12,10 @@
  * If nodes are on different sides, current node is the LCA.
  *
  * APPROACH:
- * 1. **BST Property**: Use ordering to navigate without searching entire tree
- * 2. **Three Cases**: Both left, both right, or split (LCA found)
- * 3. **Iterative/Recursive**: Both approaches work efficiently
- * 4. **Early Termination**: Stop as soon as split point is found
+
+
+
+
  *
  * WHY THIS WORKS:
  * - BST property guarantees all left < root < all right
@@ -273,9 +272,9 @@ module.exports = {
 /**
  * Additional Notes:
  * - Three different approaches with different trade-offs:
- *   1. Iterative: O(h) time, O(1) space - most efficient
- *   2. Recursive: O(h) time, O(h) space - clean and intuitive
- *   3. Path-based: O(h) time, O(h) space - works for general binary trees
+
+
+
  * - BST property enables much more efficient solution than general binary tree LCA
  * - Key insight: LCA is first node where paths to p and q diverge
  * - No need to search both subtrees unlike general binary tree case

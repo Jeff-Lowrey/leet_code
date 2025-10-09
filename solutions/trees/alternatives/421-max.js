@@ -1,6 +1,5 @@
 /**
- * 421. Maximum XOR of Two Numbers in an Array
- * Medium
+
  *
  * Given an integer array nums, return the maximum result of nums[i] XOR nums[j],
  * where 0 <= i <= j < n.
@@ -12,10 +11,10 @@
  * For XOR to be maximum, we want bits to be as different as possible, starting from MSB.
  *
  * APPROACH:
- * 1. **Build a binary Trie**: Insert all numbers as 32-bit binary representations
- * 2. **For each number**: Traverse Trie greedily, choosing opposite bit when possible
- * 3. **Track maximum**: Keep track of the maximum XOR found
- * 4. **Bit manipulation**: Work from MSB (bit 31) to LSB (bit 0)
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Trie allows us to compare numbers bit-by-bit efficiently

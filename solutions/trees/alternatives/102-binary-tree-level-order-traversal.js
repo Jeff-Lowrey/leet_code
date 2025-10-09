@@ -1,6 +1,5 @@
 /**
- * 102. Binary Tree Level Order Traversal
- * Medium
+
  *
  * Given the root of a binary tree, return the level order traversal of its nodes' values. (i.e., from left to right, level by level).
  *
@@ -10,10 +9,10 @@
  * Level order traversal visits nodes level by level from left to right. This is a classic BFS (Breadth-First Search) problem where we use a queue to process nodes level by level, collecting values at each level separately.
  *
  * APPROACH:
- * 1. **BFS with Queue**: Use queue to process nodes level by level
- * 2. **Level Separation**: Track level size to separate levels in result
- * 3. **Left-to-Right Processing**: Add children left-to-right to maintain order
- * 4. **Result Structure**: Each level becomes a separate list in the result
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Queue ensures FIFO processing for level-by-level traversal

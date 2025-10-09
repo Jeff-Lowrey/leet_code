@@ -1,6 +1,5 @@
 /**
- * 336. Palindrome Pairs
- * Hard
+
  *
  * Given a list of unique words, return all the pairs of distinct indices (i, j) such that
  * the concatenation of the two words words[i] + words[j] is a palindrome.
@@ -9,16 +8,16 @@
  *
  * INTUITION:
  * Use a Trie (prefix tree) to efficiently find palindrome pairs. For each word, we check:
- * 1. If reversing the word exists in our dictionary
- * 2. If we can split the word where one part is palindrome and reverse of other part exists
+
+
  *
  * APPROACH:
- * 1. **Build a Trie**: Insert all words in reverse order with their indices
- * 2. **Search for pairs**: For each word, traverse the Trie looking for:
+
+
  *    - Exact reverse match (different index)
  *    - Prefix match where remaining suffix is palindrome
  *    - Complete word traversal where remaining Trie path forms palindrome
- * 3. **Handle edge cases**: Empty strings, single characters, duplicate checking
+
  *
  * WHY THIS WORKS:
  * - Trie allows efficient prefix matching in O(k) where k is word length
