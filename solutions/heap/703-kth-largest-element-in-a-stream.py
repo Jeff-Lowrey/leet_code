@@ -1,7 +1,6 @@
 """
 # 703. Kth Largest Element in a Stream
-**Easy**
-
+# Difficulty: Easy
 Design a class to find the kth largest element in a stream. Note that it is the kth largest element in the sorted order, not the kth distinct element.
 
 Implement KthLargest class:
@@ -76,7 +75,6 @@ add(10):
 
 import heapq
 
-
 class KthLargest:
     """Find kth largest element in a stream using min-heap."""
 
@@ -121,7 +119,6 @@ class KthLargest:
         # Root of min-heap is kth largest
         return self.heap[0]
 
-
 class KthLargestAlternative:
     """Alternative implementation with explicit heap initialization."""
 
@@ -143,7 +140,6 @@ class KthLargestAlternative:
             heapq.heapreplace(self.heap, val)
 
         return self.heap[0]
-
 
 def test_solution() -> None:
     """Test cases for Problem 703."""
@@ -195,7 +191,6 @@ def test_solution() -> None:
     print("Test case 6 passed: Alternative implementation")
 
     print("\nAll test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

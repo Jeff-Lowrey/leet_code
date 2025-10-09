@@ -1,7 +1,6 @@
 """
 # 692. Top K Frequent Words
-**Medium**
-
+# Difficulty: Medium
 Given an array of strings words and an integer k, return the k most frequent strings.
 
 Return the answer sorted by the frequency from highest to lowest. Sort the words with the same frequency by their lexicographical order.
@@ -58,7 +57,6 @@ Result: ["i", "love"] (after reversing)
 
 </details>
 """
-
 
 class Solution:
     def topKFrequent(self, words: list[str], k: int) -> list[str]:
@@ -198,7 +196,6 @@ class Solution:
         result = sorted(heap, key=lambda x: (-x[0], x[1]))
         return [word for freq, word in result]
 
-
 def test_solution():
     """Test cases for Problem 692."""
     solution = Solution()
@@ -251,7 +248,6 @@ def test_solution():
     assert result9 == expected9, f"Expected {expected9}, got {result9}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

@@ -1,7 +1,6 @@
 """
 # 767. Reorganize String
-**Medium**
-
+# Difficulty: Medium
 Given a problem that demonstrates key concepts in Heap.
 
 <details>
@@ -51,7 +50,6 @@ The approach uses heap techniques to solve this problem efficiently.
 
 </details>
 """
-
 
 class Solution:
     def reorganizeString(self, s: str) -> str:
@@ -111,7 +109,6 @@ class Solution:
 
         return "".join(result)
 
-
 def test_solution():
     """
     Test cases for 767. Reorganize String.
@@ -129,7 +126,6 @@ def test_solution():
     # assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

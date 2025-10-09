@@ -1,7 +1,6 @@
 """
 # 451. Sort Characters By Frequency
-**Medium**
-
+# Difficulty: Medium
 Given a string s, sort it in decreasing order based on the frequency of the characters.
 The frequency of a character is the number of times it appears in the string.
 
@@ -49,7 +48,6 @@ Step 3: Build result: "eert" (or "eetr")
 
 import heapq
 from collections import Counter
-
 
 class Solution:
     def frequencySort(self, s: str) -> str:
@@ -146,7 +144,6 @@ class Solution:
 
         return "".join(result)
 
-
 def test_solution():
     """Test cases for Problem 451."""
     solution = Solution()
@@ -179,7 +176,6 @@ def test_solution():
     assert len(result6) == 4 and result6.count("e") == 2, f"Failed test 6: {result6}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

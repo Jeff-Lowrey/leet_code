@@ -1,7 +1,6 @@
 """
 # 373. Find K Pairs With Smallest Sums
-**Medium**
-
+# Difficulty: Medium
 Given a problem that demonstrates key concepts in Heap.
 
 <details>
@@ -52,7 +51,6 @@ The approach uses heap techniques to solve this problem efficiently.
 </details>
 """
 
-
 class Solution:
     def kSmallestPairs(self, nums1: List[int], nums2: List[int], k: int) -> List[List[int]]:
         """
@@ -101,7 +99,6 @@ class Solution:
 
         return result
 
-
 def test_solution():
     """
     Test cases for 373. Find K Pairs With Smallest Sums.
@@ -119,7 +116,6 @@ def test_solution():
     # assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

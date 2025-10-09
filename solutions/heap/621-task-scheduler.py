@@ -1,7 +1,6 @@
 """
 # 621. Task Scheduler
-**Medium**
-
+# Difficulty: Medium
 Given a characters array tasks, representing the tasks a CPU needs to do, where each letter represents a different task. Tasks could be done in any order. Each task is done in one unit of time. For each unit of time, the CPU could complete either one task or just be idle.
 
 However, there is a non-negative integer n that represents the cooldown period between two same tasks (the same letter in the array), that is that there must be at least n units of time between any two same tasks.
@@ -70,7 +69,6 @@ Total: 8 units
 
 import heapq
 from collections import Counter, deque
-
 
 class Solution:
     def leastInterval(self, tasks: list[str], n: int) -> int:
@@ -199,7 +197,6 @@ class Solution:
 
         return time
 
-
 def test_solution() -> None:
     """Test cases for Problem 621."""
     solution = Solution()
@@ -238,7 +235,6 @@ def test_solution() -> None:
     print("Test case 8 passed: Verbose")
 
     print("\nAll test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

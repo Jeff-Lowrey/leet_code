@@ -1,7 +1,6 @@
 """
 # 295. Find Median from Data Stream
-**Hard**
-
+# Difficulty: Hard
 The median is the middle value in an ordered integer list. If the size of the list is even, there is no middle value, and the median is the mean of the two middle values.
 
 Implement the MedianFinder class:
@@ -75,7 +74,6 @@ addNum(4):
 
 import heapq
 
-
 class MedianFinder:
     """Find median from data stream using two heaps."""
 
@@ -128,7 +126,6 @@ class MedianFinder:
             # Even count: average of both tops
             return (-self.left[0] + self.right[0]) / 2.0
 
-
 class MedianFinderAlternative:
     """Alternative implementation with clearer logic."""
 
@@ -160,7 +157,6 @@ class MedianFinderAlternative:
         if len(self.small) > len(self.large):
             return float(-self.small[0])
         return (-self.small[0] + self.large[0]) / 2.0
-
 
 def test_solution() -> None:
     """Test cases for Problem 295."""
@@ -233,7 +229,6 @@ def test_solution() -> None:
     print("Test case 8 passed: Alternative implementation")
 
     print("\nAll test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

@@ -1,7 +1,6 @@
 """
 # 215. Kth Largest Element in an Array
-**Medium**
-
+# Difficulty: Medium
 Given an integer array nums and an integer k, return the kth largest element in the array.
 
 Note that it is the kth largest element in the sorted order, not the kth distinct element.
@@ -79,7 +78,6 @@ QuickSelect approach:
 
 import heapq
 import random
-
 
 class Solution:
     def findKthLargest(self, nums: list[int], k: int) -> int:
@@ -198,7 +196,6 @@ class Solution:
 
         return -heapq.heappop(max_heap)
 
-
 def test_solution() -> None:
     """Test cases for Problem 215."""
     solution = Solution()
@@ -249,7 +246,6 @@ def test_solution() -> None:
     print("Test case 11 passed: heapq.nlargest")
 
     print("\nAll test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

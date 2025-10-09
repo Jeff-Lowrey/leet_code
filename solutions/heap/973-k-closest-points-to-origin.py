@@ -1,7 +1,6 @@
 """
 # 973. K Closest Points To Origin
-**Medium**
-
+# Difficulty: Medium
 Given a problem that demonstrates key concepts in Heap.
 
 <details>
@@ -51,7 +50,6 @@ The approach uses heap techniques to solve this problem efficiently.
 
 </details>
 """
-
 
 class Solution:
     """
@@ -141,7 +139,6 @@ class Solution:
         select(0, len(points) - 1, k)
         return points[:k]
 
-
 def test_solution():
     """
     Test cases for 973. K Closest Points To Origin.
@@ -159,7 +156,6 @@ def test_solution():
     # assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()
