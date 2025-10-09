@@ -1,6 +1,5 @@
 /**
- * 200. Number Of Islands
- * Medium
+
  *
  * This problem demonstrates key concepts in Graphs.
  *
@@ -23,8 +22,8 @@
  *
  * EXAMPLE WALKTHROUGH:
  * Grid: [["1","1","0"],["0","1","0"],["0","0","1"]]
- * 1. Find '1' at (0,0), DFS marks (0,0), (0,1), (1,1) - count = 1
- * 2. Find '1' at (2,2), DFS marks (2,2) - count = 2
+
+
  * Result: 2 islands
  *
  * EDGE CASES:

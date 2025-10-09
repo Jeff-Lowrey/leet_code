@@ -1,6 +1,5 @@
 /**
- * 733. Flood Fill
- * Easy
+
  *
  * This problem demonstrates key concepts in Graphs.
  *
@@ -11,10 +10,10 @@
  * to a new color. Use DFS to explore connected components.
  *
  * APPROACH:
- * 1. Start from the given pixel position
- * 2. If pixel is already the new color, return (no change needed)
- * 3. Use DFS to visit all connected pixels with the original color
- * 4. Change each visited pixel to the new color
+
+
+
+
  *
  * WHY THIS WORKS:
  * - DFS naturally explores all connected pixels of the same color

@@ -1,6 +1,5 @@
 /**
- * 417. Pacific Atlantic Water Flow
- * Medium
+
  *
  * This problem demonstrates key concepts in Graphs.
  *
@@ -11,9 +10,9 @@
  * start from ocean borders and find which cells can reach each ocean.
  *
  * APPROACH:
- * 1. Run DFS from Pacific borders (top and left edges) to mark reachable cells
- * 2. Run DFS from Atlantic borders (bottom and right edges) to mark reachable cells
- * 3. Find intersection - cells reachable from both oceans
+
+
+
  *
  * WHY THIS WORKS:
  * - Reverse thinking: start from destinations (oceans) rather than sources

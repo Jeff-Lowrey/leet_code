@@ -1,6 +1,5 @@
 /**
- * 1306. Jump Game Iii
- * Medium
+
  *
  * This problem demonstrates key concepts in Graphs.
  *
@@ -11,10 +10,10 @@
  * Use BFS/DFS to explore all reachable positions from start.
  *
  * APPROACH:
- * 1. Use BFS to explore all reachable positions from starting index
- * 2. From index i, can jump to i+arr[i] or i-arr[i] (if valid)
- * 3. Track visited positions to avoid cycles
- * 4. Return true if we reach any index with value 0
+
+
+
+
  *
  * WHY THIS WORKS:
  * - BFS explores all reachable positions level by level

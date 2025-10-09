@@ -1,6 +1,5 @@
 /**
- * 827. Making A Large Island
- * Hard
+
  *
  * This problem demonstrates key concepts in Graphs.
  *
@@ -11,9 +10,9 @@
  * Pre-compute all island sizes, then for each 0, calculate potential island size.
  *
  * APPROACH:
- * 1. Label each island with unique ID and store its size
- * 2. For each 0, check adjacent islands and sum their sizes + 1
- * 3. Handle case where grid is already all 1s
+
+
+
  *
  * WHY THIS WORKS:
  * - Pre-computation avoids recalculating island sizes for each 0
@@ -25,9 +24,9 @@
  *
  * EXAMPLE WALKTHROUGH:
  * Grid: [[1,0],[0,1]]
- * 1. Label islands: [[2,0],[0,3]] with sizes {2:1, 3:1}
- * 2. Check (0,1): adjacent to island 2, size = 1 + 1 = 2
- * 3. Check (1,0): adjacent to island 3, size = 1 + 1 = 2
+
+
+
  * Result: max(2, 2) = 2
  *
  * EDGE CASES:

@@ -1,6 +1,5 @@
 /**
- * 261. Graph Valid Tree
- * Medium
+
  *
  * This problem demonstrates key concepts in Graphs.
  *
@@ -11,9 +10,9 @@
  * We can use Union-Find to detect cycles and ensure connectivity.
  *
  * APPROACH:
- * 1. Check if edges count is exactly n-1 (necessary condition for tree)
- * 2. Use Union-Find to detect cycles while processing edges
- * 3. Verify all nodes are in the same connected component
+
+
+
  *
  * WHY THIS WORKS:
  * - Union-Find efficiently detects cycles during edge addition

@@ -1,6 +1,5 @@
 /**
- * 695. Max Area Of Island
- * Medium
+
  *
  * This problem demonstrates key concepts in Graphs.
  *
@@ -11,10 +10,10 @@
  * Use DFS to explore each island and calculate its area.
  *
  * APPROACH:
- * 1. Iterate through each cell in the grid
- * 2. When we find a 1, start DFS to calculate the area of that island
- * 3. Mark visited cells as 0 to avoid double counting
- * 4. Track the maximum area found
+
+
+
+
  *
  * WHY THIS WORKS:
  * - DFS explores the entire connected component in one traversal

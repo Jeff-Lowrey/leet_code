@@ -1,6 +1,5 @@
 /**
- * 997. Find The Town Judge
- * Easy
+
  *
  * This problem demonstrates key concepts in Graphs.
  *
@@ -11,9 +10,9 @@
  * In graph terms: judge has indegree n-1 and outdegree 0.
  *
  * APPROACH:
- * 1. Calculate net trust score (indegree - outdegree) for each person
- * 2. Judge should have net score of n-1 (trusted by all others)
- * 3. Everyone else should have net score < n-1
+
+
+
  *
  * WHY THIS WORKS:
  * - Judge: receives n-1 trust, gives 0 trust → net = n-1

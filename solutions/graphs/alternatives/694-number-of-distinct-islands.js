@@ -1,6 +1,5 @@
 /**
- * 694. Number Of Distinct Islands
- * Medium
+
  *
  * This problem demonstrates key concepts in Graphs.
  *
@@ -11,9 +10,9 @@
  * translated to match the other. Use path encoding during DFS to capture shape.
  *
  * APPROACH:
- * 1. For each island, perform DFS and record the path (sequence of directions)
- * 2. Normalize the path by making it relative to the starting position
- * 3. Use a Set to store unique island signatures
+
+
+
  *
  * WHY THIS WORKS:
  * - Path encoding captures the relative shape of each island

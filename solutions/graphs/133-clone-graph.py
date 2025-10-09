@@ -35,7 +35,6 @@ The key challenge is handling `cycles - we` need to avoid infinite loops.
 - [Explanation of correctness]
 
 ### EXAMPLE WALKTHROUGH:
-
 Input:
 ```
 [example input]
