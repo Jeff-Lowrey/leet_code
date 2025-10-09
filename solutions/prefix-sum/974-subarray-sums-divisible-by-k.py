@@ -1,6 +1,6 @@
 """
-974. Subarray Sums Divisible By K
 # Difficulty: Medium
+
 Given an integer array nums and an integer k, return the number of non-empty subarrays
 that have a sum divisible by k.
 
@@ -11,6 +11,17 @@ Input: nums = [4,5,0,-2,-3,1], k = 5
 Output: 7
 Explanation: There are 7 subarrays with a sum divisible by k = 5:
 [4, 5, 0, -2, -3, 1], [5], [5, 0], [5, 0, -2, -3], [0], [0, -2, -3], [-2, -3]
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -31,9 +42,6 @@ If prefix[i] % k == prefix[j] % k, then sum(nums[i+1:j+1]) % k == 0.
 For n occurrences of a remainder, there are n*(n-1)/2 pairs, but we count
 incrementally: each new occurrence pairs with all previous occurrences.
 
-### TIME COMPLEXITY: O(n)
-### SPACE COMPLEXITY: O(min(n, k))
-
 ### EXAMPLE WALKTHROUGH:
 ```
 nums = [4,5,0,-2,-3,1], k = 5
@@ -50,9 +58,11 @@ Index 5: rem=0, count=1 (initial 0), add {0:2, 4:4, 2:1}
 Total: 0+1+2+0+3+1 = 7
 ```
 
-### KEY INSIGHT:
-Unlike problem 523 (which needs length ≥ 2), this counts ALL subarrays,
-so we initialize with {0: 1} and count immediately.
+### TIME COMPLEXITY:
+O(n)
+
+### SPACE COMPLEXITY:
+O(min(n, k))
 
 ### EDGE CASES:
 - k = 1: All subarrays are divisible (return n*(n+1)/2)

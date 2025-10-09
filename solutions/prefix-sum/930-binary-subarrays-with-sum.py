@@ -1,6 +1,6 @@
 """
-930. Binary Subarrays With Sum
 # Difficulty: Medium
+
 Given a binary array nums and an integer goal, return the number of non-empty subarrays
 with a sum equal to goal.
 
@@ -11,8 +11,19 @@ Input: nums = [1,0,1,0,1], goal = 2
 Output: 4
 Explanation: The 4 subarrays are [1,0,1], [1,0,1,0], [0,1,0,1], [1,0,1]
 
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
+
 <details>
-<parameter name="🔍 SOLUTION EXPLANATION</b></summary>
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
 Use prefix sum with hash map. For each position, count how many previous positions
@@ -29,9 +40,6 @@ current position with sum equal to goal.
 If prefix[j] - prefix[i] = goal, then sum(nums[i+1:j+1]) = goal.
 For each j, count all i where prefix[i] = prefix[j] - goal.
 
-### TIME COMPLEXITY: O(n)
-### SPACE COMPLEXITY: O(n)
-
 ### EXAMPLE WALKTHROUGH:
 ```
 nums = [1,0,1,0,1], goal = 2
@@ -46,8 +54,11 @@ Index 4: sum=3, need 3-2=1 (found 2), count=4
 Total: 4
 ```
 
-### ALTERNATIVE: Sliding Window (at most X technique)
-atMost(goal) - atMost(goal-1) = exactly(goal)
+### TIME COMPLEXITY:
+O(n)
+
+### SPACE COMPLEXITY:
+O(n)
 
 ### EDGE CASES:
 - goal = 0: Count subarrays with all zeros

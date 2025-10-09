@@ -1,9 +1,22 @@
 """
-# 437. Path Sum III
 # Difficulty: Medium
+
+# 437. Path Sum III
+
 Given the root of a binary tree and an integer targetSum, return the number of paths where the sum of the values along the path equals targetSum.
 
 The path does not need to start or end at the root or a leaf, but it must go downwards (i.e., traveling only from parent nodes to child nodes).
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -24,12 +37,6 @@ This problem extends the prefix sum concept to binary trees. For any path from n
 - Therefore: prefix_sum[A] = prefix_sum[B] - targetSum
 - By storing prefix sums in hashmap during DFS, we can find all valid starting points
 - Backtracking ensures we only count paths that go downwards (no upward paths)
-
-### TIME COMPLEXITY: O(n)
-Visit each node exactly once, with O(1) hashmap operations per node
-
-### SPACE COMPLEXITY: O(h)
-Recursion stack depth is tree height h, hashmap stores at most h entries in any path
 
 ### EXAMPLE WALKTHROUGH:
 ```
@@ -54,11 +61,13 @@ Node 3: sum=21, need=21-8=13, count=0, map={0:1, 10:1, 15:1, 18:1, 21:1}
 Total paths with sum 8: 3
 ```
 
-### KEY INSIGHTS:
-- Initialize hashmap with {0: 1} to handle paths starting from root
-- Backtrack after exploring subtree to maintain correct prefix sum counts
-- Each path contributes to count when we find matching prefix sum
-- Tree structure ensures paths only go downwards (no cycles)
+### TIME COMPLEXITY:
+O(n)
+Visit each node exactly once, with O(1) hashmap operations per node
+
+### SPACE COMPLEXITY:
+O(h)
+Recursion stack depth is tree height h, hashmap stores at most h entries in any path
 
 ### EDGE CASES:
 - Empty tree (return 0)
@@ -70,13 +79,6 @@ Total paths with sum 8: 3
 
 </details>
 """
-
-# Definition for a binary tree node.
-class TreeNode:
-    def __init__(self, val=0, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
 
 class Solution:
     def pathSum(self, root: TreeNode | None, targetSum: int) -> int:

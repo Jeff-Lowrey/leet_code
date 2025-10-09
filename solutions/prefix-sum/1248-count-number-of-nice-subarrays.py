@@ -1,9 +1,22 @@
 """
-# 1248. Count Number Of Nice Subarrays
 # Difficulty: Medium
+
+# 1248. Count Number Of Nice Subarrays
+
 Given an array of integers nums and an integer k. A continuous subarray is called nice if there are k odd numbers on it.
 
 Return the number of nice sub-arrays.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -23,12 +36,6 @@ This problem is a variation of "subarray sum equals k" but instead of sum, we co
 - Use the same technique as "Subarray Sum Equals K"
 - prefix_count[j] - prefix_count[i] = k means subarray from i+1 to j has k odd numbers
 
-### TIME COMPLEXITY: O(n)
-Single pass through array with HashMap operations
-
-### SPACE COMPLEXITY: O(n)
-For the frequency HashMap
-
 ### EXAMPLE WALKTHROUGH:
 ```
 Input: nums = [1,1,2,1,1], k = 3
@@ -40,11 +47,13 @@ For each position, check if (current_count - k) exists:
 Total: 2 nice subarrays
 ```
 
-### KEY INSIGHTS:
-- Transform to binary problem (odd=1, even=0)
-- Apply prefix sum technique for counting subarrays
-- Use HashMap to track prefix count frequencies
-- Each occurrence of (prefix_count - k) represents a valid subarray
+### TIME COMPLEXITY:
+O(n)
+Single pass through array with HashMap operations
+
+### SPACE COMPLEXITY:
+O(n)
+For the frequency HashMap
 
 ### EDGE CASES:
 - No odd numbers in array

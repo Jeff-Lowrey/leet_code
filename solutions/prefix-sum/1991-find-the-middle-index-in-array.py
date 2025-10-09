@@ -1,6 +1,8 @@
 """
-# 1991. Find The Middle Index In Array
 # Difficulty: Easy
+
+# 1991. Find The Middle Index In Array
+
 Given a 0-indexed integer array nums, find the leftmost middleIndex (i.e., the smallest amongst all the possible ones).
 
 A middleIndex is an index where nums[0] + nums[1] + ... + nums[middleIndex-1] == nums[middleIndex+1] + nums[middleIndex+2] + ... + nums[nums.length-1].
@@ -8,6 +10,17 @@ A middleIndex is an index where nums[0] + nums[1] + ... + nums[middleIndex-1] ==
 If middleIndex == 0, the left side sum is considered to be 0. Similarly, if middleIndex == nums.length - 1, the right side sum is considered to be 0.
 
 Return the leftmost middleIndex that satisfies the condition, or -1 if there is no such index.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -31,12 +44,6 @@ This is a classic prefix sum problem. For any index to be the middle index, the 
 - By maintaining running left_sum, we can check each position in O(1)
 - Single pass solution after calculating total sum
 
-### TIME COMPLEXITY: O(n)
-Two passes: one to calculate total sum, one to find middle index
-
-### SPACE COMPLEXITY: O(1)
-Only using constant extra space for variables
-
 ### EXAMPLE WALKTHROUGH:
 ```
 Input: nums = [2,3,-1,8,4]
@@ -48,11 +55,13 @@ Index 2: left=5, right=16-5-(-1)=12, not equal
 Index 3: left=4, right=16-4-8=4, equal! Return 3
 ```
 
-### KEY INSIGHTS:
-- No need to store prefix sum array - just track left_sum
-- Right sum can be calculated from total - left_sum - current
-- Handle edge cases: index 0 (left=0) and last index (right=0)
-- Return leftmost (first) index that satisfies condition
+### TIME COMPLEXITY:
+O(n)
+Two passes: one to calculate total sum, one to find middle index
+
+### SPACE COMPLEXITY:
+O(1)
+Only using constant extra space for variables
 
 ### EDGE CASES:
 - Single element array (always middle index)

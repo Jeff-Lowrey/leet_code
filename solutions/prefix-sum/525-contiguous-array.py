@@ -1,6 +1,6 @@
 """
-525. Contiguous Array
 # Difficulty: Medium
+
 Given a binary array nums, return the maximum length of a contiguous subarray
 with an equal number of 0 and 1.
 
@@ -8,6 +8,17 @@ Example:
 Input: nums = [0,1]
 Output: 2
 Explanation: [0, 1] is the longest contiguous subarray with an equal number of 0 and 1.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -27,9 +38,6 @@ seen each sum value before.
 If we treat 0 as -1, then a subarray with equal 0s and 1s will have sum 0.
 Using prefix sums: if prefix[i] == prefix[j], then sum(nums[i+1:j+1]) == 0.
 
-### TIME COMPLEXITY: O(n)
-### SPACE COMPLEXITY: O(n)
-
 ### EXAMPLE WALKTHROUGH:
 ```
 nums = [0, 1, 0]
@@ -42,6 +50,12 @@ Index 1: sum 0, seen at index -1, length = 1 - (-1) = 2
 Index 2: sum -1, seen at index 0, length = 2 - 0 = 2
 Maximum length = 2
 ```
+
+### TIME COMPLEXITY:
+O(n)
+
+### SPACE COMPLEXITY:
+O(n)
 
 ### EDGE CASES:
 - All 0s or all 1s: No equal subarray (return 0)

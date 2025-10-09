@@ -1,11 +1,24 @@
 """
-# 1590. Make Sum Divisible By P
 # Difficulty: Medium
+
+# 1590. Make Sum Divisible By P
+
 Given an array of positive integers nums, remove the smallest subarray (possibly empty) such that the sum of the remaining elements is divisible by p. It is not allowed to remove the whole array.
 
 Return the length of the smallest subarray that you need to remove, or -1 if it's impossible.
 
 A subarray is defined as a contiguous block of elements in the array.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -28,12 +41,6 @@ The problem requires finding the smallest subarray to remove so that the remaini
 - Rearranging: prefix[i-1] % p = (prefix[j] - target_remainder) % p
 - Store prefix remainders in hashmap to find matches in O(1)
 
-### TIME COMPLEXITY: O(n)
-Single pass through array with O(1) hashmap operations
-
-### SPACE COMPLEXITY: O(min(n, p))
-Hashmap stores at most min(n, p) different remainders
-
 ### EXAMPLE WALKTHROUGH:
 ```
 Input: nums = [3,1,4,2], p = 6
@@ -49,12 +56,13 @@ Minimum length = 1 (removing [4])
 Result: [3,1,2] sums to 6, which is divisible by 6
 ```
 
-### KEY INSIGHTS:
-- Use modulo arithmetic to handle divisibility
-- Prefix sum modulo gives us the "signature" of each position
-- Need to handle negative modulo correctly in Python
-- Store index -1 with remainder 0 to handle removing from start
-- Cannot remove entire array (check if min_length == n)
+### TIME COMPLEXITY:
+O(n)
+Single pass through array with O(1) hashmap operations
+
+### SPACE COMPLEXITY:
+O(min(n, p))
+Hashmap stores at most min(n, p) different remainders
 
 ### EDGE CASES:
 - Total sum already divisible by p (return 0)
