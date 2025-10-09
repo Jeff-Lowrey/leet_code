@@ -35,7 +35,6 @@ Generate all permutations by systematically trying each unused element at each p
 - Systematic exploration guarantees all permutations are found
 
 ### EXAMPLE WALKTHROUGH:
-
 Input:
 ```
 [example input]

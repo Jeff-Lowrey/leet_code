@@ -1,6 +1,5 @@
 /**
- * 077. Combinations
- * Medium
+
  *
  * Given two integers n and k, return all possible combinations of k numbers
  * chosen from the range [1, n]. You may return the answer in any order.
@@ -13,10 +12,10 @@
  * Unlike permutations, [1,2] and [2,1] are the same combination.
  *
  * APPROACH:
- * 1. **Use backtracking with start index**: Avoid duplicates by only considering numbers >= current start
- * 2. **Base case**: When current combination has k elements, add to result
- * 3. **Choose/Explore/Unchoose**: Add number, recurse, then remove number
- * 4. **Pruning**: If remaining numbers insufficient to complete combination, stop early
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Start index ensures we never go backwards, preventing duplicate combinations

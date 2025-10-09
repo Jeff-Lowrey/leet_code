@@ -1,6 +1,5 @@
 /**
- * 131. Palindrome Partitioning
- * Medium
+
  *
  * Given a string s, partition s such that every substring of the partition is a palindrome.
  * Return all possible palindrome partitioning of s.
@@ -13,11 +12,11 @@
  * then recursively partition the remaining string.
  *
  * APPROACH:
- * 1. **Palindrome helper function**: Check if a substring is a palindrome
- * 2. **Backtracking**: At each position, try all valid palindromic prefixes
- * 3. **Base case**: When we reach the end of string, add current partition to results
- * 4. **Choose/Explore/Unchoose**: Add palindrome to partition, recurse, then remove
- * 5. **Optimization**: Pre-compute palindromes for better performance (optional)
+
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Backtracking systematically explores all possible partitions

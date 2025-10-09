@@ -1,6 +1,5 @@
 /**
- * 047. Permutations II
- * Medium
+
  *
  * Given a collection of numbers, nums, that might contain duplicates,
  * return all possible unique permutations in any order.
@@ -13,11 +12,11 @@
  * We need to skip duplicate branches while still allowing duplicate numbers within permutations.
  *
  * APPROACH:
- * 1. **Sort the array**: Essential for duplicate detection and skipping
- * 2. **Use boolean array for tracking**: Track which elements are used
- * 3. **Skip duplicates at same level**: When multiple identical elements exist, only use them in order
- * 4. **Backtracking**: Generate permutations using choose/explore/unchoose pattern
- * 5. **Base case**: When permutation length equals input length, add to results
+
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Sorting enables duplicate detection at the same recursion level

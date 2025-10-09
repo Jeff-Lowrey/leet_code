@@ -1,6 +1,5 @@
 /**
- * 039. Combination Sum
- * Medium
+
  *
  * Given an array of distinct integers candidates and a target integer target,
  * return a list of all unique combinations of candidates where the chosen numbers sum to target.
@@ -14,11 +13,11 @@
  * our search to avoid duplicates while allowing reuse of the same element.
  *
  * APPROACH:
- * 1. **Sort the array**: Helps with early termination and duplicate avoidance
- * 2. **Backtracking**: For each candidate, either include it or skip it
- * 3. **Reuse allowed**: Since we can reuse numbers, don't increment start index when including
- * 4. **Early termination**: If current sum exceeds target, stop exploring
- * 5. **Base case**: When sum equals target, add combination to results
+
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Systematically explores all valid combinations using choose/explore/unchoose pattern

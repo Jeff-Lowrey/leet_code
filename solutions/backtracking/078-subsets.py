@@ -37,7 +37,6 @@ Generate all possible subsets (power set) by making binary choices for each elem
 - Adding current subset at each step captures all intermediate states
 
 ### EXAMPLE WALKTHROUGH:
-
 Input:
 ```
 [example input]

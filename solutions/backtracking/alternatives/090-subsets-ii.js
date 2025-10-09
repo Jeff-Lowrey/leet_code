@@ -1,6 +1,5 @@
 /**
- * 090. Subsets II
- * Medium
+
  *
  * Given an integer array nums that may contain duplicates, return all possible subsets (the power set).
  * The solution set must not contain duplicate subsets. Return the solution in any order.
@@ -13,11 +12,11 @@
  * We need to handle duplicates in the input while avoiding duplicate subsets.
  *
  * APPROACH:
- * 1. **Sort the array**: Essential for duplicate detection and skipping
- * 2. **Skip duplicate elements at same level**: Use index-based duplicate skipping
- * 3. **Backtracking with choices**: For each element, include or exclude it
- * 4. **Add subsets at each step**: Each recursive call represents a valid subset
- * 5. **Use start index**: Process elements in order to avoid going backward
+
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Sorting enables duplicate detection at the same recursion level

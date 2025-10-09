@@ -1,6 +1,5 @@
 /**
- * 017. Letter Combinations Of A Phone Number
- * Medium
+
  *
  * Given a string containing digits from 2-9 inclusive, return all possible letter combinations
  * that the number could represent. Return the answer in any order.
@@ -12,10 +11,10 @@
  * by making choices at each digit position and backtracking when we complete a combination.
  *
  * APPROACH:
- * 1. **Map digits to letters**: Create a mapping from digits to their corresponding letters
- * 2. **Backtracking**: For each digit, try all possible letters and recursively build combinations
- * 3. **Base case**: When we've processed all digits, add the current combination to results
- * 4. **Backtrack**: Remove the last character and try the next possibility
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Systematically explores all possible combinations using choose/explore/unchoose pattern

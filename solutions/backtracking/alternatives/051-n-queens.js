@@ -1,6 +1,5 @@
 /**
- * 051. N-Queens
- * Hard
+
  *
  * The n-queens puzzle is the problem of placing n queens on an n×n chessboard
  * such that no two queens attack each other. Given an integer n, return all
@@ -14,11 +13,11 @@
  * and check if the current placement conflicts with previously placed queens.
  *
  * APPROACH:
- * 1. **Place queens row by row**: Try each column in current row
- * 2. **Conflict checking**: Ensure no attacks with previously placed queens
- * 3. **Backtracking**: If no valid column in current row, backtrack to previous row
- * 4. **Base case**: When all n queens are placed, record the solution
- * 5. **Board representation**: Use array of strings for final output format
+
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Row-by-row placement ensures no row conflicts

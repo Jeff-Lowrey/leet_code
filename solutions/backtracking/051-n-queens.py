@@ -51,7 +51,6 @@ Place queens one row at a time and backtrack when conflicts arise. Queens attack
 - Early pruning prevents exploring invalid partial solutions
 
 ### EXAMPLE WALKTHROUGH:
-
 Input:
 ```
 [example input]

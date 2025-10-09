@@ -1,6 +1,5 @@
 /**
- * 078. Subsets
- * Medium
+
  *
  * Given an integer array nums of unique elements, return all possible subsets (the power set).
  * The solution set must not contain duplicate subsets. Return the solution in any order.
@@ -13,11 +12,11 @@
  * For n elements, there are exactly 2^n subsets (including empty subset).
  *
  * APPROACH:
- * 1. **Start with empty subset**: Always included in power set
- * 2. **For each element**: Make binary choice - include or exclude
- * 3. **Backtracking**: At each index, try both including and excluding current element
- * 4. **Add all subsets**: Each recursive call represents a valid subset
- * 5. **Use index to avoid duplicates**: Process elements in order, no going back
+
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Each element has 2 choices: include or exclude

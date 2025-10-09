@@ -1,6 +1,5 @@
 /**
- * 046. Permutations
- * Medium
+
  *
  * Given an array nums of distinct integers, return all the possible permutations.
  * You can return the answer in any order.
@@ -13,10 +12,10 @@
  * Since all elements are distinct, we don't need to worry about duplicate permutations.
  *
  * APPROACH:
- * 1. **Use a boolean array to track used elements**: Maintain which elements are already in current permutation
- * 2. **Backtracking**: At each position, try every unused element
- * 3. **Base case**: When current permutation length equals input length, add to results
- * 4. **Choose/Explore/Unchoose**: Add element, recurse, then remove element and mark as unused
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Each permutation uses every element exactly once

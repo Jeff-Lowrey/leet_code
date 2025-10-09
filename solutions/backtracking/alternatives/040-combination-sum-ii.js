@@ -1,6 +1,5 @@
 /**
- * 040. Combination Sum II
- * Medium
+
  *
  * Given a collection of candidate numbers (candidates) and a target number (target),
  * find all unique combinations in candidates where the candidate numbers sum to target.
@@ -10,16 +9,16 @@
  *
  * INTUITION:
  * This is similar to Combination Sum I, but with two key differences:
- * 1. Each number can only be used once (not unlimited times)
- * 2. The input array may contain duplicates, and we need to avoid duplicate combinations
+
+
  * The challenge is to handle duplicates properly while ensuring each number is used at most once.
  *
  * APPROACH:
- * 1. **Sort the array**: Critical for duplicate handling and early termination
- * 2. **Backtracking with index advancement**: Move to next index after including/excluding
- * 3. **Skip duplicates**: When at same level, skip duplicate values to avoid duplicate combinations
- * 4. **Early termination**: If current sum exceeds target, stop exploring
- * 5. **Base case**: When sum equals target, add combination to results
+
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Sorting enables duplicate detection and early termination
