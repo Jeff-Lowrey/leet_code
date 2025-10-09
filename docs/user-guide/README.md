@@ -1,102 +1,61 @@
 # User Guide
 
+Welcome to the Leet Code Learning Tool User Guide! This comprehensive guide will help you make the most of the platform for browsing, studying, and mastering LeetCode problem solutions.
+
 ## Table of Contents
 
-1. [Overview](#overview)
-2. [Getting Started](#getting-started)
-   - [Installation](#installation)
-   - [Running the Application](#running-the-application)
-3. [Browsing Solutions](#browsing-solutions)
-   - [Category Navigation](#category-navigation)
-   - [Solution Details](#solution-details)
-   - [Filtering and Search](#filtering-and-search)
-4. [Downloading Solutions](#downloading-solutions)
-   - [Download Formats](#download-formats)
-   - [Language Selection](#language-selection)
-   - [ZIP Bundles](#zip-bundles)
-5. [Code Viewing](#code-viewing)
-   - [Syntax Highlighting](#syntax-highlighting)
-   - [Language Switching](#language-switching)
-   - [LeetCode Format](#leetcode-format)
-6. [Understanding Solutions](#understanding-solutions)
-   - [Problem Descriptions](#problem-descriptions)
-   - [Approach Explanations](#approach-explanations)
-   - [Complexity Analysis](#complexity-analysis)
-7. [Study Strategies](#study-strategies)
-   - [Difficulty Progression](#difficulty-progression)
-   - [Pattern Recognition](#pattern-recognition)
-   - [Practice Tips](#practice-tips)
+1. [Overview](01-overview.md) - Introduction to the platform and key benefits
+2. [Getting Started](02-getting-started.md) - Installation, setup, and first-time navigation
+3. [Browsing Solutions](03-browsing-solutions.md) - Navigating categories, finding problems, and using quick access
+4. [Downloading Solutions](04-downloading-solutions.md) - Download formats, language-specific downloads, and ZIP bundles
+5. [Code Viewing](05-code-viewing.md) - Syntax highlighting, viewing modes, and multi-language comparison
+6. [Understanding Solutions](06-understanding-solutions.md) - Problem analysis, solution explanations, and complexity analysis
+7. [Study Strategies](07-study-strategies.md) - Learning paths, practice methods, and interview preparation
 
-## Overview
-[↑ Back to Table of Contents](#table-of-contents)
+## Quick Navigation
 
-Web-based platform for browsing, studying, and downloading LeetCode problem solutions across 29+ algorithmic categories.
+**New Users:** Start with [Overview](01-overview.md) → [Getting Started](02-getting-started.md)
 
-## Getting Started
-[↑ Back to Table of Contents](#table-of-contents)
+**Browsing & Downloads:** [Browsing Solutions](03-browsing-solutions.md) → [Downloading Solutions](04-downloading-solutions.md)
 
-### Installation
-Step-by-step installation instructions for setting up the application.
+**Learning & Study:** [Understanding Solutions](06-understanding-solutions.md) → [Study Strategies](07-study-strategies.md)
 
-### Running the Application
-How to start the web server and access the interface.
+**Code Features:** [Code Viewing](05-code-viewing.md) - Syntax highlighting and format conversion
 
-## Browsing Solutions
-[↑ Back to Table of Contents](#table-of-contents)
+## What This Guide Covers
 
-### Category Navigation
-Navigate between problem categories and view category-specific solutions.
+### For New Users
+- Platform overview and features
+- Installation and setup process
+- First-time navigation tips
+- Understanding the interface
 
-### Solution Details
-Understanding the solution page layout and information displayed.
+### For Learners
+- Browsing and finding solutions
+- Understanding solution components
+- Code viewing and format options
+- Effective study strategies
 
-### Filtering and Search
-Find specific problems by difficulty level or algorithmic pattern.
+### For Interview Preparation
+- Structured learning paths
+- Practice methodologies
+- Multi-language learning
+- Time management techniques
 
-## Downloading Solutions
-[↑ Back to Table of Contents](#table-of-contents)
+### For Contributors
+- Download and upload workflows
+- Multi-language support
+- Format conversion features
 
-### Download Formats
-Available download formats including skeleton, solution, and LeetCode submission formats.
+## Getting Help
 
-### Language Selection
-How language selection affects download content and file structure.
+Each guide section includes:
+- ✅ Detailed explanations
+- ✅ Visual examples
+- ✅ Best practices
+- ✅ Common troubleshooting
+- ✅ Navigation links
 
-### ZIP Bundles
-Download entire categories or problem sets as compressed archives.
+## Start Reading
 
-## Code Viewing
-[↑ Back to Table of Contents](#table-of-contents)
-
-### Syntax Highlighting
-Code display with language-specific syntax highlighting and formatting.
-
-### Language Switching
-Switch between Python, JavaScript, and other language implementations.
-
-### LeetCode Format
-Understanding the LeetCode submission format and conversion process.
-
-## Understanding Solutions
-[↑ Back to Table of Contents](#table-of-contents)
-
-### Problem Descriptions
-How to read and understand problem statements and requirements.
-
-### Approach Explanations
-Following the solution's reasoning, intuition, and step-by-step approach.
-
-### Complexity Analysis
-Understanding time and space complexity annotations and analysis.
-
-## Study Strategies
-[↑ Back to Table of Contents](#table-of-contents)
-
-### Difficulty Progression
-Recommended progression from Easy to Hard problems for effective learning.
-
-### Pattern Recognition
-Identifying common algorithmic patterns across different problem types.
-
-### Practice Tips
-Best practices for effective interview preparation and skill development.
+Begin your journey: **[Overview →](01-overview.md)**
