@@ -1,40 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Graphs.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Find the largest connected component of 1s in a 2D grid.
- * Use DFS to explore each island and calculate its area.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - DFS explores the entire connected component in one traversal
- * - Marking cells as visited prevents counting the same cell multiple times
- * - Each DFS call returns the total area of one island
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(m * n) - visit each cell at most once
- * SPACE COMPLEXITY: O(m * n) - recursion stack in worst case
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
- * Grid: [[1,1,0],[0,1,0],[1,0,1]]
- * Island 1: DFS from (0,0) visits (0,0), (0,1), (1,1) → area = 3
- * Island 2: DFS from (2,0) visits (2,0) → area = 1
- * Island 3: DFS from (2,2) visits (2,2) → area = 1
- * Max area: 3
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
  *
- * EDGE CASES:
- * - Empty grid or all water (return 0)
- * - Single cell island
- * - Grid with all land (one big island)
- * - Multiple islands of same size
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * [example input]
+ * ```
+ *
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

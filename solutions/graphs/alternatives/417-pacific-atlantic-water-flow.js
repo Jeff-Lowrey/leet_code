@@ -1,40 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Graphs.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Instead of checking from each cell if water can reach both oceans,
- * start from ocean borders and find which cells can reach each ocean.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Reverse thinking: start from destinations (oceans) rather than sources
- * - Water flows from higher to lower, so we DFS in reverse (lower to higher)
- * - Intersection gives us cells where water can reach both oceans
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(m * n) - visit each cell at most twice
- * SPACE COMPLEXITY: O(m * n) - two visited arrays and recursion stack
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
-Grid: [[1,2,2,3,5],[3,2,3,4,4],[2,4,5,3,1],[6,7,1,4,5],[5,1,1,2,4]]
-Step 1: DFS from Pacific borders marks reachable cells
-Step 2: DFS from Atlantic borders marks reachable cells
-Step 3: Find intersection: [[0,4],[1,3],[1,4],[2,2],[3,0],[3,1],[4,0]]
-```
+ * [example input]
+ * ```
  *
- * EDGE CASES:
- * - Single cell (can reach both oceans)
- * - Single row or column
- * - All cells same height
- * - Empty grid
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

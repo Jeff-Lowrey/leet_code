@@ -1,39 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Graphs.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Classic flood fill algorithm - change all connected pixels of the same color
- * to a new color. Use DFS to explore connected components.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - DFS naturally explores all connected pixels of the same color
- * - Base cases prevent infinite recursion and invalid access
- * - Early termination when new color equals original color
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(m * n) - might visit all pixels
- * SPACE COMPLEXITY: O(m * n) - recursion stack in worst case
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
- * Image: [[1,1,1],[1,1,0],[1,0,1]], sr=1, sc=1, newColor=2
- * Start at (1,1) with color 1, change to 2
- * DFS visits all connected 1s: (0,0), (0,1), (0,2), (1,0), (1,1), (2,0)
- * Result: [[2,2,2],[2,2,0],[2,0,1]]
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
  *
- * EDGE CASES:
- * - New color same as original color
- * - Single pixel image
- * - Target pixel at boundary
- * - Empty image
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * [example input]
+ * ```
+ *
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

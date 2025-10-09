@@ -1,41 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Graphs.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * A valid tree has exactly n-1 edges and is connected (no cycles).
- * We can use Union-Find to detect cycles and ensure connectivity.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Union-Find efficiently detects cycles during edge addition
- * - A tree with n nodes must have exactly n-1 edges
- * - All nodes must be connected (single component)
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n * α(n)) - Union-Find with path compression
- * SPACE COMPLEXITY: O(n) - parent and rank arrays
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
-Input: n=5, edges=[[0,1],[0,2],[0,3],[1,4]]
-Step 1: Check edge count: 4 = 5-1 ✓
-Step 2: Process edges with Union-Find, no cycles found
-Step 3: All nodes connected in one component
-Output: true
-```
+ * [example input]
+ * ```
  *
- * EDGE CASES:
- * - Single node (n=1) with no edges
- * - Wrong number of edges (not n-1)
- * - Disconnected components
- * - Cycles in the graph
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**
