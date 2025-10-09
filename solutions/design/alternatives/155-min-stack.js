@@ -1,46 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Design.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.
- * The key challenge is maintaining the minimum element in O(1) time. We can use
- * two stacks: one for all elements and another to track minimums at each level.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Main stack handles normal stack operations
- * - Min stack maintains minimum for each level of main stack
- * - When we pop, we check if we're removing the current minimum
- * - This ensures O(1) access to minimum at all times
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(1) for all operations
- * SPACE COMPLEXITY: O(n) - in worst case, minStack can have same size as mainStack
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Operations: push(-2), push(0), push(-3)
- * mainStack: [-2, 0, -3]
- * minStack:  [-2, -3]
- *
- * getMin() returns -3 (top of minStack)
- * pop() removes -3 from both stacks
- * getMin() returns -2 (new top of minStack)
+ * [example input]
  * ```
  *
- * EDGE CASES:
- * - Empty stack operations
- * - Single element stack
- * - Duplicate minimum values
- * - All elements are the same
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

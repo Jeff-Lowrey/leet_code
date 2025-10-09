@@ -1,50 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Design.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Design a simplified Twitter that supports posting tweets, following users, and generating news feeds.
- * The key challenge is efficiently retrieving the 10 most recent tweets from a user and their followees.
- * We need to maintain tweets chronologically and user relationships.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Global timestamp ensures chronological ordering across all users
- * - HashMap provides O(1) access to user data
- * - Set operations handle follow/unfollow efficiently
- * - Merge-sort approach for feed generation handles multiple sources
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY:
- * - postTweet: O(1)
- * - follow/unfollow: O(1)
- * - getNewsFeed: O(f * t) where f = number of followees, t = tweets per user
- * SPACE COMPLEXITY: O(users + tweets + relationships)
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Twitter twitter = new Twitter()
- * postTweet(1, 5) -> user 1 posts tweet 5 with timestamp 0
- * getNewsFeed(1) -> [5] (user 1's own tweet)
- * follow(1, 2) -> user 1 follows user 2
- * postTweet(2, 6) -> user 2 posts tweet 6 with timestamp 1
- * getNewsFeed(1) -> [6, 5] (merge tweets from user 1 and 2, recent first)
- * unfollow(1, 2) -> user 1 unfollows user 2
- * getNewsFeed(1) -> [5] (only user 1's tweets)
+ * [example input]
  * ```
  *
- * EDGE CASES:
- * - User with no tweets or followers
- * - Self-following (should not affect feed)
- * - Unfollowing someone not followed
- * - Requesting feed for non-existent user
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

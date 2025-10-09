@@ -1,49 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Design.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Design a data structure that supports adding words and searching with wildcard characters.
- * The key insight is to use a Trie (prefix tree) where each node represents a character.
- * The wildcard '.' requires DFS to explore all possible branches at that level.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Trie provides O(L) lookup for exact matches where L is word length
- * - DFS handles wildcards by checking all possible paths at that position
- * - isEndOfWord flag distinguishes complete words from prefixes
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY:
- * - addWord: O(L) where L is word length
- * - search: O(26^L) worst case (all wildcards), O(L) best case (no wildcards)
- * SPACE COMPLEXITY: O(N * L) where N is number of words, L is average length
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: ["WordDictionary","addWord","addWord","search","search","search"]
- *        [[],["bad"],["dad"],[".ad"],["b.."],["..."]]
- *
- * Step 1: addWord("bad") - creates b->a->d with d.isEndOfWord = true
- * Step 2: addWord("dad") - creates d->a->d with d.isEndOfWord = true
- * Step 3: search(".ad") - '.' matches 'b' or 'd', both lead to 'ad' ✓
- * Step 4: search("b..") - 'b' matches, '..' matches 'ad' ✓
- * Step 5: search("...") - length 3, matches both "bad" and "dad" ✓
- * Output: [null,null,null,true,true,true]
+ * [example input]
  * ```
  *
- * EDGE CASES:
- * - Empty word handling
- * - All wildcard searches
- * - No matching words
- * - Single character words
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

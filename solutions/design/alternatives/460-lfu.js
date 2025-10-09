@@ -1,44 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Design.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Design and implement a Least Frequently Used (LFU) cache with O(1) operations.
- * The challenge is tracking both frequency of access AND recency within each frequency.
- * We need to evict the least frequent item, breaking ties by least recently used.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Values map provides O(1) key-value access
- * - Frequencies map tracks access count per key
- * - FreqGroups map maintains LRU order within each frequency level
- * - MinFreq variable enables O(1) identification of eviction candidates
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(1) for both get and put operations
- * SPACE COMPLEXITY: O(capacity) for storing up to capacity elements
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * LFU cache capacity = 2
- * put(1,1) -> freq: {1:1}, minFreq: 1, group[1]: [1]
- * put(2,2) -> freq: {1:1, 2:1}, minFreq: 1, group[1]: [2,1]
- * get(1) -> freq: {1:2, 2:1}, minFreq: 1, group[1]: [2], group[2]: [1]
- * put(3,3) -> evict key 2 (LFU), add 3: freq: {1:2, 3:1}, group[1]: [3], group[2]: [1]
+ * [example input]
  * ```
  *
- * EDGE CASES:
- * - Cache at capacity (requires eviction)
- * - Multiple keys with same frequency (LRU tiebreaker)
- * - Single element cache
- * - Get/put on non-existent keys
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**
