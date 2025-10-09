@@ -1,7 +1,6 @@
 """
 # 124. Binary Tree Maximum Path Sum
-**Medium**
-
+# Difficulty: Medium
 Given a problem that demonstrates key concepts in Trees.
 
 <details>

@@ -1,7 +1,6 @@
 """
 # 472. Concatenated
-**Medium**
-
+# Difficulty: Medium
 Given a problem that demonstrates key concepts in Trees.
 
 <details>

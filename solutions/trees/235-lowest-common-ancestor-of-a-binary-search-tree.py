@@ -1,7 +1,6 @@
 """
 # 235. Lowest Common Ancestor of a Binary Search Tree
-**Medium**
-
+# Difficulty: Medium
 Given a binary search tree (BST), find the lowest common ancestor (LCA) of two given nodes in the BST.
 
 According to the definition of LCA on Wikipedia: "The lowest common ancestor is defined between two nodes p and q as the lowest node in T that has both p and q as descendants (where we allow a node to be a descendant of itself)."
@@ -210,7 +209,6 @@ class Solution:
 
         return lca
 
-
 def test_solution():
     """Test cases for Problem 235."""
     solution = Solution()
@@ -272,7 +270,6 @@ def test_solution():
 
     print("All test cases passed!")
 
-
 def create_simple_bst():
     """Create a simple BST for demonstration."""
     #     2
@@ -282,7 +279,6 @@ def create_simple_bst():
     root.left = TreeNode(1)
     root.right = TreeNode(3)
     return root, root.left, root.right
-
 
 if __name__ == "__main__":
     test_solution()

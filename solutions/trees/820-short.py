@@ -1,7 +1,6 @@
 """
 # 820. Short Encoding of Words
-**Medium**
-
+# Difficulty: Medium
 A valid encoding of an array of words is any reference string s and an array of indices indices such that:
 - words.length == indices.length
 - The reference string s ends with the character '#'
@@ -150,7 +149,6 @@ class Solution:
         # Count only leaf nodes (words not suffixes of others)
         return sum(length + 1 for node, length in nodes if not node)
 
-
 def test_solution():
     """Test cases for Problem 820."""
     solution = Solution()
@@ -193,7 +191,6 @@ def test_solution():
     assert result7 == expected1, f"Trie method: Expected {expected1}, got {result7}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

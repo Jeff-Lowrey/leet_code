@@ -1,7 +1,6 @@
 """
 # 677. Map Sum Pairs
-**Medium**
-
+# Difficulty: Medium
 You are asked to implement a map that supports the following two operations:
 1. insert(key, val): Inserts a key-value pair into the map. If the key already existed, the original key-value pair will be overridden to the new one.
 2. sum(prefix): Returns the sum of all the pairs' value whose key starts with the prefix.
@@ -149,7 +148,6 @@ class MapSum:
         dfs(self.root, "")
         return result
 
-
 class MapSumAlternative:
     """Alternative implementation using simpler approach."""
 
@@ -165,7 +163,6 @@ class MapSumAlternative:
         """Sum all values whose keys start with prefix."""
         return sum(val for key, val in self.keys.items()
                   if key.startswith(prefix))
-
 
 def test_solution():
     """Test cases for Problem 677."""
@@ -226,7 +223,6 @@ def test_solution():
     assert result9 == 5, f"Alternative: Expected 5, got {result9}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

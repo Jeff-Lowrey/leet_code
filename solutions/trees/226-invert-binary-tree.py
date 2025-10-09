@@ -1,7 +1,6 @@
 """
 # 226. Invert Binary Tree
-**Easy**
-
+# Difficulty: Easy
 Given the root of a binary tree, invert the tree, and return its root.
 
 <details>

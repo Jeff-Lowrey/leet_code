@@ -1,7 +1,6 @@
 """
 # 676. Implement Magic Dictionary
-**Medium**
-
+# Difficulty: Medium
 Design a data structure that is initialized with a list of different words. Provided a string, you should determine if you can change exactly one character in this string to match any word in the data structure.
 
 Implement the MagicDictionary class:
@@ -172,7 +171,6 @@ class MagicDictionary:
         all_words = getAllWords()
         return any(canMatch(word) for word in all_words)
 
-
 def test_solution():
     """Test cases for Problem 676."""
 
@@ -227,7 +225,6 @@ def test_solution():
     assert result11 == True, f"Alternative: Expected True, got {result11}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

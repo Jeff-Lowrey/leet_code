@@ -1,7 +1,6 @@
 """
 # 105. Construct Binary Tree From Preorder And Inorder Traversal
-**Medium**
-
+# Difficulty: Medium
 Given a problem that demonstrates key concepts in Trees.
 
 <details>

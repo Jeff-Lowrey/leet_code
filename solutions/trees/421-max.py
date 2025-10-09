@@ -1,7 +1,6 @@
 """
 # 421. Max
-**Medium**
-
+# Difficulty: Medium
 Given a problem that demonstrates key concepts in Trees.
 
 <details>
@@ -95,7 +94,6 @@ class Solution:
                     break
                     
         return max_xor
-
 
 class OptimizedSolution:
     def findMaximumXOR(self, nums: List[int]) -> int:

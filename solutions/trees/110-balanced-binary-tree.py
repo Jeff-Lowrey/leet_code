@@ -1,7 +1,6 @@
 """
 # 110. Balanced Binary Tree
-**Easy**
-
+# Difficulty: Easy
 Given a binary tree, determine if it is height-balanced.
 
 A height-balanced binary tree is a binary tree in which the depth of the two subtrees of every node never differs by more than 1.
@@ -193,7 +192,6 @@ class Solution:
 
         return True
 
-
 def build_tree_from_list(values: list) -> TreeNode:
     """Helper function to build tree from list representation."""
     if not values:
@@ -217,7 +215,6 @@ def build_tree_from_list(values: list) -> TreeNode:
         i += 1
 
     return root
-
 
 def test_solution():
     """Test cases for Problem 110."""
@@ -267,7 +264,6 @@ def test_solution():
     assert result8 == expected1, f"Iterative: Expected {expected1}, got {result8}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

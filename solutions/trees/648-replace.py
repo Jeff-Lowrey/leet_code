@@ -1,7 +1,6 @@
 """
 # 648. Replace
-**Medium**
-
+# Difficulty: Medium
 Given a problem that demonstrates key concepts in Trees.
 
 <details>

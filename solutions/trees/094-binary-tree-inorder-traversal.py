@@ -1,7 +1,6 @@
 """
 # 94. Binary Tree Inorder Traversal
-**Easy**
-
+# Difficulty: Easy
 Given the root of a binary tree, return the inorder traversal of its nodes' values.
 
 <details>
@@ -194,7 +193,6 @@ class Solution:
         """
         return list(self.inorderTraversalGenerator(root))
 
-
 def test_solution():
     """Test cases for Problem 94."""
     solution = Solution()
@@ -292,7 +290,6 @@ def test_solution():
 
     print("All test cases passed!")
 
-
 def create_bst():
     """Create a Binary Search Tree for demonstration."""
     #       4
@@ -308,7 +305,6 @@ def create_bst():
     root.right.left = TreeNode(5)
     root.right.right = TreeNode(7)
     return root
-
 
 if __name__ == "__main__":
     test_solution()

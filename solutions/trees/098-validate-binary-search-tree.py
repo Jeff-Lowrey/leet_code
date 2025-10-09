@@ -1,7 +1,6 @@
 """
 # 098. Validate Binary Search Tree
-**Medium**
-
+# Difficulty: Medium
 Given a problem that demonstrates key concepts in Trees.
 
 <details>

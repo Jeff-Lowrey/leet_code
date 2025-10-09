@@ -1,7 +1,6 @@
 """
 # 102. Binary Tree Level Order Traversal
-**Medium**
-
+# Difficulty: Medium
 Given the root of a binary tree, return the level order traversal of its nodes' values. (i.e., from left to right, level by level).
 
 <details>
@@ -199,7 +198,6 @@ class Solution:
         # Reverse for bottom-up order
         return result[::-1]
 
-
 def build_tree_from_list(values: List) -> Optional[TreeNode]:
     """Helper function to build tree from list representation."""
     if not values:
@@ -223,7 +221,6 @@ def build_tree_from_list(values: List) -> Optional[TreeNode]:
         i += 1
 
     return root
-
 
 def test_solution():
     """Test cases for Problem 102."""
@@ -277,7 +274,6 @@ def test_solution():
     assert result9 == expected9, f"Bottom-up: Expected {expected9}, got {result9}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()
