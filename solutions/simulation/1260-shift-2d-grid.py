@@ -1,6 +1,8 @@
 """
-# 1260. Shift 2D Grid
 # Difficulty: Easy
+
+# 1260. Shift 2D Grid
+
 Given a 2D grid of size m x n and an integer k. You need to shift the grid k times.
 
 In one shift operation:
@@ -17,6 +19,17 @@ Output: [[9,1,2],[3,4,5],[6,7,8]]
 Example 2:
 Input: grid = [[3,8,1,9],[19,7,2,5],[4,6,11,10],[12,0,21,13]], k = 4
 Output: [[12,0,21,13],[3,8,1,9],[19,7,2,5],[4,6,11,10]]
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -41,13 +54,6 @@ Instead of performing k individual shifts, we can calculate final positions dire
 - Using modulo handles wrapping and optimizes multiple full rotations
 - Direct position calculation avoids expensive element-by-element shifting
 
-### TIME COMPLEXITY: O(m × n)
-- Must visit each element once to build result
-
-### SPACE COMPLEXITY: O(m × n)
-- Need to store the result grid (required by problem)
-- Can be O(1) if we modify in-place, but tricky with constraints
-
 ### EXAMPLE WALKTHROUGH:
 ```
 grid = [[1,2,3],[4,5,6],[7,8,9]], k = 1, m = 3, n = 3, total = 9
@@ -63,16 +69,20 @@ Position mapping:
 Result: [[9,1,2],[3,4,5],[6,7,8]]
 ```
 
+### TIME COMPLEXITY:
+O(m × n)
+- Must visit each element once to build result
+
+### SPACE COMPLEXITY:
+O(m × n)
+- Need to store the result grid (required by problem)
+- Can be O(1) if we modify in-place, but tricky with constraints
+
 ### EDGE CASES:
 - k = 0: No shift needed
 - k >= m*n: Use k % (m*n) to optimize
 - Single row or column: Still works with formula
 - k is multiple of total: Grid unchanged
-
-### ALTERNATIVE APPROACHES:
-1. **Flatten → Rotate → Reshape**: Create 1D array, rotate, reshape to 2D (O(m×n) space)
-2. **Cyclic Replacement**: In-place using GCD cycles (complex but O(1) space)
-3. **Multiple Shifts**: Perform k individual shifts (O(k×m×n) time - too slow)
 
 </details>
 """

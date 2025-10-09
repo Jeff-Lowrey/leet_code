@@ -1,6 +1,8 @@
 """
-# 661. Image Smoother
 # Difficulty: Easy
+
+# 661. Image Smoother
+
 An image smoother is a filter of the size 3 x 3 that can be applied to each cell of an
 image by rounding down the average of the cell and the eight surrounding cells (or as
 many as there are if the cell is on an edge or corner).
@@ -15,6 +17,17 @@ Output: [[0,0,0],[0,0,0],[0,0,0]]
 Example 2:
 Input: img = [[100,200,100],[200,50,200],[100,200,100]]
 Output: [[137,141,137],[141,138,141],[137,141,137]]
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -40,12 +53,6 @@ The challenge is to use original values for all calculations, not partially smoo
 - Boundary checks handle edges and corners automatically
 - Integer division naturally floors the average
 
-### TIME COMPLEXITY: O(m × n)
-- Visit each cell once, check constant number of neighbors
-
-### SPACE COMPLEXITY: O(m × n)
-- Need separate result matrix (or O(1) with bit manipulation)
-
 ### EXAMPLE WALKTHROUGH:
 ```
 img = [[100,200,100],
@@ -70,16 +77,19 @@ Cell [0,1] (edge, 6 cells):
 Result: [[137,141,137],[141,138,141],[137,141,137]]
 ```
 
+### TIME COMPLEXITY:
+O(m × n)
+- Visit each cell once, check constant number of neighbors
+
+### SPACE COMPLEXITY:
+O(m × n)
+- Need separate result matrix (or O(1) with bit manipulation)
+
 ### EDGE CASES:
 - Single cell: [[5]] → [[5]]
 - Single row/column: Only horizontal/vertical neighbors
 - All same values: Output same as input
 - Large values: Ensure no overflow (Python handles this)
-
-### ALTERNATIVE APPROACHES:
-1. **In-place with Encoding**: Encode new value in higher bits, extract later
-2. **Padding**: Add border of zeros to avoid boundary checks
-3. **Convolution**: Use 2D convolution with averaging kernel
 
 </details>
 """

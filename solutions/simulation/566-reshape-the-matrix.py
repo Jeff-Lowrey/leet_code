@@ -1,6 +1,8 @@
 """
-# 566. Reshape The Matrix
 # Difficulty: Easy
+
+# 566. Reshape The Matrix
+
 In MATLAB, there is a handy function called reshape which can reshape an m x n matrix
 into a new one with a different size r x c keeping its original data.
 
@@ -20,6 +22,17 @@ Output: [[1,2,3,4]]
 Example 2:
 Input: mat = [[1,2],[3,4]], r = 2, c = 4
 Output: [[1,2],[3,4]]
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -47,12 +60,6 @@ Use division and modulo to convert between 1D and 2D indices.
 - Modulo gives the column position in new matrix
 - This naturally handles the reshape transformation
 
-### TIME COMPLEXITY: O(m × n)
-- Must process each element once
-
-### SPACE COMPLEXITY: O(r × c)
-- Need to store the reshaped matrix (same size as original)
-
 ### EXAMPLE WALKTHROUGH:
 ```
 mat = [[1,2],[3,4]], r = 1, c = 4
@@ -71,16 +78,19 @@ Mapping to 1×4:
 Result: [[1,2,3,4]]
 ```
 
+### TIME COMPLEXITY:
+O(m × n)
+- Must process each element once
+
+### SPACE COMPLEXITY:
+O(r × c)
+- Need to store the reshaped matrix (same size as original)
+
 ### EDGE CASES:
 - Invalid reshape (different total): Return original matrix
 - Same shape: Return copy or original
 - Single element: [[1]] can reshape to [[1]]
 - Single row/column: Can reshape to column/row with same elements
-
-### ALTERNATIVE APPROACHES:
-1. **Flatten then Chunk**: Create 1D array, split into chunks of size c
-2. **Queue**: Use queue to store elements, dequeue to fill new matrix
-3. **Generator**: Yield elements in order, consume in new shape
 
 </details>
 """

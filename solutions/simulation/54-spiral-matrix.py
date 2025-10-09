@@ -1,6 +1,8 @@
 """
-# 54. Spiral Matrix
 # Difficulty: Medium
+
+# 54. Spiral Matrix
+
 Given an m x n matrix, return all elements of the matrix in spiral order.
 
 Example 1:
@@ -10,6 +12,17 @@ Output: [1,2,3,6,9,8,7,4,5]
 Example 2:
 Input: matrix = [[1,2,3,4],[5,6,7,8],[9,10,11,12]]
 Output: [1,2,3,4,8,12,11,10,9,5,6,7]
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -39,12 +52,6 @@ boundaries after completing each direction.
 - Shrinking boundaries after each direction naturally moves inward
 - Crossing boundaries indicates all cells have been visited
 
-### TIME COMPLEXITY: O(m × n)
-- Visit each element exactly once
-
-### SPACE COMPLEXITY: O(1)
-- Only use constant extra space (not counting output array)
-
 ### EXAMPLE WALKTHROUGH:
 ```
 matrix = [[1,2,3],
@@ -71,16 +78,19 @@ Step 5 - Right (middle): [5]
 Result: [1,2,3,6,9,8,7,4,5]
 ```
 
+### TIME COMPLEXITY:
+O(m × n)
+- Visit each element exactly once
+
+### SPACE COMPLEXITY:
+O(1)
+- Only use constant extra space (not counting output array)
+
 ### EDGE CASES:
 - Single element: [[1]] → [1]
 - Single row: [[1,2,3]] → [1,2,3]
 - Single column: [[1],[2],[3]] → [1,2,3]
 - Empty matrix: [] → []
-
-### ALTERNATIVE APPROACHES:
-1. **Direction Vector**: Use direction array and change direction when hitting boundary/visited cell
-2. **Visited Matrix**: Mark visited cells in separate boolean matrix
-3. **Recursive**: Process outer layer, recurse on inner matrix
 
 </details>
 """

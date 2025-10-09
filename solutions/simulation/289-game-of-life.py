@@ -1,6 +1,6 @@
 """
-289. Game of Life
 # Difficulty: Medium
+
 According to Wikipedia's article: "The Game of Life, also known simply as Life,
 is a cellular automaton devised by the British mathematician John Horton Conway in 1970."
 
@@ -8,10 +8,10 @@ The board is made up of an m x `n` `grid` of cells, where each cell has an initi
 state: live (represented by a 1) or dead (represented by a 0). Each cell interacts
 with its eight neighbors (horizontal, vertical, diagonal) using the following four rules:
 
-1. Any live cell with fewer than two live neighbors dies as if caused by `under-population`.
-2. Any live cell with two or three live neighbors lives on to the next generation.
-3. Any live cell with more than three live neighbors dies, as if by `over-population`.
-4. Any dead cell with exactly three live neighbors becomes a live cell, as if by reproduction.
+
+
+
+
 
 The next state is created by applying the above rules simultaneously to every cell
 in the current state, where births and deaths occur simultaneously.
@@ -19,6 +19,17 @@ in the current state, where births and deaths occur simultaneously.
 Example:
 Input: `board` = [[0,1,0],[0,0,1],[1,1,1],[0,0,0]]
 Output: [[0,0,0],[1,0,1],[0,1,1],[0,1,0]]
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -38,9 +49,6 @@ The challenge is applying rules simultaneously to all cells. Use state encoding 
 ### WHY THIS WORKS:
 The encoding preserves original state information while tracking transitions. During neighbor counting, we can distinguish original live cells (1 or 2) from original dead cells (0 or 3), ensuring correct rule application.
 
-### TIME COMPLEXITY: O(m × n)
-### SPACE COMPLEXITY: O(1)
-
 ### EXAMPLE WALKTHROUGH:
 ```
 Initial: [0,1,0]    →    [0,0,0]
@@ -53,8 +61,15 @@ Live cell (1,2) has 3 neighbors → survives
 Dead cell (1,0) has 3 neighbors → becomes alive
 Dead cell (0,1) has 2 neighbors → stays dead
 
-### ALTERNATIVE APPROACH:
-For infinite boards, use sets to track only live cells and their neighbors, processing only cells that could potentially change state.
+### TIME COMPLEXITY:
+O(m × n)
+
+### SPACE COMPLEXITY:
+O(1)
+
+### EDGE CASES:
+- **[Edge case 1]:** [how it's handled]
+- **[Edge case 2]:** [how it's handled]
 
 </details>
 """

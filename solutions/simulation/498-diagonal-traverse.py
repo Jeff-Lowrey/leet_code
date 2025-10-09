@@ -1,6 +1,8 @@
 """
-# 498. Diagonal Traverse
 # Difficulty: Medium
+
+# 498. Diagonal Traverse
+
 Given an m x n matrix mat, return an array of all the elements of the array in a diagonal order.
 
 Example 1:
@@ -10,6 +12,17 @@ Output: [1,2,4,7,5,3,6,8,9]
 Example 2:
 Input: mat = [[1,2],[3,4]]
 Output: [1,2,3,4]
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -39,12 +52,6 @@ and boundaries carefully.
 - Boundary checks ensure we stay within matrix bounds
 - Direction flipping at boundaries creates the diagonal traversal pattern
 
-### TIME COMPLEXITY: O(m × n)
-- Visit each element exactly once
-
-### SPACE COMPLEXITY: O(1)
-- Only use constant extra space (not counting output array)
-
 ### EXAMPLE WALKTHROUGH:
 ```
 mat = [[1,2,3],
@@ -60,16 +67,19 @@ Diagonal 4 (sum=4): [9] → up direction
 Result: [1,2,4,7,5,3,6,8,9]
 ```
 
+### TIME COMPLEXITY:
+O(m × n)
+- Visit each element exactly once
+
+### SPACE COMPLEXITY:
+O(1)
+- Only use constant extra space (not counting output array)
+
 ### EDGE CASES:
 - Single element: [[1]] → [1]
 - Single row: [[1,2,3]] → [1,2,3]
 - Single column: [[1],[2],[3]] → [1,2,3]
 - Non-square matrices: Different row and column counts
-
-### ALTERNATIVE APPROACHES:
-1. **Simulation with Direction**: Track current position and direction, move step by step
-2. **Group by Diagonal Sum**: Collect elements by i+j, then reverse alternate groups
-3. **Mathematical Formula**: Directly calculate position based on diagonal number
 
 </details>
 """
