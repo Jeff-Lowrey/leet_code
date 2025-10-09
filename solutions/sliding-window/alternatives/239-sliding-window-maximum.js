@@ -1,6 +1,5 @@
 /**
- * 239. Sliding Window Maximum
- * Hard
+
  *
  * This problem demonstrates key concepts in Sliding Window.
  *
@@ -11,10 +10,10 @@
  * Use a deque (double-ended queue) to maintain potential maximums in decreasing order.
  *
  * APPROACH:
- * 1. **Analyze the problem**: Find max in each window of size k
- * 2. **Choose the right technique**: Fixed-size sliding window with monotonic deque
- * 3. **Implement efficiently**: Deque stores indices of elements in decreasing order of values
- * 4. **Handle edge cases**: Window size 1, array smaller than k, all elements same
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Deque front always contains index of maximum element in current window

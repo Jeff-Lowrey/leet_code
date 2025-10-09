@@ -1,6 +1,5 @@
 /**
- * 121. Best Time To Buy And Sell Stock
- * Easy
+
  *
  * This problem demonstrates key concepts in Sliding Window.
  *
@@ -11,10 +10,10 @@
  * This is essentially a sliding window problem where we track the valley (buy) and peak (sell).
  *
  * APPROACH:
- * 1. **Analyze the problem**: Find maximum profit with one buy and one sell transaction
- * 2. **Choose the right technique**: Single pass tracking minimum and maximum profit
- * 3. **Implement efficiently**: Use two variables - minPrice and maxProfit
- * 4. **Handle edge cases**: Empty array, single element, prices always decreasing
+
+
+
+
  *
  * WHY THIS WORKS:
  * - We want to buy at the lowest price and sell at the highest price after buying

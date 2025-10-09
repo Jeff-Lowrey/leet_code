@@ -1,6 +1,5 @@
 /**
- * 076. Minimum Window Substring
- * Hard
+
  *
  * This problem demonstrates key concepts in Sliding Window.
  *
@@ -11,10 +10,10 @@
  * Use a sliding window with two hash maps to track character frequencies.
  *
  * APPROACH:
- * 1. **Analyze the problem**: Find minimum window containing all characters from t
- * 2. **Choose the right technique**: Variable-size sliding window with character frequency tracking
- * 3. **Implement efficiently**: Use two maps - one for target, one for window
- * 4. **Handle edge cases**: Empty strings, no valid window, entire string is minimum
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Expand window (right pointer) until all characters from t are included

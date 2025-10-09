@@ -1,6 +1,5 @@
 /**
- * 438. Find All Anagrams In A String
- * Medium
+
  *
  * This problem demonstrates key concepts in Sliding Window.
  *
@@ -11,10 +10,10 @@
  * Use a fixed-size sliding window with character frequency comparison.
  *
  * APPROACH:
- * 1. **Analyze the problem**: Find all anagrams of p in s
- * 2. **Choose the right technique**: Fixed-size sliding window with frequency matching
- * 3. **Implement efficiently**: Use frequency maps and match count
- * 4. **Handle edge cases**: p longer than s, no matches, entire s is anagram
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Anagrams have same character frequencies

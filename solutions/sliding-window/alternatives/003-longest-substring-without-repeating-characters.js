@@ -1,6 +1,5 @@
 /**
- * 003. Longest Substring Without Repeating Characters
- * Medium
+
  *
  * This problem demonstrates key concepts in Sliding Window.
  *
@@ -11,10 +10,10 @@
  * We expand the window when characters are unique and shrink it when duplicates appear.
  *
  * APPROACH:
- * 1. **Analyze the problem**: Find the longest substring without repeating characters
- * 2. **Choose the right technique**: Variable-size sliding window with hash map
- * 3. **Implement efficiently**: Use Map to track last seen index of each character
- * 4. **Handle edge cases**: Empty string, single character, all unique, all same
+
+
+
+
  *
  * WHY THIS WORKS:
  * - The sliding window expands by moving right pointer

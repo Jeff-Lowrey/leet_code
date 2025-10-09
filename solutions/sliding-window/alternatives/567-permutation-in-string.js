@@ -1,6 +1,5 @@
 /**
- * 567. Permutation In String
- * Medium
+
  *
  * This problem demonstrates key concepts in Sliding Window.
  *
@@ -11,10 +10,10 @@
  * Use a fixed-size sliding window with character frequency matching.
  *
  * APPROACH:
- * 1. **Analyze the problem**: Find if permutation of s1 exists in s2
- * 2. **Choose the right technique**: Fixed-size sliding window with frequency comparison
- * 3. **Implement efficiently**: Track character frequencies and match count
- * 4. **Handle edge cases**: s1 longer than s2, empty strings, identical strings
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Permutations have the same character frequencies

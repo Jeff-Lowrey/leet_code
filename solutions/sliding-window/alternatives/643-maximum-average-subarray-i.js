@@ -1,6 +1,5 @@
 /**
- * 643. Maximum Average Subarray I
- * Easy
+
  *
  * This problem demonstrates key concepts in Sliding Window.
  *
@@ -11,10 +10,10 @@
  * Use a fixed-size sliding window to track the sum efficiently.
  *
  * APPROACH:
- * 1. **Analyze the problem**: Find max average of k consecutive elements
- * 2. **Choose the right technique**: Fixed-size sliding window with sum tracking
- * 3. **Implement efficiently**: Calculate first window sum, then slide and update
- * 4. **Handle edge cases**: k equals array length, single element, all negatives
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Average of k elements = sum / k

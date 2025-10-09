@@ -1,6 +1,5 @@
 /**
- * 904. Fruit Into Baskets
- * Medium
+
  *
  * This problem demonstrates key concepts in Sliding Window.
  *
@@ -11,10 +10,10 @@
  * This is a classic variable-size sliding window problem with constraint on unique elements.
  *
  * APPROACH:
- * 1. **Analyze the problem**: Find max length subarray with at most 2 distinct fruit types
- * 2. **Choose the right technique**: Variable-size sliding window with frequency map
- * 3. **Implement efficiently**: Track fruit types and counts, expand/contract window
- * 4. **Handle edge cases**: Empty array, single type, two types, more than two types
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Use a map to track count of each fruit type in current window

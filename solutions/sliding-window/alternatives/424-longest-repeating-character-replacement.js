@@ -1,6 +1,5 @@
 /**
- * 424. Longest Repeating Character Replacement
- * Medium
+
  *
  * This problem demonstrates key concepts in Sliding Window.
  *
@@ -11,10 +10,10 @@
  * Use a sliding window with character frequency tracking and check if replacements needed <= k.
  *
  * APPROACH:
- * 1. **Analyze the problem**: Find max length substring achievable with k replacements
- * 2. **Choose the right technique**: Variable-size sliding window with frequency map
- * 3. **Implement efficiently**: Track max frequency and window size
- * 4. **Handle edge cases**: k=0, k>=length, empty string, single character
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Window is valid if: windowLength - maxFrequency <= k

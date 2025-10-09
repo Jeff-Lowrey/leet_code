@@ -1,6 +1,5 @@
 /**
- * 209. Minimum Size Subarray Sum
- * Medium
+
  *
  * This problem demonstrates key concepts in Sliding Window.
  *
@@ -11,10 +10,10 @@
  * Use a variable-size sliding window that expands and contracts.
  *
  * APPROACH:
- * 1. **Analyze the problem**: Find minimum length subarray with sum >= target
- * 2. **Choose the right technique**: Variable-size sliding window with sum tracking
- * 3. **Implement efficiently**: Expand window to include elements, contract when sum is valid
- * 4. **Handle edge cases**: No valid subarray, entire array needed, single element sufficient
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Expand window by adding elements until sum >= target
