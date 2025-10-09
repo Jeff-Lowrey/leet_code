@@ -1,96 +1,96 @@
 # Solution Upload Guide
 
+Welcome to the Solution Upload Guide! This comprehensive guide provides templates, formatting standards, and step-by-step instructions for creating and uploading LeetCode solution files.
+
 ## Table of Contents
 
-1. [Overview](#overview)
-2. [Template Files](#template-files)
-   - [Python Template](#python-template)
-   - [JavaScript Template](#javascript-template)
-3. [Solution Structure](#solution-structure)
-   - [Required Sections](#required-sections)
-   - [Enhanced Example Display](#enhanced-example-display)
-4. [Quick Start](#quick-start)
-   - [Creating Python Solutions](#creating-python-solutions)
-   - [Creating JavaScript Solutions](#creating-javascript-solutions)
-   - [Using the Web Interface](#using-the-web-interface)
-5. [Formatting Guidelines](#formatting-guidelines)
-   - [Documentation Best Practices](#documentation-best-practices)
-   - [Code Quality Standards](#code-quality-standards)
-   - [Example Formatting](#example-formatting)
-6. [Web Interface Styling](#web-interface-styling)
-   - [Category Colors](#category-colors)
-   - [Element Styling](#element-styling)
-7. [Migration Guide](#migration-guide)
-8. [Additional Resources](#additional-resources)
-9. [Contributing](#contributing)
+1. [Overview](01-overview.md) - Introduction, purpose, and quick reference
+2. [Template Files](02-template-files.md) - Python and JavaScript templates with usage instructions
+3. [Solution Structure](03-solution-structure.md) - Required sections and formatting standards
+4. [Quick Start](04-quick-start.md) - Step-by-step guides for creating solutions
+5. [Formatting Guidelines](05-formatting-guidelines.md) - Documentation, code quality, and best practices
+6. [Python Formatting Guide](SOLUTION_FORMATTING_GUIDE.md) - Detailed Python solution formatting reference
+7. [JavaScript Formatting Guide](SOLUTION_FORMATTING_GUIDE_JS.md) - Detailed JavaScript solution formatting reference
 
-## Overview
-[↑ Back to Table of Contents](#table-of-contents)
+## Quick Navigation
 
-Solution templates and formatting standards for Python and JavaScript LeetCode solutions.
+**New Contributors:** Start with [Overview](01-overview.md) → [Template Files](02-template-files.md) → [Quick Start](04-quick-start.md)
 
-## Template Files
-[↑ Back to Table of Contents](#table-of-contents)
+**Python Solutions:** [Template Files](02-template-files.md) → [Python Formatting Guide](SOLUTION_FORMATTING_GUIDE.md)
 
-### Python Template
-Python solution template and formatting guide locations and usage.
+**JavaScript Solutions:** [Template Files](02-template-files.md) → [JavaScript Formatting Guide](SOLUTION_FORMATTING_GUIDE_JS.md)
 
-### JavaScript Template
-JavaScript solution template and formatting guide locations and usage.
+**Formatting Reference:** [Formatting Guidelines](05-formatting-guidelines.md) for general standards
 
-## Solution Structure
-[↑ Back to Table of Contents](#table-of-contents)
+## Template Locations
 
-### Required Sections
-Mandatory sections every solution must include including INTUITION, APPROACH, and complexity analysis.
+**Solution Templates:**
+- Python: `docs/solutions/templates/SOLUTION_TEMPLATE.py`
+- JavaScript: `docs/solutions/templates/SOLUTION_TEMPLATE.js`
 
-### Enhanced Example Display
-Format problem examples using HTML definition lists for better visual presentation.
+**Formatting Guides:**
+- Python: `docs/upload-guide/SOLUTION_FORMATTING_GUIDE.md`
+- JavaScript: `docs/upload-guide/SOLUTION_FORMATTING_GUIDE_JS.md`
 
-## Quick Start
-[↑ Back to Table of Contents](#table-of-contents)
+## What This Guide Covers
 
-### Creating Python Solutions
-Copy template, fill in problem details, implement solution, and format properly.
+### Creating Solutions
+- Accessing and using templates
+- Required documentation sections
+- Code structure and organization
+- Test case requirements
 
-### Creating JavaScript Solutions
-Create JavaScript alternative solutions in the alternatives subfolder.
+### Formatting Standards
+- HTML definition lists for examples
+- Markdown formatting conventions
+- Language-specific best practices
+- Code quality guidelines
 
-### Using the Web Interface
-Upload solutions through the web interface with automatic formatting validation.
+### Upload Methods
+- Manual file placement
+- Web interface upload
+- File naming conventions
+- Validation requirements
 
-## Formatting Guidelines
-[↑ Back to Table of Contents](#table-of-contents)
+## Getting Started
 
-### Documentation Best Practices
-Write clear, concise solution explanations with proper structure and flow.
+### Step 1: Read the Overview
+Start with the [Overview](01-overview.md) to understand the solution upload process and requirements.
 
-### Code Quality Standards
-Type hints, language conventions, testing requirements, and coding best practices.
+### Step 2: Get the Template
+Follow [Template Files](02-template-files.md) to access Python or JavaScript templates.
 
-### Example Formatting
-Format examples, variable names, and avoid common formatting mistakes.
+### Step 3: Follow the Guide
+Use [Quick Start](04-quick-start.md) for step-by-step instructions on creating your solution.
 
-## Web Interface Styling
-[↑ Back to Table of Contents](#table-of-contents)
+### Step 4: Verify Formatting
+Review [Formatting Guidelines](05-formatting-guidelines.md) to ensure your solution meets all standards.
 
-### Category Colors
-Unique color scheme for each of the 29+ solution categories.
+### Step 5: Upload
+Add your solution to the repository or use the web interface to upload.
 
-### Element Styling
-Styling for headings, examples, code blocks, and other interface elements.
+## Documentation Structure
 
-## Migration Guide
-[↑ Back to Table of Contents](#table-of-contents)
+```
+docs/upload-guide/
+├── README.md                           # This file
+├── 01-overview.md                      # Introduction and quick reference
+├── 02-template-files.md                # Template access and usage
+├── 03-solution-structure.md            # Required sections
+├── 04-quick-start.md                   # Step-by-step creation guides
+├── 05-formatting-guidelines.md         # General formatting standards
+├── SOLUTION_FORMATTING_GUIDE.md        # Python reference guide
+└── SOLUTION_FORMATTING_GUIDE_JS.md     # JavaScript reference guide
+```
 
-Convert old format solutions to the new standardized format with proper example formatting.
+## Support
 
-## Additional Resources
-[↑ Back to Table of Contents](#table-of-contents)
+For detailed information:
+- Review the [Formatting Guidelines](05-formatting-guidelines.md)
+- Check language-specific guides ([Python](SOLUTION_FORMATTING_GUIDE.md) | [JavaScript](SOLUTION_FORMATTING_GUIDE_JS.md))
+- Examine existing solutions in `docs/solutions/`
+- Consult the [Solution Structure](03-solution-structure.md) guide
 
-Detailed formatting guides, CSS styles, and reference implementation examples.
+---
 
-## Contributing
-[↑ Back to Table of Contents](#table-of-contents)
-
-Guidelines for contributing new solutions including templates, formatting, and testing.
+Ready to create your first solution? **[Start Here →](01-overview.md)**

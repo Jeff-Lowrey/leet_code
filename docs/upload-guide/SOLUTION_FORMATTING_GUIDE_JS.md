@@ -1,5 +1,9 @@
 # LeetCode Solution Formatting Guide - JavaScript
 
+[🏠 Home](README.md)
+
+---
+
 This guide explains the standard format for JavaScript LeetCode solution files in this repository.
 
 ## Table of Contents
@@ -23,7 +27,7 @@ This guide explains the standard format for JavaScript LeetCode solution files i
 ## Template Location
 [↑ Back to Table of Contents](#table-of-contents)
 
-Use `SOLUTION_TEMPLATE.js` as the starting point for new solutions.
+Use `docs/solutions/templates/SOLUTION_TEMPLATE.js` as the starting point for new solutions.
 
 ## Key Formatting Rules
 [↑ Back to Table of Contents](#table-of-contents)
@@ -401,7 +405,7 @@ Example:
 
 Run your solution with:
 ```bash
-node solutions/category-name/001-problem-name.js
+node docs/solutions/category-name/001-problem-name.js
 ```
 
 This will execute the `runTests()` function and display results.
@@ -409,8 +413,11 @@ This will execute the `runTests()` function and display results.
 ## Additional Resources
 [↑ Back to Table of Contents](#table-of-contents)
 
+- See Python formatting guide: [SOLUTION_FORMATTING_GUIDE.md](SOLUTION_FORMATTING_GUIDE.md)
+- JavaScript template: `docs/solutions/templates/SOLUTION_TEMPLATE.js`
+- Python template: `docs/solutions/templates/SOLUTION_TEMPLATE.py`
+- Reference Python implementation: `docs/solutions/arrays-hashing/001-two-sum.py`
 
-- See Python formatting guide: `SOLUTION_FORMATTING_GUIDE.md`
-- JavaScript template: `SOLUTION_TEMPLATE.js`
-- Python template: `SOLUTION_TEMPLATE.py`
-- Reference Python implementation: `solutions/arrays-hashing/001-two-sum.py`
+---
+
+[🏠 Home](README.md)

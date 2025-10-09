@@ -1,6 +1,10 @@
-# LeetCode Solution Formatting Guide
+# LeetCode Solution Formatting Guide - Python
 
-This guide explains the standard format for LeetCode solution files in this repository.
+[🏠 Home](README.md)
+
+---
+
+This guide explains the standard format for Python LeetCode solution files in this repository.
 
 ## Table of Contents
 1. [Template Location](#template-location)
@@ -19,7 +23,7 @@ This guide explains the standard format for LeetCode solution files in this repo
 ## Template Location
 [↑ Back to Table of Contents](#table-of-contents)
 
-Use `SOLUTION_TEMPLATE.py` as the starting point for new solutions.
+Use `docs/solutions/templates/SOLUTION_TEMPLATE.py` as the starting point for new solutions.
 
 ## Key Formatting Rules
 [↑ Back to Table of Contents](#table-of-contents)
@@ -216,4 +220,8 @@ Explanation: Because nums[0] + nums[1] == 9, we return [0, 1]
 ## Reference Implementation
 [↑ Back to Table of Contents](#table-of-contents)
 
-See `solutions/arrays-hashing/001-two-sum.py` for a complete, correctly formatted example.
+See `docs/solutions/arrays-hashing/001-two-sum.py` for a complete, correctly formatted example.
+
+---
+
+[🏠 Home](README.md)
