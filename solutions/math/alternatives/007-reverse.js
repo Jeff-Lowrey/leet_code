@@ -1,6 +1,5 @@
 /**
- * 007. Reverse Integer
- * Medium
+
  *
  * This problem demonstrates key concepts in Math.
  *
@@ -11,10 +10,10 @@
  * integer overflow - if the reversed integer exceeds 32-bit bounds, return 0.
  *
  * APPROACH:
- * 1. **Handle sign**: Track if number is negative, work with absolute value
- * 2. **Extract digits**: Use modulo 10 to get last digit, divide by 10 to remove it
- * 3. **Build reversed number**: Multiply result by 10 and add the digit
- * 4. **Check overflow**: Verify result stays within 32-bit signed integer range
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Mathematical digit extraction avoids string conversion overhead

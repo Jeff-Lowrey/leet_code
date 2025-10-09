@@ -1,6 +1,5 @@
 /**
- * 204. Count Primes
- * Medium
+
  *
  * This problem demonstrates key concepts in Math.
  *
@@ -12,11 +11,11 @@
  * primes as composite. This is much more efficient for counting many primes.
  *
  * APPROACH:
- * 1. **Create boolean array**: isPrime[i] indicates if i is prime
- * 2. **Initialize all as prime**: Start assuming all numbers >= 2 are prime
- * 3. **Mark composites**: For each prime p, mark p*p, p*p+p, p*p+2p, ... as composite
- * 4. **Optimization**: Only check up to sqrt(n) for outer loop
- * 5. **Count primes**: Count remaining true values in array
+
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Every composite number has a prime factor <= its square root

@@ -1,6 +1,5 @@
 /**
- * 172. Factorial Trailing Zeroes
- * Medium
+
  *
  * This problem demonstrates key concepts in Math.
  *
@@ -12,10 +11,10 @@
  * factors of 2 than 5 in n!, we only need to count factors of 5.
  *
  * APPROACH:
- * 1. **Count multiples of 5**: n/5 gives numbers divisible by 5
- * 2. **Count multiples of 25**: n/25 gives additional 5s (5*5)
- * 3. **Count multiples of 125**: n/125 gives even more 5s (5*5*5)
- * 4. **Continue pattern**: Keep dividing by 5 until result is 0
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Each multiple of 5 contributes one factor of 5

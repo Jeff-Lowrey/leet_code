@@ -1,6 +1,5 @@
 /**
- * 069. Sqrt(x)
- * Easy
+
  *
  * This problem demonstrates key concepts in Math.
  *
@@ -12,10 +11,10 @@
  * otherwise, it's less than mid.
  *
  * APPROACH:
- * 1. **Binary search range**: Search between 0 and x
- * 2. **Midpoint check**: For each mid, check if mid*mid <= x
- * 3. **Narrow search**: If mid*mid <= x, search right; else search left
- * 4. **Return result**: Last mid where mid*mid <= x
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Square root function is monotonically increasing

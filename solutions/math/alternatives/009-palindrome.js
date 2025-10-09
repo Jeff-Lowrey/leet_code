@@ -1,6 +1,5 @@
 /**
- * 009. Palindrome Number
- * Medium
+
  *
  * This problem demonstrates key concepts in Math.
  *
@@ -12,10 +11,10 @@
  * Negative numbers are not palindromes due to the minus sign.
  *
  * APPROACH:
- * 1. **Quick rejections**: Negative numbers and numbers ending in 0 (except 0 itself)
- * 2. **Reverse half the number**: Build the reversed second half while reducing the first half
- * 3. **Compare halves**: Check if first half equals reversed second half
- * 4. **Handle odd length**: For odd-length numbers, ignore the middle digit
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Only need to reverse half the number to check palindrome property

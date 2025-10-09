@@ -1,6 +1,5 @@
 /**
- * 268. Missing Number
- * Easy
+
  *
  * This problem demonstrates key concepts in Math.
  *
@@ -12,10 +11,10 @@
  * XOR is optimal: a ^ a = 0, and 0 ^ a = a, so XORing all numbers cancels out pairs.
  *
  * APPROACH:
- * 1. **XOR all indices**: XOR 0, 1, 2, ..., n
- * 2. **XOR all values**: XOR all array values
- * 3. **Combine results**: Missing number is the XOR of these two results
- * 4. **Alternative (Sum)**: expected_sum - actual_sum = missing number
+
+
+
+
  *
  * WHY THIS WORKS:
  * - XOR is commutative and associative: order doesn't matter

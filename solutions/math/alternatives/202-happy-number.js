@@ -1,6 +1,5 @@
 /**
- * 202. Happy Number
- * Easy
+
  *
  * This problem demonstrates key concepts in Math.
  *
@@ -12,10 +11,10 @@
  * (slow/fast pointers) to detect cycles without extra space.
  *
  * APPROACH:
- * 1. **Helper function**: Calculate sum of squares of digits
- * 2. **Floyd's algorithm**: Use slow (1 step) and fast (2 steps) pointers
- * 3. **Detect cycle**: If slow == fast, there's a cycle
- * 4. **Check result**: If cycle point is 1, it's happy; otherwise unhappy
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Happy numbers eventually reach 1 (cycle at 1)

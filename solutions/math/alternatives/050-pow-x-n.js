@@ -1,6 +1,5 @@
 /**
- * 050. Pow X N
- * Medium
+
  *
  * This problem demonstrates key concepts in Math.
  *
@@ -11,10 +10,10 @@
 using **binary exponentiation** - repeatedly squaring and halving the exponent.
  *
  * APPROACH:
- * 1. **Handle negative exponents**: Convert to positive and invert result
- * 2. **Binary exponentiation**: Use bits of n to determine which powers to multiply
- * 3. **Iterative squaring**: Square base and halve exponent each iteration
- * 4. **Accumulate result**: Multiply result when exponent bit is 1
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Any exponent can be represented as sum of powers of 2 (binary representation)

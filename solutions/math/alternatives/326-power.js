@@ -1,6 +1,5 @@
 /**
- * 326. Power of Three
- * Easy
+
  *
  * This problem demonstrates key concepts in Math.
  *
@@ -12,10 +11,10 @@
  * Most elegant: use the fact that in 32-bit integers, max power of 3 is 3^19 = 1162261467.
  *
  * APPROACH:
- * 1. **Constraint approach**: Find max power of 3 in int32 range
- * 2. **Check divisibility**: If max_power % n == 0, then n is a power of 3
- * 3. **Handle edge cases**: n must be positive
- * 4. **Alternative (Loop)**: Repeatedly divide by 3, check if remainder is always 0
+
+
+
+
  *
  * WHY THIS WORKS:
  * - If n is a power of 3, then n divides the maximum power of 3

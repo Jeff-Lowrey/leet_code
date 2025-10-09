@@ -1,6 +1,5 @@
 /**
- * 066. Plus One
- * Easy
+
  *
  * This problem demonstrates key concepts in Math.
  *
@@ -11,10 +10,10 @@
  * The key challenge is handling carries, especially cascading 9s (e.g., [9,9,9] -> [1,0,0,0]).
  *
  * APPROACH:
- * 1. **Start from rightmost digit**: Add 1 to last element
- * 2. **Handle carries**: If digit becomes 10, set to 0 and carry to next position
- * 3. **Propagate carry**: Continue until no carry or reach beginning
- * 4. **Handle overflow**: If carry remains after leftmost digit, prepend 1
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Simulates manual addition from right to left
