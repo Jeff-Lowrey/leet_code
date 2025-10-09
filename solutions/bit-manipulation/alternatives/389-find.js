@@ -1,48 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Bit Manipulation.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * String t is created by shuffling string s and adding one random letter.
- * XOR has the property that a ^ a = 0 and a ^ 0 = a.
- * If we XOR all characters from both strings, matching characters cancel out,
- * leaving only the added character.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - XOR is commutative and associative
- * - Characters appearing in both strings cancel out: char ^ char = 0
- * - The extra character XORed with 0 gives that character: 0 ^ char = char
- * - Order doesn't matter due to XOR properties
- * - Works exactly like finding single number in array
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n) - iterate through both strings once
- * SPACE COMPLEXITY: O(1) - only one variable for result
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
-Input: s = "abcd", t = "abcde"
-Step 1: XOR all from s
-  result = 0 ^ 'a' ^ 'b' ^ 'c' ^ 'd'
-Step 2: XOR all from t
-  result = result ^ 'a' ^ 'b' ^ 'c' ^ 'd' ^ 'e'
-Step 3: Matching characters cancel
-  result = 'e' (since a^a = 0, b^b = 0, etc.)
-Output: 'e'
-```
+ * [example input]
+ * ```
  *
- * EDGE CASES:
- * - Empty s: returns the single character in t
- * - Duplicate characters: XOR handles them correctly
- * - Any valid lowercase letter can be added
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

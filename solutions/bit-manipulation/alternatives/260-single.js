@@ -1,46 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Bit Manipulation.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Given an array where two elements appear exactly once and all other elements appear twice,
- * find the two unique elements. XOR all numbers to get the XOR of the two unique numbers.
- * Then use a differentiating bit to separate numbers into two groups.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - XOR of all numbers gives us a ^ b
- * - Any set bit in (a ^ b) means a and b differ at that position
- * - Numbers with that bit set form one group containing a
- * - Numbers without that bit form another group containing b
- * - XORing each group cancels duplicate pairs, leaving a and b
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n) - two passes through the array
- * SPACE COMPLEXITY: O(1) - only using a few variables
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
-Input: [1,2,1,3,2,5]
-Step 1: XOR all = 1^2^1^3^2^5 = 3^5 = 6 (binary: 110)
-Step 2: Rightmost bit of 6 is at position 1 (binary: 010)
-Step 3: Group by bit 1:
-        Group 1 (bit set): 2,3,2 → XOR = 3
-        Group 2 (bit not set): 1,1,5 → XOR = 5
-Output: [3,5]
-```
+ * [example input]
+ * ```
  *
- * EDGE CASES:
- * - Exactly two unique numbers
- * - Negative numbers handled correctly
- * - Order of output doesn't matter
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

@@ -1,42 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Bit Manipulation.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Count the number of '1' bits in the binary representation of an unsigned integer.
- * Brian Kernighan's algorithm provides an elegant solution: n & (n-1) always clears
- * the rightmost set bit, so we can count how many times we can do this until n becomes 0.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
- *    - Set n = n & (n-1) to clear the rightmost 1 bit
- *    - Increment count
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - n & (n-1) clears the least significant 1 bit
- * - Example: 12 (1100) & 11 (1011) = 8 (1000)
- * - We only iterate as many times as there are 1 bits
- * - More efficient than checking all 32 bits
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(k) where k is the number of 1 bits
- * SPACE COMPLEXITY: O(1)
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
- * Input: 11 (binary: 00000000000000000000000000001011)
- * Step 1: 11 & 10 = 10 (1010), count = 1
- * Step 2: 10 & 9 = 8 (1000), count = 2
- * Step 3: 8 & 7 = 0 (0000), count = 3
- * Output: 3
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
  *
- * EDGE CASES:
- * - Zero: returns 0
- * - All bits set (0xFFFFFFFF): returns 32
- * - Single bit set: returns 1
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * [example input]
+ * ```
+ *
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**
