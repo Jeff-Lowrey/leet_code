@@ -1,11 +1,24 @@
 """
-# 990. Satisfiability of Equality Equations
 # Difficulty: Medium
+
+# 990. Satisfiability of Equality Equations
+
 You are given an array of strings equations that represent relationships between variables where each string equations[i] is of length 4 and takes one of two different forms: "xi==xj" or "xi!=xj".
 
 Here, xi and xj are lowercase letters (not necessarily different) that represent one-letter variable names.
 
 Return true if it is possible to assign integers to variable names so as to satisfy all the given equations, or false otherwise.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -24,12 +37,6 @@ This is a classic Union-Find problem. We need to check if equality and inequalit
 - Inequality constraints must not connect variables in same component
 - Two-pass approach separates grouping from validation
 
-### TIME COMPLEXITY: O(N × α(N))
-Where N is number of equations and α is inverse Ackermann function
-
-### SPACE COMPLEXITY: O(1)
-Since we only have 26 possible variables (a-z)
-
 ### EXAMPLE WALKTHROUGH:
 ```
 Input: ["a==b","b!=a"]
@@ -43,11 +50,13 @@ Step 2: Check inequalities - "a!=d" and d is separate → no conflict
 Output: True
 ```
 
-### KEY INSIGHTS:
-- Equality is transitive: if a==b and b==c, then a==c
-- Union-Find naturally handles transitivity
-- Process all equalities first to establish groups
-- Inequality between variables in same group = contradiction
+### TIME COMPLEXITY:
+O(N × α(N))
+Where N is number of equations and α is inverse Ackermann function
+
+### SPACE COMPLEXITY:
+O(1)
+Since we only have 26 possible variables (a-z)
 
 ### EDGE CASES:
 - No equations (vacuously true)

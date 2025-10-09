@@ -1,9 +1,22 @@
 """
-# 323. Number Of Connected Components In An Undirected Graph
 # Difficulty: Medium
+
+# 323. Number Of Connected Components In An Undirected Graph
+
 You have a graph of n nodes labeled from 0 to n - 1. You are given an integer n and a list of edges where edges[i] = [ai, bi] indicates that there is an undirected edge between nodes ai and bi in the graph.
 
 Return the number of connected components in the graph.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -22,12 +35,6 @@ This is a classic Union-Find problem for counting connected components. Each con
 - Final count of root nodes = number of connected components
 - Path compression and union by rank ensure efficient operations
 
-### TIME COMPLEXITY: O(E × α(N))
-Where E is edges, N is nodes, α is inverse Ackermann (nearly constant)
-
-### SPACE COMPLEXITY: O(N)
-For parent and rank arrays
-
 ### EXAMPLE WALKTHROUGH:
 ```
 Input: n = 5, edges = [[0,1],[1,2],[3,4]]
@@ -40,11 +47,13 @@ Union(3,4): {0,1,2}, {3,4} → 2 components
 Result: 2 connected components
 ```
 
-### KEY INSIGHTS:
-- Each node initially forms its own component
-- Edge connections merge components through union operations
-- Root counting gives final component count
-- Union-Find naturally handles transitive connectivity
+### TIME COMPLEXITY:
+O(E × α(N))
+Where E is edges, N is nodes, α is inverse Ackermann (nearly constant)
+
+### SPACE COMPLEXITY:
+O(N)
+For parent and rank arrays
 
 ### EDGE CASES:
 - No edges: n isolated components

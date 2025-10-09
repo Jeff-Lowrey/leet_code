@@ -1,6 +1,6 @@
 """
-1202. Smallest String With Swaps
 # Difficulty: Medium
+
 You are given a string s, and an array of pairs where pairs[i] = [a, b] indicates 2 indices
 (0-indexed) that can be swapped. You can swap indices multiple times. Return the lexicographically
 smallest string that s can be transformed to after using the swaps.
@@ -9,6 +9,17 @@ Example:
 Input: s = "dcab", pairs = [[0,3],[1,2]]
 Output: "bacd"
 Explanation: Swap s[0] and s[3] → "bcad", then swap s[1] and s[2] → "bacd"
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -27,33 +38,29 @@ rearranged freely. Sort characters in each component and assign to sorted indice
 If indices are transitively swappable, they form a connected component where any
 permutation is achievable. Lexicographically smallest = sort characters ascending.
 
-### TIME COMPLEXITY: O(n log n + m α(n)) where m is pairs count
-### SPACE COMPLEXITY: O(n)
+### EXAMPLE WALKTHROUGH:
+
+Input:
+```
+[example input]
+```
+
+**Step 1:** [description]
+
+**Step 2:** [description]
+
+### TIME COMPLEXITY:
+O(n log n + m α(n)) where m is pairs count
+
+### SPACE COMPLEXITY:
+O(n)
+
+### EDGE CASES:
+- **[Edge case 1]:** [how it's handled]
+- **[Edge case 2]:** [how it's handled]
 
 </details>
 """
-
-from collections import defaultdict
-
-class UnionFind:
-    def __init__(self, n: int) -> None:
-        self.parent = list(range(n))
-        self.rank = [0] * n
-
-    def find(self, x: int) -> int:
-        if self.parent[x] != x:
-            self.parent[x] = self.find(self.parent[x])
-        return self.parent[x]
-
-    def union(self, x: int, y: int) -> None:
-        px, py = self.find(x), self.find(y)
-        if px == py:
-            return
-        if self.rank[px] < self.rank[py]:
-            px, py = py, px
-        self.parent[py] = px
-        if self.rank[px] == self.rank[py]:
-            self.rank[px] += 1
 
 class Solution:
     def smallestStringWithSwaps(self, s: str, pairs: list[list[int]]) -> str:
