@@ -1,6 +1,5 @@
 /**
- * 260. Single Number III
- * Medium
+
  *
  * This problem demonstrates key concepts in Bit Manipulation.
  *
@@ -12,10 +11,10 @@
  * Then use a differentiating bit to separate numbers into two groups.
  *
  * APPROACH:
- * 1. XOR all numbers to get xor = a ^ b (where a and b are the two unique numbers)
- * 2. Find any bit that is set in xor (this bit differs between a and b)
- * 3. Use this bit to partition all numbers into two groups
- * 4. XOR each group separately to find a and b
+
+
+
+
  *
  * WHY THIS WORKS:
  * - XOR of all numbers gives us a ^ b

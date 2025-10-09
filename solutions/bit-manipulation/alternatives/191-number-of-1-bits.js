@@ -1,6 +1,5 @@
 /**
- * 191. Number Of 1 Bits (Hamming Weight)
- * Easy
+
  *
  * This problem demonstrates key concepts in Bit Manipulation.
  *
@@ -12,11 +11,11 @@
  * the rightmost set bit, so we can count how many times we can do this until n becomes 0.
  *
  * APPROACH:
- * 1. Initialize count to 0
- * 2. While n is not 0:
+
+
  *    - Set n = n & (n-1) to clear the rightmost 1 bit
  *    - Increment count
- * 3. Return count
+
  *
  * WHY THIS WORKS:
  * - n & (n-1) clears the least significant 1 bit

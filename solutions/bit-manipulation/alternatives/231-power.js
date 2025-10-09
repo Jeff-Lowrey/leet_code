@@ -1,6 +1,5 @@
 /**
- * 231. Power of Two
- * Easy
+
  *
  * This problem demonstrates key concepts in Bit Manipulation.
  *
@@ -12,9 +11,9 @@
  * The trick: n & (n-1) removes the rightmost set bit. For powers of 2, this results in 0.
  *
  * APPROACH:
- * 1. Check if n is positive (powers of 2 must be positive)
- * 2. Check if n & (n-1) equals 0
- * 3. Both conditions must be true
+
+
+
  *
  * WHY THIS WORKS:
  * - Powers of 2 have exactly one bit set: 8 = 1000

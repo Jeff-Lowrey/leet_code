@@ -1,6 +1,5 @@
 /**
- * 136. Single Number
- * Easy
+
  *
  * This problem demonstrates key concepts in Bit Manipulation.
  *
@@ -13,9 +12,9 @@
  * leaving only the single number.
  *
  * APPROACH:
- * 1. Initialize result to 0
- * 2. XOR all elements in the array
- * 3. Return the result
+
+
+
  *
  * WHY THIS WORKS:
  * XOR is commutative and associative: [2,2,1] becomes (2^2^1) = (0^1) = 1

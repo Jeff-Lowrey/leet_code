@@ -1,6 +1,5 @@
 /**
- * 190. Reverse Bits
- * Easy
+
  *
  * This problem demonstrates key concepts in Bit Manipulation.
  *
@@ -11,13 +10,13 @@
  * and place it on the left, effectively mirroring the bit pattern.
  *
  * APPROACH:
- * 1. Initialize result to 0
- * 2. For each of the 32 bits:
+
+
  *    - Shift result left to make room for the next bit
  *    - Extract the least significant bit from n (using n & 1)
  *    - Add it to result (using OR)
  *    - Shift n right to process the next bit
- * 3. Return result as unsigned integer
+
  *
  * WHY THIS WORKS:
  * - Left shifting result builds the reversed number from left to right

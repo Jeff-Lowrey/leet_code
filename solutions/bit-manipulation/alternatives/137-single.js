@@ -1,6 +1,5 @@
 /**
- * 137. Single Number II
- * Medium
+
  *
  * This problem demonstrates key concepts in Bit Manipulation.
  *
@@ -11,11 +10,11 @@
  * find that single element. We need to track bits that appear 1, 2, or 3 times using bit manipulation.
  *
  * APPROACH:
- * 1. Use two variables: ones (bits appearing 1 time mod 3) and twos (bits appearing 2 times mod 3)
- * 2. For each number, update twos with bits that were in ones and are appearing again
- * 3. Update ones by XORing with the current number
- * 4. Clear bits that appear 3 times from both ones and twos
- * 5. Return ones (the single number)
+
+
+
+
+
  *
  * WHY THIS WORKS:
  * - ones tracks bits that appear 1 time (mod 3)

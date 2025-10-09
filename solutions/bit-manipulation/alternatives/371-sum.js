@@ -1,6 +1,5 @@
 /**
- * 371. Sum of Two Integers
- * Medium
+
  *
  * This problem demonstrates key concepts in Bit Manipulation.
  *
@@ -11,11 +10,11 @@
  * and AND with left shift for calculating the carry. Repeat until there's no carry.
  *
  * APPROACH:
- * 1. While b is not zero:
+
  *    - Calculate carry: (a & b) << 1
  *    - Calculate sum without carry: a ^ b
  *    - Update a to sum, b to carry
- * 2. Return a when no carry remains
+
  *
  * WHY THIS WORKS:
  * - XOR (^) performs addition without considering carry

@@ -1,6 +1,5 @@
 /**
- * 389. Find the Difference
- * Easy
+
  *
  * This problem demonstrates key concepts in Bit Manipulation.
  *
@@ -13,10 +12,10 @@
  * leaving only the added character.
  *
  * APPROACH:
- * 1. Initialize result to 0
- * 2. XOR all character codes from string s
- * 3. XOR all character codes from string t
- * 4. Convert the result back to a character
+
+
+
+
  *
  * WHY THIS WORKS:
  * - XOR is commutative and associative

@@ -1,6 +1,5 @@
 /**
- * 338. Counting Bits
- * Easy
+
  *
  * This problem demonstrates key concepts in Bit Manipulation.
  *
@@ -12,12 +11,12 @@
  * So: count[i] = count[i >> 1] + (i & 1)
  *
  * APPROACH:
- * 1. Create result array of size n+1, initialize result[0] = 0
- * 2. For each number i from 1 to n:
+
+
  *    - count[i] = count[i >> 1] + (i & 1)
  *    - i >> 1 is i divided by 2 (removing rightmost bit)
  *    - i & 1 checks if rightmost bit is 1
- * 3. Return result array
+
  *
  * WHY THIS WORKS:
  * - Dividing by 2 (right shift) removes the last bit
