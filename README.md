@@ -11,7 +11,7 @@
 ### Core Functionality
 - **Web Interface**: Flask-based solution browser with syntax highlighting
 - **Multi-Language Support**: Upload and view solutions in 13+ programming languages
-- **Python to LeetCode conversion **: Automatic conversion for LeetCode submission format
+- **Python to LeetCode Conversion**: Automatic conversion for LeetCode submission format
 - **Smart Downloads**: Language-aware download system with skeleton/solution/ZIP options
 - **Quick Navigation**: Dropdown menus on category cards for direct solution access
 - **API Support**: JSON endpoints for dynamic content loading
@@ -24,20 +24,19 @@
 - **Download Formats**:
   - Skeleton (method signatures only)
   - Full solution
-  - LeetCode formatted skelton and solution
+  - LeetCode formatted skeleton and solution
   - ZIP bundle with all formats
 
 ## 📋 Table of Contents
-1. [Features](#-features)
+1. [🚀 Features](#-features)
 2. [Installation](#installation)
 3. [Usage](#usage)
 4. [Project Structure](#project-structure)
-5. [Features in Detail](#features-in-detail)
-6. [Development](#development)
-7. [API Documentation](#api-documentation)
-8. [Progress Tracking](#progress-tracking)
-9. [Contributing](#contributing)
-10. [License](#license)
+5. [Documentation](#documentation)
+6. [API Documentation](#api-documentation)
+7. [Progress Tracking](#progress-tracking)
+8. [Contributing](#contributing)
+9. [License](#license)
 
 ## Installation
 
@@ -55,8 +54,10 @@ cd leet_code
 pdm install
 
 # Run the development server
-pdm run python -m flask run
+pdm run python -m src.leet_code.app
 ```
+
+The application will be available at `http://localhost:5000`
 
 ## Usage
 
@@ -86,44 +87,65 @@ pdm run python -m flask run
 
 ```
 leet_code/
-├── README.md                    # This file
-├── pyproject.toml              # PDM configuration
-├── pdm.lock                    # Lock file for dependencies
-├── app.py                      # Flask application
-├── category_data.py            # Solution data management
-├── leetcode_converter.py       # Snake_case to camelCase converter
-├── generate_docs.py            # Documentation generator
+├── README.md                       # This file
+├── CHANGELOG.md                    # Version history
+├── pyproject.toml                  # PDM configuration
+├── pdm.lock                        # Dependency lock file
 │
-├── solutions/                  # Problem solutions
-│   ├── arrays-hashing/         # Category folders
-│   │   ├── 001-two-sum.py     # Python solutions
-│   │   └── alternatives/      # Other language solutions
-│   │       ├── 001-two-sum.java.java
-│   │       └── 001-two-sum.cpp.cpp
-│   ├── two-pointers/
-│   ├── sliding-window/
-│   └── ...
+├── src/
+│   └── leet_code/                  # Application source
+│       ├── app.py                  # Flask application
+│       ├── category_data.py        # Solution data management
+│       └── leetcode_converter.py   # Snake_case to camelCase converter
 │
-├── docs/                       # Problem documentation
-│   ├── arrays-hashing/
-│   └── ...
+├── docs/                           # Documentation hub
+│   ├── README.md                   # Documentation overview
+│   ├── solutions/                  # Problem solutions (298+)
+│   │   ├── arrays-hashing/         # Category folders (29 categories)
+│   │   │   ├── 001-two-sum.py     # Python solutions
+│   │   │   └── alternatives/       # Other language solutions
+│   │   │       ├── 001-two-sum.java.java
+│   │   │       └── 001-two-sum.cpp.cpp
+│   │   ├── two-pointers/
+│   │   ├── sliding-window/
+│   │   ├── stacks/
+│   │   ├── binary-search/
+│   │   ├── linked-lists/
+│   │   └── ...
+│   ├── user-guide/                 # User documentation
+│   │   └── README.md               # Browsing, downloading, studying
+│   └── upload-guide/               # Contributor guide
+│       ├── README.md               # Upload and formatting standards
+│       ├── SOLUTION_TEMPLATE.py    # Python solution template
+│       └── SOLUTION_TEMPLATE.js    # JavaScript solution template
 │
-├── templates/                  # HTML templates
+├── templates/                      # Flask HTML templates
 │   ├── base.html
 │   ├── index.html
 │   ├── solution.html
 │   └── upload_solution.html
 │
-└── static/                     # Static assets
-    ├── css/
-    │   └── style.css
-    └── js/
+├── static/                         # Static web assets
+│   ├── css/
+│   │   └── style.css               # Application styles
+│   └── js/                         # JavaScript (if any)
+│
+└── tests/                          # Test suite
+    ├── unit/
+    └── integration/
 ```
 
-## Features in Detail
+## Documentation
 
-### Multi-Language Support
-Supported languages:
+### User Guide
+Comprehensive guide for browsing, downloading, and studying solutions.
+See [docs/user-guide/README.md](docs/user-guide/README.md)
+
+### Upload Guide
+Template and formatting standards for contributing solutions.
+See [docs/upload-guide/README.md](docs/upload-guide/README.md)
+
+### Supported Languages
 - Python (default)
 - Java
 - C++/C
@@ -136,27 +158,6 @@ Supported languages:
 - Ruby
 - PHP
 - Scala
-
-### Download System
-Each download is language-aware:
-- **Python**: `.py` files with optional LeetCode format
-- **Other Languages**: Native file extensions (.java, .cpp, etc.)
-- **ZIP Format**: Contains skeleton, solution, and LeetCode skeleton and solution
-  - Python code is converted to LeetCode format.
-
-
-### Quick Access Dropdowns
-- Shows first 10 solutions per category
-- Direct navigation without intermediate pages
-- "View all" link for categories with 10+ solutions
-
-## Development
-
-### Adding New Solutions
-1. Create solution file in appropriate category folder
-2. Follow naming convention: `{number}-{problem-name}.py`
-3. Include problem description in docstring
-4. Run tests and linting before committing
 
 ## API Documentation
 
@@ -197,21 +198,42 @@ Upload alternative language solution
 ## Progress Tracking
 
 ### Current Statistics
-- **Total Solutions**: 50+ problems across 15+ categories
+- **Total Solutions**: 298+ problems across 29 categories
 - **Languages Supported**: 13 programming languages
-- **Categories**: Arrays, Two Pointers, Trees, Graphs, DP, and more
+- **Categories**: Arrays, Two Pointers, Stacks, Binary Search, Linked Lists, Trees, Graphs, Dynamic Programming, and more
+
+### Solution Categories
+Arrays & Hashing • Two Pointers • Sliding Window • Stacks • Binary Search • Linked Lists • Trees • Tries • Heap/Priority Queue • Backtracking • Graphs • Advanced Graphs • 1-D Dynamic Programming • 2-D Dynamic Programming • Greedy • Intervals • Math & Geometry • Bit Manipulation • and more
 
 ## Contributing
 
-1. Fork the repository
-2. Create your feature branch
-3. Run tests and linting
-4. Submit a pull request
+### Adding New Solutions
+1. Use solution templates in `docs/upload-guide/`
+2. Follow naming convention: `{number}-{problem-name}.py`
+3. Include problem description in docstring
+4. Run tests and linting before committing
+
+### Code Quality
+```bash
+# Type checking
+pdm run mypy src/
+
+# Code formatting
+pdm run black src/
+
+# Linting
+pdm run ruff check src/
+
+# Run tests
+pdm run pytest
+```
+
+See [docs/upload-guide/README.md](docs/upload-guide/README.md) for detailed guidelines.
 
 ## License
 
-This project is for educational purposes.
+This project is for educational purposes only.
 
 ---
 
-*A comprehensive Leet Code Learning Tool with multi-language support, automatic format conversion, and modern development tools.*
+*A comprehensive LeetCode learning platform with multi-language support, automatic format conversion, and modern web interface.*
