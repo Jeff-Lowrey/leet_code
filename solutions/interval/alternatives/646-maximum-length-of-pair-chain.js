@@ -1,6 +1,5 @@
 /**
- * 646. Maximum Length Of Pair Chain
- * Medium
+
  *
  * This problem demonstrates key concepts in Interval.
  *
@@ -12,10 +11,10 @@
  * This is similar to activity selection and non-overlapping intervals.
  *
  * APPROACH:
- * 1. **Sort by end value**: Greedy choice - pick pair ending earliest
- * 2. **Build chain greedily**: Add pair if its start > previous end
- * 3. **Count chain length**: Track number of pairs in chain
- * 4. **Handle edge cases**: Empty array, single pair
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Greedy approach: always choose pair with smallest end value

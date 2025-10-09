@@ -1,5 +1,5 @@
 /**
- * 057. Insert Interval
+
  * Start
  *
  * This problem demonstrates key concepts in Interval.
@@ -13,7 +13,7 @@
 3. Add intervals that come after newInterval
  *
  * APPROACH:
- * 1. **Before Phase**: Add all intervals that `end` before newInterval starts
+
 2. **Merge Phase**: Merge all overlapping intervals with newInterval
 3. **After Phase**: Add all remaining intervals
  *

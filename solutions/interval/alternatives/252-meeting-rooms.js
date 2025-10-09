@@ -1,6 +1,5 @@
 /**
- * 252. Meeting Rooms
- * Medium
+
  *
  * This problem demonstrates key concepts in Interval.
  *
@@ -11,10 +10,10 @@
  * A person cannot attend all meetings if any two meetings overlap.
  *
  * APPROACH:
- * 1. **Sort intervals**: Sort by start time
- * 2. **Check for overlaps**: For each consecutive pair, check if they overlap
- * 3. **Return result**: If any overlap found, return false; otherwise true
- * 4. **Handle edge cases**: Empty array or single meeting always returns true
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Sorting ensures we only need to check consecutive intervals

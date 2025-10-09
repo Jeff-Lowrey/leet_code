@@ -1,6 +1,5 @@
 /**
- * 986. Interval List Intersections
- * Medium
+
  *
  * This problem demonstrates key concepts in Interval.
  *
@@ -11,10 +10,10 @@
  * Use two pointers to traverse both lists simultaneously.
  *
  * APPROACH:
- * 1. **Two-pointer technique**: Track current position in both lists
- * 2. **Find intersection**: For each pair, check if they overlap
- * 3. **Calculate overlap**: Intersection is [max(start1,start2), min(end1,end2)]
- * 4. **Move pointer**: Advance pointer of interval that ends first
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Both lists are sorted, so we can process in linear time

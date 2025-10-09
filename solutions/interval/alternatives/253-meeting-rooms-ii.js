@@ -1,6 +1,5 @@
 /**
- * 253. Meeting Rooms II
- * Medium
+
  *
  * This problem demonstrates key concepts in Interval.
  *
@@ -11,10 +10,10 @@
  * Use a sweep line algorithm: track all start and end times separately.
  *
  * APPROACH:
- * 1. **Separate start and end times**: Create two arrays
- * 2. **Sort both arrays**: Process events chronologically
- * 3. **Two-pointer sweep**: Count concurrent meetings at any time
- * 4. **Track maximum**: The peak concurrent meetings is the answer
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Each start time increases rooms needed by 1

@@ -1,6 +1,5 @@
 /**
- * 759. Employee Free Time
- * Hard
+
  *
  * This problem demonstrates key concepts in Interval.
  *
@@ -11,10 +10,10 @@
  * Flatten all intervals, merge overlapping work periods, find gaps between merged intervals.
  *
  * APPROACH:
- * 1. **Flatten all intervals**: Combine all employee schedules into one list
- * 2. **Sort by start time**: Process intervals chronologically
- * 3. **Merge overlapping intervals**: Find all busy periods
- * 4. **Find gaps**: Gaps between merged intervals are free time
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Flattening treats all work intervals equally

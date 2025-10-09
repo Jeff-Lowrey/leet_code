@@ -1,6 +1,5 @@
 /**
- * 435. Non Overlapping Intervals
- * Medium
+
  *
  * This problem demonstrates key concepts in Interval.
  *
@@ -11,10 +10,10 @@
  * This is equivalent to finding the maximum number of non-overlapping intervals (greedy).
  *
  * APPROACH:
- * 1. **Sort by end time**: Greedy choice - always pick interval ending earliest
- * 2. **Track last end time**: Keep intervals that don't overlap with previous
- * 3. **Count non-overlapping**: Maximum intervals we can keep
- * 4. **Calculate removals**: Total intervals - kept intervals
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Greedy approach: always choose interval with earliest end time

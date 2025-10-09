@@ -1,6 +1,5 @@
 /**
- * 436. Find Right Interval
- * Medium
+
  *
  * This problem demonstrates key concepts in Interval.
  *
@@ -11,10 +10,10 @@
  * Use binary search on sorted start times for efficient lookup.
  *
  * APPROACH:
- * 1. **Create index mapping**: Store original indices before sorting
- * 2. **Sort by start time**: Enable binary search
- * 3. **Binary search**: For each interval's end, find smallest valid start
- * 4. **Map back to original**: Use index mapping to return result in original order
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Sorting start times allows binary search

@@ -1,6 +1,5 @@
 /**
- * 452. Minimum Number Of Arrows To Burst Balloons
- * Medium
+
  *
  * This problem demonstrates key concepts in Interval.
  *
@@ -12,10 +11,10 @@
  * This is equivalent to finding minimum points to cover all intervals.
  *
  * APPROACH:
- * 1. **Sort by end position**: Greedy - shoot arrow at earliest end point
- * 2. **Shoot arrow**: Place arrow at current balloon's end
- * 3. **Skip overlapping**: Skip balloons that overlap with current arrow position
- * 4. **Count arrows**: Each new arrow needed when no overlap found
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Greedy approach: always shoot arrow at earliest possible end

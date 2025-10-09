@@ -1,6 +1,5 @@
 /**
- * 056. Merge Intervals
- * Medium
+
  *
  * This problem demonstrates key concepts in Interval.
  *
@@ -12,10 +11,10 @@
  * overlapping intervals in a single pass.
  *
  * APPROACH:
- * 1. **Sort intervals**: Sort by start time to process intervals in order
- * 2. **Iterate and merge**: For each interval, check if it overlaps with the last merged interval
- * 3. **Update or add**: If overlapping, extend the last interval; otherwise, add new interval
- * 4. **Handle edge cases**: Empty array, single interval, non-overlapping intervals
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Sorting ensures we only need to look at the last merged interval
