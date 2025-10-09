@@ -1,45 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Two Pointers.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Convert the 3Sum problem into multiple 2Sum problems. For each number, find pairs in the remaining array that sum to the negative of that number. Sorting helps avoid duplicates and enables two-pointer technique.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-2. **Fix First Element**: For each nums[i], find pairs that sum to -nums[i]
-3. **Two Pointers**: Use left and right pointers to find the required sum
-4. **Skip Duplicates**: Avoid duplicate triplets by skipping repeated values
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * Sorting enables efficient duplicate skipping and the two-pointer technique. For each fixed first element, the problem reduces to finding two numbers that sum to a target, which is efficiently solved with two pointers.
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n²)
-- O(n log n) for sorting
-- O(n²) for nested loops with two pointers
-- Overall: O(n²)
- * SPACE COMPLEXITY: O(1)
-- Excluding output space, only using constant extra space
-- Sorting can be done in-place
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
- * For nums = [-1,0,1,2,-1,-4], after sorting: [-4,-1,-1,0,1,2]
-1. i=0, nums[i]=-4, target=4: no valid pairs
-2. i=1, nums[i]=-1, target=1: find pairs summing to 1
-   - left=2(-1), right=5(2): sum=1 ✓ → triplet [-1,-1,2]
-3. i=2: skip (duplicate -1)
-4. i=3, nums[i]=0, target=0: find pairs summing to 0
-   - left=4(1), right=5(2): sum=3 > 0, move right
-   - No valid pairs
-5. Continue...
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
  *
- * EDGE CASES:
- * - Array length < 3: return []
-- All positive/negative numbers: return []
-- Array with all zeros: return [[0,0,0]] if length ≥ 3
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * [example input]
+ * ```
+ *
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

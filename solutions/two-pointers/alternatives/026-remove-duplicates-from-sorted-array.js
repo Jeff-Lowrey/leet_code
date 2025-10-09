@@ -1,48 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Two Pointers.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Use two pointers: one (slow) to track the position of unique elements, and another
- * (fast) to scan through the array. When we find a new unique element, we place it
- * at the slow pointer's position and increment slow.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * Since the array is sorted, all duplicates are adjacent. By comparing each element
- * with the last known unique element (at slow pointer), we can identify and collect
- * all unique elements in-place at the beginning of the array.
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n)
- * - Single pass through the array
- * SPACE COMPLEXITY: O(1)
- * - Only using two pointers, no extra space
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: nums = [0,0,1,1,1,2,2,3,3,4]
- * Step 1: slow=0, fast=1, nums[0]=0, nums[1]=0 (duplicate, skip)
- * Step 2: slow=0, fast=2, nums[0]=0, nums[2]=1 (unique, slow++, nums[1]=1)
- * Step 3: slow=1, fast=3, nums[1]=1, nums[3]=1 (duplicate, skip)
- * Step 4: slow=1, fast=4, nums[1]=1, nums[4]=1 (duplicate, skip)
- * Step 5: slow=1, fast=5, nums[1]=1, nums[5]=2 (unique, slow++, nums[2]=2)
- * ...continue until fast reaches end
- * Output: k=5, nums=[0,1,2,3,4,_,_,_,_,_]
+ * [example input]
  * ```
  *
- * EDGE CASES:
- * - Empty array: return 0
- * - Single element: return 1
- * - No duplicates: return original length
- * - All duplicates: return 1
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

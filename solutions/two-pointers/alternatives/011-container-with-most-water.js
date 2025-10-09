@@ -1,48 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Two Pointers.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * The water contained between two lines is limited by the shorter line. We need to find
- * the maximum area by considering different pairs of lines. The key insight is that we
- * can use two pointers starting from both ends and move the pointer pointing to the
- * shorter line inward, as moving the taller line would only decrease the area.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - The area is determined by the shorter line and the distance between lines
- * - Moving the pointer at the taller line won't increase the area (distance decreases, height limited by shorter line)
- * - Moving the pointer at the shorter line gives us a chance to find a taller line
- * - This greedy approach ensures we explore all potentially better solutions
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n)
- * - Single pass through the array with two pointers
- * SPACE COMPLEXITY: O(1)
- * - Only using a constant amount of extra space
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: height = [1,8,6,2,5,4,8,3,7]
- * Step 1: left=0(1), right=8(7), area = min(1,7) * 8 = 8, move left (shorter)
- * Step 2: left=1(8), right=8(7), area = min(8,7) * 7 = 49, move right (shorter)
- * Step 3: left=1(8), right=7(3), area = min(8,3) * 6 = 18, move right (shorter)
- * Step 4: left=1(8), right=6(8), area = min(8,8) * 5 = 40, can move either
- * ...continue until left >= right
- * Output: 49 (maximum area found)
+ * [example input]
  * ```
  *
- * EDGE CASES:
- * - Array with less than 2 elements: return 0
- * - All heights are the same: area decreases as distance decreases
- * - Heights in ascending/descending order: still works correctly
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

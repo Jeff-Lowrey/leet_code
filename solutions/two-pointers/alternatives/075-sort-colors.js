@@ -1,52 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Two Pointers.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * This is the Dutch National Flag problem. We can use three pointers to partition
- * the array into three sections: 0s, 1s, and 2s. The key is to maintain invariants
- * where all 0s are before low pointer, all 2s are after high pointer, and we scan
- * with mid pointer.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
- *    - If nums[mid]=0: swap with low, increment both low and mid
- *    - If nums[mid]=1: just increment mid
- *    - If nums[mid]=2: swap with high, decrement high (don't move mid yet)
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * We maintain three regions: [0...low-1] contains 0s, [low...mid-1] contains 1s,
- * [mid...high] is unprocessed, [high+1...n-1] contains 2s. By swapping appropriately,
- * we partition the array in a single pass.
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n)
- * - Single pass through the array
- * SPACE COMPLEXITY: O(1)
- * - Only using three pointers, sorting in-place
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: nums = [2,0,2,1,1,0]
- * Step 1: low=0, mid=0, high=5, nums[0]=2, swap with high, nums=[0,0,2,1,1,2], high=4
- * Step 2: low=0, mid=0, high=4, nums[0]=0, swap with low, low=1, mid=1
- * Step 3: low=1, mid=1, high=4, nums[1]=0, swap with low, low=2, mid=2
- * Step 4: low=2, mid=2, high=4, nums[2]=2, swap with high, nums=[0,0,1,1,2,2], high=3
- * Step 5: low=2, mid=2, high=3, nums[2]=1, mid=3
- * Step 6: low=2, mid=3, high=3, nums[3]=1, mid=4 (mid > high, stop)
- * Output: [0,0,1,1,2,2]
+ * [example input]
  * ```
  *
- * EDGE CASES:
- * - Empty array: nothing to sort
- * - Single element: already sorted
- * - All same color: already sorted
- * - Already sorted: works efficiently
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**
