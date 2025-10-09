@@ -1,12 +1,23 @@
 """
-217. Contains Duplicate
 # Difficulty: Easy
+
 Given an integer array `nums`, return true if any value appears at least twice
 in the array, and return false if every element is distinct.
 
 Example:
 Input: `nums` = [1,2,3,1]
 Output: true
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -15,24 +26,31 @@ Output: true
 If all elements are unique, then the array length equals the set length.
 If there are duplicates, the set will be smaller than the array.
 
-### APPROACH 1 (Set Comparison):
-- Convert array to set (removes duplicates)
-- Compare lengths: if different, duplicates exist
-- One-liner solution: `len(nums) != len(set(nums))`
+### APPROACH:
+[Detailed explanation of the solution approach]
 
-### APPROACH 2 (Early Termination):
-- Use set to track seen elements
-- For each element, check if already seen
-- Return True immediately when duplicate found
-- More memory efficient for arrays with early duplicates
+### WHY THIS WORKS:
+- [Explanation of correctness]
 
-### WHY HASH SET?
-- O(1) average lookup time
-- Automatically handles uniqueness
-- Space trade-off for time efficiency
+### EXAMPLE WALKTHROUGH:
+Input:
+```
+[example input]
+```
 
-### TIME COMPLEXITY: O(n)
-### SPACE COMPLEXITY: O(n)
+**Step 1:** [description]
+
+**Step 2:** [description]
+
+### TIME COMPLEXITY:
+O(n)
+
+### SPACE COMPLEXITY:
+O(n)
+
+### EDGE CASES:
+- **[Edge case 1]:** [how it's handled]
+- **[Edge case 2]:** [how it's handled]
 
 </details>
 """

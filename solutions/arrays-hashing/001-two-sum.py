@@ -47,7 +47,6 @@ We only need to store numbers we've already seen.
 When we find a complement, we know the current index and the stored index.
 
 ### EXAMPLE WALKTHROUGH:
-
 Input:
 ```
 nums = [2,7,11,15], target = 9
