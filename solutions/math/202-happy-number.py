@@ -1,7 +1,6 @@
 """
 # 202. Happy Number
-**Easy**
-
+# Difficulty: Easy
 Write an algorithm to determine if a number n is happy.
 
 A happy number is a number defined by the following process:
@@ -68,7 +67,6 @@ n = 2:
 </details>
 """
 
-
 class Solution:
     def isHappy(self, n: int) -> bool:
         """
@@ -119,7 +117,6 @@ class Solution:
             if slow == fast:
                 return False
 
-
 def test_solution() -> None:
     """Test cases for Problem 202."""
     solution = Solution()
@@ -130,7 +127,6 @@ def test_solution() -> None:
     assert solution.isHappy(7) is True
     assert solution.isHappy(4) is False
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

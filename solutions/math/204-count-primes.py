@@ -1,7 +1,6 @@
 """
 # 204. Count Primes
-**Medium**
-
+# Difficulty: Medium
 Given an integer n, return the number of prime numbers that are strictly less than n.
 
 <details>
@@ -50,7 +49,6 @@ Primes: [2, 3, 5, 7] → Count = 4
 
 </details>
 """
-
 
 class Solution:
     def countPrimes(self, n: int) -> int:
@@ -112,7 +110,6 @@ class Solution:
 
         return sum(is_prime)
 
-
 def test_solution() -> None:
     """Test cases for Problem 204."""
     solution = Solution()
@@ -124,7 +121,6 @@ def test_solution() -> None:
     assert solution.countPrimes(3) == 1  # 2
     assert solution.countPrimes(100) == 25
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

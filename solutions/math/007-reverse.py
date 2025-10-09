@@ -1,7 +1,6 @@
 """
 # 007. Reverse
-**Medium**
-
+# Difficulty: Medium
 Given a problem that demonstrates key concepts in Math.
 
 <details>
@@ -52,7 +51,6 @@ The approach uses math techniques to solve this problem efficiently.
 </details>
 """
 
-
 class Solution:
     def reverse(self, x: int) -> int:
         """
@@ -86,7 +84,6 @@ class Solution:
             return 0
 
         return result
-
 
 def test_solution():
     """
@@ -135,7 +132,6 @@ def test_solution():
     assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

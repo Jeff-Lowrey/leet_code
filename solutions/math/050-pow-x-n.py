@@ -1,7 +1,6 @@
 """
 50. Pow(x, n)
-Medium
-
+# Difficulty: Medium
 Implement pow(x, n), which calculates x raised to the power `n` (`i`.e., x^n).
 
 Example:
@@ -51,7 +50,6 @@ Final: `4 * 256` = 1024
 </details>
 """
 
-
 class Solution:
     def myPow(self, x: float, n: int) -> float:
         """
@@ -99,11 +97,9 @@ class Solution:
         else:
             return x * self.myPowRecursive(x, n - 1)
 
-
 """
 69. Sqrt(x)
-Easy
-
+# Difficulty: Easy
 Given a non-negative integer x, return the square root of x rounded down to the
 nearest integer. The returned integer should be non-negative as well.
 
@@ -115,7 +111,6 @@ Output: 2
 Explanation: The square root of 8 is 2.82842..., and since we round it down to
 the nearest integer, 2 is returned.
 """
-
 
 class SolutionSqrt:
     def mySqrt(self, x: int) -> int:
@@ -161,11 +156,9 @@ class SolutionSqrt:
 
         return x0
 
-
 """
 29. Divide Two Integers
-Medium
-
+# Difficulty: Medium
 Given two integers dividend and divisor, divide two integers without using
 multiplication, division, and mod operator.
 
@@ -175,7 +168,6 @@ Example:
 Input: dividend = 10, divisor = 3
 Output: 3
 """
-
 
 class SolutionDivide:
     def divide(self, dividend: int, divisor: int) -> int:
@@ -214,7 +206,6 @@ class SolutionDivide:
             result = -result
 
         return max(MIN_INT, min(MAX_INT, result))
-
 
 # Test cases
 if __name__ == "__main__":

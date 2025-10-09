@@ -1,7 +1,6 @@
 """
 # 268. Missing
-**Medium**
-
+# Difficulty: Medium
 Given a problem that demonstrates key concepts in Math.
 
 <details>
@@ -52,7 +51,6 @@ The approach uses math techniques to solve this problem efficiently.
 </details>
 """
 
-
 class Solution:
     def missingNumber(self, nums: List[int]) -> int:
         """
@@ -96,7 +94,6 @@ class Solution:
             result ^= i ^ nums[i]
         return result
 
-
 def test_solution():
     """
     Test cases for 268. Missing.
@@ -114,7 +111,6 @@ def test_solution():
     # assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

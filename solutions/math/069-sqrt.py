@@ -1,7 +1,6 @@
 """
 # 069. Sqrt
-**Medium**
-
+# Difficulty: Medium
 Given a problem that demonstrates key concepts in Math.
 
 <details>
@@ -52,7 +51,6 @@ The approach uses math techniques to solve this problem efficiently.
 </details>
 """
 
-
 class Solution:
     def mySqrt(self, x: int) -> int:
         """
@@ -101,7 +99,6 @@ class Solution:
 
         return result
 
-
 def test_solution():
     """
     Test cases for 069. Sqrt.
@@ -119,7 +116,6 @@ def test_solution():
     # assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

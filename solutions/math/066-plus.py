@@ -1,7 +1,6 @@
 """
 # 066. Plus
-**Medium**
-
+# Difficulty: Medium
 Given a problem that demonstrates key concepts in Math.
 
 <details>
@@ -52,7 +51,6 @@ The approach uses math techniques to solve this problem efficiently.
 </details>
 """
 
-
 class Solution:
     def plusOne(self, digits: List[int]) -> List[int]:
         """
@@ -82,7 +80,6 @@ class Solution:
         # (e.g., 999 -> 1000)
         return [1] + digits
 
-
 def test_solution():
     """
     Test cases for 066. Plus.
@@ -100,7 +97,6 @@ def test_solution():
     # assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

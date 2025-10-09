@@ -1,7 +1,6 @@
 """
 # 172. Factorial Trailing Zeroes
-**Medium**
-
+# Difficulty: Medium
 Given an integer n, return the number of trailing zeroes in n!.
 
 Note that n! = n × (n - 1) × (n - 2) × ... × 3 × 2 × 1.
@@ -55,7 +54,6 @@ Total: 6 + 1 = 7 trailing zeroes
 </details>
 """
 
-
 class Solution:
     def trailingZeroes(self, n: int) -> int:
         """
@@ -82,7 +80,6 @@ class Solution:
             return 0
         return n // 5 + self.trailingZeroesRecursive(n // 5)
 
-
 def test_solution() -> None:
     """Test cases for Problem 172."""
     solution = Solution()
@@ -94,7 +91,6 @@ def test_solution() -> None:
     assert solution.trailingZeroes(30) == 7
     assert solution.trailingZeroes(0) == 0
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()
