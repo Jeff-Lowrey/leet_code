@@ -31,9 +31,7 @@
  * ```
  * [example input]
  * ```
- *
  * **Step 1:** [description]
- *
  * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
