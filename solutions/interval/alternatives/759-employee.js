@@ -1,46 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Interval.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Given work schedules for multiple employees, find common free time intervals.
- * Flatten all intervals, merge overlapping work periods, find gaps between merged intervals.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Flattening treats all work intervals equally
- * - Merging finds all busy time periods
- * - Gaps between busy periods are common free time
- * - Sort ensures we process intervals in time order
- * - Time complexity: O(n log n) where n is total intervals
- * - Space complexity: O(n) for flattened and result arrays
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n log n) - where n is total number of intervals
- * SPACE COMPLEXITY: O(n)
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
-Input: [[[1,3],[4,6]],[[1,4]],[[2,5],[7,9]]]
-Flatten: [[1,3],[4,6],[1,4],[2,5],[7,9]]
-Sort: [[1,3],[1,4],[2,5],[4,6],[7,9]]
-Merge: [[1,6],[7,9]]
-Gaps: [6,7]
-Output: [[6,7]]
-```
+ * [example input]
+ * ```
  *
- * EDGE CASES:
- * - No employees: return []
- * - No free time: return []
- * - All time is free: return large interval
- * - Single employee: find gaps in their schedule
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 // Interval class for compatibility

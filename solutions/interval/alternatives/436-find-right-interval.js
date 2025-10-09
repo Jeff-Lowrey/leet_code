@@ -1,45 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Interval.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * For each interval, find the interval with the smallest start that is >= current end.
- * Use binary search on sorted start times for efficient lookup.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Sorting start times allows binary search
- * - For each interval end, we binary search for ceiling(end) in starts
- * - Map maintains connection to original indices
- * - Time complexity: O(n log n) for sorting + O(n log n) for n binary searches
- * - Space complexity: O(n) for sorted array and result
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n log n)
- * SPACE COMPLEXITY: O(n)
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
-Input: [[3,4],[2,3],[1,2]]
-With indices: [[3,4,0],[2,3,1],[1,2,2]]
-Sort by start: [[1,2,2],[2,3,1],[3,4,0]]
-For [3,4]: search for start>=4, not found -> -1
-For [2,3]: search for start>=3, found [3,4] at index 0 -> 0
-For [1,2]: search for start>=2, found [2,3] at index 1 -> 1
-Output: [-1,0,1]
-```
+ * [example input]
+ * ```
  *
- * EDGE CASES:
- * - Single interval: return [-1]
- * - No right interval exists: return -1 for that position
- * - All intervals have right intervals: return valid indices
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

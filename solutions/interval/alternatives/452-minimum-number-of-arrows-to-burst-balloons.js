@@ -1,46 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Interval.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Find minimum arrows to burst all balloons. Each balloon is an interval [start, end].
- * One arrow at position x bursts all balloons where start <= x <= end.
- * This is equivalent to finding minimum points to cover all intervals.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Greedy approach: always shoot arrow at earliest possible end
- * - This maximizes balloons burst by each arrow
- * - Similar to non-overlapping intervals problem
- * - Sort by end ensures we make optimal choices
- * - Time complexity: O(n log n) for sorting
- * - Space complexity: O(1) excluding sorting
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n log n) - dominated by sorting
- * SPACE COMPLEXITY: O(1)
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
-Input: [[10,16],[2,8],[1,6],[7,12]]
-Sort by end: [[1,6],[2,8],[7,12],[10,16]]
-Arrow 1 at x=6: bursts [1,6],[2,8] (both contain 6)
-Arrow 2 at x=12: bursts [7,12],[10,16] (both contain 12)
-Output: 2 arrows
-```
+ * [example input]
+ * ```
  *
- * EDGE CASES:
- * - Empty array: return 0
- * - Single balloon: return 1
- * - All overlapping: return 1
- * - No overlapping: return n
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

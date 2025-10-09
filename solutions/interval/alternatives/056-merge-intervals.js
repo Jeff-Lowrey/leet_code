@@ -1,46 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Interval.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Given a collection of intervals, merge all overlapping intervals.
- * The key insight is to sort intervals by start time, then merge consecutive
- * overlapping intervals in a single pass.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Sorting ensures we only need to look at the last merged interval
- * - Two intervals overlap if start2 <= end1
- * - Merging takes max of both end times to create combined interval
- * - Time complexity is dominated by sorting: O(n log n)
- * - Space complexity is O(n) for the result array (or O(log n) for sorting)
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n log n) - dominated by sorting
- * SPACE COMPLEXITY: O(n) - for result array
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
-Input: [[1,3],[2,6],[8,10],[15,18]]
-Step 1: Sort by start time (already sorted)
-Step 2: Start with [1,3], check [2,6] -> 2 <= 3, merge to [1,6]
-Step 3: Check [8,10] -> 8 > 6, add as new interval
-Step 4: Check [15,18] -> 15 > 10, add as new interval
-Output: [[1,6],[8,10],[15,18]]
-```
+ * [example input]
+ * ```
  *
- * EDGE CASES:
- * - Empty input: return empty array
- * - Single interval: return as-is
- * - No overlapping intervals: return sorted intervals
- * - All intervals overlap: return single merged interval
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

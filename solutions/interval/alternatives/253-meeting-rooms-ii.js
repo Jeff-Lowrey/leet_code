@@ -1,50 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * This problem demonstrates key concepts in Interval.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Find the minimum number of meeting rooms required to hold all meetings.
- * Use a sweep line algorithm: track all start and end times separately.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Each start time increases rooms needed by 1
- * - Each end time decreases rooms needed by 1
- * - Sorting ensures we process events in time order
- * - Two pointers track which event (start or end) happens next
- * - Maximum concurrent meetings = minimum rooms needed
- * - Time complexity: O(n log n) for sorting
- * - Space complexity: O(n) for start/end arrays
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n log n) - dominated by sorting
- * SPACE COMPLEXITY: O(n) - for start and end arrays
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
-Input: [[0,30],[5,10],[15,20]]
-Starts: [0,5,15]  Ends: [10,20,30]
-Time 0: start -> rooms=1, max=1
-Time 5: start -> rooms=2, max=2
-Time 10: end -> rooms=1
-Time 15: start -> rooms=2, max=2
-Time 20: end -> rooms=1
-Time 30: end -> rooms=0
-Output: 2
-```
+ * [example input]
+ * ```
  *
- * EDGE CASES:
- * - Empty input: return 0
- * - Single meeting: return 1
- * - No overlapping meetings: return 1
- * - All meetings overlap: return n
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**
