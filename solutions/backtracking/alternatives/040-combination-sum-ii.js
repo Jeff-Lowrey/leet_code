@@ -1,53 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * Given a collection of candidate numbers (candidates) and a target number (target),
- * find all unique combinations in candidates where the candidate numbers sum to target.
- * Each number in candidates may only be used once in the combination.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * This is similar to Combination Sum I, but with two key differences:
-
-
- * The challenge is to handle duplicates properly while ensuring each number is used at most once.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Sorting enables duplicate detection and early termination
- * - Advancing index ensures each number is used at most once
- * - Skipping duplicates at same recursion level prevents duplicate combinations
- * - The choose/explore/unchoose pattern systematically explores all valid combinations
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(2^N) in worst case, where N is the length of candidates
- * SPACE COMPLEXITY: O(target/min_candidate) for recursion depth and combination storage
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: candidates = [10,1,2,7,6,1,5], target = 8
- * After sorting: [1,1,2,5,6,7,10]
- * Step 1: Try first 1 -> [1], remaining target = 7
- * Step 2: Try second 1 -> [1,1], remaining target = 6
- * Step 3: Try 2 -> [1,1,2], remaining target = 4
- * Step 4: Try 5 -> [1,1,2,5], sum = 9 > 8, backtrack
- * Continue exploring: [1,1,6], [1,2,5], [1,7], [2,6] are valid
- * Skip duplicate 1s at same level to avoid duplicate combinations
- * Output: [[1,1,6],[1,2,5],[1,7],[2,6]]
+ * [example input]
  * ```
  *
- * EDGE CASES:
- * - Empty candidates array
- * - Target is 0 (return empty combination)
- * - No valid combinations exist
- * - All numbers are duplicates
- * - Single element equals target
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

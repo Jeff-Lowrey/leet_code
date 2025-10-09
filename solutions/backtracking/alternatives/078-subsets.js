@@ -1,49 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * Given an integer array nums of unique elements, return all possible subsets (the power set).
- * The solution set must not contain duplicate subsets. Return the solution in any order.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Generate all possible subsets (power set) by making binary choices for each element:
- * include it or don't include it in the current subset. Use backtracking to explore all combinations.
- * For n elements, there are exactly 2^n subsets (including empty subset).
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Each element has 2 choices: include or exclude
- * - Total subsets = 2^n (binary choices for n elements)
- * - Backtracking systematically explores all combinations
- * - Adding current subset at each step captures all intermediate states
- * - Index progression ensures no duplicate subsets
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n × 2^n) - 2^n subsets, each takes O(n) to copy
- * SPACE COMPLEXITY: O(n) - recursion depth
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: nums = [1,2,3]
- * Step 1: Start with [] (empty subset)
- * Step 2: Process 1 - exclude: [], include: [1]
- * Step 3: Process 2 from []: exclude: [], include: [2]
- * Step 4: Process 2 from [1]: exclude: [1], include: [1,2]
- * Step 5: Process 3 from each previous subset...
- * Final subsets: [], [1], [2], [1,2], [3], [1,3], [2,3], [1,2,3]
- * Output: [[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]]
+ * [example input]
  * ```
  *
- * EDGE CASES:
- * - Empty array: return [[]]
- * - Single element: return [[], [element]]
- * - All elements are unique (given constraint)
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

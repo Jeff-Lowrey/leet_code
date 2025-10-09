@@ -1,49 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * Given two integers n and k, return all possible combinations of k numbers
- * chosen from the range [1, n]. You may return the answer in any order.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * This is a classic combination generation problem using backtracking.
- * We need to choose k numbers from 1 to n such that order doesn't matter.
- * Unlike permutations, [1,2] and [2,1] are the same combination.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Start index ensures we never go backwards, preventing duplicate combinations
- * - Backtracking systematically explores all valid combinations
- * - Early termination when remaining numbers < remaining slots needed
- * - The choose/explore/unchoose pattern ensures proper state management
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(C(n,k) * k) = O(n! / (k!(n-k)!) * k) for generating and copying combinations
- * SPACE COMPLEXITY: O(k) for recursion depth and current combination
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: n = 4, k = 2
- * Step 1: Start with [], try numbers 1-4
- * Step 2: Choose 1 -> [1], try numbers 2-4 (start from 2 to avoid duplicates)
- * Step 3: Choose 2 -> [1,2], combination complete, add to result
- * Step 4: Backtrack, try 3 -> [1,3], combination complete
- * Step 5: Backtrack, try 4 -> [1,4], combination complete
- * Step 6: Backtrack to [], try starting with 2
- * Continue: [2,3], [2,4], [3,4]
- * Output: [[1,2],[1,3],[1,4],[2,3],[2,4],[3,4]]
+ * [example input]
  * ```
  *
- * EDGE CASES:
- * - k = 0: Return [[]]
- * - k > n: Return []
- * - k = n: Return [[1,2,...,n]]
- * - n = 1: Return [[1]] if k=1, else []
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

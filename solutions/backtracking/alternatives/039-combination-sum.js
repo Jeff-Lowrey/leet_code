@@ -1,49 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * Given an array of distinct integers candidates and a target integer target,
- * return a list of all unique combinations of candidates where the chosen numbers sum to target.
- * You may choose the same number from candidates an unlimited number of times.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * This is a classic backtracking problem where we explore all possible combinations
- * that sum to the target. Since we can reuse numbers, we need to carefully manage
- * our search to avoid duplicates while allowing reuse of the same element.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Systematically explores all valid combinations using choose/explore/unchoose pattern
- * - Allows reuse by not advancing start index when including current number
- * - Avoids duplicates by always processing candidates in sorted order
- * - Prunes invalid branches early when sum exceeds target
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(N^(T/M)) where N = candidates length, T = target, M = minimal candidate
- * SPACE COMPLEXITY: O(T/M) for recursion depth and current combination storage
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: candidates = [2,3,6,7], target = 7
- * Step 1: Try 2 -> sum=2, remaining=5, can continue with [2,3,6,7]
- * Step 2: Try 2 again -> sum=4, remaining=3, can continue with [2,3,6,7]
- * Step 3: Try 2 again -> sum=6, remaining=1, can continue with [2,3,6,7]
- * Step 4: Try 2 again -> sum=8, exceeds target, backtrack
- * Continue exploring: [2,2,3], [7] are valid combinations
- * Output: [[2,2,3],[7]]
+ * [example input]
  * ```
  *
- * EDGE CASES:
- * - Empty candidates array
- * - Target is 0 (return empty combination)
- * - No valid combinations exist
- * - Single element that equals target
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

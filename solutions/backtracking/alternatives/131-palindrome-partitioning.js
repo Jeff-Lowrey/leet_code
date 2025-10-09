@@ -1,49 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * Given a string s, partition s such that every substring of the partition is a palindrome.
- * Return all possible palindrome partitioning of s.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * Use backtracking to generate all possible ways to partition the string into palindromes.
- * At each position, try all possible palindromic substrings starting from that position,
- * then recursively partition the remaining string.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Backtracking systematically explores all possible partitions
- * - Only considers valid palindromic substrings at each step
- * - The choose/explore/unchoose pattern ensures complete search
- * - Early termination when substring is not a palindrome
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(N × 2^N) where N is string length - at most 2^N partitions, each takes O(N) to verify and copy
- * SPACE COMPLEXITY: O(N) for recursion depth and current partition
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: s = "aab"
- * Step 1: Start at index 0, try palindromes starting with 'a'
- * Step 2: "a" is palindrome -> partition = ["a"], continue from index 1
- * Step 3: From index 1, try "a" (palindrome) -> partition = ["a", "a"], continue from index 2
- * Step 4: From index 2, "b" (palindrome) -> partition = ["a", "a", "b"], end reached
- * Step 5: Backtrack, try "aa" from index 0 (palindrome) -> partition = ["aa"], continue from index 2
- * Step 6: From index 2, "b" (palindrome) -> partition = ["aa", "b"], end reached
- * Output: [["a","a","b"],["aa","b"]]
+ * [example input]
  * ```
  *
- * EDGE CASES:
- * - Empty string: return [[]]
- * - Single character: return [[char]]
- * - All characters the same: multiple valid partitions
- * - No palindromes except single chars: return partition of all single chars
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**

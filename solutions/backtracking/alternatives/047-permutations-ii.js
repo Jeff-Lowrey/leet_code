@@ -1,49 +1,52 @@
 /**
-
+ * Difficulty: Medium
  *
- * Given a collection of numbers, nums, that might contain duplicates,
- * return all possible unique permutations in any order.
+ * [Problem description goes here]
  *
- * SOLUTION EXPLANATION:
+ * **Example:**
  *
- * INTUITION:
- * This is similar to Permutations I, but with duplicate numbers in the input.
- * The challenge is to generate all unique permutations without duplicates in the result.
- * We need to skip duplicate branches while still allowing duplicate numbers within permutations.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[input description]</dd>
+ * <dt>Output:</dt>
+ * <dd>[output description]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>[explanation]</dd>
+ * </dl>
  *
- * APPROACH:
-
-
-
-
-
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * WHY THIS WORKS:
- * - Sorting enables duplicate detection at the same recursion level
- * - Using elements in order (left to right) prevents duplicate permutations
- * - The condition `i > 0 && nums[i] === nums[i-1] && !used[i-1]` ensures we use duplicates in order
- * - Backtracking systematically explores all unique permutations
+ * ### INTUITION:
+ * [High-level insight or key observation]
  *
- * TIME COMPLEXITY: O(n × n!) in worst case (all distinct), O(n × unique_perms) with duplicates
- * SPACE COMPLEXITY: O(n) for recursion depth and used array
+ * ### APPROACH:
+ * [Detailed explanation of the solution approach]
  *
- * EXAMPLE WALKTHROUGH:
+ * ### WHY THIS WORKS:
+ * - [Explanation of correctness]
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: nums = [1,1,2]
- * After sorting: [1,1,2] (already sorted)
- * Step 1: Choose first 1 (index 0) -> [1], used = [true, false, false]
- * Step 2: Choose second 1 (index 1) -> [1,1], used = [true, true, false]
- * Step 3: Choose 2 (index 2) -> [1,1,2], complete permutation
- * Step 4: Backtrack, try [1,2,1] by choosing 2 first after first 1
- * Step 5: When trying second 1 first, skip because first 1 is not used
- * Output: [[1,1,2],[1,2,1],[2,1,1]]
+ * [example input]
  * ```
  *
- * EDGE CASES:
- * - Empty array (return [[]])
- * - All elements are the same
- * - Single element
- * - Mix of duplicates and unique elements
+ * **Step 1:** [description]
+ *
+ * **Step 2:** [description]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(?)** - [explanation]
+ *
+ * ### EDGE CASES:
+ * - **[Edge case 1]:** [how it's handled]
+ * - **[Edge case 2]:** [how it's handled]
+ *
+ * </details>
  */
 
 /**
