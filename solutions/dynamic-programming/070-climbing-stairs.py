@@ -39,7 +39,6 @@ So: ways(n) = ways(`n-1`) + ways(`n-2`)
 - [Explanation of correctness]
 
 ### EXAMPLE WALKTHROUGH:
-
 Input:
 ```
 [example input]

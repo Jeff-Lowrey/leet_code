@@ -1,6 +1,5 @@
 /**
- * 198. House Robber
- * Medium
+
  *
  * You are a professional robber planning to rob houses along a street.
  * Each house has a certain amount of money stashed, the only constraint
@@ -20,10 +19,10 @@
  * optimal solutions to smaller subproblems.
  *
  * APPROACH:
- * 1. **Define state**: dp[i] = maximum money that can be robbed up to house i
- * 2. **Recurrence relation**: dp[i] = max(dp[i-1], dp[i-2] + nums[i])
- * 3. **Base cases**: dp[0] = nums[0], dp[1] = max(nums[0], nums[1])
- * 4. **Space optimization**: Only need to track last two values
+
+
+
+
  *
  * WHY THIS WORKS:
  * - At each house, we have two choices: rob or skip

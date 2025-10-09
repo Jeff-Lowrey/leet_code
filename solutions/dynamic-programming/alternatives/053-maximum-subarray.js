@@ -1,6 +1,5 @@
 /**
- * 53. Maximum Subarray (Kadane's Algorithm)
- * Medium
+
  *
  * Given an integer array nums, find the contiguous subarray (containing at least one number)
  * which has the largest sum and return its sum.
@@ -12,10 +11,10 @@
  * is that at each position, we decide whether to start a new subarray or extend the current one.
  *
  * APPROACH:
- * 1. **Initialize**: Start with first element as both current and maximum sum
- * 2. **Iterate**: For each element, choose max between starting new vs extending current
- * 3. **Track maximum**: Keep track of the largest sum seen so far
- * 4. **Optimal choice**: current_sum = max(num, current_sum + num)
+
+
+
+
  *
  * WHY THIS WORKS:
  * - If current_sum + num < num, it means previous subarray is dragging us down

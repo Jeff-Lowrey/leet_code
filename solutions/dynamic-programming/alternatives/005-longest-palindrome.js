@@ -1,5 +1,5 @@
 /**
- * 005. Longest Palindrome
+
  * DP
  *
  * This problem demonstrates key concepts in Dynamic Programming.
@@ -11,10 +11,10 @@
 by expanding around `centers - either` single characters or between characters.
  *
  * APPROACH:
- * 1. **Expand around centers**: For each possible center, expand outward
- * 2. **Two types of centers**: Single character (odd length) and between characters (even length)
- * 3. **Track maximum**: Keep track of the longest palindrome found so far
- * 4. **Early termination**: Stop expanding when characters don't match
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Every palindrome has a center

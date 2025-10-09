@@ -1,6 +1,5 @@
 /**
- * 416. Partition Equal Subset Sum
- * Medium
+
  *
  * This problem demonstrates key concepts in Dynamic Programming.
  *
@@ -12,7 +11,7 @@
  * This is the classic subset sum problem solved with DP.
  *
  * APPROACH:
- * 1. **Analyze the problem**: Understand the input constraints and expected output
+
 2. **Choose the right technique**: Apply dynamic programming methodology
 3. **Implement efficiently**: Focus on optimal time and space complexity
 4. **Handle edge cases**: Consider boundary conditions and special cases

@@ -1,6 +1,5 @@
 /**
- * 070. Climbing Stairs
- * Medium
+
  *
  * This problem demonstrates key concepts in Dynamic Programming.
  *
@@ -12,7 +11,7 @@ either come from step (`n-1`) by taking 1 step, or from step (`n-2`) by taking 2
 So: ways(n) = ways(`n-1`) + ways(`n-2`)
  *
  * APPROACH:
- * 1. Base cases: ways(1)=1, ways(2)=2
+
 2. For any step n: ways(n) = ways(`n-1`) + ways(`n-2`)
 3. Use `bottom-up` DP to avoid redundant calculations
  *

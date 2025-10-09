@@ -1,6 +1,5 @@
 /**
- * 322. Coin Change
- * Medium
+
  *
  * This problem demonstrates key concepts in Dynamic Programming.
  *
@@ -11,10 +10,10 @@
 the minimum coins needed. We can build this up from smaller amounts.
  *
  * APPROACH:
- * 1. **Initialize DP array**: dp[i] = minimum coins needed for amount i
- * 2. **Base case**: dp[0] = 0 (zero coins needed for amount 0)
- * 3. **Fill DP table**: For each amount, try all coins and take minimum
- * 4. **Transition**: dp[i] = min(dp[i], dp[i-coin] + 1) for all valid coins
+
+
+
+
  *
  * WHY THIS WORKS:
  * - We build up solutions from smaller subproblems
