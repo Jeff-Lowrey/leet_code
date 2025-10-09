@@ -1,6 +1,5 @@
 /**
- * 1356. Sort Integers By The Number Of 1 Bits
- * Easy
+
  *
  * This problem demonstrates key concepts in Sorting.
  *
@@ -11,9 +10,9 @@
  * If two numbers have the same number of 1 bits, sort them by their value.
  *
  * APPROACH:
- * 1. Create a helper function to count 1 bits in a number
- * 2. Use custom comparator: first by bit count, then by value
- * 3. Sort the array using this comparator
+
+
+
  *
  * WHY THIS WORKS:
  * The custom comparator ensures proper ordering based on the problem requirements.

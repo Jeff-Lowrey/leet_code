@@ -1,6 +1,5 @@
 /**
- * 1030. Matrix Cells In Distance Order
- * Easy
+
  *
  * This problem demonstrates key concepts in Sorting.
  *

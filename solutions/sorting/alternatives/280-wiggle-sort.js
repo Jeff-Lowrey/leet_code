@@ -1,6 +1,5 @@
 /**
- * 280. Wiggle Sort
- * Medium
+
  *
  * This problem demonstrates key concepts in Sorting.
  *
@@ -12,10 +11,10 @@
  * when they don't satisfy the wiggle property at their position.
  *
  * APPROACH:
- * 1. Iterate through the array starting from index 1
- * 2. For odd indices (1, 3, 5...): ensure nums[i] >= nums[i-1]
- * 3. For even indices (2, 4, 6...): ensure nums[i] <= nums[i-1]
- * 4. If the condition is violated, swap nums[i] and nums[i-1]
+
+
+
+
  *
  * WHY THIS WORKS:
  * By ensuring each element satisfies the wiggle property relative to its

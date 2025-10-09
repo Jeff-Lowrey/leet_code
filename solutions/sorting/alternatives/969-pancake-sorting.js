@@ -1,6 +1,5 @@
 /**
- * 969. Pancake Sorting
- * Medium
+
  *
  * This problem demonstrates key concepts in Sorting.
  *
@@ -13,10 +12,10 @@
  *
  * APPROACH:
  * For each position from the end:
- * 1. Find the index of the maximum element in the unsorted portion
- * 2. If it's not at the beginning, flip to bring it to the front
- * 3. Flip again to move it to its correct position
- * 4. Repeat for the next smaller element
+
+
+
+
  *
  * WHY THIS WORKS:
  * By repeatedly moving the largest unsorted element to its final position,

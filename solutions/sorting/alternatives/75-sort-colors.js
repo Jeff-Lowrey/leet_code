@@ -1,6 +1,5 @@
 /**
- * 75. Sort Colors
- * Medium
+
  *
  * This problem demonstrates key concepts in Sorting.
  *
@@ -12,11 +11,11 @@
  * array into three sections: all 0s, all 1s, and all 2s.
  *
  * APPROACH:
- * 1. Use three pointers: left (for 0s), current (iterator), right (for 2s)
- * 2. When current sees 0, swap with left and move both pointers right
- * 3. When current sees 1, just move current right
- * 4. When current sees 2, swap with right and move right left (don't move current yet)
- * 5. Continue until current passes right
+
+
+
+
+
  *
  * WHY THIS WORKS:
  * The left pointer tracks where the next 0 should go, and the right pointer tracks

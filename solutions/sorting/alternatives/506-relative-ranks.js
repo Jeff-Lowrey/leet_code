@@ -1,6 +1,5 @@
 /**
- * 506. Relative Ranks
- * Easy
+
  *
  * This problem demonstrates key concepts in Sorting.
  *
@@ -12,11 +11,11 @@
  * We need to maintain the original order while assigning ranks based on sorted order.
  *
  * APPROACH:
- * 1. Create an array of [score, originalIndex] pairs
- * 2. Sort by score in descending order
- * 3. Assign ranks based on sorted positions
- * 4. Map special medals for top 3 positions
- * 5. Place ranks back in original order
+
+
+
+
+
  *
  * WHY THIS WORKS:
  * By pairing each score with its original index, we can sort while maintaining

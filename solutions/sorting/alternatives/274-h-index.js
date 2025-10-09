@@ -1,6 +1,5 @@
 /**
- * 274. H Index
- * Medium
+
  *
  * This problem demonstrates key concepts in Sorting.
  *
@@ -12,10 +11,10 @@
  * citations in descending order, we can easily find this value.
  *
  * APPROACH:
- * 1. Sort the citations array in descending order
- * 2. Iterate through the sorted array
- * 3. For each position i (0-indexed), check if citations[i] >= i + 1
- * 4. The h-index is the largest i + 1 where this condition holds
+
+
+
+
  *
  * WHY THIS WORKS:
  * After sorting in descending order, at position i, we know we have (i + 1) papers

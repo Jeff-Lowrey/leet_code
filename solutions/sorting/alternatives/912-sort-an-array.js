@@ -1,6 +1,5 @@
 /**
- * 912. Sort An Array
- * Medium
+
  *
  * This problem demonstrates key concepts in Sorting.
  *
@@ -13,9 +12,9 @@
  *
  * APPROACH:
  * Merge Sort:
- * 1. Divide: Split the array into two halves
- * 2. Conquer: Recursively sort each half
- * 3. Combine: Merge the two sorted halves
+
+
+
  *
  * WHY THIS WORKS:
  * Merge sort is a divide-and-conquer algorithm with guaranteed O(n log n) time

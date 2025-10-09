@@ -1,6 +1,5 @@
 /**
- * 1051. Height Checker
- * Easy
+
  *
  * This problem demonstrates key concepts in Sorting.
  *
@@ -12,9 +11,9 @@
  * differs from the sorted array.
  *
  * APPROACH:
- * 1. Create a sorted copy of the heights array
- * 2. Compare each element in original with sorted version
- * 3. Count positions where they differ
+
+
+
  *
  * WHY THIS WORKS:
  * By comparing the original array with its sorted version, we can identify

@@ -1,6 +1,5 @@
 /**
- * 324. Wiggle Sort II
- * Medium
+
  *
  * This problem demonstrates key concepts in Sorting.
  *
@@ -12,10 +11,10 @@
  * interleave the smaller half with the larger half in a specific pattern.
  *
  * APPROACH:
- * 1. Sort the array
- * 2. Split into two halves: smaller half and larger half
- * 3. Place elements from the two halves alternately, starting with smaller half
- * 4. Fill from the end of each half to avoid adjacent duplicates
+
+
+
+
  *
  * WHY THIS WORKS:
  * By placing elements from the end of each half in reverse order, we maximize the
