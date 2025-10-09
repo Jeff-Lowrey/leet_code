@@ -67,7 +67,6 @@ The approach uses DFS backtracking to search for word in grid.
 </details>
 """
 
-
 class Solution:
     def exist(self, board: list[list[str]], word: str) -> bool:
         """
@@ -140,7 +139,6 @@ class Solution:
     # Alias for consistent interface
     solve = exist
 
-
 def test_solution():
     """
     Test cases for 079. Word Search.
@@ -198,7 +196,6 @@ def test_solution():
     print("Test case 10 passed: Adjacent duplicates")
 
     print("\nAll test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

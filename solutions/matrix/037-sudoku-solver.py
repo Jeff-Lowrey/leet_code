@@ -60,7 +60,6 @@ The approach uses backtracking with constraint checking to solve Sudoku.
 </details>
 """
 
-
 class Solution:
     def solveSudoku(self, board: list[list[str]]) -> None:
         """
@@ -122,7 +121,6 @@ class Solution:
 
     # Alias for consistent interface
     solve = solveSudoku
-
 
 def test_solution():
     """
@@ -192,7 +190,6 @@ def test_solution():
     print("Test case 3 passed: Hard Sudoku")
 
     print("\nAll test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

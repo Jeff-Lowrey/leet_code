@@ -1,7 +1,6 @@
 """
 36. Valid Sudoku
-Medium
-
+# Difficulty: Medium
 Determine if a 9 x 9 Sudoku board is valid. Only the filled cells need to be validated
 according to the following rules:
 
@@ -79,7 +78,6 @@ If we encounter "5" again in row 0, col 0, or box 0 → return False
 </details>
 """
 
-
 class Solution:
     def isValidSudoku(self, board: list[list[str]]) -> bool:
         """
@@ -142,7 +140,6 @@ class Solution:
                 seen.add(box_key)
 
         return True
-
 
 def test_solution() -> None:
     """Test cases for Problem 36."""
@@ -236,7 +233,6 @@ def test_solution() -> None:
     print("Test case 7 passed: Full valid board")
 
     print("\nAll test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

@@ -61,7 +61,6 @@ The approach uses first row/column as marker arrays for O(1) space.
 </details>
 """
 
-
 class Solution:
     def setZeroes(self, matrix: list[list[int]]) -> None:
         """
@@ -110,7 +109,6 @@ class Solution:
 
     # Alias for consistent interface
     solve = setZeroes
-
 
 def test_solution():
     """
@@ -175,7 +173,6 @@ def test_solution():
     print("Test case 8 passed: Single row with zero")
 
     print("\nAll test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

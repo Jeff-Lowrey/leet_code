@@ -70,7 +70,6 @@ The approach uses staircase search from top-right corner.
 </details>
 """
 
-
 class Solution:
     def searchMatrix(self, matrix: list[list[int]], target: int) -> bool:
         """
@@ -110,7 +109,6 @@ class Solution:
 
     # Alias for consistent interface
     solve = searchMatrix
-
 
 def test_solution():
     """
@@ -181,7 +179,6 @@ def test_solution():
     print("Test case 12 passed: Target larger than all")
 
     print("\nAll test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

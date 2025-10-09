@@ -1,7 +1,6 @@
 """
 # 240. Search a 2D Matrix II
-**Medium**
-
+# Difficulty: Medium
 Write an efficient algorithm that searches for a value target in an m x n integer matrix.
 This matrix has the following properties:
 - Integers in each row are sorted in ascending from left to right.
@@ -63,7 +62,6 @@ At (1,1)=5: Found! Return True
 
 </details>
 """
-
 
 class Solution:
     def searchMatrix(self, matrix: list[list[int]], target: int) -> bool:
@@ -173,7 +171,6 @@ class Solution:
 
         return False
 
-
 def test_solution() -> None:
     """Test cases for Problem 240."""
     solution = Solution()
@@ -223,7 +220,6 @@ def test_solution() -> None:
     print("Test case 8 passed: Binary search approach")
 
     print("\nAll test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

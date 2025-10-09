@@ -1,7 +1,6 @@
 """
 # 73. Set Matrix Zeroes
-**Medium**
-
+# Difficulty: Medium
 Given an m x n integer matrix, if an element is 0, set its entire row and column to 0's.
 
 You must do it in place.
@@ -65,7 +64,6 @@ Output:
 
 </details>
 """
-
 
 class Solution:
     def setZeroes(self, matrix: list[list[int]]) -> None:
@@ -201,7 +199,6 @@ class Solution:
             for i in range(m):
                 matrix[i][0] = 0
 
-
 def test_solution() -> None:
     """Test cases for Problem 73."""
     solution = Solution()
@@ -281,7 +278,6 @@ def test_solution() -> None:
     print("Test case 12 passed: Compact solution")
 
     print("\nAll test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

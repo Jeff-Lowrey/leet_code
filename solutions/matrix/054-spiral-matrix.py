@@ -1,7 +1,6 @@
 """
 54. Spiral Matrix
-Medium
-
+# Difficulty: Medium
 Given an m x `n` matrix, return all elements of the matrix in spiral order.
 
 Example:
@@ -36,7 +35,6 @@ Matrix: [[1,2,3],[4,5,6],[7,8,9]]
 
 </details>
 """
-
 
 class Solution:
     def spiralOrder(self, matrix: list[list[int]]) -> list[int]:
@@ -79,11 +77,9 @@ class Solution:
 
         return result
 
-
 """
 59. Spiral Matrix II
-Medium
-
+# Difficulty: Medium
 Given a positive integer n, generate an n x n matrix filled with elements from
 1 to n² in spiral order.
 
@@ -91,7 +87,6 @@ Example:
 Input: n = 3
 Output: [[1,2,3],[8,9,4],[7,6,5]]
 """
-
 
 class SolutionGenerate:
     def generateMatrix(self, n: int) -> list[list[int]]:
@@ -132,7 +127,6 @@ class SolutionGenerate:
             left += 1
 
         return matrix
-
 
 # Test cases
 if __name__ == "__main__":
