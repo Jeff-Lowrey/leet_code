@@ -1,7 +1,6 @@
 """
 # 011. Container With Most Water
-**Medium**
-
+# Difficulty: Medium
 Given a problem that demonstrates key concepts in Two Pointers.
 
 <details>

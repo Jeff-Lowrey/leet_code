@@ -1,7 +1,6 @@
 """
 125. Valid Palindrome
-Easy
-
+# Difficulty: Easy
 A phrase is a palindrome if, after converting all uppercase letters into lowercase
 letters and removing all `non-alphanumeric` characters, it reads the same forward
 and backward. Alphanumeric characters include letters and numbers.
@@ -116,7 +115,6 @@ class Solution:
 
         # Check if palindrome
         return cleaned == cleaned[::-1]
-
 
 # Test cases
 if __name__ == "__main__":

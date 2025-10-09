@@ -1,7 +1,6 @@
 """
 # 167. Two Sum Ii Input Array Is Sorted
-**Medium**
-
+# Difficulty: Medium
 Given a problem that demonstrates key concepts in Two Pointers.
 
 <details>

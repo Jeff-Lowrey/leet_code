@@ -1,7 +1,6 @@
 """
 # 088. Merge Sorted Array
-**Medium**
-
+# Difficulty: Medium
 Given a problem that demonstrates key concepts in Two Pointers.
 
 <details>
