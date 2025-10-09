@@ -1,6 +1,5 @@
 /**
- * 330. Patching Array
- * Hard
+
  *
  * This problem demonstrates key concepts in Greedy.
  *
@@ -12,10 +11,10 @@
  * The greedy choice is always to add 'miss' when we can't extend the range.
  *
  * APPROACH:
- * 1. **Track missing number**: 'miss' is the smallest number we can't form yet
- * 2. **Use array elements**: If nums[i] <= miss, we can form up to miss + nums[i] - 1
- * 3. **Patch when needed**: If nums[i] > miss or no more elements, add 'miss' itself
- * 4. **Double range with patch**: Adding 'miss' extends range from [1, miss) to [1, 2*miss)
+
+
+
+
  *
  * WHY THIS WORKS:
  * - If we can form [1, miss), adding 'miss' lets us form [1, 2*miss)

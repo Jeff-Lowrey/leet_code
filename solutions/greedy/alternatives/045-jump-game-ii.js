@@ -1,6 +1,5 @@
 /**
- * 045. Jump Game Ii
- * Medium
+
  *
  * This problem demonstrates key concepts in Greedy.
  *
@@ -12,10 +11,10 @@
  * BFS traversal where each level represents one more jump.
  *
  * APPROACH:
- * 1. **Track current jump range**: Keep track of the end of current jump level
- * 2. **Update farthest reach**: At each position, update the farthest we can reach
- * 3. **Increment jumps**: When we reach the end of current level, increment jump count
- * 4. **Early termination**: Stop when we can reach the last index
+
+
+
+
  *
  * WHY THIS WORKS:
  * - We greedily explore the maximum reach at each level

@@ -1,6 +1,5 @@
 /**
- * 763. Partition Labels
- * Medium
+
  *
  * This problem demonstrates key concepts in Greedy.
  *
@@ -12,10 +11,10 @@
  * as early as possible when all characters in current partition are complete.
  *
  * APPROACH:
- * 1. **Find last positions**: Record the last index of each character
- * 2. **Track partition end**: Keep the farthest last position of chars seen
- * 3. **Detect partition boundary**: When current index reaches partition end
- * 4. **Record partition size**: Add size to result and start new partition
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Each character must be contained in exactly one partition

@@ -1,6 +1,5 @@
 /**
- * 1221. Split A String In Balanced Strings
- * Easy
+
  *
  * This problem demonstrates key concepts in Greedy.
  *
@@ -12,10 +11,10 @@
  * soon as we reach balance to maximize the count.
  *
  * APPROACH:
- * 1. **Track balance**: Use a counter that increments for 'L' and decrements for 'R'
- * 2. **Detect balance**: When counter reaches 0, we have equal L's and R's
- * 3. **Greedy split**: Count this as a balanced substring immediately
- * 4. **Continue scanning**: Keep looking for more balanced substrings
+
+
+
+
  *
  * WHY THIS WORKS:
  * - The greedy choice: split as early as possible when balanced

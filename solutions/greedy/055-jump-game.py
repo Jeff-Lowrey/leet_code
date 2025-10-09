@@ -38,7 +38,6 @@ Use greedy approach to track the farthest position we can reach. If at any point
 - If we can reach position i, and from i we can jump nums[i] steps, then we can reach any position up to i + nums[i]
 
 ### EXAMPLE WALKTHROUGH:
-
 Input:
 ```
 [example input]

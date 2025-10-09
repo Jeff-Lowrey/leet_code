@@ -1,6 +1,5 @@
 /**
- * 135. Candy
- * Hard
+
  *
  * This problem demonstrates key concepts in Greedy.
  *
@@ -12,10 +11,10 @@
  * neighbors with lower ratings.
  *
  * APPROACH:
- * 1. **Initialize candies**: Give each child 1 candy initially
- * 2. **Left-to-right pass**: If rating[i] > rating[i-1], give candies[i] = candies[i-1] + 1
- * 3. **Right-to-left pass**: If rating[i] > rating[i+1], ensure candies[i] >= candies[i+1] + 1
- * 4. **Sum total**: Add up all candies
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Two passes ensure we satisfy both left and right neighbor constraints

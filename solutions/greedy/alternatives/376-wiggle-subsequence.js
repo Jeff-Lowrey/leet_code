@@ -1,6 +1,5 @@
 /**
- * 376. Wiggle Subsequence
- * Medium
+
  *
  * This problem demonstrates key concepts in Greedy.
  *
@@ -12,10 +11,10 @@
  * and valley to maximize length.
  *
  * APPROACH:
- * 1. **Track previous difference**: Keep track of the last non-zero difference
- * 2. **Detect direction change**: When diff sign changes, we found a wiggle point
- * 3. **Count changes**: Each direction change adds to subsequence length
- * 4. **Handle plateaus**: Skip consecutive equal values
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Every peak/valley is essential for maximum wiggle subsequence

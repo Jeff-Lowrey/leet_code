@@ -1,6 +1,5 @@
 /**
- * 134. Gas Station
- * Medium
+
  *
  * This problem demonstrates key concepts in Greedy.
  *
@@ -12,10 +11,10 @@
  * Also, if total gas >= total cost, a solution must exist.
  *
  * APPROACH:
- * 1. **Check feasibility**: If total gas < total cost, no solution exists
- * 2. **Track tank level**: Keep running total of gas - cost
- * 3. **Reset on deficit**: When tank goes negative, start from next station
- * 4. **Return candidate**: The last starting point we tried
+
+
+
+
  *
  * WHY THIS WORKS:
  * - If sum(gas) >= sum(cost), a solution exists (mathematical guarantee)

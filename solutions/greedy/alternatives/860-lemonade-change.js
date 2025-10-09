@@ -1,6 +1,5 @@
 /**
- * 860. Lemonade Change
- * Easy
+
  *
  * This problem demonstrates key concepts in Greedy.
  *
@@ -12,10 +11,10 @@
  * The greedy choice prioritizes preserving $5 bills.
  *
  * APPROACH:
- * 1. **Track bills**: Keep count of $5 and $10 bills in register
- * 2. **Process each customer**: Handle $5, $10, and $20 bills differently
- * 3. **Make change greedily**: For $20, prefer $10+$5 over $5+$5+$5
- * 4. **Check feasibility**: Return false if we can't make change
+
+
+
+
  *
  * WHY THIS WORKS:
  * - $5 bills are most versatile (can make any change)

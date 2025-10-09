@@ -1,6 +1,5 @@
 /**
- * 409. Longest Palindrome
- * Easy
+
  *
  * This problem demonstrates key concepts in Greedy.
  *
@@ -12,10 +11,10 @@
  * characters as possible while maintaining palindrome property.
  *
  * APPROACH:
- * 1. **Count frequencies**: Use a Set or Map to track character counts
- * 2. **Use pairs**: For each character, use the largest even count <= actual count
- * 3. **Add middle character**: If any character has odd count, add 1 more to result
- * 4. **Sum lengths**: Total is sum of all pairs + optional middle character
+
+
+
+
  *
  * WHY THIS WORKS:
  * - Palindromes are symmetric, so we can use pairs of characters

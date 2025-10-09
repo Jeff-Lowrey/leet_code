@@ -1,6 +1,5 @@
 /**
- * 055. Jump Game
- * Medium
+
  *
  * This problem demonstrates key concepts in Greedy.
  *
@@ -10,10 +9,10 @@
  * Use greedy approach to track the farthest position we can reach. If at any point our current position exceeds the farthest reachable position, we can't proceed further.
  *
  * APPROACH:
- * 1. **Track maximum reach**: Keep track of the farthest index we can reach
- * 2. **Update maximum**: At each position, update the maximum reachable position
- * 3. **Check feasibility**: If current position > maximum reach, return false
- * 4. **Success condition**: If maximum reach >= last index, return true
+
+
+
+
  *
  * WHY THIS WORKS:
  * - We only need to know if the last index is reachable, not the actual path
