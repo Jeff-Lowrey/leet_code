@@ -1,11 +1,24 @@
 """
-# 695. Max Area Of Island
 # Difficulty: Medium
+
+# 695. Max Area Of Island
+
 You are given an m x n binary matrix grid. An island is a group of 1's (representing land) connected 4-directionally (horizontal or vertical.) You may assume all four edges of the grid are surrounded by water.
 
 The area of an island is the number of cells with a value 1 in the island.
 
 Return the maximum area of an island in grid. If there is no island, return 0.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -26,12 +39,6 @@ This is similar to "Number of Islands" but instead of counting islands, we need 
 - We track the maximum area across all islands
 - In-place marking ensures each cell is counted exactly once
 
-### TIME COMPLEXITY: O(M × N)
-We visit each cell at most once
-
-### SPACE COMPLEXITY: O(M × N)
-For recursion stack in worst case
-
 ### EXAMPLE WALKTHROUGH:
 ```
 Grid: [[0,0,1,0,0,0,0,1,0,0,0,0,0],
@@ -50,11 +57,17 @@ Islands found:
 Maximum area = 4
 ```
 
-### KEY INSIGHTS:
-- Same traversal as island counting, but return area instead of count
-- DFS naturally counts cells as it explores
-- In-place modification saves space
-- Early termination possible if we find area larger than remaining cells
+### TIME COMPLEXITY:
+O(M × N)
+We visit each cell at most once
+
+### SPACE COMPLEXITY:
+O(M × N)
+For recursion stack in worst case
+
+### EDGE CASES:
+- **[Edge case 1]:** [how it's handled]
+- **[Edge case 2]:** [how it's handled]
 
 </details>
 """

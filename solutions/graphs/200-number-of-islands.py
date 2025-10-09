@@ -1,9 +1,22 @@
 """
-# 200. Number Of Islands
 # Difficulty: Medium
+
+# 200. Number Of Islands
+
 Given an m x n 2D binary grid which represents a map of '1's (land) and '0's (water), return the number of islands.
 
 An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. You may assume all four edges of the grid are all surrounded by water.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -24,12 +37,6 @@ This is a classic graph traversal problem where we need to find connected compon
 - Each DFS/BFS start represents discovering a new island
 - 4-directional connectivity defines what constitutes an island
 
-### TIME COMPLEXITY: O(M × N)
-Where M and N are grid dimensions - we visit each cell at most once
-
-### SPACE COMPLEXITY: O(M × N)
-For recursion stack in worst case (entire grid is one island) or visited array
-
 ### EXAMPLE WALKTHROUGH:
 ```
 Grid: [["1","1","1","1","0"],
@@ -45,11 +52,13 @@ Process:
 - Total islands found: 2
 ```
 
-### KEY INSIGHTS:
-- Connected components = separate islands
-- In-place modification (changing '1' to '0') saves space
-- DFS recursive approach is intuitive, BFS iterative approach avoids stack overflow
-- Union-Find can also solve this problem efficiently
+### TIME COMPLEXITY:
+O(M × N)
+Where M and N are grid dimensions - we visit each cell at most once
+
+### SPACE COMPLEXITY:
+O(M × N)
+For recursion stack in worst case (entire grid is one island) or visited array
 
 ### EDGE CASES:
 - Empty grid

@@ -1,11 +1,24 @@
 """
-# 694. Number Of Distinct Islands
 # Difficulty: Medium
+
+# 694. Number Of Distinct Islands
+
 You are given an m x n binary matrix grid. An island is a group of 1's (representing land) connected 4-directionally (horizontal or vertical.) You may assume all four edges of the grid are surrounded by water.
 
 An island is considered to be the same as another if and only if one island can be translated (and not rotated or reflected) to equal the other.
 
 Return the number of distinct islands.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
@@ -25,12 +38,6 @@ This problem extends "Number of Islands" by requiring us to identify distinct is
 - Set automatically handles duplicates
 - Translation invariance achieved by using relative coordinates
 
-### TIME COMPLEXITY: O(M × N)
-We visit each cell once during DFS/BFS
-
-### SPACE COMPLEXITY: O(M × N)
-For storing island shapes and recursion stack
-
 ### EXAMPLE WALKTHROUGH:
 ```
 Grid: [[1,1,0,0,0],
@@ -49,11 +56,17 @@ Normalized: [(0,0), (0,1), (1,0), (1,1)]
 Same normalized form → 1 distinct island
 ```
 
-### KEY INSIGHTS:
-- Use DFS path encoding or coordinate normalization
-- Sort coordinates for consistent representation
-- Handle translation by using relative positions
-- Set data structure naturally handles distinctness
+### TIME COMPLEXITY:
+O(M × N)
+We visit each cell once during DFS/BFS
+
+### SPACE COMPLEXITY:
+O(M × N)
+For storing island shapes and recursion stack
+
+### EDGE CASES:
+- **[Edge case 1]:** [how it's handled]
+- **[Edge case 2]:** [how it's handled]
 
 </details>
 """

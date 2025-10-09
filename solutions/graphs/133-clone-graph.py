@@ -1,6 +1,6 @@
 """
-133. Clone Graph
 # Difficulty: Medium
+
 Given a reference of a node in a connected undirected graph, return a deep copy
 (clone) of the graph.
 
@@ -10,6 +10,17 @@ Example:
 Input: adjList = [[2,4],[1,3],[2,4],[1,3]]
 Output: [[2,4],[1,3],[2,4],[1,3]]
 
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input description]</dd>
+<dt>Output:</dt>
+<dd>[output description]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
+
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
@@ -17,42 +28,35 @@ Output: [[2,4],[1,3],[2,4],[1,3]]
 To clone a graph, we need to create new nodes and preserve the neighbor relationships.
 The key challenge is handling `cycles - we` need to avoid infinite loops.
 
-### KEY INSIGHT:
-Use a hash `map` to track original → cloned `node` mappings. This serves two purposes:
-1. Avoid creating duplicate clones
-2. Handle cycles by referencing `already-created` clones
+### APPROACH:
+[Detailed explanation of the solution approach]
 
-### APPROACH (DFS):
-1. Start from given `node`, create its clone
-2. For each neighbor of `current` node:
-   - If neighbor not cloned yet, recursively clone it
-   - Add cloned neighbor to current clone's neighbor list
-3. Use hash `map` to track original → clone mapping
+### WHY THIS WORKS:
+- [Explanation of correctness]
 
-### APPROACH (BFS):
-1. Use queue for `level-by`-level traversal
-2. Clone nodes and establish neighbor relationships
-3. Same hash `map` tracking as DFS
+### EXAMPLE WALKTHROUGH:
 
-### WHY HASH MAP IS CRUCIAL:
+Input:
 ```
-Graph: 1 ↔ 2
-Without `map`: Clone 1, clone 2, clone 1 again... infinite loop
-With `map`: Clone 1, clone 2, reference existing clone of 1
+[example input]
 ```
 
-### TIME COMPLEXITY: O(V + E) - visit each node and edge once
-### SPACE COMPLEXITY: O(V) - hash map and recursion stack
+**Step 1:** [description]
+
+**Step 2:** [description]
+
+### TIME COMPLEXITY:
+O(V + E) - visit each node and edge once
+
+### SPACE COMPLEXITY:
+O(V) - hash map and recursion stack
+
+### EDGE CASES:
+- **[Edge case 1]:** [how it's handled]
+- **[Edge case 2]:** [how it's handled]
 
 </details>
 """
-
-from collections import deque
-
-class Node:
-    def __init__(self, val = 0, neighbors = None):
-        self.val = val
-        self.neighbors = neighbors if neighbors is not None else []
 
 class Solution:
     def cloneGraph(self, node: 'Node') -> 'Node':
