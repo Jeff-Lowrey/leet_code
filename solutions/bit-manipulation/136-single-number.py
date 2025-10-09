@@ -1,7 +1,6 @@
 """
 # 136. Single Number
-**Easy**
-
+# Difficulty: Easy
 Given a non-empty array of integers nums, every element appears twice except for one. Find that single one.
 
 You must implement a solution with a linear runtime complexity and use only constant extra space.
@@ -134,7 +133,6 @@ class Solution:
                 return nums[i]
         return nums[-1]  # Last element is the single one
 
-
 def test_solution():
     """Test cases for Problem 136."""
     solution = Solution()
@@ -181,7 +179,6 @@ def test_solution():
     assert result8 == expected8, f"Expected {expected8}, got {result8}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

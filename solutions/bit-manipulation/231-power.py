@@ -1,7 +1,6 @@
 """
 # 231. Power
-**Medium**
-
+# Difficulty: Medium
 Given a problem that demonstrates key concepts in Bit Manipulation.
 
 <details>
