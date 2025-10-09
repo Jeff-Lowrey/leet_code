@@ -1,7 +1,6 @@
 """
 523. Continuous Subarray Sum
-Medium
-
+# Difficulty: Medium
 Given an integer array nums and an integer k, return true if nums has a continuous
 subarray of size at least two that sums to a multiple of k, or false otherwise.
 
@@ -54,7 +53,6 @@ At index 2: remainder 5, seen at index 0, distance = 2 → return true
 </details>
 """
 
-
 class Solution:
     def checkSubarraySum(self, nums: list[int], k: int) -> bool:
         """
@@ -104,7 +102,6 @@ class Solution:
 
         return False
 
-
 def test_solution() -> None:
     """Test cases for Problem 523."""
     solution = Solution()
@@ -150,7 +147,6 @@ def test_solution() -> None:
     print("Test case 10 passed: Remainder 1")
 
     print("\nAll test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

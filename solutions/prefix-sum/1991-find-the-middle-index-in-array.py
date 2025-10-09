@@ -1,7 +1,6 @@
 """
 # 1991. Find The Middle Index In Array
-**Easy**
-
+# Difficulty: Easy
 Given a 0-indexed integer array nums, find the leftmost middleIndex (i.e., the smallest amongst all the possible ones).
 
 A middleIndex is an index where nums[0] + nums[1] + ... + nums[middleIndex-1] == nums[middleIndex+1] + nums[middleIndex+2] + ... + nums[nums.length-1].
@@ -64,7 +63,6 @@ Index 3: left=4, right=16-4-8=4, equal! Return 3
 
 </details>
 """
-
 
 class Solution:
     def findMiddleIndex(self, nums: list[int]) -> int:
@@ -182,7 +180,6 @@ class Solution:
 
         return -1
 
-
 def test_solution():
     """Test cases for Problem 1991."""
     solution = Solution()
@@ -238,7 +235,6 @@ def test_solution():
     assert result10 == expected10, f"Expected {expected10}, got {result10}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

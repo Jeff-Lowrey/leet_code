@@ -1,7 +1,6 @@
 """
 930. Binary Subarrays With Sum
-Medium
-
+# Difficulty: Medium
 Given a binary array nums and an integer goal, return the number of non-empty subarrays
 with a sum equal to goal.
 
@@ -57,7 +56,6 @@ atMost(goal) - atMost(goal-1) = exactly(goal)
 
 </details>
 """
-
 
 class Solution:
     def numSubarraysWithSum(self, nums: list[int], goal: int) -> int:
@@ -136,7 +134,6 @@ class Solution:
 
         return count
 
-
 def test_solution() -> None:
     """Test cases for Problem 930."""
     solution = Solution()
@@ -189,7 +186,6 @@ def test_solution() -> None:
     print("Test case 10 passed: Sliding window matches prefix sum")
 
     print("\nAll test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

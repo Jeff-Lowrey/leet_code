@@ -1,7 +1,6 @@
 """
 # 1590. Make Sum Divisible By P
-**Medium**
-
+# Difficulty: Medium
 Given an array of positive integers nums, remove the smallest subarray (possibly empty) such that the sum of the remaining elements is divisible by p. It is not allowed to remove the whole array.
 
 Return the length of the smallest subarray that you need to remove, or -1 if it's impossible.
@@ -66,7 +65,6 @@ Result: [3,1,2] sums to 6, which is divisible by 6
 
 </details>
 """
-
 
 class Solution:
     def minSubarray(self, nums: list[int], p: int) -> int:
@@ -190,7 +188,6 @@ class Solution:
 
         return -1 if min_length == n else min_length
 
-
 def test_solution():
     """Test cases for Problem 1590."""
     solution = Solution()
@@ -254,7 +251,6 @@ def test_solution():
     assert result9 == expected9, f"Expected {expected9}, got {result9}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

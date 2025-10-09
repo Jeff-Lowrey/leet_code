@@ -1,7 +1,6 @@
 """
 # 437. Path Sum III
-**Medium**
-
+# Difficulty: Medium
 Given the root of a binary tree and an integer targetSum, return the number of paths where the sum of the values along the path equals targetSum.
 
 The path does not need to start or end at the root or a leaf, but it must go downwards (i.e., traveling only from parent nodes to child nodes).
@@ -72,15 +71,12 @@ Total paths with sum 8: 3
 </details>
 """
 
-
-
 # Definition for a binary tree node.
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
         self.left = left
         self.right = right
-
 
 class Solution:
     def pathSum(self, root: TreeNode | None, targetSum: int) -> int:
@@ -255,7 +251,6 @@ class Solution:
         traverse(root, 0)
         return self.result
 
-
 def test_solution():
     """Test cases for Problem 437."""
     solution = Solution()
@@ -337,7 +332,6 @@ def test_solution():
     assert result8 == expected8, f"Expected {expected8}, got {result8}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

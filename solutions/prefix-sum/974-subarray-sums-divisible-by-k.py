@@ -1,7 +1,6 @@
 """
 974. Subarray Sums Divisible By K
-Medium
-
+# Difficulty: Medium
 Given an integer array nums and an integer k, return the number of non-empty subarrays
 that have a sum divisible by k.
 
@@ -62,7 +61,6 @@ so we initialize with {0: 1} and count immediately.
 
 </details>
 """
-
 
 class Solution:
     def subarraysDivByK(self, nums: list[int], k: int) -> int:
@@ -133,7 +131,6 @@ class Solution:
 
         return count
 
-
 def test_solution() -> None:
     """Test cases for Problem 974."""
     solution = Solution()
@@ -185,7 +182,6 @@ def test_solution() -> None:
     print("Test case 10 passed: Explicit normalization matches")
 
     print("\nAll test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

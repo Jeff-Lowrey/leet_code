@@ -1,7 +1,6 @@
 """
 525. Contiguous Array
-Medium
-
+# Difficulty: Medium
 Given a binary array nums, return the maximum length of a contiguous subarray
 with an equal number of 0 and 1.
 
@@ -53,7 +52,6 @@ Maximum length = 2
 </details>
 """
 
-
 class Solution:
     def findMaxLength(self, nums: list[int]) -> int:
         """
@@ -103,7 +101,6 @@ class Solution:
 
         return max_length
 
-
 def test_solution() -> None:
     """Test cases for Problem 525."""
     solution = Solution()
@@ -149,7 +146,6 @@ def test_solution() -> None:
     print("Test case 10 passed: Unbalanced at ends")
 
     print("\nAll test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

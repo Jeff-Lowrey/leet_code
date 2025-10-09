@@ -1,7 +1,6 @@
 """
 # 560. Subarray Sum Equals K
-**Medium**
-
+# Difficulty: Medium
 Given an array of integers nums and an integer k, return the total number of subarrays whose sum is equal to k.
 
 A subarray is a contiguous non-empty sequence of elements within an array.
@@ -55,7 +54,6 @@ Result: 2 subarrays: [1,1] and [1,1]
 
 </details>
 """
-
 
 class Solution:
     def subarraySum(self, nums: list[int], k: int) -> int:
@@ -191,7 +189,6 @@ class Solution:
 
         return result
 
-
 def test_solution():
     """Test cases for Problem 560."""
     solution = Solution()
@@ -242,7 +239,6 @@ def test_solution():
     assert result9 == expected9, f"Expected {expected9}, got {result9}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()

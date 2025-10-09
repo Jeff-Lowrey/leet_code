@@ -1,7 +1,6 @@
 """
 # 1248. Count Number Of Nice Subarrays
-**Medium**
-
+# Difficulty: Medium
 Given an array of integers nums and an integer k. A continuous subarray is called nice if there are k odd numbers on it.
 
 Return the number of nice sub-arrays.
@@ -55,7 +54,6 @@ Total: 2 nice subarrays
 
 </details>
 """
-
 
 class Solution:
     def numberOfSubarrays(self, nums: list[int], k: int) -> int:
@@ -199,7 +197,6 @@ class Solution:
 
         return count
 
-
 def test_solution():
     """Test cases for Problem 1248."""
     solution = Solution()
@@ -255,7 +252,6 @@ def test_solution():
     assert result10 == expected10, f"Expected {expected10}, got {result10}"
 
     print("All test cases passed!")
-
 
 if __name__ == "__main__":
     test_solution()
