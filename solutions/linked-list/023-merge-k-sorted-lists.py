@@ -1,7 +1,6 @@
 """
 # 023. Merge K Sorted Lists
-**Medium**
-
+# Difficulty: Medium
 Given a problem that demonstrates key concepts in Linked List.
 
 <details>
@@ -118,7 +117,6 @@ class Solution:
             print(current.val, end=" -> ")
             current = current.next
         print("None")
-
 
 # Example usage and testing
 def main():

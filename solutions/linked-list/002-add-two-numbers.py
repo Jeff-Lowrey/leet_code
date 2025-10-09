@@ -1,7 +1,6 @@
 """
 2. Add Two Numbers
-Medium
-
+# Difficulty: Medium
 You are given two `non-empty` linked lists representing two `non-negative` integers.
 The digits are stored in reverse order, and each of their nodes contains a single digit.
 Add the two numbers and return the sum as a linked list.
@@ -105,11 +104,9 @@ class Solution:
 
         return dummy.next
 
-
 """
 19. Remove Nth Node From End of List
-Medium
-
+# Difficulty: Medium
 Given the head of a linked list, remove the nth node from the end of the list
 and return its head.
 
@@ -171,11 +168,9 @@ class SolutionRemoveNth:
 
         return head
 
-
 """
 138. Copy List with Random Pointer
-Medium
-
+# Difficulty: Medium
 A linked list of length n is given such that each node contains an additional
 random pointer, which could point to any node in the list, or null.
 
@@ -257,7 +252,6 @@ class SolutionCopyRandom:
 
         return dummy.next
 
-
 # Helper functions
 def create_list(values):
     if not values:
@@ -275,7 +269,6 @@ def list_to_array(head):
         result.append(head.val)
         head = head.next
     return result
-
 
 # Test cases
 if __name__ == "__main__":

@@ -1,7 +1,6 @@
 """
 # 287. Find The Duplicate Number
-**Medium**
-
+# Difficulty: Medium
 Given a problem that demonstrates key concepts in Linked List.
 
 <details>

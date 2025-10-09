@@ -1,7 +1,6 @@
 """
 # 206. Reverse Linked List
-**Medium**
-
+# Difficulty: Medium
 Given a problem that demonstrates key concepts in Linked List.
 
 <details>
