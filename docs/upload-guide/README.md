@@ -13,6 +13,7 @@ Welcome to the Solution Upload Guide! This comprehensive guide provides template
 7. [JavaScript Formatting Guide](SOLUTION_FORMATTING_GUIDE_JS.md) - Detailed JavaScript solution formatting reference
 
 ## Quick Navigation
+[↑ Back to Table of Contents](#table-of-contents)
 
 **New Contributors:** Start with [Overview](01-overview.md) → [Template Files](02-template-files.md) → [Quick Start](04-quick-start.md)
 
@@ -23,6 +24,7 @@ Welcome to the Solution Upload Guide! This comprehensive guide provides template
 **Formatting Reference:** [Formatting Guidelines](05-formatting-guidelines.md) for general standards
 
 ## Template Locations
+[↑ Back to Table of Contents](#table-of-contents)
 
 **Solution Templates:**
 - Python: `docs/solutions/templates/SOLUTION_TEMPLATE.py`
@@ -33,6 +35,7 @@ Welcome to the Solution Upload Guide! This comprehensive guide provides template
 - JavaScript: `docs/upload-guide/SOLUTION_FORMATTING_GUIDE_JS.md`
 
 ## What This Guide Covers
+[↑ Back to Table of Contents](#table-of-contents)
 
 ### Creating Solutions
 - Accessing and using templates
@@ -53,6 +56,7 @@ Welcome to the Solution Upload Guide! This comprehensive guide provides template
 - Validation requirements
 
 ## Getting Started
+[↑ Back to Table of Contents](#table-of-contents)
 
 ### Step 1: Read the Overview
 Start with the [Overview](01-overview.md) to understand the solution upload process and requirements.
@@ -70,6 +74,7 @@ Review [Formatting Guidelines](05-formatting-guidelines.md) to ensure your solut
 Add your solution to the repository or use the web interface to upload.
 
 ## Documentation Structure
+[↑ Back to Table of Contents](#table-of-contents)
 
 ```
 docs/upload-guide/
@@ -84,6 +89,7 @@ docs/upload-guide/
 ```
 
 ## Support
+[↑ Back to Table of Contents](#table-of-contents)
 
 For detailed information:
 - Review the [Formatting Guidelines](05-formatting-guidelines.md)

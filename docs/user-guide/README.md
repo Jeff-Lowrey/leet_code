@@ -13,6 +13,8 @@ Welcome to the Leet Code Learning Tool User Guide! This comprehensive guide will
 7. [Study Strategies](07-study-strategies.md) - Learning paths, practice methods, and interview preparation
 
 ## Quick Navigation
+[↑ Back to Table of Contents](#table-of-contents)
+
 
 **New Users:** Start with [Overview](01-overview.md) → [Getting Started](02-getting-started.md)
 
@@ -23,6 +25,8 @@ Welcome to the Leet Code Learning Tool User Guide! This comprehensive guide will
 **Code Features:** [Code Viewing](05-code-viewing.md) - Syntax highlighting and format conversion
 
 ## What This Guide Covers
+[↑ Back to Table of Contents](#table-of-contents)
+
 
 ### For New Users
 - Platform overview and features
@@ -48,6 +52,7 @@ Welcome to the Leet Code Learning Tool User Guide! This comprehensive guide will
 - Format conversion features
 
 ## Getting Help
+[↑ Back to Table of Contents](#table-of-contents)
 
 Each guide section includes:
 - ✅ Detailed explanations
@@ -57,5 +62,6 @@ Each guide section includes:
 - ✅ Navigation links
 
 ## Start Reading
+[↑ Back to Table of Contents](#table-of-contents)
 
 Begin your journey: **[Overview →](01-overview.md)**
