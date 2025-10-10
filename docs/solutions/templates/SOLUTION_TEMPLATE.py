@@ -64,22 +64,38 @@ Input:
 </details>
 """
 
+from typing import Any
+
 
 class Solution:
-    def methodName(self, param1: type1, param2: type2) -> return_type:
+    def methodName(self, param1: Any, param2: Any) -> Any:
         """
         Approach: [Brief description of approach]
         Time Complexity: O(?)
         Space Complexity: O(?)
+
+        Args:
+            param1: [description and type]
+            param2: [description and type]
+
+        Returns:
+            [description and type]
         """
         # Implementation with clear comments
         pass
 
-    def methodNameAlternative(self, param1: type1, param2: type2) -> return_type:
+    def methodNameAlternative(self, param1: Any, param2: Any) -> Any:
         """
         [Alternative Approach Name]
         Time Complexity: O(?)
         Space Complexity: O(?)
+
+        Args:
+            param1: [description and type]
+            param2: [description and type]
+
+        Returns:
+            [description and type]
         """
         # Alternative implementation
         pass
@@ -90,27 +106,30 @@ if __name__ == "__main__":
     solution = Solution()
 
     # Test case 1
-    input1 = None  # Replace with actual test input
+    param1_1 = None  # Replace with actual test input
+    param2_1 = None  # Replace with actual test input
     expected1 = None  # Replace with expected output
-    result1 = solution.methodName(input1)
-    print(f"Input: {input1}")
+    result1 = solution.methodName(param1_1, param2_1)
+    print(f"Input: param1={param1_1}, param2={param2_1}")
     print(f"Output: {result1}")
     print(f"Expected: {expected1}")
     print()
 
     # Test case 2
-    input2 = None
+    param1_2 = None
+    param2_2 = None
     expected2 = None
-    result2 = solution.methodName(input2)
-    print(f"Input: {input2}")
+    result2 = solution.methodName(param1_2, param2_2)
+    print(f"Input: param1={param1_2}, param2={param2_2}")
     print(f"Output: {result2}")
     print(f"Expected: {expected2}")
     print()
 
     # Test case 3 - Edge case
-    input3 = None
+    param1_3 = None
+    param2_3 = None
     expected3 = None
-    result3 = solution.methodName(input3)
-    print(f"Input: {input3}")
+    result3 = solution.methodName(param1_3, param2_3)
+    print(f"Input: param1={param1_3}, param2={param2_3}")
     print(f"Output: {result3}")
     print(f"Expected: {expected3}")
