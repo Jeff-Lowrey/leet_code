@@ -83,58 +83,6 @@ The application will be available at `http://localhost:5000`
 - **Automatic Conversion**: Ready for copy-paste to LeetCode
 - **Download LeetCode Format**: Get submission-ready code
 
-## Project Structure
-
-```
-leet_code/
-├── README.md                       # This file
-├── CHANGELOG.md                    # Version history
-├── pyproject.toml                  # PDM configuration
-├── pdm.lock                        # Dependency lock file
-│
-├── src/
-│   └── leet_code/                  # Application source
-│       ├── app.py                  # Flask application
-│       ├── category_data.py        # Solution data management
-│       └── leetcode_converter.py   # Snake_case to camelCase converter
-│
-├── docs/                           # Documentation hub
-│   ├── README.md                   # Documentation overview
-│   ├── solutions/                  # Problem solutions (298+)
-│   │   ├── arrays-hashing/         # Category folders (29 categories)
-│   │   │   ├── 001-two-sum.py     # Python solutions
-│   │   │   └── alternatives/       # Other language solutions
-│   │   │       ├── 001-two-sum.java.java
-│   │   │       └── 001-two-sum.cpp.cpp
-│   │   ├── two-pointers/
-│   │   ├── sliding-window/
-│   │   ├── stacks/
-│   │   ├── binary-search/
-│   │   ├── linked-lists/
-│   │   └── ...
-│   ├── user-guide/                 # User documentation
-│   │   └── README.md               # Browsing, downloading, studying
-│   └── upload-guide/               # Contributor guide
-│       ├── README.md               # Upload and formatting standards
-│       ├── SOLUTION_TEMPLATE.py    # Python solution template
-│       └── SOLUTION_TEMPLATE.js    # JavaScript solution template
-│
-├── templates/                      # Flask HTML templates
-│   ├── base.html
-│   ├── index.html
-│   ├── solution.html
-│   └── upload_solution.html
-│
-├── static/                         # Static web assets
-│   ├── css/
-│   │   └── style.css               # Application styles
-│   └── js/                         # JavaScript (if any)
-│
-└── tests/                          # Test suite
-    ├── unit/
-    └── integration/
-```
-
 ## Documentation
 
 ### User Guide
@@ -233,6 +181,50 @@ See [docs/upload-guide/README.md](docs/upload-guide/README.md) for detailed guid
 ## License
 
 This project is for educational purposes only.
+
+---
+
+## Appendix: Project Structure
+
+```
+leet_code/
+├── README.md                       # This file
+├── CHANGELOG.md                    # Version history
+├── pyproject.toml                  # PDM configuration
+├── pdm.lock                        # Dependency lock file
+│
+├── src/
+│   └── leet_code/                  # Application source
+│       ├── app.py                  # Flask application
+│       ├── category_data.py        # Solution data management
+│       └── leetcode_converter.py   # Snake_case to camelCase converter
+│
+├── docs/                           # Documentation hub
+│   ├── README.md                   # Documentation overview
+│   ├── solutions/                  # Problem solutions (298+)
+│   │   ├── arrays-hashing/         # Category folders (29 categories)
+│   │   │   ├── 001-two-sum.py     # Python solutions
+│   │   │   └── alternatives/       # Other language solutions
+│   │   ├── two-pointers/
+│   │   ├── sliding-window/
+│   │   └── ...
+│   ├── user-guide/                 # User documentation
+│   ├── upload-guide/               # Contributor guide
+│   └── developer-guide/            # Developer documentation
+│
+├── templates/                      # Flask HTML templates
+│   ├── base.html
+│   ├── index.html
+│   └── solution.html
+│
+├── static/                         # Static web assets
+│   ├── css/
+│   └── js/
+│
+└── tests/                          # Test suite
+    ├── unit/
+    └── integration/
+```
 
 ---
 
