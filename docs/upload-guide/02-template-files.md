@@ -12,9 +12,7 @@ The platform provides standardized templates for creating well-formatted solutio
 
 ### Location
 
-```
-docs/solutions/templates/SOLUTION_TEMPLATE.py
-```
+[`docs/solutions/templates/SOLUTION_TEMPLATE.py`](../solutions/templates/SOLUTION_TEMPLATE.py)
 
 ### Template Contents
 
@@ -128,9 +126,7 @@ See detailed guide: [`SOLUTION_FORMATTING_GUIDE.md`](SOLUTION_FORMATTING_GUIDE.m
 
 ### Location
 
-```
-docs/solutions/templates/SOLUTION_TEMPLATE.js
-```
+[`docs/solutions/templates/SOLUTION_TEMPLATE.js`](../solutions/templates/SOLUTION_TEMPLATE.js)
 
 ### Template Contents
 

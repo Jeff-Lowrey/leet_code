@@ -68,13 +68,13 @@ Reviewing and updating existing solutions:
 ## Quick Reference
 
 ### Python Solutions
-- Template: `SOLUTION_TEMPLATE.py`
-- Guide: `SOLUTION_FORMATTING_GUIDE.md`
+- Template: [`SOLUTION_TEMPLATE.py`](../solutions/templates/SOLUTION_TEMPLATE.py)
+- Guide: [`SOLUTION_FORMATTING_GUIDE.md`](SOLUTION_FORMATTING_GUIDE.md)
 - Location: `docs/solutions/{category}/NNN-problem-name.py`
 
 ### JavaScript Solutions
-- Template: `SOLUTION_TEMPLATE.js`
-- Guide: `SOLUTION_FORMATTING_GUIDE_JS.md`
+- Template: [`SOLUTION_TEMPLATE.js`](../solutions/templates/SOLUTION_TEMPLATE.js)
+- Guide: [`SOLUTION_FORMATTING_GUIDE_JS.md`](SOLUTION_FORMATTING_GUIDE_JS.md)
 - Location: `docs/solutions/{category}/alternatives/NNN-problem-name.js.js`
 
 ### Other Languages
@@ -114,8 +114,8 @@ Decide whether you're creating a Python solution (primary) or an alternative lan
 
 ### Step 2: Select Template
 Copy the appropriate template file:
-- Python: `docs/solutions/templates/SOLUTION_TEMPLATE.py`
-- JavaScript: `docs/solutions/templates/SOLUTION_TEMPLATE.js`
+- Python: [`docs/solutions/templates/SOLUTION_TEMPLATE.py`](../solutions/templates/SOLUTION_TEMPLATE.py)
+- JavaScript: [`docs/solutions/templates/SOLUTION_TEMPLATE.js`](../solutions/templates/SOLUTION_TEMPLATE.js)
 
 ### Step 3: Fill In Details
 Complete all required sections:
