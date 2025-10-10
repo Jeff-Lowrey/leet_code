@@ -62,6 +62,22 @@ testpaths = [ "tests",]
 python_files = [ "test_*.py", "*_test.py",]
 addopts = ""
 
+[tool.bandit]
+targets = ["src"]
+exclude_dirs = [
+    "tests",
+    ".venv",
+    "venv",
+    "build",
+    "dist",
+    ".tox",
+    ".pytest_cache",
+    "__pycache__",
+]
+skips = ["B101"]  # assert_used - OK in tests
+severity_level = "medium"
+confidence_level = "medium"
+
 [tool.pdm.scripts]
 dev = "python -m pip install -e ."
 flask = "python -m flask run"
@@ -71,6 +87,7 @@ lint-check = "ruff check src/"
 format = "ruff format src/ tests/"
 format-check = "ruff format --check src/ tests/"
 typecheck = "mypy src/"
+security = "bandit -c pyproject.toml -r src/"
 
 [tool.pdm.dev-dependencies]
 test = [ "pytest>=7.0", "pytest-cov>=4.0",]

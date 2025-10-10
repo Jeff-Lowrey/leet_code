@@ -8,12 +8,29 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- New documentation structure with `docs/user-guide/` and `docs/upload-guide/` folders
+
+### Changed
+- **Restructured documentation**: Moved all solution categories from `solutions/` to `docs/solutions/`
+- Moved solution templates to `docs/upload-guide/`
+- Moved formatting guides to `docs/` root
+- Updated `category_data.py` to use new `docs/solutions/` path
+
+## [2.1.0] - 2025-10-09
+
+### Added
 - Disclaimer notices for educational use and warranty
 - Language-aware download system
 - Quick access dropdowns on category cards for direct solution navigation
 - Type hints throughout the codebase for better IDE support
 - Development type stubs for Markdown and Pygments
 - AST manipulation support with astor library
+- Difficulty and complexity badge system with navigation
+- Solution templates and formatting guides for Python and JavaScript
+- Comprehensive solution implementations across all 29+ categories
+- JavaScript solutions for all major algorithm categories (298+ solutions)
+- Python solutions for segment trees, simulation, string manipulation, and more
+- Edge cases and detailed explanations to solutions
 
 ### Changed
 - Download buttons now respect currently selected language
@@ -21,10 +38,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Standardized code formatting with consistent quote style
 - Enhanced .gitignore with comprehensive Python patterns
 - Made test coverage optional for development runs
+- Applied comprehensive template standardization across all solution categories
+- Refactored language system to use standard file extensions
+- Enhanced dark mode theme with improved colors and component styling
+- Improved solution code section typography and default collapsed state
+- Rebranded from "LeetCode Application" to "Leet Code Learning Tool"
+- Environment variable for Flask SECRET_KEY for better security
+- Enhanced markdown formatting and content organization
 
 ### Fixed
+- JavaScript explanation sections not rendering in HTML
+- JavaScript problem description formatting
+- Paragraph breaks in JavaScript solution formatting
+- MyPy union-attr errors and type checking issues
+- Blank line preservation in problem descriptions
+- Language suffix display in alternative solution titles
+- Skeleton generation template literal syntax errors
 - Minor formatting inconsistencies across all modules
 - Import organization and structure
+- Failing tests and linting issues
 
 ## [2.0.0] - 2025-09-19
 

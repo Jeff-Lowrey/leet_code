@@ -20,6 +20,17 @@ build/
 pip-log.txt
 pip-delete-this-directory.txt
 
+# JavaScript/Node.js
+node_modules/
+.npm/
+.yarn/
+.pnpm-store/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.eslintcache
+.node_repl_history
+
 # IDE
 .vscode/
 .idea/
@@ -54,12 +65,14 @@ logs/
 htmlcov/
 *.cover
 .hypothesis/
+.ruff_cache/
 
 # Temporary files
 *.tmp
 .temp/
 tmp/
 temp/
+tmp-*
 
 # Environment variables
 .env
@@ -71,11 +84,6 @@ temp/
 *.db
 *.sqlite
 *.sqlite3
-
-# Flask specific
-instance/
-.webassets-cache
-.flaskenv
 
 # Jupyter Notebook
 .ipynb_checkpoints
@@ -93,9 +101,6 @@ dmypy.json
 
 # Cython debug symbols
 cython_debug/
-
-# PDM
-pdm.lock
 
 # Workflow execution cache
 .workflow-cache/
