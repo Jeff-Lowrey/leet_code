@@ -73,21 +73,6 @@ Review [Formatting Guidelines](05-formatting-guidelines.md) to ensure your solut
 ### Step 5: Upload
 Add your solution to the repository or use the web interface to upload.
 
-## Documentation Structure
-[↑ Back to Table of Contents](#table-of-contents)
-
-```
-docs/upload-guide/
-├── README.md                           # This file
-├── 01-overview.md                      # Introduction and quick reference
-├── 02-template-files.md                # Template access and usage
-├── 03-solution-structure.md            # Required sections
-├── 04-quick-start.md                   # Step-by-step creation guides
-├── 05-formatting-guidelines.md         # General formatting standards
-├── SOLUTION_FORMATTING_GUIDE.md        # Python reference guide
-└── SOLUTION_FORMATTING_GUIDE_JS.md     # JavaScript reference guide
-```
-
 ## Support
 [↑ Back to Table of Contents](#table-of-contents)
 
@@ -96,6 +81,22 @@ For detailed information:
 - Check language-specific guides ([Python](SOLUTION_FORMATTING_GUIDE.md) | [JavaScript](SOLUTION_FORMATTING_GUIDE_JS.md))
 - Examine existing solutions in `docs/solutions/`
 - Consult the [Solution Structure](03-solution-structure.md) guide
+
+---
+
+## Appendix: Documentation Structure
+
+```
+docs/upload-guide/
+├── README.md                           # This file
+├── 01-overview.md                      # Introduction and quick reference
+├── 02-solution-structure.md            # Required sections
+├── 03-using-templates.md               # Template usage
+├── 04-quality-requirements.md          # Quality standards
+├── 05-formatting-guidelines.md         # General formatting standards
+├── SOLUTION_FORMATTING_GUIDE.md        # Python reference guide
+└── SOLUTION_FORMATTING_GUIDE_JS.md     # JavaScript reference guide
+```
 
 ---
 
