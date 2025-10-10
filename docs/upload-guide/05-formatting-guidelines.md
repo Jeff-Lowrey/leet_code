@@ -1,6 +1,6 @@
 # Formatting Guidelines
 
-[← Previous: Quick Start](04-quick-start.md) | [🏠 Home](README.md) | [Next: Web Interface Styling →](06-web-interface-styling.md)
+[← Previous: Quick Start](04-quick-start.md) | [🏠 Home](README.md)
 
 ---
 
@@ -474,4 +474,4 @@ Before submitting:
 
 ---
 
-[← Previous: Quick Start](04-quick-start.md) | [🏠 Home](README.md) | [Next: Web Interface Styling →](06-web-interface-styling.md)
+[← Previous: Quick Start](04-quick-start.md) | [🏠 Home](README.md)
