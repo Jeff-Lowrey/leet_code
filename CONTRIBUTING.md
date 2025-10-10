@@ -11,16 +11,15 @@ Thank you for your interest in contributing to this LeetCode solutions repositor
 5. [Documentation Requirements](#documentation-requirements)
 6. [Testing Guidelines](#testing-guidelines)
 7. [Pull Request Process](#pull-request-process)
-8. [Project Structure](#project-structure)
-9. [Style Guidelines](#style-guidelines)
-10. [Questions or Issues?](#questions-or-issues)
+8. [Style Guidelines](#style-guidelines)
+9. [Questions or Issues?](#questions-or-issues)
 
 ## Getting Started
 [↑ Back to Table of Contents](#table-of-contents)
 
 ### Prerequisites
 
-- **Python 3.11+** for Python solutions
+- **Python 3.13+** for Python solutions
 - **Node.js 18+** for JavaScript solutions
 - **Git** for version control
 - **GitHub CLI (`gh`)** for forking and PR management (recommended)
@@ -305,6 +304,8 @@ Each solution file must include:
 ## Testing Guidelines
 [↑ Back to Table of Contents](#table-of-contents)
 
+For comprehensive testing procedures and quality checks, see the [Testing Procedures Guide](docs/developer-guide/07-testing-procedures.md).
+
 ### Running Tests
 
 **Python:**
@@ -371,19 +372,27 @@ if __name__ == "__main__":
 
 3. **Commit message format:**
    ```
-   [#issue][category] Brief description
+   [semver][component] Brief description
 
    - Detail 1
    - Detail 2
    ```
 
+   **Semver types**: `patch`, `minor`, `major`
+   **Component examples**: `docs`, `feat`, `fix`, `refactor`, `test`
+
    Example:
    ```
-   [#2][docs] Add two-sum solution with complete documentation
+   [patch][docs] Add two-sum solution with complete documentation
 
    - Implement optimal hash map approach
    - Include comprehensive explanation
    - Add test cases covering edge cases
+   ```
+
+   When referencing an issue, prefix the format:
+   ```
+   [#issue][semver][component] Brief description
    ```
 
 ### Submitting Your PR
@@ -424,30 +433,6 @@ if __name__ == "__main__":
 - Address any feedback or requested changes
 - Once approved, your PR will be merged
 
-## Project Structure
-[↑ Back to Table of Contents](#table-of-contents)
-
-```
-leet_code/
-├── docs/
-│   ├── guides/              # User guides and documentation
-│   │   ├── formatting/      # Formatting guidelines
-│   │   ├── upload/          # Upload guides
-│   │   └── user/            # User guides
-│   └── solutions/           # All problem solutions
-│       ├── templates/       # Solution templates
-│       ├── array/           # Array problems
-│       ├── backtracking/    # Backtracking problems
-│       ├── binary-search/   # Binary search problems
-│       └── .../             # Other categories
-│           └── alternatives/ # JavaScript solutions
-├── tests/                   # Formal test suite (if applicable)
-├── .claude_functions/       # Claude-generated scripts and utilities
-│   ├── scripts/            # Automation scripts
-│   └── tmp/                # Temporary outputs
-└── README.md               # Project overview
-```
-
 ## Style Guidelines
 [↑ Back to Table of Contents](#table-of-contents)
 
@@ -477,10 +462,60 @@ leet_code/
 ## Questions or Issues?
 [↑ Back to Table of Contents](#table-of-contents)
 
-- **Documentation**: Check the [User Guide](docs/guides/user/)
-- **Formatting**: See [Formatting Guidelines](docs/guides/formatting/)
+- **User Documentation**: Check the [User Guide](docs/user-guide/)
+- **Formatting**: See [Upload Guide](docs/upload-guide/) and [Formatting Guidelines](docs/upload-guide/05-formatting-guidelines.md)
+- **Developer Documentation**: Review the [Developer Guide](docs/developer-guide/)
 - **Issues**: Open a GitHub issue for bugs or questions
 - **Discussions**: Use GitHub Discussions for general questions
+
+---
+
+## Appendix: Project Structure
+
+```
+leet_code/
+├── README.md                       # Project overview
+├── CONTRIBUTING.md                 # This file
+├── CHANGELOG.md                    # Version history
+├── pyproject.toml                  # PDM configuration
+├── pdm.lock                        # Dependency lock file
+│
+├── src/
+│   └── leet_code/                  # Application source
+│       ├── app.py                  # Flask application
+│       ├── category_data.py        # Solution data management
+│       └── leetcode_converter.py   # Format converter
+│
+├── docs/
+│   ├── README.md                   # Documentation hub
+│   ├── solutions/                  # Problem solutions (298+)
+│   │   ├── arrays-hashing/         # Category folders (29 categories)
+│   │   │   ├── 001-two-sum.py     # Python solutions
+│   │   │   └── alternatives/       # Other language solutions
+│   │   ├── two-pointers/
+│   │   ├── sliding-window/
+│   │   └── templates/              # Solution templates
+│   ├── user-guide/                 # User documentation
+│   ├── upload-guide/               # Contributor guide
+│   └── developer-guide/            # Developer documentation
+│
+├── templates/                      # Flask HTML templates
+│   ├── base.html
+│   ├── index.html
+│   └── solution.html
+│
+├── static/                         # Static web assets
+│   ├── css/
+│   └── js/
+│
+├── tests/                          # Formal test suite
+│   ├── unit/
+│   └── integration/
+│
+└── .claude_functions/              # Claude-generated scripts
+    ├── scripts/                    # Automation scripts
+    └── tmp/                        # Temporary outputs
+```
 
 ---
 
