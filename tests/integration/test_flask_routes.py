@@ -161,11 +161,11 @@ class TestAPIRoutes:
 class TestDocsRoute:
     """Test documentation route."""
 
-    def test_docs_redirect(self, client):
-        """Test /docs redirects to docs README."""
+    def test_docs_index(self, client):
+        """Test /docs serves documentation index page."""
         response = client.get("/docs")
-        assert response.status_code == 302
-        assert response.location.endswith("/docs/README")
+        assert response.status_code == 200
+        assert b"Documentation" in response.data
 
     @patch("src.leet_code.app.Path")
     def test_docs_readme(self, mock_path, client):
