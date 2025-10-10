@@ -7,18 +7,20 @@
 This guide explains the standard format for Python LeetCode solution files in this repository.
 
 ## Table of Contents
-1. [Template Location](#template-location)
-2. [Key Formatting Rules](#key-formatting-rules)
-   - 2.1. [Module Docstring Structure](#1-module-docstring-structure)
-   - 2.2. [Example Section Format](#2-example-section-format)
-   - 2.3. [Solution Explanation Sections](#3-solution-explanation-sections)
-   - 2.4. [Code Structure](#4-code-structure)
-   - 2.5. [Test Cases](#5-test-cases)
-3. [Visual Styling Notes](#visual-styling-notes)
-4. [Categories and Colors](#categories-and-colors)
-5. [Best Practices](#best-practices)
-6. [Migration from Old Format](#migration-from-old-format)
-7. [Reference Implementation](#reference-implementation)
+- [LeetCode Solution Formatting Guide - Python](#leetcode-solution-formatting-guide---python)
+  - [Table of Contents](#table-of-contents)
+  - [Template Location](#template-location)
+  - [Key Formatting Rules](#key-formatting-rules)
+    - [1. Module Docstring Structure](#1-module-docstring-structure)
+    - [2. Example Section Format](#2-example-section-format)
+    - [3. Solution Explanation Sections](#3-solution-explanation-sections)
+    - [4. Code Structure](#4-code-structure)
+    - [5. Test Cases](#5-test-cases)
+  - [Visual Styling Notes](#visual-styling-notes)
+  - [Categories and Colors](#categories-and-colors)
+  - [Best Practices](#best-practices)
+  - [Migration from Old Format](#migration-from-old-format)
+  - [Reference Implementation](#reference-implementation)
 
 ## Template Location
 [↑ Back to Table of Contents](#table-of-contents)
@@ -183,9 +185,7 @@ Example colors:
 4. ✅ Provide 3+ test cases including edge cases
 5. ✅ Include alternative solutions when relevant
 6. ✅ Add clear comments to code explaining non-obvious logic
-7. ❌ Don't use monospace font in example values
-8. ❌ Don't use old code block format for examples
-9. ❌ Don't skip required sections (INTUITION, APPROACH, etc.)
+7. ❌ Don't skip required sections (INTUITION, APPROACH, etc.)
 
 ## Migration from Old Format
 [↑ Back to Table of Contents](#table-of-contents)

@@ -7,22 +7,28 @@
 This guide explains the standard format for JavaScript LeetCode solution files in this repository.
 
 ## Table of Contents
-1. [Template Location](#template-location)
-2. [Key Formatting Rules](#key-formatting-rules)
-   - 2.1. [JSDoc Comment Structure](#1-jsdoc-comment-structure)
-   - 2.2. [Example Section Format](#2-example-section-format)
-   - 2.3. [Solution Explanation Sections](#3-solution-explanation-sections)
-   - 2.4. [Code Structure](#4-code-structure)
-   - 2.5. [Test Cases](#5-test-cases)
-   - 2.6. [Module Exports](#6-module-exports)
-3. [Visual Styling Notes](#visual-styling-notes)
-4. [JavaScript-Specific Conventions](#javascript-specific-conventions)
-5. [Best Practices](#best-practices)
-6. [Example: Two Sum in JavaScript](#example-two-sum-in-javascript)
-7. [Migration from Old Format](#migration-from-old-format)
-8. [File Naming Convention](#file-naming-convention)
-9. [Testing Your Solution](#testing-your-solution)
-10. [Additional Resources](#additional-resources)
+- [LeetCode Solution Formatting Guide - JavaScript](#leetcode-solution-formatting-guide---javascript)
+  - [Table of Contents](#table-of-contents)
+  - [Template Location](#template-location)
+  - [Key Formatting Rules](#key-formatting-rules)
+    - [1. JSDoc Comment Structure](#1-jsdoc-comment-structure)
+    - [2. Example Section Format](#2-example-section-format)
+    - [3. Solution Explanation Sections](#3-solution-explanation-sections)
+    - [4. Code Structure](#4-code-structure)
+    - [5. Test Cases](#5-test-cases)
+    - [6. Module Exports](#6-module-exports)
+  - [Visual Styling Notes](#visual-styling-notes)
+  - [JavaScript-Specific Conventions](#javascript-specific-conventions)
+    - [Variable Naming](#variable-naming)
+    - [Comments](#comments)
+    - [Data Structures](#data-structures)
+    - [Array Methods](#array-methods)
+    - [ES6+ Features](#es6-features)
+  - [Best Practices](#best-practices)
+  - [Example: Two Sum in JavaScript](#example-two-sum-in-javascript)
+  - [File Naming Convention](#file-naming-convention)
+  - [Testing Your Solution](#testing-your-solution)
+  - [Additional Resources](#additional-resources)
 
 ## Template Location
 [↑ Back to Table of Contents](#table-of-contents)
@@ -352,37 +358,6 @@ class Solution {
         return [];
     }
 }
-```
-
-## Migration from Old Format
-[↑ Back to Table of Contents](#table-of-contents)
-
-
-If converting from the old code block format:
-
-**Old format:**
-```
-**Example:**
-
-\```
-Input: nums = [2,7,11,15], target = 9
-Output: [0,1]
-Explanation: Because nums[0] + nums[1] == 9, we return [0, 1]
-\```
-```
-
-**New format:**
-```html
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>nums = [2,7,11,15], target = 9</dd>
-<dt>Output:</dt>
-<dd>[0,1]</dd>
-<dt>Explanation:</dt>
-<dd>Because nums[0] + nums[1] == 9, we return [0, 1]</dd>
-</dl>
 ```
 
 ## File Naming Convention
