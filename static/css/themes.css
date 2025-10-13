@@ -74,65 +74,81 @@
 }
 
 /* ========================================
-   CLASSIC THEME (Blue with top strip)
+   CLASSIC THEME (Blue and White)
    ======================================== */
 
 /* Classic - Light Mode */
 [data-theme="classic-light"] {
     --primary-color: #2563eb;
-    --secondary-color: #1e40af;
-    --dark-bg: #1e3a8a;
-    --light-bg: #eff6ff;
+    --secondary-color: #2563eb;
+    --dark-bg: #2563eb;
+    --light-bg: #ffffff;
     --card-bg: #ffffff;
-    --text-primary: #1e3a8a;
-    --text-secondary: #3b82f6;
-    --border-color: #bfdbfe;
-    --card-shadow: 0 1px 3px rgba(37, 99, 235, 0.1);
-    --card-top-strip: #2563eb;
+    --text-primary: #000000;
+    --text-secondary: #2563eb;
+    --border-color: transparent;
+    --card-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --card-header-bg: #2563eb;
+    --card-header-text: #ffffff;
 
-    /* All categories use blue variations */
+    /* All categories use same blue */
     --cat-rust: #2563eb;
-    --cat-steel-blue: #3b82f6;
-    --cat-sage: #1d4ed8;
-    --cat-amber: #60a5fa;
-    --cat-plum: #1e40af;
+    --cat-steel-blue: #2563eb;
+    --cat-sage: #2563eb;
+    --cat-amber: #2563eb;
+    --cat-plum: #2563eb;
     --cat-teal: #2563eb;
-    --cat-burgundy: #3b82f6;
-    --cat-navy: #1e3a8a;
+    --cat-burgundy: #2563eb;
+    --cat-navy: #2563eb;
 }
 
 /* Classic - Dark Mode */
 [data-theme="classic-dark"] {
-    --primary-color: #60a5fa;
-    --secondary-color: #93c5fd;
-    --dark-bg: #0f172a;
-    --light-bg: #1e293b;
-    --card-bg: #1e3a8a;
-    --text-primary: #dbeafe;
-    --text-secondary: #93c5fd;
-    --border-color: #1e40af;
-    --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
-    --card-top-strip: #3b82f6;
+    --primary-color: #2563eb;
+    --secondary-color: #2563eb;
+    --dark-bg: #1a1a1a;
+    --light-bg: #1a1a1a;
+    --card-bg: #2a2a2a;
+    --text-primary: #ffffff;
+    --text-secondary: #60a5fa;
+    --border-color: transparent;
+    --card-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    --card-header-bg: #2563eb;
+    --card-header-text: #ffffff;
 
-    /* All categories use blue variations */
-    --cat-rust: #60a5fa;
-    --cat-steel-blue: #3b82f6;
+    /* All categories use same blue */
+    --cat-rust: #2563eb;
+    --cat-steel-blue: #2563eb;
     --cat-sage: #2563eb;
-    --cat-amber: #93c5fd;
-    --cat-plum: #1d4ed8;
-    --cat-teal: #60a5fa;
-    --cat-burgundy: #3b82f6;
-    --cat-navy: #1e40af;
+    --cat-amber: #2563eb;
+    --cat-plum: #2563eb;
+    --cat-teal: #2563eb;
+    --cat-burgundy: #2563eb;
+    --cat-navy: #2563eb;
 }
 
-/* Classic theme card top strip styling */
+/* Classic theme card styling - blue header inside card */
+[data-theme="classic-light"] .category-card h3,
+[data-theme="classic-light"] .solution-card h3,
+[data-theme="classic-light"] .doc-card h3,
+[data-theme="classic-dark"] .category-card h3,
+[data-theme="classic-dark"] .solution-card h3,
+[data-theme="classic-dark"] .doc-card h3 {
+    background-color: var(--card-header-bg);
+    color: var(--card-header-text);
+    margin: -1rem -1rem 1rem -1rem;
+    padding: 1rem;
+    border-radius: 8px 8px 0 0;
+}
+
+/* Remove borders on classic cards */
 [data-theme="classic-light"] .category-card,
 [data-theme="classic-light"] .solution-card,
 [data-theme="classic-light"] .doc-card,
 [data-theme="classic-dark"] .category-card,
 [data-theme="classic-dark"] .solution-card,
 [data-theme="classic-dark"] .doc-card {
-    border-top: 4px solid var(--card-top-strip);
+    border: none;
     border-radius: 8px;
 }
 
