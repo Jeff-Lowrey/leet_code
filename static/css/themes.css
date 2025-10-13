@@ -74,53 +74,66 @@
 }
 
 /* ========================================
-   CLASSIC THEME (Original Vibrant)
+   CLASSIC THEME (Blue with top strip)
    ======================================== */
 
 /* Classic - Light Mode */
 [data-theme="classic-light"] {
     --primary-color: #2563eb;
-    --secondary-color: #10b981;
-    --dark-bg: #111827;
-    --light-bg: #f9fafb;
+    --secondary-color: #1e40af;
+    --dark-bg: #1e3a8a;
+    --light-bg: #eff6ff;
     --card-bg: #ffffff;
-    --text-primary: #111827;
-    --text-secondary: #6b7280;
-    --border-color: #e5e7eb;
-    --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --text-primary: #1e3a8a;
+    --text-secondary: #3b82f6;
+    --border-color: #bfdbfe;
+    --card-shadow: 0 1px 3px rgba(37, 99, 235, 0.1);
+    --card-top-strip: #2563eb;
 
-    /* Category colors - vibrant classic palette */
-    --cat-rust: #dc2626;
-    --cat-steel-blue: #2563eb;
-    --cat-sage: #16a34a;
-    --cat-amber: #d97706;
-    --cat-plum: #9333ea;
-    --cat-teal: #0d9488;
-    --cat-burgundy: #be123c;
-    --cat-navy: #1e40af;
+    /* All categories use blue variations */
+    --cat-rust: #2563eb;
+    --cat-steel-blue: #3b82f6;
+    --cat-sage: #1d4ed8;
+    --cat-amber: #60a5fa;
+    --cat-plum: #1e40af;
+    --cat-teal: #2563eb;
+    --cat-burgundy: #3b82f6;
+    --cat-navy: #1e3a8a;
 }
 
 /* Classic - Dark Mode */
 [data-theme="classic-dark"] {
-    --primary-color: #3b82f6;
-    --secondary-color: #10b981;
-    --dark-bg: #111827;
-    --light-bg: #1f2937;
-    --card-bg: #1f2937;
-    --text-primary: #f9fafb;
-    --text-secondary: #9ca3af;
-    --border-color: #374151;
-    --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    --primary-color: #60a5fa;
+    --secondary-color: #93c5fd;
+    --dark-bg: #0f172a;
+    --light-bg: #1e293b;
+    --card-bg: #1e3a8a;
+    --text-primary: #dbeafe;
+    --text-secondary: #93c5fd;
+    --border-color: #1e40af;
+    --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    --card-top-strip: #3b82f6;
 
-    /* Category colors - brighter classic palette */
-    --cat-rust: #f87171;
-    --cat-steel-blue: #60a5fa;
-    --cat-sage: #4ade80;
-    --cat-amber: #fbbf24;
-    --cat-plum: #a855f7;
-    --cat-teal: #2dd4bf;
-    --cat-burgundy: #fb7185;
-    --cat-navy: #60a5fa;
+    /* All categories use blue variations */
+    --cat-rust: #60a5fa;
+    --cat-steel-blue: #3b82f6;
+    --cat-sage: #2563eb;
+    --cat-amber: #93c5fd;
+    --cat-plum: #1d4ed8;
+    --cat-teal: #60a5fa;
+    --cat-burgundy: #3b82f6;
+    --cat-navy: #1e40af;
+}
+
+/* Classic theme card top strip styling */
+[data-theme="classic-light"] .category-card,
+[data-theme="classic-light"] .solution-card,
+[data-theme="classic-light"] .doc-card,
+[data-theme="classic-dark"] .category-card,
+[data-theme="classic-dark"] .solution-card,
+[data-theme="classic-dark"] .doc-card {
+    border-top: 4px solid var(--card-top-strip);
+    border-radius: 8px;
 }
 
 /* ========================================
@@ -424,69 +437,6 @@
 }
 
 /* ========================================
-   BLUE THEME (Blue-only with top strip)
-   ======================================== */
-
-/* Blue - Light Mode */
-[data-theme="blue-light"] {
-    --primary-color: #2563eb;
-    --secondary-color: #1e40af;
-    --dark-bg: #1e3a8a;
-    --light-bg: #eff6ff;
-    --card-bg: #ffffff;
-    --text-primary: #1e3a8a;
-    --text-secondary: #3b82f6;
-    --border-color: #bfdbfe;
-    --card-shadow: 0 1px 3px rgba(37, 99, 235, 0.1);
-    --card-top-strip: #2563eb;
-
-    /* All categories use blue variations */
-    --cat-rust: #2563eb;
-    --cat-steel-blue: #3b82f6;
-    --cat-sage: #1d4ed8;
-    --cat-amber: #60a5fa;
-    --cat-plum: #1e40af;
-    --cat-teal: #2563eb;
-    --cat-burgundy: #3b82f6;
-    --cat-navy: #1e3a8a;
-}
-
-/* Blue - Dark Mode */
-[data-theme="blue-dark"] {
-    --primary-color: #60a5fa;
-    --secondary-color: #93c5fd;
-    --dark-bg: #0f172a;
-    --light-bg: #1e293b;
-    --card-bg: #1e3a8a;
-    --text-primary: #dbeafe;
-    --text-secondary: #93c5fd;
-    --border-color: #1e40af;
-    --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
-    --card-top-strip: #3b82f6;
-
-    /* All categories use blue variations */
-    --cat-rust: #60a5fa;
-    --cat-steel-blue: #3b82f6;
-    --cat-sage: #2563eb;
-    --cat-amber: #93c5fd;
-    --cat-plum: #1d4ed8;
-    --cat-teal: #60a5fa;
-    --cat-burgundy: #3b82f6;
-    --cat-navy: #1e40af;
-}
-
-/* Blue theme card top strip styling */
-[data-theme="blue-light"] .category-card,
-[data-theme="blue-light"] .solution-card,
-[data-theme="blue-light"] .doc-card,
-[data-theme="blue-dark"] .category-card,
-[data-theme="blue-dark"] .solution-card,
-[data-theme="blue-dark"] .doc-card {
-    border-top: 4px solid var(--card-top-strip);
-    border-radius: 8px;
-}
-
-/* ========================================
    UNIVERSAL DARK THEME ADJUSTMENTS
    ======================================== */
 
@@ -497,8 +447,7 @@
 [data-theme="neon-dark"] body,
 [data-theme="rainbow-dark"] body,
 [data-theme="moody-dark"] body,
-[data-theme="happy-dark"] body,
-[data-theme="blue-dark"] body {
+[data-theme="happy-dark"] body {
     background-color: var(--dark-bg);
 }
 
@@ -599,21 +548,7 @@
 [data-theme="happy-dark"] .problem-statement,
 [data-theme="happy-dark"] .solution-explanation,
 [data-theme="happy-dark"] .skeleton-code details,
-[data-theme="happy-dark"] .solution-code details,
-[data-theme="blue-dark"] .navbar,
-[data-theme="blue-dark"] .sidebar,
-[data-theme="blue-dark"] .category-card,
-[data-theme="blue-dark"] .solution-card,
-[data-theme="blue-dark"] .doc-card,
-[data-theme="blue-dark"] .documentation,
-[data-theme="blue-dark"] .dropdown-menu,
-[data-theme="blue-dark"] .dropdown-toggle,
-[data-theme="blue-dark"] .language-select,
-[data-theme="blue-dark"] .btn,
-[data-theme="blue-dark"] .problem-statement,
-[data-theme="blue-dark"] .solution-explanation,
-[data-theme="blue-dark"] .skeleton-code details,
-[data-theme="blue-dark"] .solution-code details {
+[data-theme="happy-dark"] .solution-code details {
     background-color: var(--card-bg);
     border-color: var(--border-color);
     color: var(--text-primary);
