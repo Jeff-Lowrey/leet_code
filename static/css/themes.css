@@ -1,0 +1,663 @@
+/* Theme System - Color Variables and Theme Definitions */
+
+/* ========================================
+   DEFAULT THEME (Soft Neutral)
+   ======================================== */
+
+/* Default Theme Variables */
+:root {
+    --primary-color: #5b7bb5;
+    --secondary-color: #6b7280;
+    --dark-bg: #111827;
+    --light-bg: #f5f5f0;
+    --card-bg: #fdfdfc;
+    --text-primary: #1a1a1a;
+    --text-secondary: #4a4a4a;
+    --border-color: #e0e0dc;
+    --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+
+    /* Category colors - distinct accessible palette */
+    --cat-rust: #d47d5e;
+    --cat-steel-blue: #6890c9;
+    --cat-sage: #7fa87f;
+    --cat-amber: #d4a366;
+    --cat-plum: #ad85ad;
+    --cat-teal: #66a8a8;
+    --cat-burgundy: #c96680;
+    --cat-navy: #6882ad;
+}
+
+/* Soft Neutral - Dark Mode */
+[data-theme="dark"] {
+    --primary-color: #3b82f6;
+    --secondary-color: #10b981;
+    --dark-bg: #0f172a;
+    --light-bg: #1e293b;
+    --card-bg: #1e293b;
+    --text-primary: #f1f5f9;
+    --text-secondary: #94a3b8;
+    --border-color: #334155;
+    --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+
+    /* Dark mode category colors - brighter for dark background */
+    --cat-rust: #f87171;
+    --cat-steel-blue: #60a5fa;
+    --cat-sage: #4ade80;
+    --cat-amber: #fbbf24;
+    --cat-plum: #c084fc;
+    --cat-teal: #2dd4bf;
+    --cat-burgundy: #fb7185;
+    --cat-navy: #818cf8;
+}
+
+/* Soft Neutral - Light Mode (default) */
+[data-theme="light"] {
+    --primary-color: #5b7bb5;
+    --secondary-color: #6b7280;
+    --dark-bg: #111827;
+    --light-bg: #f5f5f0;
+    --card-bg: #fdfdfc;
+    --text-primary: #1a1a1a;
+    --text-secondary: #4a4a4a;
+    --border-color: #e0e0dc;
+    --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+
+    /* Category colors - distinct accessible palette */
+    --cat-rust: #d47d5e;
+    --cat-steel-blue: #6890c9;
+    --cat-sage: #7fa87f;
+    --cat-amber: #d4a366;
+    --cat-plum: #ad85ad;
+    --cat-teal: #66a8a8;
+    --cat-burgundy: #c96680;
+    --cat-navy: #6882ad;
+}
+
+/* ========================================
+   CLASSIC THEME (Blue and White)
+   ======================================== */
+
+/* Classic - Light Mode */
+[data-theme="classic-light"] {
+    --primary-color: #2563eb;
+    --secondary-color: #2563eb;
+    --dark-bg: #2563eb;
+    --light-bg: #ffffff;
+    --card-bg: #ffffff;
+    --text-primary: #000000;
+    --text-secondary: #2563eb;
+    --border-color: transparent;
+    --card-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --card-header-bg: #2563eb;
+    --card-header-text: #ffffff;
+
+    /* All categories use same blue */
+    --cat-rust: #2563eb;
+    --cat-steel-blue: #2563eb;
+    --cat-sage: #2563eb;
+    --cat-amber: #2563eb;
+    --cat-plum: #2563eb;
+    --cat-teal: #2563eb;
+    --cat-burgundy: #2563eb;
+    --cat-navy: #2563eb;
+}
+
+/* Classic - Dark Mode */
+[data-theme="classic-dark"] {
+    --primary-color: #2563eb;
+    --secondary-color: #2563eb;
+    --dark-bg: #1a1a1a;
+    --light-bg: #1a1a1a;
+    --card-bg: #2a2a2a;
+    --text-primary: #ffffff;
+    --text-secondary: #60a5fa;
+    --border-color: transparent;
+    --card-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    --card-header-bg: #2563eb;
+    --card-header-text: #ffffff;
+
+    /* All categories use same blue */
+    --cat-rust: #2563eb;
+    --cat-steel-blue: #2563eb;
+    --cat-sage: #2563eb;
+    --cat-amber: #2563eb;
+    --cat-plum: #2563eb;
+    --cat-teal: #2563eb;
+    --cat-burgundy: #2563eb;
+    --cat-navy: #2563eb;
+}
+
+/* Classic theme card styling - no padding on cards */
+[data-theme="classic-light"] .category-card,
+[data-theme="classic-light"] .solution-card,
+[data-theme="classic-light"] .doc-card,
+[data-theme="classic-dark"] .category-card,
+[data-theme="classic-dark"] .solution-card,
+[data-theme="classic-dark"] .doc-card {
+    border: 1px solid #2563eb !important;
+    border-radius: 8px;
+    padding: 0 !important;
+}
+
+/* Blue header - no padding, extends to edges */
+[data-theme="classic-light"] .category-card h3,
+[data-theme="classic-light"] .solution-card h3,
+[data-theme="classic-light"] .doc-card h3,
+[data-theme="classic-dark"] .category-card h3,
+[data-theme="classic-dark"] .solution-card h3,
+[data-theme="classic-dark"] .doc-card h3 {
+    background-color: var(--card-header-bg);
+    color: var(--card-header-text);
+    margin: 0;
+    padding: 0.4rem 1rem;
+    border-radius: 7px 7px 0 0;
+    font-size: 0.9rem;
+}
+
+/* Add padding back to card content (not header) */
+[data-theme="classic-light"] .category-card .description,
+[data-theme="classic-light"] .category-card .count,
+[data-theme="classic-light"] .solution-card p,
+[data-theme="classic-light"] .doc-card p,
+[data-theme="classic-dark"] .category-card .description,
+[data-theme="classic-dark"] .category-card .count,
+[data-theme="classic-dark"] .solution-card p,
+[data-theme="classic-dark"] .doc-card p {
+    padding: 0 1rem 1rem 1rem;
+}
+
+/* ========================================
+   VIBRANT THEME (Eclectic mix of varied colors)
+   ======================================== */
+
+/* Vibrant - Light Mode */
+[data-theme="vibrant-light"] {
+    --primary-color: #e91e63;
+    --secondary-color: #00bcd4;
+    --dark-bg: #2d2d2d;
+    --light-bg: #fafafa;
+    --card-bg: #ffffff;
+    --text-primary: #212121;
+    --text-secondary: #757575;
+    --border-color: #e0e0e0;
+    --card-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+
+    /* Eclectic varied category colors */
+    --cat-rust: #ff5722;        /* Deep Orange */
+    --cat-steel-blue: #2196f3;  /* Blue */
+    --cat-sage: #4caf50;        /* Green */
+    --cat-amber: #ff9800;       /* Orange */
+    --cat-plum: #9c27b0;        /* Purple */
+    --cat-teal: #009688;        /* Teal */
+    --cat-burgundy: #e91e63;    /* Pink */
+    --cat-navy: #3f51b5;        /* Indigo */
+}
+
+/* Vibrant - Dark Mode */
+[data-theme="vibrant-dark"] {
+    --primary-color: #f06292;
+    --secondary-color: #4dd0e1;
+    --dark-bg: #121212;
+    --light-bg: #1e1e1e;
+    --card-bg: #2d2d2d;
+    --text-primary: #ffffff;
+    --text-secondary: #b0b0b0;
+    --border-color: #424242;
+    --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+
+    /* Eclectic varied category colors - brighter for dark background */
+    --cat-rust: #ff7043;        /* Deep Orange */
+    --cat-steel-blue: #42a5f5;  /* Blue */
+    --cat-sage: #66bb6a;        /* Green */
+    --cat-amber: #ffa726;       /* Orange */
+    --cat-plum: #ab47bc;        /* Purple */
+    --cat-teal: #26a69a;        /* Teal */
+    --cat-burgundy: #ec407a;    /* Pink */
+    --cat-navy: #5c6bc0;        /* Indigo */
+}
+
+/* ========================================
+   HIGH CONTRAST THEME
+   ======================================== */
+
+/* High Contrast - Light Mode */
+[data-theme="high-contrast-light"] {
+    --primary-color: #0066cc;
+    --secondary-color: #333333;
+    --dark-bg: #000000;
+    --light-bg: #ffffff;
+    --card-bg: #ffffff;
+    --text-primary: #000000;
+    --text-secondary: #333333;
+    --border-color: #000000;
+    --card-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+
+    /* Category colors - high contrast variations */
+    --cat-rust: #cc3300;
+    --cat-steel-blue: #0066cc;
+    --cat-sage: #009933;
+    --cat-amber: #ff9900;
+    --cat-plum: #9933cc;
+    --cat-teal: #009999;
+    --cat-burgundy: #cc0066;
+    --cat-navy: #000099;
+}
+
+/* High Contrast - Dark Mode */
+[data-theme="high-contrast-dark"] {
+    --primary-color: #66b3ff;
+    --secondary-color: #cccccc;
+    --dark-bg: #000000;
+    --light-bg: #1a1a1a;
+    --card-bg: #000000;
+    --text-primary: #ffffff;
+    --text-secondary: #cccccc;
+    --border-color: #ffffff;
+    --card-shadow: 0 2px 4px rgba(255, 255, 255, 0.3);
+
+    /* Category colors - high contrast dark variations */
+    --cat-rust: #ff6666;
+    --cat-steel-blue: #66b3ff;
+    --cat-sage: #66ff99;
+    --cat-amber: #ffcc66;
+    --cat-plum: #cc66ff;
+    --cat-teal: #66ffff;
+    --cat-burgundy: #ff66cc;
+    --cat-navy: #6666ff;
+}
+
+/* ========================================
+   NEON THEME
+   ======================================== */
+
+/* Neon - Dark Mode */
+[data-theme="neon-dark"] {
+    --primary-color: #00ffff;
+    --secondary-color: #ff00ff;
+    --dark-bg: #0a0a0a;
+    --light-bg: #1a1a1a;
+    --card-bg: #1a1a1a;
+    --text-primary: #39ff14;
+    --text-secondary: #00ffff;
+    --border-color: #ff00ff;
+    --card-shadow: 0 0 15px rgba(0, 255, 255, 0.6);
+
+    /* Category colors - true neon light colors */
+    --cat-rust: #ff0080;        /* Neon pink */
+    --cat-steel-blue: #00d4ff;  /* Neon cyan */
+    --cat-sage: #39ff14;        /* Neon green */
+    --cat-amber: #ff6600;       /* Neon orange */
+    --cat-plum: #ff00ff;        /* Neon magenta */
+    --cat-teal: #00ffff;        /* Neon cyan bright */
+    --cat-burgundy: #ff0066;    /* Neon hot pink */
+    --cat-navy: #00d4ff;        /* Neon blue */
+}
+
+/* Neon - Light Mode */
+[data-theme="neon-light"] {
+    --primary-color: #00cccc;
+    --secondary-color: #dd00dd;
+    --dark-bg: #1a1a1a;
+    --light-bg: #f8f8f8;
+    --card-bg: #ffffff;
+    --text-primary: #00aa00;
+    --text-secondary: #006666;
+    --border-color: #dd00dd;
+    --card-shadow: 0 0 10px rgba(221, 0, 221, 0.4);
+
+    /* Category colors - true neon light colors (slightly darker for readability) */
+    --cat-rust: #dd0066;        /* Neon pink */
+    --cat-steel-blue: #00bbee;  /* Neon cyan */
+    --cat-sage: #22dd00;        /* Neon green */
+    --cat-amber: #ee5500;       /* Neon orange */
+    --cat-plum: #dd00dd;        /* Neon magenta */
+    --cat-teal: #00dddd;        /* Neon cyan bright */
+    --cat-burgundy: #dd0055;    /* Neon hot pink */
+    --cat-navy: #00bbee;        /* Neon blue */
+}
+
+/* ========================================
+   CHAOS THEME (Deliberately Garish and Clashing)
+   ======================================== */
+
+/* Chaos - Light Mode */
+[data-theme="chaos-light"] {
+    --primary-color: #ff00ff;      /* Magenta */
+    --secondary-color: #00ff00;    /* Lime green */
+    --dark-bg: #ff6600;
+    --light-bg: #ffff00;           /* Bright yellow */
+    --card-bg: #ff69b4;            /* Hot pink */
+    --text-primary: #0000ff;       /* Pure blue */
+    --text-secondary: #ff0000;     /* Pure red */
+    --border-color: #00ffff;       /* Cyan */
+    --card-shadow: 0 4px 16px rgba(255, 0, 255, 0.8);
+
+    /* Category colors - deliberately clashing */
+    --cat-rust: #ff00ff;           /* Magenta */
+    --cat-steel-blue: #ffff00;     /* Yellow */
+    --cat-sage: #00ffff;           /* Cyan */
+    --cat-amber: #ff0000;          /* Red */
+    --cat-plum: #00ff00;           /* Lime */
+    --cat-teal: #ff6600;           /* Orange */
+    --cat-burgundy: #0000ff;       /* Blue */
+    --cat-navy: #ff1493;           /* Deep pink */
+}
+
+/* Chaos - Dark Mode */
+[data-theme="chaos-dark"] {
+    --primary-color: #00ff00;      /* Lime green */
+    --secondary-color: #ff00ff;    /* Magenta */
+    --dark-bg: #330033;            /* Dark purple */
+    --light-bg: #006600;           /* Dark green */
+    --card-bg: #003333;            /* Dark cyan */
+    --text-primary: #ffff00;       /* Yellow */
+    --text-secondary: #ff00ff;     /* Magenta */
+    --border-color: #ff0000;       /* Red */
+    --card-shadow: 0 4px 16px rgba(0, 255, 0, 0.6);
+
+    /* Category colors - deliberately clashing dark mode */
+    --cat-rust: #ff00ff;           /* Magenta */
+    --cat-steel-blue: #00ff00;     /* Lime */
+    --cat-sage: #ff0000;           /* Red */
+    --cat-amber: #00ffff;          /* Cyan */
+    --cat-plum: #ffff00;           /* Yellow */
+    --cat-teal: #ff6600;           /* Orange */
+    --cat-burgundy: #0000ff;       /* Blue */
+    --cat-navy: #ff1493;           /* Deep pink */
+}
+
+/* ========================================
+   RAINBOW THEME
+   ======================================== */
+
+/* Rainbow - Light Mode */
+[data-theme="rainbow-light"] {
+    --primary-color: #dc2626;
+    --secondary-color: #2563eb;
+    --dark-bg: #2d3561;
+    --light-bg: #f5f5f5;
+    --card-bg: #fafafa;
+    --text-primary: #1a1a1a;
+    --text-secondary: #4a4a4a;
+    --border-color: #d97706;
+    --card-shadow: 0 2px 8px rgba(220, 38, 38, 0.2);
+
+    /* Category colors - 8 distinct rainbow colors */
+    --cat-rust: #dc2626;        /* Red */
+    --cat-steel-blue: #2563eb;  /* Blue */
+    --cat-sage: #16a34a;        /* Green */
+    --cat-amber: #d97706;       /* Orange */
+    --cat-plum: #9333ea;        /* Purple */
+    --cat-teal: #0891b2;        /* Cyan */
+    --cat-burgundy: #e11d48;    /* Pink */
+    --cat-navy: #eab308;        /* Yellow */
+}
+
+/* Rainbow - Dark Mode */
+[data-theme="rainbow-dark"] {
+    --primary-color: #f87171;
+    --secondary-color: #60a5fa;
+    --dark-bg: #1a1d3a;
+    --light-bg: #2d3561;
+    --card-bg: #252850;
+    --text-primary: #f7f1e3;
+    --text-secondary: #b8c5db;
+    --border-color: #fb923c;
+    --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+
+    /* Category colors - 8 distinct rainbow colors */
+    --cat-rust: #f87171;        /* Red */
+    --cat-steel-blue: #60a5fa;  /* Blue */
+    --cat-sage: #4ade80;        /* Green */
+    --cat-amber: #fb923c;       /* Orange */
+    --cat-plum: #c084fc;        /* Purple */
+    --cat-teal: #22d3ee;        /* Cyan */
+    --cat-burgundy: #fb7185;    /* Pink */
+    --cat-navy: #fbbf24;        /* Yellow */
+}
+
+/* ========================================
+   HAPPY THEME
+   ======================================== */
+
+/* Happy - Light Mode */
+[data-theme="happy-light"] {
+    --primary-color: #ff1493;
+    --secondary-color: #ffd700;
+    --dark-bg: #fff5fa;
+    --light-bg: #f8f8f8;
+    --card-bg: #ffffff;
+    --text-primary: #e60073;
+    --text-secondary: #ff1493;
+    --border-color: #ff69b4;
+    --card-shadow: 0 2px 8px rgba(255, 20, 147, 0.25);
+
+    /* Category colors - vivid happy palette */
+    --cat-rust: #ff4500;        /* Vivid orange-red */
+    --cat-steel-blue: #00bfff;  /* Vivid sky blue */
+    --cat-sage: #00ff00;        /* Vivid lime green */
+    --cat-amber: #ffb400;       /* Vivid amber */
+    --cat-plum: #da70d6;        /* Vivid orchid */
+    --cat-teal: #00ced1;        /* Vivid turquoise */
+    --cat-burgundy: #ff1493;    /* Vivid deep pink */
+    --cat-navy: #4169e1;        /* Vivid royal blue */
+}
+
+/* Happy - Dark Mode */
+[data-theme="happy-dark"] {
+    --primary-color: #ff1493;
+    --secondary-color: #ffd700;
+    --dark-bg: #1a0a1a;
+    --light-bg: #2d1d2d;
+    --card-bg: #2d1d2d;
+    --text-primary: #ff69b4;
+    --text-secondary: #ff1493;
+    --border-color: #ff1493;
+    --card-shadow: 0 2px 10px rgba(255, 20, 147, 0.4);
+
+    /* Category colors - vivid happy dark palette */
+    --cat-rust: #ff5533;        /* Vivid orange-red */
+    --cat-steel-blue: #00ccff;  /* Vivid sky blue */
+    --cat-sage: #00ff66;        /* Vivid lime green */
+    --cat-amber: #ffcc00;       /* Vivid amber */
+    --cat-plum: #ee82ee;        /* Vivid violet */
+    --cat-teal: #00e5e5;        /* Vivid turquoise */
+    --cat-burgundy: #ff1493;    /* Vivid deep pink */
+    --cat-navy: #5588ff;        /* Vivid royal blue */
+}
+
+/* ========================================
+   MOODY THEME
+   ======================================== */
+
+/* Moody - Dark Mode */
+[data-theme="moody-dark"] {
+    --primary-color: #9d84b7;
+    --secondary-color: #6c7a89;
+    --dark-bg: #1e1e2e;
+    --light-bg: #2d2d44;
+    --card-bg: #2d2d44;
+    --text-primary: #d4c5e2;
+    --text-secondary: #a59cac;
+    --border-color: #4a4458;
+    --card-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+
+    /* Category colors - moody palette */
+    --cat-rust: #b5838d;
+    --cat-steel-blue: #6c7a89;
+    --cat-sage: #7c9885;
+    --cat-amber: #b8a07e;
+    --cat-plum: #9d84b7;
+    --cat-teal: #6b9ca8;
+    --cat-burgundy: #a67c94;
+    --cat-navy: #6d7aa8;
+}
+
+/* Moody - Light Mode */
+[data-theme="moody-light"] {
+    --primary-color: #7a5f96;
+    --secondary-color: #556270;
+    --dark-bg: #2d2d44;
+    --light-bg: #e8e4f0;
+    --card-bg: #f5f3f8;
+    --text-primary: #3a3a4a;
+    --text-secondary: #6a6a7a;
+    --border-color: #c8c0d8;
+    --card-shadow: 0 2px 6px rgba(122, 95, 150, 0.15);
+
+    /* Category colors - moody light palette */
+    --cat-rust: #9a6872;
+    --cat-steel-blue: #556270;
+    --cat-sage: #65866f;
+    --cat-amber: #a08862;
+    --cat-plum: #7a5f96;
+    --cat-teal: #568a96;
+    --cat-burgundy: #8f6279;
+    --cat-navy: #576291;
+}
+
+/* ========================================
+   UNIVERSAL DARK THEME ADJUSTMENTS
+   ======================================== */
+
+/* Apply to all dark-themed variants */
+[data-theme="dark"] body,
+[data-theme="classic-dark"] body,
+[data-theme="vibrant-dark"] body,
+[data-theme="high-contrast-dark"] body,
+[data-theme="neon-dark"] body,
+[data-theme="rainbow-dark"] body,
+[data-theme="moody-dark"] body,
+[data-theme="happy-dark"] body,
+[data-theme="chaos-dark"] body {
+    background-color: var(--dark-bg);
+}
+
+[data-theme="dark"] .navbar,
+[data-theme="dark"] .sidebar,
+[data-theme="dark"] .category-card,
+[data-theme="dark"] .solution-card,
+[data-theme="dark"] .doc-card,
+[data-theme="dark"] .documentation,
+[data-theme="dark"] .dropdown-menu,
+[data-theme="dark"] .dropdown-toggle,
+[data-theme="dark"] .language-select,
+[data-theme="dark"] .btn,
+[data-theme="dark"] .problem-statement,
+[data-theme="dark"] .solution-explanation,
+[data-theme="dark"] .skeleton-code details,
+[data-theme="dark"] .solution-code details,
+[data-theme="classic-dark"] .navbar,
+[data-theme="classic-dark"] .sidebar,
+[data-theme="classic-dark"] .category-card,
+[data-theme="classic-dark"] .solution-card,
+[data-theme="classic-dark"] .doc-card,
+[data-theme="classic-dark"] .documentation,
+[data-theme="classic-dark"] .dropdown-menu,
+[data-theme="classic-dark"] .dropdown-toggle,
+[data-theme="classic-dark"] .language-select,
+[data-theme="classic-dark"] .btn,
+[data-theme="classic-dark"] .problem-statement,
+[data-theme="classic-dark"] .solution-explanation,
+[data-theme="classic-dark"] .skeleton-code details,
+[data-theme="classic-dark"] .solution-code details,
+[data-theme="high-contrast-dark"] .navbar,
+[data-theme="high-contrast-dark"] .sidebar,
+[data-theme="high-contrast-dark"] .category-card,
+[data-theme="high-contrast-dark"] .solution-card,
+[data-theme="high-contrast-dark"] .doc-card,
+[data-theme="high-contrast-dark"] .documentation,
+[data-theme="high-contrast-dark"] .dropdown-menu,
+[data-theme="high-contrast-dark"] .dropdown-toggle,
+[data-theme="high-contrast-dark"] .language-select,
+[data-theme="high-contrast-dark"] .btn,
+[data-theme="high-contrast-dark"] .problem-statement,
+[data-theme="high-contrast-dark"] .solution-explanation,
+[data-theme="high-contrast-dark"] .skeleton-code details,
+[data-theme="high-contrast-dark"] .solution-code details,
+[data-theme="neon-dark"] .navbar,
+[data-theme="neon-dark"] .sidebar,
+[data-theme="neon-dark"] .category-card,
+[data-theme="neon-dark"] .solution-card,
+[data-theme="neon-dark"] .doc-card,
+[data-theme="neon-dark"] .documentation,
+[data-theme="neon-dark"] .dropdown-menu,
+[data-theme="neon-dark"] .dropdown-toggle,
+[data-theme="neon-dark"] .language-select,
+[data-theme="neon-dark"] .btn,
+[data-theme="neon-dark"] .problem-statement,
+[data-theme="neon-dark"] .solution-explanation,
+[data-theme="neon-dark"] .skeleton-code details,
+[data-theme="neon-dark"] .solution-code details,
+[data-theme="rainbow-dark"] .navbar,
+[data-theme="rainbow-dark"] .sidebar,
+[data-theme="rainbow-dark"] .category-card,
+[data-theme="rainbow-dark"] .solution-card,
+[data-theme="rainbow-dark"] .doc-card,
+[data-theme="rainbow-dark"] .documentation,
+[data-theme="rainbow-dark"] .dropdown-menu,
+[data-theme="rainbow-dark"] .dropdown-toggle,
+[data-theme="rainbow-dark"] .language-select,
+[data-theme="rainbow-dark"] .btn,
+[data-theme="rainbow-dark"] .problem-statement,
+[data-theme="rainbow-dark"] .solution-explanation,
+[data-theme="rainbow-dark"] .skeleton-code details,
+[data-theme="rainbow-dark"] .solution-code details,
+[data-theme="moody-dark"] .navbar,
+[data-theme="moody-dark"] .sidebar,
+[data-theme="moody-dark"] .category-card,
+[data-theme="moody-dark"] .solution-card,
+[data-theme="moody-dark"] .doc-card,
+[data-theme="moody-dark"] .documentation,
+[data-theme="moody-dark"] .dropdown-menu,
+[data-theme="moody-dark"] .dropdown-toggle,
+[data-theme="moody-dark"] .language-select,
+[data-theme="moody-dark"] .btn,
+[data-theme="moody-dark"] .problem-statement,
+[data-theme="moody-dark"] .solution-explanation,
+[data-theme="moody-dark"] .skeleton-code details,
+[data-theme="moody-dark"] .solution-code details,
+[data-theme="happy-dark"] .navbar,
+[data-theme="happy-dark"] .sidebar,
+[data-theme="happy-dark"] .category-card,
+[data-theme="happy-dark"] .solution-card,
+[data-theme="happy-dark"] .doc-card,
+[data-theme="happy-dark"] .documentation,
+[data-theme="happy-dark"] .dropdown-menu,
+[data-theme="happy-dark"] .dropdown-toggle,
+[data-theme="happy-dark"] .language-select,
+[data-theme="happy-dark"] .btn,
+[data-theme="happy-dark"] .problem-statement,
+[data-theme="happy-dark"] .solution-explanation,
+[data-theme="happy-dark"] .skeleton-code details,
+[data-theme="happy-dark"] .solution-code details,
+[data-theme="vibrant-dark"] .navbar,
+[data-theme="vibrant-dark"] .sidebar,
+[data-theme="vibrant-dark"] .category-card,
+[data-theme="vibrant-dark"] .solution-card,
+[data-theme="vibrant-dark"] .doc-card,
+[data-theme="vibrant-dark"] .documentation,
+[data-theme="vibrant-dark"] .dropdown-menu,
+[data-theme="vibrant-dark"] .dropdown-toggle,
+[data-theme="vibrant-dark"] .language-select,
+[data-theme="vibrant-dark"] .btn,
+[data-theme="vibrant-dark"] .problem-statement,
+[data-theme="vibrant-dark"] .solution-explanation,
+[data-theme="vibrant-dark"] .skeleton-code details,
+[data-theme="vibrant-dark"] .solution-code details {
+    background-color: var(--card-bg);
+    border-color: var(--border-color);
+    color: var(--text-primary);
+}
+
+/* High contrast specific border adjustments */
+[data-theme="high-contrast-light"] .navbar,
+[data-theme="high-contrast-light"] .sidebar,
+[data-theme="high-contrast-light"] .category-card,
+[data-theme="high-contrast-light"] .solution-card,
+[data-theme="high-contrast-dark"] .navbar,
+[data-theme="high-contrast-dark"] .sidebar,
+[data-theme="high-contrast-dark"] .category-card,
+[data-theme="high-contrast-dark"] .solution-card {
+    border: 2px solid var(--border-color);
+}

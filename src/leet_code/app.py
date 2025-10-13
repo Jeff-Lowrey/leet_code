@@ -187,7 +187,8 @@ def extract_problem_description(code: str) -> str | None:
             docstring = re.sub(r"^#\s*Difficulty:\s*\w+\s*\n?", "", docstring, flags=re.MULTILINE)
 
             # Convert to HTML
-            return markdown.markdown(docstring, extensions=["fenced_code", "tables"])
+            html: str = markdown.markdown(docstring, extensions=["fenced_code", "tables"])
+            return html
 
         return None
     except Exception:
@@ -503,7 +504,7 @@ def extract_js_problem_description(code: str) -> str | None:
             problem_description = re.sub(r"^Difficulty:\s*\w+\s*\n?", "", problem_description, flags=re.MULTILINE)
 
             # Convert to HTML
-            problem_html = markdown.markdown(problem_description, extensions=["fenced_code", "tables"])
+            problem_html: str = markdown.markdown(problem_description, extensions=["fenced_code", "tables"])
             return problem_html
 
     except Exception:  # nosec B110 - Intentional: return None on parsing failure
@@ -985,7 +986,7 @@ def solution_view(category: str, filename: str) -> str:
         skeleton_code=highlighted_skeleton,
         code=highlighted_code,
         explanation=explanation_sections,
-        style=formatter.get_style_defs(".highlight"),  # type: ignore[no-untyped-call]
+        style=formatter.get_style_defs(".highlight"),
         is_leetcode_format=False,
         available_languages=available_languages,
         difficulty=solution.difficulty,
@@ -1032,7 +1033,7 @@ def solution_leetcode_view(category: str, filename: str) -> str:
         code=highlighted_code,
         documentation=None,
         explanation=None,
-        style=formatter.get_style_defs(".highlight"),  # type: ignore[no-untyped-call]
+        style=formatter.get_style_defs(".highlight"),
         is_leetcode_format=True,
         available_languages=[],
     )
@@ -1446,7 +1447,7 @@ def view_alternative_solution(category: str, filename: str, language: str) -> st
         skeleton_code=highlighted_skeleton,
         code=highlighted_code,
         explanation=explanation_sections,
-        style=formatter.get_style_defs(".highlight"),  # type: ignore[no-untyped-call]
+        style=formatter.get_style_defs(".highlight"),
         is_leetcode_format=False,
         current_language=language,
         available_languages=available_languages,

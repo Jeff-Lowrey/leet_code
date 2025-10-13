@@ -467,4 +467,4 @@ Week 3:  ██████████ 100% (10/10 problems)
 
 ---
 
-[← Previous: Understanding Solutions](06-understanding-solutions.md) | [🏠 Home](README.md)
+[← Previous: Understanding Solutions](06-understanding-solutions.md) | [🏠 Home](README.md) | [Next: Customizing Themes →](08-customizing-themes.md)

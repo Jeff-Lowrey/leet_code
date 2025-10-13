@@ -11,6 +11,7 @@ Welcome to the Leet Code Learning Tool User Guide! This comprehensive guide will
 5. [Code Viewing](05-code-viewing.md) - Syntax highlighting, viewing modes, and multi-language comparison
 6. [Understanding Solutions](06-understanding-solutions.md) - Problem analysis, solution explanations, and complexity analysis
 7. [Study Strategies](07-study-strategies.md) - Learning paths, practice methods, and interview preparation
+8. [Customizing Themes](08-customizing-themes.md) - Theme selection, visual customization, and accessibility options
 
 ## Quick Navigation
 [↑ Back to Table of Contents](#table-of-contents)
@@ -23,6 +24,8 @@ Welcome to the Leet Code Learning Tool User Guide! This comprehensive guide will
 **Learning & Study:** [Understanding Solutions](06-understanding-solutions.md) → [Study Strategies](07-study-strategies.md)
 
 **Code Features:** [Code Viewing](05-code-viewing.md) - Syntax highlighting and format conversion
+
+**Customization:** [Customizing Themes](08-customizing-themes.md) - Visual themes and accessibility
 
 ## What This Guide Covers
 [↑ Back to Table of Contents](#table-of-contents)
@@ -39,6 +42,7 @@ Welcome to the Leet Code Learning Tool User Guide! This comprehensive guide will
 - Understanding solution components
 - Code viewing and format options
 - Effective study strategies
+- Visual theme customization
 
 ### For Interview Preparation
 - Structured learning paths
