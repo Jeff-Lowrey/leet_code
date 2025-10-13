@@ -20,6 +20,23 @@
                 <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark/light mode">
                     <span class="theme-icon">🌙</span>
                 </button>
+                <div class="theme-picker-container">
+                    <button class="theme-picker-toggle" onclick="toggleThemePicker(event)" title="Select theme">
+                        <svg class="color-wheel-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/>
+                            <path d="M12 2 L12 12 L22 12" fill="none" stroke="currentColor" stroke-width="1" opacity="0.3"/>
+                            <circle cx="12" cy="5" r="2" fill="#ff6b6b"/>
+                            <circle cx="17" cy="8" r="2" fill="#ffd93d"/>
+                            <circle cx="19" cy="14" r="2" fill="#4ecdc4"/>
+                            <circle cx="15" cy="18" r="2" fill="#9d84b7"/>
+                            <circle cx="8" cy="19" r="2" fill="#6bcf7f"/>
+                            <circle cx="5" cy="14" r="2" fill="#c77dff"/>
+                        </svg>
+                    </button>
+                    <div class="theme-picker-dropdown" id="theme-picker-dropdown">
+                        <!-- Dynamically populated by JavaScript -->
+                    </div>
+                </div>
             </div>
         </div>
     </nav>
@@ -240,6 +257,152 @@
                 window.history.replaceState({}, '', url.toString());
             }
         }
+
+        // Theme definitions with color previews
+        const themes = {
+            'light': {
+                name: 'Soft Neutral Light',
+                colors: ['#5b7bb5', '#6b7280', '#f5f5f0', '#d47d5e', '#6890c9', '#7fa87f', '#d4a366', '#ad85ad']
+            },
+            'dark': {
+                name: 'Soft Neutral Dark',
+                colors: ['#3b82f6', '#10b981', '#0f172a', '#f87171', '#60a5fa', '#4ade80', '#fbbf24', '#c084fc']
+            },
+            'classic-light': {
+                name: 'Classic Light',
+                colors: ['#2563eb', '#10b981', '#f9fafb', '#dc2626', '#2563eb', '#16a34a', '#d97706', '#9333ea']
+            },
+            'classic-dark': {
+                name: 'Classic Dark',
+                colors: ['#3b82f6', '#10b981', '#111827', '#f87171', '#60a5fa', '#4ade80', '#fbbf24', '#a855f7']
+            },
+            'original-light': {
+                name: 'Original Light',
+                colors: ['#2563eb', '#10b981', '#f9fafb', '#2563eb', '#2563eb', '#10b981', '#2563eb', '#2563eb']
+            },
+            'original-dark': {
+                name: 'Original Dark',
+                colors: ['#3b82f6', '#10b981', '#111827', '#3b82f6', '#3b82f6', '#10b981', '#3b82f6', '#3b82f6']
+            },
+            'high-contrast-light': {
+                name: 'High Contrast Light',
+                colors: ['#0066cc', '#333333', '#ffffff', '#cc3300', '#0066cc', '#009933', '#ff9900', '#9933cc']
+            },
+            'high-contrast-dark': {
+                name: 'High Contrast Dark',
+                colors: ['#66b3ff', '#cccccc', '#000000', '#ff6666', '#66b3ff', '#66ff99', '#ffcc66', '#cc66ff']
+            },
+            'neon-dark': {
+                name: 'Neon Dark',
+                colors: ['#00ffff', '#ff00ff', '#0a0a0a', '#ff0080', '#00d4ff', '#39ff14', '#ff6600', '#ff00ff']
+            },
+            'neon-light': {
+                name: 'Neon Light',
+                colors: ['#00cccc', '#dd00dd', '#f8f8f8', '#dd0066', '#00bbee', '#22dd00', '#ee5500', '#dd00dd']
+            },
+            'rainbow-light': {
+                name: 'Rainbow Light',
+                colors: ['#dc2626', '#2563eb', '#f5f5f5', '#dc2626', '#2563eb', '#16a34a', '#d97706', '#9333ea']
+            },
+            'rainbow-dark': {
+                name: 'Rainbow Dark',
+                colors: ['#f87171', '#60a5fa', '#1a1d3a', '#f87171', '#60a5fa', '#4ade80', '#fbbf24', '#c084fc']
+            },
+            'happy-light': {
+                name: 'Happy Light',
+                colors: ['#ff1493', '#ffd700', '#f8f8f8', '#ff4500', '#00bfff', '#00ff00', '#ffb400', '#da70d6']
+            },
+            'happy-dark': {
+                name: 'Happy Dark',
+                colors: ['#ff1493', '#ffd700', '#1a0a1a', '#ff5533', '#00ccff', '#00ff66', '#ffcc00', '#ee82ee']
+            },
+            'moody-dark': {
+                name: 'Moody Dark',
+                colors: ['#9d84b7', '#6c7a89', '#1e1e2e', '#b5838d', '#6c7a89', '#7c9885', '#b8a07e', '#9d84b7']
+            },
+            'moody-light': {
+                name: 'Moody Light',
+                colors: ['#7a5f96', '#556270', '#e8e4f0', '#9a6872', '#556270', '#65866f', '#a08862', '#7a5f96']
+            }
+        };
+
+        // Toggle theme picker dropdown
+        function toggleThemePicker(event) {
+            event.stopPropagation();
+            const dropdown = document.getElementById('theme-picker-dropdown');
+
+            // Repopulate dropdown each time to reflect current mode
+            populateThemePicker();
+
+            dropdown.classList.toggle('show');
+        }
+
+        // Populate theme picker with themes matching current mode
+        function populateThemePicker() {
+            const dropdown = document.getElementById('theme-picker-dropdown');
+            const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+            const isDarkMode = currentTheme.includes('-dark') || currentTheme === 'dark';
+
+            let html = `<div class="theme-picker-header">Select Theme (${isDarkMode ? 'Dark' : 'Light'} Mode)</div>`;
+
+            // Filter themes by current mode
+            for (const [themeId, theme] of Object.entries(themes)) {
+                const isThemeDark = themeId.includes('-dark') || themeId === 'dark';
+
+                // Only show themes that match current mode
+                if (isThemeDark === isDarkMode) {
+                    const isActive = themeId === currentTheme;
+                    html += `
+                        <div class="theme-option ${isActive ? 'active' : ''}" onclick="selectTheme('${themeId}')">
+                            <span class="theme-name">${theme.name}${isActive ? ' ✓' : ''}</span>
+                            <div class="theme-color-preview">
+                                ${theme.colors.map(color =>
+                                    `<span class="color-square" style="background-color: ${color};"></span>`
+                                ).join('')}
+                            </div>
+                        </div>
+                    `;
+                }
+            }
+
+            dropdown.innerHTML = html;
+        }
+
+        // Select a theme
+        function selectTheme(themeId) {
+            document.documentElement.setAttribute('data-theme', themeId);
+            localStorage.setItem('theme', themeId);
+
+            // Update light/dark toggle icon based on theme
+            const themeIcon = document.querySelector('.theme-icon');
+            const themeButton = document.querySelector('.theme-toggle');
+
+            const isDarkTheme = themeId.includes('-dark') || themeId === 'dark';
+            if (isDarkTheme) {
+                themeIcon.textContent = '☀️';
+                themeButton.classList.add('dark-mode');
+            } else {
+                themeIcon.textContent = '🌙';
+                themeButton.classList.remove('dark-mode');
+            }
+
+            // Close dropdown
+            document.getElementById('theme-picker-dropdown').classList.remove('show');
+
+            // Reload page to apply new syntax highlighting
+            if (window.location.pathname.includes('/solution/')) {
+                const url = new URL(window.location);
+                url.searchParams.set('theme', themeId);
+                window.location.href = url.toString();
+            }
+        }
+
+        // Close theme picker when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!event.target.closest('.theme-picker-container')) {
+                document.getElementById('theme-picker-dropdown')?.classList.remove('show');
+            }
+        });
 
         // Initialize on page load
         document.addEventListener('DOMContentLoaded', function() {
