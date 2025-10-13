@@ -317,6 +317,56 @@
 }
 
 /* ========================================
+   CHAOS THEME (Deliberately Garish and Clashing)
+   ======================================== */
+
+/* Chaos - Light Mode */
+[data-theme="chaos-light"] {
+    --primary-color: #ff00ff;      /* Magenta */
+    --secondary-color: #00ff00;    /* Lime green */
+    --dark-bg: #ff6600;
+    --light-bg: #ffff00;           /* Bright yellow */
+    --card-bg: #ff69b4;            /* Hot pink */
+    --text-primary: #0000ff;       /* Pure blue */
+    --text-secondary: #ff0000;     /* Pure red */
+    --border-color: #00ffff;       /* Cyan */
+    --card-shadow: 0 4px 16px rgba(255, 0, 255, 0.8);
+
+    /* Category colors - deliberately clashing */
+    --cat-rust: #ff00ff;           /* Magenta */
+    --cat-steel-blue: #ffff00;     /* Yellow */
+    --cat-sage: #00ffff;           /* Cyan */
+    --cat-amber: #ff0000;          /* Red */
+    --cat-plum: #00ff00;           /* Lime */
+    --cat-teal: #ff6600;           /* Orange */
+    --cat-burgundy: #0000ff;       /* Blue */
+    --cat-navy: #ff1493;           /* Deep pink */
+}
+
+/* Chaos - Dark Mode */
+[data-theme="chaos-dark"] {
+    --primary-color: #00ff00;      /* Lime green */
+    --secondary-color: #ff00ff;    /* Magenta */
+    --dark-bg: #330033;            /* Dark purple */
+    --light-bg: #006600;           /* Dark green */
+    --card-bg: #003333;            /* Dark cyan */
+    --text-primary: #ffff00;       /* Yellow */
+    --text-secondary: #ff00ff;     /* Magenta */
+    --border-color: #ff0000;       /* Red */
+    --card-shadow: 0 4px 16px rgba(0, 255, 0, 0.6);
+
+    /* Category colors - deliberately clashing dark mode */
+    --cat-rust: #ff00ff;           /* Magenta */
+    --cat-steel-blue: #00ff00;     /* Lime */
+    --cat-sage: #ff0000;           /* Red */
+    --cat-amber: #00ffff;          /* Cyan */
+    --cat-plum: #ffff00;           /* Yellow */
+    --cat-teal: #ff6600;           /* Orange */
+    --cat-burgundy: #0000ff;       /* Blue */
+    --cat-navy: #ff1493;           /* Deep pink */
+}
+
+/* ========================================
    RAINBOW THEME
    ======================================== */
 
@@ -478,7 +528,8 @@
 [data-theme="neon-dark"] body,
 [data-theme="rainbow-dark"] body,
 [data-theme="moody-dark"] body,
-[data-theme="happy-dark"] body {
+[data-theme="happy-dark"] body,
+[data-theme="chaos-dark"] body {
     background-color: var(--dark-bg);
 }
 
