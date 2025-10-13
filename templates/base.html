@@ -197,10 +197,31 @@
             }
         });
 
-        // Theme switching functionality
+        // Theme switching functionality - preserves theme family, toggles light/dark
         function toggleTheme() {
-            const currentTheme = document.documentElement.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+
+            // Determine theme family and mode
+            let newTheme;
+
+            if (currentTheme.endsWith('-dark')) {
+                // Currently on X-dark, switch to X-light
+                const themeFamily = currentTheme.slice(0, -5); // Remove '-dark'
+                newTheme = themeFamily + '-light';
+            } else if (currentTheme.endsWith('-light')) {
+                // Currently on X-light, switch to X-dark
+                const themeFamily = currentTheme.slice(0, -6); // Remove '-light'
+                newTheme = themeFamily + '-dark';
+            } else if (currentTheme === 'dark') {
+                // Special case: generic dark -> generic light
+                newTheme = 'light';
+            } else if (currentTheme === 'light') {
+                // Special case: generic light -> generic dark
+                newTheme = 'dark';
+            } else {
+                // Fallback: treat as light mode, switch to dark
+                newTheme = 'dark';
+            }
 
             document.documentElement.setAttribute('data-theme', newTheme);
             localStorage.setItem('theme', newTheme);
@@ -209,7 +230,7 @@
             const themeIcon = document.querySelector('.theme-icon');
             const themeButton = document.querySelector('.theme-toggle');
 
-            if (newTheme === 'dark') {
+            if (newTheme.includes('-dark') || newTheme === 'dark') {
                 themeIcon.textContent = '☀️';
                 themeButton.classList.add('dark-mode');
             } else {
@@ -242,7 +263,7 @@
             const themeIcon = document.querySelector('.theme-icon');
             const themeButton = document.querySelector('.theme-toggle');
 
-            if (savedTheme === 'dark') {
+            if (savedTheme.includes('-dark') || savedTheme === 'dark') {
                 themeIcon.textContent = '☀️';
                 themeButton.classList.add('dark-mode');
             } else {
@@ -258,71 +279,76 @@
             }
         }
 
-        // Theme definitions with color previews
+        // Theme definitions with color previews - ordered by usage and intensity
         const themes = {
+            // Professional/Minimal
             'light': {
                 name: 'Soft Neutral Light',
-                colors: ['#5b7bb5', '#6b7280', '#f5f5f0', '#d47d5e', '#6890c9', '#7fa87f', '#d4a366', '#ad85ad']
+                colors: ['#5b7bb5', '#6b7280', '#f5f5f0', '#d47d5e', '#6890c9', '#7fa87f', '#d4a366', '#ad85ad', '#66a8a8', '#c96680', '#6882ad']
             },
             'dark': {
                 name: 'Soft Neutral Dark',
-                colors: ['#3b82f6', '#10b981', '#0f172a', '#f87171', '#60a5fa', '#4ade80', '#fbbf24', '#c084fc']
+                colors: ['#3b82f6', '#10b981', '#0f172a', '#f87171', '#60a5fa', '#4ade80', '#fbbf24', '#c084fc', '#2dd4bf', '#fb7185', '#818cf8']
             },
             'classic-light': {
                 name: 'Classic Light',
-                colors: ['#2563eb', '#ffffff', '#2563eb', '#ffffff', '#2563eb', '#ffffff', '#2563eb', '#ffffff']
+                colors: ['#2563eb', '#ffffff']
             },
             'classic-dark': {
                 name: 'Classic Dark',
-                colors: ['#2563eb', '#1a1a1a', '#2563eb', '#1a1a1a', '#2563eb', '#1a1a1a', '#2563eb', '#1a1a1a']
+                colors: ['#2563eb', '#1a1a1a']
             },
-            'original-light': {
-                name: 'Original Light',
-                colors: ['#2563eb', '#10b981', '#f9fafb', '#2563eb', '#2563eb', '#10b981', '#2563eb', '#2563eb']
-            },
-            'original-dark': {
-                name: 'Original Dark',
-                colors: ['#3b82f6', '#10b981', '#111827', '#3b82f6', '#3b82f6', '#10b981', '#3b82f6', '#3b82f6']
-            },
+            // Accessibility
             'high-contrast-light': {
                 name: 'High Contrast Light',
-                colors: ['#0066cc', '#333333', '#ffffff', '#cc3300', '#0066cc', '#009933', '#ff9900', '#9933cc']
+                colors: ['#0066cc', '#333333', '#ffffff', '#cc3300', '#009933', '#ff9900', '#9933cc', '#009999', '#cc0066', '#000099']
             },
             'high-contrast-dark': {
                 name: 'High Contrast Dark',
-                colors: ['#66b3ff', '#cccccc', '#000000', '#ff6666', '#66b3ff', '#66ff99', '#ffcc66', '#cc66ff']
+                colors: ['#66b3ff', '#cccccc', '#000000', '#ff6666', '#66ff99', '#ffcc66', '#cc66ff', '#66ffff', '#ff66cc', '#6666ff']
             },
-            'neon-dark': {
-                name: 'Neon Dark',
-                colors: ['#00ffff', '#ff00ff', '#0a0a0a', '#ff0080', '#00d4ff', '#39ff14', '#ff6600', '#ff00ff']
+            // Colorful/Standard
+            'vibrant-light': {
+                name: 'Vibrant Light',
+                colors: ['#e91e63', '#00bcd4', '#ff5722', '#2196f3', '#4caf50', '#ff9800', '#9c27b0', '#009688', '#3f51b5']
             },
-            'neon-light': {
-                name: 'Neon Light',
-                colors: ['#00cccc', '#dd00dd', '#f8f8f8', '#dd0066', '#00bbee', '#22dd00', '#ee5500', '#dd00dd']
+            'vibrant-dark': {
+                name: 'Vibrant Dark',
+                colors: ['#f06292', '#4dd0e1', '#ff7043', '#42a5f5', '#66bb6a', '#ffa726', '#ab47bc', '#26a69a', '#5c6bc0']
             },
             'rainbow-light': {
                 name: 'Rainbow Light',
-                colors: ['#dc2626', '#2563eb', '#f5f5f5', '#dc2626', '#2563eb', '#16a34a', '#d97706', '#9333ea']
+                colors: ['#dc2626', '#2563eb', '#16a34a', '#d97706', '#9333ea', '#0891b2', '#e11d48', '#eab308']
             },
             'rainbow-dark': {
                 name: 'Rainbow Dark',
-                colors: ['#f87171', '#60a5fa', '#1a1d3a', '#f87171', '#60a5fa', '#4ade80', '#fbbf24', '#c084fc']
+                colors: ['#f87171', '#60a5fa', '#4ade80', '#fb923c', '#c084fc', '#22d3ee', '#fb7185', '#fbbf24']
             },
-            'happy-light': {
-                name: 'Happy Light',
-                colors: ['#ff1493', '#ffd700', '#f8f8f8', '#ff4500', '#00bfff', '#00ff00', '#ffb400', '#da70d6']
-            },
-            'happy-dark': {
-                name: 'Happy Dark',
-                colors: ['#ff1493', '#ffd700', '#1a0a1a', '#ff5533', '#00ccff', '#00ff66', '#ffcc00', '#ee82ee']
+            // Mood-based
+            'moody-light': {
+                name: 'Moody Light',
+                colors: ['#7a5f96', '#556270', '#9a6872', '#65866f', '#a08862', '#568a96', '#8f6279', '#576291']
             },
             'moody-dark': {
                 name: 'Moody Dark',
-                colors: ['#9d84b7', '#6c7a89', '#1e1e2e', '#b5838d', '#6c7a89', '#7c9885', '#b8a07e', '#9d84b7']
+                colors: ['#9d84b7', '#6c7a89', '#b5838d', '#7c9885', '#b8a07e', '#6b9ca8', '#a67c94', '#6d7aa8']
             },
-            'moody-light': {
-                name: 'Moody Light',
-                colors: ['#7a5f96', '#556270', '#e8e4f0', '#9a6872', '#556270', '#65866f', '#a08862', '#7a5f96']
+            'happy-light': {
+                name: 'Happy Light',
+                colors: ['#ff1493', '#ffd700', '#ff4500', '#00bfff', '#00ff00', '#ffb400', '#da70d6', '#00ced1', '#4169e1']
+            },
+            'happy-dark': {
+                name: 'Happy Dark',
+                colors: ['#ff1493', '#ffd700', '#ff5533', '#00ccff', '#00ff66', '#ffcc00', '#ee82ee', '#00e5e5', '#5588ff']
+            },
+            // Special Effects
+            'neon-light': {
+                name: 'Neon Light',
+                colors: ['#00cccc', '#dd00dd', '#f8f8f8', '#dd0066', '#00bbee', '#22dd00', '#ee5500', '#00dddd', '#dd0055']
+            },
+            'neon-dark': {
+                name: 'Neon Dark',
+                colors: ['#00ffff', '#ff00ff', '#0a0a0a', '#ff0080', '#00d4ff', '#39ff14', '#ff6600', '#ff0066']
             }
         };
 
