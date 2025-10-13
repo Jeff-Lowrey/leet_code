@@ -371,12 +371,14 @@
 
             let html = `<div class="theme-picker-header">Select Theme (${isDarkMode ? 'Dark' : 'Light'} Mode)</div>`;
 
+            let themeCount = 0;
             // Filter themes by current mode
             for (const [themeId, theme] of Object.entries(themes)) {
                 const isThemeDark = themeId.includes('-dark') || themeId === 'dark';
 
                 // Only show themes that match current mode
                 if (isThemeDark === isDarkMode) {
+                    themeCount++;
                     const isActive = themeId === currentTheme;
                     html += `
                         <div class="theme-option ${isActive ? 'active' : ''}" onclick="selectTheme('${themeId}')">
@@ -391,6 +393,7 @@
                 }
             }
 
+            console.log(`Showing ${themeCount} ${isDarkMode ? 'dark' : 'light'} themes`);
             dropdown.innerHTML = html;
         }
 
