@@ -136,10 +136,10 @@
 [data-theme="classic-dark"] .doc-card h3 {
     background-color: var(--card-header-bg);
     color: var(--card-header-text);
-    margin: -1rem -1rem 0.5rem -1rem;
-    padding: 0.5rem 1rem;
+    margin: -1rem -1rem 0.4rem -1rem;
+    padding: 0.4rem 0.8rem;
     border-radius: 8px 8px 0 0;
-    font-size: 1rem;
+    font-size: 0.9rem;
 }
 
 /* Remove ALL borders on classic cards - override category-specific borders */
