@@ -142,15 +142,14 @@
     font-size: 0.9rem;
 }
 
-/* Remove ALL borders on classic cards - override category-specific borders */
+/* Blue border on all sides for classic cards - override category-specific borders */
 [data-theme="classic-light"] .category-card,
 [data-theme="classic-light"] .solution-card,
 [data-theme="classic-light"] .doc-card,
 [data-theme="classic-dark"] .category-card,
 [data-theme="classic-dark"] .solution-card,
 [data-theme="classic-dark"] .doc-card {
-    border: none !important;
-    border-left: none !important;
+    border: 1px solid #2563eb !important;
     border-radius: 8px;
 }
 
