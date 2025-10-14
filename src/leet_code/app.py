@@ -872,67 +872,83 @@ def category_view(category: str) -> str:
     )
 
 
-@app.route("/difficulty/<difficulty>")
-def difficulty_view(difficulty: str) -> str:
-    """View all solutions of a specific difficulty level."""
-    # Get all categories and filter solutions by difficulty
+@app.route("/difficulty")
+def difficulty_overview() -> str:
+    """View all solutions organized by difficulty level."""
     all_categories = category_manager.get_categories()
-    filtered_solutions = []
 
+    # Group solutions by difficulty
+    difficulties = {
+        "Easy": {"solutions": [], "count": 0},
+        "Medium": {"solutions": [], "count": 0},
+        "Hard": {"solutions": [], "count": 0},
+    }
+
+    total_count = 0
     for category in all_categories:
         for solution in category.solutions:
-            if solution.difficulty.lower() == difficulty.lower():
-                # Add category info to solution for navigation
-                filtered_solutions.append(
+            difficulty = solution.difficulty.capitalize()
+            if difficulty in difficulties:
+                difficulties[difficulty]["solutions"].append(
                     {
                         "solution": solution,
                         "category": category.slug,
                         "category_name": category.name,
                     }
                 )
-
-    if not filtered_solutions:
-        abort(404)
+                difficulties[difficulty]["count"] += 1
+                total_count += 1
 
     return render_template(
         "difficulty.html",
-        difficulty=difficulty.capitalize(),
-        solutions=filtered_solutions,
-        total_count=len(filtered_solutions),
+        difficulties=difficulties,
+        total_count=total_count,
     )
 
 
-@app.route("/complexity/<time_complexity>/<space_complexity>")
-def complexity_view(time_complexity: str, space_complexity: str) -> str:
-    """View all solutions with specific time/space complexity."""
-    # Get all categories and filter solutions by complexity
+@app.route("/complexity")
+def complexity_overview() -> str:
+    """View all solutions organized by time/space complexity."""
     all_categories = category_manager.get_categories()
-    filtered_solutions = []
 
+    # Group solutions by complexity combination
+    complexities: dict[str, dict[str, Any]] = {}
+
+    total_count = 0
     for category in all_categories:
         for solution in category.solutions:
-            time_match = time_complexity == "any" or solution.time_complexity == time_complexity
-            space_match = space_complexity == "any" or solution.space_complexity == space_complexity
+            time_comp = solution.time_complexity or "Unknown"
+            space_comp = solution.space_complexity or "Unknown"
 
-            if time_match and space_match:
-                # Add category info to solution for navigation
-                filtered_solutions.append(
-                    {
-                        "solution": solution,
-                        "category": category.slug,
-                        "category_name": category.name,
-                    }
-                )
+            # Create a key for this complexity combination
+            complexity_key = f"{time_comp}_{space_comp}"
 
-    if not filtered_solutions:
-        abort(404)
+            if complexity_key not in complexities:
+                complexities[complexity_key] = {
+                    "display_name": f"Time: {time_comp} | Space: {space_comp}",
+                    "solutions": [],
+                    "count": 0,
+                }
+
+            complexities[complexity_key]["solutions"].append(
+                {
+                    "solution": solution,
+                    "category": category.slug,
+                    "category_name": category.name,
+                }
+            )
+            complexities[complexity_key]["count"] += 1
+            total_count += 1
+
+    # Sort complexities by count (descending)
+    sorted_complexities = dict(
+        sorted(complexities.items(), key=lambda x: x[1]["count"], reverse=True)
+    )
 
     return render_template(
         "complexity.html",
-        time_complexity=time_complexity,
-        space_complexity=space_complexity,
-        solutions=filtered_solutions,
-        total_count=len(filtered_solutions),
+        complexities=sorted_complexities,
+        total_count=total_count,
     )
 
 
@@ -1036,6 +1052,9 @@ def solution_leetcode_view(category: str, filename: str) -> str:
         style=formatter.get_style_defs(".highlight"),
         is_leetcode_format=True,
         available_languages=[],
+        difficulty=solution.difficulty,
+        time_complexity=solution.time_complexity,
+        space_complexity=solution.space_complexity,
     )
 
 
@@ -1585,8 +1604,26 @@ def docs_index() -> str:
                 readme_path = category_dir / "README.md"
                 if readme_path.exists():
                     # Convert directory name to display name
-                    display_name = category_dir.name.replace("-", " & ").title()
-                    if category_dir.name == "arrays-hashing":
+                    # Default: replace hyphens with spaces and title case
+                    display_name = category_dir.name.replace("-", " ").title()
+                    description = "View documentation"
+                    category_slug = category_dir.name  # For theme coloring
+
+                    # Special cases for guides with descriptions and theme colors
+                    if category_dir.name == "user-guide":
+                        display_name = "User Guide"
+                        description = "Complete guide to using the Leet Code Learning Tool"
+                        category_slug = "user-guide-doc"  # Use steel-blue theme
+                    elif category_dir.name == "developer-guide":
+                        display_name = "Developer Guide"
+                        description = "Technical documentation for developers and contributors"
+                        category_slug = "developer-guide-doc"  # Use plum theme
+                    elif category_dir.name == "upload-guide":
+                        display_name = "Upload Guide"
+                        description = "Learn how to add new solutions to the collection"
+                        category_slug = "upload-guide-doc"  # Use amber theme
+                    # Special cases for problem categories with ampersands
+                    elif category_dir.name == "arrays-hashing":
                         display_name = "Arrays & Hashing"
                     elif category_dir.name == "two-pointers":
                         display_name = "Two Pointers"
@@ -1611,7 +1648,12 @@ def docs_index() -> str:
                     elif category_dir.name == "union-find":
                         display_name = "Union Find"
 
-                    docs.append({"slug": category_dir.name, "name": display_name})
+                    docs.append({
+                        "slug": category_dir.name,
+                        "name": display_name,
+                        "description": description,
+                        "category_slug": category_slug,
+                    })
 
     return render_template("docs.html", docs=docs)
 
@@ -1628,27 +1670,59 @@ def docs_readme() -> str:
 
 
 @app.route("/docs/<category>")
-def docs_view(category: str) -> str:
-    """View category documentation."""
-    # Handle user guide specially
-    if category == "user_guide":
-        docs_path = Path(__file__).parent.parent.parent / "docs" / "user_guide.md"
-        if docs_path.exists():
-            doc_content = docs_path.read_text()
-            doc_html = markdown.markdown(doc_content, extensions=["fenced_code", "tables", "toc"])
-            return render_template("doc_view.html", category=category, category_name="User Guide", content=doc_html)
+@app.route("/docs/<category>/<page>")
+def docs_view(category: str, page: str | None = None) -> str:
+    """View category documentation or specific sub-page."""
+    docs_base = Path(__file__).parent.parent.parent / "docs"
+
+    # Determine which file to load
+    if page:
+        # Sub-page requested (e.g., /docs/user-guide/01-overview.md or /docs/user-guide/01-overview)
+        page_name = page if page.endswith(".md") else f"{page}.md"
+        docs_path = docs_base / category / page_name
+        # Extract display name from page (remove number prefix and extension)
+        page_display = page.replace(".md", "").split("-", 1)[-1].replace("-", " ").title()
+        category_display = category.replace("-", " ").title()
+    else:
+        # Main category page (README.md)
+        docs_path = docs_base / category / "README.md"
+        category_display = category.replace("-", " ").title()
+        page_display = None
+
+    # Check if file exists
+    if not docs_path.exists():
         abort(404)
 
-    # Handle regular category documentation
-    doc_content_result = category_manager.read_documentation(category)
-    if not doc_content_result:
-        abort(404)
+    # Read and render markdown
+    doc_content = docs_path.read_text()
+    doc_html = markdown.markdown(doc_content, extensions=["fenced_code", "tables", "toc"])
 
-    # Type narrowing: at this point doc_content_result must be str
-    doc_html = markdown.markdown(doc_content_result, extensions=["fenced_code", "tables", "toc"])
+    # Fix relative links to include the category path
+    # Replace links like href="01-overview.md" with href="/docs/category/01-overview.md"
+    import re
+    doc_html = re.sub(
+        r'href="([^/"#][^"]*\.md)"',
+        rf'href="/docs/{category}/\1"',
+        doc_html
+    )
+    # Also handle links without .md extension that reference other docs
+    doc_html = re.sub(
+        r'href="((?:\.\./)+([\w-]+)/README\.md)"',
+        r'href="/docs/\2"',
+        doc_html
+    )
+
+    # Determine the display name
+    if page_display:
+        full_display_name = f"{category_display}: {page_display}"
+    else:
+        full_display_name = category_display
 
     return render_template(
-        "doc_view.html", category=category, category_name=category.replace("-", " ").title(), content=doc_html
+        "doc_view.html",
+        category=category,
+        category_name=full_display_name,
+        content=doc_html
     )
 
 
