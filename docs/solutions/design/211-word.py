@@ -9,11 +9,23 @@ Design a data structure that supports adding new words and finding if a string m
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>
+["WordDictionary","addWord","addWord","addWord","search","search","search","search"]<br>
+[[],["bad"],["dad"],["mad"],["pad"],["bad"],[".ad"],["b.."]]
+</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>[null,null,null,null,false,true,true,true]</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>
+WordDictionary wordDictionary = new WordDictionary();<br>
+wordDictionary.addWord("bad");<br>
+wordDictionary.addWord("dad");<br>
+wordDictionary.addWord("mad");<br>
+wordDictionary.search("pad"); // return False<br>
+wordDictionary.search("bad"); // return True<br>
+wordDictionary.search(".ad"); // return True<br>
+wordDictionary.search("b.."); // return True
+</dd>
 </dl>
 
 <details>

@@ -9,11 +9,23 @@ Design a data structure that supports insert, delete, and getRandom operations i
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>
+["RandomizedSet", "insert", "remove", "insert", "getRandom", "remove", "insert", "getRandom"]<br>
+[[], [1], [2], [2], [], [1], [2], []]
+</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>[null, true, false, true, 2, true, false, 2]</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>
+RandomizedSet randomizedSet = new RandomizedSet();<br>
+randomizedSet.insert(1); // Inserts 1 to the set. Returns true as 1 was inserted successfully.<br>
+randomizedSet.remove(2); // Returns false as 2 does not exist in the set.<br>
+randomizedSet.insert(2); // Inserts 2 to the set, returns true. Set now contains [1,2].<br>
+randomizedSet.getRandom(); // getRandom() should return either 1 or 2 randomly.<br>
+randomizedSet.remove(1); // Removes 1 from the set, returns true. Set now contains [2].<br>
+randomizedSet.insert(2); // 2 was already in the set, so return false.<br>
+randomizedSet.getRandom(); // Since 2 is the only number in the set, getRandom() will always return 2.
+</dd>
 </dl>
 
 <details>
