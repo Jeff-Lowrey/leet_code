@@ -3,42 +3,51 @@
 
 # 456. 132
 
-Given a problem that demonstrates key concepts in Monotonic Stack.
+Given an array of n integers nums, a 132 pattern is a subsequence of three integers nums[i], nums[j] and nums[k] such that i < j < k and nums[i] < nums[k] < nums[j].
+
+Return true if there is a 132 pattern in nums, otherwise, return false.
 
 **Example:**
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[3,1,4,2]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>True (132 pattern exists)</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>The array contains a 132 pattern because there exist indices i < j < k where nums[i] < nums[k] < nums[j]</dd>
 </dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
-[This problem requires understanding of monotonic stack concepts. The key insight is to identify the optimal approach for this specific scenario.]
+Track minimum values seen so far from left. Use decreasing stack from right to find first element < stack top. The 132 pattern means min < nums[j] < nums[k] where i < j < k.
 
 ### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply monotonic stack methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+1. **Initialize variables**: Set s3 = float('-inf'), stack = []
+2. **Iterate backward**: For i in range(len(nums)-1, -1, -1)
+3. **Check pattern**: If nums[i] < s3, return True
+4. **Update s3**: While stack and nums[i] > stack[-1], s3 = stack.pop()
+5. **Push to stack**: Append nums[i] to stack
+6. **Continue scanning**: Process all elements
+7. **Return False**: If loop completes without finding pattern
 
 ### WHY THIS WORKS:
-- The solution leverages monotonic stack principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+- Find 132 pattern: nums[i] < nums[k] < nums[j] where i < j < k
+- Monotonic stack tracks potential nums[k], maintain max nums[k] found
+- Traverse right-to-left: if current < nums[k], found 132 pattern
+- Stack maintains decreasing sequence, pops when larger element found
+- O(n) time single pass, O(n) space for stack
 
 ### EXAMPLE WALKTHROUGH:
 ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
+Input: nums = [3,1,4,2]
+Step 1: Find 132 pattern
+  i=0, j=2, k=3: nums[0]=3, nums[2]=4, nums[3]=2
+  Check: 3 < 4 and 2 < 4 and 3 > 2? Yes
+
+Output: True (132 pattern exists)
 ```
 
 ### TIME COMPLEXITY:
@@ -54,6 +63,8 @@ O(1)
 
 </details>
 """
+
+from typing import List, Optional, Dict, Tuple
 
 class Solution:
     def find132pattern(self, nums: List[int]) -> bool:
@@ -93,19 +104,24 @@ class Solution:
 
 def test_solution():
     """
-    Test cases for 456. 132.
+    Test cases for the solution.
     """
     solution = Solution()
 
-    # Test case 1: Basic functionality
-    # result = solution.solve([test_input])
-    # expected = [expected_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 1: Basic case
+    result = solution.find132pattern([1, 2, 3])
+    expected = False
+    assert result == expected, f"Expected {expected}, got {result}"
 
-    # Test case 2: Edge case
-    # result = solution.solve([edge_case_input])
-    # expected = [edge_case_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 2: Empty input
+    result = solution.find132pattern([])
+    expected = False
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 3: Single element
+    result = solution.find132pattern([1])
+    expected = False
+    assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
 

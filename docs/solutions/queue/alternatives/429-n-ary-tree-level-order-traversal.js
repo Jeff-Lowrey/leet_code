@@ -1,48 +1,73 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * # 429. N-ary Tree Level Order Traversal
+ *
+ * Given an n-ary tree, return the level order traversal of its nodes' values.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>[node3, node2, node4]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>1</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>N-ary tree level-order traversal groups nodes by depth</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * Similar to binary tree level-order traversal, but each node can have multiple children.
+ * Use BFS to process nodes level by level, adding all children of each node to the queue.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Handle edge case**: Return empty list if tree is empty
+ * 2. **Initialize BFS**: Use a deque with root node
+ * 3. **For each level**:
+ *    - Process all nodes at current level
+ *    - Collect values in order
+ *    - Add all children of each node to queue for next level
+ * 4. **Return result**: List of lists representing each level
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - BFS naturally processes nodes level by level
+ * - By tracking level boundaries (queue size), we process each level independently
+ * - For n-ary trees, we simply iterate through all children instead of just left/right
+ * - Deque provides O(1) append/popleft operations
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Tree:        1
+ *           /  |  \\
+ *          3   2   4
+ *         / \\
+ *        5   6
+ *
+ * Level 0: [1]
+ * Level 1: [3, 2, 4]
+ * Level 2: [5, 6]
+ * Result: [[1], [3, 2, 4], [5, 6]]
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
+ * - Visit each node exactly once
+ * - n = total number of nodes in tree
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(w)
+ * - Queue holds at most one level of nodes at a time
+ * - w = maximum width of tree (max children at any level)
+ * - Result storage: O(n)
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - Empty tree: Return []
+ * - Single node: Return [[root.val]]
+ * - Node with many children: All added to same level
+ * - Different branching factors at different levels
  *
  * </details>
  */

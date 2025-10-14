@@ -12,11 +12,11 @@ Output: [[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>nums` = [1,2,3]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>[[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>All permutations of [1,2,3] are 6 arrangements: [[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]</dd>
 </dl>
 
 <details>
@@ -26,7 +26,13 @@ Output: [[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]
 Generate all permutations by systematically trying each unused element at each position. Use backtracking to explore all possibilities while maintaining state through choices and un-choices.
 
 ### APPROACH:
-[Detailed explanation of the solution approach]
+1. **Initialize result list**: Create an empty list to store all permutations
+2. **Define recursive backtracking function**: Create a helper function that builds permutations by maintaining a current partial permutation
+3. **Base case check**: If the current permutation length equals the input array length, we have a complete permutation - add a copy to results
+4. **Iterate through all elements**: For each element in the original array, check if it's not already in the current permutation
+5. **Make choice and recurse**: Add the element to current permutation, recursively call backtrack to continue building
+6. **Backtrack**: Remove the last added element (undo choice) to try other possibilities
+7. **Return all permutations**: After exploring all branches, return the complete list of permutations
 
 ### WHY THIS WORKS:
 - Each permutation uses every element exactly once
@@ -35,14 +41,35 @@ Generate all permutations by systematically trying each unused element at each p
 - Systematic exploration guarantees all permutations are found
 
 ### EXAMPLE WALKTHROUGH:
-Input:
 ```
-[example input]
+Input: nums = [1, 2, 3]
+
+Step 1: backtrack([])
+  Try 1: current = [1]
+    Try 2: current = [1,2]
+      Try 3: current = [1,2,3] ✓ Complete! Add to result
+      Remove 3: current = [1,2]
+    Remove 2: current = [1]
+    Try 3: current = [1,3]
+      Try 2: current = [1,3,2] ✓ Complete! Add to result
+      Remove 2: current = [1,3]
+    Remove 3: current = [1]
+  Remove 1: current = []
+
+Step 2: Try 2: current = [2]
+    Try 1: current = [2,1]
+      Try 3: current = [2,1,3] ✓ Complete! Add to result
+    Try 3: current = [2,3]
+      Try 1: current = [2,3,1] ✓ Complete! Add to result
+
+Step 3: Try 3: current = [3]
+    Try 1: current = [3,1]
+      Try 2: current = [3,1,2] ✓ Complete! Add to result
+    Try 2: current = [3,2]
+      Try 1: current = [3,2,1] ✓ Complete! Add to result
+
+Output: [[1,2,3], [1,3,2], [2,1,3], [2,3,1], [3,1,2], [3,2,1]]
 ```
-
-**Step 1:** [description]
-
-**Step 2:** [description]
 
 ### TIME COMPLEXITY:
 O(n × n!) - n! permutations, each takes O(n) to build/copy
@@ -51,8 +78,11 @@ O(n × n!) - n! permutations, each takes O(n) to build/copy
 O(n) - recursion depth and current permutation
 
 ### EDGE CASES:
-- **[Edge case 1]:** [how it's handled]
-- **[Edge case 2]:** [how it's handled]
+- **Empty array**: Return [[]] (empty permutation)
+- **Single element**: Return [[element]]
+- **Two elements**: Return both orderings [[a,b], [b,a]]
+- **Duplicate elements (in variant)**: Use frequency counter to avoid duplicates
+- **Large arrays**: n! permutations, factorial growth
 
 </details>
 """

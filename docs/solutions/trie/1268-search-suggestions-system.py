@@ -13,11 +13,11 @@ Return a list of lists of the suggested products after each character of searchW
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>["mobile", "mouse", "moneypot", "monitor", "mousepad"]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>1</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Search suggestions for 'mouse' show top 3 products per character</dd>
 </dl>
 
 <details>

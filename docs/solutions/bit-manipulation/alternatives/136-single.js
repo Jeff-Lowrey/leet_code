@@ -1,48 +1,68 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Easy
  *
- * [Problem description goes here]
+ * # 136. Single Number
+ *
+ * Given a non-empty array of integers nums, every element appears twice except for one. Find that single one.
+ *
+ * You must implement a solution with a linear runtime complexity and use only constant extra space.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>[4,1,2,1,2]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>4 (single number)</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>The single number 4 appears once in [2,2,1,4,1] (all others appear twice)</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * [This problem requires understanding of bit manipulation concepts. The key insight is to identify the optimal approach for this specific scenario.]
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Analyze the problem**: Understand the input constraints and expected output
+ * 2. **Choose the right technique**: Apply bit manipulation methodology
+ * 3. **Implement efficiently**: Focus on optimal time and space complexity
+ * 4. **Handle edge cases**: Consider boundary conditions and special cases
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - The solution leverages bit manipulation principles
+ * - Time complexity is optimized for the given constraints
+ * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: nums = [4,1,2,1,2]
+ * Step 1: XOR all numbers
+ *   result = 0
+ *   result ^= 4 → result = 4 (binary: 100)
+ *   result ^= 1 → result = 5 (binary: 101)
+ *   result ^= 2 → result = 7 (binary: 111)
+ *   result ^= 1 → result = 6 (binary: 110)
+ *   result ^= 2 → result = 4 (binary: 100)
+ *
+ * Step 2: All duplicate numbers cancel out (a^a=0)
+ *   Pairs: (1^1)=0, (2^2)=0
+ *   Remaining: 4
+ *
+ * Output: 4 (single number)
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(1)
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - Empty input handling
+ * - Single element cases
+ * - Large input considerations
  *
  * </details>
  */

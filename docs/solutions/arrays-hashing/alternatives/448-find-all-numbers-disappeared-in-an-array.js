@@ -1,48 +1,68 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * # 448. Find All Numbers Disappeared In An Array
+ *
+ * Given an array nums of n integers where nums[i] is in the range [1, n], return an array of all the integers in the range [1, n] that do not appear in nums.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>[5, 6]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>"Expected {expected}, got {result}"</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>The numbers [5,6] are missing from [4,3,2,7,8,2,3,1] (should be 1-8)</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * [This problem requires understanding of arrays hashing concepts. The key insight is to identify the optimal approach for this specific scenario.]
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Analyze the problem**: Understand the input constraints and expected output
+ * 2. **Choose the right technique**: Apply arrays hashing methodology
+ * 3. **Implement efficiently**: Focus on optimal time and space complexity
+ * 4. **Handle edge cases**: Consider boundary conditions and special cases
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - The solution leverages arrays hashing principles
+ * - Time complexity is optimized for the given constraints
+ * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: nums = [4,3,2,7,8,2,3,1]
+ * Step 1: Mark present numbers by negating values at indices
+ *   - Process 4: nums[3] = -7, nums = [4,3,2,-7,8,2,3,1]
+ *   - Process 3: nums[2] = -2, nums = [4,3,-2,-7,8,2,3,1]
+ *   - Process 2: nums[1] = -3, nums = [4,-3,-2,-7,8,2,3,1]
+ *   - Process 7: nums[6] = -3, nums = [4,-3,-2,-7,8,2,-3,1]
+ *   - Process 8: nums[7] = -1, nums = [4,-3,-2,-7,8,2,-3,-1]
+ *   - Process 2: already marked
+ *   - Process 3: already marked
+ *   - Process 1: nums[0] = -4, nums = [-4,-3,-2,-7,8,2,-3,-1]
+ *
+ * Step 2: Find indices with positive values
+ *   - Index 4 has value 8 (positive) → number 5 is missing
+ *   - Index 5 has value 2 (positive) → number 6 is missing
+ *
+ * Output: [5, 6]
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(1)
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - Empty input handling
+ * - Single element cases
+ * - Large input considerations
  *
  * </details>
  */

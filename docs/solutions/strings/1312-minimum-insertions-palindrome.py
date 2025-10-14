@@ -24,11 +24,11 @@ Explanation: Inserting 5 characters the string becomes "leetcodocteel".
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>s = "zzazz"</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>0</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>The string 'zzazz' requires 0 insertions because it's already a palindrome</dd>
 </dl>
 
 <details>

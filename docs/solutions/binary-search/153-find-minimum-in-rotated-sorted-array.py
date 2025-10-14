@@ -3,42 +3,69 @@
 
 # 153. Find Minimum In Rotated Sorted Array
 
-Given a problem that demonstrates key concepts in Binary Search.
+Suppose an array of length n sorted in ascending order is rotated between 1 and n times. For example, the array nums = [0,1,2,4,5,6,7] might become:
+
+- [4,5,6,7,0,1,2] if it was rotated 4 times.
+- [0,1,2,4,5,6,7] if it was rotated 7 times.
+
+Notice that rotating an array [a[0], a[1], a[2], ..., a[n-1]] 1 time results in the array [a[n-1], a[0], a[1], a[2], ..., a[n-2]].
+
+Given the sorted rotated array nums of unique elements, return the minimum element of this array.
+
+You must write an algorithm that runs in O(log n) time.
 
 **Example:**
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[4,5,6,7,0,1,2]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>0 (minimum element)</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Minimum element 1 is found in rotated array [3,4,5,1,2]</dd>
 </dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
-[This problem requires understanding of binary search concepts. The key insight is to identify the optimal approach for this specific scenario.]
+The minimum element is where the rotation occurs. Compare mid with right: if nums[mid] > nums[right], minimum is in the right half; otherwise it's in the left half (including mid). This handles both rotated and non-rotated cases.
 
 ### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply binary search methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+1. **Initialize pointers**: Set left = 0, right = len(nums) - 1
+2. **Binary search loop**: While left < right, calculate mid = (left + right) // 2
+3. **Compare mid with right**: Check if nums[mid] > nums[right] to determine rotation position
+4. **Minimum in right half**: If nums[mid] > nums[right], minimum is in right half, set left = mid + 1
+5. **Minimum in left half**: Otherwise, minimum is in left half (including mid), set right = mid
+6. **Converge to minimum**: Continue until left == right
+7. **Return result**: Return nums[left] as the minimum element
 
 ### WHY THIS WORKS:
-- The solution leverages binary search principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+- Binary search: minimum is at rotation point
+- If nums[mid] > nums[right], minimum in right half (left = mid + 1)
+- Else minimum in left half including mid (right = mid)
+- When left == right, found minimum
+- O(log n) time, O(1) space
 
 ### EXAMPLE WALKTHROUGH:
 ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
+Input: nums = [4,5,6,7,0,1,2]
+Step 1: Check if array is rotated
+  nums[0]=4 > nums[-1]=2 → Array is rotated
+
+Step 2: Binary search for minimum
+  left = 0, right = 6
+  mid = 3: nums[3]=7 > nums[6]=2
+  → Minimum is in right half, left = 3
+
+  left = 3, right = 6
+  mid = 4: nums[4]=0 < nums[6]=2
+  → Minimum could be at mid or left, right = 4
+
+  left = 3, right = 4
+  right - left = 1 → return min(nums[3], nums[4]) = min(7, 0) = 0
+
+Output: 0 (minimum element)
 ```
 
 ### TIME COMPLEXITY:
@@ -54,6 +81,8 @@ O(1)
 
 </details>
 """
+
+from typing import List, Optional, Dict, Tuple
 
 class Solution:
     """
@@ -109,19 +138,24 @@ class Solution:
 
 def test_solution():
     """
-    Test cases for 153. Find Minimum In Rotated Sorted Array.
+    Test cases for the solution.
     """
     solution = Solution()
 
-    # Test case 1: Basic functionality
-    # result = solution.solve([test_input])
-    # expected = [expected_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 1: Example from problem
+    result = solution.findMin([4,5,6,7,0,1,2])
+    expected = 0
+    assert result == expected, f"Expected {expected}, got {result}"
 
-    # Test case 2: Edge case
-    # result = solution.solve([edge_case_input])
-    # expected = [edge_case_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 2: Single element
+    result = solution.findMin([1])
+    expected = 1
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 3: Not rotated array
+    result = solution.findMin([1,2,3,4,5])
+    expected = 1
+    assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
 

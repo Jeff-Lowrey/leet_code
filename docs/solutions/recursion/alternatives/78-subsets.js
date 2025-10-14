@@ -1,48 +1,74 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * # 78. Subsets
+ *
+ * This problem demonstrates key concepts in Recursion.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>[[]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>"Expected {len(expected)} subsets, got {len(result)}"</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>All subsets of [1,2,3] include [], [1], [2], [3], [1,2], [1,3], [2,3], [1,2,3]</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * Given an array of distinct integers, return all possible subsets (the power set).
+ * The power set includes all combinations of all possible lengths (0 to n). This is
+ * a classic backtracking problem where we explore include/exclude decisions.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Backtracking with include/exclude pattern**:
+ *    - At each position, we have two choices: include or exclude the element
+ *    - Add current subset to results at every step (not just at leaves)
+ *    - Use start index to avoid duplicate subsets
+ * 2. **Two implementation styles**:
+ *    - Iterative add: Add subset after each inclusion
+ *    - Include/exclude recursion: Explicitly make both choices at each step
+ * 3. **Edge cases**: Empty array, single element
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - Each element can be included or excluded independently
+ * - By using start index, we ensure subsets are generated in lexicographic order
+ * - Adding subset at each step captures all possible subset sizes
+ * - The decision tree naturally generates all 2^n subsets
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: [1,2,3]
+ *
+ * Build subsets by choosing to include/exclude each element:
+ * []
+ * Include 1: [1]
+ *   Include 2: [1,2]
+ *     Include 3: [1,2,3]
+ *   Exclude 2, Include 3: [1,3]
+ * Exclude 1, Include 2: [2]
+ *   Include 3: [2,3]
+ * Exclude 1, Exclude 2, Include 3: [3]
+ *
+ * Output: [[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]]
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(2^n * n) where n is array length
+ * - 2^n subsets to generate
+ * - O(n) to copy each subset
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n) - recursion depth
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - Empty array (return [[]])
+ * - Single element (return [[], [element]])
+ * - All distinct integers (no duplicates)
  *
  * </details>
  */

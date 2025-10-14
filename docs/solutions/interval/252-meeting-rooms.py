@@ -3,42 +3,50 @@
 
 # 252. Meeting Rooms
 
-Given a problem that demonstrates key concepts in Interval.
+Given an array of meeting time intervals where intervals[i] = [starti, endi], determine if a person could attend all meetings.
 
 **Example:**
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>intervals = [[0,30],[5,10],[15,20]]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>False (cannot attend all meetings)</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>The person can attend all meetings because [[0,30],[5,10],[15,20]] has overlaps (cannot attend all)</dd>
 </dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
-[This problem requires understanding of interval concepts. The key insight is to identify the optimal approach for this specific scenario.]
+Sort meetings by start time. Check consecutive meetings for overlap by comparing start of next meeting with end of current. If any overlap, return false.
 
 ### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply interval methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+1. **Sort by start time**: Sort intervals by interval[0]
+2. **Check consecutive pairs**: For i in range(1, len(intervals))
+3. **Check overlap**: If intervals[i][0] < intervals[i-1][1], overlap exists
+4. **Return False**: Overlapping meetings cannot be attended
+5. **Continue checking**: Process all pairs
+6. **Return True**: If no overlaps found
 
 ### WHY THIS WORKS:
-- The solution leverages interval principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+- Sort by start time, check consecutive intervals for overlap
+- Overlap if current.start < previous.end
+- Single overlap means person can't attend all meetings
+- Sorting ensures we check all potential conflicts
+- O(n log n) for sort, O(1) space
 
 ### EXAMPLE WALKTHROUGH:
 ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
+Input: intervals = [[0,30],[5,10],[15,20]]
+Step 1: Sort by start time
+  sorted = [[0,30],[5,10],[15,20]]
+
+Step 2: Check for overlaps
+  [0,30] vs [5,10]: 5 < 30 → overlap found
+
+Output: False (cannot attend all meetings)
 ```
 
 ### TIME COMPLEXITY:
@@ -54,6 +62,8 @@ O(1)
 
 </details>
 """
+
+from typing import List, Optional, Dict, Tuple
 
 class Solution:
     def can_attend_meetings(self, intervals: List[List[int]]) -> bool:
@@ -90,19 +100,24 @@ class Solution:
 
 def test_solution():
     """
-    Test cases for 252. Meeting Rooms.
+    Test cases for the solution.
     """
     solution = Solution()
 
-    # Test case 1: Basic functionality
-    # result = solution.solve([test_input])
-    # expected = [expected_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 1: Overlapping meetings
+    result = solution.can_attend_meetings([[0,30],[5,10],[15,20]])
+    expected = False
+    assert result == expected, f"Expected {expected}, got {result}"
 
-    # Test case 2: Edge case
-    # result = solution.solve([edge_case_input])
-    # expected = [edge_case_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 2: Empty input
+    result = solution.can_attend_meetings([])
+    expected = True
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 3: Non-overlapping meetings
+    result = solution.can_attend_meetings([[7,10],[2,4]])
+    expected = True
+    assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
 

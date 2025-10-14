@@ -11,11 +11,11 @@ The path does not need to start or end at the root or a leaf, but it must go dow
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[root]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>"\nExample 1:"</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>There are 3 paths in the tree that sum to 8: [5->3], [5->2->1], [-3->11]</dd>
 </dl>
 
 <details>

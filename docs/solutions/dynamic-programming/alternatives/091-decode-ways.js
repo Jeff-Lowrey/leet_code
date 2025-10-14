@@ -1,48 +1,77 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * # 091. Decode Ways
+ *
+ * A message containing letters from A-Z can be encoded into numbers using the following mapping:
+ *
+ * 'A' -> "1", 'B' -> "2", ..., 'Z' -> "26"
+ *
+ * To decode an encoded message, all the digits must be grouped then mapped back into letters using the reverse of the mapping above (there may be multiple ways).
+ *
+ * Given a string s containing only digits, return the number of ways to decode it.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>"226"</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>3 (number of ways to decode)</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>String '226' decodes 3 ways: '2-2-6', '22-6', '2-26'</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * [This problem requires understanding of dynamic programming concepts. The key insight is to identify the optimal approach for this specific scenario.]
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Analyze the problem**: Understand the input constraints and expected output
+ * 2. **Choose the right technique**: Apply dynamic programming methodology
+ * 3. **Implement efficiently**: Focus on optimal time and space complexity
+ * 4. **Handle edge cases**: Consider boundary conditions and special cases
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - The solution leverages dynamic programming principles
+ * - Time complexity is optimized for the given constraints
+ * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: s = "226"
+ * Step 1: Initialize DP
+ *   dp[0] = 1 (empty string)
+ *   dp[1] = 1 ("2" → "B")
+ *
+ * Step 2: Process each digit
+ *   i=2: s[1]="2"
+ *     Single: "2" → "B", dp[2] += dp[1] = 1
+ *     Double: "22" → "V", dp[2] += dp[0] = 1
+ *     dp[2] = 2
+ *
+ *   i=3: s[2]="6"
+ *     Single: "6" → "F", dp[3] += dp[2] = 2
+ *     Double: "26" → "Z", dp[3] += dp[1] = 1
+ *     dp[3] = 3
+ *
+ * Step 3: Decodings are "BBF", "BZ", "VF"
+ *
+ * Output: 3 (number of ways to decode)
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(1)
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - Empty input handling
+ * - Single element cases
+ * - Large input considerations
  *
  * </details>
  */

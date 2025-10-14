@@ -13,11 +13,11 @@ Return the least number of units of times that the CPU will take to finish all t
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[(["A", "A", "A", "B", "B", "B"]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>"\nTasks: {tasks}"</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Minimum intervals to schedule tasks 'AAABBB' with n=2 is 8</dd>
 </dl>
 
 <details>

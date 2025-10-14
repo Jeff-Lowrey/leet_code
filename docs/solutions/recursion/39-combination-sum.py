@@ -9,11 +9,11 @@ This problem demonstrates key concepts in Recursion.
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[[2, 2, 3]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>"Expected {expected}, got {result}"</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>All combinations summing to 7 using [2,3,6,7] are [[2,2,3], [7]]</dd>
 </dl>
 
 <details>

@@ -1,48 +1,77 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * # 621. Task Scheduler
+ *
+ * Given a characters array tasks, representing the tasks a CPU needs to do, where each letter represents a different task. Tasks could be done in any order. Each task is done in one unit of time. For each unit of time, the CPU could complete either one task or just be idle.
+ *
+ * However, there is a non-negative integer n that represents the cooldown period between two same tasks (the same letter in the array), that is that there must be at least n units of time between any two same tasks.
+ *
+ * Return the least number of units of times that the CPU will take to finish all the given tasks.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>[(["A", "A", "A", "B", "B", "B"]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>"\nTasks: {tasks}"</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>Minimum intervals to schedule tasks 'AAABBB' with n=2 is 8</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * Schedule most frequent tasks first to minimize idle time. Use max-heap to always pick the task with highest frequency. Track cooldown with a queue.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Count frequencies**: Use Counter to get task frequencies
+ * 2. **Max-heap**: Store negative frequencies (Python has min-heap)
+ * 3. **Simulation**: For each time unit:
+ *    - Pick most frequent available task
+ *    - Decrease its count and add to cooldown queue
+ *    - Process cooldown queue to return tasks to heap
+ * 4. **Math formula**: Can also calculate directly using formula
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - Most frequent tasks create the most idle time
+ * - By scheduling them first with optimal spacing, we minimize total idle time
+ * - Cooldown queue ensures we respect the n interval
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * tasks = ["A","A","A","B","B","B"], n = 2
+ *
+ * Frequencies: A=3, B=3
+ * Timeline:
+ * Time 0: A (A left: 2, cooldown until time 3)
+ * Time 1: B (B left: 2, cooldown until time 4)
+ * Time 2: idle (nothing available)
+ * Time 3: A (A left: 1, cooldown until time 6)
+ * Time 4: B (B left: 1, cooldown until time 7)
+ * Time 5: idle
+ * Time 6: A (A done)
+ * Time 7: B (B done)
+ *
+ * Total: 8 units
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n × m)
+ * Where n = cooldown, m = number of tasks (simulation approach)
+ * Math approach: O(m) where m = number of tasks
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(1)
+ * At most 26 different tasks (letters)
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - n = 0 (no cooldown, return len(tasks))
+ * - All tasks same
+ * - All tasks different
+ * - n very large
  *
  * </details>
  */

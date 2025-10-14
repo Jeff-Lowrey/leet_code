@@ -11,11 +11,13 @@ A height-balanced binary tree is a binary tree in which the depth of the two sub
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[("Optimized recursive", solution.isBalanced),
+        ("Alternative recursive", solution.isBalancedAlternative),
+        ("Iterative", solution.isBalancedIterative)]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>"{name}: {result}"</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>The tree is balanced because the height difference between left and right subtrees is at most 1 at every node</dd>
 </dl>
 
 <details>
@@ -62,8 +64,11 @@ O(h)
 Where h is height of tree (recursion stack)
 
 ### EDGE CASES:
-- **[Edge case 1]:** [how it's handled]
-- **[Edge case 2]:** [how it's handled]
+- **Empty tree**: Return True (null tree is balanced)
+- **Single node**: Return True (height-balanced by definition)
+- **Perfect binary tree**: All levels completely filled, always balanced
+- **Linear tree (skewed)**: Height difference > 1, return False
+- **Subtree unbalanced**: Early termination returns -1 immediately
 
 </details>
 """

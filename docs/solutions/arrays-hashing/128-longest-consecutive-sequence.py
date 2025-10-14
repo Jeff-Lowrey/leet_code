@@ -3,42 +3,68 @@
 
 # 128. Longest Consecutive Sequence
 
-Given a problem that demonstrates key concepts in Arrays Hashing.
+Given an unsorted array of integers nums, return the length of the longest consecutive elements sequence.
+
+You must write an algorithm that runs in O(n) time.
 
 **Example:**
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[100, 4, 200, 1, 3, 2]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>4 (sequence [1,2,3,4])</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>The longest consecutive sequence [1,2,3,4] has length 4</dd>
 </dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
-[This problem requires understanding of arrays hashing concepts. The key insight is to identify the optimal approach for this specific scenario.]
+Convert array to a set for O(1) lookups. Only start counting consecutive sequences from numbers where num-1 doesn't exist (the start of a sequence). This avoids redundant counting and achieves O(n) time since each number is visited at most twice.
 
 ### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply arrays hashing methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+1. **Convert to set**: Create num_set from nums array for O(1) lookup time
+2. **Initialize longest streak**: Set longest_streak = 0 to track maximum consecutive sequence length
+3. **Iterate through set**: Loop through each number in num_set
+4. **Check sequence start**: For each num, verify if (num - 1) exists in set; skip if it does (not a sequence start)
+5. **Count consecutive numbers**: When num is a sequence start, initialize current_num = num and current_streak = 1
+6. **Extend sequence**: Use while loop to check if (current_num + 1) exists in set, incrementing current_num and current_streak
+7. **Update maximum**: Compare current_streak with longest_streak and update longest_streak if current is larger
+8. **Return result**: After processing all numbers, return longest_streak
 
 ### WHY THIS WORKS:
-- The solution leverages arrays hashing principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+- Set conversion enables O(1) lookups, crucial for checking num-1 and num+1 efficiently
+- Only starting from sequence beginnings (where num-1 doesn't exist) prevents redundant counting
+- Each number visited at most twice: once in outer loop, once in inner while loop
+- This achieves O(n) time despite apparent nested loops - the key insight
+- Set takes O(n) space but enables the linear time solution
 
 ### EXAMPLE WALKTHROUGH:
 ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
+Input: nums = [100, 4, 200, 1, 3, 2]
+
+Step 1: Convert to set
+  num_set = {100, 4, 200, 1, 3, 2}
+
+Step 2: Check num=1 (no num-1=0 in set, so it's a sequence start)
+  current_num = 1, current_streak = 1
+  1+1=2 in set → current_streak = 2
+  2+1=3 in set → current_streak = 3
+  3+1=4 in set → current_streak = 4
+  4+1=5 not in set → stop
+  longest_streak = 4
+
+Step 3: Check num=2 (num-1=1 exists, skip)
+Step 4: Check num=3 (num-1=2 exists, skip)
+Step 5: Check num=4 (num-1=3 exists, skip)
+Step 6: Check num=100 (no num-1=99, sequence start)
+  current_streak = 1, no 101 in set
+Step 7: Check num=200 (no num-1=199, sequence start)
+  current_streak = 1, no 201 in set
+
+Output: 4 (sequence [1,2,3,4])
 ```
 
 ### TIME COMPLEXITY:
@@ -54,6 +80,8 @@ O(1)
 
 </details>
 """
+
+from typing import List, Optional, Dict, Tuple
 
 class Solution:
     def longestConsecutive(self, nums: List[int]) -> int:
@@ -96,19 +124,24 @@ class Solution:
 
 def test_solution():
     """
-    Test cases for 128. Longest Consecutive Sequence.
+    Test cases for the solution.
     """
     solution = Solution()
 
-    # Test case 1: Basic functionality
-    # result = solution.solve([test_input])
-    # expected = [expected_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 1: Example from problem
+    result = solution.longestConsecutive([100, 4, 200, 1, 3, 2])
+    expected = 4
+    assert result == expected, f"Expected {expected}, got {result}"
 
-    # Test case 2: Edge case
-    # result = solution.solve([edge_case_input])
-    # expected = [edge_case_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 2: Empty input
+    result = solution.longestConsecutive([])
+    expected = 0
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 3: Single element
+    result = solution.longestConsecutive([1])
+    expected = 1
+    assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
 

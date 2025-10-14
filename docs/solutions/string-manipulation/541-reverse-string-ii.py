@@ -20,11 +20,11 @@ Result: "bacdfeg"
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>s = "abcdefg", k = 2</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>bacdfeg"</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Reverse first k=2 chars in each 2k group: 'abcdefg' becomes 'bacdfeg'</dd>
 </dl>
 
 <details>

@@ -14,11 +14,11 @@ Implement the MedianFinder class:
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>addNum(1):</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>left=[1], right=[]</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Median after adding [1,2] is 1.5, after [1,2,3] is 2</dd>
 </dl>
 
 <details>

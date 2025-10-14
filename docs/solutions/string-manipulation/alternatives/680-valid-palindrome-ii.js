@@ -1,48 +1,68 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Easy
  *
- * [Problem description goes here]
+ * # 680. Valid Palindrome II
+ *
+ * Given a string s, return true if the s can be palindrome after deleting at most one character from it.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>["aba", "abca", "abc", "racecar", "deeee"]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>"validPalindrome('{test}') -> {result}"</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>String 'aba' is a valid palindrome (can delete 0 characters)</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * We can use a two-pointer approach to check if a string is a palindrome. When we find a mismatch, we have two options: skip the left character or skip the right character. If either option results in a valid palindrome for the remaining substring, then the original string can be made a palindrome by deleting at most one character.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Two pointers**: Start from both ends of the string
+ * 2. **Match characters**: Move pointers inward while characters match
+ * 3. **Handle mismatch**: When mismatch found, try two options:
+ *    - Skip left character and check remaining substring
+ *    - Skip right character and check remaining substring
+ * 4. **Return result**: True if either option results in palindrome
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - If string is already palindrome, we return true immediately
+ * - When first mismatch occurs, exactly one deletion can potentially fix it
+ * - We only need to check the remaining substring after skipping one character
+ * - Two-pointer palindrome check is efficient and straightforward
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: "aba"
+ * left=0, right=2: s[0]='a' == s[2]='a' ✓
+ * left=1, right=1: pointers meet, palindrome found
+ * Result: True (already palindrome)
+ *
+ * Input: "abca"
+ * left=0, right=3: s[0]='a' == s[3]='a' ✓
+ * left=1, right=2: s[1]='b' != s[2]='c' ✗
+ * Try skip left (delete 'b'): check "aca" → palindrome ✓
+ * Result: True
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
+ * In worst case, we check the string twice (once normally, once after skip)
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(1)
+ * Only using constant extra space for pointers
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - Empty string: palindrome
+ * - Single character: palindrome
+ * - Already palindrome: return true immediately
+ * - Multiple mismatches: cannot be fixed with one deletion
  *
  * </details>
  */

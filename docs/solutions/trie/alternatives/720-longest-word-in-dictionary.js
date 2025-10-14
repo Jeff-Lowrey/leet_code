@@ -1,48 +1,92 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Easy
  *
- * [Problem description goes here]
+ * # 720. Longest Word In Dictionary
+ *
+ * Given an array of strings words representing an English Dictionary, return the longest word in words that can be built one character at a time by other words in words.
+ *
+ * If there is more than one possible answer, return the longest word with the smallest lexicographical order. If there is no answer, return the empty string.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>["w", "wo", "wor", "worl", "world"]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>1</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>Longest word in dictionary built one char at a time is 'world'</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * We need to find the longest word where all its prefixes exist as words in the dictionary. A Trie is perfect for this because we can check if a word can be built character by character by verifying that each intermediate node represents a complete word. DFS or BFS through the trie helps us find the longest buildable word.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Build Trie**: Insert all words, marking word ends
+ * 2. **DFS/BFS traversal**: Explore trie paths where every node is a word end
+ * 3. **Track longest**: Keep track of longest word found
+ * 4. **Lexicographic order**: When same length, choose lexicographically smaller
+ * 5. **Validate path**: Only continue if current node is a word end
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - Trie naturally represents prefix relationships
+ * - Word end markers indicate which prefixes are valid words
+ * - DFS/BFS explores all buildable words systematically
+ * - Path validation ensures all prefixes exist
+ * - Lexicographic ordering handled by trie structure (or sorting)
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * words = ["w","wo","wor","worl","world"]
+ *
+ * Build Trie:
+ *   root -> 'w' (word end)
+ *        -> 'o' (word end)
+ *        -> 'r' (word end)
+ *        -> 'l' (word end)
+ *        -> 'd' (word end)
+ *
+ * DFS from root:
+ *   Visit 'w' (is word) -> can continue
+ *     Visit 'wo' (is word) -> can continue
+ *       Visit 'wor' (is word) -> can continue
+ *         Visit 'worl' (is word) -> can continue
+ *           Visit 'world' (is word) -> found! length=5
+ *
+ * Result: "world" (all prefixes are words)
+ *
+ * words = ["a","banana","app","appl","ap","apply","apple"]
+ *
+ * Build Trie:
+ *   root -> 'a' (word end)
+ *        -> 'p' (word end)
+ *        -> 'p' (NOT word end) -> can't continue
+ *        -> 'l' (word end)
+ *        -> 'e' (word end) -> "apple" ✓
+ *        -> 'y' (word end) -> "apply" ✓
+ *
+ * Result: "apple" (lexicographically smaller than "apply")
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(N * L)
+ * Where N is number of words, L is average word length
+ * - Building trie: O(N * L)
+ * - DFS traversal: O(N * L)
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(N * L)
+ * For trie storage
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - Empty word list
+ * - Single character words
+ * - No buildable words
+ * - Multiple words of same length
+ * - All words are prefixes of each other
  *
  * </details>
  */

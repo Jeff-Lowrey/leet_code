@@ -11,11 +11,11 @@ Reconstruct and return the queue that is represented by the input array people. 
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[[5, 0]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>1</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>People reconstructed by height and k-value: [[5,0],[7,0],[5,2],[6,1],[4,4],[7,1]]</dd>
 </dl>
 
 <details>
@@ -25,10 +25,16 @@ Reconstruct and return the queue that is represented by the input array people. 
 This problem can be solved with a greedy approach. Sort people by height (descending) and when heights are equal, by k value (ascending). Then insert each person at their k-index position. This works because taller people are placed first, so when shorter people are inserted, they don't affect the k-count of taller people.
 
 ### APPROACH:
-[Detailed explanation of the solution approach]
+1. **Sort people array**: Sort by height in descending order (tallest first), and by k value in ascending order when heights are equal
+2. **Initialize result list**: Create an empty list to hold the reconstructed queue
+3. **Process tallest first**: Iterate through sorted people array, processing taller people before shorter ones
+4. **Insert at k-index**: For each person [h, k], insert them at position k in the result list
+5. **Maintain correctness**: Since taller people are already placed, inserting a shorter person doesn't affect their k-count
+6. **Preserve relative order**: The k value represents exact position among people of equal or greater height already in queue
+7. **Return reconstructed queue**: After all insertions, result contains correctly reconstructed queue
 
 ### WHY THIS WORKS:
-- [Explanation of correctness]
+By repeatedly dividing the search space in half, we eliminate half of the remaining elements in each iteration. Since the array is sorted, we can determine which half contains the target by comparing with the middle element. This guarantees we find the target (if it exists) in O(log n) time because each step reduces the problem size by a factor of 2.
 
 ### EXAMPLE WALKTHROUGH:
 ```

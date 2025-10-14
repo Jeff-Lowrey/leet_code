@@ -9,11 +9,11 @@ Design and implement a Least Frequently Used (LFU) cache.
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>LFUCache(2)</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>put(1, 1): cache={1:(1,1)}, freq_to_keys={1:[1]}, min_freq=1</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Cache is initialized with capacity 2, and after put(1, 1), the cache contains key 1 with value 1 and frequency 1, making it the least frequently used item</dd>
 </dl>
 
 <details>

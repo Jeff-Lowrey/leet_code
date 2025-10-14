@@ -13,11 +13,11 @@ Return k after placing the final result in the first k slots of nums.
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[1,1,2]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>1</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Remove duplicates from sorted array [1,1,2] gives length 2</dd>
 </dl>
 
 <details>
@@ -56,8 +56,11 @@ O(1)
 Only using constant extra space
 
 ### EDGE CASES:
-- **[Edge case 1]:** [how it's handled]
-- **[Edge case 2]:** [how it's handled]
+- **Empty array**: Return 0 (no elements)
+- **Single element**: Return 1 (already unique)
+- **All elements same**: Return 1 (only one unique value)
+- **No duplicates**: Return n (all unique already)
+- **Consecutive duplicates**: Two-pointer removes them in-place
 
 </details>
 """

@@ -3,42 +3,60 @@
 
 # 090. Subsets Ii
 
-Given a problem that demonstrates key concepts in Backtracking.
+Given an integer array nums that may contain duplicates, return all possible subsets (the power set).
+
+The solution set must not contain duplicate subsets. Return the solution in any order.
 
 **Example:**
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[[]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>"Expected {expected}, got {result}"</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>All unique subsets of [1,2,2] are [[],[1],[1,2],[1,2,2],[2],[2,2]]</dd>
 </dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
-[This problem requires understanding of backtracking concepts. The key insight is to identify the optimal approach for this specific scenario.]
+Sort the array to group duplicates together. During backtracking, add the current subset at each step (not just at leaves). Skip duplicate elements at the same recursion level using the condition i > start and nums[i] == nums[i-1] to avoid duplicate subsets.
 
 ### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply backtracking methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+1. **Sort array**: Sort nums to group duplicate elements together
+2. **Initialize result**: Create result list starting with empty subset [[]]
+3. **Define backtrack function**: Create recursive function with parameters (start, current)
+4. **Add current subset**: Append copy of current to result at each recursive call
+5. **Iterate from start**: Loop from start index to end of array
+6. **Skip duplicates**: If i > start and nums[i] == nums[i-1], continue to avoid duplicate subsets
+7. **Include element**: Add nums[i] to current, call backtrack(i+1, current)
+8. **Backtrack**: Remove last element from current to explore other possibilities
 
 ### WHY THIS WORKS:
-- The solution leverages backtracking principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+- Sort array to group duplicates, enables skipping in backtracking
+- At each level, if nums[i] == nums[i-1] and i > start, skip (avoid duplicate subsets)
+- Backtracking tries including/excluding each element
+- Every path is valid subset, even partial paths
+- O(2^n * n) time: 2^n subsets, O(n) to copy each
 
 ### EXAMPLE WALKTHROUGH:
 ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
+Input: nums = [1,2,2]
+Step 1: Sort array → [1,2,2]
+
+Step 2: Build subsets with backtracking
+  Start with [] → add to result
+    Try 1: [1] → add to result
+      Try 2: [1,2] → add to result
+        Try 2: [1,2,2] → add to result
+      Skip duplicate 2
+    Try first 2: [2] → add to result
+      Try second 2: [2,2] → add to result
+    Skip duplicate 2 (i=2, start=0, nums[2]==nums[1])
+
+Output: [[],[1],[1,2],[1,2,2],[2],[2,2]]
 ```
 
 ### TIME COMPLEXITY:
@@ -54,6 +72,8 @@ O(1)
 
 </details>
 """
+
+from typing import List, Optional, Dict, Tuple
 
 class Solution:
     def subsetsWithDup(self, nums: List[int]) -> List[List[int]]:
@@ -104,19 +124,24 @@ class Solution:
 
 def test_solution():
     """
-    Test cases for 090. Subsets Ii.
+    Test cases for the solution.
     """
     solution = Solution()
 
-    # Test case 1: Basic functionality
-    # result = solution.solve([test_input])
-    # expected = [expected_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 1: Example from problem
+    result = solution.subsetsWithDup([1,2,2])
+    expected = [[],[1],[1,2],[1,2,2],[2],[2,2]]
+    assert result == expected, f"Expected {expected}, got {result}"
 
-    # Test case 2: Edge case
-    # result = solution.solve([edge_case_input])
-    # expected = [edge_case_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 2: Empty input
+    result = solution.subsetsWithDup([])
+    expected = [[]]
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 3: Single element
+    result = solution.subsetsWithDup([1])
+    expected = [[], [1]]
+    assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
 

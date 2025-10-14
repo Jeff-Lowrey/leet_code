@@ -1,48 +1,74 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Easy
  *
- * [Problem description goes here]
+ * # 110. Balanced Binary Tree
+ *
+ * Given a binary tree, determine if it is height-balanced.
+ *
+ * A height-balanced binary tree is a binary tree in which the depth of the two subtrees of every node never differs by more than 1.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>[("Optimized recursive", solution.isBalanced),
+ *         ("Alternative recursive", solution.isBalancedAlternative),
+ *         ("Iterative", solution.isBalancedIterative)]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>"{name}: {result}"</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>The tree is balanced because the height difference between left and right subtrees is at most 1 at every node</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * A balanced binary tree requires that for every node, the heights of its left and right subtrees differ by at most 1. The key insight is to check this condition recursively while computing heights bottom-up.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Recursive Height Calculation**: Calculate height of each subtree recursively
+ * 2. **Balance Check**: For each node, check if |left_height - right_height| ≤ 1
+ * 3. **Early Termination**: If any subtree is unbalanced, immediately return False
+ * 4. **Bottom-Up**: Check balance condition while returning heights
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - Height-balanced property must hold for ALL nodes, not just root
+ * - Recursive structure naturally checks every node
+ * - Bottom-up approach avoids redundant height calculations
+ * - Early termination optimizes for unbalanced trees
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: [3,9,20,null,null,15,7]
+ *        3
+ *       / \
+ *      9  20
+ *        /  \
+ *       15   7
+ *
+ * 1. Check node 9: height = 1, balanced ✓
+ * 2. Check node 15: height = 1, balanced ✓
+ * 3. Check node 7: height = 1, balanced ✓
+ * 4. Check node 20: left_height = 1, right_height = 1, |1-1| = 0 ≤ 1 ✓
+ * 5. Check node 3: left_height = 1, right_height = 2, |1-2| = 1 ≤ 1 ✓
+ * Output: True
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
+ * Each node is visited exactly once
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(h)
+ * Where h is height of tree (recursion stack)
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - **Empty tree**: Return True (null tree is balanced)
+ * - **Single node**: Return True (height-balanced by definition)
+ * - **Perfect binary tree**: All levels completely filled, always balanced
+ * - **Linear tree (skewed)**: Height difference > 1, return False
+ * - **Subtree unbalanced**: Early termination returns -1 immediately
  *
  * </details>
  */

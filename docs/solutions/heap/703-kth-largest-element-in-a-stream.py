@@ -13,11 +13,11 @@ Implement KthLargest class:
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>k = 3, nums = [4, 5, 8, 2]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>See walkthrough</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>The 3rd largest element is maintained as elements are added</dd>
 </dl>
 
 <details>

@@ -3,42 +3,59 @@
 
 # 210. Course Schedule Ii
 
-Given a problem that demonstrates key concepts in Topological Sort.
+There are a total of numCourses courses you have to take, labeled from 0 to numCourses - 1. You are given an array prerequisites where prerequisites[i] = [ai, bi] indicates that you must take course bi first if you want to take course ai.
+
+For example, the pair [0, 1], indicates that to take course 0 you have to first take course 1.
+
+Return the ordering of courses you should take to finish all courses. If there are many valid answers, return any of them. If it is impossible to finish all courses, return an empty array.
 
 **Example:**
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>numCourses = 4, prerequisites = [[1,0],[2,0],[3,1],[3,2]]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>[0,1,2,3]</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Course order for [0,1],[1,2] is [2,1,0]</dd>
 </dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
-[This problem requires understanding of topological sort concepts. The key insight is to identify the optimal approach for this specific scenario.]
+Build adjacency list and in-degree array. Start BFS from courses with in-degree 0. For each course, reduce in-degree of neighbors. Add result to output. Check if all courses processed.
 
 ### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply topological sort methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+1. **Build graph**: Create adjacency list and indegree array
+2. **Initialize queue**: Add all courses with indegree 0 to queue
+3. **Process queue**: While queue not empty, dequeue course
+4. **Add to result**: Append course to result list
+5. **Update neighbors**: For each neighbor, decrement indegree
+6. **Add to queue**: If indegree becomes 0, add to queue
+7. **Check cycle**: If len(result) != numCourses, cycle exists, return []
+8. **Return result**: Return result as valid course order
 
 ### WHY THIS WORKS:
-- The solution leverages topological sort principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+- Topological sort with Kahn's algorithm or DFS
+- Track indegree: start with courses having no prerequisites
+- Remove course and decrease indegree of dependents, add new zero-indegree courses
+- If can't process all courses, cycle exists (impossible to complete)
+- O(V + E) time: vertices + edges, O(V + E) space for graph
 
 ### EXAMPLE WALKTHROUGH:
 ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
+Input: numCourses = 4, prerequisites = [[1,0],[2,0],[3,1],[3,2]]
+Step 1: Build graph
+  0 → [1,2], 1 → [3], 2 → [3]
+  indegree = [0,1,1,2]
+
+Step 2: Topological sort
+  Take 0: update indegree, order=[0]
+  Take 1,2: update indegree, order=[0,1,2]
+  Take 3: order=[0,1,2,3]
+
+Output: [0,1,2,3]
 ```
 
 ### TIME COMPLEXITY:
@@ -54,6 +71,10 @@ O(1)
 
 </details>
 """
+
+from collections import defaultdict, deque
+
+from typing import List, Optional, Dict, Tuple
 
 class Solution:
     def findOrder(self, numCourses: int, prerequisites: List[List[int]]) -> List[int]:
@@ -102,19 +123,33 @@ class Solution:
 
 def test_solution():
     """
-    Test cases for 210. Course Schedule Ii.
+    Test cases for the solution.
     """
     solution = Solution()
 
-    # Test case 1: Basic functionality
-    # result = solution.solve([test_input])
-    # expected = [expected_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 1: Example from problem
+    result = solution.findOrder(4, [[1,0],[2,0],[3,1],[3,2]])
+    # Valid orders: [0,1,2,3] or [0,2,1,3]
+    assert len(result) == 4 and result[0] == 0, f"Expected valid order starting with 0, got {result}"
 
-    # Test case 2: Edge case
-    # result = solution.solve([edge_case_input])
-    # expected = [edge_case_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 2: Cycle exists (impossible)
+    result = solution.findOrder(2, [[1,0],[0,1]])
+    expected = []
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 3: No prerequisites
+    result = solution.findOrder(3, [])
+    assert len(result) == 3, f"Expected 3 courses, got {len(result)}"
+
+    # Test case 4: Linear dependency
+    result = solution.findOrder(3, [[1,0],[2,1]])
+    expected = [0,1,2]
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 5: Single course
+    result = solution.findOrder(1, [])
+    expected = [0]
+    assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
 

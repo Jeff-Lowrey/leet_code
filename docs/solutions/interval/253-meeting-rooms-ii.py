@@ -3,42 +3,58 @@
 
 # 253. Meeting Rooms Ii
 
-Given a problem that demonstrates key concepts in Interval.
+Given an array of meeting time intervals intervals where intervals[i] = [starti, endi], return the minimum number of conference rooms required.
 
 **Example:**
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>intervals = [[0,30],[5,10],[15,20]]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>2 (minimum meeting rooms needed)</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Minimum 2 meeting rooms needed for [[0,30],[5,10],[15,20]]</dd>
 </dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
-[This problem requires understanding of interval concepts. The key insight is to identify the optimal approach for this specific scenario.]
+Track meeting start and end times separately. Use min heap for end times. When a new meeting starts, remove all meetings that have already ended. Heap size is rooms needed at that moment. Return maximum heap size.
 
 ### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply interval methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+1. **Separate start and end times**: Create start_times and end_times arrays
+2. **Sort both arrays**: Sort start_times and end_times independently
+3. **Initialize pointers**: Set start_ptr = 0, end_ptr = 0, rooms = 0, max_rooms = 0
+4. **Process all meetings**: While start_ptr < len(start_times)
+5. **Meeting starts**: If start_times[start_ptr] < end_times[end_ptr], increment rooms and start_ptr
+6. **Meeting ends**: Else decrement rooms and increment end_ptr
+7. **Track maximum**: max_rooms = max(max_rooms, rooms)
+8. **Return result**: Return max_rooms
 
 ### WHY THIS WORKS:
-- The solution leverages interval principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+- Sort start times and end times separately as two arrays
+- Two pointers: when meeting starts before earliest end, need new room
+- When meeting starts after earliest end, reuse that room
+- Track maximum rooms needed simultaneously
+- O(n log n) for sorting, O(n) space for separate arrays
 
 ### EXAMPLE WALKTHROUGH:
 ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
+Input: intervals = [[0,30],[5,10],[15,20]]
+Step 1: Separate start and end times
+  starts = [0,5,15]
+  ends = [10,20,30]
+
+Step 2: Use two pointers
+  time=0: start meeting, rooms=1
+  time=5: start meeting, rooms=2
+  time=10: end meeting, rooms=1
+  time=15: start meeting, rooms=2
+  time=20: end meeting, rooms=1
+  time=30: end meeting, rooms=0
+
+Output: 2 (minimum meeting rooms needed)
 ```
 
 ### TIME COMPLEXITY:
@@ -54,6 +70,10 @@ O(1)
 
 </details>
 """
+
+import heapq
+
+from typing import List, Optional, Dict, Tuple
 
 class Solution:
     """
@@ -103,19 +123,34 @@ class Solution:
 
 def test_solution():
     """
-    Test cases for 253. Meeting Rooms Ii.
+    Test cases for the solution.
     """
     solution = Solution()
 
-    # Test case 1: Basic functionality
-    # result = solution.solve([test_input])
-    # expected = [expected_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 1: Example from problem
+    result = solution.minMeetingRooms([[0,30],[5,10],[15,20]])
+    expected = 2
+    assert result == expected, f"Expected {expected}, got {result}"
 
-    # Test case 2: Edge case
-    # result = solution.solve([edge_case_input])
-    # expected = [edge_case_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 2: No overlaps
+    result = solution.minMeetingRooms([[7,10],[2,4]])
+    expected = 1
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 3: All overlap
+    result = solution.minMeetingRooms([[1,5],[2,6],[3,7],[4,8]])
+    expected = 4
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 4: Empty input
+    result = solution.minMeetingRooms([])
+    expected = 0
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 5: Single meeting
+    result = solution.minMeetingRooms([[10,15]])
+    expected = 1
+    assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
 

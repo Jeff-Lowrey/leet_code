@@ -3,42 +3,57 @@
 
 # 376. Wiggle Subsequence
 
-Given a problem that demonstrates key concepts in Greedy.
+A wiggle sequence is a sequence where the differences between successive numbers strictly alternate between positive and negative. The first difference (if one exists) may be either positive or negative. A sequence with one element and a sequence with two non-equal elements are trivially wiggle sequences.
+
+Given an integer array nums, return the length of the longest wiggle subsequence of nums.
 
 **Example:**
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[1,7,4,9,2,5]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>6 (longest wiggle sequence length)</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Longest wiggle subsequence in [1,7,4,9,2,5] has length 6</dd>
 </dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
-[This problem requires understanding of greedy concepts. The key insight is to identify the optimal approach for this specific scenario.]
+A wiggle occurs when direction changes (up->down or down->up). Greedily count direction changes by tracking previous difference sign. Skip equal consecutive numbers.
 
 ### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply greedy methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+1. **Handle edge cases**: If len(nums) < 2, return len(nums)
+2. **Initialize variables**: Set up = 1, down = 1
+3. **Iterate from second element**: For i in range(1, len(nums))
+4. **Check increasing**: If nums[i] > nums[i-1], up = down + 1
+5. **Check decreasing**: If nums[i] < nums[i-1], down = up + 1
+6. **Continue processing**: Update up and down for each element
+7. **Return result**: Return max(up, down)
 
 ### WHY THIS WORKS:
-- The solution leverages greedy principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+- Track up/down lengths: up[i] = longest wiggle ending with up, down[i] ending with down
+- If nums[i] > nums[i-1]: up = down + 1 (extend down sequence with up)
+- If nums[i] < nums[i-1]: down = up + 1 (extend up sequence with down)
+- Greedy works: always extend appropriate sequence
+- O(n) time, O(1) space with two variables
 
 ### EXAMPLE WALKTHROUGH:
 ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
+Input: nums = [1,7,4,9,2,5]
+Step 1: Track direction changes
+  up = 1, down = 1
+
+Step 2: Process each adjacent pair
+  1→7: increasing, up = down + 1 = 2
+  7→4: decreasing, down = up + 1 = 3
+  4→9: increasing, up = down + 1 = 4
+  9→2: decreasing, down = up + 1 = 5
+  2→5: increasing, up = down + 1 = 6
+
+Output: 6 (longest wiggle sequence length)
 ```
 
 ### TIME COMPLEXITY:
@@ -54,6 +69,8 @@ O(1)
 
 </details>
 """
+
+from typing import List, Optional, Dict, Tuple
 
 class Solution:
     def wiggleMaxLength(self, nums: List[int]) -> int:
@@ -106,19 +123,24 @@ class Solution:
 
 def test_solution():
     """
-    Test cases for 376. Wiggle Subsequence.
+    Test cases for the solution.
     """
     solution = Solution()
 
-    # Test case 1: Basic functionality
-    # result = solution.solve([test_input])
-    # expected = [expected_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 1: Basic case
+    result = solution.wiggleMaxLength([1, 2, 3])
+    expected = 2
+    assert result == expected, f"Expected {expected}, got {result}"
 
-    # Test case 2: Edge case
-    # result = solution.solve([edge_case_input])
-    # expected = [edge_case_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 2: Empty input
+    result = solution.wiggleMaxLength([])
+    expected = 0
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 3: Single element
+    result = solution.wiggleMaxLength([1])
+    expected = 1
+    assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
 

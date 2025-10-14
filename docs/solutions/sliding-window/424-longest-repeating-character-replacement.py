@@ -3,42 +3,59 @@
 
 # 424. Longest Repeating Character Replacement
 
-Given a problem that demonstrates key concepts in Sliding Window.
+You are given a string s and an integer k. You can choose any character of the string and change it to any other uppercase English character. You can perform this operation at most k times.
+
+Return the length of the longest substring containing the same letter you can get after performing the above operations.
 
 **Example:**
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>"AABABBA", k = 1</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>4 (longest valid substring)</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>After replacing at most k=2 characters, the longest repeating substring is 'AAAA' with length 4</dd>
 </dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
-[This problem requires understanding of sliding window concepts. The key insight is to identify the optimal approach for this specific scenario.]
+Use sliding window with character counts. Track max frequency in window. If window_size - max_freq <= k, window is valid (k replacements make all same). Expand or shrink to find max valid window.
 
 ### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply sliding window methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+1. **Initialize variables**: Set left = 0, max_count = 0, max_len = 0, char_count = {}
+2. **Expand with right**: For right in range(len(s))
+3. **Count character**: char_count[s[right]] = char_count.get(s[right], 0) + 1
+4. **Track max frequency**: max_count = max(max_count, char_count[s[right]])
+5. **Check validity**: If window_size - max_count > k, shrink from left
+6. **Shrink window**: Decrement char_count[s[left]], increment left
+7. **Update maximum**: max_len = max(max_len, right - left + 1)
+8. **Return result**: Return max_len
 
 ### WHY THIS WORKS:
-- The solution leverages sliding window principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+- Sliding window tracks most frequent char count in current window
+- Window valid if (window_size - max_freq) <= k (k replacements needed)
+- Expand right until invalid, contract left to make valid again
+- Max window size found is answer (can replace k chars to make all same)
+- O(n) time: each element visited twice at most, O(26) = O(1) space
 
 ### EXAMPLE WALKTHROUGH:
 ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
+Input: s = "AABABBA", k = 1
+Step 1: Expand window
+  "AA": max_freq=2, changes=0, valid
+  "AAB": max_freq=2, changes=1, valid
+  "AABA": max_freq=3, changes=1, valid
+  "AABAB": max_freq=3, changes=2, invalid
+
+Step 2: Contract and continue
+  "ABAB": max_freq=2, changes=2, invalid
+  "BAB": max_freq=2, changes=1, valid
+  Continue...
+
+Output: 4 (longest valid substring)
 ```
 
 ### TIME COMPLEXITY:
@@ -103,19 +120,19 @@ class Solution:
 
 def test_solution():
     """
-    Test cases for 424. Longest Repeating Character Replacement.
+    Test cases for the solution.
     """
     solution = Solution()
 
-    # Test case 1: Basic functionality
-    # result = solution.solve([test_input])
-    # expected = [expected_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 1: Basic case
+    result = solution.characterReplacement([1, 2, 3], 2)
+    expected = 3
+    assert result == expected, f"Expected {expected}, got {result}"
 
-    # Test case 2: Edge case
-    # result = solution.solve([edge_case_input])
-    # expected = [edge_case_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 2: Empty input
+    result = solution.characterReplacement([], 0)
+    expected = 0
+    assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
 

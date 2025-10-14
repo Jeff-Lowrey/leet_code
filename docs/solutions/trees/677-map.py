@@ -9,11 +9,11 @@ You are asked to implement a map that supports the following two operations:
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>Operations:</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>insert("apple", 3)</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>The sum of all values with prefix 'ap' is 7 (apple=3 + app=4)</dd>
 </dl>
 
 <details>
@@ -67,8 +67,11 @@ O(TOTAL_KEY_LENGTH)
 For storing all keys in the trie structure
 
 ### EDGE CASES:
-- **[Edge case 1]:** [how it's handled]
-- **[Edge case 2]:** [how it's handled]
+- **Empty prefix**: Return sum of all values in dictionary
+- **Prefix not found**: Return 0 (no keys match prefix)
+- **Updating existing key**: Adjust trie sums by difference (new - old)
+- **Key is prefix of another**: Both keys contribute to prefix sum
+- **Single character keys**: Handled correctly in trie structure
 
 </details>
 """

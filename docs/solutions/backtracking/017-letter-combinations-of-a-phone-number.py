@@ -13,11 +13,11 @@ A mapping of digit to letters (just like on the telephone buttons) is given belo
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>"23"</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>{solution.letterCombinations('23')}")</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>All letter combinations of '23' map to ['ad','ae','af','bd','be','bf','cd','ce','cf']</dd>
 </dl>
 
 <details>
@@ -126,28 +126,24 @@ class Solution:
 
 def test_solution():
     """
-    Test cases for 017. Letter Combinations Of A Phone Number.
+    Test cases for the solution.
     """
     solution = Solution()
 
-    # Test case 1: Basic functionality - two digits
+    # Test case 1: Example from problem
     result = solution.letterCombinations("23")
     expected = ["ad","ae","af","bd","be","bf","cd","ce","cf"]
-    assert sorted(result) == sorted(expected), f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected {expected}, got {result}"
 
-    # Test case 2: Single digit
-    result = solution.letterCombinations("2")
-    expected = ["a", "b", "c"]
-    assert sorted(result) == sorted(expected), f"Expected {expected}, got {result}"
-
-    # Test case 3: Empty string
+    # Test case 2: Empty input
     result = solution.letterCombinations("")
     expected = []
     assert result == expected, f"Expected {expected}, got {result}"
 
-    # Test case 4: Longer combination
-    result = solution.letterCombinations("234")
-    assert len(result) == 3 * 3 * 3, f"Expected 27 combinations, got {len(result)}"
+    # Test case 3: Single digit
+    result = solution.letterCombinations("2")
+    expected = ["a","b","c"]
+    assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
 

@@ -1,48 +1,68 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Easy
  *
- * [Problem description goes here]
+ * # 231. Power of Two
+ *
+ * Given an integer n, return true if it is a power of two. Otherwise, return false.
+ *
+ * An integer n is a power of two, if there exists an integer x such that n == 2^x.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>[1, 2, 3, 4, 16, 17, 1024]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>"Solution for 231. Power of Two:"</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>Number 16 is a power of 2 (16 = 2^4)</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * [This problem requires understanding of bit manipulation concepts. The key insight is to identify the optimal approach for this specific scenario.]
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Analyze the problem**: Understand the input constraints and expected output
+ * 2. **Choose the right technique**: Apply bit manipulation methodology
+ * 3. **Implement efficiently**: Focus on optimal time and space complexity
+ * 4. **Handle edge cases**: Consider boundary conditions and special cases
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - The solution leverages bit manipulation principles
+ * - Time complexity is optimized for the given constraints
+ * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: n = 16
+ * Step 1: Check if n is power of 2
+ *   Binary: 16 = 10000 (only one bit set)
+ *   16 - 1 = 15 = 01111 (all bits after position 4 are set)
+ *
+ * Step 2: Apply bit trick
+ *   16 & 15 = 10000 & 01111 = 00000 = 0
+ *   Since result is 0, n is power of 2
+ *
+ * Counter-example: n = 18
+ *   Binary: 18 = 10010 (two bits set)
+ *   18 & 17 = 10010 & 10001 = 10000 ≠ 0
+ *
+ * Output: True (16 is power of 2)
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(1)
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - Empty input handling
+ * - Single element cases
+ * - Large input considerations
  *
  * </details>
  */

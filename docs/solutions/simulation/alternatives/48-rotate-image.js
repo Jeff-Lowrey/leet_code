@@ -1,48 +1,71 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * # 48. Rotate Image
+ *
+ * You are given an n x n 2D matrix representing an image, rotate the image by 90 degrees (clockwise).
+ *
+ * You have to rotate the image in-place, which means you have to modify the input 2D matrix directly. DO NOT allocate another 2D matrix and do the rotation.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>[[1, 2, 3]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>1</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>Matrix rotated 90° clockwise</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * To rotate a matrix 90° clockwise in-place, we can use two key insights:
+ * 1. Transpose the matrix (swap rows and columns)
+ * 2. Reverse each row
+ *
+ * Alternatively, we can directly manipulate elements in concentric rings.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * **Method 1: Transpose + Reverse**
+ * 1. **Transpose**: Convert matrix[i][j] to matrix[j][i]
+ * 2. **Reverse rows**: Reverse each row to complete 90° rotation
+ *
+ * **Method 2: Ring-by-Ring Rotation**
+ * 1. **Process rings**: Handle outer ring, then inner rings
+ * 2. **Four-way swap**: Rotate 4 elements at once in each ring
+ * 3. **Move inward**: Process successively inner rings
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - Transpose swaps coordinates: (i,j) → (j,i)
+ * - Row reversal completes the 90° clockwise rotation
+ * - Ring rotation directly places elements in final positions
+ * - Both maintain O(1) space complexity
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Original:     Transpose:    Reverse Rows:
+ * 1 2 3         1 4 7         7 4 1
+ * 4 5 6    →    2 5 8    →    8 5 2
+ * 7 8 9         3 6 9         9 6 3
+ *
+ * Result: 90° clockwise rotation
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n²)
+ * Must touch every element in the n×n matrix
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(1)
+ * In-place rotation without extra matrix
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - 1×1 matrix: no rotation needed
+ * - 2×2 matrix: swap diagonally opposite elements
+ * - Odd vs even dimensions: affects number of rings
  *
  * </details>
  */

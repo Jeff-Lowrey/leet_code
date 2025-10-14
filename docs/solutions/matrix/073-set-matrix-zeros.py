@@ -10,11 +10,11 @@ Given an m x n matrix, if an element is 0, set its entire row and column to 0 in
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[[1, 1, 1]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>1</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Matrix with zeros: [[1,1,1],[1,0,1],[1,1,1]] becomes [[1,0,1],[0,0,0],[1,0,1]]</dd>
 </dl>
 
 <details>

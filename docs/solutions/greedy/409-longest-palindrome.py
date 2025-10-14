@@ -11,11 +11,11 @@ Letters are case sensitive, for example, "Aa" is not considered a palindrome her
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>Input: "abccccdd"</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>Character counts:</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Longest palindrome that can be built is 7 from letters 'abccccdd'</dd>
 </dl>
 
 <details>
@@ -31,7 +31,7 @@ A palindrome reads the same forwards and backwards. To maximize the palindrome l
 4. **Calculate result**: Sum of all pairs × 2, plus 1 if any odd count exists
 
 ### WHY THIS WORKS:
-- [Explanation of correctness]
+Using two pointers from both ends, we compare characters while moving inward. If all corresponding characters match, the string is a palindrome. Skipping non-alphanumeric characters and handling case-insensitivity ensures we only compare relevant characters. The pointers meeting in the middle confirms the entire string is symmetric.
 
 ### EXAMPLE WALKTHROUGH:
 ```

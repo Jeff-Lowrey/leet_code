@@ -9,11 +9,11 @@ This problem demonstrates key concepts in Hash Tables and String manipulation.
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>"leetcode"</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>0</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>The first non-repeating character 'l' is at index 2 in 'leetcode'</dd>
 </dl>
 
 <details>

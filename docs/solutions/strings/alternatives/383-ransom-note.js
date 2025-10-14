@@ -1,48 +1,72 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Easy
  *
- * [Problem description goes here]
+ * # 383. Ransom Note
+ *
+ * This problem demonstrates key concepts in Strings and Hash Tables.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>ransomNote = "aa", magazine = "aab"</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>True</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>The ransom note 'aa' cannot be constructed from magazine 'ab' (not enough 'a's)</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * To construct a ransom note from magazine letters, we need to ensure that the magazine contains
+ * at least as many of each character as required by the ransom note. This is essentially checking
+ * if one string's character frequencies are a subset of another's character frequencies.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Count magazine characters**: Build a frequency map of all characters in the magazine
+ * 2. **Verify ransom note**: For each character in ransom note, check if available in magazine
+ * 3. **Decrement counts**: As we use characters from magazine, decrease their counts
+ * 4. **Return result**: If we can construct entire ransom note, return True; otherwise False
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - Hash map provides O(1) lookup for character availability
+ * - By counting magazine characters first, we know what's available
+ * - Decrementing counts as we consume characters ensures we don't reuse
+ * - If any character is unavailable or exhausted, we return False immediately
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: ransomNote = "aa", magazine = "aab"
+ * Step 1: Count magazine chars: {'a': 2, 'b': 1}
+ * Step 2: Check 'a' (first): count is 2, decrement to 1
+ * Step 3: Check 'a' (second): count is 1, decrement to 0
+ * Step 4: All characters available
+ * Output: True
+ *
+ * Input: ransomNote = "aa", magazine = "ab"
+ * Step 1: Count magazine chars: {'a': 1, 'b': 1}
+ * Step 2: Check 'a' (first): count is 1, decrement to 0
+ * Step 3: Check 'a' (second): count is 0, not available
+ * Output: False
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(m + n)
+ * Where m is the length of magazine and n is the length of ransomNote. We iterate through both
+ * strings once.
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(1)
+ * Although we use a hash map, since we're limited to lowercase English letters (26 characters),
+ * the space is bounded by a constant.
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - Empty ransom note: Always True (can construct nothing from anything)
+ * - Empty magazine: False if ransom note is non-empty, True if both empty
+ * - Magazine shorter than ransom note: Could still be False
+ * - Ransom note with characters not in magazine: False
  *
  * </details>
  */

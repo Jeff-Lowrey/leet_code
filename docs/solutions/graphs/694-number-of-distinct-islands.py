@@ -13,11 +13,11 @@ Return the number of distinct islands.
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[[1,1,0,0,0]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>1</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Number of distinct islands is 3</dd>
 </dl>
 
 <details>
@@ -65,8 +65,11 @@ O(M × N)
 For storing island shapes and recursion stack
 
 ### EDGE CASES:
-- **[Edge case 1]:** [how it's handled]
-- **[Edge case 2]:** [how it's handled]
+- **All water**: Return 0 (no islands)
+- **All same shaped islands**: Return 1 (one distinct shape)
+- **Every island unique**: Return number of islands
+- **Rotations considered same**: Normalize shape representation
+- **Single island**: Return 1
 
 </details>
 """

@@ -12,11 +12,11 @@ Output: "fl"
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>strs = ["flower","flow","flight"]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>fl"</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Longest common prefix of ['flower','flow','flight'] is 'fl'</dd>
 </dl>
 
 <details>

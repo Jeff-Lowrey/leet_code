@@ -1,48 +1,72 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * # 444. Sequence Reconstruction
+ *
+ * Check whether the original sequence org can be uniquely reconstructed from the sequences in seqs. The org sequence is a permutation of the integers from 1 to n, with 1 ≤ n ≤ 10^4. Reconstruction means building a shortest common supersequence of the sequences in seqs (i.e., a shortest sequence so that all sequences in seqs are subsequences of it). Determine whether there is only one sequence that can be reconstructed from seqs and it is the org sequence.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>[1, 2, 3]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>1</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>Sequence reconstruction validates if org is only supersequence</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * This is a topological sort problem where we need to check if there's a unique topological ordering that matches the given original sequence. The key insight is that for a unique reconstruction, at each step of topological sort, there should be exactly one node with in-degree 0.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Build graph**: Create adjacency list and in-degree count from seqs
+ * 2. **Validate sequences**: Ensure all pairs in seqs appear consecutively in org
+ * 3. **Check uniqueness**: Use topological sort with the constraint that at each step, only one node has in-degree 0
+ * 4. **Verify order**: The topological order must match org exactly
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - Topological sort gives us the dependency order
+ * - Unique reconstruction means at each step, only one choice exists
+ * - If multiple nodes have in-degree 0 simultaneously, multiple valid orders exist
+ * - We need to verify that the unique order matches the original sequence
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * org = [1,2,3], seqs = [[1,2],[1,3],[2,3]]
+ *
+ * Build graph from seqs:
+ * 1 -> [2, 3]
+ * 2 -> [3]
+ * 3 -> []
+ *
+ * In-degrees: {1: 0, 2: 1, 3: 2}
+ *
+ * Topological sort:
+ * 1. Only node 1 has in-degree 0 → process 1, reduce in-degrees of 2,3
+ * 2. Only node 2 has in-degree 0 → process 2, reduce in-degree of 3
+ * 3. Only node 3 has in-degree 0 → process 3
+ *
+ * Result: [1,2,3] matches org → True
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(V + E)
+ * Where V is number of nodes (n) and E is total number of edges from seqs
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(V + E)
+ * For the graph representation and auxiliary data structures
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - **Unique topological order**: Only one valid sequence exists
+ * - **Multiple valid orders**: Return false (ambiguous)
+ * - **Cycle in graph**: No topological order exists, return false
+ * - **Sequence doesn't match order**: Return false
+ * - **Single course**: Trivially valid, return true
  *
  * </details>
  */

@@ -1,48 +1,67 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * Given a string s, return the longest palindromic substring in s.
+ *
+ * Example:
+ * Input: s = "babad"
+ * Output: "bab"
+ * Explanation: "aba" is also a valid `answer`.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>s = "babad"</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>bab"</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>Longest palindromic substring is 'bab' or 'aba'</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * A palindrome reads the same forwards and backwards. We can find palindromes
+ * by expanding around `centers - either` single characters or between characters.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Handle edge case**: Return empty string if input is empty
+ * 2. **Initialize tracking variables**: Set up variables to track the start position and maximum length of longest palindrome found
+ * 3. **Iterate through each character**: For each position i in the string, treat it as a potential palindrome center
+ * 4. **Expand around odd-length centers**: Call expand helper with (i, i) to check palindromes with single character center (e.g., "aba")
+ * 5. **Expand around even-length centers**: Call expand helper with (i, i+1) to check palindromes with two character center (e.g., "abba")
+ * 6. **Update maximum**: For each center, compare the palindrome length found with current maximum, update start and max_len if longer
+ * 7. **Return substring**: Extract and return the substring from start position with max_len characters
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - Every palindrome has a center
+ * - We can check all possible centers systematically
+ * - Expanding is more efficient than checking all substrings
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * s = "babad"
+ * Centers: b, ba, a, ab, b, ba, a, ad, d
+ *
+ * Center at 'a' (index 1): expand to "bab"
+ * Center at 'a' (index 3): expand to "aba"
+ * Both have length 3, return either
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n²)
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(1)
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - **Single character**: Return that character (length 1 palindrome)
+ * - **No palindrome > 1**: Return any single character
+ * - **Entire string palindrome**: Return entire string
+ * - **Even length palindrome**: Expand from between characters
+ * - **Odd length palindrome**: Expand from single character
  *
  * </details>
  */

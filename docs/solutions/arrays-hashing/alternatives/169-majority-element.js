@@ -1,48 +1,69 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Easy
  *
- * [Problem description goes here]
+ * # 169. Majority Element
+ *
+ * Given an array nums of size n, return the majority element.
+ *
+ * The majority element is the element that appears more than ⌊n / 2⌋ times.
+ * You may assume that the majority element always exists in the array.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>[2, 2, 1, 1, 1, 2, 2]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>7</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>The majority element is 3, appearing 3 times in an array of size 5 (more than ⌊5/2⌋)</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * Since the majority element appears more than n/2 times, it will always "survive" any cancellation process. The Boyer-Moore voting algorithm leverages this by maintaining a candidate and count, canceling out different elements.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Initialize**: Set candidate to None and count to 0
+ * 2. **Vote**: For each element, if count is 0, make it the new candidate
+ * 3. **Count**: If element matches candidate, increment count; otherwise decrement
+ * 4. **Result**: The surviving candidate is the majority element
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - Majority element appears > n/2 times
+ * - Non-majority elements can at most cancel out n/2 occurrences
+ * - Majority element will always have positive net count
+ * - Each cancellation removes one majority and one non-majority element
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: [2,2,1,1,1,2,2]
+ * Step 1: num=2, count=0 → candidate=2, count=1
+ * Step 2: num=2, count=1 → count=2 (match)
+ * Step 3: num=1, count=2 → count=1 (different)
+ * Step 4: num=1, count=1 → count=0 (different)
+ * Step 5: num=1, count=0 → candidate=1, count=1
+ * Step 6: num=2, count=1 → count=0 (different)
+ * Step 7: num=2, count=0 → candidate=2, count=1
+ * Result: 2 (which is correct, appears 4/7 times)
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
+ * Single pass through the array
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(1)
+ * Only using constant extra space
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - **Single element**: Return that element (it's the majority)
+ * - **All same elements**: Return that element
+ * - **Exactly n/2 + 1 occurrences**: Still majority element
+ * - **Multiple candidates**: Boyer-Moore finds the true majority
+ * - **Guaranteed majority**: Problem guarantees one exists
  *
  * </details>
  */

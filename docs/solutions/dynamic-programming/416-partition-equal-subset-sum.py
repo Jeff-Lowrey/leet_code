@@ -3,42 +3,60 @@
 
 # 416. Partition Equal Subset Sum
 
-Given a problem that demonstrates key concepts in Dynamic Programming.
+Given an integer array nums, return true if you can partition the array into two subsets such that the sum of the elements in both subsets is equal or false otherwise.
 
 **Example:**
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[1,5,11,5]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>True (can partition into equal subsets)</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Array [1,5,11,5] can be partitioned into [1,5,5] and [11] with equal sum 11</dd>
 </dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
-[This problem requires understanding of dynamic programming concepts. The key insight is to identify the optimal approach for this specific scenario.]
+This is 0/1 knapsack with target = sum/2. Check if sum is odd (impossible to partition). Use DP to find if any subset sums to target. dp[i][j] = can we sum to j using first i elements.
 
 ### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply dynamic programming methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+1. **Calculate total sum**: Compute total_sum = sum(nums)
+2. **Check feasibility**: If total_sum is odd, return False (cannot split into equal halves)
+3. **Define target**: Set target = total_sum // 2 (need subset summing to this)
+4. **Initialize DP set**: Create dp = {0} to track all possible subset sums
+5. **Iterate through numbers**: For each num in nums
+6. **Update possible sums**: For each sum in current dp, add (sum + num) to new_dp
+7. **Check for target**: If target in dp, return True; otherwise continue
+8. **Return result**: After processing all numbers, return target in dp
 
 ### WHY THIS WORKS:
-- The solution leverages dynamic programming principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+- Partition problem: find subset with sum = total_sum // 2
+- 0/1 knapsack DP: dp[i][j] = can we make sum j using first i elements
+- Transition: dp[i][j] = dp[i-1][j] (exclude) or dp[i-1][j-nums[i]] (include)
+- Space optimization: 1D DP array, iterate backwards to avoid overwriting
+- O(n * sum) time, O(sum) space
 
 ### EXAMPLE WALKTHROUGH:
 ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
+Input: nums = [1,5,11,5]
+Step 1: Calculate target
+  sum = 22, target = 11
+
+Step 2: DP subset sum
+  dp[0] = True
+  Process 1: dp[1] = True
+  Process 5: dp[5] = True, dp[6] = True
+  Process 11: dp[11] = True, dp[16] = True, dp[12] = True
+  Process 5: dp[11] already True
+
+Step 3: Verify partition
+  Subset 1: [1, 5, 5] = 11
+  Subset 2: [11] = 11
+
+Output: True (can partition into equal subsets)
 ```
 
 ### TIME COMPLEXITY:
@@ -54,6 +72,8 @@ O(1)
 
 </details>
 """
+
+from typing import List, Optional, Dict, Tuple
 
 class Solution:
     def canPartition(self, nums: List[int]) -> bool:
@@ -139,19 +159,24 @@ class Solution:
 
 def test_solution():
     """
-    Test cases for 416. Partition Equal Subset Sum.
+    Test cases for the solution.
     """
     solution = Solution()
 
-    # Test case 1: Basic functionality
-    # result = solution.solve([test_input])
-    # expected = [expected_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 1: Example from problem - [1,5,11,5] can be partitioned into [1,5,5] and [11]
+    result = solution.canPartition([1,5,11,5])
+    expected = True
+    assert result == expected, f"Expected {expected}, got {result}"
 
-    # Test case 2: Edge case
-    # result = solution.solve([edge_case_input])
-    # expected = [edge_case_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 2: Cannot be partitioned
+    result = solution.canPartition([1,2,3,5])
+    expected = False
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 3: Single element - cannot partition
+    result = solution.canPartition([1])
+    expected = False
+    assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
 

@@ -3,42 +3,57 @@
 
 # 316. Remove
 
-Given a problem that demonstrates key concepts in Monotonic Stack.
+Given a string s, remove duplicate letters so that every letter appears once and only once. You must make sure your result is the smallest in lexicographical order among all possible results.
 
 **Example:**
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>"bcabc"</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>"abc"</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>After removing duplicate letters while maintaining lexicographical order, result is 'abc'</dd>
 </dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
-[This problem requires understanding of monotonic stack concepts. The key insight is to identify the optimal approach for this specific scenario.]
+Use monotonic increasing stack. For each character, while stack top > current character, pop if we can remove it (count > 0 and appears later). This ensures lexicographically smallest result.
 
 ### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply monotonic stack methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+1. **Count occurrences**: Create counter for each character's frequency
+2. **Initialize stack and visited**: stack = [], visited = set()
+3. **Iterate through string**: For each char in s
+4. **Decrement count**: counter[char] -= 1
+5. **Skip if visited**: If char in visited, continue
+6. **Maintain order**: While stack and stack[-1] > char and counter[stack[-1]] > 0, pop and remove from visited
+7. **Add current**: Append char to stack, add to visited
+8. **Return result**: Return ''.join(stack)
 
 ### WHY THIS WORKS:
-- The solution leverages monotonic stack principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+- Monotonic stack builds lexicographically smallest result
+- Track remaining count of each char: safe to remove if appears later
+- Pop larger chars from stack if count > 0 (can add back later)
+- Visited set prevents duplicate characters in result
+- Greedy approach works: always try to place smaller char earlier
 
 ### EXAMPLE WALKTHROUGH:
 ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
+Input: s = "bcabc"
+Step 1: Count frequencies and track remaining
+  freq = {'b':2, 'c':2, 'a':1}
+
+Step 2: Build result with monotonic stack
+  Add 'b': stack=['b']
+  Add 'c': stack=['b','c']
+  Add 'a': pop 'c' (a<c, c appears later), pop 'b' (a<b, b appears later)
+          stack=['a']
+  Add 'b': stack=['a','b']
+  Add 'c': stack=['a','b','c']
+
+Output: "abc"
 ```
 
 ### TIME COMPLEXITY:

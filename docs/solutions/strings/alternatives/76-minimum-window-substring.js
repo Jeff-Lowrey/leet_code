@@ -1,48 +1,85 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Hard
  *
- * [Problem description goes here]
+ * # 76. Minimum Window Substring
+ *
+ * This problem demonstrates key concepts in Sliding Window and Hash Tables.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>"ADOBECODEBANC", t = "ABC"</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>"BANC"</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>Minimum window containing all chars of t='ABC' is 'BANC'</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * We need to find the smallest substring of `s` that contains all characters from `t` (including
+ * duplicates). This is a classic sliding window problem. The key insight is to use two pointers
+ * to create a window, expand it to include all required characters, then contract it to find the
+ * minimum window.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Count target characters**: Build frequency map of characters in `t`
+ * 2. **Expand window**: Move right pointer to include characters until window is valid
+ * 3. **Contract window**: Move left pointer to shrink window while keeping it valid
+ * 4. **Track minimum**: Record the smallest valid window found
+ * 5. **Return result**: Extract and return the minimum window substring
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - Sliding window technique efficiently explores all possible windows
+ * - Hash maps provide O(1) character frequency tracking
+ * - "formed" counter tracks how many unique characters have required frequency
+ * - By expanding then contracting, we find all valid windows
+ * - Only the minimum valid window is kept
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: s = "ADOBECODEBANC", t = "ABC"
+ *
+ * Step 1: Count target: {'A':1, 'B':1, 'C':1}, required = 3
+ *
+ * Step 2: Expand window
+ * - Window "ADOBEC": has A, B, C (valid) ✓
+ * - Try to contract from left
+ *
+ * Step 3: Contract window
+ * - Remove "A": "DOBEC" (invalid, missing A)
+ * - Can't contract more
+ *
+ * Step 4: Continue expanding
+ * - Window "ADOBECODEBANC": still valid
+ * - Contract: "ODEBANC" (invalid)
+ * - Continue...
+ *
+ * Step 5: Find minimum
+ * - Smallest valid window: "BANC"
+ *
+ * Output: "BANC"
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(|s| + |t|)
+ * We iterate through `s` at most twice (once with right pointer, once with left pointer).
+ * Building the target frequency map takes O(|t|). Total is O(|s| + |t|).
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(|s| + |t|)
+ * In the worst case, all characters in `s` and `t` are unique, so our hash maps store O(|s| + |t|)
+ * entries. In practice, for limited character sets (like ASCII), this is O(1).
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - Empty `s` or `t`: Return empty string
+ * - `t` longer than `s`: Return empty string
+ * - No valid window exists: Return empty string
+ * - Entire `s` is the minimum window: Return `s`
+ * - Multiple minimum windows: Return any one (first found)
  *
  * </details>
  */

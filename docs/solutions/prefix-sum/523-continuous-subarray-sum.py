@@ -16,11 +16,11 @@ Explanation: [2, 4] is a continuous subarray of size 2 whose sum is 6.
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>nums = [23,2,4,6,7], k = 6</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>true</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>The subarray [23,2,4,6,7] has sum 42, which is a multiple of k=6</dd>
 </dl>
 
 <details>

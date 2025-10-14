@@ -11,11 +11,11 @@ Output: 1024.00000
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>x = 2`.00000, `n` = 10</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>1024.00000</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Computing 2^10 = 1024 efficiently</dd>
 </dl>
 
 <details>
@@ -26,10 +26,16 @@ Naive approach of multiplying x by itself `n` times is O(n). We can do better
 using **binary exponentiation** - repeatedly squaring and halving the exponent.
 
 ### APPROACH:
-[Detailed explanation of the solution approach]
+1. **Handle base cases**: Return 1 if n is 0, handle negative exponents by inverting x and making n positive
+2. **Initialize variables**: Set result to 1 and current_product to x for iterative computation
+3. **Process exponent bits**: While n > 0, check if current bit is 1 using n % 2
+4. **Multiply when bit is 1**: If n is odd (bit is 1), multiply result by current_product
+5. **Square and halve**: Square the current_product (for next bit position) and halve n (shift to next bit)
+6. **Continue until n is 0**: Repeat steps 3-5 until all bits of n are processed
+7. **Return result**: Final result contains x^n computed in O(log n) time using binary exponentiation
 
 ### WHY THIS WORKS:
-- [Explanation of correctness]
+By repeatedly dividing the search space in half, we eliminate half of the remaining elements in each iteration. Since the array is sorted, we can determine which half contains the target by comparing with the middle element. This guarantees we find the target (if it exists) in O(log n) time because each step reduces the problem size by a factor of 2.
 
 ### EXAMPLE WALKTHROUGH:
 ```
@@ -52,8 +58,11 @@ O(log n)
 O(log n) recursive, O(1) iterative
 
 ### EDGE CASES:
-- **[Edge case 1]:** [how it's handled]
-- **[Edge case 2]:** [how it's handled]
+- **n = 0**: Return 1 (any number to power 0 is 1)
+- **x = 0**: Return 0 for n > 0, undefined for n = 0
+- **Negative n**: Return 1 / pow(x, -n)
+- **x = 1**: Return 1 for any n
+- **Large n**: Binary exponentiation prevents overflow
 
 </details>
 """

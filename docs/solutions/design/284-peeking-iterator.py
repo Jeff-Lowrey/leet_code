@@ -17,11 +17,21 @@ Note: Each language may have a different implementation of the constructor and I
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>
+["PeekingIterator", "next", "peek", "next", "next", "hasNext"]<br>
+[[[1, 2, 3]], [], [], [], [], []]
+</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>[null, 1, 2, 2, 3, false]</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>
+PeekingIterator peekingIterator = new PeekingIterator([1, 2, 3]); // [1,2,3]<br>
+peekingIterator.next();    // return 1, the pointer moves to the next element [1,2,3].<br>
+peekingIterator.peek();    // return 2, the pointer does not move [1,2,3].<br>
+peekingIterator.next();    // return 2, the pointer moves to the next element [1,2,3]<br>
+peekingIterator.next();    // return 3, the pointer moves to the next element [1,2,3]<br>
+peekingIterator.hasNext(); // return False
+</dd>
 </dl>
 
 <details>
@@ -66,8 +76,11 @@ O(1)
 Only storing one cached element
 
 ### EDGE CASES:
-- **[Edge case 1]:** [how it's handled]
-- **[Edge case 2]:** [how it's handled]
+- Empty iterator (hasNext() returns false immediately)
+- Single element iterator (works correctly with cache)
+- Multiple consecutive peek() calls (returns same element)
+- peek() then next() (peek doesn't consume, next does)
+- Calling peek() when hasNext() is false (undefined behavior, should check first)
 
 </details>
 """

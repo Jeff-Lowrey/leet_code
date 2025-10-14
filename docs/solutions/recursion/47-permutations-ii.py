@@ -9,11 +9,11 @@ This problem demonstrates key concepts in Recursion.
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[[1, 1, 2]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>"Expected {expected}, got {result}"</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>All unique permutations of [1,1,2] are [[1,1,2],[1,2,1],[2,1,1]]</dd>
 </dl>
 
 <details>

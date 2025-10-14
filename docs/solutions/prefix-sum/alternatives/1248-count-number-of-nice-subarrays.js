@@ -1,48 +1,65 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * # 1248. Count Number Of Nice Subarrays
+ *
+ * Given an array of integers nums and an integer k. A continuous subarray is called nice if there are k odd numbers on it.
+ *
+ * Return the number of nice sub-arrays.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>[([1, 1, 2, 1, 1]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>"\nInput: nums={nums}, k={k}"</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>There are 2 nice subarrays (containing exactly k=3 odd numbers)</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * This problem is a variation of "subarray sum equals k" but instead of sum, we count odd numbers. We can use prefix sum technique by treating each odd number as 1 and even numbers as 0. Then we need to find subarrays where the sum of 1s equals k.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Transform problem**: Convert to counting subarrays with sum = k
+ * 2. **Prefix sum**: Track running count of odd numbers
+ * 3. **HashMap frequency**: Store frequency of each prefix count
+ * 4. **Count subarrays**: For each position, check if (current_count - k) exists
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - Transform odd numbers to 1, even numbers to 0
+ * - Problem becomes: find subarrays with sum = k
+ * - Use the same technique as "Subarray Sum Equals K"
+ * - prefix_count[j] - prefix_count[i] = k means subarray from i+1 to j has k odd numbers
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: nums = [1,1,2,1,1], k = 3
+ * Transform: [1,1,0,1,1] (odd=1, even=0)
+ * Prefix counts: [0,1,2,2,3,4]
+ * For each position, check if (current_count - k) exists:
+ * - Position 3: count=3, need=0, found 1 time
+ * - Position 4: count=4, need=1, found 1 time
+ * Total: 2 nice subarrays
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
+ * Single pass through array with HashMap operations
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
+ * For the frequency HashMap
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - No odd numbers in array
+ * - k = 0 (looking for subarrays with no odd numbers)
+ * - k > number of odd numbers in array
+ * - All numbers are odd or all are even
  *
  * </details>
  */

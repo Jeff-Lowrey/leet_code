@@ -14,11 +14,11 @@ Output: true
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>s = "anagram", t = "nagaram"</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>true</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>The strings 'anagram' and 'nagaram' are anagrams (same character counts)</dd>
 </dl>
 
 <details>

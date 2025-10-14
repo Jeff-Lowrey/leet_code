@@ -1,48 +1,72 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * Given the head of a linked list, return an array of integers answer, where answer[i] is
+ * the value of the next greater node of the ith node (1-indexed). If there is no next greater
+ * node, answer[i] is 0.
+ *
+ * Example:
+ * Input: head = [2,1,5]
+ * Output: [5,5,0]
+ * Explanation: For node 2, next greater is 5. For node 1, next greater is 5. For node 5, there is none.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>head = [2,1,5]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>[5,5,0]</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>For each node in the linked list, find the value of the next node that is greater: [7,7,7,7,0]</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * Use a monotonic decreasing stack to track indices waiting for their next greater element.
+ * As we traverse, for each node, pop all stack indices with smaller values and update their answers.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Convert to array**: Simplifies index access
+ * 2. **Monotonic stack**: Store (index, value) pairs
+ * 3. **Process**: For each element, pop stack while current > stack top
+ * 4. **Update**: Set answer[popped_index] = current_value
+ * 5. **Push**: Add current element to stack
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * The stack maintains elements in decreasing order. When we find a larger element,
+ * it's the "next greater" for all smaller elements in the stack.
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * list = [2,1,5]
+ * Stack: [(idx, val)]
+ *
+ * i=0, val=2: stack=[(0,2)], answer=[0,0,0]
+ * i=1, val=1: stack=[(0,2),(1,1)], answer=[0,0,0]
+ * i=2, val=5:
+ *   - Pop (1,1): answer[1]=5
+ *   - Pop (0,2): answer[0]=5
+ *   - stack=[(2,5)]
+ *   - answer=[5,5,0]
+ *
+ * Result: [5,5,0]
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - **Empty list**: Return empty array
+ * - **Single node**: Return [0] (no next greater exists)
+ * - **Strictly increasing sequence**: Each node's answer is next value, last is 0
+ * - **Strictly decreasing sequence**: All answers are 0 (no greater values ahead)
+ * - **All same values**: All answers are 0 (no strictly greater values)
  *
  * </details>
  */

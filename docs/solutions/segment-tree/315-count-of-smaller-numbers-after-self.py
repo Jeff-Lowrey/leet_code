@@ -9,11 +9,11 @@ Given an integer array nums, return an integer array counts where counts[i] is t
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[2, 1, 1, 0]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>1</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Counts of smaller numbers after each element: [2,1,1,0] for [5,2,6,1]</dd>
 </dl>
 
 <details>
@@ -23,10 +23,16 @@ Given an integer array nums, return an integer array counts where counts[i] is t
 This is a classic "count inversions" problem that can be solved efficiently using various advanced data structures. The naive O(n²) approach checks every pair, but we can do better using merge sort, segment trees, or Binary Indexed Trees (Fenwick Trees).
 
 ### APPROACH:
-[Detailed explanation of the solution approach]
+1. **Create indexed pairs**: Build array of (value, original_index) pairs to track positions during sorting
+2. **Initialize result array**: Create array of zeros to store counts for each original position
+3. **Define merge sort function**: Implement merge sort that recursively divides array into halves
+4. **Merge with counting**: During merge, when comparing elements from left and right halves, count inversions
+5. **Count smaller elements**: When left[i] <= right[j], all remaining elements in right array are larger, so add their count to result
+6. **Preserve order**: Merge elements while maintaining sorted order by value, preserving index information
+7. **Return result**: After complete merge sort, result array contains count of smaller elements after each position
 
 ### WHY THIS WORKS:
-- [Explanation of correctness]
+A set by definition contains only unique elements - when we convert an array to a set, any duplicates are automatically removed. By comparing the lengths of the original array and the set, we can detect if duplicates existed. The early termination approach works because as soon as we find an element already in our seen set, we've proven a duplicate exists without needing to check the remaining elements.
 
 ### EXAMPLE WALKTHROUGH:
 ```

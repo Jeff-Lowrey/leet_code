@@ -15,11 +15,11 @@ Return the minimum number of times you need to do this to make all the computers
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>n = 4, connections = [[0,1],[0,2],[1,2],[1,3]]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>Total cables: 4, Need: 3, Spare: 1</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Operations to make network connected is 1</dd>
 </dl>
 
 <details>

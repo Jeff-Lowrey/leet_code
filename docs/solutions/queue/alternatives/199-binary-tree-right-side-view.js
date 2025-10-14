@@ -1,48 +1,71 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * # 199. Binary Tree Right Side View
+ *
+ * Given the root of a binary tree, imagine yourself standing on the right side of it,
+ * return the values of the nodes you can see ordered from top to bottom.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>[1, 3, 4]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>1</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>Right side view of tree is [1,3,4]</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * The right side view is simply the rightmost node at each level of the tree.
+ * Use level-order traversal (BFS) and capture the last node at each level.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Handle edge case**: Return empty list if tree is empty
+ * 2. **Initialize BFS**: Use a deque with root node
+ * 3. **For each level**:
+ *    - Process all nodes at current level
+ *    - Keep track of the last node in the level
+ *    - Add the last node's value to result
+ *    - Add children to queue for next level
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - BFS processes nodes level by level, left to right
+ * - The last node processed at each level is the rightmost node
+ * - This is exactly what's visible from the right side
+ * - We collect these rightmost nodes from each level
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Tree:      1            <- Right view: 1
+ *          /   \\
+ *         2     3          <- Right view: 3
+ *          \\     \\
+ *           5     4        <- Right view: 4
+ *
+ * Result: [1, 3, 4]
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
+ * - Visit each node exactly once
+ * - n = number of nodes in tree
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(w)
+ * - Queue holds at most one level of nodes at a time
+ * - w = maximum width of tree (worst case: n/2 for complete tree)
+ * - Result storage: O(h) where h = height
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - Empty tree: Return []
+ * - Single node: Return [root.val]
+ * - Left-skewed tree: All nodes visible from right
+ * - Right-skewed tree: Only rightmost branch visible
  *
  * </details>
  */

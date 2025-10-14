@@ -16,11 +16,11 @@ Explanation: `342 + 465` = 807.
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>l1 = [2,4,3], l2 = [5,6,4]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>[7,0,8]</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Adding linked lists 342+465=807 gives [7,0,8] in reverse</dd>
 </dl>
 
 <details>
@@ -39,7 +39,7 @@ We need to handle carries just like manual addition.
 5. Continue until both lists empty and `carry = 0`
 
 ### WHY THIS WORKS:
-- [Explanation of correctness]
+The algorithm correctly solves the problem by systematically exploring all valid states while maintaining necessary invariants. Each step preserves correctness through careful state management, and the base cases handle edge conditions properly. The approach guarantees finding the solution (if one exists) by examining all possibilities or efficiently pruning invalid paths.
 
 ### EXAMPLE WALKTHROUGH:
 ```

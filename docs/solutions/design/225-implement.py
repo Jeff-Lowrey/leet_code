@@ -9,11 +9,21 @@ Implement a last-in-first-out (LIFO) stack using only two queues.
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>
+["MyStack", "push", "push", "top", "pop", "empty"]<br>
+[[], [1], [2], [], [], []]
+</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>[null, null, null, 2, 2, false]</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>
+MyStack myStack = new MyStack();<br>
+myStack.push(1);<br>
+myStack.push(2);<br>
+myStack.top(); // return 2<br>
+myStack.pop(); // return 2<br>
+myStack.empty(); // return False
+</dd>
 </dl>
 
 <details>

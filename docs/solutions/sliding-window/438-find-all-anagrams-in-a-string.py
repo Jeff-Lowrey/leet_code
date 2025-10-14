@@ -3,42 +3,58 @@
 
 # 438. Find All Anagrams In A String
 
-Given a problem that demonstrates key concepts in Sliding Window.
+Given two strings s and p, return an array of all the start indices of p's anagrams in s. You may return the answer in any order.
+
+An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.
 
 **Example:**
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>"cbaebabacd", p = "abc"</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>[0,6]</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>The start indices of p's anagrams in s are [0, 6]</dd>
 </dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
-[This problem requires understanding of sliding window concepts. The key insight is to identify the optimal approach for this specific scenario.]
+Use sliding window with character frequency map. Expand until window contains all p characters with same frequency. Add start index to result. Shrink by moving left pointer.
 
 ### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply sliding window methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+1. **Count target**: Use Counter(p) to get character frequencies
+2. **Initialize window**: Create window counter for first len(p) characters
+3. **Check first window**: If window == p_count, add 0 to result
+4. **Slide window**: For i from len(p) to len(s)
+5. **Add new character**: Increment count for s[i]
+6. **Remove old character**: Decrement count for s[i-len(p)]
+7. **Check match**: If window == p_count, add (i-len(p)+1) to result
+8. **Return result**: Return list of starting indices
 
 ### WHY THIS WORKS:
-- The solution leverages sliding window principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+- Fixed window of len(p): check if character frequencies match
+- Maintain frequency difference: if all 26 chars have diff=0, found anagram
+- Slide window: update freq for char leaving and char entering
+- Record start index when frequencies match exactly
+- O(n) time: single pass with O(1) work per position, O(1) space
 
 ### EXAMPLE WALKTHROUGH:
 ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
+Input: s = "cbaebabacd", p = "abc"
+Step 1: Sliding window of size 3
+  "cba": is anagram of "abc" → index 0
+  "bae": not anagram
+  "aeb": not anagram
+  "eba": is anagram of "abc" → index 6
+  "bab": not anagram
+  "aba": not anagram
+  "bac": is anagram of "abc" (but not in string)
+  "acd": not anagram
+
+Output: [0,6]
 ```
 
 ### TIME COMPLEXITY:
@@ -54,6 +70,10 @@ O(1)
 
 </details>
 """
+
+from collections import Counter
+
+from typing import List, Optional, Dict, Tuple
 
 class Solution:
     def findAnagrams(self, s: str, p: str) -> List[int]:
@@ -105,19 +125,19 @@ class Solution:
 
 def test_solution():
     """
-    Test cases for 438. Find All Anagrams In A String.
+    Test cases for the solution.
     """
     solution = Solution()
 
-    # Test case 1: Basic functionality
-    # result = solution.solve([test_input])
-    # expected = [expected_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 1: Example from problem
+    result = solution.findAnagrams("cbaebabacd", "abc")
+    expected = [0,6]
+    assert result == expected, f"Expected {expected}, got {result}"
 
-    # Test case 2: Edge case
-    # result = solution.solve([edge_case_input])
-    # expected = [edge_case_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 2: Empty input
+    result = solution.findAnagrams("", "a")
+    expected = []
+    assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
 

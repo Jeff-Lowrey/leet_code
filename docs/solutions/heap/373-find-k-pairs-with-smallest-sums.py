@@ -3,42 +3,57 @@
 
 # 373. Find K Pairs With Smallest Sums
 
-Given a problem that demonstrates key concepts in Heap.
+You are given two integer arrays nums1 and nums2 sorted in ascending order and an integer k.
+
+Define a pair (u, v) which consists of one element from the first array and one element from the second array.
+
+Return the k pairs (u1, v1), (u2, v2), ..., (uk, vk) with the smallest sums.
 
 **Example:**
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>nums1 = [1,7,11], nums2 = [2,4,6], k = 3</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>[[1,2],[1,4],[1,6]]</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>The k=3 pairs with smallest sums from [1,7,11] and [2,4,6] are [[1,2],[1,4],[1,6]]</dd>
 </dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
-[This problem requires understanding of heap concepts. The key insight is to identify the optimal approach for this specific scenario.]
+Use min heap containing pairs from k sorted lists. Initially add first pair from each list. Pop minimum, add result, and push next pair from same lists. Repeat k times.
 
 ### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply heap methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+1. **Initialize min heap**: Create heap with first element from nums2 for each nums1 element
+2. **Push initial pairs**: For i in range(min(k, len(nums1))), push (nums1[i]+nums2[0], i, 0)
+3. **Extract k pairs**: Pop from heap k times or until heap empty
+4. **Add to result**: For each popped (sum, i, j), add [nums1[i], nums2[j]] to result
+5. **Push next pair**: If j+1 < len(nums2), push (nums1[i]+nums2[j+1], i, j+1)
+6. **Continue extraction**: Repeat until k pairs found or heap empty
+7. **Return result**: Return list of k pairs with smallest sums
 
 ### WHY THIS WORKS:
-- The solution leverages heap principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+- Min heap stores (sum, i, j) tuples
+- Start with pairs (nums1[i], nums2[0]) for all i
+- Pop minimum, add next pair (nums1[i], nums2[j+1]) to heap
+- Collect k pairs or until heap empty
+- O(k log k) time: k heap operations, O(k) space for heap
 
 ### EXAMPLE WALKTHROUGH:
 ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
+Input: nums1 = [1,7,11], nums2 = [2,4,6], k = 3
+Step 1: Initialize min heap
+  heap = [(1+2, 0, 0)]
+
+Step 2: Extract k smallest pairs
+  Pop (3, 0, 0): pair [1,2], add (1+4, 0, 1)
+  Pop (5, 0, 1): pair [1,4], add (1+6, 0, 2)
+  Pop (7, 0, 2): pair [1,6], add (7+2, 1, 0)
+
+Output: [[1,2],[1,4],[1,6]]
 ```
 
 ### TIME COMPLEXITY:
@@ -54,6 +69,10 @@ O(1)
 
 </details>
 """
+
+import heapq
+
+from typing import List, Optional, Dict, Tuple
 
 class Solution:
     def kSmallestPairs(self, nums1: List[int], nums2: List[int], k: int) -> List[List[int]]:
@@ -105,19 +124,19 @@ class Solution:
 
 def test_solution():
     """
-    Test cases for 373. Find K Pairs With Smallest Sums.
+    Test cases for the solution.
     """
     solution = Solution()
 
-    # Test case 1: Basic functionality
-    # result = solution.solve([test_input])
-    # expected = [expected_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 1: Example from problem
+    result = solution.kSmallestPairs([1,7,11], [2,4,6], 3)
+    expected = [[1,2],[1,4],[1,6]]
+    assert result == expected, f"Expected {expected}, got {result}"
 
-    # Test case 2: Edge case
-    # result = solution.solve([edge_case_input])
-    # expected = [edge_case_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 2: Empty arrays
+    result = solution.kSmallestPairs([], [2,4,6], 3)
+    expected = []
+    assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
 

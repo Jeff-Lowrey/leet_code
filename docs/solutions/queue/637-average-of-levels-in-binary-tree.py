@@ -9,11 +9,11 @@ Given the root of a binary tree, return the average value of the nodes on each l
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[3.0, 14.5, 11.0]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>1</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Average of each tree level: [3,14.5,11]</dd>
 </dl>
 
 <details>
@@ -72,6 +72,17 @@ O(w)
 
 </details>
 """
+
+from collections import deque
+
+
+class TreeNode:
+    """Definition for a binary tree node."""
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
 
 class Solution:
     def averageOfLevels(self, root: TreeNode | None) -> list[float]:

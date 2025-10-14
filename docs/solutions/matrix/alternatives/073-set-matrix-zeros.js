@@ -1,48 +1,65 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: 
  *
- * [Problem description goes here]
+ * # 073. Set Matrix Zeroes
+ * **In-Place Marking**
+ *
+ * Given an m x n matrix, if an element is 0, set its entire row and column to 0 in-place.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>[[1, 1, 1]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>1</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>Matrix with zeros: [[1,1,1],[1,0,1],[1,1,1]] becomes [[1,0,1],[0,0,0],[1,0,1]]</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * Use the first row and first column as markers to track which rows/columns should be zeroed.
+ * Need separate flags for first row/column since they overlap at [0][0].
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Check first row/col**: Track if they contain zeros initially
+ * 2. **Mark using first row/col**: Use matrix[i][0] and matrix[0][j] as markers
+ * 3. **Zero based on markers**: Set cells to zero based on markers
+ * 4. **Handle first row/col**: Zero them separately if needed
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - First row/column serve as marker arrays
+ * - Original zero positions are preserved in markers
+ * - In-place modification requires no extra space
+ * - Process order prevents overwriting needed markers
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: [[1,1,1],
+ *         [1,0,1],
+ *         [1,1,1]]
+ *
+ * Step 1: Mark - matrix[1][0] = 0, matrix[0][1] = 0
+ * Step 2: Zero based on markers
+ * Step 3: Result [[1,0,1],
+ *                 [0,0,0],
+ *                 [1,0,1]]
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(m * n) - scan matrix twice
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(1) - only use constant extra space
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - First row/column contains zeros
+ * - Single row or column matrix
+ * - All zeros or no zeros
+ * - 1x1 matrix
  *
  * </details>
  */

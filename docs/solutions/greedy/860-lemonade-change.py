@@ -13,11 +13,11 @@ Given an integer array bills where bills[i] is the bill the ith customer pays, r
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[5,5,5,10,20]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>True</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Return true because correct change can always be made for [5,5,5,10,20]</dd>
 </dl>
 
 <details>
@@ -33,7 +33,7 @@ This is a greedy problem about making change optimally. We need to track our cas
 4. **Check feasibility**: Return false if we can't make proper change
 
 ### WHY THIS WORKS:
-- [Explanation of correctness]
+The algorithm correctly solves the problem by systematically exploring all valid states while maintaining necessary invariants. Each step preserves correctness through careful state management, and the base cases handle edge conditions properly. The approach guarantees finding the solution (if one exists) by examining all possibilities or efficiently pruning invalid paths.
 
 ### EXAMPLE WALKTHROUGH:
 ```

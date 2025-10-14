@@ -11,11 +11,11 @@ You must implement a solution with a linear runtime complexity and use only cons
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[2,2,1]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>1 (the single number)</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>The single number 4 appears once in [2,2,1,4,1] (all others appear twice)</dd>
 </dl>
 
 <details>

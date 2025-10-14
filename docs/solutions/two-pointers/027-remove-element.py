@@ -3,42 +3,56 @@
 
 # 027. Remove Element
 
-Given a problem that demonstrates key concepts in Two Pointers.
+Given an integer array nums and an integer val, remove all occurrences of val in nums in-place. The order of the elements may be changed. Then return the number of elements in nums which are not equal to val.
+
+Consider the number of elements in nums which are not equal to val be k, to get accepted, you need to do the following things:
+
+- Change the array nums such that the first k elements of nums contain the elements which are not equal to val. The remaining elements of nums are not important as well as the size of nums.
+- Return k.
 
 **Example:**
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[3,2,2,3], val = 3</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>k=2, nums=[2,2,_,_]</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Remove element 3 from [3,2,2,3] gives length 2</dd>
 </dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
-[This problem requires understanding of two pointers concepts. The key insight is to identify the optimal approach for this specific scenario.]
+Use two pointers: one for reading, one for writing. When read pointer finds non-target value, write it at write pointer position and increment both. Otherwise only increment read pointer.
 
 ### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply two pointers methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+1. **Initialize write pointer**: Set k = 0 to track position for non-val elements
+2. **Iterate through array**: For each element in nums
+3. **Check if not val**: If nums[i] != val
+4. **Copy to write position**: nums[k] = nums[i]
+5. **Increment write pointer**: k += 1
+6. **Continue scanning**: Process all elements
+7. **Return count**: Return k as count of elements not equal to val
 
 ### WHY THIS WORKS:
-- The solution leverages two pointers principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+- Two pointers: write pointer tracks next position for valid elements
+- If element != val, copy to write position and increment write
+- If element == val, skip (don't increment write)
+- Return write as new length (first write elements are result)
+- O(n) time, O(1) space
 
 ### EXAMPLE WALKTHROUGH:
 ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
+Input: nums = [3,2,2,3], val = 3
+Step 1: Two pointers
+  i=0, nums[0]=3=val, skip
+  i=1, nums[1]=2≠val, nums[0]=2, i=1
+  i=2, nums[2]=2≠val, nums[1]=2, i=2
+  i=3, nums[3]=3=val, skip
+
+Output: k=2, nums=[2,2,_,_]
 ```
 
 ### TIME COMPLEXITY:
@@ -54,6 +68,8 @@ O(1)
 
 </details>
 """
+
+from typing import List, Optional, Dict, Tuple
 
 class Solution:
     def removeElement(self, nums: List[int], val: int) -> int:
@@ -88,19 +104,19 @@ class Solution:
 
 def test_solution():
     """
-    Test cases for 027. Remove Element.
+    Test cases for the solution.
     """
     solution = Solution()
 
-    # Test case 1: Basic functionality
-    # result = solution.solve([test_input])
-    # expected = [expected_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 1: Basic case
+    result = solution.removeElement([1, 2, 3], 2)
+    expected = 2
+    assert result == expected, f"Expected {expected}, got {result}"
 
-    # Test case 2: Edge case
-    # result = solution.solve([edge_case_input])
-    # expected = [edge_case_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 2: Empty input
+    result = solution.removeElement([], 0)
+    expected = 0
+    assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
 

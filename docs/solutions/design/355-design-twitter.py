@@ -9,11 +9,23 @@ Design a simplified version of Twitter where users can post tweets, follow/unfol
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>
+["Twitter", "postTweet", "getNewsFeed", "follow", "postTweet", "getNewsFeed", "unfollow", "getNewsFeed"]<br>
+[[], [1, 5], [1], [1, 2], [2, 6], [1], [1, 2], [1]]
+</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>[null, null, [5], null, null, [6, 5], null, [5]]</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>
+Twitter twitter = new Twitter();<br>
+twitter.postTweet(1, 5); // User 1 posts a new tweet (id = 5).<br>
+twitter.getNewsFeed(1);  // User 1's news feed should return a list with 1 tweet id -> [5]. return [5]<br>
+twitter.follow(1, 2);    // User 1 follows user 2.<br>
+twitter.postTweet(2, 6); // User 2 posts a new tweet (id = 6).<br>
+twitter.getNewsFeed(1);  // User 1's news feed should return a list with 2 tweet ids -> [6, 5]. Tweet id 6 should precede tweet id 5 because it is posted after tweet id 5.<br>
+twitter.unfollow(1, 2);  // User 1 unfollows user 2.<br>
+twitter.getNewsFeed(1);  // User 1's news feed should return a list with 1 tweet id -> [5], since user 1 is no longer following user 2.
+</dd>
 </dl>
 
 <details>

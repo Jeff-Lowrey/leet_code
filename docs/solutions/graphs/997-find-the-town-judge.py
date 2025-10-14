@@ -18,11 +18,11 @@ Return the label of the town judge if the town judge exists and can be identifie
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[(2, [[1,2]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>"n={n}, trust={trust} -> Judge: {result}"</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>The town judge is person 2 who is trusted by all but trusts no one</dd>
 </dl>
 
 <details>

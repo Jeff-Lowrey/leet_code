@@ -3,42 +3,53 @@
 
 # 336. Palindrome
 
-Given a problem that demonstrates key concepts in Trees.
+You are given an array of strings words. A palindrome pair is defined as a pair of integers (i, j) where i != j such that the concatenation of words[i] + words[j] is a palindrome.
+
+Return an array of all the palindrome pairs of words.
 
 **Example:**
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>words = ["abcd","dcba","lls","s","sssll"]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>[[0,1],[1,0]] (palindrome pairs)</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Palindrome pairs like ['abcd','dcba'] concatenate to form palindrome 'abcddcba'</dd>
 </dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
-[This problem requires understanding of trees concepts. The key insight is to identify the optimal approach for this specific scenario.]
+Build Trie of all words. For each word, try forming palindrome pairs by checking: 1) reverse exists in Trie, 2) prefix + reverse where suffix is palindrome, 3) reverse + suffix where prefix is palindrome.
 
 ### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply trees methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+1. **Build trie**: Insert all words with their indices into trie
+2. **Define isPalindrome**: Helper function to check if string is palindrome
+3. **Search for pairs**: For each word, search in trie
+4. **Case 1 - word in trie**: If word + reversed_word is palindrome, add pair
+5. **Case 2 - prefix match**: If prefix in trie and remaining suffix is palindrome, add pair
+6. **Case 3 - suffix match**: Search all words in trie, check if can form palindrome
+7. **Avoid duplicates**: Skip pairs where i == j
+8. **Return result**: Return list of all palindrome pairs
 
 ### WHY THIS WORKS:
-- The solution leverages trees principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+- Trie stores all words, search finds palindrome pairs efficiently
+- For each word, check all possible split points: (prefix, suffix)
+- If prefix is palindrome and reversed suffix exists in trie: valid pair
+- If suffix is palindrome and reversed prefix exists in trie: valid pair
+- O(n * k^2) time: n words, k avg length, k splits * k palindrome check
 
 ### EXAMPLE WALKTHROUGH:
 ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
+Input: words = ["abcd","dcba","lls","s","sssll"]
+Step 1: Check all pairs
+  "lls" + "s" = "llss" (not palindrome)
+  "s" + "lls" = "slls" (not palindrome)
+  "abcd" + "dcba" = "abcddcba" (palindrome) ✓
+
+Output: [[0,1],[1,0]] (palindrome pairs)
 ```
 
 ### TIME COMPLEXITY:
@@ -54,6 +65,8 @@ O(1)
 
 </details>
 """
+
+from typing import List, Optional, Dict, Tuple
 
 class Solution:
     def __init__(self):
@@ -149,19 +162,39 @@ class Solution:
 
 def test_solution():
     """
-    Test cases for 336. Palindrome.
+    Test cases for the solution.
     """
+    # Note: This problem uses a TrieNode class that needs to be defined
+    class TrieNode:
+        def __init__(self):
+            self.children = {}
+            self.word_index = -1
+            self.palindrome_suffixes = []
+
     solution = Solution()
 
-    # Test case 1: Basic functionality
-    # result = solution.solve([test_input])
-    # expected = [expected_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 1: Example from problem
+    result = solution.find_palindrome_pairs(["abcd","dcba","lls","s","sssll"])
+    # Valid pairs: "lls" + "s" = "llss" is not palindrome, but "s" + "lls" = "slls" is palindrome
+    # "sssll" + "lls" = "sssllls" is not, but reversing approach works
+    # "dcba" + "abcd" = "dcbaabcd" is palindrome
+    # "abcd" + "dcba" = "abcddcba" is palindrome
+    assert len(result) >= 2, f"Expected at least 2 pairs, got {result}"
 
-    # Test case 2: Edge case
-    # result = solution.solve([edge_case_input])
-    # expected = [edge_case_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 2: Simple palindrome pairs
+    result = solution.find_palindrome_pairs(["bat","tab","cat"])
+    expected = [[0,1],[1,0]]
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 3: Empty string handling
+    result = solution.find_palindrome_pairs(["a",""])
+    expected = [[0,1],[1,0]]
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 4: Test is_palindrome helper
+    result = solution.is_palindrome("racecar", 0, 7)
+    expected = True
+    assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
 

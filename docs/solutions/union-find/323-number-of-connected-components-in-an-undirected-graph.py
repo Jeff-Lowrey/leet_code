@@ -11,11 +11,11 @@ Return the number of connected components in the graph.
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>Input: n = 5, edges = [[0,1],[1,2],[3,4]]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>See walkthrough</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Number of connected components in undirected graph is 2</dd>
 </dl>
 
 <details>
@@ -192,19 +192,19 @@ class Solution:
 
 def test_solution():
     """
-    Test cases for 323. Number Of Connected Components In An Undirected Graph.
+    Test cases for the solution.
     """
     solution = Solution()
 
-    # Test case 1: Basic functionality
-    # result = solution.solve([test_input])
-    # expected = [expected_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 1: Example from problem
+    result = solution.countComponents(5, [[0,1],[1,2],[3,4]])
+    expected = 2
+    assert result == expected, f"Expected {expected}, got {result}"
 
-    # Test case 2: Edge case
-    # result = solution.solve([edge_case_input])
-    # expected = [edge_case_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 2: No edges
+    result = solution.countComponents(3, [])
+    expected = 3
+    assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
 

@@ -11,11 +11,11 @@ Notice that the sequence has to be strictly increasing.
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[[1, 3, 5, 4, 7]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>"\nInput: {nums}"</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>The number of longest increasing subsequences of length 4 is 2</dd>
 </dl>
 
 <details>
@@ -25,10 +25,16 @@ Notice that the sequence has to be strictly increasing.
 This extends the classic LIS problem by not just finding the length, but also counting how many subsequences achieve that length. We can use dynamic programming or segment trees. For each position, we track both the longest length ending there and the count of such sequences.
 
 ### APPROACH:
-[Detailed explanation of the solution approach]
+1. **Initialize DP arrays**: Create two arrays - lengths[i] for LIS length ending at i, counts[i] for number of such subsequences
+2. **Set base values**: Initialize all lengths to 1 and all counts to 1 (each element is a subsequence of length 1)
+3. **Nested loop iteration**: For each position i, check all previous positions j where nums[j] < nums[i]
+4. **Update when longer found**: If lengths[j] + 1 > lengths[i], found longer sequence, update lengths[i] and reset counts[i] to counts[j]
+5. **Add when equal length**: If lengths[j] + 1 == lengths[i], found another sequence of same length, add counts[j] to counts[i]
+6. **Find maximum length**: After processing all positions, find the maximum value in lengths array
+7. **Sum matching counts**: Return sum of counts[i] for all positions i where lengths[i] equals maximum length
 
 ### WHY THIS WORKS:
-- [Explanation of correctness]
+A set by definition contains only unique elements - when we convert an array to a set, any duplicates are automatically removed. By comparing the lengths of the original array and the set, we can detect if duplicates existed. The early termination approach works because as soon as we find an element already in our seen set, we've proven a duplicate exists without needing to check the remaining elements.
 
 ### EXAMPLE WALKTHROUGH:
 ```

@@ -1,48 +1,80 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Easy
  *
- * [Problem description goes here]
+ * # 993. Cousins in Binary Tree
+ *
+ * Given the root of a binary tree with unique values and the values of two different nodes x and y,
+ * return true if the nodes corresponding to the values x and y are cousins, or false otherwise.
+ *
+ * Two nodes of a binary tree are cousins if they have the same depth but have different parents.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>Tree:      1</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>/   \\</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>Nodes 2 and 3 are not cousins (same parent)</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * Cousins are nodes at the same level (depth) but with different parents.
+ * Use BFS to track both depth and parent information for each node.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Handle edge case**: Return false if tree is empty or has only one node
+ * 2. **Initialize BFS**: Use a deque with (node, parent, depth) tuples
+ * 3. **Track target nodes**: Store depth and parent when we find x or y
+ * 4. **Determine if cousins**:
+ *    - Both nodes must be found
+ *    - They must be at same depth
+ *    - They must have different parents
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - BFS naturally tracks depth by processing level by level
+ * - By storing parent along with each node in queue, we can track parent information
+ * - When we find both target values, we have all information needed to check if they're cousins
+ * - Early termination: Can stop as soon as we find both nodes
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Tree:      1
+ *          /   \\
+ *         2     3
+ *        /
+ *       4
+ *
+ * x=4, y=3:
+ * - Node 4: depth=2, parent=2
+ * - Node 3: depth=1, parent=1
+ * - Different depths → NOT cousins
+ *
+ * x=2, y=3:
+ * - Node 2: depth=1, parent=1
+ * - Node 3: depth=1, parent=1
+ * - Same parent → NOT cousins
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
+ * - In worst case, visit all nodes in tree
+ * - n = number of nodes in tree
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(w)
+ * - Queue holds at most one level of nodes at a time
+ * - w = maximum width of tree (worst case: n/2 for complete tree)
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - One or both nodes not in tree: Return false
+ * - Nodes at different depths: Return false
+ * - Nodes with same parent (siblings): Return false
+ * - Root node as one of the values: Cannot be cousin
  *
  * </details>
  */

@@ -1,48 +1,87 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * Given a string path, which is an absolute path (starting with a slash '/') to a file or
+ * directory in a Unix-style file system, convert it to the simplified canonical path.
+ *
+ * In a Unix-style file system:
+ * - A period '.' refers to the current directory
+ * - A double period '..' refers to the directory up a level
+ * - Multiple consecutive slashes ('//') are treated as a single slash '/'
+ *
+ * The canonical path should follow these rules:
+ * - Always start with a single slash '/'
+ * - Directories are separated by a single slash '/'
+ * - No trailing slash (except for root '/')
+ * - No '.' or '..' in the path
+ *
+ * Return the simplified canonical path.
+ *
+ * Example:
+ * Input: path = "/home//foo/"
+ * Output: "/home/foo"
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>path = "/home//foo/"</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>/home/foo"</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>Simplified path '/a/./b/../../c/' is '/c'</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * Use a stack to track the directory hierarchy. Split the path by '/', then process each
+ * component: skip '.', pop for '..', push valid directory names. Finally, join with '/'.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Split**: Divide path by '/' to get components
+ * 2. **Stack**: Use stack to track current directory chain
+ * 3. **Process**: For each component:
+ *    - Skip empty strings (from consecutive '/')
+ *    - Skip '.' (current directory)
+ *    - Pop for '..' (go up a level, if possible)
+ *    - Push valid directory names
+ * 4. **Build**: Join stack with '/' and prepend '/'
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * Stack naturally handles the hierarchical nature of file paths.
+ * Going up (..) is a pop, going down (dirname) is a push.
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * path = "/a/./b/../../c/"
+ * Split: ['', 'a', '.', 'b', '..', '..', 'c', '']
+ *
+ * Process:
+ * '' → skip
+ * 'a' → push ['a']
+ * '.' → skip ['a']
+ * 'b' → push ['a', 'b']
+ * '..' → pop ['a']
+ * '..' → pop []
+ * 'c' → push ['c']
+ * '' → skip ['c']
+ *
+ * Result: "/" + "c" = "/c"
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n) where n is path length
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n) for stack and split components
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - Root directory: "/" → "/"
+ * - Go above root: "/../" → "/"
+ * - Hidden files: "/.hidden" → "/.hidden"
+ * - Trailing slash: "/a/b/" → "/a/b"
  *
  * </details>
  */

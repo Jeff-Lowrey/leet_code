@@ -1,48 +1,72 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * # 261. Graph Valid Tree
+ *
+ * You have a graph of n nodes labeled from 0 to n - 1. You are given an integer n and a list of edges where edges[i] = [ai, bi] indicates that there is an undirected edge between nodes ai and bi in the graph.
+ *
+ * Return true if the edges of the given graph make up a valid tree, and false otherwise.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>[[0,1]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>"Expected {expected}, got {result}"</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>Graph edges form a valid tree if connected and has n-1 edges</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * [This problem requires understanding of graphs concepts. The key insight is to identify the optimal approach for this specific scenario.]
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Analyze the problem**: Understand the input constraints and expected output
+ * 2. **Choose the right technique**: Apply graphs methodology
+ * 3. **Implement efficiently**: Focus on optimal time and space complexity
+ * 4. **Handle edge cases**: Consider boundary conditions and special cases
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - The solution leverages graphs principles
+ * - Time complexity is optimized for the given constraints
+ * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: n = 5, edges = [[0,1],[0,2],[0,3],[1,4]]
+ * Step 1: Check edge count
+ *   n-1 = 4 edges (necessary for tree) ✓
+ *
+ * Step 2: Build adjacency list
+ *   {0: [1,2,3], 1: [0,4], 2: [0], 3: [0], 4: [1]}
+ *
+ * Step 3: DFS to check connectivity
+ *   Visit 0 → mark visited
+ *   Visit 1 → mark visited
+ *   Visit 4 → mark visited
+ *   Visit 2 → mark visited
+ *   Visit 3 → mark visited
+ *
+ * Step 4: Verify all nodes visited
+ *   visited = {0,1,2,3,4}, count = 5 = n ✓
+ *
+ * Output: True (forms valid tree)
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(1)
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - Empty input handling
+ * - Single element cases
+ * - Large input considerations
  *
  * </details>
  */

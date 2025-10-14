@@ -1,48 +1,84 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * # 5. Longest Palindromic Substring
+ *
+ * This problem demonstrates key concepts in String manipulation and Dynamic Programming.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>"babad"</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>"bab" (or "aba")</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>Longest palindromic substring is 'bab' or 'aba'</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * A palindrome reads the same forwards and backwards. To find the longest palindromic substring,
+ * we need to consider that palindromes expand around their center. A key insight is that every
+ * palindrome has a center - either a single character (odd length) or between two characters
+ * (even length). By checking all possible centers, we can find the longest palindrome.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Expand around center technique**: For each possible center, expand outwards
+ * 2. **Handle both cases**: Check odd-length (single center) and even-length (two centers)
+ * 3. **Track maximum**: Keep track of the longest palindrome found so far
+ * 4. **Extract substring**: Return the longest palindromic substring at the end
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - Every palindrome has a center point
+ * - By expanding from each center, we find all palindromes
+ * - Comparing characters from center outward ensures palindrome property
+ * - Checking all centers guarantees we find the longest one
+ * - This avoids checking all O(n²) substrings explicitly
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: s = "babad"
+ *
+ * Centers to check:
+ * - Index 0 ('b'): Expands to "b" (length 1)
+ * - Between 0-1: "ba" not palindrome
+ * - Index 1 ('a'): Expands to "bab" (length 3) ✓
+ * - Between 1-2: "ab" not palindrome
+ * - Index 2 ('b'): Expands to "aba" (length 3) ✓
+ * - Between 2-3: "ba" not palindrome
+ * - Index 3 ('a'): Expands to "a" (length 1)
+ * - Between 3-4: "ad" not palindrome
+ * - Index 4 ('d'): Expands to "d" (length 1)
+ *
+ * Longest found: "bab" or "aba" (both length 3)
+ * Output: "bab" (or "aba")
+ *
+ * Input: s = "cbbd"
+ * - Index 1 ('b'): Just "b"
+ * - Between 1-2 ('bb'): Expands to "bb" (length 2) ✓
+ * - This is the longest
+ * Output: "bb"
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n²)
+ * There are n possible centers (including between characters), and each expansion can take up to
+ * O(n) time in the worst case. Total: O(n²).
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(1)
+ * We only store indices and don't create additional data structures proportional to input.
+ * The result substring is extracted at the end.
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - Single character: Return that character
+ * - Empty string: Return empty string
+ * - All same characters: Return entire string
+ * - No palindrome longer than 1: Return first character
+ * - Entire string is palindrome: Return entire string
  *
  * </details>
  */

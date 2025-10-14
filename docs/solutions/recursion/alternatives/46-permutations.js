@@ -1,48 +1,73 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * # 46. Permutations
+ *
+ * This problem demonstrates key concepts in Recursion.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>[[1, 2, 3]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>"Expected {len(expected)} permutations, got {len(result)}"</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>All permutations of [1,2,3] are 6 arrangements: [[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * Given an array of distinct integers, return all possible permutations. A permutation
+ * is an arrangement of all elements in different orders. This is a classic backtracking
+ * problem where we explore all possible orderings systematically.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Backtracking with tracking**:
+ *    - At each position, try every unused number
+ *    - Mark numbers as used to avoid duplicates in same permutation
+ *    - When all positions filled, add permutation to results
+ * 2. **Implementation strategy**:
+ *    - Use a set to track used indices
+ *    - Recurse for each unused number
+ *    - Backtrack by unmarking the number as used
+ * 3. **Alternative approach**: Swap elements in-place
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - Each level of recursion chooses one number for current position
+ * - Tracking prevents using same number twice in one permutation
+ * - Backtracking explores all possible orderings systematically
+ * - The recursion tree has n! leaves (all permutations)
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: [1,2,3]
+ *
+ * Build permutations by choosing one number at a time:
+ * Choose 1: [1] -> Choose 2: [1,2] -> Choose 3: [1,2,3] ✓
+ *                        -> Choose 3: [1,3] -> Choose 2: [1,3,2] ✓
+ * Choose 2: [2] -> Choose 1: [2,1] -> Choose 3: [2,1,3] ✓
+ *                -> Choose 3: [2,3] -> Choose 1: [2,3,1] ✓
+ * Choose 3: [3] -> Choose 1: [3,1] -> Choose 2: [3,1,2] ✓
+ *                -> Choose 2: [3,2] -> Choose 1: [3,2,1] ✓
+ *
+ * Output: [[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n! * n) where n is array length
+ * - n! permutations to generate
+ * - O(n) to copy each permutation
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n) - recursion depth and tracking set
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - Empty array (return [[]])
+ * - Single element (return [[element]])
+ * - All distinct integers (no duplicates in input)
  *
  * </details>
  */

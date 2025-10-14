@@ -17,11 +17,11 @@ have finished course 0. So it is possible.
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>numCourses = 2`, prerequisites = [[1,0]]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>true</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Course schedule [0,1] means 0 depends on 1; can finish if no cycles</dd>
 </dl>
 
 <details>
@@ -31,7 +31,13 @@ have finished course 0. So it is possible.
 This is a cycle detection problem in a directed graph. If there's a cycle in the prerequisite dependencies, it's impossible to complete all courses. Topological sorting can detect cycles while finding a valid course order.
 
 ### APPROACH:
-[Detailed explanation of the solution approach]
+1. **Build adjacency list**: Create a graph where each prerequisite points to the courses that depend on it
+2. **Calculate in-degrees**: Count incoming edges for each course (number of prerequisites)
+3. **Initialize queue**: Add all courses with in-degree 0 (no prerequisites) to the queue
+4. **Process courses**: Dequeue a course, increment courses_taken counter
+5. **Update dependencies**: For each course that depends on the current course, decrement its in-degree
+6. **Add newly available courses**: If a course's in-degree becomes 0, add it to the queue (all prerequisites met)
+7. **Check completion**: Return true if courses_taken equals numCourses (all courses processed), false otherwise (cycle detected)
 
 ### WHY THIS WORKS:
 In a DAG (Directed Acyclic Graph), there's always at least one vertex with in-degree 0. By repeatedly removing such vertices, we can process all vertices if and only if there's no cycle.
@@ -52,8 +58,11 @@ O(V + E)
 O(V + E)
 
 ### EDGE CASES:
-- **[Edge case 1]:** [how it's handled]
-- **[Edge case 2]:** [how it's handled]
+- **No prerequisites**: All courses can be taken, return true
+- **Self-loop**: Course depends on itself, cycle detected, return false
+- **Circular dependency**: Cycle detection returns false
+- **Linear chain**: No cycles, courses taken in topological order
+- **Disconnected components**: Process each component separately
 
 </details>
 """

@@ -15,11 +15,11 @@ Return the total number of provinces.
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[[1, 1, 0]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>1</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Number of friend circles is 2</dd>
 </dl>
 
 <details>
@@ -68,8 +68,11 @@ O(n)
 For the Union-Find parent and rank arrays
 
 ### EDGE CASES:
-- **[Edge case 1]:** [how it's handled]
-- **[Edge case 2]:** [how it's handled]
+- **Single city**: Return 1 (one province)
+- **All cities connected**: Return 1 (all form single province)
+- **All cities isolated**: Return n (each city is its own province)
+- **Empty matrix**: Return 0 (no cities)
+- **Two separate groups**: Union-find counts distinct components correctly
 
 </details>
 """

@@ -9,11 +9,11 @@ Implement a first-in-first-out (FIFO) queue using only two stacks.
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>push(1): input=[1], output=[]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>push(2): input=[1,2], output=[]</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>After pushing 1 and 2, both values are in the input stack with 2 on top, while the output stack remains empty until a pop or peek operation is performed</dd>
 </dl>
 
 <details>

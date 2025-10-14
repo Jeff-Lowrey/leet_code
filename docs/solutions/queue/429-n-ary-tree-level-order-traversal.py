@@ -9,11 +9,11 @@ Given an n-ary tree, return the level order traversal of its nodes' values.
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[node3, node2, node4]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>1</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>N-ary tree level-order traversal groups nodes by depth</dd>
 </dl>
 
 <details>

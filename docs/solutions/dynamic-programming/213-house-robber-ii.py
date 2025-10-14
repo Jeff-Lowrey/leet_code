@@ -3,42 +3,58 @@
 
 # 213. House Robber Ii
 
-Given a problem that demonstrates key concepts in Dynamic Programming.
+You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed. All houses at this place are arranged in a circle. That means the first house is the neighbor of the last one. Meanwhile, adjacent houses have security systems connected, and it will automatically contact the police if two adjacent houses were broken into on the same night.
+
+Given an integer array nums representing the amount of money of each house, return the maximum amount of money you can rob tonight without alerting the police.
 
 **Example:**
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[2,3,2]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>3 (maximum money, rob middle house)</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Maximum amount robbed in circular arrangement [2,3,2] is 3 (cannot rob houses 0 and 2)</dd>
 </dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
-[This problem requires understanding of dynamic programming concepts. The key insight is to identify the optimal approach for this specific scenario.]
+Houses are circular - can't rob both first and last. Run House Robber I twice: once on houses[0:n-1] and once on houses[1:n]. Take the maximum of both results.
 
 ### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply dynamic programming methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+1. **Handle single house**: If len(nums) == 1, return nums[0]
+2. **Define helper function**: Create rob_linear(houses) to solve linear house robber problem
+3. **Case 1 - rob first**: Call rob_linear(nums[:-1]) to rob houses 0 to n-2 (exclude last)
+4. **Case 2 - rob last**: Call rob_linear(nums[1:]) to rob houses 1 to n-1 (exclude first)
+5. **Compare both cases**: Take maximum of the two results
+6. **Return maximum**: Return max(case1, case2) as the maximum money that can be robbed
 
 ### WHY THIS WORKS:
-- The solution leverages dynamic programming principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+- Circular: robbing house 0 means can't rob house n-1 and vice versa
+- Run house robber I twice: once on [0..n-2], once on [1..n-1]
+- Take maximum of two results
+- Handles circular constraint by excluding one of the boundary houses
+- O(n) time: two passes of O(n) each, O(1) space
 
 ### EXAMPLE WALKTHROUGH:
 ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
+Input: nums = [2,3,2]
+Step 1: Handle circular array
+  Case 1: Rob houses [0:n-1] → [2,3] → max = 3
+  Case 2: Rob houses [1:n] → [3,2] → max = 3
+
+Step 2: Case 1 detail
+  dp[0] = 2
+  dp[1] = max(2, 3) = 3
+
+Step 3: Case 2 detail
+  dp[0] = 3
+  dp[1] = max(3, 2) = 3
+
+Output: 3 (maximum money, rob middle house)
 ```
 
 ### TIME COMPLEXITY:
@@ -54,6 +70,8 @@ O(1)
 
 </details>
 """
+
+from typing import List, Optional, Dict, Tuple
 
 class Solution:
     def rob(self, nums: List[int]) -> int:
@@ -106,19 +124,24 @@ class Solution:
 
 def test_solution():
     """
-    Test cases for 213. House Robber Ii.
+    Test cases for the solution.
     """
     solution = Solution()
 
-    # Test case 1: Basic functionality
-    # result = solution.solve([test_input])
-    # expected = [expected_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 1: Example from problem - houses in circle [2,3,2], can't rob first and last
+    result = solution.rob([2,3,2])
+    expected = 3
+    assert result == expected, f"Expected {expected}, got {result}"
 
-    # Test case 2: Edge case
-    # result = solution.solve([edge_case_input])
-    # expected = [edge_case_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 2: Single element
+    result = solution.rob([5])
+    expected = 5
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 3: Larger example
+    result = solution.rob([1,2,3,1])
+    expected = 4
+    assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
 

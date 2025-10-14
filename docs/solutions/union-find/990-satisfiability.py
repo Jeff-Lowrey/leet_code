@@ -13,11 +13,11 @@ Return true if it is possible to assign integers to variable names so as to sati
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>["a==b", "b==c", "a!=d"]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>"Equations {equations} satisfiable: {solution.equationsPossible(equations)}"</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Equations are satisfiable: a==b, b==c implies a==c</dd>
 </dl>
 
 <details>

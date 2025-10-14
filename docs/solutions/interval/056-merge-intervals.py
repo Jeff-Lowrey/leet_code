@@ -3,42 +3,67 @@
 
 # 056. Merge Intervals
 
-Given a problem that demonstrates key concepts in Interval.
+Given an array of intervals where intervals[i] = [starti, endi], merge all overlapping intervals, and return an array of the non-overlapping intervals that cover all the intervals in the input.
 
 **Example:**
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[[1,6]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>"Expected {expected}, got {result}"</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Merged intervals [[1,3],[2,6],[8,10],[15,18]] become [[1,6],[8,10],[15,18]]</dd>
 </dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
-[This problem requires understanding of interval concepts. The key insight is to identify the optimal approach for this specific scenario.]
+Sort intervals by start time. Iterate through sorted intervals. If current overlaps with last merged interval, extend the end. Otherwise add current interval as new merged interval.
 
 ### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply interval methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+1. **Sort intervals**: Sort intervals by start time
+2. **Initialize result**: Set result = [intervals[0]]
+3. **Iterate from second**: For each interval in intervals[1:]
+4. **Check overlap**: If current_start <= result[-1][1], intervals overlap
+5. **Merge if overlap**: Update result[-1][1] = max(result[-1][1], current_end)
+6. **Add if no overlap**: Append current interval to result
+7. **Return result**: Return merged intervals
 
 ### WHY THIS WORKS:
-- The solution leverages interval principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+- Sort intervals by start time enables linear merge
+- If current.start <= last.end: overlapping, extend last.end to max
+- Otherwise: non-overlapping, add to result and update last
+- Sorting ensures we never miss overlaps
+- O(n log n) for sort, O(n) space for result
 
 ### EXAMPLE WALKTHROUGH:
 ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
+Input: intervals = [[1,3], [2,6], [8,10], [15,18]]
+
+Step 1: Sort by start time
+  Already sorted: [[1,3], [2,6], [8,10], [15,18]]
+
+Step 2: Initialize with first interval
+  merged = [[1,3]]
+
+Step 3: Process [2,6]
+  2 ≤ 3 (overlaps with [1,3])
+  Merge: [1, max(3,6)] = [1,6]
+  merged = [[1,6]]
+
+Step 4: Process [8,10]
+  8 > 6 (no overlap with [1,6])
+  Add new interval
+  merged = [[1,6], [8,10]]
+
+Step 5: Process [15,18]
+  15 > 10 (no overlap with [8,10])
+  Add new interval
+  merged = [[1,6], [8,10], [15,18]]
+
+Output: [[1,6], [8,10], [15,18]]
 ```
 
 ### TIME COMPLEXITY:
@@ -54,6 +79,8 @@ O(1)
 
 </details>
 """
+
+from typing import List, Optional, Dict, Tuple
 
 class Solution:
     def merge(self, intervals: List[List[int]]) -> List[List[int]]:
@@ -98,19 +125,24 @@ class Solution:
 
 def test_solution():
     """
-    Test cases for 056. Merge Intervals.
+    Test cases for the solution.
     """
     solution = Solution()
 
-    # Test case 1: Basic functionality
-    # result = solution.solve([test_input])
-    # expected = [expected_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 1: Example from problem
+    result = solution.merge([[1,3], [2,6], [8,10], [15,18]])
+    expected = [[1,6], [8,10], [15,18]]
+    assert result == expected, f"Expected {expected}, got {result}"
 
-    # Test case 2: Edge case
-    # result = solution.solve([edge_case_input])
-    # expected = [edge_case_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 2: Empty input
+    result = solution.merge([])
+    expected = []
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 3: Single element
+    result = solution.merge([1])
+    expected = [1]
+    assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
 

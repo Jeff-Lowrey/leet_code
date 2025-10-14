@@ -13,11 +13,11 @@ Clarification: The input/output format is the same as how LeetCode serializes a 
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>Input tree:     1</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>/ \</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>The tree [1,2,3,null,null,4,5] is serialized as '1,2,3,null,null,4,5'</dd>
 </dl>
 
 <details>
@@ -71,10 +71,21 @@ O(n)
 For the serialized string and recursion stack
 
 ### EDGE CASES:
-- **[Edge case 1]:** [how it's handled]
-- **[Edge case 2]:** [how it's handled]
+- **Empty tree**: Serialize to single null marker, deserialize returns None
+- **Single node**: Serialize to "val,#,#", deserialize creates single node
+- **Left-skewed tree**: Only left children, nulls for all right children
+- **Right-skewed tree**: Only right children, nulls for all left children
+- **Complete binary tree**: All levels filled, minimal nulls in serialization
 
 </details>
 """
+
+
+class TreeNode:
+    """Definition for a binary tree node."""
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
 
 

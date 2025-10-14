@@ -1,48 +1,65 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * # 560. Subarray Sum Equals K
+ *
+ * Given an array of integers nums and an integer k, return the total number of subarrays whose sum is equal to k.
+ *
+ * A subarray is a contiguous non-empty sequence of elements within an array.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>[([1, 1, 1]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>"subarraySum({nums}, {k}) -> {result}"</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>There are 2 subarrays with sum equal to k: [1] and [2,-1,2]</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * This is a classic prefix sum problem. The key insight is that if we know the prefix sum up to index i and up to index j (where j > i), then the sum of subarray from i+1 to j is: prefix_sum[j] - prefix_sum[i]. We can use a hashmap to store prefix sums and their frequencies to find subarrays with target sum efficiently.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Use prefix sum**: Calculate running sum as we iterate
+ * 2. **HashMap tracking**: Store frequency of each prefix sum seen
+ * 3. **Target calculation**: For current prefix sum, check if (prefix_sum - k) exists
+ * 4. **Count subarrays**: Add frequency of (prefix_sum - k) to result
+ * 5. **Update map**: Increment frequency of current prefix sum
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - If prefix_sum[j] - prefix_sum[i] = k, then prefix_sum[i] = prefix_sum[j] - k
+ * - By storing prefix sum frequencies, we can quickly find how many times (prefix_sum - k) occurred
+ * - Each occurrence represents a valid subarray ending at current position
+ * - Running prefix sum allows single pass solution
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: nums = [1,1,1], k = 2
+ * Index 0: sum=1, need=1-2=-1, count=0, map={0:1, 1:1}
+ * Index 1: sum=2, need=2-2=0, count=1, map={0:1, 1:1, 2:1}
+ * Index 2: sum=3, need=3-2=1, count=2, map={0:1, 1:1, 2:1, 3:1}
+ * Result: 2 subarrays: [1,1] and [1,1]
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
+ * Single pass through the array with O(1) hashmap operations
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
+ * HashMap can store up to n different prefix sums
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - Single element equals k
+ * - All elements sum to k
+ * - No subarrays sum to k
+ * - Negative numbers in array
+ * - k = 0 (subarrays that sum to zero)
  *
  * </details>
  */

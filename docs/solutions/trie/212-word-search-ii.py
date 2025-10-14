@@ -11,11 +11,11 @@ Each word must be constructed from letters of sequentially adjacent cells, where
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[["o", "a", "a", "n"]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>1</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Words ['oath','eat'] are found in the board</dd>
 </dl>
 
 <details>

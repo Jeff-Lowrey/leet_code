@@ -13,11 +13,11 @@ You must find a solution with a memory complexity better than O(n²).
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[[1, 5, 9]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>1</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>The 8th smallest element in sorted matrix [[1,5,9],[10,11,13],[12,13,15]] is 13</dd>
 </dl>
 
 <details>
@@ -27,10 +27,16 @@ You must find a solution with a memory complexity better than O(n²).
 This problem involves finding the kth smallest element in a matrix where both rows and columns are sorted. We have multiple approaches: heap-based, binary search, and merge-like. The heap approach treats each row as a sorted list and uses a min-heap to efficiently find the kth smallest element.
 
 ### APPROACH:
-[Detailed explanation of the solution approach]
+1. **Initialize min-heap**: Create a heap with the first element (matrix[0][0]) and a visited set to track processed cells
+2. **Extract minimum k times**: Pop the smallest element from heap k times to reach the kth smallest
+3. **Add neighbors to heap**: For each popped element at position (row, col), add its right neighbor (row, col+1) if not visited
+4. **Add bottom neighbor**: Also add the bottom neighbor (row+1, col) if not visited and within bounds
+5. **Track visited cells**: Use a visited set to ensure each cell is added to heap only once, preventing duplicates
+6. **Return kth element**: After k iterations, the last popped value is the kth smallest element
+7. **Alternative binary search**: Search for answer in range [min, max], count elements ≤ mid using sorted property
 
 ### WHY THIS WORKS:
-- [Explanation of correctness]
+A set by definition contains only unique elements - when we convert an array to a set, any duplicates are automatically removed. By comparing the lengths of the original array and the set, we can detect if duplicates existed. The early termination approach works because as soon as we find an element already in our seen set, we've proven a duplicate exists without needing to check the remaining elements.
 
 ### EXAMPLE WALKTHROUGH:
 ```

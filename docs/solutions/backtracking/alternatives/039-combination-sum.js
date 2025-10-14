@@ -1,48 +1,64 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * # 039. Combination Sum
+ *
+ * Given an array of distinct integers candidates and a target integer target,
+ * return a list of all unique combinations of candidates where the chosen numbers sum to target.
+ * You may return the combinations in any order.
+ *
+ * The same number may be chosen from candidates an unlimited number of times.
+ * Two combinations are unique if the frequency of at least one of the chosen numbers is different.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>[[1, 1]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>"Expected {expected}, got {result}"</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>All combinations summing to 7 using [2,3,6,7] are [[2,2,3], [7]]</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * This is a classic backtracking problem where we need to find all combinations that sum to target.
+ * Since numbers can be reused unlimited times, we explore each candidate multiple times.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Sort candidates**: For optimization and early termination
+ * 2. **Use backtracking**: Build combinations incrementally
+ * 3. **Two choices per element**: Include it (allowing reuse) or skip it
+ * 4. **Base cases**: Sum equals target (valid) or exceeds target (invalid)
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - Backtracking explores all possible combinations systematically
+ * - Sorting allows early termination when candidate > remaining sum
+ * - Using start index prevents duplicate combinations
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: candidates = [2,3,6,7], target = 7
+ * Combinations found: [[2,2,3], [7]]
+ * - Try 2: [2] -> remaining=5, try 2 again: [2,2] -> remaining=3, try 3: [2,2,3] ✓
+ * - Try 7: [7] -> remaining=0 ✓
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(N^(T/M))
+ * Where N=len(candidates), T=target, M=minimal candidate value
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(T/M)
+ * For recursion depth and storing combinations
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - Target = 0: return [[]]
+ * - No valid combinations: return []
+ * - Single candidate equals target: return [[candidate]]
  *
  * </details>
  */

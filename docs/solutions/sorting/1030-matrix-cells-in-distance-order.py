@@ -16,11 +16,11 @@ The distance between two cells (r1, c1) and (r2, c2) is |r1 - r2| + |c1 - c2|.
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[[0, 0]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>1</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Cells sorted by Manhattan distance from [0,0]</dd>
 </dl>
 
 <details>

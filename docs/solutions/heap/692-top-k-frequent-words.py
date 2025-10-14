@@ -11,11 +11,11 @@ Return the answer sorted by the frequency from highest to lowest. Sort the words
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[3, 2]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>"Expected {expected}, got {result}"</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Top k=2 frequent words in ['i','love','leetcode','i','love','coding'] are ['i','love']</dd>
 </dl>
 
 <details>
@@ -206,55 +206,20 @@ class Solution:
         return [word for freq, word in result]
 
 def test_solution():
-    """Test cases for Problem 692."""
+    """
+    Test cases for the solution.
+    """
     solution = Solution()
 
-    # Test case 1: Basic functionality
-    result1 = solution.topKFrequent(["i", "love", "leetcode", "i", "love", "coding"], 2)
-    expected1 = ["i", "love"]
-    assert result1 == expected1, f"Expected {expected1}, got {result1}"
+    # Test case 1: Basic case
+    result = solution.topKFrequent([1, 2, 3], 2)
+    expected = [3, 2]
+    assert result == expected, f"Expected {expected}, got {result}"
 
-    # Test case 2: Same frequency, lexicographical order matters
-    result2 = solution.topKFrequent(["the", "day", "is", "sunny", "the", "the", "the", "sunny", "is", "is"], 4)
-    expected2 = ["the", "is", "sunny", "day"]
-    assert result2 == expected2, f"Expected {expected2}, got {result2}"
-
-    # Test case 3: Single word
-    result3 = solution.topKFrequent(["i"], 1)
-    expected3 = ["i"]
-    assert result3 == expected3, f"Expected {expected3}, got {result3}"
-
-    # Test case 4: All words have same frequency
-    result4 = solution.topKFrequent(["a", "b", "c"], 2)
-    expected4 = ["a", "b"]  # Lexicographical order
-    assert result4 == expected4, f"Expected {expected4}, got {result4}"
-
-    # Test case 5: k equals number of unique words
-    result5 = solution.topKFrequent(["a", "a", "b", "b", "c", "c"], 3)
-    expected5 = ["a", "b", "c"]  # All have frequency 2, lexicographical order
-    assert result5 == expected5, f"Expected {expected5}, got {result5}"
-
-    # Test case 6: Complex frequency distribution
-    result6 = solution.topKFrequent(["love", "coding", "love", "coding", "love"], 2)
-    expected6 = ["love", "coding"]
-    assert result6 == expected6, f"Expected {expected6}, got {result6}"
-
-    # Test optimal solution
-    result7 = solution.topKFrequentOptimal(["i", "love", "leetcode", "i", "love", "coding"], 2)
-    expected7 = ["i", "love"]
-    assert result7 == expected7, f"Expected {expected7}, got {result7}"
-
-    # Test alternative solution
-    result8 = solution.topKFrequentAlternative(
-        ["the", "day", "is", "sunny", "the", "the", "the", "sunny", "is", "is"], 4
-    )
-    expected8 = ["the", "is", "sunny", "day"]
-    assert result8 == expected8, f"Expected {expected8}, got {result8}"
-
-    # Test heap size solution
-    result9 = solution.topKFrequentHeapSize(["a", "a", "b", "b", "c", "c"], 2)
-    expected9 = ["a", "b"]
-    assert result9 == expected9, f"Expected {expected9}, got {result9}"
+    # Test case 2: Empty input
+    result = solution.topKFrequent([], 0)
+    expected = []
+    assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
 

@@ -3,42 +3,58 @@
 
 # 066. Plus
 
-Given a problem that demonstrates key concepts in Math.
+You are given a large integer represented as an integer array digits, where each digits[i] is the ith digit of the integer. The digits are ordered from most significant to least significant in left-to-right order. The large integer does not contain any leading 0's.
+
+Increment the large integer by one and return the resulting array of digits.
 
 **Example:**
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[1, 2, 4]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>"Expected {expected}, got {result}"</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Array [1,2,9] plus one is [1,3,0]</dd>
 </dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
-[This problem requires understanding of math concepts. The key insight is to identify the optimal approach for this specific scenario.]
+Start from rightmost digit. Add 1 to it. Handle carry by propagating to next digit. If all digits are 9, result will need an extra digit at the front.
 
 ### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply math methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+1. **Initialize carry**: Set carry = 1 (we're adding 1)
+2. **Iterate from right**: Loop through digits from right to left
+3. **Add carry to digit**: digit = digits[i] + carry
+4. **Update digit and carry**: digits[i] = digit % 10, carry = digit // 10
+5. **Handle carry**: If carry is 0, break early
+6. **Handle leading carry**: If carry still 1 after loop, insert 1 at beginning
+7. **Return result**: Return modified digits array
 
 ### WHY THIS WORKS:
-- The solution leverages math principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+- Iterate from right to left adding 1, track carry
+- If digit < 9, increment and return (no carry propagation)
+- If digit == 9, set to 0 and continue (carry propagates)
+- If carry after loop, prepend 1 to result (e.g., 99 + 1 = 100)
+- O(n) time single pass, O(n) space for result array
 
 ### EXAMPLE WALKTHROUGH:
 ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
+Input: digits = [1,2,3]
+Step 1: Add 1 from rightmost
+  digits[2] = 3+1 = 4, no carry
+
+Output: [1,2,4]
+
+Example with carry: [9,9,9]
+  digits[2] = 9+1 = 10 → 0, carry=1
+  digits[1] = 9+1 = 10 → 0, carry=1
+  digits[0] = 9+1 = 10 → 0, carry=1
+  Insert 1 at front
+
+Output: [1,0,0,0]
 ```
 
 ### TIME COMPLEXITY:
@@ -54,6 +70,8 @@ O(1)
 
 </details>
 """
+
+from typing import List, Optional, Dict, Tuple
 
 class Solution:
     def plusOne(self, digits: List[int]) -> List[int]:
@@ -86,19 +104,24 @@ class Solution:
 
 def test_solution():
     """
-    Test cases for 066. Plus.
+    Test cases for the solution.
     """
     solution = Solution()
 
-    # Test case 1: Basic functionality
-    # result = solution.solve([test_input])
-    # expected = [expected_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 1: Basic case
+    result = solution.plusOne([1, 2, 3])
+    expected = [1, 2, 4]
+    assert result == expected, f"Expected {expected}, got {result}"
 
-    # Test case 2: Edge case
-    # result = solution.solve([edge_case_input])
-    # expected = [edge_case_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 2: Empty input
+    result = solution.plusOne([])
+    expected = [1]
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 3: Single element
+    result = solution.plusOne([1])
+    expected = [2]
+    assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
 

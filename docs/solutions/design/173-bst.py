@@ -9,11 +9,11 @@ Implement the BSTIterator class that represents an iterator over the in-order tr
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>Input: [7, 3, 15, null, null, 9, 20]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>Stack after init: [7, 3]</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>The iterator initializes by traversing left from the root (7), pushing nodes 7 and 3 onto the stack, with 3 on top as it's the leftmost (smallest) node</dd>
 </dl>
 
 <details>
@@ -60,5 +60,13 @@ O(h) for the stack
 
 </details>
 """
+
+
+class TreeNode:
+    """Definition for a binary tree node."""
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
 
 

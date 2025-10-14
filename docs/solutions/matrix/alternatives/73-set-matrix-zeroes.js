@@ -1,48 +1,76 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * # 73. Set Matrix Zeroes
+ *
+ * Given an m x n integer matrix, if an element is 0, set its entire row and column to 0's.
+ *
+ * You must do it in place.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>[[1, 1, 1]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>1</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>Matrix with zeros: [[1,1,1],[1,0,1],[1,1,1]] becomes [[1,0,1],[0,0,0],[1,0,1]]</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * Cannot modify matrix while iterating as it affects future decisions. Need to mark which rows/columns to zero without extra space. Use first row and first column as markers!
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Use first row/column as markers**: First row tracks column zeros, first column tracks row zeros
+ * 2. **Handle first row/column separately**: Use separate flags since they overlap
+ * 3. **Mark zeros**: Iterate matrix, set markers in first row/column when zero found
+ * 4. **Apply zeros**: Use markers to set zeros (skip first row/column initially)
+ * 5. **Handle first row/column**: Apply zeros based on flags
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - First row/column serve as O(1) space markers
+ * - By processing them last, we don't lose information
+ * - Separate flags handle the overlap at matrix[0][0]
  *
  * ### EXAMPLE WALKTHROUGH:
+ * ```
  * Input:
+ * [1, 1, 1]
+ * [1, 0, 1]
+ * [1, 1, 1]
+ *
+ * Step 1 - Mark:
+ * first_row = False, first_col = False
+ * After marking: matrix[1][0] = 0, matrix[0][1] = 0
+ *
+ * Step 2 - Apply based on markers:
+ * Column 1 has marker -> zero column 1
+ * Row 1 has marker -> zero row 1
+ *
+ * Output:
+ * [1, 0, 1]
+ * [0, 0, 0]
+ * [1, 0, 1]
  * ```
- * [example input]
- * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(m × n)
+ * Two passes through the matrix
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(1)
+ * Only using two boolean flags
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - Single element
+ * - First row/column contains zeros
+ * - All zeros
+ * - No zeros
+ * - Single row or single column
  *
  * </details>
  */

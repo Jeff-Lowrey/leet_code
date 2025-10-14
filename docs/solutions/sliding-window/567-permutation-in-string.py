@@ -3,42 +3,54 @@
 
 # 567. Permutation In String
 
-Given a problem that demonstrates key concepts in Sliding Window.
+Given two strings s1 and s2, return true if s2 contains a permutation of s1, or false otherwise.
+
+In other words, return true if one of s1's permutations is the substring of s2.
 
 **Example:**
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>s1 = "ab", s2 = "eidbaooo"</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>True</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>The permutation of s2='ab' exists in s1 starting at index 1 ('ba' is a permutation of 'ab')</dd>
 </dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
-[This problem requires understanding of sliding window concepts. The key insight is to identify the optimal approach for this specific scenario.]
+Use sliding window with character frequency. Window is valid if it contains permutation of s1 (same character counts). Check each window of size len(s1) by maintaining character counts.
 
 ### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply sliding window methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+1. **Count s1 characters**: Use Counter(s1) to get character frequencies
+2. **Initialize window**: Create window counter for first len(s1) characters of s2
+3. **Check first window**: If window == s1_count, return True
+4. **Slide window**: For i from len(s1) to len(s2)
+5. **Add new character**: window[s2[i]] += 1
+6. **Remove old character**: window[s2[i-len(s1)]] -= 1
+7. **Check match**: If window == s1_count, return True
+8. **Return False**: If loop completes without match
 
 ### WHY THIS WORKS:
-- The solution leverages sliding window principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+- Sliding window of length len(s1) checks if character frequencies match
+- Track frequency differences: matches counts how many chars have correct frequency
+- When matches == 26 (all alphabet chars match), found permutation
+- Slide window: update frequency for outgoing and incoming characters
+- O(n) time for s2 length n, O(1) space for fixed alphabet size
 
 ### EXAMPLE WALKTHROUGH:
 ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
+Input: s1 = "ab", s2 = "eidbaooo"
+Step 1: Check each window of size 2
+  "ei": not permutation
+  "id": not permutation
+  "db": not permutation
+  "ba": is permutation of "ab" ✓
+
+Output: True
 ```
 
 ### TIME COMPLEXITY:
@@ -141,19 +153,19 @@ class Solution:
 
 def test_solution():
     """
-    Test cases for 567. Permutation In String.
+    Test cases for the solution.
     """
     solution = Solution()
 
-    # Test case 1: Basic functionality
-    # result = solution.solve([test_input])
-    # expected = [expected_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 1: Example from problem
+    result = solution.checkInclusion("ab", "eidbaooo")
+    expected = True
+    assert result == expected, f"Expected {expected}, got {result}"
 
-    # Test case 2: Edge case
-    # result = solution.solve([edge_case_input])
-    # expected = [edge_case_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 2: No permutation found
+    result = solution.checkInclusion("ab", "eidboaoo")
+    expected = False
+    assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
 

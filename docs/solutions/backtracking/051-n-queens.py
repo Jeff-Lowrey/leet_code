@@ -24,11 +24,11 @@ Output: [["Q"]]
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>n = 4</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>[[".Q..","...Q","Q...","..Q."],["..Q.","Q...","...Q",".Q.."]]</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>For n=4, one valid queen placement is [(0,1),(1,3),(2,0),(3,2)]</dd>
 </dl>
 
 <details>
@@ -53,12 +53,28 @@ Place queens one row at a time and backtrack when conflicts arise. Queens attack
 ### EXAMPLE WALKTHROUGH:
 Input:
 ```
-[example input]
+n = 4
 ```
 
-**Step 1:** [description]
+**Step 1:** Place queen in row 0
+- Try col 0: Place Q at (0,0)
+  - cols = {0}, diag1 = {0}, diag2 = {0}
 
-**Step 2:** [description]
+**Step 2:** Place queen in row 1
+- Try col 0: conflicts with cols (skip)
+- Try col 1: conflicts with diag2 (skip)
+- Try col 2: Place Q at (1,2) ✓
+  - cols = {0,2}, diag1 = {0,-1}, diag2 = {0,3}
+
+**Step 3:** Place queen in row 2
+- Try col 0,1: conflicts
+- Try col 3: conflicts
+- Try col 4: out of range → Backtrack
+
+**Step 4:** Try different placement in row 1 (col 3)
+- Eventually find: [".Q..","...Q","Q...","..Q."]
+
+Output: [[".Q..","...Q","Q...","..Q."],["..Q.","Q...","...Q",".Q.."]]
 
 ### TIME COMPLEXITY:
 O(N!)
@@ -73,8 +89,11 @@ O(N)
 - Board representation space
 
 ### EDGE CASES:
-- **[Edge case 1]:** [how it's handled]
-- **[Edge case 2]:** [how it's handled]
+- **n = 1**: Single queen at (0,0), return [["Q"]]
+- **n = 2 or n = 3**: No solutions exist, return empty list
+- **n = 4**: Two distinct solutions exist
+- **Large n values**: Backtracking with pruning handles efficiently
+- **All positions conflict**: Backtracking exhausts all possibilities, returns empty
 
 </details>
 """
@@ -179,19 +198,29 @@ class Solution:
 
 def test_solution():
     """
-    Test cases for 051. N Queens.
+    Test cases for the solution.
     """
     solution = Solution()
 
-    # Test case 1: Basic functionality
-    # result = solution.solve([test_input])
-    # expected = [expected_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 1: N = 4 (should return 2 solutions)
+    result = solution.solveNQueens(4)
+    assert len(result) == 2, f"Expected 2 solutions, got {len(result)}"
+    assert [".Q..","...Q","Q...","..Q."] in result or ["..Q.","Q...","...Q",".Q.."] in result
 
-    # Test case 2: Edge case
-    # result = solution.solve([edge_case_input])
-    # expected = [edge_case_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 2: N = 1 (single queen)
+    result = solution.solveNQueens(1)
+    expected = [["Q"]]
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 3: N = 2 (no solution)
+    result = solution.solveNQueens(2)
+    expected = []
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 4: Count solutions for N = 4
+    result = solution.solveNQueensCount(4)
+    expected = 2
+    assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
 

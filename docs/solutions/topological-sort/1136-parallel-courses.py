@@ -3,42 +3,57 @@
 
 # 1136. Parallel Courses
 
-Given a problem that demonstrates key concepts in Topological Sort.
+You are given an integer n, which indicates that there are n courses labeled from 1 to n. You are also given an array relations where relations[i] = [prevCoursei, nextCoursei], representing a prerequisite relationship between course prevCoursei and course nextCoursei: course prevCoursei has to be taken before course nextCoursei.
+
+In one semester, you can take any number of courses as long as you have taken all the prerequisites in the previous semester for the courses you are taking.
+
+Return the minimum number of semesters needed to take all courses. If there is no way to take all the courses, return -1.
 
 **Example:**
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>n = 3, relations = [[1,3],[2,3]]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>2 (minimum semesters)</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Minimum semesters to complete all courses</dd>
 </dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
-[This problem requires understanding of topological sort concepts. The key insight is to identify the optimal approach for this specific scenario.]
+Build graph and calculate in-degrees. Use BFS starting from nodes with in-degree 0. Process courses level by level (semester by semester). Track maximum semester count needed.
 
 ### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply topological sort methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+1. **Build graph and indegrees**: Create adjacency list and indegree array
+2. **Initialize queue**: Add all courses with indegree 0 to queue
+3. **Initialize semester**: Set semester = 0
+4. **Process by level**: While queue not empty, process all courses at current level
+5. **Increment semester**: semester += 1 for each level
+6. **Update neighbors**: For each neighbor, decrement indegree, add to queue if 0
+7. **Check completion**: If processed < n courses, cycle exists, return -1
+8. **Return result**: Return semester
 
 ### WHY THIS WORKS:
-- The solution leverages topological sort principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+- Topological sort with BFS, track depth (semester number)
+- All courses at same level can be taken in parallel (same semester)
+- Increment semester when level completes
+- If can't complete all courses, return -1 (cycle)
+- O(V + E) time, O(V + E) space
 
 ### EXAMPLE WALKTHROUGH:
 ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
+Input: n = 3, relations = [[1,3],[2,3]]
+Step 1: Build graph and indegree
+  indegree = [0,0,2]
+
+Step 2: Process courses level by level
+  Semester 1: courses 1,2 (indegree=0)
+  Semester 2: course 3 (after 1,2 complete)
+
+Output: 2 (minimum semesters)
 ```
 
 ### TIME COMPLEXITY:
@@ -54,6 +69,10 @@ O(1)
 
 </details>
 """
+
+from collections import defaultdict, deque
+
+from typing import List, Optional, Dict, Tuple
 
 class Solution:
     def minimumSemesters(self, n: int, relations: List[List[int]]) -> int:
@@ -109,19 +128,34 @@ class Solution:
 
 def test_solution():
     """
-    Test cases for 1136. Parallel Courses.
+    Test cases for the solution.
     """
     solution = Solution()
 
-    # Test case 1: Basic functionality
-    # result = solution.solve([test_input])
-    # expected = [expected_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 1: Example from problem
+    result = solution.minimumSemesters(3, [[1,3],[2,3]])
+    expected = 2
+    assert result == expected, f"Expected {expected}, got {result}"
 
-    # Test case 2: Edge case
-    # result = solution.solve([edge_case_input])
-    # expected = [edge_case_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 2: Cycle exists (impossible)
+    result = solution.minimumSemesters(3, [[1,2],[2,3],[3,1]])
+    expected = -1
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 3: Linear dependency
+    result = solution.minimumSemesters(4, [[1,2],[2,3],[3,4]])
+    expected = 4
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 4: No dependencies
+    result = solution.minimumSemesters(3, [])
+    expected = 1
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 5: Single course
+    result = solution.minimumSemesters(1, [])
+    expected = 1
+    assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
 

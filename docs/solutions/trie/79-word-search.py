@@ -11,11 +11,11 @@ The word can be constructed from letters of sequentially adjacent cells, where a
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[["A", "B", "C", "E"]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>1</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Word 'OATH' exists in the board by searching paths</dd>
 </dl>
 
 <details>

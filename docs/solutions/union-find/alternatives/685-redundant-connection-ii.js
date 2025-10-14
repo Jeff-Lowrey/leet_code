@@ -1,48 +1,69 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Hard
  *
- * [Problem description goes here]
+ * In a directed graph, return an edge that can be removed so that the resulting graph is a tree.
+ * If there are multiple answers, return the answer that occurs last in the given input.
+ *
+ * The input is a 2D array edges where each edges[i] = [ui, vi] represents a directed edge from ui to vi.
+ *
+ * Example:
+ * Input: edges = [[1,2],[1,3],[2,3]]
+ * Output: [2,3]
+ * Explanation: Removing [2,3] creates a valid tree.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>edges = [[1,2],[1,3],[2,3]]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>[2,3]</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>Redundant directed edge that makes graph invalid</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * A rooted tree has exactly one root (no parent) and all other nodes have exactly one parent.
+ * Invalid scenarios: (1) node with 2 parents, (2) cycle. Use union-find to detect these.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Find node with 2 parents**: If exists, one of those edges is redundant
+ * 2. **Try removing each candidate**: Check if remaining graph is valid tree
+ * 3. **Use Union-Find**: Detect cycles in directed graph
+ * 4. **Priority**: If both edges from 2-parent node cause issues, remove the later one
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * Valid tree requires: (1) all nodes have ≤1 parent, (2) no cycles.
+ * When a node has 2 parents, one must be removed. Union-find detects cycles.
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: edges = [[1,2],[1,3],[2,3]]
+ * Step 1: Find node with 2 parents
+ *   Node 3 has parents 1 and 2
+ *
+ * Step 2: Try removing each edge to node 3
+ *   Remove [1,3]: still cycle exists
+ *   Remove [2,3]: forms valid tree ✓
+ *
+ * Output: [2,3]
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n α(n))
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - **Node with two parents, no cycle**: Remove the later edge to that node
+ * - **Node with two parents and cycle**: Remove the edge that breaks both issues
+ * - **Cycle without two parents**: Return the last edge that creates the cycle
+ * - **All edges form valid tree except one**: Union-find detects the redundant edge
+ * - **Single edge graph**: Return that edge if it creates self-loop
  *
  * </details>
  */

@@ -9,11 +9,11 @@ Check whether the original sequence org can be uniquely reconstructed from the s
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[1, 2, 3]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>1</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Sequence reconstruction validates if org is only supersequence</dd>
 </dl>
 
 <details>
@@ -62,8 +62,11 @@ O(V + E)
 For the graph representation and auxiliary data structures
 
 ### EDGE CASES:
-- **[Edge case 1]:** [how it's handled]
-- **[Edge case 2]:** [how it's handled]
+- **Unique topological order**: Only one valid sequence exists
+- **Multiple valid orders**: Return false (ambiguous)
+- **Cycle in graph**: No topological order exists, return false
+- **Sequence doesn't match order**: Return false
+- **Single course**: Trivially valid, return true
 
 </details>
 """

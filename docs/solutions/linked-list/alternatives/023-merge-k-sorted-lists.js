@@ -1,48 +1,65 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * # 023. Merge K Sorted Lists
+ *
+ * You are given an array of k linked-lists lists, each linked-list is sorted in ascending order.
+ *
+ * Merge all the linked-lists into one sorted linked-list and return it.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>[[1,4,5],[1,3,4],[2,6]]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>[1,1,2,3,4,4,5,6]</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>Merging [[1,4,5],[1,3,4],[2,6]] gives [1,1,2,3,4,4,5,6]</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * [This problem requires understanding of linked list concepts. The key insight is to identify the optimal approach for this specific scenario.]
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Analyze the problem**: Understand the input constraints and expected output
+ * 2. **Choose the right technique**: Apply linked list methodology
+ * 3. **Implement efficiently**: Focus on optimal time and space complexity
+ * 4. **Handle edge cases**: Consider boundary conditions and special cases
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - The solution leverages linked list principles
+ * - Time complexity is optimized for the given constraints
+ * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: lists = [[1,4,5],[1,3,4],[2,6]]
+ * Step 1: Add all heads to min heap
+ *   heap = [(1,0), (1,1), (2,2)]
+ *
+ * Step 2: Extract minimum and add next node
+ *   Pop (1,0), add 4 from list 0
+ *   Pop (1,1), add 3 from list 1
+ *   Pop (2,2), add 6 from list 2
+ *   Continue until heap empty
+ *
+ * Output: [1,1,2,3,4,4,5,6]
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(1)
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - Empty input handling
+ * - Single element cases
+ * - Large input considerations
  *
  * </details>
  */

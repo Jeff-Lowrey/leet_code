@@ -11,11 +11,11 @@ You may assume the input array always has a valid answer.
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[3, 5, 2, 1, 6, 4]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>1</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Wiggle sort: [3,5,2,1,6,4] becomes [3,5,1,6,2,4]</dd>
 </dl>
 
 <details>

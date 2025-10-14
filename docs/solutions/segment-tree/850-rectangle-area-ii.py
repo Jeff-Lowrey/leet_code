@@ -13,11 +13,11 @@ Return the total area. Since the answer may be too large, return it modulo 10^9 
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[[[0, 0, 2, 2]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>"\nInput: {rectangles}"</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>The total area covered by rectangles (counting overlaps once) is 49</dd>
 </dl>
 
 <details>
@@ -27,10 +27,16 @@ Return the total area. Since the answer may be too large, return it modulo 10^9 
 This is a classic computational geometry problem. The challenge is handling overlapping rectangles efficiently. We can use a sweep line algorithm with segment trees, or coordinate compression with a 2D grid approach.
 
 ### APPROACH:
-[Detailed explanation of the solution approach]
+1. **Extract coordinates**: Collect all unique x-coordinates and y-coordinates from all rectangles
+2. **Sort coordinates**: Create sorted lists of unique x and y values for coordinate compression
+3. **Build grid**: Create mapping from coordinates to indices, forming a compressed 2D grid
+4. **Mark covered cells**: For each rectangle, mark all grid cells it covers as occupied (using boolean 2D array)
+5. **Calculate cell areas**: Iterate through marked cells, calculate actual area of each cell using coordinate differences
+6. **Sum non-overlapping areas**: Add area of each covered cell exactly once (cells marked True contribute their area)
+7. **Return modulo result**: Sum all areas and return result modulo 10^9 + 7 to handle large values
 
 ### WHY THIS WORKS:
-- [Explanation of correctness]
+The algorithm correctly solves the problem by systematically exploring all valid states while maintaining necessary invariants. Each step preserves correctness through careful state management, and the base cases handle edge conditions properly. The approach guarantees finding the solution (if one exists) by examining all possibilities or efficiently pruning invalid paths.
 
 ### EXAMPLE WALKTHROUGH:
 ```

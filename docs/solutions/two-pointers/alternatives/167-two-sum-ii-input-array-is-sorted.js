@@ -1,48 +1,83 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * # 167. Two Sum Ii Input Array Is Sorted
+ *
+ * Given a 1-indexed array of integers numbers that is already sorted in non-decreasing order, find two numbers such that they add up to a specific target number. Let these two numbers be numbers[index1] and numbers[index2] where 1 <= index1 < index2 <= numbers.length.
+ *
+ * Return the indices of the two numbers, index1 and index2, added by one as an integer array [index1, index2] of length 2.
+ *
+ * The tests are generated such that there is exactly one solution. You may not use the same element twice.
+ *
+ * Your solution must use only constant extra space.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>[1, 2]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>"Expected {expected}, got {result}"</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>Two numbers [2,7] at indices [1,2] sum to target 9</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * [This problem requires understanding of two pointers concepts. The key insight is to identify the optimal approach for this specific scenario.]
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Analyze the problem**: Understand the input constraints and expected output
+ * 2. **Choose the right technique**: Apply two pointers methodology
+ * 3. **Implement efficiently**: Focus on optimal time and space complexity
+ * 4. **Handle edge cases**: Consider boundary conditions and special cases
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - The solution leverages two pointers principles
+ * - Time complexity is optimized for the given constraints
+ * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: numbers = [2, 7, 11, 15], target = 9
+ *
+ * Step 1: Initialize pointers
+ *   left = 0 (numbers[0] = 2)
+ *   right = 3 (numbers[3] = 15)
+ *
+ * Step 2: First iteration
+ *   current_sum = 2 + 15 = 17
+ *   17 > 9, so move right pointer left
+ *   right = 2
+ *
+ * Step 3: Second iteration
+ *   left = 0 (numbers[0] = 2)
+ *   right = 2 (numbers[2] = 11)
+ *   current_sum = 2 + 11 = 13
+ *   13 > 9, so move right pointer left
+ *   right = 1
+ *
+ * Step 4: Third iteration
+ *   left = 0 (numbers[0] = 2)
+ *   right = 1 (numbers[1] = 7)
+ *   current_sum = 2 + 7 = 9
+ *   9 == 9 ✓ Found!
+ *
+ * Output: [1, 2] (1-indexed positions)
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(1)
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - Empty input handling
+ * - Single element cases
+ * - Large input considerations
  *
  * </details>
  */

@@ -15,11 +15,11 @@ proven that the answer is unique.
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>"abbaca"</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>"ca"</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>After removing adjacent duplicates, 'abbaca' becomes 'ca'</dd>
 </dl>
 
 <details>
@@ -43,14 +43,18 @@ Otherwise, push the character onto the stack.
 - Single pass is sufficient since we process left-to-right
 
 ### EXAMPLE WALKTHROUGH:
-Input:
 ```
-[example input]
+Input: s = "abbaca"
+Step 1: Use stack
+  'a': stack=['a']
+  'b': stack=['a','b']
+  'b': stack=['a'] (removed duplicate)
+  'a': stack=[] (removed duplicate)
+  'c': stack=['c']
+  'a': stack=['c','a']
+
+Output: "ca"
 ```
-
-**Step 1:** [description]
-
-**Step 2:** [description]
 
 ### TIME COMPLEXITY:
 O(n)

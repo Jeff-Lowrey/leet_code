@@ -1,48 +1,93 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Easy
  *
- * [Problem description goes here]
+ * Given two binary strings a and b, return their sum as a binary string.
+ *
+ * Example:
+ * Input: a = "11", b = "1"
+ * Output: "100"
+ *
+ * Example 2:
+ * Input: a = "1010", b = "1011"
+ * Output: "10101"
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>a = "11", b = "1"</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>100"</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>Binary sum '11'+'1'='100'</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * Adding binary numbers is similar to adding decimal numbers, but we work with base 2
+ * instead of base 10. We process digits from right to left, maintaining a carry bit.
+ * When two 1s are added, the result is 0 with a carry of 1. This is a classic simulation
+ * problem that mimics manual binary addition.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Initialize Pointers**: Start from the end of both strings (rightmost digits)
+ * 2. **Track Carry**: Initialize carry to 0
+ * 3. **Process Digits Right to Left**:
+ *    - Get current digit from each string (0 if exhausted)
+ *    - Calculate sum = digit_a + digit_b + carry
+ *    - Current bit = sum % 2
+ *    - New carry = sum // 2
+ * 4. **Build Result**: Prepend each bit to result string
+ * 5. **Handle Final Carry**: Add carry if non-zero after all digits processed
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - Binary addition follows same principle as decimal: digit-by-digit with carry
+ * - Processing right to left handles varying string lengths naturally
+ * - Using modulo and division correctly splits sum into bit and carry
+ * - Building result from right to left matches addition order
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: a = "1010", b = "1011"
+ *
+ * Process from right to left:
+ *
+ * Position 3: 0 + 1 + carry(0) = 1, carry = 0
+ *   Result: "1"
+ *
+ * Position 2: 1 + 1 + carry(0) = 2 (10 in binary)
+ *   Bit: 2 % 2 = 0, carry = 2 // 2 = 1
+ *   Result: "01"
+ *
+ * Position 1: 0 + 0 + carry(1) = 1, carry = 0
+ *   Result: "101"
+ *
+ * Position 0: 1 + 1 + carry(0) = 2 (10 in binary)
+ *   Bit: 2 % 2 = 0, carry = 2 // 2 = 1
+ *   Result: "0101"
+ *
+ * Final carry: 1
+ *   Result: "10101"
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(max(m, n))
+ * - m and n are lengths of input strings
+ * - Process each digit once
+ * - Building result string is O(max(m, n))
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(max(m, n))
+ * - Result string length is at most max(m, n) + 1
+ * - Additional variables use O(1) space
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - Different length strings: Handle with pointer bounds checking
+ * - Result longer than inputs: Happens when final carry is 1
+ * - Empty strings: Should be handled (though problem assumes valid input)
+ * - "0" + "0": Returns "0"
  *
  * </details>
  */

@@ -1,48 +1,73 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * Given an integer array nums and an integer k, return the number of non-empty subarrays
+ * that have a sum divisible by k.
+ *
+ * A subarray is a contiguous part of an array.
+ *
+ * Example:
+ * Input: nums = [4,5,0,-2,-3,1], k = 5
+ * Output: 7
+ * Explanation: There are 7 subarrays with a sum divisible by k = 5:
+ * [4, 5, 0, -2, -3, 1], [5], [5, 0], [5, 0, -2, -3], [0], [0, -2, -3], [-2, -3]
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>nums = [4,5,0,-2,-3,1], k = 5</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>7</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>There are 7 subarrays with sum divisible by k=5</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * Use prefix sum with modulo arithmetic. If two prefix sums have the same remainder
+ * when divided by k, the subarray between them is divisible by k. Track remainder
+ * frequencies in a hash map.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Hash Map**: Store (remainder → frequency) pairs
+ * 2. **Prefix Sum**: Calculate cumulative sum modulo k
+ * 3. **Count**: For each remainder, if seen before, add previous count (all pairs count)
+ * 4. **Normalize**: Handle negative remainders by adding k
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * If prefix[i] % k == prefix[j] % k, then sum(nums[i+1:j+1]) % k == 0.
+ * For n occurrences of a remainder, there are n*(n-1)/2 pairs, but we count
+ * incrementally: each new occurrence pairs with all previous occurrences.
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * nums = [4,5,0,-2,-3,1], k = 5
+ * Prefix sums: [4, 9, 9, 7, 4, 5]
+ * Remainders: [4, 4, 4, 2, 4, 0]
+ *
+ * Initialize: {0: 1}  # remainder 0 before array
+ * Index 0: rem=4, count=0 (not seen), add {0:1, 4:1}
+ * Index 1: rem=4, count=1 (seen once), add {0:1, 4:2}
+ * Index 2: rem=4, count=2 (seen twice), add {0:1, 4:3}
+ * Index 3: rem=2, count=0 (not seen), add {0:1, 4:3, 2:1}
+ * Index 4: rem=4, count=3 (seen 3 times), add {0:1, 4:4, 2:1}
+ * Index 5: rem=0, count=1 (initial 0), add {0:2, 4:4, 2:1}
+ * Total: 0+1+2+0+3+1 = 7
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(min(n, k))
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - k = 1: All subarrays are divisible (return n*(n+1)/2)
+ * - Negative numbers: Modulo normalization handles this
+ * - Zero in array: Doesn't affect divisibility check
  *
  * </details>
  */

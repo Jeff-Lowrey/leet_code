@@ -1,48 +1,70 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Easy
  *
- * [Problem description goes here]
+ * # 121. Best Time to Buy and Sell Stock
+ *
+ * You are given an array prices where prices[i] is the price of a given stock on the ith day.
+ *
+ * You want to maximize your profit by choosing a single day to buy one stock and choosing a different day in the future to sell that stock.
+ *
+ * Return the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>[7,1,5,3,6,4]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>1</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>Maximum profit is 5, achieved by buying at price 1 and selling at price 6</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * To maximize profit, we need to buy at the lowest price and sell at the highest price after the buy date. The key insight is to track the minimum price seen so far and calculate profit at each day.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Track minimum price**: Keep track of lowest price seen so far (best buy day)
+ * 2. **Calculate daily profit**: At each day, calculate profit if we sell today
+ * 3. **Update maximum profit**: Track the best profit seen so far
+ * 4. **Single pass**: Only need one pass through the array
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - We can only sell after we buy, so track minimum price up to current day
+ * - At each day, the best profit is current_price - min_price_so_far
+ * - No need to track actual buy/sell days, just the maximum profit
+ * - Greedy approach: always buy at lowest available price
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: prices = [7,1,5,3,6,4]
+ *
+ * Day 0: price=7, min_price=7, profit=0, max_profit=0
+ * Day 1: price=1, min_price=1, profit=0, max_profit=0
+ * Day 2: price=5, min_price=1, profit=4, max_profit=4 (buy day 1, sell day 2)
+ * Day 3: price=3, min_price=1, profit=2, max_profit=4
+ * Day 4: price=6, min_price=1, profit=5, max_profit=5 (buy day 1, sell day 4)
+ * Day 5: price=4, min_price=1, profit=3, max_profit=5
+ *
+ * Result: 5 (buy at price 1, sell at price 6)
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
+ * Single pass through the prices array
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(1)
+ * Only using constant extra space
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - Prices always decreasing: return 0 (no profit possible)
+ * - Single day: return 0 (need at least 2 days)
+ * - All prices same: return 0 (no profit)
+ * - Empty array: return 0
  *
  * </details>
  */

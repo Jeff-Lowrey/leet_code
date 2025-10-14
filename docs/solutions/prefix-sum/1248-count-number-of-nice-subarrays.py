@@ -11,11 +11,11 @@ Return the number of nice sub-arrays.
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[([1, 1, 2, 1, 1]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>"\nInput: nums={nums}, k={k}"</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>There are 2 nice subarrays (containing exactly k=3 odd numbers)</dd>
 </dl>
 
 <details>

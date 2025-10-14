@@ -16,11 +16,11 @@ Output: [null, 1.0, 5.5, 4.66667, 6.0]
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>MovingAverage(3):</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>next(1): queue=[1], avg=1.0</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Moving average of size 3 for [1,10,3,5] is [1,5.5,4.666..,6]</dd>
 </dl>
 
 <details>
@@ -57,8 +57,11 @@ O(1) per operation
 O(size)
 
 ### EDGE CASES:
-- **[Edge case 1]:** [how it's handled]
-- **[Edge case 2]:** [how it's handled]
+- **Window size 1**: Average equals current value
+- **Fewer than size elements**: Average of elements so far
+- **Exactly size elements**: Window is full, start sliding
+- **More than size elements**: Remove oldest, add newest
+- **Single element stream**: Return that element
 
 </details>
 """

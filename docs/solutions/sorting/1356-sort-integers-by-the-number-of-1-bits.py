@@ -13,11 +13,11 @@ Return the array after sorting it.
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[0, 1, 2, 4, 8, 3, 5, 6, 7]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>1</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Integers sorted by number of 1 bits</dd>
 </dl>
 
 <details>

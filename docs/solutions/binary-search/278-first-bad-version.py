@@ -3,42 +3,65 @@
 
 # 278. First Bad Version
 
-Given a problem that demonstrates key concepts in Binary Search.
+You are a product manager and currently leading a team to develop a new product. Unfortunately, the latest version of your product fails the quality check. Since each version is developed based on the previous version, all the versions after a bad version are also bad.
+
+Suppose you have n versions [1, 2, ..., n] and you want to find out the first bad one, which causes all the following ones to be bad.
+
+You are given an API bool isBadVersion(version) which returns whether version is bad. Implement a function to find the first bad version. You should minimize the number of calls to the API.
 
 **Example:**
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>n = 5, first bad version = 4</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>4 (first bad version)</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>First bad version is found using binary search to minimize API calls</dd>
 </dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
-[This problem requires understanding of binary search concepts. The key insight is to identify the optimal approach for this specific scenario.]
+The versions form a sorted sequence: [good...good, bad...bad]. Use binary search to find the boundary. If mid is bad, the first bad version is at mid or earlier; if good, it's after mid. Converge to the first bad version.
 
 ### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply binary search methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+1. **Initialize search range**: Set left = 1, right = n
+2. **Binary search loop**: While left < right, calculate mid = (left + right) // 2
+3. **Check if bad**: Call isBadVersion(mid) to check if mid version is bad
+4. **Search left half**: If isBadVersion(mid) is True, first bad is in left half including mid, set right = mid
+5. **Search right half**: If isBadVersion(mid) is False, first bad is in right half, set left = mid + 1
+6. **Converge to first bad**: Continue until left == right
+7. **Return result**: Return left as the first bad version
 
 ### WHY THIS WORKS:
-- The solution leverages binary search principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+- Binary search for first occurrence of bad version
+- If isBadVersion(mid) true, search left for earlier bad version (right = mid)
+- If false, search right (left = mid + 1)
+- Minimize API calls by halving search space each iteration
+- O(log n) time, O(1) space
 
 ### EXAMPLE WALKTHROUGH:
 ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
+Input: n = 5, first bad version = 4
+Step 1: Initialize search space
+  left = 1, right = 5
+
+Step 2: Binary search for first bad version
+  mid = 3: isBadVersion(3) = false
+  → Bad version is on right, left = 4
+
+  mid = 4: isBadVersion(4) = true
+  → This or earlier could be first bad, right = 4
+
+  left = right = 4
+
+Step 3: Verify result
+  isBadVersion(4) = true
+  isBadVersion(3) = false
+
+Output: 4 (first bad version)
 ```
 
 ### TIME COMPLEXITY:
@@ -84,35 +107,37 @@ class Solution:
         # At this point, left == right and points to the first bad version
         return left
 
-# Example usage and test cases
-def main():
-    # Note: These test cases won't actually run since isBadVersion is a mock
-    solution = Solution()
-    
-    # Test case 1: n = 5, first bad version = 4
-    print(f"Test 1: {solution.firstBadVersion(5)}")  # Expected: 4
-    
-    # Test case 2: n = 1, first bad version = 1
-    print(f"Test 2: {solution.firstBadVersion(1)}")  # Expected: 1
-    
-    # Test case 3: n = 2, first bad version = 2
-    print(f"Test 3: {solution.firstBadVersion(2)}")  # Expected: 2
+# Mock isBadVersion API for testing
+_bad_version = 4
+
+def isBadVersion(version: int) -> bool:
+    """Mock API that returns True if version is bad."""
+    return version >= _bad_version
 
 def test_solution():
     """
-    Test cases for 278. First Bad Version.
+    Test cases for the solution.
     """
+    global _bad_version
     solution = Solution()
 
-    # Test case 1: Basic functionality
-    # result = solution.solve([test_input])
-    # expected = [expected_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 1: n = 5, first bad version = 4
+    _bad_version = 4
+    result = solution.firstBadVersion(5)
+    expected = 4
+    assert result == expected, f"Expected {expected}, got {result}"
 
-    # Test case 2: Edge case
-    # result = solution.solve([edge_case_input])
-    # expected = [edge_case_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 2: n = 1, first bad version = 1
+    _bad_version = 1
+    result = solution.firstBadVersion(1)
+    expected = 1
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 3: n = 10, first bad version = 7
+    _bad_version = 7
+    result = solution.firstBadVersion(10)
+    expected = 7
+    assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
 

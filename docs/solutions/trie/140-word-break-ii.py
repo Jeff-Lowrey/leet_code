@@ -11,11 +11,11 @@ Note that the same word in the dictionary may be reused multiple times in the se
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>["cat", "cats", "and", "sand", "dog"]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>1</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Word break II splits 'catsanddog' into ['cats and dog', 'cat sand dog']</dd>
 </dl>
 
 <details>

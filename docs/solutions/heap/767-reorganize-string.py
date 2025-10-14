@@ -3,42 +3,59 @@
 
 # 767. Reorganize String
 
-Given a problem that demonstrates key concepts in Heap.
+Given a string s, rearrange the characters of s so that any two adjacent characters are not the same.
+
+Return any possible rearrangement of s or return "" if not possible.
 
 **Example:**
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>"aab"</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>"aba" (reorganized string)</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Reorganized string 'aab' becomes 'aba' (no two adjacent same)</dd>
 </dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
-[This problem requires understanding of heap concepts. The key insight is to identify the optimal approach for this specific scenario.]
+Use max heap to track character frequencies. Greedily pick most frequent character, add to result, decrease count, and temporarily hold it. Add back to heap after one position to ensure no adjacent duplicates.
 
 ### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply heap methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+1. **Count frequencies**: Use Counter(s) to get character frequencies
+2. **Check feasibility**: If max_freq > (len(s) + 1) // 2, return empty string
+3. **Build max heap**: Push (-freq, char) to heap for all characters
+4. **Initialize result**: Set result = [], prev_char = None, prev_freq = 0
+5. **Build string**: While heap not empty, pop (freq, char)
+6. **Add to result**: Append char to result
+7. **Push previous back**: If prev_freq < 0, push (prev_freq, prev_char) to heap
+8. **Update previous**: Set prev_char = char, prev_freq = freq + 1, return ''.join(result)
 
 ### WHY THIS WORKS:
-- The solution leverages heap principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+- Max heap by frequency: greedily place most frequent chars first
+- Always pick most frequent available char (not same as previous)
+- After placing char, decrement count and put back if count > 0
+- If can't place without adjacent duplicates, impossible (return "")
+- O(n log k) time: k unique chars, n total chars, O(k) space for heap
 
 ### EXAMPLE WALKTHROUGH:
 ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
+Input: s = "aab"
+Step 1: Count character frequencies
+  freq = {'a': 2, 'b': 1}
+
+Step 2: Build max heap (using negative frequencies)
+  heap = [(-2, 'a'), (-1, 'b')]
+
+Step 3: Rearrange characters
+  Pick 'a': result = "a", heap = [(-1, 'b'), (-1, 'a')]
+  Pick 'b': result = "ab", heap = [(-1, 'a')]
+  Pick 'a': result = "aba"
+
+Output: "aba" (reorganized string)
 ```
 
 ### TIME COMPLEXITY:
@@ -54,6 +71,9 @@ O(1)
 
 </details>
 """
+
+import heapq
+from collections import Counter
 
 class Solution:
     def reorganizeString(self, s: str) -> str:
@@ -115,19 +135,25 @@ class Solution:
 
 def test_solution():
     """
-    Test cases for 767. Reorganize String.
+    Test cases for the solution.
     """
     solution = Solution()
 
-    # Test case 1: Basic functionality
-    # result = solution.solve([test_input])
-    # expected = [expected_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 1: Example from problem - "aab" can be reorganized to "aba"
+    result = solution.reorganizeString("aab")
+    # Verify no adjacent duplicates and correct length
+    assert len(result) == 3, f"Wrong length: {result}"
+    assert all(result[i] != result[i+1] for i in range(len(result)-1)), f"Has adjacent duplicates: {result}"
 
-    # Test case 2: Edge case
-    # result = solution.solve([edge_case_input])
-    # expected = [edge_case_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 2: Impossible case - too many of one character
+    result = solution.reorganizeString("aaab")
+    expected = ""
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 3: Single character
+    result = solution.reorganizeString("a")
+    expected = "a"
+    assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
 

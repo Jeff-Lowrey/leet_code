@@ -1,48 +1,65 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Easy
  *
- * [Problem description goes here]
+ * Given two strings s and t, return true if t is an anagram of s, and false otherwise.
+ *
+ * An Anagram is a word or phrase formed by rearranging the letters of a different
+ * word or phrase, typically using all the original letters exactly once.
+ *
+ * Example:
+ * Input: s = "anagram", t = "nagaram"
+ * Output: true
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>s = "anagram", t = "nagaram"</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>true</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>The strings 'anagram' and 'nagaram' are anagrams (same character counts)</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * Two strings are anagrams if they contain the exact same characters with the same frequencies. We can verify this by counting character frequencies in both strings.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Length check**: If strings have different lengths, they can't be anagrams
+ * 2. **Count characters**: Use a hash map or array to count frequency of each character
+ * 3. **Compare counts**: Both strings should have identical character frequency distributions
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - Anagrams are rearrangements of the same letters
+ * - Character frequency is invariant under rearrangement
+ * - If two strings have the same character frequencies, they must be anagrams
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * s = "anagram", t = "nagaram"
+ *
+ * Character counts for s:
+ * a: 3, n: 1, g: 1, r: 1, m: 1
+ *
+ * Character counts for t:
+ * n: 1, a: 3, g: 1, r: 1, m: 1
+ *
+ * Both have identical counts → True
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(1) - at most 26 lowercase letters
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - Empty strings → True (both empty)
+ * - Different lengths → False immediately
+ * - Single character → direct comparison
  *
  * </details>
  */

@@ -13,11 +13,11 @@ Return the number of indices where heights[i] != expected[i].
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>Input: heights = [1,1,4,2,1,3]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>Expected (sorted): [1,1,1,2,3,4]</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Minimum swaps needed to sort students by height</dd>
 </dl>
 
 <details>
@@ -59,8 +59,11 @@ O(n)
 For the sorted expected array
 
 ### EDGE CASES:
-- **[Edge case 1]:** [how it's handled]
-- **[Edge case 2]:** [how it's handled]
+- **Already sorted**: Return 0 (no mismatches)
+- **Reverse sorted**: Return n (all positions wrong)
+- **Single element**: Return 0 (trivially sorted)
+- **All same heights**: Return 0 (any order is sorted)
+- **Few elements out of place**: Count specific mismatches
 
 </details>
 """

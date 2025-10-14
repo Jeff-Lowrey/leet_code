@@ -21,11 +21,11 @@ Output: [-1,3,-1]
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>nums1 = [4,1,2], nums2 = [1,3,4,2]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>[-1,3,-1]</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>For each element in nums1, find its next greater element in nums2: [4->-1, 1->3, 2->3]</dd>
 </dl>
 
 <details>
@@ -59,8 +59,11 @@ O(n + m)
 O(n)
 
 ### EDGE CASES:
-- **[Edge case 1]:** [how it's handled]
-- **[Edge case 2]:** [how it's handled]
+- **No greater element exists**: Return -1 for that element
+- **Element not in nums2**: Should not occur (problem guarantees subset)
+- **Increasing sequence**: Next greater is immediate right neighbor
+- **Decreasing sequence**: No next greater for any element
+- **Single element**: Return -1 (no next element)
 
 </details>
 """

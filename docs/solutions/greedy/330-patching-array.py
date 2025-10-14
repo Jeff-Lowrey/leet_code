@@ -13,11 +13,11 @@ Return the minimum number of patches (additions to the array) required.
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[1,3], n = 6</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>1 (patched with 2)</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Minimum 1 patch [3] needed to cover range [1,2,4] to sum 6</dd>
 </dl>
 
 <details>
@@ -36,7 +36,7 @@ need to patch with (covered + 1).
 4. **Greedy choice**: Always patch with (covered + 1) as it doubles our coverage
 
 ### WHY THIS WORKS:
-- [Explanation of correctness]
+The algorithm correctly solves the problem by systematically exploring all valid states while maintaining necessary invariants. Each step preserves correctness through careful state management, and the base cases handle edge conditions properly. The approach guarantees finding the solution (if one exists) by examining all possibilities or efficiently pruning invalid paths.
 
 ### EXAMPLE WALKTHROUGH:
 ```

@@ -14,11 +14,11 @@ least h times.
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>citations = [3,0,6,1,5]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>3</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>H-index for citations [3,0,6,1,5] is 3</dd>
 </dl>
 
 <details>

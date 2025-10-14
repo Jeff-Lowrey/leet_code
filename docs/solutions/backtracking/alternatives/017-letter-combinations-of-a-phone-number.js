@@ -1,48 +1,64 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * # 017. Letter Combinations Of A Phone Number
+ *
+ * Given a string containing digits from 2-9 inclusive, return all possible letter
+ * combinations that the number could represent. Return the answer in any order.
+ *
+ * A mapping of digit to letters (just like on the telephone buttons) is given below:
+ * 2: ABC, 3: DEF, 4: GHI, 5: JKL, 6: MNO, 7: PQRS, 8: TUV, 9: WXYZ
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>"23"</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>{solution.letterCombinations('23')}")</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>All letter combinations of '23' map to ['ad','ae','af','bd','be','bf','cd','ce','cf']</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * This is a classic backtracking problem where we need to generate all possible
+ * combinations. Each digit maps to multiple letters, creating a decision tree
+ * where we explore all paths.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Map digits to letters**: Create a lookup table for phone mappings
+ * 2. **Use backtracking**: Build combinations character by character
+ * 3. **Recursive exploration**: For each digit, try all possible letters
+ * 4. **Base case**: When we've processed all digits, add the combination
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - Backtracking explores all possible paths systematically
+ * - We build combinations incrementally and backtrack when needed
+ * - Each recursive call handles one digit at a time
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: "23"
+ * Step 1: digit '2' -> try 'a', 'b', 'c'
+ * Step 2: For each letter from '2', try letters from '3' -> 'd', 'e', 'f'
+ * Result: ["ad","ae","af","bd","be","bf","cd","ce","cf"]
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(3^N × 4^M)
+ * Where N is number of digits mapping to 3 letters, M is digits mapping to 4 letters
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(3^N × 4^M)
+ * For storing all possible combinations
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - Empty string returns empty list
+ * - Single digit returns all its mapped letters
+ * - Invalid digits (0, 1) are ignored
  *
  * </details>
  */

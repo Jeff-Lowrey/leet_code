@@ -1,48 +1,105 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * # 75. Sort Colors
+ *
+ * Given an array nums with n objects colored red, white, or blue, sort them in-place so that objects
+ * of the same color are adjacent, with the colors in the order red, white, and blue.
+ *
+ * We will use the integers 0, 1, and 2 to represent the color red, white, and blue, respectively.
+ *
+ * You must solve this problem without using the library's sort function.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>[2, 0, 2, 1, 1, 0]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>1</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>Sort colors [2,0,2,1,1,0] in-place to [0,0,1,1,2,2]</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * This is the classic Dutch National Flag problem. We need to partition array into three sections:
+ * all 0s, all 1s, all 2s. Use three pointers to maintain boundaries.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Three pointers**: left (0s boundary), mid (current), right (2s boundary)
+ * 2. **Initialize**: left=0, mid=0, right=n-1
+ * 3. **Process mid pointer**:
+ *    - If nums[mid] == 0: swap with left, move both pointers right
+ *    - If nums[mid] == 1: just move mid right (already in correct region)
+ *    - If nums[mid] == 2: swap with right, move right left (don't move mid yet)
+ * 4. **Continue until mid > right**: All elements processed
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - Left pointer maintains: all elements before left are 0s
+ * - Right pointer maintains: all elements after right are 2s
+ * - Mid pointer scans: checks and places elements
+ * - Invariants preserved throughout
+ * - Single pass is sufficient
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: nums = [2,0,2,1,1,0]
+ *
+ * Initial: left=0, mid=0, right=5
+ * [2,0,2,1,1,0]
+ *  ^
+ *  LM         R
+ *
+ * Step 1: nums[mid]=2, swap with right, right--
+ * [0,0,2,1,1,2]
+ *  ^
+ *  LM       R
+ *
+ * Step 2: nums[mid]=0, swap with left, left++, mid++
+ * [0,0,2,1,1,2]
+ *    ^
+ *    LM     R
+ *
+ * Step 3: nums[mid]=2, swap with right, right--
+ * [0,0,1,1,2,2]
+ *    ^
+ *    LM   R
+ *
+ * Step 4: nums[mid]=1, mid++
+ * [0,0,1,1,2,2]
+ *      ^
+ *      LMR
+ *
+ * Step 5: nums[mid]=1, mid++
+ * [0,0,1,1,2,2]
+ *        ^
+ *        L MR
+ *
+ * Step 6: mid > right, done
+ * [0,0,1,1,2,2]
+ *          ^
+ *          LRM
+ *
+ * Output: [0,0,1,1,2,2] ✓
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
+ * Single pass through array
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(1)
+ * In-place sorting with constant extra space
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - All same color
+ * - Already sorted
+ * - Reverse sorted
+ * - Single element
+ * - Two elements
  *
  * </details>
  */

@@ -15,11 +15,11 @@ Implement the Trie class:
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>Insert "app":</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>root → 'a' → 'p' → 'p' (end=True)</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Trie supports insert, search, and startsWith operations</dd>
 </dl>
 
 <details>
@@ -62,8 +62,11 @@ O(ALPHABET_SIZE × N × M)
 Where N is number of words and M is average length
 
 ### EDGE CASES:
-- **[Edge case 1]:** [how it's handled]
-- **[Edge case 2]:** [how it's handled]
+- **Empty string insertion**: Create root-only path with end marker
+- **Prefix of existing word**: Both word and prefix marked separately
+- **Word is prefix search**: Only return true if end marker present
+- **Non-existent prefix**: Search returns false immediately
+- **Single character words**: Handled like any other word
 
 </details>
 """

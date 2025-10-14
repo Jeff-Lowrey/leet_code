@@ -24,11 +24,11 @@ Output: [[12,0,21,13],[3,8,1,9],[19,7,2,5],[4,6,11,10]]
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[[1, 2, 3]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>1</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>2D grid [[1,2,3],[4,5,6],[7,8,9]] shifted k=1 becomes [[9,1,2],[3,4,5],[6,7,8]]</dd>
 </dl>
 
 <details>

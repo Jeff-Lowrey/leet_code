@@ -1,48 +1,85 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Easy
  *
- * [Problem description goes here]
+ * Given a string s containing just the characters '(', ')', '{', '}', '[' and ']',
+ * determine if the input string is valid.
+ *
+ * An input string is valid if:
+ *
+ *
+ *
+ *
+ * Example 1:
+ * Input: s = "()"
+ * Output: true
+ *
+ * Example 2:
+ * Input: s = "()[]{}"
+ * Output: true
+ *
+ * Example 3:
+ * Input: s = "(]"
+ * Output: false
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>s = "()</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>true</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>Parentheses '()[]{}' are valid (properly closed)</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * This is a classic stack problem. When we encounter an opening bracket, we push it onto the stack.
+ * When we encounter a closing bracket, we check if it matches the most recent opening bracket (top of stack).
+ * If all brackets are properly matched, the stack will be empty at the end.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Use a stack** to track opening brackets
+ * 2. **Push opening brackets** onto the stack
+ * 3. **Pop and check** when encountering closing brackets
+ * 4. **Validate matching** bracket types
+ * 5. **Check empty stack** at the end
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - Stack follows LIFO (Last In, First Out) principle
+ * - This naturally handles the "most recent unmatched opening bracket" requirement
+ * - Each closing bracket must match the most recent opening bracket
+ * - Empty stack at the end means all brackets were properly matched
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: s = "([{}])"
+ *
+ * Step 1: '(' → push to stack: ['(']
+ * Step 2: '[' → push to stack: ['(', '[']
+ * Step 3: '{' → push to stack: ['(', '[', '{']
+ * Step 4: '}' → pop '{', matches ✓, stack: ['(', '[']
+ * Step 5: ']' → pop '[', matches ✓, stack: ['(']
+ * Step 6: ')' → pop '(', matches ✓, stack: []
+ * Result: Empty stack → True
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
+ * Single pass through the string
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
+ * Stack can contain up to n/2 opening brackets in worst case
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - Empty string: Valid (return True)
+ * - Single opening bracket: Invalid
+ * - Single closing bracket: Invalid
+ * - Odd length string: Invalid (can't have balanced brackets)
+ * - Wrong order: "([)]" → Invalid
  *
  * </details>
  */

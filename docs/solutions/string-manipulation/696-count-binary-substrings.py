@@ -17,11 +17,11 @@ Explanation: There are 6 substrings that have equal 0's and 1's: "0011", "01", "
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>s = "00110011"</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>6</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Count of binary substrings with equal consecutive 0s and 1s in '00110011' is 6</dd>
 </dl>
 
 <details>

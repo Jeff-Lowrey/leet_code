@@ -15,11 +15,11 @@ For example, "/leetcode" and "/leetcode/problems" are valid paths while an empty
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>["/a", "/a/b", "/c/d", "/c/d/e", "/c/f"]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>1</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Subfolders are removed: ['/a','/a/b','/c/d'] becomes ['/a','/c/d']</dd>
 </dl>
 
 <details>

@@ -15,11 +15,11 @@ Output: [["bat"],["nat","tan"],["ate","eat","tea"]]
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>strs = ["eat","tea","tan","ate","nat","bat"]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>[["bat"],["nat","tan"],["ate","eat","tea"]]</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Words ['eat','tea','ate'] are anagrams grouped together, as are ['tan','nat'], and ['bat'] alone</dd>
 </dl>
 
 <details>
@@ -66,8 +66,11 @@ Output: [["eat","tea","ate"], ["tan","nat"], ["bat"]]
 O(n × k)
 
 ### EDGE CASES:
-- **[Edge case 1]:** [how it's handled]
-- **[Edge case 2]:** [how it's handled]
+- **Empty string array**: Return empty list
+- **Single string**: Return [[string]]
+- **No anagrams**: Each string in its own group
+- **All anagrams of each other**: Return single group with all strings
+- **Empty strings**: All empty strings grouped together
 
 </details>
 """

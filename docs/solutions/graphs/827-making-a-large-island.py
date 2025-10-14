@@ -13,11 +13,11 @@ An island is a group of 1's connected 4-directionally (horizontal or vertical). 
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[[1,0]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>1</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Largest island after flipping one 0 to 1 has area 5</dd>
 </dl>
 
 <details>
@@ -63,8 +63,11 @@ O(N²)
 For island labeling and size storage
 
 ### EDGE CASES:
-- **[Edge case 1]:** [how it's handled]
-- **[Edge case 2]:** [how it's handled]
+- **All water**: Return 1 (can only change one cell)
+- **All land**: Return total cells (already one island)
+- **No water cells**: Cannot change anything, return current max
+- **Multiple small islands**: Changing water can connect them
+- **Single island**: Changing water expands it by 1
 
 </details>
 """

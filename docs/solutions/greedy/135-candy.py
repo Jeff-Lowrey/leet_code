@@ -17,11 +17,11 @@ the children.
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>Input: ratings = [1,0,2]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>See walkthrough</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Minimum candies to distribute is 5 following the rules</dd>
 </dl>
 
 <details>

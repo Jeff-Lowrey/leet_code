@@ -11,11 +11,11 @@ You have to rotate the image in-place, which means you have to modify the input 
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[[1, 2, 3]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>1</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Matrix rotated 90° clockwise</dd>
 </dl>
 
 <details>

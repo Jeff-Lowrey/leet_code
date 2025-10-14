@@ -18,11 +18,11 @@ Explanation: 11 = `5 + 5` + 1
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>coins = [1,2,5], `amount = 11`</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>3</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Minimum coins to make amount 11 using [1,2,5] is 3 coins: 5+5+1</dd>
 </dl>
 
 <details>
@@ -33,10 +33,16 @@ This is a classic "minimum path to `target`" DP problem. For any amount, we want
 the minimum coins needed. We can build this up from smaller amounts.
 
 ### APPROACH:
-[Detailed explanation of the solution approach]
+1. **Initialize DP array**: Create array of size (amount + 1) filled with infinity, representing minimum coins needed for each amount
+2. **Set base case**: Set dp[0] = 0 (zero coins needed to make amount 0)
+3. **Iterate through amounts**: For each amount from 1 to target, calculate minimum coins needed
+4. **Try each coin**: For current amount i, try using each coin denomination that doesn't exceed i
+5. **Update DP value**: For each valid coin, calculate dp[i - coin] + 1 and take minimum across all coins
+6. **Build up solution**: Each dp[i] is built from previously computed smaller amounts (bottom-up dynamic programming)
+7. **Return result**: Return dp[amount] if reachable (not infinity), otherwise return -1 (impossible to make amount)
 
 ### WHY THIS WORKS:
-- [Explanation of correctness]
+Using BFS with a queue processes nodes level by level. Tracking level size ensures we group nodes correctly. This works because BFS naturally visits nodes in level order, and we can identify level boundaries by counting nodes in the queue at each level's start.
 
 ### EXAMPLE WALKTHROUGH:
 ```

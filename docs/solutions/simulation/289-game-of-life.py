@@ -24,11 +24,11 @@ Output: [[0,0,0],[1,0,1],[0,1,1],[0,1,0]]
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>board` = [[0,1,0],[0,0,1],[1,1,1],[0,0,0]]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>[[0,0,0],[1,0,1],[0,1,1],[0,1,0]]</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>After one step of Game of Life, the board state updates based on neighbor counts</dd>
 </dl>
 
 <details>
@@ -68,8 +68,11 @@ O(m × n)
 O(1)
 
 ### EDGE CASES:
-- **[Edge case 1]:** [how it's handled]
-- **[Edge case 2]:** [how it's handled]
+- **All dead cells**: Remain dead if no neighbors
+- **All live cells**: Most die from overcrowding
+- **Single live cell**: Dies (insufficient neighbors)
+- **Stable patterns**: Some configurations don't change
+- **In-place update**: Use encoding to track current and next state
 
 </details>
 """

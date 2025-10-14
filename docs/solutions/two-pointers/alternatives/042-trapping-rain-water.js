@@ -1,48 +1,64 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * # 042. Trapping Rain Water
+ *
+ * Given n non-negative integers representing an elevation map where the width of each bar is 1, compute how much water it can trap after raining.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>height = [0,1,0,2,1,0,1,3,2,1,2,1]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>6 (total water trapped)</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>Rain water trapped between heights [0,1,0,2,1,0,1,3,2,1,2,1] is 6 units</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * [This problem requires understanding of two pointers concepts. The key insight is to identify the optimal approach for this specific scenario.]
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Analyze the problem**: Understand the input constraints and expected output
+ * 2. **Choose the right technique**: Apply two pointers methodology
+ * 3. **Implement efficiently**: Focus on optimal time and space complexity
+ * 4. **Handle edge cases**: Consider boundary conditions and special cases
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - The solution leverages two pointers principles
+ * - Time complexity is optimized for the given constraints
+ * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: height = [0,1,0,2,1,0,1,3,2,1,2,1]
+ * Step 1: Calculate max heights
+ *   left_max = [0,1,1,2,2,2,2,3,3,3,3,3]
+ *   right_max = [3,3,3,3,3,3,3,3,2,2,2,1]
+ *
+ * Step 2: Calculate water at each position
+ *   i=2: min(1,3)-0 = 1
+ *   i=4: min(2,3)-1 = 1
+ *   i=5: min(2,3)-0 = 2
+ *   ...
+ *
+ * Output: 6 (total water trapped)
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(1)
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - Empty input handling
+ * - Single element cases
+ * - Large input considerations
  *
  * </details>
  */

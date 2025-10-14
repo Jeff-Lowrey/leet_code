@@ -12,11 +12,11 @@ Two nodes of a binary tree are cousins if they have the same depth but have diff
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>Tree:      1</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>/   \\</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Nodes 2 and 3 are not cousins (same parent)</dd>
 </dl>
 
 <details>
@@ -78,6 +78,17 @@ O(w)
 
 </details>
 """
+
+from collections import deque
+
+
+class TreeNode:
+    """Definition for a binary tree node."""
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
 
 class Solution:
     def isCousins(self, root: TreeNode | None, x: int, y: int) -> bool:

@@ -9,11 +9,11 @@ This problem demonstrates key concepts in Strings and Hash Tables.
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>ransomNote = "aa", magazine = "aab"</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>True</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>The ransom note 'aa' cannot be constructed from magazine 'ab' (not enough 'a's)</dd>
 </dl>
 
 <details>

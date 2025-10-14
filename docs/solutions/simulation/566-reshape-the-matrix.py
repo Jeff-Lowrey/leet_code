@@ -27,11 +27,11 @@ Output: [[1,2],[3,4]]
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[[1, 2]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>1</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Reshape [[1,2],[3,4]] from 2×2 to 1×4: [[1,2,3,4]]</dd>
 </dl>
 
 <details>

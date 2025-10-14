@@ -13,11 +13,11 @@ Return the maximum profit you can achieve from this transaction. If you cannot a
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[7,1,5,3,6,4]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>1</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Maximum profit is 5, achieved by buying at price 1 and selling at price 6</dd>
 </dl>
 
 <details>

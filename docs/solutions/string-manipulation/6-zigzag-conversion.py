@@ -20,11 +20,11 @@ Output: "PAHNAPLSIIGYIR"
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>s = "PAYPALISHIRING", numRows = 3</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>PAHNAPLSIIGYIR"</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Zigzag pattern 'PAYPALISHIRING' with 3 rows reads 'PAHNAPLSIIGYIR'</dd>
 </dl>
 
 <details>

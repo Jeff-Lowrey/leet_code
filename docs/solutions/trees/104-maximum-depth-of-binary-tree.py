@@ -11,11 +11,14 @@ A binary tree's maximum depth is the number of nodes along the longest path from
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[("Recursive DFS", solution.maxDepth),
+        ("BFS Level-order", solution.maxDepthBFS),
+        ("Iterative DFS", solution.maxDepthIterativeDFS),
+        ("Preorder traversal", solution.maxDepthPreorder)]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>"{name}: {result}"</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>The maximum depth of the tree is 3 (from root to deepest leaf)</dd>
 </dl>
 
 <details>
@@ -63,8 +66,11 @@ O(h)
 Where h is height of tree (recursion stack or queue size)
 
 ### EDGE CASES:
-- **[Edge case 1]:** [how it's handled]
-- **[Edge case 2]:** [how it's handled]
+- **Empty tree**: Return 0 (no nodes means depth is 0)
+- **Single node**: Return 1 (root node has depth 1)
+- **Linear tree (left/right skewed)**: Depth equals number of nodes
+- **Perfect binary tree**: Depth is log2(n+1) for n nodes
+- **Unbalanced tree**: Return depth of deepest leaf node
 
 </details>
 """

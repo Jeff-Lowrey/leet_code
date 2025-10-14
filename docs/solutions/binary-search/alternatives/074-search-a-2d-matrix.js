@@ -1,48 +1,78 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * # 074. Search A 2D Matrix
+ *
+ * You are given an m x n integer matrix matrix with the following two properties:
+ *
+ * - Each row is sorted in non-decreasing order.
+ * - The first integer of each row is greater than the last integer of the previous row.
+ *
+ * Given an integer target, return true if target is in matrix or false otherwise.
+ *
+ * You must write a solution in O(log(m * n)) time complexity.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>matrix = [[1,3,5,7],[10,11,16,20],[23,30,34,60]], target = 3</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>True (target found)</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>Target 3 is found in the 2D matrix [[1,3,5,7],[10,11,16,20],[23,30,34,60]]</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * [This problem requires understanding of binary search concepts. The key insight is to identify the optimal approach for this specific scenario.]
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Analyze the problem**: Understand the input constraints and expected output
+ * 2. **Choose the right technique**: Apply binary search methodology
+ * 3. **Implement efficiently**: Focus on optimal time and space complexity
+ * 4. **Handle edge cases**: Consider boundary conditions and special cases
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - The solution leverages binary search principles
+ * - Time complexity is optimized for the given constraints
+ * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: matrix = [[1,3,5,7],[10,11,16,20],[23,30,34,60]], target = 3
+ * Step 1: Treat as 1D array
+ *   rows = 3, cols = 4, total = 12 elements
+ *   left = 0, right = 11
+ *
+ * Step 2: Binary search
+ *   mid = 5: row = 5//4 = 1, col = 5%4 = 1
+ *   → matrix[1][1] = 11 > 3, right = 4
+ *
+ *   mid = 2: row = 2//4 = 0, col = 2%4 = 2
+ *   → matrix[0][2] = 5 > 3, right = 1
+ *
+ *   mid = 0: row = 0//4 = 0, col = 0%4 = 0
+ *   → matrix[0][0] = 1 < 3, left = 1
+ *
+ *   mid = 1: row = 1//4 = 0, col = 1%4 = 1
+ *   → matrix[0][1] = 3 == 3 ✓
+ *
+ * Output: True (target found)
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(1)
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - Empty input handling
+ * - Single element cases
+ * - Large input considerations
  *
  * </details>
  */

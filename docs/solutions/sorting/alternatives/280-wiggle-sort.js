@@ -1,48 +1,81 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * # 280. Wiggle Sort
+ *
+ * Given an integer array nums, reorder it such that nums[0] <= nums[1] >= nums[2] <= nums[3]...
+ *
+ * You may assume the input array always has a valid answer.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>[3, 5, 2, 1, 6, 4]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>1</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>Wiggle sort: [3,5,2,1,6,4] becomes [3,5,1,6,2,4]</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * We need alternating pattern: small, large, small, large. We can achieve this in O(n) time
+ * by swapping elements when the pattern is violated, without sorting.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **One-pass swap approach**: Iterate through array
+ * 2. **Check pattern**: At even indices, ensure nums[i] <= nums[i+1]
+ * 3. **At odd indices**: Ensure nums[i] >= nums[i+1]
+ * 4. **Swap if violated**: When pattern is wrong, swap adjacent elements
+ * 5. **Alternative**: Sort and arrange elements
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - At even index i: We want nums[i] <= nums[i+1]
+ *   - If nums[i] > nums[i+1], swap them
+ * - At odd index i: We want nums[i] >= nums[i+1]
+ *   - If nums[i] < nums[i+1], swap them
+ * - After swap, previous conditions remain satisfied
+ * - One pass is sufficient to fix all violations
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: nums = [3,5,2,1,6,4]
+ *
+ * One-pass approach:
+ * i=0 (even): 3 <= 5? YES, no swap -> [3,5,2,1,6,4]
+ * i=1 (odd):  5 >= 2? YES, no swap -> [3,5,2,1,6,4]
+ * i=2 (even): 2 <= 1? NO, swap     -> [3,5,1,2,6,4]
+ * i=3 (odd):  2 >= 6? NO, swap     -> [3,5,1,6,2,4]
+ * i=4 (even): 2 <= 4? YES, no swap -> [3,5,1,6,2,4]
+ *
+ * Final: [3,5,1,6,2,4]
+ * Verify: 3<=5>=1<=6>=2<=4 ✓
+ *
+ * Sorting approach:
+ * Sort: [1,2,3,4,5,6]
+ * Pair and swap:
+ * - Take pairs: (1,2), (3,4), (5,6)
+ * - Swap each pair: (2,1), (4,3), (6,5)
+ * - Result: [2,1,4,3,6,5]
+ * - Verify: 2>=1<=4>=3<=6>=5 ✓
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
+ * Single pass through array with swaps
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(1)
+ * In-place swaps only
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - Array length 1 or 2 (already valid)
+ * - All elements equal
+ * - Already wiggle sorted
+ * - Reverse sorted array
  *
  * </details>
  */

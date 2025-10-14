@@ -9,11 +9,11 @@ Given the root of a binary tree, return an array of the largest value in each ro
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[1, 3, 9]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>1</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Largest value in each tree level: [1,3,9]</dd>
 </dl>
 
 <details>
@@ -71,6 +71,17 @@ O(w)
 
 </details>
 """
+
+from collections import deque
+
+
+class TreeNode:
+    """Definition for a binary tree node."""
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
 
 class Solution:
     def largestValues(self, root: TreeNode | None) -> list[int]:

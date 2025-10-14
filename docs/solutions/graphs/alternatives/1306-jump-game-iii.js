@@ -1,48 +1,78 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * Given an array of non-negative integers arr, you are initially positioned at start index.
+ * When you are at index i, you can jump to i + arr[i] or i - arr[i], check if you can reach
+ * any index with value 0.
+ *
+ * Example:
+ * Input: arr = [4,2,3,0,3,1,2], start = 5
+ * Output: true
+ * Explanation: Jump sequence: 5 → 4 → 1 → 3 (value is 0)
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>arr = [4,2,3,0,3,1,2], start = 5</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>true</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>Starting at index 2, you can reach index 4 by jumping</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * This is a graph reachability problem. Each index is a node, and edges exist to indices
+ * i+arr[i] and i-arr[i]. Use DFS or BFS to explore all reachable indices from start.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Track visited**: Prevent infinite loops
+ * 2. **DFS/BFS**: Explore all reachable indices
+ * 3. **Check zero**: Return true if any visited index has value 0
+ * 4. **Bounds check**: Only jump to valid indices
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * Since we mark visited indices, we explore each node once, avoiding cycles.
+ * If any reachable node has value 0, we return true.
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * arr = [4,2,3,0,3,1,2], start = 5
+ * visited = {}
+ *
+ * DFS(5): arr[5]=1
+ *   - Jump to 5+1=6: DFS(6)
+ *   - Jump to 5-1=4: DFS(4)
+ *
+ * DFS(6): arr[6]=2
+ *   - Jump to 6+2=8: out of bounds
+ *   - Jump to 6-2=4: already visited
+ *
+ * DFS(4): arr[4]=3
+ *   - Jump to 4+3=7: out of bounds
+ *   - Jump to 4-3=1: DFS(1)
+ *
+ * DFS(1): arr[1]=2
+ *   - Jump to 1+2=3: DFS(3)
+ *
+ * DFS(3): arr[3]=0 → return true!
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n) for visited set and recursion/queue
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - **Start at target value**: Return True immediately
+ * - **Infinite loop**: Visited tracking prevents infinite loops
+ * - **All jumps lead out of bounds**: Return False
+ * - **Multiple paths to zero**: BFS/DFS finds any path
+ * - **Single element array**: Check if that element is 0
  *
  * </details>
  */

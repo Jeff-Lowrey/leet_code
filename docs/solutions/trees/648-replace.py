@@ -3,42 +3,57 @@
 
 # 648. Replace
 
-Given a problem that demonstrates key concepts in Trees.
+In English, we have a concept called root, which can be followed by some other word to form another longer word - let's call this word derivative. For example, when the root "help" is followed by the word "ful", we can form a derivative "helpful".
+
+Given a dictionary consisting of many roots and a sentence consisting of words separated by spaces, replace all the derivatives in the sentence with the root forming it. If a derivative can be replaced by more than one root, replace it with the root that has the shortest length.
+
+Return the sentence after the replacement.
 
 **Example:**
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>dictionary = ["cat","bat","rat"], sentence = "the cattle was rattled by the battery"</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>"the cat was rat by the bat"</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Words are replaced by their shortest root: 'cattle' becomes 'cat', 'ratt' becomes 'rat'</dd>
 </dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
-[This problem requires understanding of trees concepts. The key insight is to identify the optimal approach for this specific scenario.]
+Build Trie of dictionary words. For each word in sentence, find shortest prefix in Trie. If found, replace with shortest; otherwise keep original word.
 
 ### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply trees methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+1. **Build trie**: Insert all dictionary words into trie
+2. **Define findRoot**: Implement function to find shortest root for a word
+3. **Traverse trie**: For each character in word, follow trie path
+4. **Found root**: If reach end of word in trie, return prefix
+5. **No root**: If path breaks or no root found, return original word
+6. **Process sentence**: Split sentence, replace each word using findRoot
+7. **Return result**: Join replaced words with spaces
 
 ### WHY THIS WORKS:
-- The solution leverages trees principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+- Trie stores dictionary roots, replace words with shortest matching root
+- For each word in sentence, search trie while traversing characters
+- Stop at first matching root (shortest prefix that's a complete word)
+- If no root found, keep original word
+- O(m + n*k) time: m total dict length, n words in sentence, k avg word length
 
 ### EXAMPLE WALKTHROUGH:
 ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
+Input: dictionary = ["cat","bat","rat"], sentence = "the cattle was rattled by the battery"
+Step 1: Build trie from dictionary
+  Insert: cat, bat, rat
+
+Step 2: Replace each word with shortest root
+  "cattle" → "cat"
+  "rattled" → "rat"
+  "battery" → "bat"
+
+Output: "the cat was rat by the bat"
 ```
 
 ### TIME COMPLEXITY:
@@ -54,6 +69,8 @@ O(1)
 
 </details>
 """
+
+from typing import List, Optional, Dict, Tuple
 
 class Solution:
     def replaceWords(self, dictionary: List[str], sentence: str) -> str:
@@ -98,19 +115,19 @@ class Solution:
 
 def test_solution():
     """
-    Test cases for 648. Replace.
+    Test cases for the solution.
     """
     solution = Solution()
 
-    # Test case 1: Basic functionality
-    # result = solution.solve([test_input])
-    # expected = [expected_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 1: Example from problem
+    result = solution.replaceWords(["cat", "bat", "rat"], "the cattle was rattled by the battery")
+    expected = "the cat was rat by the bat"
+    assert result == expected, f"Expected {expected}, got {result}"
 
-    # Test case 2: Edge case
-    # result = solution.solve([edge_case_input])
-    # expected = [edge_case_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 2: Empty dictionary
+    result = solution.replaceWords([], "hello world")
+    expected = "hello world"
+    assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
 

@@ -18,11 +18,11 @@ Return the modified image after performing the flood fill.
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[[1,1,1]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>1</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Flood fill changes connected cells [1,1,1] from color 1 to 2</dd>
 </dl>
 
 <details>

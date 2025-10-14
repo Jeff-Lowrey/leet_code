@@ -3,42 +3,74 @@
 
 # 167. Two Sum Ii Input Array Is Sorted
 
-Given a problem that demonstrates key concepts in Two Pointers.
+Given a 1-indexed array of integers numbers that is already sorted in non-decreasing order, find two numbers such that they add up to a specific target number. Let these two numbers be numbers[index1] and numbers[index2] where 1 <= index1 < index2 <= numbers.length.
+
+Return the indices of the two numbers, index1 and index2, added by one as an integer array [index1, index2] of length 2.
+
+The tests are generated such that there is exactly one solution. You may not use the same element twice.
+
+Your solution must use only constant extra space.
 
 **Example:**
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[1, 2]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>"Expected {expected}, got {result}"</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Two numbers [2,7] at indices [1,2] sum to target 9</dd>
 </dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
-[This problem requires understanding of two pointers concepts. The key insight is to identify the optimal approach for this specific scenario.]
+Array is sorted, so use two pointers from both ends. If sum < target, move left pointer right. If sum > target, move right pointer left. If equal, found the pair.
 
 ### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply two pointers methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+1. **Initialize pointers**: Set left = 0, right = len(numbers) - 1
+2. **Loop while left < right**: Continue until pointers meet
+3. **Calculate sum**: current_sum = numbers[left] + numbers[right]
+4. **Check if found**: If current_sum == target, return [left+1, right+1]
+5. **Adjust pointers**: If current_sum < target, increment left; else decrement right
+6. **Continue search**: Repeat until target found
+7. **Return result**: Return indices of the two numbers
 
 ### WHY THIS WORKS:
-- The solution leverages two pointers principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+- Two pointers: left at start, right at end
+- If sum < target, increment left (need larger value)
+- If sum > target, decrement right (need smaller value)
+- If sum == target, found pair
+- O(n) time single pass, O(1) space, exploits sorted property
 
 ### EXAMPLE WALKTHROUGH:
 ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
+Input: numbers = [2, 7, 11, 15], target = 9
+
+Step 1: Initialize pointers
+  left = 0 (numbers[0] = 2)
+  right = 3 (numbers[3] = 15)
+
+Step 2: First iteration
+  current_sum = 2 + 15 = 17
+  17 > 9, so move right pointer left
+  right = 2
+
+Step 3: Second iteration
+  left = 0 (numbers[0] = 2)
+  right = 2 (numbers[2] = 11)
+  current_sum = 2 + 11 = 13
+  13 > 9, so move right pointer left
+  right = 1
+
+Step 4: Third iteration
+  left = 0 (numbers[0] = 2)
+  right = 1 (numbers[1] = 7)
+  current_sum = 2 + 7 = 9
+  9 == 9 ✓ Found!
+
+Output: [1, 2] (1-indexed positions)
 ```
 
 ### TIME COMPLEXITY:
@@ -54,6 +86,8 @@ O(1)
 
 </details>
 """
+
+from typing import List, Optional, Dict, Tuple
 
 class Solution:
     def twoSum(self, numbers: List[int], target: int) -> List[int]:
@@ -92,19 +126,19 @@ class Solution:
 
 def test_solution():
     """
-    Test cases for 167. Two Sum Ii Input Array Is Sorted.
+    Test cases for the solution.
     """
     solution = Solution()
 
-    # Test case 1: Basic functionality
-    # result = solution.solve([test_input])
-    # expected = [expected_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 1: Example from problem
+    result = solution.twoSum([2, 7, 11, 15], target = 9)
+    expected = [1, 2]
+    assert result == expected, f"Expected {expected}, got {result}"
 
-    # Test case 2: Edge case
-    # result = solution.solve([edge_case_input])
-    # expected = [edge_case_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 2: Different numbers
+    result = solution.twoSum([1,2,3,4], 7)
+    expected = [3, 4]
+    assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
 

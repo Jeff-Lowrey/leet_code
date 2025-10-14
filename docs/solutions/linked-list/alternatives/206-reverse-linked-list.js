@@ -1,48 +1,89 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * # 206. Reverse Linked List
+ *
+ * Given the head of a singly linked list, reverse the list, and return the reversed list.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>1 → 2 → 3 → 4 → 5 → null</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>5 → 4 → 3 → 2 → 1 → null</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>The list is reversed so that the last node becomes the first: 5->4->3->2->1</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * [This problem requires understanding of linked list concepts. The key insight is to identify the optimal approach for this specific scenario.]
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Analyze the problem**: Understand the input constraints and expected output
+ * 2. **Choose the right technique**: Apply linked list methodology
+ * 3. **Implement efficiently**: Focus on optimal time and space complexity
+ * 4. **Handle edge cases**: Consider boundary conditions and special cases
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - The solution leverages linked list principles
+ * - Time complexity is optimized for the given constraints
+ * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: 1 → 2 → 3 → 4 → 5 → null
+ *
+ * Step 1: Initialize
+ *   prev = null
+ *   current = 1
+ *
+ * Step 2: Process node 1
+ *   next_temp = 2
+ *   1.next = null
+ *   prev = 1, current = 2
+ *   Result: null ← 1   2 → 3 → 4 → 5
+ *
+ * Step 3: Process node 2
+ *   next_temp = 3
+ *   2.next = 1
+ *   prev = 2, current = 3
+ *   Result: null ← 1 ← 2   3 → 4 → 5
+ *
+ * Step 4: Process node 3
+ *   next_temp = 4
+ *   3.next = 2
+ *   prev = 3, current = 4
+ *   Result: null ← 1 ← 2 ← 3   4 → 5
+ *
+ * Step 5: Process node 4
+ *   next_temp = 5
+ *   4.next = 3
+ *   prev = 4, current = 5
+ *   Result: null ← 1 ← 2 ← 3 ← 4   5
+ *
+ * Step 6: Process node 5
+ *   next_temp = null
+ *   5.next = 4
+ *   prev = 5, current = null
+ *   Result: null ← 1 ← 2 ← 3 ← 4 ← 5
+ *
+ * Output: 5 → 4 → 3 → 2 → 1 → null
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(1)
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - Empty input handling
+ * - Single element cases
+ * - Large input considerations
  *
  * </details>
  */

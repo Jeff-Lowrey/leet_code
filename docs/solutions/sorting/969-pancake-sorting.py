@@ -19,11 +19,11 @@ Any valid answer that sorts the array within 10 * arr.length flips will be accep
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[3, 2, 4, 1]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>1</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Pancake sort of [3,2,4,1] uses flips [4,2,3,2]</dd>
 </dl>
 
 <details>

@@ -1,48 +1,70 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * # 137. Single Number II
+ *
+ * Given an integer array nums where every element appears three times except for one, which appears exactly once. Find the single element and return it.
+ *
+ * You must implement a solution with a linear runtime complexity and use only constant extra space.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>[2,2,3,2]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>3 (single number)</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>The single number 3 appears once in [2,2,3,2] (all others appear thrice)</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * [This problem requires understanding of bit manipulation concepts. The key insight is to identify the optimal approach for this specific scenario.]
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Analyze the problem**: Understand the input constraints and expected output
+ * 2. **Choose the right technique**: Apply bit manipulation methodology
+ * 3. **Implement efficiently**: Focus on optimal time and space complexity
+ * 4. **Handle edge cases**: Consider boundary conditions and special cases
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - The solution leverages bit manipulation principles
+ * - Time complexity is optimized for the given constraints
+ * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: nums = [2,2,3,2]
+ * Step 1: Count bits at each position
+ *   Binary representations:
+ *   2 = 010
+ *   2 = 010
+ *   3 = 011
+ *   2 = 010
+ *
+ *   Bit 0: appears 1 time → 1 % 3 = 1
+ *   Bit 1: appears 4 times → 4 % 3 = 1
+ *   Bit 2: appears 0 times → 0 % 3 = 0
+ *
+ * Step 2: Build result from remaining bits
+ *   result = 011 (binary) = 3 (decimal)
+ *
+ * Output: 3 (single number)
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(1)
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - Empty input handling
+ * - Single element cases
+ * - Large input considerations
  *
  * </details>
  */

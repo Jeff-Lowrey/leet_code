@@ -12,11 +12,11 @@ Output: "s'teL ekat edoCteeL tsetnoc"
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>s = "Let's take LeetCode contest"</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>s'teL ekat edoCteeL tsetnoc"</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Reverse each word: 'Let's take LeetCode contest' becomes 's'teL ekat edoCteeL tsetnoc'</dd>
 </dl>
 
 <details>

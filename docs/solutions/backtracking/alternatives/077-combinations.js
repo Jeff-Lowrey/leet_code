@@ -1,48 +1,68 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * # 077. Combinations
+ *
+ * Given two integers n and k, return all possible combinations of k numbers chosen from the range [1, n].
+ *
+ * You may return the answer in any order.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>[[1,2]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>"Expected {expected}, got {result}"</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>All 2-combinations from [1,2,3,4] are [[1,2],[1,3],[1,4],[2,3],[2,4],[3,4]]</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * [This problem requires understanding of backtracking concepts. The key insight is to identify the optimal approach for this specific scenario.]
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Analyze the problem**: Understand the input constraints and expected output
+ * 2. **Choose the right technique**: Apply backtracking methodology
+ * 3. **Implement efficiently**: Focus on optimal time and space complexity
+ * 4. **Handle edge cases**: Consider boundary conditions and special cases
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - The solution leverages backtracking principles
+ * - Time complexity is optimized for the given constraints
+ * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: n = 4, k = 2
+ * Step 1: Start backtracking with empty combination
+ *   Try 1: curr = [1]
+ *     Try 2: curr = [1,2] → len=k, add [1,2] to result
+ *     Try 3: curr = [1,3] → len=k, add [1,3] to result
+ *     Try 4: curr = [1,4] → len=k, add [1,4] to result
+ *   Try 2: curr = [2]
+ *     Try 3: curr = [2,3] → len=k, add [2,3] to result
+ *     Try 4: curr = [2,4] → len=k, add [2,4] to result
+ *   Try 3: curr = [3]
+ *     Try 4: curr = [3,4] → len=k, add [3,4] to result
+ *   Try 4: curr = [4] → can't form combination of size 2
+ *
+ * Output: [[1,2],[1,3],[1,4],[2,3],[2,4],[3,4]]
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(1)
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - Empty input handling
+ * - Single element cases
+ * - Large input considerations
  *
  * </details>
  */

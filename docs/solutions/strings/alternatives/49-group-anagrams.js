@@ -1,48 +1,88 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * # 49. Group Anagrams
+ *
+ * This problem demonstrates key concepts in Hash Tables and String manipulation.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>[["eat", "tea", "ate"]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>1</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>Words ['eat','tea','ate'] are anagrams grouped together, as are ['tan','nat'], and ['bat'] alone</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * Anagrams are words that contain the same characters with the same frequencies, just rearranged.
+ * To group anagrams together, we need a way to identify which words are anagrams of each other.
+ * The key insight is that anagrams will have the same "signature" - either the same sorted string
+ * or the same character frequency pattern.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Create signature for each word**: Sort characters or count character frequencies
+ * 2. **Use signature as hash key**: Group words with the same signature together
+ * 3. **Build groups**: Use a hash map where keys are signatures and values are lists of anagrams
+ * 4. **Return all groups**: Extract all values from the hash map
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - Anagrams have identical sorted strings (e.g., "eat" and "tea" both become "aet")
+ * - Hash map provides O(1) average time for grouping
+ * - All words with the same signature are guaranteed to be anagrams
+ * - This approach naturally groups anagrams without comparing every pair
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: strs = ["eat","tea","tan","ate","nat","bat"]
+ *
+ * Step 1: Process "eat"
+ *   - Sort: "aet"
+ *   - Map: {"aet": ["eat"]}
+ *
+ * Step 2: Process "tea"
+ *   - Sort: "aet"
+ *   - Map: {"aet": ["eat", "tea"]}
+ *
+ * Step 3: Process "tan"
+ *   - Sort: "ant"
+ *   - Map: {"aet": ["eat", "tea"], "ant": ["tan"]}
+ *
+ * Step 4: Process "ate"
+ *   - Sort: "aet"
+ *   - Map: {"aet": ["eat", "tea", "ate"], "ant": ["tan"]}
+ *
+ * Step 5: Process "nat"
+ *   - Sort: "ant"
+ *   - Map: {"aet": ["eat", "tea", "ate"], "ant": ["tan", "nat"]}
+ *
+ * Step 6: Process "bat"
+ *   - Sort: "abt"
+ *   - Map: {"aet": ["eat", "tea", "ate"], "ant": ["tan", "nat"], "abt": ["bat"]}
+ *
+ * Output: [["eat","tea","ate"], ["tan","nat"], ["bat"]]
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n * k log k)
+ * Where n is the number of strings and k is the maximum length of a string. For each string,
+ * we sort it (O(k log k)). If we use character counting instead, it's O(n * k).
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n * k)
+ * We store all n strings in the hash map, and the total space for storing them is O(n * k).
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - Empty array: Return empty array
+ * - Single string: Return array with one group containing that string
+ * - No anagrams: Each string in its own group
+ * - All anagrams: Single group with all strings
+ * - Empty strings: Empty strings are anagrams of each other
  *
  * </details>
  */

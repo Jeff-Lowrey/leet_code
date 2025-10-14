@@ -1,48 +1,66 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * # 088. Merge Sorted Array
+ *
+ * You are given two integer arrays nums1 and nums2, sorted in non-decreasing order, and two integers m and n, representing the number of elements in nums1 and nums2 respectively.
+ *
+ * Merge nums1 and nums2 into a single array sorted in non-decreasing order.
+ *
+ * The final sorted array should not be returned by the function, but instead be stored inside the array nums1. To accommodate this, nums1 has a length of m + n, where the first m elements denote the elements that should be merged, and the last n elements are set to 0 and should be ignored. nums2 has a length of n.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>[1,2,2,3,5,6]</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>Merge [1,2,3,0,0,0] and [2,5,6] into [1,2,2,3,5,6]</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * [This problem requires understanding of two pointers concepts. The key insight is to identify the optimal approach for this specific scenario.]
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Analyze the problem**: Understand the input constraints and expected output
+ * 2. **Choose the right technique**: Apply two pointers methodology
+ * 3. **Implement efficiently**: Focus on optimal time and space complexity
+ * 4. **Handle edge cases**: Consider boundary conditions and special cases
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - The solution leverages two pointers principles
+ * - Time complexity is optimized for the given constraints
+ * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3
+ * Step 1: Three pointers (fill from right)
+ *   p1=2, p2=2, p=5: nums1[5]=max(3,6)=6
+ *   p1=2, p2=1, p=4: nums1[4]=max(3,5)=5
+ *   p1=2, p2=0, p=3: nums1[3]=max(3,2)=3
+ *   p1=1, p2=0, p=2: nums1[2]=max(2,2)=2
+ *   p1=0, p2=0, p=1: nums1[1]=max(1,2)=2
+ *   p1=0, p=0: nums1[0]=1
+ *
+ * Output: [1,2,2,3,5,6]
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(1)
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - Empty input handling
+ * - Single element cases
+ * - Large input considerations
  *
  * </details>
  */

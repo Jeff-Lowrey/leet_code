@@ -1,48 +1,73 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: 
  *
- * [Problem description goes here]
+ * # 059. Spiral Matrix II
+ * **Layer-by-Layer**
+ *
+ * Generate an n x n matrix filled with elements from 1 to n^2 in spiral order.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>[[1]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>1</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>Spiral matrix filled 1 to n²</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * Fill the matrix in layers, moving right, down, left, up in each layer, spiraling inward.
+ * Track boundaries and shrink them as each direction completes.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Initialize boundaries**: top, bottom, left, right
+ * 2. **Fill right**: Move right along top row, increment top
+ * 3. **Fill down**: Move down along right column, decrement right
+ * 4. **Fill left**: Move left along bottom row, decrement bottom
+ * 5. **Fill up**: Move up along left column, increment left
+ * 6. **Repeat**: Continue until all cells filled
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - Layer-by-layer approach systematically fills spiral
+ * - Boundary tracking prevents revisiting cells
+ * - Four directional movements complete each layer
+ * - Counter increments sequentially from 1 to n^2
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: n = 3
+ *
+ * Step 1: Fill right: [1,2,3]
+ * Step 2: Fill down:  [_,_,4]
+ *                     [_,_,5]
+ * Step 3: Fill left:  [_,_,_]
+ *                     [_,_,_]
+ *                     [9,8,7]
+ * Step 4: Fill up:    [_,_,_]
+ *                     [6,_,_]
+ * Step 5: Fill center: [_,_,_]
+ *                      [_,5,_]
+ *
+ * Output: [[1,2,3],
+ *          [8,9,4],
+ *          [7,6,5]]
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n^2) - visit each cell once
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n^2) - output matrix (O(1) excluding output)
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - n = 1 (single cell)
+ * - Even vs odd n (center handling)
+ * - Boundary conditions
  *
  * </details>
  */

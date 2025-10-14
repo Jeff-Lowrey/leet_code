@@ -1,48 +1,67 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Easy
  *
- * [Problem description goes here]
+ * # 136. Single Number
+ *
+ * Given a non-empty array of integers nums, every element appears twice except for one. Find that single one.
+ *
+ * You must implement a solution with a linear runtime complexity and use only constant extra space.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>[2,2,1]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>1 (the single number)</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>The single number 4 appears once in [2,2,1,4,1] (all others appear twice)</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * This is a classic bit manipulation problem. The key insight is that XOR has special properties:
+ * - a ^ a = 0 (any number XORed with itself is 0)
+ * - a ^ 0 = a (any number XORed with 0 is itself)
+ * - XOR is commutative and associative
+ *
+ * So if we XOR all numbers together, the duplicates cancel out, leaving only the single number.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Initialize result**: Start with 0
+ * 2. **XOR all elements**: XOR each number with the result
+ * 3. **Return result**: The final value is the single number
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - Duplicate numbers cancel out: a ^ a = 0
+ * - XOR with 0 preserves the value: a ^ 0 = a
+ * - Order doesn't matter due to commutativity
+ * - All duplicates disappear, leaving only the single number
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: [2,2,1]
+ * Step 1: result = 0
+ * Step 2: result = 0 ^ 2 = 2
+ * Step 3: result = 2 ^ 2 = 0 (duplicate cancels out)
+ * Step 4: result = 0 ^ 1 = 1
+ * Output: 1 (the single number)
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
+ * Single pass through the array
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(1)
+ * Only using constant extra space
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - Single element array
+ * - Large arrays with many duplicates
+ * - Negative numbers (XOR works the same)
  *
  * </details>
  */

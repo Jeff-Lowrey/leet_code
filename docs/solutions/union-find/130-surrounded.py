@@ -3,42 +3,54 @@
 
 # 130. Surrounded
 
-Given a problem that demonstrates key concepts in Union Find.
+Given an m x n matrix board containing 'X' and 'O', capture all regions that are 4-directionally surrounded by 'X'.
+
+A region is captured by flipping all 'O's into 'X's in that surrounded region.
 
 **Example:**
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>board = [["X","X","X","X"],["X","O","O","X"],["X","X","O","X"],["X","O","X","X"]]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>[["X","X","X","X"],["X","X","X","X"],["X","X","X","X"],["X","O","X","X"]]</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Surrounded regions: 'X' regions surrounded by 'O' are captured</dd>
 </dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
-[This problem requires understanding of union find concepts. The key insight is to identify the optimal approach for this specific scenario.]
+Use Union-Find to connect adjacent 'X' cells. For border 'O' cells, connect to virtual border node. After processing, 'O' cells not connected to border should be flipped to 'X'.
 
 ### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply union find methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+1. **Initialize Union-Find**: Create parent array and find/union functions
+2. **Connect border Os**: Union all 'O' cells on borders with a dummy border node
+3. **Connect internal Os**: Union all adjacent 'O' cells in interior
+4. **Identify surrounded**: After unions, check if each 'O' is connected to border
+5. **Flip if surrounded**: If 'O' not connected to border, change to 'X'
+6. **Keep if connected**: If connected to border, keep as 'O'
+7. **Modify in-place**: Update board directly
 
 ### WHY THIS WORKS:
-- The solution leverages union find principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+- Union-find or DFS from borders to mark unsurrounded regions
+- Start DFS/BFS from 'O' cells on borders (these can't be surrounded)
+- Mark all connected 'O' cells as safe (connected to border)
+- Flip all unmarked 'O' to 'X' (these are surrounded)
+- O(m*n) time: visit each cell once, O(m*n) space for visited/parent array
 
 ### EXAMPLE WALKTHROUGH:
 ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
+Input: board = [["X","X","X","X"],["X","O","O","X"],["X","X","O","X"],["X","O","X","X"]]
+Step 1: Mark border-connected 'O's
+  (1,1), (1,2), (2,2) are surrounded
+  (3,1) is connected to border
+
+Step 2: Flip surrounded 'O's to 'X'
+  Only flip (1,1), (1,2), (2,2)
+
+Output: [["X","X","X","X"],["X","X","X","X"],["X","X","X","X"],["X","O","X","X"]]
 ```
 
 ### TIME COMPLEXITY:
@@ -54,6 +66,8 @@ O(1)
 
 </details>
 """
+
+from typing import List, Optional, Dict, Tuple
 
 class Solution:
     def solve(self, board: List[List[str]]) -> None:
@@ -114,19 +128,39 @@ class Solution:
 
 def test_solution():
     """
-    Test cases for 130. Surrounded.
+    Test cases for the solution.
     """
     solution = Solution()
 
-    # Test case 1: Basic functionality
-    # result = solution.solve([test_input])
-    # expected = [expected_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 1: Example from problem
+    board1 = [["X","X","X","X"],["X","O","O","X"],["X","X","O","X"],["X","O","X","X"]]
+    solution.solve(board1)
+    expected1 = [["X","X","X","X"],["X","X","X","X"],["X","X","X","X"],["X","O","X","X"]]
+    assert board1 == expected1, f"Expected {expected1}, got {board1}"
 
-    # Test case 2: Edge case
-    # result = solution.solve([edge_case_input])
-    # expected = [edge_case_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 2: All surrounded
+    board2 = [["X","X","X"],["X","O","X"],["X","X","X"]]
+    solution.solve(board2)
+    expected2 = [["X","X","X"],["X","X","X"],["X","X","X"]]
+    assert board2 == expected2, f"Expected {expected2}, got {board2}"
+
+    # Test case 3: Border connected
+    board3 = [["O","O"],["O","O"]]
+    solution.solve(board3)
+    expected3 = [["O","O"],["O","O"]]
+    assert board3 == expected3, f"Expected {expected3}, got {board3}"
+
+    # Test case 4: Empty board
+    board4 = []
+    result = solution.solve(board4)
+    expected = None
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 5: Single cell
+    board5 = [["O"]]
+    solution.solve(board5)
+    expected5 = [["O"]]
+    assert board5 == expected5, f"Expected {expected5}, got {board5}"
 
     print("All test cases passed!")
 

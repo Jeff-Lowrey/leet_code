@@ -1,48 +1,70 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Easy
  *
- * [Problem description goes here]
+ * Write a function that takes the binary representation of a positive integer and returns
+ * the number of set bits it has (also known as the Hamming weight).
+ *
+ * Example:
+ * Input: n = 11
+ * Output: 3
+ * Explanation: The input binary string 1011 has three set bits.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>n = 11</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>3</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>Number 11 (binary 1011) has 3 set bits</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * Use bit manipulation to count 1s. The key insight is `n & (n-1)` removes the rightmost
+ * set bit, allowing us to count iterations until n becomes 0.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Brian Kernighan's Algorithm**: n & (n-1) flips rightmost 1-bit to 0
+ * 2. **Count iterations**: Each operation removes one 1-bit
+ * 3. **Terminate**: When n becomes 0, all 1-bits have been counted
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * n-1 flips all bits after the rightmost 1 (including the 1 itself).
+ * AND-ing with n keeps only the bits that were 1 in both, effectively removing that rightmost 1.
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * n = 11 (binary: 1011)
+ * Count = 0
+ *
+ * Iteration 1: n = 1011, n-1 = 1010
+ * n & (n-1) = 1010, count = 1
+ *
+ * Iteration 2: n = 1010, n-1 = 1001
+ * n & (n-1) = 1000, count = 2
+ *
+ * Iteration 3: n = 1000, n-1 = 0111
+ * n & (n-1) = 0000, count = 3
+ *
+ * Result: 3
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(k) where k is number of 1-bits
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(1)
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - **n = 0**: Return 0 (no 1 bits)
+ * - **n = 1**: Return 1 (single 1 bit)
+ * - **All bits are 1**: Return 32 for 32-bit integer
+ * - **Single bit set**: Return 1
+ * - **Power of 2**: Exactly one 1 bit
  *
  * </details>
  */

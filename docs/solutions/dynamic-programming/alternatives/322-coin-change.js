@@ -1,48 +1,77 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * You are given an integer array coins representing coins of different denominations
+ * and an integer amount representing a total amount of money.
+ *
+ * Return the fewest number of coins that you need to make up that amount. If that
+ * amount of money cannot be made up by any combination of the coins, `return -1`.
+ *
+ * You may assume that you have an infinite number of each kind of coin.
+ *
+ * Example:
+ * Input: coins = [1,2,5], `amount = 11`
+ * Output: 3
+ * Explanation: 11 = `5 + 5` + 1
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>coins = [1,2,5], `amount = 11`</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>3</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>Minimum coins to make amount 11 using [1,2,5] is 3 coins: 5+5+1</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * This is a classic "minimum path to `target`" DP problem. For any amount, we want
+ * the minimum coins needed. We can build this up from smaller amounts.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Initialize DP array**: Create array of size (amount + 1) filled with infinity, representing minimum coins needed for each amount
+ * 2. **Set base case**: Set dp[0] = 0 (zero coins needed to make amount 0)
+ * 3. **Iterate through amounts**: For each amount from 1 to target, calculate minimum coins needed
+ * 4. **Try each coin**: For current amount i, try using each coin denomination that doesn't exceed i
+ * 5. **Update DP value**: For each valid coin, calculate dp[i - coin] + 1 and take minimum across all coins
+ * 6. **Build up solution**: Each dp[i] is built from previously computed smaller amounts (bottom-up dynamic programming)
+ * 7. **Return result**: Return dp[amount] if reachable (not infinity), otherwise return -1 (impossible to make amount)
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * Using BFS with a queue processes nodes level by level. Tracking level size ensures we group nodes correctly. This works because BFS naturally visits nodes in level order, and we can identify level boundaries by counting nodes in the queue at each level's start.
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * coins = [1,2,5], `amount = 11`
+ *
+ * dp[0] = 0
+ * dp[1] = 1 (use coin 1)
+ * dp[2] = 1 (use coin 2)
+ * dp[3] = 2 (use coin `2 + coin` 1)
+ * dp[4] = 2 (use coin `2 + coin` 2)
+ * dp[5] = 1 (use coin 5)
+ * dp[6] = 2 (use coin `5 + coin` 1)
+ * ...
+ * dp[11] = 3 (use coin `5 + coin` `5 + coin` 1)
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(amount × len(coins))
+ * For each amount from 1 to target, try all coins
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(amount)
+ * DP array of size amount + 1
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - Amount is 0: return 0 (no coins needed)
+ * - No solution possible: return -1
+ * - Single coin type: straightforward calculation
+ * - Large amounts: DP handles efficiently
  *
  * </details>
  */

@@ -1,48 +1,74 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Easy
  *
- * [Problem description goes here]
+ * # 733. Flood Fill
+ *
+ * An image is represented by an m x n integer grid image where image[i][j] represents
+ * the pixel value of the image. You are also given three integers sr, sc, and color.
+ * You should perform a flood fill on the image starting from the pixel image[sr][sc].
+ *
+ * To perform a flood fill, consider the starting pixel, plus any pixels connected
+ * 4-directionally to the starting pixel of the same color as the starting pixel,
+ * plus any pixels connected 4-directionally to those pixels (also with the same color),
+ * and so on. Replace the color of all of the aforementioned pixels with color.
+ *
+ * Return the modified image after performing the flood fill.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>[[1,1,1]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>1</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>Flood fill changes connected cells [1,1,1] from color 1 to 2</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * Flood fill is a classic graph traversal problem similar to DFS. We start from
+ * a pixel and spread to all connected pixels of the same color, changing them
+ * to the new color. It's like the paint bucket tool in image editors.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Check validity**: Ensure starting position is within bounds
+ * 2. **Get original color**: Store the color we're replacing
+ * 3. **Early exit**: If new color equals original color, no work needed
+ * 4. **DFS traversal**: Recursively visit all connected same-colored pixels
+ * 5. **4-directional movement**: Check up, down, left, right neighbors
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - DFS naturally explores all connected components
+ * - We change color as we visit to avoid revisiting
+ * - 4-directional connectivity mimics pixel adjacency
+ * - Recursion handles the spreading pattern automatically
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: image = [[1,1,1],[1,1,0],[1,0,1]], sr = 1, sc = 1, color = 2
+ * Original color at (1,1) = 1
+ * Step 1: Change (1,1) to 2, explore neighbors
+ * Step 2: Change (0,0) to 2, change (0,1) to 2, change (0,2) to 2
+ * Step 3: Change (1,0) to 2, change (2,0) to 2
+ * Output: [[2,2,2],[2,2,0],[2,0,1]]
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(m×n)
+ * Where m, n are image dimensions - worst case visit all pixels
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(m×n)
+ * For recursion stack in worst case (straight line of same color)
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - Starting pixel already has target color
+ * - Single pixel image
+ * - All pixels same color
+ * - Starting position out of bounds
  *
  * </details>
  */

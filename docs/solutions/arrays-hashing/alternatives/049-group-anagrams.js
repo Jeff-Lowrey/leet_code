@@ -1,48 +1,76 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * Given an array of strings strs, group the anagrams together. You can return the
+ * `answer` in any order.
+ *
+ * An Anagram is a word or phrase formed by rearranging the letters of a different
+ * word or phrase, typically using all the original letters exactly once.
+ *
+ * Example:
+ * Input: strs = ["eat","tea","tan","ate","nat","bat"]
+ * Output: [["bat"],["nat","tan"],["ate","eat","tea"]]
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>strs = ["eat","tea","tan","ate","nat","bat"]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>[["bat"],["nat","tan"],["ate","eat","tea"]]</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>Words ['eat','tea','ate'] are anagrams grouped together, as are ['tan','nat'], and ['bat'] alone</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * Group strings by their "anagram signature" - a canonical representation that's the same for all anagrams. Two common signatures: sorted characters or character frequency count.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Create signature**: For each string, generate a canonical form (sorted chars or char counts)
+ * 2. **Group by signature**: Use a hash map where signature is key, list of anagrams is value
+ * 3. **Return groups**: Extract all value lists from the hash map
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - All anagrams have the same signature (sorted characters or character counts)
+ * - Hash map automatically groups strings with identical signatures
+ * - Different anagrams will have different signatures
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: ["eat","tea","tan","ate","nat","bat"]
+ *
+ * Using sorted string as key:
+ * "eat" → key "aet" → group 1
+ * "tea" → key "aet" → group 1
+ * "tan" → key "ant" → group 2
+ * "ate" → key "aet" → group 1
+ * "nat" → key "ant" → group 2
+ * "bat" → key "abt" → group 3
+ *
+ * Final groups:
+ * "aet": ["eat", "tea", "ate"]
+ * "ant": ["tan", "nat"]
+ * "abt": ["bat"]
+ *
+ * Output: [["eat","tea","ate"], ["tan","nat"], ["bat"]]
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * - **Sorting approach**: O(n × k log k) where n = number of strings, k = max string length
+ * - **Counting approach**: O(n × k) - more efficient
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n × k)
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - **Empty string array**: Return empty list
+ * - **Single string**: Return [[string]]
+ * - **No anagrams**: Each string in its own group
+ * - **All anagrams of each other**: Return single group with all strings
+ * - **Empty strings**: All empty strings grouped together
  *
  * </details>
  */

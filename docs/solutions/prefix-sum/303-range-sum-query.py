@@ -1,45 +1,61 @@
 """
-# Difficulty: 
+# Difficulty: Easy
 
-# 303. Range Sum Query
-**Preprocessing**
+# 303. Range Sum Query - Immutable
 
-Given a problem that demonstrates key concepts in Prefix Sum.
+Given an integer array nums, handle multiple queries of the following type:
+
+Calculate the sum of the elements of nums between indices left and right inclusive where left <= right.
+
+Implement the NumArray class:
+
+- NumArray(int[] nums) Initializes the object with the integer array nums.
+- int sumRange(int left, int right) Returns the sum of the elements of nums between indices left and right inclusive (i.e., nums[left] + nums[left + 1] + ... + nums[right]).
 
 **Example:**
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>["NumArray", "sumRange", "sumRange", "sumRange"]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>"Expected {expected}, got {result}"</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>The sum of elements between indices 2 and 5 is calculated as prefix[5+1] - prefix[2] = 1</dd>
 </dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
-[This problem requires understanding of prefix sum concepts. The key insight is to identify the optimal approach for this specific scenario.]
+Precompute cumulative sums in array. For range [i,j], the sum is prefix[j+1] - prefix[i]. This reduces each query from O(n) to O(1) with O(n) preprocessing.
 
 ### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply prefix sum methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+1. **Initialize prefix sum**: In __init__, create self.prefix_sum = [0] * (len(nums) + 1)
+2. **Build prefix array**: For i in range(len(nums)), prefix_sum[i+1] = prefix_sum[i] + nums[i]
+3. **Query with O(1)**: In sumRange, return self.prefix_sum[right+1] - self.prefix_sum[left]
+4. **Leverage preprocessing**: Use pre-computed cumulative sums for fast queries
 
 ### WHY THIS WORKS:
-- The solution leverages prefix sum principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+- Precompute cumulative sums: prefix[i] = sum of nums[0..i-1]
+- Range sum [left, right] = prefix[right+1] - prefix[left]
+- O(n) preprocessing builds prefix array once
+- O(1) query time: just subtraction, no loop needed
+- Trade O(n) space for constant-time queries vs O(n) per query without prefix
 
 ### EXAMPLE WALKTHROUGH:
 ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
+Input: ["NumArray","sumRange","sumRange","sumRange"], [[[-2,0,3,-5,2,-1]],[0,2],[2,5],[0,5]]
+
+Step 1: Build prefix sum array
+  nums = [-2,0,3,-5,2,-1]
+  prefix = [0,-2,-2,1,-4,-2,-3]
+
+Step 2: Query using prefix
+  sumRange(0,2) = prefix[3] - prefix[0] = 1 - 0 = 1
+  sumRange(2,5) = prefix[6] - prefix[2] = -3 - (-2) = -1
+  sumRange(0,5) = prefix[6] - prefix[0] = -3 - 0 = -3
+
+Output: [null,1,-1,-3]
 ```
 
 ### TIME COMPLEXITY:

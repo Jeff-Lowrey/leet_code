@@ -3,42 +3,59 @@
 
 # 851. Loud And Rich
 
-Given a problem that demonstrates key concepts in Topological Sort.
+There is a group of n people labeled from 0 to n - 1 where each person has a different amount of money and a different level of quietness.
+
+You are given an array richer where richer[i] = [ai, bi] indicates that ai has more money than bi and an integer array quiet where quiet[i] is the quietness of the ith person. All the given data in richer are logically correct (i.e., the data will not lead you to a situation where x is richer than y and y is richer than x at the same time).
+
+Return an integer array answer where answer[x] = y if y is the least quiet person (that is, the person y with the smallest value of quiet[y]) among all people who definitely have equal to or more money than the person x.
 
 **Example:**
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>richer = [[1,0],[2,1],[3,1],[3,7],[4,3],[5,3],[6,3]], quiet = [3,2,5,4,6,1,7,0]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>[5,5,2,5,4,5,6,7]</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Person with most wealth has loudness calculated from dependencies</dd>
 </dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
-[This problem requires understanding of topological sort concepts. The key insight is to identify the optimal approach for this specific scenario.]
+Build graph of richer relationships. Use DFS with memoization. For each person, recursively find quietest among all richer people. Cache results to avoid recomputation.
 
 ### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply topological sort methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+1. **Build graph**: Create adjacency list where graph[b].append(a) for [a,b] in richer
+2. **Initialize answer**: Set answer = [-1] * n
+3. **Define DFS**: Implement dfs(node) to find quietest person in richer-or-equal set
+4. **Check memo**: If answer[node] != -1, return answer[node]
+5. **Initialize with self**: Set answer[node] = node
+6. **Explore richer people**: For each person in graph[node], compare quiet values
+7. **Update if quieter**: If quiet[dfs(neighbor)] < quiet[answer[node]], update answer[node]
+8. **Return result**: Return answer array
 
 ### WHY THIS WORKS:
-- The solution leverages topological sort principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+- Build graph: richer[i] -> quieter[i] edge
+- DFS/BFS from each person, find quietest in reachable set
+- Memoization: cache answer[x] to avoid recomputation
+- answer[x] = person with minimum quiet value reachable from x
+- O(n^2) worst case, O(n + e) with memoization, O(n + e) space
 
 ### EXAMPLE WALKTHROUGH:
 ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
+Input: richer = [[1,0],[2,1],[3,1],[3,7],[4,3],[5,3],[6,3]], quiet = [3,2,5,4,6,1,7,0]
+Step 1: Build graph (richer relationships)
+  0 ← 1 ← 2
+  1 ← 3 ← 4,5,6
+  7 ← 3
+
+Step 2: DFS to find quietest richer person
+  For person 0: check all richer (1,2,3,4,5,6,7)
+  Find quietest among them
+
+Output: [5,5,2,5,4,5,6,7]
 ```
 
 ### TIME COMPLEXITY:
@@ -54,6 +71,10 @@ O(1)
 
 </details>
 """
+
+from collections import defaultdict
+
+from typing import List, Optional, Dict, Tuple
 
 class Solution:
     def loudAndRich(self, richer: List[List[int]], quiet: List[int]) -> List[int]:
@@ -117,19 +138,34 @@ class Solution:
 
 def test_solution():
     """
-    Test cases for 851. Loud And Rich.
+    Test cases for the solution.
     """
     solution = Solution()
 
-    # Test case 1: Basic functionality
-    # result = solution.solve([test_input])
-    # expected = [expected_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 1: Example from problem
+    result = solution.loudAndRich([[1,0],[2,1],[3,1],[3,7],[4,3],[5,3],[6,3]], [3,2,5,4,6,1,7,0])
+    expected = [5,5,2,5,4,5,6,7]
+    assert result == expected, f"Expected {expected}, got {result}"
 
-    # Test case 2: Edge case
-    # result = solution.solve([edge_case_input])
-    # expected = [edge_case_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 2: No richer relationships
+    result = solution.loudAndRich([], [0,1,2])
+    expected = [0,1,2]
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 3: Linear wealth hierarchy
+    result = solution.loudAndRich([[1,0],[2,1]], [2,1,0])
+    expected = [2,2,2]
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 4: Single person
+    result = solution.loudAndRich([], [5])
+    expected = [0]
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 5: Everyone richer than one person
+    result = solution.loudAndRich([[0,1],[2,1]], [1,0,2])
+    expected = [0,1,2]
+    assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
 

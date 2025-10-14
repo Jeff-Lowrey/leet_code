@@ -1,48 +1,69 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Hard
  *
- * [Problem description goes here]
+ * # 327. Count Of Range Sum
+ *
+ * Given an integer array nums and two integers lower and upper, return the number of range sums that lie in [lower, upper] inclusive.
+ *
+ * Range sum S(i, j) is defined as the sum of the elements in nums between indices i and j inclusive, where i <= j.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>[([-2, 5, -1]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>"\nInput: nums = {nums}, lower = {lower}, upper = {upper}"</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>Count of ranges with sum in [lower=-2, upper=2] is 3</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * This is an advanced range sum counting problem. The key insight is to use prefix sums: if we have prefix[j] - prefix[i] in [lower, upper], then we need to count how many prefix[i] satisfy: prefix[j] - upper <= prefix[i] <= prefix[j] - lower. This transforms into a range counting problem solvable with merge sort or segment trees.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Compute prefix sums**: Build prefix sum array where prefix[i] represents sum of elements from index 0 to i-1
+ * 2. **Transform problem**: Use insight that range sum S(i,j) = prefix[j] - prefix[i], need to count pairs where lower <= prefix[j] - prefix[i] <= upper
+ * 3. **Apply merge sort**: Recursively divide prefix array and count valid ranges during merge process
+ * 4. **Count cross-boundary ranges**: For each prefix[j] in right half, count how many prefix[i] in left half satisfy the range condition
+ * 5. **Use two pointers**: Maintain pointers to find range [prefix[j] - upper, prefix[j] - lower] in sorted left half
+ * 6. **Accumulate counts**: Sum counts from left subtree, right subtree, and cross-boundary ranges
+ * 7. **Return total count**: Final result is total number of valid range sums found across all merge levels
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * The algorithm correctly solves the problem by systematically exploring all valid states while maintaining necessary invariants. Each step preserves correctness through careful state management, and the base cases handle edge conditions properly. The approach guarantees finding the solution (if one exists) by examining all possibilities or efficiently pruning invalid paths.
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: nums = [-2,5,-1], lower = -2, upper = 2
+ * Prefix sums: [0, -2, 3, 2]
+ * Range sums to check:
+ * - S(0,0) = -2 ✓ (in range)
+ * - S(0,1) = 3 ✗
+ * - S(0,2) = 2 ✓
+ * - S(1,1) = 5 ✗
+ * - S(1,2) = 4 ✗
+ * - S(2,2) = -1 ✓
+ * Output: 3
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n log n)
+ * For merge sort and tree-based approaches
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
+ * For prefix sums and auxiliary structures
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - Empty array
+ * - Single element
+ * - All elements equal
+ * - Lower and upper bounds edge cases
+ * - Negative numbers and overflow considerations
  *
  * </details>
  */

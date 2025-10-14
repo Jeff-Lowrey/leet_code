@@ -1,48 +1,85 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * # 79. Word Search
+ *
+ * Given an m x n grid of characters board and a string word, return true if word exists in the grid.
+ *
+ * The word can be constructed from letters of sequentially adjacent cells, where adjacent cells are horizontally or vertically neighboring. The same letter cell may not be used more than once.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>[["A", "B", "C", "E"]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>1</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>Word 'OATH' exists in the board by searching paths</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * This is a classic backtracking problem on a 2D grid. While a Trie isn't strictly necessary for single word search, understanding this problem helps with Word Search II (212). We use DFS with backtracking to explore all possible paths, marking visited cells to avoid reuse, and unmarking them when backtracking.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Try each cell as start**: Iterate through all cells as potential starting points
+ * 2. **DFS with backtracking**: From each start, explore 4 directions recursively
+ * 3. **Match characters**: At each step, check if current cell matches current character
+ * 4. **Mark visited**: Temporarily mark cells as visited to prevent reuse
+ * 5. **Backtrack**: Restore cell value when returning from recursion
+ * 6. **Early termination**: Return true immediately when word is found
+ *
+ * Optional Trie optimization: Pre-check if word's prefix exists (useful for multiple words)
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - DFS explores all possible paths systematically
+ * - Backtracking allows trying different paths from same starting point
+ * - Marking prevents cycles and reuse of same cell
+ * - Base cases handle word completion and boundary conditions
+ * - Early termination avoids unnecessary exploration
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * board = [['A','B','C','E'],
+ *          ['S','F','C','S'],
+ *          ['A','D','E','E']]
+ * word = "ABCCED"
+ *
+ * Try (0,0) 'A':
+ *   Match 'A' ✓, mark visited, look for 'B'
+ *   Try (0,1) 'B':
+ *     Match 'B' ✓, mark visited, look for 'C'
+ *     Try (0,2) 'C':
+ *       Match 'C' ✓, mark visited, look for 'C'
+ *       Try (1,2) 'C':
+ *         Match 'C' ✓, mark visited, look for 'E'
+ *         Try (2,2) 'E':
+ *           Match 'E' ✓, mark visited, look for 'D'
+ *           Try (2,1) 'D':
+ *             Match 'D' ✓, complete! Return True
+ *
+ * Result: True (found path)
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(M * N * 4^L)
+ * Where M*N is board size, L is word length
+ * - We try each cell as start: O(M*N)
+ * - From each cell, explore 4 directions recursively: O(4^L)
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(L)
+ * For recursion stack depth (word length)
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - Word longer than total cells
+ * - Word is single character
+ * - Word not in board
+ * - Word requires using all cells
+ * - Multiple valid paths exist
  *
  * </details>
  */

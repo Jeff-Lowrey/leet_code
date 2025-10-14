@@ -3,42 +3,59 @@
 
 # 802. Find
 
-Given a problem that demonstrates key concepts in Topological Sort.
+There is a directed graph of n nodes with each node labeled from 0 to n - 1. The graph is represented by a 0-indexed 2D integer array graph where graph[i] is an integer array of nodes adjacent to node i, meaning there is an edge from node i to each node in graph[i].
+
+A node is a terminal node if there are no outgoing edges. A node is a safe node if every possible path starting from that node leads to a terminal node (or another safe node).
+
+Return an array containing all the safe nodes of the graph. The answer should be sorted in ascending order.
 
 **Example:**
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>graph = [[1,2],[2,3],[5],[0],[5],[],[]]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>[2,4,5,6] (safe nodes)</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Safe nodes are those not in cycles: [2,4,5,6]</dd>
 </dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
-[This problem requires understanding of topological sort concepts. The key insight is to identify the optimal approach for this specific scenario.]
+Build reverse graph (who reaches who). Use Kahn's algorithm. Nodes with out-degree 0 are safe (reach terminal). Process in reverse topological order to find all safe nodes.
 
 ### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply topological sort methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+1. **Build graph**: Create adjacency list from graph edges
+2. **Track colors**: Use colors array: 0 = unvisited, 1 = visiting, 2 = visited
+3. **Define DFS**: Implement dfs(node) to detect cycles
+4. **Check visiting**: If colors[node] == 1, cycle detected, return False
+5. **Check visited**: If colors[node] == 2, already safe, return True
+6. **Mark visiting**: Set colors[node] = 1, explore all neighbors
+7. **Mark visited**: If all neighbors safe, set colors[node] = 2
+8. **Find safe nodes**: Return nodes where dfs(node) returns True
 
 ### WHY THIS WORKS:
-- The solution leverages topological sort principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+- Reverse graph, find nodes from which all paths lead to terminals
+- Color nodes: 0=unvisited, 1=visiting, 2=safe
+- DFS: if all neighbors are safe, current node is safe
+- If reaches cycle (visiting node), not safe
+- O(V + E) time: DFS visits each node/edge once, O(V) space
 
 ### EXAMPLE WALKTHROUGH:
 ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
+Input: graph = [[1,2],[2,3],[5],[0],[5],[],[]]
+Step 1: Find nodes with cycles
+  0→1→2→3→0 (cycle)
+
+Step 2: Find terminal nodes
+  Nodes: 5,6
+
+Step 3: Check which nodes reach only terminal
+  Check each node's reachability
+
+Output: [2,4,5,6] (safe nodes)
 ```
 
 ### TIME COMPLEXITY:
@@ -54,6 +71,8 @@ O(1)
 
 </details>
 """
+
+from typing import List, Optional, Dict, Tuple
 
 class Solution:
     def eventualSafeNodes(self, graph: List[List[int]]) -> List[int]:
@@ -123,19 +142,34 @@ class Solution:
 
 def test_solution():
     """
-    Test cases for 802. Find.
+    Test cases for the solution.
     """
     solution = Solution()
 
-    # Test case 1: Basic functionality
-    # result = solution.solve([test_input])
-    # expected = [expected_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 1: Example from problem
+    result = solution.eventualSafeNodes([[1,2],[2,3],[5],[0],[5],[],[]])
+    expected = [2,4,5,6]
+    assert result == expected, f"Expected {expected}, got {result}"
 
-    # Test case 2: Edge case
-    # result = solution.solve([edge_case_input])
-    # expected = [edge_case_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 2: All nodes are safe (no cycles)
+    result = solution.eventualSafeNodes([[1],[2],[3],[]])
+    expected = [0,1,2,3]
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 3: All nodes have cycles
+    result = solution.eventualSafeNodes([[1],[0]])
+    expected = []
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 4: Empty input
+    result = solution.eventualSafeNodes([])
+    expected = []
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 5: Single terminal node
+    result = solution.eventualSafeNodes([[]])
+    expected = [0]
+    assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
 

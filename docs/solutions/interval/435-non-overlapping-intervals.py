@@ -3,42 +3,54 @@
 
 # 435. Non Overlapping Intervals
 
-Given a problem that demonstrates key concepts in Interval.
+Given an array of intervals intervals where intervals[i] = [starti, endi], return the minimum number of intervals you need to remove to make the rest of the intervals non-overlapping.
 
 **Example:**
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>intervals = [[1,2],[2,3],[3,4],[1,3]]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>1 (min intervals to remove)</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Minimum 1 interval removed to make [[1,2],[2,3],[3,4],[1,3]] non-overlapping</dd>
 </dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
-[This problem requires understanding of interval concepts. The key insight is to identify the optimal approach for this specific scenario.]
+Sort by end time (greedy). Keep track of previous interval's end. If current start >= previous end, intervals don't overlap. Otherwise, skip current interval (remove it). Count removals.
 
 ### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply interval methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+1. **Sort by end time**: Sort intervals by interval[1]
+2. **Initialize variables**: Set count = 0, prev_end = intervals[0][1]
+3. **Iterate from second**: For each interval in intervals[1:]
+4. **Check overlap**: If current_start < prev_end, intervals overlap
+5. **Remove current**: Increment count
+6. **No overlap**: Update prev_end = current_end
+7. **Return count**: Return count as minimum intervals to remove
 
 ### WHY THIS WORKS:
-- The solution leverages interval principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+- Sort by end time: greedy choice is interval finishing earliest
+- Always pick interval with earliest end to leave room for more intervals
+- Count overlaps: if start < last_end, remove current (increment count)
+- Greedy works: earliest end maximizes remaining space for future intervals
+- O(n log n) for sorting, O(1) space excluding input
 
 ### EXAMPLE WALKTHROUGH:
 ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
+Input: intervals = [[1,2],[2,3],[3,4],[1,3]]
+Step 1: Sort by end time
+  sorted = [[1,2],[2,3],[1,3],[3,4]]
+
+Step 2: Greedy selection
+  Select [1,2], end=2
+  [2,3]: 2 ≥ 2, select it, end=3
+  [1,3]: 1 < 3, overlaps → remove count=1
+  [3,4]: 3 ≥ 3, select it
+
+Output: 1 (min intervals to remove)
 ```
 
 ### TIME COMPLEXITY:
@@ -54,6 +66,8 @@ O(1)
 
 </details>
 """
+
+from typing import List, Optional, Dict, Tuple
 
 class Solution:
     def eraseOverlapIntervals(self, intervals: List[List[int]]) -> int:
@@ -94,19 +108,34 @@ class Solution:
 
 def test_solution():
     """
-    Test cases for 435. Non Overlapping Intervals.
+    Test cases for the solution.
     """
     solution = Solution()
 
-    # Test case 1: Basic functionality
-    # result = solution.solve([test_input])
-    # expected = [expected_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 1: Example from problem
+    result = solution.eraseOverlapIntervals([[1,2],[2,3],[3,4],[1,3]])
+    expected = 1
+    assert result == expected, f"Expected {expected}, got {result}"
 
-    # Test case 2: Edge case
-    # result = solution.solve([edge_case_input])
-    # expected = [edge_case_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 2: All overlapping
+    result = solution.eraseOverlapIntervals([[1,2],[1,2],[1,2]])
+    expected = 2
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 3: No overlaps
+    result = solution.eraseOverlapIntervals([[1,2],[2,3]])
+    expected = 0
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 4: Empty input
+    result = solution.eraseOverlapIntervals([])
+    expected = 0
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 5: Single interval
+    result = solution.eraseOverlapIntervals([[1,2]])
+    expected = 0
+    assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
 

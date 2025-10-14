@@ -13,11 +13,11 @@ You must write an algorithm with O(log n) runtime complexity.
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[5,7,7,8,8,10]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>1</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Target 8 appears at indices [3,4] in sorted array [5,7,7,8,8,10]</dd>
 </dl>
 
 <details>

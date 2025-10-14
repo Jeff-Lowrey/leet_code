@@ -1,48 +1,91 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * # 011. Container With Most Water
+ *
+ * You are given an integer array height of length n. There are n vertical lines drawn such that the two endpoints of the ith line are (i, 0) and (i, height[i]).
+ *
+ * Find two lines that together with the x-axis form a container, such that the container contains the most water.
+ *
+ * Return the maximum amount of water a container can store.
+ *
+ * Notice that you may not slant the container.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>height = [1, 8, 6, 2, 5, 4, 8, 3, 7]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>49</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>Maximum water container area is 49 with heights [1,8,6,2,5,4,8,3,7]</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * [This problem requires understanding of two pointers concepts. The key insight is to identify the optimal approach for this specific scenario.]
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Analyze the problem**: Understand the input constraints and expected output
+ * 2. **Choose the right technique**: Apply two pointers methodology
+ * 3. **Implement efficiently**: Focus on optimal time and space complexity
+ * 4. **Handle edge cases**: Consider boundary conditions and special cases
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - The solution leverages two pointers principles
+ * - Time complexity is optimized for the given constraints
+ * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: height = [1, 8, 6, 2, 5, 4, 8, 3, 7]
+ *
+ * Step 1: Initialize
+ *   left = 0 (height=1), right = 8 (height=7)
+ *   max_area = 0
+ *
+ * Step 2: First iteration
+ *   width = 8 - 0 = 8
+ *   min_height = min(1, 7) = 1
+ *   area = 8 × 1 = 8
+ *   max_area = 8
+ *   Move left pointer (smaller height)
+ *   left = 1
+ *
+ * Step 3: left=1 (height=8), right=8 (height=7)
+ *   width = 8 - 1 = 7
+ *   min_height = min(8, 7) = 7
+ *   area = 7 × 7 = 49
+ *   max_area = 49
+ *   Move right pointer (smaller height)
+ *   right = 7
+ *
+ * Step 4: left=1 (height=8), right=7 (height=3)
+ *   width = 7 - 1 = 6
+ *   min_height = min(8, 3) = 3
+ *   area = 6 × 3 = 18
+ *   max_area = 49 (no change)
+ *   Move right pointer
+ *   right = 6
+ *
+ * Step 5: Continue until left >= right...
+ *
+ * Output: 49
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(1)
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - Empty input handling
+ * - Single element cases
+ * - Large input considerations
  *
  * </details>
  */
