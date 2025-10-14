@@ -41,8 +41,11 @@
  * **O(?)** - [explanation]
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - **n equals 1:** Single step, one way
+ * - **n equals 2:** Two steps, two ways
+ * - **Large n:** Consider integer overflow
+ * - **Base cases:** Properly initialize dp[0] and dp[1]
+ * - **Fibonacci pattern:** Recognize recurrence relation
  *
  * </details>
  */

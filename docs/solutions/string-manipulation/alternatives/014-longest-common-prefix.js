@@ -41,8 +41,11 @@
  * **O(?)** - [explanation]
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - **Empty string:** Handle s.length == 0
+ * - **Single character:** Minimal string input
+ * - **All same characters:** Check duplicate handling
+ * - **Special characters:** Handle non-alphanumeric
+ * - **Case sensitivity:** Consider uppercase vs lowercase
  *
  * </details>
  */
@@ -54,10 +57,10 @@
  * @return {any} - Problem-specific return type
  *
  * Time Complexity: O(S)
-- S is the sum of all characters in all strings
-- In worst case, we examine every character once
+ * - S is the sum of all characters in all strings
+ * - In worst case, we examine every character once
  * Space Complexity: O(1)
-- Only using constant extra space for variables
+ * - Only using constant extra space for variables
  */
 function solve(strs) {
     // Handle edge cases

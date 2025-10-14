@@ -41,8 +41,11 @@
  * **O(?)** - [explanation]
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - **No rotation:** Array is already sorted (pivot at 0)
+ * - **Target in rotated portion:** Correctly identify which half to search
+ * - **Target not found:** Return -1
+ * - **Single element:** Handle when nums.length == 1
+ * - **Duplicate at pivot:** Handle when nums[mid] == nums[left]
  *
  * </details>
  */

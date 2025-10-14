@@ -41,8 +41,11 @@
  * **O(?)** - [explanation]
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - **Empty array:** Handle nums.length == 0
+ * - **Single element:** Minimal array input
+ * - **All same values:** Check duplicate handling
+ * - **Sorted vs unsorted:** Verify input assumptions
+ * - **Negative numbers:** Handle signed integers
  *
  * </details>
  */

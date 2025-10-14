@@ -41,8 +41,11 @@
  * **O(?)** - [explanation]
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - **No rotation:** Minimum is at index 0
+ * - **Rotation at last element:** Minimum is at index n-1
+ * - **Rotation in middle:** Binary search to find pivot
+ * - **Two elements:** Compare both and return smaller
+ * - **All elements equal:** Return any element
  *
  * </details>
  */

@@ -41,8 +41,11 @@
  * **O(?)** - [explanation]
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - **No cycle:** Return null
+ * - **Cycle at head:** Head is cycle start
+ * - **Cycle at tail:** Find where tail connects
+ * - **Single node cycle:** Node points to itself
+ * - **All nodes in cycle:** Head is start of cycle
  *
  * </details>
  */

@@ -41,8 +41,11 @@
  * **O(?)** - [explanation]
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - **Pointers meet:** Handle when left == right
+ * - **Empty input:** Check for null or empty arrays
+ * - **Single element:** One pointer scenario
+ * - **All duplicates:** Pointer movement with same values
+ * - **Boundary crossing:** Prevent left > right
  *
  * </details>
  */

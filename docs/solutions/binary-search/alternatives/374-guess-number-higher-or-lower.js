@@ -41,8 +41,11 @@
  * **O(?)** - [explanation]
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - **Pick at start:** Handle pick == 1
+ * - **Pick at end:** Handle pick == n
+ * - **Pick in middle:** Standard binary search
+ * - **Large n:** Avoid integer overflow in mid calculation
+ * - **Single number:** Return 1
  *
  * </details>
  */

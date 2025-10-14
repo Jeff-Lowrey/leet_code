@@ -41,8 +41,11 @@
  * **O(?)** - [explanation]
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - **Empty list:** Handle head == null
+ * - **Single node:** List with one element
+ * - **Two nodes:** Minimal multi-node case
+ * - **Different lengths:** Handle unequal sizes
+ * - **Cycle detection:** Check for circular references
  *
  * </details>
  */

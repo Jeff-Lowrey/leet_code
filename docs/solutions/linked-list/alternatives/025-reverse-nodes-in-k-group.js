@@ -41,8 +41,11 @@
  * **O(?)** - [explanation]
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - **k equals 1:** No reversal needed
+ * - **k equals list length:** Reverse entire list
+ * - **k greater than length:** No reversal
+ * - **Remaining nodes less than k:** Leave unchanged
+ * - **Single group:** Only one k-group exists
  *
  * </details>
  */

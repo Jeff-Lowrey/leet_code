@@ -41,8 +41,11 @@
  * **O(?)** - [explanation]
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - **Both lists empty:** Return null
+ * - **One list empty:** Return the other list
+ * - **Equal values:** Maintain stable ordering
+ * - **Different lengths:** Handle remaining nodes
+ * - **Single node lists:** Minimal merge case
  *
  * </details>
  */

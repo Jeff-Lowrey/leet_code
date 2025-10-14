@@ -41,8 +41,11 @@
  * **O(?)** - [explanation]
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - **Empty lists array:** Return null
+ * - **All lists empty:** Return null
+ * - **Single list:** Return that list
+ * - **Different lengths:** Handle varying list sizes
+ * - **All same values:** Maintain stability
  *
  * </details>
  */

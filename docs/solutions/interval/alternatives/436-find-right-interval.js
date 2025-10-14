@@ -41,8 +41,11 @@
  * **O(?)** - [explanation]
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - **Target not in array:** Return -1 or appropriate value
+ * - **Single element:** Handle when left equals right
+ * - **Empty input:** Return default value
+ * - **Boundary conditions:** Check first and last positions
+ * - **Integer overflow:** Use mid = left + (right - left) / 2
  *
  * </details>
  */

@@ -41,8 +41,11 @@
  * **O(?)** - [explanation]
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - **No cycle:** Return false
+ * - **Cycle at head:** Head points back to itself
+ * - **Cycle at tail:** Last node points to earlier node
+ * - **Single node no cycle:** Single node points to null
+ * - **Single node with cycle:** Node points to itself
  *
  * </details>
  */

@@ -41,8 +41,11 @@
  * **O(?)** - [explanation]
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - **Remove head:** n equals list length
+ * - **Remove tail:** n equals 1
+ * - **Single node:** Remove the only node
+ * - **Two nodes:** Handle either node removal
+ * - **n at boundary:** n equals exactly list length
  *
  * </details>
  */

@@ -41,8 +41,11 @@
  * **O(?)** - [explanation]
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - **All bad versions:** First version is bad
+ * - **Only last bad:** Binary search narrows to last
+ * - **Single version:** Return 1
+ * - **Bad version in middle:** Binary search finds boundary
+ * - **Large n:** Handle integer overflow in mid calculation
  *
  * </details>
  */

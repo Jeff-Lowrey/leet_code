@@ -41,8 +41,11 @@
  * **O(?)** - [explanation]
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - **Single peak:** Only one element is a peak
+ * - **Multiple peaks:** Return any valid peak
+ * - **Peak at boundaries:** Check first or last element
+ * - **Monotonically increasing:** Last element is peak
+ * - **Monotonically decreasing:** First element is peak
  *
  * </details>
  */

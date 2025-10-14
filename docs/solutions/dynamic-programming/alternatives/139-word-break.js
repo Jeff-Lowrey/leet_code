@@ -41,8 +41,11 @@
  * **O(?)** - [explanation]
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - **Empty string:** Return true
+ * - **No matching words:** Return false
+ * - **Word used multiple times:** Allow reuse
+ * - **Overlapping words:** Choose correct segmentation
+ * - **Single character words:** Handle minimal dictionary
  *
  * </details>
  */

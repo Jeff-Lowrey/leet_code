@@ -41,8 +41,11 @@
  * **O(?)** - [explanation]
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - **Empty string:** Return true
+ * - **Single bracket:** Return false (unmatched)
+ * - **Only opening brackets:** Return false
+ * - **Only closing brackets:** Return false
+ * - **Mismatched pairs:** Wrong bracket type for close
  *
  * </details>
  */

@@ -41,8 +41,11 @@
  * **O(?)** - [explanation]
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - **Target not found:** Return left pointer as insertion position
+ * - **Insert at beginning:** Target smaller than all elements
+ * - **Insert at end:** Target larger than all elements
+ * - **Single element array:** Handle when left == right
+ * - **Empty array:** Return 0
  *
  * </details>
  */

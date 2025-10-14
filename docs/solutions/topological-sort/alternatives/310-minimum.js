@@ -41,8 +41,11 @@
  * **O(?)** - [explanation]
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - **Empty string:** Handle s.length == 0
+ * - **Single character:** Minimal string input
+ * - **All same characters:** Check duplicate handling
+ * - **Special characters:** Handle non-alphanumeric
+ * - **Case sensitivity:** Consider uppercase vs lowercase
  *
  * </details>
  */

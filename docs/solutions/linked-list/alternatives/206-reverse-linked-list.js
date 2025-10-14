@@ -41,8 +41,11 @@
  * **O(?)** - [explanation]
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - **Empty list:** Return null
+ * - **Single node:** Return same node
+ * - **Two nodes:** Simple pointer reversal
+ * - **Cycle prevention:** Ensure no circular references
+ * - **Last node becomes head:** Update head pointer
  *
  * </details>
  */

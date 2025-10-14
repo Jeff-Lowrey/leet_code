@@ -41,8 +41,11 @@
  * **O(?)** - [explanation]
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - **Single element:** Min equals top
+ * - **Descending order:** Each element is new min
+ * - **Ascending order:** Min stays at bottom
+ * - **Duplicates of min:** Handle multiple minimums
+ * - **Pop current min:** Update to next minimum
  *
  * </details>
  */

@@ -41,8 +41,11 @@
  * **O(?)** - [explanation]
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - **No solution:** Return -1 when amount cannot be made
+ * - **Amount is 0:** Return 0 (base case)
+ * - **Single coin type:** Check if amount is divisible
+ * - **Amount less than smallest coin:** Return -1
+ * - **Large amount:** Consider DP table size and performance
  *
  * </details>
  */

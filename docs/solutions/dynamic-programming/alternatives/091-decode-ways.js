@@ -41,8 +41,11 @@
  * **O(?)** - [explanation]
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - **Base cases:** Handle minimal input (n=0, n=1)
+ * - **No solution:** Return -1 or impossible indicator
+ * - **Single element:** Trivial DP case
+ * - **Large input:** Consider space/time optimization
+ * - **Memoization:** Cache to avoid recomputation
  *
  * </details>
  */

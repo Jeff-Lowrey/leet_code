@@ -41,8 +41,11 @@
  * **O(?)** - [explanation]
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - **Empty stack:** Handle operations on empty stack
+ * - **Single element:** Push/pop with one item
+ * - **Balanced pairs:** Match opening/closing elements
+ * - **Nested structures:** Handle deeply nested cases
+ * - **Underflow:** Prevent popping from empty stack
  *
  * </details>
  */

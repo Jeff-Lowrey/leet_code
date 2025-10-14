@@ -41,8 +41,11 @@
  * **O(?)** - [explanation]
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - **Target in first row:** Check boundary conditions
+ * - **Target in last row:** Check boundary conditions
+ * - **Target not in matrix:** Return false
+ * - **Single element matrix:** Handle 1x1 matrix
+ * - **Empty matrix:** Return false
  *
  * </details>
  */

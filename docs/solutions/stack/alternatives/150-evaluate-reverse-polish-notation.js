@@ -41,8 +41,11 @@
  * **O(?)** - [explanation]
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - **Single number:** Return that number
+ * - **Division by zero:** Handle appropriately (should not occur)
+ * - **Negative results:** Handle negative numbers
+ * - **Order of operands:** Ensure correct subtraction/division order
+ * - **Nested operations:** Stack handles complexity
  *
  * </details>
  */

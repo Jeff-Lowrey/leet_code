@@ -41,8 +41,11 @@
  * **O(?)** - [explanation]
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - **Empty array:** Handle nums.length == 0
+ * - **Single element:** Special case for minimal input
+ * - **All same values:** Check for duplicate handling
+ * - **Negative numbers:** Ensure algorithm works with negatives
+ * - **Large arrays:** Consider O(n) vs O(n²) performance
  *
  * </details>
  */

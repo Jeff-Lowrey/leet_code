@@ -41,8 +41,11 @@
  * **O(?)** - [explanation]
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - **Different lengths:** Handle lists of unequal size
+ * - **Carry at end:** Handle final carry creating new node
+ * - **All zeros:** Result is single zero node
+ * - **Single nodes:** Minimal addition case
+ * - **Maximum digits:** Handle carry propagation
  *
  * </details>
  */

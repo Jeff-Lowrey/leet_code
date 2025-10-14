@@ -41,8 +41,11 @@
  * **O(?)** - [explanation]
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - **Empty tree:** Handle root == null
+ * - **Single node:** Tree with only root
+ * - **Unbalanced tree:** Handle skewed trees
+ * - **Leaf nodes:** Special handling for nodes without children
+ * - **Height differences:** Check for deep vs shallow subtrees
  *
  * </details>
  */

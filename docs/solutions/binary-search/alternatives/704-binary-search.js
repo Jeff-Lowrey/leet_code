@@ -41,8 +41,11 @@
  * **O(?)** - [explanation]
  *
  * ### EDGE CASES:
- * - **[Edge case 1]:** [how it's handled]
- * - **[Edge case 2]:** [how it's handled]
+ * - **Target not in array:** Return -1
+ * - **Single element array:** Left equals right immediately
+ * - **Target at first position:** Check boundary at index 0
+ * - **Target at last position:** Check boundary at last index
+ * - **Empty array:** Return -1
  *
  * </details>
  */
