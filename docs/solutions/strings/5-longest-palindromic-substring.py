@@ -9,11 +9,11 @@ This problem demonstrates key concepts in String manipulation and Dynamic Progra
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>"babad"</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>"bab" (or "aba")</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Longest palindromic substring is 'bab' or 'aba'</dd>
 </dl>
 
 <details>

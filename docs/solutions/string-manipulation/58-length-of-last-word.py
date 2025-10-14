@@ -15,11 +15,11 @@ Explanation: The last word is "World" with length 5.
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>s = "Hello World"</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>5</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Length of last word in 'Hello World' is 5</dd>
 </dl>
 
 <details>

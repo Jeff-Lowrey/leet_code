@@ -15,11 +15,11 @@ Return the number of teams you can form given the conditions. (soldiers can be u
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[[2, 5, 3, 4, 1]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>"\nInput: rating = {rating}"</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>There are 3 valid teams of soldiers with increasing or decreasing heights</dd>
 </dl>
 
 <details>
@@ -29,10 +29,16 @@ Return the number of teams you can form given the conditions. (soldiers can be u
 This problem is about counting ordered triplets in an array. We can solve it using multiple approaches: brute force O(n³), dynamic programming O(n²), or advanced data structures like segment trees or Binary Indexed Trees for O(n log n). The key insight is that for each middle element, we count how many valid left and right elements exist.
 
 ### APPROACH:
-[Detailed explanation of the solution approach]
+1. **Handle edge case**: Return 0 if array has fewer than 3 elements (need at least 3 for a team)
+2. **Iterate through middle positions**: For each soldier j as the middle element (from index 1 to n-2)
+3. **Count left elements**: Scan all elements to the left of j, counting how many are smaller and how many are larger
+4. **Count right elements**: Scan all elements to the right of j, counting how many are smaller and how many are larger
+5. **Calculate ascending teams**: Multiply left_smaller by right_larger (elements that can form ascending triplet with j)
+6. **Calculate descending teams**: Multiply left_larger by right_smaller (elements that can form descending triplet with j)
+7. **Sum all valid teams**: Add both ascending and descending team counts for each middle position to get total
 
 ### WHY THIS WORKS:
-- [Explanation of correctness]
+A set by definition contains only unique elements - when we convert an array to a set, any duplicates are automatically removed. By comparing the lengths of the original array and the set, we can detect if duplicates existed. The early termination approach works because as soon as we find an element already in our seen set, we've proven a duplicate exists without needing to check the remaining elements.
 
 ### EXAMPLE WALKTHROUGH:
 ```

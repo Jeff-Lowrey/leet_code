@@ -22,11 +22,11 @@ Output: [[137,141,137],[141,138,141],[137,141,137]]
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[[1, 1, 1]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>1</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Image smoother replaces each cell with average of itself and 8 neighbors</dd>
 </dl>
 
 <details>

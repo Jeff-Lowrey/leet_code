@@ -3,42 +3,58 @@
 
 # 305. Number
 
-Given a problem that demonstrates key concepts in Union Find.
+You are given an empty 2D binary grid grid of size m x n. The grid represents a map where 0's represent water and 1's represent land. Initially, all the cells of grid are water cells (i.e., all the cells are 0's).
+
+We may perform an add land operation which turns the water at position into a land. You are given an array positions where positions[i] = [ri, ci] is the position (ri, ci) at which we should operate the ith operation.
+
+Return an array of integers answer where answer[i] is the number of islands after turning the cell (ri, ci) into a land.
+
+An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. You may assume all four edges of the grid are all surrounded by water.
 
 **Example:**
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[[0, 0]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>"Test 1 Result: {result1}"</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Number of islands after adding positions: [1,1,2,3]</dd>
 </dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
-[This problem requires understanding of union find concepts. The key insight is to identify the optimal approach for this specific scenario.]
+Maintain Union-Find of islands. For each land operation, union with adjacent land cells (4 directions). Track number of connected components. Component count after each operation is island count.
 
 ### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply union find methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+1. **Initialize Union-Find**: Create parent and rank arrays
+2. **Initialize count**: Set count = 0 for number of islands
+3. **Process positions**: For each position in positions list
+4. **Add island**: Mark position as land, increment count
+5. **Check neighbors**: Check all 4 adjacent cells
+6. **Union with land neighbors**: If neighbor is land and different component, union and decrement count
+7. **Record count**: Append current count to result
+8. **Return result**: Return result list with island counts
 
 ### WHY THIS WORKS:
-- The solution leverages union find principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+- Union-find tracks connected components as islands form
+- Initially count = 0, increment for each land cell added
+- When land connects to existing islands, union them (decrement count by merges-1)
+- Path compression + union by rank ensures near O(1) amortized operations
+- O(m*n*α(m*n)) time: α is inverse Ackermann (effectively constant)
 
 ### EXAMPLE WALKTHROUGH:
 ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
+Input: m = 3, n = 3, positions = [[0,0],[0,1],[1,2],[2,1]]
+Step 1: Add islands one by one
+  [0,0]: 1 island
+  [0,1]: merge with [0,0] → 1 island
+  [1,2]: 2 islands
+  [2,1]: 3 islands
+
+Output: [1,1,2,3]
 ```
 
 ### TIME COMPLEXITY:
@@ -54,6 +70,8 @@ O(1)
 
 </details>
 """
+
+from typing import List, Optional, Dict, Tuple
 
 class Solution:
     def numIslands2(self, m: int, n: int, positions: List[List[int]]) -> List[int]:
@@ -123,19 +141,52 @@ def test_solution():
 
 def test_solution():
     """
-    Test cases for 305. Number.
+    Test cases for the solution.
     """
+    # Note: This problem requires a UnionFind class
+    class UnionFind:
+        def __init__(self):
+            self.parent = {}
+            self.count = 0
+
+        def add(self, x):
+            if x not in self.parent:
+                self.parent[x] = x
+                self.count += 1
+
+        def find(self, x):
+            if self.parent[x] != x:
+                self.parent[x] = self.find(self.parent[x])
+            return self.parent[x]
+
+        def union(self, x, y):
+            root_x = self.find(x)
+            root_y = self.find(y)
+            if root_x != root_y:
+                self.parent[root_x] = root_y
+                self.count -= 1
+
     solution = Solution()
 
-    # Test case 1: Basic functionality
-    # result = solution.solve([test_input])
-    # expected = [expected_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 1: Example from problem
+    result = solution.numIslands2(3, 3, [[0,0],[0,1],[1,2],[2,1]])
+    expected = [1,1,2,3]
+    assert result == expected, f"Expected {expected}, got {result}"
 
-    # Test case 2: Edge case
-    # result = solution.solve([edge_case_input])
-    # expected = [edge_case_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 2: Single island
+    result = solution.numIslands2(1, 1, [[0,0]])
+    expected = [1]
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 3: Merging islands
+    result = solution.numIslands2(3, 3, [[0,0],[0,1],[1,1],[2,2]])
+    expected = [1,1,1,2]
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 4: Duplicate positions
+    result = solution.numIslands2(2, 2, [[0,0],[0,0],[1,1]])
+    expected = [1,1,2]
+    assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
 

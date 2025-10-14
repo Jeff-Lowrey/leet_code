@@ -9,9 +9,9 @@
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[input example]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>result1 = solution.methodName(param1_1, param2_1)</dd>
 <dt>Explanation:</dt>
 <dd>[explanation of how input becomes output]</dd>
 </dl>

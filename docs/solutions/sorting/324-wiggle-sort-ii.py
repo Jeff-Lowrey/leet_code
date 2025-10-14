@@ -13,11 +13,11 @@ Follow up: Can you do it in O(n) time and/or in-place with O(1) extra space?
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[1, 5, 1, 1, 6, 4]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>"Test 1 result: {nums1}"</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Wiggle sort II: nums[0] < nums[1] > nums[2] < nums[3]...</dd>
 </dl>
 
 <details>

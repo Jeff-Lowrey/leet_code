@@ -15,11 +15,11 @@ Explanation: The 4 subarrays are [1,0,1], [1,0,1,0], [0,1,0,1], [1,0,1]
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>nums = [1,0,1,0,1], goal = 2</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>4</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>There are 4 binary subarrays with sum equal to goal</dd>
 </dl>
 
 <details>

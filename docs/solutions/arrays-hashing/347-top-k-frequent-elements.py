@@ -3,42 +3,66 @@
 
 # 347. Top K Frequent Elements
 
-Given a problem that demonstrates key concepts in Arrays Hashing.
+Given an integer array nums and an integer k, return the k most frequent elements. You may return the answer in any order.
 
 **Example:**
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[1, 2]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>"Expected {expected}, got {result}"</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>The k=2 most frequent elements in [1,1,1,2,2,3] are [1,2]</dd>
 </dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
-[This problem requires understanding of arrays hashing concepts. The key insight is to identify the optimal approach for this specific scenario.]
+Use bucket sort where the index represents frequency. After counting frequencies with a hash map, place each number in a bucket corresponding to its frequency. Then collect results from the highest frequency buckets downward until we have k elements.
 
 ### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply arrays hashing methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+1. **Count frequencies**: Use Counter(nums) to create freq_map with each number's frequency
+2. **Build max heap**: Initialize empty heap, iterate through freq_map.items()
+3. **Push to heap**: For each (num, freq) pair, push (-freq, num) to heap using heapq.heappush (negative for max heap behavior)
+4. **Extract k elements**: Loop k times, calling heapq.heappop(heap) to get highest frequency elements
+5. **Build result**: Append the num (second element of popped tuple) to result list
+6. **Return result**: After k pops, return the result list with k most frequent elements
 
 ### WHY THIS WORKS:
-- The solution leverages arrays hashing principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+- Bucket sort by frequency achieves O(n) time vs heap's O(n log k)
+- Frequency can't exceed n, so we need at most n+1 buckets (index 0 to n)
+- Hash map counts frequencies in O(n), bucketing also O(n)
+- Collecting from buckets high to low gets k elements without full sort
+- Trade space O(n) for buckets to gain linear time complexity
 
 ### EXAMPLE WALKTHROUGH:
 ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
+Input: nums = [1,1,1,2,2,3], k = 2
+Step 1: Count frequencies using Counter
+  freq_map = {1: 3, 2: 2, 3: 1}
+
+Step 2: Build max heap with negative frequencies
+  heap = [(-3, 1), (-2, 2), (-1, 3)]
+
+Step 3: Extract k most frequent elements
+  - Pop: (-3, 1) → result = [1]
+  - Pop: (-2, 2) → result = [1, 2]
+
+Output: [1, 2]
+
+Alternative (Bucket Sort):
+Step 1: Create buckets by frequency
+  buckets[3] = [1]
+  buckets[2] = [2]
+  buckets[1] = [3]
+
+Step 2: Collect from highest frequency buckets
+  - From bucket 3: add 1
+  - From bucket 2: add 2
+
+Output: [1, 2]
 ```
 
 ### TIME COMPLEXITY:
@@ -54,6 +78,11 @@ O(1)
 
 </details>
 """
+
+import heapq
+from collections import Counter
+
+from typing import List, Optional, Dict, Tuple
 
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
@@ -132,19 +161,19 @@ class Solution:
 
 def test_solution():
     """
-    Test cases for 347. Top K Frequent Elements.
+    Test cases for the solution.
     """
     solution = Solution()
 
-    # Test case 1: Basic functionality
-    # result = solution.solve([test_input])
-    # expected = [expected_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 1: Example from problem
+    result = solution.topKFrequent([1,1,1,2,2,3], k = 2)
+    expected = [1, 2]
+    assert result == expected, f"Expected {expected}, got {result}"
 
-    # Test case 2: Edge case
-    # result = solution.solve([edge_case_input])
-    # expected = [edge_case_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 2: Empty input
+    result = solution.topKFrequent([], 0)
+    expected = []
+    assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
 

@@ -9,11 +9,11 @@ This problem demonstrates key concepts in Sliding Window and Hash Tables.
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>"abcabcbb"</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>3 (from "abc")</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Longest substring without repeating characters is 'abc' with length 3</dd>
 </dl>
 
 <details>

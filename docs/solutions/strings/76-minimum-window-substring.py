@@ -9,11 +9,11 @@ This problem demonstrates key concepts in Sliding Window and Hash Tables.
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>"ADOBECODEBANC", t = "ABC"</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>"BANC"</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Minimum window containing all chars of t='ABC' is 'BANC'</dd>
 </dl>
 
 <details>

@@ -3,42 +3,59 @@
 
 # 047. Permutations Ii
 
-Given a problem that demonstrates key concepts in Backtracking.
+Given a collection of numbers, nums, that might contain duplicates, return all possible unique permutations in any order.
 
 **Example:**
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[[1,1,2]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>"Expected {expected}, got {result}"</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>All unique permutations of [1,1,2] are [[1,1,2],[1,2,1],[2,1,1]]</dd>
 </dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
-[This problem requires understanding of backtracking concepts. The key insight is to identify the optimal approach for this specific scenario.]
+Use a frequency counter to track available numbers. During backtracking, iterate through unique numbers in the counter, not array positions. Decrement the counter when using a number and increment when backtracking. This naturally handles duplicates by treating them as frequency counts.
 
 ### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply backtracking methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+1. **Create frequency counter**: Use Counter(nums) to build frequency map of available numbers
+2. **Initialize result**: Create empty result list and current permutation list
+3. **Define backtrack function**: Create recursive function that builds permutations incrementally
+4. **Base case**: When len(current) == len(nums), add copy of current to result and return
+5. **Iterate unique numbers**: Loop through counter.keys() (unique numbers only)
+6. **Check availability**: If counter[num] > 0, the number is available to use
+7. **Use number**: Add num to current, decrement counter[num] by 1
+8. **Recurse and backtrack**: Call backtrack(), then remove num from current and increment counter[num]
 
 ### WHY THIS WORKS:
-- The solution leverages backtracking principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+- Backtracking with frequency map to handle duplicates
+- At each level, try each unique unused number
+- Skip if count[num] == 0 (already used in this path)
+- Decrement count on recursion, increment on backtrack
+- O(n! * n) time: n! permutations, O(n) to copy each
 
 ### EXAMPLE WALKTHROUGH:
 ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
+Input: nums = [1,1,2]
+Step 1: Create frequency counter
+  counter = {1: 2, 2: 1}
+
+Step 2: Backtrack to build permutations
+  Choose 1: temp = [1], counter = {1: 1, 2: 1}
+    Choose 1: temp = [1,1], counter = {1: 0, 2: 1}
+      Choose 2: temp = [1,1,2] → add to result
+    Choose 2: temp = [1,2], counter = {1: 1, 2: 0}
+      Choose 1: temp = [1,2,1] → add to result
+  Choose 2: temp = [2], counter = {1: 2, 2: 0}
+    Choose 1: temp = [2,1], counter = {1: 1, 2: 0}
+      Choose 1: temp = [2,1,1] → add to result
+
+Output: [[1,1,2],[1,2,1],[2,1,1]]
 ```
 
 ### TIME COMPLEXITY:
@@ -54,6 +71,10 @@ O(1)
 
 </details>
 """
+
+from collections import Counter
+
+from typing import List, Optional, Dict, Tuple
 
 class Solution:
     def permuteUnique(self, nums: List[int]) -> List[List[int]]:
@@ -109,19 +130,25 @@ class Solution:
 
 def test_solution():
     """
-    Test cases for 047. Permutations Ii.
+    Test cases for the solution.
     """
     solution = Solution()
 
-    # Test case 1: Basic functionality
-    # result = solution.solve([test_input])
-    # expected = [expected_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 1: Example from problem
+    result = solution.permuteUnique([1,1,2])
+    expected = [[1,1,2],[1,2,1],[2,1,1]]
+    # Sort for comparison since order may vary
+    assert sorted([sorted(p) for p in result]) == sorted([sorted(p) for p in expected]), f"Expected {expected}, got {result}"
 
-    # Test case 2: Edge case
-    # result = solution.solve([edge_case_input])
-    # expected = [edge_case_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 2: Single element
+    result = solution.permuteUnique([1])
+    expected = [[1]]
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 3: All duplicates
+    result = solution.permuteUnique([1,1,1])
+    expected = [[1,1,1]]
+    assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
 

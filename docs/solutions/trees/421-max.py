@@ -3,42 +3,54 @@
 
 # 421. Max
 
-Given a problem that demonstrates key concepts in Trees.
+Given an integer array nums, return the maximum result of nums[i] XOR nums[j], where 0 <= i <= j < n.
 
 **Example:**
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[3,10,5,25,2,8]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>28 (5 XOR 25)</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>The maximum XOR of two numbers is 28, formed by 5 XOR 25 = 28</dd>
 </dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
-[This problem requires understanding of trees concepts. The key insight is to identify the optimal approach for this specific scenario.]
+Build Trie of all numbers. For each number, traverse Trie greedily choosing opposite bit when possible (to maximize XOR). This finds best XOR partner for each number in O(32n).
 
 ### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply trees methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+1. **Build trie**: Insert all numbers into trie as binary representations
+2. **Initialize max_xor**: Set max_xor = 0
+3. **For each number**: Traverse trie trying to take opposite bit at each level
+4. **Maximize XOR**: If opposite bit exists, take it; else take same bit
+5. **Calculate XOR**: Build XOR value from chosen path
+6. **Update maximum**: max_xor = max(max_xor, current_xor)
+7. **Return result**: Return max_xor
 
 ### WHY THIS WORKS:
-- The solution leverages trees principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+- Trie with bit-level representation: each node has 0/1 children
+- For each number, try to take opposite bit path (maximize XOR)
+- If opposite bit exists, go there (XOR will be 1); else take same bit
+- Build trie with all numbers, then query each number for max XOR
+- O(n * 32) time: n numbers, 32 bits each, O(n * 32) space for trie
 
 ### EXAMPLE WALKTHROUGH:
 ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
+Input: nums = [3,10,5,25,2,8]
+Step 1: Build trie of binary representations
+  3 = 00011
+  10 = 01010
+  ...
+
+Step 2: For each number, find max XOR
+  For 3: try to maximize XOR
+  Result: 3 XOR 25 = 00011 XOR 11001 = 11010 = 26
+
+Output: 28 (5 XOR 25)
 ```
 
 ### TIME COMPLEXITY:
@@ -54,6 +66,8 @@ O(1)
 
 </details>
 """
+
+from typing import List, Optional, Dict, Tuple
 
 class Solution:
     def findMaximumXOR(self, nums: List[int]) -> int:
@@ -148,19 +162,24 @@ class OptimizedSolution:
 
 def test_solution():
     """
-    Test cases for 421. Max.
+    Test cases for the solution.
     """
     solution = Solution()
 
-    # Test case 1: Basic functionality
-    # result = solution.solve([test_input])
-    # expected = [expected_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 1: Basic case
+    result = solution.findMaximumXOR([1, 2, 3])
+    expected = 3
+    assert result == expected, f"Expected {expected}, got {result}"
 
-    # Test case 2: Edge case
-    # result = solution.solve([edge_case_input])
-    # expected = [edge_case_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 2: Empty input
+    result = solution.findMaximumXOR([])
+    expected = 0
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 3: Single element
+    result = solution.findMaximumXOR([1])
+    expected = 0
+    assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
 

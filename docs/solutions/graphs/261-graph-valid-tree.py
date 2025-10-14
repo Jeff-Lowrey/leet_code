@@ -3,42 +3,64 @@
 
 # 261. Graph Valid Tree
 
-Given a problem that demonstrates key concepts in Graphs.
+You have a graph of n nodes labeled from 0 to n - 1. You are given an integer n and a list of edges where edges[i] = [ai, bi] indicates that there is an undirected edge between nodes ai and bi in the graph.
+
+Return true if the edges of the given graph make up a valid tree, and false otherwise.
 
 **Example:**
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[[0,1]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>"Expected {expected}, got {result}"</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Graph edges form a valid tree if connected and has n-1 edges</dd>
 </dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
-[This problem requires understanding of graphs concepts. The key insight is to identify the optimal approach for this specific scenario.]
+A valid tree has exactly n-1 edges and is fully connected with no cycles. Use Union-Find to detect cycles and count components. Valid if no cycles and all nodes in one component.
 
 ### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply graphs methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+1. **Check edge count**: If edges != n-1, return False
+2. **Build adjacency list**: Create graph as defaultdict(list), add edges in both directions
+3. **Initialize visited set**: Create empty set to track visited nodes
+4. **Define DFS function**: Implement dfs(node, parent) to traverse graph
+5. **Check for cycles**: In DFS, if neighbor is visited and not parent, cycle detected
+6. **Mark as visited**: Add current node to visited set, recurse on unvisited neighbors
+7. **Check connectivity**: After DFS from node 0, verify len(visited) == n
+8. **Return result**: Return True if no cycles and all nodes visited, else False
 
 ### WHY THIS WORKS:
-- The solution leverages graphs principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+- Tree properties: n nodes, n-1 edges, all nodes connected, no cycles
+- Check edge count == n-1 (necessary but not sufficient)
+- DFS/BFS from any node: all nodes should be visited (connected)
+- Union-find alternative: no cycles means each edge connects different components
+- O(n + e) time: DFS/BFS, O(n) space for visited array
 
 ### EXAMPLE WALKTHROUGH:
 ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
+Input: n = 5, edges = [[0,1],[0,2],[0,3],[1,4]]
+Step 1: Check edge count
+  n-1 = 4 edges (necessary for tree) ✓
+
+Step 2: Build adjacency list
+  {0: [1,2,3], 1: [0,4], 2: [0], 3: [0], 4: [1]}
+
+Step 3: DFS to check connectivity
+  Visit 0 → mark visited
+  Visit 1 → mark visited
+  Visit 4 → mark visited
+  Visit 2 → mark visited
+  Visit 3 → mark visited
+
+Step 4: Verify all nodes visited
+  visited = {0,1,2,3,4}, count = 5 = n ✓
+
+Output: True (forms valid tree)
 ```
 
 ### TIME COMPLEXITY:
@@ -54,6 +76,10 @@ O(1)
 
 </details>
 """
+
+from collections import defaultdict, deque
+
+from typing import List, Optional, Dict, Tuple
 
 class Solution:
     """
@@ -140,19 +166,34 @@ class Solution:
 
 def test_solution():
     """
-    Test cases for 261. Graph Valid Tree.
+    Test cases for the solution.
     """
     solution = Solution()
 
-    # Test case 1: Basic functionality
-    # result = solution.solve([test_input])
-    # expected = [expected_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 1: Valid tree
+    result = solution.validTree(5, [[0,1],[0,2],[0,3],[1,4]])
+    expected = True
+    assert result == expected, f"Expected {expected}, got {result}"
 
-    # Test case 2: Edge case
-    # result = solution.solve([edge_case_input])
-    # expected = [edge_case_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 2: Has cycle (not a tree)
+    result = solution.validTree(5, [[0,1],[1,2],[2,3],[1,3],[1,4]])
+    expected = False
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 3: Single node (valid tree)
+    result = solution.validTree(1, [])
+    expected = True
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 4: Disconnected graph (not a tree)
+    result = solution.validTree(4, [[0,1],[2,3]])
+    expected = False
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 5: Using DFS version
+    result = solution.validTree_dfs(5, [[0,1],[0,2],[0,3],[1,4]])
+    expected = True
+    assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
 

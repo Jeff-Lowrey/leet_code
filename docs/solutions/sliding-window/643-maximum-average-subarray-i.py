@@ -3,42 +3,54 @@
 
 # 643. Maximum Average Subarray I
 
-Given a problem that demonstrates key concepts in Sliding Window.
+You are given an integer array nums consisting of n elements, and an integer k.
+
+Find a contiguous subarray whose length is equal to k that has the maximum average value and return this value. Any answer with a calculation error less than 10^-5 will be accepted.
 
 **Example:**
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[1,12,-5,-6,50,3], k = 4</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>12.75 (maximum average)</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>The maximum average of subarray of length k=4 is 12.75</dd>
 </dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
-[This problem requires understanding of sliding window concepts. The key insight is to identify the optimal approach for this specific scenario.]
+Use sliding window of size k. Calculate sum of first window. Then slide: subtract left element, add right element. Track maximum sum. Divide by k for average.
 
 ### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply sliding window methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+1. **Calculate first window**: Compute sum of first k elements as current_sum
+2. **Initialize maximum**: Set max_sum = current_sum
+3. **Slide window**: For i from k to len(nums)
+4. **Update window sum**: current_sum = current_sum - nums[i-k] + nums[i]
+5. **Update maximum**: max_sum = max(max_sum, current_sum)
+6. **Continue sliding**: Process all possible windows
+7. **Calculate average**: Return max_sum / k
 
 ### WHY THIS WORKS:
-- The solution leverages sliding window principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+- Fixed-size sliding window of length k
+- Initial window: sum first k elements
+- Slide: add nums[i+k], remove nums[i] for each position
+- Track maximum sum seen, divide by k at end for average
+- O(n) time: single pass with constant work per element, O(1) space
 
 ### EXAMPLE WALKTHROUGH:
 ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
+Input: nums = [1,12,-5,-6,50,3], k = 4
+Step 1: Calculate first window sum
+  sum = 1+12+(-5)+(-6) = 2, avg = 0.5
+
+Step 2: Slide window
+  sum = 2-1+50 = 51, avg = 12.75
+  sum = 51-12+3 = 42, avg = 10.5
+
+Output: 12.75 (maximum average)
 ```
 
 ### TIME COMPLEXITY:
@@ -54,6 +66,8 @@ O(1)
 
 </details>
 """
+
+from typing import List, Optional, Dict, Tuple
 
 class Solution:
     def findMaxAverage(self, nums: List[int], k: int) -> float:
@@ -90,19 +104,19 @@ class Solution:
 
 def test_solution():
     """
-    Test cases for 643. Maximum Average Subarray I.
+    Test cases for the solution.
     """
     solution = Solution()
 
-    # Test case 1: Basic functionality
-    # result = solution.solve([test_input])
-    # expected = [expected_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 1: Basic case
+    result = solution.findMaxAverage([1, 2, 3], 2)
+    expected = 2.5
+    assert result == expected, f"Expected {expected}, got {result}"
 
-    # Test case 2: Edge case
-    # result = solution.solve([edge_case_input])
-    # expected = [edge_case_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 2: Empty input
+    result = solution.findMaxAverage([], 0)
+    expected = 0.0
+    assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
 

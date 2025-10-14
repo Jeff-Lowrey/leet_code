@@ -21,11 +21,11 @@ Output:
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>["NumArray", "sumRange", "update", "sumRange"]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>[null, 9, null, 8]</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>After update(1,10), the sum of range [0,2] is computed as 16 using the segment tree</dd>
 </dl>
 
 <details>
@@ -55,8 +55,11 @@ O(log n) for both update and query
 O(n)
 
 ### EDGE CASES:
-- **[Edge case 1]:** [how it's handled]
-- **[Edge case 2]:** [how it's handled]
+- **Single element array**: Sum queries return that element
+- **Update single element**: Propagate changes up segment tree
+- **Query entire range**: Return root node value
+- **Frequent updates**: Segment tree handles efficiently in O(log n)
+- **Range [i, i]**: Query single element
 
 </details>
 """

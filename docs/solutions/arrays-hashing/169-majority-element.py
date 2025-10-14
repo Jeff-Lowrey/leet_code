@@ -12,11 +12,11 @@ You may assume that the majority element always exists in the array.
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[2, 2, 1, 1, 1, 2, 2]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>7</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>The majority element is 3, appearing 3 times in an array of size 5 (more than ⌊5/2⌋)</dd>
 </dl>
 
 <details>
@@ -59,8 +59,11 @@ O(1)
 Only using constant extra space
 
 ### EDGE CASES:
-- **[Edge case 1]:** [how it's handled]
-- **[Edge case 2]:** [how it's handled]
+- **Single element**: Return that element (it's the majority)
+- **All same elements**: Return that element
+- **Exactly n/2 + 1 occurrences**: Still majority element
+- **Multiple candidates**: Boyer-Moore finds the true majority
+- **Guaranteed majority**: Problem guarantees one exists
 
 </details>
 """

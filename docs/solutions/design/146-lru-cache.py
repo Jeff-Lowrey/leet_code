@@ -16,11 +16,11 @@ The functions get and put must each run in O(1) average time complexity.
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>LRUCache(2)</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>put(1, 1) -> [1:1]</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Cache is initialized with capacity 2, and after put(1, 1), the cache contains key 1 with value 1 as the most recently used item</dd>
 </dl>
 
 <details>

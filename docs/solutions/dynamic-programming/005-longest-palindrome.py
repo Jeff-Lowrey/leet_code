@@ -12,11 +12,11 @@ Explanation: "aba" is also a valid `answer`.
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>s = "babad"</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>bab"</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Longest palindromic substring is 'bab' or 'aba'</dd>
 </dl>
 
 <details>
@@ -27,7 +27,13 @@ A palindrome reads the same forwards and backwards. We can find palindromes
 by expanding around `centers - either` single characters or between characters.
 
 ### APPROACH:
-[Detailed explanation of the solution approach]
+1. **Handle edge case**: Return empty string if input is empty
+2. **Initialize tracking variables**: Set up variables to track the start position and maximum length of longest palindrome found
+3. **Iterate through each character**: For each position i in the string, treat it as a potential palindrome center
+4. **Expand around odd-length centers**: Call expand helper with (i, i) to check palindromes with single character center (e.g., "aba")
+5. **Expand around even-length centers**: Call expand helper with (i, i+1) to check palindromes with two character center (e.g., "abba")
+6. **Update maximum**: For each center, compare the palindrome length found with current maximum, update start and max_len if longer
+7. **Return substring**: Extract and return the substring from start position with max_len characters
 
 ### WHY THIS WORKS:
 - Every palindrome has a center
@@ -51,8 +57,11 @@ O(n²)
 O(1)
 
 ### EDGE CASES:
-- **[Edge case 1]:** [how it's handled]
-- **[Edge case 2]:** [how it's handled]
+- **Single character**: Return that character (length 1 palindrome)
+- **No palindrome > 1**: Return any single character
+- **Entire string palindrome**: Return entire string
+- **Even length palindrome**: Expand from between characters
+- **Odd length palindrome**: Expand from single character
 
 </details>
 """

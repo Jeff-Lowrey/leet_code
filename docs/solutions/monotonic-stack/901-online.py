@@ -3,42 +3,56 @@
 
 # 901. Online
 
-Given a problem that demonstrates key concepts in Monotonic Stack.
+Design a class StockSpanner which collects daily price quotes for some stock, and returns the span of that stock's price for the current day.
+
+The span of the stock's price in one day is the maximum number of consecutive days (starting from that day and going backward) for which the stock price was less than or equal to the price of that day.
 
 **Example:**
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>["StockSpanner", "next", "next", "next", "next", "next", "next", "next"]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>"Expected {expected}, got {result}"</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>After each price, the stock price span is the count of consecutive days with price ≤ current price</dd>
 </dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
-[This problem requires understanding of monotonic stack concepts. The key insight is to identify the optimal approach for this specific scenario.]
+Maintain monotonic decreasing stack of (price, span) pairs. When new price comes, pop all lower prices and sum their spans. Current span = 1 + sum of popped spans. Push (price, span).
 
 ### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply monotonic stack methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+1. **Initialize in __init__**: Set self.stack = []
+2. **In next method**: Initialize span = 1
+3. **Process stack**: While stack and price >= stack[-1][0], span += stack.pop()[1]
+4. **Push current**: Append (price, span) to stack
+5. **Return span**: Return calculated span
 
 ### WHY THIS WORKS:
-- The solution leverages monotonic stack principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+- Monotonic stack tracks (price, span) pairs in decreasing order
+- When new price >= stack top, accumulate spans (those days included in current span)
+- Pop and sum spans while price >= stack_top to get continuous span
+- Amortized O(1) per call: each price pushed/popped at most once
+- Stack maintains decreasing prices, enabling efficient span calculation
 
 ### EXAMPLE WALKTHROUGH:
 ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
+Operations: ["StockSpanner","next","next","next","next","next","next","next"]
+Values: [[],[100],[80],[60],[70],[60],[75],[85]]
+
+Step 1: Process prices with monotonic stack
+  100: span=1, stack=[(100,1)]
+  80: span=1, stack=[(100,1),(80,1)]
+  60: span=1, stack=[(100,1),(80,1),(60,1)]
+  70: pop 60, span=1+1=2, stack=[(100,1),(80,1),(70,2)]
+  60: span=1, stack=[(100,1),(80,1),(70,2),(60,1)]
+  75: pop 60, pop 70, span=1+1+2=4, stack=[(100,1),(80,1),(75,4)]
+  85: pop 75, pop 80, span=1+4+1=6, stack=[(100,1),(85,6)]
+
+Output: [1,1,1,2,1,4,6]
 ```
 
 ### TIME COMPLEXITY:

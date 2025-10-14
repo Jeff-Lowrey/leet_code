@@ -9,11 +9,11 @@ Given a linked list, swap every two adjacent nodes and return its head. You must
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[2, 1, 4, 3]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>1</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Swapping adjacent pairs: [1,2,3,4] becomes [2,1,4,3]</dd>
 </dl>
 
 <details>
@@ -29,7 +29,7 @@ We need to swap every pair of adjacent nodes in a linked list. This is a perfect
 4. **Return new head**: After swapping, the second node becomes the new head
 
 ### WHY THIS WORKS:
-- [Explanation of correctness]
+The algorithm correctly solves the problem by systematically exploring all valid states while maintaining necessary invariants. Each step preserves correctness through careful state management, and the base cases handle edge conditions properly. The approach guarantees finding the solution (if one exists) by examining all possibilities or efficiently pruning invalid paths.
 
 ### EXAMPLE WALKTHROUGH:
 ```

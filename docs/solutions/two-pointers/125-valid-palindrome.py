@@ -15,11 +15,11 @@ Output: true
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>s = "A man, a plan, a canal: Panama"</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>true</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>String 'A man, a plan, a canal: Panama' is a valid palindrome</dd>
 </dl>
 
 <details>
@@ -29,7 +29,13 @@ Output: true
 Use two pointers from both ends of the string, skipping non-alphanumeric characters and comparing characters case-insensitively. This avoids creating a cleaned string, saving space.
 
 ### APPROACH:
-[Detailed explanation of the solution approach]
+1. **Initialize two pointers**: Set left pointer at start (0) and right pointer at end (len(s) - 1)
+2. **Skip non-alphanumeric from left**: Move left pointer forward while current character is not alphanumeric
+3. **Skip non-alphanumeric from right**: Move right pointer backward while current character is not alphanumeric
+4. **Compare characters**: Convert both characters to lowercase and compare them
+5. **Return false if mismatch**: If characters don't match, string is not a palindrome - return False
+6. **Move pointers inward**: If characters match, increment left and decrement right pointers
+7. **Return true when pointers meet**: If loop completes without finding mismatch, string is a palindrome - return True
 
 ### WHY THIS WORKS:
 - Two pointers naturally check palindrome property (symmetric comparison)
@@ -63,8 +69,11 @@ O(n)
 O(1)
 
 ### EDGE CASES:
-- **[Edge case 1]:** [how it's handled]
-- **[Edge case 2]:** [how it's handled]
+- **Empty string**: Return True (empty is palindrome)
+- **Single character**: Return True (single char is palindrome)
+- **Only non-alphanumeric**: Return True after filtering
+- **Mixed case**: Convert to lowercase for comparison
+- **No letters/digits**: Return True (vacuously true)
 
 </details>
 """

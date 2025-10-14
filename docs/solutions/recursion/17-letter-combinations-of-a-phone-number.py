@@ -9,11 +9,11 @@ This problem demonstrates key concepts in Recursion.
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>"Expected {expected}, got {result}"</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>All letter combinations of '23' map to ['ad','ae','af','bd','be','bf','cd','ce','cf']</dd>
 </dl>
 
 <details>

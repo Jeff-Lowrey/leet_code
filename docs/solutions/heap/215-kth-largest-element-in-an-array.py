@@ -13,11 +13,11 @@ Can you solve it without sorting?
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[3, 2, 1, 5, 6, 4]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>"findKthLargest({nums}, k={k}) -> {result}"</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>The 2nd largest element in [3,2,1,5,6,4] is 5</dd>
 </dl>
 
 <details>
@@ -27,7 +27,13 @@ Can you solve it without sorting?
 Several approaches: min-heap (keep k largest), max-heap (pop k-1 times), or QuickSelect (partition-based like QuickSort). QuickSelect is optimal O(n) average case.
 
 ### APPROACH:
-[Detailed explanation of the solution approach]
+1. **Build initial min-heap**: Create a min-heap from the first k elements of the array using heapify
+2. **Process remaining elements**: Iterate through the rest of the array starting from index k
+3. **Compare with heap root**: For each element, check if it's larger than the smallest element in heap (heap[0])
+4. **Replace if larger**: If element is larger than heap root, replace the root with this element using heapreplace
+5. **Maintain heap size k**: Heap always contains the k largest elements seen so far, with smallest of those k at the root
+6. **Return kth largest**: After processing all elements, the root of the min-heap is the kth largest element
+7. **Alternative QuickSelect**: Use partition-based selection similar to QuickSort for O(n) average time complexity
 
 ### WHY THIS WORKS:
 - **Heap**: Root of min-heap with k elements = kth largest

@@ -9,11 +9,11 @@ Given the root of a binary tree, return the inorder traversal of its nodes' valu
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[1, 3, 2]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>1</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>In-order traversal of tree [1,null,2,3] is [1,3,2]</dd>
 </dl>
 
 <details>
@@ -64,8 +64,11 @@ We visit each node exactly once
 - Morris: O(1) constant space
 
 ### EDGE CASES:
-- **[Edge case 1]:** [how it's handled]
-- **[Edge case 2]:** [how it's handled]
+- **Empty tree**: Return empty list immediately
+- **Single node**: Return list with one element
+- **Left-skewed tree**: Traversal order is leaf-to-root path
+- **Right-skewed tree**: Traversal order is root-to-leaf path
+- **BST**: Inorder gives sorted sequence of values
 
 </details>
 """

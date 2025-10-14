@@ -3,42 +3,55 @@
 
 # 069. Sqrt
 
-Given a problem that demonstrates key concepts in Math.
+Given a non-negative integer x, return the square root of x rounded down to the nearest integer. The returned integer should be non-negative as well.
+
+You must not use any built-in exponent function or operator.
 
 **Example:**
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>x = 8</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>2 (floor of sqrt(8))</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Integer square root of 8 is 2</dd>
 </dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
-[This problem requires understanding of math concepts. The key insight is to identify the optimal approach for this specific scenario.]
+Use binary search on the range [0, x]. For mid, check if mid * mid <= x. If yes, mid could be answer; try larger. If no, try smaller. Converge to floor(sqrt(x)).
 
 ### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply math methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+1. **Handle edge cases**: If x == 0 or x == 1, return x
+2. **Initialize binary search**: Set left = 1, right = x // 2
+3. **Binary search loop**: While left <= right, calculate mid
+4. **Check if perfect square**: If mid * mid == x, return mid
+5. **Search right half**: If mid * mid < x, set left = mid + 1, store mid
+6. **Search left half**: If mid * mid > x, set right = mid - 1
+7. **Return result**: Return stored result (largest integer whose square <= x)
 
 ### WHY THIS WORKS:
-- The solution leverages math principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+- Binary search on range [0, x] for answer
+- If mid * mid == x, found exact square root
+- If mid * mid < x, answer might be mid or higher (left = mid + 1)
+- If mid * mid > x, answer is lower (right = mid - 1)
+- O(log x) time binary search, O(1) space
 
 ### EXAMPLE WALKTHROUGH:
 ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
+Input: x = 8
+Step 1: Binary search
+  left=0, right=8
+  mid=4: 4*4=16 > 8, right=3
+  mid=1: 1*1=1 < 8, left=2
+  mid=2: 2*2=4 < 8, left=3
+  mid=3: 3*3=9 > 8, right=2
+  left > right, return 2
+
+Output: 2 (floor of sqrt(8))
 ```
 
 ### TIME COMPLEXITY:
@@ -105,19 +118,24 @@ class Solution:
 
 def test_solution():
     """
-    Test cases for 069. Sqrt.
+    Test cases for the solution.
     """
     solution = Solution()
 
-    # Test case 1: Basic functionality
-    # result = solution.solve([test_input])
-    # expected = [expected_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 1: Example from problem
+    result = solution.mySqrt(8)
+    expected = 2
+    assert result == expected, f"Expected {expected}, got {result}"
 
-    # Test case 2: Edge case
-    # result = solution.solve([edge_case_input])
-    # expected = [edge_case_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 2: Perfect square
+    result = solution.mySqrt(4)
+    expected = 2
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 3: Zero
+    result = solution.mySqrt(0)
+    expected = 0
+    assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
 

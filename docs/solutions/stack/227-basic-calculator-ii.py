@@ -3,42 +3,60 @@
 
 # 227. Basic Calculator Ii
 
-Given a problem that demonstrates key concepts in Stack.
+Given a string s which represents an expression, evaluate this expression and return its value.
+
+The integer division should truncate toward zero.
+
+You may assume that the given expression is always valid. All intermediate results will be in the range of [-2^31, 2^31 - 1].
+
+Note: You are not allowed to use any built-in function which evaluates strings as mathematical expressions, such as eval().
 
 **Example:**
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>"3+2*2"</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>7</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Expression '3+2*2' evaluates to 7</dd>
 </dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
-[This problem requires understanding of stack concepts. The key insight is to identify the optimal approach for this specific scenario.]
+Use stack to handle operators. Scan number by number. For +/- push to stack. For *// pop, compute with previous, push result. Finally sum stack for result.
 
 ### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply stack methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+1. **Initialize variables**: Set stack = [], num = 0, sign = '+'
+2. **Iterate through string**: For i, char in enumerate(s)
+3. **Build number**: If char.isdigit(), num = num * 10 + int(char)
+4. **Process operator**: If char in '+-*/' or last character
+5. **Handle signs**: If sign == '+', push num; if '-', push -num; if '*', push stack.pop() * num; if '/', push int(stack.pop() / num)
+6. **Update sign**: Set sign = char, reset num = 0
+7. **Sum stack**: Return sum(stack) as final result
 
 ### WHY THIS WORKS:
-- The solution leverages stack principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+- Stack handles operator precedence: */ evaluated immediately, +- pushed to stack
+- Track last operator, current number being built
+- When + or -, push to stack (signed number)
+- When * or /, pop and compute with current number, push result
+- Sum stack at end for final result
+- O(n) time: single pass, O(n) space for stack
 
 ### EXAMPLE WALKTHROUGH:
 ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
+Input: s = "3+2*2"
+Step 1: Parse and evaluate
+  num=3, op='+', stack=[3]
+  num=2, op='*', stack=[3,2]
+  num=2, op=None, stack=[3,4] (multiply 2*2)
+
+Step 2: Sum stack
+  result = 3+4 = 7
+
+Output: 7
 ```
 
 ### TIME COMPLEXITY:
@@ -112,19 +130,24 @@ class Solution:
 
 def test_solution():
     """
-    Test cases for 227. Basic Calculator Ii.
+    Test cases for the solution.
     """
     solution = Solution()
 
-    # Test case 1: Basic functionality
-    # result = solution.solve([test_input])
-    # expected = [expected_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 1: Example from problem
+    result = solution.calculate("3+2*2")
+    expected = 7
+    assert result == expected, f"Expected {expected}, got {result}"
 
-    # Test case 2: Edge case
-    # result = solution.solve([edge_case_input])
-    # expected = [edge_case_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 2: Empty input
+    result = solution.calculate("")
+    expected = 0
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 3: Single number
+    result = solution.calculate("42")
+    expected = 42
+    assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
 

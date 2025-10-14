@@ -11,11 +11,11 @@ You must write an algorithm with O(log n) runtime complexity.
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[1,3,5,6]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>1</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Target 5 should be inserted at index 2 in [1,3,5,6]</dd>
 </dl>
 
 <details>

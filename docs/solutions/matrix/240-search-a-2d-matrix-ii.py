@@ -12,11 +12,11 @@ This matrix has the following properties:
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[[1, 4, 7, 11, 15]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>1</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Target 5 is found in 2D sorted matrix</dd>
 </dl>
 
 <details>

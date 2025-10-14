@@ -16,11 +16,11 @@ Return true if n is a happy number, and false if not.
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>n = 19:</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>1² + 9² = 82</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Number 19 is happy: 1²+9²=82, 8²+2²=68, 6²+8²=100, 1²+0²+0²=1</dd>
 </dl>
 
 <details>

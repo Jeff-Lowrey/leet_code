@@ -3,42 +3,59 @@
 
 # 045. Jump Game Ii
 
-Given a problem that demonstrates key concepts in Greedy.
+You are given a 0-indexed array of integers nums of length n. You are initially positioned at nums[0].
+
+Each element nums[i] represents the maximum length of a forward jump from index i. In other words, if you are at nums[i], you can jump to any nums[i + j] where 0 <= j <= nums[i] and i + j < n.
+
+Return the minimum number of jumps to reach nums[n - 1]. The test cases are generated such that you can reach nums[n - 1].
 
 **Example:**
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[2,3,1,1,4]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>2 (minimum jumps)</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Minimum 2 jumps needed to reach end of [2,3,1,1,4]</dd>
 </dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
-[This problem requires understanding of greedy concepts. The key insight is to identify the optimal approach for this specific scenario.]
+Track current reach and farthest reach. When reach exhausted, must jump (increment jumps) and update reach to farthest. Greedy: always extend reach as far as possible before jumping.
 
 ### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply greedy methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+1. **Initialize variables**: Set jumps = 0, current_end = 0, farthest = 0
+2. **Iterate to second-last**: For i in range(len(nums) - 1)
+3. **Update farthest**: farthest = max(farthest, i + nums[i])
+4. **Reached current end**: If i == current_end, increment jumps
+5. **Extend range**: Set current_end = farthest
+6. **Continue jumping**: Process all positions
+7. **Return result**: Return jumps as minimum number of jumps
 
 ### WHY THIS WORKS:
-- The solution leverages greedy principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+- BFS-like greedy: track current jump's reach and next jump's reach
+- Increment jumps when reaching end of current jump's range
+- Update next reach as maximum of (i + nums[i]) for all i in current range
+- Guaranteed to reach end, so count minimum jumps needed
+- O(n) time: single pass, O(1) space
 
 ### EXAMPLE WALKTHROUGH:
 ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
+Input: nums = [2,3,1,1,4]
+Step 1: Initialize variables
+  jumps = 0, current_end = 0, farthest = 0
+
+Step 2: Iterate through array
+  i=0: farthest = max(0, 0+2) = 2
+  i=1: farthest = max(2, 1+3) = 4, reached current_end → jumps=1, current_end=2
+  i=2: farthest = max(4, 2+1) = 4, reached current_end → jumps=2, current_end=4
+  
+  Reached last index
+
+Output: 2 (minimum jumps)
 ```
 
 ### TIME COMPLEXITY:
@@ -54,6 +71,8 @@ O(1)
 
 </details>
 """
+
+from typing import List, Optional, Dict, Tuple
 
 class Solution:
     def jump(self, nums: List[int]) -> int:
@@ -97,19 +116,24 @@ class Solution:
 
 def test_solution():
     """
-    Test cases for 045. Jump Game Ii.
+    Test cases for the solution.
     """
     solution = Solution()
 
-    # Test case 1: Basic functionality
-    # result = solution.solve([test_input])
-    # expected = [expected_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 1: Basic case
+    result = solution.jump([1, 2, 3])
+    expected = 2
+    assert result == expected, f"Expected {expected}, got {result}"
 
-    # Test case 2: Edge case
-    # result = solution.solve([edge_case_input])
-    # expected = [edge_case_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 2: Empty input
+    result = solution.jump([])
+    expected = 0
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 3: Single element
+    result = solution.jump([1])
+    expected = 0
+    assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
 

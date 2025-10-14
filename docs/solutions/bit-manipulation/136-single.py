@@ -1,44 +1,61 @@
 """
-# Difficulty: Medium
+# Difficulty: Easy
 
-# 136. Single
+# 136. Single Number
 
-Given a problem that demonstrates key concepts in Bit Manipulation.
+Given a non-empty array of integers nums, every element appears twice except for one. Find that single one.
+
+You must implement a solution with a linear runtime complexity and use only constant extra space.
 
 **Example:**
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[4,1,2,1,2]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>4 (single number)</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>The single number 4 appears once in [2,2,1,4,1] (all others appear twice)</dd>
 </dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
-[This problem requires understanding of bit manipulation concepts. The key insight is to identify the optimal approach for this specific scenario.]
+XOR has the property that a^a=0 and a^0=a. XOR all numbers together - pairs cancel out to 0, leaving only the single number that appears once.
 
 ### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply bit manipulation methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+1. **Initialize result**: Set result = 0 to accumulate XOR values
+2. **Iterate through array**: Loop through each number in nums
+3. **Apply XOR operation**: For each num, compute result ^= num
+4. **Leverage XOR properties**: Use the fact that a^a=0 (duplicate pairs cancel) and a^0=a (identity)
+5. **Pairs cancel out**: All numbers appearing twice XOR to 0
+6. **Single number remains**: The number appearing once remains after all XORs
+7. **Return result**: Return the final result value
 
 ### WHY THIS WORKS:
-- The solution leverages bit manipulation principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+- XOR all numbers: duplicates cancel (a ^ a = 0), leaving single number
+- XOR properties: commutative, associative, identity is 0
+- Single pass accumulating XOR values
+- Final result is the single non-duplicate number
+- O(n) time, O(1) space
 
 ### EXAMPLE WALKTHROUGH:
 ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
+Input: nums = [4,1,2,1,2]
+Step 1: XOR all numbers
+  result = 0
+  result ^= 4 → result = 4 (binary: 100)
+  result ^= 1 → result = 5 (binary: 101)
+  result ^= 2 → result = 7 (binary: 111)
+  result ^= 1 → result = 6 (binary: 110)
+  result ^= 2 → result = 4 (binary: 100)
+
+Step 2: All duplicate numbers cancel out (a^a=0)
+  Pairs: (1^1)=0, (2^2)=0
+  Remaining: 4
+
+Output: 4 (single number)
 ```
 
 ### TIME COMPLEXITY:
@@ -54,6 +71,8 @@ O(1)
 
 </details>
 """
+
+from typing import List, Optional, Dict, Tuple
 
 class Solution:
     def singleNumber(self, nums: List[int]) -> int:
@@ -84,19 +103,24 @@ class Solution:
 
 def test_solution():
     """
-    Test cases for 136. Single.
+    Test cases for the solution.
     """
     solution = Solution()
 
-    # Test case 1: Basic functionality
-    # result = solution.solve([test_input])
-    # expected = [expected_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 1: Example from problem
+    result = solution.singleNumber([4,1,2,1,2])
+    expected = 4
+    assert result == expected, f"Expected {expected}, got {result}"
 
-    # Test case 2: Edge case
-    # result = solution.solve([edge_case_input])
-    # expected = [edge_case_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 2: Single element
+    result = solution.singleNumber([1])
+    expected = 1
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 3: Negative numbers
+    result = solution.singleNumber([-1,-2,-3,-2,-1])
+    expected = -3
+    assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
 

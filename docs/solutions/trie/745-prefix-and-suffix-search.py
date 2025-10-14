@@ -13,11 +13,11 @@ Implement the WordFilter class:
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>words = ["apple"]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>See walkthrough</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>WordFilter finds 'apple' with prefix='a' and suffix='e'</dd>
 </dl>
 
 <details>

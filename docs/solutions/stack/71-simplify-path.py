@@ -25,11 +25,11 @@ Output: "/home/foo"
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>path = "/home//foo/"</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>/home/foo"</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Simplified path '/a/./b/../../c/' is '/c'</dd>
 </dl>
 
 <details>

@@ -3,42 +3,57 @@
 
 # 326. Power
 
-Given a problem that demonstrates key concepts in Math.
+Given an integer n, return true if it is a power of three. Otherwise, return false.
+
+An integer n is a power of three, if there exists an integer x such that n == 3^x.
 
 **Example:**
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>n = 27</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>True (27 is power of 3)</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Number 27 is a power of 3 (27 = 3³)</dd>
 </dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
-[This problem requires understanding of math concepts. The key insight is to identify the optimal approach for this specific scenario.]
+Powers of 3 only have 3 in their prime factorization. Find maximum power of 3 in 32-bit range (3^19). Check if n divides it evenly. If yes, n is power of 3.
 
 ### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply math methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+1. **Handle edge cases**: If n == 1, return True; if n <= 0, return False
+2. **Iterate while n > 1**: While n is greater than 1
+3. **Check divisibility**: If n % 3 != 0, return False
+4. **Divide by 3**: n = n // 3
+5. **Continue loop**: Repeat until n becomes 1 or indivisible by 3
+6. **Return result**: Return True if loop exits with n == 1
 
 ### WHY THIS WORKS:
-- The solution leverages math principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+- Power of 3 only has prime factor 3
+- Max 32-bit power of 3 is 3^19 = 1162261467
+- If n divides max power of 3 evenly, n is power of 3
+- Alternative: repeatedly divide by 3, check if result is 1
+- O(1) time with division check, O(1) space
 
 ### EXAMPLE WALKTHROUGH:
 ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
+Input: n = 27
+Step 1: Divide by 3 repeatedly
+  27/3 = 9
+  9/3 = 3
+  3/3 = 1
+
+Step 2: Check if reached 1
+  Result is 1, so 27 is power of 3
+
+Counter-example: n = 10
+  10/3 = 3 (remainder 1, not divisible)
+
+Output: True (27 is power of 3)
 ```
 
 ### TIME COMPLEXITY:
@@ -101,19 +116,24 @@ class Solution:
 
 def test_solution():
     """
-    Test cases for 326. Power.
+    Test cases for the solution.
     """
     solution = Solution()
 
-    # Test case 1: Basic functionality
-    # result = solution.solve([test_input])
-    # expected = [expected_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 1: Power of three
+    result = solution.isPowerOfThree(27)
+    expected = True
+    assert result == expected, f"Expected {expected}, got {result}"
 
-    # Test case 2: Edge case
-    # result = solution.solve([edge_case_input])
-    # expected = [edge_case_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 2: Not power of three
+    result = solution.isPowerOfThree(0)
+    expected = False
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 3: One (3^0)
+    result = solution.isPowerOfThree(1)
+    expected = True
+    assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
 

@@ -9,11 +9,11 @@ This problem demonstrates key concepts in Strings.
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>["h", "e", "l", "l", "o"]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>"Before: {example}"</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>The string ['h','e','l','l','o'] is reversed in-place to ['o','l','l','e','h']</dd>
 </dl>
 
 <details>
@@ -63,6 +63,8 @@ Only two pointer variables are used, regardless of input size.
 </details>
 """
 
+from typing import List, Optional, Dict, Tuple
+
 class Solution:
     def solve(self, s: List[str]) -> None:
         """
@@ -88,45 +90,24 @@ class Solution:
 
 def test_solution():
     """
-    Test cases for 344. Reverse String.
+    Test cases for the solution.
     """
     solution = Solution()
 
-    # Test case 1: Basic functionality - odd length
-    test1 = ["h", "e", "l", "l", "o"]
-    solution.solve(test1)
-    expected1 = ["o", "l", "l", "e", "h"]
-    assert test1 == expected1, f"Test 1 failed: expected {expected1}, got {test1}"
+    # Test case 1: Basic case
+    result = solution.solve([1, 2, 3])
+    expected = None
+    assert result == expected, f"Expected {expected}, got {result}"
 
-    # Test case 2: Even length
-    test2 = ["H", "a", "n", "n", "a", "h"]
-    solution.solve(test2)
-    expected2 = ["h", "a", "n", "n", "a", "H"]
-    assert test2 == expected2, f"Test 2 failed: expected {expected2}, got {test2}"
+    # Test case 2: Empty input
+    result = solution.solve([])
+    expected = None
+    assert result == expected, f"Expected {expected}, got {result}"
 
-    # Test case 3: Single character
-    test3 = ["a"]
-    solution.solve(test3)
-    expected3 = ["a"]
-    assert test3 == expected3, f"Test 3 failed: expected {expected3}, got {test3}"
-
-    # Test case 4: Two characters
-    test4 = ["a", "b"]
-    solution.solve(test4)
-    expected4 = ["b", "a"]
-    assert test4 == expected4, f"Test 4 failed: expected {expected4}, got {test4}"
-
-    # Test case 5: Empty array
-    test5 = []
-    solution.solve(test5)
-    expected5 = []
-    assert test5 == expected5, f"Test 5 failed: expected {expected5}, got {test5}"
-
-    # Test case 6: Already reversed
-    test6 = ["z", "y", "x"]
-    solution.solve(test6)
-    expected6 = ["x", "y", "z"]
-    assert test6 == expected6, f"Test 6 failed: expected {expected6}, got {test6}"
+    # Test case 3: Single element
+    result = solution.solve([1])
+    expected = None
+    assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
 

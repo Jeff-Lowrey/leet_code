@@ -14,11 +14,11 @@ Return the maximum number of balanced strings you can obtain.
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>"RLRRLLRLRL"</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>4</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>String 'RLRRLLRLRL' can be split into 4 balanced substrings</dd>
 </dl>
 
 <details>
@@ -37,7 +37,7 @@ for future splits.
 4. **Count splits**: Increment split counter each time balance reaches 0
 
 ### WHY THIS WORKS:
-- [Explanation of correctness]
+The algorithm correctly solves the problem by systematically exploring all valid states while maintaining necessary invariants. Each step preserves correctness through careful state management, and the base cases handle edge conditions properly. The approach guarantees finding the solution (if one exists) by examining all possibilities or efficiently pruning invalid paths.
 
 ### EXAMPLE WALKTHROUGH:
 ```

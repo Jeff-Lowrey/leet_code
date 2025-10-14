@@ -3,42 +3,57 @@
 
 # 209. Minimum Size Subarray Sum
 
-Given a problem that demonstrates key concepts in Sliding Window.
+Given an array of positive integers nums and a positive integer target, return the minimal length of a subarray whose sum is greater than or equal to target. If there is no such subarray, return 0 instead.
 
 **Example:**
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>target = 7, nums = [2,3,1,2,4,3]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>2 (minimum length)</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>The minimal length subarray with sum ≥ 7 is [4,3] with length 2</dd>
 </dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
-[This problem requires understanding of sliding window concepts. The key insight is to identify the optimal approach for this specific scenario.]
+Use sliding window. Expand window until sum >= target. Then shrink from left while sum >= target. Track minimum length. This achieves O(n) time with single pass.
 
 ### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply sliding window methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+1. **Initialize variables**: Set left = 0, min_len = float('inf'), current_sum = 0
+2. **Expand with right pointer**: For right in range(len(nums))
+3. **Add to window**: current_sum += nums[right]
+4. **Contract while valid**: While current_sum >= target
+5. **Update minimum**: min_len = min(min_len, right - left + 1)
+6. **Shrink window**: current_sum -= nums[left], left += 1
+7. **Continue scanning**: Process all elements
+8. **Return result**: Return min_len if found, else 0
 
 ### WHY THIS WORKS:
-- The solution leverages sliding window principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+- Sliding window expands right until sum >= target, then contracts left
+- Greedy contraction: shrink window while maintaining sum >= target
+- Each element added once (right++) and removed once (left++)
+- Track minimum window size satisfying sum condition
+- O(n) time: two pointers scan array once, O(1) space
 
 ### EXAMPLE WALKTHROUGH:
 ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
+Input: target = 7, nums = [2,3,1,2,4,3]
+Step 1: Expand window
+  [2,3,1,2] sum=8 ≥ 7
+
+Step 2: Contract
+  [3,1,2] sum=6 < 7
+  Expand: [3,1,2,4] sum=10 ≥ 7
+  Contract: [1,2,4] sum=7 ≥ 7
+  Contract: [2,4] sum=6 < 7
+  Expand: [2,4,3] sum=9 ≥ 7
+  Contract: [4,3] sum=7 ≥ 7, length=2
+
+Output: 2 (minimum length)
 ```
 
 ### TIME COMPLEXITY:
@@ -54,6 +69,8 @@ O(1)
 
 </details>
 """
+
+from typing import List, Optional, Dict, Tuple
 
 class Solution:
     def minSubArrayLen(self, target: int, nums: List[int]) -> int:
@@ -95,19 +112,19 @@ class Solution:
 
 def test_solution():
     """
-    Test cases for 209. Minimum Size Subarray Sum.
+    Test cases for the solution.
     """
     solution = Solution()
 
-    # Test case 1: Basic functionality
-    # result = solution.solve([test_input])
-    # expected = [expected_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 1: Example from problem
+    result = solution.minSubArrayLen(7, [2,3,1,2,4,3])
+    expected = 2
+    assert result == expected, f"Expected {expected}, got {result}"
 
-    # Test case 2: Edge case
-    # result = solution.solve([edge_case_input])
-    # expected = [edge_case_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 2: Empty array
+    result = solution.minSubArrayLen(7, [])
+    expected = 0
+    assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
 

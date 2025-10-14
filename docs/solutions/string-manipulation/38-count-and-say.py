@@ -23,11 +23,11 @@ countAndSay(4) = say "21" = one 2 + one 1 = "1211"
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>n = 4</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>1211"</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>4th count-and-say term is '1211'</dd>
 </dl>
 
 <details>

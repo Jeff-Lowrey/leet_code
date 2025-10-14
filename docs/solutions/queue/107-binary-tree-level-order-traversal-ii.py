@@ -10,11 +10,11 @@ Given the root of a binary tree, return the bottom-up level order traversal of i
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[[15, 7]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>"Test case 1 passed: Example tree"</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Bottom-up level-order: [[15,7],[9,20],[3]]</dd>
 </dl>
 
 <details>

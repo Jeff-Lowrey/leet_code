@@ -13,11 +13,11 @@ Return an edge that can be removed so that the resulting graph is a tree of n no
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[[1, 2]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>1</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Redundant edge [2,3] can be removed to make tree</dd>
 </dl>
 
 <details>
@@ -57,8 +57,11 @@ O(n)
 For the Union-Find parent array
 
 ### EDGE CASES:
-- **[Edge case 1]:** [how it's handled]
-- **[Edge case 2]:** [how it's handled]
+- **Simple triangle**: Return last edge that completes the cycle
+- **Large cycle**: Union-find detects first edge connecting already-connected nodes
+- **Multiple possible answers**: Return edge that occurs last in input
+- **Linear chain with one extra**: The extra edge creates the cycle
+- **Self-loop edge**: Detected immediately by union-find
 
 </details>
 """

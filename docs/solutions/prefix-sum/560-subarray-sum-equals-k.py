@@ -11,11 +11,11 @@ A subarray is a contiguous non-empty sequence of elements within an array.
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[([1, 1, 1]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>"subarraySum({nums}, {k}) -> {result}"</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>There are 2 subarrays with sum equal to k: [1] and [2,-1,2]</dd>
 </dl>
 
 <details>

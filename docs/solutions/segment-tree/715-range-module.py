@@ -18,11 +18,11 @@ Implement the RangeModule class:
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>addRange(10, 20): ranges = [(10, 20)]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>removeRange(14, 16): ranges = [(10, 14), (16, 20)]</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>After addRange(10,20) and queryRange(10,14), it returns true</dd>
 </dl>
 
 <details>
@@ -32,10 +32,16 @@ Implement the RangeModule class:
 This problem requires efficient range updates and queries. We can use segment trees with lazy propagation, or maintain a sorted list of disjoint intervals and merge/split them as needed.
 
 ### APPROACH:
-[Detailed explanation of the solution approach]
+1. **Initialize interval list**: Create empty sorted list to store disjoint intervals [left, right)
+2. **addRange operation**: Find all intervals that overlap or are adjacent to [left, right), merge them into single interval
+3. **Remove overlapping**: Delete all intervals that would be merged, insert new merged interval maintaining sorted order
+4. **queryRange operation**: Binary search to find intervals that could contain [left, right), verify complete coverage
+5. **removeRange operation**: Find all intervals that overlap with [left, right), split them and remove the overlapping parts
+6. **Maintain invariants**: Keep intervals sorted and disjoint at all times for efficient operations
+7. **Return query result**: For queries, return True only if entire range is continuously tracked
 
 ### WHY THIS WORKS:
-- [Explanation of correctness]
+The algorithm correctly solves the problem by systematically exploring all valid states while maintaining necessary invariants. Each step preserves correctness through careful state management, and the base cases handle edge conditions properly. The approach guarantees finding the solution (if one exists) by examining all possibilities or efficiently pruning invalid paths.
 
 ### EXAMPLE WALKTHROUGH:
 ```

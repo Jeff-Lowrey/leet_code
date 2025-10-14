@@ -3,42 +3,56 @@
 
 # 239. Sliding Window Maximum
 
-Given a problem that demonstrates key concepts in Sliding Window.
+You are given an array of integers nums, there is a sliding window of size k which is moving from the very left of the array to the very right. You can only see the k numbers in the window. Each time the sliding window moves right by one position.
+
+Return the max sliding window.
 
 **Example:**
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[1,3,-1,-3,5,3,6,7], k = 3</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>[3,3,5,5,6,7]</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>The maximum value in each sliding window of size 3 is [3,3,5,5,6,7]</dd>
 </dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
-[This problem requires understanding of sliding window concepts. The key insight is to identify the optimal approach for this specific scenario.]
+Use deque to maintain indices of useful elements (potential maximums). Remove indices outside window. Remove indices with smaller values than current (they're never max). Front of deque is window maximum.
 
 ### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply sliding window methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+1. **Initialize deque**: Create deque to store indices of useful elements
+2. **Process first window**: For first k elements, maintain decreasing order in deque
+3. **Remove smaller elements**: Before adding nums[i], remove indices with smaller values from back
+4. **Add current index**: Append i to deque
+5. **Slide window**: For i from k to n, add deque front to result
+6. **Remove out-of-window**: If deque front < i-k+1, remove it
+7. **Maintain deque property**: Remove smaller elements from back, add current index
+8. **Add last maximum**: Append last deque front to result, return result
 
 ### WHY THIS WORKS:
-- The solution leverages sliding window principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+- Monotonic decreasing deque stores indices of potential maximums
+- Front always contains current window's maximum
+- Remove indices outside window from front, remove smaller values from back
+- When adding element, pop back while deque[-1] < current
+- O(n) time: each element added/removed once, O(k) space for deque
 
 ### EXAMPLE WALKTHROUGH:
 ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
+Input: nums = [1,3,-1,-3,5,3,6,7], k = 3
+Step 1: Use deque to track indices
+  Window [1,3,-1]: max=3
+  Window [3,-1,-3]: max=3
+  Window [-1,-3,5]: max=5
+  Window [-3,5,3]: max=5
+  Window [5,3,6]: max=6
+  Window [3,6,7]: max=7
+
+Output: [3,3,5,5,6,7]
 ```
 
 ### TIME COMPLEXITY:
@@ -54,6 +68,8 @@ O(1)
 
 </details>
 """
+
+from typing import List, Optional, Dict, Tuple
 
 class Solution:
     def maxSlidingWindow(self, nums: List[int], k: int) -> List[int]:
@@ -107,19 +123,19 @@ class Solution:
 
 def test_solution():
     """
-    Test cases for 239. Sliding Window Maximum.
+    Test cases for the solution.
     """
     solution = Solution()
 
-    # Test case 1: Basic functionality
-    # result = solution.solve([test_input])
-    # expected = [expected_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 1: Example from problem
+    result = solution.maxSlidingWindow([1,3,-1,-3,5,3,6,7], 3)
+    expected = [3,3,5,5,6,7]
+    assert result == expected, f"Expected {expected}, got {result}"
 
-    # Test case 2: Edge case
-    # result = solution.solve([edge_case_input])
-    # expected = [edge_case_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 2: Empty input
+    result = solution.maxSlidingWindow([], 0)
+    expected = []
+    assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
 

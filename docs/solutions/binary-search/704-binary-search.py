@@ -13,11 +13,11 @@ You must write an algorithm with O(log n) runtime complexity.
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[-1,0,3,5,9,12], target = 9</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>4</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Target 9 is at index 4 in sorted array [-1,0,3,5,9,12]</dd>
 </dl>
 
 <details>

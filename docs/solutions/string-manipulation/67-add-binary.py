@@ -15,11 +15,11 @@ Output: "10101"
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>a = "11", b = "1"</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>100"</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Binary sum '11'+'1'='100'</dd>
 </dl>
 
 <details>

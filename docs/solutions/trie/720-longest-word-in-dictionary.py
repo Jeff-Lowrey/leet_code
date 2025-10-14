@@ -11,11 +11,11 @@ If there is more than one possible answer, return the longest word with the smal
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>["w", "wo", "wor", "worl", "world"]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>1</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Longest word in dictionary built one char at a time is 'world'</dd>
 </dl>
 
 <details>

@@ -3,35 +3,44 @@
 
 # 075. Sort Colors
 
-Given a problem that demonstrates key concepts in Two Pointers.
+Given an array nums with n objects colored red, white, or blue, sort them in-place so that objects of the same color are adjacent, with the colors in the order red, white, and blue.
+
+We will use the integers 0, 1, and 2 to represent the color red, white, and blue, respectively.
+
+You must solve this problem without using the library's sort function.
 
 **Example:**
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[0, 0, 1, 1, 2, 2]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>"Expected {expected}, got {result}"</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Sort colors [2,0,2,1,1,0] in-place to [0,0,1,1,2,2]</dd>
 </dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
-[This problem requires understanding of two pointers concepts. The key insight is to identify the optimal approach for this specific scenario.]
+Use three pointers: p0 for next 0, p2 for next 2, current for scanning. When see 0, swap with p0. When see 2, swap with p2. When see 1, just move current. Partitions in single pass.
 
 ### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply two pointers methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+1. **Initialize three pointers**: Set low = 0, mid = 0, high = len(nums) - 1
+2. **Process while mid <= high**: Continue loop while mid hasn't passed high
+3. **Case nums[mid] == 0**: Swap nums[mid] with nums[low], increment both low and mid
+4. **Case nums[mid] == 1**: Just increment mid (already in correct position)
+5. **Case nums[mid] == 2**: Swap nums[mid] with nums[high], decrement high only
+6. **Continue partitioning**: Repeat until mid > high
+7. **Array sorted**: After loop, array contains 0s, then 1s, then 2s
 
 ### WHY THIS WORKS:
-- The solution leverages two pointers principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+- Dutch national flag: three pointers (low, mid, high)
+- low tracks next position for 0, high tracks next position for 2
+- If nums[mid] == 0: swap with low, advance both
+- If nums[mid] == 2: swap with high, decrement high only (don't advance mid, need to check swapped value)
+- O(n) time single pass, O(1) space
 
 ### EXAMPLE WALKTHROUGH:
 ```
@@ -82,6 +91,8 @@ O(1)
 </details>
 """
 
+from typing import List, Optional, Dict, Tuple
+
 class Solution:
     def sortColors(self, nums: List[int]) -> None:
         """
@@ -119,19 +130,24 @@ class Solution:
 
 def test_solution():
     """
-    Test cases for 075. Sort Colors.
+    Test cases for the solution.
     """
     solution = Solution()
 
-    # Test case 1: Basic functionality
-    # result = solution.solve([test_input])
-    # expected = [expected_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 1: Example from problem
+    result = solution.sortColors([2, 0, 2, 1, 1, 0])
+    expected = [0, 0, 1, 1, 2, 2]
+    assert result == expected, f"Expected {expected}, got {result}"
 
-    # Test case 2: Edge case
-    # result = solution.solve([edge_case_input])
-    # expected = [edge_case_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 2: Empty input
+    result = solution.sortColors([])
+    expected = None
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 3: Single element
+    result = solution.sortColors([1])
+    expected = None
+    assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
 

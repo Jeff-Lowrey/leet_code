@@ -11,11 +11,14 @@ According to the definition of LCA on Wikipedia: "The lowest common ancestor is 
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[("BST Recursive", solution.lowestCommonAncestor),
+        ("BST Iterative", solution.lowestCommonAncestorIterative),
+        ("General Tree", solution.lowestCommonAncestorGeneral),
+        ("Path-based", solution.lowestCommonAncestorPaths)]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>"{name}: {result.val}"</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>The lowest common ancestor of p=2 and q=8 is node 6</dd>
 </dl>
 
 <details>
@@ -65,8 +68,11 @@ O(h)
 For recursion stack, O(1) for iterative solution
 
 ### EDGE CASES:
-- **[Edge case 1]:** [how it's handled]
-- **[Edge case 2]:** [how it's handled]
+- **One node is ancestor of other**: Return the ancestor node
+- **Both nodes on same side**: Recursively search that subtree
+- **Nodes on different sides**: Current node is LCA
+- **One node equals root**: Root is the LCA
+- **Linear BST (skewed)**: O(n) time complexity in worst case
 
 </details>
 """

@@ -9,11 +9,11 @@ This problem demonstrates key concepts in String matching and pattern searching.
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>haystack = "sadbutsad", needle = "sad"</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>0</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Needle 'sad' occurs at index 0 in 'sadbutsad'</dd>
 </dl>
 
 <details>

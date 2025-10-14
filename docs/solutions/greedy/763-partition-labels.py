@@ -3,42 +3,61 @@
 
 # 763. Partition Labels
 
-Given a problem that demonstrates key concepts in Greedy.
+You are given a string s. We want to partition the string into as many parts as possible so that each letter appears in at most one part.
+
+Note that the partition is done so that after concatenating all the parts in order, the resultant string should be s.
+
+Return a list of integers representing the size of these parts.
 
 **Example:**
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[1, 1, 1]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>"Expected {expected}, got {result}"</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>String is partitioned into 2 parts: 'ababcbaca' + 'defegde'</dd>
 </dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
-[This problem requires understanding of greedy concepts. The key insight is to identify the optimal approach for this specific scenario.]
+Each partition should end at the last occurrence of any character in it. Track last occurrence of each character. Extend partition end while current position hasn't passed last occurrence of all seen characters.
 
 ### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply greedy methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+1. **Find last occurrence**: Create dict mapping each char to its last index in s
+2. **Initialize variables**: Set start = 0, end = 0, result = []
+3. **Iterate through string**: For i, char in enumerate(s)
+4. **Update partition end**: end = max(end, last_occurrence[char])
+5. **Check if partition complete**: If i == end, partition ends here
+6. **Add partition size**: Append (end - start + 1) to result
+7. **Start new partition**: Set start = i + 1
+8. **Return result**: Return result list with partition sizes
 
 ### WHY THIS WORKS:
-- The solution leverages greedy principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+- Track last occurrence of each character
+- Extend partition end to max last occurrence of chars seen so far
+- When reach partition end, cut and start new partition
+- Greedy: maximize partition size before cutting
+- O(n) time: two passes, O(26) = O(1) space for last occurrence map
 
 ### EXAMPLE WALKTHROUGH:
 ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
+Input: s = "ababcbacadefegdehijhklij"
+Step 1: Record last occurrence of each character
+  last = {'a':8, 'b':5, 'c':7, 'd':14, 'e':15, ...}
+
+Step 2: Iterate and extend partition
+  i=0, ch='a': end = max(0, 8) = 8
+  i=1, ch='b': end = max(8, 5) = 8
+  ...
+  i=8: reached end → partition size = 9
+  i=9, ch='c': end = 14
+  ...
+
+Output: [9,7,8] (partition sizes)
 ```
 
 ### TIME COMPLEXITY:
@@ -54,6 +73,8 @@ O(1)
 
 </details>
 """
+
+from typing import List, Optional, Dict, Tuple
 
 class Solution:
     def partitionLabels(self, s: str) -> List[int]:
@@ -97,19 +118,24 @@ class Solution:
 
 def test_solution():
     """
-    Test cases for 763. Partition Labels.
+    Test cases for the solution.
     """
     solution = Solution()
 
-    # Test case 1: Basic functionality
-    # result = solution.solve([test_input])
-    # expected = [expected_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 1: Basic case
+    result = solution.partitionLabels([1, 2, 3])
+    expected = [1, 1, 1]
+    assert result == expected, f"Expected {expected}, got {result}"
 
-    # Test case 2: Edge case
-    # result = solution.solve([edge_case_input])
-    # expected = [edge_case_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 2: Empty input
+    result = solution.partitionLabels([])
+    expected = []
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 3: Single element
+    result = solution.partitionLabels([1])
+    expected = [1]
+    assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
 

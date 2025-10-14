@@ -13,11 +13,11 @@ You may assume that the input string is always valid; no extra white spaces, squ
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>"3[a2[c]]"</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>"accaccacc"</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Decoded string: '3[a]2[bc]' becomes 'aaabcbc'</dd>
 </dl>
 
 <details>

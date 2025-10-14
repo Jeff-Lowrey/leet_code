@@ -12,11 +12,11 @@ Two nodes of a binary tree are cousins if they have the same depth but have diff
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>Tree:      1</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>/   \\</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Nodes 2 and 3 are not cousins (same parent)</dd>
 </dl>
 
 <details>

@@ -10,11 +10,11 @@ return the values of the nodes you can see ordered from top to bottom.
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[1, 3, 4]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>1</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Right side view of tree is [1,3,4]</dd>
 </dl>
 
 <details>

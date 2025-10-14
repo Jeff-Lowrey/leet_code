@@ -21,11 +21,11 @@ Return an array answer of size n where answer[i] is the rank of the ith athlete.
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>["Gold Medal", "Silver Medal", "Bronze Medal", "4", "5"]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>1</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Ranks for scores [5,4,3,2,1] are ['Gold','Silver','Bronze','4','5']</dd>
 </dl>
 
 <details>

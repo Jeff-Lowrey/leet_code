@@ -15,11 +15,11 @@ Explanation: Removing [2,3] creates a valid tree.
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>edges = [[1,2],[1,3],[2,3]]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>[2,3]</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Redundant directed edge that makes graph invalid</dd>
 </dl>
 
 <details>
@@ -40,14 +40,17 @@ Valid tree requires: (1) all nodes have ≤1 parent, (2) no cycles.
 When a node has 2 parents, one must be removed. Union-find detects cycles.
 
 ### EXAMPLE WALKTHROUGH:
-Input:
 ```
-[example input]
+Input: edges = [[1,2],[1,3],[2,3]]
+Step 1: Find node with 2 parents
+  Node 3 has parents 1 and 2
+
+Step 2: Try removing each edge to node 3
+  Remove [1,3]: still cycle exists
+  Remove [2,3]: forms valid tree ✓
+
+Output: [2,3]
 ```
-
-**Step 1:** [description]
-
-**Step 2:** [description]
 
 ### TIME COMPLEXITY:
 O(n α(n))
@@ -56,8 +59,11 @@ O(n α(n))
 O(n)
 
 ### EDGE CASES:
-- **[Edge case 1]:** [how it's handled]
-- **[Edge case 2]:** [how it's handled]
+- **Node with two parents, no cycle**: Remove the later edge to that node
+- **Node with two parents and cycle**: Remove the edge that breaks both issues
+- **Cycle without two parents**: Return the last edge that creates the cycle
+- **All edges form valid tree except one**: Union-find detects the redundant edge
+- **Single edge graph**: Return that edge if it creates self-loop
 
 </details>
 """

@@ -14,11 +14,11 @@ Implement the MagicDictionary class:
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>Dictionary: ["hello", "leetcode"]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>Search: "hhllo"</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>The magic dictionary finds 'hello' matches 'hallo' with one character different</dd>
 </dl>
 
 <details>
@@ -63,8 +63,11 @@ O(n × l)
 For the trie structure storing all dictionary words
 
 ### EDGE CASES:
-- **[Edge case 1]:** [how it's handled]
-- **[Edge case 2]:** [how it's handled]
+- **Exact match in dictionary**: Return False (need exactly one change)
+- **Word length mismatch**: No match possible, return False
+- **Multiple possible changes**: Only one change allowed, continue searching
+- **Empty dictionary**: Return False for any search
+- **Single character words**: Check all 26 possible substitutions
 
 </details>
 """

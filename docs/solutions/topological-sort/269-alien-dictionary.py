@@ -3,42 +3,61 @@
 
 # 269. Alien Dictionary
 
-Given a problem that demonstrates key concepts in Topological Sort.
+There is a new alien language that uses the English alphabet. However, the order among the letters is unknown to you.
+
+You are given a list of strings words from the alien language's dictionary, where the strings in words are sorted lexicographically by the rules of this new language.
+
+Return a string of the unique letters in the new alien language sorted in lexicographically increasing order by the new language's rules. If there is no solution, return "". If there are multiple solutions, return any of them.
+
+A string s is lexicographically smaller than a string t if at the first letter where they differ, the letter in s comes before the letter in t in the alien language. If the first min(s.length, t.length) letters are the same, then s is smaller if and only if s.length < t.length.
 
 **Example:**
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>words = ["wrt","wrf","er","ett","rftt"]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>"wertf"</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Alien dictionary order from ['wrt','wrf','er','ett','rftt'] is 'wertf'</dd>
 </dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
-[This problem requires understanding of topological sort concepts. The key insight is to identify the optimal approach for this specific scenario.]
+Build graph from word pairs by comparing adjacent words. Find first different character to establish order. Perform topological sort using DFS or BFS. Detect cycles (impossible ordering).
 
 ### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply topological sort methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+1. **Build graph**: Compare adjacent words to find character ordering
+2. **Track indegrees**: Count incoming edges for each character
+3. **Initialize queue**: Add characters with indegree 0 to queue
+4. **BFS traversal**: While queue not empty, dequeue character
+5. **Add to result**: Append character to result
+6. **Update neighbors**: For each neighbor, decrement indegree
+7. **Add to queue**: If indegree becomes 0, add to queue
+8. **Return result**: If all characters processed, return ''.join(result); else return ''
 
 ### WHY THIS WORKS:
-- The solution leverages topological sort principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+- Build graph from adjacent word pairs: first differing char creates edge
+- Topological sort on character DAG gives alien dictionary order
+- If cycle detected (via DFS or indegree), no valid ordering exists
+- Invalid case: word1 longer than word2 but word1 prefix of word2
+- O(n * k) time: n words, k avg length, O(1) space for alphabet-size graph
 
 ### EXAMPLE WALKTHROUGH:
 ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
+Input: words = ["wrt","wrf","er","ett","rftt"]
+Step 1: Build graph from word pairs
+  "wrt" vs "wrf": t→f
+  "wrf" vs "er": w→e
+  "er" vs "ett": r→t
+  "ett" vs "rftt": e→r
+
+Step 2: Topological sort
+  Order: w→e→r→t→f
+
+Output: "wertf"
 ```
 
 ### TIME COMPLEXITY:
@@ -54,6 +73,10 @@ O(1)
 
 </details>
 """
+
+from collections import defaultdict, deque
+
+from typing import List, Optional, Dict, Tuple
 
 class Solution:
     def alienOrder(self, words: List[str]) -> str:
@@ -185,19 +208,34 @@ class Solution:
 
 def test_solution():
     """
-    Test cases for 269. Alien Dictionary.
+    Test cases for the solution.
     """
     solution = Solution()
 
-    # Test case 1: Basic functionality
-    # result = solution.solve([test_input])
-    # expected = [expected_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 1: Example from problem
+    result = solution.alienOrder(["wrt","wrf","er","ett","rftt"])
+    expected = "wertf"
+    assert result == expected, f"Expected {expected}, got {result}"
 
-    # Test case 2: Edge case
-    # result = solution.solve([edge_case_input])
-    # expected = [edge_case_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 2: Invalid (prefix longer than word)
+    result = solution.alienOrder(["abc","ab"])
+    expected = ""
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 3: Single word
+    result = solution.alienOrder(["z","x"])
+    expected = "zx"
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 4: Empty input
+    result = solution.alienOrder([])
+    expected = ''
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 5: BFS version
+    result = solution.alienOrder_bfs(["wrt","wrf","er","ett","rftt"])
+    expected = "wertf"
+    assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
 

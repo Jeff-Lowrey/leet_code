@@ -13,11 +13,11 @@ Explanation: [0, 1] is the longest contiguous subarray with an equal number of 0
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>nums = [0,1]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>2</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>The longest contiguous subarray with equal 0s and 1s has length 2: [0,1] or [1,0]</dd>
 </dl>
 
 <details>

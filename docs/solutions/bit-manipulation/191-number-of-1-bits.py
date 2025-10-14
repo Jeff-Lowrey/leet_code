@@ -13,11 +13,11 @@ Explanation: The input binary string 1011 has three set bits.
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>n = 11</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>3</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Number 11 (binary 1011) has 3 set bits</dd>
 </dl>
 
 <details>
@@ -60,8 +60,11 @@ O(k) where k is number of 1-bits
 O(1)
 
 ### EDGE CASES:
-- **[Edge case 1]:** [how it's handled]
-- **[Edge case 2]:** [how it's handled]
+- **n = 0**: Return 0 (no 1 bits)
+- **n = 1**: Return 1 (single 1 bit)
+- **All bits are 1**: Return 32 for 32-bit integer
+- **Single bit set**: Return 1
+- **Power of 2**: Exactly one 1 bit
 
 </details>
 """

@@ -1,44 +1,63 @@
 """
 # Difficulty: Medium
 
-# 137. Single
+# 137. Single Number II
 
-Given a problem that demonstrates key concepts in Bit Manipulation.
+Given an integer array nums where every element appears three times except for one, which appears exactly once. Find the single element and return it.
+
+You must implement a solution with a linear runtime complexity and use only constant extra space.
 
 **Example:**
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[2,2,3,2]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>3 (single number)</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>The single number 3 appears once in [2,2,3,2] (all others appear thrice)</dd>
 </dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
-[This problem requires understanding of bit manipulation concepts. The key insight is to identify the optimal approach for this specific scenario.]
+Use bit manipulation to count occurrences at each bit position. For each bit, sum all bits at that position mod 3. The result is the bit pattern of the single number appearing once.
 
 ### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply bit manipulation methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+1. **Initialize counters**: Set ones = 0 and twos = 0 to track bits appearing once and twice
+2. **Iterate through numbers**: Loop through each num in nums array
+3. **Update twos**: Set twos |= (ones & num) to mark bits that appeared twice
+4. **Update ones**: Set ones ^= num to toggle bits appearing odd times
+5. **Clear bits appearing thrice**: Compute common = ~(ones & twos) and apply ones &= common, twos &= common
+6. **Eliminate triple occurrences**: Bits appearing 3 times are cleared from both ones and twos
+7. **Return result**: Return ones which contains the single number appearing exactly once
 
 ### WHY THIS WORKS:
-- The solution leverages bit manipulation principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+- Count bits at each position across all numbers
+- If count[i] % 3 != 0, single number has bit i set
+- Build result by setting bits where count % 3 == 1
+- Duplicates contribute 3 to each bit position, single contributes 1
+- O(n) time: 32 passes (constant), O(1) space
 
 ### EXAMPLE WALKTHROUGH:
 ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
+Input: nums = [2,2,3,2]
+Step 1: Count bits at each position
+  Binary representations:
+  2 = 010
+  2 = 010
+  3 = 011
+  2 = 010
+
+  Bit 0: appears 1 time → 1 % 3 = 1
+  Bit 1: appears 4 times → 4 % 3 = 1
+  Bit 2: appears 0 times → 0 % 3 = 0
+
+Step 2: Build result from remaining bits
+  result = 011 (binary) = 3 (decimal)
+
+Output: 3 (single number)
 ```
 
 ### TIME COMPLEXITY:
@@ -54,6 +73,8 @@ O(1)
 
 </details>
 """
+
+from typing import List, Optional, Dict, Tuple
 
 class Solution:
     def singleNumber(self, nums: List[int]) -> int:
@@ -84,19 +105,24 @@ class Solution:
 
 def test_solution():
     """
-    Test cases for 137. Single.
+    Test cases for the solution.
     """
     solution = Solution()
 
-    # Test case 1: Basic functionality
-    # result = solution.solve([test_input])
-    # expected = [expected_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 1: Example from problem
+    result = solution.singleNumber([2,2,3,2])
+    expected = 3
+    assert result == expected, f"Expected {expected}, got {result}"
 
-    # Test case 2: Edge case
-    # result = solution.solve([edge_case_input])
-    # expected = [edge_case_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 2: Single element
+    result = solution.singleNumber([1])
+    expected = 1
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 3: Larger example
+    result = solution.singleNumber([0,1,0,1,0,1,99])
+    expected = 99
+    assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
 

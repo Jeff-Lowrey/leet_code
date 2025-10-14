@@ -13,11 +13,11 @@ The expression string contains only '(', ')', '+', '-', non-negative integers an
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>"1 + 1"</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>2</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Expression '1+1' evaluates to 2</dd>
 </dl>
 
 <details>
@@ -67,8 +67,11 @@ O(n)
 Stack can grow up to the depth of nested parentheses
 
 ### EDGE CASES:
-- **[Edge case 1]:** [how it's handled]
-- **[Edge case 2]:** [how it's handled]
+- **No parentheses**: Simple left-to-right evaluation
+- **Nested parentheses**: Stack handles multiple levels
+- **Spaces in expression**: Skip whitespace during parsing
+- **Negative numbers**: Handle with sign tracking
+- **Single digit**: Return the digit value
 
 </details>
 """

@@ -3,35 +3,43 @@
 
 # 973. K Closest Points To Origin
 
-Given a problem that demonstrates key concepts in Heap.
+Given an array of points where points[i] = [xi, yi] represents a point on the X-Y plane and an integer k, return the k closest points to the origin (0, 0).
+
+The distance between two points on the X-Y plane is the Euclidean distance (i.e., √(x1 - x2)^2 + (y1 - y2)^2).
+
+You may return the answer in any order. The answer is guaranteed to be unique (except for the order that it is in).
 
 **Example:**
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[[0,1]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>"Expected {expected}, got {result}"</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>The k=2 closest points to origin are [[1,3],[-2,2]]</dd>
 </dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
-[This problem requires understanding of heap concepts. The key insight is to identify the optimal approach for this specific scenario.]
+Calculate distance for each point. Use max heap (negate distances) of size k. Maintain k closest points. Alternatively, use quickselect for O(n) average time.
 
 ### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply heap methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+1. **Calculate distances**: For each point, compute squared distance = x^2 + y^2
+2. **Build min heap**: Push (distance, point) tuples to heap
+3. **Use heapify**: Or push one by one using heappush
+4. **Extract k smallest**: Pop from heap k times
+5. **Build result**: For each popped element, add point to result
+6. **Return result**: Return list of k closest points
 
 ### WHY THIS WORKS:
-- The solution leverages heap principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+- Max heap of size k: stores (negative distance, point) to get k smallest
+- For each point, calculate distance squared (avoid sqrt for efficiency)
+- If heap size < k, push; else if distance < heap[0], pop and push
+- Negative distance converts min heap to max heap behavior
+- O(n log k) time: n points, log k heap operations, O(k) space
 
 ### EXAMPLE WALKTHROUGH:
 ```
@@ -66,6 +74,10 @@ O(1)
 
 </details>
 """
+
+import heapq
+
+from typing import List, Optional, Dict, Tuple
 
 class Solution:
     """
@@ -157,19 +169,19 @@ class Solution:
 
 def test_solution():
     """
-    Test cases for 973. K Closest Points To Origin.
+    Test cases for the solution.
     """
     solution = Solution()
 
-    # Test case 1: Basic functionality
-    # result = solution.solve([test_input])
-    # expected = [expected_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 1: Example from problem
+    result = solution.kClosest([[1,3], [-2,2], [5,8], [0,1]], k = 2)
+    expected = [[0,1], [-2,2]]
+    assert result == expected, f"Expected {expected}, got {result}"
 
-    # Test case 2: Edge case
-    # result = solution.solve([edge_case_input])
-    # expected = [edge_case_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 2: Empty input
+    result = solution.kClosest([], 0)
+    expected = []
+    assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
 

@@ -16,11 +16,11 @@ Implement the FileSystem class:
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>mkdir("/a/b/c")</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>1. Create root node "/"</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Design in-memory file system with ls, mkdir, addContentToFile operations</dd>
 </dl>
 
 <details>

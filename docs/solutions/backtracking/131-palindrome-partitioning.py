@@ -3,42 +3,57 @@
 
 # 131. Palindrome Partitioning
 
-Given a problem that demonstrates key concepts in Backtracking.
+Given a string s, partition s such that every substring of the partition is a palindrome. Return all possible palindrome partitioning of s.
 
 **Example:**
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[["a","a","b"]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>"Expected {expected}, got {result}"</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>All palindrome partitions of 'aab' are [['a','a','b'], ['aa','b']]</dd>
 </dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
-[This problem requires understanding of backtracking concepts. The key insight is to identify the optimal approach for this specific scenario.]
+At each position, try all possible substrings starting from that position. If a substring is a palindrome, add it to the current partition and recursively partition the remaining string. Backtrack by removing the last substring. This explores all valid palindrome partitions.
 
 ### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply backtracking methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+1. **Define isPalindrome helper**: Create function to check if substring s[left:right+1] is a palindrome
+2. **Initialize result**: Create empty result list and current partition list
+3. **Define backtrack function**: Create recursive function with parameter start (current position in string)
+4. **Base case**: If start == len(s), add copy of current partition to result and return
+5. **Try all substrings**: Loop from start to end of string with end index
+6. **Check palindrome**: If s[start:end+1] is palindrome, add it to current partition
+7. **Recurse**: Call backtrack(end+1) to partition remaining string
+8. **Backtrack**: Remove last substring from current partition to try other partitions
 
 ### WHY THIS WORKS:
-- The solution leverages backtracking principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+- Backtracking tries all possible partition points
+- At each position, try cutting at every valid palindrome ending
+- Precompute palindrome DP table: O(n^2) preprocessing for O(1) checks
+- When reaching end, found valid partitioning
+- O(n * 2^n) time: 2^n partitions, O(n) to check/copy each
 
 ### EXAMPLE WALKTHROUGH:
 ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
+Input: s = "aab"
+Step 1: Start backtracking from index 0
+  Try substring "a" (palindrome) → recurse from index 1
+    Try substring "a" (palindrome) → recurse from index 2
+      Try substring "b" (palindrome) → end of string
+      Found partition: ["a", "a", "b"]
+    Try substring "ab" (not palindrome) → skip
+  Try substring "aa" (palindrome) → recurse from index 2
+    Try substring "b" (palindrome) → end of string
+    Found partition: ["aa", "b"]
+  Try substring "aab" (not palindrome) → skip
+
+Output: [["a","a","b"],["aa","b"]]
 ```
 
 ### TIME COMPLEXITY:
@@ -54,6 +69,8 @@ O(1)
 
 </details>
 """
+
+from typing import List, Optional, Dict, Tuple
 
 class Solution:
     def partition(self, s: str) -> List[List[str]]:
@@ -111,19 +128,24 @@ class Solution:
 
 def test_solution():
     """
-    Test cases for 131. Palindrome Partitioning.
+    Test cases for the solution.
     """
     solution = Solution()
 
-    # Test case 1: Basic functionality
-    # result = solution.solve([test_input])
-    # expected = [expected_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 1: Example from problem
+    result = solution.partition("aab")
+    expected = [["a","a","b"],["aa","b"]]
+    assert result == expected, f"Expected {expected}, got {result}"
 
-    # Test case 2: Edge case
-    # result = solution.solve([edge_case_input])
-    # expected = [edge_case_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 2: Empty input
+    result = solution.partition([])
+    expected = [[]]
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 3: Single element
+    result = solution.partition([1])
+    expected = [[[1]]]
+    assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
 

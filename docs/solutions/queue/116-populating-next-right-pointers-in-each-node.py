@@ -12,11 +12,11 @@ Initially, all next pointers are set to NULL.
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>Tree:        1</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>/   \\</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Each node's next pointer connects to right neighbor at same level</dd>
 </dl>
 
 <details>

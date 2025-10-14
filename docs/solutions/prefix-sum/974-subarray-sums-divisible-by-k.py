@@ -16,11 +16,11 @@ Explanation: There are 7 subarrays with a sum divisible by k = 5:
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>nums = [4,5,0,-2,-3,1], k = 5</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>7</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>There are 7 subarrays with sum divisible by k=5</dd>
 </dl>
 
 <details>

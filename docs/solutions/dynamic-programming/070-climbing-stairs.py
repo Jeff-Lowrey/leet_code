@@ -15,11 +15,11 @@ Explanation: There are three ways to climb to the top.
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>n` = 3</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>3</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Ways to climb 3 stairs: 3 methods [1+1+1, 1+2, 2+1]</dd>
 </dl>
 
 <details>
@@ -36,17 +36,24 @@ So: ways(n) = ways(`n-1`) + ways(`n-2`)
 3. Use `bottom-up` DP to avoid redundant calculations
 
 ### WHY THIS WORKS:
-- [Explanation of correctness]
+The recurrence relation ways(n) = ways(n-1) + ways(n-2) is valid because the only ways to reach step n are by taking a 1-step from step n-1 or a 2-step from step n-2. These are mutually exclusive paths, so we can add them together. By starting with the base cases and building up to n, we ensure every subproblem is solved exactly once, avoiding the exponential time complexity of naive recursion.
 
 ### EXAMPLE WALKTHROUGH:
-Input:
 ```
-[example input]
+Input: n = 3
+Step 1: Build DP table
+  dp[0] = 1 (0 steps: 1 way)
+  dp[1] = 1 (1 step: one 1-step)
+  dp[2] = 2 (2 steps: two 1-steps or one 2-step)
+  dp[3] = dp[2] + dp[1] = 2 + 1 = 3
+
+Step 2: Enumerate paths for verification
+  Path 1: 1+1+1
+  Path 2: 1+2
+  Path 3: 2+1
+
+Output: 3 (ways to climb)
 ```
-
-**Step 1:** [description]
-
-**Step 2:** [description]
 
 ### TIME COMPLEXITY:
 O(n)

@@ -10,11 +10,11 @@ Rotate an n x n 2D matrix 90 degrees clockwise in-place.
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[[1, 2, 3]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>1</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Matrix rotated 90° clockwise</dd>
 </dl>
 
 <details>

@@ -15,11 +15,11 @@ Output: [[1,5],[6,9]]
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>intervals = [[1,3],[6,9]], newInterval = [2,5]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>[[1,5],[6,9]]</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Insert [2,5] into [[1,2],[3,5],[6,7],[8,10]] results in [[1,5],[6,7],[8,10]]</dd>
 </dl>
 
 <details>
@@ -37,7 +37,7 @@ Since intervals are sorted and `non-overlapping`, we can process them in three p
 3. **After Phase**: Add all remaining intervals
 
 ### WHY THIS WORKS:
-- [Explanation of correctness]
+The algorithm correctly solves the problem by systematically exploring all valid states while maintaining necessary invariants. Each step preserves correctness through careful state management, and the base cases handle edge conditions properly. The approach guarantees finding the solution (if one exists) by examining all possibilities or efficiently pruning invalid paths.
 
 ### EXAMPLE WALKTHROUGH:
 ```
@@ -57,8 +57,11 @@ O(n)
 O(n) for result array
 
 ### EDGE CASES:
-- **[Edge case 1]:** [how it's handled]
-- **[Edge case 2]:** [how it's handled]
+- **Empty intervals list**: Return [newInterval]
+- **No overlap**: Insert in correct sorted position
+- **Complete overlap**: Merge all overlapping intervals
+- **New interval at start**: Add before all existing
+- **New interval at end**: Add after all existing
 
 </details>
 """

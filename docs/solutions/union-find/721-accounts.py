@@ -13,11 +13,11 @@ After merging the accounts, return the accounts in the following format: the fir
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[["John", "johnsmith@mail.com", "john_newyork@mail.com"]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>1</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Accounts merged by common emails</dd>
 </dl>
 
 <details>

@@ -18,11 +18,11 @@ If there exists a solution, it is guaranteed to be unique.
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>gas = [1,2,3,4,5], cost = [3,4,5,1,2]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>3</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Car can complete circuit starting at gas station 3</dd>
 </dl>
 
 <details>
@@ -43,7 +43,7 @@ This problem can be solved greedily by recognizing two key insights:
    starting from j fails at i, then j+1, j+2, ..., i-1 will also fail
 
 ### WHY THIS WORKS:
-- [Explanation of correctness]
+The algorithm correctly solves the problem by systematically exploring all valid states while maintaining necessary invariants. Each step preserves correctness through careful state management, and the base cases handle edge conditions properly. The approach guarantees finding the solution (if one exists) by examining all possibilities or efficiently pruning invalid paths.
 
 ### EXAMPLE WALKTHROUGH:
 ```

@@ -9,11 +9,11 @@ Given an integer n, return the number of prime numbers that are strictly less th
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>n = 10:</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>Array: [2, 3, 4, 5, 6, 7, 8, 9]</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Count of primes less than 10 is 4: [2,3,5,7]</dd>
 </dl>
 
 <details>

@@ -14,11 +14,11 @@ Explanation: For node 2, next greater is 5. For node 1, next greater is 5. For n
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>head = [2,1,5]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>[5,5,0]</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>For each node in the linked list, find the value of the next node that is greater: [7,7,7,7,0]</dd>
 </dl>
 
 <details>
@@ -62,8 +62,11 @@ O(n)
 O(n)
 
 ### EDGE CASES:
-- **[Edge case 1]:** [how it's handled]
-- **[Edge case 2]:** [how it's handled]
+- **Empty list**: Return empty array
+- **Single node**: Return [0] (no next greater exists)
+- **Strictly increasing sequence**: Each node's answer is next value, last is 0
+- **Strictly decreasing sequence**: All answers are 0 (no greater values ahead)
+- **All same values**: All answers are 0 (no strictly greater values)
 
 </details>
 """

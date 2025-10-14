@@ -3,42 +3,58 @@
 
 # 198. House Robber
 
-Given a problem that demonstrates key concepts in Dynamic Programming.
+You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed, the only constraint stopping you from robbing each of them is that adjacent houses have security systems connected and it will automatically contact the police if two adjacent houses were broken into on the same night.
+
+Given an integer array nums representing the amount of money of each house, return the maximum amount of money you can rob tonight without alerting the police.
 
 **Example:**
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[2,7,9,3,1]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>12 (maximum money)</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Maximum amount robbed from [1,2,3,1] is 4 by robbing houses 0 and 2</dd>
 </dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
-[This problem requires understanding of dynamic programming concepts. The key insight is to identify the optimal approach for this specific scenario.]
+At each house, choose to rob it (take current + best from i-2) or skip it (take best from i-1). dp[i] = max(dp[i-1], nums[i] + dp[i-2]).
 
 ### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply dynamic programming methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+1. **Handle edge cases**: If empty array return 0, if single house return nums[0]
+2. **Initialize variables**: Set prev2 = 0 (two houses back), prev1 = 0 (one house back)
+3. **Iterate through houses**: For each house value in nums
+4. **Calculate max at current**: temp = max(prev1, prev2 + current_house)
+5. **Decide rob or skip**: Either skip current (keep prev1) or rob current (prev2 + current)
+6. **Update variables**: Set prev2 = prev1, prev1 = temp for next iteration
+7. **Return result**: Return prev1 as maximum money that can be robbed
 
 ### WHY THIS WORKS:
-- The solution leverages dynamic programming principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+- DP recurrence: max(rob current + best from i-2, skip current and take best from i-1)
+- Can't rob adjacent houses, so robbing house i means using result from i-2
+- Optimal substructure: solution to i depends only on i-1 and i-2
+- Space optimization: only need last two values, not entire DP array
+- O(n) time single pass, O(1) space with two variables instead of array
 
 ### EXAMPLE WALKTHROUGH:
 ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
+Input: nums = [2,7,9,3,1]
+Step 1: Build DP table
+  dp[0] = 2 (rob house 0)
+  dp[1] = max(2, 7) = 7 (rob house 1)
+  dp[2] = max(7, 2+9) = 11 (rob houses 0,2)
+  dp[3] = max(11, 7+3) = 11 (keep houses 0,2)
+  dp[4] = max(11, 11+1) = 12 (rob houses 0,2,4)
+
+Step 2: Optimal solution
+  Rob houses at indices 0, 2, 4
+  Total: 2 + 9 + 1 = 12
+
+Output: 12 (maximum money)
 ```
 
 ### TIME COMPLEXITY:
@@ -54,6 +70,8 @@ O(1)
 
 </details>
 """
+
+from typing import List, Optional, Dict, Tuple
 
 class Solution:
     def rob(self, nums: List[int]) -> int:
@@ -96,19 +114,24 @@ class Solution:
 
 def test_solution():
     """
-    Test cases for 198. House Robber.
+    Test cases for the solution.
     """
     solution = Solution()
 
-    # Test case 1: Basic functionality
-    # result = solution.solve([test_input])
-    # expected = [expected_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 1: Example from problem - rob houses 1 and 3 (7 + 9 = 16) or houses 0, 2, 4 (2 + 9 + 1 = 12)
+    result = solution.rob([2,7,9,3,1])
+    expected = 12
+    assert result == expected, f"Expected {expected}, got {result}"
 
-    # Test case 2: Edge case
-    # result = solution.solve([edge_case_input])
-    # expected = [edge_case_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 2: Single element
+    result = solution.rob([5])
+    expected = 5
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 3: Two elements - rob the maximum
+    result = solution.rob([1,2])
+    expected = 2
+    assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
 

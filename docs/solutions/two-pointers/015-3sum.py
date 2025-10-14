@@ -14,11 +14,11 @@ Output: [[-1,-1,2],[-1,0,1]]
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>nums` = [-1,0,1,2,-1,-4]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>[[-1,-1,2],[-1,0,1]]</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>3Sum: triplets summing to 0 in [-1,0,1,2,-1,-4] are [[-1,-1,2],[-1,0,1]]</dd>
 </dl>
 
 <details>

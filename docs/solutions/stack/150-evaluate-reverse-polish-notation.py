@@ -19,11 +19,11 @@ Note that:
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>["2","1","+","3","*"]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>9</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Postfix '2 1 + 3 *' evaluates to 9</dd>
 </dl>
 
 <details>

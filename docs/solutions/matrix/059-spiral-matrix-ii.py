@@ -10,11 +10,11 @@ Generate an n x n matrix filled with elements from 1 to n^2 in spiral order.
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[[1]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>1</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Spiral matrix filled 1 to n²</dd>
 </dl>
 
 <details>

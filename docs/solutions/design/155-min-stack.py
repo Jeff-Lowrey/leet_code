@@ -18,11 +18,11 @@ You must implement a solution with O(1) time complexity for each function.
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>Operations: push(-2), push(0), push(-3)</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>main_stack: [-2, 0, -3]</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>After pushing -2, 0, and -3 onto the stack, the main stack contains all three values with -3 on top, while the min stack tracks that -3 is the current minimum</dd>
 </dl>
 
 <details>

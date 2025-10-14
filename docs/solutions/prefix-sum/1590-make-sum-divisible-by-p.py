@@ -13,11 +13,11 @@ A subarray is defined as a contiguous block of elements in the array.
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[([3, 1, 4, 2]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>"minSubarray({nums}, p={p}) -> {result} (total={total}, remainder={total % p})"</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>The minimum length subarray to remove is 1 (element 3), so remaining sum is divisible by p</dd>
 </dl>
 
 <details>

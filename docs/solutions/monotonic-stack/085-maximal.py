@@ -3,42 +3,52 @@
 
 # 085. Maximal
 
-Given a problem that demonstrates key concepts in Monotonic Stack.
+Given a rows x cols binary matrix filled with 0's and 1's, find the largest rectangle containing only 1's and return its area.
 
 **Example:**
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>matrix = [["1","0","1","0","0"],["1","0","1","1","1"]]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>3 (maximal rectangle)</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Maximal rectangle area is 6</dd>
 </dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
-[This problem requires understanding of monotonic stack concepts. The key insight is to identify the optimal approach for this specific scenario.]
+For each row, treat it as base of histogram. Heights are consecutive 1s above in each column. Apply largest rectangle in histogram for each row. Track maximum across all rows.
 
 ### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply monotonic stack methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+1. **Build height array**: For each row, treat as base of histogram
+2. **Update heights**: For each row, if cell is '1', heights[j] += 1; else heights[j] = 0
+3. **Apply histogram algorithm**: For each row's height array, call largestRectangleInHistogram
+4. **Track maximum**: Update max_area with result from histogram calculation
+5. **Continue for all rows**: Process entire matrix
+6. **Return result**: Return max_area
 
 ### WHY THIS WORKS:
-- The solution leverages monotonic stack principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+- Treat each row as histogram base: heights = consecutive 1s above
+- Apply largest rectangle in histogram algorithm to each row
+- Update heights: if cell is 1, heights[j]++; if 0, heights[j]=0
+- Max rectangle found by processing all rows as histograms
+- O(m*n) time: histogram calculation O(n) per row, O(n) space for heights array
 
 ### EXAMPLE WALKTHROUGH:
 ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
+Input: matrix = [["1","0","1","0","0"],["1","0","1","1","1"]]
+Step 1: Build height array for each row
+  row 0: heights = [1,0,1,0,0]
+  row 1: heights = [2,0,2,1,1]
+
+Step 2: Find max rectangle in each histogram
+  row 0: max = 1
+  row 1: max = 3
+
+Output: 3 (maximal rectangle)
 ```
 
 ### TIME COMPLEXITY:
@@ -54,6 +64,8 @@ O(1)
 
 </details>
 """
+
+from typing import List, Optional, Dict, Tuple
 
 class Solution:
     def maximalRectangle(self, matrix: List[List[str]]) -> int:
@@ -122,19 +134,24 @@ class Solution:
 
 def test_solution():
     """
-    Test cases for 085. Maximal.
+    Test cases for the solution.
     """
     solution = Solution()
 
-    # Test case 1: Basic functionality
-    # result = solution.solve([test_input])
-    # expected = [expected_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 1: Example from problem
+    result = solution.maximalRectangle([["1","0","1","0","0"],["1","0","1","1","1"],["1","1","1","1","1"],["1","0","0","1","0"]])
+    expected = 6
+    assert result == expected, f"Expected {expected}, got {result}"
 
-    # Test case 2: Edge case
-    # result = solution.solve([edge_case_input])
-    # expected = [edge_case_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 2: Empty input
+    result = solution.maximalRectangle([])
+    expected = 0
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 3: Single cell with 1
+    result = solution.maximalRectangle([["1"]])
+    expected = 1
+    assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
 

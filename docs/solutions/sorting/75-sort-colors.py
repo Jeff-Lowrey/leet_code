@@ -14,11 +14,11 @@ You must solve this problem without using the library's sort function.
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[2, 0, 2, 1, 1, 0]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>1</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Sort colors [2,0,2,1,1,0] in-place to [0,0,1,1,2,2]</dd>
 </dl>
 
 <details>

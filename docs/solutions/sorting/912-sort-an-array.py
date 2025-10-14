@@ -12,11 +12,11 @@ and with the smallest space complexity possible.
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[1, 2, 3, 5]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>1</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Array [5,2,3,1] sorted is [1,2,3,5]</dd>
 </dl>
 
 <details>

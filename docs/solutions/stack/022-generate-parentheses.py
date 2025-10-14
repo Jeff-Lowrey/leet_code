@@ -9,11 +9,11 @@ Given n pairs of parentheses, write a function to generate all combinations of w
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>["()"]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>1</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>All combinations of n=3 parentheses: ['((()))','(()())','(())()','()(())','()()()']</dd>
 </dl>
 
 <details>

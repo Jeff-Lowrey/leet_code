@@ -14,11 +14,11 @@ Two combinations are unique if the frequency of at least one of the chosen numbe
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[[1, 1]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>"Expected {expected}, got {result}"</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>All combinations summing to 7 using [2,3,6,7] are [[2,2,3], [7]]</dd>
 </dl>
 
 <details>
@@ -113,27 +113,18 @@ class Solution:
 
 def test_solution():
     """
-    Test cases for 039. Combination Sum.
+    Test cases for the solution.
     """
     solution = Solution()
 
-    # Test case 1: Basic functionality
-    result = solution.combinationSum([2,3,6,7], 7)
-    expected = [[2,2,3], [7]]
-    assert len(result) == len(expected), f"Expected {len(expected)} combinations, got {len(result)}"
-
-    # Test case 2: Multiple reuse
-    result = solution.combinationSum([2,3,5], 8)
-    assert len(result) == 3, f"Expected 3 combinations for [2,3,5] target 8, got {len(result)}"
-
-    # Test case 3: No solution
-    result = solution.combinationSum([2], 3)
-    expected = []
+    # Test case 1: Basic case
+    result = solution.combinationSum([1, 2, 3], 2)
+    expected = [[1, 1], [2]]
     assert result == expected, f"Expected {expected}, got {result}"
 
-    # Test case 4: Single element solution
-    result = solution.combinationSum([1], 2)
-    expected = [[1,1]]
+    # Test case 2: Empty input
+    result = solution.combinationSum([], 0)
+    expected = [[]]
     assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")

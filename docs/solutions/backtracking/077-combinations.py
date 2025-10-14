@@ -3,42 +3,60 @@
 
 # 077. Combinations
 
-Given a problem that demonstrates key concepts in Backtracking.
+Given two integers n and k, return all possible combinations of k numbers chosen from the range [1, n].
+
+You may return the answer in any order.
 
 **Example:**
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[[1,2]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>"Expected {expected}, got {result}"</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>All 2-combinations from [1,2,3,4] are [[1,2],[1,3],[1,4],[2,3],[2,4],[3,4]]</dd>
 </dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
-[This problem requires understanding of backtracking concepts. The key insight is to identify the optimal approach for this specific scenario.]
+Build combinations incrementally by choosing numbers from a starting position onwards. Use a start parameter to ensure we only consider numbers greater than previously chosen ones, avoiding duplicates like [1,2] and [2,1]. When combination reaches size k, add it to results.
 
 ### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply backtracking methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+1. **Initialize result**: Create empty result list and current combination list
+2. **Define backtrack function**: Create recursive function with parameters (start, current)
+3. **Base case**: If len(current) == k, add copy of current to result and return
+4. **Iterate from start**: Loop from start to n+1 (numbers 1 to n)
+5. **Add number**: Append current number i to current combination
+6. **Recursive call**: Call backtrack(i+1, current) to continue building combination
+7. **Backtrack**: Remove last element from current (pop) to try next number
+8. **Return result**: After all recursive calls complete, return result list
 
 ### WHY THIS WORKS:
-- The solution leverages backtracking principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+- Backtracking builds combinations of size k from 1..n
+- At each step, try all numbers from start to n
+- When path length reaches k, found valid combination
+- Pass start to ensure combinations not permutations (no [2,1] after [1,2])
+- O(C(n,k) * k) time: C(n,k) combinations, O(k) to copy each
 
 ### EXAMPLE WALKTHROUGH:
 ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
+Input: n = 4, k = 2
+Step 1: Start backtracking with empty combination
+  Try 1: curr = [1]
+    Try 2: curr = [1,2] → len=k, add [1,2] to result
+    Try 3: curr = [1,3] → len=k, add [1,3] to result
+    Try 4: curr = [1,4] → len=k, add [1,4] to result
+  Try 2: curr = [2]
+    Try 3: curr = [2,3] → len=k, add [2,3] to result
+    Try 4: curr = [2,4] → len=k, add [2,4] to result
+  Try 3: curr = [3]
+    Try 4: curr = [3,4] → len=k, add [3,4] to result
+  Try 4: curr = [4] → can't form combination of size 2
+
+Output: [[1,2],[1,3],[1,4],[2,3],[2,4],[3,4]]
 ```
 
 ### TIME COMPLEXITY:
@@ -54,6 +72,8 @@ O(1)
 
 </details>
 """
+
+from typing import List, Optional, Dict, Tuple
 
 class Solution:
     def combine(self, n: int, k: int) -> List[List[int]]:
@@ -119,19 +139,19 @@ class Solution:
 
 def test_solution():
     """
-    Test cases for 077. Combinations.
+    Test cases for the solution.
     """
     solution = Solution()
 
-    # Test case 1: Basic functionality
-    # result = solution.solve([test_input])
-    # expected = [expected_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 1: Example from problem
+    result = solution.combine(4, k = 2)
+    expected = [[1,2],[1,3],[1,4],[2,3],[2,4],[3,4]]
+    assert result == expected, f"Expected {expected}, got {result}"
 
-    # Test case 2: Edge case
-    # result = solution.solve([edge_case_input])
-    # expected = [edge_case_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 2: Empty input
+    result = solution.combine([], 0)
+    expected = [[]]
+    assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
 

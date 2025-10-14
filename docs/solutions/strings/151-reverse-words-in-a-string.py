@@ -9,11 +9,11 @@ This problem demonstrates key concepts in String manipulation and parsing.
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>"  hello   world  "</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>"world hello"</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>After reversing words, 'the sky is blue' becomes 'blue is sky the'</dd>
 </dl>
 
 <details>

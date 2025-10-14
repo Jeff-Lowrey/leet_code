@@ -3,42 +3,68 @@
 
 # 417. Pacific Atlantic Water Flow
 
-Given a problem that demonstrates key concepts in Graphs.
+There is an m x n rectangular island that borders both the Pacific Ocean and Atlantic Ocean. The Pacific Ocean touches the island's left and top edges, and the Atlantic Ocean touches the island's right and bottom edges.
+
+The island is partitioned into a grid of square cells. You are given an m x n integer matrix heights where heights[r][c] represents the height above sea level of the cell at coordinate (r, c).
+
+The island receives a lot of rain, and the rain water can flow to neighboring cells directly north, south, east, and west if the neighboring cell's height is less than or equal to the current cell's height. Water can flow from any cell adjacent to an ocean into the ocean.
+
+Return a 2D list of grid coordinates result where result[i] = [ri, ci] denotes that rain water can flow from cell (ri, ci) to both the Pacific and Atlantic oceans.
 
 **Example:**
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[[0,4]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>"Expected {expected}, got {result}"</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Cells where water can flow to both oceans: [[0,4],[1,3],[1,4],[2,2]]</dd>
 </dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
-[This problem requires understanding of graphs concepts. The key insight is to identify the optimal approach for this specific scenario.]
+Use DFS/BFS from all Pacific border cells and separately from all Atlantic border cells. Cells reachable from both oceans are in the answer. Water flows from high to low or equal.
 
 ### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply graphs methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+1. **Initialize result sets**: Create pacific_reachable and atlantic_reachable sets
+2. **DFS from pacific edges**: Run DFS from top row and left column, mark pacific-reachable cells
+3. **DFS from atlantic edges**: Run DFS from bottom row and right column, mark atlantic-reachable cells
+4. **Define DFS function**: Implement dfs(row, col, reachable, prev_height) that explores increasing heights
+5. **Check boundaries**: In DFS, verify cell is in bounds and height >= prev_height
+6. **Mark reachable**: Add current cell to reachable set, recurse on 4 neighbors
+7. **Find intersection**: Compute pacific_reachable & atlantic_reachable
+8. **Return result**: Return list of cells reachable from both oceans
 
 ### WHY THIS WORKS:
-- The solution leverages graphs principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+- DFS from ocean borders inward (reverse flow direction)
+- Water flows to ocean if can reach cells that flow to ocean
+- Find cells reachable from pacific border and atlantic border separately
+- Intersection of both sets is answer
+- O(m*n) time: DFS from borders visits each cell at most twice, O(m*n) space
 
 ### EXAMPLE WALKTHROUGH:
 ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
+Input: heights = [[1,2,2,3,5],[3,2,3,4,4],[2,4,5,3,1],[6,7,1,4,5],[5,1,1,2,4]]
+Step 1: DFS from Pacific border (top, left)
+  pacific = {(0,0),(0,1),...,(4,0)}
+
+Step 2: DFS from Atlantic border (bottom, right)
+  atlantic = {(4,4),(4,3),...,(0,4)}
+
+Step 3: Find intersection
+  Both oceans reachable from:
+  (0,4): height=5 → can flow both ways
+  (1,3): height=4 → can flow both ways
+  (1,4): height=4 → can flow both ways
+  (2,2): height=5 → can flow both ways
+  (3,0): height=6 → can flow both ways
+  (3,1): height=7 → can flow both ways
+  (4,0): height=5 → can flow both ways
+
+Output: [[0,4],[1,3],[1,4],[2,2],[3,0],[3,1],[4,0]]
 ```
 
 ### TIME COMPLEXITY:
@@ -54,6 +80,8 @@ O(1)
 
 </details>
 """
+
+from typing import List, Optional, Dict, Tuple
 
 class Solution:
     """
@@ -165,41 +193,25 @@ class Solution:
 # Example usage and testing
 def test_solution():
     """
-    Test function to verify the implementation.
-    """
-    solution = Solution()
-    
-    # Test case 1
-    heights1 = [
-        [1, 2, 2, 3, 5],
-        [3, 2, 3, 4, 4],
-        [2, 4, 5, 3, 1],
-        [6, 7, 1, 4, 5],
-        [5, 1, 1, 2, 4]
-    ]
-    result1 = solution.pacificAtlantic(heights1)
-    print(f"Test 1 Result: {result1}")
-    
-    # Test case 2
-    heights2 = [[1]]
-    result2 = solution.pacificAtlantic(heights2)
-    print(f"Test 2 Result: {result2}")
-
-def test_solution():
-    """
-    Test cases for 417. Pacific Atlantic Water Flow.
+    Test cases for the solution.
     """
     solution = Solution()
 
-    # Test case 1: Basic functionality
-    # result = solution.solve([test_input])
-    # expected = [expected_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 1: Example from problem
+    result = solution.pacificAtlantic([[1,2,2,3,5],[3,2,3,4,4],[2,4,5,3,1],[6,7,1,4,5],[5,1,1,2,4]])
+    expected = [[0,4],[1,3],[1,4],[2,2],[3,0],[3,1],[4,0]]
+    # Sort both for comparison since order doesn't matter
+    assert sorted(result) == sorted(expected), f"Expected {expected}, got {result}"
 
-    # Test case 2: Edge case
-    # result = solution.solve([edge_case_input])
-    # expected = [edge_case_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 2: Single row
+    result = solution.pacificAtlantic([[1,2,3]])
+    expected = [[0,0],[0,1],[0,2]]
+    assert sorted(result) == sorted(expected), f"Expected {expected}, got {result}"
+
+    # Test case 3: Single cell
+    result = solution.pacificAtlantic([[1]])
+    expected = [[0,0]]
+    assert sorted(result) == sorted(expected), f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
 

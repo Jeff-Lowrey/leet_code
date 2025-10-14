@@ -11,11 +11,11 @@ You are given a string array sentences and an integer array times both of length
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>sentences = ["i love you", "island", "iroman", "i love leetcode"]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>times = [5, 3, 2, 2]</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>AutocompleteSystem returns top 3 sentences by frequency</dd>
 </dl>
 
 <details>

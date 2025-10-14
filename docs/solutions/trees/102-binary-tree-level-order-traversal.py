@@ -9,11 +9,11 @@ Given the root of a binary tree, return the level order traversal of its nodes' 
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[[3]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>1</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Level-order traversal groups nodes by depth: [[3], [9,20], [15,7]]</dd>
 </dl>
 
 <details>
@@ -58,8 +58,11 @@ O(w)
 Where w is maximum width of the tree (queue size)
 
 ### EDGE CASES:
-- **[Edge case 1]:** [how it's handled]
-- **[Edge case 2]:** [how it's handled]
+- **Empty tree**: Return empty list immediately
+- **Single node**: Return [[value]] (one level, one node)
+- **Perfect binary tree**: Each level doubles in size
+- **Linear tree (skewed)**: Each level has exactly one node
+- **Unbalanced tree**: Level sizes vary based on structure
 
 </details>
 """

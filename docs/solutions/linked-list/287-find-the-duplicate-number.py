@@ -3,42 +3,68 @@
 
 # 287. Find The Duplicate Number
 
-Given a problem that demonstrates key concepts in Linked List.
+Given an array of integers nums containing n + 1 integers where each integer is in the range [1, n] inclusive.
+
+There is only one repeated number in nums, return this repeated number.
+
+You must solve the problem without modifying the array nums and uses only constant extra space.
 
 **Example:**
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[1,3,4,2,2]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>2 (duplicate number)</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>The duplicate number is 2, which appears twice in the array</dd>
 </dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
-[This problem requires understanding of linked list concepts. The key insight is to identify the optimal approach for this specific scenario.]
+Treat as cycle detection problem. Array indices are nodes, values are edges. Duplicate creates a cycle. Use Floyd's algorithm to find cycle entrance, which is the duplicate number.
 
 ### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply linked list methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+1. **Treat as linked list**: Consider array indices as linked list
+2. **Phase 1 - find cycle**: Use Floyd's algorithm with slow and fast pointers
+3. **Move at different speeds**: slow = nums[slow], fast = nums[nums[fast]]
+4. **Detect cycle**: When slow == fast, cycle detected
+5. **Phase 2 - find entrance**: Reset slow = nums[0], keep fast at meeting point
+6. **Move both at same speed**: Both move one step
+7. **Find duplicate**: When slow == fast, that's the duplicate number
+8. **Return result**: Return slow as the duplicate
 
 ### WHY THIS WORKS:
-- The solution leverages linked list principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+- Floyd's cycle detection treats array as implicit linked list where nums[i] points to nums[nums[i]]
+- Duplicate value creates a cycle because two indices point to the same value
+- Phase 1 (tortoise/hare) detects cycle existence in O(n) time
+- Phase 2 finds cycle entrance (the duplicate) by mathematical property: distance to entrance equals distance from start
+- Achieves O(1) space without modifying array, unlike hash set or sorting approaches
 
 ### EXAMPLE WALKTHROUGH:
 ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
+Input: nums = [1,3,4,2,2]
+Step 1: Floyd's cycle detection
+  slow=nums[0]=1, fast=nums[nums[0]]=3
+  slow=nums[1]=3, fast=nums[nums[3]]=2
+  slow=nums[3]=2, fast=nums[nums[2]]=3
+  slow=nums[2]=4, fast=nums[nums[3]]=2
+  slow=nums[4]=2, fast=nums[nums[2]]=3
+  slow=nums[2]=4, fast=nums[nums[3]]=2
+  slow=nums[4]=2, fast=nums[nums[2]]=3
+  Meet at 2
+
+Step 2: Find cycle entrance
+  slow2=nums[0]=1, slow=nums[2]=4
+  slow2=nums[1]=3, slow=nums[4]=2
+  slow2=nums[3]=2, slow=nums[2]=4
+  slow2=nums[2]=4, slow=nums[4]=2
+  slow2=nums[4]=2, slow=nums[2]=4
+  Meet at 2
+
+Output: 2 (duplicate number)
 ```
 
 ### TIME COMPLEXITY:
@@ -54,6 +80,8 @@ O(1)
 
 </details>
 """
+
+from typing import List, Optional, Dict, Tuple
 
 class Solution:
     def findDuplicate(self, nums: List[int]) -> int:
@@ -94,19 +122,19 @@ class Solution:
 
 def test_solution():
     """
-    Test cases for 287. Find The Duplicate Number.
+    Test cases for the solution.
     """
     solution = Solution()
 
-    # Test case 1: Basic functionality
-    # result = solution.solve([test_input])
-    # expected = [expected_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 1: Example with duplicate
+    result = solution.findDuplicate([1,3,4,2,2])
+    expected = 2
+    assert result == expected, f"Expected {expected}, got {result}"
 
-    # Test case 2: Edge case
-    # result = solution.solve([edge_case_input])
-    # expected = [edge_case_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 2: Another example
+    result = solution.findDuplicate([3,1,3,4,2])
+    expected = 3
+    assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
 

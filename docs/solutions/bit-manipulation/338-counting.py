@@ -1,44 +1,63 @@
 """
-# Difficulty: Medium
+# Difficulty: Easy
 
-# 338. Counting
+# 338. Counting Bits
 
-Given a problem that demonstrates key concepts in Bit Manipulation.
+Given an integer n, return an array ans of length n + 1 such that for each i (0 <= i <= n), ans[i] is the number of 1's in the binary representation of i.
 
 **Example:**
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[0,1,1,2,1,2]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>"Expected {expected}, got {result}"</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Counting bits: for n=5, result is [0,1,1,2,1,2] (bit counts for 0-5)</dd>
 </dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
-[This problem requires understanding of bit manipulation concepts. The key insight is to identify the optimal approach for this specific scenario.]
+For each number, count set bits. Pattern: dp[i] = dp[i >> 1] + (i & 1). The count for i equals count for i/2 plus the last bit of i.
 
 ### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply bit manipulation methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+1. **Initialize result array**: Create result = [0] * (n + 1) to store counts for 0 to n
+2. **Iterate from 1 to n**: Loop with index i from 1 to n
+3. **Use recurrence relation**: Set result[i] = result[i >> 1] + (i & 1)
+4. **Understand i >> 1**: Right shift removes the rightmost bit, giving count for i//2
+5. **Add rightmost bit**: (i & 1) adds 1 if rightmost bit is set, 0 otherwise
+6. **Build incrementally**: Each result[i] uses previously computed result[i//2]
+7. **Return result**: Return complete result array with counts for all numbers 0 to n
 
 ### WHY THIS WORKS:
-- The solution leverages bit manipulation principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+- DP: count[i] = count[i >> 1] + (i & 1)
+- Bit shift right removes last bit, i & 1 checks if last bit is 1
+- Reuse previous results: i >> 1 is already computed
+- Alternatively: count[i] = count[i & (i-1)] + 1 (remove rightmost 1)
+- O(n) time: each number processed once, O(1) space excluding output
 
 ### EXAMPLE WALKTHROUGH:
 ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
+Input: n = 5
+Step 1: Count bits for each number from 0 to 5
+  0 = 000 → 0 bits
+  1 = 001 → 1 bit
+  2 = 010 → 1 bit
+  3 = 011 → 2 bits
+  4 = 100 → 1 bit
+  5 = 101 → 2 bits
+
+Step 2: DP relation: count[i] = count[i>>1] + (i&1)
+  count[0] = 0
+  count[1] = count[0] + 1 = 1
+  count[2] = count[1] + 0 = 1
+  count[3] = count[1] + 1 = 2
+  count[4] = count[2] + 0 = 1
+  count[5] = count[2] + 1 = 2
+
+Output: [0,1,1,2,1,2]
 ```
 
 ### TIME COMPLEXITY:
@@ -54,6 +73,8 @@ O(1)
 
 </details>
 """
+
+from typing import List, Optional, Dict, Tuple
 
 class Solution:
     def countBits(self, n: int) -> List[int]:
@@ -88,19 +109,24 @@ class Solution:
 
 def test_solution():
     """
-    Test cases for 338. Counting.
+    Test cases for the solution.
     """
     solution = Solution()
 
-    # Test case 1: Basic functionality
-    # result = solution.solve([test_input])
-    # expected = [expected_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 1: Example from problem
+    result = solution.countBits(5)
+    expected = [0,1,1,2,1,2]
+    assert result == expected, f"Expected {expected}, got {result}"
 
-    # Test case 2: Edge case
-    # result = solution.solve([edge_case_input])
-    # expected = [edge_case_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 2: Base case n=0
+    result = solution.countBits(0)
+    expected = [0]
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 3: Small power of 2
+    result = solution.countBits(2)
+    expected = [0,1,1]
+    assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
 

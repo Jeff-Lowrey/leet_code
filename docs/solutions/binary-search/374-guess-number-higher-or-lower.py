@@ -20,11 +20,11 @@ Return the number that I picked.
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[(10, 6), (100, 25), (50, 1), (1, 1)]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>"Range [1, {n}], picked number: {result}"</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Target number is guessed using binary search strategy</dd>
 </dl>
 
 <details>

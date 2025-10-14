@@ -3,42 +3,54 @@
 
 # 141. Linked List Cycle
 
-Given a problem that demonstrates key concepts in Linked List.
+Given head, the head of a linked list, determine if the linked list has a cycle in it.
+
+There is a cycle in a linked list if there is some node in the list that can be reached again by continuously following the next pointer. Internally, pos is used to denote the index of the node that tail's next pointer is connected to. Note that pos is not passed as a parameter.
+
+Return true if there is a cycle in the linked list. Otherwise, return false.
 
 **Example:**
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[3,2,0,-4], pos = 1 (cycle at node 2)</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>True (has cycle)</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>There is a cycle in the linked list where the tail connects back to the second node (index 1)</dd>
 </dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
-[This problem requires understanding of linked list concepts. The key insight is to identify the optimal approach for this specific scenario.]
+Use Floyd's cycle detection with fast and slow pointers. Fast moves 2 steps, slow moves 1 step. If they meet, cycle exists. If fast reaches null, no cycle.
 
 ### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply linked list methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+1. **Initialize two pointers**: Set slow = fast = head
+2. **Move at different speeds**: In loop, slow moves 1 step, fast moves 2 steps
+3. **Check for cycle**: If slow == fast, cycle detected, return True
+4. **Check for end**: If fast or fast.next is None, no cycle exists
+5. **Continue until resolved**: Keep moving pointers
+6. **Return False**: If loop exits without meeting, return False
 
 ### WHY THIS WORKS:
-- The solution leverages linked list principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+- Floyd's tortoise and hare algorithm: if there's a cycle, fast pointer will eventually lap slow pointer
+- Fast moves 2x speed, so it closes gap by 1 node per iteration, guaranteed to meet
+- If fast reaches null, no cycle exists (linear structure)
+- O(n) time: worst case fast travels 2n nodes before meeting or reaching null
+- O(1) space: only two pointers regardless of list size
 
 ### EXAMPLE WALKTHROUGH:
 ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
+Input: head = [3,2,0,-4], pos = 1 (cycle at node 2)
+Step 1: Fast and slow pointers
+  slow=3, fast=3
+  slow=2, fast=0
+  slow=0, fast=2
+  slow=-4, fast=-4 → meet
+
+Output: True (has cycle)
 ```
 
 ### TIME COMPLEXITY:

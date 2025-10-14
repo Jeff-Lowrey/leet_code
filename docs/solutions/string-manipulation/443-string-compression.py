@@ -23,11 +23,11 @@ Output: Return 6, and the first 6 characters of the input array should be: ["a",
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>chars = ["a","a","b","b","c","c","c"]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>Return 6, and the first 6 characters of the input array should be: ["a","2","b","2","c","3"]</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Compressed string ['a','a','b','b','c','c','c'] becomes ['a','2','b','2','c','3'] with length 6</dd>
 </dl>
 
 <details>

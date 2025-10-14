@@ -3,42 +3,60 @@
 
 # 018. 4Sum
 
-Given a problem that demonstrates key concepts in Two Pointers.
+Given an array nums of n integers, return an array of all the unique quadruplets [nums[a], nums[b], nums[c], nums[d]] such that:
+
+- 0 <= a, b, c, d < n
+- a, b, c, and d are distinct.
+- nums[a] + nums[b] + nums[c] + nums[d] == target
+
+You may return the answer in any order.
 
 **Example:**
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[1,0,-1,0,-2,2], target = 0</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>[[-2,-1,1,2],[-2,0,0,2],[-1,0,0,1]]</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>4Sum: quadruplets summing to target</dd>
 </dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
-[This problem requires understanding of two pointers concepts. The key insight is to identify the optimal approach for this specific scenario.]
+Sort array first. Fix first two elements, use two pointers for remaining two. Skip duplicates at all four positions. Adjust pointers based on sum comparison to target.
 
 ### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply two pointers methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+1. **Sort array**: Sort nums to enable two-pointer technique and skip duplicates
+2. **Outer loops for first two numbers**: Use nested loops for i and j
+3. **Skip duplicates**: For both i and j, skip duplicate values
+4. **Initialize two pointers**: For each (i,j) pair, set left = j+1, right = len(nums)-1
+5. **Calculate sum**: current_sum = nums[i] + nums[j] + nums[left] + nums[right]
+6. **Check target**: If sum == target, add quadruplet and skip duplicates
+7. **Adjust pointers**: If sum < target, increment left; if sum > target, decrement right
+8. **Return result**: Return list of all unique quadruplets
 
 ### WHY THIS WORKS:
-- The solution leverages two pointers principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+- Sort array, fix two numbers with outer loops, two-pointer on remaining
+- Skip duplicates at each level to avoid duplicate quadruplets
+- Two pointers find pairs that sum to (target - num1 - num2)
+- Same as 3sum with extra outer loop
+- O(n^3) time: two nested loops + two pointers, O(1) space
 
 ### EXAMPLE WALKTHROUGH:
 ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
+Input: nums = [1,0,-1,0,-2,2], target = 0
+Step 1: Sort array
+  sorted = [-2,-1,0,0,1,2]
+
+Step 2: Fix first two, use two pointers for rest
+  i=-2, j=-1: find pairs summing to 3
+  i=-2, j=0: find pairs summing to 2
+  ...
+
+Output: [[-2,-1,1,2],[-2,0,0,2],[-1,0,0,1]]
 ```
 
 ### TIME COMPLEXITY:
@@ -54,6 +72,8 @@ O(1)
 
 </details>
 """
+
+from typing import List, Optional, Dict, Tuple
 
 class Solution:
     def fourSum(self, nums: List[int], target: int) -> List[List[int]]:
@@ -126,19 +146,19 @@ class Solution:
 
 def test_solution():
     """
-    Test cases for 018. 4Sum.
+    Test cases for the solution.
     """
     solution = Solution()
 
-    # Test case 1: Basic functionality
-    # result = solution.solve([test_input])
-    # expected = [expected_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 1: Basic case
+    result = solution.fourSum([1, 2, 3], 2)
+    expected = []
+    assert result == expected, f"Expected {expected}, got {result}"
 
-    # Test case 2: Edge case
-    # result = solution.solve([edge_case_input])
-    # expected = [edge_case_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 2: Empty input
+    result = solution.fourSum([], 0)
+    expected = []
+    assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
 

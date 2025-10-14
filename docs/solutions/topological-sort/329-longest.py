@@ -3,42 +3,54 @@
 
 # 329. Longest
 
-Given a problem that demonstrates key concepts in Topological Sort.
+Given an m x n integers matrix, return the length of the longest increasing path in matrix.
+
+From each cell, you can either move in four directions: left, right, up, or down. You may not move diagonally or move outside the boundary (i.e., wrap-around is not allowed).
 
 **Example:**
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>matrix = [[9,9,4],[6,6,8],[2,1,1]]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>4 (longest increasing path)</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Longest increasing path in matrix is 4</dd>
 </dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
-[This problem requires understanding of topological sort concepts. The key insight is to identify the optimal approach for this specific scenario.]
+Build graph of dependencies. Start DFS from each cell. Use memoization to store longest path from each cell. Result is max of all starting points. DFS explores increasing values only.
 
 ### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply topological sort methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+1. **Initialize memoization**: Create memo = {} to cache results
+2. **Define DFS function**: Implement dfs(i, j) to find longest path from cell (i,j)
+3. **Check memo**: If (i,j) in memo, return memo[(i,j)]
+4. **Explore neighbors**: For each of 4 directions, check if can move (increasing value)
+5. **Recursive call**: If valid, max_path = max(max_path, 1 + dfs(ni, nj))
+6. **Memoize result**: memo[(i,j)] = max_path
+7. **Try all cells**: For each cell, call dfs and track maximum
+8. **Return result**: Return global maximum path length
 
 ### WHY THIS WORKS:
-- The solution leverages topological sort principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+- DFS with memoization: longest path from each cell
+- Only move to adjacent cells with greater values (DAG ensures no cycles)
+- Memo[i][j] caches longest path starting at (i,j)
+- Try all 4 directions, take max + 1
+- O(m*n) time: each cell computed once, O(m*n) space for memo
 
 ### EXAMPLE WALKTHROUGH:
 ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
+Input: matrix = [[9,9,4],[6,6,8],[2,1,1]]
+Step 1: DFS with memoization
+  Start from 9: can go to 6 → 2 → 1, length=4
+
+Step 2: Try all cells
+  Best path: 9→6→2→1
+
+Output: 4 (longest increasing path)
 ```
 
 ### TIME COMPLEXITY:
@@ -54,6 +66,8 @@ O(1)
 
 </details>
 """
+
+from typing import List, Optional, Dict, Tuple
 
 class Solution:
     def longestIncreasingPath(self, matrix: List[List[int]]) -> int:
@@ -118,19 +132,34 @@ class Solution:
 
 def test_solution():
     """
-    Test cases for 329. Longest.
+    Test cases for the solution.
     """
     solution = Solution()
 
-    # Test case 1: Basic functionality
-    # result = solution.solve([test_input])
-    # expected = [expected_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 1: Example from problem
+    result = solution.longestIncreasingPath([[9,9,4],[6,6,8],[2,1,1]])
+    expected = 4
+    assert result == expected, f"Expected {expected}, got {result}"
 
-    # Test case 2: Edge case
-    # result = solution.solve([edge_case_input])
-    # expected = [edge_case_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 2: All same values
+    result = solution.longestIncreasingPath([[3,4,5],[3,2,6],[2,2,1]])
+    expected = 4
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 3: Single row
+    result = solution.longestIncreasingPath([[1,2,3,4]])
+    expected = 4
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 4: Empty input
+    result = solution.longestIncreasingPath([])
+    expected = 0
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 5: Single element
+    result = solution.longestIncreasingPath([[5]])
+    expected = 1
+    assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
 

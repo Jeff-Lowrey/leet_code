@@ -13,11 +13,11 @@ Return the maximum area of an island in grid. If there is no island, return 0.
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[[0,0,1,0,0,0,0,1,0,0,0,0,0]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>1</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Maximum island area is 6 square units</dd>
 </dl>
 
 <details>
@@ -66,8 +66,11 @@ O(M × N)
 For recursion stack in worst case
 
 ### EDGE CASES:
-- **[Edge case 1]:** [how it's handled]
-- **[Edge case 2]:** [how it's handled]
+- **All water**: Return 0 (no islands)
+- **Single cell island**: Return 1
+- **Entire grid is one island**: Return m * n
+- **Multiple islands**: Return area of largest
+- **Empty grid**: Return 0
 
 </details>
 """

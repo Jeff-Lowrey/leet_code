@@ -11,11 +11,11 @@ Output: [1,2,3,6,9,8,7,4,5]
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>matrix` = [[1,2,3],[4,5,6],[7,8,9]]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>[1,2,3,6,9,8,7,4,5]</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Spiral order traversal: [1,2,3,6,9,8,7,4,5]</dd>
 </dl>
 
 <details>
@@ -49,8 +49,11 @@ O(m × n)
 O(1) excluding output array
 
 ### EDGE CASES:
-- **[Edge case 1]:** [how it's handled]
-- **[Edge case 2]:** [how it's handled]
+- **Empty matrix**: Return empty list
+- **Single row**: Return that row
+- **Single column**: Return that column
+- **Single element**: Return [element]
+- **Rectangle (m×n)**: Spiral inward from boundaries
 
 </details>
 """

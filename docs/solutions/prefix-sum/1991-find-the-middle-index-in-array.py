@@ -15,11 +15,11 @@ Return the leftmost middleIndex that satisfies the condition, or -1 if there is 
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[2,3,-1]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>1</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>The middle index is 3, where sum of elements to the left equals sum to the right</dd>
 </dl>
 
 <details>

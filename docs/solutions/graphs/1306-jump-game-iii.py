@@ -14,11 +14,11 @@ Explanation: Jump sequence: 5 → 4 → 1 → 3 (value is 0)
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>arr = [4,2,3,0,3,1,2], start = 5</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>true</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Starting at index 2, you can reach index 4 by jumping</dd>
 </dl>
 
 <details>
@@ -68,8 +68,11 @@ O(n)
 O(n) for visited set and recursion/queue
 
 ### EDGE CASES:
-- **[Edge case 1]:** [how it's handled]
-- **[Edge case 2]:** [how it's handled]
+- **Start at target value**: Return True immediately
+- **Infinite loop**: Visited tracking prevents infinite loops
+- **All jumps lead out of bounds**: Return False
+- **Multiple paths to zero**: BFS/DFS finds any path
+- **Single element array**: Check if that element is 0
 
 </details>
 """

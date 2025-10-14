@@ -3,42 +3,51 @@
 
 # 472. Concatenated
 
-Given a problem that demonstrates key concepts in Trees.
+Given an array of strings words (without duplicates), return all the concatenated words in the given list of words.
+
+A concatenated word is defined as a string that is comprised entirely of at least two shorter words in the given array.
 
 **Example:**
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>words = ["cat","cats","catsdogcats","dog","dogcatsdog","hippopotamuses"]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>["catsdogcats","dogcatsdog"]</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Concatenated words are formed by combining other words: 'catsdogcats' = 'cats' + 'dog' + 'cats'</dd>
 </dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
-[This problem requires understanding of trees concepts. The key insight is to identify the optimal approach for this specific scenario.]
+Build Trie of all words. For each word, DFS from Trie root trying to match it as concatenation of words. Use memoization on position. Word is valid if complete match with 2+ words.
 
 ### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply trees methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+1. **Sort by length**: Sort words by length
+2. **Build set**: Create word_set from words
+3. **Define canForm**: Implement function to check if word can be formed
+4. **Use DP**: For each word, use dp[i] = True if word[:i] can be segmented
+5. **Check segments**: For each position, try all possible word breaks
+6. **Validate**: Word is concatenated if dp[len(word)] is True
+7. **Filter results**: Return words that can be formed by concatenation
 
 ### WHY THIS WORKS:
-- The solution leverages trees principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+- Trie stores all words, DFS checks if word can be formed by concatenating
+- For each position, try all words that match from that position
+- Word is concatenated if formed by >= 2 words (track depth)
+- Memoization caches (pos, depth) to avoid recomputing subproblems
+- O(n * m * k) time: n words, m avg length, k concatenation attempts
 
 ### EXAMPLE WALKTHROUGH:
 ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
+Input: words = ["cat","cats","catsdogcats","dog","dogcatsdog","hippopotamuses"]
+Step 1: Check each word
+  "catsdogcats" = "cats" + "dog" + "cats" ✓
+  "dogcatsdog" = "dog" + "cats" + "dog" ✓
+
+Output: ["catsdogcats","dogcatsdog"]
 ```
 
 ### TIME COMPLEXITY:
@@ -54,6 +63,8 @@ O(1)
 
 </details>
 """
+
+from typing import List, Optional, Dict, Tuple, Set
 
 class Solution:
     def findAllConcatenatedWordsInADict(self, words: List[str]) -> List[str]:
@@ -122,19 +133,24 @@ class Solution:
 
 def test_solution():
     """
-    Test cases for 472. Concatenated.
+    Test cases for the solution.
     """
     solution = Solution()
 
-    # Test case 1: Basic functionality
-    # result = solution.solve([test_input])
-    # expected = [expected_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 1: Example from problem
+    result = solution.findAllConcatenatedWordsInADict(["cat","cats","catsdogcats","dog","dogcatsdog","hippopotamuses","rat","ratcatdogcat"])
+    expected = ["catsdogcats","dogcatsdog","ratcatdogcat"]
+    assert sorted(result) == sorted(expected), f"Expected {expected}, got {result}"
 
-    # Test case 2: Edge case
-    # result = solution.solve([edge_case_input])
-    # expected = [edge_case_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 2: Empty input
+    result = solution.findAllConcatenatedWordsInADict([])
+    expected = []
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 3: No concatenated words
+    result = solution.findAllConcatenatedWordsInADict(["a","b","c"])
+    expected = []
+    assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
 

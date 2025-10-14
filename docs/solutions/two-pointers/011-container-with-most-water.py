@@ -3,35 +3,46 @@
 
 # 011. Container With Most Water
 
-Given a problem that demonstrates key concepts in Two Pointers.
+You are given an integer array height of length n. There are n vertical lines drawn such that the two endpoints of the ith line are (i, 0) and (i, height[i]).
+
+Find two lines that together with the x-axis form a container, such that the container contains the most water.
+
+Return the maximum amount of water a container can store.
+
+Notice that you may not slant the container.
 
 **Example:**
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>height = [1, 8, 6, 2, 5, 4, 8, 3, 7]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>49</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Maximum water container area is 49 with heights [1,8,6,2,5,4,8,3,7]</dd>
 </dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
-[This problem requires understanding of two pointers concepts. The key insight is to identify the optimal approach for this specific scenario.]
+Use two pointers from both ends. Calculate area = min(height[left], height[right]) * width. Move pointer with smaller height inward (moving taller pointer can't increase area). Track maximum.
 
 ### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply two pointers methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+1. **Initialize pointers**: Set left = 0, right = len(height) - 1
+2. **Initialize max area**: Set max_area = 0
+3. **Loop while left < right**: Continue until pointers meet
+4. **Calculate area**: area = min(height[left], height[right]) * (right - left)
+5. **Update maximum**: max_area = max(max_area, area)
+6. **Move pointer**: If height[left] < height[right], increment left; else decrement right
+7. **Return result**: Return max_area as maximum water container
 
 ### WHY THIS WORKS:
-- The solution leverages two pointers principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+- Two pointers: left at start, right at end
+- Area = min(height[left], height[right]) * (right - left)
+- Move pointer with shorter height: taller height won't improve area until we find taller opposite
+- Track maximum area seen
+- O(n) time: single pass, O(1) space
 
 ### EXAMPLE WALKTHROUGH:
 ```
@@ -84,6 +95,8 @@ O(1)
 </details>
 """
 
+from typing import List, Optional, Dict, Tuple
+
 class Solution:
     def maxArea(self, height: List[int]) -> int:
         """
@@ -121,19 +134,24 @@ class Solution:
 
 def test_solution():
     """
-    Test cases for 011. Container With Most Water.
+    Test cases for the solution.
     """
     solution = Solution()
 
-    # Test case 1: Basic functionality
-    # result = solution.solve([test_input])
-    # expected = [expected_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 1: Example from problem
+    result = solution.maxArea([1, 8, 6, 2, 5, 4, 8, 3, 7])
+    expected = 49
+    assert result == expected, f"Expected {expected}, got {result}"
 
-    # Test case 2: Edge case
-    # result = solution.solve([edge_case_input])
-    # expected = [edge_case_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 2: Empty input
+    result = solution.maxArea([])
+    expected = 0
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 3: Single element
+    result = solution.maxArea([1])
+    expected = 0
+    assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
 

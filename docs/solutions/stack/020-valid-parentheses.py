@@ -25,11 +25,11 @@ Output: false
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>s = "()</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>true</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Parentheses '()[]{}' are valid (properly closed)</dd>
 </dl>
 
 <details>

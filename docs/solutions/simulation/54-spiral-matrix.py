@@ -17,11 +17,11 @@ Output: [1,2,3,4,8,12,11,10,9,5,6,7]
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[[1, 2, 3]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>1</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Spiral order traversal: [1,2,3,6,9,8,7,4,5]</dd>
 </dl>
 
 <details>

@@ -10,11 +10,11 @@ Return the smallest level x such that the sum of all the values of nodes at leve
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>Tree:      1</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>/   \</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Maximum level sum occurs at level 2 with sum=7</dd>
 </dl>
 
 <details>

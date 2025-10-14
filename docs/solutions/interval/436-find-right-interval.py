@@ -3,42 +3,60 @@
 
 # 436. Find Right Interval
 
-Given a problem that demonstrates key concepts in Interval.
+You are given an array of intervals, where intervals[i] = [starti, endi] and each starti is unique.
+
+The right interval for an interval i is an interval j such that startj >= endi and startj is minimized. Note that i may equal j.
+
+Return an array of right interval indices for each interval i. If no right interval exists for interval i, then put -1 at index i.
 
 **Example:**
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>intervals = [[3,4],[2,3],[1,2]]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>[-1,0,1]</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>For each interval [1,2], the right interval [2,3] has the smallest start ≥ 2</dd>
 </dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
-[This problem requires understanding of interval concepts. The key insight is to identify the optimal approach for this specific scenario.]
+Sort intervals by start time. For each interval, binary search for the first interval whose start >= current interval's end. Store the index or -1 if not found.
 
 ### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply interval methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+1. **Create index mapping**: Build dict mapping start to original index
+2. **Sort starts**: Create sorted list of start times
+3. **For each interval**: Get its end time
+4. **Binary search**: Use bisect_left to find smallest start >= end
+5. **Check if found**: If index < len(starts), get original index from mapping
+6. **Not found**: Append -1 to result
+7. **Return result**: Return list of right interval indices
 
 ### WHY THIS WORKS:
-- The solution leverages interval principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+- Binary search on sorted start times to find next interval
+- Store original indices before sorting to map back
+- For each interval's end, binary search for smallest start >= end
+- HashMap maps start value to original index
+- O(n log n) for sort + n binary searches, O(n) space
 
 ### EXAMPLE WALKTHROUGH:
 ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
+Input: intervals = [[3,4],[2,3],[1,2]]
+Step 1: Create index mapping
+  indexed = [(3,4,0), (2,3,1), (1,2,2)]
+
+Step 2: Sort by start time
+  sorted = [(1,2,2), (2,3,1), (3,4,0)]
+
+Step 3: Binary search for each interval's end
+  [3,4]: find start ≥ 4 → not found → -1
+  [2,3]: find start ≥ 3 → found at index 0
+  [1,2]: find start ≥ 2 → found at index 1
+
+Output: [-1,0,1]
 ```
 
 ### TIME COMPLEXITY:
@@ -54,6 +72,8 @@ O(1)
 
 </details>
 """
+
+from typing import List, Optional, Dict, Tuple
 
 class Solution:
     def findRightInterval(self, intervals: List[List[int]]) -> List[int]:
@@ -107,19 +127,34 @@ class Solution:
 
 def test_solution():
     """
-    Test cases for 436. Find Right Interval.
+    Test cases for the solution.
     """
     solution = Solution()
 
-    # Test case 1: Basic functionality
-    # result = solution.solve([test_input])
-    # expected = [expected_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 1: Example from problem
+    result = solution.findRightInterval([[3,4],[2,3],[1,2]])
+    expected = [-1,0,1]
+    assert result == expected, f"Expected {expected}, got {result}"
 
-    # Test case 2: Edge case
-    # result = solution.solve([edge_case_input])
-    # expected = [edge_case_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 2: No right interval exists
+    result = solution.findRightInterval([[1,4],[2,3],[3,4]])
+    expected = [-1,-1,-1]
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 3: All have right intervals
+    result = solution.findRightInterval([[1,2],[2,3],[3,4]])
+    expected = [1,2,-1]
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 4: Empty input
+    result = solution.findRightInterval([])
+    expected = []
+    assert result == expected, f"Expected {expected}, got {result}"
+
+    # Test case 5: Single interval
+    result = solution.findRightInterval([[1,2]])
+    expected = [-1]
+    assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
 

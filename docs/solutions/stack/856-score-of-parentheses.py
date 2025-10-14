@@ -14,11 +14,11 @@ The score of a balanced parentheses string is based on the following rule:
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>"(()(()))"</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>6</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Score of parentheses '(())' is 2</dd>
 </dl>
 
 <details>
@@ -67,8 +67,11 @@ O(n)
 Stack can grow to depth of nesting
 
 ### EDGE CASES:
-- **[Edge case 1]:** [how it's handled]
-- **[Edge case 2]:** [how it's handled]
+- **Empty string**: Return 0 (no score)
+- **Single pair ()**: Return 1 (base case)
+- **Nested pairs ((()))**: Doubling rule applies recursively
+- **Concatenated pairs ()()**: Addition rule applies
+- **Deep nesting**: Stack depth tracks nesting level
 
 </details>
 """

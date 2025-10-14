@@ -1,44 +1,59 @@
 """
 # Difficulty: Medium
 
-# 260. Single
+# 260. Single Number III
 
-Given a problem that demonstrates key concepts in Bit Manipulation.
+Given an integer array nums, in which exactly two elements appear only once and all the other elements appear exactly twice. Find the two elements that appear only once. You can return the answer in any order.
+
+You must write an algorithm that runs in linear runtime complexity and uses only constant extra space.
 
 **Example:**
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[input description]</dd>
+<dd>[3, 5]</dd>
 <dt>Output:</dt>
-<dd>[output description]</dd>
+<dd>"Expected {expected}, got {result}"</dd>
 <dt>Explanation:</dt>
-<dd>[explanation]</dd>
+<dd>Two numbers [3,5] appear once in [1,2,1,3,2,5]</dd>
 </dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### INTUITION:
-[This problem requires understanding of bit manipulation concepts. The key insight is to identify the optimal approach for this specific scenario.]
+XOR all numbers - pairs cancel leaving x^y. Find any set bit in x^y to distinguish them. Partition numbers by this bit and XOR each partition separately to get x and y.
 
 ### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply bit manipulation methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+1. **XOR all numbers**: Compute xor_all = 0, then xor_all ^= num for each num (pairs cancel, leaving two singles XORed)
+2. **Find differentiating bit**: Find rightmost set bit in xor_all using rightmost_bit = xor_all & (-xor_all)
+3. **Partition into groups**: This bit is 1 in one single number and 0 in the other
+4. **Initialize two results**: Set num1 = 0, num2 = 0 to accumulate XORs for each group
+5. **Separate by bit**: For each num, if (num & rightmost_bit), add to num1 group, else num2 group
+6. **XOR within groups**: XOR all numbers in each group separately (pairs cancel within groups)
+7. **Return both singles**: Return [num1, num2] as the two numbers appearing once
 
 ### WHY THIS WORKS:
-- The solution leverages bit manipulation principles
-- Time complexity is optimized for the given constraints
-- Space complexity is minimized where possible
+- XOR all numbers: duplicates cancel, left with xor = a ^ b
+- Find any set bit in xor (rightmost set bit: xor & -xor)
+- Split numbers into two groups by this bit (one has a, other has b)
+- XOR each group separately to find a and b
+- O(n) time: two passes, O(1) space
 
 ### EXAMPLE WALKTHROUGH:
 ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
+Input: nums = [1,2,1,3,2,5]
+Step 1: XOR all numbers
+  xor = 1^2^1^3^2^5 = 3^5 = 6 (binary: 110)
+
+Step 2: Find rightmost set bit
+  rightmost_bit = xor & -xor = 110 & 010 = 010 (bit 1)
+
+Step 3: Partition numbers by rightmost bit
+  Group 1 (bit 1 is 0): [1,1,5] → XOR = 5
+  Group 2 (bit 1 is 1): [2,3,2] → XOR = 3
+
+Output: [3, 5] (two single numbers)
 ```
 
 ### TIME COMPLEXITY:
@@ -54,6 +69,8 @@ O(1)
 
 </details>
 """
+
+from typing import List, Optional, Dict, Tuple
 
 class Solution:
     def singleNumber(self, nums: List[int]) -> List[int]:
@@ -99,19 +116,24 @@ class Solution:
 
 def test_solution():
     """
-    Test cases for 260. Single.
+    Test cases for the solution.
     """
     solution = Solution()
 
-    # Test case 1: Basic functionality
-    # result = solution.solve([test_input])
-    # expected = [expected_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 1: Example from problem
+    result = solution.singleNumber([1,2,1,3,2,5])
+    expected = [3, 5]
+    assert sorted(result) == sorted(expected), f"Expected {expected}, got {result}"
 
-    # Test case 2: Edge case
-    # result = solution.solve([edge_case_input])
-    # expected = [edge_case_output]
-    # assert result == expected, f"Expected {expected}, got {result}"
+    # Test case 2: Two elements only
+    result = solution.singleNumber([1,2])
+    expected = [1, 2]
+    assert sorted(result) == sorted(expected), f"Expected {expected}, got {result}"
+
+    # Test case 3: Larger example
+    result = solution.singleNumber([1,1,2,2,3,4,5,5])
+    expected = [3, 4]
+    assert sorted(result) == sorted(expected), f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
 
