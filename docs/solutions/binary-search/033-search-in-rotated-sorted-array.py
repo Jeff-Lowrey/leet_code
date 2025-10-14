@@ -35,10 +35,30 @@ Given a problem that demonstrates key concepts in Binary Search.
 
 ### EXAMPLE WALKTHROUGH:
 ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
+Input: nums = [4, 5, 6, 7, 0, 1, 2], target = 0
+
+Step 1: Initialize
+  left = 0, right = 6
+  mid = 3, nums[3] = 7
+
+Step 2: Check mid
+  nums[3] = 7 ≠ 0
+  Left half [4,5,6,7] is sorted (4 ≤ 7)
+  Is target in [4,7]? No (0 < 4)
+  Search right half: left = 4
+
+Step 3: left = 4, right = 6
+  mid = 5, nums[5] = 1
+  nums[5] = 1 ≠ 0
+  Right half [1,2] is sorted (1 < 4, so left is NOT sorted)
+  Is target in [1,2]? No (0 < 1)
+  Search left half: right = 4
+
+Step 4: left = 4, right = 4
+  mid = 4, nums[4] = 0
+  Found target!
+
+Output: 4
 ```
 
 ### TIME COMPLEXITY:

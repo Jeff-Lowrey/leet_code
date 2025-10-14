@@ -35,10 +35,28 @@ Given a problem that demonstrates key concepts in Arrays Hashing.
 
 ### EXAMPLE WALKTHROUGH:
 ```
-Input: [example input]
-Step 1: [explain first step]
-Step 2: [explain second step]
-Output: [expected output]
+Input: nums = [100, 4, 200, 1, 3, 2]
+
+Step 1: Convert to set
+  num_set = {100, 4, 200, 1, 3, 2}
+
+Step 2: Check num=1 (no num-1=0 in set, so it's a sequence start)
+  current_num = 1, current_streak = 1
+  1+1=2 in set → current_streak = 2
+  2+1=3 in set → current_streak = 3
+  3+1=4 in set → current_streak = 4
+  4+1=5 not in set → stop
+  longest_streak = 4
+
+Step 3: Check num=2 (num-1=1 exists, skip)
+Step 4: Check num=3 (num-1=2 exists, skip)
+Step 5: Check num=4 (num-1=3 exists, skip)
+Step 6: Check num=100 (no num-1=99, sequence start)
+  current_streak = 1, no 101 in set
+Step 7: Check num=200 (no num-1=199, sequence start)
+  current_streak = 1, no 201 in set
+
+Output: 4 (sequence [1,2,3,4])
 ```
 
 ### TIME COMPLEXITY:
