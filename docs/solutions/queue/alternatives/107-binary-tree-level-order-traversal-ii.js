@@ -1,51 +1,71 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * # 107. Binary Tree Level Order Traversal II
+ *
+ * Given the root of a binary tree, return the bottom-up level order traversal of its nodes' values.
+ * (i.e., from left to right, level by level from leaf to root).
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>[[15, 7]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>"Test case 1 passed: Example tree"</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>Bottom-up level-order: [[15,7],[9,20],[3]]</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * Perform standard level-order traversal (BFS) but reverse the final result to get bottom-up order.
+ * Alternatively, we can prepend each level to the result instead of appending.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Handle edge case**: Return empty list if tree is empty
+ * 2. **Initialize BFS**: Use a deque for level-order traversal
+ * 3. **For each level**:
+ *    - Process all nodes at current level
+ *    - Collect values in order
+ *    - Add level to result
+ * 4. **Reverse result**: Return reversed list for bottom-up order
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - BFS naturally processes nodes level by level (top to bottom)
+ * - By reversing the result at the end, we get bottom-up order
+ * - Deque provides efficient O(1) operations for BFS
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Tree:      3
+ *          /   \
+ *         9     20
+ *              /  \
+ *             15   7
+ *
+ * Level-order (top-down): [[3], [9, 20], [15, 7]]
+ * Bottom-up: [[15, 7], [9, 20], [3]]
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
+ * - Visit each node exactly once: O(n)
+ * - Reversing result: O(h) where h = height
+ * - Total: O(n)
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(w)
+ * - Queue holds at most one level at a time
+ * - w = maximum width of tree (worst case: n/2 for complete tree)
+ * - Result storage: O(n)
  *
  * ### EDGE CASES:
- * - **Pointers meet:** Handle when left == right
- * - **Empty input:** Check for null or empty arrays
- * - **Single element:** One pointer scenario
- * - **All duplicates:** Pointer movement with same values
- * - **Boundary crossing:** Prevent left > right
+ * - Empty tree: Return []
+ * - Single node: Return [[root.val]]
+ * - Skewed tree: Each level has one node
  *
  * </details>
  */

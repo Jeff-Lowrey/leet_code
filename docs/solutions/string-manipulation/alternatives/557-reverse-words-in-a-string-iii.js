@@ -1,51 +1,82 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Easy
  *
- * [Problem description goes here]
+ * Given a string s, reverse the order of characters in each word within a sentence
+ * while still preserving whitespace and initial word order.
+ *
+ * Example:
+ * Input: s = "Let's take LeetCode contest"
+ * Output: "s'teL ekat edoCteeL tsetnoc"
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>s = "Let's take LeetCode contest"</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>s'teL ekat edoCteeL tsetnoc"</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>Reverse each word: 'Let's take LeetCode contest' becomes 's'teL ekat edoCteeL tsetnoc'</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * We need to reverse each word individually while keeping the words in the same order
+ * and preserving spaces. This is straightforward: split the string by spaces, reverse
+ * each word, and join them back together with spaces.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Split by Spaces**: Divide string into individual words
+ * 2. **Reverse Each Word**: Apply string reversal to each word independently
+ * 3. **Join with Spaces**: Combine reversed words back with spaces
+ *
+ * Alternative approaches:
+ * - **Two-pointer method**: Find word boundaries and reverse in-place
+ * - **List comprehension**: Concise Python-style solution
+ * - **Manual iteration**: Process character by character
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - Splitting by spaces naturally identifies word boundaries
+ * - Python's string slicing [::-1] efficiently reverses strings
+ * - Joining preserves the original spacing structure
+ * - Each word is processed independently
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: "Let's take LeetCode contest"
+ *
+ * Split: ["Let's", "take", "LeetCode", "contest"]
+ *
+ * Reverse each:
+ * - "Let's" -> "s'teL"
+ * - "take" -> "ekat"
+ * - "LeetCode" -> "edoCteeL"
+ * - "contest" -> "tsetnoc"
+ *
+ * Join: "s'teL ekat edoCteeL tsetnoc"
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
+ * - Splitting the string: O(n)
+ * - Reversing each word: O(n) total for all words
+ * - Joining: O(n)
+ * - Overall: O(n) where n is length of string
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
+ * - Storing split words: O(n)
+ * - Creating result string: O(n)
+ * - Overall: O(n)
  *
  * ### EDGE CASES:
- * - **Empty string:** Handle s.length == 0
- * - **Single character:** Minimal string input
- * - **All same characters:** Check duplicate handling
- * - **Special characters:** Handle non-alphanumeric
- * - **Case sensitivity:** Consider uppercase vs lowercase
+ * - Empty string: Return empty
+ * - Single word: Return reversed word
+ * - Single character words: Return unchanged
+ * - Multiple spaces: Handled by split() method
+ * - Leading/trailing spaces: Preserved if using split(' ') vs split()
  *
  * </details>
  */

@@ -1,51 +1,74 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * You are given an integer array `nums`. You are initially positioned at the array's
+ * first index, and each element in the array represents your maximum jump length
+ * at that position.
+ *
+ * Return true if you can reach the last index, or false otherwise.
+ *
+ * Example:
+ * Input: `nums` = [2,3,1,1,4]
+ * Output: true
+ * Explanation: Jump 1 step from index 0 to 1, then 3 steps to the last index.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>nums` = [2,3,1,1,4]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>true</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>You can reach the last index from [2,3,1,1,4] by jumping optimally</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * Use greedy approach to track the farthest position we can reach. If at any point our current position exceeds the farthest reachable position, we can't proceed further.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Initialize max reachable position**: Set max_reach to 0, representing the farthest index we can currently reach
+ * 2. **Iterate through array**: Loop through each position i from start to end
+ * 3. **Check if position is reachable**: If current position i exceeds max_reach, we cannot reach this position - return False
+ * 4. **Update max reachable**: Calculate the farthest position reachable from current index (i + nums[i]) and update max_reach
+ * 5. **Early termination check**: If max_reach >= last index, we can definitely reach the end - return True immediately
+ * 6. **Continue until end**: If loop completes without returning False, we successfully traversed the array - return True
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - We only need to know if the last index is reachable, not the actual path
+ * - Greedy choice: always try to reach the farthest possible position
+ * - If we can reach position i, and from i we can jump nums[i] steps, then we can reach any position up to i + nums[i]
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: nums = [2,3,1,1,4]
+ * Step 1: Initialize max_reach = 0
+ *
+ * Step 2: Iterate and update max_reach
+ *   i=0: can reach (0 ≤ 0), max_reach = max(0, 0+2) = 2
+ *   i=1: can reach (1 ≤ 2), max_reach = max(2, 1+3) = 4
+ *   i=2: can reach (2 ≤ 4), max_reach = max(4, 2+1) = 4
+ *   i=3: can reach (3 ≤ 4), max_reach = max(4, 3+1) = 4
+ *   i=4: reached last index
+ *
+ * Output: True (can reach end)
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(1)
  *
  * ### EDGE CASES:
- * - **Empty array:** Handle nums.length == 0
- * - **Single element:** Special case for minimal input
- * - **All same values:** Check for duplicate handling
- * - **Negative numbers:** Ensure algorithm works with negatives
- * - **Large arrays:** Consider O(n) vs O(n²) performance
+ * - **Single element array**: Always return True (already at end)
+ * - **Array starts with 0**: Can't move forward, return False
+ * - **Zero in middle blocking path**: Detected when current position exceeds max_reach
+ * - **All zeros except first**: Return False unless array length is 1
+ * - **Maximum jump values**: Can reach end in one jump, return True immediately
  *
  * </details>
  */

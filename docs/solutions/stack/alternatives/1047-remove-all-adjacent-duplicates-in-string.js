@@ -1,51 +1,74 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Easy
  *
- * [Problem description goes here]
+ * # 1047. Remove All Adjacent Duplicates In String
+ *
+ * You are given a string s consisting of lowercase English letters. A duplicate removal
+ * consists of choosing two adjacent and equal characters and removing them.
+ *
+ * We repeatedly make duplicate removals on s until we no longer can.
+ *
+ * Return the final string after all such duplicate removals have been made. It can be
+ * proven that the answer is unique.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>"abbaca"</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>"ca"</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>After removing adjacent duplicates, 'abbaca' becomes 'ca'</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * Use a stack to efficiently track characters. When we see a character that matches
+ * the top of the stack, we've found an adjacent duplicate pair - pop the stack.
+ * Otherwise, push the character onto the stack.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. Use stack to track characters we've seen
+ * 2. For each character:
+ *    - If it matches stack top: pop (remove duplicate pair)
+ *    - Otherwise: push character onto stack
+ * 3. Join stack elements to form final string
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - Stack naturally maintains adjacency (top element is most recent)
+ * - Removing duplicates as we go handles cascading removals
+ * - Single pass is sufficient since we process left-to-right
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: s = "abbaca"
+ * Step 1: Use stack
+ *   'a': stack=['a']
+ *   'b': stack=['a','b']
+ *   'b': stack=['a'] (removed duplicate)
+ *   'a': stack=[] (removed duplicate)
+ *   'c': stack=['c']
+ *   'a': stack=['c','a']
+ *
+ * Output: "ca"
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
+ * Single pass through string with O(1) stack operations
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
+ * Stack stores up to n characters in worst case (no duplicates)
  *
  * ### EDGE CASES:
- * - **Empty stack:** Handle operations on empty stack
- * - **Single element:** Push/pop with one item
- * - **Balanced pairs:** Match opening/closing elements
- * - **Nested structures:** Handle deeply nested cases
- * - **Underflow:** Prevent popping from empty stack
+ * - Empty string: returns empty string
+ * - No duplicates: returns original string
+ * - All characters form duplicate pairs: returns empty string
+ * - Cascading removals: "abccba" → "abba" → "aa" → ""
  *
  * </details>
  */

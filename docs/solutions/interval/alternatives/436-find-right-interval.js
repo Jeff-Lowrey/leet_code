@@ -1,51 +1,69 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * # 436. Find Right Interval
+ *
+ * You are given an array of intervals, where intervals[i] = [starti, endi] and each starti is unique.
+ *
+ * The right interval for an interval i is an interval j such that startj >= endi and startj is minimized. Note that i may equal j.
+ *
+ * Return an array of right interval indices for each interval i. If no right interval exists for interval i, then put -1 at index i.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>intervals = [[3,4],[2,3],[1,2]]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>[-1,0,1]</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>For each interval [1,2], the right interval [2,3] has the smallest start ≥ 2</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * [This problem requires understanding of interval concepts. The key insight is to identify the optimal approach for this specific scenario.]
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Analyze the problem**: Understand the input constraints and expected output
+ * 2. **Choose the right technique**: Apply interval methodology
+ * 3. **Implement efficiently**: Focus on optimal time and space complexity
+ * 4. **Handle edge cases**: Consider boundary conditions and special cases
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - The solution leverages interval principles
+ * - Time complexity is optimized for the given constraints
+ * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: intervals = [[3,4],[2,3],[1,2]]
+ * Step 1: Create index mapping
+ *   indexed = [(3,4,0), (2,3,1), (1,2,2)]
+ *
+ * Step 2: Sort by start time
+ *   sorted = [(1,2,2), (2,3,1), (3,4,0)]
+ *
+ * Step 3: Binary search for each interval's end
+ *   [3,4]: find start ≥ 4 → not found → -1
+ *   [2,3]: find start ≥ 3 → found at index 0
+ *   [1,2]: find start ≥ 2 → found at index 1
+ *
+ * Output: [-1,0,1]
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(1)
  *
  * ### EDGE CASES:
- * - **Target not in array:** Return -1 or appropriate value
- * - **Single element:** Handle when left equals right
- * - **Empty input:** Return default value
- * - **Boundary conditions:** Check first and last positions
- * - **Integer overflow:** Use mid = left + (right - left) / 2
+ * - Empty input handling
+ * - Single element cases
+ * - Large input considerations
  *
  * </details>
  */

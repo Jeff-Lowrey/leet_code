@@ -1,51 +1,90 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Easy
  *
- * [Problem description goes here]
+ * # 867. Transpose Matrix
+ *
+ * Given a 2D integer array matrix, return the transpose of matrix.
+ *
+ * The transpose of a matrix is the matrix flipped over its main diagonal, switching
+ * the matrix's row and column indices.
+ *
+ * Example 1:
+ * Input: matrix = [[1,2,3],[4,5,6],[7,8,9]]
+ * Output: [[1,4,7],[2,5,8],[3,6,9]]
+ *
+ * Example 2:
+ * Input: matrix = [[1,2,3],[4,5,6]]
+ * Output: [[1,4],[2,5],[3,6]]
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>[[1, 2, 3]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>1</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>Transpose of [[1,2,3],[4,5,6]] is [[1,4],[2,5],[3,6]]</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * Transposing a matrix means converting rows to columns and vice versa.
+ * Element at position (i,j) in original matrix moves to position (j,i) in transposed matrix.
+ * For an m×n matrix, transpose is n×m.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Create Result Matrix**: Size n×m (swapped dimensions)
+ * 2. **Map Elements**: result[j][i] = matrix[i][j]
+ * 3. **Iterate**: Process all elements once
+ *
+ * **Key Pattern**: Row-column swap
+ * - Original: m rows × n columns
+ * - Transpose: n rows × m columns
+ * - Position mapping: (i,j) → (j,i)
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - Transpose definition: swap rows and columns
+ * - By definition: A^T[j][i] = A[i][j]
+ * - Creating new matrix with swapped dimensions accommodates the transformation
+ * - Each element lands in exactly one position
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * matrix = [[1,2,3],
+ *           [4,5,6]]
+ *
+ * Original: 2×3 (2 rows, 3 cols)
+ *
+ * Element positions:
+ * (0,0):1 → (0,0):1
+ * (0,1):2 → (1,0):2
+ * (0,2):3 → (2,0):3
+ * (1,0):4 → (0,1):4
+ * (1,1):5 → (1,1):5
+ * (1,2):6 → (2,1):6
+ *
+ * Result: 3×2 (3 rows, 2 cols)
+ * [[1,4],
+ *  [2,5],
+ *  [3,6]]
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(m × n)
+ * - Must visit every element once
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(m × n)
+ * - Need to create new matrix of same total size (different dimensions)
  *
  * ### EDGE CASES:
- * - **Empty string:** Handle s.length == 0
- * - **Single character:** Minimal string input
- * - **All same characters:** Check duplicate handling
- * - **Special characters:** Handle non-alphanumeric
- * - **Case sensitivity:** Consider uppercase vs lowercase
+ * - Square matrix (n×n): Transpose is also n×n
+ * - Single row: Becomes single column
+ * - Single column: Becomes single row
+ * - Single cell: Unchanged [[1]] → [[1]]
  *
  * </details>
  */

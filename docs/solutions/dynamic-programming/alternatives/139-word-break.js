@@ -1,51 +1,67 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * # 139. Word Break
+ *
+ * Given a string s and a dictionary of strings wordDict, return true if s can be segmented into a space-separated sequence of one or more dictionary words.
+ *
+ * Note that the same word in the dictionary may be reused multiple times in the segmentation.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>["leet","code"]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>"Expected {expected}, got {result}"</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>String 'leetcode' can be segmented using dictionary ['leet','code']</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * [This problem requires understanding of dynamic programming concepts. The key insight is to identify the optimal approach for this specific scenario.]
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Analyze the problem**: Understand the input constraints and expected output
+ * 2. **Choose the right technique**: Apply dynamic programming methodology
+ * 3. **Implement efficiently**: Focus on optimal time and space complexity
+ * 4. **Handle edge cases**: Consider boundary conditions and special cases
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - The solution leverages dynamic programming principles
+ * - Time complexity is optimized for the given constraints
+ * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: s = "leetcode", wordDict = ["leet","code"]
+ * Step 1: Initialize DP
+ *   dp = [True, False, False, False, False, False, False, False, False]
+ *   dp[0] = True (empty string)
+ *
+ * Step 2: Check each position
+ *   i=4: s[0:4]="leet" in wordDict, dp[4] = True
+ *   i=8: s[4:8]="code" in wordDict and dp[4]=True, dp[8] = True
+ *
+ * Step 3: Verify segmentation
+ *   "leet" + "code" = "leetcode" ✓
+ *
+ * Output: True (can be segmented)
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(1)
  *
  * ### EDGE CASES:
- * - **Empty string:** Return true
- * - **No matching words:** Return false
- * - **Word used multiple times:** Allow reuse
- * - **Overlapping words:** Choose correct segmentation
- * - **Single character words:** Handle minimal dictionary
+ * - Empty input handling
+ * - Single element cases
+ * - Large input considerations
  *
  * </details>
  */

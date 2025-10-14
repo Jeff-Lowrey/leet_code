@@ -1,51 +1,76 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * # 150. Evaluate Reverse Polish Notation
+ *
+ * You are given an array of strings tokens that represents an arithmetic expression
+ * in Reverse Polish Notation.
+ *
+ * Evaluate the expression. Return an integer that represents the value of the expression.
+ *
+ * Note that:
+ * - The valid operators are '+', '-', '*', and '/'.
+ * - Each operand may be an integer or another expression.
+ * - The division between two integers always truncates toward zero.
+ * - There will not be any division by zero.
+ * - The input represents a valid arithmetic expression in reverse polish notation.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>["2","1","+","3","*"]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>9</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>Postfix '2 1 + 3 *' evaluates to 9</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * Reverse Polish Notation (RPN) is perfect for stack-based evaluation. In RPN,
+ * operators come after their operands, so we can process left-to-right:
+ * push numbers onto stack, and when we see an operator, pop two operands,
+ * compute, and push result back.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Initialize stack**: Empty stack to store operands
+ * 2. **Process tokens**: Iterate through each token
+ * 3. **Handle numbers**: Push numbers onto stack
+ * 4. **Handle operators**: Pop two operands, compute, push result
+ * 5. **Return result**: Final stack should have one element (the answer)
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - RPN guarantees operators have their operands available on stack
+ * - Stack's LIFO property matches RPN's evaluation order
+ * - Each operator consumes exactly two operands and produces one result
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: ["2","1","+","3","*"]
+ * Stack operations:
+ * "2" -> [2]
+ * "1" -> [2,1]
+ * "+" -> [3]        (pop 1,2; compute 2+1=3; push 3)
+ * "3" -> [3,3]
+ * "*" -> [9]        (pop 3,3; compute 3*3=9; push 9)
+ * Output: 9
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
+ * Where n is the number of tokens - process each token once
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
+ * Stack can hold up to n/2 operands in worst case
  *
  * ### EDGE CASES:
- * - **Single number:** Return that number
- * - **Division by zero:** Handle appropriately (should not occur)
- * - **Negative results:** Handle negative numbers
- * - **Order of operands:** Ensure correct subtraction/division order
- * - **Nested operations:** Stack handles complexity
+ * - Single number: return that number
+ * - Division truncating toward zero
+ * - Negative operands and results
  *
  * </details>
  */

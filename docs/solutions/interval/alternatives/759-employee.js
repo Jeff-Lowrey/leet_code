@@ -1,51 +1,67 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * # 759. Employee
+ *
+ * We are given a list schedule of employees, which represents the working time for each employee.
+ *
+ * Each employee has a list of non-overlapping Intervals, and these intervals are in sorted order.
+ *
+ * Return the list of finite intervals representing common, positive-length free time for all employees, also in sorted order.
+ *
+ * (Even though we are representing Intervals in the form [x, y], the objects inside are Intervals, not lists or arrays. For example, schedule[0][0].start = 1, schedule[0][0].end = 2, and schedule[0][0][0] is not defined). Also, we wouldn't include intervals like [5, 5] in our answer, as they have zero length.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>schedule = [[[1,2],[5,6]],[[1,3]],[[4,10]]]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>[[3,4]] (common free time)</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>Free time when all employees are not busy: [[3,4]]</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * [This problem requires understanding of interval concepts. The key insight is to identify the optimal approach for this specific scenario.]
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Analyze the problem**: Understand the input constraints and expected output
+ * 2. **Choose the right technique**: Apply interval methodology
+ * 3. **Implement efficiently**: Focus on optimal time and space complexity
+ * 4. **Handle edge cases**: Consider boundary conditions and special cases
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - The solution leverages interval principles
+ * - Time complexity is optimized for the given constraints
+ * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: schedule = [[[1,2],[5,6]],[[1,3]],[[4,10]]]
+ * Step 1: Flatten all intervals
+ *   all_intervals = [1-2, 5-6, 1-3, 4-10]
+ *
+ * Step 2: Find gaps between merged intervals
+ *   merged = [1-3, 4-10]
+ *   gap = [3-4]
+ *
+ * Output: [[3,4]] (common free time)
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(1)
  *
  * ### EDGE CASES:
- * - **Empty string:** Handle s.length == 0
- * - **Single character:** Minimal string input
- * - **All same characters:** Check duplicate handling
- * - **Special characters:** Handle non-alphanumeric
- * - **Case sensitivity:** Consider uppercase vs lowercase
+ * - Empty input handling
+ * - Single element cases
+ * - Large input considerations
  *
  * </details>
  */

@@ -1,51 +1,73 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * # 904. Fruit Into Baskets
+ *
+ * You are visiting a farm that has a single row of fruit trees arranged from left to right. The trees are represented by an integer array fruits where fruits[i] is the type of fruit the ith tree produces.
+ *
+ * You want to collect as much fruit as possible. However, the owner has some strict rules that you must follow:
+ *
+ * - You only have two baskets, and each basket can only hold a single type of fruit. There is no limit on the amount of fruit each basket can hold.
+ * - Starting from any tree of your choice, you must pick exactly one fruit from every tree (including the start tree) while moving to the right. The picked fruits must fit in one of your baskets.
+ * - Once you reach a tree with fruit that cannot fit in your baskets, you must stop.
+ *
+ * Given the integer array fruits, return the maximum number of fruits you can pick.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>[1, 2, 3, 2, 2]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>"Solution for 904. Fruit Into Baskets: {result}"</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>You can collect at most 3 fruits with 2 types of baskets (type 1 and type 2)</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * [This problem requires understanding of sliding window concepts. The key insight is to identify the optimal approach for this specific scenario.]
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Analyze the problem**: Understand the input constraints and expected output
+ * 2. **Choose the right technique**: Apply sliding window methodology
+ * 3. **Implement efficiently**: Focus on optimal time and space complexity
+ * 4. **Handle edge cases**: Consider boundary conditions and special cases
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - The solution leverages sliding window principles
+ * - Time complexity is optimized for the given constraints
+ * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: fruits = [1,2,1,2,3,1,1]
+ * Step 1: Expand with at most 2 types
+ *   [1,2,1,2]: types={1,2}, count=4
+ *   [1,2,1,2,3]: types={1,2,3}, invalid
+ *
+ * Step 2: Contract
+ *   [2,1,2,3]: types={1,2,3}, invalid
+ *   [1,2,3]: types={1,2,3}, invalid
+ *   [2,3]: types={2,3}, valid
+ *   [2,3,1,1]: types={2,3,1}, invalid
+ *   [3,1,1]: types={3,1}, count=3
+ *
+ * Output: 4 (maximum fruits)
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(1)
  *
  * ### EDGE CASES:
- * - **Pointers meet:** Handle when left == right
- * - **Empty input:** Check for null or empty arrays
- * - **Single element:** One pointer scenario
- * - **All duplicates:** Pointer movement with same values
- * - **Boundary crossing:** Prevent left > right
+ * - Empty input handling
+ * - Single element cases
+ * - Large input considerations
  *
  * </details>
  */

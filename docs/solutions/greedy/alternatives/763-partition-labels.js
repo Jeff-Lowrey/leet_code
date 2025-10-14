@@ -1,51 +1,69 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * # 763. Partition Labels
+ *
+ * You are given a string s. We want to partition the string into as many parts as possible so that each letter appears in at most one part.
+ *
+ * Note that the partition is done so that after concatenating all the parts in order, the resultant string should be s.
+ *
+ * Return a list of integers representing the size of these parts.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>[1, 1, 1]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>"Expected {expected}, got {result}"</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>String is partitioned into 2 parts: 'ababcbaca' + 'defegde'</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * [This problem requires understanding of greedy concepts. The key insight is to identify the optimal approach for this specific scenario.]
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Analyze the problem**: Understand the input constraints and expected output
+ * 2. **Choose the right technique**: Apply greedy methodology
+ * 3. **Implement efficiently**: Focus on optimal time and space complexity
+ * 4. **Handle edge cases**: Consider boundary conditions and special cases
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - The solution leverages greedy principles
+ * - Time complexity is optimized for the given constraints
+ * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: s = "ababcbacadefegdehijhklij"
+ * Step 1: Record last occurrence of each character
+ *   last = {'a':8, 'b':5, 'c':7, 'd':14, 'e':15, ...}
+ *
+ * Step 2: Iterate and extend partition
+ *   i=0, ch='a': end = max(0, 8) = 8
+ *   i=1, ch='b': end = max(8, 5) = 8
+ *   ...
+ *   i=8: reached end → partition size = 9
+ *   i=9, ch='c': end = 14
+ *   ...
+ *
+ * Output: [9,7,8] (partition sizes)
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(1)
  *
  * ### EDGE CASES:
- * - **Empty string:** Handle s.length == 0
- * - **Single character:** Minimal string input
- * - **All same characters:** Check duplicate handling
- * - **Special characters:** Handle non-alphanumeric
- * - **Case sensitivity:** Consider uppercase vs lowercase
+ * - Empty input handling
+ * - Single element cases
+ * - Large input considerations
  *
  * </details>
  */

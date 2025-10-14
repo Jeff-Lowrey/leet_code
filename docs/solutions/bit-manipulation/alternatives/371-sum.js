@@ -1,51 +1,69 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * # 371. Sum of Two Integers
+ *
+ * Given two integers a and b, return the sum of the two integers without using the operators + and -.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>a = 1, b = 2</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>3 (1 + 2)</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>Sum of 1+2 is 3 without using + or - operators</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * [This problem requires understanding of bit manipulation concepts. The key insight is to identify the optimal approach for this specific scenario.]
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Analyze the problem**: Understand the input constraints and expected output
+ * 2. **Choose the right technique**: Apply bit manipulation methodology
+ * 3. **Implement efficiently**: Focus on optimal time and space complexity
+ * 4. **Handle edge cases**: Consider boundary conditions and special cases
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - The solution leverages bit manipulation principles
+ * - Time complexity is optimized for the given constraints
+ * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: a = 1, b = 2
+ * Step 1: Add without carry
+ *   sum = a ^ b = 001 ^ 010 = 011 = 3
+ *
+ * Step 2: Calculate carry
+ *   carry = (a & b) << 1 = (001 & 010) << 1 = 000 << 1 = 0
+ *
+ * Step 3: Since carry = 0, done
+ *
+ * Example with carry: a = 3, b = 5
+ *   sum = 3 ^ 5 = 011 ^ 101 = 110 = 6
+ *   carry = (3 & 5) << 1 = (011 & 101) << 1 = 001 << 1 = 010 = 2
+ *   Repeat: sum = 6 ^ 2 = 110 ^ 010 = 100 = 4
+ *   carry = (6 & 2) << 1 = (110 & 010) << 1 = 010 << 1 = 100 = 4
+ *   Repeat: sum = 4 ^ 4 = 000 = 0, carry = (4 & 4) << 1 = 1000 = 8
+ *
+ * Output: 3 (1 + 2)
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(1)
  *
  * ### EDGE CASES:
- * - **Empty string:** Handle s.length == 0
- * - **Single character:** Minimal string input
- * - **All same characters:** Check duplicate handling
- * - **Special characters:** Handle non-alphanumeric
- * - **Case sensitivity:** Consider uppercase vs lowercase
+ * - Empty input handling
+ * - Single element cases
+ * - Large input considerations
  *
  * </details>
  */

@@ -1,51 +1,106 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * # 3. Longest Substring Without Repeating Characters
+ *
+ * This problem demonstrates key concepts in Sliding Window and Hash Tables.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>"abcabcbb"</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>3 (from "abc")</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>Longest substring without repeating characters is 'abc' with length 3</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * We need to find the longest substring where all characters are unique (no repeating characters).
+ * The key insight is to use a sliding window approach: as we expand the window by adding characters,
+ * if we encounter a duplicate, we shrink the window from the left until the duplicate is removed.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Use sliding window**: Maintain a window of unique characters
+ * 2. **Track character positions**: Use hash map to store the most recent index of each character
+ * 3. **Expand window**: Add characters from the right
+ * 4. **Handle duplicates**: When a duplicate is found, move left pointer past the previous occurrence
+ * 5. **Track maximum**: Keep track of the longest valid window seen
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - Hash map provides O(1) lookup for checking if a character was seen
+ * - Storing character indices allows us to quickly jump past duplicates
+ * - Left pointer only moves forward, never backward
+ * - Each character is visited at most twice (once by right, once by left)
+ * - This efficiently finds the longest substring without checking all substrings
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: s = "abcabcbb"
+ *
+ * right=0, left=0: 'a' -> window="a", max_length=1
+ *   map: {'a':0}
+ *
+ * right=1, left=0: 'b' -> window="ab", max_length=2
+ *   map: {'a':0, 'b':1}
+ *
+ * right=2, left=0: 'c' -> window="abc", max_length=3
+ *   map: {'a':0, 'b':1, 'c':2}
+ *
+ * right=3, left=0: 'a' (duplicate!)
+ *   - 'a' was at index 0
+ *   - Move left to 1 (past the duplicate)
+ *   - window="bca", max_length=3
+ *   map: {'a':3, 'b':1, 'c':2}
+ *
+ * right=4, left=1: 'b' (duplicate!)
+ *   - 'b' was at index 1
+ *   - Move left to 2 (past the duplicate)
+ *   - window="cab", max_length=3
+ *   map: {'a':3, 'b':4, 'c':2}
+ *
+ * right=5, left=2: 'c' (duplicate!)
+ *   - 'c' was at index 2
+ *   - Move left to 3 (past the duplicate)
+ *   - window="abc", max_length=3
+ *   map: {'a':3, 'b':4, 'c':5}
+ *
+ * right=6, left=3: 'b' (duplicate!)
+ *   - 'b' was at index 4
+ *   - Move left to 5
+ *   - window="cb", max_length=3
+ *   map: {'a':3, 'b':6, 'c':5}
+ *
+ * right=7, left=5: 'b' (duplicate!)
+ *   - 'b' was at index 6
+ *   - Move left to 7
+ *   - window="b", max_length=3
+ *   map: {'a':3, 'b':7, 'c':5}
+ *
+ * Output: 3 (from "abc")
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
+ * We iterate through the string once with the right pointer, and the left pointer moves at most n
+ * times total. Each character is processed at most twice. Total: O(2n) = O(n).
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(min(n, m))
+ * Where n is the string length and m is the character set size. In the worst case (all unique
+ * characters), the hash map stores n entries. For ASCII (128 chars) or Unicode subsets, space
+ * is bounded by the character set size.
  *
  * ### EDGE CASES:
- * - **Pointers meet:** Handle when left == right
- * - **Empty input:** Check for null or empty arrays
- * - **Single element:** One pointer scenario
- * - **All duplicates:** Pointer movement with same values
- * - **Boundary crossing:** Prevent left > right
+ * - Empty string: Return 0
+ * - Single character: Return 1
+ * - All unique characters: Return length of string
+ * - All same characters: Return 1
+ * - Two characters alternating: Return 2
  *
  * </details>
  */

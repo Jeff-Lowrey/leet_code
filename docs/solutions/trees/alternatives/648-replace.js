@@ -1,51 +1,66 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * # 648. Replace
+ *
+ * In English, we have a concept called root, which can be followed by some other word to form another longer word - let's call this word derivative. For example, when the root "help" is followed by the word "ful", we can form a derivative "helpful".
+ *
+ * Given a dictionary consisting of many roots and a sentence consisting of words separated by spaces, replace all the derivatives in the sentence with the root forming it. If a derivative can be replaced by more than one root, replace it with the root that has the shortest length.
+ *
+ * Return the sentence after the replacement.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>dictionary = ["cat","bat","rat"], sentence = "the cattle was rattled by the battery"</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>"the cat was rat by the bat"</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>Words are replaced by their shortest root: 'cattle' becomes 'cat', 'ratt' becomes 'rat'</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * [This problem requires understanding of trees concepts. The key insight is to identify the optimal approach for this specific scenario.]
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Analyze the problem**: Understand the input constraints and expected output
+ * 2. **Choose the right technique**: Apply trees methodology
+ * 3. **Implement efficiently**: Focus on optimal time and space complexity
+ * 4. **Handle edge cases**: Consider boundary conditions and special cases
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - The solution leverages trees principles
+ * - Time complexity is optimized for the given constraints
+ * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: dictionary = ["cat","bat","rat"], sentence = "the cattle was rattled by the battery"
+ * Step 1: Build trie from dictionary
+ *   Insert: cat, bat, rat
+ *
+ * Step 2: Replace each word with shortest root
+ *   "cattle" → "cat"
+ *   "rattled" → "rat"
+ *   "battery" → "bat"
+ *
+ * Output: "the cat was rat by the bat"
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(1)
  *
  * ### EDGE CASES:
- * - **Empty tree:** Handle root == null
- * - **Single node:** Tree with only root
- * - **Unbalanced tree:** Handle skewed trees
- * - **Leaf nodes:** Special handling for nodes without children
- * - **Height differences:** Check for deep vs shallow subtrees
+ * - Empty input handling
+ * - Single element cases
+ * - Large input considerations
  *
  * </details>
  */

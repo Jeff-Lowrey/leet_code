@@ -1,51 +1,76 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * # 17. Letter Combinations Of A Phone Number
+ *
+ * This problem demonstrates key concepts in Recursion.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>"Expected {expected}, got {result}"</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>All letter combinations of '23' map to ['ad','ae','af','bd','be','bf','cd','ce','cf']</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * Given a string containing digits 2-9, return all possible letter combinations that the
+ * number could represent (like old phone keypads). This is a classic backtracking problem
+ * where we explore all possible combinations by choosing one letter for each digit.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Map digits to letters**: Create a mapping like phone keypads (2='abc', 3='def', etc.)
+ * 2. **Backtracking recursion**:
+ *    - Base case: When current combination length equals input length, add to results
+ *    - For each letter mapped to current digit, add it to combination and recurse
+ *    - Backtrack by removing the letter and trying the next one
+ * 3. **Edge cases**: Handle empty input string
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - Backtracking explores all possible paths through the decision tree
+ * - Each level of recursion represents choosing a letter for one digit
+ * - We build combinations incrementally and collect complete ones
+ * - The recursion naturally handles all possible combinations
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: "23"
+ * Digit 2 maps to: "abc"
+ * Digit 3 maps to: "def"
+ *
+ * Build combinations:
+ * a + d = "ad"
+ * a + e = "ae"
+ * a + f = "af"
+ * b + d = "bd"
+ * b + e = "be"
+ * b + f = "bf"
+ * c + d = "cd"
+ * c + e = "ce"
+ * c + f = "cf"
+ *
+ * Output: ["ad","ae","af","bd","be","bf","cd","ce","cf"]
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(4^n * n) where n is length of digits
+ * - 4^n possible combinations (worst case with digits 7 and 9 that have 4 letters)
+ * - n to build each string
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n) for recursion stack depth
  *
  * ### EDGE CASES:
- * - **Empty string:** Handle s.length == 0
- * - **Single character:** Minimal string input
- * - **All same characters:** Check duplicate handling
- * - **Special characters:** Handle non-alphanumeric
- * - **Case sensitivity:** Consider uppercase vs lowercase
+ * - Empty input string (return empty array)
+ * - Single digit (return all letters for that digit)
+ * - Digits 7 and 9 have 4 letters each
+ * - Only valid digits 2-9 in input
  *
  * </details>
  */

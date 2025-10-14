@@ -1,51 +1,66 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * # 373. Find K Pairs With Smallest Sums
+ *
+ * You are given two integer arrays nums1 and nums2 sorted in ascending order and an integer k.
+ *
+ * Define a pair (u, v) which consists of one element from the first array and one element from the second array.
+ *
+ * Return the k pairs (u1, v1), (u2, v2), ..., (uk, vk) with the smallest sums.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>nums1 = [1,7,11], nums2 = [2,4,6], k = 3</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>[[1,2],[1,4],[1,6]]</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>The k=3 pairs with smallest sums from [1,7,11] and [2,4,6] are [[1,2],[1,4],[1,6]]</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * [This problem requires understanding of heap concepts. The key insight is to identify the optimal approach for this specific scenario.]
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Analyze the problem**: Understand the input constraints and expected output
+ * 2. **Choose the right technique**: Apply heap methodology
+ * 3. **Implement efficiently**: Focus on optimal time and space complexity
+ * 4. **Handle edge cases**: Consider boundary conditions and special cases
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - The solution leverages heap principles
+ * - Time complexity is optimized for the given constraints
+ * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: nums1 = [1,7,11], nums2 = [2,4,6], k = 3
+ * Step 1: Initialize min heap
+ *   heap = [(1+2, 0, 0)]
+ *
+ * Step 2: Extract k smallest pairs
+ *   Pop (3, 0, 0): pair [1,2], add (1+4, 0, 1)
+ *   Pop (5, 0, 1): pair [1,4], add (1+6, 0, 2)
+ *   Pop (7, 0, 2): pair [1,6], add (7+2, 1, 0)
+ *
+ * Output: [[1,2],[1,4],[1,6]]
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(1)
  *
  * ### EDGE CASES:
- * - **Empty array:** Handle nums.length == 0
- * - **Single element:** Special case for minimal input
- * - **All same values:** Check for duplicate handling
- * - **Negative numbers:** Ensure algorithm works with negatives
- * - **Large arrays:** Consider O(n) vs O(n²) performance
+ * - Empty input handling
+ * - Single element cases
+ * - Large input considerations
  *
  * </details>
  */

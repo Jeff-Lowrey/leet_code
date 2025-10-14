@@ -1,51 +1,72 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * # 973. K Closest Points To Origin
+ *
+ * Given an array of points where points[i] = [xi, yi] represents a point on the X-Y plane and an integer k, return the k closest points to the origin (0, 0).
+ *
+ * The distance between two points on the X-Y plane is the Euclidean distance (i.e., √(x1 - x2)^2 + (y1 - y2)^2).
+ *
+ * You may return the answer in any order. The answer is guaranteed to be unique (except for the order that it is in).
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>[[0,1]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>"Expected {expected}, got {result}"</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>The k=2 closest points to origin are [[1,3],[-2,2]]</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * [This problem requires understanding of heap concepts. The key insight is to identify the optimal approach for this specific scenario.]
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Analyze the problem**: Understand the input constraints and expected output
+ * 2. **Choose the right technique**: Apply heap methodology
+ * 3. **Implement efficiently**: Focus on optimal time and space complexity
+ * 4. **Handle edge cases**: Consider boundary conditions and special cases
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - The solution leverages heap principles
+ * - Time complexity is optimized for the given constraints
+ * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: points = [[1,3], [-2,2], [5,8], [0,1]], k = 2
+ *
+ * Step 1: Calculate distances (squared)
+ *   [1,3]: dist = 1² + 3² = 10
+ *   [-2,2]: dist = (-2)² + 2² = 8
+ *   [5,8]: dist = 5² + 8² = 89
+ *   [0,1]: dist = 0² + 1² = 1
+ *
+ * Step 2: Build min heap
+ *   heap = [(1, [0,1]), (8, [-2,2]), (10, [1,3]), (89, [5,8])]
+ *
+ * Step 3: Extract k=2 smallest
+ *   Pop (1, [0,1]) → result = [[0,1]]
+ *   Pop (8, [-2,2]) → result = [[0,1], [-2,2]]
+ *
+ * Output: [[0,1], [-2,2]]
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(1)
  *
  * ### EDGE CASES:
- * - **Pointers meet:** Handle when left == right
- * - **Empty input:** Check for null or empty arrays
- * - **Single element:** One pointer scenario
- * - **All duplicates:** Pointer movement with same values
- * - **Boundary crossing:** Prevent left > right
+ * - Empty input handling
+ * - Single element cases
+ * - Large input considerations
  *
  * </details>
  */

@@ -1,51 +1,64 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Easy
  *
- * [Problem description goes here]
+ * # 344. Reverse String
+ *
+ * This problem demonstrates key concepts in Strings.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>["h", "e", "l", "l", "o"]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>"Before: {example}"</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>The string ['h','e','l','l','o'] is reversed in-place to ['o','l','l','e','h']</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * The problem asks us to reverse a string (represented as a list of characters) in-place, meaning we
+ * must modify the original array without using extra space for another array. The most intuitive
+ * approach is to use two pointers - one at the start and one at the end - and swap elements as we
+ * move towards the center.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Initialize two pointers**: One at the start (left) and one at the end (right)
+ * 2. **Swap and move**: While left < right, swap elements at left and right positions
+ * 3. **Increment/Decrement**: Move left pointer forward and right pointer backward
+ * 4. **Continue until pointers meet**: When left >= right, all elements have been swapped
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - By swapping elements from both ends moving towards the center, we reverse the array
+ * - Each element is only touched once, making it efficient
+ * - No additional space is needed beyond the two pointer variables
+ * - The algorithm naturally handles both odd and even length arrays
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: ["h","e","l","l","o"]
+ * Step 1: Swap positions 0 and 4: ["o","e","l","l","h"]
+ * Step 2: Swap positions 1 and 3: ["o","l","l","e","h"]
+ * Step 3: Position 2 is the center, done
+ * Output: ["o","l","l","e","h"]
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
+ * We iterate through half the array (n/2 swaps), which is O(n).
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(1)
+ * Only two pointer variables are used, regardless of input size.
  *
  * ### EDGE CASES:
- * - **Pointers meet:** Handle when left == right
- * - **Empty input:** Check for null or empty arrays
- * - **Single element:** One pointer scenario
- * - **All duplicates:** Pointer movement with same values
- * - **Boundary crossing:** Prevent left > right
+ * - Empty array: No swaps needed
+ * - Single element: No swaps needed
+ * - Two elements: Single swap
+ * - Array already reversed: Still performs swaps (idempotent)
  *
  * </details>
  */

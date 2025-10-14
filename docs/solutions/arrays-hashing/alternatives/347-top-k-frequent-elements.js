@@ -1,51 +1,76 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * # 347. Top K Frequent Elements
+ *
+ * Given an integer array nums and an integer k, return the k most frequent elements. You may return the answer in any order.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>[1, 2]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>"Expected {expected}, got {result}"</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>The k=2 most frequent elements in [1,1,1,2,2,3] are [1,2]</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * [This problem requires understanding of arrays hashing concepts. The key insight is to identify the optimal approach for this specific scenario.]
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Analyze the problem**: Understand the input constraints and expected output
+ * 2. **Choose the right technique**: Apply arrays hashing methodology
+ * 3. **Implement efficiently**: Focus on optimal time and space complexity
+ * 4. **Handle edge cases**: Consider boundary conditions and special cases
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - The solution leverages arrays hashing principles
+ * - Time complexity is optimized for the given constraints
+ * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: nums = [1,1,1,2,2,3], k = 2
+ * Step 1: Count frequencies using Counter
+ *   freq_map = {1: 3, 2: 2, 3: 1}
+ *
+ * Step 2: Build max heap with negative frequencies
+ *   heap = [(-3, 1), (-2, 2), (-1, 3)]
+ *
+ * Step 3: Extract k most frequent elements
+ *   - Pop: (-3, 1) → result = [1]
+ *   - Pop: (-2, 2) → result = [1, 2]
+ *
+ * Output: [1, 2]
+ *
+ * Alternative (Bucket Sort):
+ * Step 1: Create buckets by frequency
+ *   buckets[3] = [1]
+ *   buckets[2] = [2]
+ *   buckets[1] = [3]
+ *
+ * Step 2: Collect from highest frequency buckets
+ *   - From bucket 3: add 1
+ *   - From bucket 2: add 2
+ *
+ * Output: [1, 2]
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(1)
  *
  * ### EDGE CASES:
- * - **Empty array:** Handle nums.length == 0
- * - **Single element:** Special case for minimal input
- * - **All same values:** Check for duplicate handling
- * - **Negative numbers:** Ensure algorithm works with negatives
- * - **Large arrays:** Consider O(n) vs O(n²) performance
+ * - Empty input handling
+ * - Single element cases
+ * - Large input considerations
  *
  * </details>
  */

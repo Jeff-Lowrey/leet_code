@@ -1,51 +1,73 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Hard
  *
- * [Problem description goes here]
+ * # 827. Making A Large Island
+ *
+ * You are given an n x n binary matrix grid. You are allowed to change at most one 0 to a 1.
+ *
+ * Return the size of the largest island in grid after applying this operation.
+ *
+ * An island is a group of 1's connected 4-directionally (horizontal or vertical). If there is no 0 to change, return the area of the whole grid.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>[[1,0]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>1</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>Largest island after flipping one 0 to 1 has area 5</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * This problem extends island finding by allowing us to change one 0 to 1 to maximize island size. The key insight is to first identify all existing islands, then for each 0, calculate what the new island size would be if we changed it to 1.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Label islands**: Give each island a unique ID and calculate its size
+ * 2. **For each water cell**: Calculate potential island size if flipped to land
+ * 3. **Consider merging**: A flipped cell can connect multiple existing islands
+ * 4. **Track maximum**: Keep track of the largest possible island size
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - Pre-labeling islands allows O(1) lookup of island sizes
+ * - For each 0, we check its 4 neighbors to see which islands it would connect
+ * - Sum of connected island sizes + 1 (the flipped cell) gives new island size
+ * - Handle edge case where grid is already all 1's
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Grid: [[1,0],[0,1]]
+ *
+ * Step 1 - Label islands:
+ * Island 2: [(0,0)] size=1
+ * Island 3: [(1,1)] size=1
+ * Labeled grid: [[2,0],[0,3]]
+ *
+ * Step 2 - Try flipping each 0:
+ * Flip (0,1): neighbors are [2] → new size = 1 + 1 = 2
+ * Flip (1,0): neighbors are [2,3] → new size = 1 + 1 + 1 = 3
+ *
+ * Maximum possible island size: 3
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(N²)
+ * Where N is grid dimension - two passes through the grid
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(N²)
+ * For island labeling and size storage
  *
  * ### EDGE CASES:
- * - **Empty string:** Handle s.length == 0
- * - **Single character:** Minimal string input
- * - **All same characters:** Check duplicate handling
- * - **Special characters:** Handle non-alphanumeric
- * - **Case sensitivity:** Consider uppercase vs lowercase
+ * - **All water**: Return 1 (can only change one cell)
+ * - **All land**: Return total cells (already one island)
+ * - **No water cells**: Cannot change anything, return current max
+ * - **Multiple small islands**: Changing water can connect them
+ * - **Single island**: Changing water expands it by 1
  *
  * </details>
  */

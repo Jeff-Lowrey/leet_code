@@ -1,51 +1,68 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * # 102. Binary Tree Level Order Traversal
+ *
+ * Given the root of a binary tree, return the level order traversal of its nodes' values. (i.e., from left to right, level by level).
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>[[3]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>1</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>Level-order traversal groups nodes by depth: [[3], [9,20], [15,7]]</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * Level order traversal visits nodes level by level from left to right. This is a classic BFS (Breadth-First Search) problem where we use a queue to process nodes level by level, collecting values at each level separately.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **BFS with Queue**: Use queue to process nodes level by level
+ * 2. **Level Separation**: Track level size to separate levels in result
+ * 3. **Left-to-Right Processing**: Add children left-to-right to maintain order
+ * 4. **Result Structure**: Each level becomes a separate list in the result
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - Queue ensures FIFO processing for level-by-level traversal
+ * - Level size tracking allows us to process exactly one level at a time
+ * - Children are added in left-to-right order for correct traversal
+ * - BFS naturally explores breadth before depth
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: [3,9,20,null,null,15,7]
+ *        3
+ *       / \
+ *      9  20
+ *        /  \
+ *       15   7
+ *
+ * Level 0: [3] → queue: [9, 20]
+ * Level 1: [9, 20] → queue: [15, 7]
+ * Level 2: [15, 7] → queue: []
+ * Output: [[3], [9, 20], [15, 7]]
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
+ * Each node is visited exactly once
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(w)
+ * Where w is maximum width of the tree (queue size)
  *
  * ### EDGE CASES:
- * - **Pointers meet:** Handle when left == right
- * - **Empty input:** Check for null or empty arrays
- * - **Single element:** One pointer scenario
- * - **All duplicates:** Pointer movement with same values
- * - **Boundary crossing:** Prevent left > right
+ * - **Empty tree**: Return empty list immediately
+ * - **Single node**: Return [[value]] (one level, one node)
+ * - **Perfect binary tree**: Each level doubles in size
+ * - **Linear tree (skewed)**: Each level has exactly one node
+ * - **Unbalanced tree**: Level sizes vary based on structure
  *
  * </details>
  */

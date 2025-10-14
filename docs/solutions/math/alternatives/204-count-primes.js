@@ -1,51 +1,61 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * # 204. Count Primes
+ *
+ * Given an integer n, return the number of prime numbers that are strictly less than n.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>n = 10:</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>Array: [2, 3, 4, 5, 6, 7, 8, 9]</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>Count of primes less than 10 is 4: [2,3,5,7]</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * Use Sieve of Eratosthenes: mark all multiples of each prime as composite. Count remaining unmarked numbers.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Create boolean array**: is_prime[i] = True initially
+ * 2. **Mark non-primes**: For each prime p, mark p², p²+p, p²+2p... as composite
+ * 3. **Count primes**: Count True values in array
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - Every composite number has a prime factor ≤ √n
+ * - By marking multiples of each prime, we identify all composites
+ * - Remaining numbers must be prime
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * n = 10:
+ * Array: [2, 3, 4, 5, 6, 7, 8, 9]
+ *
+ * Mark multiples of 2: [2, 3, X, 5, X, 7, X, X]
+ * Mark multiples of 3: [2, 3, X, 5, X, 7, X, X]
+ * Mark multiples of 5: (5² = 25 > 10, skip)
+ *
+ * Primes: [2, 3, 5, 7] → Count = 4
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n log log n)
+ * Sieve of Eratosthenes complexity
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
+ * Boolean array of size n
  *
  * ### EDGE CASES:
- * - **Empty string:** Handle s.length == 0
- * - **Single character:** Minimal string input
- * - **All same characters:** Check duplicate handling
- * - **Special characters:** Handle non-alphanumeric
- * - **Case sensitivity:** Consider uppercase vs lowercase
+ * - n ≤ 2: Return 0
+ * - n = 3: Return 1 (only 2)
+ * - Large n: Memory usage
  *
  * </details>
  */

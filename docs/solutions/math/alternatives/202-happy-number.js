@@ -1,51 +1,77 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Easy
  *
- * [Problem description goes here]
+ * # 202. Happy Number
+ *
+ * Write an algorithm to determine if a number n is happy.
+ *
+ * A happy number is a number defined by the following process:
+ * - Starting with any positive integer, replace the number by the sum of the squares of its digits.
+ * - Repeat the process until the number equals 1 (where it will stay), or it loops endlessly in a cycle which does not include 1.
+ * - Those numbers for which this process ends in 1 are happy.
+ *
+ * Return true if n is a happy number, and false if not.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>n = 19:</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>1² + 9² = 82</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>Number 19 is happy: 1²+9²=82, 8²+2²=68, 6²+8²=100, 1²+0²+0²=1</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * Either the process reaches 1 (happy) or enters a cycle (not happy). Use a set to detect cycles, or use Floyd's cycle detection.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Calculate sum**: Get sum of squares of digits
+ * 2. **Track seen numbers**: Use set to detect cycle
+ * 3. **Check termination**: If 1, return True; if cycle, return False
+ * 4. **Alternative**: Floyd's cycle detection (two pointers)
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - Numbers either reach 1 or cycle
+ * - Cycles always occur for unhappy numbers
+ * - Set or two-pointer both detect cycles
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * n = 19:
+ * 1² + 9² = 82
+ * 8² + 2² = 68
+ * 6² + 8² = 100
+ * 1² + 0² + 0² = 1 → Happy!
+ *
+ * n = 2:
+ * 2² = 4
+ * 4² = 16
+ * 1² + 6² = 37
+ * 3² + 7² = 58
+ * 5² + 8² = 89
+ * 8² + 9² = 145
+ * 1² + 4² + 5² = 42
+ * 4² + 2² = 20
+ * 2² + 0² = 4 → Cycle! Not happy
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(log n)
+ * Depends on number of digits and cycle detection
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * - Set approach: O(log n)
+ * - Two-pointer: O(1)
  *
  * ### EDGE CASES:
- * - **Empty string:** Handle s.length == 0
- * - **Single character:** Minimal string input
- * - **All same characters:** Check duplicate handling
- * - **Special characters:** Handle non-alphanumeric
- * - **Case sensitivity:** Consider uppercase vs lowercase
+ * - n = 1 (already happy)
+ * - Single digit numbers
+ * - Large numbers
  *
  * </details>
  */

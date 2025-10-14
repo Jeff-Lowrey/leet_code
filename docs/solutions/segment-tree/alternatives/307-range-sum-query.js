@@ -1,51 +1,65 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * Given an integer array `nums`, handle multiple queries of the following types:
+ *
+ *
+ *
+ * Implement the NumArray class:
+ * - NumArray(int[] nums) Initializes the object with the integer array nums.
+ * - void update(int index, int val) Updates the value of nums[index] to be val.
+ * - int sumRange(int left, int right) Returns the sum of the elements between indices left and right.
+ *
+ * Example:
+ * Input:
+ * ["NumArray", "sumRange", "update", "sumRange"]
+ * [[[1, 3, 5]], [0, 2], [1, 2], [0, 2]]
+ * Output:
+ * [null, 9, null, 8]
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>["NumArray", "sumRange", "update", "sumRange"]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>[null, 9, null, 8]</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>After update(1,10), the sum of range [0,2] is computed as 16 using the segment tree</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * For mutable arrays, prefix sums become inefficient (O(n) updates). Segment trees provide a balanced solution with O(log n) for both updates and range queries by representing the array as a binary tree where each node stores the sum of its range.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Tree Structure**: Complete binary tree where leaves are array elements
+ * 2. **Internal Nodes**: Store sum of their children's ranges
+ * 3. **Update**: Propagate changes up from leaf to root
+ * 4. **Query**: Traverse tree to collect relevant range sums
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * The tree height is log n, so we visit at most log n nodes for any operation. Each internal node represents a range, allowing us to quickly skip over irrelevant sections during queries.
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * [example input]
- * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
+ * - Initial: sumRange(0,2) = 9
+ * - Update index 1 to 2: Tree becomes [1,2,5], root = 8
+ * - Query sumRange(0,2) = 8
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(log n) for both update and query
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
  *
  * ### EDGE CASES:
- * - **Empty array:** Handle nums.length == 0
- * - **Single element:** Special case for minimal input
- * - **All same values:** Check for duplicate handling
- * - **Negative numbers:** Ensure algorithm works with negatives
- * - **Large arrays:** Consider O(n) vs O(n²) performance
+ * - **Single element array**: Sum queries return that element
+ * - **Update single element**: Propagate changes up segment tree
+ * - **Query entire range**: Return root node value
+ * - **Frequent updates**: Segment tree handles efficiently in O(log n)
+ * - **Range [i, i]**: Query single element
  *
  * </details>
  */

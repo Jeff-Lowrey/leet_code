@@ -1,51 +1,70 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Easy
  *
- * [Problem description goes here]
+ * # 997. Find The Town Judge
+ *
+ * In a town, there are n people labeled from 1 to n. There is a rumor that one of these people is secretly the town judge.
+ *
+ * If the town judge exists, then:
+ *
+ *
+ *
+ *
+ * You are given an array trust where trust[i] = [ai, bi] representing that the person labeled ai trusts the person labeled bi.
+ *
+ * Return the label of the town judge if the town judge exists and can be identified, or return -1 otherwise.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>[(2, [[1,2]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>"n={n}, trust={trust} -> Judge: {result}"</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>The town judge is person 2 who is trusted by all but trusts no one</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * This is a graph problem where we need to find a node (person) with specific in-degree and out-degree properties. The judge must have in-degree = n-1 (everyone trusts them) and out-degree = 0 (they trust nobody). We can solve this efficiently by tracking trust relationships as a directed graph.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Count trust relationships**: Track who trusts whom and who is trusted by whom
+ * 2. **Calculate net trust**: For each person, calculate (trusted_by_count - trusts_count)
+ * 3. **Find the judge**: The judge will have net trust = n-1 (trusted by n-1 people, trusts 0)
+ * 4. **Validate result**: Ensure exactly one person satisfies the judge criteria
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - Judge trusts nobody: out-degree = 0
+ * - Everyone else trusts judge: in-degree = n-1
+ * - Net trust = in-degree - out-degree = (n-1) - 0 = n-1
+ * - All other people have net trust < n-1 (they either trust someone or aren't trusted by everyone)
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: n = 3, trust = [[1,3],[2,3]]
+ * Person 1: trusts 3, trusted by 0 → net = 0 - 1 = -1
+ * Person 2: trusts 3, trusted by 0 → net = 0 - 1 = -1
+ * Person 3: trusts 0, trusted by 2 → net = 2 - 0 = 2 = n-1 ✓
+ * Output: 3 (person 3 is the judge)
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(T + N)
+ * Where T is the number of trust relationships and N is the number of people
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(N)
+ * For storing trust counts
  *
  * ### EDGE CASES:
- * - **Empty string:** Handle s.length == 0
- * - **Single character:** Minimal string input
- * - **All same characters:** Check duplicate handling
- * - **Special characters:** Handle non-alphanumeric
- * - **Case sensitivity:** Consider uppercase vs lowercase
+ * - n = 1: Only one person, they are the judge by default
+ * - Empty trust array with n > 1: No judge possible
+ * - Multiple people with high trust: No unique judge
+ * - Circular trust: No judge possible
  *
  * </details>
  */

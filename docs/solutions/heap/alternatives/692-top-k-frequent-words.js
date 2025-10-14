@@ -1,51 +1,68 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * # 692. Top K Frequent Words
+ *
+ * Given an array of strings words and an integer k, return the k most frequent strings.
+ *
+ * Return the answer sorted by the frequency from highest to lowest. Sort the words with the same frequency by their lexicographical order.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>[3, 2]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>"Expected {expected}, got {result}"</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>Top k=2 frequent words in ['i','love','leetcode','i','love','coding'] are ['i','love']</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * This problem combines frequency counting with sorting. We need to find the k most frequent words, but with a twist: when frequencies are equal, we sort lexicographically. A heap is perfect for this because we can maintain the top k elements efficiently while respecting both frequency and lexicographical ordering.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Count frequencies**: Use HashMap to count word frequencies
+ * 2. **Use min-heap**: Maintain heap of size k with custom comparator
+ * 3. **Custom comparator**: Less frequent words first, then reverse lexicographical order
+ * 4. **Build result**: Extract from heap and reverse to get correct order
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - Min-heap keeps smallest elements at root, so we keep the k largest
+ * - Custom comparator: (-frequency, word) ensures frequent words stay in heap
+ * - For equal frequencies, lexicographically smaller words are "larger" in our heap
+ * - Final result needs reversal because heap gives us reverse order
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: words = ["i","love","leetcode","i","love","coding"], k = 2
+ * Frequencies: {"i": 2, "love": 2, "leetcode": 1, "coding": 1}
+ * Heap process:
+ * - Add ("i", 2): heap = [(-2, "i")]
+ * - Add ("love", 2): heap = [(-2, "love"), (-2, "i")] (love > i lexicographically)
+ * - Add ("leetcode", 1): heap = [(-1, "leetcode"), (-2, "i"), (-2, "love")]
+ * - Remove leetcode: heap = [(-2, "love"), (-2, "i")]
+ * - Add ("coding", 1): heap = [(-1, "coding"), (-2, "i"), (-2, "love")]
+ * - Remove coding: heap = [(-2, "love"), (-2, "i")]
+ * Result: ["i", "love"] (after reversing)
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(N log k)
+ * Where N is number of words, k is the result size. Heap operations are O(log k).
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(N + k)
+ * O(N) for frequency map, O(k) for heap
  *
  * ### EDGE CASES:
- * - **Pointers meet:** Handle when left == right
- * - **Empty input:** Check for null or empty arrays
- * - **Single element:** One pointer scenario
- * - **All duplicates:** Pointer movement with same values
- * - **Boundary crossing:** Prevent left > right
+ * - k equals number of unique words
+ * - All words have same frequency (pure lexicographical sort)
+ * - Single word repeated
+ * - k = 1 with multiple candidates
  *
  * </details>
  */

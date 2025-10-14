@@ -1,51 +1,73 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Hard
  *
- * [Problem description goes here]
+ * # 850. Rectangle Area II
+ *
+ * You are given a 2D array of axis-aligned rectangles. Each rectangle[i] = [xi1, yi1, xi2, yi2] denotes the ith rectangle where (xi1, yi1) are the coordinates of the bottom-left corner, and (xi2, yi2) are the coordinates of the top-right corner.
+ *
+ * Calculate the total area covered by all rectangles in the plane. Any area covered by two or more rectangles should only be counted once.
+ *
+ * Return the total area. Since the answer may be too large, return it modulo 10^9 + 7.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>[[[0, 0, 2, 2]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>"\nInput: {rectangles}"</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>The total area covered by rectangles (counting overlaps once) is 49</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * This is a classic computational geometry problem. The challenge is handling overlapping rectangles efficiently. We can use a sweep line algorithm with segment trees, or coordinate compression with a 2D grid approach.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Extract coordinates**: Collect all unique x-coordinates and y-coordinates from all rectangles
+ * 2. **Sort coordinates**: Create sorted lists of unique x and y values for coordinate compression
+ * 3. **Build grid**: Create mapping from coordinates to indices, forming a compressed 2D grid
+ * 4. **Mark covered cells**: For each rectangle, mark all grid cells it covers as occupied (using boolean 2D array)
+ * 5. **Calculate cell areas**: Iterate through marked cells, calculate actual area of each cell using coordinate differences
+ * 6. **Sum non-overlapping areas**: Add area of each covered cell exactly once (cells marked True contribute their area)
+ * 7. **Return modulo result**: Sum all areas and return result modulo 10^9 + 7 to handle large values
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * The algorithm correctly solves the problem by systematically exploring all valid states while maintaining necessary invariants. Each step preserves correctness through careful state management, and the base cases handle edge conditions properly. The approach guarantees finding the solution (if one exists) by examining all possibilities or efficiently pruning invalid paths.
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: [[0,0,2,2],[1,0,2,3],[1,0,3,1]]
+ * Unique X coords: [0,1,2,3]
+ * Unique Y coords: [0,1,2,3]
+ *
+ * Grid cells covered:
+ * [0,1]×[0,1]: covered by rect 0
+ * [1,2]×[0,1]: covered by rects 0,1,2
+ * [1,2]×[1,2]: covered by rects 0,1
+ * [1,2]×[2,3]: covered by rect 1
+ * [2,3]×[0,1]: covered by rect 2
+ *
+ * Total area = 1 + 1 + 1 + 1 + 1 + 1 = 6
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * - Sweep Line: O(n² log n)
+ * - Coordinate Compression: O(n²)
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
+ * For coordinate storage and data structures
  *
  * ### EDGE CASES:
- * - **Empty string:** Handle s.length == 0
- * - **Single character:** Minimal string input
- * - **All same characters:** Check duplicate handling
- * - **Special characters:** Handle non-alphanumeric
- * - **Case sensitivity:** Consider uppercase vs lowercase
+ * - No rectangles
+ * - Single rectangle
+ * - Completely overlapping rectangles
+ * - Non-overlapping rectangles
+ * - Large coordinates (use modulo)
  *
  * </details>
  */

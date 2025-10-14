@@ -1,51 +1,64 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Hard
  *
- * [Problem description goes here]
+ * # 315. Count Of Smaller Numbers After Self
+ *
+ * Given an integer array nums, return an integer array counts where counts[i] is the number of smaller elements to the right of nums[i].
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>[2, 1, 1, 0]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>1</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>Counts of smaller numbers after each element: [2,1,1,0] for [5,2,6,1]</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * This is a classic "count inversions" problem that can be solved efficiently using various advanced data structures. The naive O(n²) approach checks every pair, but we can do better using merge sort, segment trees, or Binary Indexed Trees (Fenwick Trees).
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Create indexed pairs**: Build array of (value, original_index) pairs to track positions during sorting
+ * 2. **Initialize result array**: Create array of zeros to store counts for each original position
+ * 3. **Define merge sort function**: Implement merge sort that recursively divides array into halves
+ * 4. **Merge with counting**: During merge, when comparing elements from left and right halves, count inversions
+ * 5. **Count smaller elements**: When left[i] <= right[j], all remaining elements in right array are larger, so add their count to result
+ * 6. **Preserve order**: Merge elements while maintaining sorted order by value, preserving index information
+ * 7. **Return result**: After complete merge sort, result array contains count of smaller elements after each position
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * A set by definition contains only unique elements - when we convert an array to a set, any duplicates are automatically removed. By comparing the lengths of the original array and the set, we can detect if duplicates existed. The early termination approach works because as soon as we find an element already in our seen set, we've proven a duplicate exists without needing to check the remaining elements.
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: [5,2,6,1]
+ * Process right to left:
+ * - nums[3]=1: no elements after it, count=0
+ * - nums[2]=6: elements after: [1], smaller: 1, count=1
+ * - nums[1]=2: elements after: [6,1], smaller: 1, count=1
+ * - nums[0]=5: elements after: [2,6,1], smaller: 2, count=2
+ * Output: [2,1,1,0]
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n log n)
+ * For merge sort and tree-based approaches
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
+ * For auxiliary data structures
  *
  * ### EDGE CASES:
- * - **Empty array:** Handle nums.length == 0
- * - **Single element:** Special case for minimal input
- * - **All same values:** Check for duplicate handling
- * - **Negative numbers:** Ensure algorithm works with negatives
- * - **Large arrays:** Consider O(n) vs O(n²) performance
+ * - Empty array
+ * - Single element
+ * - All elements equal
+ * - Strictly increasing/decreasing arrays
+ * - Duplicate values
  *
  * </details>
  */

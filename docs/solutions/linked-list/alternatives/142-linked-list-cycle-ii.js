@@ -1,51 +1,65 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * # 142. Linked List Cycle Ii
+ *
+ * Given the head of a linked list, return the node where the cycle begins. If there is no cycle, return null.
+ *
+ * There is a cycle in a linked list if there is some node in the list that can be reached again by continuously following the next pointer. Internally, pos is used to denote the index of the node that tail's next pointer is connected to (0-indexed). It is -1 if there is no cycle. Note that pos is not passed as a parameter.
+ *
+ * Do not modify the linked list.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>[3,2,0,-4], pos = 1</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>node 2 (cycle begins here)</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>The cycle begins at node with value 2 (index 1)</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * [This problem requires understanding of linked list concepts. The key insight is to identify the optimal approach for this specific scenario.]
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Analyze the problem**: Understand the input constraints and expected output
+ * 2. **Choose the right technique**: Apply linked list methodology
+ * 3. **Implement efficiently**: Focus on optimal time and space complexity
+ * 4. **Handle edge cases**: Consider boundary conditions and special cases
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - The solution leverages linked list principles
+ * - Time complexity is optimized for the given constraints
+ * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: head = [3,2,0,-4], pos = 1
+ * Step 1: Detect cycle
+ *   slow and fast meet at -4
+ *
+ * Step 2: Find cycle start
+ *   slow=3, slow2=3
+ *   slow=2, slow2=2 → both at cycle start
+ *
+ * Output: node 2 (cycle begins here)
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(1)
  *
  * ### EDGE CASES:
- * - **No cycle:** Return null
- * - **Cycle at head:** Head is cycle start
- * - **Cycle at tail:** Find where tail connects
- * - **Single node cycle:** Node points to itself
- * - **All nodes in cycle:** Head is start of cycle
+ * - Empty input handling
+ * - Single element cases
+ * - Large input considerations
  *
  * </details>
  */

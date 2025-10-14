@@ -1,51 +1,66 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Easy
  *
- * [Problem description goes here]
+ * # 026. Remove Duplicates From Sorted Array
+ *
+ * Given an integer array nums sorted in non-decreasing order, remove the duplicates in-place such that each unique element appears only once. The relative order of the elements should be kept the same.
+ *
+ * Since it is impossible to change the length of the array in some languages, you must instead have the result be placed in the first part of the array nums. More formally, if there are k elements after removing the duplicates, then the first k elements of nums should hold the final result.
+ *
+ * Return k after placing the final result in the first k slots of nums.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>[1,1,2]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>1</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>Remove duplicates from sorted array [1,1,2] gives length 2</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * This is a classic two-pointers problem. Since the array is sorted, duplicates are adjacent. We use one pointer to iterate through the array and another to track the position where the next unique element should be placed.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Two pointers**: Use `i` to iterate and `j` to track unique position
+ * 2. **Skip duplicates**: Only advance `j` when we find a new unique element
+ * 3. **In-place modification**: Copy unique elements to positions 0, 1, 2, etc.
+ * 4. **Return count**: Return the number of unique elements
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - Sorted array means duplicates are adjacent
+ * - Two pointers allow in-place removal without extra space
+ * - `j` tracks the "write" position for next unique element
+ * - `i` scans through all elements
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: [1,1,2]
+ * i=0, j=0: nums[0]=1 (first element, place at j=0)
+ * i=1, j=1: nums[1]=1 == nums[0], skip
+ * i=2, j=1: nums[2]=2 != nums[0], place at j=1
+ * Result: [1,2,_], return k=2
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
+ * Single pass through the array
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(1)
+ * Only using constant extra space
  *
  * ### EDGE CASES:
- * - **Empty array:** Handle nums.length == 0
- * - **Single element:** Special case for minimal input
- * - **All same values:** Check for duplicate handling
- * - **Negative numbers:** Ensure algorithm works with negatives
- * - **Large arrays:** Consider O(n) vs O(n²) performance
+ * - **Empty array**: Return 0 (no elements)
+ * - **Single element**: Return 1 (already unique)
+ * - **All elements same**: Return 1 (only one unique value)
+ * - **No duplicates**: Return n (all unique already)
+ * - **Consecutive duplicates**: Two-pointer removes them in-place
  *
  * </details>
  */

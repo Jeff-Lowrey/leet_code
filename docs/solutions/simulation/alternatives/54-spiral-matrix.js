@@ -1,51 +1,96 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * # 54. Spiral Matrix
+ *
+ * Given an m x n matrix, return all elements of the matrix in spiral order.
+ *
+ * Example 1:
+ * Input: matrix = [[1,2,3],[4,5,6],[7,8,9]]
+ * Output: [1,2,3,6,9,8,7,4,5]
+ *
+ * Example 2:
+ * Input: matrix = [[1,2,3,4],[5,6,7,8],[9,10,11,12]]
+ * Output: [1,2,3,4,8,12,11,10,9,5,6,7]
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>[[1, 2, 3]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>1</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>Spiral order traversal: [1,2,3,6,9,8,7,4,5]</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * Process the matrix layer by layer, moving in a spiral pattern: right → down → left → up.
+ * Use boundaries to track which parts of the matrix have been visited, shrinking the
+ * boundaries after completing each direction.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Maintain Four Boundaries**: top, bottom, left, right
+ * 2. **Traverse in Order**:
+ *    - Right: from left to right along top row
+ *    - Down: from top to bottom along right column
+ *    - Left: from right to left along bottom row
+ *    - Up: from bottom to top along left column
+ * 3. **Shrink Boundaries**: After each direction, adjust the corresponding boundary
+ * 4. **Termination**: Stop when boundaries cross
+ *
+ * **Key Pattern**: Layer-by-layer spiral traversal
+ * - Outer layer → Inner layers
+ * - Each complete spiral reduces the working area
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - Boundaries ensure we don't revisit cells
+ * - Moving in a fixed pattern (right→down→left→up) creates the spiral
+ * - Shrinking boundaries after each direction naturally moves inward
+ * - Crossing boundaries indicates all cells have been visited
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * matrix = [[1,2,3],
+ *           [4,5,6],
+ *           [7,8,9]]
+ *
+ * Initial: top=0, bottom=2, left=0, right=2
+ *
+ * Step 1 - Right (top row): [1,2,3]
+ *   top becomes 1
+ *
+ * Step 2 - Down (right column): [6,9]
+ *   right becomes 1
+ *
+ * Step 3 - Left (bottom row): [8,7]
+ *   bottom becomes 1
+ *
+ * Step 4 - Up (left column): [4]
+ *   left becomes 1
+ *
+ * Step 5 - Right (middle): [5]
+ *   top > bottom, stop
+ *
+ * Result: [1,2,3,6,9,8,7,4,5]
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(m × n)
+ * - Visit each element exactly once
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(1)
+ * - Only use constant extra space (not counting output array)
  *
  * ### EDGE CASES:
- * - **Pointers meet:** Handle when left == right
- * - **Empty input:** Check for null or empty arrays
- * - **Single element:** One pointer scenario
- * - **All duplicates:** Pointer movement with same values
- * - **Boundary crossing:** Prevent left > right
+ * - Single element: [[1]] → [1]
+ * - Single row: [[1,2,3]] → [1,2,3]
+ * - Single column: [[1],[2],[3]] → [1,2,3]
+ * - Empty matrix: [] → []
  *
  * </details>
  */

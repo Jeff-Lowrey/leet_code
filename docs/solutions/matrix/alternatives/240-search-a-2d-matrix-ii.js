@@ -1,51 +1,74 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * # 240. Search a 2D Matrix II
+ *
+ * Write an efficient algorithm that searches for a value target in an m x n integer matrix.
+ * This matrix has the following properties:
+ * - Integers in each row are sorted in ascending from left to right.
+ * - Integers in each column are sorted in ascending from top to bottom.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>[[1, 4, 7, 11, 15]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>1</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>Target 5 is found in 2D sorted matrix</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * Start from top-right (or bottom-left) corner. From top-right, we can eliminate either the current row (if target < current) or current column (if target > current). This is like a binary search tree where we can navigate efficiently.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Start from top-right corner** (row=0, col=n-1)
+ * 2. **Compare target with current element**:
+ *    - If equal: return True
+ *    - If target < current: move left (eliminate column)
+ *    - If target > current: move down (eliminate row)
+ * 3. **Continue** until found or out of bounds
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - From top-right: all elements below are larger, all elements left are smaller
+ * - Each comparison eliminates an entire row or column
+ * - Similar to searching in a BST where current node's left < node < right
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Matrix:
+ * [1,  4,  7,  11, 15]
+ * [2,  5,  8,  12, 19]
+ * [3,  6,  9,  16, 22]
+ * [10, 13, 14, 17, 24]
+ * [18, 21, 23, 26, 30]
+ *
+ * Search for 5:
+ * Start at (0,4)=15: 5<15, go left
+ * At (0,3)=11: 5<11, go left
+ * At (0,2)=7: 5<7, go left
+ * At (0,1)=4: 5>4, go down
+ * At (1,1)=5: Found! Return True
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(m + n)
+ * At most m+n steps (eliminate one row or column per step)
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(1)
+ * Only using constant extra space for pointers
  *
  * ### EDGE CASES:
- * - **Pointers meet:** Handle when left == right
- * - **Empty input:** Check for null or empty arrays
- * - **Single element:** One pointer scenario
- * - **All duplicates:** Pointer movement with same values
- * - **Boundary crossing:** Prevent left > right
+ * - Empty matrix
+ * - Single element
+ * - Target not in matrix
+ * - Target at corners
+ * - All elements same
  *
  * </details>
  */

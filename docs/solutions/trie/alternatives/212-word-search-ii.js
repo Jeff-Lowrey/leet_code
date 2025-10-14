@@ -1,51 +1,90 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Hard
  *
- * [Problem description goes here]
+ * # 212. Word Search II
+ *
+ * Given an m x n board of characters and a list of strings words, return all words on the board.
+ *
+ * Each word must be constructed from letters of sequentially adjacent cells, where adjacent cells are horizontally or vertically neighboring. The same letter cell may not be used more than once in a word.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>[["o", "a", "a", "n"]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>1</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>Words ['oath','eat'] are found in the board</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * Searching for multiple words on a board can be optimized using a Trie. Instead of searching for each word individually, we build a Trie from all words and perform a single DFS traversal. As we explore the board, we simultaneously traverse the Trie, finding all matching words in one pass.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Build Trie**: Insert all words into a trie structure
+ * 2. **DFS from each cell**: Start DFS from every cell on the board
+ * 3. **Match with Trie**: During DFS, follow Trie paths that match current board path
+ * 4. **Mark found words**: When we reach a word end in Trie, add it to results
+ * 5. **Backtracking**: Mark cells as visited during search, unmark after
+ * 6. **Optimization**: Remove found words from Trie to avoid duplicates
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - Trie allows simultaneous search for all words with shared prefixes
+ * - Single DFS traversal instead of separate search for each word
+ * - Prefix matching eliminates invalid paths early
+ * - Backtracking explores all possible paths while avoiding revisits
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * board = [["o","a","a","n"],
+ *          ["e","t","a","e"],
+ *          ["i","h","k","r"],
+ *          ["i","f","l","v"]]
+ * words = ["oath","pea","eat","rain"]
+ *
+ * Build Trie: oath, pea, eat, rain
+ *
+ * DFS from (0,0) 'o':
+ *   -> (1,0) 'e': not in trie after 'o'
+ *   -> (0,1) 'a': 'oa' in trie, continue
+ *     -> (1,1) 't': 'oat' in trie, continue
+ *       -> (1,2) 'h': 'oath' found! ✓
+ *
+ * DFS from (1,1) 't':
+ *   -> (1,2) 'a': 'ta' not promising
+ *
+ * DFS from (1,2) 'a':
+ *   -> (1,1) 't': 'at' not in trie
+ *   -> (2,2) 'k': 'ak' not in trie
+ *
+ * DFS from (1,0) 'e':
+ *   -> (1,1) 'a': 'ea' in trie
+ *     -> (1,2) 't': 'eat' found! ✓
+ *
+ * Results: ["oath", "eat"]
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(M * N * 4^L)
+ * Where M*N is board size, L is maximum word length
+ * - We visit each cell and explore 4 directions recursively
+ * - Trie operations are O(L)
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(K * L)
+ * Where K is number of words, L is average word length
+ * - Trie storage for all words
  *
  * ### EDGE CASES:
- * - **Empty string:** Handle s.length == 0
- * - **Single character:** Minimal string input
- * - **All same characters:** Check duplicate handling
- * - **Special characters:** Handle non-alphanumeric
- * - **Case sensitivity:** Consider uppercase vs lowercase
+ * - No words found on board
+ * - Duplicate words (use set to collect results)
+ * - Single cell words
+ * - Words that use all cells
+ * - Overlapping word paths
  *
  * </details>
  */

@@ -1,51 +1,86 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * # 721. Accounts Merge
+ *
+ * Given a list of accounts where each element accounts[i] is a list of strings, where the first element accounts[i][0] is a name, and the rest of the elements are emails representing emails of the account.
+ *
+ * Now, we would like to merge these accounts. Two accounts definitely belong to the same person if there is some common email to both accounts. Note that even if two accounts have the same name, they may belong to different people as people could have the same name. A person can have any number of accounts initially, but all of their accounts definitely have the same name.
+ *
+ * After merging the accounts, return the accounts in the following format: the first element of each account is the name, and the rest of the elements are emails in sorted order. The accounts themselves can be returned in any order.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>[["John", "johnsmith@mail.com", "john_newyork@mail.com"]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>1</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>Accounts merged by common emails</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * This is a classic Union-Find problem where we need to group accounts that belong to the same person. The key insight is that if two accounts share any email address, they belong to the same person and should be merged. We use Union-Find to efficiently group accounts with shared emails.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Map emails to accounts**: Create a mapping from emails to account indices
+ * 2. **Union accounts with shared emails**: Use Union-Find to group accounts that share emails
+ * 3. **Collect emails by parent**: Group all emails under their root parent account
+ * 4. **Format result**: Create merged accounts with sorted emails
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - Union-Find efficiently manages grouping of accounts
+ * - Email-to-account mapping allows us to detect shared emails
+ * - Transitivity: if account A shares email with B, and B shares with C, then A, B, C belong to same person
+ * - Union-Find naturally handles this transitivity
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: [["John","johnsmith@mail.com","john_newyork@mail.com"],
+ *         ["John","johnsmith@mail.com","john00@mail.com"],
+ *         ["Mary","mary@mail.com"],
+ *         ["John","johnnybravo@mail.com"]]
+ *
+ * Step 1: Map emails to accounts
+ * - johnsmith@mail.com → account 0
+ * - john_newyork@mail.com → account 0
+ * - johnsmith@mail.com → already exists, union(0, 1)
+ * - john00@mail.com → account 1
+ * - mary@mail.com → account 2
+ * - johnnybravo@mail.com → account 3
+ *
+ * Step 2: After union operations
+ * - Accounts 0 and 1 are connected (share johnsmith@mail.com)
+ * - Account 2 is separate
+ * - Account 3 is separate
+ *
+ * Step 3: Group emails by parent
+ * - Parent 0: {johnsmith@mail.com, john_newyork@mail.com, john00@mail.com}
+ * - Parent 2: {mary@mail.com}
+ * - Parent 3: {johnnybravo@mail.com}
+ *
+ * Output: [["John","john00@mail.com","john_newyork@mail.com","johnsmith@mail.com"],
+ *          ["Mary","mary@mail.com"],
+ *          ["John","johnnybravo@mail.com"]]
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(N × M × α(N))
+ * Where N is number of accounts, M is average emails per account, α is inverse Ackermann function
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(N × M)
+ * For storing email mappings and Union-Find structure
  *
  * ### EDGE CASES:
- * - **Empty string:** Handle s.length == 0
- * - **Single character:** Minimal string input
- * - **All same characters:** Check duplicate handling
- * - **Special characters:** Handle non-alphanumeric
- * - **Case sensitivity:** Consider uppercase vs lowercase
+ * - Single account with one email
+ * - Multiple accounts with no shared emails
+ * - Accounts with same name but no shared emails
+ * - Empty email lists (though problem guarantees at least one email)
  *
  * </details>
  */

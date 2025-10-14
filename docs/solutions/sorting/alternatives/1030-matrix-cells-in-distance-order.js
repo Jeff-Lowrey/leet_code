@@ -1,51 +1,85 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Easy
  *
- * [Problem description goes here]
+ * # 1030. Matrix Cells In Distance Order
+ *
+ * You are given four integers row, col, rCenter, and cCenter. There exists a rows x cols matrix
+ * and you are on the cell with the coordinates (rCenter, cCenter).
+ *
+ * Return the coordinates of all cells in the matrix, sorted by their distance from (rCenter, cCenter)
+ * from the smallest distance to the largest distance. You may return the answer in any order that
+ * satisfies this condition.
+ *
+ * The distance between two cells (r1, c1) and (r2, c2) is |r1 - r2| + |c1 - c2|.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>[[0, 0]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>1</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>Cells sorted by Manhattan distance from [0,0]</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * We need to sort all matrix coordinates by their Manhattan distance from a given center point.
+ * The key insight is to generate all coordinates and use Python's built-in sorting with a custom key.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Generate all coordinates**: Create all (r, c) pairs for the matrix
+ * 2. **Define distance function**: Manhattan distance |r - rCenter| + |c - cCenter|
+ * 3. **Sort by distance**: Use sorted() with lambda key function
+ * 4. **Return sorted list**: All coordinates ordered by distance
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - Manhattan distance measures the grid distance between two points
+ * - Python's stable sort maintains relative order for equal distances
+ * - Custom key function allows sorting by computed distance
+ * - List comprehension efficiently generates all coordinates
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: rows = 2, cols = 3, rCenter = 1, cCenter = 2
+ * Matrix coordinates:
+ * (0,0) (0,1) (0,2)
+ * (1,0) (1,1) (1,2)  <- rCenter=1, cCenter=2
+ *
+ * Distances from (1,2):
+ * (0,0): |0-1| + |0-2| = 1+2 = 3
+ * (0,1): |0-1| + |1-2| = 1+1 = 2
+ * (0,2): |0-1| + |2-2| = 1+0 = 1
+ * (1,0): |1-1| + |0-2| = 0+2 = 2
+ * (1,1): |1-1| + |1-2| = 0+1 = 1
+ * (1,2): |1-1| + |2-2| = 0+0 = 0
+ *
+ * Sorted by distance:
+ * Distance 0: (1,2)
+ * Distance 1: (0,2), (1,1)
+ * Distance 2: (0,1), (1,0)
+ * Distance 3: (0,0)
+ *
+ * Output: [[1,2],[0,2],[1,1],[0,1],[1,0],[0,0]]
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(R*C * log(R*C))
+ * - Generating coordinates: O(R*C)
+ * - Sorting: O(R*C * log(R*C))
+ * - Total: O(R*C * log(R*C))
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(R*C)
+ * For storing all coordinates in the result
  *
  * ### EDGE CASES:
- * - **Empty string:** Handle s.length == 0
- * - **Single character:** Minimal string input
- * - **All same characters:** Check duplicate handling
- * - **Special characters:** Handle non-alphanumeric
- * - **Case sensitivity:** Consider uppercase vs lowercase
+ * - Single cell matrix (1x1)
+ * - Center at corner vs center of matrix
+ * - Large matrices (up to 100x100)
  *
  * </details>
  */

@@ -1,51 +1,88 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Easy
  *
- * [Problem description goes here]
+ * Given a string s consisting of words and spaces, return the length of the last word
+ * in the string.
+ *
+ * A word is a maximal substring consisting of non-space characters only.
+ *
+ * Example:
+ * Input: s = "Hello World"
+ * Output: 5
+ * Explanation: The last word is "World" with length 5.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>s = "Hello World"</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>5</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>Length of last word in 'Hello World' is 5</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * We need to find the last word in a string and return its length. The key challenge
+ * is handling trailing spaces. The simplest approach is to strip trailing spaces and
+ * then count backwards until we hit a space or the beginning of the string.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Strip Trailing Spaces**: Remove spaces from the end
+ * 2. **Count Backwards**: Start from end and count characters until space or start
+ * 3. **Return Count**: The number of characters counted
+ *
+ * Alternative approaches:
+ * - **Split and Take Last**: Split by spaces and get last element's length
+ * - **Right to Left Scan**: Scan from right, skip spaces, then count letters
+ * - **Built-in Methods**: Use split() and access last element
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - Stripping trailing spaces ensures we start counting from actual last word
+ * - Counting backwards from end is efficient (O(k) where k is last word length)
+ * - Stops at first space encountered, which marks word boundary
+ * - Handles edge cases like multiple trailing spaces
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: "Hello World"
+ *
+ * Method 1 (Strip and Count):
+ * 1. Strip: "Hello World" (no trailing spaces)
+ * 2. Start from end at 'd', count = 0
+ * 3. Count: d(1), l(2), r(3), o(4), W(5)
+ * 4. Hit space, stop
+ * Result: 5
+ *
+ * Input: "   fly me   to   the moon  "
+ *
+ * Method 1:
+ * 1. Strip: "   fly me   to   the moon"
+ * 2. Count from 'n': n(1), o(2), o(3), m(4)
+ * 3. Hit space, stop
+ * Result: 4
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
+ * - In worst case (no spaces), we scan the entire string
+ * - Typically much faster as we only process the last word
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(1)
+ * - Only using a counter variable
+ * - No additional data structures needed
+ * - If using split(), space becomes O(n) for storing words
  *
  * ### EDGE CASES:
- * - **Empty string:** Handle s.length == 0
- * - **Single character:** Minimal string input
- * - **All same characters:** Check duplicate handling
- * - **Special characters:** Handle non-alphanumeric
- * - **Case sensitivity:** Consider uppercase vs lowercase
+ * - Empty string: Return 0
+ * - String with only spaces: Return 0
+ * - Single word no spaces: Return word length
+ * - Trailing spaces: Strip handles this
+ * - Multiple spaces between words: Doesn't affect result
  *
  * </details>
  */

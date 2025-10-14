@@ -1,51 +1,67 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * # 098. Validate Binary Search Tree
+ *
+ * Given the root of a binary tree, determine if it is a valid binary search tree (BST).
+ *
+ * A valid BST is defined as follows:
+ *
+ * - The left subtree of a node contains only nodes with keys less than the node's key.
+ * - The right subtree of a node contains only nodes with keys greater than the node's key.
+ * - Both the left and right subtrees must also be binary search trees.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>[2,1,3]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>True (valid BST)</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>Tree is valid BST if all nodes satisfy left < node < right</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * [This problem requires understanding of trees concepts. The key insight is to identify the optimal approach for this specific scenario.]
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Analyze the problem**: Understand the input constraints and expected output
+ * 2. **Choose the right technique**: Apply trees methodology
+ * 3. **Implement efficiently**: Focus on optimal time and space complexity
+ * 4. **Handle edge cases**: Consider boundary conditions and special cases
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - The solution leverages trees principles
+ * - Time complexity is optimized for the given constraints
+ * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: root = [2,1,3]
+ * Step 1: In-order traversal
+ *   Visit left (1), root (2), right (3)
+ *   Sequence: 1, 2, 3
+ *
+ * Step 2: Check if sorted
+ *   1 < 2 < 3 ✓
+ *
+ * Output: True (valid BST)
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(1)
  *
  * ### EDGE CASES:
- * - **Target not in array:** Return -1 or appropriate value
- * - **Single element:** Handle when left equals right
- * - **Empty input:** Return default value
- * - **Boundary conditions:** Check first and last positions
- * - **Integer overflow:** Use mid = left + (right - left) / 2
+ * - Empty input handling
+ * - Single element cases
+ * - Large input considerations
  *
  * </details>
  */

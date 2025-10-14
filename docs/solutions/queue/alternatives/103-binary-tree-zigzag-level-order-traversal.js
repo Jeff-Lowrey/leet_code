@@ -1,51 +1,73 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * # 103. Binary Tree Zigzag Level Order Traversal
+ *
+ * Given the root of a binary tree, return the zigzag level order traversal of its nodes' values.
+ * (i.e., from left to right, then right to left for the next level and alternate between).
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>[[3]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>"Test case 1 passed: Example tree"</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>Zigzag level-order traversal: [[3],[20,9],[15,7]]</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * Perform a level-order traversal (BFS) but alternate the direction of reading values at each level.
+ * Use a flag to track whether we should append values left-to-right or right-to-left.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Handle edge case**: Return empty list if tree is empty
+ * 2. **Initialize BFS**: Use a deque for level-order traversal
+ * 3. **Track direction**: Use a boolean flag that alternates each level
+ * 4. **For each level**:
+ *    - Process all nodes at current level
+ *    - Collect values in order
+ *    - If right-to-left level, reverse the values before adding to result
+ *    - Toggle direction flag for next level
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - BFS naturally processes nodes level by level
+ * - By tracking level boundaries (queue size), we can process each level independently
+ * - Reversing alternate levels gives us the zigzag pattern
+ * - Deque provides O(1) append/popleft operations
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Tree:      3
+ *          /   \\
+ *         9     20
+ *              /  \\
+ *             15   7
+ *
+ * Level 0 (L->R): [3]
+ * Level 1 (R->L): [20, 9]
+ * Level 2 (L->R): [15, 7]
+ * Result: [[3], [20, 9], [15, 7]]
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
+ * - Visit each node exactly once
+ * - n = number of nodes in tree
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(w)
+ * - Queue holds at most one level of nodes at a time
+ * - w = maximum width of tree (worst case: n/2 for complete tree)
  *
  * ### EDGE CASES:
- * - **Pointers meet:** Handle when left == right
- * - **Empty input:** Check for null or empty arrays
- * - **Single element:** One pointer scenario
- * - **All duplicates:** Pointer movement with same values
- * - **Boundary crossing:** Prevent left > right
+ * - Empty tree: Return []
+ * - Single node: Return [[root.val]]
+ * - Skewed tree: Works correctly with zigzag pattern
  *
  * </details>
  */

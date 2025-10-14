@@ -1,51 +1,78 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * # 547. Number of Provinces
+ *
+ * There are n cities. Some of them are connected, while some are not. If city a is connected directly with city b, and city b is connected directly with city c, then city a is connected indirectly with city c.
+ *
+ * A province is a group of directly or indirectly connected cities and no other cities outside of the group.
+ *
+ * You are given an n x n matrix isConnected where isConnected[i][j] = 1 if the ith city and the jth city are directly connected, and isConnected[i][j] = 0 otherwise.
+ *
+ * Return the total number of provinces.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>[[1, 1, 0]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>1</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>Number of friend circles is 2</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * This is a classic connected components problem. We need to find how many separate groups of cities exist. Cities in the same group are either directly or indirectly connected. Union-Find is perfect for this as it efficiently manages and counts connected components.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Union-Find Structure**: Create a union-find data structure for n cities
+ * 2. **Process Connections**: For each connection in the matrix, union the two cities
+ * 3. **Count Components**: Count the number of unique root parents (components)
+ * 4. **Alternative DFS**: Can also use DFS to mark visited cities in each component
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - Union-Find automatically groups connected cities into components
+ * - Each connected component represents one province
+ * - After processing all connections, count unique roots to get province count
+ * - DFS alternative marks all cities in a component as visited
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * isConnected = [[1,1,0],
+ *                [1,1,0],
+ *                [0,0,1]]
+ *
+ * Cities: 0, 1, 2
+ * Connections: 0-1 (direct), 2 (isolated)
+ *
+ * Union-Find process:
+ * 1. Initialize: parent = [0,1,2], each city is its own component
+ * 2. Process (0,1): union(0,1) → parent = [1,1,2]
+ * 3. Process (1,0): already connected, skip
+ * 4. Process (2,2): self-connection, skip
+ *
+ * Count unique roots: 1 (for cities 0,1) and 2 (for city 2)
+ * Result: 2 provinces
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n² × α(n))
+ * Where α is the inverse Ackermann function (nearly constant)
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
+ * For the Union-Find parent and rank arrays
  *
  * ### EDGE CASES:
- * - **Empty stack:** Handle operations on empty stack
- * - **Single element:** Push/pop with one item
- * - **Balanced pairs:** Match opening/closing elements
- * - **Nested structures:** Handle deeply nested cases
- * - **Underflow:** Prevent popping from empty stack
+ * - **Single city**: Return 1 (one province)
+ * - **All cities connected**: Return 1 (all form single province)
+ * - **All cities isolated**: Return n (each city is its own province)
+ * - **Empty matrix**: Return 0 (no cities)
+ * - **Two separate groups**: Union-find counts distinct components correctly
  *
  * </details>
  */

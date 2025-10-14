@@ -1,51 +1,71 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * # 034. Find First And Last Position Of Element In Sorted Array
+ *
+ * Given an array of integers nums sorted in non-decreasing order, find the starting and ending position of a given target value.
+ *
+ * If target is not found in the array, return [-1, -1].
+ *
+ * You must write an algorithm with O(log n) runtime complexity.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>[5,7,7,8,8,10]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>1</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>Target 8 appears at indices [3,4] in sorted array [5,7,7,8,8,10]</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * This is a classic binary search problem that requires finding both the leftmost and rightmost positions of a target. The key insight is to perform two separate binary searches: one to find the first occurrence and another to find the last occurrence.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **First position**: Use binary search to find the leftmost occurrence
+ * 2. **Last position**: Use binary search to find the rightmost occurrence
+ * 3. **Optimization**: Return early if target not found in first search
+ * 4. **Edge cases**: Handle empty array and target not found
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - Binary search maintains O(log n) complexity for sorted arrays
+ * - Two separate searches isolate first and last positions independently
+ * - Template-based approach ensures correctness for boundary conditions
+ * - Early termination optimizes performance when target not found
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: nums = [5,7,7,8,8,10], target = 8
+ * Step 1: Find first position of 8
+ *   - Binary search finds index 3 as leftmost 8
+ * Step 2: Find last position of 8
+ *   - Binary search finds index 4 as rightmost 8
+ * Output: [3,4]
+ *
+ * Input: nums = [5,7,7,8,8,10], target = 6
+ * Step 1: Find first position of 6
+ *   - Binary search returns -1 (not found)
+ * Output: [-1,-1] (early return)
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(log n)
+ * Two binary searches on array of size n
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(1)
+ * Only using constant extra space
  *
  * ### EDGE CASES:
- * - **Target not in array:** Return -1 or appropriate value
- * - **Single element:** Handle when left equals right
- * - **Empty input:** Return default value
- * - **Boundary conditions:** Check first and last positions
- * - **Integer overflow:** Use mid = left + (right - left) / 2
+ * - Empty array: return [-1, -1]
+ * - Target not in array: return [-1, -1]
+ * - Single element array: return [0, 0] if match, [-1, -1] if not
+ * - Target at beginning/end of array
  *
  * </details>
  */

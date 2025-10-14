@@ -1,51 +1,92 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * # 912. Sort An Array
+ *
+ * Given an array of integers nums, sort the array in ascending order and return it.
+ *
+ * You must solve the problem without using any built-in functions in O(nlog(n)) time complexity
+ * and with the smallest space complexity possible.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>[1, 2, 3, 5]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>1</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>Array [5,2,3,1] sorted is [1,2,3,5]</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * Implement various sorting algorithms from scratch. Quicksort, Mergesort, and Heapsort all
+ * achieve O(n log n) time. This problem tests understanding of fundamental sorting algorithms.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * **Merge Sort:**
+ * 1. Divide array into two halves recursively
+ * 2. Sort each half recursively
+ * 3. Merge sorted halves back together
+ *
+ * **Quick Sort:**
+ * 1. Choose pivot element
+ * 2. Partition array around pivot
+ * 3. Recursively sort left and right partitions
+ *
+ * **Heap Sort:**
+ * 1. Build max heap from array
+ * 2. Repeatedly extract maximum and rebuild heap
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - **Merge Sort**: Divide-and-conquer with guaranteed O(n log n), stable, needs O(n) space
+ * - **Quick Sort**: Average O(n log n), in-place, but O(n²) worst case
+ * - **Heap Sort**: Guaranteed O(n log n), in-place, not stable
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: nums = [5,2,3,1]
+ *
+ * Merge Sort:
+ * [5,2,3,1]
+ *   /    \\
+ * [5,2]  [3,1]
+ *  / \\    / \\
+ * [5][2] [3][1]
+ *  \\ /    \\ /
+ * [2,5]  [1,3]
+ *   \\    /
+ * [1,2,3,5]
+ *
+ * Quick Sort:
+ * [5,2,3,1] pivot=1
+ * [1] [5,2,3]
+ *     [2,3,5] pivot=3
+ *     [2,3] [5]
+ * [1,2,3,5]
+ *
+ * Output: [1,2,3,5]
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n log n)
+ * All three algorithms achieve this complexity
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * - Merge Sort: O(n) for merge array
+ * - Quick Sort: O(log n) for recursion stack
+ * - Heap Sort: O(1) in-place
  *
  * ### EDGE CASES:
- * - **Empty array:** Handle nums.length == 0
- * - **Single element:** Special case for minimal input
- * - **All same values:** Check for duplicate handling
- * - **Negative numbers:** Ensure algorithm works with negatives
- * - **Large arrays:** Consider O(n) vs O(n²) performance
+ * - Empty array
+ * - Single element
+ * - All elements equal
+ * - Already sorted
+ * - Reverse sorted
+ * - Large arrays (up to 50,000 elements)
  *
  * </details>
  */

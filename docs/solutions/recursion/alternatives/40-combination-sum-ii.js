@@ -1,51 +1,71 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * # 40. Combination Sum II
+ *
+ * This problem demonstrates key concepts in Recursion.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>[[1, 1, 6]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>"Expected {expected}, got {result}"</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>All unique combinations summing to 8 from [10,1,2,7,6,1,5] are [[1,1,6],[1,2,5],[1,7],[2,6]]</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * Given an array of integers (may contain duplicates) and a target, find all unique
+ * combinations where the numbers sum to target. Each number may be used only once.
+ * The key challenge is avoiding duplicate combinations when the input contains duplicates.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Sort the array**: This groups duplicates together and enables efficient duplicate detection
+ * 2. **Backtracking with duplicate handling**:
+ *    - For each candidate, decide to include it or skip it
+ *    - Skip duplicate candidates at the same recursion level
+ *    - Move to next index after including a number (use only once)
+ * 3. **Duplicate prevention**:
+ *    - If current number equals previous and we didn't use previous, skip current
+ *    - This ensures we don't create duplicate combinations
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - Sorting enables duplicate detection by grouping same numbers
+ * - Skipping duplicates at same level prevents duplicate combinations
+ * - Moving to next index ensures each number used at most once
+ * - The condition (i > start and candidates[i] == candidates[i-1]) is key
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: candidates = [10,1,2,7,6,1,5], target = 8
+ * After sorting: [1,1,2,5,6,7,10]
+ *
+ * Explore combinations:
+ * [1,1,6] -> sum = 8 (valid!)
+ * [1,2,5] -> sum = 8 (valid!)
+ * [1,7] -> sum = 8 (valid!)
+ * [2,6] -> sum = 8 (valid!)
+ *
+ * Note: Duplicates like [1,1,6] from different 1's are prevented by skipping logic
+ * Output: [[1,1,6], [1,2,5], [1,7], [2,6]]
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(2^n) - each element can be included or excluded
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n) - recursion depth
  *
  * ### EDGE CASES:
- * - **Empty string:** Handle s.length == 0
- * - **Single character:** Minimal string input
- * - **All same characters:** Check duplicate handling
- * - **Special characters:** Handle non-alphanumeric
- * - **Case sensitivity:** Consider uppercase vs lowercase
+ * - Empty candidates array
+ * - All duplicates
+ * - No valid combinations
+ * - Target equals single candidate
  *
  * </details>
  */

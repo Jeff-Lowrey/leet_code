@@ -1,51 +1,76 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * # 128. Longest Consecutive Sequence
+ *
+ * Given an unsorted array of integers nums, return the length of the longest consecutive elements sequence.
+ *
+ * You must write an algorithm that runs in O(n) time.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>[100, 4, 200, 1, 3, 2]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>4 (sequence [1,2,3,4])</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>The longest consecutive sequence [1,2,3,4] has length 4</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * [This problem requires understanding of arrays hashing concepts. The key insight is to identify the optimal approach for this specific scenario.]
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Analyze the problem**: Understand the input constraints and expected output
+ * 2. **Choose the right technique**: Apply arrays hashing methodology
+ * 3. **Implement efficiently**: Focus on optimal time and space complexity
+ * 4. **Handle edge cases**: Consider boundary conditions and special cases
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - The solution leverages arrays hashing principles
+ * - Time complexity is optimized for the given constraints
+ * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: nums = [100, 4, 200, 1, 3, 2]
+ *
+ * Step 1: Convert to set
+ *   num_set = {100, 4, 200, 1, 3, 2}
+ *
+ * Step 2: Check num=1 (no num-1=0 in set, so it's a sequence start)
+ *   current_num = 1, current_streak = 1
+ *   1+1=2 in set → current_streak = 2
+ *   2+1=3 in set → current_streak = 3
+ *   3+1=4 in set → current_streak = 4
+ *   4+1=5 not in set → stop
+ *   longest_streak = 4
+ *
+ * Step 3: Check num=2 (num-1=1 exists, skip)
+ * Step 4: Check num=3 (num-1=2 exists, skip)
+ * Step 5: Check num=4 (num-1=3 exists, skip)
+ * Step 6: Check num=100 (no num-1=99, sequence start)
+ *   current_streak = 1, no 101 in set
+ * Step 7: Check num=200 (no num-1=199, sequence start)
+ *   current_streak = 1, no 201 in set
+ *
+ * Output: 4 (sequence [1,2,3,4])
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(1)
  *
  * ### EDGE CASES:
- * - **Empty array:** Handle nums.length == 0
- * - **Single element:** Special case for minimal input
- * - **All same values:** Check for duplicate handling
- * - **Negative numbers:** Ensure algorithm works with negatives
- * - **Large arrays:** Consider O(n) vs O(n²) performance
+ * - Empty input handling
+ * - Single element cases
+ * - Large input considerations
  *
  * </details>
  */

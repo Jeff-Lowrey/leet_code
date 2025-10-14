@@ -1,51 +1,65 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * # 986. Interval List Intersections
+ *
+ * You are given two lists of closed intervals, firstList and secondList, where firstList[i] = [starti, endi] and secondList[j] = [startj, endj]. Each list of intervals is pairwise disjoint and in sorted order.
+ *
+ * Return the intersection of these two interval lists.
+ *
+ * A closed interval [a, b] (with a <= b) denotes the set of real numbers x with a <= x <= b.
+ *
+ * The intersection of two closed intervals is a set of real numbers that are either empty or represented as a closed interval. For example, the intersection of [1, 3] and [2, 4] is [2, 3].
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>firstList = [[0,2],[5,10]], secondList = [[1,5],[8,12]]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>[[1,2],[5,5],[8,10]]</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>Intersection of [[0,2],[5,10],[13,23],[24,25]] and [[1,5],[8,12],[15,24],[25,26]] is [[1,2],[5,5],[8,10],[15,23],[24,24],[25,25]]</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * [This problem requires understanding of interval concepts. The key insight is to identify the optimal approach for this specific scenario.]
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Analyze the problem**: Understand the input constraints and expected output
+ * 2. **Choose the right technique**: Apply interval methodology
+ * 3. **Implement efficiently**: Focus on optimal time and space complexity
+ * 4. **Handle edge cases**: Consider boundary conditions and special cases
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - The solution leverages interval principles
+ * - Time complexity is optimized for the given constraints
+ * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: firstList = [[0,2],[5,10]], secondList = [[1,5],[8,12]]
+ * Step 1: Two pointers
+ *   i=0, j=0: [0,2] ∩ [1,5] = [1,2]
+ *   i=1, j=0: [5,10] ∩ [1,5] = [5,5]
+ *   i=1, j=1: [5,10] ∩ [8,12] = [8,10]
+ *
+ * Output: [[1,2],[5,5],[8,10]]
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(1)
  *
  * ### EDGE CASES:
- * - **Empty string:** Handle s.length == 0
- * - **Single character:** Minimal string input
- * - **All same characters:** Check duplicate handling
- * - **Special characters:** Handle non-alphanumeric
- * - **Case sensitivity:** Consider uppercase vs lowercase
+ * - Empty input handling
+ * - Single element cases
+ * - Large input considerations
  *
  * </details>
  */

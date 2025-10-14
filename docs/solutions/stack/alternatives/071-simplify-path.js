@@ -1,51 +1,76 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * # 071. Simplify Path
+ *
+ * Given a string path, which is an absolute path (starting with a slash '/') to a file or directory in a Unix-style file system, convert it to the simplified canonical path.
+ *
+ * In a Unix-style file system, a period '.' refers to the current directory, a double period '..' refers to the directory up a level, and any multiple consecutive slashes (i.e. '//') are treated as a single slash '/'. For this problem, any other format of periods such as '...' are treated as file/directory names.
+ *
+ * The canonical path should have the following format:
+ *
+ * - The path starts with a single slash '/'.
+ * - Any two directories are separated by a single slash '/'.
+ * - The path does not end with a trailing '/'.
+ * - The path only contains the directories on the path from the root directory to the target file or directory (i.e., no period '.' or double period '..')
+ *
+ * Return the simplified canonical path.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>path = "/a/./b/../../c/"</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>"/c"</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>Simplified path '/a/./b/../../c/' is '/c'</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * [This problem requires understanding of stack concepts. The key insight is to identify the optimal approach for this specific scenario.]
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Analyze the problem**: Understand the input constraints and expected output
+ * 2. **Choose the right technique**: Apply stack methodology
+ * 3. **Implement efficiently**: Focus on optimal time and space complexity
+ * 4. **Handle edge cases**: Consider boundary conditions and special cases
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - The solution leverages stack principles
+ * - Time complexity is optimized for the given constraints
+ * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: path = "/a/./b/../../c/"
+ * Step 1: Split by '/' and process
+ *   parts = ['', 'a', '.', 'b', '..', '..', 'c', '']
+ *
+ * Step 2: Use stack
+ *   'a': stack=['a']
+ *   '.': skip
+ *   'b': stack=['a','b']
+ *   '..': pop, stack=['a']
+ *   '..': pop, stack=[]
+ *   'c': stack=['c']
+ *
+ * Output: "/c"
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(1)
  *
  * ### EDGE CASES:
- * - **Empty stack:** Handle operations on empty stack
- * - **Single element:** Push/pop with one item
- * - **Balanced pairs:** Match opening/closing elements
- * - **Nested structures:** Handle deeply nested cases
- * - **Underflow:** Prevent popping from empty stack
+ * - Empty input handling
+ * - Single element cases
+ * - Large input considerations
  *
  * </details>
  */

@@ -1,51 +1,70 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * You are given two `non-empty` linked lists representing two `non-negative` integers.
+ * The digits are stored in reverse order, and each of their nodes contains a single digit.
+ * Add the two numbers and return the sum as a linked list.
+ *
+ * You may assume the two numbers do not contain any leading zero, except the number 0 itself.
+ *
+ * Example:
+ * Input: l1 = [2,4,3], l2 = [5,6,4]
+ * Output: [7,0,8]
+ * Explanation: `342 + 465` = 807.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>l1 = [2,4,3], l2 = [5,6,4]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>[7,0,8]</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>Adding linked lists 342+465=807 gives [7,0,8] in reverse</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * This mimics elementary school `addition! Since` digits are in reverse order,
+ * we can add from `left` to `right` (which corresponds to least significant digit first).
+ * We need to handle carries just like manual addition.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. Create dummy `head` for `result` linked list
+ * 2. Process both lists simultaneously with carry
+ * 3. For each position: `sum` = `val1 + val2` + carry
+ * 4. Create new `node` with (`sum` % 10), update carry = `sum` // 10
+ * 5. Continue until both lists empty and `carry = 0`
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * The algorithm correctly solves the problem by systematically exploring all valid states while maintaining necessary invariants. Each step preserves correctness through careful state management, and the base cases handle edge conditions properly. The approach guarantees finding the solution (if one exists) by examining all possibilities or efficiently pruning invalid paths.
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * l1 = [2,4,3] represents 342
+ * l2 = [5,6,4] represents 465
+ *
+ * Step 1: `2 + 5` + 0(carry) = 7, `carry = 0` → node(7)
+ * Step 2: `4 + 6` + 0(carry) = 10, `carry = 1` → node(0)
+ * Step 3: `3 + 4` + 1(carry) = 8, `carry = 0` → node(8)
+ *
+ * Result: [7,0,8] represents 807
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(max(m, n))
+ * Where m and n are lengths of the two linked lists. Process each digit once.
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(max(m, n))
+ * Result list length is max(m, n) or max(m, n) + 1 if final carry exists.
  *
  * ### EDGE CASES:
- * - **Different lengths:** Handle lists of unequal size
- * - **Carry at end:** Handle final carry creating new node
- * - **All zeros:** Result is single zero node
- * - **Single nodes:** Minimal addition case
- * - **Maximum digits:** Handle carry propagation
+ * - **Different length lists**: treat missing digits as 0
+ * - **Final carry**: create additional node if carry > 0
+ * - **One list empty**: continue with other list + carry
  *
  * </details>
  */

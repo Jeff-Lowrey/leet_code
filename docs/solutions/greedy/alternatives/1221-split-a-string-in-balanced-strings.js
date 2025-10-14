@@ -1,51 +1,76 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Easy
  *
- * [Problem description goes here]
+ * # 1221. Split A String In Balanced Strings
+ *
+ * Balanced strings are those that have an equal quantity of 'L' and 'R' characters.
+ *
+ * Given a balanced string s, split it into some number of substrings such that:
+ * - Each substring is balanced.
+ *
+ * Return the maximum number of balanced strings you can obtain.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>"RLRRLLRLRL"</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>4</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>String 'RLRRLLRLRL' can be split into 4 balanced substrings</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * The key insight is to use a greedy approach: whenever we find a balanced substring
+ * (where count of 'L' equals count of 'R'), we should immediately split it off. This
+ * maximizes the number of splits because splitting early gives us more opportunities
+ * for future splits.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Use a counter**: Track the balance between 'L' and 'R' characters
+ * 2. **Increment/decrement**: +1 for 'L', -1 for 'R' (or vice versa)
+ * 3. **Split when balanced**: When counter reaches 0, we have a balanced substring
+ * 4. **Count splits**: Increment split counter each time balance reaches 0
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * The algorithm correctly solves the problem by systematically exploring all valid states while maintaining necessary invariants. Each step preserves correctness through careful state management, and the base cases handle edge conditions properly. The approach guarantees finding the solution (if one exists) by examining all possibilities or efficiently pruning invalid paths.
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: s = "RLRRLLRLRL"
+ *
+ * i=0: 'R' → balance = -1
+ * i=1: 'L' → balance = 0 → SPLIT! count = 1 → "RL"
+ * i=2: 'R' → balance = -1
+ * i=3: 'R' → balance = -2
+ * i=4: 'L' → balance = -1
+ * i=5: 'L' → balance = 0 → SPLIT! count = 2 → "RRLL"
+ * i=6: 'R' → balance = -1
+ * i=7: 'L' → balance = 0 → SPLIT! count = 3 → "RL"
+ * i=8: 'R' → balance = -1
+ * i=9: 'L' → balance = 0 → SPLIT! count = 4 → "RL"
+ *
+ * Output: 4
+ * Substrings: "RL", "RRLL", "RL", "RL"
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
+ * Single pass through the string
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(1)
+ * Only using counter and result variables
  *
  * ### EDGE CASES:
- * - **Empty string:** Handle s.length == 0
- * - **Single character:** Minimal string input
- * - **All same characters:** Check duplicate handling
- * - **Special characters:** Handle non-alphanumeric
- * - **Case sensitivity:** Consider uppercase vs lowercase
+ * - Minimum length: "RL" or "LR" → 1 split
+ * - All same then alternating: Won't happen (input is balanced)
+ * - Already optimal splits: "RLRL" → 2 splits
+ * - Long balanced section: "RRRRLLLLLLL" → 1 split
  *
  * </details>
  */

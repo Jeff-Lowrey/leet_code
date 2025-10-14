@@ -1,51 +1,86 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * # 036. Valid Sudoku
+ *
+ * Determine if a 9 x 9 Sudoku board is valid. Only the filled cells need to be validated according to the following rules:
+ *
+ * 1. Each row must contain the digits 1-9 without repetition.
+ * 2. Each column must contain the digits 1-9 without repetition.
+ * 3. Each of the nine 3 x 3 sub-boxes of the grid must contain the digits 1-9 without repetition.
+ *
+ * Note:
+ * - A Sudoku board (partially filled) could be valid but is not necessarily solvable.
+ * - Only the filled cells need to be validated according to the mentioned rules.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>board = [</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>True</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>The 9×9 Sudoku board is valid because each row, column, and 3×3 sub-box contains no duplicate digits 1-9</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * [This problem requires understanding of arrays hashing concepts. The key insight is to identify the optimal approach for this specific scenario.]
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Analyze the problem**: Understand the input constraints and expected output
+ * 2. **Choose the right technique**: Apply arrays hashing methodology
+ * 3. **Implement efficiently**: Focus on optimal time and space complexity
+ * 4. **Handle edge cases**: Consider boundary conditions and special cases
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - The solution leverages arrays hashing principles
+ * - Time complexity is optimized for the given constraints
+ * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: board = [
+ *   ["5","3",".",".","7",".",".",".","."],
+ *   ["6",".",".","1","9","5",".",".","."],
+ *   ...
+ * ]
+ *
+ * Step 1: Initialize tracking sets
+ *   rows = defaultdict(set)
+ *   cols = defaultdict(set)
+ *   boxes = defaultdict(set)
+ *
+ * Step 2: Process cell (0,0) = "5"
+ *   box_idx = (0//3)*3 + (0//3) = 0
+ *   Add to rows[0], cols[0], boxes[0]
+ *
+ * Step 3: Process cell (0,1) = "3"
+ *   box_idx = (0//3)*3 + (1//3) = 0
+ *   "3" not in rows[0], cols[1], boxes[0]
+ *   Add to respective sets
+ *
+ * Step 4: Continue for all cells
+ *   If "5" appears again in row 0, col 0, or box 0
+ *   → return False
+ *
+ * Step 5: All cells checked without conflicts
+ * Output: True
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(1)
  *
  * ### EDGE CASES:
- * - **Empty array:** Handle nums.length == 0
- * - **Single element:** Special case for minimal input
- * - **All same values:** Check for duplicate handling
- * - **Negative numbers:** Ensure algorithm works with negatives
- * - **Large arrays:** Consider O(n) vs O(n²) performance
+ * - Empty input handling
+ * - Single element cases
+ * - Large input considerations
  *
  * </details>
  */

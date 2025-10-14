@@ -1,51 +1,62 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * # 173. Binary Search Tree Iterator
+ *
+ * Implement the BSTIterator class that represents an iterator over the in-order traversal of a binary search tree (BST).
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>Input: [7, 3, 15, null, null, 9, 20]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>Stack after init: [7, 3]</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>The iterator initializes by traversing left from the root (7), pushing nodes 7 and 3 onto the stack, with 3 on top as it's the leftmost (smallest) node</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * We need to implement an iterator that traverses a BST in in-order (left -> root -> right).
+ * The challenge is to do this without storing all values upfront, but instead using a controlled stack-based approach.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Use a stack**: Maintain a stack to simulate the in-order traversal
+ * 2. **Push all left nodes**: Starting from root, push all left children onto the stack
+ * 3. **next()**: Pop from stack, return value, then push all left children of the popped node's right child
+ * 4. **hasNext()**: Simply check if the stack is empty
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - The stack maintains nodes in the order they need to be visited
+ * - By pushing all left nodes first, we ensure the smallest unvisited node is always on top
+ * - Time complexity is optimized - each node is pushed and popped exactly once
+ * - Space complexity is O(h) where h is the height of the tree
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: [7, 3, 15, null, null, 9, 20]
+ * Stack after init: [7, 3]
+ * next() -> 3, stack: [7, 15, 9]
+ * next() -> 7, stack: [15, 9]
+ * hasNext() -> true
+ * next() -> 9, stack: [15, 20]
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * - Constructor: O(h) where h is height
+ * - next(): Amortized O(1)
+ * - hasNext(): O(1)
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(h) for the stack
  *
  * ### EDGE CASES:
- * - **Target not in array:** Return -1 or appropriate value
- * - **Single element:** Handle when left equals right
- * - **Empty input:** Return default value
- * - **Boundary conditions:** Check first and last positions
- * - **Integer overflow:** Use mid = left + (right - left) / 2
+ * - Single node tree
+ * - Left-skewed or right-skewed trees
+ * - Empty tree handling
  *
  * </details>
  */

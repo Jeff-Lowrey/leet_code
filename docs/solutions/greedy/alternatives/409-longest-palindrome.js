@@ -1,51 +1,72 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Easy
  *
- * [Problem description goes here]
+ * # 409. Longest Palindrome
+ *
+ * Given a string s which consists of lowercase or uppercase letters, return the length of the longest palindrome that can be built with those letters.
+ *
+ * Letters are case sensitive, for example, "Aa" is not considered a palindrome here.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>Input: "abccccdd"</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>Character counts:</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>Longest palindrome that can be built is 7 from letters 'abccccdd'</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * A palindrome reads the same forwards and backwards. To maximize the palindrome length, we should use as many character pairs as possible, plus at most one character with odd count (which goes in the center).
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Count character frequencies**: Count how many times each character appears
+ * 2. **Use pairs greedily**: Each pair of characters contributes 2 to palindrome length
+ * 3. **Handle odd counts**: If any character has odd count, we can place one in center
+ * 4. **Calculate result**: Sum of all pairs × 2, plus 1 if any odd count exists
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * Using two pointers from both ends, we compare characters while moving inward. If all corresponding characters match, the string is a palindrome. Skipping non-alphanumeric characters and handling case-insensitivity ensures we only compare relevant characters. The pointers meeting in the middle confirms the entire string is symmetric.
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: "abccccdd"
+ * Character counts:
+ * a: 1, b: 1, c: 4, d: 2
+ *
+ * Pairs available:
+ * a: 0 pairs (1//2 = 0)
+ * b: 0 pairs (1//2 = 0)
+ * c: 2 pairs (4//2 = 2)
+ * d: 1 pair (2//2 = 1)
+ *
+ * Total pairs: 0 + 0 + 2 + 1 = 3
+ * Pairs contribute: 3 × 2 = 6 characters
+ *
+ * Odd counts exist: a=1, b=1 (both odd)
+ * Can use one character in center: +1
+ *
+ * Result: 6 + 1 = 7
+ * Possible palindrome: "dccaccd"
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
+ * Single pass to count characters
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(1)
+ * At most 128 ASCII characters or 52 letters (constant space)
  *
  * ### EDGE CASES:
- * - **Empty string:** Handle s.length == 0
- * - **Single character:** Minimal string input
- * - **All same characters:** Check duplicate handling
- * - **Special characters:** Handle non-alphanumeric
- * - **Case sensitivity:** Consider uppercase vs lowercase
+ * - Empty string: length 0
+ * - All characters have even counts: use all characters
+ * - All characters have count 1: length = 1 (any single character)
  *
  * </details>
  */

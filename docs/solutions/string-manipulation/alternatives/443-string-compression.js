@@ -1,51 +1,91 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * Given an array of characters chars, compress it using the following algorithm:
+ *
+ * Begin with an empty string s. For each group of consecutive repeating characters in chars:
+ * - If the group's length is 1, append the character to s.
+ * - Otherwise, append the character followed by the group's length.
+ *
+ * The compressed string s should not be returned separately, but instead, be stored in the
+ * input character array chars. Note that group lengths that are 10 or longer will be split
+ * into multiple characters in chars.
+ *
+ * After you are done modifying the input array, return the new length of the array.
+ *
+ * You must write an algorithm that uses only constant extra space.
+ *
+ * Example:
+ * Input: chars = ["a","a","b","b","c","c","c"]
+ * Output: Return 6, and the first 6 characters of the input array should be: ["a","2","b","2","c","3"]
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>chars = ["a","a","b","b","c","c","c"]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>Return 6, and the first 6 characters of the input array should be: ["a","2","b","2","c","3"]</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>Compressed string ['a','a','b','b','c','c','c'] becomes ['a','2','b','2','c','3'] with length 6</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * We need to compress consecutive identical characters in-place. The key insight is using
+ * two pointers: one to read through the array, and one to write the compressed result back
+ * to the same array. This allows us to modify the array in-place with O(1) extra space.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Two Pointers**: Use `read` pointer to scan array, `write` pointer for result
+ * 2. **Count Consecutive**: For each character, count how many consecutive times it appears
+ * 3. **Write Character**: Always write the character itself
+ * 4. **Write Count**: If count > 1, write the count digits
+ * 5. **Handle Multi-Digit Counts**: Split counts like 12 into '1', '2'
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - Writing pointer never overtakes reading pointer (compressed is always shorter)
+ * - We process characters left to right in a single pass
+ * - In-place modification is safe because we consume input faster than we produce output
+ * - Converting count to string and iterating over digits handles multi-digit counts
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: ["a","a","b","b","c","c","c"]
+ *
+ * Read pointer scans:
+ * 1. chars[0-1]: 'a' appears 2 times
+ *    Write: chars[0]='a', chars[1]='2'
+ *    write=2
+ *
+ * 2. chars[2-3]: 'b' appears 2 times
+ *    Write: chars[2]='b', chars[3]='2'
+ *    write=4
+ *
+ * 3. chars[4-6]: 'c' appears 3 times
+ *    Write: chars[4]='c', chars[5]='3'
+ *    write=6
+ *
+ * Result: ["a","2","b","2","c","3"] with length 6
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
+ * - Single pass through the array with read pointer
+ * - Writing compressed data is proportional to input size
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(1)
+ * - Only using constant extra space (pointers and counters)
+ * - Modifying the array in-place
  *
  * ### EDGE CASES:
- * - **Empty string:** Handle s.length == 0
- * - **Single character:** Minimal string input
- * - **All same characters:** Check duplicate handling
- * - **Special characters:** Handle non-alphanumeric
- * - **Case sensitivity:** Consider uppercase vs lowercase
+ * - Single character: Return 1
+ * - All different characters: Return original length
+ * - All same characters: Return 1 + len(str(count))
+ * - Very long runs (count >= 10): Multi-digit handling
  *
  * </details>
  */

@@ -1,51 +1,63 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * # 402. Remove K Digits
+ *
+ * Given string num representing a non-negative integer num, and an integer k, return the smallest possible integer after removing k digits from num.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>num = "1432219", k = 3</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>"1219"</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>By greedily removing k digits to make the smallest number, '1432219' becomes '1219' after removing 3 digits</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * [This problem requires understanding of monotonic stack concepts. The key insight is to identify the optimal approach for this specific scenario.]
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Analyze the problem**: Understand the input constraints and expected output
+ * 2. **Choose the right technique**: Apply monotonic stack methodology
+ * 3. **Implement efficiently**: Focus on optimal time and space complexity
+ * 4. **Handle edge cases**: Consider boundary conditions and special cases
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - The solution leverages monotonic stack principles
+ * - Time complexity is optimized for the given constraints
+ * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: num = "1432219", k = 3
+ * Step 1: Use monotonic stack
+ *   Add '1': stack=['1']
+ *   Add '4': stack=['1','4']
+ *   Add '3': pop '4' (3<4), k=2, stack=['1','3']
+ *   Add '2': pop '3' (2<3), k=1, stack=['1','2']
+ *   Add '2': stack=['1','2','2']
+ *   Add '1': pop '2' (1<2), k=0, stack=['1','2','1']
+ *   Add '9': stack=['1','2','1','9']
+ *
+ * Output: "1219"
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(1)
  *
  * ### EDGE CASES:
- * - **Empty stack:** Handle operations on empty stack
- * - **Single element:** Push/pop with one item
- * - **Balanced pairs:** Match opening/closing elements
- * - **Nested structures:** Handle deeply nested cases
- * - **Underflow:** Prevent popping from empty stack
+ * - Empty input handling
+ * - Single element cases
+ * - Large input considerations
  *
  * </details>
  */

@@ -1,51 +1,68 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * Given an integer array nums and an integer k, return true if nums has a continuous
+ * subarray of size at least two that sums to a multiple of k, or false otherwise.
+ *
+ * An integer x is a multiple of k if there exists an integer n such that x = n * k.
+ * 0 is always a multiple of k.
+ *
+ * Example:
+ * Input: nums = [23,2,4,6,7], k = 6
+ * Output: true
+ * Explanation: [2, 4] is a continuous subarray of size 2 whose sum is 6.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>nums = [23,2,4,6,7], k = 6</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>true</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>The subarray [23,2,4,6,7] has sum 42, which is a multiple of k=6</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * Use prefix sum with modulo arithmetic. If two prefix sums have the same remainder
+ * when divided by k, the subarray between them is divisible by k. Track remainders
+ * in a hash map with their earliest index to ensure subarray length ≥ 2.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Hash Map**: Store (remainder → earliest_index) pairs
+ * 2. **Prefix Sum**: Calculate cumulative sum modulo k
+ * 3. **Check**: If same remainder seen before and distance ≥ 2, return true
+ * 4. **Edge Cases**: Handle k=0, negative remainders with modulo normalization
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * If prefix_sum[i] % k == prefix_sum[j] % k, then sum(nums[i+1:j+1]) % k == 0.
+ * By storing earliest occurrence of each remainder, we maximize subarray length.
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * nums = [23,2,4,6,7], k = 6
+ * Prefix sums: [23, 25, 29, 35, 42]
+ * Modulos: [5, 1, 5, 5, 0]
+ *
+ * At index 0: remainder 5, store {5: 0}
+ * At index 1: remainder 1, store {5: 0, 1: 1}
+ * At index 2: remainder 5, seen at index 0, distance = 2 → return true
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(min(n, k))
  *
  * ### EDGE CASES:
- * - **Empty array:** Handle nums.length == 0
- * - **Single element:** Special case for minimal input
- * - **All same values:** Check for duplicate handling
- * - **Negative numbers:** Ensure algorithm works with negatives
- * - **Large arrays:** Consider O(n) vs O(n²) performance
+ * - k = 0: Division by zero (special handling or constraint)
+ * - Subarray length = 1: Must skip (requirement: length ≥ 2)
+ * - Negative numbers: Modulo handles correctly with normalization
+ * - All elements sum to multiple of k: Returns true
  *
  * </details>
  */

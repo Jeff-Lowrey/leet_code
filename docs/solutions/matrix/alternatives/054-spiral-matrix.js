@@ -1,51 +1,59 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * Given an m x `n` matrix, return all elements of the matrix in spiral order.
+ *
+ * Example:
+ * Input: `matrix` = [[1,2,3],[4,5,6],[7,8,9]]
+ * Output: [1,2,3,6,9,8,7,4,5]
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>matrix` = [[1,2,3],[4,5,6],[7,8,9]]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>[1,2,3,6,9,8,7,4,5]</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>Spiral order traversal: [1,2,3,6,9,8,7,4,5]</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * Think of traversing the matrix in layers, like peeling an onion. We traverse the outermost layer first (right → down → left → up), then move to the next inner layer and repeat the pattern.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. Use four boundaries: top, bottom, left, right
+ * 2. For each layer, traverse in spiral order:
+ *    - Move right along top row, then increment top
+ *    - Move down along right column, then decrement right
+ *    - Move left along bottom row (if still valid), then decrement bottom
+ *    - Move up along left column (if still valid), then increment left
+ * 3. Continue until all boundaries converge
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * By systematically shrinking the boundaries after each direction, we ensure we visit each element exactly once in spiral order. The boundary checks prevent revisiting elements or going out of bounds.
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * [example input]
- * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
+ * Matrix: [[1,2,3],[4,5,6],[7,8,9]]
+ * - Layer 1: Right(1,2,3) → Down(6,9) → Left(8,7) → Up(4)
+ * - Layer 2: Center(5)
+ * - Result: [1,2,3,6,9,8,7,4,5]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(m × n)
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(1) excluding output array
  *
  * ### EDGE CASES:
- * - **Pointers meet:** Handle when left == right
- * - **Empty input:** Check for null or empty arrays
- * - **Single element:** One pointer scenario
- * - **All duplicates:** Pointer movement with same values
- * - **Boundary crossing:** Prevent left > right
+ * - **Empty matrix**: Return empty list
+ * - **Single row**: Return that row
+ * - **Single column**: Return that column
+ * - **Single element**: Return [element]
+ * - **Rectangle (m×n)**: Spiral inward from boundaries
  *
  * </details>
  */

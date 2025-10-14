@@ -1,51 +1,74 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * # 1395. Count Number Of Teams
+ *
+ * There are n soldiers standing in a line. Every soldier has a unique rating value.
+ *
+ * You have to form a team of 3 soldiers amongst them under the following rules:
+ * - Choose 3 soldiers with index (i, j, k) with rating (rating[i], rating[j], rating[k]).
+ * - A team is valid if: (rating[i] < rating[j] < rating[k]) or (rating[i] > rating[j] > rating[k]) where (i < j < k).
+ *
+ * Return the number of teams you can form given the conditions. (soldiers can be used in multiple teams).
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>[[2, 5, 3, 4, 1]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>"\nInput: rating = {rating}"</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>There are 3 valid teams of soldiers with increasing or decreasing heights</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * This problem is about counting ordered triplets in an array. We can solve it using multiple approaches: brute force O(n³), dynamic programming O(n²), or advanced data structures like segment trees or Binary Indexed Trees for O(n log n). The key insight is that for each middle element, we count how many valid left and right elements exist.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Handle edge case**: Return 0 if array has fewer than 3 elements (need at least 3 for a team)
+ * 2. **Iterate through middle positions**: For each soldier j as the middle element (from index 1 to n-2)
+ * 3. **Count left elements**: Scan all elements to the left of j, counting how many are smaller and how many are larger
+ * 4. **Count right elements**: Scan all elements to the right of j, counting how many are smaller and how many are larger
+ * 5. **Calculate ascending teams**: Multiply left_smaller by right_larger (elements that can form ascending triplet with j)
+ * 6. **Calculate descending teams**: Multiply left_larger by right_smaller (elements that can form descending triplet with j)
+ * 7. **Sum all valid teams**: Add both ascending and descending team counts for each middle position to get total
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * A set by definition contains only unique elements - when we convert an array to a set, any duplicates are automatically removed. By comparing the lengths of the original array and the set, we can detect if duplicates existed. The early termination approach works because as soon as we find an element already in our seen set, we've proven a duplicate exists without needing to check the remaining elements.
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: rating = [2,5,3,4,1]
+ * For ascending teams (i < j < k and rating[i] < rating[j] < rating[k]):
+ * - j=1 (rating=5): left_smaller=1 (rating=2), right_larger=0 → 0 teams
+ * - j=2 (rating=3): left_smaller=1 (rating=2), right_larger=1 (rating=4) → 1 team
+ * - j=3 (rating=4): left_smaller=2 (rating=2,3), right_larger=0 → 0 teams
+ *
+ * For descending teams (i < j < k and rating[i] > rating[j] > rating[k]):
+ * - j=1 (rating=5): left_larger=0, right_smaller=3 → 0 teams
+ * - j=2 (rating=3): left_larger=1 (rating=5), right_smaller=1 (rating=1) → 1 team
+ * - j=3 (rating=4): left_larger=1 (rating=5), right_smaller=1 (rating=1) → 1 team
+ *
+ * Total: 1 + 1 + 1 = 3 teams
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n log n)
+ * For segment tree approach with coordinate compression
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
+ * For compressed coordinates and tree structure
  *
  * ### EDGE CASES:
- * - **Pointers meet:** Handle when left == right
- * - **Empty input:** Check for null or empty arrays
- * - **Single element:** One pointer scenario
- * - **All duplicates:** Pointer movement with same values
- * - **Boundary crossing:** Prevent left > right
+ * - Array length < 3
+ * - All elements equal (no valid teams)
+ * - Strictly increasing/decreasing array
+ * - Duplicate ratings
  *
  * </details>
  */

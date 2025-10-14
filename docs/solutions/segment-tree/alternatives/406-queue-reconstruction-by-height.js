@@ -1,51 +1,68 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * # 406. Queue Reconstruction By Height
+ *
+ * You are given an array of people, people, which are the attributes of some people in a queue (not necessarily in order). Each people[i] = [hi, ki] represents the ith person of height hi with exactly ki other people in front who have a height greater than or equal to hi.
+ *
+ * Reconstruct and return the queue that is represented by the input array people. The returned queue should be formatted as an array queue, where queue[j] = [hj, kj] is the attributes of the jth person in the queue (queue[0] is the person at the front of the queue).
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>[[5, 0]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>1</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>People reconstructed by height and k-value: [[5,0],[7,0],[5,2],[6,1],[4,4],[7,1]]</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * This problem can be solved with a greedy approach. Sort people by height (descending) and when heights are equal, by k value (ascending). Then insert each person at their k-index position. This works because taller people are placed first, so when shorter people are inserted, they don't affect the k-count of taller people.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Sort people array**: Sort by height in descending order (tallest first), and by k value in ascending order when heights are equal
+ * 2. **Initialize result list**: Create an empty list to hold the reconstructed queue
+ * 3. **Process tallest first**: Iterate through sorted people array, processing taller people before shorter ones
+ * 4. **Insert at k-index**: For each person [h, k], insert them at position k in the result list
+ * 5. **Maintain correctness**: Since taller people are already placed, inserting a shorter person doesn't affect their k-count
+ * 6. **Preserve relative order**: The k value represents exact position among people of equal or greater height already in queue
+ * 7. **Return reconstructed queue**: After all insertions, result contains correctly reconstructed queue
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * By repeatedly dividing the search space in half, we eliminate half of the remaining elements in each iteration. Since the array is sorted, we can determine which half contains the target by comparing with the middle element. This guarantees we find the target (if it exists) in O(log n) time because each step reduces the problem size by a factor of 2.
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: [[7,0],[4,4],[7,1],[5,0],[6,1],[5,2]]
+ * Sort by height desc, k asc: [[7,0],[7,1],[6,1],[5,0],[5,2],[4,4]]
+ *
+ * Insert [7,0] at index 0: [[7,0]]
+ * Insert [7,1] at index 1: [[7,0],[7,1]]
+ * Insert [6,1] at index 1: [[7,0],[6,1],[7,1]]
+ * Insert [5,0] at index 0: [[5,0],[7,0],[6,1],[7,1]]
+ * Insert [5,2] at index 2: [[5,0],[7,0],[5,2],[6,1],[7,1]]
+ * Insert [4,4] at index 4: [[5,0],[7,0],[5,2],[6,1],[4,4],[7,1]]
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * - Greedy: O(n² log n) - sorting + n insertions
+ * - Segment Tree: O(n log n) - sorting + n queries
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
+ * For result array and tree structure
  *
  * ### EDGE CASES:
- * - **Empty string:** Handle s.length == 0
- * - **Single character:** Minimal string input
- * - **All same characters:** Check duplicate handling
- * - **Special characters:** Handle non-alphanumeric
- * - **Case sensitivity:** Consider uppercase vs lowercase
+ * - Empty array
+ * - Single person
+ * - All same height
+ * - All k = 0
+ * - Maximum k values
  *
  * </details>
  */

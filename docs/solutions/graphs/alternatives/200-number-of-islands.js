@@ -1,51 +1,71 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * # 200. Number Of Islands
+ *
+ * Given an m x n 2D binary grid which represents a map of '1's (land) and '0's (water), return the number of islands.
+ *
+ * An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. You may assume all four edges of the grid are all surrounded by water.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>[["1","1","1","1","0"]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>1</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>Number of islands in binary grid is 3</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * This is a classic graph traversal problem where we need to find connected components. Each island is a connected component of '1's (land). We can use DFS or BFS to explore each island completely when we encounter it, then count how many separate islands we find.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Iterate through grid**: Check each cell in the grid
+ * 2. **Find land**: When we find a '1' (land), it's part of an island
+ * 3. **Explore island**: Use DFS/BFS to mark all connected land as visited
+ * 4. **Count islands**: Each time we start a new DFS/BFS, we found a new island
+ * 5. **Mark visited**: Change '1' to '0' or use separate visited array
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - DFS/BFS explores all connected components (islands) completely
+ * - Once we've explored an island, we mark it as visited to avoid double-counting
+ * - Each DFS/BFS start represents discovering a new island
+ * - 4-directional connectivity defines what constitutes an island
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Grid: [["1","1","1","1","0"],
+ *        ["1","1","0","1","0"],
+ *        ["1","1","0","0","0"],
+ *        ["0","0","0","0","0"]]
+ *
+ * Process:
+ * - Start at (0,0): DFS explores entire connected land mass
+ * - Mark all connected '1's as visited: (0,0), (0,1), (0,2), (0,3), (1,0), (1,1), (2,0), (2,1)
+ * - Continue scanning: (1,3) is unvisited land → start new DFS
+ * - DFS from (1,3) only marks (1,3) as it's isolated
+ * - Total islands found: 2
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(M × N)
+ * Where M and N are grid dimensions - we visit each cell at most once
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(M × N)
+ * For recursion stack in worst case (entire grid is one island) or visited array
  *
  * ### EDGE CASES:
- * - **Pointers meet:** Handle when left == right
- * - **Empty input:** Check for null or empty arrays
- * - **Single element:** One pointer scenario
- * - **All duplicates:** Pointer movement with same values
- * - **Boundary crossing:** Prevent left > right
+ * - Empty grid
+ * - All water ('0's)
+ * - All land ('1's) - single island
+ * - Single cell grid
+ * - Grid with no islands
  *
  * </details>
  */

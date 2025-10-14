@@ -1,51 +1,72 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: 
  *
- * [Problem description goes here]
+ * # 048. Rotate Image
+ * **Transpose + Reverse**
+ *
+ * Rotate an n x n 2D matrix 90 degrees clockwise in-place.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>[[1, 2, 3]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>1</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>Matrix rotated 90° clockwise</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * Rotating 90 degrees clockwise can be achieved by two simple operations:
+ * 1. Transpose the matrix (swap rows and columns)
+ * 2. Reverse each row
+ *
+ * This avoids using extra space for a new matrix.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Transpose**: Convert matrix[i][j] to matrix[j][i] for all i, j
+ * 2. **Reverse rows**: Reverse each row to complete the 90-degree rotation
+ * 3. **In-place**: Both operations modify the matrix directly
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - Transpose flips the matrix along diagonal
+ * - Reversing rows completes the 90-degree clockwise rotation
+ * - Two simple operations replace complex rotation logic
+ * - No additional space needed
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: [[1,2,3],
+ *         [4,5,6],
+ *         [7,8,9]]
+ *
+ * Step 1 (Transpose): [[1,4,7],
+ *                       [2,5,8],
+ *                       [3,6,9]]
+ *
+ * Step 2 (Reverse rows): [[7,4,1],
+ *                         [8,5,2],
+ *                         [9,6,3]]
+ *
+ * Output: [[7,4,1],
+ *          [8,5,2],
+ *          [9,6,3]]
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n^2) where n is matrix dimension
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(1) in-place modification
  *
  * ### EDGE CASES:
- * - **Pointers meet:** Handle when left == right
- * - **Empty input:** Check for null or empty arrays
- * - **Single element:** One pointer scenario
- * - **All duplicates:** Pointer movement with same values
- * - **Boundary crossing:** Prevent left > right
+ * - 1x1 matrix (no change needed)
+ * - 2x2 matrix (minimal case)
+ * - Empty matrix (not per problem constraints)
  *
  * </details>
  */

@@ -1,51 +1,69 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * # 378. Kth Smallest Element In A Sorted Matrix
+ *
+ * Given an n x n matrix where each of the rows and columns is sorted in ascending order, return the kth smallest element in the matrix.
+ *
+ * Note that it is the kth smallest element in the sorted order, not the kth distinct element.
+ *
+ * You must find a solution with a memory complexity better than O(n²).
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>[[1, 5, 9]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>1</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>The 8th smallest element in sorted matrix [[1,5,9],[10,11,13],[12,13,15]] is 13</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * This problem involves finding the kth smallest element in a matrix where both rows and columns are sorted. We have multiple approaches: heap-based, binary search, and merge-like. The heap approach treats each row as a sorted list and uses a min-heap to efficiently find the kth smallest element.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Initialize min-heap**: Create a heap with the first element (matrix[0][0]) and a visited set to track processed cells
+ * 2. **Extract minimum k times**: Pop the smallest element from heap k times to reach the kth smallest
+ * 3. **Add neighbors to heap**: For each popped element at position (row, col), add its right neighbor (row, col+1) if not visited
+ * 4. **Add bottom neighbor**: Also add the bottom neighbor (row+1, col) if not visited and within bounds
+ * 5. **Track visited cells**: Use a visited set to ensure each cell is added to heap only once, preventing duplicates
+ * 6. **Return kth element**: After k iterations, the last popped value is the kth smallest element
+ * 7. **Alternative binary search**: Search for answer in range [min, max], count elements ≤ mid using sorted property
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * A set by definition contains only unique elements - when we convert an array to a set, any duplicates are automatically removed. By comparing the lengths of the original array and the set, we can detect if duplicates existed. The early termination approach works because as soon as we find an element already in our seen set, we've proven a duplicate exists without needing to check the remaining elements.
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Matrix: [[1,5,9],[10,11,13],[12,13,15]], k=8
+ * Step 1: heap = [(1,0,0)] (value, row, col)
+ * Step 2: pop 1, add 5 and 10 -> heap = [(5,0,1), (10,1,0)]
+ * Step 3: pop 5, add 9 -> heap = [(9,0,2), (10,1,0)]
+ * Step 4: pop 9 -> heap = [(10,1,0)]
+ * Step 5: pop 10, add 11 and 12 -> heap = [(11,1,1), (12,2,0)]
+ * Step 6: pop 11, add 13 -> heap = [(12,2,0), (13,1,2)]
+ * Step 7: pop 12, add 13 -> heap = [(13,1,2), (13,2,1)]
+ * Step 8: pop 13 (8th smallest) -> return 13
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(k log n)
+ * Where n is matrix dimension and k is the target position
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
+ * For the heap storing at most n elements (one from each row)
  *
  * ### EDGE CASES:
- * - **Target not in array:** Return -1 or appropriate value
- * - **Single element:** Handle when left equals right
- * - **Empty input:** Return default value
- * - **Boundary conditions:** Check first and last positions
- * - **Integer overflow:** Use mid = left + (right - left) / 2
+ * - Single element matrix
+ * - k = 1 (smallest element)
+ * - k = n² (largest element)
+ * - Matrix with duplicate values
  *
  * </details>
  */

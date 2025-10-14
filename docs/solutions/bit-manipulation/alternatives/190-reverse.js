@@ -1,51 +1,71 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Easy
  *
- * [Problem description goes here]
+ * # 190. Reverse Bits
+ *
+ * Reverse bits of a given 32 bits unsigned integer.
+ *
+ * Note:
+ * - Note that in some languages, such as Java, there is no unsigned integer type. In this case, both input and output will be given as a signed integer type. They should not affect your implementation, as the integer's internal binary representation is the same, whether it is signed or unsigned.
+ * - In Java, the compiler represents the signed integers using 2's complement notation. Therefore, in Example 2 above, the input represents the signed integer -3 and the output represents the signed integer -1073741825.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>n = 00000010100101000001111010011100 (43261596)</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>964176192 (00111001011110000010100101000000)</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>Bits of 00000010100101000001111010011100 are reversed to 00111001011110000010100101000000</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * [This problem requires understanding of bit manipulation concepts. The key insight is to identify the optimal approach for this specific scenario.]
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Analyze the problem**: Understand the input constraints and expected output
+ * 2. **Choose the right technique**: Apply bit manipulation methodology
+ * 3. **Implement efficiently**: Focus on optimal time and space complexity
+ * 4. **Handle edge cases**: Consider boundary conditions and special cases
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - The solution leverages bit manipulation principles
+ * - Time complexity is optimized for the given constraints
+ * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: n = 00000010100101000001111010011100 (43261596)
+ * Step 1: Reverse bits one by one
+ *   result = 0, iterate 32 times:
+ *   Bit 0: n & 1 = 0, result = 0
+ *   Bit 1: n & 1 = 0, result = 0
+ *   ...
+ *   Bit 31: n & 1 = 0, result = 964176192
+ *
+ * Step 2: Detailed process for first few bits
+ *   n = 43261596, result = 0
+ *   - Extract bit 0 (0), shift result left, add bit
+ *   - Extract bit 1 (0), shift result left, add bit
+ *   - Continue for all 32 bits
+ *
+ * Output: 964176192 (00111001011110000010100101000000)
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(1)
  *
  * ### EDGE CASES:
- * - **Pointers meet:** Handle when left == right
- * - **Empty input:** Check for null or empty arrays
- * - **Single element:** One pointer scenario
- * - **All duplicates:** Pointer movement with same values
- * - **Boundary crossing:** Prevent left > right
+ * - Empty input handling
+ * - Single element cases
+ * - Large input considerations
  *
  * </details>
  */

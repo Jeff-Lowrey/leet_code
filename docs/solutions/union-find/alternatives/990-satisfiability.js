@@ -1,51 +1,68 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * # 990. Satisfiability of Equality Equations
+ *
+ * You are given an array of strings equations that represent relationships between variables where each string equations[i] is of length 4 and takes one of two different forms: "xi==xj" or "xi!=xj".
+ *
+ * Here, xi and xj are lowercase letters (not necessarily different) that represent one-letter variable names.
+ *
+ * Return true if it is possible to assign integers to variable names so as to satisfy all the given equations, or false otherwise.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>["a==b", "b==c", "a!=d"]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>"Equations {equations} satisfiable: {solution.equationsPossible(equations)}"</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>Equations are satisfiable: a==b, b==c implies a==c</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * This is a classic Union-Find problem. We need to check if equality and inequality constraints can be satisfied simultaneously. The key insight is to first process all equality constraints to group variables, then check if inequality constraints violate these groups.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Process equalities**: Use Union-Find to group variables that must be equal
+ * 2. **Check inequalities**: For each "!=" constraint, verify variables are in different groups
+ * 3. **Return result**: True if no conflicts found, False otherwise
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - Union-Find efficiently manages equivalence classes
+ * - Equality constraints create connected components
+ * - Inequality constraints must not connect variables in same component
+ * - Two-pass approach separates grouping from validation
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: ["a==b","b!=a"]
+ * Step 1: Process equalities - Union('a', 'b')
+ * Step 2: Check inequalities - "b!=a" but a and b are in same group
+ * Output: False (contradiction)
+ *
+ * Input: ["a==b","b==c","a!=d"]
+ * Step 1: Process equalities - Union('a','b'), Union('b','c') → {a,b,c} group
+ * Step 2: Check inequalities - "a!=d" and d is separate → no conflict
+ * Output: True
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(N × α(N))
+ * Where N is number of equations and α is inverse Ackermann function
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(1)
+ * Since we only have 26 possible variables (a-z)
  *
  * ### EDGE CASES:
- * - **Empty string:** Handle s.length == 0
- * - **Single character:** Minimal string input
- * - **All same characters:** Check duplicate handling
- * - **Special characters:** Handle non-alphanumeric
- * - **Case sensitivity:** Consider uppercase vs lowercase
+ * - No equations (vacuously true)
+ * - Only equality equations
+ * - Only inequality equations
+ * - Self-reference equations like "a==a" or "a!=a"
  *
  * </details>
  */

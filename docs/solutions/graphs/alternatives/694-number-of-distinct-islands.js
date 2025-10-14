@@ -1,51 +1,75 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * # 694. Number Of Distinct Islands
+ *
+ * You are given an m x n binary matrix grid. An island is a group of 1's (representing land) connected 4-directionally (horizontal or vertical.) You may assume all four edges of the grid are surrounded by water.
+ *
+ * An island is considered to be the same as another if and only if one island can be translated (and not rotated or reflected) to equal the other.
+ *
+ * Return the number of distinct islands.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>[[1,1,0,0,0]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>1</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>Number of distinct islands is 3</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * This problem extends "Number of Islands" by requiring us to identify distinct island shapes. Two islands are the same if one can be translated to match the other (same relative positions). We need to normalize each island's shape to a canonical form for comparison.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Find each island**: Use DFS/BFS to explore islands
+ * 2. **Record relative positions**: For each island, record all cell positions relative to starting point
+ * 3. **Normalize shape**: Convert to canonical form (e.g., relative to top-left corner)
+ * 4. **Use set for uniqueness**: Store normalized shapes in set to count distinct shapes
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - Relative positioning captures island shape independent of location
+ * - Normalization ensures identical shapes have identical representations
+ * - Set automatically handles duplicates
+ * - Translation invariance achieved by using relative coordinates
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Grid: [[1,1,0,0,0],
+ *        [1,1,0,0,0],
+ *        [0,0,0,1,1],
+ *        [0,0,0,1,1]]
+ *
+ * Island 1: cells (0,0), (0,1), (1,0), (1,1)
+ * Relative to (0,0): (0,0), (0,1), (1,0), (1,1)
+ * Normalized: [(0,0), (0,1), (1,0), (1,1)]
+ *
+ * Island 2: cells (2,3), (2,4), (3,3), (3,4)
+ * Relative to (2,3): (0,0), (0,1), (1,0), (1,1)
+ * Normalized: [(0,0), (0,1), (1,0), (1,1)]
+ *
+ * Same normalized form → 1 distinct island
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(M × N)
+ * We visit each cell once during DFS/BFS
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(M × N)
+ * For storing island shapes and recursion stack
  *
  * ### EDGE CASES:
- * - **Pointers meet:** Handle when left == right
- * - **Empty input:** Check for null or empty arrays
- * - **Single element:** One pointer scenario
- * - **All duplicates:** Pointer movement with same values
- * - **Boundary crossing:** Prevent left > right
+ * - **All water**: Return 0 (no islands)
+ * - **All same shaped islands**: Return 1 (one distinct shape)
+ * - **Every island unique**: Return number of islands
+ * - **Rotations considered same**: Normalize shape representation
+ * - **Single island**: Return 1
  *
  * </details>
  */

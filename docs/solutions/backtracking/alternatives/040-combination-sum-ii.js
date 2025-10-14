@@ -1,51 +1,74 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * # 040. Combination Sum Ii
+ *
+ * Given a collection of candidate numbers (candidates) and a target number (target), find all unique combinations in candidates where the candidate numbers sum to target.
+ *
+ * Each number in candidates may only be used once in the combination.
+ *
+ * Note: The solution set must not contain duplicate combinations.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>[[1,1,6]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>"Expected {expected}, got {result}"</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>All unique combinations summing to 8 from [10,1,2,7,6,1,5] are [[1,1,6],[1,2,5],[1,7],[2,6]]</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * [This problem requires understanding of backtracking concepts. The key insight is to identify the optimal approach for this specific scenario.]
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Analyze the problem**: Understand the input constraints and expected output
+ * 2. **Choose the right technique**: Apply backtracking methodology
+ * 3. **Implement efficiently**: Focus on optimal time and space complexity
+ * 4. **Handle edge cases**: Consider boundary conditions and special cases
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - The solution leverages backtracking principles
+ * - Time complexity is optimized for the given constraints
+ * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: candidates = [10,1,2,7,6,1,5], target = 8
+ * Step 1: Sort candidates → [1,1,2,5,6,7,10]
+ *
+ * Step 2: Backtrack to find combinations
+ *   Try 1: curr = [1], remain = 7
+ *     Try 1: curr = [1,1], remain = 6
+ *       Try 2: curr = [1,1,2], remain = 4 → continue
+ *       Try 5: curr = [1,1,5], remain = 1 → continue
+ *       Try 6: curr = [1,1,6], remain = 0 → add [1,1,6]
+ *     Skip duplicate 1 at position 2
+ *     Try 2: curr = [1,2], remain = 5
+ *       Try 5: curr = [1,2,5], remain = 0 → add [1,2,5]
+ *     Try 7: curr = [1,7], remain = 0 → add [1,7]
+ *   Skip duplicate 1 at position 1
+ *   Try 2: curr = [2], remain = 6
+ *     Try 6: curr = [2,6], remain = 0 → add [2,6]
+ *
+ * Output: [[1,1,6],[1,2,5],[1,7],[2,6]]
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(1)
  *
  * ### EDGE CASES:
- * - **Empty string:** Handle s.length == 0
- * - **Single character:** Minimal string input
- * - **All same characters:** Check duplicate handling
- * - **Special characters:** Handle non-alphanumeric
- * - **Case sensitivity:** Consider uppercase vs lowercase
+ * - Empty input handling
+ * - Single element cases
+ * - Large input considerations
  *
  * </details>
  */

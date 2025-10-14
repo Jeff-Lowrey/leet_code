@@ -1,51 +1,78 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * According to Wikipedia's article: "The Game of Life, also known simply as Life,
+ * is a cellular automaton devised by the British mathematician John Horton Conway in 1970."
+ *
+ * The board is made up of an m x `n` `grid` of cells, where each cell has an initial
+ * state: live (represented by a 1) or dead (represented by a 0). Each cell interacts
+ * with its eight neighbors (horizontal, vertical, diagonal) using the following four rules:
+ *
+ *
+ *
+ *
+ *
+ *
+ * The next state is created by applying the above rules simultaneously to every cell
+ * in the current state, where births and deaths occur simultaneously.
+ *
+ * Example:
+ * Input: `board` = [[0,1,0],[0,0,1],[1,1,1],[0,0,0]]
+ * Output: [[0,0,0],[1,0,1],[0,1,1],[0,1,0]]
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>board` = [[0,1,0],[0,0,1],[1,1,1],[0,0,0]]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>[[0,0,0],[1,0,1],[0,1,1],[0,1,0]]</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>After one step of Game of Life, the board state updates based on neighbor counts</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * The challenge is applying rules simultaneously to all cells. Use state encoding to track both current and next states in-place, avoiding extra space while ensuring all decisions are based on the original state.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **State Encoding**: Use 4 states instead of 2
+ *    - 0: dead → dead
+ *    - 1: live → live
+ *    - 2: live → dead (dying)
+ *    - 3: dead → live (born)
+ * 2. **Two Passes**: First pass marks transitions, second pass finalizes states
+ * 3. **Neighbor Counting**: Count neighbors considering only original states (0,1 and 2 were originally live)
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * The encoding preserves original state information while tracking transitions. During neighbor counting, we can distinguish original live cells (1 or 2) from original dead cells (0 or 3), ensuring correct rule application.
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Initial: [0,1,0]    →    [0,0,0]
+ *          [0,0,1]    →    [1,0,1]
+ *          [1,1,1]    →    [0,1,1]
+ *          [0,0,0]    →    [0,1,0]
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
+ *
+ * Live cell (1,2) has 3 neighbors → survives
+ * Dead cell (1,0) has 3 neighbors → becomes alive
+ * Dead cell (0,1) has 2 neighbors → stays dead
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(m × n)
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(1)
  *
  * ### EDGE CASES:
- * - **Empty string:** Handle s.length == 0
- * - **Single character:** Minimal string input
- * - **All same characters:** Check duplicate handling
- * - **Special characters:** Handle non-alphanumeric
- * - **Case sensitivity:** Consider uppercase vs lowercase
+ * - **All dead cells**: Remain dead if no neighbors
+ * - **All live cells**: Most die from overcrowding
+ * - **Single live cell**: Dies (insufficient neighbors)
+ * - **Stable patterns**: Some configurations don't change
+ * - **In-place update**: Use encoding to track current and next state
  *
  * </details>
  */

@@ -1,51 +1,87 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * Determine if a 9 x 9 Sudoku board is valid. Only the filled cells need to be validated
+ * according to the following rules:
+ *
+ *
+ *
+ *
+ *
+ * Note:
+ * - A Sudoku board (partially filled) could be valid but is not necessarily solvable.
+ * - Only the filled cells need to be validated according to the mentioned rules.
+ *
+ * Example:
+ * Input: board =
+ * [["5","3",".",".","7",".",".",".","."]
+ * ,["6",".",".","1","9","5",".",".","."]
+ * ,[".","9","8",".",".",".",".","6","."]
+ * ,["8",".",".",".","6",".",".",".","3"]
+ * ,["4",".",".","8",".","3",".",".","1"]
+ * ,["7",".",".",".","2",".",".",".","6"]
+ * ,[".","6",".",".",".",".","2","8","."]
+ * ,[".",".",".","4","1","9",".",".","5"]
+ * ,[".",".",".",".","8",".",".","7","9"]]
+ * Output: true
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>[["5", "3", ".", ".", "7", ".", ".", ".", "."]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>1</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>The 9×9 Sudoku board is valid because each row, column, and 3×3 sub-box contains no duplicate digits 1-9</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * Use hash sets to track seen digits for each row, column, and 3x3 box.
+ * Make a single pass through the board, checking for duplicates in the appropriate sets.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Data Structures**: Use sets for each row, column, and box
+ * 2. **Single Pass**: Iterate through each cell once
+ * 3. **Box Index**: Calculate box index as (row // 3) * 3 + (col // 3)
+ * 4. **Check**: For each digit, verify it hasn't been seen in its row, column, or box
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * Sets provide O(1) lookup, allowing us to efficiently check for duplicates.
+ * The box index formula maps each cell to one of 9 boxes (0-8).
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * For cell (0, 0) = "5":
+ * - Row 0 set: add "5"
+ * - Col 0 set: add "5"
+ * - Box 0 set: add "5"
+ *
+ * For cell (0, 1) = "3":
+ * - Row 0 set: add "3" (5 already present)
+ * - Col 1 set: add "3"
+ * - Box 0 set: add "3" (5 already present)
+ *
+ * If we encounter "5" again in row 0, col 0, or box 0 → return False
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(1)
+ * - Board is fixed size 9x9 = 81 cells
+ * - Each cell processed once
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(1)
+ * - At most 9 sets with 9 elements each
+ * - Fixed space regardless of input
  *
  * ### EDGE CASES:
- * - **Empty string:** Handle s.length == 0
- * - **Single character:** Minimal string input
- * - **All same characters:** Check duplicate handling
- * - **Special characters:** Handle non-alphanumeric
- * - **Case sensitivity:** Consider uppercase vs lowercase
+ * - Empty cells (".") should be ignored
+ * - All cells filled validly
+ * - Single invalid cell makes entire board invalid
  *
  * </details>
  */

@@ -1,51 +1,70 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: 
  *
- * [Problem description goes here]
+ * # 079. Word Search
+ * **Backtracking + DFS**
+ *
+ * Given an m x n grid of characters and a string word, return true if word exists in the grid.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>[["A", "B", "C", "E"]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>1</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>Word 'OATH' exists in the board by searching paths</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * Use DFS with backtracking to search for the word starting from each cell. Mark visited
+ * cells temporarily to avoid reusing them in the current path, then unmark for other paths.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Try each cell**: Start DFS from each cell matching first letter
+ * 2. **DFS search**: Recursively search adjacent cells for next letter
+ * 3. **Mark visited**: Temporarily mark cells to prevent revisiting
+ * 4. **Backtrack**: Unmark cells when backtracking to try other paths
+ * 5. **Check boundaries**: Validate cell coordinates and character match
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - DFS explores all possible paths from each starting position
+ * - Backtracking allows trying different paths
+ * - Visited marking prevents cycles in current path
+ * - Early termination when word found
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Board: [['A','B','C','E'],
+ *         ['S','F','C','S'],
+ *         ['A','D','E','E']]
+ * Word: "ABCCED"
+ *
+ * Step 1: Start at (0,0) 'A' - matches
+ * Step 2: Try (0,1) 'B' - matches
+ * Step 3: Try (0,2) 'C' - matches
+ * Step 4: Try (1,2) 'C' - matches
+ * Step 5: Try (2,2) 'E' - matches
+ * Step 6: Try (2,3) 'D' - backtrack, try (1,3)
+ * ...
+ * Found: True
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(m * n * 4^L) where L is word length
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(L) for recursion stack
  *
  * ### EDGE CASES:
- * - **Empty string:** Handle s.length == 0
- * - **Single character:** Minimal string input
- * - **All same characters:** Check duplicate handling
- * - **Special characters:** Handle non-alphanumeric
- * - **Case sensitivity:** Consider uppercase vs lowercase
+ * - Word longer than board cells
+ * - Single character word
+ * - Word not in board
+ * - Entire board is the word
  *
  * </details>
  */

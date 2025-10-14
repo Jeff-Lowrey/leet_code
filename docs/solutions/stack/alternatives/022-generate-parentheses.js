@@ -1,51 +1,68 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * # 22. Generate Parentheses
+ *
+ * Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>["()"]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>1</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>All combinations of n=3 parentheses: ['((()))','(()())','(())()','()(())','()()()']</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * Use backtracking to build valid parentheses strings. At each step, we can add '(' if we haven't used all n opening brackets, or ')' if it won't make the string invalid (closing count < opening count).
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Backtracking**: Build string character by character
+ * 2. **Valid Rules**:
+ *    - Can add '(' if open_count < n
+ *    - Can add ')' if close_count < open_count
+ * 3. **Base Case**: When string length = 2n, add to result
+ * 4. **Recursive Exploration**: Try adding '(' and ')' at each step
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - Opening bracket can be added anytime until we reach n
+ * - Closing bracket can only be added if it doesn't exceed opening count
+ * - These rules guarantee valid parentheses strings
+ * - Backtracking explores all valid combinations
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * n = 3:
+ *
+ * Start: ""
+ * ├─ "(" → "(("  → "(((" → "((())" → "((()))"
+ * │                      → "(()"   → "(()())"
+ * │                                → "(())()"
+ * │      → "("   → "()"   → "()((" → "()(())"
+ * │                       → "()("  → "()()()"
+ *
+ * Result: ["((()))", "(()())", "(())()", "()(())", "()()()"]
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(4^n / √n)
+ * Catalan number: C(n) = (2n)! / ((n+1)! * n!)
+ * Approximately O(4^n / √n) valid combinations
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
+ * Recursion stack depth is 2n (building string of length 2n)
  *
  * ### EDGE CASES:
- * - **Empty stack:** Handle operations on empty stack
- * - **Single element:** Push/pop with one item
- * - **Balanced pairs:** Match opening/closing elements
- * - **Nested structures:** Handle deeply nested cases
- * - **Underflow:** Prevent popping from empty stack
+ * - n = 0: return [""]
+ * - n = 1: return ["()"]
+ * - n = 2: return ["(())", "()()"]
  *
  * </details>
  */

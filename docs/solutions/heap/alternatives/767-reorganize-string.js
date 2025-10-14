@@ -1,51 +1,67 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * # 767. Reorganize String
+ *
+ * Given a string s, rearrange the characters of s so that any two adjacent characters are not the same.
+ *
+ * Return any possible rearrangement of s or return "" if not possible.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>"aab"</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>"aba" (reorganized string)</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>Reorganized string 'aab' becomes 'aba' (no two adjacent same)</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * [This problem requires understanding of heap concepts. The key insight is to identify the optimal approach for this specific scenario.]
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Analyze the problem**: Understand the input constraints and expected output
+ * 2. **Choose the right technique**: Apply heap methodology
+ * 3. **Implement efficiently**: Focus on optimal time and space complexity
+ * 4. **Handle edge cases**: Consider boundary conditions and special cases
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - The solution leverages heap principles
+ * - Time complexity is optimized for the given constraints
+ * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: s = "aab"
+ * Step 1: Count character frequencies
+ *   freq = {'a': 2, 'b': 1}
+ *
+ * Step 2: Build max heap (using negative frequencies)
+ *   heap = [(-2, 'a'), (-1, 'b')]
+ *
+ * Step 3: Rearrange characters
+ *   Pick 'a': result = "a", heap = [(-1, 'b'), (-1, 'a')]
+ *   Pick 'b': result = "ab", heap = [(-1, 'a')]
+ *   Pick 'a': result = "aba"
+ *
+ * Output: "aba" (reorganized string)
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(1)
  *
  * ### EDGE CASES:
- * - **Pointers meet:** Handle when left == right
- * - **Empty input:** Check for null or empty arrays
- * - **Single element:** One pointer scenario
- * - **All duplicates:** Pointer movement with same values
- * - **Boundary crossing:** Prevent left > right
+ * - Empty input handling
+ * - Single element cases
+ * - Large input considerations
  *
  * </details>
  */

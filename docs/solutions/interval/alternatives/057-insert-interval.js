@@ -1,51 +1,67 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * You are given an array of `non-overlapping` intervals where intervals[i] = [starti, endi]
+ * represent the start and the end of the ith interval and intervals is sorted in
+ * ascending order by starti. You are also given an interval newInterval = [`start`, end].
+ *
+ * Insert newInterval into intervals such that intervals is still sorted and `non-overlapping`.
+ *
+ * Example:
+ * Input: intervals = [[1,3],[6,9]], newInterval = [2,5]
+ * Output: [[1,5],[6,9]]
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>intervals = [[1,3],[6,9]], newInterval = [2,5]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>[[1,5],[6,9]]</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>Insert [2,5] into [[1,2],[3,5],[6,7],[8,10]] results in [[1,5],[6,7],[8,10]]</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * Since intervals are sorted and `non-overlapping`, we can process them in three phases:
+ * 1. Add intervals that come before newInterval
+ * 2. Merge overlapping intervals with newInterval
+ * 3. Add intervals that come after newInterval
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Before Phase**: Add all intervals that `end` before newInterval starts
+ * 2. **Merge Phase**: Merge all overlapping intervals with newInterval
+ * 3. **After Phase**: Add all remaining intervals
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * The algorithm correctly solves the problem by systematically exploring all valid states while maintaining necessary invariants. Each step preserves correctness through careful state management, and the base cases handle edge conditions properly. The approach guarantees finding the solution (if one exists) by examining all possibilities or efficiently pruning invalid paths.
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * intervals = [[1,3],[6,9]], newInterval = [2,5]
+ *
+ * Phase 1: [1,3] overlaps with [2,5] (`3 >= 2`)
+ * Phase 2: Merge [1,3] and [2,5] → [1,5]
+ * Phase 3: [6,9] doesn't overlap (`6 > 5`) → add `as-is`
+ *
+ * Result: [[1,5],[6,9]]
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n) for result array
  *
  * ### EDGE CASES:
- * - **Empty string:** Handle s.length == 0
- * - **Single character:** Minimal string input
- * - **All same characters:** Check duplicate handling
- * - **Special characters:** Handle non-alphanumeric
- * - **Case sensitivity:** Consider uppercase vs lowercase
+ * - **Empty intervals list**: Return [newInterval]
+ * - **No overlap**: Insert in correct sorted position
+ * - **Complete overlap**: Merge all overlapping intervals
+ * - **New interval at start**: Add before all existing
+ * - **New interval at end**: Add after all existing
  *
  * </details>
  */

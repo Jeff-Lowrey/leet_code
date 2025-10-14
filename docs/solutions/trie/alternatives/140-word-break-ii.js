@@ -1,51 +1,82 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Hard
  *
- * [Problem description goes here]
+ * # 140. Word Break II
+ *
+ * Given a string s and a dictionary of strings wordDict, add spaces in s to construct a sentence where each word is a valid dictionary word. Return all such possible sentences in any order.
+ *
+ * Note that the same word in the dictionary may be reused multiple times in the segmentation.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>["cat", "cats", "and", "sand", "dog"]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>1</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>Word break II splits 'catsanddog' into ['cats and dog', 'cat sand dog']</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * This problem requires finding all possible ways to break a string into valid words. Using a Trie helps efficiently check if a prefix exists in the dictionary, and backtracking explores all possible segmentations. Memoization prevents redundant computation for the same substring.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Build Trie**: Insert all dictionary words into a trie for efficient prefix checking
+ * 2. **Backtracking**: Try to match prefixes at each position
+ * 3. **Memoization**: Cache results for each starting position to avoid recomputation
+ * 4. **Collect sentences**: Build valid sentences by combining matched words
+ *
+ * Alternative: Use recursion with memoization without Trie (checking against word set)
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - Trie enables efficient prefix matching as we scan through the string
+ * - Backtracking explores all possible word boundaries
+ * - Memoization prevents exponential time by caching substring results
+ * - When we find a word end in trie, we recursively solve for remaining string
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * s = "catsanddog", wordDict = ["cat","cats","and","sand","dog"]
+ *
+ * Build Trie with: cat, cats, and, sand, dog
+ *
+ * At position 0 "catsanddog":
+ *   Match "cat" -> recurse on "sanddog"
+ *     Match "sand" -> recurse on "dog"
+ *       Match "dog" -> return ["dog"]
+ *     Return ["sand dog"]
+ *   Return ["cat sand dog"]
+ *
+ *   Match "cats" -> recurse on "anddog"
+ *     Match "and" -> recurse on "dog"
+ *       Match "dog" -> return ["dog"]
+ *     Return ["and dog"]
+ *   Return ["cats and dog"]
+ *
+ * Final: ["cat sand dog", "cats and dog"]
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(N^3 + M*L)
+ * Where N is string length, M is number of words, L is average word length
+ * - Trie building: O(M*L)
+ * - Backtracking with memoization: O(N^3) in worst case
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(M*L + N^2)
+ * - Trie storage: O(M*L)
+ * - Memoization cache: O(N^2) for storing results
  *
  * ### EDGE CASES:
- * - **Empty string:** Handle s.length == 0
- * - **Single character:** Minimal string input
- * - **All same characters:** Check duplicate handling
- * - **Special characters:** Handle non-alphanumeric
- * - **Case sensitivity:** Consider uppercase vs lowercase
+ * - No valid segmentation exists
+ * - Multiple segmentations possible
+ * - String is a single word
+ * - Empty string
+ * - Words can be reused
  *
  * </details>
  */

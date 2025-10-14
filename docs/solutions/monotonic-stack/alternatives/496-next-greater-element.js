@@ -1,51 +1,69 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Easy
  *
- * [Problem description goes here]
+ * The next greater element of some element x in an array is the first greater
+ * element that is to the right of x in the same array.
+ *
+ * You are given two distinct `0-indexed` integer arrays nums1 and nums2, where nums1
+ * is a subset of nums2.
+ *
+ * For each `0 <= i` < nums1.length, find the index `j` such that nums1[i] == nums2[j]
+ * and determine the next greater element of nums2[j] in nums2.
+ *
+ * Return an array ans of length nums1.length such that ans[i] is the next greater
+ * element as described above.
+ *
+ * Example:
+ * Input: nums1 = [4,1,2], nums2 = [1,3,4,2]
+ * Output: [-1,3,-1]
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>nums1 = [4,1,2], nums2 = [1,3,4,2]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>[-1,3,-1]</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>For each element in nums1, find its next greater element in nums2: [4->-1, 1->3, 2->3]</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * Use a monotonic decreasing stack to efficiently find the next greater element for each number in nums2. The stack maintains elements in decreasing order, so when we find a larger element, we can pop and match all smaller elements with their next greater element.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. Traverse nums2 with a stack
+ * 2. For each element, pop all smaller elements from stack and map them to current element
+ * 3. Push current element to stack
+ * 4. Build result array by looking up each nums1 element in the mapping
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * The monotonic stack ensures we process elements in the correct order. When we encounter a larger element, all smaller elements in the stack have found their next greater element. Elements remaining in the stack have no next greater element.
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * [example input]
- * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
+ * nums2 = [1,3,4,2], nums1 = [4,1,2]
+ * - Process 1: stack=[1]
+ * - Process 3: 3>1, map[1]=3, stack=[3]
+ * - Process 4: 4>3, map[3]=4, stack=[4]
+ * - Process 2: 2<4, stack=[4,2]
+ * - Final mapping: {1:3, 3:4, 4:-1, 2:-1}
+ * - Result for [4,1,2]: [-1,3,-1]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n + m)
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
  *
  * ### EDGE CASES:
- * - **Empty array:** Handle nums.length == 0
- * - **Single element:** Special case for minimal input
- * - **All same values:** Check for duplicate handling
- * - **Negative numbers:** Ensure algorithm works with negatives
- * - **Large arrays:** Consider O(n) vs O(n²) performance
+ * - **No greater element exists**: Return -1 for that element
+ * - **Element not in nums2**: Should not occur (problem guarantees subset)
+ * - **Increasing sequence**: Next greater is immediate right neighbor
+ * - **Decreasing sequence**: No next greater for any element
+ * - **Single element**: Return -1 (no next element)
  *
  * </details>
  */

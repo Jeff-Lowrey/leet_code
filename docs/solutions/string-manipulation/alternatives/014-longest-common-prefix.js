@@ -1,51 +1,60 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Easy
  *
- * [Problem description goes here]
+ * Write a function to find the longest common prefix string amongst an array of strings.
+ * If there is no common prefix, return an empty string "".
+ *
+ * Example:
+ * Input: strs = ["flower","flow","flight"]
+ * Output: "fl"
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>strs = ["flower","flow","flight"]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>fl"</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>Longest common prefix of ['flower','flow','flight'] is 'fl'</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * The longest common prefix is the sequence of characters that all strings share from the beginning. We can find this by comparing characters at each position across all strings until we find a mismatch.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Vertical Scanning**: Compare characters at the same position across all strings
+ * 2. Start from position 0 and check if all strings have the same character at that position
+ * 3. Continue until we find a mismatch or reach the end of any string
+ * 4. Return the prefix found so far
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * Since we're looking for a common prefix, all strings must have identical characters at each position from the start. The moment any string differs or ends, we've found the longest possible common prefix.
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * [example input]
- * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
+ * For strs = ["flower","flow","flight"]:
+ * 1. Position 0: 'f', 'f', 'f' → all match
+ * 2. Position 1: 'l', 'l', 'l' → all match
+ * 3. Position 2: 'o', 'o', 'i' → mismatch found
+ * 4. Return "fl"
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(S)
+ * - S is the sum of all characters in all strings
+ * - In worst case, we examine every character once
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(1)
+ * - Only using constant extra space for variables
  *
  * ### EDGE CASES:
- * - **Empty string:** Handle s.length == 0
- * - **Single character:** Minimal string input
- * - **All same characters:** Check duplicate handling
- * - **Special characters:** Handle non-alphanumeric
- * - **Case sensitivity:** Consider uppercase vs lowercase
+ * - Empty array: return ""
+ * - Empty string in array: return ""
+ * - Single string: return the string itself
+ * - No common prefix: return ""
  *
  * </details>
  */

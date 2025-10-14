@@ -1,51 +1,71 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Easy
  *
- * [Problem description goes here]
+ * # 303. Range Sum Query - Immutable
+ *
+ * Given an integer array nums, handle multiple queries of the following type:
+ *
+ * Calculate the sum of the elements of nums between indices left and right inclusive where left <= right.
+ *
+ * Implement the NumArray class:
+ *
+ * - NumArray(int[] nums) Initializes the object with the integer array nums.
+ * - int sumRange(int left, int right) Returns the sum of the elements of nums between indices left and right inclusive (i.e., nums[left] + nums[left + 1] + ... + nums[right]).
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>["NumArray", "sumRange", "sumRange", "sumRange"]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>"Expected {expected}, got {result}"</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>The sum of elements between indices 2 and 5 is calculated as prefix[5+1] - prefix[2] = 1</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * [This problem requires understanding of prefix sum concepts. The key insight is to identify the optimal approach for this specific scenario.]
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Analyze the problem**: Understand the input constraints and expected output
+ * 2. **Choose the right technique**: Apply prefix sum methodology
+ * 3. **Implement efficiently**: Focus on optimal time and space complexity
+ * 4. **Handle edge cases**: Consider boundary conditions and special cases
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - The solution leverages prefix sum principles
+ * - Time complexity is optimized for the given constraints
+ * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: ["NumArray","sumRange","sumRange","sumRange"], [[[-2,0,3,-5,2,-1]],[0,2],[2,5],[0,5]]
+ *
+ * Step 1: Build prefix sum array
+ *   nums = [-2,0,3,-5,2,-1]
+ *   prefix = [0,-2,-2,1,-4,-2,-3]
+ *
+ * Step 2: Query using prefix
+ *   sumRange(0,2) = prefix[3] - prefix[0] = 1 - 0 = 1
+ *   sumRange(2,5) = prefix[6] - prefix[2] = -3 - (-2) = -1
+ *   sumRange(0,5) = prefix[6] - prefix[0] = -3 - 0 = -3
+ *
+ * Output: [null,1,-1,-3]
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(1)
  *
  * ### EDGE CASES:
- * - **Empty array:** Handle nums.length == 0
- * - **Single element:** Special case for minimal input
- * - **All same values:** Check for duplicate handling
- * - **Negative numbers:** Ensure algorithm works with negatives
- * - **Large arrays:** Consider O(n) vs O(n²) performance
+ * - Empty input handling
+ * - Single element cases
+ * - Large input considerations
  *
  * </details>
  */

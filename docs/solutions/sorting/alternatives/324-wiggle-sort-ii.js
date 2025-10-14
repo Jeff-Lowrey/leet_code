@@ -1,51 +1,85 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * # 324. Wiggle Sort II
+ *
+ * Given an integer array nums, reorder it such that nums[0] < nums[1] > nums[2] < nums[3]...
+ *
+ * You may assume the input array always has a valid answer.
+ *
+ * Follow up: Can you do it in O(n) time and/or in-place with O(1) extra space?
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>[1, 5, 1, 1, 6, 4]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>"Test 1 result: {nums1}"</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>Wiggle sort II: nums[0] < nums[1] > nums[2] < nums[3]...</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * Unlike Wiggle Sort I which allows equality, this requires strict inequality (<, >, <, >).
+ * We need to interleave smaller and larger halves to avoid adjacent equal elements.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Find median**: Partition array around median value
+ * 2. **Interleave halves**: Place smaller elements at even indices, larger at odd
+ * 3. **Reverse order**: Place larger elements in reverse to avoid adjacency
+ * 4. **Virtual indexing**: Map indices to avoid using extra space
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - After sorting, split into two halves around median
+ * - Interleaving ensures no same-valued elements are adjacent
+ * - Reverse order within halves maximizes separation
+ * - Example: [1,2,3,4,5,6] → [1,4,2,5,3,6] → rearrange → [3,6,2,5,1,4]
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: nums = [1,5,1,1,6,4]
+ *
+ * Step 1: Sort
+ * [1,1,1,4,5,6]
+ *
+ * Step 2: Split around median (median ≈ 2.5, so split at index 3)
+ * Small half: [1,1,1]
+ * Large half: [4,5,6]
+ *
+ * Step 3: Interleave in reverse order
+ * Even indices (0,2,4): [1,1,1] reversed → 1,1,1
+ * Odd indices (1,3,5): [4,5,6] reversed → 6,5,4
+ *
+ * Result: [1,6,1,5,1,4]
+ * Verify: 1<6>1<5>1<4 ✓
+ *
+ * Why reverse order?
+ * If we used [1,1,1] and [4,5,6] directly:
+ * [1,4,1,5,1,6] - works
+ * But with [1,1,1,2,2,2], without reversing:
+ * [1,2,1,2,1,2] - works
+ * With [1,1,1,1,2,2], need clever placement:
+ * [1,2,1,2,1,1] - the last two are equal!
+ * Reversing: [1,2,1,2,1,1] → place from middle outward
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n log n)
+ * For sorting. Can be O(n) with median-finding algorithm.
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
+ * For temporary sorted array. Can be O(1) with in-place virtual indexing.
  *
  * ### EDGE CASES:
- * - **Empty array:** Handle nums.length == 0
- * - **Single element:** Special case for minimal input
- * - **All same values:** Check for duplicate handling
- * - **Negative numbers:** Ensure algorithm works with negatives
- * - **Large arrays:** Consider O(n) vs O(n²) performance
+ * - Array with many duplicate elements
+ * - All elements equal (impossible with strict inequality requirement)
+ * - Small arrays (length 2-3)
+ * - Even vs odd length arrays
  *
  * </details>
  */

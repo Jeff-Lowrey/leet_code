@@ -1,51 +1,75 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * # 162. Find Peak Element
+ *
+ * A peak element is an element that is strictly greater than its neighbors.
+ *
+ * Given a 0-indexed integer array nums, find a peak element, and return its index. If the array contains multiple peaks, return the index to any of the peaks.
+ *
+ * You may imagine that nums[-1] = nums[n] = -∞. In other words, an element is always considered to be strictly greater than a neighbor that is outside the array.
+ *
+ * You must write an algorithm that runs in O(log n) time.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>[1,2,3,1]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>2 (index of peak element)</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>Peak element 4 is at index 2 in array [1,2,4,3]</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * [This problem requires understanding of binary search concepts. The key insight is to identify the optimal approach for this specific scenario.]
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Analyze the problem**: Understand the input constraints and expected output
+ * 2. **Choose the right technique**: Apply binary search methodology
+ * 3. **Implement efficiently**: Focus on optimal time and space complexity
+ * 4. **Handle edge cases**: Consider boundary conditions and special cases
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - The solution leverages binary search principles
+ * - Time complexity is optimized for the given constraints
+ * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: nums = [1,2,3,1]
+ * Step 1: Initialize binary search
+ *   left = 0, right = 3
+ *
+ * Step 2: Binary search for peak
+ *   mid = 1: nums[1]=2 < nums[2]=3
+ *   → Peak is on right, left = 2
+ *
+ *   mid = 2: nums[2]=3 > nums[3]=1
+ *   → Peak could be at mid or left, right = 2
+ *
+ *   left = right = 2
+ *
+ * Step 3: Check result
+ *   nums[2] = 3 is greater than neighbors (2 and 1)
+ *
+ * Output: 2 (index of peak element)
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(1)
  *
  * ### EDGE CASES:
- * - **Single peak:** Only one element is a peak
- * - **Multiple peaks:** Return any valid peak
- * - **Peak at boundaries:** Check first or last element
- * - **Monotonically increasing:** Last element is peak
- * - **Monotonically decreasing:** First element is peak
+ * - Empty input handling
+ * - Single element cases
+ * - Large input considerations
  *
  * </details>
  */

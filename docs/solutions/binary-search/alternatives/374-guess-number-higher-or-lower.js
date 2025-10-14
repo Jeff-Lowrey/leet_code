@@ -1,51 +1,79 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Easy
  *
- * [Problem description goes here]
+ * # 374. Guess Number Higher Or Lower
+ *
+ * We are playing the Guess Game. The game is as follows:
+ *
+ * I pick a number from 1 to n. You have to guess which number I picked.
+ *
+ * Every time you guess wrong, I will tell you whether the number I picked is higher or lower than your guess.
+ *
+ * You call a pre-defined API int guess(int num), which returns three possible results:
+ * - -1: Your guess is higher than the number I picked (i.e. num > pick).
+ * - 1: Your guess is lower than the number I picked (i.e. num < pick).
+ * - 0: Your guess is correct (i.e. num == pick).
+ *
+ * Return the number that I picked.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>[(10, 6), (100, 25), (50, 1), (1, 1)]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>"Range [1, {n}], picked number: {result}"</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>Target number is guessed using binary search strategy</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * This is a classic binary search problem where we need to find a target number using feedback from a guess API. The key insight is to use the API response to narrow down the search space by half in each iteration.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Binary search**: Use binary search on the range [1, n]
+ * 2. **API feedback**: Use guess() API response to adjust search bounds
+ * 3. **Boundary adjustment**: Move left/right pointers based on feedback
+ * 4. **Termination**: Continue until API returns 0 (correct guess)
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - Binary search optimally reduces search space by half each iteration
+ * - API feedback provides perfect direction information
+ * - Guaranteed to find the answer in O(log n) time
+ * - Similar to searching in a sorted array but using API instead of direct comparison
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: n = 10, pick = 6
+ * Step 1: guess(5) returns 1 (pick > 5), so left = 6
+ * Step 2: guess(8) returns -1 (pick < 8), so right = 7
+ * Step 3: guess(6) returns 0 (correct!)
+ * Output: 6
+ *
+ * Input: n = 1, pick = 1
+ * Step 1: guess(1) returns 0 (correct!)
+ * Output: 1
+ *
+ * Input: n = 2, pick = 1
+ * Step 1: guess(1) returns 0 (correct!)
+ * Output: 1
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(log n)
+ * Binary search through range [1, n]
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(1)
+ * Only using constant extra space
  *
  * ### EDGE CASES:
- * - **Pick at start:** Handle pick == 1
- * - **Pick at end:** Handle pick == n
- * - **Pick in middle:** Standard binary search
- * - **Large n:** Avoid integer overflow in mid calculation
- * - **Single number:** Return 1
+ * - Single number (n = 1): return 1
+ * - Pick at boundaries (pick = 1 or pick = n)
+ * - Large n values: use overflow-safe mid calculation
  *
  * </details>
  */

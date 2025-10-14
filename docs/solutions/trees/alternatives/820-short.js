@@ -1,51 +1,68 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * # 820. Short Encoding of Words
+ *
+ * A valid encoding of an array of words is any reference string s and an array of indices indices such that:
+ * - words.length == indices.length
+ * - The reference string s ends with the character '#'
+ * - For each index indices[i], the substring of s starting at indices[i] and ending at the next '#' is equal to words[i]
+ *
+ * Given an array of words, return the length of the shortest reference string s possible of any valid encoding of words.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>["time", "me", "bell"]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>"minimumLengthEncoding({words1}) -> {result1}"</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>The shortest unique prefix for 'apple' is 'app'</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * To minimize the encoding length, we want to share suffixes between words. If one word is a suffix of another, we can encode both using just the longer word. This is a classic Trie problem where we build the trie using word suffixes.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Trie Construction**: Build a trie using the reverse of each word (to handle suffixes)
+ * 2. **Deduplication**: Remove words that are suffixes of other words
+ * 3. **Length Calculation**: For each unique word, add its length + 1 (for '#') to the total
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - Trie naturally handles prefix/suffix relationships
+ * - By reversing words, we can detect when one word is a suffix of another
+ * - Only leaf nodes in the trie represent words that need their own encoding
+ * - Each word needs one '#' delimiter, so total length = sum(word_lengths) + count
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: words = ["time", "me", "bell"]
+ * 1. Build trie with reversed words: ["emit", "em", "lleb"]
+ * 2. "em" is a suffix of "emit", so we can share encoding
+ * 3. Result: "time#bell#" (length 10)
+ *    - "time" at index 0
+ *    - "me" at index 2 (suffix of "time")
+ *    - "bell" at index 5
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(N × M)
+ * Where N is the number of words and M is the average length of words
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(N × M)
+ * For the trie structure and set storage
  *
  * ### EDGE CASES:
- * - **Empty tree:** Handle root == null
- * - **Single node:** Tree with only root
- * - **Unbalanced tree:** Handle skewed trees
- * - **Leaf nodes:** Special handling for nodes without children
- * - **Height differences:** Check for deep vs shallow subtrees
+ * - **Empty word list**: Return 0 (no encoding needed)
+ * - **Single word**: Return word length + 1 for delimiter
+ * - **All words are suffixes of one**: Only count the longest word
+ * - **No suffix relationships**: Sum all word lengths plus delimiters
+ * - **Duplicate words in input**: Remove duplicates first before processing
  *
  * </details>
  */

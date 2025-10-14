@@ -1,51 +1,85 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * # 498. Diagonal Traverse
+ *
+ * Given an m x n matrix mat, return an array of all the elements of the array in a diagonal order.
+ *
+ * Example 1:
+ * Input: mat = [[1,2,3],[4,5,6],[7,8,9]]
+ * Output: [1,2,4,7,5,3,6,8,9]
+ *
+ * Example 2:
+ * Input: mat = [[1,2],[3,4]]
+ * Output: [1,2,3,4]
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>[[1, 2, 3]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>1</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>Diagonal traversal of [[1,2,3],[4,5,6],[7,8,9]] is [1,2,4,7,5,3,6,8,9]</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * Elements on the same diagonal have the same sum of row + column indices.
+ * Traverse diagonals alternately upward and downward, handling direction changes
+ * and boundaries carefully.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Diagonal Identification**: Elements at (i, j) where i + j = k are on the same diagonal
+ * 2. **Direction Alternation**: Even-indexed diagonals go up-right, odd-indexed go down-left
+ * 3. **Boundary Handling**: When hitting edges, change to next diagonal with proper direction
+ * 4. **Movement Pattern**:
+ *    - Going up: row--, col++
+ *    - Going down: row++, col--
+ *    - Hit boundary: adjust position and flip direction
+ *
+ * **Key Observations**:
+ * - Total diagonals = m + n - 1
+ * - Diagonal d contains elements where i + j = d
+ * - Direction alternates: up (d even), down (d odd)
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - Using row + col sum groups elements into diagonals naturally
+ * - Alternating directions matches the required zigzag pattern
+ * - Boundary checks ensure we stay within matrix bounds
+ * - Direction flipping at boundaries creates the diagonal traversal pattern
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * mat = [[1,2,3],
+ *        [4,5,6],
+ *        [7,8,9]]
+ *
+ * Diagonal 0 (sum=0): [1] → up direction
+ * Diagonal 1 (sum=1): [2,4] → down direction
+ * Diagonal 2 (sum=2): [7,5,3] → up direction
+ * Diagonal 3 (sum=3): [6,8] → down direction
+ * Diagonal 4 (sum=4): [9] → up direction
+ *
+ * Result: [1,2,4,7,5,3,6,8,9]
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(m × n)
+ * - Visit each element exactly once
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(1)
+ * - Only use constant extra space (not counting output array)
  *
  * ### EDGE CASES:
- * - **Pointers meet:** Handle when left == right
- * - **Empty input:** Check for null or empty arrays
- * - **Single element:** One pointer scenario
- * - **All duplicates:** Pointer movement with same values
- * - **Boundary crossing:** Prevent left > right
+ * - Single element: [[1]] → [1]
+ * - Single row: [[1,2,3]] → [1,2,3]
+ * - Single column: [[1],[2],[3]] → [1,2,3]
+ * - Non-square matrices: Different row and column counts
  *
  * </details>
  */

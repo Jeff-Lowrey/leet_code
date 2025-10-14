@@ -1,51 +1,66 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Easy
  *
- * [Problem description goes here]
+ * # 704. Binary Search
+ *
+ * Given an array of integers nums which is sorted in ascending order,
+ * and an integer target, write a function to search target in nums.
+ * If target exists, then return its index. Otherwise, return -1.
+ *
+ * You must write an algorithm with O(log n) runtime complexity.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>[-1,0,3,5,9,12], target = 9</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>4</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>Target 9 is at index 4 in sorted array [-1,0,3,5,9,12]</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * Binary search is the classic divide-and-conquer algorithm for searching
+ * in sorted arrays. We repeatedly divide the search space in half by
+ * comparing the target with the middle element.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Initialize pointers**: Set left=0, right=len(nums)-1
+ * 2. **Divide search space**: Calculate mid = (left + right) // 2
+ * 3. **Compare and eliminate**:
+ *    - If nums[mid] == target: found, return mid
+ *    - If nums[mid] < target: search right half (left = mid + 1)
+ *    - If nums[mid] > target: search left half (right = mid - 1)
+ * 4. **Repeat until found or search space exhausted**
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - Sorted array property allows us to eliminate half the elements each iteration
+ * - Each comparison reduces search space by 50%
+ * - Guarantees O(log n) time complexity
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: nums = [-1,0,3,5,9,12], target = 9
+ * Step 1: left=0, right=5, mid=2, nums[2]=3 < 9, search right
+ * Step 2: left=3, right=5, mid=4, nums[4]=9 == 9, found!
+ * Output: 4
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(log n)
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(1)
  *
  * ### EDGE CASES:
- * - **Target not in array:** Return -1
- * - **Single element array:** Left equals right immediately
- * - **Target at first position:** Check boundary at index 0
- * - **Target at last position:** Check boundary at last index
- * - **Empty array:** Return -1
+ * - Empty array: return -1
+ * - Single element: check if it equals target
+ * - Target not in array: return -1
+ * - Target at boundaries: first or last element
  *
  * </details>
  */

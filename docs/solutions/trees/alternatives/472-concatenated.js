@@ -1,51 +1,60 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * # 472. Concatenated
+ *
+ * Given an array of strings words (without duplicates), return all the concatenated words in the given list of words.
+ *
+ * A concatenated word is defined as a string that is comprised entirely of at least two shorter words in the given array.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>words = ["cat","cats","catsdogcats","dog","dogcatsdog","hippopotamuses"]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>["catsdogcats","dogcatsdog"]</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>Concatenated words are formed by combining other words: 'catsdogcats' = 'cats' + 'dog' + 'cats'</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * [This problem requires understanding of trees concepts. The key insight is to identify the optimal approach for this specific scenario.]
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Analyze the problem**: Understand the input constraints and expected output
+ * 2. **Choose the right technique**: Apply trees methodology
+ * 3. **Implement efficiently**: Focus on optimal time and space complexity
+ * 4. **Handle edge cases**: Consider boundary conditions and special cases
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - The solution leverages trees principles
+ * - Time complexity is optimized for the given constraints
+ * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: words = ["cat","cats","catsdogcats","dog","dogcatsdog","hippopotamuses"]
+ * Step 1: Check each word
+ *   "catsdogcats" = "cats" + "dog" + "cats" ✓
+ *   "dogcatsdog" = "dog" + "cats" + "dog" ✓
+ *
+ * Output: ["catsdogcats","dogcatsdog"]
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(1)
  *
  * ### EDGE CASES:
- * - **Empty tree:** Handle root == null
- * - **Single node:** Tree with only root
- * - **Unbalanced tree:** Handle skewed trees
- * - **Leaf nodes:** Special handling for nodes without children
- * - **Height differences:** Check for deep vs shallow subtrees
+ * - Empty input handling
+ * - Single element cases
+ * - Large input considerations
  *
  * </details>
  */

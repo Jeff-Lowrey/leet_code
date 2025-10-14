@@ -1,51 +1,75 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * # 116. Populating Next Right Pointers in Each Node
+ *
+ * You are given a perfect binary tree where all leaves are on the same level, and every parent has two children.
+ * Populate each next pointer to point to its next right node. If there is no next right node, the next pointer should be set to NULL.
+ *
+ * Initially, all next pointers are set to NULL.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>Tree:        1</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>/   \\</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>Each node's next pointer connects to right neighbor at same level</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * Use level-order traversal (BFS) to connect nodes at the same level.
+ * For each level, link each node to the next node in the queue.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Handle edge case**: Return root if tree is empty
+ * 2. **Initialize BFS**: Use a deque with root node
+ * 3. **For each level**:
+ *    - Record level size
+ *    - Process all nodes at current level
+ *    - Connect each node to the next node in same level
+ *    - Last node in level points to NULL (already set)
+ *    - Add children to queue for next level
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - BFS processes nodes level by level, left to right
+ * - Within each level, nodes are in the queue in left-to-right order
+ * - By connecting each node to the next node in queue (at same level), we establish next pointers
+ * - Last node of each level naturally has next = NULL
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Tree:        1
+ *            /   \\
+ *           2     3
+ *          / \\   / \\
+ *         4   5 6   7
+ *
+ * After connecting:
+ * Level 0: 1 -> NULL
+ * Level 1: 2 -> 3 -> NULL
+ * Level 2: 4 -> 5 -> 6 -> 7 -> NULL
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n)
+ * - Visit each node exactly once
+ * - n = number of nodes in tree
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(w)
+ * - Queue holds at most one level of nodes at a time
+ * - w = maximum width of tree (for perfect tree: n/2 at last level)
  *
  * ### EDGE CASES:
- * - **Pointers meet:** Handle when left == right
- * - **Empty input:** Check for null or empty arrays
- * - **Single element:** One pointer scenario
- * - **All duplicates:** Pointer movement with same values
- * - **Boundary crossing:** Prevent left > right
+ * - Empty tree: Return None
+ * - Single node: Return node with next = NULL
+ * - Perfect binary tree: All levels fully connected
  *
  * </details>
  */

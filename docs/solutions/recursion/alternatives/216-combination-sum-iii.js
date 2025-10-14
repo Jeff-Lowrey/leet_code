@@ -1,51 +1,70 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * [Problem description goes here]
+ * # 216. Combination Sum III
+ *
+ * This problem demonstrates key concepts in Recursion.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>[[1, 2, 4]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>"Expected {expected}, got {result}"</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>All 3-number combinations from 1-9 that sum to 7 are [[1,2,4]]</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * Find all valid combinations of k numbers that sum to n, using only numbers 1-9,
+ * where each number can be used at most once. This is a backtracking problem with
+ * multiple constraints: combination size and target sum.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Backtracking with constraints**:
+ *    - Start from number 1 and try each number up to 9
+ *    - For each number, decide to include it or skip it
+ *    - Track current sum and count of numbers used
+ *    - Base cases: reached k numbers (check if sum equals n), or exceeded constraints
+ * 2. **Pruning optimizations**:
+ *    - Stop if current sum exceeds target
+ *    - Stop if remaining numbers can't possibly reach target
+ *    - Early exit when constraints violated
+ * 3. **Edge cases**: k > 9, n too large, n too small
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - Backtracking systematically explores all valid combinations
+ * - Pruning reduces unnecessary exploration
+ * - Starting number parameter prevents duplicate combinations
+ * - Multiple constraints (count and sum) guide the search
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * Input: k = 3, n = 7
+ * Try combinations of 3 numbers from 1-9 that sum to 7:
+ * [1,2,3] -> sum = 6 (not valid)
+ * [1,2,4] -> sum = 7 (valid!)
+ * [1,3,3] -> can't reuse 3
+ * [2,2,3] -> can't reuse 2
+ * Other combinations either don't sum to 7 or don't have exactly 3 numbers
+ * Output: [[1,2,4]]
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(C(9,k)) - choosing k numbers from 9 options
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(k) - recursion depth and combination size
  *
  * ### EDGE CASES:
- * - **Empty string:** Handle s.length == 0
- * - **Single character:** Minimal string input
- * - **All same characters:** Check duplicate handling
- * - **Special characters:** Handle non-alphanumeric
- * - **Case sensitivity:** Consider uppercase vs lowercase
+ * - k > 9 (impossible - return empty array)
+ * - n > 45 (sum of 1-9, impossible - return empty array)
+ * - k = 1 (return [n] if 1 <= n <= 9)
+ * - Minimum sum for k numbers: 1+2+...+k = k(k+1)/2
  *
  * </details>
  */

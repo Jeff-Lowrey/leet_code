@@ -1,51 +1,69 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Easy
  *
- * [Problem description goes here]
+ * # 232. Implement Queue using Stacks
+ *
+ * Implement a first-in-first-out (FIFO) queue using only two stacks.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>push(1): input=[1], output=[]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>push(2): input=[1,2], output=[]</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>After pushing 1 and 2, both values are in the input stack with 2 on top, while the output stack remains empty until a pop or peek operation is performed</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * A queue follows FIFO (First In First Out), while a stack follows LIFO (Last In First Out).
+ * We can simulate queue behavior using two stacks - one for input and one for output.
+ * The key insight is to transfer elements between stacks when needed.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Two Stack Approach**: Use input_stack and output_stack
+ * 2. **push**: Always push to input_stack - O(1)
+ * 3. **pop/peek**:
+ *    - If output_stack has elements, pop/peek from there
+ *    - If output_stack is empty, transfer all from input_stack to output_stack
+ *    - This reverses the order, making FIFO behavior
+ * 4. **empty**: Check if both stacks are empty
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * - Input stack holds new elements in reverse order
+ * - Output stack holds elements in correct queue order (FIFO)
+ * - Transfer happens lazily only when needed
+ * - Amortized O(1) for all operations
+ * - Each element is moved at most twice (input -> output -> removed)
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
  * ```
- * [example input]
+ * push(1): input=[1], output=[]
+ * push(2): input=[1,2], output=[]
+ * peek(): transfer -> input=[], output=[2,1], return 1
+ * pop(): output=[2,1], return 1, output=[2]
+ * push(3): input=[3], output=[2]
+ * pop(): output=[2], return 2
  * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * - push: O(1)
+ * - pop: Amortized O(1)
+ * - peek: Amortized O(1)
+ * - empty: O(1)
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n) for storing n elements
  *
  * ### EDGE CASES:
- * - **Empty stack:** Handle operations on empty stack
- * - **Single element:** Push/pop with one item
- * - **Balanced pairs:** Match opening/closing elements
- * - **Nested structures:** Handle deeply nested cases
- * - **Underflow:** Prevent popping from empty stack
+ * - Empty queue
+ * - Single element
+ * - Multiple operations
+ * - Alternating push/pop
  *
  * </details>
  */

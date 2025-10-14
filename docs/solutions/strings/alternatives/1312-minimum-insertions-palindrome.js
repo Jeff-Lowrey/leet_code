@@ -1,51 +1,75 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Hard
  *
- * [Problem description goes here]
+ * Given a string s, return the minimum number of insertions needed to make s a palindrome.
+ *
+ * A palindrome is a string that reads the same forward and backward.
+ *
+ * Example:
+ * Input: s = "zzazz"
+ * Output: 0
+ * Explanation: The string "zzazz" is already a palindrome.
+ *
+ * Example:
+ * Input: s = "mbadm"
+ * Output: 2
+ * Explanation: String can be "mbdadbm" or "mdbabdm".
+ *
+ * Example:
+ * Input: s = "leetcode"
+ * Output: 5
+ * Explanation: Inserting 5 characters the string becomes "leetcodocteel".
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>s = "zzazz"</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>0</dd>
  * <dt>Explanation:</dt>
- * <dd>[explanation]</dd>
+ * <dd>The string 'zzazz' requires 0 insertions because it's already a palindrome</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### INTUITION:
- * [High-level insight or key observation]
+ * To make a string palindromic with minimum insertions, we need to find the longest palindromic subsequence (LPS) first. The minimum insertions needed equals the string length minus the LPS length, because we only need to insert characters to match the "missing" ones.
  *
  * ### APPROACH:
- * [Detailed explanation of the solution approach]
+ * 1. **Find Longest Palindromic Subsequence**: Use DP to find the longest subsequence that reads the same forwards and backwards
+ * 2. **Calculate Insertions**: minimum insertions = string length - LPS length
+ * 3. **DP Recurrence**:
+ *    - If characters match: `dp[i][j] = dp[i+1][j-1] + 2`
+ *    - If not: `dp[i][j] = max(dp[i+1][j], dp[i][j-1])`
  *
  * ### WHY THIS WORKS:
- * - [Explanation of correctness]
+ * The LPS represents the "skeleton" of characters we can keep without insertion. All other characters need to be "mirrored" by insertions. For example, in "mbadm", LPS is "mam" (length 3), so we need 5-3=2 insertions.
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * [example input]
- * ```
- * **Step 1:** [description]
- * **Step 2:** [description]
+ * For s = "mbadm":
+ * 1. Build LPS DP table:
+ *    - Single chars: all have LPS = 1
+ *    - "mb": different chars → LPS = 1
+ *    - "bad": LPS = 1 (just 'a')
+ *    - "madm": 'm' matches → LPS = 1 + LPS("ad") = 1 + 1 = 2
+ *    - "mbadm": 'm' matches → LPS = 2 + LPS("bad") = 2 + 1 = 3
+ * 2. Minimum insertions = 5 - 3 = 2
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n²)
+ * - Filling n×n DP table with constant work per cell
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * O(n²)
+ * - DP table storage, can be optimized to O(n)
  *
  * ### EDGE CASES:
- * - **Empty string:** Handle s.length == 0
- * - **Single character:** Minimal string input
- * - **All same characters:** Check duplicate handling
- * - **Special characters:** Handle non-alphanumeric
- * - **Case sensitivity:** Consider uppercase vs lowercase
+ * - Already palindrome: return 0
+ * - Single character: return 0
+ * - All different characters: return n-1
+ * - Empty string: return 0
  *
  * </details>
  */
