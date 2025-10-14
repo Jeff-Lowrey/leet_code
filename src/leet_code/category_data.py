@@ -97,7 +97,7 @@ class CategoryManager:
     def __init__(self, base_dir: Path | None = None):
         """Initialize the category manager."""
         self.base_dir = base_dir or Path(__file__).parent.parent.parent
-        self.solutions_dir = self.base_dir / "docs" / "solutions"
+        self.solutions_dir = self.base_dir / "solutions"
         self.docs_dir = self.base_dir / "docs"
         self._categories: list[Category] | None = None
 
