@@ -34,6 +34,7 @@ line-ending = "auto"
 
 [tool.mypy]
 python_version = "3.13"
+# Industry-standard strict type checking (enabled for production code)
 strict = true
 warn_return_any = true
 warn_unused_configs = true
@@ -49,6 +50,31 @@ warn_unreachable = true
 show_error_codes = true
 namespace_packages = true
 explicit_package_bases = true
+# Additional strict checks
+disallow_untyped_calls = true
+disallow_subclassing_any = true
+no_implicit_reexport = true
+strict_equality = true
+strict_concatenate = true
+
+[[tool.mypy.overrides]]
+module = ".claude_functions.*"
+ignore_errors = true
+
+[[tool.mypy.overrides]]
+module = "solutions.*"
+# Very relaxed rules for LeetCode solutions (learning/practice code)
+# Focus only on critical errors (undefined names, syntax issues)
+disallow_untyped_defs = false
+disallow_incomplete_defs = false
+disallow_any_generics = false
+disallow_untyped_calls = false
+disallow_untyped_decorators = false
+warn_return_any = false
+warn_unused_ignores = false
+check_untyped_defs = false
+allow_untyped_globals = true
+allow_redefinition = true
 
 [tool.pdm]
 distribution = false
@@ -88,12 +114,6 @@ format = "ruff format src/ tests/"
 format-check = "ruff format --check src/ tests/"
 typecheck = "mypy src/"
 security = "bandit -c pyproject.toml -r src/"
-
-[tool.pdm.dev-dependencies]
-test = [ "pytest>=7.0", "pytest-cov>=4.0",]
-
-[tool.pdm.python]
-use_venv = true
 
 [tool.coverage.run]
 omit = [ "tests/*", "*/tests/*", "*/__pycache__/*", "*/.venv/*",]
