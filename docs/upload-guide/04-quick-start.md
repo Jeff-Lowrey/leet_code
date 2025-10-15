@@ -418,14 +418,15 @@ node docs/solutions/arrays-hashing/alternatives/001-two-sum.js.js
 ### Workflow 3: Web Upload
 
 ```
-1. Navigate: http://localhost:5000
-2. Browse to category
-3. Click solution
-4. Click "Upload Solution"
-5. Select language
-6. Choose file
-7. Upload
-8. Verify badge appears
+1. Start the application: ./run.sh
+2. Navigate: http://127.0.0.1:9501
+3. Browse to category
+4. Click solution
+5. Click "Upload Solution"
+6. Select language
+7. Choose file
+8. Upload
+9. Verify badge appears
 ```
 
 ## Quick Reference
