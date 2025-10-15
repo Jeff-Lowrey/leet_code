@@ -69,5 +69,3 @@ For tree or interval list
 
 </details>
 """
-
-

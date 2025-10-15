@@ -73,6 +73,7 @@ For recursion stack in worst case (straight line of same color)
 </details>
 """
 
+
 class Solution:
     def floodFill(self, image: list[list[int]], sr: int, sc: int, color: int) -> list[list[int]]:
         """
@@ -114,8 +115,7 @@ class Solution:
                 col: Current column index
             """
             # Check bounds and color match
-            if (row < 0 or row >= rows or col < 0 or col >= cols or
-                image[row][col] != original_color):
+            if row < 0 or row >= rows or col < 0 or col >= cols or image[row][col] != original_color:
                 return
 
             # Change color of current pixel
@@ -165,52 +165,53 @@ class Solution:
         while stack:
             row, col = stack.pop()
 
-            if (row < 0 or row >= rows or col < 0 or col >= cols or
-                image[row][col] != original_color):
+            if row < 0 or row >= rows or col < 0 or col >= cols or image[row][col] != original_color:
                 continue
 
             image[row][col] = color
 
             # Add 4-directional neighbors to stack
-            stack.extend([(row-1, col), (row+1, col), (row, col-1), (row, col+1)])
+            stack.extend([(row - 1, col), (row + 1, col), (row, col - 1), (row, col + 1)])
 
         return image
 
-def test_solution():
+
+def test_solution() -> None:
     """Test cases for Problem 733."""
     solution = Solution()
 
     # Test case 1: Basic flood fill
-    image1 = [[1,1,1],[1,1,0],[1,0,1]]
+    image1 = [[1, 1, 1], [1, 1, 0], [1, 0, 1]]
     result1 = solution.floodFill(image1, 1, 1, 2)
-    expected1 = [[2,2,2],[2,2,0],[2,0,1]]
+    expected1 = [[2, 2, 2], [2, 2, 0], [2, 0, 1]]
     assert result1 == expected1, f"Expected {expected1}, got {result1}"
 
     # Test case 2: Single pixel
-    image2 = [[0,0,0],[0,0,0]]
+    image2 = [[0, 0, 0], [0, 0, 0]]
     result2 = solution.floodFill(image2, 0, 0, 0)
-    expected2 = [[0,0,0],[0,0,0]]
+    expected2 = [[0, 0, 0], [0, 0, 0]]
     assert result2 == expected2, f"Expected {expected2}, got {result2}"
 
     # Test case 3: Same color as original
-    image3 = [[1,1,1],[1,1,0],[1,0,1]]
+    image3 = [[1, 1, 1], [1, 1, 0], [1, 0, 1]]
     result3 = solution.floodFill(image3, 1, 1, 1)
-    expected3 = [[1,1,1],[1,1,0],[1,0,1]]
+    expected3 = [[1, 1, 1], [1, 1, 0], [1, 0, 1]]
     assert result3 == expected3, f"Expected {expected3}, got {result3}"
 
     # Test case 4: Different starting positions
-    image4 = [[0,0,0],[0,1,1]]
+    image4 = [[0, 0, 0], [0, 1, 1]]
     result4 = solution.floodFill(image4, 1, 1, 1)
-    expected4 = [[0,0,0],[0,1,1]]
+    expected4 = [[0, 0, 0], [0, 1, 1]]
     assert result4 == expected4, f"Expected {expected4}, got {result4}"
 
     # Test case 5: Test iterative version
-    image5 = [[1,1,1],[1,1,0],[1,0,1]]
+    image5 = [[1, 1, 1], [1, 1, 0], [1, 0, 1]]
     result5 = solution.floodFillIterative(image5, 1, 1, 2)
-    expected5 = [[2,2,2],[2,2,0],[2,0,1]]
+    expected5 = [[2, 2, 2], [2, 2, 0], [2, 0, 1]]
     assert result5 == expected5, f"Expected {expected5}, got {result5}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()
@@ -218,7 +219,7 @@ if __name__ == "__main__":
     # Example usage
     solution = Solution()
     print("=== 733. Flood Fill ===")
-    image = [[1,1,1],[1,1,0],[1,0,1]]
+    image = [[1, 1, 1], [1, 1, 0], [1, 0, 1]]
     print(f"Original: {image}")
     result = solution.floodFill(image, 1, 1, 2)
     print(f"After flood fill: {result}")

@@ -69,105 +69,105 @@
  */
 
 class Solution {
-    /**
-     * Find two numbers that add up to target
-     * @param {number[]} nums - Array of integers
-     * @param {number} target - Target sum
-     * @return {number[]} - Indices of the two numbers
-     *
-     * Approach: Hash Map for O(n) lookup
-     * Time Complexity: O(n)
-     * Space Complexity: O(n)
-     */
-    twoSum(nums, target) {
-        // Map to store value -> index mapping
-        const seen = new Map();
+  /**
+   * Find two numbers that add up to target
+   * @param {number[]} nums - Array of integers
+   * @param {number} target - Target sum
+   * @return {number[]} - Indices of the two numbers
+   *
+   * Approach: Hash Map for O(n) lookup
+   * Time Complexity: O(n)
+   * Space Complexity: O(n)
+   */
+  twoSum(nums, target) {
+    // Map to store value -> index mapping
+    const seen = new Map();
 
-        for (let i = 0; i < nums.length; i++) {
-            // Calculate complement needed to reach target
-            const complement = target - nums[i];
+    for (let i = 0; i < nums.length; i++) {
+      // Calculate complement needed to reach target
+      const complement = target - nums[i];
 
-            // Check if complement exists in our hash map
-            if (seen.has(complement)) {
-                return [seen.get(complement), i];
-            }
+      // Check if complement exists in our hash map
+      if (seen.has(complement)) {
+        return [seen.get(complement), i];
+      }
 
-            // Store current number and its index
-            seen.set(nums[i], i);
-        }
-
-        // Should never reach here given problem constraints
-        return [];
+      // Store current number and its index
+      seen.set(nums[i], i);
     }
 
-    /**
-     * Brute force approach - check all pairs
-     * @param {number[]} nums - Array of integers
-     * @param {number} target - Target sum
-     * @return {number[]} - Indices of the two numbers
-     *
-     * Approach: Brute Force
-     * Time Complexity: O(n²)
-     * Space Complexity: O(1)
-     */
-    twoSumBruteForce(nums, target) {
-        const n = nums.length;
+    // Should never reach here given problem constraints
+    return [];
+  }
 
-        for (let i = 0; i < n; i++) {
-            for (let j = i + 1; j < n; j++) {
-                if (nums[i] + nums[j] === target) {
-                    return [i, j];
-                }
-            }
+  /**
+   * Brute force approach - check all pairs
+   * @param {number[]} nums - Array of integers
+   * @param {number} target - Target sum
+   * @return {number[]} - Indices of the two numbers
+   *
+   * Approach: Brute Force
+   * Time Complexity: O(n²)
+   * Space Complexity: O(1)
+   */
+  twoSumBruteForce(nums, target) {
+    const n = nums.length;
+
+    for (let i = 0; i < n; i++) {
+      for (let j = i + 1; j < n; j++) {
+        if (nums[i] + nums[j] === target) {
+          return [i, j];
         }
-
-        return [];
+      }
     }
+
+    return [];
+  }
 }
 
 // Export for module systems
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = Solution;
+if (typeof module !== "undefined" && module.exports) {
+  module.exports = Solution;
 }
 
 // Test cases
 function runTests() {
-    const solution = new Solution();
+  const solution = new Solution();
 
-    // Test case 1
-    console.log("Test Case 1:");
-    const nums1 = [2, 7, 11, 15];
-    const target1 = 9;
-    const result1 = solution.twoSum(nums1, target1);
-    console.log(`Input: nums = ${JSON.stringify(nums1)}, target = ${target1}`);
-    console.log(`Output: ${JSON.stringify(result1)}`);
-    console.log(`Expected: [0, 1]`);
-    console.log(`Pass: ${JSON.stringify(result1) === JSON.stringify([0, 1])}`);
-    console.log();
+  // Test case 1
+  console.log("Test Case 1:");
+  const nums1 = [2, 7, 11, 15];
+  const target1 = 9;
+  const result1 = solution.twoSum(nums1, target1);
+  console.log(`Input: nums = ${JSON.stringify(nums1)}, target = ${target1}`);
+  console.log(`Output: ${JSON.stringify(result1)}`);
+  console.log(`Expected: [0, 1]`);
+  console.log(`Pass: ${JSON.stringify(result1) === JSON.stringify([0, 1])}`);
+  console.log();
 
-    // Test case 2
-    console.log("Test Case 2:");
-    const nums2 = [3, 2, 4];
-    const target2 = 6;
-    const result2 = solution.twoSum(nums2, target2);
-    console.log(`Input: nums = ${JSON.stringify(nums2)}, target = ${target2}`);
-    console.log(`Output: ${JSON.stringify(result2)}`);
-    console.log(`Expected: [1, 2]`);
-    console.log(`Pass: ${JSON.stringify(result2) === JSON.stringify([1, 2])}`);
-    console.log();
+  // Test case 2
+  console.log("Test Case 2:");
+  const nums2 = [3, 2, 4];
+  const target2 = 6;
+  const result2 = solution.twoSum(nums2, target2);
+  console.log(`Input: nums = ${JSON.stringify(nums2)}, target = ${target2}`);
+  console.log(`Output: ${JSON.stringify(result2)}`);
+  console.log(`Expected: [1, 2]`);
+  console.log(`Pass: ${JSON.stringify(result2) === JSON.stringify([1, 2])}`);
+  console.log();
 
-    // Test case 3
-    console.log("Test Case 3:");
-    const nums3 = [3, 3];
-    const target3 = 6;
-    const result3 = solution.twoSum(nums3, target3);
-    console.log(`Input: nums = ${JSON.stringify(nums3)}, target = ${target3}`);
-    console.log(`Output: ${JSON.stringify(result3)}`);
-    console.log(`Expected: [0, 1]`);
-    console.log(`Pass: ${JSON.stringify(result3) === JSON.stringify([0, 1])}`);
+  // Test case 3
+  console.log("Test Case 3:");
+  const nums3 = [3, 3];
+  const target3 = 6;
+  const result3 = solution.twoSum(nums3, target3);
+  console.log(`Input: nums = ${JSON.stringify(nums3)}, target = ${target3}`);
+  console.log(`Output: ${JSON.stringify(result3)}`);
+  console.log(`Expected: [0, 1]`);
+  console.log(`Pass: ${JSON.stringify(result3) === JSON.stringify([0, 1])}`);
 }
 
 // Run tests if executed directly
-if (typeof require !== 'undefined' && require.main === module) {
-    runTests();
+if (typeof require !== "undefined" && require.main === module) {
+  runTests();
 }

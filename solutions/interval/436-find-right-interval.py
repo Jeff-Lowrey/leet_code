@@ -73,40 +73,49 @@ O(1)
 </details>
 """
 
-from typing import List, Optional, Dict, Tuple
+from typing import Any, List, Optional, Dict, Tuple
+
+class Interval:
+    """Interval with start and end."""
+    def __init__(self, start: Any = 0, end: Any = 0) -> None:
+        self.start = start
+        self.end = end
+
+
+
 
 class Solution:
     def findRightInterval(self, intervals: List[List[int]]) -> List[int]:
         """
         Find the right interval for each interval in the given list.
-        
+
         Args:
             intervals: List of intervals where each interval is [start, end]
-        
+
         Returns:
             List of indices where result[i] is the index j such that intervals[j].start
             is the smallest that is >= intervals[i].end. Returns -1 if no such interval exists.
         """
         if not intervals:
             return []
-        
+
         # Create list of (start_point, index) pairs for binary search
         start_points = [(interval[0], i) for i, interval in enumerate(intervals)]
         start_points.sort()  # Sort by start points
-        
+
         def binary_search(target: int) -> int:
             """
             Binary search to find the smallest start point >= target
-            
+
             Args:
                 target: The value to search for
-                
+
             Returns:
                 Index of the right interval or -1 if not found
             """
             left, right = 0, len(start_points) - 1
             result = -1
-            
+
             while left <= right:
                 mid = (left + right) // 2
                 if start_points[mid][0] >= target:
@@ -114,49 +123,51 @@ class Solution:
                     right = mid - 1
                 else:
                     left = mid + 1
-                    
+
             return result
-        
+
         # Find right interval for each interval
-        result = []
+        result: list[Any] = []
         for interval in intervals:
             right_index = binary_search(interval[1])
             result.append(right_index)
-            
+
         return result
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
     solution = Solution()
 
     # Test case 1: Example from problem
-    result = solution.findRightInterval([[3,4],[2,3],[1,2]])
-    expected = [-1,0,1]
+    result = solution.findRightInterval([[3, 4], [2, 3], [1, 2]])
+    expected = [-1, 0, 1]
     assert result == expected, f"Expected {expected}, got {result}"
 
     # Test case 2: No right interval exists
-    result = solution.findRightInterval([[1,4],[2,3],[3,4]])
-    expected = [-1,-1,-1]
+    result = solution.findRightInterval([[1, 4], [2, 3], [3, 4]])
+    expected = [-1, -1, -1]
     assert result == expected, f"Expected {expected}, got {result}"
 
     # Test case 3: All have right intervals
-    result = solution.findRightInterval([[1,2],[2,3],[3,4]])
-    expected = [1,2,-1]
+    result = solution.findRightInterval([[1, 2], [2, 3], [3, 4]])
+    expected = [1, 2, -1]
     assert result == expected, f"Expected {expected}, got {result}"
 
     # Test case 4: Empty input
     result = solution.findRightInterval([])
-    expected = []
+    expected: list[Any] = []
     assert result == expected, f"Expected {expected}, got {result}"
 
     # Test case 5: Single interval
-    result = solution.findRightInterval([[1,2]])
+    result = solution.findRightInterval([[1, 2]])
     expected = [-1]
     assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

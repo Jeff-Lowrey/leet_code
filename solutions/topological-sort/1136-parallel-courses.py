@@ -72,78 +72,80 @@ O(1)
 
 from collections import defaultdict, deque
 
-from typing import List, Optional, Dict, Tuple
+from typing import Any, List, Optional, Dict, Tuple
+
 
 class Solution:
     def minimumSemesters(self, n: int, relations: List[List[int]]) -> int:
         """
         Determines the minimum number of semesters needed to complete all courses.
-        
+
         Args:
             n: Number of courses (labeled from 1 to n)
             relations: List of prerequisite pairs [x,y] where x must be taken before y
-            
+
         Returns:
             Minimum number of semesters needed, or -1 if impossible
         """
         # Build adjacency list and calculate in-degrees
-        graph = defaultdict(list)
+        graph: dict[Any, list[Any]] = defaultdict(list)
         in_degree = [0] * (n + 1)  # +1 because courses are 1-indexed
-        
+
         # Create adjacency list and count prerequisites for each course
         for prev, next in relations:
             graph[prev].append(next)
             in_degree[next] += 1
-        
+
         # Initialize queue with courses that have no prerequisites
-        queue = deque()
+        queue: Any = deque()
         for course in range(1, n + 1):
             if in_degree[course] == 0:
                 queue.append(course)
-        
+
         if not queue:  # If no starting courses found, there's a cycle
             return -1
-        
+
         semester = 0
         courses_taken = 0
-        
+
         # Process courses level by level (semester by semester)
         while queue:
             semester += 1
             level_size = len(queue)
-            
+
             # Process all courses that can be taken this semester
             for _ in range(level_size):
                 current = queue.popleft()
                 courses_taken += 1
-                
+
                 # Update prerequisites for dependent courses
                 for next_course in graph[current]:
                     in_degree[next_course] -= 1
                     if in_degree[next_course] == 0:
                         queue.append(next_course)
-        
+
         # Check if all courses were taken
         return semester if courses_taken == n else -1
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
     solution = Solution()
 
     # Test case 1: Example from problem
-    result = solution.minimumSemesters(3, [[1,3],[2,3]])
+    result = solution.minimumSemesters(3, [[1, 3], [2, 3]])
     expected = 2
     assert result == expected, f"Expected {expected}, got {result}"
 
     # Test case 2: Cycle exists (impossible)
-    result = solution.minimumSemesters(3, [[1,2],[2,3],[3,1]])
+    result = solution.minimumSemesters(3, [[1, 2], [2, 3], [3, 1]])
     expected = -1
     assert result == expected, f"Expected {expected}, got {result}"
 
     # Test case 3: Linear dependency
-    result = solution.minimumSemesters(4, [[1,2],[2,3],[3,4]])
+    result = solution.minimumSemesters(4, [[1, 2], [2, 3], [3, 4]])
     expected = 4
     assert result == expected, f"Expected {expected}, got {result}"
 
@@ -158,6 +160,7 @@ def test_solution():
     assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

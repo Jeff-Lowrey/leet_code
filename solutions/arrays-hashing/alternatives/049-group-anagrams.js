@@ -85,21 +85,21 @@
  * Space Complexity: O(n × k) for storing the groups
  */
 function solve(strs) {
-    const anagramMap = new Map();
+  const anagramMap = new Map();
 
-    for (const str of strs) {
-        // Create signature by sorting characters
-        const signature = str.split('').sort().join('');
+  for (const str of strs) {
+    // Create signature by sorting characters
+    const signature = str.split("").sort().join("");
 
-        // Group strings with same signature
-        if (!anagramMap.has(signature)) {
-            anagramMap.set(signature, []);
-        }
-        anagramMap.get(signature).push(str);
+    // Group strings with same signature
+    if (!anagramMap.has(signature)) {
+      anagramMap.set(signature, []);
     }
+    anagramMap.get(signature).push(str);
+  }
 
-    // Return all groups as array
-    return Array.from(anagramMap.values());
+  // Return all groups as array
+  return Array.from(anagramMap.values());
 }
 
 /**
@@ -112,97 +112,118 @@ function solve(strs) {
  * Space Complexity: O(n × k) for storing the groups
  */
 function solveWithCharCount(strs) {
-    const anagramMap = new Map();
+  const anagramMap = new Map();
 
-    for (const str of strs) {
-        // Create character count signature
-        const charCount = new Array(26).fill(0);
-        for (const char of str) {
-            charCount[char.charCodeAt(0) - 'a'.charCodeAt(0)]++;
-        }
-
-        // Use character count array as signature
-        const signature = charCount.join(',');
-
-        // Group strings with same signature
-        if (!anagramMap.has(signature)) {
-            anagramMap.set(signature, []);
-        }
-        anagramMap.get(signature).push(str);
+  for (const str of strs) {
+    // Create character count signature
+    const charCount = new Array(26).fill(0);
+    for (const char of str) {
+      charCount[char.charCodeAt(0) - "a".charCodeAt(0)]++;
     }
 
-    // Return all groups as array
-    return Array.from(anagramMap.values());
+    // Use character count array as signature
+    const signature = charCount.join(",");
+
+    // Group strings with same signature
+    if (!anagramMap.has(signature)) {
+      anagramMap.set(signature, []);
+    }
+    anagramMap.get(signature).push(str);
+  }
+
+  // Return all groups as array
+  return Array.from(anagramMap.values());
 }
 
 /**
  * Test cases for Problem 49: Group Anagrams
  */
 function testSolution() {
-    console.log('Testing 49. Group Anagrams');
+  console.log("Testing 49. Group Anagrams");
 
-    // Test case 1: Basic example
-    const result1 = solve(["eat","tea","tan","ate","nat","bat"]);
-    // Sort for comparison since order doesn't matter
-    const sorted1 = result1.map(group => group.sort()).sort();
-    const expected1 = [["ate","eat","tea"], ["bat"], ["nat","tan"]].map(group => group.sort()).sort();
-    console.assert(JSON.stringify(sorted1) === JSON.stringify(expected1),
-        `Test 1 failed: expected groups with same anagrams`);
+  // Test case 1: Basic example
+  const result1 = solve(["eat", "tea", "tan", "ate", "nat", "bat"]);
+  // Sort for comparison since order doesn't matter
+  const sorted1 = result1.map((group) => group.sort()).sort();
+  const expected1 = [["ate", "eat", "tea"], ["bat"], ["nat", "tan"]]
+    .map((group) => group.sort())
+    .sort();
+  console.assert(
+    JSON.stringify(sorted1) === JSON.stringify(expected1),
+    `Test 1 failed: expected groups with same anagrams`,
+  );
 
-    // Test case 2: Single string
-    const result2 = solve(["a"]);
-    const expected2 = [["a"]];
-    console.assert(JSON.stringify(result2) === JSON.stringify(expected2),
-        `Test 2 failed: expected [["a"]], got ${JSON.stringify(result2)}`);
+  // Test case 2: Single string
+  const result2 = solve(["a"]);
+  const expected2 = [["a"]];
+  console.assert(
+    JSON.stringify(result2) === JSON.stringify(expected2),
+    `Test 2 failed: expected [["a"]], got ${JSON.stringify(result2)}`,
+  );
 
-    // Test case 3: Empty string
-    const result3 = solve([""]);
-    const expected3 = [[""]];
-    console.assert(JSON.stringify(result3) === JSON.stringify(expected3),
-        `Test 3 failed: expected [[""]], got ${JSON.stringify(result3)}`);
+  // Test case 3: Empty string
+  const result3 = solve([""]);
+  const expected3 = [[""]];
+  console.assert(
+    JSON.stringify(result3) === JSON.stringify(expected3),
+    `Test 3 failed: expected [[""]], got ${JSON.stringify(result3)}`,
+  );
 
-    // Test case 4: No anagrams
-    const result4 = solve(["abc","def","ghi"]);
-    console.assert(result4.length === 3 && result4.every(group => group.length === 1),
-        `Test 4 failed: expected 3 groups of size 1 each`);
+  // Test case 4: No anagrams
+  const result4 = solve(["abc", "def", "ghi"]);
+  console.assert(
+    result4.length === 3 && result4.every((group) => group.length === 1),
+    `Test 4 failed: expected 3 groups of size 1 each`,
+  );
 
-    // Test case 5: All same anagrams
-    const result5 = solve(["abc","bac","cab"]);
-    console.assert(result5.length === 1 && result5[0].length === 3,
-        `Test 5 failed: expected 1 group with 3 strings`);
+  // Test case 5: All same anagrams
+  const result5 = solve(["abc", "bac", "cab"]);
+  console.assert(
+    result5.length === 1 && result5[0].length === 3,
+    `Test 5 failed: expected 1 group with 3 strings`,
+  );
 
-    // Test alternative approach
-    const result6 = solveWithCharCount(["eat","tea","tan","ate","nat","bat"]);
-    const sorted6 = result6.map(group => group.sort()).sort();
-    console.assert(JSON.stringify(sorted6) === JSON.stringify(expected1),
-        `Test 6 failed: character count approach should give same result`);
+  // Test alternative approach
+  const result6 = solveWithCharCount([
+    "eat",
+    "tea",
+    "tan",
+    "ate",
+    "nat",
+    "bat",
+  ]);
+  const sorted6 = result6.map((group) => group.sort()).sort();
+  console.assert(
+    JSON.stringify(sorted6) === JSON.stringify(expected1),
+    `Test 6 failed: character count approach should give same result`,
+  );
 
-    console.log('All test cases passed for 49. Group Anagrams!');
+  console.log("All test cases passed for 49. Group Anagrams!");
 }
 
 /**
  * Example usage and demonstration
  */
 function demonstrateSolution() {
-    console.log('\n=== Problem 49. Group Anagrams ===');
-    console.log('Category: Arrays Hashing');
-    console.log('Difficulty: Medium');
-    console.log('');
+  console.log("\n=== Problem 49. Group Anagrams ===");
+  console.log("Category: Arrays Hashing");
+  console.log("Difficulty: Medium");
+  console.log("");
 
-    testSolution();
+  testSolution();
 }
 
 // Run tests if this file is executed directly
 if (require.main === module) {
-    demonstrateSolution();
+  demonstrateSolution();
 }
 
 // Export for use in other modules
 module.exports = {
-    solve,
-    solveWithCharCount,
-    testSolution,
-    demonstrateSolution
+  solve,
+  solveWithCharCount,
+  testSolution,
+  demonstrateSolution,
 };
 
 /**

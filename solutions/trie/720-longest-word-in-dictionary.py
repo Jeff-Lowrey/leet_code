@@ -90,6 +90,22 @@ For trie storage
 
 </details>
 """
+import re
+
+
+
+
+
+class TrieNode:
+    """Node in a Trie data structure."""
+
+    def __init__(self) -> None:
+        """Initialize TrieNode with empty children and end marker."""
+        self.children: dict[str, "TrieNode"] = {}
+        self.word: str | None = None  # For word storage in solutions like Word Search II
+        self.is_end: bool = False  # Marks end of a word
+        self.is_word: bool = False  # Alias for is_end
+
 
 class Solution:
     def longestWord(self, words: list[str]) -> str:
@@ -124,7 +140,7 @@ class Solution:
 
         def dfs(node: TrieNode) -> str:
             """Find longest buildable word from this node."""
-            result = node.word
+            result = node.word if node.word else ""
 
             # Explore children - only if child is also a word
             for child_node in node.children.values():
@@ -139,6 +155,7 @@ class Solution:
 
         # Start DFS from root (empty word)
         return dfs(root)
+
 
 class SolutionBFS:
     """Alternative solution using BFS level by level."""
@@ -173,7 +190,7 @@ class SolutionBFS:
             node = queue.pop(0)
 
             # Update longest if this node has a longer word
-            if len(node.word) > len(longest) or (len(node.word) == len(longest) and node.word < longest):
+            if node.word and (len(node.word) > len(longest) or (len(node.word) == len(longest) and node.word < longest)):
                 longest = node.word
 
             # Add children that are words (buildable)
@@ -182,6 +199,7 @@ class SolutionBFS:
                     queue.append(child)
 
         return longest
+
 
 class SolutionSort:
     """Simple solution using sorting and set."""
@@ -212,6 +230,7 @@ class SolutionSort:
 
         return longest
 
+
 class SolutionSimple:
     """Simplest solution checking all prefixes."""
 
@@ -240,7 +259,8 @@ class SolutionSimple:
 
         return longest
 
-def test_solution():
+
+def test_solution() -> None:
     """Test cases for 720. Longest Word In Dictionary."""
     solution = Solution()
     solution_bfs = SolutionBFS()
@@ -285,6 +305,7 @@ def test_solution():
     assert result5_sort == "latte"  # Lexicographically first
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

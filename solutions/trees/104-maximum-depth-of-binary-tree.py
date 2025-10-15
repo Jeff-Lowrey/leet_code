@@ -74,6 +74,18 @@ Where h is height of tree (recursion stack or queue size)
 
 </details>
 """
+from collections import deque
+from typing import Any
+
+
+
+
+
+class TreeNode:
+    def __init__(self, val: Any = 0, left: Any = None, right: Any = None) -> None:
+        self.val = val
+        self.left = left
+        self.right = right
 
 class Solution:
     def maxDepth(self, root: TreeNode) -> int:
@@ -186,10 +198,11 @@ class Solution:
 
         return self.max_depth
 
+
 def build_tree_from_list(values: list) -> TreeNode:
     """Helper function to build tree from list representation."""
     if not values:
-        return None
+        return None  # type: ignore
 
     root = TreeNode(values[0])
     queue = deque([root])
@@ -210,7 +223,8 @@ def build_tree_from_list(values: list) -> TreeNode:
 
     return root
 
-def test_solution():
+
+def test_solution() -> None:
     """Test cases for Problem 104."""
     solution = Solution()
 
@@ -228,7 +242,7 @@ def test_solution():
 
     # Test case 3: Empty tree
     tree3 = None
-    result3 = solution.maxDepth(tree3)
+    result3 = solution.maxDepth(tree3)  # type: ignore
     expected3 = 0
     assert result3 == expected3, f"Expected {expected3}, got {result3}"
 
@@ -262,6 +276,7 @@ def test_solution():
 
     print("All test cases passed!")
 
+
 if __name__ == "__main__":
     test_solution()
 
@@ -288,7 +303,7 @@ if __name__ == "__main__":
 
     # Example 3: Empty tree
     tree3 = None
-    result3 = solution.maxDepth(tree3)
+    result3 = solution.maxDepth(tree3)  # type: ignore
     print(f"maxDepth([]) -> {result3}")
 
     # Example 4: Algorithm comparison
@@ -297,7 +312,7 @@ if __name__ == "__main__":
         ("Recursive DFS", solution.maxDepth),
         ("BFS Level-order", solution.maxDepthBFS),
         ("Iterative DFS", solution.maxDepthIterativeDFS),
-        ("Preorder traversal", solution.maxDepthPreorder)
+        ("Preorder traversal", solution.maxDepthPreorder),
     ]
 
     for name, method in approaches:

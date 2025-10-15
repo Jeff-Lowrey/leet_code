@@ -67,19 +67,20 @@ O(1)
 </details>
 """
 
-from typing import List, Optional, Dict, Tuple
+from typing import Any, List, Optional, Dict, Tuple
+
 
 class Solution:
     def findMaximumXOR(self, nums: List[int]) -> int:
         """
         Find the maximum XOR value between any two numbers in the array.
-        
+
         Args:
             nums: List of integers
-            
+
         Returns:
             Maximum XOR value possible between any two numbers in the array
-            
+
         Example:
             >>> solution = Solution()
             >>> solution.findMaximumXOR([3, 10, 5, 25, 2, 8])
@@ -87,50 +88,51 @@ class Solution:
         """
         if not nums or len(nums) < 2:
             return 0
-        
+
         # Length of maximum number in binary representation
         L = len(bin(max(nums))) - 2
-        
+
         # Initialize result
         max_xor = 0
-        
+
         # Process bit by bit from left to right (most significant to least)
-        for i in range(L-1, -1, -1):
+        for i in range(L - 1, -1, -1):
             # Move max_xor to the left by 1 bit
             max_xor <<= 1
-            
+
             # Current prefix candidates
             curr_xor = max_xor | 1
-            
+
             # Set of all prefixes
             prefixes = {num >> i for num in nums}
-            
+
             # Check if we can get curr_xor
             for p in prefixes:
                 if p ^ (curr_xor >> i) in prefixes:
                     max_xor = curr_xor
                     break
-                    
+
         return max_xor
+
 
 class OptimizedSolution:
     def findMaximumXOR(self, nums: List[int]) -> int:
         """
         Alternative implementation using Trie data structure for better performance
         on larger datasets.
-        
+
         Args:
             nums: List of integers
-            
+
         Returns:
             Maximum XOR value possible between any two numbers in the array
         """
         # Edge case handling
         if not nums or len(nums) < 2:
             return 0
-            
+
         # Build Trie
-        trie = {}
+        trie: dict[Any, Any] = {}
         for num in nums:
             node = trie
             # Process each number bit by bit from left to right
@@ -139,7 +141,7 @@ class OptimizedSolution:
                 if bit not in node:
                     node[bit] = {}
                 node = node[bit]
-                
+
         # Find maximum XOR
         max_xor = 0
         for num in nums:
@@ -157,10 +159,11 @@ class OptimizedSolution:
                     current_xor <<= 1
                     node = node[bit]
             max_xor = max(max_xor, current_xor)
-            
+
         return max_xor
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
@@ -182,6 +185,7 @@ def test_solution():
     assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

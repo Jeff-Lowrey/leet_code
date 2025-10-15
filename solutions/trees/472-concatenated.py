@@ -64,49 +64,50 @@ O(1)
 </details>
 """
 
-from typing import List, Optional, Dict, Tuple, Set
+from typing import Any, List, Optional, Dict, Tuple, Set
+
 
 class Solution:
     def findAllConcatenatedWordsInADict(self, words: List[str]) -> List[str]:
         """
         Find all concatenated words in the given list of words.
-        
+
         Args:
             words: List of strings to check for concatenated words
-            
+
         Returns:
             List of strings that are concatenated words
         """
         # Handle edge cases
         if not words:
             return []
-        
+
         # Convert list to set for O(1) lookup
         word_set = set(words)
-        result = []
-        
+        result: list[Any] = []
+
         def can_form(word: str, word_set: Set[str], start: int, memo: dict) -> bool:
             """
             Helper function to check if a word can be formed by concatenating other words.
             Uses dynamic programming with memoization for optimization.
-            
+
             Args:
                 word: String to check
                 word_set: Set of all available words
                 start: Starting index in the word
                 memo: Memoization dictionary
-                
+
             Returns:
                 Boolean indicating if the word can be formed
             """
             # Base case: reached end of word
             if start == len(word):
                 return True
-            
+
             # Check memoization
             if start in memo:
                 return memo[start]
-            
+
             # Try all possible prefixes from current position
             for end in range(start + 1, len(word) + 1):
                 prefix = word[start:end]
@@ -115,44 +116,48 @@ class Solution:
                     if can_form(word, word_set, end, memo):
                         memo[start] = True
                         return True
-            
+
             memo[start] = False
             return False
-        
+
         # Check each word in the list
         for word in words:
             # Skip empty strings and single-character words
             if not word:
                 continue
-                
+
             # Check if current word can be formed by concatenating other words
             if can_form(word, word_set, 0, {}):
                 result.append(word)
-        
+
         return result
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
     solution = Solution()
 
     # Test case 1: Example from problem
-    result = solution.findAllConcatenatedWordsInADict(["cat","cats","catsdogcats","dog","dogcatsdog","hippopotamuses","rat","ratcatdogcat"])
-    expected = ["catsdogcats","dogcatsdog","ratcatdogcat"]
+    result = solution.findAllConcatenatedWordsInADict(
+        ["cat", "cats", "catsdogcats", "dog", "dogcatsdog", "hippopotamuses", "rat", "ratcatdogcat"]
+    )
+    expected = ["catsdogcats", "dogcatsdog", "ratcatdogcat"]
     assert sorted(result) == sorted(expected), f"Expected {expected}, got {result}"
 
     # Test case 2: Empty input
     result = solution.findAllConcatenatedWordsInADict([])
-    expected = []
+    expected: list[Any] = []
     assert result == expected, f"Expected {expected}, got {result}"
 
     # Test case 3: No concatenated words
-    result = solution.findAllConcatenatedWordsInADict(["a","b","c"])
-    expected = []
+    result = solution.findAllConcatenatedWordsInADict(["a", "b", "c"])
+    expected: list[Any] = []
     assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

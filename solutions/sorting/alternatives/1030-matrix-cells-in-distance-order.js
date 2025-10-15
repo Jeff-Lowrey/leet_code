@@ -97,73 +97,81 @@
  * Space Complexity: O(rows * cols)
  */
 function solve(rows, cols, rCenter, cCenter) {
-    const cells = [];
+  const cells = [];
 
-    // Generate all cells in the matrix
-    for (let r = 0; r < rows; r++) {
-        for (let c = 0; c < cols; c++) {
-            cells.push([r, c]);
-        }
+  // Generate all cells in the matrix
+  for (let r = 0; r < rows; r++) {
+    for (let c = 0; c < cols; c++) {
+      cells.push([r, c]);
     }
+  }
 
-    // Sort cells by Manhattan distance from (rCenter, cCenter)
-    cells.sort((a, b) => {
-        const distA = Math.abs(a[0] - rCenter) + Math.abs(a[1] - cCenter);
-        const distB = Math.abs(b[0] - rCenter) + Math.abs(b[1] - cCenter);
-        return distA - distB;
-    });
+  // Sort cells by Manhattan distance from (rCenter, cCenter)
+  cells.sort((a, b) => {
+    const distA = Math.abs(a[0] - rCenter) + Math.abs(a[1] - cCenter);
+    const distB = Math.abs(b[0] - rCenter) + Math.abs(b[1] - cCenter);
+    return distA - distB;
+  });
 
-    return cells;
+  return cells;
 }
 
 /**
  * Test cases for Problem 1030: Matrix Cells In Distance Order
  */
 function testSolution() {
-    console.log('Testing 1030. Matrix Cells In Distance Order');
+  console.log("Testing 1030. Matrix Cells In Distance Order");
 
-    // Test case 1: Basic 2x2 matrix
-    const result1 = solve(1, 2, 0, 0);
-    console.log('Test 1:', JSON.stringify(result1));
-    console.assert(result1.length === 2, 'Test 1 failed: wrong length');
+  // Test case 1: Basic 2x2 matrix
+  const result1 = solve(1, 2, 0, 0);
+  console.log("Test 1:", JSON.stringify(result1));
+  console.assert(result1.length === 2, "Test 1 failed: wrong length");
 
-    // Test case 2: 2x3 matrix with center at (1,2)
-    const result2 = solve(2, 3, 1, 2);
-    console.log('Test 2:', JSON.stringify(result2));
-    console.assert(result2.length === 6, 'Test 2 failed: wrong length');
-    console.assert(result2[0][0] === 1 && result2[0][1] === 2, 'Test 2 failed: center should be first');
+  // Test case 2: 2x3 matrix with center at (1,2)
+  const result2 = solve(2, 3, 1, 2);
+  console.log("Test 2:", JSON.stringify(result2));
+  console.assert(result2.length === 6, "Test 2 failed: wrong length");
+  console.assert(
+    result2[0][0] === 1 && result2[0][1] === 2,
+    "Test 2 failed: center should be first",
+  );
 
-    // Test case 3: Single cell
-    const result3 = solve(1, 1, 0, 0);
-    console.log('Test 3:', JSON.stringify(result3));
-    console.assert(result3.length === 1 && result3[0][0] === 0 && result3[0][1] === 0, 'Test 3 failed');
+  // Test case 3: Single cell
+  const result3 = solve(1, 1, 0, 0);
+  console.log("Test 3:", JSON.stringify(result3));
+  console.assert(
+    result3.length === 1 && result3[0][0] === 0 && result3[0][1] === 0,
+    "Test 3 failed",
+  );
 
-    console.log('All test cases passed for 1030. Matrix Cells In Distance Order!');
+  console.log(
+    "All test cases passed for 1030. Matrix Cells In Distance Order!",
+  );
 }
 
 /**
  * Example usage and demonstration
  */
 function demonstrateSolution() {
-    console.log('\n=== Problem 1030. Matrix Cells In Distance Order ===');
-    console.log('Category: Sorting');
-    console.log('Difficulty: Easy');
-    console.log('');
+  console.log("\n=== Problem 1030. Matrix Cells In Distance Order ===");
+  console.log("Category: Sorting");
+  console.log("Difficulty: Easy");
+  console.log("");
 
-    // Example demonstration would go here
-    testSolution();
+  // Example demonstration would go here
+  testSolution();
 }
 
 // Run tests if this file is executed directly
 if (require.main === module) {
-    demonstrateSolution();
+  demonstrateSolution();
 }
 
 // Export for use in other modules
 module.exports = {
-    solve,
-    testSolution,
-    demonstrateSolution
+  solve,
+  testSolution,
+  demonstrateSolution,
 };
 
 /**

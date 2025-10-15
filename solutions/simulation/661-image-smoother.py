@@ -66,13 +66,13 @@ Cell [0,0] (corner, 4 cells):
 
 Cell [1,1] (center, 9 cells):
   Neighbors: all 9 cells
-  Sum: 100+200+100+200+50+200+100+200+100 = 1250
-  Average: 1250 // 9 = 138
+  Sum+200+100+200+50+200+100+200+100 = 1250
+  Average // 9 = 138
 
 Cell [0,1] (edge, 6 cells):
   Neighbors: [0,0], [0,1], [0,2], [1,0], [1,1], [1,2]
-  Sum: 100+200+100+200+50+200 = 850
-  Average: 850 // 6 = 141
+  Sum+200+100+200+50+200 = 850
+  Average // 6 = 141
 
 Result: [[137,141,137],[141,138,141],[137,141,137]]
 ```
@@ -93,6 +93,7 @@ O(m × n)
 
 </details>
 """
+
 
 class Solution:
     def imageSmoother(self, img: list[list[int]]) -> list[list[int]]:
@@ -236,7 +237,8 @@ class Solution:
 
         return result
 
-def test_solution():
+
+def test_solution() -> None:
     """Test cases for Problem 661."""
     solution = Solution()
 
@@ -281,6 +283,7 @@ def test_solution():
     assert solution.imageSmootherInPlace(img8) == expected8, "In-place method failed"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

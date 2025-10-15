@@ -78,43 +78,47 @@ O(1)
 </details>
 """
 
+
 class Solution:
     def firstBadVersion(self, n: int) -> int:
         """
         Finds the first bad version using binary search.
-        
+
         Args:
             n (int): The total number of versions
-            
+
         Returns:
             int: The first bad version number
         """
         left = 1  # Starting version
         right = n  # Ending version
-        
+
         # Binary search to find the first bad version
         while left < right:
             # Calculate mid point without overflow
             mid = left + (right - left) // 2
-            
+
             # If current version is bad, look in left half
             if isBadVersion(mid):
                 right = mid
             # If current version is good, look in right half
             else:
                 left = mid + 1
-                
+
         # At this point, left == right and points to the first bad version
         return left
 
+
 # Mock isBadVersion API for testing
 _bad_version = 4
+
 
 def isBadVersion(version: int) -> bool:
     """Mock API that returns True if version is bad."""
     return version >= _bad_version
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
@@ -140,6 +144,7 @@ def test_solution():
     assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

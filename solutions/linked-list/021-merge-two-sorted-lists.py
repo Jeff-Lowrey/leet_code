@@ -70,15 +70,18 @@ O(1)
 
 </details>
 """
+from typing import Any
+
 
 
 class ListNode:
-    def __init__(self, val=0, next=None):
+    def __init__(self, val: Any = 0, next: Any = None) -> None:
         self.val = val
         self.next = next
 
+
 class Solution:
-    def mergeTwoLists(self, list1, list2):
+    def mergeTwoLists(self, list1: Any, list2: Any) -> Any:
         """
         Merge two sorted linked lists into one sorted list.
 
@@ -114,7 +117,8 @@ class Solution:
 
         return dummy.next
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
@@ -128,6 +132,7 @@ def test_solution():
     print("Basic functionality test passed! For comprehensive linked list tests, build proper ListNode chains.")
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

@@ -72,6 +72,9 @@ Only store two variables (prev1, prev2), not full DP array
 </details>
 """
 
+
+from typing import Any
+
 class Solution:
     def climbStairs(self, n: int) -> int:
         """
@@ -117,9 +120,9 @@ class Solution:
         Time Complexity: O(n)
         Space Complexity: O(n)
         """
-        memo = {}
+        memo: dict[Any, Any] = {}
 
-        def helper(n):
+        def helper(n: Any) -> Any:
             if n <= 2:
                 return n
 
@@ -129,7 +132,8 @@ class Solution:
             memo[n] = helper(n - 1) + helper(n - 2)
             return memo[n]
 
-        return helper(n)
+        return int(helper(n))
+
 
 # Test cases
 if __name__ == "__main__":

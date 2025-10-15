@@ -84,28 +84,30 @@ O(1)
 """
 
 from typing import List, Optional, Dict, Tuple
+import math
+
 
 class Solution:
     def minEatingSpeed(self, piles: List[int], h: int) -> int:
         """
         Find the minimum eating speed required to consume all bananas within h hours.
-        
+
         Args:
             piles: List of banana piles where piles[i] represents bananas in ith pile
             h: Number of hours available to eat all bananas
-            
+
         Returns:
             Minimum eating speed (bananas per hour) required
         """
         # Initialize binary search boundaries
         left = 1  # Minimum possible eating speed
         right = max(piles)  # Maximum possible eating speed
-        
+
         # Binary search for the minimum valid eating speed
         while left < right:
             mid = (left + right) // 2
             hours_needed = sum(math.ceil(pile / mid) for pile in piles)
-            
+
             if hours_needed <= h:
                 # If we can eat all bananas within h hours,
                 # try a lower speed
@@ -114,30 +116,31 @@ class Solution:
                 # If we can't eat all bananas within h hours,
                 # need a higher speed
                 left = mid + 1
-                
+
         return left
 
     def calculate_hours_needed(self, piles: List[int], speed: int) -> int:
         """
         Calculate total hours needed to eat all bananas at given speed.
-        
+
         Args:
             piles: List of banana piles
             speed: Eating speed (bananas per hour)
-            
+
         Returns:
             Total hours needed
         """
         return sum(math.ceil(pile / speed) for pile in piles)
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
     solution = Solution()
 
     # Test case 1: Example from problem
-    result = solution.minEatingSpeed([3,6,7,11], h = 8)
+    result = solution.minEatingSpeed([3, 6, 7, 11], h=8)
     expected = 4
     assert result == expected, f"Expected {expected}, got {result}"
 
@@ -147,6 +150,7 @@ def test_solution():
     assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

@@ -65,7 +65,7 @@ Position 1: 0 + 0 + carry(1) = 1, carry = 0
   Result: "101"
 
 Position 0: 1 + 1 + carry(0) = 2 (10 in binary)
-  Bit: 2 % 2 = 0, carry = 2 // 2 = 1
+  Bit % 2 = 0, carry = 2 // 2 = 1
   Result: "0101"
 
 Final carry: 1
@@ -92,6 +92,9 @@ O(max(m, n))
 </details>
 """
 
+
+from typing import Any
+
 class Solution:
     def addBinary(self, a: str, b: str) -> str:
         """
@@ -107,7 +110,7 @@ class Solution:
         Time Complexity: O(max(m, n)) where m, n are string lengths
         Space Complexity: O(max(m, n)) for result string
         """
-        result = []
+        result: list[Any] = []
         carry = 0
         i, j = len(a) - 1, len(b) - 1
 
@@ -221,7 +224,8 @@ class Solution:
         # Reverse to get correct order
         return "".join(reversed(result))
 
-def test_solution():
+
+def test_solution() -> None:
     """Test cases for Problem 67."""
     solution = Solution()
 
@@ -271,6 +275,7 @@ def test_solution():
     assert result9 == expected9, f"Expected {expected9}, got {result9}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

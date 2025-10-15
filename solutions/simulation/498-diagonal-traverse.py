@@ -84,6 +84,9 @@ O(1)
 </details>
 """
 
+
+from typing import Any
+
 class Solution:
     def findDiagonalOrder(self, mat: list[list[int]]) -> list[int]:
         """
@@ -102,7 +105,7 @@ class Solution:
             return []
 
         m, n = len(mat), len(mat[0])
-        result = []
+        result: list[Any] = []
         row, col = 0, 0
         direction = 1  # 1 for up-right, -1 for down-left
 
@@ -144,7 +147,7 @@ class Solution:
             return []
 
         m, n = len(mat), len(mat[0])
-        diagonals = {}
+        diagonals: dict[Any, Any] = {}
 
         # Group elements by diagonal (i + j)
         for i in range(m):
@@ -154,7 +157,7 @@ class Solution:
                     diagonals[diagonal_index] = []
                 diagonals[diagonal_index].append(mat[i][j])
 
-        result = []
+        result: list[int] = []
         # Process diagonals in order
         for d in range(m + n - 1):
             if d % 2 == 0:
@@ -177,7 +180,7 @@ class Solution:
             return []
 
         m, n = len(mat), len(mat[0])
-        result = []
+        result: list[int] = []
         row, col = 0, 0
 
         # Direction vectors: up-right and down-left
@@ -217,7 +220,8 @@ class Solution:
 
         return result
 
-def test_solution():
+
+def test_solution() -> None:
     """Test cases for Problem 498."""
     solution = Solution()
 
@@ -267,6 +271,7 @@ def test_solution():
     # assert solution.findDiagonalOrderClean(mat9) == expected9, "Clean method failed"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

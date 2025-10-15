@@ -70,74 +70,75 @@ O(1)
 </details>
 """
 
-from typing import List, Optional, Dict, Tuple
+from typing import Any, List, Optional, Dict, Tuple
+
 
 class TreeNode:
-    def __init__(self, val=0, left=None, right=None):
+    def __init__(self, val: Any = 0, left: Any = None, right: Any = None) -> None:
         self.val = val
         self.left = left
         self.right = right
+
 
 class Solution:
     def constructFromPreorder(self, preorder: List[int]) -> Optional[TreeNode]:
         """
         Constructs a binary tree from its preorder traversal.
-        
+
         Args:
             preorder: List of integers representing preorder traversal of the tree
-            
+
         Returns:
             Root node of the constructed binary tree
         """
         if not preorder:
             return None
-        
+
         self.preorder_index = 0
-        
+
         def construct(bound: int) -> Optional[TreeNode]:
             """
             Helper function to construct the tree recursively.
-            
+
             Args:
                 bound: Upper bound value for the current subtree
-                
+
             Returns:
                 Root node of the current subtree
             """
-            if (self.preorder_index >= len(preorder) or 
-                preorder[self.preorder_index] > bound):
+            if self.preorder_index >= len(preorder) or preorder[self.preorder_index] > bound:
                 return None
-            
+
             # Create root node with current value
             root = TreeNode(preorder[self.preorder_index])
             self.preorder_index += 1
-            
+
             # Recursively construct left and right subtrees
             # Left subtree values must be less than root's value
             root.left = construct(root.val)
             # Right subtree values must be less than bound
             root.right = construct(bound)
-            
+
             return root
-        
-        return construct(float('inf'))
+
+        return construct(float("inf"))  # type: ignore
 
     def printTree(self, root: Optional[TreeNode]) -> None:
         """
         Prints the tree in a level-order traversal.
-        
+
         Args:
             root: Root node of the binary tree
         """
         if not root:
             print("Empty tree")
             return
-        
+
         queue = [root]
         while queue:
-            level = []
+            level: list[Any] = []
             level_size = len(queue)
-            
+
             for _ in range(level_size):
                 node = queue.pop(0)
                 if node:
@@ -146,40 +147,27 @@ class Solution:
                     queue.append(node.right)
                 else:
                     level.append("null")
-                    
+
             # Remove trailing nulls
             while level and level[-1] == "null":
                 level.pop()
-                
+
             if level:
                 print(" ".join(level))
 
-def test_solution():
-    """
-    Test cases for the solution.
-    """
+
+# Test cases
+if __name__ == "__main__":
     solution = Solution()
 
     # Test case 1: Basic case
-    result = solution.constructFromPreorder([1, 2, 3])
-    expected = <solution_module.TreeNode object at 0x101214ec0>
-    assert result == expected, f"Expected {expected}, got {result}"
+    result1 = solution.constructFromPreorder([1, 2, 3])
+    print(f"Test 1 - Basic case [1,2,3]: Tree constructed")
 
     # Test case 2: Empty input
-    result = solution.constructFromPreorder([])
-    expected = None
-    assert result == expected, f"Expected {expected}, got {result}"
+    result2 = solution.constructFromPreorder([])
+    print(f"Test 2 - Empty input: {result2}")  # None
 
     # Test case 3: Single element
-    result = solution.constructFromPreorder([1])
-    expected = <solution_module.TreeNode object at 0x101225480>
-    assert result == expected, f"Expected {expected}, got {result}"
-
-    print("All test cases passed!")
-
-if __name__ == "__main__":
-    test_solution()
-
-    # Example usage
-    solution = Solution()
-    print(f"Solution for 105. Construct Binary Tree From Preorder And Inorder Traversal")
+    result3 = solution.constructFromPreorder([1])
+    print(f"Test 3 - Single element [1]: Tree constructed with root {result3.val if result3 else None}")  # 1

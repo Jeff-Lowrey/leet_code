@@ -75,53 +75,55 @@ O(1)
 </details>
 """
 
+
 class Solution:
     def uniquePaths(self, m: int, n: int) -> int:
         """
         Calculate the number of unique paths in an m x n grid.
-        
+
         Args:
             m (int): Number of rows in the grid
             n (int): Number of columns in the grid
-            
+
         Returns:
             int: Number of unique paths from top-left to bottom-right
         """
         # Create a 2D DP table initialized with 1s
         dp = [[1] * n for _ in range(m)]
-        
+
         # Fill the DP table
         # For each cell, paths = paths from above + paths from left
         for i in range(1, m):
             for j in range(1, n):
-                dp[i][j] = dp[i-1][j] + dp[i][j-1]
-        
+                dp[i][j] = dp[i - 1][j] + dp[i][j - 1]
+
         # Return the bottom-right cell value
-        return dp[m-1][n-1]
-    
+        return dp[m - 1][n - 1]
+
     def uniquePathsOptimized(self, m: int, n: int) -> int:
         """
         Space-optimized version using 1D array instead of 2D array.
-        
+
         Args:
             m (int): Number of rows in the grid
             n (int): Number of columns in the grid
-            
+
         Returns:
             int: Number of unique paths from top-left to bottom-right
         """
         # Create a 1D array for current row
         dp = [1] * n
-        
+
         # Process each row
         for i in range(1, m):
             # Update each cell in the row
             for j in range(1, n):
-                dp[j] += dp[j-1]
-        
-        return dp[n-1]
+                dp[j] += dp[j - 1]
 
-def test_solution():
+        return dp[n - 1]
+
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
@@ -138,6 +140,7 @@ def test_solution():
     assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

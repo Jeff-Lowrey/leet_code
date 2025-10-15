@@ -67,7 +67,8 @@ O(1)
 </details>
 """
 
-from typing import List, Optional, Dict, Tuple
+from typing import Any, List, Optional, Dict, Tuple
+
 
 class Solution:
     def solve(self, board: List[List[str]]) -> None:
@@ -126,35 +127,35 @@ class Solution:
                 elif board[row][col] == "#":
                     board[row][col] = "O"
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
     solution = Solution()
 
     # Test case 1: Example from problem
-    board1 = [["X","X","X","X"],["X","O","O","X"],["X","X","O","X"],["X","O","X","X"]]
+    board1 = [["X", "X", "X", "X"], ["X", "O", "O", "X"], ["X", "X", "O", "X"], ["X", "O", "X", "X"]]
     solution.solve(board1)
-    expected1 = [["X","X","X","X"],["X","X","X","X"],["X","X","X","X"],["X","O","X","X"]]
+    expected1 = [["X", "X", "X", "X"], ["X", "X", "X", "X"], ["X", "X", "X", "X"], ["X", "O", "X", "X"]]
     assert board1 == expected1, f"Expected {expected1}, got {board1}"
 
     # Test case 2: All surrounded
-    board2 = [["X","X","X"],["X","O","X"],["X","X","X"]]
+    board2 = [["X", "X", "X"], ["X", "O", "X"], ["X", "X", "X"]]
     solution.solve(board2)
-    expected2 = [["X","X","X"],["X","X","X"],["X","X","X"]]
+    expected2 = [["X", "X", "X"], ["X", "X", "X"], ["X", "X", "X"]]
     assert board2 == expected2, f"Expected {expected2}, got {board2}"
 
     # Test case 3: Border connected
-    board3 = [["O","O"],["O","O"]]
+    board3 = [["O", "O"], ["O", "O"]]
     solution.solve(board3)
-    expected3 = [["O","O"],["O","O"]]
+    expected3 = [["O", "O"], ["O", "O"]]
     assert board3 == expected3, f"Expected {expected3}, got {board3}"
 
     # Test case 4: Empty board
-    board4 = []
-    result = solution.solve(board4)
-    expected = None
-    assert result == expected, f"Expected {expected}, got {result}"
+    board4: list[Any] = []
+    solution.solve(board4)
+    # # # assert result == expected, f"Expected {expected}, got {result}"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
 
     # Test case 5: Single cell
     board5 = [["O"]]
@@ -163,6 +164,7 @@ def test_solution():
     assert board5 == expected5, f"Expected {expected5}, got {board5}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

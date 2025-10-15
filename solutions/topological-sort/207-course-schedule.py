@@ -67,6 +67,10 @@ O(V + E)
 </details>
 """
 
+from collections import deque, defaultdict
+from typing import Any
+
+
 class Solution:
     def canFinish(self, numCourses: int, prerequisites: list[list[int]]) -> bool:
         """
@@ -75,7 +79,7 @@ class Solution:
         Space Complexity: O(V + E)
         """
         # Build adjacency list and indegree count
-        graph = defaultdict(list)
+        graph: dict[Any, list[Any]] = defaultdict(list)
         indegree = [0] * numCourses
 
         for course, prereq in prerequisites:
@@ -104,14 +108,14 @@ class Solution:
         Time Complexity: O(V + E)
         Space Complexity: O(V + E)
         """
-        graph = defaultdict(list)
+        graph: dict[int, list[int]] = defaultdict(list)
         for course, prereq in prerequisites:
             graph[course].append(prereq)
 
         # 0: unvisited, 1: visiting, 2: visited
         state = [0] * numCourses
 
-        def has_cycle(course):
+        def has_cycle(course: Any) -> Any:
             if state[course] == 1:  # Currently visiting
                 return True
             if state[course] == 2:  # Already visited
@@ -133,6 +137,7 @@ class Solution:
 
         return True
 
+
 """
 210. Course Schedule II
 # Difficulty: Medium
@@ -145,6 +150,7 @@ Input: numCourses = 4, prerequisites = [[1,0],[2,0],[3,1],[3,2]]
 Output: [0,2,1,3]
 """
 
+
 class SolutionScheduleII:
     def findOrder(self, numCourses: int, prerequisites: list[list[int]]) -> list[int]:
         """
@@ -152,7 +158,7 @@ class SolutionScheduleII:
         Time Complexity: O(V + E)
         Space Complexity: O(V + E)
         """
-        graph = defaultdict(list)
+        graph: dict[Any, list[Any]] = defaultdict(list)
         indegree = [0] * numCourses
 
         for course, prereq in prerequisites:
@@ -160,7 +166,7 @@ class SolutionScheduleII:
             indegree[course] += 1
 
         queue = deque([i for i in range(numCourses) if indegree[i] == 0])
-        order = []
+        order: list[Any] = []
 
         while queue:
             course = queue.popleft()
@@ -179,7 +185,7 @@ class SolutionScheduleII:
         Time Complexity: O(V + E)
         Space Complexity: O(V + E)
         """
-        graph = defaultdict(list)
+        graph: dict[int, list[int]] = defaultdict(list)
         for course, prereq in prerequisites:
             graph[course].append(prereq)
 
@@ -187,7 +193,7 @@ class SolutionScheduleII:
         state = [0] * numCourses
         order = []
 
-        def dfs(course):
+        def dfs(course: Any) -> Any:
             if state[course] == 1:  # Cycle detected
                 return False
             if state[course] == 2:  # Already processed
@@ -210,6 +216,7 @@ class SolutionScheduleII:
 
         return order
 
+
 """
 269. Alien Dictionary
 # Difficulty: Hard
@@ -228,6 +235,7 @@ Input: words = ["wrt","wrf","er","ett","rftt"]
 Output: "wertf"
 """
 
+
 class SolutionAlienDictionary:
     def alienOrder(self, words: list[str]) -> str:
         """
@@ -236,8 +244,8 @@ class SolutionAlienDictionary:
         Space Complexity: O(1) - at most 26 letters
         """
         # Build adjacency list and indegree
-        graph = defaultdict(set)
-        indegree = {}
+        graph: dict[Any, set[Any]] = defaultdict(set)
+        indegree: dict[Any, Any] = {}
 
         # Initialize all characters
         for word in words:
@@ -263,7 +271,7 @@ class SolutionAlienDictionary:
 
         # Topological sort using BFS
         queue = deque([char for char in indegree if indegree[char] == 0])
-        result = []
+        result: list[Any] = []
 
         while queue:
             char = queue.popleft()
@@ -275,7 +283,8 @@ class SolutionAlienDictionary:
                     queue.append(next_char)
 
         # Check if all characters are included
-        return ''.join(result) if len(result) == len(indegree) else ""
+        return "".join(result) if len(result) == len(indegree) else ""
+
 
 # Test cases
 if __name__ == "__main__":
@@ -283,11 +292,7 @@ if __name__ == "__main__":
     solution = Solution()
 
     print("Course Schedule I:")
-    test_cases = [
-        (2, [[1, 0]]),
-        (2, [[1, 0], [0, 1]]),
-        (4, [[1, 0], [2, 0], [3, 1], [3, 2]])
-    ]
+    test_cases = [(2, [[1, 0]]), (2, [[1, 0], [0, 1]]), (4, [[1, 0], [2, 0], [3, 1], [3, 2]])]
 
     for num_courses, prerequisites in test_cases:
         result = solution.canFinish(num_courses, prerequisites)
@@ -299,22 +304,17 @@ if __name__ == "__main__":
 
     print("Course Schedule II:")
     for num_courses, prerequisites in test_cases:
-        result = solution2.findOrder(num_courses, prerequisites)
+        order_result: list[int] = solution2.findOrder(num_courses, prerequisites)
         print(f"Courses: {num_courses}, Prerequisites: {prerequisites}")
-        print(f"Order: {result}\n")
+        print(f"Order: {order_result}\n")
 
     # Test Alien Dictionary
     solution_alien = SolutionAlienDictionary()
 
     print("Alien Dictionary:")
-    alien_cases = [
-        ["wrt", "wrf", "er", "ett", "rftt"],
-        ["z", "x"],
-        ["z", "x", "z"],
-        ["abc", "ab"]
-    ]
+    alien_cases = [["wrt", "wrf", "er", "ett", "rftt"], ["z", "x"], ["z", "x", "z"], ["abc", "ab"]]
 
     for words in alien_cases:
-        result = solution_alien.alienOrder(words)
+        alien_result: str = solution_alien.alienOrder(words)
         print(f"Words: {words}")
-        print(f"Order: '{result}'\n")
+        print(f"Order: '{alien_result}'\n")

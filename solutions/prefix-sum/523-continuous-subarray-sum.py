@@ -67,6 +67,7 @@ O(min(n, k))
 </details>
 """
 
+
 class Solution:
     def checkSubarraySum(self, nums: list[int], k: int) -> bool:
         """
@@ -116,6 +117,7 @@ class Solution:
 
         return False
 
+
 def test_solution() -> None:
     """Test cases for Problem 523."""
     solution = Solution()
@@ -161,6 +163,7 @@ def test_solution() -> None:
     print("Test case 10 passed: Remainder 1")
 
     print("\nAll test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

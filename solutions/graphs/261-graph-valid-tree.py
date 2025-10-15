@@ -79,7 +79,8 @@ O(1)
 
 from collections import defaultdict, deque
 
-from typing import List, Optional, Dict, Tuple
+from typing import Any, List, Optional, Dict, Tuple
+
 
 class Solution:
     """
@@ -89,41 +90,41 @@ class Solution:
     2. Have no cycles
     3. Have n-1 edges for n nodes
     """
-    
+
     def validTree(self, n: int, edges: List[List[int]]) -> bool:
         """
         Determines if the given graph represents a valid tree.
-        
+
         Args:
             n: Number of nodes (labeled from 0 to n-1)
             edges: List of edges, where each edge is [node1, node2]
-            
+
         Returns:
             bool: True if the graph is a valid tree, False otherwise
         """
         # First check: A tree with n nodes must have exactly n-1 edges
         if len(edges) != n - 1:
             return False
-            
+
         # Create adjacency list representation of the graph
-        adj_list = defaultdict(list)
+        adj_list: dict[Any, list[Any]] = defaultdict(list)
         for u, v in edges:
             adj_list[u].append(v)
             adj_list[v].append(u)
-            
+
         # Use BFS to check if the graph is fully connected and has no cycles
-        visited = set()
+        visited: set[Any] = set()
         queue = deque([0])  # Start from node 0
-        
+
         while queue:
             node = queue.popleft()
             visited.add(node)
-            
+
             for neighbor in adj_list[node]:
                 if neighbor not in visited:
                     visited.add(neighbor)
                     queue.append(neighbor)
-        
+
         # If we visited all nodes, and we already verified we have n-1 edges,
         # then this must be a valid tree
         return len(visited) == n
@@ -131,28 +132,28 @@ class Solution:
     def validTree_dfs(self, n: int, edges: List[List[int]]) -> bool:
         """
         Alternative implementation using DFS.
-        
+
         Args:
             n: Number of nodes (labeled from 0 to n-1)
             edges: List of edges, where each edge is [node1, node2]
-            
+
         Returns:
             bool: True if the graph is a valid tree, False otherwise
         """
         if len(edges) != n - 1:
             return False
-            
+
         # Create adjacency list
-        adj_list = defaultdict(list)
+        adj_list: dict[int, list[int]] = defaultdict(list)
         for u, v in edges:
             adj_list[u].append(v)
             adj_list[v].append(u)
-            
+
         visited = set()
-        
+
         def dfs(node: int, parent: int) -> bool:
             visited.add(node)
-            
+
             for neighbor in adj_list[node]:
                 if neighbor == parent:
                     continue
@@ -161,22 +162,23 @@ class Solution:
                 if not dfs(neighbor, node):
                     return False
             return True
-            
+
         return dfs(0, -1) and len(visited) == n
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
     solution = Solution()
 
     # Test case 1: Valid tree
-    result = solution.validTree(5, [[0,1],[0,2],[0,3],[1,4]])
+    result = solution.validTree(5, [[0, 1], [0, 2], [0, 3], [1, 4]])
     expected = True
     assert result == expected, f"Expected {expected}, got {result}"
 
     # Test case 2: Has cycle (not a tree)
-    result = solution.validTree(5, [[0,1],[1,2],[2,3],[1,3],[1,4]])
+    result = solution.validTree(5, [[0, 1], [1, 2], [2, 3], [1, 3], [1, 4]])
     expected = False
     assert result == expected, f"Expected {expected}, got {result}"
 
@@ -186,16 +188,17 @@ def test_solution():
     assert result == expected, f"Expected {expected}, got {result}"
 
     # Test case 4: Disconnected graph (not a tree)
-    result = solution.validTree(4, [[0,1],[2,3]])
+    result = solution.validTree(4, [[0, 1], [2, 3]])
     expected = False
     assert result == expected, f"Expected {expected}, got {result}"
 
     # Test case 5: Using DFS version
-    result = solution.validTree_dfs(5, [[0,1],[0,2],[0,3],[1,4]])
+    result = solution.validTree_dfs(5, [[0, 1], [0, 2], [0, 3], [1, 4]])
     expected = True
     assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

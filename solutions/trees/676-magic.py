@@ -71,5 +71,5 @@ For the trie structure storing all dictionary words
 
 </details>
 """
-
+import re
 

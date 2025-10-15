@@ -78,105 +78,134 @@
  * Space Complexity: O(n)
  */
 function solve(intervals) {
-    const n = intervals.length;
-    const result = new Array(n).fill(-1);
+  const n = intervals.length;
+  const result = new Array(n).fill(-1);
 
-    // Create array with start times and original indices
-    const starts = intervals.map((interval, i) => [interval[0], i]);
+  // Create array with start times and original indices
+  const starts = intervals.map((interval, i) => [interval[0], i]);
 
-    // Sort by start time
-    starts.sort((a, b) => a[0] - b[0]);
+  // Sort by start time
+  starts.sort((a, b) => a[0] - b[0]);
 
-    // For each interval, binary search for right interval
-    for (let i = 0; i < n; i++) {
-        const end = intervals[i][1];
+  // For each interval, binary search for right interval
+  for (let i = 0; i < n; i++) {
+    const end = intervals[i][1];
 
-        // Binary search for smallest start >= end
-        let left = 0;
-        let right = n - 1;
-        let minIndex = -1;
+    // Binary search for smallest start >= end
+    let left = 0;
+    let right = n - 1;
+    let minIndex = -1;
 
-        while (left <= right) {
-            const mid = Math.floor((left + right) / 2);
-            if (starts[mid][0] >= end) {
-                minIndex = starts[mid][1];
-                right = mid - 1; // Look for smaller valid start
-            } else {
-                left = mid + 1;
-            }
-        }
-
-        result[i] = minIndex;
+    while (left <= right) {
+      const mid = Math.floor((left + right) / 2);
+      if (starts[mid][0] >= end) {
+        minIndex = starts[mid][1];
+        right = mid - 1; // Look for smaller valid start
+      } else {
+        left = mid + 1;
+      }
     }
 
-    return result;
+    result[i] = minIndex;
+  }
+
+  return result;
 }
 
 /**
  * Test cases for Problem 436: Find Right Interval
  */
 function testSolution() {
-    console.log('Testing 436. Find Right Interval');
+  console.log("Testing 436. Find Right Interval");
 
-    // Helper function to compare arrays
-    const arraysEqual = (a, b) => JSON.stringify(a) === JSON.stringify(b);
+  // Helper function to compare arrays
+  const arraysEqual = (a, b) => JSON.stringify(a) === JSON.stringify(b);
 
-    // Test case 1: Basic functionality
-    const result1 = solve([[3,4],[2,3],[1,2]]);
-    const expected1 = [-1,0,1];
-    console.assert(arraysEqual(result1, expected1),
-        `Test 1 failed: expected ${JSON.stringify(expected1)}, got ${JSON.stringify(result1)}`);
+  // Test case 1: Basic functionality
+  const result1 = solve([
+    [3, 4],
+    [2, 3],
+    [1, 2],
+  ]);
+  const expected1 = [-1, 0, 1];
+  console.assert(
+    arraysEqual(result1, expected1),
+    `Test 1 failed: expected ${JSON.stringify(expected1)}, got ${JSON.stringify(result1)}`,
+  );
 
-    // Test case 2: Single interval
-    const result2 = solve([[1,2]]);
-    const expected2 = [-1];
-    console.assert(arraysEqual(result2, expected2),
-        `Test 2 failed: expected ${JSON.stringify(expected2)}, got ${JSON.stringify(result2)}`);
+  // Test case 2: Single interval
+  const result2 = solve([[1, 2]]);
+  const expected2 = [-1];
+  console.assert(
+    arraysEqual(result2, expected2),
+    `Test 2 failed: expected ${JSON.stringify(expected2)}, got ${JSON.stringify(result2)}`,
+  );
 
-    // Test case 3: No right intervals
-    const result3 = solve([[1,4],[2,3],[3,4]]);
-    const expected3 = [-1,2,-1];
-    console.assert(arraysEqual(result3, expected3),
-        `Test 3 failed: expected ${JSON.stringify(expected3)}, got ${JSON.stringify(result3)}`);
+  // Test case 3: No right intervals
+  const result3 = solve([
+    [1, 4],
+    [2, 3],
+    [3, 4],
+  ]);
+  const expected3 = [-1, 2, -1];
+  console.assert(
+    arraysEqual(result3, expected3),
+    `Test 3 failed: expected ${JSON.stringify(expected3)}, got ${JSON.stringify(result3)}`,
+  );
 
-    // Test case 4: All have right intervals
-    const result4 = solve([[1,2],[2,3],[3,4]]);
-    const expected4 = [1,2,-1];
-    console.assert(arraysEqual(result4, expected4),
-        `Test 4 failed: expected ${JSON.stringify(expected4)}, got ${JSON.stringify(result4)}`);
+  // Test case 4: All have right intervals
+  const result4 = solve([
+    [1, 2],
+    [2, 3],
+    [3, 4],
+  ]);
+  const expected4 = [1, 2, -1];
+  console.assert(
+    arraysEqual(result4, expected4),
+    `Test 4 failed: expected ${JSON.stringify(expected4)}, got ${JSON.stringify(result4)}`,
+  );
 
-    // Test case 5: Same interval can be right interval
-    const result5 = solve([[1,12],[2,9],[3,10],[13,14],[15,16],[16,17]]);
-    const expected5 = [3,3,3,4,5,-1];
-    console.assert(arraysEqual(result5, expected5),
-        `Test 5 failed: expected ${JSON.stringify(expected5)}, got ${JSON.stringify(result5)}`);
+  // Test case 5: Same interval can be right interval
+  const result5 = solve([
+    [1, 12],
+    [2, 9],
+    [3, 10],
+    [13, 14],
+    [15, 16],
+    [16, 17],
+  ]);
+  const expected5 = [3, 3, 3, 4, 5, -1];
+  console.assert(
+    arraysEqual(result5, expected5),
+    `Test 5 failed: expected ${JSON.stringify(expected5)}, got ${JSON.stringify(result5)}`,
+  );
 
-    console.log('All test cases passed for 436. Find Right Interval!');
+  console.log("All test cases passed for 436. Find Right Interval!");
 }
 
 /**
  * Example usage and demonstration
  */
 function demonstrateSolution() {
-    console.log('\n=== Problem 436. Find Right Interval ===');
-    console.log('Category: Interval');
-    console.log('Difficulty: Medium');
-    console.log('');
+  console.log("\n=== Problem 436. Find Right Interval ===");
+  console.log("Category: Interval");
+  console.log("Difficulty: Medium");
+  console.log("");
 
-    // Example demonstration would go here
-    testSolution();
+  // Example demonstration would go here
+  testSolution();
 }
 
 // Run tests if this file is executed directly
 if (require.main === module) {
-    demonstrateSolution();
+  demonstrateSolution();
 }
 
 // Export for use in other modules
 module.exports = {
-    solve,
-    testSolution,
-    demonstrateSolution
+  solve,
+  testSolution,
+  demonstrateSolution,
 };
 
 /**

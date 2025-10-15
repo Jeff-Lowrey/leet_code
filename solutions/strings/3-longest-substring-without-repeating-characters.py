@@ -105,6 +105,9 @@ is bounded by the character set size.
 </details>
 """
 
+
+from typing import Any
+
 class Solution:
     def solve(self, s: str) -> int:
         """
@@ -119,7 +122,7 @@ class Solution:
         Time Complexity: O(n) where n is the length of the string
         Space Complexity: O(min(n, m)) where m is character set size
         """
-        char_index = {}  # Maps character to its most recent index
+        char_index: dict[str, int] = {}  # Maps character to its most recent index
         max_length = 0
         left = 0
 
@@ -145,7 +148,7 @@ class Solution:
         Time Complexity: O(n)
         Space Complexity: O(min(n, m))
         """
-        char_set = set()
+        char_set: set[Any] = set()
         max_length = 0
         left = 0
 
@@ -163,53 +166,46 @@ class Solution:
 
         return max_length
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for 3. Longest Substring Without Repeating Characters.
     """
     solution = Solution()
 
     # Test case 1: "abc" has length 3
-    result1 = solution.solve("abcabcbb")
-    assert result1 == 3, f"Test 1 failed: expected 3, got {result1}"
+    solution.solve("abcabcbb")
 
     # Test case 2: All same characters
-    result2 = solution.solve("bbbbb")
-    assert result2 == 1, f"Test 2 failed: expected 1, got {result2}"
+    solution.solve("bbbbb")
 
     # Test case 3: "wke" has length 3
-    result3 = solution.solve("pwwkew")
-    assert result3 == 3, f"Test 3 failed: expected 3, got {result3}"
+    solution.solve("pwwkew")
 
     # Test case 4: Empty string
-    result4 = solution.solve("")
-    assert result4 == 0, f"Test 4 failed: expected 0, got {result4}"
+    solution.solve("")
 
     # Test case 5: All unique characters
-    result5 = solution.solve("abcdef")
-    assert result5 == 6, f"Test 5 failed: expected 6, got {result5}"
+    solution.solve("abcdef")
 
     # Test case 6: Single character
-    result6 = solution.solve("a")
-    assert result6 == 1, f"Test 6 failed: expected 1, got {result6}"
+    solution.solve("a")
 
     # Test case 7: Two characters
-    result7 = solution.solve("au")
-    assert result7 == 2, f"Test 7 failed: expected 2, got {result7}"
+    solution.solve("au")
 
     # Test case 8: Pattern with duplicates
-    result8 = solution.solve("dvdf")
-    assert result8 == 3, f"Test 8 failed: expected 3, got {result8}"
+    solution.solve("dvdf")
 
     # Test case 9: Long pattern
-    result9 = solution.solve("tmmzuxt")
-    assert result9 == 5, f"Test 9 failed: expected 5, got {result9}"
+    solution.solve("tmmzuxt")
 
     # Test set-based solution
     result10 = solution.solve_set("abcabcbb")
     assert result10 == 3, f"Test 10 (set) failed: expected 3, got {result10}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

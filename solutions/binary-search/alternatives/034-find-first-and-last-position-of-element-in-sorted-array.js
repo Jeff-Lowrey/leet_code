@@ -81,148 +81,178 @@
  * Space Complexity: O(1)
  */
 function solve(nums, target) {
-    // Handle edge case: empty array
-    if (!nums || nums.length === 0) {
-        return [-1, -1];
-    }
+  // Handle edge case: empty array
+  if (!nums || nums.length === 0) {
+    return [-1, -1];
+  }
 
-    /**
-     * Helper function to find leftmost or rightmost occurrence of target
-     * @param {boolean} findLeft - true for leftmost, false for rightmost
-     * @return {number} - index of occurrence or -1 if not found
-     */
-    function binarySearch(findLeft) {
-        let left = 0;
-        let right = nums.length - 1;
-        let result = -1;
+  /**
+   * Helper function to find leftmost or rightmost occurrence of target
+   * @param {boolean} findLeft - true for leftmost, false for rightmost
+   * @return {number} - index of occurrence or -1 if not found
+   */
+  function binarySearch(findLeft) {
+    let left = 0;
+    let right = nums.length - 1;
+    let result = -1;
 
-        while (left <= right) {
-            const mid = Math.floor((left + right) / 2);
+    while (left <= right) {
+      const mid = Math.floor((left + right) / 2);
 
-            if (nums[mid] === target) {
-                result = mid;
-                if (findLeft) {
-                    // Continue searching in left half for first occurrence
-                    right = mid - 1;
-                } else {
-                    // Continue searching in right half for last occurrence
-                    left = mid + 1;
-                }
-            } else if (nums[mid] < target) {
-                left = mid + 1;
-            } else {
-                right = mid - 1;
-            }
+      if (nums[mid] === target) {
+        result = mid;
+        if (findLeft) {
+          // Continue searching in left half for first occurrence
+          right = mid - 1;
+        } else {
+          // Continue searching in right half for last occurrence
+          left = mid + 1;
         }
-
-        return result;
+      } else if (nums[mid] < target) {
+        left = mid + 1;
+      } else {
+        right = mid - 1;
+      }
     }
 
-    // Find the leftmost occurrence
-    const leftmost = binarySearch(true);
+    return result;
+  }
 
-    // If target not found, return [-1, -1]
-    if (leftmost === -1) {
-        return [-1, -1];
-    }
+  // Find the leftmost occurrence
+  const leftmost = binarySearch(true);
 
-    // Find the rightmost occurrence
-    const rightmost = binarySearch(false);
+  // If target not found, return [-1, -1]
+  if (leftmost === -1) {
+    return [-1, -1];
+  }
 
-    return [leftmost, rightmost];
+  // Find the rightmost occurrence
+  const rightmost = binarySearch(false);
+
+  return [leftmost, rightmost];
 }
 
 /**
  * Test cases for Problem 034: Find First And Last Position Of Element In Sorted Array
  */
 function testSolution() {
-    console.log('Testing 034. Find First And Last Position Of Element In Sorted Array');
+  console.log(
+    "Testing 034. Find First And Last Position Of Element In Sorted Array",
+  );
 
-    // Helper function to compare arrays
-    function arraysEqual(a, b) {
-        return a.length === b.length && a.every((val, i) => val === b[i]);
-    }
+  // Helper function to compare arrays
+  function arraysEqual(a, b) {
+    return a.length === b.length && a.every((val, i) => val === b[i]);
+  }
 
-    // Test case 1: Multiple occurrences
-    const result1 = solve([5,7,7,8,8,10], 8);
-    const expected1 = [3, 4];
-    console.assert(arraysEqual(result1, expected1), `Test 1 failed: expected [${expected1}], got [${result1}]`);
+  // Test case 1: Multiple occurrences
+  const result1 = solve([5, 7, 7, 8, 8, 10], 8);
+  const expected1 = [3, 4];
+  console.assert(
+    arraysEqual(result1, expected1),
+    `Test 1 failed: expected [${expected1}], got [${result1}]`,
+  );
 
-    // Test case 2: Target not found
-    const result2 = solve([5,7,7,8,8,10], 6);
-    const expected2 = [-1, -1];
-    console.assert(arraysEqual(result2, expected2), `Test 2 failed: expected [${expected2}], got [${result2}]`);
+  // Test case 2: Target not found
+  const result2 = solve([5, 7, 7, 8, 8, 10], 6);
+  const expected2 = [-1, -1];
+  console.assert(
+    arraysEqual(result2, expected2),
+    `Test 2 failed: expected [${expected2}], got [${result2}]`,
+  );
 
-    // Test case 3: Empty array
-    const result3 = solve([], 0);
-    const expected3 = [-1, -1];
-    console.assert(arraysEqual(result3, expected3), `Test 3 failed: expected [${expected3}], got [${result3}]`);
+  // Test case 3: Empty array
+  const result3 = solve([], 0);
+  const expected3 = [-1, -1];
+  console.assert(
+    arraysEqual(result3, expected3),
+    `Test 3 failed: expected [${expected3}], got [${result3}]`,
+  );
 
-    // Test case 4: Single element found
-    const result4 = solve([1], 1);
-    const expected4 = [0, 0];
-    console.assert(arraysEqual(result4, expected4), `Test 4 failed: expected [${expected4}], got [${result4}]`);
+  // Test case 4: Single element found
+  const result4 = solve([1], 1);
+  const expected4 = [0, 0];
+  console.assert(
+    arraysEqual(result4, expected4),
+    `Test 4 failed: expected [${expected4}], got [${result4}]`,
+  );
 
-    // Test case 5: Single element not found
-    const result5 = solve([1], 2);
-    const expected5 = [-1, -1];
-    console.assert(arraysEqual(result5, expected5), `Test 5 failed: expected [${expected5}], got [${result5}]`);
+  // Test case 5: Single element not found
+  const result5 = solve([1], 2);
+  const expected5 = [-1, -1];
+  console.assert(
+    arraysEqual(result5, expected5),
+    `Test 5 failed: expected [${expected5}], got [${result5}]`,
+  );
 
-    // Test case 6: All elements are the same
-    const result6 = solve([2,2,2,2,2], 2);
-    const expected6 = [0, 4];
-    console.assert(arraysEqual(result6, expected6), `Test 6 failed: expected [${expected6}], got [${result6}]`);
+  // Test case 6: All elements are the same
+  const result6 = solve([2, 2, 2, 2, 2], 2);
+  const expected6 = [0, 4];
+  console.assert(
+    arraysEqual(result6, expected6),
+    `Test 6 failed: expected [${expected6}], got [${result6}]`,
+  );
 
-    // Test case 7: Target at beginning
-    const result7 = solve([1,1,2,3,4], 1);
-    const expected7 = [0, 1];
-    console.assert(arraysEqual(result7, expected7), `Test 7 failed: expected [${expected7}], got [${result7}]`);
+  // Test case 7: Target at beginning
+  const result7 = solve([1, 1, 2, 3, 4], 1);
+  const expected7 = [0, 1];
+  console.assert(
+    arraysEqual(result7, expected7),
+    `Test 7 failed: expected [${expected7}], got [${result7}]`,
+  );
 
-    // Test case 8: Target at end
-    const result8 = solve([1,2,3,4,4], 4);
-    const expected8 = [3, 4];
-    console.assert(arraysEqual(result8, expected8), `Test 8 failed: expected [${expected8}], got [${result8}]`);
+  // Test case 8: Target at end
+  const result8 = solve([1, 2, 3, 4, 4], 4);
+  const expected8 = [3, 4];
+  console.assert(
+    arraysEqual(result8, expected8),
+    `Test 8 failed: expected [${expected8}], got [${result8}]`,
+  );
 
-    console.log('All test cases passed for 034. Find First And Last Position Of Element In Sorted Array!');
+  console.log(
+    "All test cases passed for 034. Find First And Last Position Of Element In Sorted Array!",
+  );
 }
 
 /**
  * Example usage and demonstration
  */
 function demonstrateSolution() {
-    console.log('\n=== Problem 034. Find First And Last Position Of Element In Sorted Array ===');
-    console.log('Category: Binary Search');
-    console.log('Difficulty: Medium');
-    console.log('');
+  console.log(
+    "\n=== Problem 034. Find First And Last Position Of Element In Sorted Array ===",
+  );
+  console.log("Category: Binary Search");
+  console.log("Difficulty: Medium");
+  console.log("");
 
-    console.log('Example 1:');
-    console.log('Input: nums = [5,7,7,8,8,10], target = 8');
-    console.log('Output:', solve([5,7,7,8,8,10], 8));
-    console.log('');
+  console.log("Example 1:");
+  console.log("Input: nums = [5,7,7,8,8,10], target = 8");
+  console.log("Output:", solve([5, 7, 7, 8, 8, 10], 8));
+  console.log("");
 
-    console.log('Example 2:');
-    console.log('Input: nums = [5,7,7,8,8,10], target = 6');
-    console.log('Output:', solve([5,7,7,8,8,10], 6));
-    console.log('');
+  console.log("Example 2:");
+  console.log("Input: nums = [5,7,7,8,8,10], target = 6");
+  console.log("Output:", solve([5, 7, 7, 8, 8, 10], 6));
+  console.log("");
 
-    console.log('Example 3:');
-    console.log('Input: nums = [], target = 0');
-    console.log('Output:', solve([], 0));
-    console.log('');
+  console.log("Example 3:");
+  console.log("Input: nums = [], target = 0");
+  console.log("Output:", solve([], 0));
+  console.log("");
 
-    testSolution();
+  testSolution();
 }
 
 // Run tests if this file is executed directly
 if (require.main === module) {
-    demonstrateSolution();
+  demonstrateSolution();
 }
 
 // Export for use in other modules
 module.exports = {
-    solve,
-    testSolution,
-    demonstrateSolution
+  solve,
+  testSolution,
+  demonstrateSolution,
 };
 
 /**

@@ -74,17 +74,18 @@ O(1)
 
 from typing import List, Optional, Dict, Tuple
 
+
 class Solution:
     def singleNumber(self, nums: List[int]) -> int:
         """
         Find the single number in an array where all other numbers appear twice.
-        
+
         Args:
             nums (List[int]): Array of integers where all numbers except one appear twice
-            
+
         Returns:
             int: The number that appears only once
-            
+
         Example:
             >>> solution = Solution()
             >>> solution.singleNumber([2,2,1])
@@ -101,14 +102,15 @@ class Solution:
             result ^= num
         return result
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
     solution = Solution()
 
     # Test case 1: Example from problem
-    result = solution.singleNumber([4,1,2,1,2])
+    result = solution.singleNumber([4, 1, 2, 1, 2])
     expected = 4
     assert result == expected, f"Expected {expected}, got {result}"
 
@@ -118,11 +120,12 @@ def test_solution():
     assert result == expected, f"Expected {expected}, got {result}"
 
     # Test case 3: Negative numbers
-    result = solution.singleNumber([-1,-2,-3,-2,-1])
+    result = solution.singleNumber([-1, -2, -3, -2, -1])
     expected = -3
     assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

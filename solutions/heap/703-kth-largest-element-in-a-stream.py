@@ -80,5 +80,3 @@ Heap stores at most k elements
 
 </details>
 """
-
-

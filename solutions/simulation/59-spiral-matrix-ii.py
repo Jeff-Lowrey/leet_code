@@ -91,6 +91,9 @@ O(1)
 
 </details>
 """
+from typing import Any
+
+
 
 class Solution:
     def generateMatrix(self, n: int) -> list[list[int]]:
@@ -187,7 +190,7 @@ class Solution:
         """
         matrix = [[0] * n for _ in range(n)]
 
-        def fill_layer(top, bottom, left, right, num):
+        def fill_layer(top: Any, bottom: Any, left: Any, right: Any, num: Any) -> Any:
             if top > bottom or left > right:
                 return num
 
@@ -219,13 +222,15 @@ class Solution:
         fill_layer(0, n - 1, 0, n - 1, 1)
         return matrix
 
+
 def print_matrix(matrix):
     """Helper to print matrix nicely."""
     for row in matrix:
         print(" ".join(f"{num:3}" for num in row))
     print()
 
-def test_solution():
+
+def test_solution() -> None:
     """Test cases for Problem 59."""
     solution = Solution()
 
@@ -268,6 +273,7 @@ def test_solution():
     assert solution.generateMatrixRecursive(n7) == expected7, "Recursive method failed"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

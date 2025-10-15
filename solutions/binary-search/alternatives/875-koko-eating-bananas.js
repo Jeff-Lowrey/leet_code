@@ -87,80 +87,80 @@
  * Space Complexity: O(1)
  */
 function solve(piles, h) {
-    // Helper function to calculate hours needed at given eating speed
-    function hoursNeeded(speed) {
-        let hours = 0;
-        for (const pile of piles) {
-            hours += Math.ceil(pile / speed);
-        }
-        return hours;
+  // Helper function to calculate hours needed at given eating speed
+  function hoursNeeded(speed) {
+    let hours = 0;
+    for (const pile of piles) {
+      hours += Math.ceil(pile / speed);
     }
+    return hours;
+  }
 
-    let left = 1;
-    let right = Math.max(...piles);
+  let left = 1;
+  let right = Math.max(...piles);
 
-    while (left < right) {
-        const mid = Math.floor((left + right) / 2);
+  while (left < right) {
+    const mid = Math.floor((left + right) / 2);
 
-        if (hoursNeeded(mid) <= h) {
-            // Speed is sufficient, try slower speed
-            right = mid;
-        } else {
-            // Speed is too slow, need faster speed
-            left = mid + 1;
-        }
+    if (hoursNeeded(mid) <= h) {
+      // Speed is sufficient, try slower speed
+      right = mid;
+    } else {
+      // Speed is too slow, need faster speed
+      left = mid + 1;
     }
+  }
 
-    return left;
+  return left;
 }
 
 /**
  * Test cases for Problem 875: Koko Eating Bananas
  */
 function testSolution() {
-    console.log('Testing 875. Koko Eating Bananas');
+  console.log("Testing 875. Koko Eating Bananas");
 
-    // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+  // Test case 1: Basic functionality
+  // const result1 = solve(testInput1);
+  // const expected1 = expectedOutput1;
+  // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+  // Test case 2: Edge case
+  // const result2 = solve(edgeCaseInput);
+  // const expected2 = edgeCaseOutput;
+  // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+  // Test case 3: Large input
+  // const result3 = solve(largeInput);
+  // const expected3 = largeExpected;
+  // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
 
-    console.log('All test cases passed for 875. Koko Eating Bananas!');
+  console.log("All test cases passed for 875. Koko Eating Bananas!");
 }
 
 /**
  * Example usage and demonstration
  */
 function demonstrateSolution() {
-    console.log('\n=== Problem 875. Koko Eating Bananas ===');
-    console.log('Category: Binary Search');
-    console.log('Difficulty: Medium');
-    console.log('');
+  console.log("\n=== Problem 875. Koko Eating Bananas ===");
+  console.log("Category: Binary Search");
+  console.log("Difficulty: Medium");
+  console.log("");
 
-    // Example demonstration would go here
-    testSolution();
+  // Example demonstration would go here
+  testSolution();
 }
 
 // Run tests if this file is executed directly
 if (require.main === module) {
-    demonstrateSolution();
+  demonstrateSolution();
 }
 
 // Export for use in other modules
 module.exports = {
-    solve,
-    testSolution,
-    demonstrateSolution
+  solve,
+  testSolution,
+  demonstrateSolution,
 };
 
 /**

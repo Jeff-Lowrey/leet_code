@@ -64,6 +64,10 @@ For the frequency HashMap
 </details>
 """
 
+from collections import defaultdict
+from typing import Any
+
+
 class Solution:
     def numberOfSubarrays(self, nums: list[int], k: int) -> int:
         """
@@ -79,10 +83,8 @@ class Solution:
         Time Complexity: O(n) - single pass through array
         Space Complexity: O(n) - for frequency HashMap
         """
-        from collections import defaultdict
-
         # Count frequency of prefix sums (number of odd numbers seen so far)
-        prefix_count_freq = defaultdict(int)
+        prefix_count_freq: dict[Any, int] = defaultdict(int)
         prefix_count_freq[0] = 1  # Empty prefix has 0 odd numbers
 
         current_odd_count = 0
@@ -118,7 +120,7 @@ class Solution:
         Space Complexity: O(1)
         """
 
-        def at_most_k_odd(nums, k):
+        def at_most_k_odd(nums: Any, k: Any) -> Any:
             """Count subarrays with at most k odd numbers."""
             if k < 0:
                 return 0
@@ -141,7 +143,7 @@ class Solution:
             return result
 
         # exactly k = at_most_k - at_most_(k-1)
-        return at_most_k_odd(nums, k) - at_most_k_odd(nums, k - 1)
+        return at_most_k_odd(nums, k) - at_most_k_odd(nums, k - 1)  # type: ignore
 
     def numberOfSubarraysOptimized(self, nums: list[int], k: int) -> int:
         """
@@ -206,7 +208,8 @@ class Solution:
 
         return count
 
-def test_solution():
+
+def test_solution() -> None:
     """Test cases for Problem 1248."""
     solution = Solution()
 
@@ -261,6 +264,7 @@ def test_solution():
     assert result10 == expected10, f"Expected {expected10}, got {result10}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

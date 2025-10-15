@@ -78,6 +78,24 @@ For storing the trie structure
 </details>
 """
 
+
+from typing import Any
+import re
+
+
+
+
+class TrieNode:
+    """Node in a Trie data structure."""
+
+    def __init__(self) -> None:
+        """Initialize TrieNode with empty children and end marker."""
+        self.children: dict[str, "TrieNode"] = {}
+        self.word: str | None = None  # For word storage in solutions like Word Search II
+        self.is_end: bool = False  # Marks end of a word
+        self.suggestions: list[str] = []  # For search suggestions
+
+
 class Solution:
     def suggestedProducts(self, products: list[str], searchWord: str) -> list[list[str]]:
         """
@@ -111,7 +129,7 @@ class Solution:
                     current.suggestions.append(product)
 
         # Process search word
-        result = []
+        result: list[Any] = []
         current = root
 
         for char in searchWord:
@@ -120,10 +138,11 @@ class Solution:
                 result.append(current.suggestions)
             else:
                 # No more matches, remaining results are empty
-                current = None
+                current = None  # type: ignore
                 result.append([])
 
         return result
+
 
 class SolutionBinarySearch:
     """Alternative solution using sorting and binary search."""
@@ -136,7 +155,7 @@ class SolutionBinarySearch:
         Space Complexity: O(1) excluding output
         """
         products.sort()
-        result = []
+        result: list[Any] = []
         prefix = ""
 
         for char in searchWord:
@@ -145,7 +164,7 @@ class SolutionBinarySearch:
             # Binary search for first product with this prefix
             start = self._find_start_index(products, prefix)
 
-            suggestions = []
+            suggestions: list[Any] = []
             # Collect up to 3 products starting from found index
             for i in range(start, min(start + 3, len(products))):
                 if products[i].startswith(prefix):
@@ -170,6 +189,7 @@ class SolutionBinarySearch:
 
         return left
 
+
 class SolutionSimple:
     """Simple solution using filtering."""
 
@@ -181,7 +201,7 @@ class SolutionSimple:
         Space Complexity: O(1) excluding output
         """
         products.sort()
-        result = []
+        result: list[Any] = []
         prefix = ""
 
         for char in searchWord:
@@ -193,7 +213,8 @@ class SolutionSimple:
 
         return result
 
-def test_solution():
+
+def test_solution() -> None:
     """Test cases for 1268. Search Suggestions System."""
     solution = Solution()
     solution_bs = SolutionBinarySearch()
@@ -248,6 +269,7 @@ def test_solution():
     assert len(result5_simple) == 1 and len(result5_simple[0]) == 3
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

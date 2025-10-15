@@ -84,5 +84,3 @@ Only storing one cached element
 
 </details>
 """
-
-

@@ -84,6 +84,9 @@ Stack can contain up to n/2 opening brackets in worst case
 </details>
 """
 
+
+from typing import Any
+
 class Solution:
     def isValid(self, s: str) -> bool:
         """
@@ -103,14 +106,10 @@ class Solution:
             return False
 
         # Stack to track opening brackets
-        stack = []
+        stack: list[Any] = []
 
         # Mapping of closing to opening brackets
-        bracket_map = {
-            ')': '(',
-            '}': '{',
-            ']': '['
-        }
+        bracket_map = {")": "(", "}": "{", "]": "["}
 
         for char in s:
             if char in bracket_map:
@@ -131,9 +130,9 @@ class Solution:
         Time Complexity: O(n)
         Space Complexity: O(n)
         """
-        stack = []
-        opening = {'(', '[', '{'}
-        pairs = {')': '(', ']': '[', '}': '{'}
+        stack: list[Any] = []
+        opening = {"(", "[", "{"}
+        pairs = {")": "(", "]": "[", "}": "{"}
 
         for char in s:
             if char in opening:
@@ -153,12 +152,13 @@ class Solution:
         Space Complexity: O(n)
         """
         # Keep replacing valid pairs until no more changes
-        while '()' in s or '[]' in s or '{}' in s:
-            s = s.replace('()', '').replace('[]', '').replace('{}', '')
+        while "()" in s or "[]" in s or "{}" in s:
+            s = s.replace("()", "").replace("[]", "").replace("{}", "")
 
-        return s == ''
+        return s == ""
 
-def test_solution():
+
+def test_solution() -> None:
     """Test cases for Valid Parentheses problem."""
     solution = Solution()
 
@@ -193,6 +193,7 @@ def test_solution():
     assert solution.isValidIterative("([{}])") == True, "Iterative test failed"
 
     print("All test cases passed for Valid Parentheses!")
+
 
 if __name__ == "__main__":
     test_solution()

@@ -65,6 +65,7 @@ Only two pointer variables are used, regardless of input size.
 
 from typing import List, Optional, Dict, Tuple
 
+
 class Solution:
     def solve(self, s: List[str]) -> None:
         """
@@ -88,28 +89,30 @@ class Solution:
             left += 1
             right -= 1
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
     solution = Solution()
 
     # Test case 1: Basic case
-    result = solution.solve([1, 2, 3])
-    expected = None
-    assert result == expected, f"Expected {expected}, got {result}"
+    test1 = ["h", "e", "l", "l", "o"]
+    solution.solve(test1)
+    assert test1 == ["o", "l", "l", "e", "h"], f"Expected ['o','l','l','e','h'], got {test1}"
 
     # Test case 2: Empty input
-    result = solution.solve([])
-    expected = None
-    assert result == expected, f"Expected {expected}, got {result}"
+    test2: list[str] = []
+    solution.solve(test2)
+    assert test2 == [], f"Expected [], got {test2}"
 
     # Test case 3: Single element
-    result = solution.solve([1])
-    expected = None
-    assert result == expected, f"Expected {expected}, got {result}"
+    test3 = ["a"]
+    solution.solve(test3)
+    assert test3 == ["a"], f"Expected ['a'], got {test3}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

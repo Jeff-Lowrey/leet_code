@@ -64,6 +64,7 @@ Only using counters
 </details>
 """
 
+
 class Solution:
     def trailingZeroes(self, n: int) -> int:
         """
@@ -90,6 +91,7 @@ class Solution:
             return 0
         return n // 5 + self.trailingZeroesRecursive(n // 5)
 
+
 def test_solution() -> None:
     """Test cases for Problem 172."""
     solution = Solution()
@@ -101,6 +103,7 @@ def test_solution() -> None:
     assert solution.trailingZeroes(30) == 7
     assert solution.trailingZeroes(0) == 0
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

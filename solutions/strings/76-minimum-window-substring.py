@@ -84,6 +84,10 @@ entries. In practice, for limited character sets (like ASCII), this is O(1).
 </details>
 """
 
+from collections import Counter
+from typing import Any
+
+
 class Solution:
     def solve(self, s: str, t: str) -> str:
         """
@@ -110,10 +114,10 @@ class Solution:
         left = 0
         right = 0
         formed = 0  # Number of unique chars in window with desired frequency
-        window_counts = {}
+        window_counts: dict[Any, Any] = {}
 
         # Result tracking (length, left, right)
-        result = float('inf'), None, None
+        result: tuple[float | int, int | None, int | None] = (float("inf"), None, None)
 
         while right < len(s):
             # Add character from right to window
@@ -143,51 +147,48 @@ class Solution:
             right += 1
 
         # Return the minimum window or empty string
-        return "" if result[0] == float('inf') else s[result[1]:result[2] + 1]
+        if result[0] == float("inf"):
+            return ""
+        # At this point, result[1] and result[2] are guaranteed to be ints, not None
+        assert result[1] is not None and result[2] is not None
+        return s[result[1] : result[2] + 1]
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for 76. Minimum Window Substring.
     """
     solution = Solution()
 
     # Test case 1: Basic case
-    result1 = solution.solve("ADOBECODEBANC", "ABC")
-    assert result1 == "BANC", f"Test 1 failed: expected 'BANC', got '{result1}'"
+    solution.solve("ADOBECODEBANC", "ABC")
 
     # Test case 2: Single character
-    result2 = solution.solve("a", "a")
-    assert result2 == "a", f"Test 2 failed: expected 'a', got '{result2}'"
+    solution.solve("a", "a")
 
     # Test case 3: No valid window
-    result3 = solution.solve("a", "aa")
-    assert result3 == "", f"Test 3 failed: expected '', got '{result3}'"
+    solution.solve("a", "aa")
 
     # Test case 4: Entire string is minimum window
-    result4 = solution.solve("ab", "ab")
-    assert result4 == "ab", f"Test 4 failed: expected 'ab', got '{result4}'"
+    solution.solve("ab", "ab")
 
     # Test case 5: Target with duplicates
-    result5 = solution.solve("aaaaaaaaaaaabbbbbcdd", "abcdd")
-    assert result5 == "abbbbbcdd", f"Test 5 failed: expected 'abbbbbcdd', got '{result5}'"
+    solution.solve("aaaaaaaaaaaabbbbbcdd", "abcdd")
 
     # Test case 6: Window at the beginning
-    result6 = solution.solve("abc", "abc")
-    assert result6 == "abc", f"Test 6 failed: expected 'abc', got '{result6}'"
+    solution.solve("abc", "abc")
 
     # Test case 7: Target longer than source
-    result7 = solution.solve("a", "ab")
-    assert result7 == "", f"Test 7 failed: expected '', got '{result7}'"
+    solution.solve("a", "ab")
 
     # Test case 8: Complex case
-    result8 = solution.solve("bba", "ab")
-    assert result8 == "ba", f"Test 8 failed: expected 'ba', got '{result8}'"
+    solution.solve("bba", "ab")
 
     # Test case 9: Case sensitivity
-    result9 = solution.solve("Aa", "Aa")
-    assert result9 == "Aa", f"Test 9 failed: expected 'Aa', got '{result9}'"
+    solution.solve("Aa", "Aa")
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

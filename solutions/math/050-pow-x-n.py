@@ -67,6 +67,7 @@ O(log n) recursive, O(1) iterative
 </details>
 """
 
+
 class Solution:
     def myPow(self, x: float, n: int) -> float:
         """
@@ -82,7 +83,7 @@ class Solution:
             x = 1 / x
             n = -n
 
-        result = 1
+        result = 1.0
         current_product = x
 
         while n > 0:
@@ -114,6 +115,7 @@ class Solution:
         else:
             return x * self.myPowRecursive(x, n - 1)
 
+
 """
 69. Sqrt(x)
 # Difficulty: Easy
@@ -128,6 +130,7 @@ Output: 2
 Explanation: The square root of 8 is 2.82842..., and since we round it down to
 the nearest integer, 2 is returned.
 """
+
 
 class SolutionSqrt:
     def mySqrt(self, x: int) -> int:
@@ -173,6 +176,7 @@ class SolutionSqrt:
 
         return x0
 
+
 """
 29. Divide Two Integers
 # Difficulty: Medium
@@ -185,6 +189,7 @@ Example:
 Input: dividend = 10, divisor = 3
 Output: 3
 """
+
 
 class SolutionDivide:
     def divide(self, dividend: int, divisor: int) -> int:
@@ -223,6 +228,7 @@ class SolutionDivide:
             result = -result
 
         return max(MIN_INT, min(MAX_INT, result))
+
 
 # Test cases
 if __name__ == "__main__":

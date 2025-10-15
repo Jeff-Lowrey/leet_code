@@ -81,6 +81,7 @@ If sorting in place, O(n) for sorting with extra space
 </details>
 """
 
+
 class Solution:
     def hIndex(self, citations: list[int]) -> int:
         """
@@ -166,7 +167,8 @@ class Solution:
         """
         return sum(i < c for i, c in enumerate(sorted(citations, reverse=True)))
 
-def test_solution():
+
+def test_solution() -> None:
     """Test cases for Problem 274."""
     solution = Solution()
 
@@ -225,6 +227,7 @@ def test_solution():
     assert result11 == expected11, f"Expected {expected11}, got {result11}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

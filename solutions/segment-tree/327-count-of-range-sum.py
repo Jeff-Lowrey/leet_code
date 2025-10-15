@@ -68,6 +68,9 @@ For prefix sums and auxiliary structures
 </details>
 """
 
+
+from typing import Any
+
 class Solution:
     def countRangeSum(self, nums: list[int], lower: int, upper: int) -> int:
         """
@@ -116,7 +119,7 @@ class Solution:
                 count += j - i
 
             # Merge two sorted subarrays
-            sorted_prefix = []
+            sorted_prefix: list[Any] = []
             i = start
             j = mid
             while i < mid and j < end:
@@ -159,7 +162,7 @@ class Solution:
             prefix.append(prefix[-1] + num)
 
         # Coordinate compression
-        all_values = set()
+        all_values: set[Any] = set()
         for p in prefix:
             all_values.add(p)
             all_values.add(p - lower)
@@ -169,23 +172,23 @@ class Solution:
         rank = {v: i + 1 for i, v in enumerate(sorted_values)}
 
         class BinaryIndexedTree:
-            def __init__(self, n):
+            def __init__(self: Any, n: Any) -> None:
                 self.n = n
                 self.tree = [0] * (n + 1)
 
-            def update(self, i, delta):
+            def update(self: Any, i: Any, delta: Any) -> Any:
                 while i <= self.n:
                     self.tree[i] += delta
                     i += i & (-i)
 
-            def query(self, i):
+            def query(self: Any, i: Any) -> Any:
                 s = 0
                 while i > 0:
                     s += self.tree[i]
                     i -= i & (-i)
                 return s
 
-            def range_query(self, left, right):
+            def range_query(self: Any, left: Any, right: Any) -> Any:
                 if left > right:
                     return 0
                 return self.query(right) - (self.query(left - 1) if left > 1 else 0)
@@ -238,11 +241,11 @@ class Solution:
         rank = {v: i for i, v in enumerate(sorted_values)}
 
         class SegmentTree:
-            def __init__(self, n):
+            def __init__(self: Any, n: Any) -> None:
                 self.n = n
                 self.tree = [0] * (4 * n)
 
-            def update(self, node, start, end, idx):
+            def update(self: Any, node: Any, start: Any, end: Any, idx: Any) -> Any:
                 if start == end:
                     self.tree[node] += 1
                 else:
@@ -253,7 +256,7 @@ class Solution:
                         self.update(2 * node + 1, mid + 1, end, idx)
                     self.tree[node] = self.tree[2 * node] + self.tree[2 * node + 1]
 
-            def query(self, node, start, end, l, r):
+            def query(self: Any, node: Any, start: Any, end: Any, l: Any, r: Any) -> Any:
                 if r < start or end < l or l > r:
                     return 0
                 if l <= start and end <= r:
@@ -308,7 +311,8 @@ class Solution:
 
         return count
 
-def test_solution():
+
+def test_solution() -> None:
     """Test cases for Problem 327."""
     solution = Solution()
 
@@ -363,6 +367,7 @@ def test_solution():
     assert result10 == expected10, f"Expected {expected10}, got {result10}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

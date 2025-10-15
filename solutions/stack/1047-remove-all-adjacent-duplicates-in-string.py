@@ -73,6 +73,9 @@ Stack stores up to n characters in worst case (no duplicates)
 </details>
 """
 
+
+from typing import Any
+
 class Solution:
     def removeDuplicates(self, s: str) -> str:
         """
@@ -87,7 +90,7 @@ class Solution:
         Time Complexity: O(n)
         Space Complexity: O(n)
         """
-        stack = []
+        stack: list[Any] = []
 
         for char in s:
             # If stack is not empty and top element equals current character
@@ -96,9 +99,10 @@ class Solution:
             else:
                 stack.append(char)  # Add current character
 
-        return ''.join(stack)
+        return "".join(stack)
 
-def test_solution():
+
+def test_solution() -> None:
     """Test cases for Problem 1047."""
     solution = Solution()
 
@@ -106,6 +110,7 @@ def test_solution():
     # assert solution.solve() == expected
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

@@ -76,17 +76,18 @@ O(1)
 
 from collections import defaultdict, deque
 
-from typing import List, Optional, Dict, Tuple
+from typing import Any, List, Optional, Dict, Tuple
+
 
 class Solution:
     def alienOrder(self, words: List[str]) -> str:
         """
         Determines the order of characters in an alien alphabet based on given sorted words.
         Uses topological sorting to determine the character order.
-        
+
         Args:
             words: List of strings sorted according to alien dictionary order
-            
+
         Returns:
             String representing the order of characters in the alien alphabet,
             or empty string if no valid order exists
@@ -94,90 +95,90 @@ class Solution:
         # Edge case: empty input
         if not words:
             return ""
-            
+
         # Build adjacency list and track all unique characters
-        adj = defaultdict(set)
-        chars = set(''.join(words))
-        
+        adj: dict[Any, set[Any]] = defaultdict(set)
+        chars = set("".join(words))
+
         # Build graph by comparing adjacent words
         for i in range(len(words) - 1):
             w1, w2 = words[i], words[i + 1]
-            
+
             # Check for invalid case where a longer word comes before its prefix
-            if len(w1) > len(w2) and w1[:len(w2)] == w2:
+            if len(w1) > len(w2) and w1[: len(w2)] == w2:
                 return ""
-                
+
             # Find first differing character and add edge to graph
             for c1, c2 in zip(w1, w2):
                 if c1 != c2:
                     adj[c1].add(c2)
                     break
-        
+
         # Track visited and currently processing nodes for cycle detection
-        visited = {}  # False = processing, True = processed
-        result = []
-        
+        visited: dict[str, bool] = {}  # False = processing, True = processed
+        result: list[Any] = []
+
         def dfs(char: str) -> bool:
             """
             Performs DFS traversal to detect cycles and build topological order.
-            
+
             Args:
                 char: Current character being processed
-                
+
             Returns:
                 Boolean indicating whether a cycle was detected
             """
             if char in visited:
                 return visited[char]  # False indicates cycle
-                
+
             visited[char] = False  # Mark as processing
-            
+
             # Visit all neighbors
             for neighbor in adj[char]:
                 if not dfs(neighbor):
                     return False
-                    
+
             visited[char] = True  # Mark as processed
             result.append(char)
             return True
-        
+
         # Perform DFS for each character
         for char in chars:
             if char not in visited:
                 if not dfs(char):
                     return ""  # Cycle detected
-        
+
         # Return characters in reverse order (topological sort)
-        return ''.join(result[::-1])
+        return "".join(result[::-1])
 
     def alienOrder_bfs(self, words: List[str]) -> str:
         """
         Alternative implementation using BFS (Kahn's algorithm).
-        
+
         Args:
             words: List of strings sorted according to alien dictionary order
-            
+
         Returns:
             String representing the order of characters in the alien alphabet,
             or empty string if no valid order exists
         """
         # Build adjacency list and in-degree count
-        adj = defaultdict(set)
-        in_degree = defaultdict(int)
-        chars = set(''.join(words))
-        
+        adj: dict[str, set[str]] = defaultdict(set)
+        in_degree: dict[Any, int] = defaultdict(int)
+        chars = set("".join(words))
+
         # Initialize in-degree for all characters
         for char in chars:
             in_degree[char] = 0
-        
+
         # Build graph
         for i in range(len(words) - 1):
             w1, w2 = words[i], words[i + 1]
-            
+
             # Check invalid case
-            if len(w1) > len(w2) and w1[:len(w2)] == w2:
+            if len(w1) > len(w2) and w1[: len(w2)] == w2:
                 return ""
-                
+
             # Add edges and update in-degree
             for c1, c2 in zip(w1, w2):
                 if c1 != c2:
@@ -185,59 +186,62 @@ class Solution:
                         adj[c1].add(c2)
                         in_degree[c2] += 1
                     break
-        
+
         # Initialize queue with nodes having 0 in-degree
         queue = deque([c for c in chars if in_degree[c] == 0])
         result = []
-        
+
         # Process queue
         while queue:
             char = queue.popleft()
             result.append(char)
-            
+
             # Update in-degree of neighbors
             for neighbor in adj[char]:
                 in_degree[neighbor] -= 1
                 if in_degree[neighbor] == 0:
                     queue.append(neighbor)
-        
+
         # Check if all characters were processed
-        return ''.join(result) if len(result) == len(chars) else ""
+        return "".join(result) if len(result) == len(chars) else ""
+
 
 # Example usage
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
     solution = Solution()
 
     # Test case 1: Example from problem
-    result = solution.alienOrder(["wrt","wrf","er","ett","rftt"])
+    result = solution.alienOrder(["wrt", "wrf", "er", "ett", "rftt"])
     expected = "wertf"
     assert result == expected, f"Expected {expected}, got {result}"
 
     # Test case 2: Invalid (prefix longer than word)
-    result = solution.alienOrder(["abc","ab"])
+    result = solution.alienOrder(["abc", "ab"])
     expected = ""
     assert result == expected, f"Expected {expected}, got {result}"
 
     # Test case 3: Single word
-    result = solution.alienOrder(["z","x"])
+    result = solution.alienOrder(["z", "x"])
     expected = "zx"
     assert result == expected, f"Expected {expected}, got {result}"
 
     # Test case 4: Empty input
     result = solution.alienOrder([])
-    expected = ''
+    expected = ""
     assert result == expected, f"Expected {expected}, got {result}"
 
     # Test case 5: BFS version
-    result = solution.alienOrder_bfs(["wrt","wrf","er","ett","rftt"])
+    result = solution.alienOrder_bfs(["wrt", "wrf", "er", "ett", "rftt"])
     expected = "wertf"
     assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

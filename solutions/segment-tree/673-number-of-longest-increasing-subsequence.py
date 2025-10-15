@@ -66,6 +66,9 @@ For DP arrays or tree structure
 
 </details>
 """
+from typing import Any
+
+
 
 class Solution:
     def findNumberOfLIS(self, nums: list[int]) -> int:
@@ -124,12 +127,12 @@ class Solution:
         rank = {v: i for i, v in enumerate(sorted_unique)}
 
         class SegmentTree:
-            def __init__(self, n):
+            def __init__(self: Any, n: Any) -> None:
                 self.n = n
                 # Store (max_length, count) for each node
                 self.tree = [(0, 0)] * (4 * n)
 
-            def merge(self, left, right):
+            def merge(self: Any, left: Any, right: Any) -> Any:
                 """Merge two (length, count) pairs."""
                 if left[0] > right[0]:
                     return left
@@ -139,7 +142,7 @@ class Solution:
                     # Same length, add counts
                     return (left[0], left[1] + right[1])
 
-            def update(self, node, start, end, idx, val):
+            def update(self: Any, node: Any, start: Any, end: Any, idx: Any, val: Any) -> Any:
                 """Update position idx with (length, count) = val."""
                 if start == end:
                     self.tree[node] = self.merge(self.tree[node], val)
@@ -151,7 +154,7 @@ class Solution:
                         self.update(2 * node + 1, mid + 1, end, idx, val)
                     self.tree[node] = self.merge(self.tree[2 * node], self.tree[2 * node + 1])
 
-            def query(self, node, start, end, l, r):
+            def query(self: Any, node: Any, start: Any, end: Any, l: Any, r: Any) -> Any:
                 """Query max (length, count) in range [l, r]."""
                 if r < start or end < l or l > r:
                     return (0, 0)
@@ -181,7 +184,7 @@ class Solution:
 
         # Get result from entire range
         _, result = seg_tree.query(1, 0, m - 1, 0, m - 1)
-        return result
+        return result  # type: ignore
 
     def findNumberOfLISBIT(self, nums: list[int]) -> int:
         """
@@ -204,12 +207,12 @@ class Solution:
         rank = {v: i + 1 for i, v in enumerate(sorted_unique)}
 
         class BIT:
-            def __init__(self, n):
+            def __init__(self: Any, n: Any) -> None:
                 self.n = n
                 # Store (max_length, count) for each position
                 self.tree = [(0, 0)] * (n + 1)
 
-            def merge(self, left, right):
+            def merge(self: Any, left: Any, right: Any) -> Any:
                 """Merge two (length, count) pairs."""
                 if left[0] > right[0]:
                     return left
@@ -218,13 +221,13 @@ class Solution:
                 else:
                     return (left[0], left[1] + right[1])
 
-            def update(self, i, val):
+            def update(self: Any, i: Any, val: Any) -> Any:
                 """Update position i with (length, count) = val."""
                 while i <= self.n:
                     self.tree[i] = self.merge(self.tree[i], val)
                     i += i & (-i)
 
-            def query(self, i):
+            def query(self: Any, i: Any) -> Any:
                 """Query max (length, count) up to position i."""
                 result = (0, 0)
                 while i > 0:
@@ -255,7 +258,8 @@ class Solution:
             result = bit.merge(result, bit.tree[i])
         return result[1]
 
-def test_solution():
+
+def test_solution() -> None:
     """Test cases for Problem 673."""
     solution = Solution()
 
@@ -300,6 +304,7 @@ def test_solution():
     assert result8 == expected8, f"Expected {expected8}, got {result8}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

@@ -87,6 +87,10 @@ O(n) - recursion depth and current permutation
 </details>
 """
 
+from collections import Counter
+from typing import Any
+
+
 class Solution:
     def permute(self, nums: list[int]) -> list[list[int]]:
         """
@@ -94,9 +98,9 @@ class Solution:
         Time Complexity: O(n * n!)
         Space Complexity: O(n) for recursion
         """
-        result = []
+        result: list[Any] = []
 
-        def backtrack(current):
+        def backtrack(current: Any) -> Any:
             if len(current) == len(nums):
                 result.append(current[:])
                 return
@@ -116,9 +120,9 @@ class Solution:
         Time Complexity: O(n * n!)
         Space Complexity: O(n)
         """
-        result = []
+        result: list[list[int]] = []
 
-        def backtrack(first=0):
+        def backtrack(first: Any = 0) -> Any:
             if first == len(nums):
                 result.append(nums[:])
                 return
@@ -131,6 +135,7 @@ class Solution:
         backtrack()
         return result
 
+
 """
 47. Permutations II
 # Difficulty: Medium
@@ -142,6 +147,7 @@ Input: nums = [1,1,2]
 Output: [[1,1,2],[1,2,1],[2,1,1]]
 """
 
+
 class SolutionUnique:
     def permuteUnique(self, nums: list[int]) -> list[list[int]]:
         """
@@ -149,11 +155,10 @@ class SolutionUnique:
         Time Complexity: O(n * n!)
         Space Complexity: O(n)
         """
-        from collections import Counter
-        result = []
+        result: list[Any] = []
         counter = Counter(nums)
 
-        def backtrack(current):
+        def backtrack(current: Any) -> Any:
             if len(current) == len(nums):
                 result.append(current[:])
                 return
@@ -169,6 +174,7 @@ class SolutionUnique:
         backtrack([])
         return result
 
+
 """
 31. Next Permutation
 # Difficulty: Medium
@@ -182,6 +188,7 @@ Example:
 Input: nums = [1,2,3]
 Output: [1,3,2]
 """
+
 
 class SolutionNext:
     def nextPermutation(self, nums: list[int]) -> None:
@@ -212,6 +219,7 @@ class SolutionNext:
             nums[left], nums[right] = nums[right], nums[left]
             left += 1
             right -= 1
+
 
 # Test cases
 if __name__ == "__main__":

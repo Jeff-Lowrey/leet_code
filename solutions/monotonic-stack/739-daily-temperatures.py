@@ -102,39 +102,43 @@ O(1)
 </details>
 """
 
-from typing import List, Optional, Dict, Tuple
+from typing import Any, List, Optional, Dict, Tuple
+import re
+
+
 
 class Solution:
     def dailyTemperatures(self, temperatures: List[int]) -> List[int]:
         """
         Calculate the number of days until a warmer temperature occurs.
-        
+
         Args:
             temperatures: List of daily temperatures
-            
+
         Returns:
             List of integers representing days until warmer temperature
         """
         n = len(temperatures)
         result = [0] * n  # Initialize result array with zeros
-        stack = []  # Stack to store indices of temperatures
-        
+        stack: list[int] = []  # Stack to store indices of temperatures
+
         # Process each temperature
         for curr_day in range(n):
             curr_temp = temperatures[curr_day]
-            
+
             # While stack is not empty and current temperature is warmer
             # than temperature at top of stack
             while stack and temperatures[stack[-1]] < curr_temp:
                 prev_day = stack.pop()
                 result[prev_day] = curr_day - prev_day
-            
+
             # Add current day to stack
             stack.append(curr_day)
-        
+
         return result
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
@@ -142,7 +146,7 @@ def test_solution():
 
     # Test case 1: Example from problem
     result = solution.dailyTemperatures([73, 74, 75, 71, 69, 72, 76, 73])
-    expected = [1,1,4,2,1,1,0,0]
+    expected: list[Any] = [1, 1, 4, 2, 1, 1, 0, 0]
     assert result == expected, f"Expected {expected}, got {result}"
 
     # Test case 2: Empty input
@@ -156,6 +160,7 @@ def test_solution():
     assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

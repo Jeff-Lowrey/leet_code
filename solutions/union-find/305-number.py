@@ -71,7 +71,36 @@ O(1)
 </details>
 """
 
-from typing import List, Optional, Dict, Tuple
+from typing import Any, List, Optional, Dict, Tuple
+
+
+class UnionFind:
+    """Union-Find data structure for tracking islands."""
+
+    def __init__(self) -> None:
+        self.parent: dict[Any, Any] = {}
+        self.count = 0
+
+    def add(self, x: Any) -> None:
+        """Add a new element if not already present."""
+        if x not in self.parent:
+            self.parent[x] = x
+            self.count += 1
+
+    def find(self, x: Any) -> Any:
+        """Find root with path compression."""
+        if self.parent[x] != x:
+            self.parent[x] = self.find(self.parent[x])
+        return self.parent[x]
+
+    def union(self, x: Any, y: Any) -> None:
+        """Union two sets."""
+        root_x = self.find(x)
+        root_y = self.find(y)
+        if root_x != root_y:
+            self.parent[root_x] = root_y
+            self.count -= 1
+
 
 class Solution:
     def numIslands2(self, m: int, n: int, positions: List[List[int]]) -> List[int]:
@@ -87,14 +116,14 @@ class Solution:
             List of number of islands after each land addition
         """
 
-        def get_key(row, col):
+        def get_key(row: Any, col: Any) -> Any:
             """Convert 2D coordinates to unique key"""
             return row * n + col
 
         # Initialize Union-Find structure
         uf = UnionFind()
-        result = []
-        land_cells = set()  # Keep track of cells that are land
+        result: list[Any] = []
+        land_cells: set[Any] = set()
 
         # Directions for checking adjacent cells
         directions = [(1, 0), (-1, 0), (0, 1), (0, -1)]
@@ -123,72 +152,34 @@ class Solution:
 
         return result
 
+
 # Example usage and test cases
-def test_solution():
-    solution = Solution()
-
-    # Test case 1
-    m1, n1 = 3, 3
-    positions1 = [[0, 0], [0, 1], [1, 2], [2, 1]]
-    result1 = solution.numIslands2(m1, n1, positions1)
-    print(f"Test 1 Result: {result1}")  # Expected: [1, 2, 3, 3]
-
-    # Test case 2
-    m2, n2 = 1, 1
-    positions2 = [[0, 0]]
-    result2 = solution.numIslands2(m2, n2, positions2)
-    print(f"Test 2 Result: {result2}")  # Expected: [1]
-
-def test_solution():
-    """
-    Test cases for the solution.
-    """
-    # Note: This problem requires a UnionFind class
-    class UnionFind:
-        def __init__(self):
-            self.parent = {}
-            self.count = 0
-
-        def add(self, x):
-            if x not in self.parent:
-                self.parent[x] = x
-                self.count += 1
-
-        def find(self, x):
-            if self.parent[x] != x:
-                self.parent[x] = self.find(self.parent[x])
-            return self.parent[x]
-
-        def union(self, x, y):
-            root_x = self.find(x)
-            root_y = self.find(y)
-            if root_x != root_y:
-                self.parent[root_x] = root_y
-                self.count -= 1
-
+def test_solution() -> None:
+    """Test cases for the solution."""
     solution = Solution()
 
     # Test case 1: Example from problem
-    result = solution.numIslands2(3, 3, [[0,0],[0,1],[1,2],[2,1]])
-    expected = [1,1,2,3]
+    result = solution.numIslands2(3, 3, [[0, 0], [0, 1], [1, 2], [2, 1]])
+    expected = [1, 1, 2, 3]
     assert result == expected, f"Expected {expected}, got {result}"
 
     # Test case 2: Single island
-    result = solution.numIslands2(1, 1, [[0,0]])
+    result = solution.numIslands2(1, 1, [[0, 0]])
     expected = [1]
     assert result == expected, f"Expected {expected}, got {result}"
 
     # Test case 3: Merging islands
-    result = solution.numIslands2(3, 3, [[0,0],[0,1],[1,1],[2,2]])
-    expected = [1,1,1,2]
+    result = solution.numIslands2(3, 3, [[0, 0], [0, 1], [1, 1], [2, 2]])
+    expected = [1, 1, 1, 2]
     assert result == expected, f"Expected {expected}, got {result}"
 
     # Test case 4: Duplicate positions
-    result = solution.numIslands2(2, 2, [[0,0],[0,0],[1,1]])
-    expected = [1,1,2]
+    result = solution.numIslands2(2, 2, [[0, 0], [0, 0], [1, 1]])
+    expected = [1, 1, 2]
     assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

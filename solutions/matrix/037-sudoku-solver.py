@@ -1,5 +1,5 @@
 """
-# Difficulty: 
+# Difficulty:
 
 # 037. Sudoku Solver
 **Backtracking**
@@ -61,6 +61,7 @@ O(n*n) for recursion stack
 
 </details>
 """
+
 
 class Solution:
     def solveSudoku(self, board: list[list[str]]) -> None:
@@ -124,7 +125,8 @@ class Solution:
     # Alias for consistent interface
     solve = solveSudoku
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for 037. Sudoku Solver.
     """
@@ -192,6 +194,7 @@ def test_solution():
     print("Test case 3 passed: Hard Sudoku")
 
     print("\nAll test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

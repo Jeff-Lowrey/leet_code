@@ -63,6 +63,9 @@ For storing all possible combinations
 </details>
 """
 
+
+from typing import Any
+
 class Solution:
     def letterCombinations(self, digits: str) -> list[str]:
         """
@@ -81,20 +84,11 @@ class Solution:
             return []
 
         # Phone digit to letters mapping
-        phone_map = {
-            '2': 'abc',
-            '3': 'def',
-            '4': 'ghi',
-            '5': 'jkl',
-            '6': 'mno',
-            '7': 'pqrs',
-            '8': 'tuv',
-            '9': 'wxyz'
-        }
+        phone_map = {"2": "abc", "3": "def", "4": "ghi", "5": "jkl", "6": "mno", "7": "pqrs", "8": "tuv", "9": "wxyz"}
 
-        result = []
+        result: list[Any] = []
 
-        def backtrack(index: int, current_combination: str):
+        def backtrack(index: int, current_combination: str) -> None:
             """
             Backtracking helper to build combinations.
 
@@ -124,7 +118,8 @@ class Solution:
         """Legacy method for compatibility."""
         return self.letterCombinations(digits)
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
@@ -132,20 +127,21 @@ def test_solution():
 
     # Test case 1: Example from problem
     result = solution.letterCombinations("23")
-    expected = ["ad","ae","af","bd","be","bf","cd","ce","cf"]
+    expected = ["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"]
     assert result == expected, f"Expected {expected}, got {result}"
 
     # Test case 2: Empty input
     result = solution.letterCombinations("")
-    expected = []
+    expected: list[Any] = []
     assert result == expected, f"Expected {expected}, got {result}"
 
     # Test case 3: Single digit
     result = solution.letterCombinations("2")
-    expected = ["a","b","c"]
+    expected = ["a", "b", "c"]
     assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

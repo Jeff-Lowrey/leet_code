@@ -86,6 +86,7 @@ O(1)
 </details>
 """
 
+
 class Solution:
     def isValidSudoku(self, board: list[list[str]]) -> bool:
         """
@@ -148,6 +149,7 @@ class Solution:
                 seen.add(box_key)
 
         return True
+
 
 def test_solution() -> None:
     """Test cases for Problem 36."""
@@ -241,6 +243,7 @@ def test_solution() -> None:
     print("Test case 7 passed: Full valid board")
 
     print("\nAll test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

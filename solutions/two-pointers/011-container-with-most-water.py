@@ -96,15 +96,18 @@ O(1)
 """
 
 from typing import List, Optional, Dict, Tuple
+import re
+
+
 
 class Solution:
     def maxArea(self, height: List[int]) -> int:
         """
         Calculate the maximum area of water that can be contained between two vertical lines.
-        
+
         Args:
             height: List of integers representing heights of vertical lines
-            
+
         Returns:
             Maximum area of water that can be contained
         """
@@ -112,16 +115,16 @@ class Solution:
         left = 0
         right = len(height) - 1
         max_area = 0
-        
+
         # Use two-pointer technique to find maximum area
         while left < right:
             # Calculate current area
             # Area = width * minimum height between two lines
             current_area = (right - left) * min(height[left], height[right])
-            
+
             # Update maximum area if current area is larger
             max_area = max(max_area, current_area)
-            
+
             # Move the pointer with smaller height inward
             # This is optimal because moving the larger height pointer
             # would only decrease the area
@@ -129,10 +132,11 @@ class Solution:
                 left += 1
             else:
                 right -= 1
-                
+
         return max_area
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
@@ -154,6 +158,7 @@ def test_solution():
     assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

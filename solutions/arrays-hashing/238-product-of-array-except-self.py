@@ -83,42 +83,45 @@ O(1)
 
 </details>
 """
-from typing import List
+
+from typing import Any, List
+
 
 class Solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
         """
         Calculate product of all elements except self for each position.
-        
+
         Args:
             nums: List of integers
-            
+
         Returns:
             List of products where each element is the product of all numbers
             except the number at that position in the input list
-            
+
         Time Complexity: O(n)
         Space Complexity: O(1) - excluding the output array
         """
         n = len(nums)
         # Initialize output array with 1s
         result = [1] * n
-        
+
         # Calculate products of all elements to the left of each position
         left_product = 1
         for i in range(n):
             result[i] = left_product
             left_product *= nums[i]
-            
+
         # Calculate products of all elements to the right and combine with left products
         right_product = 1
-        for i in range(n-1, -1, -1):
+        for i in range(n - 1, -1, -1):
             result[i] *= right_product
             right_product *= nums[i]
-            
+
         return result
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
@@ -126,7 +129,7 @@ def test_solution():
 
     # Test case 1: Example from problem
     result = solution.productExceptSelf([1, 2, 3, 4])
-    expected = [24, 12, 8, 6]
+    expected: list[Any] = [24, 12, 8, 6]
     assert result == expected, f"Expected {expected}, got {result}"
 
     # Test case 2: Empty input
@@ -140,6 +143,7 @@ def test_solution():
     assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

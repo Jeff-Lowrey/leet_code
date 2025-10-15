@@ -87,5 +87,3 @@ O(U + T) where U is users, T is total tweets
 
 </details>
 """
-
-

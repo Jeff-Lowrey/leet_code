@@ -66,6 +66,7 @@ O(n) for result array
 </details>
 """
 
+
 class Solution:
     def insert(self, intervals: list[list[int]], newInterval: list[int]) -> list[list[int]]:
         """
@@ -73,7 +74,7 @@ class Solution:
         Time Complexity: O(n)
         Space Complexity: O(1) excluding output
         """
-        result = []
+        result: list[Any] = []
         i = 0
         n = len(intervals)
 
@@ -97,6 +98,7 @@ class Solution:
 
         return result
 
+
 """
 435. Non-overlapping Intervals
 # Difficulty: Medium
@@ -108,6 +110,7 @@ Input: intervals = [[1,2],[2,3],[3,4],[1,3]]
 Output: 1
 Explanation: [1,3] can be removed and the rest of the intervals are non-overlapping.
 """
+
 
 class SolutionRemove:
     def eraseOverlapIntervals(self, intervals: list[list[int]]) -> int:
@@ -135,6 +138,7 @@ class SolutionRemove:
 
         return count
 
+
 """
 252. Meeting Rooms
 # Difficulty: Easy
@@ -145,6 +149,7 @@ Example:
 Input: intervals = [[0,30],[5,10],[15,20]]
 Output: false
 """
+
 
 class SolutionMeetingRooms:
     def canAttendMeetings(self, intervals: list[list[int]]) -> bool:
@@ -161,6 +166,7 @@ class SolutionMeetingRooms:
 
         return True
 
+
 """
 253. Meeting Rooms II
 # Difficulty: Medium
@@ -173,6 +179,9 @@ Output: 2
 """
 
 import heapq
+from typing import Any
+
+
 
 class SolutionMeetingRoomsII:
     def minMeetingRooms(self, intervals: list[list[int]]) -> int:
@@ -206,11 +215,11 @@ class SolutionMeetingRoomsII:
         Time Complexity: O(n log n)
         Space Complexity: O(n)
         """
-        events = []
+        events: list[Any] = []
 
         for start, end in intervals:
-            events.append((start, 1))   # Start of meeting
-            events.append((end, -1))     # End of meeting
+            events.append((start, 1))  # Start of meeting
+            events.append((end, -1))  # End of meeting
 
         # Sort by time, if same time, process end before start
         events.sort(key=lambda x: (x[0], x[1]))
@@ -224,17 +233,14 @@ class SolutionMeetingRoomsII:
 
         return max_rooms
 
+
 # Test cases
 if __name__ == "__main__":
     # Test Insert Interval
     solution = Solution()
 
     print("Insert Interval:")
-    test_cases = [
-        ([[1, 3], [6, 9]], [2, 5]),
-        ([[1, 2], [3, 5], [6, 7], [8, 10], [12, 16]], [4, 8]),
-        ([], [5, 7])
-    ]
+    test_cases = [([[1, 3], [6, 9]], [2, 5]), ([[1, 2], [3, 5], [6, 7], [8, 10], [12, 16]], [4, 8]), ([], [5, 7])]
 
     for intervals, new_interval in test_cases:
         result = solution.insert(intervals, new_interval)
@@ -246,36 +252,29 @@ if __name__ == "__main__":
     solution_remove = SolutionRemove()
 
     print("Non-overlapping Intervals:")
-    remove_cases = [
-        [[1, 2], [2, 3], [3, 4], [1, 3]],
-        [[1, 2], [1, 2], [1, 2]],
-        [[1, 2], [2, 3]]
-    ]
+    remove_cases = [[[1, 2], [2, 3], [3, 4], [1, 3]], [[1, 2], [1, 2], [1, 2]], [[1, 2], [2, 3]]]
 
     for intervals in remove_cases:
-        result = solution_remove.eraseOverlapIntervals(intervals)
+        min_removals: int = solution_remove.eraseOverlapIntervals(intervals)
         print(f"Intervals: {intervals}")
-        print(f"Min removals: {result}\n")
+        print(f"Min removals: {min_removals}\n")
 
     # Test Meeting Rooms
     solution_meeting = SolutionMeetingRooms()
 
     print("Meeting Rooms I:")
-    meeting_cases = [
-        [[0, 30], [5, 10], [15, 20]],
-        [[7, 10], [2, 4]]
-    ]
+    meeting_cases = [[[0, 30], [5, 10], [15, 20]], [[7, 10], [2, 4]]]
 
     for intervals in meeting_cases:
-        result = solution_meeting.canAttendMeetings(intervals)
+        can_attend: bool = solution_meeting.canAttendMeetings(intervals)
         print(f"Intervals: {intervals}")
-        print(f"Can attend all: {result}\n")
+        print(f"Can attend all: {can_attend}\n")
 
     # Test Meeting Rooms II
     solution_meeting2 = SolutionMeetingRoomsII()
 
     print("Meeting Rooms II:")
     for intervals in meeting_cases:
-        result = solution_meeting2.minMeetingRooms(intervals)
+        min_rooms: int = solution_meeting2.minMeetingRooms(intervals)
         print(f"Intervals: {intervals}")
-        print(f"Min rooms needed: {result}\n")
+        print(f"Min rooms needed: {min_rooms}\n")

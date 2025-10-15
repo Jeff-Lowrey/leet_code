@@ -10,9 +10,9 @@ Return the smallest level x such that the sum of all the values of nodes at leve
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>Tree:      1</dd>
+<dd>Tree with root 1 and children 7, 0</dd>
 <dt>Output:</dt>
-<dd>/   \</dd>
+<dd>2</dd>
 <dt>Explanation:</dt>
 <dd>Maximum level sum occurs at level 2 with sum=7</dd>
 </dl>
@@ -75,11 +75,14 @@ O(w)
 """
 
 from collections import deque
+from typing import Any
+
 
 
 class TreeNode:
     """Definition for a binary tree node."""
-    def __init__(self, val=0, left=None, right=None):
+
+    def __init__(self, val: Any = 0, left: Any = None, right: Any = None) -> None:
         self.val = val
         self.left = left
         self.right = right
@@ -132,8 +135,9 @@ class Solution:
 
         return max_level
 
-def test_solution():
-    """Test cases for Problem 1161."""
+
+# Test cases
+if __name__ == "__main__":
     solution = Solution()
 
     # Test case 1: Example tree
@@ -147,13 +151,11 @@ def test_solution():
     root1.right = TreeNode(0)
     root1.left.left = TreeNode(7)
     root1.left.right = TreeNode(-8)
-    assert solution.maxLevelSum(root1) == 2
-    print("Test case 1 passed: Example tree (level 2 sum = 7)")
+    print(f"Test 1 - Example tree: {solution.maxLevelSum(root1)}")  # 2
 
     # Test case 2: Single node
     root2 = TreeNode(5)
-    assert solution.maxLevelSum(root2) == 1
-    print("Test case 2 passed: Single node")
+    print(f"Test 2 - Single node: {solution.maxLevelSum(root2)}")  # 1
 
     # Test case 3: Increasing sums
     #     1
@@ -166,8 +168,7 @@ def test_solution():
     root3.right = TreeNode(3)
     root3.left.left = TreeNode(4)
     root3.left.right = TreeNode(5)
-    assert solution.maxLevelSum(root3) == 3  # Level 3: 4+5=9
-    print("Test case 3 passed: Increasing sums")
+    print(f"Test 3 - Increasing sums: {solution.maxLevelSum(root3)}")  # 3
 
     # Test case 4: Negative values
     #      -100
@@ -179,8 +180,7 @@ def test_solution():
     root4.left = TreeNode(-200)
     root4.right = TreeNode(-300)
     root4.left.left = TreeNode(-20)
-    assert solution.maxLevelSum(root4) == 3  # Level 3: -20 is max
-    print("Test case 4 passed: All negative values")
+    print(f"Test 4 - Negative values: {solution.maxLevelSum(root4)}")  # 3
 
     # Test case 5: Tied sums (return smallest level)
     #     5
@@ -193,8 +193,7 @@ def test_solution():
     root5.right = TreeNode(2)
     root5.left.left = TreeNode(1)
     root5.left.right = TreeNode(4)
-    assert solution.maxLevelSum(root5) == 1  # Level 1: 5, Level 2: 5, Level 3: 5
-    print("Test case 5 passed: Tied sums return smallest level")
+    print(f"Test 5 - Tied sums: {solution.maxLevelSum(root5)}")  # 1
 
     # Test case 6: Right-skewed tree
     #  1
@@ -205,10 +204,4 @@ def test_solution():
     root6 = TreeNode(1)
     root6.right = TreeNode(2)
     root6.right.right = TreeNode(3)
-    assert solution.maxLevelSum(root6) == 3
-    print("Test case 6 passed: Right-skewed tree")
-
-    print("\nAll test cases passed!")
-
-if __name__ == "__main__":
-    test_solution()
+    print(f"Test 6 - Right-skewed tree: {solution.maxLevelSum(root6)}")  # 3

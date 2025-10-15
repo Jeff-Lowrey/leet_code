@@ -81,67 +81,69 @@ O(1)
 </details>
 """
 
+
 class Solution:
     def numDecodings(self, s: str) -> int:
         """
         Determines the number of ways a string of digits can be decoded into letters.
-        
+
         Args:
             s: A string containing only digits
-            
+
         Returns:
             int: The number of possible ways to decode the string
-            
+
         Time Complexity: O(n) where n is the length of the string
         Space Complexity: O(1) as we only use two variables for DP
         """
         # Handle edge cases
-        if not s or s[0] == '0':
+        if not s or s[0] == "0":
             return 0
-        
+
         n = len(s)
-        
+
         # Initialize DP variables
         # dp2: ways to decode string ending at i-2
         # dp1: ways to decode string ending at i-1
         dp2, dp1 = 1, 1
-        
+
         # Iterate through the string starting from second character
         for i in range(1, n):
             current = 0
-            
+
             # Check if single digit decode is possible
-            if s[i] != '0':
+            if s[i] != "0":
                 current += dp1
-            
+
             # Check if two digit decode is possible
-            two_digit = int(s[i-1:i+1])
+            two_digit = int(s[i - 1 : i + 1])
             if 10 <= two_digit <= 26:
                 current += dp2
-            
+
             # Update DP variables
             dp2 = dp1
             dp1 = current
-            
+
             # If no valid decodings found, return 0
             if current == 0:
                 return 0
-        
+
         return dp1
 
     def _is_valid_input(self, s: str) -> bool:
         """
         Validates if the input string contains only digits.
-        
+
         Args:
             s: Input string to validate
-            
+
         Returns:
             bool: True if input is valid, False otherwise
         """
         return s.isdigit()
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
@@ -163,6 +165,7 @@ def test_solution():
     assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

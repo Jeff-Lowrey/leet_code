@@ -77,6 +77,10 @@ O(1)
 </details>
 """
 
+import copy
+from typing import Any
+
+
 class Solution:
     def gameOfLife(self, board: list[list[int]]) -> None:
         """
@@ -95,7 +99,7 @@ class Solution:
 
         m, n = len(board), len(board[0])
 
-        def count_live_neighbors(r, c):
+        def count_live_neighbors(r: Any, c: Any) -> Any:
             count = 0
             directions = [(-1, -1), (-1, 0), (-1, 1), (0, -1), (0, 1), (1, -1), (1, 0), (1, 1)]
 
@@ -134,7 +138,7 @@ class Solution:
         Time Complexity: O(live_cells)
         Space Complexity: O(live_cells)
         """
-        live = set()
+        live: set[Any] = set()
         m, n = len(board), len(board[0])
 
         # Store all live cells
@@ -143,9 +147,9 @@ class Solution:
                 if board[i][j] == 1:
                     live.add((i, j))
 
-        def get_neighbors(cell):
+        def get_neighbors(cell: Any) -> Any:
             r, c = cell
-            neighbors = []
+            neighbors: list[Any] = []
             for dr in [-1, 0, 1]:
                 for dc in [-1, 0, 1]:
                     if dr == 0 and dc == 0:
@@ -154,13 +158,13 @@ class Solution:
             return neighbors
 
         # Count neighbors for all cells that could change
-        neighbor_counts = {}
+        neighbor_counts: dict[Any, Any] = {}
         for cell in live:
             for neighbor in get_neighbors(cell):
                 neighbor_counts[neighbor] = neighbor_counts.get(neighbor, 0) + 1
 
         # Apply rules
-        new_live = set()
+        new_live: set[Any] = set()
         for cell, count in neighbor_counts.items():
             if count == 3 or (count == 2 and cell in live):
                 new_live.add(cell)
@@ -172,6 +176,7 @@ class Solution:
                 result[r][c] = 1
 
         return result
+
 
 """
 54. Spiral Matrix (Already exists, adding another simulation problem)
@@ -190,6 +195,7 @@ Example:
 Input: board = [["X",".",".","X"],[".",".",".","X"],[".",".",".","X"]]
 Output: 2
 """
+
 
 class SolutionBattleships:
     def countBattleships(self, board: list[list[str]]) -> int:
@@ -225,7 +231,7 @@ class SolutionBattleships:
 
         m, n = len(board), len(board[0])
 
-        def dfs(i, j):
+        def dfs(i: Any, j: Any) -> Any:
             if i < 0 or i >= m or j < 0 or j >= n or board[i][j] != "X":
                 return
 
@@ -244,6 +250,7 @@ class SolutionBattleships:
 
         return count
 
+
 # Test cases
 if __name__ == "__main__":
     # Test Game of Life
@@ -253,8 +260,6 @@ if __name__ == "__main__":
     test_boards = [[[0, 1, 0], [0, 0, 1], [1, 1, 1], [0, 0, 0]], [[1, 1], [1, 0]]]
 
     for board in test_boards:
-        import copy
-
         original = copy.deepcopy(board)
         solution.gameOfLife(board)
 
@@ -277,8 +282,8 @@ if __name__ == "__main__":
 
     for board in ship_boards:
         # Use copy for DFS method as it modifies the board
-        count = solution_ships.countBattleships([row[:] for row in board])
+        count = solution_ships.countBattleships([ship_row[:] for ship_row in board])
         print("Board:")
-        for row in board:
-            print(row)
+        for ship_row in board:
+            print(ship_row)
         print(f"Number of battleships: {count}\n")

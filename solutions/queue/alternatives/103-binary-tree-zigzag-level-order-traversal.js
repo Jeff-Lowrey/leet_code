@@ -74,9 +74,9 @@
 
 // Definition for a binary tree node
 function TreeNode(val, left, right) {
-    this.val = (val === undefined ? 0 : val);
-    this.left = (left === undefined ? null : left);
-    this.right = (right === undefined ? null : right);
+  this.val = val === undefined ? 0 : val;
+  this.left = left === undefined ? null : left;
+  this.right = right === undefined ? null : right;
 }
 
 /**
@@ -89,104 +89,117 @@ function TreeNode(val, left, right) {
  * Space Complexity: O(w) where w is maximum width
  */
 function solve(root) {
-    if (!root) return [];
+  if (!root) return [];
 
-    const result = [];
-    const queue = [root];
-    let leftToRight = true;
+  const result = [];
+  const queue = [root];
+  let leftToRight = true;
 
-    while (queue.length > 0) {
-        const levelSize = queue.length;
-        const currentLevel = [];
+  while (queue.length > 0) {
+    const levelSize = queue.length;
+    const currentLevel = [];
 
-        for (let i = 0; i < levelSize; i++) {
-            const node = queue.shift();
+    for (let i = 0; i < levelSize; i++) {
+      const node = queue.shift();
 
-            // Add value based on direction
-            if (leftToRight) {
-                currentLevel.push(node.val);
-            } else {
-                currentLevel.unshift(node.val);
-            }
+      // Add value based on direction
+      if (leftToRight) {
+        currentLevel.push(node.val);
+      } else {
+        currentLevel.unshift(node.val);
+      }
 
-            // Add children to queue
-            if (node.left) queue.push(node.left);
-            if (node.right) queue.push(node.right);
-        }
-
-        result.push(currentLevel);
-        leftToRight = !leftToRight;
+      // Add children to queue
+      if (node.left) queue.push(node.left);
+      if (node.right) queue.push(node.right);
     }
 
-    return result;
+    result.push(currentLevel);
+    leftToRight = !leftToRight;
+  }
+
+  return result;
 }
 
 /**
  * Test cases for Problem 103: Binary Tree Zigzag Level Order Traversal
  */
 function testSolution() {
-    console.log('Testing 103. Binary Tree Zigzag Level Order Traversal');
+  console.log("Testing 103. Binary Tree Zigzag Level Order Traversal");
 
-    // Helper function to compare arrays
-    const arraysEqual = (a, b) => JSON.stringify(a) === JSON.stringify(b);
+  // Helper function to compare arrays
+  const arraysEqual = (a, b) => JSON.stringify(a) === JSON.stringify(b);
 
-    // Test case 1: Standard tree
-    const tree1 = new TreeNode(3,
-        new TreeNode(9),
-        new TreeNode(20, new TreeNode(15), new TreeNode(7))
-    );
-    const result1 = solve(tree1);
-    const expected1 = [[3], [20, 9], [15, 7]];
-    console.assert(arraysEqual(result1, expected1),
-        `Test 1 failed: expected ${JSON.stringify(expected1)}, got ${JSON.stringify(result1)}`);
+  // Test case 1: Standard tree
+  const tree1 = new TreeNode(
+    3,
+    new TreeNode(9),
+    new TreeNode(20, new TreeNode(15), new TreeNode(7)),
+  );
+  const result1 = solve(tree1);
+  const expected1 = [[3], [20, 9], [15, 7]];
+  console.assert(
+    arraysEqual(result1, expected1),
+    `Test 1 failed: expected ${JSON.stringify(expected1)}, got ${JSON.stringify(result1)}`,
+  );
 
-    // Test case 2: Empty tree
-    const result2 = solve(null);
-    const expected2 = [];
-    console.assert(arraysEqual(result2, expected2),
-        `Test 2 failed: expected ${JSON.stringify(expected2)}, got ${JSON.stringify(result2)}`);
+  // Test case 2: Empty tree
+  const result2 = solve(null);
+  const expected2 = [];
+  console.assert(
+    arraysEqual(result2, expected2),
+    `Test 2 failed: expected ${JSON.stringify(expected2)}, got ${JSON.stringify(result2)}`,
+  );
 
-    // Test case 3: Single node
-    const tree3 = new TreeNode(1);
-    const result3 = solve(tree3);
-    const expected3 = [[1]];
-    console.assert(arraysEqual(result3, expected3),
-        `Test 3 failed: expected ${JSON.stringify(expected3)}, got ${JSON.stringify(result3)}`);
+  // Test case 3: Single node
+  const tree3 = new TreeNode(1);
+  const result3 = solve(tree3);
+  const expected3 = [[1]];
+  console.assert(
+    arraysEqual(result3, expected3),
+    `Test 3 failed: expected ${JSON.stringify(expected3)}, got ${JSON.stringify(result3)}`,
+  );
 
-    // Test case 4: Left-skewed tree
-    const tree4 = new TreeNode(1, new TreeNode(2, new TreeNode(3)));
-    const result4 = solve(tree4);
-    const expected4 = [[1], [2], [3]];
-    console.assert(arraysEqual(result4, expected4),
-        `Test 4 failed: expected ${JSON.stringify(expected4)}, got ${JSON.stringify(result4)}`);
+  // Test case 4: Left-skewed tree
+  const tree4 = new TreeNode(1, new TreeNode(2, new TreeNode(3)));
+  const result4 = solve(tree4);
+  const expected4 = [[1], [2], [3]];
+  console.assert(
+    arraysEqual(result4, expected4),
+    `Test 4 failed: expected ${JSON.stringify(expected4)}, got ${JSON.stringify(result4)}`,
+  );
 
-    console.log('All test cases passed for 103. Binary Tree Zigzag Level Order Traversal!');
+  console.log(
+    "All test cases passed for 103. Binary Tree Zigzag Level Order Traversal!",
+  );
 }
 
 /**
  * Example usage and demonstration
  */
 function demonstrateSolution() {
-    console.log('\n=== Problem 103. Binary Tree Zigzag Level Order Traversal ===');
-    console.log('Category: Queue');
-    console.log('Difficulty: Medium');
-    console.log('');
+  console.log(
+    "\n=== Problem 103. Binary Tree Zigzag Level Order Traversal ===",
+  );
+  console.log("Category: Queue");
+  console.log("Difficulty: Medium");
+  console.log("");
 
-    // Example demonstration would go here
-    testSolution();
+  // Example demonstration would go here
+  testSolution();
 }
 
 // Run tests if this file is executed directly
 if (require.main === module) {
-    demonstrateSolution();
+  demonstrateSolution();
 }
 
 // Export for use in other modules
 module.exports = {
-    solve,
-    testSolution,
-    demonstrateSolution,
-    TreeNode
+  solve,
+  testSolution,
+  demonstrateSolution,
+  TreeNode,
 };
 
 /**

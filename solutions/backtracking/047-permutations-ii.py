@@ -26,7 +26,7 @@ Use a frequency counter to track available numbers. During backtracking, iterate
 1. **Create frequency counter**: Use Counter(nums) to build frequency map of available numbers
 2. **Initialize result**: Create empty result list and current permutation list
 3. **Define backtrack function**: Create recursive function that builds permutations incrementally
-4. **Base case**: When len(current) == len(nums), add copy of current to result and return
+# 4. **Base case**: When len(current) == len(nums), add copy of current to result and return  # Result undefined
 5. **Iterate unique numbers**: Loop through counter.keys() (unique numbers only)
 6. **Check availability**: If counter[num] > 0, the number is available to use
 7. **Use number**: Add num to current, decrement counter[num] by 1
@@ -74,30 +74,31 @@ O(1)
 
 from collections import Counter
 
-from typing import List, Optional, Dict, Tuple
+from typing import Any, List, Optional, Dict, Tuple
+
 
 class Solution:
     def permuteUnique(self, nums: List[int]) -> List[List[int]]:
         """
         Generate all possible unique permutations of the input array.
-        
+
         Args:
             nums: List of integers (may contain duplicates)
-            
+
         Returns:
             List of lists containing all unique permutations
-        
+
         Time Complexity: O(n!)
         Space Complexity: O(n)
         """
         # Handle empty input
         if not nums:
             return []
-        
+
         def backtrack(counter: Counter, temp_perm: List[int], n: int) -> None:
             """
             Helper function for backtracking to generate permutations.
-            
+
             Args:
                 counter: Counter object containing remaining numbers
                 temp_perm: Current permutation being built
@@ -107,38 +108,41 @@ class Solution:
             if len(temp_perm) == n:
                 result.append(temp_perm[:])
                 return
-            
+
             # Try each unique number from counter
             for num in counter:
                 if counter[num] > 0:
                     # Add current number to permutation
                     temp_perm.append(num)
                     counter[num] -= 1
-                    
+
                     # Recursive call
                     backtrack(counter, temp_perm, n)
-                    
+
                     # Backtrack
                     temp_perm.pop()
                     counter[num] += 1
-        
-        result = []
+
+        result: list[Any] = []
         # Create counter for frequency of each number
         counter = Counter(nums)
         backtrack(counter, [], len(nums))
         return result
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
     solution = Solution()
 
     # Test case 1: Example from problem
-    result = solution.permuteUnique([1,1,2])
-    expected = [[1,1,2],[1,2,1],[2,1,1]]
+    result = solution.permuteUnique([1, 1, 2])
+    expected = [[1, 1, 2], [1, 2, 1], [2, 1, 1]]
     # Sort for comparison since order may vary
-    assert sorted([sorted(p) for p in result]) == sorted([sorted(p) for p in expected]), f"Expected {expected}, got {result}"
+    assert sorted([sorted(p) for p in result]) == sorted([sorted(p) for p in expected]), (
+        f"Expected {expected}, got {result}"
+    )
 
     # Test case 2: Single element
     result = solution.permuteUnique([1])
@@ -146,11 +150,12 @@ def test_solution():
     assert result == expected, f"Expected {expected}, got {result}"
 
     # Test case 3: All duplicates
-    result = solution.permuteUnique([1,1,1])
-    expected = [[1,1,1]]
+    result = solution.permuteUnique([1, 1, 1])
+    expected = [[1, 1, 1]]
     assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

@@ -1,5 +1,5 @@
 """
-# Difficulty: 
+# Difficulty:
 
 # 048. Rotate Image
 **Transpose + Reverse**
@@ -71,6 +71,7 @@ O(1) in-place modification
 </details>
 """
 
+
 class Solution:
     def rotate(self, matrix: list[list[int]]) -> None:
         """
@@ -99,7 +100,8 @@ class Solution:
     # Alias for consistent interface
     solve = rotate
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for 048. Rotate Image.
     """
@@ -141,6 +143,7 @@ def test_solution():
     print("Test case 5 passed: Matrix with negative numbers")
 
     print("\nAll test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

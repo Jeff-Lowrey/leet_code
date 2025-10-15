@@ -63,26 +63,30 @@ For recursion depth and storing combinations
 </details>
 """
 
+
+from typing import Any
+
 class Solution:
     def combinationSum(self, candidates: list[int], target: int) -> list[list[int]]:
         """
         Find all unique combinations of numbers that sum up to the target.
-        
+
         Args:
             candidates (list[int]): List of distinct positive integers
             target (int): Target sum to achieve
 
         Returns:
             list[list[int]]: List of all unique combinations that sum to target
-            
+
         Time Complexity: O(N^(T/M)), where N is length of candidates,
                         T is target, M is minimal value in candidates
         Space Complexity: O(T/M) for recursion depth
         """
+
         def backtrack(remain: int, combo: list[int], start: int) -> None:
             """
             Helper function to perform backtracking and find combinations.
-            
+
             Args:
                 remain (int): Remaining sum to achieve
                 combo (list[int]): Current combination being built
@@ -92,26 +96,27 @@ class Solution:
                 # Found a valid combination
                 result.append(combo[:])
                 return
-            
+
             for i in range(start, len(candidates)):
                 # Skip if the current number is too large
                 if candidates[i] > remain:
                     continue
-                
+
                 # Include the current number in combination
                 combo.append(candidates[i])
                 # Recursively find combinations with the remaining sum
                 backtrack(remain - candidates[i], combo, i)
                 # Remove the number to try other combinations
                 combo.pop()
-        
+
         # Sort candidates to optimize and handle cases more efficiently
         candidates.sort()
-        result = []
+        result: list[Any] = []
         backtrack(target, [], 0)
         return result
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
@@ -124,10 +129,11 @@ def test_solution():
 
     # Test case 2: Empty input
     result = solution.combinationSum([], 0)
-    expected = [[]]
+    expected: list[list[int]] = [[]]
     assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()
@@ -135,6 +141,6 @@ if __name__ == "__main__":
     # Example usage
     solution = Solution()
     print("=== 039. Combination Sum ===")
-    print(f"Input: [2,3,6,7], target=7 -> {solution.combinationSum([2,3,6,7], 7)}")
-    print(f"Input: [2,3,5], target=8 -> {solution.combinationSum([2,3,5], 8)}")
+    print(f"Input: [2,3,6,7], target=7 -> {solution.combinationSum([2, 3, 6, 7], 7)}")
+    print(f"Input: [2,3,5], target=8 -> {solution.combinationSum([2, 3, 5], 8)}")
     print(f"Input: [2], target=3 -> {solution.combinationSum([2], 3)}")

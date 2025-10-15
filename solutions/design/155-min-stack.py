@@ -71,5 +71,3 @@ In worst case, min_stack can have same size as main_stack
 
 </details>
 """
-
-

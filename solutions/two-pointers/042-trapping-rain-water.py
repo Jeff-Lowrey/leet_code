@@ -71,29 +71,30 @@ O(1)
 
 from typing import List, Optional, Dict, Tuple
 
+
 class Solution:
     def trap(self, height: List[int]) -> int:
         """
         Calculate the amount of water that can be trapped between blocks.
-        
+
         Args:
             height: List of integers representing the height of each block
-            
+
         Returns:
             Integer representing the total amount of water that can be trapped
-            
+
         Time Complexity: O(n)
         Space Complexity: O(1)
         """
         # Edge case: if array is empty or has less than 3 elements
         if not height or len(height) < 3:
             return 0
-            
+
         # Initialize pointers and variables
         left = 0
         right = len(height) - 1
         left_max = right_max = water = 0
-        
+
         # Use two pointer technique to calculate trapped water
         while left < right:
             # Update maximum height from left
@@ -110,10 +111,11 @@ class Solution:
                 else:
                     water += right_max - height[right]
                 right -= 1
-                
+
         return water
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
@@ -135,6 +137,7 @@ def test_solution():
     assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

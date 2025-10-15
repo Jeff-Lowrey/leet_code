@@ -72,17 +72,18 @@ O(1)
 
 from typing import List, Optional, Dict, Tuple
 
+
 class Solution:
     def merge(self, nums1: List[int], m: int, nums2: List[int], n: int) -> None:
         """
         Merge nums2 into nums1 as one sorted array in-place.
-        
+
         Args:
             nums1: First array with extra space at end (length = m + n)
             m: Number of elements in nums1 (excluding extra space)
             nums2: Second array to be merged
             n: Number of elements in nums2
-            
+
         Returns:
             None (modifies nums1 in-place)
         """
@@ -107,25 +108,27 @@ class Solution:
             p2 -= 1
             p -= 1
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
     solution = Solution()
 
     # Test case 1: Example from problem
-    nums1 = [1,2,3,0,0,0]
-    solution.merge(nums1, 3, [2,5,6], 3)
-    expected = [1,2,2,3,5,6]
+    nums1 = [1, 2, 3, 0, 0, 0]
+    solution.merge(nums1, 3, [2, 5, 6], 3)
+    expected = [1, 2, 2, 3, 5, 6]
     assert nums1 == expected, f"Expected {expected}, got {nums1}"
 
     # Test case 2: Second array empty
-    nums1 = [1,2,3]
+    nums1 = [1, 2, 3]
     solution.merge(nums1, 3, [], 0)
-    expected = [1,2,3]
+    expected = [1, 2, 3]
     assert nums1 == expected, f"Expected {expected}, got {nums1}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

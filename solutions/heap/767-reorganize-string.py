@@ -74,6 +74,9 @@ O(1)
 
 import heapq
 from collections import Counter
+from typing import Any
+
+
 
 class Solution:
     def reorganizeString(self, s: str) -> str:
@@ -108,7 +111,7 @@ class Solution:
         heapq.heapify(heap)
 
         # Build the result string
-        result = []
+        result: list[Any] = []
 
         # Keep taking the two most frequent characters
         while len(heap) >= 2:
@@ -133,7 +136,8 @@ class Solution:
 
         return "".join(result)
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
@@ -143,7 +147,7 @@ def test_solution():
     result = solution.reorganizeString("aab")
     # Verify no adjacent duplicates and correct length
     assert len(result) == 3, f"Wrong length: {result}"
-    assert all(result[i] != result[i+1] for i in range(len(result)-1)), f"Has adjacent duplicates: {result}"
+    assert all(result[i] != result[i + 1] for i in range(len(result) - 1)), f"Has adjacent duplicates: {result}"
 
     # Test case 2: Impossible case - too many of one character
     result = solution.reorganizeString("aaab")
@@ -156,6 +160,7 @@ def test_solution():
     assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

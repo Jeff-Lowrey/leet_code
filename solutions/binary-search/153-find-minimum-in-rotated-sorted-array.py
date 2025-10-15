@@ -84,24 +84,25 @@ O(1)
 
 from typing import List, Optional, Dict, Tuple
 
+
 class Solution:
     """
     Solution class for finding the minimum element in a rotated sorted array.
-    
-    The array is originally sorted in ascending order but has been rotated 
+
+    The array is originally sorted in ascending order but has been rotated
     between 1 and n times.
     """
-    
+
     def findMin(self, nums: List[int]) -> int:
         """
         Finds the minimum element in a rotated sorted array using binary search.
-        
+
         Args:
             nums: List[int] - Input array that was originally sorted then rotated
-            
+
         Returns:
             int - The minimum element in the array
-            
+
         Time Complexity: O(log n)
         Space Complexity: O(1)
         """
@@ -110,21 +111,21 @@ class Solution:
             return 0
         if len(nums) == 1:
             return nums[0]
-        
+
         # If array is not rotated (already sorted)
         if nums[0] < nums[-1]:
             return nums[0]
-        
+
         left, right = 0, len(nums) - 1
-        
+
         # Binary search implementation
         while left <= right:
             # If we're down to two elements, return the minimum
             if right - left <= 1:
                 return min(nums[left], nums[right])
-            
+
             mid = (left + right) // 2
-            
+
             # If mid element is greater than right element,
             # minimum must be in right half
             if nums[mid] > nums[right]:
@@ -133,17 +134,18 @@ class Solution:
             # minimum must be in left half (including mid)
             else:
                 right = mid
-                
+
         return nums[left]
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
     solution = Solution()
 
     # Test case 1: Example from problem
-    result = solution.findMin([4,5,6,7,0,1,2])
+    result = solution.findMin([4, 5, 6, 7, 0, 1, 2])
     expected = 0
     assert result == expected, f"Expected {expected}, got {result}"
 
@@ -153,11 +155,12 @@ def test_solution():
     assert result == expected, f"Expected {expected}, got {result}"
 
     # Test case 3: Not rotated array
-    result = solution.findMin([1,2,3,4,5])
+    result = solution.findMin([1, 2, 3, 4, 5])
     expected = 1
     assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

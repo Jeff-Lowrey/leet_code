@@ -74,24 +74,25 @@ O(1)
 </details>
 """
 
+
 class Solution:
     def findTheDifference(self, s: str, t: str) -> str:
         """
         Find the character that was added to string t that's not in string s.
-        
+
         Args:
             s (str): The original string
             t (str): The modified string with one extra character
-            
+
         Returns:
             str: The extra character in string t
-            
+
         Time Complexity: O(n) where n is the length of the longer string
         Space Complexity: O(1) as we use fixed size arrays
         """
         # Method 1: Using XOR operation
         result = 0
-        
+
         # XOR all characters in both strings
         # Since XOR of same characters cancels out,
         # we'll be left with the extra character
@@ -99,36 +100,37 @@ class Solution:
             result ^= ord(char)
         for char in t:
             result ^= ord(char)
-            
+
         return chr(result)
-    
+
     def findTheDifference_counter(self, s: str, t: str) -> str:
         """
         Alternative implementation using character counting.
-        
+
         Args:
             s (str): The original string
             t (str): The modified string with one extra character
-            
+
         Returns:
             str: The extra character in string t
         """
         # Initialize counter array for all possible characters (256 ASCII)
         counter = [0] * 256
-        
+
         # Count characters in first string
         for char in s:
             counter[ord(char)] += 1
-            
+
         # Subtract counts for second string
         for char in t:
             counter[ord(char)] -= 1
             if counter[ord(char)] < 0:
                 return char
-                
-        return ''
 
-def test_solution():
+        return ""
+
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
@@ -145,6 +147,7 @@ def test_solution():
     assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

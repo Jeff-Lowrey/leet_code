@@ -104,6 +104,7 @@ In-place sorting with constant extra space
 </details>
 """
 
+
 class Solution:
     def sortColors(self, nums: list[int]) -> None:
         """
@@ -178,7 +179,8 @@ class Solution:
                 nums[left], nums[i] = nums[i], nums[left]
                 left += 1
 
-def test_solution():
+
+def test_solution() -> None:
     """Test cases for Problem 75."""
     solution = Solution()
 
@@ -249,6 +251,7 @@ def test_solution():
     assert nums11 == expected11, f"Expected {expected11}, got {nums11}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

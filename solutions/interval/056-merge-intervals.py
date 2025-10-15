@@ -80,19 +80,20 @@ O(1)
 </details>
 """
 
-from typing import List, Optional, Dict, Tuple
+from typing import Any, List, Optional, Dict, Tuple
+
 
 class Solution:
     def merge(self, intervals: List[List[int]]) -> List[List[int]]:
         """
         Merges overlapping intervals in the input list.
-        
+
         Args:
             intervals: List of intervals where each interval is [start, end]
-        
+
         Returns:
             List of merged intervals
-            
+
         Time Complexity: O(n log n) due to sorting
         Space Complexity: O(n) or O(1) depending if we consider output space
         """
@@ -101,18 +102,18 @@ class Solution:
             return []
         if len(intervals) == 1:
             return intervals
-        
+
         # Sort intervals based on start time
         intervals.sort(key=lambda x: x[0])
-        
+
         # Initialize result with first interval
         merged = [intervals[0]]
-        
+
         # Iterate through remaining intervals
         for current in intervals[1:]:
             # Get the last interval from merged list
             previous = merged[-1]
-            
+
             # If current interval overlaps with previous
             if current[0] <= previous[1]:
                 # Update the end time of previous interval
@@ -120,31 +121,33 @@ class Solution:
             else:
                 # No overlap, add current interval to result
                 merged.append(current)
-        
+
         return merged
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
     solution = Solution()
 
     # Test case 1: Example from problem
-    result = solution.merge([[1,3], [2,6], [8,10], [15,18]])
-    expected = [[1,6], [8,10], [15,18]]
+    result = solution.merge([[1, 3], [2, 6], [8, 10], [15, 18]])
+    expected = [[1, 6], [8, 10], [15, 18]]
     assert result == expected, f"Expected {expected}, got {result}"
 
     # Test case 2: Empty input
     result = solution.merge([])
-    expected = []
+    expected: list[Any] = []
     assert result == expected, f"Expected {expected}, got {result}"
 
     # Test case 3: Single element
-    result = solution.merge([1])
-    expected = [1]
+    result = solution.merge([[1, 2]])
+    expected = [[1, 2]]
     assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

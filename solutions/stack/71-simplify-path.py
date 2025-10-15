@@ -27,7 +27,7 @@ Output: "/home/foo"
 <dt>Input:</dt>
 <dd>path = "/home//foo/"</dd>
 <dt>Output:</dt>
-<dd>/home/foo"</dd>
+<dd>"/home/foo"</dd>
 <dt>Explanation:</dt>
 <dd>Simplified path '/a/./b/../../c/' is '/c'</dd>
 </dl>
@@ -86,6 +86,7 @@ O(n) for stack and split components
 </details>
 """
 
+
 class Solution:
     def simplifyPath(self, path: str) -> str:
         """
@@ -111,6 +112,7 @@ class Solution:
 
         # Build canonical path
         return "/" + "/".join(stack)
+
 
 def test_solution() -> None:
     """Test cases for Problem 71."""
@@ -165,6 +167,7 @@ def test_solution() -> None:
     print("Test case 12 passed: All .. from root")
 
     print("\nAll test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

@@ -81,17 +81,18 @@ O(1)
 
 from typing import List, Optional, Dict, Tuple
 
+
 class Solution:
     def findPeakElement(self, nums: List[int]) -> int:
         """
         Finds a peak element in the array using binary search.
-        
+
         Args:
             nums: List of integers where we need to find a peak element
-            
+
         Returns:
             Index of any peak element in the array
-            
+
         Example:
             >>> s = Solution()
             >>> s.findPeakElement([1,2,3,1])
@@ -104,13 +105,13 @@ class Solution:
             return -1
         if len(nums) == 1:
             return 0
-        
+
         left, right = 0, len(nums) - 1
-        
+
         # Binary search implementation
         while left < right:
             mid = left + (right - left) // 2
-            
+
             # If mid element is less than next element,
             # peak must be on the right side
             if nums[mid] < nums[mid + 1]:
@@ -119,17 +120,18 @@ class Solution:
             # peak must be on the left side or at mid
             else:
                 right = mid
-                
+
         return left
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
     solution = Solution()
 
     # Test case 1: Example from problem
-    result = solution.findPeakElement([1,2,3,1])
+    result = solution.findPeakElement([1, 2, 3, 1])
     expected = 2
     assert result == expected, f"Expected {expected}, got {result}"
 
@@ -139,11 +141,12 @@ def test_solution():
     assert result == expected, f"Expected {expected}, got {result}"
 
     # Test case 3: Multiple peaks - any is valid
-    result = solution.findPeakElement([1,2,1,3,5,6,4])
+    result = solution.findPeakElement([1, 2, 1, 3, 5, 6, 4])
     # Result could be index 1 or 5 (both are peaks)
     assert result in [1, 5], f"Expected 1 or 5, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

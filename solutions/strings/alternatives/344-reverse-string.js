@@ -73,70 +73,76 @@
  * Space Complexity: O(1)
  */
 function solve(s) {
-    // Use two pointers to swap characters from both ends
-    let left = 0;
-    let right = s.length - 1;
+  // Use two pointers to swap characters from both ends
+  let left = 0;
+  let right = s.length - 1;
 
-    while (left < right) {
-        // Swap characters at left and right pointers
-        [s[left], s[right]] = [s[right], s[left]];
-        left++;
-        right--;
-    }
+  while (left < right) {
+    // Swap characters at left and right pointers
+    [s[left], s[right]] = [s[right], s[left]];
+    left++;
+    right--;
+  }
 
-    // No return value - modifies array in-place
+  // No return value - modifies array in-place
 }
 
 /**
  * Test cases for Problem 344: Reverse String
  */
 function testSolution() {
-    console.log('Testing 344. Reverse String');
+  console.log("Testing 344. Reverse String");
 
-    // Test case 1: Basic functionality
-    const test1 = ["h","e","l","l","o"];
-    solve(test1);
-    console.assert(JSON.stringify(test1) === JSON.stringify(["o","l","l","e","h"]),
-        `Test 1 failed: expected ["o","l","l","e","h"], got ${JSON.stringify(test1)}`);
+  // Test case 1: Basic functionality
+  const test1 = ["h", "e", "l", "l", "o"];
+  solve(test1);
+  console.assert(
+    JSON.stringify(test1) === JSON.stringify(["o", "l", "l", "e", "h"]),
+    `Test 1 failed: expected ["o","l","l","e","h"], got ${JSON.stringify(test1)}`,
+  );
 
-    // Test case 2: Single character
-    const test2 = ["a"];
-    solve(test2);
-    console.assert(JSON.stringify(test2) === JSON.stringify(["a"]),
-        `Test 2 failed: expected ["a"], got ${JSON.stringify(test2)}`);
+  // Test case 2: Single character
+  const test2 = ["a"];
+  solve(test2);
+  console.assert(
+    JSON.stringify(test2) === JSON.stringify(["a"]),
+    `Test 2 failed: expected ["a"], got ${JSON.stringify(test2)}`,
+  );
 
-    // Test case 3: Two characters
-    const test3 = ["H","a","n","n","a","h"];
-    solve(test3);
-    console.assert(JSON.stringify(test3) === JSON.stringify(["h","a","n","n","a","H"]),
-        `Test 3 failed: expected ["h","a","n","n","a","H"], got ${JSON.stringify(test3)}`);
+  // Test case 3: Two characters
+  const test3 = ["H", "a", "n", "n", "a", "h"];
+  solve(test3);
+  console.assert(
+    JSON.stringify(test3) === JSON.stringify(["h", "a", "n", "n", "a", "H"]),
+    `Test 3 failed: expected ["h","a","n","n","a","H"], got ${JSON.stringify(test3)}`,
+  );
 
-    console.log('All test cases passed for 344. Reverse String!');
+  console.log("All test cases passed for 344. Reverse String!");
 }
 
 /**
  * Example usage and demonstration
  */
 function demonstrateSolution() {
-    console.log('\n=== Problem 344. Reverse String ===');
-    console.log('Category: Strings');
-    console.log('Difficulty: Easy');
-    console.log('');
+  console.log("\n=== Problem 344. Reverse String ===");
+  console.log("Category: Strings");
+  console.log("Difficulty: Easy");
+  console.log("");
 
-    // Example demonstration would go here
-    testSolution();
+  // Example demonstration would go here
+  testSolution();
 }
 
 // Run tests if this file is executed directly
 if (require.main === module) {
-    demonstrateSolution();
+  demonstrateSolution();
 }
 
 // Export for use in other modules
 module.exports = {
-    solve,
-    testSolution,
-    demonstrateSolution
+  solve,
+  testSolution,
+  demonstrateSolution,
 };
 
 /**

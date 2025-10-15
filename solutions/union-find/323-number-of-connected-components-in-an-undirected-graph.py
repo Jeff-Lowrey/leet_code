@@ -64,6 +64,10 @@ For parent and rank arrays
 </details>
 """
 
+from collections import deque
+from typing import Any
+
+
 class Solution:
     def countComponents(self, n: int, edges: list[list[int]]) -> int:
         """
@@ -84,13 +88,13 @@ class Solution:
         rank = [0] * n
         components = n  # Initially each node is its own component
 
-        def find(x):
+        def find(x: Any) -> Any:
             """Find root with path compression."""
             if parent[x] != x:
                 parent[x] = find(parent[x])
             return parent[x]
 
-        def union(x, y):
+        def union(x: Any, y: Any) -> Any:
             """Union by rank, return True if components were merged."""
             px, py = find(x), find(y)
             if px == py:
@@ -128,7 +132,7 @@ class Solution:
         Space Complexity: O(N + E) for adjacency list and visited array
         """
         # Build adjacency list
-        graph = [[] for _ in range(n)]
+        graph: list[list[int]] = [[] for _ in range(n)]
         for u, v in edges:
             graph[u].append(v)
             graph[v].append(u)
@@ -136,7 +140,7 @@ class Solution:
         visited = [False] * n
         components = 0
 
-        def dfs(node):
+        def dfs(node: Any) -> Any:
             """DFS to mark all nodes in current component."""
             visited[node] = True
             for neighbor in graph[node]:
@@ -162,10 +166,8 @@ class Solution:
         Returns:
             Number of connected components
         """
-        from collections import deque
-
         # Build adjacency list
-        graph = [[] for _ in range(n)]
+        graph: list[list[int]] = [[] for _ in range(n)]
         for u, v in edges:
             graph[u].append(v)
             graph[v].append(u)
@@ -190,14 +192,15 @@ class Solution:
 
         return components
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
     solution = Solution()
 
     # Test case 1: Example from problem
-    result = solution.countComponents(5, [[0,1],[1,2],[3,4]])
+    result = solution.countComponents(5, [[0, 1], [1, 2], [3, 4]])
     expected = 2
     assert result == expected, f"Expected {expected}, got {result}"
 
@@ -207,6 +210,7 @@ def test_solution():
     assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

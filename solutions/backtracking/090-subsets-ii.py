@@ -73,69 +73,71 @@ O(1)
 </details>
 """
 
-from typing import List, Optional, Dict, Tuple
+from typing import Any, List, Optional, Dict, Tuple
+
 
 class Solution:
     def subsetsWithDup(self, nums: List[int]) -> List[List[int]]:
         """
         Generate all possible unique subsets of the input array.
-        
+
         Args:
             nums: List of integers that may contain duplicates
-            
+
         Returns:
             List of lists containing all unique subsets
-            
+
         Example:
             Input: nums = [1,2,2]
             Output: [[],[1],[1,2],[1,2,2],[2],[2,2]]
         """
         # Sort the array to handle duplicates properly
         nums.sort()
-        result = []
-        
+        result: list[Any] = []
+
         def backtrack(start: int, current_subset: List[int]) -> None:
             """
             Helper function to generate subsets using backtracking.
-            
+
             Args:
                 start: Starting index for considering elements
                 current_subset: Current subset being built
             """
             # Add the current subset to result
             result.append(current_subset[:])
-            
+
             # Try adding each remaining number to current subset
             for i in range(start, len(nums)):
                 # Skip duplicates to avoid duplicate subsets
-                if i > start and nums[i] == nums[i-1]:
+                if i > start and nums[i] == nums[i - 1]:
                     continue
-                    
+
                 # Include current number in subset
                 current_subset.append(nums[i])
                 # Recursively generate subsets with remaining elements
                 backtrack(i + 1, current_subset)
                 # Backtrack by removing the last added element
                 current_subset.pop()
-        
+
         # Start backtracking with empty subset
         backtrack(0, [])
         return result
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
     solution = Solution()
 
     # Test case 1: Example from problem
-    result = solution.subsetsWithDup([1,2,2])
-    expected = [[],[1],[1,2],[1,2,2],[2],[2,2]]
+    result = solution.subsetsWithDup([1, 2, 2])
+    expected = [[], [1], [1, 2], [1, 2, 2], [2], [2, 2]]
     assert result == expected, f"Expected {expected}, got {result}"
 
     # Test case 2: Empty input
     result = solution.subsetsWithDup([])
-    expected = [[]]
+    expected: list[list[int]] = [[]]
     assert result == expected, f"Expected {expected}, got {result}"
 
     # Test case 3: Single element
@@ -144,6 +146,7 @@ def test_solution():
     assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

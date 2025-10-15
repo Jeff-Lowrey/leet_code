@@ -91,6 +91,10 @@ All three algorithms achieve this complexity
 </details>
 """
 
+
+from typing import Any
+import random
+
 class Solution:
     def sortArray(self, nums: list[int]) -> list[int]:
         """
@@ -118,7 +122,7 @@ class Solution:
 
     def merge(self, left: list[int], right: list[int]) -> list[int]:
         """Merge two sorted arrays."""
-        result = []
+        result: list[Any] = []
         i = j = 0
 
         while i < len(left) and j < len(right):
@@ -254,7 +258,8 @@ class Solution:
         merge_sort_helper(0, len(nums) - 1)
         return nums
 
-def test_solution():
+
+def test_solution() -> None:
     """Test cases for Problem 912."""
     solution = Solution()
 
@@ -285,7 +290,7 @@ def test_solution():
 
     # Test case 6: Empty array
     result6 = solution.sortArray([])
-    expected6 = []
+    expected6: list[Any] = []
     assert result6 == expected6, f"Expected {expected6}, got {result6}"
 
     # Test case 7: All equal
@@ -314,6 +319,7 @@ def test_solution():
     assert result11 == expected11, f"Expected {expected11}, got {result11}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

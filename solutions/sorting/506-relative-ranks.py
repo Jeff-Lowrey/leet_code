@@ -91,6 +91,9 @@ For storing score-rank mappings and result
 </details>
 """
 
+
+from typing import Any
+
 class Solution:
     def findRelativeRanks(self, score: list[int]) -> list[str]:
         """
@@ -135,7 +138,7 @@ class Solution:
         """
         # Create score to rank mapping
         sorted_scores = sorted(score, reverse=True)
-        rank_map = {}
+        rank_map: dict[Any, Any] = {}
 
         for rank, s in enumerate(sorted_scores):
             if rank == 0:
@@ -162,7 +165,8 @@ class Solution:
         rank_map = {s: medals[i] if i < 3 else str(i + 1) for i, s in enumerate(sorted_scores)}
         return [rank_map[s] for s in score]
 
-def test_solution():
+
+def test_solution() -> None:
     """Test cases for Problem 506."""
     solution = Solution()
 
@@ -215,6 +219,7 @@ def test_solution():
     assert result9 == expected9, f"Expected {expected9}, got {result9}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

@@ -78,6 +78,13 @@ Only using constant extra space
 </details>
 """
 
+
+def guess(num: int) -> int:
+    """Pre-defined API (stub for testing)."""
+    # This is provided by the platform
+    return 0
+
+
 class Solution:
     def guessNumber(self, n: int) -> int:
         """
@@ -121,6 +128,7 @@ class Solution:
         Time Complexity: O(log n)
         Space Complexity: O(log n) due to recursion stack
         """
+
         def binary_search(left: int, right: int) -> int:
             if left > right:
                 return -1  # Should not happen
@@ -155,61 +163,63 @@ class Solution:
                 return i
         return -1
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for 374. Guess Number Higher Or Lower.
     """
     solution = Solution()
 
     # Test case 1: Pick in middle
-    guess.pick = 6
+    guess.pick = 6  # type: ignore
     result1 = solution.guessNumber(10)
     expected1 = 6
     assert result1 == expected1, f"Expected {expected1}, got {result1}"
 
     # Test case 2: Pick at beginning
-    guess.pick = 1
+    guess.pick = 1  # type: ignore
     result2 = solution.guessNumber(1)
     expected2 = 1
     assert result2 == expected2, f"Expected {expected2}, got {result2}"
 
     # Test case 3: Pick at end
-    guess.pick = 2
+    guess.pick = 2  # type: ignore
     result3 = solution.guessNumber(2)
     expected3 = 2
     assert result3 == expected3, f"Expected {expected3}, got {result3}"
 
     # Test case 4: Larger range
-    guess.pick = 50
+    guess.pick = 50  # type: ignore
     result4 = solution.guessNumber(100)
     expected4 = 50
     assert result4 == expected4, f"Expected {expected4}, got {result4}"
 
     # Test case 5: Pick near beginning
-    guess.pick = 3
+    guess.pick = 3  # type: ignore
     result5 = solution.guessNumber(10)
     expected5 = 3
     assert result5 == expected5, f"Expected {expected5}, got {result5}"
 
     # Test case 6: Pick near end
-    guess.pick = 8
+    guess.pick = 8  # type: ignore
     result6 = solution.guessNumber(10)
     expected6 = 8
     assert result6 == expected6, f"Expected {expected6}, got {result6}"
 
     # Test recursive solution
-    guess.pick = 7
+    guess.pick = 7  # type: ignore
     result7 = solution.guessNumberRecursive(10)
     expected7 = 7
     assert result7 == expected7, f"Expected {expected7}, got {result7}"
 
     # Test linear solution
-    guess.pick = 4
+    guess.pick = 4  # type: ignore
     result8 = solution.guessNumberLinear(10)
     expected8 = 4
     assert result8 == expected8, f"Expected {expected8}, got {result8}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()
@@ -223,13 +233,13 @@ if __name__ == "__main__":
     test_cases = [(10, 6), (100, 25), (50, 1), (1, 1)]
 
     for n, pick in test_cases:
-        guess.pick = pick
+        guess.pick = pick  # type: ignore
         result = solution.guessNumber(n)
         print(f"Range [1, {n}], picked number: {result}")
 
     # Show API call simulation
     print(f"\nAPI simulation for n=10, pick=6:")
-    guess.pick = 6
+    guess.pick = 6  # type: ignore
     left, right = 1, 10
     call_count = 0
 

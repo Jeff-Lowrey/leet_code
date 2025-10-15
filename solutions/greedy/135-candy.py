@@ -86,6 +86,9 @@ Array to store candy counts (can be optimized to O(1) with complex logic)
 </details>
 """
 
+from typing import List
+
+
 class Solution:
     def candy(self, ratings: List[int]) -> int:
         """
@@ -199,27 +202,28 @@ class Solution:
 
         return total
 
-def test_solution():
+
+def test_solution() -> None:
     """Test cases for Problem 135."""
     solution = Solution()
 
     # Test case 1: Valley pattern
-    result1 = solution.candy([1,0,2])
+    result1 = solution.candy([1, 0, 2])
     expected1 = 5
     assert result1 == expected1, f"Expected {expected1}, got {result1}"
 
     # Test case 2: Equal ratings
-    result2 = solution.candy([1,2,2])
+    result2 = solution.candy([1, 2, 2])
     expected2 = 4
     assert result2 == expected2, f"Expected {expected2}, got {result2}"
 
     # Test case 3: Strictly increasing
-    result3 = solution.candy([1,2,3,4,5])
+    result3 = solution.candy([1, 2, 3, 4, 5])
     expected3 = 15  # 1+2+3+4+5
     assert result3 == expected3, f"Expected {expected3}, got {result3}"
 
     # Test case 4: Strictly decreasing
-    result4 = solution.candy([5,4,3,2,1])
+    result4 = solution.candy([5, 4, 3, 2, 1])
     expected4 = 15  # 5+4+3+2+1
     assert result4 == expected4, f"Expected {expected4}, got {result4}"
 
@@ -229,41 +233,42 @@ def test_solution():
     assert result5 == expected5, f"Expected {expected5}, got {result5}"
 
     # Test case 6: All same
-    result6 = solution.candy([3,3,3,3])
+    result6 = solution.candy([3, 3, 3, 3])
     expected6 = 4
     assert result6 == expected6, f"Expected {expected6}, got {result6}"
 
     # Test case 7: Complex pattern
-    result7 = solution.candy([1,3,2,2,1])
+    result7 = solution.candy([1, 3, 2, 2, 1])
     expected7 = 7  # [1,2,1,2,1]
     assert result7 == expected7, f"Expected {expected7}, got {result7}"
 
     # Test case 8: Peak pattern
-    result8 = solution.candy([1,2,1])
+    result8 = solution.candy([1, 2, 1])
     expected8 = 4  # [1,2,1]
     assert result8 == expected8, f"Expected {expected8}, got {result8}"
 
     # Test case 9: Complex case
-    result9 = solution.candy([1,2,87,87,87,2,1])
+    result9 = solution.candy([1, 2, 87, 87, 87, 2, 1])
     expected9 = 13  # [1,2,3,1,2,2,1]
     assert result9 == expected9, f"Expected {expected9}, got {result9}"
 
     # Test case 10: Ascending then descending
-    result10 = solution.candy([1,6,10,8,7,3,2])
+    result10 = solution.candy([1, 6, 10, 8, 7, 3, 2])
     expected10 = 18  # [1,2,3,2,1] -> need adjustment for 10
     assert result10 == expected10, f"Expected {expected10}, got {result10}"
 
     # Test verbose implementation
-    result11 = solution.candyVerbose([1,0,2])
+    result11 = solution.candyVerbose([1, 0, 2])
     expected11 = 5
     assert result11 == expected11, f"Expected {expected11}, got {result11}"
 
     # Test one-pass implementation
-    result12 = solution.candyOnePass([1,0,2])
+    result12 = solution.candyOnePass([1, 0, 2])
     expected12 = 5
     assert result12 == expected12, f"Expected {expected12}, got {result12}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()
@@ -271,7 +276,7 @@ if __name__ == "__main__":
     # Example usage
     solution = Solution()
     print("=== 135. Candy ===")
-    print(f"candy([1,0,2]) -> {solution.candy([1,0,2])}")
-    print(f"candy([1,2,2]) -> {solution.candy([1,2,2])}")
-    print(f"candy([1,2,3,4,5]) -> {solution.candy([1,2,3,4,5])}")
-    print(f"candy([5,4,3,2,1]) -> {solution.candy([5,4,3,2,1])}")
+    print(f"candy([1,0,2]) -> {solution.candy([1, 0, 2])}")
+    print(f"candy([1,2,2]) -> {solution.candy([1, 2, 2])}")
+    print(f"candy([1,2,3,4,5]) -> {solution.candy([1, 2, 3, 4, 5])}")
+    print(f"candy([5,4,3,2,1]) -> {solution.candy([5, 4, 3, 2, 1])}")

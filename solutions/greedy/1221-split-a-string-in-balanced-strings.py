@@ -75,6 +75,9 @@ Only using counter and result variables
 </details>
 """
 
+from typing import Any, List
+
+
 class Solution:
     def balancedStringSplit(self, s: str) -> int:
         """
@@ -94,7 +97,7 @@ class Solution:
 
         for char in s:
             # Update balance: +1 for 'R', -1 for 'L'
-            balance += 1 if char == 'R' else -1
+            balance += 1 if char == "R" else -1
 
             # When balance is 0, we have equal Rs and Ls
             if balance == 0:
@@ -118,7 +121,7 @@ class Solution:
 
         for i, char in enumerate(s):
             # Track balance: R is +1, L is -1
-            if char == 'R':
+            if char == "R":
                 balance += 1
             else:  # char == 'L'
                 balance -= 1
@@ -146,7 +149,7 @@ class Solution:
 
         for char in s:
             # Update balance: +1 for 'L', -1 for 'R'
-            balance += 1 if char == 'L' else -1
+            balance += 1 if char == "L" else -1
 
             # Split when balanced
             if balance == 0:
@@ -166,21 +169,22 @@ class Solution:
         """
         balance = 0
         count = 0
-        substrings = []
+        substrings: list[Any] = []
         start = 0
 
         for i, char in enumerate(s):
-            balance += 1 if char == 'R' else -1
+            balance += 1 if char == "R" else -1
 
             if balance == 0:
                 # Found balanced substring
-                substrings.append(s[start:i+1])
+                substrings.append(s[start : i + 1])
                 count += 1
                 start = i + 1
 
         return count, substrings
 
-def test_solution():
+
+def test_solution() -> None:
     """Test cases for Problem 1221."""
     solution = Solution()
 
@@ -243,9 +247,10 @@ def test_solution():
     assert len(substrings11) == 4, f"Expected 4 substrings, got {len(substrings11)}"
     # Verify all substrings are balanced
     for sub in substrings11:
-        assert sub.count('R') == sub.count('L'), f"Substring {sub} is not balanced"
+        assert sub.count("R") == sub.count("L"), f"Substring {sub} is not balanced"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

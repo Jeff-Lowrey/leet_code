@@ -73,6 +73,7 @@ Only using constant extra space for variables
 </details>
 """
 
+
 class Solution:
     def findMiddleIndex(self, nums: list[int]) -> int:
         """
@@ -189,7 +190,8 @@ class Solution:
 
         return -1
 
-def test_solution():
+
+def test_solution() -> None:
     """Test cases for Problem 1991."""
     solution = Solution()
 
@@ -244,6 +246,7 @@ def test_solution():
     assert result10 == expected10, f"Expected {expected10}, got {result10}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

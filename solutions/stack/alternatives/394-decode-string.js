@@ -80,87 +80,99 @@
  * Space Complexity: O(n)
  */
 function solve(s) {
-    const countStack = [];
-    const stringStack = [];
-    let currentString = '';
-    let count = 0;
+  const countStack = [];
+  const stringStack = [];
+  let currentString = "";
+  let count = 0;
 
-    for (const char of s) {
-        if (char >= '0' && char <= '9') {
-            // Build multi-digit number
-            count = count * 10 + parseInt(char);
-        } else if (char === '[') {
-            // Save current state and start new context
-            countStack.push(count);
-            stringStack.push(currentString);
-            currentString = '';
-            count = 0;
-        } else if (char === ']') {
-            // Restore previous state and repeat current string
-            const repeatCount = countStack.pop();
-            const prevString = stringStack.pop();
-            currentString = prevString + currentString.repeat(repeatCount);
-        } else {
-            // Regular character
-            currentString += char;
-        }
+  for (const char of s) {
+    if (char >= "0" && char <= "9") {
+      // Build multi-digit number
+      count = count * 10 + parseInt(char);
+    } else if (char === "[") {
+      // Save current state and start new context
+      countStack.push(count);
+      stringStack.push(currentString);
+      currentString = "";
+      count = 0;
+    } else if (char === "]") {
+      // Restore previous state and repeat current string
+      const repeatCount = countStack.pop();
+      const prevString = stringStack.pop();
+      currentString = prevString + currentString.repeat(repeatCount);
+    } else {
+      // Regular character
+      currentString += char;
     }
+  }
 
-    return currentString;
+  return currentString;
 }
 
 /**
  * Test cases for Problem 394: Decode String
  */
 function testSolution() {
-    console.log('Testing 394. Decode String');
+  console.log("Testing 394. Decode String");
 
-    // Test case 1: Nested encoding
-    const result1 = solve("3[a2[c]]");
-    const expected1 = "accaccacc";
-    console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+  // Test case 1: Nested encoding
+  const result1 = solve("3[a2[c]]");
+  const expected1 = "accaccacc";
+  console.assert(
+    result1 === expected1,
+    `Test 1 failed: expected ${expected1}, got ${result1}`,
+  );
 
-    // Test case 2: Simple encoding
-    const result2 = solve("3[a]2[bc]");
-    const expected2 = "aaabcbc";
-    console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+  // Test case 2: Simple encoding
+  const result2 = solve("3[a]2[bc]");
+  const expected2 = "aaabcbc";
+  console.assert(
+    result2 === expected2,
+    `Test 2 failed: expected ${expected2}, got ${result2}`,
+  );
 
-    // Test case 3: Complex nested
-    const result3 = solve("2[abc]3[cd]ef");
-    const expected3 = "abcabccdcdcdef";
-    console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+  // Test case 3: Complex nested
+  const result3 = solve("2[abc]3[cd]ef");
+  const expected3 = "abcabccdcdcdef";
+  console.assert(
+    result3 === expected3,
+    `Test 3 failed: expected ${expected3}, got ${result3}`,
+  );
 
-    // Test case 4: Deep nesting
-    const result4 = solve("10[a]");
-    const expected4 = "aaaaaaaaaa";
-    console.assert(result4 === expected4, `Test 4 failed: expected ${expected4}, got ${result4}`);
+  // Test case 4: Deep nesting
+  const result4 = solve("10[a]");
+  const expected4 = "aaaaaaaaaa";
+  console.assert(
+    result4 === expected4,
+    `Test 4 failed: expected ${expected4}, got ${result4}`,
+  );
 
-    console.log('All test cases passed for 394. Decode String!');
+  console.log("All test cases passed for 394. Decode String!");
 }
 
 /**
  * Example usage and demonstration
  */
 function demonstrateSolution() {
-    console.log('\n=== Problem 394. Decode String ===');
-    console.log('Category: Stack');
-    console.log('Difficulty: Medium');
-    console.log('');
+  console.log("\n=== Problem 394. Decode String ===");
+  console.log("Category: Stack");
+  console.log("Difficulty: Medium");
+  console.log("");
 
-    // Example demonstration would go here
-    testSolution();
+  // Example demonstration would go here
+  testSolution();
 }
 
 // Run tests if this file is executed directly
 if (require.main === module) {
-    demonstrateSolution();
+  demonstrateSolution();
 }
 
 // Export for use in other modules
 module.exports = {
-    solve,
-    testSolution,
-    demonstrateSolution
+  solve,
+  testSolution,
+  demonstrateSolution,
 };
 
 /**

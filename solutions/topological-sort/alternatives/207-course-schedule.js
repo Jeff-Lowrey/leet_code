@@ -78,101 +78,128 @@
  * Space Complexity: O(V + E) for adjacency list and in-degree array
  */
 function solve(numCourses, prerequisites) {
-    // Build adjacency list and in-degree array
-    const graph = Array.from({ length: numCourses }, () => []);
-    const inDegree = new Array(numCourses).fill(0);
+  // Build adjacency list and in-degree array
+  const graph = Array.from({ length: numCourses }, () => []);
+  const inDegree = new Array(numCourses).fill(0);
 
-    // Build the graph
-    for (const [course, prereq] of prerequisites) {
-        graph[prereq].push(course);
-        inDegree[course]++;
+  // Build the graph
+  for (const [course, prereq] of prerequisites) {
+    graph[prereq].push(course);
+    inDegree[course]++;
+  }
+
+  // Initialize queue with courses that have no prerequisites
+  const queue = [];
+  for (let i = 0; i < numCourses; i++) {
+    if (inDegree[i] === 0) {
+      queue.push(i);
     }
+  }
 
-    // Initialize queue with courses that have no prerequisites
-    const queue = [];
-    for (let i = 0; i < numCourses; i++) {
-        if (inDegree[i] === 0) {
-            queue.push(i);
-        }
+  // Process courses using Kahn's algorithm
+  let coursesCompleted = 0;
+
+  while (queue.length > 0) {
+    const current = queue.shift();
+    coursesCompleted++;
+
+    // Reduce in-degree for all neighbors
+    for (const neighbor of graph[current]) {
+      inDegree[neighbor]--;
+      if (inDegree[neighbor] === 0) {
+        queue.push(neighbor);
+      }
     }
+  }
 
-    // Process courses using Kahn's algorithm
-    let coursesCompleted = 0;
-
-    while (queue.length > 0) {
-        const current = queue.shift();
-        coursesCompleted++;
-
-        // Reduce in-degree for all neighbors
-        for (const neighbor of graph[current]) {
-            inDegree[neighbor]--;
-            if (inDegree[neighbor] === 0) {
-                queue.push(neighbor);
-            }
-        }
-    }
-
-    // If all courses completed, there's no cycle
-    return coursesCompleted === numCourses;
+  // If all courses completed, there's no cycle
+  return coursesCompleted === numCourses;
 }
 
 /**
  * Test cases for Problem 207: Course Schedule
  */
 function testSolution() {
-    console.log('Testing 207. Course Schedule');
+  console.log("Testing 207. Course Schedule");
 
-    // Test case 1: Valid course schedule (no cycle)
-    const result1 = solve(2, [[1, 0]]);
-    const expected1 = true;
-    console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+  // Test case 1: Valid course schedule (no cycle)
+  const result1 = solve(2, [[1, 0]]);
+  const expected1 = true;
+  console.assert(
+    result1 === expected1,
+    `Test 1 failed: expected ${expected1}, got ${result1}`,
+  );
 
-    // Test case 2: Cycle detected
-    const result2 = solve(2, [[1, 0], [0, 1]]);
-    const expected2 = false;
-    console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+  // Test case 2: Cycle detected
+  const result2 = solve(2, [
+    [1, 0],
+    [0, 1],
+  ]);
+  const expected2 = false;
+  console.assert(
+    result2 === expected2,
+    `Test 2 failed: expected ${expected2}, got ${result2}`,
+  );
 
-    // Test case 3: No prerequisites
-    const result3 = solve(3, []);
-    const expected3 = true;
-    console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+  // Test case 3: No prerequisites
+  const result3 = solve(3, []);
+  const expected3 = true;
+  console.assert(
+    result3 === expected3,
+    `Test 3 failed: expected ${expected3}, got ${result3}`,
+  );
 
-    // Test case 4: Linear dependency chain
-    const result4 = solve(4, [[1, 0], [2, 1], [3, 2]]);
-    const expected4 = true;
-    console.assert(result4 === expected4, `Test 4 failed: expected ${expected4}, got ${result4}`);
+  // Test case 4: Linear dependency chain
+  const result4 = solve(4, [
+    [1, 0],
+    [2, 1],
+    [3, 2],
+  ]);
+  const expected4 = true;
+  console.assert(
+    result4 === expected4,
+    `Test 4 failed: expected ${expected4}, got ${result4}`,
+  );
 
-    // Test case 5: Complex graph with cycle
-    const result5 = solve(4, [[1, 0], [2, 1], [3, 2], [1, 3]]);
-    const expected5 = false;
-    console.assert(result5 === expected5, `Test 5 failed: expected ${expected5}, got ${result5}`);
+  // Test case 5: Complex graph with cycle
+  const result5 = solve(4, [
+    [1, 0],
+    [2, 1],
+    [3, 2],
+    [1, 3],
+  ]);
+  const expected5 = false;
+  console.assert(
+    result5 === expected5,
+    `Test 5 failed: expected ${expected5}, got ${result5}`,
+  );
 
-    console.log('All test cases passed for 207. Course Schedule!');
+  console.log("All test cases passed for 207. Course Schedule!");
 }
 
 /**
  * Example usage and demonstration
  */
 function demonstrateSolution() {
-    console.log('\n=== Problem 207. Course Schedule ===');
-    console.log('Category: Topological Sort');
-    console.log('Difficulty: Medium');
-    console.log('');
+  console.log("\n=== Problem 207. Course Schedule ===");
+  console.log("Category: Topological Sort");
+  console.log("Difficulty: Medium");
+  console.log("");
 
-    // Example demonstration would go here
-    testSolution();
+  // Example demonstration would go here
+  testSolution();
 }
 
 // Run tests if this file is executed directly
 if (require.main === module) {
-    demonstrateSolution();
+  demonstrateSolution();
 }
 
 // Export for use in other modules
 module.exports = {
-    solve,
-    testSolution,
-    demonstrateSolution
+  solve,
+  testSolution,
+  demonstrateSolution,
 };
 
 /**

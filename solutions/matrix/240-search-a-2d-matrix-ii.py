@@ -73,6 +73,7 @@ Only using constant extra space for pointers
 </details>
 """
 
+
 class Solution:
     def searchMatrix(self, matrix: list[list[int]], target: int) -> bool:
         """
@@ -181,6 +182,7 @@ class Solution:
 
         return False
 
+
 def test_solution() -> None:
     """Test cases for Problem 240."""
     solution = Solution()
@@ -230,6 +232,7 @@ def test_solution() -> None:
     print("Test case 8 passed: Binary search approach")
 
     print("\nAll test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

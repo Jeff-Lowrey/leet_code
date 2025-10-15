@@ -74,6 +74,10 @@ O(n²)
 </details>
 """
 
+import time
+from typing import Any
+
+
 class Solution:
     def minInsertions(self, s: str) -> int:
         """
@@ -139,7 +143,7 @@ class Solution:
         Time Complexity: O(n²)
         Space Complexity: O(n²)
         """
-        memo = {}
+        memo: dict[Any, Any] = {}
 
         def helper(i: int, j: int) -> int:
             # Base case: single character or empty
@@ -160,10 +164,12 @@ class Solution:
 
         return helper(0, len(s) - 1)
 
+
 """
 Alternative formulation: Direct DP approach
 Instead of using LPS, directly calculate minimum insertions
 """
+
 
 class SolutionDirect:
     def minInsertions(self, s: str) -> int:
@@ -227,10 +233,12 @@ class SolutionDirect:
         palindrome = build_palindrome(0, n - 1)
         return dp[0][n - 1], palindrome
 
+
 """
 Related Problem: Minimum deletions to make palindrome
 This is equivalent to finding minimum insertions
 """
+
 
 class SolutionDeletions:
     def minDeletions(self, s: str) -> int:
@@ -242,21 +250,22 @@ class SolutionDeletions:
         """
         return Solution().minInsertions(s)
 
+
 # Test cases
 if __name__ == "__main__":
     solution = Solution()
     solution_direct = SolutionDirect()
 
     test_cases = [
-        "zzazz",      # Already palindrome
-        "mbadm",      # 2 insertions
-        "leetcode",   # 5 insertions
-        "a",          # Already palindrome
-        "ab",         # 1 insertion
-        "abc",        # 2 insertions
-        "racecar",    # Already palindrome
-        "abcba",      # Already palindrome
-        "abcde",      # 4 insertions
+        "zzazz",  # Already palindrome
+        "mbadm",  # 2 insertions
+        "leetcode",  # 5 insertions
+        "a",  # Already palindrome
+        "ab",  # 1 insertion
+        "abc",  # 2 insertions
+        "racecar",  # Already palindrome
+        "abcba",  # Already palindrome
+        "abcde",  # 4 insertions
     ]
 
     print("Minimum Insertions to Make Palindrome:\n")
@@ -275,11 +284,9 @@ if __name__ == "__main__":
 
         print()
 
-    print("="*50 + "\n")
+    print("=" * 50 + "\n")
 
     # Performance comparison for larger strings
-    import time
-
     print("Performance Test:")
     test_string = "a" * 100 + "b" * 100
 

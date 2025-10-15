@@ -87,6 +87,24 @@ For storing the trie structure
 </details>
 """
 
+
+from typing import Any
+import re
+
+
+
+
+class TrieNode:
+    """Node in a Trie data structure."""
+
+    def __init__(self) -> None:
+        """Initialize TrieNode with empty children and end marker."""
+        self.children: dict[str, "TrieNode"] = {}
+        self.word: str | None = None  # For word storage in solutions like Word Search II
+        self.is_end: bool = False  # Marks end of a word
+        self.is_folder: bool = False  # Marks end of a folder path
+
+
 class Solution:
     def removeSubfolders(self, folder: list[str]) -> list[str]:
         """
@@ -105,7 +123,7 @@ class Solution:
         folder.sort()
 
         root = TrieNode()
-        result = []
+        result: list[Any] = []
 
         for path in folder:
             # Parse path into components
@@ -136,6 +154,7 @@ class Solution:
 
         return result
 
+
 class SolutionSimple:
     """Simpler solution using sorting and string prefix checking."""
 
@@ -149,7 +168,7 @@ class SolutionSimple:
         # Sort folders - parent folders come before children
         folder.sort()
 
-        result = []
+        result: list[Any] = []
 
         for path in folder:
             # If result is empty or current path is not a sub-folder of last added path
@@ -159,7 +178,8 @@ class SolutionSimple:
 
         return result
 
-def test_solution():
+
+def test_solution() -> None:
     """Test cases for 1233. Remove Sub Folders."""
     solution = Solution()
     solution_simple = SolutionSimple()
@@ -201,6 +221,7 @@ def test_solution():
     assert sorted(solution_simple.removeSubfolders(folder6)) == sorted(expected6)
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

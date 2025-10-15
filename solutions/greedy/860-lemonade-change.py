@@ -62,6 +62,7 @@ Only tracking counts of two bill denominations
 </details>
 """
 
+
 class Solution:
     def lemonadeChange(self, bills: list[int]) -> bool:
         """
@@ -150,32 +151,33 @@ class Solution:
 
         return True
 
-def test_solution():
+
+def test_solution() -> None:
     """Test cases for Problem 860."""
     solution = Solution()
 
     # Test case 1: Can make all change
-    result1 = solution.lemonadeChange([5,5,5,10,20])
+    result1 = solution.lemonadeChange([5, 5, 5, 10, 20])
     expected1 = True
     assert result1 == expected1, f"Expected {expected1}, got {result1}"
 
     # Test case 2: Cannot make change for $10
-    result2 = solution.lemonadeChange([5,5,10,10,20])
+    result2 = solution.lemonadeChange([5, 5, 10, 10, 20])
     expected2 = False
     assert result2 == expected2, f"Expected {expected2}, got {result2}"
 
     # Test case 3: All $5 bills
-    result3 = solution.lemonadeChange([5,5,5,5])
+    result3 = solution.lemonadeChange([5, 5, 5, 5])
     expected3 = True
     assert result3 == expected3, f"Expected {expected3}, got {result3}"
 
     # Test case 4: Immediate failure
-    result4 = solution.lemonadeChange([10,10])
+    result4 = solution.lemonadeChange([10, 10])
     expected4 = False
     assert result4 == expected4, f"Expected {expected4}, got {result4}"
 
     # Test case 5: Complex scenario
-    result5 = solution.lemonadeChange([5,5,10,20,5,5,5,5,5,5,5,5,5,10,5,5,20,5,20,5])
+    result5 = solution.lemonadeChange([5, 5, 10, 20, 5, 5, 5, 5, 5, 5, 5, 5, 5, 10, 5, 5, 20, 5, 20, 5])
     expected5 = True
     assert result5 == expected5, f"Expected {expected5}, got {result5}"
 
@@ -185,11 +187,12 @@ def test_solution():
     assert result6 == expected6, f"Expected {expected6}, got {result6}"
 
     # Test verbose implementation
-    result7 = solution.lemonadeChangeVerbose([5,5,5,10,20])
+    result7 = solution.lemonadeChangeVerbose([5, 5, 5, 10, 20])
     expected7 = True
     assert result7 == expected7, f"Expected {expected7}, got {result7}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()
@@ -197,6 +200,6 @@ if __name__ == "__main__":
     # Example usage
     solution = Solution()
     print("=== 860. Lemonade Change ===")
-    print(f"lemonadeChange([5,5,5,10,20]) -> {solution.lemonadeChange([5,5,5,10,20])}")
-    print(f"lemonadeChange([5,5,10,10,20]) -> {solution.lemonadeChange([5,5,10,10,20])}")
-    print(f"lemonadeChange([10,10]) -> {solution.lemonadeChange([10,10])}")
+    print(f"lemonadeChange([5,5,5,10,20]) -> {solution.lemonadeChange([5, 5, 5, 10, 20])}")
+    print(f"lemonadeChange([5,5,10,10,20]) -> {solution.lemonadeChange([5, 5, 10, 10, 20])}")
+    print(f"lemonadeChange([10,10]) -> {solution.lemonadeChange([10, 10])}")

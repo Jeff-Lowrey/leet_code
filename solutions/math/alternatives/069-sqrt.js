@@ -73,101 +73,122 @@
  * Space Complexity: O(1)
  */
 function solve(x) {
-    // Handle simple cases
-    if (x === 0 || x === 1) {
-        return x;
+  // Handle simple cases
+  if (x === 0 || x === 1) {
+    return x;
+  }
+
+  let left = 1;
+  let right = x;
+  let result = 0;
+
+  while (left <= right) {
+    const mid = Math.floor((left + right) / 2);
+    const square = mid * mid;
+
+    if (square === x) {
+      return mid;
+    } else if (square < x) {
+      // This could be the answer, but check if there's a larger value
+      result = mid;
+      left = mid + 1;
+    } else {
+      // square > x, search left
+      right = mid - 1;
     }
+  }
 
-    let left = 1;
-    let right = x;
-    let result = 0;
-
-    while (left <= right) {
-        const mid = Math.floor((left + right) / 2);
-        const square = mid * mid;
-
-        if (square === x) {
-            return mid;
-        } else if (square < x) {
-            // This could be the answer, but check if there's a larger value
-            result = mid;
-            left = mid + 1;
-        } else {
-            // square > x, search left
-            right = mid - 1;
-        }
-    }
-
-    return result;
+  return result;
 }
 
 /**
  * Test cases for Problem 069: Sqrt(x)
  */
 function testSolution() {
-    console.log('Testing 069. Sqrt(x)');
+  console.log("Testing 069. Sqrt(x)");
 
-    // Test case 1: Perfect square
-    const result1 = solve(4);
-    const expected1 = 2;
-    console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+  // Test case 1: Perfect square
+  const result1 = solve(4);
+  const expected1 = 2;
+  console.assert(
+    result1 === expected1,
+    `Test 1 failed: expected ${expected1}, got ${result1}`,
+  );
 
-    // Test case 2: Non-perfect square
-    const result2 = solve(8);
-    const expected2 = 2;
-    console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+  // Test case 2: Non-perfect square
+  const result2 = solve(8);
+  const expected2 = 2;
+  console.assert(
+    result2 === expected2,
+    `Test 2 failed: expected ${expected2}, got ${result2}`,
+  );
 
-    // Test case 3: Zero
-    const result3 = solve(0);
-    const expected3 = 0;
-    console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+  // Test case 3: Zero
+  const result3 = solve(0);
+  const expected3 = 0;
+  console.assert(
+    result3 === expected3,
+    `Test 3 failed: expected ${expected3}, got ${result3}`,
+  );
 
-    // Test case 4: One
-    const result4 = solve(1);
-    const expected4 = 1;
-    console.assert(result4 === expected4, `Test 4 failed: expected ${expected4}, got ${result4}`);
+  // Test case 4: One
+  const result4 = solve(1);
+  const expected4 = 1;
+  console.assert(
+    result4 === expected4,
+    `Test 4 failed: expected ${expected4}, got ${result4}`,
+  );
 
-    // Test case 5: Large perfect square
-    const result5 = solve(16);
-    const expected5 = 4;
-    console.assert(result5 === expected5, `Test 5 failed: expected ${expected5}, got ${result5}`);
+  // Test case 5: Large perfect square
+  const result5 = solve(16);
+  const expected5 = 4;
+  console.assert(
+    result5 === expected5,
+    `Test 5 failed: expected ${expected5}, got ${result5}`,
+  );
 
-    // Test case 6: Large non-perfect square
-    const result6 = solve(15);
-    const expected6 = 3;
-    console.assert(result6 === expected6, `Test 6 failed: expected ${expected6}, got ${result6}`);
+  // Test case 6: Large non-perfect square
+  const result6 = solve(15);
+  const expected6 = 3;
+  console.assert(
+    result6 === expected6,
+    `Test 6 failed: expected ${expected6}, got ${result6}`,
+  );
 
-    // Test case 7: Larger number
-    const result7 = solve(100);
-    const expected7 = 10;
-    console.assert(result7 === expected7, `Test 7 failed: expected ${expected7}, got ${result7}`);
+  // Test case 7: Larger number
+  const result7 = solve(100);
+  const expected7 = 10;
+  console.assert(
+    result7 === expected7,
+    `Test 7 failed: expected ${expected7}, got ${result7}`,
+  );
 
-    console.log('All test cases passed for 069. Sqrt(x)!');
+  console.log("All test cases passed for 069. Sqrt(x)!");
 }
 
 /**
  * Example usage and demonstration
  */
 function demonstrateSolution() {
-    console.log('\n=== Problem 069. Sqrt ===');
-    console.log('Category: Math');
-    console.log('Difficulty: Medium');
-    console.log('');
+  console.log("\n=== Problem 069. Sqrt ===");
+  console.log("Category: Math");
+  console.log("Difficulty: Medium");
+  console.log("");
 
-    // Example demonstration would go here
-    testSolution();
+  // Example demonstration would go here
+  testSolution();
 }
 
 // Run tests if this file is executed directly
 if (require.main === module) {
-    demonstrateSolution();
+  demonstrateSolution();
 }
 
 // Export for use in other modules
 module.exports = {
-    solve,
-    testSolution,
-    demonstrateSolution
+  solve,
+  testSolution,
+  demonstrateSolution,
 };
 
 /**

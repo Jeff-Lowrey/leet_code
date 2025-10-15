@@ -95,6 +95,11 @@ O(r × c)
 </details>
 """
 
+
+from typing import Any
+import re
+
+
 class Solution:
     def matrixReshape(self, mat: list[list[int]], r: int, c: int) -> list[list[int]]:
         """
@@ -148,12 +153,12 @@ class Solution:
             return mat
 
         # Flatten to 1D array
-        flat = []
+        flat: list[Any] = []
         for row in mat:
             flat.extend(row)
 
         # Reshape: take chunks of size c
-        result = []
+        result: list[Any] = []
         for i in range(r):
             result.append(flat[i * c : (i + 1) * c])
 
@@ -172,7 +177,7 @@ class Solution:
             return mat
 
         # Generator to yield elements in row-major order
-        def elements():
+        def elements() -> Any:
             for row in mat:
                 yield from row
 
@@ -198,7 +203,8 @@ class Solution:
         flat = [val for row in mat for val in row]
         return [flat[i * c : (i + 1) * c] for i in range(r)]
 
-def test_solution():
+
+def test_solution() -> None:
     """Test cases for Problem 566."""
     solution = Solution()
 
@@ -260,6 +266,7 @@ def test_solution():
     assert solution.matrixReshapeOneLiner(mat10, 4, 1) == expected10, "One-liner method failed"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

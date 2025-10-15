@@ -82,6 +82,9 @@ O(n) - recursion depth
 </details>
 """
 
+
+from typing import Any
+
 class Solution:
     def subsets(self, nums: list[int]) -> list[list[int]]:
         """
@@ -89,9 +92,9 @@ class Solution:
         Time Complexity: O(n * 2^n)
         Space Complexity: O(n) for recursion
         """
-        result = []
+        result: list[Any] = []
 
-        def backtrack(start, current):
+        def backtrack(start: Any, current: Any) -> Any:
             result.append(current[:])
 
             for i in range(start, len(nums)):
@@ -109,10 +112,10 @@ class Solution:
         Space Complexity: O(1) excluding output
         """
         n = len(nums)
-        result = []
+        result: list[list[int]] = []
 
         for mask in range(1 << n):  # 2^n possibilities
-            subset = []
+            subset: list[Any] = []
             for i in range(n):
                 if mask & (1 << i):
                     subset.append(nums[i])
@@ -126,12 +129,13 @@ class Solution:
         Time Complexity: O(n * 2^n)
         Space Complexity: O(1) excluding output
         """
-        result = [[]]
+        result: list[list[int]] = [[]]
 
         for num in nums:
             result += [subset + [num] for subset in result]
 
         return result
+
 
 """
 90. Subsets II
@@ -146,6 +150,7 @@ Input: nums = [1,2,2]
 Output: [[],[1],[1,2],[1,2,2],[2],[2,2]]
 """
 
+
 class SolutionUnique:
     def subsetsWithDup(self, nums: list[int]) -> list[list[int]]:
         """
@@ -154,9 +159,9 @@ class SolutionUnique:
         Space Complexity: O(n)
         """
         nums.sort()  # Sort to handle duplicates
-        result = []
+        result: list[Any] = []
 
-        def backtrack(start, current):
+        def backtrack(start: Any, current: Any) -> Any:
             result.append(current[:])
 
             for i in range(start, len(nums)):
@@ -170,6 +175,7 @@ class SolutionUnique:
 
         backtrack(0, [])
         return result
+
 
 """
 39. Combination Sum
@@ -185,6 +191,7 @@ Input: candidates = [2,3,6,7], target = 7
 Output: [[2,2,3],[7]]
 """
 
+
 class SolutionCombSum:
     def combinationSum(self, candidates: list[int], target: int) -> list[list[int]]:
         """
@@ -192,9 +199,9 @@ class SolutionCombSum:
         Time Complexity: O(n^(target/min))
         Space Complexity: O(target/min)
         """
-        result = []
+        result: list[Any] = []
 
-        def backtrack(remain, current, start):
+        def backtrack(remain: Any, current: Any, start: Any) -> Any:
             if remain == 0:
                 result.append(current[:])
                 return
@@ -210,6 +217,7 @@ class SolutionCombSum:
         backtrack(target, [], 0)
         return result
 
+
 """
 40. Combination Sum II
 # Difficulty: Medium
@@ -223,6 +231,7 @@ Input: candidates = [10,1,2,7,6,1,5], target = 8
 Output: [[1,1,6],[1,2,5],[1,7],[2,6]]
 """
 
+
 class SolutionCombSum2:
     def combinationSum2(self, candidates: list[int], target: int) -> list[list[int]]:
         """
@@ -231,9 +240,9 @@ class SolutionCombSum2:
         Space Complexity: O(n)
         """
         candidates.sort()
-        result = []
+        result: list[Any] = []
 
-        def backtrack(remain, current, start):
+        def backtrack(remain: Any, current: Any, start: Any) -> Any:
             if remain == 0:
                 result.append(current[:])
                 return
@@ -254,6 +263,7 @@ class SolutionCombSum2:
 
         backtrack(target, [], 0)
         return result
+
 
 # Test cases
 if __name__ == "__main__":

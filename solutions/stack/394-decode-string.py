@@ -70,6 +70,9 @@ For the stacks and intermediate strings
 </details>
 """
 
+
+from typing import Any
+
 class Solution:
     def decodeString(self, s: str) -> str:
         """
@@ -93,13 +96,13 @@ class Solution:
             if char.isdigit():
                 # Build the complete number (could be multi-digit)
                 current_count = current_count * 10 + int(char)
-            elif char == '[':
+            elif char == "[":
                 # Push current state and reset for new level
                 stack_count.append(current_count)
                 stack_string.append(current_string)
                 current_count = 0
                 current_string = ""
-            elif char == ']':
+            elif char == "]":
                 # Pop and decode current level
                 repeat_count = stack_count.pop()
                 prev_string = stack_string.pop()
@@ -120,7 +123,8 @@ class Solution:
         Returns:
             Decoded string
         """
-        def decode(index):
+
+        def decode(index: Any) -> Any:
             result = ""
             count = 0
 
@@ -129,13 +133,13 @@ class Solution:
 
                 if char.isdigit():
                     count = count * 10 + int(char)
-                elif char == '[':
+                elif char == "[":
                     # Recursively decode the content inside brackets
                     decoded_string, next_index = decode(index + 1)
                     result += decoded_string * count
                     count = 0
                     index = next_index
-                elif char == ']':
+                elif char == "]":
                     # Return current result and next index
                     return result, index
                 else:
@@ -148,7 +152,8 @@ class Solution:
 
         return decode(0)[0]
 
-def test_solution():
+
+def test_solution() -> None:
     """Test cases for Problem 394."""
     solution = Solution()
 
@@ -188,6 +193,7 @@ def test_solution():
     assert result7 == expected7, f"Expected {expected7}, got {result7}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

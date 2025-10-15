@@ -66,6 +66,11 @@ O(1)
 </details>
 """
 
+from collections import Counter
+from typing import Any
+
+
+
 class Solution:
     def longestPalindrome(self, s: str) -> str:
         """
@@ -99,7 +104,7 @@ class Solution:
                 # Calculate start position
                 start = i - (current_len - 1) // 2
 
-        return s[start:start + max_len]
+        return s[start : start + max_len]
 
     def longestPalindromeDP(self, s: str) -> str:
         """
@@ -137,7 +142,7 @@ class Solution:
                     start = i
                     max_len = length
 
-        return s[start:start + max_len]
+        return s[start : start + max_len]
 
     def longestPalindromeManacher(self, s: str) -> str:
         """
@@ -146,7 +151,7 @@ class Solution:
         Space Complexity: O(n)
         """
         # Transform string to avoid even/odd length issues
-        T = '#'.join(f'^{s}$')
+        T = "#".join(f"^{s}$")
         n = len(T)
         P = [0] * n
         C = R = 0
@@ -175,7 +180,8 @@ class Solution:
                 center_index = i
 
         start = (center_index - max_len) // 2
-        return s[start:start + max_len]
+        return s[start : start + max_len]
+
 
 """
 647. Palindromic Substrings
@@ -188,6 +194,7 @@ Output: 3
 Explanation: Three palindromic substrings: "a", "b", "c".
 """
 
+
 class SolutionCount:
     def countSubstrings(self, s: str) -> int:
         """
@@ -195,6 +202,7 @@ class SolutionCount:
         Time Complexity: O(n²)
         Space Complexity: O(1)
         """
+
         def count_palindromes(left: int, right: int) -> int:
             count = 0
             while left >= 0 and right < len(s) and s[left] == s[right]:
@@ -243,6 +251,7 @@ class SolutionCount:
 
         return count
 
+
 """
 409. Longest Palindrome
 # Difficulty: Easy
@@ -255,6 +264,7 @@ Output: 7
 Explanation: One longest palindrome that can be built is "dccaccd", whose length is 7.
 """
 
+
 class SolutionBuild:
     def longestPalindrome(self, s: str) -> int:
         """
@@ -262,8 +272,6 @@ class SolutionBuild:
         Time Complexity: O(n)
         Space Complexity: O(1) - at most 52 characters
         """
-        from collections import Counter
-
         char_count = Counter(s)
         length = 0
         odd_found = False
@@ -284,7 +292,7 @@ class SolutionBuild:
         Time Complexity: O(n)
         Space Complexity: O(1)
         """
-        odd_chars = set()
+        odd_chars: set[Any] = set()
 
         for char in s:
             if char in odd_chars:
@@ -294,6 +302,7 @@ class SolutionBuild:
 
         # Length is total chars minus odd chars (except one can be in middle)
         return len(s) - len(odd_chars) + (1 if odd_chars else 0)
+
 
 # Test cases
 if __name__ == "__main__":
@@ -307,7 +316,7 @@ if __name__ == "__main__":
         result = solution.longestPalindrome(test)
         print(f"Input: '{test}' -> Output: '{result}'")
 
-    print("\n" + "="*50 + "\n")
+    print("\n" + "=" * 50 + "\n")
 
     # Test Palindromic Substrings Count
     solution_count = SolutionCount()
@@ -316,10 +325,10 @@ if __name__ == "__main__":
 
     print("Count Palindromic Substrings:")
     for test in test_cases_count:
-        result = solution_count.countSubstrings(test)
-        print(f"Input: '{test}' -> Count: {result}")
+        count: int = solution_count.countSubstrings(test)
+        print(f"Input: '{test}' -> Count: {count}")
 
-    print("\n" + "="*50 + "\n")
+    print("\n" + "=" * 50 + "\n")
 
     # Test Build Longest Palindrome
     solution_build = SolutionBuild()
@@ -328,5 +337,5 @@ if __name__ == "__main__":
 
     print("Build Longest Palindrome Length:")
     for test in test_cases_build:
-        result = solution_build.longestPalindrome(test)
-        print(f"Input: '{test}' -> Max Length: {result}")
+        max_length: int = solution_build.longestPalindrome(test)
+        print(f"Input: '{test}' -> Max Length: {max_length}")

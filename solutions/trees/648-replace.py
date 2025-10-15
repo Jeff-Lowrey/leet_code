@@ -72,6 +72,7 @@ O(1)
 
 from typing import List, Optional, Dict, Tuple
 
+
 class Solution:
     def replaceWords(self, dictionary: List[str], sentence: str) -> str:
         """
@@ -99,7 +100,7 @@ class Solution:
 
         # Split the sentence into words
         words = sentence.split()
-        
+
         # Process each word
         for i, word in enumerate(words):
             # Check all possible prefixes of the current word
@@ -111,9 +112,10 @@ class Solution:
                     break
 
         # Join the words back into a sentence
-        return ' '.join(words)
+        return " ".join(words)
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
@@ -130,6 +132,7 @@ def test_solution():
     assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

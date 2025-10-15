@@ -85,51 +85,53 @@ O(1)
 
 from typing import List, Optional, Dict, Tuple
 
+
 class Solution:
     def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
         """
         Search for a target value in a sorted 2D matrix.
-        
+
         Args:
             matrix: A 2D matrix where rows are sorted and first element of each row
                    is greater than last element of previous row
             target: The value to search for
-        
+
         Returns:
             bool: True if target is found, False otherwise
         """
         if not matrix or not matrix[0]:
             return False
-        
+
         rows, cols = len(matrix), len(matrix[0])
         left, right = 0, rows * cols - 1
-        
+
         # Perform binary search on the matrix as if it were a 1D sorted array
         while left <= right:
             mid = (left + right) // 2
             # Convert mid index to matrix coordinates
             row = mid // cols
             col = mid % cols
-            
+
             current = matrix[row][col]
-            
+
             if current == target:
                 return True
             elif current < target:
                 left = mid + 1
             else:
                 right = mid - 1
-                
+
         return False
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
     solution = Solution()
 
     # Test case 1: Example from problem
-    result = solution.searchMatrix([[1,3,5,7],[10,11,16,20],[23,30,34,60]], 3)
+    result = solution.searchMatrix([[1, 3, 5, 7], [10, 11, 16, 20], [23, 30, 34, 60]], 3)
     expected = True
     assert result == expected, f"Expected {expected}, got {result}"
 
@@ -139,6 +141,7 @@ def test_solution():
     assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

@@ -75,70 +75,72 @@ O(1)
 
 from collections import defaultdict
 
-from typing import List, Optional, Dict, Tuple
+from typing import Any, List, Optional, Dict, Tuple
+
 
 class Solution:
     def findMinHeightTrees(self, n: int, edges: List[List[int]]) -> List[int]:
         """
         Find the root nodes of all possible minimum height trees (MHTs).
-        
+
         Args:
             n: Number of nodes (0 to n-1)
             edges: List of undirected edges where edges[i] = [ai, bi]
-            
+
         Returns:
             List of root nodes that can form minimum height trees
-        
+
         Time Complexity: O(n)
         Space Complexity: O(n)
         """
         # Handle edge cases
         if n <= 2:
             return list(range(n))
-            
+
         # Build adjacency list representation of the graph
-        adj_list = defaultdict(set)
+        adj_list: dict[Any, set[Any]] = defaultdict(set)
         for u, v in edges:
             adj_list[u].add(v)
             adj_list[v].add(u)
-            
+
         # Start with leaves (nodes with only one neighbor)
         leaves = [node for node in range(n) if len(adj_list[node]) == 1]
-        
+
         # Keep removing leaves until we reach the center(s)
         remaining_nodes = n
         while remaining_nodes > 2:
             remaining_nodes -= len(leaves)
-            new_leaves = []
-            
+            new_leaves: list[Any] = []
+
             # Process current leaves
             for leaf in leaves:
                 # Get the neighbor of current leaf
                 neighbor = adj_list[leaf].pop()
                 # Remove the leaf from neighbor's adjacency list
                 adj_list[neighbor].remove(leaf)
-                
+
                 # If neighbor becomes a leaf, add it to new leaves
                 if len(adj_list[neighbor]) == 1:
                     new_leaves.append(neighbor)
-            
+
             leaves = new_leaves
-            
+
         return leaves
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
     solution = Solution()
 
     # Test case 1: Example from problem
-    result = solution.findMinHeightTrees(6, [[3,0],[3,1],[3,2],[3,4],[5,4]])
-    expected = [3,4]
+    result = solution.findMinHeightTrees(6, [[3, 0], [3, 1], [3, 2], [3, 4], [5, 4]])
+    expected = [3, 4]
     assert sorted(result) == sorted(expected), f"Expected {expected}, got {result}"
 
     # Test case 2: Line graph
-    result = solution.findMinHeightTrees(4, [[1,0],[1,2],[1,3]])
+    result = solution.findMinHeightTrees(4, [[1, 0], [1, 2], [1, 3]])
     expected = [1]
     assert result == expected, f"Expected {expected}, got {result}"
 
@@ -148,16 +150,17 @@ def test_solution():
     assert result == expected, f"Expected {expected}, got {result}"
 
     # Test case 4: Two nodes
-    result = solution.findMinHeightTrees(2, [[0,1]])
-    expected = [0,1]
+    result = solution.findMinHeightTrees(2, [[0, 1]])
+    expected = [0, 1]
     assert sorted(result) == sorted(expected), f"Expected {expected}, got {result}"
 
     # Test case 5: Star graph
-    result = solution.findMinHeightTrees(5, [[0,1],[0,2],[0,3],[0,4]])
+    result = solution.findMinHeightTrees(5, [[0, 1], [0, 2], [0, 3], [0, 4]])
     expected = [0]
     assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

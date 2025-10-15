@@ -76,6 +76,21 @@ At most 26 different tasks (letters)
 </details>
 """
 
+from collections import deque, Counter
+
+import heapq
+from typing import Any
+
+class Interval:
+    """Interval with start and end."""
+    def __init__(self, start: Any = 0, end: Any = 0) -> None:
+        self.start = start
+        self.end = end
+
+
+
+
+
 class Solution:
     def leastInterval(self, tasks: list[str], n: int) -> int:
         """
@@ -171,14 +186,14 @@ class Solution:
         heapq.heapify(heap)
 
         time = 0
-        schedule = []
+        schedule: list[Any] = []
 
         while heap or len(schedule) > 0:
             time += 1
 
             # Check for tasks that finished cooldown
-            available = []
-            remaining = []
+            available: list[Any] = []
+            remaining: list[Any] = []
             for item in schedule:
                 count, task, ready_time = item
                 if ready_time <= time:
@@ -202,6 +217,7 @@ class Solution:
             # else: idle time
 
         return time
+
 
 def test_solution() -> None:
     """Test cases for Problem 621."""
@@ -241,6 +257,7 @@ def test_solution() -> None:
     print("Test case 8 passed: Verbose")
 
     print("\nAll test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

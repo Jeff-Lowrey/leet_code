@@ -68,6 +68,7 @@ O(n)
 </details>
 """
 
+
 class Solution:
     def numSubarraysWithSum(self, nums: list[int], goal: int) -> int:
         """
@@ -145,6 +146,7 @@ class Solution:
 
         return count
 
+
 def test_solution() -> None:
     """Test cases for Problem 930."""
     solution = Solution()
@@ -197,6 +199,7 @@ def test_solution() -> None:
     print("Test case 10 passed: Sliding window matches prefix sum")
 
     print("\nAll test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

@@ -72,6 +72,16 @@ Where h is height of tree (recursion stack)
 
 </details>
 """
+from typing import Any
+
+
+
+class TreeNode:
+    def __init__(self, val: Any = 0, left: Any = None, right: Any = None) -> None:
+        self.val = val
+        self.left = left
+        self.right = right
+
 
 class Solution:
     def isBalanced(self, root: TreeNode) -> bool:
@@ -87,6 +97,7 @@ class Solution:
         Time Complexity: O(n) where n is number of nodes
         Space Complexity: O(h) where h is height of tree
         """
+
         def checkHeight(node: TreeNode) -> int:
             """
             Return height if balanced, -1 if unbalanced.
@@ -129,6 +140,7 @@ class Solution:
         Returns:
             True if tree is balanced, False otherwise
         """
+
         def getHeight(node: TreeNode) -> int:
             """Get height of subtree."""
             if not node:
@@ -148,8 +160,7 @@ class Solution:
                 return False
 
             # Recursively check subtrees
-            return (isBalancedHelper(node.left) and
-                   isBalancedHelper(node.right))
+            return isBalancedHelper(node.left) and isBalancedHelper(node.right)
 
         return isBalancedHelper(root)
 
@@ -203,10 +214,11 @@ class Solution:
 
         return True
 
+
 def build_tree_from_list(values: list) -> TreeNode:
     """Helper function to build tree from list representation."""
     if not values:
-        return None
+        return None  # type: ignore
 
     root = TreeNode(values[0])
     queue = [root]
@@ -227,7 +239,8 @@ def build_tree_from_list(values: list) -> TreeNode:
 
     return root
 
-def test_solution():
+
+def test_solution() -> None:
     """Test cases for Problem 110."""
     solution = Solution()
 
@@ -245,7 +258,7 @@ def test_solution():
 
     # Test case 3: Empty tree
     tree3 = None
-    result3 = solution.isBalanced(tree3)
+    result3 = solution.isBalanced(tree3)  # type: ignore
     expected3 = True
     assert result3 == expected3, f"Expected {expected3}, got {result3}"
 
@@ -275,6 +288,7 @@ def test_solution():
     assert result8 == expected1, f"Iterative: Expected {expected1}, got {result8}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()
@@ -314,7 +328,7 @@ if __name__ == "__main__":
     approaches = [
         ("Optimized recursive", solution.isBalanced),
         ("Alternative recursive", solution.isBalancedAlternative),
-        ("Iterative", solution.isBalancedIterative)
+        ("Iterative", solution.isBalancedIterative),
     ]
 
     for name, method in approaches:

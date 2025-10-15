@@ -72,9 +72,11 @@ O(n)
 """
 
 
+from typing import Any
+
 class ListNode:
-    """Definition for singly-linked list."""
-    def __init__(self, val=0, next=None):
+    """..."""
+    def __init__(self, val: Any = 0, next: Any = None) -> None:
         self.val = val
         self.next = next
 
@@ -87,7 +89,7 @@ class Solution:
         Space Complexity: O(n)
         """
         # Convert linked list to array
-        values = []
+        values: list[Any] = []
         current = head
         while current:
             values.append(current.val)
@@ -137,14 +139,15 @@ class Solution:
 
         return answer
 
+
 def test_solution() -> None:
     """Test cases for Problem 1019."""
     solution = Solution()
 
     # Helper to create linked list from list
-    def create_list(values: list[int]) -> ListNode | None:
+    def create_list(values: list[int]) -> ListNode:
         if not values:
-            return None
+            return None  # type: ignore
         head = ListNode(values[0])
         current = head
         for val in values[1:]:
@@ -188,6 +191,7 @@ def test_solution() -> None:
     print("Test case 7 passed: Empty list")
 
     print("\nAll test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

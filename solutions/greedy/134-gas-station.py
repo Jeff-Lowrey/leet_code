@@ -88,6 +88,9 @@ Only using constant extra space
 </details>
 """
 
+from typing import List
+
+
 class Solution:
     def canCompleteCircuit(self, gas: List[int], cost: List[int]) -> int:
         """
@@ -195,22 +198,23 @@ class Solution:
 
         return start
 
-def test_solution():
+
+def test_solution() -> None:
     """Test cases for Problem 134."""
     solution = Solution()
 
     # Test case 1: Standard case - starting from index 3
-    result1 = solution.canCompleteCircuit([1,2,3,4,5], [3,4,5,1,2])
+    result1 = solution.canCompleteCircuit([1, 2, 3, 4, 5], [3, 4, 5, 1, 2])
     expected1 = 3
     assert result1 == expected1, f"Expected {expected1}, got {result1}"
 
     # Test case 2: Impossible case
-    result2 = solution.canCompleteCircuit([2,3,4], [3,4,3])
+    result2 = solution.canCompleteCircuit([2, 3, 4], [3, 4, 3])
     expected2 = -1
     assert result2 == expected2, f"Expected {expected2}, got {result2}"
 
     # Test case 3: Start from beginning
-    result3 = solution.canCompleteCircuit([5,1,2,3,4], [4,4,1,5,1])
+    result3 = solution.canCompleteCircuit([5, 1, 2, 3, 4], [4, 4, 1, 5, 1])
     expected3 = 4
     assert result3 == expected3, f"Expected {expected3}, got {result3}"
 
@@ -225,29 +229,27 @@ def test_solution():
     assert result5 == expected5, f"Expected {expected5}, got {result5}"
 
     # Test case 6: All equal
-    result6 = solution.canCompleteCircuit([4,4,4,4], [4,4,4,4])
+    result6 = solution.canCompleteCircuit([4, 4, 4, 4], [4, 4, 4, 4])
     expected6 = 0
     assert result6 == expected6, f"Expected {expected6}, got {result6}"
 
     # Test case 7: Large example
-    result7 = solution.canCompleteCircuit(
-        [2,3,4,5,6,7,8,1],
-        [3,4,5,6,7,8,1,2]
-    )
+    result7 = solution.canCompleteCircuit([2, 3, 4, 5, 6, 7, 8, 1], [3, 4, 5, 6, 7, 8, 1, 2])
     expected7 = 6  # Starting at index 6 works
     assert result7 == expected7, f"Expected {expected7}, got {result7}"
 
     # Test brute force solution
-    result8 = solution.canCompleteCircuitBruteForce([1,2,3,4,5], [3,4,5,1,2])
+    result8 = solution.canCompleteCircuitBruteForce([1, 2, 3, 4, 5], [3, 4, 5, 1, 2])
     expected8 = 3
     assert result8 == expected8, f"Expected {expected8}, got {result8}"
 
     # Test verbose solution
-    result9 = solution.canCompleteCircuitVerbose([1,2,3,4,5], [3,4,5,1,2])
+    result9 = solution.canCompleteCircuitVerbose([1, 2, 3, 4, 5], [3, 4, 5, 1, 2])
     expected9 = 3
     assert result9 == expected9, f"Expected {expected9}, got {result9}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()
@@ -255,5 +257,7 @@ if __name__ == "__main__":
     # Example usage
     solution = Solution()
     print("=== 134. Gas Station ===")
-    print(f"canCompleteCircuit([1,2,3,4,5], [3,4,5,1,2]) -> {solution.canCompleteCircuit([1,2,3,4,5], [3,4,5,1,2])}")
-    print(f"canCompleteCircuit([2,3,4], [3,4,3]) -> {solution.canCompleteCircuit([2,3,4], [3,4,3])}")
+    print(
+        f"canCompleteCircuit([1,2,3,4,5], [3,4,5,1,2]) -> {solution.canCompleteCircuit([1, 2, 3, 4, 5], [3, 4, 5, 1, 2])}"
+    )
+    print(f"canCompleteCircuit([2,3,4], [3,4,3]) -> {solution.canCompleteCircuit([2, 3, 4], [3, 4, 3])}")

@@ -66,6 +66,50 @@ For the Union-Find parent array
 </details>
 """
 
+
+
+from typing import Any
+
+class UnionFind:
+    """..."""
+    def __init__(self, n: int) -> None:
+        """Initialize with n elements."""
+        self.parent = list(range(n))
+        self.rank = [0] * n
+
+
+    @property
+    def components(self) -> int:
+        """Return number of connected components."""
+        return len(set(self.find(i) for i in range(len(self.parent))))
+
+    def find(self, x: int) -> int:
+        """Find root of element x with path compression."""
+        if self.parent[x] != x:
+            self.parent[x] = self.find(self.parent[x])
+        return self.parent[x]
+
+    def union(self, x: int, y: int) -> bool:
+        """Union two sets. Returns True if they were in different sets."""
+        px, py = self.find(x), self.find(y)
+        if px == py:
+            return False
+
+        if self.rank[px] < self.rank[py]:
+            self.parent[px] = py
+        elif self.rank[px] > self.rank[py]:
+            self.parent[py] = px
+        else:
+            self.parent[py] = px
+            self.rank[px] += 1
+
+        return True
+
+    def connected(self, x: int, y: int) -> bool:
+        """Check if two elements are in the same set."""
+        return self.find(x) == self.find(y)
+
+
 class Solution:
     def findRedundantConnection(self, edges: list[list[int]]) -> list[int]:
         """
@@ -102,9 +146,9 @@ class Solution:
         Returns:
             The redundant edge
         """
-        graph = {}
+        graph: dict[Any, Any] = {}
 
-        def has_path(source: int, target: int, visited: set) -> bool:
+        def has_path(source: int, target: int, visited: set[int]) -> bool:
             """Check if path exists between source and target using DFS."""
             if source == target:
                 return True
@@ -136,7 +180,8 @@ class Solution:
 
         return []
 
-def test_solution():
+
+def test_solution() -> None:
     """Test cases for Problem 684."""
     solution = Solution()
 
@@ -175,6 +220,7 @@ def test_solution():
     assert result6 == expected1, f"DFS: Expected {expected1}, got {result6}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

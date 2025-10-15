@@ -97,6 +97,9 @@ For storing the flip sequence
 </details>
 """
 
+
+from typing import Any
+
 class Solution:
     def pancakeSort(self, arr: list[int]) -> list[int]:
         """
@@ -111,7 +114,7 @@ class Solution:
         Time Complexity: O(n²)
         Space Complexity: O(n) for result
         """
-        result = []
+        result: list[Any] = []
         n = len(arr)
 
         # Sort from largest to smallest
@@ -225,7 +228,8 @@ class Solution:
 
         return result
 
-def test_solution():
+
+def test_solution() -> None:
     """Test cases for Problem 969."""
     solution = Solution()
 
@@ -286,6 +290,7 @@ def test_solution():
     assert arr8 == sorted([3, 2, 4, 1]), f"Not sorted correctly: {arr8}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

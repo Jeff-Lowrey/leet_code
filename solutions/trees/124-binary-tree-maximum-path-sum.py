@@ -71,57 +71,61 @@ O(1)
 """
 
 
+from typing import Any
+
 class TreeNode:
-    def __init__(self, val=0, left=None, right=None):
+    def __init__(self, val: Any = 0, left: Any = None, right: Any = None) -> None:
         self.val = val
         self.left = left
         self.right = right
+
 
 class Solution:
     def maxPathSum(self, root: TreeNode) -> int:
         """
         Calculate the maximum path sum in the binary tree.
-        
+
         Args:
             root: Root node of the binary tree
-            
+
         Returns:
             int: Maximum path sum found in the tree
         """
         # Initialize global maximum to track the overall maximum path sum
-        self.max_sum = float('-inf')
-        
-        def max_gain(node):
+        self.max_sum = float("-inf")
+
+        def max_gain(node: Any) -> Any:
             """
             Helper function to calculate maximum gain from a node.
-            
+
             Args:
                 node: Current node being processed
-                
+
             Returns:
                 int: Maximum gain possible from this node
             """
             if not node:
                 return 0
-            
+
             # Get the maximum gain from left and right subtrees
             # If the gain is negative, we don't include that path (hence max with 0)
             left_gain = max(max_gain(node.left), 0)
             right_gain = max(max_gain(node.right), 0)
-            
+
             # Calculate the price to start a new path including current node
             current_path_sum = node.val + left_gain + right_gain
-            
+
             # Update global maximum if current path sum is larger
             self.max_sum = max(self.max_sum, current_path_sum)
-            
+
             # Return maximum gain for parent node
             return node.val + max(left_gain, right_gain)
-        
-        max_gain(root)
-        return self.max_sum
 
-def test_solution():
+        max_gain(root)
+        return int(self.max_sum)
+
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
@@ -131,6 +135,7 @@ def test_solution():
     print("For comprehensive tree tests, build proper TreeNode structures.")
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

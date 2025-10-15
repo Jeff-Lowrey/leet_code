@@ -74,5 +74,3 @@ O(capacity) for storing items
 
 </details>
 """
-
-

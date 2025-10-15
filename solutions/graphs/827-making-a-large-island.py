@@ -72,6 +72,53 @@ For island labeling and size storage
 </details>
 """
 
+
+from typing import Any
+import re
+
+
+
+class UnionFind:
+    """Union-Find (Disjoint Set Union) data structure."""
+
+    def __init__(self, n: int) -> None:
+        """Initialize with n elements."""
+        self.parent = list(range(n))
+        self.rank = [0] * n
+
+    def find(self, x: int) -> int:
+        """Find root of element x with path compression."""
+        if self.parent[x] != x:
+            self.parent[x] = self.find(self.parent[x])
+        return self.parent[x]
+
+    def union(self, x: int, y: int) -> bool:
+        """Union two sets. Returns True if they were in different sets."""
+        px, py = self.find(x), self.find(y)
+        if px == py:
+            return False
+
+        if self.rank[px] < self.rank[py]:
+            self.parent[px] = py
+        elif self.rank[px] > self.rank[py]:
+            self.parent[py] = px
+        else:
+            self.parent[py] = px
+            self.rank[px] += 1
+
+        return True
+
+    def connected(self, x: int, y: int) -> bool:
+        """Check if two elements are in the same set."""
+        return self.find(x) == self.find(y)
+
+    @property
+    def components(self) -> int:
+        """Return number of connected components."""
+        return len(set(self.find(i) for i in range(len(self.parent))))
+
+
+
 class Solution:
     def largestIsland(self, grid: list[list[int]]) -> int:
         """
@@ -91,9 +138,9 @@ class Solution:
 
         # Step 1: Label each island with unique ID and calculate sizes
         island_id = 2  # Start from 2 (since 0=water, 1=unlabeled land)
-        island_sizes = {}
+        island_sizes: dict[Any, Any] = {}
 
-        def dfs(r, c, island_id):
+        def dfs(r: Any, c: Any, island_id: Any) -> Any:
             """DFS to label island and return its size."""
             if r < 0 or r >= n or c < 0 or c >= n or grid[r][c] != 1:
                 return 0
@@ -129,7 +176,7 @@ class Solution:
             for c in range(n):
                 if grid[r][c] == 0:  # Water cell
                     # Find neighboring islands
-                    neighboring_islands = set()
+                    neighboring_islands: set[Any] = set()
                     for dr, dc in directions:
                         nr, nc = r + dr, c + dc
                         if 0 <= nr < n and 0 <= nc < n and grid[nr][nc] > 1:
@@ -158,16 +205,16 @@ class Solution:
         directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]
 
         class UnionFind:
-            def __init__(self, size):
+            def __init__(self: Any, size: Any) -> None:
                 self.parent = list(range(size))
                 self.size = [1] * size
 
-            def find(self, x):
+            def find(self: Any, x: Any) -> Any:
                 if self.parent[x] != x:
                     self.parent[x] = self.find(self.parent[x])
                 return self.parent[x]
 
-            def union(self, x, y):
+            def union(self: Any, x: Any, y: Any) -> Any:
                 px, py = self.find(x), self.find(y)
                 if px == py:
                     return
@@ -178,10 +225,10 @@ class Solution:
                 self.parent[py] = px
                 self.size[px] += self.size[py]
 
-            def get_size(self, x):
+            def get_size(self: Any, x: Any) -> Any:
                 return self.size[self.find(x)]
 
-        def coord_to_index(r, c):
+        def coord_to_index(r: Any, c: Any) -> Any:
             return r * n + c
 
         # Initialize Union-Find for all cells
@@ -207,7 +254,7 @@ class Solution:
         for r in range(n):
             for c in range(n):
                 if grid[r][c] == 0:
-                    neighboring_components = set()
+                    neighboring_components: set[Any] = set()
                     for dr, dc in directions:
                         nr, nc = r + dr, c + dc
                         if 0 <= nr < n and 0 <= nc < n and grid[nr][nc] == 1:
@@ -221,34 +268,36 @@ class Solution:
 
         return max_size if max_size > 0 else 1
 
-def test_solution():
+
+def test_solution() -> None:
     """Test cases for Problem 827."""
     solution = Solution()
 
     # Test case 1: Can connect islands
-    grid1 = [[1,0],[0,1]]
+    grid1 = [[1, 0], [0, 1]]
     result1 = solution.largestIslandAlternative([[row[i] for i in range(len(row))] for row in grid1])
     expected1 = 3
     assert result1 == expected1, f"Expected {expected1}, got {result1}"
 
     # Test case 2: All water
-    grid2 = [[0,0],[0,0]]
+    grid2 = [[0, 0], [0, 0]]
     result2 = solution.largestIsland([[row[i] for i in range(len(row))] for row in grid2])
     expected2 = 1
     assert result2 == expected2, f"Expected {expected2}, got {result2}"
 
     # Test case 3: All land
-    grid3 = [[1,1],[1,1]]
+    grid3 = [[1, 1], [1, 1]]
     result3 = solution.largestIsland([[row[i] for i in range(len(row))] for row in grid3])
     expected3 = 4
     assert result3 == expected3, f"Expected {expected3}, got {result3}"
 
     print("All test cases passed!")
 
+
 if __name__ == "__main__":
     test_solution()
 
     # Quick example
     solution = Solution()
-    grid = [[1,0],[0,1]]
+    grid = [[1, 0], [0, 1]]
     print(f"Max island after one flip: {solution.largestIsland([[row[i] for i in range(len(row))] for row in grid])}")

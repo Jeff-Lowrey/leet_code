@@ -88,7 +88,7 @@
  * Space Complexity: O(1)
  */
 function solve(s) {
-    return isPalindrome(s);
+  return isPalindrome(s);
 }
 
 /**
@@ -97,30 +97,30 @@ function solve(s) {
  * @return {boolean} - True if palindrome, false otherwise
  */
 function isPalindrome(s) {
-    let left = 0;
-    let right = s.length - 1;
+  let left = 0;
+  let right = s.length - 1;
 
-    while (left < right) {
-        // Skip non-alphanumeric characters from left
-        while (left < right && !isAlphanumeric(s[left])) {
-            left++;
-        }
-
-        // Skip non-alphanumeric characters from right
-        while (left < right && !isAlphanumeric(s[right])) {
-            right--;
-        }
-
-        // Compare characters (case-insensitive)
-        if (s[left].toLowerCase() !== s[right].toLowerCase()) {
-            return false;
-        }
-
-        left++;
-        right--;
+  while (left < right) {
+    // Skip non-alphanumeric characters from left
+    while (left < right && !isAlphanumeric(s[left])) {
+      left++;
     }
 
-    return true;
+    // Skip non-alphanumeric characters from right
+    while (left < right && !isAlphanumeric(s[right])) {
+      right--;
+    }
+
+    // Compare characters (case-insensitive)
+    if (s[left].toLowerCase() !== s[right].toLowerCase()) {
+      return false;
+    }
+
+    left++;
+    right--;
+  }
+
+  return true;
 }
 
 /**
@@ -129,7 +129,7 @@ function isPalindrome(s) {
  * @return {boolean} - True if alphanumeric, false otherwise
  */
 function isAlphanumeric(char) {
-    return /^[a-zA-Z0-9]$/.test(char);
+  return /^[a-zA-Z0-9]$/.test(char);
 }
 
 /**
@@ -138,93 +138,105 @@ function isAlphanumeric(char) {
  * @return {boolean} - True if palindrome, false otherwise
  */
 function isPalindromeAlternative(s) {
-    // Clean string: keep only alphanumeric, convert to lowercase
-    const cleaned = s.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
+  // Clean string: keep only alphanumeric, convert to lowercase
+  const cleaned = s.replace(/[^a-zA-Z0-9]/g, "").toLowerCase();
 
-    // Check if cleaned string equals its reverse
-    return cleaned === cleaned.split('').reverse().join('');
+  // Check if cleaned string equals its reverse
+  return cleaned === cleaned.split("").reverse().join("");
 }
 
 /**
  * Test cases for Problem 125: Valid Palindrome
  */
 function testSolution() {
-    console.log('Testing 125. Valid Palindrome');
+  console.log("Testing 125. Valid Palindrome");
 
-    // Test case 1: Valid palindrome with spaces and punctuation
-    const result1 = solve("A man, a plan, a canal: Panama");
-    console.assert(result1 === true, 'Test 1 failed: should be valid palindrome');
+  // Test case 1: Valid palindrome with spaces and punctuation
+  const result1 = solve("A man, a plan, a canal: Panama");
+  console.assert(result1 === true, "Test 1 failed: should be valid palindrome");
 
-    // Test case 2: Not a palindrome
-    const result2 = solve("race a car");
-    console.assert(result2 === false, 'Test 2 failed: should not be palindrome');
+  // Test case 2: Not a palindrome
+  const result2 = solve("race a car");
+  console.assert(result2 === false, "Test 2 failed: should not be palindrome");
 
-    // Test case 3: Empty string (considered palindrome)
-    const result3 = solve("");
-    console.assert(result3 === true, 'Test 3 failed: empty string should be palindrome');
+  // Test case 3: Empty string (considered palindrome)
+  const result3 = solve("");
+  console.assert(
+    result3 === true,
+    "Test 3 failed: empty string should be palindrome",
+  );
 
-    // Test case 4: Single character
-    const result4 = solve("a");
-    console.assert(result4 === true, 'Test 4 failed: single character should be palindrome');
+  // Test case 4: Single character
+  const result4 = solve("a");
+  console.assert(
+    result4 === true,
+    "Test 4 failed: single character should be palindrome",
+  );
 
-    // Test case 5: Only non-alphanumeric
-    const result5 = solve(".,");
-    console.assert(result5 === true, 'Test 5 failed: only punctuation should be palindrome');
+  // Test case 5: Only non-alphanumeric
+  const result5 = solve(".,");
+  console.assert(
+    result5 === true,
+    "Test 5 failed: only punctuation should be palindrome",
+  );
 
-    // Test case 6: Mixed case
-    const result6 = solve("Madam");
-    console.assert(result6 === true, 'Test 6 failed: mixed case palindrome');
+  // Test case 6: Mixed case
+  const result6 = solve("Madam");
+  console.assert(result6 === true, "Test 6 failed: mixed case palindrome");
 
-    // Test case 7: Numbers and letters
-    const result7 = solve("0P");
-    console.assert(result7 === false, 'Test 7 failed: 0P is not palindrome');
+  // Test case 7: Numbers and letters
+  const result7 = solve("0P");
+  console.assert(result7 === false, "Test 7 failed: 0P is not palindrome");
 
-    // Test alternative implementation
-    console.assert(isPalindromeAlternative("A man, a plan, a canal: Panama") === true, 'Alternative test failed');
+  // Test alternative implementation
+  console.assert(
+    isPalindromeAlternative("A man, a plan, a canal: Panama") === true,
+    "Alternative test failed",
+  );
 
-    console.log('All test cases passed for 125. Valid Palindrome!');
+  console.log("All test cases passed for 125. Valid Palindrome!");
 }
 
 /**
  * Example usage and demonstration
  */
 function demonstrateSolution() {
-    console.log('\n=== Problem 125. Valid Palindrome ===');
-    console.log('Category: Two Pointers');
-    console.log('Difficulty: Easy');
-    console.log('');
+  console.log("\n=== Problem 125. Valid Palindrome ===");
+  console.log("Category: Two Pointers");
+  console.log("Difficulty: Easy");
+  console.log("");
 
-    // Example demonstration
-    const examples = [
-        "A man, a plan, a canal: Panama",
-        "race a car",
-        "Madam",
-        "",
-        ".,"
-    ];
+  // Example demonstration
+  const examples = [
+    "A man, a plan, a canal: Panama",
+    "race a car",
+    "Madam",
+    "",
+    ".,",
+  ];
 
-    examples.forEach((example, index) => {
-        const result = solve(example);
-        console.log(`Example ${index + 1}: "${example}" -> ${result}`);
-    });
-    console.log('');
+  examples.forEach((example, index) => {
+    const result = solve(example);
+    console.log(`Example ${index + 1}: "${example}" -> ${result}`);
+  });
+  console.log("");
 
-    testSolution();
+  testSolution();
 }
 
 // Run tests if this file is executed directly
 if (require.main === module) {
-    demonstrateSolution();
+  demonstrateSolution();
 }
 
 // Export for use in other modules
 module.exports = {
-    isPalindrome,
-    isPalindromeAlternative,
-    isAlphanumeric,
-    solve,
-    testSolution,
-    demonstrateSolution
+  isPalindrome,
+  isPalindromeAlternative,
+  isAlphanumeric,
+  solve,
+  testSolution,
+  demonstrateSolution,
 };
 
 /**

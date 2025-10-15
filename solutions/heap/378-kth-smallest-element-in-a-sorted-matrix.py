@@ -68,6 +68,10 @@ For the heap storing at most n elements (one from each row)
 </details>
 """
 
+import heapq
+from typing import Any
+
+
 class Solution:
     def kthSmallest(self, matrix: list[list[int]], k: int) -> int:
         """
@@ -83,8 +87,6 @@ class Solution:
         Time Complexity: O(k log n) where n is matrix dimension
         Space Complexity: O(n) for heap
         """
-        import heapq
-
         n = len(matrix)
 
         # Min-heap: (value, row, col)
@@ -121,7 +123,7 @@ class Solution:
         Space Complexity: O(1)
         """
 
-        def count_less_equal(target):
+        def count_less_equal(target: Any) -> Any:
             """Count elements <= target using sorted property."""
             count = 0
             row, col = len(matrix) - 1, 0  # Start from bottom-left
@@ -161,10 +163,8 @@ class Solution:
         Time Complexity: O(n² log k)
         Space Complexity: O(k)
         """
-        import heapq
-
         # Max-heap (negate values for min-heap behavior)
-        max_heap = []
+        max_heap: list[Any] = []
 
         for row in matrix:
             for val in row:
@@ -190,12 +190,10 @@ class Solution:
         Time Complexity: O(k log n)
         Space Complexity: O(n)
         """
-        import heapq
-
         n = len(matrix)
 
         # Initialize heap with first element of each row
-        heap = []
+        heap: list[Any] = []
         for i in range(n):
             heapq.heappush(heap, (matrix[i][0], i, 0))
 
@@ -221,7 +219,7 @@ class Solution:
             The kth smallest element
         """
 
-        def count_less_equal(x):
+        def count_less_equal(x: Any) -> Any:
             """Efficiently count elements <= x."""
             count = 0
             n = len(matrix)
@@ -250,7 +248,8 @@ class Solution:
 
         return left
 
-def test_solution():
+
+def test_solution() -> None:
     """Test cases for Problem 378."""
     solution = Solution()
 
@@ -318,6 +317,7 @@ def test_solution():
 
     print("All test cases passed!")
 
+
 if __name__ == "__main__":
     test_solution()
 
@@ -346,7 +346,7 @@ if __name__ == "__main__":
     print(f"Optimal binary search: {result5}")
 
     # Show all elements in sorted order for verification
-    all_elements = []
+    all_elements: list[Any] = []
     for row in matrix:
         all_elements.extend(row)
     all_elements.sort()

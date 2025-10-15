@@ -74,56 +74,58 @@ O(1)
 
 from typing import List, Optional, Dict, Tuple
 
+
 class Solution:
     def findLongestChain(self, pairs: List[List[int]]) -> int:
         """
         Find the length of the longest chain that can be formed from the given pairs.
         A pair (a, b) can follow another pair (c, d) if b < c.
-        
+
         Args:
             pairs: List of pairs where each pair is [a, b]
-            
+
         Returns:
             int: Length of the longest possible chain
         """
         if not pairs:
             return 0
-        
+
         # Sort pairs based on the second element
         # This greedy approach ensures we always pick pairs that give us maximum flexibility
         # for the next selection
         pairs.sort(key=lambda x: x[1])
-        
-        current_end = float('-inf')  # Track the end of current chain
+
+        current_end = float("-inf")  # Track the end of current chain
         chain_length = 0  # Track the length of chain
-        
+
         # Iterate through sorted pairs
         for start, end in pairs:
             # If current pair can be added to chain (start > previous end)
             if start > current_end:
                 chain_length += 1
                 current_end = end
-        
+
         return chain_length
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
     solution = Solution()
 
     # Test case 1: Example from problem
-    result = solution.findLongestChain([[1,2],[2,3],[3,4]])
+    result = solution.findLongestChain([[1, 2], [2, 3], [3, 4]])
     expected = 2
     assert result == expected, f"Expected {expected}, got {result}"
 
     # Test case 2: All can be chained
-    result = solution.findLongestChain([[1,2],[7,8],[4,5]])
+    result = solution.findLongestChain([[1, 2], [7, 8], [4, 5]])
     expected = 3
     assert result == expected, f"Expected {expected}, got {result}"
 
     # Test case 3: No chain possible (all overlap)
-    result = solution.findLongestChain([[1,5],[2,3],[3,4]])
+    result = solution.findLongestChain([[1, 5], [2, 3], [3, 4]])
     expected = 1
     assert result == expected, f"Expected {expected}, got {result}"
 
@@ -133,11 +135,12 @@ def test_solution():
     assert result == expected, f"Expected {expected}, got {result}"
 
     # Test case 5: Single pair
-    result = solution.findLongestChain([[1,2]])
+    result = solution.findLongestChain([[1, 2]])
     expected = 1
     assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

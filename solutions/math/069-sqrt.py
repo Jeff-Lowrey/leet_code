@@ -68,6 +68,7 @@ O(1)
 </details>
 """
 
+
 class Solution:
     def mySqrt(self, x: int) -> int:
         """
@@ -116,7 +117,8 @@ class Solution:
 
         return result
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
@@ -138,6 +140,7 @@ def test_solution():
     assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

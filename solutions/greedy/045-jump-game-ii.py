@@ -52,7 +52,7 @@ Step 2: Iterate through array
   i=0: farthest = max(0, 0+2) = 2
   i=1: farthest = max(2, 1+3) = 4, reached current_end → jumps=1, current_end=2
   i=2: farthest = max(4, 2+1) = 4, reached current_end → jumps=2, current_end=4
-  
+
   Reached last index
 
 Output: 2 (minimum jumps)
@@ -74,47 +74,49 @@ O(1)
 
 from typing import List, Optional, Dict, Tuple
 
+
 class Solution:
     def jump(self, nums: List[int]) -> int:
         """
         Calculates the minimum number of jumps needed to reach the last index.
-        
+
         Args:
             nums: List of non-negative integers representing maximum jump lengths
-            
+
         Returns:
             int: Minimum number of jumps needed to reach the last index
-            
+
         Time Complexity: O(n)
         Space Complexity: O(1)
         """
         # Handle edge cases
         if not nums or len(nums) <= 1:
             return 0
-            
+
         # Initialize variables
-        jumps = 0          # Count of jumps taken
-        current_max = 0    # Maximum index that can be reached with current jumps
-        next_max = 0      # Maximum index that can be reached with jumps + 1
-        
+        jumps = 0  # Count of jumps taken
+        current_max = 0  # Maximum index that can be reached with current jumps
+        next_max = 0  # Maximum index that can be reached with jumps + 1
+
         # Iterate through the array (except last element)
         for i in range(len(nums) - 1):
             # Update the farthest position we can reach
             next_max = max(next_max, i + nums[i])
-            
+
             # If we've reached the current maximum position
             # we need to take another jump
             if i == current_max:
                 jumps += 1
                 current_max = next_max
-                
+
                 # If we can already reach the end, break
                 if current_max >= len(nums) - 1:
                     break
-                    
+
         return jumps
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
@@ -136,6 +138,7 @@ def test_solution():
     assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

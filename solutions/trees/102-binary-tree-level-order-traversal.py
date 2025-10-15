@@ -67,6 +67,17 @@ Where w is maximum width of the tree (queue size)
 </details>
 """
 
+
+
+from collections import deque
+from typing import Any, List, Optional
+
+class TreeNode:
+    def __init__(self, val: Any = 0, left: Any = None, right: Any = None) -> None:
+        self.val = val
+        self.left = left
+        self.right = right
+
 class Solution:
     def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
         """
@@ -84,12 +95,12 @@ class Solution:
         if not root:
             return []
 
-        result = []
+        result: list[Any] = []
         queue = deque([root])
 
         while queue:
             level_size = len(queue)
-            current_level = []
+            current_level: list[Any] = []
 
             # Process all nodes at current level
             for _ in range(level_size):
@@ -116,7 +127,7 @@ class Solution:
         Returns:
             List of lists, each containing values at that level
         """
-        result = []
+        result: list[list[int]] = []
 
         def dfs(node: Optional[TreeNode], level: int) -> None:
             if not node:
@@ -149,7 +160,7 @@ class Solution:
         if not root:
             return []
 
-        result = []
+        result: list[list[int]] = []
         queue = [(root, 0)]  # (node, level)
 
         while queue:
@@ -183,7 +194,7 @@ class Solution:
         if not root:
             return []
 
-        result = []
+        result: list[list[int]] = []
         queue = deque([root])
 
         while queue:
@@ -203,6 +214,7 @@ class Solution:
 
         # Reverse for bottom-up order
         return result[::-1]
+
 
 def build_tree_from_list(values: List) -> Optional[TreeNode]:
     """Helper function to build tree from list representation."""
@@ -228,7 +240,8 @@ def build_tree_from_list(values: List) -> Optional[TreeNode]:
 
     return root
 
-def test_solution():
+
+def test_solution() -> None:
     """Test cases for Problem 102."""
     solution = Solution()
 
@@ -247,7 +260,7 @@ def test_solution():
     # Test case 3: Empty tree
     tree3 = None
     result3 = solution.levelOrder(tree3)
-    expected3 = []
+    expected3: list[Any] = []
     assert result3 == expected3, f"Expected {expected3}, got {result3}"
 
     # Test case 4: Linear tree (left skewed)
@@ -280,6 +293,7 @@ def test_solution():
     assert result9 == expected9, f"Bottom-up: Expected {expected9}, got {result9}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()
@@ -319,7 +333,7 @@ if __name__ == "__main__":
         ("BFS with queue", solution.levelOrder),
         ("Recursive DFS", solution.levelOrderRecursive),
         ("Iterative with levels", solution.levelOrderIterative),
-        ("Bottom-up BFS", solution.levelOrderBottomUp)
+        ("Bottom-up BFS", solution.levelOrderBottomUp),
     ]
 
     for name, method in approaches:

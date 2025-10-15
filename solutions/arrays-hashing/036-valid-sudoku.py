@@ -56,9 +56,9 @@ Input: board = [
 ]
 
 Step 1: Initialize tracking sets
-  rows = defaultdict(set)
-  cols = defaultdict(set)
-  boxes = defaultdict(set)
+  rows: dict[Any, set[Any]] = defaultdict(set)
+  cols: dict[Any, set[Any]] = defaultdict(set)
+  boxes: dict[Any, set[Any]] = defaultdict(set)
 
 Step 2: Process cell (0,0) = "5"
   box_idx = (0//3)*3 + (0//3) = 0
@@ -93,51 +93,51 @@ O(1)
 
 from collections import defaultdict
 
-from typing import List, Optional, Dict, Tuple
+from typing import Any, List, Optional, Dict, Tuple
+
 
 class Solution:
     def isValidSudoku(self, board: List[List[str]]) -> bool:
         """
         Determines if a 9x9 Sudoku board is valid.
-        
+
         Args:
             board: 9x9 list of lists containing strings ('1'-'9' or '.')
-            
+
         Returns:
             bool: True if the board is valid, False otherwise
         """
         # Initialize hash sets to track numbers in rows, columns, and boxes
-        rows = defaultdict(set)
-        cols = defaultdict(set)
-        boxes = defaultdict(set)
-        
+        rows: dict[Any, set[Any]] = defaultdict(set)
+        cols: dict[Any, set[Any]] = defaultdict(set)
+        boxes: dict[Any, set[Any]] = defaultdict(set)
+
         # Iterate through each cell in the 9x9 board
         for i in range(9):
             for j in range(9):
                 # Get current cell value
                 val = board[i][j]
-                
+
                 # Skip empty cells
-                if val == '.':
+                if val == ".":
                     continue
-                
+
                 # Calculate box index (0-8) for current cell
                 box_idx = (i // 3) * 3 + (j // 3)
-                
+
                 # Check if number already exists in current row, column, or box
-                if (val in rows[i] or 
-                    val in cols[j] or 
-                    val in boxes[box_idx]):
+                if val in rows[i] or val in cols[j] or val in boxes[box_idx]:
                     return False
-                
+
                 # Add number to respective sets
                 rows[i].add(val)
                 cols[j].add(val)
                 boxes[box_idx].add(val)
-        
+
         return True
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
@@ -145,15 +145,15 @@ def test_solution():
 
     # Test case 1: Valid sudoku board
     board1 = [
-        ["5","3",".",".","7",".",".",".","."],
-        ["6",".",".","1","9","5",".",".","."],
-        [".","9","8",".",".",".",".","6","."],
-        ["8",".",".",".","6",".",".",".","3"],
-        ["4",".",".","8",".","3",".",".","1"],
-        ["7",".",".",".","2",".",".",".","6"],
-        [".","6",".",".",".",".","2","8","."],
-        [".",".",".","4","1","9",".",".","5"],
-        [".",".",".",".","8",".",".","7","9"]
+        ["5", "3", ".", ".", "7", ".", ".", ".", "."],
+        ["6", ".", ".", "1", "9", "5", ".", ".", "."],
+        [".", "9", "8", ".", ".", ".", ".", "6", "."],
+        ["8", ".", ".", ".", "6", ".", ".", ".", "3"],
+        ["4", ".", ".", "8", ".", "3", ".", ".", "1"],
+        ["7", ".", ".", ".", "2", ".", ".", ".", "6"],
+        [".", "6", ".", ".", ".", ".", "2", "8", "."],
+        [".", ".", ".", "4", "1", "9", ".", ".", "5"],
+        [".", ".", ".", ".", "8", ".", ".", "7", "9"],
     ]
     result = solution.isValidSudoku(board1)
     expected = True
@@ -161,15 +161,15 @@ def test_solution():
 
     # Test case 2: Invalid sudoku - duplicate in row
     board2 = [
-        ["8","3",".",".","7",".",".",".","."],
-        ["6",".",".","1","9","5",".",".","."],
-        [".","9","8",".",".",".",".","6","."],
-        ["8",".",".",".","6",".",".",".","3"],
-        ["4",".",".","8",".","3",".",".","1"],
-        ["7",".",".",".","2",".",".",".","6"],
-        [".","6",".",".",".",".","2","8","."],
-        [".",".",".","4","1","9",".",".","5"],
-        [".",".",".",".","8",".",".","7","9"]
+        ["8", "3", ".", ".", "7", ".", ".", ".", "."],
+        ["6", ".", ".", "1", "9", "5", ".", ".", "."],
+        [".", "9", "8", ".", ".", ".", ".", "6", "."],
+        ["8", ".", ".", ".", "6", ".", ".", ".", "3"],
+        ["4", ".", ".", "8", ".", "3", ".", ".", "1"],
+        ["7", ".", ".", ".", "2", ".", ".", ".", "6"],
+        [".", "6", ".", ".", ".", ".", "2", "8", "."],
+        [".", ".", ".", "4", "1", "9", ".", ".", "5"],
+        [".", ".", ".", ".", "8", ".", ".", "7", "9"],
     ]
     result = solution.isValidSudoku(board2)
     expected = False
@@ -177,21 +177,22 @@ def test_solution():
 
     # Test case 3: Invalid sudoku - duplicate in column
     board3 = [
-        ["8","3",".",".","7",".",".",".","."],
-        ["6",".",".","1","9","5",".",".","."],
-        [".","9","8",".",".",".",".","6","."],
-        ["3",".",".",".","6",".",".",".","3"],
-        ["4",".",".","8",".","3",".",".","1"],
-        ["7",".",".",".","2",".",".",".","6"],
-        [".","6",".",".",".",".","2","8","."],
-        [".",".",".","4","1","9",".",".","5"],
-        [".",".",".",".","8",".",".","7","9"]
+        ["8", "3", ".", ".", "7", ".", ".", ".", "."],
+        ["6", ".", ".", "1", "9", "5", ".", ".", "."],
+        [".", "9", "8", ".", ".", ".", ".", "6", "."],
+        ["3", ".", ".", ".", "6", ".", ".", ".", "3"],
+        ["4", ".", ".", "8", ".", "3", ".", ".", "1"],
+        ["7", ".", ".", ".", "2", ".", ".", ".", "6"],
+        [".", "6", ".", ".", ".", ".", "2", "8", "."],
+        [".", ".", ".", "4", "1", "9", ".", ".", "5"],
+        [".", ".", ".", ".", "8", ".", ".", "7", "9"],
     ]
     result = solution.isValidSudoku(board3)
     expected = False
     assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

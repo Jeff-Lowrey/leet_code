@@ -66,22 +66,39 @@ O(1)
 </details>
 """
 
-from typing import List, Optional, Dict, Tuple
+from typing import Any, List, Optional, Dict, Tuple
+import re
+
+
+
+
+
+class TrieNode:
+    """Node in a Trie data structure."""
+
+    def __init__(self) -> None:
+        """Initialize TrieNode with empty children and end marker."""
+        self.children: dict[str, "TrieNode"] = {}
+        self.word: str | None = None  # For word storage in solutions like Word Search II
+        self.is_end: bool = False  # Marks end of a word
+        self.word_index: int = -1  # Index of word in original list
+        self.palindrome_suffixes: list[int] = []  # List of word indices with palindrome suffixes
+
 
 class Solution:
-    def __init__(self):
+    def __init__(self) -> None:
         """Initialize the solution with a root trie node."""
         self.root = TrieNode()
-    
+
     def is_palindrome(self, word: str, start: int, end: int) -> bool:
         """
         Check if a substring is a palindrome.
-        
+
         Args:
             word: String to check
             start: Starting index
             end: Ending index (exclusive)
-            
+
         Returns:
             bool: True if the substring is a palindrome
         """
@@ -91,11 +108,11 @@ class Solution:
             start += 1
             end -= 1
         return True
-    
+
     def add_word(self, word: str, index: int) -> None:
         """
         Add a word to the trie structure.
-        
+
         Args:
             word: Word to add
             index: Index of the word in original list
@@ -107,74 +124,76 @@ class Solution:
             if char not in node.children:
                 node.children[char] = TrieNode()
             node = node.children[char]
-        
+
         node.word_index = index
         node.palindrome_suffixes.append(index)
-    
+
     def find_palindrome_pairs(self, words: List[str]) -> List[List[int]]:
         """
         Find all pairs of words that form palindromes when concatenated.
-        
+
         Args:
             words: List of words to check
-            
+
         Returns:
             List[List[int]]: List of pairs of indices that form palindromes
         """
         # Handle edge cases
         if not words or len(words) < 2:
             return []
-        
+
         # Build trie with all words
         for i, word in enumerate(words):
             self.add_word(word, i)
-        
-        result = []
-        
+
+        result: list[Any] = []
+
         # Check each word for potential pairs
         for i, word in enumerate(words):
             node = self.root
-            
+
             # Check for empty string special case
             if node.word_index >= 0 and node.word_index != i and self.is_palindrome(word, 0, len(word)):
                 result.append([i, node.word_index])
-            
+
             # Check each character
             for j, char in enumerate(word):
                 # If we can't find the character, break
                 if char not in node.children:
                     break
-                    
+
                 node = node.children[char]
-                
+
                 # Check if we found a word and remaining substring is palindrome
                 if node.word_index >= 0 and node.word_index != i:
                     if self.is_palindrome(word, j + 1, len(word)):
                         result.append([i, node.word_index])
-                        
+
             else:  # We've processed all characters
                 # Check palindrome suffixes
                 for suffix_index in node.palindrome_suffixes:
                     if suffix_index != i:
                         result.append([i, suffix_index])
-        
+
         return result
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
+
     # Note: This problem uses a TrieNode class that needs to be defined
     class TrieNode:
-        def __init__(self):
-            self.children = {}
+        def __init__(self: Any) -> None:
+            self.children: dict[str, Any] = {}
             self.word_index = -1
-            self.palindrome_suffixes = []
+            self.palindrome_suffixes: list[int] = []
 
     solution = Solution()
 
     # Test case 1: Example from problem
-    result = solution.find_palindrome_pairs(["abcd","dcba","lls","s","sssll"])
+    result = solution.find_palindrome_pairs(["abcd", "dcba", "lls", "s", "sssll"])
     # Valid pairs: "lls" + "s" = "llss" is not palindrome, but "s" + "lls" = "slls" is palindrome
     # "sssll" + "lls" = "sssllls" is not, but reversing approach works
     # "dcba" + "abcd" = "dcbaabcd" is palindrome
@@ -182,13 +201,13 @@ def test_solution():
     assert len(result) >= 2, f"Expected at least 2 pairs, got {result}"
 
     # Test case 2: Simple palindrome pairs
-    result = solution.find_palindrome_pairs(["bat","tab","cat"])
-    expected = [[0,1],[1,0]]
+    result = solution.find_palindrome_pairs(["bat", "tab", "cat"])
+    expected = [[0, 1], [1, 0]]
     assert result == expected, f"Expected {expected}, got {result}"
 
     # Test case 3: Empty string handling
-    result = solution.find_palindrome_pairs(["a",""])
-    expected = [[0,1],[1,0]]
+    result = solution.find_palindrome_pairs(["a", ""])
+    expected = [[0, 1], [1, 0]]
     assert result == expected, f"Expected {expected}, got {result}"
 
     # Test case 4: Test is_palindrome helper
@@ -197,6 +216,7 @@ def test_solution():
     assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

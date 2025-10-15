@@ -66,6 +66,7 @@ O(1)
 
 from typing import List, Optional, Dict, Tuple
 
+
 class Solution:
     def missingNumber(self, nums: List[int]) -> int:
         """
@@ -109,7 +110,8 @@ class Solution:
             result ^= i ^ nums[i]
         return result
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
@@ -131,6 +133,7 @@ def test_solution():
     assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

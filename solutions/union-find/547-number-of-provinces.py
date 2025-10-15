@@ -77,6 +77,53 @@ For the Union-Find parent and rank arrays
 </details>
 """
 
+from collections import deque
+import re
+
+
+
+
+class UnionFind:
+    """Union-Find (Disjoint Set Union) data structure."""
+
+    def __init__(self, n: int) -> None:
+        """Initialize with n elements."""
+        self.parent = list(range(n))
+        self.rank = [0] * n
+
+
+    @property
+    def components(self) -> int:
+        """Return number of connected components."""
+        return len(set(self.find(i) for i in range(len(self.parent))))
+
+    def find(self, x: int) -> int:
+        """Find root of element x with path compression."""
+        if self.parent[x] != x:
+            self.parent[x] = self.find(self.parent[x])
+        return self.parent[x]
+
+    def union(self, x: int, y: int) -> bool:
+        """Union two sets. Returns True if they were in different sets."""
+        px, py = self.find(x), self.find(y)
+        if px == py:
+            return False
+
+        if self.rank[px] < self.rank[py]:
+            self.parent[px] = py
+        elif self.rank[px] > self.rank[py]:
+            self.parent[py] = px
+        else:
+            self.parent[py] = px
+            self.rank[px] += 1
+
+        return True
+
+    def connected(self, x: int, y: int) -> bool:
+        """Check if two elements are in the same set."""
+        return self.find(x) == self.find(y)
+
+
 class Solution:
     def findCircleNum(self, isConnected: list[list[int]]) -> int:
         """
@@ -120,7 +167,7 @@ class Solution:
         visited = [False] * n
         provinces = 0
 
-        def dfs(city: int):
+        def dfs(city: int) -> None:
             """Mark all cities in current province as visited."""
             visited[city] = True
             for neighbor in range(n):
@@ -146,8 +193,6 @@ class Solution:
         Returns:
             Number of provinces
         """
-        from collections import deque
-
         n = len(isConnected)
         visited = [False] * n
         provinces = 0
@@ -169,7 +214,8 @@ class Solution:
 
         return provinces
 
-def test_solution():
+
+def test_solution() -> None:
     """Test cases for Problem 547."""
     solution = Solution()
 
@@ -212,6 +258,7 @@ def test_solution():
     assert result7 == expected1, f"BFS: Expected {expected1}, got {result7}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

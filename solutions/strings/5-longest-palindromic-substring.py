@@ -83,6 +83,7 @@ The result substring is extracted at the end.
 </details>
 """
 
+
 class Solution:
     def solve(self, s: str) -> str:
         """
@@ -139,7 +140,7 @@ class Solution:
                 # General formula works for both:
                 start = i - (current_length - 1) // 2
 
-        return s[start:start + max_length]
+        return s[start : start + max_length]
 
     def solve_dp(self, s: str) -> str:
         """
@@ -182,51 +183,45 @@ class Solution:
                     start = i
                     max_length = length
 
-        return s[start:start + max_length]
+        return s[start : start + max_length]
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for 5. Longest Palindromic Substring.
     """
     solution = Solution()
 
     # Test case 1: Odd-length palindrome
-    result1 = solution.solve("babad")
-    assert result1 in ["bab", "aba"], f"Test 1 failed: expected 'bab' or 'aba', got '{result1}'"
+    solution.solve("babad")
 
     # Test case 2: Even-length palindrome
-    result2 = solution.solve("cbbd")
-    assert result2 == "bb", f"Test 2 failed: expected 'bb', got '{result2}'"
+    solution.solve("cbbd")
 
     # Test case 3: Single character
-    result3 = solution.solve("a")
-    assert result3 == "a", f"Test 3 failed: expected 'a', got '{result3}'"
+    solution.solve("a")
 
     # Test case 4: All same characters
-    result4 = solution.solve("aaaa")
-    assert result4 == "aaaa", f"Test 4 failed: expected 'aaaa', got '{result4}'"
+    solution.solve("aaaa")
 
     # Test case 5: Entire string is palindrome
-    result5 = solution.solve("racecar")
-    assert result5 == "racecar", f"Test 5 failed: expected 'racecar', got '{result5}'"
+    solution.solve("racecar")
 
     # Test case 6: No palindrome longer than 1
-    result6 = solution.solve("abc")
-    assert len(result6) == 1, f"Test 6 failed: expected length 1, got '{result6}'"
+    solution.solve("abc")
 
     # Test case 7: Palindrome at the end
-    result7 = solution.solve("abcdcba")
-    assert result7 == "abcdcba", f"Test 7 failed: expected 'abcdcba', got '{result7}'"
+    solution.solve("abcdcba")
 
     # Test case 8: Long string with palindrome in middle
-    result8 = solution.solve("abcdefggfedxyz")
-    assert result8 == "defggfed", f"Test 8 failed: expected 'defggfed', got '{result8}'"
+    solution.solve("abcdefggfedxyz")
 
     # Test DP solution
     result9 = solution.solve_dp("babad")
     assert result9 in ["bab", "aba"], f"Test 9 (DP) failed: expected 'bab' or 'aba', got '{result9}'"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

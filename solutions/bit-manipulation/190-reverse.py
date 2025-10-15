@@ -75,45 +75,46 @@ O(1)
 </details>
 """
 
+
 class Solution:
     def reverseBits(self, n: int) -> int:
         """
         Reverses the bits of a given 32-bit unsigned integer.
-        
+
         Args:
             n: An integer representing a 32-bit unsigned number
-            
+
         Returns:
             The integer with all bits reversed
-            
+
         Time Complexity: O(1) - always processes 32 bits
         Space Complexity: O(1) - uses constant extra space
         """
         result = 0
-        
+
         # Process all 32 bits
         for i in range(32):
             # Get the least significant bit of n
             bit = n & 1
-            
+
             # Left shift result and add the current bit
             result = (result << 1) | bit
-            
+
             # Right shift n to process next bit
             n = n >> 1
-            
+
         return result
 
     def reverseBits_optimized(self, n: int) -> int:
         """
         An optimized version using bit manipulation tricks.
-        
+
         This implementation uses divide and conquer approach by swapping
         bits in groups of increasing sizes.
-        
+
         Args:
             n: An integer representing a 32-bit unsigned number
-            
+
         Returns:
             The integer with all bits reversed
         """
@@ -127,10 +128,11 @@ class Solution:
         n = ((n & 0xFF00FF00) >> 8) | ((n & 0x00FF00FF) << 8)
         # Swap bits in groups of 16
         n = ((n & 0xFFFF0000) >> 16) | ((n & 0x0000FFFF) << 16)
-        
+
         return n
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
@@ -152,6 +154,7 @@ def test_solution():
     assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

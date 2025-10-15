@@ -83,107 +83,124 @@
  * Space Complexity: O(1)
  */
 function solve(rating) {
-    if (!rating || rating.length < 3) {
-        return 0;
+  if (!rating || rating.length < 3) {
+    return 0;
+  }
+
+  const n = rating.length;
+  let teams = 0;
+
+  // For each soldier as the middle element
+  for (let j = 1; j < n - 1; j++) {
+    let smallerLeft = 0,
+      largerLeft = 0;
+    let smallerRight = 0,
+      largerRight = 0;
+
+    // Count elements to the left
+    for (let i = 0; i < j; i++) {
+      if (rating[i] < rating[j]) {
+        smallerLeft++;
+      } else if (rating[i] > rating[j]) {
+        largerLeft++;
+      }
     }
 
-    const n = rating.length;
-    let teams = 0;
-
-    // For each soldier as the middle element
-    for (let j = 1; j < n - 1; j++) {
-        let smallerLeft = 0, largerLeft = 0;
-        let smallerRight = 0, largerRight = 0;
-
-        // Count elements to the left
-        for (let i = 0; i < j; i++) {
-            if (rating[i] < rating[j]) {
-                smallerLeft++;
-            } else if (rating[i] > rating[j]) {
-                largerLeft++;
-            }
-        }
-
-        // Count elements to the right
-        for (let k = j + 1; k < n; k++) {
-            if (rating[k] < rating[j]) {
-                smallerRight++;
-            } else if (rating[k] > rating[j]) {
-                largerRight++;
-            }
-        }
-
-        // Count increasing teams (i < j < k with rating[i] < rating[j] < rating[k])
-        teams += smallerLeft * largerRight;
-
-        // Count decreasing teams (i < j < k with rating[i] > rating[j] > rating[k])
-        teams += largerLeft * smallerRight;
+    // Count elements to the right
+    for (let k = j + 1; k < n; k++) {
+      if (rating[k] < rating[j]) {
+        smallerRight++;
+      } else if (rating[k] > rating[j]) {
+        largerRight++;
+      }
     }
 
-    return teams;
+    // Count increasing teams (i < j < k with rating[i] < rating[j] < rating[k])
+    teams += smallerLeft * largerRight;
+
+    // Count decreasing teams (i < j < k with rating[i] > rating[j] > rating[k])
+    teams += largerLeft * smallerRight;
+  }
+
+  return teams;
 }
 
 /**
  * Test cases for Problem 1395: Count Number Of Teams
  */
 function testSolution() {
-    console.log('Testing 1395. Count Number Of Teams');
+  console.log("Testing 1395. Count Number Of Teams");
 
-    // Test case 1: Basic example
-    const result1 = solve([2, 5, 3, 4, 1]);
-    const expected1 = 3;
-    console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
-    console.log(`✓ Test 1 passed: rating=[2,5,3,4,1] -> ${result1} teams`);
+  // Test case 1: Basic example
+  const result1 = solve([2, 5, 3, 4, 1]);
+  const expected1 = 3;
+  console.assert(
+    result1 === expected1,
+    `Test 1 failed: expected ${expected1}, got ${result1}`,
+  );
+  console.log(`✓ Test 1 passed: rating=[2,5,3,4,1] -> ${result1} teams`);
 
-    // Test case 2: Another example
-    const result2 = solve([2, 1, 3]);
-    const expected2 = 0;
-    console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
-    console.log(`✓ Test 2 passed: rating=[2,1,3] -> ${result2} teams`);
+  // Test case 2: Another example
+  const result2 = solve([2, 1, 3]);
+  const expected2 = 0;
+  console.assert(
+    result2 === expected2,
+    `Test 2 failed: expected ${expected2}, got ${result2}`,
+  );
+  console.log(`✓ Test 2 passed: rating=[2,1,3] -> ${result2} teams`);
 
-    // Test case 3: Larger example
-    const result3 = solve([1, 2, 3, 4]);
-    const expected3 = 4; // [1,2,3], [1,2,4], [1,3,4], [2,3,4]
-    console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
-    console.log(`✓ Test 3 passed: rating=[1,2,3,4] -> ${result3} teams`);
+  // Test case 3: Larger example
+  const result3 = solve([1, 2, 3, 4]);
+  const expected3 = 4; // [1,2,3], [1,2,4], [1,3,4], [2,3,4]
+  console.assert(
+    result3 === expected3,
+    `Test 3 failed: expected ${expected3}, got ${result3}`,
+  );
+  console.log(`✓ Test 3 passed: rating=[1,2,3,4] -> ${result3} teams`);
 
-    // Test case 4: Edge case - minimum length
-    const result4 = solve([1, 2]);
-    const expected4 = 0;
-    console.assert(result4 === expected4, `Test 4 failed: expected ${expected4}, got ${result4}`);
-    console.log(`✓ Test 4 passed: rating=[1,2] -> ${result4} teams`);
+  // Test case 4: Edge case - minimum length
+  const result4 = solve([1, 2]);
+  const expected4 = 0;
+  console.assert(
+    result4 === expected4,
+    `Test 4 failed: expected ${expected4}, got ${result4}`,
+  );
+  console.log(`✓ Test 4 passed: rating=[1,2] -> ${result4} teams`);
 
-    // Test case 5: Decreasing sequence
-    const result5 = solve([5, 4, 3, 2, 1]);
-    const expected5 = 10; // C(5,3) = 10 decreasing teams
-    console.assert(result5 === expected5, `Test 5 failed: expected ${expected5}, got ${result5}`);
-    console.log(`✓ Test 5 passed: rating=[5,4,3,2,1] -> ${result5} teams`);
+  // Test case 5: Decreasing sequence
+  const result5 = solve([5, 4, 3, 2, 1]);
+  const expected5 = 10; // C(5,3) = 10 decreasing teams
+  console.assert(
+    result5 === expected5,
+    `Test 5 failed: expected ${expected5}, got ${result5}`,
+  );
+  console.log(`✓ Test 5 passed: rating=[5,4,3,2,1] -> ${result5} teams`);
 
-    console.log('All test cases passed for 1395. Count Number Of Teams!');
+  console.log("All test cases passed for 1395. Count Number Of Teams!");
 }
 
 /**
  * Example usage and demonstration
  */
 function demonstrateSolution() {
-    console.log('\n=== Problem 1395. Count Number Of Teams ===');
-    console.log('Category: Segment Tree');
-    console.log('Difficulty: Medium');
-    console.log('');
+  console.log("\n=== Problem 1395. Count Number Of Teams ===");
+  console.log("Category: Segment Tree");
+  console.log("Difficulty: Medium");
+  console.log("");
 
-    testSolution();
+  testSolution();
 }
 
 // Run tests if this file is executed directly
 if (require.main === module) {
-    demonstrateSolution();
+  demonstrateSolution();
 }
 
 // Export for use in other modules
 module.exports = {
-    solve,
-    testSolution,
-    demonstrateSolution
+  solve,
+  testSolution,
+  demonstrateSolution,
 };
 
 /**

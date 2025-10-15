@@ -54,7 +54,7 @@ Example with carry: a = 3, b = 5
   carry = (3 & 5) << 1 = (011 & 101) << 1 = 001 << 1 = 010 = 2
   Repeat: sum = 6 ^ 2 = 110 ^ 010 = 100 = 4
   carry = (6 & 2) << 1 = (110 & 010) << 1 = 010 << 1 = 100 = 4
-  Repeat: sum = 4 ^ 4 = 000 = 0, carry = (4 & 4) << 1 = 1000 = 8
+  Repeat = 4 ^ 4 = 000 = 0, carry = (4 & 4) << 1 = 1000 = 8
 
 Output: 3 (1 + 2)
 ```
@@ -73,19 +73,20 @@ O(1)
 </details>
 """
 
+
 class Solution:
     def getSum(self, a: int, b: int) -> int:
         """
         Calculate the sum of two integers without using + or - operators.
         Uses bitwise operations to perform addition.
-        
+
         Args:
             a (int): First integer
             b (int): Second integer
-            
+
         Returns:
             int: Sum of the two integers
-            
+
         Example:
             >>> solution = Solution()
             >>> solution.getSum(2, 3)
@@ -93,38 +94,39 @@ class Solution:
         """
         # Python handles negative numbers differently with bitwise operations
         # We need to mask to 32 bits to handle negative numbers correctly
-        mask = 0xffffffff
-        
+        mask = 0xFFFFFFFF
+
         # While there is a carry
         while b & mask:
             # Calculate carry using AND operation
             carry = (a & b) << 1
             # Calculate sum using XOR operation
-            a = (a ^ b)
+            a = a ^ b
             b = carry
-            
+
             # Handle 32-bit overflow
             a = a & mask
             b = b & mask
-        
+
         # Handle negative numbers
         if b > 0:
             a = a ^ b
-            
+
         # If result is negative (32nd bit is 1)
         if (a >> 31) & 1:
             return ~(a ^ mask)
-        
+
         return a
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
     solution = Solution()
 
     # Test case 1: Example from problem
-    result = solution.getSum(1, b = 2)
+    result = solution.getSum(1, b=2)
     expected = 3
     assert result == expected, f"Expected {expected}, got {result}"
 
@@ -134,6 +136,7 @@ def test_solution():
     assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

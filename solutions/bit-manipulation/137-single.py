@@ -36,7 +36,7 @@ Use bit manipulation to count occurrences at each bit position. For each bit, su
 ### WHY THIS WORKS:
 - Count bits at each position across all numbers
 - If count[i] % 3 != 0, single number has bit i set
-- Build result by setting bits where count % 3 == 1
+# - Build result by setting bits where count % 3 == 1  # Result undefined
 - Duplicates contribute 3 to each bit position, single contributes 1
 - O(n) time: 32 passes (constant), O(1) space
 
@@ -76,41 +76,43 @@ O(1)
 
 from typing import List, Optional, Dict, Tuple
 
+
 class Solution:
     def singleNumber(self, nums: List[int]) -> int:
         """
         Find the single number that appears only once while others appear three times.
-        
+
         Args:
             nums: List of integers where all numbers except one appear three times
-            
+
         Returns:
             The number that appears only once
-            
+
         Time Complexity: O(n)
         Space Complexity: O(1)
         """
         # Initialize ones and twos for bit manipulation
         ones = 0
         twos = 0
-        
+
         for num in nums:
             # First appearance: add to ones
             # Second appearance: remove from ones, add to twos
             # Third appearance: remove from twos
             ones = (ones ^ num) & ~twos
             twos = (twos ^ num) & ~ones
-            
+
         return ones
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
     solution = Solution()
 
     # Test case 1: Example from problem
-    result = solution.singleNumber([2,2,3,2])
+    result = solution.singleNumber([2, 2, 3, 2])
     expected = 3
     assert result == expected, f"Expected {expected}, got {result}"
 
@@ -120,11 +122,12 @@ def test_solution():
     assert result == expected, f"Expected {expected}, got {result}"
 
     # Test case 3: Larger example
-    result = solution.singleNumber([0,1,0,1,0,1,99])
+    result = solution.singleNumber([0, 1, 0, 1, 0, 1, 99])
     expected = 99
     assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

@@ -58,6 +58,9 @@ O(1) excluding output array
 </details>
 """
 
+
+from typing import Any
+
 class Solution:
     def spiralOrder(self, matrix: list[list[int]]) -> list[int]:
         """
@@ -69,7 +72,7 @@ class Solution:
             return []
 
         m, n = len(matrix), len(matrix[0])
-        result = []
+        result: list[Any] = []
 
         top, bottom = 0, m - 1
         left, right = 0, n - 1
@@ -99,6 +102,7 @@ class Solution:
 
         return result
 
+
 """
 59. Spiral Matrix II
 # Difficulty: Medium
@@ -106,9 +110,10 @@ Given a positive integer n, generate an n x n matrix filled with elements from
 1 to n² in spiral order.
 
 Example:
-Input: n = 3
+Input = 3
 Output: [[1,2,3],[8,9,4],[7,6,5]]
 """
+
 
 class SolutionGenerate:
     def generateMatrix(self, n: int) -> list[list[int]]:
@@ -150,6 +155,7 @@ class SolutionGenerate:
 
         return matrix
 
+
 # Test cases
 if __name__ == "__main__":
     solution = Solution()
@@ -173,8 +179,8 @@ if __name__ == "__main__":
 
     print("Generate Spiral Matrix:")
     for n in [3, 1, 4]:
-        result = solution_gen.generateMatrix(n)
+        generated_matrix: list[list[int]] = solution_gen.generateMatrix(n)
         print(f"n = {n}:")
-        for row in result:
+        for row in generated_matrix:
             print(row)
         print()

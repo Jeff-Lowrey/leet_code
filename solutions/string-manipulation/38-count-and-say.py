@@ -88,6 +88,11 @@ O(m)
 </details>
 """
 
+from itertools import groupby
+from typing import Any
+
+
+
 class Solution:
     def countAndSay(self, n: int) -> str:
         """
@@ -127,7 +132,7 @@ class Solution:
         if not s:
             return ""
 
-        result = []
+        result: list[Any] = []
         i = 0
 
         while i < len(s):
@@ -193,8 +198,6 @@ class Solution:
         Returns:
             The nth count-and-say string
         """
-        from itertools import groupby
-
         result = "1"
 
         for _ in range(n - 1):
@@ -203,7 +206,8 @@ class Solution:
 
         return result
 
-def test_solution():
+
+def test_solution() -> None:
     """Test cases for Problem 38."""
     solution = Solution()
 
@@ -248,6 +252,7 @@ def test_solution():
     assert result8 == expected8, f"Expected {expected8}, got {result8}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

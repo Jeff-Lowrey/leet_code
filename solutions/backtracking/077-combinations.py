@@ -27,7 +27,7 @@ Build combinations incrementally by choosing numbers from a starting position on
 ### APPROACH:
 1. **Initialize result**: Create empty result list and current combination list
 2. **Define backtrack function**: Create recursive function with parameters (start, current)
-3. **Base case**: If len(current) == k, add copy of current to result and return
+# 3. **Base case**: If len(current) == k, add copy of current to result and return  # Result undefined
 4. **Iterate from start**: Loop from start to n+1 (numbers 1 to n)
 5. **Add number**: Append current number i to current combination
 6. **Recursive call**: Call backtrack(i+1, current) to continue building combination
@@ -73,26 +73,28 @@ O(1)
 </details>
 """
 
-from typing import List, Optional, Dict, Tuple
+from typing import Any, List, Optional, Dict, Tuple
+
 
 class Solution:
     def combine(self, n: int, k: int) -> List[List[int]]:
         """
         Generate all possible combinations of k numbers from 1 to n.
-        
+
         Args:
             n (int): The range of numbers (1 to n)
             k (int): The size of each combination
-            
+
         Returns:
             List[List[int]]: List of all possible combinations
         """
+
         def backtrack(start: int, curr_combination: List[int]) -> None:
             # If we have a valid combination of size k, add it to results
             if len(curr_combination) == k:
                 result.append(curr_combination[:])
                 return
-            
+
             # Try each possible number that can be added to the current combination
             for i in range(start, n + 1):
                 # Add current number to combination
@@ -101,59 +103,61 @@ class Solution:
                 backtrack(i + 1, curr_combination)
                 # Backtrack by removing the last added number
                 curr_combination.pop()
-        
-        result = []
+
+        result: list[Any] = []
         backtrack(1, [])
         return result
 
     def combine_iterative(self, n: int, k: int) -> List[List[int]]:
         """
         Generate all possible combinations of k numbers from 1 to n using iterative approach.
-        
+
         Args:
             n (int): The range of numbers (1 to n)
             k (int): The size of each combination
-            
+
         Returns:
             List[List[int]]: List of all possible combinations
         """
         # Initialize the first combination
         nums = list(range(1, k + 1)) + [n + 1]
-        result = []
+        result: list[list[int]] = []
         i = 0
-        
+
         while i < k:
             # Add current combination
             result.append(nums[:k])
             i = 0
-            
+
             # Find the first number that can be incremented
             while i < k and nums[i] + 1 == nums[i + 1]:
                 nums[i] = i + 1
                 i += 1
-            
+
             # Increment the number at position i
             nums[i] += 1
-            
+
         return result
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
     solution = Solution()
 
     # Test case 1: Example from problem
-    result = solution.combine(4, k = 2)
-    expected = [[1,2],[1,3],[1,4],[2,3],[2,4],[3,4]]
+    result = solution.combine(4, k=2)
+    expected = [[1, 2], [1, 3], [1, 4], [2, 3], [2, 4], [3, 4]]
     assert result == expected, f"Expected {expected}, got {result}"
 
     # Test case 2: Empty input
-    result = solution.combine([], 0)
-    expected = [[]]
+    result = solution.combine([], 0)  # type: ignore
+    expected: list[list[int]] = [[]]
     assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

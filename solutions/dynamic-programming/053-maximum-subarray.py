@@ -94,28 +94,29 @@ O(1)
 </details>
 """
 
-from typing import List, Optional, Dict, Tuple
+from typing import List, Optional, Dict, Tuple, Any
+
 
 class Solution:
     def maxSubArray(self, nums: List[int]) -> int:
         """
         Find the contiguous subarray with the largest sum.
-        
+
         Args:
             nums: List of integers
-            
+
         Returns:
             int: The sum of the maximum subarray
-            
+
         Time complexity: O(n)
         Space complexity: O(1)
         """
         if not nums:
             return 0
-        
+
         # Initialize variables for current sum and maximum sum
         current_sum = max_sum = nums[0]
-        
+
         # Iterate through the array starting from second element
         for num in nums[1:]:
             # At each step, we either start a new subarray (num)
@@ -123,43 +124,44 @@ class Solution:
             current_sum = max(num, current_sum + num)
             # Update the maximum sum if current sum is larger
             max_sum = max(max_sum, current_sum)
-            
+
         return max_sum
 
-    def maxSubArrayWithIndices(self, nums: List[int]) -> tuple:
+    def maxSubArrayWithIndices(self, nums: List[int]) -> tuple[Any, ...]:
         """
         Find the contiguous subarray with the largest sum and return its indices.
-        
+
         Args:
             nums: List of integers
-            
+
         Returns:
             tuple: (max_sum, start_index, end_index)
-            
+
         Time complexity: O(n)
         Space complexity: O(1)
         """
         if not nums:
             return (0, -1, -1)
-        
+
         current_sum = max_sum = nums[0]
         start = end = max_start = 0
-        
+
         for i in range(1, len(nums)):
             if nums[i] > current_sum + nums[i]:
                 current_sum = nums[i]
                 start = i
             else:
                 current_sum = current_sum + nums[i]
-                
+
             if current_sum > max_sum:
                 max_sum = current_sum
                 max_start = start
                 end = i
-                
+
         return (max_sum, max_start, end)
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
@@ -181,6 +183,7 @@ def test_solution():
     assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

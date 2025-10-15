@@ -65,17 +65,18 @@ O(1)
 
 from typing import List, Optional, Dict, Tuple
 
+
 class Solution:
     def can_attend_meetings(self, intervals: List[List[int]]) -> bool:
         """
         Determines if a person can attend all meetings.
-        
+
         Args:
             intervals: List of meeting intervals where each interval is [start_time, end_time]
-            
+
         Returns:
             bool: True if all meetings can be attended, False if there are conflicts
-            
+
         Example:
             >>> s = Solution()
             >>> s.can_attend_meetings([[0,30],[5,10],[15,20]])
@@ -86,26 +87,27 @@ class Solution:
         # Handle edge cases
         if not intervals:
             return True
-        
+
         # Sort intervals based on start time
         intervals.sort(key=lambda x: x[0])
-        
+
         # Check for overlaps
         for i in range(1, len(intervals)):
             # If current meeting starts before previous meeting ends
-            if intervals[i][0] < intervals[i-1][1]:
+            if intervals[i][0] < intervals[i - 1][1]:
                 return False
-                
+
         return True
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
     solution = Solution()
 
     # Test case 1: Overlapping meetings
-    result = solution.can_attend_meetings([[0,30],[5,10],[15,20]])
+    result = solution.can_attend_meetings([[0, 30], [5, 10], [15, 20]])
     expected = False
     assert result == expected, f"Expected {expected}, got {result}"
 
@@ -115,11 +117,12 @@ def test_solution():
     assert result == expected, f"Expected {expected}, got {result}"
 
     # Test case 3: Non-overlapping meetings
-    result = solution.can_attend_meetings([[7,10],[2,4]])
+    result = solution.can_attend_meetings([[7, 10], [2, 4]])
     expected = True
     assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

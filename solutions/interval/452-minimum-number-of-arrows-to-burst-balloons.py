@@ -71,18 +71,19 @@ O(1)
 
 from typing import List, Optional, Dict, Tuple
 
+
 class Solution:
     def findMinArrowShots(self, points: List[List[int]]) -> int:
         """
         Finds the minimum number of arrows needed to burst all balloons.
-        
+
         Args:
             points: List of balloon coordinates where each balloon is represented
                    by [start, end] coordinates
-        
+
         Returns:
             int: Minimum number of arrows needed
-        
+
         Example:
             Input: [[10,16],[2,8],[1,6],[7,12]]
             Output: 2
@@ -90,13 +91,13 @@ class Solution:
         # Handle edge cases
         if not points:
             return 0
-        
+
         # Sort balloons by end coordinate
         points.sort(key=lambda x: x[1])
-        
+
         arrows = 1  # Start with one arrow
         current_end = points[0][1]  # Track the end coordinate of current group
-        
+
         # Iterate through all balloons
         for start, end in points[1:]:
             # If current balloon starts after the previous arrow position,
@@ -104,27 +105,28 @@ class Solution:
             if start > current_end:
                 arrows += 1
                 current_end = end
-        
+
         return arrows
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
     solution = Solution()
 
     # Test case 1: Example from problem
-    result = solution.findMinArrowShots([[10,16],[2,8],[1,6],[7,12]])
+    result = solution.findMinArrowShots([[10, 16], [2, 8], [1, 6], [7, 12]])
     expected = 2
     assert result == expected, f"Expected {expected}, got {result}"
 
     # Test case 2: All separate (no overlap)
-    result = solution.findMinArrowShots([[1,2],[3,4],[5,6],[7,8]])
+    result = solution.findMinArrowShots([[1, 2], [3, 4], [5, 6], [7, 8]])
     expected = 4
     assert result == expected, f"Expected {expected}, got {result}"
 
     # Test case 3: All overlap
-    result = solution.findMinArrowShots([[1,10],[2,9],[3,8],[4,7]])
+    result = solution.findMinArrowShots([[1, 10], [2, 9], [3, 8], [4, 7]])
     expected = 1
     assert result == expected, f"Expected {expected}, got {result}"
 
@@ -134,11 +136,12 @@ def test_solution():
     assert result == expected, f"Expected {expected}, got {result}"
 
     # Test case 5: Single balloon
-    result = solution.findMinArrowShots([[1,5]])
+    result = solution.findMinArrowShots([[1, 5]])
     expected = 1
     assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

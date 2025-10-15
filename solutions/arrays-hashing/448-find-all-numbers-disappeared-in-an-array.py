@@ -72,20 +72,21 @@ O(1)
 </details>
 """
 
-from typing import List, Optional, Dict, Tuple
+from typing import Any, List, Optional, Dict, Tuple
+
 
 class Solution:
     def findDisappearedNumbers(self, nums: List[int]) -> List[int]:
         """
         Find all numbers from 1 to n that are missing in the input array.
-        
+
         Args:
             nums: List of integers where each integer is in range [1, n]
                  and n is the length of the list
-        
+
         Returns:
             List of integers that are missing from the input array
-        
+
         Time Complexity: O(n)
         Space Complexity: O(1) - excluding the output array
         """
@@ -95,25 +96,26 @@ class Solution:
             index = abs(num) - 1
             # Mark as seen by making the number at index negative
             nums[index] = -abs(nums[index])
-        
+
         # Find missing numbers by checking which indices contain positive numbers
-        result = []
+        result: list[Any] = []
         for i in range(len(nums)):
             if nums[i] > 0:
                 # i + 1 is missing from the original array
                 result.append(i + 1)
-        
+
         return result
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
     solution = Solution()
 
     # Test case 1: Example from problem
-    result = solution.findDisappearedNumbers([4,3,2,7,8,2,3,1])
-    expected = [5, 6]
+    result = solution.findDisappearedNumbers([4, 3, 2, 7, 8, 2, 3, 1])
+    expected: list[Any] = [5, 6]
     assert result == expected, f"Expected {expected}, got {result}"
 
     # Test case 2: Empty input
@@ -127,6 +129,7 @@ def test_solution():
     assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

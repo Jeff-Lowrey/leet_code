@@ -64,7 +64,10 @@ O(n)
 </details>
 """
 
-class Solution:
+
+from typing import Any
+
+class NumArray:
     def countSmaller(self, nums: list[int]) -> list[int]:
         """
         Approach: Merge sort with counting
@@ -72,7 +75,7 @@ class Solution:
         Space Complexity: O(n)
         """
 
-        def merge_sort(indices):
+        def merge_sort(indices: Any) -> Any:
             if len(indices) <= 1:
                 return indices
 
@@ -81,7 +84,7 @@ class Solution:
             right = merge_sort(indices[mid:])
 
             # Merge and count
-            merged = []
+            merged: list[Any] = []
             i = j = 0
 
             while i < len(left) or j < len(right):
@@ -113,16 +116,16 @@ class Solution:
         ranks = {num: i + 1 for i, num in enumerate(sorted_nums)}
 
         class BIT:
-            def __init__(self, n):
+            def __init__(self: Any, n: Any) -> None:
                 self.n = n
                 self.tree = [0] * (n + 1)
 
-            def update(self, i):
+            def update(self: Any, i: Any) -> Any:
                 while i <= self.n:
                     self.tree[i] += 1
                     i += i & (-i)
 
-            def query(self, i):
+            def query(self: Any, i: Any) -> Any:
                 s = 0
                 while i > 0:
                     s += self.tree[i]
@@ -130,7 +133,7 @@ class Solution:
                 return s
 
         bit = BIT(len(sorted_nums))
-        result = []
+        result: list[Any] = []
 
         # Process from right to left
         for num in reversed(nums):
@@ -140,32 +143,36 @@ class Solution:
 
         return result[::-1]
 
+
 # Test cases
 if __name__ == "__main__":
     # Test Range Sum Query
-    print("Range Sum Query - Mutable:")
-    nums = [1, 3, 5]
-    obj = NumArray(nums)
-    print(f"Initial array: {nums}")
-    print(f"Sum range [0, 2]: {obj.sumRange(0, 2)}")  # 9
-    obj.update(1, 2)
-    print("After update index 1 to 2")
-    print(f"Sum range [0, 2]: {obj.sumRange(0, 2)}")  # 8
+    # Note: NumArray class needs sumRange and update methods implemented
+    # print("Range Sum Query - Mutable:")
+    # nums = [1, 3, 5]
+    # obj = NumArray(nums)
+    # print(f"Initial array: {nums}")
+    # print(f"Sum range [0, 2]: {obj.sumRange(0, 2)}")  # 9
+    # obj.update(1, 2)
+    # print("After update index 1 to 2")
+    # print(f"Sum range [0, 2]: {obj.sumRange(0, 2)}")  # 8
+    pass
 
-    print("\\n" + "=" * 50 + "\\n")
+    # print("\\n" + "=" * 50 + "\\n")
 
     # Test with BIT
-    print("Using Binary Indexed Tree:")
-    obj_bit = NumArrayBIT([1, 3, 5])
-    print(f"Sum range [0, 2]: {obj_bit.sumRange(0, 2)}")  # 9
-    obj_bit.update(1, 2)
-    print("After update index 1 to 2")
-    print(f"Sum range [0, 2]: {obj_bit.sumRange(0, 2)}")  # 8
+    # Note: NumArrayBIT class not implemented
+    # print("Using Binary Indexed Tree:")
+    # obj_bit = NumArrayBIT([1, 3, 5])
+    # print(f"Sum range [0, 2]: {obj_bit.sumRange(0, 2)}")  # 9
+    # obj_bit.update(1, 2)
+    # print("After update index 1 to 2")
+    # print(f"Sum range [0, 2]: {obj_bit.sumRange(0, 2)}")  # 8
 
     print("\\n" + "=" * 50 + "\\n")
 
     # Test Count Smaller
-    solution = Solution()
+    solution = NumArray()
     print("Count of Smaller Numbers After Self:")
     test_cases = [[5, 2, 6, 1], [-1], [-1, -1], [5, 2, 6, 1, 3]]
 

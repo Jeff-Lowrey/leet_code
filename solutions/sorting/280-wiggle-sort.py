@@ -80,6 +80,7 @@ In-place swaps only
 </details>
 """
 
+
 class Solution:
     def wiggleSort(self, nums: list[int]) -> None:
         """
@@ -139,6 +140,7 @@ class Solution:
                 nums[i] = temp[n - 1 - right]
                 right += 1
 
+
 def is_wiggle_sorted(nums: list[int]) -> bool:
     """
     Check if array satisfies wiggle sort property.
@@ -160,7 +162,8 @@ def is_wiggle_sorted(nums: list[int]) -> bool:
                 return False
     return True
 
-def test_solution():
+
+def test_solution() -> None:
     """Test cases for Problem 280."""
     solution = Solution()
 
@@ -202,7 +205,6 @@ def test_solution():
     # Test median approach
     nums8 = [3, 5, 2, 1, 6, 4]
     solution.wiggleSortMedian(nums8)
-    # Note: This approach creates different valid pattern
     print(f"Median approach result: {nums8}")
 
     # Test case 9: Larger array
@@ -211,6 +213,7 @@ def test_solution():
     assert is_wiggle_sorted(nums9), f"Not wiggle sorted: {nums9}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

@@ -64,6 +64,10 @@ O(1) - at most 26 lowercase letters
 </details>
 """
 
+from collections import Counter
+from typing import Any
+
+
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
         """
@@ -82,7 +86,7 @@ class Solution:
         if len(s) != len(t):
             return False
 
-        count = {}
+        count: dict[Any, Any] = {}
 
         # Count characters in s
         for char in s:
@@ -105,6 +109,7 @@ class Solution:
         Space Complexity: O(1)
         """
         return sorted(s) == sorted(t)
+
 
 # Test cases
 if __name__ == "__main__":

@@ -72,7 +72,8 @@ O(1)
 
 import heapq
 
-from typing import List, Optional, Dict, Tuple
+from typing import Any, List, Optional, Dict, Tuple
+
 
 class Solution:
     def kSmallestPairs(self, nums1: List[int], nums2: List[int], k: int) -> List[List[int]]:
@@ -92,8 +93,8 @@ class Solution:
             return []
 
         # Initialize result list and min heap
-        result = []
-        min_heap = []
+        result: list[Any] = []
+        min_heap: list[Any] = []
 
         # Push the first pair from nums1 with all possible pairs from nums2
         # We start with (sum, i, j) where i is index in nums1 and j is index in nums2
@@ -122,23 +123,25 @@ class Solution:
 
         return result
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
     solution = Solution()
 
     # Test case 1: Example from problem
-    result = solution.kSmallestPairs([1,7,11], [2,4,6], 3)
-    expected = [[1,2],[1,4],[1,6]]
+    result = solution.kSmallestPairs([1, 7, 11], [2, 4, 6], 3)
+    expected = [[1, 2], [1, 4], [1, 6]]
     assert result == expected, f"Expected {expected}, got {result}"
 
     # Test case 2: Empty arrays
-    result = solution.kSmallestPairs([], [2,4,6], 3)
-    expected = []
+    result = solution.kSmallestPairs([], [2, 4, 6], 3)
+    expected: list[Any] = []
     assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

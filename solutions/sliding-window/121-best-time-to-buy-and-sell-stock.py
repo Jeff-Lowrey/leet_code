@@ -69,6 +69,9 @@ Only using constant extra space
 </details>
 """
 
+
+from typing import Any
+
 class Solution:
     def maxProfit(self, prices: list[int]) -> int:
         """
@@ -159,20 +162,21 @@ class Solution:
 
         return max_profit
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for 121. Best Time to Buy and Sell Stock.
     """
     solution = Solution()
 
     # Test case 1: Example case
-    prices1 = [7,1,5,3,6,4]
+    prices1 = [7, 1, 5, 3, 6, 4]
     result1 = solution.maxProfit(prices1)
     expected1 = 5  # Buy at 1, sell at 6
     assert result1 == expected1, f"Expected {expected1}, got {result1}"
 
     # Test case 2: No profit possible
-    prices2 = [7,6,4,3,1]
+    prices2 = [7, 6, 4, 3, 1]
     result2 = solution.maxProfit(prices2)
     expected2 = 0  # Prices only decrease
     assert result2 == expected2, f"Expected {expected2}, got {result2}"
@@ -184,13 +188,13 @@ def test_solution():
     assert result3 == expected3, f"Expected {expected3}, got {result3}"
 
     # Test case 4: Two days profit
-    prices4 = [1,5]
+    prices4 = [1, 5]
     result4 = solution.maxProfit(prices4)
     expected4 = 4  # Buy at 1, sell at 5
     assert result4 == expected4, f"Expected {expected4}, got {result4}"
 
     # Test case 5: Empty array
-    prices5 = []
+    prices5: list[Any] = []
     result5 = solution.maxProfit(prices5)
     expected5 = 0
     assert result5 == expected5, f"Expected {expected5}, got {result5}"
@@ -205,7 +209,8 @@ def test_solution():
 
     print("All test cases passed!")
 
-def analyze_stock_example(prices: list[int]):
+
+def analyze_stock_example(prices: list[int]) -> None:
     """Analyze a stock price example step by step."""
     print(f"\nAnalyzing prices: {prices}")
 
@@ -244,6 +249,7 @@ def analyze_stock_example(prices: list[int]):
     else:
         print(f"No profitable transaction possible")
 
+
 if __name__ == "__main__":
     test_solution()
 
@@ -254,7 +260,7 @@ if __name__ == "__main__":
 
     # Example 1: Classic case
     print(f"\nExample 1: Classic profitable case")
-    prices1 = [7,1,5,3,6,4]
+    prices1 = [7, 1, 5, 3, 6, 4]
     profit1 = solution.maxProfit(prices1)
     print(f"Prices: {prices1}")
     print(f"Maximum profit: ${profit1}")
@@ -262,7 +268,7 @@ if __name__ == "__main__":
 
     # Example 2: Declining prices
     print(f"\nExample 2: Declining prices (no profit)")
-    prices2 = [7,6,4,3,1]
+    prices2 = [7, 6, 4, 3, 1]
     profit2 = solution.maxProfit(prices2)
     print(f"Prices: {prices2}")
     print(f"Maximum profit: ${profit2}")
@@ -273,7 +279,7 @@ if __name__ == "__main__":
     approaches = [
         ("Greedy (min price tracking)", solution.maxProfit),
         ("Two pointers", solution.maxProfitTwoPointers),
-        ("Kadane's algorithm", solution.maxProfitKadane)
+        ("Kadane's algorithm", solution.maxProfitKadane),
     ]
 
     for name, method in approaches:

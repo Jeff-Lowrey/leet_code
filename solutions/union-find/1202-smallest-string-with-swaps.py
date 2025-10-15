@@ -67,6 +67,55 @@ O(n)
 </details>
 """
 
+from collections import defaultdict
+from typing import Any
+import re
+
+
+
+
+
+class UnionFind:
+    """Union-Find (Disjoint Set Union) data structure."""
+
+    def __init__(self, n: int) -> None:
+        """Initialize with n elements."""
+        self.parent = list(range(n))
+        self.rank = [0] * n
+
+
+    @property
+    def components(self) -> int:
+        """Return number of connected components."""
+        return len(set(self.find(i) for i in range(len(self.parent))))
+
+    def find(self, x: int) -> int:
+        """Find root of element x with path compression."""
+        if self.parent[x] != x:
+            self.parent[x] = self.find(self.parent[x])
+        return self.parent[x]
+
+    def union(self, x: int, y: int) -> bool:
+        """Union two sets. Returns True if they were in different sets."""
+        px, py = self.find(x), self.find(y)
+        if px == py:
+            return False
+
+        if self.rank[px] < self.rank[py]:
+            self.parent[px] = py
+        elif self.rank[px] > self.rank[py]:
+            self.parent[py] = px
+        else:
+            self.parent[py] = px
+            self.rank[px] += 1
+
+        return True
+
+    def connected(self, x: int, y: int) -> bool:
+        """Check if two elements are in the same set."""
+        return self.find(x) == self.find(y)
+
+
 class Solution:
     def smallestStringWithSwaps(self, s: str, pairs: list[list[int]]) -> str:
         """
@@ -82,7 +131,7 @@ class Solution:
             uf.union(a, b)
 
         # Group indices by component
-        components = defaultdict(list)
+        components: dict[Any, list[Any]] = defaultdict(list)
         for i in range(n):
             components[uf.find(i)].append(i)
 
@@ -99,6 +148,7 @@ class Solution:
                 result[i] = char
 
         return "".join(result)
+
 
 def test_solution() -> None:
     """Test cases for Problem 1202."""
@@ -133,6 +183,7 @@ def test_solution() -> None:
     print("Test case 7 passed")
 
     print("\nAll test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

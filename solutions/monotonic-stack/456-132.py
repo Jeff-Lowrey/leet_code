@@ -64,45 +64,47 @@ O(1)
 </details>
 """
 
-from typing import List, Optional, Dict, Tuple
+from typing import Any, List, Optional, Dict, Tuple
+
 
 class Solution:
     def find132pattern(self, nums: List[int]) -> bool:
         """
         Determines if the given array contains a 132 pattern.
-        
+
         Args:
             nums: List of integers to check for the pattern
-            
+
         Returns:
             bool: True if a 132 pattern exists, False otherwise
         """
         if len(nums) < 3:
             return False
-        
+
         # Stack to keep track of potential "2" values
-        stack = []
-        
+        stack: list[Any] = []
+
         # Initialize the "2" value (nums[k]) as negative infinity
-        s3 = float('-inf')
-        
+        s3 = float("-inf")
+
         # Iterate through the array from right to left
         for num in reversed(nums):
             # If current number is less than s3, we found a 132 pattern
             if num < s3:
                 return True
-            
+
             # While stack is not empty and current number is greater than top of stack
             while stack and stack[-1] < num:
                 # Update s3 (potential "2" value)
                 s3 = stack.pop()
-            
+
             # Add current number to stack as potential "3" value
             stack.append(num)
-        
+
         return False
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
@@ -124,6 +126,7 @@ def test_solution():
     assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

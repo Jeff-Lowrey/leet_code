@@ -89,17 +89,20 @@ O(1)
 </details>
 """
 
+
+from typing import Any
+
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
         """
         Find the length of the longest substring without repeating characters.
-        
+
         Args:
             s (str): Input string
-            
+
         Returns:
             int: Length of the longest substring without repeating characters
-            
+
         Time Complexity: O(n) where n is the length of the string
         Space Complexity: O(min(m, n)) where m is the size of the character set
         """
@@ -110,12 +113,12 @@ class Solution:
             return 1
 
         # Dictionary to store the last position of each character
-        char_position = {}
-        
+        char_position: dict[Any, Any] = {}
+
         # Variables to track the current and maximum length
         max_length = 0
         start = 0
-        
+
         # Iterate through the string
         for current_pos, char in enumerate(s):
             # If we find a repeating character, update the start position
@@ -125,13 +128,14 @@ class Solution:
                 # Update max_length if current window is larger
                 current_length = current_pos - start + 1
                 max_length = max(max_length, current_length)
-            
+
             # Update the last position of current character
             char_position[char] = current_pos
-        
+
         return max_length
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
@@ -153,6 +157,7 @@ def test_solution():
     assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()
