@@ -224,7 +224,13 @@ class TestLanguageViewing:
     @patch("src.leet_code.app.Path")
     @patch("src.leet_code.app.category_manager")
     def test_view_alternative_language(
-        self, mock_manager: Any, mock_path_class: Any, mock_get_ext: Any, mock_get_lexer: Any, mock_get_langs: Any, client: Any
+        self,
+        mock_manager: Any,
+        mock_path_class: Any,
+        mock_get_ext: Any,
+        mock_get_lexer: Any,
+        mock_get_langs: Any,
+        client: Any,
     ) -> None:
         """Test viewing solution in alternative language."""
         from pygments.lexers import JavaLexer
@@ -257,7 +263,9 @@ class TestLanguageViewing:
     @patch("src.leet_code.app.get_file_extension")
     @patch("src.leet_code.app.Path")
     @patch("src.leet_code.app.category_manager")
-    def test_view_non_existent_language(self, mock_manager: Any, mock_path_class: Any, mock_get_ext: Any, client: Any) -> None:
+    def test_view_non_existent_language(
+        self, mock_manager: Any, mock_path_class: Any, mock_get_ext: Any, client: Any
+    ) -> None:
         """Test viewing solution in language that doesn't exist."""
         mock_solution = Solution("001-two-sum.py", "Two Sum")
         mock_manager.get_solution.return_value = mock_solution
