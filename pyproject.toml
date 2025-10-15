@@ -17,6 +17,7 @@ build-backend = "pdm.backend"
 [dependency-groups]
 lint = [ "ruff>=0.1.0", "mypy>=1.0",]
 dev = [
+    "pytest>=8.0.0",
     "types-Markdown>=3.9.0.20250906",
     "types-Pygments>=2.19.0.20250809",
     "bandit>=1.8.6",
