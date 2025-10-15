@@ -116,12 +116,12 @@
     <!-- Difficulty and Complexity Badges -->
     <div class="solution-badges">
         {% if difficulty %}
-        <a href="{{ url_for('difficulty_view', difficulty=difficulty) }}" class="badge difficulty-badge difficulty-{{ difficulty.lower() }}">
+        <a href="{{ url_for('difficulty_overview') }}#{{ difficulty.lower() }}" class="badge difficulty-badge difficulty-{{ difficulty.lower() }}">
             {{ difficulty }}
         </a>
         {% endif %}
         {% if time_complexity or space_complexity %}
-        <a href="{{ url_for('complexity_view', time_complexity=time_complexity or 'any', space_complexity=space_complexity or 'any') }}" class="badge complexity-badge">
+        <a href="{{ url_for('complexity_overview') }}#{{ (time_complexity or 'Unknown') }}_{{ (space_complexity or 'Unknown') }}" class="badge complexity-badge">
             {% if time_complexity %}Time: {{ time_complexity }}{% endif %}{% if time_complexity and space_complexity %} | {% endif %}{% if space_complexity %}Space: {{ space_complexity }}{% endif %}
         </a>
         {% endif %}

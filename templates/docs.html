@@ -8,16 +8,14 @@
     <p>Comprehensive guides for each problem category</p>
 </header>
 
-<section class="docs-grid">
-    <a href="{{ url_for('docs_view', category='user_guide') }}" class="doc-card">
-        <h3>User Guide</h3>
-        <p>Complete guide to using the application →</p>
-    </a>
+<section class="categories-grid">
     {% for doc in docs %}
-    <a href="{{ url_for('docs_view', category=doc.slug) }}" class="doc-card">
-        <h3>{{ doc.name }}</h3>
-        <p>View category documentation →</p>
-    </a>
+    <div class="category-card-wrapper" data-category="{{ doc.category_slug }}">
+        <a href="{{ url_for('docs_view', category=doc.slug) }}" class="category-card">
+            <h3>{{ doc.name }}</h3>
+            <p class="description">{{ doc.description }}</p>
+        </a>
+    </div>
     {% endfor %}
 </section>
 {% endblock %}

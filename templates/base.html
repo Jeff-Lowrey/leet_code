@@ -10,13 +10,38 @@
 <body>
     <nav class="navbar">
         <div class="nav-container">
-            <button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
+            <button class="sidebar-toggle" onclick="toggleSidebar()" title="Table of Contents">
+                <svg class="toc-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Document outline icon -->
+                    <rect x="4" y="4" width="16" height="16" rx="2" stroke="currentColor" stroke-width="2"/>
+                    <line x1="8" y1="9" x2="16" y2="9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    <line x1="8" y1="13" x2="14" y2="13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    <line x1="8" y1="17" x2="12" y2="17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+            </button>
             <a href="/" class="logo">Leet Code Learning Tool</a>
             <div style="display: flex; align-items: center; gap: 1rem;">
-                <ul class="nav-links">
-                    <li><a href="/">Categories</a></li>
-                    <li><a href="/docs">Documentation</a></li>
-                </ul>
+                <div class="view-by-container">
+                    <button class="view-by-toggle" onclick="toggleViewByDropdown(event)" title="Switch view">
+                        <span class="view-icon" id="view-icon">📊</span>
+                    </button>
+                    <div class="view-by-menu" id="view-by-menu">
+                        <a href="/">By Category</a>
+                        <a href="/difficulty">By Difficulty</a>
+                        <a href="/complexity">By Complexity</a>
+                    </div>
+                </div>
+                <div class="docs-container">
+                    <button class="docs-button" onclick="toggleDocsDropdown(event)" title="Documentation">
+                        <span class="docs-icon">📖</span>
+                    </button>
+                    <div class="docs-menu" id="docs-menu">
+                        <a href="/docs">All Documentation</a>
+                        <a href="/docs/user-guide">User Guide</a>
+                        <a href="/docs/developer-guide">Developer Guide</a>
+                        <a href="/docs/upload-guide">Upload Guide</a>
+                    </div>
+                </div>
                 <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark/light mode">
                     <span class="theme-icon">🌙</span>
                 </button>
@@ -81,7 +106,132 @@
             // Get current page context
             const currentPath = window.location.pathname;
 
-            // Fetch categories and build navigation
+            // Check page type and build appropriate TOC
+            if (currentPath === '/difficulty') {
+                buildDifficultyTOC(nav);
+            } else if (currentPath === '/complexity') {
+                buildComplexityTOC(nav);
+            } else if (currentPath.startsWith('/docs/') && currentPath !== '/docs' && currentPath !== '/docs/') {
+                buildDocumentationTOC(nav);
+            } else if (currentPath === '/docs' || currentPath === '/docs/') {
+                // Documentation overview page - show list of guides
+                buildDocsOverviewTOC(nav);
+            } else {
+                // Default: category-based navigation
+                buildCategoryTOC(nav, currentPath);
+            }
+        }
+
+        // Build docs overview TOC - show available guides
+        async function buildDocsOverviewTOC(nav) {
+            const docCards = document.querySelectorAll('.category-card-wrapper[data-category*="-doc"]');
+
+            if (docCards.length === 0) {
+                nav.innerHTML = '<p class="toc-empty">No documentation available</p>';
+                return;
+            }
+
+            // Show loading state
+            nav.innerHTML = '<p class="toc-loading">Loading documentation structure...</p>';
+
+            const guides = [
+                { slug: 'user-guide', title: 'User Guide' },
+                { slug: 'developer-guide', title: 'Developer Guide' },
+                { slug: 'upload-guide', title: 'Upload Guide' }
+            ];
+
+            let html = '<ul class="toc-list toc-docs-overview">';
+
+            // Fetch each guide's structure
+            for (const guide of guides) {
+                try {
+                    const response = await fetch(`/docs/${guide.slug}`);
+                    const htmlText = await response.text();
+
+                    // Parse the HTML to extract TOC structure
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(htmlText, 'text/html');
+                    const content = doc.querySelector('.doc-content');
+
+                    if (!content) continue;
+
+                    // Find the "Table of Contents" section
+                    const tocSection = Array.from(content.querySelectorAll('h2')).find(h =>
+                        h.textContent.toLowerCase().includes('table of contents')
+                    );
+
+                    if (!tocSection) continue;
+
+                    // Get the list following the TOC heading
+                    let tocList = tocSection.nextElementSibling;
+                    while (tocList && tocList.tagName !== 'OL' && tocList.tagName !== 'UL') {
+                        tocList = tocList.nextElementSibling;
+                    }
+
+                    if (!tocList) continue;
+
+                    // Build the guide section
+                    html += `
+                        <li class="toc-guide-section">
+                            <div class="toc-guide-header" onclick="toggleGuideSection('${guide.slug}')">
+                                <span class="toc-arrow" id="arrow-${guide.slug}">▶</span>
+                                <a href="/docs/${guide.slug}" class="toc-guide-title">${guide.title}</a>
+                            </div>
+                            <ul class="toc-guide-pages" id="guide-${guide.slug}" style="display: none;">
+                    `;
+
+                    // Parse the TOC list items
+                    tocList.querySelectorAll('li').forEach(li => {
+                        const link = li.querySelector('a');
+                        if (link) {
+                            const href = link.getAttribute('href');
+                            const text = link.textContent;
+                            const description = li.textContent.replace(text, '').replace(/^[\s\-–]+/, '').trim();
+
+                            // Build full href
+                            const fullHref = href.startsWith('/docs/') ? href : `/docs/${guide.slug}/${href}`;
+
+                            html += `
+                                <li class="toc-page-item">
+                                    <a href="${fullHref}" class="toc-link">
+                                        <strong>${text}</strong>
+                                        ${description ? '<br><span class="toc-desc">' + description + '</span>' : ''}
+                                    </a>
+                                </li>
+                            `;
+                        }
+                    });
+
+                    html += `
+                            </ul>
+                        </li>
+                    `;
+
+                } catch (error) {
+                    console.error(`Error loading ${guide.title}:`, error);
+                }
+            }
+
+            html += '</ul>';
+            nav.innerHTML = html;
+        }
+
+        // Toggle guide section in docs overview TOC
+        function toggleGuideSection(guideSlug) {
+            const section = document.getElementById(`guide-${guideSlug}`);
+            const arrow = document.getElementById(`arrow-${guideSlug}`);
+
+            if (section.style.display === 'none') {
+                section.style.display = 'block';
+                arrow.style.transform = 'rotate(90deg)';
+            } else {
+                section.style.display = 'none';
+                arrow.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        // Build category-based TOC (original behavior)
+        function buildCategoryTOC(nav, currentPath) {
             fetch('/api/categories')
                 .then(response => response.json())
                 .then(categories => {
@@ -117,6 +267,160 @@
                 .catch(error => {
                     nav.innerHTML = '<p class="error">Failed to load navigation</p>';
                 });
+        }
+
+        // Build difficulty page TOC
+        function buildDifficultyTOC(nav) {
+            const sections = document.querySelectorAll('.difficulty-section');
+            let html = '<ul class="toc-list">';
+
+            sections.forEach(section => {
+                const id = section.id;
+                const heading = section.querySelector('h2');
+                if (heading) {
+                    const text = heading.textContent;
+                    html += `
+                        <li class="toc-item">
+                            <a href="#${id}" class="toc-link">${text}</a>
+                        </li>
+                    `;
+                }
+            });
+
+            html += '</ul>';
+            nav.innerHTML = html;
+        }
+
+        // Build complexity page TOC
+        function buildComplexityTOC(nav) {
+            const sections = document.querySelectorAll('.complexity-section');
+            let html = '<ul class="toc-list">';
+
+            sections.forEach(section => {
+                const id = section.id;
+                const heading = section.querySelector('h2');
+                if (heading) {
+                    const text = heading.textContent;
+                    html += `
+                        <li class="toc-item">
+                            <a href="#${id}" class="toc-link">${text}</a>
+                        </li>
+                    `;
+                }
+            });
+
+            html += '</ul>';
+            nav.innerHTML = html;
+        }
+
+        // Build documentation page TOC
+        function buildDocumentationTOC(nav) {
+            const currentPath = window.location.pathname;
+            const pathParts = currentPath.split('/');
+            const category = pathParts[2]; // e.g., "user-guide"
+
+            // Check if we're on a guide README or sub-page
+            if (pathParts.length === 3 || (pathParts.length === 4 && !pathParts[3])) {
+                // On main guide page - show full guide structure from README TOC
+                buildGuideStructureTOC(nav, category);
+            } else {
+                // On a sub-page - still show full guide structure with current page highlighted
+                buildGuideStructureTOC(nav, category, pathParts[3]);
+            }
+        }
+
+        // Build guide structure TOC from README table of contents
+        function buildGuideStructureTOC(nav, category, currentPage) {
+            const content = document.querySelector('.doc-content');
+            if (!content) return;
+
+            // Find the "Table of Contents" section
+            const tocSection = Array.from(content.querySelectorAll('h2')).find(h =>
+                h.textContent.toLowerCase().includes('table of contents')
+            );
+
+            if (!tocSection) {
+                // Fallback to current page headings if no TOC found
+                buildCurrentPageTOC(nav);
+                return;
+            }
+
+            // Get the list following the TOC heading
+            let tocList = tocSection.nextElementSibling;
+            while (tocList && tocList.tagName !== 'OL' && tocList.tagName !== 'UL') {
+                tocList = tocList.nextElementSibling;
+            }
+
+            if (!tocList) {
+                buildCurrentPageTOC(nav);
+                return;
+            }
+
+            let html = '<ul class="toc-list">';
+
+            // Parse the TOC list items
+            tocList.querySelectorAll('li').forEach(li => {
+                const link = li.querySelector('a');
+                if (link) {
+                    const href = link.getAttribute('href');
+                    const text = link.textContent;
+                    const description = li.textContent.replace(text, '').replace(/^[\s\-–]+/, '').trim();
+
+                    // Determine if this is the current page (strip .md for comparison)
+                    const pageNameWithoutExt = currentPage ? currentPage.replace('.md', '') : '';
+                    const hrefWithoutExt = href.replace('.md', '');
+                    const isActive = pageNameWithoutExt && hrefWithoutExt === pageNameWithoutExt;
+
+                    // Check if href already has the full path or is relative
+                    const fullHref = href.startsWith('/docs/') ? href : `/docs/${category}/${href}`;
+
+                    html += `
+                        <li class="toc-item ${isActive ? 'active' : ''}">
+                            <a href="${fullHref}" class="toc-link">
+                                <strong>${text}</strong>
+                                ${description ? '<br><span class="toc-desc">' + description + '</span>' : ''}
+                            </a>
+                        </li>
+                    `;
+                }
+            });
+
+            html += '</ul>';
+            nav.innerHTML = html;
+        }
+
+        // Fallback: Build TOC from current page headings
+        function buildCurrentPageTOC(nav) {
+            const content = document.querySelector('.doc-content');
+            const headings = content.querySelectorAll('h1, h2, h3');
+
+            if (headings.length === 0) {
+                nav.innerHTML = '<p class="toc-empty">No sections found</p>';
+                return;
+            }
+
+            let html = '<ul class="toc-list">';
+
+            headings.forEach((heading, index) => {
+                const level = heading.tagName;
+                const text = heading.textContent;
+                const id = heading.id || `section-${index}`;
+
+                if (!heading.id) {
+                    heading.id = id;
+                }
+
+                const className = level === 'H1' ? 'toc-h1' : level === 'H2' ? 'toc-h2' : 'toc-h3';
+
+                html += `
+                    <li class="toc-item ${className}">
+                        <a href="#${id}" class="toc-link">${text}</a>
+                    </li>
+                `;
+            });
+
+            html += '</ul>';
+            nav.innerHTML = html;
         }
 
         // Toggle category expansion
@@ -196,6 +500,58 @@
                 });
             }
         });
+
+        // Toggle View By dropdown
+        function toggleViewByDropdown(event) {
+            event.stopPropagation();
+            const menu = document.getElementById('view-by-menu');
+            menu.classList.toggle('show');
+        }
+
+        // Close View By dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!event.target.closest('.view-by-container')) {
+                const menu = document.getElementById('view-by-menu');
+                if (menu) {
+                    menu.classList.remove('show');
+                }
+            }
+        });
+
+        // Toggle Docs dropdown
+        function toggleDocsDropdown(event) {
+            event.stopPropagation();
+            const menu = document.getElementById('docs-menu');
+            menu.classList.toggle('show');
+        }
+
+        // Close Docs dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!event.target.closest('.docs-container')) {
+                const menu = document.getElementById('docs-menu');
+                if (menu) {
+                    menu.classList.remove('show');
+                }
+            }
+        });
+
+        // Update view icon based on current page
+        function updateViewIcon() {
+            const path = window.location.pathname;
+            const viewIcon = document.getElementById('view-icon');
+            const viewButton = document.querySelector('.view-by-toggle');
+
+            if (path === '/difficulty') {
+                viewIcon.textContent = '📊';
+                viewButton.setAttribute('title', 'By Difficulty');
+            } else if (path === '/complexity') {
+                viewIcon.textContent = '⚡';
+                viewButton.setAttribute('title', 'By Complexity');
+            } else {
+                viewIcon.textContent = '📁';
+                viewButton.setAttribute('title', 'By Category');
+            }
+        }
 
         // Theme switching functionality - preserves theme family, toggles light/dark
         function toggleTheme() {
@@ -437,6 +793,7 @@
         document.addEventListener('DOMContentLoaded', function() {
             initializeTheme();
             buildTableOfContents();
+            updateViewIcon();
         });
     </script>
 </body>

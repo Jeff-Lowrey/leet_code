@@ -49,15 +49,28 @@ body {
     border: 1px solid var(--border-color);
     border-radius: 4px;
     padding: 0.5rem 0.75rem;
-    font-size: 1.25rem;
     cursor: pointer;
     margin-right: 1rem;
     transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .sidebar-toggle:hover {
     background-color: var(--light-bg);
     border-color: var(--primary-color);
+}
+
+.toc-icon {
+    width: 20px;
+    height: 20px;
+    color: var(--text-primary);
+    transition: color 0.2s ease;
+}
+
+.sidebar-toggle:hover .toc-icon {
+    color: var(--primary-color);
 }
 
 .logo {
@@ -1650,3 +1663,479 @@ main {
 [data-category="union-find"] .problem-num { background-color: var(--cat-rust); }
 [data-category="union-find"] .problem-statement h2 { color: var(--cat-rust); }
 [data-category="union-find"] .problem-content strong { color: var(--cat-rust); }
+
+/* ============================================
+   DOCUMENTATION GUIDE CARDS
+   ============================================ */
+
+/* User Guide - Steel Blue */
+[data-category="user-guide-doc"] .category-card { border-left: 4px solid var(--cat-steel-blue); }
+[data-category="user-guide-doc"] .category-card h3 { color: var(--cat-steel-blue); }
+
+/* Developer Guide - Plum */
+[data-category="developer-guide-doc"] .category-card { border-left: 4px solid var(--cat-plum); }
+[data-category="developer-guide-doc"] .category-card h3 { color: var(--cat-plum); }
+
+/* Upload Guide - Amber */
+[data-category="upload-guide-doc"] .category-card { border-left: 4px solid var(--cat-amber); }
+[data-category="upload-guide-doc"] .category-card h3 { color: var(--cat-amber); }
+
+/* ============================================
+   TABLE OF CONTENTS ENHANCEMENTS
+   ============================================ */
+
+/* TOC link styling */
+.toc-link {
+    display: block;
+    padding: 0.5rem 0.75rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.toc-link:hover {
+    background: var(--light-bg);
+    color: var(--primary-color);
+}
+
+/* Documentation TOC hierarchy */
+.toc-h1 {
+    font-weight: 600;
+    margin-top: 0.5rem;
+}
+
+.toc-h2 {
+    padding-left: 1rem;
+    font-size: 0.9rem;
+}
+
+.toc-h3 {
+    padding-left: 2rem;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.toc-empty {
+    padding: 1rem;
+    color: var(--text-secondary);
+    font-style: italic;
+    text-align: center;
+}
+
+/* Documentation guide TOC styling */
+.toc-desc {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    font-weight: normal;
+    display: block;
+    margin-top: 0.25rem;
+}
+
+.toc-item.active .toc-link {
+    background: var(--light-bg);
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.toc-item.active .toc-desc {
+    color: var(--text-primary);
+}
+
+/* Docs Overview TOC - Nested Guide Structure */
+.toc-docs-overview {
+    padding: 0;
+}
+
+.toc-guide-section {
+    margin-bottom: 1rem;
+    list-style: none;
+}
+
+.toc-guide-header {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background 0.2s;
+    background: var(--light-bg);
+    margin-bottom: 0.5rem;
+}
+
+.toc-guide-header:hover {
+    background: var(--hover-bg);
+}
+
+.toc-guide-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    text-decoration: none;
+    flex: 1;
+}
+
+.toc-guide-title:hover {
+    text-decoration: underline;
+}
+
+.toc-guide-pages {
+    list-style: none;
+    padding-left: 1.5rem;
+    margin: 0;
+}
+
+.toc-page-item {
+    margin-bottom: 0.5rem;
+    list-style: none;
+}
+
+.toc-page-item .toc-link {
+    display: block;
+    padding: 0.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+
+.toc-page-item .toc-link:hover {
+    background: var(--light-bg);
+}
+
+.toc-page-item strong {
+    color: var(--text-primary);
+    font-size: 0.9rem;
+}
+
+.toc-loading {
+    padding: 1rem;
+    text-align: center;
+    color: var(--text-secondary);
+    font-style: italic;
+}
+
+/* ============================================
+   DIFFICULTY & COMPLEXITY PAGES STYLES
+   ============================================ */
+
+/* Collapsible Section Styles */
+.difficulty-section details,
+.complexity-section details {
+    background: var(--card-bg);
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    padding: 0;
+}
+
+.difficulty-section summary,
+.complexity-section summary {
+    cursor: pointer;
+    padding: 1.5rem;
+    background: var(--light-bg);
+    border-radius: 6px 6px 0 0;
+    list-style: none;
+    position: relative;
+    user-select: none;
+}
+
+.difficulty-section summary:hover,
+.complexity-section summary:hover {
+    background: var(--hover-bg);
+}
+
+.difficulty-section summary h2,
+.complexity-section summary h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+    display: inline-block;
+    color: var(--text-primary);
+}
+
+/* Hide default marker */
+.difficulty-section details summary::-webkit-details-marker,
+.complexity-section details summary::-webkit-details-marker {
+    display: none;
+}
+
+.difficulty-section summary::marker,
+.complexity-section summary::marker {
+    display: none;
+}
+
+/* Large dropdown indicator */
+.difficulty-section summary::before,
+.complexity-section summary::before {
+    content: "▶";
+    font-size: 1.5rem;
+    margin-right: 1rem;
+    display: inline-block;
+    transition: transform 0.3s ease;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.difficulty-section details[open] summary::before,
+.complexity-section details[open] summary::before {
+    transform: rotate(90deg);
+}
+
+.difficulty-section .solutions-grid,
+.complexity-section .solutions-grid {
+    padding: 1.5rem;
+}
+
+/* Sidebar Navigation */
+.page-with-sidebar {
+    display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.sidebar-nav {
+    width: 280px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 2rem;
+    align-self: flex-start;
+    max-height: calc(100vh - 4rem);
+    overflow-y: auto;
+}
+
+.sidebar-nav-inner {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+}
+
+.sidebar-nav h3 {
+    margin: 0 0 1rem 0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.sidebar-nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-nav-list li {
+    margin-bottom: 0.5rem;
+}
+
+.sidebar-nav-list a {
+    display: block;
+    padding: 0.75rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    font-size: 0.95rem;
+}
+
+.sidebar-nav-list a:hover {
+    background: var(--light-bg);
+    color: var(--primary-color);
+    padding-left: 1rem;
+}
+
+.sidebar-nav-list .count {
+    float: right;
+    background: var(--light-bg);
+    color: var(--text-secondary);
+    padding: 0.25rem 0.5rem;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.main-content {
+    flex: 1;
+    min-width: 0;
+}
+
+/* Responsive sidebar */
+@media (max-width: 768px) {
+    .page-with-sidebar {
+        flex-direction: column;
+    }
+
+    .sidebar-nav {
+        width: 100%;
+        position: relative;
+        max-height: none;
+    }
+
+    .sidebar-nav-list a:hover {
+        padding-left: 0.75rem;
+    }
+}
+
+/* ============================================
+   VIEW BY DROPDOWN MENU
+   ============================================ */
+
+.view-by-container {
+    position: relative;
+    display: inline-block;
+}
+
+.view-by-toggle {
+    background: none;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    color: var(--text-secondary);
+}
+
+.view-by-toggle:hover {
+    background-color: var(--light-bg);
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.view-icon {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.view-by-toggle:hover .view-icon {
+    transform: rotate(20deg);
+}
+
+.view-by-menu {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    right: 0;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    min-width: 180px;
+    padding: 0.5rem 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.2s ease;
+    z-index: 1000;
+}
+
+.view-by-menu.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.view-by-menu a {
+    display: block;
+    padding: 0.75rem 1.25rem;
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    font-size: 0.95rem;
+}
+
+.view-by-menu a:hover {
+    background: var(--light-bg);
+    color: var(--primary-color);
+}
+
+/* Documentation Dropdown - matching view-by style */
+.docs-container {
+    position: relative;
+    display: inline-block;
+}
+
+.docs-button {
+    background: none;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    color: var(--text-secondary);
+}
+
+.docs-button:hover {
+    background-color: var(--light-bg);
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.docs-icon {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.docs-button:hover .docs-icon {
+    transform: scale(1.1);
+}
+
+.docs-menu {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    right: 0;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    min-width: 200px;
+    padding: 0.5rem 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.2s ease;
+    z-index: 1000;
+}
+
+.docs-menu.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.docs-menu a {
+    display: block;
+    padding: 0.75rem 1.25rem;
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    font-size: 0.95rem;
+}
+
+.docs-menu a:hover {
+    background: var(--light-bg);
+    color: var(--primary-color);
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .view-by-toggle,
+    .docs-button {
+        width: 36px;
+        height: 36px;
+    }
+
+    .view-icon,
+    .docs-icon {
+        font-size: 1rem;
+    }
+}
