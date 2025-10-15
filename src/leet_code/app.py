@@ -1736,10 +1736,17 @@ def api_category_solutions(category: str) -> Response:
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Leet Code Learning Tool Web Interface")
-    parser.add_argument("--host", default="127.0.0.1", help="Hostname to bind to (default: 127.0.0.1)")
+    parser.add_argument(
+        "--host",
+        default="127.0.0.1",
+        help="Hostname to bind to (default: 127.0.0.1 - localhost only)",
+    )
     parser.add_argument("--port", type=int, default=9501, help="Port to bind to (default: 9501)")
     parser.add_argument("--debug", action="store_true", default=True, help="Enable debug mode (default: True)")
 
     args = parser.parse_args()
 
+    print(" * Server accessible at:")
+    print(f" * - http://localhost:{args.port}")
+    print(f" * - http://127.0.0.1:{args.port}")
     app.run(debug=args.debug, host=args.host, port=args.port)

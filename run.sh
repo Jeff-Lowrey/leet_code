@@ -49,5 +49,8 @@ while [[ $# -gt 0 ]]; do
     esac
 done
 
-echo "Starting server at http://$HOST:$PORT"
+echo "Starting server on port $PORT (localhost only)..."
+echo "Server accessible at:"
+echo "  - http://localhost:$PORT"
+echo "  - http://127.0.0.1:$PORT"
 python -m src.leet_code.app "$@"
