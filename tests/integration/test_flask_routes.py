@@ -7,10 +7,11 @@ import pytest
 
 from src.leet_code.app import app
 from src.leet_code.category_data import Category, Solution
+from typing import Generator, Any
 
 
 @pytest.fixture
-def client():
+def client() -> Generator[Any, None, None]:
     """Create a test client for the Flask application."""
     app.config["TESTING"] = True
     with app.test_client() as client:
@@ -18,7 +19,7 @@ def client():
 
 
 @pytest.fixture
-def mock_categories():
+def mock_categories() -> list[Category]:
     """Mock category data for testing."""
     return [
         Category(
@@ -43,7 +44,7 @@ class TestHomeRoute:
     """Test the home page route."""
 
     @patch("src.leet_code.app.category_manager")
-    def test_home_page(self, mock_manager, client, mock_categories):
+    def test_home_page(self, mock_manager: Any, client: Any, mock_categories: Any) -> None:
         """Test home page renders correctly."""
         mock_manager.get_categories.return_value = mock_categories
         mock_manager.get_statistics.return_value = {"total_solutions": 3, "total_categories": 2}
@@ -59,7 +60,7 @@ class TestCategoryRoute:
     """Test category view route."""
 
     @patch("src.leet_code.app.category_manager")
-    def test_category_view(self, mock_manager, client, mock_categories):
+    def test_category_view(self, mock_manager: Any, client: Any, mock_categories: Any) -> None:
         """Test category view renders correctly."""
         mock_manager.get_category.return_value = mock_categories[0]
         mock_manager.read_documentation.return_value = "# Arrays Documentation"
@@ -70,7 +71,7 @@ class TestCategoryRoute:
         assert b"001-two-sum.py" in response.data or b"Two Sum" in response.data
 
     @patch("src.leet_code.app.category_manager")
-    def test_category_not_found(self, mock_manager, client):
+    def test_category_not_found(self, mock_manager: Any, client: Any) -> None:
         """Test category not found returns 404."""
         mock_manager.get_category.return_value = None
 
@@ -82,7 +83,7 @@ class TestSolutionRoute:
     """Test solution view routes."""
 
     @patch("src.leet_code.app.category_manager")
-    def test_solution_view(self, mock_manager, client):
+    def test_solution_view(self, mock_manager: Any, client: Any) -> None:
         """Test solution view renders correctly."""
         mock_solution = Solution("001-two-sum.py", "Two Sum")
         mock_manager.get_solution.return_value = mock_solution
@@ -97,7 +98,7 @@ class Solution:
         assert b"Two Sum" in response.data
 
     @patch("src.leet_code.app.category_manager")
-    def test_solution_not_found(self, mock_manager, client):
+    def test_solution_not_found(self, mock_manager: Any, client: Any) -> None:
         """Test solution not found returns 404."""
         mock_manager.get_solution.return_value = None
 
@@ -105,7 +106,7 @@ class Solution:
         assert response.status_code == 404
 
     @patch("src.leet_code.app.category_manager")
-    def test_solution_leetcode_view(self, mock_manager, client):
+    def test_solution_leetcode_view(self, mock_manager: Any, client: Any) -> None:
         """Test LeetCode format view."""
         mock_solution = Solution("001-two-sum.py", "Two Sum")
         mock_manager.get_solution.return_value = mock_solution
@@ -125,7 +126,7 @@ class TestAPIRoutes:
     """Test API endpoints."""
 
     @patch("src.leet_code.app.category_manager")
-    def test_api_categories(self, mock_manager, client, mock_categories):
+    def test_api_categories(self, mock_manager: Any, client: Any, mock_categories: Any) -> None:
         """Test categories API endpoint."""
         mock_manager.get_categories.return_value = mock_categories
 
@@ -138,7 +139,7 @@ class TestAPIRoutes:
         assert data[0]["count"] == 2
 
     @patch("src.leet_code.app.category_manager")
-    def test_api_category_solutions(self, mock_manager, client, mock_categories):
+    def test_api_category_solutions(self, mock_manager: Any, client: Any, mock_categories: Any) -> None:
         """Test category solutions API endpoint."""
         mock_manager.get_category.return_value = mock_categories[0]
 
@@ -150,7 +151,7 @@ class TestAPIRoutes:
         assert data[0]["filename"] == "001-two-sum.py"
 
     @patch("src.leet_code.app.category_manager")
-    def test_api_category_not_found(self, mock_manager, client):
+    def test_api_category_not_found(self, mock_manager: Any, client: Any) -> None:
         """Test API returns 404 for non-existent category."""
         mock_manager.get_category.return_value = None
 
@@ -161,14 +162,14 @@ class TestAPIRoutes:
 class TestDocsRoute:
     """Test documentation route."""
 
-    def test_docs_index(self, client):
+    def test_docs_index(self, client: Any) -> None:
         """Test /docs serves documentation index page."""
         response = client.get("/docs")
         assert response.status_code == 200
         assert b"Documentation" in response.data
 
     @patch("src.leet_code.app.Path")
-    def test_docs_readme(self, mock_path, client):
+    def test_docs_readme(self, mock_path: Any, client: Any) -> None:
         """Test docs README renders."""
         mock_file = MagicMock()
         mock_file.exists.return_value = True
@@ -183,13 +184,13 @@ class TestDocsRoute:
 class TestStaticFiles:
     """Test static file serving."""
 
-    def test_css_file(self, client):
+    def test_css_file(self, client: Any) -> None:
         """Test CSS file is served."""
         response = client.get("/static/css/style.css")
         # Should either return the file or 404 if not found
         assert response.status_code in [200, 304, 404]
 
-    def test_favicon(self, client):
+    def test_favicon(self, client: Any) -> None:
         """Test favicon request."""
         response = client.get("/favicon.ico")
         # Should return 404 as we don't have a favicon
@@ -199,13 +200,13 @@ class TestStaticFiles:
 class TestErrorHandlers:
     """Test error handling."""
 
-    def test_404_error(self, client):
+    def test_404_error(self, client: Any) -> None:
         """Test 404 error page."""
         response = client.get("/non-existent-page")
         assert response.status_code == 404
 
     @patch("src.leet_code.app.category_manager")
-    def test_500_error(self, mock_manager, client):
+    def test_500_error(self, mock_manager: Any, client: Any) -> None:
         """Test 500 error handling."""
         # Simulate an internal error
         mock_manager.get_categories.side_effect = Exception("Test error")

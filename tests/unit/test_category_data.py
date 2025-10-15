@@ -4,12 +4,13 @@ from pathlib import Path
 from unittest.mock import MagicMock, patch
 
 from src.leet_code.category_data import Category, CategoryManager, Solution
+from typing import Any
 
 
 class TestSolution:
     """Test the Solution dataclass."""
 
-    def test_solution_initialization(self):
+    def test_solution_initialization(self) -> None:
         """Test creating a Solution instance."""
         solution = Solution(filename="001-two-sum.py", name="Two Sum", number="001", slug="two-sum")
         assert solution.filename == "001-two-sum.py"
@@ -17,13 +18,13 @@ class TestSolution:
         assert solution.number == "001"
         assert solution.slug == "two-sum"
 
-    def test_solution_post_init(self):
+    def test_solution_post_init(self) -> None:
         """Test Solution post_init processing."""
         solution = Solution(filename="042-trapping-water.py", name="Trapping Rain Water")
         assert solution.number == "042"
         assert solution.slug == "trapping-water"
 
-    def test_solution_without_number(self):
+    def test_solution_without_number(self) -> None:
         """Test Solution without number in filename."""
         solution = Solution(filename="custom-problem.py", name="Custom Problem")
         assert solution.number == ""
@@ -33,7 +34,7 @@ class TestSolution:
 class TestCategory:
     """Test the Category dataclass."""
 
-    def test_category_initialization(self):
+    def test_category_initialization(self) -> None:
         """Test creating a Category instance."""
         category = Category(slug="arrays-hashing", name="Arrays & Hashing", description="Array and hash table problems")
         assert category.slug == "arrays-hashing"
@@ -42,7 +43,7 @@ class TestCategory:
         assert category.solutions == []
         assert category.count == 0
 
-    def test_category_with_solutions(self):
+    def test_category_with_solutions(self) -> None:
         """Test Category with solutions."""
         solutions = [Solution("001-two-sum.py", "Two Sum"), Solution("217-contains-duplicate.py", "Contains Duplicate")]
         category = Category(
@@ -56,7 +57,7 @@ class TestCategoryManager:
     """Test the CategoryManager class."""
 
     @patch("src.leet_code.category_data.Path")
-    def test_initialization(self, mock_path_class):
+    def test_initialization(self, mock_path_class: Any) -> None:
         """Test CategoryManager initialization."""
         mock_path = MagicMock()
         mock_path_class.return_value = mock_path
@@ -68,7 +69,7 @@ class TestCategoryManager:
     @patch("src.leet_code.category_data.Path.iterdir")
     @patch("src.leet_code.category_data.Path.is_dir")
     @patch("src.leet_code.category_data.Path.exists")
-    def test_get_categories(self, mock_exists, mock_is_dir, mock_iterdir):
+    def test_get_categories(self, mock_exists: Any, mock_is_dir: Any, mock_iterdir: Any) -> None:
         """Test getting categories."""
         # Setup mocks
         mock_exists.return_value = True
@@ -95,7 +96,7 @@ class TestCategoryManager:
 
         assert len(categories) >= 0  # Should return categories based on mock
 
-    def test_get_category(self):
+    def test_get_category(self) -> None:
         """Test getting a specific category."""
         manager = CategoryManager()
 
@@ -109,7 +110,7 @@ class TestCategoryManager:
         result = manager.get_category("non-existent")
         assert result is None
 
-    def test_get_solution(self):
+    def test_get_solution(self) -> None:
         """Test getting a specific solution."""
         manager = CategoryManager()
 
@@ -129,7 +130,7 @@ class TestCategoryManager:
 
     @patch("src.leet_code.category_data.Path.read_text")
     @patch("src.leet_code.category_data.Path.exists")
-    def test_read_solution_content(self, mock_exists, mock_read_text):
+    def test_read_solution_content(self, mock_exists: Any, mock_read_text: Any) -> None:
         """Test reading solution content."""
         mock_exists.return_value = True
         mock_read_text.return_value = "def two_sum(): pass"
@@ -141,7 +142,7 @@ class TestCategoryManager:
         mock_read_text.assert_called_once()
 
     @patch("src.leet_code.category_data.Path.exists")
-    def test_read_solution_content_not_found(self, mock_exists):
+    def test_read_solution_content_not_found(self, mock_exists: Any) -> None:
         """Test reading non-existent solution."""
         mock_exists.return_value = False
 
@@ -152,7 +153,7 @@ class TestCategoryManager:
 
     @patch("src.leet_code.category_data.Path.read_text")
     @patch("src.leet_code.category_data.Path.exists")
-    def test_read_documentation(self, mock_exists, mock_read_text):
+    def test_read_documentation(self, mock_exists: Any, mock_read_text: Any) -> None:
         """Test reading documentation."""
         mock_exists.return_value = True
         mock_read_text.return_value = "# Documentation"
@@ -167,7 +168,7 @@ class TestCategoryManager:
         content = manager.read_documentation("arrays-hashing", "guide")
         assert content == "# Documentation"
 
-    def test_get_statistics(self):
+    def test_get_statistics(self) -> None:
         """Test getting statistics."""
         manager = CategoryManager()
 
@@ -184,20 +185,20 @@ class TestCategoryManager:
 
     @patch("src.leet_code.category_data.Path.iterdir")
     @patch("src.leet_code.category_data.Path.exists")
-    def test_refresh(self, mock_exists, mock_iterdir):
+    def test_refresh(self, mock_exists: Any, mock_iterdir: Any) -> None:
         """Test refreshing cached data."""
         mock_exists.return_value = False
         mock_iterdir.return_value = []
 
         manager = CategoryManager()
-        manager._categories = ["cached_data"]
+        manager._categories = [Category("test", "Test", "Test")]
 
         manager.refresh()
 
         # After refresh, _categories should be populated with fresh data (empty in this case)
         assert manager._categories == []
 
-    def test_category_descriptions(self):
+    def test_category_descriptions(self) -> None:
         """Test that category descriptions are properly defined."""
         manager = CategoryManager()
 

@@ -3,24 +3,25 @@
 from unittest.mock import MagicMock, patch
 
 from src.leet_code.app import get_available_languages, get_file_extension, get_lexer_for_language
+from typing import Any
 
 
 class TestHelperFunctions:
     """Test helper functions in the app module."""
 
-    def test_get_file_extension_known_languages(self):
+    def test_get_file_extension_known_languages(self) -> None:
         """Test file extension mapping for known languages."""
         assert get_file_extension("Python") == ".py"
         assert get_file_extension("Java") == ".java"
         assert get_file_extension("C++") == ".cpp"
         assert get_file_extension("JavaScript") == ".js"
 
-    def test_get_file_extension_unknown_language(self):
+    def test_get_file_extension_unknown_language(self) -> None:
         """Test file extension for unknown language."""
         assert get_file_extension("Unknown") == ".txt"
         assert get_file_extension("SomeNewLang") == ".txt"
 
-    def test_get_lexer_for_language_known_languages(self):
+    def test_get_lexer_for_language_known_languages(self) -> None:
         """Test lexer retrieval for known languages."""
         lexer = get_lexer_for_language("Python")
         assert lexer.__class__.__name__ == "PythonLexer"
@@ -29,7 +30,7 @@ class TestHelperFunctions:
         assert lexer.__class__.__name__ == "JavaLexer"
 
     @patch("src.leet_code.app.get_lexer_by_name")
-    def test_get_lexer_for_language_unknown_language(self, mock_get_lexer):
+    def test_get_lexer_for_language_unknown_language(self, mock_get_lexer: Any) -> None:
         """Test lexer retrieval for unknown language falls back to get_lexer_by_name."""
         mock_lexer = MagicMock()
         mock_get_lexer.return_value = mock_lexer
@@ -40,7 +41,7 @@ class TestHelperFunctions:
         mock_get_lexer.assert_called_once_with("unknownlang")
 
     @patch("src.leet_code.app.Path")
-    def test_get_available_languages_no_alternatives_dir(self, mock_path_class):
+    def test_get_available_languages_no_alternatives_dir(self, mock_path_class: Any) -> None:
         """Test available languages when alternatives directory doesn't exist."""
         # Mock Path construction
         mock_path_instance = MagicMock()
@@ -52,7 +53,7 @@ class TestHelperFunctions:
         assert result == ["Python"]
 
     @patch("src.leet_code.app.Path")
-    def test_get_available_languages_with_alternatives(self, mock_path_class):
+    def test_get_available_languages_with_alternatives(self, mock_path_class: Any) -> None:
         """Test available languages with alternative files."""
         # Mock Path construction and files
         mock_alt_dir = MagicMock()
@@ -77,7 +78,7 @@ class TestHelperFunctions:
         assert len(result) >= 1
 
     @patch("src.leet_code.app.Path")
-    def test_get_available_languages_empty_alternatives_dir(self, mock_path_class):
+    def test_get_available_languages_empty_alternatives_dir(self, mock_path_class: Any) -> None:
         """Test available languages with empty alternatives directory."""
         # Mock Path construction
         mock_alt_dir = MagicMock()
@@ -90,7 +91,7 @@ class TestHelperFunctions:
         assert result == ["Python"]
 
     @patch("src.leet_code.app.Path")
-    def test_get_available_languages_non_matching_files(self, mock_path_class):
+    def test_get_available_languages_non_matching_files(self, mock_path_class: Any) -> None:
         """Test available languages with non-matching files in alternatives."""
         # Mock Path construction and files
         mock_alt_dir = MagicMock()
