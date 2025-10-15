@@ -4,6 +4,17 @@
 
 ---
 
+## Table of Contents
+
+- [Overview](#overview)
+- [CategoryManager Class](#categorymanager-class)
+- [Category Data Structure](#category-data-structure)
+- [Solution Discovery](#solution-discovery)
+- [Metadata Extraction](#metadata-extraction)
+- [Alternative Languages](#alternative-languages)
+- [Data Access Patterns](#data-access-patterns)
+- [Performance Optimization](#performance-optimization)
+
 ## Overview
 
 The `category_data.py` module provides centralized data management for all categories and solutions in the project. It handles automatic discovery, metadata parsing, and efficient data access.

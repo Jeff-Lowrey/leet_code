@@ -4,6 +4,20 @@
 
 ---
 
+## Table of Contents
+
+- [Navigating the Platform](#navigating-the-platform)
+- [Navigation Tools](#navigation-tools)
+- [Home Page Categories](#home-page-categories)
+- [Quick Access Dropdowns](#quick-access-dropdowns)
+- [Category View](#category-view)
+- [Browsing by Difficulty](#browsing-by-difficulty)
+- [Browsing by Complexity](#browsing-by-complexity)
+- [Solution Page Structure](#solution-page-structure)
+- [Navigation Tips](#navigation-tips)
+- [Visual Indicators](#visual-indicators)
+- [Best Browsing Practices](#best-browsing-practices)
+
 ## Navigating the Platform
 
 The Leet Code Learning Tool provides multiple ways to browse and find solutions efficiently. You can navigate by category, difficulty level, complexity, or use the table of contents sidebar for quick access.

@@ -4,6 +4,15 @@
 
 ---
 
+## Table of Contents
+
+- [Project Purpose](#project-purpose)
+- [Technology Stack](#technology-stack)
+- [Project Structure](#project-structure)
+- [Development Workflow](#development-workflow)
+- [Code Quality Standards](#code-quality-standards)
+- [Getting Started](#getting-started)
+
 ## Project Purpose
 
 The LeetCode Learning Tool is a Flask-based web application designed to help developers learn and practice coding interview problems. It provides an intuitive interface for browsing, viewing, and downloading solutions across 29 algorithm categories.

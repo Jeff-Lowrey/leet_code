@@ -4,6 +4,15 @@
 
 ---
 
+## Table of Contents
+
+- [Prerequisites](#prerequisites)
+- [Installation Steps](#installation-steps)
+- [First-Time Navigation](#first-time-navigation)
+- [Verifying Installation](#verifying-installation)
+- [Common Setup Issues](#common-setup-issues)
+- [Next Steps](#next-steps)
+
 ## Prerequisites
 
 Before installing the Leet Code Learning Tool, ensure you have:

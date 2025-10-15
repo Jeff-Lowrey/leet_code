@@ -4,6 +4,17 @@
 
 ---
 
+## Table of Contents
+
+- [Overview](#overview)
+- [Accessing the Theme Selector](#accessing-the-theme-selector)
+- [Available Theme Families](#available-theme-families)
+- [Theme Selection Guide](#theme-selection-guide)
+- [Technical Details](#technical-details)
+- [Theme Customization Tips](#theme-customization-tips)
+- [Accessibility Considerations](#accessibility-considerations)
+- [Troubleshooting Themes](#troubleshooting-themes)
+
 ## Overview
 
 The Leet Code Learning Tool offers a comprehensive theme system with 18 different visual themes to customize your learning experience. Choose from professional, vibrant, accessible, or novelty themes to match your preferences and environment.

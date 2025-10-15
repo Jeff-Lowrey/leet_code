@@ -4,6 +4,16 @@
 
 ---
 
+## Table of Contents
+
+- [Creating Solutions](#creating-solutions)
+- [Python Solutions](#python-solutions)
+- [JavaScript Solutions](#javascript-solutions)
+- [Alternative Language Solutions](#alternative-language-solutions)
+- [Testing Your Solution](#testing-your-solution)
+- [Common Mistakes](#common-mistakes)
+- [Troubleshooting](#troubleshooting)
+
 ## Creating Solutions
 
 Step-by-step guides for creating Python and JavaScript solutions.

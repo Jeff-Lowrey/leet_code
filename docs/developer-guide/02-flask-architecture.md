@@ -4,6 +4,18 @@
 
 ---
 
+## Table of Contents
+
+- [Application Structure](#application-structure)
+- [Route Structure](#route-structure)
+- [Request Flow](#request-flow)
+- [Core Processing Functions](#core-processing-functions)
+- [Template System](#template-system)
+- [Jinja2 Filters and Functions](#jinja2-filters-and-functions)
+- [Error Handling](#error-handling)
+- [Running the Application](#running-the-application)
+- [Performance Considerations](#performance-considerations)
+
 ## Application Structure
 
 The Flask application (`src/leet_code/app.py`) follows a functional architecture with clear separation of concerns:
