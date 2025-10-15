@@ -1,8 +1,19 @@
 # Formatting Guidelines
 
-[← Previous: Quick Start](04-quick-start.md) | [🏠 Home](README.md)
+[← Previous: Quick Start](04-quick-start.md) | [🏠 Home](README.md) | [Next: Python Formatting Guide →](SOLUTION_FORMATTING_GUIDE.md)
 
 ---
+
+## Table of Contents
+
+- [Documentation Best Practices](#documentation-best-practices)
+- [Problem Description](#problem-description)
+- [Explanation Writing](#explanation-writing)
+- [Code Style](#code-style)
+- [Comments and Docstrings](#comments-and-docstrings)
+- [Test Cases](#test-cases)
+- [Complexity Analysis](#complexity-analysis)
+- [Examples and Walkthroughs](#examples-and-walkthroughs)
 
 ## Documentation Best Practices
 
@@ -474,4 +485,4 @@ Before submitting:
 
 ---
 
-[← Previous: Quick Start](04-quick-start.md) | [🏠 Home](README.md)
+[← Previous: Quick Start](04-quick-start.md) | [🏠 Home](README.md) | [Next: Python Formatting Guide →](SOLUTION_FORMATTING_GUIDE.md)
