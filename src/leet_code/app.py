@@ -878,7 +878,7 @@ def difficulty_overview() -> str:
     all_categories = category_manager.get_categories()
 
     # Group solutions by difficulty
-    difficulties = {
+    difficulties: dict[str, dict[str, Any]] = {
         "Easy": {"solutions": [], "count": 0},
         "Medium": {"solutions": [], "count": 0},
         "Hard": {"solutions": [], "count": 0},
@@ -941,9 +941,7 @@ def complexity_overview() -> str:
             total_count += 1
 
     # Sort complexities by count (descending)
-    sorted_complexities = dict(
-        sorted(complexities.items(), key=lambda x: x[1]["count"], reverse=True)
-    )
+    sorted_complexities = dict(sorted(complexities.items(), key=lambda x: x[1]["count"], reverse=True))
 
     return render_template(
         "complexity.html",
@@ -1002,7 +1000,7 @@ def solution_view(category: str, filename: str) -> str:
         skeleton_code=highlighted_skeleton,
         code=highlighted_code,
         explanation=explanation_sections,
-        style=formatter.get_style_defs(".highlight"),
+        style=formatter.get_style_defs(".highlight"),  # type: ignore[no-untyped-call]
         is_leetcode_format=False,
         available_languages=available_languages,
         difficulty=solution.difficulty,
@@ -1049,7 +1047,7 @@ def solution_leetcode_view(category: str, filename: str) -> str:
         code=highlighted_code,
         documentation=None,
         explanation=None,
-        style=formatter.get_style_defs(".highlight"),
+        style=formatter.get_style_defs(".highlight"),  # type: ignore[no-untyped-call]
         is_leetcode_format=True,
         available_languages=[],
         difficulty=solution.difficulty,
@@ -1466,7 +1464,7 @@ def view_alternative_solution(category: str, filename: str, language: str) -> st
         skeleton_code=highlighted_skeleton,
         code=highlighted_code,
         explanation=explanation_sections,
-        style=formatter.get_style_defs(".highlight"),
+        style=formatter.get_style_defs(".highlight"),  # type: ignore[no-untyped-call]
         is_leetcode_format=False,
         current_language=language,
         available_languages=available_languages,
@@ -1648,12 +1646,14 @@ def docs_index() -> str:
                     elif category_dir.name == "union-find":
                         display_name = "Union Find"
 
-                    docs.append({
-                        "slug": category_dir.name,
-                        "name": display_name,
-                        "description": description,
-                        "category_slug": category_slug,
-                    })
+                    docs.append(
+                        {
+                            "slug": category_dir.name,
+                            "name": display_name,
+                            "description": description,
+                            "category_slug": category_slug,
+                        }
+                    )
 
     return render_template("docs.html", docs=docs)
 
@@ -1700,30 +1700,15 @@ def docs_view(category: str, page: str | None = None) -> str:
     # Fix relative links to include the category path
     # Replace links like href="01-overview.md" with href="/docs/category/01-overview.md"
     import re
-    doc_html = re.sub(
-        r'href="([^/"#][^"]*\.md)"',
-        rf'href="/docs/{category}/\1"',
-        doc_html
-    )
+
+    doc_html = re.sub(r'href="([^/"#][^"]*\.md)"', rf'href="/docs/{category}/\1"', doc_html)
     # Also handle links without .md extension that reference other docs
-    doc_html = re.sub(
-        r'href="((?:\.\./)+([\w-]+)/README\.md)"',
-        r'href="/docs/\2"',
-        doc_html
-    )
+    doc_html = re.sub(r'href="((?:\.\./)+([\w-]+)/README\.md)"', r'href="/docs/\2"', doc_html)
 
     # Determine the display name
-    if page_display:
-        full_display_name = f"{category_display}: {page_display}"
-    else:
-        full_display_name = category_display
+    full_display_name = f"{category_display}: {page_display}" if page_display else category_display
 
-    return render_template(
-        "doc_view.html",
-        category=category,
-        category_name=full_display_name,
-        content=doc_html
-    )
+    return render_template("doc_view.html", category=category, category_name=full_display_name, content=doc_html)
 
 
 @app.errorhandler(404)
