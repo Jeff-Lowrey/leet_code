@@ -6,7 +6,57 @@
 
 ## Navigating the Platform
 
-The Leet Code Learning Tool provides multiple ways to browse and find solutions efficiently.
+The Leet Code Learning Tool provides multiple ways to browse and find solutions efficiently. You can navigate by category, difficulty level, complexity, or use the table of contents sidebar for quick access.
+
+## Navigation Tools
+
+### View By Dropdown
+
+The navigation bar includes a "View By" dropdown that lets you switch between different browsing modes:
+
+**Accessing the Dropdown:**
+1. Look for the icon button in the top navigation bar (📊/📁/⚡)
+2. Click to reveal the dropdown menu
+3. Select your preferred view mode
+
+**View Options:**
+- **By Category**: Browse problems organized by algorithmic patterns (default)
+- **By Difficulty**: View all problems grouped by Easy, Medium, and Hard
+- **By Complexity**: Browse problems organized by time and space complexity
+
+The icon changes based on your current view:
+- 📁 Category view
+- 📊 Difficulty view
+- ⚡ Complexity view
+
+### Documentation Dropdown
+
+Access comprehensive guides through the Documentation dropdown (📖 icon):
+
+**Available Guides:**
+- **All Documentation**: Overview of all available guides
+- **User Guide**: Complete guide to using the application
+- **Developer Guide**: Technical documentation for contributors
+- **Upload Guide**: Instructions for adding new solutions
+
+### Table of Contents (TOC) Sidebar
+
+The TOC sidebar provides context-aware navigation based on your current page:
+
+**Opening the TOC:**
+- Click the document outline icon (📄) in the top-left corner
+- The sidebar slides in from the left
+
+**TOC Features:**
+- **Category Pages**: Shows all problems in the category with expandable lists
+- **Difficulty Page**: Jump links to Easy, Medium, and Hard sections
+- **Complexity Page**: Quick navigation to complexity combinations
+- **Documentation Pages**: Full guide structure with all sub-pages
+
+**Using the TOC:**
+1. Click any section or problem to navigate
+2. Current location is highlighted
+3. Click the X or TOC icon again to close
 
 ## Home Page Categories
 
@@ -96,6 +146,113 @@ Navigate efficiently through category solutions:
 - **By Number**: Numerical order by LeetCode problem number
 - **By Language**: Filter by available language implementations
 
+## Browsing by Difficulty
+
+### Difficulty Overview Page
+
+Access the unified difficulty view to see all problems organized by difficulty level:
+
+**Accessing:**
+- Use the "View By" dropdown and select "By Difficulty"
+- Or navigate directly to `/difficulty`
+
+**Page Features:**
+- All three difficulty levels (Easy, Medium, Hard) in one view
+- Collapsible sections for each difficulty level
+- Problem count displayed for each level
+- TOC sidebar with jump links to each difficulty section
+
+### Difficulty Sections
+
+Each difficulty section includes:
+
+**Section Header:**
+- Difficulty name and problem count
+- Expandable/collapsible arrow indicator (▶/▼)
+- Click to expand or collapse the section
+
+**Problem Cards:**
+- Problem number and title
+- Category label (which pattern it belongs to)
+- Time and space complexity badges (when available)
+- Click any card to view the solution
+
+**Clickable Badges:**
+- Difficulty badges on solution pages link to the difficulty overview
+- Click a difficulty badge to see all problems at that level
+- Automatically scrolls to the relevant difficulty section
+
+### Using Difficulty View
+
+**For Learning:**
+1. Start with Easy section expanded
+2. Work through problems sequentially
+3. Expand Medium when ready to advance
+4. Challenge yourself with Hard problems
+
+**For Interview Prep:**
+1. Focus on Medium difficulty
+2. Ensure coverage across different categories
+3. Practice Hard problems for top-tier interviews
+
+## Browsing by Complexity
+
+### Complexity Overview Page
+
+View all problems organized by their time and space complexity combinations:
+
+**Accessing:**
+- Use the "View By" dropdown and select "By Complexity"
+- Or navigate directly to `/complexity`
+
+**Page Features:**
+- All complexity combinations in one view
+- Sorted by frequency (most common first)
+- Collapsible sections for each combination
+- Problem count for each complexity level
+- TOC sidebar with jump links
+
+### Complexity Sections
+
+Each complexity section shows:
+
+**Section Header:**
+- Time complexity (e.g., O(n), O(log n), O(n²))
+- Space complexity (e.g., O(1), O(n))
+- Combined format: "Time: O(n) | Space: O(1)"
+- Problem count for this combination
+- Expandable/collapsible arrow
+
+**Problem Cards:**
+- Problem number and title
+- Category label
+- Difficulty level
+- Click to view solution
+
+**Common Complexity Combinations:**
+- **O(n) | O(1)**: Linear time, constant space (very common)
+- **O(n log n) | O(1)**: Sorting algorithms
+- **O(n) | O(n)**: Hash table solutions
+- **O(log n) | O(1)**: Binary search
+- **O(n²) | O(1)**: Nested loops
+
+**Clickable Badges:**
+- Complexity badges on solution pages link to complexity overview
+- Click to see all problems with that time/space combination
+- Automatically jumps to the relevant section
+
+### Using Complexity View
+
+**For Learning:**
+1. Study problems with the same complexity together
+2. Compare different approaches to achieve same complexity
+3. Understand space-time tradeoffs
+
+**For Optimization:**
+1. Find problems with optimal O(n) or O(log n) solutions
+2. Study constant space O(1) techniques
+3. Compare your solution's complexity to others
+
 ## Solution Page Structure
 
 ### Viewing Individual Solutions
@@ -137,25 +294,36 @@ Clicking a solution takes you to the detailed view:
 
 ### Efficient Browsing
 
-1. **Use Quick Access**: Fastest way to specific problems
-2. **Browse by Pattern**: Learn categories systematically
-3. **Difficulty Progression**: Start with Easy, advance to Hard
-4. **Multi-Language Exploration**: Compare implementations
+1. **Use TOC Sidebar**: Quick navigation on any page
+2. **Use View By Dropdown**: Switch between browsing modes
+3. **Use Quick Access**: Category card dropdowns for specific problems
+4. **Clickable Badges**: Jump from solution to difficulty/complexity overview
+5. **Browse by Pattern**: Learn categories systematically
+6. **Difficulty Progression**: Start with Easy, advance to Hard
+7. **Multi-Language Exploration**: Compare implementations
 
 ### Search Strategies
 
 **By Category:**
 - Know the algorithmic pattern → Go to category
 - Want to master a topic → Browse entire category
-
-**By Problem:**
-- Know the problem number → Use quick access
-- Know the problem name → Browse category or search page
+- Use TOC to see all problems in category
 
 **By Difficulty:**
-- Learning fundamentals → Start with Easy
-- Interview prep → Focus on Medium
-- Advanced practice → Challenge with Hard
+- Learning fundamentals → Use difficulty overview, start with Easy
+- Interview prep → Focus on Medium section
+- Advanced practice → Challenge with Hard section
+- Compare across categories at same difficulty level
+
+**By Complexity:**
+- Learning efficiency → Study O(n) and O(log n) solutions
+- Optimization practice → Find O(1) space solutions
+- Algorithm comparison → See different approaches to same complexity
+
+**By Problem:**
+- Know the problem number → Use quick access dropdown
+- Know the problem name → Browse category or use TOC
+- Exploring similar problems → Use complexity or category view
 
 ### Back Navigation
 
