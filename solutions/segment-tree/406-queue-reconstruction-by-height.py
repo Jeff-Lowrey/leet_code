@@ -67,6 +67,9 @@ For result array and tree structure
 </details>
 """
 
+
+from typing import Any
+
 class Solution:
     def reconstructQueue(self, people: list[list[int]]) -> list[list[int]]:
         """
@@ -87,7 +90,7 @@ class Solution:
         # Sort by height descending, then k ascending
         people.sort(key=lambda x: (-x[0], x[1]))
 
-        result = []
+        result: list[Any] = []
         for person in people:
             # Insert at k-th position
             result.insert(person[1], person)
@@ -116,12 +119,12 @@ class Solution:
         people.sort(key=lambda x: (-x[0], x[1]))
 
         class SegmentTree:
-            def __init__(self, size):
+            def __init__(self: Any, size: Any) -> None:
                 self.size = size
                 self.tree = [0] * (4 * size)
                 self.build(1, 0, size - 1)
 
-            def build(self, node, start, end):
+            def build(self: Any, node: Any, start: Any, end: Any) -> Any:
                 """Build tree with all positions available (count = 1)."""
                 if start == end:
                     self.tree[node] = 1
@@ -131,7 +134,7 @@ class Solution:
                     self.build(2 * node + 1, mid + 1, end)
                     self.tree[node] = self.tree[2 * node] + self.tree[2 * node + 1]
 
-            def find_kth(self, node, start, end, k):
+            def find_kth(self: Any, node: Any, start: Any, end: Any, k: Any) -> Any:
                 """Find k-th available position (0-indexed)."""
                 if start == end:
                     return start
@@ -144,7 +147,7 @@ class Solution:
                 else:
                     return self.find_kth(2 * node + 1, mid + 1, end, k - left_count)
 
-            def mark_used(self, node, start, end, idx):
+            def mark_used(self: Any, node: Any, start: Any, end: Any, idx: Any) -> Any:
                 """Mark position as used."""
                 if start == end:
                     self.tree[node] = 0
@@ -189,26 +192,26 @@ class Solution:
         people.sort(key=lambda x: (-x[0], x[1]))
 
         class BIT:
-            def __init__(self, size):
+            def __init__(self: Any, size: Any) -> None:
                 self.size = size
                 self.tree = [0] * (size + 1)
                 # Initialize all positions as available
                 for i in range(1, size + 1):
                     self.update(i, 1)
 
-            def update(self, i, delta):
+            def update(self: Any, i: Any, delta: Any) -> Any:
                 while i <= self.size:
                     self.tree[i] += delta
                     i += i & (-i)
 
-            def query(self, i):
+            def query(self: Any, i: Any) -> Any:
                 s = 0
                 while i > 0:
                     s += self.tree[i]
                     i -= i & (-i)
                 return s
 
-            def find_kth(self, k):
+            def find_kth(self: Any, k: Any) -> Any:
                 """Find k-th available position using binary search."""
                 left, right = 1, self.size
                 while left < right:
@@ -220,7 +223,7 @@ class Solution:
                 return left
 
         bit = BIT(n)
-        result = [None] * n
+        result: list[list[int] | None] = [None] * n
 
         for person in people:
             h, k = person
@@ -230,9 +233,10 @@ class Solution:
             # Mark position as used
             bit.update(pos, -1)
 
-        return result
+        return result  # type: ignore
 
-def test_solution():
+
+def test_solution() -> None:
     """Test cases for Problem 406."""
     solution = Solution()
 
@@ -243,7 +247,7 @@ def test_solution():
 
     # Test case 2: Empty array
     result2 = solution.reconstructQueue([])
-    expected2 = []
+    expected2: list[Any] = []
     assert result2 == expected2, f"Expected {expected2}, got {result2}"
 
     # Test case 3: Single person
@@ -274,6 +278,7 @@ def test_solution():
         assert count == k, f"Person at index {i} has wrong k value"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()
@@ -313,7 +318,7 @@ if __name__ == "__main__":
     people_sorted = sorted(people, key=lambda x: (-x[0], x[1]))
     print(f"After sorting: {people_sorted}")
 
-    result = []
+    result: list[Any] = []
     for person in people_sorted:
         result.insert(person[1], person)
         print(f"Insert {person} at position {person[1]}: {result}")

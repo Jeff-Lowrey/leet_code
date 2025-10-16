@@ -69,6 +69,11 @@ For storing trust counts
 </details>
 """
 
+
+from typing import Any
+import re
+
+
 class Solution:
     def findJudge(self, n: int, trust: list[list[int]]) -> int:
         """
@@ -119,7 +124,7 @@ class Solution:
 
         # Track in-degree (trusted by) and out-degree (trusts)
         trusted_by = [0] * (n + 1)  # How many people trust this person
-        trusts = [0] * (n + 1)      # How many people this person trusts
+        trusts = [0] * (n + 1)  # How many people this person trusts
 
         for truster, trustee in trust:
             trusts[truster] += 1
@@ -147,7 +152,7 @@ class Solution:
             return 1 if not trust else -1
 
         # Use a different approach: find candidate with highest net trust
-        trust_score = {}
+        trust_score: dict[Any, Any] = {}
 
         for truster, trustee in trust:
             trust_score[truster] = trust_score.get(truster, 0) - 1
@@ -160,22 +165,23 @@ class Solution:
 
         return -1
 
-def test_solution():
+
+def test_solution() -> None:
     """Test cases for Problem 997."""
     solution = Solution()
 
     # Test case 1: Basic judge scenario
-    result1 = solution.findJudge(2, [[1,2]])
+    result1 = solution.findJudge(2, [[1, 2]])
     expected1 = 2
     assert result1 == expected1, f"Expected {expected1}, got {result1}"
 
     # Test case 2: Three people, clear judge
-    result2 = solution.findJudge(3, [[1,3],[2,3]])
+    result2 = solution.findJudge(3, [[1, 3], [2, 3]])
     expected2 = 3
     assert result2 == expected2, f"Expected {expected2}, got {result2}"
 
     # Test case 3: No judge (circular trust)
-    result3 = solution.findJudge(3, [[1,3],[2,3],[3,1]])
+    result3 = solution.findJudge(3, [[1, 3], [2, 3], [3, 1]])
     expected3 = -1
     assert result3 == expected3, f"Expected {expected3}, got {result3}"
 
@@ -185,7 +191,7 @@ def test_solution():
     assert result4 == expected4, f"Expected {expected4}, got {result4}"
 
     # Test case 5: Single person but has trust relationship (impossible)
-    result5 = solution.findJudge(1, [[1,1]])
+    result5 = solution.findJudge(1, [[1, 1]])
     expected5 = -1
     assert result5 == expected5, f"Expected {expected5}, got {result5}"
 
@@ -195,26 +201,27 @@ def test_solution():
     assert result6 == expected6, f"Expected {expected6}, got {result6}"
 
     # Test case 7: Complex scenario - multiple trust but no clear judge
-    result7 = solution.findJudge(4, [[1,3],[1,4],[2,3],[2,4],[4,3]])
+    result7 = solution.findJudge(4, [[1, 3], [1, 4], [2, 3], [2, 4], [4, 3]])
     expected7 = 3
     assert result7 == expected7, f"Expected {expected7}, got {result7}"
 
     # Test case 8: Everyone trusts each other (no judge)
-    result8 = solution.findJudge(3, [[1,2],[2,3],[3,1]])
+    result8 = solution.findJudge(3, [[1, 2], [2, 3], [3, 1]])
     expected8 = -1
     assert result8 == expected8, f"Expected {expected8}, got {result8}"
 
     # Test alternative implementation
-    result9 = solution.findJudgeAlternative(3, [[1,3],[2,3]])
+    result9 = solution.findJudgeAlternative(3, [[1, 3], [2, 3]])
     expected9 = 3
     assert result9 == expected9, f"Expected {expected9}, got {result9}"
 
     # Test optimized implementation
-    result10 = solution.findJudgeOptimized(3, [[1,3],[2,3]])
+    result10 = solution.findJudgeOptimized(3, [[1, 3], [2, 3]])
     expected10 = 3
     assert result10 == expected10, f"Expected {expected10}, got {result10}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()
@@ -225,11 +232,11 @@ if __name__ == "__main__":
 
     # Demonstrate various scenarios
     test_cases = [
-        (2, [[1,2]]),
-        (3, [[1,3],[2,3]]),
-        (3, [[1,3],[2,3],[3,1]]),
+        (2, [[1, 2]]),
+        (3, [[1, 3], [2, 3]]),
+        (3, [[1, 3], [2, 3], [3, 1]]),
         (1, []),
-        (4, [[1,3],[1,4],[2,3],[2,4],[4,3]])
+        (4, [[1, 3], [1, 4], [2, 3], [2, 4], [4, 3]]),
     ]
 
     for n, trust in test_cases:

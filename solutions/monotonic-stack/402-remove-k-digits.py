@@ -68,26 +68,29 @@ O(1)
 </details>
 """
 
+
+from typing import Any
+
 class Solution:
     def removeKdigits(self, num: str, k: int) -> str:
         """
         Remove k digits from the number to get the smallest possible number.
         Uses a monotonic stack approach to maintain increasing sequence.
-        
+
         Args:
             num: Input number as string
             k: Number of digits to remove
-            
+
         Returns:
             String representing the smallest possible number after removing k digits
         """
         # Edge cases
         if not num or k >= len(num):
             return "0"
-        
+
         # Initialize stack to build monotonic sequence
-        stack = []
-        
+        stack: list[Any] = []
+
         # Process each digit
         for digit in num:
             # Remove digits that break monotonic increasing sequence
@@ -95,19 +98,20 @@ class Solution:
                 stack.pop()
                 k -= 1
             stack.append(digit)
-        
+
         # If we still need to remove digits, remove from the end
         while k > 0:
             stack.pop()
             k -= 1
-        
+
         # Build the result string
-        result = ''.join(stack).lstrip('0')
-        
+        result = "".join(stack).lstrip("0")
+
         # Return "0" if result is empty, otherwise return result
         return result if result else "0"
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
@@ -124,6 +128,7 @@ def test_solution():
     assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

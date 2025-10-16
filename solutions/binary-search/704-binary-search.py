@@ -65,6 +65,7 @@ O(1)
 </details>
 """
 
+
 class Solution:
     def search(self, nums: list[int], target: int) -> int:
         """
@@ -98,29 +99,30 @@ class Solution:
         """Legacy method for compatibility."""
         return self.search(nums, target)
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for 704. Binary Search.
     """
     solution = Solution()
 
     # Test case 1: Target found in middle
-    result = solution.search([-1,0,3,5,9,12], 9)
+    result = solution.search([-1, 0, 3, 5, 9, 12], 9)
     expected = 4
     assert result == expected, f"Expected {expected}, got {result}"
 
     # Test case 2: Target not found
-    result = solution.search([-1,0,3,5,9,12], 2)
+    result = solution.search([-1, 0, 3, 5, 9, 12], 2)
     expected = -1
     assert result == expected, f"Expected {expected}, got {result}"
 
     # Test case 3: Target at beginning
-    result = solution.search([-1,0,3,5,9,12], -1)
+    result = solution.search([-1, 0, 3, 5, 9, 12], -1)
     expected = 0
     assert result == expected, f"Expected {expected}, got {result}"
 
     # Test case 4: Target at end
-    result = solution.search([-1,0,3,5,9,12], 12)
+    result = solution.search([-1, 0, 3, 5, 9, 12], 12)
     expected = 5
     assert result == expected, f"Expected {expected}, got {result}"
 
@@ -141,12 +143,13 @@ def test_solution():
 
     print("All test cases passed!")
 
+
 if __name__ == "__main__":
     test_solution()
 
     # Example usage
     solution = Solution()
     print("=== 704. Binary Search ===")
-    print(f"search([-1,0,3,5,9,12], 9) -> {solution.search([-1,0,3,5,9,12], 9)}")
-    print(f"search([-1,0,3,5,9,12], 2) -> {solution.search([-1,0,3,5,9,12], 2)}")
+    print(f"search([-1,0,3,5,9,12], 9) -> {solution.search([-1, 0, 3, 5, 9, 12], 9)}")
+    print(f"search([-1,0,3,5,9,12], 2) -> {solution.search([-1, 0, 3, 5, 9, 12], 2)}")
     print(f"search([5], 5) -> {solution.search([5], 5)}")

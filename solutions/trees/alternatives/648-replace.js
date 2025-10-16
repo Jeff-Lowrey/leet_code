@@ -66,10 +66,10 @@
  */
 
 class TrieNode {
-    constructor() {
-        this.children = new Map();
-        this.isRoot = false;
-    }
+  constructor() {
+    this.children = new Map();
+    this.isRoot = false;
+  }
 }
 
 /**
@@ -83,135 +83,148 @@ class TrieNode {
  * Space Complexity: O(d) for Trie storage
  */
 function solve(dictionary, sentence) {
-    const root = new TrieNode();
+  const root = new TrieNode();
 
-    // Insert a root into the Trie
-    function insert(word) {
-        let node = root;
-        for (const char of word) {
-            if (!node.children.has(char)) {
-                node.children.set(char, new TrieNode());
-            }
-            node = node.children.get(char);
-        }
-        node.isRoot = true;
+  // Insert a root into the Trie
+  function insert(word) {
+    let node = root;
+    for (const char of word) {
+      if (!node.children.has(char)) {
+        node.children.set(char, new TrieNode());
+      }
+      node = node.children.get(char);
     }
+    node.isRoot = true;
+  }
 
-    // Find shortest root for a word
-    function findRoot(word) {
-        let node = root;
-        let prefix = '';
+  // Find shortest root for a word
+  function findRoot(word) {
+    let node = root;
+    let prefix = "";
 
-        for (const char of word) {
-            if (!node.children.has(char)) {
-                // No matching root found
-                return word;
-            }
-
-            prefix += char;
-            node = node.children.get(char);
-
-            if (node.isRoot) {
-                // Found a root, return it (shortest due to traversal order)
-                return prefix;
-            }
-        }
-
-        // Word itself might be a root, or no root found
+    for (const char of word) {
+      if (!node.children.has(char)) {
+        // No matching root found
         return word;
+      }
+
+      prefix += char;
+      node = node.children.get(char);
+
+      if (node.isRoot) {
+        // Found a root, return it (shortest due to traversal order)
+        return prefix;
+      }
     }
 
-    // Build Trie with all dictionary roots
-    for (const word of dictionary) {
-        insert(word);
-    }
+    // Word itself might be a root, or no root found
+    return word;
+  }
 
-    // Process sentence
-    const words = sentence.split(' ');
-    const result = words.map(word => findRoot(word));
+  // Build Trie with all dictionary roots
+  for (const word of dictionary) {
+    insert(word);
+  }
 
-    return result.join(' ');
+  // Process sentence
+  const words = sentence.split(" ");
+  const result = words.map((word) => findRoot(word));
+
+  return result.join(" ");
 }
 
 /**
  * Test cases for Problem 648: Replace Words
  */
 function testSolution() {
-    console.log('Testing 648. Replace Words');
+  console.log("Testing 648. Replace Words");
 
-    // Test case 1: Basic functionality
-    const result1 = solve(
-        ["cat", "bat", "rat"],
-        "the cattle was rattled by the battery"
-    );
-    const expected1 = "the cat was rat by the bat";
-    console.assert(result1 === expected1,
-        `Test 1 failed: expected "${expected1}", got "${result1}"`);
+  // Test case 1: Basic functionality
+  const result1 = solve(
+    ["cat", "bat", "rat"],
+    "the cattle was rattled by the battery",
+  );
+  const expected1 = "the cat was rat by the bat";
+  console.assert(
+    result1 === expected1,
+    `Test 1 failed: expected "${expected1}", got "${result1}"`,
+  );
 
-    // Test case 2: Multiple roots match (use shortest)
-    const result2 = solve(
-        ["a", "aa", "aaa", "aaaa"],
-        "a aa a aaaa aaa aaa aaa aaaaaa bbb baba ababa"
-    );
-    const expected2 = "a a a a a a a a bbb baba a";
-    console.assert(result2 === expected2,
-        `Test 2 failed: expected "${expected2}", got "${result2}"`);
+  // Test case 2: Multiple roots match (use shortest)
+  const result2 = solve(
+    ["a", "aa", "aaa", "aaaa"],
+    "a aa a aaaa aaa aaa aaa aaaaaa bbb baba ababa",
+  );
+  const expected2 = "a a a a a a a a bbb baba a";
+  console.assert(
+    result2 === expected2,
+    `Test 2 failed: expected "${expected2}", got "${result2}"`,
+  );
 
-    // Test case 3: No matching roots
-    const result3 = solve(
-        ["catt", "cat", "bat", "rat"],
-        "the cattle was rattled by the battery"
-    );
-    const expected3 = "the cat was rat by the bat";
-    console.assert(result3 === expected3,
-        `Test 3 failed: expected "${expected3}", got "${result3}"`);
+  // Test case 3: No matching roots
+  const result3 = solve(
+    ["catt", "cat", "bat", "rat"],
+    "the cattle was rattled by the battery",
+  );
+  const expected3 = "the cat was rat by the bat";
+  console.assert(
+    result3 === expected3,
+    `Test 3 failed: expected "${expected3}", got "${result3}"`,
+  );
 
-    // Test case 4: Empty dictionary
-    const result4 = solve([], "hello world");
-    const expected4 = "hello world";
-    console.assert(result4 === expected4,
-        `Test 4 failed: expected "${expected4}", got "${result4}"`);
+  // Test case 4: Empty dictionary
+  const result4 = solve([], "hello world");
+  const expected4 = "hello world";
+  console.assert(
+    result4 === expected4,
+    `Test 4 failed: expected "${expected4}", got "${result4}"`,
+  );
 
-    // Test case 5: Single word
-    const result5 = solve(["e", "k", "c", "harqp", "h", "gsafc", "vn", "lqp"], "k lqp");
-    const expected5 = "k lqp";
-    console.assert(result5 === expected5,
-        `Test 5 failed: expected "${expected5}", got "${result5}"`);
+  // Test case 5: Single word
+  const result5 = solve(
+    ["e", "k", "c", "harqp", "h", "gsafc", "vn", "lqp"],
+    "k lqp",
+  );
+  const expected5 = "k lqp";
+  console.assert(
+    result5 === expected5,
+    `Test 5 failed: expected "${expected5}", got "${result5}"`,
+  );
 
-    console.log('All test cases passed for 648. Replace Words!');
+  console.log("All test cases passed for 648. Replace Words!");
 }
 
 /**
  * Example usage and demonstration
  */
 function demonstrateSolution() {
-    console.log('\n=== Problem 648. Replace Words ===');
-    console.log('Category: Trees/Trie');
-    console.log('Difficulty: Medium');
-    console.log('');
+  console.log("\n=== Problem 648. Replace Words ===");
+  console.log("Category: Trees/Trie");
+  console.log("Difficulty: Medium");
+  console.log("");
 
-    console.log('Example: dictionary = ["cat", "bat", "rat"]');
-    console.log('         sentence = "the cattle was rattled by the battery"');
-    const result = solve(
-        ["cat", "bat", "rat"],
-        "the cattle was rattled by the battery"
-    );
-    console.log('Result:', result);
-    console.log('');
+  console.log('Example: dictionary = ["cat", "bat", "rat"]');
+  console.log('         sentence = "the cattle was rattled by the battery"');
+  const result = solve(
+    ["cat", "bat", "rat"],
+    "the cattle was rattled by the battery",
+  );
+  console.log("Result:", result);
+  console.log("");
 
-    testSolution();
+  testSolution();
 }
 
 // Run tests if this file is executed directly
 if (require.main === module) {
-    demonstrateSolution();
+  demonstrateSolution();
 }
 
 // Export for use in other modules
 module.exports = {
-    solve,
-    testSolution,
-    demonstrateSolution
+  solve,
+  testSolution,
+  demonstrateSolution,
 };
 
 /**

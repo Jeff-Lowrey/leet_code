@@ -4,27 +4,77 @@
 
 ---
 
+## Table of Contents
+
+- [Prerequisites](#prerequisites)
+- [Installation Steps](#installation-steps)
+- [First-Time Navigation](#first-time-navigation)
+- [Verifying Installation](#verifying-installation)
+- [Common Setup Issues](#common-setup-issues)
+- [Next Steps](#next-steps)
+
 ## Prerequisites
 
 Before installing the Leet Code Learning Tool, ensure you have:
 
 - **Python 3.13 or higher** - [Download Python](https://www.python.org/downloads/)
-- **PDM (Python Development Master)** - Modern Python package manager
 - **Git** - For cloning the repository
 - **Web Browser** - Chrome, Firefox, Safari, or Edge
 
 ## Installation Steps
 
-### 1. Clone the Repository
+### Quick Start (Recommended)
+
+The easiest way to get started:
+
+#### 1. Clone the Repository
 
 ```bash
 git clone <repository-url>
 cd leet_code
 ```
 
-### 2. Install Dependencies
+#### 2. Run the Application
 
-The project uses PDM for dependency management:
+```bash
+./run.sh
+```
+
+The script will automatically:
+- Create a virtual environment
+- Install all required dependencies (Flask, Markdown, Pygments)
+- Start the development server
+
+You should see output similar to:
+```
+Starting Learning Web App for Leet Code problems...
+Installing dependencies...
+Starting server at http://127.0.0.1:9501
+ * Running on http://127.0.0.1:9501
+ * Press CTRL+C to quit
+```
+
+#### 3. Access the Web Interface
+
+Open your web browser and navigate to:
+
+```
+http://127.0.0.1:9501
+```
+
+You should see the main page with category cards displaying all available algorithm categories.
+
+#### Custom Host/Port
+
+To run on a different host or port:
+
+```bash
+./run.sh --host 0.0.0.0 --port 8080
+```
+
+### Alternative Setup (For Development)
+
+If you prefer using PDM for development:
 
 ```bash
 # Install PDM if you don't have it
@@ -32,36 +82,10 @@ pip install pdm
 
 # Install project dependencies
 pdm install
-```
 
-This will:
-- Create a virtual environment
-- Install all required packages
-- Set up the development environment
-
-### 3. Run the Development Server
-
-Start the Flask application:
-
-```bash
+# Run the development server
 pdm run python -m src.leet_code.app
 ```
-
-You should see output similar to:
-```
- * Running on http://127.0.0.1:5000
- * Press CTRL+C to quit
-```
-
-### 4. Access the Web Interface
-
-Open your web browser and navigate to:
-
-```
-http://localhost:5000
-```
-
-You should see the main page with category cards displaying all available algorithm categories.
 
 ## First-Time Navigation
 
@@ -108,23 +132,23 @@ To verify everything is working correctly:
 
 ### Port Already in Use
 
-If port 5000 is already in use:
+If port 9501 is already in use:
 ```bash
-# Use a different port
-pdm run python -m src.leet_code.app --port 5001
+# Use a different port with run.sh
+./run.sh --port 9502
 ```
 
-Then access at `http://localhost:5001`
+Then access at `http://127.0.0.1:9502`
 
-### PDM Not Found
+### Permission Denied for run.sh
 
-If PDM is not installed:
+If you get a permission error:
 ```bash
-# Install PDM globally
-pip install pdm
+# Make the script executable
+chmod +x run.sh
 
-# Or use pipx
-pipx install pdm
+# Then run it
+./run.sh
 ```
 
 ### Python Version Issues
@@ -132,6 +156,18 @@ pipx install pdm
 Ensure you're using Python 3.13+:
 ```bash
 python --version  # Should show Python 3.13.x or higher
+python3 --version  # Try this if python command doesn't work
+```
+
+### PDM Not Found (Development Setup Only)
+
+If you're using the PDM method and PDM is not installed:
+```bash
+# Install PDM globally
+pip install pdm
+
+# Or use pipx
+pipx install pdm
 ```
 
 ## Next Steps

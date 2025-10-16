@@ -60,6 +60,7 @@ Boolean array of size n
 </details>
 """
 
+
 class Solution:
     def countPrimes(self, n: int) -> int:
         """
@@ -120,6 +121,7 @@ class Solution:
 
         return sum(is_prime)
 
+
 def test_solution() -> None:
     """Test cases for Problem 204."""
     solution = Solution()
@@ -131,6 +133,7 @@ def test_solution() -> None:
     assert solution.countPrimes(3) == 1  # 2
     assert solution.countPrimes(100) == 25
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

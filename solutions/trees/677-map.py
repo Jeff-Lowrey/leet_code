@@ -75,5 +75,3 @@ For storing all keys in the trie structure
 
 </details>
 """
-
-

@@ -88,6 +88,9 @@ O(n)
 </details>
 """
 
+
+from typing import Any
+
 class Solution:
     def countBinarySubstrings(self, s: str) -> int:
         """
@@ -140,7 +143,7 @@ class Solution:
             return 0
 
         # Count consecutive groups
-        groups = []
+        groups: list[Any] = []
         count = 1
 
         for i in range(1, len(s)):
@@ -230,7 +233,8 @@ class Solution:
 
         return result
 
-def test_solution():
+
+def test_solution() -> None:
     """Test cases for Problem 696."""
     solution = Solution()
 
@@ -280,6 +284,7 @@ def test_solution():
     assert result9 == expected9, f"Expected {expected9}, got {result9}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

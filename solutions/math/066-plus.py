@@ -73,6 +73,7 @@ O(1)
 
 from typing import List, Optional, Dict, Tuple
 
+
 class Solution:
     def plusOne(self, digits: List[int]) -> List[int]:
         """
@@ -102,7 +103,8 @@ class Solution:
         # (e.g., 999 -> 1000)
         return [1] + digits
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
@@ -124,6 +126,7 @@ def test_solution():
     assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

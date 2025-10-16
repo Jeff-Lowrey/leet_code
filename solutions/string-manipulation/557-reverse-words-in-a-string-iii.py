@@ -81,6 +81,9 @@ O(n)
 </details>
 """
 
+
+from typing import Any
+
 class Solution:
     def reverseWords(self, s: str) -> str:
         """
@@ -112,7 +115,7 @@ class Solution:
         words = s.split()
 
         # Reverse each word
-        reversed_words = []
+        reversed_words: list[Any] = []
         for word in words:
             reversed_word = word[::-1]
             reversed_words.append(reversed_word)
@@ -170,8 +173,8 @@ class Solution:
         Returns:
             String with each word reversed
         """
-        result = []
-        current_word = []
+        result: list[Any] = []
+        current_word: list[Any] = []
 
         for char in s:
             if char == " ":
@@ -200,7 +203,7 @@ class Solution:
             String with each word reversed
         """
         result = []
-        stack = []
+        stack: list[Any] = []
 
         for char in s:
             if char == " ":
@@ -217,7 +220,8 @@ class Solution:
 
         return "".join(result)
 
-def test_solution():
+
+def test_solution() -> None:
     """Test cases for Problem 557."""
     solution = Solution()
 
@@ -272,6 +276,7 @@ def test_solution():
     assert result10 == expected10, f"Expected {expected10}, got {result10}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

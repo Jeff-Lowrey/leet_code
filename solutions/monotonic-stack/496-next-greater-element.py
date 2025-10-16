@@ -68,6 +68,9 @@ O(n)
 </details>
 """
 
+
+from typing import Any
+
 class Solution:
     def nextGreaterElement(self, nums1: list[int], nums2: list[int]) -> list[int]:
         """
@@ -75,8 +78,8 @@ class Solution:
         Time Complexity: O(n + m)
         Space Complexity: O(n)
         """
-        stack = []
-        next_greater = {}
+        stack: list[Any] = []
+        next_greater: dict[Any, Any] = {}
 
         # Build next greater mapping for nums2
         for num in nums2:
@@ -90,6 +93,7 @@ class Solution:
 
         # Build result for nums1
         return [next_greater[num] for num in nums1]
+
 
 """
 503. Next Greater Element II
@@ -105,6 +109,7 @@ Input: nums = [1,2,1]
 Output: [2,-1,2]
 """
 
+
 class SolutionCircular:
     def nextGreaterElements(self, nums: list[int]) -> list[int]:
         """
@@ -114,7 +119,7 @@ class SolutionCircular:
         """
         n = len(nums)
         result = [-1] * n
-        stack = []
+        stack: list[Any] = []
 
         # Process array twice for circular behavior
         for i in range(2 * n):
@@ -127,6 +132,7 @@ class SolutionCircular:
                 stack.append(idx)
 
         return result
+
 
 """
 901. Online Stock Span
@@ -144,6 +150,7 @@ Input: ["StockSpanner", "next", "next", "next", "next", "next", "next", "next"]
 Output: [null, 1, 1, 1, 2, 1, 4, 6]
 """
 
+
 class StockSpanner:
     """
     Approach: Monotonic stack
@@ -151,8 +158,8 @@ class StockSpanner:
     Space Complexity: O(n)
     """
 
-    def __init__(self):
-        self.stack = []  # (price, span)
+    def __init__(self) -> None:
+        self.stack: list[tuple[int, int]] = []  # (price, span)
 
     def next(self, price: int) -> int:
         span = 1
@@ -163,6 +170,7 @@ class StockSpanner:
 
         self.stack.append((price, span))
         return span
+
 
 """
 402. Remove K Digits
@@ -175,6 +183,7 @@ Input: num = "1432219", k = 3
 Output: "1219"
 """
 
+
 class SolutionRemoveDigits:
     def removeKdigits(self, num: str, k: int) -> str:
         """
@@ -182,7 +191,7 @@ class SolutionRemoveDigits:
         Time Complexity: O(n)
         Space Complexity: O(n)
         """
-        stack = []
+        stack: list[Any] = []
 
         for digit in num:
             # Remove larger digits while we can
@@ -195,8 +204,9 @@ class SolutionRemoveDigits:
         stack = stack[:-k] if k else stack
 
         # Remove leading zeros and handle empty result
-        result = ''.join(stack).lstrip('0')
-        return result if result else '0'
+        result = "".join(stack).lstrip("0")
+        return result if result else "0"
+
 
 """
 316. Remove Duplicate Letters
@@ -210,6 +220,7 @@ Input: s = "bcabc"
 Output: "abc"
 """
 
+
 class SolutionRemoveDuplicates:
     def removeDuplicateLetters(self, s: str) -> str:
         """
@@ -218,12 +229,12 @@ class SolutionRemoveDuplicates:
         Space Complexity: O(1) - at most 26 letters
         """
         # Count frequency of each character
-        freq = {}
+        freq: dict[Any, Any] = {}
         for char in s:
             freq[char] = freq.get(char, 0) + 1
 
-        stack = []
-        in_stack = set()
+        stack: list[Any] = []
+        in_stack: set[Any] = set()
 
         for char in s:
             freq[char] -= 1
@@ -239,7 +250,8 @@ class SolutionRemoveDuplicates:
             stack.append(char)
             in_stack.add(char)
 
-        return ''.join(stack)
+        return "".join(stack)
+
 
 # Test cases
 if __name__ == "__main__":
@@ -247,10 +259,7 @@ if __name__ == "__main__":
     solution = Solution()
 
     print("Next Greater Element I:")
-    test_cases = [
-        ([4, 1, 2], [1, 3, 4, 2]),
-        ([2, 4], [1, 2, 3, 4])
-    ]
+    test_cases = [([4, 1, 2], [1, 3, 4, 2]), ([2, 4], [1, 2, 3, 4])]
 
     for nums1, nums2 in test_cases:
         result = solution.nextGreaterElement(nums1, nums2)
@@ -277,22 +286,18 @@ if __name__ == "__main__":
         span = spanner.next(price)
         print(f"Price: {price}, Span: {span}")
 
-    print("\n" + "="*50 + "\n")
+    print("\n" + "=" * 50 + "\n")
 
     # Test Remove K Digits
     solution_remove = SolutionRemoveDigits()
 
     print("Remove K Digits:")
-    remove_cases = [
-        ("1432219", 3),
-        ("10200", 1),
-        ("10", 2)
-    ]
+    remove_cases = [("1432219", 3), ("10200", 1), ("10", 2)]
 
     for num, k in remove_cases:
-        result = solution_remove.removeKdigits(num, k)
+        remove_result: str = solution_remove.removeKdigits(num, k)
         print(f"Number: '{num}', k={k}")
-        print(f"Result: '{result}'\n")
+        print(f"Result: '{remove_result}'\n")
 
     # Test Remove Duplicate Letters
     solution_dup = SolutionRemoveDuplicates()
@@ -301,6 +306,6 @@ if __name__ == "__main__":
     dup_cases = ["bcabc", "cbacdcbc", "ecbacba"]
 
     for s in dup_cases:
-        result = solution_dup.removeDuplicateLetters(s)
+        dup_result: str = solution_dup.removeDuplicateLetters(s)
         print(f"Input: '{s}'")
-        print(f"Result: '{result}'\n")
+        print(f"Result: '{dup_result}'\n")

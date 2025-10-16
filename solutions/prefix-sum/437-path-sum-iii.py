@@ -80,6 +80,18 @@ Recursion stack depth is tree height h, hashmap stores at most h entries in any 
 </details>
 """
 
+from collections import defaultdict
+from typing import Any
+
+
+
+class TreeNode:
+    def __init__(self, val: Any = 0, left: Any = None, right: Any = None) -> None:
+        self.val = val
+        self.left = left
+        self.right = right
+
+
 class Solution:
     def pathSum(self, root: TreeNode | None, targetSum: int) -> int:
         """
@@ -136,8 +148,6 @@ class Solution:
         Returns:
             Number of paths with sum equal to targetSum
         """
-        from collections import defaultdict
-
         def dfs(node: TreeNode | None, current_sum: int, prefix_map: dict[int, int]) -> int:
             if not node:
                 return 0
@@ -159,7 +169,7 @@ class Solution:
 
             return count
 
-        prefix_map = defaultdict(int)
+        prefix_map: dict[Any, int] = defaultdict(int)
         prefix_map[0] = 1
         return dfs(root, 0, prefix_map)
 
@@ -253,15 +263,16 @@ class Solution:
         traverse(root, 0)
         return self.result
 
-def test_solution():
+
+def test_solution() -> None:
     """Test cases for Problem 437."""
     solution = Solution()
 
     # Helper function to build tree from list
-    def build_tree(values: list) -> TreeNode | None:
+    def build_tree(values: list[Any]) -> TreeNode:
         """Build binary tree from level-order list."""
         if not values:
-            return None
+            return None  # type: ignore
 
         root = TreeNode(values[0])
         queue = [root]
@@ -335,6 +346,7 @@ def test_solution():
 
     print("All test cases passed!")
 
+
 if __name__ == "__main__":
     test_solution()
 
@@ -343,9 +355,9 @@ if __name__ == "__main__":
     print("=== 437. Path Sum III ===")
 
     # Helper function to build tree
-    def build_tree(values: list) -> TreeNode | None:
+    def build_tree(values: list[Any]) -> TreeNode:
         if not values:
-            return None
+            return None  # type: ignore
         root = TreeNode(values[0])
         queue = [root]
         i = 1

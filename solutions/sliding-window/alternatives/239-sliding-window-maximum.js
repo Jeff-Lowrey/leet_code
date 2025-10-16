@@ -74,119 +74,144 @@
  * Space Complexity: O(k)
  */
 function solve(nums, k) {
-    if (!nums || nums.length === 0 || k <= 0) return [];
-    if (k === 1) return nums;
-    if (k >= nums.length) return [Math.max(...nums)];
+  if (!nums || nums.length === 0 || k <= 0) return [];
+  if (k === 1) return nums;
+  if (k >= nums.length) return [Math.max(...nums)];
 
-    const result = [];
-    const deque = []; // Stores indices
+  const result = [];
+  const deque = []; // Stores indices
 
-    for (let i = 0; i < nums.length; i++) {
-        // Remove indices outside current window from front
-        while (deque.length > 0 && deque[0] <= i - k) {
-            deque.shift();
-        }
-
-        // Remove indices of smaller elements from back
-        // They can never be maximum in any future window
-        while (deque.length > 0 && nums[deque[deque.length - 1]] < nums[i]) {
-            deque.pop();
-        }
-
-        // Add current index to deque
-        deque.push(i);
-
-        // Add maximum to result once we have a full window
-        if (i >= k - 1) {
-            result.push(nums[deque[0]]);
-        }
+  for (let i = 0; i < nums.length; i++) {
+    // Remove indices outside current window from front
+    while (deque.length > 0 && deque[0] <= i - k) {
+      deque.shift();
     }
 
-    return result;
+    // Remove indices of smaller elements from back
+    // They can never be maximum in any future window
+    while (deque.length > 0 && nums[deque[deque.length - 1]] < nums[i]) {
+      deque.pop();
+    }
+
+    // Add current index to deque
+    deque.push(i);
+
+    // Add maximum to result once we have a full window
+    if (i >= k - 1) {
+      result.push(nums[deque[0]]);
+    }
+  }
+
+  return result;
 }
 
 /**
  * Test cases for Problem 239: Sliding Window Maximum
  */
 function testSolution() {
-    console.log('Testing 239. Sliding Window Maximum');
+  console.log("Testing 239. Sliding Window Maximum");
 
-    // Helper function to compare arrays
-    const arraysEqual = (a, b) => a.length === b.length && a.every((val, idx) => val === b[idx]);
+  // Helper function to compare arrays
+  const arraysEqual = (a, b) =>
+    a.length === b.length && a.every((val, idx) => val === b[idx]);
 
-    // Test case 1: Basic example
-    const result1 = solve([1, 3, -1, -3, 5, 3, 6, 7], 3);
-    const expected1 = [3, 3, 5, 5, 6, 7];
-    console.assert(arraysEqual(result1, expected1), `Test 1 failed: expected [${expected1}], got [${result1}]`);
-    console.log(`Test 1 passed: nums=[1,3,-1,-3,5,3,6,7], k=3 -> [${result1}]`);
+  // Test case 1: Basic example
+  const result1 = solve([1, 3, -1, -3, 5, 3, 6, 7], 3);
+  const expected1 = [3, 3, 5, 5, 6, 7];
+  console.assert(
+    arraysEqual(result1, expected1),
+    `Test 1 failed: expected [${expected1}], got [${result1}]`,
+  );
+  console.log(`Test 1 passed: nums=[1,3,-1,-3,5,3,6,7], k=3 -> [${result1}]`);
 
-    // Test case 2: Window size 1
-    const result2 = solve([1, 2, 3, 4], 1);
-    const expected2 = [1, 2, 3, 4];
-    console.assert(arraysEqual(result2, expected2), `Test 2 failed: expected [${expected2}], got [${result2}]`);
-    console.log(`Test 2 passed: nums=[1,2,3,4], k=1 -> [${result2}]`);
+  // Test case 2: Window size 1
+  const result2 = solve([1, 2, 3, 4], 1);
+  const expected2 = [1, 2, 3, 4];
+  console.assert(
+    arraysEqual(result2, expected2),
+    `Test 2 failed: expected [${expected2}], got [${result2}]`,
+  );
+  console.log(`Test 2 passed: nums=[1,2,3,4], k=1 -> [${result2}]`);
 
-    // Test case 3: Window equals array length
-    const result3 = solve([1, 3, 5, 2, 4], 5);
-    const expected3 = [5];
-    console.assert(arraysEqual(result3, expected3), `Test 3 failed: expected [${expected3}], got [${result3}]`);
-    console.log(`Test 3 passed: nums=[1,3,5,2,4], k=5 -> [${result3}]`);
+  // Test case 3: Window equals array length
+  const result3 = solve([1, 3, 5, 2, 4], 5);
+  const expected3 = [5];
+  console.assert(
+    arraysEqual(result3, expected3),
+    `Test 3 failed: expected [${expected3}], got [${result3}]`,
+  );
+  console.log(`Test 3 passed: nums=[1,3,5,2,4], k=5 -> [${result3}]`);
 
-    // Test case 4: All elements same
-    const result4 = solve([5, 5, 5, 5], 2);
-    const expected4 = [5, 5, 5];
-    console.assert(arraysEqual(result4, expected4), `Test 4 failed: expected [${expected4}], got [${result4}]`);
-    console.log(`Test 4 passed: nums=[5,5,5,5], k=2 -> [${result4}]`);
+  // Test case 4: All elements same
+  const result4 = solve([5, 5, 5, 5], 2);
+  const expected4 = [5, 5, 5];
+  console.assert(
+    arraysEqual(result4, expected4),
+    `Test 4 failed: expected [${expected4}], got [${result4}]`,
+  );
+  console.log(`Test 4 passed: nums=[5,5,5,5], k=2 -> [${result4}]`);
 
-    // Test case 5: Decreasing array
-    const result5 = solve([9, 8, 7, 6, 5], 3);
-    const expected5 = [9, 8, 7];
-    console.assert(arraysEqual(result5, expected5), `Test 5 failed: expected [${expected5}], got [${result5}]`);
-    console.log(`Test 5 passed: nums=[9,8,7,6,5], k=3 -> [${result5}]`);
+  // Test case 5: Decreasing array
+  const result5 = solve([9, 8, 7, 6, 5], 3);
+  const expected5 = [9, 8, 7];
+  console.assert(
+    arraysEqual(result5, expected5),
+    `Test 5 failed: expected [${expected5}], got [${result5}]`,
+  );
+  console.log(`Test 5 passed: nums=[9,8,7,6,5], k=3 -> [${result5}]`);
 
-    // Test case 6: Increasing array
-    const result6 = solve([1, 2, 3, 4, 5], 3);
-    const expected6 = [3, 4, 5];
-    console.assert(arraysEqual(result6, expected6), `Test 6 failed: expected [${expected6}], got [${result6}]`);
-    console.log(`Test 6 passed: nums=[1,2,3,4,5], k=3 -> [${result6}]`);
+  // Test case 6: Increasing array
+  const result6 = solve([1, 2, 3, 4, 5], 3);
+  const expected6 = [3, 4, 5];
+  console.assert(
+    arraysEqual(result6, expected6),
+    `Test 6 failed: expected [${expected6}], got [${result6}]`,
+  );
+  console.log(`Test 6 passed: nums=[1,2,3,4,5], k=3 -> [${result6}]`);
 
-    // Test case 7: Single element
-    const result7 = solve([7], 1);
-    const expected7 = [7];
-    console.assert(arraysEqual(result7, expected7), `Test 7 failed: expected [${expected7}], got [${result7}]`);
-    console.log(`Test 7 passed: nums=[7], k=1 -> [${result7}]`);
+  // Test case 7: Single element
+  const result7 = solve([7], 1);
+  const expected7 = [7];
+  console.assert(
+    arraysEqual(result7, expected7),
+    `Test 7 failed: expected [${expected7}], got [${result7}]`,
+  );
+  console.log(`Test 7 passed: nums=[7], k=1 -> [${result7}]`);
 
-    // Test case 8: Negative numbers
-    const result8 = solve([-7, -8, 7, 5, 7, 1, 6, 0], 4);
-    const expected8 = [7, 7, 7, 7, 7];
-    console.assert(arraysEqual(result8, expected8), `Test 8 failed: expected [${expected8}], got [${result8}]`);
-    console.log(`Test 8 passed: nums=[-7,-8,7,5,7,1,6,0], k=4 -> [${result8}]`);
+  // Test case 8: Negative numbers
+  const result8 = solve([-7, -8, 7, 5, 7, 1, 6, 0], 4);
+  const expected8 = [7, 7, 7, 7, 7];
+  console.assert(
+    arraysEqual(result8, expected8),
+    `Test 8 failed: expected [${expected8}], got [${result8}]`,
+  );
+  console.log(`Test 8 passed: nums=[-7,-8,7,5,7,1,6,0], k=4 -> [${result8}]`);
 
-    console.log('All test cases passed for 239. Sliding Window Maximum!');
+  console.log("All test cases passed for 239. Sliding Window Maximum!");
 }
 
 /**
  * Example usage and demonstration
  */
 function demonstrateSolution() {
-    console.log('\n=== Problem 239. Sliding Window Maximum ===');
-    console.log('Category: Sliding Window');
-    console.log('Difficulty: Hard');
-    console.log('');
+  console.log("\n=== Problem 239. Sliding Window Maximum ===");
+  console.log("Category: Sliding Window");
+  console.log("Difficulty: Hard");
+  console.log("");
 
-    testSolution();
+  testSolution();
 }
 
 // Run tests if this file is executed directly
 if (require.main === module) {
-    demonstrateSolution();
+  demonstrateSolution();
 }
 
 // Export for use in other modules
 module.exports = {
-    solve,
-    testSolution,
-    demonstrateSolution
+  solve,
+  testSolution,
+  demonstrateSolution,
 };
 
 /**

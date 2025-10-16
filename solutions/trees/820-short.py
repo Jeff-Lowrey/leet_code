@@ -67,11 +67,15 @@ For the trie structure and set storage
 </details>
 """
 
+
+from typing import Any
+
 class TrieNode:
-    """Node class for Trie data structure."""
-    def __init__(self):
-        self.children = {}
+    """..."""
+    def __init__(self) -> None:
+        self.children: dict[str, Any] = {}
         self.is_end = False
+
 
 class Solution:
     def minimumLengthEncoding(self, words: list[str]) -> int:
@@ -152,8 +156,8 @@ class Solution:
             Minimum length of encoded string
         """
         # Build trie with reversed words
-        trie = {}
-        nodes = []
+        trie: dict[Any, Any] = {}
+        nodes: list[Any] = []
 
         for word in set(words):
             node = trie
@@ -164,7 +168,8 @@ class Solution:
         # Count only leaf nodes (words not suffixes of others)
         return sum(length + 1 for node, length in nodes if not node)
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
@@ -186,6 +191,7 @@ def test_solution():
     assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()
@@ -216,7 +222,7 @@ if __name__ == "__main__":
     methods = [
         ("Trie-based", solution.minimumLengthEncoding),
         ("Set operations", solution.minimumLengthEncodingSet),
-        ("Pure trie", solution.minimumLengthEncodingTrie)
+        ("Pure trie", solution.minimumLengthEncodingTrie),
     ]
 
     for name, method in methods:

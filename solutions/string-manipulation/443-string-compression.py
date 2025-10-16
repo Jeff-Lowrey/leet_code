@@ -61,11 +61,11 @@ Read pointer scans:
    write=2
 
 2. chars[2-3]: 'b' appears 2 times
-   Write: chars[2]='b', chars[3]='2'
+   Write='b', chars[3]='2'
    write=4
 
 3. chars[4-6]: 'c' appears 3 times
-   Write: chars[4]='c', chars[5]='3'
+   Write='c', chars[5]='3'
    write=6
 
 Result: ["a","2","b","2","c","3"] with length 6
@@ -89,6 +89,9 @@ O(1)
 
 </details>
 """
+
+from collections import deque
+
 
 class Solution:
     def compress(self, chars: list[str]) -> int:
@@ -181,8 +184,6 @@ class Solution:
         Returns:
             New length of compressed array
         """
-        from collections import deque
-
         if not chars:
             return 0
 
@@ -209,7 +210,8 @@ class Solution:
 
         return write
 
-def test_solution():
+
+def test_solution() -> None:
     """Test cases for Problem 443."""
     solution = Solution()
 
@@ -268,6 +270,7 @@ def test_solution():
     assert result7 == expected7, f"Expected {expected7}, got {result7}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

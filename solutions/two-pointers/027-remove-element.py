@@ -71,27 +71,28 @@ O(1)
 
 from typing import List, Optional, Dict, Tuple
 
+
 class Solution:
     def removeElement(self, nums: List[int], val: int) -> int:
         """
         Removes all instances of val from nums in-place and returns new length.
-        
+
         Args:
             nums: List of integers to process
             val: Value to remove from the list
-            
+
         Returns:
             int: Length of array after removing specified value
-            
+
         Time Complexity: O(n) where n is length of nums
         Space Complexity: O(1) as we modify array in-place
         """
         if not nums:
             return 0
-        
+
         # Initialize pointer for position to place next valid element
         k = 0
-        
+
         # Iterate through array
         for i in range(len(nums)):
             # If current element is not the value to remove,
@@ -99,10 +100,11 @@ class Solution:
             if nums[i] != val:
                 nums[k] = nums[i]
                 k += 1
-        
+
         return k
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
@@ -119,6 +121,7 @@ def test_solution():
     assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

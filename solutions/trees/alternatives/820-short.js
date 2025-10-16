@@ -71,10 +71,10 @@
  * Trie node for suffix trie construction
  */
 class TrieNode {
-    constructor() {
-        this.children = new Map();
-        this.isEnd = false;
-    }
+  constructor() {
+    this.children = new Map();
+    this.isEnd = false;
+  }
 }
 
 /**
@@ -86,23 +86,23 @@ class TrieNode {
  * Space Complexity: O(N × M) for trie structure
  */
 function minimumLengthEncoding(words) {
-    // Remove duplicates and sort by length (longer first for optimization)
-    const uniqueWords = [...new Set(words)];
-    uniqueWords.sort((a, b) => b.length - a.length);
+  // Remove duplicates and sort by length (longer first for optimization)
+  const uniqueWords = [...new Set(words)];
+  uniqueWords.sort((a, b) => b.length - a.length);
 
-    const root = new TrieNode();
-    let totalLength = 0;
+  const root = new TrieNode();
+  let totalLength = 0;
 
-    for (const word of uniqueWords) {
-        // Check if this word is already a suffix of a previously added word
-        if (!isSuffix(root, word)) {
-            // Add word to trie and include in encoding
-            addWord(root, word);
-            totalLength += word.length + 1; // +1 for '#'
-        }
+  for (const word of uniqueWords) {
+    // Check if this word is already a suffix of a previously added word
+    if (!isSuffix(root, word)) {
+      // Add word to trie and include in encoding
+      addWord(root, word);
+      totalLength += word.length + 1; // +1 for '#'
     }
+  }
 
-    return totalLength;
+  return totalLength;
 }
 
 /**
@@ -112,15 +112,15 @@ function minimumLengthEncoding(words) {
  * @returns {boolean} True if word is already a suffix
  */
 function isSuffix(root, word) {
-    let node = root;
-    for (let i = word.length - 1; i >= 0; i--) {
-        const char = word[i];
-        if (!node.children.has(char)) {
-            return false;
-        }
-        node = node.children.get(char);
+  let node = root;
+  for (let i = word.length - 1; i >= 0; i--) {
+    const char = word[i];
+    if (!node.children.has(char)) {
+      return false;
     }
-    return node.isEnd;
+    node = node.children.get(char);
+  }
+  return node.isEnd;
 }
 
 /**
@@ -129,15 +129,15 @@ function isSuffix(root, word) {
  * @param {string} word - Word to add
  */
 function addWord(root, word) {
-    let node = root;
-    for (let i = word.length - 1; i >= 0; i--) {
-        const char = word[i];
-        if (!node.children.has(char)) {
-            node.children.set(char, new TrieNode());
-        }
-        node = node.children.get(char);
+  let node = root;
+  for (let i = word.length - 1; i >= 0; i--) {
+    const char = word[i];
+    if (!node.children.has(char)) {
+      node.children.set(char, new TrieNode());
     }
-    node.isEnd = true;
+    node = node.children.get(char);
+  }
+  node.isEnd = true;
 }
 
 /**
@@ -146,17 +146,17 @@ function addWord(root, word) {
  * @returns {number} Minimum length of encoded string
  */
 function minimumLengthEncodingSet(words) {
-    const wordSet = new Set(words);
+  const wordSet = new Set(words);
 
-    // Remove words that are suffixes of other words
-    for (const word of words) {
-        for (let i = 1; i < word.length; i++) {
-            wordSet.delete(word.substring(i));
-        }
+  // Remove words that are suffixes of other words
+  for (const word of words) {
+    for (let i = 1; i < word.length; i++) {
+      wordSet.delete(word.substring(i));
     }
+  }
 
-    // Calculate total length: each word + 1 for '#'
-    return Array.from(wordSet).reduce((sum, word) => sum + word.length + 1, 0);
+  // Calculate total length: each word + 1 for '#'
+  return Array.from(wordSet).reduce((sum, word) => sum + word.length + 1, 0);
 }
 
 /**
@@ -165,135 +165,156 @@ function minimumLengthEncodingSet(words) {
  * @returns {number} Minimum length of encoded string
  */
 function minimumLengthEncodingTrie(words) {
-    // Build trie with reversed words
-    const trie = {};
-    const nodes = [];
+  // Build trie with reversed words
+  const trie = {};
+  const nodes = [];
 
-    for (const word of new Set(words)) {
-        let node = trie;
-        for (let i = word.length - 1; i >= 0; i--) {
-            const char = word[i];
-            if (!(char in node)) {
-                node[char] = {};
-            }
-            node = node[char];
-        }
-        nodes.push([node, word.length]);
+  for (const word of new Set(words)) {
+    let node = trie;
+    for (let i = word.length - 1; i >= 0; i--) {
+      const char = word[i];
+      if (!(char in node)) {
+        node[char] = {};
+      }
+      node = node[char];
     }
+    nodes.push([node, word.length]);
+  }
 
-    // Count only leaf nodes (words not suffixes of others)
-    return nodes
-        .filter(([node]) => Object.keys(node).length === 0)
-        .reduce((sum, [, length]) => sum + length + 1, 0);
+  // Count only leaf nodes (words not suffixes of others)
+  return nodes
+    .filter(([node]) => Object.keys(node).length === 0)
+    .reduce((sum, [, length]) => sum + length + 1, 0);
 }
 
 /**
  * Test cases for Problem 820: Short Encoding of Words
  */
 function testSolution() {
-    console.log('Testing 820. Short Encoding of Words');
+  console.log("Testing 820. Short Encoding of Words");
 
-    // Test case 1: Basic functionality
-    const words1 = ["time", "me", "bell"];
-    const result1 = minimumLengthEncoding(words1);
-    const expected1 = 10; // "time#bell#"
-    console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+  // Test case 1: Basic functionality
+  const words1 = ["time", "me", "bell"];
+  const result1 = minimumLengthEncoding(words1);
+  const expected1 = 10; // "time#bell#"
+  console.assert(
+    result1 === expected1,
+    `Test 1 failed: expected ${expected1}, got ${result1}`,
+  );
 
-    // Test case 2: All words are independent
-    const words2 = ["t"];
-    const result2 = minimumLengthEncoding(words2);
-    const expected2 = 2; // "t#"
-    console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+  // Test case 2: All words are independent
+  const words2 = ["t"];
+  const result2 = minimumLengthEncoding(words2);
+  const expected2 = 2; // "t#"
+  console.assert(
+    result2 === expected2,
+    `Test 2 failed: expected ${expected2}, got ${result2}`,
+  );
 
-    // Test case 3: Multiple suffix relationships
-    const words3 = ["time", "atime", "btime"];
-    const result3 = minimumLengthEncoding(words3);
-    const expected3 = 12; // "atime#btime#" (time is suffix of both)
-    console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+  // Test case 3: Multiple suffix relationships
+  const words3 = ["time", "atime", "btime"];
+  const result3 = minimumLengthEncoding(words3);
+  const expected3 = 12; // "atime#btime#" (time is suffix of both)
+  console.assert(
+    result3 === expected3,
+    `Test 3 failed: expected ${expected3}, got ${result3}`,
+  );
 
-    // Test case 4: Duplicates
-    const words4 = ["me", "me"];
-    const result4 = minimumLengthEncoding(words4);
-    const expected4 = 3; // "me#"
-    console.assert(result4 === expected4, `Test 4 failed: expected ${expected4}, got ${result4}`);
+  // Test case 4: Duplicates
+  const words4 = ["me", "me"];
+  const result4 = minimumLengthEncoding(words4);
+  const expected4 = 3; // "me#"
+  console.assert(
+    result4 === expected4,
+    `Test 4 failed: expected ${expected4}, got ${result4}`,
+  );
 
-    // Test case 5: Chain of suffixes
-    const words5 = ["a", "aa", "aaa"];
-    const result5 = minimumLengthEncoding(words5);
-    const expected5 = 4; // "aaa#"
-    console.assert(result5 === expected5, `Test 5 failed: expected ${expected5}, got ${result5}`);
+  // Test case 5: Chain of suffixes
+  const words5 = ["a", "aa", "aaa"];
+  const result5 = minimumLengthEncoding(words5);
+  const expected5 = 4; // "aaa#"
+  console.assert(
+    result5 === expected5,
+    `Test 5 failed: expected ${expected5}, got ${result5}`,
+  );
 
-    // Test alternative implementations
-    const result6 = minimumLengthEncodingSet(words1);
-    console.assert(result6 === expected1, `Set method failed: expected ${expected1}, got ${result6}`);
+  // Test alternative implementations
+  const result6 = minimumLengthEncodingSet(words1);
+  console.assert(
+    result6 === expected1,
+    `Set method failed: expected ${expected1}, got ${result6}`,
+  );
 
-    const result7 = minimumLengthEncodingTrie(words1);
-    console.assert(result7 === expected1, `Trie method failed: expected ${expected1}, got ${result7}`);
+  const result7 = minimumLengthEncodingTrie(words1);
+  console.assert(
+    result7 === expected1,
+    `Trie method failed: expected ${expected1}, got ${result7}`,
+  );
 
-    console.log('All test cases passed for 820. Short Encoding of Words!');
+  console.log("All test cases passed for 820. Short Encoding of Words!");
 }
 
 /**
  * Example usage and demonstration
  */
 function demonstrateSolution() {
-    console.log('\n=== Problem 820. Short Encoding of Words ===');
-    console.log('Category: Trees');
-    console.log('Difficulty: Medium');
-    console.log('');
+  console.log("\n=== Problem 820. Short Encoding of Words ===");
+  console.log("Category: Trees");
+  console.log("Difficulty: Medium");
+  console.log("");
 
-    // Example 1: Basic case
-    const words1 = ["time", "me", "bell"];
-    const result1 = minimumLengthEncoding(words1);
-    console.log(`minimumLengthEncoding(${JSON.stringify(words1)}) -> ${result1}`);
-    console.log(`Encoding: 'time#bell#' (me is suffix of time)`);
+  // Example 1: Basic case
+  const words1 = ["time", "me", "bell"];
+  const result1 = minimumLengthEncoding(words1);
+  console.log(`minimumLengthEncoding(${JSON.stringify(words1)}) -> ${result1}`);
+  console.log(`Encoding: 'time#bell#' (me is suffix of time)`);
 
-    // Example 2: All independent
-    const words2 = ["t"];
-    const result2 = minimumLengthEncoding(words2);
-    console.log(`minimumLengthEncoding(${JSON.stringify(words2)}) -> ${result2}`);
-    console.log(`Encoding: 't#'`);
+  // Example 2: All independent
+  const words2 = ["t"];
+  const result2 = minimumLengthEncoding(words2);
+  console.log(`minimumLengthEncoding(${JSON.stringify(words2)}) -> ${result2}`);
+  console.log(`Encoding: 't#'`);
 
-    // Example 3: Multiple suffixes
-    const words3 = ["time", "atime", "btime"];
-    const result3 = minimumLengthEncoding(words3);
-    console.log(`minimumLengthEncoding(${JSON.stringify(words3)}) -> ${result3}`);
-    console.log(`Encoding: 'atime#btime#' (time is suffix of both)`);
+  // Example 3: Multiple suffixes
+  const words3 = ["time", "atime", "btime"];
+  const result3 = minimumLengthEncoding(words3);
+  console.log(`minimumLengthEncoding(${JSON.stringify(words3)}) -> ${result3}`);
+  console.log(`Encoding: 'atime#btime#' (time is suffix of both)`);
 
-    console.log(`\nAlgorithm comparison:`);
-    const methods = [
-        ['Trie-based', minimumLengthEncoding],
-        ['Set operations', minimumLengthEncodingSet],
-        ['Pure trie', minimumLengthEncodingTrie]
-    ];
+  console.log(`\nAlgorithm comparison:`);
+  const methods = [
+    ["Trie-based", minimumLengthEncoding],
+    ["Set operations", minimumLengthEncodingSet],
+    ["Pure trie", minimumLengthEncodingTrie],
+  ];
 
-    for (const [name, method] of methods) {
-        const result = method(words1);
-        console.log(`${name}: ${result}`);
-    }
+  for (const [name, method] of methods) {
+    const result = method(words1);
+    console.log(`${name}: ${result}`);
+  }
 
-    console.log(`\nKey insights:`);
-    console.log(`1. Words that are suffixes of others can share encoding`);
-    console.log(`2. Trie helps identify suffix relationships efficiently`);
-    console.log(`3. Only leaf nodes in suffix trie need separate encoding`);
-    console.log(`4. Each word needs exactly one '#' delimiter`);
-    console.log(`5. Sorting by length can optimize the process`);
+  console.log(`\nKey insights:`);
+  console.log(`1. Words that are suffixes of others can share encoding`);
+  console.log(`2. Trie helps identify suffix relationships efficiently`);
+  console.log(`3. Only leaf nodes in suffix trie need separate encoding`);
+  console.log(`4. Each word needs exactly one '#' delimiter`);
+  console.log(`5. Sorting by length can optimize the process`);
 
-    testSolution();
+  testSolution();
 }
 
 // Run tests if this file is executed directly
 if (require.main === module) {
-    demonstrateSolution();
+  demonstrateSolution();
 }
 
 // Export for use in other modules
 module.exports = {
-    minimumLengthEncoding,
-    minimumLengthEncodingSet,
-    minimumLengthEncodingTrie,
-    testSolution,
-    demonstrateSolution
+  minimumLengthEncoding,
+  minimumLengthEncodingSet,
+  minimumLengthEncodingTrie,
+  testSolution,
+  demonstrateSolution,
 };
 
 /**

@@ -79,62 +79,62 @@
  * Node class for doubly-linked list
  */
 class Node {
-    constructor(key = 0, value = 0) {
-        this.key = key;
-        this.value = value;
-        this.prev = null;
-        this.next = null;
-    }
+  constructor(key = 0, value = 0) {
+    this.key = key;
+    this.value = value;
+    this.prev = null;
+    this.next = null;
+  }
 }
 
 /**
  * DoublyLinkedList class for maintaining LRU order within frequency groups
  */
 class DoublyLinkedList {
-    constructor() {
-        this.head = new Node();
-        this.tail = new Node();
-        this.head.next = this.tail;
-        this.tail.prev = this.head;
-        this.size = 0;
-    }
+  constructor() {
+    this.head = new Node();
+    this.tail = new Node();
+    this.head.next = this.tail;
+    this.tail.prev = this.head;
+    this.size = 0;
+  }
 
-    /**
-     * Add node right after head (most recently used)
-     */
-    addToHead(node) {
-        node.prev = this.head;
-        node.next = this.head.next;
-        this.head.next.prev = node;
-        this.head.next = node;
-        this.size++;
-    }
+  /**
+   * Add node right after head (most recently used)
+   */
+  addToHead(node) {
+    node.prev = this.head;
+    node.next = this.head.next;
+    this.head.next.prev = node;
+    this.head.next = node;
+    this.size++;
+  }
 
-    /**
-     * Remove node from its current position
-     */
-    removeNode(node) {
-        node.prev.next = node.next;
-        node.next.prev = node.prev;
-        this.size--;
-    }
+  /**
+   * Remove node from its current position
+   */
+  removeNode(node) {
+    node.prev.next = node.next;
+    node.next.prev = node.prev;
+    this.size--;
+  }
 
-    /**
-     * Remove and return tail node (least recently used)
-     */
-    removeTail() {
-        if (this.size === 0) return null;
-        const lastNode = this.tail.prev;
-        this.removeNode(lastNode);
-        return lastNode;
-    }
+  /**
+   * Remove and return tail node (least recently used)
+   */
+  removeTail() {
+    if (this.size === 0) return null;
+    const lastNode = this.tail.prev;
+    this.removeNode(lastNode);
+    return lastNode;
+  }
 
-    /**
-     * Check if list is empty
-     */
-    isEmpty() {
-        return this.size === 0;
-    }
+  /**
+   * Check if list is empty
+   */
+  isEmpty() {
+    return this.size === 0;
+  }
 }
 
 /**
@@ -146,110 +146,110 @@ class DoublyLinkedList {
  * - freqGroups: Map from frequency to doubly-linked list of nodes with that frequency
  */
 class LFUCache {
-    /**
-     * Initialize LFU Cache with given capacity
-     * @param {number} capacity - Maximum number of key-value pairs
-     */
-    constructor(capacity) {
-        this.capacity = capacity;
-        this.values = new Map();      // key -> node
-        this.frequencies = new Map(); // key -> frequency
-        this.freqGroups = new Map();  // frequency -> DoublyLinkedList
-        this.minFreq = 0;            // minimum frequency for O(1) eviction
+  /**
+   * Initialize LFU Cache with given capacity
+   * @param {number} capacity - Maximum number of key-value pairs
+   */
+  constructor(capacity) {
+    this.capacity = capacity;
+    this.values = new Map(); // key -> node
+    this.frequencies = new Map(); // key -> frequency
+    this.freqGroups = new Map(); // frequency -> DoublyLinkedList
+    this.minFreq = 0; // minimum frequency for O(1) eviction
+  }
+
+  /**
+   * Get value for given key and update frequency
+   * @param {number} key
+   * @return {number} - Value if key exists, -1 otherwise
+   *
+   * Time Complexity: O(1)
+   * Space Complexity: O(1)
+   */
+  get(key) {
+    if (!this.values.has(key)) {
+      return -1;
     }
 
-    /**
-     * Get value for given key and update frequency
-     * @param {number} key
-     * @return {number} - Value if key exists, -1 otherwise
-     *
-     * Time Complexity: O(1)
-     * Space Complexity: O(1)
-     */
-    get(key) {
-        if (!this.values.has(key)) {
-            return -1;
-        }
+    // Update frequency and move node to appropriate frequency group
+    this.updateFreq(key);
+    return this.values.get(key).value;
+  }
 
-        // Update frequency and move node to appropriate frequency group
-        this.updateFreq(key);
-        return this.values.get(key).value;
+  /**
+   * Put key-value pair in cache
+   * @param {number} key
+   * @param {number} value
+   *
+   * Time Complexity: O(1)
+   * Space Complexity: O(1)
+   */
+  put(key, value) {
+    if (this.capacity === 0) return;
+
+    if (this.values.has(key)) {
+      // Update existing key
+      const node = this.values.get(key);
+      node.value = value;
+      this.updateFreq(key);
+    } else {
+      // Add new key
+      if (this.values.size >= this.capacity) {
+        this.evictLFU();
+      }
+
+      // Create new node and add to cache
+      const newNode = new Node(key, value);
+      this.values.set(key, newNode);
+      this.frequencies.set(key, 1);
+
+      // Add to frequency group 1
+      if (!this.freqGroups.has(1)) {
+        this.freqGroups.set(1, new DoublyLinkedList());
+      }
+      this.freqGroups.get(1).addToHead(newNode);
+      this.minFreq = 1;
+    }
+  }
+
+  /**
+   * Update frequency of a key and move to appropriate frequency group
+   * @param {number} key
+   */
+  updateFreq(key) {
+    const node = this.values.get(key);
+    const oldFreq = this.frequencies.get(key);
+    const newFreq = oldFreq + 1;
+
+    // Remove from old frequency group
+    const oldGroup = this.freqGroups.get(oldFreq);
+    oldGroup.removeNode(node);
+
+    // Update minFreq if necessary
+    if (this.minFreq === oldFreq && oldGroup.isEmpty()) {
+      this.minFreq++;
     }
 
-    /**
-     * Put key-value pair in cache
-     * @param {number} key
-     * @param {number} value
-     *
-     * Time Complexity: O(1)
-     * Space Complexity: O(1)
-     */
-    put(key, value) {
-        if (this.capacity === 0) return;
-
-        if (this.values.has(key)) {
-            // Update existing key
-            const node = this.values.get(key);
-            node.value = value;
-            this.updateFreq(key);
-        } else {
-            // Add new key
-            if (this.values.size >= this.capacity) {
-                this.evictLFU();
-            }
-
-            // Create new node and add to cache
-            const newNode = new Node(key, value);
-            this.values.set(key, newNode);
-            this.frequencies.set(key, 1);
-
-            // Add to frequency group 1
-            if (!this.freqGroups.has(1)) {
-                this.freqGroups.set(1, new DoublyLinkedList());
-            }
-            this.freqGroups.get(1).addToHead(newNode);
-            this.minFreq = 1;
-        }
+    // Add to new frequency group
+    this.frequencies.set(key, newFreq);
+    if (!this.freqGroups.has(newFreq)) {
+      this.freqGroups.set(newFreq, new DoublyLinkedList());
     }
+    this.freqGroups.get(newFreq).addToHead(node);
+  }
 
-    /**
-     * Update frequency of a key and move to appropriate frequency group
-     * @param {number} key
-     */
-    updateFreq(key) {
-        const node = this.values.get(key);
-        const oldFreq = this.frequencies.get(key);
-        const newFreq = oldFreq + 1;
+  /**
+   * Evict the least frequently used (and least recently used in case of tie)
+   */
+  evictLFU() {
+    const minFreqGroup = this.freqGroups.get(this.minFreq);
+    const nodeToEvict = minFreqGroup.removeTail();
 
-        // Remove from old frequency group
-        const oldGroup = this.freqGroups.get(oldFreq);
-        oldGroup.removeNode(node);
-
-        // Update minFreq if necessary
-        if (this.minFreq === oldFreq && oldGroup.isEmpty()) {
-            this.minFreq++;
-        }
-
-        // Add to new frequency group
-        this.frequencies.set(key, newFreq);
-        if (!this.freqGroups.has(newFreq)) {
-            this.freqGroups.set(newFreq, new DoublyLinkedList());
-        }
-        this.freqGroups.get(newFreq).addToHead(node);
+    if (nodeToEvict) {
+      this.values.delete(nodeToEvict.key);
+      this.frequencies.delete(nodeToEvict.key);
     }
-
-    /**
-     * Evict the least frequently used (and least recently used in case of tie)
-     */
-    evictLFU() {
-        const minFreqGroup = this.freqGroups.get(this.minFreq);
-        const nodeToEvict = minFreqGroup.removeTail();
-
-        if (nodeToEvict) {
-            this.values.delete(nodeToEvict.key);
-            this.frequencies.delete(nodeToEvict.key);
-        }
-    }
+  }
 }
 
 /**
@@ -258,113 +258,115 @@ class LFUCache {
  * @return {LFUCache}
  */
 function solve(capacity) {
-    return new LFUCache(capacity);
+  return new LFUCache(capacity);
 }
 
 /**
  * Test cases for Problem 460: LFU Cache
  */
 function testSolution() {
-    console.log('Testing 460. LFU Cache');
+  console.log("Testing 460. LFU Cache");
 
-    // Test case 1: Basic LFU behavior
-    const lfu1 = new LFUCache(2);
-    lfu1.put(1, 1);
-    lfu1.put(2, 2);
-    console.assert(lfu1.get(1) === 1, 'Test 1a failed');
-    lfu1.put(3, 3); // evicts key 2 (LFU)
-    console.assert(lfu1.get(2) === -1, 'Test 1b failed: key 2 should be evicted');
-    console.assert(lfu1.get(3) === 3, 'Test 1c failed');
-    lfu1.put(4, 4); // evicts key 1 (LFU after get operations)
-    console.assert(lfu1.get(1) === -1, 'Test 1d failed: key 1 should be evicted');
-    console.assert(lfu1.get(3) === 3, 'Test 1e failed');
-    console.assert(lfu1.get(4) === 4, 'Test 1f failed');
+  // Test case 1: Basic LFU behavior
+  const lfu1 = new LFUCache(2);
+  lfu1.put(1, 1);
+  lfu1.put(2, 2);
+  console.assert(lfu1.get(1) === 1, "Test 1a failed");
+  lfu1.put(3, 3); // evicts key 2 (LFU)
+  console.assert(lfu1.get(2) === -1, "Test 1b failed: key 2 should be evicted");
+  console.assert(lfu1.get(3) === 3, "Test 1c failed");
+  lfu1.put(4, 4); // evicts key 1 (LFU after get operations)
+  console.assert(lfu1.get(1) === -1, "Test 1d failed: key 1 should be evicted");
+  console.assert(lfu1.get(3) === 3, "Test 1e failed");
+  console.assert(lfu1.get(4) === 4, "Test 1f failed");
 
-    // Test case 2: LRU tiebreaker within same frequency
-    const lfu2 = new LFUCache(2);
-    lfu2.put(1, 1);
-    lfu2.put(2, 2);
-    lfu2.put(3, 3); // should evict 1 (LRU among same frequency)
-    console.assert(lfu2.get(1) === -1, 'Test 2a failed: key 1 should be evicted');
-    console.assert(lfu2.get(2) === 2, 'Test 2b failed');
-    console.assert(lfu2.get(3) === 3, 'Test 2c failed');
+  // Test case 2: LRU tiebreaker within same frequency
+  const lfu2 = new LFUCache(2);
+  lfu2.put(1, 1);
+  lfu2.put(2, 2);
+  lfu2.put(3, 3); // should evict 1 (LRU among same frequency)
+  console.assert(lfu2.get(1) === -1, "Test 2a failed: key 1 should be evicted");
+  console.assert(lfu2.get(2) === 2, "Test 2b failed");
+  console.assert(lfu2.get(3) === 3, "Test 2c failed");
 
-    // Test case 3: Update existing key
-    const lfu3 = new LFUCache(2);
-    lfu3.put(1, 1);
-    lfu3.put(2, 2);
-    lfu3.put(1, 10); // update existing key
-    console.assert(lfu3.get(1) === 10, 'Test 3a failed: updated value');
-    console.assert(lfu3.get(2) === 2, 'Test 3b failed');
+  // Test case 3: Update existing key
+  const lfu3 = new LFUCache(2);
+  lfu3.put(1, 1);
+  lfu3.put(2, 2);
+  lfu3.put(1, 10); // update existing key
+  console.assert(lfu3.get(1) === 10, "Test 3a failed: updated value");
+  console.assert(lfu3.get(2) === 2, "Test 3b failed");
 
-    // Test case 4: Single capacity cache
-    const lfu4 = new LFUCache(1);
-    lfu4.put(1, 1);
-    console.assert(lfu4.get(1) === 1, 'Test 4a failed');
-    lfu4.put(2, 2); // evicts 1
-    console.assert(lfu4.get(1) === -1, 'Test 4b failed');
-    console.assert(lfu4.get(2) === 2, 'Test 4c failed');
+  // Test case 4: Single capacity cache
+  const lfu4 = new LFUCache(1);
+  lfu4.put(1, 1);
+  console.assert(lfu4.get(1) === 1, "Test 4a failed");
+  lfu4.put(2, 2); // evicts 1
+  console.assert(lfu4.get(1) === -1, "Test 4b failed");
+  console.assert(lfu4.get(2) === 2, "Test 4c failed");
 
-    // Test case 5: Zero capacity cache
-    const lfu5 = new LFUCache(0);
-    lfu5.put(1, 1);
-    console.assert(lfu5.get(1) === -1, 'Test 5a failed: zero capacity');
+  // Test case 5: Zero capacity cache
+  const lfu5 = new LFUCache(0);
+  lfu5.put(1, 1);
+  console.assert(lfu5.get(1) === -1, "Test 5a failed: zero capacity");
 
-    console.log('All test cases passed for 460. LFU Cache!');
+  console.log("All test cases passed for 460. LFU Cache!");
 }
 
 /**
  * Example usage and demonstration
  */
 function demonstrateSolution() {
-    console.log('\n=== Problem 460. LFU Cache ===');
-    console.log('Category: Design');
-    console.log('Difficulty: Hard');
-    console.log('');
+  console.log("\n=== Problem 460. LFU Cache ===");
+  console.log("Category: Design");
+  console.log("Difficulty: Hard");
+  console.log("");
 
-    // Example demonstration
-    const lfu = new LFUCache(2);
-    console.log('LFU Cache with capacity 2');
-    console.log('');
+  // Example demonstration
+  const lfu = new LFUCache(2);
+  console.log("LFU Cache with capacity 2");
+  console.log("");
 
-    console.log('put(1, 1): Add key 1 with value 1');
-    lfu.put(1, 1);
+  console.log("put(1, 1): Add key 1 with value 1");
+  lfu.put(1, 1);
 
-    console.log('put(2, 2): Add key 2 with value 2');
-    lfu.put(2, 2);
+  console.log("put(2, 2): Add key 2 with value 2");
+  lfu.put(2, 2);
 
-    console.log('get(1):', lfu.get(1), '(increases frequency of key 1)');
+  console.log("get(1):", lfu.get(1), "(increases frequency of key 1)");
 
-    console.log('put(3, 3): Add key 3, evicts key 2 (LFU)');
-    lfu.put(3, 3);
+  console.log("put(3, 3): Add key 3, evicts key 2 (LFU)");
+  lfu.put(3, 3);
 
-    console.log('get(2):', lfu.get(2), '(should be -1, key 2 was evicted)');
-    console.log('get(3):', lfu.get(3), '(should be 3)');
+  console.log("get(2):", lfu.get(2), "(should be -1, key 2 was evicted)");
+  console.log("get(3):", lfu.get(3), "(should be 3)");
 
-    console.log('put(4, 4): Add key 4, evicts key 1 (LFU after frequency update)');
-    lfu.put(4, 4);
+  console.log(
+    "put(4, 4): Add key 4, evicts key 1 (LFU after frequency update)",
+  );
+  lfu.put(4, 4);
 
-    console.log('get(1):', lfu.get(1), '(should be -1, key 1 was evicted)');
-    console.log('get(3):', lfu.get(3), '(should be 3)');
-    console.log('get(4):', lfu.get(4), '(should be 4)');
-    console.log('');
+  console.log("get(1):", lfu.get(1), "(should be -1, key 1 was evicted)");
+  console.log("get(3):", lfu.get(3), "(should be 3)");
+  console.log("get(4):", lfu.get(4), "(should be 4)");
+  console.log("");
 
-    testSolution();
+  testSolution();
 }
 
 // Run tests if this file is executed directly
 if (require.main === module) {
-    demonstrateSolution();
+  demonstrateSolution();
 }
 
 // Export for use in other modules
 module.exports = {
-    LFUCache,
-    Node,
-    DoublyLinkedList,
-    solve,
-    testSolution,
-    demonstrateSolution
+  LFUCache,
+  Node,
+  DoublyLinkedList,
+  solve,
+  testSolution,
+  demonstrateSolution,
 };
 
 /**

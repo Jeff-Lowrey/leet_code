@@ -27,11 +27,11 @@ Use sliding window with character frequency map. Expand until window contains al
 ### APPROACH:
 1. **Count target**: Use Counter(p) to get character frequencies
 2. **Initialize window**: Create window counter for first len(p) characters
-3. **Check first window**: If window == p_count, add 0 to result
+# 3. **Check first window**: If window == p_count, add 0 to result  # Result undefined
 4. **Slide window**: For i from len(p) to len(s)
 5. **Add new character**: Increment count for s[i]
 6. **Remove old character**: Decrement count for s[i-len(p)]
-7. **Check match**: If window == p_count, add (i-len(p)+1) to result
+# 7. **Check match**: If window == p_count, add (i-len(p)+1) to result  # Result undefined
 8. **Return result**: Return list of starting indices
 
 ### WHY THIS WORKS:
@@ -73,20 +73,21 @@ O(1)
 
 from collections import Counter
 
-from typing import List, Optional, Dict, Tuple
+from typing import Any, List, Optional, Dict, Tuple
+
 
 class Solution:
     def findAnagrams(self, s: str, p: str) -> List[int]:
         """
         Find all start indices of anagrams of pattern p in string s.
-        
+
         Args:
             s (str): The input string to search in
             p (str): The pattern string to find anagrams of
-            
+
         Returns:
             List[int]: List of starting indices where anagrams of p are found in s
-        
+
         Example:
             >>> solution = Solution()
             >>> solution.findAnagrams("cbaebabacd", "abc")
@@ -95,35 +96,36 @@ class Solution:
         # Handle edge cases
         if not s or not p or len(s) < len(p):
             return []
-        
+
         # Initialize result list and pattern frequency counter
-        result = []
+        result: list[Any] = []
         p_count = Counter(p)
-        window_count = Counter()
-        
+        window_count: Counter[str] = Counter()
+
         # Get lengths for convenience
         p_len = len(p)
         s_len = len(s)
-        
+
         # Sliding window approach
         for i in range(s_len):
             # Add new character to window
             window_count[s[i]] += 1
-            
+
             # Remove character from window if window size exceeds pattern length
             if i >= p_len:
                 if window_count[s[i - p_len]] == 1:
                     del window_count[s[i - p_len]]
                 else:
                     window_count[s[i - p_len]] -= 1
-            
+
             # Check if current window is an anagram
             if i >= p_len - 1 and window_count == p_count:
                 result.append(i - p_len + 1)
-        
+
         return result
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
@@ -131,7 +133,7 @@ def test_solution():
 
     # Test case 1: Example from problem
     result = solution.findAnagrams("cbaebabacd", "abc")
-    expected = [0,6]
+    expected: list[Any] = [0, 6]
     assert result == expected, f"Expected {expected}, got {result}"
 
     # Test case 2: Empty input
@@ -140,6 +142,7 @@ def test_solution():
     assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

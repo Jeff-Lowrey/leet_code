@@ -73,106 +73,108 @@
  * Space Complexity: O(3^N × 4^M) for storing all combinations
  */
 function solve(digits) {
-    // Handle edge case: empty input
-    if (!digits || digits.length === 0) {
-        return [];
+  // Handle edge case: empty input
+  if (!digits || digits.length === 0) {
+    return [];
+  }
+
+  // Mapping from digits to letters
+  const digitToLetters = {
+    2: "abc",
+    3: "def",
+    4: "ghi",
+    5: "jkl",
+    6: "mno",
+    7: "pqrs",
+    8: "tuv",
+    9: "wxyz",
+  };
+
+  const result = [];
+
+  /**
+   * Backtracking helper function
+   * @param {number} index - Current position in digits string
+   * @param {string} currentCombination - Current combination being built
+   */
+  function backtrack(index, currentCombination) {
+    // Base case: we've processed all digits
+    if (index === digits.length) {
+      result.push(currentCombination);
+      return;
     }
 
-    // Mapping from digits to letters
-    const digitToLetters = {
-        '2': 'abc',
-        '3': 'def',
-        '4': 'ghi',
-        '5': 'jkl',
-        '6': 'mno',
-        '7': 'pqrs',
-        '8': 'tuv',
-        '9': 'wxyz'
-    };
+    // Get the letters for current digit
+    const currentDigit = digits[index];
+    const letters = digitToLetters[currentDigit];
 
-    const result = [];
+    // Try each letter for current digit
+    for (let i = 0; i < letters.length; i++) {
+      const letter = letters[i];
 
-    /**
-     * Backtracking helper function
-     * @param {number} index - Current position in digits string
-     * @param {string} currentCombination - Current combination being built
-     */
-    function backtrack(index, currentCombination) {
-        // Base case: we've processed all digits
-        if (index === digits.length) {
-            result.push(currentCombination);
-            return;
-        }
+      // Choose: add current letter to combination
+      backtrack(index + 1, currentCombination + letter);
 
-        // Get the letters for current digit
-        const currentDigit = digits[index];
-        const letters = digitToLetters[currentDigit];
-
-        // Try each letter for current digit
-        for (let i = 0; i < letters.length; i++) {
-            const letter = letters[i];
-
-            // Choose: add current letter to combination
-            backtrack(index + 1, currentCombination + letter);
-
-            // Unchoose: implicit since we're not modifying a shared state
-            // The recursion naturally handles the backtracking
-        }
+      // Unchoose: implicit since we're not modifying a shared state
+      // The recursion naturally handles the backtracking
     }
+  }
 
-    // Start backtracking from first digit
-    backtrack(0, '');
+  // Start backtracking from first digit
+  backtrack(0, "");
 
-    return result;
+  return result;
 }
 
 /**
  * Test cases for Problem 017: Letter Combinations Of A Phone Number
  */
 function testSolution() {
-    console.log('Testing 017. Letter Combinations Of A Phone Number');
+  console.log("Testing 017. Letter Combinations Of A Phone Number");
 
-    // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+  // Test case 1: Basic functionality
+  // const result1 = solve(testInput1);
+  // const expected1 = expectedOutput1;
+  // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+  // Test case 2: Edge case
+  // const result2 = solve(edgeCaseInput);
+  // const expected2 = edgeCaseOutput;
+  // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+  // Test case 3: Large input
+  // const result3 = solve(largeInput);
+  // const expected3 = largeExpected;
+  // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
 
-    console.log('All test cases passed for 017. Letter Combinations Of A Phone Number!');
+  console.log(
+    "All test cases passed for 017. Letter Combinations Of A Phone Number!",
+  );
 }
 
 /**
  * Example usage and demonstration
  */
 function demonstrateSolution() {
-    console.log('\n=== Problem 017. Letter Combinations Of A Phone Number ===');
-    console.log('Category: Backtracking');
-    console.log('Difficulty: Medium');
-    console.log('');
+  console.log("\n=== Problem 017. Letter Combinations Of A Phone Number ===");
+  console.log("Category: Backtracking");
+  console.log("Difficulty: Medium");
+  console.log("");
 
-    // Example demonstration would go here
-    testSolution();
+  // Example demonstration would go here
+  testSolution();
 }
 
 // Run tests if this file is executed directly
 if (require.main === module) {
-    demonstrateSolution();
+  demonstrateSolution();
 }
 
 // Export for use in other modules
 module.exports = {
-    solve,
-    testSolution,
-    demonstrateSolution
+  solve,
+  testSolution,
+  demonstrateSolution,
 };
 
 /**

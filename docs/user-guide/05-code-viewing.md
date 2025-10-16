@@ -4,6 +4,19 @@
 
 ---
 
+## Table of Contents
+
+- [Code Display Features](#code-display-features)
+- [Syntax Highlighting](#syntax-highlighting)
+- [Viewing Modes](#viewing-modes)
+- [Code Organization](#code-organization)
+- [Code Navigation](#code-navigation)
+- [Interactive Features](#interactive-features)
+- [Language-Specific Features](#language-specific-features)
+- [Accessibility Features](#accessibility-features)
+- [Code Display Tips](#code-display-tips)
+- [Troubleshooting Code Display](#troubleshooting-code-display)
+
 ## Code Display Features
 
 The platform provides professional code viewing with syntax highlighting and multiple viewing modes.

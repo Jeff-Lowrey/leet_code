@@ -71,20 +71,21 @@ O(1)
 </details>
 """
 
-from typing import List, Optional, Dict, Tuple
+from typing import Any, List, Optional, Dict, Tuple
+
 
 class Solution:
     def nextGreaterElements(self, nums: List[int]) -> List[int]:
         """
         Find the next greater element for each element in a circular array.
-        
+
         Args:
             nums: List of integers representing the circular array
-            
+
         Returns:
             List of integers where each element represents the next greater element
             for the corresponding element in the input array
-            
+
         Time Complexity: O(n), where n is the length of nums
         Space Complexity: O(n)
         """
@@ -93,25 +94,26 @@ class Solution:
 
         n = len(nums)
         result = [-1] * n  # Initialize result array with -1
-        stack = []  # Stack to store indices
-        
+        stack: list[int] = []  # Stack to store indices
+
         # Iterate through the array twice to handle circular nature
         # We use modulo to simulate circular array
         for i in range(2 * n):
             current = nums[i % n]
-            
+
             # While stack is not empty and current element is greater than
             # the element at index at top of stack
             while stack and nums[stack[-1]] < current:
                 result[stack.pop()] = current
-                
+
             # Only push index to stack during first iteration
             if i < n:
                 stack.append(i)
-                
+
         return result
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
@@ -119,7 +121,7 @@ def test_solution():
 
     # Test case 1: Basic case
     result = solution.nextGreaterElements([1, 2, 3])
-    expected = [2, 3, -1]
+    expected: list[Any] = [2, 3, -1]
     assert result == expected, f"Expected {expected}, got {result}"
 
     # Test case 2: Empty input
@@ -133,6 +135,7 @@ def test_solution():
     assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

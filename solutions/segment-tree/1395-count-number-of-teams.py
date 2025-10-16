@@ -72,6 +72,9 @@ For compressed coordinates and tree structure
 
 </details>
 """
+from typing import Any
+
+
 
 class Solution:
     def numTeams(self, rating: list[int]) -> int:
@@ -139,11 +142,11 @@ class Solution:
         m = len(sorted_ratings)
 
         class SegmentTree:
-            def __init__(self, size):
+            def __init__(self: Any, size: Any) -> None:
                 self.size = size
                 self.tree = [0] * (4 * size)
 
-            def update(self, node, start, end, idx, val):
+            def update(self: Any, node: Any, start: Any, end: Any, idx: Any, val: Any) -> Any:
                 if start == end:
                     self.tree[node] += val
                 else:
@@ -154,7 +157,7 @@ class Solution:
                         self.update(2 * node + 1, mid + 1, end, idx, val)
                     self.tree[node] = self.tree[2 * node] + self.tree[2 * node + 1]
 
-            def query(self, node, start, end, l, r):
+            def query(self: Any, node: Any, start: Any, end: Any, l: Any, r: Any) -> Any:
                 if r < start or end < l:
                     return 0
                 if l <= start and end <= r:
@@ -212,23 +215,23 @@ class Solution:
         m = len(sorted_ratings)
 
         class BinaryIndexedTree:
-            def __init__(self, size):
+            def __init__(self: Any, size: Any) -> None:
                 self.size = size
                 self.tree = [0] * (size + 1)
 
-            def update(self, idx, val):
+            def update(self: Any, idx: Any, val: Any) -> Any:
                 while idx <= self.size:
                     self.tree[idx] += val
                     idx += idx & (-idx)
 
-            def query(self, idx):
+            def query(self: Any, idx: Any) -> Any:
                 result = 0
                 while idx > 0:
                     result += self.tree[idx]
                     idx -= idx & (-idx)
                 return result
 
-            def range_query(self, left, right):
+            def range_query(self: Any, left: Any, right: Any) -> Any:
                 if left > right:
                     return 0
                 return self.query(right) - self.query(left - 1)
@@ -287,7 +290,8 @@ class Solution:
 
         return count
 
-def test_solution():
+
+def test_solution() -> None:
     """Test cases for Problem 1395."""
     solution = Solution()
 
@@ -342,6 +346,7 @@ def test_solution():
     assert result10 == expected10, f"Expected {expected10}, got {result10}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

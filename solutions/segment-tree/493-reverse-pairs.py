@@ -66,6 +66,9 @@ For auxiliary arrays and recursion stack
 </details>
 """
 
+
+from typing import Any
+
 class Solution:
     def reversePairs(self, nums: list[int]) -> int:
         """
@@ -83,7 +86,7 @@ class Solution:
         if not nums:
             return 0
 
-        def merge_sort(arr):
+        def merge_sort(arr: Any) -> Any:
             """Merge sort with reverse pair counting."""
             if len(arr) <= 1:
                 return arr, 0
@@ -101,7 +104,7 @@ class Solution:
                 count += j
 
             # Merge two sorted arrays
-            merged = []
+            merged: list[Any] = []
             i = j = 0
             while i < len(left) and j < len(right):
                 if left[i] <= right[j]:
@@ -117,7 +120,7 @@ class Solution:
             return merged, count
 
         _, result = merge_sort(nums)
-        return result
+        return result  # type: ignore
 
     def reversePairsBIT(self, nums: list[int]) -> int:
         """
@@ -136,7 +139,7 @@ class Solution:
             return 0
 
         # Coordinate compression - include both nums[i] and 2*nums[i]
-        all_values = set()
+        all_values: set[Any] = set()
         for num in nums:
             all_values.add(num)
             all_values.add(2 * num)
@@ -145,23 +148,23 @@ class Solution:
         rank = {v: i + 1 for i, v in enumerate(sorted_values)}
 
         class BIT:
-            def __init__(self, size):
+            def __init__(self: Any, size: Any) -> None:
                 self.size = size
                 self.tree = [0] * (size + 1)
 
-            def update(self, i, delta):
+            def update(self: Any, i: Any, delta: Any) -> Any:
                 while i <= self.size:
                     self.tree[i] += delta
                     i += i & (-i)
 
-            def query(self, i):
+            def query(self: Any, i: Any) -> Any:
                 s = 0
                 while i > 0:
                     s += self.tree[i]
                     i -= i & (-i)
                 return s
 
-            def range_query(self, left, right):
+            def range_query(self: Any, left: Any, right: Any) -> Any:
                 if left > right:
                     return 0
                 return self.query(right) - (self.query(left - 1) if left > 1 else 0)
@@ -220,11 +223,11 @@ class Solution:
         rank = {v: i for i, v in enumerate(sorted_values)}
 
         class SegmentTree:
-            def __init__(self, n):
+            def __init__(self: Any, n: Any) -> None:
                 self.n = n
                 self.tree = [0] * (4 * n)
 
-            def update(self, node, start, end, idx):
+            def update(self: Any, node: Any, start: Any, end: Any, idx: Any) -> Any:
                 if start == end:
                     self.tree[node] += 1
                 else:
@@ -235,7 +238,7 @@ class Solution:
                         self.update(2 * node + 1, mid + 1, end, idx)
                     self.tree[node] = self.tree[2 * node] + self.tree[2 * node + 1]
 
-            def query(self, node, start, end, l, r):
+            def query(self: Any, node: Any, start: Any, end: Any, l: Any, r: Any) -> Any:
                 if r < start or end < l or l > r:
                     return 0
                 if l <= start and end <= r:
@@ -279,7 +282,8 @@ class Solution:
                     count += 1
         return count
 
-def test_solution():
+
+def test_solution() -> None:
     """Test cases for Problem 493."""
     solution = Solution()
 
@@ -328,6 +332,7 @@ def test_solution():
     assert result10 == expected10, f"Expected {expected10}, got {result10}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

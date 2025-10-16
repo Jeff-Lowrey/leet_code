@@ -67,52 +67,53 @@ O(1)
 
 from typing import List, Optional, Dict, Tuple
 
+
 class Solution:
     def maximalRectangle(self, matrix: List[List[str]]) -> int:
         """
         Find the area of the largest rectangle containing only '1's in the binary matrix.
-        
+
         Args:
             matrix: A 2D binary matrix consisting of '0's and '1's
-            
+
         Returns:
             int: The area of the largest rectangle
         """
         if not matrix or not matrix[0]:
             return 0
-        
+
         rows, cols = len(matrix), len(matrix[0])
         heights = [0] * cols  # Keep track of consecutive 1's in each column
         max_area = 0
-        
+
         for row in range(rows):
             # Update heights for current row
             for col in range(cols):
-                if matrix[row][col] == '1':
+                if matrix[row][col] == "1":
                     heights[col] += 1
                 else:
                     heights[col] = 0
-            
+
             # Calculate maximum rectangle area for current histogram
             max_area = max(max_area, self._largest_rectangle_in_histogram(heights))
-        
+
         return max_area
-    
+
     def _largest_rectangle_in_histogram(self, heights: List[int]) -> int:
         """
         Helper method to find the largest rectangle area in a histogram.
         Uses a stack-based approach to track potential rectangle boundaries.
-        
+
         Args:
             heights: List of integers representing histogram heights
-            
+
         Returns:
             int: Maximum rectangle area possible in the histogram
         """
-        stack = []  # Stack to store indices
+        stack: list[int] = []  # Stack to store indices
         max_area = 0
         i = 0
-        
+
         while i < len(heights):
             # If stack is empty or current height is larger than previous
             if not stack or heights[stack[-1]] <= heights[i]:
@@ -123,23 +124,26 @@ class Solution:
                 curr_height = heights[stack.pop()]
                 width = i - stack[-1] - 1 if stack else i
                 max_area = max(max_area, curr_height * width)
-        
+
         # Process remaining elements in stack
         while stack:
             curr_height = heights[stack.pop()]
             width = i - stack[-1] - 1 if stack else i
             max_area = max(max_area, curr_height * width)
-        
+
         return max_area
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
     solution = Solution()
 
     # Test case 1: Example from problem
-    result = solution.maximalRectangle([["1","0","1","0","0"],["1","0","1","1","1"],["1","1","1","1","1"],["1","0","0","1","0"]])
+    result = solution.maximalRectangle(
+        [["1", "0", "1", "0", "0"], ["1", "0", "1", "1", "1"], ["1", "1", "1", "1", "1"], ["1", "0", "0", "1", "0"]]
+    )
     expected = 6
     assert result == expected, f"Expected {expected}, got {result}"
 
@@ -154,6 +158,7 @@ def test_solution():
     assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

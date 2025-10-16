@@ -84,6 +84,9 @@ For temporary sorted array. Can be O(1) with in-place virtual indexing.
 </details>
 """
 
+
+from typing import Any
+
 class Solution:
     def wiggleSort(self, nums: list[int]) -> None:
         """
@@ -155,7 +158,7 @@ class Solution:
         median = self.findMedian(nums)
 
         # Virtual index mapping
-        def idx(i):
+        def idx(i: Any) -> Any:
             return (1 + 2 * i) % (n | 1)
 
         # Three-way partitioning around median
@@ -181,6 +184,7 @@ class Solution:
         n = len(sorted_nums)
         return sorted_nums[(n - 1) // 2]
 
+
 def is_strict_wiggle(nums: list[int]) -> bool:
     """
     Check if array satisfies strict wiggle property.
@@ -202,59 +206,53 @@ def is_strict_wiggle(nums: list[int]) -> bool:
                 return False
     return True
 
-def test_solution():
+
+def test_solution() -> None:
     """Test cases for Problem 324."""
     solution = Solution()
 
     # Test case 1: Example from problem
     nums1 = [1, 5, 1, 1, 6, 4]
     solution.wiggleSort(nums1)
-    print(f"Test 1 result: {nums1}")
     assert is_strict_wiggle(nums1), f"Not strict wiggle: {nums1}"
 
     # Test case 2: Another example
     nums2 = [1, 3, 2, 2, 3, 1]
     solution.wiggleSort(nums2)
-    print(f"Test 2 result: {nums2}")
     assert is_strict_wiggle(nums2), f"Not strict wiggle: {nums2}"
 
     # Test case 3: Small array
     nums3 = [1, 2, 3]
     solution.wiggleSort(nums3)
-    print(f"Test 3 result: {nums3}")
     assert is_strict_wiggle(nums3), f"Not strict wiggle: {nums3}"
 
     # Test case 4: Larger array
     nums4 = [1, 2, 3, 4, 5, 6]
     solution.wiggleSort(nums4)
-    print(f"Test 4 result: {nums4}")
     assert is_strict_wiggle(nums4), f"Not strict wiggle: {nums4}"
 
     # Test case 5: With duplicates
     nums5 = [4, 5, 5, 6]
     solution.wiggleSort(nums5)
-    print(f"Test 5 result: {nums5}")
     assert is_strict_wiggle(nums5), f"Not strict wiggle: {nums5}"
 
     # Test simple approach
     nums6 = [1, 5, 1, 1, 6, 4]
     solution.wiggleSortSimple(nums6)
-    print(f"Test 6 (simple) result: {nums6}")
     assert is_strict_wiggle(nums6), f"Not strict wiggle: {nums6}"
 
     # Test virtual index approach
     nums7 = [1, 5, 1, 1, 6, 4]
     solution.wiggleSortVirtualIndex(nums7)
-    print(f"Test 7 (virtual) result: {nums7}")
     assert is_strict_wiggle(nums7), f"Not strict wiggle: {nums7}"
 
     # Test case 8: Even length
     nums8 = [1, 1, 2, 2, 3, 3]
     solution.wiggleSort(nums8)
-    print(f"Test 8 result: {nums8}")
     assert is_strict_wiggle(nums8), f"Not strict wiggle: {nums8}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

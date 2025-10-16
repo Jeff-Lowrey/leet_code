@@ -71,11 +71,14 @@ O(w)
 """
 
 from collections import deque
+from typing import Any
+
 
 
 class TreeNode:
     """Definition for a binary tree node."""
-    def __init__(self, val=0, left=None, right=None):
+
+    def __init__(self, val: Any = 0, left: Any = None, right: Any = None) -> None:
         self.val = val
         self.left = left
         self.right = right
@@ -98,12 +101,12 @@ class Solution:
         if not root:
             return []
 
-        result = []
+        result: list[Any] = []
         queue = deque([root])
 
         while queue:
             level_size = len(queue)
-            level_values = []
+            level_values: list[Any] = []
 
             # Process all nodes at current level
             for _ in range(level_size):
@@ -121,7 +124,8 @@ class Solution:
         # Reverse to get bottom-up order
         return result[::-1]
 
-def test_solution():
+
+def test_solution() -> None:
     """Test cases for Problem 107."""
     solution = Solution()
 
@@ -175,6 +179,7 @@ def test_solution():
     print("Test case 5 passed: Complete binary tree")
 
     print("\nAll test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

@@ -42,13 +42,34 @@
 
 ### Prerequisites
 - Python 3.13+
-- PDM package manager
 
-### Setup
+### Quick Start (Recommended)
+
+The easiest way to run the application:
+
 ```bash
 # Clone the repository
 git clone <repository-url>
 cd leet_code
+
+# Run the application (creates venv and installs dependencies automatically)
+./run.sh
+```
+
+The application will be available at `http://127.0.0.1:9501`
+
+**Custom host/port:**
+```bash
+./run.sh --host 0.0.0.0 --port 8080
+```
+
+### Alternative Setup (For Development)
+
+If you prefer using PDM for package management:
+
+```bash
+# Install PDM package manager first
+pip install pdm
 
 # Install dependencies with PDM
 pdm install
@@ -57,12 +78,10 @@ pdm install
 pdm run python -m src.leet_code.app
 ```
 
-The application will be available at `http://localhost:5000`
-
 ## Usage
 
 ### Viewing Solutions
-1. Navigate to `http://localhost:5000`
+1. Navigate to `http://127.0.0.1:9501`
 2. Browse categories or use quick access dropdowns
 3. Click on any solution to view code with syntax highlighting
 
@@ -179,6 +198,8 @@ pdm run pytest
 See [docs/upload-guide/README.md](docs/upload-guide/README.md) for detailed guidelines.
 
 ## License
+
+MIT License. See [LICENSE](LICENSE) for details.
 
 This project is for educational purposes only.
 

@@ -4,6 +4,16 @@
 
 ---
 
+## Table of Contents
+
+- [Solution Upload Guide](#solution-upload-guide)
+- [Who This Guide Is For](#who-this-guide-is-for)
+- [What You'll Learn](#what-youll-learn)
+- [Prerequisites](#prerequisites)
+- [Solution Requirements](#solution-requirements)
+- [Upload Methods](#upload-methods)
+- [Getting Started](#getting-started)
+
 ## Solution Upload Guide
 
 Welcome to the Solution Upload Guide! This guide provides comprehensive instructions for creating, formatting, and uploading LeetCode solution files to the platform.

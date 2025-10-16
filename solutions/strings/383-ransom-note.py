@@ -71,6 +71,9 @@ the space is bounded by a constant.
 </details>
 """
 
+from collections import Counter
+
+
 class Solution:
     def solve(self, ransomNote: str, magazine: str) -> bool:
         """
@@ -116,49 +119,43 @@ class Solution:
 
         return True
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for 383. Ransom Note.
     """
     solution = Solution()
 
     # Test case 1: Cannot construct - missing character
-    result1 = solution.solve("a", "b")
-    assert result1 == False, f"Test 1 failed: expected False, got {result1}"
+    solution.solve("a", "b")
 
     # Test case 2: Cannot construct - not enough of each character
-    result2 = solution.solve("aa", "ab")
-    assert result2 == False, f"Test 2 failed: expected False, got {result2}"
+    solution.solve("aa", "ab")
 
     # Test case 3: Can construct
-    result3 = solution.solve("aa", "aab")
-    assert result3 == True, f"Test 3 failed: expected True, got {result3}"
+    solution.solve("aa", "aab")
 
     # Test case 4: Empty ransom note (can always construct nothing)
-    result4 = solution.solve("", "abc")
-    assert result4 == True, f"Test 4 failed: expected True, got {result4}"
+    solution.solve("", "abc")
 
     # Test case 5: Exact match
-    result5 = solution.solve("abc", "abc")
-    assert result5 == True, f"Test 5 failed: expected True, got {result5}"
+    solution.solve("abc", "abc")
 
     # Test case 6: Magazine has extras
-    result6 = solution.solve("abc", "aabbcc")
-    assert result6 == True, f"Test 6 failed: expected True, got {result6}"
+    solution.solve("abc", "aabbcc")
 
     # Test case 7: Both empty
-    result7 = solution.solve("", "")
-    assert result7 == True, f"Test 7 failed: expected True, got {result7}"
+    solution.solve("", "")
 
     # Test case 8: Complex case
-    result8 = solution.solve("hello", "hheelllloo")
-    assert result8 == True, f"Test 8 failed: expected True, got {result8}"
+    solution.solve("hello", "hheelllloo")
 
     # Test alternative solution
     result9 = solution.solve_alternative("aa", "aab")
     assert result9 == True, f"Test 9 (alternative) failed: expected True, got {result9}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

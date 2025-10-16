@@ -75,6 +75,9 @@ Stack can hold up to n/2 operands in worst case
 </details>
 """
 
+
+from typing import Any
+
 class Solution:
     def evalRPN(self, tokens: list[str]) -> int:
         """
@@ -89,8 +92,8 @@ class Solution:
         Time Complexity: O(n) - process each token once
         Space Complexity: O(n) - stack storage
         """
-        stack = []
-        operators = {'+', '-', '*', '/'}
+        stack: list[Any] = []
+        operators = {"+", "-", "*", "/"}
 
         for token in tokens:
             if token in operators:
@@ -99,13 +102,13 @@ class Solution:
                 a = stack.pop()  # First operand
 
                 # Perform operation
-                if token == '+':
+                if token == "+":
                     result = a + b
-                elif token == '-':
+                elif token == "-":
                     result = a - b
-                elif token == '*':
+                elif token == "*":
                     result = a * b
-                elif token == '/':
+                elif token == "/":
                     # Division truncates toward zero
                     result = int(a / b)
 
@@ -127,14 +130,14 @@ class Solution:
         Returns:
             Integer result of the expression
         """
-        stack = []
+        stack: list[Any] = []
 
         # Define operations as lambda functions
         operations = {
-            '+': lambda a, b: a + b,
-            '-': lambda a, b: a - b,
-            '*': lambda a, b: a * b,
-            '/': lambda a, b: int(a / b)  # Truncate toward zero
+            "+": lambda a, b: a + b,
+            "-": lambda a, b: a - b,
+            "*": lambda a, b: a * b,
+            "/": lambda a, b: int(a / b),  # Truncate toward zero
         }
 
         for token in tokens:
@@ -147,22 +150,23 @@ class Solution:
 
         return stack[0]
 
-def test_solution():
+
+def test_solution() -> None:
     """Test cases for Problem 150."""
     solution = Solution()
 
     # Test case 1: Basic expression
-    result1 = solution.evalRPN(["2","1","+","3","*"])
+    result1 = solution.evalRPN(["2", "1", "+", "3", "*"])
     expected1 = 9
     assert result1 == expected1, f"Expected {expected1}, got {result1}"
 
     # Test case 2: Division
-    result2 = solution.evalRPN(["4","13","5","/","+"])
+    result2 = solution.evalRPN(["4", "13", "5", "/", "+"])
     expected2 = 6  # 4 + (13/5) = 4 + 2 = 6
     assert result2 == expected2, f"Expected {expected2}, got {result2}"
 
     # Test case 3: Complex expression
-    result3 = solution.evalRPN(["10","6","9","3","+","-11","*","/","*","17","+","5","+"])
+    result3 = solution.evalRPN(["10", "6", "9", "3", "+", "-11", "*", "/", "*", "17", "+", "5", "+"])
     expected3 = 22
     assert result3 == expected3, f"Expected {expected3}, got {result3}"
 
@@ -172,21 +176,22 @@ def test_solution():
     assert result4 == expected4, f"Expected {expected4}, got {result4}"
 
     # Test case 5: Negative numbers
-    result5 = solution.evalRPN(["-1","-2","+"])
+    result5 = solution.evalRPN(["-1", "-2", "+"])
     expected5 = -3
     assert result5 == expected5, f"Expected {expected5}, got {result5}"
 
     # Test case 6: Division with negative result
-    result6 = solution.evalRPN(["1","-1","/"])
+    result6 = solution.evalRPN(["1", "-1", "/"])
     expected6 = -1
     assert result6 == expected6, f"Expected {expected6}, got {result6}"
 
     # Test optimized version
-    result7 = solution.evalRPNOptimized(["2","1","+","3","*"])
+    result7 = solution.evalRPNOptimized(["2", "1", "+", "3", "*"])
     expected7 = 9
     assert result7 == expected7, f"Expected {expected7}, got {result7}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()
@@ -194,6 +199,6 @@ if __name__ == "__main__":
     # Example usage
     solution = Solution()
     print("=== 150. Evaluate Reverse Polish Notation ===")
-    print(f"evalRPN(['2','1','+','3','*']) -> {solution.evalRPN(['2','1','+','3','*'])}")
-    print(f"evalRPN(['4','13','5','/','+']) -> {solution.evalRPN(['4','13','5','/','+'])}")
+    print(f"evalRPN(['2','1','+','3','*']) -> {solution.evalRPN(['2', '1', '+', '3', '*'])}")
+    print(f"evalRPN(['4','13','5','/','+']) -> {solution.evalRPN(['4', '13', '5', '/', '+'])}")
     print(f"evalRPN(['42']) -> {solution.evalRPN(['42'])}")

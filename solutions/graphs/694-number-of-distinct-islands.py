@@ -74,6 +74,9 @@ For storing island shapes and recursion stack
 </details>
 """
 
+
+from typing import Any
+
 class Solution:
     def numDistinctIslands(self, grid: list[list[int]]) -> int:
         """
@@ -92,9 +95,9 @@ class Solution:
             return 0
 
         rows, cols = len(grid), len(grid[0])
-        distinct_islands = set()
+        distinct_islands: set[Any] = set()
 
-        def dfs(r, c, island_cells):
+        def dfs(r: Any, c: Any, island_cells: Any) -> Any:
             """DFS to collect all cells of current island."""
             if r < 0 or r >= rows or c < 0 or c >= cols or grid[r][c] == 0:
                 return
@@ -103,12 +106,12 @@ class Solution:
             island_cells.append((r, c))
 
             # Explore 4 directions
-            dfs(r+1, c, island_cells)
-            dfs(r-1, c, island_cells)
-            dfs(r, c+1, island_cells)
-            dfs(r, c-1, island_cells)
+            dfs(r + 1, c, island_cells)
+            dfs(r - 1, c, island_cells)
+            dfs(r, c + 1, island_cells)
+            dfs(r, c - 1, island_cells)
 
-        def normalize_island(cells):
+        def normalize_island(cells: Any) -> Any:
             """Normalize island shape by making coordinates relative to top-left corner."""
             if not cells:
                 return tuple()
@@ -118,7 +121,7 @@ class Solution:
             min_c = min(c for r, c in cells if r == min_r)
 
             # Make all coordinates relative to top-left
-            normalized = []
+            normalized: list[Any] = []
             for r, c in cells:
                 normalized.append((r - min_r, c - min_c))
 
@@ -129,7 +132,7 @@ class Solution:
         for r in range(rows):
             for c in range(cols):
                 if grid[r][c] == 1:
-                    island_cells = []
+                    island_cells: list[Any] = []
                     dfs(r, c, island_cells)
 
                     if island_cells:
@@ -157,7 +160,7 @@ class Solution:
         rows, cols = len(grid), len(grid[0])
         distinct_islands = set()
 
-        def dfs(r, c, direction):
+        def dfs(r: Any, c: Any, direction: Any) -> Any:
             """DFS that encodes path as string."""
             if r < 0 or r >= rows or c < 0 or c >= cols or grid[r][c] == 0:
                 return ""
@@ -166,10 +169,10 @@ class Solution:
 
             # Encode current step and recursive calls
             path = direction
-            path += dfs(r+1, c, "D")  # Down
-            path += dfs(r-1, c, "U")  # Up
-            path += dfs(r, c+1, "R")  # Right
-            path += dfs(r, c-1, "L")  # Left
+            path += dfs(r + 1, c, "D")  # Down
+            path += dfs(r - 1, c, "U")  # Up
+            path += dfs(r, c + 1, "R")  # Right
+            path += dfs(r, c - 1, "L")  # Left
             path += "B"  # Backtrack marker
 
             return path
@@ -183,34 +186,36 @@ class Solution:
 
         return len(distinct_islands)
 
-def test_solution():
+
+def test_solution() -> None:
     """Test cases for Problem 694."""
     solution = Solution()
 
     # Test case 1: Same shape islands
-    grid1 = [[1,1,0,0,0],[1,1,0,0,0],[0,0,0,1,1],[0,0,0,1,1]]
+    grid1 = [[1, 1, 0, 0, 0], [1, 1, 0, 0, 0], [0, 0, 0, 1, 1], [0, 0, 0, 1, 1]]
     result1 = solution.numDistinctIslandsPath([row[:] for row in grid1])
     expected1 = 1
     assert result1 == expected1, f"Expected {expected1}, got {result1}"
 
     # Test case 2: Different shape islands
-    grid2 = [[1,1,0,1,1],[1,0,0,0,0],[0,0,0,0,1]]
+    grid2 = [[1, 1, 0, 1, 1], [1, 0, 0, 0, 0], [0, 0, 0, 0, 1]]
     result2 = solution.numDistinctIslandsPath([row[:] for row in grid2])
     expected2 = 3
     assert result2 == expected2, f"Expected {expected2}, got {result2}"
 
     # Test case 3: No islands
-    grid3 = [[0,0,0],[0,0,0]]
+    grid3 = [[0, 0, 0], [0, 0, 0]]
     result3 = solution.numDistinctIslands([row[:] for row in grid3])
     expected3 = 0
     assert result3 == expected3, f"Expected {expected3}, got {result3}"
 
     print("All test cases passed!")
 
+
 if __name__ == "__main__":
     test_solution()
 
     # Quick example
     solution = Solution()
-    grid = [[1,1,0,0,0],[1,1,0,0,0],[0,0,0,1,1],[0,0,0,1,1]]
+    grid = [[1, 1, 0, 0, 0], [1, 1, 0, 0, 0], [0, 0, 0, 1, 1], [0, 0, 0, 1, 1]]
     print(f"Grid has {solution.numDistinctIslands([row[:] for row in grid])} distinct island shapes")

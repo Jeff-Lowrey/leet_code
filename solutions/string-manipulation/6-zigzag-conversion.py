@@ -96,6 +96,9 @@ O(n)
 </details>
 """
 
+
+from typing import Any
+
 class Solution:
     def convert(self, s: str, numRows: int) -> str:
         """
@@ -152,7 +155,7 @@ class Solution:
             return s
 
         # Use lists instead of strings for each row
-        rows = [[] for _ in range(numRows)]
+        rows: list[list[str]] = [[] for _ in range(numRows)]
         current_row = 0
         direction = 1  # 1 for down, -1 for up
 
@@ -187,7 +190,7 @@ class Solution:
         if numRows == 1 or numRows >= len(s):
             return s
 
-        result = []
+        result: list[Any] = []
         cycle_len = 2 * numRows - 2  # Length of one complete cycle
 
         for row in range(numRows):
@@ -243,7 +246,8 @@ class Solution:
 
         return result
 
-def test_solution():
+
+def test_solution() -> None:
     """Test cases for Problem 6."""
     solution = Solution()
 
@@ -293,6 +297,7 @@ def test_solution():
     assert result9 == expected9, f"Expected {expected9}, got {result9}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

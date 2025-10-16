@@ -69,5 +69,3 @@ We store at most 'capacity' key-value pairs
 
 </details>
 """
-
-

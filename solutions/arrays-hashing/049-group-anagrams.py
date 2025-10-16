@@ -75,6 +75,11 @@ O(n × k)
 </details>
 """
 
+from collections import defaultdict
+from typing import Any
+
+
+
 class Solution:
     def groupAnagrams(self, strs: list[str]) -> list[list[str]]:
         """
@@ -82,11 +87,11 @@ class Solution:
         Time Complexity: O(n * k log k) where n is number of strings, k is max length
         Space Complexity: O(n * k)
         """
-        anagrams = defaultdict(list)
+        anagrams: dict[Any, list[Any]] = defaultdict(list)
 
         for s in strs:
             # Sort string to create key
-            key = ''.join(sorted(s))
+            key = "".join(sorted(s))
             anagrams[key].append(s)
 
         return list(anagrams.values())
@@ -97,19 +102,20 @@ class Solution:
         Time Complexity: O(n * k) where n is number of strings, k is max length
         Space Complexity: O(n * k)
         """
-        anagrams = defaultdict(list)
+        anagrams: dict[tuple[int, ...], list[str]] = defaultdict(list)
 
         for s in strs:
             # Count characters
             count = [0] * 26
             for char in s:
-                count[ord(char) - ord('a')] += 1
+                count[ord(char) - ord("a")] += 1
 
             # Use tuple of counts as key
             key = tuple(count)
             anagrams[key].append(s)
 
         return list(anagrams.values())
+
 
 # Test cases
 if __name__ == "__main__":

@@ -30,7 +30,7 @@ Powers of 3 only have 3 in their prime factorization. Find maximum power of 3 in
 3. **Check divisibility**: If n % 3 != 0, return False
 4. **Divide by 3**: n = n // 3
 5. **Continue loop**: Repeat until n becomes 1 or indivisible by 3
-6. **Return result**: Return True if loop exits with n == 1
+# 6. **Return result**: Return True if loop exits with n == 1  # Result undefined
 
 ### WHY THIS WORKS:
 - Power of 3 only has prime factor 3
@@ -69,6 +69,7 @@ O(1)
 
 </details>
 """
+
 
 class Solution:
     def isPowerOfThree(self, n: int) -> bool:
@@ -114,7 +115,8 @@ class Solution:
         """
         return n > 0 and 1162261467 % n == 0
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
@@ -136,6 +138,7 @@ def test_solution():
     assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

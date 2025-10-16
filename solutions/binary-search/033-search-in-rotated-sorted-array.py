@@ -89,33 +89,34 @@ O(1)
 
 from typing import List, Optional, Dict, Tuple
 
+
 class Solution:
     def search(self, nums: List[int], target: int) -> int:
         """
         Search for target in a rotated sorted array.
-        
+
         Args:
             nums: List[int] - The rotated sorted array
             target: int - The value to search for
-            
+
         Returns:
             int - Index of target if found, -1 if not found
-            
+
         Time Complexity: O(log n)
         Space Complexity: O(1)
         """
         if not nums:
             return -1
-        
+
         left, right = 0, len(nums) - 1
-        
+
         while left <= right:
             mid = (left + right) // 2
-            
+
             # If we found the target
             if nums[mid] == target:
                 return mid
-            
+
             # Check if left half is sorted
             if nums[left] <= nums[mid]:
                 # Check if target is in left half
@@ -130,17 +131,18 @@ class Solution:
                     left = mid + 1
                 else:
                     right = mid - 1
-                    
+
         return -1
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
     solution = Solution()
 
     # Test case 1: Example from problem
-    result = solution.search([4, 5, 6, 7, 0, 1, 2], target = 0)
+    result = solution.search([4, 5, 6, 7, 0, 1, 2], target=0)
     expected = 4
     assert result == expected, f"Expected {expected}, got {result}"
 
@@ -150,6 +152,7 @@ def test_solution():
     assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

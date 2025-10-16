@@ -4,6 +4,17 @@
 
 ---
 
+## Table of Contents
+
+- [Solution Components](#solution-components)
+- [Problem Statement](#problem-statement)
+- [Solution Explanation](#solution-explanation)
+- [Complexity Analysis](#complexity-analysis)
+- [Edge Cases](#edge-cases)
+- [Learning from Solutions](#learning-from-solutions)
+- [Common Patterns](#common-patterns)
+- [Advanced Topics](#advanced-topics)
+
 ## Solution Components
 
 Each solution is structured to maximize learning and understanding.

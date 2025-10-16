@@ -69,17 +69,19 @@ O(1)
 </details>
 """
 
-from typing import List, Optional, Dict, Tuple
+from typing import Any, List, Optional, Dict, Tuple
+from collections import deque
+
 
 class Solution:
     def maxSlidingWindow(self, nums: List[int], k: int) -> List[int]:
         """
         Find maximum elements in sliding windows of size k across an array.
-        
+
         Args:
             nums: Input array of integers
             k: Size of sliding window
-            
+
         Returns:
             List of maximum values for each sliding window
         """
@@ -88,48 +90,49 @@ class Solution:
             return []
         if k == 1:
             return nums
-            
+
         # Initialize result list and deque
-        result = []
-        dq = deque()  # Store indices of potential maximum values
-        
+        result: list[Any] = []
+        dq: deque[Any] = deque()
+
         # Process first k elements (first window)
         for i in range(k):
             # Remove smaller elements from back
             while dq and nums[i] >= nums[dq[-1]]:
                 dq.pop()
             dq.append(i)
-            
+
         # Process rest of the elements
         for i in range(k, len(nums)):
             # Add maximum element from previous window
             result.append(nums[dq[0]])
-            
+
             # Remove elements outside current window
             while dq and dq[0] <= i - k:
                 dq.popleft()
-                
+
             # Remove smaller elements from back
             while dq and nums[i] >= nums[dq[-1]]:
                 dq.pop()
-                
+
             # Add current element
             dq.append(i)
-            
+
         # Add maximum element of last window
         result.append(nums[dq[0]])
-        
+
         return result
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
     solution = Solution()
 
     # Test case 1: Example from problem
-    result = solution.maxSlidingWindow([1,3,-1,-3,5,3,6,7], 3)
-    expected = [3,3,5,5,6,7]
+    result = solution.maxSlidingWindow([1, 3, -1, -3, 5, 3, 6, 7], 3)
+    expected: list[Any] = [3, 3, 5, 5, 6, 7]
     assert result == expected, f"Expected {expected}, got {result}"
 
     # Test case 2: Empty input
@@ -138,6 +141,7 @@ def test_solution():
     assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

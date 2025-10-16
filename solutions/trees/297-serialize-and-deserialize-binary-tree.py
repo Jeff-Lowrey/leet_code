@@ -13,9 +13,9 @@ Clarification: The input/output format is the same as how LeetCode serializes a 
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>Input tree:     1</dd>
+<dd>Tree with root 1 and children 2, 3</dd>
 <dt>Output:</dt>
-<dd>/ \</dd>
+<dd>"1,2,3,null,null,4,5"</dd>
 <dt>Explanation:</dt>
 <dd>The tree [1,2,3,null,null,4,5] is serialized as '1,2,3,null,null,4,5'</dd>
 </dl>
@@ -79,13 +79,16 @@ For the serialized string and recursion stack
 
 </details>
 """
+import re
+from typing import Any
+
+
 
 
 class TreeNode:
     """Definition for a binary tree node."""
-    def __init__(self, val=0, left=None, right=None):
+
+    def __init__(self, val: Any = 0, left: Any = None, right: Any = None) -> None:
         self.val = val
         self.left = left
         self.right = right
-
-

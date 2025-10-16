@@ -1,39 +1,26 @@
 # LeetCode Solution Formatting Guide - JavaScript
 
-[🏠 Home](README.md)
+[← Previous: Python Formatting Guide](SOLUTION_FORMATTING_GUIDE.md) | [🏠 Home](README.md)
 
 ---
 
 This guide explains the standard format for JavaScript LeetCode solution files in this repository.
 
 ## Table of Contents
-- [LeetCode Solution Formatting Guide - JavaScript](#leetcode-solution-formatting-guide---javascript)
-  - [Table of Contents](#table-of-contents)
-  - [Template Location](#template-location)
-  - [Key Formatting Rules](#key-formatting-rules)
-    - [1. JSDoc Comment Structure](#1-jsdoc-comment-structure)
-    - [2. Example Section Format](#2-example-section-format)
-    - [3. Solution Explanation Sections](#3-solution-explanation-sections)
-    - [4. Code Structure](#4-code-structure)
-    - [5. Test Cases](#5-test-cases)
-    - [6. Module Exports](#6-module-exports)
-  - [Visual Styling Notes](#visual-styling-notes)
-  - [JavaScript-Specific Conventions](#javascript-specific-conventions)
-    - [Variable Naming](#variable-naming)
-    - [Comments](#comments)
-    - [Data Structures](#data-structures)
-    - [Array Methods](#array-methods)
-    - [ES6+ Features](#es6-features)
-  - [Best Practices](#best-practices)
-  - [Example: Two Sum in JavaScript](#example-two-sum-in-javascript)
-  - [File Naming Convention](#file-naming-convention)
-  - [Testing Your Solution](#testing-your-solution)
-  - [Additional Resources](#additional-resources)
+
+- [Template Location](#template-location)
+- [Key Formatting Rules](#key-formatting-rules)
+- [Visual Styling Notes](#visual-styling-notes)
+- [Theme System](#theme-system)
+- [JavaScript-Specific Conventions](#javascript-specific-conventions)
+- [Best Practices](#best-practices)
+- [Reference Implementation](#reference-implementation)
+- [Additional Resources](#additional-resources)
 
 ## Template Location
 [↑ Back to Table of Contents](#table-of-contents)
 
-Use `docs/solutions/templates/SOLUTION_TEMPLATE.js` as the starting point for new solutions.
+Use [`solutions/templates/SOLUTION_TEMPLATE.js`](../../solutions/templates/SOLUTION_TEMPLATE.js) as the starting point for new solutions.
 
 ## Key Formatting Rules
 [↑ Back to Table of Contents](#table-of-contents)
@@ -86,8 +73,8 @@ Use `docs/solutions/templates/SOLUTION_TEMPLATE.js` as the starting point for ne
 - Use `<dt>` for labels (Input:, Output:, Explanation:)
 - Use `<dd>` for values
 - NO monospace/code formatting in values
-- Labels will display in category color
-- Section has subtle background and left border
+- Labels will display in the current theme's accent color
+- Section has subtle background and left border styled by theme
 
 ### 3. Solution Explanation Sections
 
@@ -224,12 +211,43 @@ This allows the solution to be imported in other files or test runners.
 
 When rendered on the web interface:
 
-1. **"Problem Statement" heading** - Displays in category color
-2. **"Example:" label** - Displays in category color (1.1rem, bold)
-3. **Example box** - Light background (#f9f9f6), 4px left border in category color
-4. **Input:/Output:/Explanation: labels** - Category color, bold (0.95rem)
-5. **Example values** - Regular text (no monospace), same font as body
-6. **Code blocks** - Monospace font, 2px border, padding, shadow
+1. **"Problem Statement" heading** - Styled with theme accent color
+2. **"Example:" label** - Displays in theme accent color (1.1rem, bold)
+3. **Example box** - Light neutral background with 4px left border in theme accent color
+4. **Input:/Output:/Explanation: labels** - Theme accent color, bold (0.95rem)
+5. **Example values** - Regular text (no monospace), same font as body (0.95rem)
+6. **Code blocks** - Monospace font with theme-appropriate syntax highlighting
+
+## Theme System
+[↑ Back to Table of Contents](#table-of-contents)
+
+The application includes an 8-theme system with light/dark mode support that dynamically styles all solution pages:
+
+**Available Themes:**
+- **Professional/Minimal**: Soft Neutral, Classic
+- **Colorful**: Vibrant, Rainbow
+- **Mood-Based**: Moody, Happy
+- **Accessibility**: High Contrast
+- **Special Effects**: Neon
+
+**Theme & Mode System:**
+- **8 distinct themes** each supporting both light and dark modes
+- Toggle light/dark mode independently of theme selection (🌙 button)
+- Theme picker filters to show only themes matching current mode
+- Each theme has carefully designed light and dark variants
+- Theme and mode preferences persist via cookies
+
+**Theme Features:**
+- Each theme defines primary, secondary, and accent colors
+- Syntax highlighting adapts automatically to light/dark mode
+- Category cards and solution pages styled consistently
+- Seamless switching between modes without losing theme choice
+
+**For Solution Authors:**
+- Write solutions without theme-specific styling
+- Use semantic HTML (`<dl>`, `<dt>`, `<dd>` for examples)
+- Themes automatically apply appropriate colors
+- Test your solution in both light and dark modes
 
 ## JavaScript-Specific Conventions
 [↑ Back to Table of Contents](#table-of-contents)
@@ -269,7 +287,6 @@ Use modern JavaScript array methods:
 ## Best Practices
 [↑ Back to Table of Contents](#table-of-contents)
 
-
 1. ✅ Use `const` by default, `let` when reassignment is needed
 2. ✅ Avoid `var` - use `let` or `const` instead
 3. ✅ Use strict equality (`===`, `!==`) instead of loose equality (`==`, `!=`)
@@ -279,120 +296,22 @@ Use modern JavaScript array methods:
 7. ✅ Provide 3+ test cases including edge cases
 8. ✅ Include alternative solutions when relevant
 9. ✅ Add clear comments to code explaining non-obvious logic
-10. ❌ Don't use monospace font in example values
-11. ❌ Don't use old code block format for examples
-12. ❌ Don't skip required sections (INTUITION, APPROACH, etc.)
+10. ❌ Don't skip required sections (INTUITION, APPROACH, etc.)
 
-## Example: Two Sum in JavaScript
-[↑ Back to Table of Contents](#table-of-contents)
+## Reference Implementation
+[↑ Back to Table of Contents](#reference-implementation)
 
-
-```javascript
-/**
- * 1. Two Sum
- * Difficulty: Easy
- *
- * Given an array of integers `nums` and an integer `target`, return indices of the
- * two numbers such that they add up to `target`.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>nums = [2,7,11,15], target = 9</dd>
- * <dt>Output:</dt>
- * <dd>[0,1]</dd>
- * <dt>Explanation:</dt>
- * <dd>Because nums[0] + nums[1] == 9, we return [0, 1]</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- *
- * ### INTUITION:
- * Use a hash map to store numbers we've seen so far, allowing O(1) lookup
- * for complements.
- *
- * ### APPROACH:
- * We iterate through the array once, and for each number we calculate its
- * complement (target - current number). Before storing the current number
- * in our hash map, we check if its complement already exists. If it does,
- * we've found our answer.
- *
- * ### TIME COMPLEXITY:
- * **O(n)** - Single pass through array with O(1) Map lookups
- *
- * ### SPACE COMPLEXITY:
- * **O(n)** - Map stores up to n elements in worst case
- *
- * </details>
- */
-
-class Solution {
-    /**
-     * Find two numbers that add up to target
-     * @param {number[]} nums - Array of integers
-     * @param {number} target - Target sum
-     * @return {number[]} - Indices of the two numbers
-     *
-     * Approach: Hash Map for O(n) lookup
-     * Time Complexity: O(n)
-     * Space Complexity: O(n)
-     */
-    twoSum(nums, target) {
-        // Map to store value -> index mapping
-        const seen = new Map();
-
-        for (let i = 0; i < nums.length; i++) {
-            const complement = target - nums[i];
-
-            // Check if complement exists in our map
-            if (seen.has(complement)) {
-                return [seen.get(complement), i];
-            }
-
-            // Store current number and its index
-            seen.set(nums[i], i);
-        }
-
-        return [];
-    }
-}
-```
-
-## File Naming Convention
-[↑ Back to Table of Contents](#table-of-contents)
-
-
-JavaScript solution files should follow the pattern:
-```
-NNN-problem-name.js
-```
-
-Example:
-- `001-two-sum.js`
-- `217-contains-duplicate.js`
-- `003-longest-substring-without-repeating-characters.js`
-
-## Testing Your Solution
-[↑ Back to Table of Contents](#table-of-contents)
-
-
-Run your solution with:
-```bash
-node docs/solutions/category-name/001-problem-name.js
-```
-
-This will execute the `runTests()` function and display results.
+See [`solutions/arrays-hashing/alternatives/001-two-sum.js`](../../solutions/arrays-hashing/alternatives/001-two-sum.js) for a complete, correctly formatted example.
 
 ## Additional Resources
-[↑ Back to Table of Contents](#table-of-contents)
+[↑ Back to Table of Contents](#additional-resources)
 
-- See Python formatting guide: [SOLUTION_FORMATTING_GUIDE.md](SOLUTION_FORMATTING_GUIDE.md)
-- JavaScript template: `docs/solutions/templates/SOLUTION_TEMPLATE.js`
-- Python template: `docs/solutions/templates/SOLUTION_TEMPLATE.py`
-- Reference Python implementation: `docs/solutions/arrays-hashing/001-two-sum.py`
+- Python formatting guide: [SOLUTION_FORMATTING_GUIDE.md](SOLUTION_FORMATTING_GUIDE.md)
+- JavaScript template: [`docs/solutions/templates/SOLUTION_TEMPLATE.js`](../../solutions/templates/SOLUTION_TEMPLATE.js)
+- Python template: [`docs/solutions/templates/SOLUTION_TEMPLATE.py`](../../solutions/templates/SOLUTION_TEMPLATE.py)
+- Upload guide overview: [Upload Guide Home](README.md)
+- General formatting guidelines: [05-formatting-guidelines.md](05-formatting-guidelines.md)
 
 ---
 
-[🏠 Home](README.md)
+[← Previous: Python Formatting Guide](SOLUTION_FORMATTING_GUIDE.md) | [🏠 Home](README.md)

@@ -72,20 +72,21 @@ O(1)
 
 from typing import List, Optional, Dict, Tuple
 
+
 class Solution:
     def wiggleMaxLength(self, nums: List[int]) -> int:
         """
         Find the length of the longest wiggle subsequence.
-        
+
         A sequence [x1, x2, ..., xn] is a wiggle sequence if its differences
         (x2-x1), (x3-x2), ..., (xn-x[n-1]) strictly alternate between positive and negative.
-        
+
         Args:
             nums: List of integers
-            
+
         Returns:
             Length of the longest wiggle subsequence
-            
+
         Example:
             >>> s = Solution()
             >>> s.wiggleMaxLength([1,7,4,9,2,5])
@@ -93,35 +94,36 @@ class Solution:
         """
         if not nums:
             return 0
-        
+
         if len(nums) < 2:
             return 1
-            
+
         # Initialize dp arrays for both up and down sequences
         # up[i] represents the length of wiggle subsequence ending at i with a rising difference
         # down[i] represents the length of wiggle subsequence ending at i with a falling difference
         up = [1] * len(nums)
         down = [1] * len(nums)
-        
+
         # Iterate through the array starting from index 1
         for i in range(1, len(nums)):
-            if nums[i] > nums[i-1]:
+            if nums[i] > nums[i - 1]:
                 # If current number is greater, we can extend a down sequence
-                up[i] = down[i-1] + 1
-                down[i] = down[i-1]
-            elif nums[i] < nums[i-1]:
+                up[i] = down[i - 1] + 1
+                down[i] = down[i - 1]
+            elif nums[i] < nums[i - 1]:
                 # If current number is smaller, we can extend an up sequence
-                down[i] = up[i-1] + 1
-                up[i] = up[i-1]
+                down[i] = up[i - 1] + 1
+                up[i] = up[i - 1]
             else:
                 # If numbers are equal, we can't extend either sequence
-                up[i] = up[i-1]
-                down[i] = down[i-1]
-        
+                up[i] = up[i - 1]
+                down[i] = down[i - 1]
+
         # Return the maximum of the last elements in up and down arrays
         return max(up[-1], down[-1])
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
@@ -143,6 +145,7 @@ def test_solution():
     assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

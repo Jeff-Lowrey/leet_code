@@ -97,78 +97,83 @@
  * Space Complexity: O(n * k) for the hash map storage
  */
 function solve(strs) {
-    const anagramGroups = new Map();
+  const anagramGroups = new Map();
 
-    for (const str of strs) {
-        // Sort the string to create a key
-        const key = str.split('').sort().join('');
+  for (const str of strs) {
+    // Sort the string to create a key
+    const key = str.split("").sort().join("");
 
-        // Add to the group
-        if (!anagramGroups.has(key)) {
-            anagramGroups.set(key, []);
-        }
-        anagramGroups.get(key).push(str);
+    // Add to the group
+    if (!anagramGroups.has(key)) {
+      anagramGroups.set(key, []);
     }
+    anagramGroups.get(key).push(str);
+  }
 
-    // Return all groups as an array
-    return Array.from(anagramGroups.values());
+  // Return all groups as an array
+  return Array.from(anagramGroups.values());
 }
 
 /**
  * Test cases for Problem 49: Group Anagrams
  */
 function testSolution() {
-    console.log('Testing 49. Group Anagrams');
+  console.log("Testing 49. Group Anagrams");
 
-    // Helper to sort arrays of arrays for comparison
-    const sortGroups = (groups) => {
-        return groups.map(g => g.sort()).sort((a, b) => a[0].localeCompare(b[0]));
-    };
+  // Helper to sort arrays of arrays for comparison
+  const sortGroups = (groups) => {
+    return groups.map((g) => g.sort()).sort((a, b) => a[0].localeCompare(b[0]));
+  };
 
-    // Test case 1: Basic grouping
-    const result1 = solve(["eat","tea","tan","ate","nat","bat"]);
-    const expected1 = [["bat"],["nat","tan"],["ate","eat","tea"]];
-    console.assert(
-        JSON.stringify(sortGroups(result1)) === JSON.stringify(sortGroups(expected1)),
-        `Test 1 failed`
-    );
+  // Test case 1: Basic grouping
+  const result1 = solve(["eat", "tea", "tan", "ate", "nat", "bat"]);
+  const expected1 = [["bat"], ["nat", "tan"], ["ate", "eat", "tea"]];
+  console.assert(
+    JSON.stringify(sortGroups(result1)) ===
+      JSON.stringify(sortGroups(expected1)),
+    `Test 1 failed`,
+  );
 
-    // Test case 2: Empty string
-    const result2 = solve([""]);
-    console.assert(result2.length === 1 && result2[0].length === 1 && result2[0][0] === "",
-        `Test 2 failed`);
+  // Test case 2: Empty string
+  const result2 = solve([""]);
+  console.assert(
+    result2.length === 1 && result2[0].length === 1 && result2[0][0] === "",
+    `Test 2 failed`,
+  );
 
-    // Test case 3: Single character
-    const result3 = solve(["a"]);
-    console.assert(result3.length === 1 && result3[0][0] === "a",
-        `Test 3 failed`);
+  // Test case 3: Single character
+  const result3 = solve(["a"]);
+  console.assert(
+    result3.length === 1 && result3[0][0] === "a",
+    `Test 3 failed`,
+  );
 
-    console.log('All test cases passed for 49. Group Anagrams!');
+  console.log("All test cases passed for 49. Group Anagrams!");
 }
 
 /**
  * Example usage and demonstration
  */
 function demonstrateSolution() {
-    console.log('\n=== Problem 49. Group Anagrams ===');
-    console.log('Category: Strings');
-    console.log('Difficulty: Medium');
-    console.log('');
+  console.log("\n=== Problem 49. Group Anagrams ===");
+  console.log("Category: Strings");
+  console.log("Difficulty: Medium");
+  console.log("");
 
-    // Example demonstration would go here
-    testSolution();
+  // Example demonstration would go here
+  testSolution();
 }
 
 // Run tests if this file is executed directly
 if (require.main === module) {
-    demonstrateSolution();
+  demonstrateSolution();
 }
 
 // Export for use in other modules
 module.exports = {
-    solve,
-    testSolution,
-    demonstrateSolution
+  solve,
+  testSolution,
+  demonstrateSolution,
 };
 
 /**

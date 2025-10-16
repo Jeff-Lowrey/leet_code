@@ -69,6 +69,7 @@ O(1)
 </details>
 """
 
+
 class Solution:
     def hammingWeight(self, n: int) -> int:
         """
@@ -101,6 +102,7 @@ class Solution:
         Space Complexity: O(k) for string conversion
         """
         return bin(n).count("1")
+
 
 def test_solution() -> None:
     """Test cases for Problem 191."""
@@ -147,6 +149,7 @@ def test_solution() -> None:
     print("Test case 9 passed: All methods consistent")
 
     print("\nAll test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

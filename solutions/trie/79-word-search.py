@@ -84,6 +84,9 @@ For recursion stack depth (word length)
 </details>
 """
 
+from collections import Counter
+
+
 class Solution:
     def exist(self, board: list[list[str]], word: str) -> bool:
         """
@@ -150,6 +153,7 @@ class Solution:
 
         return False
 
+
 class SolutionWithVisitedSet:
     """Alternative using visited set instead of modifying board."""
 
@@ -199,6 +203,7 @@ class SolutionWithVisitedSet:
 
         return False
 
+
 class SolutionOptimized:
     """Optimized solution with early pruning."""
 
@@ -215,9 +220,7 @@ class SolutionOptimized:
         m, n = len(board), len(board[0])
 
         # Early termination: check if all characters exist
-        from collections import Counter
-
-        board_chars = Counter()
+        board_chars: Counter[str] = Counter()
         for row in board:
             for char in row:
                 board_chars[char] += 1
@@ -260,7 +263,8 @@ class SolutionOptimized:
 
         return False
 
-def test_solution():
+
+def test_solution() -> None:
     """Test cases for 79. Word Search."""
     solution = Solution()
     solution_visited = SolutionWithVisitedSet()
@@ -296,6 +300,7 @@ def test_solution():
     assert not solution.exist(board5, "AAA")  # Can't reuse same cell
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

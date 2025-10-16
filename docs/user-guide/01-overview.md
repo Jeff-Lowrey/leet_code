@@ -4,6 +4,15 @@
 
 ---
 
+## Table of Contents
+
+- [What is the Leet Code Learning Tool?](#what-is-the-leet-code-learning-tool)
+- [Key Benefits](#key-benefits)
+- [Solution Categories](#solution-categories)
+- [Platform Features](#platform-features)
+- [Getting Started](#getting-started)
+- [Who This Tool Is For](#who-this-tool-is-for)
+
 ## What is the Leet Code Learning Tool?
 
 The Leet Code Learning Tool is a comprehensive web-based platform designed for browsing, studying, and downloading LeetCode problem solutions. It provides an organized, educational environment for mastering algorithmic problem-solving across 29+ algorithmic categories.

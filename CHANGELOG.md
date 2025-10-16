@@ -8,13 +8,46 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
-- New documentation structure with `docs/user-guide/` and `docs/upload-guide/` folders
+- MIT License
+
+## [0.1.0] - 2025-10-14
+
+### Added
+- **Unified Overview Pages**: Difficulty and complexity pages showing all levels in collapsible sections (#13)
+- **Context-Aware TOC Navigation**: Dynamic table of contents that adapts to current page type (#13)
+- **Navigation Dropdowns**: View By menu (Category/Difficulty/Complexity) and Docs menu (#13)
+- **Documentation Sub-Pages**: Support for nested documentation pages with proper routing (#13)
+- **Comprehensive Guide TOC**: Full documentation structure visible in sidebar with all 22 pages (#13)
+- **18-Theme System**: Complete theme implementation with light/dark variants (#3)
+- **Theme Picker**: Interactive dropdown with color preview for all themes (#3)
+- **Blue Theme**: Distinctive card design with blue top strip (#3)
+- **Documentation Guides**: User Guide, Developer Guide, and Upload Guide with full TOC navigation (#2)
+- **Contributing Guidelines**: Comprehensive guide for contributors (#2)
+- **Solution Templates**: Standardized formats for Python and JavaScript solutions (#2)
+- New documentation structure with `docs/user-guide/`, `docs/developer-guide/`, and `docs/upload-guide/` folders
 
 ### Changed
-- **Restructured documentation**: Moved all solution categories from `solutions/` to `docs/solutions/`
+- **Difficulty/Complexity Routes**: From individual filter pages to unified overview pages with collapsible sections (#13)
+- **Solution Badges**: Updated to link to unified overview pages with hash anchors (#13)
+- **TOC Icon**: Replaced hamburger menu with document outline SVG icon (#13)
+- **Navigation Links**: Converted Categories/Docs to dropdown menus (#13)
+- **Documentation Cards**: Enhanced with descriptions and theme colors (#13)
+- **Theme System**: Simplified Classic theme to blue and white design (#3)
+- **Chaos Theme**: Renamed from "Idiot" theme (#3)
+- **Documentation Structure**: Restructured into audience-specific guides with TOC navigation (#2)
+- **Repository Organization**: Moved solution files to repository root (#11)
 - Moved solution templates to `docs/upload-guide/`
 - Moved formatting guides to `docs/` root
-- Updated `category_data.py` to use new `docs/solutions/` path
+- Updated `category_data.py` to reference `solutions/` directory
+
+### Fixed
+- **LeetCode Format View**: Added missing difficulty and complexity metadata (#13)
+- **Documentation Links**: Fixed relative markdown links with regex replacement (#13)
+- **Double-Prefixed URLs**: Prevented duplicate /docs/ prefixes in JavaScript (#13)
+- **TOC Display**: Added specialized builder for /docs overview page (#13)
+- **Type Checking**: Fixed mypy errors in app.py (#3)
+- **Theme Picker**: Improved functionality, visibility, and defaults (#3)
+- **Classic Theme**: Fixed card styling and padding issues (#3)
 
 ## [2.1.0] - 2025-10-09
 

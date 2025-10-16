@@ -73,5 +73,3 @@ O(total characters in all words)
 
 </details>
 """
-
-

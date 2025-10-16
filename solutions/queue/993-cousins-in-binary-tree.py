@@ -12,9 +12,9 @@ Two nodes of a binary tree are cousins if they have the same depth but have diff
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>Tree:      1</dd>
+<dd>root = [1,2,3,4], x = 4, y = 3</dd>
 <dt>Output:</dt>
-<dd>/   \\</dd>
+<dd>false</dd>
 <dt>Explanation:</dt>
 <dd>Nodes 2 and 3 are not cousins (same parent)</dd>
 </dl>
@@ -80,11 +80,13 @@ O(w)
 """
 
 from collections import deque
+from typing import Any
 
 
 class TreeNode:
     """Definition for a binary tree node."""
-    def __init__(self, val=0, left=None, right=None):
+
+    def __init__(self, val: Any = 0, left: Any = None, right: Any = None) -> None:
         self.val = val
         self.left = left
         self.right = right
@@ -110,7 +112,7 @@ class Solution:
             return False
 
         # Store (parent, depth) for each target value
-        info = {}
+        info: dict[Any, Any] = {}
 
         # BFS with (node, parent, depth)
         queue = deque([(root, None, 0)])
@@ -130,9 +132,9 @@ class Solution:
 
             # Add children to queue
             if node.left:
-                queue.append((node.left, node, depth + 1))
+                queue.append((node.left, node, depth + 1))  # type: ignore
             if node.right:
-                queue.append((node.right, node, depth + 1))
+                queue.append((node.right, node, depth + 1))  # type: ignore
 
         # If we didn't find both nodes
         return False
@@ -145,7 +147,7 @@ class Solution:
         Space Complexity: O(h) where h is height (recursion stack)
         """
 
-        def dfs(node: TreeNode | None, parent: TreeNode | None, depth: int, target: int):
+        def dfs(node: TreeNode | None, parent: TreeNode | None, depth: int, target: int) -> tuple[TreeNode | None, int] | None:
             """Returns (parent, depth) if target found, else None."""
             if not node:
                 return None
@@ -170,7 +172,8 @@ class Solution:
 
         return x_depth == y_depth and x_parent != y_parent
 
-def test_solution():
+
+def test_solution() -> None:
     """Test cases for Problem 993."""
     solution = Solution()
 
@@ -258,6 +261,7 @@ def test_solution():
     print("Test case 7 passed: Single node")
 
     print("\nAll test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

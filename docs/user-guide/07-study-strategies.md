@@ -4,6 +4,23 @@
 
 ---
 
+## Table of Contents
+
+- [Learning Paths](#learning-paths)
+- [For Complete Beginners](#for-complete-beginners)
+- [For Interview Preparation](#for-interview-preparation)
+- [For Skill Development](#for-skill-development)
+- [Study Techniques](#study-techniques)
+- [Practice Regimens](#practice-regimens)
+- [Progress Tracking](#progress-tracking)
+- [Category Mastery](#category-mastery)
+- [Difficulty Progression](#difficulty-progression)
+- [Time Management](#time-management)
+- [Common Challenges](#common-challenges)
+- [Staying Motivated](#staying-motivated)
+- [Resources and Community](#resources-and-community)
+- [Long-Term Success](#long-term-success)
+
 ## Learning Paths
 
 Structured approaches for different goals and skill levels.

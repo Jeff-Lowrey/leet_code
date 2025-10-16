@@ -72,63 +72,65 @@ O(1)
 
 import heapq
 
-from typing import List, Optional, Dict, Tuple
+from typing import Any, List, Optional, Dict, Tuple
+
 
 class ListNode:
-    def __init__(self, val=0, next=None):
+    def __init__(self, val: Any = 0, next: Any = None) -> None:
         self.val = val
         self.next = next
+
 
 class Solution:
     def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
         """
         Merges k sorted linked lists into one sorted linked list.
-        
+
         Args:
             lists: List of heads of sorted linked lists
-            
+
         Returns:
             Head of the merged sorted linked list
         """
         # Handle edge cases
         if not lists:
             return None
-        
+
         # Create a min heap to store the smallest elements
         # Since heapq can't compare ListNodes directly, we'll store tuples of (value, index, node)
-        heap = []
-        
+        heap: list[Any] = []
+
         # Add the first node from each list to the heap
         for i, head in enumerate(lists):
             if head:
                 # We include the index i to handle cases where values are equal
                 heapq.heappush(heap, (head.val, i, head))
-        
+
         # Create a dummy node for the result list
         dummy = ListNode(0)
         current = dummy
-        
+
         # Process nodes from the heap until it's empty
         while heap:
             val, i, node = heapq.heappop(heap)
-            
+
             # Add the node to our result list
             current.next = node
             current = current.next
-            
+
             # If there are more nodes in this list, add the next one to the heap
             if node.next:
                 heapq.heappush(heap, (node.next.val, i, node.next))
-        
-        return dummy.next
+
+        return dummy.next  # type: ignore
 
     def createLinkedList(self, arr: List[int]) -> ListNode:
         """
         Helper function to create a linked list from an array.
         """
         if not arr:
-            return None
-        
+            return None  # type: ignore
+
         head = ListNode(arr[0])
         current = head
         for val in arr[1:]:
@@ -146,27 +148,29 @@ class Solution:
             current = current.next
         print("None")
 
+
 # Example usage and testing
-def main():
+def main() -> None:
     solution = Solution()
-    
+
     # Create sample linked lists
     list1 = solution.createLinkedList([1, 4, 5])
     list2 = solution.createLinkedList([1, 3, 4])
     list3 = solution.createLinkedList([2, 6])
-    
+
     # Merge the lists
     lists = [list1, list2, list3]
     print("Input lists:")
     for lst in lists:
         solution.printList(lst)
-    
-    merged = solution.mergeKLists(lists)
-    
-    print("\nMerged list:")
-    solution.printList(merged)
 
-def test_solution():
+    merged = solution.mergeKLists(lists)  # type: ignore
+
+    print("\nMerged list:")
+    solution.printList(merged)  # type: ignore
+
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
@@ -180,6 +184,7 @@ def test_solution():
     print("Basic functionality test passed! For comprehensive linked list tests, build proper ListNode chains.")
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

@@ -4,6 +4,16 @@
 
 ---
 
+## Table of Contents
+
+- [Available Templates](#available-templates)
+- [Python Solution Template](#python-solution-template)
+- [JavaScript Solution Template](#javascript-solution-template)
+- [Template Components](#template-components)
+- [Using Templates](#using-templates)
+- [Template Customization](#template-customization)
+- [Template Validation](#template-validation)
+
 ## Available Templates
 
 The platform provides standardized templates for creating well-formatted solution files.

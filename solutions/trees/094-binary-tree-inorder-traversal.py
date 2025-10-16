@@ -73,6 +73,16 @@ We visit each node exactly once
 </details>
 """
 
+
+from typing import Any
+
+class TreeNode:
+    def __init__(self, val: Any = 0, left: Any = None, right: Any = None) -> None:
+        self.val = val
+        self.left = left
+        self.right = right
+
+
 class Solution:
     def inorderTraversal(self, root: TreeNode) -> list[int]:
         """
@@ -87,16 +97,16 @@ class Solution:
         Time Complexity: O(n) where n is number of nodes
         Space Complexity: O(h) where h is height of tree (recursion stack)
         """
-        result = []
+        result: list[Any] = []
 
-        def inorder(node):
+        def inorder(node: Any) -> Any:
             if not node:
                 return
 
             # Left -> Root -> Right
-            inorder(node.left)    # Visit left subtree
+            inorder(node.left)  # Visit left subtree
             result.append(node.val)  # Process current node
-            inorder(node.right)   # Visit right subtree
+            inorder(node.right)  # Visit right subtree
 
         inorder(root)
         return result
@@ -115,7 +125,7 @@ class Solution:
         Space Complexity: O(h) for stack
         """
         result = []
-        stack = []
+        stack: list[Any] = []
         current = root
 
         while stack or current:
@@ -172,7 +182,7 @@ class Solution:
 
         return result
 
-    def inorderTraversalGenerator(self, root: TreeNode):
+    def inorderTraversalGenerator(self, root: TreeNode) -> Any:
         """
         Generator version for memory efficiency.
 
@@ -182,7 +192,8 @@ class Solution:
         Yields:
             Node values in inorder sequence
         """
-        def inorder(node):
+
+        def inorder(node: Any) -> Any:
             if node:
                 yield from inorder(node.left)
                 yield node.val
@@ -202,7 +213,8 @@ class Solution:
         """
         return list(self.inorderTraversalGenerator(root))
 
-def test_solution():
+
+def test_solution() -> None:
     """Test cases for Problem 94."""
     solution = Solution()
 
@@ -221,8 +233,8 @@ def test_solution():
     assert result1 == expected1, f"Expected {expected1}, got {result1}"
 
     # Test case 2: Empty tree
-    result2 = solution.inorderTraversal(None)
-    expected2 = []
+    result2 = solution.inorderTraversal(None)  # type: ignore
+    expected2: list[Any] = []
     assert result2 == expected2, f"Expected {expected2}, got {result2}"
 
     # Test case 3: Single node
@@ -251,8 +263,8 @@ def test_solution():
     #   1
     #  /
     # 2
-    #/
-    #3
+    # /
+    # 3
     root5 = TreeNode(1)
     root5.left = TreeNode(2)
     root5.left.left = TreeNode(3)
@@ -299,6 +311,7 @@ def test_solution():
 
     print("All test cases passed!")
 
+
 def create_bst():
     """Create a Binary Search Tree for demonstration."""
     #       4
@@ -314,6 +327,7 @@ def create_bst():
     root.right.left = TreeNode(5)
     root.right.right = TreeNode(7)
     return root
+
 
 if __name__ == "__main__":
     test_solution()
@@ -340,7 +354,7 @@ if __name__ == "__main__":
         ("Iterative", solution.inorderTraversalIterative),
         ("Morris O(1) space", solution.inorderTraversalMorris),
         ("Generator", lambda x: list(solution.inorderTraversalGenerator(x))),
-        ("List comprehension", solution.inorderTraversalList)
+        ("List comprehension", solution.inorderTraversalList),
     ]
 
     for name, method in approaches:
@@ -348,7 +362,7 @@ if __name__ == "__main__":
         print(f"{name}: {result}")
 
     # Example 4: Empty tree
-    print(f"\nEmpty tree: {solution.inorderTraversal(None)}")
+    print(f"\nEmpty tree: {solution.inorderTraversal(None)}")  # type: ignore
 
     # Example 5: Single node
     single = TreeNode(42)

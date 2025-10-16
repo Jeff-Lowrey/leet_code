@@ -8,10 +8,11 @@ import pytest
 
 from src.leet_code.app import app
 from src.leet_code.category_data import Solution
+from typing import Generator, Any
 
 
 @pytest.fixture
-def client():
+def client() -> Generator[Any, None, None]:
     """Create a test client for the Flask application."""
     app.config["TESTING"] = True
     app.config["SECRET_KEY"] = "test-secret-key"
@@ -23,7 +24,7 @@ class TestUploadFunctionality:
     """Test file upload functionality."""
 
     @patch("src.leet_code.app.category_manager")
-    def test_upload_page_renders(self, mock_manager, client):
+    def test_upload_page_renders(self, mock_manager: Any, client: Any) -> None:
         """Test upload page renders correctly."""
         mock_solution = Solution("001-two-sum.py", "Two Sum")
         mock_manager.get_solution.return_value = mock_solution
@@ -36,7 +37,7 @@ class TestUploadFunctionality:
     @patch("builtins.open", new_callable=mock_open)
     @patch("src.leet_code.app.Path")
     @patch("src.leet_code.app.category_manager")
-    def test_successful_upload(self, mock_manager, mock_path_class, mock_file, client):
+    def test_successful_upload(self, mock_manager: Any, mock_path_class: Any, mock_file: Any, client: Any) -> None:
         """Test successful file upload."""
         mock_solution = Solution("001-two-sum.py", "Two Sum")
         mock_manager.get_solution.return_value = mock_solution
@@ -60,7 +61,7 @@ class TestUploadFunctionality:
         assert response.status_code == 302  # Redirect after successful upload
 
     @patch("src.leet_code.app.category_manager")
-    def test_upload_without_file(self, mock_manager, client):
+    def test_upload_without_file(self, mock_manager: Any, client: Any) -> None:
         """Test upload without selecting a file."""
         mock_solution = Solution("001-two-sum.py", "Two Sum")
         mock_manager.get_solution.return_value = mock_solution
@@ -76,7 +77,7 @@ class TestUploadFunctionality:
         assert response.status_code == 302
 
     @patch("src.leet_code.app.category_manager")
-    def test_upload_invalid_extension(self, mock_manager, client):
+    def test_upload_invalid_extension(self, mock_manager: Any, client: Any) -> None:
         """Test upload with invalid file extension."""
         mock_solution = Solution("001-two-sum.py", "Two Sum")
         mock_manager.get_solution.return_value = mock_solution
@@ -94,7 +95,7 @@ class TestUploadFunctionality:
         assert response.status_code == 302
 
     @patch("src.leet_code.app.category_manager")
-    def test_upload_solution_not_found(self, mock_manager, client):
+    def test_upload_solution_not_found(self, mock_manager: Any, client: Any) -> None:
         """Test upload when solution doesn't exist."""
         mock_manager.get_solution.return_value = None
 
@@ -107,7 +108,7 @@ class TestDownloadFunctionality:
 
     @patch("src.leet_code.app.Path")
     @patch("src.leet_code.app.category_manager")
-    def test_download_skeleton(self, mock_manager, mock_path_class, client):
+    def test_download_skeleton(self, mock_manager: Any, mock_path_class: Any, client: Any) -> None:
         """Test downloading skeleton file."""
         mock_solution = Solution("001-two-sum.py", "Two Sum")
         mock_manager.get_solution.return_value = mock_solution
@@ -124,7 +125,7 @@ class Solution:
         assert b"def two_sum" in response.data or b"def twoSum" in response.data
 
     @patch("src.leet_code.app.category_manager")
-    def test_download_solution(self, mock_manager, client):
+    def test_download_solution(self, mock_manager: Any, client: Any) -> None:
         """Test downloading full solution."""
         mock_solution = Solution("001-two-sum.py", "Two Sum")
         mock_manager.get_solution.return_value = mock_solution
@@ -139,7 +140,7 @@ class Solution:
         assert b"two_sum" in response.data or b"twoSum" in response.data
 
     @patch("src.leet_code.app.category_manager")
-    def test_download_leetcode_format(self, mock_manager, client):
+    def test_download_leetcode_format(self, mock_manager: Any, client: Any) -> None:
         """Test downloading LeetCode formatted solution."""
         mock_solution = Solution("001-two-sum.py", "Two Sum")
         mock_manager.get_solution.return_value = mock_solution
@@ -155,7 +156,7 @@ class Solution:
         assert b"twoSum" in response.data
 
     @patch("src.leet_code.app.category_manager")
-    def test_download_both_as_zip(self, mock_manager, client):
+    def test_download_both_as_zip(self, mock_manager: Any, client: Any) -> None:
         """Test downloading both skeleton and solution as ZIP."""
         mock_solution = Solution("001-two-sum.py", "Two Sum")
         mock_manager.get_solution.return_value = mock_solution
@@ -179,7 +180,7 @@ class Solution:
     @patch("builtins.open", mock_open(read_data="public class Solution { }"))
     @patch("src.leet_code.app.Path")
     @patch("src.leet_code.app.category_manager")
-    def test_download_alternative_language(self, mock_manager, mock_path_class, client):
+    def test_download_alternative_language(self, mock_manager: Any, mock_path_class: Any, client: Any) -> None:
         """Test downloading solution in alternative language."""
         mock_solution = Solution("001-two-sum.py", "Two Sum")
         mock_manager.get_solution.return_value = mock_solution
@@ -188,7 +189,6 @@ class Solution:
         mock_path_instance = MagicMock()
         mock_path_instance.exists.return_value = True
         mock_path_instance.__truediv__.return_value = mock_path_instance
-        mock_path_instance.__str__.return_value = "/path/to/file.java"
         mock_path_class.return_value.parent.parent.parent = MagicMock()
         mock_path_class.return_value.parent.parent.parent.__truediv__.return_value = mock_path_instance
 
@@ -197,7 +197,7 @@ class Solution:
         assert b"public class Solution" in response.data
 
     @patch("src.leet_code.app.category_manager")
-    def test_download_invalid_format(self, mock_manager, client):
+    def test_download_invalid_format(self, mock_manager: Any, client: Any) -> None:
         """Test downloading with invalid format."""
         mock_solution = Solution("001-two-sum.py", "Two Sum")
         mock_manager.get_solution.return_value = mock_solution
@@ -206,7 +206,7 @@ class Solution:
         assert response.status_code == 400
 
     @patch("src.leet_code.app.category_manager")
-    def test_download_solution_not_found(self, mock_manager, client):
+    def test_download_solution_not_found(self, mock_manager: Any, client: Any) -> None:
         """Test downloading non-existent solution."""
         mock_manager.get_solution.return_value = None
 
@@ -224,8 +224,14 @@ class TestLanguageViewing:
     @patch("src.leet_code.app.Path")
     @patch("src.leet_code.app.category_manager")
     def test_view_alternative_language(
-        self, mock_manager, mock_path_class, mock_get_ext, mock_get_lexer, mock_get_langs, client
-    ):
+        self,
+        mock_manager: Any,
+        mock_path_class: Any,
+        mock_get_ext: Any,
+        mock_get_lexer: Any,
+        mock_get_langs: Any,
+        client: Any,
+    ) -> None:
         """Test viewing solution in alternative language."""
         from pygments.lexers import JavaLexer
 
@@ -257,7 +263,9 @@ class TestLanguageViewing:
     @patch("src.leet_code.app.get_file_extension")
     @patch("src.leet_code.app.Path")
     @patch("src.leet_code.app.category_manager")
-    def test_view_non_existent_language(self, mock_manager, mock_path_class, mock_get_ext, client):
+    def test_view_non_existent_language(
+        self, mock_manager: Any, mock_path_class: Any, mock_get_ext: Any, client: Any
+    ) -> None:
         """Test viewing solution in language that doesn't exist."""
         mock_solution = Solution("001-two-sum.py", "Two Sum")
         mock_manager.get_solution.return_value = mock_solution
@@ -277,7 +285,7 @@ class TestLanguageViewing:
 
     @patch("src.leet_code.app.Path")
     @patch("src.leet_code.app.category_manager")
-    def test_list_available_languages(self, mock_manager, mock_path_class, client):
+    def test_list_available_languages(self, mock_manager: Any, mock_path_class: Any, client: Any) -> None:
         """Test that available languages are listed correctly."""
         mock_solution = Solution("001-two-sum.py", "Two Sum")
         mock_manager.get_solution.return_value = mock_solution

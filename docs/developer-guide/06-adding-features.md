@@ -4,6 +4,17 @@
 
 ---
 
+## Table of Contents
+
+- [Overview](#overview)
+- [Feature Planning](#feature-planning)
+- [Backend Development](#backend-development)
+- [Frontend Development](#frontend-development)
+- [Testing New Features](#testing-new-features)
+- [Documentation](#documentation)
+- [Code Review Process](#code-review-process)
+- [Deployment](#deployment)
+
 ## Overview
 
 This guide walks through adding new features to the LeetCode Learning Tool, from planning to deployment. Follow these guidelines to ensure consistent, high-quality contributions.

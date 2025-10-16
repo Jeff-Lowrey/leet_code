@@ -1,5 +1,5 @@
 """
-# Difficulty: 
+# Difficulty:
 
 # 240. Search a 2D Matrix II
 **Staircase Search**
@@ -72,6 +72,7 @@ O(1) - only use constant space
 </details>
 """
 
+
 class Solution:
     def searchMatrix(self, matrix: list[list[int]], target: int) -> bool:
         """
@@ -112,7 +113,8 @@ class Solution:
     # Alias for consistent interface
     solve = searchMatrix
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for 240. Search a 2D Matrix II.
     """
@@ -181,6 +183,7 @@ def test_solution():
     print("Test case 12 passed: Target larger than all")
 
     print("\nAll test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

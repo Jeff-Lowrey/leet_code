@@ -67,20 +67,21 @@ O(1)
 </details>
 """
 
-from typing import List, Optional, Dict, Tuple
+from typing import Any, List, Optional, Dict, Tuple
+
 
 class Solution:
     def findMaxAverage(self, nums: List[int], k: int) -> float:
         """
         Find the maximum average value of any contiguous subarray of size k.
-        
+
         Args:
             nums: List of integers
             k: Size of the subarray
-            
+
         Returns:
             float: Maximum average value of any contiguous subarray of size k
-            
+
         Example:
             >>> solution = Solution()
             >>> solution.findMaxAverage([1,12,-5,-6,50,3], 4)
@@ -88,21 +89,22 @@ class Solution:
         """
         if not nums or k <= 0 or k > len(nums):
             return 0.0
-        
+
         # Initialize the sum of first k elements
         current_sum = sum(nums[:k])
         max_sum = current_sum
-        
+
         # Slide the window and keep track of maximum sum
         for i in range(k, len(nums)):
             # Add new element and remove first element of previous window
             current_sum = current_sum + nums[i] - nums[i - k]
             max_sum = max(max_sum, current_sum)
-        
+
         # Return the maximum average
         return max_sum / k
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
@@ -119,6 +121,7 @@ def test_solution():
     assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

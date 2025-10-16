@@ -67,6 +67,11 @@ For coordinate mapping and tree structure
 </details>
 """
 
+
+from typing import Any
+import re
+
+
 class Solution:
     def fallingSquares(self, positions: list[list[int]]) -> list[int]:
         """
@@ -85,7 +90,7 @@ class Solution:
             return []
 
         # Coordinate compression
-        coords = set()
+        coords: set[Any] = set()
         for left, size in positions:
             coords.add(left)
             coords.add(left + size)
@@ -95,12 +100,12 @@ class Solution:
         m = len(sorted_coords)
 
         class SegmentTree:
-            def __init__(self, n):
+            def __init__(self: Any, n: Any) -> None:
                 self.n = n
                 self.tree = [0] * (4 * n)
                 self.lazy = [0] * (4 * n)
 
-            def push(self, node):
+            def push(self: Any, node: Any) -> Any:
                 """Push lazy value down to children."""
                 if self.lazy[node] != 0:
                     self.tree[2 * node] = self.lazy[node]
@@ -109,7 +114,7 @@ class Solution:
                     self.lazy[2 * node + 1] = self.lazy[node]
                     self.lazy[node] = 0
 
-            def update(self, node, start, end, l, r, val):
+            def update(self: Any, node: Any, start: Any, end: Any, l: Any, r: Any, val: Any) -> Any:
                 """Update range [l, r] to val."""
                 if r < start or end < l:
                     return
@@ -125,7 +130,7 @@ class Solution:
                 self.update(2 * node + 1, mid + 1, end, l, r, val)
                 self.tree[node] = max(self.tree[2 * node], self.tree[2 * node + 1])
 
-            def query(self, node, start, end, l, r):
+            def query(self: Any, node: Any, start: Any, end: Any, l: Any, r: Any) -> Any:
                 """Query maximum in range [l, r]."""
                 if r < start or end < l:
                     return 0
@@ -140,7 +145,7 @@ class Solution:
                 return max(left_max, right_max)
 
         seg_tree = SegmentTree(m)
-        result = []
+        result: list[Any] = []
         max_height = 0
 
         for left, size in positions:
@@ -176,7 +181,7 @@ class Solution:
         if not positions:
             return []
 
-        intervals = []  # List of (left, right, height)
+        intervals: list[tuple[int, int, int]] = []  # List of (left, right, height)
         result = []
         max_height = 0
 
@@ -198,7 +203,8 @@ class Solution:
 
         return result
 
-def test_solution():
+
+def test_solution() -> None:
     """Test cases for Problem 699."""
     solution = Solution()
 
@@ -239,6 +245,7 @@ def test_solution():
 
     print("All test cases passed!")
 
+
 if __name__ == "__main__":
     test_solution()
 
@@ -267,9 +274,9 @@ if __name__ == "__main__":
     positions = [[1, 2], [2, 3], [6, 1]]
     print("Simulating square drops:")
 
-    intervals = []
+    intervals: list[Any] = []
     max_height = 0
-    heights = []
+    heights: list[Any] = []
 
     for i, (left, size) in enumerate(positions):
         right = left + size

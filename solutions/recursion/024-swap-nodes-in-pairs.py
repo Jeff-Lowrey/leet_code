@@ -58,9 +58,11 @@ Recursion stack depth proportional to number of pairs
 """
 
 
+from typing import Any
+
 class ListNode:
-    """Definition for singly-linked list."""
-    def __init__(self, val=0, next=None):
+    """..."""
+    def __init__(self, val: Any = 0, next: Any = None) -> None:
         self.val = val
         self.next = next
 
@@ -140,7 +142,8 @@ class Solution:
         Returns:
             Head of the modified list
         """
-        def swap_recursive(node):
+
+        def swap_recursive(node: Any) -> Any:
             # Base case: less than 2 nodes
             if not node or not node.next:
                 return node
@@ -162,6 +165,7 @@ class Solution:
 
         return swap_recursive(head)
 
+
 def create_linked_list(values):
     """Helper function to create linked list from values."""
     if not values:
@@ -174,16 +178,18 @@ def create_linked_list(values):
         current = current.next
     return head
 
+
 def linked_list_to_list(head):
     """Helper function to convert linked list to Python list."""
-    result = []
+    result: list[Any] = []
     current = head
     while current:
         result.append(current.val)
         current = current.next
     return result
 
-def test_solution():
+
+def test_solution() -> None:
     """Test cases for 024. Swap Nodes In Pairs."""
     solution = Solution()
 
@@ -201,8 +207,8 @@ def test_solution():
 
     # Test case 3: Empty list
     head3 = None
-    result3 = solution.swapPairs(head3)
-    expected3 = []
+    result3 = solution.swapPairs(head3)  # type: ignore
+    expected3: list[Any] = []
     assert linked_list_to_list(result3) == expected3, f"Expected {expected3}, got {linked_list_to_list(result3)}"
 
     # Test case 4: Single node
@@ -230,6 +236,7 @@ def test_solution():
     assert linked_list_to_list(result7) == expected7, f"Expected {expected7}, got {linked_list_to_list(result7)}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

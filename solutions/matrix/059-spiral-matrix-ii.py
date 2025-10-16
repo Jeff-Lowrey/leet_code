@@ -1,5 +1,5 @@
 """
-# Difficulty: 
+# Difficulty:
 
 # 059. Spiral Matrix II
 **Layer-by-Layer**
@@ -72,6 +72,7 @@ O(n^2) - output matrix (O(1) excluding output)
 </details>
 """
 
+
 class Solution:
     def generateMatrix(self, n: int) -> list[list[int]]:
         """
@@ -127,7 +128,8 @@ class Solution:
     # Alias for consistent interface
     solve = generateMatrix
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for 059. Spiral Matrix II.
     """
@@ -170,6 +172,7 @@ def test_solution():
     print("Test case 5 passed: n = 5")
 
     print("\nAll test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

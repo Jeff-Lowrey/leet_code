@@ -71,6 +71,9 @@ Only using constant extra space
 </details>
 """
 
+
+from typing import Any
+
 class Solution:
     def searchInsert(self, nums: list[int], target: int) -> int:
         """
@@ -115,6 +118,7 @@ class Solution:
         Time Complexity: O(log n)
         Space Complexity: O(log n) due to recursion stack
         """
+
         def binary_search(left: int, right: int) -> int:
             if left > right:
                 return left
@@ -151,35 +155,36 @@ class Solution:
         # If target is larger than all elements
         return len(nums)
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for 035. Search Insert Position.
     """
     solution = Solution()
 
     # Test case 1: Target found in array
-    nums1 = [1,3,5,6]
+    nums1 = [1, 3, 5, 6]
     target1 = 5
     result1 = solution.searchInsert(nums1, target1)
     expected1 = 2
     assert result1 == expected1, f"Expected {expected1}, got {result1}"
 
     # Test case 2: Target not found, insert in middle
-    nums2 = [1,3,5,6]
+    nums2 = [1, 3, 5, 6]
     target2 = 2
     result2 = solution.searchInsert(nums2, target2)
     expected2 = 1
     assert result2 == expected2, f"Expected {expected2}, got {result2}"
 
     # Test case 3: Target larger than all elements
-    nums3 = [1,3,5,6]
+    nums3 = [1, 3, 5, 6]
     target3 = 7
     result3 = solution.searchInsert(nums3, target3)
     expected3 = 4
     assert result3 == expected3, f"Expected {expected3}, got {result3}"
 
     # Test case 4: Target smaller than all elements
-    nums4 = [1,3,5,6]
+    nums4 = [1, 3, 5, 6]
     target4 = 0
     result4 = solution.searchInsert(nums4, target4)
     expected4 = 0
@@ -207,30 +212,31 @@ def test_solution():
     assert result7 == expected7, f"Expected {expected7}, got {result7}"
 
     # Test case 8: Empty array
-    nums8 = []
+    nums8: list[Any] = []
     target8 = 5
     result8 = solution.searchInsert(nums8, target8)
     expected8 = 0
     assert result8 == expected8, f"Expected {expected8}, got {result8}"
 
     # Test recursive solution
-    result9 = solution.searchInsertRecursive([1,3,5,6], 2)
+    result9 = solution.searchInsertRecursive([1, 3, 5, 6], 2)
     expected9 = 1
     assert result9 == expected9, f"Expected {expected9}, got {result9}"
 
     # Test linear solution
-    result10 = solution.searchInsertLinear([1,3,5,6], 7)
+    result10 = solution.searchInsertLinear([1, 3, 5, 6], 7)
     expected10 = 4
     assert result10 == expected10, f"Expected {expected10}, got {result10}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()
 
     # Example usage
     solution = Solution()
-    nums = [1,3,5,6]
+    nums = [1, 3, 5, 6]
     targets = [5, 2, 7, 0]
 
     print(f"=== 035. Search Insert Position ===")

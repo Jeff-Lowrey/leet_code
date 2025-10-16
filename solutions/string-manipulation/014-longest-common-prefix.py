@@ -59,6 +59,23 @@ O(1)
 </details>
 """
 
+
+from typing import Any
+import re
+
+
+
+
+class TrieNode:
+    """Node in a Trie data structure."""
+
+    def __init__(self) -> None:
+        """Initialize TrieNode with empty children and end marker."""
+        self.children: dict[str, "TrieNode"] = {}
+        self.word: str | None = None  # For word storage in solutions like Word Search II
+        self.is_end: bool = False  # Marks end of a word
+
+
 class Solution:
     def longestCommonPrefix(self, strs: list[str]) -> str:
         """
@@ -106,8 +123,8 @@ class Solution:
             return ""
 
         class TrieNode:
-            def __init__(self):
-                self.children = {}
+            def __init__(self: Any) -> None:
+                self.children: dict[str, Any] = {}
                 self.is_end = False
 
         root = TrieNode()
@@ -124,7 +141,7 @@ class Solution:
             node.is_end = True
 
         # Find common prefix
-        prefix = []
+        prefix: list[Any] = []
         node = root
         while len(node.children) == 1 and not node.is_end:
             char = next(iter(node.children))
@@ -132,6 +149,7 @@ class Solution:
             node = node.children[char]
 
         return "".join(prefix)
+
 
 """
 28. Find the Index of the First Occurrence in a String
@@ -144,6 +162,7 @@ Input: haystack = "sadbutsad", needle = "sad"
 Output: 0
 """
 
+
 class SolutionStrStr:
     def strStr(self, haystack: str, needle: str) -> int:
         """
@@ -155,7 +174,7 @@ class SolutionStrStr:
             return 0
 
         # Build LPS (Longest Proper Prefix Suffix) array
-        def build_lps(pattern):
+        def build_lps(pattern: Any) -> Any:
             lps = [0] * len(pattern)
             length = 0
             i = 1
@@ -207,6 +226,7 @@ class SolutionStrStr:
 
         return -1
 
+
 """
 459. Repeated Substring Pattern
 # Difficulty: Easy
@@ -218,6 +238,7 @@ Input: s = "abab"
 Output: true
 Explanation: It is the substring "ab" twice.
 """
+
 
 class SolutionRepeated:
     def repeatedSubstringPattern(self, s: str) -> bool:
@@ -255,6 +276,7 @@ class SolutionRepeated:
         pattern_len = lps[-1]
         return pattern_len > 0 and n % (n - pattern_len) == 0
 
+
 """
 686. Repeated String Match
 # Difficulty: Medium
@@ -268,6 +290,7 @@ Output: 3
 Explanation: We return 3 because by repeating a three times "abcdabcdabcd",
 b is a substring of it.
 """
+
 
 class SolutionRepeatedMatch:
     def repeatedStringMatch(self, a: str, b: str) -> int:
@@ -285,6 +308,7 @@ class SolutionRepeatedMatch:
                 return reps
 
         return -1
+
 
 # Test cases
 if __name__ == "__main__":
@@ -306,9 +330,9 @@ if __name__ == "__main__":
     str_cases = [("sadbutsad", "sad"), ("leetcode", "leeto"), ("hello", "ll"), ("aaaaa", "bba")]
 
     for haystack, needle in str_cases:
-        result = solution_str.strStr(haystack, needle)
+        index: int = solution_str.strStr(haystack, needle)
         print(f"Haystack: '{haystack}', Needle: '{needle}'")
-        print(f"Index: {result}\n")
+        print(f"Index: {index}\n")
 
     # Test Repeated Substring
     solution_repeated = SolutionRepeated()
@@ -317,9 +341,9 @@ if __name__ == "__main__":
     repeated_cases = ["abab", "aba", "abcabcabcabc", "a", "aa"]
 
     for s in repeated_cases:
-        result = solution_repeated.repeatedSubstringPattern(s)
+        is_repeated: bool = solution_repeated.repeatedSubstringPattern(s)
         print(f"String: '{s}'")
-        print(f"Is repeated: {result}\n")
+        print(f"Is repeated: {is_repeated}\n")
 
     # Test Repeated String Match
     solution_match = SolutionRepeatedMatch()
@@ -328,6 +352,6 @@ if __name__ == "__main__":
     match_cases = [("abcd", "cdabcdab"), ("a", "aa"), ("a", "a"), ("abc", "cabcabca")]
 
     for a, b in match_cases:
-        result = solution_match.repeatedStringMatch(a, b)
+        repetitions: int = solution_match.repeatedStringMatch(a, b)
         print(f"a: '{a}', b: '{b}'")
-        print(f"Repetitions: {result}\n")
+        print(f"Repetitions: {repetitions}\n")

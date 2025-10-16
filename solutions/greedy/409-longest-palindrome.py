@@ -71,6 +71,12 @@ At most 128 ASCII characters or 52 letters (constant space)
 </details>
 """
 
+from collections import Counter
+from typing import Any
+import re
+
+
+
 class Solution:
     def longestPalindrome(self, s: str) -> int:
         """
@@ -85,8 +91,6 @@ class Solution:
         Time Complexity: O(n) - count characters once
         Space Complexity: O(1) - fixed size for character counts
         """
-        from collections import Counter
-
         # Count frequency of each character
         char_counts = Counter(s)
 
@@ -96,7 +100,7 @@ class Solution:
 
         for count in char_counts.values():
             pairs += count // 2  # Number of pairs for this character
-            if count % 2 == 1:   # Check if count is odd
+            if count % 2 == 1:  # Check if count is odd
                 has_odd = True
 
         # Total length = pairs × 2 + (1 if any odd count exists)
@@ -113,7 +117,7 @@ class Solution:
             Maximum palindrome length
         """
         # Manual character counting
-        char_count = {}
+        char_count: dict[Any, Any] = {}
         for char in s:
             char_count[char] = char_count.get(char, 0) + 1
 
@@ -172,12 +176,13 @@ class Solution:
         Returns:
             Maximum palindrome length
         """
-        from collections import Counter
         counts = Counter(s)
-        return sum(count // 2 for count in counts.values()) * 2 + \
-               (1 if any(count % 2 for count in counts.values()) else 0)
+        return sum(count // 2 for count in counts.values()) * 2 + (
+            1 if any(count % 2 for count in counts.values()) else 0
+        )
 
-def test_solution():
+
+def test_solution() -> None:
     """Test cases for Problem 409."""
     solution = Solution()
 
@@ -230,6 +235,7 @@ def test_solution():
     assert result10 == expected10, f"Expected {expected10}, got {result10}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

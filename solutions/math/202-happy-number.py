@@ -76,6 +76,9 @@ Depends on number of digits and cycle detection
 </details>
 """
 
+
+from typing import Any
+
 class Solution:
     def isHappy(self, n: int) -> bool:
         """
@@ -90,7 +93,7 @@ class Solution:
         Time Complexity: O(log n)
         Space Complexity: O(log n)
         """
-        seen = set()
+        seen: set[Any] = set()
 
         while n != 1 and n not in seen:
             seen.add(n)
@@ -126,6 +129,7 @@ class Solution:
             if slow == fast:
                 return False
 
+
 def test_solution() -> None:
     """Test cases for Problem 202."""
     solution = Solution()
@@ -136,6 +140,7 @@ def test_solution() -> None:
     assert solution.isHappy(7) is True
     assert solution.isHappy(4) is False
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

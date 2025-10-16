@@ -60,13 +60,14 @@ O(h) for the stack
 
 </details>
 """
+from typing import Any
+
 
 
 class TreeNode:
     """Definition for a binary tree node."""
-    def __init__(self, val=0, left=None, right=None):
+
+    def __init__(self, val: Any = 0, left: Any = None, right: Any = None) -> None:
         self.val = val
         self.left = left
         self.right = right
-
-

@@ -70,6 +70,7 @@ In-place rotation without extra matrix
 </details>
 """
 
+
 class Solution:
     def rotate(self, matrix: list[list[int]]) -> None:
         """
@@ -164,13 +165,15 @@ class Solution:
             for j in range(i + 1, n):
                 matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
 
+
 def print_matrix(matrix):
     """Helper function to print matrix nicely."""
     for row in matrix:
         print(" ".join(f"{num:2}" for num in row))
     print()
 
-def test_solution():
+
+def test_solution() -> None:
     """Test cases for Problem 48."""
     solution = Solution()
 
@@ -217,6 +220,7 @@ def test_solution():
     assert matrix7 == expected7, f"Expected {expected7}, got {matrix7}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

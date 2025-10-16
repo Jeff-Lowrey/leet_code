@@ -88,6 +88,9 @@ O(1)
 </details>
 """
 
+
+from typing import Any
+
 class Solution:
     def isToeplitzMatrix(self, matrix: list[list[int]]) -> bool:
         """
@@ -122,7 +125,7 @@ class Solution:
         Space Complexity: O(m + n) for storing diagonal representatives
         """
         m, n = len(matrix), len(matrix[0])
-        diagonals = {}
+        diagonals: dict[Any, Any] = {}
 
         for i in range(m):
             for j in range(n):
@@ -189,7 +192,8 @@ class Solution:
                     return False
         return True
 
-def test_solution():
+
+def test_solution() -> None:
     """Test cases for Problem 766."""
     solution = Solution()
 
@@ -242,6 +246,7 @@ def test_solution():
     assert not solution.isToeplitzMatrixFollowUp(matrix12), "Follow-up method failed"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

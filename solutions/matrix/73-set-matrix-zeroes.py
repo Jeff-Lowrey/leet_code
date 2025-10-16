@@ -75,6 +75,9 @@ Only using two boolean flags
 </details>
 """
 
+
+from typing import Any
+
 class Solution:
     def setZeroes(self, matrix: list[list[int]]) -> None:
         """
@@ -149,8 +152,8 @@ class Solution:
         m, n = len(matrix), len(matrix[0])
 
         # Track which rows and columns need to be zeroed
-        zero_rows = set()
-        zero_cols = set()
+        zero_rows: set[Any] = set()
+        zero_cols: set[Any] = set()
 
         # Find all zeros
         for i in range(m):
@@ -208,6 +211,7 @@ class Solution:
         if first_col_zero:
             for i in range(m):
                 matrix[i][0] = 0
+
 
 def test_solution() -> None:
     """Test cases for Problem 73."""
@@ -288,6 +292,7 @@ def test_solution() -> None:
     print("Test case 12 passed: Compact solution")
 
     print("\nAll test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

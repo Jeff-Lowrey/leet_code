@@ -4,6 +4,16 @@
 
 ---
 
+## Table of Contents
+
+- [Required Sections](#required-sections)
+- [Module Docstring](#module-docstring)
+- [Solution Explanation](#solution-explanation)
+- [Solution Class](#solution-class)
+- [Test Cases](#test-cases)
+- [Main Block](#main-block)
+- [Best Practices](#best-practices)
+
 ## Required Sections
 
 Every solution must include specific sections for consistency and educational value.

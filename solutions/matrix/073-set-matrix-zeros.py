@@ -1,5 +1,5 @@
 """
-# Difficulty: 
+# Difficulty:
 
 # 073. Set Matrix Zeroes
 **In-Place Marking**
@@ -64,6 +64,7 @@ O(1) - only use constant extra space
 </details>
 """
 
+
 class Solution:
     def setZeroes(self, matrix: list[list[int]]) -> None:
         """
@@ -113,7 +114,8 @@ class Solution:
     # Alias for consistent interface
     solve = setZeroes
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for 073. Set Matrix Zeroes.
     """
@@ -176,6 +178,7 @@ def test_solution():
     print("Test case 8 passed: Single row with zero")
 
     print("\nAll test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

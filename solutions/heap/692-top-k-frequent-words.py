@@ -67,6 +67,12 @@ O(N) for frequency map, O(k) for heap
 </details>
 """
 
+from collections import Counter
+import heapq
+from typing import Any
+
+
+
 class Solution:
     def topKFrequent(self, words: list[str], k: int) -> list[str]:
         """
@@ -82,9 +88,6 @@ class Solution:
         Time Complexity: O(N log k) where N is number of words
         Space Complexity: O(N + k) for frequency map and heap
         """
-        import heapq
-        from collections import Counter
-
         # Count word frequencies
         freq_map = Counter(words)
 
@@ -92,7 +95,7 @@ class Solution:
         # Store as (frequency, word) where we want:
         # - Higher frequency words to stay in heap
         # - For same frequency, lexicographically smaller words to stay
-        heap = []
+        heap: list[Any] = []
 
         for word, freq in freq_map.items():
             # Push (-freq, word) to simulate max-heap for frequency
@@ -104,7 +107,7 @@ class Solution:
                 heapq.heappop(heap)
 
         # Extract results in reverse order (heap gives smallest first)
-        result = []
+        result: list[Any] = []
         while heap:
             freq, word = heapq.heappop(heap)
             result.append(word)
@@ -123,16 +126,13 @@ class Solution:
         Returns:
             List of k most frequent words
         """
-        import heapq
-        from collections import Counter
-
         # Count frequencies
         freq_map = Counter(words)
 
         # Use heap with tuple (freq, word) for proper ordering
         # For min-heap: we want to keep larger frequencies and smaller lexicographical words
         # So we use (-freq, word) to achieve max-heap behavior for frequency
-        heap = []
+        heap: list[tuple[int, str]] = []
 
         for word, freq in freq_map.items():
             heapq.heappush(heap, (-freq, word))
@@ -159,8 +159,6 @@ class Solution:
         Time Complexity: O(N log N) where N is unique words
         Space Complexity: O(N) for frequency map
         """
-        from collections import Counter
-
         # Count frequencies
         freq_map = Counter(words)
 
@@ -181,14 +179,11 @@ class Solution:
         Returns:
             List of k most frequent words
         """
-        import heapq
-        from collections import Counter
-
         freq_map = Counter(words)
 
         # Min-heap of size k
         # Use (freq, reverse_word) to handle lexicographical ordering correctly
-        heap = []
+        heap: list[tuple[int, str]] = []
 
         for word, freq in freq_map.items():
             if len(heap) < k:
@@ -205,23 +200,25 @@ class Solution:
         result = sorted(heap, key=lambda x: (-x[0], x[1]))
         return [word for freq, word in result]
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
     solution = Solution()
 
     # Test case 1: Basic case
-    result = solution.topKFrequent([1, 2, 3], 2)
-    expected = [3, 2]
+    result = solution.topKFrequent(["the", "day", "is", "sunny", "the", "the", "the", "sunny", "is", "is"], 4)
+    expected: list[Any] = ["the", "is", "sunny", "day"]
     assert result == expected, f"Expected {expected}, got {result}"
 
     # Test case 2: Empty input
     result = solution.topKFrequent([], 0)
-    expected = []
+    expected: list[str] = []
     assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

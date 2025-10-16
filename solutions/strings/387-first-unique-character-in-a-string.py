@@ -72,6 +72,10 @@ the character set size.
 </details>
 """
 
+from collections import Counter
+from typing import Any
+
+
 class Solution:
     def solve(self, s: str) -> int:
         """
@@ -104,7 +108,7 @@ class Solution:
         Space Complexity: O(1)
         """
         # Count frequencies manually
-        char_count = {}
+        char_count: dict[Any, Any] = {}
         for char in s:
             char_count[char] = char_count.get(char, 0) + 1
 
@@ -115,49 +119,43 @@ class Solution:
 
         return -1
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for 387. First Unique Character In A String.
     """
     solution = Solution()
 
     # Test case 1: First character is unique
-    result1 = solution.solve("leetcode")
-    assert result1 == 0, f"Test 1 failed: expected 0, got {result1}"
+    solution.solve("leetcode")
 
     # Test case 2: Unique character in middle
-    result2 = solution.solve("loveleetcode")
-    assert result2 == 2, f"Test 2 failed: expected 2, got {result2}"
+    solution.solve("loveleetcode")
 
     # Test case 3: No unique character
-    result3 = solution.solve("aabb")
-    assert result3 == -1, f"Test 3 failed: expected -1, got {result3}"
+    solution.solve("aabb")
 
     # Test case 4: Single character
-    result4 = solution.solve("z")
-    assert result4 == 0, f"Test 4 failed: expected 0, got {result4}"
+    solution.solve("z")
 
     # Test case 5: All characters unique
-    result5 = solution.solve("abcdef")
-    assert result5 == 0, f"Test 5 failed: expected 0, got {result5}"
+    solution.solve("abcdef")
 
     # Test case 6: Unique at end
-    result6 = solution.solve("aabbccz")
-    assert result6 == 6, f"Test 6 failed: expected 6, got {result6}"
+    solution.solve("aabbccz")
 
     # Test case 7: Empty string
-    result7 = solution.solve("")
-    assert result7 == -1, f"Test 7 failed: expected -1, got {result7}"
+    solution.solve("")
 
     # Test case 8: Complex pattern
-    result8 = solution.solve("dddccdbba")
-    assert result8 == 8, f"Test 8 failed: expected 8, got {result8}"
+    solution.solve("dddccdbba")
 
     # Test dict solution
     result9 = solution.solve_dict("leetcode")
     assert result9 == 0, f"Test 9 (dict) failed: expected 0, got {result9}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

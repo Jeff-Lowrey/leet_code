@@ -73,7 +73,8 @@ O(1)
 
 import heapq
 
-from typing import List, Optional, Dict, Tuple
+from typing import Any, List, Optional, Dict, Tuple
+
 
 class Solution:
     def scheduleCourse(self, courses: List[List[int]]) -> int:
@@ -92,11 +93,11 @@ class Solution:
         """
         # Sort courses by deadline to process earlier deadlines first
         courses.sort(key=lambda x: x[1])
-        
+
         # Max heap to store course durations we've taken
-        taken = []
+        taken: list[Any] = []
         current_time = 0
-        
+
         for duration, deadline in courses:
             # If we can take this course without exceeding its deadline
             if current_time + duration <= deadline:
@@ -111,28 +112,29 @@ class Solution:
                 current_time = current_time - longest_duration + duration
                 # Add the new course
                 heapq.heappush(taken, -duration)
-        
+
         # Return the number of courses taken
         return len(taken)
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
     solution = Solution()
 
     # Test case 1: Example from problem
-    result = solution.scheduleCourse([[100,200],[200,1300],[1000,1250],[2000,3200]])
+    result = solution.scheduleCourse([[100, 200], [200, 1300], [1000, 1250], [2000, 3200]])
     expected = 3
     assert result == expected, f"Expected {expected}, got {result}"
 
     # Test case 2: Simple case
-    result = solution.scheduleCourse([[1,2]])
+    result = solution.scheduleCourse([[1, 2]])
     expected = 1
     assert result == expected, f"Expected {expected}, got {result}"
 
     # Test case 3: Multiple courses with tight deadlines
-    result = solution.scheduleCourse([[3,2],[4,3]])
+    result = solution.scheduleCourse([[3, 2], [4, 3]])
     expected = 0
     assert result == expected, f"Expected {expected}, got {result}"
 
@@ -142,11 +144,12 @@ def test_solution():
     assert result == expected, f"Expected {expected}, got {result}"
 
     # Test case 5: Course duration equals deadline
-    result = solution.scheduleCourse([[5,5],[4,6],[2,6]])
+    result = solution.scheduleCourse([[5, 5], [4, 6], [2, 6]])
     expected = 2
     assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

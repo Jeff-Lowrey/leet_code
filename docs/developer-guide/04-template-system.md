@@ -4,6 +4,15 @@
 
 ---
 
+## Table of Contents
+
+- [Overview](#overview)
+- [Python Solution Template](#python-solution-template)
+- [JavaScript Solution Template](#javascript-solution-template)
+- [Skeleton Generation](#skeleton-generation)
+- [Template Validation](#template-validation)
+- [Adding New Templates](#adding-new-templates)
+
 ## Overview
 
 The template system provides standardized solution formats and generates skeleton code for practice. It supports both Python and JavaScript with consistent structure across all solutions.

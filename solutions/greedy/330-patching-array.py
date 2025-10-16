@@ -77,6 +77,9 @@ Only using constant extra space
 </details>
 """
 
+from typing import List
+
+
 class Solution:
     def minPatches(self, nums: List[int], n: int) -> int:
         """
@@ -94,8 +97,8 @@ class Solution:
         """
         patches = 0  # Count of patches needed
         covered = 0  # Numbers we can currently build up to
-        index = 0    # Current position in nums array
-        
+        index = 0  # Current position in nums array
+
         while covered < n:
             # If we have numbers left and current number <= covered + 1
             if index < len(nums) and nums[index] <= covered + 1:
@@ -106,19 +109,18 @@ class Solution:
                 patches += 1
                 # Adding this number doubles our coverage range
                 covered = covered + (covered + 1)
-                
+
             # Handle potential integer overflow
             if covered > n:
                 break
-                
+
         return patches
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for 330. Patching Array.
     """
-    from typing import List
-
     class Solution:
         def minPatches(self, nums: List[int], n: int) -> int:
             patches = 0
@@ -141,12 +143,12 @@ def test_solution():
     solution = Solution()
 
     # Test case 1: Basic example
-    result1 = solution.minPatches([1,3], 6)
+    result1 = solution.minPatches([1, 3], 6)
     expected1 = 1
     assert result1 == expected1, f"Expected {expected1}, got {result1}"
 
     # Test case 2: More patches needed
-    result2 = solution.minPatches([1,5,10], 20)
+    result2 = solution.minPatches([1, 5, 10], 20)
     expected2 = 2
     assert result2 == expected2, f"Expected {expected2}, got {result2}"
 
@@ -156,12 +158,12 @@ def test_solution():
     assert result3 == expected3, f"Expected {expected3}, got {result3}"
 
     # Test case 4: Already complete
-    result4 = solution.minPatches([1,2,2], 5)
+    result4 = solution.minPatches([1, 2, 2], 5)
     expected4 = 0
     assert result4 == expected4, f"Expected {expected4}, got {result4}"
 
     # Test case 5: Large n
-    result5 = solution.minPatches([1,2,31,33], 2147483647)
+    result5 = solution.minPatches([1, 2, 31, 33], 2147483647)
     expected5 = 28
     assert result5 == expected5, f"Expected {expected5}, got {result5}"
 
@@ -177,33 +179,13 @@ def test_solution():
 
     print("All test cases passed!")
 
+
 if __name__ == "__main__":
     test_solution()
 
-    # Example usage
-    from typing import List
-
-    class Solution:
-        def minPatches(self, nums: List[int], n: int) -> int:
-            patches = 0
-            covered = 0
-            index = 0
-
-            while covered < n:
-                if index < len(nums) and nums[index] <= covered + 1:
-                    covered += nums[index]
-                    index += 1
-                else:
-                    patches += 1
-                    covered = covered + (covered + 1)
-
-                if covered > n:
-                    break
-
-            return patches
-
+    # Example usage with the Solution class already defined above
     solution = Solution()
     print("=== 330. Patching Array ===")
-    print(f"minPatches([1,3], 6) -> {solution.minPatches([1,3], 6)}")
-    print(f"minPatches([1,5,10], 20) -> {solution.minPatches([1,5,10], 20)}")
+    print(f"minPatches([1,3], 6) -> {solution.minPatches([1, 3], 6)}")
+    print(f"minPatches([1,5,10], 20) -> {solution.minPatches([1, 5, 10], 20)}")
     print(f"minPatches([], 7) -> {solution.minPatches([], 7)}")

@@ -64,6 +64,10 @@ HashMap can store up to n different prefix sums
 </details>
 """
 
+from collections import defaultdict
+from typing import Any
+
+
 class Solution:
     def subarraySum(self, nums: list[int], k: int) -> int:
         """
@@ -79,10 +83,8 @@ class Solution:
         Time Complexity: O(n) - single pass through array
         Space Complexity: O(n) - hashmap for prefix sums
         """
-        from collections import defaultdict
-
         # Dictionary to store frequency of prefix sums
-        prefix_sum_count = defaultdict(int)
+        prefix_sum_count: dict[Any, int] = defaultdict(int)
         prefix_sum_count[0] = 1  # Empty subarray has sum 0
 
         current_sum = 0
@@ -173,7 +175,7 @@ class Solution:
         """
         result = 0
         prefix_sum = 0
-        sum_frequency = {}
+        sum_frequency: dict[Any, Any] = {}
 
         # Base case: empty prefix has sum 0
         sum_frequency[0] = 1
@@ -198,7 +200,8 @@ class Solution:
 
         return result
 
-def test_solution():
+
+def test_solution() -> None:
     """Test cases for Problem 560."""
     solution = Solution()
 
@@ -248,6 +251,7 @@ def test_solution():
     assert result9 == expected9, f"Expected {expected9}, got {result9}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

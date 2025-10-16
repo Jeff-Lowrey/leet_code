@@ -83,60 +83,63 @@ O(1)
 
 from typing import List, Optional, Dict, Tuple
 
+
 class Solution:
     def findDuplicate(self, nums: List[int]) -> int:
         """
         Find the duplicate number in an array using Floyd's Cycle Detection.
-        
+
         Args:
             nums: List[int] - Array containing n + 1 integers where each integer
                             is in the range [1, n] inclusive.
-        
+
         Returns:
             int - The duplicate number in the array
-        
+
         Time Complexity: O(n)
         Space Complexity: O(1)
         """
         if not nums:
             return -1
-        
+
         # Phase 1: Finding the intersection point of the two runners
         tortoise = nums[0]
         hare = nums[0]
-        
+
         # Move tortoise one step and hare two steps until they meet
         while True:
             tortoise = nums[tortoise]
             hare = nums[nums[hare]]
             if tortoise == hare:
                 break
-        
+
         # Phase 2: Finding the entrance to the cycle
         tortoise = nums[0]
         while tortoise != hare:
             tortoise = nums[tortoise]
             hare = nums[hare]
-        
+
         return hare
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
     solution = Solution()
 
     # Test case 1: Example with duplicate
-    result = solution.findDuplicate([1,3,4,2,2])
+    result = solution.findDuplicate([1, 3, 4, 2, 2])
     expected = 2
     assert result == expected, f"Expected {expected}, got {result}"
 
     # Test case 2: Another example
-    result = solution.findDuplicate([3,1,3,4,2])
+    result = solution.findDuplicate([3, 1, 3, 4, 2])
     expected = 3
     assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

@@ -65,6 +65,7 @@ Only using constant extra space
 </details>
 """
 
+
 class Solution:
     def removeDuplicates(self, nums: list[int]) -> int:
         """
@@ -115,41 +116,43 @@ class Solution:
 
         return unique_count
 
-def test_solution():
+
+def test_solution() -> None:
     """Test cases for 026. Remove Duplicates From Sorted Array."""
     solution = Solution()
 
     # Test case 1: Example case
-    nums1 = [1,1,2]
+    nums1 = [1, 1, 2]
     result1 = solution.removeDuplicates(nums1)
     expected1 = 2
-    assert result1 == expected1 and nums1[:result1] == [1,2], f"Expected {expected1}, got {result1}"
+    assert result1 == expected1 and nums1[:result1] == [1, 2], f"Expected {expected1}, got {result1}"
 
     # Test case 2: More duplicates
-    nums2 = [0,0,1,1,1,2,2,3,3,4]
+    nums2 = [0, 0, 1, 1, 1, 2, 2, 3, 3, 4]
     result2 = solution.removeDuplicatesAlternative(nums2)
     expected2 = 5
-    assert result2 == expected2 and nums2[:result2] == [0,1,2,3,4], f"Expected {expected2}, got {result2}"
+    assert result2 == expected2 and nums2[:result2] == [0, 1, 2, 3, 4], f"Expected {expected2}, got {result2}"
 
     # Test case 3: No duplicates
-    nums3 = [1,2,3]
+    nums3 = [1, 2, 3]
     result3 = solution.removeDuplicates(nums3)
     expected3 = 3
     assert result3 == expected3, f"Expected {expected3}, got {result3}"
 
     # Test case 4: All same
-    nums4 = [1,1,1]
+    nums4 = [1, 1, 1]
     result4 = solution.removeDuplicates(nums4)
     expected4 = 1
     assert result4 == expected4, f"Expected {expected4}, got {result4}"
 
     print("All test cases passed!")
 
+
 if __name__ == "__main__":
     test_solution()
 
     # Example usage
     solution = Solution()
-    nums = [1,1,2,2,3]
+    nums = [1, 1, 2, 2, 3]
     k = solution.removeDuplicates(nums)
     print(f"Unique elements: {k}, Array: {nums[:k]}")

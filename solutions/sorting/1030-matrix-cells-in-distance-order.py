@@ -84,6 +84,11 @@ For storing all coordinates in the result
 </details>
 """
 
+from collections import deque
+from typing import Any
+
+
+
 class Solution:
     def allCellsDistOrder(self, rows: int, cols: int, rCenter: int, cCenter: int) -> list[list[int]]:
         """
@@ -123,10 +128,8 @@ class Solution:
         Time Complexity: O(R*C) - BFS visits each cell once
         Space Complexity: O(R*C) for result and visited set
         """
-        from collections import deque
-
-        result = []
-        visited = set()
+        result: list[Any] = []
+        visited: set[Any] = set()
         queue = deque([(rCenter, cCenter)])
         visited.add((rCenter, cCenter))
 
@@ -153,7 +156,7 @@ class Solution:
         Space Complexity: O(R*C)
         """
         max_dist = max(rCenter, rows - 1 - rCenter) + max(cCenter, cols - 1 - cCenter)
-        buckets = [[] for _ in range(max_dist + 1)]
+        buckets: list[list[Any]] = [[] for _ in range(max_dist + 1)]
 
         # Place each coordinate in its distance bucket
         for r in range(rows):
@@ -168,7 +171,8 @@ class Solution:
 
         return result
 
-def test_solution():
+
+def test_solution() -> None:
     """Test cases for Problem 1030."""
     solution = Solution()
 
@@ -208,6 +212,7 @@ def test_solution():
     assert len(result6) == 6, f"Should have 6 cells, got {len(result6)}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

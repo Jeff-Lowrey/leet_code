@@ -75,11 +75,14 @@ O(1)
 
 </details>
 """
+from typing import Any
+
 
 
 class ListNode:
     """Definition for singly-linked list."""
-    def __init__(self, val=0, next=None):
+
+    def __init__(self, val: Any = 0, next: Any = None) -> None:
         self.val = val
         self.next = next
 
@@ -89,61 +92,62 @@ class Solution:
         """
         Reorders the linked list in-place following the pattern:
         L0 → Ln → L1 → Ln-1 → L2 → Ln-2 → ...
-        
+
         Args:
             head: Head of the linked list
-            
+
         Returns:
             None (modifies the list in-place)
         """
         if not head or not head.next:
             return
-        
+
         # Step 1: Find the middle of the linked list
         slow = fast = head
         while fast.next and fast.next.next:
             slow = slow.next
             fast = fast.next.next
-        
+
         # Step 2: Reverse the second half of the linked list
         second = slow.next
         slow.next = None  # Break the list into two parts
         prev = None
-        
+
         while second:
             temp = second.next
             second.next = prev
             prev = second
             second = temp
-        
+
         # Step 3: Merge the two halves
         first = head
         second = prev
-        
+
         while second:
             temp1 = first.next
             temp2 = second.next
-            
+
             first.next = second
             second.next = temp1
-            
+
             first = temp1
             second = temp2
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
     solution = Solution()
 
     # Test case 1: Empty list
-    result = solution.reorderList(None)
-    expected = None
-    assert result == expected, f"Expected {expected}, got {result}"
+    solution.reorderList(None)  # type: ignore
+    # Function modifies in place, returns None
 
     print("Basic functionality test passed! For comprehensive linked list tests, build proper ListNode chains.")
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

@@ -4,6 +4,17 @@
 
 ---
 
+## Table of Contents
+
+- [Overview](#overview)
+- [Directory Structure](#directory-structure)
+- [CSS Architecture](#css-architecture)
+- [JavaScript Functionality](#javascript-functionality)
+- [Theme System](#theme-system)
+- [Asset Management](#asset-management)
+- [Performance Optimization](#performance-optimization)
+- [Browser Compatibility](#browser-compatibility)
+
 ## Overview
 
 Static assets (CSS, JavaScript, images) provide the visual design and interactive functionality for the web interface. Flask serves these files from the `static/` directory.

@@ -83,5 +83,3 @@ For trie storage with all sentences
 
 </details>
 """
-
-

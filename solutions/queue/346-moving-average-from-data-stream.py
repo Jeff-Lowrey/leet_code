@@ -65,5 +65,3 @@ O(size)
 
 </details>
 """
-
-

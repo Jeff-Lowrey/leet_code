@@ -63,6 +63,9 @@ For storing character frequencies and heap
 
 import heapq
 from collections import Counter
+from typing import Any
+
+
 
 class Solution:
     def frequencySort(self, s: str) -> str:
@@ -88,7 +91,7 @@ class Solution:
         max_heap = [(-freq, char) for char, freq in freq_map.items()]
         heapq.heapify(max_heap)
 
-        result = []
+        result: list[Any] = []
         while max_heap:
             neg_freq, char = heapq.heappop(max_heap)
             freq = -neg_freq
@@ -145,7 +148,7 @@ class Solution:
         freq_map = Counter(s)
 
         # Create buckets for each possible frequency
-        buckets = [[] for _ in range(len(s) + 1)]
+        buckets: list[list[Any]] = [[] for _ in range(len(s) + 1)]
 
         # Place characters in buckets by frequency
         for char, freq in freq_map.items():
@@ -159,7 +162,8 @@ class Solution:
 
         return "".join(result)
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
@@ -181,6 +185,7 @@ def test_solution():
     assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

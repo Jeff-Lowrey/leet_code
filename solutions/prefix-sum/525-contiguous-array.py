@@ -65,6 +65,9 @@ O(n)
 
 </details>
 """
+import re
+
+
 
 class Solution:
     def findMaxLength(self, nums: list[int]) -> int:
@@ -115,6 +118,7 @@ class Solution:
 
         return max_length
 
+
 def test_solution() -> None:
     """Test cases for Problem 525."""
     solution = Solution()
@@ -160,6 +164,7 @@ def test_solution() -> None:
     print("Test case 10 passed: Unbalanced at ends")
 
     print("\nAll test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

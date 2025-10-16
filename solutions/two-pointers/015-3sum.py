@@ -66,6 +66,9 @@ O(1)
 </details>
 """
 
+
+from typing import Any
+
 class Solution:
     def threeSum(self, nums: list[int]) -> list[list[int]]:
         """
@@ -74,7 +77,7 @@ class Solution:
         Space Complexity: O(1) excluding output
         """
         nums.sort()
-        result = []
+        result: list[Any] = []
         n = len(nums)
 
         for i in range(n - 2):
@@ -110,6 +113,7 @@ class Solution:
                     right -= 1
 
         return result
+
 
 # Test cases
 if __name__ == "__main__":

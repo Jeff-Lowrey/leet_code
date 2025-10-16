@@ -76,6 +76,9 @@ Stack can grow to depth of nesting
 </details>
 """
 
+
+from typing import Any
+
 class Solution:
     def scoreOfParentheses(self, s: str) -> int:
         """
@@ -93,7 +96,7 @@ class Solution:
         stack = [0]  # Initialize with 0 for base level
 
         for char in s:
-            if char == '(':
+            if char == "(":
                 # Start new nesting level
                 stack.append(0)
             else:  # char == ')'
@@ -125,12 +128,12 @@ class Solution:
         depth = 0
 
         for i, char in enumerate(s):
-            if char == '(':
+            if char == "(":
                 depth += 1
             else:  # char == ')'
                 depth -= 1
                 # If this closes a "()" pair, add 2^depth points
-                if s[i-1] == '(':
+                if s[i - 1] == "(":
                     score += 1 << depth  # Same as 2^depth
 
         return score
@@ -145,11 +148,12 @@ class Solution:
         Returns:
             Score calculated recursively
         """
-        def parse(index):
+
+        def parse(index: Any) -> Any:
             score = 0
             while index < len(s):
-                if s[index] == '(':
-                    if s[index + 1] == ')':
+                if s[index] == "(":
+                    if s[index + 1] == ")":
                         # Found "()", add 1 and skip both chars
                         score += 1
                         index += 2
@@ -165,7 +169,8 @@ class Solution:
 
         return parse(0)[0]
 
-def test_solution():
+
+def test_solution() -> None:
     """Test cases for Problem 856."""
     solution = Solution()
 
@@ -210,6 +215,7 @@ def test_solution():
     assert result8 == expected8, f"Expected {expected8}, got {result8}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

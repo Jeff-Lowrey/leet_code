@@ -71,6 +71,9 @@ nums = [2,7,11,15], target = 9
 </details>
 """
 
+
+from typing import Any
+
 class Solution:
     def twoSum(self, nums: list[int], target: int) -> list[int]:
         """
@@ -79,7 +82,7 @@ class Solution:
         Space Complexity: O(n)
         """
         # Dictionary to store value -> index mapping
-        seen = {}
+        seen: dict[Any, Any] = {}
 
         for i, num in enumerate(nums):
             # Calculate complement needed to reach target
@@ -109,6 +112,7 @@ class Solution:
                     return [i, j]
 
         return []
+
 
 # Test cases
 if __name__ == "__main__":

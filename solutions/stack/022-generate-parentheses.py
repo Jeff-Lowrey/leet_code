@@ -67,6 +67,9 @@ Recursion stack depth is 2n (building string of length 2n)
 </details>
 """
 
+
+from typing import Any
+
 class Solution:
     def generateParenthesis(self, n: int) -> list[str]:
         """
@@ -81,7 +84,7 @@ class Solution:
         Time Complexity: O(4^n / √n) - Catalan number
         Space Complexity: O(n) - recursion depth
         """
-        result = []
+        result: list[Any] = []
 
         def backtrack(current: str, open_count: int, close_count: int) -> None:
             # Base case: valid string complete
@@ -151,7 +154,7 @@ class Solution:
             return [""]
 
         # dp[i] = all valid combinations with i pairs
-        dp = [[] for _ in range(n + 1)]
+        dp: list[list[str]] = [[] for _ in range(n + 1)]
         dp[0] = [""]
 
         for i in range(1, n + 1):
@@ -196,6 +199,7 @@ class Solution:
 
         backtrack([], 0, 0)
         return result
+
 
 def test_solution() -> None:
     """Test cases for Problem 22."""
@@ -259,6 +263,7 @@ def test_solution() -> None:
     print("Test case 9 passed: All strings are valid")
 
     print("\nAll test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

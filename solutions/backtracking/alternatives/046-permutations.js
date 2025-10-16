@@ -97,145 +97,174 @@
  * Space Complexity: O(n) - recursion depth and current permutation
  */
 function solve(nums) {
-    // Handle edge cases
-    if (!nums || nums.length === 0) {
-        return [[]];
+  // Handle edge cases
+  if (!nums || nums.length === 0) {
+    return [[]];
+  }
+
+  const result = [];
+  const used = new Array(nums.length).fill(false);
+
+  /**
+   * Backtracking helper function
+   * @param {number[]} currentPermutation - Current permutation being built
+   */
+  function backtrack(currentPermutation) {
+    // Base case: we've used all elements
+    if (currentPermutation.length === nums.length) {
+      result.push([...currentPermutation]); // Make a copy
+      return;
     }
 
-    const result = [];
-    const used = new Array(nums.length).fill(false);
+    // Try each unused element at the current position
+    for (let i = 0; i < nums.length; i++) {
+      // Skip if element is already used
+      if (used[i]) {
+        continue;
+      }
 
-    /**
-     * Backtracking helper function
-     * @param {number[]} currentPermutation - Current permutation being built
-     */
-    function backtrack(currentPermutation) {
-        // Base case: we've used all elements
-        if (currentPermutation.length === nums.length) {
-            result.push([...currentPermutation]); // Make a copy
-            return;
-        }
+      // Choose: add current element to permutation
+      currentPermutation.push(nums[i]);
+      used[i] = true;
 
-        // Try each unused element at the current position
-        for (let i = 0; i < nums.length; i++) {
-            // Skip if element is already used
-            if (used[i]) {
-                continue;
-            }
+      // Explore: recursively build the rest of the permutation
+      backtrack(currentPermutation);
 
-            // Choose: add current element to permutation
-            currentPermutation.push(nums[i]);
-            used[i] = true;
-
-            // Explore: recursively build the rest of the permutation
-            backtrack(currentPermutation);
-
-            // Unchoose: remove current element and mark as unused (backtrack)
-            currentPermutation.pop();
-            used[i] = false;
-        }
+      // Unchoose: remove current element and mark as unused (backtrack)
+      currentPermutation.pop();
+      used[i] = false;
     }
+  }
 
-    // Start backtracking with empty permutation
-    backtrack([]);
+  // Start backtracking with empty permutation
+  backtrack([]);
 
-    return result;
+  return result;
 }
 
 /**
  * Test cases for Problem 046: Permutations
  */
 function testSolution() {
-    console.log('Testing 046. Permutations');
+  console.log("Testing 046. Permutations");
 
-    // Helper function to sort permutations for comparison
-    function sortPermutations(permutations) {
-        return permutations
-            .map(perm => [...perm])
-            .sort((a, b) => {
-                for (let i = 0; i < Math.min(a.length, b.length); i++) {
-                    if (a[i] !== b[i]) return a[i] - b[i];
-                }
-                return a.length - b.length;
-            });
-    }
+  // Helper function to sort permutations for comparison
+  function sortPermutations(permutations) {
+    return permutations
+      .map((perm) => [...perm])
+      .sort((a, b) => {
+        for (let i = 0; i < Math.min(a.length, b.length); i++) {
+          if (a[i] !== b[i]) return a[i] - b[i];
+        }
+        return a.length - b.length;
+      });
+  }
 
-    // Helper function to compare arrays of arrays
-    function arraysEqual(arr1, arr2) {
-        if (arr1.length !== arr2.length) return false;
-        const sorted1 = sortPermutations(arr1);
-        const sorted2 = sortPermutations(arr2);
-        return JSON.stringify(sorted1) === JSON.stringify(sorted2);
-    }
+  // Helper function to compare arrays of arrays
+  function arraysEqual(arr1, arr2) {
+    if (arr1.length !== arr2.length) return false;
+    const sorted1 = sortPermutations(arr1);
+    const sorted2 = sortPermutations(arr2);
+    return JSON.stringify(sorted1) === JSON.stringify(sorted2);
+  }
 
-    // Test case 1: Basic functionality - 3 elements
-    const result1 = solve([1, 2, 3]);
-    const expected1 = [[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]];
-    console.assert(arraysEqual(result1, expected1),
-        `Test 1 failed: expected ${JSON.stringify(expected1)}, got ${JSON.stringify(result1)}`);
+  // Test case 1: Basic functionality - 3 elements
+  const result1 = solve([1, 2, 3]);
+  const expected1 = [
+    [1, 2, 3],
+    [1, 3, 2],
+    [2, 1, 3],
+    [2, 3, 1],
+    [3, 1, 2],
+    [3, 2, 1],
+  ];
+  console.assert(
+    arraysEqual(result1, expected1),
+    `Test 1 failed: expected ${JSON.stringify(expected1)}, got ${JSON.stringify(result1)}`,
+  );
 
-    // Test case 2: Two elements
-    const result2 = solve([0, 1]);
-    const expected2 = [[0, 1], [1, 0]];
-    console.assert(arraysEqual(result2, expected2),
-        `Test 2 failed: expected ${JSON.stringify(expected2)}, got ${JSON.stringify(result2)}`);
+  // Test case 2: Two elements
+  const result2 = solve([0, 1]);
+  const expected2 = [
+    [0, 1],
+    [1, 0],
+  ];
+  console.assert(
+    arraysEqual(result2, expected2),
+    `Test 2 failed: expected ${JSON.stringify(expected2)}, got ${JSON.stringify(result2)}`,
+  );
 
-    // Test case 3: Single element
-    const result3 = solve([1]);
-    const expected3 = [[1]];
-    console.assert(arraysEqual(result3, expected3),
-        `Test 3 failed: expected ${JSON.stringify(expected3)}, got ${JSON.stringify(result3)}`);
+  // Test case 3: Single element
+  const result3 = solve([1]);
+  const expected3 = [[1]];
+  console.assert(
+    arraysEqual(result3, expected3),
+    `Test 3 failed: expected ${JSON.stringify(expected3)}, got ${JSON.stringify(result3)}`,
+  );
 
-    // Test case 4: Empty array
-    const result4 = solve([]);
-    const expected4 = [[]];
-    console.assert(arraysEqual(result4, expected4),
-        `Test 4 failed: expected ${JSON.stringify(expected4)}, got ${JSON.stringify(result4)}`);
+  // Test case 4: Empty array
+  const result4 = solve([]);
+  const expected4 = [[]];
+  console.assert(
+    arraysEqual(result4, expected4),
+    `Test 4 failed: expected ${JSON.stringify(expected4)}, got ${JSON.stringify(result4)}`,
+  );
 
-    // Test case 5: Four elements (larger case)
-    const result5 = solve([1, 2, 3, 4]);
-    const expected5Length = 24; // 4! = 24
-    console.assert(result5.length === expected5Length,
-        `Test 5 failed: expected ${expected5Length} permutations, got ${result5.length}`);
+  // Test case 5: Four elements (larger case)
+  const result5 = solve([1, 2, 3, 4]);
+  const expected5Length = 24; // 4! = 24
+  console.assert(
+    result5.length === expected5Length,
+    `Test 5 failed: expected ${expected5Length} permutations, got ${result5.length}`,
+  );
 
-    // Test case 6: Negative numbers
-    const result6 = solve([-1, 1]);
-    const expected6 = [[-1, 1], [1, -1]];
-    console.assert(arraysEqual(result6, expected6),
-        `Test 6 failed: expected ${JSON.stringify(expected6)}, got ${JSON.stringify(result6)}`);
+  // Test case 6: Negative numbers
+  const result6 = solve([-1, 1]);
+  const expected6 = [
+    [-1, 1],
+    [1, -1],
+  ];
+  console.assert(
+    arraysEqual(result6, expected6),
+    `Test 6 failed: expected ${JSON.stringify(expected6)}, got ${JSON.stringify(result6)}`,
+  );
 
-    // Test case 7: Check all permutations are unique
-    const result7 = solve([1, 2, 3]);
-    const uniquePermutations = new Set(result7.map(perm => JSON.stringify(perm)));
-    console.assert(uniquePermutations.size === result7.length,
-        `Test 7 failed: found duplicate permutations`);
+  // Test case 7: Check all permutations are unique
+  const result7 = solve([1, 2, 3]);
+  const uniquePermutations = new Set(
+    result7.map((perm) => JSON.stringify(perm)),
+  );
+  console.assert(
+    uniquePermutations.size === result7.length,
+    `Test 7 failed: found duplicate permutations`,
+  );
 
-    console.log('All test cases passed for 046. Permutations!');
+  console.log("All test cases passed for 046. Permutations!");
 }
 
 /**
  * Example usage and demonstration
  */
 function demonstrateSolution() {
-    console.log('\n=== Problem 046. Permutations ===');
-    console.log('Category: Backtracking');
-    console.log('Difficulty: Backtrack');
-    console.log('');
+  console.log("\n=== Problem 046. Permutations ===");
+  console.log("Category: Backtracking");
+  console.log("Difficulty: Backtrack");
+  console.log("");
 
-    // Example demonstration would go here
-    testSolution();
+  // Example demonstration would go here
+  testSolution();
 }
 
 // Run tests if this file is executed directly
 if (require.main === module) {
-    demonstrateSolution();
+  demonstrateSolution();
 }
 
 // Export for use in other modules
 module.exports = {
-    solve,
-    testSolution,
-    demonstrateSolution
+  solve,
+  testSolution,
+  demonstrateSolution,
 };
 
 /**

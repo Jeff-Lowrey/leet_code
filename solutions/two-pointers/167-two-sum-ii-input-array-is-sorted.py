@@ -89,6 +89,7 @@ O(1)
 
 from typing import List, Optional, Dict, Tuple
 
+
 class Solution:
     def twoSum(self, numbers: List[int], target: int) -> List[int]:
         """
@@ -110,7 +111,7 @@ class Solution:
 
         while left < right:
             current_sum = numbers[left] + numbers[right]
-            
+
             if current_sum == target:
                 # Return 1-indexed positions
                 return [left + 1, right + 1]
@@ -124,23 +125,25 @@ class Solution:
         # Problem guarantees a solution exists, so this should never be reached
         return []
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
     solution = Solution()
 
     # Test case 1: Example from problem
-    result = solution.twoSum([2, 7, 11, 15], target = 9)
+    result = solution.twoSum([2, 7, 11, 15], target=9)
     expected = [1, 2]
     assert result == expected, f"Expected {expected}, got {result}"
 
     # Test case 2: Different numbers
-    result = solution.twoSum([1,2,3,4], 7)
+    result = solution.twoSum([1, 2, 3, 4], 7)
     expected = [3, 4]
     assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

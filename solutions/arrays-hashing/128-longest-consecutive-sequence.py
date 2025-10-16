@@ -83,27 +83,28 @@ O(1)
 
 from typing import List, Optional, Dict, Tuple
 
+
 class Solution:
     def longestConsecutive(self, nums: List[int]) -> int:
         """
         Find the length of the longest consecutive sequence in an unsorted array.
-        
+
         Args:
             nums: List of integers (can be unsorted and contain duplicates)
-            
+
         Returns:
             int: Length of the longest consecutive sequence
-            
+
         Time Complexity: O(n)
         Space Complexity: O(n)
         """
         if not nums:
             return 0
-        
+
         # Convert list to set for O(1) lookup
         num_set = set(nums)
         longest_streak = 0
-        
+
         # Iterate through each number in the set
         for num in num_set:
             # Only start counting sequences from the smallest number in the sequence
@@ -111,18 +112,19 @@ class Solution:
             if num - 1 not in num_set:
                 current_num = num
                 current_streak = 1
-                
+
                 # Count consecutive numbers
                 while current_num + 1 in num_set:
                     current_num += 1
                     current_streak += 1
-                
+
                 # Update longest streak if current streak is longer
                 longest_streak = max(longest_streak, current_streak)
-        
+
         return longest_streak
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
@@ -144,6 +146,7 @@ def test_solution():
     assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

@@ -73,14 +73,15 @@ O(1)
 
 from typing import List, Optional, Dict, Tuple
 
+
 class Solution:
     def rob(self, nums: List[int]) -> int:
         """
         Determines the maximum amount that can be robbed from houses arranged in a circle.
-        
+
         Args:
             nums: List of non-negative integers representing money in each house
-            
+
         Returns:
             Maximum amount that can be robbed without taking adjacent houses
         """
@@ -91,20 +92,20 @@ class Solution:
             return nums[0]
         if len(nums) == 2:
             return max(nums[0], nums[1])
-        
+
         # Since houses are in circle, we can't rob both first and last house
         # So we calculate two scenarios:
         # 1. Rob houses from index 0 to n-2 (excluding last house)
         # 2. Rob houses from index 1 to n-1 (excluding first house)
         return max(self._rob_linear(nums[:-1]), self._rob_linear(nums[1:]))
-    
+
     def _rob_linear(self, nums: List[int]) -> int:
         """
         Helper method to solve the linear house robber problem.
-        
+
         Args:
             nums: List of non-negative integers representing money in each house
-            
+
         Returns:
             Maximum amount that can be robbed without taking adjacent houses
         """
@@ -112,24 +113,25 @@ class Solution:
         # rob1 represents the max money if we rob house i-2
         # rob2 represents the max money if we rob house i-1
         rob1, rob2 = 0, 0
-        
+
         # For each house, we can either rob it or not
         for num in nums:
             # temp stores the current maximum
             temp = max(rob1 + num, rob2)
             rob1 = rob2
             rob2 = temp
-            
+
         return rob2
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
     solution = Solution()
 
     # Test case 1: Example from problem - houses in circle [2,3,2], can't rob first and last
-    result = solution.rob([2,3,2])
+    result = solution.rob([2, 3, 2])
     expected = 3
     assert result == expected, f"Expected {expected}, got {result}"
 
@@ -139,11 +141,12 @@ def test_solution():
     assert result == expected, f"Expected {expected}, got {result}"
 
     # Test case 3: Larger example
-    result = solution.rob([1,2,3,1])
+    result = solution.rob([1, 2, 3, 1])
     expected = 4
     assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

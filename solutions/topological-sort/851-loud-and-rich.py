@@ -74,49 +74,50 @@ O(1)
 
 from collections import defaultdict
 
-from typing import List, Optional, Dict, Tuple
+from typing import Any, List, Optional, Dict, Tuple
+
 
 class Solution:
     def loudAndRich(self, richer: List[List[int]], quiet: List[int]) -> List[int]:
         """
         Solves the Loud and Rich problem using DFS approach.
-        
+
         Args:
             richer: List of pairs [ai, bi] where ai is richer than bi
             quiet: List where quiet[i] is the quietness value of person i
-            
+
         Returns:
             List where answer[i] is the least quiet person among all people who are
             at least as rich as person i
         """
         n = len(quiet)
-        
+
         # Build adjacency graph: person -> list of people who are less rich
-        graph = defaultdict(list)
+        graph: dict[Any, list[Any]] = defaultdict(list)
         for rich, poor in richer:
             graph[rich].append(poor)
-            
+
         # Initialize answer array with -1 to mark as unprocessed
         answer = [-1] * n
-        
+
         def dfs(person: int) -> int:
             """
             Depth-first search to find the least quiet person among all people
             who are at least as rich as the given person.
-            
+
             Args:
                 person: Current person being processed
-                
+
             Returns:
                 Index of the least quiet person
             """
             # If already processed, return cached result
             if answer[person] != -1:
                 return answer[person]
-            
+
             # Initialize with current person as least quiet
             min_quiet_person = person
-            
+
             # Check all people who are less rich
             for poorer in graph[person]:
                 # Recursively find least quiet person among poorer people
@@ -124,37 +125,38 @@ class Solution:
                 # Update if we find someone quieter
                 if quiet[candidate] < quiet[min_quiet_person]:
                     min_quiet_person = candidate
-            
+
             # Cache and return result
             answer[person] = min_quiet_person
             return min_quiet_person
-        
+
         # Process each person
         for person in range(n):
             if answer[person] == -1:
                 dfs(person)
-        
+
         return answer
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
     solution = Solution()
 
     # Test case 1: Example from problem
-    result = solution.loudAndRich([[1,0],[2,1],[3,1],[3,7],[4,3],[5,3],[6,3]], [3,2,5,4,6,1,7,0])
-    expected = [5,5,2,5,4,5,6,7]
+    result = solution.loudAndRich([[1, 0], [2, 1], [3, 1], [3, 7], [4, 3], [5, 3], [6, 3]], [3, 2, 5, 4, 6, 1, 7, 0])
+    expected = [5, 5, 2, 5, 4, 5, 6, 7]
     assert result == expected, f"Expected {expected}, got {result}"
 
     # Test case 2: No richer relationships
-    result = solution.loudAndRich([], [0,1,2])
-    expected = [0,1,2]
+    result = solution.loudAndRich([], [0, 1, 2])
+    expected = [0, 1, 2]
     assert result == expected, f"Expected {expected}, got {result}"
 
     # Test case 3: Linear wealth hierarchy
-    result = solution.loudAndRich([[1,0],[2,1]], [2,1,0])
-    expected = [2,2,2]
+    result = solution.loudAndRich([[1, 0], [2, 1]], [2, 1, 0])
+    expected = [2, 2, 2]
     assert result == expected, f"Expected {expected}, got {result}"
 
     # Test case 4: Single person
@@ -163,11 +165,12 @@ def test_solution():
     assert result == expected, f"Expected {expected}, got {result}"
 
     # Test case 5: Everyone richer than one person
-    result = solution.loudAndRich([[0,1],[2,1]], [1,0,2])
-    expected = [0,1,2]
+    result = solution.loudAndRich([[0, 1], [2, 1]], [1, 0, 2])
+    expected = [0, 1, 2]
     assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

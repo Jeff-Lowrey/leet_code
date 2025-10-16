@@ -78,6 +78,7 @@ O(1)
 </details>
 """
 
+
 class Solution:
     def isPalindrome(self, s: str) -> bool:
         """
@@ -110,10 +111,11 @@ class Solution:
         Space Complexity: O(n)
         """
         # Remove non-alphanumeric and convert to lowercase
-        cleaned = ''.join(char.lower() for char in s if char.isalnum())
+        cleaned = "".join(char.lower() for char in s if char.isalnum())
 
         # Check if palindrome
         return cleaned == cleaned[::-1]
+
 
 # Test cases
 if __name__ == "__main__":

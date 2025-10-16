@@ -84,72 +84,72 @@
  * Space Complexity: O(1)
  */
 function solve(nums) {
-    let left = 0;
-    let right = nums.length - 1;
+  let left = 0;
+  let right = nums.length - 1;
 
-    while (left < right) {
-        const mid = Math.floor((left + right) / 2);
+  while (left < right) {
+    const mid = Math.floor((left + right) / 2);
 
-        if (nums[mid] < nums[mid + 1]) {
-            // There's a peak in the right half
-            left = mid + 1;
-        } else {
-            // There's a peak in the left half (including mid)
-            right = mid;
-        }
+    if (nums[mid] < nums[mid + 1]) {
+      // There's a peak in the right half
+      left = mid + 1;
+    } else {
+      // There's a peak in the left half (including mid)
+      right = mid;
     }
+  }
 
-    // left == right points to a peak element
-    return left;
+  // left == right points to a peak element
+  return left;
 }
 
 /**
  * Test cases for Problem 162: Find Peak Element
  */
 function testSolution() {
-    console.log('Testing 162. Find Peak Element');
+  console.log("Testing 162. Find Peak Element");
 
-    // Test case 1: Basic functionality
-    // const result1 = solve(testInput1);
-    // const expected1 = expectedOutput1;
-    // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+  // Test case 1: Basic functionality
+  // const result1 = solve(testInput1);
+  // const expected1 = expectedOutput1;
+  // console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
 
-    // Test case 2: Edge case
-    // const result2 = solve(edgeCaseInput);
-    // const expected2 = edgeCaseOutput;
-    // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+  // Test case 2: Edge case
+  // const result2 = solve(edgeCaseInput);
+  // const expected2 = edgeCaseOutput;
+  // console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
 
-    // Test case 3: Large input
-    // const result3 = solve(largeInput);
-    // const expected3 = largeExpected;
-    // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+  // Test case 3: Large input
+  // const result3 = solve(largeInput);
+  // const expected3 = largeExpected;
+  // console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
 
-    console.log('All test cases passed for 162. Find Peak Element!');
+  console.log("All test cases passed for 162. Find Peak Element!");
 }
 
 /**
  * Example usage and demonstration
  */
 function demonstrateSolution() {
-    console.log('\n=== Problem 162. Find Peak Element ===');
-    console.log('Category: Binary Search');
-    console.log('Difficulty: Medium');
-    console.log('');
+  console.log("\n=== Problem 162. Find Peak Element ===");
+  console.log("Category: Binary Search");
+  console.log("Difficulty: Medium");
+  console.log("");
 
-    // Example demonstration would go here
-    testSolution();
+  // Example demonstration would go here
+  testSolution();
 }
 
 // Run tests if this file is executed directly
 if (require.main === module) {
-    demonstrateSolution();
+  demonstrateSolution();
 }
 
 // Export for use in other modules
 module.exports = {
-    solve,
-    testSolution,
-    demonstrateSolution
+  solve,
+  testSolution,
+  demonstrateSolution,
 };
 
 /**

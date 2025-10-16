@@ -76,6 +76,9 @@ Stack can grow up to the depth of nested parentheses
 </details>
 """
 
+
+from typing import Any
+
 class Solution:
     def calculate(self, s: str) -> int:
         """
@@ -90,7 +93,7 @@ class Solution:
         Time Complexity: O(n) where n is length of string
         Space Complexity: O(n) for stack in worst case (nested parentheses)
         """
-        stack = []
+        stack: list[Any] = []
         result = 0
         number = 0
         sign = 1  # 1 for positive, -1 for negative
@@ -100,26 +103,26 @@ class Solution:
                 # Build the current number
                 number = number * 10 + int(char)
 
-            elif char == '+':
+            elif char == "+":
                 # Apply the previous number with its sign
                 result += sign * number
                 number = 0
                 sign = 1
 
-            elif char == '-':
+            elif char == "-":
                 # Apply the previous number with its sign
                 result += sign * number
                 number = 0
                 sign = -1
 
-            elif char == '(':
+            elif char == "(":
                 # Save current state and start fresh calculation
                 stack.append(result)
                 stack.append(sign)
                 result = 0
                 sign = 1
 
-            elif char == ')':
+            elif char == ")":
                 # Apply the current number
                 result += sign * number
                 number = 0
@@ -144,6 +147,7 @@ class Solution:
         Returns:
             Calculated result
         """
+
         def helper(index: int) -> tuple[int, int]:
             """
             Process expression starting from index, return (result, next_index).
@@ -164,24 +168,24 @@ class Solution:
                 if char.isdigit():
                     number = number * 10 + int(char)
 
-                elif char == '+':
+                elif char == "+":
                     result += sign * number
                     number = 0
                     sign = 1
 
-                elif char == '-':
+                elif char == "-":
                     result += sign * number
                     number = 0
                     sign = -1
 
-                elif char == '(':
+                elif char == "(":
                     # Recursively solve the subproblem
                     sub_result, next_index = helper(index + 1)
                     result += sign * sub_result
                     index = next_index
                     number = 0
 
-                elif char == ')':
+                elif char == ")":
                     # End of current subproblem
                     result += sign * number
                     return result, index
@@ -208,17 +212,18 @@ class Solution:
         number = 0
         sign = 1
 
-        for char in s + '+':  # Add '+' to trigger final calculation
+        for char in s + "+":  # Add '+' to trigger final calculation
             if char.isdigit():
                 number = number * 10 + int(char)
-            elif char in '+-':
+            elif char in "+-":
                 result += sign * number
                 number = 0
-                sign = 1 if char == '+' else -1
+                sign = 1 if char == "+" else -1
 
         return result
 
-def test_solution():
+
+def test_solution() -> None:
     """Test cases for Problem 224."""
     solution = Solution()
 
@@ -266,6 +271,7 @@ def test_solution():
     assert result9 == expected1, f"Simple: Expected {expected1}, got {result9}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

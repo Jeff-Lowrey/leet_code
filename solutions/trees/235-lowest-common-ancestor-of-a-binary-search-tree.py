@@ -77,8 +77,18 @@ For recursion stack, O(1) for iterative solution
 </details>
 """
 
+
+from typing import Any
+
+class TreeNode:
+    def __init__(self, val: Any = 0, left: Any = None, right: Any = None) -> None:
+        self.val = val
+        self.left = left
+        self.right = right
+
+
 class Solution:
-    def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
+    def lowestCommonAncestor(self, root: "TreeNode", p: "TreeNode", q: "TreeNode") -> "TreeNode":
         """
         Find LCA in BST using recursive approach.
 
@@ -95,7 +105,7 @@ class Solution:
         """
         # Base case
         if not root:
-            return None
+            return None  # type: ignore
 
         # If both nodes are smaller than root, LCA is in left subtree
         if p.val < root.val and q.val < root.val:
@@ -109,7 +119,7 @@ class Solution:
         # OR one of the nodes is the root itself
         return root
 
-    def lowestCommonAncestorIterative(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
+    def lowestCommonAncestorIterative(self, root: "TreeNode", p: "TreeNode", q: "TreeNode") -> "TreeNode":
         """
         Find LCA in BST using iterative approach.
 
@@ -137,9 +147,9 @@ class Solution:
                 # Found the LCA (split point or one node equals current)
                 return current
 
-        return None
+        return None  # type: ignore
 
-    def lowestCommonAncestorGeneral(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
+    def lowestCommonAncestorGeneral(self, root: "TreeNode", p: "TreeNode", q: "TreeNode") -> "TreeNode":
         """
         General tree LCA approach (works for any binary tree, not just BST).
 
@@ -169,7 +179,7 @@ class Solution:
         # Return non-null result
         return left if left else right
 
-    def findPath(self, root: 'TreeNode', target: 'TreeNode') -> list['TreeNode']:
+    def findPath(self, root: "TreeNode", target: "TreeNode") -> list["TreeNode"]:
         """
         Helper function to find path from root to target node.
 
@@ -180,7 +190,7 @@ class Solution:
         Returns:
             List of nodes from root to target
         """
-        path = []
+        path: list[Any] = []
         current = root
 
         while current:
@@ -194,7 +204,7 @@ class Solution:
 
         return path
 
-    def lowestCommonAncestorPaths(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
+    def lowestCommonAncestorPaths(self, root: "TreeNode", p: "TreeNode", q: "TreeNode") -> "TreeNode":
         """
         Alternative approach using path finding.
 
@@ -219,9 +229,10 @@ class Solution:
             else:
                 break
 
-        return lca
+        return lca  # type: ignore
 
-def test_solution():
+
+def test_solution() -> None:
     """Test cases for Problem 235."""
     solution = Solution()
 
@@ -282,6 +293,7 @@ def test_solution():
 
     print("All test cases passed!")
 
+
 def create_simple_bst():
     """Create a simple BST for demonstration."""
     #     2
@@ -291,6 +303,7 @@ def create_simple_bst():
     root.left = TreeNode(1)
     root.right = TreeNode(3)
     return root, root.left, root.right
+
 
 if __name__ == "__main__":
     test_solution()
@@ -341,7 +354,7 @@ if __name__ == "__main__":
         ("BST Recursive", solution.lowestCommonAncestor),
         ("BST Iterative", solution.lowestCommonAncestorIterative),
         ("General Tree", solution.lowestCommonAncestorGeneral),
-        ("Path-based", solution.lowestCommonAncestorPaths)
+        ("Path-based", solution.lowestCommonAncestorPaths),
     ]
 
     for name, method in algorithms:

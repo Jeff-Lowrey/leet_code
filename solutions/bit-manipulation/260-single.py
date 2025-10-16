@@ -72,36 +72,37 @@ O(1)
 
 from typing import List, Optional, Dict, Tuple
 
+
 class Solution:
     def singleNumber(self, nums: List[int]) -> List[int]:
         """
         Find two numbers that appear only once in the array.
-        
+
         Args:
             nums: List of integers where all numbers except two appear twice
-            
+
         Returns:
             List containing the two numbers that appear only once
-            
+
         Time Complexity: O(n)
         Space Complexity: O(1)
         """
         if not nums:
             return []
-        
+
         # Step 1: XOR all numbers together
         # This will give us XOR of two unique numbers (let's call them x and y)
         # because all other numbers appear twice and will cancel out
         xor_result = 0
         for num in nums:
             xor_result ^= num
-            
+
         # Step 2: Find rightmost set bit in xor_result
         # This bit will be different in x and y
         rightmost_set_bit = 1
         while (xor_result & rightmost_set_bit) == 0:
             rightmost_set_bit <<= 1
-            
+
         # Step 3: Divide numbers into two groups based on the rightmost set bit
         # One group will contain x and numbers that share same bit value
         # Other group will contain y and numbers that share same bit value
@@ -111,31 +112,33 @@ class Solution:
                 x ^= num
             else:
                 y ^= num
-                
+
         return [x, y]
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
     solution = Solution()
 
     # Test case 1: Example from problem
-    result = solution.singleNumber([1,2,1,3,2,5])
+    result = solution.singleNumber([1, 2, 1, 3, 2, 5])
     expected = [3, 5]
     assert sorted(result) == sorted(expected), f"Expected {expected}, got {result}"
 
     # Test case 2: Two elements only
-    result = solution.singleNumber([1,2])
+    result = solution.singleNumber([1, 2])
     expected = [1, 2]
     assert sorted(result) == sorted(expected), f"Expected {expected}, got {result}"
 
     # Test case 3: Larger example
-    result = solution.singleNumber([1,1,2,2,3,4,5,5])
+    result = solution.singleNumber([1, 1, 2, 2, 3, 4, 5, 5])
     expected = [3, 4]
     assert sorted(result) == sorted(expected), f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

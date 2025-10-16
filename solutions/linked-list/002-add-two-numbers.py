@@ -69,6 +69,16 @@ Result list length is max(m, n) or max(m, n) + 1 if final carry exists.
 </details>
 """
 
+
+from typing import Any
+import random
+
+class ListNode:
+    def __init__(self, val: Any = 0, next: Any = None) -> None:
+        self.val = val
+        self.next = next
+
+
 class Solution:
     def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
         """
@@ -91,10 +101,11 @@ class Solution:
             current.next = ListNode(digit)
             current = current.next
 
-            l1 = l1.next if l1 else None
-            l2 = l2.next if l2 else None
+            l1 = l1.next if l1 else None  # type: ignore
+            l2 = l2.next if l2 else None  # type: ignore
 
-        return dummy.next
+        return dummy.next  # type: ignore
+
 
 """
 19. Remove Nth Node From End of List
@@ -106,6 +117,7 @@ Example:
 Input: head = [1,2,3,4,5], n = 2
 Output: [1,2,3,5]
 """
+
 
 class SolutionRemoveNth:
     def removeNthFromEnd(self, head: ListNode, n: int) -> ListNode:
@@ -131,7 +143,7 @@ class SolutionRemoveNth:
         # Remove the nth node
         second.next = second.next.next
 
-        return dummy.next
+        return dummy.next  # type: ignore
 
     def removeNthFromEndTwoPass(self, head: ListNode, n: int) -> ListNode:
         """
@@ -148,7 +160,7 @@ class SolutionRemoveNth:
 
         # Edge case: remove first node
         if length == n:
-            return head.next
+            return head.next  # type: ignore
 
         # Find node before the one to remove
         current = head
@@ -159,6 +171,7 @@ class SolutionRemoveNth:
         current.next = current.next.next
 
         return head
+
 
 """
 138. Copy List with Random Pointer
@@ -173,11 +186,13 @@ Input: head = [[7,null],[13,0],[11,4],[10,2],[1,0]]
 Output: [[7,null],[13,0],[11,4],[10,2],[1,0]]
 """
 
+
 class Node:
-    def __init__(self, x: int, next: 'Node' = None, random: 'Node' = None):
+    def __init__(self, x: int, next: "Node | None" = None, random: "Node | None" = None) -> None:
         self.val = int(x)
         self.next = next
         self.random = random
+
 
 class SolutionCopyRandom:
     def copyRandomList(self, head: Node) -> Node:
@@ -187,14 +202,14 @@ class SolutionCopyRandom:
         Space Complexity: O(n)
         """
         if not head:
-            return None
+            return None  # type: ignore
 
         # First pass: create all nodes
-        old_to_new = {}
+        old_to_new: dict[Any, Any] = {}
         current = head
         while current:
             old_to_new[current] = Node(current.val)
-            current = current.next
+            current = current.next  # type: ignore
 
         # Second pass: set next and random pointers
         current = head
@@ -203,9 +218,9 @@ class SolutionCopyRandom:
                 old_to_new[current].next = old_to_new[current.next]
             if current.random:
                 old_to_new[current].random = old_to_new[current.random]
-            current = current.next
+            current = current.next  # type: ignore
 
-        return old_to_new[head]
+        return old_to_new[head]  # type: ignore
 
     def copyRandomListInterweaving(self, head: Node) -> Node:
         """
@@ -214,21 +229,21 @@ class SolutionCopyRandom:
         Space Complexity: O(1)
         """
         if not head:
-            return None
+            return None  # type: ignore
 
         # First pass: create cloned nodes and interweave
         current = head
         while current:
             cloned = Node(current.val, current.next)
             current.next = cloned
-            current = cloned.next
+            current = cloned.next  # type: ignore
 
         # Second pass: set random pointers
         current = head
         while current:
             if current.random:
-                current.next.random = current.random.next
-            current = current.next.next
+                current.next.random = current.random.next  # type: ignore
+            current = current.next.next  # type: ignore
 
         # Third pass: separate the lists
         dummy = Node(0)
@@ -236,18 +251,20 @@ class SolutionCopyRandom:
         current = head
 
         while current:
-            cloned = current.next
+            cloned = current.next  # type: ignore
             current.next = cloned.next
             prev.next = cloned
             prev = cloned
-            current = current.next
+            current = current.next  # type: ignore
 
-        return dummy.next
+        return dummy.next  # type: ignore
+
 
 # Helper functions
-def create_list(values):
+def create_list(values: list[int]) -> ListNode:
+    """Create a linked list from a list of values."""
     if not values:
-        return None
+        return None  # type: ignore
     head = ListNode(values[0])
     current = head
     for val in values[1:]:
@@ -255,12 +272,15 @@ def create_list(values):
         current = current.next
     return head
 
-def list_to_array(head):
-    result = []
+
+def list_to_array(head: ListNode) -> list[int]:
+    """Convert a linked list to an array."""
+    result: list[Any] = []
     while head:
         result.append(head.val)
         head = head.next
     return result
+
 
 # Test cases
 if __name__ == "__main__":
@@ -268,11 +288,7 @@ if __name__ == "__main__":
     solution = Solution()
 
     print("Add Two Numbers:")
-    test_cases = [
-        ([2, 4, 3], [5, 6, 4]),
-        ([0], [0]),
-        ([9, 9, 9, 9, 9, 9, 9], [9, 9, 9, 9])
-    ]
+    test_cases = [([2, 4, 3], [5, 6, 4]), ([0], [0]), ([9, 9, 9, 9, 9, 9, 9], [9, 9, 9, 9])]
 
     for l1_vals, l2_vals in test_cases:
         l1 = create_list(l1_vals)
@@ -286,11 +302,7 @@ if __name__ == "__main__":
     solution_remove = SolutionRemoveNth()
 
     print("Remove Nth Node From End:")
-    remove_cases = [
-        ([1, 2, 3, 4, 5], 2),
-        ([1], 1),
-        ([1, 2], 1)
-    ]
+    remove_cases = [([1, 2, 3, 4, 5], 2), ([1], 1), ([1, 2], 1)]
 
     for values, n in remove_cases:
         head = create_list(values)

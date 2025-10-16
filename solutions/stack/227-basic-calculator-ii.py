@@ -73,45 +73,48 @@ O(1)
 </details>
 """
 
+
+from typing import Any
+
 class Solution:
     def calculate(self, s: str) -> int:
         """
         Evaluates a string expression containing numbers and basic arithmetic operators.
-        
+
         Args:
             s (str): The input string containing the arithmetic expression
                     (can contain spaces, numbers, and operators +, -, *, /)
-        
+
         Returns:
             int: The result of evaluating the expression
-        
+
         Time Complexity: O(n) where n is the length of the input string
         Space Complexity: O(1) as we only use a fixed-size stack
         """
         if not s:
             return 0
-        
+
         # Initialize variables
-        stack = []
+        stack: list[Any] = []
         curr_num = 0
-        last_operator = '+'
-        
+        last_operator = "+"
+
         # Process each character in the string
         for i, char in enumerate(s):
             # Build number from consecutive digits
             if char.isdigit():
                 curr_num = curr_num * 10 + int(char)
-            
+
             # Process operator or end of string
-            if (not char.isdigit() and char != ' ') or i == len(s) - 1:
+            if (not char.isdigit() and char != " ") or i == len(s) - 1:
                 # Handle previous operator
-                if last_operator == '+':
+                if last_operator == "+":
                     stack.append(curr_num)
-                elif last_operator == '-':
+                elif last_operator == "-":
                     stack.append(-curr_num)
-                elif last_operator == '*':
+                elif last_operator == "*":
                     stack.append(stack.pop() * curr_num)
-                elif last_operator == '/':
+                elif last_operator == "/":
                     # Handle division according to problem requirements
                     # For negative numbers, truncate toward zero
                     prev_num = stack.pop()
@@ -119,16 +122,17 @@ class Solution:
                         stack.append(-(abs(prev_num) // curr_num))
                     else:
                         stack.append(prev_num // curr_num)
-                
+
                 # Reset current number and update last operator
                 curr_num = 0
-                if char != ' ':
+                if char != " ":
                     last_operator = char
-        
+
         # Sum up all numbers in the stack
         return sum(stack)
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
@@ -150,6 +154,7 @@ def test_solution():
     assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

@@ -81,9 +81,9 @@
 
 // Definition for a binary tree node
 function TreeNode(val, left, right) {
-    this.val = (val === undefined ? 0 : val);
-    this.left = (left === undefined ? null : left);
-    this.right = (right === undefined ? null : right);
+  this.val = val === undefined ? 0 : val;
+  this.left = left === undefined ? null : left;
+  this.right = right === undefined ? null : right;
 }
 
 /**
@@ -98,128 +98,141 @@ function TreeNode(val, left, right) {
  * Space Complexity: O(w) where w is maximum width
  */
 function solve(root, x, y) {
-    if (!root) return false;
+  if (!root) return false;
 
-    // Queue stores [node, parent, depth]
-    const queue = [[root, null, 0]];
-    let xInfo = null;
-    let yInfo = null;
+  // Queue stores [node, parent, depth]
+  const queue = [[root, null, 0]];
+  let xInfo = null;
+  let yInfo = null;
 
-    while (queue.length > 0) {
-        const [node, parent, depth] = queue.shift();
+  while (queue.length > 0) {
+    const [node, parent, depth] = queue.shift();
 
-        // Check if this is one of our target nodes
-        if (node.val === x) {
-            xInfo = { parent, depth };
-        }
-        if (node.val === y) {
-            yInfo = { parent, depth };
-        }
-
-        // If we found both, check if they're cousins
-        if (xInfo && yInfo) {
-            return xInfo.depth === yInfo.depth && xInfo.parent !== yInfo.parent;
-        }
-
-        // Add children to queue with current node as parent
-        if (node.left) {
-            queue.push([node.left, node, depth + 1]);
-        }
-        if (node.right) {
-            queue.push([node.right, node, depth + 1]);
-        }
+    // Check if this is one of our target nodes
+    if (node.val === x) {
+      xInfo = { parent, depth };
+    }
+    if (node.val === y) {
+      yInfo = { parent, depth };
     }
 
-    // One or both nodes not found
-    return false;
+    // If we found both, check if they're cousins
+    if (xInfo && yInfo) {
+      return xInfo.depth === yInfo.depth && xInfo.parent !== yInfo.parent;
+    }
+
+    // Add children to queue with current node as parent
+    if (node.left) {
+      queue.push([node.left, node, depth + 1]);
+    }
+    if (node.right) {
+      queue.push([node.right, node, depth + 1]);
+    }
+  }
+
+  // One or both nodes not found
+  return false;
 }
 
 /**
  * Test cases for Problem 993: Cousins In Binary Tree
  */
 function testSolution() {
-    console.log('Testing 993. Cousins In Binary Tree');
+  console.log("Testing 993. Cousins In Binary Tree");
 
-    // Test case 1: Not cousins (different depths)
-    const tree1 = new TreeNode(1,
-        new TreeNode(2, new TreeNode(4)),
-        new TreeNode(3)
-    );
-    const result1 = solve(tree1, 4, 3);
-    console.assert(result1 === false,
-        `Test 1 failed: expected false, got ${result1}`);
+  // Test case 1: Not cousins (different depths)
+  const tree1 = new TreeNode(
+    1,
+    new TreeNode(2, new TreeNode(4)),
+    new TreeNode(3),
+  );
+  const result1 = solve(tree1, 4, 3);
+  console.assert(
+    result1 === false,
+    `Test 1 failed: expected false, got ${result1}`,
+  );
 
-    // Test case 2: Are cousins
-    const tree2 = new TreeNode(1,
-        new TreeNode(2, null, new TreeNode(4)),
-        new TreeNode(3, null, new TreeNode(5))
-    );
-    const result2 = solve(tree2, 4, 5);
-    console.assert(result2 === true,
-        `Test 2 failed: expected true, got ${result2}`);
+  // Test case 2: Are cousins
+  const tree2 = new TreeNode(
+    1,
+    new TreeNode(2, null, new TreeNode(4)),
+    new TreeNode(3, null, new TreeNode(5)),
+  );
+  const result2 = solve(tree2, 4, 5);
+  console.assert(
+    result2 === true,
+    `Test 2 failed: expected true, got ${result2}`,
+  );
 
-    // Test case 3: Siblings (same parent)
-    const tree3 = new TreeNode(1,
-        new TreeNode(2, new TreeNode(4), new TreeNode(5)),
-        new TreeNode(3)
-    );
-    const result3 = solve(tree3, 4, 5);
-    console.assert(result3 === false,
-        `Test 3 failed: expected false, got ${result3}`);
+  // Test case 3: Siblings (same parent)
+  const tree3 = new TreeNode(
+    1,
+    new TreeNode(2, new TreeNode(4), new TreeNode(5)),
+    new TreeNode(3),
+  );
+  const result3 = solve(tree3, 4, 5);
+  console.assert(
+    result3 === false,
+    `Test 3 failed: expected false, got ${result3}`,
+  );
 
-    // Test case 4: Single node
-    const tree4 = new TreeNode(1);
-    const result4 = solve(tree4, 1, 2);
-    console.assert(result4 === false,
-        `Test 4 failed: expected false, got ${result4}`);
+  // Test case 4: Single node
+  const tree4 = new TreeNode(1);
+  const result4 = solve(tree4, 1, 2);
+  console.assert(
+    result4 === false,
+    `Test 4 failed: expected false, got ${result4}`,
+  );
 
-    // Test case 5: More complex tree - are cousins
-    const tree5 = new TreeNode(1,
-        new TreeNode(2, new TreeNode(4), new TreeNode(5)),
-        new TreeNode(3, new TreeNode(6), new TreeNode(7))
-    );
-    const result5 = solve(tree5, 4, 6);
-    console.assert(result5 === true,
-        `Test 5 failed: expected true, got ${result5}`);
+  // Test case 5: More complex tree - are cousins
+  const tree5 = new TreeNode(
+    1,
+    new TreeNode(2, new TreeNode(4), new TreeNode(5)),
+    new TreeNode(3, new TreeNode(6), new TreeNode(7)),
+  );
+  const result5 = solve(tree5, 4, 6);
+  console.assert(
+    result5 === true,
+    `Test 5 failed: expected true, got ${result5}`,
+  );
 
-    // Test case 6: Same depth but one is ancestor of other
-    const tree6 = new TreeNode(1,
-        new TreeNode(2),
-        new TreeNode(3)
-    );
-    const result6 = solve(tree6, 2, 3);
-    console.assert(result6 === false,
-        `Test 6 failed: expected false (siblings), got ${result6}`);
+  // Test case 6: Same depth but one is ancestor of other
+  const tree6 = new TreeNode(1, new TreeNode(2), new TreeNode(3));
+  const result6 = solve(tree6, 2, 3);
+  console.assert(
+    result6 === false,
+    `Test 6 failed: expected false (siblings), got ${result6}`,
+  );
 
-    console.log('All test cases passed for 993. Cousins In Binary Tree!');
+  console.log("All test cases passed for 993. Cousins In Binary Tree!");
 }
 
 /**
  * Example usage and demonstration
  */
 function demonstrateSolution() {
-    console.log('\n=== Problem 993. Cousins In Binary Tree ===');
-    console.log('Category: Queue');
-    console.log('Difficulty: Easy');
-    console.log('');
+  console.log("\n=== Problem 993. Cousins In Binary Tree ===");
+  console.log("Category: Queue");
+  console.log("Difficulty: Easy");
+  console.log("");
 
-    console.log('Cousins definition: Same depth, different parents');
-    console.log('');
+  console.log("Cousins definition: Same depth, different parents");
+  console.log("");
 
-    testSolution();
+  testSolution();
 }
 
 // Run tests if this file is executed directly
 if (require.main === module) {
-    demonstrateSolution();
+  demonstrateSolution();
 }
 
 // Export for use in other modules
 module.exports = {
-    solve,
-    testSolution,
-    demonstrateSolution,
-    TreeNode
+  solve,
+  testSolution,
+  demonstrateSolution,
+  TreeNode,
 };
 
 /**

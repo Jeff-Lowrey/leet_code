@@ -69,78 +69,81 @@ O(1)
 </details>
 """
 
-from typing import List, Optional, Dict, Tuple
+from typing import Any, List, Optional, Dict, Tuple
+
 
 class Solution:
     def intervalIntersection(self, firstList: List[List[int]], secondList: List[List[int]]) -> List[List[int]]:
         """
         Find all intersections between two lists of intervals.
-        
+
         Args:
             firstList: First list of intervals where each interval is [start, end]
             secondList: Second list of intervals where each interval is [start, end]
-            
+
         Returns:
             List of intervals representing all intersections between the input lists
         """
         # Initialize result list and pointers
-        result = []
+        result: list[Any] = []
         i = j = 0
-        
+
         # Process intervals while we have elements in both lists
         while i < len(firstList) and j < len(secondList):
             # Get current intervals from both lists
             interval1 = firstList[i]
             interval2 = secondList[j]
-            
+
             # Find the intersection points
             start = max(interval1[0], interval2[0])
             end = min(interval1[1], interval2[1])
-            
+
             # If there is a valid intersection, add it to result
             if start <= end:
                 result.append([start, end])
-            
+
             # Move the pointer of the interval that ends earlier
             if interval1[1] < interval2[1]:
                 i += 1
             else:
                 j += 1
-                
+
         return result
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
     solution = Solution()
 
     # Test case 1: Example from problem
-    result = solution.intervalIntersection([[0,2],[5,10]], [[1,5],[8,12]])
-    expected = [[1,2],[5,5],[8,10]]
+    result = solution.intervalIntersection([[0, 2], [5, 10]], [[1, 5], [8, 12]])
+    expected = [[1, 2], [5, 5], [8, 10]]
     assert result == expected, f"Expected {expected}, got {result}"
 
     # Test case 2: No intersections
-    result = solution.intervalIntersection([[1,3],[5,9]], [[4,4],[10,12]])
-    expected = []
+    result = solution.intervalIntersection([[1, 3], [5, 9]], [[4, 4], [10, 12]])
+    expected: list[Any] = []
     assert result == expected, f"Expected {expected}, got {result}"
 
     # Test case 3: Complete overlap
-    result = solution.intervalIntersection([[1,7]], [[3,10]])
-    expected = [[3,7]]
+    result = solution.intervalIntersection([[1, 7]], [[3, 10]])
+    expected = [[3, 7]]
     assert result == expected, f"Expected {expected}, got {result}"
 
     # Test case 4: Empty first list
-    result = solution.intervalIntersection([], [[1,5]])
-    expected = []
+    result = solution.intervalIntersection([], [[1, 5]])
+    expected: list[Any] = []
     assert result == expected, f"Expected {expected}, got {result}"
 
     # Test case 5: Empty second list
-    result = solution.intervalIntersection([[1,5]], [])
-    expected = []
+    result = solution.intervalIntersection([[1, 5]], [])
+    expected: list[Any] = []
     assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

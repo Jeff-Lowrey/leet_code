@@ -78,19 +78,33 @@ O(V) - hash map and recursion stack
 </details>
 """
 
+from collections import deque, defaultdict
+from typing import List, Any
+
+
+
+class Node:
+    """N-ary tree node or graph node."""
+    def __init__(self, val: Any = None, children: Any = None) -> None:
+        self.val = val
+        self.children = children if children is not None else []
+        self.neighbors = children if children is not None else []  # Alias for graph problems
+        self.next = None  # For linked list-like structures
+
+
 class Solution:
-    def cloneGraph(self, node: 'Node') -> 'Node':
+    def cloneGraph(self, node: "Node") -> "Node":
         """
         Approach: DFS with hash map
         Time Complexity: O(V + E)
         Space Complexity: O(V)
         """
         if not node:
-            return None
+            return None  # type: ignore
 
-        visited = {}
+        visited: dict[Any, Any] = {}
 
-        def dfs(node):
+        def dfs(node: Any) -> Any:
             if node in visited:
                 return visited[node]
 
@@ -106,14 +120,14 @@ class Solution:
 
         return dfs(node)
 
-    def cloneGraphBFS(self, node: 'Node') -> 'Node':
+    def cloneGraphBFS(self, node: "Node") -> "Node":
         """
         Approach: BFS with hash map
         Time Complexity: O(V + E)
         Space Complexity: O(V)
         """
         if not node:
-            return None
+            return None  # type: ignore
 
         visited = {node: Node(node.val)}
         queue = deque([node])
@@ -129,6 +143,7 @@ class Solution:
                 visited[current].neighbors.append(visited[neighbor])
 
         return visited[node]
+
 
 """
 417. Pacific Atlantic Water Flow
@@ -152,6 +167,7 @@ Input: heights = [[1,2,2,3,5],[3,2,3,4,4],[2,4,5,3,1],[6,7,1,4,5],[5,1,1,2,4]]
 Output: [[0,4],[1,3],[1,4],[2,2],[3,0],[3,1],[4,0]]
 """
 
+
 class SolutionWaterFlow:
     def pacificAtlantic(self, heights: list[list[int]]) -> list[list[int]]:
         """
@@ -163,10 +179,10 @@ class SolutionWaterFlow:
             return []
 
         m, n = len(heights), len(heights[0])
-        pacific = set()
-        atlantic = set()
+        pacific: set[Any] = set()
+        atlantic: set[Any] = set()
 
-        def dfs(r, c, visited, prev_height):
+        def dfs(r: Any, c: Any, visited: Any, prev_height: Any) -> Any:
             if (r, c) in visited:
                 return
             if r < 0 or r >= m or c < 0 or c >= n:
@@ -195,6 +211,7 @@ class SolutionWaterFlow:
         # Find intersection
         return [[r, c] for r, c in pacific & atlantic]
 
+
 """
 79. Word Search
 # Difficulty: Medium
@@ -210,6 +227,7 @@ Input: board = [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], word = "
 Output: true
 """
 
+
 class SolutionWordSearch:
     def exist(self, board: list[list[str]], word: str) -> bool:
         """
@@ -222,23 +240,24 @@ class SolutionWordSearch:
 
         m, n = len(board), len(board[0])
 
-        def dfs(r, c, index):
+        def dfs(r: Any, c: Any, index: Any) -> Any:
             if index == len(word):
                 return True
 
-            if (r < 0 or r >= m or c < 0 or c >= n or
-                board[r][c] != word[index]):
+            if r < 0 or r >= m or c < 0 or c >= n or board[r][c] != word[index]:
                 return False
 
             # Mark as visited
             temp = board[r][c]
-            board[r][c] = '#'
+            board[r][c] = "#"
 
             # Explore all 4 directions
-            found = (dfs(r + 1, c, index + 1) or
-                    dfs(r - 1, c, index + 1) or
-                    dfs(r, c + 1, index + 1) or
-                    dfs(r, c - 1, index + 1))
+            found = (
+                dfs(r + 1, c, index + 1)
+                or dfs(r - 1, c, index + 1)
+                or dfs(r, c + 1, index + 1)
+                or dfs(r, c - 1, index + 1)
+            )
 
             # Restore
             board[r][c] = temp
@@ -253,6 +272,7 @@ class SolutionWordSearch:
 
         return False
 
+
 """
 323. Number of Connected Components in an Undirected Graph
 # Difficulty: Medium
@@ -266,6 +286,7 @@ Input: n = 5, edges = [[0,1],[1,2],[3,4]]
 Output: 2
 """
 
+
 class SolutionComponents:
     def countComponents(self, n: int, edges: list[list[int]]) -> int:
         """
@@ -276,12 +297,12 @@ class SolutionComponents:
         parent = list(range(n))
         rank = [0] * n
 
-        def find(x):
+        def find(x: Any) -> Any:
             if parent[x] != x:
                 parent[x] = find(parent[x])
             return parent[x]
 
-        def union(x, y):
+        def union(x: Any, y: Any) -> Any:
             px, py = find(x), find(y)
             if px == py:
                 return False
@@ -309,17 +330,15 @@ class SolutionComponents:
         Time Complexity: O(V + E)
         Space Complexity: O(V + E)
         """
-        from collections import defaultdict
-
-        graph = defaultdict(list)
+        graph: dict[Any, list[Any]] = defaultdict(list)
         for u, v in edges:
             graph[u].append(v)
             graph[v].append(u)
 
-        visited = set()
+        visited: set[Any] = set()
         components = 0
 
-        def dfs(node):
+        def dfs(node: Any) -> Any:
             visited.add(node)
             for neighbor in graph[node]:
                 if neighbor not in visited:
@@ -332,19 +351,14 @@ class SolutionComponents:
 
         return components
 
+
 # Test cases
 if __name__ == "__main__":
     # Test Pacific Atlantic Water Flow
     solution_water = SolutionWaterFlow()
 
     print("Pacific Atlantic Water Flow:")
-    heights = [
-        [1, 2, 2, 3, 5],
-        [3, 2, 3, 4, 4],
-        [2, 4, 5, 3, 1],
-        [6, 7, 1, 4, 5],
-        [5, 1, 1, 2, 4]
-    ]
+    heights = [[1, 2, 2, 3, 5], [3, 2, 3, 4, 4], [2, 4, 5, 3, 1], [6, 7, 1, 4, 5], [5, 1, 1, 2, 4]]
     result = solution_water.pacificAtlantic(heights)
     print("Heights matrix:")
     for row in heights:
@@ -355,30 +369,22 @@ if __name__ == "__main__":
     solution_word = SolutionWordSearch()
 
     print("Word Search:")
-    board = [
-        ["A", "B", "C", "E"],
-        ["S", "F", "C", "S"],
-        ["A", "D", "E", "E"]
-    ]
+    board = [["A", "B", "C", "E"], ["S", "F", "C", "S"], ["A", "D", "E", "E"]]
     words = ["ABCCED", "SEE", "ABCB"]
 
     for word in words:
-        result = solution_word.exist(board, word)
-        print(f"Word: '{word}' -> Found: {result}")
+        found: bool = solution_word.exist(board, word)
+        print(f"Word: '{word}' -> Found: {found}")
 
-    print("\n" + "="*50 + "\n")
+    print("\n" + "=" * 50 + "\n")
 
     # Test Number of Components
     solution_comp = SolutionComponents()
 
     print("Number of Connected Components:")
-    test_cases = [
-        (5, [[0, 1], [1, 2], [3, 4]]),
-        (5, [[0, 1], [1, 2], [2, 3], [3, 4]]),
-        (4, [[0, 1], [2, 3]])
-    ]
+    test_cases = [(5, [[0, 1], [1, 2], [3, 4]]), (5, [[0, 1], [1, 2], [2, 3], [3, 4]]), (4, [[0, 1], [2, 3]])]
 
     for n, edges in test_cases:
-        result = solution_comp.countComponents(n, edges)
+        num_components: int = solution_comp.countComponents(n, edges)
         print(f"n={n}, edges={edges}")
-        print(f"Components: {result}\n")
+        print(f"Components: {num_components}\n")

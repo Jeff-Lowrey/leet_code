@@ -74,7 +74,8 @@ O(1)
 </details>
 """
 
-from typing import List, Optional, Dict, Tuple
+from typing import Any, List, Optional, Dict, Tuple
+
 
 class Solution:
     def partitionLabels(self, s: str) -> List[int]:
@@ -95,11 +96,11 @@ class Solution:
             return []
 
         # Store the last occurrence of each character
-        last_occurrence = {}
+        last_occurrence: dict[Any, Any] = {}
         for i, char in enumerate(s):
             last_occurrence[char] = i
 
-        partitions = []
+        partitions: list[Any] = []
         start = 0
         end = 0
 
@@ -116,28 +117,30 @@ class Solution:
 
         return partitions
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
     solution = Solution()
 
     # Test case 1: Basic case
-    result = solution.partitionLabels([1, 2, 3])
+    result = solution.partitionLabels([1, 2, 3])  # type: ignore
     expected = [1, 1, 1]
     assert result == expected, f"Expected {expected}, got {result}"
 
     # Test case 2: Empty input
-    result = solution.partitionLabels([])
-    expected = []
+    result = solution.partitionLabels([])  # type: ignore
+    expected: list[Any] = []
     assert result == expected, f"Expected {expected}, got {result}"
 
     # Test case 3: Single element
-    result = solution.partitionLabels([1])
+    result = solution.partitionLabels([1])  # type: ignore
     expected = [1]
     assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

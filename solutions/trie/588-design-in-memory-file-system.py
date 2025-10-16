@@ -77,5 +77,3 @@ Where N is number of nodes and M is average path component length
 
 </details>
 """
-
-

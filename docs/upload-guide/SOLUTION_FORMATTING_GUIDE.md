@@ -1,31 +1,26 @@
 # LeetCode Solution Formatting Guide - Python
 
-[🏠 Home](README.md)
+[← Previous: Formatting Guidelines](05-formatting-guidelines.md) | [🏠 Home](README.md) | [Next: JavaScript Formatting Guide →](SOLUTION_FORMATTING_GUIDE_JS.md)
 
 ---
 
 This guide explains the standard format for Python LeetCode solution files in this repository.
 
 ## Table of Contents
-- [LeetCode Solution Formatting Guide - Python](#leetcode-solution-formatting-guide---python)
-  - [Table of Contents](#table-of-contents)
-  - [Template Location](#template-location)
-  - [Key Formatting Rules](#key-formatting-rules)
-    - [1. Module Docstring Structure](#1-module-docstring-structure)
-    - [2. Example Section Format](#2-example-section-format)
-    - [3. Solution Explanation Sections](#3-solution-explanation-sections)
-    - [4. Code Structure](#4-code-structure)
-    - [5. Test Cases](#5-test-cases)
-  - [Visual Styling Notes](#visual-styling-notes)
-  - [Categories and Colors](#categories-and-colors)
-  - [Best Practices](#best-practices)
-  - [Migration from Old Format](#migration-from-old-format)
-  - [Reference Implementation](#reference-implementation)
+
+- [Template Location](#template-location)
+- [Key Formatting Rules](#key-formatting-rules)
+- [Visual Styling Notes](#visual-styling-notes)
+- [Theme System](#theme-system)
+- [Python-Specific Conventions](#python-specific-conventions)
+- [Best Practices](#best-practices)
+- [Reference Implementation](#reference-implementation)
+- [Additional Resources](#additional-resources)
 
 ## Template Location
 [↑ Back to Table of Contents](#table-of-contents)
 
-Use `docs/solutions/templates/SOLUTION_TEMPLATE.py` as the starting point for new solutions.
+Use [`solutions/templates/SOLUTION_TEMPLATE.py`](../../solutions/templates/SOLUTION_TEMPLATE.py) as the starting point for new solutions.
 
 ## Key Formatting Rules
 [↑ Back to Table of Contents](#table-of-contents)
@@ -73,8 +68,8 @@ Use `docs/solutions/templates/SOLUTION_TEMPLATE.py` as the starting point for ne
 - Use `<dt>` for labels (Input:, Output:, Explanation:)
 - Use `<dd>` for values
 - NO monospace/code formatting in values
-- Labels will display in category color
-- Section has subtle background and left border
+- Labels will display in the current theme's accent color
+- Section has subtle background and left border styled by theme
 
 ### 3. Solution Explanation Sections
 
@@ -154,27 +149,109 @@ if __name__ == "__main__":
 
 When rendered on the web interface:
 
-1. **"Problem Statement" heading** - Displays in category color
-2. **"Example:" label** - Displays in category color (1.1rem, bold)
-3. **Example box** - Light background (#f9f9f6), 4px left border in category color
-4. **Input:/Output:/Explanation: labels** - Category color, bold (0.95rem)
-5. **Example values** - Regular text (no monospace), same font as body
-6. **Code blocks** - Monospace font, 2px border, padding, shadow
+1. **"Problem Statement" heading** - Styled with theme accent color
+2. **"Example:" label** - Displays in theme accent color (1.1rem, bold)
+3. **Example box** - Light neutral background with 4px left border in theme accent color
+4. **Input:/Output:/Explanation: labels** - Theme accent color, bold (0.95rem)
+5. **Example values** - Regular text (no monospace), same font as body (0.95rem)
+6. **Code blocks** - Monospace font with theme-appropriate syntax highlighting
 
-## Categories and Colors
+## Theme System
 [↑ Back to Table of Contents](#table-of-contents)
 
-Each category has a distinct color applied to:
-- Page title
-- Problem Statement heading
-- Example label
-- Example box border
-- Input/Output/Explanation labels
+The application includes an 8-theme system with light/dark mode support that dynamically styles all solution pages:
 
-Example colors:
-- arrays-hashing: rust (#d47d5e)
-- dynamic-programming: teal (#66a8a8)
-- graphs: burgundy (#c96680)
+**Available Themes:**
+- **Professional/Minimal**: Soft Neutral, Classic
+- **Colorful**: Vibrant, Rainbow
+- **Mood-Based**: Moody, Happy
+- **Accessibility**: High Contrast
+- **Special Effects**: Neon
+
+**Theme & Mode System:**
+- **8 distinct themes** each supporting both light and dark modes
+- Toggle light/dark mode independently of theme selection (🌙 button)
+- Theme picker filters to show only themes matching current mode
+- Each theme has carefully designed light and dark variants
+- Theme and mode preferences persist via cookies
+
+**Theme Features:**
+- Each theme defines primary, secondary, and accent colors
+- Syntax highlighting adapts automatically to light/dark mode
+- Category cards and solution pages styled consistently
+- Seamless switching between modes without losing theme choice
+
+**For Solution Authors:**
+- Write solutions without theme-specific styling
+- Use semantic HTML (`<dl>`, `<dt>`, `<dd>` for examples)
+- Themes automatically apply appropriate colors
+- Test your solution in both light and dark modes
+
+## Python-Specific Conventions
+[↑ Back to Table of Contents](#table-of-contents)
+
+### Variable Naming
+- Use snake_case for variables and functions
+- Use PascalCase for classes
+- Use UPPER_SNAKE_CASE for constants
+
+### Type Hints
+Always include type hints for function parameters and return values:
+```python
+from typing import List, Optional, Dict, Set, Tuple
+
+def twoSum(self, nums: List[int], target: int) -> List[int]:
+    pass
+```
+
+### Comments and Docstrings
+```python
+# Single-line comments for brief explanations
+
+"""
+Module-level docstrings at the top of the file
+"""
+
+def method(self, param: int) -> int:
+    """
+    Method docstrings with approach and complexity
+    """
+    pass
+```
+
+### Data Structures
+Common Python structures for LeetCode:
+- **Lists:** `nums = [1, 2, 3]`
+- **Dictionaries:** `seen = {}` or `seen = dict()` (hash maps)
+- **Sets:** `unique = set()` or `unique = {1, 2, 3}`
+- **Tuples:** `pair = (1, 2)` (immutable sequences)
+
+### Built-in Functions
+Leverage Python's built-in functions:
+- `enumerate()` - Get index and value: `for i, num in enumerate(nums)`
+- `zip()` - Combine iterables: `for a, b in zip(list1, list2)`
+- `sorted()` - Return sorted list: `sorted_nums = sorted(nums)`
+- `sum()`, `min()`, `max()` - Aggregate functions
+- `all()`, `any()` - Boolean aggregation
+
+### List Comprehensions
+Use comprehensions for concise, readable code:
+```python
+# List comprehension
+squares = [x**2 for x in nums]
+
+# Dictionary comprehension
+num_to_index = {num: i for i, num in enumerate(nums)}
+
+# Set comprehension
+unique_values = {x for x in nums if x > 0}
+```
+
+### Python 3 Features
+- F-strings for formatting: `f"Result: {result}"`
+- Unpacking: `a, b = arr[0], arr[1]` or `first, *rest = arr`
+- Walrus operator: `while (n := len(stack)) > 0:`
+- `//` for integer division: `mid = (left + right) // 2`
 
 ## Best Practices
 [↑ Back to Table of Contents](#table-of-contents)
@@ -187,41 +264,20 @@ Example colors:
 6. ✅ Add clear comments to code explaining non-obvious logic
 7. ❌ Don't skip required sections (INTUITION, APPROACH, etc.)
 
-## Migration from Old Format
-[↑ Back to Table of Contents](#table-of-contents)
-
-If converting from the old code block format:
-
-**Old format:**
-```
-**Example:**
-
-\```
-Input: nums = [2,7,11,15], target = 9
-Output: [0,1]
-Explanation: Because nums[0] + nums[1] == 9, we return [0, 1]
-\```
-```
-
-**New format:**
-```html
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>nums = [2,7,11,15], target = 9</dd>
-<dt>Output:</dt>
-<dd>[0,1]</dd>
-<dt>Explanation:</dt>
-<dd>Because nums[0] + nums[1] == 9, we return [0, 1]</dd>
-</dl>
-```
-
 ## Reference Implementation
 [↑ Back to Table of Contents](#table-of-contents)
 
-See `docs/solutions/arrays-hashing/001-two-sum.py` for a complete, correctly formatted example.
+See [`docs/solutions/arrays-hashing/001-two-sum.py`](../../solutions/arrays-hashing/001-two-sum.py) for a complete, correctly formatted example.
+
+## Additional Resources
+[↑ Back to Table of Contents](#additional-resources)
+
+- JavaScript formatting guide: [SOLUTION_FORMATTING_GUIDE_JS.md](SOLUTION_FORMATTING_GUIDE_JS.md)
+- Python template: [`docs/solutions/templates/SOLUTION_TEMPLATE.py`](../../solutions/templates/SOLUTION_TEMPLATE.py)
+- JavaScript template: [`docs/solutions/templates/SOLUTION_TEMPLATE.js`](../../solutions/templates/SOLUTION_TEMPLATE.js)
+- Upload guide overview: [Upload Guide Home](README.md)
+- General formatting guidelines: [05-formatting-guidelines.md](05-formatting-guidelines.md)
 
 ---
 
-[🏠 Home](README.md)
+[← Previous: Formatting Guidelines](05-formatting-guidelines.md) | [🏠 Home](README.md) | [Next: JavaScript Formatting Guide →](SOLUTION_FORMATTING_GUIDE_JS.md)

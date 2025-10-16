@@ -91,7 +91,7 @@ def convert_to_leetcode_format(code: str) -> str:
         modified_tree = converter.visit(tree)
 
         # Convert back to source code
-        import astor  # type: ignore[import-untyped]
+        import astor  # type: ignore[import-not-found]
 
         converted_code = astor.to_source(modified_tree)
 

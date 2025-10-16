@@ -71,6 +71,9 @@ For the graph representation and auxiliary data structures
 </details>
 """
 
+
+from typing import Any
+
 class Solution:
     def sequenceReconstruction(self, org: list[int], seqs: list[list[int]]) -> bool:
         """
@@ -95,11 +98,11 @@ class Solution:
             return False
 
         # Build graph and in-degree count
-        graph = {i: [] for i in range(1, n + 1)}
+        graph: dict[int, list[int]] = {i: [] for i in range(1, n + 1)}
         in_degree = {i: 0 for i in range(1, n + 1)}
 
         # Validate seqs and build graph
-        seen_pairs = set()
+        seen_pairs: set[Any] = set()
 
         for seq in seqs:
             if not seq:
@@ -124,8 +127,8 @@ class Solution:
                 return False
 
         # Perform topological sort with uniqueness check
-        queue = []
-        result = []
+        queue: list[Any] = []
+        result: list[Any] = []
 
         # Find initial nodes with in-degree 0
         for i in range(1, n + 1):
@@ -175,7 +178,7 @@ class Solution:
 
         # Track which consecutive pairs are covered
         pairs_needed = set((org[i], org[i + 1]) for i in range(n - 1))
-        pairs_found = set()
+        pairs_found: set[Any] = set()
 
         # Check seqs for validity and coverage
         for seq in seqs:
@@ -191,7 +194,8 @@ class Solution:
         # Check if all consecutive pairs in org are covered
         return pairs_needed <= pairs_found
 
-def test_solution():
+
+def test_solution() -> None:
     """Test cases for Problem 444."""
     solution = Solution()
 
@@ -225,7 +229,7 @@ def test_solution():
 
     # Test case 5: Empty sequences
     org5 = [1]
-    seqs5 = []
+    seqs5: list[Any] = []
     result5 = solution.sequenceReconstruction(org5, seqs5)
     expected5 = False  # No information to reconstruct
     assert result5 == expected5, f"Expected {expected5}, got {result5}"
@@ -252,6 +256,7 @@ def test_solution():
     assert result9 == expected2, f"Alternative: Expected {expected2}, got {result9}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

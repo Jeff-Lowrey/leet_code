@@ -70,5 +70,3 @@ Where N is number of words and M is average length
 
 </details>
 """
-
-

@@ -66,6 +66,9 @@ Only using constant extra space
 </details>
 """
 
+
+from typing import Any
+
 class Solution:
     def singleNumber(self, nums: list[int]) -> int:
         """
@@ -98,13 +101,13 @@ class Solution:
         Time Complexity: O(n)
         Space Complexity: O(n) for hash set
         """
-        seen = set()
+        seen: set[Any] = set()
         for num in nums:
             if num in seen:
                 seen.remove(num)
             else:
                 seen.add(num)
-        return seen.pop()
+        return int(seen.pop())
 
     def singleNumberMath(self, nums: list[int]) -> int:
         """
@@ -141,17 +144,18 @@ class Solution:
                 return nums[i]
         return nums[-1]  # Last element is the single one
 
-def test_solution():
+
+def test_solution() -> None:
     """Test cases for Problem 136."""
     solution = Solution()
 
     # Test case 1: Basic case
-    result1 = solution.singleNumber([2,2,1])
+    result1 = solution.singleNumber([2, 2, 1])
     expected1 = 1
     assert result1 == expected1, f"Expected {expected1}, got {result1}"
 
     # Test case 2: Multiple pairs
-    result2 = solution.singleNumber([4,1,2,1,2])
+    result2 = solution.singleNumber([4, 1, 2, 1, 2])
     expected2 = 4
     assert result2 == expected2, f"Expected {expected2}, got {result2}"
 
@@ -161,32 +165,33 @@ def test_solution():
     assert result3 == expected3, f"Expected {expected3}, got {result3}"
 
     # Test case 4: Large array
-    result4 = solution.singleNumber([1,3,1,3,5,5,7,7,8])
+    result4 = solution.singleNumber([1, 3, 1, 3, 5, 5, 7, 7, 8])
     expected4 = 8
     assert result4 == expected4, f"Expected {expected4}, got {result4}"
 
     # Test case 5: Negative numbers
-    result5 = solution.singleNumber([-1,-1,-2])
+    result5 = solution.singleNumber([-1, -1, -2])
     expected5 = -2
     assert result5 == expected5, f"Expected {expected5}, got {result5}"
 
     # Test alternative approaches
     # Hash set approach
-    result6 = solution.singleNumberHashSet([2,2,1])
+    result6 = solution.singleNumberHashSet([2, 2, 1])
     expected6 = 1
     assert result6 == expected6, f"Expected {expected6}, got {result6}"
 
     # Mathematical approach
-    result7 = solution.singleNumberMath([4,1,2,1,2])
+    result7 = solution.singleNumberMath([4, 1, 2, 1, 2])
     expected7 = 4
     assert result7 == expected7, f"Expected {expected7}, got {result7}"
 
     # Sorting approach
-    result8 = solution.singleNumberSort([1,3,1,3,5,5,7,7,8])
+    result8 = solution.singleNumberSort([1, 3, 1, 3, 5, 5, 7, 7, 8])
     expected8 = 8
     assert result8 == expected8, f"Expected {expected8}, got {result8}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()
@@ -194,6 +199,6 @@ if __name__ == "__main__":
     # Example usage
     solution = Solution()
     print("=== 136. Single Number ===")
-    print(f"singleNumber([2,2,1]) -> {solution.singleNumber([2,2,1])}")
-    print(f"singleNumber([4,1,2,1,2]) -> {solution.singleNumber([4,1,2,1,2])}")
+    print(f"singleNumber([2,2,1]) -> {solution.singleNumber([2, 2, 1])}")
+    print(f"singleNumber([4,1,2,1,2]) -> {solution.singleNumber([4, 1, 2, 1, 2])}")
     print(f"singleNumber([1]) -> {solution.singleNumber([1])}")

@@ -74,67 +74,69 @@ O(1)
 
 from collections import defaultdict, deque
 
-from typing import List, Optional, Dict, Tuple
+from typing import Any, List, Optional, Dict, Tuple
+
 
 class Solution:
     def findOrder(self, numCourses: int, prerequisites: List[List[int]]) -> List[int]:
         """
         Find a valid course ordering that satisfies all prerequisites using topological sort.
-        
+
         Args:
             numCourses (int): Total number of courses (labeled from 0 to numCourses-1)
             prerequisites (List[List[int]]): List of prerequisite pairs [course, prereq]
-        
+
         Returns:
             List[int]: Valid course ordering or empty list if impossible
         """
         # Create adjacency list and in-degree count for each course
-        adj_list = defaultdict(list)
+        adj_list: dict[Any, list[Any]] = defaultdict(list)
         in_degree = [0] * numCourses
-        
+
         # Build the graph
         for course, prereq in prerequisites:
             adj_list[prereq].append(course)
             in_degree[course] += 1
-        
+
         # Initialize queue with courses that have no prerequisites
-        queue = deque()
+        queue: Any = deque()
         for course in range(numCourses):
             if in_degree[course] == 0:
                 queue.append(course)
-        
+
         # Store the course order
-        course_order = []
-        
+        course_order: list[Any] = []
+
         # Process courses in topological order
         while queue:
             current_course = queue.popleft()
             course_order.append(current_course)
-            
+
             # Reduce in-degree for all courses that depend on current_course
             for dependent_course in adj_list[current_course]:
                 in_degree[dependent_course] -= 1
                 # If all prerequisites are satisfied, add to queue
                 if in_degree[dependent_course] == 0:
                     queue.append(dependent_course)
-        
+
         # Check if valid ordering exists
         return course_order if len(course_order) == numCourses else []
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
     solution = Solution()
 
     # Test case 1: Example from problem
-    result = solution.findOrder(4, [[1,0],[2,0],[3,1],[3,2]])
+    result = solution.findOrder(4, [[1, 0], [2, 0], [3, 1], [3, 2]])
     # Valid orders: [0,1,2,3] or [0,2,1,3]
     assert len(result) == 4 and result[0] == 0, f"Expected valid order starting with 0, got {result}"
 
     # Test case 2: Cycle exists (impossible)
-    result = solution.findOrder(2, [[1,0],[0,1]])
-    expected = []
+    result = solution.findOrder(2, [[1, 0], [0, 1]])
+    expected: list[Any] = []
     assert result == expected, f"Expected {expected}, got {result}"
 
     # Test case 3: No prerequisites
@@ -142,8 +144,8 @@ def test_solution():
     assert len(result) == 3, f"Expected 3 courses, got {len(result)}"
 
     # Test case 4: Linear dependency
-    result = solution.findOrder(3, [[1,0],[2,1]])
-    expected = [0,1,2]
+    result = solution.findOrder(3, [[1, 0], [2, 1]])
+    expected = [0, 1, 2]
     assert result == expected, f"Expected {expected}, got {result}"
 
     # Test case 5: Single course
@@ -152,6 +154,7 @@ def test_solution():
     assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

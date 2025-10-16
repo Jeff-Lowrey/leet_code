@@ -67,6 +67,9 @@ For the sorted expected array
 
 </details>
 """
+from typing import Any
+
+
 
 class Solution:
     def heightChecker(self, heights: list[int]) -> int:
@@ -136,7 +139,8 @@ class Solution:
         """
         return sum(h1 != h2 for h1, h2 in zip(heights, sorted(heights), strict=False))
 
-def test_solution():
+
+def test_solution() -> None:
     """Test cases for Problem 1051."""
     solution = Solution()
 
@@ -176,6 +180,7 @@ def test_solution():
     assert result7 == expected7, f"Expected {expected7}, got {result7}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

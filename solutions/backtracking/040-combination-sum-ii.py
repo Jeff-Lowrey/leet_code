@@ -30,7 +30,7 @@ Sort the candidates first to handle duplicates. During backtracking, skip duplic
 1. **Sort candidates**: Sort candidates array to group duplicates together for easy skipping
 2. **Initialize result**: Create empty result list and current combination list
 3. **Define backtrack function**: Create recursive function with parameters (start, current, remaining_target)
-4. **Base case**: If remaining_target == 0, add copy of current to result and return
+# 4. **Base case**: If remaining_target == 0, add copy of current to result and return  # Result undefined
 5. **Iterate from start**: Loop from start index to end of candidates array
 6. **Skip duplicates**: If i > start and candidates[i] == candidates[i-1], continue to avoid duplicate combinations
 7. **Prune search**: If candidates[i] > remaining_target, break early since array is sorted
@@ -79,28 +79,29 @@ O(1)
 </details>
 """
 
-from typing import List, Optional, Dict, Tuple
+from typing import Any, List, Optional, Dict, Tuple
+
 
 class Solution:
     def combinationSum2(self, candidates: List[int], target: int) -> List[List[int]]:
         """
         Find all unique combinations of numbers that sum to target.
-        
+
         Args:
             candidates: List of candidate numbers
             target: Target sum to achieve
-            
+
         Returns:
             List of all unique combinations that sum to target
         """
         # Sort candidates to handle duplicates and enable early termination
         candidates.sort()
-        result = []
-        
+        result: list[Any] = []
+
         def backtrack(curr: List[int], pos: int, remain: int) -> None:
             """
             Recursive backtracking helper function.
-            
+
             Args:
                 curr: Current combination being built
                 pos: Current position in candidates array
@@ -110,41 +111,43 @@ class Solution:
                 # Found a valid combination
                 result.append(curr[:])
                 return
-            
+
             for i in range(pos, len(candidates)):
                 # Skip duplicates to avoid duplicate combinations
-                if i > pos and candidates[i] == candidates[i-1]:
+                if i > pos and candidates[i] == candidates[i - 1]:
                     continue
-                    
+
                 # Early termination if current number is too large
                 if candidates[i] > remain:
                     break
-                    
+
                 # Include current number and recurse
                 curr.append(candidates[i])
                 backtrack(curr, i + 1, remain - candidates[i])
                 curr.pop()  # Backtrack by removing the last number
-        
+
         backtrack([], 0, target)
         return result
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
     solution = Solution()
 
     # Test case 1: Example from problem
-    result = solution.combinationSum2([10,1,2,7,6,1,5], target = 8)
-    expected = [[1,1,6],[1,2,5],[1,7],[2,6]]
+    result = solution.combinationSum2([10, 1, 2, 7, 6, 1, 5], target=8)
+    expected = [[1, 1, 6], [1, 2, 5], [1, 7], [2, 6]]
     assert result == expected, f"Expected {expected}, got {result}"
 
     # Test case 2: Empty input
     result = solution.combinationSum2([], 0)
-    expected = [[]]
+    expected: list[list[int]] = [[]]
     assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

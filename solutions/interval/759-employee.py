@@ -70,17 +70,32 @@ O(1)
 </details>
 """
 
-from typing import List, Optional, Dict, Tuple
+from typing import Any, List, Optional, Dict, Tuple
+
+
+class Interval:
+    """Represents a time interval with start and end times."""
+
+    def __init__(self, start: Any, end: Any) -> None:
+        self.start = start
+        self.end = end
+
+    def __eq__(self, other: Any) -> bool:
+        return self.start == other.start and self.end == other.end
+
+    def __repr__(self) -> str:
+        return f"[{self.start},{self.end}]"
+
 
 class Solution:
     def employeeFreeTime(self, schedule: List[List[Interval]]) -> List[Interval]:
         """
         Find the free time intervals common to all employees.
-        
+
         Args:
             schedule: List of lists where each inner list contains Interval objects
                      representing an employee's busy periods
-        
+
         Returns:
             List of Interval objects representing common free time periods
         """
@@ -88,15 +103,15 @@ class Solution:
             return []
 
         # Flatten all intervals into a single list
-        all_intervals = []
+        all_intervals: list[Any] = []
         for employee_schedule in schedule:
             all_intervals.extend(employee_schedule)
-        
+
         # Sort intervals by start time
         all_intervals.sort(key=lambda x: x.start)
-        
+
         # Merge overlapping intervals
-        merged = []
+        merged: list[Any] = []
         for interval in all_intervals:
             # If this is the first interval or if there's no overlap
             if not merged or merged[-1].end < interval.start:
@@ -104,60 +119,59 @@ class Solution:
             else:
                 # Merge overlapping intervals
                 merged[-1].end = max(merged[-1].end, interval.end)
-        
+
         # Find gaps between merged intervals
-        result = []
+        result: list[Any] = []
         for i in range(1, len(merged)):
             # If there's a gap between current and previous interval
-            if merged[i].start > merged[i-1].end:
+            if merged[i].start > merged[i - 1].end:
                 # Add the gap as a free time interval
-                result.append(Interval(merged[i-1].end, merged[i].start))
-        
+                result.append(Interval(merged[i - 1].end, merged[i].start))
+
         return result
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
+
     # Note: This problem requires an Interval class definition
     # For testing purposes, we'll create a simple Interval class
     class Interval:
-        def __init__(self, start, end):
+        def __init__(self: Any, start: Any, end: Any) -> None:
             self.start = start
             self.end = end
-        def __eq__(self, other):
+
+        def __eq__(self: Any, other: Any) -> Any:
             return self.start == other.start and self.end == other.end
-        def __repr__(self):
+
+        def __repr__(self: Any) -> Any:
             return f"[{self.start},{self.end}]"
 
     solution = Solution()
 
     # Test case 1: Example from problem
-    schedule1 = [
-        [Interval(1,2), Interval(5,6)],
-        [Interval(1,3)],
-        [Interval(4,10)]
-    ]
-    result = solution.employeeFreeTime(schedule1)
-    expected = [Interval(3,4)]
-    assert len(result) == len(expected) and all(r == e for r, e in zip(result, expected)), \
+    schedule1 = [[Interval(1, 2), Interval(5, 6)], [Interval(1, 3)], [Interval(4, 10)]]
+    result = solution.employeeFreeTime(schedule1)  # type: ignore
+    expected = [Interval(3, 4)]
+    assert len(result) == len(expected) and all(r == e for r, e in zip(result, expected)), (
         f"Expected {expected}, got {result}"
+    )
 
     # Test case 2: No free time
-    schedule2 = [
-        [Interval(1,3), Interval(4,6)],
-        [Interval(1,6)]
-    ]
-    result = solution.employeeFreeTime(schedule2)
-    expected = []
+    schedule2 = [[Interval(1, 3), Interval(4, 6)], [Interval(1, 6)]]
+    result = solution.employeeFreeTime(schedule2)  # type: ignore
+    expected: list[Any] = []
     assert result == expected, f"Expected {expected}, got {result}"
 
     # Test case 3: Empty input
     result = solution.employeeFreeTime([])
-    expected = []
+    expected: list[Any] = []
     assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

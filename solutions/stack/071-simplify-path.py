@@ -83,17 +83,20 @@ O(1)
 </details>
 """
 
+
+from typing import Any
+
 class Solution:
     def simplifyPath(self, path: str) -> str:
         """
         Simplifies a Unix-style file path to its canonical form.
-        
+
         Args:
             path (str): The file path to simplify
-            
+
         Returns:
             str: The simplified canonical path
-            
+
         Examples:
             >>> solution = Solution()
             >>> solution.simplifyPath("/home//foo/")
@@ -102,36 +105,37 @@ class Solution:
             "/c"
         """
         # Split the path into components
-        components = path.split('/')
-        
+        components = path.split("/")
+
         # Stack to keep track of valid path components
-        stack = []
-        
+        stack: list[Any] = []
+
         # Process each component
         for component in components:
             # Skip empty components and current directory (.)
-            if not component or component == '.':
+            if not component or component == ".":
                 continue
-                
+
             # Handle parent directory (..)
-            elif component == '..':
+            elif component == "..":
                 # If stack is not empty, pop the last directory
                 if stack:
                     stack.pop()
-            
+
             # Add valid directory names to stack
             else:
                 stack.append(component)
-        
+
         # Construct the canonical path
         # If stack is empty, return root directory
         if not stack:
             return "/"
-        
+
         # Join components with forward slash and add leading slash
         return "/" + "/".join(stack)
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
@@ -153,6 +157,7 @@ def test_solution():
     assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

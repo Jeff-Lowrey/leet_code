@@ -85,6 +85,54 @@ For storing email mappings and Union-Find structure
 </details>
 """
 
+from collections import defaultdict
+from typing import Any
+import re
+
+
+
+
+class UnionFind:
+    """Union-Find (Disjoint Set Union) data structure."""
+
+    def __init__(self, n: int) -> None:
+        """Initialize with n elements."""
+        self.parent = list(range(n))
+        self.rank = [0] * n
+
+
+    @property
+    def components(self) -> int:
+        """Return number of connected components."""
+        return len(set(self.find(i) for i in range(len(self.parent))))
+
+    def find(self, x: int) -> int:
+        """Find root of element x with path compression."""
+        if self.parent[x] != x:
+            self.parent[x] = self.find(self.parent[x])
+        return self.parent[x]
+
+    def union(self, x: int, y: int) -> bool:
+        """Union two sets. Returns True if they were in different sets."""
+        px, py = self.find(x), self.find(y)
+        if px == py:
+            return False
+
+        if self.rank[px] < self.rank[py]:
+            self.parent[px] = py
+        elif self.rank[px] > self.rank[py]:
+            self.parent[py] = px
+        else:
+            self.parent[py] = px
+            self.rank[px] += 1
+
+        return True
+
+    def connected(self, x: int, y: int) -> bool:
+        """Check if two elements are in the same set."""
+        return self.find(x) == self.find(y)
+
+
 class Solution:
     def accountsMerge(self, accounts: list[list[str]]) -> list[list[str]]:
         """
@@ -104,7 +152,7 @@ class Solution:
         uf = UnionFind(n)
 
         # Map email to account index
-        email_to_account = {}
+        email_to_account: dict[Any, Any] = {}
 
         # Step 1: Build email to account mapping and union accounts with common emails
         for i, account in enumerate(accounts):
@@ -117,14 +165,14 @@ class Solution:
                     email_to_account[email] = i
 
         # Step 2: Group emails by their parent account
-        merged_accounts = defaultdict(set)
+        merged_accounts: dict[Any, set[Any]] = defaultdict(set)
         for i in range(n):
             parent = uf.find(i)
             # Add all emails from current account to parent's email set
             merged_accounts[parent].update(accounts[i][1:])
 
         # Step 3: Format the result
-        result = []
+        result: list[Any] = []
         for account_idx, emails in merged_accounts.items():
             # Create merged account starting with name followed by sorted emails
             merged_account = [accounts[account_idx][0]] + sorted(list(emails))
@@ -143,7 +191,7 @@ class Solution:
             List of merged accounts with sorted emails
         """
         # Build email to accounts mapping
-        email_to_accounts = defaultdict(list)
+        email_to_accounts: dict[Any, list[Any]] = defaultdict(list)
         for i, account in enumerate(accounts):
             for email in account[1:]:
                 email_to_accounts[email].append(i)
@@ -152,7 +200,7 @@ class Solution:
         visited = [False] * len(accounts)
         result = []
 
-        def dfs(account_idx, emails):
+        def dfs(account_idx: Any, emails: Any) -> Any:
             if visited[account_idx]:
                 return
             visited[account_idx] = True
@@ -168,14 +216,15 @@ class Solution:
 
         for i in range(len(accounts)):
             if not visited[i]:
-                emails = set()
+                emails: set[str] = set()
                 dfs(i, emails)
                 merged_account = [accounts[i][0]] + sorted(list(emails))
                 result.append(merged_account)
 
         return result
 
-def test_solution():
+
+def test_solution() -> None:
     """Test cases for 721. Accounts Merge."""
     solution = Solution()
 
@@ -233,6 +282,7 @@ def test_solution():
     assert result5 == expected1, f"Alternative: Expected {expected1}, got {result5}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

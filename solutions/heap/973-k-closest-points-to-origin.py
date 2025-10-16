@@ -77,7 +77,8 @@ O(1)
 
 import heapq
 
-from typing import List, Optional, Dict, Tuple
+from typing import Any, List, Optional, Dict, Tuple
+
 
 class Solution:
     """
@@ -99,7 +100,7 @@ class Solution:
             return []
 
         # Create min heap with (distance, point) tuples
-        heap = []
+        heap: list[Any] = []
 
         # Calculate distance and add to heap
         for x, y in points:
@@ -109,7 +110,7 @@ class Solution:
             heapq.heappush(heap, (dist, [x, y]))
 
         # Extract k closest points
-        result = []
+        result: list[Any] = []
         for _ in range(min(k, len(points))):
             result.append(heapq.heappop(heap)[1])
 
@@ -130,10 +131,10 @@ class Solution:
         if not points or k <= 0:
             return []
 
-        def distance(point):
+        def distance(point: Any) -> Any:
             return point[0] ** 2 + point[1] ** 2
 
-        def partition(left, right, pivot_idx):
+        def partition(left: Any, right: Any, pivot_idx: Any) -> Any:
             pivot_dist = distance(points[pivot_idx])
             # Move pivot to end
             points[pivot_idx], points[right] = points[right], points[pivot_idx]
@@ -149,7 +150,7 @@ class Solution:
             points[right], points[store_idx] = points[store_idx], points[right]
             return store_idx
 
-        def select(left, right, k_smallest):
+        def select(left: Any, right: Any, k_smallest: Any) -> Any:
             if left == right:
                 return
 
@@ -167,23 +168,25 @@ class Solution:
         select(0, len(points) - 1, k)
         return points[:k]
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
     solution = Solution()
 
     # Test case 1: Example from problem
-    result = solution.kClosest([[1,3], [-2,2], [5,8], [0,1]], k = 2)
-    expected = [[0,1], [-2,2]]
+    result = solution.kClosest([[1, 3], [-2, 2], [5, 8], [0, 1]], k=2)
+    expected = [[0, 1], [-2, 2]]
     assert result == expected, f"Expected {expected}, got {result}"
 
     # Test case 2: Empty input
     result = solution.kClosest([], 0)
-    expected = []
+    expected: list[Any] = []
     assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

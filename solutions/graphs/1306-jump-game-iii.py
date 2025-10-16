@@ -41,7 +41,7 @@ If any reachable node has value 0, we return true.
 ### EXAMPLE WALKTHROUGH:
 ```
 arr = [4,2,3,0,3,1,2], start = 5
-visited = {}
+visited: dict[Any, Any] = {}
 
 DFS(5): arr[5]=1
   - Jump to 5+1=6: DFS(6)
@@ -76,6 +76,11 @@ O(n) for visited set and recursion/queue
 
 </details>
 """
+
+from collections import deque
+from typing import Any
+
+
 
 class Solution:
     def canReach(self, arr: list[int], start: int) -> bool:
@@ -152,6 +157,7 @@ class Solution:
 
         return False
 
+
 def test_solution() -> None:
     """Test cases for Problem 1306."""
     solution = Solution()
@@ -199,6 +205,7 @@ def test_solution() -> None:
     print("Test case 10 passed: Multiple zeros")
 
     print("\nAll test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

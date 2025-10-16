@@ -84,77 +84,81 @@
  * Space Complexity: O(1)
  */
 function solve(haystack, needle) {
-    // Edge case: empty needle
-    if (needle.length === 0) {
-        return 0;
-    }
+  // Edge case: empty needle
+  if (needle.length === 0) {
+    return 0;
+  }
 
-    // Check if needle can fit in remaining haystack
-    for (let i = 0; i <= haystack.length - needle.length; i++) {
-        // Check if substring matches needle
-        let match = true;
-        for (let j = 0; j < needle.length; j++) {
-            if (haystack[i + j] !== needle[j]) {
-                match = false;
-                break;
-            }
-        }
-        if (match) {
-            return i;
-        }
+  // Check if needle can fit in remaining haystack
+  for (let i = 0; i <= haystack.length - needle.length; i++) {
+    // Check if substring matches needle
+    let match = true;
+    for (let j = 0; j < needle.length; j++) {
+      if (haystack[i + j] !== needle[j]) {
+        match = false;
+        break;
+      }
     }
+    if (match) {
+      return i;
+    }
+  }
 
-    return -1;
+  return -1;
 }
 
 /**
  * Test cases for Problem 28: Find The Index Of The First Occurrence In A String
  */
 function testSolution() {
-    console.log('Testing 28. Find The Index Of The First Occurrence In A String');
+  console.log("Testing 28. Find The Index Of The First Occurrence In A String");
 
-    // Test case 1: Found at index 0
-    const result1 = solve("sadbutsad", "sad");
-    console.assert(result1 === 0, `Test 1 failed: expected 0, got ${result1}`);
+  // Test case 1: Found at index 0
+  const result1 = solve("sadbutsad", "sad");
+  console.assert(result1 === 0, `Test 1 failed: expected 0, got ${result1}`);
 
-    // Test case 2: Not found
-    const result2 = solve("leetcode", "leeto");
-    console.assert(result2 === -1, `Test 2 failed: expected -1, got ${result2}`);
+  // Test case 2: Not found
+  const result2 = solve("leetcode", "leeto");
+  console.assert(result2 === -1, `Test 2 failed: expected -1, got ${result2}`);
 
-    // Test case 3: Found in middle
-    const result3 = solve("hello", "ll");
-    console.assert(result3 === 2, `Test 3 failed: expected 2, got ${result3}`);
+  // Test case 3: Found in middle
+  const result3 = solve("hello", "ll");
+  console.assert(result3 === 2, `Test 3 failed: expected 2, got ${result3}`);
 
-    // Test case 4: Needle equals haystack
-    const result4 = solve("a", "a");
-    console.assert(result4 === 0, `Test 4 failed: expected 0, got ${result4}`);
+  // Test case 4: Needle equals haystack
+  const result4 = solve("a", "a");
+  console.assert(result4 === 0, `Test 4 failed: expected 0, got ${result4}`);
 
-    console.log('All test cases passed for 28. Find The Index Of The First Occurrence In A String!');
+  console.log(
+    "All test cases passed for 28. Find The Index Of The First Occurrence In A String!",
+  );
 }
 
 /**
  * Example usage and demonstration
  */
 function demonstrateSolution() {
-    console.log('\n=== Problem 28. Find The Index Of The First Occurrence In A String ===');
-    console.log('Category: Strings');
-    console.log('Difficulty: Easy');
-    console.log('');
+  console.log(
+    "\n=== Problem 28. Find The Index Of The First Occurrence In A String ===",
+  );
+  console.log("Category: Strings");
+  console.log("Difficulty: Easy");
+  console.log("");
 
-    // Example demonstration would go here
-    testSolution();
+  // Example demonstration would go here
+  testSolution();
 }
 
 // Run tests if this file is executed directly
 if (require.main === module) {
-    demonstrateSolution();
+  demonstrateSolution();
 }
 
 // Export for use in other modules
 module.exports = {
-    solve,
-    testSolution,
-    demonstrateSolution
+  solve,
+  testSolution,
+  demonstrateSolution,
 };
 
 /**

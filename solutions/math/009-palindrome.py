@@ -67,6 +67,7 @@ O(1)
 </details>
 """
 
+
 class Solution:
     def isPalindrome(self, x: int) -> bool:
         """
@@ -123,7 +124,8 @@ class Solution:
 
         return original == reversed_num
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
@@ -145,6 +147,7 @@ def test_solution():
     assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

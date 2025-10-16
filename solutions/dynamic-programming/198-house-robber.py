@@ -73,17 +73,18 @@ O(1)
 
 from typing import List, Optional, Dict, Tuple
 
+
 class Solution:
     def rob(self, nums: List[int]) -> int:
         """
         Determines the maximum amount that can be robbed from houses.
-        
+
         Args:
             nums: List of integers representing money in each house
-            
+
         Returns:
             Maximum amount that can be robbed without choosing adjacent houses
-            
+
         Time complexity: O(n) where n is the length of nums
         Space complexity: O(1) as we only use two variables
         """
@@ -92,34 +93,35 @@ class Solution:
             return 0
         if len(nums) == 1:
             return nums[0]
-        
+
         # Initialize variables to track maximum money at each step
         # prev2 represents max money if we ended at i-2 house
         # prev1 represents max money if we ended at i-1 house
         prev2 = nums[0]
         prev1 = max(nums[0], nums[1])
-        
+
         # Iterate through the houses starting from index 2
         for i in range(2, len(nums)):
             # At each house, we can either:
             # 1. Rob this house and add it to the max money from i-2 houses
             # 2. Skip this house and keep the max money from i-1 houses
             current = max(prev2 + nums[i], prev1)
-            
+
             # Update our tracking variables for the next iteration
             prev2 = prev1
             prev1 = current
-        
+
         return prev1
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
     solution = Solution()
 
     # Test case 1: Example from problem - rob houses 1 and 3 (7 + 9 = 16) or houses 0, 2, 4 (2 + 9 + 1 = 12)
-    result = solution.rob([2,7,9,3,1])
+    result = solution.rob([2, 7, 9, 3, 1])
     expected = 12
     assert result == expected, f"Expected {expected}, got {result}"
 
@@ -129,11 +131,12 @@ def test_solution():
     assert result == expected, f"Expected {expected}, got {result}"
 
     # Test case 3: Two elements - rob the maximum
-    result = solution.rob([1,2])
+    result = solution.rob([1, 2])
     expected = 2
     assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

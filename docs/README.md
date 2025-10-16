@@ -89,15 +89,22 @@ Our solutions cover all major algorithm categories:
 
 ### Using the Web Interface
 
+**Quick Start:**
+```bash
+# Run the application (recommended)
+./run.sh
+
+# Access the web interface
+# Open browser to http://127.0.0.1:9501
+```
+
+**Alternative (using PDM for development):**
 ```bash
 # Install dependencies
 pdm install
 
 # Start the development server
 pdm run python -m src.leet_code.app
-
-# Access the web interface
-# Open browser to http://127.0.0.1:9501
 ```
 
 ### Running Solutions Directly

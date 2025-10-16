@@ -90,88 +90,98 @@
  * Space Complexity: O(1) - excluding the output array
  */
 function solve(nums) {
-    const n = nums.length;
-    const result = new Array(n);
+  const n = nums.length;
+  const result = new Array(n);
 
-    // First pass: calculate products of all elements to the left of each position
-    let leftProduct = 1;
-    for (let i = 0; i < n; i++) {
-        result[i] = leftProduct;
-        leftProduct *= nums[i];
-    }
+  // First pass: calculate products of all elements to the left of each position
+  let leftProduct = 1;
+  for (let i = 0; i < n; i++) {
+    result[i] = leftProduct;
+    leftProduct *= nums[i];
+  }
 
-    // Second pass: calculate products of all elements to the right and combine
-    let rightProduct = 1;
-    for (let i = n - 1; i >= 0; i--) {
-        result[i] *= rightProduct;
-        rightProduct *= nums[i];
-    }
+  // Second pass: calculate products of all elements to the right and combine
+  let rightProduct = 1;
+  for (let i = n - 1; i >= 0; i--) {
+    result[i] *= rightProduct;
+    rightProduct *= nums[i];
+  }
 
-    return result;
+  return result;
 }
 
 /**
  * Test cases for Problem 238: Product Of Array Except Self
  */
 function testSolution() {
-    console.log('Testing 238. Product Of Array Except Self');
+  console.log("Testing 238. Product Of Array Except Self");
 
-    // Test case 1: Basic example
-    const result1 = solve([1, 2, 3, 4]);
-    const expected1 = [24, 12, 8, 6];
-    console.assert(JSON.stringify(result1) === JSON.stringify(expected1),
-        `Test 1 failed: expected [${expected1}], got [${result1}]`);
+  // Test case 1: Basic example
+  const result1 = solve([1, 2, 3, 4]);
+  const expected1 = [24, 12, 8, 6];
+  console.assert(
+    JSON.stringify(result1) === JSON.stringify(expected1),
+    `Test 1 failed: expected [${expected1}], got [${result1}]`,
+  );
 
-    // Test case 2: Array with zero
-    const result2 = solve([-1, 1, 0, -3, 3]);
-    const expected2 = [0, 0, 9, 0, 0];
-    console.assert(JSON.stringify(result2) === JSON.stringify(expected2),
-        `Test 2 failed: expected [${expected2}], got [${result2}]`);
+  // Test case 2: Array with zero
+  const result2 = solve([-1, 1, 0, -3, 3]);
+  const expected2 = [0, 0, 9, 0, 0];
+  console.assert(
+    JSON.stringify(result2) === JSON.stringify(expected2),
+    `Test 2 failed: expected [${expected2}], got [${result2}]`,
+  );
 
-    // Test case 3: Two elements
-    const result3 = solve([2, 3]);
-    const expected3 = [3, 2];
-    console.assert(JSON.stringify(result3) === JSON.stringify(expected3),
-        `Test 3 failed: expected [${expected3}], got [${result3}]`);
+  // Test case 3: Two elements
+  const result3 = solve([2, 3]);
+  const expected3 = [3, 2];
+  console.assert(
+    JSON.stringify(result3) === JSON.stringify(expected3),
+    `Test 3 failed: expected [${expected3}], got [${result3}]`,
+  );
 
-    // Test case 4: Single element
-    const result4 = solve([5]);
-    const expected4 = [1];
-    console.assert(JSON.stringify(result4) === JSON.stringify(expected4),
-        `Test 4 failed: expected [${expected4}], got [${result4}]`);
+  // Test case 4: Single element
+  const result4 = solve([5]);
+  const expected4 = [1];
+  console.assert(
+    JSON.stringify(result4) === JSON.stringify(expected4),
+    `Test 4 failed: expected [${expected4}], got [${result4}]`,
+  );
 
-    // Test case 5: All same elements
-    const result5 = solve([2, 2, 2, 2]);
-    const expected5 = [8, 8, 8, 8];
-    console.assert(JSON.stringify(result5) === JSON.stringify(expected5),
-        `Test 5 failed: expected [${expected5}], got [${result5}]`);
+  // Test case 5: All same elements
+  const result5 = solve([2, 2, 2, 2]);
+  const expected5 = [8, 8, 8, 8];
+  console.assert(
+    JSON.stringify(result5) === JSON.stringify(expected5),
+    `Test 5 failed: expected [${expected5}], got [${result5}]`,
+  );
 
-    console.log('All test cases passed for 238. Product Of Array Except Self!');
+  console.log("All test cases passed for 238. Product Of Array Except Self!");
 }
 
 /**
  * Example usage and demonstration
  */
 function demonstrateSolution() {
-    console.log('\n=== Problem 238. Product Of Array Except Self ===');
-    console.log('Category: Arrays Hashing');
-    console.log('Difficulty: Medium');
-    console.log('');
+  console.log("\n=== Problem 238. Product Of Array Except Self ===");
+  console.log("Category: Arrays Hashing");
+  console.log("Difficulty: Medium");
+  console.log("");
 
-    // Example demonstration would go here
-    testSolution();
+  // Example demonstration would go here
+  testSolution();
 }
 
 // Run tests if this file is executed directly
 if (require.main === module) {
-    demonstrateSolution();
+  demonstrateSolution();
 }
 
 // Export for use in other modules
 module.exports = {
-    solve,
-    testSolution,
-    demonstrateSolution
+  solve,
+  testSolution,
+  demonstrateSolution,
 };
 
 /**

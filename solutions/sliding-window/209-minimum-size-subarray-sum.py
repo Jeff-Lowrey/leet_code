@@ -71,53 +71,56 @@ O(1)
 """
 
 from typing import List, Optional, Dict, Tuple
+import sys
+
 
 class Solution:
     def minSubArrayLen(self, target: int, nums: List[int]) -> int:
         """
         Find the minimum length of a contiguous subarray whose sum is greater than
         or equal to the target.
-        
+
         Args:
             target: The target sum we're looking for
             nums: List of positive integers
-            
+
         Returns:
             int: Minimum length of subarray that sums to >= target, or 0 if no such subarray exists
         """
         if not nums:
             return 0
-        
+
         n = len(nums)
         min_length = sys.maxsize
         current_sum = 0
         left = 0
-        
+
         # Sliding window approach
         for right in range(n):
             # Add the current number to our running sum
             current_sum += nums[right]
-            
+
             # While our sum is >= target, try to minimize the window
             while current_sum >= target:
                 # Update minimum length if current window is smaller
                 min_length = min(min_length, right - left + 1)
-                
+
                 # Remove leftmost element and shrink window
                 current_sum -= nums[left]
                 left += 1
-        
+
         # Return 0 if we never found a valid subarray
         return min_length if min_length != sys.maxsize else 0
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
     solution = Solution()
 
     # Test case 1: Example from problem
-    result = solution.minSubArrayLen(7, [2,3,1,2,4,3])
+    result = solution.minSubArrayLen(7, [2, 3, 1, 2, 4, 3])
     expected = 2
     assert result == expected, f"Expected {expected}, got {result}"
 
@@ -127,6 +130,7 @@ def test_solution():
     assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

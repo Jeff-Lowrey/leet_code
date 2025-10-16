@@ -6,14 +6,14 @@ from src.leet_code.leetcode_converter import LeetCodeConverter, convert_to_leetc
 class TestLeetCodeConverter:
     """Test the LeetCodeConverter class."""
 
-    def test_snake_to_camel_basic(self):
+    def test_snake_to_camel_basic(self) -> None:
         """Test basic snake_case to camelCase conversion."""
         converter = LeetCodeConverter()
         assert converter.snake_to_camel("two_sum") == "twoSum"
         assert converter.snake_to_camel("find_max_value") == "findMaxValue"
         assert converter.snake_to_camel("is_valid") == "isValid"
 
-    def test_snake_to_camel_edge_cases(self):
+    def test_snake_to_camel_edge_cases(self) -> None:
         """Test edge cases in snake_case to camelCase conversion."""
         converter = LeetCodeConverter()
         assert converter.snake_to_camel("simple") == "simple"
@@ -21,7 +21,7 @@ class TestLeetCodeConverter:
         assert converter.snake_to_camel("_private_method") == "_private_method"
         assert converter.snake_to_camel("__dunder__") == "__dunder__"
 
-    def test_convert_function_def(self):
+    def test_convert_function_def(self) -> None:
         """Test conversion of function definitions."""
         code = """
 class Solution:
@@ -36,7 +36,7 @@ class Solution:
         assert "def findMaxValue(" in result
         assert "def two_sum(" not in result
 
-    def test_convert_function_calls(self):
+    def test_convert_function_calls(self) -> None:
         """Test conversion of function calls within code."""
         code = """
 class Solution:
@@ -52,7 +52,7 @@ class Solution:
         assert "self.helperMethod(" in result
         assert "def helperMethod(" in result
 
-    def test_preserve_builtins(self):
+    def test_preserve_builtins(self) -> None:
         """Test that built-in functions are not converted."""
         code = """
 class Solution:
@@ -67,7 +67,7 @@ class Solution:
         assert "min(" in result
         assert "len(" in result
 
-    def test_extract_solution_class(self):
+    def test_extract_solution_class(self) -> None:
         """Test extraction of Solution class from code."""
         code = """
 # Some imports
@@ -90,7 +90,7 @@ class TestSolution:
         assert "class TestSolution:" not in result
         assert "import math" not in result
 
-    def test_extract_solution_class_not_found(self):
+    def test_extract_solution_class_not_found(self) -> None:
         """Test extraction when Solution class is not found."""
         code = """
 class MyClass:
@@ -100,7 +100,7 @@ class MyClass:
         result = extract_solution_class(code)
         assert result == code  # Should return original if no Solution class
 
-    def test_complex_conversion(self):
+    def test_complex_conversion(self) -> None:
         """Test conversion of complex code with multiple features."""
         code = """
 class Solution:
@@ -136,7 +136,7 @@ class Solution:
         assert "charMap = {}" in result
         assert "topElement = " in result
 
-    def test_regex_fallback_conversion(self):
+    def test_regex_fallback_conversion(self) -> None:
         """Test the regex fallback conversion method."""
         # Test a case that might not parse with AST
         code = "def my_test_function(): pass"

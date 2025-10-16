@@ -76,6 +76,7 @@ O(1)
 
 from typing import List, Optional, Dict, Tuple
 
+
 class Solution:
     def countBits(self, n: int) -> List[int]:
         """
@@ -98,16 +99,17 @@ class Solution:
         """
         # Initialize result array with 0s
         result = [0] * (n + 1)
-        
+
         # Iterate from 1 to n
         for i in range(1, n + 1):
             # A number's bit count can be calculated using its half value
             # plus checking if the number is odd (has a 1 in its least significant bit)
             result[i] = result[i >> 1] + (i & 1)
-        
+
         return result
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
@@ -115,7 +117,7 @@ def test_solution():
 
     # Test case 1: Example from problem
     result = solution.countBits(5)
-    expected = [0,1,1,2,1,2]
+    expected = [0, 1, 1, 2, 1, 2]
     assert result == expected, f"Expected {expected}, got {result}"
 
     # Test case 2: Base case n=0
@@ -125,10 +127,11 @@ def test_solution():
 
     # Test case 3: Small power of 2
     result = solution.countBits(2)
-    expected = [0,1,1]
+    expected = [0, 1, 1]
     assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

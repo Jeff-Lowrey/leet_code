@@ -63,6 +63,10 @@ For auxiliary data structures
 </details>
 """
 
+import time
+from typing import Any
+
+
 class Solution:
     def countSmaller(self, nums: list[int]) -> list[int]:
         """
@@ -84,7 +88,7 @@ class Solution:
         indexed_nums = [(nums[i], i) for i in range(len(nums))]
         result = [0] * len(nums)
 
-        def merge_sort(arr):
+        def merge_sort(arr: Any) -> Any:
             if len(arr) <= 1:
                 return arr
 
@@ -94,8 +98,8 @@ class Solution:
 
             return merge(left, right)
 
-        def merge(left, right):
-            merged = []
+        def merge(left: Any, right: Any) -> Any:
+            merged: list[Any] = []
             i = j = 0
 
             while i < len(left) and j < len(right):
@@ -143,16 +147,16 @@ class Solution:
         rank = {v: i + 1 for i, v in enumerate(sorted_unique)}  # 1-indexed
 
         class BinaryIndexedTree:
-            def __init__(self, n):
+            def __init__(self: Any, n: Any) -> None:
                 self.n = n
                 self.tree = [0] * (n + 1)
 
-            def update(self, i, delta):
+            def update(self: Any, i: Any, delta: Any) -> Any:
                 while i <= self.n:
                     self.tree[i] += delta
                     i += i & (-i)
 
-            def query(self, i):
+            def query(self: Any, i: Any) -> Any:
                 s = 0
                 while i > 0:
                     s += self.tree[i]
@@ -160,7 +164,7 @@ class Solution:
                 return s
 
         bit = BinaryIndexedTree(len(sorted_unique))
-        result = []
+        result: list[Any] = []
 
         # Process from right to left
         for i in range(len(nums) - 1, -1, -1):
@@ -192,11 +196,11 @@ class Solution:
         rank = {v: i for i, v in enumerate(sorted_unique)}
 
         class SegmentTree:
-            def __init__(self, n):
+            def __init__(self: Any, n: Any) -> None:
                 self.n = n
                 self.tree = [0] * (4 * n)
 
-            def update(self, node, start, end, idx):
+            def update(self: Any, node: Any, start: Any, end: Any, idx: Any) -> Any:
                 if start == end:
                     self.tree[node] += 1
                 else:
@@ -207,7 +211,7 @@ class Solution:
                         self.update(2 * node + 1, mid + 1, end, idx)
                     self.tree[node] = self.tree[2 * node] + self.tree[2 * node + 1]
 
-            def query(self, node, start, end, l, r):
+            def query(self: Any, node: Any, start: Any, end: Any, l: Any, r: Any) -> Any:
                 if r < start or end < l:
                     return 0
                 if l <= start and end <= r:
@@ -253,7 +257,8 @@ class Solution:
             result.append(count)
         return result
 
-def test_solution():
+
+def test_solution() -> None:
     """Test cases for Problem 315."""
     solution = Solution()
 
@@ -264,7 +269,7 @@ def test_solution():
 
     # Test case 2: Empty array
     result2 = solution.countSmaller([])
-    expected2 = []
+    expected2: list[Any] = []
     assert result2 == expected2, f"Expected {expected2}, got {result2}"
 
     # Test case 3: Single element
@@ -309,6 +314,7 @@ def test_solution():
 
     print("All test cases passed!")
 
+
 if __name__ == "__main__":
     test_solution()
 
@@ -344,8 +350,6 @@ if __name__ == "__main__":
     print("\nPerformance comparison on larger input:")
     large_input = list(range(100, 0, -1))  # Decreasing sequence
     print(f"Input size: {len(large_input)} (decreasing sequence)")
-
-    import time
 
     # Time merge sort approach
     start = time.time()

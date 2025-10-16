@@ -1,5 +1,5 @@
 """
-# Difficulty: 
+# Difficulty:
 
 # 079. Word Search
 **Backtracking + DFS**
@@ -68,6 +68,7 @@ O(L) for recursion stack
 
 </details>
 """
+
 
 class Solution:
     def exist(self, board: list[list[str]], word: str) -> bool:
@@ -141,7 +142,8 @@ class Solution:
     # Alias for consistent interface
     solve = exist
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for 079. Word Search.
     """
@@ -198,6 +200,7 @@ def test_solution():
     print("Test case 10 passed: Adjacent duplicates")
 
     print("\nAll test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

@@ -76,6 +76,10 @@ DP array of size amount + 1
 </details>
 """
 
+from collections import deque
+from typing import Any
+
+
 class Solution:
     def coinChange(self, coins: list[int], amount: int) -> int:
         """
@@ -84,7 +88,7 @@ class Solution:
         Space Complexity: O(amount)
         """
         # Initialize DP array
-        dp = [float('inf')] * (amount + 1)
+        dp = [float("inf")] * (amount + 1)
         dp[0] = 0
 
         # For each amount from 1 to target
@@ -94,7 +98,7 @@ class Solution:
                 if coin <= i:
                     dp[i] = min(dp[i], dp[i - coin] + 1)
 
-        return dp[amount] if dp[amount] != float('inf') else -1
+        return int(dp[amount]) if dp[amount] != float("inf") else -1
 
     def coinChangeTopDown(self, coins: list[int], amount: int) -> int:
         """
@@ -102,31 +106,31 @@ class Solution:
         Time Complexity: O(amount * len(coins))
         Space Complexity: O(amount)
         """
-        memo = {}
+        memo: dict[Any, Any] = {}
 
-        def dp(n):
+        def dp(n: Any) -> Any:
             # Base cases
             if n == 0:
                 return 0
             if n < 0:
-                return float('inf')
+                return float("inf")
 
             # Check memo
             if n in memo:
                 return memo[n]
 
             # Try each coin
-            min_coins = float('inf')
+            min_coins = float("inf")
             for coin in coins:
                 result = dp(n - coin)
-                if result != float('inf'):
+                if result != float("inf"):
                     min_coins = min(min_coins, result + 1)
 
             memo[n] = min_coins
             return min_coins
 
         result = dp(amount)
-        return result if result != float('inf') else -1
+        return result if result != float("inf") else -1
 
     def coinChangeBFS(self, coins: list[int], amount: int) -> int:
         """
@@ -137,7 +141,6 @@ class Solution:
         if amount == 0:
             return 0
 
-        from collections import deque
         queue = deque([0])
         visited = {0}
         level = 0
@@ -160,6 +163,7 @@ class Solution:
                         queue.append(next_amount)
 
         return -1
+
 
 # Test cases
 if __name__ == "__main__":

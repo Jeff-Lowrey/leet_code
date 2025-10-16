@@ -75,6 +75,9 @@ O(n)
 </details>
 """
 
+
+from typing import Any
+
 class Solution:
     def containsDuplicate(self, nums: list[int]) -> bool:
         """
@@ -90,7 +93,7 @@ class Solution:
         Time Complexity: O(n)
         Space Complexity: O(n)
         """
-        seen = set()
+        seen: set[Any] = set()
 
         for num in nums:
             if num in seen:
@@ -98,6 +101,7 @@ class Solution:
             seen.add(num)
 
         return False
+
 
 # Test cases
 if __name__ == "__main__":

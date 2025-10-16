@@ -73,6 +73,7 @@ O(1)
 </details>
 """
 
+
 class Solution:
     def canJump(self, nums: list[int]) -> bool:
         """
@@ -129,6 +130,7 @@ class Solution:
 
         return dp[n - 1]
 
+
 """
 45. Jump Game II
 # Difficulty: Medium
@@ -145,6 +147,7 @@ Example:
 Input: nums = [2,3,1,1,4]
 Output: 2
 """
+
 
 class SolutionJumpII:
     def jump(self, nums: list[int]) -> int:
@@ -203,6 +206,7 @@ class SolutionJumpII:
 
         return level
 
+
 """
 134. Gas Station
 # Difficulty: Medium
@@ -219,6 +223,7 @@ Example:
 Input: gas = [1,2,3,4,5], cost = [3,4,5,1,2]
 Output: 3
 """
+
 
 class SolutionGasStation:
     def canCompleteCircuit(self, gas: list[int], cost: list[int]) -> int:
@@ -269,54 +274,41 @@ class SolutionGasStation:
 
         return -1
 
+
 # Test cases
 if __name__ == "__main__":
     # Test Jump Game
     solution_jump = Solution()
 
     print("Jump Game:")
-    test_cases_jump = [
-        [2, 3, 1, 1, 4],
-        [3, 2, 1, 0, 4],
-        [0],
-        [2, 0, 0]
-    ]
+    test_cases_jump = [[2, 3, 1, 1, 4], [3, 2, 1, 0, 4], [0], [2, 0, 0]]
 
     for nums in test_cases_jump:
         result = solution_jump.canJump(nums)
         print(f"Input: {nums} -> Can Jump: {result}")
 
-    print("\n" + "="*50 + "\n")
+    print("\n" + "=" * 50 + "\n")
 
     # Test Jump Game II
     solution_jump2 = SolutionJumpII()
 
     print("Jump Game II:")
-    test_cases_jump2 = [
-        [2, 3, 1, 1, 4],
-        [2, 3, 0, 1, 4],
-        [1, 1, 1, 1],
-        [1]
-    ]
+    test_cases_jump2 = [[2, 3, 1, 1, 4], [2, 3, 0, 1, 4], [1, 1, 1, 1], [1]]
 
     for nums in test_cases_jump2:
-        result = solution_jump2.jump(nums)
-        print(f"Input: {nums} -> Min Jumps: {result}")
+        jumps: int = solution_jump2.jump(nums)
+        print(f"Input: {nums} -> Min Jumps: {jumps}")
 
-    print("\n" + "="*50 + "\n")
+    print("\n" + "=" * 50 + "\n")
 
     # Test Gas Station
     solution_gas = SolutionGasStation()
 
     print("Gas Station:")
-    test_cases_gas = [
-        ([1, 2, 3, 4, 5], [3, 4, 5, 1, 2]),
-        ([2, 3, 4], [3, 4, 3]),
-        ([5, 1, 2, 3, 4], [4, 4, 1, 5, 1])
-    ]
+    test_cases_gas = [([1, 2, 3, 4, 5], [3, 4, 5, 1, 2]), ([2, 3, 4], [3, 4, 3]), ([5, 1, 2, 3, 4], [4, 4, 1, 5, 1])]
 
     for gas, cost in test_cases_gas:
-        result = solution_gas.canCompleteCircuit(gas, cost)
+        start_station: int = solution_gas.canCompleteCircuit(gas, cost)
         print(f"Gas: {gas}")
         print(f"Cost: {cost}")
-        print(f"Start Station: {result}\n")
+        print(f"Start Station: {start_station}\n")

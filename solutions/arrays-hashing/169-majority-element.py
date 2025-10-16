@@ -68,6 +68,10 @@ Only using constant extra space
 </details>
 """
 
+from collections import Counter
+import random
+
+
 class Solution:
     def majorityElement(self, nums: list[int]) -> int:
         """
@@ -95,6 +99,8 @@ class Solution:
             else:
                 count -= 1
 
+        # Problem guarantees nums is non-empty with a majority element
+        assert candidate is not None
         return candidate
 
     def majorityElementHashMap(self, nums: list[int]) -> int:
@@ -110,14 +116,15 @@ class Solution:
         Time Complexity: O(n)
         Space Complexity: O(n) for hash map
         """
-        from collections import Counter
-
         counts = Counter(nums)
         majority_count = len(nums) // 2
 
         for num, count in counts.items():
             if count > majority_count:
                 return num
+
+        # Problem guarantees a majority element exists
+        raise ValueError("No majority element found")
 
     def majorityElementSorting(self, nums: list[int]) -> int:
         """
@@ -149,8 +156,6 @@ class Solution:
         Time Complexity: Expected O(n)
         Space Complexity: O(1)
         """
-        import random
-
         while True:
             # Pick a random element
             candidate = random.choice(nums)
@@ -162,7 +167,8 @@ class Solution:
             if count > len(nums) // 2:
                 return candidate
 
-def test_solution():
+
+def test_solution() -> None:
     """Test cases for Problem 169."""
     solution = Solution()
 
@@ -210,12 +216,13 @@ def test_solution():
 
     print("All test cases passed!")
 
+
 if __name__ == "__main__":
     test_solution()
 
     # Example usage
     solution = Solution()
     print("=== 169. Majority Element ===")
-    print(f"majorityElement([3,2,3]) -> {solution.majorityElement([3,2,3])}")
-    print(f"majorityElement([2,2,1,1,1,2,2]) -> {solution.majorityElement([2,2,1,1,1,2,2])}")
+    print(f"majorityElement([3,2,3]) -> {solution.majorityElement([3, 2, 3])}")
+    print(f"majorityElement([2,2,1,1,1,2,2]) -> {solution.majorityElement([2, 2, 1, 1, 1, 2, 2])}")
     print(f"majorityElement([1]) -> {solution.majorityElement([1])}")

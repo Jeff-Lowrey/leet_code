@@ -87,6 +87,7 @@ O(1)
 </details>
 """
 
+
 class Solution:
     def lengthOfLastWord(self, s: str) -> int:
         """
@@ -191,7 +192,8 @@ class Solution:
         """
         return len(s.rstrip().split()[-1]) if s.strip() else 0
 
-def test_solution():
+
+def test_solution() -> None:
     """Test cases for Problem 58."""
     solution = Solution()
 
@@ -246,6 +248,7 @@ def test_solution():
     assert result10 == expected10, f"Expected {expected10}, got {result10}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

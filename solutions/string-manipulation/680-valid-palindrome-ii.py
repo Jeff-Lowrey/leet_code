@@ -67,6 +67,7 @@ Only using constant extra space for pointers
 </details>
 """
 
+
 class Solution:
     def validPalindrome(self, s: str) -> bool:
         """
@@ -202,7 +203,8 @@ class Solution:
 
         return False
 
-def test_solution():
+
+def test_solution() -> None:
     """Test cases for Problem 680."""
     solution = Solution()
 
@@ -262,6 +264,7 @@ def test_solution():
     assert result11 == expected11, f"Expected {expected11}, got {result11}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

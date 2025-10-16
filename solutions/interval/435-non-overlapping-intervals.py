@@ -69,6 +69,7 @@ O(1)
 
 from typing import List, Optional, Dict, Tuple
 
+
 class Solution:
     def eraseOverlapIntervals(self, intervals: List[List[int]]) -> int:
         """
@@ -106,24 +107,25 @@ class Solution:
         # (total intervals - non-overlapping intervals)
         return len(intervals) - non_overlapping
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
     solution = Solution()
 
     # Test case 1: Example from problem
-    result = solution.eraseOverlapIntervals([[1,2],[2,3],[3,4],[1,3]])
+    result = solution.eraseOverlapIntervals([[1, 2], [2, 3], [3, 4], [1, 3]])
     expected = 1
     assert result == expected, f"Expected {expected}, got {result}"
 
     # Test case 2: All overlapping
-    result = solution.eraseOverlapIntervals([[1,2],[1,2],[1,2]])
+    result = solution.eraseOverlapIntervals([[1, 2], [1, 2], [1, 2]])
     expected = 2
     assert result == expected, f"Expected {expected}, got {result}"
 
     # Test case 3: No overlaps
-    result = solution.eraseOverlapIntervals([[1,2],[2,3]])
+    result = solution.eraseOverlapIntervals([[1, 2], [2, 3]])
     expected = 0
     assert result == expected, f"Expected {expected}, got {result}"
 
@@ -133,11 +135,12 @@ def test_solution():
     assert result == expected, f"Expected {expected}, got {result}"
 
     # Test case 5: Single interval
-    result = solution.eraseOverlapIntervals([[1,2]])
+    result = solution.eraseOverlapIntervals([[1, 2]])
     expected = 0
     assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

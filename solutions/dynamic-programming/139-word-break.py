@@ -73,18 +73,19 @@ O(1)
 
 from typing import List, Optional, Dict, Tuple
 
+
 class Solution:
     def wordBreak(self, s: str, wordDict: List[str]) -> bool:
         """
         Determines if the input string can be segmented into words from the dictionary.
-        
+
         Args:
             s: Input string to be segmented
             wordDict: List of dictionary words
-            
+
         Returns:
             bool: True if the string can be segmented, False otherwise
-            
+
         Example:
             >>> sol = Solution()
             >>> sol.wordBreak("leetcode", ["leet", "code"])
@@ -96,13 +97,13 @@ class Solution:
         """
         # Convert wordDict to set for O(1) lookup
         word_set = set(wordDict)
-        
+
         # dp[i] represents whether s[:i] can be segmented into words from the dictionary
         dp = [False] * (len(s) + 1)
-        
+
         # Empty string is always valid
         dp[0] = True
-        
+
         # For each position in the string
         for i in range(1, len(s) + 1):
             # Check all possible substrings ending at position i
@@ -111,58 +112,59 @@ class Solution:
                 if dp[j] and s[j:i] in word_set:
                     dp[i] = True
                     break
-        
+
         return dp[len(s)]
 
     def wordBreak_optimized(self, s: str, wordDict: List[str]) -> bool:
         """
         Optimized version of wordBreak with additional pruning.
-        
+
         This version includes length-based optimization to avoid unnecessary checks.
-        
+
         Args:
             s: Input string to be segmented
             wordDict: List of dictionary words
-            
+
         Returns:
             bool: True if the string can be segmented, False otherwise
         """
         word_set = set(wordDict)
-        
+
         # Find min and max word lengths for optimization
         min_len = min(len(w) for w in word_set)
         max_len = max(len(w) for w in word_set)
-        
+
         dp = [False] * (len(s) + 1)
         dp[0] = True
-        
+
         for i in range(1, len(s) + 1):
             # Only check substrings with lengths between min_len and max_len
             for l in range(min_len, min(max_len + 1, i + 1)):
-                if dp[i - l] and s[i - l:i] in word_set:
+                if dp[i - l] and s[i - l : i] in word_set:
                     dp[i] = True
                     break
-        
+
         return dp[len(s)]
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
     solution = Solution()
 
     # Test case 1: Example from problem (can be segmented)
-    result = solution.wordBreak("leetcode", ["leet","code"])
+    result = solution.wordBreak("leetcode", ["leet", "code"])
     expected = True
     assert result == expected, f"Expected {expected}, got {result}"
 
     # Test case 2: Cannot be segmented
-    result = solution.wordBreak("catsandog", ["cats","dog","sand","and","cat"])
+    result = solution.wordBreak("catsandog", ["cats", "dog", "sand", "and", "cat"])
     expected = False
     assert result == expected, f"Expected {expected}, got {result}"
 
     # Test case 3: Can use word multiple times
-    result = solution.wordBreak("applepenapple", ["apple","pen"])
+    result = solution.wordBreak("applepenapple", ["apple", "pen"])
     expected = True
     assert result == expected, f"Expected {expected}, got {result}"
 
@@ -172,11 +174,12 @@ def test_solution():
     assert result == expected, f"Expected {expected}, got {result}"
 
     # Test case 5: Optimized version
-    result = solution.wordBreak_optimized("leetcode", ["leet","code"])
+    result = solution.wordBreak_optimized("leetcode", ["leet", "code"])
     expected = True
     assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

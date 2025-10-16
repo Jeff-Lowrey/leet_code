@@ -72,6 +72,20 @@ O(w)
 </details>
 """
 
+from collections import deque
+from typing import Any
+
+
+
+
+class Node:
+    """N-ary tree node or graph node."""
+    def __init__(self, val: Any = None, children: Any = None) -> None:
+        self.val = val
+        self.children = children if children is not None else []
+        self.next = None  # For linked list-like structures
+
+
 class Solution:
     def levelOrder(self, root: Node | None) -> list[list[int]]:
         """
@@ -89,12 +103,12 @@ class Solution:
         if not root:
             return []
 
-        result = []
+        result: list[Any] = []
         queue = deque([root])
 
         while queue:
             level_size = len(queue)
-            level_values = []
+            level_values: list[Any] = []
 
             # Process all nodes at current level
             for _ in range(level_size):
@@ -109,7 +123,8 @@ class Solution:
 
         return result
 
-def test_solution():
+
+def test_solution() -> None:
     """Test cases for Problem 429."""
     solution = Solution()
 
@@ -185,6 +200,7 @@ def test_solution():
     print("Test case 6 passed: Complex multi-level tree")
 
     print("\nAll test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

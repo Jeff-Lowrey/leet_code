@@ -87,6 +87,9 @@ O(m × n)
 </details>
 """
 
+
+from typing import Any
+
 class Solution:
     def shiftGrid(self, grid: list[list[int]], k: int) -> list[list[int]]:
         """
@@ -147,7 +150,7 @@ class Solution:
         k = k % total
 
         # Flatten grid to 1D array
-        flat = []
+        flat: list[Any] = []
         for row in grid:
             flat.extend(row)
 
@@ -156,7 +159,7 @@ class Solution:
         rotated = flat[-k:] + flat[:-k] if k > 0 else flat
 
         # Reshape back to 2D
-        result = []
+        result: list[Any] = []
         for i in range(m):
             result.append(rotated[i * n : (i + 1) * n])
 
@@ -189,7 +192,8 @@ class Solution:
 
         return result
 
-def test_solution():
+
+def test_solution() -> None:
     """Test cases for Problem 1260."""
     solution = Solution()
 
@@ -241,6 +245,7 @@ def test_solution():
     assert solution.shiftGridFlatten(grid8, 1) == expected8, "Flatten method failed"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

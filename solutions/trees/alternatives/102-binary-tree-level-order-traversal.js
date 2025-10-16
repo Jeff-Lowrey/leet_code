@@ -71,11 +71,11 @@
  * Definition for a binary tree node
  */
 class TreeNode {
-    constructor(val, left, right) {
-        this.val = (val === undefined ? 0 : val);
-        this.left = (left === undefined ? null : left);
-        this.right = (right === undefined ? null : right);
-    }
+  constructor(val, left, right) {
+    this.val = val === undefined ? 0 : val;
+    this.left = left === undefined ? null : left;
+    this.right = right === undefined ? null : right;
+  }
 }
 
 /**
@@ -84,7 +84,7 @@ class TreeNode {
  * @returns {number[][]} List of lists, each containing values at that level
  */
 function solve(root) {
-    return levelOrder(root);
+  return levelOrder(root);
 }
 
 /**
@@ -96,35 +96,35 @@ function solve(root) {
  * Space Complexity: O(w) where w is maximum width of tree
  */
 function levelOrder(root) {
-    if (!root) {
-        return [];
+  if (!root) {
+    return [];
+  }
+
+  const result = [];
+  const queue = [root];
+
+  while (queue.length > 0) {
+    const levelSize = queue.length;
+    const currentLevel = [];
+
+    // Process all nodes at current level
+    for (let i = 0; i < levelSize; i++) {
+      const node = queue.shift();
+      currentLevel.push(node.val);
+
+      // Add children for next level
+      if (node.left) {
+        queue.push(node.left);
+      }
+      if (node.right) {
+        queue.push(node.right);
+      }
     }
 
-    const result = [];
-    const queue = [root];
+    result.push(currentLevel);
+  }
 
-    while (queue.length > 0) {
-        const levelSize = queue.length;
-        const currentLevel = [];
-
-        // Process all nodes at current level
-        for (let i = 0; i < levelSize; i++) {
-            const node = queue.shift();
-            currentLevel.push(node.val);
-
-            // Add children for next level
-            if (node.left) {
-                queue.push(node.left);
-            }
-            if (node.right) {
-                queue.push(node.right);
-            }
-        }
-
-        result.push(currentLevel);
-    }
-
-    return result;
+  return result;
 }
 
 /**
@@ -133,28 +133,28 @@ function levelOrder(root) {
  * @returns {number[][]} List of lists, each containing values at that level
  */
 function levelOrderRecursive(root) {
-    const result = [];
+  const result = [];
 
-    function dfs(node, level) {
-        if (!node) {
-            return;
-        }
-
-        // Ensure result has enough levels
-        if (level >= result.length) {
-            result.push([]);
-        }
-
-        // Add current node to its level
-        result[level].push(node.val);
-
-        // Recurse on children
-        dfs(node.left, level + 1);
-        dfs(node.right, level + 1);
+  function dfs(node, level) {
+    if (!node) {
+      return;
     }
 
-    dfs(root, 0);
-    return result;
+    // Ensure result has enough levels
+    if (level >= result.length) {
+      result.push([]);
+    }
+
+    // Add current node to its level
+    result[level].push(node.val);
+
+    // Recurse on children
+    dfs(node.left, level + 1);
+    dfs(node.right, level + 1);
+  }
+
+  dfs(root, 0);
+  return result;
 }
 
 /**
@@ -163,34 +163,34 @@ function levelOrderRecursive(root) {
  * @returns {number[][]} List of lists, each containing values at that level
  */
 function levelOrderIterative(root) {
-    if (!root) {
-        return [];
+  if (!root) {
+    return [];
+  }
+
+  const result = [];
+  const queue = [[root, 0]]; // [node, level]
+
+  while (queue.length > 0) {
+    const [node, level] = queue.shift();
+
+    // Ensure result has enough levels
+    if (level >= result.length) {
+      result.push([]);
     }
 
-    const result = [];
-    const queue = [[root, 0]]; // [node, level]
+    // Add current node to its level
+    result[level].push(node.val);
 
-    while (queue.length > 0) {
-        const [node, level] = queue.shift();
-
-        // Ensure result has enough levels
-        if (level >= result.length) {
-            result.push([]);
-        }
-
-        // Add current node to its level
-        result[level].push(node.val);
-
-        // Add children with incremented level
-        if (node.left) {
-            queue.push([node.left, level + 1]);
-        }
-        if (node.right) {
-            queue.push([node.right, level + 1]);
-        }
+    // Add children with incremented level
+    if (node.left) {
+      queue.push([node.left, level + 1]);
     }
+    if (node.right) {
+      queue.push([node.right, level + 1]);
+    }
+  }
 
-    return result;
+  return result;
 }
 
 /**
@@ -199,34 +199,34 @@ function levelOrderIterative(root) {
  * @returns {number[][]} List of lists from bottom level to top level
  */
 function levelOrderBottomUp(root) {
-    if (!root) {
-        return [];
+  if (!root) {
+    return [];
+  }
+
+  const result = [];
+  const queue = [root];
+
+  while (queue.length > 0) {
+    const levelSize = queue.length;
+    const currentLevel = [];
+
+    for (let i = 0; i < levelSize; i++) {
+      const node = queue.shift();
+      currentLevel.push(node.val);
+
+      if (node.left) {
+        queue.push(node.left);
+      }
+      if (node.right) {
+        queue.push(node.right);
+      }
     }
 
-    const result = [];
-    const queue = [root];
+    result.push(currentLevel);
+  }
 
-    while (queue.length > 0) {
-        const levelSize = queue.length;
-        const currentLevel = [];
-
-        for (let i = 0; i < levelSize; i++) {
-            const node = queue.shift();
-            currentLevel.push(node.val);
-
-            if (node.left) {
-                queue.push(node.left);
-            }
-            if (node.right) {
-                queue.push(node.right);
-            }
-        }
-
-        result.push(currentLevel);
-    }
-
-    // Reverse for bottom-up order
-    return result.reverse();
+  // Reverse for bottom-up order
+  return result.reverse();
 }
 
 /**
@@ -235,176 +235,198 @@ function levelOrderBottomUp(root) {
  * @returns {TreeNode} Root of constructed tree
  */
 function buildTreeFromArray(values) {
-    if (!values || values.length === 0) {
-        return null;
+  if (!values || values.length === 0) {
+    return null;
+  }
+
+  const root = new TreeNode(values[0]);
+  const queue = [root];
+  let i = 1;
+
+  while (queue.length > 0 && i < values.length) {
+    const node = queue.shift();
+
+    if (i < values.length && values[i] !== null) {
+      node.left = new TreeNode(values[i]);
+      queue.push(node.left);
     }
+    i++;
 
-    const root = new TreeNode(values[0]);
-    const queue = [root];
-    let i = 1;
-
-    while (queue.length > 0 && i < values.length) {
-        const node = queue.shift();
-
-        if (i < values.length && values[i] !== null) {
-            node.left = new TreeNode(values[i]);
-            queue.push(node.left);
-        }
-        i++;
-
-        if (i < values.length && values[i] !== null) {
-            node.right = new TreeNode(values[i]);
-            queue.push(node.right);
-        }
-        i++;
+    if (i < values.length && values[i] !== null) {
+      node.right = new TreeNode(values[i]);
+      queue.push(node.right);
     }
+    i++;
+  }
 
-    return root;
+  return root;
 }
 
 /**
  * Test cases for Problem 102: Binary Tree Level Order Traversal
  */
 function testSolution() {
-    console.log('Testing 102. Binary Tree Level Order Traversal');
+  console.log("Testing 102. Binary Tree Level Order Traversal");
 
-    // Test case 1: Normal binary tree
-    const tree1 = buildTreeFromArray([3, 9, 20, null, null, 15, 7]);
-    const result1 = levelOrder(tree1);
-    const expected1 = [[3], [9, 20], [15, 7]];
-    console.assert(JSON.stringify(result1) === JSON.stringify(expected1),
-        `Test 1 failed: expected ${JSON.stringify(expected1)}, got ${JSON.stringify(result1)}`);
+  // Test case 1: Normal binary tree
+  const tree1 = buildTreeFromArray([3, 9, 20, null, null, 15, 7]);
+  const result1 = levelOrder(tree1);
+  const expected1 = [[3], [9, 20], [15, 7]];
+  console.assert(
+    JSON.stringify(result1) === JSON.stringify(expected1),
+    `Test 1 failed: expected ${JSON.stringify(expected1)}, got ${JSON.stringify(result1)}`,
+  );
 
-    // Test case 2: Single node
-    const tree2 = new TreeNode(1);
-    const result2 = levelOrder(tree2);
-    const expected2 = [[1]];
-    console.assert(JSON.stringify(result2) === JSON.stringify(expected2),
-        `Test 2 failed: expected ${JSON.stringify(expected2)}, got ${JSON.stringify(result2)}`);
+  // Test case 2: Single node
+  const tree2 = new TreeNode(1);
+  const result2 = levelOrder(tree2);
+  const expected2 = [[1]];
+  console.assert(
+    JSON.stringify(result2) === JSON.stringify(expected2),
+    `Test 2 failed: expected ${JSON.stringify(expected2)}, got ${JSON.stringify(result2)}`,
+  );
 
-    // Test case 3: Empty tree
-    const tree3 = null;
-    const result3 = levelOrder(tree3);
-    const expected3 = [];
-    console.assert(JSON.stringify(result3) === JSON.stringify(expected3),
-        `Test 3 failed: expected ${JSON.stringify(expected3)}, got ${JSON.stringify(result3)}`);
+  // Test case 3: Empty tree
+  const tree3 = null;
+  const result3 = levelOrder(tree3);
+  const expected3 = [];
+  console.assert(
+    JSON.stringify(result3) === JSON.stringify(expected3),
+    `Test 3 failed: expected ${JSON.stringify(expected3)}, got ${JSON.stringify(result3)}`,
+  );
 
-    // Test case 4: Linear tree (left skewed)
-    const tree4 = buildTreeFromArray([1, 2, null, 3, null, 4]);
-    const result4 = levelOrder(tree4);
-    const expected4 = [[1], [2], [3], [4]];
-    console.assert(JSON.stringify(result4) === JSON.stringify(expected4),
-        `Test 4 failed: expected ${JSON.stringify(expected4)}, got ${JSON.stringify(result4)}`);
+  // Test case 4: Linear tree (left skewed)
+  const tree4 = buildTreeFromArray([1, 2, null, 3, null, 4]);
+  const result4 = levelOrder(tree4);
+  const expected4 = [[1], [2], [3], [4]];
+  console.assert(
+    JSON.stringify(result4) === JSON.stringify(expected4),
+    `Test 4 failed: expected ${JSON.stringify(expected4)}, got ${JSON.stringify(result4)}`,
+  );
 
-    // Test case 5: Linear tree (right skewed)
-    const tree5 = buildTreeFromArray([1, null, 2, null, 3, null, 4]);
-    const result5 = levelOrder(tree5);
-    const expected5 = [[1], [2], [3], [4]];
-    console.assert(JSON.stringify(result5) === JSON.stringify(expected5),
-        `Test 5 failed: expected ${JSON.stringify(expected5)}, got ${JSON.stringify(result5)}`);
+  // Test case 5: Linear tree (right skewed)
+  const tree5 = buildTreeFromArray([1, null, 2, null, 3, null, 4]);
+  const result5 = levelOrder(tree5);
+  const expected5 = [[1], [2], [3], [4]];
+  console.assert(
+    JSON.stringify(result5) === JSON.stringify(expected5),
+    `Test 5 failed: expected ${JSON.stringify(expected5)}, got ${JSON.stringify(result5)}`,
+  );
 
-    // Test case 6: Perfect binary tree
-    const tree6 = buildTreeFromArray([1, 2, 3, 4, 5, 6, 7]);
-    const result6 = levelOrder(tree6);
-    const expected6 = [[1], [2, 3], [4, 5, 6, 7]];
-    console.assert(JSON.stringify(result6) === JSON.stringify(expected6),
-        `Test 6 failed: expected ${JSON.stringify(expected6)}, got ${JSON.stringify(result6)}`);
+  // Test case 6: Perfect binary tree
+  const tree6 = buildTreeFromArray([1, 2, 3, 4, 5, 6, 7]);
+  const result6 = levelOrder(tree6);
+  const expected6 = [[1], [2, 3], [4, 5, 6, 7]];
+  console.assert(
+    JSON.stringify(result6) === JSON.stringify(expected6),
+    `Test 6 failed: expected ${JSON.stringify(expected6)}, got ${JSON.stringify(result6)}`,
+  );
 
-    // Test alternative implementations
-    const result7 = levelOrderRecursive(tree1);
-    console.assert(JSON.stringify(result7) === JSON.stringify(expected1),
-        `Recursive test failed: expected ${JSON.stringify(expected1)}, got ${JSON.stringify(result7)}`);
+  // Test alternative implementations
+  const result7 = levelOrderRecursive(tree1);
+  console.assert(
+    JSON.stringify(result7) === JSON.stringify(expected1),
+    `Recursive test failed: expected ${JSON.stringify(expected1)}, got ${JSON.stringify(result7)}`,
+  );
 
-    const result8 = levelOrderIterative(tree1);
-    console.assert(JSON.stringify(result8) === JSON.stringify(expected1),
-        `Iterative test failed: expected ${JSON.stringify(expected1)}, got ${JSON.stringify(result8)}`);
+  const result8 = levelOrderIterative(tree1);
+  console.assert(
+    JSON.stringify(result8) === JSON.stringify(expected1),
+    `Iterative test failed: expected ${JSON.stringify(expected1)}, got ${JSON.stringify(result8)}`,
+  );
 
-    const result9 = levelOrderBottomUp(tree1);
-    const expected9 = [[15, 7], [9, 20], [3]];
-    console.assert(JSON.stringify(result9) === JSON.stringify(expected9),
-        `Bottom-up test failed: expected ${JSON.stringify(expected9)}, got ${JSON.stringify(result9)}`);
+  const result9 = levelOrderBottomUp(tree1);
+  const expected9 = [[15, 7], [9, 20], [3]];
+  console.assert(
+    JSON.stringify(result9) === JSON.stringify(expected9),
+    `Bottom-up test failed: expected ${JSON.stringify(expected9)}, got ${JSON.stringify(result9)}`,
+  );
 
-    console.log('All test cases passed for 102. Binary Tree Level Order Traversal!');
+  console.log(
+    "All test cases passed for 102. Binary Tree Level Order Traversal!",
+  );
 }
 
 /**
  * Example usage and demonstration
  */
 function demonstrateSolution() {
-    console.log('\n=== Problem 102. Binary Tree Level Order Traversal ===');
-    console.log('Category: Trees');
-    console.log('Difficulty: Medium');
-    console.log('');
+  console.log("\n=== Problem 102. Binary Tree Level Order Traversal ===");
+  console.log("Category: Trees");
+  console.log("Difficulty: Medium");
+  console.log("");
 
-    // Example 1: Normal tree
-    const tree1 = buildTreeFromArray([3, 9, 20, null, null, 15, 7]);
-    const result1 = levelOrder(tree1);
-    console.log(`levelOrder([3,9,20,null,null,15,7]) -> ${JSON.stringify(result1)}`);
-    console.log('Tree structure:');
-    console.log('       3');
-    console.log('      / \\');
-    console.log('     9  20');
-    console.log('       /  \\');
-    console.log('      15   7');
-    console.log('Processing:');
-    console.log('Level 0: [3]');
-    console.log('Level 1: [9, 20]');
-    console.log('Level 2: [15, 7]');
+  // Example 1: Normal tree
+  const tree1 = buildTreeFromArray([3, 9, 20, null, null, 15, 7]);
+  const result1 = levelOrder(tree1);
+  console.log(
+    `levelOrder([3,9,20,null,null,15,7]) -> ${JSON.stringify(result1)}`,
+  );
+  console.log("Tree structure:");
+  console.log("       3");
+  console.log("      / \\");
+  console.log("     9  20");
+  console.log("       /  \\");
+  console.log("      15   7");
+  console.log("Processing:");
+  console.log("Level 0: [3]");
+  console.log("Level 1: [9, 20]");
+  console.log("Level 2: [15, 7]");
 
-    // Example 2: Single node
-    const tree2 = new TreeNode(1);
-    const result2 = levelOrder(tree2);
-    console.log(`\nlevelOrder([1]) -> ${JSON.stringify(result2)}`);
+  // Example 2: Single node
+  const tree2 = new TreeNode(1);
+  const result2 = levelOrder(tree2);
+  console.log(`\nlevelOrder([1]) -> ${JSON.stringify(result2)}`);
 
-    // Example 3: Perfect binary tree
-    const tree3 = buildTreeFromArray([1, 2, 3, 4, 5, 6, 7]);
-    const result3 = levelOrder(tree3);
-    console.log(`\nlevelOrder([1,2,3,4,5,6,7]) -> ${JSON.stringify(result3)}`);
+  // Example 3: Perfect binary tree
+  const tree3 = buildTreeFromArray([1, 2, 3, 4, 5, 6, 7]);
+  const result3 = levelOrder(tree3);
+  console.log(`\nlevelOrder([1,2,3,4,5,6,7]) -> ${JSON.stringify(result3)}`);
 
-    // Example 4: Algorithm comparison
-    console.log(`\nAlgorithm comparison:`);
-    const approaches = [
-        ['BFS with queue', levelOrder],
-        ['Recursive DFS', levelOrderRecursive],
-        ['Iterative with levels', levelOrderIterative],
-        ['Bottom-up BFS', levelOrderBottomUp]
-    ];
+  // Example 4: Algorithm comparison
+  console.log(`\nAlgorithm comparison:`);
+  const approaches = [
+    ["BFS with queue", levelOrder],
+    ["Recursive DFS", levelOrderRecursive],
+    ["Iterative with levels", levelOrderIterative],
+    ["Bottom-up BFS", levelOrderBottomUp],
+  ];
 
-    for (const [name, method] of approaches) {
-        const result = method(tree1);
-        if (name === 'Bottom-up BFS') {
-            console.log(`${name}: ${JSON.stringify(result)} (reversed order)`);
-        } else {
-            console.log(`${name}: ${JSON.stringify(result)}`);
-        }
+  for (const [name, method] of approaches) {
+    const result = method(tree1);
+    if (name === "Bottom-up BFS") {
+      console.log(`${name}: ${JSON.stringify(result)} (reversed order)`);
+    } else {
+      console.log(`${name}: ${JSON.stringify(result)}`);
     }
+  }
 
-    console.log(`\nKey insights:`);
-    console.log(`1. BFS with queue naturally processes level by level`);
-    console.log(`2. Level size tracking separates levels in the result`);
-    console.log(`3. Children added left-to-right maintain correct order`);
-    console.log(`4. Recursive DFS can achieve same result with level parameter`);
-    console.log(`5. Time: O(n), Space: O(w) where w is maximum tree width`);
+  console.log(`\nKey insights:`);
+  console.log(`1. BFS with queue naturally processes level by level`);
+  console.log(`2. Level size tracking separates levels in the result`);
+  console.log(`3. Children added left-to-right maintain correct order`);
+  console.log(`4. Recursive DFS can achieve same result with level parameter`);
+  console.log(`5. Time: O(n), Space: O(w) where w is maximum tree width`);
 
-    testSolution();
+  testSolution();
 }
 
 // Run tests if this file is executed directly
 if (require.main === module) {
-    demonstrateSolution();
+  demonstrateSolution();
 }
 
 // Export for use in other modules
 module.exports = {
-    solve,
-    levelOrder,
-    levelOrderRecursive,
-    levelOrderIterative,
-    levelOrderBottomUp,
-    TreeNode,
-    buildTreeFromArray,
-    testSolution,
-    demonstrateSolution
+  solve,
+  levelOrder,
+  levelOrderRecursive,
+  levelOrderIterative,
+  levelOrderBottomUp,
+  TreeNode,
+  buildTreeFromArray,
+  testSolution,
+  demonstrateSolution,
 };
 
 /**

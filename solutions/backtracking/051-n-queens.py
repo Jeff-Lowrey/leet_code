@@ -98,6 +98,9 @@ O(N)
 </details>
 """
 
+
+from typing import Any
+
 class Solution:
     def solveNQueens(self, n: int) -> list[list[str]]:
         """
@@ -113,23 +116,22 @@ class Solution:
         Time Complexity: O(N!) - trying all possible queen placements with pruning
         Space Complexity: O(N) - recursion depth + conflict tracking sets
         """
-        def solve():
+
+        def solve() -> Any:
             # Base case: all queens placed successfully
             if len(queens) == n:
-                board = []
+                board: list[Any] = []
                 for row in range(n):
-                    board_row = ['.'] * n
-                    board_row[queens[row]] = 'Q'
-                    board.append(''.join(board_row))
+                    board_row = ["."] * n
+                    board_row[queens[row]] = "Q"
+                    board.append("".join(board_row))
                 solutions.append(board)
                 return
 
             row = len(queens)
             for col in range(n):
                 # Check for conflicts using O(1) set lookups
-                if (col in cols or
-                    (row - col) in diag1 or
-                    (row + col) in diag2):
+                if col in cols or (row - col) in diag1 or (row + col) in diag2:
                     continue
 
                 # Place queen and update conflict tracking
@@ -147,11 +149,11 @@ class Solution:
                 diag1.remove(row - col)
                 diag2.remove(row + col)
 
-        solutions = []
-        queens = []  # queens[i] = column position of queen in row i
-        cols = set()    # columns with queens
-        diag1 = set()   # main diagonals (row - col)
-        diag2 = set()   # anti-diagonals (row + col)
+        solutions: list[Any] = []
+        queens: list[int] = []  # queens[i] = column position of queen in row i
+        cols: set[Any] = set()
+        diag1: set[Any] = set()
+        diag2: set[Any] = set()
 
         solve()
         return solutions
@@ -163,16 +165,15 @@ class Solution:
         Returns:
             Number of distinct solutions
         """
-        def solve():
+
+        def solve() -> Any:
             if len(queens) == n:
                 return 1
 
             count = 0
             row = len(queens)
             for col in range(n):
-                if (col in cols or
-                    (row - col) in diag1 or
-                    (row + col) in diag2):
+                if col in cols or (row - col) in diag1 or (row + col) in diag2:
                     continue
 
                 queens.append(col)
@@ -189,14 +190,15 @@ class Solution:
 
             return count
 
-        queens = []
-        cols = set()
-        diag1 = set()
-        diag2 = set()
+        queens: list[Any] = []
+        cols: set[int] = set()
+        diag1: set[int] = set()
+        diag2: set[int] = set()
 
         return solve()
 
-def test_solution():
+
+def test_solution() -> None:
     """
     Test cases for the solution.
     """
@@ -205,7 +207,7 @@ def test_solution():
     # Test case 1: N = 4 (should return 2 solutions)
     result = solution.solveNQueens(4)
     assert len(result) == 2, f"Expected 2 solutions, got {len(result)}"
-    assert [".Q..","...Q","Q...","..Q."] in result or ["..Q.","Q...","...Q",".Q.."] in result
+    assert [".Q..", "...Q", "Q...", "..Q."] in result or ["..Q.", "Q...", "...Q", ".Q.."] in result
 
     # Test case 2: N = 1 (single queen)
     result = solution.solveNQueens(1)
@@ -214,7 +216,7 @@ def test_solution():
 
     # Test case 3: N = 2 (no solution)
     result = solution.solveNQueens(2)
-    expected = []
+    expected: list[Any] = []
     assert result == expected, f"Expected {expected}, got {result}"
 
     # Test case 4: Count solutions for N = 4
@@ -223,6 +225,7 @@ def test_solution():
     assert result == expected, f"Expected {expected}, got {result}"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

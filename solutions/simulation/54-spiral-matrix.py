@@ -95,6 +95,9 @@ O(1)
 </details>
 """
 
+
+from typing import Any
+
 class Solution:
     def spiralOrder(self, matrix: list[list[int]]) -> list[int]:
         """
@@ -113,7 +116,7 @@ class Solution:
             return []
 
         m, n = len(matrix), len(matrix[0])
-        result = []
+        result: list[Any] = []
 
         # Define boundaries
         top, bottom = 0, m - 1
@@ -193,11 +196,11 @@ class Solution:
         if not matrix or not matrix[0]:
             return []
 
-        def spiral_helper(top, bottom, left, right):
+        def spiral_helper(top: Any, bottom: Any, left: Any, right: Any) -> Any:
             if top > bottom or left > right:
                 return []
 
-            result = []
+            result: list[Any] = []
 
             # Top row
             for col in range(left, right + 1):
@@ -225,7 +228,8 @@ class Solution:
         m, n = len(matrix), len(matrix[0])
         return spiral_helper(0, m - 1, 0, n - 1)
 
-def test_solution():
+
+def test_solution() -> None:
     """Test cases for Problem 54."""
     solution = Solution()
 
@@ -275,6 +279,7 @@ def test_solution():
     assert solution.spiralOrderRecursive(matrix9) == expected9, "Recursive method failed"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

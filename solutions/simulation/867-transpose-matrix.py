@@ -89,6 +89,7 @@ O(m × n)
 </details>
 """
 
+
 class Solution:
     def transpose(self, matrix: list[list[int]]) -> list[list[int]]:
         """
@@ -168,7 +169,8 @@ class Solution:
         """
         return list(map(list, zip(*matrix, strict=False)))
 
-def test_solution():
+
+def test_solution() -> None:
     """Test cases for Problem 867."""
     solution = Solution()
 
@@ -223,6 +225,7 @@ def test_solution():
     assert solution.transposeOneLiner(matrix10) == expected10, "One-liner method failed"
 
     print("All test cases passed!")
+
 
 if __name__ == "__main__":
     test_solution()

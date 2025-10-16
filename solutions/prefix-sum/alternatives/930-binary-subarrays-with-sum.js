@@ -79,88 +79,103 @@
  * Space Complexity: O(n)
  */
 function solve(nums, goal) {
-    // Map to store frequency of each prefix sum
-    const prefixSumCount = new Map();
-    prefixSumCount.set(0, 1); // Base case: sum 0 appears once
+  // Map to store frequency of each prefix sum
+  const prefixSumCount = new Map();
+  prefixSumCount.set(0, 1); // Base case: sum 0 appears once
 
-    let currentSum = 0;
-    let count = 0;
+  let currentSum = 0;
+  let count = 0;
 
-    for (const num of nums) {
-        currentSum += num;
+  for (const num of nums) {
+    currentSum += num;
 
-        // Check if there's a prefix sum that gives us the goal
-        // We need: currentSum - previousSum = goal
-        // So: previousSum = currentSum - goal
-        const needed = currentSum - goal;
-        if (prefixSumCount.has(needed)) {
-            count += prefixSumCount.get(needed);
-        }
-
-        // Update frequency of current sum
-        prefixSumCount.set(currentSum, (prefixSumCount.get(currentSum) || 0) + 1);
+    // Check if there's a prefix sum that gives us the goal
+    // We need: currentSum - previousSum = goal
+    // So: previousSum = currentSum - goal
+    const needed = currentSum - goal;
+    if (prefixSumCount.has(needed)) {
+      count += prefixSumCount.get(needed);
     }
 
-    return count;
+    // Update frequency of current sum
+    prefixSumCount.set(currentSum, (prefixSumCount.get(currentSum) || 0) + 1);
+  }
+
+  return count;
 }
 
 /**
  * Test cases for Problem 930: Binary Subarrays With Sum
  */
 function testSolution() {
-    console.log('Testing 930. Binary Subarrays With Sum');
+  console.log("Testing 930. Binary Subarrays With Sum");
 
-    // Test case 1: Example 1
-    const result1 = solve([1,0,1,0,1], 2);
-    const expected1 = 4;
-    console.assert(result1 === expected1, `Test 1 failed: expected ${expected1}, got ${result1}`);
+  // Test case 1: Example 1
+  const result1 = solve([1, 0, 1, 0, 1], 2);
+  const expected1 = 4;
+  console.assert(
+    result1 === expected1,
+    `Test 1 failed: expected ${expected1}, got ${result1}`,
+  );
 
-    // Test case 2: Example 2
-    const result2 = solve([0,0,0,0,0], 0);
-    const expected2 = 15;
-    console.assert(result2 === expected2, `Test 2 failed: expected ${expected2}, got ${result2}`);
+  // Test case 2: Example 2
+  const result2 = solve([0, 0, 0, 0, 0], 0);
+  const expected2 = 15;
+  console.assert(
+    result2 === expected2,
+    `Test 2 failed: expected ${expected2}, got ${result2}`,
+  );
 
-    // Test case 3: All ones with goal 3
-    const result3 = solve([1,1,1,1], 3);
-    const expected3 = 2;
-    console.assert(result3 === expected3, `Test 3 failed: expected ${expected3}, got ${result3}`);
+  // Test case 3: All ones with goal 3
+  const result3 = solve([1, 1, 1, 1], 3);
+  const expected3 = 2;
+  console.assert(
+    result3 === expected3,
+    `Test 3 failed: expected ${expected3}, got ${result3}`,
+  );
 
-    // Test case 4: Single element matching goal
-    const result4 = solve([1], 1);
-    const expected4 = 1;
-    console.assert(result4 === expected4, `Test 4 failed: expected ${expected4}, got ${result4}`);
+  // Test case 4: Single element matching goal
+  const result4 = solve([1], 1);
+  const expected4 = 1;
+  console.assert(
+    result4 === expected4,
+    `Test 4 failed: expected ${expected4}, got ${result4}`,
+  );
 
-    // Test case 5: Goal = 0 with mix
-    const result5 = solve([0,1,0], 0);
-    const expected5 = 2;
-    console.assert(result5 === expected5, `Test 5 failed: expected ${expected5}, got ${result5}`);
+  // Test case 5: Goal = 0 with mix
+  const result5 = solve([0, 1, 0], 0);
+  const expected5 = 2;
+  console.assert(
+    result5 === expected5,
+    `Test 5 failed: expected ${expected5}, got ${result5}`,
+  );
 
-    console.log('All test cases passed for 930. Binary Subarrays With Sum!');
+  console.log("All test cases passed for 930. Binary Subarrays With Sum!");
 }
 
 /**
  * Example usage and demonstration
  */
 function demonstrateSolution() {
-    console.log('\n=== Problem 930. Binary Subarrays With Sum ===');
-    console.log('Category: Prefix Sum');
-    console.log('Difficulty: Medium');
-    console.log('');
+  console.log("\n=== Problem 930. Binary Subarrays With Sum ===");
+  console.log("Category: Prefix Sum");
+  console.log("Difficulty: Medium");
+  console.log("");
 
-    // Example demonstration would go here
-    testSolution();
+  // Example demonstration would go here
+  testSolution();
 }
 
 // Run tests if this file is executed directly
 if (require.main === module) {
-    demonstrateSolution();
+  demonstrateSolution();
 }
 
 // Export for use in other modules
 module.exports = {
-    solve,
-    testSolution,
-    demonstrateSolution
+  solve,
+  testSolution,
+  demonstrateSolution,
 };
 
 /**

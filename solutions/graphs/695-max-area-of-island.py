@@ -75,6 +75,10 @@ For recursion stack in worst case
 </details>
 """
 
+from collections import deque
+from typing import Any
+
+
 class Solution:
     def maxAreaOfIsland(self, grid: list[list[int]]) -> int:
         """
@@ -95,7 +99,7 @@ class Solution:
         rows, cols = len(grid), len(grid[0])
         max_area = 0
 
-        def dfs(r, c):
+        def dfs(r: Any, c: Any) -> Any:
             """DFS to calculate area of island starting at (r,c)."""
             if r < 0 or r >= rows or c < 0 or c >= cols or grid[r][c] == 0:
                 return 0
@@ -103,7 +107,7 @@ class Solution:
             grid[r][c] = 0  # Mark as visited
 
             # Count current cell + all connected cells
-            return 1 + dfs(r+1, c) + dfs(r-1, c) + dfs(r, c+1) + dfs(r, c-1)
+            return 1 + dfs(r + 1, c) + dfs(r - 1, c) + dfs(r, c + 1) + dfs(r, c - 1)
 
         for r in range(rows):
             for c in range(cols):
@@ -120,9 +124,7 @@ class Solution:
 
         rows, cols = len(grid), len(grid[0])
         max_area = 0
-        directions = [(0,1), (0,-1), (1,0), (-1,0)]
-
-        from collections import deque
+        directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]
 
         for r in range(rows):
             for c in range(cols):
@@ -137,7 +139,7 @@ class Solution:
 
                         for dr, dc in directions:
                             nr, nc = curr_r + dr, curr_c + dc
-                            if (0 <= nr < rows and 0 <= nc < cols and grid[nr][nc] == 1):
+                            if 0 <= nr < rows and 0 <= nc < cols and grid[nr][nc] == 1:
                                 grid[nr][nc] = 0
                                 queue.append((nr, nc))
 
@@ -145,18 +147,24 @@ class Solution:
 
         return max_area
 
-def test_solution():
+
+def test_solution() -> None:
     """Test cases for Problem 695."""
     solution = Solution()
 
     # Test case 1: Example grid
-    grid1 = [[0,0,1,0,0,0,0,1,0,0,0,0,0],[0,0,0,0,0,0,0,1,1,1,0,0,0],[0,1,1,0,1,0,0,0,0,0,0,0,0],[0,1,0,0,1,1,0,0,1,0,1,0,0]]
+    grid1 = [
+        [0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0],
+        [0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 0, 0],
+    ]
     result1 = solution.maxAreaOfIslandBFS([row[:] for row in grid1])
     expected1 = 6
     assert result1 == expected1, f"Expected {expected1}, got {result1}"
 
     # Test case 2: No islands
-    grid2 = [[0,0,0,0,0,0,0,0]]
+    grid2 = [[0, 0, 0, 0, 0, 0, 0, 0]]
     result2 = solution.maxAreaOfIslandBFS([row[:] for row in grid2])
     expected2 = 0
     assert result2 == expected2, f"Expected {expected2}, got {result2}"
@@ -168,19 +176,20 @@ def test_solution():
     assert result3 == expected3, f"Expected {expected3}, got {result3}"
 
     # Test case 4: Multiple islands
-    grid4 = [[1,1,0,0,0],[1,1,0,0,0],[0,0,0,1,1],[0,0,0,1,1]]
+    grid4 = [[1, 1, 0, 0, 0], [1, 1, 0, 0, 0], [0, 0, 0, 1, 1], [0, 0, 0, 1, 1]]
     result4 = solution.maxAreaOfIslandBFS([row[:] for row in grid4])
     expected4 = 4
     assert result4 == expected4, f"Expected {expected4}, got {result4}"
 
     print("All test cases passed!")
 
+
 if __name__ == "__main__":
     test_solution()
 
     # Quick example
     solution = Solution()
-    grid = [[1,1,0],[0,1,0],[0,0,1]]
+    grid = [[1, 1, 0], [0, 1, 0], [0, 0, 1]]
     print(f"Grid: {grid}")
     # Use BFS to preserve original grid
     print(f"Max area: {solution.maxAreaOfIslandBFS([row[:] for row in grid])}")

@@ -72,6 +72,9 @@ For coordinate storage and data structures
 </details>
 """
 
+
+from typing import Any
+
 class Solution:
     def rectangleArea(self, rectangles: list[list[int]]) -> int:
         """
@@ -92,8 +95,8 @@ class Solution:
             return 0
 
         # Extract unique coordinates
-        x_coords = set()
-        y_coords = set()
+        x_coords: set[Any] = set()
+        y_coords: set[Any] = set()
         for x1, y1, x2, y2 in rectangles:
             x_coords.add(x1)
             x_coords.add(x2)
@@ -148,7 +151,7 @@ class Solution:
             return 0
 
         # Create events: (x, y1, y2, type) where type: 1=start, -1=end
-        events = []
+        events: list[Any] = []
         for x1, y1, x2, y2 in rectangles:
             events.append((x1, y1, y2, 1))  # Rectangle starts
             events.append((x2, y1, y2, -1))  # Rectangle ends
@@ -156,7 +159,7 @@ class Solution:
         # Sort events by x-coordinate
         events.sort()
 
-        def calculate_y_coverage(active_intervals):
+        def calculate_y_coverage(active_intervals: Any) -> Any:
             """Calculate total Y coverage from active intervals."""
             if not active_intervals:
                 return 0
@@ -179,7 +182,7 @@ class Solution:
             return total
 
         total_area = 0
-        active_intervals = []  # List of (y1, y2) for active rectangles
+        active_intervals: list[tuple[int, int]] = []  # List of (y1, y2) for active rectangles
         prev_x = events[0][0]
 
         for x, y1, y2, event_type in events:
@@ -199,7 +202,8 @@ class Solution:
 
         return total_area
 
-def test_solution():
+
+def test_solution() -> None:
     """Test cases for Problem 850."""
     solution = Solution()
 
@@ -246,6 +250,7 @@ def test_solution():
 
     print("All test cases passed!")
 
+
 if __name__ == "__main__":
     test_solution()
 
@@ -274,8 +279,8 @@ if __name__ == "__main__":
     rectangles = [[0, 0, 2, 2], [1, 0, 2, 3], [1, 0, 3, 1]]
 
     # Extract coordinates
-    x_coords = set()
-    y_coords = set()
+    x_coords: set[Any] = set()
+    y_coords: set[Any] = set()
     for x1, y1, x2, y2 in rectangles:
         x_coords.add(x1)
         x_coords.add(x2)
@@ -296,7 +301,7 @@ if __name__ == "__main__":
             y1, y2 = y_sorted[j], y_sorted[j + 1]
 
             # Check which rectangles cover this cell
-            covered_by = []
+            covered_by: list[Any] = []
             for idx, (rx1, ry1, rx2, ry2) in enumerate(rectangles):
                 if rx1 <= x1 < x2 <= rx2 and ry1 <= y1 < y2 <= ry2:
                     covered_by.append(idx)

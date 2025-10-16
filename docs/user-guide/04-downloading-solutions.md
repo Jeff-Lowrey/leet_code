@@ -4,6 +4,17 @@
 
 ---
 
+## Table of Contents
+
+- [Download Options](#download-options)
+- [Download Formats](#download-formats)
+- [Language-Specific Downloads](#language-specific-downloads)
+- [Download Process](#download-process)
+- [File Naming Conventions](#file-naming-conventions)
+- [Using Downloaded Files](#using-downloaded-files)
+- [Best Practices](#best-practices)
+- [Download Troubleshooting](#download-troubleshooting)
+
 ## Download Options
 
 The platform provides multiple download formats to support different learning and practice needs.
