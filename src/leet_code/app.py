@@ -950,6 +950,127 @@ def complexity_overview() -> str:
     )
 
 
+@app.route("/difficulty/<level>")
+def difficulty_level_view(level: str) -> str:
+    """View solutions filtered by a specific difficulty level.
+
+    Virtual category that aggregates solutions across all categories
+    by difficulty level (easy, medium, hard).
+    """
+    # Normalize the level input
+    level_normalized = level.lower().capitalize()
+
+    # Validate difficulty level
+    valid_levels = ["Easy", "Medium", "Hard"]
+    if level_normalized not in valid_levels:
+        abort(404)
+
+    all_categories = category_manager.get_categories()
+    solutions = []
+
+    # Collect all solutions matching this difficulty level
+    for category in all_categories:
+        for solution in category.solutions:
+            if solution.difficulty.capitalize() == level_normalized:
+                solutions.append(
+                    {
+                        "solution": solution,
+                        "category": category.slug,
+                        "category_name": category.name,
+                    }
+                )
+
+    # Sort by problem number
+    def sort_key(item: dict[str, Any]) -> int:
+        number = item["solution"].number
+        return int(number) if number and number.isdigit() else 9999
+
+    solutions.sort(key=sort_key)
+
+    return render_template(
+        "virtual_category.html",
+        category_name=f"{level_normalized} Problems",
+        category_description=f"All problems with {level_normalized} difficulty across all categories",
+        solutions=solutions,
+        is_virtual=True,
+        virtual_type="difficulty",
+        virtual_value=level_normalized,
+    )
+
+
+@app.route("/complexity/<pattern>")
+def complexity_pattern_view(pattern: str) -> str:
+    """View solutions filtered by a specific time complexity pattern.
+
+    Virtual category that aggregates solutions across all categories
+    by time complexity (e.g., o1, on, on-log-n, on2).
+    """
+    # Map URL patterns to complexity notation
+    pattern_map = {
+        "o1": "O(1)",
+        "ologn": "O(log n)",
+        "on": "O(n)",
+        "on-log-n": "O(n log n)",
+        "onlogn": "O(n log n)",
+        "on2": "O(n²)",
+        "on3": "O(n³)",
+        "o2n": "O(2^n)",
+        "onm": "O(n*m)",
+        "on-m": "O(n+m)",
+    }
+
+    # Normalize pattern and get display name
+    pattern_lower = pattern.lower()
+    complexity_display = pattern_map.get(pattern_lower)
+
+    if not complexity_display:
+        # Try to match patterns like "O(n)", "O(n log n)" directly
+        if pattern.startswith(("O(", "o(")):
+            complexity_display = pattern
+        else:
+            abort(404)
+
+    all_categories = category_manager.get_categories()
+    solutions = []
+
+    # Collect all solutions matching this time complexity
+    for category in all_categories:
+        for solution in category.solutions:
+            time_comp = solution.time_complexity
+
+            # Match complexity (case-insensitive, handle variations)
+            if time_comp and (
+                time_comp == complexity_display
+                or time_comp.lower() == complexity_display.lower()
+                or time_comp.replace(" ", "").lower() == complexity_display.replace(" ", "").lower()
+            ):
+                solutions.append(
+                    {
+                        "solution": solution,
+                        "category": category.slug,
+                        "category_name": category.name,
+                        "space_complexity": solution.space_complexity,
+                    }
+                )
+
+    # Sort by problem number
+    def sort_key(item: dict[str, Any]) -> int:
+        number = item["solution"].number
+        return int(number) if number and number.isdigit() else 9999
+
+    solutions.sort(key=sort_key)
+
+    return render_template(
+        "virtual_category.html",
+        category_name=f"Time Complexity: {complexity_display}",
+        category_description=f"All problems with time complexity {complexity_display} across all categories",
+        solutions=solutions,
+        is_virtual=True,
+        virtual_type="complexity",
+        virtual_value=complexity_display,
+    )
+
+
 @app.route("/solution/<category>/<filename>")
 def solution_view(category: str, filename: str) -> str:
     """View a specific solution."""
@@ -1732,6 +1853,96 @@ def api_category_solutions(category: str) -> Response:
     if not cat_data:
         abort(404)
     return jsonify([{"filename": sol.filename, "name": sol.name, "number": sol.number} for sol in cat_data.solutions])
+
+
+@app.route("/api/stats/difficulty")
+def api_difficulty_stats() -> Response:
+    """API endpoint to get difficulty level counts."""
+    all_categories = category_manager.get_categories()
+
+    # Count solutions by difficulty
+    difficulty_counts = {
+        "easy": 0,
+        "medium": 0,
+        "hard": 0,
+    }
+
+    for category in all_categories:
+        for solution in category.solutions:
+            difficulty = solution.difficulty.lower()
+            if difficulty in difficulty_counts:
+                difficulty_counts[difficulty] += 1
+
+    return jsonify(difficulty_counts)
+
+
+@app.route("/api/stats/complexity")
+def api_complexity_stats() -> Response:
+    """API endpoint to get complexity pattern counts."""
+    all_categories = category_manager.get_categories()
+
+    # Count solutions by time complexity
+    complexity_counts: dict[str, int] = {}
+
+    for category in all_categories:
+        for solution in category.solutions:
+            time_comp = solution.time_complexity or "Unknown"
+            if time_comp not in complexity_counts:
+                complexity_counts[time_comp] = 0
+            complexity_counts[time_comp] += 1
+
+    return jsonify(complexity_counts)
+
+
+@app.route("/api/stats/complexity/difficulty/<level>")
+def api_complexity_by_difficulty(level: str) -> Response:
+    """API endpoint to get complexity counts for a specific difficulty level."""
+    all_categories = category_manager.get_categories()
+
+    # Count solutions by time complexity for this difficulty level
+    complexity_counts: dict[str, int] = {}
+
+    for category in all_categories:
+        for solution in category.solutions:
+            if solution.difficulty.lower() == level.lower():
+                time_comp = solution.time_complexity or "Unknown"
+                if time_comp not in complexity_counts:
+                    complexity_counts[time_comp] = 0
+                complexity_counts[time_comp] += 1
+
+    return jsonify(complexity_counts)
+
+
+@app.route("/api/stats/difficulty/complexity/<complexity_key>")
+def api_difficulty_by_complexity(complexity_key: str) -> Response:
+    """API endpoint to get difficulty counts for a specific complexity pattern."""
+    all_categories = category_manager.get_categories()
+
+    # Parse complexity key (format: "time_space")
+    parts = complexity_key.split('_', 1)
+    if len(parts) != 2:
+        return jsonify({"error": "Invalid complexity key format"}), 400
+
+    time_comp, space_comp = parts
+
+    # Count solutions by difficulty for this complexity combination
+    difficulty_counts = {
+        "easy": 0,
+        "medium": 0,
+        "hard": 0,
+    }
+
+    for category in all_categories:
+        for solution in category.solutions:
+            sol_time = solution.time_complexity or "Unknown"
+            sol_space = solution.space_complexity or "Unknown"
+
+            if sol_time == time_comp and sol_space == space_comp:
+                difficulty = solution.difficulty.lower()
+                if difficulty in difficulty_counts:
+                    difficulty_counts[difficulty] += 1
+
+    return jsonify(difficulty_counts)
 
 
 if __name__ == "__main__":
