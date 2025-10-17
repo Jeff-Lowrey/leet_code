@@ -109,8 +109,14 @@
             // Check page type and build appropriate TOC
             if (currentPath === '/difficulty') {
                 buildDifficultyTOC(nav);
+            } else if (currentPath.startsWith('/difficulty/')) {
+                // Virtual difficulty category page
+                buildVirtualDifficultyTOC(nav);
             } else if (currentPath === '/complexity') {
                 buildComplexityTOC(nav);
+            } else if (currentPath.startsWith('/complexity/')) {
+                // Virtual complexity category page
+                buildVirtualComplexityTOC(nav);
             } else if (currentPath.startsWith('/docs/') && currentPath !== '/docs' && currentPath !== '/docs/') {
                 buildDocumentationTOC(nav);
             } else if (currentPath === '/docs' || currentPath === '/docs/') {
@@ -232,10 +238,24 @@
 
         // Build category-based TOC (original behavior)
         function buildCategoryTOC(nav, currentPath) {
-            fetch('/api/categories')
-                .then(response => response.json())
-                .then(categories => {
-                    let html = '<ul class="toc-list">';
+            // Fetch all data in parallel
+            Promise.all([
+                fetch('/api/categories').then(r => r.json()),
+                fetch('/api/stats/difficulty').then(r => r.json()),
+                fetch('/api/stats/complexity').then(r => r.json())
+            ])
+                .then(([categories, difficultyStats, complexityStats]) => {
+                    let html = '';
+
+                    // Categories section (collapsible)
+                    html += `
+                        <div class="toc-section">
+                            <div class="toc-section-header toc-section-toggle" onclick="toggleTOCSection('categories')">
+                                <span class="toc-section-arrow" id="arrow-categories">▼</span>
+                                <span>Categories</span>
+                            </div>
+                            <ul class="toc-list toc-section-content" id="section-categories" style="display: block;">
+                    `;
 
                     categories.forEach(category => {
                         const isActive = currentPath.includes(category.slug);
@@ -253,7 +273,75 @@
                         `;
                     });
 
-                    html += '</ul>';
+                    html += `
+                            </ul>
+                        </div>
+                    `;
+
+                    // By Difficulty section (collapsible)
+                    html += `
+                        <div class="toc-section">
+                            <div class="toc-section-header toc-section-toggle" onclick="toggleTOCSection('difficulty')">
+                                <span class="toc-section-arrow" id="arrow-difficulty">▼</span>
+                                <span>By Difficulty</span>
+                            </div>
+                            <ul class="toc-list toc-section-content" id="section-difficulty" style="display: block;">
+                    `;
+                    const difficulties = [
+                        { level: 'easy', emoji: '🟢', label: 'Easy' },
+                        { level: 'medium', emoji: '🟡', label: 'Medium' },
+                        { level: 'hard', emoji: '🔴', label: 'Hard' }
+                    ];
+                    difficulties.forEach(diff => {
+                        const isActive = currentPath === `/difficulty/${diff.level}`;
+                        const count = difficultyStats[diff.level] || 0;
+                        html += `
+                            <li class="toc-item ${isActive ? 'active' : ''}">
+                                <a href="/difficulty/${diff.level}" class="toc-link">
+                                    ${diff.emoji} ${diff.label} <span class="toc-count">(${count})</span>
+                                </a>
+                            </li>
+                        `;
+                    });
+                    html += `
+                            </ul>
+                        </div>
+                    `;
+
+                    // By Complexity section (collapsible)
+                    html += `
+                        <div class="toc-section">
+                            <div class="toc-section-header toc-section-toggle" onclick="toggleTOCSection('complexity')">
+                                <span class="toc-section-arrow" id="arrow-complexity">▼</span>
+                                <span>By Complexity</span>
+                            </div>
+                            <ul class="toc-list toc-section-content" id="section-complexity" style="display: block;">
+                    `;
+                    const complexities = [
+                        { path: 'o1', label: 'O(1)', key: 'O(1)' },
+                        { path: 'ologn', label: 'O(log n)', key: 'O(log n)' },
+                        { path: 'on', label: 'O(n)', key: 'O(n)' },
+                        { path: 'on-log-n', label: 'O(n log n)', key: 'O(n log n)' },
+                        { path: 'on2', label: 'O(n²)', key: 'O(n²)' },
+                        { path: 'on3', label: 'O(n³)', key: 'O(n³)' },
+                        { path: 'o2n', label: 'O(2^n)', key: 'O(2^n)' }
+                    ];
+                    complexities.forEach(comp => {
+                        const isActive = currentPath === `/complexity/${comp.path}`;
+                        const count = complexityStats[comp.key] || 0;
+                        html += `
+                            <li class="toc-item ${isActive ? 'active' : ''}">
+                                <a href="/complexity/${comp.path}" class="toc-link">
+                                    ${comp.label} <span class="toc-count">(${count})</span>
+                                </a>
+                            </li>
+                        `;
+                    });
+                    html += `
+                            </ul>
+                        </div>
+                    `;
+
                     nav.innerHTML = html;
 
                     // Load solutions for active category
@@ -267,6 +355,66 @@
                 .catch(error => {
                     nav.innerHTML = '<p class="error">Failed to load navigation</p>';
                 });
+        }
+
+        // Build TOC for virtual difficulty category pages
+        function buildVirtualDifficultyTOC(nav) {
+            const currentPath = window.location.pathname;
+            const difficulties = ['easy', 'medium', 'hard'];
+
+            let html = '<div class="toc-section-header">By Difficulty</div>';
+            html += '<ul class="toc-list">';
+
+            difficulties.forEach(level => {
+                const isActive = currentPath === `/difficulty/${level}`;
+                const emoji = level === 'easy' ? '🟢' : level === 'medium' ? '🟡' : '🔴';
+                html += `
+                    <li class="toc-item ${isActive ? 'active' : ''}">
+                        <a href="/difficulty/${level}" class="toc-link">
+                            ${emoji} ${level.charAt(0).toUpperCase() + level.slice(1)}
+                        </a>
+                    </li>
+                `;
+            });
+
+            html += '</ul>';
+            html += '<div class="toc-divider"></div>';
+            html += '<a href="/difficulty" class="toc-back-link">← All Difficulties Overview</a>';
+            nav.innerHTML = html;
+        }
+
+        // Build TOC for virtual complexity category pages
+        function buildVirtualComplexityTOC(nav) {
+            const currentPath = window.location.pathname;
+            const complexities = [
+                { path: 'o1', label: 'O(1) - Constant' },
+                { path: 'ologn', label: 'O(log n) - Logarithmic' },
+                { path: 'on', label: 'O(n) - Linear' },
+                { path: 'on-log-n', label: 'O(n log n) - Linearithmic' },
+                { path: 'on2', label: 'O(n²) - Quadratic' },
+                { path: 'on3', label: 'O(n³) - Cubic' },
+                { path: 'o2n', label: 'O(2^n) - Exponential' },
+                { path: 'onm', label: 'O(n*m) - Polynomial' },
+            ];
+
+            let html = '<div class="toc-section-header">By Complexity</div>';
+            html += '<ul class="toc-list">';
+
+            complexities.forEach(comp => {
+                const isActive = currentPath === `/complexity/${comp.path}`;
+                html += `
+                    <li class="toc-item ${isActive ? 'active' : ''}">
+                        <a href="/complexity/${comp.path}" class="toc-link">
+                            ${comp.label}
+                        </a>
+                    </li>
+                `;
+            });
+
+            html += '</ul>';
+            html += '<div class="toc-divider"></div>';
+            html += '<a href="/complexity" class="toc-back-link">← All Complexities Overview</a>';
+            nav.innerHTML = html;
         }
 
         // Build difficulty page TOC
@@ -421,6 +569,20 @@
 
             html += '</ul>';
             nav.innerHTML = html;
+        }
+
+        // Toggle TOC section (Categories, By Difficulty, By Complexity)
+        function toggleTOCSection(sectionId) {
+            const section = document.getElementById(`section-${sectionId}`);
+            const arrow = document.getElementById(`arrow-${sectionId}`);
+
+            if (section.style.display === 'none') {
+                section.style.display = 'block';
+                arrow.textContent = '▼';
+            } else {
+                section.style.display = 'none';
+                arrow.textContent = '▶';
+            }
         }
 
         // Toggle category expansion
