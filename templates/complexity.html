@@ -8,32 +8,111 @@
         <a href="/">Home</a> / <span>All Complexities</span>
     </nav>
     <h1>Problems by Complexity</h1>
-    <p class="stats">{{ total_count }} total solution{% if total_count != 1 %}s{% endif %}</p>
+    <div style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
+        <p class="stats" id="stats-text">{{ total_count }} total solution{% if total_count != 1 %}s{% endif %} — Loading...</p>
+        <button id="toggle-all-sections" class="btn btn-secondary">Collapse All</button>
+    </div>
+    <div style="margin-top: 0.5rem;">
+        <p class="stats" id="difficulty-stats">Difficulty breakdown — Loading...</p>
+    </div>
 </header>
 
 {% for complexity_key, complexity_data in complexities.items() %}
 <section class="solutions-list complexity-section" id="{{ complexity_key }}">
     <details open>
         <summary>
-            <h2>{{ complexity_data.display_name }} ({{ complexity_data.count }} problem{% if complexity_data.count != 1 %}s{% endif %})</h2>
+            <h2>{{ complexity_data.display_name }} ({{ complexity_data.count }} problem{% if complexity_data.count != 1 %}s{% endif %}) — <span class="section-breakdown" data-complexity="{{ complexity_key }}">Loading...</span></h2>
         </summary>
         <div class="solutions-grid">
             {% for item in complexity_data.solutions %}
             <a href="{{ url_for('solution_view', category=item.category, filename=item.solution.filename.replace('.py', '')) }}" class="solution-card" data-category="{{ item.category }}" data-complexity="{{ complexity_key }}">
-                <div class="solution-meta">
-                    {% if item.solution.number %}
-                    <span class="problem-number">#{{ item.solution.number }}</span>
-                    {% endif %}
-                    <span class="category-label">{{ item.category_name }}</span>
-                </div>
-                <h3>{{ item.solution.name }}</h3>
-                {% if item.solution.difficulty %}
-                <p class="difficulty-info">{{ item.solution.difficulty }}</p>
+                {% if item.solution.number %}
+                <span class="problem-number">#{{ item.solution.number }}</span>
                 {% endif %}
+                <div class="solution-card-header">
+                    <h3>{{ item.solution.name }}</h3>
+                    <span class="category-label-inline">{{ item.category_name }}</span>
+                </div>
+                <div class="solution-badges">
+                    {% if item.solution.difficulty %}
+                    <span class="difficulty-badge difficulty-{{ item.solution.difficulty.lower() }}">{{ item.solution.difficulty }}</span>
+                    {% endif %}
+                </div>
             </a>
             {% endfor %}
         </div>
     </details>
 </section>
 {% endfor %}
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const toggleBtn = document.getElementById('toggle-all-sections');
+    const allDetails = document.querySelectorAll('.complexity-section details');
+    let allExpanded = true;
+
+    toggleBtn.addEventListener('click', function() {
+        allExpanded = !allExpanded;
+        allDetails.forEach(details => {
+            details.open = allExpanded;
+        });
+        toggleBtn.textContent = allExpanded ? 'Collapse All' : 'Expand All';
+    });
+
+    // Fetch complexity and difficulty stats for headers
+    Promise.all([
+        fetch('/api/stats/complexity').then(r => r.json()),
+        fetch('/api/stats/difficulty').then(r => r.json())
+    ])
+        .then(([complexityStats, difficultyStats]) => {
+            const totalCount = {{ total_count }};
+
+            // Line 1: Total solutions with top complexity patterns
+            const sortedComplexities = Object.entries(complexityStats)
+                .sort((a, b) => b[1] - a[1])
+                .slice(0, 7);
+
+            const complexityText = sortedComplexities
+                .map(([pattern, count]) => `${pattern}: ${count}`)
+                .join(', ');
+
+            const total = sortedComplexities.reduce((sum, [_, count]) => sum + count, 0);
+            const grandTotal = Object.values(complexityStats).reduce((sum, count) => sum + count, 0);
+            const remaining = grandTotal - total;
+
+            let line1Text = `${totalCount} total solution${totalCount !== 1 ? 's' : ''} — ${complexityText}`;
+            if (remaining > 0) {
+                line1Text += `, Other: ${remaining}`;
+            }
+
+            document.getElementById('stats-text').textContent = line1Text;
+
+            // Line 2: Difficulty breakdown
+            const easyCount = difficultyStats.easy || 0;
+            const mediumCount = difficultyStats.medium || 0;
+            const hardCount = difficultyStats.hard || 0;
+
+            document.getElementById('difficulty-stats').textContent = `Difficulty breakdown — Easy: ${easyCount}, Medium: ${mediumCount}, Hard: ${hardCount}`;
+        })
+        .catch(error => {
+            console.error('Failed to load stats:', error);
+        });
+
+    // Fetch per-complexity difficulty breakdowns
+    document.querySelectorAll('.section-breakdown[data-complexity]').forEach(span => {
+        const complexityKey = span.getAttribute('data-complexity');
+
+        fetch(`/api/stats/difficulty/complexity/${complexityKey}`)
+            .then(r => r.json())
+            .then(difficultyCounts => {
+                const text = `Easy: ${difficultyCounts.easy}, Medium: ${difficultyCounts.medium}, Hard: ${difficultyCounts.hard}`;
+                span.textContent = text;
+            })
+            .catch(error => {
+                console.error(`Failed to load difficulty stats for ${complexityKey}:`, error);
+                span.textContent = 'Loading failed';
+            });
+    });
+});
+</script>
 {% endblock %}
