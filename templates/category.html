@@ -29,6 +29,16 @@
             <span class="problem-number">#{{ solution.number }}</span>
             {% endif %}
             <h3>{{ solution.name }}</h3>
+            <div class="solution-badges">
+                {% if solution.difficulty %}
+                <span class="difficulty-badge difficulty-{{ solution.difficulty.lower() }}">{{ solution.difficulty }}</span>
+                {% endif %}
+                {% if solution.time_complexity or solution.space_complexity %}
+                <span class="complexity-badge">
+                    {{ solution.time_complexity or '?' }} / {{ solution.space_complexity or '?' }}
+                </span>
+                {% endif %}
+            </div>
         </a>
         {% endfor %}
     </div>
