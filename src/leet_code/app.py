@@ -1945,6 +1945,45 @@ def api_difficulty_by_complexity(complexity_key: str) -> Response:
     return jsonify(difficulty_counts)
 
 
+@app.route("/api/stats/category/<category_slug>/difficulty")
+def api_category_difficulty_stats(category_slug: str) -> Response:
+    """API endpoint to get difficulty counts for a specific category."""
+    category = category_manager.get_category(category_slug)
+    if not category:
+        return jsonify({"error": "Category not found"}), 404
+
+    difficulty_counts = {
+        "easy": 0,
+        "medium": 0,
+        "hard": 0,
+    }
+
+    for solution in category.solutions:
+        difficulty = solution.difficulty.lower()
+        if difficulty in difficulty_counts:
+            difficulty_counts[difficulty] += 1
+
+    return jsonify(difficulty_counts)
+
+
+@app.route("/api/stats/category/<category_slug>/complexity")
+def api_category_complexity_stats(category_slug: str) -> Response:
+    """API endpoint to get complexity pattern counts for a specific category."""
+    category = category_manager.get_category(category_slug)
+    if not category:
+        return jsonify({"error": "Category not found"}), 404
+
+    complexity_counts: dict[str, int] = {}
+
+    for solution in category.solutions:
+        time_comp = solution.time_complexity or "Unknown"
+        if time_comp not in complexity_counts:
+            complexity_counts[time_comp] = 0
+        complexity_counts[time_comp] += 1
+
+    return jsonify(complexity_counts)
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Leet Code Learning Tool Web Interface")
     parser.add_argument(
