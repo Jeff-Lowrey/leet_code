@@ -1,0 +1,353 @@
+/* Solution Page Styles */
+
+/* Solution Explanation */
+.solution-explanation details {
+    border: none;
+}
+
+.solution-explanation summary h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.explanation-content {
+    padding: 1.5rem;
+}
+
+.explanation-content h3 {
+    color: var(--primary-color);
+    margin: 1.5rem 0 1rem 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.explanation-content h3:first-child {
+    margin-top: 0;
+}
+
+.explanation-content p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.explanation-content ul,
+.explanation-content ol {
+    margin-left: 2rem;
+    margin-bottom: 1rem;
+    padding-left: 0;
+}
+
+.explanation-content li {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+}
+
+.explanation-content pre {
+    background: var(--light-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 1rem;
+    margin: 1rem 0;
+    overflow-x: auto;
+    font-size: 0.9rem;
+}
+
+.explanation-content code {
+    background: var(--light-bg);
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+    font-size: 0.9rem;
+    font-family: 'Monaco', 'Courier New', monospace;
+}
+
+/* Solution Code */
+.solution-code h2 {
+    margin-bottom: 1rem;
+}
+
+/* Language Selector */
+.language-selector {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+    padding: 1rem;
+    background: var(--light-bg);
+    border-radius: 6px;
+}
+
+.language-info {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.language-label {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.available-languages {
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+
+.language-dropdown {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.dropdown-label {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    font-weight: 500;
+    min-width: 120px;
+}
+
+.language-select {
+    padding: 0.5rem 0.75rem;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    color: var(--text-primary);
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    min-width: 120px;
+}
+
+.language-select:hover {
+    border-color: var(--primary-color);
+}
+
+.language-select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(91, 123, 181, 0.25);
+}
+
+/* Solution Page Collapsible Sections */
+.problem-description,
+.problem-statement {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.problem-description h2,
+.problem-statement h2 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+/* Problem content styling - make examples stand out */
+.problem-content p {
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+.problem-content pre {
+    background: var(--light-bg);
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.25rem;
+    margin: 1.5rem 0;
+    overflow-x: auto;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.problem-content code {
+    background: var(--light-bg);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-family: 'Monaco', 'Courier New', monospace;
+    border: 1px solid var(--border-color);
+}
+
+.problem-content pre code {
+    background: transparent;
+    border: none;
+    padding: 0;
+    font-size: 0.95rem;
+}
+
+.problem-content strong {
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+/* Example definition list styling - structured appearance */
+.problem-content .example-details {
+    background: #f9f9f6;
+    border-left: 4px solid var(--primary-color);
+    padding: 1.25rem;
+    margin: 1.5rem 0;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+.problem-content .example-details dt {
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-top: 0.75rem;
+    margin-bottom: 0.25rem;
+    font-size: 0.95rem;
+}
+
+.problem-content .example-details dt:first-child {
+    margin-top: 0;
+}
+
+.problem-content .example-details dd {
+    margin-left: 0;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--text-primary);
+}
+
+.problem-content .example-details dd:last-child {
+    margin-bottom: 0;
+}
+
+.solution-explanation,
+.skeleton-code,
+.solution-code {
+    margin-bottom: 0;
+}
+
+.solution-explanation details,
+.skeleton-code details,
+.solution-code details {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.solution-explanation summary,
+.skeleton-code summary,
+.solution-code summary {
+    background: var(--card-bg);
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-primary);
+    padding: 1.5rem;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: background-color 0.2s ease;
+    outline: none;
+}
+
+.solution-explanation summary:hover,
+.skeleton-code summary:hover,
+.solution-code summary:hover {
+    background: var(--light-bg);
+}
+
+.code-content {
+    padding: 1.5rem;
+    line-height: 1.6;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow-x: auto;
+}
+
+/* Constrain Pygments generated code tables */
+.code-content .highlight {
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+.code-content .highlight table {
+    table-layout: fixed;
+    width: 100%;
+    max-width: 100%;
+}
+
+.code-content .highlight .linenos {
+    width: 3em;
+}
+
+.code-content .highlight pre {
+    margin: 0;
+    white-space: pre;
+    overflow-x: auto;
+}
+
+/* Custom details marker */
+.solution-explanation details summary::-webkit-details-marker,
+.skeleton-code details summary::-webkit-details-marker,
+.solution-code details summary::-webkit-details-marker {
+    display: none;
+}
+
+.solution-explanation summary,
+.skeleton-code summary,
+.solution-code summary {
+    list-style: none;
+}
+
+.solution-explanation summary::marker,
+.skeleton-code summary::marker,
+.solution-code summary::marker {
+    display: none;
+}
+
+.solution-explanation details summary::after,
+.skeleton-code details summary::after,
+.solution-code details summary::after {
+    content: "▶";
+    margin-left: 0.75rem;
+    transition: transform 0.2s ease;
+    color: var(--text-secondary);
+    float: right;
+}
+
+.solution-explanation details[open] summary::after,
+.skeleton-code details[open] summary::after,
+.solution-code details[open] summary::after {
+    transform: rotate(90deg);
+}
+
+/* Combined content sections */
+.problem-documentation {
+    margin-bottom: 2rem;
+}
+
+.solution-details {
+    border-top: 1px solid var(--border-color);
+    padding-top: 2rem;
+}
+
+.problem-documentation h3,
+.solution-details h3 {
+    color: var(--primary-color);
+    margin: 0 0 1rem 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.problem-documentation .doc-content,
+.solution-details .explanation-content {
+    margin-top: 1rem;
+}

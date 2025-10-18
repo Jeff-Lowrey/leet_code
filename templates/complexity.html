@@ -9,7 +9,7 @@
     </nav>
     <h1>Problems by Complexity</h1>
     <div style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
-        <p class="stats" id="stats-text">{{ total_count }} total solution{% if total_count != 1 %}s{% endif %} — Loading...</p>
+        <p class="stats" id="stats-text" data-total-count="{{ total_count }}">{{ total_count }} total solution{% if total_count != 1 %}s{% endif %} — Loading...</p>
         <button id="toggle-all-sections" class="btn btn-secondary">Collapse All</button>
     </div>
     <div style="margin-top: 0.5rem;">
@@ -45,74 +45,5 @@
 </section>
 {% endfor %}
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const toggleBtn = document.getElementById('toggle-all-sections');
-    const allDetails = document.querySelectorAll('.complexity-section details');
-    let allExpanded = true;
-
-    toggleBtn.addEventListener('click', function() {
-        allExpanded = !allExpanded;
-        allDetails.forEach(details => {
-            details.open = allExpanded;
-        });
-        toggleBtn.textContent = allExpanded ? 'Collapse All' : 'Expand All';
-    });
-
-    // Fetch complexity and difficulty stats for headers
-    Promise.all([
-        fetch('/api/stats/complexity').then(r => r.json()),
-        fetch('/api/stats/difficulty').then(r => r.json())
-    ])
-        .then(([complexityStats, difficultyStats]) => {
-            const totalCount = {{ total_count }};
-
-            // Line 1: Total solutions with top complexity patterns
-            const sortedComplexities = Object.entries(complexityStats)
-                .sort((a, b) => b[1] - a[1])
-                .slice(0, 7);
-
-            const complexityText = sortedComplexities
-                .map(([pattern, count]) => `${pattern}: ${count}`)
-                .join(', ');
-
-            const total = sortedComplexities.reduce((sum, [_, count]) => sum + count, 0);
-            const grandTotal = Object.values(complexityStats).reduce((sum, count) => sum + count, 0);
-            const remaining = grandTotal - total;
-
-            let line1Text = `${totalCount} total solution${totalCount !== 1 ? 's' : ''} — ${complexityText}`;
-            if (remaining > 0) {
-                line1Text += `, Other: ${remaining}`;
-            }
-
-            document.getElementById('stats-text').textContent = line1Text;
-
-            // Line 2: Difficulty breakdown
-            const easyCount = difficultyStats.easy || 0;
-            const mediumCount = difficultyStats.medium || 0;
-            const hardCount = difficultyStats.hard || 0;
-
-            document.getElementById('difficulty-stats').textContent = `Difficulty breakdown — Easy: ${easyCount}, Medium: ${mediumCount}, Hard: ${hardCount}`;
-        })
-        .catch(error => {
-            console.error('Failed to load stats:', error);
-        });
-
-    // Fetch per-complexity difficulty breakdowns
-    document.querySelectorAll('.section-breakdown[data-complexity]').forEach(span => {
-        const complexityKey = span.getAttribute('data-complexity');
-
-        fetch(`/api/stats/difficulty/complexity/${complexityKey}`)
-            .then(r => r.json())
-            .then(difficultyCounts => {
-                const text = `Easy: ${difficultyCounts.easy}, Medium: ${difficultyCounts.medium}, Hard: ${difficultyCounts.hard}`;
-                span.textContent = text;
-            })
-            .catch(error => {
-                console.error(`Failed to load difficulty stats for ${complexityKey}:`, error);
-                span.textContent = 'Loading failed';
-            });
-    });
-});
-</script>
+<script src="{{ url_for('static', filename='js/pages/complexity.js') }}"></script>
 {% endblock %}

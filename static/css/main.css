@@ -1,0 +1,28 @@
+/* Main CSS Import File */
+/* Import theme definitions first */
+@import url('themes.css');
+
+/* Base Styles */
+@import url('base/reset.css');
+
+/* Layout Styles */
+@import url('layout/navigation.css');
+@import url('layout/sidebar.css');
+@import url('layout/grid.css');
+
+/* Component Styles */
+@import url('components/cards.css');
+@import url('components/badges.css');
+@import url('components/buttons.css');
+
+/* Page-specific Styles */
+@import url('pages/common.css');
+@import url('pages/solution.css');
+@import url('pages/documentation.css');
+@import url('pages/difficulty-complexity.css');
+
+/* Category Colors */
+@import url('categories/colors.css');
+
+/* Responsive Styles - loaded last to override when necessary */
+@import url('responsive.css');
