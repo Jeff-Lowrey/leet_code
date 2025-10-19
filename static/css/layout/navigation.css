@@ -165,7 +165,7 @@
     border-radius: 6px;
     background: var(--card-bg);
     color: var(--text-primary);
-    font-size: 1rem;
+    font-size: 0.95rem;
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
@@ -182,6 +182,12 @@
 .search-input:focus {
     outline: none;
     border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(76, 110, 245, 0.1);
+}
+
+.search-input::placeholder {
+    color: var(--text-tertiary);
+    font-size: 0.9rem;
 }
 
 .search-toggle {
@@ -214,6 +220,136 @@
 
 .search-toggle:hover .search-icon {
     transform: scale(1.1);
+}
+
+/* Autocomplete Dropdown */
+.search-autocomplete {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    right: 48px;
+    width: calc(75vw - 250px);
+    max-height: 400px;
+    overflow-y: auto;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.2s ease;
+    z-index: 1001;
+}
+
+.search-autocomplete.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.search-autocomplete-group {
+    padding: 0.5rem 0;
+}
+
+.search-autocomplete-group:not(:last-child) {
+    border-bottom: 1px solid var(--border-color);
+}
+
+.search-autocomplete-group-title {
+    padding: 0.5rem 1rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.search-autocomplete-item {
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.search-autocomplete-item:hover,
+.search-autocomplete-item.active {
+    background: var(--light-bg);
+}
+
+.search-autocomplete-item-main {
+    flex: 1;
+    min-width: 0;
+}
+
+.search-autocomplete-item-title {
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+}
+
+.search-autocomplete-item-title mark {
+    background-color: rgba(76, 110, 245, 0.2);
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.search-autocomplete-item-meta {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.search-autocomplete-badge {
+    font-size: 0.75rem;
+    padding: 0.125rem 0.5rem;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+.search-autocomplete-badge.difficulty-easy {
+    background-color: rgba(46, 160, 67, 0.15);
+    color: #2ea043;
+}
+
+.search-autocomplete-badge.difficulty-medium {
+    background-color: rgba(251, 188, 5, 0.15);
+    color: #bf8700;
+}
+
+.search-autocomplete-badge.difficulty-hard {
+    background-color: rgba(218, 54, 51, 0.15);
+    color: #da3633;
+}
+
+.search-autocomplete-badge.category {
+    background-color: var(--light-bg);
+    color: var(--text-secondary);
+}
+
+.search-loading {
+    padding: 1rem;
+    text-align: center;
+    color: var(--text-secondary);
+}
+
+.search-no-results {
+    padding: 1.5rem;
+    text-align: center;
+    color: var(--text-secondary);
+}
+
+.search-no-results-title {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.search-no-results-hint {
+    font-size: 0.875rem;
+    color: var(--text-tertiary);
 }
 
 /* ============================================

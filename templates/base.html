@@ -22,7 +22,8 @@
             <a href="/" class="logo">Leet Code Learning Tool</a>
             <div style="display: flex; align-items: center; gap: 1rem;">
                 <div class="search-container">
-                    <input type="text" class="search-input" id="search-input" placeholder="Search problems...">
+                    <input type="text" class="search-input" id="search-input" placeholder="Try: 443, palindrome, or filters...">
+                    <div class="search-autocomplete" id="search-autocomplete"></div>
                     <button class="search-toggle" onclick="toggleSearch()" title="Search">
                         <span class="search-icon">🔍</span>
                     </button>
@@ -101,6 +102,7 @@
     <script src="{{ url_for('static', filename='js/sidebar-toc.js') }}"></script>
     <script src="{{ url_for('static', filename='js/navigation.js') }}"></script>
     <script src="{{ url_for('static', filename='js/search.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/search-autocomplete.js') }}"></script>
     <script src="{{ url_for('static', filename='js/theme.js') }}"></script>
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 
