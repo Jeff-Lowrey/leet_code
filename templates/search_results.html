@@ -1,0 +1,577 @@
+{% extends "base.html" %}
+
+{% block title %}Search Results - Leet Code Learning Tool{% endblock %}
+
+{% block content %}
+<div class="search-results-page">
+    <!-- Query Summary -->
+    <div class="search-summary">
+        <h1 class="search-summary-title">
+            {% if mode == 'navigate' %}
+                Problem #{{ query_info.number }}
+            {% elif mode == 'similar' %}
+                Problems Similar to #{{ reference_problem.number }}
+            {% elif mode == 'name_search' %}
+                Search Results for "{{ query_info.search_term }}"
+            {% elif mode == 'filter' %}
+                Filtered Problems
+            {% else %}
+                Search Results
+            {% endif %}
+        </h1>
+
+        <!-- Original Query -->
+        <div class="search-query-display">
+            <span class="search-query-label">Query:</span>
+            <code class="search-query-text">{{ query }}</code>
+        </div>
+
+        <!-- Reference Problem (for similarity search) -->
+        {% if reference_problem %}
+        <div class="reference-problem-card">
+            <div class="reference-problem-header">
+                <h3>Reference Problem</h3>
+            </div>
+            <div class="reference-problem-content">
+                <div class="problem-title">
+                    <span class="problem-number">#{{ reference_problem.number }}</span>
+                    <a href="/solution/{{ reference_problem.category }}/{{ reference_problem.filename }}" class="problem-name">
+                        {{ reference_problem.name }}
+                    </a>
+                </div>
+                <div class="problem-meta">
+                    <span class="badge difficulty-{{ reference_problem.difficulty }}">{{ reference_problem.difficulty }}</span>
+                    <span class="badge category">{{ reference_problem.category_name }}</span>
+                    {% if reference_problem.time_complexity %}
+                    <span class="badge complexity">Time: {{ reference_problem.time_complexity }}</span>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Applied Filters -->
+        {% if filters %}
+        <div class="applied-filters">
+            <span class="applied-filters-label">Filters:</span>
+            <div class="applied-filters-list">
+                {% for key, value in filters.items() %}
+                <span class="filter-badge">
+                    <span class="filter-key">{{ key }}</span>=<span class="filter-value">{{ value }}</span>
+                </span>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Results Count -->
+        <div class="results-count">
+            Found <strong>{{ results|length }}</strong> problem{{ 's' if results|length != 1 else '' }}
+        </div>
+    </div>
+
+    <!-- Results List -->
+    {% if results %}
+    <div class="search-results-list">
+        {% if mode == 'similar' %}
+            <!-- Similarity-based results with score grouping -->
+            {% set high_similarity = [] %}
+            {% set medium_similarity = [] %}
+            {% set low_similarity = [] %}
+
+            {% for result in results %}
+                {% if result.similarity_score >= 0.8 %}
+                    {% set _ = high_similarity.append(result) %}
+                {% elif result.similarity_score >= 0.5 %}
+                    {% set _ = medium_similarity.append(result) %}
+                {% else %}
+                    {% set _ = low_similarity.append(result) %}
+                {% endif %}
+            {% endfor %}
+
+            <!-- High Similarity -->
+            {% if high_similarity %}
+            <div class="similarity-group">
+                <h2 class="similarity-group-title">
+                    <span class="similarity-icon">★★★★★</span>
+                    Very Similar ({{ high_similarity|length }})
+                </h2>
+                <div class="results-grid">
+                    {% for result in high_similarity %}
+                        {{ render_result_card(result, show_similarity=True) }}
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+
+            <!-- Medium Similarity -->
+            {% if medium_similarity %}
+            <div class="similarity-group">
+                <h2 class="similarity-group-title">
+                    <span class="similarity-icon">★★★☆☆</span>
+                    Moderately Similar ({{ medium_similarity|length }})
+                </h2>
+                <div class="results-grid">
+                    {% for result in medium_similarity %}
+                        {{ render_result_card(result, show_similarity=True) }}
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+
+            <!-- Low Similarity -->
+            {% if low_similarity %}
+            <div class="similarity-group">
+                <h2 class="similarity-group-title">
+                    <span class="similarity-icon">★★☆☆☆</span>
+                    Somewhat Similar ({{ low_similarity|length }})
+                </h2>
+                <div class="results-grid">
+                    {% for result in low_similarity %}
+                        {{ render_result_card(result, show_similarity=True) }}
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+
+        {% else %}
+            <!-- Standard results list -->
+            <div class="results-grid">
+                {% for result in results %}
+                    {{ render_result_card(result, show_similarity=False) }}
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+
+    {% else %}
+    <!-- No Results State -->
+    <div class="no-results">
+        <div class="no-results-icon">🔍</div>
+        <h2 class="no-results-title">No results found</h2>
+        <p class="no-results-description">
+            We couldn't find any problems matching your search criteria.
+        </p>
+        <div class="no-results-suggestions">
+            <h3>Try:</h3>
+            <ul>
+                <li>Using a different problem number</li>
+                <li>Searching by problem name (e.g., "palindrome", "binary")</li>
+                <li>Adjusting your filters (e.g., "difficulty=easy")</li>
+                <li>Browsing <a href="/">all categories</a></li>
+            </ul>
+        </div>
+        <div class="no-results-actions">
+            <a href="/" class="btn btn-primary">Browse All Problems</a>
+            <a href="/difficulty" class="btn btn-secondary">View by Difficulty</a>
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- Search Tips -->
+    <div class="search-tips">
+        <h3>Search Tips</h3>
+        <ul>
+            <li><code>443</code> - Go directly to problem #443</li>
+            <li><code>palindrome</code> - Search problems by name</li>
+            <li><code>443 difficulty=easy</code> - Find similar easy problems to #443</li>
+            <li><code>difficulty=medium category=graphs</code> - Filter medium graph problems</li>
+            <li><code>complexity=O(n)</code> - Find problems with linear time complexity</li>
+        </ul>
+    </div>
+</div>
+
+<!-- Result Card Macro -->
+{% macro render_result_card(result, show_similarity=False) %}
+<div class="result-card">
+    <div class="result-card-header">
+        <div class="result-card-title">
+            <span class="problem-number">#{{ result.number }}</span>
+            <a href="/solution/{{ result.category }}/{{ result.filename }}" class="problem-name">
+                {{ result.name }}
+            </a>
+        </div>
+        {% if show_similarity and result.similarity_score %}
+        <div class="similarity-score">
+            <div class="similarity-stars">
+                {{ render_stars(result.similarity_score) }}
+            </div>
+            <div class="similarity-percentage">{{ (result.similarity_score * 100)|round|int }}%</div>
+        </div>
+        {% endif %}
+    </div>
+
+    <div class="result-card-meta">
+        <span class="badge difficulty-{{ result.difficulty }}">{{ result.difficulty }}</span>
+        <span class="badge category">{{ result.category_name }}</span>
+        {% if result.time_complexity %}
+        <span class="badge complexity">Time: {{ result.time_complexity }}</span>
+        {% endif %}
+        {% if result.space_complexity %}
+        <span class="badge complexity">Space: {{ result.space_complexity }}</span>
+        {% endif %}
+    </div>
+
+    {% if show_similarity and result.similarity_reasons %}
+    <div class="similarity-reasons">
+        <div class="similarity-reasons-title">Why it's similar:</div>
+        <ul class="similarity-reasons-list">
+            {% for reason in result.similarity_reasons %}
+            <li>{{ reason }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+
+    <div class="result-card-actions">
+        <a href="/solution/{{ result.category }}/{{ result.filename }}" class="btn btn-sm btn-primary">
+            View Solution
+        </a>
+        {% if mode != 'similar' %}
+        <a href="/search?q={{ result.number }} difficulty={{ result.difficulty }}" class="btn btn-sm btn-secondary">
+            Find Similar
+        </a>
+        {% endif %}
+    </div>
+</div>
+{% endmacro %}
+
+<!-- Stars Rendering Macro -->
+{% macro render_stars(score) %}
+{% set filled_stars = (score * 5)|round|int %}
+{% set empty_stars = 5 - filled_stars %}
+{% for i in range(filled_stars) %}★{% endfor %}{% for i in range(empty_stars) %}☆{% endfor %}
+{% endmacro %}
+
+<style>
+/* Search Results Page Styles */
+.search-results-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+.search-summary {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.search-summary-title {
+    font-size: 1.75rem;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.search-query-display {
+    margin: 1rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.search-query-label {
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.search-query-text {
+    font-family: 'Monaco', 'Courier New', monospace;
+    background: var(--light-bg);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-size: 0.95rem;
+}
+
+.reference-problem-card {
+    background: var(--light-bg);
+    border-left: 4px solid var(--primary-color);
+    border-radius: 4px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.reference-problem-header h3 {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.problem-title {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.problem-number {
+    font-family: 'Monaco', 'Courier New', monospace;
+    font-weight: 700;
+    color: var(--primary-color);
+    font-size: 1.1rem;
+}
+
+.problem-name {
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.problem-name:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+.problem-meta {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.applied-filters {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.applied-filters-label {
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.applied-filters-list {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.filter-badge {
+    font-family: 'Monaco', 'Courier New', monospace;
+    background: var(--primary-color);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+}
+
+.filter-key {
+    opacity: 0.9;
+}
+
+.filter-value {
+    font-weight: 600;
+}
+
+.results-count {
+    color: var(--text-secondary);
+    margin-top: 1rem;
+    font-size: 0.95rem;
+}
+
+.similarity-group {
+    margin-bottom: 3rem;
+}
+
+.similarity-group-title {
+    font-size: 1.25rem;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.similarity-icon {
+    color: #ffc107;
+    font-size: 1.5rem;
+}
+
+.results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 1.5rem;
+}
+
+.result-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.result-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.result-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.result-card-title {
+    flex: 1;
+}
+
+.similarity-score {
+    text-align: right;
+    margin-left: 1rem;
+}
+
+.similarity-stars {
+    color: #ffc107;
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem;
+}
+
+.similarity-percentage {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+}
+
+.result-card-meta {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+
+.similarity-reasons {
+    background: var(--light-bg);
+    padding: 1rem;
+    border-radius: 4px;
+    margin: 1rem 0;
+}
+
+.similarity-reasons-title {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+}
+
+.similarity-reasons-list {
+    margin: 0;
+    padding-left: 1.5rem;
+    font-size: 0.9rem;
+    color: var(--text-primary);
+}
+
+.similarity-reasons-list li {
+    margin-bottom: 0.25rem;
+}
+
+.result-card-actions {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.no-results {
+    text-align: center;
+    padding: 4rem 2rem;
+}
+
+.no-results-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+}
+
+.no-results-title {
+    font-size: 1.75rem;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.no-results-description {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+.no-results-suggestions {
+    background: var(--light-bg);
+    border-radius: 8px;
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 600px;
+    text-align: left;
+}
+
+.no-results-suggestions h3 {
+    margin-bottom: 1rem;
+}
+
+.no-results-suggestions ul {
+    margin: 0;
+    padding-left: 1.5rem;
+}
+
+.no-results-suggestions li {
+    margin-bottom: 0.5rem;
+}
+
+.no-results-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.search-tips {
+    background: var(--light-bg);
+    border-radius: 8px;
+    padding: 2rem;
+    margin-top: 3rem;
+}
+
+.search-tips h3 {
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.search-tips ul {
+    margin: 0;
+    padding-left: 1.5rem;
+}
+
+.search-tips li {
+    margin-bottom: 0.75rem;
+    color: var(--text-secondary);
+}
+
+.search-tips code {
+    font-family: 'Monaco', 'Courier New', monospace;
+    background: var(--card-bg);
+    padding: 0.25rem 0.5rem;
+    border-radius: 3px;
+    color: var(--primary-color);
+}
+
+@media (max-width: 768px) {
+    .results-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .result-card-header {
+        flex-direction: column;
+    }
+
+    .similarity-score {
+        margin-left: 0;
+        margin-top: 0.5rem;
+    }
+}
+</style>
+{% endblock %}
