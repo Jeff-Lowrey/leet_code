@@ -8,12 +8,21 @@
 
 ## 🚀 Features
 
+### Search & Navigation
+- **Smart Search**: Multi-mode search with intelligent query parsing
+  - Navigate mode: Direct problem number jump (e.g., "1", "443")
+  - Name search: Fuzzy text matching (e.g., "palindrome", "two sum")
+  - Similar mode: Find related problems with filters (e.g., "1 difficulty=medium")
+  - Filter mode: Browse by criteria (e.g., "difficulty=easy category=arrays")
+- **Virtual Categories**: Browse solutions by difficulty (Easy/Medium/Hard) or complexity (O(n), O(log n), etc.)
+- **Quick Access Dropdowns**: Direct navigation from category cards
+- **Enhanced Category Cards**: Difficulty and complexity badges showing distribution at a glance
+
 ### Core Functionality
 - **Web Interface**: Flask-based solution browser with syntax highlighting
 - **Multi-Language Support**: Upload and view solutions in 13+ programming languages
 - **Python to LeetCode Conversion**: Automatic conversion for LeetCode submission format
 - **Smart Downloads**: Language-aware download system with skeleton/solution/ZIP options
-- **Quick Navigation**: Dropdown menus on category cards for direct solution access
 - **API Support**: JSON endpoints for dynamic content loading
 
 ### Solution Management
@@ -80,10 +89,25 @@ pdm run python -m src.leet_code.app
 
 ## Usage
 
-### Viewing Solutions
+### Finding Solutions
+
+**Smart Search** (fastest method):
+1. Click the search icon (🔍) in the navbar
+2. Enter your query:
+   - Problem number: `443` → Jump directly to problem #443
+   - Name search: `palindrome` → Find all palindrome problems
+   - Similar problems: `1 difficulty=medium` → Find medium problems similar to Two Sum
+   - Filter by criteria: `difficulty=easy category=arrays` → Browse easy array problems
+
+**Browse by Category**:
 1. Navigate to `http://127.0.0.1:9501`
-2. Browse categories or use quick access dropdowns
-3. Click on any solution to view code with syntax highlighting
+2. Browse algorithmic pattern categories (Arrays, Two Pointers, etc.)
+3. Use quick access dropdowns on category cards
+4. Click on any solution to view code with syntax highlighting
+
+**Browse by Difficulty/Complexity**:
+- Use the TOC sidebar to browse by Easy/Medium/Hard difficulty
+- Or browse by time complexity (O(1), O(n), O(log n), etc.)
 
 ### Uploading Alternative Languages
 1. Open any solution page
@@ -129,6 +153,39 @@ See [docs/upload-guide/README.md](docs/upload-guide/README.md)
 ## API Documentation
 
 ### Endpoints
+
+#### Search API
+```
+GET /search?q=<query>
+Returns: Search results page with matching solutions
+
+GET /api/search?q=<query>
+Returns: JSON search results with mode detection
+```
+
+#### Virtual Categories
+```
+GET /difficulty/easy
+GET /difficulty/medium
+GET /difficulty/hard
+Returns: Solutions filtered by difficulty level
+
+GET /complexity/{pattern}
+Returns: Solutions filtered by time complexity (e.g., /complexity/on)
+```
+
+#### Stats API
+```
+GET /api/stats/difficulty
+Returns: JSON difficulty breakdown across all solutions
+
+GET /api/stats/complexity
+Returns: JSON complexity breakdown across all solutions
+
+GET /api/category/{category}/stats/difficulty
+GET /api/category/{category}/stats/complexity
+Returns: JSON stats for specific category
+```
 
 #### Categories API
 ```
