@@ -1,6 +1,6 @@
 """Unit tests for search execution logic."""
 
-from unittest.mock import MagicMock, patch
+from unittest.mock import patch
 
 from src.leet_code.app import execute_search
 from src.leet_code.category_data import Solution
