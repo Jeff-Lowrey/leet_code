@@ -8,6 +8,7 @@
 
 - [Navigating the Platform](#navigating-the-platform)
 - [Navigation Tools](#navigation-tools)
+- [Smart Search](#smart-search)
 - [Home Page Categories](#home-page-categories)
 - [Quick Access Dropdowns](#quick-access-dropdowns)
 - [Category View](#category-view)
@@ -72,16 +73,176 @@ The TOC sidebar provides context-aware navigation based on your current page:
 2. Current location is highlighted
 3. Click the X or TOC icon again to close
 
+## Smart Search
+
+The Smart Search feature provides powerful, flexible search capabilities with intelligent query parsing and multiple search modes.
+
+### Accessing Smart Search
+
+**Location:**
+- Search icon (🔍) in the top navigation bar
+- Click to expand the search input
+- Type your query and press Enter or click the search button
+
+### Search Modes
+
+Smart Search automatically detects your intent based on the query format:
+
+#### 1. Navigate Mode (Direct Problem Number)
+
+Jump directly to a specific problem by number.
+
+**Examples:**
+```
+1          → Goes to Two Sum (#1)
+443        → Goes to String Compression (#443)
+217        → Goes to Contains Duplicate (#217)
+```
+
+**When to Use:**
+- You know the exact LeetCode problem number
+- Quick navigation to a specific problem
+- Fastest way to find a known problem
+
+#### 2. Name Search Mode (Text Search)
+
+Search for problems by name or keywords.
+
+**Examples:**
+```
+palindrome           → Finds all palindrome problems
+two sum             → Finds Two Sum and related problems
+binary search       → Finds binary search problems
+array               → Finds all array-related problems
+```
+
+**Features:**
+- Case-insensitive matching
+- Searches problem titles and slugs
+- Returns all matching problems
+- Shows origin category for each result
+
+**When to Use:**
+- Remember part of the problem name
+- Want to find related problems
+- Exploring a specific topic
+
+#### 3. Similar Mode (Number + Filters)
+
+Find problems similar to a reference problem, with optional filters.
+
+**Examples:**
+```
+1 difficulty=easy        → Problems similar to Two Sum that are Easy
+443 difficulty=medium    → Medium problems similar to String Compression
+1 category=arrays        → Array problems similar to Two Sum
+```
+
+**Available Filters:**
+- `difficulty=easy|medium|hard` - Filter by difficulty level
+- `category=<name>` - Filter by category
+- `complexity=<pattern>` - Filter by time/space complexity
+
+**When to Use:**
+- Want more practice on similar patterns
+- Looking for related but different difficulty
+- Finding problems in the same category
+
+#### 4. Filter Mode (Pure Filters)
+
+Browse problems using only filter criteria.
+
+**Examples:**
+```
+difficulty=medium           → All Medium difficulty problems
+difficulty=hard            → All Hard problems
+category=graphs            → All graph problems
+difficulty=easy category=arrays  → Easy array problems
+```
+
+**Multiple Filters:**
+- Combine filters with spaces
+- All filters must match (AND operation)
+- Results show matching problems with badges
+
+**When to Use:**
+- Studying a specific difficulty level
+- Focusing on a particular category
+- Interview prep for specific patterns
+
+### Search Results Page
+
+**Result Display:**
+- Problem number and title
+- Difficulty badge (🟢 Easy, 🟡 Medium, 🔴 Hard)
+- Category label (origin category)
+- Time and space complexity (when available)
+- Clickable cards to view solution
+
+**Result Organization:**
+- Grouped by relevance (for similarity search)
+- Sorted by problem number
+- Shows filters applied at top
+- Empty state with helpful message if no results
+
+### Search Tips
+
+**For Quick Navigation:**
+```
+1               # Direct jump to problem #1
+443             # Jump to problem #443
+```
+
+**For Exploration:**
+```
+palindrome      # Find all palindrome problems
+sliding         # Find sliding window problems
+```
+
+**For Focused Practice:**
+```
+difficulty=medium              # Practice medium problems
+category=dynamic-programming   # Study DP problems
+```
+
+**For Related Problems:**
+```
+1 difficulty=medium       # Find medium problems similar to Two Sum
+443 category=strings      # Similar string problems
+```
+
+### Search Best Practices
+
+1. **Start Simple**: Begin with problem numbers or names
+2. **Add Filters**: Refine results with difficulty/category filters
+3. **Explore Similar**: Use similarity search to find practice problems
+4. **Combine Filters**: Mix difficulty and category for focused study
+
+### Search Shortcuts
+
+- **Press '/' key**: Focus search input (keyboard shortcut)
+- **Escape key**: Close search results
+- **Enter key**: Execute search
+- **Click badges**: Navigate from results to full views
+
 ## Home Page Categories
 
 ### Category Cards
 
-The home page displays all 29+ algorithmic categories as visual cards:
+The home page displays all 29+ algorithmic categories as visual cards with helpful metadata:
 
 - **Category Name**: Clear identification of the algorithmic pattern
 - **Solution Count**: Number of problems solved in that category
+- **Difficulty Badges**: Color-coded breakdown (🟢 Easy, 🟡 Medium, 🔴 Hard) showing distribution
+- **Complexity Badges**: Top 3 complexity patterns in the category (e.g., "O(n): 15 | O(n²): 8")
 - **Color Coding**: Each category has a unique color for easy recognition
 - **Quick Access Dropdown**: Direct navigation to specific problems
+
+**Badge Features:**
+- **Difficulty Breakdown**: See at a glance how many Easy, Medium, and Hard problems are in each category
+- **Complexity Patterns**: Understand the common time/space complexity patterns in the category
+- **Dynamic Loading**: Badges load automatically when you visit the home page
+- **Smart Filtering**: Badges exclude "Unknown" complexity and show "Other" for less common patterns
 
 ### Category Organization
 
@@ -308,36 +469,56 @@ Clicking a solution takes you to the detailed view:
 
 ### Efficient Browsing
 
-1. **Use TOC Sidebar**: Quick navigation on any page
-2. **Use View By Dropdown**: Switch between browsing modes
-3. **Use Quick Access**: Category card dropdowns for specific problems
-4. **Clickable Badges**: Jump from solution to difficulty/complexity overview
-5. **Browse by Pattern**: Learn categories systematically
-6. **Difficulty Progression**: Start with Easy, advance to Hard
-7. **Multi-Language Exploration**: Compare implementations
+1. **Use Smart Search**: Fastest way to find problems by number, name, or filters
+2. **Use TOC Sidebar**: Quick navigation on any page
+3. **Use View By Dropdown**: Switch between browsing modes
+4. **Use Quick Access**: Category card dropdowns for specific problems
+5. **Clickable Badges**: Jump from solution to difficulty/complexity overview
+6. **Category Badges**: Check difficulty/complexity distribution before diving in
+7. **Browse by Pattern**: Learn categories systematically
+8. **Difficulty Progression**: Start with Easy, advance to Hard
+9. **Multi-Language Exploration**: Compare implementations
 
 ### Search Strategies
 
+**By Problem Number:**
+- Use Smart Search: Type the number (e.g., "1", "443")
+- Instant navigation to the problem
+- Fastest method when you know the number
+
+**By Problem Name:**
+- Use Smart Search: Type keywords (e.g., "palindrome", "two sum")
+- Finds all matching problems across categories
+- Great for exploring related problems
+
+**By Filters:**
+- Use Smart Search with filters (e.g., "difficulty=medium")
+- Combine multiple filters (e.g., "difficulty=easy category=arrays")
+- Perfect for focused study sessions
+
+**By Similar Problems:**
+- Use Smart Search: Number + filters (e.g., "1 difficulty=medium")
+- Find problems with similar patterns but different difficulty
+- Excellent for progressive practice
+
 **By Category:**
+- Check category card badges for difficulty/complexity distribution
 - Know the algorithmic pattern → Go to category
 - Want to master a topic → Browse entire category
 - Use TOC to see all problems in category
 
 **By Difficulty:**
-- Learning fundamentals → Use difficulty overview, start with Easy
+- Use View By dropdown or Smart Search filters
+- Learning fundamentals → Start with Easy
 - Interview prep → Focus on Medium section
 - Advanced practice → Challenge with Hard section
 - Compare across categories at same difficulty level
 
 **By Complexity:**
+- Use View By dropdown or complexity filters in search
 - Learning efficiency → Study O(n) and O(log n) solutions
 - Optimization practice → Find O(1) space solutions
 - Algorithm comparison → See different approaches to same complexity
-
-**By Problem:**
-- Know the problem number → Use quick access dropdown
-- Know the problem name → Browse category or use TOC
-- Exploring similar problems → Use complexity or category view
 
 ### Back Navigation
 
