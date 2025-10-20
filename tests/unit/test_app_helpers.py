@@ -3,6 +3,9 @@
 from typing import Any
 from unittest.mock import MagicMock, patch
 
+import pytest
+from pygments.util import ClassNotFound
+
 from src.leet_code.app import get_available_languages, get_file_extension, get_lexer_for_language
 
 
@@ -29,16 +32,11 @@ class TestHelperFunctions:
         lexer = get_lexer_for_language("Java")
         assert lexer.__class__.__name__ == "JavaLexer"
 
-    @patch("src.leet_code.app.get_lexer_by_name")
-    def test_get_lexer_for_language_unknown_language(self, mock_get_lexer: Any) -> None:
-        """Test lexer retrieval for unknown language falls back to get_lexer_by_name."""
-        mock_lexer = MagicMock()
-        mock_get_lexer.return_value = mock_lexer
-
-        result = get_lexer_for_language("UnknownLang")
-
-        assert result == mock_lexer
-        mock_get_lexer.assert_called_once_with("unknownlang")
+    def test_get_lexer_for_language_unknown_language(self) -> None:
+        """Test lexer retrieval for unknown language raises ClassNotFound."""
+        # Unknown languages should raise ClassNotFound exception
+        with pytest.raises(ClassNotFound):
+            get_lexer_for_language("UnknownLang")
 
     @patch("src.leet_code.app.Path")
     def test_get_available_languages_no_alternatives_dir(self, mock_path_class: Any) -> None:

@@ -9,7 +9,7 @@ from src.leet_code.category_data import Solution
 class TestSearchRoutes:
     """Test search route endpoints."""
 
-    def test_api_search_empty_query(self):
+    def test_api_search_empty_query(self) -> None:
         """Test API search with empty query."""
         with app.test_client() as client:
             response = client.get("/api/search?q=")
@@ -17,7 +17,7 @@ class TestSearchRoutes:
             data = response.get_json()
             assert "error" in data
 
-    def test_api_search_navigate_found(self):
+    def test_api_search_navigate_found(self) -> None:
         """Test API search navigate mode with valid problem."""
         with app.test_client() as client, patch("src.leet_code.app.category_manager") as mock_cm:
             mock_solution = Solution(
@@ -39,7 +39,7 @@ class TestSearchRoutes:
                 assert data["mode"] == "navigate"
                 assert data["solution"]["number"] == "1"
 
-    def test_api_search_navigate_not_found(self):
+    def test_api_search_navigate_not_found(self) -> None:
         """Test API search navigate mode with invalid problem."""
         with app.test_client() as client, patch("src.leet_code.app.category_manager") as mock_cm:
             mock_cm.find_by_number.return_value = None
@@ -50,7 +50,7 @@ class TestSearchRoutes:
             assert "error" in data
             assert "99999" in data["error"]
 
-    def test_api_search_name_search(self):
+    def test_api_search_name_search(self) -> None:
         """Test API search name search mode."""
         with app.test_client() as client, patch("src.leet_code.app.category_manager") as mock_cm:
             mock_solutions = [
@@ -74,10 +74,10 @@ class TestSearchRoutes:
                 assert data["mode"] == "name_search"
                 assert "results" in data
 
-    def test_api_search_filter_mode(self):
+    def test_api_search_filter_mode(self) -> None:
         """Test API search filter mode."""
         with app.test_client() as client, patch("src.leet_code.app.category_manager") as mock_cm:
-            mock_solutions = []
+            mock_solutions: list[Solution] = []
             mock_cm.get_all_solutions.return_value = mock_solutions
 
             response = client.get("/api/search?q=difficulty=easy")
@@ -85,7 +85,7 @@ class TestSearchRoutes:
             data = response.get_json()
             assert data["mode"] == "filter"
 
-    def test_search_route_navigate_redirects(self):
+    def test_search_route_navigate_redirects(self) -> None:
         """Test HTML search route redirects for navigate mode."""
         with app.test_client() as client, patch("src.leet_code.app.category_manager") as mock_cm:
             mock_solution = Solution(
@@ -105,7 +105,7 @@ class TestSearchRoutes:
                 assert response.status_code == 302
                 assert "/solution/arrays-hashing/001-two-sum" in response.location
 
-    def test_search_route_error_handling(self):
+    def test_search_route_error_handling(self) -> None:
         """Test HTML search route error handling."""
         with app.test_client() as client, patch("src.leet_code.app.category_manager") as mock_cm:
             mock_cm.find_by_number.return_value = None
@@ -115,7 +115,7 @@ class TestSearchRoutes:
             # Should render search results page (may show error or empty results)
             assert b"Search Results" in response.data or b"search" in response.data.lower()
 
-    def test_search_route_name_search_renders(self):
+    def test_search_route_name_search_renders(self) -> None:
         """Test HTML search route renders name search results."""
         with app.test_client() as client, patch("src.leet_code.app.category_manager") as mock_cm:
             mock_solutions = [
@@ -137,17 +137,17 @@ class TestSearchRoutes:
                 assert response.status_code == 200
                 assert b"Search Results" in response.data
 
-    def test_search_route_filter_renders(self):
+    def test_search_route_filter_renders(self) -> None:
         """Test HTML search route renders filter results."""
         with app.test_client() as client, patch("src.leet_code.app.category_manager") as mock_cm:
-            mock_solutions = []
+            mock_solutions: list[Solution] = []
             mock_cm.get_all_solutions.return_value = mock_solutions
 
             response = client.get("/search?q=difficulty=easy")
             assert response.status_code == 200
             assert b"Search Results" in response.data
 
-    def test_search_route_empty_query(self):
+    def test_search_route_empty_query(self) -> None:
         """Test HTML search route with empty query."""
         with app.test_client() as client:
             response = client.get("/search?q=")

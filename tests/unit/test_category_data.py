@@ -227,9 +227,9 @@ class TestCategoryManager:
         # Two Sum
         Difficulty: Easy
 
-        ## APPROACH
-        Techniques: Two Pointers, Hash Table
-        Data Structures: Array, Hash Map
+        ### METADATA:
+        **Techniques**: Two Pointers, Hash Table
+        **Data Structures**: Array, Hash Map
 
         This is a solution using hash tables.
         """
