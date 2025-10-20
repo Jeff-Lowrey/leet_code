@@ -1,65 +1,10 @@
-/* Responsive Design */
+/* Responsive Design
+ *
+ * DESIGN ASSUMPTION: This application assumes a minimum viewport width
+ * of ~768px (medium tablet in portrait mode or larger).
+ *
+ * Mobile phones and small devices are NOT supported.
+ * Target: iPad-sized tablets (768px+) and desktop screens.
+ */
 
-@media (max-width: 768px) {
-    .page-header h1 {
-        font-size: 2rem;
-    }
-
-    .categories-grid,
-    .solutions-grid,
-    .docs-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .features {
-        grid-template-columns: 1fr;
-    }
-
-    .navigation {
-        flex-direction: column;
-    }
-
-    .nav-links {
-        gap: 1rem;
-    }
-
-    .theme-toggle {
-        width: 36px;
-        height: 36px;
-        font-size: 1rem;
-    }
-
-    /* Responsive sidebar */
-    .page-with-sidebar {
-        flex-direction: column;
-    }
-
-    .sidebar-nav {
-        width: 100%;
-        position: relative;
-        max-height: none;
-    }
-
-    .sidebar-nav-list a:hover {
-        padding-left: 0.75rem;
-    }
-
-    /* Mobile responsive for navigation buttons */
-    .view-by-toggle,
-    .docs-button,
-    .search-toggle {
-        width: 36px;
-        height: 36px;
-    }
-
-    .view-icon,
-    .docs-icon,
-    .search-icon {
-        font-size: 1rem;
-    }
-
-    /* Mobile search input */
-    .search-input.active {
-        width: calc(100vw - 150px);
-    }
-}
+/* Note: Minimal responsive adjustments needed since minimum width is 768px */

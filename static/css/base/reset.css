@@ -11,6 +11,7 @@ body {
     color: var(--text-primary);
     background-color: var(--light-bg);
     min-height: 100vh;
+    min-width: 768px;
     display: flex;
     flex-direction: column;
     transition: background-color 0.3s ease, color 0.3s ease;
