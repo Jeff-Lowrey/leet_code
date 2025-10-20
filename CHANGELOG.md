@@ -7,6 +7,51 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added - v1.0 Preparation (Phase 1 Complete)
+- **Smart Search System**: Multi-mode intelligent search with query parsing (#17)
+  - Navigate mode: Direct problem number jump (e.g., "1", "443")
+  - Name search mode: Fuzzy text matching (e.g., "palindrome", "two sum")
+  - Similar mode: Find related problems with filters (e.g., "1 difficulty=medium")
+  - Filter mode: Browse by criteria (e.g., "difficulty=easy category=arrays")
+  - Tag-based similarity calculation using problem metadata
+  - Search routes: `/search` (HTML) and `/api/search` (JSON)
+  - Comprehensive unit tests (36 tests for parser, execution, routes)
+- **Virtual Difficulty Categories**: Dynamic views aggregating solutions by difficulty (#17)
+  - Routes: `/difficulty/easy`, `/difficulty/medium`, `/difficulty/hard`
+  - TOC integration with problem counts
+  - Origin category displayed for each solution
+- **Virtual Complexity Categories**: Dynamic views aggregating solutions by complexity (#17)
+  - Routes: `/complexity/{pattern}` for common patterns (O(1), O(n), O(log n), etc.)
+  - TOC integration with complexity counts
+  - Complexity parsing from solution docstrings
+- **Enhanced Category Cards**: Difficulty and complexity badges (#17)
+  - Difficulty badges: Color-coded breakdown (🟢 Easy | 🟡 Medium | 🔴 Hard)
+  - Complexity badges: Top 3 patterns + "Other" count (e.g., "O(n): 15 | O(n²): 8")
+  - API endpoints: `/api/stats/category/<slug>/difficulty` and `/complexity`
+  - Dynamic badge loading with JavaScript
+- **METADATA Sections**: Added to all 298+ solution files for tag extraction (#17)
+- **Problem Tags System**: Extracted tags for similarity matching (`data/problem_tags.json`) (#17)
+- **JavaScript Quality Tools**: ESLint, Prettier configuration for code quality (#17)
+- **Justfile**: Common development tasks automation (#17)
+- **Modularized Frontend**: Organized CSS/JS structure (base, components, layout, themes, utils) (#17)
+- **Comprehensive Documentation**: Smart Search user guide with examples and best practices (#17)
+- **README Updates**: Complete feature documentation for v1.0 capabilities (#17)
+
+### Changed
+- **Navigation Layout**: Refactored with flexbox for responsive search integration (#17)
+- **CSS Structure**: Modularized into base, components, layout, themes, and utils (#17)
+- **JavaScript Structure**: Modularized into search, toc, theme, view-by, and utils (#17)
+- **Minimum Viewport**: Enforced 768px minimum width (tablet+ devices) (#17)
+- **Language Constants**: Extracted to dedicated module for better organization (#17)
+- **App Exports**: Added `__all__` list for explicit test imports (#17)
+
+### Fixed
+- **Test Type Hints**: Added return type annotations to all test methods (#17)
+- **Import Organization**: Applied consistent import sorting across codebase (#17)
+- **Code Formatting**: Applied Ruff auto-fixes and Prettier formatting (#17)
+
+## [Unreleased] - Legacy
+
 ### Added
 - MIT License
 
