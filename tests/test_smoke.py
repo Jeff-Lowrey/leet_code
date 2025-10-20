@@ -8,7 +8,8 @@ Run with: pytest tests/test_smoke.py -v
 Expected runtime: < 5 seconds
 """
 
-from typing import Any, Generator
+from collections.abc import Generator
+from typing import Any
 
 import pytest
 
@@ -16,7 +17,7 @@ from src.leet_code.app import app
 
 
 @pytest.fixture
-def client() -> Generator[Any, None, None]:
+def client() -> Generator[Any]:
     """Create a test client for the Flask application."""
     app.config["TESTING"] = True
     with app.test_client() as client:

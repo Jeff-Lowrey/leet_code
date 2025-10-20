@@ -1,9 +1,9 @@
 """Unit tests for app helper functions."""
 
+from typing import Any
 from unittest.mock import MagicMock, patch
 
 from src.leet_code.app import get_available_languages, get_file_extension, get_lexer_for_language
-from typing import Any
 
 
 class TestHelperFunctions:
