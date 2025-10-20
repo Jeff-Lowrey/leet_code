@@ -25,6 +25,17 @@ from .language_constants import (
 )
 from .leetcode_converter import convert_to_leetcode_format, extract_solution_class
 
+# Export functions for testing
+__all__ = [
+    "app",
+    "get_file_extension",
+    "get_lexer_for_language",
+    "get_available_languages",
+    "parse_search_query",
+    "execute_search",
+    "find_solution_category",
+]
+
 app = Flask(__name__, template_folder="../../templates", static_folder="../../static")
 app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY", "dev-key-change-in-production")
 
