@@ -1,0 +1,1490 @@
+{
+  "001": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Single Pass"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Array"
+    ],
+    "patterns": [
+      "Complement Search"
+    ]
+  },
+  "036": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "049": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "128": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "169": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "217": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "238": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "242": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "347": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "448": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "017": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "039": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "040": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "046": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "047": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "051": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "077": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "078": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "090": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "131": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "033": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "034": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "035": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "074": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "153": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "162": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "278": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "374": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "704": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "875": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "136": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "137": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "190": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "191": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "231": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "260": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "338": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "371": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "389": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "146": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "155": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "173": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "211": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "225": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "232": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "284": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "355": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "380": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "460": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "005": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "053": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "062": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "070": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "091": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "139": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "198": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "213": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "300": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "322": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "416": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "1306": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "133": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "200": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "261": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "417": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "694": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "695": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "733": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "827": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "997": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "045": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "055": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "1221": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "134": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "135": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "330": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "376": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "409": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "763": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "860": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "215": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "295": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "373": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "378": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "451": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "621": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "692": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "703": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "767": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "973": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "056": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "057": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "252": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "253": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "435": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "436": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "452": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "646": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "759": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "986": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "002": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "019": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "021": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "023": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "025": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "141": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "142": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "143": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "206": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "287": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "007": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "009": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "050": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "066": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "069": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "172": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "202": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "204": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "268": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "326": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "037": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "048": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "054": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "059": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "073": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "079": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "240": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "36": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "73": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "084": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "085": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "1019": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "316": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "402": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "456": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "496": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "503": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "739": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "901": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "1248": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "1590": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "1991": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "303": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "437": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "523": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "525": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "560": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "930": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "974": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "103": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "107": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "116": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "1161": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "199": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "346": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "429": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "515": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "637": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "993": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "024": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "17": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "216": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "39": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "40": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "46": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "47": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "77": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "78": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "90": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "1395": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "307": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "315": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "327": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "406": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "493": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "673": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "699": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "715": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "850": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "1260": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "289": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "48": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "498": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "54": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "566": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "59": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "661": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "766": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "867": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "003": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "076": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "121": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "209": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "239": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "424": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "438": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "567": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "643": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "904": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "1030": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "1051": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "1356": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "274": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "280": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "324": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "506": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "75": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "912": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "969": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "020": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "022": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "071": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "1047": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "150": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "224": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "227": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "394": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "71": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "856": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "014": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "38": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "443": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "541": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "557": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "58": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "6": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "67": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "680": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "696": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "1312": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "151": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "28": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "3": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "344": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "383": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "387": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "49": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "5": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "76": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "1136": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "207": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "210": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "269": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "310": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "329": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "444": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "630": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "802": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "851": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "094": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "098": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "102": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "104": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "105": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "110": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "124": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "226": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "235": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "297": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "336": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "421": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "472": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "648": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "676": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "677": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "820": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "1233": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "1268": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "140": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "208": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "212": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "588": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "642": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "720": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "745": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "79": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "011": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "015": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "018": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "026": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "027": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "042": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "075": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "088": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "125": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "167": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "1202": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "130": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "1319": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "305": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "323": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "547": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "684": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "685": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "721": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "990": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  }
+}

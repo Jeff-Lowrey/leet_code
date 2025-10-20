@@ -1,0 +1,29 @@
+{
+  "name": "leet-code-learning-tool",
+  "version": "1.0.0",
+  "description": "JavaScript quality tools for LeetCode Learning Tool",
+  "private": true,
+  "scripts": {
+    "lint": "eslint 'static/js/**/*.js'",
+    "lint:fix": "eslint 'static/js/**/*.js' --fix",
+    "format": "prettier --check 'static/js/**/*.js'",
+    "format:fix": "prettier --write 'static/js/**/*.js'",
+    "security": "npm audit && eslint 'static/js/**/*.js'",
+    "security:fix": "npm audit fix",
+    "quality": "npm run lint && npm run format && npm run security",
+    "quality:fix": "npm run lint:fix && npm run format:fix && npm run security:fix"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-security": "^2.1.1",
+    "prettier": "^3.2.5"
+  },
+  "keywords": [
+    "leetcode",
+    "learning",
+    "flask"
+  ],
+  "author": "",
+  "license": "ISC"
+}
