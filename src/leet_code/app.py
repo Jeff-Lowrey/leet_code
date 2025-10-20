@@ -2097,7 +2097,7 @@ def execute_search(query: str) -> dict[str, Any]:
         results_tuples = group_by_similarity(similar_problems)
         results = enrich_results_with_category(results_tuples)
 
-        return {"mode": "similar", "reference": reference, "results": results}
+        return {"mode": "similar", "reference": reference, "results": results, "filters": filters}
 
     elif mode == "name_search":
         search_term = data["search_term"]
@@ -2111,7 +2111,7 @@ def execute_search(query: str) -> dict[str, Any]:
         results_tuples = {"exact": [], "high": [(sol, 0.0) for sol in matching_problems], "medium": [], "low": []}
         results = enrich_results_with_category(results_tuples)
 
-        return {"mode": "name_search", "results": results}
+        return {"mode": "name_search", "search_term": search_term, "results": results, "filters": filters}
 
     elif mode == "filter":
         filters = data["filters"]
@@ -2121,7 +2121,7 @@ def execute_search(query: str) -> dict[str, Any]:
         results_tuples = {"exact": [], "high": [(sol, 0.0) for sol in filtered_solutions], "medium": [], "low": []}
         results = enrich_results_with_category(results_tuples)
 
-        return {"mode": "filter", "results": results}
+        return {"mode": "filter", "results": results, "filters": filters}
 
     return {"error": "Invalid search query", "mode": None}
 
@@ -2153,7 +2153,7 @@ def search() -> str | Response | WerkzeugResponse:
 
     # Handle error case
     if "error" in search_result:
-        return render_template("search_results.html", query=query, results=None, error=search_result["error"])
+        return render_template("search_results.html", query=query, results=[], error=search_result["error"])
 
     mode = search_result["mode"]
 
@@ -2166,21 +2166,50 @@ def search() -> str | Response | WerkzeugResponse:
 
     # Handle other modes (render results page)
     elif mode == "similar":
+        # Get reference solution details
+        reference_solution = search_result["reference"]
+        reference_category = find_solution_category(reference_solution)
+
+        reference_problem = {
+            "number": reference_solution.number,
+            "name": reference_solution.name,
+            "difficulty": reference_solution.difficulty,
+            "category": reference_category[0] if reference_category else "",
+            "category_name": reference_category[1] if reference_category else "",
+            "filename": remove_py_extension(reference_solution.filename),
+            "time_complexity": reference_solution.time_complexity,
+        }
+
         return render_template(
             "search_results.html",
             query=query,
             mode="similar",
-            reference=search_result["reference"],
+            reference_problem=reference_problem,
             results=search_result["results"],
+            filters=search_result.get("filters", {}),
         )
 
     elif mode == "name_search":
-        return render_template("search_results.html", query=query, mode="name_search", results=search_result["results"])
+        query_info = {"search_term": search_result.get("search_term", query)}
+        return render_template(
+            "search_results.html",
+            query=query,
+            mode="name_search",
+            query_info=query_info,
+            results=search_result["results"],
+            filters=search_result.get("filters", {}),
+        )
 
     elif mode == "filter":
-        return render_template("search_results.html", query=query, mode="filter", results=search_result["results"])
+        return render_template(
+            "search_results.html",
+            query=query,
+            mode="filter",
+            results=search_result["results"],
+            filters=search_result.get("filters", {}),
+        )
 
-    return render_template("search_results.html", query=query, results=None, error="Invalid search query")
+    return render_template("search_results.html", query=query, results=[], error="Invalid search query")
 
 
 @app.route("/api/search")

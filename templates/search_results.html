@@ -2,6 +2,68 @@
 
 {% block title %}Search Results - Leet Code Learning Tool{% endblock %}
 
+<!-- Stars Rendering Macro -->
+{% macro render_stars(score) %}
+{% set filled_stars = (score * 5)|round|int %}
+{% set empty_stars = 5 - filled_stars %}
+{% for i in range(filled_stars) %}★{% endfor %}{% for i in range(empty_stars) %}☆{% endfor %}
+{% endmacro %}
+
+<!-- Result Card Macro -->
+{% macro render_result_card(result, show_similarity=False) %}
+<div class="result-card">
+    <div class="result-card-header">
+        <div class="result-card-title">
+            <span class="problem-number">#{{ result.number }}</span>
+            <a href="/solution/{{ result.category }}/{{ result.filename }}" class="problem-name">
+                {{ result.name }}
+            </a>
+        </div>
+        {% if show_similarity and result.similarity_score %}
+        <div class="similarity-score">
+            <div class="similarity-stars">
+                {{ render_stars(result.similarity_score) }}
+            </div>
+            <div class="similarity-percentage">{{ (result.similarity_score * 100)|round|int }}%</div>
+        </div>
+        {% endif %}
+    </div>
+
+    <div class="result-card-meta">
+        <span class="badge difficulty-{{ result.difficulty }}">{{ result.difficulty }}</span>
+        <span class="badge category">{{ result.category_name }}</span>
+        {% if result.time_complexity %}
+        <span class="badge complexity">Time: {{ result.time_complexity }}</span>
+        {% endif %}
+        {% if result.space_complexity %}
+        <span class="badge complexity">Space: {{ result.space_complexity }}</span>
+        {% endif %}
+    </div>
+
+    {% if show_similarity and result.similarity_reasons %}
+    <div class="similarity-reasons">
+        <div class="similarity-reasons-title">Why it's similar:</div>
+        <ul class="similarity-reasons-list">
+            {% for reason in result.similarity_reasons %}
+            <li>{{ reason }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+
+    <div class="result-card-actions">
+        <a href="/solution/{{ result.category }}/{{ result.filename }}" class="btn btn-sm btn-primary">
+            View Solution
+        </a>
+        {% if mode != 'similar' %}
+        <a href="/search?q={{ result.number }} difficulty={{ result.difficulty }}" class="btn btn-sm btn-secondary">
+            Find Similar
+        </a>
+        {% endif %}
+    </div>
+</div>
+{% endmacro %}
+
 {% block content %}
 <div class="search-results-page">
     <!-- Query Summary -->
@@ -180,68 +242,6 @@
         </ul>
     </div>
 </div>
-
-<!-- Result Card Macro -->
-{% macro render_result_card(result, show_similarity=False) %}
-<div class="result-card">
-    <div class="result-card-header">
-        <div class="result-card-title">
-            <span class="problem-number">#{{ result.number }}</span>
-            <a href="/solution/{{ result.category }}/{{ result.filename }}" class="problem-name">
-                {{ result.name }}
-            </a>
-        </div>
-        {% if show_similarity and result.similarity_score %}
-        <div class="similarity-score">
-            <div class="similarity-stars">
-                {{ render_stars(result.similarity_score) }}
-            </div>
-            <div class="similarity-percentage">{{ (result.similarity_score * 100)|round|int }}%</div>
-        </div>
-        {% endif %}
-    </div>
-
-    <div class="result-card-meta">
-        <span class="badge difficulty-{{ result.difficulty }}">{{ result.difficulty }}</span>
-        <span class="badge category">{{ result.category_name }}</span>
-        {% if result.time_complexity %}
-        <span class="badge complexity">Time: {{ result.time_complexity }}</span>
-        {% endif %}
-        {% if result.space_complexity %}
-        <span class="badge complexity">Space: {{ result.space_complexity }}</span>
-        {% endif %}
-    </div>
-
-    {% if show_similarity and result.similarity_reasons %}
-    <div class="similarity-reasons">
-        <div class="similarity-reasons-title">Why it's similar:</div>
-        <ul class="similarity-reasons-list">
-            {% for reason in result.similarity_reasons %}
-            <li>{{ reason }}</li>
-            {% endfor %}
-        </ul>
-    </div>
-    {% endif %}
-
-    <div class="result-card-actions">
-        <a href="/solution/{{ result.category }}/{{ result.filename }}" class="btn btn-sm btn-primary">
-            View Solution
-        </a>
-        {% if mode != 'similar' %}
-        <a href="/search?q={{ result.number }} difficulty={{ result.difficulty }}" class="btn btn-sm btn-secondary">
-            Find Similar
-        </a>
-        {% endif %}
-    </div>
-</div>
-{% endmacro %}
-
-<!-- Stars Rendering Macro -->
-{% macro render_stars(score) %}
-{% set filled_stars = (score * 5)|round|int %}
-{% set empty_stars = 5 - filled_stars %}
-{% for i in range(filled_stars) %}★{% endfor %}{% for i in range(empty_stars) %}☆{% endfor %}
-{% endmacro %}
 
 <style>
 /* Search Results Page Styles */
