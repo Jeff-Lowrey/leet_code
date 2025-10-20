@@ -23,6 +23,14 @@ Explanation: [0, 1] is the longest contiguous subarray with an equal number of 0
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n)
+**Space Complexity**: O(n)
+
 ### INTUITION:
 Transform the problem: treat 0 as -1. Finding equal 0s and 1s is equivalent to
 finding a subarray with sum 0. Use prefix sum with hash map to track when we've

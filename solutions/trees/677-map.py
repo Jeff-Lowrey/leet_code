@@ -19,6 +19,14 @@ You are asked to implement a map that supports the following two operations:
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: - Insert: O(k) where k is key length
+**Space Complexity**: O(TOTAL_KEY_LENGTH)
+
 ### INTUITION:
 This is a perfect Trie (prefix tree) problem. We need to store key-value pairs and efficiently compute sums for all keys with a given prefix. A trie naturally groups keys by their prefixes, making prefix sum queries efficient.
 

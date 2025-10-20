@@ -21,6 +21,14 @@ The testcases will be generated such that the answer is unique.
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n)
+**Space Complexity**: O(1)
+
 ### INTUITION:
 Use sliding window with character counts. Expand right until window contains all t characters. Then shrink left while maintaining validity. Track minimum window. Use two frequency maps for comparison.
 

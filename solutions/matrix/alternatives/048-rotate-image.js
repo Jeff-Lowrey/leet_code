@@ -19,6 +19,14 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: * O(n^2) where n is matrix dimension
+**Space Complexity**: * O(1) in-place modification
+
  *
  * ### INTUITION:
  * Rotating 90 degrees clockwise can be achieved by two simple operations:

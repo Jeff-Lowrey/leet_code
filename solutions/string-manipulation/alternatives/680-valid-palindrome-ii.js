@@ -18,6 +18,14 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: * O(n)
+**Space Complexity**: * O(1)
+
  *
  * ### INTUITION:
  * We can use a two-pointer approach to check if a string is a palindrome. When we find a mismatch, we have two options: skip the left character or skip the right character. If either option results in a valid palindrome for the remaining substring, then the original string can be made a palindrome by deleting at most one character.

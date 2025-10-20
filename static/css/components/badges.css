@@ -1,0 +1,55 @@
+/* Badge Base Styles */
+.badge {
+    padding: 0.35rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.badge:hover {
+    opacity: 0.85;
+    transform: translateY(-1px);
+}
+
+/* Difficulty Badges */
+.difficulty-badge {
+    padding: 0.25rem 0.5rem;
+    border-radius: 3px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.difficulty-badge.difficulty-easy {
+    background-color: var(--badge-easy);
+    color: var(--badge-text);
+}
+
+.difficulty-badge.difficulty-medium {
+    background-color: var(--badge-medium);
+    color: var(--badge-text);
+}
+
+.difficulty-badge.difficulty-hard {
+    background-color: var(--badge-hard);
+    color: var(--badge-text);
+}
+
+/* Complexity Badges */
+.complexity-badge {
+    background-color: var(--badge-complexity);
+    color: var(--badge-text);
+    padding: 0.25rem 0.5rem;
+    border-radius: 3px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    font-family: 'Courier New', monospace;
+    line-height: 1;
+    display: inline-block;
+    vertical-align: top;
+}

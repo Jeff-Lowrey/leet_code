@@ -13,24 +13,178 @@ from flask import Flask, Response, abort, flash, jsonify, redirect, render_templ
 from pygments import highlight
 from pygments.formatters import HtmlFormatter
 from pygments.lexers import (
-    CLexer,
-    CppLexer,
-    CSharpLexer,
-    GoLexer,
-    JavaLexer,
-    JavascriptLexer,
     PythonLexer,
-    RustLexer,
-    SwiftLexer,
-    TypeScriptLexer,
-    get_lexer_by_name,
 )
+from werkzeug.wrappers.response import Response as WerkzeugResponse
 
-from .category_data import category_manager
+from .category_data import Solution, category_manager
+from .language_constants import (
+    EXTENSION_TO_LANGUAGE,
+    get_file_extension,
+    get_lexer_for_language,
+)
 from .leetcode_converter import convert_to_leetcode_format, extract_solution_class
+
+# Export functions for testing
+__all__ = [
+    "app",
+    "get_file_extension",
+    "get_lexer_for_language",
+    "get_available_languages",
+    "parse_search_query",
+    "execute_search",
+    "find_solution_category",
+]
 
 app = Flask(__name__, template_folder="../../templates", static_folder="../../static")
 app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY", "dev-key-change-in-production")
+
+# Constants
+# Similarity score thresholds for search result grouping
+SIMILARITY_EXACT = 1.0
+SIMILARITY_HIGH = 0.8
+SIMILARITY_MEDIUM = 0.5
+MIN_SIMILARITY_SCORE = 0.1
+
+# Pygments syntax highlighting styles
+STYLE_DARK = "monokai"
+STYLE_LIGHT = "default"
+
+# Complexity pattern mapping for URL patterns
+COMPLEXITY_PATTERN_MAP = {
+    "o1": "O(1)",
+    "ologn": "O(log n)",
+    "on": "O(n)",
+    "on-log-n": "O(n log n)",
+    "onlogn": "O(n log n)",
+    "on2": "O(n²)",
+    "on3": "O(n³)",
+    "o2n": "O(2^n)",
+    "onm": "O(n*m)",
+    "on-m": "O(n+m)",
+}
+
+# Valid difficulty levels
+VALID_DIFFICULTY_LEVELS = ["Easy", "Medium", "Hard"]
+
+
+# Helper functions for common operations
+def find_solution_category(solution: Solution) -> tuple[str, str] | None:
+    """Find category slug and name for a solution.
+
+    Args:
+        solution: Solution object to find category for
+
+    Returns:
+        Tuple of (category_slug, category_name) or None if not found
+    """
+    for cat in category_manager.get_categories():
+        if solution in cat.solutions:
+            return (cat.slug, cat.name)
+    return None
+
+
+def enrich_solutions_with_category(
+    solutions: list[Solution], extra_fields: dict[str, Any] | None = None
+) -> list[dict[str, Any]]:
+    """Add category metadata to solutions.
+
+    Args:
+        solutions: List of Solution objects
+        extra_fields: Optional dict of additional fields to include in each result
+
+    Returns:
+        List of dicts with solution and category metadata
+    """
+    enriched = []
+    for solution in solutions:
+        category_info = find_solution_category(solution)
+        if category_info:
+            cat_slug, cat_name = category_info
+            result = {
+                "solution": solution,
+                "category": cat_slug,
+                "category_name": cat_name,
+            }
+            # Add any extra fields (e.g., space_complexity for complexity views)
+            if extra_fields:
+                result.update(extra_fields)
+            enriched.append(result)
+    return enriched
+
+
+def ensure_py_extension(filename: str) -> str:
+    """Ensure filename has .py extension.
+
+    Args:
+        filename: Filename with or without .py extension
+
+    Returns:
+        Filename with .py extension
+    """
+    return filename if filename.endswith(".py") else filename + ".py"
+
+
+def remove_py_extension(filename: str) -> str:
+    """Remove .py extension from filename for display.
+
+    Args:
+        filename: Filename with .py extension
+
+    Returns:
+        Filename without .py extension
+    """
+    return filename.replace(".py", "")
+
+
+def count_by_difficulty(solutions: list[Solution]) -> dict[str, int]:
+    """Count solutions by difficulty level.
+
+    Args:
+        solutions: List of Solution objects
+
+    Returns:
+        Dictionary with counts for easy, medium, hard
+    """
+    counts = {"easy": 0, "medium": 0, "hard": 0}
+    for solution in solutions:
+        difficulty = solution.difficulty.lower()
+        if difficulty in counts:
+            counts[difficulty] += 1
+    return counts
+
+
+def count_by_time_complexity(solutions: list[Solution]) -> dict[str, int]:
+    """Count solutions by time complexity.
+
+    Args:
+        solutions: List of Solution objects
+
+    Returns:
+        Dictionary mapping complexity strings to counts
+    """
+    counts: dict[str, int] = {}
+    for solution in solutions:
+        time_comp = solution.time_complexity or "Unknown"
+        counts[time_comp] = counts.get(time_comp, 0) + 1
+    return counts
+
+
+def get_alternative_solution_path(category: str, filename: str, language: str) -> Path:
+    """Get path to alternative language solution file.
+
+    Args:
+        category: Category slug
+        filename: Python filename (with .py extension)
+        language: Target programming language
+
+    Returns:
+        Path to alternative solution file
+    """
+    base_name = remove_py_extension(filename)
+    lang_extension = get_file_extension(language)
+    alt_filename = f"{base_name}{lang_extension}"
+    return Path(__file__).parent.parent.parent / "solutions" / category / "alternatives" / alt_filename
 
 
 def parse_docstring_explanation(code: str) -> tuple[str, dict[str, str] | None]:
@@ -73,6 +227,7 @@ def parse_explanation_into_sections(content: str) -> dict[str, str]:
 
     # Define section patterns with their display names
     section_patterns = [
+        (r"### METADATA:(.*?)(?=###|$)", "metadata"),
         (r"### INTUITION:(.*?)(?=###|$)", "intuition"),
         (r"### KEY INSIGHT:(.*?)(?=###|$)", "key_insight"),
         (r"### APPROACH:(.*?)(?=###|$)", "approach"),
@@ -827,9 +982,9 @@ def get_syntax_highlighting_style() -> str:
 
     # Return appropriate Pygments style
     if theme == "dark":
-        return "monokai"  # Dark theme
+        return STYLE_DARK
     else:
-        return "default"  # Light theme
+        return STYLE_LIGHT
 
 
 def create_code_formatter() -> HtmlFormatter[str]:
@@ -875,7 +1030,7 @@ def category_view(category: str) -> str:
 @app.route("/difficulty")
 def difficulty_overview() -> str:
     """View all solutions organized by difficulty level."""
-    all_categories = category_manager.get_categories()
+    all_solutions = category_manager.get_all_solutions()
 
     # Group solutions by difficulty
     difficulties: dict[str, dict[str, Any]] = {
@@ -884,20 +1039,20 @@ def difficulty_overview() -> str:
         "Hard": {"solutions": [], "count": 0},
     }
 
+    # Group solutions by difficulty level
+    difficulty_groups: dict[str, list[Solution]] = {"Easy": [], "Medium": [], "Hard": []}
+    for solution in all_solutions:
+        difficulty = solution.difficulty.capitalize()
+        if difficulty in difficulty_groups:
+            difficulty_groups[difficulty].append(solution)
+
+    # Enrich each group with category metadata
     total_count = 0
-    for category in all_categories:
-        for solution in category.solutions:
-            difficulty = solution.difficulty.capitalize()
-            if difficulty in difficulties:
-                difficulties[difficulty]["solutions"].append(
-                    {
-                        "solution": solution,
-                        "category": category.slug,
-                        "category_name": category.name,
-                    }
-                )
-                difficulties[difficulty]["count"] += 1
-                total_count += 1
+    for difficulty, solutions in difficulty_groups.items():
+        enriched = enrich_solutions_with_category(solutions)
+        difficulties[difficulty]["solutions"] = enriched
+        difficulties[difficulty]["count"] = len(enriched)
+        total_count += len(enriched)
 
     return render_template(
         "difficulty.html",
@@ -909,36 +1064,34 @@ def difficulty_overview() -> str:
 @app.route("/complexity")
 def complexity_overview() -> str:
     """View all solutions organized by time/space complexity."""
-    all_categories = category_manager.get_categories()
+    all_solutions = category_manager.get_all_solutions()
 
     # Group solutions by complexity combination
+    complexity_groups: dict[str, list[Solution]] = {}
+
+    for solution in all_solutions:
+        time_comp = solution.time_complexity or "Unknown"
+        space_comp = solution.space_complexity or "Unknown"
+        complexity_key = f"{time_comp}_{space_comp}"
+
+        if complexity_key not in complexity_groups:
+            complexity_groups[complexity_key] = []
+        complexity_groups[complexity_key].append(solution)
+
+    # Enrich each group with category metadata
     complexities: dict[str, dict[str, Any]] = {}
-
     total_count = 0
-    for category in all_categories:
-        for solution in category.solutions:
-            time_comp = solution.time_complexity or "Unknown"
-            space_comp = solution.space_complexity or "Unknown"
 
-            # Create a key for this complexity combination
-            complexity_key = f"{time_comp}_{space_comp}"
+    for complexity_key, solutions in complexity_groups.items():
+        time_comp, space_comp = complexity_key.split("_", 1)
+        enriched = enrich_solutions_with_category(solutions)
 
-            if complexity_key not in complexities:
-                complexities[complexity_key] = {
-                    "display_name": f"Time: {time_comp} | Space: {space_comp}",
-                    "solutions": [],
-                    "count": 0,
-                }
-
-            complexities[complexity_key]["solutions"].append(
-                {
-                    "solution": solution,
-                    "category": category.slug,
-                    "category_name": category.name,
-                }
-            )
-            complexities[complexity_key]["count"] += 1
-            total_count += 1
+        complexities[complexity_key] = {
+            "display_name": f"Time: {time_comp} | Space: {space_comp}",
+            "solutions": enriched,
+            "count": len(enriched),
+        }
+        total_count += len(enriched)
 
     # Sort complexities by count (descending)
     sorted_complexities = dict(sorted(complexities.items(), key=lambda x: x[1]["count"], reverse=True))
@@ -950,12 +1103,98 @@ def complexity_overview() -> str:
     )
 
 
+@app.route("/difficulty/<level>")
+def difficulty_level_view(level: str) -> str:
+    """View solutions filtered by a specific difficulty level.
+
+    Virtual category that aggregates solutions across all categories
+    by difficulty level (easy, medium, hard).
+    """
+    # Normalize the level input
+    level_normalized = level.lower().capitalize()
+
+    # Validate difficulty level
+    if level_normalized not in VALID_DIFFICULTY_LEVELS:
+        abort(404)
+
+    # Use CategoryManager to filter and sort solutions
+    filtered_solutions = category_manager.filter_solutions({"difficulty": level_normalized})
+    sorted_solutions = category_manager.sort_by_number(filtered_solutions)
+
+    # Attach category metadata to solutions
+    solutions = enrich_solutions_with_category(sorted_solutions)
+
+    return render_template(
+        "virtual_category.html",
+        category_name=f"{level_normalized} Problems",
+        category_description=f"All problems with {level_normalized} difficulty across all categories",
+        solutions=solutions,
+        is_virtual=True,
+        virtual_type="difficulty",
+        virtual_value=level_normalized,
+    )
+
+
+@app.route("/complexity/<pattern>")
+def complexity_pattern_view(pattern: str) -> str:
+    """View solutions filtered by a specific time complexity pattern.
+
+    Virtual category that aggregates solutions across all categories
+    by time complexity (e.g., o1, on, on-log-n, on2).
+    """
+    # Normalize pattern and get display name
+    pattern_lower = pattern.lower()
+    complexity_display = COMPLEXITY_PATTERN_MAP.get(pattern_lower)
+
+    if not complexity_display:
+        # Try to match patterns like "O(n)", "O(n log n)" directly
+        if pattern.startswith(("O(", "o(")):
+            complexity_display = pattern
+        else:
+            abort(404)
+
+    # Get all solutions and filter by time complexity
+    all_solutions = category_manager.get_all_solutions()
+
+    # Filter solutions matching this time complexity
+    matching_solutions = []
+    for solution in all_solutions:
+        time_comp = solution.time_complexity
+
+        # Match complexity (case-insensitive, handle variations)
+        if time_comp and (
+            time_comp == complexity_display
+            or time_comp.lower() == complexity_display.lower()
+            or time_comp.replace(" ", "").lower() == complexity_display.replace(" ", "").lower()
+        ):
+            matching_solutions.append(solution)
+
+    # Sort by problem number
+    sorted_solutions = category_manager.sort_by_number(matching_solutions)
+
+    # Attach category metadata
+    solutions = enrich_solutions_with_category(sorted_solutions)
+
+    # Add space_complexity to each solution dict
+    for sol_dict in solutions:
+        sol_dict["space_complexity"] = sol_dict["solution"].space_complexity
+
+    return render_template(
+        "virtual_category.html",
+        category_name=f"Time Complexity: {complexity_display}",
+        category_description=f"All problems with time complexity {complexity_display} across all categories",
+        solutions=solutions,
+        is_virtual=True,
+        virtual_type="complexity",
+        virtual_value=complexity_display,
+    )
+
+
 @app.route("/solution/<category>/<filename>")
 def solution_view(category: str, filename: str) -> str:
     """View a specific solution."""
     # Add .py extension if not present
-    if not filename.endswith(".py"):
-        filename = filename + ".py"
+    filename = ensure_py_extension(filename)
 
     solution_code = category_manager.read_solution_content(category, filename)
     if not solution_code:
@@ -1013,8 +1252,7 @@ def solution_view(category: str, filename: str) -> str:
 def solution_leetcode_view(category: str, filename: str) -> str:
     """View solution in LeetCode format (camelCase)."""
     # Add .py extension if not present
-    if not filename.endswith(".py"):
-        filename = filename + ".py"
+    filename = ensure_py_extension(filename)
     solution_code = category_manager.read_solution_content(category, filename)
     if not solution_code:
         abort(404)
@@ -1061,18 +1299,14 @@ def solution_leetcode_view(category: str, filename: str) -> str:
 def download_solution(category: str, filename: str, format: str, language: str = "Python") -> Response:
     """Download solution in specified format and language."""
     # Handle .py extension if present
-    if not filename.endswith(".py"):
-        filename = filename + ".py"
+    filename = ensure_py_extension(filename)
 
     # Get the appropriate solution code based on language
     if language == "Python":
         solution_code = category_manager.read_solution_content(category, filename)
     else:
         # Get alternative language solution
-        base_name = filename.replace(".py", "")
-        lang_extension = get_file_extension(language)
-        alt_filename = f"{base_name}{lang_extension}"
-        alt_path = Path(__file__).parent.parent.parent / "solutions" / category / "alternatives" / alt_filename
+        alt_path = get_alternative_solution_path(category, filename, language)
 
         if alt_path.exists():
             with open(alt_path) as f:
@@ -1362,8 +1596,7 @@ def generate_skeleton(code: str, solution: Any, is_leetcode: bool = False) -> st
 def upload_alternative_solution(category: str, filename: str) -> str | Response:
     """Upload solution in a different programming language."""
     # Handle .py extension if present
-    if not filename.endswith(".py"):
-        filename = filename + ".py"
+    filename = ensure_py_extension(filename)
 
     solution = category_manager.get_solution(category, filename)
     if not solution:
@@ -1393,12 +1626,12 @@ def upload_alternative_solution(category: str, filename: str) -> str | Response:
             if file.filename and not file.filename.endswith(expected_ext):
                 flash("Invalid file extension for selected language", "error")
                 # Remove .py for redirect
-            display_filename = filename.replace(".py", "")
+            display_filename = remove_py_extension(filename)
             return cast(Response, redirect(url_for("solution_view", category=category, filename=display_filename)))
 
     # GET request - show upload form
     # Remove .py from filename for URL display
-    display_filename = filename.replace(".py", "")
+    display_filename = remove_py_extension(filename)
     return render_template("upload_solution.html", category=category, filename=display_filename, solution=solution)
 
 
@@ -1406,18 +1639,14 @@ def upload_alternative_solution(category: str, filename: str) -> str | Response:
 def view_alternative_solution(category: str, filename: str, language: str) -> str:
     """View solution in a specific programming language."""
     # Handle .py extension if present
-    if not filename.endswith(".py"):
-        filename = filename + ".py"
+    filename = ensure_py_extension(filename)
 
     solution = category_manager.get_solution(category, filename)
     if not solution:
         abort(404)
 
     # Get the alternative solution file
-    base_name = filename.replace(".py", "")
-    lang_extension = get_file_extension(language)
-    alt_filename = f"{base_name}{lang_extension}"
-    alt_path = Path(__file__).parent.parent.parent / "solutions" / category / "alternatives" / alt_filename
+    alt_path = get_alternative_solution_path(category, filename, language)
 
     if not alt_path.exists():
         abort(404)
@@ -1474,64 +1703,6 @@ def view_alternative_solution(category: str, filename: str, language: str) -> st
     )
 
 
-def get_file_extension(language: str) -> str:
-    """Get file extension for a programming language."""
-    extensions = {
-        "Python": ".py",
-        "Java": ".java",
-        "C++": ".cpp",
-        "C": ".c",
-        "JavaScript": ".js",
-        "TypeScript": ".ts",
-        "Go": ".go",
-        "Rust": ".rs",
-        "C#": ".cs",
-        "Swift": ".swift",
-        "Kotlin": ".kt",
-        "Ruby": ".rb",
-        "PHP": ".php",
-        "Scala": ".scala",
-        # Additional languages
-        "Lua": ".lua",
-        "Perl": ".pl",
-        "R": ".r",
-        "Julia": ".jl",
-        "Clojure": ".clj",
-        "Haskell": ".hs",
-        "Elixir": ".ex",
-        "OCaml": ".ml",
-        "Scheme": ".scm",
-        "Lisp": ".lisp",
-        # .NET languages
-        "VB.NET": ".vb",
-        "F#": ".fs",
-        # Shell scripts
-        "Bash": ".sh",
-        "Zsh": ".zsh",
-        "Fish": ".fish",
-        "PowerShell": ".ps1",
-        "Batch": ".bat",
-    }
-    return extensions.get(language, ".txt")
-
-
-def get_lexer_for_language(language: str) -> Any:
-    """Get Pygments lexer for a programming language."""
-    lexers = {
-        "Python": PythonLexer(),
-        "Java": JavaLexer(),
-        "C++": CppLexer(),
-        "C": CLexer(),
-        "JavaScript": JavascriptLexer(),
-        "TypeScript": TypeScriptLexer(),
-        "Go": GoLexer(),
-        "Rust": RustLexer(),
-        "C#": CSharpLexer(),
-        "Swift": SwiftLexer(),
-    }
-    return lexers.get(language, get_lexer_by_name(language.lower()))
-
-
 def get_available_languages(category: str, filename: str) -> list[str]:
     """Get list of available programming languages for a solution."""
     languages = ["Python"]  # Always have Python
@@ -1541,50 +1712,12 @@ def get_available_languages(category: str, filename: str) -> list[str]:
     if alt_dir.exists():
         base_name = filename.replace(".py", "")
 
-        # Map file extensions to languages
-        extension_to_language = {
-            ".js": "JavaScript",
-            ".java": "Java",
-            ".cpp": "C++",
-            ".c": "C",
-            ".ts": "TypeScript",
-            ".go": "Go",
-            ".rs": "Rust",
-            ".cs": "C#",
-            ".swift": "Swift",
-            ".kt": "Kotlin",
-            ".rb": "Ruby",
-            ".php": "PHP",
-            ".scala": "Scala",
-            # Additional languages
-            ".lua": "Lua",
-            ".pl": "Perl",
-            ".r": "R",
-            ".jl": "Julia",
-            ".clj": "Clojure",
-            ".hs": "Haskell",
-            ".ex": "Elixir",
-            ".ml": "OCaml",
-            ".scm": "Scheme",
-            ".lisp": "Lisp",
-            # .NET languages
-            ".vb": "VB.NET",
-            ".fs": "F#",
-            # Shell scripts
-            ".sh": "Bash",
-            ".bash": "Bash",
-            ".zsh": "Zsh",
-            ".fish": "Fish",
-            ".ps1": "PowerShell",
-            ".bat": "Batch",
-        }
-
         for file_path in alt_dir.iterdir():
             if file_path.name.startswith(base_name) and file_path.is_file():
                 # Check for simple naming pattern: base_name.ext (e.g., "048-rotate-image.js")
                 file_extension = file_path.suffix.lower()
-                if file_extension in extension_to_language:
-                    language = extension_to_language[file_extension]
+                if file_extension in EXTENSION_TO_LANGUAGE:
+                    language = EXTENSION_TO_LANGUAGE[file_extension]
                     languages.append(language)
 
     return sorted(set(languages))
@@ -1717,6 +1850,293 @@ def not_found(error: Any) -> tuple[str, int]:
     return render_template("404.html"), 404
 
 
+# Search helper functions
+def parse_search_query(query: str) -> tuple[str, dict[str, Any]]:
+    """Parse search query to determine mode and extract data.
+
+    Args:
+        query: Raw search query string
+
+    Returns:
+        Tuple of (mode, data) where mode is one of:
+        - "navigate": Direct navigation to problem number
+        - "similar": Similarity search with optional filters
+        - "name_search": Name-based search with optional filters
+        - "filter": Filter-only search
+    """
+    tokens = query.split()
+    filters = {}
+    numbers = []
+    text_tokens = []
+
+    # Parse tokens
+    for token in tokens:
+        if "=" in token:
+            # Filter token
+            key, value = token.split("=", 1)
+            filters[key] = value
+        elif token.isdigit():
+            # Number token
+            numbers.append(token)
+        else:
+            # Text token
+            text_tokens.append(token)
+
+    # Determine mode
+    if numbers and not text_tokens and not filters:
+        # Pure number = navigate
+        return "navigate", {"number": numbers[0]}
+    elif numbers and filters:
+        # Number + filters = similarity search
+        return "similar", {"number": numbers[0], "filters": filters}
+    elif text_tokens and not numbers:
+        # Text tokens = name search
+        search_term = " ".join(text_tokens)
+        return "name_search", {"search_term": search_term, "filters": filters}
+    elif filters and not numbers and not text_tokens:
+        # Only filters = filter search
+        return "filter", {"filters": filters}
+    elif numbers and text_tokens:
+        # Number + text = similar search (text ignored for now)
+        return "similar", {"number": numbers[0], "filters": filters}
+    else:
+        # Default to name search
+        search_term = " ".join(text_tokens)
+        return "name_search", {"search_term": search_term, "filters": filters}
+
+
+def group_by_similarity(similar_problems: list[tuple[Solution, float]]) -> dict[str, list[tuple[Solution, float]]]:
+    """Group similar problems by similarity tiers.
+
+    Args:
+        similar_problems: List of (Solution, similarity_score) tuples
+
+    Returns:
+        Dictionary with keys: "exact", "high", "medium", "low"
+    """
+    results: dict[str, list[tuple[Solution, float]]] = {
+        "exact": [],  # 1.0 (perfect match)
+        "high": [],  # >= 0.8
+        "medium": [],  # >= 0.5
+        "low": [],  # < 0.5
+    }
+
+    for solution, score in similar_problems:
+        if score >= SIMILARITY_EXACT:
+            results["exact"].append((solution, score))
+        elif score >= SIMILARITY_HIGH:
+            results["high"].append((solution, score))
+        elif score >= SIMILARITY_MEDIUM:
+            results["medium"].append((solution, score))
+        else:
+            results["low"].append((solution, score))
+
+    return results
+
+
+def apply_filters_to_results(
+    results: list[tuple[Solution, float]], filters: dict[str, str]
+) -> list[tuple[Solution, float]]:
+    """Apply filters to similarity search results.
+
+    Args:
+        results: List of (Solution, similarity_score) tuples
+        filters: Dictionary of filter key-value pairs
+
+    Returns:
+        Filtered list of (Solution, similarity_score) tuples
+    """
+    filtered = []
+    for solution, score in results:
+        if matches_filters(solution, filters):
+            filtered.append((solution, score))
+    return filtered
+
+
+def apply_filters_to_solutions(solutions: list[Solution], filters: dict[str, str]) -> list[Solution]:
+    """Apply filters to a list of solutions.
+
+    Args:
+        solutions: List of Solution objects
+        filters: Dictionary of filter key-value pairs
+
+    Returns:
+        Filtered list of Solution objects
+    """
+    filtered = []
+    for solution in solutions:
+        if matches_filters(solution, filters):
+            filtered.append(solution)
+    return filtered
+
+
+def matches_filters(solution: Solution, filters: dict[str, str]) -> bool:
+    """Check if a solution matches all provided filters.
+
+    Args:
+        solution: Solution object to check
+        filters: Dictionary of filter key-value pairs
+
+    Returns:
+        True if solution matches all filters
+    """
+    for key, value in filters.items():
+        if key == "difficulty":
+            if solution.difficulty.lower() != value.lower():
+                return False
+        elif key == "category":
+            # Need to find category for this solution
+            for cat in category_manager.get_categories():
+                if solution in cat.solutions:
+                    if cat.slug != value:
+                        return False
+                    break
+        elif key == "complexity" and value.lower() not in solution.time_complexity.lower():
+            # Match time complexity (simplified)
+            return False
+
+    return True
+
+
+def enrich_results_with_category(results: dict[str, list[tuple[Solution, float]]]) -> dict[str, list[dict[str, Any]]]:
+    """Add category information to search results.
+
+    Args:
+        results: Dictionary of similarity tier to list of (Solution, score) tuples
+
+    Returns:
+        Dictionary of similarity tier to list of result dictionaries with category info
+    """
+    enriched: dict[str, list[dict[str, Any]]] = {}
+
+    for tier, tier_results in results.items():
+        enriched[tier] = []
+        for solution, score in tier_results:
+            # Find category for this solution
+            category_slug = None
+            category_name = None
+            for cat in category_manager.get_categories():
+                if solution in cat.solutions:
+                    category_slug = cat.slug
+                    category_name = cat.name
+                    break
+
+            enriched[tier].append(
+                {"solution": solution, "score": score, "category_slug": category_slug, "category_name": category_name}
+            )
+
+    return enriched
+
+
+def serialize_results(results: dict[str, list[dict[str, Any]]]) -> dict[str, list[dict[str, Any]]]:
+    """Serialize results for JSON response.
+
+    Args:
+        results: Enriched results dictionary
+
+    Returns:
+        Serialized results dictionary
+    """
+    serialized: dict[str, list[dict[str, Any]]] = {}
+
+    for tier, tier_results in results.items():
+        serialized[tier] = []
+        for item in tier_results:
+            solution = item["solution"]
+            serialized[tier].append(
+                {
+                    "number": solution.number,
+                    "name": solution.name,
+                    "filename": solution.filename,
+                    "difficulty": solution.difficulty,
+                    "score": item["score"],
+                    "category_slug": item["category_slug"],
+                    "category_name": item["category_name"],
+                }
+            )
+
+    return serialized
+
+
+def execute_search(query: str) -> dict[str, Any]:
+    """Execute search and return structured results.
+
+    Args:
+        query: Search query string
+
+    Returns:
+        Dictionary with search results containing:
+        - mode: Search mode (navigate, similar, name_search, filter)
+        - data: Mode-specific data
+        - error: Error message if any
+    """
+    if not query:
+        return {"error": "No search query provided", "mode": None}
+
+    # Parse the query to determine search mode
+    mode, data = parse_search_query(query)
+
+    # Execute search based on mode
+    if mode == "navigate":
+        reference_number = data["number"]
+        solution = category_manager.find_by_number(reference_number)
+        if solution:
+            category_info = find_solution_category(solution)
+            if category_info:
+                cat_slug, cat_name = category_info
+                return {
+                    "mode": "navigate",
+                    "solution": solution,
+                    "category_slug": cat_slug,
+                    "category_name": cat_name,
+                }
+        return {"error": f"Problem #{reference_number} not found", "mode": "navigate"}
+
+    elif mode == "similar":
+        reference_number = data["number"]
+        filters = data.get("filters", {})
+
+        reference = category_manager.find_by_number(reference_number, include_tags=True)
+        if not reference:
+            return {"error": f"Reference problem #{reference_number} not found", "mode": "similar"}
+
+        similar_problems = category_manager.find_similar_problems(reference_number, min_similarity=MIN_SIMILARITY_SCORE)
+
+        if filters:
+            similar_problems = apply_filters_to_results(similar_problems, filters)
+
+        results_tuples = group_by_similarity(similar_problems)
+        results = enrich_results_with_category(results_tuples)
+
+        return {"mode": "similar", "reference": reference, "results": results, "filters": filters}
+
+    elif mode == "name_search":
+        search_term = data["search_term"]
+        filters = data.get("filters", {})
+
+        matching_problems = category_manager.find_by_name(search_term, include_tags=True)
+
+        if filters:
+            matching_problems = apply_filters_to_solutions(matching_problems, filters)
+
+        results_tuples = {"exact": [], "high": [(sol, 0.0) for sol in matching_problems], "medium": [], "low": []}
+        results = enrich_results_with_category(results_tuples)
+
+        return {"mode": "name_search", "search_term": search_term, "results": results, "filters": filters}
+
+    elif mode == "filter":
+        filters = data["filters"]
+        all_solutions = category_manager.get_all_solutions(include_tags=True)
+        filtered_solutions = apply_filters_to_solutions(all_solutions, filters)
+
+        results_tuples = {"exact": [], "high": [(sol, 0.0) for sol in filtered_solutions], "medium": [], "low": []}
+        results = enrich_results_with_category(results_tuples)
+
+        return {"mode": "filter", "results": results, "filters": filters}
+
+    return {"error": "Invalid search query", "mode": None}
+
+
 # API endpoints for sidebar navigation
 @app.route("/api/categories")
 def api_categories() -> Response:
@@ -1732,6 +2152,197 @@ def api_category_solutions(category: str) -> Response:
     if not cat_data:
         abort(404)
     return jsonify([{"filename": sol.filename, "name": sol.name, "number": sol.number} for sol in cat_data.solutions])
+
+
+@app.route("/search")
+def search() -> str | Response | WerkzeugResponse:
+    """Search results page."""
+    query = request.args.get("q", "").strip()
+
+    # Execute search
+    search_result = execute_search(query)
+
+    # Handle error case
+    if "error" in search_result:
+        return render_template("search_results.html", query=query, results=[], error=search_result["error"])
+
+    mode = search_result["mode"]
+
+    # Handle navigate mode (redirect to solution)
+    if mode == "navigate":
+        solution = search_result["solution"]
+        category_slug = search_result["category_slug"]
+        filename_without_ext = remove_py_extension(solution.filename)
+        return redirect(url_for("solution_view", category=category_slug, filename=filename_without_ext))
+
+    # Handle other modes (render results page)
+    elif mode == "similar":
+        # Get reference solution details
+        reference_solution = search_result["reference"]
+        reference_category = find_solution_category(reference_solution)
+
+        reference_problem = {
+            "number": reference_solution.number,
+            "name": reference_solution.name,
+            "difficulty": reference_solution.difficulty,
+            "category": reference_category[0] if reference_category else "",
+            "category_name": reference_category[1] if reference_category else "",
+            "filename": remove_py_extension(reference_solution.filename),
+            "time_complexity": reference_solution.time_complexity,
+        }
+
+        return render_template(
+            "search_results.html",
+            query=query,
+            mode="similar",
+            reference_problem=reference_problem,
+            results=search_result["results"],
+            filters=search_result.get("filters", {}),
+        )
+
+    elif mode == "name_search":
+        query_info = {"search_term": search_result.get("search_term", query)}
+        return render_template(
+            "search_results.html",
+            query=query,
+            mode="name_search",
+            query_info=query_info,
+            results=search_result["results"],
+            filters=search_result.get("filters", {}),
+        )
+
+    elif mode == "filter":
+        return render_template(
+            "search_results.html",
+            query=query,
+            mode="filter",
+            results=search_result["results"],
+            filters=search_result.get("filters", {}),
+        )
+
+    return render_template("search_results.html", query=query, results=[], error="Invalid search query")
+
+
+@app.route("/api/search")
+def api_search() -> Response | tuple[Response, int]:
+    """API endpoint for search (returns JSON)."""
+    query = request.args.get("q", "").strip()
+
+    # Execute search
+    search_result = execute_search(query)
+
+    # Handle error case
+    if "error" in search_result:
+        status_code = 404 if search_result["mode"] in ["navigate", "similar"] else 400
+        return jsonify({"error": search_result["error"]}), status_code
+
+    mode = search_result["mode"]
+
+    # Handle navigate mode
+    if mode == "navigate":
+        solution = search_result["solution"]
+        return jsonify(
+            {
+                "mode": "navigate",
+                "solution": {
+                    "number": solution.number,
+                    "name": solution.name,
+                    "category": search_result["category_slug"],
+                    "filename": solution.filename,
+                },
+            }
+        )
+
+    # Handle similar mode
+    elif mode == "similar":
+        reference = search_result["reference"]
+        return jsonify(
+            {
+                "mode": "similar",
+                "reference": {"number": reference.number, "name": reference.name},
+                "results": serialize_results(search_result["results"]),
+            }
+        )
+
+    # Handle name_search mode
+    elif mode == "name_search":
+        return jsonify({"mode": "name_search", "results": serialize_results(search_result["results"])})
+
+    # Handle filter mode
+    elif mode == "filter":
+        return jsonify({"mode": "filter", "results": serialize_results(search_result["results"])})
+
+    return jsonify({"error": "Invalid search query"}), 400
+
+
+@app.route("/api/stats/difficulty")
+def api_difficulty_stats() -> Response:
+    """API endpoint to get difficulty level counts."""
+    all_solutions = category_manager.get_all_solutions()
+    difficulty_counts = count_by_difficulty(all_solutions)
+    return jsonify(difficulty_counts)
+
+
+@app.route("/api/stats/complexity")
+def api_complexity_stats() -> Response:
+    """API endpoint to get complexity pattern counts."""
+    all_solutions = category_manager.get_all_solutions()
+    complexity_counts = count_by_time_complexity(all_solutions)
+    return jsonify(complexity_counts)
+
+
+@app.route("/api/stats/complexity/difficulty/<level>")
+def api_complexity_by_difficulty(level: str) -> Response:
+    """API endpoint to get complexity counts for a specific difficulty level."""
+    # Filter solutions by difficulty level
+    filtered_solutions = category_manager.filter_solutions({"difficulty": level.capitalize()})
+    complexity_counts = count_by_time_complexity(filtered_solutions)
+    return jsonify(complexity_counts)
+
+
+@app.route("/api/stats/difficulty/complexity/<complexity_key>")
+def api_difficulty_by_complexity(complexity_key: str) -> Response | tuple[Response, int]:
+    """API endpoint to get difficulty counts for a specific complexity pattern."""
+    # Parse complexity key (format: "time_space")
+    parts = complexity_key.split("_", 1)
+    if len(parts) != 2:
+        return jsonify({"error": "Invalid complexity key format"}), 400
+
+    time_comp, space_comp = parts
+
+    # Filter solutions matching the complexity combination
+    all_solutions = category_manager.get_all_solutions()
+    matching_solutions = [
+        sol
+        for sol in all_solutions
+        if (sol.time_complexity or "Unknown") == time_comp and (sol.space_complexity or "Unknown") == space_comp
+    ]
+
+    difficulty_counts = count_by_difficulty(matching_solutions)
+    return jsonify(difficulty_counts)
+
+
+@app.route("/api/stats/category/<category_slug>/difficulty")
+def api_category_difficulty_stats(category_slug: str) -> Response | tuple[Response, int]:
+    """API endpoint to get difficulty counts for a specific category."""
+    category = category_manager.get_category(category_slug)
+    if not category:
+        return jsonify({"error": "Category not found"}), 404
+
+    difficulty_counts = count_by_difficulty(category.solutions)
+
+    return jsonify(difficulty_counts)
+
+
+@app.route("/api/stats/category/<category_slug>/complexity")
+def api_category_complexity_stats(category_slug: str) -> Response | tuple[Response, int]:
+    """API endpoint to get complexity pattern counts for a specific category."""
+    category = category_manager.get_category(category_slug)
+    if not category:
+        return jsonify({"error": "Category not found"}), 404
+
+    complexity_counts = count_by_time_complexity(category.solutions)
+    return jsonify(complexity_counts)
 
 
 if __name__ == "__main__":

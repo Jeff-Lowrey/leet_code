@@ -1,0 +1,8 @@
+node_modules/
+venv/
+.venv/
+*.min.js
+dist/
+build/
+solutions/**/alternatives/*.js
+package-lock.json

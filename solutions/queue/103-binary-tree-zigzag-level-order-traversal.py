@@ -20,6 +20,14 @@ Given the root of a binary tree, return the zigzag level order traversal of its 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n)
+**Space Complexity**: O(w)
+
 ### INTUITION:
 Perform a level-order traversal (BFS) but alternate the direction of reading values at each level.
 Use a flag to track whether we should append values left-to-right or right-to-left.

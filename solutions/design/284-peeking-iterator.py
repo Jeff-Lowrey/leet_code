@@ -37,6 +37,14 @@ peekingIterator.hasNext(); // return False
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(1)
+**Space Complexity**: O(1)
+
 ### INTUITION:
 The challenge is to add a peek() operation that returns the next element without advancing the iterator. We need to cache the next element to support this functionality while maintaining compatibility with the original iterator interface.
 

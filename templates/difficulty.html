@@ -8,36 +8,44 @@
         <a href="/">Home</a> / <span>All Difficulties</span>
     </nav>
     <h1>Problems by Difficulty</h1>
-    <p class="stats">{{ total_count }} total solution{% if total_count != 1 %}s{% endif %}</p>
+    <div style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
+        <p class="stats">{{ total_count }} total solution{% if total_count != 1 %}s{% endif %} — {% for difficulty_name, difficulty_data in difficulties.items() %}{{ difficulty_name }}: {{ difficulty_data.count }}{% if not loop.last %}, {% endif %}{% endfor %}</p>
+        <button id="toggle-all-sections" class="btn btn-secondary">Collapse All</button>
+    </div>
+    <div style="margin-top: 0.5rem;">
+        <p class="stats" id="complexity-stats">Top complexities — Loading...</p>
+    </div>
 </header>
 
 {% for difficulty_name, difficulty_data in difficulties.items() %}
 <section class="solutions-list difficulty-section" id="{{ difficulty_name.lower() }}">
     <details open>
         <summary>
-            <h2>{{ difficulty_name }} ({{ difficulty_data.count }} problem{% if difficulty_data.count != 1 %}s{% endif %})</h2>
+            <h2>{{ difficulty_name }} ({{ difficulty_data.count }} problem{% if difficulty_data.count != 1 %}s{% endif %}) — <span class="section-breakdown" data-difficulty="{{ difficulty_name.lower() }}">Loading...</span></h2>
         </summary>
         <div class="solutions-grid">
             {% for item in difficulty_data.solutions %}
             <a href="{{ url_for('solution_view', category=item.category, filename=item.solution.filename.replace('.py', '')) }}" class="solution-card" data-category="{{ item.category }}" data-difficulty="{{ difficulty_name.lower() }}">
-                <div class="solution-meta">
-                    {% if item.solution.number %}
-                    <span class="problem-number">#{{ item.solution.number }}</span>
-                    {% endif %}
-                    <span class="category-label">{{ item.category_name }}</span>
-                </div>
-                <h3>{{ item.solution.name }}</h3>
-                {% if item.solution.time_complexity or item.solution.space_complexity %}
-                <p class="complexity-info">
-                    {% if item.solution.time_complexity %}Time: {{ item.solution.time_complexity }}{% endif %}
-                    {% if item.solution.time_complexity and item.solution.space_complexity %} | {% endif %}
-                    {% if item.solution.space_complexity %}Space: {{ item.solution.space_complexity }}{% endif %}
-                </p>
+                {% if item.solution.number %}
+                <span class="problem-number">#{{ item.solution.number }}</span>
                 {% endif %}
+                <div class="solution-card-header">
+                    <h3>{{ item.solution.name }}</h3>
+                    <span class="category-label-inline">{{ item.category_name }}</span>
+                </div>
+                <div class="solution-badges">
+                    {% if item.solution.time_complexity or item.solution.space_complexity %}
+                    <span class="complexity-badge">
+                        {{ item.solution.time_complexity or '?' }} / {{ item.solution.space_complexity or '?' }}
+                    </span>
+                    {% endif %}
+                </div>
             </a>
             {% endfor %}
         </div>
     </details>
 </section>
 {% endfor %}
+
+<script src="{{ url_for('static', filename='js/pages/difficulty.js') }}"></script>
 {% endblock %}

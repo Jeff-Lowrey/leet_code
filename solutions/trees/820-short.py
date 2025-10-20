@@ -24,6 +24,14 @@ Given an array of words, return the length of the shortest reference string s po
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(N × M)
+**Space Complexity**: O(N × M)
+
 ### INTUITION:
 To minimize the encoding length, we want to share suffixes between words. If one word is a suffix of another, we can encode both using just the longer word. This is a classic Trie problem where we build the trie using word suffixes.
 

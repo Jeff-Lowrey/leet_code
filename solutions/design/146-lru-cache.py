@@ -26,6 +26,14 @@ The functions get and put must each run in O(1) average time complexity.
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(1)
+**Space Complexity**: O(capacity)
+
 ### INTUITION:
 LRU Cache needs O(1) access and O(1) eviction. We can combine:
 - HashMap for O(1) key lookup

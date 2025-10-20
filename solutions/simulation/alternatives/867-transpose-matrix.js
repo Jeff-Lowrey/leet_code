@@ -29,6 +29,14 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: * O(m × n)
+**Space Complexity**: * O(m × n)
+
  *
  * ### INTUITION:
  * Transposing a matrix means converting rows to columns and vice versa.

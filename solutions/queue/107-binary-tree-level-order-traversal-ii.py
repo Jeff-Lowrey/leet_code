@@ -20,6 +20,14 @@ Given the root of a binary tree, return the bottom-up level order traversal of i
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n)
+**Space Complexity**: O(w)
+
 ### INTUITION:
 Perform standard level-order traversal (BFS) but reverse the final result to get bottom-up order.
 Alternatively, we can prepend each level to the result instead of appending.

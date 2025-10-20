@@ -1,0 +1,534 @@
+/* Category-specific colors */
+
+/* Arrays Hashing - Rust */
+.page-header[data-category="arrays-hashing"] .problem-number { background-color: var(--cat-1); color: var(--card-bg); }
+.page-header[data-category="arrays-hashing"] h1 { color: var(--cat-1); }
+.page-header[data-category="arrays-hashing"] .btn-secondary { background-color: var(--cat-1); border-color: var(--cat-1); color: var(--card-bg); }
+[data-category="arrays-hashing"].category-card-wrapper { border-left: 4px solid var(--cat-1); }
+[data-category="arrays-hashing"] .category-card { border-left: none; }
+[data-category="arrays-hashing"] .category-card h3 { color: var(--cat-1); }
+[data-category="arrays-hashing"] .solution-card { border-left: 4px solid var(--cat-1); }
+.solution-card[data-category="arrays-hashing"] { border-left: 4px solid var(--cat-1); }
+[data-category="arrays-hashing"].solution-card .problem-number { background-color: var(--cat-1); color: var(--card-bg); }
+[data-category="arrays-hashing"] .solution-card .problem-number { background-color: var(--cat-1); color: var(--card-bg); }
+[data-category="arrays-hashing"] .problem-num { background-color: var(--cat-1); }
+.problem-statement[data-category="arrays-hashing"] h2 { color: var(--cat-1); }
+.problem-statement[data-category="arrays-hashing"] .problem-content strong { color: var(--cat-1); }
+.problem-statement[data-category="arrays-hashing"] .example-details { border-left-color: var(--cat-1); }
+.problem-statement[data-category="arrays-hashing"] .example-details dt { color: var(--cat-1); }
+
+/* Backtracking - Steel Blue */
+.page-header[data-category="backtracking"] .problem-number { background-color: var(--cat-6); color: var(--card-bg); }
+.page-header[data-category="backtracking"] h1 { color: var(--cat-6); }
+.page-header[data-category="backtracking"] .btn-secondary { background-color: var(--cat-6); border-color: var(--cat-6); color: var(--card-bg); }
+[data-category="backtracking"].category-card-wrapper { border-left: 4px solid var(--cat-6); }
+[data-category="backtracking"] .category-card { border-left: none; }
+[data-category="backtracking"] .category-card h3 { color: var(--cat-6); }
+[data-category="backtracking"] .solution-card { border-left: 4px solid var(--cat-6); }
+.solution-card[data-category="backtracking"] { border-left: 4px solid var(--cat-6); }
+[data-category="backtracking"].solution-card .problem-number { background-color: var(--cat-6); color: var(--card-bg); }
+[data-category="backtracking"] .solution-card .problem-number { background-color: var(--cat-6); color: var(--card-bg); }
+[data-category="backtracking"] .problem-num { background-color: var(--cat-6); }
+[data-category="backtracking"] .problem-statement h2 { color: var(--cat-6); }
+[data-category="backtracking"] .problem-content strong { color: var(--cat-6); }
+
+/* Binary Search - Sage */
+.page-header[data-category="binary-search"] .problem-number { background-color: var(--cat-11); color: var(--card-bg); }
+.page-header[data-category="binary-search"] h1 { color: var(--cat-11); }
+.page-header[data-category="binary-search"] .btn-secondary { background-color: var(--cat-11); border-color: var(--cat-11); color: var(--card-bg); }
+[data-category="binary-search"].category-card-wrapper { border-left: 4px solid var(--cat-11); }
+[data-category="binary-search"] .category-card { border-left: none; }
+[data-category="binary-search"] .category-card h3 { color: var(--cat-11); }
+[data-category="binary-search"] .solution-card { border-left: 4px solid var(--cat-11); }
+.solution-card[data-category="binary-search"] { border-left: 4px solid var(--cat-11); }
+[data-category="binary-search"].solution-card .problem-number { background-color: var(--cat-11); color: var(--card-bg); }
+[data-category="binary-search"] .solution-card .problem-number { background-color: var(--cat-11); color: var(--card-bg); }
+[data-category="binary-search"] .problem-num { background-color: var(--cat-11); }
+[data-category="binary-search"] .problem-statement h2 { color: var(--cat-11); }
+[data-category="binary-search"] .problem-content strong { color: var(--cat-11); }
+
+/* Bit Manipulation - Amber */
+.page-header[data-category="bit-manipulation"] .problem-number { background-color: var(--cat-16); color: var(--card-bg); }
+.page-header[data-category="bit-manipulation"] h1 { color: var(--cat-16); }
+.page-header[data-category="bit-manipulation"] .btn-secondary { background-color: var(--cat-16); border-color: var(--cat-16); color: var(--card-bg); }
+[data-category="bit-manipulation"].category-card-wrapper { border-left: 4px solid var(--cat-16); }
+[data-category="bit-manipulation"] .category-card { border-left: none; }
+[data-category="bit-manipulation"] .category-card h3 { color: var(--cat-16); }
+[data-category="bit-manipulation"] .solution-card { border-left: 4px solid var(--cat-16); }
+.solution-card[data-category="bit-manipulation"] { border-left: 4px solid var(--cat-16); }
+[data-category="bit-manipulation"].solution-card .problem-number { background-color: var(--cat-16); color: var(--card-bg); }
+[data-category="bit-manipulation"] .solution-card .problem-number { background-color: var(--cat-16); color: var(--card-bg); }
+[data-category="bit-manipulation"] .problem-num { background-color: var(--cat-16); }
+[data-category="bit-manipulation"] .problem-statement h2 { color: var(--cat-16); }
+[data-category="bit-manipulation"] .problem-content strong { color: var(--cat-16); }
+
+/* Design - Plum */
+.page-header[data-category="design"] .problem-number { background-color: var(--cat-21); color: var(--card-bg); }
+.page-header[data-category="design"] h1 { color: var(--cat-21); }
+.page-header[data-category="design"] .btn-secondary { background-color: var(--cat-21); border-color: var(--cat-21); color: var(--card-bg); }
+[data-category="design"].category-card-wrapper { border-left: 4px solid var(--cat-21); }
+[data-category="design"] .category-card { border-left: none; }
+[data-category="design"] .category-card h3 { color: var(--cat-21); }
+[data-category="design"] .solution-card { border-left: 4px solid var(--cat-21); }
+.solution-card[data-category="design"] { border-left: 4px solid var(--cat-21); }
+[data-category="design"].solution-card .problem-number { background-color: var(--cat-21); color: var(--card-bg); }
+[data-category="design"] .solution-card .problem-number { background-color: var(--cat-21); color: var(--card-bg); }
+[data-category="design"] .problem-num { background-color: var(--cat-21); }
+[data-category="design"] .problem-statement h2 { color: var(--cat-21); }
+[data-category="design"] .problem-content strong { color: var(--cat-21); }
+
+/* Dynamic Programming - Teal */
+.page-header[data-category="dynamic-programming"] .problem-number { background-color: var(--cat-26); color: var(--card-bg); }
+.page-header[data-category="dynamic-programming"] h1 { color: var(--cat-26); }
+.page-header[data-category="dynamic-programming"] .btn-secondary { background-color: var(--cat-26); border-color: var(--cat-26); color: var(--card-bg); }
+[data-category="dynamic-programming"].category-card-wrapper { border-left: 4px solid var(--cat-26); }
+[data-category="dynamic-programming"] .category-card { border-left: none; }
+[data-category="dynamic-programming"] .category-card h3 { color: var(--cat-26); }
+[data-category="dynamic-programming"] .solution-card { border-left: 4px solid var(--cat-26); }
+.solution-card[data-category="dynamic-programming"] { border-left: 4px solid var(--cat-26); }
+[data-category="dynamic-programming"].solution-card .problem-number { background-color: var(--cat-26); color: var(--card-bg); }
+[data-category="dynamic-programming"] .solution-card .problem-number { background-color: var(--cat-26); color: var(--card-bg); }
+[data-category="dynamic-programming"] .problem-num { background-color: var(--cat-26); }
+[data-category="dynamic-programming"] .problem-statement h2 { color: var(--cat-26); }
+[data-category="dynamic-programming"] .problem-content strong { color: var(--cat-26); }
+
+/* Graphs - Burgundy */
+.page-header[data-category="graphs"] .problem-number { background-color: var(--cat-2); color: var(--card-bg); }
+.page-header[data-category="graphs"] h1 { color: var(--cat-2); }
+.page-header[data-category="graphs"] .btn-secondary { background-color: var(--cat-2); border-color: var(--cat-2); color: var(--card-bg); }
+[data-category="graphs"].category-card-wrapper { border-left: 4px solid var(--cat-2); }
+[data-category="graphs"] .category-card { border-left: none; }
+[data-category="graphs"] .category-card h3 { color: var(--cat-2); }
+[data-category="graphs"] .solution-card { border-left: 4px solid var(--cat-2); }
+.solution-card[data-category="graphs"] { border-left: 4px solid var(--cat-2); }
+[data-category="graphs"].solution-card .problem-number { background-color: var(--cat-2); color: var(--card-bg); }
+[data-category="graphs"] .solution-card .problem-number { background-color: var(--cat-2); color: var(--card-bg); }
+[data-category="graphs"] .problem-num { background-color: var(--cat-2); }
+[data-category="graphs"] .problem-statement h2 { color: var(--cat-2); }
+[data-category="graphs"] .problem-content strong { color: var(--cat-2); }
+
+/* Greedy - Navy */
+.page-header[data-category="greedy"] .problem-number { background-color: var(--cat-7); color: var(--card-bg); }
+.page-header[data-category="greedy"] h1 { color: var(--cat-7); }
+.page-header[data-category="greedy"] .btn-secondary { background-color: var(--cat-7); border-color: var(--cat-7); color: var(--card-bg); }
+[data-category="greedy"].category-card-wrapper { border-left: 4px solid var(--cat-7); }
+[data-category="greedy"] .category-card { border-left: none; }
+[data-category="greedy"] .category-card h3 { color: var(--cat-7); }
+[data-category="greedy"] .solution-card { border-left: 4px solid var(--cat-7); }
+.solution-card[data-category="greedy"] { border-left: 4px solid var(--cat-7); }
+[data-category="greedy"].solution-card .problem-number { background-color: var(--cat-7); color: var(--card-bg); }
+[data-category="greedy"] .solution-card .problem-number { background-color: var(--cat-7); color: var(--card-bg); }
+[data-category="greedy"] .problem-num { background-color: var(--cat-7); }
+[data-category="greedy"] .problem-statement h2 { color: var(--cat-7); }
+[data-category="greedy"] .problem-content strong { color: var(--cat-7); }
+
+/* Heap - Rust */
+.page-header[data-category="heap"] .problem-number { background-color: var(--cat-12); color: var(--card-bg); }
+.page-header[data-category="heap"] h1 { color: var(--cat-12); }
+.page-header[data-category="heap"] .btn-secondary { background-color: var(--cat-12); border-color: var(--cat-12); color: var(--card-bg); }
+[data-category="heap"].category-card-wrapper { border-left: 4px solid var(--cat-12); }
+[data-category="heap"] .category-card { border-left: none; }
+[data-category="heap"] .category-card h3 { color: var(--cat-12); }
+[data-category="heap"] .solution-card { border-left: 4px solid var(--cat-12); }
+.solution-card[data-category="heap"] { border-left: 4px solid var(--cat-12); }
+[data-category="heap"].solution-card .problem-number { background-color: var(--cat-12); color: var(--card-bg); }
+[data-category="heap"] .solution-card .problem-number { background-color: var(--cat-12); color: var(--card-bg); }
+[data-category="heap"] .problem-num { background-color: var(--cat-12); }
+[data-category="heap"] .problem-statement h2 { color: var(--cat-12); }
+[data-category="heap"] .problem-content strong { color: var(--cat-12); }
+
+/* Interval - Steel Blue */
+.page-header[data-category="interval"] .problem-number { background-color: var(--cat-17); color: var(--card-bg); }
+.page-header[data-category="interval"] h1 { color: var(--cat-17); }
+.page-header[data-category="interval"] .btn-secondary { background-color: var(--cat-17); border-color: var(--cat-17); color: var(--card-bg); }
+[data-category="interval"].category-card-wrapper { border-left: 4px solid var(--cat-17); }
+[data-category="interval"] .category-card { border-left: none; }
+[data-category="interval"] .category-card h3 { color: var(--cat-17); }
+[data-category="interval"] .solution-card { border-left: 4px solid var(--cat-17); }
+.solution-card[data-category="interval"] { border-left: 4px solid var(--cat-17); }
+[data-category="interval"].solution-card .problem-number { background-color: var(--cat-17); color: var(--card-bg); }
+[data-category="interval"] .solution-card .problem-number { background-color: var(--cat-17); color: var(--card-bg); }
+[data-category="interval"] .problem-num { background-color: var(--cat-17); }
+[data-category="interval"] .problem-statement h2 { color: var(--cat-17); }
+[data-category="interval"] .problem-content strong { color: var(--cat-17); }
+
+/* Linked List - Sage */
+.page-header[data-category="linked-list"] .problem-number { background-color: var(--cat-22); color: var(--card-bg); }
+.page-header[data-category="linked-list"] h1 { color: var(--cat-22); }
+.page-header[data-category="linked-list"] .btn-secondary { background-color: var(--cat-22); border-color: var(--cat-22); color: var(--card-bg); }
+[data-category="linked-list"].category-card-wrapper { border-left: 4px solid var(--cat-22); }
+[data-category="linked-list"] .category-card { border-left: none; }
+[data-category="linked-list"] .category-card h3 { color: var(--cat-22); }
+[data-category="linked-list"] .solution-card { border-left: 4px solid var(--cat-22); }
+.solution-card[data-category="linked-list"] { border-left: 4px solid var(--cat-22); }
+[data-category="linked-list"].solution-card .problem-number { background-color: var(--cat-22); color: var(--card-bg); }
+[data-category="linked-list"] .solution-card .problem-number { background-color: var(--cat-22); color: var(--card-bg); }
+[data-category="linked-list"] .problem-num { background-color: var(--cat-22); }
+[data-category="linked-list"] .problem-statement h2 { color: var(--cat-22); }
+[data-category="linked-list"] .problem-content strong { color: var(--cat-22); }
+
+/* Math - Amber */
+.page-header[data-category="math"] .problem-number { background-color: var(--cat-27); color: var(--card-bg); }
+.page-header[data-category="math"] h1 { color: var(--cat-27); }
+.page-header[data-category="math"] .btn-secondary { background-color: var(--cat-27); border-color: var(--cat-27); color: var(--card-bg); }
+[data-category="math"].category-card-wrapper { border-left: 4px solid var(--cat-27); }
+[data-category="math"] .category-card { border-left: none; }
+[data-category="math"] .category-card h3 { color: var(--cat-27); }
+[data-category="math"] .solution-card { border-left: 4px solid var(--cat-27); }
+.solution-card[data-category="math"] { border-left: 4px solid var(--cat-27); }
+[data-category="math"].solution-card .problem-number { background-color: var(--cat-27); color: var(--card-bg); }
+[data-category="math"] .solution-card .problem-number { background-color: var(--cat-27); color: var(--card-bg); }
+[data-category="math"] .problem-num { background-color: var(--cat-27); }
+[data-category="math"] .problem-statement h2 { color: var(--cat-27); }
+[data-category="math"] .problem-content strong { color: var(--cat-27); }
+
+/* Matrix - Plum */
+.page-header[data-category="matrix"] .problem-number { background-color: var(--cat-3); color: var(--card-bg); }
+.page-header[data-category="matrix"] h1 { color: var(--cat-3); }
+.page-header[data-category="matrix"] .btn-secondary { background-color: var(--cat-3); border-color: var(--cat-3); color: var(--card-bg); }
+[data-category="matrix"].category-card-wrapper { border-left: 4px solid var(--cat-3); }
+[data-category="matrix"] .category-card { border-left: none; }
+[data-category="matrix"] .category-card h3 { color: var(--cat-3); }
+[data-category="matrix"] .solution-card { border-left: 4px solid var(--cat-3); }
+.solution-card[data-category="matrix"] { border-left: 4px solid var(--cat-3); }
+[data-category="matrix"].solution-card .problem-number { background-color: var(--cat-3); color: var(--card-bg); }
+[data-category="matrix"] .solution-card .problem-number { background-color: var(--cat-3); color: var(--card-bg); }
+[data-category="matrix"] .problem-num { background-color: var(--cat-3); }
+[data-category="matrix"] .problem-statement h2 { color: var(--cat-3); }
+[data-category="matrix"] .problem-content strong { color: var(--cat-3); }
+
+/* Monotonic Stack - Teal */
+.page-header[data-category="monotonic-stack"] .problem-number { background-color: var(--cat-8); color: var(--card-bg); }
+.page-header[data-category="monotonic-stack"] h1 { color: var(--cat-8); }
+.page-header[data-category="monotonic-stack"] .btn-secondary { background-color: var(--cat-8); border-color: var(--cat-8); color: var(--card-bg); }
+[data-category="monotonic-stack"].category-card-wrapper { border-left: 4px solid var(--cat-8); }
+[data-category="monotonic-stack"] .category-card { border-left: none; }
+[data-category="monotonic-stack"] .category-card h3 { color: var(--cat-8); }
+[data-category="monotonic-stack"] .solution-card { border-left: 4px solid var(--cat-8); }
+.solution-card[data-category="monotonic-stack"] { border-left: 4px solid var(--cat-8); }
+[data-category="monotonic-stack"].solution-card .problem-number { background-color: var(--cat-8); color: var(--card-bg); }
+[data-category="monotonic-stack"] .solution-card .problem-number { background-color: var(--cat-8); color: var(--card-bg); }
+[data-category="monotonic-stack"] .problem-num { background-color: var(--cat-8); }
+[data-category="monotonic-stack"] .problem-statement h2 { color: var(--cat-8); }
+[data-category="monotonic-stack"] .problem-content strong { color: var(--cat-8); }
+
+/* Prefix Sum - Burgundy */
+.page-header[data-category="prefix-sum"] .problem-number { background-color: var(--cat-13); color: var(--card-bg); }
+.page-header[data-category="prefix-sum"] h1 { color: var(--cat-13); }
+.page-header[data-category="prefix-sum"] .btn-secondary { background-color: var(--cat-13); border-color: var(--cat-13); color: var(--card-bg); }
+[data-category="prefix-sum"].category-card-wrapper { border-left: 4px solid var(--cat-13); }
+[data-category="prefix-sum"] .category-card { border-left: none; }
+[data-category="prefix-sum"] .category-card h3 { color: var(--cat-13); }
+[data-category="prefix-sum"] .solution-card { border-left: 4px solid var(--cat-13); }
+.solution-card[data-category="prefix-sum"] { border-left: 4px solid var(--cat-13); }
+[data-category="prefix-sum"].solution-card .problem-number { background-color: var(--cat-13); color: var(--card-bg); }
+[data-category="prefix-sum"] .solution-card .problem-number { background-color: var(--cat-13); color: var(--card-bg); }
+[data-category="prefix-sum"] .problem-num { background-color: var(--cat-13); }
+[data-category="prefix-sum"] .problem-statement h2 { color: var(--cat-13); }
+[data-category="prefix-sum"] .problem-content strong { color: var(--cat-13); }
+
+/* Queue - Navy */
+.page-header[data-category="queue"] .problem-number { background-color: var(--cat-18); color: var(--card-bg); }
+.page-header[data-category="queue"] h1 { color: var(--cat-18); }
+.page-header[data-category="queue"] .btn-secondary { background-color: var(--cat-18); border-color: var(--cat-18); color: var(--card-bg); }
+[data-category="queue"].category-card-wrapper { border-left: 4px solid var(--cat-18); }
+[data-category="queue"] .category-card { border-left: none; }
+[data-category="queue"] .category-card h3 { color: var(--cat-18); }
+[data-category="queue"] .solution-card { border-left: 4px solid var(--cat-18); }
+.solution-card[data-category="queue"] { border-left: 4px solid var(--cat-18); }
+[data-category="queue"].solution-card .problem-number { background-color: var(--cat-18); color: var(--card-bg); }
+[data-category="queue"] .solution-card .problem-number { background-color: var(--cat-18); color: var(--card-bg); }
+[data-category="queue"] .problem-num { background-color: var(--cat-18); }
+[data-category="queue"] .problem-statement h2 { color: var(--cat-18); }
+[data-category="queue"] .problem-content strong { color: var(--cat-18); }
+
+/* Recursion - Rust */
+.page-header[data-category="recursion"] .problem-number { background-color: var(--cat-23); color: var(--card-bg); }
+.page-header[data-category="recursion"] h1 { color: var(--cat-23); }
+.page-header[data-category="recursion"] .btn-secondary { background-color: var(--cat-23); border-color: var(--cat-23); color: var(--card-bg); }
+[data-category="recursion"].category-card-wrapper { border-left: 4px solid var(--cat-23); }
+[data-category="recursion"] .category-card { border-left: none; }
+[data-category="recursion"] .category-card h3 { color: var(--cat-23); }
+[data-category="recursion"] .solution-card { border-left: 4px solid var(--cat-23); }
+.solution-card[data-category="recursion"] { border-left: 4px solid var(--cat-23); }
+[data-category="recursion"].solution-card .problem-number { background-color: var(--cat-23); color: var(--card-bg); }
+[data-category="recursion"] .solution-card .problem-number { background-color: var(--cat-23); color: var(--card-bg); }
+[data-category="recursion"] .problem-num { background-color: var(--cat-23); }
+[data-category="recursion"] .problem-statement h2 { color: var(--cat-23); }
+[data-category="recursion"] .problem-content strong { color: var(--cat-23); }
+
+/* Segment Tree - Steel Blue */
+.page-header[data-category="segment-tree"] .problem-number { background-color: var(--cat-28); color: var(--card-bg); }
+.page-header[data-category="segment-tree"] h1 { color: var(--cat-28); }
+.page-header[data-category="segment-tree"] .btn-secondary { background-color: var(--cat-28); border-color: var(--cat-28); color: var(--card-bg); }
+[data-category="segment-tree"].category-card-wrapper { border-left: 4px solid var(--cat-28); }
+[data-category="segment-tree"] .category-card { border-left: none; }
+[data-category="segment-tree"] .category-card h3 { color: var(--cat-28); }
+[data-category="segment-tree"] .solution-card { border-left: 4px solid var(--cat-28); }
+.solution-card[data-category="segment-tree"] { border-left: 4px solid var(--cat-28); }
+[data-category="segment-tree"].solution-card .problem-number { background-color: var(--cat-28); color: var(--card-bg); }
+[data-category="segment-tree"] .solution-card .problem-number { background-color: var(--cat-28); color: var(--card-bg); }
+[data-category="segment-tree"] .problem-num { background-color: var(--cat-28); }
+[data-category="segment-tree"] .problem-statement h2 { color: var(--cat-28); }
+[data-category="segment-tree"] .problem-content strong { color: var(--cat-28); }
+
+/* Simulation - Sage */
+.page-header[data-category="simulation"] .problem-number { background-color: var(--cat-4); color: var(--card-bg); }
+.page-header[data-category="simulation"] h1 { color: var(--cat-4); }
+.page-header[data-category="simulation"] .btn-secondary { background-color: var(--cat-4); border-color: var(--cat-4); color: var(--card-bg); }
+[data-category="simulation"].category-card-wrapper { border-left: 4px solid var(--cat-4); }
+[data-category="simulation"] .category-card { border-left: none; }
+[data-category="simulation"] .category-card h3 { color: var(--cat-4); }
+[data-category="simulation"] .solution-card { border-left: 4px solid var(--cat-4); }
+.solution-card[data-category="simulation"] { border-left: 4px solid var(--cat-4); }
+[data-category="simulation"].solution-card .problem-number { background-color: var(--cat-4); color: var(--card-bg); }
+[data-category="simulation"] .solution-card .problem-number { background-color: var(--cat-4); color: var(--card-bg); }
+[data-category="simulation"] .problem-num { background-color: var(--cat-4); }
+[data-category="simulation"] .problem-statement h2 { color: var(--cat-4); }
+[data-category="simulation"] .problem-content strong { color: var(--cat-4); }
+
+/* Sorting - Amber */
+.page-header[data-category="sorting"] .problem-number { background-color: var(--cat-14); color: var(--card-bg); }
+.page-header[data-category="sorting"] h1 { color: var(--cat-14); }
+.page-header[data-category="sorting"] .btn-secondary { background-color: var(--cat-14); border-color: var(--cat-14); color: var(--card-bg); }
+[data-category="sorting"].category-card-wrapper { border-left: 4px solid var(--cat-14); }
+[data-category="sorting"] .category-card { border-left: none; }
+[data-category="sorting"] .category-card h3 { color: var(--cat-14); }
+[data-category="sorting"] .solution-card { border-left: 4px solid var(--cat-14); }
+.solution-card[data-category="sorting"] { border-left: 4px solid var(--cat-14); }
+[data-category="sorting"].solution-card .problem-number { background-color: var(--cat-14); color: var(--card-bg); }
+[data-category="sorting"] .solution-card .problem-number { background-color: var(--cat-14); color: var(--card-bg); }
+[data-category="sorting"] .problem-num { background-color: var(--cat-14); }
+[data-category="sorting"] .problem-statement h2 { color: var(--cat-14); }
+[data-category="sorting"] .problem-content strong { color: var(--cat-14); }
+
+/* Strings - Plum */
+.page-header[data-category="strings"] .problem-number { background-color: var(--cat-29); color: var(--card-bg); }
+.page-header[data-category="strings"] h1 { color: var(--cat-29); }
+.page-header[data-category="strings"] .btn-secondary { background-color: var(--cat-29); border-color: var(--cat-29); color: var(--card-bg); }
+[data-category="strings"].category-card-wrapper { border-left: 4px solid var(--cat-29); }
+[data-category="strings"] .category-card { border-left: none; }
+[data-category="strings"] .category-card h3 { color: var(--cat-29); }
+[data-category="strings"] .solution-card { border-left: 4px solid var(--cat-29); }
+.solution-card[data-category="strings"] { border-left: 4px solid var(--cat-29); }
+[data-category="strings"].solution-card .problem-number { background-color: var(--cat-29); color: var(--card-bg); }
+[data-category="strings"] .solution-card .problem-number { background-color: var(--cat-29); color: var(--card-bg); }
+[data-category="strings"] .problem-num { background-color: var(--cat-29); }
+[data-category="strings"] .problem-statement h2 { color: var(--cat-29); }
+[data-category="strings"] .problem-content strong { color: var(--cat-29); }
+
+/* Topological Sort - Teal */
+.page-header[data-category="topological-sort"] .problem-number { background-color: var(--cat-5); color: var(--card-bg); }
+.page-header[data-category="topological-sort"] h1 { color: var(--cat-5); }
+.page-header[data-category="topological-sort"] .btn-secondary { background-color: var(--cat-5); border-color: var(--cat-5); color: var(--card-bg); }
+[data-category="topological-sort"].category-card-wrapper { border-left: 4px solid var(--cat-5); }
+[data-category="topological-sort"] .category-card { border-left: none; }
+[data-category="topological-sort"] .category-card h3 { color: var(--cat-5); }
+[data-category="topological-sort"] .solution-card { border-left: 4px solid var(--cat-5); }
+.solution-card[data-category="topological-sort"] { border-left: 4px solid var(--cat-5); }
+[data-category="topological-sort"].solution-card .problem-number { background-color: var(--cat-5); color: var(--card-bg); }
+[data-category="topological-sort"] .solution-card .problem-number { background-color: var(--cat-5); color: var(--card-bg); }
+[data-category="topological-sort"] .problem-num { background-color: var(--cat-5); }
+[data-category="topological-sort"] .problem-statement h2 { color: var(--cat-5); }
+[data-category="topological-sort"] .problem-content strong { color: var(--cat-5); }
+
+/* Trees - Burgundy */
+.page-header[data-category="trees"] .problem-number { background-color: var(--cat-10); color: var(--card-bg); }
+.page-header[data-category="trees"] h1 { color: var(--cat-10); }
+.page-header[data-category="trees"] .btn-secondary { background-color: var(--cat-10); border-color: var(--cat-10); color: var(--card-bg); }
+[data-category="trees"].category-card-wrapper { border-left: 4px solid var(--cat-10); }
+[data-category="trees"] .category-card { border-left: none; }
+[data-category="trees"] .category-card h3 { color: var(--cat-10); }
+[data-category="trees"] .solution-card { border-left: 4px solid var(--cat-10); }
+.solution-card[data-category="trees"] { border-left: 4px solid var(--cat-10); }
+[data-category="trees"].solution-card .problem-number { background-color: var(--cat-10); color: var(--card-bg); }
+[data-category="trees"] .solution-card .problem-number { background-color: var(--cat-10); color: var(--card-bg); }
+[data-category="trees"] .problem-num { background-color: var(--cat-10); }
+[data-category="trees"] .problem-statement h2 { color: var(--cat-10); }
+[data-category="trees"] .problem-content strong { color: var(--cat-10); }
+
+/* Trie - Navy */
+.page-header[data-category="trie"] .problem-number { background-color: var(--cat-15); color: var(--card-bg); }
+.page-header[data-category="trie"] h1 { color: var(--cat-15); }
+.page-header[data-category="trie"] .btn-secondary { background-color: var(--cat-15); border-color: var(--cat-15); color: var(--card-bg); }
+[data-category="trie"].category-card-wrapper { border-left: 4px solid var(--cat-15); }
+[data-category="trie"] .category-card { border-left: none; }
+[data-category="trie"] .category-card h3 { color: var(--cat-15); }
+[data-category="trie"] .solution-card { border-left: 4px solid var(--cat-15); }
+.solution-card[data-category="trie"] { border-left: 4px solid var(--cat-15); }
+[data-category="trie"].solution-card .problem-number { background-color: var(--cat-15); color: var(--card-bg); }
+[data-category="trie"] .solution-card .problem-number { background-color: var(--cat-15); color: var(--card-bg); }
+[data-category="trie"] .problem-num { background-color: var(--cat-15); }
+[data-category="trie"] .problem-statement h2 { color: var(--cat-15); }
+[data-category="trie"] .problem-content strong { color: var(--cat-15); }
+
+/* Union Find - Rust */
+.page-header[data-category="union-find"] .problem-number { background-color: var(--cat-25); color: var(--card-bg); }
+.page-header[data-category="union-find"] h1 { color: var(--cat-25); }
+.page-header[data-category="union-find"] .btn-secondary { background-color: var(--cat-25); border-color: var(--cat-25); color: var(--card-bg); }
+[data-category="union-find"].category-card-wrapper { border-left: 4px solid var(--cat-25); }
+[data-category="union-find"] .category-card { border-left: none; }
+[data-category="union-find"] .category-card h3 { color: var(--cat-25); }
+[data-category="union-find"] .solution-card { border-left: 4px solid var(--cat-25); }
+.solution-card[data-category="union-find"] { border-left: 4px solid var(--cat-25); }
+[data-category="union-find"].solution-card .problem-number { background-color: var(--cat-25); color: var(--card-bg); }
+[data-category="union-find"] .solution-card .problem-number { background-color: var(--cat-25); color: var(--card-bg); }
+[data-category="union-find"] .problem-num { background-color: var(--cat-25); }
+[data-category="union-find"] .problem-statement h2 { color: var(--cat-25); }
+[data-category="union-find"] .problem-content strong { color: var(--cat-25); }
+
+/* Category label and origin-category badge colors for difficulty/complexity pages */
+[data-category="arrays-hashing"] .category-label,
+[data-category="arrays-hashing"] .category-label-inline,
+[data-category="arrays-hashing"] .origin-category { background-color: var(--cat-1); color: var(--card-bg); }
+[data-category="backtracking"] .category-label,
+[data-category="backtracking"] .category-label-inline,
+[data-category="backtracking"] .origin-category { background-color: var(--cat-14); color: var(--card-bg); }
+[data-category="binary-search"] .category-label,
+[data-category="binary-search"] .category-label-inline,
+[data-category="binary-search"] .origin-category { background-color: var(--cat-27); color: var(--card-bg); }
+[data-category="bit-manipulation"] .category-label,
+[data-category="bit-manipulation"] .category-label-inline,
+[data-category="bit-manipulation"] .origin-category { background-color: var(--cat-11); color: var(--card-bg); }
+[data-category="design"] .category-label,
+[data-category="design"] .category-label-inline,
+[data-category="design"] .origin-category { background-color: var(--cat-24); color: var(--card-bg); }
+[data-category="dynamic-programming"] .category-label,
+[data-category="dynamic-programming"] .category-label-inline,
+[data-category="dynamic-programming"] .origin-category { background-color: var(--cat-8); color: var(--card-bg); }
+[data-category="graphs"] .category-label,
+[data-category="graphs"] .category-label-inline,
+[data-category="graphs"] .origin-category { background-color: var(--cat-21); color: var(--card-bg); }
+[data-category="greedy"] .category-label,
+[data-category="greedy"] .category-label-inline,
+[data-category="greedy"] .origin-category { background-color: var(--cat-5); color: var(--card-bg); }
+[data-category="heap"] .category-label,
+[data-category="heap"] .category-label-inline,
+[data-category="heap"] .origin-category { background-color: var(--cat-18); color: var(--card-bg); }
+[data-category="interval"] .category-label,
+[data-category="interval"] .category-label-inline,
+[data-category="interval"] .origin-category { background-color: var(--cat-2); color: var(--card-bg); }
+[data-category="linked-list"] .category-label,
+[data-category="linked-list"] .category-label-inline,
+[data-category="linked-list"] .origin-category { background-color: var(--cat-15); color: var(--card-bg); }
+[data-category="math"] .category-label,
+[data-category="math"] .category-label-inline,
+[data-category="math"] .origin-category { background-color: var(--cat-28); color: var(--card-bg); }
+[data-category="matrix"] .category-label,
+[data-category="matrix"] .category-label-inline,
+[data-category="matrix"] .origin-category { background-color: var(--cat-12); color: var(--card-bg); }
+[data-category="monotonic-stack"] .category-label,
+[data-category="monotonic-stack"] .category-label-inline,
+[data-category="monotonic-stack"] .origin-category { background-color: var(--cat-25); color: var(--card-bg); }
+[data-category="prefix-sum"] .category-label,
+[data-category="prefix-sum"] .category-label-inline,
+[data-category="prefix-sum"] .origin-category { background-color: var(--cat-9); color: var(--card-bg); }
+[data-category="queue"] .category-label,
+[data-category="queue"] .category-label-inline,
+[data-category="queue"] .origin-category { background-color: var(--cat-22); color: var(--card-bg); }
+[data-category="recursion"] .category-label,
+[data-category="recursion"] .category-label-inline,
+[data-category="recursion"] .origin-category { background-color: var(--cat-6); color: var(--card-bg); }
+[data-category="segment-tree"] .category-label,
+[data-category="segment-tree"] .category-label-inline,
+[data-category="segment-tree"] .origin-category { background-color: var(--cat-19); color: var(--card-bg); }
+[data-category="simulation"] .category-label,
+[data-category="simulation"] .category-label-inline,
+[data-category="simulation"] .origin-category { background-color: var(--cat-3); color: var(--card-bg); }
+[data-category="sorting"] .category-label,
+[data-category="sorting"] .category-label-inline,
+[data-category="sorting"] .origin-category { background-color: var(--cat-29); color: var(--card-bg); }
+[data-category="strings"] .category-label,
+[data-category="strings"] .category-label-inline,
+[data-category="strings"] .origin-category { background-color: var(--cat-10); color: var(--card-bg); }
+[data-category="topological-sort"] .category-label,
+[data-category="topological-sort"] .category-label-inline,
+[data-category="topological-sort"] .origin-category { background-color: var(--cat-23); color: var(--card-bg); }
+[data-category="trees"] .category-label,
+[data-category="trees"] .category-label-inline,
+[data-category="trees"] .origin-category { background-color: var(--cat-7); color: var(--card-bg); }
+[data-category="trie"] .category-label,
+[data-category="trie"] .category-label-inline,
+[data-category="trie"] .origin-category { background-color: var(--cat-20); color: var(--card-bg); }
+[data-category="union-find"] .category-label,
+[data-category="union-find"] .category-label-inline,
+[data-category="union-find"] .origin-category { background-color: var(--cat-17); color: var(--card-bg); }
+
+/* ============================================
+   DOCUMENTATION GUIDE CARDS
+   ============================================ */
+
+/* User Guide - Steel Blue */
+[data-category="user-guide-doc"].category-card-wrapper { border-left: 4px solid var(--cat-steel-blue); }
+[data-category="user-guide-doc"] .category-card { border-left: none; }
+[data-category="user-guide-doc"] .category-card h3 { color: var(--cat-steel-blue); }
+
+/* Developer Guide - Plum */
+[data-category="developer-guide-doc"].category-card-wrapper { border-left: 4px solid var(--cat-plum); }
+[data-category="developer-guide-doc"] .category-card { border-left: none; }
+[data-category="developer-guide-doc"] .category-card h3 { color: var(--cat-plum); }
+
+/* Upload Guide - Amber */
+[data-category="upload-guide-doc"].category-card-wrapper { border-left: 4px solid var(--cat-amber); }
+[data-category="upload-guide-doc"] .category-card { border-left: none; }
+[data-category="upload-guide-doc"] .category-card h3 { color: var(--cat-amber); }
+
+/* Sliding Window Category Styles */
+.page-header[data-category="sliding-window"] .problem-number { background-color: var(--cat-9); color: var(--card-bg); }
+.page-header[data-category="sliding-window"] h1 { color: var(--cat-9); }
+.page-header[data-category="sliding-window"] .btn-secondary { background-color: var(--cat-9); border-color: var(--cat-9); color: var(--card-bg); }
+[data-category="sliding-window"].category-card-wrapper { border-left: 4px solid var(--cat-9); }
+[data-category="sliding-window"] .category-card { border-left: none; }
+[data-category="sliding-window"] .category-card h3 { color: var(--cat-9); }
+[data-category="sliding-window"] .solution-card { border-left: 4px solid var(--cat-9); }
+.solution-card[data-category="sliding-window"] { border-left: 4px solid var(--cat-9); }
+[data-category="sliding-window"].solution-card .problem-number { background-color: var(--cat-9); color: var(--card-bg); }
+[data-category="sliding-window"] .solution-card .problem-number { background-color: var(--cat-9); color: var(--card-bg); }
+[data-category="sliding-window"] .problem-num { background-color: var(--cat-9); }
+[data-category="sliding-window"] .problem-statement h2 { color: var(--cat-9); }
+[data-category="sliding-window"] .problem-content strong { color: var(--cat-9); }
+
+/* Stack Category Styles */
+.page-header[data-category="stack"] .problem-number { background-color: var(--cat-19); color: var(--card-bg); }
+.page-header[data-category="stack"] h1 { color: var(--cat-19); }
+.page-header[data-category="stack"] .btn-secondary { background-color: var(--cat-19); border-color: var(--cat-19); color: var(--card-bg); }
+[data-category="stack"].category-card-wrapper { border-left: 4px solid var(--cat-19); }
+[data-category="stack"] .category-card { border-left: none; }
+[data-category="stack"] .category-card h3 { color: var(--cat-19); }
+[data-category="stack"] .solution-card { border-left: 4px solid var(--cat-19); }
+.solution-card[data-category="stack"] { border-left: 4px solid var(--cat-19); }
+[data-category="stack"].solution-card .problem-number { background-color: var(--cat-19); color: var(--card-bg); }
+[data-category="stack"] .solution-card .problem-number { background-color: var(--cat-19); color: var(--card-bg); }
+[data-category="stack"] .problem-num { background-color: var(--cat-19); }
+[data-category="stack"] .problem-statement h2 { color: var(--cat-19); }
+[data-category="stack"] .problem-content strong { color: var(--cat-19); }
+
+/* String Manipulation Category Styles */
+.page-header[data-category="string-manipulation"] .problem-number { background-color: var(--cat-24); color: var(--card-bg); }
+.page-header[data-category="string-manipulation"] h1 { color: var(--cat-24); }
+.page-header[data-category="string-manipulation"] .btn-secondary { background-color: var(--cat-24); border-color: var(--cat-24); color: var(--card-bg); }
+[data-category="string-manipulation"].category-card-wrapper { border-left: 4px solid var(--cat-24); }
+[data-category="string-manipulation"] .category-card { border-left: none; }
+[data-category="string-manipulation"] .category-card h3 { color: var(--cat-24); }
+[data-category="string-manipulation"] .solution-card { border-left: 4px solid var(--cat-24); }
+.solution-card[data-category="string-manipulation"] { border-left: 4px solid var(--cat-24); }
+[data-category="string-manipulation"].solution-card .problem-number { background-color: var(--cat-24); color: var(--card-bg); }
+[data-category="string-manipulation"] .solution-card .problem-number { background-color: var(--cat-24); color: var(--card-bg); }
+[data-category="string-manipulation"] .problem-num { background-color: var(--cat-24); }
+[data-category="string-manipulation"] .problem-statement h2 { color: var(--cat-24); }
+[data-category="string-manipulation"] .problem-content strong { color: var(--cat-24); }
+
+/* Two Pointers Category Styles */
+.page-header[data-category="two-pointers"] .problem-number { background-color: var(--cat-20); color: var(--card-bg); }
+.page-header[data-category="two-pointers"] h1 { color: var(--cat-20); }
+.page-header[data-category="two-pointers"] .btn-secondary { background-color: var(--cat-20); border-color: var(--cat-20); color: var(--card-bg); }
+[data-category="two-pointers"].category-card-wrapper { border-left: 4px solid var(--cat-20); }
+[data-category="two-pointers"] .category-card { border-left: none; }
+[data-category="two-pointers"] .category-card h3 { color: var(--cat-20); }
+[data-category="two-pointers"] .solution-card { border-left: 4px solid var(--cat-20); }
+.solution-card[data-category="two-pointers"] { border-left: 4px solid var(--cat-20); }
+[data-category="two-pointers"].solution-card .problem-number { background-color: var(--cat-20); color: var(--card-bg); }
+[data-category="two-pointers"] .solution-card .problem-number { background-color: var(--cat-20); color: var(--card-bg); }
+[data-category="two-pointers"] .problem-num { background-color: var(--cat-20); }
+[data-category="two-pointers"] .problem-statement h2 { color: var(--cat-20); }
+[data-category="two-pointers"] .problem-content strong { color: var(--cat-20); }

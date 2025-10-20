@@ -25,6 +25,14 @@ Return an integer array ans where ans[i] represents the height of the tallest st
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n² log n)
+**Space Complexity**: O(n)
+
 ### INTUITION:
 This is a range maximum query problem with updates. For each falling square, we need to find the maximum height in its range [left, right), then update that range with the new height. Segment trees with lazy propagation are perfect for this.
 

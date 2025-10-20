@@ -21,6 +21,14 @@ The span of the stock's price in one day is the maximum number of consecutive da
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n)
+**Space Complexity**: O(1)
+
 ### INTUITION:
 Maintain monotonic decreasing stack of (price, span) pairs. When new price comes, pop all lower prices and sum their spans. Current span = 1 + sum of popped spans. Push (price, span).
 

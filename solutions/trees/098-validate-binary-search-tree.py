@@ -25,6 +25,14 @@ A valid BST is defined as follows:
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n)
+**Space Complexity**: O(1)
+
 ### INTUITION:
 Recursively validate each subtree. For each node, check: left < node < right, and both subtrees are valid BSTs. Pass valid range down: left subtree max < node, right subtree min > node.
 

@@ -23,6 +23,14 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: * O(h)
+**Space Complexity**: * O(h)
+
  *
  * ### INTUITION:
  * In a BST, we can leverage the ordering property to find LCA efficiently. If both nodes are smaller than current node, LCA is in left subtree. If both are larger, LCA is in right subtree. Otherwise, current node is the LCA.

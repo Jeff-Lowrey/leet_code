@@ -19,6 +19,14 @@ Given the root of a binary tree, return the inorder traversal of its nodes' valu
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n)
+**Space Complexity**: - Recursive: O(h) where h is tree height (call stack)
+
 ### INTUITION:
 Inorder traversal visits nodes in the order: Left -> Root -> Right. This gives us a sorted sequence for Binary Search Trees. The key is to implement this pattern using recursion or iteration with a stack.
 

@@ -23,6 +23,14 @@ Follow up: Can you do it in O(n) time and/or in-place with O(1) extra space?
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n log n)
+**Space Complexity**: O(n)
+
 ### INTUITION:
 Unlike Wiggle Sort I which allows equality, this requires strict inequality (<, >, <, >).
 We need to interleave smaller and larger halves to avoid adjacent equal elements.

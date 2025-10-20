@@ -22,6 +22,14 @@ Initially, all next pointers are set to NULL.
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n)
+**Space Complexity**: O(w)
+
 ### INTUITION:
 Use level-order traversal (BFS) to connect nodes at the same level.
 For each level, link each node to the next node in the queue.

@@ -27,6 +27,14 @@ Note:
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n)
+**Space Complexity**: O(1)
+
 ### INTUITION:
 Use three hash sets to track numbers seen in each row, column, and 3x3 box. For each cell, calculate its box index using (row//3)*3 + (col//3), then check if the number already exists in any of the three sets before adding it.
 

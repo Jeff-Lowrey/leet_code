@@ -26,6 +26,14 @@ Explanation: `342 + 465` = 807.
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(max(m, n))
+**Space Complexity**: O(max(m, n))
+
 ### INTUITION:
 This mimics elementary school `addition! Since` digits are in reverse order,
 we can add from `left` to `right` (which corresponds to least significant digit first).

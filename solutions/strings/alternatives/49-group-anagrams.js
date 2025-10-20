@@ -18,6 +18,14 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: * O(n * k log k)
+**Space Complexity**: * O(n * k)
+
  *
  * ### INTUITION:
  * Anagrams are words that contain the same characters with the same frequencies, just rearranged.

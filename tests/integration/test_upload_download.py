@@ -1,18 +1,19 @@
 """Integration tests for file upload and download functionality."""
 
 import zipfile
+from collections.abc import Generator
 from io import BytesIO
+from typing import Any
 from unittest.mock import MagicMock, mock_open, patch
 
 import pytest
 
 from src.leet_code.app import app
 from src.leet_code.category_data import Solution
-from typing import Generator, Any
 
 
 @pytest.fixture
-def client() -> Generator[Any, None, None]:
+def client() -> Generator[Any]:
     """Create a test client for the Flask application."""
     app.config["TESTING"] = True
     app.config["SECRET_KEY"] = "test-secret-key"

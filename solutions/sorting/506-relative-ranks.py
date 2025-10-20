@@ -31,6 +31,14 @@ Return an array answer of size n where answer[i] is the rank of the ith athlete.
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n log n)
+**Space Complexity**: O(n)
+
 ### INTUITION:
 We need to map each score to its rank. Sorting gives us the order, but we need to maintain
 the original indices. Use sorting with indices or create a score-to-rank mapping.

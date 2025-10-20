@@ -19,6 +19,14 @@ Given two integers a and b, return the sum of the two integers without using the
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n)
+**Space Complexity**: O(1)
+
 ### INTUITION:
 Add two numbers without carry operator. XOR gives sum without carry, AND << 1 gives carry. Repeat until carry is 0. Handle overflow for signed integers.
 

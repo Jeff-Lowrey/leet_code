@@ -22,6 +22,14 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: * O(log n)
+**Space Complexity**: * O(1)
+
  *
  * ### INTUITION:
  * Binary search is the classic divide-and-conquer algorithm for searching

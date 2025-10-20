@@ -27,8 +27,8 @@ Welcome to the Solution Upload Guide! This comprehensive guide provides template
 [↑ Back to Table of Contents](#table-of-contents)
 
 **Solution Templates:**
-- Python: [`docs/solutions/templates/SOLUTION_TEMPLATE.py`](../solutions/templates/SOLUTION_TEMPLATE.py)
-- JavaScript: [`docs/solutions/templates/SOLUTION_TEMPLATE.js`](../solutions/templates/SOLUTION_TEMPLATE.js)
+- Python: [`docs/developer-guide/templates/SOLUTION_TEMPLATE.py`](../developer-guide/templates/SOLUTION_TEMPLATE.py)
+- JavaScript: [`docs/developer-guide/templates/SOLUTION_TEMPLATE.js`](../developer-guide/templates/SOLUTION_TEMPLATE.js)
 
 **Formatting Guides:**
 - Python: [`SOLUTION_FORMATTING_GUIDE.md`](SOLUTION_FORMATTING_GUIDE.md)

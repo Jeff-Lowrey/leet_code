@@ -25,6 +25,14 @@ Return the minimum number of times you need to do this to make all the computers
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n × α(n))
+**Space Complexity**: O(n)
+
 ### INTUITION:
 This is a classic Union-Find problem about connecting components. Key insights:
 - To connect n computers, we need at least n-1 cables

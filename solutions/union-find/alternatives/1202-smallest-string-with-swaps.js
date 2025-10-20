@@ -23,6 +23,14 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: * O(n log n + m α(n)) where m is pairs count
+**Space Complexity**: * O(n)
+
  *
  * ### INTUITION:
  * Pairs form connected components via union-find. Within each component, indices can be

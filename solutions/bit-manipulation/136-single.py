@@ -21,6 +21,14 @@ You must implement a solution with a linear runtime complexity and use only cons
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n)
+**Space Complexity**: O(1)
+
 ### INTUITION:
 XOR has the property that a^a=0 and a^0=a. XOR all numbers together - pairs cancel out to 0, leaving only the single number that appears once.
 

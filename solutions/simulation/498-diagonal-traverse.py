@@ -27,6 +27,14 @@ Output: [1,2,3,4]
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(m × n)
+**Space Complexity**: O(1)
+
 ### INTUITION:
 Elements on the same diagonal have the same sum of row + column indices.
 Traverse diagonals alternately upward and downward, handling direction changes

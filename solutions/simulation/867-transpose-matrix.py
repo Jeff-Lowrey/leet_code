@@ -30,6 +30,14 @@ Output: [[1,4],[2,5],[3,6]]
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(m × n)
+**Space Complexity**: O(m × n)
+
 ### INTUITION:
 Transposing a matrix means converting rows to columns and vice versa.
 Element at position (i,j) in original matrix moves to position (j,i) in transposed matrix.

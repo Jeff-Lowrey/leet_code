@@ -22,6 +22,14 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: * O(n log n)
+**Space Complexity**: * O(n)
+
  *
  * ### INTUITION:
  * This is similar to counting inversions but with a modified condition (nums[i] > 2 * nums[j] instead of nums[i] > nums[j]). We can use merge sort to count these pairs efficiently during the merge process, or use segment trees / BIT with coordinate compression.

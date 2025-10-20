@@ -24,6 +24,14 @@ Explanation: Jump sequence: 5 → 4 → 1 → 3 (value is 0)
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n)
+**Space Complexity**: O(n) for visited set and recursion/queue
+
 ### INTUITION:
 This is a graph reachability problem. Each index is a node, and edges exist to indices
 i+arr[i] and i-arr[i]. Use DFS or BFS to explore all reachable indices from start.

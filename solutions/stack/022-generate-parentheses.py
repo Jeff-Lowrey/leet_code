@@ -19,6 +19,14 @@ Given n pairs of parentheses, write a function to generate all combinations of w
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(4^n / √n)
+**Space Complexity**: O(n)
+
 ### INTUITION:
 Use backtracking to build valid parentheses strings. At each step, we can add '(' if we haven't used all n opening brackets, or ')' if it won't make the string invalid (closing count < opening count).
 

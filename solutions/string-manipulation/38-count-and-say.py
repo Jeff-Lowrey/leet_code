@@ -33,6 +33,14 @@ countAndSay(4) = say "21" = one 2 + one 1 = "1211"
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n * m)
+**Space Complexity**: O(m)
+
 ### INTUITION:
 The count-and-say sequence is built iteratively where each term describes the previous term
 by counting consecutive identical digits. We read the previous result from left to right,

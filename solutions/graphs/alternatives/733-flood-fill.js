@@ -27,6 +27,14 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: * O(m×n)
+**Space Complexity**: * O(m×n)
+
  *
  * ### INTUITION:
  * Flood fill is a classic graph traversal problem similar to DFS. We start from

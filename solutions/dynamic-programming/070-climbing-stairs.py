@@ -25,6 +25,14 @@ Explanation: There are three ways to climb to the top.
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n)
+**Space Complexity**: O(1)
+
 ### INTUITION:
 This is the classic Fibonacci problem in `disguise! To` reach step `n`, you can
 either come from step (`n-1`) by taking 1 step, or from step (`n-2`) by taking 2 steps.

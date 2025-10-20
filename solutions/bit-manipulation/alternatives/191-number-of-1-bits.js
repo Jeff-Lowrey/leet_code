@@ -22,6 +22,14 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: * O(k) where k is number of 1-bits
+**Space Complexity**: * O(1)
+
  *
  * ### INTUITION:
  * Use bit manipulation to count 1s. The key insight is `n & (n-1)` removes the rightmost

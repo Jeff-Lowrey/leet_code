@@ -21,6 +21,14 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: * O(n log n)
+**Space Complexity**: * - Merge Sort: O(n) for merge array
+
  *
  * ### INTUITION:
  * Implement various sorting algorithms from scratch. Quicksort, Mergesort, and Heapsort all

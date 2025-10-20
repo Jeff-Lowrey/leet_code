@@ -27,6 +27,14 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: * O(1)
+**Space Complexity**: * O(n)
+
  *
  * ### INTUITION:
  * The key challenge is maintaining the minimum element in O(1) time. We can use

@@ -23,6 +23,14 @@ Return the letter that was added to t.
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n)
+**Space Complexity**: O(1)
+
 ### INTUITION:
 XOR both arrays together. The result is the character that appears different number of times in s vs t, which is the added character.
 

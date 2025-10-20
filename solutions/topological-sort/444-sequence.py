@@ -19,6 +19,14 @@ Check whether the original sequence org can be uniquely reconstructed from the s
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(V + E)
+**Space Complexity**: O(V + E)
+
 ### INTUITION:
 This is a topological sort problem where we need to check if there's a unique topological ordering that matches the given original sequence. The key insight is that for a unique reconstruction, at each step of topological sort, there should be exactly one node with in-degree 0.
 

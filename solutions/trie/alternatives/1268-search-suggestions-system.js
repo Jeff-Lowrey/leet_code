@@ -22,6 +22,14 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: * O(N * L + S)
+**Space Complexity**: * O(N * L)
+
  *
  * ### INTUITION:
  * This is a classic autocomplete problem that benefits from using a Trie data structure. As we type each character, we need to find all words with that prefix and return the top 3 lexicographically. A Trie allows us to efficiently navigate to the prefix and collect matching words.

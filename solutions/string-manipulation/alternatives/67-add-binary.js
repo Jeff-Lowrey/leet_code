@@ -24,6 +24,14 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: * O(max(m, n))
+**Space Complexity**: * O(max(m, n))
+
  *
  * ### INTUITION:
  * Adding binary numbers is similar to adding decimal numbers, but we work with base 2

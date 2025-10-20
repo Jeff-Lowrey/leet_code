@@ -19,6 +19,14 @@ Given n non-negative integers representing an elevation map where the width of e
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n)
+**Space Complexity**: O(1)
+
 ### INTUITION:
 For each position, calculate trapped water = min(max_left, max_right) - height. Use two pointers from both ends. Track max heights seen. Move pointer with smaller max height inward.
 

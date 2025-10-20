@@ -23,6 +23,14 @@ Return the array after sorting it.
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n log n)
+**Space Complexity**: O(n)
+
 ### INTUITION:
 We need a two-level sort: first by count of 1-bits, then by value. Python's sort is stable,
 so we can sort by value first, then by bit count. Or use a tuple key for simultaneous sorting.

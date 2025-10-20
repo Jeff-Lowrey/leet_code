@@ -26,6 +26,14 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: * O(m × n)
+**Space Complexity**: * O(1)
+
  *
  * ### INTUITION:
  * Process the matrix layer by layer, moving in a spiral pattern: right → down → left → up.

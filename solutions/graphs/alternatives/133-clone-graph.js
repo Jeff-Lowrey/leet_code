@@ -23,6 +23,14 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: * O(V + E) - visit each node and edge once
+**Space Complexity**: * O(V) - hash map and recursion stack
+
  *
  * ### INTUITION:
  * To clone a graph, we need to create new nodes and preserve the neighbor relationships.

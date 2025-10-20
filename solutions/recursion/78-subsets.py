@@ -19,6 +19,14 @@ This problem demonstrates key concepts in Recursion.
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(2^n * n) where n is array length
+**Space Complexity**: O(n) - recursion depth
+
 ### INTUITION:
 Given an array of distinct integers, return all possible subsets (the power set).
 The power set includes all combinations of all possible lengths (0 to n). This is

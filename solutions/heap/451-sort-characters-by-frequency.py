@@ -22,6 +22,14 @@ Return the sorted string. If there are multiple answers, return any of them.
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n log k)
+**Space Complexity**: O(k)
+
 ### INTUITION:
 We need to count character frequencies and then sort characters by their frequency
 in descending order. This is a classic use case for heaps/priority queues combined

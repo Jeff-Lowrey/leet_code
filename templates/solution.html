@@ -90,13 +90,7 @@
         word-wrap: normal !important;
     }
 </style>
-<script>
-    function switchLanguage(url) {
-        if (url) {
-            window.location.href = url;
-        }
-    }
-</script>
+<script src="{{ url_for('static', filename='js/pages/solution.js') }}"></script>
 {% endblock %}
 
 {% block content %}

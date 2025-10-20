@@ -28,6 +28,14 @@ Return the modified image after performing the flood fill.
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(m×n)
+**Space Complexity**: O(m×n)
+
 ### INTUITION:
 Flood fill is a classic graph traversal problem similar to DFS. We start from
 a pixel and spread to all connected pixels of the same color, changing them

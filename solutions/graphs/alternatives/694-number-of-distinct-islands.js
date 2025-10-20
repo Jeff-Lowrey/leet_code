@@ -22,6 +22,14 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: * O(M × N)
+**Space Complexity**: * O(M × N)
+
  *
  * ### INTUITION:
  * This problem extends "Number of Islands" by requiring us to identify distinct island shapes. Two islands are the same if one can be translated to match the other (same relative positions). We need to normalize each island's shape to a canonical form for comparison.

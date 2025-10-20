@@ -22,6 +22,14 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: * O(n)
+**Space Complexity**: * O(min(n, p))
+
  *
  * ### INTUITION:
  * The problem requires finding the smallest subarray to remove so that the remaining sum is divisible by p. Instead of trying all possible removals, we can use the mathematical property that if total_sum % p = remainder, we need to find the smallest subarray with sum % p = remainder. This is a prefix sum problem with modular arithmetic.

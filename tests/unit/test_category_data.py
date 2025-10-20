@@ -1,10 +1,11 @@
 """Unit tests for the category_data module."""
 
+import json
 from pathlib import Path
-from unittest.mock import MagicMock, patch
-
-from src.leet_code.category_data import Category, CategoryManager, Solution
 from typing import Any
+from unittest.mock import MagicMock, mock_open, patch
+
+from src.leet_code.category_data import Category, CategoryManager, ProblemTags, Solution
 
 
 class TestSolution:
@@ -29,6 +30,26 @@ class TestSolution:
         solution = Solution(filename="custom-problem.py", name="Custom Problem")
         assert solution.number == ""
         assert solution.slug == "custom-problem"
+
+
+class TestProblemTags:
+    """Test the ProblemTags dataclass."""
+
+    def test_problem_tags_initialization(self) -> None:
+        """Test creating a ProblemTags instance."""
+        tags = ProblemTags(
+            problem_number="001", techniques=["Two Pointers", "Hash Table"], data_structures=["Array", "Hash Map"]
+        )
+        assert tags.problem_number == "001"
+        assert tags.techniques == ["Two Pointers", "Hash Table"]
+        assert tags.data_structures == ["Array", "Hash Map"]
+
+    def test_problem_tags_empty_lists(self) -> None:
+        """Test ProblemTags with empty tag lists."""
+        tags = ProblemTags(problem_number="042")
+        assert tags.problem_number == "042"
+        assert tags.techniques == []
+        assert tags.data_structures == []
 
 
 class TestCategory:
@@ -197,6 +218,183 @@ class TestCategoryManager:
 
         # After refresh, _categories should be populated with fresh data (empty in this case)
         assert manager._categories == []
+
+    def test_extract_tags_from_content(self) -> None:
+        """Test extracting tags from solution content."""
+        manager = CategoryManager()
+
+        content = """
+        # Two Sum
+        Difficulty: Easy
+
+        ### METADATA:
+        **Techniques**: Two Pointers, Hash Table
+        **Data Structures**: Array, Hash Map
+
+        This is a solution using hash tables.
+        """
+
+        tags = manager._extract_tags_from_content(content)
+        assert "Two Pointers" in tags["techniques"]
+        assert "Hash Table" in tags["techniques"]
+        assert "Array" in tags["data_structures"]
+        assert "Hash Map" in tags["data_structures"]
+
+    def test_extract_tags_no_tags(self) -> None:
+        """Test extracting tags when none are present."""
+        manager = CategoryManager()
+        content = "# Solution\ndef two_sum(): pass"
+
+        tags = manager._extract_tags_from_content(content)
+        assert tags["techniques"] == []
+        assert tags["data_structures"] == []
+
+    @patch("src.leet_code.category_data.Path.exists")
+    @patch("src.leet_code.category_data.Path.open", new_callable=mock_open)
+    @patch("src.leet_code.category_data.Path.mkdir")
+    def test_get_problem_tags_from_cache(self, mock_mkdir: Any, mock_file: Any, mock_exists: Any) -> None:
+        """Test getting problem tags from disk cache."""
+        manager = CategoryManager()
+
+        # Mock cache file exists
+        cache_data = {"001": {"techniques": ["Two Pointers"], "data_structures": ["Array"]}}
+        mock_file.return_value.read.return_value = json.dumps(cache_data)
+        mock_exists.return_value = True
+
+        # Mock stat to simulate cache is fresh
+        mock_stat = MagicMock()
+        mock_stat.st_mtime = 9999999999  # Very recent
+        with (
+            patch("src.leet_code.category_data.Path.stat", return_value=mock_stat),
+            patch.object(manager, "get_categories", return_value=[]),
+        ):
+            tags = manager.get_problem_tags()
+
+        assert "001" in tags
+        assert tags["001"].techniques == ["Two Pointers"]
+        assert tags["001"].data_structures == ["Array"]
+
+    def test_find_by_number(self) -> None:
+        """Test finding a solution by problem number."""
+        manager = CategoryManager()
+
+        # Mock categories with solutions
+        solution1 = Solution("001-two-sum.py", "Two Sum", number="001")
+        solution2 = Solution("042-trapping-water.py", "Trapping Water", number="042")
+        category = Category("arrays", "Arrays", "Desc", solutions=[solution1, solution2])
+        manager._categories = [category]
+
+        result = manager.find_by_number("001")
+        assert result == solution1
+
+        result = manager.find_by_number("042")
+        assert result == solution2
+
+        result = manager.find_by_number("999")
+        assert result is None
+
+    def test_find_by_number_with_tags(self) -> None:
+        """Test finding a solution by number with tags attached."""
+        manager = CategoryManager()
+
+        solution = Solution("001-two-sum.py", "Two Sum", number="001")
+        category = Category("arrays", "Arrays", "Desc", solutions=[solution])
+        manager._categories = [category]
+        manager._problem_tags = {"001": ProblemTags("001", ["Two Pointers"], ["Array"])}
+
+        result = manager.find_by_number("001", include_tags=True)
+        assert result is not None
+        assert hasattr(result, "__dict__")
+        assert "tags" in result.__dict__
+
+    def test_find_by_name(self) -> None:
+        """Test finding solutions by name."""
+        manager = CategoryManager()
+
+        solution1 = Solution("001-two-sum.py", "Two Sum")
+        solution2 = Solution("042-trapping-water.py", "Trapping Rain Water")
+        solution3 = Solution("125-valid-palindrome.py", "Valid Palindrome")
+        category = Category("arrays", "Arrays", "Desc", solutions=[solution1, solution2, solution3])
+        manager._categories = [category]
+
+        # Search by name
+        results = manager.find_by_name("water")
+        assert len(results) == 1
+        assert results[0] == solution2
+
+        # Search case-insensitive
+        results = manager.find_by_name("WATER")
+        assert len(results) == 1
+
+        # Search by slug
+        results = manager.find_by_name("palindrome")
+        assert len(results) == 1
+        assert results[0] == solution3
+
+        # No matches
+        results = manager.find_by_name("nonexistent")
+        assert len(results) == 0
+
+    def test_filter_solutions(self) -> None:
+        """Test filtering solutions by criteria."""
+        manager = CategoryManager()
+
+        solution1 = Solution("001.py", "S1", difficulty="Easy", time_complexity="O(n)")
+        solution2 = Solution("002.py", "S2", difficulty="Medium", time_complexity="O(n)")
+        solution3 = Solution("003.py", "S3", difficulty="Easy", time_complexity="O(n log n)")
+        category = Category("test", "Test", "Desc", solutions=[solution1, solution2, solution3])
+        manager._categories = [category]
+
+        # Filter by difficulty
+        results = manager.filter_solutions({"difficulty": "Easy"})
+        assert len(results) == 2
+        assert solution1 in results
+        assert solution3 in results
+
+        # Filter by time complexity
+        results = manager.filter_solutions({"time_complexity": "O(n)"})
+        assert len(results) == 2
+
+        # Filter by multiple criteria
+        results = manager.filter_solutions({"difficulty": "Easy", "time_complexity": "O(n)"})
+        assert len(results) == 1
+        assert results[0] == solution1
+
+    def test_get_all_solutions(self) -> None:
+        """Test getting all solutions across categories."""
+        manager = CategoryManager()
+
+        solution1 = Solution("001.py", "S1")
+        solution2 = Solution("002.py", "S2")
+        solution3 = Solution("003.py", "S3")
+
+        cat1 = Category("cat1", "C1", "Desc", solutions=[solution1, solution2])
+        cat2 = Category("cat2", "C2", "Desc", solutions=[solution3])
+        manager._categories = [cat1, cat2]
+
+        results = manager.get_all_solutions()
+        assert len(results) == 3
+        assert solution1 in results
+        assert solution2 in results
+        assert solution3 in results
+
+    def test_sort_by_number(self) -> None:
+        """Test sorting solutions by problem number."""
+        manager = CategoryManager()
+
+        solution1 = Solution("042.py", "S1", number="042")
+        solution2 = Solution("001.py", "S2", number="001")
+        solution3 = Solution("125.py", "S3", number="125")
+
+        solutions = [solution1, solution2, solution3]
+        sorted_solutions = manager.sort_by_number(solutions)
+
+        assert sorted_solutions[0] == solution2  # 001
+        assert sorted_solutions[1] == solution1  # 042
+        assert sorted_solutions[2] == solution3  # 125
+
+        # Original list should not be modified
+        assert solutions[0] == solution1
 
     def test_category_descriptions(self) -> None:
         """Test that category descriptions are properly defined."""

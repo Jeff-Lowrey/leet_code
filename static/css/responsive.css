@@ -1,0 +1,10 @@
+/* Responsive Design
+ *
+ * DESIGN ASSUMPTION: This application assumes a minimum viewport width
+ * of ~768px (medium tablet in portrait mode or larger).
+ *
+ * Mobile phones and small devices are NOT supported.
+ * Target: iPad-sized tablets (768px+) and desktop screens.
+ */
+
+/* Note: Minimal responsive adjustments needed since minimum width is 768px */

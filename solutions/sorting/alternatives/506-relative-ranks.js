@@ -30,6 +30,14 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: * O(n log n)
+**Space Complexity**: * O(n)
+
  *
  * ### INTUITION:
  * We need to map each score to its rank. Sorting gives us the order, but we need to maintain

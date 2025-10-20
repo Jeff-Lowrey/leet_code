@@ -30,6 +30,14 @@ Output: "PAHNAPLSIIGYIR"
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n)
+**Space Complexity**: O(n)
+
 ### INTUITION:
 The zigzag pattern alternates going down and then up diagonally. We can simulate this
 by using an array of strings (one for each row) and tracking the current row and direction.

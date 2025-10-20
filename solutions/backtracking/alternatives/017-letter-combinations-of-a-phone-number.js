@@ -22,6 +22,14 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: * O(3^N × 4^M)
+**Space Complexity**: * O(3^N × 4^M)
+
  *
  * ### INTUITION:
  * This is a classic backtracking problem where we need to generate all possible

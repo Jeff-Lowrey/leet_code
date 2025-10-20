@@ -25,6 +25,14 @@ Return a 2D list of grid coordinates result where result[i] = [ri, ci] denotes t
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n)
+**Space Complexity**: O(1)
+
 ### INTUITION:
 Use DFS/BFS from all Pacific border cells and separately from all Atlantic border cells. Cells reachable from both oceans are in the answer. Water flows from high to low or equal.
 

@@ -20,6 +20,14 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: * - Constructor: O(N * L) where N is sentences count, L is average length
+**Space Complexity**: * O(N * L)
+
  *
  * ### INTUITION:
  * This is an advanced autocomplete system that needs to track search frequency and return top results. We use a Trie to organize sentences by prefixes, and at each node, we maintain a list of sentences that pass through it along with their frequencies. When a character is typed, we navigate to that node and return top 3 by frequency.

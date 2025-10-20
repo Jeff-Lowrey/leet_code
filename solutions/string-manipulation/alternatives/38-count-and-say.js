@@ -32,6 +32,14 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: * O(n * m)
+**Space Complexity**: * O(m)
+
  *
  * ### INTUITION:
  * The count-and-say sequence is built iteratively where each term describes the previous term

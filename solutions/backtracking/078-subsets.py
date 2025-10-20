@@ -24,6 +24,14 @@ Output: [[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]]
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n × 2^n) - 2^n subsets, each takes O(n) to copy
+**Space Complexity**: O(n) - recursion depth
+
 ### INTUITION:
 Generate all possible subsets (power set) by making binary choices for each element: include it or don't include it in the current subset. Use backtracking to explore all combinations.
 

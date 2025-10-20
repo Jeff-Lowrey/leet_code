@@ -25,6 +25,14 @@ Explanation: The last word is "World" with length 5.
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n)
+**Space Complexity**: O(1)
+
 ### INTUITION:
 We need to find the last word in a string and return its length. The key challenge
 is handling trailing spaces. The simplest approach is to strip trailing spaces and

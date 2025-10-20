@@ -19,6 +19,14 @@ This problem demonstrates key concepts in Sliding Window and Hash Tables.
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(|s| + |t|)
+**Space Complexity**: O(|s| + |t|)
+
 ### INTUITION:
 We need to find the smallest substring of `s` that contains all characters from `t` (including
 duplicates). This is a classic sliding window problem. The key insight is to use two pointers

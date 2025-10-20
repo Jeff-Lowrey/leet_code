@@ -19,6 +19,14 @@ This problem demonstrates key concepts in Recursion.
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(2^n * n) - 2^n subsets, O(n) to build each
+**Space Complexity**: O(n) - recursion depth
+
 ### INTUITION:
 Given an array that may contain duplicate integers, return all possible unique subsets.
 The challenge is avoiding duplicate subsets when the input array has duplicate values.

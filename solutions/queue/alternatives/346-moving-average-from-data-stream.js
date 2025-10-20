@@ -25,6 +25,14 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: * O(1) per operation
+**Space Complexity**: * O(size)
+
  *
  * ### INTUITION:
  * Use a queue to maintain the sliding window of values. When the window exceeds the size limit, remove the oldest element and add the new one.

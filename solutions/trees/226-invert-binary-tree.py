@@ -19,6 +19,14 @@ Given the root of a binary tree, invert the tree, and return its root.
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n)
+**Space Complexity**: O(1)
+
 ### INTUITION:
 Recursively swap left and right children of each node. Base case: null returns null. Post-order: invert both subtrees, then swap them at current node.
 

@@ -1,16 +1,17 @@
 """Integration tests for error conditions and edge cases."""
 
+from collections.abc import Generator
+from typing import Any
 from unittest.mock import MagicMock, patch
 
 import pytest
 
 from src.leet_code.app import app
 from src.leet_code.category_data import Category, Solution
-from typing import Generator, Any
 
 
 @pytest.fixture
-def client() -> Generator[Any, None, None]:
+def client() -> Generator[Any]:
     """Create a test client for the Flask application."""
     app.config["TESTING"] = True
     with app.test_client() as client:

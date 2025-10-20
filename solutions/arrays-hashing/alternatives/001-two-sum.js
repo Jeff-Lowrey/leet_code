@@ -19,6 +19,14 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: * **O(n)** - Single pass through array with O(1) hash map lookups
+**Space Complexity**: * **O(n)** - Hash map stores up to n elements in worst case
+
  *
  * ### INTUITION:
  * The key insight is to use a hash map to store numbers we've seen so far.

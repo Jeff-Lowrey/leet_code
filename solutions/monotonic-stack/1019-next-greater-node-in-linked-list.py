@@ -24,6 +24,14 @@ Explanation: For node 2, next greater is 5. For node 1, next greater is 5. For n
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n)
+**Space Complexity**: O(n)
+
 ### INTUITION:
 Use a monotonic decreasing stack to track indices waiting for their next greater element.
 As we traverse, for each node, pop all stack indices with smaller values and update their answers.

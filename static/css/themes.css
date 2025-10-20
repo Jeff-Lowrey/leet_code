@@ -16,15 +16,44 @@
     --border-color: #e0e0dc;
     --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
 
-    /* Category colors - distinct accessible palette */
-    --cat-rust: #d47d5e;
-    --cat-steel-blue: #6890c9;
-    --cat-sage: #7fa87f;
-    --cat-amber: #d4a366;
-    --cat-plum: #ad85ad;
-    --cat-teal: #66a8a8;
-    --cat-burgundy: #c96680;
-    --cat-navy: #6882ad;
+    /* Category colors - 25 unique accessible colors */
+    --cat-1: #c92a2a;
+    --cat-2: #e8590c;
+    --cat-3: #d97706;
+    --cat-4: #c2791a;
+    --cat-5: #5c940d;
+    --cat-6: #2f9e44;
+    --cat-7: #087f5b;
+    --cat-8: #0c8599;
+    --cat-9: #1971c2;
+    --cat-10: #1864ab;
+    --cat-11: #5f3dc4;
+    --cat-12: #862e9c;
+    --cat-13: #a61e4d;
+    --cat-14: #c2255c;
+    --cat-15: #9c2d2d;
+    --cat-16: #7c5e10;
+    --cat-17: #5c7c38;
+    --cat-18: #0d7d6e;
+    --cat-19: #1e6091;
+    --cat-20: #4c6ef5;
+    --cat-21: #7048e8;
+    --cat-22: #ae3ec9;
+    --cat-23: #d6336c;
+    --cat-24: #8b4513;
+    --cat-25: #364fc7;
+    --cat-26: #5a189a;
+    --cat-27: #bc6c25;
+    --cat-28: #6a4e23;
+    --cat-29: #9d4edd;
+
+    /* Badge colors */
+    --badge-difficulty: #7048e8;
+    --badge-complexity: #1971c2;
+    --badge-easy: #22c55e;
+    --badge-medium: #f59e0b;
+    --badge-hard: #ef4444;
+    --badge-text: #ffffff;
 }
 
 /* Soft Neutral - Dark Mode */
@@ -39,15 +68,44 @@
     --border-color: #334155;
     --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 
-    /* Dark mode category colors - brighter for dark background */
-    --cat-rust: #f87171;
-    --cat-steel-blue: #60a5fa;
-    --cat-sage: #4ade80;
-    --cat-amber: #fbbf24;
-    --cat-plum: #c084fc;
-    --cat-teal: #2dd4bf;
-    --cat-burgundy: #fb7185;
-    --cat-navy: #818cf8;
+    /* Dark mode category colors - 25 unique bright colors */
+    --cat-1: #ff6b6b;
+    --cat-2: #ff922b;
+    --cat-3: #fcc419;
+    --cat-4: #fab005;
+    --cat-5: #94d82d;
+    --cat-6: #51cf66;
+    --cat-7: #20c997;
+    --cat-8: #22b8cf;
+    --cat-9: #4dabf7;
+    --cat-10: #339af0;
+    --cat-11: #9775fa;
+    --cat-12: #cc5de8;
+    --cat-13: #ff6b9d;
+    --cat-14: #f783ac;
+    --cat-15: #fa5252;
+    --cat-16: #ffd43b;
+    --cat-17: #a9e34b;
+    --cat-18: #3bc9db;
+    --cat-19: #74c0fc;
+    --cat-20: #748ffc;
+    --cat-21: #9775fa;
+    --cat-22: #da77f2;
+    --cat-23: #ff8ab8;
+    --cat-24: #d9a066;
+    --cat-25: #5c7cfa;
+    --cat-26: #bb9af7;
+    --cat-27: #ffa94d;
+    --cat-28: #c0eb75;
+    --cat-29: #e0b1cb;
+
+    /* Badge colors - bright for dark mode */
+    --badge-difficulty: #b197fc;
+    --badge-complexity: #74c0fc;
+    --badge-easy: #4ade80;
+    --badge-medium: #fb923c;
+    --badge-hard: #f87171;
+    --badge-text: #0f172a;
 }
 
 /* Soft Neutral - Light Mode (default) */
@@ -62,15 +120,44 @@
     --border-color: #e0e0dc;
     --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
 
-    /* Category colors - distinct accessible palette */
-    --cat-rust: #d47d5e;
-    --cat-steel-blue: #6890c9;
-    --cat-sage: #7fa87f;
-    --cat-amber: #d4a366;
-    --cat-plum: #ad85ad;
-    --cat-teal: #66a8a8;
-    --cat-burgundy: #c96680;
-    --cat-navy: #6882ad;
+    /* Category colors - 25 unique accessible colors */
+    --cat-1: #c92a2a;
+    --cat-2: #e8590c;
+    --cat-3: #d97706;
+    --cat-4: #c2791a;
+    --cat-5: #5c940d;
+    --cat-6: #2f9e44;
+    --cat-7: #087f5b;
+    --cat-8: #0c8599;
+    --cat-9: #1971c2;
+    --cat-10: #1864ab;
+    --cat-11: #5f3dc4;
+    --cat-12: #862e9c;
+    --cat-13: #a61e4d;
+    --cat-14: #c2255c;
+    --cat-15: #9c2d2d;
+    --cat-16: #7c5e10;
+    --cat-17: #5c7c38;
+    --cat-18: #0d7d6e;
+    --cat-19: #1e6091;
+    --cat-20: #4c6ef5;
+    --cat-21: #7048e8;
+    --cat-22: #ae3ec9;
+    --cat-23: #d6336c;
+    --cat-24: #8b4513;
+    --cat-25: #364fc7;
+    --cat-26: #5a189a;
+    --cat-27: #bc6c25;
+    --cat-28: #6a4e23;
+    --cat-29: #9d4edd;
+
+    /* Badge colors */
+    --badge-difficulty: #7048e8;
+    --badge-complexity: #1971c2;
+    --badge-easy: #22c55e;
+    --badge-medium: #f59e0b;
+    --badge-hard: #ef4444;
+    --badge-text: #ffffff;
 }
 
 /* ========================================
@@ -91,15 +178,36 @@
     --card-header-bg: #2563eb;
     --card-header-text: #ffffff;
 
-    /* All categories use same blue */
-    --cat-rust: #2563eb;
-    --cat-steel-blue: #2563eb;
-    --cat-sage: #2563eb;
-    --cat-amber: #2563eb;
-    --cat-plum: #2563eb;
-    --cat-teal: #2563eb;
-    --cat-burgundy: #2563eb;
-    --cat-navy: #2563eb;
+    /* All 29 categories use same blue */
+    --cat-1: #2563eb;
+    --cat-2: #2563eb;
+    --cat-3: #2563eb;
+    --cat-4: #2563eb;
+    --cat-5: #2563eb;
+    --cat-6: #2563eb;
+    --cat-7: #2563eb;
+    --cat-8: #2563eb;
+    --cat-9: #2563eb;
+    --cat-10: #2563eb;
+    --cat-11: #2563eb;
+    --cat-12: #2563eb;
+    --cat-13: #2563eb;
+    --cat-14: #2563eb;
+    --cat-15: #2563eb;
+    --cat-16: #2563eb;
+    --cat-17: #2563eb;
+    --cat-18: #2563eb;
+    --cat-19: #2563eb;
+    --cat-20: #2563eb;
+    --cat-21: #2563eb;
+    --cat-22: #2563eb;
+    --cat-23: #2563eb;
+    --cat-24: #2563eb;
+    --cat-25: #2563eb;
+    --cat-26: #2563eb;
+    --cat-27: #2563eb;
+    --cat-28: #2563eb;
+    --cat-29: #2563eb;
 }
 
 /* Classic - Dark Mode */
@@ -116,18 +224,39 @@
     --card-header-bg: #2563eb;
     --card-header-text: #ffffff;
 
-    /* All categories use same blue */
-    --cat-rust: #2563eb;
-    --cat-steel-blue: #2563eb;
-    --cat-sage: #2563eb;
-    --cat-amber: #2563eb;
-    --cat-plum: #2563eb;
-    --cat-teal: #2563eb;
-    --cat-burgundy: #2563eb;
-    --cat-navy: #2563eb;
+    /* All 29 categories use same blue */
+    --cat-1: #2563eb;
+    --cat-2: #2563eb;
+    --cat-3: #2563eb;
+    --cat-4: #2563eb;
+    --cat-5: #2563eb;
+    --cat-6: #2563eb;
+    --cat-7: #2563eb;
+    --cat-8: #2563eb;
+    --cat-9: #2563eb;
+    --cat-10: #2563eb;
+    --cat-11: #2563eb;
+    --cat-12: #2563eb;
+    --cat-13: #2563eb;
+    --cat-14: #2563eb;
+    --cat-15: #2563eb;
+    --cat-16: #2563eb;
+    --cat-17: #2563eb;
+    --cat-18: #2563eb;
+    --cat-19: #2563eb;
+    --cat-20: #2563eb;
+    --cat-21: #2563eb;
+    --cat-22: #2563eb;
+    --cat-23: #2563eb;
+    --cat-24: #2563eb;
+    --cat-25: #2563eb;
+    --cat-26: #2563eb;
+    --cat-27: #2563eb;
+    --cat-28: #2563eb;
+    --cat-29: #2563eb;
 }
 
-/* Classic theme card styling - no padding on cards */
+/* Classic theme card styling - blue border on all cards */
 [data-theme="classic-light"] .category-card,
 [data-theme="classic-light"] .solution-card,
 [data-theme="classic-light"] .doc-card,
@@ -136,18 +265,43 @@
 [data-theme="classic-dark"] .doc-card {
     border: 1px solid #2563eb !important;
     border-radius: 8px;
+}
+
+/* No padding on category and doc cards (header extends to edges) */
+[data-theme="classic-light"] .category-card,
+[data-theme="classic-light"] .doc-card,
+[data-theme="classic-dark"] .category-card,
+[data-theme="classic-dark"] .doc-card {
     padding: 0 !important;
 }
 
 /* Blue header - no padding, extends to edges */
+/* Category cards on / should have white text on blue background */
 [data-theme="classic-light"] .category-card h3,
-[data-theme="classic-light"] .solution-card h3,
-[data-theme="classic-light"] .doc-card h3,
+[data-theme="classic-light"] .doc-card h3 {
+    background-color: var(--card-header-bg);
+    color: var(--card-header-text) !important;
+    margin: 0;
+    padding: 0.4rem 1rem;
+    border-radius: 7px 7px 0 0;
+    font-size: 0.9rem;
+}
+
+/* Solution cards on /complexity and /difficulty should have blue text on white background */
+[data-theme="classic-light"] .solution-card h3 {
+    background-color: transparent;
+    color: #2563eb;
+    margin: 0;
+    padding: 0;
+    font-size: 0.9rem;
+}
+
+/* Dark mode keeps all headers with white text on blue background */
 [data-theme="classic-dark"] .category-card h3,
 [data-theme="classic-dark"] .solution-card h3,
 [data-theme="classic-dark"] .doc-card h3 {
     background-color: var(--card-header-bg);
-    color: var(--card-header-text);
+    color: var(--card-header-text) !important;
     margin: 0;
     padding: 0.4rem 1rem;
     border-radius: 7px 7px 0 0;
@@ -166,6 +320,12 @@
     padding: 0 1rem 1rem 1rem;
 }
 
+/* Category label text should be white in classic themes */
+[data-theme="classic-light"] .category-label-inline,
+[data-theme="classic-dark"] .category-label-inline {
+    color: #ffffff !important;
+}
+
 /* ========================================
    VIBRANT THEME (Eclectic mix of varied colors)
    ======================================== */
@@ -182,15 +342,44 @@
     --border-color: #e0e0e0;
     --card-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
 
-    /* Eclectic varied category colors */
-    --cat-rust: #ff5722;        /* Deep Orange */
-    --cat-steel-blue: #2196f3;  /* Blue */
-    --cat-sage: #4caf50;        /* Green */
-    --cat-amber: #ff9800;       /* Orange */
-    --cat-plum: #9c27b0;        /* Purple */
-    --cat-teal: #009688;        /* Teal */
-    --cat-burgundy: #e91e63;    /* Pink */
-    --cat-navy: #3f51b5;        /* Indigo */
+    /* Category colors - 25 unique colors */
+    --cat-1: #ff5722;
+    --cat-2: #ff6f00;
+    --cat-3: #ff9800;
+    --cat-4: #ffc107;
+    --cat-5: #ffeb3b;
+    --cat-6: #4caf50;
+    --cat-7: #8bc34a;
+    --cat-8: #cddc39;
+    --cat-9: #009688;
+    --cat-10: #00bcd4;
+    --cat-11: #03a9f4;
+    --cat-12: #2196f3;
+    --cat-13: #3f51b5;
+    --cat-14: #673ab7;
+    --cat-15: #9c27b0;
+    --cat-16: #e91e63;
+    --cat-17: #f06292;
+    --cat-18: #ec407a;
+    --cat-19: #ad1457;
+    --cat-20: #880e4f;
+    --cat-21: #006064;
+    --cat-22: #004d40;
+    --cat-23: #1b5e20;
+    --cat-24: #33691e;
+    --cat-25: #827717;
+    --cat-26: #6a040f;
+    --cat-27: #7209b7;
+    --cat-28: #2d6a4f;
+    --cat-29: #d00000;
+
+    /* Badge colors */
+    --badge-difficulty: #9c27b0;
+    --badge-complexity: #2196f3;
+    --badge-easy: #4caf50;
+    --badge-medium: #ff9800;
+    --badge-hard: #ff5722;
+    --badge-text: #ffffff;
 }
 
 /* Vibrant - Dark Mode */
@@ -205,15 +394,44 @@
     --border-color: #424242;
     --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 
-    /* Eclectic varied category colors - brighter for dark background */
-    --cat-rust: #ff7043;        /* Deep Orange */
-    --cat-steel-blue: #42a5f5;  /* Blue */
-    --cat-sage: #66bb6a;        /* Green */
-    --cat-amber: #ffa726;       /* Orange */
-    --cat-plum: #ab47bc;        /* Purple */
-    --cat-teal: #26a69a;        /* Teal */
-    --cat-burgundy: #ec407a;    /* Pink */
-    --cat-navy: #5c6bc0;        /* Indigo */
+    /* Category colors - 25 unique colors */
+    --cat-1: #ff7043;
+    --cat-2: #ff8f00;
+    --cat-3: #ffa726;
+    --cat-4: #ffd54f;
+    --cat-5: #fff176;
+    --cat-6: #66bb6a;
+    --cat-7: #9ccc65;
+    --cat-8: #d4e157;
+    --cat-9: #26a69a;
+    --cat-10: #4dd0e1;
+    --cat-11: #29b6f6;
+    --cat-12: #42a5f5;
+    --cat-13: #5c6bc0;
+    --cat-14: #7e57c2;
+    --cat-15: #ab47bc;
+    --cat-16: #ec407a;
+    --cat-17: #f48fb1;
+    --cat-18: #f06292;
+    --cat-19: #c2185b;
+    --cat-20: #ad1457;
+    --cat-21: #00838f;
+    --cat-22: #00695c;
+    --cat-23: #2e7d32;
+    --cat-24: #558b2f;
+    --cat-25: #9e9d24;
+    --cat-26: #e63946;
+    --cat-27: #b185db;
+    --cat-28: #95d5b2;
+    --cat-29: #f48c06;
+
+    /* Badge colors */
+    --badge-difficulty: #ab47bc;
+    --badge-complexity: #42a5f5;
+    --badge-easy: #66bb6a;
+    --badge-medium: #ffa726;
+    --badge-hard: #ff7043;
+    --badge-text: #0f172a;
 }
 
 /* ========================================
@@ -232,15 +450,44 @@
     --border-color: #000000;
     --card-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 
-    /* Category colors - high contrast variations */
-    --cat-rust: #cc3300;
-    --cat-steel-blue: #0066cc;
-    --cat-sage: #009933;
-    --cat-amber: #ff9900;
-    --cat-plum: #9933cc;
-    --cat-teal: #009999;
-    --cat-burgundy: #cc0066;
-    --cat-navy: #000099;
+    /* Category colors - 25 unique colors */
+    --cat-1: #cc0000;
+    --cat-2: #cc3300;
+    --cat-3: #cc6600;
+    --cat-4: #cc9900;
+    --cat-5: #009900;
+    --cat-6: #00cc00;
+    --cat-7: #00cc66;
+    --cat-8: #00cc99;
+    --cat-9: #0099cc;
+    --cat-10: #0066cc;
+    --cat-11: #0033cc;
+    --cat-12: #0000cc;
+    --cat-13: #3300cc;
+    --cat-14: #6600cc;
+    --cat-15: #9900cc;
+    --cat-16: #cc00cc;
+    --cat-17: #cc0099;
+    --cat-18: #cc0066;
+    --cat-19: #cc0033;
+    --cat-20: #990000;
+    --cat-21: #006666;
+    --cat-22: #009966;
+    --cat-23: #336600;
+    --cat-24: #666600;
+    --cat-25: #996600;
+    --cat-26: #660099;
+    --cat-27: #cc3300;
+    --cat-28: #006633;
+    --cat-29: #990066;
+
+    /* Badge colors */
+    --badge-difficulty: #9900cc;
+    --badge-complexity: #0066cc;
+    --badge-easy: #009900;
+    --badge-medium: #cc9900;
+    --badge-hard: #cc0000;
+    --badge-text: #ffffff;
 }
 
 /* High Contrast - Dark Mode */
@@ -255,15 +502,44 @@
     --border-color: #ffffff;
     --card-shadow: 0 2px 4px rgba(255, 255, 255, 0.3);
 
-    /* Category colors - high contrast dark variations */
-    --cat-rust: #ff6666;
-    --cat-steel-blue: #66b3ff;
-    --cat-sage: #66ff99;
-    --cat-amber: #ffcc66;
-    --cat-plum: #cc66ff;
-    --cat-teal: #66ffff;
-    --cat-burgundy: #ff66cc;
-    --cat-navy: #6666ff;
+    /* Category colors - 25 unique colors */
+    --cat-1: #ff3333;
+    --cat-2: #ff6633;
+    --cat-3: #ff9933;
+    --cat-4: #ffcc33;
+    --cat-5: #33ff33;
+    --cat-6: #66ff66;
+    --cat-7: #66ff99;
+    --cat-8: #66ffcc;
+    --cat-9: #66ccff;
+    --cat-10: #6699ff;
+    --cat-11: #6666ff;
+    --cat-12: #6633ff;
+    --cat-13: #9933ff;
+    --cat-14: #cc33ff;
+    --cat-15: #ff33ff;
+    --cat-16: #ff33cc;
+    --cat-17: #ff3399;
+    --cat-18: #ff3366;
+    --cat-19: #cc3366;
+    --cat-20: #ff6666;
+    --cat-21: #33ffff;
+    --cat-22: #33ffcc;
+    --cat-23: #99ff33;
+    --cat-24: #ccff33;
+    --cat-25: #ffcc66;
+    --cat-26: #cc99ff;
+    --cat-27: #ff6666;
+    --cat-28: #66ff99;
+    --cat-29: #ff66cc;
+
+    /* Badge colors */
+    --badge-difficulty: #cc33ff;
+    --badge-complexity: #6699ff;
+    --badge-easy: #66ff66;
+    --badge-medium: #ffcc33;
+    --badge-hard: #ff3333;
+    --badge-text: #000000;
 }
 
 /* ========================================
@@ -282,15 +558,44 @@
     --border-color: #ff00ff;
     --card-shadow: 0 0 15px rgba(0, 255, 255, 0.6);
 
-    /* Category colors - true neon light colors */
-    --cat-rust: #ff0080;        /* Neon pink */
-    --cat-steel-blue: #00d4ff;  /* Neon cyan */
-    --cat-sage: #39ff14;        /* Neon green */
-    --cat-amber: #ff6600;       /* Neon orange */
-    --cat-plum: #ff00ff;        /* Neon magenta */
-    --cat-teal: #00ffff;        /* Neon cyan bright */
-    --cat-burgundy: #ff0066;    /* Neon hot pink */
-    --cat-navy: #00d4ff;        /* Neon blue */
+    /* Category colors - 25 unique colors */
+    --cat-1: #ff0080;
+    --cat-2: #ff0040;
+    --cat-3: #ff0060;
+    --cat-4: #ff00a0;
+    --cat-5: #ff00c0;
+    --cat-6: #39ff14;
+    --cat-7: #00ff40;
+    --cat-8: #00ff80;
+    --cat-9: #00ffc0;
+    --cat-10: #00ffff;
+    --cat-11: #00d4ff;
+    --cat-12: #00a0ff;
+    --cat-13: #0080ff;
+    --cat-14: #0040ff;
+    --cat-15: #4000ff;
+    --cat-16: #8000ff;
+    --cat-17: #c000ff;
+    --cat-18: #ff00ff;
+    --cat-19: #ff00d4;
+    --cat-20: #ff0099;
+    --cat-21: #00ff99;
+    --cat-22: #40ff00;
+    --cat-23: #80ff00;
+    --cat-24: #c0ff00;
+    --cat-25: #ffff00;
+    --cat-26: #bf00ff;
+    --cat-27: #ff3300;
+    --cat-28: #00ff66;
+    --cat-29: #ff0099;
+
+    /* Badge colors */
+    --badge-difficulty: #c000ff;
+    --badge-complexity: #00d4ff;
+    --badge-easy: #39ff14;
+    --badge-medium: #ffff00;
+    --badge-hard: #ff0080;
+    --badge-text: #000000;
 }
 
 /* Neon - Light Mode */
@@ -305,15 +610,44 @@
     --border-color: #dd00dd;
     --card-shadow: 0 0 10px rgba(221, 0, 221, 0.4);
 
-    /* Category colors - true neon light colors (slightly darker for readability) */
-    --cat-rust: #dd0066;        /* Neon pink */
-    --cat-steel-blue: #00bbee;  /* Neon cyan */
-    --cat-sage: #22dd00;        /* Neon green */
-    --cat-amber: #ee5500;       /* Neon orange */
-    --cat-plum: #dd00dd;        /* Neon magenta */
-    --cat-teal: #00dddd;        /* Neon cyan bright */
-    --cat-burgundy: #dd0055;    /* Neon hot pink */
-    --cat-navy: #00bbee;        /* Neon blue */
+    /* Category colors - 25 unique colors */
+    --cat-1: #dd0066;
+    --cat-2: #dd0033;
+    --cat-3: #dd0050;
+    --cat-4: #dd0088;
+    --cat-5: #dd00aa;
+    --cat-6: #22dd00;
+    --cat-7: #00dd33;
+    --cat-8: #00dd66;
+    --cat-9: #00ddaa;
+    --cat-10: #00dddd;
+    --cat-11: #00bbee;
+    --cat-12: #0088ee;
+    --cat-13: #0066ee;
+    --cat-14: #0033ee;
+    --cat-15: #3300ee;
+    --cat-16: #6600ee;
+    --cat-17: #aa00ee;
+    --cat-18: #dd00dd;
+    --cat-19: #dd00bb;
+    --cat-20: #dd0077;
+    --cat-21: #00dd88;
+    --cat-22: #33dd00;
+    --cat-23: #66dd00;
+    --cat-24: #aadd00;
+    --cat-25: #eeee00;
+    --cat-26: #8800dd;
+    --cat-27: #cc2200;
+    --cat-28: #00cc44;
+    --cat-29: #cc0077;
+
+    /* Badge colors */
+    --badge-difficulty: #aa00ee;
+    --badge-complexity: #00bbee;
+    --badge-easy: #22dd00;
+    --badge-medium: #eeee00;
+    --badge-hard: #dd0066;
+    --badge-text: #000000;
 }
 
 /* ========================================
@@ -332,15 +666,44 @@
     --border-color: #00ffff;       /* Cyan */
     --card-shadow: 0 4px 16px rgba(255, 0, 255, 0.8);
 
-    /* Category colors - deliberately clashing */
-    --cat-rust: #ff00ff;           /* Magenta */
-    --cat-steel-blue: #ffff00;     /* Yellow */
-    --cat-sage: #00ffff;           /* Cyan */
-    --cat-amber: #ff0000;          /* Red */
-    --cat-plum: #00ff00;           /* Lime */
-    --cat-teal: #ff6600;           /* Orange */
-    --cat-burgundy: #0000ff;       /* Blue */
-    --cat-navy: #ff1493;           /* Deep pink */
+    /* Category colors - 25 unique colors */
+    --cat-1: #ff00ff;
+    --cat-2: #ffff00;
+    --cat-3: #00ffff;
+    --cat-4: #ff0000;
+    --cat-5: #00ff00;
+    --cat-6: #ff6600;
+    --cat-7: #0000ff;
+    --cat-8: #ff1493;
+    --cat-9: #ff00aa;
+    --cat-10: #aaff00;
+    --cat-11: #00aaff;
+    --cat-12: #aa00ff;
+    --cat-13: #ffaa00;
+    --cat-14: #00ffaa;
+    --cat-15: #ff0055;
+    --cat-16: #55ff00;
+    --cat-17: #0055ff;
+    --cat-18: #ff5500;
+    --cat-19: #00ff55;
+    --cat-20: #5500ff;
+    --cat-21: #ffff55;
+    --cat-22: #55ffff;
+    --cat-23: #ff55ff;
+    --cat-24: #ff5555;
+    --cat-25: #55ff55;
+    --cat-26: #9900ff;
+    --cat-27: #ff6600;
+    --cat-28: #00cc66;
+    --cat-29: #ff0099;
+
+    /* Badge colors */
+    --badge-difficulty: #aa00ff;
+    --badge-complexity: #00aaff;
+    --badge-easy: #00ff00;
+    --badge-medium: #ffff00;
+    --badge-hard: #ff0000;
+    --badge-text: #000000;
 }
 
 /* Chaos - Dark Mode */
@@ -355,15 +718,44 @@
     --border-color: #ff0000;       /* Red */
     --card-shadow: 0 4px 16px rgba(0, 255, 0, 0.6);
 
-    /* Category colors - deliberately clashing dark mode */
-    --cat-rust: #ff00ff;           /* Magenta */
-    --cat-steel-blue: #00ff00;     /* Lime */
-    --cat-sage: #ff0000;           /* Red */
-    --cat-amber: #00ffff;          /* Cyan */
-    --cat-plum: #ffff00;           /* Yellow */
-    --cat-teal: #ff6600;           /* Orange */
-    --cat-burgundy: #0000ff;       /* Blue */
-    --cat-navy: #ff1493;           /* Deep pink */
+    /* Category colors - 25 unique colors */
+    --cat-1: #ff00ff;
+    --cat-2: #00ff00;
+    --cat-3: #ff0000;
+    --cat-4: #00ffff;
+    --cat-5: #ffff00;
+    --cat-6: #ff6600;
+    --cat-7: #0000ff;
+    --cat-8: #ff1493;
+    --cat-9: #ff00aa;
+    --cat-10: #aaff00;
+    --cat-11: #00aaff;
+    --cat-12: #aa00ff;
+    --cat-13: #ffaa00;
+    --cat-14: #00ffaa;
+    --cat-15: #ff0077;
+    --cat-16: #77ff00;
+    --cat-17: #0077ff;
+    --cat-18: #ff7700;
+    --cat-19: #00ff77;
+    --cat-20: #7700ff;
+    --cat-21: #ffff77;
+    --cat-22: #77ffff;
+    --cat-23: #ff77ff;
+    --cat-24: #ff7777;
+    --cat-25: #77ff77;
+    --cat-26: #cc66ff;
+    --cat-27: #ff9933;
+    --cat-28: #66ff99;
+    --cat-29: #ff66cc;
+
+    /* Badge colors */
+    --badge-difficulty: #aa00ff;
+    --badge-complexity: #00aaff;
+    --badge-easy: #00ff00;
+    --badge-medium: #ffff00;
+    --badge-hard: #ff0000;
+    --badge-text: #000000;
 }
 
 /* ========================================
@@ -382,15 +774,44 @@
     --border-color: #d97706;
     --card-shadow: 0 2px 8px rgba(220, 38, 38, 0.2);
 
-    /* Category colors - 8 distinct rainbow colors */
-    --cat-rust: #dc2626;        /* Red */
-    --cat-steel-blue: #2563eb;  /* Blue */
-    --cat-sage: #16a34a;        /* Green */
-    --cat-amber: #d97706;       /* Orange */
-    --cat-plum: #9333ea;        /* Purple */
-    --cat-teal: #0891b2;        /* Cyan */
-    --cat-burgundy: #e11d48;    /* Pink */
-    --cat-navy: #eab308;        /* Yellow */
+    /* Category colors - 25 unique colors */
+    --cat-1: #c92a2a;
+    --cat-2: #e8590c;
+    --cat-3: #d97706;
+    --cat-4: #c2791a;
+    --cat-5: #5c940d;
+    --cat-6: #2f9e44;
+    --cat-7: #087f5b;
+    --cat-8: #0c8599;
+    --cat-9: #1971c2;
+    --cat-10: #1864ab;
+    --cat-11: #5f3dc4;
+    --cat-12: #862e9c;
+    --cat-13: #a61e4d;
+    --cat-14: #c2255c;
+    --cat-15: #9c2d2d;
+    --cat-16: #7c5e10;
+    --cat-17: #5c7c38;
+    --cat-18: #0d7d6e;
+    --cat-19: #1e6091;
+    --cat-20: #4c6ef5;
+    --cat-21: #7048e8;
+    --cat-22: #ae3ec9;
+    --cat-23: #d6336c;
+    --cat-24: #8b4513;
+    --cat-25: #364fc7;
+    --cat-26: #9c27b0;
+    --cat-27: #d84315;
+    --cat-28: #558b2f;
+    --cat-29: #6a1b9a;
+
+    /* Badge colors */
+    --badge-difficulty: #7048e8;
+    --badge-complexity: #1971c2;
+    --badge-easy: #2f9e44;
+    --badge-medium: #d97706;
+    --badge-hard: #c92a2a;
+    --badge-text: #ffffff;
 }
 
 /* Rainbow - Dark Mode */
@@ -405,15 +826,44 @@
     --border-color: #fb923c;
     --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 
-    /* Category colors - 8 distinct rainbow colors */
-    --cat-rust: #f87171;        /* Red */
-    --cat-steel-blue: #60a5fa;  /* Blue */
-    --cat-sage: #4ade80;        /* Green */
-    --cat-amber: #fb923c;       /* Orange */
-    --cat-plum: #c084fc;        /* Purple */
-    --cat-teal: #22d3ee;        /* Cyan */
-    --cat-burgundy: #fb7185;    /* Pink */
-    --cat-navy: #fbbf24;        /* Yellow */
+    /* Category colors - 25 unique colors */
+    --cat-1: #ff6b6b;
+    --cat-2: #ff922b;
+    --cat-3: #fcc419;
+    --cat-4: #fab005;
+    --cat-5: #94d82d;
+    --cat-6: #51cf66;
+    --cat-7: #20c997;
+    --cat-8: #22b8cf;
+    --cat-9: #4dabf7;
+    --cat-10: #339af0;
+    --cat-11: #9775fa;
+    --cat-12: #cc5de8;
+    --cat-13: #ff6b9d;
+    --cat-14: #f783ac;
+    --cat-15: #fa5252;
+    --cat-16: #ffd43b;
+    --cat-17: #a9e34b;
+    --cat-18: #3bc9db;
+    --cat-19: #74c0fc;
+    --cat-20: #748ffc;
+    --cat-21: #9775fa;
+    --cat-22: #da77f2;
+    --cat-23: #ff8ab8;
+    --cat-24: #d9a066;
+    --cat-25: #5c7cfa;
+    --cat-26: #ce93d8;
+    --cat-27: #ff8a65;
+    --cat-28: #aed581;
+    --cat-29: #ba68c8;
+
+    /* Badge colors */
+    --badge-difficulty: #b197fc;
+    --badge-complexity: #74c0fc;
+    --badge-easy: #51cf66;
+    --badge-medium: #ff922b;
+    --badge-hard: #ff6b6b;
+    --badge-text: #0f172a;
 }
 
 /* ========================================
@@ -432,15 +882,44 @@
     --border-color: #ff69b4;
     --card-shadow: 0 2px 8px rgba(255, 20, 147, 0.25);
 
-    /* Category colors - vivid happy palette */
-    --cat-rust: #ff4500;        /* Vivid orange-red */
-    --cat-steel-blue: #00bfff;  /* Vivid sky blue */
-    --cat-sage: #00ff00;        /* Vivid lime green */
-    --cat-amber: #ffb400;       /* Vivid amber */
-    --cat-plum: #da70d6;        /* Vivid orchid */
-    --cat-teal: #00ced1;        /* Vivid turquoise */
-    --cat-burgundy: #ff1493;    /* Vivid deep pink */
-    --cat-navy: #4169e1;        /* Vivid royal blue */
+    /* Category colors - 25 unique colors */
+    --cat-1: #d63447;
+    --cat-2: #f77f00;
+    --cat-3: #fcbf49;
+    --cat-4: #d4a373;
+    --cat-5: #b7b78a;
+    --cat-6: #8fc93a;
+    --cat-7: #06a77d;
+    --cat-8: #048ba8;
+    --cat-9: #0582ca;
+    --cat-10: #0466c8;
+    --cat-11: #7765e3;
+    --cat-12: #9f5f80;
+    --cat-13: #d62246;
+    --cat-14: #f85e00;
+    --cat-15: #f07b3f;
+    --cat-16: #ffd23f;
+    --cat-17: #d4af37;
+    --cat-18: #82954b;
+    --cat-19: #0f7173;
+    --cat-20: #006494;
+    --cat-21: #9b5de5;
+    --cat-22: #cf6679;
+    --cat-23: #ff9999;
+    --cat-24: #f4a261;
+    --cat-25: #2a9d8f;
+    --cat-26: #7b2cbf;
+    --cat-27: #c1121f;
+    --cat-28: #2d6a4f;
+    --cat-29: #b5179e;
+
+    /* Badge colors */
+    --badge-difficulty: #7765e3;
+    --badge-complexity: #0582ca;
+    --badge-easy: #8fc93a;
+    --badge-medium: #fcbf49;
+    --badge-hard: #d63447;
+    --badge-text: #ffffff;
 }
 
 /* Happy - Dark Mode */
@@ -455,15 +934,44 @@
     --border-color: #ff1493;
     --card-shadow: 0 2px 10px rgba(255, 20, 147, 0.4);
 
-    /* Category colors - vivid happy dark palette */
-    --cat-rust: #ff5533;        /* Vivid orange-red */
-    --cat-steel-blue: #00ccff;  /* Vivid sky blue */
-    --cat-sage: #00ff66;        /* Vivid lime green */
-    --cat-amber: #ffcc00;       /* Vivid amber */
-    --cat-plum: #ee82ee;        /* Vivid violet */
-    --cat-teal: #00e5e5;        /* Vivid turquoise */
-    --cat-burgundy: #ff1493;    /* Vivid deep pink */
-    --cat-navy: #5588ff;        /* Vivid royal blue */
+    /* Category colors - 25 unique colors */
+    --cat-1: #ff758f;
+    --cat-2: #ffb347;
+    --cat-3: #ffe066;
+    --cat-4: #f4d19b;
+    --cat-5: #d4d19e;
+    --cat-6: #b8e986;
+    --cat-7: #3dd9af;
+    --cat-8: #5bc0de;
+    --cat-9: #5dade2;
+    --cat-10: #3498db;
+    --cat-11: #b19cd9;
+    --cat-12: #d291a8;
+    --cat-13: #ff7096;
+    --cat-14: #ffb347;
+    --cat-15: #ff9a76;
+    --cat-16: #ffd966;
+    --cat-17: #f1c40f;
+    --cat-18: #a8c256;
+    --cat-19: #16a085;
+    --cat-20: #3498db;
+    --cat-21: #c39bd3;
+    --cat-22: #f1948a;
+    --cat-23: #ffb3b3;
+    --cat-24: #f8b739;
+    --cat-25: #45b7b8;
+    --cat-26: #c77dff;
+    --cat-27: #ff6b9d;
+    --cat-28: #52b788;
+    --cat-29: #f72585;
+
+    /* Badge colors */
+    --badge-difficulty: #b19cd9;
+    --badge-complexity: #5dade2;
+    --badge-easy: #b8e986;
+    --badge-medium: #ffe066;
+    --badge-hard: #ff758f;
+    --badge-text: #1a1a1a;
 }
 
 /* ========================================
@@ -482,15 +990,44 @@
     --border-color: #4a4458;
     --card-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
 
-    /* Category colors - moody palette */
-    --cat-rust: #b5838d;
-    --cat-steel-blue: #6c7a89;
-    --cat-sage: #7c9885;
-    --cat-amber: #b8a07e;
-    --cat-plum: #9d84b7;
-    --cat-teal: #6b9ca8;
-    --cat-burgundy: #a67c94;
-    --cat-navy: #6d7aa8;
+    /* Category colors - 25 unique colors */
+    --cat-1: #b5838d;
+    --cat-2: #a67885;
+    --cat-3: #977088;
+    --cat-4: #8f6d8d;
+    --cat-5: #886c94;
+    --cat-6: #7c9885;
+    --cat-7: #709a82;
+    --cat-8: #6b9ca8;
+    --cat-9: #6899a5;
+    --cat-10: #6897a2;
+    --cat-11: #6d7aa8;
+    --cat-12: #6c7a89;
+    --cat-13: #6b7b9e;
+    --cat-14: #6a7c94;
+    --cat-15: #697d8a;
+    --cat-16: #9d84b7;
+    --cat-17: #9380b0;
+    --cat-18: #8a7caa;
+    --cat-19: #8179a4;
+    --cat-20: #78759e;
+    --cat-21: #b8a07e;
+    --cat-22: #ae9678;
+    --cat-23: #a48c72;
+    --cat-24: #9a826c;
+    --cat-25: #907866;
+    --cat-26: #9d8aa7;
+    --cat-27: #b08968;
+    --cat-28: #7e9181;
+    --cat-29: #a67c94;
+
+    /* Badge colors */
+    --badge-difficulty: #9d84b7;
+    --badge-complexity: #6c7a89;
+    --badge-easy: #7c9885;
+    --badge-medium: #b8a07e;
+    --badge-hard: #b5838d;
+    --badge-text: #1e1e2e;
 }
 
 /* Moody - Light Mode */
@@ -505,15 +1042,44 @@
     --border-color: #c8c0d8;
     --card-shadow: 0 2px 6px rgba(122, 95, 150, 0.15);
 
-    /* Category colors - moody light palette */
-    --cat-rust: #9a6872;
-    --cat-steel-blue: #556270;
-    --cat-sage: #65866f;
-    --cat-amber: #a08862;
-    --cat-plum: #7a5f96;
-    --cat-teal: #568a96;
-    --cat-burgundy: #8f6279;
-    --cat-navy: #576291;
+    /* Category colors - 25 unique colors */
+    --cat-1: #9a6872;
+    --cat-2: #8b5e68;
+    --cat-3: #7d5460;
+    --cat-4: #6f4a58;
+    --cat-5: #614050;
+    --cat-6: #65866f;
+    --cat-7: #5a7c65;
+    --cat-8: #568a96;
+    --cat-9: #4c808c;
+    --cat-10: #427682;
+    --cat-11: #576291;
+    --cat-12: #556270;
+    --cat-13: #535d7f;
+    --cat-14: #51586e;
+    --cat-15: #4f535d;
+    --cat-16: #7a5f96;
+    --cat-17: #70578c;
+    --cat-18: #664f82;
+    --cat-19: #5c4778;
+    --cat-20: #523f6e;
+    --cat-21: #a08862;
+    --cat-22: #967e58;
+    --cat-23: #8c744e;
+    --cat-24: #826a44;
+    --cat-25: #78603a;
+    --cat-26: #6d597a;
+    --cat-27: #8b6f47;
+    --cat-28: #5c7457;
+    --cat-29: #8f6279;
+
+    /* Badge colors */
+    --badge-difficulty: #7a5f96;
+    --badge-complexity: #556270;
+    --badge-easy: #65866f;
+    --badge-medium: #a08862;
+    --badge-hard: #9a6872;
+    --badge-text: #ffffff;
 }
 
 /* ========================================

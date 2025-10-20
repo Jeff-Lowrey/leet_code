@@ -25,6 +25,14 @@ Note: You are not allowed to use any built-in function which evaluates strings a
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n)
+**Space Complexity**: O(1)
+
 ### INTUITION:
 Use stack to handle operators. Scan number by number. For +/- push to stack. For *// pop, compute with previous, push result. Finally sum stack for result.
 

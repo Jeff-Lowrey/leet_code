@@ -34,6 +34,14 @@ Explanation: Inserting 5 characters the string becomes "leetcodocteel".
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n²)
+**Space Complexity**: O(n²)
+
 ### INTUITION:
 To make a string palindromic with minimum insertions, we need to find the longest palindromic subsequence (LPS) first. The minimum insertions needed equals the string length minus the LPS length, because we only need to insert characters to match the "missing" ones.
 

@@ -20,6 +20,14 @@ Return the smallest level x such that the sum of all the values of nodes at leve
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n)
+**Space Complexity**: O(w)
+
 ### INTUITION:
 Use level-order traversal (BFS) to calculate the sum of values at each level.
 Track the level with maximum sum and return the smallest level if there are ties.

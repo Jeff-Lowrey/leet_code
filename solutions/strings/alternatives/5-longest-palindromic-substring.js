@@ -18,6 +18,14 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: * O(n²)
+**Space Complexity**: * O(1)
+
  *
  * ### INTUITION:
  * A palindrome reads the same forwards and backwards. To find the longest palindromic substring,

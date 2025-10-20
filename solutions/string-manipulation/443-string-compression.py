@@ -33,6 +33,14 @@ Output: Return 6, and the first 6 characters of the input array should be: ["a",
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n)
+**Space Complexity**: O(1)
+
 ### INTUITION:
 We need to compress consecutive identical characters in-place. The key insight is using
 two pointers: one to read through the array, and one to write the compressed result back

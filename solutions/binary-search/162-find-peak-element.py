@@ -25,6 +25,14 @@ You must write an algorithm that runs in O(log n) time.
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n)
+**Space Complexity**: O(1)
+
 ### INTUITION:
 A peak must exist because edges are considered smaller. Use binary search: if nums[mid] < nums[mid+1], a peak exists to the right (upward slope); otherwise a peak exists to the left or at mid (downward slope). Always converges to a peak.
 

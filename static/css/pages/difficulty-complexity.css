@@ -1,0 +1,143 @@
+/* Difficulty and Complexity Pages Styles */
+
+/* Collapsible Section Styles */
+.difficulty-section details,
+.complexity-section details {
+    background: var(--card-bg);
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    padding: 0;
+}
+
+.difficulty-section summary,
+.complexity-section summary {
+    cursor: pointer;
+    padding: 1.5rem;
+    background: var(--light-bg);
+    border-radius: 6px 6px 0 0;
+    list-style: none;
+    position: relative;
+    user-select: none;
+}
+
+.difficulty-section summary:hover,
+.complexity-section summary:hover {
+    background: var(--hover-bg);
+}
+
+.difficulty-section summary h2,
+.complexity-section summary h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+    display: inline-block;
+    color: var(--text-primary);
+}
+
+/* Hide default marker */
+.difficulty-section details summary::-webkit-details-marker,
+.complexity-section details summary::-webkit-details-marker {
+    display: none;
+}
+
+.difficulty-section summary::marker,
+.complexity-section summary::marker {
+    display: none;
+}
+
+/* Large dropdown indicator */
+.difficulty-section summary::before,
+.complexity-section summary::before {
+    content: "▶";
+    font-size: 1.5rem;
+    margin-right: 1rem;
+    display: inline-block;
+    transition: transform 0.3s ease;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.difficulty-section details[open] summary::before,
+.complexity-section details[open] summary::before {
+    transform: rotate(90deg);
+}
+
+.difficulty-section .solutions-grid,
+.complexity-section .solutions-grid {
+    padding: 1.5rem;
+}
+
+/* Sidebar Navigation */
+.page-with-sidebar {
+    display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.sidebar-nav {
+    width: 280px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 2rem;
+    align-self: flex-start;
+    max-height: calc(100vh - 4rem);
+    overflow-y: auto;
+}
+
+.sidebar-nav-inner {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+}
+
+.sidebar-nav h3 {
+    margin: 0 0 1rem 0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.sidebar-nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-nav-list li {
+    margin-bottom: 0.5rem;
+}
+
+.sidebar-nav-list a {
+    display: block;
+    padding: 0.75rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    font-size: 0.95rem;
+}
+
+.sidebar-nav-list a:hover {
+    background: var(--light-bg);
+    color: var(--primary-color);
+    padding-left: 1rem;
+}
+
+.sidebar-nav-list .count {
+    float: right;
+    background: var(--light-bg);
+    color: var(--text-secondary);
+    padding: 0.25rem 0.5rem;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.main-content {
+    flex: 1;
+    min-width: 0;
+}

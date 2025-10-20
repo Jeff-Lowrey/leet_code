@@ -23,6 +23,14 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: * - Build: O(n × l) where n is number of words, l is average length
+**Space Complexity**: * O(n × l)
+
  *
  * ### INTUITION:
  * We need to find if we can change exactly one character in a search word to match any word in the dictionary. A trie is perfect for this as it allows efficient prefix matching and we can use DFS to explore all possible single-character changes.

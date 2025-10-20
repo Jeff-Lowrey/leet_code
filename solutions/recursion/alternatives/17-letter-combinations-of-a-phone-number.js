@@ -18,6 +18,14 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: * O(4^n * n) where n is length of digits
+**Space Complexity**: * O(n) for recursion stack depth
+
  *
  * ### INTUITION:
  * Given a string containing digits 2-9, return all possible letter combinations that the

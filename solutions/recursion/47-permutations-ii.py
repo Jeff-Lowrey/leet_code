@@ -19,6 +19,14 @@ This problem demonstrates key concepts in Recursion.
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n! * n) - n! permutations, O(n) to build each
+**Space Complexity**: O(n) - recursion depth and tracking array
+
 ### INTUITION:
 Given an array that may contain duplicate integers, return all unique permutations.
 The challenge is avoiding duplicate permutations when the input has duplicate values.

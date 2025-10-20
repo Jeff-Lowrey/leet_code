@@ -22,6 +22,14 @@ Two nodes of a binary tree are cousins if they have the same depth but have diff
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n)
+**Space Complexity**: O(w)
+
 ### INTUITION:
 Cousins are nodes at the same level (depth) but with different parents.
 Use BFS to track both depth and parent information for each node.

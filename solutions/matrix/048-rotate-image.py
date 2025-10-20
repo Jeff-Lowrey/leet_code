@@ -20,6 +20,14 @@ Rotate an n x n 2D matrix 90 degrees clockwise in-place.
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n^2) where n is matrix dimension
+**Space Complexity**: O(1) in-place modification
+
 ### INTUITION:
 Rotating 90 degrees clockwise can be achieved by two simple operations:
 1. Transpose the matrix (swap rows and columns)

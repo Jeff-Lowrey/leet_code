@@ -19,6 +19,14 @@ This problem demonstrates key concepts in Recursion.
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(C(9,k)) - choosing k numbers from 9 options
+**Space Complexity**: O(k) - recursion depth and combination size
+
 ### INTUITION:
 Find all valid combinations of k numbers that sum to n, using only numbers 1-9,
 where each number can be used at most once. This is a backtracking problem with

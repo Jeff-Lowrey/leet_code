@@ -28,6 +28,14 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: * O(n²)
+**Space Complexity**: * O(n)
+
  *
  * ### INTUITION:
  * Like sorting pancakes by size - we can repeatedly bring the largest unsorted element to the
