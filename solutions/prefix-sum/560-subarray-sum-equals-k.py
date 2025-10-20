@@ -21,6 +21,14 @@ A subarray is a contiguous non-empty sequence of elements within an array.
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n)
+**Space Complexity**: O(n)
+
 ### INTUITION:
 This is a classic prefix sum problem. The key insight is that if we know the prefix sum up to index i and up to index j (where j > i), then the sum of subarray from i+1 to j is: prefix_sum[j] - prefix_sum[i]. We can use a hashmap to store prefix sums and their frequencies to find subarrays with target sum efficiently.
 

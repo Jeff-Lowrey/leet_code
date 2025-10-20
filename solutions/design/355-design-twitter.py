@@ -31,6 +31,14 @@ twitter.getNewsFeed(1);  // User 1's news feed should return a list with 1 tweet
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: - postTweet: O(1)
+**Space Complexity**: O(U + T) where U is users, T is total tweets
+
 ### INTUITION:
 We need to design a system that efficiently handles:
 1. Posting tweets with timestamps

@@ -24,6 +24,14 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: * O(n)
+**Space Complexity**: * O(n) for result array
+
  *
  * ### INTUITION:
  * Since intervals are sorted and `non-overlapping`, we can process them in three phases:

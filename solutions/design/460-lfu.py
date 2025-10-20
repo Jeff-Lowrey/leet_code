@@ -19,6 +19,14 @@ Design and implement a Least Frequently Used (LFU) cache.
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: - get: O(1)
+**Space Complexity**: O(capacity) for storing items
+
 ### INTUITION:
 LFU cache evicts the least frequently used item when capacity is reached.
 If multiple items have the same frequency, evict the least recently used (LRU) among them.

@@ -32,6 +32,14 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: * O(n)
+**Space Complexity**: * O(1)
+
  *
  * ### INTUITION:
  * We need to compress consecutive identical characters in-place. The key insight is using

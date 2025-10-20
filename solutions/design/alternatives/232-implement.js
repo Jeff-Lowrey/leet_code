@@ -18,6 +18,14 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: * - push: O(1)
+**Space Complexity**: * O(n) for storing n elements
+
  *
  * ### INTUITION:
  * A queue follows FIFO (First In First Out), while a stack follows LIFO (Last In First Out).

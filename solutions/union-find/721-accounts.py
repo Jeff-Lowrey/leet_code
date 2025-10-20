@@ -23,6 +23,14 @@ After merging the accounts, return the accounts in the following format: the fir
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(N × M × α(N))
+**Space Complexity**: O(N × M)
+
 ### INTUITION:
 This is a classic Union-Find problem where we need to group accounts that belong to the same person. The key insight is that if two accounts share any email address, they belong to the same person and should be merged. We use Union-Find to efficiently group accounts with shared emails.
 

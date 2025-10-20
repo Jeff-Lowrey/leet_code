@@ -23,6 +23,14 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: * O(n)
+**Space Complexity**: * O(n)
+
  *
  * ### INTUITION:
  * Use a monotonic decreasing stack to track indices waiting for their next greater element.

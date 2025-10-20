@@ -23,6 +23,14 @@ Note: The solution set must not contain duplicate combinations.
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n)
+**Space Complexity**: O(1)
+
 ### INTUITION:
 Sort the candidates first to handle duplicates. During backtracking, skip duplicate elements at the same recursion level by checking if nums[i] == nums[i-1] and i > start. Each number can only be used once, so advance the index by 1 after including a number.
 

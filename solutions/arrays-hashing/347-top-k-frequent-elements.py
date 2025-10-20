@@ -19,6 +19,14 @@ Given an integer array nums and an integer k, return the k most frequent element
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n)
+**Space Complexity**: O(1)
+
 ### INTUITION:
 Use bucket sort where the index represents frequency. After counting frequencies with a hash map, place each number in a bucket corresponding to its frequency. Then collect results from the highest frequency buckets downward until we have k elements.
 

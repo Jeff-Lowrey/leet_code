@@ -19,6 +19,14 @@ Implement a first-in-first-out (FIFO) queue using only two stacks.
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: - push: O(1)
+**Space Complexity**: O(n) for storing n elements
+
 ### INTUITION:
 A queue follows FIFO (First In First Out), while a stack follows LIFO (Last In First Out).
 We can simulate queue behavior using two stacks - one for input and one for output.

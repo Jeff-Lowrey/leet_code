@@ -21,6 +21,14 @@ You may return the answer in any order.
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n)
+**Space Complexity**: O(1)
+
 ### INTUITION:
 Build combinations incrementally by choosing numbers from a starting position onwards. Use a start parameter to ensure we only consider numbers greater than previously chosen ones, avoiding duplicates like [1,2] and [2,1]. When combination reaches size k, add it to results.
 

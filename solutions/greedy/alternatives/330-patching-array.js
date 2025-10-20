@@ -22,6 +22,14 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: * O(m + log n)
+**Space Complexity**: * O(1)
+
  *
  * ### INTUITION:
  * The key insight is tracking what range [1, covered] we can currently form. If we

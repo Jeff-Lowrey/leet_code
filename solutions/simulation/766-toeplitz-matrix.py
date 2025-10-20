@@ -35,6 +35,14 @@ The diagonal "[1, 2]" has different elements.
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(m × n)
+**Space Complexity**: O(1)
+
 ### INTUITION:
 In a Toeplitz matrix, each diagonal going from top-left to bottom-right contains
 identical elements. A key observation: element at (i,j) should equal element at (i+1,j+1).

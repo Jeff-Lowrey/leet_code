@@ -19,6 +19,14 @@ Given string num representing a non-negative integer num, and an integer k, retu
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n)
+**Space Complexity**: O(1)
+
 ### INTUITION:
 Use monotonic increasing stack. Remove k digits greedily by popping larger digits when a smaller digit is found. If k removals not reached, remove from end. Handle leading zeros.
 

@@ -20,6 +20,14 @@ Search for a target in an m x n matrix with sorted rows and columns.
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(m + n) - worst case visit m+n cells
+**Space Complexity**: O(1) - only use constant space
+
 ### INTUITION:
 Start from top-right corner (or bottom-left). The position acts as a pivot:
 - Values to the left are smaller

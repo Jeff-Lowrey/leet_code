@@ -28,6 +28,14 @@ You must implement a solution with O(1) time complexity for each function.
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(1)
+**Space Complexity**: O(n)
+
 ### INTUITION:
 The key challenge is maintaining the minimum element in O(1) time. We can use
 two stacks: one for all elements and another to track minimums at each level.

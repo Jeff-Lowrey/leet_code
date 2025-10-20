@@ -31,6 +31,14 @@ wordDictionary.search("b.."); // return True
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: - addWord: O(n) where n is word length
+**Space Complexity**: O(total characters in all words)
+
 ### INTUITION:
 We need a data structure that can efficiently store words and support wildcard searches.
 A Trie (prefix tree) is perfect for this - it allows efficient storage and search with wildcard support.

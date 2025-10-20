@@ -29,6 +29,14 @@ myStack.empty(); // return False
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: - push: O(n) - need to rotate queue
+**Space Complexity**: O(n) for storing n elements
+
 ### INTUITION:
 A stack follows LIFO (Last In First Out), while a queue follows FIFO (First In First Out).
 To simulate stack behavior using queues, we need to reverse the order on every push or pop.

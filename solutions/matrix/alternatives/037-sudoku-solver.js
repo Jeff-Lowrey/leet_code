@@ -19,6 +19,14 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: * O(9^(n*n)) worst case, where n=9
+**Space Complexity**: * O(n*n) for recursion stack
+
  *
  * ### INTUITION:
  * Use backtracking to try placing digits 1-9 in empty cells, validating each placement

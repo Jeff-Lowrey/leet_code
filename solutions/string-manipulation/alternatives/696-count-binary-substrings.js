@@ -26,6 +26,14 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: * O(n)
+**Space Complexity**: * O(n)
+
  *
  * ### INTUITION:
  * For a valid binary substring, all 0's must be grouped together and all 1's must be

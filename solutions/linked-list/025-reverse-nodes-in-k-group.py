@@ -23,6 +23,14 @@ You may not alter the values in the list's nodes, only nodes themselves may be c
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n)
+**Space Complexity**: O(1)
+
 ### INTUITION:
 Reverse k nodes at a time using standard reversal. Track previous group's tail and current group's head/tail. Connect groups after reversal. Stop if fewer than k nodes remain.
 

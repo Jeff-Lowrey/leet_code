@@ -21,6 +21,14 @@ You may assume the input array always has a valid answer.
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n)
+**Space Complexity**: O(1)
+
 ### INTUITION:
 We need alternating pattern: small, large, small, large. We can achieve this in O(n) time
 by swapping elements when the pattern is violated, without sorting.

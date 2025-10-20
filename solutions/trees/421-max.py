@@ -19,6 +19,14 @@ Given an integer array nums, return the maximum result of nums[i] XOR nums[j], w
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n)
+**Space Complexity**: O(1)
+
 ### INTUITION:
 Build Trie of all numbers. For each number, traverse Trie greedily choosing opposite bit when possible (to maximize XOR). This finds best XOR partner for each number in O(32n).
 

@@ -35,6 +35,14 @@ Output: false
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n)
+**Space Complexity**: O(n)
+
 ### INTUITION:
 This is a classic stack problem. When we encounter an opening bracket, we push it onto the stack.
 When we encounter a closing bracket, we check if it matches the most recent opening bracket (top of stack).

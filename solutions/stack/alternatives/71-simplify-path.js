@@ -34,6 +34,14 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: * O(n) where n is path length
+**Space Complexity**: * O(n) for stack and split components
+
  *
  * ### INTUITION:
  * Use a stack to track the directory hierarchy. Split the path by '/', then process each

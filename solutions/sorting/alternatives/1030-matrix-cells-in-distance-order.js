@@ -25,6 +25,14 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: * O(R*C * log(R*C))
+**Space Complexity**: * O(R*C)
+
  *
  * ### INTUITION:
  * We need to sort all matrix coordinates by their Manhattan distance from a given center point.

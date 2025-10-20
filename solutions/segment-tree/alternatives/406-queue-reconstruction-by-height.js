@@ -20,6 +20,14 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: * - Greedy: O(n² log n) - sorting + n insertions
+**Space Complexity**: * O(n)
+
  *
  * ### INTUITION:
  * This problem can be solved with a greedy approach. Sort people by height (descending) and when heights are equal, by k value (ascending). Then insert each person at their k-index position. This works because taller people are placed first, so when shorter people are inserted, they don't affect the k-count of taller people.

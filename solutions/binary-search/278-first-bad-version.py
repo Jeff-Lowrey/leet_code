@@ -23,6 +23,14 @@ You are given an API bool isBadVersion(version) which returns whether version is
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n)
+**Space Complexity**: O(1)
+
 ### INTUITION:
 The versions form a sorted sequence: [good...good, bad...bad]. Use binary search to find the boundary. If mid is bad, the first bad version is at mid or earlier; if good, it's after mid. Converge to the first bad version.
 

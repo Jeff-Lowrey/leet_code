@@ -28,6 +28,14 @@ Return the label of the town judge if the town judge exists and can be identifie
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(T + N)
+**Space Complexity**: O(N)
+
 ### INTUITION:
 This is a graph problem where we need to find a node (person) with specific in-degree and out-degree properties. The judge must have in-degree = n-1 (everyone trusts them) and out-degree = 0 (they trust nobody). We can solve this efficiently by tracking trust relationships as a directed graph.
 

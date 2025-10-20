@@ -21,6 +21,14 @@ Return the max sliding window.
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n)
+**Space Complexity**: O(1)
+
 ### INTUITION:
 Use deque to maintain indices of useful elements (potential maximums). Remove indices outside window. Remove indices with smaller values than current (they're never max). Front of deque is window maximum.
 

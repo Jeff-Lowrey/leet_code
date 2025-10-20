@@ -24,6 +24,14 @@ A binary tree's maximum depth is the number of nodes along the longest path from
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n)
+**Space Complexity**: O(h)
+
 ### INTUITION:
 The maximum depth of a binary tree is simply 1 plus the maximum depth of its left and right subtrees. This naturally suggests a recursive solution where we explore both subtrees and return the maximum depth.
 

@@ -33,6 +33,14 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: * O(m × n)
+**Space Complexity**: * O(m × n)
+
  *
  * ### INTUITION:
  * Think of the 2D grid as a 1D array that wraps around. Each shift moves all elements

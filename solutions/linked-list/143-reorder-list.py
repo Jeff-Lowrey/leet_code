@@ -27,6 +27,14 @@ You may not modify the values in the list's nodes. Only nodes themselves may be 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n)
+**Space Complexity**: O(1)
+
 ### INTUITION:
 Find middle using slow/fast pointers. Reverse second half. Merge by alternating nodes from first and second half. Weave them together to reorder the list.
 

@@ -21,6 +21,14 @@ In other words, return true if one of s1's permutations is the substring of s2.
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n)
+**Space Complexity**: O(1)
+
 ### INTUITION:
 Use sliding window with character frequency. Window is valid if it contains permutation of s1 (same character counts). Check each window of size len(s1) by maintaining character counts.
 

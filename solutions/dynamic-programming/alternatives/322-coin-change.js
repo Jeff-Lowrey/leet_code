@@ -27,6 +27,14 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: * O(amount × len(coins))
+**Space Complexity**: * O(amount)
+
  *
  * ### INTUITION:
  * This is a classic "minimum path to `target`" DP problem. For any amount, we want

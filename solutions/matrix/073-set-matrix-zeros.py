@@ -20,6 +20,14 @@ Given an m x n matrix, if an element is 0, set its entire row and column to 0 in
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(m * n) - scan matrix twice
+**Space Complexity**: O(1) - only use constant extra space
+
 ### INTUITION:
 Use the first row and first column as markers to track which rows/columns should be zeroed.
 Need separate flags for first row/column since they overlap at [0][0].

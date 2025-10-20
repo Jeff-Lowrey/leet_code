@@ -24,6 +24,14 @@ Return the maximum number of balanced strings you can obtain.
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n)
+**Space Complexity**: O(1)
+
 ### INTUITION:
 The key insight is to use a greedy approach: whenever we find a balanced substring
 (where count of 'L' equals count of 'R'), we should immediately split it off. This

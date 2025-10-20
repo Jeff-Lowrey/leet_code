@@ -19,6 +19,14 @@ This problem demonstrates key concepts in Recursion.
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(C(n,k) * k) where C(n,k) is binomial coefficient
+**Space Complexity**: O(k) - recursion depth and combination storage
+
 ### INTUITION:
 Given two integers n and k, return all possible combinations of k numbers chosen
 from the range [1, n]. This is a classic backtracking problem where we systematically

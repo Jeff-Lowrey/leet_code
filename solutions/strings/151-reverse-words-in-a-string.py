@@ -19,6 +19,14 @@ This problem demonstrates key concepts in String manipulation and parsing.
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n)
+**Space Complexity**: O(n)
+
 ### INTUITION:
 We need to reverse the order of words in a string, where words are separated by spaces. The key
 challenges are: 1) handling multiple spaces between words, 2) trimming leading/trailing spaces,

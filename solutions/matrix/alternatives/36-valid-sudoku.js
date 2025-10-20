@@ -38,6 +38,14 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: * O(1)
+**Space Complexity**: * O(1)
+
  *
  * ### INTUITION:
  * Use hash sets to track seen digits for each row, column, and 3x3 box.

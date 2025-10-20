@@ -20,6 +20,14 @@ Generate an n x n matrix filled with elements from 1 to n^2 in spiral order.
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n^2) - visit each cell once
+**Space Complexity**: O(n^2) - output matrix (O(1) excluding output)
+
 ### INTUITION:
 Fill the matrix in layers, moving right, down, left, up in each layer, spiraling inward.
 Track boundaries and shrink them as each direction completes.

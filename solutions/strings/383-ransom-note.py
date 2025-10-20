@@ -19,6 +19,14 @@ This problem demonstrates key concepts in Strings and Hash Tables.
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(m + n)
+**Space Complexity**: O(1)
+
 ### INTUITION:
 To construct a ransom note from magazine letters, we need to ensure that the magazine contains
 at least as many of each character as required by the ransom note. This is essentially checking

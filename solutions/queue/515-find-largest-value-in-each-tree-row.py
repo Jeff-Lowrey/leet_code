@@ -19,6 +19,14 @@ Given the root of a binary tree, return an array of the largest value in each ro
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n)
+**Space Complexity**: O(w)
+
 ### INTUITION:
 Use level-order traversal (BFS) to process nodes level by level.
 For each level, track the maximum value among all nodes at that level.

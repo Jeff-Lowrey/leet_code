@@ -23,6 +23,14 @@ Return true if there is a cycle in the linked list. Otherwise, return false.
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n)
+**Space Complexity**: O(1)
+
 ### INTUITION:
 Use Floyd's cycle detection with fast and slow pointers. Fast moves 2 steps, slow moves 1 step. If they meet, cycle exists. If fast reaches null, no cycle.
 

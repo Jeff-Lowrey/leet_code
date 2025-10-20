@@ -19,6 +19,14 @@ Given the head of a linked list, remove the nth node from the end of the list an
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n)
+**Space Complexity**: O(1)
+
 ### INTUITION:
 Use two pointers with n-step gap. Move fast pointer n steps ahead. Then move both until fast reaches end. Slow is now at the node before target. Remove target node.
 

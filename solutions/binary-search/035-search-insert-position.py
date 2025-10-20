@@ -21,6 +21,14 @@ You must write an algorithm with O(log n) runtime complexity.
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(log n)
+**Space Complexity**: O(1)
+
 ### INTUITION:
 This is a classic binary search problem where we need to find the insertion point for a target value. The key insight is that binary search naturally converges to the correct insertion position when the target is not found.
 

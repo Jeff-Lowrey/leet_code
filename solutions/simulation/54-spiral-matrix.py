@@ -27,6 +27,14 @@ Output: [1,2,3,4,8,12,11,10,9,5,6,7]
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(m × n)
+**Space Complexity**: O(1)
+
 ### INTUITION:
 Process the matrix layer by layer, moving in a spiral pattern: right → down → left → up.
 Use boundaries to track which parts of the matrix have been visited, shrinking the

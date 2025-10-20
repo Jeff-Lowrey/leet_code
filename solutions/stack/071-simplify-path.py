@@ -30,6 +30,14 @@ Return the simplified canonical path.
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n)
+**Space Complexity**: O(1)
+
 ### INTUITION:
 Use stack to track directory levels. Split path by "/". For each component: skip empty and ".", pop for "..", push for normal names. Join stack with "/" for canonical path.
 

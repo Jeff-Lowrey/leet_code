@@ -26,6 +26,14 @@ The distance between two cells (r1, c1) and (r2, c2) is |r1 - r2| + |c1 - c2|.
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(R*C * log(R*C))
+**Space Complexity**: O(R*C)
+
 ### INTUITION:
 We need to sort all matrix coordinates by their Manhattan distance from a given center point.
 The key insight is to generate all coordinates and use Python's built-in sorting with a custom key.

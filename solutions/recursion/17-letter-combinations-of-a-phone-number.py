@@ -19,6 +19,14 @@ This problem demonstrates key concepts in Recursion.
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(4^n * n) where n is length of digits
+**Space Complexity**: O(n) for recursion stack depth
+
 ### INTUITION:
 Given a string containing digits 2-9, return all possible letter combinations that the
 number could represent (like old phone keypads). This is a classic backtracking problem

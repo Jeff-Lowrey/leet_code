@@ -19,6 +19,14 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: * O(n)
+**Space Complexity**: * O(w)
+
  *
  * ### INTUITION:
  * Perform a level-order traversal (BFS) but alternate the direction of reading values at each level.

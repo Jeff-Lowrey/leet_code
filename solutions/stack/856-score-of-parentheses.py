@@ -24,6 +24,14 @@ The score of a balanced parentheses string is based on the following rule:
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n)
+**Space Complexity**: O(n)
+
 ### INTUITION:
 We need to calculate scores based on nesting depth and adjacency. Key insights:
 - "()" = 1 point

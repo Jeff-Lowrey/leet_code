@@ -23,6 +23,14 @@ Return the ordering of courses you should take to finish all courses. If there a
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n)
+**Space Complexity**: O(1)
+
 ### INTUITION:
 Build adjacency list and in-degree array. Start BFS from courses with in-degree 0. For each course, reduce in-degree of neighbors. Add result to output. Check if all courses processed.
 

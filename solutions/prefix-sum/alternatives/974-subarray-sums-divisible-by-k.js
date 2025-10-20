@@ -25,6 +25,14 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: * O(n)
+**Space Complexity**: * O(min(n, k))
+
  *
  * ### INTUITION:
  * Use prefix sum with modulo arithmetic. If two prefix sums have the same remainder

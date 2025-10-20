@@ -23,6 +23,14 @@ You may return the answer in any order. The answer is guaranteed to be unique (e
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n)
+**Space Complexity**: O(1)
+
 ### INTUITION:
 Calculate distance for each point. Use max heap (negate distances) of size k. Maintain k closest points. Alternatively, use quickselect for O(n) average time.
 

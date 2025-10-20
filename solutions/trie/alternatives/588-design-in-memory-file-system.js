@@ -25,6 +25,14 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: * O(P)
+**Space Complexity**: * O(N×M)
+
  *
  * ### INTUITION:
  * This problem requires implementing a tree-like data structure to represent the file system hierarchy. Each node can be either a directory (containing other nodes) or a file (containing content). We use a trie-like structure where each node knows whether it's a file or directory.

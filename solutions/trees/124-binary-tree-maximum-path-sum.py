@@ -23,6 +23,14 @@ Given the root of a binary tree, return the maximum path sum of any non-empty pa
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n)
+**Space Complexity**: O(1)
+
 ### INTUITION:
 For each node, max path is: left max path + node + right max path. Recursively calculate max single path from each child. Track global maximum. Return max single path (node + best child path) up.
 

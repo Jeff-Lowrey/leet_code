@@ -18,6 +18,14 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: * O(n)
+**Space Complexity**: * O(w)
+
  *
  * ### INTUITION:
  * Similar to binary tree level-order traversal, but each node can have multiple children.

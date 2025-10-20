@@ -30,6 +30,14 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: * - insert: O(1)
+**Space Complexity**: * O(n) for storing n elements
+
  *
  * ### INTUITION:
  * To achieve O(1) for all three operations, we need:

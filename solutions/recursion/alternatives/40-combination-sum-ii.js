@@ -18,6 +18,14 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: * O(2^n) - each element can be included or excluded
+**Space Complexity**: * O(n) - recursion depth
+
  *
  * ### INTUITION:
  * Given an array of integers (may contain duplicates) and a target, find all unique

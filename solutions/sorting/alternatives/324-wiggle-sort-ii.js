@@ -22,6 +22,14 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: * O(n log n)
+**Space Complexity**: * O(n)
+
  *
  * ### INTUITION:
  * Unlike Wiggle Sort I which allows equality, this requires strict inequality (<, >, <, >).

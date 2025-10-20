@@ -21,6 +21,14 @@ Return an array of all the palindrome pairs of words.
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n)
+**Space Complexity**: O(1)
+
 ### INTUITION:
 Build Trie of all words. For each word, try forming palindrome pairs by checking: 1) reverse exists in Trie, 2) prefix + reverse where suffix is palindrome, 3) reverse + suffix where prefix is palindrome.
 

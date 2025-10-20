@@ -19,6 +19,14 @@ This problem demonstrates key concepts in Hash Tables and String manipulation.
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n)
+**Space Complexity**: O(1)
+
 ### INTUITION:
 To find the first unique (non-repeating) character in a string, we need to know the frequency
 of each character. A character is unique if it appears exactly once. We need to return the index

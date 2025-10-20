@@ -25,6 +25,14 @@ You must write an algorithm with O(log n) runtime complexity.
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n)
+**Space Complexity**: O(1)
+
 ### INTUITION:
 The array has two sorted portions. At each binary search step, determine which half is properly sorted by comparing mid with left/right. Then check if target falls within the sorted half's range. If yes, search that half; otherwise search the other half.
 

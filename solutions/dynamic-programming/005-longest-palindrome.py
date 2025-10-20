@@ -22,6 +22,14 @@ Explanation: "aba" is also a valid `answer`.
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n²)
+**Space Complexity**: O(1)
+
 ### INTUITION:
 A palindrome reads the same forwards and backwards. We can find palindromes
 by expanding around `centers - either` single characters or between characters.

@@ -37,6 +37,14 @@ Output: [[1,2],[3,4]]
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(m × n)
+**Space Complexity**: O(r × c)
+
 ### INTUITION:
 Reshape is only possible if the total number of elements remains the same.
 Flatten the matrix conceptually, then redistribute elements into new dimensions.

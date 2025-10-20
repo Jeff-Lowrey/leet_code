@@ -23,6 +23,14 @@ Return the maximum number of courses that you can take.
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n)
+**Space Complexity**: O(1)
+
 ### INTUITION:
 Greedy: sort courses by deadline. For each course, if time available, add to heap (track duration). If no time, compare with longest course taken. If current shorter, replace longest.
 

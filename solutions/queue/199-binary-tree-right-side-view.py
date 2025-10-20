@@ -20,6 +20,14 @@ return the values of the nodes you can see ordered from top to bottom.
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n)
+**Space Complexity**: O(w)
+
 ### INTUITION:
 The right side view is simply the rightmost node at each level of the tree.
 Use level-order traversal (BFS) and capture the last node at each level.

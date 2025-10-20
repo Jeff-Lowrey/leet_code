@@ -23,6 +23,14 @@ Return the minimum number of semesters needed to take all courses. If there is n
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n)
+**Space Complexity**: O(1)
+
 ### INTUITION:
 Build graph and calculate in-degrees. Use BFS starting from nodes with in-degree 0. Process courses level by level (semester by semester). Track maximum semester count needed.
 

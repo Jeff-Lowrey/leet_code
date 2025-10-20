@@ -28,6 +28,14 @@ You must write an algorithm that runs in O(log n) time.
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n)
+**Space Complexity**: O(1)
+
 ### INTUITION:
 The minimum element is where the rotation occurs. Compare mid with right: if nums[mid] > nums[right], minimum is in the right half; otherwise it's in the left half (including mid). This handles both rotated and non-rotated cases.
 

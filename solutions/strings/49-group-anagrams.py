@@ -19,6 +19,14 @@ This problem demonstrates key concepts in Hash Tables and String manipulation.
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n * k log k)
+**Space Complexity**: O(n * k)
+
 ### INTUITION:
 Anagrams are words that contain the same characters with the same frequencies, just rearranged.
 To group anagrams together, we need a way to identify which words are anagrams of each other.

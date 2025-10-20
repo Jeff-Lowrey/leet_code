@@ -24,6 +24,14 @@ Explanation: Swap s[0] and s[3] → "bcad", then swap s[1] and s[2] → "bacd"
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n log n + m α(n)) where m is pairs count
+**Space Complexity**: O(n)
+
 ### INTUITION:
 Pairs form connected components via union-find. Within each component, indices can be
 rearranged freely. Sort characters in each component and assign to sorted indices.

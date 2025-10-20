@@ -19,6 +19,14 @@ Given an array of meeting time intervals intervals where intervals[i] = [starti,
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n)
+**Space Complexity**: O(1)
+
 ### INTUITION:
 Track meeting start and end times separately. Use min heap for end times. When a new meeting starts, remove all meetings that have already ended. Heap size is rooms needed at that moment. Return maximum heap size.
 

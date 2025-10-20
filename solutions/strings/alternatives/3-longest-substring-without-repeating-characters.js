@@ -18,6 +18,14 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: * O(n)
+**Space Complexity**: * O(min(n, m))
+
  *
  * ### INTUITION:
  * We need to find the longest substring where all characters are unique (no repeating characters).

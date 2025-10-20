@@ -23,6 +23,14 @@ Given the array points, return the minimum number of arrows that must be shot to
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n)
+**Space Complexity**: O(1)
+
 ### INTUITION:
 Sort balloons by end position. Use greedy: shoot arrow at the end of first balloon. Count balloons this arrow bursts (end >= balloon start). Move to first unbursted balloon. Count total arrows.
 

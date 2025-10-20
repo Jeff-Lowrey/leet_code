@@ -18,6 +18,14 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: * O(n! * n) where n is array length
+**Space Complexity**: * O(n) - recursion depth and tracking set
+
  *
  * ### INTUITION:
  * Given an array of distinct integers, return all possible permutations. A permutation

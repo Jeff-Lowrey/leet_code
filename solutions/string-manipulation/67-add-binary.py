@@ -25,6 +25,14 @@ Output: "10101"
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(max(m, n))
+**Space Complexity**: O(max(m, n))
+
 ### INTUITION:
 Adding binary numbers is similar to adding decimal numbers, but we work with base 2
 instead of base 10. We process digits from right to left, maintaining a carry bit.

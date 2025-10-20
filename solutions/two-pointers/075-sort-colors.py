@@ -23,6 +23,14 @@ You must solve this problem without using the library's sort function.
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n)
+**Space Complexity**: O(1)
+
 ### INTUITION:
 Use three pointers: p0 for next 0, p2 for next 2, current for scanning. When see 0, swap with p0. When see 2, swap with p2. When see 1, just move current. Partitions in single pass.
 

@@ -27,6 +27,14 @@ Explanation: There are 6 substrings that have equal 0's and 1's: "0011", "01", "
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n)
+**Space Complexity**: O(n)
+
 ### INTUITION:
 For a valid binary substring, all 0's must be grouped together and all 1's must be
 grouped together, with equal counts. The key insight is that we only need to look at

@@ -24,6 +24,14 @@ Two combinations are unique if the frequency of at least one of the chosen numbe
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(N^(T/M))
+**Space Complexity**: O(T/M)
+
 ### INTUITION:
 This is a classic backtracking problem where we need to find all combinations that sum to target.
 Since numbers can be reused unlimited times, we explore each candidate multiple times.

@@ -23,6 +23,14 @@ Implement KthLargest class:
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: - Constructor: O(n log k) where n = len(nums)
+**Space Complexity**: O(k)
+
 ### INTUITION:
 Use a min-heap of size k. The root of the heap is always the kth largest element. When adding a new element, if it's larger than the root, replace the root. This maintains exactly k largest elements with the smallest at the top.
 

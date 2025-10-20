@@ -32,6 +32,14 @@ Output: [[137,141,137],[141,138,141],[137,141,137]]
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(m × n)
+**Space Complexity**: O(m × n)
+
 ### INTUITION:
 For each cell, compute the average of itself and its 8 neighbors (or fewer if on edge).
 The challenge is to use original values for all calculations, not partially smoothed values.

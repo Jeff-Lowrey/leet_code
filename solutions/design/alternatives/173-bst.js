@@ -18,6 +18,14 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: * - Constructor: O(h) where h is height
+**Space Complexity**: * O(h) for the stack
+
  *
  * ### INTUITION:
  * We need to implement an iterator that traverses a BST in in-order (left -> root -> right).

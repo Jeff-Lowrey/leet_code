@@ -23,6 +23,14 @@ Return the minimum number of patches (additions to the array) required.
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(m + log n)
+**Space Complexity**: O(1)
+
 ### INTUITION:
 The key insight is tracking what range [1, covered] we can currently form. If we
 can form [1, covered], and we have a number x where x <= covered + 1, then adding

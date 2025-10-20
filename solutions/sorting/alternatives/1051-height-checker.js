@@ -22,6 +22,14 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: * O(n log n)
+**Space Complexity**: * O(n)
+
  *
  * ### INTUITION:
  * We need to compare the current order with the expected sorted order and count mismatches. The key insight is that the expected order is simply the current array sorted.

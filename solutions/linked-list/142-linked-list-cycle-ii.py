@@ -23,6 +23,14 @@ Do not modify the linked list.
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n)
+**Space Complexity**: O(1)
+
 ### INTUITION:
 Use Floyd's algorithm: detect cycle with fast/slow pointers. After meeting, reset one pointer to head. Move both one step at a time. They meet at cycle start due to mathematical property of the algorithm.
 

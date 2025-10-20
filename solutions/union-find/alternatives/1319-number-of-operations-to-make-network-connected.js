@@ -24,6 +24,14 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: * O(n × α(n))
+**Space Complexity**: * O(n)
+
  *
  * ### INTUITION:
  * This is a classic Union-Find problem about connecting components. Key insights:

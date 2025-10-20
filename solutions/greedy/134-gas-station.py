@@ -28,6 +28,14 @@ If there exists a solution, it is guaranteed to be unique.
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n)
+**Space Complexity**: O(1)
+
 ### INTUITION:
 This problem can be solved greedily by recognizing two key insights:
 1. If the total gas is less than total cost, completing the circuit is impossible

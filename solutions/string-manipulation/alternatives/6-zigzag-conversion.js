@@ -29,6 +29,14 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: * O(n)
+**Space Complexity**: * O(n)
+
  *
  * ### INTUITION:
  * The zigzag pattern alternates going down and then up diagonally. We can simulate this

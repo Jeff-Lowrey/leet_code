@@ -19,6 +19,14 @@ Given an array of positive integers nums and a positive integer target, return t
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n)
+**Space Complexity**: O(1)
+
 ### INTUITION:
 Use sliding window. Expand window until sum >= target. Then shrink from left while sum >= target. Track minimum length. This achieves O(n) time with single pass.
 

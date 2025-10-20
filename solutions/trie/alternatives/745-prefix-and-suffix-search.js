@@ -22,6 +22,14 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: * - Constructor: O(N * L^3) where N is words count, L is max word length
+**Space Complexity**: * O(N * L^3)
+
  *
  * ### INTUITION:
  * We need to efficiently search for words that match both a prefix and suffix. A clever trick is to create combined keys like "suffix{word}prefix" where '{' acts as a separator. We can then build a trie with all possible suffix#prefix combinations for each word. When searching, we look up "suff{pref" in the trie.

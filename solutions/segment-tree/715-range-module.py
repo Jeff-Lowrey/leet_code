@@ -28,6 +28,14 @@ Implement the RangeModule class:
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: - Segment Tree: O(log n) per operation
+**Space Complexity**: O(n)
+
 ### INTUITION:
 This problem requires efficient range updates and queries. We can use segment trees with lazy propagation, or maintain a sorted list of disjoint intervals and merge/split them as needed.
 

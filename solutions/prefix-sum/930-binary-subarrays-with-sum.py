@@ -25,6 +25,14 @@ Explanation: The 4 subarrays are [1,0,1], [1,0,1,0], [0,1,0,1], [1,0,1]
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n)
+**Space Complexity**: O(n)
+
 ### INTUITION:
 Use prefix sum with hash map. For each position, count how many previous positions
 have prefix_sum = current_prefix_sum - goal. This gives us all subarrays ending at

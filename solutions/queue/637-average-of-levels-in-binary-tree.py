@@ -19,6 +19,14 @@ Given the root of a binary tree, return the average value of the nodes on each l
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n)
+**Space Complexity**: O(w)
+
 ### INTUITION:
 Use level-order traversal (BFS) to process nodes level by level.
 For each level, calculate the sum and count of nodes, then compute the average.

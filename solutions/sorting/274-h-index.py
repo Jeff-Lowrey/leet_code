@@ -24,6 +24,14 @@ least h times.
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n log n)
+**Space Complexity**: O(1)
+
 ### INTUITION:
 The h-index is the largest number h where at least h papers have h or more citations.
 Sorting helps us find this threshold efficiently. We can also use counting for O(n) solution.

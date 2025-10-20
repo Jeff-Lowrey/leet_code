@@ -23,6 +23,14 @@ The list should be made by splicing together the nodes of the first two lists.
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n)
+**Space Complexity**: O(1)
+
 ### INTUITION:
 Use dummy node to handle edge cases. Compare nodes from both lists. Advance pointer of smaller node. Continue until both lists exhausted. Return dummy.next.
 

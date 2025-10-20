@@ -25,6 +25,14 @@ You do not need to use up all the given intervals. You can select pairs in any o
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n)
+**Space Complexity**: O(1)
+
 ### INTUITION:
 Sort pairs by end time. Use greedy similar to Activity Selection. Keep previous end, skip pairs that don't start after previous end. Count valid pairs.
 

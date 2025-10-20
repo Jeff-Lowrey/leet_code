@@ -25,6 +25,14 @@ Return the minimum integer k such that she can eat all the bananas within h hour
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n)
+**Space Complexity**: O(1)
+
 ### INTUITION:
 Binary search on the eating speed k, not the array. The minimum k is 1, maximum is max(piles). For each mid speed, calculate total hours needed. If hours <= h, try smaller k; otherwise try larger k. Find the minimum valid k.
 

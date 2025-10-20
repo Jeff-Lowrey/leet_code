@@ -19,6 +19,14 @@ Implement the BSTIterator class that represents an iterator over the in-order tr
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: - Constructor: O(h) where h is height
+**Space Complexity**: O(h) for the stack
+
 ### INTUITION:
 We need to implement an iterator that traverses a BST in in-order (left -> root -> right).
 The challenge is to do this without storing all values upfront, but instead using a controlled stack-based approach.

@@ -34,6 +34,14 @@ Output: [[12,0,21,13],[3,8,1,9],[19,7,2,5],[4,6,11,10]]
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(m × n)
+**Space Complexity**: O(m × n)
+
 ### INTUITION:
 Think of the 2D grid as a 1D array that wraps around. Each shift moves all elements
 one position to the right, with the last element wrapping to the first position.

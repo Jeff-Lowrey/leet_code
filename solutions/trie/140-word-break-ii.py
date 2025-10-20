@@ -21,6 +21,14 @@ Note that the same word in the dictionary may be reused multiple times in the se
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(N^3 + M*L)
+**Space Complexity**: O(M*L + N^2)
+
 ### INTUITION:
 This problem requires finding all possible ways to break a string into valid words. Using a Trie helps efficiently check if a prefix exists in the dictionary, and backtracking explores all possible segmentations. Memoization prevents redundant computation for the same substring.
 

@@ -19,6 +19,14 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: * O(m * n) - scan matrix twice
+**Space Complexity**: * O(1) - only use constant extra space
+
  *
  * ### INTUITION:
  * Use the first row and first column as markers to track which rows/columns should be zeroed.

@@ -19,6 +19,14 @@ This problem demonstrates key concepts in String matching and pattern searching.
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n * m)
+**Space Complexity**: O(1)
+
 ### INTUITION:
 This is the classic string matching problem (also known as finding a substring). We need to find
 the first position where the needle (pattern) appears in the haystack (text). The straightforward

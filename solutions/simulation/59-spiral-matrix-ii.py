@@ -28,6 +28,14 @@ Output: [[1]]
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n²)
+**Space Complexity**: O(1)
+
 ### INTUITION:
 Similar to Spiral Matrix I, but instead of reading, we're writing values in spiral order.
 Use the same boundary-tracking technique, filling the matrix layer by layer from outside to inside.

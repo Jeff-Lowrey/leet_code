@@ -18,6 +18,14 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: * O(N^(T/M)) where N is number of candidates, T is target, M is min candidate
+**Space Complexity**: * O(T/M) - recursion depth and combination storage
+
  *
  * ### INTUITION:
  * Given an array of distinct integers and a target, find all unique combinations where

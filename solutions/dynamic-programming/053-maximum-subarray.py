@@ -19,6 +19,14 @@ Given an integer array nums, find the subarray with the largest sum, and return 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n)
+**Space Complexity**: O(1)
+
 ### INTUITION:
 Use Kadane's algorithm: track the maximum sum ending at current position. At each step, either extend the previous subarray or start fresh. Keep global maximum throughout.
 

@@ -20,6 +20,14 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: * O(log n)
+**Space Complexity**: * O(log n) recursive, O(1) iterative
+
  *
  * ### INTUITION:
  * Naive approach of multiplying x by itself `n` times is O(n). We can do better

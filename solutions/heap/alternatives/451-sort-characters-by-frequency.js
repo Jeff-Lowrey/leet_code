@@ -21,6 +21,14 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: * O(n log k)
+**Space Complexity**: * O(k)
+
  *
  * ### INTUITION:
  * We need to count character frequencies and then sort characters by their frequency

@@ -19,6 +19,14 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: * O(m * n * 4^L) where L is word length
+**Space Complexity**: * O(L) for recursion stack
+
  *
  * ### INTUITION:
  * Use DFS with backtracking to search for the word starting from each cell. Mark visited

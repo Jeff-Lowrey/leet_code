@@ -23,6 +23,14 @@ Return an edge that can be removed so that the resulting graph is a tree of n no
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n × α(n))
+**Space Complexity**: O(n)
+
 ### INTUITION:
 This is a classic Union-Find cycle detection problem. In a tree with n nodes, there should be exactly n-1 edges. When we add one extra edge, it creates a cycle. We need to find the edge that completes this cycle.
 

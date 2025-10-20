@@ -23,6 +23,14 @@ A mapping of digit to letters (just like on the telephone buttons) is given belo
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(3^N × 4^M)
+**Space Complexity**: O(3^N × 4^M)
+
 ### INTUITION:
 This is a classic backtracking problem where we need to generate all possible
 combinations. Each digit maps to multiple letters, creating a decision tree

@@ -25,6 +25,14 @@ Explanation: Removing [2,3] creates a valid tree.
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n α(n))
+**Space Complexity**: O(n)
+
 ### INTUITION:
 A rooted tree has exactly one root (no parent) and all other nodes have exactly one parent.
 Invalid scenarios: (1) node with 2 parents, (2) cycle. Use union-find to detect these.

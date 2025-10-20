@@ -22,6 +22,14 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: * O(log n)
+**Space Complexity**: * O(1)
+
  *
  * ### INTUITION:
  * This is a classic binary search problem that requires finding both the leftmost and rightmost positions of a target. The key insight is to perform two separate binary searches: one to find the first occurrence and another to find the last occurrence.

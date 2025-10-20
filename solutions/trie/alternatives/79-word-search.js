@@ -20,6 +20,14 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: * O(M * N * 4^L)
+**Space Complexity**: * O(L)
+
  *
  * ### INTUITION:
  * This is a classic backtracking problem on a 2D grid. While a Trie isn't strictly necessary for single word search, understanding this problem helps with Word Search II (212). We use DFS with backtracking to explore all possible paths, marking visited cells to avoid reuse, and unmarking them when backtracking.

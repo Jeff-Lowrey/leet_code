@@ -18,6 +18,14 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: * O(n log log n)
+**Space Complexity**: * O(n)
+
  *
  * ### INTUITION:
  * Use Sieve of Eratosthenes: mark all multiples of each prime as composite. Count remaining unmarked numbers.

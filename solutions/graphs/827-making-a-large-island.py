@@ -23,6 +23,14 @@ An island is a group of 1's connected 4-directionally (horizontal or vertical). 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(N²)
+**Space Complexity**: O(N²)
+
 ### INTUITION:
 This problem extends island finding by allowing us to change one 0 to 1 to maximize island size. The key insight is to first identify all existing islands, then for each 0, calculate what the new island size would be if we changed it to 1.
 
