@@ -233,11 +233,74 @@ All themes use CSS custom properties (variables) for easy customization:
     --border-color: #e0e0dc;
     --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
 
+    /* Badge colors (NEW in Issue #5) */
+    --badge-problem-number: #8b8680;        /* Theme-appropriate neutral/accent color */
+    --badge-problem-number-text: #ffffff;
+
     /* Category-specific colors */
     --cat-rust: #d47d5e;
     --cat-steel-blue: #6890c9;
     --cat-sage: #7fa87f;
     /* ... more categories ... */
+}
+```
+
+### Badge Color System (Issue #5)
+
+**New Feature**: Problem number badges now use theme-specific colors that match each theme's aesthetic, creating clear visual distinction from category labels.
+
+**Visual Hierarchy**:
+- **Problem Number Badges**: Theme-appropriate neutral or accent colors
+- **Category Labels**: Bold category-specific colors
+
+This creates a clear information hierarchy where:
+- Problem numbers (reference information) use subtle theme colors
+- Categories (classification) use distinctive bold colors
+
+**Theme Examples**:
+
+```css
+/* Soft Neutral - Warm gray for soft aesthetic */
+:root {
+    --badge-problem-number: #8b8680;
+    --badge-problem-number-text: #ffffff;
+}
+
+/* Classic - Only blue, black, and white */
+[data-theme="classic-light"] {
+    --badge-problem-number: #000000;      /* Pure black */
+    --badge-problem-number-text: #ffffff;
+}
+
+/* Vibrant - Colorful pink for energy */
+[data-theme="vibrant-light"] {
+    --badge-problem-number: #e91e63;      /* Deep pink */
+    --badge-problem-number-text: #ffffff;
+}
+
+/* Neon - Electric magenta for neon effect */
+[data-theme="neon-dark"] {
+    --badge-problem-number: #ff00ff;      /* Electric magenta */
+    --badge-problem-number-text: #000000;
+}
+
+/* High Contrast - Maximum contrast for accessibility */
+[data-theme="high-contrast-light"] {
+    --badge-problem-number: #000000;      /* Pure black */
+    --badge-problem-number-text: #ffffff;
+}
+```
+
+**Implementation**:
+```css
+/* In static/css/components/cards.css */
+.problem-number {
+    background-color: var(--badge-problem-number);
+    color: var(--badge-problem-number-text);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    font-weight: 700;
 }
 ```
 

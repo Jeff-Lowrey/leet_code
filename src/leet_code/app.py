@@ -19,18 +19,22 @@ from werkzeug.wrappers.response import Response as WerkzeugResponse
 
 from .category_data import Solution, category_manager
 from .language_constants import (
-    EXTENSION_TO_LANGUAGE,
     get_file_extension,
     get_lexer_for_language,
 )
 from .leetcode_converter import convert_to_leetcode_format, extract_solution_class
+from .markdown_extraction import (
+    ProblemData,
+    extract_markdown_from_code,
+    extract_markdown_from_python_docstring,
+    parse_complete_problem_data,
+)
 
 # Export functions for testing
 __all__ = [
     "app",
     "get_file_extension",
     "get_lexer_for_language",
-    "get_available_languages",
     "parse_search_query",
     "execute_search",
     "find_solution_category",
@@ -170,8 +174,8 @@ def count_by_time_complexity(solutions: list[Solution]) -> dict[str, int]:
     return counts
 
 
-def get_alternative_solution_path(category: str, filename: str, language: str) -> Path:
-    """Get path to alternative language solution file.
+def get_solution_path(category: str, filename: str, language: str) -> Path:
+    """Get path to solution file in specific language.
 
     Args:
         category: Category slug
@@ -179,12 +183,48 @@ def get_alternative_solution_path(category: str, filename: str, language: str) -
         language: Target programming language
 
     Returns:
-        Path to alternative solution file
+        Path to solution file
     """
     base_name = remove_py_extension(filename)
     lang_extension = get_file_extension(language)
-    alt_filename = f"{base_name}{lang_extension}"
-    return Path(__file__).parent.parent.parent / "solutions" / category / "alternatives" / alt_filename
+    solution_filename = f"{base_name}{lang_extension}"
+    language_dir = language.lower()
+    return Path(__file__).parent.parent.parent / "solutions" / category / language_dir / solution_filename
+
+
+def extract_all_problem_data(code: str, file_extension: str) -> tuple[str, ProblemData]:
+    """Extract all problem data from code using unified language-agnostic extraction.
+
+    Args:
+        code: Source code content
+        file_extension: File extension (e.g., '.py', '.js')
+
+    Returns:
+        Tuple of (clean_code_without_docstring, problem_data)
+    """
+    try:
+        # Extract markdown from language-specific comment
+        markdown_content = extract_markdown_from_code(code, file_extension)
+
+        if not markdown_content:
+            # No markdown found, return original code with empty data
+            return code, ProblemData()
+
+        # Parse all sections from markdown
+        problem_data = parse_complete_problem_data(markdown_content)
+
+        # Remove the comment block from code to get clean code
+        if file_extension == ".py":
+            clean_code = re.sub(r'""".*?"""', "", code, count=1, flags=re.DOTALL).strip()
+        elif file_extension in [".js", ".ts"]:
+            clean_code = re.sub(r"/\*\*.*?\*/", "", code, count=1, flags=re.DOTALL).strip()
+        else:
+            clean_code = code
+
+        return clean_code, problem_data
+
+    except Exception:
+        return code, ProblemData()
 
 
 def parse_docstring_explanation(code: str) -> tuple[str, dict[str, str] | None]:
@@ -322,32 +362,39 @@ def parse_explanation_sections(content: str) -> dict[str, str]:
     return sections
 
 
-def extract_problem_description(code: str) -> str | None:
-    """Extract problem description from the docstring."""
+def parse_problem_markdown(markdown_content: str) -> str | None:
+    """Parse problem description from markdown content (language-agnostic).
+
+    Args:
+        markdown_content: Raw markdown extracted from language-specific comments
+
+    Returns:
+        HTML-formatted problem description
+    """
     try:
-        # Look for the main docstring at the beginning
-        docstring_pattern = r'"""(.*?)"""'
-        match = re.search(docstring_pattern, code, re.DOTALL)
+        # Remove the solution explanation section if present
+        if "<details>" in markdown_content:
+            markdown_content = markdown_content.split("<details>")[0].strip()
 
-        if match:
-            docstring = match.group(1).strip()
+        # Remove "# Difficulty:" line from problem description
+        markdown_content = re.sub(r"^#?\s*Difficulty:\s*\w+\s*\n?", "", markdown_content, flags=re.MULTILINE)
 
-            # Remove the solution explanation section if present
-            # Split at the first <details> tag
-            if "<details>" in docstring:
-                docstring = docstring.split("<details>")[0].strip()
+        # Remove problem number from title (e.g., "# 169. Majority Element" -> "# Majority Element")
+        markdown_content = re.sub(r"^#\s+\d+\.\s+", "# ", markdown_content, flags=re.MULTILINE)
 
-            # Remove "# Difficulty:" line from problem description
-            # This metadata is shown as a badge, not in the problem text
-            docstring = re.sub(r"^#\s*Difficulty:\s*\w+\s*\n?", "", docstring, flags=re.MULTILINE)
-
-            # Convert to HTML
-            html: str = markdown.markdown(docstring, extensions=["fenced_code", "tables"])
-            return html
-
-        return None
+        # Convert to HTML
+        html: str = markdown.markdown(markdown_content, extensions=["fenced_code", "tables"])
+        return html
     except Exception:
         return None
+
+
+def extract_problem_description(code: str) -> str | None:
+    """Extract problem description from Python docstring."""
+    markdown_content = extract_markdown_from_python_docstring(code)
+    if markdown_content:
+        return parse_problem_markdown(markdown_content)
+    return None
 
 
 def merge_and_reorganize_content(documentation: str | None, explanation: str | None) -> str | None:
@@ -657,6 +704,9 @@ def extract_js_problem_description(code: str) -> str | None:
             # Remove "Difficulty:" line from problem description
             # This metadata is shown as a badge, not in the problem text
             problem_description = re.sub(r"^Difficulty:\s*\w+\s*\n?", "", problem_description, flags=re.MULTILINE)
+
+            # Remove problem number from title (e.g., "# 169. Majority Element" -> "# Majority Element")
+            problem_description = re.sub(r"^#\s+\d+\.\s+", "# ", problem_description, flags=re.MULTILINE)
 
             # Convert to HTML
             problem_html: str = markdown.markdown(problem_description, extensions=["fenced_code", "tables"])
@@ -1193,37 +1243,94 @@ def complexity_pattern_view(pattern: str) -> str:
 @app.route("/solution/<category>/<filename>")
 def solution_view(category: str, filename: str) -> str:
     """View a specific solution."""
-    # Add .py extension if not present
+    # Add .py extension if not present to normalize the filename
     filename = ensure_py_extension(filename)
-
-    solution_code = category_manager.read_solution_content(category, filename)
-    if not solution_code:
-        abort(404)
 
     # Get solution metadata
     solution = category_manager.get_solution(category, filename)
     if not solution:
         abort(404)
 
-    # Extract problem description from docstring
-    problem_description = extract_problem_description(solution_code)
+    # Check if any solutions exist for this problem
+    if not solution.available_languages:
+        # No solutions available - show helpful message
+        cat_data = category_manager.get_category(category)
+        display_filename = filename.replace(".py", "")
+        return render_template(
+            "no_solution.html",
+            category=category,
+            category_name=cat_data.name if cat_data else category.replace("-", " ").title(),
+            filename=display_filename,
+            problem_number=solution.number,
+            problem_name=solution.name,
+        )
 
-    # Parse docstring to extract explanation sections
-    clean_code, explanation_sections = parse_docstring_explanation(solution_code)
+    # Get language from query parameter, or default to Python, then first available
+    requested_language = request.args.get("lang")
+    if requested_language and requested_language in solution.available_languages:
+        display_language = requested_language
+    elif "Python" in solution.available_languages:
+        display_language = "Python"
+    else:
+        display_language = solution.available_languages[0]
 
-    # Generate skeleton code
-    skeleton = generate_skeleton(clean_code, solution, is_leetcode=False)
+    # Get solution code in the display language
+    solution_path = get_solution_path(category, filename, display_language)
+    if not solution_path.exists():
+        abort(404)
 
-    # Syntax highlighting for Python code
+    with open(solution_path) as f:
+        solution_code = f.read()
+
+    # Parse content using unified language-agnostic extraction
+    file_extension = solution_path.suffix
+    clean_code, problem_data = extract_all_problem_data(solution_code, file_extension)
+
+    # Convert problem statement to HTML
+    problem_description = None
+    if problem_data.problem_statement:
+        problem_description = parse_problem_markdown(problem_data.problem_statement)
+
+    # Convert explanation sections to dict format for template
+    explanation_sections = None
+    if any([problem_data.intuition, problem_data.approach, problem_data.why_works, problem_data.example_walkthrough]):
+        # Convert to markdown HTML for each section
+        explanation_sections = {}
+        if problem_data.intuition:
+            explanation_sections["intuition"] = markdown.markdown(
+                problem_data.intuition, extensions=["fenced_code", "tables"]
+            )
+        if problem_data.approach:
+            explanation_sections["approach"] = markdown.markdown(
+                problem_data.approach, extensions=["fenced_code", "tables"]
+            )
+        if problem_data.why_works:
+            explanation_sections["why_works"] = markdown.markdown(
+                problem_data.why_works, extensions=["fenced_code", "tables"]
+            )
+        if problem_data.example_walkthrough:
+            explanation_sections["example"] = markdown.markdown(
+                problem_data.example_walkthrough, extensions=["fenced_code", "tables"]
+            )
+
+    # Generate skeleton and get lexer based on language
+    if display_language == "Python":
+        skeleton = generate_skeleton(clean_code, solution, is_leetcode=False)
+        lexer = PythonLexer()
+    elif display_language == "JavaScript":
+        skeleton = generate_js_skeleton(clean_code, solution)
+        lexer = get_lexer_for_language("JavaScript")
+    else:
+        skeleton = None
+        lexer = get_lexer_for_language(display_language)
+
+    # Syntax highlighting
     formatter = create_code_formatter()
-    highlighted_code = highlight(clean_code, PythonLexer(), formatter)
-    highlighted_skeleton = highlight(skeleton, PythonLexer(), formatter)
+    highlighted_code = highlight(clean_code, lexer, formatter)
+    highlighted_skeleton = highlight(skeleton, lexer, formatter) if skeleton else None
 
     # Get category name
     cat_data = category_manager.get_category(category)
-
-    # Get all available languages for this problem
-    available_languages = get_available_languages(category, filename)
 
     # Remove .py from filename for URL display
     display_filename = filename.replace(".py", "")
@@ -1241,7 +1348,8 @@ def solution_view(category: str, filename: str) -> str:
         explanation=explanation_sections,
         style=formatter.get_style_defs(".highlight"),  # type: ignore[no-untyped-call]
         is_leetcode_format=False,
-        available_languages=available_languages,
+        available_languages=solution.available_languages,
+        current_language=display_language,
         difficulty=solution.difficulty,
         time_complexity=solution.time_complexity,
         space_complexity=solution.space_complexity,
@@ -1305,11 +1413,11 @@ def download_solution(category: str, filename: str, format: str, language: str =
     if language == "Python":
         solution_code = category_manager.read_solution_content(category, filename)
     else:
-        # Get alternative language solution
-        alt_path = get_alternative_solution_path(category, filename, language)
+        # Get solution in other language
+        solution_path = get_solution_path(category, filename, language)
 
-        if alt_path.exists():
-            with open(alt_path) as f:
+        if solution_path.exists():
+            with open(solution_path) as f:
                 solution_code = f.read()
         else:
             abort(404)
@@ -1593,7 +1701,7 @@ def generate_skeleton(code: str, solution: Any, is_leetcode: bool = False) -> st
 
 
 @app.route("/solution/<category>/<filename>/upload", methods=["GET", "POST"])
-def upload_alternative_solution(category: str, filename: str) -> str | Response:
+def upload_solution(category: str, filename: str) -> str | Response:
     """Upload solution in a different programming language."""
     # Handle .py extension if present
     filename = ensure_py_extension(filename)
@@ -1633,94 +1741,6 @@ def upload_alternative_solution(category: str, filename: str) -> str | Response:
     # Remove .py from filename for URL display
     display_filename = remove_py_extension(filename)
     return render_template("upload_solution.html", category=category, filename=display_filename, solution=solution)
-
-
-@app.route("/solution/<category>/<filename>/view/<language>")
-def view_alternative_solution(category: str, filename: str, language: str) -> str:
-    """View solution in a specific programming language."""
-    # Handle .py extension if present
-    filename = ensure_py_extension(filename)
-
-    solution = category_manager.get_solution(category, filename)
-    if not solution:
-        abort(404)
-
-    # Get the alternative solution file
-    alt_path = get_alternative_solution_path(category, filename, language)
-
-    if not alt_path.exists():
-        abort(404)
-
-    # Read the alternative solution
-    with open(alt_path) as f:
-        code_content = f.read()
-
-    # Parse content based on language
-    if language.lower() == "javascript":
-        # Parse JavaScript code
-        clean_code, explanation_sections = parse_jsdoc_explanation(code_content)
-        problem_description = extract_js_problem_description(code_content)
-        skeleton_code = generate_js_skeleton(clean_code, solution)
-    else:
-        # For other languages, use basic parsing or add more language support as needed
-        clean_code = code_content
-        explanation_sections = None
-        problem_description = None
-        skeleton_code = None
-
-    # Get appropriate lexer for syntax highlighting
-    lexer = get_lexer_for_language(language)
-    formatter = create_code_formatter()
-    highlighted_code = highlight(clean_code, lexer, formatter)
-    highlighted_skeleton = highlight(skeleton_code, lexer, formatter) if skeleton_code else None
-
-    # Get all available languages for this problem
-    available_languages = get_available_languages(category, filename)
-
-    cat_data = category_manager.get_category(category)
-
-    # Remove .py from filename for URL display
-    display_filename = filename.replace(".py", "")
-
-    return render_template(
-        "solution.html",
-        category=category,
-        category_name=cat_data.name if cat_data else category.replace("-", " ").title(),
-        filename=display_filename,
-        problem_number=solution.number,
-        problem_name=solution.name,
-        problem_description=problem_description,
-        skeleton_code=highlighted_skeleton,
-        code=highlighted_code,
-        explanation=explanation_sections,
-        style=formatter.get_style_defs(".highlight"),  # type: ignore[no-untyped-call]
-        is_leetcode_format=False,
-        current_language=language,
-        available_languages=available_languages,
-        difficulty=solution.difficulty,
-        time_complexity=solution.time_complexity,
-        space_complexity=solution.space_complexity,
-    )
-
-
-def get_available_languages(category: str, filename: str) -> list[str]:
-    """Get list of available programming languages for a solution."""
-    languages = ["Python"]  # Always have Python
-
-    # Check alternatives directory
-    alt_dir = Path(__file__).parent.parent.parent / "solutions" / category / "alternatives"
-    if alt_dir.exists():
-        base_name = filename.replace(".py", "")
-
-        for file_path in alt_dir.iterdir():
-            if file_path.name.startswith(base_name) and file_path.is_file():
-                # Check for simple naming pattern: base_name.ext (e.g., "048-rotate-image.js")
-                file_extension = file_path.suffix.lower()
-                if file_extension in EXTENSION_TO_LANGUAGE:
-                    language = EXTENSION_TO_LANGUAGE[file_extension]
-                    languages.append(language)
-
-    return sorted(set(languages))
 
 
 @app.route("/docs")
@@ -2047,7 +2067,7 @@ def serialize_results(results: dict[str, list[dict[str, Any]]]) -> dict[str, lis
                 {
                     "number": solution.number,
                     "name": solution.name,
-                    "filename": solution.filename,
+                    "filename": solution.url_filename,
                     "difficulty": solution.difficulty,
                     "score": item["score"],
                     "category_slug": item["category_slug"],
@@ -2172,8 +2192,7 @@ def search() -> str | Response | WerkzeugResponse:
     if mode == "navigate":
         solution = search_result["solution"]
         category_slug = search_result["category_slug"]
-        filename_without_ext = remove_py_extension(solution.filename)
-        return redirect(url_for("solution_view", category=category_slug, filename=filename_without_ext))
+        return redirect(url_for("solution_view", category=category_slug, filename=solution.url_filename))
 
     # Handle other modes (render results page)
     elif mode == "similar":
@@ -2187,7 +2206,7 @@ def search() -> str | Response | WerkzeugResponse:
             "difficulty": reference_solution.difficulty,
             "category": reference_category[0] if reference_category else "",
             "category_name": reference_category[1] if reference_category else "",
-            "filename": remove_py_extension(reference_solution.filename),
+            "filename": reference_solution.url_filename,
             "time_complexity": reference_solution.time_complexity,
         }
 
@@ -2248,7 +2267,7 @@ def api_search() -> Response | tuple[Response, int]:
                     "number": solution.number,
                     "name": solution.name,
                     "category": search_result["category_slug"],
-                    "filename": solution.filename,
+                    "filename": solution.url_filename,
                 },
             }
         )

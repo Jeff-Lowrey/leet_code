@@ -17,18 +17,13 @@ document.addEventListener('DOMContentLoaded', function () {
         const medium = difficultyCounts.medium || 0;
         const hard = difficultyCounts.hard || 0;
 
+        // Always show all three difficulty levels with labels and emojis
         let html = '';
-        if (easy > 0) {
-          html += `<span class="badge difficulty-easy">🟢 ${easy}</span> `;
-        }
-        if (medium > 0) {
-          html += `<span class="badge difficulty-medium">🟡 ${medium}</span> `;
-        }
-        if (hard > 0) {
-          html += `<span class="badge difficulty-hard">🔴 ${hard}</span>`;
-        }
+        html += `<span class="badge difficulty-easy">🟢 Easy: ${easy}</span> `;
+        html += `<span class="badge difficulty-medium">🟡 Med: ${medium}</span> `;
+        html += `<span class="badge difficulty-hard">🔴 Hard: ${hard}</span>`;
 
-        difficultyBadgesDiv.innerHTML = html || '<span class="no-data">No difficulty data</span>';
+        difficultyBadgesDiv.innerHTML = html;
       },
       `Failed to load difficulty stats for ${categorySlug}:`,
       function () {

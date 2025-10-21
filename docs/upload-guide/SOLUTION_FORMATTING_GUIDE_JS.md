@@ -131,7 +131,7 @@ class Solution {
     }
 
     /**
-     * Alternative solution method
+     * Solution in another language method
      * @param {number[]} nums - Array of numbers
      * @param {number} target - Target sum
      * @return {number[]} - Indices of two numbers
@@ -294,14 +294,14 @@ Use modern JavaScript array methods:
 5. ✅ Write APPROACH as flowing prose, not numbered lists
 6. ✅ Use inline `code` formatting for variable names and keywords
 7. ✅ Provide 3+ test cases including edge cases
-8. ✅ Include alternative solutions when relevant
+8. ✅ Include solution in another languages when relevant
 9. ✅ Add clear comments to code explaining non-obvious logic
 10. ❌ Don't skip required sections (INTUITION, APPROACH, etc.)
 
 ## Reference Implementation
 [↑ Back to Table of Contents](#reference-implementation)
 
-See [`solutions/arrays-hashing/alternatives/001-two-sum.js`](../../solutions/arrays-hashing/alternatives/001-two-sum.js) for a complete, correctly formatted example.
+See [`solutions/arrays-hashing/javascript/001-two-sum.js`](../../solutions/arrays-hashing/javascript/001-two-sum.js) for a complete, correctly formatted example.
 
 ## Additional Resources
 [↑ Back to Table of Contents](#additional-resources)

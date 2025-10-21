@@ -100,7 +100,7 @@ class TestStaticAssets:
 
     def test_css_accessible(self, client: Any) -> None:
         """Verify CSS files load."""
-        response = client.get("/static/css/style.css")
+        response = client.get("/static/css/main.css")
         # Static files may or may not exist in test environment
         assert response.status_code in [200, 404]
 

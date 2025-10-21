@@ -17,6 +17,47 @@
 
 The template system provides standardized solution formats and generates skeleton code for practice. It supports both Python and JavaScript with consistent structure across all solutions.
 
+### Reusable Template Components
+
+**New in Issue #5**: The application uses reusable Jinja2 template partials to eliminate code duplication and ensure consistency across views.
+
+#### Solution Card Partial
+
+**Location**: `templates/partials/solution_card.html`
+
+**Purpose**: Reusable component for displaying solution cards across category, difficulty, and complexity views.
+
+**Features**:
+- Single source of truth for card structure
+- Boolean flags for customizable display (difficulty, complexity, description, category label)
+- Optional data attributes for JavaScript functionality
+- Consistent styling and layout
+
+**Usage Example**:
+```jinja2
+{# In category.html, difficulty.html, or complexity.html #}
+{% for solution in solutions %}
+    {% set show_difficulty = true %}
+    {% set show_complexity = true %}
+    {% set show_description = true %}
+    {% set data_attrs = {'category': category} %}
+    {% include 'partials/solution_card.html' %}
+{% endfor %}
+```
+
+**Customization Flags**:
+- `show_category_label` - Display category name for cross-category views
+- `show_difficulty` - Show difficulty badge (Easy/Medium/Hard)
+- `show_complexity` - Show time/space complexity badge
+- `show_description` - Show one-sentence problem description
+- `data_attrs` - Dictionary of HTML data attributes for JavaScript
+
+**Benefits**:
+- Eliminates ~60 lines of duplicated code
+- Ensures consistent card structure across all views
+- Single location for card layout changes
+- Easier maintenance and updates
+
 ## Solution Templates
 
 ### Python Template

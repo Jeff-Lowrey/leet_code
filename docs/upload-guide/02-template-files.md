@@ -224,7 +224,7 @@ if (typeof module !== 'undefined' && module.exports) {
 
 **Step 1: Copy Template**
 ```bash
-cp docs/solutions/templates/SOLUTION_TEMPLATE.js docs/solutions/{category}/alternatives/NNN-problem-name.js.js
+cp docs/solutions/templates/SOLUTION_TEMPLATE.js docs/solutions/{category}/javascript/NNN-problem-name.js.js
 ```
 
 **Step 2: Fill JSDoc Comment**
@@ -299,7 +299,7 @@ While Python and JavaScript have official templates, you can create solutions in
 ### File Naming for Other Languages
 
 ```
-docs/solutions/{category}/alternatives/NNN-problem-name.{ext}.{ext}
+docs/solutions/{category}/javascript/NNN-problem-name.{ext}.{ext}
 ```
 
 **Examples:**
@@ -343,7 +343,7 @@ cp docs/solutions/templates/SOLUTION_TEMPLATE.py docs/solutions/arrays-hashing/0
 
 ### Copy JavaScript Template
 ```bash
-cp docs/solutions/templates/SOLUTION_TEMPLATE.js docs/solutions/arrays-hashing/alternatives/001-two-sum.js.js
+cp docs/solutions/templates/SOLUTION_TEMPLATE.js docs/solutions/arrays-hashing/javascript/001-two-sum.js.js
 ```
 
 ### Verify Template Structure
@@ -352,7 +352,7 @@ cp docs/solutions/templates/SOLUTION_TEMPLATE.js docs/solutions/arrays-hashing/a
 python docs/solutions/{category}/NNN-problem-name.py
 
 # JavaScript
-node docs/solutions/{category}/alternatives/NNN-problem-name.js.js
+node docs/solutions/{category}/javascript/NNN-problem-name.js.js
 ```
 
 ## Template Customization
@@ -360,7 +360,7 @@ node docs/solutions/{category}/alternatives/NNN-problem-name.js.js
 ### When to Modify Templates
 
 Templates can be customized for:
-- Alternative solution approaches
+- Solution in another language approaches
 - Multiple solution methods
 - Language-specific features
 - Advanced explanations

@@ -129,7 +129,7 @@
             {% else %}
             <a href="{{ url_for('solution_view', category=category, filename=filename) }}" class="btn btn-secondary">View Original Format</a>
             {% endif %}
-            <a href="{{ url_for('upload_alternative_solution', category=category, filename=filename) }}" class="btn btn-secondary">Upload Solution</a>
+            <a href="{{ url_for('upload_solution', category=category, filename=filename) }}" class="btn btn-secondary">Upload Solution</a>
         </div>
         <div class="download-options">
             <span class="download-label">Download{% if current_language %} ({{ current_language }}){% endif %}:</span>
@@ -155,11 +155,11 @@
                 {% for lang in available_languages %}
                     {% if lang == 'Python' %}
                         <option value="{{ url_for('solution_view', category=category, filename=filename) }}"
-                                {% if not current_language or current_language == 'Python' %}selected{% endif %}>
+                                {% if current_language == 'Python' %}selected{% endif %}>
                             {{ lang }}
                         </option>
                     {% else %}
-                        <option value="{{ url_for('view_alternative_solution', category=category, filename=filename, language=lang) }}"
+                        <option value="{{ url_for('solution_view', category=category, filename=filename, lang=lang) }}"
                                 {% if current_language == lang %}selected{% endif %}>
                             {{ lang }}
                         </option>

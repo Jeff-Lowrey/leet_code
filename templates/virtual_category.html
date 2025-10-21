@@ -23,7 +23,7 @@
     {% if solutions %}
     <div class="solutions-grid virtual-category">
         {% for item in solutions %}
-        <a href="{{ url_for('solution_view', category=item.category, filename=item.solution.filename.replace('.py', '')) }}" class="solution-card" data-category="{{ item.category }}">
+        <a href="{{ url_for('solution_view', category=item.category, filename=item.solution.url_filename) }}" class="solution-card" data-category="{{ item.category }}">
             {% if item.solution.number %}
             <span class="problem-number">#{{ item.solution.number }}</span>
             {% endif %}
