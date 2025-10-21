@@ -1,4 +1,6 @@
 """
+# 443. String Compression
+
 # Difficulty: Medium
 
 Given an array of characters chars, compress it using the following algorithm:

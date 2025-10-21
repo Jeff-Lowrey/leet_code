@@ -1,4 +1,6 @@
 """
+# 207. Course Schedule
+
 # Difficulty: Medium
 
 There are a total of numCourses courses you have to take, labeled from 0 to `numCourses - 1`.

@@ -1,4 +1,6 @@
 """
+# 496. Next Greater Element
+
 # Difficulty: Easy
 
 The next greater element of some element x in an array is the first greater

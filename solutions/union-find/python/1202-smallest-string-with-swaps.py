@@ -1,4 +1,6 @@
 """
+# 1202. Smallest String With Swaps
+
 # Difficulty: Medium
 
 You are given a string s, and an array of pairs where pairs[i] = [a, b] indicates 2 indices

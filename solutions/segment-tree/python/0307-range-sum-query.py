@@ -1,4 +1,6 @@
 """
+# 307. Range Sum Query
+
 # Difficulty: Medium
 
 Given an integer array `nums`, handle multiple queries of the following types:
