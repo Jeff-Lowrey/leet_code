@@ -8,11 +8,6 @@ in the string.
 
 A word is a maximal substring consisting of non-space characters only.
 
-Example:
-Input: s = "Hello World"
-Output: 5
-Explanation: The last word is "World" with length 5.
-
 **Example:**
 
 <dl class="example-details">
@@ -25,15 +20,12 @@ Explanation: The last word is "World" with length 5.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: O(n)
-**Space Complexity**: O(1)
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: String, Tree
+**Patterns**: Two Pointers Pattern, Hash Table Pattern
+**Time Complexity**: O(n) - Single pass through input
+**Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
 We need to find the last word in a string and return its length. The key challenge

@@ -18,15 +18,11 @@ with its eight neighbors (horizontal, vertical, diagonal) using the following fo
 The next state is created by applying the above rules simultaneously to every cell
 in the current state, where births and deaths occur simultaneously.
 
-Example:
-Input: `board` = [[0,1,0],[0,0,1],[1,1,1],[0,0,0]]
-Output: [[0,0,0],[1,0,1],[0,1,1],[0,1,0]]
-
 **Example:**
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>board` = [[0,1,0],[0,0,1],[1,1,1],[0,0,0]]</dd>
+<dd>board = [[0,1,0],[0,0,1],[1,1,1],[0,0,0]]</dd>
 <dt>Output:</dt>
 <dd>[[0,0,0],[1,0,1],[0,1,1],[0,1,0]]</dd>
 <dt>Explanation:</dt>
@@ -34,15 +30,12 @@ Output: [[0,0,0],[1,0,1],[0,1,1],[0,1,0]]
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
+**Data Structures**: Hash Map, Hash Set, Array
+**Patterns**: Hash Table Pattern, Graph Pattern
 **Time Complexity**: O(m × n)
-**Space Complexity**: O(1)
+**Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
 The challenge is applying rules simultaneously to all cells. Use state encoding to track both current and next states in-place, avoiding extra space while ensuring all decisions are based on the original state.

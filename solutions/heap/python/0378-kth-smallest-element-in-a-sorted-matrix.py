@@ -21,15 +21,12 @@ You must find a solution with a memory complexity better than O(n²).
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
+**Data Structures**: Hash Set, Array, Heap
+**Patterns**: Two Pointers Pattern, Hash Table Pattern
 **Time Complexity**: O(k log n)
-**Space Complexity**: O(n)
+**Space Complexity**: O(n) - Additional set storage
 
 ### INTUITION:
 This problem involves finding the kth smallest element in a matrix where both rows and columns are sorted. We have multiple approaches: heap-based, binary search, and merge-like. The heap approach treats each row as a sorted list and uses a min-heap to efficiently find the kth smallest element.

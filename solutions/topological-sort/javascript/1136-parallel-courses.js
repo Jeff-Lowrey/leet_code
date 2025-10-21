@@ -21,14 +21,12 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: * O(n)
-**Space Complexity**: * O(1)
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * **Techniques**: Hash Map Storage, Array Traversal, Queue Operations
+ * **Data Structures**: Array, Queue, Graph
+ * **Patterns**: Graph Pattern, Tree Pattern
+ * **Time Complexity**: * O(n) - Single pass through input
+ * **Space Complexity**: * O(1) - Constant extra space
 
  *
  * ### INTUITION:

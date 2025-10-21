@@ -28,13 +28,10 @@ Output: [[1,4],[2,5],[3,6]]
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Array Traversal
+**Data Structures**: Hash Map, Array, Matrix
+**Patterns**: Iterative Solution
 **Time Complexity**: O(m × n)
 **Space Complexity**: O(m × n)
 

@@ -23,15 +23,12 @@ Note: You are not allowed to use any built-in function which evaluates strings a
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: O(n)
-**Space Complexity**: O(1)
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Stack Operations
+**Data Structures**: Hash Set, Array, String
+**Patterns**: Iterative Solution
+**Time Complexity**: O(n) - Single pass through input
+**Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
 Use stack to handle operators. Scan number by number. For +/- push to stack. For *// pop, compute with previous, push result. Finally sum stack for result.
@@ -81,8 +78,8 @@ O(1)
 </details>
 """
 
-
 from typing import Any
+
 
 class Solution:
     def calculate(self, s: str) -> int:

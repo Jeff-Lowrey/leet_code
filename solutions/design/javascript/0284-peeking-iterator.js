@@ -35,14 +35,12 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: * O(1)
-**Space Complexity**: * O(1)
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * **Techniques**: Array Traversal, Queue Operations
+ * **Data Structures**: Array, Queue, Linked List
+ * **Patterns**: Iterative Solution
+ * **Time Complexity**: * O(1)
+ * **Space Complexity**: * O(1) - Constant extra space
 
  *
  * ### INTUITION:

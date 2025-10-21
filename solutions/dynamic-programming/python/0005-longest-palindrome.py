@@ -5,11 +5,6 @@
 
 Given a string s, return the longest palindromic substring in s.
 
-Example:
-Input: s = "babad"
-Output: "bab"
-Explanation: "aba" is also a valid `answer`.
-
 **Example:**
 
 <dl class="example-details">
@@ -22,15 +17,12 @@ Explanation: "aba" is also a valid `answer`.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: O(n²)
-**Space Complexity**: O(1)
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
+**Data Structures**: Hash Set, String, Tree
+**Patterns**: Two Pointers Pattern, Hash Table Pattern
+**Time Complexity**: O(n²) - Nested iteration through input
+**Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
 A palindrome reads the same forwards and backwards. We can find palindromes
@@ -78,7 +70,6 @@ O(1)
 
 from collections import Counter
 from typing import Any
-
 
 
 class Solution:

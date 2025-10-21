@@ -25,14 +25,12 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: * O(n)
-**Space Complexity**: * O(1)
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * **Techniques**: Array Traversal, Two Pointers, Stack Operations
+ * **Data Structures**: Array, String, Stack
+ * **Patterns**: Two Pointers Pattern, Divide and Conquer
+ * **Time Complexity**: * O(n) - Single pass through input
+ * **Space Complexity**: * O(1) - Constant extra space
 
  *
  * ### INTUITION:

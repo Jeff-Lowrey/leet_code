@@ -8,11 +8,6 @@ If there are multiple answers, return the answer that occurs last in the given i
 
 The input is a 2D array edges where each edges[i] = [ui, vi] represents a directed edge from ui to vi.
 
-Example:
-Input: edges = [[1,2],[1,3],[2,3]]
-Output: [2,3]
-Explanation: Removing [2,3] creates a valid tree.
-
 **Example:**
 
 <dl class="example-details">
@@ -25,15 +20,12 @@ Explanation: Removing [2,3] creates a valid tree.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: Hash Map, Hash Set, Array
+**Patterns**: Iterative Solution
 **Time Complexity**: O(n α(n))
-**Space Complexity**: O(n)
+**Space Complexity**: O(n) - Additional hash map storage
 
 ### INTUITION:
 A rooted tree has exactly one root (no parent) and all other nodes have exactly one parent.
@@ -77,9 +69,8 @@ O(n)
 
 </details>
 """
+
 import re
-
-
 
 
 class UnionFind:
@@ -89,7 +80,6 @@ class UnionFind:
         """Initialize with n elements."""
         self.parent = list(range(n))
         self.rank = [0] * n
-
 
     @property
     def components(self) -> int:

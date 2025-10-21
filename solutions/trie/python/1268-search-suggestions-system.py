@@ -21,13 +21,10 @@ Return a list of lists of the suggested products after each character of searchW
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: Hash Map, Array, String
+**Patterns**: Two Pointers Pattern, Hash Table Pattern
 **Time Complexity**: O(N * L + S)
 **Space Complexity**: O(N * L)
 
@@ -86,11 +83,8 @@ For storing the trie structure
 </details>
 """
 
-
 from typing import Any
 import re
-
-
 
 
 class TrieNode:

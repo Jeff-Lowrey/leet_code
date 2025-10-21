@@ -23,14 +23,12 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: * O(n² × α(n))
-**Space Complexity**: * O(n)
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * **Techniques**: Hash Map Storage, Array Traversal, Stack Operations
+ * **Data Structures**: Array, String, Stack
+ * **Patterns**: Hash Table Pattern, Graph Pattern
+ * **Time Complexity**: * O(n² × α(n))
+ * **Space Complexity**: * O(n)
 
  *
  * ### INTUITION:

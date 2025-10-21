@@ -19,13 +19,10 @@ You are given a string array sentences and an integer array times both of length
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Standard Algorithm
+**Data Structures**: Array, String, Tree
+**Patterns**: Hash Table Pattern
 **Time Complexity**: - Constructor: O(N * L) where N is sentences count, L is average length
 **Space Complexity**: O(N * L)
 

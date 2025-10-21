@@ -53,11 +53,11 @@ def extract_metadata_from_content(content: str) -> dict[str, str]:
 def create_metadata_section(metadata: dict[str, str]) -> str:
     """Create METADATA section with extracted or placeholder values."""
     return f"""### METADATA:
-**Techniques**: {metadata['techniques'] or 'TBD'}
-**Data Structures**: {metadata['data_structures'] or 'TBD'}
-**Patterns**: {metadata['patterns'] or 'TBD'}
-**Time Complexity**: {metadata['time_complexity'] or 'TBD'}
-**Space Complexity**: {metadata['space_complexity'] or 'TBD'}
+**Techniques**: {metadata["techniques"] or "TBD"}
+**Data Structures**: {metadata["data_structures"] or "TBD"}
+**Patterns**: {metadata["patterns"] or "TBD"}
+**Time Complexity**: {metadata["time_complexity"] or "TBD"}
+**Space Complexity**: {metadata["space_complexity"] or "TBD"}
 
 """
 

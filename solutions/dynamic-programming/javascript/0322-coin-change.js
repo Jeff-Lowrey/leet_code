@@ -26,14 +26,12 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: * O(amount × len(coins))
-**Space Complexity**: * O(amount)
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * **Techniques**: Hash Map Storage, Array Traversal, Memoization
+ * **Data Structures**: Array
+ * **Patterns**: Greedy Algorithm, Dynamic Programming
+ * **Time Complexity**: * O(amount × len(coins))
+ * **Space Complexity**: * O(amount)
 
  *
  * ### INTUITION:

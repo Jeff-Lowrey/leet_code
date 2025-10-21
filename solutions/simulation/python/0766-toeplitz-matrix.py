@@ -33,15 +33,12 @@ The diagonal "[1, 2]" has different elements.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: Hash Map, Array, Tree
+**Patterns**: Two Pointers Pattern
 **Time Complexity**: O(m × n)
-**Space Complexity**: O(1)
+**Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
 In a Toeplitz matrix, each diagonal going from top-left to bottom-right contains
@@ -96,8 +93,8 @@ O(1)
 </details>
 """
 
-
 from typing import Any
+
 
 class Solution:
     def isToeplitzMatrix(self, matrix: list[list[int]]) -> bool:

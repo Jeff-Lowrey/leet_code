@@ -25,14 +25,12 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: * O(V + E)
-**Space Complexity**: * O(V + E)
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * **Techniques**: Hash Map Storage, Array Traversal, Queue Operations
+ * **Data Structures**: Array, Queue, Graph
+ * **Patterns**: Graph Pattern
+ * **Time Complexity**: * O(V + E)
+ * **Space Complexity**: * O(V + E)
 
  *
  * ### INTUITION:

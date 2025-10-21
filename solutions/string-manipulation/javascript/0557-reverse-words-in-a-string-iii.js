@@ -20,14 +20,12 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: * O(n)
-**Space Complexity**: * O(n)
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * **Techniques**: Hash Table Lookup, Array Traversal
+ * **Data Structures**: Hash Map, String
+ * **Patterns**: Iterative Solution
+ * **Time Complexity**: * O(n) - Single pass through input
+ * **Space Complexity**: * O(n) - Additional hash map storage
 
  *
  * ### INTUITION:

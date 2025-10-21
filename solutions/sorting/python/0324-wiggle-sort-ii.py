@@ -21,15 +21,12 @@ Follow up: Can you do it in O(n) time and/or in-place with O(1) extra space?
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: O(n log n)
-**Space Complexity**: O(n)
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: Hash Map, Array, Graph
+**Patterns**: Graph Pattern
+**Time Complexity**: O(n log n) - Sorting or divide-and-conquer
+**Space Complexity**: O(n) - Additional hash map storage
 
 ### INTUITION:
 Unlike Wiggle Sort I which allows equality, this requires strict inequality (<, >, <, >).
@@ -92,8 +89,8 @@ For temporary sorted array. Can be O(1) with in-place virtual indexing.
 </details>
 """
 
-
 from typing import Any
+
 
 class Solution:
     def wiggleSort(self, nums: list[int]) -> None:

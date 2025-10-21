@@ -17,13 +17,10 @@ Design and implement a Least Frequently Used (LFU) cache.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup
+**Data Structures**: Hash Map, Array
+**Patterns**: Hash Table Pattern
 **Time Complexity**: - get: O(1)
 **Space Complexity**: O(capacity) for storing items
 

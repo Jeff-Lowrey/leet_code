@@ -23,15 +23,12 @@ Return the number of teams you can form given the conditions. (soldiers can be u
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: O(n log n)
-**Space Complexity**: O(n)
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: Hash Set, Array, Tree
+**Patterns**: Two Pointers Pattern, Hash Table Pattern
+**Time Complexity**: O(n log n) - Sorting or divide-and-conquer
+**Space Complexity**: O(n) - Additional hash map storage
 
 ### INTUITION:
 This problem is about counting ordered triplets in an array. We can solve it using multiple approaches: brute force O(n³), dynamic programming O(n²), or advanced data structures like segment trees or Binary Indexed Trees for O(n log n). The key insight is that for each middle element, we count how many valid left and right elements exist.
@@ -80,8 +77,8 @@ For compressed coordinates and tree structure
 
 </details>
 """
-from typing import Any
 
+from typing import Any
 
 
 class Solution:

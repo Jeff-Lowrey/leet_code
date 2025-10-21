@@ -17,14 +17,11 @@ Given the root of a binary tree, return an array of the largest value in each ro
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: O(n)
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Map Storage, Array Traversal, Two Pointers
+**Data Structures**: Array, Stack, Queue
+**Patterns**: Two Pointers Pattern, Hash Table Pattern
+**Time Complexity**: O(n) - Single pass through input
 **Space Complexity**: O(w)
 
 ### INTUITION:
@@ -82,7 +79,6 @@ O(w)
 
 from collections import deque
 from typing import Any
-
 
 
 class TreeNode:

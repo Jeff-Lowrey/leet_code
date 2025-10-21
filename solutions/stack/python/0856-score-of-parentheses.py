@@ -22,14 +22,11 @@ The score of a balanced parentheses string is based on the following rule:
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: O(n)
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: String, Stack, Graph
+**Patterns**: Hash Table Pattern, Graph Pattern
+**Time Complexity**: O(n) - Single pass through input
 **Space Complexity**: O(n)
 
 ### INTUITION:
@@ -84,8 +81,8 @@ Stack can grow to depth of nesting
 </details>
 """
 
-
 from typing import Any
+
 
 class Solution:
     def scoreOfParentheses(self, s: str) -> int:

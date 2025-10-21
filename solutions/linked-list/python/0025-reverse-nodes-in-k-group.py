@@ -21,15 +21,12 @@ You may not alter the values in the list's nodes, only nodes themselves may be c
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: O(n)
-**Space Complexity**: O(1)
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Map Storage, Array Traversal, Graph Traversal
+**Data Structures**: Array, Linked List
+**Patterns**: Hash Table Pattern, Graph Pattern
+**Time Complexity**: O(n) - Single pass through input
+**Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
 Reverse k nodes at a time using standard reversal. Track previous group's tail and current group's head/tail. Connect groups after reversal. Stop if fewer than k nodes remain.
@@ -79,11 +76,12 @@ O(1)
 </details>
 """
 
-
 from typing import Any
+
 
 class ListNode:
     """..."""
+
     def __init__(self, val: Any = 0, next: Any = None) -> None:
         self.val = val
         self.next = next

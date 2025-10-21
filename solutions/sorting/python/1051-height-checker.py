@@ -21,14 +21,11 @@ Return the number of indices where heights[i] != expected[i].
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: O(n log n)
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Array Traversal, Sorting
+**Data Structures**: Array
+**Patterns**: Hash Table Pattern
+**Time Complexity**: O(n log n) - Sorting or divide-and-conquer
 **Space Complexity**: O(n)
 
 ### INTUITION:
@@ -75,8 +72,8 @@ For the sorted expected array
 
 </details>
 """
-from typing import Any
 
+from typing import Any
 
 
 class Solution:

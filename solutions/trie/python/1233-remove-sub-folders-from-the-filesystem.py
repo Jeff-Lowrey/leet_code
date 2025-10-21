@@ -23,13 +23,10 @@ For example, "/leetcode" and "/leetcode/problems" are valid paths while an empty
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: Hash Map, Array, String
+**Patterns**: Hash Table Pattern
 **Time Complexity**: O(N * L * log(N))
 **Space Complexity**: O(N * L)
 
@@ -95,11 +92,8 @@ For storing the trie structure
 </details>
 """
 
-
 from typing import Any
 import re
-
-
 
 
 class TrieNode:

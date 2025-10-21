@@ -8,10 +8,6 @@ Given a reference of a node in a connected undirected graph, return a deep copy
 
 Each `node` in the graph contains a value (int) and a list (List[Node]) of its neighbors.
 
-Example:
-Input: adjList = [[2,4],[1,3],[2,4],[1,3]]
-Output: [[2,4],[1,3],[2,4],[1,3]]
-
 **Example:**
 
 <dl class="example-details">
@@ -24,13 +20,10 @@ Output: [[2,4],[1,3],[2,4],[1,3]]
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
+**Data Structures**: Hash Map, Hash Set, Array
+**Patterns**: Hash Table Pattern, Backtracking
 **Time Complexity**: O(V + E) - visit each node and edge once
 **Space Complexity**: O(V) - hash map and recursion stack
 
@@ -92,9 +85,9 @@ from collections import deque, defaultdict
 from typing import List, Any
 
 
-
 class Node:
     """N-ary tree node or graph node."""
+
     def __init__(self, val: Any = None, children: Any = None) -> None:
         self.val = val
         self.children = children if children is not None else []

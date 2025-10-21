@@ -1,4 +1,6 @@
 """
+# [Problem Number]. [Problem Title]
+
 # Difficulty: [Easy/Medium/Hard]
 
 [Problem description goes here. Use markdown formatting with `code` for inline code.]
@@ -11,7 +13,7 @@
 <dt>Input:</dt>
 <dd>[input example]</dd>
 <dt>Output:</dt>
-<dd>result1 = solution.methodName(param1_1, param2_1)</dd>
+<dd>[output example]</dd>
 <dt>Explanation:</dt>
 <dd>[explanation of how input becomes output]</dd>
 </dl>
@@ -19,26 +21,40 @@
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: [e.g., Hash Table Lookup, Binary Search, Two Pointers]
+**Data Structures**: [e.g., Hash Map, Array, Tree, Graph]
+**Patterns**: [e.g., Complement Search, Sliding Window, DFS]
+**Time Complexity**: **O(?)** - [detailed explanation of time complexity]
+**Space Complexity**: **O(?)** - [detailed explanation of space complexity]
+
 ### INTUITION:
-[High-level insight or key observation that makes the solution work.
-Keep this section brief - 1-3 sentences maximum.
-Explain the "aha moment" or central idea.]
+[High-level insight or key observation that makes the solution work.]
+
+[Keep this section brief - 1-3 sentences maximum.]
+
+[Explain the "aha moment" or central idea.]
 
 ### APPROACH:
-[Detailed explanation of the solution approach written in flowing prose.
-Break down the algorithm step by step.
-Explain why each step is necessary.
-Use clear, descriptive language without numbered lists.
-Focus on helping the reader understand the thought process.]
+[Detailed explanation of the solution approach written in flowing prose.]
+
+[Break down the algorithm step by step.]
+
+[Explain why each step is necessary.]
+
+[Use clear, descriptive language without numbered lists.]
+
+[Focus on helping the reader understand the thought process.]
 
 ### WHY THIS WORKS:
-[Brief explanation of correctness.
-Why does this approach solve the problem?
-What properties make it work?
-Use bullet points for clarity.]
+[Brief explanation of correctness - use bullet points for clarity.]
+
+[Why does this approach solve the problem?]
+
+[What properties make it work?]
 
 ### EXAMPLE WALKTHROUGH:
-
 Input:
 ```
 [input example]
@@ -51,10 +67,10 @@ Input:
 **Step N:** [description of final step]
 
 ### TIME COMPLEXITY:
-**O(?)** - [explanation]
+**O(?)** - [detailed explanation]
 
 ### SPACE COMPLEXITY:
-**O(?)** - [explanation]
+**O(?)** - [detailed explanation]
 
 ### EDGE CASES:
 - **[Edge case 1]:** [how it's handled]
@@ -66,7 +82,6 @@ Input:
 
 from typing import Any
 import re
-
 
 
 class Solution:

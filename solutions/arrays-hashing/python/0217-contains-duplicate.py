@@ -6,15 +6,11 @@
 Given an integer array `nums`, return true if any value appears at least twice
 in the array, and return false if every element is distinct.
 
-Example:
-Input: `nums` = [1,2,3,1]
-Output: true
-
 **Example:**
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>nums` = [1,2,3,1]</dd>
+<dd>nums = [1,2,3,1]</dd>
 <dt>Output:</dt>
 <dd>true</dd>
 <dt>Explanation:</dt>
@@ -22,15 +18,12 @@ Output: true
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: O(n)
-**Space Complexity**: O(n)
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
+**Data Structures**: Hash Map, Hash Set, Array
+**Patterns**: Hash Table Pattern
+**Time Complexity**: O(n) - Single pass with O(1) hash lookups
+**Space Complexity**: O(n) - Additional set storage
 
 ### INTUITION:
 If all elements are unique, then the array length equals the set length.
@@ -85,8 +78,8 @@ O(n)
 </details>
 """
 
-
 from typing import Any
+
 
 class Solution:
     def containsDuplicate(self, nums: list[int]) -> bool:

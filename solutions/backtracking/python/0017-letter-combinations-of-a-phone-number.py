@@ -21,13 +21,10 @@ A mapping of digit to letters (just like on the telephone buttons) is given belo
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: Hash Map, Array, String
+**Patterns**: Backtracking
 **Time Complexity**: O(3^N × 4^M)
 **Space Complexity**: O(3^N × 4^M)
 
@@ -71,8 +68,8 @@ For storing all possible combinations
 </details>
 """
 
-
 from typing import Any
+
 
 class Solution:
     def letterCombinations(self, digits: str) -> list[str]:

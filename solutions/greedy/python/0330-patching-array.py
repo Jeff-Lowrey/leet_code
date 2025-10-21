@@ -21,15 +21,12 @@ Return the minimum number of patches (additions to the array) required.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Greedy Selection
+**Data Structures**: Array
+**Patterns**: Hash Table Pattern, Greedy Algorithm
 **Time Complexity**: O(m + log n)
-**Space Complexity**: O(1)
+**Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
 The key insight is tracking what range [1, covered] we can currently form. If we
@@ -129,6 +126,7 @@ def test_solution() -> None:
     """
     Test cases for 330. Patching Array.
     """
+
     class Solution:
         def minPatches(self, nums: List[int], n: int) -> int:
             patches = 0

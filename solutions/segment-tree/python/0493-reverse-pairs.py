@@ -21,15 +21,12 @@ A reverse pair is a pair (i, j) where:
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: O(n log n)
-**Space Complexity**: O(n)
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
+**Data Structures**: Hash Set, Array, Stack
+**Patterns**: Two Pointers Pattern, Hash Table Pattern
+**Time Complexity**: O(n log n) - Sorting or divide-and-conquer
+**Space Complexity**: O(n) - Additional set storage
 
 ### INTUITION:
 This is similar to counting inversions but with a modified condition (nums[i] > 2 * nums[j] instead of nums[i] > nums[j]). We can use merge sort to count these pairs efficiently during the merge process, or use segment trees / BIT with coordinate compression.
@@ -74,8 +71,8 @@ For auxiliary arrays and recursion stack
 </details>
 """
 
-
 from typing import Any
+
 
 class Solution:
     def reversePairs(self, nums: list[int]) -> int:

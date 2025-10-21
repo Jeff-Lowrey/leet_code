@@ -20,14 +20,11 @@ Initially, all next pointers are set to NULL.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: O(n)
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Array Traversal, Two Pointers
+**Data Structures**: Hash Set, Queue, Tree
+**Patterns**: Two Pointers Pattern, Graph Pattern
+**Time Complexity**: O(n) - Single pass through input
 **Space Complexity**: O(w)
 
 ### INTUITION:
@@ -86,10 +83,9 @@ from collections import deque
 from typing import Any
 
 
-
-
 class Node:
     """Binary tree node with next pointer."""
+
     def __init__(self, val: Any = None, left: Any = None, right: Any = None, next: Any = None) -> None:
         self.val = val
         self.left = left

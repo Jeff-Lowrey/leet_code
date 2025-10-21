@@ -21,14 +21,12 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: * O(k) where k is number of 1-bits
-**Space Complexity**: * O(1)
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * **Techniques**: Array Traversal
+ * **Data Structures**: Basic Types
+ * **Patterns**: Hash Table Pattern
+ * **Time Complexity**: * O(k) where k is number of 1-bits
+ * **Space Complexity**: * O(1) - Constant extra space
 
  *
  * ### INTUITION:

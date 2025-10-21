@@ -19,13 +19,10 @@ An island is surrounded by water and is formed by connecting adjacent lands hori
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: Hash Map, Hash Set, Array
+**Patterns**: Hash Table Pattern, Greedy Algorithm
 **Time Complexity**: O(M × N)
 **Space Complexity**: O(M × N)
 
@@ -83,7 +80,6 @@ from typing import Any
 import re
 
 
-
 class UnionFind:
     """Union-Find (Disjoint Set Union) data structure."""
 
@@ -122,8 +118,6 @@ class UnionFind:
     def components(self) -> int:
         """Return number of connected components."""
         return len(set(self.find(i) for i in range(len(self.parent))))
-
-
 
 
 class Solution:

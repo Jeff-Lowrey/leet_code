@@ -20,14 +20,11 @@ and with the smallest space complexity possible.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: O(n log n)
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Map Storage, Array Traversal, Two Pointers
+**Data Structures**: Array, Stack, Heap
+**Patterns**: Two Pointers Pattern, Divide and Conquer
+**Time Complexity**: O(n log n) - Sorting or divide-and-conquer
 **Space Complexity**: - Merge Sort: O(n) for merge array
 
 ### INTUITION:
@@ -99,9 +96,9 @@ All three algorithms achieve this complexity
 </details>
 """
 
-
 from typing import Any
 import random
+
 
 class Solution:
     def sortArray(self, nums: list[int]) -> list[int]:

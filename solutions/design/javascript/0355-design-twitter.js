@@ -29,14 +29,12 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: * - postTweet: O(1)
-**Space Complexity**: * O(U + T) where U is users, T is total tweets
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * **Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
+ * **Data Structures**: Hash Map, Hash Set, Array
+ * **Patterns**: Hash Table Pattern, Divide and Conquer
+ * **Time Complexity**: * - postTweet: O(1)
+ * **Space Complexity**: * O(U + T) where U is users, T is total tweets
 
  *
  * ### INTUITION:

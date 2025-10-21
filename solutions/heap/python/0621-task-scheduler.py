@@ -21,15 +21,12 @@ Return the least number of units of times that the CPU will take to finish all t
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: Array, String, Queue
+**Patterns**: Two Pointers Pattern, Hash Table Pattern
 **Time Complexity**: O(n × m)
-**Space Complexity**: O(1)
+**Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
 Schedule most frequent tasks first to minimize idle time. Use max-heap to always pick the task with highest frequency. Track cooldown with a queue.
@@ -89,14 +86,13 @@ from collections import deque, Counter
 import heapq
 from typing import Any
 
+
 class Interval:
     """Interval with start and end."""
+
     def __init__(self, start: Any = 0, end: Any = 0) -> None:
         self.start = start
         self.end = end
-
-
-
 
 
 class Solution:

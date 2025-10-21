@@ -23,13 +23,10 @@ Implement the Trie class:
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Two Pointers
+**Data Structures**: Hash Map, String, Tree
+**Patterns**: Two Pointers Pattern, Tree Pattern
 **Time Complexity**: O(m)
 **Space Complexity**: O(ALPHABET_SIZE × N × M)
 

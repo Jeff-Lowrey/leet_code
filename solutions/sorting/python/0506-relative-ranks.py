@@ -29,15 +29,12 @@ Return an array answer of size n where answer[i] is the rank of the ith athlete.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: O(n log n)
-**Space Complexity**: O(n)
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: Hash Map, Array, String
+**Patterns**: Iterative Solution
+**Time Complexity**: O(n log n) - Sorting or divide-and-conquer
+**Space Complexity**: O(n) - Additional hash map storage
 
 ### INTUITION:
 We need to map each score to its rank. Sorting gives us the order, but we need to maintain
@@ -99,8 +96,8 @@ For storing score-rank mappings and result
 </details>
 """
 
-
 from typing import Any
+
 
 class Solution:
     def findRelativeRanks(self, score: list[int]) -> list[str]:

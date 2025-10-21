@@ -31,14 +31,12 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: * O(n * m)
-**Space Complexity**: * O(m)
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * **Techniques**: Array Traversal
+ * **Data Structures**: String, Linked List
+ * **Patterns**: Hash Table Pattern
+ * **Time Complexity**: * O(n * m)
+ * **Space Complexity**: * O(m)
 
  *
  * ### INTUITION:

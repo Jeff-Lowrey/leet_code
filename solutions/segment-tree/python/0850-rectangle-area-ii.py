@@ -21,15 +21,12 @@ Return the total area. Since the answer may be too large, return it modulo 10^9 
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
+**Data Structures**: Hash Set, Array, Tree
+**Patterns**: Two Pointers Pattern, Hash Table Pattern
 **Time Complexity**: - Sweep Line: O(n² log n)
-**Space Complexity**: O(n)
+**Space Complexity**: O(n) - Additional hash map storage
 
 ### INTUITION:
 This is a classic computational geometry problem. The challenge is handling overlapping rectangles efficiently. We can use a sweep line algorithm with segment trees, or coordinate compression with a 2D grid approach.
@@ -80,8 +77,8 @@ For coordinate storage and data structures
 </details>
 """
 
-
 from typing import Any
+
 
 class Solution:
     def rectangleArea(self, rectangles: list[list[int]]) -> int:

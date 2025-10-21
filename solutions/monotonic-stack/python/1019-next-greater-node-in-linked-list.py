@@ -7,11 +7,6 @@ Given the head of a linked list, return an array of integers answer, where answe
 the value of the next greater node of the ith node (1-indexed). If there is no next greater
 node, answer[i] is 0.
 
-Example:
-Input: head = [2,1,5]
-Output: [5,5,0]
-Explanation: For node 2, next greater is 5. For node 1, next greater is 5. For node 5, there is none.
-
 **Example:**
 
 <dl class="example-details">
@@ -24,15 +19,12 @@ Explanation: For node 2, next greater is 5. For node 1, next greater is 5. For n
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: O(n)
-**Space Complexity**: O(n)
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: Hash Set, Array, Stack
+**Patterns**: Iterative Solution
+**Time Complexity**: O(n) - Single pass through input
+**Space Complexity**: O(n) - Additional set storage
 
 ### INTUITION:
 Use a monotonic decreasing stack to track indices waiting for their next greater element.
@@ -81,11 +73,12 @@ O(n)
 </details>
 """
 
-
 from typing import Any
+
 
 class ListNode:
     """..."""
+
     def __init__(self, val: Any = 0, next: Any = None) -> None:
         self.val = val
         self.next = next

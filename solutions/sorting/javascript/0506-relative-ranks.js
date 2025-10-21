@@ -29,14 +29,12 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: * O(n log n)
-**Space Complexity**: * O(n)
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+ * **Data Structures**: Hash Map, Array, String
+ * **Patterns**: Iterative Solution
+ * **Time Complexity**: * O(n log n) - Sorting or divide-and-conquer
+ * **Space Complexity**: * O(n) - Additional hash map storage
 
  *
  * ### INTUITION:

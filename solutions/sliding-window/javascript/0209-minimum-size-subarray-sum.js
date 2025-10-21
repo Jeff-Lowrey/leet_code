@@ -17,14 +17,12 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: * O(n)
-**Space Complexity**: * O(1)
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * **Techniques**: Array Traversal, Sliding Window, Greedy Selection
+ * **Data Structures**: Array
+ * **Patterns**: Complement Search, Sliding Window Pattern
+ * **Time Complexity**: * O(n) - Single pass through input
+ * **Space Complexity**: * O(1) - Constant extra space
 
  *
  * ### INTUITION:

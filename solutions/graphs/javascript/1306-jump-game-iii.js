@@ -22,14 +22,12 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: * O(n)
-**Space Complexity**: * O(n) for visited set and recursion/queue
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * **Techniques**: Hash Map Storage, Array Traversal, Queue Operations
+ * **Data Structures**: Array, Queue, Graph
+ * **Patterns**: Hash Table Pattern, Graph Pattern
+ * **Time Complexity**: * O(n)
+ * **Space Complexity**: * O(n) for visited set and recursion/queue
 
  *
  * ### INTUITION:

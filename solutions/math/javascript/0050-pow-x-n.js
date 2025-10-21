@@ -19,14 +19,12 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: * O(log n)
-**Space Complexity**: * O(log n) recursive, O(1) iterative
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * **Techniques**: Array Traversal
+ * **Data Structures**: Linked List
+ * **Patterns**: Iterative Solution
+ * **Time Complexity**: * O(log n) - Binary search or tree height
+ * **Space Complexity**: * O(log n) recursive, O(1) iterative - Constant extra space
 
  *
  * ### INTUITION:

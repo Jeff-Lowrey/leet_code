@@ -9,11 +9,6 @@ Implement the `MovingAverage` class:
 - `MovingAverage(int size)` Initializes the object with the window size `size`.
 - `double next(int val)` Returns the moving average of the last `size` values of the stream.
 
-Example:
-Input: ["MovingAverage", "next", "next", "next", "next"]
-       [[3], [1], [10], [3], [5]]
-Output: [null, 1.0, 5.5, 4.66667, 6.0]
-
 **Example:**
 
 <dl class="example-details">
@@ -26,13 +21,10 @@ Output: [null, 1.0, 5.5, 4.66667, 6.0]
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Sliding Window, Queue Operations
+**Data Structures**: Queue, Linked List
+**Patterns**: Sliding Window Pattern, Hash Table Pattern
 **Time Complexity**: O(1) per operation
 **Space Complexity**: O(size)
 

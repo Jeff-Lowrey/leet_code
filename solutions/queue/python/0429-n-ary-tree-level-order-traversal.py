@@ -17,14 +17,11 @@ Given an n-ary tree, return the level order traversal of its nodes' values.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: O(n)
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Map Storage, Array Traversal, Two Pointers
+**Data Structures**: Array, Queue, Tree
+**Patterns**: Two Pointers Pattern, Graph Pattern
+**Time Complexity**: O(n) - Single pass through input
 **Space Complexity**: O(w)
 
 ### INTUITION:
@@ -84,10 +81,9 @@ from collections import deque
 from typing import Any
 
 
-
-
 class Node:
     """N-ary tree node or graph node."""
+
     def __init__(self, val: Any = None, children: Any = None) -> None:
         self.val = val
         self.children = children if children is not None else []

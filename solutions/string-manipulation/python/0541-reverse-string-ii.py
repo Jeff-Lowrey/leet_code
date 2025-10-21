@@ -10,14 +10,6 @@ If there are fewer than k characters left, reverse all of them.
 If there are less than 2k but greater than or equal to k characters, then reverse
 the first k characters and leave the other as original.
 
-Example:
-Input: s = "abcdefg", k = 2
-Output: "bacdfeg"
-Explanation:
-- First 2k (4) characters: "abcd" -> reverse first k (2): "bacd"
-- Next 2k (4) characters: "efg" -> reverse first k (2): "feg" (only 3 left)
-Result: "bacdfeg"
-
 **Example:**
 
 <dl class="example-details">
@@ -30,14 +22,11 @@ Result: "bacdfeg"
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: O(n)
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: Array, String, Tree
+**Patterns**: Two Pointers Pattern, Hash Table Pattern
+**Time Complexity**: O(n) - Single pass through input
 **Space Complexity**: O(n)
 
 ### INTUITION:
@@ -96,8 +85,8 @@ O(n)
 </details>
 """
 
-
 from typing import Any
+
 
 class Solution:
     def reverseStr(self, s: str, k: int) -> str:

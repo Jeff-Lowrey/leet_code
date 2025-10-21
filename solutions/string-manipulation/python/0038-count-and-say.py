@@ -12,15 +12,6 @@ To determine how you "say" a digit string, split it into the minimal number of s
 such that each substring contains exactly one unique digit. Then for each substring,
 say the number of digits, then say the digit. Finally, concatenate every said digit.
 
-Example:
-Input: n = 4
-Output: "1211"
-Explanation:
-countAndSay(1) = "1"
-countAndSay(2) = say "1" = one 1 = "11"
-countAndSay(3) = say "11" = two 1s = "21"
-countAndSay(4) = say "21" = one 2 + one 1 = "1211"
-
 **Example:**
 
 <dl class="example-details">
@@ -33,13 +24,10 @@ countAndSay(4) = say "21" = one 2 + one 1 = "1211"
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Map Storage, Array Traversal, Two Pointers
+**Data Structures**: Array, String, Stack
+**Patterns**: Two Pointers Pattern, Hash Table Pattern
 **Time Complexity**: O(n * m)
 **Space Complexity**: O(m)
 
@@ -100,7 +88,6 @@ O(m)
 
 from itertools import groupby
 from typing import Any
-
 
 
 class Solution:

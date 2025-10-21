@@ -26,13 +26,10 @@ Return the label of the town judge if the town judge exists and can be identifie
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: Hash Map, Array, Graph
+**Patterns**: Hash Table Pattern
 **Time Complexity**: O(T + N)
 **Space Complexity**: O(N)
 
@@ -76,7 +73,6 @@ For storing trust counts
 
 </details>
 """
-
 
 from typing import Any
 import re

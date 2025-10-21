@@ -9,12 +9,6 @@ that you must take course bi first if you want to take course ai.
 
 Return true if you can finish all courses. Otherwise, return false.
 
-Example:
-Input: `numCourses = 2`, prerequisites = [[1,0]]
-Output: true
-Explanation: There are a total of 2 courses to take. To take course 1 you should
-have finished course 0. So it is possible.
-
 **Example:**
 
 <dl class="example-details">
@@ -27,13 +21,10 @@ have finished course 0. So it is possible.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
+**Data Structures**: Hash Map, Hash Set, Array
+**Patterns**: Hash Table Pattern, Greedy Algorithm
 **Time Complexity**: O(V + E)
 **Space Complexity**: O(V + E)
 

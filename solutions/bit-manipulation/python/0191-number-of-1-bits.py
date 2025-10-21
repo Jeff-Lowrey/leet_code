@@ -6,11 +6,6 @@
 Write a function that takes the binary representation of a positive integer and returns
 the number of set bits it has (also known as the Hamming weight).
 
-Example:
-Input: n = 11
-Output: 3
-Explanation: The input binary string 1011 has three set bits.
-
 **Example:**
 
 <dl class="example-details">
@@ -23,15 +18,12 @@ Explanation: The input binary string 1011 has three set bits.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Array Traversal
+**Data Structures**: Hash Set, String
+**Patterns**: Hash Table Pattern
 **Time Complexity**: O(k) where k is number of 1-bits
-**Space Complexity**: O(1)
+**Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
 Use bit manipulation to count 1s. The key insight is `n & (n-1)` removes the rightmost

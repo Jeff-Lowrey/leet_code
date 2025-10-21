@@ -145,9 +145,7 @@ class TestFileExtensionEdgeCases:
 
     @patch("src.leet_code.app.get_solution_path")
     @patch("src.leet_code.app.category_manager")
-    def test_solution_view_without_py_extension(
-        self, mock_manager: Any, mock_get_path: Any, client: Any
-    ) -> None:
+    def test_solution_view_without_py_extension(self, mock_manager: Any, mock_get_path: Any, client: Any) -> None:
         """Test solution view with filename that doesn't have .py extension."""
         from unittest.mock import mock_open as mock_file_open
 

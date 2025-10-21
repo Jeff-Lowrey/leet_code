@@ -5,14 +5,6 @@
 
 Given two binary strings a and b, return their sum as a binary string.
 
-Example:
-Input: a = "11", b = "1"
-Output: "100"
-
-Example 2:
-Input: a = "1010", b = "1011"
-Output: "10101"
-
 **Example:**
 
 <dl class="example-details">
@@ -25,13 +17,10 @@ Output: "10101"
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: Array, String
+**Patterns**: Two Pointers Pattern, Greedy Algorithm
 **Time Complexity**: O(max(m, n))
 **Space Complexity**: O(max(m, n))
 
@@ -102,8 +91,8 @@ O(max(m, n))
 </details>
 """
 
-
 from typing import Any
+
 
 class Solution:
     def addBinary(self, a: str, b: str) -> str:

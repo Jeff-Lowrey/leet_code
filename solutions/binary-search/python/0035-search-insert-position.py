@@ -19,15 +19,12 @@ You must write an algorithm with O(log n) runtime complexity.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: O(log n)
-**Space Complexity**: O(1)
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: Array, Stack, Tree
+**Patterns**: Two Pointers Pattern, Binary Search Pattern
+**Time Complexity**: O(log n) - Binary search or tree height
+**Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
 This is a classic binary search problem where we need to find the insertion point for a target value. The key insight is that binary search naturally converges to the correct insertion position when the target is not found.
@@ -79,8 +76,8 @@ Only using constant extra space
 </details>
 """
 
-
 from typing import Any
+
 
 class Solution:
     def searchInsert(self, nums: list[int], target: int) -> int:

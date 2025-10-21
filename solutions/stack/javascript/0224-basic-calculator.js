@@ -21,14 +21,12 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: * O(n)
-**Space Complexity**: * O(n)
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * **Techniques**: Array Traversal, Stack Operations
+ * **Data Structures**: Array, String, Stack
+ * **Patterns**: Iterative Solution
+ * **Time Complexity**: * O(n)
+ * **Space Complexity**: * O(n) - Additional set storage
 
  *
  * ### INTUITION:

@@ -17,13 +17,10 @@ Given a linked list, swap every two adjacent nodes and return its head. You must
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Map Storage, Array Traversal, Stack Operations
+**Data Structures**: Array, Stack, Linked List
+**Patterns**: Iterative Solution
 **Time Complexity**: O(n)
 **Space Complexity**: O(n)
 
@@ -65,11 +62,12 @@ Recursion stack depth proportional to number of pairs
 </details>
 """
 
-
 from typing import Any
+
 
 class ListNode:
     """..."""
+
     def __init__(self, val: Any = 0, next: Any = None) -> None:
         self.val = val
         self.next = next

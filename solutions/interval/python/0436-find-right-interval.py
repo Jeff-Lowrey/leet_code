@@ -21,15 +21,12 @@ Return an array of right interval indices for each interval i. If no right inter
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: Hash Map, Array, Tree
+**Patterns**: Two Pointers Pattern, Binary Search Pattern
 **Time Complexity**: O(n)
-**Space Complexity**: O(1)
+**Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
 Sort intervals by start time. For each interval, binary search for the first interval whose start >= current interval's end. Store the index or -1 if not found.
@@ -83,13 +80,13 @@ O(1)
 
 from typing import Any, List, Optional, Dict, Tuple
 
+
 class Interval:
     """Interval with start and end."""
+
     def __init__(self, start: Any = 0, end: Any = 0) -> None:
         self.start = start
         self.end = end
-
-
 
 
 class Solution:

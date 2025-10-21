@@ -21,15 +21,12 @@ You must write an algorithm with O(log n) runtime complexity.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: O(log n)
-**Space Complexity**: O(1)
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Two Pointers
+**Data Structures**: Array, Tree
+**Patterns**: Two Pointers Pattern, Binary Search Pattern
+**Time Complexity**: O(log n) - Binary search or tree height
+**Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
 This is a classic binary search problem that requires finding both the leftmost and rightmost positions of a target. The key insight is to perform two separate binary searches: one to find the first occurrence and another to find the last occurrence.
@@ -78,8 +75,8 @@ Only using constant extra space
 </details>
 """
 
-
 from typing import Any
+
 
 class Solution:
     def searchRange(self, nums: list[int], target: int) -> list[int]:

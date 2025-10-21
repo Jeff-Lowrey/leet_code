@@ -19,13 +19,10 @@ Return the answer sorted by the frequency from highest to lowest. Sort the words
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: Hash Map, Array, String
+**Patterns**: Hash Table Pattern
 **Time Complexity**: O(N log k)
 **Space Complexity**: O(N + k)
 
@@ -78,7 +75,6 @@ O(N) for frequency map, O(k) for heap
 from collections import Counter
 import heapq
 from typing import Any
-
 
 
 class Solution:

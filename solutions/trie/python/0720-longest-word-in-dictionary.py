@@ -19,13 +19,10 @@ If there is more than one possible answer, return the longest word with the smal
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
+**Data Structures**: Hash Map, Hash Set, Array
+**Patterns**: Hash Table Pattern, Graph Pattern
 **Time Complexity**: O(N * L)
 **Space Complexity**: O(N * L)
 
@@ -98,10 +95,8 @@ For trie storage
 
 </details>
 """
+
 import re
-
-
-
 
 
 class TrieNode:
@@ -198,7 +193,9 @@ class SolutionBFS:
             node = queue.pop(0)
 
             # Update longest if this node has a longer word
-            if node.word and (len(node.word) > len(longest) or (len(node.word) == len(longest) and node.word < longest)):
+            if node.word and (
+                len(node.word) > len(longest) or (len(node.word) == len(longest) and node.word < longest)
+            ):
                 longest = node.word
 
             # Add children that are words (buildable)

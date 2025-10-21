@@ -17,14 +17,11 @@ Given the root of a binary tree, return the level order traversal of its nodes' 
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: O(n)
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: Array, Queue, Tree
+**Patterns**: Two Pointers Pattern, Hash Table Pattern
+**Time Complexity**: O(n) - Single pass through input
 **Space Complexity**: O(w)
 
 ### INTUITION:
@@ -75,16 +72,16 @@ Where w is maximum width of the tree (queue size)
 </details>
 """
 
-
-
 from collections import deque
 from typing import Any, List, Optional
+
 
 class TreeNode:
     def __init__(self, val: Any = 0, left: Any = None, right: Any = None) -> None:
         self.val = val
         self.left = left
         self.right = right
+
 
 class Solution:
     def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:

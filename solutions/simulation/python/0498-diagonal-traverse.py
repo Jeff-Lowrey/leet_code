@@ -25,15 +25,12 @@ Output: [1,2,3,4]
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: Hash Map, Array, Graph
+**Patterns**: Hash Table Pattern
 **Time Complexity**: O(m × n)
-**Space Complexity**: O(1)
+**Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
 Elements on the same diagonal have the same sum of row + column indices.
@@ -92,8 +89,8 @@ O(1)
 </details>
 """
 
-
 from typing import Any
+
 
 class Solution:
     def findDiagonalOrder(self, mat: list[list[int]]) -> list[int]:

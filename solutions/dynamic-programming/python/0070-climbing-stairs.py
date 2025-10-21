@@ -8,16 +8,11 @@ You are climbing a staircase. It takes `n` steps to reach the top.
 Each time you can either climb 1 or 2 steps. In how many distinct ways can you
 climb to the top?
 
-Example:
-Input: `n` = 3
-Output: 3
-Explanation: There are three ways to climb to the top.
-
 **Example:**
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>n` = 3</dd>
+<dd>n = 3</dd>
 <dt>Output:</dt>
 <dd>3</dd>
 <dt>Explanation:</dt>
@@ -25,15 +20,12 @@ Explanation: There are three ways to climb to the top.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: O(n)
-**Space Complexity**: O(1)
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: Hash Map, Array
+**Patterns**: Dynamic Programming
+**Time Complexity**: O(n) - Single pass through input
+**Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
 This is the classic Fibonacci problem in `disguise! To` reach step `n`, you can
@@ -82,8 +74,8 @@ Only store two variables (prev1, prev2), not full DP array
 </details>
 """
 
-
 from typing import Any
+
 
 class Solution:
     def climbStairs(self, n: int) -> int:

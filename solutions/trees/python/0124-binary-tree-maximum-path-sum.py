@@ -21,15 +21,12 @@ Given the root of a binary tree, return the maximum path sum of any non-empty pa
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: O(n)
-**Space Complexity**: O(1)
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Two Pointers, Depth-First Search
+**Data Structures**: Hash Set, Tree
+**Patterns**: Two Pointers Pattern, Greedy Algorithm
+**Time Complexity**: O(n) - Single pass through input
+**Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
 For each node, max path is: left max path + node + right max path. Recursively calculate max single path from each child. Track global maximum. Return max single path (node + best child path) up.
@@ -78,8 +75,8 @@ O(1)
 </details>
 """
 
-
 from typing import Any
+
 
 class TreeNode:
     def __init__(self, val: Any = 0, left: Any = None, right: Any = None) -> None:

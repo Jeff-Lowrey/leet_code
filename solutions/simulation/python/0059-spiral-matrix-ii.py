@@ -26,15 +26,12 @@ Output: [[1]]
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: O(n²)
-**Space Complexity**: O(1)
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Array Traversal, Two Pointers
+**Data Structures**: Array, Tree, Matrix
+**Patterns**: Two Pointers Pattern, Hash Table Pattern
+**Time Complexity**: O(n²) - Nested iteration through input
+**Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
 Similar to Spiral Matrix I, but instead of reading, we're writing values in spiral order.
@@ -99,8 +96,8 @@ O(1)
 
 </details>
 """
-from typing import Any
 
+from typing import Any
 
 
 class Solution:

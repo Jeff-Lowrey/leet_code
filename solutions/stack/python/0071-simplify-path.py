@@ -19,10 +19,6 @@ The canonical path should follow these rules:
 
 Return the simplified canonical path.
 
-Example:
-Input: path = "/home//foo/"
-Output: "/home/foo"
-
 **Example:**
 
 <dl class="example-details">
@@ -35,14 +31,11 @@ Output: "/home/foo"
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: O(n) where n is path length
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Map Storage, Array Traversal, Stack Operations
+**Data Structures**: Array, String, Stack
+**Patterns**: Divide and Conquer, Tree Pattern
+**Time Complexity**: O(n) where n is path length - Single pass through input
 **Space Complexity**: O(n) for stack and split components
 
 ### INTUITION:

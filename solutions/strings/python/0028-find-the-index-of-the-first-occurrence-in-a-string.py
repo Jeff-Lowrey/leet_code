@@ -17,15 +17,12 @@ This problem demonstrates key concepts in String matching and pattern searching.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Array Traversal, Stack Operations
+**Data Structures**: String, Stack
+**Patterns**: Iterative Solution
 **Time Complexity**: O(n * m)
-**Space Complexity**: O(1)
+**Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
 This is the classic string matching problem (also known as finding a substring). We need to find
@@ -80,8 +77,8 @@ We only use a few variables regardless of input size.
 
 </details>
 """
-import re
 
+import re
 
 
 class Solution:

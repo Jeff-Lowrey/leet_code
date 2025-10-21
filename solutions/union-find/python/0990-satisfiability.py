@@ -21,15 +21,12 @@ Return true if it is possible to assign integers to variable names so as to sati
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: Hash Set, Array, String
+**Patterns**: Iterative Solution
 **Time Complexity**: O(N × α(N))
-**Space Complexity**: O(1)
+**Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
 This is a classic Union-Find problem. We need to check if equality and inequality constraints can be satisfied simultaneously. The key insight is to first process all equality constraints to group variables, then check if inequality constraints violate these groups.
@@ -75,10 +72,8 @@ Since we only have 26 possible variables (a-z)
 </details>
 """
 
-
 from typing import Any
 import re
-
 
 
 class UnionFind:
@@ -119,7 +114,6 @@ class UnionFind:
     def components(self) -> int:
         """Return number of connected components."""
         return len(set(self.find(i) for i in range(len(self.parent))))
-
 
 
 class Solution:
