@@ -1,0 +1,210 @@
+{% extends "base.html" %}
+
+{% block title %}{{ problem_name }} - No Solution Available{% endblock %}
+
+{% block content %}
+<header class="page-header">
+    <nav class="breadcrumb">
+        <a href="/">Home</a> /
+        <a href="{{ url_for('category_view', category=category) }}">{{ category_name }}</a> /
+        <span>{{ problem_name }}</span>
+    </nav>
+    <h1>
+        {% if problem_number %}
+        <span class="problem-number">#{{ problem_number }}</span>
+        {% endif %}
+        {{ problem_name }}
+    </h1>
+</header>
+
+<section class="no-solution-message">
+    <div class="info-box">
+        <h2>📝 No Solution Available Yet</h2>
+        <p>This problem doesn't have any solution implementations yet, but you can be the first to contribute!</p>
+    </div>
+
+    <div class="contribute-section">
+        <h3>How to Add a Solution</h3>
+
+        <div class="steps">
+            <div class="step">
+                <h4>1. Choose Your Language</h4>
+                <p>Solutions can be written in any of these supported languages:</p>
+                <ul class="language-list">
+                    <li>Python</li>
+                    <li>JavaScript</li>
+                    <li>Java</li>
+                    <li>C++</li>
+                    <li>C</li>
+                    <li>TypeScript</li>
+                    <li>Go</li>
+                    <li>Rust</li>
+                    <li>C#</li>
+                    <li>Swift</li>
+                </ul>
+            </div>
+
+            <div class="step">
+                <h4>2. Create Your Solution File</h4>
+                <p>Place your solution in the appropriate directory:</p>
+                <pre><code>solutions/{{ category }}/<strong>&lt;language&gt;</strong>/{{ filename }}.&lt;ext&gt;</code></pre>
+                <p class="example">Example: <code>solutions/{{ category }}/python/{{ filename }}.py</code></p>
+            </div>
+
+            <div class="step">
+                <h4>3. Follow the Template</h4>
+                <p>Use the standard solution template for your language:</p>
+                <ul>
+                    <li><a href="{{ url_for('static', filename='../../docs/developer-guide/templates/SOLUTION_TEMPLATE.py') }}">Python Template</a></li>
+                    <li><a href="{{ url_for('static', filename='../../docs/developer-guide/templates/SOLUTION_TEMPLATE.js') }}">JavaScript Template</a></li>
+                </ul>
+                <p>Templates include sections for:</p>
+                <ul>
+                    <li>Problem description</li>
+                    <li>Approach explanation</li>
+                    <li>Time/space complexity</li>
+                    <li>Solution implementation</li>
+                    <li>Test cases</li>
+                </ul>
+            </div>
+
+            <div class="step">
+                <h4>4. Documentation Reference</h4>
+                <p>For detailed guidelines, see:</p>
+                <ul>
+                    <li><a href="/docs/developer-guide/CONTRIBUTING.md">Contributing Guide</a></li>
+                    <li><a href="/docs/developer-guide/solution-format.md">Solution Format Guide</a></li>
+                    <li><a href="/docs/developer-guide/multi-language-solutions.md">Multi-Language Solutions</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="action-buttons">
+        <a href="{{ url_for('category_view', category=category) }}" class="btn btn-primary">← Back to {{ category_name }}</a>
+        <a href="/" class="btn btn-secondary">Home</a>
+    </div>
+</section>
+
+<style>
+.no-solution-message {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.info-box {
+    background: #f8f9fa;
+    border-left: 4px solid #ffc107;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    border-radius: 4px;
+}
+
+.info-box h2 {
+    margin-top: 0;
+    color: #333;
+}
+
+.contribute-section {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    margin-bottom: 2rem;
+}
+
+.contribute-section h3 {
+    margin-top: 0;
+    color: #333;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 0.5rem;
+}
+
+.steps {
+    margin-top: 2rem;
+}
+
+.step {
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.step:last-child {
+    border-bottom: none;
+}
+
+.step h4 {
+    color: #007bff;
+    margin-bottom: 0.5rem;
+}
+
+.language-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 0.5rem;
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+}
+
+.language-list li {
+    background: #f0f0f0;
+    padding: 0.5rem;
+    border-radius: 4px;
+    text-align: center;
+}
+
+pre {
+    background: #2d2d2d;
+    color: #f8f8f2;
+    padding: 1rem;
+    border-radius: 4px;
+    overflow-x: auto;
+}
+
+pre code {
+    font-family: 'Courier New', monospace;
+}
+
+.example {
+    font-style: italic;
+    color: #666;
+    margin-top: 0.5rem;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.btn-primary {
+    background: #007bff;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #0056b3;
+}
+
+.btn-secondary {
+    background: #6c757d;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: #545b62;
+}
+</style>
+{% endblock %}
