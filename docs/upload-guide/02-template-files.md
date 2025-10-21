@@ -50,6 +50,14 @@ Difficulty: [Easy/Medium/Hard]
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+
+### METADATA:
+**Techniques**: [e.g., Hash Table Lookup, Binary Search, Two Pointers]
+**Data Structures**: [e.g., Hash Map, Array, Tree, Graph]
+**Patterns**: [e.g., Complement Search, Sliding Window, DFS]
+**Time Complexity**: **O(?)** - [detailed explanation of time complexity]
+**Space Complexity**: **O(?)** - [detailed explanation of space complexity]
+
 ### INTUITION:
 [1-3 sentences about the key insight]
 
@@ -111,19 +119,26 @@ cp docs/solutions/templates/SOLUTION_TEMPLATE.py docs/solutions/{category}/NNN-p
 - Include all example cases from LeetCode
 - Format input, output, and explanation
 
-**Step 4: Write Solution Explanation**
+**Step 4: Add METADATA Section**
+- TECHNIQUES: Algorithm techniques used (e.g., "Hash Table Lookup, Single Pass")
+- DATA STRUCTURES: Data structures employed (e.g., "Hash Map, Array")
+- PATTERNS: Design patterns applied (e.g., "Complement Search")
+- TIME COMPLEXITY: Detailed Big-O analysis with explanation
+- SPACE COMPLEXITY: Detailed memory analysis with explanation
+
+**Step 5: Write Solution Explanation**
 - INTUITION: The "aha moment"
 - APPROACH: Step-by-step walkthrough
 - TIME COMPLEXITY: Big-O analysis
 - SPACE COMPLEXITY: Memory analysis
 - EDGE CASES: Boundary conditions
 
-**Step 5: Implement Solution**
+**Step 6: Implement Solution**
 - Add proper type hints
 - Write clean, commented code
 - Include alternative approaches if relevant
 
-**Step 6: Add Test Cases**
+**Step 7: Add Test Cases**
 - At least 3 test cases
 - Include edge cases
 - Verify output
@@ -163,6 +178,14 @@ The JavaScript template includes:
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### METADATA:
+**Techniques**: [e.g., Hash Table Lookup, Binary Search, Two Pointers]
+**Data Structures**: [e.g., Hash Map, Array, Tree, Graph]
+**Patterns**: [e.g., Complement Search, Sliding Window, DFS]
+**Time Complexity**: * **O(?)** - [detailed explanation of time complexity]
+**Space Complexity**: * **O(?)** - [detailed explanation of space complexity]
+
  *
  * ### INTUITION:
  * [Key insight]

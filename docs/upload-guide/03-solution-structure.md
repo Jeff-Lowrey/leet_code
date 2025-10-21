@@ -18,6 +18,153 @@
 
 Every solution must include specific sections for consistency and educational value.
 
+### Overview of Required Sections
+
+All solutions must contain these sections in order:
+1. **Module/File Documentation** - Problem header and description
+2. **Examples** - HTML definition list format
+3. **Solution Explanation** - Collapsible details section containing:
+   - **METADATA** - Techniques, data structures, patterns, complexities
+   - **INTUITION** - Key insight
+   - **APPROACH** - Step-by-step explanation
+   - **WHY THIS WORKS** - Correctness explanation
+   - **EXAMPLE WALKTHROUGH** - Concrete execution trace
+   - **TIME COMPLEXITY** - Big-O time analysis
+   - **SPACE COMPLEXITY** - Big-O space analysis
+   - **EDGE CASES** - Boundary conditions
+4. **Solution Class** - Implementation
+5. **Test Cases** - Verification code
+
+## Solution Explanation
+
+### Collapsible Details Section
+
+All solution explanations are wrapped in a collapsible `<details>` section:
+
+```html
+<details>
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+[All explanation sections go here]
+
+</details>
+```
+
+This keeps the page clean and allows users to expand explanations when needed.
+
+### METADATA Section
+
+**Purpose:** Provide structured information about the solution's approach.
+
+**Required First in explanation section** - Always appears immediately after the `<summary>` tag.
+
+**Python Format:**
+```python
+### METADATA:
+**Techniques**: Hash Table Lookup, Single Pass
+**Data Structures**: Hash Map, Array
+**Patterns**: Complement Search
+**Time Complexity**: **O(n)** - Single pass through array with O(1) hash map lookups
+**Space Complexity**: **O(n)** - Hash map stores up to n elements in worst case
+```
+
+**JavaScript Format:**
+```javascript
+### METADATA:
+**Techniques**: Hash Table Lookup, Single Pass
+**Data Structures**: Hash Map, Array
+**Patterns**: Complement Search
+**Time Complexity**: * **O(n)** - Single pass through array with O(1) hash map lookups
+**Space Complexity**: * **O(n)** - Hash map stores up to n elements in worst case
+```
+
+**Required Fields:**
+- ✅ **Techniques**: Algorithm techniques used (2-3 items)
+- ✅ **Data Structures**: Data structures employed (2-3 items)
+- ✅ **Patterns**: Design patterns applied (1-2 items)
+- ✅ **Time Complexity**: Big-O with detailed explanation
+- ✅ **Space Complexity**: Big-O with detailed explanation
+
+**Guidelines:**
+- List 2-3 most important techniques
+- Name specific data structures used
+- Identify algorithmic patterns (Greedy, DP, Two Pointers, etc.)
+- Provide context with complexity descriptions, not just notation
+- Use consistent formatting with bold labels
+
+### INTUITION Section
+
+**Purpose:** Capture the "aha moment"
+
+**Guidelines:**
+- ✅ 1-3 sentences maximum
+- ✅ High-level conceptual understanding
+- ✅ The key insight that unlocks the solution
+- ❌ No implementation details
+- ❌ No line-by-line explanation
+
+**Example:**
+```markdown
+### INTUITION:
+The key insight is to use a hash map to store numbers we've seen so far.
+
+For each number, we check if its complement (target - current_number) exists in our hash map.
+
+This allows us to find the pair in a single pass.
+```
+
+### APPROACH Section
+
+**Purpose:** Explain the algorithm step-by-step in clear prose.
+
+**Guidelines:**
+- ✅ Write in flowing paragraphs (not numbered lists)
+- ✅ Explain each major step
+- ✅ Connect steps logically
+- ✅ Focus on understanding the "why"
+- ❌ Don't just describe code line-by-line
+
+### WHY THIS WORKS Section
+
+**Purpose:** Explain correctness of the approach.
+
+**Guidelines:**
+- ✅ Brief bullet points
+- ✅ Focus on properties that ensure correctness
+- ✅ Explain trade-offs made
+- ❌ Keep concise
+
+### EXAMPLE WALKTHROUGH Section
+
+**Purpose:** Show concrete execution with specific input.
+
+**Guidelines:**
+- ✅ Use actual example from problem
+- ✅ Show variable values at each step
+- ✅ Use bold labels (**Step 1:**, **Step 2:**)
+- ✅ Include input in code block
+- ✅ Show final output
+
+### TIME/SPACE COMPLEXITY Sections
+
+**Purpose:** Provide complexity analysis.
+
+**Guidelines:**
+- ✅ Use **bold** for Big-O notation
+- ✅ Explain reasoning, not just state notation
+- ✅ Consider all operations (loops, lookups, etc.)
+- ✅ Account for auxiliary space
+
+### EDGE CASES Section
+
+**Purpose:** Document boundary conditions.
+
+**Guidelines:**
+- ✅ Use bullet points with bold labels
+- ✅ Explain how each case is handled
+- ✅ Cover minimum/maximum inputs
+- ✅ Cover empty/null cases
+
 ## Module/File Documentation
 
 ### Problem Header

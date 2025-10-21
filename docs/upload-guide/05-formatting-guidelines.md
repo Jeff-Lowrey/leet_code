@@ -21,6 +21,61 @@ Guidelines for writing clear, effective solution documentation.
 
 ## Writing Clear Explanations
 
+### Section Order
+
+All solution explanations must follow this order within the `<details>` block:
+
+1. **METADATA** (Required first)
+2. **INTUITION**
+3. **APPROACH**
+4. **WHY THIS WORKS**
+5. **EXAMPLE WALKTHROUGH**
+6. **TIME COMPLEXITY**
+7. **SPACE COMPLEXITY**
+8. **EDGE CASES**
+
+### METADATA Section
+
+**Purpose:** Provide structured, searchable information about the solution.
+
+**Guidelines:**
+- ✅ Always first section after `<summary>`
+- ✅ Include all 5 required fields
+- ✅ Use consistent formatting with bold labels
+- ✅ Provide context with complexity descriptions
+- ❌ Don't use "TBD" placeholders
+
+**Required Fields:**
+```markdown
+### METADATA:
+**Techniques**: [2-3 algorithm techniques]
+**Data Structures**: [2-3 data structures used]
+**Patterns**: [1-2 design patterns]
+**Time Complexity**: **O(?)** - [detailed explanation]
+**Space Complexity**: **O(?)** - [detailed explanation]
+```
+
+**Good Example:**
+```markdown
+### METADATA:
+**Techniques**: Hash Table Lookup, Single Pass
+**Data Structures**: Hash Map, Array
+**Patterns**: Complement Search
+**Time Complexity**: **O(n)** - Single pass through array with O(1) hash map lookups
+**Space Complexity**: **O(n)** - Hash map stores up to n elements in worst case
+```
+
+**Poor Example:**
+```markdown
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: O(n)
+**Space Complexity**: O(1)
+[Missing explanations and using TBD placeholders]
+```
+
 ### INTUITION Section
 
 **Purpose:** Capture the "aha moment" that unlocks the solution.
