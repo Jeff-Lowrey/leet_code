@@ -14,6 +14,21 @@ from pygments.lexers import (
     get_lexer_by_name,
 )
 
+# Supported languages - directories to scan for solutions
+# Maps language name to directory name (lowercase)
+SUPPORTED_LANGUAGES = {
+    "Python": "python",
+    "JavaScript": "javascript",
+    "Java": "java",
+    "C++": "cpp",
+    "C": "c",
+    "TypeScript": "typescript",
+    "Go": "go",
+    "Rust": "rust",
+    "C#": "csharp",
+    "Swift": "swift",
+}
+
 # Map programming languages to file extensions
 LANGUAGE_EXTENSIONS = {
     "Python": ".py",

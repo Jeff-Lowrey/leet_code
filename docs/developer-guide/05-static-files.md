@@ -121,12 +121,25 @@ The application includes a comprehensive theme system with 18 visual themes orga
     --border-color: transparent;
     --card-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
+    /* Badge colors (NEW in Issue #5) */
+    --badge-problem-number: #000000;        /* Theme-appropriate color */
+    --badge-problem-number-text: #ffffff;
+
     /* Category colors */
     --cat-rust: #2563eb;
     --cat-steel-blue: #2563eb;
     /* ... more category colors ... */
 }
 ```
+
+**Badge Color System (Issue #5)**:
+Each theme defines specific colors for problem number badges that match the theme's aesthetic:
+
+- **Neutral Themes** (Soft Neutral, Moody): Muted grays and taupes
+- **Professional Themes** (Classic, High Contrast): Pure black/white for clarity
+- **Vibrant Themes** (Vibrant, Neon, Chaos, Rainbow, Happy): Colorful accents matching theme energy
+
+This creates visual hierarchy where problem numbers use theme colors while category labels use bold category-specific colors.
 
 **Theme Application**:
 Themes are applied via the `data-theme` attribute on the `<html>` or `<body>` element:

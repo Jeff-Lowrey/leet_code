@@ -1,5 +1,5 @@
 /**
- * Difficulty: Easy
+ * # Difficulty: Easy
  *
  * # 1047. Remove All Adjacent Duplicates In String
  *
@@ -24,15 +24,13 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- *
- *
 
- * ### METADATA:
- * **Techniques**: Stack Operations, LIFO Processing
- * **Data Structures**: Stack
- * **Patterns**: Stack Pattern, Matching/Nesting
- * **Time Complexity**: **O(n)
- * **Space Complexity**: **O(n)
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: * O(n)
+**Space Complexity**: * O(n)
 
  *
  * ### INTUITION:

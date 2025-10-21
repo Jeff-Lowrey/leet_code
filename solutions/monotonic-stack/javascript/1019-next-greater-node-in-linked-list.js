@@ -1,9 +1,14 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
  * Given the head of a linked list, return an array of integers answer, where answer[i] is
  * the value of the next greater node of the ith node (1-indexed). If there is no next greater
  * node, answer[i] is 0.
+ *
+ * Example:
+ * Input: head = [2,1,5]
+ * Output: [5,5,0]
+ * Explanation: For node 2, next greater is 5. For node 1, next greater is 5. For node 5, there is none.
  *
  * **Example:**
  *
@@ -18,15 +23,13 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- *
- *
 
- * ### METADATA:
- * **Techniques**: Monotonic Stack, Stack-based Optimization
- * **Data Structures**: Stack
- * **Patterns**: Monotonic Stack Pattern, Next Greater/Smaller
- * **Time Complexity**: **O(n)
- * **Space Complexity**: **O(n)
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: * O(n)
+**Space Complexity**: * O(n)
 
  *
  * ### INTUITION:

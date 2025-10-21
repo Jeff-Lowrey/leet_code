@@ -1,5 +1,5 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
  * # 1395. Count Number Of Teams
  *
@@ -24,15 +24,13 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- *
- *
 
- * ### METADATA:
- * **Techniques**: Segment Tree, Range Queries
- * **Data Structures**: Segment Tree
- * **Patterns**: Segment Tree Pattern, Range Operations
- * **Time Complexity**: **O(n log n)
- * **Space Complexity**: **O(n)
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: * O(n log n)
+**Space Complexity**: * O(n)
 
  *
  * ### INTUITION:

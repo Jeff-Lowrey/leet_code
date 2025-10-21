@@ -1,5 +1,5 @@
 /**
- * Difficulty: Easy
+ * # Difficulty: Easy
  *
  * # 1030. Matrix Cells In Distance Order
  *
@@ -25,15 +25,13 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- *
- *
 
- * ### METADATA:
- * **Techniques**: Sorting Algorithms, Comparison
- * **Data Structures**: Array
- * **Patterns**: Sorting Pattern, Custom Comparator
- * **Time Complexity**: **O(R*C * log(R*C))
- * **Space Complexity**: **O(R*C)
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: * O(R*C * log(R*C))
+**Space Complexity**: * O(R*C)
 
  *
  * ### INTUITION:

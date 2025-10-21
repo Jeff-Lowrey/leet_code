@@ -1,5 +1,5 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
  * # 1248. Count Number Of Nice Subarrays
  *
@@ -20,15 +20,13 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- *
- *
 
- * ### METADATA:
- * **Techniques**: Prefix Sum, Cumulative Sum
- * **Data Structures**: Array, Hash Map
- * **Patterns**: Prefix Sum Pattern, Subarray Sum
- * **Time Complexity**: **O(n)
- * **Space Complexity**: **O(n)
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: * O(n)
+**Space Complexity**: * O(n)
 
  *
  * ### INTUITION:

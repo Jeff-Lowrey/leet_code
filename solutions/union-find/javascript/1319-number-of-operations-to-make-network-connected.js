@@ -1,5 +1,5 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
  * # 1319. Number Of Operations To Make Network Connected
  *
@@ -24,15 +24,13 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- *
- *
 
- * ### METADATA:
- * **Techniques**: Union-Find (Disjoint Set), Path Compression
- * **Data Structures**: Union-Find Data Structure
- * **Patterns**: Union-Find Pattern, Connected Components
- * **Time Complexity**: **O(n × α(n))
- * **Space Complexity**: **O(n)
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: * O(n × α(n))
+**Space Complexity**: * O(n)
 
  *
  * ### INTUITION:

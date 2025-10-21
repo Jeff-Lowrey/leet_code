@@ -1,5 +1,5 @@
 /**
- * Difficulty: Easy
+ * # Difficulty: Easy
  *
  * # 1260. Shift 2D Grid
  *
@@ -33,15 +33,13 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- *
- *
 
- * ### METADATA:
- * **Techniques**: Direct Simulation, Step-by-step Execution
- * **Data Structures**: Array, Matrix
- * **Patterns**: Simulation Pattern, State Tracking
- * **Time Complexity**: **O(m × n)
- * **Space Complexity**: **O(m × n)
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: * O(m × n)
+**Space Complexity**: * O(m × n)
 
  *
  * ### INTUITION:

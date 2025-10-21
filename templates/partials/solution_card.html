@@ -1,0 +1,44 @@
+{# Solution Card Partial - Reusable component for displaying solution cards #}
+{# Expected variables: solution, category (optional), category_name (optional) #}
+{# Optional flags: show_category_label, show_difficulty, show_complexity, show_description #}
+{# Optional data attributes: data_attrs (dict) #}
+
+<a href="{{ url_for('solution_view', category=category or solution.category, filename=solution.url_filename) }}"
+   class="solution-card"
+   {% if data_attrs %}{% for key, value in data_attrs.items() %}data-{{ key }}="{{ value }}" {% endfor %}{% endif %}>
+
+    {# Problem Number #}
+    {% if solution.number %}
+    <span class="problem-number">#{{ solution.number }}</span>
+    {% endif %}
+
+    {# Card Header with Title and Optional Category Label #}
+    {% if show_category_label %}
+    <div class="solution-card-header">
+        <h3>{{ solution.name }}</h3>
+        <span class="category-label-inline">{{ category_name }}</span>
+    </div>
+    {% else %}
+    <h3>{{ solution.name }}</h3>
+    {% endif %}
+
+    {# Description (one-sentence summary) #}
+    {% if show_description and solution.description %}
+    <p class="description">{{ solution.description }}</p>
+    {% endif %}
+
+    {# Badges Section #}
+    <div class="solution-badges">
+        {# Difficulty Badge #}
+        {% if show_difficulty and solution.difficulty %}
+        <span class="difficulty-badge difficulty-{{ solution.difficulty.lower() }}">{{ solution.difficulty }}</span>
+        {% endif %}
+
+        {# Complexity Badge #}
+        {% if show_complexity and (solution.time_complexity or solution.space_complexity) %}
+        <span class="complexity-badge">
+            {{ solution.time_complexity or '?' }} / {{ solution.space_complexity or '?' }}
+        </span>
+        {% endif %}
+    </div>
+</a>

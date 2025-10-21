@@ -2,7 +2,7 @@
 
 from collections.abc import Generator
 from typing import Any
-from unittest.mock import MagicMock, patch
+from unittest.mock import MagicMock, mock_open, patch
 
 import pytest
 
@@ -38,31 +38,39 @@ class TestErrorConditions:
         # Should render without documentation section
         assert b"Test Category" in response.data
 
+    @patch("src.leet_code.app.get_solution_path")
     @patch("src.leet_code.app.category_manager")
-    def test_solution_view_no_content(self, mock_manager: Any, client: Any) -> None:
-        """Test solution view when solution content is None."""
+    def test_solution_view_no_content(self, mock_manager: Any, mock_path_func: Any, client: Any) -> None:
+        """Test solution view when solution file doesn't exist."""
         mock_solution = Solution("test.py", "Test Solution")
+        mock_solution.available_languages = ["Python"]  # Has Python available
         mock_manager.get_solution.return_value = mock_solution
-        mock_manager.read_solution_content.return_value = None  # No content
+
+        # Mock path that doesn't exist
+        mock_path = MagicMock()
+        mock_path.exists.return_value = False
+        mock_path_func.return_value = mock_path
 
         response = client.get("/solution/test-category/test.py")
         assert response.status_code == 404
 
     @patch("src.leet_code.app.category_manager")
-    def test_solution_view_empty_content(self, mock_manager: Any, client: Any) -> None:
-        """Test solution view when solution content is empty string."""
+    def test_solution_view_no_available_languages(self, mock_manager: Any, client: Any) -> None:
+        """Test solution view when no language implementations exist."""
         mock_solution = Solution("test.py", "Test Solution")
+        mock_solution.available_languages = []  # No languages available
         mock_manager.get_solution.return_value = mock_solution
-        mock_manager.read_solution_content.return_value = ""  # Empty content
+        mock_manager.get_category.return_value = MagicMock(name="Test Category")
 
         response = client.get("/solution/test-category/test.py")
-        assert response.status_code == 404
+        # Should show no_solution.html template
+        assert response.status_code == 200
+        assert b"Test Solution" in response.data or b"test" in response.data
 
     @patch("src.leet_code.app.category_manager")
     def test_solution_view_no_metadata(self, mock_manager: Any, client: Any) -> None:
         """Test solution view when solution metadata is not found."""
         mock_manager.get_solution.return_value = None  # No solution metadata
-        mock_manager.read_solution_content.return_value = "def test(): pass"
 
         response = client.get("/solution/test-category/test.py")
         assert response.status_code == 404
@@ -70,7 +78,9 @@ class TestErrorConditions:
     @patch("src.leet_code.app.category_manager")
     def test_leetcode_view_no_content(self, mock_manager: Any, client: Any) -> None:
         """Test LeetCode view when solution content is None."""
-        mock_manager.read_solution_content.return_value = None
+        mock_solution = Solution("test.py", "Test Solution")
+        mock_manager.get_solution.return_value = mock_solution
+        mock_manager.read_solution_content.return_value = None  # No content
 
         response = client.get("/solution/test-category/test.py/leetcode")
         assert response.status_code == 404
@@ -88,7 +98,7 @@ class TestErrorConditions:
         """Test download when solution content is None."""
         mock_solution = Solution("test.py", "Test Solution")
         mock_manager.get_solution.return_value = mock_solution
-        mock_manager.read_solution_content.return_value = None
+        mock_manager.read_solution_content.return_value = None  # No content
 
         response = client.get("/solution/test-category/test.py/download/solution")
         assert response.status_code == 404
@@ -133,17 +143,29 @@ class TestErrorConditions:
 class TestFileExtensionEdgeCases:
     """Test edge cases for file extension handling."""
 
+    @patch("src.leet_code.app.get_solution_path")
     @patch("src.leet_code.app.category_manager")
-    def test_solution_view_without_py_extension(self, mock_manager: Any, client: Any) -> None:
+    def test_solution_view_without_py_extension(
+        self, mock_manager: Any, mock_get_path: Any, client: Any
+    ) -> None:
         """Test solution view with filename that doesn't have .py extension."""
+        from unittest.mock import mock_open as mock_file_open
+
         mock_solution = Solution("test.py", "Test Solution")
+        mock_solution.available_languages = ["Python"]
         mock_manager.get_solution.return_value = mock_solution
-        mock_manager.read_solution_content.return_value = "def test(): pass"
-        mock_manager.read_documentation.return_value = "# Test docs"
+        mock_manager.get_category.return_value = MagicMock(name="Test Category")
+
+        # Mock solution path that exists
+        mock_path = MagicMock()
+        mock_path.exists.return_value = True
+        mock_path.suffix = ".py"
+        mock_get_path.return_value = mock_path
 
         # Access without .py extension - should work due to route handling
-        response = client.get("/solution/test-category/test")
-        assert response.status_code == 200
+        with patch("builtins.open", mock_file_open(read_data="def test(): pass")):
+            response = client.get("/solution/test-category/test")
+            assert response.status_code == 200
 
     @patch("src.leet_code.app.category_manager")
     def test_upload_without_py_extension(self, mock_manager: Any, client: Any) -> None:

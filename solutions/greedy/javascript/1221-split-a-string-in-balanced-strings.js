@@ -1,5 +1,5 @@
 /**
- * Difficulty: Easy
+ * # Difficulty: Easy
  *
  * # 1221. Split A String In Balanced Strings
  *
@@ -23,15 +23,13 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- *
- *
 
- * ### METADATA:
- * **Techniques**: Greedy Algorithm, Optimization
- * **Data Structures**: Array, Priority Queue
- * **Patterns**: Greedy Pattern, Local Optimization
- * **Time Complexity**: **O(n)
- * **Space Complexity**: **O(1)
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: * O(n)
+**Space Complexity**: * O(1)
 
  *
  * ### INTUITION:

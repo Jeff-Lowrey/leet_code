@@ -129,7 +129,7 @@ Downloads all formats in a single ZIP file:
 
 ### Selecting Language
 
-If alternative language implementations are available:
+If other language implementations are available:
 
 1. **View Language Badges**: Check available languages on solution page
 2. **Select Language**: Click the language badge to switch

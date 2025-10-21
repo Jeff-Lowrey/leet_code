@@ -54,6 +54,8 @@
     --badge-medium: #f59e0b;
     --badge-hard: #ef4444;
     --badge-text: #ffffff;
+    --badge-problem-number: #8b8680; /* Warm neutral gray for soft theme */
+    --badge-problem-number-text: #ffffff;
 }
 
 /* Soft Neutral - Dark Mode */
@@ -106,6 +108,8 @@
     --badge-medium: #fb923c;
     --badge-hard: #f87171;
     --badge-text: #0f172a;
+    --badge-problem-number: #64748b; /* Cool slate gray for dark theme */
+    --badge-problem-number-text: #f1f5f9;
 }
 
 /* Soft Neutral - Light Mode (default) */
@@ -158,6 +162,8 @@
     --badge-medium: #f59e0b;
     --badge-hard: #ef4444;
     --badge-text: #ffffff;
+    --badge-problem-number: #8b8680; /* Warm neutral gray (same as :root) */
+    --badge-problem-number-text: #ffffff;
 }
 
 /* ========================================
@@ -208,6 +214,16 @@
     --cat-27: #2563eb;
     --cat-28: #2563eb;
     --cat-29: #2563eb;
+
+    /* Badge colors */
+    --badge-problem-number: #000000; /* Pure black - classic white background */
+    --badge-problem-number-text: #ffffff;
+    --badge-difficulty: #2563eb;
+    --badge-complexity: #2563eb;
+    --badge-easy: #2563eb;
+    --badge-medium: #2563eb;
+    --badge-hard: #2563eb;
+    --badge-text: #ffffff;
 }
 
 /* Classic - Dark Mode */
@@ -254,6 +270,16 @@
     --cat-27: #2563eb;
     --cat-28: #2563eb;
     --cat-29: #2563eb;
+
+    /* Badge colors */
+    --badge-problem-number: #ffffff; /* White - classic dark background */
+    --badge-problem-number-text: #000000;
+    --badge-difficulty: #2563eb;
+    --badge-complexity: #2563eb;
+    --badge-easy: #2563eb;
+    --badge-medium: #2563eb;
+    --badge-hard: #2563eb;
+    --badge-text: #ffffff;
 }
 
 /* Classic theme card styling - blue border on all cards */
@@ -380,6 +406,8 @@
     --badge-medium: #ff9800;
     --badge-hard: #ff5722;
     --badge-text: #ffffff;
+    --badge-problem-number: #e91e63; /* Deep pink - vibrant and energetic */
+    --badge-problem-number-text: #ffffff;
 }
 
 /* Vibrant - Dark Mode */
@@ -432,6 +460,8 @@
     --badge-medium: #ffa726;
     --badge-hard: #ff7043;
     --badge-text: #0f172a;
+    --badge-problem-number: #f06292; /* Bright pink - vibrant dark mode */
+    --badge-problem-number-text: #121212;
 }
 
 /* ========================================
@@ -488,6 +518,8 @@
     --badge-medium: #cc9900;
     --badge-hard: #cc0000;
     --badge-text: #ffffff;
+    --badge-problem-number: #000000; /* Pure black - maximum contrast */
+    --badge-problem-number-text: #ffffff;
 }
 
 /* High Contrast - Dark Mode */
@@ -540,6 +572,8 @@
     --badge-medium: #ffcc33;
     --badge-hard: #ff3333;
     --badge-text: #000000;
+    --badge-problem-number: #ffffff; /* Pure white - maximum contrast */
+    --badge-problem-number-text: #000000;
 }
 
 /* ========================================
@@ -596,6 +630,8 @@
     --badge-medium: #ffff00;
     --badge-hard: #ff0080;
     --badge-text: #000000;
+    --badge-problem-number: #ff00ff; /* Electric magenta - neon glow */
+    --badge-problem-number-text: #000000;
 }
 
 /* Neon - Light Mode */
@@ -648,6 +684,8 @@
     --badge-medium: #eeee00;
     --badge-hard: #dd0066;
     --badge-text: #000000;
+    --badge-problem-number: #dd00dd; /* Bright magenta - neon light */
+    --badge-problem-number-text: #000000;
 }
 
 /* ========================================
@@ -704,6 +742,8 @@
     --badge-medium: #ffff00;
     --badge-hard: #ff0000;
     --badge-text: #000000;
+    --badge-problem-number: #000000; /* Pure black amidst chaos */
+    --badge-problem-number-text: #ffff00;
 }
 
 /* Chaos - Dark Mode */
@@ -756,6 +796,8 @@
     --badge-medium: #ffff00;
     --badge-hard: #ff0000;
     --badge-text: #000000;
+    --badge-problem-number: #ffffff; /* Pure white amidst chaos */
+    --badge-problem-number-text: #000000;
 }
 
 /* ========================================
@@ -812,6 +854,8 @@
     --badge-medium: #d97706;
     --badge-hard: #c92a2a;
     --badge-text: #ffffff;
+    --badge-problem-number: #9c27b0; /* Purple from rainbow spectrum */
+    --badge-problem-number-text: #ffffff;
 }
 
 /* Rainbow - Dark Mode */
@@ -864,6 +908,8 @@
     --badge-medium: #ff922b;
     --badge-hard: #ff6b6b;
     --badge-text: #0f172a;
+    --badge-problem-number: #ce93d8; /* Light purple from rainbow spectrum */
+    --badge-problem-number-text: #1a1d3a;
 }
 
 /* ========================================
@@ -920,6 +966,8 @@
     --badge-medium: #fcbf49;
     --badge-hard: #d63447;
     --badge-text: #ffffff;
+    --badge-problem-number: #e91e63; /* Pink - happy theme */
+    --badge-problem-number-text: #ffffff;
 }
 
 /* Happy - Dark Mode */
@@ -972,6 +1020,8 @@
     --badge-medium: #ffe066;
     --badge-hard: #ff758f;
     --badge-text: #1a1a1a;
+    --badge-problem-number: #ff69b4; /* Hot pink - happy dark */
+    --badge-problem-number-text: #1a0a1a;
 }
 
 /* ========================================
@@ -1028,6 +1078,8 @@
     --badge-medium: #b8a07e;
     --badge-hard: #b5838d;
     --badge-text: #1e1e2e;
+    --badge-problem-number: #b8a07e; /* Moody warm taupe */
+    --badge-problem-number-text: #1e1e2e;
 }
 
 /* Moody - Light Mode */
@@ -1080,6 +1132,8 @@
     --badge-medium: #a08862;
     --badge-hard: #9a6872;
     --badge-text: #ffffff;
+    --badge-problem-number: #a08862; /* Moody warm bronze */
+    --badge-problem-number-text: #ffffff;
 }
 
 /* ========================================

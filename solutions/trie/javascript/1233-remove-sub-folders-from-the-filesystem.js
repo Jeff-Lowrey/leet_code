@@ -1,5 +1,5 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
  * # 1233. Remove Sub Folders From The Filesystem
  *
@@ -24,15 +24,13 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- *
- *
 
- * ### METADATA:
- * **Techniques**: Trie Operations, Prefix Matching
- * **Data Structures**: Trie (Prefix Tree)
- * **Patterns**: Trie Pattern, Prefix Search
- * **Time Complexity**: **O(N * L * log(N))
- * **Space Complexity**: **O(N * L)
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: * O(N * L * log(N))
+**Space Complexity**: * O(N * L)
 
  *
  * ### INTUITION:

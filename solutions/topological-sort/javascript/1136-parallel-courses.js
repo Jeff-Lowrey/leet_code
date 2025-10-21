@@ -1,5 +1,5 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
  * # 1136. Parallel Courses
  *
@@ -22,19 +22,17 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- *
- *
 
- * ### METADATA:
- * **Techniques**: Topological Sort, Dependency Resolution
- * **Data Structures**: Graph, Queue, Stack
- * **Patterns**: Topological Sort Pattern, DAG Traversal
- * **Time Complexity**: **O(n)
- * **Space Complexity**: **O(1)
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: * O(n)
+**Space Complexity**: * O(1)
 
  *
  * ### INTUITION:
- * This problem models dependencies as a directed graph and uses topological sorting to find a valid ordering.
+ * [This problem requires understanding of topological sort concepts. The key insight is to identify the optimal approach for this specific scenario.]
  *
  * ### APPROACH:
  * 1. **Analyze the problem**: Understand the input constraints and expected output

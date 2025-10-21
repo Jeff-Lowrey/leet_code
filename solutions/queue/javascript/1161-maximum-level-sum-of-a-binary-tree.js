@@ -1,5 +1,5 @@
 /**
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
  * # 1161. Maximum Level Sum of a Binary Tree
  *
@@ -19,15 +19,13 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- *
- *
 
- * ### METADATA:
- * **Techniques**: Queue Operations, Level-order Traversal
- * **Data Structures**: Queue, Deque
- * **Patterns**: BFS Pattern, Level Traversal
- * **Time Complexity**: **O(n)
- * **Space Complexity**: **O(w)
+### METADATA:
+**Techniques**: TBD
+**Data Structures**: TBD
+**Patterns**: TBD
+**Time Complexity**: * O(n)
+**Space Complexity**: * O(w)
 
  *
  * ### INTUITION:

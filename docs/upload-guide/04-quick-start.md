@@ -334,7 +334,7 @@ if (typeof module !== 'undefined' && module.exports) {
 ### Step 6: Test Your Solution
 
 ```bash
-node docs/solutions/arrays-hashing/alternatives/001-two-sum.js.js
+node docs/solutions/arrays-hashing/javascript/001-two-sum.js.js
 ```
 
 ## Using the Web Interface
@@ -406,13 +406,13 @@ python docs/solutions/arrays-hashing/001-two-sum.py
 mkdir -p docs/solutions/arrays-hashing/alternatives
 
 # 2. Copy template
-cp docs/solutions/templates/SOLUTION_TEMPLATE.js docs/solutions/arrays-hashing/alternatives/001-two-sum.js.js
+cp docs/solutions/templates/SOLUTION_TEMPLATE.js docs/solutions/arrays-hashing/javascript/001-two-sum.js.js
 
 # 3. Edit file
-vim docs/solutions/arrays-hashing/alternatives/001-two-sum.js.js
+vim docs/solutions/arrays-hashing/javascript/001-two-sum.js.js
 
 # 4. Test
-node docs/solutions/arrays-hashing/alternatives/001-two-sum.js.js
+node docs/solutions/arrays-hashing/javascript/001-two-sum.js.js
 ```
 
 ### Workflow 3: Web Upload

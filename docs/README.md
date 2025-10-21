@@ -134,7 +134,7 @@ node arrays-hashing/alternatives/001-two-sum.js
 1. Progress to Two Pointers and Sliding Window
 2. Study complexity analysis in solutions
 3. Work through medium difficulty problems
-4. Explore alternative language implementations
+4. Explore other language implementations
 5. Review solution explanations for optimization techniques
 
 ### Advanced Path (Week 13+)
