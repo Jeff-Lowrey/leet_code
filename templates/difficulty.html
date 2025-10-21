@@ -25,25 +25,14 @@
         </summary>
         <div class="solutions-grid">
             {% for item in difficulty_data.solutions %}
-            <a href="{{ url_for('solution_view', category=item.category, filename=item.solution.url_filename) }}" class="solution-card" data-category="{{ item.category }}" data-difficulty="{{ difficulty_name.lower() }}">
-                {% if item.solution.number %}
-                <span class="problem-number">#{{ item.solution.number }}</span>
-                {% endif %}
-                <div class="solution-card-header">
-                    <h3>{{ item.solution.name }}</h3>
-                    <span class="category-label-inline">{{ item.category_name }}</span>
-                </div>
-                {% if item.solution.description %}
-                <p class="description">{{ item.solution.description }}</p>
-                {% endif %}
-                <div class="solution-badges">
-                    {% if item.solution.time_complexity or item.solution.space_complexity %}
-                    <span class="complexity-badge">
-                        {{ item.solution.time_complexity or '?' }} / {{ item.solution.space_complexity or '?' }}
-                    </span>
-                    {% endif %}
-                </div>
-            </a>
+            {% set solution = item.solution %}
+            {% set category = item.category %}
+            {% set category_name = item.category_name %}
+            {% set show_category_label = true %}
+            {% set show_complexity = true %}
+            {% set show_description = true %}
+            {% set data_attrs = {'category': item.category, 'difficulty': difficulty_name.lower()} %}
+            {% include 'partials/solution_card.html' %}
             {% endfor %}
         </div>
     </details>

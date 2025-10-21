@@ -24,22 +24,10 @@
     <h2>Problems</h2>
     <div class="solutions-grid" data-category="{{ category }}">
         {% for solution in solutions %}
-        <a href="{{ url_for('solution_view', category=category, filename=solution.url_filename) }}" class="solution-card">
-            {% if solution.number %}
-            <span class="problem-number">#{{ solution.number }}</span>
-            {% endif %}
-            <h3>{{ solution.name }}</h3>
-            <div class="solution-badges">
-                {% if solution.difficulty %}
-                <span class="difficulty-badge difficulty-{{ solution.difficulty.lower() }}">{{ solution.difficulty }}</span>
-                {% endif %}
-                {% if solution.time_complexity or solution.space_complexity %}
-                <span class="complexity-badge">
-                    {{ solution.time_complexity or '?' }} / {{ solution.space_complexity or '?' }}
-                </span>
-                {% endif %}
-            </div>
-        </a>
+        {% set show_difficulty = true %}
+        {% set show_complexity = true %}
+        {% set show_description = true %}
+        {% include 'partials/solution_card.html' %}
         {% endfor %}
     </div>
 </section>
