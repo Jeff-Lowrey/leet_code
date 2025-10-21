@@ -24,6 +24,13 @@ from .language_constants import (
     get_lexer_for_language,
 )
 from .leetcode_converter import convert_to_leetcode_format, extract_solution_class
+from .markdown_extraction import (
+    ProblemData,
+    extract_markdown_from_code,
+    extract_markdown_from_js_comment,
+    extract_markdown_from_python_docstring,
+    parse_complete_problem_data,
+)
 
 # Export functions for testing
 __all__ = [
@@ -187,6 +194,41 @@ def get_solution_path(category: str, filename: str, language: str) -> Path:
     return Path(__file__).parent.parent.parent / "solutions" / category / language_dir / solution_filename
 
 
+def extract_all_problem_data(code: str, file_extension: str) -> tuple[str, ProblemData]:
+    """Extract all problem data from code using unified language-agnostic extraction.
+
+    Args:
+        code: Source code content
+        file_extension: File extension (e.g., '.py', '.js')
+
+    Returns:
+        Tuple of (clean_code_without_docstring, problem_data)
+    """
+    try:
+        # Extract markdown from language-specific comment
+        markdown_content = extract_markdown_from_code(code, file_extension)
+
+        if not markdown_content:
+            # No markdown found, return original code with empty data
+            return code, ProblemData()
+
+        # Parse all sections from markdown
+        problem_data = parse_complete_problem_data(markdown_content)
+
+        # Remove the comment block from code to get clean code
+        if file_extension == '.py':
+            clean_code = re.sub(r'""".*?"""', '', code, count=1, flags=re.DOTALL).strip()
+        elif file_extension in ['.js', '.ts']:
+            clean_code = re.sub(r'/\*\*.*?\*/', '', code, count=1, flags=re.DOTALL).strip()
+        else:
+            clean_code = code
+
+        return clean_code, problem_data
+
+    except Exception:
+        return code, ProblemData()
+
+
 def parse_docstring_explanation(code: str) -> tuple[str, dict[str, str] | None]:
     """Parse Python code to extract explanation sections and clean code.
 
@@ -322,32 +364,39 @@ def parse_explanation_sections(content: str) -> dict[str, str]:
     return sections
 
 
-def extract_problem_description(code: str) -> str | None:
-    """Extract problem description from the docstring."""
+def parse_problem_markdown(markdown_content: str) -> str | None:
+    """Parse problem description from markdown content (language-agnostic).
+
+    Args:
+        markdown_content: Raw markdown extracted from language-specific comments
+
+    Returns:
+        HTML-formatted problem description
+    """
     try:
-        # Look for the main docstring at the beginning
-        docstring_pattern = r'"""(.*?)"""'
-        match = re.search(docstring_pattern, code, re.DOTALL)
+        # Remove the solution explanation section if present
+        if "<details>" in markdown_content:
+            markdown_content = markdown_content.split("<details>")[0].strip()
 
-        if match:
-            docstring = match.group(1).strip()
+        # Remove "# Difficulty:" line from problem description
+        markdown_content = re.sub(r"^#?\s*Difficulty:\s*\w+\s*\n?", "", markdown_content, flags=re.MULTILINE)
 
-            # Remove the solution explanation section if present
-            # Split at the first <details> tag
-            if "<details>" in docstring:
-                docstring = docstring.split("<details>")[0].strip()
+        # Remove problem number from title (e.g., "# 169. Majority Element" -> "# Majority Element")
+        markdown_content = re.sub(r"^#\s+\d+\.\s+", "# ", markdown_content, flags=re.MULTILINE)
 
-            # Remove "# Difficulty:" line from problem description
-            # This metadata is shown as a badge, not in the problem text
-            docstring = re.sub(r"^#\s*Difficulty:\s*\w+\s*\n?", "", docstring, flags=re.MULTILINE)
-
-            # Convert to HTML
-            html: str = markdown.markdown(docstring, extensions=["fenced_code", "tables"])
-            return html
-
-        return None
+        # Convert to HTML
+        html: str = markdown.markdown(markdown_content, extensions=["fenced_code", "tables"])
+        return html
     except Exception:
         return None
+
+
+def extract_problem_description(code: str) -> str | None:
+    """Extract problem description from Python docstring."""
+    markdown_content = extract_markdown_from_python_docstring(code)
+    if markdown_content:
+        return parse_problem_markdown(markdown_content)
+    return None
 
 
 def merge_and_reorganize_content(documentation: str | None, explanation: str | None) -> str | None:
@@ -657,6 +706,9 @@ def extract_js_problem_description(code: str) -> str | None:
             # Remove "Difficulty:" line from problem description
             # This metadata is shown as a badge, not in the problem text
             problem_description = re.sub(r"^Difficulty:\s*\w+\s*\n?", "", problem_description, flags=re.MULTILINE)
+
+            # Remove problem number from title (e.g., "# 169. Majority Element" -> "# Majority Element")
+            problem_description = re.sub(r"^#\s+\d+\.\s+", "# ", problem_description, flags=re.MULTILINE)
 
             # Convert to HTML
             problem_html: str = markdown.markdown(problem_description, extensions=["fenced_code", "tables"])
@@ -1232,22 +1284,37 @@ def solution_view(category: str, filename: str) -> str:
     with open(solution_path) as f:
         solution_code = f.read()
 
-    # Parse content based on language
+    # Parse content using unified language-agnostic extraction
+    file_extension = solution_path.suffix
+    clean_code, problem_data = extract_all_problem_data(solution_code, file_extension)
+
+    # Convert problem statement to HTML
+    problem_description = None
+    if problem_data.problem_statement:
+        problem_description = parse_problem_markdown(problem_data.problem_statement)
+
+    # Convert explanation sections to dict format for template
+    explanation_sections = None
+    if any([problem_data.intuition, problem_data.approach, problem_data.why_works, problem_data.example_walkthrough]):
+        # Convert to markdown HTML for each section
+        explanation_sections = {}
+        if problem_data.intuition:
+            explanation_sections["intuition"] = markdown.markdown(problem_data.intuition, extensions=["fenced_code", "tables"])
+        if problem_data.approach:
+            explanation_sections["approach"] = markdown.markdown(problem_data.approach, extensions=["fenced_code", "tables"])
+        if problem_data.why_works:
+            explanation_sections["why_works"] = markdown.markdown(problem_data.why_works, extensions=["fenced_code", "tables"])
+        if problem_data.example_walkthrough:
+            explanation_sections["example"] = markdown.markdown(problem_data.example_walkthrough, extensions=["fenced_code", "tables"])
+
+    # Generate skeleton and get lexer based on language
     if display_language == "Python":
-        problem_description = extract_problem_description(solution_code)
-        clean_code, explanation_sections = parse_docstring_explanation(solution_code)
         skeleton = generate_skeleton(clean_code, solution, is_leetcode=False)
         lexer = PythonLexer()
     elif display_language == "JavaScript":
-        problem_description = extract_js_problem_description(solution_code)
-        clean_code, explanation_sections = parse_jsdoc_explanation(solution_code)
         skeleton = generate_js_skeleton(clean_code, solution)
         lexer = get_lexer_for_language("JavaScript")
     else:
-        # Generic handling for other languages
-        problem_description = None
-        clean_code = solution_code
-        explanation_sections = None
         skeleton = None
         lexer = get_lexer_for_language(display_language)
 
