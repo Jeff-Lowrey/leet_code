@@ -17,14 +17,11 @@ Given the root of a binary tree, return the average value of the nodes on each l
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: O(n)
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Map Storage, Array Traversal, Two Pointers
+**Data Structures**: Array, Queue, Tree
+**Patterns**: Two Pointers Pattern, Hash Table Pattern
+**Time Complexity**: O(n) - Single pass through input
 **Space Complexity**: O(w)
 
 ### INTUITION:
@@ -83,7 +80,6 @@ O(w)
 
 from collections import deque
 from typing import Any
-
 
 
 class TreeNode:

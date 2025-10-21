@@ -17,14 +17,12 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: * - Insert: O(k) where k is key length
-**Space Complexity**: * O(TOTAL_KEY_LENGTH)
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+ * **Data Structures**: Hash Map, Hash Set, Array
+ * **Patterns**: Graph Pattern
+ * **Time Complexity**: * - Insert: O(k) where k is key length
+ * **Space Complexity**: * O(TOTAL_KEY_LENGTH)
 
  *
  * ### INTUITION:

@@ -21,13 +21,10 @@ Implement the `MovingAverage` class:
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Sliding Window, Queue Operations
+**Data Structures**: Queue, Linked List
+**Patterns**: Sliding Window Pattern, Hash Table Pattern
 **Time Complexity**: O(1) per operation
 **Space Complexity**: O(size)
 

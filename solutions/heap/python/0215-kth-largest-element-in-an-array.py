@@ -21,13 +21,10 @@ Can you solve it without sorting?
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Map Storage, Array Traversal, Two Pointers
+**Data Structures**: Array, Heap, Tree
+**Patterns**: Two Pointers Pattern, Hash Table Pattern
 **Time Complexity**: - Min-heap: O(n log k)
 **Space Complexity**: - Min-heap: O(k)
 

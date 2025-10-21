@@ -19,13 +19,10 @@ Note that the same word in the dictionary may be reused multiple times in the se
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: Hash Map, Hash Set, Array
+**Patterns**: Two Pointers Pattern, Dynamic Programming
 **Time Complexity**: O(N^3 + M*L)
 **Space Complexity**: O(M*L + N^2)
 
@@ -89,11 +86,8 @@ O(M*L + N^2)
 </details>
 """
 
-
 from typing import Any
 import re
-
-
 
 
 class TrieNode:

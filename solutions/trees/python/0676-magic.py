@@ -22,13 +22,10 @@ Implement the MagicDictionary class:
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Depth-First Search
+**Data Structures**: Hash Map, Array, String
+**Patterns**: Graph Pattern
 **Time Complexity**: - Build: O(n × l) where n is number of words, l is average length
 **Space Complexity**: O(n × l)
 
@@ -79,5 +76,5 @@ For the trie structure storing all dictionary words
 
 </details>
 """
-import re
 
+import re

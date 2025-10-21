@@ -19,15 +19,12 @@ smallest string that s can be transformed to after using the swaps.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: Hash Map, Hash Set, Array
+**Patterns**: Hash Table Pattern, Backtracking
 **Time Complexity**: O(n log n + m α(n)) where m is pairs count
-**Space Complexity**: O(n)
+**Space Complexity**: O(n) - Additional hash map storage
 
 ### INTUITION:
 Pairs form connected components via union-find. Within each component, indices can be
@@ -77,9 +74,6 @@ from typing import Any
 import re
 
 
-
-
-
 class UnionFind:
     """Union-Find (Disjoint Set Union) data structure."""
 
@@ -87,7 +81,6 @@ class UnionFind:
         """Initialize with n elements."""
         self.parent = list(range(n))
         self.rank = [0] * n
-
 
     @property
     def components(self) -> int:

@@ -20,13 +20,10 @@ Two nodes of a binary tree are cousins if they have the same depth but have diff
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Two Pointers, Stack Operations
+**Data Structures**: Hash Map, Stack, Queue
+**Patterns**: Two Pointers Pattern, Graph Pattern
 **Time Complexity**: O(n)
 **Space Complexity**: O(w)
 
@@ -155,7 +152,9 @@ class Solution:
         Space Complexity: O(h) where h is height (recursion stack)
         """
 
-        def dfs(node: TreeNode | None, parent: TreeNode | None, depth: int, target: int) -> tuple[TreeNode | None, int] | None:
+        def dfs(
+            node: TreeNode | None, parent: TreeNode | None, depth: int, target: int
+        ) -> tuple[TreeNode | None, int] | None:
             """Returns (parent, depth) if target found, else None."""
             if not node:
                 return None

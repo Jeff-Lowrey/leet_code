@@ -21,15 +21,12 @@ You must write an algorithm with O(log n) runtime complexity.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: O(log n)
-**Space Complexity**: O(1)
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: Hash Set, Array, Tree
+**Patterns**: Complement Search, Two Pointers Pattern
+**Time Complexity**: O(log n) - Binary search or tree height
+**Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
 Binary search is the classic divide-and-conquer algorithm for searching

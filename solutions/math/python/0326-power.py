@@ -19,15 +19,12 @@ An integer n is a power of three, if there exists an integer x such that n == 3^
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Standard Algorithm
+**Data Structures**: Basic Types
+**Patterns**: Hash Table Pattern, Divide and Conquer
 **Time Complexity**: O(n)
-**Space Complexity**: O(1)
+**Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
 Powers of 3 only have 3 in their prime factorization. Find maximum power of 3 in 32-bit range (3^19). Check if n divides it evenly. If yes, n is power of 3.

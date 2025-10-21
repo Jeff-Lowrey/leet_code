@@ -21,13 +21,10 @@ Return the maximum area of an island in grid. If there is no island, return 0.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Array Traversal, Stack Operations
+**Data Structures**: Array, Stack, Queue
+**Patterns**: Hash Table Pattern, Greedy Algorithm
 **Time Complexity**: O(M × N)
 **Space Complexity**: O(M × N)
 

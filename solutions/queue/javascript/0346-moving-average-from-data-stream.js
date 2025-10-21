@@ -24,14 +24,12 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: * O(1) per operation
-**Space Complexity**: * O(size)
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * **Techniques**: Hash Map Storage, Array Traversal, Sliding Window
+ * **Data Structures**: Array, Queue, Linked List
+ * **Patterns**: Sliding Window Pattern
+ * **Time Complexity**: * O(1) per operation
+ * **Space Complexity**: * O(size)
 
  *
  * ### INTUITION:

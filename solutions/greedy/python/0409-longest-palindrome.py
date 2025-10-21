@@ -19,15 +19,12 @@ Letters are case sensitive, for example, "Aa" is not considered a palindrome her
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: O(n)
-**Space Complexity**: O(1)
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: Hash Map, Array, String
+**Patterns**: Two Pointers Pattern, Hash Table Pattern
+**Time Complexity**: O(n) - Single pass through input
+**Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
 A palindrome reads the same forwards and backwards. To maximize the palindrome length, we should use as many character pairs as possible, plus at most one character with odd count (which goes in the center).
@@ -82,7 +79,6 @@ At most 128 ASCII characters or 52 letters (constant space)
 from collections import Counter
 from typing import Any
 import re
-
 
 
 class Solution:

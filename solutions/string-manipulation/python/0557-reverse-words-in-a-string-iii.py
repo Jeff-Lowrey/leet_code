@@ -18,15 +18,12 @@ while still preserving whitespace and initial word order.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: O(n)
-**Space Complexity**: O(n)
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: Array, String, Stack
+**Patterns**: Two Pointers Pattern, Divide and Conquer
+**Time Complexity**: O(n) - Single pass through input
+**Space Complexity**: O(n) - Additional set storage
 
 ### INTUITION:
 We need to reverse each word individually while keeping the words in the same order
@@ -87,8 +84,8 @@ O(n)
 </details>
 """
 
-
 from typing import Any
+
 
 class Solution:
     def reverseWords(self, s: str) -> str:

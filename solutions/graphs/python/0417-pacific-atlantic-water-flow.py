@@ -23,15 +23,12 @@ Return a 2D list of grid coordinates result where result[i] = [ri, ci] denotes t
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
+**Data Structures**: Hash Map, Hash Set, Array
+**Patterns**: Two Pointers Pattern, Hash Table Pattern
 **Time Complexity**: O(n)
-**Space Complexity**: O(1)
+**Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
 Use DFS/BFS from all Pacific border cells and separately from all Atlantic border cells. Cells reachable from both oceans are in the answer. Water flows from high to low or equal.

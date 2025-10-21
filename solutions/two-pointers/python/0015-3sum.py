@@ -20,15 +20,12 @@ Notice that the solution `set` must not contain duplicate triplets.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: O(n²)
-**Space Complexity**: O(1)
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: Hash Set, Array, Tree
+**Patterns**: Two Pointers Pattern
+**Time Complexity**: O(n²) - Nested iteration through input
+**Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
 Convert the 3Sum problem into multiple 2Sum problems. For each number, find pairs in the remaining array that sum to the negative of that number. Sorting helps avoid duplicates and enables two-pointer technique.
@@ -72,8 +69,8 @@ O(1)
 </details>
 """
 
-
 from typing import Any
+
 
 class Solution:
     def threeSum(self, nums: list[int]) -> list[list[int]]:

@@ -23,15 +23,12 @@ You must write an algorithm that runs in O(log n) time.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: O(n)
-**Space Complexity**: O(1)
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Two Pointers
+**Data Structures**: Hash Map, Hash Set, Array
+**Patterns**: Two Pointers Pattern, Binary Search Pattern
+**Time Complexity**: O(n) - Single pass through input
+**Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
 A peak must exist because edges are considered smaller. Use binary search: if nums[mid] < nums[mid+1], a peak exists to the right (upward slope); otherwise a peak exists to the left or at mid (downward slope). Always converges to a peak.

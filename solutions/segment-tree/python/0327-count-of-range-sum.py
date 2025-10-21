@@ -19,15 +19,12 @@ Range sum S(i, j) is defined as the sum of the elements in nums between indices 
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: O(n log n)
-**Space Complexity**: O(n)
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
+**Data Structures**: Hash Set, Array, Tree
+**Patterns**: Two Pointers Pattern, Hash Table Pattern
+**Time Complexity**: O(n log n) - Sorting or divide-and-conquer
+**Space Complexity**: O(n) - Additional set storage
 
 ### INTUITION:
 This is an advanced range sum counting problem. The key insight is to use prefix sums: if we have prefix[j] - prefix[i] in [lower, upper], then we need to count how many prefix[i] satisfy: prefix[j] - upper <= prefix[i] <= prefix[j] - lower. This transforms into a range counting problem solvable with merge sort or segment trees.
@@ -76,8 +73,8 @@ For prefix sums and auxiliary structures
 </details>
 """
 
-
 from typing import Any
+
 
 class Solution:
     def countRangeSum(self, nums: list[int], lower: int, upper: int) -> int:

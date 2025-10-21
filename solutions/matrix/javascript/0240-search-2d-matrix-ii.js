@@ -18,14 +18,12 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: * O(m + n) - worst case visit m+n cells
-**Space Complexity**: * O(1) - only use constant space
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * **Techniques**: Array Traversal
+ * **Data Structures**: Array, Matrix
+ * **Patterns**: Complement Search
+ * **Time Complexity**: * O(m + n) - worst case visit m+n cells
+ * **Space Complexity**: * O(1) - only use constant space
 
  *
  * ### INTUITION:

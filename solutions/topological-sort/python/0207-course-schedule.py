@@ -21,13 +21,10 @@ Return true if you can finish all courses. Otherwise, return false.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
+**Data Structures**: Hash Map, Hash Set, Array
+**Patterns**: Hash Table Pattern, Greedy Algorithm
 **Time Complexity**: O(V + E)
 **Space Complexity**: O(V + E)
 

@@ -21,13 +21,10 @@ Return the number of distinct islands.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
+**Data Structures**: Hash Set, Array, String
+**Patterns**: Hash Table Pattern, Greedy Algorithm
 **Time Complexity**: O(M × N)
 **Space Complexity**: O(M × N)
 
@@ -82,8 +79,8 @@ For storing island shapes and recursion stack
 </details>
 """
 
-
 from typing import Any
+
 
 class Solution:
     def numDistinctIslands(self, grid: list[list[int]]) -> int:

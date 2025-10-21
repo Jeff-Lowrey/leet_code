@@ -19,15 +19,12 @@ any index with value 0.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: O(n)
-**Space Complexity**: O(n) for visited set and recursion/queue
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
+**Data Structures**: Hash Map, Hash Set, Array
+**Patterns**: Hash Table Pattern, Graph Pattern
+**Time Complexity**: O(n) - Single pass with O(1) hash lookups
+**Space Complexity**: O(n) for visited set and recursion/queue - Additional hash map storage
 
 ### INTUITION:
 This is a graph reachability problem. Each index is a node, and edges exist to indices
@@ -84,7 +81,6 @@ O(n) for visited set and recursion/queue
 
 from collections import deque
 from typing import Any
-
 
 
 class Solution:

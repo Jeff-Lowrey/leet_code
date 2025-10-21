@@ -27,15 +27,12 @@ Note that:
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: O(n)
-**Space Complexity**: O(n)
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: Hash Map, Array, String
+**Patterns**: Two Pointers Pattern
+**Time Complexity**: O(n) - Single pass with O(1) hash lookups
+**Space Complexity**: O(n) - Additional hash map storage
 
 ### INTUITION:
 Reverse Polish Notation (RPN) is perfect for stack-based evaluation. In RPN,
@@ -83,8 +80,8 @@ Stack can hold up to n/2 operands in worst case
 </details>
 """
 
-
 from typing import Any
+
 
 class Solution:
     def evalRPN(self, tokens: list[str]) -> int:

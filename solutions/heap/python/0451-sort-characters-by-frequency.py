@@ -20,13 +20,10 @@ Return the sorted string. If there are multiple answers, return any of them.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: Hash Map, Array, String
+**Patterns**: Hash Table Pattern
 **Time Complexity**: O(n log k)
 **Space Complexity**: O(k)
 
@@ -72,7 +69,6 @@ For storing character frequencies and heap
 import heapq
 from collections import Counter
 from typing import Any
-
 
 
 class Solution:

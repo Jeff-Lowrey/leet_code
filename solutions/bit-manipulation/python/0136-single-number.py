@@ -19,15 +19,12 @@ You must implement a solution with a linear runtime complexity and use only cons
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: O(n)
-**Space Complexity**: O(1)
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
+**Data Structures**: Hash Set, Array
+**Patterns**: Hash Table Pattern
+**Time Complexity**: O(n) - Single pass with O(1) hash lookups
+**Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
 This is a classic bit manipulation problem. The key insight is that XOR has special properties:
@@ -74,8 +71,8 @@ Only using constant extra space
 </details>
 """
 
-
 from typing import Any
+
 
 class Solution:
     def singleNumber(self, nums: list[int]) -> int:

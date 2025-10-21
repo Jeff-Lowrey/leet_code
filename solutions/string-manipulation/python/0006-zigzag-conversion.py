@@ -26,15 +26,12 @@ Write the code that will take a string and make this conversion given a number o
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: Array, String, Tree
+**Patterns**: Two Pointers Pattern
 **Time Complexity**: O(n)
-**Space Complexity**: O(n)
+**Space Complexity**: O(n) - Additional hash map storage
 
 ### INTUITION:
 The zigzag pattern alternates going down and then up diagonally. We can simulate this
@@ -102,8 +99,8 @@ O(n)
 </details>
 """
 
-
 from typing import Any
+
 
 class Solution:
     def convert(self, s: str, numRows: int) -> str:

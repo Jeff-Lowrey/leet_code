@@ -17,15 +17,12 @@ Given an integer array nums, return the maximum result of nums[i] XOR nums[j], w
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: O(n)
-**Space Complexity**: O(1)
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: Hash Map, Hash Set, Array
+**Patterns**: Two Pointers Pattern, Greedy Algorithm
+**Time Complexity**: O(n) - Single pass with O(1) hash lookups
+**Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
 Build Trie of all numbers. For each number, traverse Trie greedily choosing opposite bit when possible (to maximize XOR). This finds best XOR partner for each number in O(32n).

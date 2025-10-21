@@ -17,13 +17,10 @@ This problem demonstrates key concepts in Recursion.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Map Storage, Array Traversal, Sorting
+**Data Structures**: Array, Linked List
+**Patterns**: Complement Search, Hash Table Pattern
 **Time Complexity**: O(C(9,k)) - choosing k numbers from 9 options
 **Space Complexity**: O(k) - recursion depth and combination size
 

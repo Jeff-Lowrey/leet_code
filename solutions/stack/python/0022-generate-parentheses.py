@@ -17,13 +17,10 @@ Given n pairs of parentheses, write a function to generate all combinations of w
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: Array, String, Stack
+**Patterns**: Two Pointers Pattern, Hash Table Pattern
 **Time Complexity**: O(4^n / √n)
 **Space Complexity**: O(n)
 
@@ -75,8 +72,8 @@ Recursion stack depth is 2n (building string of length 2n)
 </details>
 """
 
-
 from typing import Any
+
 
 class Solution:
     def generateParenthesis(self, n: int) -> list[str]:

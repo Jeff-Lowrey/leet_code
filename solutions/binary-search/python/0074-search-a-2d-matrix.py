@@ -24,15 +24,12 @@ You must write a solution in O(log(m * n)) time complexity.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: O(n)
-**Space Complexity**: O(1)
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Two Pointers, Binary Search
+**Data Structures**: Hash Map, Hash Set, Array
+**Patterns**: Complement Search, Two Pointers Pattern
+**Time Complexity**: O(n) - Single pass through input
+**Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
 Treat the 2D matrix as a flattened 1D sorted array. Use binary search on a virtual index, converting it to row/col using row = mid // n_cols and col = mid % n_cols. This achieves O(log(m*n)) time complexity.

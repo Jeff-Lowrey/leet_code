@@ -17,15 +17,12 @@ Given an integer array nums, return the length of the longest strictly increasin
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: O(n)
-**Space Complexity**: O(1)
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: Hash Set, Array, Tree
+**Patterns**: Two Pointers Pattern, Greedy Algorithm
+**Time Complexity**: O(n) - Single pass through input
+**Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
 For each number, find the longest increasing subsequence ending at that number. dp[i] = max(dp[j] + 1) for all j < i where nums[j] < nums[i]. The answer is max(dp).
@@ -93,8 +90,8 @@ O(1)
 </details>
 """
 
-
 from typing import Any
+
 
 class Solution:
     def lengthOfLIS(self, nums: list[int]) -> int:

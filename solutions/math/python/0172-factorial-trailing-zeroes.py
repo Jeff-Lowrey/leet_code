@@ -19,15 +19,12 @@ Note that n! = n × (n - 1) × (n - 2) × ... × 3 × 2 × 1.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: O(log n)
-**Space Complexity**: O(1)
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Standard Algorithm
+**Data Structures**: Basic Types
+**Patterns**: Hash Table Pattern
+**Time Complexity**: O(log n) - Binary search or tree height
+**Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
 Trailing zeroes come from factors of 10 = 2 × 5. In n!, there are always more factors of 2 than 5, so we only need to count factors of 5.

@@ -19,15 +19,12 @@ node, answer[i] is 0.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: O(n)
-**Space Complexity**: O(n)
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: Hash Set, Array, Stack
+**Patterns**: Iterative Solution
+**Time Complexity**: O(n) - Single pass through input
+**Space Complexity**: O(n) - Additional set storage
 
 ### INTUITION:
 Use a monotonic decreasing stack to track indices waiting for their next greater element.
@@ -76,11 +73,12 @@ O(n)
 </details>
 """
 
-
 from typing import Any
+
 
 class ListNode:
     """..."""
+
     def __init__(self, val: Any = 0, next: Any = None) -> None:
         self.val = val
         self.next = next

@@ -17,14 +17,12 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: * O(n)
-**Space Complexity**: * O(w)
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * **Techniques**: Array Traversal, Two Pointers, Queue Operations
+ * **Data Structures**: Array, String, Queue
+ * **Patterns**: Two Pointers Pattern, Greedy Algorithm
+ * **Time Complexity**: * O(n) - Single pass through input
+ * **Space Complexity**: * O(w)
 
  *
  * ### INTUITION:

@@ -21,13 +21,10 @@ Insert newInterval into intervals such that intervals is still sorted and `non-o
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: Array, Heap
+**Patterns**: Two Pointers Pattern, Hash Table Pattern
 **Time Complexity**: O(n)
 **Space Complexity**: O(n) for result array
 
@@ -186,7 +183,6 @@ Output: 2
 
 import heapq
 from typing import Any
-
 
 
 class SolutionMeetingRoomsII:

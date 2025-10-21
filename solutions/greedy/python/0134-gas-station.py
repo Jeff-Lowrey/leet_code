@@ -26,15 +26,12 @@ If there exists a solution, it is guaranteed to be unique.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: O(n)
-**Space Complexity**: O(1)
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Array Traversal, Greedy Selection
+**Data Structures**: Array, Linked List
+**Patterns**: Greedy Algorithm, Tree Pattern
+**Time Complexity**: O(n) - Single pass through input
+**Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
 This problem can be solved greedily by recognizing two key insights:

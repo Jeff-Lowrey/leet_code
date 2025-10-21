@@ -19,13 +19,10 @@ You may assume the two numbers do not contain any leading zero, except the numbe
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: Hash Map, Hash Set, Array
+**Patterns**: Two Pointers Pattern, Greedy Algorithm
 **Time Complexity**: O(max(m, n))
 **Space Complexity**: O(max(m, n))
 
@@ -72,9 +69,9 @@ Result list length is max(m, n) or max(m, n) + 1 if final carry exists.
 </details>
 """
 
-
 from typing import Any
 import random
+
 
 class ListNode:
     def __init__(self, val: Any = 0, next: Any = None) -> None:

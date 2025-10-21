@@ -23,15 +23,12 @@ A valid BST is defined as follows:
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: O(n)
-**Space Complexity**: O(1)
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Two Pointers, Stack Operations
+**Data Structures**: Hash Map, Array, Stack
+**Patterns**: Two Pointers Pattern, Binary Search Pattern
+**Time Complexity**: O(n) - Single pass through input
+**Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
 Recursively validate each subtree. For each node, check: left < node < right, and both subtrees are valid BSTs. Pass valid range down: left subtree max < node, right subtree min > node.

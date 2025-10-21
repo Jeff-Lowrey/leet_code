@@ -19,13 +19,10 @@ Each word must be constructed from letters of sequentially adjacent cells, where
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
+**Data Structures**: Hash Map, Hash Set, Array
+**Patterns**: Hash Table Pattern, Backtracking
 **Time Complexity**: O(M * N * 4^L)
 **Space Complexity**: O(K * L)
 
@@ -97,11 +94,8 @@ Where K is number of words, L is average word length
 </details>
 """
 
-
 from typing import Any
 import re
-
-
 
 
 class TrieNode:

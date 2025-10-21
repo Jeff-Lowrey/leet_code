@@ -25,15 +25,12 @@ You may not modify the values in the list's nodes. Only nodes themselves may be 
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: O(n)
-**Space Complexity**: O(1)
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Two Pointers, Single Pass
+**Data Structures**: Hash Set, Array, Linked List
+**Patterns**: Two Pointers Pattern, Hash Table Pattern
+**Time Complexity**: O(n) - Single pass through input
+**Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
 Find middle using slow/fast pointers. Reverse second half. Merge by alternating nodes from first and second half. Weave them together to reorder the list.
@@ -83,8 +80,8 @@ O(1)
 
 </details>
 """
-from typing import Any
 
+from typing import Any
 
 
 class ListNode:

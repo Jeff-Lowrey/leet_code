@@ -19,15 +19,12 @@ Notice that the sequence has to be strictly increasing.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: - DP: O(n²)
-**Space Complexity**: O(n)
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: Hash Set, Array, Tree
+**Patterns**: Two Pointers Pattern, Hash Table Pattern
+**Time Complexity**: - DP: O(n²) - Nested iteration through input
+**Space Complexity**: O(n) - Additional set storage
 
 ### INTUITION:
 This extends the classic LIS problem by not just finding the length, but also counting how many subsequences achieve that length. We can use dynamic programming or segment trees. For each position, we track both the longest length ending there and the count of such sequences.
@@ -74,8 +71,8 @@ For DP arrays or tree structure
 
 </details>
 """
-from typing import Any
 
+from typing import Any
 
 
 class Solution:

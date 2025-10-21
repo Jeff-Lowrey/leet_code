@@ -20,15 +20,12 @@ climb to the top?
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: O(n)
-**Space Complexity**: O(1)
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: Hash Map, Array
+**Patterns**: Dynamic Programming
+**Time Complexity**: O(n) - Single pass through input
+**Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
 This is the classic Fibonacci problem in `disguise! To` reach step `n`, you can
@@ -77,8 +74,8 @@ Only store two variables (prev1, prev2), not full DP array
 </details>
 """
 
-
 from typing import Any
+
 
 class Solution:
     def climbStairs(self, n: int) -> int:

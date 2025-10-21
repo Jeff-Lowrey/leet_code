@@ -17,15 +17,12 @@ Given a string s, find the length of the longest substring without repeating cha
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: O(n)
-**Space Complexity**: O(1)
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: Hash Map, Hash Set, String
+**Patterns**: Sliding Window Pattern, Hash Table Pattern
+**Time Complexity**: O(n) - Single pass through input
+**Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
 Use sliding window with hash set. Expand right pointer and add characters. When duplicate found, shrink from left until duplicate removed. Track maximum window size.
@@ -97,8 +94,8 @@ O(1)
 </details>
 """
 
-
 from typing import Any
+
 
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:

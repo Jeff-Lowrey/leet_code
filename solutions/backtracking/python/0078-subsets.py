@@ -20,13 +20,10 @@ The solution `set` must not contain duplicate subsets. Return the solution in an
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: Hash Set, Array, Matrix
+**Patterns**: Backtracking, Tree Pattern
 **Time Complexity**: O(n × 2^n) - 2^n subsets, each takes O(n) to copy
 **Space Complexity**: O(n) - recursion depth
 
@@ -88,8 +85,8 @@ O(n) - recursion depth
 </details>
 """
 
-
 from typing import Any
+
 
 class Solution:
     def subsets(self, nums: list[int]) -> list[list[int]]:

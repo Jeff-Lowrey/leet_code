@@ -32,13 +32,10 @@ Output: [[12,0,21,13],[3,8,1,9],[19,7,2,5],[4,6,11,10]]
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: Hash Map, Array, Matrix
+**Patterns**: Iterative Solution
 **Time Complexity**: O(m × n)
 **Space Complexity**: O(m × n)
 
@@ -95,8 +92,8 @@ O(m × n)
 </details>
 """
 
-
 from typing import Any
+
 
 class Solution:
     def shiftGrid(self, grid: list[list[int]], k: int) -> list[list[int]]:

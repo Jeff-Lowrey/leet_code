@@ -21,13 +21,10 @@ Implement the WordFilter class:
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Backtracking
+**Data Structures**: Hash Map, Array, String
+**Patterns**: Hash Table Pattern, Backtracking
 **Time Complexity**: - Constructor: O(N * L^3) where N is words count, L is max word length
 **Space Complexity**: O(N * L^3)
 

@@ -32,14 +32,12 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: * O(N!)
-**Space Complexity**: * O(N)
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * **Techniques**: Hash Table Lookup, Set Operations, Array Traversal
+ * **Data Structures**: Hash Map, Hash Set, Array
+ * **Patterns**: Hash Table Pattern, Backtracking
+ * **Time Complexity**: * O(N!)
+ * **Space Complexity**: * O(N)
 
  *
  * ### INTUITION:

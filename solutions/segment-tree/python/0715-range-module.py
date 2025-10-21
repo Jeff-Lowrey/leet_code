@@ -26,13 +26,10 @@ Implement the RangeModule class:
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Two Pointers, Binary Search
+**Data Structures**: Array, Tree
+**Patterns**: Two Pointers Pattern, Divide and Conquer
 **Time Complexity**: - Segment Tree: O(log n) per operation
 **Space Complexity**: O(n)
 

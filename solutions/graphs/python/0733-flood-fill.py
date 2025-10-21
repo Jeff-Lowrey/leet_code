@@ -26,13 +26,10 @@ Return the modified image after performing the flood fill.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Two Pointers, Stack Operations, Graph Traversal
+**Data Structures**: Array, Stack, Tree
+**Patterns**: Two Pointers Pattern, Graph Pattern
 **Time Complexity**: O(m×n)
 **Space Complexity**: O(m×n)
 

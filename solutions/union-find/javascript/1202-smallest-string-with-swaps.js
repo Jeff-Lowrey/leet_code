@@ -22,14 +22,12 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: * O(n log n + m α(n)) where m is pairs count
-**Space Complexity**: * O(n)
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+ * **Data Structures**: Hash Map, Hash Set, Array
+ * **Patterns**: Iterative Solution
+ * **Time Complexity**: * O(n log n + m α(n)) where m is pairs count
+ * **Space Complexity**: * O(n) - Additional hash map storage
 
  *
  * ### INTUITION:

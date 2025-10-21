@@ -19,15 +19,12 @@ The span of the stock's price in one day is the maximum number of consecutive da
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Stack Operations
+**Data Structures**: Hash Set, Array, String
+**Patterns**: Hash Table Pattern
 **Time Complexity**: O(n)
-**Space Complexity**: O(1)
+**Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
 Maintain monotonic decreasing stack of (price, span) pairs. When new price comes, pop all lower prices and sum their spans. Current span = 1 + sum of popped spans. Push (price, span).
@@ -76,7 +73,6 @@ O(1)
 
 </details>
 """
-
 
 from typing import Any
 

@@ -21,14 +21,12 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: * O(N × α(N))
-**Space Complexity**: * O(1)
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * **Techniques**: Hash Map Storage, Array Traversal
+ * **Data Structures**: Array, String, Tree
+ * **Patterns**: Iterative Solution
+ * **Time Complexity**: * O(N × α(N))
+ * **Space Complexity**: * O(1) - Constant extra space
 
  *
  * ### INTUITION:

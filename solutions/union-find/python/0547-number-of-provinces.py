@@ -23,15 +23,12 @@ Return the total number of provinces.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: Hash Set, Array, Stack
+**Patterns**: Hash Table Pattern, Graph Pattern
 **Time Complexity**: O(n² × α(n))
-**Space Complexity**: O(n)
+**Space Complexity**: O(n) - Additional set storage
 
 ### INTUITION:
 This is a classic connected components problem. We need to find how many separate groups of cities exist. Cities in the same group are either directly or indirectly connected. Union-Find is perfect for this as it efficiently manages and counts connected components.
@@ -89,8 +86,6 @@ from collections import deque
 import re
 
 
-
-
 class UnionFind:
     """Union-Find (Disjoint Set Union) data structure."""
 
@@ -98,7 +93,6 @@ class UnionFind:
         """Initialize with n elements."""
         self.parent = list(range(n))
         self.rank = [0] * n
-
 
     @property
     def components(self) -> int:

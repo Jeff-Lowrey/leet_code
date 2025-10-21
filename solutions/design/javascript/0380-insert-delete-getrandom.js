@@ -29,14 +29,12 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: * - insert: O(1)
-**Space Complexity**: * O(n) for storing n elements
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * **Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
+ * **Data Structures**: Hash Map, Hash Set, Array
+ * **Patterns**: Backtracking
+ * **Time Complexity**: * - insert: O(1)
+ * **Space Complexity**: * O(n) for storing n elements - Additional hash map storage
 
  *
  * ### INTUITION:

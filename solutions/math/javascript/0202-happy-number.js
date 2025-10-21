@@ -24,14 +24,12 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: * O(log n)
-**Space Complexity**: * - Set approach: O(log n)
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * **Techniques**: Array Traversal
+ * **Data Structures**: Basic Types
+ * **Patterns**: Iterative Solution
+ * **Time Complexity**: * O(log n) - Binary search or tree height
+ * **Space Complexity**: * - Set approach: O(log n)
 
  *
  * ### INTUITION:

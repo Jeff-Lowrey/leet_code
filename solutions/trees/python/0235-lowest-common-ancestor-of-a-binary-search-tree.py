@@ -22,13 +22,10 @@ According to the definition of LCA on Wikipedia: "The lowest common ancestor is 
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: Array, Stack, Tree
+**Patterns**: Two Pointers Pattern, Greedy Algorithm
 **Time Complexity**: O(h)
 **Space Complexity**: O(h)
 
@@ -85,8 +82,8 @@ For recursion stack, O(1) for iterative solution
 </details>
 """
 
-
 from typing import Any
+
 
 class TreeNode:
     def __init__(self, val: Any = 0, left: Any = None, right: Any = None) -> None:

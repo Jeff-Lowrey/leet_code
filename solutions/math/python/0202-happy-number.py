@@ -24,14 +24,11 @@ Return true if n is a happy number, and false if not.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: O(log n)
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
+**Data Structures**: Hash Set
+**Patterns**: Two Pointers Pattern, Hash Table Pattern
+**Time Complexity**: O(log n) - Binary search or tree height
 **Space Complexity**: - Set approach: O(log n)
 
 ### INTUITION:
@@ -84,8 +81,8 @@ Depends on number of digits and cycle detection
 </details>
 """
 
-
 from typing import Any
+
 
 class Solution:
     def isHappy(self, n: int) -> bool:

@@ -18,14 +18,11 @@ return the values of the nodes you can see ordered from top to bottom.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: O(n)
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Map Storage, Array Traversal, Two Pointers
+**Data Structures**: Array, Stack, Queue
+**Patterns**: Two Pointers Pattern, Graph Pattern
+**Time Complexity**: O(n) - Single pass through input
 **Space Complexity**: O(w)
 
 ### INTUITION:
@@ -80,7 +77,6 @@ O(w)
 
 from collections import deque
 from typing import Any
-
 
 
 class TreeNode:

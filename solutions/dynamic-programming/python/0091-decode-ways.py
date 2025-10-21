@@ -23,15 +23,12 @@ Given a string s containing only digits, return the number of ways to decode it.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: O(n)
-**Space Complexity**: O(1)
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: Hash Set, Array, String
+**Patterns**: Dynamic Programming
+**Time Complexity**: O(n) - Single pass through input
+**Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
 dp[i] = number of ways to decode s[0:i]. For each position, add ways from i-1 (if valid single digit) and i-2 (if valid two digits). Handle edge cases for 0.

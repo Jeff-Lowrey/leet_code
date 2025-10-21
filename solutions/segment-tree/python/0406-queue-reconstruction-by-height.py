@@ -19,13 +19,10 @@ Reconstruct and return the queue that is represented by the input array people. 
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: Array, Queue, Tree
+**Patterns**: Two Pointers Pattern, Hash Table Pattern
 **Time Complexity**: - Greedy: O(n² log n) - sorting + n insertions
 **Space Complexity**: O(n)
 
@@ -75,8 +72,8 @@ For result array and tree structure
 </details>
 """
 
-
 from typing import Any
+
 
 class Solution:
     def reconstructQueue(self, people: list[list[int]]) -> list[list[int]]:

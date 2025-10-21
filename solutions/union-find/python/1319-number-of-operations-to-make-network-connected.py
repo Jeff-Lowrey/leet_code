@@ -23,15 +23,12 @@ Return the minimum number of times you need to do this to make all the computers
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: Hash Set, Array, Tree
+**Patterns**: Hash Table Pattern, Divide and Conquer
 **Time Complexity**: O(n × α(n))
-**Space Complexity**: O(n)
+**Space Complexity**: O(n) - Additional set storage
 
 ### INTUITION:
 This is a classic Union-Find problem about connecting components. Key insights:
@@ -81,17 +78,16 @@ For Union-Find parent and rank arrays
 </details>
 """
 
-
-
 from typing import Any
+
 
 class UnionFind:
     """..."""
+
     def __init__(self, n: int) -> None:
         """Initialize with n elements."""
         self.parent = list(range(n))
         self.rank = [0] * n
-
 
     @property
     def components(self) -> int:

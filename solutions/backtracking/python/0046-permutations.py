@@ -18,13 +18,10 @@ You can return the answer in any order.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: Hash Map, Array, Tree
+**Patterns**: Two Pointers Pattern, Hash Table Pattern
 **Time Complexity**: O(n × n!) - n! permutations, each takes O(n) to build/copy
 **Space Complexity**: O(n) - recursion depth and current permutation
 

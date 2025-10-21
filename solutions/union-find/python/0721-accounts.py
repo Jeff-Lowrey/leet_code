@@ -21,13 +21,10 @@ After merging the accounts, return the accounts in the following format: the fir
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
+**Data Structures**: Hash Map, Hash Set, Array
+**Patterns**: Hash Table Pattern, Divide and Conquer
 **Time Complexity**: O(N × M × α(N))
 **Space Complexity**: O(N × M)
 
@@ -98,8 +95,6 @@ from typing import Any
 import re
 
 
-
-
 class UnionFind:
     """Union-Find (Disjoint Set Union) data structure."""
 
@@ -107,7 +102,6 @@ class UnionFind:
         """Initialize with n elements."""
         self.parent = list(range(n))
         self.rank = [0] * n
-
 
     @property
     def components(self) -> int:

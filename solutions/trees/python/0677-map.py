@@ -17,13 +17,10 @@ You are asked to implement a map that supports the following two operations:
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup
+**Data Structures**: Hash Map, Tree, Trie
+**Patterns**: Iterative Solution
 **Time Complexity**: - Insert: O(k) where k is key length
 **Space Complexity**: O(TOTAL_KEY_LENGTH)
 

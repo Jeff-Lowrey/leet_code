@@ -22,14 +22,11 @@ the first k characters and leave the other as original.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: O(n)
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: Array, String, Tree
+**Patterns**: Two Pointers Pattern, Hash Table Pattern
+**Time Complexity**: O(n) - Single pass through input
 **Space Complexity**: O(n)
 
 ### INTUITION:
@@ -88,8 +85,8 @@ O(n)
 </details>
 """
 
-
 from typing import Any
+
 
 class Solution:
     def reverseStr(self, s: str, k: int) -> str:

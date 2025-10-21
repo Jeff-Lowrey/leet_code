@@ -24,13 +24,10 @@ say the number of digits, then say the digit. Finally, concatenate every said di
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Map Storage, Array Traversal, Two Pointers
+**Data Structures**: Array, String, Stack
+**Patterns**: Two Pointers Pattern, Hash Table Pattern
 **Time Complexity**: O(n * m)
 **Space Complexity**: O(m)
 
@@ -91,7 +88,6 @@ O(m)
 
 from itertools import groupby
 from typing import Any
-
 
 
 class Solution:

@@ -23,15 +23,12 @@ Return the leftmost middleIndex that satisfies the condition, or -1 if there is 
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Array Traversal, Two Pointers
+**Data Structures**: Array, Tree, Linked List
+**Patterns**: Two Pointers Pattern
 **Time Complexity**: O(n)
-**Space Complexity**: O(1)
+**Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
 This is a classic prefix sum problem. For any index to be the middle index, the sum of all elements to its left must equal the sum of all elements to its right. We can calculate the total sum first, then iterate through the array tracking the left sum. At each position, we can calculate the right sum as (total - left_sum - current_element).

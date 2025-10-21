@@ -19,14 +19,11 @@ The path does not need to start or end at the root or a leaf, but it must go dow
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: O(n)
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Two Pointers
+**Data Structures**: Hash Map, Array, Stack
+**Patterns**: Complement Search, Two Pointers Pattern
+**Time Complexity**: O(n) - Single pass through input
 **Space Complexity**: O(h)
 
 ### INTUITION:
@@ -92,7 +89,6 @@ from collections import defaultdict
 from typing import Any
 
 
-
 class TreeNode:
     def __init__(self, val: Any = 0, left: Any = None, right: Any = None) -> None:
         self.val = val
@@ -156,6 +152,7 @@ class Solution:
         Returns:
             Number of paths with sum equal to targetSum
         """
+
         def dfs(node: TreeNode | None, current_sum: int, prefix_map: dict[int, int]) -> int:
             if not node:
                 return 0

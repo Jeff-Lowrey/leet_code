@@ -17,15 +17,12 @@ Given an m x `n` matrix, return all elements of the matrix in spiral order.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: Array, Tree, Matrix
+**Patterns**: Two Pointers Pattern
 **Time Complexity**: O(m × n)
-**Space Complexity**: O(1) excluding output array
+**Space Complexity**: O(1) excluding output array - Constant extra space
 
 ### INTUITION:
 Think of traversing the matrix in layers, like peeling an onion. We traverse the outermost layer first (right → down → left → up), then move to the next inner layer and repeat the pattern.
@@ -64,8 +61,8 @@ O(1) excluding output array
 </details>
 """
 
-
 from typing import Any
+
 
 class Solution:
     def spiralOrder(self, matrix: list[list[int]]) -> list[int]:

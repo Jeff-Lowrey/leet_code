@@ -18,15 +18,12 @@ If there is no common prefix, return an empty string "".
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: Hash Map, Array, String
+**Patterns**: Two Pointers Pattern, Sliding Window Pattern
 **Time Complexity**: O(S)
-**Space Complexity**: O(1)
+**Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
 The longest common prefix is the sequence of characters that all strings share from the beginning. We can find this by comparing characters at each position across all strings until we find a mismatch.
@@ -65,11 +62,8 @@ O(1)
 </details>
 """
 
-
 from typing import Any
 import re
-
-
 
 
 class TrieNode:

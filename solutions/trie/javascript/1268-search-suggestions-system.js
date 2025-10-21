@@ -21,14 +21,12 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: * O(N * L + S)
-**Space Complexity**: * O(N * L)
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+ * **Data Structures**: Hash Map, Hash Set, Array
+ * **Patterns**: Two Pointers Pattern, Greedy Algorithm
+ * **Time Complexity**: * O(N * L + S)
+ * **Space Complexity**: * O(N * L)
 
  *
  * ### INTUITION:

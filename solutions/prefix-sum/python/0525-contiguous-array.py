@@ -18,15 +18,12 @@ with an equal number of 0 and 1.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: O(n)
-**Space Complexity**: O(n)
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: Hash Map, Array
+**Patterns**: Hash Table Pattern, Greedy Algorithm
+**Time Complexity**: O(n) - Single pass through input
+**Space Complexity**: O(n) - Additional hash map storage
 
 ### INTUITION:
 Transform the problem: treat 0 as -1. Finding equal 0s and 1s is equivalent to
@@ -70,8 +67,8 @@ O(n)
 
 </details>
 """
-import re
 
+import re
 
 
 class Solution:

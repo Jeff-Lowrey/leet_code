@@ -17,14 +17,12 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: * - Constructor: O(h) where h is height
-**Space Complexity**: * O(h) for the stack
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * **Techniques**: Array Traversal, Two Pointers, Stack Operations
+ * **Data Structures**: Array, String, Stack
+ * **Patterns**: Two Pointers Pattern, Hash Table Pattern
+ * **Time Complexity**: * - Constructor: O(h) where h is height
+ * **Space Complexity**: * O(h) for the stack
 
  *
  * ### INTUITION:

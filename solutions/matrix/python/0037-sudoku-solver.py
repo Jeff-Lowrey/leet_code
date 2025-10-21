@@ -18,13 +18,10 @@ Solve a Sudoku puzzle by filling the empty cells.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Array Traversal, Stack Operations
+**Data Structures**: Hash Set, Array, String
+**Patterns**: Backtracking
 **Time Complexity**: O(9^(n*n)) worst case, where n=9
 **Space Complexity**: O(n*n) for recursion stack
 

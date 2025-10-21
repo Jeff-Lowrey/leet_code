@@ -27,14 +27,12 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: * O(n²)
-**Space Complexity**: * O(n)
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * **Techniques**: Array Traversal, Two Pointers
+ * **Data Structures**: Array, String, Tree
+ * **Patterns**: Two Pointers Pattern
+ * **Time Complexity**: * O(n²) - Nested iteration through input
+ * **Space Complexity**: * O(n)
 
  *
  * ### INTUITION:

@@ -35,15 +35,12 @@ Output: false
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: O(n)
-**Space Complexity**: O(n)
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: Hash Map, Array, String
+**Patterns**: Hash Table Pattern
+**Time Complexity**: O(n) - Single pass with O(1) hash lookups
+**Space Complexity**: O(n) - Additional hash map storage
 
 ### INTUITION:
 This is a classic stack problem. When we encounter an opening bracket, we push it onto the stack.
@@ -94,8 +91,8 @@ Stack can contain up to n/2 opening brackets in worst case
 </details>
 """
 
-
 from typing import Any
+
 
 class Solution:
     def isValid(self, s: str) -> bool:

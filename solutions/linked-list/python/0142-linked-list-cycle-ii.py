@@ -21,15 +21,12 @@ Do not modify the linked list.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: O(n)
-**Space Complexity**: O(1)
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Standard Algorithm
+**Data Structures**: Array, Linked List
+**Patterns**: Two Pointers Pattern
+**Time Complexity**: O(n) - Single pass through input
+**Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
 Use Floyd's algorithm: detect cycle with fast/slow pointers. After meeting, reset one pointer to head. Move both one step at a time. They meet at cycle start due to mathematical property of the algorithm.
@@ -77,8 +74,8 @@ O(1)
 
 </details>
 """
-from typing import Any
 
+from typing import Any
 
 
 class ListNode:

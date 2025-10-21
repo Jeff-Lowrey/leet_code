@@ -20,14 +20,11 @@ word or phrase, typically using all the original letters exactly once.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: O(n)
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: Hash Map, Array, String
+**Patterns**: Hash Table Pattern
+**Time Complexity**: O(n) - Single pass with O(1) hash lookups
 **Space Complexity**: O(1) - at most 26 lowercase letters
 
 ### INTUITION:
