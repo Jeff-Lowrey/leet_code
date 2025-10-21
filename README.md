@@ -26,10 +26,14 @@
 - **API Support**: JSON endpoints for dynamic content loading
 
 ### Solution Management
-- **Organized Categories**: Solutions grouped by problem-solving patterns
-- **Alternative Languages**: Upload solutions in Java, C++, JavaScript, Go, Rust, etc.
+- **Organized Categories**: Solutions grouped by problem-solving patterns (29 categories)
+- **Multi-Language Structure**: Scalable language-specific folder organization
+  - Python solutions: `solutions/<category>/python/`
+  - JavaScript solutions: `solutions/<category>/javascript/`
+  - Easy to add new languages with consistent structure
 - **Language Switching**: Toggle between different language implementations
 - **Format Options**: View in original format or LeetCode submission format
+- **Unified Extraction**: Language-agnostic markdown parsing for 12+ languages
 - **Download Formats**:
   - Skeleton (method signatures only)
   - Full solution
@@ -137,18 +141,29 @@ Template and formatting standards for contributing solutions.
 See [docs/upload-guide/README.md](docs/upload-guide/README.md)
 
 ### Supported Languages
-- Python (default)
+With language-agnostic markdown extraction supporting:
+- Python (primary - 276 solutions with full metadata)
+- JavaScript (complete coverage - 276 solutions)
+- TypeScript
 - Java
 - C++/C
-- JavaScript/TypeScript
+- C#
 - Go
 - Rust
-- C#
 - Swift
 - Kotlin
-- Ruby
-- PHP
 - Scala
+
+**File Structure:**
+```
+solutions/
+├── arrays-hashing/
+│   ├── python/
+│   │   └── 0001-two-sum.py  (4-digit padding)
+│   └── javascript/
+│       └── 001-two-sum.js
+└── ... (29 categories total)
+```
 
 ## API Documentation
 

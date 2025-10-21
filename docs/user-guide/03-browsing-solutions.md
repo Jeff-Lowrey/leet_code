@@ -540,7 +540,7 @@ Clicking a solution takes you to the detailed view:
 ### Status Indicators
 
 - **Solution Count**: Number badge on category cards
-- **Language Icons**: Show available alternative languages
+- **Language Icons**: Show available other languages
 - **Format Toggle**: Current view mode (Original/LeetCode)
 
 ## Best Browsing Practices
