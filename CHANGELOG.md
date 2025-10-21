@@ -19,6 +19,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Added template documentation with all 5 required METADATA fields
   - Documented section ordering and formatting guidelines
   - Updated developer-guide template system documentation
+  - Updated Python formatting reference guide (SOLUTION_FORMATTING_GUIDE.md)
+  - Updated JavaScript formatting reference guide (SOLUTION_FORMATTING_GUIDE_JS.md)
 - **Automated METADATA Inference**: Pattern detection script for metadata population (#16)
   - Detects techniques from code patterns (hash maps, two pointers, sorting, etc.)
   - Identifies data structures used (arrays, sets, trees, graphs, etc.)
