@@ -7,6 +7,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 
 from .language_constants import EXTENSION_TO_LANGUAGE, SUPPORTED_LANGUAGES
+from .markdown_extraction import extract_markdown_from_code, parse_metadata_from_markdown
 
 
 @dataclass
@@ -471,73 +472,24 @@ class CategoryManager:
     def _parse_solution_metadata(self, file_path: Path) -> tuple[str, str, str, str]:
         """Parse difficulty, complexity, and description from solution file.
 
+        Uses language-agnostic markdown extraction to support multiple languages.
+
         Returns:
             Tuple of (difficulty, time_complexity, space_complexity, description)
         """
         try:
             content = file_path.read_text()
+            file_extension = file_path.suffix
 
-            # Extract difficulty (Easy/Medium/Hard) from first few lines
-            difficulty = ""
-            difficulty_patterns = [r"(?:Difficulty:|#)\s*(Easy|Medium|Hard)", r"^(Easy|Medium|Hard)\s*$"]
-            for pattern in difficulty_patterns:
-                match = re.search(pattern, content[:500], re.MULTILINE | re.IGNORECASE)
-                if match:
-                    difficulty = match.group(1).capitalize()
-                    break
+            # Extract markdown from language-specific comments
+            markdown_content = extract_markdown_from_code(content, file_extension)
 
-            # Extract time complexity
-            time_comp = ""
-            time_patterns = [
-                r"Time Complexity:\s*(\*\*)?O\([^)]+\)(\*\*)?",
-                r"TIME COMPLEXITY:\s*(\*\*)?O\([^)]+\)(\*\*)?",
-                r"Time:\s*(\*\*)?O\([^)]+\)(\*\*)?",
-            ]
-            for pattern in time_patterns:
-                match = re.search(pattern, content)
-                if match:
-                    inner_match = re.search(r"O\([^)]+\)", match.group(0))
-                    time_comp = inner_match.group(0) if inner_match else ""
-                    break
-
-            # Extract space complexity
-            space_comp = ""
-            space_patterns = [
-                r"Space Complexity:\s*(\*\*)?O\([^)]+\)(\*\*)?",
-                r"SPACE COMPLEXITY:\s*(\*\*)?O\([^)]+\)(\*\*)?",
-                r"Space:\s*(\*\*)?O\([^)]+\)(\*\*)?",
-            ]
-            for pattern in space_patterns:
-                match = re.search(pattern, content)
-                if match:
-                    inner_match = re.search(r"O\([^)]+\)", match.group(0))
-                    space_comp = inner_match.group(0) if inner_match else ""
-                    break
-
-            # Extract description - first sentence from problem statement
-            description = ""
-            # Look for problem statement in docstring or comments
-            problem_pattern = r'""".*?Problem:?\s*([^.\n]+[.])'
-            match = re.search(problem_pattern, content, re.DOTALL | re.IGNORECASE)
-            if match:
-                description = match.group(1).strip()
+            if markdown_content:
+                # Parse metadata from markdown (language-agnostic)
+                return parse_metadata_from_markdown(markdown_content)
             else:
-                # Try to get first non-empty line after a problem marker
-                lines = content.split('\n')
-                in_problem = False
-                for line in lines:
-                    line = line.strip()
-                    if 'problem' in line.lower() and ':' in line:
-                        in_problem = True
-                        continue
-                    if in_problem and line and not line.startswith('#') and not line.startswith('"""'):
-                        # Get first sentence
-                        sentences = line.split('.')
-                        if sentences:
-                            description = sentences[0].strip() + '.'
-                            break
-
-            return difficulty, time_comp, space_comp, description
+                # Fallback: try parsing raw content if no markdown found
+                return parse_metadata_from_markdown(content)
 
         except Exception:
             return "", "", "", ""
