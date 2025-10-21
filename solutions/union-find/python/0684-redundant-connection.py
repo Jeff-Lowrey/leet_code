@@ -21,15 +21,12 @@ Return an edge that can be removed so that the resulting graph is a tree of n no
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
+**Data Structures**: Hash Map, Hash Set, Array
+**Patterns**: Two Pointers Pattern, Hash Table Pattern
 **Time Complexity**: O(n × α(n))
-**Space Complexity**: O(n)
+**Space Complexity**: O(n) - Additional hash map storage
 
 ### INTUITION:
 This is a classic Union-Find cycle detection problem. In a tree with n nodes, there should be exactly n-1 edges. When we add one extra edge, it creates a cycle. We need to find the edge that completes this cycle.
@@ -74,17 +71,16 @@ For the Union-Find parent array
 </details>
 """
 
-
-
 from typing import Any
+
 
 class UnionFind:
     """..."""
+
     def __init__(self, n: int) -> None:
         """Initialize with n elements."""
         self.parent = list(range(n))
         self.rank = [0] * n
-
 
     @property
     def components(self) -> int:

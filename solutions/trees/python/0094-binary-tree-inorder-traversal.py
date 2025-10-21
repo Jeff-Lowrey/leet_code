@@ -17,14 +17,11 @@ Given the root of a binary tree, return the inorder traversal of its nodes' valu
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: O(n)
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Two Pointers
+**Data Structures**: Array, Stack, Tree
+**Patterns**: Two Pointers Pattern, Backtracking
+**Time Complexity**: O(n) - Single pass through input
 **Space Complexity**: - Recursive: O(h) where h is tree height (call stack)
 
 ### INTUITION:
@@ -81,8 +78,8 @@ We visit each node exactly once
 </details>
 """
 
-
 from typing import Any
+
 
 class TreeNode:
     def __init__(self, val: Any = 0, left: Any = None, right: Any = None) -> None:

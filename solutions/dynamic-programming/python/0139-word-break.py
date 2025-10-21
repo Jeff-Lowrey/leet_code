@@ -19,15 +19,12 @@ Note that the same word in the dictionary may be reused multiple times in the se
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: O(n)
-**Space Complexity**: O(1)
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: Hash Map, Hash Set, Array
+**Patterns**: Greedy Algorithm, Dynamic Programming
+**Time Complexity**: O(n) - Single pass with O(1) hash lookups
+**Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
 dp[i] = whether s[0:i] can be segmented. For each position, check all possible last words ending at i. If s[j:i] is in dict and dp[j] is true, then dp[i] is true.

@@ -21,14 +21,11 @@ A height-balanced binary tree is a binary tree in which the depth of the two sub
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: O(n)
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Two Pointers, Sliding Window
+**Data Structures**: Array, Stack, Queue
+**Patterns**: Two Pointers Pattern, Sliding Window Pattern
+**Time Complexity**: O(n) - Single pass through input
 **Space Complexity**: O(h)
 
 ### INTUITION:
@@ -80,8 +77,8 @@ Where h is height of tree (recursion stack)
 
 </details>
 """
-from typing import Any
 
+from typing import Any
 
 
 class TreeNode:

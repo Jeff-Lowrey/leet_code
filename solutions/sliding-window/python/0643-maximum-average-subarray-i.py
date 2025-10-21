@@ -19,15 +19,12 @@ Find a contiguous subarray whose length is equal to k that has the maximum avera
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: O(n)
-**Space Complexity**: O(1)
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Array Traversal, Two Pointers
+**Data Structures**: Hash Map, Hash Set, Array
+**Patterns**: Two Pointers Pattern, Sliding Window Pattern
+**Time Complexity**: O(n) - Single pass through input
+**Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
 Use sliding window of size k. Calculate sum of first window. Then slide: subtract left element, add right element. Track maximum sum. Divide by k for average.

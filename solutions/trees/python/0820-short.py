@@ -22,13 +22,10 @@ Given an array of words, return the length of the shortest reference string s po
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
+**Data Structures**: Hash Map, Hash Set, Array
+**Patterns**: Two Pointers Pattern, Hash Table Pattern
 **Time Complexity**: O(N × M)
 **Space Complexity**: O(N × M)
 
@@ -75,11 +72,12 @@ For the trie structure and set storage
 </details>
 """
 
-
 from typing import Any
+
 
 class TrieNode:
     """..."""
+
     def __init__(self) -> None:
         self.children: dict[str, Any] = {}
         self.is_end = False

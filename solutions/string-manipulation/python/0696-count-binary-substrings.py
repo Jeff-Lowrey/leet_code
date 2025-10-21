@@ -9,12 +9,6 @@ consecutively.
 
 Substrings that occur multiple times are counted the number of times they occur.
 
-Example:
-Input: s = "00110011"
-Output: 6
-Explanation: There are 6 substrings that have equal 0's and 1's: "0011", "01", "1100",
-"10", "0011", and "01".
-
 **Example:**
 
 <dl class="example-details">
@@ -27,15 +21,12 @@ Explanation: There are 6 substrings that have equal 0's and 1's: "0011", "01", "
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: O(n)
-**Space Complexity**: O(n)
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: Hash Set, Array, String
+**Patterns**: Two Pointers Pattern, Sliding Window Pattern
+**Time Complexity**: O(n) - Single pass through input
+**Space Complexity**: O(n) - Additional set storage
 
 ### INTUITION:
 For a valid binary substring, all 0's must be grouped together and all 1's must be
@@ -98,8 +89,8 @@ O(n)
 </details>
 """
 
-
 from typing import Any
+
 
 class Solution:
     def countBinarySubstrings(self, s: str) -> int:

@@ -19,15 +19,12 @@ Given the two integers m and n, return the number of possible unique paths that 
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: O(n)
-**Space Complexity**: O(1)
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Array Traversal, Two Pointers
+**Data Structures**: Hash Set, Array, Tree
+**Patterns**: Two Pointers Pattern, Hash Table Pattern
+**Time Complexity**: O(n) - Single pass through input
+**Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
 Paths to cell (i,j) = paths to (i-1,j) + paths to (i,j-1). Build bottom-up from top-left. Base case: first row and column each have only 1 path.

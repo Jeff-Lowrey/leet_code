@@ -17,14 +17,12 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: * O(n)
-**Space Complexity**: * - Recursive: O(h) where h is tree height (call stack)
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * **Techniques**: Array Traversal, Two Pointers, Stack Operations
+ * **Data Structures**: Array, String, Stack
+ * **Patterns**: Two Pointers Pattern, Tree Pattern
+ * **Time Complexity**: * O(n) - Single pass through input
+ * **Space Complexity**: * - Recursive: O(h) where h is tree height (call stack)
 
  *
  * ### INTUITION:

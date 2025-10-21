@@ -22,14 +22,12 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: * O(n²)
-**Space Complexity**: * O(1)
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+ * **Data Structures**: Hash Map, Array, String
+ * **Patterns**: Two Pointers Pattern
+ * **Time Complexity**: * O(n²) - Nested iteration through input
+ * **Space Complexity**: * O(1) - Constant extra space
 
  *
  * ### INTUITION:

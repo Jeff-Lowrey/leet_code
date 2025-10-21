@@ -21,15 +21,12 @@ The expression string contains only '(', ')', '+', '-', non-negative integers an
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: Array, String, Stack
+**Patterns**: Two Pointers Pattern, Hash Table Pattern
 **Time Complexity**: O(n)
-**Space Complexity**: O(n)
+**Space Complexity**: O(n) - Additional set storage
 
 ### INTUITION:
 This is a classic stack problem for parsing expressions with parentheses. The key insight is to use a stack to save the current state (result and sign) when entering a parenthesized subexpression, then restore it when exiting.
@@ -84,8 +81,8 @@ Stack can grow up to the depth of nested parentheses
 </details>
 """
 
-
 from typing import Any
+
 
 class Solution:
     def calculate(self, s: str) -> int:

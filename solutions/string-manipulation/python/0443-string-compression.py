@@ -17,10 +17,6 @@ After you are done modifying the input array, return the new length of the array
 
 You must write an algorithm that uses only constant extra space.
 
-Example:
-Input: chars = ["a","a","b","b","c","c","c"]
-Output: Return 6, and the first 6 characters of the input array should be: ["a","2","b","2","c","3"]
-
 **Example:**
 
 <dl class="example-details">
@@ -33,15 +29,12 @@ Output: Return 6, and the first 6 characters of the input array should be: ["a",
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: O(n)
-**Space Complexity**: O(1)
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: Array, String, Queue
+**Patterns**: Two Pointers Pattern, Hash Table Pattern
+**Time Complexity**: O(n) - Single pass through input
+**Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
 We need to compress consecutive identical characters in-place. The key insight is using

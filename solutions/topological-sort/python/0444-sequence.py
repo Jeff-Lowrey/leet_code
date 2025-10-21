@@ -17,13 +17,10 @@ Check whether the original sequence org can be uniquely reconstructed from the s
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
+**Data Structures**: Hash Map, Hash Set, Array
+**Patterns**: Hash Table Pattern, Backtracking
 **Time Complexity**: O(V + E)
 **Space Complexity**: O(V + E)
 
@@ -79,8 +76,8 @@ For the graph representation and auxiliary data structures
 </details>
 """
 
-
 from typing import Any
+
 
 class Solution:
     def sequenceReconstruction(self, org: list[int], seqs: list[list[int]]) -> bool:

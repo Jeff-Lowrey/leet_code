@@ -29,13 +29,10 @@ wordDictionary.search("b.."); // return True
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Depth-First Search
+**Data Structures**: Hash Map, Array, String
+**Patterns**: Graph Pattern
 **Time Complexity**: - addWord: O(n) where n is word length
 **Space Complexity**: O(total characters in all words)
 

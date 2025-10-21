@@ -17,14 +17,11 @@ This problem demonstrates key concepts in String manipulation and parsing.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: O(n)
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Backtracking
+**Data Structures**: Array, String
+**Patterns**: Iterative Solution
+**Time Complexity**: O(n) - Single pass through input
 **Space Complexity**: O(n)
 
 ### INTUITION:
@@ -79,8 +76,8 @@ We create a list of words and the result string, both proportional to input size
 
 </details>
 """
-import re
 
+import re
 
 
 class Solution:

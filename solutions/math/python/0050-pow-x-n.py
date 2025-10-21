@@ -5,15 +5,11 @@
 
 Implement pow(x, n), which calculates x raised to the power `n` (`i`.e., x^n).
 
-Example:
-Input: `x = 2`.00000, `n` = 10
-Output: 1024.00000
-
 **Example:**
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>x = 2`.00000, `n` = 10</dd>
+<dd>x = 2`.00000, `n = 10</dd>
 <dt>Output:</dt>
 <dd>1024.00000</dd>
 <dt>Explanation:</dt>
@@ -21,15 +17,12 @@ Output: 1024.00000
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: O(log n)
-**Space Complexity**: O(log n) recursive, O(1) iterative
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Array Traversal, Two Pointers
+**Data Structures**: Hash Set, Array, Stack
+**Patterns**: Two Pointers Pattern, Greedy Algorithm
+**Time Complexity**: O(log n) - Binary search or tree height
+**Space Complexity**: O(log n) recursive, O(1) iterative - Constant extra space
 
 ### INTUITION:
 Naive approach of multiplying x by itself `n` times is O(n). We can do better
@@ -58,7 +51,7 @@ Bit 0 (position 2): skip
 Bit 1 (position 3): `result` *= 2^`8 = 256`
 Bit 0 (position 4): skip
 
-Final: `4 * 256` = 1024
+Final: `4 * 256 = 1024
 ```
 
 ### TIME COMPLEXITY:

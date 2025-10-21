@@ -9,15 +9,23 @@
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[input description]</dd>
+ * <dd>[input example]</dd>
  * <dt>Output:</dt>
- * <dd>[output description]</dd>
+ * <dd>[output example]</dd>
  * <dt>Explanation:</dt>
  * <dd>[explanation of how input becomes output]</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### METADATA:
+**Techniques**: [e.g., Hash Table Lookup, Binary Search, Two Pointers]
+**Data Structures**: [e.g., Hash Map, Array, Tree, Graph]
+**Patterns**: [e.g., Complement Search, Sliding Window, DFS]
+**Time Complexity**: * **O(?)** - [detailed explanation of time complexity]
+**Space Complexity**: * **O(?)** - [detailed explanation of space complexity]
+
  *
  * ### INTUITION:
  * [High-level insight or key observation that makes the solution work.]
@@ -38,14 +46,13 @@
  * [Focus on helping the reader understand the thought process.]
  *
  * ### WHY THIS WORKS:
- * [Brief explanation of correctness.]
+ * [Brief explanation of correctness - use bullet points for clarity.]
  *
  * [Why does this approach solve the problem?]
  *
- * [What properties make it work? Use bullet points for clarity.]
+ * [What properties make it work?]
  *
  * ### EXAMPLE WALKTHROUGH:
- *
  * Input:
  * ```
  * [input example]
@@ -58,15 +65,17 @@
  * **Step N:** [description of final step]
  *
  * ### TIME COMPLEXITY:
- * **O(?)** - [explanation]
+ * **O(?)** - [detailed explanation]
  *
  * ### SPACE COMPLEXITY:
- * **O(?)** - [explanation]
+ * **O(?)** - [detailed explanation]
  *
  * ### EDGE CASES:
  * - **[Edge case 1]:** [how it's handled]
  * - **[Edge case 2]:** [how it's handled]
  * - **[Edge case 3]:** [how it's handled]
+ *
+ * </details>
  */
 
 class Solution {

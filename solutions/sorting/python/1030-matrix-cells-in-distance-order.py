@@ -24,13 +24,10 @@ The distance between two cells (r1, c1) and (r2, c2) is |r1 - r2| + |c1 - c2|.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
+**Data Structures**: Hash Set, Array, Queue
+**Patterns**: Hash Table Pattern, Greedy Algorithm
 **Time Complexity**: O(R*C * log(R*C))
 **Space Complexity**: O(R*C)
 
@@ -94,7 +91,6 @@ For storing all coordinates in the result
 
 from collections import deque
 from typing import Any
-
 
 
 class Solution:

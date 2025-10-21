@@ -73,22 +73,36 @@ Use [`solutions/templates/SOLUTION_TEMPLATE.py`](../../solutions/templates/SOLUT
 
 ### 3. Solution Explanation Sections
 
-Include these sections in the `<details>` block:
+Include these sections in the `<details>` block **in this exact order**:
 
-1. **INTUITION:** (Required)
+1. **METADATA:** (Required - Always First)
+   - Structured information about the solution
+   - Five required fields with bold labels:
+   ```markdown
+   ### METADATA:
+   **Techniques**: [2-3 algorithm techniques, e.g., Hash Table Lookup, Single Pass]
+   **Data Structures**: [2-3 data structures, e.g., Hash Map, Array]
+   **Patterns**: [1-2 design patterns, e.g., Complement Search]
+   **Time Complexity**: **O(?)** - [detailed explanation with context]
+   **Space Complexity**: **O(?)** - [detailed explanation with context]
+   ```
+   - Provide context with complexity descriptions, not just notation
+   - No "TBD" placeholders allowed
+
+2. **INTUITION:** (Required)
    - 1-3 sentences
    - The "aha moment" or key insight
 
-2. **APPROACH:** (Required)
+3. **APPROACH:** (Required)
    - Flowing prose (not numbered list)
    - Step-by-step explanation
    - Focus on understanding
 
-3. **WHY THIS WORKS:** (Optional)
+4. **WHY THIS WORKS:** (Optional but Recommended)
    - Brief bullet points
    - Correctness explanation
 
-4. **EXAMPLE WALKTHROUGH:** (Required)
+5. **EXAMPLE WALKTHROUGH:** (Required)
    - Show input in code block
    - Step-by-step execution with bold labels
    ```
@@ -96,13 +110,13 @@ Include these sections in the `<details>` block:
    **Step 2:** description
    ```
 
-5. **TIME COMPLEXITY:** (Required)
+6. **TIME COMPLEXITY:** (Required)
    - Format: `**O(n)** - explanation`
 
-6. **SPACE COMPLEXITY:** (Required)
+7. **SPACE COMPLEXITY:** (Required)
    - Format: `**O(n)** - explanation`
 
-7. **EDGE CASES:** (Required)
+8. **EDGE CASES:** (Required)
    - Bullet list with bold labels
    - Format: `- **Case name:** How it's handled`
 

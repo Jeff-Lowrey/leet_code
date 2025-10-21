@@ -21,15 +21,12 @@ Return true if there is a cycle in the linked list. Otherwise, return false.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: O(n)
-**Space Complexity**: O(1)
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup
+**Data Structures**: Hash Set, Array, Linked List
+**Patterns**: Two Pointers Pattern
+**Time Complexity**: O(n) - Single pass through input
+**Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
 Use Floyd's cycle detection with fast and slow pointers. Fast moves 2 steps, slow moves 1 step. If they meet, cycle exists. If fast reaches null, no cycle.
@@ -74,8 +71,8 @@ O(1)
 
 </details>
 """
-from typing import Any
 
+from typing import Any
 
 
 class ListNode:

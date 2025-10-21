@@ -19,15 +19,12 @@ Given an integer array nums, return the length of the longest wiggle subsequence
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: O(n)
-**Space Complexity**: O(1)
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: Hash Map, Hash Set, Array
+**Patterns**: Hash Table Pattern, Greedy Algorithm
+**Time Complexity**: O(n) - Single pass through input
+**Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
 A wiggle occurs when direction changes (up->down or down->up). Greedily count direction changes by tracking previous difference sign. Skip equal consecutive numbers.

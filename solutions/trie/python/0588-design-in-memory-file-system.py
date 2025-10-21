@@ -24,13 +24,10 @@ Implement the FileSystem class:
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup
+**Data Structures**: Hash Map, Hash Set, Array
+**Patterns**: Iterative Solution
 **Time Complexity**: O(P)
 **Space Complexity**: O(N×M)
 

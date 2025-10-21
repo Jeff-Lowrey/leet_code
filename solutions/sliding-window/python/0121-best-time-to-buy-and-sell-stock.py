@@ -21,15 +21,12 @@ Return the maximum profit you can achieve from this transaction. If you cannot a
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: O(n)
-**Space Complexity**: O(1)
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: Array, Tree
+**Patterns**: Two Pointers Pattern, Hash Table Pattern
+**Time Complexity**: O(n) - Single pass through input
+**Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
 To maximize profit, we need to buy at the lowest price and sell at the highest price after the buy date. The key insight is to track the minimum price seen so far and calculate profit at each day.
@@ -77,8 +74,8 @@ Only using constant extra space
 </details>
 """
 
-
 from typing import Any
+
 
 class Solution:
     def maxProfit(self, prices: list[int]) -> int:

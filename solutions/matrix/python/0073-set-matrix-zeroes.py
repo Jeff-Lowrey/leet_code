@@ -19,15 +19,12 @@ You must do it in place.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
+**Data Structures**: Hash Set, Array, Matrix
+**Patterns**: Iterative Solution
 **Time Complexity**: O(m × n)
-**Space Complexity**: O(1)
+**Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
 Cannot modify matrix while iterating as it affects future decisions. Need to mark which rows/columns to zero without extra space. Use first row and first column as markers!
@@ -83,8 +80,8 @@ Only using two boolean flags
 </details>
 """
 
-
 from typing import Any
+
 
 class Solution:
     def setZeroes(self, matrix: list[list[int]]) -> None:

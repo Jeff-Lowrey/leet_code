@@ -21,14 +21,12 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: * O(3^N × 4^M)
-**Space Complexity**: * O(3^N × 4^M)
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * **Techniques**: Array Traversal, Backtracking
+ * **Data Structures**: Array, String
+ * **Patterns**: Backtracking
+ * **Time Complexity**: * O(3^N × 4^M)
+ * **Space Complexity**: * O(3^N × 4^M)
 
  *
  * ### INTUITION:

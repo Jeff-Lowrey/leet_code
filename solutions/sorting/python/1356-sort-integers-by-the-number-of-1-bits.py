@@ -21,14 +21,11 @@ Return the array after sorting it.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: O(n log n)
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Array Traversal, Sorting, Greedy Selection
+**Data Structures**: Array, Graph
+**Patterns**: Hash Table Pattern, Greedy Algorithm
+**Time Complexity**: O(n log n) - Sorting or divide-and-conquer
 **Space Complexity**: O(n)
 
 ### INTUITION:

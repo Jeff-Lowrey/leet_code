@@ -19,15 +19,12 @@ An Anagram is a word or phrase formed by rearranging the letters of a different 
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: O(n)
-**Space Complexity**: O(1)
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: Hash Map, Array, String
+**Patterns**: Sliding Window Pattern, Hash Table Pattern
+**Time Complexity**: O(n) - Single pass through input
+**Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
 Use sliding window with character frequency map. Expand until window contains all p characters with same frequency. Add start index to result. Shrink by moving left pointer.

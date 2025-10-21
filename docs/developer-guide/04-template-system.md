@@ -67,9 +67,57 @@ The template system provides standardized solution formats and generates skeleto
 **Structure**:
 ```python
 """
+# [Problem Number]. [Problem Title]
+
 # Difficulty: [Easy/Medium/Hard]
 
 [Problem description with markdown formatting]
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[input]</dd>
+<dt>Output:</dt>
+<dd>[output]</dd>
+<dt>Explanation:</dt>
+<dd>[explanation]</dd>
+</dl>
+
+<details>
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+
+### METADATA:
+**Techniques**: [e.g., Hash Table Lookup, Binary Search]
+**Data Structures**: [e.g., Hash Map, Array]
+**Patterns**: [e.g., Complement Search, Sliding Window]
+**Time Complexity**: **O(?)** - [detailed explanation]
+**Space Complexity**: **O(?)** - [detailed explanation]
+
+### INTUITION:
+[Key insight in 1-3 sentences]
+
+### APPROACH:
+[Step-by-step explanation in flowing prose]
+
+### WHY THIS WORKS:
+[Correctness explanation]
+
+### EXAMPLE WALKTHROUGH:
+[Concrete execution trace]
+
+### TIME COMPLEXITY:
+**O(?)** - [explanation]
+
+### SPACE COMPLEXITY:
+**O(?)** - [explanation]
+
+### EDGE CASES:
+- **[Case 1]:** [how it's handled]
+- **[Case 2]:** [how it's handled]
+
+</details>
 """
 
 from typing import Any

@@ -7,11 +7,6 @@ You are given a string s, and an array of pairs where pairs[i] = [a, b] indicate
 (0-indexed) that can be swapped. You can swap indices multiple times. Return the lexicographically
 smallest string that s can be transformed to after using the swaps.
 
-Example:
-Input: s = "dcab", pairs = [[0,3],[1,2]]
-Output: "bacd"
-Explanation: Swap s[0] and s[3] → "bcad", then swap s[1] and s[2] → "bacd"
-
 **Example:**
 
 <dl class="example-details">
@@ -24,15 +19,12 @@ Explanation: Swap s[0] and s[3] → "bcad", then swap s[1] and s[2] → "bacd"
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: Hash Map, Hash Set, Array
+**Patterns**: Hash Table Pattern, Backtracking
 **Time Complexity**: O(n log n + m α(n)) where m is pairs count
-**Space Complexity**: O(n)
+**Space Complexity**: O(n) - Additional hash map storage
 
 ### INTUITION:
 Pairs form connected components via union-find. Within each component, indices can be
@@ -82,9 +74,6 @@ from typing import Any
 import re
 
 
-
-
-
 class UnionFind:
     """Union-Find (Disjoint Set Union) data structure."""
 
@@ -92,7 +81,6 @@ class UnionFind:
         """Initialize with n elements."""
         self.parent = list(range(n))
         self.rank = [0] * n
-
 
     @property
     def components(self) -> int:

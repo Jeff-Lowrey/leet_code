@@ -21,15 +21,12 @@ Return the maximum number of courses that you can take.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Sorting
+**Data Structures**: Hash Map, Hash Set, Array
+**Patterns**: Greedy Algorithm
 **Time Complexity**: O(n)
-**Space Complexity**: O(1)
+**Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
 Greedy: sort courses by deadline. For each course, if time available, add to heap (track duration). If no time, compare with longest course taken. If current shorter, replace longest.

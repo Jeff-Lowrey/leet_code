@@ -17,15 +17,12 @@ Given the head of a linked list, remove the nth node from the end of the list an
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: O(n)
-**Space Complexity**: O(1)
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: Hash Set, Array, Linked List
+**Patterns**: Two Pointers Pattern, Hash Table Pattern
+**Time Complexity**: O(n) - Single pass through input
+**Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
 Use two pointers with n-step gap. Move fast pointer n steps ahead. Then move both until fast reaches end. Slow is now at the node before target. Remove target node.
@@ -74,11 +71,12 @@ O(1)
 </details>
 """
 
-
 from typing import Any
+
 
 class ListNode:
     """..."""
+
     def __init__(self, val: Any = 0, next: Any = None) -> None:
         self.val = val
         self.next = next

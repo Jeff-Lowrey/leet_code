@@ -21,13 +21,10 @@ Clarification: The input/output format is the same as how LeetCode serializes a 
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Two Pointers, Stack Operations, Tree Traversal
+**Data Structures**: String, Stack, Tree
+**Patterns**: Two Pointers Pattern, Tree Pattern
 **Time Complexity**: O(n)
 **Space Complexity**: O(n)
 
@@ -87,10 +84,9 @@ For the serialized string and recursion stack
 
 </details>
 """
+
 import re
 from typing import Any
-
-
 
 
 class TreeNode:

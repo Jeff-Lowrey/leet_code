@@ -29,14 +29,12 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: * - addWord: O(n) where n is word length
-**Space Complexity**: * O(total characters in all words)
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+ * **Data Structures**: Hash Map, Hash Set, String
+ * **Patterns**: Graph Pattern
+ * **Time Complexity**: * - addWord: O(n) where n is word length
+ * **Space Complexity**: * O(total characters in all words)
 
  *
  * ### INTUITION:

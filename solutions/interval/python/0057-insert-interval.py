@@ -9,10 +9,6 @@ ascending order by starti. You are also given an interval newInterval = [`start`
 
 Insert newInterval into intervals such that intervals is still sorted and `non-overlapping`.
 
-Example:
-Input: intervals = [[1,3],[6,9]], newInterval = [2,5]
-Output: [[1,5],[6,9]]
-
 **Example:**
 
 <dl class="example-details">
@@ -25,13 +21,10 @@ Output: [[1,5],[6,9]]
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: Array, Heap
+**Patterns**: Two Pointers Pattern, Hash Table Pattern
 **Time Complexity**: O(n)
 **Space Complexity**: O(n) for result array
 
@@ -190,7 +183,6 @@ Output: 2
 
 import heapq
 from typing import Any
-
 
 
 class SolutionMeetingRoomsII:

@@ -22,13 +22,10 @@ Two combinations are unique if the frequency of at least one of the chosen numbe
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Map Storage, Array Traversal, Sorting
+**Data Structures**: Array, Matrix
+**Patterns**: Hash Table Pattern, Backtracking
 **Time Complexity**: O(N^(T/M))
 **Space Complexity**: O(T/M)
 
@@ -71,8 +68,8 @@ For recursion depth and storing combinations
 </details>
 """
 
-
 from typing import Any
+
 
 class Solution:
     def combinationSum(self, candidates: list[int], target: int) -> list[list[int]]:

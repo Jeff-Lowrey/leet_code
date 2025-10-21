@@ -21,15 +21,12 @@ Given an integer array bills where bills[i] is the bill the ith customer pays, r
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: O(n)
-**Space Complexity**: O(1)
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Array Traversal, Queue Operations
+**Data Structures**: Array, Queue
+**Patterns**: Hash Table Pattern, Greedy Algorithm
+**Time Complexity**: O(n) - Single pass through input
+**Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
 This is a greedy problem about making change optimally. We need to track our cash inventory and make change using the fewest bills possible. The key insight is to always use larger bills first when making change.

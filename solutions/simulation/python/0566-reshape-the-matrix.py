@@ -35,13 +35,10 @@ Output: [[1,2],[3,4]]
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: Hash Map, Array, Matrix
+**Patterns**: Iterative Solution
 **Time Complexity**: O(m × n)
 **Space Complexity**: O(r × c)
 
@@ -102,7 +99,6 @@ O(r × c)
 
 </details>
 """
-
 
 from typing import Any
 import re

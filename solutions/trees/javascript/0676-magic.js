@@ -22,14 +22,12 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: * - Build: O(n × l) where n is number of words, l is average length
-**Space Complexity**: * O(n × l)
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+ * **Data Structures**: Hash Map, Hash Set, Array
+ * **Patterns**: Graph Pattern
+ * **Time Complexity**: * - Build: O(n × l) where n is number of words, l is average length
+ * **Space Complexity**: * O(n × l)
 
  *
  * ### INTUITION:

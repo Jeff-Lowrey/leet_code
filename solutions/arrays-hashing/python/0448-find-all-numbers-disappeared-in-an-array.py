@@ -17,15 +17,12 @@ Given an array nums of n integers where nums[i] is in the range [1, n], return a
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: O(n)
-**Space Complexity**: O(1)
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: Hash Map, Hash Set, Array
+**Patterns**: Hash Table Pattern
+**Time Complexity**: O(n) - Single pass through input
+**Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
 Use the array itself as a hash map by marking indices. For each number n, negate the value at index n-1 to mark that n is present. After marking, any indices with positive values indicate missing numbers.

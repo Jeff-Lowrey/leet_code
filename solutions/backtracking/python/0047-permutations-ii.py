@@ -17,15 +17,12 @@ Given a collection of numbers, nums, that might contain duplicates, return all p
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: Hash Map, Array
+**Patterns**: Hash Table Pattern, Backtracking
 **Time Complexity**: O(n)
-**Space Complexity**: O(1)
+**Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
 Use a frequency counter to track available numbers. During backtracking, iterate through unique numbers in the counter, not array positions. Decrement the counter when using a number and increment when backtracking. This naturally handles duplicates by treating them as frequency counts.

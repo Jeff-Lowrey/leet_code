@@ -21,15 +21,12 @@ Return the minimum number of jumps to reach nums[n - 1]. The test cases are gene
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: O(n)
-**Space Complexity**: O(1)
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Array Traversal, Breadth-First Search
+**Data Structures**: Hash Map, Hash Set, Array
+**Patterns**: Hash Table Pattern, Greedy Algorithm
+**Time Complexity**: O(n) - Single pass through input
+**Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
 Track current reach and farthest reach. When reach exhausted, must jump (increment jumps) and update reach to farthest. Greedy: always extend reach as far as possible before jumping.

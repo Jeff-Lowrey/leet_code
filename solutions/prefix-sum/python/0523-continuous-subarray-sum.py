@@ -9,11 +9,6 @@ subarray of size at least two that sums to a multiple of k, or false otherwise.
 An integer x is a multiple of k if there exists an integer n such that x = n * k.
 0 is always a multiple of k.
 
-Example:
-Input: nums = [23,2,4,6,7], k = 6
-Output: true
-Explanation: [2, 4] is a continuous subarray of size 2 whose sum is 6.
-
 **Example:**
 
 <dl class="example-details">
@@ -26,14 +21,11 @@ Explanation: [2, 4] is a continuous subarray of size 2 whose sum is 6.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: O(n)
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: Hash Map, Array
+**Patterns**: Hash Table Pattern, Greedy Algorithm
+**Time Complexity**: O(n) - Single pass through input
 **Space Complexity**: O(min(n, k))
 
 ### INTUITION:

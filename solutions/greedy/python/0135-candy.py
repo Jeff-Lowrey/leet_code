@@ -25,15 +25,12 @@ the children.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: O(n)
-**Space Complexity**: O(n)
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Map Storage, Array Traversal, Two Pointers
+**Data Structures**: Array, Tree, Trie
+**Patterns**: Two Pointers Pattern, Hash Table Pattern
+**Time Complexity**: O(n) - Single pass through input
+**Space Complexity**: O(n) - Additional set storage
 
 ### INTUITION:
 This is a classic greedy problem requiring two passes. The key insight is that we

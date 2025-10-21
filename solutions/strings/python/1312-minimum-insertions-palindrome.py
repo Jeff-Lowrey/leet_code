@@ -7,21 +7,6 @@ Given a string s, return the minimum number of insertions needed to make s a pal
 
 A palindrome is a string that reads the same forward and backward.
 
-Example:
-Input: s = "zzazz"
-Output: 0
-Explanation: The string "zzazz" is already a palindrome.
-
-Example:
-Input: s = "mbadm"
-Output: 2
-Explanation: String can be "mbdadbm" or "mdbabdm".
-
-Example:
-Input: s = "leetcode"
-Output: 5
-Explanation: Inserting 5 characters the string becomes "leetcodocteel".
-
 **Example:**
 
 <dl class="example-details">
@@ -34,14 +19,11 @@ Explanation: Inserting 5 characters the string becomes "leetcodocteel".
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: O(n²)
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: Hash Map, String
+**Patterns**: Greedy Algorithm, Dynamic Programming
+**Time Complexity**: O(n²) - Nested iteration through input
 **Space Complexity**: O(n²)
 
 ### INTUITION:

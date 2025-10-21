@@ -24,14 +24,12 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: * O(R*C * log(R*C))
-**Space Complexity**: * O(R*C)
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * **Techniques**: Array Traversal, Sorting
+ * **Data Structures**: Array, String, Matrix
+ * **Patterns**: Iterative Solution
+ * **Time Complexity**: * O(R*C * log(R*C))
+ * **Space Complexity**: * O(R*C)
 
  *
  * ### INTUITION:

@@ -19,15 +19,12 @@ Return the length of the longest substring containing the same letter you can ge
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: O(n)
-**Space Complexity**: O(1)
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Array Traversal, Sliding Window
+**Data Structures**: Hash Map, Hash Set, Array
+**Patterns**: Sliding Window Pattern, Hash Table Pattern
+**Time Complexity**: O(n) - Single pass through input
+**Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
 Use sliding window with character counts. Track max frequency in window. If window_size - max_freq <= k, window is valid (k replacements make all same). Expand or shrink to find max valid window.
@@ -80,8 +77,8 @@ O(1)
 </details>
 """
 
-
 from typing import Any
+
 
 class Solution:
     def characterReplacement(self, s: str, k: int) -> int:

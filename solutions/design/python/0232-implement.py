@@ -17,13 +17,10 @@ Implement a first-in-first-out (FIFO) queue using only two stacks.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Stack Operations, Queue Operations
+**Data Structures**: Array, Stack, Queue
+**Patterns**: Iterative Solution
 **Time Complexity**: - push: O(1)
 **Space Complexity**: O(n) for storing n elements
 

@@ -22,13 +22,10 @@ Implement the MedianFinder class:
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Two Pointers
+**Data Structures**: Array, Heap, Tree
+**Patterns**: Two Pointers Pattern, Divide and Conquer
 **Time Complexity**: - addNum(): O(log n) - heap operations
 **Space Complexity**: O(n)
 
@@ -87,5 +84,5 @@ Store all n numbers across two heaps
 
 </details>
 """
-import re
 
+import re

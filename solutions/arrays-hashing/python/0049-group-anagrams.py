@@ -9,10 +9,6 @@ Given an array of strings strs, group the anagrams together. You can return the
 An Anagram is a word or phrase formed by rearranging the letters of a different
 word or phrase, typically using all the original letters exactly once.
 
-Example:
-Input: strs = ["eat","tea","tan","ate","nat","bat"]
-Output: [["bat"],["nat","tan"],["ate","eat","tea"]]
-
 **Example:**
 
 <dl class="example-details">
@@ -25,13 +21,10 @@ Output: [["bat"],["nat","tan"],["ate","eat","tea"]]
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Array Traversal, Sorting
+**Data Structures**: Hash Map, Array, String
+**Patterns**: Hash Table Pattern
 **Time Complexity**: - **Sorting approach**: O(n × k log k) where n = number of strings, k = max string length
 **Space Complexity**: O(n × k)
 
@@ -87,7 +80,6 @@ O(n × k)
 
 from collections import defaultdict
 from typing import Any
-
 
 
 class Solution:

@@ -23,15 +23,12 @@ A string s is lexicographically smaller than a string t if at the first letter w
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: O(n)
-**Space Complexity**: O(1)
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
+**Data Structures**: Hash Map, Hash Set, Array
+**Patterns**: Hash Table Pattern, Greedy Algorithm
+**Time Complexity**: O(n) - Single pass with O(1) hash lookups
+**Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
 Build graph from word pairs by comparing adjacent words. Find first different character to establish order. Perform topological sort using DFS or BFS. Detect cycles (impossible ordering).

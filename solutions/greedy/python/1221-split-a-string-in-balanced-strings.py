@@ -22,15 +22,12 @@ Return the maximum number of balanced strings you can obtain.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: Array, String
+**Patterns**: Hash Table Pattern, Greedy Algorithm
 **Time Complexity**: O(n)
-**Space Complexity**: O(1)
+**Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
 The key insight is to use a greedy approach: whenever we find a balanced substring

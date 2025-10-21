@@ -17,15 +17,12 @@ Given the head of a singly linked list, reverse the list, and return the reverse
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup
+**Data Structures**: Hash Set, Array, Linked List
+**Patterns**: Iterative Solution
 **Time Complexity**: O(n)
-**Space Complexity**: O(1)
+**Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
 Track previous node. For each node, change next pointer to previous. Move forward by saving next before changing pointers. Return previous when current is null.
@@ -100,8 +97,8 @@ O(1)
 
 </details>
 """
-from typing import Any
 
+from typing import Any
 
 
 class ListNode:

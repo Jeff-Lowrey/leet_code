@@ -24,15 +24,12 @@ Implement the NumArray class:
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: O(n)
-**Space Complexity**: O(1)
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: Array, String, Tree
+**Patterns**: Two Pointers Pattern
+**Time Complexity**: O(n) - Single pass through input
+**Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
 Precompute cumulative sums in array. For range [i,j], the sum is prefix[j+1] - prefix[i]. This reduces each query from O(n) to O(1) with O(n) preprocessing.
@@ -79,7 +76,6 @@ O(1)
 
 </details>
 """
-
 
 from typing import Any
 

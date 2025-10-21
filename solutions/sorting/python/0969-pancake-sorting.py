@@ -27,14 +27,11 @@ Any valid answer that sorts the array within 10 * arr.length flips will be accep
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: O(n²)
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: Array, Tree
+**Patterns**: Two Pointers Pattern
+**Time Complexity**: O(n²) - Nested iteration through input
 **Space Complexity**: O(n)
 
 ### INTUITION:
@@ -105,8 +102,8 @@ For storing the flip sequence
 </details>
 """
 
-
 from typing import Any
+
 
 class Solution:
     def pancakeSort(self, arr: list[int]) -> list[int]:

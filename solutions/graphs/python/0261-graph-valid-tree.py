@@ -19,15 +19,12 @@ Return true if the edges of the given graph make up a valid tree, and false othe
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: O(n)
-**Space Complexity**: O(1)
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
+**Data Structures**: Hash Map, Hash Set, Array
+**Patterns**: Hash Table Pattern, Graph Pattern
+**Time Complexity**: O(n) - Single pass with O(1) hash lookups
+**Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
 A valid tree has exactly n-1 edges and is fully connected with no cycles. Use Union-Find to detect cycles and count components. Valid if no cycles and all nodes in one component.

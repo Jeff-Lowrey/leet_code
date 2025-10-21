@@ -21,15 +21,12 @@ Return an integer array answer where answer[x] = y if y is the least quiet perso
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: O(n)
-**Space Complexity**: O(1)
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: Hash Map, Hash Set, Array
+**Patterns**: Dynamic Programming, Graph Pattern
+**Time Complexity**: O(n) - Single pass through input
+**Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
 Build graph of richer relationships. Use DFS with memoization. For each person, recursively find quietest among all richer people. Cache results to avoid recomputation.

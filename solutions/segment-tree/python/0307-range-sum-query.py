@@ -12,13 +12,6 @@ Implement the NumArray class:
 - void update(int index, int val) Updates the value of nums[index] to be val.
 - int sumRange(int left, int right) Returns the sum of the elements between indices left and right.
 
-Example:
-Input:
-["NumArray", "sumRange", "update", "sumRange"]
-[[[1, 3, 5]], [0, 2], [1, 2], [0, 2]]
-Output:
-[null, 9, null, 8]
-
 **Example:**
 
 <dl class="example-details">
@@ -31,15 +24,12 @@ Output:
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: O(log n) for both update and query
-**Space Complexity**: O(n)
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: Hash Set, Array, Tree
+**Patterns**: Two Pointers Pattern, Hash Table Pattern
+**Time Complexity**: O(log n) for both update and query - Binary search or tree height
+**Space Complexity**: O(n) - Additional set storage
 
 ### INTUITION:
 For mutable arrays, prefix sums become inefficient (O(n) updates). Segment trees provide a balanced solution with O(log n) for both updates and range queries by representing the array as a binary tree where each node stores the sum of its range.
@@ -74,8 +64,8 @@ O(n)
 </details>
 """
 
-
 from typing import Any
+
 
 class NumArray:
     def countSmaller(self, nums: list[int]) -> list[int]:

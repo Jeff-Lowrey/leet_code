@@ -17,15 +17,12 @@ Given two integer arrays preorder and inorder where preorder is the preorder tra
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: O(n)
-**Space Complexity**: O(1)
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: Hash Map, Array, String
+**Patterns**: Two Pointers Pattern, Tree Pattern
+**Time Complexity**: O(n) - Single pass through input
+**Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
 Recursively build tree. Find root in preorder (first element). Find root in inorder (splits left/right). Recursively build left subtree with elements before root, right subtree with elements after root in inorder.

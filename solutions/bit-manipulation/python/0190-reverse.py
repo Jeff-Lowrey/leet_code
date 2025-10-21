@@ -21,15 +21,12 @@ Note:
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: O(n)
-**Space Complexity**: O(1)
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Array Traversal, Two Pointers
+**Data Structures**: Hash Set, Tree, Linked List
+**Patterns**: Complement Search, Two Pointers Pattern
+**Time Complexity**: O(n) - Single pass through input
+**Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
 Reverse bits by extracting each bit from the right (n & 1), shifting result left, and adding the bit. Process all 32 bits by shifting n right each iteration.

@@ -29,14 +29,12 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: * O(log n) for both update and query
-**Space Complexity**: * O(n)
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+ * **Data Structures**: Hash Set, Array, String
+ * **Patterns**: Two Pointers Pattern, Tree Pattern
+ * **Time Complexity**: * O(log n) for both update and query - Binary search or tree height
+ * **Space Complexity**: * O(n) - Additional set storage
 
  *
  * ### INTUITION:

@@ -21,15 +21,12 @@ The list should be made by splicing together the nodes of the first two lists.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup
+**Data Structures**: Hash Set, Array, Linked List
+**Patterns**: Divide and Conquer
 **Time Complexity**: O(n)
-**Space Complexity**: O(1)
+**Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
 Use dummy node to handle edge cases. Compare nodes from both lists. Advance pointer of smaller node. Continue until both lists exhausted. Return dummy.next.
@@ -78,8 +75,8 @@ O(1)
 
 </details>
 """
-from typing import Any
 
+from typing import Any
 
 
 class ListNode:

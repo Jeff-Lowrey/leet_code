@@ -17,13 +17,10 @@ Implement the BSTIterator class that represents an iterator over the in-order tr
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Two Pointers, Stack Operations, Graph Traversal
+**Data Structures**: Stack, Tree, Linked List
+**Patterns**: Two Pointers Pattern, Hash Table Pattern
 **Time Complexity**: - Constructor: O(h) where h is height
 **Space Complexity**: O(h) for the stack
 
@@ -68,8 +65,8 @@ O(h) for the stack
 
 </details>
 """
-from typing import Any
 
+from typing import Any
 
 
 class TreeNode:

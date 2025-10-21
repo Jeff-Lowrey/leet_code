@@ -17,15 +17,12 @@ This problem demonstrates key concepts in Strings and Hash Tables.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: Hash Map, String
+**Patterns**: Hash Table Pattern
 **Time Complexity**: O(m + n)
-**Space Complexity**: O(1)
+**Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
 To construct a ransom note from magazine letters, we need to ensure that the magazine contains

@@ -26,14 +26,12 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: * O(1)
-**Space Complexity**: * O(n)
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * **Techniques**: Array Traversal, Stack Operations, Greedy Selection
+ * **Data Structures**: Array, Stack, Trie
+ * **Patterns**: Greedy Algorithm, Tree Pattern
+ * **Time Complexity**: * O(1)
+ * **Space Complexity**: * O(n)
 
  *
  * ### INTUITION:

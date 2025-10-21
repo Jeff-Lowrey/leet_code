@@ -23,14 +23,11 @@ proven that the answer is unique.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: O(n)
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: Array, String, Stack
+**Patterns**: Two Pointers Pattern, Hash Table Pattern
+**Time Complexity**: O(n) - Single pass through input
 **Space Complexity**: O(n)
 
 ### INTUITION:
@@ -81,8 +78,8 @@ Stack stores up to n characters in worst case (no duplicates)
 </details>
 """
 
-
 from typing import Any
+
 
 class Solution:
     def removeDuplicates(self, s: str) -> str:

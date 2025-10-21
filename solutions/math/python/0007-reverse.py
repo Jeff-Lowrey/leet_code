@@ -17,15 +17,12 @@ Given a signed 32-bit integer x, return x with its digits reversed. If reversing
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Array Traversal
+**Data Structures**: Hash Set, String
+**Patterns**: Iterative Solution
 **Time Complexity**: O(n)
-**Space Complexity**: O(1)
+**Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
 Extract digits from end using mod 10. Build reversed number by multiplying result by 10 and adding digit. Check for overflow before each operation.

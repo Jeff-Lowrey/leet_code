@@ -24,14 +24,12 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: * O(1)
-**Space Complexity**: * O(capacity)
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+ * **Data Structures**: Hash Map, Hash Set, Array
+ * **Patterns**: Iterative Solution
+ * **Time Complexity**: * O(1)
+ * **Space Complexity**: * O(capacity)
 
  *
  * ### INTUITION:

@@ -24,13 +24,10 @@ The functions get and put must each run in O(1) average time complexity.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Backtracking
+**Data Structures**: Hash Map, Array, Linked List
+**Patterns**: Iterative Solution
 **Time Complexity**: O(1)
 **Space Complexity**: O(capacity)
 

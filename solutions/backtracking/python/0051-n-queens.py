@@ -32,13 +32,10 @@ Output: [["Q"]]
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
+**Data Structures**: Hash Set, Array, String
+**Patterns**: Hash Table Pattern, Backtracking
 **Time Complexity**: O(N!)
 **Space Complexity**: O(N)
 
@@ -106,8 +103,8 @@ O(N)
 </details>
 """
 
-
 from typing import Any
+
 
 class Solution:
     def solveNQueens(self, n: int) -> list[list[str]]:

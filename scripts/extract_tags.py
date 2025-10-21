@@ -26,12 +26,8 @@ from leet_code.category_data import CategoryManager
 def main():
     """Extract tags from all solutions and save to cache."""
     parser = argparse.ArgumentParser(description="Extract tags from solution files")
-    parser.add_argument(
-        "--verbose", "-v", action="store_true", help="Show detailed progress"
-    )
-    parser.add_argument(
-        "--force", "-f", action="store_true", help="Force re-extraction even if cache exists"
-    )
+    parser.add_argument("--verbose", "-v", action="store_true", help="Show detailed progress")
+    parser.add_argument("--force", "-f", action="store_true", help="Force re-extraction even if cache exists")
     args = parser.parse_args()
 
     # Initialize CategoryManager

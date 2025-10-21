@@ -8,10 +8,6 @@ Given two strings s and t, return true if t is an anagram of s, and false otherw
 An Anagram is a word or phrase formed by rearranging the letters of a different
 word or phrase, typically using all the original letters exactly once.
 
-Example:
-Input: s = "anagram", t = "nagaram"
-Output: true
-
 **Example:**
 
 <dl class="example-details">
@@ -24,14 +20,11 @@ Output: true
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: O(n)
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: Hash Map, Array, String
+**Patterns**: Hash Table Pattern
+**Time Complexity**: O(n) - Single pass with O(1) hash lookups
 **Space Complexity**: O(1) - at most 26 lowercase letters
 
 ### INTUITION:

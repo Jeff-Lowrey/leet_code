@@ -20,14 +20,12 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: * O(n²)
-**Space Complexity**: * O(1)
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * **Techniques**: Hash Map Storage, Array Traversal, Two Pointers
+ * **Data Structures**: String, Tree
+ * **Patterns**: Two Pointers Pattern, Dynamic Programming
+ * **Time Complexity**: * O(n²) - Nested iteration through input
+ * **Space Complexity**: * O(1) - Constant extra space
 
  *
  * ### INTUITION:

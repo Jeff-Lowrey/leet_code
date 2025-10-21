@@ -21,13 +21,10 @@ An island is a group of 1's connected 4-directionally (horizontal or vertical). 
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
+**Data Structures**: Hash Map, Hash Set, Array
+**Patterns**: Greedy Algorithm, Graph Pattern
 **Time Complexity**: O(N²)
 **Space Complexity**: O(N²)
 
@@ -80,10 +77,8 @@ For island labeling and size storage
 </details>
 """
 
-
 from typing import Any
 import re
-
 
 
 class UnionFind:
@@ -124,7 +119,6 @@ class UnionFind:
     def components(self) -> int:
         """Return number of connected components."""
         return len(set(self.find(i) for i in range(len(self.parent))))
-
 
 
 class Solution:

@@ -5,15 +5,11 @@
 
 Given an m x `n` matrix, return all elements of the matrix in spiral order.
 
-Example:
-Input: `matrix` = [[1,2,3],[4,5,6],[7,8,9]]
-Output: [1,2,3,6,9,8,7,4,5]
-
 **Example:**
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>matrix` = [[1,2,3],[4,5,6],[7,8,9]]</dd>
+<dd>matrix = [[1,2,3],[4,5,6],[7,8,9]]</dd>
 <dt>Output:</dt>
 <dd>[1,2,3,6,9,8,7,4,5]</dd>
 <dt>Explanation:</dt>
@@ -21,15 +17,12 @@ Output: [1,2,3,6,9,8,7,4,5]
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: Array, Tree, Matrix
+**Patterns**: Two Pointers Pattern
 **Time Complexity**: O(m × n)
-**Space Complexity**: O(1) excluding output array
+**Space Complexity**: O(1) excluding output array - Constant extra space
 
 ### INTUITION:
 Think of traversing the matrix in layers, like peeling an onion. We traverse the outermost layer first (right → down → left → up), then move to the next inner layer and repeat the pattern.
@@ -68,8 +61,8 @@ O(1) excluding output array
 </details>
 """
 
-
 from typing import Any
+
 
 class Solution:
     def spiralOrder(self, matrix: list[list[int]]) -> list[int]:

@@ -19,15 +19,12 @@ An integer n is a power of two, if there exists an integer x such that n == 2^x.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: O(n)
-**Space Complexity**: O(1)
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Array Traversal
+**Data Structures**: Hash Set
+**Patterns**: Hash Table Pattern
+**Time Complexity**: O(n) - Single pass through input
+**Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
 Powers of 2 have exactly one bit set. Check if n > 0 and n & (n-1) == 0. The expression n & (n-1) removes the rightmost set bit.

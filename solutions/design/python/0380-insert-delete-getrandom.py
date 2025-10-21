@@ -29,15 +29,12 @@ randomizedSet.getRandom(); // Since 2 is the only number in the set, getRandom()
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Set Operations, Backtracking
+**Data Structures**: Hash Map, Hash Set, Array
+**Patterns**: Backtracking
 **Time Complexity**: - insert: O(1)
-**Space Complexity**: O(n) for storing n elements
+**Space Complexity**: O(n) for storing n elements - Additional hash map storage
 
 ### INTUITION:
 To achieve O(1) for all three operations, we need:

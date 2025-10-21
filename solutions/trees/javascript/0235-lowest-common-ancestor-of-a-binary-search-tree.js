@@ -22,14 +22,12 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: * O(h)
-**Space Complexity**: * O(h)
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * **Techniques**: Hash Map Storage, Array Traversal, Two Pointers
+ * **Data Structures**: Array, Tree
+ * **Patterns**: Two Pointers Pattern, Greedy Algorithm
+ * **Time Complexity**: * O(h)
+ * **Space Complexity**: * O(h)
 
  *
  * ### INTUITION:

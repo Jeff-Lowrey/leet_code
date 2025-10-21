@@ -21,13 +21,10 @@ Implement KthLargest class:
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Standard Algorithm
+**Data Structures**: Array, Heap, Tree
+**Patterns**: Iterative Solution
 **Time Complexity**: - Constructor: O(n log k) where n = len(nums)
 **Space Complexity**: O(k)
 

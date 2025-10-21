@@ -8,12 +8,6 @@ that have a sum divisible by k.
 
 A subarray is a contiguous part of an array.
 
-Example:
-Input: nums = [4,5,0,-2,-3,1], k = 5
-Output: 7
-Explanation: There are 7 subarrays with a sum divisible by k = 5:
-[4, 5, 0, -2, -3, 1], [5], [5, 0], [5, 0, -2, -3], [0], [0, -2, -3], [-2, -3]
-
 **Example:**
 
 <dl class="example-details">
@@ -26,14 +20,11 @@ Explanation: There are 7 subarrays with a sum divisible by k = 5:
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: O(n)
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: Hash Map, Array
+**Patterns**: Hash Table Pattern, Greedy Algorithm
+**Time Complexity**: O(n) - Single pass through input
 **Space Complexity**: O(min(n, k))
 
 ### INTUITION:

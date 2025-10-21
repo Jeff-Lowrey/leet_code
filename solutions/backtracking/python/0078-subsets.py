@@ -8,15 +8,11 @@ Given an integer array `nums` of unique elements, return all possible subsets
 
 The solution `set` must not contain duplicate subsets. Return the solution in any order.
 
-Example:
-Input: `nums` = [1,2,3]
-Output: [[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]]
-
 **Example:**
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>nums` = [1,2,3]</dd>
+<dd>nums = [1,2,3]</dd>
 <dt>Output:</dt>
 <dd>[[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]]</dd>
 <dt>Explanation:</dt>
@@ -24,13 +20,10 @@ Output: [[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]]
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: Hash Set, Array, Matrix
+**Patterns**: Backtracking, Tree Pattern
 **Time Complexity**: O(n × 2^n) - 2^n subsets, each takes O(n) to copy
 **Space Complexity**: O(n) - recursion depth
 
@@ -92,8 +85,8 @@ O(n) - recursion depth
 </details>
 """
 
-
 from typing import Any
+
 
 class Solution:
     def subsets(self, nums: list[int]) -> list[list[int]]:
