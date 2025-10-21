@@ -6,6 +6,8 @@ import re
 from dataclasses import dataclass, field
 from pathlib import Path
 
+from .language_constants import EXTENSION_TO_LANGUAGE, SUPPORTED_LANGUAGES
+
 
 @dataclass
 class Category:
@@ -33,13 +35,19 @@ class Solution:
     difficulty: str = ""
     time_complexity: str = ""
     space_complexity: str = ""
+    available_languages: list[str] = field(default_factory=list)
+    description: str = ""
 
     def __post_init__(self) -> None:
         """Process filename to extract metadata."""
-        # Remove file extension to get base name
-        base_name = self.filename.replace(".py", "")
+        # Remove file extension to get base name (support any extension)
+        base_name = self.filename
+        for ext in [".py", ".js", ".java", ".cpp", ".c", ".ts", ".go", ".rs", ".cs", ".swift"]:
+            if base_name.endswith(ext):
+                base_name = base_name[:-len(ext)]
+                break
 
-        # Extract number and slug from filename like "042-trapping-water.py"
+        # Extract number and slug from filename like "042-trapping-water"
         if "-" in base_name:
             parts = base_name.split("-", 1)
             if parts[0].isdigit():
@@ -57,6 +65,15 @@ class Solution:
         # Generate name from slug if not provided
         if not self.name and self.slug:
             self.name = self.slug.replace("-", " ").title()
+
+    @property
+    def url_filename(self) -> str:
+        """Get filename without language extension for use in URLs."""
+        base_name = self.filename
+        for ext in [".py", ".js", ".java", ".cpp", ".c", ".ts", ".go", ".rs", ".cs", ".swift", ".kt", ".rb", ".php", ".scala"]:
+            if base_name.endswith(ext):
+                return base_name[:-len(ext)]
+        return base_name
 
 
 @dataclass
@@ -115,47 +132,77 @@ class CategoryManager:
         self._problem_tags: dict[str, ProblemTags] | None = None
 
     def get_categories(self, force_refresh: bool = False) -> list[Category]:
-        """Get all categories with their solutions."""
+        """Get all categories with their solutions across all languages."""
         if self._categories is not None and not force_refresh:
             return self._categories
 
         categories = []
 
-        for path in self.solutions_dir.iterdir():
-            if path.is_dir() and not path.name.startswith("."):
-                # Get all Python files in the directory
-                py_files = list(path.glob("*.py"))
+        for category_path in self.solutions_dir.iterdir():
+            if not category_path.is_dir() or category_path.name.startswith("."):
+                continue
 
-                # Skip if no Python files
-                if not py_files:
+            # Build a dictionary of problems indexed by base name (without extension)
+            # Each entry tracks: {base_name: {languages: [list], metadata_file: Path}}
+            problems: dict[str, dict] = {}
+
+            # Scan all supported language subdirectories
+            for lang_name, lang_dir_name in SUPPORTED_LANGUAGES.items():
+                lang_dir = category_path / lang_dir_name
+                if not lang_dir.exists():
                     continue
 
-                # Create category
-                category = Category(
-                    slug=path.name,
-                    name=path.name.replace("-", " ").title(),
-                    description=self.DESCRIPTIONS.get(path.name, "Collection of algorithm problems and solutions."),
-                )
-
-                # Add solutions to category
-                for py_file in sorted(py_files):
-                    # Skip non-solution files
-                    if py_file.name in ["__init__.py", "top-50-solutions.py"]:
+                # Find all solution files in this language directory
+                for solution_file in lang_dir.iterdir():
+                    if not solution_file.is_file():
                         continue
 
-                    # Parse metadata from file
-                    difficulty, time_comp, space_comp = self._parse_solution_metadata(py_file)
+                    # Skip non-solution files
+                    if solution_file.name in ["__init__.py", "top-50-solutions.py"]:
+                        continue
 
-                    solution = Solution(
-                        filename=py_file.name,
-                        name="",
-                        difficulty=difficulty,
-                        time_complexity=time_comp,
-                        space_complexity=space_comp,
-                    )
-                    category.solutions.append(solution)
+                    # Get base name without extension
+                    base_name = solution_file.stem
 
-                categories.append(category)
+                    # Track this language for this problem
+                    if base_name not in problems:
+                        problems[base_name] = {
+                            "languages": [],
+                            "metadata_file": solution_file,  # Use first found for metadata
+                        }
+
+                    problems[base_name]["languages"].append(lang_name)
+
+            # Skip category if no problems found
+            if not problems:
+                continue
+
+            # Create category
+            category = Category(
+                slug=category_path.name,
+                name=category_path.name.replace("-", " ").title(),
+                description=self.DESCRIPTIONS.get(category_path.name, "Collection of algorithm problems and solutions."),
+            )
+
+            # Create Solution objects for each problem
+            for base_name, problem_data in sorted(problems.items()):
+                metadata_file = problem_data["metadata_file"]
+
+                # Parse metadata from the first available solution file
+                difficulty, time_comp, space_comp, description = self._parse_solution_metadata(metadata_file)
+
+                solution = Solution(
+                    filename=metadata_file.name,
+                    name="",
+                    difficulty=difficulty,
+                    time_complexity=time_comp,
+                    space_complexity=space_comp,
+                    available_languages=sorted(problem_data["languages"]),
+                    description=description,
+                )
+                category.solutions.append(solution)
+
+            categories.append(category)
 
         # Sort categories by name
         categories.sort(key=lambda x: x.name)
@@ -202,11 +249,12 @@ class CategoryManager:
 
             # Check if any solution file is newer than cache
             for category in self.get_categories():
-                category_dir = self.solutions_dir / category.slug
-                for sol_file in category_dir.glob("*.py"):
-                    if sol_file.stat().st_mtime > cache_mtime:
-                        needs_refresh = True
-                        break
+                python_dir = self.solutions_dir / category.slug / "python"
+                if python_dir.exists():
+                    for sol_file in python_dir.glob("*.py"):
+                        if sol_file.stat().st_mtime > cache_mtime:
+                            needs_refresh = True
+                            break
                 if needs_refresh:
                     break
 
@@ -303,7 +351,7 @@ class CategoryManager:
 
     def read_solution_content(self, category_slug: str, filename: str) -> str | None:
         """Read the content of a solution file."""
-        file_path = self.solutions_dir / category_slug / filename
+        file_path = self.solutions_dir / category_slug / "python" / filename
         if file_path.exists() and file_path.suffix == ".py":
             return file_path.read_text()
         return None
@@ -420,11 +468,11 @@ class CategoryManager:
         """
         return sorted(solutions, key=lambda s: int(s.number) if s.number.isdigit() else 0)
 
-    def _parse_solution_metadata(self, file_path: Path) -> tuple[str, str, str]:
-        """Parse difficulty and complexity from solution file.
+    def _parse_solution_metadata(self, file_path: Path) -> tuple[str, str, str, str]:
+        """Parse difficulty, complexity, and description from solution file.
 
         Returns:
-            Tuple of (difficulty, time_complexity, space_complexity)
+            Tuple of (difficulty, time_complexity, space_complexity, description)
         """
         try:
             content = file_path.read_text()
@@ -466,10 +514,33 @@ class CategoryManager:
                     space_comp = inner_match.group(0) if inner_match else ""
                     break
 
-            return difficulty, time_comp, space_comp
+            # Extract description - first sentence from problem statement
+            description = ""
+            # Look for problem statement in docstring or comments
+            problem_pattern = r'""".*?Problem:?\s*([^.\n]+[.])'
+            match = re.search(problem_pattern, content, re.DOTALL | re.IGNORECASE)
+            if match:
+                description = match.group(1).strip()
+            else:
+                # Try to get first non-empty line after a problem marker
+                lines = content.split('\n')
+                in_problem = False
+                for line in lines:
+                    line = line.strip()
+                    if 'problem' in line.lower() and ':' in line:
+                        in_problem = True
+                        continue
+                    if in_problem and line and not line.startswith('#') and not line.startswith('"""'):
+                        # Get first sentence
+                        sentences = line.split('.')
+                        if sentences:
+                            description = sentences[0].strip() + '.'
+                            break
+
+            return difficulty, time_comp, space_comp, description
 
         except Exception:
-            return "", "", ""
+            return "", "", "", ""
 
     def read_documentation(self, category_slug: str, doc_name: str | None = None) -> str | None:
         """Read documentation file for a category."""
