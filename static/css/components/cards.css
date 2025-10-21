@@ -186,8 +186,8 @@
 }
 
 .problem-number {
-    background-color: var(--primary-color);
-    color: var(--card-bg);
+    background-color: var(--badge-problem-number);
+    color: var(--badge-problem-number-text);
     padding: 0.25rem 0.5rem;
     border-radius: 4px;
     font-size: 0.875rem;
