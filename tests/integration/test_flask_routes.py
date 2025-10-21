@@ -187,7 +187,7 @@ class TestStaticFiles:
 
     def test_css_file(self, client: Any) -> None:
         """Test CSS file is served."""
-        response = client.get("/static/css/style.css")
+        response = client.get("/static/css/main.css")
         # Should either return the file or 404 if not found
         assert response.status_code in [200, 304, 404]
 
