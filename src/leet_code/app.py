@@ -19,7 +19,6 @@ from werkzeug.wrappers.response import Response as WerkzeugResponse
 
 from .category_data import Solution, category_manager
 from .language_constants import (
-    EXTENSION_TO_LANGUAGE,
     get_file_extension,
     get_lexer_for_language,
 )
@@ -27,7 +26,6 @@ from .leetcode_converter import convert_to_leetcode_format, extract_solution_cla
 from .markdown_extraction import (
     ProblemData,
     extract_markdown_from_code,
-    extract_markdown_from_js_comment,
     extract_markdown_from_python_docstring,
     parse_complete_problem_data,
 )
@@ -216,10 +214,10 @@ def extract_all_problem_data(code: str, file_extension: str) -> tuple[str, Probl
         problem_data = parse_complete_problem_data(markdown_content)
 
         # Remove the comment block from code to get clean code
-        if file_extension == '.py':
-            clean_code = re.sub(r'""".*?"""', '', code, count=1, flags=re.DOTALL).strip()
-        elif file_extension in ['.js', '.ts']:
-            clean_code = re.sub(r'/\*\*.*?\*/', '', code, count=1, flags=re.DOTALL).strip()
+        if file_extension == ".py":
+            clean_code = re.sub(r'""".*?"""', "", code, count=1, flags=re.DOTALL).strip()
+        elif file_extension in [".js", ".ts"]:
+            clean_code = re.sub(r"/\*\*.*?\*/", "", code, count=1, flags=re.DOTALL).strip()
         else:
             clean_code = code
 
@@ -1299,13 +1297,21 @@ def solution_view(category: str, filename: str) -> str:
         # Convert to markdown HTML for each section
         explanation_sections = {}
         if problem_data.intuition:
-            explanation_sections["intuition"] = markdown.markdown(problem_data.intuition, extensions=["fenced_code", "tables"])
+            explanation_sections["intuition"] = markdown.markdown(
+                problem_data.intuition, extensions=["fenced_code", "tables"]
+            )
         if problem_data.approach:
-            explanation_sections["approach"] = markdown.markdown(problem_data.approach, extensions=["fenced_code", "tables"])
+            explanation_sections["approach"] = markdown.markdown(
+                problem_data.approach, extensions=["fenced_code", "tables"]
+            )
         if problem_data.why_works:
-            explanation_sections["why_works"] = markdown.markdown(problem_data.why_works, extensions=["fenced_code", "tables"])
+            explanation_sections["why_works"] = markdown.markdown(
+                problem_data.why_works, extensions=["fenced_code", "tables"]
+            )
         if problem_data.example_walkthrough:
-            explanation_sections["example"] = markdown.markdown(problem_data.example_walkthrough, extensions=["fenced_code", "tables"])
+            explanation_sections["example"] = markdown.markdown(
+                problem_data.example_walkthrough, extensions=["fenced_code", "tables"]
+            )
 
     # Generate skeleton and get lexer based on language
     if display_language == "Python":

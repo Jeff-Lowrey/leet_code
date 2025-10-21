@@ -5,8 +5,9 @@ import json
 import re
 from dataclasses import dataclass, field
 from pathlib import Path
+from typing import Any
 
-from .language_constants import EXTENSION_TO_LANGUAGE, SUPPORTED_LANGUAGES
+from .language_constants import SUPPORTED_LANGUAGES
 from .markdown_extraction import extract_markdown_from_code, parse_metadata_from_markdown
 
 
@@ -45,7 +46,7 @@ class Solution:
         base_name = self.filename
         for ext in [".py", ".js", ".java", ".cpp", ".c", ".ts", ".go", ".rs", ".cs", ".swift"]:
             if base_name.endswith(ext):
-                base_name = base_name[:-len(ext)]
+                base_name = base_name[: -len(ext)]
                 break
 
         # Extract number and slug from filename like "042-trapping-water"
@@ -71,9 +72,24 @@ class Solution:
     def url_filename(self) -> str:
         """Get filename without language extension for use in URLs."""
         base_name = self.filename
-        for ext in [".py", ".js", ".java", ".cpp", ".c", ".ts", ".go", ".rs", ".cs", ".swift", ".kt", ".rb", ".php", ".scala"]:
+        for ext in [
+            ".py",
+            ".js",
+            ".java",
+            ".cpp",
+            ".c",
+            ".ts",
+            ".go",
+            ".rs",
+            ".cs",
+            ".swift",
+            ".kt",
+            ".rb",
+            ".php",
+            ".scala",
+        ]:
             if base_name.endswith(ext):
-                return base_name[:-len(ext)]
+                return base_name[: -len(ext)]
         return base_name
 
 
@@ -145,7 +161,7 @@ class CategoryManager:
 
             # Build a dictionary of problems indexed by base name (without extension)
             # Each entry tracks: {base_name: {languages: [list], metadata_file: Path}}
-            problems: dict[str, dict] = {}
+            problems: dict[str, dict[str, Any]] = {}
 
             # Scan all supported language subdirectories
             for lang_name, lang_dir_name in SUPPORTED_LANGUAGES.items():
@@ -182,11 +198,13 @@ class CategoryManager:
             category = Category(
                 slug=category_path.name,
                 name=category_path.name.replace("-", " ").title(),
-                description=self.DESCRIPTIONS.get(category_path.name, "Collection of algorithm problems and solutions."),
+                description=self.DESCRIPTIONS.get(
+                    category_path.name, "Collection of algorithm problems and solutions."
+                ),
             )
 
             # Create Solution objects for each problem
-            for base_name, problem_data in sorted(problems.items()):
+            for _base_name, problem_data in sorted(problems.items()):
                 metadata_file = problem_data["metadata_file"]
 
                 # Parse metadata from the first available solution file

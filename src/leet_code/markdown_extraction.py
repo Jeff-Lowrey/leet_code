@@ -9,16 +9,15 @@ and parsing all sections from that markdown content.
 import re
 from dataclasses import dataclass, field
 
-
 # Precompiled regex patterns for comment extraction
-COMMENT_PATTERNS: dict[str, re.Pattern] = {
-    'docstring': re.compile(r'"""(.*?)"""', re.DOTALL),
-    'jsdoc': re.compile(r'/\*\*(.*?)\*/', re.DOTALL),
+COMMENT_PATTERNS: dict[str, re.Pattern[str]] = {
+    "docstring": re.compile(r'"""(.*?)"""', re.DOTALL),
+    "jsdoc": re.compile(r"/\*\*(.*?)\*/", re.DOTALL),
 }
 
 # Language classification by comment style
-DOCSTRING_LANGUAGES = {'.py'}
-JSDOC_LANGUAGES = {'.js', '.ts', '.java', '.cpp', '.c', '.cs', '.swift', '.kt', '.scala', '.go', '.rs'}
+DOCSTRING_LANGUAGES = {".py"}
+JSDOC_LANGUAGES = {".js", ".ts", ".java", ".cpp", ".c", ".cs", ".swift", ".kt", ".scala", ".go", ".rs"}
 
 # All supported languages
 SUPPORTED_LANGUAGES = DOCSTRING_LANGUAGES | JSDOC_LANGUAGES
@@ -69,10 +68,10 @@ def extract_markdown_from_code(code: str, file_extension: str) -> str | None:
     """
     # Check if language is supported and determine pattern
     if file_extension in DOCSTRING_LANGUAGES:
-        pattern = COMMENT_PATTERNS['docstring']
+        pattern = COMMENT_PATTERNS["docstring"]
         needs_cleanup = False
     elif file_extension in JSDOC_LANGUAGES:
-        pattern = COMMENT_PATTERNS['jsdoc']
+        pattern = COMMENT_PATTERNS["jsdoc"]
         needs_cleanup = True
     else:
         return None
@@ -87,10 +86,7 @@ def extract_markdown_from_code(code: str, file_extension: str) -> str | None:
 
         # Clean JSDoc-style asterisks if needed
         if needs_cleanup:
-            content = '\n'.join(
-                re.sub(r'^\s*\*\s?', '', line)
-                for line in content.split('\n')
-            )
+            content = "\n".join(re.sub(r"^\s*\*\s?", "", line) for line in content.split("\n"))
 
         return content.strip()
 
@@ -101,12 +97,12 @@ def extract_markdown_from_code(code: str, file_extension: str) -> str | None:
 # Backward compatibility functions - DEPRECATED
 def extract_markdown_from_python_docstring(code: str) -> str | None:
     """DEPRECATED: Use extract_markdown_from_code(code, '.py') instead."""
-    return extract_markdown_from_code(code, '.py')
+    return extract_markdown_from_code(code, ".py")
 
 
 def extract_markdown_from_js_comment(code: str) -> str | None:
     """DEPRECATED: Use extract_markdown_from_code(code, '.js') instead."""
-    return extract_markdown_from_code(code, '.js')
+    return extract_markdown_from_code(code, ".js")
 
 
 def parse_complete_problem_data(markdown_content: str) -> ProblemData:
@@ -149,13 +145,10 @@ def parse_complete_problem_data(markdown_content: str) -> ProblemData:
 
 def _parse_main_content(content: str, data: ProblemData) -> None:
     """Parse the main content area (before <details> section)."""
-    lines = content.split('\n')
+    lines = content.split("\n")
 
     # Extract difficulty (Easy/Medium/Hard)
-    difficulty_patterns = [
-        r"(?:Difficulty:|#)\s*(Easy|Medium|Hard)",
-        r"^(Easy|Medium|Hard)\s*$"
-    ]
+    difficulty_patterns = [r"(?:Difficulty:|#)\s*(Easy|Medium|Hard)", r"^(Easy|Medium|Hard)\s*$"]
     for pattern in difficulty_patterns:
         match = re.search(pattern, content[:500], re.MULTILINE | re.IGNORECASE)
         if match:
@@ -163,7 +156,7 @@ def _parse_main_content(content: str, data: ProblemData) -> None:
             break
 
     # Extract problem number and title from header like "# 169. Majority Element"
-    title_match = re.search(r'^#\s+(\d+)\.\s+(.+)$', content, re.MULTILINE)
+    title_match = re.search(r"^#\s+(\d+)\.\s+(.+)$", content, re.MULTILINE)
     if title_match:
         data.number = title_match.group(1)
         data.title = title_match.group(2).strip()
@@ -174,14 +167,14 @@ def _parse_main_content(content: str, data: ProblemData) -> None:
         line_stripped = line.strip()
 
         # Skip until we find the problem title
-        if not title_found and re.match(r'^#\s+\d+\.', line_stripped):
+        if not title_found and re.match(r"^#\s+\d+\.", line_stripped):
             title_found = True
             continue
 
         # After title, find first descriptive line
-        if title_found and line_stripped and not line_stripped.startswith('#'):
+        if title_found and line_stripped and not line_stripped.startswith("#"):
             # Get first sentence
-            match = re.match(r'^([^.!?]+[.!?])', line_stripped)
+            match = re.match(r"^([^.!?]+[.!?])", line_stripped)
             if match:
                 data.description = match.group(1).strip()
             else:
@@ -200,73 +193,45 @@ def _parse_explanation_sections(content: str, data: ProblemData) -> None:
     _parse_metadata_section(content, data)
 
     # Extract INTUITION section
-    intuition_match = re.search(
-        r'###\s*INTUITION:\s*(.*?)(?=###|\Z)',
-        content,
-        re.DOTALL | re.IGNORECASE
-    )
+    intuition_match = re.search(r"###\s*INTUITION:\s*(.*?)(?=###|\Z)", content, re.DOTALL | re.IGNORECASE)
     if intuition_match:
         data.intuition = intuition_match.group(1).strip()
 
     # Extract APPROACH section
-    approach_match = re.search(
-        r'###\s*APPROACH:\s*(.*?)(?=###|\Z)',
-        content,
-        re.DOTALL | re.IGNORECASE
-    )
+    approach_match = re.search(r"###\s*APPROACH:\s*(.*?)(?=###|\Z)", content, re.DOTALL | re.IGNORECASE)
     if approach_match:
         data.approach = approach_match.group(1).strip()
 
     # Extract WHY THIS WORKS section
-    why_match = re.search(
-        r'###\s*WHY THIS WORKS:\s*(.*?)(?=###|\Z)',
-        content,
-        re.DOTALL | re.IGNORECASE
-    )
+    why_match = re.search(r"###\s*WHY THIS WORKS:\s*(.*?)(?=###|\Z)", content, re.DOTALL | re.IGNORECASE)
     if why_match:
         data.why_works = why_match.group(1).strip()
 
     # Extract EXAMPLE WALKTHROUGH section
-    example_match = re.search(
-        r'###\s*EXAMPLE WALKTHROUGH:\s*(.*?)(?=###|\Z)',
-        content,
-        re.DOTALL | re.IGNORECASE
-    )
+    example_match = re.search(r"###\s*EXAMPLE WALKTHROUGH:\s*(.*?)(?=###|\Z)", content, re.DOTALL | re.IGNORECASE)
     if example_match:
         data.example_walkthrough = example_match.group(1).strip()
 
     # Extract TIME COMPLEXITY section
-    time_match = re.search(
-        r'###\s*TIME COMPLEXITY:\s*(.*?)(?=###|\Z)',
-        content,
-        re.DOTALL | re.IGNORECASE
-    )
+    time_match = re.search(r"###\s*TIME COMPLEXITY:\s*(.*?)(?=###|\Z)", content, re.DOTALL | re.IGNORECASE)
     if time_match:
         time_content = time_match.group(1).strip()
         # Extract O(...) notation
-        o_match = re.search(r'O\([^)]+\)', time_content)
+        o_match = re.search(r"O\([^)]+\)", time_content)
         if o_match:
             data.time_complexity = o_match.group(0)
 
     # Extract SPACE COMPLEXITY section
-    space_match = re.search(
-        r'###\s*SPACE COMPLEXITY:\s*(.*?)(?=###|\Z)',
-        content,
-        re.DOTALL | re.IGNORECASE
-    )
+    space_match = re.search(r"###\s*SPACE COMPLEXITY:\s*(.*?)(?=###|\Z)", content, re.DOTALL | re.IGNORECASE)
     if space_match:
         space_content = space_match.group(1).strip()
         # Extract O(...) notation
-        o_match = re.search(r'O\([^)]+\)', space_content)
+        o_match = re.search(r"O\([^)]+\)", space_content)
         if o_match:
             data.space_complexity = o_match.group(0)
 
     # Extract EDGE CASES section
-    edge_match = re.search(
-        r'###\s*EDGE CASES:\s*(.*?)(?=###|\Z)',
-        content,
-        re.DOTALL | re.IGNORECASE
-    )
+    edge_match = re.search(r"###\s*EDGE CASES:\s*(.*?)(?=###|\Z)", content, re.DOTALL | re.IGNORECASE)
     if edge_match:
         data.edge_cases = edge_match.group(1).strip()
 
@@ -275,75 +240,59 @@ def _parse_metadata_section(content: str, data: ProblemData) -> None:
     """Parse the METADATA section for techniques, data structures, patterns, and complexities."""
 
     # Look for METADATA section
-    metadata_match = re.search(
-        r'###\s*METADATA:\s*(.*?)(?=###|\Z)',
-        content,
-        re.DOTALL | re.IGNORECASE
-    )
+    metadata_match = re.search(r"###\s*METADATA:\s*(.*?)(?=###|\Z)", content, re.DOTALL | re.IGNORECASE)
 
     if metadata_match:
         metadata_content = metadata_match.group(1)
 
         # Extract Time Complexity from metadata
         time_patterns = [
-            r'\*\*Time Complexity\*\*:\s*(\*\s*)?[-\*]?\s*O\([^)]+\)',
-            r'Time Complexity:\s*(\*\s*)?[-\*]?\s*O\([^)]+\)',
-            r'Time:\s*(\*\s*)?[-\*]?\s*O\([^)]+\)',
+            r"\*\*Time Complexity\*\*:\s*(\*\s*)?[-\*]?\s*O\([^)]+\)",
+            r"Time Complexity:\s*(\*\s*)?[-\*]?\s*O\([^)]+\)",
+            r"Time:\s*(\*\s*)?[-\*]?\s*O\([^)]+\)",
         ]
         for pattern in time_patterns:
             match = re.search(pattern, metadata_content, re.IGNORECASE)
             if match:
-                o_match = re.search(r'O\([^)]+\)', match.group(0))
+                o_match = re.search(r"O\([^)]+\)", match.group(0))
                 if o_match and not data.time_complexity:
                     data.time_complexity = o_match.group(0)
                 break
 
         # Extract Space Complexity from metadata
         space_patterns = [
-            r'\*\*Space Complexity\*\*:\s*(\*\s*)?[-\*]?\s*O\([^)]+\)',
-            r'Space Complexity:\s*(\*\s*)?[-\*]?\s*O\([^)]+\)',
-            r'Space:\s*(\*\s*)?[-\*]?\s*O\([^)]+\)',
+            r"\*\*Space Complexity\*\*:\s*(\*\s*)?[-\*]?\s*O\([^)]+\)",
+            r"Space Complexity:\s*(\*\s*)?[-\*]?\s*O\([^)]+\)",
+            r"Space:\s*(\*\s*)?[-\*]?\s*O\([^)]+\)",
         ]
         for pattern in space_patterns:
             match = re.search(pattern, metadata_content, re.IGNORECASE)
             if match:
-                o_match = re.search(r'O\([^)]+\)', match.group(0))
+                o_match = re.search(r"O\([^)]+\)", match.group(0))
                 if o_match and not data.space_complexity:
                     data.space_complexity = o_match.group(0)
                 break
 
         # Extract Techniques
-        tech_match = re.search(
-            r'\*\*Techniques\*\*:\s*(.+?)(?:\n|$)',
-            metadata_content,
-            re.IGNORECASE
-        )
+        tech_match = re.search(r"\*\*Techniques\*\*:\s*(.+?)(?:\n|$)", metadata_content, re.IGNORECASE)
         if tech_match:
             tech_str = tech_match.group(1).strip()
-            if tech_str.lower() != 'tbd':
-                data.techniques = [t.strip() for t in tech_str.split(',') if t.strip()]
+            if tech_str.lower() != "tbd":
+                data.techniques = [t.strip() for t in tech_str.split(",") if t.strip()]
 
         # Extract Data Structures
-        ds_match = re.search(
-            r'\*\*Data Structures\*\*:\s*(.+?)(?:\n|$)',
-            metadata_content,
-            re.IGNORECASE
-        )
+        ds_match = re.search(r"\*\*Data Structures\*\*:\s*(.+?)(?:\n|$)", metadata_content, re.IGNORECASE)
         if ds_match:
             ds_str = ds_match.group(1).strip()
-            if ds_str.lower() != 'tbd':
-                data.data_structures = [d.strip() for d in ds_str.split(',') if d.strip()]
+            if ds_str.lower() != "tbd":
+                data.data_structures = [d.strip() for d in ds_str.split(",") if d.strip()]
 
         # Extract Patterns
-        pat_match = re.search(
-            r'\*\*Patterns\*\*:\s*(.+?)(?:\n|$)',
-            metadata_content,
-            re.IGNORECASE
-        )
+        pat_match = re.search(r"\*\*Patterns\*\*:\s*(.+?)(?:\n|$)", metadata_content, re.IGNORECASE)
         if pat_match:
             pat_str = pat_match.group(1).strip()
-            if pat_str.lower() != 'tbd':
-                data.patterns = [p.strip() for p in pat_str.split(',') if p.strip()]
+            if pat_str.lower() != "tbd":
+                data.patterns = [p.strip() for p in pat_str.split(",") if p.strip()]
 
 
 # Legacy compatibility functions for metadata-only extraction
