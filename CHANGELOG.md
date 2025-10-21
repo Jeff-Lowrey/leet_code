@@ -7,6 +7,27 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added - v1.0 Preparation (Issue #5 Complete)
+- **Language-Specific Folder Structure**: Migrated to scalable multi-language organization (#5)
+  - New structure: `solutions/<category>/python/` and `solutions/<category>/javascript/`
+  - 596 files migrated (556 renames + 40 deletions)
+  - Applied consistent 4-digit padding to Python files (0001-0999)
+  - Removed 17 duplicate JavaScript files and corrected categorization
+- **Language-Agnostic Markdown Extraction**: Unified extraction for 12 languages (#5)
+  - New `ProblemData` dataclass with comprehensive structure
+  - Supports: Python, JS, TS, Java, C++, C, C#, Swift, Kotlin, Scala, Go, Rust
+  - Precompiled regex patterns for performance
+  - Reduced `_parse_solution_metadata()` from 75 to 15 lines
+- **Solution Card Descriptions**: Problem descriptions now display on all views (#5)
+  - Added missing problem title lines to 44 solution files
+  - Created reusable `templates/partials/solution_card.html` component
+  - Eliminates code duplication across category/difficulty/complexity templates
+- **Theme-Based Badge Styling**: Visual hierarchy for problem numbers vs categories (#5)
+  - Added `--badge-problem-number` variables to all 18 theme variants
+  - Problem badges use theme-appropriate colors (neutral/accent)
+  - Category labels remain in bold category colors
+  - Removed 87 lines of conflicting category-specific overrides
+
 ### Added - v1.0 Preparation (Phase 1 Complete)
 - **Smart Search System**: Multi-mode intelligent search with query parsing (#17)
   - Navigate mode: Direct problem number jump (e.g., "1", "443")
@@ -38,6 +59,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **README Updates**: Complete feature documentation for v1.0 capabilities (#17)
 
 ### Changed
+- **Solution File Structure**: Reorganized into language-specific folders for scalability (#5)
+  - Python solutions: `solutions/<category>/python/0XXX-problem-name.py`
+  - JavaScript solutions: `solutions/<category>/javascript/XXX-problem-name.js`
+  - Updated `category_data.py` and `app.py` path resolution
+  - Renamed `get_alternative_solution_path` → `get_solution_path`
+  - Removed "alternative language" terminology
+- **CSS Architecture**: Removed legacy monolithic style.css (2587 lines) (#5)
+  - Resolved badge color inconsistencies on /complexity and other pages
+  - All styling now uses modular main.css with imports
 - **Navigation Layout**: Refactored with flexbox for responsive search integration (#17)
 - **CSS Structure**: Modularized into base, components, layout, themes, and utils (#17)
 - **JavaScript Structure**: Modularized into search, toc, theme, view-by, and utils (#17)

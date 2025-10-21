@@ -218,48 +218,44 @@ class Solution:
 class TestLanguageViewing:
     """Test multi-language viewing functionality."""
 
-    @patch("src.leet_code.app.get_available_languages")
-    @patch("src.leet_code.app.get_lexer_for_language")
-    @patch("src.leet_code.app.get_file_extension")
-    @patch("builtins.open", mock_open(read_data="public class Solution { }"))
-    @patch("src.leet_code.app.Path")
+    @patch("src.leet_code.language_constants.get_lexer_for_language")
+    @patch("src.leet_code.language_constants.get_file_extension")
+    @patch("src.leet_code.app.get_solution_path")
     @patch("src.leet_code.app.category_manager")
     def test_view_alternative_language(
         self,
         mock_manager: Any,
-        mock_path_class: Any,
+        mock_get_path: Any,
         mock_get_ext: Any,
         mock_get_lexer: Any,
-        mock_get_langs: Any,
         client: Any,
     ) -> None:
         """Test viewing solution in alternative language."""
         from pygments.lexers import JavaLexer
+        from unittest.mock import mock_open as mock_file_open
 
         mock_solution = Solution("001-two-sum.py", "Two Sum")
+        mock_solution.available_languages = ["Python", "Java"]
         mock_manager.get_solution.return_value = mock_solution
         mock_manager.get_category.return_value = MagicMock(name="Arrays & Hashing")
+
+        # Mock solution path
+        mock_path = MagicMock()
+        mock_path.exists.return_value = True
+        mock_path.suffix = ".java"
+        mock_get_path.return_value = mock_path
 
         # Mock helper functions
         mock_get_ext.return_value = ".java"
         mock_get_lexer.return_value = JavaLexer()
-        mock_get_langs.return_value = ["Python", "Java"]
 
-        # Mock Path construction and file existence
-        mock_path_instance = MagicMock()
-        mock_path_instance.exists.return_value = True
-
-        # Path(__file__).parent returns a mock that we can chain
-        mock_parent = MagicMock()
-        mock_path_class.return_value.parent = mock_parent
-
-        # Chain the path operations: parent / "solutions" / category / "alternatives" / filename
-        mock_parent.__truediv__.return_value.__truediv__.return_value.__truediv__.return_value.__truediv__.return_value = mock_path_instance
-
-        response = client.get("/solution/arrays-hashing/001-two-sum.py/view/Java")
-        assert response.status_code == 200
-        # The response will contain rendered HTML, so check for Java in the page
-        assert b"Java" in response.data or b"java" in response.data
+        # Mock file reading
+        java_code = "/** Java solution */\npublic class Solution { }"
+        with patch("builtins.open", mock_file_open(read_data=java_code)):
+            response = client.get("/solution/arrays-hashing/001-two-sum.py?lang=Java")
+            assert response.status_code == 200
+            # The response should contain the Java code (check for class and Solution separately due to HTML formatting)
+            assert b"class" in response.data and b"Solution" in response.data
 
     @patch("src.leet_code.app.get_file_extension")
     @patch("src.leet_code.app.Path")

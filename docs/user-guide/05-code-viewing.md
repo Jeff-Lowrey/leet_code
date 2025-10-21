@@ -263,7 +263,7 @@ Formatted for quick reference:
 
 ### Language Selection
 
-When alternative languages are available:
+When other languages are available:
 
 1. **View Language Badges**: Available languages displayed
 2. **Click Language**: Switch to that implementation

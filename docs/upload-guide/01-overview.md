@@ -62,7 +62,7 @@ Creating new solutions for the repository:
 - Enhance the solution database
 
 ### Solution Authors
-Writing alternative language implementations:
+Writing other language implementations:
 - Port Python solutions to other languages
 - Maintain equivalent quality
 - Follow language-specific conventions
@@ -85,10 +85,10 @@ Reviewing and updating existing solutions:
 ### JavaScript Solutions
 - Template: [`SOLUTION_TEMPLATE.js`](../solutions/templates/SOLUTION_TEMPLATE.js)
 - Guide: [`SOLUTION_FORMATTING_GUIDE_JS.md`](SOLUTION_FORMATTING_GUIDE_JS.md)
-- Location: `docs/solutions/{category}/alternatives/NNN-problem-name.js.js`
+- Location: `docs/solutions/{category}/javascript/NNN-problem-name.js.js`
 
 ### Other Languages
-- Location: `docs/solutions/{category}/alternatives/`
+- Location: `docs/solutions/{category}/javascript/`
 - Naming: `NNN-problem-name.{ext}.{ext}`
 - Examples: `001-two-sum.java.java`, `001-two-sum.cpp.cpp`
 
@@ -120,7 +120,7 @@ Reviewing and updating existing solutions:
 ## Getting Started
 
 ### Step 1: Choose Your Language
-Decide whether you're creating a Python solution (primary) or an alternative language implementation.
+Decide whether you're creating a Python solution (primary) or an other language implementation.
 
 ### Step 2: Select Template
 Copy the appropriate template file:
