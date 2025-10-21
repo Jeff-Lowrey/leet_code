@@ -1,5 +1,5 @@
 /**
- *  Difficulty: Medium
+ * Difficulty: Medium
  *
  * # 676. Implement Magic Dictionary
  *
@@ -23,6 +23,8 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ *
+ *
 
  * ### METADATA:
  * **Techniques**: Tree Traversal (Inorder/Preorder/Postorder), DFS/BFS

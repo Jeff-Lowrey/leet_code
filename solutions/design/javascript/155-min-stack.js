@@ -1,5 +1,5 @@
 /**
- *  Difficulty: Easy
+ * Difficulty: Easy
  *
  * # 155. Min Stack
  *
@@ -27,6 +27,8 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ *
+ *
 
  * ### METADATA:
  * **Techniques**: Object-Oriented Design, Data Structure Design

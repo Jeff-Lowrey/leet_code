@@ -1,5 +1,5 @@
 /**
- *  Difficulty: Medium
+ * Difficulty: Medium
  *
  * # 105. Construct Binary Tree From Preorder And Inorder Traversal
  *
@@ -18,6 +18,8 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ *
+ *
 
  * ### METADATA:
  * **Techniques**: Tree Traversal (Inorder/Preorder/Postorder), DFS/BFS

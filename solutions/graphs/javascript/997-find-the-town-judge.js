@@ -1,5 +1,5 @@
 /**
- *  Difficulty: Easy
+ * Difficulty: Easy
  *
  * # 997. Find The Town Judge
  *
@@ -27,6 +27,8 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ *
+ *
 
  * ### METADATA:
  * **Techniques**: Graph Traversal (DFS/BFS), Graph Algorithms

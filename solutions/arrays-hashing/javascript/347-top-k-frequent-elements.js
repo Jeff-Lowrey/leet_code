@@ -1,5 +1,5 @@
 /**
- *  Difficulty: Medium
+ * Difficulty: Medium
  *
  * # 347. Top K Frequent Elements
  *
@@ -18,6 +18,8 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ *
+ *
 
  * ### METADATA:
  * **Techniques**: Hash Map Lookup, Array Traversal

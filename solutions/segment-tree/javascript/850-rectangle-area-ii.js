@@ -1,5 +1,5 @@
 /**
- *  Difficulty: Hard
+ * Difficulty: Hard
  *
  * # 850. Rectangle Area II
  *
@@ -22,6 +22,8 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ *
+ *
 
  * ### METADATA:
  * **Techniques**: Segment Tree, Range Queries

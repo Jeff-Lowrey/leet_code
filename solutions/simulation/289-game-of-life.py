@@ -16,15 +16,11 @@ with its eight neighbors (horizontal, vertical, diagonal) using the following fo
 The next state is created by applying the above rules simultaneously to every cell
 in the current state, where births and deaths occur simultaneously.
 
-Example:
-Input: `board` = [[0,1,0],[0,0,1],[1,1,1],[0,0,0]]
-Output: [[0,0,0],[1,0,1],[0,1,1],[0,1,0]]
-
 **Example:**
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>board` = [[0,1,0],[0,0,1],[1,1,1],[0,0,0]]</dd>
+<dd>board = [[0,1,0],[0,0,1],[1,1,1],[0,0,0]]</dd>
 <dt>Output:</dt>
 <dd>[[0,0,0],[1,0,1],[0,1,1],[0,1,0]]</dd>
 <dt>Explanation:</dt>

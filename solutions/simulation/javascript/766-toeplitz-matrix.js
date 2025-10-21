@@ -1,5 +1,5 @@
 /**
- *  Difficulty: Easy
+ * Difficulty: Easy
  *
  * # 766. Toeplitz Matrix
  *
@@ -34,6 +34,8 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ *
+ *
 
  * ### METADATA:
  * **Techniques**: Direct Simulation, Step-by-step Execution

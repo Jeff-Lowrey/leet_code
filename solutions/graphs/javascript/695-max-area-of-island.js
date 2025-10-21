@@ -1,5 +1,5 @@
 /**
- *  Difficulty: Medium
+ * Difficulty: Medium
  *
  * # 695. Max Area Of Island
  *
@@ -22,6 +22,8 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ *
+ *
 
  * ### METADATA:
  * **Techniques**: Graph Traversal (DFS/BFS), Graph Algorithms

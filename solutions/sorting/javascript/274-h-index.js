@@ -1,5 +1,5 @@
 /**
- *  Difficulty: Medium
+ * Difficulty: Medium
  *
  * # 274. H Index
  *
@@ -23,6 +23,8 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ *
+ *
 
  * ### METADATA:
  * **Techniques**: Sorting Algorithms, Comparison

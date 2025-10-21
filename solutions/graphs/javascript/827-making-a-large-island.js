@@ -1,5 +1,5 @@
 /**
- *  Difficulty: Hard
+ * Difficulty: Hard
  *
  * # 827. Making A Large Island
  *
@@ -22,6 +22,8 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ *
+ *
 
  * ### METADATA:
  * **Techniques**: Graph Traversal (DFS/BFS), Graph Algorithms

@@ -1,5 +1,5 @@
 /**
- *  Difficulty: Easy
+ * Difficulty: Easy
  *
  * # 28. Find The Index Of The First Occurrence In A String
  *
@@ -18,6 +18,8 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ *
+ *
 
  * ### METADATA:
  * **Techniques**: String Algorithms, Pattern Matching

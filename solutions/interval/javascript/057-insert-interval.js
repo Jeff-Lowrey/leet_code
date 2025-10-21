@@ -1,15 +1,11 @@
 /**
- *  Difficulty: Medium
+ * Difficulty: Medium
  *
  * You are given an array of `non-overlapping` intervals where intervals[i] = [starti, endi]
  * represent the start and the end of the ith interval and intervals is sorted in
  * ascending order by starti. You are also given an interval newInterval = [`start`, end].
  *
  * Insert newInterval into intervals such that intervals is still sorted and `non-overlapping`.
- *
- * Example:
- * Input: intervals = [[1,3],[6,9]], newInterval = [2,5]
- * Output: [[1,5],[6,9]]
  *
  * **Example:**
  *
@@ -24,6 +20,8 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ *
+ *
 
  * ### METADATA:
  * **Techniques**: Interval Sorting, Merging, Overlap Detection

@@ -1,5 +1,5 @@
 /**
- *  Difficulty: Medium
+ * Difficulty: Medium
  *
  * # 098. Validate Binary Search Tree
  *
@@ -24,6 +24,8 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ *
+ *
 
  * ### METADATA:
  * **Techniques**: Tree Traversal (Inorder/Preorder/Postorder), DFS/BFS

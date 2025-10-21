@@ -1,21 +1,16 @@
 /**
- *  Difficulty: Easy
+ * Difficulty: Easy
  *
  * You are climbing a staircase. It takes `n` steps to reach the top.
  *
  * Each time you can either climb 1 or 2 steps. In how many distinct ways can you
  * climb to the top?
  *
- * Example:
- * Input: `n` = 3
- * Output: 3
- * Explanation: There are three ways to climb to the top.
- *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>n` = 3</dd>
+ * <dd>n = 3</dd>
  * <dt>Output:</dt>
  * <dd>3</dd>
  * <dt>Explanation:</dt>
@@ -24,6 +19,8 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ *
+ *
 
  * ### METADATA:
  * **Techniques**: Dynamic Programming, Memoization, Tabulation

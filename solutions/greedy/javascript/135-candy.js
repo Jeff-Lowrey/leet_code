@@ -1,5 +1,5 @@
 /**
- *  Difficulty: Hard
+ * Difficulty: Hard
  *
  * # 135. Candy
  *
@@ -26,6 +26,8 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ *
+ *
 
  * ### METADATA:
  * **Techniques**: Greedy Algorithm, Optimization

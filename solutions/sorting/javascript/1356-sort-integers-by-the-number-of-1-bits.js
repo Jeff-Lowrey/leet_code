@@ -1,5 +1,5 @@
 /**
- *  Difficulty: Easy
+ * Difficulty: Easy
  *
  * # 1356. Sort Integers By The Number Of 1 Bits
  *
@@ -22,6 +22,8 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ *
+ *
 
  * ### METADATA:
  * **Techniques**: Sorting Algorithms, Comparison

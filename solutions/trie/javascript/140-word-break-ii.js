@@ -1,5 +1,5 @@
 /**
- *  Difficulty: Hard
+ * Difficulty: Hard
  *
  * # 140. Word Break II
  *
@@ -20,6 +20,8 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ *
+ *
 
  * ### METADATA:
  * **Techniques**: Trie Operations, Prefix Matching

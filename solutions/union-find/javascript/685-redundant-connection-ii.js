@@ -1,15 +1,10 @@
 /**
- *  Difficulty: Hard
+ * Difficulty: Hard
  *
  * In a directed graph, return an edge that can be removed so that the resulting graph is a tree.
  * If there are multiple answers, return the answer that occurs last in the given input.
  *
  * The input is a 2D array edges where each edges[i] = [ui, vi] represents a directed edge from ui to vi.
- *
- * Example:
- * Input: edges = [[1,2],[1,3],[2,3]]
- * Output: [2,3]
- * Explanation: Removing [2,3] creates a valid tree.
  *
  * **Example:**
  *
@@ -24,6 +19,8 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ *
+ *
 
  * ### METADATA:
  * **Techniques**: Union-Find (Disjoint Set), Path Compression

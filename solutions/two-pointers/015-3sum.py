@@ -6,15 +6,11 @@ such that `i` != `j`, `i` != `k`, and `j` != `k`, and `nums`[i] + `nums`[j] + `n
 
 Notice that the solution `set` must not contain duplicate triplets.
 
-Example:
-Input: `nums` = [-1,0,1,2,-1,-4]
-Output: [[-1,-1,2],[-1,0,1]]
-
 **Example:**
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>nums` = [-1,0,1,2,-1,-4]</dd>
+<dd>nums = [-1,0,1,2,-1,-4]</dd>
 <dt>Output:</dt>
 <dd>[[-1,-1,2],[-1,0,1]]</dd>
 <dt>Explanation:</dt>

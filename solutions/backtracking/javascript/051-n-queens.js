@@ -1,5 +1,5 @@
 /**
- *  Difficulty: Hard
+ * Difficulty: Hard
  *
  * # 051. N Queens
  *
@@ -33,6 +33,8 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ *
+ *
 
  * ### METADATA:
  * **Techniques**: Recursive Exploration, State Backtracking

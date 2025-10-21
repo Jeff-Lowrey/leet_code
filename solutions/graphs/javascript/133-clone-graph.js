@@ -1,14 +1,10 @@
 /**
- *  Difficulty: Medium
+ * Difficulty: Medium
  *
  * Given a reference of a node in a connected undirected graph, return a deep copy
  * (clone) of the graph.
  *
  * Each `node` in the graph contains a value (int) and a list (List[Node]) of its neighbors.
- *
- * Example:
- * Input: adjList = [[2,4],[1,3],[2,4],[1,3]]
- * Output: [[2,4],[1,3],[2,4],[1,3]]
  *
  * **Example:**
  *
@@ -23,6 +19,8 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ *
+ *
 
  * ### METADATA:
  * **Techniques**: Graph Traversal (DFS/BFS), Graph Algorithms

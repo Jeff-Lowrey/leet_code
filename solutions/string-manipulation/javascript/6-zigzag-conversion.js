@@ -1,5 +1,5 @@
 /**
- *  Difficulty: Medium
+ * Difficulty: Medium
  *
  * The string "PAYPALISHIRING" is written in a zigzag pattern on a given number of rows
  * like this:
@@ -11,10 +11,6 @@
  * And then read line by line: "PAHNAPLSIIGYIR"
  *
  * Write the code that will take a string and make this conversion given a number of rows.
- *
- * Example:
- * Input: s = "PAYPALISHIRING", numRows = 3
- * Output: "PAHNAPLSIIGYIR"
  *
  * **Example:**
  *
@@ -29,6 +25,8 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ *
+ *
 
  * ### METADATA:
  * **Techniques**: String Processing, Character Manipulation

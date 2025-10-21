@@ -1,17 +1,13 @@
 /**
- *  Difficulty: Medium
+ * Difficulty: Medium
  *
  * Given an m x `n` matrix, return all elements of the matrix in spiral order.
- *
- * Example:
- * Input: `matrix` = [[1,2,3],[4,5,6],[7,8,9]]
- * Output: [1,2,3,6,9,8,7,4,5]
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>matrix` = [[1,2,3],[4,5,6],[7,8,9]]</dd>
+ * <dd>matrix = [[1,2,3],[4,5,6],[7,8,9]]</dd>
  * <dt>Output:</dt>
  * <dd>[1,2,3,6,9,8,7,4,5]</dd>
  * <dt>Explanation:</dt>
@@ -20,6 +16,8 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ *
+ *
 
  * ### METADATA:
  * **Techniques**: Matrix Traversal, In-place Modification

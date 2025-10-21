@@ -17,10 +17,6 @@ The canonical path should follow these rules:
 
 Return the simplified canonical path.
 
-Example:
-Input: path = "/home//foo/"
-Output: "/home/foo"
-
 **Example:**
 
 <dl class="example-details">

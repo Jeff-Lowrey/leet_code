@@ -7,10 +7,6 @@ and backward. Alphanumeric characters include letters and numbers.
 
 Given a string s, return true if it is a palindrome, or false otherwise.
 
-Example:
-Input: s = "A man, a plan, a canal: Panama"
-Output: true
-
 **Example:**
 
 <dl class="example-details">

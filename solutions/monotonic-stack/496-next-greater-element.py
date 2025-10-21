@@ -13,10 +13,6 @@ and determine the next greater element of nums2[j] in nums2.
 Return an array ans of length nums1.length such that ans[i] is the next greater
 element as described above.
 
-Example:
-Input: nums1 = [4,1,2], nums2 = [1,3,4,2]
-Output: [-1,3,-1]
-
 **Example:**
 
 <dl class="example-details">

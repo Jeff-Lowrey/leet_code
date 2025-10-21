@@ -6,11 +6,6 @@ with a sum equal to goal.
 
 A subarray is a contiguous part of the array.
 
-Example:
-Input: nums = [1,0,1,0,1], goal = 2
-Output: 4
-Explanation: The 4 subarrays are [1,0,1], [1,0,1,0], [0,1,0,1], [1,0,1]
-
 **Example:**
 
 <dl class="example-details">

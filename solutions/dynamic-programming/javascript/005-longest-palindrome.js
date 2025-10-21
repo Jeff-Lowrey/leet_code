@@ -1,12 +1,7 @@
 /**
- *  Difficulty: Medium
+ * Difficulty: Medium
  *
  * Given a string s, return the longest palindromic substring in s.
- *
- * Example:
- * Input: s = "babad"
- * Output: "bab"
- * Explanation: "aba" is also a valid `answer`.
  *
  * **Example:**
  *
@@ -21,6 +16,8 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ *
+ *
 
  * ### METADATA:
  * **Techniques**: Dynamic Programming, Memoization, Tabulation

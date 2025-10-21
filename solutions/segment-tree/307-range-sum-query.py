@@ -10,13 +10,6 @@ Implement the NumArray class:
 - void update(int index, int val) Updates the value of nums[index] to be val.
 - int sumRange(int left, int right) Returns the sum of the elements between indices left and right.
 
-Example:
-Input:
-["NumArray", "sumRange", "update", "sumRange"]
-[[[1, 3, 5]], [0, 2], [1, 2], [0, 2]]
-Output:
-[null, 9, null, 8]
-
 **Example:**
 
 <dl class="example-details">

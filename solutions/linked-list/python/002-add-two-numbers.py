@@ -7,11 +7,6 @@ Add the two numbers and return the sum as a linked list.
 
 You may assume the two numbers do not contain any leading zero, except the number 0 itself.
 
-Example:
-Input: l1 = [2,4,3], l2 = [5,6,4]
-Output: [7,0,8]
-Explanation: `342 + 465` = 807.
-
 **Example:**
 
 <dl class="example-details">
@@ -42,7 +37,7 @@ We need to handle carries just like manual addition.
 ### APPROACH:
 1. Create dummy `head` for `result` linked list
 2. Process both lists simultaneously with carry
-3. For each position: `sum` = `val1 + val2` + carry
+3. For each position: `sum = `val1 + val2` + carry
 4. Create new `node` with (`sum` % 10), update carry = `sum` // 10
 5. Continue until both lists empty and `carry = 0`
 

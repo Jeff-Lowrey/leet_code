@@ -1,5 +1,5 @@
 /**
- *  Difficulty: Medium
+ * Difficulty: Medium
  *
  * According to Wikipedia's article: "The Game of Life, also known simply as Life,
  * is a cellular automaton devised by the British mathematician John Horton Conway in 1970."
@@ -16,15 +16,11 @@
  * The next state is created by applying the above rules simultaneously to every cell
  * in the current state, where births and deaths occur simultaneously.
  *
- * Example:
- * Input: `board` = [[0,1,0],[0,0,1],[1,1,1],[0,0,0]]
- * Output: [[0,0,0],[1,0,1],[0,1,1],[0,1,0]]
- *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>board` = [[0,1,0],[0,0,1],[1,1,1],[0,0,0]]</dd>
+ * <dd>board = [[0,1,0],[0,0,1],[1,1,1],[0,0,0]]</dd>
  * <dt>Output:</dt>
  * <dd>[[0,0,0],[1,0,1],[0,1,1],[0,1,0]]</dd>
  * <dt>Explanation:</dt>
@@ -33,6 +29,8 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ *
+ *
 
  * ### METADATA:
  * **Techniques**: Direct Simulation, Step-by-step Execution

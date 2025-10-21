@@ -5,11 +5,6 @@ You are given a string s, and an array of pairs where pairs[i] = [a, b] indicate
 (0-indexed) that can be swapped. You can swap indices multiple times. Return the lexicographically
 smallest string that s can be transformed to after using the swaps.
 
-Example:
-Input: s = "dcab", pairs = [[0,3],[1,2]]
-Output: "bacd"
-Explanation: Swap s[0] and s[3] → "bcad", then swap s[1] and s[2] → "bacd"
-
 **Example:**
 
 <dl class="example-details">

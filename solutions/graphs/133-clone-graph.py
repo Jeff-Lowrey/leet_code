@@ -6,10 +6,6 @@ Given a reference of a node in a connected undirected graph, return a deep copy
 
 Each `node` in the graph contains a value (int) and a list (List[Node]) of its neighbors.
 
-Example:
-Input: adjList = [[2,4],[1,3],[2,4],[1,3]]
-Output: [[2,4],[1,3],[2,4],[1,3]]
-
 **Example:**
 
 <dl class="example-details">

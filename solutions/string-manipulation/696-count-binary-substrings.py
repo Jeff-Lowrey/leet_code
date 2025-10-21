@@ -7,12 +7,6 @@ consecutively.
 
 Substrings that occur multiple times are counted the number of times they occur.
 
-Example:
-Input: s = "00110011"
-Output: 6
-Explanation: There are 6 substrings that have equal 0's and 1's: "0011", "01", "1100",
-"10", "0011", and "01".
-
 **Example:**
 
 <dl class="example-details">

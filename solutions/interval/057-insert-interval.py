@@ -7,10 +7,6 @@ ascending order by starti. You are also given an interval newInterval = [`start`
 
 Insert newInterval into intervals such that intervals is still sorted and `non-overlapping`.
 
-Example:
-Input: intervals = [[1,3],[6,9]], newInterval = [2,5]
-Output: [[1,5],[6,9]]
-
 **Example:**
 
 <dl class="example-details">

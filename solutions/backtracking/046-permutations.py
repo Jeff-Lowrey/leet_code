@@ -4,15 +4,11 @@
 Given an array `nums` of distinct integers, return all the possible permutations.
 You can return the answer in any order.
 
-Example:
-Input: `nums` = [1,2,3]
-Output: [[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]
-
 **Example:**
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>nums` = [1,2,3]</dd>
+<dd>nums = [1,2,3]</dd>
 <dt>Output:</dt>
 <dd>[[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]</dd>
 <dt>Explanation:</dt>

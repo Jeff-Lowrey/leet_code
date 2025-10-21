@@ -6,15 +6,11 @@ Given an integer array `nums` of unique elements, return all possible subsets
 
 The solution `set` must not contain duplicate subsets. Return the solution in any order.
 
-Example:
-Input: `nums` = [1,2,3]
-Output: [[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]]
-
 **Example:**
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>nums` = [1,2,3]</dd>
+<dd>nums = [1,2,3]</dd>
 <dt>Output:</dt>
 <dd>[[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]]</dd>
 <dt>Explanation:</dt>

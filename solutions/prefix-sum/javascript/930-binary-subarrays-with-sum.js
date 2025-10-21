@@ -1,15 +1,10 @@
 /**
- *  Difficulty: Medium
+ * Difficulty: Medium
  *
  * Given a binary array nums and an integer goal, return the number of non-empty subarrays
  * with a sum equal to goal.
  *
  * A subarray is a contiguous part of the array.
- *
- * Example:
- * Input: nums = [1,0,1,0,1], goal = 2
- * Output: 4
- * Explanation: The 4 subarrays are [1,0,1], [1,0,1,0], [0,1,0,1], [1,0,1]
  *
  * **Example:**
  *
@@ -24,6 +19,8 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ *
+ *
 
  * ### METADATA:
  * **Techniques**: Prefix Sum, Cumulative Sum

@@ -1,5 +1,5 @@
 /**
- *  Difficulty: Medium
+ * Difficulty: Medium
  *
  * Given a string path, which is an absolute path (starting with a slash '/') to a file or
  * directory in a Unix-style file system, convert it to the simplified canonical path.
@@ -17,10 +17,6 @@
  *
  * Return the simplified canonical path.
  *
- * Example:
- * Input: path = "/home//foo/"
- * Output: "/home/foo"
- *
  * **Example:**
  *
  * <dl class="example-details">
@@ -34,6 +30,8 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ *
+ *
 
  * ### METADATA:
  * **Techniques**: Stack Operations, LIFO Processing

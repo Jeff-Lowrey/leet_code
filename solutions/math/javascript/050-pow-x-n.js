@@ -1,17 +1,13 @@
 /**
- *  Difficulty: Medium
+ * Difficulty: Medium
  *
  * Implement pow(x, n), which calculates x raised to the power `n` (`i`.e., x^n).
- *
- * Example:
- * Input: `x = 2`.00000, `n` = 10
- * Output: 1024.00000
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>x = 2`.00000, `n` = 10</dd>
+ * <dd>x = 2`.00000, `n = 10</dd>
  * <dt>Output:</dt>
  * <dd>1024.00000</dd>
  * <dt>Explanation:</dt>
@@ -20,6 +16,8 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ *
+ *
 
  * ### METADATA:
  * **Techniques**: Mathematical Properties, Number Theory
@@ -56,7 +54,7 @@
  * Bit 1 (position 3): `result` *= 2^`8 = 256`
  * Bit 0 (position 4): skip
  *
- * Final: `4 * 256` = 1024
+ * Final: `4 * 256 = 1024
  * ```
  *
  * ### TIME COMPLEXITY:

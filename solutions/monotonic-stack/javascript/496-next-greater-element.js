@@ -1,5 +1,5 @@
 /**
- *  Difficulty: Easy
+ * Difficulty: Easy
  *
  * The next greater element of some element x in an array is the first greater
  * element that is to the right of x in the same array.
@@ -12,10 +12,6 @@
  *
  * Return an array ans of length nums1.length such that ans[i] is the next greater
  * element as described above.
- *
- * Example:
- * Input: nums1 = [4,1,2], nums2 = [1,3,4,2]
- * Output: [-1,3,-1]
  *
  * **Example:**
  *
@@ -30,6 +26,8 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ *
+ *
 
  * ### METADATA:
  * **Techniques**: Monotonic Stack, Stack-based Optimization

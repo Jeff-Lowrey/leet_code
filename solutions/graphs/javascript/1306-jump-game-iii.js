@@ -1,14 +1,9 @@
 /**
- *  Difficulty: Medium
+ * Difficulty: Medium
  *
  * Given an array of non-negative integers arr, you are initially positioned at start index.
  * When you are at index i, you can jump to i + arr[i] or i - arr[i], check if you can reach
  * any index with value 0.
- *
- * Example:
- * Input: arr = [4,2,3,0,3,1,2], start = 5
- * Output: true
- * Explanation: Jump sequence: 5 → 4 → 1 → 3 (value is 0)
  *
  * **Example:**
  *
@@ -23,6 +18,8 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ *
+ *
 
  * ### METADATA:
  * **Techniques**: Graph Traversal (DFS/BFS), Graph Algorithms

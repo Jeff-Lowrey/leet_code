@@ -8,14 +8,6 @@ If there are fewer than k characters left, reverse all of them.
 If there are less than 2k but greater than or equal to k characters, then reverse
 the first k characters and leave the other as original.
 
-Example:
-Input: s = "abcdefg", k = 2
-Output: "bacdfeg"
-Explanation:
-- First 2k (4) characters: "abcd" -> reverse first k (2): "bacd"
-- Next 2k (4) characters: "efg" -> reverse first k (2): "feg" (only 3 left)
-Result: "bacdfeg"
-
 **Example:**
 
 <dl class="example-details">

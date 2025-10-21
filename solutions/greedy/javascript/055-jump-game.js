@@ -1,5 +1,5 @@
 /**
- *  Difficulty: Medium
+ * Difficulty: Medium
  *
  * You are given an integer array `nums`. You are initially positioned at the array's
  * first index, and each element in the array represents your maximum jump length
@@ -7,16 +7,11 @@
  *
  * Return true if you can reach the last index, or false otherwise.
  *
- * Example:
- * Input: `nums` = [2,3,1,1,4]
- * Output: true
- * Explanation: Jump 1 step from index 0 to 1, then 3 steps to the last index.
- *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>nums` = [2,3,1,1,4]</dd>
+ * <dd>nums = [2,3,1,1,4]</dd>
  * <dt>Output:</dt>
  * <dd>true</dd>
  * <dt>Explanation:</dt>
@@ -25,6 +20,8 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ *
+ *
 
  * ### METADATA:
  * **Techniques**: Greedy Algorithm, Optimization

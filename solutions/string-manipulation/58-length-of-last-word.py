@@ -6,11 +6,6 @@ in the string.
 
 A word is a maximal substring consisting of non-space characters only.
 
-Example:
-Input: s = "Hello World"
-Output: 5
-Explanation: The last word is "World" with length 5.
-
 **Example:**
 
 <dl class="example-details">
