@@ -12,6 +12,8 @@ Welcome to the Leet Code Learning Tool User Guide! This comprehensive guide will
 6. [Understanding Solutions](06-understanding-solutions.md) - Problem analysis, solution explanations, and complexity analysis
 7. [Study Strategies](07-study/README.md) - Learning paths, practice methods, and interview preparation
 8. [Customizing Themes](08-customizing-themes.md) - Theme selection, visual customization, and accessibility options
+9. [Language Selection](09-language-selection.md) - Choosing languages, upload workflows, and troubleshooting
+10. [Language Examples](10-language-examples.md) - Language-specific features, use cases, and comparisons
 
 ## Quick Navigation
 [↑ Back to Table of Contents](#table-of-contents)
@@ -26,6 +28,8 @@ Welcome to the Leet Code Learning Tool User Guide! This comprehensive guide will
 **Code Features:** [Code Viewing](05-code-viewing.md) - Syntax highlighting and format conversion
 
 **Customization:** [Customizing Themes](08-customizing-themes.md) - Visual themes and accessibility
+
+**Multi-Language:** [Language Selection](09-language-selection.md) → [Language Examples](10-language-examples.md) - Choose and use different languages
 
 ## What This Guide Covers
 [↑ Back to Table of Contents](#table-of-contents)
@@ -52,7 +56,9 @@ Welcome to the Leet Code Learning Tool User Guide! This comprehensive guide will
 
 ### For Contributors
 - Download and upload workflows
-- Multi-language support
+- Multi-language support (7 languages)
+- Language selection and comparison
+- Upload troubleshooting
 - Format conversion features
 
 ## Getting Help
