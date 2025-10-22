@@ -7,12 +7,13 @@
 ## Table of Contents
 
 - [Creating Solutions](#creating-solutions)
-- [Python Solutions](#python-solutions)
-- [JavaScript Solutions](#javascript-solutions)
+- [Python Solutions](#creating-python-solutions)
+- [JavaScript Solutions](#creating-javascript-solutions)
+- [C++ Solutions](#creating-c-solutions)
 - [Alternative Language Solutions](#alternative-language-solutions)
-- [Testing Your Solution](#testing-your-solution)
-- [Common Mistakes](#common-mistakes)
-- [Troubleshooting](#troubleshooting)
+- [Using the Web Interface](#using-the-web-interface)
+- [Common Workflows](#common-workflows)
+- [Quick Reference](#quick-reference)
 
 ## Creating Solutions
 
@@ -336,6 +337,178 @@ if (typeof module !== 'undefined' && module.exports) {
 ```bash
 node docs/solutions/arrays-hashing/javascript/001-two-sum.js.js
 ```
+
+## Creating C++ Solutions
+
+### Step 1: Copy the Template
+
+```bash
+# Navigate to correct category and create cpp subdirectory if needed
+mkdir -p docs/solutions/arrays-hashing/cpp
+
+# Copy template
+cp docs/developer-guide/templates/SOLUTION_TEMPLATE.cpp docs/solutions/arrays-hashing/cpp/001-two-sum.cpp.cpp
+```
+
+### Step 2: Fill in Problem Information
+
+Open `001-two-sum.cpp.cpp` and update the Doxygen comment:
+
+```cpp
+/**
+ * 1. Two Sum
+ * Difficulty: Easy
+ *
+ * Given an array of integers `nums` and an integer `target`, return indices of the
+ * two numbers such that they add up to `target`.
+ *
+ * **Example:**
+ *
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>nums = [2,7,11,15], target = 9</dd>
+ * <dt>Output:</dt>
+ * <dd>[0,1]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>Because nums[0] + nums[1] == 9, we return [0, 1]</dd>
+ * </dl>
+ */
+```
+
+### Step 3: Add Solution Explanation
+
+```cpp
+/**
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+### METADATA:
+**Techniques**: Hash Table Lookup, Single Pass
+**Data Structures**: Unordered Map, Vector
+**Patterns**: Complement Search
+**Time Complexity**: **O(n)** - Single pass through array
+**Space Complexity**: **O(n)** - Hash map stores up to n elements
+
+ * ### INTUITION:
+ * Use an unordered_map to store seen numbers, enabling O(1) complement lookups.
+ *
+ * ### APPROACH:
+ * Iterate through the array once. For each number, calculate its complement and
+ * check if it exists in our map. If found, return both indices. Otherwise, store
+ * the current number and its index.
+ *
+ * ### TIME COMPLEXITY:
+ * **O(n)** - Single pass with O(1) map operations
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(n)** - Map stores up to n elements
+ *
+ * </details>
+ */
+```
+
+### Step 4: Implement the Solution
+
+```cpp
+#include <vector>
+#include <unordered_map>
+#include <iostream>
+
+class Solution {
+public:
+    std::vector<int> twoSum(std::vector<int>& nums, int target) {
+        // Map to store value -> index mapping
+        std::unordered_map<int, int> seen;
+
+        for (int i = 0; i < nums.size(); i++) {
+            int complement = target - nums[i];
+
+            // Check if complement exists
+            if (seen.find(complement) != seen.end()) {
+                return {seen[complement], i};
+            }
+
+            // Store current number and index
+            seen[nums[i]] = i;
+        }
+
+        return {};
+    }
+};
+```
+
+### Step 5: Add Test Cases
+
+```cpp
+int main() {
+    Solution solution;
+
+    // Test case 1
+    std::vector<int> nums1 = {2, 7, 11, 15};
+    int target1 = 9;
+    std::vector<int> result1 = solution.twoSum(nums1, target1);
+    std::cout << "Test 1: [" << result1[0] << ", " << result1[1] << "]\n";
+    std::cout << "Expected: [0, 1]\n\n";
+
+    // Test case 2
+    std::vector<int> nums2 = {3, 2, 4};
+    int target2 = 6;
+    std::vector<int> result2 = solution.twoSum(nums2, target2);
+    std::cout << "Test 2: [" << result2[0] << ", " << result2[1] << "]\n";
+    std::cout << "Expected: [1, 2]\n\n";
+
+    return 0;
+}
+```
+
+### Step 6: Compile and Test
+
+```bash
+# Compile with C++17 standard
+g++ -std=c++17 -o two_sum docs/solutions/arrays-hashing/cpp/001-two-sum.cpp.cpp
+
+# Run the compiled program
+./two_sum
+```
+
+Expected output:
+```
+Test 1: [0, 1]
+Expected: [0, 1]
+
+Test 2: [1, 2]
+Expected: [1, 2]
+```
+
+## Alternative Language Solutions
+
+### Quick Start for Other Languages
+
+**TypeScript:**
+```bash
+cp docs/developer-guide/templates/SOLUTION_TEMPLATE.ts docs/solutions/{category}/typescript/NNN-problem-name.ts.ts
+npx ts-node docs/solutions/{category}/typescript/NNN-problem-name.ts.ts
+```
+
+**Java:**
+```bash
+cp docs/developer-guide/templates/SOLUTION_TEMPLATE.java docs/solutions/{category}/java/NNN-problem-name.java.java
+javac NNN-problem-name.java.java && java Solution
+```
+
+**Go:**
+```bash
+cp docs/developer-guide/templates/SOLUTION_TEMPLATE.go docs/solutions/{category}/go/NNN-problem-name.go.go
+go run NNN-problem-name.go.go
+```
+
+**Rust:**
+```bash
+cp docs/developer-guide/templates/SOLUTION_TEMPLATE.rs docs/solutions/{category}/rust/NNN-problem-name.rs.rs
+rustc NNN-problem-name.rs.rs && ./NNN-problem-name
+```
+
+For detailed language-specific instructions, see the respective formatting guides in the [05-formatting-guidelines](05-formatting-guidelines/) directory.
 
 ## Using the Web Interface
 

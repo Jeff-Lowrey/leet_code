@@ -5,34 +5,57 @@ Welcome to the Solution Upload Guide! This comprehensive guide provides template
 ## Table of Contents
 
 1. [Overview](01-overview.md) - Introduction, purpose, and quick reference
-2. [Template Files](02-template-files.md) - Python and JavaScript templates with usage instructions
+2. [Template Files](02-template-files.md) - Templates for Python, JavaScript, TypeScript, C++, Java, Go, and Rust
 3. [Solution Structure](03-solution-structure.md) - Required sections and formatting standards
 4. [Quick Start](04-quick-start.md) - Step-by-step guides for creating solutions
 5. [Formatting Guidelines](05-formatting-guidelines/05-formatting-guidelines.md) - Documentation, code quality, and best practices
-6. [Python Formatting Guide](05-formatting-guidelines/SOLUTION_FORMATTING_GUIDE_PY.md) - Detailed Python solution formatting reference
-7. [JavaScript Formatting Guide](05-formatting-guidelines/SOLUTION_FORMATTING_GUIDE_JS.md) - Detailed JavaScript solution formatting reference
+
+### Language-Specific Formatting Guides
+
+6. [Python Formatting Guide](05-formatting-guidelines/SOLUTION_FORMATTING_GUIDE_PY.md)
+7. [JavaScript Formatting Guide](05-formatting-guidelines/SOLUTION_FORMATTING_GUIDE_JS.md)
+8. [TypeScript Formatting Guide](05-formatting-guidelines/SOLUTION_FORMATTING_GUIDE_TS.md)
+9. [C++ Formatting Guide](05-formatting-guidelines/SOLUTION_FORMATTING_GUIDE_CPP.md)
+10. [Java Formatting Guide](05-formatting-guidelines/SOLUTION_FORMATTING_GUIDE_JAVA.md)
+11. [Go Formatting Guide](05-formatting-guidelines/SOLUTION_FORMATTING_GUIDE_GO.md)
+12. [Rust Formatting Guide](05-formatting-guidelines/SOLUTION_FORMATTING_GUIDE_RS.md)
 
 ## Quick Navigation
 [↑ Back to Table of Contents](#table-of-contents)
 
 **New Contributors:** Start with [Overview](01-overview.md) → [Template Files](02-template-files.md) → [Quick Start](04-quick-start.md)
 
-**Python Solutions:** [Template Files](02-template-files.md) → [Python Formatting Guide](05-formatting-guidelines/SOLUTION_FORMATTING_GUIDE_PY.md)
-
-**JavaScript Solutions:** [Template Files](02-template-files.md) → [JavaScript Formatting Guide](05-formatting-guidelines/SOLUTION_FORMATTING_GUIDE_JS.md)
+**By Language:**
+- Python: [Template](02-template-files.md#python-template) → [Formatting Guide](05-formatting-guidelines/SOLUTION_FORMATTING_GUIDE_PY.md)
+- JavaScript: [Template](02-template-files.md#javascript-template) → [Formatting Guide](05-formatting-guidelines/SOLUTION_FORMATTING_GUIDE_JS.md)
+- TypeScript: [Template](02-template-files.md#typescript-template) → [Formatting Guide](05-formatting-guidelines/SOLUTION_FORMATTING_GUIDE_TS.md)
+- C++: [Template](02-template-files.md#c-template) → [Formatting Guide](05-formatting-guidelines/SOLUTION_FORMATTING_GUIDE_CPP.md)
+- Java: [Template](02-template-files.md#java-template) → [Formatting Guide](05-formatting-guidelines/SOLUTION_FORMATTING_GUIDE_JAVA.md)
+- Go: [Template](02-template-files.md#go-template) → [Formatting Guide](05-formatting-guidelines/SOLUTION_FORMATTING_GUIDE_GO.md)
+- Rust: [Template](02-template-files.md#rust-template) → [Formatting Guide](05-formatting-guidelines/SOLUTION_FORMATTING_GUIDE_RS.md)
 
 **Formatting Reference:** [Formatting Guidelines](05-formatting-guidelines/05-formatting-guidelines.md) for general standards
 
 ## Template Locations
 [↑ Back to Table of Contents](#table-of-contents)
 
-**Solution Templates:**
-- Python: [`docs/developer-guide/templates/SOLUTION_TEMPLATE.py`](../developer-guide/templates/SOLUTION_TEMPLATE.py)
-- JavaScript: [`docs/developer-guide/templates/SOLUTION_TEMPLATE.js`](../developer-guide/templates/SOLUTION_TEMPLATE.js)
+**Solution Templates:** (in `docs/developer-guide/templates/`)
+- [Python - `SOLUTION_TEMPLATE.py`](../developer-guide/templates/SOLUTION_TEMPLATE.py)
+- [JavaScript - `SOLUTION_TEMPLATE.js`](../developer-guide/templates/SOLUTION_TEMPLATE.js)
+- [TypeScript - `SOLUTION_TEMPLATE.ts`](../developer-guide/templates/SOLUTION_TEMPLATE.ts)
+- [C++ - `SOLUTION_TEMPLATE.cpp`](../developer-guide/templates/SOLUTION_TEMPLATE.cpp)
+- [Java - `SOLUTION_TEMPLATE.java`](../developer-guide/templates/SOLUTION_TEMPLATE.java)
+- [Go - `SOLUTION_TEMPLATE.go`](../developer-guide/templates/SOLUTION_TEMPLATE.go)
+- [Rust - `SOLUTION_TEMPLATE.rs`](../developer-guide/templates/SOLUTION_TEMPLATE.rs)
 
-**Formatting Guides:**
-- Python: [`SOLUTION_FORMATTING_GUIDE_PY.md`](05-formatting-guidelines/SOLUTION_FORMATTING_GUIDE_PY.md)
-- JavaScript: [`SOLUTION_FORMATTING_GUIDE_JS.md`](05-formatting-guidelines/SOLUTION_FORMATTING_GUIDE_JS.md)
+**Formatting Guides:** (in `docs/upload-guide/05-formatting-guidelines/`)
+- [Python](05-formatting-guidelines/SOLUTION_FORMATTING_GUIDE_PY.md)
+- [JavaScript](05-formatting-guidelines/SOLUTION_FORMATTING_GUIDE_JS.md)
+- [TypeScript](05-formatting-guidelines/SOLUTION_FORMATTING_GUIDE_TS.md)
+- [C++](05-formatting-guidelines/SOLUTION_FORMATTING_GUIDE_CPP.md)
+- [Java](05-formatting-guidelines/SOLUTION_FORMATTING_GUIDE_JAVA.md)
+- [Go](05-formatting-guidelines/SOLUTION_FORMATTING_GUIDE_GO.md)
+- [Rust](05-formatting-guidelines/SOLUTION_FORMATTING_GUIDE_RS.md)
 
 ## What This Guide Covers
 [↑ Back to Table of Contents](#table-of-contents)

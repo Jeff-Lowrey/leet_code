@@ -9,14 +9,30 @@
 - [Available Templates](#available-templates)
 - [Python Solution Template](#python-solution-template)
 - [JavaScript Solution Template](#javascript-solution-template)
-- [Template Components](#template-components)
-- [Using Templates](#using-templates)
+- [TypeScript Solution Template](#typescript-solution-template)
+- [C++ Solution Template](#c-solution-template)
+- [Java Solution Template](#java-solution-template)
+- [Go Solution Template](#go-solution-template)
+- [Rust Solution Template](#rust-solution-template)
+- [Template Best Practices](#template-best-practices)
+- [Quick Template Commands](#quick-template-commands)
 - [Template Customization](#template-customization)
-- [Template Validation](#template-validation)
 
 ## Available Templates
 
-The platform provides standardized templates for creating well-formatted solution files.
+The platform provides standardized templates for 7 programming languages:
+
+| Language | Template Location | Formatting Guide |
+|----------|------------------|------------------|
+| **Python** | [`SOLUTION_TEMPLATE.py`](../developer-guide/templates/SOLUTION_TEMPLATE.py) | [Guide](05-formatting-guidelines/SOLUTION_FORMATTING_GUIDE_PY.md) |
+| **JavaScript** | [`SOLUTION_TEMPLATE.js`](../developer-guide/templates/SOLUTION_TEMPLATE.js) | [Guide](05-formatting-guidelines/SOLUTION_FORMATTING_GUIDE_JS.md) |
+| **TypeScript** | [`SOLUTION_TEMPLATE.ts`](../developer-guide/templates/SOLUTION_TEMPLATE.ts) | [Guide](05-formatting-guidelines/SOLUTION_FORMATTING_GUIDE_TS.md) |
+| **C++** | [`SOLUTION_TEMPLATE.cpp`](../developer-guide/templates/SOLUTION_TEMPLATE.cpp) | [Guide](05-formatting-guidelines/SOLUTION_FORMATTING_GUIDE_CPP.md) |
+| **Java** | [`SOLUTION_TEMPLATE.java`](../developer-guide/templates/SOLUTION_TEMPLATE.java) | [Guide](05-formatting-guidelines/SOLUTION_FORMATTING_GUIDE_JAVA.md) |
+| **Go** | [`SOLUTION_TEMPLATE.go`](../developer-guide/templates/SOLUTION_TEMPLATE.go) | [Guide](05-formatting-guidelines/SOLUTION_FORMATTING_GUIDE_GO.md) |
+| **Rust** | [`SOLUTION_TEMPLATE.rs`](../developer-guide/templates/SOLUTION_TEMPLATE.rs) | [Guide](05-formatting-guidelines/SOLUTION_FORMATTING_GUIDE_RS.md) |
+
+All templates follow a consistent structure with language-specific conventions.
 
 ## Python Template
 
@@ -272,64 +288,275 @@ cp docs/solutions/templates/SOLUTION_TEMPLATE.js docs/solutions/{category}/javas
 
 ### JavaScript Formatting Reference
 
-See detailed guide: [`SOLUTION_FORMATTING_GUIDE_JS.md`](SOLUTION_FORMATTING_GUIDE_JS.md)
+See detailed guide: [`SOLUTION_FORMATTING_GUIDE_JS.md`](05-formatting-guidelines/SOLUTION_FORMATTING_GUIDE_JS.md)
 
-## Other Language Templates
+## TypeScript Template
 
-### Creating Templates for Other Languages
+### Location
 
-While Python and JavaScript have official templates, you can create solutions in other languages following similar patterns:
+[`docs/developer-guide/templates/SOLUTION_TEMPLATE.ts`](../developer-guide/templates/SOLUTION_TEMPLATE.ts)
 
-**Supported Languages:**
-- Java
-- C++/C
-- TypeScript
-- Go
-- Rust
-- C#
-- Swift
-- Kotlin
-- Ruby
-- PHP
-- Scala
+### Template Contents
 
-### General Template Structure
+TypeScript template includes typed JSDoc and interface definitions:
 
-**For All Languages:**
-
-1. **Problem Documentation**
-   - Problem number and title
-   - Difficulty level
-   - Complete description
-   - Examples in HTML definition list format
-
-2. **Solution Explanation**
-   - Intuition section
-   - Approach description
-   - Complexity analysis
-   - Edge cases
-
-3. **Implementation**
-   - Clean, well-commented code
-   - Language-specific best practices
-   - Proper type annotations
-
-4. **Test Cases**
-   - Multiple test cases
-   - Edge case coverage
-   - Verification output
-
-### File Naming for Other Languages
-
-```
-docs/solutions/{category}/javascript/NNN-problem-name.{ext}.{ext}
+**1. Problem Documentation**
+```typescript
+/**
+ * Difficulty: [Easy/Medium/Hard]
+ *
+ * [Problem description with type annotations]
+ *
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * [METADATA, INTUITION, APPROACH sections]
+ * </details>
+ */
 ```
 
-**Examples:**
-- `001-two-sum.java.java`
-- `001-two-sum.cpp.cpp`
-- `001-two-sum.go.go`
-- `001-two-sum.rs.rs`
+**2. Solution with Type Safety**
+```typescript
+class Solution {
+    methodName(param: type): returnType {
+        // Fully typed implementation
+    }
+}
+```
+
+### Using the TypeScript Template
+
+```bash
+cp docs/developer-guide/templates/SOLUTION_TEMPLATE.ts docs/solutions/{category}/typescript/NNN-problem-name.ts.ts
+```
+
+**Key Features:**
+- Full TypeScript type annotations
+- Interface definitions for complex types
+- Strict type checking compatibility
+- Modern ES6+ syntax
+
+### TypeScript Formatting Reference
+
+See detailed guide: [`SOLUTION_FORMATTING_GUIDE_TS.md`](05-formatting-guidelines/SOLUTION_FORMATTING_GUIDE_TS.md)
+
+## C++ Template
+
+### Location
+
+[`docs/developer-guide/templates/SOLUTION_TEMPLATE.cpp`](../developer-guide/templates/SOLUTION_TEMPLATE.cpp)
+
+### Template Contents
+
+C++ template uses Doxygen-style comments:
+
+**1. Problem Documentation**
+```cpp
+/**
+ * Difficulty: [Easy/Medium/Hard]
+ *
+ * [Problem description]
+ *
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * [METADATA, INTUITION, APPROACH sections]
+ * </details>
+ */
+```
+
+**2. Solution Class**
+```cpp
+class Solution {
+public:
+    returnType methodName(paramType param) {
+        // Implementation
+    }
+};
+```
+
+**3. Test Main Function**
+```cpp
+int main() {
+    Solution solution;
+    // Test cases
+    return 0;
+}
+```
+
+### Using the C++ Template
+
+```bash
+cp docs/developer-guide/templates/SOLUTION_TEMPLATE.cpp docs/solutions/{category}/cpp/NNN-problem-name.cpp.cpp
+```
+
+**Compilation:**
+```bash
+g++ -std=c++17 -o solution NNN-problem-name.cpp.cpp
+./solution
+```
+
+### C++ Formatting Reference
+
+See detailed guide: [`SOLUTION_FORMATTING_GUIDE_CPP.md`](05-formatting-guidelines/SOLUTION_FORMATTING_GUIDE_CPP.md)
+
+## Java Template
+
+### Location
+
+[`docs/developer-guide/templates/SOLUTION_TEMPLATE.java`](../developer-guide/templates/SOLUTION_TEMPLATE.java)
+
+### Template Contents
+
+Java template uses Javadoc conventions:
+
+**1. Problem Documentation**
+```java
+/**
+ * Difficulty: [Easy/Medium/Hard]
+ *
+ * <p>[Problem description]</p>
+ *
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * [METADATA, INTUITION, APPROACH sections]
+ * </details>
+ */
+```
+
+**2. Solution Class**
+```java
+class Solution {
+    public returnType methodName(paramType param) {
+        // Implementation
+    }
+
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        // Test cases
+    }
+}
+```
+
+### Using the Java Template
+
+```bash
+cp docs/developer-guide/templates/SOLUTION_TEMPLATE.java docs/solutions/{category}/java/NNN-problem-name.java.java
+```
+
+**Compilation & Execution:**
+```bash
+javac NNN-problem-name.java.java
+java Solution
+```
+
+### Java Formatting Reference
+
+See detailed guide: [`SOLUTION_FORMATTING_GUIDE_JAVA.md`](05-formatting-guidelines/SOLUTION_FORMATTING_GUIDE_JAVA.md)
+
+## Go Template
+
+### Location
+
+[`docs/developer-guide/templates/SOLUTION_TEMPLATE.go`](../developer-guide/templates/SOLUTION_TEMPLATE.go)
+
+### Template Contents
+
+Go template follows Go documentation conventions:
+
+**1. Problem Documentation**
+```go
+/*
+Difficulty: [Easy/Medium/Hard]
+
+[Problem description]
+
+<details>
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+[METADATA, INTUITION, APPROACH sections]
+</details>
+*/
+```
+
+**2. Solution Functions**
+```go
+// methodName implements the solution
+func methodName(param paramType) returnType {
+    // Implementation
+}
+
+func main() {
+    // Test cases
+}
+```
+
+### Using the Go Template
+
+```bash
+cp docs/developer-guide/templates/SOLUTION_TEMPLATE.go docs/solutions/{category}/go/NNN-problem-name.go.go
+```
+
+**Execution:**
+```bash
+go run NNN-problem-name.go.go
+```
+
+### Go Formatting Reference
+
+See detailed guide: [`SOLUTION_FORMATTING_GUIDE_GO.md`](05-formatting-guidelines/SOLUTION_FORMATTING_GUIDE_GO.md)
+
+## Rust Template
+
+### Location
+
+[`docs/developer-guide/templates/SOLUTION_TEMPLATE.rs`](../developer-guide/templates/SOLUTION_TEMPLATE.rs)
+
+### Template Contents
+
+Rust template uses Rustdoc format:
+
+**1. Problem Documentation**
+```rust
+/*!
+Difficulty: [Easy/Medium/Hard]
+
+[Problem description]
+
+<details>
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+[METADATA, INTUITION, APPROACH sections]
+</details>
+*/
+```
+
+**2. Solution Implementation**
+```rust
+struct Solution;
+
+impl Solution {
+    pub fn method_name(param: ParamType) -> ReturnType {
+        // Implementation
+    }
+}
+
+fn main() {
+    // Test cases
+}
+```
+
+### Using the Rust Template
+
+```bash
+cp docs/developer-guide/templates/SOLUTION_TEMPLATE.rs docs/solutions/{category}/rust/NNN-problem-name.rs.rs
+```
+
+**Compilation & Execution:**
+```bash
+rustc NNN-problem-name.rs.rs
+./NNN-problem-name
+```
+
+### Rust Formatting Reference
+
+See detailed guide: [`SOLUTION_FORMATTING_GUIDE_RS.md`](05-formatting-guidelines/SOLUTION_FORMATTING_GUIDE_RS.md)
 
 ## Template Best Practices
 
@@ -359,23 +586,54 @@ docs/solutions/{category}/javascript/NNN-problem-name.{ext}.{ext}
 
 ## Quick Template Commands
 
-### Copy Python Template
+### Copy Templates
+
 ```bash
-cp docs/solutions/templates/SOLUTION_TEMPLATE.py docs/solutions/arrays-hashing/001-two-sum.py
+# Python
+cp docs/developer-guide/templates/SOLUTION_TEMPLATE.py docs/solutions/arrays-hashing/001-two-sum.py
+
+# JavaScript
+cp docs/developer-guide/templates/SOLUTION_TEMPLATE.js docs/solutions/arrays-hashing/javascript/001-two-sum.js.js
+
+# TypeScript
+cp docs/developer-guide/templates/SOLUTION_TEMPLATE.ts docs/solutions/arrays-hashing/typescript/001-two-sum.ts.ts
+
+# C++
+cp docs/developer-guide/templates/SOLUTION_TEMPLATE.cpp docs/solutions/arrays-hashing/cpp/001-two-sum.cpp.cpp
+
+# Java
+cp docs/developer-guide/templates/SOLUTION_TEMPLATE.java docs/solutions/arrays-hashing/java/001-two-sum.java.java
+
+# Go
+cp docs/developer-guide/templates/SOLUTION_TEMPLATE.go docs/solutions/arrays-hashing/go/001-two-sum.go.go
+
+# Rust
+cp docs/developer-guide/templates/SOLUTION_TEMPLATE.rs docs/solutions/arrays-hashing/rust/001-two-sum.rs.rs
 ```
 
-### Copy JavaScript Template
-```bash
-cp docs/solutions/templates/SOLUTION_TEMPLATE.js docs/solutions/arrays-hashing/javascript/001-two-sum.js.js
-```
+### Run/Compile Solutions
 
-### Verify Template Structure
 ```bash
 # Python
 python docs/solutions/{category}/NNN-problem-name.py
 
-# JavaScript
+# JavaScript/Node.js
 node docs/solutions/{category}/javascript/NNN-problem-name.js.js
+
+# TypeScript
+npx ts-node docs/solutions/{category}/typescript/NNN-problem-name.ts.ts
+
+# C++
+g++ -std=c++17 -o solution NNN-problem-name.cpp.cpp && ./solution
+
+# Java
+javac NNN-problem-name.java.java && java Solution
+
+# Go
+go run NNN-problem-name.go.go
+
+# Rust
+rustc NNN-problem-name.rs.rs && ./NNN-problem-name
 ```
 
 ## Template Customization
