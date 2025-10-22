@@ -1,0 +1,120 @@
+/**
+ * # Difficulty: Medium
+ * 
+ * # 305. Number
+ * 
+ * You are given an empty 2D binary grid grid of size m x n. The grid represents a map where 0's represent water and 1's represent land. Initially, all the cells of grid are water cells (i.e., all the cells are 0's).
+ * 
+ * We may perform an add land operation which turns the water at position into a land. You are given an array positions where positions[i] = [ri, ci] is the position (ri, ci) at which we should operate the ith operation.
+ * 
+ * Return an array of integers answer where answer[i] is the number of islands after turning the cell (ri, ci) into a land.
+ * 
+ * An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. You may assume all four edges of the grid are all surrounded by water.
+ * 
+ * **Example:**
+ * 
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[[0, 0]</dd>
+ * <dt>Output:</dt>
+ * <dd>"Test 1 Result: {result1}"</dd>
+ * <dt>Explanation:</dt>
+ * <dd>Number of islands after adding positions: [1,1,2,3]</dd>
+ * </dl>
+ * 
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * **Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
+ * **Data Structures**: Hash Map, Hash Set, Array
+ * **Patterns**: Hash Table Pattern, Divide and Conquer
+ * **Time Complexity**: O(n) - Single pass through input
+ * **Space Complexity**: O(1) - Constant extra space
+ * 
+ * ### INTUITION:
+ * Maintain Union-Find of islands. For each land operation, union with adjacent land cells (4 directions). Track number of connected components. Component count after each operation is island count.
+ * 
+ * ### APPROACH:
+ * 1. **Initialize Union-Find**: Create parent and rank arrays
+ * 2. **Initialize count**: Set count = 0 for number of islands
+ * 3. **Process positions**: For each position in positions list
+ * 4. **Add island**: Mark position as land, increment count
+ * 5. **Check neighbors**: Check all 4 adjacent cells
+ * 6. **Union with land neighbors**: If neighbor is land and different component, union and decrement count
+ * 7. **Record count**: Append current count to result
+ * 8. **Return result**: Return result list with island counts
+ * 
+ * ### WHY THIS WORKS:
+ * - Union-find tracks connected components as islands form
+ * - Initially count = 0, increment for each land cell added
+ * - When land connects to existing islands, union them (decrement count by merges-1)
+ * - Path compression + union by rank ensures near O(1) amortized operations
+ * - O(m*n*α(m*n)) time: α is inverse Ackermann (effectively constant)
+ * 
+ * ### EXAMPLE WALKTHROUGH:
+ * ```
+ * Input: m = 3, n = 3, positions = [[0,0],[0,1],[1,2],[2,1]]
+ * Step 1: Add islands one by one
+ *   [0,0]: 1 island
+ *   [0,1]: merge with [0,0] → 1 island
+ *   [1,2]: 2 islands
+ *   [2,1]: 3 islands
+ * 
+ * Output: [1,1,2,3]
+ * ```
+ * 
+ * ### TIME COMPLEXITY:
+ * O(n)
+ * 
+ * ### SPACE COMPLEXITY:
+ * O(1)
+ * 
+ * ### EDGE CASES:
+ * - Empty input handling
+ * - Single element cases
+ * - Large input considerations
+ * 
+ * </details>
+ */
+
+class Solution {
+  /**
+   * Solve Number Islands II problem using Union-Find approach
+   *
+   *         Args:
+   *             m: Number of rows in the grid
+   *             n: Number of columns in the grid
+   *             positions: List of positions where land will be added
+   *
+   *         Returns:
+   *             List of number of islands after each land addition
+   */
+  numIslands2(m: number, n: number, positions: any): any {
+    // Implementation
+    def get_key(row: Any, col: Any) -> Any:
+    """Convert 2D coordinates to unique key"""
+    return row * n + col
+    uf = UnionFind()
+    result: list.set(Any, []
+    land_cells: set.set(Any, set()
+  }
+}
+
+// Test cases
+if (typeof module !== "undefined" && module.exports) {
+  module.exports = Solution;
+}
+
+function runTests(): void {
+  const solution = new Solution();
+
+  test_solution()
+  # Example usage
+  solution = Solution()
+  console.log("Solution for 305. Number")
+}
+
+if (typeof require !== "undefined" && require.main === module) {
+  runTests();
+}
+
+export default Solution;
