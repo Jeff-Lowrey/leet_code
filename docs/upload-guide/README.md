@@ -8,7 +8,7 @@ Welcome to the Solution Upload Guide! This comprehensive guide provides template
 2. [Template Files](02-template-files.md) - Templates for Python, JavaScript, TypeScript, C++, Java, Go, and Rust
 3. [Solution Structure](03-solution-structure.md) - Required sections and formatting standards
 4. [Quick Start](04-quick-start.md) - Step-by-step guides for creating solutions
-5. [Formatting Guidelines](05-formatting-guidelines/05-formatting-guidelines.md) - Documentation, code quality, and best practices
+5. [Formatting Guidelines](05-formatting-guidelines/README.md) - Documentation, code quality, and best practices
 
 ### Language-Specific Formatting Guides
 
@@ -34,7 +34,7 @@ Welcome to the Solution Upload Guide! This comprehensive guide provides template
 - Go: [Template](02-template-files.md#go-template) → [Formatting Guide](05-formatting-guidelines/SOLUTION_FORMATTING_GUIDE_GO.md)
 - Rust: [Template](02-template-files.md#rust-template) → [Formatting Guide](05-formatting-guidelines/SOLUTION_FORMATTING_GUIDE_RS.md)
 
-**Formatting Reference:** [Formatting Guidelines](05-formatting-guidelines/05-formatting-guidelines.md) for general standards
+**Formatting Reference:** [Formatting Guidelines](05-formatting-guidelines/README.md) for general standards
 
 ## Template Locations
 [↑ Back to Table of Contents](#table-of-contents)
@@ -91,7 +91,7 @@ Follow [Template Files](02-template-files.md) to access Python or JavaScript tem
 Use [Quick Start](04-quick-start.md) for step-by-step instructions on creating your solution.
 
 ### Step 4: Verify Formatting
-Review [Formatting Guidelines](05-formatting-guidelines/05-formatting-guidelines.md) to ensure your solution meets all standards.
+Review [Formatting Guidelines](05-formatting-guidelines/README.md) to ensure your solution meets all standards.
 
 ### Step 5: Upload
 Add your solution to the repository or use the web interface to upload.
