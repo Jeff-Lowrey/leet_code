@@ -1,0 +1,146 @@
+/**
+ * # 1312. Minimum Insertions Palindrome
+ *
+ * # Difficulty: Hard
+ *
+ * Given a string s, return the minimum number of insertions needed to make s a palindrome.
+ *
+ * A palindrome is a string that reads the same forward and backward.
+ *
+ * **Example:**
+ *
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>s = "zzazz"</dd>
+ * <dt>Output:</dt>
+ * <dd>0</dd>
+ * <dt>Explanation:</dt>
+ * <dd>The string 'zzazz' requires 0 insertions because it's already a palindrome</dd>
+ * </dl>
+ *
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+ * **Data Structures**: Hash Map, String
+ * **Patterns**: Greedy Algorithm, Dynamic Programming
+ * **Time Complexity**: O(n²) - Nested iteration through input
+ * **Space Complexity**: O(n²)
+ *
+ * ### INTUITION:
+ * To make a string palindromic with minimum insertions, we need to find the longest palindromic subsequence (LPS) first. The minimum insertions needed equals the string length minus the LPS length, because we only need to insert characters to match the "missing" ones.
+ *
+ * ### APPROACH:
+ * 1. **Find Longest Palindromic Subsequence**: Use DP to find the longest subsequence that reads the same forwards and backwards
+ * 2. **Calculate Insertions**: minimum insertions = string length - LPS length
+ * 3. **DP Recurrence**:
+ *    - If characters match: `dp[i][j] = dp[i+1][j-1] + 2`
+ *    - If not: `dp[i][j] = max(dp[i+1][j], dp[i][j-1])`
+ *
+ * ### WHY THIS WORKS:
+ * The LPS represents the "skeleton" of characters we can keep without insertion. All other characters need to be "mirrored" by insertions. For example, in "mbadm", LPS is "mam" (length 3), so we need 5-3=2 insertions.
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * For s = "mbadm":
+ * 1. Build LPS DP table:
+ *    - Single chars: all have LPS = 1
+ *    - "mb": different chars → LPS = 1
+ *    - "bad": LPS = 1 (just 'a')
+ *    - "madm": 'm' matches → LPS = 1 + LPS("ad") = 1 + 1 = 2
+ *    - "mbadm": 'm' matches → LPS = 2 + LPS("bad") = 2 + 1 = 3
+ * 2. Minimum insertions = 5 - 3 = 2
+ *
+ * ### TIME COMPLEXITY:
+ * O(n²)
+ * - Filling n×n DP table with constant work per cell
+ *
+ * ### SPACE COMPLEXITY:
+ * O(n²)
+ * - DP table storage, can be optimized to O(n)
+ *
+ * ### EDGE CASES:
+ * - Already palindrome: return 0
+ * - Single character: return 0
+ * - All different characters: return n-1
+ * - Empty string: return 0
+ *
+ * </details>
+ */
+
+class Solution {
+  /**
+   * Find minimum insertions using Dynamic Programming.
+   *
+   * Time Complexity: O(n²)
+   * Space Complexity: O(n²)
+   */
+  minInsertions(s: string): number {
+    const n = s.length;
+    const dp: number[][] = Array.from({ length: n }, () => Array(n).fill(0));
+
+    for (let i = 0; i < n; i++) {
+      dp[i][i] = 1;
+    }
+
+    for (let length = 2; length <= n; length++) {
+      for (let i = 0; i <= n - length; i++) {
+        const j = i + length - 1;
+
+        if (s[i] === s[j]) {
+          dp[i][j] = dp[i + 1][j - 1] + 2;
+        } else {
+          dp[i][j] = Math.max(dp[i + 1][j], dp[i][j - 1]);
+        }
+      }
+    }
+
+    return n - dp[0][n - 1];
+  }
+
+  /**
+   * Alternative direct DP approach.
+   *
+   * Time Complexity: O(n²)
+   * Space Complexity: O(n²)
+   */
+  minInsertionsDirect(s: string): number {
+    const n = s.length;
+    const dp: number[][] = Array.from({ length: n }, () => Array(n).fill(0));
+
+    for (let length = 2; length <= n; length++) {
+      for (let i = 0; i <= n - length; i++) {
+        const j = i + length - 1;
+
+        if (s[i] === s[j]) {
+          dp[i][j] = dp[i + 1][j - 1];
+        } else {
+          dp[i][j] = 1 + Math.min(dp[i + 1][j], dp[i][j - 1]);
+        }
+      }
+    }
+
+    return dp[0][n - 1];
+  }
+}
+
+if (typeof module !== "undefined" && module.exports) {
+  module.exports = Solution;
+}
+
+function runTests(): void {
+  const solution = new Solution();
+
+  console.log(`Test 1: ${solution.minInsertions("zzazz") === 0 ? "PASS" : "FAIL"}`);
+  console.log(`Test 2: ${solution.minInsertions("mbadm") === 2 ? "PASS" : "FAIL"}`);
+  console.log(`Test 3: ${solution.minInsertions("leetcode") === 5 ? "PASS" : "FAIL"}`);
+  console.log(`Test 4: ${solution.minInsertions("a") === 0 ? "PASS" : "FAIL"}`);
+  console.log(`Test 5: ${solution.minInsertions("ab") === 1 ? "PASS" : "FAIL"}`);
+  console.log(`Test 6: ${solution.minInsertionsDirect("mbadm") === 2 ? "PASS" : "FAIL"}`);
+
+  console.log("\nAll test cases completed!");
+}
+
+if (typeof require !== "undefined" && require.main === module) {
+  runTests();
+}
+
+export default Solution;
