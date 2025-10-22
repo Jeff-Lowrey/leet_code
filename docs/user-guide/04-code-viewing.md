@@ -1,6 +1,6 @@
 # Code Viewing
 
-[← Previous: Downloading Solutions](04-downloading-solutions.md) | [🏠 Home](README.md) | [Next: Understanding Solutions →](06-understanding-solutions.md)
+[← Previous: Downloading Solutions](03-downloading-solutions.md) | [🏠 Home](README.md) | [Next: Understanding Solutions →](05-understanding-solutions.md)
 
 ---
 
@@ -382,4 +382,4 @@ Browser extensions can apply dark mode:
 
 ---
 
-[← Previous: Downloading Solutions](04-downloading-solutions.md) | [🏠 Home](README.md) | [Next: Understanding Solutions →](06-understanding-solutions.md)
+[← Previous: Downloading Solutions](03-downloading-solutions.md) | [🏠 Home](README.md) | [Next: Understanding Solutions →](05-understanding-solutions.md)

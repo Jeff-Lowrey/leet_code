@@ -1,6 +1,6 @@
 # Language-Specific Examples and Use Cases
 
-[← Previous: Language Selection](09-language-selection.md) | [🏠 Home](README.md)
+[← Previous: Language Selection](07-language-selection.md) | [🏠 Home](README.md)
 
 ---
 
@@ -631,4 +631,4 @@ if (opt.has_value()) {
 
 ---
 
-[← Previous: Language Selection](09-language-selection.md) | [🏠 Home](README.md)
+[← Previous: Language Selection](07-language-selection.md) | [🏠 Home](README.md)

@@ -1,6 +1,6 @@
 # Template Creation Guidelines
 
-[← Previous: Testing Procedures](07-testing-procedures.md) | [🏠 Home](README.md) | [Next: Adding Language Support →](09-adding-languages.md)
+[← Previous: Testing Procedures](../07-testing-procedures.md) | [🏠 Home](../README.md) | [Next: Adding Language Support →](02-adding-languages.md)
 
 ---
 
@@ -538,4 +538,4 @@ Using the template, create a complete example solution (e.g., Two Sum) to verify
 
 ---
 
-[← Previous: Testing Procedures](07-testing-procedures.md) | [🏠 Home](README.md) | [Next: Adding Language Support →](09-adding-languages.md)
+[← Previous: Testing Procedures](../07-testing-procedures.md) | [🏠 Home](../README.md) | [Next: Adding Language Support →](02-adding-languages.md)

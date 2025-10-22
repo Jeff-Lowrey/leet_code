@@ -1,6 +1,6 @@
 # Adding New Language Support
 
-[← Previous: Template Creation](08-template-creation.md) | [🏠 Home](README.md) | [Next: Formatting Guide Creation →](10-formatting-guide-creation.md)
+[← Previous: Template Creation](01-template-creation.md) | [🏠 Home](../README.md) | [Next: Formatting Guide Creation →](03-formatting-guide-creation.md)
 
 ---
 
@@ -525,4 +525,4 @@ ruby solutions/arrays-hashing/ruby/0001-two-sum.rb.rb
 
 ---
 
-[← Previous: Template Creation](08-template-creation.md) | [🏠 Home](README.md) | [Next: Formatting Guide Creation →](10-formatting-guide-creation.md)
+[← Previous: Template Creation](01-template-creation.md) | [🏠 Home](../README.md) | [Next: Formatting Guide Creation →](03-formatting-guide-creation.md)

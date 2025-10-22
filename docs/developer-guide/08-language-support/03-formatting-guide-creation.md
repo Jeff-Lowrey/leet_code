@@ -1,6 +1,6 @@
 # Formatting Guide Creation
 
-[← Previous: Adding Language Support](09-adding-languages.md) | [🏠 Home](README.md)
+[← Previous: Adding Language Support](02-adding-languages.md) | [🏠 Home](../README.md) | [Next: Architecture →](../09-architecture.md)
 
 ---
 
@@ -664,4 +664,4 @@ Use type hints.
 
 ---
 
-[← Previous: Adding Language Support](09-adding-languages.md) | [🏠 Home](README.md)
+[← Previous: Adding Language Support](02-adding-languages.md) | [🏠 Home](../README.md) | [Next: Architecture →](../09-architecture.md)

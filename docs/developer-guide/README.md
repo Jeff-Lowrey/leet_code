@@ -11,9 +11,13 @@ Welcome to the LeetCode Learning Tool Developer Guide. This guide provides compr
 5. [Static Files](05-static-files.md) - CSS, JavaScript, and static asset organization
 6. [Adding Features](06-adding-features.md) - Guidelines for implementing new functionality
 7. [Testing Procedures](07-testing-procedures.md) - Quality checks, testing, and deployment
-8. [Template Creation](08-template-creation.md) - Guidelines for creating language-specific solution templates
-9. [Adding Language Support](09-adding-languages.md) - Complete guide to adding new programming languages
-10. [Formatting Guide Creation](10-formatting-guide-creation.md) - Process for writing language formatting documentation
+8. [Language Support](08-language-support/README.md) - Complete guide to adding new programming languages
+   - [Template Creation](08-language-support/01-template-creation.md) - Creating language-specific templates
+   - [Adding Languages](08-language-support/02-adding-languages.md) - Integration procedures and configuration
+   - [Formatting Guides](08-language-support/03-formatting-guide-creation.md) - Writing language documentation
+9. [Architecture](09-architecture.md) - System architecture, component interactions, and data flow
+10. [Testing Languages](10-testing-languages.md) - Testing procedures for language integration
+11. [Contribution Workflow](11-contribution-workflow.md) - Branch strategy, PRs, and contribution guidelines
 
 ## Quick Links
 [↑ Back to Table of Contents](#table-of-contents)

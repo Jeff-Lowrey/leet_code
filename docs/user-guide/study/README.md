@@ -1,6 +1,6 @@
 # Study Strategies
 
-[← Previous: Understanding Solutions](../06-understanding-solutions.md) | [🏠 Home](../README.md) | [Next: Customizing Themes →](../08-customizing-themes.md)
+[← Previous: Understanding Solutions](../05-understanding-solutions.md) | [🏠 Home](../README.md) | [Next: Customizing Themes →](../06-customizing-themes.md)
 
 ---
 
@@ -39,4 +39,4 @@ This section provides comprehensive study strategies, techniques, and best pract
 
 ---
 
-[← Previous: Understanding Solutions](../06-understanding-solutions.md) | [🏠 Home](../README.md) | [Next: Customizing Themes →](../08-customizing-themes.md)
+[← Previous: Understanding Solutions](../05-understanding-solutions.md) | [🏠 Home](../README.md) | [Next: Customizing Themes →](../06-customizing-themes.md)

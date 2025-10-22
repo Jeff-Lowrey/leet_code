@@ -1,6 +1,6 @@
 # Language Selection and Upload Workflows
 
-[← Previous: Customizing Themes](08-customizing-themes.md) | [🏠 Home](README.md)
+[← Previous: Customizing Themes](06-customizing-themes.md) | [🏠 Home](README.md) | [Next: Language Examples →](08-language-examples.md)
 
 ---
 
@@ -288,4 +288,4 @@ On solution pages, language badges appear below the problem title:
 
 ---
 
-[← Previous: Customizing Themes](08-customizing-themes.md) | [🏠 Home](README.md)
+[← Previous: Customizing Themes](06-customizing-themes.md) | [🏠 Home](README.md) | [Next: Language Examples →](08-language-examples.md)

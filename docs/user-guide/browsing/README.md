@@ -1,6 +1,6 @@
 # Browsing Solutions
 
-[← Previous: Getting Started](../02-getting-started.md) | [🏠 Home](../README.md) | [Next: Downloading Solutions →](../04-downloading-solutions.md)
+[← Previous: Getting Started](../02-getting-started.md) | [🏠 Home](../README.md) | [Next: Downloading Solutions →](../03-downloading-solutions.md)
 
 ---
 
@@ -34,4 +34,4 @@ The Leet Code Learning Tool provides multiple ways to browse and find solutions 
 
 ---
 
-[← Previous: Getting Started](../02-getting-started.md) | [🏠 Home](../README.md) | [Next: Downloading Solutions →](../04-downloading-solutions.md)
+[← Previous: Getting Started](../02-getting-started.md) | [🏠 Home](../README.md) | [Next: Downloading Solutions →](../03-downloading-solutions.md)

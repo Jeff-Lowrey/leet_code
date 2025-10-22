@@ -1,6 +1,6 @@
 # Getting Started
 
-[← Previous: Overview](01-overview.md) | [🏠 Home](README.md) | [Next: Browsing Solutions →](03-browsing/README.md)
+[← Previous: Overview](01-overview.md) | [🏠 Home](README.md) | [Next: Browsing Solutions →](browsing/README.md)
 
 ---
 
@@ -181,4 +181,4 @@ Now that you have the application running:
 
 ---
 
-[← Previous: Overview](01-overview.md) | [🏠 Home](README.md) | [Next: Browsing Solutions →](03-browsing/README.md)
+[← Previous: Overview](01-overview.md) | [🏠 Home](README.md) | [Next: Browsing Solutions →](browsing/README.md)
