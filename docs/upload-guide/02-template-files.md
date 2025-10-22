@@ -145,7 +145,7 @@ cp docs/solutions/templates/SOLUTION_TEMPLATE.py docs/solutions/{category}/NNN-p
 
 ### Python Formatting Reference
 
-See detailed guide: [`SOLUTION_FORMATTING_GUIDE.md`](SOLUTION_FORMATTING_GUIDE.md)
+See detailed guide: [`SOLUTION_FORMATTING_GUIDE_PY.md`](05-formatting-guidelines/SOLUTION_FORMATTING_GUIDE_PY.md)
 
 ## JavaScript Template
 

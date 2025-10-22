@@ -1,6 +1,6 @@
 # Quick Start
 
-[← Previous: Solution Structure](03-solution-structure.md) | [🏠 Home](README.md) | [Next: Formatting Guidelines →](05-formatting-guidelines.md)
+[← Previous: Solution Structure](03-solution-structure.md) | [🏠 Home](README.md) | [Next: Formatting Guidelines →](05-formatting-guidelines/05-formatting-guidelines.md)
 
 ---
 
@@ -453,4 +453,4 @@ node docs/solutions/arrays-hashing/javascript/001-two-sum.js.js
 
 ---
 
-[← Previous: Solution Structure](03-solution-structure.md) | [🏠 Home](README.md) | [Next: Formatting Guidelines →](05-formatting-guidelines.md)
+[← Previous: Solution Structure](03-solution-structure.md) | [🏠 Home](README.md) | [Next: Formatting Guidelines →](05-formatting-guidelines/05-formatting-guidelines.md)

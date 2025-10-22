@@ -1,6 +1,6 @@
 # Formatting Guidelines
 
-[← Previous: Quick Start](04-quick-start.md) | [🏠 Home](README.md) | [Next: Python Formatting Guide →](SOLUTION_FORMATTING_GUIDE.md)
+[← Previous: Quick Start](../04-quick-start.md) | [🏠 Home](../README.md) | [Next: Python Formatting Guide →](SOLUTION_FORMATTING_GUIDE_PY.md)
 
 ---
 
@@ -540,4 +540,4 @@ Before submitting:
 
 ---
 
-[← Previous: Quick Start](04-quick-start.md) | [🏠 Home](README.md) | [Next: Python Formatting Guide →](SOLUTION_FORMATTING_GUIDE.md)
+[← Previous: Quick Start](../04-quick-start.md) | [🏠 Home](../README.md) | [Next: Python Formatting Guide →](SOLUTION_FORMATTING_GUIDE_PY.md)

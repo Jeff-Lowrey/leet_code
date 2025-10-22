@@ -79,7 +79,7 @@ Reviewing and updating existing solutions:
 
 ### Python Solutions
 - Template: [`SOLUTION_TEMPLATE.py`](../solutions/templates/SOLUTION_TEMPLATE.py)
-- Guide: [`SOLUTION_FORMATTING_GUIDE.md`](SOLUTION_FORMATTING_GUIDE.md)
+- Guide: [`SOLUTION_FORMATTING_GUIDE_PY.md`](05-formatting-guidelines/SOLUTION_FORMATTING_GUIDE_PY.md)
 - Location: `docs/solutions/{category}/NNN-problem-name.py`
 
 ### JavaScript Solutions

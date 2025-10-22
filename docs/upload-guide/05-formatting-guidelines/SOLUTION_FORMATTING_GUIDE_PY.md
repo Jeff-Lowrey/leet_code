@@ -1,6 +1,6 @@
 # LeetCode Solution Formatting Guide - Python
 
-[← Previous: Formatting Guidelines](05-formatting-guidelines.md) | [🏠 Home](README.md) | [Next: JavaScript Formatting Guide →](SOLUTION_FORMATTING_GUIDE_JS.md)
+[← Previous: Formatting Guidelines](05-formatting-guidelines.md) | [🏠 Home](../README.md) | [Next: JavaScript Formatting Guide →](SOLUTION_FORMATTING_GUIDE_JS.md)
 
 ---
 
@@ -289,9 +289,9 @@ See [`docs/solutions/arrays-hashing/001-two-sum.py`](../../solutions/arrays-hash
 - JavaScript formatting guide: [SOLUTION_FORMATTING_GUIDE_JS.md](SOLUTION_FORMATTING_GUIDE_JS.md)
 - Python template: [`docs/solutions/templates/SOLUTION_TEMPLATE.py`](../../solutions/templates/SOLUTION_TEMPLATE.py)
 - JavaScript template: [`docs/solutions/templates/SOLUTION_TEMPLATE.js`](../../solutions/templates/SOLUTION_TEMPLATE.js)
-- Upload guide overview: [Upload Guide Home](README.md)
+- Upload guide overview: [Upload Guide Home](../README.md)
 - General formatting guidelines: [05-formatting-guidelines.md](05-formatting-guidelines.md)
 
 ---
 
-[← Previous: Formatting Guidelines](05-formatting-guidelines.md) | [🏠 Home](README.md) | [Next: JavaScript Formatting Guide →](SOLUTION_FORMATTING_GUIDE_JS.md)
+[← Previous: Formatting Guidelines](05-formatting-guidelines.md) | [🏠 Home](../README.md) | [Next: JavaScript Formatting Guide →](SOLUTION_FORMATTING_GUIDE_JS.md)
