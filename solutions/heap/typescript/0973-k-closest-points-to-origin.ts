@@ -1,0 +1,143 @@
+/**
+ * # Difficulty: Medium
+ * 
+ * # 973. K Closest Points To Origin
+ * 
+ * Given an array of points where points[i] = [xi, yi] represents a point on the X-Y plane and an integer k, return the k closest points to the origin (0, 0).
+ * 
+ * The distance between two points on the X-Y plane is the Euclidean distance (i.e., √(x1 - x2)^2 + (y1 - y2)^2).
+ * 
+ * You may return the answer in any order. The answer is guaranteed to be unique (except for the order that it is in).
+ * 
+ * **Example:**
+ * 
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[[0,1]</dd>
+ * <dt>Output:</dt>
+ * <dd>"Expected {expected}, got {result}"</dd>
+ * <dt>Explanation:</dt>
+ * <dd>The k=2 closest points to origin are [[1,3],[-2,2]]</dd>
+ * </dl>
+ * 
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+ * **Data Structures**: Hash Map, Array, Heap
+ * **Patterns**: Two Pointers Pattern, Greedy Algorithm
+ * **Time Complexity**: O(n)
+ * **Space Complexity**: O(1) - Constant extra space
+ * 
+ * ### INTUITION:
+ * Calculate distance for each point. Use max heap (negate distances) of size k. Maintain k closest points. Alternatively, use quickselect for O(n) average time.
+ * 
+ * ### APPROACH:
+ * 1. **Calculate distances**: For each point, compute squared distance = x^2 + y^2
+ * 2. **Build min heap**: Push (distance, point) tuples to heap
+ * 3. **Use heapify**: Or push one by one using heappush
+ * 4. **Extract k smallest**: Pop from heap k times
+ * 5. **Build result**: For each popped element, add point to result
+ * 6. **Return result**: Return list of k closest points
+ * 
+ * ### WHY THIS WORKS:
+ * - Max heap of size k: stores (negative distance, point) to get k smallest
+ * - For each point, calculate distance squared (avoid sqrt for efficiency)
+ * - If heap size < k, push; else if distance < heap[0], pop and push
+ * - Negative distance converts min heap to max heap behavior
+ * - O(n log k) time: n points, log k heap operations, O(k) space
+ * 
+ * ### EXAMPLE WALKTHROUGH:
+ * ```
+ * Input: points = [[1,3], [-2,2], [5,8], [0,1]], k = 2
+ * 
+ * Step 1: Calculate distances (squared)
+ *   [1,3]: dist = 1² + 3² = 10
+ *   [-2,2]: dist = (-2)² + 2² = 8
+ *   [5,8]: dist = 5² + 8² = 89
+ *   [0,1]: dist = 0² + 1² = 1
+ * 
+ * Step 2: Build min heap
+ *   heap = [(1, [0,1]), (8, [-2,2]), (10, [1,3]), (89, [5,8])]
+ * 
+ * Step 3: Extract k=2 smallest
+ *   Pop (1, [0,1]) → result = [[0,1]]
+ *   Pop (8, [-2,2]) → result = [[0,1], [-2,2]]
+ * 
+ * Output: [[0,1], [-2,2]]
+ * ```
+ * 
+ * ### TIME COMPLEXITY:
+ * O(n)
+ * 
+ * ### SPACE COMPLEXITY:
+ * O(1)
+ * 
+ * ### EDGE CASES:
+ * - Empty input handling
+ * - Single element cases
+ * - Large input considerations
+ * 
+ * </details>
+ */
+
+class Solution {
+  /**
+   * Find k points closest to origin using min heap approach.
+   *
+   *         Args:
+   *             points: List of points where each point is [x,y] coordinate
+   *             k: Number of closest points to return
+   *
+   *         Returns:
+   *             List of k closest points to origin
+   */
+  kClosest(points: any, k: number): any {
+    // Implementation
+    if not points or k <= 0:
+    return []
+    heap: list.set(Any, []
+    for x, y in points:
+  }
+
+  /**
+   * Alternative implementation using QuickSelect algorithm.
+   *         Average time complexity O(n) vs O(nlogk) for heap solution.
+   *
+   *         Args:
+   *             points: List of points where each point is [x,y] coordinate
+   *             k: Number of closest points to return
+   *
+   *         Returns:
+   *             List of k closest points to origin
+   */
+  kClosestQuickSelect(points: any, k: number): any {
+    // Implementation
+    if not points or k <= 0:
+    return []
+    def distance(point: Any) -> Any:
+    return point.get(0) ** 2 + point.get(1) ** 2
+    def partition(left: Any, right: Any, pivot_idx: Any) -> Any:
+    pivot_dist = distance(points.get(pivot_idx))
+    points.get(pivot_idx), points.set(right, points.get(right), points.get(pivot_idx)
+  }
+}
+
+// Test cases
+if (typeof module !== "undefined" && module.exports) {
+  module.exports = Solution;
+}
+
+function runTests(): void {
+  const solution = new Solution();
+
+  test_solution()
+  # Example usage
+  solution = Solution()
+  console.log(`Solution for 973. K Closest Points To Origin`)
+}
+
+if (typeof require !== "undefined" && require.main === module) {
+  runTests();
+}
+
+export default Solution;

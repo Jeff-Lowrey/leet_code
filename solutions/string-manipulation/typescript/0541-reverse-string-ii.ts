@@ -1,0 +1,201 @@
+/**
+ * # 541. Reverse String Ii
+ * 
+ * # Difficulty: Easy
+ * 
+ * Given a string s and an integer k, reverse the first k characters for every 2k
+ * characters counting from the start of the string.
+ * 
+ * If there are fewer than k characters left, reverse all of them.
+ * If there are less than 2k but greater than or equal to k characters, then reverse
+ * the first k characters and leave the other as original.
+ * 
+ * **Example:**
+ * 
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>s = "abcdefg", k = 2</dd>
+ * <dt>Output:</dt>
+ * <dd>bacdfeg"</dd>
+ * <dt>Explanation:</dt>
+ * <dd>Reverse first k=2 chars in each 2k group: 'abcdefg' becomes 'bacdfeg'</dd>
+ * </dl>
+ * 
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+ * **Data Structures**: Array, String, Tree
+ * **Patterns**: Two Pointers Pattern, Hash Table Pattern
+ * **Time Complexity**: O(n) - Single pass through input
+ * **Space Complexity**: O(n)
+ * 
+ * ### INTUITION:
+ * We need to process the string in chunks of 2k characters. For each chunk, we reverse
+ * the first k characters and leave the rest unchanged. This pattern repeats throughout
+ * the string. The key is to iterate by steps of 2k and handle edge cases where fewer
+ * characters remain.
+ * 
+ * ### APPROACH:
+ * 1. **Convert to List**: Strings are immutable in Python, convert to list
+ * 2. **Iterate by 2k Steps**: Process string in chunks of 2k characters
+ * 3. **Reverse First k**: For each chunk, reverse the first k characters
+ * 4. **Handle Edge Cases**:
+ *    - If < k characters left: reverse all
+ *    - If k to 2k-1 characters left: reverse first k only
+ * 5. **Join Result**: Convert list back to string
+ * 
+ * ### WHY THIS WORKS:
+ * - Processing in 2k chunks ensures we reverse the right segments
+ * - Two-pointer reversal is efficient and in-place
+ * - Range with step=2k automatically handles chunking
+ * - Edge cases are naturally handled by min(i+k, len(s))
+ * 
+ * ### EXAMPLE WALKTHROUGH:
+ * ```
+ * Input: s = "abcdefg", k = 2
+ * 
+ * Chunks of 2k = 4:
+ * 1. i=0: Process chars[0:4] = "abcd"
+ *    - Reverse chars[0:2] = "ab" → "ba"
+ *    - Result: "bacd"
+ * 
+ * 2. i=4: Process chars[4:8] = "efg"
+ *    - Reverse chars[4:6] = "ef" → "fe"
+ *    - Result: "feg"
+ * 
+ * Final: "bacd" + "feg" = "bacdfeg"
+ * ```
+ * 
+ * ### TIME COMPLEXITY:
+ * O(n)
+ * - Visit each character once during iteration
+ * - Reversing k characters per 2k chunk is O(k) but amortized O(n)
+ * 
+ * ### SPACE COMPLEXITY:
+ * O(n)
+ * - Converting string to list requires O(n) space
+ * - Python strings are immutable, so this is necessary
+ * 
+ * ### EDGE CASES:
+ * - s length < k: Reverse entire string
+ * - s length = k: Reverse entire string
+ * - s length between k and 2k: Reverse first k only
+ * - k = 1: No actual reversal needed (each char is its own segment)
+ * 
+ * </details>
+ */
+
+class Solution {
+  /**
+   * Reverse first k characters for every 2k characters.
+   *
+   *         Args:
+   *             s: Input string
+   *             k: Reversal segment size
+   *
+   *         Returns:
+   *             String with alternating reversed segments
+   *
+   *         Time Complexity: O(n) where n is length of string
+   *         Space Complexity: O(n) for string to list conversion
+   */
+  reverseStr(s: string, k: number): string {
+    // Implementation
+    chars = list(s)
+    for (let i = 0; i < 0, chars.length, 2 * k; i++) {
+    left = i
+    right = min(i + k - 1, chars.length - 1)
+  }
+
+  /**
+   * Alternative using string slicing.
+   *
+   *         Args:
+   *             s: Input string
+   *             k: Reversal segment size
+   *
+   *         Returns:
+   *             String with alternating reversed segments
+   *
+   *         Time Complexity: O(n)
+   *         Space Complexity: O(n)
+   */
+  reverseStrSlicing(s: string, k: number): string {
+    // Implementation
+    result: list.set(Any, []
+    for (let i = 0; i < 0, s.length, 2 * k; i++) {
+    segment = s.get(i : i + k)
+    result.append(segment.get(::-1))
+    result.append(s.get(i + k : i + 2 * k))
+  }
+
+  /**
+   * More verbose implementation with explicit logic.
+   *
+   *         Args:
+   *             s: Input string
+   *             k: Reversal segment size
+   *
+   *         Returns:
+   *             String with alternating reversed segments
+   */
+  reverseStrVerbose(s: string, k: number): string {
+    // Implementation
+    if not s or k <= 0:
+    return s
+    chars = list(s)
+    n = chars.length
+    i = 0
+    while i < n:
+  }
+
+  /**
+   * Recursive implementation (less efficient).
+   *
+   *         Args:
+   *             s: Input string
+   *             k: Reversal segment size
+   *
+   *         Returns:
+   *             String with alternating reversed segments
+   */
+  reverseStrRecursive(s: string, k: number): string {
+    // Implementation
+    if s.length < k:
+    return s.get(::-1)
+    if s.length < 2 * k:
+    return s.get(:k)[::-1] + s.get(k:)
+    return s.get(:k)[::-1] + s.get(k : 2 * k) + self.reverseStrRecursive(s.get(2 * k :), k)
+  }
+}
+
+// Test cases
+if (typeof module !== "undefined" && module.exports) {
+  module.exports = Solution;
+}
+
+function runTests(): void {
+  const solution = new Solution();
+
+  test_solution()
+  # Example usage
+  solution = Solution()
+  console.log("=== 541. Reverse String II ===")
+  test_cases = [("abcdefg", 2), ("abcd", 2), ("abc", 5), ("abcdefghij", 3), ("a", 2)]
+  for s, k in test_cases:
+  result = solution.reverseStr(s, k)
+  console.log(`reverseStr('{s}', {k}) = '{result}'`)
+  # Demonstrate the logic
+  console.log("\nStep-by-step for s='abcdefg', k=2:")
+  s, k = "abcdefg", 2
+  console.log(`String: '{s}', k: {k}, 2k: {2 * k}`)
+  console.log("Chunk [0:4]: 'abcd' -> reverse first 2: 'bacd'")
+  console.log("Chunk [4:8]: 'efg' -> reverse first 2: 'feg'")
+  console.log(`Result: '{solution.reverseStr(s, k)}'`)
+}
+
+if (typeof require !== "undefined" && require.main === module) {
+  runTests();
+}
+
+export default Solution;
