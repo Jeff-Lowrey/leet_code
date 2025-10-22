@@ -21,6 +21,9 @@
 ### Core Functionality
 - **Web Interface**: Flask-based solution browser with syntax highlighting
 - **Multi-Language Support**: Upload and view solutions in 13+ programming languages
+  - **7 Languages with Complete Templates**: Python, JavaScript, TypeScript, Java, C++, Go, Rust
+  - **Comprehensive Formatting Guides**: Language-specific documentation for contributors
+  - **Example Implementations**: Reference solutions demonstrating best practices
 - **Python to LeetCode Conversion**: Automatic conversion for LeetCode submission format
 - **Smart Downloads**: Language-aware download system with skeleton/solution/ZIP options
 - **API Support**: JSON endpoints for dynamic content loading
@@ -134,25 +137,49 @@ pdm run python -m src.leet_code.app
 
 ### User Guide
 Comprehensive guide for browsing, downloading, and studying solutions.
+- Getting started, browsing strategies, and navigation tools
+- Understanding solutions and complexity analysis
+- Multi-language selection and comparison
+- Study strategies and learning paths
+
 See [docs/user-guide/README.md](docs/user-guide/README.md)
 
 ### Upload Guide
-Template and formatting standards for contributing solutions.
+Template and formatting standards for contributing solutions in 7 languages.
+- Solution templates for Python, JavaScript, TypeScript, Java, C++, Go, Rust
+- Language-specific formatting guides with complete examples
+- Code quality standards and validation checklists
+- Upload workflows and troubleshooting
+
 See [docs/upload-guide/README.md](docs/upload-guide/README.md)
 
+### Developer Guide
+Technical documentation for contributors and maintainers.
+- Project architecture and component interactions
+- Language integration guide (templates, configuration, testing)
+- Contribution workflow (branching, PRs, code review)
+- Testing procedures and quality standards
+
+See [docs/developer-guide/README.md](docs/developer-guide/README.md)
+
 ### Supported Languages
-With language-agnostic markdown extraction supporting:
-- Python (primary - 276 solutions with full metadata)
-- JavaScript (complete coverage - 276 solutions)
-- TypeScript
-- Java
-- C++/C
-- C#
-- Go
-- Rust
-- Swift
-- Kotlin
-- Scala
+
+**Languages with Complete Template & Formatting Guide Support (7):**
+- **Python** - Type hints, docstrings, PEP 8 conventions (276 solutions with full metadata)
+- **JavaScript** - JSDoc, modern ES6+, Map/Set usage (276 solutions)
+- **TypeScript** - Type annotations, interfaces, generics
+- **Java** - Javadoc, collections framework, generics
+- **C++** - Doxygen comments, STL containers, C++17
+- **Go** - Go conventions, error handling, goroutines
+- **Rust** - Ownership/borrowing, Result/Option types
+
+Each language includes:
+- Solution template in `docs/developer-guide/templates/`
+- Comprehensive formatting guide in `docs/upload-guide/05-formatting-guidelines/`
+- Example implementations demonstrating best practices
+
+**Additional Languages Supported (via language-agnostic extraction):**
+- C, C#, Swift, Kotlin, Scala
 
 **File Structure:**
 ```
@@ -160,8 +187,16 @@ solutions/
 ├── arrays-hashing/
 │   ├── python/
 │   │   └── 0001-two-sum.py  (4-digit padding)
-│   └── javascript/
-│       └── 001-two-sum.js
+│   ├── javascript/
+│   │   └── 001-two-sum.js
+│   ├── java/
+│   │   └── 0001-two-sum.java.java
+│   ├── cpp/
+│   │   └── 0001-two-sum.cpp.cpp
+│   ├── go/
+│   │   └── 0001-two-sum.go.go
+│   └── rust/
+│       └── 0001-two-sum.rs.rs
 └── ... (29 categories total)
 ```
 
@@ -238,7 +273,9 @@ Upload alternative language solution
 
 ### Current Statistics
 - **Total Solutions**: 298+ problems across 29 categories
-- **Languages Supported**: 13 programming languages
+- **Languages with Complete Templates**: 7 (Python, JavaScript, TypeScript, Java, C++, Go, Rust)
+- **Total Languages Supported**: 13 programming languages
+- **Documentation Pages**: 40+ comprehensive guides
 - **Categories**: Arrays, Two Pointers, Stacks, Binary Search, Linked Lists, Trees, Graphs, Dynamic Programming, and more
 
 ### Solution Categories
@@ -247,10 +284,13 @@ Arrays & Hashing • Two Pointers • Sliding Window • Stacks • Binary Searc
 ## Contributing
 
 ### Adding New Solutions
-1. Use solution templates in `docs/upload-guide/`
-2. Follow naming convention: `{number}-{problem-name}.py`
-3. Include problem description in docstring
-4. Run tests and linting before committing
+1. Choose a language template from `docs/developer-guide/templates/`
+   - Python, JavaScript, TypeScript, Java, C++, Go, or Rust
+2. Follow the language-specific formatting guide in `docs/upload-guide/05-formatting-guidelines/`
+3. Use naming convention: `{4-digit-number}-{problem-name}.{ext}.{ext}`
+   - Example: `0001-two-sum.py.py` or `0001-two-sum.java.java`
+4. Include problem description, explanation, metadata, and test cases
+5. Run tests and linting before committing
 
 ### Code Quality
 ```bash
@@ -292,18 +332,28 @@ leet_code/
 │       ├── category_data.py        # Solution data management
 │       └── leetcode_converter.py   # Snake_case to camelCase converter
 │
+├── solutions/                      # Problem solutions (298+)
+│   ├── arrays-hashing/             # 29 category folders
+│   │   ├── python/                # Python solutions
+│   │   ├── javascript/            # JavaScript solutions
+│   │   ├── java/                  # Java solutions
+│   │   ├── cpp/                   # C++ solutions
+│   │   ├── go/                    # Go solutions
+│   │   └── rust/                  # Rust solutions
+│   ├── two-pointers/
+│   ├── sliding-window/
+│   └── ...
+│
 ├── docs/                           # Documentation hub
 │   ├── README.md                   # Documentation overview
-│   ├── solutions/                  # Problem solutions (298+)
-│   │   ├── arrays-hashing/         # Category folders (29 categories)
-│   │   │   ├── 001-two-sum.py     # Python solutions
-│   │   │   └── alternatives/       # Other language solutions
-│   │   ├── two-pointers/
-│   │   ├── sliding-window/
-│   │   └── ...
-│   ├── user-guide/                 # User documentation
-│   ├── upload-guide/               # Contributor guide
-│   └── developer-guide/            # Developer documentation
+│   ├── user-guide/                 # User documentation (10 sections)
+│   │   ├── browsing/              # Browsing strategies
+│   │   └── study/                 # Study methods
+│   ├── upload-guide/               # Contributor guide (5 sections)
+│   │   └── 05-formatting-guidelines/  # 7 language guides
+│   └── developer-guide/            # Developer documentation (11 sections)
+│       ├── templates/             # 7 language templates
+│       └── 08-language-support/   # Language integration guide
 │
 ├── templates/                      # Flask HTML templates
 │   ├── base.html

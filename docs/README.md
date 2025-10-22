@@ -232,52 +232,89 @@ This project is for educational purposes. Solutions are provided as learning res
 ## Appendix: Documentation Structure
 
 ```
-docs/
-├── README.md                        # This file - documentation hub
-│
-├── solutions/                       # 298+ problem solutions
+leet_code/
+├── solutions/                      # 298+ problem solutions (repository root)
 │   ├── arrays-hashing/             # 29 category directories
-│   │   ├── 001-two-sum.py         # Python solutions
-│   │   ├── 002-valid-anagram.py
-│   │   └── alternatives/           # Other language solutions
-│   │       ├── 001-two-sum.js     # JavaScript alternatives
-│   │       └── ...
-│   └── templates/                  # Solution templates
-│       ├── SOLUTION_TEMPLATE.py   # Python template
-│       └── SOLUTION_TEMPLATE.js   # JavaScript template
+│   │   ├── python/                 # Python solutions
+│   │   │   ├── 0001-two-sum.py    # 4-digit padded naming
+│   │   │   └── 0002-valid-anagram.py
+│   │   ├── javascript/             # JavaScript solutions
+│   │   │   ├── 001-two-sum.js     # 3-digit naming
+│   │   │   └── 002-valid-anagram.js
+│   │   ├── java/                   # Java solutions
+│   │   ├── cpp/                    # C++ solutions
+│   │   ├── go/                     # Go solutions
+│   │   └── rust/                   # Rust solutions
+│   └── ... (29 categories total)
 │
-├── user-guide/                     # User documentation (7 sections)
-│   ├── README.md                   # User guide entry point
-│   ├── 01-overview.md             # Platform introduction
-│   ├── 02-getting-started.md      # Installation and setup
-│   ├── 03-browsing-solutions.md   # Navigation guide
-│   ├── 04-downloading-solutions.md # Download formats
-│   ├── 05-code-viewing.md         # Code display features
-│   ├── 06-understanding-solutions.md # Problem analysis
-│   └── 07-study-strategies.md     # Learning approaches
-│
-├── upload-guide/                   # Contributor documentation (5 sections)
-│   ├── README.md                   # Upload guide entry point
-│   ├── 01-overview.md             # Contribution overview
-│   ├── 02-solution-structure.md   # File organization
-│   ├── 03-using-templates.md      # Template usage
-│   ├── 04-quality-requirements.md # Quality standards
-│   ├── 05-formatting-guidelines.md # Formatting details
-│   ├── SOLUTION_FORMATTING_GUIDE.md    # Python guide
-│   └── SOLUTION_FORMATTING_GUIDE_JS.md # JavaScript guide
-│
-└── developer-guide/                # Developer documentation (7 sections)
-    ├── README.md                   # Developer guide entry point
-    ├── 01-overview.md             # Project structure
-    ├── 02-flask-architecture.md   # Flask app details
-    ├── 03-data-management.md      # Data system
-    ├── 04-template-system.md      # Template generation
-    ├── 05-static-files.md         # CSS/JS assets
-    ├── 06-adding-features.md      # Feature development
-    └── 07-testing-procedures.md   # Quality checks and testing
+└── docs/
+    ├── README.md                   # This file - documentation hub
+    │
+    ├── user-guide/                 # User documentation (10 sections)
+    │   ├── README.md               # User guide entry point
+    │   ├── 01-overview.md          # Platform introduction
+    │   ├── 02-getting-started.md   # Installation and setup
+    │   ├── browsing/               # Browsing strategies (unnumbered)
+    │   │   ├── README.md           # Browsing overview
+    │   │   ├── categories.md       # Category navigation
+    │   │   ├── difficulty.md       # Difficulty filtering
+    │   │   ├── complexity.md       # Complexity filtering
+    │   │   └── smart-search.md     # Search features
+    │   ├── 03-downloading-solutions.md  # Download formats
+    │   ├── 04-code-viewing.md      # Code display features
+    │   ├── 05-understanding-solutions.md # Problem analysis
+    │   ├── study/                  # Study methods (unnumbered)
+    │   │   ├── README.md           # Study overview
+    │   │   ├── learning-paths.md   # Structured paths
+    │   │   └── practice-methods.md # Practice techniques
+    │   ├── 06-customizing-themes.md # Theme selection
+    │   ├── 07-language-selection.md # Language choosing
+    │   └── 08-language-examples.md # Language comparisons
+    │
+    ├── upload-guide/               # Contributor documentation (5 sections + 7 guides)
+    │   ├── README.md               # Upload guide entry point
+    │   ├── 01-overview.md          # Contribution overview
+    │   ├── 02-solution-structure.md # File organization
+    │   ├── 03-using-templates.md   # Template usage
+    │   ├── 04-quick-start.md       # Quick start workflows
+    │   └── 05-formatting-guidelines/ # Formatting details (subfolder)
+    │       ├── README.md           # General guidelines
+    │       ├── SOLUTION_FORMATTING_GUIDE_PY.md    # Python guide
+    │       ├── SOLUTION_FORMATTING_GUIDE_JS.md    # JavaScript guide
+    │       ├── SOLUTION_FORMATTING_GUIDE_TS.md    # TypeScript guide
+    │       ├── SOLUTION_FORMATTING_GUIDE_JAVA.md  # Java guide
+    │       ├── SOLUTION_FORMATTING_GUIDE_CPP.md   # C++ guide
+    │       ├── SOLUTION_FORMATTING_GUIDE_GO.md    # Go guide
+    │       └── SOLUTION_FORMATTING_GUIDE_RS.md    # Rust guide
+    │
+    └── developer-guide/            # Developer documentation (11 sections)
+        ├── README.md               # Developer guide entry point
+        ├── 01-overview.md          # Project structure
+        ├── 02-flask-architecture.md # Flask app details
+        ├── 03-data-management.md   # Data system
+        ├── 04-template-system.md   # Template generation
+        ├── 05-static-files.md      # CSS/JS assets
+        ├── 06-adding-features.md   # Feature development
+        ├── 07-testing-procedures.md # Quality checks
+        ├── 08-language-support/    # Language integration (subfolder)
+        │   ├── README.md           # Language support overview
+        │   ├── 01-template-creation.md  # Creating templates
+        │   ├── 02-adding-languages.md   # Integration procedures
+        │   └── 03-formatting-guide-creation.md # Writing guides
+        ├── 09-architecture.md      # System architecture
+        ├── 10-testing-languages.md # Language testing
+        ├── 11-contribution-workflow.md # Branch strategy, PRs
+        └── templates/              # Solution templates
+            ├── SOLUTION_TEMPLATE.py     # Python template
+            ├── SOLUTION_TEMPLATE.js     # JavaScript template
+            ├── SOLUTION_TEMPLATE.ts     # TypeScript template
+            ├── SOLUTION_TEMPLATE.java   # Java template
+            ├── SOLUTION_TEMPLATE.cpp    # C++ template
+            ├── SOLUTION_TEMPLATE.go     # Go template
+            └── SOLUTION_TEMPLATE.rs     # Rust template
 ```
 
 ---
 
-**Project Statistics**: 298+ solutions | 29 categories | 19 documentation guides
-**Last Updated**: 2025-01-10
+**Project Statistics**: 298+ solutions | 29 categories | 7 languages with complete templates | 40+ comprehensive guides
+**Last Updated**: 2025-01-22

@@ -77,20 +77,24 @@ Reviewing and updating existing solutions:
 
 ## Quick Reference
 
-### Python Solutions
-- Template: [`SOLUTION_TEMPLATE.py`](../solutions/templates/SOLUTION_TEMPLATE.py)
-- Guide: [`SOLUTION_FORMATTING_GUIDE.md`](SOLUTION_FORMATTING_GUIDE.md)
-- Location: `docs/solutions/{category}/NNN-problem-name.py`
+### Supported Languages
 
-### JavaScript Solutions
-- Template: [`SOLUTION_TEMPLATE.js`](../solutions/templates/SOLUTION_TEMPLATE.js)
-- Guide: [`SOLUTION_FORMATTING_GUIDE_JS.md`](SOLUTION_FORMATTING_GUIDE_JS.md)
-- Location: `docs/solutions/{category}/javascript/NNN-problem-name.js.js`
+| Language | Template | Guide | File Location |
+|----------|----------|-------|---------------|
+| **Python** | [`SOLUTION_TEMPLATE.py`](../developer-guide/templates/SOLUTION_TEMPLATE.py) | [Formatting Guide](05-formatting-guidelines/SOLUTION_FORMATTING_GUIDE_PY.md) | `docs/solutions/{category}/NNN-problem-name.py` |
+| **JavaScript** | [`SOLUTION_TEMPLATE.js`](../developer-guide/templates/SOLUTION_TEMPLATE.js) | [Formatting Guide](05-formatting-guidelines/SOLUTION_FORMATTING_GUIDE_JS.md) | `docs/solutions/{category}/javascript/NNN-problem-name.js.js` |
+| **TypeScript** | [`SOLUTION_TEMPLATE.ts`](../developer-guide/templates/SOLUTION_TEMPLATE.ts) | [Formatting Guide](05-formatting-guidelines/SOLUTION_FORMATTING_GUIDE_TS.md) | `docs/solutions/{category}/typescript/NNN-problem-name.ts.ts` |
+| **C++** | [`SOLUTION_TEMPLATE.cpp`](../developer-guide/templates/SOLUTION_TEMPLATE.cpp) | [Formatting Guide](05-formatting-guidelines/SOLUTION_FORMATTING_GUIDE_CPP.md) | `docs/solutions/{category}/cpp/NNN-problem-name.cpp.cpp` |
+| **Java** | [`SOLUTION_TEMPLATE.java`](../developer-guide/templates/SOLUTION_TEMPLATE.java) | [Formatting Guide](05-formatting-guidelines/SOLUTION_FORMATTING_GUIDE_JAVA.md) | `docs/solutions/{category}/java/NNN-problem-name.java.java` |
+| **Go** | [`SOLUTION_TEMPLATE.go`](../developer-guide/templates/SOLUTION_TEMPLATE.go) | [Formatting Guide](05-formatting-guidelines/SOLUTION_FORMATTING_GUIDE_GO.md) | `docs/solutions/{category}/go/NNN-problem-name.go.go` |
+| **Rust** | [`SOLUTION_TEMPLATE.rs`](../developer-guide/templates/SOLUTION_TEMPLATE.rs) | [Formatting Guide](05-formatting-guidelines/SOLUTION_FORMATTING_GUIDE_RS.md) | `docs/solutions/{category}/rust/NNN-problem-name.rs.rs` |
 
-### Other Languages
-- Location: `docs/solutions/{category}/javascript/`
-- Naming: `NNN-problem-name.{ext}.{ext}`
-- Examples: `001-two-sum.java.java`, `001-two-sum.cpp.cpp`
+### File Naming Pattern
+```
+docs/solutions/{category}/{language}/NNN-problem-name.{ext}.{ext}
+```
+
+**Note:** Python is the exception and uses the root category directory without a language subdirectory.
 
 ## Solution Quality Standards
 

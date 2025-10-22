@@ -11,6 +11,13 @@ Welcome to the LeetCode Learning Tool Developer Guide. This guide provides compr
 5. [Static Files](05-static-files.md) - CSS, JavaScript, and static asset organization
 6. [Adding Features](06-adding-features.md) - Guidelines for implementing new functionality
 7. [Testing Procedures](07-testing-procedures.md) - Quality checks, testing, and deployment
+8. [Language Support](08-language-support/README.md) - Complete guide to adding new programming languages
+   - [Template Creation](08-language-support/01-template-creation.md) - Creating language-specific templates
+   - [Adding Languages](08-language-support/02-adding-languages.md) - Integration procedures and configuration
+   - [Formatting Guides](08-language-support/03-formatting-guide-creation.md) - Writing language documentation
+9. [Architecture](09-architecture.md) - System architecture, component interactions, and data flow
+10. [Testing Languages](10-testing-languages.md) - Testing procedures for language integration
+11. [Contribution Workflow](11-contribution-workflow.md) - Branch strategy, PRs, and contribution guidelines
 
 ## Quick Links
 [↑ Back to Table of Contents](#table-of-contents)
@@ -19,9 +26,7 @@ Welcome to the LeetCode Learning Tool Developer Guide. This guide provides compr
 - **Flask Application**: [`src/leet_code/app.py`](../../src/leet_code/app.py) - Main web interface
 - **Category Manager**: [`src/leet_code/category_data.py`](../../src/leet_code/category_data.py) - Data management
 - **Project Config**: [`pyproject.toml`](../../pyproject.toml) - PDM configuration and dependencies
-- **Solution Templates**:
-  - Python: [`docs/solutions/templates/SOLUTION_TEMPLATE.py`](../solutions/templates/SOLUTION_TEMPLATE.py)
-  - JavaScript: [`docs/solutions/templates/SOLUTION_TEMPLATE.js`](../solutions/templates/SOLUTION_TEMPLATE.js)
+- **Solution Templates**: [`docs/developer-guide/templates/`](templates/) - All 7 language templates
 
 ## Technology Stack
 [↑ Back to Table of Contents](#table-of-contents)
@@ -65,9 +70,9 @@ pdm run python -m src.leet_code.app
 [↑ Back to Table of Contents](#table-of-contents)
 
 - **Solutions**: 298+ problems across 29 categories
-- **Languages**: Python (primary), JavaScript (alternative)
+- **Languages**: 7 supported (Python, JavaScript, TypeScript, Java, C++, Go, Rust)
 - **Categories**: Arrays, Dynamic Programming, Graphs, Trees, and more
-- **Documentation**: Comprehensive guides for users and developers
+- **Documentation**: Comprehensive guides for users, contributors, and developers
 
 ## Getting Help
 [↑ Back to Table of Contents](#table-of-contents)

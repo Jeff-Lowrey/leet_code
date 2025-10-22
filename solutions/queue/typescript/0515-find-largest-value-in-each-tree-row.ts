@@ -1,0 +1,144 @@
+/**
+ * # Difficulty: Medium
+ * 
+ * # 515. Find Largest Value in Each Tree Row
+ * 
+ * Given the root of a binary tree, return an array of the largest value in each row of the tree (0-indexed).
+ * 
+ * **Example:**
+ * 
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[1, 3, 9]</dd>
+ * <dt>Output:</dt>
+ * <dd>1</dd>
+ * <dt>Explanation:</dt>
+ * <dd>Largest value in each tree level: [1,3,9]</dd>
+ * </dl>
+ * 
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * **Techniques**: Hash Map Storage, Array Traversal, Two Pointers
+ * **Data Structures**: Array, Stack, Queue
+ * **Patterns**: Two Pointers Pattern, Hash Table Pattern
+ * **Time Complexity**: O(n) - Single pass through input
+ * **Space Complexity**: O(w)
+ * 
+ * ### INTUITION:
+ * Use level-order traversal (BFS) to process nodes level by level.
+ * For each level, track the maximum value among all nodes at that level.
+ * 
+ * ### APPROACH:
+ * 1. **Handle edge case**: Return empty list if tree is empty
+ * 2. **Initialize BFS**: Use a deque with root node
+ * 3. **For each level**:
+ *    - Process all nodes at current level
+ *    - Track maximum value seen at this level
+ *    - Add maximum to result
+ *    - Add children to queue for next level
+ * 
+ * ### WHY THIS WORKS:
+ * - BFS processes nodes level by level
+ * - Within each level, we can easily find the maximum value
+ * - By processing level boundaries (queue size), we separate levels
+ * - Each level's maximum is independent of other levels
+ * 
+ * ### EXAMPLE WALKTHROUGH:
+ * ```
+ * Tree:      1
+ *          /   \\
+ *         3     2
+ *        / \\     \\
+ *       5   3     9
+ * 
+ * Level 0: max = 1
+ * Level 1: max = max(3, 2) = 3
+ * Level 2: max = max(5, 3, 9) = 9
+ * Result: [1, 3, 9]
+ * ```
+ * 
+ * ### TIME COMPLEXITY:
+ * O(n)
+ * - Visit each node exactly once
+ * - n = number of nodes in tree
+ * 
+ * ### SPACE COMPLEXITY:
+ * O(w)
+ * - Queue holds at most one level of nodes at a time
+ * - w = maximum width of tree (worst case: n/2 for complete tree)
+ * - Result storage: O(h) where h = height
+ * 
+ * ### EDGE CASES:
+ * - Empty tree: Return []
+ * - Single node: Return [root.val]
+ * - All negative values: Returns correct negative maximum
+ * - Skewed tree: Each level has one node
+ * 
+ * </details>
+ */
+
+class Solution {
+  /**
+   * Find largest value in each row of binary tree.
+   *
+   * Args:
+   *     root: Root node of binary tree
+   *
+   * Returns:
+   *     List of maximum values for each level
+   *
+   * Time Complexity: O(n)
+   * Space Complexity: O(w) where w is max width of tree
+   */
+  largestValues(root: any): number[] {
+    if (!root) {
+      return [];
+    }
+    const queue = deque([root]);
+    while (queue) {
+      const level_size = queue.length;
+      const level_max = float("-inf");
+      for (let _ = 0; _ < level_size; _++) {
+        const node = queue.popleft();
+        const level_max = max(level_max, node.val);
+        if (node.left) {
+          queue.append(node.left);
+        }
+        if (node.right) {
+          queue.append(node.right);
+        }
+      }
+      result.append(level_max);
+    }
+    return result;
+  }
+
+  /**
+   * Alternative DFS solution using depth tracking.
+   *
+   * Time Complexity: O(n)
+   * Space Complexity: O(h) where h is height (recursion stack)
+   */
+  largestValues_dfs(root: any): number[] {
+    dfs(root, 0);
+    return result;
+  }
+
+}
+
+// Test cases
+if (typeof module !== "undefined" && module.exports) {
+  module.exports = Solution;
+}
+
+function runTests(): void {
+  const solution = new Solution();
+
+  test_solution();
+}
+
+if (typeof require !== "undefined" && require.main === module) {
+  runTests();
+}
+
+export default Solution;

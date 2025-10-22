@@ -1,0 +1,158 @@
+/**
+ * # 38. Count And Say
+ *
+ * # Difficulty: Medium
+ *
+ * The count-and-say sequence is a sequence of digit strings defined by the recursive formula:
+ * - countAndSay(1) = "1"
+ * - countAndSay(n) is the way you would "say" the digit string from countAndSay(n-1),
+ *   which is then converted into a different digit string.
+ *
+ * To determine how you "say" a digit string, split it into the minimal number of substrings
+ * such that each substring contains exactly one unique digit. Then for each substring,
+ * say the number of digits, then say the digit. Finally, concatenate every said digit.
+ *
+ * **Example:**
+ *
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>n = 4</dd>
+ * <dt>Output:</dt>
+ * <dd>1211"</dd>
+ * <dt>Explanation:</dt>
+ * <dd>4th count-and-say term is '1211'</dd>
+ * </dl>
+ *
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * **Techniques**: Hash Map Storage, Array Traversal, Two Pointers
+ * **Data Structures**: Array, String, Stack
+ * **Patterns**: Two Pointers Pattern, Hash Table Pattern
+ * **Time Complexity**: O(n * m)
+ * **Space Complexity**: O(m)
+ *
+ * ### INTUITION:
+ * The count-and-say sequence is built iteratively where each term describes the previous term
+ * by counting consecutive identical digits. We read the previous result from left to right,
+ * counting how many times each digit appears consecutively, then building a new string.
+ *
+ * ### APPROACH:
+ * 1. **Base Case**: Start with "1" for n=1
+ * 2. **Iterative Building**: For each iteration from 2 to n:
+ *    - Read through the previous string
+ *    - Count consecutive occurrences of each digit
+ *    - Build new string by appending count + digit
+ * 3. **Two-Pointer Technique**: Use two pointers to identify runs of same digits
+ * 4. **String Construction**: Use list for efficient string building
+ *
+ * ### WHY THIS WORKS:
+ * - Each term is uniquely determined by the previous term
+ * - We process left to right, counting consecutive identical digits
+ * - The pattern is deterministic and follows a clear rule
+ * - Building with a list and joining is efficient in Python
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * ```
+ * n = 5:
+ * 1. "1"
+ * 2. "11" (one 1)
+ * 3. "21" (two 1s)
+ * 4. "1211" (one 2, one 1)
+ * 5. "111221" (one 1, one 2, two 1s)
+ *
+ * For "1211" → "111221":
+ * - Read '1' once: "11"
+ * - Read '2' once: "12"
+ * - Read '1' twice: "21"
+ * - Result: "111221"
+ * ```
+ *
+ * ### TIME COMPLEXITY:
+ * O(n * m)
+ * - n iterations to build up to the nth term
+ * - m is the length of the string at each iteration (grows exponentially)
+ * - Each iteration processes the entire string once
+ *
+ * ### SPACE COMPLEXITY:
+ * O(m)
+ * - m is the length of the current string
+ * - We store the result string which grows with each iteration
+ *
+ * ### EDGE CASES:
+ * - n = 1: Return "1" directly
+ * - Long sequences: String grows exponentially
+ * - All same digits: Still processed character by character
+ *
+ * </details>
+ */
+
+class Solution {
+  /**
+   * Generate the nth term of the count-and-say sequence.
+   *
+   * Time Complexity: O(n * m)
+   * Space Complexity: O(m)
+   */
+  countAndSay(n: number): number {
+    if (n === 1) {
+      return "1";
+    }
+
+    let result = "1";
+    for (let i = 1; i < n; i++) {
+      result = this.sayNumber(result);
+    }
+
+    return result;
+  }
+
+  private sayNumber(s: string): string {
+    if (!s) {
+      return "";
+    }
+
+    const result: string[] = [];
+    let i = 0;
+
+    while (i < s.length) {
+      const digit = s[i];
+      let count = 1;
+
+      // Count consecutive occurrences of the same digit
+      while (i + count < s.length && s[i + count] === digit) {
+        count++;
+      }
+
+      // Append count and digit
+      result.push(count.toString());
+      result.push(digit);
+
+      // Move to the next different digit
+      i += count;
+    }
+
+    return result.join("");
+  }
+}
+
+if (typeof module !== "undefined" && module.exports) {
+  module.exports = Solution;
+}
+
+function runTests(): void {
+  const solution = new Solution();
+
+  console.log(`Test 1: ${solution.countAndSay(1) === "1" ? "PASS" : "FAIL"}`);
+  console.log(`Test 2: ${solution.countAndSay(2) === "11" ? "PASS" : "FAIL"}`);
+  console.log(`Test 3: ${solution.countAndSay(3) === "21" ? "PASS" : "FAIL"}`);
+  console.log(`Test 4: ${solution.countAndSay(4) === "1211" ? "PASS" : "FAIL"}`);
+  console.log(`Test 5: ${solution.countAndSay(5) === "111221" ? "PASS" : "FAIL"}`);
+
+  console.log("\nAll test cases completed!");
+}
+
+if (typeof require !== "undefined" && require.main === module) {
+  runTests();
+}
+
+export default Solution;

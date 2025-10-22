@@ -1,6 +1,6 @@
 # Testing Procedures
 
-[← Previous: Adding Features](06-adding-features.md) | [🏠 Home](README.md)
+[← Previous: Adding Features](06-adding-features.md) | [🏠 Home](README.md) | [Next: Language Support →](08-language-support/README.md)
 
 ---
 
@@ -731,4 +731,4 @@ pdm run python -m src.leet_code.app
 
 ---
 
-[← Previous: Adding Features](06-adding-features.md) | [🏠 Home](README.md)
+[← Previous: Adding Features](06-adding-features.md) | [🏠 Home](README.md) | [Next: Language Support →](08-language-support/README.md)
