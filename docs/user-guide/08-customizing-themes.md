@@ -1,6 +1,6 @@
 # Customizing Themes
 
-[← Previous: Study Strategies](07-study-strategies.md) | [🏠 Home](README.md)
+[← Previous: Study Strategies](07-study/README.md) | [🏠 Home](README.md)
 
 ---
 
@@ -394,4 +394,4 @@ Choose the theme that makes your learning experience most comfortable and enjoya
 
 ---
 
-[← Previous: Study Strategies](07-study-strategies.md) | [🏠 Home](README.md)
+[← Previous: Study Strategies](07-study/README.md) | [🏠 Home](README.md)

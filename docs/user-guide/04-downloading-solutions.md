@@ -1,6 +1,6 @@
 # Downloading Solutions
 
-[← Previous: Browsing Solutions](03-browsing-solutions.md) | [🏠 Home](README.md) | [Next: Code Viewing →](05-code-viewing.md)
+[← Previous: Browsing Solutions](03-browsing/README.md) | [🏠 Home](README.md) | [Next: Code Viewing →](05-code-viewing.md)
 
 ---
 
@@ -318,4 +318,4 @@ git commit -m "Add reference solution"
 
 ---
 
-[← Previous: Browsing Solutions](03-browsing-solutions.md) | [🏠 Home](README.md) | [Next: Code Viewing →](05-code-viewing.md)
+[← Previous: Browsing Solutions](03-browsing/README.md) | [🏠 Home](README.md) | [Next: Code Viewing →](05-code-viewing.md)

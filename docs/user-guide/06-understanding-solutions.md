@@ -1,6 +1,6 @@
 # Understanding Solutions
 
-[← Previous: Code Viewing](05-code-viewing.md) | [🏠 Home](README.md) | [Next: Study Strategies →](07-study-strategies.md)
+[← Previous: Code Viewing](05-code-viewing.md) | [🏠 Home](README.md) | [Next: Study Strategies →](07-study/README.md)
 
 ---
 
@@ -382,4 +382,4 @@ Many problems include multiple approaches:
 
 ---
 
-[← Previous: Code Viewing](05-code-viewing.md) | [🏠 Home](README.md) | [Next: Study Strategies →](07-study-strategies.md)
+[← Previous: Code Viewing](05-code-viewing.md) | [🏠 Home](README.md) | [Next: Study Strategies →](07-study/README.md)
