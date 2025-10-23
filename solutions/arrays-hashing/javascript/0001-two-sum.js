@@ -21,11 +21,11 @@
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: * **O(n)** - Single pass through array with O(1) hash map lookups
-**Space Complexity**: * **O(n)** - Hash map stores up to n elements in worst case
+**Techniques**: Hash Table Lookup, Single Pass
+**Data Structures**: Hash Map, Array
+**Patterns**: Complement Search
+**Time Complexity**: **O(n)** - Single pass through array with O(1) hash map lookups
+**Space Complexity**: **O(n)** - Hash map stores up to n elements in worst case
 
  *
  * ### INTUITION:
