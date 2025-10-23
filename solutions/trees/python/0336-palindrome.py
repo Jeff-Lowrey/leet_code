@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 336. Palindrome
+# 336. Palindrome Pairs
 
 You are given an array of strings words. A palindrome pair is defined as a pair of integers (i, j) where i != j such that the concatenation of words[i] + words[j] is a palindrome.
 

@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  *
- * # 130. Surrounded
+ * # 130. Surrounded Regions
  *
  * Given an m x n matrix board containing 'X' and 'O', capture all regions that are 4-directionally surrounded by 'X'.
  *

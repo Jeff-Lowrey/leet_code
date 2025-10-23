@@ -9,6 +9,30 @@
  *
  * Given two integer n and k, return the kth (1-indexed) symbol in the nth row.
  *
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ *
+ * ### METADATA:
+ * **Techniques**: Recursion, Binary Tree Traversal, Bit Manipulation
+ * **Data Structures**: Binary Tree (implicit), Call Stack
+ * **Patterns**: Divide and Conquer, Parent-Child Relationship
+ * **Time Complexity**: **O(n)** - Recursively navigate n levels
+ * **Space Complexity**: **O(n)** - Recursion call stack depth
+ *
+ * ### INTUITION:
+ * Each row forms a binary tree. Find parent symbol recursively and apply transformation rule.
+ *
+ * ### APPROACH:
+ * Recursively find parent position in previous row and determine if k is left or right child.
+ *
+ * ### TIME COMPLEXITY:
+ * **O(n)** - Recurse through n rows
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(n)** - Recursion depth
+ *
+ * </details>
+ *
  * @param {number} n
  * @param {number} k
  * @return {number}
