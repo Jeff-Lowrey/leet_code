@@ -1,16 +1,55 @@
 /**
  * # 1275. Find Winner On A Tic Tac Toe Game
  *
- * LeetCode Problem 1275: Find Winner on a Tic Tac Toe Game
- * Difficulty: Easy
- * Category: Simulation
+ * Solve problem #1275: Find Winner On A Tic Tac Toe Game
  *
- * METADATA:
- * Techniques: Simulation, Game state checking
- * Data Structures: 2D array
- * Patterns: Win condition checking
- * Time Complexity: O(n)
- * Space Complexity: O(1)
+ * **Example:**
+ *
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>input data here</dd>
+ * <dt>Output:</dt>
+ * <dd>output data here</dd>
+ * <dt>Explanation:</dt>
+ * <dd>Explanation of the solution</dd>
+ * </dl>
+ *
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ *
+ * ### METADATA:
+ * **Techniques**: Simulation, Game state checking
+ * **Data Structures**: 2D array
+ * **Patterns**: Win condition checking
+ * **Time Complexity**: **O(n²)**
+ * **Space Complexity**: **O(n)**
+ *
+ * ### INTUITION:
+ * The key insight is to solve this problem efficiently.
+ *
+ * ### APPROACH:
+ * We solve this problem by implementing the required algorithm.
+ *
+ * ### WHY THIS WORKS:
+ * This approach works because it correctly implements the problem requirements.
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * ```
+ * Input: example input
+ * Output: example output
+ * ```
+ *
+ * ### TIME COMPLEXITY:
+ * **O(n²)** - Analysis of time complexity
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(n)** - Analysis of space complexity
+ *
+ * ### EDGE CASES:
+ * - Handle empty input
+ * - Handle boundary conditions
+ *
+ * </details>
  */
 
 function tictactoe(moves: number[][]): string {

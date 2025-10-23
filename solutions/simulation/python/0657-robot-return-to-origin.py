@@ -1,37 +1,57 @@
 """
 # 657. Robot Return To Origin
 
-LeetCode Problem 657: Robot Return to Origin
-Difficulty: Easy
-Category: Simulation
+# Difficulty: Easy
 
-Problem Description:
-There is a robot starting at position (0, 0) on a 2D plane. Given a sequence of its moves,
-judge if this robot ends up at (0, 0) after it completes its moves.
+Solve problem #657: Robot Return To Origin
 
-The move sequence is represented by a string, and the character moves[i] represents its ith move.
-Valid moves are 'R' (right), 'L' (left), 'U' (up), and 'D' (down). Return true if the robot
-returns to the origin after all moves, or false otherwise.
+**Example:**
+ *
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>input data here</dd>
+<dt>Output:</dt>
+<dd>output data here</dd>
+<dt>Explanation:</dt>
+<dd>Explanation of the solution</dd>
+</dl>
 
-Example 1:
-Input: moves = "UD"
-Output: true
-Explanation: The robot moves up once, and then down once. All moves have the same magnitude, so it ended up at the origin.
-
-Example 2:
-Input: moves = "LL"
-Output: false
-
-Constraints:
-- 1 <= moves.length <= 2 * 10^4
-- moves only contains the characters 'U', 'D', 'L', and 'R'.
-
-METADATA:
-Techniques: Simulation, Counting
-Data Structures: String
-Patterns: Position tracking, Balance checking
-Time Complexity: O(n)
-Space Complexity: O(1)
+<details>
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ *
+### METADATA:
+**Techniques**: Simulation, Counting
+**Data Structures**: String
+**Patterns**: Position tracking, Balance checking
+**Time Complexity**: **O(n²)**
+**Space Complexity**: **O(1)**
+ *
+### INTUITION:
+The key insight is to solve this problem efficiently.
+ *
+### APPROACH:
+We solve this problem by implementing the required algorithm.
+ *
+### WHY THIS WORKS:
+This approach works because it correctly implements the problem requirements.
+ *
+### EXAMPLE WALKTHROUGH:
+```
+Input: example input
+Output: example output
+```
+ *
+### TIME COMPLEXITY:
+**O(n²)** - Analysis of time complexity
+ *
+### SPACE COMPLEXITY:
+**O(1)** - Analysis of space complexity
+ *
+### EDGE CASES:
+- Handle empty input
+- Handle boundary conditions
+ *
+</details>
 """
 
 

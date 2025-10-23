@@ -1,34 +1,57 @@
 """
 # 498. Diagonal Traverse
 
-LeetCode Problem 498: Diagonal Traverse
-Difficulty: Medium
-Category: Simulation
+# Difficulty: Medium
 
-Problem Description:
-Given an m x n matrix mat, return an array of all elements in diagonal order.
+Solve problem #498: Diagonal Traverse
 
-Example 1:
-Input: mat = [[1,2,3],[4,5,6],[7,8,9]]
-Output: [1,2,4,7,5,3,6,8,9]
+**Example:**
+ *
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>input data here</dd>
+<dt>Output:</dt>
+<dd>output data here</dd>
+<dt>Explanation:</dt>
+<dd>Explanation of the solution</dd>
+</dl>
 
-Example 2:
-Input: mat = [[1,2],[3,4]]
-Output: [1,2,3,4]
-
-Constraints:
-- m == mat.length
-- n == mat[i].length
-- 1 <= m, n <= 10^4
-- 1 <= m * n <= 10^4
-- -10^5 <= mat[i][j] <= 10^5
-
-METADATA:
-Techniques: Simulation, Direction control, Diagonal traversal
-Data Structures: Matrix, Array
-Patterns: Diagonal pattern, Boundary handling
-Time Complexity: O(m * n)
-Space Complexity: O(1) excluding output
+<details>
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ *
+### METADATA:
+**Techniques**: Simulation, Direction control, Diagonal traversal
+**Data Structures**: Matrix, Array
+**Patterns**: Diagonal pattern, Boundary handling
+**Time Complexity**: **O(n²)**
+**Space Complexity**: **O(n)**
+ *
+### INTUITION:
+The key insight is to solve this problem efficiently.
+ *
+### APPROACH:
+We solve this problem by implementing the required algorithm.
+ *
+### WHY THIS WORKS:
+This approach works because it correctly implements the problem requirements.
+ *
+### EXAMPLE WALKTHROUGH:
+```
+Input: example input
+Output: example output
+```
+ *
+### TIME COMPLEXITY:
+**O(n²)** - Analysis of time complexity
+ *
+### SPACE COMPLEXITY:
+**O(n)** - Analysis of space complexity
+ *
+### EDGE CASES:
+- Handle empty input
+- Handle boundary conditions
+ *
+</details>
 """
 
 from typing import List

@@ -1,47 +1,57 @@
 """
 # 1275. Find Winner On A Tic Tac Toe Game
 
-LeetCode Problem 1275: Find Winner on a Tic Tac Toe Game
-Difficulty: Easy
-Category: Simulation
+# Difficulty: Easy
 
-Problem Description:
-Tic-tac-toe is played by two players A and B on a 3 x 3 grid. The rules are:
-- Players take turns placing characters into empty squares ' '.
-- The first player A always places 'X' characters, while the second player B places 'O'.
-- 'X' and 'O' characters are always placed into empty squares, never on filled ones.
-- The game ends when there are three of the same (non-empty) character filling any row, column, or diagonal.
-- The game also ends if all squares are non-empty.
-- No more moves can be played if the game is over.
+Solve problem #1275: Find Winner On A Tic Tac Toe Game
 
-Given a 2D integer array moves where moves[i] = [rowi, coli] indicates that the ith move will be
-played on grid[rowi][coli]. Return the winner of the game if it exists (A or B). In case the game
-ends in a draw return "Draw". If there are still movements to play return "Pending".
+**Example:**
+ *
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>input data here</dd>
+<dt>Output:</dt>
+<dd>output data here</dd>
+<dt>Explanation:</dt>
+<dd>Explanation of the solution</dd>
+</dl>
 
-Example 1:
-Input: moves = [[0,0],[2,0],[1,1],[2,1],[2,2]]
-Output: "A"
-
-Example 2:
-Input: moves = [[0,0],[1,1],[0,1],[0,2],[1,0],[2,0]]
-Output: "B"
-
-Example 3:
-Input: moves = [[0,0],[1,1],[2,0],[1,0],[1,2],[2,1],[0,1],[0,2],[2,2]]
-Output: "Draw"
-
-Constraints:
-- 1 <= moves.length <= 9
-- moves[i].length == 2
-- 0 <= rowi, coli <= 2
-- There are no repeated moves.
-
-METADATA:
-Techniques: Simulation, Game state checking
-Data Structures: 2D array
-Patterns: Win condition checking
-Time Complexity: O(n)
-Space Complexity: O(1)
+<details>
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ *
+### METADATA:
+**Techniques**: Simulation, Game state checking
+**Data Structures**: 2D array
+**Patterns**: Win condition checking
+**Time Complexity**: **O(n²)**
+**Space Complexity**: **O(1)**
+ *
+### INTUITION:
+The key insight is to solve this problem efficiently.
+ *
+### APPROACH:
+We solve this problem by implementing the required algorithm.
+ *
+### WHY THIS WORKS:
+This approach works because it correctly implements the problem requirements.
+ *
+### EXAMPLE WALKTHROUGH:
+```
+Input: example input
+Output: example output
+```
+ *
+### TIME COMPLEXITY:
+**O(n²)** - Analysis of time complexity
+ *
+### SPACE COMPLEXITY:
+**O(1)** - Analysis of space complexity
+ *
+### EDGE CASES:
+- Handle empty input
+- Handle boundary conditions
+ *
+</details>
 """
 
 from typing import List

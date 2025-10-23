@@ -1,39 +1,57 @@
 """
 # 885. Spiral Matrix Iii
 
-LeetCode Problem 885: Spiral Matrix III
-Difficulty: Medium
-Category: Simulation
+# Difficulty: Medium
 
-Problem Description:
-You start at the cell (rStart, cStart) of an rows x cols grid facing east. The northwest corner
-is at the first row and column, and the southeast corner is at the last row and column.
+Solve problem #885: Spiral Matrix Iii
 
-You will walk in a clockwise spiral shape to visit every position in this grid. Whenever you
-move outside the grid's boundary, continue your walk outside (but may return later). Eventually,
-you reach all rows * cols spaces of the grid.
+**Example:**
+ *
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>input data here</dd>
+<dt>Output:</dt>
+<dd>output data here</dd>
+<dt>Explanation:</dt>
+<dd>Explanation of the solution</dd>
+</dl>
 
-Return an array of coordinates representing the positions of the grid in order visited.
-
-Example 1:
-Input: rows = 1, cols = 4, rStart = 0, cStart = 0
-Output: [[0,0],[0,1],[0,2],[0,3]]
-
-Example 2:
-Input: rows = 5, cols = 6, rStart = 1, cStart = 4
-Output: [[1,4],[1,5],[2,5],[2,4],[2,3],[1,3],[0,3],[0,4],[0,5],[3,5],[3,4],[3,3],[3,2],[2,2],[1,2],[0,2],[4,5],[4,4],[4,3],[4,2],[4,1],[3,1],[2,1],[1,1],[0,1],[4,0],[3,0],[2,0],[1,0],[0,0]]
-
-Constraints:
-- 1 <= rows, cols <= 100
-- 0 <= rStart < rows
-- 0 <= cStart < cols
-
-METADATA:
-Techniques: Simulation, Direction control, Spiral traversal
-Data Structures: Array, List
-Patterns: Spiral pattern, Direction cycling
-Time Complexity: O(max(rows, cols)^2)
-Space Complexity: O(rows * cols)
+<details>
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ *
+### METADATA:
+**Techniques**: Simulation, Direction control, Spiral traversal
+**Data Structures**: Array, List
+**Patterns**: Spiral pattern, Direction cycling
+**Time Complexity**: **O(n²)**
+**Space Complexity**: **O(n)**
+ *
+### INTUITION:
+The key insight is to solve this problem efficiently.
+ *
+### APPROACH:
+We solve this problem by implementing the required algorithm.
+ *
+### WHY THIS WORKS:
+This approach works because it correctly implements the problem requirements.
+ *
+### EXAMPLE WALKTHROUGH:
+```
+Input: example input
+Output: example output
+```
+ *
+### TIME COMPLEXITY:
+**O(n²)** - Analysis of time complexity
+ *
+### SPACE COMPLEXITY:
+**O(n)** - Analysis of space complexity
+ *
+### EDGE CASES:
+- Handle empty input
+- Handle boundary conditions
+ *
+</details>
 """
 
 from typing import List

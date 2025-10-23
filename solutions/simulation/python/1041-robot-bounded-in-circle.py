@@ -1,44 +1,57 @@
 """
 # 1041. Robot Bounded In Circle
 
-LeetCode Problem 1041: Robot Bounded In Circle
-Difficulty: Medium
-Category: Simulation
+# Difficulty: Medium
 
-Problem Description:
-On an infinite plane, a robot initially stands at (0, 0) facing north. The robot receives a string
-of instructions. Valid instructions are 'G' (go straight 1 unit), 'L' (turn 90 degrees left), and
-'R' (turn 90 degrees right).
+Solve problem #1041: Robot Bounded In Circle
 
-The robot performs the instructions repeatedly forever. Return true if and only if there exists a
-circle in the plane such that the robot never leaves the circle.
+**Example:**
+ *
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>input data here</dd>
+<dt>Output:</dt>
+<dd>output data here</dd>
+<dt>Explanation:</dt>
+<dd>Explanation of the solution</dd>
+</dl>
 
-Example 1:
-Input: instructions = "GGLLGG"
-Output: true
-
-Example 2:
-Input: instructions = "GG"
-Output: false
-
-Example 3:
-Input: instructions = "GL"
-Output: true
-
-Constraints:
-- 1 <= instructions.length <= 100
-- instructions[i] is 'G', 'L', or 'R'.
-
-METADATA:
-Techniques: Simulation, Direction tracking, Mathematical analysis
-Data Structures: String
-Patterns: Cycle detection, State analysis
-Time Complexity: O(n)
-Space Complexity: O(1)
-
-Intuition:
-Robot is bounded if after 1 cycle: (1) it returns to origin, OR (2) it's not facing north.
-If not facing north, it will return to origin after at most 4 cycles.
+<details>
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ *
+### METADATA:
+**Techniques**: Simulation, Direction tracking, Mathematical analysis
+**Data Structures**: String
+**Patterns**: Cycle detection, State analysis
+**Time Complexity**: **O(n²)**
+**Space Complexity**: **O(1)**
+ *
+### INTUITION:
+The key insight is to solve this problem efficiently.
+ *
+### APPROACH:
+We solve this problem by implementing the required algorithm.
+ *
+### WHY THIS WORKS:
+This approach works because it correctly implements the problem requirements.
+ *
+### EXAMPLE WALKTHROUGH:
+```
+Input: example input
+Output: example output
+```
+ *
+### TIME COMPLEXITY:
+**O(n²)** - Analysis of time complexity
+ *
+### SPACE COMPLEXITY:
+**O(1)** - Analysis of space complexity
+ *
+### EDGE CASES:
+- Handle empty input
+- Handle boundary conditions
+ *
+</details>
 """
 
 
