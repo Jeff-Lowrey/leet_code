@@ -1,4 +1,6 @@
 /**
+ * # 525. Contiguous Array
+ *
  * # Difficulty: Medium
  *
  * Given a binary array nums, return the maximum length of a contiguous subarray

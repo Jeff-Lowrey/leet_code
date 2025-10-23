@@ -1,4 +1,6 @@
 /**
+ * # 696. Count Binary Substrings
+ *
  * # Difficulty: Easy
  *
  * Given a binary string s, return the number of non-empty substrings that have the same

@@ -1,4 +1,6 @@
 /**
+ * # 1019. Next Greater Node In Linked List
+ *
  * # Difficulty: Medium
  *
  * Given the head of a linked list, return an array of integers answer, where answer[i] is

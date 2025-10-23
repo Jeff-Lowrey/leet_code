@@ -1,4 +1,6 @@
 /**
+ * # 50. Powx N
+ *
  * # 50. Pow(x, n)
  *
  * # Difficulty: Medium

@@ -1,4 +1,6 @@
 /**
+ * # 326. Power Of Three
+ *
  * # 326. Power of Three
  *
  * # Difficulty: Easy
