@@ -1,5 +1,7 @@
 /**
  * # 37. Sudoku Solver
+ * Difficulty: Hard
+ *
  *
  * # Difficulty:
  *
