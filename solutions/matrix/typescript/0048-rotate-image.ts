@@ -11,11 +11,11 @@
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[[1, 2, 3]</dd>
+ * <dd>matrix = [[1,2,3],[4,5,6],[7,8,9]]</dd>
  * <dt>Output:</dt>
- * <dd>1</dd>
+ * <dd>[[7,4,1],[8,5,2],[9,6,3]]</dd>
  * <dt>Explanation:</dt>
- * <dd>Matrix rotated 90° clockwise</dd>
+ * <dd>Matrix rotated 90 degrees clockwise</dd>
  * </dl>
  *
  * <details>

@@ -9,11 +9,11 @@
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>"leetcode"</dd>
+ * <dd>s = "leetcode"</dd>
  * <dt>Output:</dt>
  * <dd>0</dd>
  * <dt>Explanation:</dt>
- * <dd>The first non-repeating character 'l' is at index 2 in 'leetcode'</dd>
+ * <dd>First non-repeating character is 'l' at index 0</dd>
  * </dl>
  *
  * <details>

@@ -11,11 +11,11 @@ Note that n! = n × (n - 1) × (n - 2) × ... × 3 × 2 × 1.
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>n = 30:</dd>
+<dd>n = 5</dd>
 <dt>Output:</dt>
-<dd>30/5 = 6 (multiples of 5: 5,10,15,20,25,30)</dd>
+<dd>1</dd>
 <dt>Explanation:</dt>
-<dd>Factorial 5! = 120 has 1 trailing zero</dd>
+<dd>5! = 120 has 1 trailing zero (from one factor of 5)</dd>
 </dl>
 
 <details>

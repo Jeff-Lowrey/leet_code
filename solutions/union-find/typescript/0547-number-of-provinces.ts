@@ -15,11 +15,11 @@
  * 
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[[1, 1, 0]</dd>
+ * <dd>isConnected = [[1,1,0],[1,1,0],[0,0,1]]</dd>
  * <dt>Output:</dt>
- * <dd>1</dd>
+ * <dd>2</dd>
  * <dt>Explanation:</dt>
- * <dd>Number of friend circles is 2</dd>
+ * <dd>There are 2 provinces: students 0 and 1 are connected, student 2 is separate</dd>
  * </dl>
  * 
  * <details>
