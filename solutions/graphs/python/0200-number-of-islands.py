@@ -11,11 +11,11 @@ An island is surrounded by water and is formed by connecting adjacent lands hori
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[["1","1","1","1","0"]</dd>
+<dd>grid = [["1","1","1","1","0"],["1","1","0","1","0"],["1","1","0","0","0"],["0","0","0","0","0"]]</dd>
 <dt>Output:</dt>
 <dd>1</dd>
 <dt>Explanation:</dt>
-<dd>Number of islands in binary grid is 3</dd>
+<dd>There is 1 island (all connected 1's in top-left)</dd>
 </dl>
 
 <details>

@@ -5,6 +5,30 @@
  *
  * Given an integer n, return true if it is a power of four. Otherwise, return false.
  *
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ *
+ * ### METADATA:
+ * **Techniques**: Bit Manipulation, Recursion, Math
+ * **Data Structures**: Integer
+ * **Patterns**: Power Detection, Bit Pattern Recognition
+ * **Time Complexity**: **O(1)** - Constant time bit operation or O(log n) for recursion
+ * **Space Complexity**: **O(1)** - Constant space or O(log n) for recursion stack
+ *
+ * ### INTUITION:
+ * Power of four has single bit set at even position. Check power of two and bit position.
+ *
+ * ### APPROACH:
+ * Verify n is power of two and bit is at even position using n & 0xAAAAAAAA == 0.
+ *
+ * ### TIME COMPLEXITY:
+ * **O(1)** - Constant bit operations
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(1)** - Constant space
+ *
+ * </details>
+ *
  * @param {number} n
  * @return {boolean}
  */

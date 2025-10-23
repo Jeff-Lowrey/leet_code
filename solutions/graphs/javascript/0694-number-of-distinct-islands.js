@@ -13,11 +13,11 @@
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[[1,1,0,0,0]</dd>
+ * <dd>grid = [[1,1,0,0,0],[1,1,0,0,0],[0,0,0,1,1],[0,0,0,1,1]]</dd>
  * <dt>Output:</dt>
  * <dd>1</dd>
  * <dt>Explanation:</dt>
- * <dd>Number of distinct islands is 3</dd>
+ * <dd>There is 1 distinct island shape (both islands have the same 2x2 rectangular shape)</dd>
  * </dl>
  *
  * <details>

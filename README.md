@@ -165,8 +165,8 @@ See [docs/developer-guide/README.md](docs/developer-guide/README.md)
 ### Supported Languages
 
 **Languages with Complete Template & Formatting Guide Support (7):**
-- **Python** - Type hints, docstrings, PEP 8 conventions (276 solutions with full metadata)
-- **JavaScript** - JSDoc, modern ES6+, Map/Set usage (276 solutions)
+- **Python** - Type hints, docstrings, PEP 8 conventions (280 solutions with full metadata)
+- **JavaScript** - JSDoc, modern ES6+, Map/Set usage (280 solutions)
 - **TypeScript** - Type annotations, interfaces, generics
 - **Java** - Javadoc, collections framework, generics
 - **C++** - Doxygen comments, STL containers, C++17
@@ -272,7 +272,7 @@ Upload alternative language solution
 ## Progress Tracking
 
 ### Current Statistics
-- **Total Solutions**: 298+ problems across 29 categories
+- **Total Solutions**: 280 unique problems across 29 categories (840 total solution files across 3 languages)
 - **Languages with Complete Templates**: 7 (Python, JavaScript, TypeScript, Java, C++, Go, Rust)
 - **Total Languages Supported**: 13 programming languages
 - **Documentation Pages**: 40+ comprehensive guides
@@ -332,7 +332,7 @@ leet_code/
 │       ├── category_data.py        # Solution data management
 │       └── leetcode_converter.py   # Snake_case to camelCase converter
 │
-├── solutions/                      # Problem solutions (298+)
+├── solutions/                      # Problem solutions (280 unique problems, 840 files)
 │   ├── arrays-hashing/             # 29 category folders
 │   │   ├── python/                # Python solutions
 │   │   ├── javascript/            # JavaScript solutions

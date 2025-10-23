@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 085. Maximal
+# 085. Maximal Rectangle
 
 Given a rows x cols binary matrix filled with 0's and 1's, find the largest rectangle containing only 1's and return its area.
 
@@ -9,11 +9,11 @@ Given a rows x cols binary matrix filled with 0's and 1's, find the largest rect
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>matrix = [["1","0","1","0","0"],["1","0","1","1","1"]]</dd>
+<dd>matrix = [["1","0","1","0","0"],["1","0","1","1","1"],["1","1","1","1","1"],["1","0","0","1","0"]]</dd>
 <dt>Output:</dt>
-<dd>3 (maximal rectangle)</dd>
+<dd>6</dd>
 <dt>Explanation:</dt>
-<dd>Maximal rectangle area is 6</dd>
+<dd>The maximal rectangle has area 6 (2 rows x 3 columns of 1's)</dd>
 </dl>
 
 <details>

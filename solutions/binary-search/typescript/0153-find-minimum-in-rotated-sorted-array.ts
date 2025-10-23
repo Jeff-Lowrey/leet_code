@@ -22,7 +22,7 @@
  * <dt>Output:</dt>
  * <dd>0 (minimum element)</dd>
  * <dt>Explanation:</dt>
- * <dd>Minimum element 1 is found in rotated array [3,4,5,1,2]</dd>
+ * <dd>The minimum element is 0 in the rotated sorted array [4,5,6,7,0,1,2]</dd>
  * </dl>
  *
  * <details>

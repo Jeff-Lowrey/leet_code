@@ -14,9 +14,9 @@ You may assume that the majority element always exists in the array.
 <dt>Input:</dt>
 <dd>[2, 2, 1, 1, 1, 2, 2]</dd>
 <dt>Output:</dt>
-<dd>7</dd>
+<dd>2</dd>
 <dt>Explanation:</dt>
-<dd>The majority element is 3, appearing 3 times in an array of size 5 (more than ⌊5/2⌋)</dd>
+<dd>The majority element is 2, appearing 4 times in an array of size 7 (more than ⌊7/2⌋ = 3)</dd>
 </dl>
 
 <details>

@@ -13,11 +13,11 @@ Return the maximum area of an island in grid. If there is no island, return 0.
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[[0,0,1,0,0,0,0,1,0,0,0,0,0]</dd>
+<dd>grid = [[0,0,1,0,0,0,0,1,0,0,0,0,0],[0,0,0,0,0,0,0,1,1,1,0,0,0],[0,1,1,0,1,0,0,0,0,0,0,0,0],[0,1,0,0,1,1,0,0,1,0,1,0,0],[0,1,0,0,1,1,0,0,1,1,1,0,0],[0,0,0,0,0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,1,1,1,0,0,0],[0,0,0,0,0,0,0,1,1,0,0,0,0]]</dd>
 <dt>Output:</dt>
-<dd>1</dd>
+<dd>6</dd>
 <dt>Explanation:</dt>
-<dd>Maximum island area is 6 square units</dd>
+<dd>The maximum area of an island is 6 square units</dd>
 </dl>
 
 <details>

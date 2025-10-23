@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 329. Longest
+# 329. Longest Increasing Path in a Matrix
 
 Given an m x n integers matrix, return the length of the longest increasing path in matrix.
 

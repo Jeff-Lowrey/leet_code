@@ -5,6 +5,30 @@
  *
  * Given a string s, return the longest palindromic substring in s.
  *
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ *
+ * ### METADATA:
+ * **Techniques**: Expand Around Center, Dynamic Programming
+ * **Data Structures**: String, Array
+ * **Patterns**: Two Pointers Pattern, Expand from Center
+ * **Time Complexity**: **O(n²)** - Expand around each center position
+ * **Space Complexity**: **O(1)** - Constant extra space
+ *
+ * ### INTUITION:
+ * A palindrome reads the same forwards and backwards. We can expand around each possible center.
+ *
+ * ### APPROACH:
+ * Expand around each character (odd-length) and between characters (even-length) to find palindromes.
+ *
+ * ### TIME COMPLEXITY:
+ * **O(n²)** - Expand around O(n) centers, each expansion takes O(n)
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(1)** - Only store indices
+ *
+ * </details>
+ *
  * @param {string} s
  * @return {string}
  */

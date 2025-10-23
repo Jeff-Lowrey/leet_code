@@ -11,11 +11,11 @@ Given an integer array nums representing the amount of money of each house, retu
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[2,7,9,3,1]</dd>
+<dd>nums = [2,7,9,3,1]</dd>
 <dt>Output:</dt>
-<dd>12 (maximum money)</dd>
+<dd>12</dd>
 <dt>Explanation:</dt>
-<dd>Maximum amount robbed from [1,2,3,1] is 4 by robbing houses 0 and 2</dd>
+<dd>Rob houses at indices 0, 2, 4 (values 2, 9, 1) for total 12</dd>
 </dl>
 
 <details>

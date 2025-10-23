@@ -1,5 +1,5 @@
 /**
- * # 15. 3sum
+ * # 15. 3Sum
  *
  * # Difficulty: Medium
  *
