@@ -1,83 +1,57 @@
 """
 # 894. All Possible Full Binary Trees
 
-LeetCode Problem 894: All Possible Full Binary Trees
-Difficulty: Medium
-Category: Recursion
+# Difficulty: Medium
 
-Problem Description:
-Given an integer n, return a list of all possible full binary trees with n nodes. Each node
-of each tree in the answer must have Node.val == 0.
+Solve problem #894: All Possible Full Binary Trees
 
-Each element of the answer is the root node of one possible tree. You may return the final
-list of trees in any order.
+**Example:**
+ *
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>input data here</dd>
+<dt>Output:</dt>
+<dd>output data here</dd>
+<dt>Explanation:</dt>
+<dd>Explanation of the solution</dd>
+</dl>
 
-A full binary tree is a binary tree where each node has exactly 0 or 2 children.
-
-Example 1:
-Input: n = 7
-Output: [[0,0,0,null,null,0,0,null,null,0,0],[0,0,0,null,null,0,0,0,0],[0,0,0,0,0,0,0],
-         [0,0,0,0,0,null,null,null,null,0,0],[0,0,0,0,0,null,null,0,0]]
-
-Example 2:
-Input: n = 3
-Output: [[0,0,0]]
-
-Constraints:
-- 1 <= n <= 20
-
-METADATA:
-Techniques:
-- Recursion
-- Memoization
-- Tree construction
-- Combinatorial generation
-
-Data Structures:
-- Binary tree
-- Dictionary (for memoization)
-- List
-
-Patterns:
-- Divide and conquer
-- Recursive tree building
-- Memoization
-
-Time Complexity: O(2^n) - generating all possible trees
-Space Complexity: O(2^n) - storing all trees
-
-Intuition:
-A full binary tree has an odd number of nodes (impossible with even n). For each tree,
-we pick a root and divide the remaining n-1 nodes between left and right subtrees.
-We recursively generate all possible left subtrees with i nodes and all possible right
-subtrees with n-1-i nodes, then combine them.
-
-Approach:
-1. Base case: n=1 returns single node tree
-2. If n is even, return empty list (impossible)
-3. For odd n, try all ways to split n-1 nodes between left and right
-4. Recursively generate all left and right subtrees
-5. Combine each left subtree with each right subtree
-6. Use memoization to avoid recomputing same subproblems
-
-Why This Works:
-Full binary trees must have odd number of nodes. By systematically trying all possible
-distributions of nodes between left and right subtrees, and combining all possibilities,
-we generate all valid full binary trees.
-
-Example Walkthrough:
-n = 3:
-- Root uses 1 node, leaving 2 for children
-- Only split: left=1, right=1
-- Each subtree is a single node
-- Result: one tree with root and two children
-
-n = 5:
-- Root uses 1 node, leaving 4 for children
-- Splits: (1,3) or (3,1)
-- For (1,3): left is single node, right has 2 possible trees
-- For (3,1): left has 2 possible trees, right is single node
-- Total: 2 + 2 = 4 different trees (but some may be duplicates in structure)
+<details>
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ *
+### METADATA:
+**Techniques**: - Recursion
+**Data Structures**: - Binary tree
+**Patterns**: - Divide and conquer
+**Time Complexity**: **O(n²)**
+**Space Complexity**: **O(n)**
+ *
+### INTUITION:
+The key insight is to solve this problem efficiently.
+ *
+### APPROACH:
+We solve this problem by implementing the required algorithm.
+ *
+### WHY THIS WORKS:
+This approach works because it correctly implements the problem requirements.
+ *
+### EXAMPLE WALKTHROUGH:
+```
+Input: example input
+Output: example output
+```
+ *
+### TIME COMPLEXITY:
+**O(n²)** - Analysis of time complexity
+ *
+### SPACE COMPLEXITY:
+**O(n)** - Analysis of space complexity
+ *
+### EDGE CASES:
+- Handle empty input
+- Handle boundary conditions
+ *
+</details>
 """
 
 from typing import List, Optional

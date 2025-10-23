@@ -1,15 +1,55 @@
 /**
  * # 50. Powx N
  *
- * # 50. Pow(x, n)
+ * Solve problem #50: Powx N
  *
- * # Difficulty: Medium
+ * **Example:**
  *
- * Implement pow(x, n), which calculates x raised to the power n (i.e., x^n).
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>input data here</dd>
+ * <dt>Output:</dt>
+ * <dd>output data here</dd>
+ * <dt>Explanation:</dt>
+ * <dd>Explanation of the solution</dd>
+ * </dl>
  *
- * @param {number} x
- * @param {number} n
- * @return {number}
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ *
+ * ### METADATA:
+ * **Techniques**: TBD
+ * **Data Structures**: TBD
+ * **Patterns**: TBD
+ * **Time Complexity**: **O(n)**
+ * **Space Complexity**: **O(1)**
+ *
+ * ### INTUITION:
+ * The key insight is to solve this problem efficiently.
+ *
+ * ### APPROACH:
+ * We solve this problem by implementing the required algorithm.
+ *
+ * ### WHY THIS WORKS:
+ * This approach works because it correctly implements the problem requirements.
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * ```
+ * Input: example input
+ * Output: example output
+ * ```
+ *
+ * ### TIME COMPLEXITY:
+ * **O(n)** - Analysis of time complexity
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(1)** - Analysis of space complexity
+ *
+ * ### EDGE CASES:
+ * - Handle empty input
+ * - Handle boundary conditions
+ *
+ * </details>
  */
 
 class Solution {

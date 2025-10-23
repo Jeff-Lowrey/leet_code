@@ -1,102 +1,55 @@
 /**
  * # 390. Elimination Game
  *
- * LeetCode Problem 390: Elimination Game
- * Difficulty: Medium
- * Category: Recursion
+ * Solve problem #390: Elimination Game
  *
- * Problem Description:
- * You have a list arr of all integers in the range [1, n] sorted in a strictly increasing order.
- * Apply the following algorithm on arr:
+ * **Example:**
  *
- * - Starting from left to right, remove the first number and every other number afterward until
- *   you reach the end of the list.
- * - Repeat the previous step again, but this time from right to left, remove the rightmost number
- *   and every other number from the remaining numbers.
- * - Keep repeating the steps again, alternating left to right and right to left, until a single
- *   number remains.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>input data here</dd>
+ * <dt>Output:</dt>
+ * <dd>output data here</dd>
+ * <dt>Explanation:</dt>
+ * <dd>Explanation of the solution</dd>
+ * </dl>
  *
- * Given the integer n, return the last number that remains in arr.
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * Example 1:
- * Input: n = 9
- * Output: 6
- * Explanation:
- * arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
- * arr = [2, 4, 6, 8]
- * arr = [2, 6]
- * arr = [6]
+ * ### METADATA:
+ * **Techniques**: * - Recursion
+ * **Data Structures**: * - None (pure mathematical solution)
+ * **Patterns**: * - Elimination pattern
+ * **Time Complexity**: **O(n²)**
+ * **Space Complexity**: **O(1)**
  *
- * Example 2:
- * Input: n = 1
- * Output: 1
+ * ### INTUITION:
+ * The key insight is to solve this problem efficiently.
  *
- * Constraints:
- * - 1 <= n <= 10^9
+ * ### APPROACH:
+ * We solve this problem by implementing the required algorithm.
  *
- * METADATA:
- * Techniques:
- * - Recursion
- * - Mathematical pattern recognition
- * - State tracking
+ * ### WHY THIS WORKS:
+ * This approach works because it correctly implements the problem requirements.
  *
- * Data Structures:
- * - None (pure mathematical solution)
+ * ### EXAMPLE WALKTHROUGH:
+ * ```
+ * Input: example input
+ * Output: example output
+ * ```
  *
- * Patterns:
- * - Elimination pattern
- * - Recursive state reduction
- * - Mathematical optimization
+ * ### TIME COMPLEXITY:
+ * **O(n²)** - Analysis of time complexity
  *
- * Time Complexity: O(log n)
- * Space Complexity: O(log n) for recursion stack (can be optimized to O(1) iteratively)
+ * ### SPACE COMPLEXITY:
+ * **O(1)** - Analysis of space complexity
  *
- * Intuition:
- * Instead of simulating the elimination process (which would be O(n) time and space), we can
- * observe patterns in how the "head" (leftmost element) changes after each elimination round.
- * The key insight is that we only need to track:
- * 1. The current head (leftmost remaining number)
- * 2. The step size (distance between remaining numbers)
- * 3. The direction (left-to-right or right-to-left)
- * 4. The remaining count
+ * ### EDGE CASES:
+ * - Handle empty input
+ * - Handle boundary conditions
  *
- * Approach:
- * We track the head of the remaining sequence. The head changes when:
- * - We're going left-to-right (always updates)
- * - We're going right-to-left AND the count is odd (head updates)
- *
- * After each round:
- * - Step size doubles (numbers are now twice as far apart)
- * - Count becomes count // 2 (half the numbers remain)
- * - Direction alternates
- *
- * Why This Works:
- * When eliminating from left-to-right, the head always moves to the next position.
- * When eliminating from right-to-left, the head only moves if there's an odd number
- * of elements (because we'd eliminate the current head's partner). The step size
- * doubles each round because we're eliminating every other element.
- *
- * Example Walkthrough:
- * n = 9, arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
- *
- * Round 1 (L->R): head=1, step=1, count=9, left_to_right=True
- *   Eliminate: 1, 3, 5, 7, 9
- *   Remaining: [2, 4, 6, 8]
- *   New head: 2 (head + step = 1 + 1 = 2)
- *   New step: 2, count: 4, direction: R->L
- *
- * Round 2 (R->L): head=2, step=2, count=4, left_to_right=False
- *   Eliminate: 8, 4
- *   Remaining: [2, 6]
- *   Head stays 2 (count is even)
- *   New step: 4, count: 2, direction: L->R
- *
- * Round 3 (L->R): head=2, step=4, count=2, left_to_right=True
- *   Eliminate: 2
- *   Remaining: [6]
- *   New head: 2 + 4 = 6
- *
- * Result: 6
+ * </details>
  */
 
 /**

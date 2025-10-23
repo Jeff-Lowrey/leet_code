@@ -1,39 +1,55 @@
 /**
  * # 894. All Possible Full Binary Trees
  *
- * LeetCode Problem 894: All Possible Full Binary Trees
- * Difficulty: Medium
- * Category: Recursion
+ * Solve problem #894: All Possible Full Binary Trees
  *
- * Problem Description:
- * Given an integer n, return a list of all possible full binary trees with n nodes. Each node
- * of each tree in the answer must have Node.val == 0.
+ * **Example:**
  *
- * A full binary tree is a binary tree where each node has exactly 0 or 2 children.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>input data here</dd>
+ * <dt>Output:</dt>
+ * <dd>output data here</dd>
+ * <dt>Explanation:</dt>
+ * <dd>Explanation of the solution</dd>
+ * </dl>
  *
- * Example 1:
- * Input: n = 7
- * Output: 5 different trees
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * Example 2:
- * Input: n = 3
- * Output: [[0,0,0]]
+ * ### METADATA:
+ * **Techniques**: * - Recursion, Memoization, Tree construction, Combinatorial generation
+ * **Data Structures**: * - Binary tree, Map (for memoization), Array
+ * **Patterns**: * - Divide and conquer, Recursive tree building, Memoization
+ * **Time Complexity**: **O(n²)**
+ * **Space Complexity**: **O(n)**
  *
- * Constraints:
- * - 1 <= n <= 20
+ * ### INTUITION:
+ * The key insight is to solve this problem efficiently.
  *
- * METADATA:
- * Techniques:
- * - Recursion, Memoization, Tree construction, Combinatorial generation
+ * ### APPROACH:
+ * We solve this problem by implementing the required algorithm.
  *
- * Data Structures:
- * - Binary tree, Map (for memoization), Array
+ * ### WHY THIS WORKS:
+ * This approach works because it correctly implements the problem requirements.
  *
- * Patterns:
- * - Divide and conquer, Recursive tree building, Memoization
+ * ### EXAMPLE WALKTHROUGH:
+ * ```
+ * Input: example input
+ * Output: example output
+ * ```
  *
- * Time Complexity: O(2^n)
- * Space Complexity: O(2^n)
+ * ### TIME COMPLEXITY:
+ * **O(n²)** - Analysis of time complexity
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(n)** - Analysis of space complexity
+ *
+ * ### EDGE CASES:
+ * - Handle empty input
+ * - Handle boundary conditions
+ *
+ * </details>
  */
 
 class TreeNode {

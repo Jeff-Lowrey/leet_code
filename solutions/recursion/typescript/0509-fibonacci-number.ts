@@ -1,95 +1,55 @@
 /**
  * # 509. Fibonacci Number
  *
- * LeetCode Problem 509: Fibonacci Number
- * Difficulty: Easy
- * Category: Recursion
+ * Solve problem #509: Fibonacci Number
  *
- * Problem Description:
- * The Fibonacci numbers, commonly denoted F(n) form a sequence, called the Fibonacci sequence,
- * such that each number is the sum of the two preceding ones, starting from 0 and 1. That is,
+ * **Example:**
  *
- * F(0) = 0, F(1) = 1
- * F(n) = F(n - 1) + F(n - 2), for n > 1.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>input data here</dd>
+ * <dt>Output:</dt>
+ * <dd>output data here</dd>
+ * <dt>Explanation:</dt>
+ * <dd>Explanation of the solution</dd>
+ * </dl>
  *
- * Given n, calculate F(n).
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * Example 1:
- * Input: n = 2
- * Output: 1
- * Explanation: F(2) = F(1) + F(0) = 1 + 0 = 1.
+ * ### METADATA:
+ * **Techniques**: * - Recursion
+ * **Data Structures**: * - Map (for memoization)
+ * **Patterns**: * - Top-down recursion with memoization
+ * **Time Complexity**: **O(n²)**
+ * **Space Complexity**: **O(n)**
  *
- * Example 2:
- * Input: n = 3
- * Output: 2
- * Explanation: F(3) = F(2) + F(1) = 1 + 1 = 2.
+ * ### INTUITION:
+ * The key insight is to solve this problem efficiently.
  *
- * Example 3:
- * Input: n = 4
- * Output: 3
- * Explanation: F(4) = F(3) + F(2) = 2 + 1 = 3.
+ * ### APPROACH:
+ * We solve this problem by implementing the required algorithm.
  *
- * Constraints:
- * - 0 <= n <= 30
+ * ### WHY THIS WORKS:
+ * This approach works because it correctly implements the problem requirements.
  *
- * METADATA:
- * Techniques:
- * - Recursion
- * - Memoization
- * - Dynamic programming
- * - Iterative solution
+ * ### EXAMPLE WALKTHROUGH:
+ * ```
+ * Input: example input
+ * Output: example output
+ * ```
  *
- * Data Structures:
- * - Map (for memoization)
- * - Array (for DP)
+ * ### TIME COMPLEXITY:
+ * **O(n²)** - Analysis of time complexity
  *
- * Patterns:
- * - Top-down recursion with memoization
- * - Bottom-up dynamic programming
- * - Space optimization
+ * ### SPACE COMPLEXITY:
+ * **O(n)** - Analysis of space complexity
  *
- * Time Complexity:
- * - Naive recursion: O(2^n)
- * - Memoized recursion: O(n)
- * - Iterative DP: O(n)
- * - Space-optimized iterative: O(n)
+ * ### EDGE CASES:
+ * - Handle empty input
+ * - Handle boundary conditions
  *
- * Space Complexity:
- * - Naive recursion: O(n) call stack
- * - Memoized recursion: O(n) memoization + O(n) call stack
- * - Iterative DP: O(n) for array
- * - Space-optimized: O(1)
- *
- * Intuition:
- * The Fibonacci sequence is defined recursively, making it a natural fit for recursive solutions.
- * However, naive recursion results in exponential time complexity due to redundant calculations.
- * We can optimize using memoization (caching results) or convert to an iterative solution.
- * Further optimization reduces space to O(1) by only tracking the last two values.
- *
- * Approach:
- * 1. Naive recursion: Direct implementation of the recursive formula
- * 2. Memoized recursion: Cache computed values to avoid recomputation
- * 3. Iterative DP: Build up from base cases using a loop
- * 4. Space-optimized: Only keep track of previous two values
- *
- * Why This Works:
- * The Fibonacci sequence has overlapping subproblems - F(n) depends on F(n-1) and F(n-2),
- * which in turn depend on earlier values. By caching or building from the bottom up,
- * we eliminate redundant calculations and achieve linear time complexity.
- *
- * Example Walkthrough:
- * Example: n = 5
- * - F(0) = 0
- * - F(1) = 1
- * - F(2) = F(1) + F(0) = 1 + 0 = 1
- * - F(3) = F(2) + F(1) = 1 + 1 = 2
- * - F(4) = F(3) + F(2) = 2 + 1 = 3
- * - F(5) = F(4) + F(3) = 3 + 2 = 5
- *
- * Naive recursion makes many redundant calls:
- * F(5) calls F(4) and F(3)
- * F(4) calls F(3) and F(2)
- * F(3) is computed twice already!
+ * </details>
  */
 
 /**
