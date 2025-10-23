@@ -16,7 +16,7 @@
  * <dt>Output:</dt>
  * <dd>2</dd>
  * <dt>Explanation:</dt>
- * <dd>The majority element is 2, appearing 4 times in an array of size 7 (more than ⌊7/2⌋)</dd>
+ * <dd>The majority element is 2, appearing 4 times in an array of size 7 (more than ⌊7/2⌋ = 3)</dd>
  * </dl>
  *
  * <details>
