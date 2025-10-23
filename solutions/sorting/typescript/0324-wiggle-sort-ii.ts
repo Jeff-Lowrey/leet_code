@@ -1,31 +1,55 @@
 /**
  * # 324. Wiggle Sort Ii
  *
- * LeetCode Problem 324: Wiggle Sort II
- * Difficulty: Medium
- * Category: Sorting
+ * Solve problem #324: Wiggle Sort Ii
  *
- * Problem Description:
- * Given an integer array nums, reorder it such that nums[0] < nums[1] > nums[2] < nums[3]....
+ * **Example:**
  *
- * Example 1:
- * Input: nums = [1,5,1,1,6,4]
- * Output: [1,6,1,5,1,4]
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>input data here</dd>
+ * <dt>Output:</dt>
+ * <dd>output data here</dd>
+ * <dt>Explanation:</dt>
+ * <dd>Explanation of the solution</dd>
+ * </dl>
  *
- * Example 2:
- * Input: nums = [1,3,2,2,3,1]
- * Output: [2,3,1,3,1,2]
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * Constraints:
- * - 1 <= nums.length <= 5 * 10^4
- * - 0 <= nums[i] <= 5000
+ * ### METADATA:
+ * **Techniques**: Sorting, Virtual indexing, Partitioning, Two-pointer technique
+ * **Data Structures**: Array, In-place manipulation
+ * **Patterns**: Wiggle pattern, Median finding, Index mapping
+ * **Time Complexity**: **O(n²)**
+ * **Space Complexity**: **O(n)**
  *
- * METADATA:
- * Techniques: Sorting, Virtual indexing, Partitioning, Two-pointer technique
- * Data Structures: Array, In-place manipulation
- * Patterns: Wiggle pattern, Median finding, Index mapping
- * Time Complexity: O(n log n)
- * Space Complexity: O(n)
+ * ### INTUITION:
+ * The key insight is to solve this problem efficiently.
+ *
+ * ### APPROACH:
+ * We solve this problem by implementing the required algorithm.
+ *
+ * ### WHY THIS WORKS:
+ * This approach works because it correctly implements the problem requirements.
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * ```
+ * Input: example input
+ * Output: example output
+ * ```
+ *
+ * ### TIME COMPLEXITY:
+ * **O(n²)** - Analysis of time complexity
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(n)** - Analysis of space complexity
+ *
+ * ### EDGE CASES:
+ * - Handle empty input
+ * - Handle boundary conditions
+ *
+ * </details>
  */
 
 function wiggleSort(nums: number[]): void {

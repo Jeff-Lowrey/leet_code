@@ -1,14 +1,55 @@
 /**
  * # 326. Power Of Three
  *
- * # 326. Power of Three
+ * Solve problem #326: Power Of Three
  *
- * # Difficulty: Easy
+ * **Example:**
  *
- * Given an integer n, return true if it is a power of three. Otherwise, return false.
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>input data here</dd>
+ * <dt>Output:</dt>
+ * <dd>output data here</dd>
+ * <dt>Explanation:</dt>
+ * <dd>Explanation of the solution</dd>
+ * </dl>
  *
- * @param {number} n
- * @return {boolean}
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ *
+ * ### METADATA:
+ * **Techniques**: TBD
+ * **Data Structures**: TBD
+ * **Patterns**: TBD
+ * **Time Complexity**: **O(n)**
+ * **Space Complexity**: **O(1)**
+ *
+ * ### INTUITION:
+ * The key insight is to solve this problem efficiently.
+ *
+ * ### APPROACH:
+ * We solve this problem by implementing the required algorithm.
+ *
+ * ### WHY THIS WORKS:
+ * This approach works because it correctly implements the problem requirements.
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * ```
+ * Input: example input
+ * Output: example output
+ * ```
+ *
+ * ### TIME COMPLEXITY:
+ * **O(n)** - Analysis of time complexity
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(1)** - Analysis of space complexity
+ *
+ * ### EDGE CASES:
+ * - Handle empty input
+ * - Handle boundary conditions
+ *
+ * </details>
  */
 
 class Solution {

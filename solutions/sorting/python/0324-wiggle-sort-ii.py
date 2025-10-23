@@ -1,79 +1,57 @@
 """
 # 324. Wiggle Sort Ii
 
-LeetCode Problem 324: Wiggle Sort II
-Difficulty: Medium
-Category: Sorting
+# Difficulty: Medium
 
-Problem Description:
-Given an integer array nums, reorder it such that nums[0] < nums[1] > nums[2] < nums[3]....
+Solve problem #324: Wiggle Sort Ii
 
-You may assume the input array always has a valid answer.
+**Example:**
+ *
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>input data here</dd>
+<dt>Output:</dt>
+<dd>output data here</dd>
+<dt>Explanation:</dt>
+<dd>Explanation of the solution</dd>
+</dl>
 
-Example 1:
-Input: nums = [1,5,1,1,6,4]
-Output: [1,6,1,5,1,4]
-Explanation: [1,4,1,5,1,6] is also accepted.
-
-Example 2:
-Input: nums = [1,3,2,2,3,1]
-Output: [2,3,1,3,1,2]
-
-Constraints:
-- 1 <= nums.length <= 5 * 10^4
-- 0 <= nums[i] <= 5000
-- It is guaranteed that there will be an answer for the given input nums.
-
-Follow Up: Can you do it in O(n) time and/or in-place with O(1) extra space?
-
-METADATA:
-Techniques:
-- Sorting
-- Virtual indexing
-- Partitioning
-- Two-pointer technique
-
-Data Structures:
-- Array
-- In-place manipulation
-
-Patterns:
-- Wiggle pattern
-- Median finding
-- Index mapping
-
-Time Complexity: O(n log n) with sorting, O(n) with median finding
-Space Complexity: O(n) for auxiliary array, can be O(1) with advanced techniques
-
-Intuition:
-The key insight is to place smaller elements in even positions and larger elements in odd
-positions. Sort the array, split it into two halves (smaller and larger), then interleave
-them from the end to avoid adjacent equal elements. Using reverse order prevents duplicates
-from being placed next to each other.
-
-Approach:
-1. Sort the array
-2. Split into two halves: small (0 to mid) and large (mid+1 to end)
-3. Place elements from small half in even indices (from right to left)
-4. Place elements from large half in odd indices (from right to left)
-5. Use reverse order to maximize distance between duplicate values
-
-Why This Works:
-By sorting and splitting, we ensure smaller elements go to even positions and larger to odd.
-Filling from the end of each half ensures that if there are duplicates, they're maximally
-separated in the final array, preventing them from being adjacent.
-
-Example Walkthrough:
-Input: [1,5,1,1,6,4]
-Sorted: [1,1,1,4,5,6]
-Split: small=[1,1,1], large=[4,5,6]
-
-Fill result array (size 6):
-- Odd positions (from large, reversed): result[1]=6, result[3]=5, result[5]=4
-- Even positions (from small, reversed): result[0]=1, result[2]=1, result[4]=1
-
-Result: [1,6,1,5,1,4] ✓
-Verify: 1 < 6 > 1 < 5 > 1 < 4 ✓
+<details>
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ *
+### METADATA:
+**Techniques**: - Sorting
+**Data Structures**: - Array
+**Patterns**: - Wiggle pattern
+**Time Complexity**: **O(n²)**
+**Space Complexity**: **O(1)**
+ *
+### INTUITION:
+The key insight is to solve this problem efficiently.
+ *
+### APPROACH:
+We solve this problem by implementing the required algorithm.
+ *
+### WHY THIS WORKS:
+This approach works because it correctly implements the problem requirements.
+ *
+### EXAMPLE WALKTHROUGH:
+```
+Input: example input
+Output: example output
+```
+ *
+### TIME COMPLEXITY:
+**O(n²)** - Analysis of time complexity
+ *
+### SPACE COMPLEXITY:
+**O(1)** - Analysis of space complexity
+ *
+### EDGE CASES:
+- Handle empty input
+- Handle boundary conditions
+ *
+</details>
 """
 
 from typing import List

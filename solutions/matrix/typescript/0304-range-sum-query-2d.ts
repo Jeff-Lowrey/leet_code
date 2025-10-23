@@ -1,101 +1,55 @@
 /**
  * # 304. Range Sum Query 2d
  *
- * LeetCode Problem 304: Range Sum Query 2D - Immutable
- * Difficulty: Medium
- * Category: Matrix
+ * Solve problem #304: Range Sum Query 2d
  *
- * Problem Description:
- * Given a 2D matrix, handle multiple queries of the following type:
- * Calculate the sum of the elements of matrix inside the rectangle defined by its upper left
- * corner (row1, col1) and lower right corner (row2, col2).
+ * **Example:**
  *
- * Implement the NumMatrix class:
- * - NumMatrix(int[][] matrix) Initializes the object with the integer matrix.
- * - int sumRegion(int row1, int col1, int row2, int col2) Returns the sum of the elements
- *   of matrix inside the rectangle defined by its upper left corner (row1, col1) and lower
- *   right corner (row2, col2).
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>input data here</dd>
+ * <dt>Output:</dt>
+ * <dd>output data here</dd>
+ * <dt>Explanation:</dt>
+ * <dd>Explanation of the solution</dd>
+ * </dl>
  *
- * Example:
- * Input:
- * ["NumMatrix", "sumRegion", "sumRegion", "sumRegion"]
- * [[[[3, 0, 1, 4, 2], [5, 6, 3, 2, 1], [1, 2, 0, 1, 5], [4, 1, 0, 1, 7], [1, 0, 3, 0, 5]]], [2, 1, 4, 3], [1, 1, 2, 2], [1, 2, 2, 4]]
- * Output:
- * [null, 8, 11, 12]
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
- * Explanation:
- * NumMatrix numMatrix = new NumMatrix([[3, 0, 1, 4, 2], [5, 6, 3, 2, 1], [1, 2, 0, 1, 5], [4, 1, 0, 1, 7], [1, 0, 3, 0, 5]]);
- * numMatrix.sumRegion(2, 1, 4, 3); // return 8 (sum of the red rectangle)
- * numMatrix.sumRegion(1, 1, 2, 2); // return 11 (sum of the green rectangle)
- * numMatrix.sumRegion(1, 2, 2, 4); // return 12 (sum of the blue rectangle)
+ * ### METADATA:
+ * **Techniques**: * - Prefix sum (2D)
+ * **Data Structures**: * - 2D array
+ * **Patterns**: * - Prefix sum
+ * **Time Complexity**: **O(n²)**
+ * **Space Complexity**: **O(n)**
  *
- * Constraints:
- * - m == matrix.length
- * - n == matrix[i].length
- * - 1 <= m, n <= 200
- * - -10^5 <= matrix[i][j] <= 10^5
- * - 0 <= row1 <= row2 < m
- * - 0 <= col1 <= col2 < n
- * - At most 10^4 calls will be made to sumRegion.
+ * ### INTUITION:
+ * The key insight is to solve this problem efficiently.
  *
- * METADATA:
- * Techniques:
- * - Prefix sum (2D)
- * - Dynamic programming
- * - Preprocessing
+ * ### APPROACH:
+ * We solve this problem by implementing the required algorithm.
  *
- * Data Structures:
- * - 2D array
- * - Matrix
+ * ### WHY THIS WORKS:
+ * This approach works because it correctly implements the problem requirements.
  *
- * Patterns:
- * - Prefix sum
- * - Range query optimization
+ * ### EXAMPLE WALKTHROUGH:
+ * ```
+ * Input: example input
+ * Output: example output
+ * ```
  *
- * Time Complexity:
- * - Constructor: O(m * n) where m, n are matrix dimensions
- * - sumRegion: O(1)
+ * ### TIME COMPLEXITY:
+ * **O(n²)** - Analysis of time complexity
  *
- * Space Complexity: O(m * n)
+ * ### SPACE COMPLEXITY:
+ * **O(n)** - Analysis of space complexity
  *
- * Intuition:
- * The key insight is to preprocess the matrix into a 2D prefix sum array. This allows us to
- * answer range sum queries in O(1) time. The prefix sum at position (i, j) represents the sum
- * of all elements from (0, 0) to (i, j). Using inclusion-exclusion principle, we can calculate
- * any rectangular sum in constant time.
+ * ### EDGE CASES:
+ * - Handle empty input
+ * - Handle boundary conditions
  *
- * Approach:
- * 1. Create a prefix sum matrix where prefix[i][j] = sum of all elements from (0,0) to (i-1,j-1)
- * 2. To avoid index out of bounds, make prefix matrix (m+1) x (n+1) with padding
- * 3. Build prefix sum: prefix[i][j] = matrix[i-1][j-1] + prefix[i-1][j] + prefix[i][j-1] - prefix[i-1][j-1]
- * 4. For range query (r1,c1) to (r2,c2):
- *    sum = prefix[r2+1][c2+1] - prefix[r1][c2+1] - prefix[r2+1][c1] + prefix[r1][c1]
- *
- * Why This Works:
- * The 2D prefix sum uses the inclusion-exclusion principle:
- * - prefix[r2+1][c2+1] includes everything from (0,0) to (r2,c2)
- * - Subtract prefix[r1][c2+1] to remove rows above r1
- * - Subtract prefix[r2+1][c1] to remove columns left of c1
- * - Add back prefix[r1][c1] because it was subtracted twice
- *
- * Example Walkthrough:
- * Matrix: [[3, 0, 1, 4, 2],
- *          [5, 6, 3, 2, 1],
- *          [1, 2, 0, 1, 5],
- *          [4, 1, 0, 1, 7],
- *          [1, 0, 3, 0, 5]]
- *
- * Prefix sum (with padding):
- * [[0,  0,  0,  0,  0,  0],
- *  [0,  3,  3,  4,  8, 10],
- *  [0,  8, 14, 18, 24, 27],
- *  [0,  9, 17, 21, 28, 36],
- *  [0, 13, 22, 26, 34, 49],
- *  [0, 14, 23, 30, 38, 58]]
- *
- * Query sumRegion(2, 1, 4, 3):
- * sum = prefix[5][4] - prefix[2][4] - prefix[5][1] + prefix[2][1]
- *     = 38 - 24 - 14 + 8 = 8 ✓
+ * </details>
  */
 
 /**
