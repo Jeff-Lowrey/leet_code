@@ -3,7 +3,6 @@
  *
  * # 1991. Find The Middle Index In Array
  *
- * Difficulty: Medium
  *
  * Given a 0-indexed integer array nums, find the leftmost middleIndex (i.e., the smallest amongst all the possible ones).
  *
@@ -19,7 +18,7 @@
  * <dt>Input:</dt>
  * <dd>[2,3,-1]</dd>
  * <dt>Output:</dt>
- * <dd>1</dd>
+ * <dd>-1</dd>
  * <dt>Explanation:</dt>
  * <dd>The middle index is 3, where sum of elements to the left equals sum to the right</dd>
  * </dl>

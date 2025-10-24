@@ -3,7 +3,6 @@
  *
  * # 0045. Jump Game Ii
  *
- * Difficulty: Easy
  *
  * You are given a 0-indexed array of integers nums of length n. You are initially positioned at nums[0].
  *
@@ -17,7 +16,7 @@
  * <dt>Input:</dt>
  * <dd>[2,3,1,1,4]</dd>
  * <dt>Output:</dt>
- * <dd>2 (minimum jumps)</dd>
+ * <dd>2</dd>
  * <dt>Explanation:</dt>
  * <dd>Minimum 2 jumps needed to reach end of [2,3,1,1,4]</dd>
  * </dl>

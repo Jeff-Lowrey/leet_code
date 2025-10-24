@@ -3,7 +3,6 @@
  *
  * Difficulty: Medium
  *
- * # Difficulty: Medium
  *
  * We build a table of n rows (1-indexed). We start by writing 0 in the 1st row.
  * Now in every subsequent row, we look at the previous row and replace each occurrence of 0 with 01,
@@ -19,7 +18,7 @@
  * <dt>Input:</dt>
  * <dd>n = 2, k = 1</dd>
  * <dt>Output:</dt>
- * <dd>0</dd>
+ * <dd>1</dd>
  * <dt>Explanation:</dt>
  * <dd>
  * Row 1: 0

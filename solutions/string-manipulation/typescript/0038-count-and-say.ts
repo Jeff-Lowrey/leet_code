@@ -3,7 +3,6 @@
  *
  * Difficulty: Easy
  *
- * # Difficulty: Medium
  *
  * The count-and-say sequence is a sequence of digit strings defined by the recursive formula:
  * - countAndSay(1) = "1"
@@ -20,7 +19,7 @@
  * <dt>Input:</dt>
  * <dd>n = 4</dd>
  * <dt>Output:</dt>
- * <dd>1211"</dd>
+ * <dd>1211</dd>
  * <dt>Explanation:</dt>
  * <dd>4th count-and-say term is '1211'</dd>
  * </dl>

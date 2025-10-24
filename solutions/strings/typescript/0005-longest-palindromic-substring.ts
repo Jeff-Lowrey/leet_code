@@ -3,7 +3,6 @@
  *
  * Difficulty: Easy
  *
- * # Difficulty: Medium
  *
  * Given a string s, return the longest palindromic substring in s.
  *
@@ -13,7 +12,7 @@
  * <dt>Input:</dt>
  * <dd>s = "babad"</dd>
  * <dt>Output:</dt>
- * <dd>"bab" or "aba"</dd>
+ * <dd>bab</dd>
  * <dt>Explanation:</dt>
  * <dd>Both "bab" and "aba" are valid longest palindromic substrings</dd>
  * </dl>

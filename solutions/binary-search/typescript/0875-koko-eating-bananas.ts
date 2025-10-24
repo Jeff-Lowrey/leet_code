@@ -3,7 +3,6 @@
  *
  * # 0875. Koko Eating Bananas
  *
- * Difficulty: Medium
  *
  * Koko loves to eat bananas. There are n piles of bananas, the ith pile has piles[i] bananas. The guards have gone and will come back in h hours.
  *
@@ -19,7 +18,7 @@
  * <dt>Input:</dt>
  * <dd>piles = [3,6,7,11], h = 8</dd>
  * <dt>Output:</dt>
- * <dd>4 (minimum eating speed)</dd>
+ * <dd>11</dd>
  * <dt>Explanation:</dt>
  * <dd>Minimum eating speed k=4 allows finishing all banana piles within h hours</dd>
  * </dl>

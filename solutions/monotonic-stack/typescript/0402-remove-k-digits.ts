@@ -3,7 +3,6 @@
  *
  * # 0402. Remove K Digits
  *
- * Difficulty: Medium
  *
  * Given string num representing a non-negative integer num, and an integer k, return the smallest possible integer after removing k digits from num.
  *
@@ -13,7 +12,7 @@
  * <dt>Input:</dt>
  * <dd>num = "1432219", k = 3</dd>
  * <dt>Output:</dt>
- * <dd>"1219"</dd>
+ * <dd>1432219</dd>
  * <dt>Explanation:</dt>
  * <dd>By greedily removing k digits to make the smallest number, '1432219' becomes '1219' after removing 3 digits</dd>
  * </dl>

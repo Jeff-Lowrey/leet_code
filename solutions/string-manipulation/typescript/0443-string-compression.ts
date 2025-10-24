@@ -3,7 +3,6 @@
  *
  * Difficulty: Medium
  *
- * # Difficulty: Medium
  *
  * Given an array of characters chars, compress it using the following algorithm:
  *
@@ -25,7 +24,7 @@
  * <dt>Input:</dt>
  * <dd>chars = ["a","a","b","b","c","c","c"]</dd>
  * <dt>Output:</dt>
- * <dd>Return 6, and the first 6 characters of the input array should be: ["a","2","b","2","c","3"]</dd>
+ * <dd>6</dd>
  * <dt>Explanation:</dt>
  * <dd>Compressed string ['a','a','b','b','c','c','c'] becomes ['a','2','b','2','c','3'] with length 6</dd>
  * </dl>

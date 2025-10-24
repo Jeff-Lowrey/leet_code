@@ -3,7 +3,6 @@
  *
  * # 0137. Single Number II
  *
- * Difficulty: Medium
  *
  * Given an integer array nums where every element appears three times except for one, which appears exactly once. Find the single element and return it.
  *
@@ -15,7 +14,7 @@
  * <dt>Input:</dt>
  * <dd>[2,2,3,2]</dd>
  * <dt>Output:</dt>
- * <dd>3 (single number)</dd>
+ * <dd>3</dd>
  * <dt>Explanation:</dt>
  * <dd>The single number 3 appears once in [2,2,3,2] (all others appear thrice)</dd>
  * </dl>

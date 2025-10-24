@@ -3,7 +3,6 @@
  *
  * Difficulty: Medium
  *
- * # Difficulty: Medium
  *
  * There are n people that are split into some unknown number of groups. Each person
  * is labeled with a unique ID from 0 to n - 1.
@@ -24,7 +23,7 @@
  * <dt>Input:</dt>
  * <dd>groupSizes = [3,3,3,3,3,1,3]</dd>
  * <dt>Output:</dt>
- * <dd>[[5],[0,1,2],[3,4,6]]</dd>
+ * <dd>[[0,1,2],[5],[3,4,6]]</dd>
  * <dt>Explanation:</dt>
  * <dd>Person 5 is in a group of size 1. Persons 0,1,2 form a group of size 3. Persons 3,4,6 form another group of size 3.</dd>
  * </dl>

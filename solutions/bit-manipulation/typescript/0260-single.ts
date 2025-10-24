@@ -3,7 +3,6 @@
  *
  * # 0260. Single Number III
  *
- * Difficulty: Medium
  *
  * Given an integer array nums, in which exactly two elements appear only once and all the other elements appear exactly twice. Find the two elements that appear only once. You can return the answer in any order.
  *
@@ -15,7 +14,7 @@
  * <dt>Input:</dt>
  * <dd>nums = [1,2,1,3,2,5]</dd>
  * <dt>Output:</dt>
- * <dd>[3, 5] (two single numbers)</dd>
+ * <dd>[3,5]</dd>
  * <dt>Explanation:</dt>
  * <dd>Two numbers [3,5] appear once in [1,2,1,3,2,5]</dd>
  * </dl>

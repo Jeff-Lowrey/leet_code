@@ -3,7 +3,6 @@
  *
  * # 0300. Longest Increasing Subsequence
  *
- * Difficulty: Medium
  *
  * Given an integer array nums, return the length of the longest strictly increasing subsequence.
  *
@@ -13,7 +12,7 @@
  * <dt>Input:</dt>
  * <dd>nums = [10, 9, 2, 5, 3, 7, 101, 18]</dd>
  * <dt>Output:</dt>
- * <dd>* 4 (LIS: [2, 3, 7, 18] or [2, 3, 7, 101])</dd>
+ * <dd>4</dd>
  * <dt>Explanation:</dt>
  * <dd>Longest increasing subsequence in [10,9,2,5,3,7,101,18] is [2,3,7,18] with length 4</dd>
  * </dl>

@@ -3,7 +3,6 @@
  *
  * # 0680. Valid Palindrome II
  *
- * Difficulty: Medium
  *
  * Given a string s, return true if the s can be palindrome after deleting at most one character from it.
  *
@@ -14,7 +13,7 @@
  * <dd>"aba"
  * "abca"</dd>
  * <dt>Output:</dt>
- * <dd>* True</dd>
+ * <dd>true</dd>
  * <dt>Explanation:</dt>
  * <dd>String 'aba' is a valid palindrome (can delete 0 characters)</dd>
  * </dl>

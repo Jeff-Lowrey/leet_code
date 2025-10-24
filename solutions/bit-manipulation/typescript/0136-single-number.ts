@@ -3,7 +3,6 @@
  *
  * # 0136. Single Number
  *
- * Difficulty: Medium
  *
  * Given a non-empty array of integers nums, every element appears twice except for one. Find that single one.
  *
@@ -15,7 +14,7 @@
  * <dt>Input:</dt>
  * <dd>[2,2,1]</dd>
  * <dt>Output:</dt>
- * <dd>1 (the single number)</dd>
+ * <dd>1</dd>
  * <dt>Explanation:</dt>
  * <dd>The single number 4 appears once in [2,2,1,4,1] (all others appear twice)</dd>
  * </dl>

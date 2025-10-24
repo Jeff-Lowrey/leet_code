@@ -3,7 +3,6 @@
  *
  * # 0216. Combination Sum III
  *
- * Difficulty: Medium
  *
  * This problem demonstrates key concepts in Recursion.
  *
@@ -13,7 +12,7 @@
  * <dt>Input:</dt>
  * <dd>k = 3, n = 7</dd>
  * <dt>Output:</dt>
- * <dd>[[1,2,4]]</dd>
+ * <dd>[]</dd>
  * <dt>Explanation:</dt>
  * <dd>All 3-number combinations from 1-9 that sum to 7 are [[1,2,4]]</dd>
  * </dl>

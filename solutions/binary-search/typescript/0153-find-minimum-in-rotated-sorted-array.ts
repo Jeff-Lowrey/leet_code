@@ -3,7 +3,6 @@
  *
  * # 0153. Find Minimum In Rotated Sorted Array
  *
- * Difficulty: Medium
  *
  * Suppose an array of length n sorted in ascending order is rotated between 1 and n times. For example, the array nums = [0,1,2,4,5,6,7] might become:
  *
@@ -22,7 +21,7 @@
  * <dt>Input:</dt>
  * <dd>[4,5,6,7,0,1,2]</dd>
  * <dt>Output:</dt>
- * <dd>0 (minimum element)</dd>
+ * <dd>0</dd>
  * <dt>Explanation:</dt>
  * <dd>The minimum element is 0 in the rotated sorted array [4,5,6,7,0,1,2]</dd>
  * </dl>

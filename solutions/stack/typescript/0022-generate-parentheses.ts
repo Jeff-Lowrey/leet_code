@@ -3,7 +3,6 @@
  *
  * # 0022. Generate Parentheses
  *
- * Difficulty: Easy
  *
  * Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.
  *
@@ -13,7 +12,7 @@
  * <dt>Input:</dt>
  * <dd>["()"]</dd>
  * <dt>Output:</dt>
- * <dd>1</dd>
+ * <dd>[]</dd>
  * <dt>Explanation:</dt>
  * <dd>All combinations of n=3 parentheses: ['((()))','(()())','(())()','()(())','()()()']</dd>
  * </dl>

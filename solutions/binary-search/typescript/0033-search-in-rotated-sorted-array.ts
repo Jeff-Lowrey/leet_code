@@ -3,7 +3,6 @@
  *
  * # 0033. Search In Rotated Sorted Array
  *
- * Difficulty: Easy
  *
  * There is an integer array nums sorted in ascending order (with distinct values).
  *
@@ -19,7 +18,7 @@
  * <dt>Input:</dt>
  * <dd>[4, 5, 6, 7, 0, 1, 2], target = 0</dd>
  * <dt>Output:</dt>
- * <dd>4</dd>
+ * <dd>-1</dd>
  * <dt>Explanation:</dt>
  * <dd>Target 0 is found at index 4 in rotated sorted array [4,5,6,7,0,1,2]</dd>
  * </dl>

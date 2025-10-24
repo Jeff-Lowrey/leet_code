@@ -3,7 +3,6 @@
  *
  * # 0069. Sqrt(x)
  *
- * Difficulty: Easy
  *
  * Given a non-negative integer x, return the square root of x rounded down to the nearest integer. The returned integer should be non-negative as well.
  *
@@ -15,7 +14,7 @@
  * <dt>Input:</dt>
  * <dd>x = 8</dd>
  * <dt>Output:</dt>
- * <dd>2 (floor of sqrt(8))</dd>
+ * <dd>2</dd>
  * <dt>Explanation:</dt>
  * <dd>Integer square root of 8 is 2</dd>
  * </dl>

@@ -3,7 +3,6 @@
  *
  * # 0009. Palindrome Number
  *
- * Difficulty: Easy
  *
  * Given an integer x, return true if x is a palindrome, and false otherwise.
  *
@@ -13,7 +12,7 @@
  * <dt>Input:</dt>
  * <dd>x = 121</dd>
  * <dt>Output:</dt>
- * <dd>True (is palindrome)</dd>
+ * <dd>true</dd>
  * <dt>Explanation:</dt>
  * <dd>Number 121 is a palindrome</dd>
  * </dl>

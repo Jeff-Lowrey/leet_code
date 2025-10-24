@@ -3,7 +3,6 @@
  *
  * # 0074. Search A 2D Matrix
  *
- * Difficulty: Easy
  *
  * You are given an m x n integer matrix matrix with the following two properties:
  *
@@ -20,7 +19,7 @@
  * <dt>Input:</dt>
  * <dd>matrix = [[1,3,5,7],[10,11,16,20],[23,30,34,60]], target = 3</dd>
  * <dt>Output:</dt>
- * <dd>True (target found)</dd>
+ * <dd>false</dd>
  * <dt>Explanation:</dt>
  * <dd>Target 3 is found in the 2D matrix [[1,3,5,7],[10,11,16,20],[23,30,34,60]]</dd>
  * </dl>

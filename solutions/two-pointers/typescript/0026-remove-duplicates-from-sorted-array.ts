@@ -3,7 +3,6 @@
  *
  * # 0026. Remove Duplicates From Sorted Array
  *
- * Difficulty: Easy
  *
  * Given an integer array nums sorted in non-decreasing order, remove the duplicates in-place such that each unique element appears only once. The relative order of the elements should be kept the same.
  *
@@ -17,7 +16,7 @@
  * <dt>Input:</dt>
  * <dd>[1,1,2]</dd>
  * <dt>Output:</dt>
- * <dd>1</dd>
+ * <dd>2</dd>
  * <dt>Explanation:</dt>
  * <dd>Remove duplicates from sorted array [1,1,2] gives length 2</dd>
  * </dl>

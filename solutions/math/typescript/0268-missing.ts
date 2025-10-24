@@ -3,7 +3,6 @@
  *
  * # 0268. Missing Number
  *
- * Difficulty: Medium
  *
  * Given an array nums containing n distinct numbers in the range [0, n], return the only number in the range that is missing from the array.
  *
@@ -13,7 +12,7 @@
  * <dt>Input:</dt>
  * <dd>[3,0,1]</dd>
  * <dt>Output:</dt>
- * <dd>2 (missing number)</dd>
+ * <dd>2</dd>
  * <dt>Explanation:</dt>
  * <dd>Missing number in [3,0,1] is 2</dd>
  * </dl>

@@ -3,7 +3,6 @@
  *
  * # 0034. Find First And Last Position Of Element In Sorted Array
  *
- * Difficulty: Easy
  *
  * Given an array of integers nums sorted in non-decreasing order, find the starting and ending position of a given target value.
  *
@@ -17,7 +16,7 @@
  * <dt>Input:</dt>
  * <dd>[5,7,7,8,8,10]</dd>
  * <dt>Output:</dt>
- * <dd>1</dd>
+ * <dd>[-1,-1]</dd>
  * <dt>Explanation:</dt>
  * <dd>Target 8 appears at indices [3,4] in sorted array [5,7,7,8,8,10]</dd>
  * </dl>

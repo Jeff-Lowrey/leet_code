@@ -3,7 +3,6 @@
  *
  * Difficulty: Medium
  *
- * # Difficulty: Easy
  *
  * Given a string paragraph and a string array of the banned words banned, return
  * the most frequent word that is not banned. It is guaranteed there is at least
@@ -18,7 +17,7 @@
  * <dt>Input:</dt>
  * <dd>paragraph = "Bob hit a ball, the hit BALL flew far after it was hit.", banned = ["hit"]</dd>
  * <dt>Output:</dt>
- * <dd>"ball"</dd>
+ * <dd>hit</dd>
  * <dt>Explanation:</dt>
  * <dd>"hit" occurs 3 times, but is banned. "ball" occurs twice and is not banned</dd>
  * </dl>

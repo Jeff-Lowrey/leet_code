@@ -3,7 +3,6 @@
  *
  * # 0162. Find Peak Element
  *
- * Difficulty: Medium
  *
  * A peak element is an element that is strictly greater than its neighbors.
  *
@@ -19,7 +18,7 @@
  * <dt>Input:</dt>
  * <dd>[1,2,3,1]</dd>
  * <dt>Output:</dt>
- * <dd>2 (index of peak element)</dd>
+ * <dd>2</dd>
  * <dt>Explanation:</dt>
  * <dd>Peak element 4 is at index 2 in array [1,2,4,3]</dd>
  * </dl>

@@ -3,7 +3,6 @@
  *
  * Difficulty: Medium
  *
- * # Difficulty: Medium
  *
  * Given two integers a and b, return the sum of the two integers without using
  * the operators + and -.
@@ -14,7 +13,7 @@
  * <dt>Input:</dt>
  * <dd>a = 1, b = 2</dd>
  * <dt>Output:</dt>
- * <dd>3</dd>
+ * <dd>1</dd>
  * <dt>Explanation:</dt>
  * <dd>1 + 2 = 3 using bitwise operations</dd>
  * </dl>

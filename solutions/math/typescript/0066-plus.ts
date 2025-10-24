@@ -3,7 +3,6 @@
  *
  * # 0066. Plus One
  *
- * Difficulty: Easy
  *
  * You are given a large integer represented as an integer array digits, where each digits[i] is the ith digit of the integer. The digits are ordered from most significant to least significant in left-to-right order. The large integer does not contain any leading 0's.
  *
@@ -15,8 +14,7 @@
  * <dt>Input:</dt>
  * <dd>digits = [1,2,3]</dd>
  * <dt>Output:</dt>
- * <dd>[1,2,4]
- * [1,0,0,0]</dd>
+ * <dd>[1,2,4]</dd>
  * <dt>Explanation:</dt>
  * <dd>Array [1,2,9] plus one is [1,3,0]</dd>
  * </dl>

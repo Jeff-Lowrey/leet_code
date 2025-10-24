@@ -3,7 +3,6 @@
  *
  * # 1233. Remove Sub Folders From The Filesystem
  *
- * Difficulty: Medium
  *
  * Given a list of folders, remove all sub-folders in those folders and return the folders in any order.
  *
@@ -19,7 +18,7 @@
  * <dt>Input:</dt>
  * <dd>["/a", "/a/b", "/c/d", "/c/d/e", "/c/f"]</dd>
  * <dt>Output:</dt>
- * <dd>1</dd>
+ * <dd>["/a","/c/d","/c/f"]</dd>
  * <dt>Explanation:</dt>
  * <dd>Subfolders are removed: ['/a','/a/b','/c/d'] becomes ['/a','/c/d']</dd>
  * </dl>

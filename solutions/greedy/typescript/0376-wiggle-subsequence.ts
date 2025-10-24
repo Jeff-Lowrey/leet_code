@@ -3,7 +3,6 @@
  *
  * # 0376. Wiggle Subsequence
  *
- * Difficulty: Medium
  *
  * A wiggle sequence is a sequence where the differences between successive numbers strictly alternate between positive and negative. The first difference (if one exists) may be either positive or negative. A sequence with one element and a sequence with two non-equal elements are trivially wiggle sequences.
  *
@@ -15,7 +14,7 @@
  * <dt>Input:</dt>
  * <dd>[1,7,4,9,2,5]</dd>
  * <dt>Output:</dt>
- * <dd>6 (longest wiggle sequence length)</dd>
+ * <dd>6</dd>
  * <dt>Explanation:</dt>
  * <dd>Longest wiggle subsequence in [1,7,4,9,2,5] has length 6</dd>
  * </dl>

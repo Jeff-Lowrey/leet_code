@@ -3,7 +3,6 @@
  *
  * # 0077. Combinations
  *
- * Difficulty: Easy
  *
  * Given two integers n and k, return all possible combinations of k numbers chosen from the range [1, n].
  *
@@ -15,7 +14,7 @@
  * <dt>Input:</dt>
  * <dd>n = 4, k = 2</dd>
  * <dt>Output:</dt>
- * <dd>[[1,2],[1,3],[1,4],[2,3],[2,4],[3,4]]</dd>
+ * <dd>[]</dd>
  * <dt>Explanation:</dt>
  * <dd>All 2-combinations from [1,2,3,4] are [[1,2],[1,3],[1,4],[2,3],[2,4],[3,4]]</dd>
  * </dl>

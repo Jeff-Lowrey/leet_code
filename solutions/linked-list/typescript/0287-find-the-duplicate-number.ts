@@ -3,7 +3,6 @@
  *
  * # 0287. Find The Duplicate Number
  *
- * Difficulty: Medium
  *
  * Given an array of integers nums containing n + 1 integers where each integer is in the range [1, n] inclusive.
  *
@@ -17,7 +16,7 @@
  * <dt>Input:</dt>
  * <dd>[1,3,4,2,2]</dd>
  * <dt>Output:</dt>
- * <dd>2 (duplicate number)</dd>
+ * <dd>2</dd>
  * <dt>Explanation:</dt>
  * <dd>The duplicate number is 2, which appears twice in the array</dd>
  * </dl>

@@ -3,7 +3,6 @@
  *
  * # 0252. Meeting Rooms
  *
- * Difficulty: Medium
  *
  * Given an array of meeting time intervals where intervals[i] = [starti, endi], determine if a person could attend all meetings.
  *
@@ -13,7 +12,7 @@
  * <dt>Input:</dt>
  * <dd>intervals = [[0,30],[5,10],[15,20]]</dd>
  * <dt>Output:</dt>
- * <dd>False (cannot attend all meetings)</dd>
+ * <dd>false</dd>
  * <dt>Explanation:</dt>
  * <dd>The person can attend all meetings because [[0,30],[5,10],[15,20]] has overlaps (cannot attend all)</dd>
  * </dl>

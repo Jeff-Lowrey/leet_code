@@ -3,7 +3,6 @@
  *
  * # 0330. Patching Array
  *
- * Difficulty: Medium
  *
  * You are given a sorted positive integer array nums and an integer n. You need to
  * make it so that any integer in the range [1, n] can be formed by the sum of some
@@ -17,7 +16,7 @@
  * <dt>Input:</dt>
  * <dd>[1,3], n = 6</dd>
  * <dt>Output:</dt>
- * <dd>1 (patched with 2)</dd>
+ * <dd>0</dd>
  * <dt>Explanation:</dt>
  * <dd>Minimum 1 patch [3] needed to cover range [1,2,4] to sum 6</dd>
  * </dl>

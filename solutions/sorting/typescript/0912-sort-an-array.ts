@@ -3,7 +3,6 @@
  *
  * # 0912. Sort An Array
  *
- * Difficulty: Medium
  *
  * Given an array of integers nums, sort the array in ascending order and return it.
  *
@@ -16,7 +15,7 @@
  * <dt>Input:</dt>
  * <dd>[1, 2, 3, 5]</dd>
  * <dt>Output:</dt>
- * <dd>1</dd>
+ * <dd>[1,2,3,5]</dd>
  * <dt>Explanation:</dt>
  * <dd>Array [5,2,3,1] sorted is [1,2,3,5]</dd>
  * </dl>

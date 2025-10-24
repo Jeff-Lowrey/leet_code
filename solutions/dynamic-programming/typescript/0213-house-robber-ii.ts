@@ -3,7 +3,6 @@
  *
  * # 0213. House Robber Ii
  *
- * Difficulty: Medium
  *
  * You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed. All houses at this place are arranged in a circle. That means the first house is the neighbor of the last one. Meanwhile, adjacent houses have security systems connected, and it will automatically contact the police if two adjacent houses were broken into on the same night.
  *
@@ -15,7 +14,7 @@
  * <dt>Input:</dt>
  * <dd>[2,3,2]</dd>
  * <dt>Output:</dt>
- * <dd>3 (maximum money, rob middle house)</dd>
+ * <dd>3</dd>
  * <dt>Explanation:</dt>
  * <dd>Maximum amount robbed in circular arrangement [2,3,2] is 3 (cannot rob houses 0 and 2)</dd>
  * </dl>

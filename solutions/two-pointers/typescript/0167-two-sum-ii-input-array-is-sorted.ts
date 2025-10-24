@@ -3,7 +3,6 @@
  *
  * # 0167. Two Sum Ii Input Array Is Sorted
  *
- * Difficulty: Medium
  *
  * Given a 1-indexed array of integers numbers that is already sorted in non-decreasing order, find two numbers such that they add up to a specific target number. Let these two numbers be numbers[index1] and numbers[index2] where 1 <= index1 < index2 <= numbers.length.
  *
@@ -19,7 +18,7 @@
  * <dt>Input:</dt>
  * <dd>numbers = [2, 7, 11, 15], target = 9</dd>
  * <dt>Output:</dt>
- * <dd>[1, 2] (1-indexed positions)</dd>
+ * <dd>[]</dd>
  * <dt>Explanation:</dt>
  * <dd>Two numbers [2,7] at indices [1,2] sum to target 9</dd>
  * </dl>

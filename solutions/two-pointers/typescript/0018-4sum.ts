@@ -3,7 +3,6 @@
  *
  * # 0018. 4Sum
  *
- * Difficulty: Easy
  *
  * Given an array nums of n integers, return an array of all the unique quadruplets [nums[a], nums[b], nums[c], nums[d]] such that:
  *
@@ -19,7 +18,7 @@
  * <dt>Input:</dt>
  * <dd>[1,0,-1,0,-2,2], target = 0</dd>
  * <dt>Output:</dt>
- * <dd>[[-2,-1,1,2],[-2,0,0,2],[-1,0,0,1]]</dd>
+ * <dd>[]</dd>
  * <dt>Explanation:</dt>
  * <dd>4Sum: quadruplets summing to target</dd>
  * </dl>

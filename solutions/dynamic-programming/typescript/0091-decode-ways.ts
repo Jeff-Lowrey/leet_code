@@ -3,7 +3,6 @@
  *
  * # 0091. Decode Ways
  *
- * Difficulty: Easy
  *
  * A message containing letters from A-Z can be encoded into numbers using the following mapping:
  *
@@ -19,7 +18,7 @@
  * <dt>Input:</dt>
  * <dd>"226"</dd>
  * <dt>Output:</dt>
- * <dd>3 (number of ways to decode)</dd>
+ * <dd>3</dd>
  * <dt>Explanation:</dt>
  * <dd>String '226' decodes 3 ways: '2-2-6', '22-6', '2-26'</dd>
  * </dl>

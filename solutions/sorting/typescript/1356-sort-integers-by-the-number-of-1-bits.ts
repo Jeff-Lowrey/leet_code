@@ -3,7 +3,6 @@
  *
  * # 1356. Sort Integers By The Number Of 1 Bits
  *
- * Difficulty: Medium
  *
  * You are given an integer array arr. Sort the integers in the array in ascending order by the number
  * of 1's in their binary representation and in case of two or more integers have the same number of 1's
@@ -17,7 +16,7 @@
  * <dt>Input:</dt>
  * <dd>[0, 1, 2, 4, 8, 3, 5, 6, 7]</dd>
  * <dt>Output:</dt>
- * <dd>1</dd>
+ * <dd>[0,1,2,4,8,3,5,6,7]</dd>
  * <dt>Explanation:</dt>
  * <dd>Integers sorted by number of 1 bits</dd>
  * </dl>

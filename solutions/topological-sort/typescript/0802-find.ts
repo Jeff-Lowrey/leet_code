@@ -3,7 +3,6 @@
  *
  * # 0802. Find Eventual Safe States
  *
- * Difficulty: Medium
  *
  * There is a directed graph of n nodes with each node labeled from 0 to n - 1. The graph is represented by a 0-indexed 2D integer array graph where graph[i] is an integer array of nodes adjacent to node i, meaning there is an edge from node i to each node in graph[i].
  *
@@ -17,7 +16,7 @@
  * <dt>Input:</dt>
  * <dd>graph = [[1,2],[2,3],[5],[0],[5],[],[]]</dd>
  * <dt>Output:</dt>
- * <dd>[2,4,5,6] (safe nodes)</dd>
+ * <dd>[2,4,5,6]</dd>
  * <dt>Explanation:</dt>
  * <dd>Safe nodes are those not in cycles: [2,4,5,6]</dd>
  * </dl>

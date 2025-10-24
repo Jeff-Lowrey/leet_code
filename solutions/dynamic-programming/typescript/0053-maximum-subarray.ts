@@ -3,7 +3,6 @@
  *
  * # 0053. Maximum Subarray
  *
- * Difficulty: Easy
  *
  * Given an integer array nums, find the subarray with the largest sum, and return its sum.
  *
@@ -13,7 +12,7 @@
  * <dt>Input:</dt>
  * <dd>[-2, 1, -3, 4, -1, 2, 1, -5, 4]</dd>
  * <dt>Output:</dt>
- * <dd>6 (subarray [4, -1, 2, 1])</dd>
+ * <dd>6</dd>
  * <dt>Explanation:</dt>
  * <dd>Maximum subarray sum of [-2,1,-3,4,-1,2,1,-5,4] is 6 from [4,-1,2,1]</dd>
  * </dl>

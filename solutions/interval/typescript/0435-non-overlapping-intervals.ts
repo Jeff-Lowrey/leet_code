@@ -3,7 +3,6 @@
  *
  * # 0435. Non Overlapping Intervals
  *
- * Difficulty: Medium
  *
  * Given an array of intervals intervals where intervals[i] = [starti, endi], return the minimum number of intervals you need to remove to make the rest of the intervals non-overlapping.
  *
@@ -13,7 +12,7 @@
  * <dt>Input:</dt>
  * <dd>intervals = [[1,2],[2,3],[3,4],[1,3]]</dd>
  * <dt>Output:</dt>
- * <dd>1 (min intervals to remove)</dd>
+ * <dd>1</dd>
  * <dt>Explanation:</dt>
  * <dd>Minimum 1 interval removed to make [[1,2],[2,3],[3,4],[1,3]] non-overlapping</dd>
  * </dl>

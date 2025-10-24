@@ -14,7 +14,7 @@
  * <dt>Input:</dt>
  * <dd>nums = [2,7,11,15], target = 9</dd>
  * <dt>Output:</dt>
- * <dd>[0,1]</dd>
+ * <dd>[]</dd>
  * <dt>Explanation:</dt>
  * <dd>Because nums[0] + nums[1] == 9, we return [0, 1]</dd>
  * </dl>

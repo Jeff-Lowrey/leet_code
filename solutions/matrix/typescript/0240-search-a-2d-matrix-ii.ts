@@ -3,7 +3,6 @@
  *
  * # 0240. Search a 2D Matrix II
  *
- * Difficulty: Medium
  *
  * Write an efficient algorithm that searches for a value target in an m x n integer matrix.
  * This matrix has the following properties:
@@ -16,7 +15,7 @@
  * <dt>Input:</dt>
  * <dd>matrix = [[1,4,7,11,15],[2,5,8,12,19],[3,6,9,16,22],[10,13,14,17,24],[18,21,23,26,30]], target = 5</dd>
  * <dt>Output:</dt>
- * <dd>true</dd>
+ * <dd>false</dd>
  * <dt>Explanation:</dt>
  * <dd>Target 5 is found in the 2D matrix at position (1,1)</dd>
  * </dl>

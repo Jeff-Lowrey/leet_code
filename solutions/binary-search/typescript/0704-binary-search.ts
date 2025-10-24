@@ -3,7 +3,6 @@
  *
  * # 0704. Binary Search
  *
- * Difficulty: Medium
  *
  * Given an array of integers nums which is sorted in ascending order,
  * and an integer target, write a function to search target in nums.
@@ -17,7 +16,7 @@
  * <dt>Input:</dt>
  * <dd>[-1,0,3,5,9,12], target = 9</dd>
  * <dt>Output:</dt>
- * <dd>4</dd>
+ * <dd>-1</dd>
  * <dt>Explanation:</dt>
  * <dd>Target 9 is at index 4 in sorted array [-1,0,3,5,9,12]</dd>
  * </dl>

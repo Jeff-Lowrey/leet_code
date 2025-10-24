@@ -3,7 +3,6 @@
  *
  * # 0027. Remove Element
  *
- * Difficulty: Easy
  *
  * Given an integer array nums and an integer val, remove all occurrences of val in nums in-place. The order of the elements may be changed. Then return the number of elements in nums which are not equal to val.
  *
@@ -18,7 +17,7 @@
  * <dt>Input:</dt>
  * <dd>[3,2,2,3], val = 3</dd>
  * <dt>Output:</dt>
- * <dd>k=2, nums=[2,2,_,_]</dd>
+ * <dd>4</dd>
  * <dt>Explanation:</dt>
  * <dd>Remove element 3 from [3,2,2,3] gives length 2</dd>
  * </dl>
