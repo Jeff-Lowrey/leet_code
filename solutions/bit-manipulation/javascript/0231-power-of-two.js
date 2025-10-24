@@ -18,16 +18,49 @@
  * **Space Complexity**: **O(1)** - Constant space or O(log n) for recursion stack
  *
  * ### INTUITION:
- * Powers of two have exactly one bit set. Use n & (n-1) == 0 to check.
+ * A power of two has exactly one bit set in its binary representation.
+ * Recursively, we can check: if n is even, divide by 2 and recurse.
+ * If n becomes 1, it's a power of two. If n is odd (and not 1), it's not.
  *
  * ### APPROACH:
- * Check if n is positive and n & (n-1) equals zero.
+ * 1. **Base cases**: n = 1 (true, 2^0), n ≤ 0 (false)
+ * 2. **Even case**: Recursively check n/2
+ * 3. **Odd case**: Return false (powers of 2 are never odd except 1)
+ * 4. **Alternative**: Bit manipulation - n & (n-1) == 0
+ *
+ * ### WHY THIS WORKS:
+ * - Powers of 2 in binary: 1, 10, 100, 1000, etc.
+ * - Dividing by 2 removes one bit until we reach 1
+ * - If we encounter an odd number (except 1), it cannot be a power of 2
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * n = 16
+ * ```
+ *
+ * Steps:
+ * Step 1: isPowerOfTwo(16) → 16 % 2 === 0 → check isPowerOfTwo(8)
+ * Step 2: isPowerOfTwo(8) → 8 % 2 === 0 → check isPowerOfTwo(4)
+ * Step 3: isPowerOfTwo(4) → 4 % 2 === 0 → check isPowerOfTwo(2)
+ * Step 4: isPowerOfTwo(2) → 2 % 2 === 0 → check isPowerOfTwo(1)
+ * Step 5: isPowerOfTwo(1) → return true
+ *
+ * Output:
+ * ```
+ * true
+ * ```
  *
  * ### TIME COMPLEXITY:
- * **O(1)** - Single bit operation
+ * O(log n) - dividing by 2 each time
  *
  * ### SPACE COMPLEXITY:
- * **O(1)** - Constant space
+ * O(log n) - recursion stack depth
+ *
+ * ### EDGE CASES:
+ * - n ≤ 0: return false
+ * - n = 1: return true (2^0)
+ * - Odd numbers > 1: return false
  *
  * </details>
  *

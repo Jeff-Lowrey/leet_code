@@ -18,16 +18,48 @@
  * **Space Complexity**: **O(1)** - Constant space or O(log n) for recursion stack
  *
  * ### INTUITION:
- * Power of four has single bit set at even position. Check power of two and bit position.
+ * A power of four must be a power of two with the bit set at an even position.
+ * Powers of 4 in binary: 1 (1), 4 (100), 16 (10000), 64 (1000000).
+ * Notice the single bit is always at position 0, 2, 4, 6, etc. (even positions).
  *
  * ### APPROACH:
- * Verify n is power of two and bit is at even position using n & 0xAAAAAAAA == 0.
+ * 1. **Base cases**: n = 1 (true, 4^0), n ≤ 0 (false)
+ * 2. **Divisible by 4**: Recursively check n/4
+ * 3. **Not divisible by 4**: Return false
+ * 4. **Alternative**: Check if power of 2 AND (n-1) % 3 === 0
+ *
+ * ### WHY THIS WORKS:
+ * - Powers of 4: 1, 4, 16, 64, 256, 1024, etc.
+ * - Dividing by 4 repeatedly should eventually reach 1
+ * - Mathematical property: 4^x = (2^2)^x = 2^(2x) means the bit is at even position
+ * - All powers of 4 satisfy: (n-1) % 3 === 0
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * n = 16
+ * ```
+ *
+ * Steps:
+ * Step 1: isPowerOfFour(16) → 16 % 4 === 0 → check isPowerOfFour(4)
+ * Step 2: isPowerOfFour(4) → 4 % 4 === 0 → check isPowerOfFour(1)
+ * Step 3: isPowerOfFour(1) → return true
+ *
+ * Output:
+ * ```
+ * true
+ * ```
  *
  * ### TIME COMPLEXITY:
- * **O(1)** - Constant bit operations
+ * O(log₄ n) - dividing by 4 each time
  *
  * ### SPACE COMPLEXITY:
- * **O(1)** - Constant space
+ * O(log₄ n) - recursion stack depth
+ *
+ * ### EDGE CASES:
+ * - n ≤ 0: return false
+ * - n = 1: return true (4^0)
+ * - Powers of 2 that aren't powers of 4 (e.g., 2, 8, 32)
  *
  * </details>
  *

@@ -22,16 +22,67 @@
  * **Space Complexity**: **O(n)** - Recursion call stack depth
  *
  * ### INTUITION:
- * Each row forms a binary tree. Find parent symbol recursively and apply transformation rule.
+ * The rows form a binary tree pattern:
+ * - Row 1: 0
+ * - Row 2: 0 1 (0→01)
+ * - Row 3: 0 1 1 0 (0→01, 1→10)
+ * - Row 4: 0 1 1 0 1 0 0 1
+ *
+ * Key observation: Each symbol at position k in row n is derived from position ⌈k/2⌉ in row n-1.
+ * - If k is odd (left child): same as parent
+ * - If k is even (right child): flip of parent
  *
  * ### APPROACH:
- * Recursively find parent position in previous row and determine if k is left or right child.
+ * 1. **Base case**: n = 1, return 0 (first row always starts with 0)
+ * 2. **Find parent**: The parent is at position ⌈k/2⌉ in row n-1
+ * 3. **Determine relationship**:
+ *    - If k is odd: return parent value
+ *    - If k is even: return flipped parent value (1 - parent)
+ * 4. **Recursive call**: kthGrammar(n-1, Math.floor((k+1)/2))
+ *
+ * ### WHY THIS WORKS:
+ * - The pattern follows a binary tree structure
+ * - Left child (odd k) inherits parent's value
+ * - Right child (even k) gets flipped value
+ * - We recursively trace back to row 1
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * n = 3, k = 3
+ * ```
+ *
+ * Row structure:
+ * ```
+ * Row 1: 0
+ * Row 2: 0 1
+ * Row 3: 0 1 1 0
+ *        ^ ^ ^ ^
+ *        1 2 3 4
+ * ```
+ *
+ * Steps:
+ * Step 1: k=3 (odd) → parent is position ⌈3/2⌉ = 2 in row 2 → same value as parent
+ * Step 2: k=2 (even) → parent is position ⌈2/2⌉ = 1 in row 1 → flip parent
+ * Step 3: Find position 1 in row 1 → returns 0
+ * Step 4: Row 2, position 2 → flip(0) = 1
+ * Step 5: Row 3, position 3 → same as parent = 1
+ *
+ * Output:
+ * ```
+ * 1
+ * ```
  *
  * ### TIME COMPLEXITY:
- * **O(n)** - Recurse through n rows
+ * O(n) - we recurse up to n times
  *
  * ### SPACE COMPLEXITY:
- * **O(n)** - Recursion depth
+ * O(n) - recursion stack depth
+ *
+ * ### EDGE CASES:
+ * - n = 1: always returns 0
+ * - k = 1: always returns 0 (first element of any row)
+ * - k = last position: depends on pattern
  *
  * </details>
  *

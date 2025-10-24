@@ -50,11 +50,44 @@
  * ### APPROACH:
  * We iterate through each operation in the list. For integer strings, we parse them and push onto the stack. For '+', we add the sum of the top two elements. For 'D', we double the top element. For 'C', we pop the last element. After processing all operations, we return the sum of all elements in the stack.
  *
+ * ### WHY THIS WORKS:
+ * - Stack provides LIFO access to the most recent scores
+ * - Operations only depend on the most recent 1-2 scores
+ * - Stack naturally handles the 'C' operation (remove previous score)
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * ops = ["5","2","C","D","+"]
+ * ```
+ *
+ * Steps:
+ * Step 1: "5" → Push 5 → stack = [5]
+ * Step 2: "2" → Push 2 → stack = [5, 2]
+ * Step 3: "C" → Pop previous score → stack = [5]
+ * Step 4: "D" → Double last score (5 * 2 = 10) → stack = [5, 10]
+ * Step 5: "+" → Sum last two (5 + 10 = 15) → stack = [5, 10, 15]
+ *
+ * Final stack:
+ * ```
+ * [5, 10, 15]
+ * ```
+ *
+ * Output:
+ * ```
+ * 30
+ * ```
+ *
  * ### TIME COMPLEXITY:
- * **O(n)** - Process each of n operations once
+ * **O(n)** - Process each of n operations once with O(1) stack operations
  *
  * ### SPACE COMPLEXITY:
- * **O(n)** - Stack can grow to size n
+ * **O(n)** - Stack can grow to size n in worst case (all integer operations)
+ *
+ * ### EDGE CASES:
+ * - **Negative numbers:** Handle "-2" by parsing as integer
+ * - **Multiple 'C' operations:** Stack correctly removes most recent scores
+ * - **Empty stack after 'C':** Problem guarantees valid operations
  *
  * </details>
  *
