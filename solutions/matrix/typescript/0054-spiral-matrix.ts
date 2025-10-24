@@ -40,10 +40,22 @@
  * By systematically shrinking the boundaries after each direction, we ensure we visit each element exactly once in spiral order. The boundary checks prevent revisiting elements or going out of bounds.
  *
  * ### EXAMPLE WALKTHROUGH:
- * Matrix: [[1,2,3],[4,5,6],[7,8,9]]
- * - Layer 1: Right(1,2,3) → Down(6,9) → Left(8,7) → Up(4)
- * - Layer 2: Center(5)
- * - Result: [1,2,3,6,9,8,7,4,5]
+ * Input:
+ * ```
+ * matrix = [[1,2,3],[4,5,6],[7,8,9]]
+ * ```
+ *
+ * Steps:
+ * Step 1: Layer 1 - Right → traverse top row → [1,2,3]
+ * Step 2: Layer 1 - Down → traverse right column → [1,2,3,6,9]
+ * Step 3: Layer 1 - Left → traverse bottom row → [1,2,3,6,9,8,7]
+ * Step 4: Layer 1 - Up → traverse left column → [1,2,3,6,9,8,7,4]
+ * Step 5: Layer 2 - Center → single element → [1,2,3,6,9,8,7,4,5]
+ *
+ * Output:
+ * ```
+ * [1,2,3,6,9,8,7,4,5]
+ * ```
  *
  * ### TIME COMPLEXITY:
  * O(m × n)
