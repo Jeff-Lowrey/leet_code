@@ -27,12 +27,15 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ *
+ *
+ * ### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Stack Operations
  * **Data Structures**: Hash Set, Array, String
  * **Patterns**: Iterative Solution
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(1) - Constant extra space
+ * **Time Complexity**: **O(n)** - Single pass through input
+ * **Space Complexity**: **O(1)** - Constant extra space
  *
  * ### INTUITION:
  * Use stack to handle operators. Scan number by number. For +/- push to stack. For *// pop, compute with previous, push result. Finally sum stack for result.
@@ -71,8 +74,8 @@
  * ```
  * 7
  * ```
-
-### TIME COMPLEXITY:
+ *
+ * ### TIME COMPLEXITY:
  * O(n)
  *
  * ### SPACE COMPLEXITY:
