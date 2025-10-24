@@ -1,6 +1,8 @@
 /**
  * # 50. Pow(x, n)
  *
+ * Difficulty: Easy
+ *
  * # Difficulty: Medium
  *
  * Implement pow(x, n), which calculates x raised to the power n (i.e., x^n).

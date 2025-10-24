@@ -1,6 +1,8 @@
 /**
  * # 819. Most Common Word
  *
+ * Difficulty: Medium
+ *
  * # Difficulty: Easy
  *
  * Given a string paragraph and a string array of the banned words banned, return

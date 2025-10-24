@@ -321,7 +321,7 @@ if __name__ == "__main__":
 
     for s, numRows in test_cases:
         result = solution.convert(s, numRows)
-        print(f"convert('{s}', {numRows}) = '{result}'")
+        print(f"convert('{s}', {numRows}) = 'result'")
 
     # Demonstrate the zigzag pattern
     print("\nZigzag pattern for 'PAYPALISHIRING' with numRows=3:")

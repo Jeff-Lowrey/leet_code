@@ -132,7 +132,7 @@ function runTests(): void {
   console.log("Heights matrix:")
   for row in heights:
   console.log(row)
-  console.log(`Cells reaching both oceans: {result}\n`)
+  console.log(`Cells reaching both oceans: result\n`)
   # Test Word Search
   solution_word = SolutionWordSearch()
   console.log("Word Search:")
@@ -148,7 +148,7 @@ function runTests(): void {
   test_cases = [(5, [[0, 1], [1, 2], [3, 4]]), (5, [[0, 1], [1, 2], [2, 3], [3, 4]]), (4, [[0, 1], [2, 3]])]
   for n, edges in test_cases:
   num_components: int = solution_comp.countComponents(n, edges)
-  console.log(`n={n}, edges={edges}`)
+  console.log(`n=n, edges={edges}`)
   console.log(`Components: {num_components}\n`)
 }
 

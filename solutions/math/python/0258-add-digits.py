@@ -3,17 +3,17 @@
 
 # Difficulty: Easy
 
-Solve problem #258: Add Digits
+Solve the Add Digits problem as described.
 
 **Example:**
  *
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>input data here</dd>
+<dd>```</dd>
 <dt>Output:</dt>
-<dd>output data here</dd>
+<dd>```</dd>
 <dt>Explanation:</dt>
-<dd>Explanation of the solution</dd>
+<dd>Processing input produces the expected output</dd>
 </dl>
 
 <details>
@@ -114,10 +114,10 @@ if __name__ == "__main__":
     for num, expected in test_cases:
         result = addDigits(num)
         status = "✓" if result == expected else "✗"
-        print(f"{status} addDigits({num}) = {result}, expected = {expected}")
+        print(f"{status} addDigits({num}) = result, expected = expected")
 
     print("\nTesting addDigitsNaive (iterative solution):")
     for num, expected in test_cases:
         result = addDigitsNaive(num)
         status = "✓" if result == expected else "✗"
-        print(f"{status} addDigitsNaive({num}) = {result}, expected = {expected}")
+        print(f"{status} addDigitsNaive({num}) = result, expected = expected")

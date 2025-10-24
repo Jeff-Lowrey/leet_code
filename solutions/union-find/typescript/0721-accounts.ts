@@ -161,7 +161,7 @@ function runTests(): void {
   ]
   result = solution.accountsMerge(accounts)
   console.log(`Input: {accounts}`)
-  console.log(`Output: {result}`)
+  console.log(`Output: result`)
   console.log("Analysis: John's first two accounts share 'johnsmith@mail.com' so they merge")
   # Example 2: No merging case
   accounts2 = [["David", "david@gmail.com", "david@yahoo.com"], ["Alex", "alex@gmail.com"]]

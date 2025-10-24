@@ -303,7 +303,7 @@ if __name__ == "__main__":
 
     for name, method in approaches:
         result = method(isConnected1)
-        print(f"{name}: {result}")
+        print(f"{name}: result")
 
     print("\nKey insights:")
     print("1. Connected components problem - find separate groups")

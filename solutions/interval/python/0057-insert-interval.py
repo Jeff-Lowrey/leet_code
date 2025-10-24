@@ -255,7 +255,7 @@ if __name__ == "__main__":
         result = solution.insert(intervals, new_interval)
         print(f"Intervals: {intervals}")
         print(f"New: {new_interval}")
-        print(f"Result: {result}\n")
+        print(f"Result: result\n")
 
     # Test Non-overlapping Intervals
     solution_remove = SolutionRemove()

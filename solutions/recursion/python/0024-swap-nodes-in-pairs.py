@@ -267,4 +267,4 @@ if __name__ == "__main__":
     result = solution.swapPairs(head)
     result_list = linked_list_to_list(result)
     print(f"After swapping pairs: {result_list}")
-    print(f"Resulting linked list: {result}")
+    print(f"Resulting linked list: result")

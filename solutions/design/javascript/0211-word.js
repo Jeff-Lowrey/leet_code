@@ -3,6 +3,8 @@
  *
  * # 211. Design Add and Search Words Data Structure
  *
+ * Difficulty: Medium
+ *
  * Design a data structure that supports adding new words and finding if a string matches any previously added string.
  *
  * **Example:**

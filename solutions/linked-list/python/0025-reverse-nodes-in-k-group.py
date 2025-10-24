@@ -184,27 +184,27 @@ def test_solution() -> None:
     # Test case 1: Basic k=2
     head = array_to_list([1, 2, 3, 4, 5])
     solution.solve(head, 2)
-    # assert list_to_array(result) == expected, f"Expected {expected}, got {list_to_array(result)}"  # Result undefined
+    # assert list_to_array(result) == expected, f"Expected expected, got {list_to_array(result)}"  # Result undefined
 
     # Test case 2: k=3
     head = array_to_list([1, 2, 3, 4, 5])
     solution.solve(head, 3)
-    # assert list_to_array(result) == expected, f"Expected {expected}, got {list_to_array(result)}"  # Result undefined
+    # assert list_to_array(result) == expected, f"Expected expected, got {list_to_array(result)}"  # Result undefined
 
     # Test case 3: k=1 (no change)
     head = array_to_list([1, 2, 3])
     solution.solve(head, 1)
-    # assert list_to_array(result) == expected, f"Expected {expected}, got {list_to_array(result)}"  # Result undefined
+    # assert list_to_array(result) == expected, f"Expected expected, got {list_to_array(result)}"  # Result undefined
 
     # Test case 4: k equals list length
     head = array_to_list([1, 2, 3, 4])
     solution.solve(head, 4)
-    # assert list_to_array(result) == expected, f"Expected {expected}, got {list_to_array(result)}"  # Result undefined
+    # assert list_to_array(result) == expected, f"Expected expected, got {list_to_array(result)}"  # Result undefined
 
     # Test case 5: k > list length
     head = array_to_list([1, 2])
     solution.solve(head, 3)
-    # assert list_to_array(result) == expected, f"Expected {expected}, got {list_to_array(result)}"  # Result undefined
+    # assert list_to_array(result) == expected, f"Expected expected, got {list_to_array(result)}"  # Result undefined
 
     print("All test cases passed!")
 

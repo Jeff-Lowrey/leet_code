@@ -216,7 +216,7 @@ function runTests(): void {
   ]
   for name, method in approaches:
   result = method(bst_root)
-  console.log(`{name}: {result}`)
+  console.log(`{name}: result`)
   # Example 4: Empty tree
   console.log(`\nEmpty tree: {solution.inorderTraversal(null)}`)  # type: ignore
   # Example 5: Single node

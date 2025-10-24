@@ -150,12 +150,12 @@ def test_solution() -> None:
     # Test case 1: Example from problem
     result = solution.search([4, 5, 6, 7, 0, 1, 2], target=0)
     expected = 4
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: Empty input
     result = solution.search([], 0)
     expected = -1
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

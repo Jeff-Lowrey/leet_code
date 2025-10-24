@@ -140,15 +140,15 @@ def test_solution() -> None:
 
     # Test case 1: Example from problem
     solution.sortColors([2, 0, 2, 1, 1, 0])
-    # # # assert result == expected, f"Expected {expected}, got {result}"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
+    # # # assert result == expected, f"Expected expected, got result"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
 
     # Test case 2: Empty input
     solution.sortColors([])
-    # # # assert result == expected, f"Expected {expected}, got {result}"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
+    # # # assert result == expected, f"Expected expected, got result"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
 
     # Test case 3: Single element
     solution.sortColors([1])
-    # # # assert result == expected, f"Expected {expected}, got {result}"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
+    # # # assert result == expected, f"Expected expected, got result"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
 
     print("All test cases passed!")
 

@@ -137,17 +137,17 @@ def test_solution() -> None:
     # Test case 1: Example from problem
     result = solution.mySqrt(8)
     expected = 2
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: Perfect square
     result = solution.mySqrt(4)
     expected = 2
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 3: Zero
     result = solution.mySqrt(0)
     expected = 0
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

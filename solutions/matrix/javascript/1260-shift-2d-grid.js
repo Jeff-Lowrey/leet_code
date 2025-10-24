@@ -3,6 +3,8 @@
  *
  * # 1260. Shift 2D Grid
  *
+ * Difficulty: Medium
+ *
  * Given a 2D grid of size m x n and an integer k. You need to shift the grid k times.
  *
  * In one shift operation:

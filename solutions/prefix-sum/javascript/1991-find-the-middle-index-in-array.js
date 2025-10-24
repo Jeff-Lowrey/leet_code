@@ -3,6 +3,8 @@
  *
  * # 1991. Find The Middle Index In Array
  *
+ * Difficulty: Medium
+ *
  * Given a 0-indexed integer array nums, find the leftmost middleIndex (i.e., the smallest amongst all the possible ones).
  *
  * A middleIndex is an index where nums[0] + nums[1] + ... + nums[middleIndex-1] == nums[middleIndex+1] + nums[middleIndex+2] + ... + nums[nums.length-1].

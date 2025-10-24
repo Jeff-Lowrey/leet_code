@@ -3,6 +3,8 @@
  *
  * # 28. Find The Index Of The First Occurrence In A String
  *
+ * Difficulty: Easy
+ *
  * This problem demonstrates key concepts in String matching and pattern searching.
  *
  * **Example:**

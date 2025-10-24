@@ -259,8 +259,8 @@ if __name__ == "__main__":
     test_cases = [[1, 2, 3], [0], [1, 2, 3, 4]]
     for nums in test_cases:
         result = solution.subsets(nums)
-        print(f"Input: {nums}")
-        print(f"Subsets ({len(result)}): {result}\n")
+        print(f"Input: nums")
+        print(f"Subsets ({len(result)}): result\n")
 
     # Test Subsets with Duplicates
     solution_dup = SolutionUnique()
@@ -269,8 +269,8 @@ if __name__ == "__main__":
     test_cases_dup = [[1, 2, 2], [4, 4, 4, 1, 4]]
     for nums in test_cases_dup:
         result = solution_dup.subsetsWithDup(nums)
-        print(f"Input: {nums}")
-        print(f"Unique Subsets: {result}\n")
+        print(f"Input: nums")
+        print(f"Unique Subsets: result\n")
 
     # Test Combination Sum
     solution_comb = SolutionCombSum()
@@ -280,4 +280,4 @@ if __name__ == "__main__":
     for candidates, target in test_comb:
         result = solution_comb.combinationSum(candidates, target)
         print(f"Candidates: {candidates}, Target: {target}")
-        print(f"Combinations: {result}\n")
+        print(f"Combinations: result\n")

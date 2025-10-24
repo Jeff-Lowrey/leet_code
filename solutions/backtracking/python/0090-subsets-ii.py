@@ -143,17 +143,17 @@ def test_solution() -> None:
     # Test case 1: Example from problem
     result = solution.subsetsWithDup([1, 2, 2])
     expected = [[], [1], [1, 2], [1, 2, 2], [2], [2, 2]]
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: Empty input
     result = solution.subsetsWithDup([])
     expected: list[list[int]] = [[]]
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 3: Single element
     result = solution.subsetsWithDup([1])
     expected = [[], [1]]
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

@@ -161,27 +161,27 @@ def test_solution() -> None:
     # Test case 1: Example from problem
     result = solution.eventualSafeNodes([[1, 2], [2, 3], [5], [0], [5], [], []])
     expected: list[Any] = [2, 4, 5, 6]
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: All nodes are safe (no cycles)
     result = solution.eventualSafeNodes([[1], [2], [3], []])
     expected = [0, 1, 2, 3]
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 3: All nodes have cycles
     result = solution.eventualSafeNodes([[1], [0]])
     expected = []
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 4: Empty input
     result = solution.eventualSafeNodes([])
     expected = []
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 5: Single terminal node
     result = solution.eventualSafeNodes([[]])
     expected = [0]
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

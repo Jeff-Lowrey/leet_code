@@ -122,12 +122,12 @@ def test_solution() -> None:
     # Test case 1: Basic case
     result = solution.findMaxAverage([1, 2, 3], 2)
     expected = 2.5
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: Empty input
     result = solution.findMaxAverage([], 0)
     expected = 0.0
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

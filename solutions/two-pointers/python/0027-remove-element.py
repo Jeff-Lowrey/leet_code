@@ -123,12 +123,12 @@ def test_solution() -> None:
     # Test case 1: Basic case
     result = solution.removeElement([1, 2, 3], 2)
     expected = 2
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: Empty input
     result = solution.removeElement([], 0)
     expected = 0
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

@@ -13,7 +13,7 @@ Range sum S(i, j) is defined as the sum of the elements in nums between indices 
 <dt>Input:</dt>
 <dd>[([-2, 5, -1]</dd>
 <dt>Output:</dt>
-<dd>"\nInput: nums = {nums}, lower = {lower}, upper = {upper}"</dd>
+<dd>"\nInput: nums = nums, lower = {lower}, upper = {upper}"</dd>
 <dt>Explanation:</dt>
 <dd>Count of ranges with sum in [lower=-2, upper=2] is 3</dd>
 </dl>
@@ -394,7 +394,7 @@ if __name__ == "__main__":
     ]
 
     for nums, lower, upper in test_cases:
-        print(f"\nInput: nums = {nums}, lower = {lower}, upper = {upper}")
+        print(f"\nInput: nums = nums, lower = {lower}, upper = {upper}")
 
         # Show all approaches
         result_merge = solution.countRangeSum(nums, lower, upper)

@@ -1,6 +1,8 @@
 /**
  * # 217. Contains Duplicate
  *
+ * Difficulty: Medium
+ *
  * # Difficulty: Easy
  *
  * Given an integer array `nums`, return true if any value appears at least twice

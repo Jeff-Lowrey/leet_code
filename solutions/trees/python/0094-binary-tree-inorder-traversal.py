@@ -364,7 +364,7 @@ if __name__ == "__main__":
 
     for name, method in approaches:
         result = method(bst_root)
-        print(f"{name}: {result}")
+        print(f"{name}: result")
 
     # Example 4: Empty tree
     print(f"\nEmpty tree: {solution.inorderTraversal(None)}")  # type: ignore

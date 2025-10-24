@@ -146,12 +146,12 @@ def test_solution() -> None:
     # Test case 1: Example from problem
     result = solution.findAnagrams("cbaebabacd", "abc")
     expected: list[Any] = [0, 6]
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: Empty input
     result = solution.findAnagrams("", "a")
     expected = []
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

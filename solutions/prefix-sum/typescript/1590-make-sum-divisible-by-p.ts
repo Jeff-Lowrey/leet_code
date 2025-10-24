@@ -164,13 +164,13 @@ function runTests(): void {
   for nums, p in test_cases:
   result = solution.minSubarray(nums, p)
   total = sum(nums)
-  console.log(`minSubarray({nums}, p={p}) -> {result} (total={total}, remainder={total % p})`)
+  console.log(`minSubarray(nums, p={p}) -> result (total={total}, remainder={total % p})`)
   # Show detailed walkthrough
   console.log("\nDetailed example: nums=[3,1,4,2], p=6")
   nums, p = [3, 1, 4, 2], 6
   total = sum(nums)
   target = total % p
-  console.log(`Array: {nums}, p={p}`)
+  console.log(`Array: nums, p={p}`)
   console.log(`Total sum: {total}, target remainder to remove: {target}`)
   console.log("\nPrefix remainders:")
   remainder_map = {0: -1}

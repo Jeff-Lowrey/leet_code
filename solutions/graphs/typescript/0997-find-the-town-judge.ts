@@ -168,7 +168,7 @@ function runTests(): void {
   ]
   for n, trust in test_cases:
   result = solution.findJudge(n, trust)
-  console.log(`n={n}, trust={trust} -> Judge: {result}`)
+  console.log(`n=n, trust={trust} -> Judge: result`)
   console.log("\nDetailed example:")
   console.log("n=3, trust=[[1,3],[2,3]]")
   console.log("Person 1: trusts person 3 (net trust = -1)")

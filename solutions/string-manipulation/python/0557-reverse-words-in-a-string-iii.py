@@ -294,7 +294,7 @@ if __name__ == "__main__":
     for test in test_cases:
         result = solution.reverseWords(test)
         print(f"Input:  '{test}'")
-        print(f"Output: '{result}'")
+        print(f"Output: 'result'")
         print()
 
     # Demonstrate the logic

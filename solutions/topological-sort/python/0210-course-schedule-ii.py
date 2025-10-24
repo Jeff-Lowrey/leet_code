@@ -143,12 +143,12 @@ def test_solution() -> None:
     # Test case 1: Example from problem
     result = solution.findOrder(4, [[1, 0], [2, 0], [3, 1], [3, 2]])
     # Valid orders: [0,1,2,3] or [0,2,1,3]
-    assert len(result) == 4 and result[0] == 0, f"Expected valid order starting with 0, got {result}"
+    assert len(result) == 4 and result[0] == 0, f"Expected valid order starting with 0, got result"
 
     # Test case 2: Cycle exists (impossible)
     result = solution.findOrder(2, [[1, 0], [0, 1]])
     expected: list[Any] = []
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 3: No prerequisites
     result = solution.findOrder(3, [])
@@ -157,12 +157,12 @@ def test_solution() -> None:
     # Test case 4: Linear dependency
     result = solution.findOrder(3, [[1, 0], [2, 1]])
     expected = [0, 1, 2]
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 5: Single course
     result = solution.findOrder(1, [])
     expected = [0]
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

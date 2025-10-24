@@ -154,4 +154,4 @@ if __name__ == "__main__":
     print("\n=== 204. Count Primes ===")
     for n in [10, 20, 50, 100]:
         result = solution.countPrimes(n)
-        print(f"countPrimes({n}) -> {result}")
+        print(f"countPrimes(n) -> result")

@@ -123,7 +123,7 @@ function runTests(): void {
   for values, n in remove_cases:
   head = create_list(values)
   result = solution_remove.removeNthFromEnd(head, n)
-  console.log(`List: {values}, n={n}`)
+  console.log(`List: {values}, n=n`)
   console.log(`Result: {list_to_array(result)}\n`)
 }
 

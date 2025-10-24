@@ -207,9 +207,9 @@ function runTests(): void {
   for name, method in approaches:
   result = method(tree1)
   if name == "Bottom-up BFS":
-  console.log(`{name}: {result} (reversed order)`)
+  console.log(`{name}: result (reversed order)`)
   else:
-  console.log(`{name}: {result}`)
+  console.log(`{name}: result`)
   console.log(`\nKey insights:`)
   console.log(`1. BFS with queue naturally processes level by level`)
   console.log(`2. Level size tracking separates levels in the result`)

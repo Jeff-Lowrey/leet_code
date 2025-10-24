@@ -3,6 +3,8 @@
  *
  * # 1221. Split A String In Balanced Strings
  *
+ * Difficulty: Medium
+ *
  * Balanced strings are those that have an equal quantity of 'L' and 'R' characters.
  *
  * Given a balanced string s, split it into some number of substrings such that:

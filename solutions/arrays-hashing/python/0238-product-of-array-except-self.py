@@ -138,17 +138,17 @@ def test_solution() -> None:
     # Test case 1: Example from problem
     result = solution.productExceptSelf([1, 2, 3, 4])
     expected: list[Any] = [24, 12, 8, 6]
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: Empty input
     result = solution.productExceptSelf([])
     expected = []
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 3: Single element
     result = solution.productExceptSelf([1])
     expected = [1]
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

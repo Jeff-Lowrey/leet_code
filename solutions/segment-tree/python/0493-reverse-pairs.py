@@ -15,7 +15,7 @@ A reverse pair is a pair (i, j) where:
 <dt>Input:</dt>
 <dd>[[1, 3, 2, 3, 1]</dd>
 <dt>Output:</dt>
-<dd>"\nInput: {nums}"</dd>
+<dd>"\nInput: nums"</dd>
 <dt>Explanation:</dt>
 <dd>Count of reverse pairs where nums[i] > 2*nums[j] and i < j is 2</dd>
 </dl>
@@ -359,7 +359,7 @@ if __name__ == "__main__":
     ]
 
     for nums in test_cases:
-        print(f"\nInput: {nums}")
+        print(f"\nInput: nums")
 
         # Show all approaches
         result_merge = solution.reversePairs(nums[:])

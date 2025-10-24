@@ -309,7 +309,7 @@ if __name__ == "__main__":
     for num_courses, prerequisites in test_cases:
         result = solution.canFinish(num_courses, prerequisites)
         print(f"Courses: {num_courses}, Prerequisites: {prerequisites}")
-        print(f"Can finish: {result}\n")
+        print(f"Can finish: result\n")
 
     # Test Course Schedule II
     solution2 = SolutionScheduleII()

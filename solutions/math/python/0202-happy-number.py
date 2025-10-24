@@ -157,4 +157,4 @@ if __name__ == "__main__":
     print("\n=== 202. Happy Number ===")
     for n in [1, 2, 7, 19, 100]:
         result = solution.isHappy(n)
-        print(f"isHappy({n}) -> {result}")
+        print(f"isHappy(n) -> result")

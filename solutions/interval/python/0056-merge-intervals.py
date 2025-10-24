@@ -139,17 +139,17 @@ def test_solution() -> None:
     # Test case 1: Example from problem
     result = solution.merge([[1, 3], [2, 6], [8, 10], [15, 18]])
     expected = [[1, 6], [8, 10], [15, 18]]
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: Empty input
     result = solution.merge([])
     expected: list[Any] = []
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 3: Single element
     result = solution.merge([[1, 2]])
     expected = [[1, 2]]
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

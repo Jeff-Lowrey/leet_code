@@ -248,7 +248,7 @@ if __name__ == "__main__":
     for n, pick in test_cases:
         guess.pick = pick  # type: ignore
         result = solution.guessNumber(n)
-        print(f"Range [1, {n}], picked number: {result}")
+        print(f"Range [1, n], picked number: result")
 
     # Show API call simulation
     print(f"\nAPI simulation for n=10, pick=6:")
@@ -261,7 +261,7 @@ if __name__ == "__main__":
         result = guess(mid)
         call_count += 1
 
-        print(f"Call {call_count}: guess({mid}) = {result}")
+        print(f"Call {call_count}: guess({mid}) = result")
 
         if result == 0:
             print(f"Found! Answer is {mid}")

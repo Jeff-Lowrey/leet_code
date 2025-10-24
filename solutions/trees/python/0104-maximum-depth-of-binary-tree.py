@@ -326,7 +326,7 @@ if __name__ == "__main__":
 
     for name, method in approaches:
         result = method(tree1)
-        print(f"{name}: {result}")
+        print(f"{name}: result")
 
     print(f"\nKey insights:")
     print(f"1. Recursive solution: depth = 1 + max(left_depth, right_depth)")

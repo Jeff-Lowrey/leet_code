@@ -148,17 +148,17 @@ def test_solution() -> None:
     # Test case 1: Example from problem
     result = solution.dailyTemperatures([73, 74, 75, 71, 69, 72, 76, 73])
     expected: list[Any] = [1, 1, 4, 2, 1, 1, 0, 0]
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: Empty input
     result = solution.dailyTemperatures([])
     expected = []
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 3: Single element
     result = solution.dailyTemperatures([1])
     expected = [0]
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

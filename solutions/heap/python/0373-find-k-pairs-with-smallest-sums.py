@@ -142,12 +142,12 @@ def test_solution() -> None:
     # Test case 1: Example from problem
     result = solution.kSmallestPairs([1, 7, 11], [2, 4, 6], 3)
     expected = [[1, 2], [1, 4], [1, 6]]
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: Empty arrays
     result = solution.kSmallestPairs([], [2, 4, 6], 3)
     expected: list[Any] = []
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

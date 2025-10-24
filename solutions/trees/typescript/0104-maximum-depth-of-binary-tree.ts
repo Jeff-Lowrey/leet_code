@@ -215,7 +215,7 @@ function runTests(): void {
   ]
   for name, method in approaches:
   result = method(tree1)
-  console.log(`{name}: {result}`)
+  console.log(`{name}: result`)
   console.log(`\nKey insights:`)
   console.log(`1. Recursive solution: depth = 1 + max(left_depth, right_depth)`)
   console.log(`2. BFS counts levels directly as it processes each level`)

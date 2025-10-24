@@ -205,22 +205,22 @@ def test_solution() -> None:
     # "sssll" + "lls" = "sssllls" is not, but reversing approach works
     # "dcba" + "abcd" = "dcbaabcd" is palindrome
     # "abcd" + "dcba" = "abcddcba" is palindrome
-    assert len(result) >= 2, f"Expected at least 2 pairs, got {result}"
+    assert len(result) >= 2, f"Expected at least 2 pairs, got result"
 
     # Test case 2: Simple palindrome pairs
     result = solution.find_palindrome_pairs(["bat", "tab", "cat"])
     expected = [[0, 1], [1, 0]]
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 3: Empty string handling
     result = solution.find_palindrome_pairs(["a", ""])
     expected = [[0, 1], [1, 0]]
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 4: Test is_palindrome helper
     result = solution.is_palindrome("racecar", 0, 7)
     expected = True
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

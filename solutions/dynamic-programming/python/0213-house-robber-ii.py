@@ -143,17 +143,17 @@ def test_solution() -> None:
     # Test case 1: Example from problem - houses in circle [2,3,2], can't rob first and last
     result = solution.rob([2, 3, 2])
     expected = 3
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: Single element
     result = solution.rob([5])
     expected = 5
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 3: Larger example
     result = solution.rob([1, 2, 3, 1])
     expected = 4
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

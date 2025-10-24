@@ -3,6 +3,8 @@
  *
  * # 677. Map Sum Pairs
  *
+ * Difficulty: Medium
+ *
  * You are asked to implement a map that supports the following two operations:
  *
  * **Example:**

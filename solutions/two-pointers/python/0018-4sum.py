@@ -164,12 +164,12 @@ def test_solution() -> None:
     # Test case 1: Basic case
     result = solution.fourSum([1, 2, 3], 2)
     expected: list[Any] = []
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: Empty input
     result = solution.fourSum([], 0)
     expected = []
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

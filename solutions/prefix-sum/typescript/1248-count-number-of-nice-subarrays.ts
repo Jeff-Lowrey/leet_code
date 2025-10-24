@@ -13,7 +13,7 @@
  * <dt>Input:</dt>
  * <dd>[([1, 1, 2, 1, 1]</dd>
  * <dt>Output:</dt>
- * <dd>"\nInput: nums={nums}, k={k}"</dd>
+ * <dd>"\nInput: nums=nums, k={k}"</dd>
  * <dt>Explanation:</dt>
  * <dd>There are 2 nice subarrays (containing exactly k=3 odd numbers)</dd>
  * </dl>
@@ -181,7 +181,7 @@ function runTests(): void {
   # Test different approaches
   test_cases = [([1, 1, 2, 1, 1], 3), ([2, 4, 6], 1), ([1, 3, 5], 2), ([2, 2, 2, 1, 2, 2, 1, 2, 2, 2], 2)]
   for nums, k in test_cases:
-  console.log(`\nInput: nums={nums}, k={k}`)
+  console.log(`\nInput: nums=nums, k={k}`)
   result1 = solution.numberOfSubarrays(nums, k)
   result2 = solution.numberOfSubarraysSlidingWindow(nums, k)
   result3 = solution.numberOfSubarraysOptimized(nums, k)

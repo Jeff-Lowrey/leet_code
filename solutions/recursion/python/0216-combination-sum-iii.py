@@ -190,32 +190,32 @@ def test_solution() -> None:
 
     # Test case 1: k = 3, n = 7
     solution.solve(3, 7)
-    # assert arrays_equal(result, expected), f"Expected {expected}, got {result}"  # Result undefined
+    # assert arrays_equal(result, expected), f"Expected expected, got result"  # Result undefined
     print("Test 1 passed: k=3, n=7")
 
     # Test case 2: k = 3, n = 9
     solution.solve(3, 9)
-    # assert arrays_equal(result, expected), f"Expected {expected}, got {result}"  # Result undefined
+    # assert arrays_equal(result, expected), f"Expected expected, got result"  # Result undefined
     print("Test 2 passed: k=3, n=9")
 
     # Test case 3: k = 4, n = 1 (impossible)
     solution.solve(4, 1)
-    # assert arrays_equal(result, expected), f"Expected {expected}, got {result}"  # Result undefined
+    # assert arrays_equal(result, expected), f"Expected expected, got result"  # Result undefined
     print("Test 3 passed: Impossible case")
 
     # Test case 4: k = 9, n = 45 (all numbers)
     solution.solve(9, 45)
-    # assert arrays_equal(result, expected), f"Expected {expected}, got {result}"  # Result undefined
+    # assert arrays_equal(result, expected), f"Expected expected, got result"  # Result undefined
     print("Test 4 passed: All numbers")
 
     # Test case 5: k = 2, n = 18
     solution.solve(2, 18)
-    # assert len(result) == 0, f"Expected no solutions for k=2, n=18, got {result}"  # Result undefined
+    # assert len(result) == 0, f"Expected no solutions for k=2, n=18, got result"  # Result undefined
     print("Test 5 passed: k=2, n=18")
 
     # Test case 6: k = 3, n = 15
     solution.solve(3, 15)
-    # assert arrays_equal(result, expected), f"Expected {expected}, got {result}"  # Result undefined
+    # assert arrays_equal(result, expected), f"Expected expected, got result"  # Result undefined
     print("Test 6 passed: k=3, n=15")
 
     print("All test cases passed!")

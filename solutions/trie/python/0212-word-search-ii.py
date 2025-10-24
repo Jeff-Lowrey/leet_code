@@ -304,7 +304,7 @@ if __name__ == "__main__":
     print(f"\nSearching for words: {words}")
 
     result = solution.findWords(board, words)
-    print(f"Found words: {result}")
+    print(f"Found words: result")
 
     print("\nDemonstrating with alternative solution:")
     solution_set = SolutionWithSet()

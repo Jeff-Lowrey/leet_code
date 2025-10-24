@@ -187,12 +187,12 @@ def test_solution() -> None:
     # Test case 1: Example from problem
     result = solution.kClosest([[1, 3], [-2, 2], [5, 8], [0, 1]], k=2)
     expected = [[0, 1], [-2, 2]]
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: Empty input
     result = solution.kClosest([], 0)
     expected: list[Any] = []
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

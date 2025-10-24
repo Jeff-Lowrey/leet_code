@@ -229,27 +229,27 @@ def test_solution() -> None:
     # Test case 1: Example from problem
     result = solution.alienOrder(["wrt", "wrf", "er", "ett", "rftt"])
     expected = "wertf"
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: Invalid (prefix longer than word)
     result = solution.alienOrder(["abc", "ab"])
     expected = ""
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 3: Single word
     result = solution.alienOrder(["z", "x"])
     expected = "zx"
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 4: Empty input
     result = solution.alienOrder([])
     expected = ""
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 5: BFS version
     result = solution.alienOrder_bfs(["wrt", "wrf", "er", "ett", "rftt"])
     expected = "wertf"
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

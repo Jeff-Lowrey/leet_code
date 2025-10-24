@@ -128,27 +128,27 @@ def test_solution() -> None:
     # Test case 1: Example from problem
     result = solution.eraseOverlapIntervals([[1, 2], [2, 3], [3, 4], [1, 3]])
     expected = 1
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: All overlapping
     result = solution.eraseOverlapIntervals([[1, 2], [1, 2], [1, 2]])
     expected = 2
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 3: No overlaps
     result = solution.eraseOverlapIntervals([[1, 2], [2, 3]])
     expected = 0
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 4: Empty input
     result = solution.eraseOverlapIntervals([])
     expected = 0
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 5: Single interval
     result = solution.eraseOverlapIntervals([[1, 2]])
     expected = 0
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

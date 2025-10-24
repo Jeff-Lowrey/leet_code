@@ -146,17 +146,17 @@ def test_solution() -> None:
     # Test case 1: Example from problem
     result = solution.lengthOfLongestSubstring("abcabcbb")
     expected = 3
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: Empty input
     result = solution.lengthOfLongestSubstring("")
     expected = 0
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 3: Single element
     result = solution.lengthOfLongestSubstring("a")
     expected = 1
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

@@ -3,17 +3,17 @@
 
 # Difficulty: Easy
 
-Solve problem #1275: Find Winner On A Tic Tac Toe Game
+Solve the Find Winner On A Tic Tac Toe Game problem as described.
 
 **Example:**
  *
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>input data here</dd>
+<dd>```</dd>
 <dt>Output:</dt>
-<dd>output data here</dd>
+<dd>```</dd>
 <dt>Explanation:</dt>
-<dd>Explanation of the solution</dd>
+<dd>Processing input produces the expected output</dd>
 </dl>
 
 <details>
@@ -109,4 +109,4 @@ if __name__ == "__main__":
     for moves, expected in test_cases:
         result = tictactoe(moves)
         status = "✓" if result == expected else "✗"
-        print(f"{status} tictactoe({moves}) = {result}, expected = {expected}")
+        print(f"{status} tictactoe({moves}) = result, expected = expected")

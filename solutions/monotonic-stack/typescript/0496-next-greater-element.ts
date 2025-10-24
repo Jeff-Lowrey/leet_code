@@ -117,15 +117,15 @@ function runTests(): void {
   for nums1, nums2 in test_cases:
   result = solution.nextGreaterElement(nums1, nums2)
   console.log(`nums1: {nums1}, nums2: {nums2}`)
-  console.log(`Result: {result}\n`)
+  console.log(`Result: result\n`)
   # Test Next Greater Element II (Circular)
   solution_circular = SolutionCircular()
   console.log("Next Greater Element II (Circular):")
   circular_cases = [[1, 2, 1], [1, 2, 3, 4, 3], [5, 4, 3, 2, 1]]
   for nums in circular_cases:
   result = solution_circular.nextGreaterElements(nums)
-  console.log(`Input: {nums}`)
-  console.log(`Next Greater: {result}\n`)
+  console.log(`Input: nums`)
+  console.log(`Next Greater: result\n`)
   # Test Stock Spanner
   console.log("Stock Spanner:")
   spanner = StockSpanner()

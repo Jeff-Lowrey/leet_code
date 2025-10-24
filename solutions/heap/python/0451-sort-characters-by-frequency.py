@@ -183,17 +183,17 @@ def test_solution() -> None:
     # Test case 1: Example from problem
     result = solution.frequencySort("tree")
     # Multiple valid answers: "eert" or "eetr"
-    assert result in ["eert", "eetr"], f"Expected 'eert' or 'eetr', got {result}"
+    assert result in ["eert", "eetr"], f"Expected 'eert' or 'eetr', got result"
 
     # Test case 2: Empty input
     result = solution.frequencySort("")
     expected = ""
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 3: All same character
     result = solution.frequencySort("aaa")
     expected = "aaa"
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

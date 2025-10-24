@@ -1,6 +1,8 @@
 /**
  * # 322. Coin Change
  *
+ * Difficulty: Medium
+ *
  * # Difficulty: Medium
  *
  * You are given an integer array coins representing coins of different denominations

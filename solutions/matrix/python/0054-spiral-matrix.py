@@ -187,7 +187,7 @@ if __name__ == "__main__":
     for matrix in test_matrices:
         result = solution.spiralOrder(matrix)
         print(f"Matrix: {matrix}")
-        print(f"Spiral: {result}\n")
+        print(f"Spiral: result\n")
 
     # Test Generate Matrix
     solution_gen = SolutionGenerate()
@@ -195,7 +195,7 @@ if __name__ == "__main__":
     print("Generate Spiral Matrix:")
     for n in [3, 1, 4]:
         generated_matrix: list[list[int]] = solution_gen.generateMatrix(n)
-        print(f"n = {n}:")
+        print(f"n = n:")
         for row in generated_matrix:
             print(row)
         print()

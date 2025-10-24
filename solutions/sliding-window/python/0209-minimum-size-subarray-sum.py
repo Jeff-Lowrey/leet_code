@@ -131,12 +131,12 @@ def test_solution() -> None:
     # Test case 1: Example from problem
     result = solution.minSubArrayLen(7, [2, 3, 1, 2, 4, 3])
     expected = 2
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: Empty array
     result = solution.minSubArrayLen(7, [])
     expected = 0
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

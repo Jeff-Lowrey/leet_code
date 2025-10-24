@@ -3,6 +3,8 @@
  *
  * # 673. Number Of Longest Increasing Subsequence
  *
+ * Difficulty: Medium
+ *
  * Given an integer array nums, return the number of longest increasing subsequences.
  *
  * Notice that the sequence has to be strictly increasing.
@@ -13,7 +15,7 @@
  * <dt>Input:</dt>
  * <dd>[[1, 3, 5, 4, 7]</dd>
  * <dt>Output:</dt>
- * <dd>"\nInput: {nums}"</dd>
+ * <dd>"\nInput: nums"</dd>
  * <dt>Explanation:</dt>
  * <dd>The number of longest increasing subsequences of length 4 is 2</dd>
  * </dl>

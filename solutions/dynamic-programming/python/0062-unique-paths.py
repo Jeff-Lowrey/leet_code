@@ -140,12 +140,12 @@ def test_solution() -> None:
     # Test case 1: Example from problem (3 rows, 2 columns)
     result = solution.uniquePaths(3, 2)
     expected = 3
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: 1x1 grid
     result = solution.uniquePaths(1, 1)
     expected = 1
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

@@ -127,7 +127,7 @@ function runTests(): void {
   for num_courses, prerequisites in test_cases:
   result = solution.canFinish(num_courses, prerequisites)
   console.log(`Courses: {num_courses}, Prerequisites: {prerequisites}`)
-  console.log(`Can finish: {result}\n`)
+  console.log(`Can finish: result\n`)
   # Test Course Schedule II
   solution2 = SolutionScheduleII()
   console.log("Course Schedule II:")

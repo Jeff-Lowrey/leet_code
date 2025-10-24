@@ -3,6 +3,8 @@
  *
  * # 1233. Remove Sub Folders From The Filesystem
  *
+ * Difficulty: Medium
+ *
  * Given a list of folders, remove all sub-folders in those folders and return the folders in any order.
  *
  * If a folder[i] is located within another folder[j], it is called a sub-folder of it.

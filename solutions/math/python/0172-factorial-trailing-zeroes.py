@@ -118,4 +118,4 @@ if __name__ == "__main__":
     print("\n=== 172. Factorial Trailing Zeroes ===")
     for n in [5, 10, 25, 30, 100]:
         result = solution.trailingZeroes(n)
-        print(f"trailingZeroes({n}) -> {result}")
+        print(f"trailingZeroes(n) -> result")

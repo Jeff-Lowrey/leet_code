@@ -165,8 +165,8 @@ function runTests(): void {
   result = solution.leastInterval(tasks, n)
   math_result = solution.leastIntervalMath(tasks, n)
   console.log(`\nTasks: {tasks}`)
-  console.log(`Cooldown: {n}`)
-  console.log(`Simulation result: {result}`)
+  console.log(`Cooldown: n`)
+  console.log(`Simulation result: result`)
   console.log(`Math formula result: {math_result}`)
   # Show scheduling example
   console.log("\n\nExample scheduling for ['A','A','A','B','B','B'], n=2:")

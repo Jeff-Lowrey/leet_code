@@ -1,6 +1,8 @@
 /**
  * # 71. Simplify Path
  *
+ * Difficulty: Easy
+ *
  * # Difficulty: Medium
  *
  * Given a string path, which is an absolute path (starting with a slash '/') to a file or

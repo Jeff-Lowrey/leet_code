@@ -124,17 +124,17 @@ def test_solution() -> None:
     # Test case 1: Basic case
     result = solution.plusOne([1, 2, 3])
     expected = [1, 2, 4]
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: Empty input
     result = solution.plusOne([])
     expected = [1]
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 3: Single element
     result = solution.plusOne([1])
     expected = [2]
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

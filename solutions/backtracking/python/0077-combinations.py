@@ -161,12 +161,12 @@ def test_solution() -> None:
     # Test case 1: Example from problem
     result = solution.combine(4, k=2)
     expected = [[1, 2], [1, 3], [1, 4], [2, 3], [2, 4], [3, 4]]
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: Empty input
     result = solution.combine([], 0)  # type: ignore
     expected: list[list[int]] = [[]]
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

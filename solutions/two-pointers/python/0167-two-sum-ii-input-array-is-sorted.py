@@ -141,12 +141,12 @@ def test_solution() -> None:
     # Test case 1: Example from problem
     result = solution.twoSum([2, 7, 11, 15], target=9)
     expected = [1, 2]
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: Different numbers
     result = solution.twoSum([1, 2, 3, 4], 7)
     expected = [3, 4]
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

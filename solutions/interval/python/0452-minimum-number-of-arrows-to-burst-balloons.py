@@ -127,27 +127,27 @@ def test_solution() -> None:
     # Test case 1: Example from problem
     result = solution.findMinArrowShots([[10, 16], [2, 8], [1, 6], [7, 12]])
     expected = 2
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: All separate (no overlap)
     result = solution.findMinArrowShots([[1, 2], [3, 4], [5, 6], [7, 8]])
     expected = 4
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 3: All overlap
     result = solution.findMinArrowShots([[1, 10], [2, 9], [3, 8], [4, 7]])
     expected = 1
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 4: Empty input
     result = solution.findMinArrowShots([])
     expected = 0
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 5: Single balloon
     result = solution.findMinArrowShots([[1, 5]])
     expected = 1
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

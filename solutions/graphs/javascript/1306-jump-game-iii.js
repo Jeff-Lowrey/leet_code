@@ -1,6 +1,8 @@
 /**
  * # 1306. Jump Game Iii
  *
+ * Difficulty: Medium
+ *
  * # Difficulty: Medium
  *
  * Given an array of non-negative integers arr, you are initially positioned at start index.

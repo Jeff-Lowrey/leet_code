@@ -124,17 +124,17 @@ def test_solution() -> None:
     # Test case 1: Example from problem
     result = solution.singleNumber([2, 2, 3, 2])
     expected = 3
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: Single element
     result = solution.singleNumber([1])
     expected = 1
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 3: Larger example
     result = solution.singleNumber([0, 1, 0, 1, 0, 1, 99])
     expected = 99
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

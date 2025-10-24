@@ -1,6 +1,8 @@
 /**
  * # 38. Count And Say
  *
+ * Difficulty: Easy
+ *
  * # Difficulty: Medium
  *
  * The count-and-say sequence is a sequence of digit strings defined by the recursive formula:

@@ -1,6 +1,8 @@
 /**
  * # 125. Valid Palindrome
  *
+ * Difficulty: Medium
+ *
  * # Difficulty: Easy
  *
  * A phrase is a palindrome if, after converting all uppercase letters into lowercase

@@ -188,7 +188,7 @@ def test_solution() -> None:
     # Test case 1: Empty list
     result = solution.mergeKLists([])
     expected = None
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("Basic functionality test passed! For comprehensive linked list tests, build proper ListNode chains.")
 

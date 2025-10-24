@@ -216,12 +216,12 @@ def test_solution() -> None:
     # Test case 1: Basic case
     result = solution.topKFrequent(["the", "day", "is", "sunny", "the", "the", "the", "sunny", "is", "is"], 4)
     expected: list[Any] = ["the", "is", "sunny", "day"]
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: Empty input
     result = solution.topKFrequent([], 0)
     expected: list[str] = []
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

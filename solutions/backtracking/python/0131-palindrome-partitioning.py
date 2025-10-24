@@ -150,17 +150,17 @@ def test_solution() -> None:
     # Test case 1: Example from problem
     result = solution.partition("aab")
     expected = [["a", "a", "b"], ["aa", "b"]]
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: Empty input
     result = solution.partition([])  # type: ignore
     expected: list[list[str]] = [[]]
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 3: Single element
     result = solution.partition([1])  # type: ignore
     expected = [[[1]]]
-    assert result == expected, f"Expected {expected}, got {result}"  # type: ignore
+    assert result == expected, f"Expected expected, got result"  # type: ignore
 
     print("All test cases passed!")
 

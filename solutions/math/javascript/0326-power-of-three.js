@@ -1,7 +1,9 @@
 /**
  * # 326. Power Of Three
  *
- * Solve problem #326: Power Of Three
+ * Difficulty: Medium
+ *
+ * Solve the Power Of Three problem as described.
  *
  * **Example:**
  *

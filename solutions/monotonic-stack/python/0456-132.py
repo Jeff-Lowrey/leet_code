@@ -123,17 +123,17 @@ def test_solution() -> None:
     # Test case 1: Basic case
     result = solution.find132pattern([1, 2, 3])
     expected = False
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: Empty input
     result = solution.find132pattern([])
     expected = False
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 3: Single element
     result = solution.find132pattern([1])
     expected = False
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

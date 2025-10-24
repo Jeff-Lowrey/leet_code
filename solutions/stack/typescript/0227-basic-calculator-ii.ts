@@ -1,6 +1,8 @@
 /**
  * # 227. Basic Calculator Ii
  *
+ * Difficulty: Medium
+ *
  * # Difficulty: Medium
  *
  * # 227. Basic Calculator Ii

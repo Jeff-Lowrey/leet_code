@@ -143,17 +143,17 @@ def test_solution() -> None:
     # Test case 1: Positive palindrome
     result = solution.isPalindrome(121)
     expected = True
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: Negative number
     result = solution.isPalindrome(-121)
     expected = False
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 3: Non-palindrome
     result = solution.isPalindrome(10)
     expected = False
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

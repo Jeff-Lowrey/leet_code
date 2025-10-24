@@ -145,27 +145,27 @@ def test_solution() -> None:
     # Test case 1: Example from problem
     result = solution.findMinHeightTrees(6, [[3, 0], [3, 1], [3, 2], [3, 4], [5, 4]])
     expected = [3, 4]
-    assert sorted(result) == sorted(expected), f"Expected {expected}, got {result}"
+    assert sorted(result) == sorted(expected), f"Expected expected, got result"
 
     # Test case 2: Line graph
     result = solution.findMinHeightTrees(4, [[1, 0], [1, 2], [1, 3]])
     expected = [1]
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 3: Single node
     result = solution.findMinHeightTrees(1, [])
     expected = [0]
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 4: Two nodes
     result = solution.findMinHeightTrees(2, [[0, 1]])
     expected = [0, 1]
-    assert sorted(result) == sorted(expected), f"Expected {expected}, got {result}"
+    assert sorted(result) == sorted(expected), f"Expected expected, got result"
 
     # Test case 5: Star graph
     result = solution.findMinHeightTrees(5, [[0, 1], [0, 2], [0, 3], [0, 4]])
     expected = [0]
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

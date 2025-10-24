@@ -3,6 +3,8 @@
  *
  * # 355. Design Twitter
  *
+ * Difficulty: Medium
+ *
  * Design a simplified version of Twitter where users can post tweets, follow/unfollow users, and see a news feed.
  *
  * **Example:**

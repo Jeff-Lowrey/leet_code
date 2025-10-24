@@ -257,4 +257,4 @@ if __name__ == "__main__":
     print("\nSearch results:")
     for target in targets:
         result = solution.searchMatrix(matrix, target)
-        print(f"searchMatrix(matrix, {target}) -> {result}")
+        print(f"searchMatrix(matrix, {target}) -> result")

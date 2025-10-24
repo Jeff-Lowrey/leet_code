@@ -327,7 +327,7 @@ if __name__ == "__main__":
     result: list[Any] = []
     for person in people_sorted:
         result.insert(person[1], person)
-        print(f"Insert {person} at position {person[1]}: {result}")
+        print(f"Insert {person} at position {person[1]}: result")
 
     # Performance comparison
     print("\nApproach complexities:")

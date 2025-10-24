@@ -3,6 +3,8 @@
  *
  * # 232. Implement Queue using Stacks
  *
+ * Difficulty: Medium
+ *
  * Implement a first-in-first-out (FIFO) queue using only two stacks.
  *
  * **Example:**

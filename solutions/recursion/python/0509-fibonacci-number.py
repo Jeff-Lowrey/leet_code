@@ -3,17 +3,17 @@
 
 # Difficulty: Easy
 
-Solve problem #509: Fibonacci Number
+Solve the Fibonacci Number problem as described.
 
 **Example:**
  *
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>input data here</dd>
+<dd>```</dd>
 <dt>Output:</dt>
-<dd>output data here</dd>
+<dd>```</dd>
 <dt>Explanation:</dt>
-<dd>Explanation of the solution</dd>
+<dd>Processing input produces the expected output</dd>
 </dl>
 
 <details>
@@ -162,23 +162,23 @@ if __name__ == "__main__":
     for n, expected in test_cases:
         result = fib(n)
         status = "✓" if result == expected else "✗"
-        print(f"{status} fib({n}) = {result}, expected = {expected}")
+        print(f"{status} fib(n) = result, expected = expected")
 
     print("\nTesting fibIterative (O(1) space):")
     for n, expected in test_cases:
         result = fibIterative(n)
         status = "✓" if result == expected else "✗"
-        print(f"{status} fibIterative({n}) = {result}, expected = {expected}")
+        print(f"{status} fibIterative(n) = result, expected = expected")
 
     print("\nTesting fibDP (bottom-up DP):")
     for n, expected in test_cases:
         result = fibDP(n)
         status = "✓" if result == expected else "✗"
-        print(f"{status} fibDP({n}) = {result}, expected = {expected}")
+        print(f"{status} fibDP(n) = result, expected = expected")
 
     # Only test naive version with small inputs (exponential time!)
     print("\nTesting fibNaive (naive recursion - small inputs only):")
     for n, expected in test_cases[:7]:  # Only first 7 test cases
         result = fibNaive(n)
         status = "✓" if result == expected else "✗"
-        print(f"{status} fibNaive({n}) = {result}, expected = {expected}")
+        print(f"{status} fibNaive(n) = result, expected = expected")

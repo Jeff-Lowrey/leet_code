@@ -161,17 +161,17 @@ def test_solution() -> None:
     # Test case 1: Example from problem - "226" can be decoded as "BZ"(2 26), "VF"(22 6), or "BBF"(2 2 6)
     result = solution.numDecodings("226")
     expected = 3
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: Single digit
     result = solution.numDecodings("1")
     expected = 1
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 3: String with leading zero - invalid
     result = solution.numDecodings("06")
     expected = 0
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

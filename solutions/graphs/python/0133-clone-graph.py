@@ -368,7 +368,7 @@ if __name__ == "__main__":
     print("Heights matrix:")
     for row in heights:
         print(row)
-    print(f"Cells reaching both oceans: {result}\n")
+    print(f"Cells reaching both oceans: result\n")
 
     # Test Word Search
     solution_word = SolutionWordSearch()
@@ -391,5 +391,5 @@ if __name__ == "__main__":
 
     for n, edges in test_cases:
         num_components: int = solution_comp.countComponents(n, edges)
-        print(f"n={n}, edges={edges}")
+        print(f"n=n, edges={edges}")
         print(f"Components: {num_components}\n")

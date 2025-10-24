@@ -3,6 +3,8 @@
  *
  * # 240. Search a 2D Matrix II
  *
+ * Difficulty: Medium
+ *
  * Write an efficient algorithm that searches for a value target in an m x n integer matrix.
  * This matrix has the following properties:
  * - Integers in each row are sorted in ascending from left to right.

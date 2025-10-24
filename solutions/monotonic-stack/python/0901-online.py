@@ -140,31 +140,31 @@ def test_solution() -> None:
     operations = ["StockSpanner", "next", "next", "next", "next", "next", "next", "next"]
     values = [[], [100], [80], [60], [70], [60], [75], [85]]
     solution.solve(operations, values)
-    # # # assert result == expected, f"Expected {expected}, got {result}"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
+    # # # assert result == expected, f"Expected expected, got result"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
 
     # Test case 2: Increasing prices
     operations = ["StockSpanner", "next", "next", "next", "next"]
     values = [[], [10], [20], [30], [40]]
     solution.solve(operations, values)
-    # # # assert result == expected, f"Expected {expected}, got {result}"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
+    # # # assert result == expected, f"Expected expected, got result"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
 
     # Test case 3: Decreasing prices
     operations = ["StockSpanner", "next", "next", "next", "next"]
     values = [[], [40], [30], [20], [10]]
     solution.solve(operations, values)
-    # # # assert result == expected, f"Expected {expected}, got {result}"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
+    # # # assert result == expected, f"Expected expected, got result"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
 
     # Test case 4: All same price
     operations = ["StockSpanner", "next", "next", "next"]
     values = [[], [50], [50], [50]]
     solution.solve(operations, values)
-    # # # assert result == expected, f"Expected {expected}, got {result}"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
+    # # # assert result == expected, f"Expected expected, got result"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
 
     # Test case 5: Single price
     operations = ["StockSpanner", "next"]
     values = [[], [100]]
     solution.solve(operations, values)
-    # # # assert result == expected, f"Expected {expected}, got {result}"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
+    # # # assert result == expected, f"Expected expected, got result"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
 
     print("All test cases passed!")
 

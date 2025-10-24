@@ -1,6 +1,8 @@
 /**
  * # 1282. Group the People Given the Group Size They Belong To
  *
+ * Difficulty: Medium
+ *
  * # Difficulty: Medium
  *
  * There are n people that are split into some unknown number of groups. Each person

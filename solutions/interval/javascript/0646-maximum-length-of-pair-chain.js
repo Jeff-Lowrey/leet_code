@@ -3,6 +3,8 @@
  *
  * # 646. Maximum Length Of Pair Chain
  *
+ * Difficulty: Medium
+ *
  * You are given an array of n pairs pairs where pairs[i] = [lefti, righti] and lefti < righti.
  *
  * A pair p2 = [c, d] follows a pair p1 = [a, b] if b < c. A chain of pairs can be formed in this fashion.

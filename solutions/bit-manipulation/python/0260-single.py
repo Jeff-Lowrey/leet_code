@@ -135,17 +135,17 @@ def test_solution() -> None:
     # Test case 1: Example from problem
     result = solution.singleNumber([1, 2, 1, 3, 2, 5])
     expected = [3, 5]
-    assert sorted(result) == sorted(expected), f"Expected {expected}, got {result}"
+    assert sorted(result) == sorted(expected), f"Expected expected, got result"
 
     # Test case 2: Two elements only
     result = solution.singleNumber([1, 2])
     expected = [1, 2]
-    assert sorted(result) == sorted(expected), f"Expected {expected}, got {result}"
+    assert sorted(result) == sorted(expected), f"Expected expected, got result"
 
     # Test case 3: Larger example
     result = solution.singleNumber([1, 1, 2, 2, 3, 4, 5, 5])
     expected = [3, 4]
-    assert sorted(result) == sorted(expected), f"Expected {expected}, got {result}"
+    assert sorted(result) == sorted(expected), f"Expected expected, got result"
 
     print("All test cases passed!")
 

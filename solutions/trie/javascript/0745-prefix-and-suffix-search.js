@@ -3,6 +3,8 @@
  *
  * # 745. Prefix And Suffix Search
  *
+ * Difficulty: Medium
+ *
  * Design a special dictionary that searches the words in it by a prefix and a suffix.
  *
  * Implement the WordFilter class:

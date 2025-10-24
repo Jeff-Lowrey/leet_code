@@ -343,7 +343,7 @@ if __name__ == "__main__":
 
     for name, method in approaches:
         result = method(tree1)
-        print(f"{name}: {result}")
+        print(f"{name}: result")
 
     print(f"\nKey insights:")
     print(f"1. Balance condition: |left_height - right_height| ≤ 1 for ALL nodes")

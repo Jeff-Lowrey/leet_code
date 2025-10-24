@@ -173,22 +173,22 @@ def test_solution() -> None:
     # Test case 1: Example from problem
     result = solution.numIslands2(3, 3, [[0, 0], [0, 1], [1, 2], [2, 1]])
     expected = [1, 1, 2, 3]
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: Single island
     result = solution.numIslands2(1, 1, [[0, 0]])
     expected = [1]
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 3: Merging islands
     result = solution.numIslands2(3, 3, [[0, 0], [0, 1], [1, 1], [2, 2]])
     expected = [1, 1, 1, 2]
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 4: Duplicate positions
     result = solution.numIslands2(2, 2, [[0, 0], [0, 0], [1, 1]])
     expected = [1, 1, 2]
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

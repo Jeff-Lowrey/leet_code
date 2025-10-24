@@ -190,7 +190,7 @@ function runTests(): void {
   test_cases = [("abcdefg", 2), ("abcd", 2), ("abc", 5), ("abcdefghij", 3), ("a", 2)]
   for s, k in test_cases:
   result = solution.reverseStr(s, k)
-  console.log(`reverseStr('{s}', {k}) = '{result}'`)
+  console.log(`reverseStr('{s}', {k}) = 'result'`)
   # Demonstrate the logic
   console.log("\nStep-by-step for s='abcdefg', k=2:")
   s, k = "abcdefg", 2

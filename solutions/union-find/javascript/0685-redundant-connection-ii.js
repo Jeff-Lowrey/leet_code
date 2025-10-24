@@ -1,6 +1,8 @@
 /**
  * # 685. Redundant Connection Ii
  *
+ * Difficulty: Medium
+ *
  * # Difficulty: Hard
  *
  * In a directed graph, return an edge that can be removed so that the resulting graph is a tree.

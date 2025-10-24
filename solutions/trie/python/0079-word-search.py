@@ -326,7 +326,7 @@ if __name__ == "__main__":
 
     for word in words:
         result = solution.exist(board, word)
-        print(f"  '{word}': {result}")
+        print(f"  '{word}': result")
 
     print("\nDemonstrating optimized solution:")
     solution_opt = SolutionOptimized()
@@ -342,6 +342,6 @@ if __name__ == "__main__":
 
     for word in test_words:
         result = solution_opt.exist(board2, word)
-        print(f"  '{word}': {result}")
+        print(f"  '{word}': result")
 
     print("\nDFS backtracking word search completed successfully!")

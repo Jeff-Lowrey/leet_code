@@ -1,17 +1,19 @@
 /**
  * # 1275. Find Winner On A Tic Tac Toe Game
  *
- * Solve problem #1275: Find Winner On A Tic Tac Toe Game
+ * Difficulty: Medium
+ *
+ * Solve the Find Winner On A Tic Tac Toe Game problem as described.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>input data here</dd>
+ * <dd>* ```</dd>
  * <dt>Output:</dt>
- * <dd>output data here</dd>
+ * <dd>* ```</dd>
  * <dt>Explanation:</dt>
- * <dd>Explanation of the solution</dd>
+ * <dd>Processing input produces the expected output</dd>
  * </dl>
  *
  * <details>

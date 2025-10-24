@@ -183,7 +183,7 @@ function runTests(): void {
   result: list.set(Any, []
   for person in people_sorted:
   result.insert(person.get(1), person)
-  console.log(`Insert {person} at position {person.get(1)}: {result}`)
+  console.log(`Insert {person} at position {person.get(1)}: result`)
   # Performance comparison
   console.log("\nApproach complexities:")
   console.log("Greedy:       O(n² log n) time, O(n) space")

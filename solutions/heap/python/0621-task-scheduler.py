@@ -280,8 +280,8 @@ if __name__ == "__main__":
         result = solution.leastInterval(tasks, n)
         math_result = solution.leastIntervalMath(tasks, n)
         print(f"\nTasks: {tasks}")
-        print(f"Cooldown: {n}")
-        print(f"Simulation result: {result}")
+        print(f"Cooldown: n")
+        print(f"Simulation result: result")
         print(f"Math formula result: {math_result}")
 
     # Show scheduling example

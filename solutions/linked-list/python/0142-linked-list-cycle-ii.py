@@ -142,7 +142,7 @@ def test_solution() -> None:
     # Test case 1: Empty list
     # Skipped: result = solution.detectCycle(None)  # None input test
     # Skipped: expected = None
-    # Skipped: assert result == expected, f"Expected {expected}, got {result}"
+    # Skipped: assert result == expected, f"Expected expected, got result"
 
     print(
         "Basic functionality test passed! For comprehensive linked list cycle tests, build proper ListNode chains with cycles."

@@ -149,12 +149,12 @@ def test_solution() -> None:
     # Test case 1: Example from problem
     result = solution.minEatingSpeed([3, 6, 7, 11], h=8)
     expected = 4
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: Single pile
     result = solution.minEatingSpeed([30], 10)
     expected = 3
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

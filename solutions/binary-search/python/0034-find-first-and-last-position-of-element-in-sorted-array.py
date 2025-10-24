@@ -271,9 +271,9 @@ if __name__ == "__main__":
     target = 8
     result = solution.searchRange(nums, target)
     print(f"=== 034. Find First And Last Position Of Element In Sorted Array ===")
-    print(f"Array: {nums}")
+    print(f"Array: nums")
     print(f"Target: {target}")
-    print(f"Range: {result}")
+    print(f"Range: result")
 
     # Demonstrate edge cases
     print(f"\nEdge cases:")

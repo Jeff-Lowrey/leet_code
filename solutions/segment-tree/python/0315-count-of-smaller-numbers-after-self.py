@@ -336,7 +336,7 @@ if __name__ == "__main__":
     test_cases = [[5, 2, 6, 1], [1, 2, 3, 4, 5], [5, 4, 3, 2, 1], [-1, 2, -3, 4]]
 
     for nums in test_cases:
-        print(f"\nInput: {nums}")
+        print(f"\nInput: nums")
 
         # Show all approaches
         result_merge = solution.countSmaller(nums)

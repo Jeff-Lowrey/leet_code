@@ -135,12 +135,12 @@ def test_solution() -> None:
     # Test case 1: Example from problem
     result = solution.replaceWords(["cat", "bat", "rat"], "the cattle was rattled by the battery")
     expected = "the cat was rat by the bat"
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: Empty dictionary
     result = solution.replaceWords([], "hello world")
     expected = "hello world"
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

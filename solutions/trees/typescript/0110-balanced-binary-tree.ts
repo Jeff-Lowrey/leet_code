@@ -197,7 +197,7 @@ function runTests(): void {
   ]
   for name, method in approaches:
   result = method(tree1)
-  console.log(`{name}: {result}`)
+  console.log(`{name}: result`)
   console.log(`\nKey insights:`)
   console.log(`1. Balance condition: |left_height - right_height| ≤ 1 for ALL nodes`)
   console.log(`2. Recursive approach with early termination is most efficient`)

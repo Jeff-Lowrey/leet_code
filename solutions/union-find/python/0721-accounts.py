@@ -306,7 +306,7 @@ if __name__ == "__main__":
     ]
     result = solution.accountsMerge(accounts)
     print(f"Input: {accounts}")
-    print(f"Output: {result}")
+    print(f"Output: result")
     print("Analysis: John's first two accounts share 'johnsmith@mail.com' so they merge")
 
     # Example 2: No merging case

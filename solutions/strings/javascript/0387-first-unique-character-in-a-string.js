@@ -3,6 +3,8 @@
  *
  * # 387. First Unique Character In A String
  *
+ * Difficulty: Medium
+ *
  * This problem demonstrates key concepts in Hash Tables and String manipulation.
  *
  * **Example:**

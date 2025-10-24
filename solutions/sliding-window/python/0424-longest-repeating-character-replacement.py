@@ -140,12 +140,12 @@ def test_solution() -> None:
     # Test case 1: Basic case
     # Skipped: result = solution.characterReplacement([1, 2, 3], 2)  # Wrong type test
     # Skipped: expected = 3
-    # Skipped: assert result == expected, f"Expected {expected}, got {result}"
+    # Skipped: assert result == expected, f"Expected expected, got result"
 
     # Test case 2: Empty input
     # Skipped: result = solution.characterReplacement([], 0)  # Wrong type test
     # Skipped: expected = 0
-    # Skipped: assert result == expected, f"Expected {expected}, got {result}"
+    # Skipped: assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

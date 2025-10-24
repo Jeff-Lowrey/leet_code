@@ -1,17 +1,19 @@
 /**
  * # 304. Range Sum Query 2d
  *
- * Solve problem #304: Range Sum Query 2d
+ * Difficulty: Medium
+ *
+ * Solve the Range Sum Query 2d problem as described.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>input data here</dd>
+ * <dd>* ```</dd>
  * <dt>Output:</dt>
- * <dd>output data here</dd>
+ * <dd>* ```</dd>
  * <dt>Explanation:</dt>
- * <dd>Explanation of the solution</dd>
+ * <dd>Processing input produces the expected output</dd>
  * </dl>
  *
  * <details>

@@ -3,6 +3,8 @@
  *
  * # 383. Ransom Note
  *
+ * Difficulty: Medium
+ *
  * This problem demonstrates key concepts in Strings and Hash Tables.
  *
  * **Example:**

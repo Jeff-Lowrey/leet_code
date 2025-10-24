@@ -1,7 +1,9 @@
 /**
  * # 50. Powx N
  *
- * Solve problem #50: Powx N
+ * Difficulty: Easy
+ *
+ * Solve the Powx N problem as described.
  *
  * **Example:**
  *

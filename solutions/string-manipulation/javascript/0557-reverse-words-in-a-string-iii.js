@@ -1,6 +1,8 @@
 /**
  * # 557. Reverse Words In A String Iii
  *
+ * Difficulty: Medium
+ *
  * # Difficulty: Easy
  *
  * Given a string s, reverse the order of characters in each word within a sentence

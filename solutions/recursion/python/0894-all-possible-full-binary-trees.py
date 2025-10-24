@@ -3,17 +3,17 @@
 
 # Difficulty: Medium
 
-Solve problem #894: All Possible Full Binary Trees
+Solve the All Possible Full Binary Trees problem as described.
 
 **Example:**
  *
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>input data here</dd>
+<dd>```</dd>
 <dt>Output:</dt>
-<dd>output data here</dd>
+<dd>```</dd>
 <dt>Explanation:</dt>
-<dd>Explanation of the solution</dd>
+<dd>Processing input produces the expected output</dd>
 </dl>
 
 <details>
@@ -159,15 +159,15 @@ if __name__ == "__main__":
         result = allPossibleFBT(n)
         count = len(result)
         status = "✓" if count == expected_count else "✗"
-        print(f"{status} allPossibleFBT({n}) returned {count} trees, expected {expected_count}")
+        print(f"{status} allPossibleFBT(n) returned {count} trees, expected {expected_count}")
 
         # Show first tree structure for small n
         if n <= 5 and result:
-            print(f"  First tree for n={n}: {tree_to_list(result[0])}")
+            print(f"  First tree for n=n: {tree_to_list(result[0])}")
 
     # Even numbers should return empty
     print("\nTesting even n (should return empty list):")
     for n in [2, 4, 6]:
         result = allPossibleFBT(n)
         status = "✓" if len(result) == 0 else "✗"
-        print(f"{status} allPossibleFBT({n}) returned {len(result)} trees (expected 0)")
+        print(f"{status} allPossibleFBT(n) returned {len(result)} trees (expected 0)")

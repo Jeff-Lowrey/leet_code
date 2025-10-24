@@ -173,7 +173,7 @@ def test_solution() -> None:
     # Test case 1: Empty input
     # Skipped: result = solution.reverseList(None)  # None input test
     # Skipped: expected = None
-    # Skipped: assert result == expected, f"Expected {expected}, got {result}"
+    # Skipped: assert result == expected, f"Expected expected, got result"
 
     # Test case 2: Single node
     node = ListNode(1)

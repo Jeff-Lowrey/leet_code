@@ -3,6 +3,8 @@
  *
  * # 003. Longest Substring Without Repeating Characters
  *
+ * Difficulty: Easy
+ *
  * Given a string s, find the length of the longest substring without repeating characters.
  *
  * **Example:**

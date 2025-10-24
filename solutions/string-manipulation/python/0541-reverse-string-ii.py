@@ -276,7 +276,7 @@ if __name__ == "__main__":
 
     for s, k in test_cases:
         result = solution.reverseStr(s, k)
-        print(f"reverseStr('{s}', {k}) = '{result}'")
+        print(f"reverseStr('{s}', {k}) = 'result'")
 
     # Demonstrate the logic
     print("\nStep-by-step for s='abcdefg', k=2:")

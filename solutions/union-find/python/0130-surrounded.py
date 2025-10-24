@@ -164,7 +164,7 @@ def test_solution() -> None:
     # Test case 4: Empty board
     board4: list[Any] = []
     solution.solve(board4)
-    # # # assert result == expected, f"Expected {expected}, got {result}"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
+    # # # assert result == expected, f"Expected expected, got result"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
 
     # Test case 5: Single cell
     board5 = [["O"]]

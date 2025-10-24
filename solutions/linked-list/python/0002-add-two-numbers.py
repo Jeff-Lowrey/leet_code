@@ -316,5 +316,5 @@ if __name__ == "__main__":
     for values, n in remove_cases:
         head = create_list(values)
         result = solution_remove.removeNthFromEnd(head, n)
-        print(f"List: {values}, n={n}")
+        print(f"List: {values}, n=n")
         print(f"Result: {list_to_array(result)}\n")

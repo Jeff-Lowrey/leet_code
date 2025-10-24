@@ -3,6 +3,8 @@
  *
  * # 216. Combination Sum III
  *
+ * Difficulty: Medium
+ *
  * This problem demonstrates key concepts in Recursion.
  *
  * **Example:**

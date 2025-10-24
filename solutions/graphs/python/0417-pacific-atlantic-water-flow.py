@@ -218,17 +218,17 @@ def test_solution() -> None:
     )
     expected = [[0, 4], [1, 3], [1, 4], [2, 2], [3, 0], [3, 1], [4, 0]]
     # Sort both for comparison since order doesn't matter
-    assert sorted(result) == sorted(expected), f"Expected {expected}, got {result}"
+    assert sorted(result) == sorted(expected), f"Expected expected, got result"
 
     # Test case 2: Single row
     result = solution.pacificAtlantic([[1, 2, 3]])
     expected = [[0, 0], [0, 1], [0, 2]]
-    assert sorted(result) == sorted(expected), f"Expected {expected}, got {result}"
+    assert sorted(result) == sorted(expected), f"Expected expected, got result"
 
     # Test case 3: Single cell
     result = solution.pacificAtlantic([[1]])
     expected = [[0, 0]]
-    assert sorted(result) == sorted(expected), f"Expected {expected}, got {result}"
+    assert sorted(result) == sorted(expected), f"Expected expected, got result"
 
     print("All test cases passed!")
 

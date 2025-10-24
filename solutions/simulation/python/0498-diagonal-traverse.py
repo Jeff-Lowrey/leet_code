@@ -3,17 +3,17 @@
 
 # Difficulty: Medium
 
-Solve problem #498: Diagonal Traverse
+Solve the Diagonal Traverse problem as described.
 
 **Example:**
  *
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>input data here</dd>
+<dd>```</dd>
 <dt>Output:</dt>
-<dd>output data here</dd>
+<dd>```</dd>
 <dt>Explanation:</dt>
-<dd>Explanation of the solution</dd>
+<dd>Processing input produces the expected output</dd>
 </dl>
 
 <details>
@@ -111,4 +111,4 @@ if __name__ == "__main__":
         result = findDiagonalOrder(mat)
         status = "✓" if result == expected else "✗"
         print(f"{status} findDiagonalOrder({mat})")
-        print(f"   = {result}, expected = {expected}")
+        print(f"   = result, expected = expected")

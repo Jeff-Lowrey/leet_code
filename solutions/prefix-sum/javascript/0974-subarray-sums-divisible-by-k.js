@@ -1,6 +1,8 @@
 /**
  * # 974. Subarray Sums Divisible By K
  *
+ * Difficulty: Medium
+ *
  * # Difficulty: Medium
  *
  * Given an integer array nums and an integer k, return the number of non-empty subarrays

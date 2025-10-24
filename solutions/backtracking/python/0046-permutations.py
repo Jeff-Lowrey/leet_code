@@ -235,8 +235,8 @@ if __name__ == "__main__":
     test_cases = [[1, 2, 3], [0, 1], [1]]
     for nums in test_cases:
         result = solution.permute(nums)
-        print(f"Input: {nums}")
-        print(f"Permutations: {result}\n")
+        print(f"Input: nums")
+        print(f"Permutations: result\n")
 
     # Test Permutations with Duplicates
     solution_unique = SolutionUnique()
@@ -245,8 +245,8 @@ if __name__ == "__main__":
     test_cases_dup = [[1, 1, 2], [1, 2, 3], [2, 2, 1, 1]]
     for nums in test_cases_dup:
         result = solution_unique.permuteUnique(nums)
-        print(f"Input: {nums}")
-        print(f"Unique Permutations: {result}\n")
+        print(f"Input: nums")
+        print(f"Unique Permutations: result\n")
 
     # Test Next Permutation
     solution_next = SolutionNext()
@@ -256,4 +256,4 @@ if __name__ == "__main__":
     for nums in test_cases_next:
         original = nums.copy()
         solution_next.nextPermutation(nums)
-        print(f"Input: {original} -> Next: {nums}")
+        print(f"Input: {original} -> Next: nums")

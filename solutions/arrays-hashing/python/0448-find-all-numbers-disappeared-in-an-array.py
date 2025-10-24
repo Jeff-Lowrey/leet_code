@@ -127,17 +127,17 @@ def test_solution() -> None:
     # Test case 1: Example from problem
     result = solution.findDisappearedNumbers([4, 3, 2, 7, 8, 2, 3, 1])
     expected: list[Any] = [5, 6]
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: Empty input
     result = solution.findDisappearedNumbers([])
     expected = []
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 3: Single element
     result = solution.findDisappearedNumbers([1])
     expected = []
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

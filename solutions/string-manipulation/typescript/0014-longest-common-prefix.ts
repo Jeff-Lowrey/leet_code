@@ -139,7 +139,7 @@ function runTests(): void {
   for strs in test_cases:
   result = solution.longestCommonPrefix(strs)
   console.log(`Input: {strs}`)
-  console.log(`Prefix: '{result}'\n`)
+  console.log(`Prefix: 'result'\n`)
   # Test strStr
   solution_str = SolutionStrStr()
   console.log("Find First Occurrence:")

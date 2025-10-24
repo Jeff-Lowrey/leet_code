@@ -141,7 +141,7 @@ function runTests(): void {
   test_cases_jump = [[2, 3, 1, 1, 4], [3, 2, 1, 0, 4], [0], [2, 0, 0]]
   for nums in test_cases_jump:
   result = solution_jump.canJump(nums)
-  console.log(`Input: {nums} -> Can Jump: {result}`)
+  console.log(`Input: nums -> Can Jump: result`)
   console.log("\n" + "=" * 50 + "\n")
   # Test Jump Game II
   solution_jump2 = SolutionJumpII()
@@ -149,7 +149,7 @@ function runTests(): void {
   test_cases_jump2 = [[2, 3, 1, 1, 4], [2, 3, 0, 1, 4], [1, 1, 1, 1], [1]]
   for nums in test_cases_jump2:
   jumps: int = solution_jump2.jump(nums)
-  console.log(`Input: {nums} -> Min Jumps: {jumps}`)
+  console.log(`Input: nums -> Min Jumps: {jumps}`)
   console.log("\n" + "=" * 50 + "\n")
   # Test Gas Station
   solution_gas = SolutionGasStation()

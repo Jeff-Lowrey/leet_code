@@ -148,16 +148,16 @@ if __name__ == "__main__":
     # Test case 1
     groupSizes = [3, 3, 3, 3, 3, 1, 3]
     result = solution.groupThePeople(groupSizes)
-    print(f"Test 1: {result}")  # Expected: [[5],[0,1,2],[3,4,6]] or similar
+    print(f"Test 1: result")  # Expected: [[5],[0,1,2],[3,4,6]] or similar
 
     # Test case 2
     groupSizes = [2, 1, 3, 3, 3, 2]
     result = solution.groupThePeople(groupSizes)
-    print(f"Test 2: {result}")  # Expected: [[1],[0,5],[2,3,4]] or similar
+    print(f"Test 2: result")  # Expected: [[1],[0,5],[2,3,4]] or similar
 
     # Test case 3
     groupSizes = [1]
     result = solution.groupThePeople(groupSizes)
-    print(f"Test 3: {result}")  # Expected: [[0]]
+    print(f"Test 3: result")  # Expected: [[0]]
 
     print("\nAll test cases completed!")

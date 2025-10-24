@@ -270,7 +270,7 @@ if __name__ == "__main__":
     nums = [3, 2, 1, 5, 6, 4]
     for k in range(1, 4):
         result = solution.findKthLargest(nums.copy(), k)
-        print(f"findKthLargest({nums}, k={k}) -> {result}")
+        print(f"findKthLargest(nums, k={k}) -> result")
 
     # Compare approaches
     print("\n\nComparing approaches for nums=[3,2,1,5,6,4], k=2:")

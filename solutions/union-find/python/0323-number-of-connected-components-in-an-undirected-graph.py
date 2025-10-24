@@ -213,12 +213,12 @@ def test_solution() -> None:
     # Test case 1: Example from problem
     result = solution.countComponents(5, [[0, 1], [1, 2], [3, 4]])
     expected = 2
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: No edges
     result = solution.countComponents(3, [])
     expected = 3
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

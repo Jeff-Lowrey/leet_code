@@ -109,7 +109,7 @@ function runTests(): void {
   result = solution.insert(intervals, new_interval)
   console.log(`Intervals: {intervals}`)
   console.log(`New: {new_interval}`)
-  console.log(`Result: {result}\n`)
+  console.log(`Result: result\n`)
   # Test Non-overlapping Intervals
   solution_remove = SolutionRemove()
   console.log("Non-overlapping Intervals:")

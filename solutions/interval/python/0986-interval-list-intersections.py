@@ -130,27 +130,27 @@ def test_solution() -> None:
     # Test case 1: Example from problem
     result = solution.intervalIntersection([[0, 2], [5, 10]], [[1, 5], [8, 12]])
     expected = [[1, 2], [5, 5], [8, 10]]
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: No intersections
     result = solution.intervalIntersection([[1, 3], [5, 9]], [[4, 4], [10, 12]])
     expected: list[Any] = []
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 3: Complete overlap
     result = solution.intervalIntersection([[1, 7]], [[3, 10]])
     expected = [[3, 7]]
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 4: Empty first list
     result = solution.intervalIntersection([], [[1, 5]])
     expected: list[Any] = []
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 5: Empty second list
     result = solution.intervalIntersection([[1, 5]], [])
     expected: list[Any] = []
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

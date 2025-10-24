@@ -134,12 +134,12 @@ def test_solution() -> None:
     # Test case 1: Basic case
     result = solution.combinationSum([1, 2, 3], 2)
     expected = [[1, 1], [2]]
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: Empty input
     result = solution.combinationSum([], 0)
     expected: list[list[int]] = [[]]
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

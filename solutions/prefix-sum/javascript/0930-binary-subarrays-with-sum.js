@@ -1,6 +1,8 @@
 /**
  * # 930. Binary Subarrays With Sum
  *
+ * Difficulty: Medium
+ *
  * # Difficulty: Medium
  *
  * Given a binary array nums and an integer goal, return the number of non-empty subarrays

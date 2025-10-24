@@ -120,17 +120,17 @@ def test_solution() -> None:
     # Test case 1: Overlapping meetings
     result = solution.can_attend_meetings([[0, 30], [5, 10], [15, 20]])
     expected = False
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: Empty input
     result = solution.can_attend_meetings([])
     expected = True
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 3: Non-overlapping meetings
     result = solution.can_attend_meetings([[7, 10], [2, 4]])
     expected = True
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

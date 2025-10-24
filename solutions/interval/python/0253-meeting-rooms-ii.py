@@ -141,27 +141,27 @@ def test_solution() -> None:
     # Test case 1: Example from problem
     result = solution.minMeetingRooms([[0, 30], [5, 10], [15, 20]])
     expected = 2
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: No overlaps
     result = solution.minMeetingRooms([[7, 10], [2, 4]])
     expected = 1
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 3: All overlap
     result = solution.minMeetingRooms([[1, 5], [2, 6], [3, 7], [4, 8]])
     expected = 4
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 4: Empty input
     result = solution.minMeetingRooms([])
     expected = 0
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 5: Single meeting
     result = solution.minMeetingRooms([[10, 15]])
     expected = 1
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

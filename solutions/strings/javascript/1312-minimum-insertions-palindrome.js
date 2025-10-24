@@ -1,6 +1,8 @@
 /**
  * # 1312. Minimum Insertions Palindrome
  *
+ * Difficulty: Medium
+ *
  * # Difficulty: Hard
  *
  * Given a string s, return the minimum number of insertions needed to make s a palindrome.

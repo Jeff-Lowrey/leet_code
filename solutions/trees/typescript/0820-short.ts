@@ -197,7 +197,7 @@ function runTests(): void {
   ]
   for name, method in methods:
   result = method(words1)
-  console.log(`{name}: {result}`)
+  console.log(`{name}: result`)
   console.log(`\nKey insights:`)
   console.log(`1. Words that are suffixes of others can share encoding`)
   console.log(`2. Trie helps identify suffix relationships efficiently`)

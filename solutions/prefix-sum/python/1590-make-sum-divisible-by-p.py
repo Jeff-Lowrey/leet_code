@@ -281,14 +281,14 @@ if __name__ == "__main__":
     for nums, p in test_cases:
         result = solution.minSubarray(nums, p)
         total = sum(nums)
-        print(f"minSubarray({nums}, p={p}) -> {result} (total={total}, remainder={total % p})")
+        print(f"minSubarray(nums, p={p}) -> result (total={total}, remainder={total % p})")
 
     # Show detailed walkthrough
     print("\nDetailed example: nums=[3,1,4,2], p=6")
     nums, p = [3, 1, 4, 2], 6
     total = sum(nums)
     target = total % p
-    print(f"Array: {nums}, p={p}")
+    print(f"Array: nums, p={p}")
     print(f"Total sum: {total}, target remainder to remove: {target}")
     print("\nPrefix remainders:")
 

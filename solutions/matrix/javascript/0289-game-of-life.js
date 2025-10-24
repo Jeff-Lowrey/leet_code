@@ -1,6 +1,8 @@
 /**
  * # 289. Game Of Life
  *
+ * Difficulty: Medium
+ *
  * # Difficulty: Medium
  *
  * According to Wikipedia's article: "The Game of Life, also known simply as Life,

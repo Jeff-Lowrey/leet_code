@@ -156,17 +156,17 @@ def test_solution() -> None:
     # Test case 1: Example from problem
     result = solution.findMin([4, 5, 6, 7, 0, 1, 2])
     expected = 0
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: Single element
     result = solution.findMin([1])
     expected = 1
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 3: Not rotated array
     result = solution.findMin([1, 2, 3, 4, 5])
     expected = 1
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

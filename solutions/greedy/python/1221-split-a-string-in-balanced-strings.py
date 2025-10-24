@@ -271,7 +271,7 @@ if __name__ == "__main__":
 
     test_string = "RLRRLLRLRL"
     result = solution.balancedStringSplit(test_string)
-    print(f"balancedStringSplit('{test_string}') -> {result}")
+    print(f"balancedStringSplit('{test_string}') -> result")
 
     # Show the actual substrings
     count, substrings = solution.balancedStringSplitWithTracking(test_string)

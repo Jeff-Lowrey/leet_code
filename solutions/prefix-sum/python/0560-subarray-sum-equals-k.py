@@ -272,12 +272,12 @@ if __name__ == "__main__":
 
     for nums, k in test_cases:
         result = solution.subarraySum(nums, k)
-        print(f"subarraySum({nums}, {k}) -> {result}")
+        print(f"subarraySum(nums, {k}) -> result")
 
     # Show detailed walkthrough
     print("\nDetailed example: nums=[1,1,1], k=2")
     nums, k = [1, 1, 1], 2
-    print(f"Array: {nums}, Target: {k}")
+    print(f"Array: nums, Target: {k}")
     print("Prefix sums and valid subarrays:")
 
     prefix_sum = 0

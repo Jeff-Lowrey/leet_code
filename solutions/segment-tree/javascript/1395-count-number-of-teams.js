@@ -3,6 +3,8 @@
  *
  * # 1395. Count Number Of Teams
  *
+ * Difficulty: Medium
+ *
  * There are n soldiers standing in a line. Every soldier has a unique rating value.
  *
  * You have to form a team of 3 soldiers amongst them under the following rules:

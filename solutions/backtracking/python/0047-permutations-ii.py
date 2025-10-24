@@ -152,18 +152,18 @@ def test_solution() -> None:
     expected = [[1, 1, 2], [1, 2, 1], [2, 1, 1]]
     # Sort for comparison since order may vary
     assert sorted([sorted(p) for p in result]) == sorted([sorted(p) for p in expected]), (
-        f"Expected {expected}, got {result}"
+        f"Expected expected, got result"
     )
 
     # Test case 2: Single element
     result = solution.permuteUnique([1])
     expected = [[1]]
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 3: All duplicates
     result = solution.permuteUnique([1, 1, 1])
     expected = [[1, 1, 1]]
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

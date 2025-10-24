@@ -1,6 +1,8 @@
 /**
  * # 231. Power Of Two
  *
+ * Difficulty: Medium
+ *
  * # 231. Power of Two
  *
  * # Difficulty: Easy

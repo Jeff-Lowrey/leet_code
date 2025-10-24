@@ -263,7 +263,7 @@ if __name__ == "__main__":
     for test in test_cases:
         result = solution.lengthOfLastWord(test)
         print(f"Input:  '{test}'")
-        print(f"Length of last word: {result}")
+        print(f"Length of last word: result")
         print()
 
     # Demonstrate the logic

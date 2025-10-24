@@ -156,27 +156,27 @@ def test_solution() -> None:
     # Test case 1: Example from problem
     result = solution.loudAndRich([[1, 0], [2, 1], [3, 1], [3, 7], [4, 3], [5, 3], [6, 3]], [3, 2, 5, 4, 6, 1, 7, 0])
     expected = [5, 5, 2, 5, 4, 5, 6, 7]
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: No richer relationships
     result = solution.loudAndRich([], [0, 1, 2])
     expected = [0, 1, 2]
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 3: Linear wealth hierarchy
     result = solution.loudAndRich([[1, 0], [2, 1]], [2, 1, 0])
     expected = [2, 2, 2]
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 4: Single person
     result = solution.loudAndRich([], [5])
     expected = [0]
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 5: Everyone richer than one person
     result = solution.loudAndRich([[0, 1], [2, 1]], [1, 0, 2])
     expected = [0, 1, 2]
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

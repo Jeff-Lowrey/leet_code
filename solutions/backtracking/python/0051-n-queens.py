@@ -197,17 +197,17 @@ def test_solution() -> None:
     # Test case 2: N = 1 (single queen)
     result = solution.solveNQueens(1)
     expected = [["Q"]]
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 3: N = 2 (no solution)
     result = solution.solveNQueens(2)
     expected: list[Any] = []
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 4: Count solutions for N = 4
     result = solution.solveNQueensCount(4)
     expected = 2
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

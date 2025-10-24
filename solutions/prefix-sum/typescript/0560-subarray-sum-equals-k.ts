@@ -178,11 +178,11 @@ function runTests(): void {
   test_cases = [([1, 1, 1], 2), ([1, 2, 3], 3), ([1, -1, 0], 0), ([1], 1)]
   for nums, k in test_cases:
   result = solution.subarraySum(nums, k)
-  console.log(`subarraySum({nums}, {k}) -> {result}`)
+  console.log(`subarraySum(nums, {k}) -> result`)
   # Show detailed walkthrough
   console.log("\nDetailed example: nums=[1,1,1], k=2")
   nums, k = [1, 1, 1], 2
-  console.log(`Array: {nums}, Target: {k}`)
+  console.log(`Array: nums, Target: {k}`)
   console.log("Prefix sums and valid subarrays:")
   prefix_sum = 0
   prefix_map = {0: 1}

@@ -143,12 +143,12 @@ def test_solution() -> None:
     # Test case 1: Example from problem
     result = solution.maxSlidingWindow([1, 3, -1, -3, 5, 3, 6, 7], 3)
     expected: list[Any] = [3, 3, 5, 5, 6, 7]
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: Empty input
     result = solution.maxSlidingWindow([], 0)
     expected = []
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

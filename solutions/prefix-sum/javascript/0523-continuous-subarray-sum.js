@@ -1,6 +1,8 @@
 /**
  * # 523. Continuous Subarray Sum
  *
+ * Difficulty: Medium
+ *
  * # Difficulty: Medium
  *
  * Given an integer array nums and an integer k, return true if nums has a continuous

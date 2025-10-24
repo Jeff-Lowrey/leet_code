@@ -13,7 +13,7 @@
  * <dt>Input:</dt>
  * <dd>[([-2, 5, -1]</dd>
  * <dt>Output:</dt>
- * <dd>"\nInput: nums = {nums}, lower = {lower}, upper = {upper}"</dd>
+ * <dd>"\nInput: nums = nums, lower = {lower}, upper = {upper}"</dd>
  * <dt>Explanation:</dt>
  * <dd>Count of ranges with sum in [lower=-2, upper=2] is 3</dd>
  * </dl>
@@ -197,7 +197,7 @@ function runTests(): void {
   ([1, 2, 3], 3, 7),
   ]
   for nums, lower, upper in test_cases:
-  console.log(`\nInput: nums = {nums}, lower = {lower}, upper = {upper}`)
+  console.log(`\nInput: nums = nums, lower = {lower}, upper = {upper}`)
   # Show all approaches
   result_merge = solution.countRangeSum(nums, lower, upper)
   result_brute = solution.countRangeSumBruteForce(nums, lower, upper)

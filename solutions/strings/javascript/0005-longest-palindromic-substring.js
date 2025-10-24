@@ -1,6 +1,8 @@
 /**
  * # 5. Longest Palindromic Substring
  *
+ * Difficulty: Easy
+ *
  * # 5. Longest Palindromic Substring
  *
  * # Difficulty: Medium

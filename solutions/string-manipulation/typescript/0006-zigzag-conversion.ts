@@ -215,7 +215,7 @@ function runTests(): void {
   test_cases = [("PAYPALISHIRING", 3), ("PAYPALISHIRING", 4), ("ABCD", 2), ("A", 1)]
   for s, numRows in test_cases:
   result = solution.convert(s, numRows)
-  console.log(`convert('{s}', {numRows}) = '{result}'`)
+  console.log(`convert('{s}', {numRows}) = 'result'`)
   # Demonstrate the zigzag pattern
   console.log("\nZigzag pattern for 'PAYPALISHIRING' with numRows=3:")
   console.log("P   A   H   N")

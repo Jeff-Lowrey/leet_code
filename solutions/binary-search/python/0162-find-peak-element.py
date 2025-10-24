@@ -141,17 +141,17 @@ def test_solution() -> None:
     # Test case 1: Example from problem
     result = solution.findPeakElement([1, 2, 3, 1])
     expected = 2
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: Single element
     result = solution.findPeakElement([1])
     expected = 0
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 3: Multiple peaks - any is valid
     result = solution.findPeakElement([1, 2, 1, 3, 5, 6, 4])
     # Result could be index 1 or 5 (both are peaks)
-    assert result in [1, 5], f"Expected 1 or 5, got {result}"
+    assert result in [1, 5], f"Expected 1 or 5, got result"
 
     print("All test cases passed!")
 

@@ -137,19 +137,19 @@ def test_solution() -> None:
     _bad_version = 4
     result = solution.firstBadVersion(5)
     expected = 4
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: n = 1, first bad version = 1
     _bad_version = 1
     result = solution.firstBadVersion(1)
     expected = 1
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 3: n = 10, first bad version = 7
     _bad_version = 7
     result = solution.firstBadVersion(10)
     expected = 7
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

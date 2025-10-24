@@ -233,4 +233,4 @@ if __name__ == "__main__":
     image = [[1, 1, 1], [1, 1, 0], [1, 0, 1]]
     print(f"Original: {image}")
     result = solution.floodFill(image, 1, 1, 2)
-    print(f"After flood fill: {result}")
+    print(f"After flood fill: result")

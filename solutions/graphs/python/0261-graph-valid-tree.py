@@ -184,27 +184,27 @@ def test_solution() -> None:
     # Test case 1: Valid tree
     result = solution.validTree(5, [[0, 1], [0, 2], [0, 3], [1, 4]])
     expected = True
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: Has cycle (not a tree)
     result = solution.validTree(5, [[0, 1], [1, 2], [2, 3], [1, 3], [1, 4]])
     expected = False
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 3: Single node (valid tree)
     result = solution.validTree(1, [])
     expected = True
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 4: Disconnected graph (not a tree)
     result = solution.validTree(4, [[0, 1], [2, 3]])
     expected = False
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 5: Using DFS version
     result = solution.validTree_dfs(5, [[0, 1], [0, 2], [0, 3], [1, 4]])
     expected = True
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

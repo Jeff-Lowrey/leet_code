@@ -3,6 +3,8 @@
  *
  * # 1248. Count Number Of Nice Subarrays
  *
+ * Difficulty: Medium
+ *
  * Given an array of integers nums and an integer k. A continuous subarray is called nice if there are k odd numbers on it.
  *
  * Return the number of nice sub-arrays.
@@ -13,7 +15,7 @@
  * <dt>Input:</dt>
  * <dd>[([1, 1, 2, 1, 1]</dd>
  * <dt>Output:</dt>
- * <dd>"\nInput: nums={nums}, k={k}"</dd>
+ * <dd>"\nInput: nums=nums, k={k}"</dd>
  * <dt>Explanation:</dt>
  * <dd>There are 2 nice subarrays (containing exactly k=3 odd numbers)</dd>
  * </dl>

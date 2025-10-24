@@ -1,6 +1,8 @@
 /**
  * # 350. Intersection of Two Arrays II
  *
+ * Difficulty: Medium
+ *
  * # Difficulty: Easy
  *
  * Given two integer arrays nums1 and nums2, return an array of their intersection.

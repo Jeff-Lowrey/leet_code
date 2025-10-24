@@ -1,6 +1,8 @@
 /**
  * # 5. Longest Palindromic Substring
  *
+ * Difficulty: Easy
+ *
  * # Difficulty: Medium
  *
  * Given a string s, return the longest palindromic substring in s.

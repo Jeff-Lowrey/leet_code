@@ -146,27 +146,27 @@ def test_solution() -> None:
     # Test case 1: Example from problem
     result = solution.minimumSemesters(3, [[1, 3], [2, 3]])
     expected = 2
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: Cycle exists (impossible)
     result = solution.minimumSemesters(3, [[1, 2], [2, 3], [3, 1]])
     expected = -1
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 3: Linear dependency
     result = solution.minimumSemesters(4, [[1, 2], [2, 3], [3, 4]])
     expected = 4
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 4: No dependencies
     result = solution.minimumSemesters(3, [])
     expected = 1
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 5: Single course
     result = solution.minimumSemesters(1, [])
     expected = 1
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

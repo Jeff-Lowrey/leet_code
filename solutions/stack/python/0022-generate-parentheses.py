@@ -286,7 +286,7 @@ if __name__ == "__main__":
 
     for n in range(1, 5):
         result = solution.generateParenthesis(n)
-        print(f"\nn = {n} ({len(result)} combinations):")
+        print(f"\nn = n ({len(result)} combinations):")
         for combo in result:
             print(f"  {combo}")
 

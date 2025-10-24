@@ -3,6 +3,8 @@
  *
  * # 759. Employee Free Time
  *
+ * Difficulty: Medium
+ *
  * We are given a list schedule of employees, which represents the working time for each employee.
  *
  * Each employee has a list of non-overlapping Intervals, and these intervals are in sorted order.

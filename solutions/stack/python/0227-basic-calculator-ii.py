@@ -150,17 +150,17 @@ def test_solution() -> None:
     # Test case 1: Example from problem
     result = solution.calculate("3+2*2")
     expected = 7
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: Empty input
     result = solution.calculate("")
     expected = 0
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 3: Single number
     result = solution.calculate("42")
     expected = 42
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

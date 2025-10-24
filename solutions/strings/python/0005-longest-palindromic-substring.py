@@ -215,4 +215,4 @@ if __name__ == "__main__":
 
     for test_str in test_strings:
         result = solution.longestPalindrome(test_str)
-        print(f'"{test_str}" → "{result}"')
+        print(f'"{test_str}" → "result"')

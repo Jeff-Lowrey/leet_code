@@ -249,11 +249,11 @@ if __name__ == "__main__":
     targets = [5, 2, 7, 0]
 
     print(f"=== 035. Search Insert Position ===")
-    print(f"Array: {nums}")
+    print(f"Array: nums")
 
     for target in targets:
         result = solution.searchInsert(nums, target)
-        print(f"Target {target}: insert at index {result}")
+        print(f"Target {target}: insert at index result")
 
     # Demonstrate with single element and empty arrays
     print(f"\nEdge cases:")

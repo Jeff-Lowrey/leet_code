@@ -177,17 +177,17 @@ def test_solution() -> None:
     # Test case 1: Example from problem - [1,5,11,5] can be partitioned into [1,5,5] and [11]
     result = solution.canPartition([1, 5, 11, 5])
     expected = True
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: Cannot be partitioned
     result = solution.canPartition([1, 2, 3, 5])
     expected = False
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 3: Single element - cannot partition
     result = solution.canPartition([1])
     expected = False
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

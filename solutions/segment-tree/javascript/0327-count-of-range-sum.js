@@ -3,6 +3,8 @@
  *
  * # 327. Count Of Range Sum
  *
+ * Difficulty: Medium
+ *
  * Given an integer array nums and two integers lower and upper, return the number of range sums that lie in [lower, upper] inclusive.
  *
  * Range sum S(i, j) is defined as the sum of the elements in nums between indices i and j inclusive, where i <= j.
@@ -13,7 +15,7 @@
  * <dt>Input:</dt>
  * <dd>[([-2, 5, -1]</dd>
  * <dt>Output:</dt>
- * <dd>"\nInput: nums = {nums}, lower = {lower}, upper = {upper}"</dd>
+ * <dd>"\nInput: nums = nums, lower = {lower}, upper = {upper}"</dd>
  * <dt>Explanation:</dt>
  * <dd>Count of ranges with sum in [lower=-2, upper=2] is 3</dd>
  * </dl>

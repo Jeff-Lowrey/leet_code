@@ -135,27 +135,27 @@ def test_solution() -> None:
     # Test case 1: Example from problem
     result = solution.scheduleCourse([[100, 200], [200, 1300], [1000, 1250], [2000, 3200]])
     expected = 3
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: Simple case
     result = solution.scheduleCourse([[1, 2]])
     expected = 1
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 3: Multiple courses with tight deadlines
     result = solution.scheduleCourse([[3, 2], [4, 3]])
     expected = 0
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 4: Empty input
     result = solution.scheduleCourse([])
     expected = 0
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 5: Course duration equals deadline
     result = solution.scheduleCourse([[5, 5], [4, 6], [2, 6]])
     expected = 2
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

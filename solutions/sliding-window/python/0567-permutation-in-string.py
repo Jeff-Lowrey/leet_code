@@ -174,12 +174,12 @@ def test_solution() -> None:
     # Test case 1: Example from problem
     result = solution.checkInclusion("ab", "eidbaooo")
     expected = True
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: No permutation found
     result = solution.checkInclusion("ab", "eidboaoo")
     expected = False
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

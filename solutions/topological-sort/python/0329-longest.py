@@ -150,27 +150,27 @@ def test_solution() -> None:
     # Test case 1: Example from problem
     result = solution.longestIncreasingPath([[9, 9, 4], [6, 6, 8], [2, 1, 1]])
     expected = 4
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: All same values
     result = solution.longestIncreasingPath([[3, 4, 5], [3, 2, 6], [2, 2, 1]])
     expected = 4
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 3: Single row
     result = solution.longestIncreasingPath([[1, 2, 3, 4]])
     expected = 4
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 4: Empty input
     result = solution.longestIncreasingPath([])
     expected = 0
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 5: Single element
     result = solution.longestIncreasingPath([[5]])
     expected = 1
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

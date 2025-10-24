@@ -1,17 +1,19 @@
 /**
  * # 1041. Robot Bounded In Circle
  *
- * Solve problem #1041: Robot Bounded In Circle
+ * Difficulty: Medium
+ *
+ * Solve the Robot Bounded In Circle problem as described.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>input data here</dd>
+ * <dd>* ```</dd>
  * <dt>Output:</dt>
- * <dd>output data here</dd>
+ * <dd>* ```</dd>
  * <dt>Explanation:</dt>
- * <dd>Explanation of the solution</dd>
+ * <dd>Processing input produces the expected output</dd>
  * </dl>
  *
  * <details>

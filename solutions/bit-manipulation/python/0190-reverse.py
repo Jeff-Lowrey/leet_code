@@ -153,17 +153,17 @@ def test_solution() -> None:
     # Test case 1: Example from problem
     result = solution.reverseBits(43261596)
     expected = 964176192
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: All zeros except one bit
     result = solution.reverseBits(1)
     expected = 2147483648  # 1 << 31
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 3: All ones (max 32-bit unsigned)
     result = solution.reverseBits(4294967295)
     expected = 4294967295
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

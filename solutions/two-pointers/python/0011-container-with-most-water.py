@@ -149,17 +149,17 @@ def test_solution() -> None:
     # Test case 1: Example from problem
     result = solution.maxArea([1, 8, 6, 2, 5, 4, 8, 3, 7])
     expected = 49
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: Empty input
     result = solution.maxArea([])
     expected = 0
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 3: Single element
     result = solution.maxArea([1])
     expected = 0
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

@@ -19,7 +19,7 @@ The next state is created by applying the above rules simultaneously to every ce
 in the current state, where births and deaths occur simultaneously.
 
 **Example:**
-
+    
 <dl class="example-details">
 <dt>Input:</dt>
 <dd>board = [[0,1,0],[0,0,1],[1,1,1],[0,0,0]]</dd>

@@ -1,6 +1,8 @@
 /**
  * # 15. 3sum
  *
+ * Difficulty: Easy
+ *
  * # Difficulty: Medium
  *
  * Given an integer array `nums`, return all the triplets [`nums`[i], `nums`[j], `nums`[k]]

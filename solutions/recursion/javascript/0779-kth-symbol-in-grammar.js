@@ -1,6 +1,8 @@
 /**
  * # 779. Kth Symbol In Grammar
  *
+ * Difficulty: Medium
+ *
  * # 779. K-th Symbol in Grammar
  *
  * # Difficulty: Medium

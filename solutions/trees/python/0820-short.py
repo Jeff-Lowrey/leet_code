@@ -186,17 +186,17 @@ def test_solution() -> None:
     # Test case 1: Example from problem - using Set method (Trie method has a bug)
     result = solution.minimumLengthEncodingSet(["time", "me", "bell"])
     expected = 10
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: Empty input
     result = solution.minimumLengthEncodingSet([])
     expected = 0
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 3: Single word
     result = solution.minimumLengthEncodingSet(["time"])
     expected = 5
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 
@@ -235,7 +235,7 @@ if __name__ == "__main__":
 
     for name, method in methods:
         result = method(words1)
-        print(f"{name}: {result}")
+        print(f"{name}: result")
 
     print(f"\nKey insights:")
     print(f"1. Words that are suffixes of others can share encoding")

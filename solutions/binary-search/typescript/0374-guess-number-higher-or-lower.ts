@@ -182,7 +182,7 @@ function runTests(): void {
   for n, pick in test_cases:
   guess.pick = pick  # type: ignore
   result = solution.guessNumber(n)
-  console.log(`Range [1, {n}], picked number: {result}`)
+  console.log(`Range [1, n], picked number: result`)
   # Show API call simulation
   console.log(`\nAPI simulation for n=10, pick=6:`)
   guess.pick = 6  # type: ignore
@@ -192,7 +192,7 @@ function runTests(): void {
   mid = left + (right - left) // 2
   result = guess(mid)
   call_count += 1
-  console.log(`Call {call_count}: guess({mid}) = {result}`)
+  console.log(`Call {call_count}: guess({mid}) = result`)
   if result == 0:
   console.log(`Found! Answer is {mid}`)
   break

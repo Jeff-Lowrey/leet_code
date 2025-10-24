@@ -3,17 +3,17 @@
 
 # Difficulty: Medium
 
-Solve problem #390: Elimination Game
+Solve the Elimination Game problem as described.
 
 **Example:**
  *
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>input data here</dd>
+<dd>```</dd>
 <dt>Output:</dt>
-<dd>output data here</dd>
+<dd>```</dd>
 <dt>Explanation:</dt>
-<dd>Explanation of the solution</dd>
+<dd>Processing input produces the expected output</dd>
 </dl>
 
 <details>
@@ -142,10 +142,10 @@ if __name__ == "__main__":
     for n, expected in test_cases:
         result = lastRemaining(n)
         status = "✓" if result == expected else "✗"
-        print(f"{status} lastRemaining({n}) = {result}, expected = {expected}")
+        print(f"{status} lastRemaining(n) = result, expected = expected")
 
     print("\nTesting lastRemainingRecursive:")
     for n, expected in test_cases:
         result = lastRemainingRecursive(n)
         status = "✓" if result == expected else "✗"
-        print(f"{status} lastRemainingRecursive({n}) = {result}, expected = {expected}")
+        print(f"{status} lastRemainingRecursive(n) = result, expected = expected")

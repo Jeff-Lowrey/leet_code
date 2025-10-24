@@ -3,17 +3,17 @@
 
 # Difficulty: Easy
 
-Solve problem #551: Student Attendance Record I
+Solve the Student Attendance Record I problem as described.
 
 **Example:**
  *
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>input data here</dd>
+<dd>```</dd>
 <dt>Output:</dt>
-<dd>output data here</dd>
+<dd>```</dd>
 <dt>Explanation:</dt>
-<dd>Explanation of the solution</dd>
+<dd>Processing input produces the expected output</dd>
 </dl>
 
 <details>
@@ -119,10 +119,10 @@ if __name__ == "__main__":
     for s, expected in test_cases:
         result = checkRecord(s)
         status = "✓" if result == expected else "✗"
-        print(f"{status} checkRecord(\"{s}\") = {result}, expected = {expected}")
+        print(f"{status} checkRecord(\"{s}\") = result, expected = expected")
 
     print("\nTesting checkRecordSinglePass:")
     for s, expected in test_cases:
         result = checkRecordSinglePass(s)
         status = "✓" if result == expected else "✗"
-        print(f"{status} checkRecordSinglePass(\"{s}\") = {result}, expected = {expected}")
+        print(f"{status} checkRecordSinglePass(\"{s}\") = result, expected = expected")

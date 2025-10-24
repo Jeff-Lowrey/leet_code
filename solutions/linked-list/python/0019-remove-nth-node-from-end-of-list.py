@@ -157,22 +157,22 @@ def test_solution() -> None:
     # Test case 1: Remove from middle
     head = array_to_list([1, 2, 3, 4, 5])
     solution.solve(head, 2)
-    # assert list_to_array(result) == expected, f"Expected {expected}, got {list_to_array(result)}"  # Result undefined
+    # assert list_to_array(result) == expected, f"Expected expected, got {list_to_array(result)}"  # Result undefined
 
     # Test case 2: Remove head (single node)
     head = array_to_list([1])
     solution.solve(head, 1)
-    # assert list_to_array(result) == expected, f"Expected {expected}, got {list_to_array(result)}"  # Result undefined
+    # assert list_to_array(result) == expected, f"Expected expected, got {list_to_array(result)}"  # Result undefined
 
     # Test case 3: Remove head (multiple nodes)
     head = array_to_list([1, 2])
     solution.solve(head, 2)
-    # assert list_to_array(result) == expected, f"Expected {expected}, got {list_to_array(result)}"  # Result undefined
+    # assert list_to_array(result) == expected, f"Expected expected, got {list_to_array(result)}"  # Result undefined
 
     # Test case 4: Remove last node
     head = array_to_list([1, 2, 3])
     solution.solve(head, 1)
-    # assert list_to_array(result) == expected, f"Expected {expected}, got {list_to_array(result)}"  # Result undefined
+    # assert list_to_array(result) == expected, f"Expected expected, got {list_to_array(result)}"  # Result undefined
 
     print("All test cases passed!")
 

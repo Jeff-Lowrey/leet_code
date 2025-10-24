@@ -178,12 +178,12 @@ def test_solution() -> None:
     # Test case 1: Example from problem
     result = solution.topKFrequent([1, 1, 1, 2, 2, 3], k=2)
     expected: list[Any] = [1, 2]
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: Empty input
     result = solution.topKFrequent([], 0)
     expected = []
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

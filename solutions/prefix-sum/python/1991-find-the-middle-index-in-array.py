@@ -266,13 +266,13 @@ if __name__ == "__main__":
 
     for nums in test_cases:
         result = solution.findMiddleIndex(nums)
-        print(f"findMiddleIndex({nums}) -> {result}")
+        print(f"findMiddleIndex(nums) -> result")
 
     # Show detailed walkthrough
     print("\nDetailed example: nums=[2,3,-1,8,4]")
     nums = [2, 3, -1, 8, 4]
     total = sum(nums)
-    print(f"Array: {nums}")
+    print(f"Array: nums")
     print(f"Total sum: {total}")
     print("\nChecking each index:")
 

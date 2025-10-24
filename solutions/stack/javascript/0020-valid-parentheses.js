@@ -1,6 +1,8 @@
 /**
  * # 20. Valid Parentheses
  *
+ * Difficulty: Easy
+ *
  * # Difficulty: Easy
  *
  * Given a string s containing just the characters '(', ')', '{', '}', '[' and ']',

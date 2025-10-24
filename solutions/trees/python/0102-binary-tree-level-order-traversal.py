@@ -351,9 +351,9 @@ if __name__ == "__main__":
     for name, method in approaches:
         result = method(tree1)
         if name == "Bottom-up BFS":
-            print(f"{name}: {result} (reversed order)")
+            print(f"{name}: result (reversed order)")
         else:
-            print(f"{name}: {result}")
+            print(f"{name}: result")
 
     print(f"\nKey insights:")
     print(f"1. BFS with queue naturally processes level by level")

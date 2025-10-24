@@ -129,17 +129,17 @@ def test_solution() -> None:
     # Test case 1: Example from problem
     result = solution.countBits(5)
     expected = [0, 1, 1, 2, 1, 2]
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: Base case n=0
     result = solution.countBits(0)
     expected = [0]
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 3: Small power of 2
     result = solution.countBits(2)
     expected = [0, 1, 1]
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

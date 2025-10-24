@@ -129,7 +129,7 @@ def test_solution() -> None:
     # Test case 1: Empty tree
     # Skipped: result = solution.isValidBST(None)  # None input test
     # Skipped: expected = True
-    # Skipped: assert result == expected, f"Expected {expected}, got {result}"
+    # Skipped: assert result == expected, f"Expected expected, got result"
 
     print("Basic functionality test passed! For comprehensive tree tests, build proper TreeNode structures.")
 

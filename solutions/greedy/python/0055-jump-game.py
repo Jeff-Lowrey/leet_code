@@ -291,7 +291,7 @@ if __name__ == "__main__":
 
     for nums in test_cases_jump:
         result = solution_jump.canJump(nums)
-        print(f"Input: {nums} -> Can Jump: {result}")
+        print(f"Input: nums -> Can Jump: result")
 
     print("\n" + "=" * 50 + "\n")
 
@@ -303,7 +303,7 @@ if __name__ == "__main__":
 
     for nums in test_cases_jump2:
         jumps: int = solution_jump2.jump(nums)
-        print(f"Input: {nums} -> Min Jumps: {jumps}")
+        print(f"Input: nums -> Min Jumps: {jumps}")
 
     print("\n" + "=" * 50 + "\n")
 

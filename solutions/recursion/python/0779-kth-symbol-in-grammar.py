@@ -189,7 +189,7 @@ if __name__ == "__main__":
     print("=== 779. K-th Symbol in Grammar ===")
     for n in range(1, 5):
         row_length = 2 ** (n - 1)
-        print(f"Row {n}:", end=" ")
+        print(f"Row n:", end=" ")
         for k in range(1, row_length + 1):
             print(solution.kthGrammar(n, k), end="")
         print()

@@ -140,12 +140,12 @@ def test_solution() -> None:
     # Test case 1: Example with duplicate
     result = solution.findDuplicate([1, 3, 4, 2, 2])
     expected = 2
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: Another example
     result = solution.findDuplicate([3, 1, 3, 4, 2])
     expected = 3
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

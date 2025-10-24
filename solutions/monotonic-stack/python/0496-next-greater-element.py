@@ -281,7 +281,7 @@ if __name__ == "__main__":
     for nums1, nums2 in test_cases:
         result = solution.nextGreaterElement(nums1, nums2)
         print(f"nums1: {nums1}, nums2: {nums2}")
-        print(f"Result: {result}\n")
+        print(f"Result: result\n")
 
     # Test Next Greater Element II (Circular)
     solution_circular = SolutionCircular()
@@ -291,8 +291,8 @@ if __name__ == "__main__":
 
     for nums in circular_cases:
         result = solution_circular.nextGreaterElements(nums)
-        print(f"Input: {nums}")
-        print(f"Next Greater: {result}\n")
+        print(f"Input: nums")
+        print(f"Next Greater: result\n")
 
     # Test Stock Spanner
     print("Stock Spanner:")

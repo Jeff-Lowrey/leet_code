@@ -326,7 +326,7 @@ if __name__ == "__main__":
     words = ["w", "wo", "wor", "worl", "world"]
     print(f"Words: {words}")
     result = solution.longestWord(words)
-    print(f"Longest buildable word: '{result}'")
+    print(f"Longest buildable word: 'result'")
 
     print("\nExample with lexicographic tie:")
     words2 = ["a", "banana", "app", "appl", "ap", "apply", "apple"]

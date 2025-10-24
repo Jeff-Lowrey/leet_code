@@ -134,31 +134,31 @@ def test_solution() -> None:
     operations = ["NumArray", "sumRange", "sumRange", "sumRange"]
     values = [[[-2, 0, 3, -5, 2, -1]], [0, 2], [2, 5], [0, 5]]
     solution.solve(operations, values)  # type: ignore
-    # # # assert result == expected, f"Expected {expected}, got {result}"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
+    # # # assert result == expected, f"Expected expected, got result"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
 
     # Test case 2: Single element
     operations = ["NumArray", "sumRange"]
     values = [[[5]], [0, 0]]
     solution.solve(operations, values)  # type: ignore
-    # # # assert result == expected, f"Expected {expected}, got {result}"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
+    # # # assert result == expected, f"Expected expected, got result"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
 
     # Test case 3: All positive
     operations = ["NumArray", "sumRange", "sumRange"]
     values = [[[1, 2, 3, 4, 5]], [0, 4], [1, 3]]
     solution.solve(operations, values)  # type: ignore
-    # # # assert result == expected, f"Expected {expected}, got {result}"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
+    # # # assert result == expected, f"Expected expected, got result"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
 
     # Test case 4: Mixed values
     operations = ["NumArray", "sumRange", "sumRange", "sumRange"]
     values = [[[1, -1, 2, -2, 3]], [0, 4], [1, 2], [3, 4]]
     solution.solve(operations, values)  # type: ignore
-    # # # assert result == expected, f"Expected {expected}, got {result}"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
+    # # # assert result == expected, f"Expected expected, got result"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
 
     # Test case 5: Two elements
     operations = ["NumArray", "sumRange", "sumRange"]
     values = [[[10, 20]], [0, 0], [0, 1]]
     solution.solve(operations, values)  # type: ignore
-    # # # assert result == expected, f"Expected {expected}, got {result}"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
+    # # # assert result == expected, f"Expected expected, got result"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
 
     print("All test cases passed!")
 

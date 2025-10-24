@@ -195,7 +195,7 @@ function runTests(): void {
   ]
   for name, method in approaches:
   result = method(isConnected1)
-  console.log(`{name}: {result}`)
+  console.log(`{name}: result`)
   console.log("\nKey insights:")
   console.log("1. Connected components problem - find separate groups")
   console.log("2. Union-Find efficiently manages component membership")

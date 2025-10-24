@@ -3,17 +3,17 @@
 
 # Difficulty: Medium
 
-Solve problem #304: Range Sum Query 2d
+Solve the Range Sum Query 2d problem as described.
 
 **Example:**
  *
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>input data here</dd>
+<dd>```</dd>
 <dt>Output:</dt>
-<dd>output data here</dd>
+<dd>```</dd>
 <dt>Explanation:</dt>
-<dd>Explanation of the solution</dd>
+<dd>Processing input produces the expected output</dd>
 </dl>
 
 <details>
@@ -136,10 +136,10 @@ if __name__ == "__main__":
     for (row1, col1, row2, col2), expected in test_cases:
         result = numMatrix.sumRegion(row1, col1, row2, col2)
         status = "✓" if result == expected else "✗"
-        print(f"{status} sumRegion({row1}, {col1}, {row2}, {col2}) = {result}, expected = {expected}")
+        print(f"{status} sumRegion({row1}, {col1}, {row2}, {col2}) = result, expected = expected")
 
     # Test case 2: Single element matrix
     matrix2 = [[5]]
     numMatrix2 = NumMatrix(matrix2)
     result = numMatrix2.sumRegion(0, 0, 0, 0)
-    print(f"\nSingle element test: sumRegion(0, 0, 0, 0) = {result}, expected = 5, {'✓' if result == 5 else '✗'}")
+    print(f"\nSingle element test: sumRegion(0, 0, 0, 0) = result, expected = 5, {'✓' if result == 5 else '✗'}")

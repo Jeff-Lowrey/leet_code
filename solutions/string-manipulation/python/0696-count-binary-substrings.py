@@ -297,7 +297,7 @@ if __name__ == "__main__":
 
     for test in test_cases:
         result = solution.countBinarySubstrings(test)
-        print(f"countBinarySubstrings('{test}') = {result}")
+        print(f"countBinarySubstrings('{test}') = result")
 
     # Demonstrate the logic
     print("\nDetailed example for '00110011':")

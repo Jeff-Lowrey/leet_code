@@ -268,7 +268,7 @@ if __name__ == "__main__":
     print("\nFirst 10 terms of count-and-say sequence:")
     for i in range(1, 11):
         result = solution.countAndSay(i)
-        print(f"countAndSay({i}) = '{result}'")
+        print(f"countAndSay({i}) = 'result'")
 
     # Demonstrate the logic
     print("\nDetailed walkthrough for n=4:")

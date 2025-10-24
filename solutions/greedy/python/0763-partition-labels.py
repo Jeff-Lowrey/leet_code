@@ -138,17 +138,17 @@ def test_solution() -> None:
     # Test case 1: Basic case
     result = solution.partitionLabels([1, 2, 3])  # type: ignore
     expected = [1, 1, 1]
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: Empty input
     result = solution.partitionLabels([])  # type: ignore
     expected: list[Any] = []
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 3: Single element
     result = solution.partitionLabels([1])  # type: ignore
     expected = [1]
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

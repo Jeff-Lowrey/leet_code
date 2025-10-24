@@ -3,6 +3,8 @@
  *
  * # 460. LFU Cache
  *
+ * Difficulty: Medium
+ *
  * Design and implement a Least Frequently Used (LFU) cache.
  *
  * **Example:**

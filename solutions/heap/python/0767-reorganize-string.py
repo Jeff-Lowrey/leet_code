@@ -153,18 +153,18 @@ def test_solution() -> None:
     # Test case 1: Example from problem - "aab" can be reorganized to "aba"
     result = solution.reorganizeString("aab")
     # Verify no adjacent duplicates and correct length
-    assert len(result) == 3, f"Wrong length: {result}"
-    assert all(result[i] != result[i + 1] for i in range(len(result) - 1)), f"Has adjacent duplicates: {result}"
+    assert len(result) == 3, f"Wrong length: result"
+    assert all(result[i] != result[i + 1] for i in range(len(result) - 1)), f"Has adjacent duplicates: result"
 
     # Test case 2: Impossible case - too many of one character
     result = solution.reorganizeString("aaab")
     expected = ""
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 3: Single character
     result = solution.reorganizeString("a")
     expected = "a"
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

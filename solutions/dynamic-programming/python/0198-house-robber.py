@@ -132,17 +132,17 @@ def test_solution() -> None:
     # Test case 1: Example from problem - rob houses 1 and 3 (7 + 9 = 16) or houses 0, 2, 4 (2 + 9 + 1 = 12)
     result = solution.rob([2, 7, 9, 3, 1])
     expected = 12
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: Single element
     result = solution.rob([5])
     expected = 5
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 3: Two elements - rob the maximum
     result = solution.rob([1, 2])
     expected = 2
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

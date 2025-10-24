@@ -126,27 +126,27 @@ def test_solution() -> None:
     # Test case 1: Example from problem
     result = solution.findLongestChain([[1, 2], [2, 3], [3, 4]])
     expected = 2
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: All can be chained
     result = solution.findLongestChain([[1, 2], [7, 8], [4, 5]])
     expected = 3
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 3: No chain possible (all overlap)
     result = solution.findLongestChain([[1, 5], [2, 3], [3, 4]])
     expected = 1
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 4: Empty input
     result = solution.findLongestChain([])
     expected = 0
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 5: Single pair
     result = solution.findLongestChain([[1, 2]])
     expected = 1
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

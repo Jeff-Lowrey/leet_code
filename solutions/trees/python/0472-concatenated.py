@@ -154,17 +154,17 @@ def test_solution() -> None:
         ["cat", "cats", "catsdogcats", "dog", "dogcatsdog", "hippopotamuses", "rat", "ratcatdogcat"]
     )
     expected = ["catsdogcats", "dogcatsdog", "ratcatdogcat"]
-    assert sorted(result) == sorted(expected), f"Expected {expected}, got {result}"
+    assert sorted(result) == sorted(expected), f"Expected expected, got result"
 
     # Test case 2: Empty input
     result = solution.findAllConcatenatedWordsInADict([])
     expected: list[Any] = []
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 3: No concatenated words
     result = solution.findAllConcatenatedWordsInADict(["a", "b", "c"])
     expected: list[Any] = []
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

@@ -164,27 +164,27 @@ def test_solution() -> None:
     # Test case 1: Example from problem (can be segmented)
     result = solution.wordBreak("leetcode", ["leet", "code"])
     expected = True
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: Cannot be segmented
     result = solution.wordBreak("catsandog", ["cats", "dog", "sand", "and", "cat"])
     expected = False
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 3: Can use word multiple times
     result = solution.wordBreak("applepenapple", ["apple", "pen"])
     expected = True
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 4: Empty string
     result = solution.wordBreak("", ["leet"])
     expected = True
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 5: Optimized version
     result = solution.wordBreak_optimized("leetcode", ["leet", "code"])
     expected = True
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

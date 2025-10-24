@@ -154,27 +154,27 @@ def test_solution() -> None:
     # Test case 1: Example from problem
     result = solution.findRightInterval([[3, 4], [2, 3], [1, 2]])
     expected = [-1, 0, 1]
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: No right interval exists
     result = solution.findRightInterval([[1, 4], [2, 3], [3, 4]])
     expected = [-1, -1, -1]
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 3: All have right intervals
     result = solution.findRightInterval([[1, 2], [2, 3], [3, 4]])
     expected = [1, 2, -1]
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 4: Empty input
     result = solution.findRightInterval([])
     expected: list[Any] = []
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 5: Single interval
     result = solution.findRightInterval([[1, 2]])
     expected = [-1]
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

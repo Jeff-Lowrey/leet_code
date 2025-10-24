@@ -290,7 +290,7 @@ if __name__ == "__main__":
     test_cases = ["aba", "abca", "abc", "racecar", "deeee"]
     for test in test_cases:
         result = solution.validPalindrome(test)
-        print(f"validPalindrome('{test}') -> {result}")
+        print(f"validPalindrome('{test}') -> result")
 
     # Demonstrate the logic
     print("\nDetailed example for 'abca':")

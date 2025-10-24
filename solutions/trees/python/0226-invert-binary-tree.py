@@ -118,7 +118,7 @@ def test_solution() -> None:
     # Test case 1: Empty input
     # Skipped: result = solution.invertTree(None)  # None input test
     # Skipped: expected = None
-    # Skipped: assert result == expected, f"Expected {expected}, got {result}"
+    # Skipped: assert result == expected, f"Expected expected, got result"
 
     print("Basic functionality test passed! Note: For tree structure tests, build proper TreeNode objects.")
 

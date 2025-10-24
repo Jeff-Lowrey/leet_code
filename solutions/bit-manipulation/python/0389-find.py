@@ -149,12 +149,12 @@ def test_solution() -> None:
     # Test case 1: Example from problem
     result = solution.findTheDifference("abcd", "abcde")
     expected = "e"
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: Single character added
     result = solution.findTheDifference("", "y")
     expected = "y"
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

@@ -163,7 +163,7 @@ if __name__ == "__main__":
     # print("Range Sum Query - Mutable:")
     # nums = [1, 3, 5]
     # obj = NumArray(nums)
-    # print(f"Initial array: {nums}")
+    # print(f"Initial array: nums")
     # print(f"Sum range [0, 2]: {obj.sumRange(0, 2)}")  # 9
     # obj.update(1, 2)
     # print("After update index 1 to 2")
@@ -190,5 +190,5 @@ if __name__ == "__main__":
 
     for nums in test_cases:
         result = solution.countSmaller(nums)
-        print(f"Input: {nums}")
-        print(f"Counts: {result}")
+        print(f"Input: nums")
+        print(f"Counts: result")

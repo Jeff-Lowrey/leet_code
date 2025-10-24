@@ -131,16 +131,16 @@ function runTests(): void {
   test_cases = [[1, 2, 3], [0], [1, 2, 3, 4]]
   for nums in test_cases:
   result = solution.subsets(nums)
-  console.log(`Input: {nums}`)
-  console.log(`Subsets ({result.length}): {result}\n`)
+  console.log(`Input: nums`)
+  console.log(`Subsets ({result.length}): result\n`)
   # Test Subsets with Duplicates
   solution_dup = SolutionUnique()
   console.log("Subsets with Duplicates:")
   test_cases_dup = [[1, 2, 2], [4, 4, 4, 1, 4]]
   for nums in test_cases_dup:
   result = solution_dup.subsetsWithDup(nums)
-  console.log(`Input: {nums}`)
-  console.log(`Unique Subsets: {result}\n`)
+  console.log(`Input: nums`)
+  console.log(`Unique Subsets: result\n`)
   # Test Combination Sum
   solution_comb = SolutionCombSum()
   console.log("Combination Sum:")
@@ -148,7 +148,7 @@ function runTests(): void {
   for candidates, target in test_comb:
   result = solution_comb.combinationSum(candidates, target)
   console.log(`Candidates: {candidates}, Target: {target}`)
-  console.log(`Combinations: {result}\n`)
+  console.log(`Combinations: result\n`)
 }
 
 if (typeof require !== "undefined" && require.main === module) {

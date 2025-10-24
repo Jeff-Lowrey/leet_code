@@ -3,17 +3,17 @@
 
 # Difficulty: Easy
 
-Solve problem #521: Longest Uncommon Subsequence I
+Solve the Longest Uncommon Subsequence I problem as described.
 
 **Example:**
  *
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>input data here</dd>
+<dd>```</dd>
 <dt>Output:</dt>
-<dd>output data here</dd>
+<dd>```</dd>
 <dt>Explanation:</dt>
-<dd>Explanation of the solution</dd>
+<dd>Processing input produces the expected output</dd>
 </dl>
 
 <details>
@@ -93,4 +93,4 @@ if __name__ == "__main__":
     for a, b, expected in test_cases:
         result = findLUSlength(a, b)
         status = "✓" if result == expected else "✗"
-        print(f"{status} findLUSlength(\"{a}\", \"{b}\") = {result}, expected = {expected}")
+        print(f"{status} findLUSlength(\"{a}\", \"{b}\") = result, expected = expected")

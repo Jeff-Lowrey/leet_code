@@ -239,7 +239,7 @@ if __name__ == "__main__":
     folders = ["/a", "/a/b", "/c/d", "/c/d/e", "/c/f"]
     print(f"Input folders: {folders}")
     result = solution.removeSubfolders(folders)
-    print(f"After removing sub-folders: {result}")
+    print(f"After removing sub-folders: result")
 
     print("\nUsing simple solution:")
     solution_simple = SolutionSimple()

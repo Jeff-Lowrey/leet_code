@@ -129,13 +129,13 @@ def test_solution() -> None:
     nums1 = [1, 2, 3, 0, 0, 0]
     solution.merge(nums1, 3, [2, 5, 6], 3)
     expected = [1, 2, 2, 3, 5, 6]
-    assert nums1 == expected, f"Expected {expected}, got {nums1}"
+    assert nums1 == expected, f"Expected expected, got {nums1}"
 
     # Test case 2: Second array empty
     nums1 = [1, 2, 3]
     solution.merge(nums1, 3, [], 0)
     expected = [1, 2, 3]
-    assert nums1 == expected, f"Expected {expected}, got {nums1}"
+    assert nums1 == expected, f"Expected expected, got {nums1}"
 
     print("All test cases passed!")
 

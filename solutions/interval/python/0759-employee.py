@@ -165,19 +165,19 @@ def test_solution() -> None:
     result = solution.employeeFreeTime(schedule1)  # type: ignore
     expected = [Interval(3, 4)]
     assert len(result) == len(expected) and all(r == e for r, e in zip(result, expected)), (
-        f"Expected {expected}, got {result}"
+        f"Expected expected, got result"
     )
 
     # Test case 2: No free time
     schedule2 = [[Interval(1, 3), Interval(4, 6)], [Interval(1, 6)]]
     result = solution.employeeFreeTime(schedule2)  # type: ignore
     expected: list[Any] = []
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 3: Empty input
     result = solution.employeeFreeTime([])
     expected: list[Any] = []
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

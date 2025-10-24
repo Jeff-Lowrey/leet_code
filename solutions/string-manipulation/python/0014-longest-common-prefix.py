@@ -331,7 +331,7 @@ if __name__ == "__main__":
     for strs in test_cases:
         result = solution.longestCommonPrefix(strs)
         print(f"Input: {strs}")
-        print(f"Prefix: '{result}'\n")
+        print(f"Prefix: 'result'\n")
 
     # Test strStr
     solution_str = SolutionStrStr()

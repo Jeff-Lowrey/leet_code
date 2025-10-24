@@ -120,37 +120,37 @@ def test_solution() -> None:
     # Test case 1: Target found in middle
     result = solution.search([-1, 0, 3, 5, 9, 12], 9)
     expected = 4
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: Target not found
     result = solution.search([-1, 0, 3, 5, 9, 12], 2)
     expected = -1
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 3: Target at beginning
     result = solution.search([-1, 0, 3, 5, 9, 12], -1)
     expected = 0
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 4: Target at end
     result = solution.search([-1, 0, 3, 5, 9, 12], 12)
     expected = 5
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 5: Single element found
     result = solution.search([5], 5)
     expected = 0
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 6: Single element not found
     result = solution.search([5], 3)
     expected = -1
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 7: Empty array
     result = solution.search([], 1)
     expected = -1
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

@@ -3,17 +3,17 @@
 
 # Difficulty: Medium
 
-Solve problem #324: Wiggle Sort Ii
+Solve the Wiggle Sort Ii problem as described.
 
 **Example:**
  *
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>input data here</dd>
+<dd>```</dd>
 <dt>Output:</dt>
-<dd>output data here</dd>
+<dd>```</dd>
 <dt>Explanation:</dt>
-<dd>Explanation of the solution</dd>
+<dd>Processing input produces the expected output</dd>
 </dl>
 
 <details>
@@ -154,7 +154,7 @@ if __name__ == "__main__":
         is_valid = verify_wiggle(nums)
         status = "✓" if is_valid else "✗"
         print(f"{status} Input: {original}")
-        print(f"   Output: {nums}, Valid: {is_valid}")
+        print(f"   Output: nums, Valid: {is_valid}")
 
     print("\nTesting wiggleSortSimple:")
     for nums in test_cases:
@@ -163,4 +163,4 @@ if __name__ == "__main__":
         is_valid = verify_wiggle(nums)
         status = "✓" if is_valid else "✗"
         print(f"{status} Input: {original}")
-        print(f"   Output: {nums}, Valid: {is_valid}")
+        print(f"   Output: nums, Valid: {is_valid}")

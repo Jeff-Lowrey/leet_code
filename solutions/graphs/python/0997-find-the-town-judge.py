@@ -252,7 +252,7 @@ if __name__ == "__main__":
 
     for n, trust in test_cases:
         result = solution.findJudge(n, trust)
-        print(f"n={n}, trust={trust} -> Judge: {result}")
+        print(f"n=n, trust={trust} -> Judge: result")
 
     print("\nDetailed example:")
     print("n=3, trust=[[1,3],[2,3]]")

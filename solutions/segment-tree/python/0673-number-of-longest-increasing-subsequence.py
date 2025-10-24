@@ -13,7 +13,7 @@ Notice that the sequence has to be strictly increasing.
 <dt>Input:</dt>
 <dd>[[1, 3, 5, 4, 7]</dd>
 <dt>Output:</dt>
-<dd>"\nInput: {nums}"</dd>
+<dd>"\nInput: nums"</dd>
 <dt>Explanation:</dt>
 <dd>The number of longest increasing subsequences of length 4 is 2</dd>
 </dl>
@@ -333,7 +333,7 @@ if __name__ == "__main__":
     ]
 
     for nums in test_cases:
-        print(f"\nInput: {nums}")
+        print(f"\nInput: nums")
 
         # Show all approaches
         result_dp = solution.findNumberOfLIS(nums[:])

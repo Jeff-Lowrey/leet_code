@@ -3,6 +3,8 @@
  *
  * # 429. N-ary Tree Level Order Traversal
  *
+ * Difficulty: Medium
+ *
  * Given an n-ary tree, return the level order traversal of its nodes' values.
  *
  * **Example:**

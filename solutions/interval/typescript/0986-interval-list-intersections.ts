@@ -3,6 +3,8 @@
  *
  * # 986. Interval List Intersections
  *
+ * Difficulty: Medium
+ *
  * You are given two lists of closed intervals, firstList and secondList, where firstList[i] = [starti, endi] and secondList[j] = [startj, endj]. Each list of intervals is pairwise disjoint and in sorted order.
  *
  * Return the intersection of these two interval lists.
