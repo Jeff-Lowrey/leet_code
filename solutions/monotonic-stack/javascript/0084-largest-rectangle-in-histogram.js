@@ -11,7 +11,7 @@
  * <dt>Input:</dt>
  * <dd>heights = [2,1,5,6,2,3]</dd>
  * <dt>Output:</dt>
- * <dd>"Solution for 084. Largest Rectangle In Histogram: {result}"</dd>
+ * <dd>* 10 (maximum area)</dd>
  * <dt>Explanation:</dt>
  * <dd>Largest rectangle area is 10</dd>
  * </dl>
