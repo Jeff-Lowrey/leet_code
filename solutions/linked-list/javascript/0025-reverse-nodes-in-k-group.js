@@ -15,7 +15,7 @@
  * <dt>Input:</dt>
  * <dd>head = [1,2,3,4,5], k = 2</dd>
  * <dt>Output:</dt>
- * <dd>"Expected {expected}, got {list_to_array(result)}"</dd>
+ * <dd>* [2,1,4,3,5]</dd>
  * <dt>Explanation:</dt>
  * <dd>Reversing nodes in k=2 groups: [1,2,3,4,5] becomes [2,1,4,3,5]</dd>
  * </dl>

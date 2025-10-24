@@ -11,7 +11,7 @@
  * <dt>Input:</dt>
  * <dd>head = [1,2,3,4,5], n = 2</dd>
  * <dt>Output:</dt>
- * <dd>"Expected {expected}, got {list_to_array(result)}"</dd>
+ * <dd>* [1,2,3,5]</dd>
  * <dt>Explanation:</dt>
  * <dd>Removing 2nd node from end of [1,2,3,4,5] gives [1,2,3,5]</dd>
  * </dl>
