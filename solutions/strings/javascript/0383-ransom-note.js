@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Easy
  *
- * # 383. Ransom Note
+ * # 0383. Ransom Note
  *
  * Difficulty: Medium
  *

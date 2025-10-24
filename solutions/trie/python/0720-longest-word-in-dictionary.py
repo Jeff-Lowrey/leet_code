@@ -1,7 +1,7 @@
 """
 # Difficulty: Easy
 
-# 720. Longest Word In Dictionary
+# 0720. Longest Word In Dictionary
 
 Given an array of strings words representing an English Dictionary, return the longest word in words that can be built one character at a time by other words in words.
 

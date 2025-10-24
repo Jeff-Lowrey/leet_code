@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  *
- * # 990. Satisfiability of Equality Equations
+ * # 0990. Satisfiability of Equality Equations
  *
  * Difficulty: Medium
  *

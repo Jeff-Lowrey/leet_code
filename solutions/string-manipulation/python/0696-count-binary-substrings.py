@@ -1,5 +1,5 @@
 """
-# 696. Count Binary Substrings
+# 0696. Count Binary Substrings
 
 # Difficulty: Easy
 

@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  *
- * # 767. Reorganize String
+ * # 0767. Reorganize String
  *
  * Difficulty: Medium
  *

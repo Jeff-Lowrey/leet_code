@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Easy
  *
- * # 997. Find The Town Judge
+ * # 0997. Find The Town Judge
  *
  * Difficulty: Medium
  *

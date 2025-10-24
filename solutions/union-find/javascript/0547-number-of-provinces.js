@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  *
- * # 547. Number of Provinces
+ * # 0547. Number of Provinces
  *
  * Difficulty: Medium
  *

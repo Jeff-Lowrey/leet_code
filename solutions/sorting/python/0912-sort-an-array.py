@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 912. Sort An Array
+# 0912. Sort An Array
 
 Given an array of integers nums, sort the array in ascending order and return it.
 

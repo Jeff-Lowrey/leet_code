@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  *
- * # 235. Lowest Common Ancestor of a Binary Search Tree
+ * # 0235. Lowest Common Ancestor of a Binary Search Tree
  *
  * Difficulty: Medium
  *

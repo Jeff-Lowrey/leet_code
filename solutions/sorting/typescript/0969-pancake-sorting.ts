@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  *
- * # 969. Pancake Sorting
+ * # 0969. Pancake Sorting
  *
  * Difficulty: Medium
  *

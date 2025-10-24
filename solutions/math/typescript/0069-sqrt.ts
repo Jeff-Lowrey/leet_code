@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  *
- * # 069. Sqrt(x)
+ * # 0069. Sqrt(x)
  *
  * Difficulty: Easy
  *

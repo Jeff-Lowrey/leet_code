@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  *
- * # 131. Palindrome Partitioning
+ * # 0131. Palindrome Partitioning
  *
  * Difficulty: Medium
  *
@@ -34,7 +34,7 @@
  * 1. **Define isPalindrome helper**: Create function to check if substring s[left:right+1] is a palindrome
  * 2. **Initialize result**: Create empty result list and current partition list
  * 3. **Define backtrack function**: Create recursive function with parameter start (current position in string)
- * # 4. **Base case**: If start == len(s), add copy of current partition to result and return  # Result undefined
+ * # 0131. **Base case**: If start == len(s), add copy of current partition to result and return  # Result undefined
  * 5. **Try all substrings**: Loop from start to end of string with end index
  * 6. **Check palindrome**: If s[start:end+1] is palindrome, add it to current partition
  * 7. **Recurse**: Call backtrack(end+1) to partition remaining string

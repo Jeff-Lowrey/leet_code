@@ -1,5 +1,5 @@
 /**
- * # 551. Student Attendance Record I
+ * # 0551. Student Attendance Record I
  *
  * Difficulty: Medium
  *

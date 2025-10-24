@@ -1,5 +1,5 @@
 /**
- * # 344. Reverse String
+ * # 0344. Reverse String
  *
  * Difficulty: Medium
  *

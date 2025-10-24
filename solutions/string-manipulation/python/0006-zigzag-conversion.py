@@ -1,5 +1,5 @@
 """
-# 6. Zigzag Conversion
+# 0006. Zigzag Conversion
 
 # Difficulty: Medium
 

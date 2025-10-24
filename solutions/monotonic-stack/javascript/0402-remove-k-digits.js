@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  *
- * # 402. Remove K Digits
+ * # 0402. Remove K Digits
  *
  * Difficulty: Medium
  *

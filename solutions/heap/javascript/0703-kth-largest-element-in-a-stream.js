@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Easy
  *
- * # 703. Kth Largest Element in a Stream
+ * # 0703. Kth Largest Element in a Stream
  *
  * Difficulty: Medium
  *

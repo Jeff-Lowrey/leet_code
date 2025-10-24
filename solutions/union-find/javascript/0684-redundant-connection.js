@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  *
- * # 684. Redundant Connection
+ * # 0684. Redundant Connection
  *
  * Difficulty: Medium
  *

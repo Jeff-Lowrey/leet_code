@@ -1,7 +1,7 @@
 """
 # Difficulty: Hard
 
-# 715. Range Module
+# 0715. Range Module
 
 A Range Module is a module that tracks ranges of numbers. Design a data structure to track the ranges represented as half-open intervals and query about them.
 

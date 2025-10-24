@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  *
- * # 406. Queue Reconstruction By Height
+ * # 0406. Queue Reconstruction By Height
  *
  * Difficulty: Medium
  *

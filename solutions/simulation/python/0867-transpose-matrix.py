@@ -1,7 +1,7 @@
 """
 # Difficulty: Easy
 
-# 867. Transpose Matrix
+# 0867. Transpose Matrix
 
 Given a 2D integer array matrix, return the transpose of matrix.
 

@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  *
- * # 48. Rotate Image
+ * # 0048. Rotate Image
  *
  * Difficulty: Easy
  *

@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  *
- * # 694. Number Of Distinct Islands
+ * # 0694. Number Of Distinct Islands
  *
  * Difficulty: Medium
  *

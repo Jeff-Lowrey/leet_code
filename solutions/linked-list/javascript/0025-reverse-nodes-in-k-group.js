@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  *
- * # 025. Reverse Nodes In K Group
+ * # 0025. Reverse Nodes In K Group
  *
  * Difficulty: Easy
  *

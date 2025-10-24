@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 047. Permutations Ii
+# 0047. Permutations Ii
 
 Given a collection of numbers, nums, that might contain duplicates, return all possible unique permutations in any order.
 
@@ -32,7 +32,7 @@ Use a frequency counter to track available numbers. During backtracking, iterate
 1. **Create frequency counter**: Use Counter(nums) to build frequency map of available numbers
 2. **Initialize result**: Create empty result list and current permutation list
 3. **Define backtrack function**: Create recursive function that builds permutations incrementally
-# 4. **Base case**: When len(current) == len(nums), add copy of current to result and return  # Result undefined
+# 0047. **Base case**: When len(current) == len(nums), add copy of current to result and return  # Result undefined
 5. **Iterate unique numbers**: Loop through counter.keys() (unique numbers only)
 6. **Check availability**: If counter[num] > 0, the number is available to use
 7. **Use number**: Add num to current, decrement counter[num] by 1

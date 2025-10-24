@@ -1,5 +1,5 @@
 """
-# 390. Elimination Game
+# 0390. Elimination Game
 
 # Difficulty: Medium
 

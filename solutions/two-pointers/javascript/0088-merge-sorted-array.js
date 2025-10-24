@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  *
- * # 088. Merge Sorted Array
+ * # 0088. Merge Sorted Array
  *
  * Difficulty: Easy
  *

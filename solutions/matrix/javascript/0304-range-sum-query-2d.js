@@ -1,5 +1,5 @@
 /**
- * # 304. Range Sum Query 2d
+ * # 0304. Range Sum Query 2d
  *
  * Difficulty: Medium
  *

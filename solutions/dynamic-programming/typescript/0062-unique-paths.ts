@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  *
- * # 062. Unique Paths
+ * # 0062. Unique Paths
  *
  * Difficulty: Easy
  *

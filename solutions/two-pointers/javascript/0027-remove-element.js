@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  *
- * # 027. Remove Element
+ * # 0027. Remove Element
  *
  * Difficulty: Easy
  *

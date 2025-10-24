@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 856. Score Of Parentheses
+# 0856. Score Of Parentheses
 
 Given a balanced parentheses string s, return the score of the string.
 

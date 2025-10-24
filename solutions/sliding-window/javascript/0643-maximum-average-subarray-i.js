@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  *
- * # 643. Maximum Average Subarray I
+ * # 0643. Maximum Average Subarray I
  *
  * Difficulty: Medium
  *

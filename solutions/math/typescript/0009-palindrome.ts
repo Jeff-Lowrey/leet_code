@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  *
- * # 009. Palindrome Number
+ * # 0009. Palindrome Number
  *
  * Difficulty: Easy
  *

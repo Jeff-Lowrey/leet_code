@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Hard
  *
- * # 051. N Queens
+ * # 0051. N Queens
  *
  * Difficulty: Easy
  *

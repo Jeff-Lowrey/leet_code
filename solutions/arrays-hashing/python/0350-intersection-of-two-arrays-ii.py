@@ -1,5 +1,5 @@
 """
-# 350. Intersection of Two Arrays II
+# 0350. Intersection of Two Arrays II
 
 # Difficulty: Easy
 

@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 380. Insert Delete GetRandom O(1)
+# 0380. Insert Delete GetRandom O(1)
 
 Design a data structure that supports insert, delete, and getRandom operations in average O(1) time.
 

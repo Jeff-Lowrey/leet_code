@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Easy
  *
- * # 035. Search Insert Position
+ * # 0035. Search Insert Position
  *
  * Difficulty: Easy
  *

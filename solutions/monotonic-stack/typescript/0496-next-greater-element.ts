@@ -1,5 +1,5 @@
 /**
- * # 496. Next Greater Element
+ * # 0496. Next Greater Element
  * 
  * # Difficulty: Easy
  * 

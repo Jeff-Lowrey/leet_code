@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  *
- * # 042. Trapping Rain Water
+ * # 0042. Trapping Rain Water
  *
  * Difficulty: Easy
  *

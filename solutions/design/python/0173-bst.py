@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 173. Binary Search Tree Iterator
+# 0173. Binary Search Tree Iterator
 
 Implement the BSTIterator class that represents an iterator over the in-order traversal of a binary search tree (BST).
 

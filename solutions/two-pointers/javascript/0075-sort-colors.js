@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  *
- * # 075. Sort Colors
+ * # 0075. Sort Colors
  *
  * Difficulty: Easy
  *

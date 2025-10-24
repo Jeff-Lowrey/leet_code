@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 034. Find First And Last Position Of Element In Sorted Array
+# 0034. Find First And Last Position Of Element In Sorted Array
 
 Given an array of integers nums sorted in non-decreasing order, find the starting and ending position of a given target value.
 

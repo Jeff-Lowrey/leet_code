@@ -1,5 +1,5 @@
 /**
- * # 231. Power of Two
+ * # 0231. Power of Two
  *
  * Difficulty: Medium
  *

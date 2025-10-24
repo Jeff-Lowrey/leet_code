@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  *
- * # 071. Simplify Path
+ * # 0071. Simplify Path
  *
  * Difficulty: Easy
  *

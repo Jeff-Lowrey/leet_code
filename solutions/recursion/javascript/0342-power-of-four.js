@@ -1,9 +1,9 @@
 /**
- * # 342. Power Of Four
+ * # 0342. Power Of Four
  *
  * Difficulty: Medium
  *
- * # 342. Power of Four
+ * # 0342. Power of Four
  *
  * # Difficulty: Easy
  *

@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  *
- * # 763. Partition Labels
+ * # 0763. Partition Labels
  *
  * Difficulty: Medium
  *

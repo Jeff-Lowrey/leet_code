@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  *
- * # 421. Maximum XOR of Two Numbers in an Array
+ * # 0421. Maximum XOR of Two Numbers in an Array
  *
  * Difficulty: Medium
  *

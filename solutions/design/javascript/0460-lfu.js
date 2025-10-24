@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Hard
  *
- * # 460. LFU Cache
+ * # 0460. LFU Cache
  *
  * Difficulty: Medium
  *

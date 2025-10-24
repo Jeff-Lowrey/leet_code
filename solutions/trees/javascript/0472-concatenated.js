@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  *
- * # 472. Concatenated Words
+ * # 0472. Concatenated Words
  *
  * Difficulty: Medium
  *

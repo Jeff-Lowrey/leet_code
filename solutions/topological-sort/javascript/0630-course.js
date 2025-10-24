@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  *
- * # 630. Course Schedule III
+ * # 0630. Course Schedule III
  *
  * Difficulty: Medium
  *

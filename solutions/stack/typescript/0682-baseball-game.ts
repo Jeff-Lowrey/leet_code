@@ -1,9 +1,9 @@
 /**
- * # 682. Baseball Game
+ * # 0682. Baseball Game
  *
  * Difficulty: Medium
  *
- * # 682. Baseball Game
+ * # 0682. Baseball Game
  *
  * # Difficulty: Easy
  *

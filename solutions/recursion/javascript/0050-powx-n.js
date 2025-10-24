@@ -1,5 +1,5 @@
 /**
- * # 50. Powx N
+ * # 0050. Powx N
  *
  * Difficulty: Easy
  *

@@ -1,5 +1,5 @@
 /**
- * # 346. Moving Average From Data Stream
+ * # 0346. Moving Average From Data Stream
  * 
  * # Difficulty: Easy
  * 

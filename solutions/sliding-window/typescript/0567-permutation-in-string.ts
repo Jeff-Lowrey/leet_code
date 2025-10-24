@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  *
- * # 567. Permutation In String
+ * # 0567. Permutation In String
  *
  * Difficulty: Medium
  *

@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  *
- * # 316. Remove Duplicate Letters
+ * # 0316. Remove Duplicate Letters
  *
  * Difficulty: Medium
  *

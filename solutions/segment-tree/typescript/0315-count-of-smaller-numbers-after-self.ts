@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Hard
  *
- * # 315. Count Of Smaller Numbers After Self
+ * # 0315. Count Of Smaller Numbers After Self
  *
  * Difficulty: Medium
  *

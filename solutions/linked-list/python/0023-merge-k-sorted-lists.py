@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 023. Merge K Sorted Lists
+# 0023. Merge K Sorted Lists
 
 You are given an array of k linked-lists lists, each linked-list is sorted in ascending order.
 

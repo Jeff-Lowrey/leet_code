@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  *
- * # 676. Implement Magic Dictionary
+ * # 0676. Implement Magic Dictionary
  *
  * Difficulty: Medium
  *

@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  *
- * # 856. Score Of Parentheses
+ * # 0856. Score Of Parentheses
  *
  * Difficulty: Medium
  *

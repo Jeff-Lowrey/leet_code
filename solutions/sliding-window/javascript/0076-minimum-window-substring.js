@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  *
- * # 076. Minimum Window Substring
+ * # 0076. Minimum Window Substring
  *
  * Difficulty: Easy
  *

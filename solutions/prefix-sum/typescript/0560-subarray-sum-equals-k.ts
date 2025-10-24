@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  * 
- * # 560. Subarray Sum Equals K
+ * # 0560. Subarray Sum Equals K
  * 
  * Given an array of integers nums and an integer k, return the total number of subarrays whose sum is equal to k.
  * 

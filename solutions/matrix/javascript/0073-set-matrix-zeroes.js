@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  *
- * # 73. Set Matrix Zeroes
+ * # 0073. Set Matrix Zeroes
  *
  * Difficulty: Easy
  *

@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  * 
- * # 692. Top K Frequent Words
+ * # 0692. Top K Frequent Words
  * 
  * Given an array of strings words and an integer k, return the k most frequent strings.
  * 

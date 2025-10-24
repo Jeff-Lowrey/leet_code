@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 59. Spiral Matrix II
+# 0059. Spiral Matrix II
 
 Given a positive integer n, generate an n x n matrix filled with elements from 1 to n²
 in spiral order.

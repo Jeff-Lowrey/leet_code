@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  *
- * # 077. Combinations
+ * # 0077. Combinations
  *
  * Difficulty: Easy
  *
@@ -35,7 +35,7 @@
  * ### APPROACH:
  * 1. **Initialize result**: Create empty result list and current combination list
  * 2. **Define backtrack function**: Create recursive function with parameters (start, current)
- * # 3. **Base case**: If len(current) == k, add copy of current to result and return  # Result undefined
+ * # 0077. **Base case**: If len(current) == k, add copy of current to result and return  # Result undefined
  * 4. **Iterate from start**: Loop from start to n+1 (numbers 1 to n)
  * 5. **Add number**: Append current number i to current combination
  * 6. **Recursive call**: Call backtrack(i+1, current) to continue building combination

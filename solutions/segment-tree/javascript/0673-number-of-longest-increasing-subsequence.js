@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  *
- * # 673. Number Of Longest Increasing Subsequence
+ * # 0673. Number Of Longest Increasing Subsequence
  *
  * Difficulty: Medium
  *

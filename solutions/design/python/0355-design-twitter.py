@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 355. Design Twitter
+# 0355. Design Twitter
 
 Design a simplified version of Twitter where users can post tweets, follow/unfollow users, and see a news feed.
 

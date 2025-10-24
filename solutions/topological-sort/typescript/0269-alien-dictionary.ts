@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  *
- * # 269. Alien Dictionary
+ * # 0269. Alien Dictionary
  *
  * Difficulty: Medium
  *

@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  *
- * # 040. Combination Sum Ii
+ * # 0040. Combination Sum Ii
  *
  * Difficulty: Easy
  *

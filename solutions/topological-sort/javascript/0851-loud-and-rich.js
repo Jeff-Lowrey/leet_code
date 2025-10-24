@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  *
- * # 851. Loud And Rich
+ * # 0851. Loud And Rich
  *
  * Difficulty: Medium
  *

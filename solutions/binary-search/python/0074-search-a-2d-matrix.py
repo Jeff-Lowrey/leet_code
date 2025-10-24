@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 074. Search A 2D Matrix
+# 0074. Search A 2D Matrix
 
 You are given an m x n integer matrix matrix with the following two properties:
 

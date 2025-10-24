@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  *
- * # 904. Fruit Into Baskets
+ * # 0904. Fruit Into Baskets
  *
  * Difficulty: Medium
  *

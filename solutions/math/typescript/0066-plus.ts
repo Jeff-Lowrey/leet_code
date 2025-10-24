@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  *
- * # 066. Plus One
+ * # 0066. Plus One
  *
  * Difficulty: Easy
  *

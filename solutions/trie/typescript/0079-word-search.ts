@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  *
- * # 79. Word Search
+ * # 0079. Word Search
  *
  * Difficulty: Easy
  *

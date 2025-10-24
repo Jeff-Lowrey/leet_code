@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Easy
  *
- * # 155. Min Stack
+ * # 0155. Min Stack
  *
  * Difficulty: Medium
  *

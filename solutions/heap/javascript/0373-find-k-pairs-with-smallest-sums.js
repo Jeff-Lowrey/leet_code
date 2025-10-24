@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  *
- * # 373. Find K Pairs With Smallest Sums
+ * # 0373. Find K Pairs With Smallest Sums
  *
  * Difficulty: Medium
  *

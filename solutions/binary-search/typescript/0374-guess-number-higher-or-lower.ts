@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Easy
  * 
- * # 374. Guess Number Higher Or Lower
+ * # 0374. Guess Number Higher Or Lower
  * 
  * We are playing the Guess Game. The game is as follows:
  * 

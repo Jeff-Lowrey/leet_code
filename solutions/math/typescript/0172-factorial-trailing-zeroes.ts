@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  *
- * # 172. Factorial Trailing Zeroes
+ * # 0172. Factorial Trailing Zeroes
  *
  * Difficulty: Medium
  *

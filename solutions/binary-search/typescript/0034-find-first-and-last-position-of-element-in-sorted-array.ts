@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  *
- * # 034. Find First And Last Position Of Element In Sorted Array
+ * # 0034. Find First And Last Position Of Element In Sorted Array
  *
  * Difficulty: Easy
  *

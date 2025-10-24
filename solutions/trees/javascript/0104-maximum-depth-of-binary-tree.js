@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Easy
  *
- * # 104. Maximum Depth of Binary Tree
+ * # 0104. Maximum Depth of Binary Tree
  *
  * Difficulty: Medium
  *

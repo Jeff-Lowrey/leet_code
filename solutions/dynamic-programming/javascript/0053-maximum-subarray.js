@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  *
- * # 053. Maximum Subarray
+ * # 0053. Maximum Subarray
  *
  * Difficulty: Easy
  *

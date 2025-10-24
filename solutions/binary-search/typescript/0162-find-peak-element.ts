@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  *
- * # 162. Find Peak Element
+ * # 0162. Find Peak Element
  *
  * Difficulty: Medium
  *

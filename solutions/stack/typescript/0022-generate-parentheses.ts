@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  *
- * # 22. Generate Parentheses
+ * # 0022. Generate Parentheses
  *
  * Difficulty: Easy
  *

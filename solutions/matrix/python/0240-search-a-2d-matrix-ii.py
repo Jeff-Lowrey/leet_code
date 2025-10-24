@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 240. Search a 2D Matrix II
+# 0240. Search a 2D Matrix II
 
 Write an efficient algorithm that searches for a value target in an m x n integer matrix.
 This matrix has the following properties:

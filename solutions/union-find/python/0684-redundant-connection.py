@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 684. Redundant Connection
+# 0684. Redundant Connection
 
 In this problem, a tree is an undirected graph that is connected and has no cycles.
 

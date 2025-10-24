@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 677. Map Sum Pairs
+# 0677. Map Sum Pairs
 
 You are asked to implement a map that supports the following two operations:
 

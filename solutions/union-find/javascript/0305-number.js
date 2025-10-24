@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  *
- * # 305. Number of Islands II
+ * # 0305. Number of Islands II
  *
  * Difficulty: Medium
  *

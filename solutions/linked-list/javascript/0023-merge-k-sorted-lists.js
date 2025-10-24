@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  *
- * # 023. Merge K Sorted Lists
+ * # 0023. Merge K Sorted Lists
  *
  * Difficulty: Easy
  *

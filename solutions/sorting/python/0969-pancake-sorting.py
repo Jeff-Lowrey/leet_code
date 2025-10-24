@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 969. Pancake Sorting
+# 0969. Pancake Sorting
 
 Given an array of integers arr, sort the array by performing a series of pancake flips.
 

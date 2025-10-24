@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 153. Find Minimum In Rotated Sorted Array
+# 0153. Find Minimum In Rotated Sorted Array
 
 Suppose an array of length n sorted in ascending order is rotated between 1 and n times. For example, the array nums = [0,1,2,4,5,6,7] might become:
 

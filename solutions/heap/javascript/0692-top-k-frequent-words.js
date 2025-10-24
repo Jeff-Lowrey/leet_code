@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  *
- * # 692. Top K Frequent Words
+ * # 0692. Top K Frequent Words
  *
  * Difficulty: Medium
  *

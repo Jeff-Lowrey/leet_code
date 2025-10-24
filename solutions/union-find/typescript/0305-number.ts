@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  * 
- * # 305. Number of Islands II
+ * # 0305. Number of Islands II
  * 
  * You are given an empty 2D binary grid grid of size m x n. The grid represents a map where 0's represent water and 1's represent land. Initially, all the cells of grid are water cells (i.e., all the cells are 0's).
  * 

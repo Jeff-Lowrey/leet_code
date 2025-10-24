@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  *
- * # 424. Longest Repeating Character Replacement
+ * # 0424. Longest Repeating Character Replacement
  *
  * Difficulty: Medium
  *

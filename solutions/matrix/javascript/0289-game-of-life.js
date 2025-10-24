@@ -1,5 +1,5 @@
 /**
- * # 289. Game Of Life
+ * # 0289. Game Of Life
  *
  * Difficulty: Medium
  *

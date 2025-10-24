@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Easy
  *
- * # 704. Binary Search
+ * # 0704. Binary Search
  *
  * Difficulty: Medium
  *

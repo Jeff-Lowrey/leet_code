@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  *
- * # 261. Graph Valid Tree
+ * # 0261. Graph Valid Tree
  *
  * Difficulty: Medium
  *

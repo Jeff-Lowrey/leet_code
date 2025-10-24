@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  *
- * # 268. Missing Number
+ * # 0268. Missing Number
  *
  * Difficulty: Medium
  *

@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  *
- * # 252. Meeting Rooms
+ * # 0252. Meeting Rooms
  *
  * Difficulty: Medium
  *

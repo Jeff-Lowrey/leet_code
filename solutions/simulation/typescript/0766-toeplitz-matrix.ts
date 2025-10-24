@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Easy
  *
- * # 766. Toeplitz Matrix
+ * # 0766. Toeplitz Matrix
  *
  * Difficulty: Medium
  *

@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 373. Find K Pairs With Smallest Sums
+# 0373. Find K Pairs With Smallest Sums
 
 You are given two integer arrays nums1 and nums2 sorted in ascending order and an integer k.
 

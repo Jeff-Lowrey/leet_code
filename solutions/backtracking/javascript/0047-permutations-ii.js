@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  *
- * # 047. Permutations Ii
+ * # 0047. Permutations Ii
  *
  * Difficulty: Easy
  *

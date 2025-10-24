@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  *
- * # 355. Design Twitter
+ * # 0355. Design Twitter
  *
  * Difficulty: Medium
  *

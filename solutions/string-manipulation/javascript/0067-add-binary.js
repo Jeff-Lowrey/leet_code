@@ -1,5 +1,5 @@
 /**
- * # 67. Add Binary
+ * # 0067. Add Binary
  *
  * Difficulty: Easy
  *

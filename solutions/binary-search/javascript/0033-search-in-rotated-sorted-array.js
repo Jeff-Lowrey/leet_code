@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  *
- * # 033. Search In Rotated Sorted Array
+ * # 0033. Search In Rotated Sorted Array
  *
  * Difficulty: Easy
  *

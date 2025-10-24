@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  *
- * # 204. Count Primes
+ * # 0204. Count Primes
  *
  * Difficulty: Medium
  *

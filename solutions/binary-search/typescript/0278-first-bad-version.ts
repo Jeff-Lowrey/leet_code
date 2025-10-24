@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  *
- * # 278. First Bad Version
+ * # 0278. First Bad Version
  *
  * Difficulty: Medium
  *

@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  *
- * # 300. Longest Increasing Subsequence
+ * # 0300. Longest Increasing Subsequence
  *
  * Difficulty: Medium
  *

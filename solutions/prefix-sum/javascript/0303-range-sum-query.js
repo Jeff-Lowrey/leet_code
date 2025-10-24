@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Easy
  *
- * # 303. Range Sum Query - Immutable
+ * # 0303. Range Sum Query - Immutable
  *
  * Difficulty: Medium
  *

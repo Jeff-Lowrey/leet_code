@@ -1,5 +1,5 @@
 /**
- * # 46. Permutations
+ * # 0046. Permutations
  *
  * Difficulty: Easy
  *

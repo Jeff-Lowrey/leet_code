@@ -1,5 +1,5 @@
 """
-# 50. Pow(x, n)
+# 0050. Pow(x, n)
 
 # Difficulty: Medium
 

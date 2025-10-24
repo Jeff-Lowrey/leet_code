@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Hard
  *
- * # 295. Find Median from Data Stream
+ * # 0295. Find Median from Data Stream
  *
  * Difficulty: Medium
  *

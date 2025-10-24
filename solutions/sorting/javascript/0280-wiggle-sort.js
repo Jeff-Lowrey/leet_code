@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  *
- * # 280. Wiggle Sort
+ * # 0280. Wiggle Sort
  *
  * Difficulty: Medium
  *

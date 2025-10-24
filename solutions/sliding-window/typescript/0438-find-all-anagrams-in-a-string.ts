@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  *
- * # 438. Find All Anagrams In A String
+ * # 0438. Find All Anagrams In A String
  *
  * Difficulty: Medium
  *
@@ -35,11 +35,11 @@
  * ### APPROACH:
  * 1. **Count target**: Use Counter(p) to get character frequencies
  * 2. **Initialize window**: Create window counter for first len(p) characters
- * # 3. **Check first window**: If window == p_count, add 0 to result  # Result undefined
+ * # 0438. **Check first window**: If window == p_count, add 0 to result  # Result undefined
  * 4. **Slide window**: For i from len(p) to len(s)
  * 5. **Add new character**: Increment count for s[i]
  * 6. **Remove old character**: Decrement count for s[i-len(p)]
- * # 7. **Check match**: If window == p_count, add (i-len(p)+1) to result  # Result undefined
+ * # 0438. **Check match**: If window == p_count, add (i-len(p)+1) to result  # Result undefined
  * 8. **Return result**: Return list of starting indices
  *
  * ### WHY THIS WORKS:

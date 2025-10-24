@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  *
- * # 284. Peeking Iterator
+ * # 0284. Peeking Iterator
  *
  * Difficulty: Medium
  *

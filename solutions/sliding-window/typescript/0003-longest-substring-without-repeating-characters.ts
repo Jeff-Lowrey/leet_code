@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  *
- * # 003. Longest Substring Without Repeating Characters
+ * # 0003. Longest Substring Without Repeating Characters
  *
  * Difficulty: Easy
  *

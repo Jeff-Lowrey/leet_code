@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Easy
  *
- * # 867. Transpose Matrix
+ * # 0867. Transpose Matrix
  *
  * Difficulty: Medium
  *

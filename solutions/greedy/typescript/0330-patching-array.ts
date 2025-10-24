@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Hard
  *
- * # 330. Patching Array
+ * # 0330. Patching Array
  *
  * Difficulty: Medium
  *

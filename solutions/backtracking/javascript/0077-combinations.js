@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  *
- * # 077. Combinations
+ * # 0077. Combinations
  *
  * Difficulty: Easy
  *

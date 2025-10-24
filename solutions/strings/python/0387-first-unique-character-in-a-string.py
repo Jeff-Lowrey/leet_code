@@ -1,7 +1,7 @@
 """
 # Difficulty: Easy
 
-# 387. First Unique Character In A String
+# 0387. First Unique Character In A String
 
 This problem demonstrates key concepts in Hash Tables and String manipulation.
 

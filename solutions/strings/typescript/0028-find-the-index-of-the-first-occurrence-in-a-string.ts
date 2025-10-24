@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Easy
  *
- * # 28. Find The Index Of The First Occurrence In A String
+ * # 0028. Find The Index Of The First Occurrence In A String
  *
  * Difficulty: Easy
  *

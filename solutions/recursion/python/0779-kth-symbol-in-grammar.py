@@ -1,5 +1,5 @@
 """
-# 779. K-th Symbol in Grammar
+# 0779. K-th Symbol in Grammar
 
 # Difficulty: Medium
 

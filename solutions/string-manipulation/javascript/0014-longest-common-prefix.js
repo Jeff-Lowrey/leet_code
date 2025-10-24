@@ -1,5 +1,5 @@
 /**
- * # 14. Longest Common Prefix
+ * # 0014. Longest Common Prefix
  *
  * Difficulty: Easy
  *

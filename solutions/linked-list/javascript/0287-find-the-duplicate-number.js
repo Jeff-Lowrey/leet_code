@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  *
- * # 287. Find The Duplicate Number
+ * # 0287. Find The Duplicate Number
  *
  * Difficulty: Medium
  *

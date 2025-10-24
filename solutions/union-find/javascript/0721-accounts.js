@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  *
- * # 721. Accounts Merge
+ * # 0721. Accounts Merge
  *
  * Difficulty: Medium
  *

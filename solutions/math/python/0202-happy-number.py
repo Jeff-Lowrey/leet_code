@@ -1,7 +1,7 @@
 """
 # Difficulty: Easy
 
-# 202. Happy Number
+# 0202. Happy Number
 
 Write an algorithm to determine if a number n is happy.
 

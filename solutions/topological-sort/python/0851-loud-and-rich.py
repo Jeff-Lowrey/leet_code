@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 851. Loud And Rich
+# 0851. Loud And Rich
 
 There is a group of n people labeled from 0 to n - 1 where each person has a different amount of money and a different level of quietness.
 

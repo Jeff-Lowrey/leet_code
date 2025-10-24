@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  *
- * # 153. Find Minimum In Rotated Sorted Array
+ * # 0153. Find Minimum In Rotated Sorted Array
  *
  * Difficulty: Medium
  *

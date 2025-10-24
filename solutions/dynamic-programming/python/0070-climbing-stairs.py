@@ -1,5 +1,5 @@
 """
-# 70. Climbing Stairs
+# 0070. Climbing Stairs
 
 # Difficulty: Easy
 

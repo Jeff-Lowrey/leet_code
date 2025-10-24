@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  *
- * # 260. Single Number III
+ * # 0260. Single Number III
  *
  * Difficulty: Medium
  *

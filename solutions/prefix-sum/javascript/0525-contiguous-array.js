@@ -1,5 +1,5 @@
 /**
- * # 525. Contiguous Array
+ * # 0525. Contiguous Array
  *
  * Difficulty: Medium
  *

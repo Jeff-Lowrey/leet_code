@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  *
- * # 802. Find Eventual Safe States
+ * # 0802. Find Eventual Safe States
  *
  * Difficulty: Medium
  *

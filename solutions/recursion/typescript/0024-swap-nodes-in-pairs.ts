@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  *
- * # 024. Swap Nodes In Pairs
+ * # 0024. Swap Nodes In Pairs
  *
  * Difficulty: Easy
  *

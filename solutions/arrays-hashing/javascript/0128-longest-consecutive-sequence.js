@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  *
- * # 128. Longest Consecutive Sequence
+ * # 0128. Longest Consecutive Sequence
  *
  * Difficulty: Medium
  *

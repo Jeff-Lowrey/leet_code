@@ -1,5 +1,5 @@
 /**
- * # 2. Add Two Numbers
+ * # 0002. Add Two Numbers
  *
  * Difficulty: Easy
  *

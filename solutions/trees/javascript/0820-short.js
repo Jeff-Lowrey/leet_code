@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  *
- * # 820. Short Encoding of Words
+ * # 0820. Short Encoding of Words
  *
  * Difficulty: Medium
  *

@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Easy
  *
- * # 860. Lemonade Change
+ * # 0860. Lemonade Change
  *
  * Difficulty: Medium
  *

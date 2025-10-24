@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Easy
  *
- * # 389. Find the Difference
+ * # 0389. Find the Difference
  *
  * Difficulty: Medium
  *

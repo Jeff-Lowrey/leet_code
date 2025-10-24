@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Hard
  *
- * # 642. Design Search Autocomplete System
+ * # 0642. Design Search Autocomplete System
  *
  * Difficulty: Medium
  *

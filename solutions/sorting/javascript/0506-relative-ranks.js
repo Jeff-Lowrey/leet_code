@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Easy
  *
- * # 506. Relative Ranks
+ * # 0506. Relative Ranks
  *
  * Difficulty: Medium
  *

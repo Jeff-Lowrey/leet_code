@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Easy
  *
- * # 338. Counting Bits
+ * # 0338. Counting Bits
  *
  * Difficulty: Medium
  *

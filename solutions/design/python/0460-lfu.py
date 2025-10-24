@@ -1,7 +1,7 @@
 """
 # Difficulty: Hard
 
-# 460. LFU Cache
+# 0460. LFU Cache
 
 Design and implement a Least Frequently Used (LFU) cache.
 

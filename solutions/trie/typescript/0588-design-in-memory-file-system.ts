@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Hard
  * 
- * # 588. Design In Memory File System
+ * # 0588. Design In Memory File System
  * 
  * Design a data structure that simulates an in-memory file system.
  * 

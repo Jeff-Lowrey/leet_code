@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 767. Reorganize String
+# 0767. Reorganize String
 
 Given a string s, rearrange the characters of s so that any two adjacent characters are not the same.
 

@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  *
- * # 098. Validate Binary Search Tree
+ * # 0098. Validate Binary Search Tree
  *
  * Difficulty: Easy
  *

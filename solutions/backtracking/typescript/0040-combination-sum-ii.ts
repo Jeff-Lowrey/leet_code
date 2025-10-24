@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  *
- * # 040. Combination Sum Ii
+ * # 0040. Combination Sum Ii
  *
  * Difficulty: Easy
  *
@@ -38,7 +38,7 @@
  * 1. **Sort candidates**: Sort candidates array to group duplicates together for easy skipping
  * 2. **Initialize result**: Create empty result list and current combination list
  * 3. **Define backtrack function**: Create recursive function with parameters (start, current, remaining_target)
- * # 4. **Base case**: If remaining_target == 0, add copy of current to result and return  # Result undefined
+ * # 0040. **Base case**: If remaining_target == 0, add copy of current to result and return  # Result undefined
  * 5. **Iterate from start**: Loop from start index to end of candidates array
  * 6. **Skip duplicates**: If i > start and candidates[i] == candidates[i-1], continue to avoid duplicate combinations
  * 7. **Prune search**: If candidates[i] > remaining_target, break early since array is sorted

@@ -1,7 +1,7 @@
 """
 # Difficulty: Hard
 
-# 642. Design Search Autocomplete System
+# 0642. Design Search Autocomplete System
 
 Design a search autocomplete system for a search engine. Users may input a sentence (at least one word and end with a special character '#').
 

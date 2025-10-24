@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  *
- * # 875. Koko Eating Bananas
+ * # 0875. Koko Eating Bananas
  *
  * Difficulty: Medium
  *

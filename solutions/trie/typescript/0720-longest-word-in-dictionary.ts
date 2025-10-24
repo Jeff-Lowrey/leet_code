@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Easy
  *
- * # 720. Longest Word In Dictionary
+ * # 0720. Longest Word In Dictionary
  *
  * Difficulty: Medium
  *

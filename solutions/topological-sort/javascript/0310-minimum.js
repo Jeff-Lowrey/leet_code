@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  *
- * # 310. Minimum Height Trees
+ * # 0310. Minimum Height Trees
  *
  * Difficulty: Medium
  *

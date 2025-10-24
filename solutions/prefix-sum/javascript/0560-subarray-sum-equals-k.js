@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  *
- * # 560. Subarray Sum Equals K
+ * # 0560. Subarray Sum Equals K
  *
  * Difficulty: Medium
  *

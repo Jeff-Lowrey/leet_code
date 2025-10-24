@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Easy
  *
- * # 232. Implement Queue using Stacks
+ * # 0232. Implement Queue using Stacks
  *
  * Difficulty: Medium
  *

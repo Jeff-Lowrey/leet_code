@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  *
- * # 323. Number Of Connected Components In An Undirected Graph
+ * # 0323. Number Of Connected Components In An Undirected Graph
  *
  * Difficulty: Medium
  *

@@ -1,5 +1,5 @@
 """
-# 71. Simplify Path
+# 0071. Simplify Path
 
 # Difficulty: Medium
 

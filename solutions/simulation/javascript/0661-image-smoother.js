@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Easy
  *
- * # 661. Image Smoother
+ * # 0661. Image Smoother
  *
  * Difficulty: Medium
  *

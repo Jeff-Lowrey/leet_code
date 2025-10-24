@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  *
- * # 007. Reverse Integer
+ * # 0007. Reverse Integer
  *
  * Difficulty: Easy
  *

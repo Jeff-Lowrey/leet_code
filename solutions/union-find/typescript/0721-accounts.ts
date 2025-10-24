@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  * 
- * # 721. Accounts Merge
+ * # 0721. Accounts Merge
  * 
  * Given a list of accounts where each element accounts[i] is a list of strings, where the first element accounts[i][0] is a name, and the rest of the elements are emails representing emails of the account.
  * 

@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  *
- * # 503. Next Greater Element II
+ * # 0503. Next Greater Element II
  *
  * Difficulty: Medium
  *

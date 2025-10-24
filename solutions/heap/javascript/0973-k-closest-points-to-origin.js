@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  *
- * # 973. K Closest Points To Origin
+ * # 0973. K Closest Points To Origin
  *
  * Difficulty: Medium
  *

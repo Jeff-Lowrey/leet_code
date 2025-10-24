@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  *
- * # 056. Merge Intervals
+ * # 0056. Merge Intervals
  *
  * Difficulty: Easy
  *

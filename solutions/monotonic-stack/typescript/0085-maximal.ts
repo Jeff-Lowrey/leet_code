@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  *
- * # 085. Maximal Rectangle
+ * # 0085. Maximal Rectangle
  *
  * Difficulty: Easy
  *

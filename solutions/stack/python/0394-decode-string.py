@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 394. Decode String
+# 0394. Decode String
 
 Given an encoded string, return its decoded string.
 

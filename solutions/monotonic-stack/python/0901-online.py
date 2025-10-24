@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 901. Online Stock Span
+# 0901. Online Stock Span
 
 Design a class StockSpanner which collects daily price quotes for some stock, and returns the span of that stock's price for the current day.
 

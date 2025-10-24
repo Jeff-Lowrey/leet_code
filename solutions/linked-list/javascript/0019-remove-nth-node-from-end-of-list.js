@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  *
- * # 019. Remove Nth Node From End Of List
+ * # 0019. Remove Nth Node From End Of List
  *
  * Difficulty: Easy
  *

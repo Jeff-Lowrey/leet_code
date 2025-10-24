@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Easy
  * 
- * # 661. Image Smoother
+ * # 0661. Image Smoother
  * 
  * An image smoother is a filter of the size 3 x 3 that can be applied to each cell of an
  * image by rounding down the average of the cell and the eight surrounding cells (or as

@@ -1,5 +1,5 @@
 """
-# 342. Power of Four
+# 0342. Power of Four
 
 # Difficulty: Easy
 

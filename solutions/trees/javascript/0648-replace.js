@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  *
- * # 648. Replace Words
+ * # 0648. Replace Words
  *
  * Difficulty: Medium
  *

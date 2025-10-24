@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Hard
  *
- * # 745. Prefix And Suffix Search
+ * # 0745. Prefix And Suffix Search
  *
  * Difficulty: Medium
  *

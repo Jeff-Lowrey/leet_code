@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Easy
  *
- * # 94. Binary Tree Inorder Traversal
+ * # 0094. Binary Tree Inorder Traversal
  *
  * Difficulty: Easy
  *

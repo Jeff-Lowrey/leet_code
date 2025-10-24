@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Easy
  *
- * # 026. Remove Duplicates From Sorted Array
+ * # 0026. Remove Duplicates From Sorted Array
  *
  * Difficulty: Easy
  *

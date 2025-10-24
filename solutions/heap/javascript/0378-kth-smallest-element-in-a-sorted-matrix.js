@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  *
- * # 378. Kth Smallest Element In A Sorted Matrix
+ * # 0378. Kth Smallest Element In A Sorted Matrix
  *
  * Difficulty: Medium
  *

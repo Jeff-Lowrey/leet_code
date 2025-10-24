@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  *
- * # 146. LRU Cache
+ * # 0146. LRU Cache
  *
  * Difficulty: Medium
  *

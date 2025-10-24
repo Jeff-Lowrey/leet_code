@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Easy
  *
- * # 226. Invert Binary Tree
+ * # 0226. Invert Binary Tree
  *
  * Difficulty: Medium
  *

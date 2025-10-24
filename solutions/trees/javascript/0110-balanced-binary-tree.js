@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Easy
  *
- * # 110. Balanced Binary Tree
+ * # 0110. Balanced Binary Tree
  *
  * Difficulty: Medium
  *

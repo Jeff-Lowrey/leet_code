@@ -1,5 +1,5 @@
 /**
- * # 326. Power Of Three
+ * # 0326. Power Of Three
  *
  * Difficulty: Medium
  *
