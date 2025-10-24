@@ -15,7 +15,7 @@
  *         ("Alternative recursive", solution.isBalancedAlternative),
  *         ("Iterative", solution.isBalancedIterative)]</dd>
  * <dt>Output:</dt>
- * <dd>"{name}: {result}"</dd>
+ * <dd>* True</dd>
  * <dt>Explanation:</dt>
  * <dd>The tree is balanced because the height difference between left and right subtrees is at most 1 at every node</dd>
  * </dl>

@@ -16,7 +16,7 @@
  *         ("Iterative DFS", solution.maxDepthIterativeDFS),
  *         ("Preorder traversal", solution.maxDepthPreorder)]</dd>
  * <dt>Output:</dt>
- * <dd>"{name}: {result}"</dd>
+ * <dd>* 3</dd>
  * <dt>Explanation:</dt>
  * <dd>The maximum depth of the tree is 3 (from root to deepest leaf)</dd>
  * </dl>
