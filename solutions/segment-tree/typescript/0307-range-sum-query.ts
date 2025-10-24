@@ -44,9 +44,21 @@
  * The tree height is log n, so we visit at most log n nodes for any operation. Each internal node represents a range, allowing us to quickly skip over irrelevant sections during queries.
  *
  * ### EXAMPLE WALKTHROUGH:
- * - Initial: sumRange(0,2) = 9
- * - Update index 1 to 2: Tree becomes [1,2,5], root = 8
- * - Query sumRange(0,2) = 8
+ * Input:
+ * ```
+ * nums = [1,3,5]
+ * ```
+ *
+ * Steps:
+ * Step 1: Initial array → [1,3,5]
+ * Step 2: sumRange(0,2) → sum of indices 0-2 → 1+3+5 = 9
+ * Step 3: update(1, 2) → nums[1] = 2 → array becomes [1,2,5]
+ * Step 4: sumRange(0,2) → sum of indices 0-2 → 1+2+5 = 8
+ *
+ * Output:
+ * ```
+ * 8
+ * ```
  *
  * ### TIME COMPLEXITY:
  * O(log n) for both update and query

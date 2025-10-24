@@ -40,15 +40,23 @@
  * Sorting enables efficient duplicate skipping and the two-pointer technique. For each fixed first element, the problem reduces to finding two numbers that sum to a target, which is efficiently solved with two pointers.
  *
  * ### EXAMPLE WALKTHROUGH:
- * For nums = [-1,0,1,2,-1,-4], after sorting: [-4,-1,-1,0,1,2]
- * 1. i=0, nums[i]=-4, target=4: no valid pairs
- * 2. i=1, nums[i]=-1, target=1: find pairs summing to 1
- *    - left=2(-1), right=5(2): sum=1 ✓ → triplet [-1,-1,2]
- * 3. i=2: skip (duplicate -1)
- * 4. i=3, nums[i]=0, target=0: find pairs summing to 0
- *    - left=4(1), right=5(2): sum=3 > 0, move right
- *    - No valid pairs
- * 5. Continue...
+ * Input:
+ * ```
+ * nums = [-1,0,1,2,-1,-4]
+ * ```
+ *
+ * Steps:
+ * Step 1: Sort array → [-4,-1,-1,0,1,2]
+ * Step 2: i=0, nums[i]=-4, target=4 → no valid pairs found
+ * Step 3: i=1, nums[i]=-1, target=1 → left=2(-1), right=5(2) → sum=1 ✓ → triplet [-1,-1,2]
+ * Step 4: i=2 → skip duplicate -1
+ * Step 5: i=3, nums[i]=0, target=0 → no valid pairs found
+ * Step 6: Return all unique triplets found
+ *
+ * Output:
+ * ```
+ * [[-1,-1,2],[-1,0,1]]
+ * ```
  *
  * ### TIME COMPLEXITY:
  * O(n²)

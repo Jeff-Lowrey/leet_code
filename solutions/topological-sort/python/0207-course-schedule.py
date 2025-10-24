@@ -44,13 +44,24 @@ This is a cycle detection problem in a directed graph. If there's a cycle in the
 In a DAG (Directed Acyclic Graph), there's always at least one vertex with in-degree 0. By repeatedly removing such vertices, we can process all vertices if and only if there's no cycle.
 
 ### EXAMPLE WALKTHROUGH:
-Prerequisites: [[1,0], [2,1], [3,2]]
-1. Build graph: 0→1→2→3
-2. In-degrees: [0,1,1,1]
-3. Start with course 0 (in-degree 0)
-4. Take 0 → course 1 now has in-degree 0
-5. Take 1 → course 2 now has in-degree 0
-6. Continue until all courses taken
+Input:
+```
+numCourses = 4, prerequisites = [[1,0],[2,1],[3,2]]
+```
+
+Steps:
+Step 1: Build graph → 0→1→2→3
+Step 2: Calculate in-degrees → [0,1,1,1]
+Step 3: Start with course 0 (in-degree 0) → add to queue
+Step 4: Take course 0 → course 1 now has in-degree 0 → add to queue
+Step 5: Take course 1 → course 2 now has in-degree 0 → add to queue
+Step 6: Take course 2 → course 3 now has in-degree 0 → add to queue
+Step 7: Take course 3 → all courses taken → return true
+
+Output:
+```
+true
+```
 
 ### TIME COMPLEXITY:
 O(V + E)

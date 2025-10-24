@@ -38,11 +38,21 @@
  * Since we're looking for a common prefix, all strings must have identical characters at each position from the start. The moment any string differs or ends, we've found the longest possible common prefix.
  * 
  * ### EXAMPLE WALKTHROUGH:
- * For strs = ["flower","flow","flight"]:
- * 1. Position 0: 'f', 'f', 'f' → all match
- * 2. Position 1: 'l', 'l', 'l' → all match
- * 3. Position 2: 'o', 'o', 'i' → mismatch found
- * 4. Return "fl"
+ * Input:
+ * ```
+ * strs = ["flower","flow","flight"]
+ * ```
+ *
+ * Steps:
+ * Step 1: Position 0 → compare 'f', 'f', 'f' → all match
+ * Step 2: Position 1 → compare 'l', 'l', 'l' → all match
+ * Step 3: Position 2 → compare 'o', 'o', 'i' → mismatch found
+ * Step 4: Return prefix up to position 2 → "fl"
+ *
+ * Output:
+ * ```
+ * "fl"
+ * ```
  * 
  * ### TIME COMPLEXITY:
  * O(S)
