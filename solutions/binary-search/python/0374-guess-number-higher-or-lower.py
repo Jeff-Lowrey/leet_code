@@ -24,7 +24,9 @@ Return the number that I picked.
 n = 1, pick = 1
 n = 2, pick = 1</dd>
 <dt>Output:</dt>
-<dd>"Range [1, {n}], picked number: {result}"</dd>
+<dd>6
+1
+1</dd>
 <dt>Explanation:</dt>
 <dd>Target number is guessed using binary search strategy</dd>
 </dl>
