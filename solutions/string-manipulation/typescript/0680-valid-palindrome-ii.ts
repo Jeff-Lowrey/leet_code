@@ -12,7 +12,7 @@
  * <dd>"aba"
  * "abca"</dd>
  * <dt>Output:</dt>
- * <dd>"validPalindrome('{test}') -> {result}"</dd>
+ * <dd>* True</dd>
  * <dt>Explanation:</dt>
  * <dd>String 'aba' is a valid palindrome (can delete 0 characters)</dd>
  * </dl>
