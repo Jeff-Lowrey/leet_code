@@ -11,7 +11,7 @@
  * <dt>Input:</dt>
  * <dd>nums = [10, 9, 2, 5, 3, 7, 101, 18]</dd>
  * <dt>Output:</dt>
- * <dd>"Solution for 300. Longest Increasing Subsequence: {result}"</dd>
+ * <dd>* 4 (LIS: [2, 3, 7, 18] or [2, 3, 7, 101])</dd>
  * <dt>Explanation:</dt>
  * <dd>Longest increasing subsequence in [10,9,2,5,3,7,101,18] is [2,3,7,18] with length 4</dd>
  * </dl>
