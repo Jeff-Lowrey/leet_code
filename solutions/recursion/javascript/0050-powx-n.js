@@ -7,41 +7,52 @@
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>input data here</dd>
+ * <dd>x = 2.0, n = 10</dd>
  * <dt>Output:</dt>
- * <dd>output data here</dd>
+ * <dd>1024.0</dd>
  * <dt>Explanation:</dt>
- * <dd>Explanation of the solution</dd>
+ * <dd>2^10 = 1024</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### METADATA:
- * **Techniques**: TBD
- * **Data Structures**: TBD
- * **Patterns**: TBD
- * **Time Complexity**: **O(n)**
- * **Space Complexity**: **O(1)**
+ * **Techniques**: Fast Exponentiation, Divide and Conquer
+ * **Data Structures**: Recursion Stack
+ * **Patterns**: Binary Exponentiation, Recursion Pattern
+ * **Time Complexity**: **O(log n)**
+ * **Space Complexity**: **O(log n)** for recursion, **O(1)** for iterative
  *
  * ### INTUITION:
- * The key insight is to solve this problem efficiently.
+ * Instead of computing x^n by multiplying x by itself n times (O(n)), use fast exponentiation to compute the result in O(log n) by repeatedly squaring and using the property: x^n = (x^(n/2))^2.
  *
  * ### APPROACH:
- * We solve this problem by implementing the required algorithm.
+ * 1. **Base case**: x^0 = 1
+ * 2. **Recursive case**: Compute half = x^(n/2) recursively
+ * 3. **Even exponent**: x^n = half * half
+ * 4. **Odd exponent**: x^n = x * half * half
+ * 5. **Negative exponent**: x^(-n) = 1 / x^n
  *
  * ### WHY THIS WORKS:
- * This approach works because it correctly implements the problem requirements.
+ * Binary exponentiation reduces the problem size by half in each step. For example, computing 2^10 only requires computing 2^5, then squaring it, rather than multiplying 2 ten times.
  *
  * ### EXAMPLE WALKTHROUGH:
  * Input:
  * ```
- * example input
+ * x = 2.0, n = 10
  * ```
+ *
+ * Steps:
+ * Step 1: myPow(2, 10) → half = myPow(2, 5)
+ * Step 2: myPow(2, 5) → half = myPow(2, 2), return 2 * half * half
+ * Step 3: myPow(2, 2) → half = myPow(2, 1), return half * half
+ * Step 4: myPow(2, 1) → half = myPow(2, 0), return 2 * half * half
+ * Step 5: myPow(2, 0) → return 1
  *
  * Output:
  * ```
- * example output
+ * 1024.0
  * ```
 
 ### TIME COMPLEXITY:
