@@ -25,12 +25,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Array Traversal, Two Pointers, Backtracking
  * **Data Structures**: Array, Tree
  * **Patterns**: Two Pointers Pattern, Hash Table Pattern
- * **Time Complexity**: * O(n log n) - Sorting or divide-and-conquer
- * **Space Complexity**: * O(n)
+ * **Time Complexity**: O(n log n) - Sorting or divide-and-conquer
+ * **Space Complexity**: O(n)
 
  *
  * ### INTUITION:

@@ -23,12 +23,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Array Traversal, Backtracking
  * **Data Structures**: Array, String
  * **Patterns**: Backtracking
- * **Time Complexity**: * O(3^N × 4^M)
- * **Space Complexity**: * O(3^N × 4^M)
+ * **Time Complexity**: O(3^N × 4^M)
+ * **Space Complexity**: O(3^N × 4^M)
 
  *
  * ### INTUITION:

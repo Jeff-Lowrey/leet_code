@@ -37,12 +37,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Hash Table Lookup, Array Traversal
  * **Data Structures**: Hash Map, Array, String
  * **Patterns**: Iterative Solution
- * **Time Complexity**: * O(m × n)
- * **Space Complexity**: * O(r × c)
+ * **Time Complexity**: O(m × n)
+ * **Space Complexity**: O(r × c)
 
  *
  * ### INTUITION:

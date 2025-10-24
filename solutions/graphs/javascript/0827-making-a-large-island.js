@@ -23,12 +23,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
  * **Data Structures**: Hash Map, Hash Set, Array
  * **Patterns**: Greedy Algorithm, Graph Pattern
- * **Time Complexity**: * O(N²)
- * **Space Complexity**: * O(N²)
+ * **Time Complexity**: O(N²)
+ * **Space Complexity**: O(N²)
 
  *
  * ### INTUITION:

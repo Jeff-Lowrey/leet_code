@@ -21,12 +21,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Hash Map, Hash Set, Array
  * **Patterns**: Hash Table Pattern, Backtracking
- * **Time Complexity**: * O(M * N * 4^L)
- * **Space Complexity**: * O(K * L)
+ * **Time Complexity**: O(M * N * 4^L)
+ * **Space Complexity**: O(K * L)
 
  *
  * ### INTUITION:

@@ -19,12 +19,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Array Traversal, Stack Operations
  * **Data Structures**: String, Stack
  * **Patterns**: Iterative Solution
- * **Time Complexity**: * O(n * m)
- * **Space Complexity**: * O(1) - Constant extra space
+ * **Time Complexity**: O(n * m)
+ * **Space Complexity**: O(1) - Constant extra space
 
  *
  * ### INTUITION:

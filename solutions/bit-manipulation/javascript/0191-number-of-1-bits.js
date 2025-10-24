@@ -25,12 +25,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Array Traversal
  * **Data Structures**: Basic Types
  * **Patterns**: Hash Table Pattern
- * **Time Complexity**: * O(k) where k is number of 1-bits
- * **Space Complexity**: * O(1) - Constant extra space
+ * **Time Complexity**: O(k) where k is number of 1-bits
+ * **Space Complexity**: O(1) - Constant extra space
 
  *
  * ### INTUITION:

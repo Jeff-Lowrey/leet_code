@@ -28,12 +28,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Hash Map Storage, Array Traversal
  * **Data Structures**: Array, Graph
  * **Patterns**: Iterative Solution
- * **Time Complexity**: * O(T + N)
- * **Space Complexity**: * O(N)
+ * **Time Complexity**: O(T + N)
+ * **Space Complexity**: O(N)
 
  *
  * ### INTUITION:

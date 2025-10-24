@@ -19,12 +19,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Array Traversal, Sorting, Stack Operations
  * **Data Structures**: Array, String, Stack
  * **Patterns**: Backtracking
- * **Time Complexity**: * O(4^n / √n)
- * **Space Complexity**: * O(n)
+ * **Time Complexity**: O(4^n / √n)
+ * **Space Complexity**: O(n)
 
  *
  * ### INTUITION:

@@ -28,12 +28,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Array Traversal, Stack Operations, Graph Traversal
  * **Data Structures**: Array, String, Stack
  * **Patterns**: Graph Pattern
- * **Time Complexity**: * O(m×n)
- * **Space Complexity**: * O(m×n)
+ * **Time Complexity**: O(m×n)
+ * **Space Complexity**: O(m×n)
 
  *
  * ### INTUITION:

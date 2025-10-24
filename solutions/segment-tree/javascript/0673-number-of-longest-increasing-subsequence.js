@@ -21,12 +21,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Hash Map, Hash Set, Array
  * **Patterns**: Two Pointers Pattern, Hash Table Pattern
  * **Time Complexity**: * - DP: O(n²) - Nested iteration through input
- * **Space Complexity**: * O(n) - Additional hash map storage
+ * **Space Complexity**: O(n) - Additional hash map storage
 
  *
  * ### INTUITION:

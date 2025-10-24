@@ -21,12 +21,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Hash Map, Hash Set, Array
  * **Patterns**: Hash Table Pattern, Graph Pattern
  * **Time Complexity**: * - Constructor: O(N * L) where N is sentences count, L is average length
- * **Space Complexity**: * O(N * L)
+ * **Space Complexity**: O(N * L)
 
  *
  * ### INTUITION:

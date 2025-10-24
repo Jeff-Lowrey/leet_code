@@ -19,12 +19,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Array Traversal, Queue Operations, Tree Traversal
  * **Data Structures**: Array, String, Queue
  * **Patterns**: Graph Pattern, Tree Pattern
- * **Time Complexity**: * O(n) - Single pass through input
- * **Space Complexity**: * O(w)
+ * **Time Complexity**: O(n) - Single pass through input
+ * **Space Complexity**: O(w)
 
  *
  * ### INTUITION:

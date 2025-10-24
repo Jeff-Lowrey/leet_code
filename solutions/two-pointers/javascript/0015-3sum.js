@@ -26,12 +26,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Hash Map, Array, String
  * **Patterns**: Two Pointers Pattern
- * **Time Complexity**: * O(n²) - Nested iteration through input
- * **Space Complexity**: * O(1) - Constant extra space
+ * **Time Complexity**: O(n²) - Nested iteration through input
+ * **Space Complexity**: O(1) - Constant extra space
 
  *
  * ### INTUITION:

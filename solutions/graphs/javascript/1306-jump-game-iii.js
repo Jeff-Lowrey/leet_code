@@ -26,12 +26,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Hash Map Storage, Array Traversal, Queue Operations
  * **Data Structures**: Array, Queue, Graph
  * **Patterns**: Hash Table Pattern, Graph Pattern
- * **Time Complexity**: * O(n)
- * **Space Complexity**: * O(n) for visited set and recursion/queue
+ * **Time Complexity**: O(n)
+ * **Space Complexity**: O(n) for visited set and recursion/queue
 
  *
  * ### INTUITION:
@@ -76,7 +77,10 @@
  * ```
  * 
  * ### TIME COMPLEXITY:
+
  * O(n)
+
+ * - Single pass through the input
  *
  * ### SPACE COMPLEXITY:
  * O(n) for visited set and recursion/queue

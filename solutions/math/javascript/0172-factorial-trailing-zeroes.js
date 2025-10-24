@@ -21,12 +21,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Array Traversal
  * **Data Structures**: Basic Types
  * **Patterns**: Hash Table Pattern
- * **Time Complexity**: * O(log n) - Binary search or tree height
- * **Space Complexity**: * O(1) - Constant extra space
+ * **Time Complexity**: O(log n) - Binary search or tree height
+ * **Space Complexity**: O(1) - Constant extra space
 
  *
  * ### INTUITION:

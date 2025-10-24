@@ -26,12 +26,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Hash Map Storage, Array Traversal, Stack Operations
  * **Data Structures**: Array, Stack, Linked List
  * **Patterns**: Iterative Solution
- * **Time Complexity**: * O(n) - Single pass through input
- * **Space Complexity**: * O(n)
+ * **Time Complexity**: O(n) - Single pass through input
+ * **Space Complexity**: O(n)
 
  *
  * ### INTUITION:
@@ -70,7 +71,10 @@
  * - Single pass through input
  *
  * ### SPACE COMPLEXITY:
+
  * O(n)
+
+ * - Additional data structure for storage
  *
  * ### EDGE CASES:
  * - **Empty list**: Return empty array

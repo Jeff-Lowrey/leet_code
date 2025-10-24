@@ -23,12 +23,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Hash Map Storage, Array Traversal, Binary Search
  * **Data Structures**: Array, String, Heap
  * **Patterns**: Greedy Algorithm, Divide and Conquer
- * **Time Complexity**: * O(k log n)
- * **Space Complexity**: * O(n)
+ * **Time Complexity**: O(k log n)
+ * **Space Complexity**: O(n)
 
  *
  * ### INTUITION:

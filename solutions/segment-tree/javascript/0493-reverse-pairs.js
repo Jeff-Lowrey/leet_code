@@ -23,12 +23,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
  * **Data Structures**: Hash Map, Hash Set, Array
  * **Patterns**: Complement Search, Two Pointers Pattern
- * **Time Complexity**: * O(n log n) - Sorting or divide-and-conquer
- * **Space Complexity**: * O(n) - Additional hash map storage
+ * **Time Complexity**: O(n log n) - Sorting or divide-and-conquer
+ * **Space Complexity**: O(n) - Additional hash map storage
 
  *
  * ### INTUITION:

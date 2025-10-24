@@ -27,12 +27,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Hash Map Storage, Array Traversal
  * **Data Structures**: Array, String, Tree
  * **Patterns**: Iterative Solution
- * **Time Complexity**: * O(n α(n))
- * **Space Complexity**: * O(n)
+ * **Time Complexity**: O(n α(n))
+ * **Space Complexity**: O(n)
 
  *
  * ### INTUITION:
@@ -70,7 +71,10 @@
  * O(n α(n))
  *
  * ### SPACE COMPLEXITY:
+
  * O(n)
+
+ * - Additional data structure for storage
  *
  * ### EDGE CASES:
  * - **Node with two parents, no cycle**: Remove the later edge to that node

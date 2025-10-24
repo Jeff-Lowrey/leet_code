@@ -23,12 +23,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
  * **Data Structures**: Hash Map, Hash Set, Array
  * **Patterns**: Backtracking
  * **Time Complexity**: * - Constructor: O(N * L^3) where N is words count, L is max word length
- * **Space Complexity**: * O(N * L^3)
+ * **Space Complexity**: O(N * L^3)
 
  *
  * ### INTUITION:

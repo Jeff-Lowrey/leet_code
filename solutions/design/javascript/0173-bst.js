@@ -19,12 +19,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Array Traversal, Two Pointers, Stack Operations
  * **Data Structures**: Array, String, Stack
  * **Patterns**: Two Pointers Pattern, Hash Table Pattern
  * **Time Complexity**: * - Constructor: O(h) where h is height
- * **Space Complexity**: * O(h) for the stack
+ * **Space Complexity**: O(h) for the stack
 
  *
  * ### INTUITION:

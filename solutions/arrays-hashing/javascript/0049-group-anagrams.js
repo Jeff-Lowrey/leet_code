@@ -27,12 +27,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Hash Map, Hash Set, Array
  * **Patterns**: Hash Table Pattern
  * **Time Complexity**: * - **Sorting approach**: O(n × k log k) where n = number of strings, k = max string length
- * **Space Complexity**: * O(n × k)
+ * **Space Complexity**: O(n × k)
 
  *
  * ### INTUITION:
@@ -81,7 +82,10 @@
  * - **Counting approach**: O(n × k) - more efficient
  *
  * ### SPACE COMPLEXITY:
+
  * O(n × k)
+
+ * - Based on auxiliary data structures
  *
  * ### EDGE CASES:
  * - **Empty string array**: Return empty list

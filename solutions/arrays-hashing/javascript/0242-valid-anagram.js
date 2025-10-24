@@ -26,12 +26,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Hash Map Storage, Array Traversal, Sorting
  * **Data Structures**: Hash Map, Array, String
  * **Patterns**: Hash Table Pattern
- * **Time Complexity**: * O(n) - Single pass through input
- * **Space Complexity**: * O(1) - at most 26 lowercase letters
+ * **Time Complexity**: O(n) - Single pass through input
+ * **Space Complexity**: O(1) - at most 26 lowercase letters
 
  *
  * ### INTUITION:

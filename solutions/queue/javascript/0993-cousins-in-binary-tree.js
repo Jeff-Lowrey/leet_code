@@ -22,12 +22,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Array Traversal, Two Pointers, Queue Operations
  * **Data Structures**: Queue, Tree, Trie
  * **Patterns**: Two Pointers Pattern, Graph Pattern
- * **Time Complexity**: * O(n)
- * **Space Complexity**: * O(w)
+ * **Time Complexity**: O(n)
+ * **Space Complexity**: O(w)
 
  *
  * ### INTUITION:

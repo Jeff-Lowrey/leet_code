@@ -22,12 +22,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Array Traversal, Stack Operations, Backtracking
  * **Data Structures**: Array, String, Stack
  * **Patterns**: Backtracking
- * **Time Complexity**: * O(9^(n*n)) worst case, where n=9
- * **Space Complexity**: * O(n*n) for recursion stack
+ * **Time Complexity**: O(9^(n*n)) worst case, where n=9
+ * **Space Complexity**: O(n*n) for recursion stack
 
  *
  * ### INTUITION:

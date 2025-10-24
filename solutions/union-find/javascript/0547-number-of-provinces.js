@@ -25,12 +25,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Hash Map Storage, Array Traversal, Stack Operations
  * **Data Structures**: Array, String, Stack
  * **Patterns**: Hash Table Pattern, Graph Pattern
- * **Time Complexity**: * O(n² × α(n))
- * **Space Complexity**: * O(n)
+ * **Time Complexity**: O(n² × α(n))
+ * **Space Complexity**: O(n)
 
  *
  * ### INTUITION:

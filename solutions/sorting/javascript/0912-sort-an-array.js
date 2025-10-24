@@ -22,11 +22,12 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Array Traversal, Two Pointers, Backtracking
  * **Data Structures**: Array, String, Tree
  * **Patterns**: Two Pointers Pattern, Divide and Conquer
- * **Time Complexity**: * O(n log n) - Sorting or divide-and-conquer
+ * **Time Complexity**: O(n log n) - Sorting or divide-and-conquer
  * **Space Complexity**: * - Merge Sort: O(n) for merge array
 
  *

@@ -23,12 +23,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Hash Table Lookup, Set Operations, Array Traversal
  * **Data Structures**: Hash Set, Array, Tree
  * **Patterns**: Two Pointers Pattern, Greedy Algorithm
  * **Time Complexity**: * - Sweep Line: O(n² log n)
- * **Space Complexity**: * O(n) - Additional set storage
+ * **Space Complexity**: O(n) - Additional set storage
 
  *
  * ### INTUITION:

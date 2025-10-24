@@ -63,7 +63,10 @@
  * ```
 
  * ### TIME COMPLEXITY:
+
  * O(n)
+
+ * - Single pass through the input
  *
  * ### SPACE COMPLEXITY:
  * O(n) for recursion stack (or O(1) for iterative)

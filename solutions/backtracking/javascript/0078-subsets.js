@@ -26,12 +26,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Hash Table Lookup, Array Traversal, Sorting
  * **Data Structures**: Hash Map, Hash Set, Array
  * **Patterns**: Hash Table Pattern, Backtracking
- * **Time Complexity**: * O(n × 2^n) - 2^n subsets, each takes O(n) to copy
- * **Space Complexity**: * O(n) - recursion depth
+ * **Time Complexity**: O(n × 2^n) - 2^n subsets, each takes O(n) to copy
+ * **Space Complexity**: O(n) - recursion depth
 
  *
  * ### INTUITION:

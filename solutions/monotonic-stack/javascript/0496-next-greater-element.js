@@ -33,12 +33,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Hash Map, Hash Set, Array
  * **Patterns**: Iterative Solution
- * **Time Complexity**: * O(n + m)
- * **Space Complexity**: * O(n) - Additional hash map storage
+ * **Time Complexity**: O(n + m)
+ * **Space Complexity**: O(n) - Additional hash map storage
 
  *
  * ### INTUITION:
@@ -77,7 +78,10 @@
  * ```
  *
  * ### TIME COMPLEXITY:
+
  * O(n + m)
+
+ * - Based on input size and operations
  *
  * ### SPACE COMPLEXITY:
  * O(n)

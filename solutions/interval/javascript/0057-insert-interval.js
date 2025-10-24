@@ -27,12 +27,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Hash Map Storage, Array Traversal, Greedy Selection
  * **Data Structures**: Array, String
  * **Patterns**: Greedy Algorithm, Divide and Conquer
- * **Time Complexity**: * O(n) - Single pass through input
- * **Space Complexity**: * O(n) for result array
+ * **Time Complexity**: O(n) - Single pass through input
+ * **Space Complexity**: O(n) for result array
 
  *
  * ### INTUITION:

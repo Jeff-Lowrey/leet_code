@@ -28,12 +28,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Array Traversal, Two Pointers, Binary Search
  * **Data Structures**: Array, String, Tree
  * **Patterns**: Two Pointers Pattern, Greedy Algorithm
  * **Time Complexity**: * - Segment Tree: O(log n) per operation
- * **Space Complexity**: * O(n)
+ * **Space Complexity**: O(n)
 
  *
  * ### INTUITION:

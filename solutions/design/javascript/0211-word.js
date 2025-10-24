@@ -31,12 +31,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Hash Map, Hash Set, String
  * **Patterns**: Graph Pattern
  * **Time Complexity**: * - addWord: O(n) where n is word length
- * **Space Complexity**: * O(total characters in all words)
+ * **Space Complexity**: O(total characters in all words)
 
  *
  * ### INTUITION:
@@ -75,7 +76,10 @@
  * - search: O(26^m) worst case where m is number of wildcards, O(n) average
  *
  * ### SPACE COMPLEXITY:
+
  * O(total characters in all words)
+
+ * - Based on auxiliary data structures
  *
  * ### EDGE CASES:
  * - Empty string

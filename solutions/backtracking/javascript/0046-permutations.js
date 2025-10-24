@@ -24,12 +24,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Hash Map, Hash Set, Array
  * **Patterns**: Greedy Algorithm, Backtracking
- * **Time Complexity**: * O(n × n!) - n! permutations, each takes O(n) to build/copy
- * **Space Complexity**: * O(n) - recursion depth and current permutation
+ * **Time Complexity**: O(n × n!) - n! permutations, each takes O(n) to build/copy
+ * **Space Complexity**: O(n) - recursion depth and current permutation
 
  *
  * ### INTUITION:

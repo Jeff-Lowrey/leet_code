@@ -23,12 +23,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Hash Table Lookup, Array Traversal, Sorting
  * **Data Structures**: Hash Set, Array, String
  * **Patterns**: Hash Table Pattern
- * **Time Complexity**: * O(n log n) - Sorting or divide-and-conquer
- * **Space Complexity**: * O(n) - Additional set storage
+ * **Time Complexity**: O(n log n) - Sorting or divide-and-conquer
+ * **Space Complexity**: O(n) - Additional set storage
 
  *
  * ### INTUITION:

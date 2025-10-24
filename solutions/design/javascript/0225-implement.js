@@ -29,12 +29,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Array Traversal, Stack Operations, Queue Operations
  * **Data Structures**: Array, Stack, Queue
  * **Patterns**: Iterative Solution
  * **Time Complexity**: * - push: O(n) - need to rotate queue
- * **Space Complexity**: * O(n) for storing n elements
+ * **Space Complexity**: O(n) for storing n elements
 
  *
  * ### INTUITION:

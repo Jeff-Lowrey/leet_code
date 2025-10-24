@@ -26,12 +26,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
  * **Data Structures**: Hash Map, Hash Set, Array
  * **Patterns**: Hash Table Pattern, Graph Pattern
- * **Time Complexity**: * O(V + E) - visit each node and edge once
- * **Space Complexity**: * O(V) - hash map and recursion stack
+ * **Time Complexity**: O(V + E) - visit each node and edge once
+ * **Space Complexity**: O(V) - hash map and recursion stack
 
  *
  * ### INTUITION:

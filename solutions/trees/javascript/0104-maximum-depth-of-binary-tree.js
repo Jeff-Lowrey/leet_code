@@ -24,12 +24,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Array Traversal, Two Pointers, Stack Operations
  * **Data Structures**: Array, Stack, Queue
  * **Patterns**: Two Pointers Pattern, Hash Table Pattern
- * **Time Complexity**: * O(n) - Single pass through input
- * **Space Complexity**: * O(h)
+ * **Time Complexity**: O(n) - Single pass through input
+ * **Space Complexity**: O(h)
 
  *
  * ### INTUITION:

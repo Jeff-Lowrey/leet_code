@@ -24,12 +24,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Array Traversal, Greedy Selection
  * **Data Structures**: String
  * **Patterns**: Hash Table Pattern, Greedy Algorithm
- * **Time Complexity**: * O(n)
- * **Space Complexity**: * O(1) - Constant extra space
+ * **Time Complexity**: O(n)
+ * **Space Complexity**: O(1) - Constant extra space
 
  *
  * ### INTUITION:

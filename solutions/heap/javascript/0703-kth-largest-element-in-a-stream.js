@@ -23,12 +23,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Hash Map Storage, Set Operations, Array Traversal
  * **Data Structures**: Array, Heap
  * **Patterns**: Iterative Solution
  * **Time Complexity**: * - Constructor: O(n log k) where n = len(nums)
- * **Space Complexity**: * O(k)
+ * **Space Complexity**: O(k)
 
  *
  * ### INTUITION:

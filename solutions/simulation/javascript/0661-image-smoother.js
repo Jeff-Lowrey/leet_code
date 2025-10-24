@@ -32,12 +32,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Hash Table Lookup, Array Traversal
  * **Data Structures**: Hash Map, Array, String
  * **Patterns**: Hash Table Pattern
- * **Time Complexity**: * O(m × n)
- * **Space Complexity**: * O(m × n)
+ * **Time Complexity**: O(m × n)
+ * **Space Complexity**: O(m × n)
 
  *
  * ### INTUITION:

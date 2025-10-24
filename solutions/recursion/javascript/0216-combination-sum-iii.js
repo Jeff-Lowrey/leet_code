@@ -19,12 +19,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Hash Table Lookup, Array Traversal, Sorting
  * **Data Structures**: Hash Map, Array, String
  * **Patterns**: Backtracking
- * **Time Complexity**: * O(C(9,k)) - choosing k numbers from 9 options
- * **Space Complexity**: * O(k) - recursion depth and combination size
+ * **Time Complexity**: O(C(9,k)) - choosing k numbers from 9 options
+ * **Space Complexity**: O(k) - recursion depth and combination size
 
  *
  * ### INTUITION:

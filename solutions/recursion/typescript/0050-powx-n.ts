@@ -63,7 +63,10 @@
  * ```
 
  * ### TIME COMPLEXITY:
+
  * O(log n)
+
+ * - Binary search or tree height traversal
  *
  * ### SPACE COMPLEXITY:
  * O(log n) for recursion stack

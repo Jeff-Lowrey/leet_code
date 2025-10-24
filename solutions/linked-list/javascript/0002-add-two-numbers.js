@@ -28,12 +28,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Array Traversal, Greedy Selection
  * **Data Structures**: Array, String, Linked List
  * **Patterns**: Greedy Algorithm
- * **Time Complexity**: * O(max(m, n))
- * **Space Complexity**: * O(max(m, n))
+ * **Time Complexity**: O(max(m, n))
+ * **Space Complexity**: O(max(m, n))
 
  *
  * ### INTUITION:

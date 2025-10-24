@@ -29,12 +29,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Hash Map Storage, Array Traversal, Queue Operations
  * **Data Structures**: Array, Queue, Graph
  * **Patterns**: Graph Pattern
- * **Time Complexity**: * O(V + E)
- * **Space Complexity**: * O(V + E)
+ * **Time Complexity**: O(V + E)
+ * **Space Complexity**: O(V + E)
 
  *
  * ### INTUITION:
@@ -73,10 +74,16 @@
  * ```
  *
  * ### TIME COMPLEXITY:
+
  * O(V + E)
+
+ * - Visit all vertices and edges in the graph
  *
  * ### SPACE COMPLEXITY:
+
  * O(V + E)
+
+ * - Store adjacency list and visited set
  *
  * ### EDGE CASES:
  * - **No prerequisites**: All courses can be taken, return true

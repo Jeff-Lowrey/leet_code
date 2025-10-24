@@ -23,12 +23,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Array Traversal, Stack Operations, Graph Traversal
  * **Data Structures**: Array, String, Stack
  * **Patterns**: Hash Table Pattern, Greedy Algorithm
- * **Time Complexity**: * O(M × N)
- * **Space Complexity**: * O(M × N)
+ * **Time Complexity**: O(M × N)
+ * **Space Complexity**: O(M × N)
 
  *
  * ### INTUITION:

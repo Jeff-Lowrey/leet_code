@@ -26,12 +26,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Array Traversal, Sorting
  * **Data Structures**: Array, String, Matrix
  * **Patterns**: Iterative Solution
- * **Time Complexity**: * O(R*C * log(R*C))
- * **Space Complexity**: * O(R*C)
+ * **Time Complexity**: O(R*C * log(R*C))
+ * **Space Complexity**: O(R*C)
 
  *
  * ### INTUITION:

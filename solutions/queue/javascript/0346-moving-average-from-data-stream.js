@@ -28,12 +28,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Hash Map Storage, Array Traversal, Sliding Window
  * **Data Structures**: Array, Queue, Linked List
  * **Patterns**: Sliding Window Pattern
- * **Time Complexity**: * O(1) per operation
- * **Space Complexity**: * O(size)
+ * **Time Complexity**: O(1) per operation
+ * **Space Complexity**: O(size)
 
  *
  * ### INTUITION:
@@ -66,7 +67,10 @@
  * O(1) per operation
  *
  * ### SPACE COMPLEXITY:
+
  * O(size)
+
+ * - Based on auxiliary data structures
  *
  * ### EDGE CASES:
  * - **Window size 1**: Average equals current value
