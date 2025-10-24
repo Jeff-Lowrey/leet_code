@@ -3,7 +3,6 @@
  *
  * # 0269. Alien Dictionary
  *
- * Difficulty: Medium
  *
  * There is a new alien language that uses the English alphabet. However, the order among the letters is unknown to you.
  *

@@ -3,7 +3,6 @@
  *
  * # 0146. LRU Cache
  *
- * Difficulty: Medium
  *
  * Design a data structure that follows the constraints of a Least Recently Used (LRU) cache.
  *

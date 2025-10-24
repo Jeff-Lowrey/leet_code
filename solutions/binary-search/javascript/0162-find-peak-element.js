@@ -3,7 +3,6 @@
  *
  * # 0162. Find Peak Element
  *
- * Difficulty: Medium
  *
  * A peak element is an element that is strictly greater than its neighbors.
  *

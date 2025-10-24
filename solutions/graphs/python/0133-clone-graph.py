@@ -153,7 +153,6 @@ class Solution:
 
 """
 417. Pacific Atlantic Water Flow
-# Difficulty: Medium
 There is an m x n rectangular island that borders both the Pacific Ocean and
 Atlantic Ocean. The Pacific Ocean touches the island's left and top edges, and
 the Atlantic Ocean touches the island's right and bottom edges.
@@ -220,7 +219,6 @@ class SolutionWaterFlow:
 
 """
 79. Word Search
-# Difficulty: Medium
 Given an m x n grid of characters board and a string word, return true if word
 exists in the grid.
 
@@ -281,7 +279,6 @@ class SolutionWordSearch:
 
 """
 323. Number of Connected Components in an Undirected Graph
-# Difficulty: Medium
 You have a graph of n nodes. You are given an integer n and an array edges where
 edges[i] = [ai, bi] indicates that there is an edge between ai and bi in the graph.
 

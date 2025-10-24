@@ -59,7 +59,8 @@ next(5): queue=[10,3,5], avg=6.0 (removed 1)
 O(1) per operation
 
 ### SPACE COMPLEXITY:
-O(size)
+Based on auxiliary data structures used
+
 
 ### EDGE CASES:
 - **Window size 1**: Average equals current value

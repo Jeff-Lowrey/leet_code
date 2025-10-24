@@ -3,7 +3,6 @@
  *
  * # 1319. Number Of Operations To Make Network Connected
  *
- * Difficulty: Medium
  *
  * You are given n computers numbered from 0 to n - 1 connected by ethernet cables connections forming a network where connections[i] = [ai, bi] connects computers ai and bi.
  *

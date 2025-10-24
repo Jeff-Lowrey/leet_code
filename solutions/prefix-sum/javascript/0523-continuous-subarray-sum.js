@@ -3,7 +3,6 @@
  *
  * Difficulty: Medium
  *
- * # Difficulty: Medium
  *
  * Given an integer array nums and an integer k, return true if nums has a continuous
  * subarray of size at least two that sums to a multiple of k, or false otherwise.

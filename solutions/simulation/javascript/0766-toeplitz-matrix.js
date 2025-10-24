@@ -3,7 +3,6 @@
  *
  * # 0766. Toeplitz Matrix
  *
- * Difficulty: Medium
  *
  * Given an m x n matrix, return true if the matrix is Toeplitz. Otherwise, return false.
  *

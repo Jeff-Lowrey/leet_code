@@ -3,7 +3,6 @@
  *
  * # 0421. Maximum XOR of Two Numbers in an Array
  *
- * Difficulty: Medium
  *
  * Given an integer array nums, return the maximum result of nums[i] XOR nums[j], where 0 <= i <= j < n.
  *

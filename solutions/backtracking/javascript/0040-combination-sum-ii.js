@@ -3,7 +3,6 @@
  *
  * # 0040. Combination Sum Ii
  *
- * Difficulty: Easy
  *
  * Given a collection of candidate numbers (candidates) and a target number (target), find all unique combinations in candidates where the candidate numbers sum to target.
  *

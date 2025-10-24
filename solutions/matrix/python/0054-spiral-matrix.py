@@ -59,7 +59,8 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(m × n)
+Based on the algorithm implementation
+
 
 ### SPACE COMPLEXITY:
 O(1) excluding output array
@@ -121,7 +122,6 @@ class Solution:
 
 """
 59. Spiral Matrix II
-# Difficulty: Medium
 Given a positive integer n, generate an n x n matrix filled with elements from
 1 to n² in spiral order.
 

@@ -3,7 +3,6 @@
  *
  * # 0990. Satisfiability of Equality Equations
  *
- * Difficulty: Medium
  *
  * You are given an array of strings equations that represent relationships between variables where each string equations[i] is of length 4 and takes one of two different forms: "xi==xj" or "xi!=xj".
  *

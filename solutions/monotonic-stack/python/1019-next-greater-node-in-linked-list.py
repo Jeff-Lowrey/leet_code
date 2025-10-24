@@ -59,10 +59,12 @@ i=2, val=5:
 Result: [5,5,0]
 
 ### TIME COMPLEXITY:
-O(n)
+Based on the algorithm implementation
+
 
 ### SPACE COMPLEXITY:
-O(n)
+Based on auxiliary data structures used
+
 
 ### EDGE CASES:
 - **Empty list**: Return empty array

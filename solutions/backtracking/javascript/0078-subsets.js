@@ -3,7 +3,6 @@
  *
  * Difficulty: Easy
  *
- * # Difficulty: Medium
  *
  * Given an integer array `nums` of unique elements, return all possible subsets
  * (the power `set`).

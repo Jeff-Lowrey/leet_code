@@ -69,10 +69,12 @@ node 2 (cycle begins here)
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+Based on the algorithm implementation
+
 
 ### SPACE COMPLEXITY:
-O(1)
+Based on auxiliary data structures used
+
 
 ### EDGE CASES:
 - Empty input handling

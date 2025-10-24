@@ -3,7 +3,6 @@
  *
  * # 0151. Reverse Words In A String
  *
- * Difficulty: Medium
  *
  * This problem demonstrates key concepts in String manipulation and parsing.
  *

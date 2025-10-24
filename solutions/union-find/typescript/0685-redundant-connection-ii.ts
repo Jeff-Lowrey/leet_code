@@ -60,7 +60,8 @@
  * ```
 
  * ### TIME COMPLEXITY:
- * O(n α(n))
+ * Based on the algorithm implementation
+ * 
  * 
  * ### SPACE COMPLEXITY:
  * O(n)

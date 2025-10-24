@@ -3,7 +3,6 @@
  *
  * Difficulty: Medium
  *
- * # Difficulty: Medium
  *
  * Given an array of non-negative integers arr, you are initially positioned at start index.
  * When you are at index i, you can jump to i + arr[i] or i - arr[i], check if you can reach

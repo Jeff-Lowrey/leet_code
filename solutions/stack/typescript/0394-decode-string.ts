@@ -3,7 +3,6 @@
  *
  * # 0394. Decode String
  *
- * Difficulty: Medium
  *
  * Given an encoded string, return its decoded string.
  *

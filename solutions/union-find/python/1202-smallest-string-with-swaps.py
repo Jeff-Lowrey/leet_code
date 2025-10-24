@@ -64,7 +64,8 @@ Output:
 O(n log n + m α(n)) where m is pairs count
 
 ### SPACE COMPLEXITY:
-O(n)
+Based on auxiliary data structures used
+
 
 ### EDGE CASES:
 - **No pairs given**: Return original string unchanged

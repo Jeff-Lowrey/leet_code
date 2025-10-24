@@ -119,7 +119,6 @@ class Solution:
 
 """
 19. Remove Nth Node From End of List
-# Difficulty: Medium
 Given the head of a linked list, remove the nth node from the end of the list
 and return its head.
 
@@ -185,7 +184,6 @@ class SolutionRemoveNth:
 
 """
 138. Copy List with Random Pointer
-# Difficulty: Medium
 A linked list of length n is given such that each node contains an additional
 random pointer, which could point to any node in the list, or null.
 

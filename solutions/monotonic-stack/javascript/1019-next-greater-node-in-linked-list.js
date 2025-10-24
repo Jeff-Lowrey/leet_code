@@ -3,7 +3,6 @@
  *
  * Difficulty: Medium
  *
- * # Difficulty: Medium
  *
  * Given the head of a linked list, return an array of integers answer, where answer[i] is
  * the value of the next greater node of the ith node (1-indexed). If there is no next greater

@@ -75,7 +75,8 @@ Output:
 - **Counting approach**: O(n × k) - more efficient
 
 ### SPACE COMPLEXITY:
-O(n × k)
+Based on auxiliary data structures used
+
 
 ### EDGE CASES:
 - **Empty string array**: Return empty list

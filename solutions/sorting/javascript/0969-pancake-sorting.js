@@ -3,7 +3,6 @@
  *
  * # 0969. Pancake Sorting
  *
- * Difficulty: Medium
  *
  * Given an array of integers arr, sort the array by performing a series of pancake flips.
  *

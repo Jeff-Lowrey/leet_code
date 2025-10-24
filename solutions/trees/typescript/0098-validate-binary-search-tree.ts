@@ -3,7 +3,6 @@
  *
  * # 0098. Validate Binary Search Tree
  *
- * Difficulty: Easy
  *
  * Given the root of a binary tree, determine if it is a valid binary search tree (BST).
  *

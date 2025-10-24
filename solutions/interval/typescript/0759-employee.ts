@@ -3,7 +3,6 @@
  *
  * # 0759. Employee Free Time
  *
- * Difficulty: Medium
  *
  * We are given a list schedule of employees, which represents the working time for each employee.
  *

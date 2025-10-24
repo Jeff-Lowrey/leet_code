@@ -3,7 +3,6 @@
  *
  * Difficulty: Medium
  *
- * # Difficulty: Hard
  *
  * In a directed graph, return an edge that can be removed so that the resulting graph is a tree.
  * If there are multiple answers, return the answer that occurs last in the given input.
@@ -68,7 +67,8 @@
  * ```
 
  * ### TIME COMPLEXITY:
- * O(n α(n))
+ * Based on the algorithm implementation
+ * 
  *
  * ### SPACE COMPLEXITY:
 

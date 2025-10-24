@@ -63,10 +63,12 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(log n)
+Based on the algorithm implementation
+
 
 ### SPACE COMPLEXITY:
-O(1)
+Based on auxiliary data structures used
+
 
 ### EDGE CASES:
 - Empty array: return -1

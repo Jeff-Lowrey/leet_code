@@ -56,10 +56,12 @@ Index 2: sum -1, seen at index 0, length = 2 - 0 = 2
 Maximum length = 2
 
 ### TIME COMPLEXITY:
-O(n)
+Based on the algorithm implementation
+
 
 ### SPACE COMPLEXITY:
-O(n)
+Based on auxiliary data structures used
+
 
 ### EDGE CASES:
 - All 0s or all 1s: No equal subarray (return 0)

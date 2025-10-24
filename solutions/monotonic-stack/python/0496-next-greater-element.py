@@ -71,10 +71,12 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n + m)
+Based on the algorithm implementation
+
 
 ### SPACE COMPLEXITY:
-O(n)
+Based on auxiliary data structures used
+
 
 ### EDGE CASES:
 - **No greater element exists**: Return -1 for that element
@@ -115,7 +117,6 @@ class Solution:
 
 """
 503. Next Greater Element II
-# Difficulty: Medium
 Given a circular integer array nums, return the next greater number for every
 element in nums.
 
@@ -154,7 +155,6 @@ class SolutionCircular:
 
 """
 901. Online Stock Span
-# Difficulty: Medium
 Design an algorithm that collects daily price quotes for some stock and returns
 the span of that stock's price for the current day.
 
@@ -192,7 +192,6 @@ class StockSpanner:
 
 """
 402. Remove K Digits
-# Difficulty: Medium
 Given string num representing a non-negative integer num, and an integer k,
 return the smallest possible integer after removing k digits from num.
 
@@ -228,7 +227,6 @@ class SolutionRemoveDigits:
 
 """
 316. Remove Duplicate Letters
-# Difficulty: Medium
 Given a string s, remove duplicate letters so that every letter appears once and
 only once. You must make sure your result is the smallest in lexicographical
 order among all possible results.

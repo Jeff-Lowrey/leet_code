@@ -3,7 +3,6 @@
  *
  * # 0169. Majority Element
  *
- * Difficulty: Medium
  *
  * Given an array nums of size n, return the majority element.
  *

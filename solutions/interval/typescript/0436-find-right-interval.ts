@@ -3,7 +3,6 @@
  *
  * # 0436. Find Right Interval
  *
- * Difficulty: Medium
  *
  * You are given an array of intervals, where intervals[i] = [starti, endi] and each starti is unique.
  *

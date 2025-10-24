@@ -65,10 +65,12 @@ True (can reach end)
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+Based on the algorithm implementation
+
 
 ### SPACE COMPLEXITY:
-O(1)
+Based on auxiliary data structures used
+
 
 ### EDGE CASES:
 - **Single element array**: Always return True (already at end)
@@ -140,7 +142,6 @@ class Solution:
 
 """
 45. Jump Game II
-# Difficulty: Medium
 You are given a 0-indexed array of integers nums of length n.
 
 Your goal is to reach nums[n - 1] starting from nums[0] with the minimum number
@@ -216,7 +217,6 @@ class SolutionJumpII:
 
 """
 134. Gas Station
-# Difficulty: Medium
 There are n gas stations along a circular route, where the amount of gas at the
 ith station is gas[i].
 

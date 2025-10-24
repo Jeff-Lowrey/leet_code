@@ -3,7 +3,6 @@
  *
  * # 0287. Find The Duplicate Number
  *
- * Difficulty: Medium
  *
  * Given an array of integers nums containing n + 1 integers where each integer is in the range [1, n] inclusive.
  *

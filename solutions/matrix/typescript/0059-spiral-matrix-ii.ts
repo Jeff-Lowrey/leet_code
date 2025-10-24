@@ -3,7 +3,6 @@
  *
  * # 0059. Spiral Matrix II
  *
- * Difficulty: Easy
  *
  * Given a positive integer n, generate an n x n matrix filled with elements from 1 to n²
  * in spiral order.

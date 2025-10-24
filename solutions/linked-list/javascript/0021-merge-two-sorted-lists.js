@@ -3,7 +3,6 @@
  *
  * # 0021. Merge Two Sorted Lists
  *
- * Difficulty: Easy
  *
  * You are given the heads of two sorted linked lists list1 and list2.
  *

@@ -3,7 +3,6 @@
  *
  * # 0374. Guess Number Higher Or Lower
  *
- * Difficulty: Medium
  *
  * We are playing the Guess Game. The game is as follows:
  *

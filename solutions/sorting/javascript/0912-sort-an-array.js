@@ -3,7 +3,6 @@
  *
  * # 0912. Sort An Array
  *
- * Difficulty: Medium
  *
  * Given an array of integers nums, sort the array in ascending order and return it.
  *

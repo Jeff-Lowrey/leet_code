@@ -3,7 +3,6 @@
  *
  * # 0204. Count Primes
  *
- * Difficulty: Medium
  *
  * Given an integer n, return the number of prime numbers that are strictly less than n.
  *

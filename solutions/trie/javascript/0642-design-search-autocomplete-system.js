@@ -3,7 +3,6 @@
  *
  * # 0642. Design Search Autocomplete System
  *
- * Difficulty: Medium
  *
  * Design a search autocomplete system for a search engine. Users may input a sentence (at least one word and end with a special character '#').
  *

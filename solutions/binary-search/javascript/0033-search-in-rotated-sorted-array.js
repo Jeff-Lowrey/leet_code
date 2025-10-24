@@ -3,7 +3,6 @@
  *
  * # 0033. Search In Rotated Sorted Array
  *
- * Difficulty: Easy
  *
  * There is an integer array nums sorted in ascending order (with distinct values).
  *

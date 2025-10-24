@@ -3,7 +3,6 @@
  *
  * # 0673. Number Of Longest Increasing Subsequence
  *
- * Difficulty: Medium
  *
  * Given an integer array nums, return the number of longest increasing subsequences.
  *

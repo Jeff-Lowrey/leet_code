@@ -3,7 +3,6 @@
  *
  * Difficulty: Medium
  *
- * # Difficulty: Medium
  *
  * # 0227. Basic Calculator Ii
  *

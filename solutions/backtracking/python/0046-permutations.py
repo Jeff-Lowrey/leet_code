@@ -144,7 +144,6 @@ class Solution:
 
 """
 47. Permutations II
-# Difficulty: Medium
 Given a collection of numbers, nums, that might contain duplicates, return all
 possible unique permutations in any order.
 
@@ -183,7 +182,6 @@ class SolutionUnique:
 
 """
 31. Next Permutation
-# Difficulty: Medium
 A permutation of an array of integers is an arrangement of its members into a
 sequence or linear order.
 

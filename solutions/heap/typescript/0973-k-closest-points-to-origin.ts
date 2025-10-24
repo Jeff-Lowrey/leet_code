@@ -72,7 +72,8 @@
  * ```
 
  * ### TIME COMPLEXITY:
- * O(n)
+ * Based on the algorithm implementation
+ * 
  * 
  * ### SPACE COMPLEXITY:
  * O(1)

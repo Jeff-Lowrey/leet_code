@@ -3,7 +3,6 @@
  *
  * # 1030. Matrix Cells In Distance Order
  *
- * Difficulty: Medium
  *
  * You are given four integers row, col, rCenter, and cCenter. There exists a rows x cols matrix
  * and you are on the cell with the coordinates (rCenter, cCenter).

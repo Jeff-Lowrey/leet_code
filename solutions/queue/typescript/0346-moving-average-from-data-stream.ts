@@ -59,7 +59,8 @@
  * O(1) per operation
  * 
  * ### SPACE COMPLEXITY:
- * O(size)
+ * Based on auxiliary data structures used
+ * 
  * 
  * ### EDGE CASES:
  * - **Window size 1**: Average equals current value

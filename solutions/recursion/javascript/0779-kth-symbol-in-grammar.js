@@ -5,7 +5,6 @@
  *
  * # 0779. K-th Symbol in Grammar
  *
- * # Difficulty: Medium
  *
  * We build a table of n rows (1-indexed). We start by writing 0 in the 1st row.
  * Now in every subsequent row, we look at the previous row and replace each occurrence

@@ -3,7 +3,6 @@
  *
  * # 0856. Score Of Parentheses
  *
- * Difficulty: Medium
  *
  * Given a balanced parentheses string s, return the score of the string.
  *

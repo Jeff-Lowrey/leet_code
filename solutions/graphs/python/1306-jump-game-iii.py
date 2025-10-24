@@ -69,7 +69,8 @@ return true!
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+Based on the algorithm implementation
+
 
 ### SPACE COMPLEXITY:
 O(n) for visited set and recursion/queue

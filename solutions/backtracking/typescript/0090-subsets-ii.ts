@@ -3,7 +3,6 @@
  *
  * # 0090. Subsets Ii
  *
- * Difficulty: Easy
  *
  * Given an integer array nums that may contain duplicates, return all possible subsets (the power set).
  *

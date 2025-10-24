@@ -3,7 +3,6 @@
  *
  * # 0225. Implement Stack using Queues
  *
- * Difficulty: Medium
  *
  * Implement a last-in-first-out (LIFO) stack using only two queues.
  *

@@ -3,7 +3,6 @@
  *
  * # 0105. Construct Binary Tree From Preorder And Inorder Traversal
  *
- * Difficulty: Medium
  *
  * Given two integer arrays preorder and inorder where preorder is the preorder traversal of a binary tree and inorder is the inorder traversal of the same tree, construct and return the binary tree.
  *

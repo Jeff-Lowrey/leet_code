@@ -65,10 +65,12 @@ true
 ```
 
 ### TIME COMPLEXITY:
-O(V + E)
+Based on the algorithm implementation
+
 
 ### SPACE COMPLEXITY:
-O(V + E)
+Based on auxiliary data structures used
+
 
 ### EDGE CASES:
 - **No prerequisites**: All courses can be taken, return true
@@ -153,7 +155,6 @@ class Solution:
 
 """
 210. Course Schedule II
-# Difficulty: Medium
 Return the ordering of courses you should take to finish all courses. If there are
 many valid answers, return any of them. If it is impossible to finish all courses,
 return an empty array.
@@ -232,7 +233,6 @@ class SolutionScheduleII:
 
 """
 269. Alien Dictionary
-# Difficulty: Hard
 There is a new alien language that uses the English alphabet. However, the order
 among the letters is unknown to you.
 

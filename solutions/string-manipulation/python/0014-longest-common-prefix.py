@@ -164,7 +164,6 @@ class Solution:
 
 """
 28. Find the Index of the First Occurrence in a String
-# Difficulty: Easy
 Given two strings needle and haystack, return the index of the first occurrence
 of needle in haystack, or -1 if needle is not part of haystack.
 
@@ -240,7 +239,6 @@ class SolutionStrStr:
 
 """
 459. Repeated Substring Pattern
-# Difficulty: Easy
 Given a string s, check if it can be constructed by taking a substring of it and
 appending multiple copies of the substring together.
 
@@ -290,7 +288,6 @@ class SolutionRepeated:
 
 """
 686. Repeated String Match
-# Difficulty: Medium
 Given two strings a and b, return the minimum number of times you should repeat
 string a so that string b is a substring of it. If it is impossible for b to be
 a substring of a after repeating it, return -1.

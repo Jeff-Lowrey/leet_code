@@ -65,10 +65,12 @@
  * ```
  * 
  * ### TIME COMPLEXITY:
- * O(V + E)
+ * Based on the algorithm implementation
+ * 
  * 
  * ### SPACE COMPLEXITY:
- * O(V + E)
+ * Based on auxiliary data structures used
+ * 
  * 
  * ### EDGE CASES:
  * - **No prerequisites**: All courses can be taken, return true

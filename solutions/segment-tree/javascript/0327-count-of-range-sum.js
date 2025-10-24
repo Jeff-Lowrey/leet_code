@@ -3,7 +3,6 @@
  *
  * # 0327. Count Of Range Sum
  *
- * Difficulty: Medium
  *
  * Given an integer array nums and two integers lower and upper, return the number of range sums that lie in [lower, upper] inclusive.
  *

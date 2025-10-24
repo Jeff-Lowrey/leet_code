@@ -58,7 +58,8 @@ Result: 3
 O(k) where k is number of 1-bits
 
 ### SPACE COMPLEXITY:
-O(1)
+Based on auxiliary data structures used
+
 
 ### EDGE CASES:
 - **n = 0**: Return 0 (no 1 bits)

@@ -3,7 +3,6 @@
  *
  * # 1991. Find The Middle Index In Array
  *
- * Difficulty: Medium
  *
  * Given a 0-indexed integer array nums, find the leftmost middleIndex (i.e., the smallest amongst all the possible ones).
  *

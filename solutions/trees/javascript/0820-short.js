@@ -3,7 +3,6 @@
  *
  * # 0820. Short Encoding of Words
  *
- * Difficulty: Medium
  *
  * A valid encoding of an array of words is any reference string s and an array of indices indices such that:
  * - words.length == indices.length

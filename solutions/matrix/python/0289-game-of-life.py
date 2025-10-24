@@ -91,10 +91,12 @@ Output (after 4 generations):
 ```
 
 ### TIME COMPLEXITY:
-O(m × n)
+Based on the algorithm implementation
+
 
 ### SPACE COMPLEXITY:
-O(1)
+Based on auxiliary data structures used
+
 
 ### EDGE CASES:
 - **All dead cells**: Remain dead if no neighbors
@@ -211,7 +213,6 @@ class Solution:
 54. Spiral Matrix (Already exists, adding another simulation problem)
 
 419. Battleships in a Board
-# Difficulty: Medium
 Given an m x n matrix board where each cell is a battleship 'X' or empty '.',
 return the number of the battleships on board.
 

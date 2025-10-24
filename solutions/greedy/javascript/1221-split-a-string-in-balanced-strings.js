@@ -3,7 +3,6 @@
  *
  * # 1221. Split A String In Balanced Strings
  *
- * Difficulty: Medium
  *
  * Balanced strings are those that have an equal quantity of 'L' and 'R' characters.
  *

@@ -3,7 +3,6 @@
  *
  * # 1047. Remove All Adjacent Duplicates In String
  *
- * Difficulty: Medium
  *
  * You are given a string s consisting of lowercase English letters. A duplicate removal
  * consists of choosing two adjacent and equal characters and removing them.

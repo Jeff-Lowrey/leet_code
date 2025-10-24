@@ -65,7 +65,8 @@ Output:
 O(log n) for both update and query
 
 ### SPACE COMPLEXITY:
-O(n)
+Based on auxiliary data structures used
+
 
 ### EDGE CASES:
 - **Single element array**: Sum queries return that element

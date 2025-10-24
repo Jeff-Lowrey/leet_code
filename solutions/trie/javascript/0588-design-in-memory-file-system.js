@@ -3,7 +3,6 @@
  *
  * # 0588. Design In Memory File System
  *
- * Difficulty: Medium
  *
  * Design a data structure that simulates an in-memory file system.
  *

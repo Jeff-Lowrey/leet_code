@@ -3,7 +3,6 @@
  *
  * Difficulty: Easy
  *
- * # Difficulty: Medium
  *
  * You are given an array of `non-overlapping` intervals where intervals[i] = [starti, endi]
  * represent the start and the end of the ith interval and intervals is sorted in

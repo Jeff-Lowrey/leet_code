@@ -3,7 +3,6 @@
  *
  * # 1268. Search Suggestions System
  *
- * Difficulty: Medium
  *
  * You are given an array of strings products and a string searchWord.
  *

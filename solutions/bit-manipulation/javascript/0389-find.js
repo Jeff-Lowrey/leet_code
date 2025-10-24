@@ -3,7 +3,6 @@
  *
  * # 0389. Find the Difference
  *
- * Difficulty: Medium
  *
  * You are given two strings s and t.
  *

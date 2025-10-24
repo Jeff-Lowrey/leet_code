@@ -3,7 +3,6 @@
  *
  * # 1233. Remove Sub Folders From The Filesystem
  *
- * Difficulty: Medium
  *
  * Given a list of folders, remove all sub-folders in those folders and return the folders in any order.
  *

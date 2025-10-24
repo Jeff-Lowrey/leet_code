@@ -3,7 +3,6 @@
  *
  * # 1136. Parallel Courses
  *
- * Difficulty: Medium
  *
  * You are given an integer n, which indicates that there are n courses labeled from 1 to n. You are also given an array relations where relations[i] = [prevCoursei, nextCoursei], representing a prerequisite relationship between course prevCoursei and course nextCoursei: course prevCoursei has to be taken before course nextCoursei.
  *

@@ -3,7 +3,6 @@
  *
  * # 0699. Falling Squares
  *
- * Difficulty: Medium
  *
  * There are several squares being dropped onto the X-axis of a 2D plane.
  *

@@ -59,10 +59,12 @@ Index 4: sum=3, need 3-2=1 (found 2), count=4
 Total: 4
 
 ### TIME COMPLEXITY:
-O(n)
+Based on the algorithm implementation
+
 
 ### SPACE COMPLEXITY:
-O(n)
+Based on auxiliary data structures used
+
 
 ### EDGE CASES:
 - goal = 0: Count subarrays with all zeros

@@ -47,10 +47,12 @@ nums = [1, 2, 3, 1]
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+Based on the algorithm implementation
+
 
 ### SPACE COMPLEXITY:
-O(n)
+Based on auxiliary data structures used
+
 
 ### EDGE CASES:
 - **Empty array**: Return False (no duplicates possible)

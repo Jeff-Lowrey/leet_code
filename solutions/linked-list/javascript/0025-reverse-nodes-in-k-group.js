@@ -3,7 +3,6 @@
  *
  * # 0025. Reverse Nodes In K Group
  *
- * Difficulty: Easy
  *
  * Given the head of a linked list, reverse the nodes of the list k at a time, and return the modified list.
  *
