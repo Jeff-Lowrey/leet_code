@@ -19,7 +19,7 @@ Given the integer array fruits, return the maximum number of fruits you can pick
 <dt>Input:</dt>
 <dd>fruits = [1,2,1,2,3,1,1]</dd>
 <dt>Output:</dt>
-<dd>"Solution for 904. Fruit Into Baskets: {result}"</dd>
+<dd>4 (maximum fruits)</dd>
 <dt>Explanation:</dt>
 <dd>You can collect at most 3 fruits with 2 types of baskets (type 1 and type 2)</dd>
 </dl>
