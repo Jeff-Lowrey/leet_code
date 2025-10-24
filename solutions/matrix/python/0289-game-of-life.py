@@ -10,10 +10,10 @@ The board is made up of an m x `n` `grid` of cells, where each cell has an initi
 state: live (represented by a 1) or dead (represented by a 0). Each cell interacts
 with its eight neighbors (horizontal, vertical, diagonal) using the following four rules:
 
-
-
-
-
+1. Any live cell with fewer than two live neighbors dies (underpopulation)
+2. Any live cell with two or three live neighbors lives on to the next generation
+3. Any live cell with more than three live neighbors dies (overpopulation)
+4. Any dead cell with exactly three live neighbors becomes a live cell (reproduction)
 
 The next state is created by applying the above rules simultaneously to every cell
 in the current state, where births and deaths occur simultaneously.
@@ -55,13 +55,39 @@ The encoding preserves original state information while tracking transitions. Du
 ### EXAMPLE WALKTHROUGH:
 Input:
 ```
+[[0,1,0],[0,0,1],[1,1,1],[0,0,0]]
 ```
 
-Steps:
-Step 1: Initial: [0,1,0]    →    [0,0,0]
-Step 2: [0,0,1]    →    [1,0,1]
-Step 3: [1,1,1]    →    [0,1,1]
-Step 4: [0,0,0]    →    [0,1,0]
+Steps (showing 4 generations with rule application):
+
+Step 1: Initial → Generation 1
+  Applying rules to each cell (showing all 8 neighbors):
+  - [0,1]=1 has neighbors [0,0]=0, [0,2]=0, [1,0]=0, [1,1]=0, [1,2]=1 → 1 live → dies (underpopulation)
+  - [1,2]=1 has neighbors [0,1]=1, [0,2]=0, [1,1]=0, [2,1]=1, [2,2]=1 → 3 live → survives (2-3 neighbors)
+  - [2,0]=1 has neighbors [1,0]=0, [1,1]=0, [2,1]=1, [3,0]=0, [3,1]=0 → 1 live → dies (underpopulation)
+  - [2,1]=1 has neighbors [1,0]=0, [1,1]=0, [1,2]=1, [2,0]=1, [2,2]=1, [3,0]=0, [3,1]=0, [3,2]=0 → 3 live → survives (2-3 neighbors)
+  - [2,2]=1 has neighbors [1,1]=0, [1,2]=1, [2,1]=1, [3,1]=0, [3,2]=0 → 2 live → survives (2-3 neighbors)
+  - [1,0]=0 has neighbors [0,0]=0, [0,1]=1, [1,1]=0, [2,0]=1, [2,1]=1 → 3 live → becomes alive (reproduction)
+  - [1,1]=0 has neighbors [0,0]=0, [0,1]=1, [0,2]=0, [1,0]=0, [1,2]=1, [2,0]=1, [2,1]=1, [2,2]=1 → 5 live → stays dead (not exactly 3)
+  - [3,1]=0 has neighbors [2,0]=1, [2,1]=1, [2,2]=1, [3,0]=0, [3,2]=0 → 3 live → becomes alive (reproduction)
+  Result: [[0,0,0],[1,0,1],[0,1,1],[0,1,0]]
+
+Step 2: Generation 1 → Generation 2
+  Pattern stabilizing, fewer changes
+  Result: [[0,0,0],[0,0,1],[0,1,1],[0,1,0]]
+
+Step 3: Generation 2 → Generation 3
+  Pattern reached stable state (no changes)
+  Result: [[0,0,0],[0,0,1],[0,1,1],[0,1,0]]
+
+Step 4: Generation 3 → Generation 4
+  Pattern remains stable
+  Result: [[0,0,0],[0,0,1],[0,1,1],[0,1,0]]
+
+Output (after 4 generations):
+```
+[[0,0,0],[0,0,1],[0,1,1],[0,1,0]]
+```
 
 ### TIME COMPLEXITY:
 O(m × n)
