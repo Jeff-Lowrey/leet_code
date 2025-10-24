@@ -57,6 +57,11 @@ Step 3: isPowerOfThree(3)  → 3 % 3 == 0, check isPowerOfThree(1)
 Step 4: isPowerOfThree(1)  → return True
 Step 5: Result: True
 
+Output:
+```
+True
+```
+
 ### TIME COMPLEXITY:
 O(log₃ n) - dividing by 3 each time
 

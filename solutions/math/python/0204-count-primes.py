@@ -51,6 +51,11 @@ Mark multiples of 5: (5² = 25 > 10, skip)
 Steps:
 Step 1: Primes: [2, 3, 5, 7] → Count = 4
 
+Output:
+```
+Count = 4
+```
+
 ### TIME COMPLEXITY:
 O(n log log n)
 Sieve of Eratosthenes complexity

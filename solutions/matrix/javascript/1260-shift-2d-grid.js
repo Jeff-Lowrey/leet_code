@@ -75,8 +75,13 @@
  * Step 2: - 2 at index 1 → new index (1+1)%9 = 2 → grid[0][2]
  * Step 3: - 9 at index 8 → new index (8+1)%9 = 0 → grid[0][0]
  * Step 4: Result: [[9,1,2],[3,4,5],[6,7,8]]
-
-### TIME COMPLEXITY:
+ * 
+ * Output:
+ * ```
+ * [[9,1,2],[3,4,5],[6,7,8]]
+ * ```
+ * 
+ * ### TIME COMPLEXITY:
  * O(m × n)
  * - Must visit each element once to build result
  *

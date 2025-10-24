@@ -64,8 +64,13 @@
  * Step 3: Process (2,2): self-connection, skip
  * Step 4: Count unique roots: 1 (for cities 0,1) and 2 (for city 2)
  * Step 5: Result: 2 provinces
-
-### TIME COMPLEXITY:
+ * 
+ * Output:
+ * ```
+ * 2 provinces
+ * ```
+ * 
+ * ### TIME COMPLEXITY:
  * O(n² × α(n))
  * Where α is the inverse Ackermann function (nearly constant)
  * 

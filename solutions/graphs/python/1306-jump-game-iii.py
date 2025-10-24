@@ -62,6 +62,11 @@ DFS(1): arr[1]=2
 Steps:
 Step 1: DFS(3): arr[3]=0 → return true!
 
+Output:
+```
+return true!
+```
+
 ### TIME COMPLEXITY:
 O(n)
 

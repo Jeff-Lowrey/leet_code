@@ -70,8 +70,13 @@
  * Step 6: root -> 'c' -> 'd' (already folder end, skip!)
  * Step 7: root -> 'c' -> 'f' (mark as folder end)
  * Step 8: Result: ["/a", "/c/d", "/c/f"]
-
-### TIME COMPLEXITY:
+ * 
+ * Output:
+ * ```
+ * ["/a"]
+ * ```
+ * 
+ * ### TIME COMPLEXITY:
  * O(N * L * log(N))
  * Where N is number of folders and L is average path length
  * - Sorting: O(N * L * log(N))

@@ -56,8 +56,13 @@
  * Step 4: │      → "("   → "()"   → "()((" → "()(())"
  * Step 5: │                       → "()("  → "()()()"
  * Step 6: Result: ["((()))", "(()())", "(())()", "()(())", "()()()"]
-
-### TIME COMPLEXITY:
+ * 
+ * Output:
+ * ```
+ * ["((()))", "(()())", "(())()", "()(())", "()()()"]
+ * ```
+ * 
+ * ### TIME COMPLEXITY:
  * O(4^n / √n)
  * Catalan number: C(n) = (2n)! / ((n+1)! * n!)
  * Approximately O(4^n / √n) valid combinations

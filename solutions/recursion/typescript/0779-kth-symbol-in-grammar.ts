@@ -82,8 +82,13 @@
  * Step 4: - Row 2, position 2: flip(0) = 1
  * Step 5: - Row 3, position 3: same as parent = 1
  * Step 6: Result: 1
-
-### TIME COMPLEXITY:
+ * 
+ * Output:
+ * ```
+ * 1
+ * ```
+ * 
+ * ### TIME COMPLEXITY:
  * O(n) - we recurse up to n times
  *
  * ### SPACE COMPLEXITY:

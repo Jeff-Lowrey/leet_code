@@ -53,8 +53,13 @@
  * Step 3: Union(1,2): {0,1,2}, {3}, {4} → 3 components
  * Step 4: Union(3,4): {0,1,2}, {3,4} → 2 components
  * Step 5: Result: 2 connected components
-
-### TIME COMPLEXITY:
+ * 
+ * Output:
+ * ```
+ * 2 connected components
+ * ```
+ * 
+ * ### TIME COMPLEXITY:
  * O(E × α(N))
  * Where E is edges, N is nodes, α is inverse Ackermann (nearly constant)
  *

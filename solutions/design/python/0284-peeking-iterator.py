@@ -76,6 +76,11 @@ Step 6: hasNext() → true (iterator still has element 3)
 Step 7: next() → 3 (fetch from iterator)
 Step 8: hasNext() → false
 
+Output:
+```
+true
+```
+
 ### TIME COMPLEXITY:
 O(1)
 All operations are constant time

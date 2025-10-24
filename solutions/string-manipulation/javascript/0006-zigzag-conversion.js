@@ -87,8 +87,13 @@
  * Row 2: "YIR"
  * Result: "PAHNAPLSIIGYIR"
  * ```
-
-### TIME COMPLEXITY:
+ * 
+ * Output:
+ * ```
+ * "PAHNAPLSIIGYIR"
+ * ```
+ * 
+ * ### TIME COMPLEXITY:
  * O(n)
  * - Process each character exactly once
  * - Concatenating rows is O(n) as each character appears once

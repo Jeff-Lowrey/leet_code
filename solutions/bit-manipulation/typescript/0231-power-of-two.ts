@@ -57,8 +57,13 @@
  * Step 4: isPowerOfTwo(2)  → 2 % 2 == 0, check isPowerOfTwo(1)
  * Step 5: isPowerOfTwo(1)  → return True
  * Step 6: Result: True
-
-### TIME COMPLEXITY:
+ * 
+ * Output:
+ * ```
+ * True
+ * ```
+ * 
+ * ### TIME COMPLEXITY:
  * O(log n) - dividing by 2 each time
  *
  * ### SPACE COMPLEXITY:

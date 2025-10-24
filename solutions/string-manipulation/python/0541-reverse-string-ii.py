@@ -67,6 +67,11 @@ Step 4: - Reverse chars[4:6] = "ef" → "fe"
 Step 5: - Result: "feg"
 Step 6: Final: "bacd" + "feg" = "bacdfeg"
 
+Output:
+```
+"bacd"
+```
+
 ### TIME COMPLEXITY:
 O(n)
 - Visit each character once during iteration

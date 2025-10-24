@@ -78,8 +78,13 @@
  *
  * Steps:
  * Step 1: All checks pass → True
-
-### TIME COMPLEXITY:
+ * 
+ * Output:
+ * ```
+ * True
+ * ```
+ * 
+ * ### TIME COMPLEXITY:
  * O(m × n)
  * - Check each cell once (except last row and column)
  *

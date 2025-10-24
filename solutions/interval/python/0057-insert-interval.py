@@ -55,6 +55,11 @@ Step 1: Phase 2: Merge [1,3] and [2,5] → [1,5]
 Step 2: Phase 3: [6,9] doesn't overlap (`6 > 5`) → add `as-is`
 Step 3: Result: [[1,5],[6,9]]
 
+Output:
+```
+[[1,5],[6,9]]
+```
+
 ### TIME COMPLEXITY:
 O(n)
 

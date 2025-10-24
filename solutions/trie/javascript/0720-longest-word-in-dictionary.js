@@ -74,8 +74,13 @@
  * Step 17: -> 'e' (word end) -> "apple" ✓
  * Step 18: -> 'y' (word end) -> "apply" ✓
  * Step 19: Result: "apple" (lexicographically smaller than "apply")
-
-### TIME COMPLEXITY:
+ * 
+ * Output:
+ * ```
+ * "world"
+ * ```
+ * 
+ * ### TIME COMPLEXITY:
  * O(N * L)
  * Where N is number of words, L is average word length
  * - Building trie: O(N * L)

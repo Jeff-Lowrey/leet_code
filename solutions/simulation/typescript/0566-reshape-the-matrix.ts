@@ -82,8 +82,13 @@
  * Step 4: - idx 2: row = 2//4 = 0, col = 2%4 = 2 → result[0][2] = 3
  * Step 5: - idx 3: row = 3//4 = 0, col = 3%4 = 3 → result[0][3] = 4
  * Step 6: Result: [[1,2,3,4]]
-
-### TIME COMPLEXITY:
+ * 
+ * Output:
+ * ```
+ * [[1,2,3,4]]
+ * ```
+ * 
+ * ### TIME COMPLEXITY:
  * O(m × n)
  * - Must process each element once
  *

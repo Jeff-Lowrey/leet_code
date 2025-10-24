@@ -64,6 +64,11 @@ For cell (0, 1) = "3":
 Steps:
 Step 1: If we encounter "5" again in row 0, col 0, or box 0 → return False
 
+Output:
+```
+return False
+```
+
 ### TIME COMPLEXITY:
 O(1)
 - Board is fixed size 9x9 = 81 cells

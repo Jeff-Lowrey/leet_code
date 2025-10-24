@@ -52,8 +52,13 @@
  * Step 1: Count frequencies: {'t': 1, 'r': 1, 'e': 2}
  * Step 2: Sort by frequency: [('e', 2), ('t', 1), ('r', 1)]
  * Step 3: Build result: "eert" (or "eetr")
-
-### TIME COMPLEXITY:
+ * 
+ * Output:
+ * ```
+ * "eert"
+ * ```
+ * 
+ * ### TIME COMPLEXITY:
  * O(n log k)
  * Where n is string length, k is number of unique characters
  *

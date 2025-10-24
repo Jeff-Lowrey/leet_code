@@ -54,6 +54,11 @@ n: 1, a: 3, g: 1, r: 1, m: 1
 Steps:
 Step 1: Both have identical counts → True
 
+Output:
+```
+True
+```
+
 ### TIME COMPLEXITY:
 O(n)
 

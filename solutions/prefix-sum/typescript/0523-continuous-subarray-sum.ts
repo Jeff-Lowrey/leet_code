@@ -56,8 +56,13 @@
  *
  * Steps:
  * Step 1: At index 2: remainder 5, seen at index 0, distance = 2 → return true
-
-### TIME COMPLEXITY:
+ * 
+ * Output:
+ * ```
+ * return true
+ * ```
+ * 
+ * ### TIME COMPLEXITY:
  * O(n)
  *
  * ### SPACE COMPLEXITY:

@@ -57,6 +57,11 @@ Step 2: isPowerOfFour(4)  → 4 % 4 == 0, check isPowerOfFour(1)
 Step 3: isPowerOfFour(1)  → return True
 Step 4: Result: True
 
+Output:
+```
+True
+```
+
 ### TIME COMPLEXITY:
 O(log₄ n) - dividing by 4 each time
 

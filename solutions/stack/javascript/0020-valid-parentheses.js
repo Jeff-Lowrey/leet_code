@@ -75,8 +75,13 @@
  * Step 5: ']' → pop '[', matches ✓, stack: ['(']
  * Step 6: ')' → pop '(', matches ✓, stack: []
  * Step 7: Result: Empty stack → True
-
-### TIME COMPLEXITY:
+ * 
+ * Output:
+ * ```
+ * Empty stack → True
+ * ```
+ * 
+ * ### TIME COMPLEXITY:
  * O(n)
  * Single pass through the string
  *

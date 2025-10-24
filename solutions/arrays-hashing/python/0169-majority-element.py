@@ -58,6 +58,11 @@ Step 6: num=2, count=1 → count=0 (different)
 Step 7: num=2, count=0 → candidate=2, count=1
 Step 8: Result: 2 (which is correct, appears 4/7 times)
 
+Output:
+```
+2
+```
+
 ### TIME COMPLEXITY:
 O(n)
 Single pass through the array

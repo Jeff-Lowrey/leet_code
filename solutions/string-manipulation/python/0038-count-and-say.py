@@ -70,6 +70,11 @@ Step 3: - Read '2' once: "12"
 Step 4: - Read '1' twice: "21"
 Step 5: - Result: "111221"
 
+Output:
+```
+"111221"
+```
+
 ### TIME COMPLEXITY:
 O(n * m)
 - n iterations to build up to the nth term

@@ -57,8 +57,13 @@
  * Step 6: Only node 2 has in-degree 0 → process 2, reduce in-degree of 3
  * Step 7: Only node 3 has in-degree 0 → process 3
  * Step 8: Result: [1,2,3] matches org → True
-
-### TIME COMPLEXITY:
+ * 
+ * Output:
+ * ```
+ * [1,2,3] matches org → True
+ * ```
+ * 
+ * ### TIME COMPLEXITY:
  * O(V + E)
  * Where V is number of nodes (n) and E is total number of edges from seqs
  *

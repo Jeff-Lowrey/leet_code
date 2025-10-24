@@ -62,6 +62,11 @@ Step 2: Level 1 (R->L): [20, 9]
 Step 3: Level 2 (L->R): [15, 7]
 Step 4: Result: [[3], [20, 9], [15, 7]]
 
+Output:
+```
+[[3], [20, 9], [15, 7]]
+```
+
 ### TIME COMPLEXITY:
 O(n)
 - Visit each node exactly once

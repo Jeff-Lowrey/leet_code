@@ -59,8 +59,13 @@
  * Step 3: Search "app": root → 'a' → 'p' → 'p' (end=True) → True
  * Step 4: Search "appl": root → 'a' → 'p' → 'p' → 'l' (end=False) → False
  * Step 5: StartsWith "app": root → 'a' → 'p' → 'p' (exists) → True
-
-### TIME COMPLEXITY:
+ * 
+ * Output:
+ * ```
+ * True
+ * ```
+ * 
+ * ### TIME COMPLEXITY:
  * O(m)
  * Where m is the length of the word/prefix for all operations
  * 

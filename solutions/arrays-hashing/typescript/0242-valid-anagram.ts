@@ -55,8 +55,13 @@
  *
  * Steps:
  * Step 1: Both have identical counts → True
-
-### TIME COMPLEXITY:
+ * 
+ * Output:
+ * ```
+ * True
+ * ```
+ * 
+ * ### TIME COMPLEXITY:
  * O(n)
  *
  * ### SPACE COMPLEXITY:

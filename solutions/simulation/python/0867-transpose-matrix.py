@@ -78,6 +78,11 @@ Step 8: [[1,4],
 Step 9: [2,5],
 Step 10: [3,6]]
 
+Output:
+```
+3×2
+```
+
 ### TIME COMPLEXITY:
 O(m × n)
 - Must visit every element once

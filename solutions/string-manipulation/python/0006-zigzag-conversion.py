@@ -83,6 +83,11 @@ Row 2: "YIR"
 Result: "PAHNAPLSIIGYIR"
 ```
 
+Output:
+```
+"PAHNAPLSIIGYIR"
+```
+
 ### TIME COMPLEXITY:
 O(n)
 - Process each character exactly once

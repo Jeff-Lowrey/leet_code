@@ -61,8 +61,13 @@
  *
  * Steps:
  * Step 1: DFS(3): arr[3]=0 → return true!
-
-### TIME COMPLEXITY:
+ * 
+ * Output:
+ * ```
+ * return true!
+ * ```
+ * 
+ * ### TIME COMPLEXITY:
  * O(n)
  *
  * ### SPACE COMPLEXITY:

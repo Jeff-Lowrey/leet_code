@@ -62,6 +62,11 @@ Step 1: 4 5 6    →    2 5 8    →    8 5 2
 Step 2: 7 8 9         3 6 9         9 6 3
 Step 3: Result: 90° clockwise rotation
 
+Output:
+```
+90° clockwise rotation
+```
+
 ### TIME COMPLEXITY:
 O(n²)
 Must touch every element in the n×n matrix

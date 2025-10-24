@@ -68,8 +68,13 @@
  * Step 8: Return: []
  * Step 9: Save "i a" with frequency 1
  * Step 10: Reset current input
-
-### TIME COMPLEXITY:
+ * 
+ * Output:
+ * ```
+ * ["i love you", "i love leetcode"]
+ * ```
+ * 
+ * ### TIME COMPLEXITY:
  * - Constructor: O(N * L) where N is sentences count, L is average length
  * - Input: O(P * M * log M) where P is prefix length, M is matching sentences
  * - Sorting dominates input complexity

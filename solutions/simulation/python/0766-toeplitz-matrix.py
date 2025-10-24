@@ -78,6 +78,11 @@ Check (1,2)==(2,3): 2==2 ✓
 Steps:
 Step 1: All checks pass → True
 
+Output:
+```
+True
+```
+
 ### TIME COMPLEXITY:
 O(m × n)
 - Check each cell once (except last row and column)

@@ -57,6 +57,11 @@ Step 2: `4 + 6` + 0(carry) = 10, `carry = 1` → node(0)
 Step 3: `3 + 4` + 1(carry) = 8, `carry = 0` → node(8)
 Step 4: Result: [7,0,8] represents 807
 
+Output:
+```
+[7,0,8] represents 807
+```
+
 ### TIME COMPLEXITY:
 O(max(m, n))
 Where m and n are lengths of the two linked lists. Process each digit once.

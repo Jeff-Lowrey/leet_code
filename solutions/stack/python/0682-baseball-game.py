@@ -58,20 +58,22 @@ We iterate through each operation in the list. For integer strings, we parse the
 - Stack naturally handles the 'C' operation (remove previous score)
 
 ### EXAMPLE WALKTHROUGH:
+Input:
+```
+ops = ["5","2","C","D","+"]
+```
 
-Input: ops = ["5","2","C","D","+"]
+Steps:
+Step 1: "5" → Push 5, stack = [5]
+Step 2: "2" → Push 2, stack = [5, 2]
+Step 3: "C" → Pop previous score, stack = [5]
+Step 4: "D" → Double last score (5 * 2 = 10), stack = [5, 10]
+Step 5: "+" → Sum last two (5 + 10 = 15), stack = [5, 10, 15]
 
-**Step 1:** "5" → Push 5, stack = [5]
-
-**Step 2:** "2" → Push 2, stack = [5, 2]
-
-**Step 3:** "C" → Pop previous score, stack = [5]
-
-**Step 4:** "D" → Double last score (5 * 2 = 10), stack = [5, 10]
-
-**Step 5:** "+" → Sum last two (5 + 10 = 15), stack = [5, 10, 15]
-
-Result: sum([5, 10, 15]) = 30
+Output:
+```
+30
+```
 
 ### TIME COMPLEXITY:
 **O(n)** - Process each of n operations once with O(1) stack operations

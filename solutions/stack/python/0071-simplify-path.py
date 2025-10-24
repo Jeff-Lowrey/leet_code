@@ -76,6 +76,11 @@ Step 7: 'c' → push ['c']
 Step 8: '' → skip ['c']
 Step 9: Result: "/" + "c" = "/c"
 
+Output:
+```
+"/" + "c" = "/c"
+```
+
 ### TIME COMPLEXITY:
 O(n) where n is path length
 

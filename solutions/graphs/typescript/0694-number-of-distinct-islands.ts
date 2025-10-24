@@ -61,8 +61,13 @@
  *
  * Steps:
  * Step 1: Same normalized form → 1 distinct island
-
-### TIME COMPLEXITY:
+ * 
+ * Output:
+ * ```
+ * 1 distinct island
+ * ```
+ * 
+ * ### TIME COMPLEXITY:
  * O(M × N)
  * We visit each cell once during DFS/BFS
  *

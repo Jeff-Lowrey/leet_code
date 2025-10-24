@@ -57,8 +57,13 @@
  * Steps:
  * Step 1: Try skip left (delete 'b'): check "aca" → palindrome ✓
  * Step 2: Result: True
-
-### TIME COMPLEXITY:
+ * 
+ * Output:
+ * ```
+ * True
+ * ```
+ * 
+ * ### TIME COMPLEXITY:
  * O(n)
  * In worst case, we check the string twice (once normally, once after skip)
  *

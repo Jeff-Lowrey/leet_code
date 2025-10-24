@@ -68,8 +68,13 @@
  * Step 10: - Swap each pair: (2,1), (4,3), (6,5)
  * Step 11: - Result: [2,1,4,3,6,5]
  * Step 12: - Verify: 2>=1<=4>=3<=6>=5 ✓
-
-### TIME COMPLEXITY:
+ * 
+ * Output:
+ * ```
+ * [2,1,4,3,6,5]
+ * ```
+ * 
+ * ### TIME COMPLEXITY:
  * O(n)
  * Single pass through array with swaps
  *
