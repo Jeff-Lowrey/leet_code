@@ -48,16 +48,20 @@ Sort balloons by end position. Use greedy: shoot arrow at the end of first ballo
 - O(n log n) for sort, O(1) space
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: points = [[10,16],[2,8],[1,6],[7,12]]
+points = [[10,16],[2,8],[1,6],[7,12]]
+```
+
 Step 1: Sort by end position
-  sorted = [[1,6],[2,8],[7,12],[10,16]]
-
+sorted = [[1,6],[2,8],[7,12],[10,16]]
 Step 2: Greedy arrow placement
-  Arrow at 6: bursts [1,6],[2,8]
-  Arrow at 12: bursts [7,12],[10,16]
+Arrow at 6: bursts [1,6],[2,8]
+Arrow at 12: bursts [7,12],[10,16]
 
-Output: 2 (minimum arrows)
+Output:
+```
+2 (minimum arrows)
 ```
 
 ### TIME COMPLEXITY:

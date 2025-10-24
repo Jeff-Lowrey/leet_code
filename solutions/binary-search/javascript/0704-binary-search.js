@@ -49,14 +49,20 @@
  * - Guarantees O(log n) time complexity
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: nums = [-1,0,3,5,9,12], target = 9
- * Step 1: left=0, right=5, mid=2, nums[2]=3 < 9, search right
- * Step 2: left=3, right=5, mid=4, nums[4]=9 == 9, found!
- * Output: 4
+ * nums = [-1,0,3,5,9,12], target = 9
  * ```
  *
- * ### TIME COMPLEXITY:
+ * Step 1: left=0, right=5, mid=2, nums[2]=3 < 9, search right
+ * Step 2: left=3, right=5, mid=4, nums[4]=9 == 9, found!
+ *
+ * Output:
+ * ```
+ * 4
+ * ```
+
+### TIME COMPLEXITY:
  * O(log n)
  *
  * ### SPACE COMPLEXITY:

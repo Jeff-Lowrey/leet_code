@@ -39,28 +39,26 @@
  * Using two pointers from both ends, we compare characters while moving inward. If all corresponding characters match, the string is a palindrome. Skipping non-alphanumeric characters and handling case-insensitivity ensures we only compare relevant characters. The pointers meeting in the middle confirms the entire string is symmetric.
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: "abccccdd"
+ * "abccccdd"
+ * ```
+ *
  * Character counts:
  * a: 1, b: 1, c: 4, d: 2
- *
  * Pairs available:
  * a: 0 pairs (1//2 = 0)
  * b: 0 pairs (1//2 = 0)
  * c: 2 pairs (4//2 = 2)
  * d: 1 pair (2//2 = 1)
- *
  * Total pairs: 0 + 0 + 2 + 1 = 3
  * Pairs contribute: 3 × 2 = 6 characters
- *
  * Odd counts exist: a=1, b=1 (both odd)
  * Can use one character in center: +1
- *
  * Result: 6 + 1 = 7
  * Possible palindrome: "dccaccd"
- * ```
- *
- * ### TIME COMPLEXITY:
+
+### TIME COMPLEXITY:
  * O(n)
  * Single pass to count characters
  *

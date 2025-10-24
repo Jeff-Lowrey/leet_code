@@ -44,37 +44,35 @@ We need to find the longest word where all its prefixes exist as words in the di
 - Lexicographic ordering handled by trie structure (or sorting)
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
 words = ["w","wo","wor","worl","world"]
-
-Build Trie:
-  root -> 'w' (word end)
-       -> 'o' (word end)
-       -> 'r' (word end)
-       -> 'l' (word end)
-       -> 'd' (word end)
-
-DFS from root:
-  Visit 'w' (is word) -> can continue
-    Visit 'wo' (is word) -> can continue
-      Visit 'wor' (is word) -> can continue
-        Visit 'worl' (is word) -> can continue
-          Visit 'world' (is word) -> found! length=5
-
-Result: "world" (all prefixes are words)
-
-words = ["a","banana","app","appl","ap","apply","apple"]
-
-Build Trie:
-  root -> 'a' (word end)
-       -> 'p' (word end)
-       -> 'p' (NOT word end) -> can't continue
-       -> 'l' (word end)
-       -> 'e' (word end) -> "apple" ✓
-       -> 'y' (word end) -> "apply" ✓
-
-Result: "apple" (lexicographically smaller than "apply")
 ```
+
+Build Trie:
+DFS from root:
+Build Trie:
+
+Steps:
+Step 1: root -> 'w' (word end)
+Step 2: -> 'o' (word end)
+Step 3: -> 'r' (word end)
+Step 4: -> 'l' (word end)
+Step 5: -> 'd' (word end)
+Step 6: Visit 'w' (is word) -> can continue
+Step 7: Visit 'wo' (is word) -> can continue
+Step 8: Visit 'wor' (is word) -> can continue
+Step 9: Visit 'worl' (is word) -> can continue
+Step 10: Visit 'world' (is word) -> found! length=5
+Step 11: Result: "world" (all prefixes are words)
+Step 12: words = ["a","banana","app","appl","ap","apply","apple"]
+Step 13: root -> 'a' (word end)
+Step 14: -> 'p' (word end)
+Step 15: -> 'p' (NOT word end) -> can't continue
+Step 16: -> 'l' (word end)
+Step 17: -> 'e' (word end) -> "apple" ✓
+Step 18: -> 'y' (word end) -> "apply" ✓
+Step 19: Result: "apple" (lexicographically smaller than "apply")
 
 ### TIME COMPLEXITY:
 O(N * L)

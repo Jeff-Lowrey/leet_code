@@ -48,25 +48,27 @@
  * - Early termination: Can stop as soon as we find both nodes
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
  * Tree:      1
- *          /   \\
- *         2     3
- *        /
- *       4
+ * ```
  *
+ * /   \\
+ * 2     3
+ * /
+ * 4
  * x=4, y=3:
  * - Node 4: depth=2, parent=2
  * - Node 3: depth=1, parent=1
- * - Different depths → NOT cousins
- *
  * x=2, y=3:
- * - Node 2: depth=1, parent=1
- * - Node 3: depth=1, parent=1
- * - Same parent → NOT cousins
- * ```
  *
- * ### TIME COMPLEXITY:
+ * Steps:
+ * Step 1: - Different depths → NOT cousins
+ * Step 2: - Node 2: depth=1, parent=1
+ * Step 3: - Node 3: depth=1, parent=1
+ * Step 4: - Same parent → NOT cousins
+
+### TIME COMPLEXITY:
  * O(n)
  * - In worst case, visit all nodes in tree
  * - n = number of nodes in tree

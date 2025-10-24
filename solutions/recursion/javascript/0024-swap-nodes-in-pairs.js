@@ -38,16 +38,23 @@
  * The algorithm correctly solves the problem by systematically exploring all valid states while maintaining necessary invariants. Each step preserves correctness through careful state management, and the base cases handle edge conditions properly. The approach guarantees finding the solution (if one exists) by examining all possibilities or efficiently pruning invalid paths.
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: 1->2->3->4->NULL
+ * 1->2->3->4->NULL
+ * ```
+ *
+ * Steps:
  * Step 1: Swap (1,2), recurse on 3->4
  * Step 2: Swap (3,4), recurse on NULL (base case)
  * Step 3: Link 2->4->3->NULL
  * Step 4: Link 2->4->3->1->NULL
- * Output: 2->1->4->3->NULL
- * ```
  *
- * ### TIME COMPLEXITY:
+ * Output:
+ * ```
+ * 2->1->4->3->NULL
+ * ```
+
+### TIME COMPLEXITY:
  * O(n)
  * Visit each node exactly once
  *

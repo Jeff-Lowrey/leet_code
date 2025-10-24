@@ -43,18 +43,26 @@
  * A set by definition contains only unique elements - when we convert an array to a set, any duplicates are automatically removed. By comparing the lengths of the original array and the set, we can detect if duplicates existed. The early termination approach works because as soon as we find an element already in our seen set, we've proven a duplicate exists without needing to check the remaining elements.
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: nums = [1,3,5,4,7]
- * For each position:
- * i=0: nums[0]=1, length=1, count=1
- * i=1: nums[1]=3, length=2 (1→3), count=1
- * i=2: nums[2]=5, length=3 (1→3→5), count=1
- * i=3: nums[3]=4, length=3 (1→3→4), count=1
- * i=4: nums[4]=7, length=4, count=2 (from both i=2 and i=3)
- * Output: 2
+ * nums = [1,3,5,4,7]
  * ```
  *
- * ### TIME COMPLEXITY:
+ * For each position:
+ * i=0: nums[0]=1, length=1, count=1
+ *
+ * Steps:
+ * Step 1: i=1: nums[1]=3, length=2 (1→3), count=1
+ * Step 2: i=2: nums[2]=5, length=3 (1→3→5), count=1
+ * Step 3: i=3: nums[3]=4, length=3 (1→3→4), count=1
+ * Step 4: i=4: nums[4]=7, length=4, count=2 (from both i=2 and i=3)
+ *
+ * Output:
+ * ```
+ * 2
+ * ```
+
+### TIME COMPLEXITY:
  * - DP: O(n²)
  * - Segment Tree: O(n log n)
  *

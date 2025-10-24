@@ -49,8 +49,11 @@
  * - Handles edge cases like multiple trailing spaces
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: "Hello World"
+ * "Hello World"
+ * "   fly me   to   the moon  "
+ * ```
  *
  * Method 1 (Strip and Count):
  * 1. Strip: "Hello World" (no trailing spaces)
@@ -58,17 +61,13 @@
  * 3. Count: d(1), l(2), r(3), o(4), W(5)
  * 4. Hit space, stop
  * Result: 5
- *
- * Input: "   fly me   to   the moon  "
- *
  * Method 1:
  * 1. Strip: "   fly me   to   the moon"
  * 2. Count from 'n': n(1), o(2), o(3), m(4)
  * 3. Hit space, stop
  * Result: 4
- * ```
- *
- * ### TIME COMPLEXITY:
+
+### TIME COMPLEXITY:
  * O(n)
  * - In worst case (no spaces), we scan the entire string
  * - Typically much faster as we only process the last word

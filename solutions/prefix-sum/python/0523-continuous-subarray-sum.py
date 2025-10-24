@@ -44,15 +44,18 @@ If prefix_sum[i] % k == prefix_sum[j] % k, then sum(nums[i+1:j+1]) % k == 0.
 By storing earliest occurrence of each remainder, we maximize subarray length.
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
 nums = [23,2,4,6,7], k = 6
+```
+
 Prefix sums: [23, 25, 29, 35, 42]
 Modulos: [5, 1, 5, 5, 0]
-
 At index 0: remainder 5, store {5: 0}
 At index 1: remainder 1, store {5: 0, 1: 1}
-At index 2: remainder 5, seen at index 0, distance = 2 → return true
-```
+
+Steps:
+Step 1: At index 2: remainder 5, seen at index 0, distance = 2 → return true
 
 ### TIME COMPLEXITY:
 O(n)

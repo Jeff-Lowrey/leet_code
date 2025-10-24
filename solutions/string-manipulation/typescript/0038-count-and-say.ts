@@ -52,22 +52,25 @@
  * - Building with a list and joining is efficient in Python
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
  * n = 5:
+ * ```
+ *
  * 1. "1"
  * 2. "11" (one 1)
  * 3. "21" (two 1s)
  * 4. "1211" (one 2, one 1)
  * 5. "111221" (one 1, one 2, two 1s)
  *
- * For "1211" → "111221":
- * - Read '1' once: "11"
- * - Read '2' once: "12"
- * - Read '1' twice: "21"
- * - Result: "111221"
- * ```
- *
- * ### TIME COMPLEXITY:
+ * Steps:
+ * Step 1: For "1211" → "111221":
+ * Step 2: - Read '1' once: "11"
+ * Step 3: - Read '2' once: "12"
+ * Step 4: - Read '1' twice: "21"
+ * Step 5: - Result: "111221"
+
+### TIME COMPLEXITY:
  * O(n * m)
  * - n iterations to build up to the nth term
  * - m is the length of the string at each iteration (grows exponentially)

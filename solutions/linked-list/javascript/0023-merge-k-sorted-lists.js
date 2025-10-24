@@ -42,21 +42,25 @@
  * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: lists = [[1,4,5],[1,3,4],[2,6]]
+ * lists = [[1,4,5],[1,3,4],[2,6]]
+ * ```
+ *
  * Step 1: Add all heads to min heap
- *   heap = [(1,0), (1,1), (2,2)]
- *
+ * heap = [(1,0), (1,1), (2,2)]
  * Step 2: Extract minimum and add next node
- *   Pop (1,0), add 4 from list 0
- *   Pop (1,1), add 3 from list 1
- *   Pop (2,2), add 6 from list 2
- *   Continue until heap empty
+ * Pop (1,0), add 4 from list 0
+ * Pop (1,1), add 3 from list 1
+ * Pop (2,2), add 6 from list 2
+ * Continue until heap empty
  *
- * Output: [1,1,2,3,4,4,5,6]
+ * Output:
  * ```
- *
- * ### TIME COMPLEXITY:
+ * [1,1,2,3,4,4,5,6]
+ * ```
+
+### TIME COMPLEXITY:
  * O(n)
  *
  * ### SPACE COMPLEXITY:

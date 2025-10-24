@@ -42,8 +42,11 @@ This is an advanced range sum counting problem. The key insight is to use prefix
 The algorithm correctly solves the problem by systematically exploring all valid states while maintaining necessary invariants. Each step preserves correctness through careful state management, and the base cases handle edge conditions properly. The approach guarantees finding the solution (if one exists) by examining all possibilities or efficiently pruning invalid paths.
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: nums = [-2,5,-1], lower = -2, upper = 2
+nums = [-2,5,-1], lower = -2, upper = 2
+```
+
 Prefix sums: [0, -2, 3, 2]
 Range sums to check:
 - S(0,0) = -2 ✓ (in range)
@@ -52,7 +55,10 @@ Range sums to check:
 - S(1,1) = 5 ✗
 - S(1,2) = 4 ✗
 - S(2,2) = -1 ✓
-Output: 3
+
+Output:
+```
+3
 ```
 
 ### TIME COMPLEXITY:

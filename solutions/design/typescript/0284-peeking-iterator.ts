@@ -59,20 +59,24 @@
  * - Original iterator interface is preserved
  * 
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
  * Iterator: [1,2,3]
- * PeekingIterator created
- * peek() → 1 (cache element 1, don't advance)
- * next() → 1 (return cached element, advance iterator)
- * peek() → 2 (cache element 2, don't advance)
- * peek() → 2 (return same cached element)
- * next() → 2 (return cached element, advance iterator)
- * hasNext() → true (iterator still has element 3)
- * next() → 3 (fetch from iterator)
- * hasNext() → false
  * ```
- * 
- * ### TIME COMPLEXITY:
+ *
+ * PeekingIterator created
+ *
+ * Steps:
+ * Step 1: peek() → 1 (cache element 1, don't advance)
+ * Step 2: next() → 1 (return cached element, advance iterator)
+ * Step 3: peek() → 2 (cache element 2, don't advance)
+ * Step 4: peek() → 2 (return same cached element)
+ * Step 5: next() → 2 (return cached element, advance iterator)
+ * Step 6: hasNext() → true (iterator still has element 3)
+ * Step 7: next() → 3 (fetch from iterator)
+ * Step 8: hasNext() → false
+
+### TIME COMPLEXITY:
  * O(1)
  * All operations are constant time
  * 

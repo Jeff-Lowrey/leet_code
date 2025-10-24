@@ -45,15 +45,18 @@ If n becomes 1, it's a power of two. If n is odd (and not 1), it's not.
 - If we encounter an odd number (except 1), it cannot be a power of 2
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: n = 16
-isPowerOfTwo(16) → 16 % 2 == 0, check isPowerOfTwo(8)
-isPowerOfTwo(8)  → 8 % 2 == 0, check isPowerOfTwo(4)
-isPowerOfTwo(4)  → 4 % 2 == 0, check isPowerOfTwo(2)
-isPowerOfTwo(2)  → 2 % 2 == 0, check isPowerOfTwo(1)
-isPowerOfTwo(1)  → return True
-Result: True
+n = 16
 ```
+
+Steps:
+Step 1: isPowerOfTwo(16) → 16 % 2 == 0, check isPowerOfTwo(8)
+Step 2: isPowerOfTwo(8)  → 8 % 2 == 0, check isPowerOfTwo(4)
+Step 3: isPowerOfTwo(4)  → 4 % 2 == 0, check isPowerOfTwo(2)
+Step 4: isPowerOfTwo(2)  → 2 % 2 == 0, check isPowerOfTwo(1)
+Step 5: isPowerOfTwo(1)  → return True
+Step 6: Result: True
 
 ### TIME COMPLEXITY:
 O(log n) - dividing by 2 each time

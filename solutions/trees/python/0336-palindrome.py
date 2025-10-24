@@ -47,14 +47,19 @@ Build Trie of all words. For each word, try forming palindrome pairs by checking
 - O(n * k^2) time: n words, k avg length, k splits * k palindrome check
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: words = ["abcd","dcba","lls","s","sssll"]
-Step 1: Check all pairs
-  "lls" + "s" = "llss" (not palindrome)
-  "s" + "lls" = "slls" (not palindrome)
-  "abcd" + "dcba" = "abcddcba" (palindrome) ✓
+words = ["abcd","dcba","lls","s","sssll"]
+```
 
-Output: [[0,1],[1,0]] (palindrome pairs)
+Step 1: Check all pairs
+"lls" + "s" = "llss" (not palindrome)
+"s" + "lls" = "slls" (not palindrome)
+"abcd" + "dcba" = "abcddcba" (palindrome) ✓
+
+Output:
+```
+[[0,1],[1,0]] (palindrome pairs)
 ```
 
 ### TIME COMPLEXITY:

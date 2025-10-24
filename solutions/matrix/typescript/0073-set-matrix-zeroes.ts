@@ -42,27 +42,30 @@
  * - Separate flags handle the overlap at matrix[0][0]
  *
  * ### EXAMPLE WALKTHROUGH:
- * ```
  * Input:
+ * ```
  * [1, 1, 1]
+ * ```
+ *
  * [1, 0, 1]
  * [1, 1, 1]
- *
  * Step 1 - Mark:
  * first_row = False, first_col = False
  * After marking: matrix[1][0] = 0, matrix[0][1] = 0
- *
  * Step 2 - Apply based on markers:
- * Column 1 has marker -> zero column 1
- * Row 1 has marker -> zero row 1
+ *
+ * Steps:
+ * Step 1: Column 1 has marker -> zero column 1
+ * Step 2: Row 1 has marker -> zero row 1
  *
  * Output:
+ * ```
  * [1, 0, 1]
  * [0, 0, 0]
  * [1, 0, 1]
  * ```
- *
- * ### TIME COMPLEXITY:
+
+### TIME COMPLEXITY:
  * O(m × n)
  * Two passes through the matrix
  *

@@ -47,18 +47,25 @@
  * - O(1) space: only two pointers regardless of list size
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: head = [3,2,0,-4], pos = 1 (cycle at node 2)
+ * head = [3,2,0,-4], pos = 1 (cycle at node 2)
+ * ```
+ *
  * Step 1: Fast and slow pointers
- *   slow=3, fast=3
- *   slow=2, fast=0
- *   slow=0, fast=2
- *   slow=-4, fast=-4 → meet
+ * slow=3, fast=3
+ * slow=2, fast=0
+ * slow=0, fast=2
  *
- * Output: True (has cycle)
+ * Steps:
+ * Step 1: slow=-4, fast=-4 → meet
+ *
+ * Output:
  * ```
- *
- * ### TIME COMPLEXITY:
+ * True (has cycle)
+ * ```
+
+### TIME COMPLEXITY:
  * O(n)
  *
  * ### SPACE COMPLEXITY:

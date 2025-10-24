@@ -49,28 +49,33 @@
  * - O(2^n) time: each element in/out, sorting adds O(n log n)
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: candidates = [10,1,2,7,6,1,5], target = 8
+ * candidates = [10,1,2,7,6,1,5], target = 8
+ * ```
+ *
+ * Steps:
  * Step 1: Sort candidates → [1,1,2,5,6,7,10]
- *
  * Step 2: Backtrack to find combinations
- *   Try 1: curr = [1], remain = 7
- *     Try 1: curr = [1,1], remain = 6
- *       Try 2: curr = [1,1,2], remain = 4 → continue
- *       Try 5: curr = [1,1,5], remain = 1 → continue
- *       Try 6: curr = [1,1,6], remain = 0 → add [1,1,6]
- *     Skip duplicate 1 at position 2
- *     Try 2: curr = [1,2], remain = 5
- *       Try 5: curr = [1,2,5], remain = 0 → add [1,2,5]
- *     Try 7: curr = [1,7], remain = 0 → add [1,7]
- *   Skip duplicate 1 at position 1
- *   Try 2: curr = [2], remain = 6
- *     Try 6: curr = [2,6], remain = 0 → add [2,6]
+ * Step 3: Try 1: curr = [1], remain = 7
+ * Step 4: Try 1: curr = [1,1], remain = 6
+ * Step 5: Try 2: curr = [1,1,2], remain = 4 → continue
+ * Step 6: Try 5: curr = [1,1,5], remain = 1 → continue
+ * Step 7: Try 6: curr = [1,1,6], remain = 0 → add [1,1,6]
+ * Step 8: Skip duplicate 1 at position 2
+ * Step 9: Try 2: curr = [1,2], remain = 5
+ * Step 10: Try 5: curr = [1,2,5], remain = 0 → add [1,2,5]
+ * Step 11: Try 7: curr = [1,7], remain = 0 → add [1,7]
+ * Step 12: Skip duplicate 1 at position 1
+ * Step 13: Try 2: curr = [2], remain = 6
+ * Step 14: Try 6: curr = [2,6], remain = 0 → add [2,6]
  *
- * Output: [[1,1,6],[1,2,5],[1,7],[2,6]]
+ * Output:
  * ```
- *
- * ### TIME COMPLEXITY:
+ * [[1,1,6],[1,2,5],[1,7],[2,6]]
+ * ```
+
+### TIME COMPLEXITY:
  * O(n)
  *
  * ### SPACE COMPLEXITY:

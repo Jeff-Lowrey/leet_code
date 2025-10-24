@@ -49,20 +49,20 @@
  * - Need (components - 1) cables to connect all components
  * 
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
  * n = 4, connections = [[0,1],[0,2],[1,2],[1,3]]
+ * ```
+ *
  * Total cables: 4, Need: 3, Spare: 1
- * 
  * Union-Find process:
  * - Connect 0-1: components = {0,1}, {2}, {3}
  * - Connect 0-2: components = {0,1,2}, {3}
  * - Connect 1-2: redundant (already connected)
  * - Connect 1-3: components = {0,1,2,3}
- * 
  * Components: 1, Operations needed: 0
- * ```
- * 
- * ### TIME COMPLEXITY:
+
+### TIME COMPLEXITY:
  * O(n × α(n))
  * Where α is the inverse Ackermann function (nearly constant)
  * 

@@ -42,14 +42,19 @@ Recursively swap left and right children of each node. Base case: null returns n
 - O(n) time visiting all nodes, O(h) space for recursion stack
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: root = [4,2,7,1,3,6,9]
-Step 1: Recursively swap children
-  Swap children of 4: left=7, right=2
-  Swap children of 7: left=9, right=6
-  Swap children of 2: left=3, right=1
+root = [4,2,7,1,3,6,9]
+```
 
-Output: [4,7,2,9,6,3,1] (inverted tree)
+Step 1: Recursively swap children
+Swap children of 4: left=7, right=2
+Swap children of 7: left=9, right=6
+Swap children of 2: left=3, right=1
+
+Output:
+```
+[4,7,2,9,6,3,1] (inverted tree)
 ```
 
 ### TIME COMPLEXITY:

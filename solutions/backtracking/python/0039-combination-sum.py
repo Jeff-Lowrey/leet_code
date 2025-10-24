@@ -45,12 +45,16 @@ Since numbers can be reused unlimited times, we explore each candidate multiple 
 - Using start index prevents duplicate combinations
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: candidates = [2,3,6,7], target = 7
+candidates = [2,3,6,7], target = 7
+```
+
 Combinations found: [[2,2,3], [7]]
-- Try 2: [2] -> remaining=5, try 2 again: [2,2] -> remaining=3, try 3: [2,2,3] ✓
-- Try 7: [7] -> remaining=0 ✓
-```
+
+Steps:
+Step 1: - Try 2: [2] -> remaining=5, try 2 again: [2,2] -> remaining=3, try 3: [2,2,3] ✓
+Step 2: - Try 7: [7] -> remaining=0 ✓
 
 ### TIME COMPLEXITY:
 O(N^(T/M))

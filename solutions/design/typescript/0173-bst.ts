@@ -41,16 +41,20 @@
  * - Space complexity is O(h) where h is the height of the tree
  * 
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: [7, 3, 15, null, null, 9, 20]
+ * [7, 3, 15, null, null, 9, 20]
+ * ```
+ *
  * Stack after init: [7, 3]
- * next() -> 3, stack: [7, 15, 9]
- * next() -> 7, stack: [15, 9]
- * hasNext() -> true
- * next() -> 9, stack: [15, 20]
- * ```
- * 
- * ### TIME COMPLEXITY:
+ *
+ * Steps:
+ * Step 1: next() -> 3, stack: [7, 15, 9]
+ * Step 2: next() -> 7, stack: [15, 9]
+ * Step 3: hasNext() -> true
+ * Step 4: next() -> 9, stack: [15, 20]
+
+### TIME COMPLEXITY:
  * - Constructor: O(h) where h is height
  * - next(): Amortized O(1)
  * - hasNext(): O(1)

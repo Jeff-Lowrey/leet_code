@@ -52,16 +52,22 @@
  * - Recursion handles the spreading pattern automatically
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: image = [[1,1,1],[1,1,0],[1,0,1]], sr = 1, sc = 1, color = 2
+ * image = [[1,1,1],[1,1,0],[1,0,1]], sr = 1, sc = 1, color = 2
+ * ```
+ *
  * Original color at (1,1) = 1
  * Step 1: Change (1,1) to 2, explore neighbors
  * Step 2: Change (0,0) to 2, change (0,1) to 2, change (0,2) to 2
  * Step 3: Change (1,0) to 2, change (2,0) to 2
- * Output: [[2,2,2],[2,2,0],[2,0,1]]
- * ```
  *
- * ### TIME COMPLEXITY:
+ * Output:
+ * ```
+ * [[2,2,2],[2,2,0],[2,0,1]]
+ * ```
+
+### TIME COMPLEXITY:
  * O(m×n)
  * Where m, n are image dimensions - worst case visit all pixels
  *

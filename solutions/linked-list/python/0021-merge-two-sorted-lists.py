@@ -49,17 +49,22 @@ Use dummy node to handle edge cases. Compare nodes from both lists. Advance poin
 - Single pass through both lists achieves O(m + n) time
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: list1 = [1,2,4], list2 = [1,3,4]
-Step 1: Compare and merge
-  1 ≤ 1: add 1 from list1
-  2 > 1: add 1 from list2
-  2 ≤ 3: add 2 from list1
-  4 > 3: add 3 from list2
-  4 ≤ 4: add 4 from list1
-  Remaining: 4 from list2
+list1 = [1,2,4], list2 = [1,3,4]
+```
 
-Output: [1,1,2,3,4,4]
+Step 1: Compare and merge
+1 ≤ 1: add 1 from list1
+2 > 1: add 1 from list2
+2 ≤ 3: add 2 from list1
+4 > 3: add 3 from list2
+4 ≤ 4: add 4 from list1
+Remaining: 4 from list2
+
+Output:
+```
+[1,1,2,3,4,4]
 ```
 
 ### TIME COMPLEXITY:

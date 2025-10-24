@@ -48,20 +48,25 @@
  * - Single pass is sufficient since we process left-to-right
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: s = "abbaca"
+ * s = "abbaca"
+ * ```
+ *
  * Step 1: Use stack
- *   'a': stack=['a']
- *   'b': stack=['a','b']
- *   'b': stack=['a'] (removed duplicate)
- *   'a': stack=[] (removed duplicate)
- *   'c': stack=['c']
- *   'a': stack=['c','a']
+ * 'a': stack=['a']
+ * 'b': stack=['a','b']
+ * 'b': stack=['a'] (removed duplicate)
+ * 'a': stack=[] (removed duplicate)
+ * 'c': stack=['c']
+ * 'a': stack=['c','a']
  *
- * Output: "ca"
+ * Output:
  * ```
- *
- * ### TIME COMPLEXITY:
+ * "ca"
+ * ```
+
+### TIME COMPLEXITY:
  * O(n)
  * Single pass through string with O(1) stack operations
  *

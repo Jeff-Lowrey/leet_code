@@ -42,17 +42,22 @@
  * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: words = ["abcd","dcba","lls","s","sssll"]
+ * words = ["abcd","dcba","lls","s","sssll"]
+ * ```
+ *
  * Step 1: Check all pairs
- *   "lls" + "s" = "llss" (not palindrome)
- *   "s" + "lls" = "slls" (not palindrome)
- *   "abcd" + "dcba" = "abcddcba" (palindrome) ✓
+ * "lls" + "s" = "llss" (not palindrome)
+ * "s" + "lls" = "slls" (not palindrome)
+ * "abcd" + "dcba" = "abcddcba" (palindrome) ✓
  *
- * Output: [[0,1],[1,0]] (palindrome pairs)
+ * Output:
  * ```
- *
- * ### TIME COMPLEXITY:
+ * [[0,1],[1,0]] (palindrome pairs)
+ * ```
+
+### TIME COMPLEXITY:
  * O(n)
  *
  * ### SPACE COMPLEXITY:

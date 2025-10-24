@@ -44,16 +44,22 @@
  * - Modifies board in-place for efficiency
  * 
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: board with some filled cells and '.' for empty
+ * board with some filled cells and '.' for empty
+ * ```
+ *
  * Step 1: Find first empty cell
  * Step 2: Try placing '1' - check if valid
  * Step 3: Recurse to next empty cell
  * Step 4: If contradiction found, backtrack and try '2'
- * Output: Completed valid Sudoku board
+ *
+ * Output:
  * ```
- * 
- * ### TIME COMPLEXITY:
+ * Completed valid Sudoku board
+ * ```
+
+### TIME COMPLEXITY:
  * O(9^(n*n)) worst case, where n=9
  * 
  * ### SPACE COMPLEXITY:

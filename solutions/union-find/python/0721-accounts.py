@@ -44,33 +44,37 @@ This is a classic Union-Find problem where we need to group accounts that belong
 - Union-Find naturally handles this transitivity
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: [["John","johnsmith@mail.com","john_newyork@mail.com"],
-        ["John","johnsmith@mail.com","john00@mail.com"],
-        ["Mary","mary@mail.com"],
-        ["John","johnnybravo@mail.com"]]
+[["John","johnsmith@mail.com","john_newyork@mail.com"],
+```
 
+["John","johnsmith@mail.com","john00@mail.com"],
+["Mary","mary@mail.com"],
+["John","johnnybravo@mail.com"]]
 Step 1: Map emails to accounts
-- johnsmith@mail.com → account 0
-- john_newyork@mail.com → account 0
-- johnsmith@mail.com → already exists, union(0, 1)
-- john00@mail.com → account 1
-- mary@mail.com → account 2
-- johnnybravo@mail.com → account 3
 
-Step 2: After union operations
-- Accounts 0 and 1 are connected (share johnsmith@mail.com)
-- Account 2 is separate
-- Account 3 is separate
+Steps:
+Step 1: - johnsmith@mail.com → account 0
+Step 2: - john_newyork@mail.com → account 0
+Step 3: - johnsmith@mail.com → already exists, union(0, 1)
+Step 4: - john00@mail.com → account 1
+Step 5: - mary@mail.com → account 2
+Step 6: - johnnybravo@mail.com → account 3
+Step 7: After union operations
+Step 8: - Accounts 0 and 1 are connected (share johnsmith@mail.com)
+Step 9: - Account 2 is separate
+Step 10: - Account 3 is separate
+Step 11: Group emails by parent
+Step 12: - Parent 0: {johnsmith@mail.com, john_newyork@mail.com, john00@mail.com}
+Step 13: - Parent 2: {mary@mail.com}
+Step 14: - Parent 3: {johnnybravo@mail.com}
 
-Step 3: Group emails by parent
-- Parent 0: {johnsmith@mail.com, john_newyork@mail.com, john00@mail.com}
-- Parent 2: {mary@mail.com}
-- Parent 3: {johnnybravo@mail.com}
-
-Output: [["John","john00@mail.com","john_newyork@mail.com","johnsmith@mail.com"],
-         ["Mary","mary@mail.com"],
-         ["John","johnnybravo@mail.com"]]
+Output:
+```
+[["John","john00@mail.com","john_newyork@mail.com","johnsmith@mail.com"],
+["Mary","mary@mail.com"],
+["John","johnnybravo@mail.com"]]
 ```
 
 ### TIME COMPLEXITY:

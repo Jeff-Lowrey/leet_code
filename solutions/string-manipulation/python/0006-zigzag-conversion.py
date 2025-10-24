@@ -56,27 +56,30 @@ in the current direction, reversing direction when we hit the top or bottom.
 - No complex indexing needed, just direction tracking
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: s = "PAYPALISHIRING", numRows = 3
+s = "PAYPALISHIRING", numRows = 3
+```
 
 Row buffers: ["", "", ""]
 Direction: down (1)
-
 Process each character:
-P -> row 0: ["P", "", ""]      going down
-A -> row 1: ["P", "A", ""]     going down
-Y -> row 2: ["P", "A", "Y"]    hit bottom, reverse to up
-P -> row 1: ["P", "AP", "Y"]   going up
-A -> row 0: ["PA", "AP", "Y"]  hit top, reverse to down
-L -> row 1: ["PA", "APL", "Y"] going down
-I -> row 2: ["PA", "APL", "YI"] hit bottom, reverse to up
-...
+
+Steps:
+Step 1: P -> row 0: ["P", "", ""]      going down
+Step 2: A -> row 1: ["P", "A", ""]     going down
+Step 3: Y -> row 2: ["P", "A", "Y"]    hit bottom, reverse to up
+Step 4: P -> row 1: ["P", "AP", "Y"]   going up
+Step 5: A -> row 0: ["PA", "AP", "Y"]  hit top, reverse to down
+Step 6: L -> row 1: ["PA", "APL", "Y"] going down
+Step 7: I -> row 2: ["PA", "APL", "YI"] hit bottom, reverse to up
+Step 8: ...
 
 Final rows:
+```
 Row 0: "PAHN"
 Row 1: "APLSIIG"
 Row 2: "YIR"
-
 Result: "PAHNAPLSIIGYIR"
 ```
 

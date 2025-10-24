@@ -46,13 +46,16 @@ Notice the single bit is always at position 0, 2, 4, 6, etc. (even positions).
 - All powers of 4 satisfy: (n-1) % 3 == 0
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: n = 16
-isPowerOfFour(16) → 16 % 4 == 0, check isPowerOfFour(4)
-isPowerOfFour(4)  → 4 % 4 == 0, check isPowerOfFour(1)
-isPowerOfFour(1)  → return True
-Result: True
+n = 16
 ```
+
+Steps:
+Step 1: isPowerOfFour(16) → 16 % 4 == 0, check isPowerOfFour(4)
+Step 2: isPowerOfFour(4)  → 4 % 4 == 0, check isPowerOfFour(1)
+Step 3: isPowerOfFour(1)  → return True
+Step 4: Result: True
 
 ### TIME COMPLEXITY:
 O(log₄ n) - dividing by 4 each time

@@ -46,19 +46,23 @@
  * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: schedule = [[[1,2],[5,6]],[[1,3]],[[4,10]]]
+ * schedule = [[[1,2],[5,6]],[[1,3]],[[4,10]]]
+ * ```
+ *
  * Step 1: Flatten all intervals
- *   all_intervals = [1-2, 5-6, 1-3, 4-10]
- *
+ * all_intervals = [1-2, 5-6, 1-3, 4-10]
  * Step 2: Find gaps between merged intervals
- *   merged = [1-3, 4-10]
- *   gap = [3-4]
+ * merged = [1-3, 4-10]
+ * gap = [3-4]
  *
- * Output: [[3,4]] (common free time)
+ * Output:
  * ```
- *
- * ### TIME COMPLEXITY:
+ * [[3,4]] (common free time)
+ * ```
+
+### TIME COMPLEXITY:
  * O(n)
  *
  * ### SPACE COMPLEXITY:

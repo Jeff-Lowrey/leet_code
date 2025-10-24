@@ -49,29 +49,27 @@ Alternative: Sort paths and check if each path starts with previous path + '/'
 - When we encounter a folder end marker, we know any continuation is a sub-folder
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: ["/a", "/a/b", "/c/d", "/c/d/e", "/c/f"]
+["/a", "/a/b", "/c/d", "/c/d/e", "/c/f"]
+```
 
 After sorting: ["/a", "/a/b", "/c/d", "/c/d/e", "/c/f"]
-
 Process "/a":
-  root -> 'a' (mark as folder end)
-  Result: ["/a"]
-
 Process "/a/b":
-  root -> 'a' (already folder end, skip!)
-
 Process "/c/d":
-  root -> 'c' -> 'd' (mark as folder end)
-  Result: ["/a", "/c/d"]
-
 Process "/c/d/e":
-  root -> 'c' -> 'd' (already folder end, skip!)
-
 Process "/c/f":
-  root -> 'c' -> 'f' (mark as folder end)
-  Result: ["/a", "/c/d", "/c/f"]
-```
+
+Steps:
+Step 1: root -> 'a' (mark as folder end)
+Step 2: Result: ["/a"]
+Step 3: root -> 'a' (already folder end, skip!)
+Step 4: root -> 'c' -> 'd' (mark as folder end)
+Step 5: Result: ["/a", "/c/d"]
+Step 6: root -> 'c' -> 'd' (already folder end, skip!)
+Step 7: root -> 'c' -> 'f' (mark as folder end)
+Step 8: Result: ["/a", "/c/d", "/c/f"]
 
 ### TIME COMPLEXITY:
 O(N * L * log(N))

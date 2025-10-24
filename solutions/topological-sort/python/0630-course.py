@@ -48,18 +48,22 @@ Greedy: sort courses by deadline. For each course, if time available, add to hea
 - O(n log n) for sort + heap operations, O(n) space for heap
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: courses = [[100,200],[200,1300],[1000,1250],[2000,3200]]
+courses = [[100,200],[200,1300],[1000,1250],[2000,3200]]
+```
+
 Step 1: Sort by end time
-  sorted = [[200,1300],[1000,1250],[2000,3200],[100,200]]
-
+sorted = [[200,1300],[1000,1250],[2000,3200],[100,200]]
 Step 2: Greedy selection
-  Take course ending at 1300
-  Take course ending at 1250 (can't, conflicts)
-  Take course ending at 3200
-  ...
+Take course ending at 1300
+Take course ending at 1250 (can't, conflicts)
+Take course ending at 3200
+...
 
-Output: 3 (max courses)
+Output:
+```
+3 (max courses)
 ```
 
 ### TIME COMPLEXITY:

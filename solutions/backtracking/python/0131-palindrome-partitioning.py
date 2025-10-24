@@ -45,20 +45,27 @@ At each position, try all possible substrings starting from that position. If a 
 - O(n * 2^n) time: 2^n partitions, O(n) to check/copy each
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: s = "aab"
-Step 1: Start backtracking from index 0
-  Try substring "a" (palindrome) → recurse from index 1
-    Try substring "a" (palindrome) → recurse from index 2
-      Try substring "b" (palindrome) → end of string
-      Found partition: ["a", "a", "b"]
-    Try substring "ab" (not palindrome) → skip
-  Try substring "aa" (palindrome) → recurse from index 2
-    Try substring "b" (palindrome) → end of string
-    Found partition: ["aa", "b"]
-  Try substring "aab" (not palindrome) → skip
+s = "aab"
+```
 
-Output: [["a","a","b"],["aa","b"]]
+Step 1: Start backtracking from index 0
+
+Steps:
+Step 1: Try substring "a" (palindrome) → recurse from index 1
+Step 2: Try substring "a" (palindrome) → recurse from index 2
+Step 3: Try substring "b" (palindrome) → end of string
+Step 4: Found partition: ["a", "a", "b"]
+Step 5: Try substring "ab" (not palindrome) → skip
+Step 6: Try substring "aa" (palindrome) → recurse from index 2
+Step 7: Try substring "b" (palindrome) → end of string
+Step 8: Found partition: ["aa", "b"]
+Step 9: Try substring "aab" (not palindrome) → skip
+
+Output:
+```
+[["a","a","b"],["aa","b"]]
 ```
 
 ### TIME COMPLEXITY:

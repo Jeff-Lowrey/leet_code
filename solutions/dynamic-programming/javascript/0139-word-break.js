@@ -42,23 +42,26 @@
  * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: s = "leetcode", wordDict = ["leet","code"]
+ * s = "leetcode", wordDict = ["leet","code"]
+ * ```
+ *
  * Step 1: Initialize DP
- *   dp = [True, False, False, False, False, False, False, False, False]
- *   dp[0] = True (empty string)
- *
+ * dp = [True, False, False, False, False, False, False, False, False]
+ * dp[0] = True (empty string)
  * Step 2: Check each position
- *   i=4: s[0:4]="leet" in wordDict, dp[4] = True
- *   i=8: s[4:8]="code" in wordDict and dp[4]=True, dp[8] = True
- *
+ * i=4: s[0:4]="leet" in wordDict, dp[4] = True
+ * i=8: s[4:8]="code" in wordDict and dp[4]=True, dp[8] = True
  * Step 3: Verify segmentation
- *   "leet" + "code" = "leetcode" ✓
+ * "leet" + "code" = "leetcode" ✓
  *
- * Output: True (can be segmented)
+ * Output:
  * ```
- *
- * ### TIME COMPLEXITY:
+ * True (can be segmented)
+ * ```
+
+### TIME COMPLEXITY:
  * O(n)
  *
  * ### SPACE COMPLEXITY:

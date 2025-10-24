@@ -47,8 +47,10 @@
  * - Cooldown queue ensures we respect the n interval
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
  * tasks = ["A","A","A","B","B","B"], n = 2
+ * ```
  *
  * Frequencies: A=3, B=3
  * Timeline:
@@ -60,11 +62,9 @@
  * Time 5: idle
  * Time 6: A (A done)
  * Time 7: B (B done)
- *
  * Total: 8 units
- * ```
- *
- * ### TIME COMPLEXITY:
+
+### TIME COMPLEXITY:
  * O(n × m)
  * Where n = cooldown, m = number of tasks (simulation approach)
  * Math approach: O(m) where m = number of tasks

@@ -45,18 +45,23 @@
  * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: nums = [3,2,2,3], val = 3
+ * nums = [3,2,2,3], val = 3
+ * ```
+ *
  * Step 1: Two pointers
- *   i=0, nums[0]=3=val, skip
- *   i=1, nums[1]=2≠val, nums[0]=2, i=1
- *   i=2, nums[2]=2≠val, nums[1]=2, i=2
- *   i=3, nums[3]=3=val, skip
+ * i=0, nums[0]=3=val, skip
+ * i=1, nums[1]=2≠val, nums[0]=2, i=1
+ * i=2, nums[2]=2≠val, nums[1]=2, i=2
+ * i=3, nums[3]=3=val, skip
  *
- * Output: k=2, nums=[2,2,_,_]
+ * Output:
  * ```
- *
- * ### TIME COMPLEXITY:
+ * k=2, nums=[2,2,_,_]
+ * ```
+
+### TIME COMPLEXITY:
  * O(n)
  *
  * ### SPACE COMPLEXITY:

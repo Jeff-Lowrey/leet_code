@@ -43,20 +43,22 @@
  * - Backtracking explores all valid combinations
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
  * n = 3:
- *
- * Start: ""
- * ├─ "(" → "(("  → "(((" → "((())" → "((()))"
- * │                      → "(()"   → "(()())"
- * │                                → "(())()"
- * │      → "("   → "()"   → "()((" → "()(())"
- * │                       → "()("  → "()()()"
- *
- * Result: ["((()))", "(()())", "(())()", "()(())", "()()()"]
  * ```
  *
- * ### TIME COMPLEXITY:
+ * Start: ""
+ *
+ * Steps:
+ * Step 1: ├─ "(" → "(("  → "(((" → "((())" → "((()))"
+ * Step 2: │                      → "(()"   → "(()())"
+ * Step 3: │                                → "(())()"
+ * Step 4: │      → "("   → "()"   → "()((" → "()(())"
+ * Step 5: │                       → "()("  → "()()()"
+ * Step 6: Result: ["((()))", "(()())", "(())()", "()(())", "()()()"]
+
+### TIME COMPLEXITY:
  * O(4^n / √n)
  * Catalan number: C(n) = (2n)! / ((n+1)! * n!)
  * Approximately O(4^n / √n) valid combinations

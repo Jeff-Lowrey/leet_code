@@ -40,25 +40,31 @@
  * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: nums = [1,1,2]
+ * nums = [1,1,2]
+ * ```
+ *
  * Step 1: Create frequency counter
- *   counter = {1: 2, 2: 1}
- *
+ * counter = {1: 2, 2: 1}
  * Step 2: Backtrack to build permutations
- *   Choose 1: temp = [1], counter = {1: 1, 2: 1}
- *     Choose 1: temp = [1,1], counter = {1: 0, 2: 1}
- *       Choose 2: temp = [1,1,2] → add to result
- *     Choose 2: temp = [1,2], counter = {1: 1, 2: 0}
- *       Choose 1: temp = [1,2,1] → add to result
- *   Choose 2: temp = [2], counter = {1: 2, 2: 0}
- *     Choose 1: temp = [2,1], counter = {1: 1, 2: 0}
- *       Choose 1: temp = [2,1,1] → add to result
+ * Choose 1: temp = [1], counter = {1: 1, 2: 1}
+ * Choose 1: temp = [1,1], counter = {1: 0, 2: 1}
  *
- * Output: [[1,1,2],[1,2,1],[2,1,1]]
+ * Steps:
+ * Step 1: Choose 2: temp = [1,1,2] → add to result
+ * Step 2: Choose 2: temp = [1,2], counter = {1: 1, 2: 0}
+ * Step 3: Choose 1: temp = [1,2,1] → add to result
+ * Step 4: Choose 2: temp = [2], counter = {1: 2, 2: 0}
+ * Step 5: Choose 1: temp = [2,1], counter = {1: 1, 2: 0}
+ * Step 6: Choose 1: temp = [2,1,1] → add to result
+ *
+ * Output:
  * ```
- *
- * ### TIME COMPLEXITY:
+ * [[1,1,2],[1,2,1],[2,1,1]]
+ * ```
+
+### TIME COMPLEXITY:
  * O(n)
  *
  * ### SPACE COMPLEXITY:

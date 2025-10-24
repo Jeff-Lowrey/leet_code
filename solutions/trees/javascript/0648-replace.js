@@ -44,20 +44,26 @@
  * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: dictionary = ["cat","bat","rat"], sentence = "the cattle was rattled by the battery"
+ * dictionary = ["cat","bat","rat"], sentence = "the cattle was rattled by the battery"
+ * ```
+ *
  * Step 1: Build trie from dictionary
- *   Insert: cat, bat, rat
- *
+ * Insert: cat, bat, rat
  * Step 2: Replace each word with shortest root
- *   "cattle" → "cat"
- *   "rattled" → "rat"
- *   "battery" → "bat"
  *
- * Output: "the cat was rat by the bat"
+ * Steps:
+ * Step 1: "cattle" → "cat"
+ * Step 2: "rattled" → "rat"
+ * Step 3: "battery" → "bat"
+ *
+ * Output:
  * ```
- *
- * ### TIME COMPLEXITY:
+ * "the cat was rat by the bat"
+ * ```
+
+### TIME COMPLEXITY:
  * O(n)
  *
  * ### SPACE COMPLEXITY:

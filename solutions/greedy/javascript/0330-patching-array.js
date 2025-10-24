@@ -45,28 +45,30 @@
  * The algorithm correctly solves the problem by systematically exploring all valid states while maintaining necessary invariants. Each step preserves correctness through careful state management, and the base cases handle edge conditions properly. The approach guarantees finding the solution (if one exists) by examining all possibilities or efficiently pruning invalid paths.
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: nums = [1,3], n = 6
+ * nums = [1,3], n = 6
+ * ```
  *
  * covered = 0, patches = 0
  *
+ * Steps:
  * Step 1: 1 <= 0+1? Yes → covered = 0+1 = 1
- *         Can now form: [1,1]
+ * Step 2: Can now form: [1,1]
+ * Step 3: 3 <= 1+1? No (3 > 2) → Need patch!
+ * Step 4: Patch with 2, patches = 1
+ * Step 5: covered = 1 + 2 = 3
+ * Step 6: Can now form: [1,3]
+ * Step 7: 3 <= 3+1? Yes → covered = 3+3 = 6
+ * Step 8: Can now form: [1,6]
+ * Step 9: covered >= 6, done!
  *
- * Step 2: 3 <= 1+1? No (3 > 2) → Need patch!
- *         Patch with 2, patches = 1
- *         covered = 1 + 2 = 3
- *         Can now form: [1,3]
- *
- * Step 3: 3 <= 3+1? Yes → covered = 3+3 = 6
- *         Can now form: [1,6]
- *
- * Step 4: covered >= 6, done!
- *
- * Output: 1 (patched with 2)
+ * Output:
  * ```
- *
- * ### TIME COMPLEXITY:
+ * 1 (patched with 2)
+ * ```
+
+### TIME COMPLEXITY:
  * O(m + log n)
  * Where m is length of nums. In worst case, we need log(n) patches.
  *

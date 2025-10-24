@@ -51,18 +51,24 @@ Build graph from word pairs by comparing adjacent words. Find first different ch
 - O(n * k) time: n words, k avg length, O(1) space for alphabet-size graph
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: words = ["wrt","wrf","er","ett","rftt"]
+words = ["wrt","wrf","er","ett","rftt"]
+```
+
 Step 1: Build graph from word pairs
-  "wrt" vs "wrf": t→f
-  "wrf" vs "er": w→e
-  "er" vs "ett": r→t
-  "ett" vs "rftt": e→r
 
-Step 2: Topological sort
-  Order: w→e→r→t→f
+Steps:
+Step 1: "wrt" vs "wrf": t→f
+Step 2: "wrf" vs "er": w→e
+Step 3: "er" vs "ett": r→t
+Step 4: "ett" vs "rftt": e→r
+Step 5: Topological sort
+Step 6: Order: w→e→r→t→f
 
-Output: "wertf"
+Output:
+```
+"wertf"
 ```
 
 ### TIME COMPLEXITY:

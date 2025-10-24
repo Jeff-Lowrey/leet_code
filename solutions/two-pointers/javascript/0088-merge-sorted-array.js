@@ -44,20 +44,25 @@
  * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3
+ * nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3
+ * ```
+ *
  * Step 1: Three pointers (fill from right)
- *   p1=2, p2=2, p=5: nums1[5]=max(3,6)=6
- *   p1=2, p2=1, p=4: nums1[4]=max(3,5)=5
- *   p1=2, p2=0, p=3: nums1[3]=max(3,2)=3
- *   p1=1, p2=0, p=2: nums1[2]=max(2,2)=2
- *   p1=0, p2=0, p=1: nums1[1]=max(1,2)=2
- *   p1=0, p=0: nums1[0]=1
+ * p1=2, p2=2, p=5: nums1[5]=max(3,6)=6
+ * p1=2, p2=1, p=4: nums1[4]=max(3,5)=5
+ * p1=2, p2=0, p=3: nums1[3]=max(3,2)=3
+ * p1=1, p2=0, p=2: nums1[2]=max(2,2)=2
+ * p1=0, p2=0, p=1: nums1[1]=max(1,2)=2
+ * p1=0, p=0: nums1[0]=1
  *
- * Output: [1,2,2,3,5,6]
+ * Output:
  * ```
- *
- * ### TIME COMPLEXITY:
+ * [1,2,2,3,5,6]
+ * ```
+
+### TIME COMPLEXITY:
  * O(n)
  *
  * ### SPACE COMPLEXITY:

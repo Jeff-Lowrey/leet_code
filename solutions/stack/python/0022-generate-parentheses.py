@@ -42,18 +42,20 @@ Use backtracking to build valid parentheses strings. At each step, we can add '(
 - Backtracking explores all valid combinations
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
 n = 3:
+```
 
 Start: ""
-├─ "(" → "(("  → "(((" → "((())" → "((()))"
-│                      → "(()"   → "(()())"
-│                                → "(())()"
-│      → "("   → "()"   → "()((" → "()(())"
-│                       → "()("  → "()()()"
 
-Result: ["((()))", "(()())", "(())()", "()(())", "()()()"]
-```
+Steps:
+Step 1: ├─ "(" → "(("  → "(((" → "((())" → "((()))"
+Step 2: │                      → "(()"   → "(()())"
+Step 3: │                                → "(())()"
+Step 4: │      → "("   → "()"   → "()((" → "()(())"
+Step 5: │                       → "()("  → "()()()"
+Step 6: Result: ["((()))", "(()())", "(())()", "()(())", "()()()"]
 
 ### TIME COMPLEXITY:
 O(4^n / √n)

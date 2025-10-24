@@ -46,26 +46,29 @@
  * - Set or two-pointer both detect cycles
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
  * n = 19:
+ * ```
+ *
  * 1² + 9² = 82
  * 8² + 2² = 68
  * 6² + 8² = 100
- * 1² + 0² + 0² = 1 → Happy!
- *
  * n = 2:
- * 2² = 4
- * 4² = 16
- * 1² + 6² = 37
- * 3² + 7² = 58
- * 5² + 8² = 89
- * 8² + 9² = 145
- * 1² + 4² + 5² = 42
- * 4² + 2² = 20
- * 2² + 0² = 4 → Cycle! Not happy
- * ```
  *
- * ### TIME COMPLEXITY:
+ * Steps:
+ * Step 1: 1² + 0² + 0² = 1 → Happy!
+ * Step 2: 2² = 4
+ * Step 3: 4² = 16
+ * Step 4: 1² + 6² = 37
+ * Step 5: 3² + 7² = 58
+ * Step 6: 5² + 8² = 89
+ * Step 7: 8² + 9² = 145
+ * Step 8: 1² + 4² + 5² = 42
+ * Step 9: 4² + 2² = 20
+ * Step 10: 2² + 0² = 4 → Cycle! Not happy
+
+### TIME COMPLEXITY:
  * O(log n)
  * Depends on number of digits and cycle detection
  *

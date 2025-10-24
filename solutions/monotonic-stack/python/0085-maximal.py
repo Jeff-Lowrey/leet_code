@@ -43,17 +43,21 @@ For each row, treat it as base of histogram. Heights are consecutive 1s above in
 - O(m*n) time: histogram calculation O(n) per row, O(n) space for heights array
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: matrix = [["1","0","1","0","0"],["1","0","1","1","1"]]
+matrix = [["1","0","1","0","0"],["1","0","1","1","1"]]
+```
+
 Step 1: Build height array for each row
-  row 0: heights = [1,0,1,0,0]
-  row 1: heights = [2,0,2,1,1]
-
+row 0: heights = [1,0,1,0,0]
+row 1: heights = [2,0,2,1,1]
 Step 2: Find max rectangle in each histogram
-  row 0: max = 1
-  row 1: max = 3
+row 0: max = 1
+row 1: max = 3
 
-Output: 3 (maximal rectangle)
+Output:
+```
+3 (maximal rectangle)
 ```
 
 ### TIME COMPLEXITY:

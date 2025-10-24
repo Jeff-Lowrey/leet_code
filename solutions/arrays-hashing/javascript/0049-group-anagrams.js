@@ -47,26 +47,34 @@
  * - Different anagrams will have different signatures
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: ["eat","tea","tan","ate","nat","bat"]
+ * ["eat","tea","tan","ate","nat","bat"]
+ * ```
  *
  * Using sorted string as key:
- * "eat" → key "aet" → group 1
- * "tea" → key "aet" → group 1
- * "tan" → key "ant" → group 2
- * "ate" → key "aet" → group 1
- * "nat" → key "ant" → group 2
- * "bat" → key "abt" → group 3
+ *
+ * Steps:
+ * Step 1: "eat" → key "aet" → group 1
+ * Step 2: "tea" → key "aet" → group 1
+ * Step 3: "tan" → key "ant" → group 2
+ * Step 4: "ate" → key "aet" → group 1
+ * Step 5: "nat" → key "ant" → group 2
+ * Step 6: "bat" → key "abt" → group 3
  *
  * Final groups:
+ * ```
  * "aet": ["eat", "tea", "ate"]
  * "ant": ["tan", "nat"]
  * "abt": ["bat"]
- *
- * Output: [["eat","tea","ate"], ["tan","nat"], ["bat"]]
  * ```
  *
- * ### TIME COMPLEXITY:
+ * Output:
+ * ```
+ * [["eat","tea","ate"], ["tan","nat"], ["bat"]]
+ * ```
+
+### TIME COMPLEXITY:
  * - **Sorting approach**: O(n × k log k) where n = number of strings, k = max string length
  * - **Counting approach**: O(n × k) - more efficient
  *

@@ -42,8 +42,11 @@
  * - Final result needs reversal because heap gives us reverse order
  * 
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: words = ["i","love","leetcode","i","love","coding"], k = 2
+ * words = ["i","love","leetcode","i","love","coding"], k = 2
+ * ```
+ *
  * Frequencies: {"i": 2, "love": 2, "leetcode": 1, "coding": 1}
  * Heap process:
  * - Add ("i", 2): heap = [(-2, "i")]
@@ -53,9 +56,8 @@
  * - Add ("coding", 1): heap = [(-1, "coding"), (-2, "i"), (-2, "love")]
  * - Remove coding: heap = [(-2, "love"), (-2, "i")]
  * Result: ["i", "love"] (after reversing)
- * ```
- * 
- * ### TIME COMPLEXITY:
+
+### TIME COMPLEXITY:
  * O(N log k)
  * Where N is number of words, k is the result size. Heap operations are O(log k).
  * 

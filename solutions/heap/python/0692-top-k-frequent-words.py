@@ -42,8 +42,11 @@ This problem combines frequency counting with sorting. We need to find the k mos
 - Final result needs reversal because heap gives us reverse order
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: words = ["i","love","leetcode","i","love","coding"], k = 2
+words = ["i","love","leetcode","i","love","coding"], k = 2
+```
+
 Frequencies: {"i": 2, "love": 2, "leetcode": 1, "coding": 1}
 Heap process:
 - Add ("i", 2): heap = [(-2, "i")]
@@ -53,7 +56,6 @@ Heap process:
 - Add ("coding", 1): heap = [(-1, "coding"), (-2, "i"), (-2, "love")]
 - Remove coding: heap = [(-2, "love"), (-2, "i")]
 Result: ["i", "love"] (after reversing)
-```
 
 ### TIME COMPLEXITY:
 O(N log k)

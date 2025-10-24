@@ -48,23 +48,27 @@
  * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: fruits = [1,2,1,2,3,1,1]
+ * fruits = [1,2,1,2,3,1,1]
+ * ```
+ *
  * Step 1: Expand with at most 2 types
- *   [1,2,1,2]: types={1,2}, count=4
- *   [1,2,1,2,3]: types={1,2,3}, invalid
- *
+ * [1,2,1,2]: types={1,2}, count=4
+ * [1,2,1,2,3]: types={1,2,3}, invalid
  * Step 2: Contract
- *   [2,1,2,3]: types={1,2,3}, invalid
- *   [1,2,3]: types={1,2,3}, invalid
- *   [2,3]: types={2,3}, valid
- *   [2,3,1,1]: types={2,3,1}, invalid
- *   [3,1,1]: types={3,1}, count=3
+ * [2,1,2,3]: types={1,2,3}, invalid
+ * [1,2,3]: types={1,2,3}, invalid
+ * [2,3]: types={2,3}, valid
+ * [2,3,1,1]: types={2,3,1}, invalid
+ * [3,1,1]: types={3,1}, count=3
  *
- * Output: 4 (maximum fruits)
+ * Output:
  * ```
- *
- * ### TIME COMPLEXITY:
+ * 4 (maximum fruits)
+ * ```
+
+### TIME COMPLEXITY:
  * O(n)
  *
  * ### SPACE COMPLEXITY:

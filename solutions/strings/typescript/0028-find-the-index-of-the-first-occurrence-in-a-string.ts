@@ -43,20 +43,25 @@
  * - The first match we find is guaranteed to be the earliest occurrence
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: haystack = "sadbutsad", needle = "sad"
- * Step 1: Check position 0: "sad" == "sad" ✓
- * Output: 0
+ * haystack = "sadbutsad", needle = "sad"
+ * haystack = "leetcode", needle = "leeto"
+ * ```
  *
- * Input: haystack = "leetcode", needle = "leeto"
+ * Step 1: Check position 0: "sad" == "sad" ✓
  * Step 1: Check position 0: "leetc" != "leeto" ✗
  * Step 2: Check position 1: "eetco" != "leeto" ✗
  * ...continue checking...
  * Step n: No match found
- * Output: -1
- * ```
  *
- * ### TIME COMPLEXITY:
+ * Output:
+ * ```
+ * 0
+ * -1
+ * ```
+
+### TIME COMPLEXITY:
  * O(n * m)
  * Where n is the length of haystack and m is the length of needle. In the worst case, we check
  * every position (n - m + 1) and for each position compare m characters.

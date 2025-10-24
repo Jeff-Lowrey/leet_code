@@ -45,20 +45,21 @@
  * - Deque provides O(1) append/popleft operations
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
  * Tree:        1
- *           /  |  \\
- *          3   2   4
- *         / \\
- *        5   6
+ * ```
  *
+ * /  |  \\
+ * 3   2   4
+ * / \\
+ * 5   6
  * Level 0: [1]
  * Level 1: [3, 2, 4]
  * Level 2: [5, 6]
  * Result: [[1], [3, 2, 4], [5, 6]]
- * ```
- *
- * ### TIME COMPLEXITY:
+
+### TIME COMPLEXITY:
  * O(n)
  * - Visit each node exactly once
  * - n = total number of nodes in tree

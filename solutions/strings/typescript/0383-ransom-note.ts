@@ -42,22 +42,27 @@
  * - If any character is unavailable or exhausted, we return False immediately
  * 
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: ransomNote = "aa", magazine = "aab"
+ * ransomNote = "aa", magazine = "aab"
+ * ransomNote = "aa", magazine = "ab"
+ * ```
+ *
  * Step 1: Count magazine chars: {'a': 2, 'b': 1}
  * Step 2: Check 'a' (first): count is 2, decrement to 1
  * Step 3: Check 'a' (second): count is 1, decrement to 0
  * Step 4: All characters available
- * Output: True
- * 
- * Input: ransomNote = "aa", magazine = "ab"
  * Step 1: Count magazine chars: {'a': 1, 'b': 1}
  * Step 2: Check 'a' (first): count is 1, decrement to 0
  * Step 3: Check 'a' (second): count is 0, not available
- * Output: False
+ *
+ * Output:
  * ```
- * 
- * ### TIME COMPLEXITY:
+ * True
+ * False
+ * ```
+
+### TIME COMPLEXITY:
  * O(m + n)
  * Where m is the length of magazine and n is the length of ransomNote. We iterate through both
  * strings once.

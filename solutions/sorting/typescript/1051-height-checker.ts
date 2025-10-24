@@ -42,20 +42,20 @@
  * - Simple comparison gives us the mismatch count
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: heights = [1,1,4,2,1,3]
- * Expected (sorted): [1,1,1,2,3,4]
+ * heights = [1,1,4,2,1,3]
+ * ```
  *
+ * Expected (sorted): [1,1,1,2,3,4]
  * Compare:
  * Current:  [1,1,4,2,1,3]
  * Expected: [1,1,1,2,3,4]
  * Match:     ✓ ✓ ✗ ✓ ✗ ✗
- *
  * Mismatches at indices: 2, 4, 5
  * Count: 3
- * ```
- *
- * ### TIME COMPLEXITY:
+
+### TIME COMPLEXITY:
  * O(n log n)
  * Due to sorting the array
  *

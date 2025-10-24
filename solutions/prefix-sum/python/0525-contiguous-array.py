@@ -41,17 +41,18 @@ If we treat 0 as -1, then a subarray with equal 0s and 1s will have sum 0.
 Using prefix sums: if prefix[i] == prefix[j], then sum(nums[i+1:j+1]) == 0.
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
 nums = [0, 1, 0]
+```
+
 Transform to: [-1, 1, -1]
 Prefix sums: [-1, 0, -1]
-
 Index -1: sum 0 (initialize)
 Index 0: sum -1, store {0: -1, -1: 0}
 Index 1: sum 0, seen at index -1, length = 1 - (-1) = 2
 Index 2: sum -1, seen at index 0, length = 2 - 0 = 2
 Maximum length = 2
-```
 
 ### TIME COMPLEXITY:
 O(n)

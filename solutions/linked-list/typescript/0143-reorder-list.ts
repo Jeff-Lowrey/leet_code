@@ -53,21 +53,26 @@
  * - In-place manipulation means no extra nodes created, achieving O(1) auxiliary space
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: head = [1,2,3,4]
+ * head = [1,2,3,4]
+ * ```
+ *
  * Step 1: Find middle
- *   middle at node 2
- *
+ * middle at node 2
  * Step 2: Reverse second half
- *   [3,4] → [4,3]
  *
- * Step 3: Merge alternating
- *   1 → 4 → 2 → 3
+ * Steps:
+ * Step 1: [3,4] → [4,3]
+ * Step 2: Merge alternating
+ * Step 3: 1 → 4 → 2 → 3
  *
- * Output: [1,4,2,3]
+ * Output:
  * ```
- *
- * ### TIME COMPLEXITY:
+ * [1,4,2,3]
+ * ```
+
+### TIME COMPLEXITY:
  * O(n)
  *
  * ### SPACE COMPLEXITY:

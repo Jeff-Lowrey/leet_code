@@ -54,14 +54,18 @@ A Trie (prefix tree) is perfect for this - it allows efficient storage and searc
 - Time complexity is optimal for both operations
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
 addWord("bad")
+```
+
 addWord("dad")
 addWord("mad")
-search("pad") -> false
-search(".ad") -> true (matches "bad", "dad", "mad")
-search("b..") -> true (matches "bad")
-```
+
+Steps:
+Step 1: search("pad") -> false
+Step 2: search(".ad") -> true (matches "bad", "dad", "mad")
+Step 3: search("b..") -> true (matches "bad")
 
 ### TIME COMPLEXITY:
 - addWord: O(n) where n is word length

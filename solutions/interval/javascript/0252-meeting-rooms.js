@@ -40,18 +40,24 @@
  * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: intervals = [[0,30],[5,10],[15,20]]
+ * intervals = [[0,30],[5,10],[15,20]]
+ * ```
+ *
  * Step 1: Sort by start time
- *   sorted = [[0,30],[5,10],[15,20]]
- *
+ * sorted = [[0,30],[5,10],[15,20]]
  * Step 2: Check for overlaps
- *   [0,30] vs [5,10]: 5 < 30 → overlap found
  *
- * Output: False (cannot attend all meetings)
+ * Steps:
+ * Step 1: [0,30] vs [5,10]: 5 < 30 → overlap found
+ *
+ * Output:
  * ```
- *
- * ### TIME COMPLEXITY:
+ * False (cannot attend all meetings)
+ * ```
+
+### TIME COMPLEXITY:
  * O(n)
  *
  * ### SPACE COMPLEXITY:

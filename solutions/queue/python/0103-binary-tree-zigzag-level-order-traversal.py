@@ -46,18 +46,21 @@ Use a flag to track whether we should append values left-to-right or right-to-le
 - Deque provides O(1) append/popleft operations
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
 Tree:      3
-         /   \\
-        9     20
-             /  \\
-            15   7
-
-Level 0 (L->R): [3]
-Level 1 (R->L): [20, 9]
-Level 2 (L->R): [15, 7]
-Result: [[3], [20, 9], [15, 7]]
 ```
+
+/   \\
+9     20
+/  \\
+15   7
+
+Steps:
+Step 1: Level 0 (L->R): [3]
+Step 2: Level 1 (R->L): [20, 9]
+Step 3: Level 2 (L->R): [15, 7]
+Step 4: Result: [[3], [20, 9], [15, 7]]
 
 ### TIME COMPLEXITY:
 O(n)

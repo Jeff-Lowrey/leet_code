@@ -44,20 +44,21 @@ This problem extends island finding by allowing us to change one 0 to 1 to maxim
 - Handle edge case where grid is already all 1's
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
 Grid: [[1,0],[0,1]]
+```
 
 Step 1 - Label islands:
 Island 2: [(0,0)] size=1
 Island 3: [(1,1)] size=1
 Labeled grid: [[2,0],[0,3]]
-
 Step 2 - Try flipping each 0:
-Flip (0,1): neighbors are [2] → new size = 1 + 1 = 2
-Flip (1,0): neighbors are [2,3] → new size = 1 + 1 + 1 = 3
 
-Maximum possible island size: 3
-```
+Steps:
+Step 1: Flip (0,1): neighbors are [2] → new size = 1 + 1 = 2
+Step 2: Flip (1,0): neighbors are [2,3] → new size = 1 + 1 + 1 = 3
+Step 3: Maximum possible island size: 3
 
 ### TIME COMPLEXITY:
 O(N²)

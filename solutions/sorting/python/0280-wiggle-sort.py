@@ -46,27 +46,28 @@ by swapping elements when the pattern is violated, without sorting.
 - One pass is sufficient to fix all violations
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: nums = [3,5,2,1,6,4]
+nums = [3,5,2,1,6,4]
+```
 
 One-pass approach:
-i=0 (even): 3 <= 5? YES, no swap -> [3,5,2,1,6,4]
-i=1 (odd):  5 >= 2? YES, no swap -> [3,5,2,1,6,4]
-i=2 (even): 2 <= 1? NO, swap     -> [3,5,1,2,6,4]
-i=3 (odd):  2 >= 6? NO, swap     -> [3,5,1,6,2,4]
-i=4 (even): 2 <= 4? YES, no swap -> [3,5,1,6,2,4]
-
-Final: [3,5,1,6,2,4]
-Verify: 3<=5>=1<=6>=2<=4 ✓
-
 Sorting approach:
-Sort: [1,2,3,4,5,6]
 Pair and swap:
-- Take pairs: (1,2), (3,4), (5,6)
-- Swap each pair: (2,1), (4,3), (6,5)
-- Result: [2,1,4,3,6,5]
-- Verify: 2>=1<=4>=3<=6>=5 ✓
-```
+
+Steps:
+Step 1: i=0 (even): 3 <= 5? YES, no swap -> [3,5,2,1,6,4]
+Step 2: i=1 (odd):  5 >= 2? YES, no swap -> [3,5,2,1,6,4]
+Step 3: i=2 (even): 2 <= 1? NO, swap     -> [3,5,1,2,6,4]
+Step 4: i=3 (odd):  2 >= 6? NO, swap     -> [3,5,1,6,2,4]
+Step 5: i=4 (even): 2 <= 4? YES, no swap -> [3,5,1,6,2,4]
+Step 6: Final: [3,5,1,6,2,4]
+Step 7: Verify: 3<=5>=1<=6>=2<=4 ✓
+Step 8: Sort: [1,2,3,4,5,6]
+Step 9: - Take pairs: (1,2), (3,4), (5,6)
+Step 10: - Swap each pair: (2,1), (4,3), (6,5)
+Step 11: - Result: [2,1,4,3,6,5]
+Step 12: - Verify: 2>=1<=4>=3<=6>=5 ✓
 
 ### TIME COMPLEXITY:
 O(n)

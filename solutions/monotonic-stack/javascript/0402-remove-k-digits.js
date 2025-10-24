@@ -40,21 +40,26 @@
  * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: num = "1432219", k = 3
+ * num = "1432219", k = 3
+ * ```
+ *
  * Step 1: Use monotonic stack
- *   Add '1': stack=['1']
- *   Add '4': stack=['1','4']
- *   Add '3': pop '4' (3<4), k=2, stack=['1','3']
- *   Add '2': pop '3' (2<3), k=1, stack=['1','2']
- *   Add '2': stack=['1','2','2']
- *   Add '1': pop '2' (1<2), k=0, stack=['1','2','1']
- *   Add '9': stack=['1','2','1','9']
+ * Add '1': stack=['1']
+ * Add '4': stack=['1','4']
+ * Add '3': pop '4' (3<4), k=2, stack=['1','3']
+ * Add '2': pop '3' (2<3), k=1, stack=['1','2']
+ * Add '2': stack=['1','2','2']
+ * Add '1': pop '2' (1<2), k=0, stack=['1','2','1']
+ * Add '9': stack=['1','2','1','9']
  *
- * Output: "1219"
+ * Output:
  * ```
- *
- * ### TIME COMPLEXITY:
+ * "1219"
+ * ```
+
+### TIME COMPLEXITY:
  * O(n)
  *
  * ### SPACE COMPLEXITY:

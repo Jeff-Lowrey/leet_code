@@ -47,17 +47,22 @@ Use deque to maintain indices of useful elements (potential maximums). Remove in
 - O(n) time: each element added/removed once, O(k) space for deque
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: nums = [1,3,-1,-3,5,3,6,7], k = 3
-Step 1: Use deque to track indices
-  Window [1,3,-1]: max=3
-  Window [3,-1,-3]: max=3
-  Window [-1,-3,5]: max=5
-  Window [-3,5,3]: max=5
-  Window [5,3,6]: max=6
-  Window [3,6,7]: max=7
+nums = [1,3,-1,-3,5,3,6,7], k = 3
+```
 
-Output: [3,3,5,5,6,7]
+Step 1: Use deque to track indices
+Window [1,3,-1]: max=3
+Window [3,-1,-3]: max=3
+Window [-1,-3,5]: max=5
+Window [-3,5,3]: max=5
+Window [5,3,6]: max=6
+Window [3,6,7]: max=7
+
+Output:
+```
+[3,3,5,5,6,7]
 ```
 
 ### TIME COMPLEXITY:

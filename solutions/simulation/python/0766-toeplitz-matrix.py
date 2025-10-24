@@ -61,11 +61,13 @@ We can check this property for all valid positions.
 - Checking adjacent cells on diagonal ensures entire diagonal is same
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
 matrix = [[1,2,3,4],
-          [5,1,2,3],
-          [9,5,1,2]]
+```
 
+[5,1,2,3],
+[9,5,1,2]]
 Check (0,0)==(1,1): 1==1 ✓
 Check (0,1)==(1,2): 2==2 ✓
 Check (0,2)==(1,3): 3==3 ✓
@@ -73,8 +75,8 @@ Check (1,0)==(2,1): 5==5 ✓
 Check (1,1)==(2,2): 1==1 ✓
 Check (1,2)==(2,3): 2==2 ✓
 
-All checks pass → True
-```
+Steps:
+Step 1: All checks pass → True
 
 ### TIME COMPLEXITY:
 O(m × n)

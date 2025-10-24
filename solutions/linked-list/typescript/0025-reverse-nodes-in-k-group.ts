@@ -48,21 +48,26 @@
  * - O(n) time as each node visited twice (check + reverse), O(1) space
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: head = [1,2,3,4,5], k = 2
+ * head = [1,2,3,4,5], k = 2
+ * ```
+ *
  * Step 1: Reverse first k nodes
- *   [1,2] → [2,1]
  *
+ * Steps:
+ * Step 1: [1,2] → [2,1]
  * Step 2: Reverse next k nodes
- *   [3,4] → [4,3]
+ * Step 3: [3,4] → [4,3]
+ * Step 4: Last group < k, keep as is
+ * Step 5: [5] → [5]
  *
- * Step 3: Last group < k, keep as is
- *   [5] → [5]
- *
- * Output: [2,1,4,3,5]
+ * Output:
  * ```
- *
- * ### TIME COMPLEXITY:
+ * [2,1,4,3,5]
+ * ```
+
+### TIME COMPLEXITY:
  * O(n)
  *
  * ### SPACE COMPLEXITY:

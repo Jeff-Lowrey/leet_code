@@ -46,8 +46,10 @@ Several approaches: min-heap (keep k largest), max-heap (pop k-1 times), or Quic
 - **Quick Select** doesn't need full sort, just correct position
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
 nums = [3,2,1,5,6,4], k = 2
+```
 
 Min-Heap approach:
 - Build heap with first k=2: [2, 3]
@@ -56,14 +58,12 @@ Min-Heap approach:
 - Process 6: 6 > 3, replace: [5, 6]
 - Process 4: 4 < 5, skip
 - Result: heap[0] = 5
-
 QuickSelect approach:
 - Pivot 4: [3,2,1,4] | [5,6]
 - Position 4 from right, need position 2
 - Recurse right: [5,6]
 - Pivot 5: [5] | [6]
 - Position 2 from right = answer: 5
-```
 
 ### TIME COMPLEXITY:
 - Min-heap: O(n log k)

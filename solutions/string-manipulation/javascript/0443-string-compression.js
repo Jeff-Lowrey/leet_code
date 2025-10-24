@@ -60,26 +60,24 @@
  * - Converting count to string and iterating over digits handles multi-digit counts
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: ["a","a","b","b","c","c","c"]
+ * ["a","a","b","b","c","c","c"]
+ * ```
  *
  * Read pointer scans:
  * 1. chars[0-1]: 'a' appears 2 times
- *    Write: chars[0]='a', chars[1]='2'
- *    write=2
- *
+ * Write: chars[0]='a', chars[1]='2'
+ * write=2
  * 2. chars[2-3]: 'b' appears 2 times
- *    Write: chars[2]='b', chars[3]='2'
- *    write=4
- *
+ * Write: chars[2]='b', chars[3]='2'
+ * write=4
  * 3. chars[4-6]: 'c' appears 3 times
- *    Write: chars[4]='c', chars[5]='3'
- *    write=6
- *
+ * Write: chars[4]='c', chars[5]='3'
+ * write=6
  * Result: ["a","2","b","2","c","3"] with length 6
- * ```
- *
- * ### TIME COMPLEXITY:
+
+### TIME COMPLEXITY:
  * O(n)
  * - Single pass through the array with read pointer
  * - Writing compressed data is proportional to input size

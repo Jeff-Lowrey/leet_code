@@ -47,25 +47,27 @@
  * - Navigation follows the typed prefix exactly
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
  * products = ["mobile","mouse","moneypot","monitor","mousepad"]
- * searchWord = "mouse"
- *
- * Build Trie and store suggestions:
- *   root -> 'm' (suggestions: ["mobile", "moneypot", "monitor"])
- *        -> 'o' (suggestions: ["mobile", "moneypot", "monitor"])
- *        -> 'u' (suggestions: ["mouse", "mousepad"])
- *        -> 's' (suggestions: ["mouse", "mousepad"])
- *        -> 'e' (suggestions: ["mouse", "mousepad"])
- *
- * Process 'm': ["mobile", "moneypot", "monitor"]
- * Process 'mo': ["mobile", "moneypot", "monitor"]
- * Process 'mou': ["mouse", "mousepad"]
- * Process 'mous': ["mouse", "mousepad"]
- * Process 'mouse': ["mouse", "mousepad"]
  * ```
  *
- * ### TIME COMPLEXITY:
+ * searchWord = "mouse"
+ * Build Trie and store suggestions:
+ *
+ * Steps:
+ * Step 1: root -> 'm' (suggestions: ["mobile", "moneypot", "monitor"])
+ * Step 2: -> 'o' (suggestions: ["mobile", "moneypot", "monitor"])
+ * Step 3: -> 'u' (suggestions: ["mouse", "mousepad"])
+ * Step 4: -> 's' (suggestions: ["mouse", "mousepad"])
+ * Step 5: -> 'e' (suggestions: ["mouse", "mousepad"])
+ * Step 6: Process 'm': ["mobile", "moneypot", "monitor"]
+ * Step 7: Process 'mo': ["mobile", "moneypot", "monitor"]
+ * Step 8: Process 'mou': ["mouse", "mousepad"]
+ * Step 9: Process 'mous': ["mouse", "mousepad"]
+ * Step 10: Process 'mouse': ["mouse", "mousepad"]
+
+### TIME COMPLEXITY:
  * O(N * L + S)
  * Where N is number of products, L is average length, S is searchWord length
  * - Building trie with suggestions: O(N * L)

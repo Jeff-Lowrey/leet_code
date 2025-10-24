@@ -53,8 +53,10 @@
  * Using BFS with a queue processes nodes level by level. Tracking level size ensures we group nodes correctly. This works because BFS naturally visits nodes in level order, and we can identify level boundaries by counting nodes in the queue at each level's start.
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
  * coins = [1,2,5], `amount = 11`
+ * ```
  *
  * dp[0] = 0
  * dp[1] = 1 (use coin 1)
@@ -65,9 +67,8 @@
  * dp[6] = 2 (use coin `5 + coin` 1)
  * ...
  * dp[11] = 3 (use coin `5 + coin` `5 + coin` 1)
- * ```
- *
- * ### TIME COMPLEXITY:
+
+### TIME COMPLEXITY:
  * O(amount × len(coins))
  * For each amount from 1 to target, try all coins
  *

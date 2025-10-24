@@ -46,35 +46,36 @@
  * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: numbers = [2, 7, 11, 15], target = 9
+ * numbers = [2, 7, 11, 15], target = 9
+ * ```
  *
  * Step 1: Initialize pointers
- *   left = 0 (numbers[0] = 2)
- *   right = 3 (numbers[3] = 15)
- *
+ * left = 0 (numbers[0] = 2)
+ * right = 3 (numbers[3] = 15)
  * Step 2: First iteration
- *   current_sum = 2 + 15 = 17
- *   17 > 9, so move right pointer left
- *   right = 2
- *
+ * current_sum = 2 + 15 = 17
+ * 17 > 9, so move right pointer left
+ * right = 2
  * Step 3: Second iteration
- *   left = 0 (numbers[0] = 2)
- *   right = 2 (numbers[2] = 11)
- *   current_sum = 2 + 11 = 13
- *   13 > 9, so move right pointer left
- *   right = 1
- *
+ * left = 0 (numbers[0] = 2)
+ * right = 2 (numbers[2] = 11)
+ * current_sum = 2 + 11 = 13
+ * 13 > 9, so move right pointer left
+ * right = 1
  * Step 4: Third iteration
- *   left = 0 (numbers[0] = 2)
- *   right = 1 (numbers[1] = 7)
- *   current_sum = 2 + 7 = 9
- *   9 == 9 ✓ Found!
+ * left = 0 (numbers[0] = 2)
+ * right = 1 (numbers[1] = 7)
+ * current_sum = 2 + 7 = 9
+ * 9 == 9 ✓ Found!
  *
- * Output: [1, 2] (1-indexed positions)
+ * Output:
  * ```
- *
- * ### TIME COMPLEXITY:
+ * [1, 2] (1-indexed positions)
+ * ```
+
+### TIME COMPLEXITY:
  * O(n)
  *
  * ### SPACE COMPLEXITY:

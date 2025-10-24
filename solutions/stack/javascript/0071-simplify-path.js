@@ -51,23 +51,27 @@
  * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: path = "/a/./b/../../c/"
+ * path = "/a/./b/../../c/"
+ * ```
+ *
  * Step 1: Split by '/' and process
- *   parts = ['', 'a', '.', 'b', '..', '..', 'c', '']
- *
+ * parts = ['', 'a', '.', 'b', '..', '..', 'c', '']
  * Step 2: Use stack
- *   'a': stack=['a']
- *   '.': skip
- *   'b': stack=['a','b']
- *   '..': pop, stack=['a']
- *   '..': pop, stack=[]
- *   'c': stack=['c']
+ * 'a': stack=['a']
+ * '.': skip
+ * 'b': stack=['a','b']
+ * '..': pop, stack=['a']
+ * '..': pop, stack=[]
+ * 'c': stack=['c']
  *
- * Output: "/c"
+ * Output:
  * ```
- *
- * ### TIME COMPLEXITY:
+ * "/c"
+ * ```
+
+### TIME COMPLEXITY:
  * O(n)
  *
  * ### SPACE COMPLEXITY:

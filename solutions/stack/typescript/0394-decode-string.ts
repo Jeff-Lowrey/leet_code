@@ -45,8 +45,11 @@
  * - Numbers are always followed by '[', so we can parse them together
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: "3[a2[c]]"
+ * "3[a2[c]]"
+ * ```
+ *
  * 1. '3': count = 3
  * 2. '[': push count=3, string="", reset current
  * 3. 'a': current_string = "a"
@@ -55,10 +58,13 @@
  * 6. 'c': current_string = "c"
  * 7. ']': current = "c" * 2 = "cc", pop: current = "a" + "cc" = "acc"
  * 8. ']': current = "acc" * 3 = "accaccacc"
- * Output: "accaccacc"
- * ```
  *
- * ### TIME COMPLEXITY:
+ * Output:
+ * ```
+ * "accaccacc"
+ * ```
+
+### TIME COMPLEXITY:
  * O(n × m)
  * Where n is length of input, m is maximum decoded length
  *

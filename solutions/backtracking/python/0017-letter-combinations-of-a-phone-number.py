@@ -45,12 +45,15 @@ where we explore all paths.
 - Each recursive call handles one digit at a time
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: "23"
+"23"
+```
+
+Steps:
 Step 1: digit '2' -> try 'a', 'b', 'c'
 Step 2: For each letter from '2', try letters from '3' -> 'd', 'e', 'f'
-Result: ["ad","ae","af","bd","be","bf","cd","ce","cf"]
-```
+Step 3: Result: ["ad","ae","af","bd","be","bf","cd","ce","cf"]
 
 ### TIME COMPLEXITY:
 O(3^N × 4^M)

@@ -42,23 +42,26 @@
  * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: s = "aab"
+ * s = "aab"
+ * ```
+ *
  * Step 1: Count character frequencies
- *   freq = {'a': 2, 'b': 1}
- *
+ * freq = {'a': 2, 'b': 1}
  * Step 2: Build max heap (using negative frequencies)
- *   heap = [(-2, 'a'), (-1, 'b')]
- *
+ * heap = [(-2, 'a'), (-1, 'b')]
  * Step 3: Rearrange characters
- *   Pick 'a': result = "a", heap = [(-1, 'b'), (-1, 'a')]
- *   Pick 'b': result = "ab", heap = [(-1, 'a')]
- *   Pick 'a': result = "aba"
+ * Pick 'a': result = "a", heap = [(-1, 'b'), (-1, 'a')]
+ * Pick 'b': result = "ab", heap = [(-1, 'a')]
+ * Pick 'a': result = "aba"
  *
- * Output: "aba" (reorganized string)
+ * Output:
  * ```
- *
- * ### TIME COMPLEXITY:
+ * "aba" (reorganized string)
+ * ```
+
+### TIME COMPLEXITY:
  * O(n)
  *
  * ### SPACE COMPLEXITY:

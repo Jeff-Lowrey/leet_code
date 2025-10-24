@@ -57,25 +57,26 @@ For an m×n matrix, transpose is n×m.
 - Each element lands in exactly one position
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
 matrix = [[1,2,3],
-          [4,5,6]]
-
-Original: 2×3 (2 rows, 3 cols)
-
-Element positions:
-(0,0):1 → (0,0):1
-(0,1):2 → (1,0):2
-(0,2):3 → (2,0):3
-(1,0):4 → (0,1):4
-(1,1):5 → (1,1):5
-(1,2):6 → (2,1):6
-
-Result: 3×2 (3 rows, 2 cols)
-[[1,4],
- [2,5],
- [3,6]]
 ```
+
+[4,5,6]]
+Original: 2×3 (2 rows, 3 cols)
+Element positions:
+
+Steps:
+Step 1: (0,0):1 → (0,0):1
+Step 2: (0,1):2 → (1,0):2
+Step 3: (0,2):3 → (2,0):3
+Step 4: (1,0):4 → (0,1):4
+Step 5: (1,1):5 → (1,1):5
+Step 6: (1,2):6 → (2,1):6
+Step 7: Result: 3×2 (3 rows, 2 cols)
+Step 8: [[1,4],
+Step 9: [2,5],
+Step 10: [3,6]]
 
 ### TIME COMPLEXITY:
 O(m × n)

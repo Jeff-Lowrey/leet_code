@@ -57,24 +57,26 @@
  * Going up (..) is a pop, going down (dirname) is a push.
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
  * path = "/a/./b/../../c/"
- * Split: ['', 'a', '.', 'b', '..', '..', 'c', '']
- *
- * Process:
- * '' → skip
- * 'a' → push ['a']
- * '.' → skip ['a']
- * 'b' → push ['a', 'b']
- * '..' → pop ['a']
- * '..' → pop []
- * 'c' → push ['c']
- * '' → skip ['c']
- *
- * Result: "/" + "c" = "/c"
  * ```
  *
- * ### TIME COMPLEXITY:
+ * Split: ['', 'a', '.', 'b', '..', '..', 'c', '']
+ * Process:
+ *
+ * Steps:
+ * Step 1: '' → skip
+ * Step 2: 'a' → push ['a']
+ * Step 3: '.' → skip ['a']
+ * Step 4: 'b' → push ['a', 'b']
+ * Step 5: '..' → pop ['a']
+ * Step 6: '..' → pop []
+ * Step 7: 'c' → push ['c']
+ * Step 8: '' → skip ['c']
+ * Step 9: Result: "/" + "c" = "/c"
+
+### TIME COMPLEXITY:
  * O(n) where n is path length
  *
  * ### SPACE COMPLEXITY:

@@ -45,14 +45,17 @@
  * - Each recursive call handles one digit at a time
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: "23"
- * Step 1: digit '2' -> try 'a', 'b', 'c'
- * Step 2: For each letter from '2', try letters from '3' -> 'd', 'e', 'f'
- * Result: ["ad","ae","af","bd","be","bf","cd","ce","cf"]
+ * "23"
  * ```
  *
- * ### TIME COMPLEXITY:
+ * Steps:
+ * Step 1: digit '2' -> try 'a', 'b', 'c'
+ * Step 2: For each letter from '2', try letters from '3' -> 'd', 'e', 'f'
+ * Step 3: Result: ["ad","ae","af","bd","be","bf","cd","ce","cf"]
+
+### TIME COMPLEXITY:
  * O(3^N × 4^M)
  * Where N is number of digits mapping to 3 letters, M is digits mapping to 4 letters
  *

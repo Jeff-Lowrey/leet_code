@@ -47,18 +47,23 @@
  * - O(n) time for s2 length n, O(1) space for fixed alphabet size
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: s1 = "ab", s2 = "eidbaooo"
+ * s1 = "ab", s2 = "eidbaooo"
+ * ```
+ *
  * Step 1: Check each window of size 2
- *   "ei": not permutation
- *   "id": not permutation
- *   "db": not permutation
- *   "ba": is permutation of "ab" ✓
+ * "ei": not permutation
+ * "id": not permutation
+ * "db": not permutation
+ * "ba": is permutation of "ab" ✓
  *
- * Output: True
+ * Output:
  * ```
- *
- * ### TIME COMPLEXITY:
+ * True
+ * ```
+
+### TIME COMPLEXITY:
  * O(n)
  *
  * ### SPACE COMPLEXITY:

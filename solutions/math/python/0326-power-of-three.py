@@ -45,14 +45,17 @@ If n becomes 1, it's a power of three.
 - If we cannot divide evenly, n is not a power of 3
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: n = 27
-isPowerOfThree(27) → 27 % 3 == 0, check isPowerOfThree(9)
-isPowerOfThree(9)  → 9 % 3 == 0, check isPowerOfThree(3)
-isPowerOfThree(3)  → 3 % 3 == 0, check isPowerOfThree(1)
-isPowerOfThree(1)  → return True
-Result: True
+n = 27
 ```
+
+Steps:
+Step 1: isPowerOfThree(27) → 27 % 3 == 0, check isPowerOfThree(9)
+Step 2: isPowerOfThree(9)  → 9 % 3 == 0, check isPowerOfThree(3)
+Step 3: isPowerOfThree(3)  → 3 % 3 == 0, check isPowerOfThree(1)
+Step 4: isPowerOfThree(1)  → return True
+Step 5: Result: True
 
 ### TIME COMPLEXITY:
 O(log₃ n) - dividing by 3 each time

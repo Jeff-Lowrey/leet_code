@@ -53,16 +53,15 @@ The challenge is applying rules simultaneously to all cells. Use state encoding 
 The encoding preserves original state information while tracking transitions. During neighbor counting, we can distinguish original live cells (1 or 2) from original dead cells (0 or 3), ensuring correct rule application.
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Initial: [0,1,0]    →    [0,0,0]
-         [0,0,1]    →    [1,0,1]
-         [1,1,1]    →    [0,1,1]
-         [0,0,0]    →    [0,1,0]
 ```
 
-Live cell (1,2) has 3 neighbors → survives
-Dead cell (1,0) has 3 neighbors → becomes alive
-Dead cell (0,1) has 2 neighbors → stays dead
+Steps:
+Step 1: Initial: [0,1,0]    →    [0,0,0]
+Step 2: [0,0,1]    →    [1,0,1]
+Step 3: [1,1,1]    →    [0,1,1]
+Step 4: [0,0,0]    →    [0,1,0]
 
 ### TIME COMPLEXITY:
 O(m × n)

@@ -51,24 +51,6 @@ Input:
 nums = [1,2,3]
 ```
 
-**Step 1:** Backtracking approach
-- Start with [] → add to result
-  - Add 1: [1] → add to result
-    - Add 2: [1,2] → add to result
-      - Add 3: [1,2,3] → add to result
-    - Add 3: [1,3] → add to result
-  - Add 2: [2] → add to result
-    - Add 3: [2,3] → add to result
-  - Add 3: [3] → add to result
-
-**Step 2:** Iterative approach
-- Start: result = [[]]
-- Add 1: result = [[], [1]]
-- Add 2: result = [[], [1], [2], [1,2]]
-- Add 3: result = [[], [1], [2], [1,2], [3], [1,3], [2,3], [1,2,3]]
-
-Output: [[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]]
-
 ### TIME COMPLEXITY:
 O(n × 2^n) - 2^n subsets, each takes O(n) to copy
 

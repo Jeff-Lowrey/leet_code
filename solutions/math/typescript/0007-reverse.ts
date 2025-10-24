@@ -45,18 +45,23 @@
  * - O(log n) time: number of digits, O(1) space
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: x = 123
+ * x = 123
+ * ```
+ *
  * Step 1: Extract digits and build reversed number
- *   result = 0
- *   result = 0*10 + 3 = 3, x = 12
- *   result = 3*10 + 2 = 32, x = 1
- *   result = 32*10 + 1 = 321, x = 0
+ * result = 0
+ * result = 0*10 + 3 = 3, x = 12
+ * result = 3*10 + 2 = 32, x = 1
+ * result = 32*10 + 1 = 321, x = 0
  *
- * Output: 321
+ * Output:
  * ```
- *
- * ### TIME COMPLEXITY:
+ * 321
+ * ```
+
+### TIME COMPLEXITY:
  * O(n)
  *
  * ### SPACE COMPLEXITY:

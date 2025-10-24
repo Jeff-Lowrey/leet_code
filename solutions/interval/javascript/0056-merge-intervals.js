@@ -40,34 +40,34 @@
  * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: intervals = [[1,3], [2,6], [8,10], [15,18]]
+ * intervals = [[1,3], [2,6], [8,10], [15,18]]
+ * ```
  *
  * Step 1: Sort by start time
- *   Already sorted: [[1,3], [2,6], [8,10], [15,18]]
- *
+ * Already sorted: [[1,3], [2,6], [8,10], [15,18]]
  * Step 2: Initialize with first interval
- *   merged = [[1,3]]
- *
+ * merged = [[1,3]]
  * Step 3: Process [2,6]
- *   2 ≤ 3 (overlaps with [1,3])
- *   Merge: [1, max(3,6)] = [1,6]
- *   merged = [[1,6]]
- *
+ * 2 ≤ 3 (overlaps with [1,3])
+ * Merge: [1, max(3,6)] = [1,6]
+ * merged = [[1,6]]
  * Step 4: Process [8,10]
- *   8 > 6 (no overlap with [1,6])
- *   Add new interval
- *   merged = [[1,6], [8,10]]
- *
+ * 8 > 6 (no overlap with [1,6])
+ * Add new interval
+ * merged = [[1,6], [8,10]]
  * Step 5: Process [15,18]
- *   15 > 10 (no overlap with [8,10])
- *   Add new interval
- *   merged = [[1,6], [8,10], [15,18]]
+ * 15 > 10 (no overlap with [8,10])
+ * Add new interval
+ * merged = [[1,6], [8,10], [15,18]]
  *
- * Output: [[1,6], [8,10], [15,18]]
+ * Output:
  * ```
- *
- * ### TIME COMPLEXITY:
+ * [[1,6], [8,10], [15,18]]
+ * ```
+
+### TIME COMPLEXITY:
  * O(n)
  *
  * ### SPACE COMPLEXITY:

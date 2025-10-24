@@ -49,23 +49,22 @@ Use two heaps to divide numbers into two halves: max-heap for smaller half, min-
 - Balancing ensures O(1) median access
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
 addNum(1):
-  left=[1], right=[]
-  median = 1
-
-addNum(2):
-  left=[1], right=[2]
-  median = (1+2)/2 = 1.5
-
-addNum(3):
-  left=[2,1], right=[3]
-  median = 2 (top of left heap)
-
-addNum(4):
-  left=[2,1], right=[3,4]
-  median = (2+3)/2 = 2.5
 ```
+
+left=[1], right=[]
+median = 1
+addNum(2):
+left=[1], right=[2]
+median = (1+2)/2 = 1.5
+addNum(3):
+left=[2,1], right=[3]
+median = 2 (top of left heap)
+addNum(4):
+left=[2,1], right=[3,4]
+median = (2+3)/2 = 2.5
 
 ### TIME COMPLEXITY:
 - addNum(): O(log n) - heap operations

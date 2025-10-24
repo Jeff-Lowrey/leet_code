@@ -44,15 +44,23 @@
  * - Base case ensures recursion terminates
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: ["h","e","l","l","o"]
- * Step 1: Swap s[0] and s[4]: ["o","e","l","l","h"]
- * Step 2: Swap s[1] and s[3]: ["o","l","l","e","h"]
- * Step 3: left=2, right=2 (meet) -> stop
- * Output: ["o","l","l","e","h"]
+ * ["h","e","l","l","o"]
  * ```
  *
- * ### TIME COMPLEXITY:
+ * Step 1: Swap s[0] and s[4]: ["o","e","l","l","h"]
+ * Step 2: Swap s[1] and s[3]: ["o","l","l","e","h"]
+ *
+ * Steps:
+ * Step 1: left=2, right=2 (meet) -> stop
+ *
+ * Output:
+ * ```
+ * ["o","l","l","e","h"]
+ * ```
+
+### TIME COMPLEXITY:
  * O(n) - visit each character once
  *
  * ### SPACE COMPLEXITY:

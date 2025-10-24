@@ -53,24 +53,28 @@ The minimum element is where the rotation occurs. Compare mid with right: if num
 - O(log n) time, O(1) space
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: nums = [4,5,6,7,0,1,2]
+nums = [4,5,6,7,0,1,2]
+```
+
 Step 1: Check if array is rotated
-  nums[0]=4 > nums[-1]=2 → Array is rotated
 
+Steps:
+Step 1: nums[0]=4 > nums[-1]=2 → Array is rotated
 Step 2: Binary search for minimum
-  left = 0, right = 6
-  mid = 3: nums[3]=7 > nums[6]=2
-  → Minimum is in right half, left = 3
+Step 3: left = 0, right = 6
+Step 4: mid = 3: nums[3]=7 > nums[6]=2
+Step 5: Minimum is in right half, left = 3
+Step 6: left = 3, right = 6
+Step 7: mid = 4: nums[4]=0 < nums[6]=2
+Step 8: Minimum could be at mid or left, right = 4
+Step 9: left = 3, right = 4
+Step 10: right - left = 1 → return min(nums[3], nums[4]) = min(7, 0) = 0
 
-  left = 3, right = 6
-  mid = 4: nums[4]=0 < nums[6]=2
-  → Minimum could be at mid or left, right = 4
-
-  left = 3, right = 4
-  right - left = 1 → return min(nums[3], nums[4]) = min(7, 0) = 0
-
-Output: 0 (minimum element)
+Output:
+```
+0 (minimum element)
 ```
 
 ### TIME COMPLEXITY:

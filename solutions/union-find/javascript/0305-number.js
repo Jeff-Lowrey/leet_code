@@ -46,18 +46,25 @@
  * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: m = 3, n = 3, positions = [[0,0],[0,1],[1,2],[2,1]]
+ * m = 3, n = 3, positions = [[0,0],[0,1],[1,2],[2,1]]
+ * ```
+ *
  * Step 1: Add islands one by one
- *   [0,0]: 1 island
- *   [0,1]: merge with [0,0] → 1 island
- *   [1,2]: 2 islands
- *   [2,1]: 3 islands
+ * [0,0]: 1 island
  *
- * Output: [1,1,2,3]
+ * Steps:
+ * Step 1: [0,1]: merge with [0,0] → 1 island
+ * Step 2: [1,2]: 2 islands
+ * Step 3: [2,1]: 3 islands
+ *
+ * Output:
  * ```
- *
- * ### TIME COMPLEXITY:
+ * [1,1,2,3]
+ * ```
+
+### TIME COMPLEXITY:
  * O(n)
  *
  * ### SPACE COMPLEXITY:

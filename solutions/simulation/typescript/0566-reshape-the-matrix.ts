@@ -66,24 +66,24 @@
  * - This naturally handles the reshape transformation
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
  * mat = [[1,2],[3,4]], r = 1, c = 4
+ * ```
  *
  * Original shape: 2×2, New shape: 1×4
  * Total elements: 4 = 4 ✓ (valid)
- *
- * Linear indices: [0,1,2,3] → [1,2,3,4]
- *
  * Mapping to 1×4:
- * - idx 0: row = 0//4 = 0, col = 0%4 = 0 → result[0][0] = 1
- * - idx 1: row = 1//4 = 0, col = 1%4 = 1 → result[0][1] = 2
- * - idx 2: row = 2//4 = 0, col = 2%4 = 2 → result[0][2] = 3
- * - idx 3: row = 3//4 = 0, col = 3%4 = 3 → result[0][3] = 4
  *
- * Result: [[1,2,3,4]]
- * ```
- *
- * ### TIME COMPLEXITY:
+ * Steps:
+ * Step 1: Linear indices: [0,1,2,3] → [1,2,3,4]
+ * Step 2: - idx 0: row = 0//4 = 0, col = 0%4 = 0 → result[0][0] = 1
+ * Step 3: - idx 1: row = 1//4 = 0, col = 1%4 = 1 → result[0][1] = 2
+ * Step 4: - idx 2: row = 2//4 = 0, col = 2%4 = 2 → result[0][2] = 3
+ * Step 5: - idx 3: row = 3//4 = 0, col = 3%4 = 3 → result[0][3] = 4
+ * Step 6: Result: [[1,2,3,4]]
+
+### TIME COMPLEXITY:
  * O(m × n)
  * - Must process each element once
  *

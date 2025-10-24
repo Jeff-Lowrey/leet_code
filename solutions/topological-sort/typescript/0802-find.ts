@@ -49,21 +49,26 @@
  * - O(V + E) time: DFS visits each node/edge once, O(V) space
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: graph = [[1,2],[2,3],[5],[0],[5],[],[]]
+ * graph = [[1,2],[2,3],[5],[0],[5],[],[]]
+ * ```
+ *
  * Step 1: Find nodes with cycles
- *   0→1→2→3→0 (cycle)
  *
+ * Steps:
+ * Step 1: 0→1→2→3→0 (cycle)
  * Step 2: Find terminal nodes
- *   Nodes: 5,6
+ * Step 3: Nodes: 5,6
+ * Step 4: Check which nodes reach only terminal
+ * Step 5: Check each node's reachability
  *
- * Step 3: Check which nodes reach only terminal
- *   Check each node's reachability
- *
- * Output: [2,4,5,6] (safe nodes)
+ * Output:
  * ```
- *
- * ### TIME COMPLEXITY:
+ * [2,4,5,6] (safe nodes)
+ * ```
+
+### TIME COMPLEXITY:
  * O(n)
  *
  * ### SPACE COMPLEXITY:

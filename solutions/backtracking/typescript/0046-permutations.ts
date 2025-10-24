@@ -44,37 +44,39 @@
  * - Systematic exploration guarantees all permutations are found
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: nums = [1, 2, 3]
+ * nums = [1, 2, 3]
+ * ```
  *
  * Step 1: backtrack([])
- *   Try 1: current = [1]
- *     Try 2: current = [1,2]
- *       Try 3: current = [1,2,3] ✓ Complete! Add to result
- *       Remove 3: current = [1,2]
- *     Remove 2: current = [1]
- *     Try 3: current = [1,3]
- *       Try 2: current = [1,3,2] ✓ Complete! Add to result
- *       Remove 2: current = [1,3]
- *     Remove 3: current = [1]
- *   Remove 1: current = []
- *
+ * Try 1: current = [1]
+ * Try 2: current = [1,2]
+ * Try 3: current = [1,2,3] ✓ Complete! Add to result
+ * Remove 3: current = [1,2]
+ * Remove 2: current = [1]
+ * Try 3: current = [1,3]
+ * Try 2: current = [1,3,2] ✓ Complete! Add to result
+ * Remove 2: current = [1,3]
+ * Remove 3: current = [1]
+ * Remove 1: current = []
  * Step 2: Try 2: current = [2]
- *     Try 1: current = [2,1]
- *       Try 3: current = [2,1,3] ✓ Complete! Add to result
- *     Try 3: current = [2,3]
- *       Try 1: current = [2,3,1] ✓ Complete! Add to result
- *
+ * Try 1: current = [2,1]
+ * Try 3: current = [2,1,3] ✓ Complete! Add to result
+ * Try 3: current = [2,3]
+ * Try 1: current = [2,3,1] ✓ Complete! Add to result
  * Step 3: Try 3: current = [3]
- *     Try 1: current = [3,1]
- *       Try 2: current = [3,1,2] ✓ Complete! Add to result
- *     Try 2: current = [3,2]
- *       Try 1: current = [3,2,1] ✓ Complete! Add to result
+ * Try 1: current = [3,1]
+ * Try 2: current = [3,1,2] ✓ Complete! Add to result
+ * Try 2: current = [3,2]
+ * Try 1: current = [3,2,1] ✓ Complete! Add to result
  *
- * Output: [[1,2,3], [1,3,2], [2,1,3], [2,3,1], [3,1,2], [3,2,1]]
+ * Output:
  * ```
- *
- * ### TIME COMPLEXITY:
+ * [[1,2,3], [1,3,2], [2,1,3], [2,3,1], [3,1,2], [3,2,1]]
+ * ```
+
+### TIME COMPLEXITY:
  * O(n × n!) - n! permutations, each takes O(n) to build/copy
  *
  * ### SPACE COMPLEXITY:

@@ -44,20 +44,24 @@
  * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: nums1 = [1,7,11], nums2 = [2,4,6], k = 3
+ * nums1 = [1,7,11], nums2 = [2,4,6], k = 3
+ * ```
+ *
  * Step 1: Initialize min heap
- *   heap = [(1+2, 0, 0)]
- *
+ * heap = [(1+2, 0, 0)]
  * Step 2: Extract k smallest pairs
- *   Pop (3, 0, 0): pair [1,2], add (1+4, 0, 1)
- *   Pop (5, 0, 1): pair [1,4], add (1+6, 0, 2)
- *   Pop (7, 0, 2): pair [1,6], add (7+2, 1, 0)
+ * Pop (3, 0, 0): pair [1,2], add (1+4, 0, 1)
+ * Pop (5, 0, 1): pair [1,4], add (1+6, 0, 2)
+ * Pop (7, 0, 2): pair [1,6], add (7+2, 1, 0)
  *
- * Output: [[1,2],[1,4],[1,6]]
+ * Output:
  * ```
- *
- * ### TIME COMPLEXITY:
+ * [[1,2],[1,4],[1,6]]
+ * ```
+
+### TIME COMPLEXITY:
  * O(n)
  *
  * ### SPACE COMPLEXITY:

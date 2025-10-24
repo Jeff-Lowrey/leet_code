@@ -41,16 +41,22 @@ If indices are transitively swappable, they form a connected component where any
 permutation is achievable. Lexicographically smallest = sort characters ascending.
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: s = "dcab", pairs = [[0,3],[1,2]]
+s = "dcab", pairs = [[0,3],[1,2]]
+```
+
 Step 1: Union-find to group connected indices
-  Groups: {0,3}, {1,2}
-
+Groups: {0,3}, {1,2}
 Step 2: Sort characters within each group
-  Group {0,3}: 'd','b' → 'b','d'
-  Group {1,2}: 'c','a' → 'a','c'
 
-Output: "bacd"
+Steps:
+Step 1: Group {0,3}: 'd','b' → 'b','d'
+Step 2: Group {1,2}: 'c','a' → 'a','c'
+
+Output:
+```
+"bacd"
 ```
 
 ### TIME COMPLEXITY:

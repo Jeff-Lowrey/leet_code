@@ -45,23 +45,26 @@
  * - O(n) time: each node processed once, O(n) space for map and recursion
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: preorder = [3,9,20,15,7], inorder = [9,3,15,20,7]
+ * preorder = [3,9,20,15,7], inorder = [9,3,15,20,7]
+ * ```
+ *
  * Step 1: Root is first in preorder
- *   root = 3
- *
+ * root = 3
  * Step 2: Find root in inorder
- *   left subtree: [9]
- *   right subtree: [15,20,7]
- *
+ * left subtree: [9]
+ * right subtree: [15,20,7]
  * Step 3: Recursively build
- *   left: preorder=[9], inorder=[9]
- *   right: preorder=[20,15,7], inorder=[15,20,7]
+ * left: preorder=[9], inorder=[9]
+ * right: preorder=[20,15,7], inorder=[15,20,7]
  *
- * Output: Tree with root 3
+ * Output:
  * ```
- *
- * ### TIME COMPLEXITY:
+ * Tree with root 3
+ * ```
+
+### TIME COMPLEXITY:
  * O(n)
  *
  * ### SPACE COMPLEXITY:

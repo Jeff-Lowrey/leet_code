@@ -42,18 +42,21 @@ We can use a two-pointer approach to check if a string is a palindrome. When we 
 - Two-pointer palindrome check is efficient and straightforward
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: "aba"
+"aba"
+"abca"
+```
+
 left=0, right=2: s[0]='a' == s[2]='a' ✓
 left=1, right=1: pointers meet, palindrome found
 Result: True (already palindrome)
-
-Input: "abca"
 left=0, right=3: s[0]='a' == s[3]='a' ✓
 left=1, right=2: s[1]='b' != s[2]='c' ✗
-Try skip left (delete 'b'): check "aca" → palindrome ✓
-Result: True
-```
+
+Steps:
+Step 1: Try skip left (delete 'b'): check "aca" → palindrome ✓
+Step 2: Result: True
 
 ### TIME COMPLEXITY:
 O(n)

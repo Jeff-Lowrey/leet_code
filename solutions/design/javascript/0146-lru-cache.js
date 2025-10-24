@@ -50,16 +50,19 @@
  * - Moving nodes to head maintains LRU order efficiently
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
  * LRUCache(2)
- * put(1, 1) -> [1:1]
- * put(2, 2) -> [2:2, 1:1]
- * get(1)    -> [1:1, 2:2] (1 moves to front)
- * put(3, 3) -> [3:3, 1:1] (2 evicted)
- * get(2)    -> -1 (not found)
  * ```
  *
- * ### TIME COMPLEXITY:
+ * Steps:
+ * Step 1: put(1, 1) -> [1:1]
+ * Step 2: put(2, 2) -> [2:2, 1:1]
+ * Step 3: get(1)    -> [1:1, 2:2] (1 moves to front)
+ * Step 4: put(3, 3) -> [3:3, 1:1] (2 evicted)
+ * Step 5: get(2)    -> -1 (not found)
+
+### TIME COMPLEXITY:
  * O(1)
  * All operations (get, put) are constant time
  *

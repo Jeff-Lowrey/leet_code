@@ -45,12 +45,14 @@
  * - In-place marking ensures each cell is counted exactly once
  * 
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
  * Grid: [[0,0,1,0,0,0,0,1,0,0,0,0,0],
- *        [0,0,0,0,0,0,0,1,1,1,0,0,0],
- *        [0,1,1,0,1,0,0,0,0,0,0,0,0],
- *        [0,1,0,0,1,1,0,0,1,0,1,0,0]]
- * 
+ * ```
+ *
+ * [0,0,0,0,0,0,0,1,1,1,0,0,0],
+ * [0,1,1,0,1,0,0,0,0,0,0,0,0],
+ * [0,1,0,0,1,1,0,0,1,0,1,0,0]]
  * Islands found:
  * - (0,2): area = 1
  * - (0,7), (1,7), (1,8), (1,9): area = 4
@@ -58,11 +60,9 @@
  * - (2,4), (3,4), (3,5): area = 3
  * - (3,8): area = 1
  * - (3,10): area = 1
- * 
  * Maximum area = 4
- * ```
- * 
- * ### TIME COMPLEXITY:
+
+### TIME COMPLEXITY:
  * O(M × N)
  * We visit each cell at most once
  * 

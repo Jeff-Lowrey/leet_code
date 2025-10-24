@@ -41,29 +41,28 @@
  * If any reachable node has value 0, we return true.
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
  * arr = [4,2,3,0,3,1,2], start = 5
- * visited: dict[Any, Any] = {}
- *
- * DFS(5): arr[5]=1
- *   - Jump to 5+1=6: DFS(6)
- *   - Jump to 5-1=4: DFS(4)
- *
- * DFS(6): arr[6]=2
- *   - Jump to 6+2=8: out of bounds
- *   - Jump to 6-2=4: already visited
- *
- * DFS(4): arr[4]=3
- *   - Jump to 4+3=7: out of bounds
- *   - Jump to 4-3=1: DFS(1)
- *
- * DFS(1): arr[1]=2
- *   - Jump to 1+2=3: DFS(3)
- *
- * DFS(3): arr[3]=0 → return true!
  * ```
  *
- * ### TIME COMPLEXITY:
+ * visited: dict[Any, Any] = {}
+ * DFS(5): arr[5]=1
+ * - Jump to 5+1=6: DFS(6)
+ * - Jump to 5-1=4: DFS(4)
+ * DFS(6): arr[6]=2
+ * - Jump to 6+2=8: out of bounds
+ * - Jump to 6-2=4: already visited
+ * DFS(4): arr[4]=3
+ * - Jump to 4+3=7: out of bounds
+ * - Jump to 4-3=1: DFS(1)
+ * DFS(1): arr[1]=2
+ * - Jump to 1+2=3: DFS(3)
+ *
+ * Steps:
+ * Step 1: DFS(3): arr[3]=0 → return true!
+
+### TIME COMPLEXITY:
  * O(n)
  *
  * ### SPACE COMPLEXITY:

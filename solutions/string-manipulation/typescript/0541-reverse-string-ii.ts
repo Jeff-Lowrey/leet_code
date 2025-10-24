@@ -51,22 +51,23 @@
  * - Edge cases are naturally handled by min(i+k, len(s))
  * 
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: s = "abcdefg", k = 2
- * 
+ * s = "abcdefg", k = 2
+ * ```
+ *
  * Chunks of 2k = 4:
  * 1. i=0: Process chars[0:4] = "abcd"
- *    - Reverse chars[0:2] = "ab" → "ba"
- *    - Result: "bacd"
- * 
- * 2. i=4: Process chars[4:8] = "efg"
- *    - Reverse chars[4:6] = "ef" → "fe"
- *    - Result: "feg"
- * 
- * Final: "bacd" + "feg" = "bacdfeg"
- * ```
- * 
- * ### TIME COMPLEXITY:
+ *
+ * Steps:
+ * Step 1: - Reverse chars[0:2] = "ab" → "ba"
+ * Step 2: - Result: "bacd"
+ * Step 3: i=4: Process chars[4:8] = "efg"
+ * Step 4: - Reverse chars[4:6] = "ef" → "fe"
+ * Step 5: - Result: "feg"
+ * Step 6: Final: "bacd" + "feg" = "bacdfeg"
+
+### TIME COMPLEXITY:
  * O(n)
  * - Visit each character once during iteration
  * - Reversing k characters per 2k chunk is O(k) but amortized O(n)

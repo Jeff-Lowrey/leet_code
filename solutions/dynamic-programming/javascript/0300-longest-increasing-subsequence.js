@@ -40,39 +40,36 @@
  * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: nums = [10, 9, 2, 5, 3, 7, 101, 18]
+ * nums = [10, 9, 2, 5, 3, 7, 101, 18]
+ * ```
  *
  * Step 1: num=10
- *   tails = [10]
- *
+ * tails = [10]
  * Step 2: num=9
- *   9 < 10, replace: tails = [9]
- *
+ * 9 < 10, replace: tails = [9]
  * Step 3: num=2
- *   2 < 9, replace: tails = [2]
- *
+ * 2 < 9, replace: tails = [2]
  * Step 4: num=5
- *   5 > 2, append: tails = [2, 5]
- *
+ * 5 > 2, append: tails = [2, 5]
  * Step 5: num=3
- *   3 > 2 but 3 < 5, replace 5
- *   tails = [2, 3]
- *
+ * 3 > 2 but 3 < 5, replace 5
+ * tails = [2, 3]
  * Step 6: num=7
- *   7 > 3, append: tails = [2, 3, 7]
- *
+ * 7 > 3, append: tails = [2, 3, 7]
  * Step 7: num=101
- *   101 > 7, append: tails = [2, 3, 7, 101]
- *
+ * 101 > 7, append: tails = [2, 3, 7, 101]
  * Step 8: num=18
- *   18 > 7 but 18 < 101, replace 101
- *   tails = [2, 3, 7, 18]
+ * 18 > 7 but 18 < 101, replace 101
+ * tails = [2, 3, 7, 18]
  *
- * Output: 4 (LIS: [2, 3, 7, 18] or [2, 3, 7, 101])
+ * Output:
  * ```
- *
- * ### TIME COMPLEXITY:
+ * 4 (LIS: [2, 3, 7, 18] or [2, 3, 7, 101])
+ * ```
+
+### TIME COMPLEXITY:
  * O(n)
  *
  * ### SPACE COMPLEXITY:

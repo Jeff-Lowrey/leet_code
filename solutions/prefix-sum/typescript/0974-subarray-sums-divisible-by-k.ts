@@ -44,11 +44,13 @@
  * incrementally: each new occurrence pairs with all previous occurrences.
  * 
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
  * nums = [4,5,0,-2,-3,1], k = 5
+ * ```
+ *
  * Prefix sums: [4, 9, 9, 7, 4, 5]
  * Remainders: [4, 4, 4, 2, 4, 0]
- * 
  * Initialize: {0: 1}  # remainder 0 before array
  * Index 0: rem=4, count=0 (not seen), add {0:1, 4:1}
  * Index 1: rem=4, count=1 (seen once), add {0:1, 4:2}
@@ -57,9 +59,8 @@
  * Index 4: rem=4, count=3 (seen 3 times), add {0:1, 4:4, 2:1}
  * Index 5: rem=0, count=1 (initial 0), add {0:2, 4:4, 2:1}
  * Total: 0+1+2+0+3+1 = 7
- * ```
- * 
- * ### TIME COMPLEXITY:
+
+### TIME COMPLEXITY:
  * O(n)
  * 
  * ### SPACE COMPLEXITY:

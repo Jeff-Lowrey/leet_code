@@ -40,23 +40,27 @@
  * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: s = "bcabc"
+ * s = "bcabc"
+ * ```
+ *
  * Step 1: Count frequencies and track remaining
- *   freq = {'b':2, 'c':2, 'a':1}
- *
+ * freq = {'b':2, 'c':2, 'a':1}
  * Step 2: Build result with monotonic stack
- *   Add 'b': stack=['b']
- *   Add 'c': stack=['b','c']
- *   Add 'a': pop 'c' (a<c, c appears later), pop 'b' (a<b, b appears later)
- *           stack=['a']
- *   Add 'b': stack=['a','b']
- *   Add 'c': stack=['a','b','c']
+ * Add 'b': stack=['b']
+ * Add 'c': stack=['b','c']
+ * Add 'a': pop 'c' (a<c, c appears later), pop 'b' (a<b, b appears later)
+ * stack=['a']
+ * Add 'b': stack=['a','b']
+ * Add 'c': stack=['a','b','c']
  *
- * Output: "abc"
+ * Output:
  * ```
- *
- * ### TIME COMPLEXITY:
+ * "abc"
+ * ```
+
+### TIME COMPLEXITY:
  * O(n)
  *
  * ### SPACE COMPLEXITY:

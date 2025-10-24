@@ -53,27 +53,25 @@
  * - **Optimality**: Each assignment is minimal, so total is minimal
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: ratings = [1,0,2]
+ * ratings = [1,0,2]
+ * ```
  *
  * Initial: candies = [1,1,1]
- *
  * Left to right pass:
- *   i=1: ratings[1]=0 < ratings[0]=1, no change
- *        candies = [1,1,1]
- *   i=2: ratings[2]=2 > ratings[1]=0, candies[2] = candies[1] + 1 = 2
- *        candies = [1,1,2]
- *
+ * i=1: ratings[1]=0 < ratings[0]=1, no change
+ * candies = [1,1,1]
+ * i=2: ratings[2]=2 > ratings[1]=0, candies[2] = candies[1] + 1 = 2
+ * candies = [1,1,2]
  * Right to left pass:
- *   i=1: ratings[1]=0 < ratings[2]=2, no change
- *        candies = [1,1,2]
- *   i=0: ratings[0]=1 > ratings[1]=0, candies[0] = max(1, 1+1) = 2
- *        candies = [2,1,2]
- *
+ * i=1: ratings[1]=0 < ratings[2]=2, no change
+ * candies = [1,1,2]
+ * i=0: ratings[0]=1 > ratings[1]=0, candies[0] = max(1, 1+1) = 2
+ * candies = [2,1,2]
  * Total: 2 + 1 + 2 = 5
- * ```
- *
- * ### TIME COMPLEXITY:
+
+### TIME COMPLEXITY:
  * O(n)
  * Two passes through the array
  *

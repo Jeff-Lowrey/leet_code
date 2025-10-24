@@ -47,27 +47,27 @@ Optional Trie optimization: Pre-check if word's prefix exists (useful for multip
 - Early termination avoids unnecessary exploration
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
 board = [['A','B','C','E'],
-         ['S','F','C','S'],
-         ['A','D','E','E']]
-word = "ABCCED"
-
-Try (0,0) 'A':
-  Match 'A' ✓, mark visited, look for 'B'
-  Try (0,1) 'B':
-    Match 'B' ✓, mark visited, look for 'C'
-    Try (0,2) 'C':
-      Match 'C' ✓, mark visited, look for 'C'
-      Try (1,2) 'C':
-        Match 'C' ✓, mark visited, look for 'E'
-        Try (2,2) 'E':
-          Match 'E' ✓, mark visited, look for 'D'
-          Try (2,1) 'D':
-            Match 'D' ✓, complete! Return True
-
-Result: True (found path)
 ```
+
+['S','F','C','S'],
+['A','D','E','E']]
+word = "ABCCED"
+Try (0,0) 'A':
+Match 'A' ✓, mark visited, look for 'B'
+Try (0,1) 'B':
+Match 'B' ✓, mark visited, look for 'C'
+Try (0,2) 'C':
+Match 'C' ✓, mark visited, look for 'C'
+Try (1,2) 'C':
+Match 'C' ✓, mark visited, look for 'E'
+Try (2,2) 'E':
+Match 'E' ✓, mark visited, look for 'D'
+Try (2,1) 'D':
+Match 'D' ✓, complete! Return True
+Result: True (found path)
 
 ### TIME COMPLEXITY:
 O(M * N * 4^L)

@@ -43,23 +43,28 @@
  * - Joining with a single space ensures proper formatting
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: s = "  hello   world  "
+ * s = "  hello   world  "
+ * s = "a good   example"
+ * ```
+ *
  * Step 1: Strip: "hello   world"
  * Step 2: Split: ["hello", "world"]
  * Step 3: Reverse: ["world", "hello"]
  * Step 4: Join: "world hello"
- * Output: "world hello"
- *
- * Input: s = "a good   example"
  * Step 1: Strip: "a good   example"
  * Step 2: Split: ["a", "good", "example"]
  * Step 3: Reverse: ["example", "good", "a"]
  * Step 4: Join: "example good a"
- * Output: "example good a"
- * ```
  *
- * ### TIME COMPLEXITY:
+ * Output:
+ * ```
+ * "world hello"
+ * "example good a"
+ * ```
+
+### TIME COMPLEXITY:
  * O(n)
  * Where n is the length of the string. We scan the string once to split, reverse the list (O(n)),
  * and join back (O(n)).

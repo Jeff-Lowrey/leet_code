@@ -47,20 +47,24 @@ Use sliding window with character counts. Track max frequency in window. If wind
 - O(n) time: each element visited twice at most, O(26) = O(1) space
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: s = "AABABBA", k = 1
+s = "AABABBA", k = 1
+```
+
 Step 1: Expand window
-  "AA": max_freq=2, changes=0, valid
-  "AAB": max_freq=2, changes=1, valid
-  "AABA": max_freq=3, changes=1, valid
-  "AABAB": max_freq=3, changes=2, invalid
-
+"AA": max_freq=2, changes=0, valid
+"AAB": max_freq=2, changes=1, valid
+"AABA": max_freq=3, changes=1, valid
+"AABAB": max_freq=3, changes=2, invalid
 Step 2: Contract and continue
-  "ABAB": max_freq=2, changes=2, invalid
-  "BAB": max_freq=2, changes=1, valid
-  Continue...
+"ABAB": max_freq=2, changes=2, invalid
+"BAB": max_freq=2, changes=1, valid
+Continue...
 
-Output: 4 (longest valid substring)
+Output:
+```
+4 (longest valid substring)
 ```
 
 ### TIME COMPLEXITY:

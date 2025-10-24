@@ -44,18 +44,23 @@ This is a classic binary search problem that requires finding both the leftmost 
 - Early termination optimizes performance when target not found
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: nums = [5,7,7,8,8,10], target = 8
-Step 1: Find first position of 8
-  - Binary search finds index 3 as leftmost 8
-Step 2: Find last position of 8
-  - Binary search finds index 4 as rightmost 8
-Output: [3,4]
+nums = [5,7,7,8,8,10], target = 8
+nums = [5,7,7,8,8,10], target = 6
+```
 
-Input: nums = [5,7,7,8,8,10], target = 6
+Step 1: Find first position of 8
+- Binary search finds index 3 as leftmost 8
+Step 2: Find last position of 8
+- Binary search finds index 4 as rightmost 8
 Step 1: Find first position of 6
-  - Binary search returns -1 (not found)
-Output: [-1,-1] (early return)
+- Binary search returns -1 (not found)
+
+Output:
+```
+[3,4]
+[-1,-1] (early return)
 ```
 
 ### TIME COMPLEXITY:

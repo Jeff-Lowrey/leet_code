@@ -40,21 +40,27 @@
  * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: intervals = [[1,2],[2,3],[3,4],[1,3]]
+ * intervals = [[1,2],[2,3],[3,4],[1,3]]
+ * ```
+ *
  * Step 1: Sort by end time
- *   sorted = [[1,2],[2,3],[1,3],[3,4]]
- *
+ * sorted = [[1,2],[2,3],[1,3],[3,4]]
  * Step 2: Greedy selection
- *   Select [1,2], end=2
- *   [2,3]: 2 ≥ 2, select it, end=3
- *   [1,3]: 1 < 3, overlaps → remove count=1
- *   [3,4]: 3 ≥ 3, select it
+ * Select [1,2], end=2
+ * [2,3]: 2 ≥ 2, select it, end=3
  *
- * Output: 1 (min intervals to remove)
+ * Steps:
+ * Step 1: [1,3]: 1 < 3, overlaps → remove count=1
+ * Step 2: [3,4]: 3 ≥ 3, select it
+ *
+ * Output:
  * ```
- *
- * ### TIME COMPLEXITY:
+ * 1 (min intervals to remove)
+ * ```
+
+### TIME COMPLEXITY:
  * O(n)
  *
  * ### SPACE COMPLEXITY:

@@ -42,20 +42,22 @@
  * characters on both sides match.
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: s = "babad"
+ * s = "babad"
+ * ```
  *
  * Check centers:
  * - Center at 'b' (index 0): "b"
- * - Center at 'a' (index 1): expand → "bab"
- * - Center at 'b' (index 2): "b"
- * - Center at 'a' (index 3): expand → "aba"
- * - Center at 'd' (index 4): "d"
  *
- * Longest: "bab" or "aba" (length 3)
- * ```
- *
- * ### TIME COMPLEXITY:
+ * Steps:
+ * Step 1: - Center at 'a' (index 1): expand → "bab"
+ * Step 2: - Center at 'b' (index 2): "b"
+ * Step 3: - Center at 'a' (index 3): expand → "aba"
+ * Step 4: - Center at 'd' (index 4): "d"
+ * Step 5: Longest: "bab" or "aba" (length 3)
+
+### TIME COMPLEXITY:
  * - Expand around center: O(n²) - n centers, each expansion O(n)
  * - Dynamic Programming: O(n²)
  * - Manacher's Algorithm: O(n) - optimal

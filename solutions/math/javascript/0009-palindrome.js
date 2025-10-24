@@ -40,21 +40,25 @@
  * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: x = 121
+ * x = 121
+ * ```
+ *
  * Step 1: Reverse half of the number
- *   original = 121, reversed = 0
- *   reversed = 0*10 + 1 = 1, x = 12
- *   reversed = 1*10 + 2 = 12, x = 1
- *
+ * original = 121, reversed = 0
+ * reversed = 0*10 + 1 = 1, x = 12
+ * reversed = 1*10 + 2 = 12, x = 1
  * Step 2: Compare
- *   x = 1, reversed = 12
- *   12/10 = 1, equals x
+ * x = 1, reversed = 12
+ * 12/10 = 1, equals x
  *
- * Output: True (is palindrome)
+ * Output:
  * ```
- *
- * ### TIME COMPLEXITY:
+ * True (is palindrome)
+ * ```
+
+### TIME COMPLEXITY:
  * O(n)
  *
  * ### SPACE COMPLEXITY:

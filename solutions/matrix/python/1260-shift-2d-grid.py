@@ -60,19 +60,20 @@ Instead of performing k individual shifts, we can calculate final positions dire
 - Direct position calculation avoids expensive element-by-element shifting
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
 grid = [[1,2,3],[4,5,6],[7,8,9]], k = 1, m = 3, n = 3, total = 9
+```
 
 Flatten view: [1,2,3,4,5,6,7,8,9]
 After 1 shift: [9,1,2,3,4,5,6,7,8]
-
 Position mapping:
-- 1 at index 0 → new index (0+1)%9 = 1 → grid[0][1]
-- 2 at index 1 → new index (1+1)%9 = 2 → grid[0][2]
-- 9 at index 8 → new index (8+1)%9 = 0 → grid[0][0]
 
-Result: [[9,1,2],[3,4,5],[6,7,8]]
-```
+Steps:
+Step 1: - 1 at index 0 → new index (0+1)%9 = 1 → grid[0][1]
+Step 2: - 2 at index 1 → new index (1+1)%9 = 2 → grid[0][2]
+Step 3: - 9 at index 8 → new index (8+1)%9 = 0 → grid[0][0]
+Step 4: Result: [[9,1,2],[3,4,5],[6,7,8]]
 
 ### TIME COMPLEXITY:
 O(m × n)

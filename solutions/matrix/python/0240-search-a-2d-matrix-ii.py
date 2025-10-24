@@ -44,21 +44,22 @@ Start from top-right (or bottom-left) corner. From top-right, we can eliminate e
 - Similar to searching in a BST where current node's left < node < right
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
 Matrix:
+```
+
 [1,  4,  7,  11, 15]
 [2,  5,  8,  12, 19]
 [3,  6,  9,  16, 22]
 [10, 13, 14, 17, 24]
 [18, 21, 23, 26, 30]
-
 Search for 5:
 Start at (0,4)=15: 5<15, go left
 At (0,3)=11: 5<11, go left
 At (0,2)=7: 5<7, go left
 At (0,1)=4: 5>4, go down
 At (1,1)=5: Found! Return True
-```
 
 ### TIME COMPLEXITY:
 O(m + n)

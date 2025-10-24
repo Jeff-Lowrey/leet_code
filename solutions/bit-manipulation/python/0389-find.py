@@ -48,21 +48,26 @@ XOR both arrays together. The result is the character that appears different num
 - O(n) time: single pass, O(1) space
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: s = "abcd", t = "abcde"
+s = "abcd", t = "abcde"
+```
+
 Step 1: XOR all characters
-  result = 0
-  XOR s: result ^= ord('a') ^= ord('b') ^= ord('c') ^= ord('d')
-  XOR t: result ^= ord('a') ^= ord('b') ^= ord('c') ^= ord('d') ^= ord('e')
-
+result = 0
+XOR s: result ^= ord('a') ^= ord('b') ^= ord('c') ^= ord('d')
+XOR t: result ^= ord('a') ^= ord('b') ^= ord('c') ^= ord('d') ^= ord('e')
 Step 2: Duplicate characters cancel out
-  All characters in s cancel with t
-  Remaining: ord('e')
-
+All characters in s cancel with t
+Remaining: ord('e')
 Step 3: Convert back to character
-  result = ord('e') → 'e'
 
-Output: 'e' (the added character)
+Steps:
+Step 1: result = ord('e') → 'e'
+
+Output:
+```
+'e' (the added character)
 ```
 
 ### TIME COMPLEXITY:

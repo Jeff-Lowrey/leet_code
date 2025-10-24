@@ -41,21 +41,28 @@
  * - BFS naturally explores breadth before depth
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: [3,9,20,null,null,15,7]
- *        3
- *       / \
- *      9  20
- *        /  \
- *       15   7
- *
- * Level 0: [3] → queue: [9, 20]
- * Level 1: [9, 20] → queue: [15, 7]
- * Level 2: [15, 7] → queue: []
- * Output: [[3], [9, 20], [15, 7]]
+ * [3,9,20,null,null,15,7]
  * ```
  *
- * ### TIME COMPLEXITY:
+ * 3
+ * / \
+ * 9  20
+ * /  \
+ * 15   7
+ *
+ * Steps:
+ * Step 1: Level 0: [3] → queue: [9, 20]
+ * Step 2: Level 1: [9, 20] → queue: [15, 7]
+ * Step 3: Level 2: [15, 7] → queue: []
+ *
+ * Output:
+ * ```
+ * [[3], [9, 20], [15, 7]]
+ * ```
+
+### TIME COMPLEXITY:
  * O(n)
  * Each node is visited exactly once
  *

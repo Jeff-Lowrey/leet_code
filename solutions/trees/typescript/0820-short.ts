@@ -44,17 +44,19 @@
  * - Each word needs one '#' delimiter, so total length = sum(word_lengths) + count
  * 
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: words = ["time", "me", "bell"]
+ * words = ["time", "me", "bell"]
+ * ```
+ *
  * 1. Build trie with reversed words: ["emit", "em", "lleb"]
  * 2. "em" is a suffix of "emit", so we can share encoding
  * 3. Result: "time#bell#" (length 10)
- *    - "time" at index 0
- *    - "me" at index 2 (suffix of "time")
- *    - "bell" at index 5
- * ```
- * 
- * ### TIME COMPLEXITY:
+ * - "time" at index 0
+ * - "me" at index 2 (suffix of "time")
+ * - "bell" at index 5
+
+### TIME COMPLEXITY:
  * O(N × M)
  * Where N is the number of words and M is the average length of words
  * 

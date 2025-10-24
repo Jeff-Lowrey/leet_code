@@ -42,20 +42,25 @@ and 3) reversing the word order while preserving word integrity.
 - Joining with a single space ensures proper formatting
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: s = "  hello   world  "
+s = "  hello   world  "
+s = "a good   example"
+```
+
 Step 1: Strip: "hello   world"
 Step 2: Split: ["hello", "world"]
 Step 3: Reverse: ["world", "hello"]
 Step 4: Join: "world hello"
-Output: "world hello"
-
-Input: s = "a good   example"
 Step 1: Strip: "a good   example"
 Step 2: Split: ["a", "good", "example"]
 Step 3: Reverse: ["example", "good", "a"]
 Step 4: Join: "example good a"
-Output: "example good a"
+
+Output:
+```
+"world hello"
+"example good a"
 ```
 
 ### TIME COMPLEXITY:

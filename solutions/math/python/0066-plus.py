@@ -46,20 +46,25 @@ Start from rightmost digit. Add 1 to it. Handle carry by propagating to next dig
 - O(n) time single pass, O(n) space for result array
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: digits = [1,2,3]
+digits = [1,2,3]
+```
+
 Step 1: Add 1 from rightmost
-  digits[2] = 3+1 = 4, no carry
-
-Output: [1,2,4]
-
+digits[2] = 3+1 = 4, no carry
 Example with carry: [9,9,9]
-  digits[2] = 9+1 = 10 → 0, carry=1
-  digits[1] = 9+1 = 10 → 0, carry=1
-  digits[0] = 9+1 = 10 → 0, carry=1
-  Insert 1 at front
 
-Output: [1,0,0,0]
+Steps:
+Step 1: digits[2] = 9+1 = 10 → 0, carry=1
+Step 2: digits[1] = 9+1 = 10 → 0, carry=1
+Step 3: digits[0] = 9+1 = 10 → 0, carry=1
+Step 4: Insert 1 at front
+
+Output:
+```
+[1,2,4]
+[1,0,0,0]
 ```
 
 ### TIME COMPLEXITY:

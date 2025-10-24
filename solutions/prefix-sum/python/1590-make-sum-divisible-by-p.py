@@ -47,19 +47,19 @@ The problem requires finding the smallest subarray to remove so that the remaini
 - Store prefix remainders in hashmap to find matches in O(1)
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: nums = [3,1,4,2], p = 6
+nums = [3,1,4,2], p = 6
+```
+
 Total sum = 10, remainder = 10 % 6 = 4
 Need to find smallest subarray with sum % 6 = 4
-
 Index 0: prefix=3%6=3, need=(3-4)%6=5, not found, map={0:(-1), 3:0}
 Index 1: prefix=4%6=4, need=(4-4)%6=0, found at -1, length=2
 Index 2: prefix=8%6=2, need=(2-4)%6=4, found at 1, length=1
 Index 3: prefix=10%6=4, need=(4-4)%6=0, found at -1, length=4
-
 Minimum length = 1 (removing [4])
 Result: [3,1,2] sums to 6, which is divisible by 6
-```
 
 ### TIME COMPLEXITY:
 O(n)

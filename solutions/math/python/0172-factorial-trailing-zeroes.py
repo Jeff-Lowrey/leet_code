@@ -42,16 +42,17 @@ Trailing zeroes come from factors of 10 = 2 × 5. In n!, there are always more f
 - Total = n/5 + n/25 + n/125 + ...
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
 n = 30:
+```
+
 30/5 = 6 (multiples of 5: 5,10,15,20,25,30)
 30/25 = 1 (multiples of 25: 25)
 30/125 = 0
 Total: 6 + 1 = 7 trailing zeroes
-
 30! = 265252859812191058636308480000000
-      (7 trailing zeroes)
-```
+(7 trailing zeroes)
 
 ### TIME COMPLEXITY:
 O(log n)

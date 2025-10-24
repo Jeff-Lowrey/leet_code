@@ -45,20 +45,25 @@
  * - Time complexity is linear, space is proportional to smaller array
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: nums1 = [1,2,2,1], nums2 = [2,2]
+ * nums1 = [1,2,2,1], nums2 = [2,2]
+ * ```
  *
  * Step 1: Build frequency map from nums1
- *   freq = {1: 2, 2: 2}
- *
+ * freq = {1: 2, 2: 2}
  * Step 2: Iterate through nums2
- *   num = 2: freq[2] = 2 > 0 → add 2, freq[2] = 1
- *   num = 2: freq[2] = 1 > 0 → add 2, freq[2] = 0
  *
- * Output: [2, 2]
+ * Steps:
+ * Step 1: num = 2: freq[2] = 2 > 0 → add 2, freq[2] = 1
+ * Step 2: num = 2: freq[2] = 1 > 0 → add 2, freq[2] = 0
+ *
+ * Output:
  * ```
- *
- * ### TIME COMPLEXITY:
+ * [2, 2]
+ * ```
+
+### TIME COMPLEXITY:
  * O(n + m) where n = len(nums1), m = len(nums2)
  *
  * ### SPACE COMPLEXITY:

@@ -47,15 +47,20 @@ Use sliding window with character frequency. Window is valid if it contains perm
 - O(n) time for s2 length n, O(1) space for fixed alphabet size
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: s1 = "ab", s2 = "eidbaooo"
-Step 1: Check each window of size 2
-  "ei": not permutation
-  "id": not permutation
-  "db": not permutation
-  "ba": is permutation of "ab" ✓
+s1 = "ab", s2 = "eidbaooo"
+```
 
-Output: True
+Step 1: Check each window of size 2
+"ei": not permutation
+"id": not permutation
+"db": not permutation
+"ba": is permutation of "ab" ✓
+
+Output:
+```
+True
 ```
 
 ### TIME COMPLEXITY:

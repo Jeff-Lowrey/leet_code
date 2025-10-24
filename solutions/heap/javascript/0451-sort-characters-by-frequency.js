@@ -44,14 +44,16 @@
  * - Multiple characters can appear in any order at same frequency
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: s = "tree"
+ * s = "tree"
+ * ```
+ *
  * Step 1: Count frequencies: {'t': 1, 'r': 1, 'e': 2}
  * Step 2: Sort by frequency: [('e', 2), ('t', 1), ('r', 1)]
  * Step 3: Build result: "eert" (or "eetr")
- * ```
- *
- * ### TIME COMPLEXITY:
+
+### TIME COMPLEXITY:
  * O(n log k)
  * Where n is string length, k is number of unique characters
  *

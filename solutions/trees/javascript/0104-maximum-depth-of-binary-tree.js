@@ -45,14 +45,16 @@
  * - Both DFS and BFS can solve this problem effectively
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: [3,9,20,null,null,15,7]
- *        3
- *       / \
- *      9  20
- *        /  \
- *       15   7
+ * [3,9,20,null,null,15,7]
+ * ```
  *
+ * 3
+ * / \
+ * 9  20
+ * /  \
+ * 15   7
  * 1. maxDepth(3): 1 + max(maxDepth(9), maxDepth(20))
  * 2. maxDepth(9): 1 + max(0, 0) = 1
  * 3. maxDepth(20): 1 + max(maxDepth(15), maxDepth(7))
@@ -60,10 +62,13 @@
  * 5. maxDepth(7): 1 + max(0, 0) = 1
  * 6. maxDepth(20): 1 + max(1, 1) = 2
  * 7. maxDepth(3): 1 + max(1, 2) = 3
- * Output: 3
- * ```
  *
- * ### TIME COMPLEXITY:
+ * Output:
+ * ```
+ * 3
+ * ```
+
+### TIME COMPLEXITY:
  * O(n)
  * Must visit every node to determine maximum depth
  *

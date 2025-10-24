@@ -56,16 +56,19 @@
  * - Only push is O(n), which is acceptable
  * 
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
  * push(1): queue = [1]
- * push(2): queue = [2] -> rotate -> [2, 1]
- * push(3): queue = [3, 2, 1] -> rotate -> [3, 2, 1]
- * top() -> 3
- * pop() -> 3, queue = [2, 1]
- * top() -> 2
  * ```
- * 
- * ### TIME COMPLEXITY:
+ *
+ * Steps:
+ * Step 1: push(2): queue = [2] -> rotate -> [2, 1]
+ * Step 2: push(3): queue = [3, 2, 1] -> rotate -> [3, 2, 1]
+ * Step 3: top() -> 3
+ * Step 4: pop() -> 3, queue = [2, 1]
+ * Step 5: top() -> 2
+
+### TIME COMPLEXITY:
  * - push: O(n) - need to rotate queue
  * - pop: O(1)
  * - top: O(1)

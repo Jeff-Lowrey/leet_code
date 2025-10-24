@@ -54,22 +54,27 @@ reaches its target size, add it to the result and start a new group for that siz
 - Always produces a valid solution since input guarantees one exists
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: groupSizes = [3,3,3,3,3,1,3]
+groupSizes = [3,3,3,3,3,1,3]
+```
 
 Step 1: Initialize groups map
-  groups = {}
-
+groups = {}
 Step 2: Process each person
-  Person 0 (size 3): groups[3] = [0]
-  Person 1 (size 3): groups[3] = [0, 1]
-  Person 2 (size 3): groups[3] = [0, 1, 2] → Full! Add [0,1,2] to result
-  Person 3 (size 3): groups[3] = [3]
-  Person 4 (size 3): groups[3] = [3, 4]
-  Person 5 (size 1): groups[1] = [5] → Full! Add [5] to result
-  Person 6 (size 3): groups[3] = [3, 4, 6] → Full! Add [3,4,6] to result
+Person 0 (size 3): groups[3] = [0]
+Person 1 (size 3): groups[3] = [0, 1]
 
-Output: [[0,1,2], [5], [3,4,6]]
+Steps:
+Step 1: Person 2 (size 3): groups[3] = [0, 1, 2] → Full! Add [0,1,2] to result
+Step 2: Person 3 (size 3): groups[3] = [3]
+Step 3: Person 4 (size 3): groups[3] = [3, 4]
+Step 4: Person 5 (size 1): groups[1] = [5] → Full! Add [5] to result
+Step 5: Person 6 (size 3): groups[3] = [3, 4, 6] → Full! Add [3,4,6] to result
+
+Output:
+```
+[[0,1,2], [5], [3,4,6]]
 ```
 
 ### TIME COMPLEXITY:

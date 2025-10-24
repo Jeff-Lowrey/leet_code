@@ -42,18 +42,23 @@ of the first such character when reading left to right.
 - This approach is more efficient than checking each character's uniqueness separately
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: s = "leetcode"
+s = "leetcode"
+s = "loveleetcode"
+```
+
 Step 1: Count frequencies: {'l':1, 'e':3, 't':1, 'c':1, 'o':1, 'd':1}
 Step 2: Check s[0]='l': frequency is 1, found first unique!
-Output: 0
-
-Input: s = "loveleetcode"
 Step 1: Count frequencies: {'l':2, 'o':2, 'v':1, 'e':4, 't':1, 'c':1, 'd':1}
 Step 2: Check s[0]='l': frequency is 2, not unique
 Step 3: Check s[1]='o': frequency is 2, not unique
 Step 4: Check s[2]='v': frequency is 1, found first unique!
-Output: 2
+
+Output:
+```
+0
+2
 ```
 
 ### TIME COMPLEXITY:

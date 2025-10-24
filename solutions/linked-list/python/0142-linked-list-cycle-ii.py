@@ -49,16 +49,22 @@ Use Floyd's algorithm: detect cycle with fast/slow pointers. After meeting, rese
 - O(n) time with two passes, O(1) space with only two pointers
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: head = [3,2,0,-4], pos = 1
+head = [3,2,0,-4], pos = 1
+```
+
 Step 1: Detect cycle
-  slow and fast meet at -4
-
+slow and fast meet at -4
 Step 2: Find cycle start
-  slow=3, slow2=3
-  slow=2, slow2=2 → both at cycle start
+slow=3, slow2=3
 
-Output: node 2 (cycle begins here)
+Steps:
+Step 1: slow=2, slow2=2 → both at cycle start
+
+Output:
+```
+node 2 (cycle begins here)
 ```
 
 ### TIME COMPLEXITY:

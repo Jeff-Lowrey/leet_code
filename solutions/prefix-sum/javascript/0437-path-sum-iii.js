@@ -45,29 +45,28 @@
  * - Backtracking ensures we only count paths that go downwards (no upward paths)
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: root = [10,5,-3,3,2,null,11,3,-2,null,1], targetSum = 8
+ * root = [10,5,-3,3,2,null,11,3,-2,null,1], targetSum = 8
+ * ```
  *
  * Tree structure:
- *          10
- *         /  \\
- *        5   -3
- *       / \\    \\
- *      3   2   11
- *     / \\   \\
- *    3  -2   1
- *
+ * 10
+ * /  \\
+ * 5   -3
+ * / \\    \\
+ * 3   2   11
+ * / \\   \\
+ * 3  -2   1
  * DFS traversal with prefix sums:
  * Node 10: sum=10, need=10-8=2, count=0, map={0:1, 10:1}
  * Node 5: sum=15, need=15-8=7, count=0, map={0:1, 10:1, 15:1}
  * Node 3: sum=18, need=18-8=10, count=1 (found 10), map={0:1, 10:1, 15:1, 18:1}
  * Node 3: sum=21, need=21-8=13, count=0, map={0:1, 10:1, 15:1, 18:1, 21:1}
  * ... and so on
- *
  * Total paths with sum 8: 3
- * ```
- *
- * ### TIME COMPLEXITY:
+
+### TIME COMPLEXITY:
  * O(n)
  * Visit each node exactly once, with O(1) hashmap operations per node
  *

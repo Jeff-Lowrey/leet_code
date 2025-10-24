@@ -50,8 +50,11 @@
  * - Adjacent groups at same level add together
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: "(()(()))"
+ * "(()(()))"
+ * ```
+ *
  * Stack: [0]
  * '(': stack = [0, 0]
  * '(': stack = [0, 0, 0]
@@ -61,10 +64,13 @@
  * ')': empty level, stack = [0, 1, 1]
  * ')': inner=1, stack = [0, 1+2*1] = [0, 3]
  * ')': inner=3, stack = [0+2*3] = [6]
- * Output: 6
- * ```
  *
- * ### TIME COMPLEXITY:
+ * Output:
+ * ```
+ * 6
+ * ```
+
+### TIME COMPLEXITY:
  * O(n)
  * Single pass through the string
  *

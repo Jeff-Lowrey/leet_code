@@ -46,23 +46,24 @@ This is a classic connected components problem. We need to find how many separat
 - DFS alternative marks all cities in a component as visited
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
 isConnected = [[1,1,0],
-               [1,1,0],
-               [0,0,1]]
+```
 
+[1,1,0],
+[0,0,1]]
 Cities: 0, 1, 2
 Connections: 0-1 (direct), 2 (isolated)
-
 Union-Find process:
 1. Initialize: parent = [0,1,2], each city is its own component
-2. Process (0,1): union(0,1) → parent = [1,1,2]
-3. Process (1,0): already connected, skip
-4. Process (2,2): self-connection, skip
 
-Count unique roots: 1 (for cities 0,1) and 2 (for city 2)
-Result: 2 provinces
-```
+Steps:
+Step 1: Process (0,1): union(0,1) → parent = [1,1,2]
+Step 2: Process (1,0): already connected, skip
+Step 3: Process (2,2): self-connection, skip
+Step 4: Count unique roots: 1 (for cities 0,1) and 2 (for city 2)
+Step 5: Result: 2 provinces
 
 ### TIME COMPLEXITY:
 O(n² × α(n))

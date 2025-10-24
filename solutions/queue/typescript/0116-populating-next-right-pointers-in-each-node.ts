@@ -48,20 +48,23 @@
  * - Last node of each level naturally has next = NULL
  * 
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
  * Tree:        1
- *            /   \\
- *           2     3
- *          / \\   / \\
- *         4   5 6   7
- * 
- * After connecting:
- * Level 0: 1 -> NULL
- * Level 1: 2 -> 3 -> NULL
- * Level 2: 4 -> 5 -> 6 -> 7 -> NULL
  * ```
- * 
- * ### TIME COMPLEXITY:
+ *
+ * /   \\
+ * 2     3
+ * / \\   / \\
+ * 4   5 6   7
+ * After connecting:
+ *
+ * Steps:
+ * Step 1: Level 0: 1 -> NULL
+ * Step 2: Level 1: 2 -> 3 -> NULL
+ * Step 3: Level 2: 4 -> 5 -> 6 -> 7 -> NULL
+
+### TIME COMPLEXITY:
  * O(n)
  * - Visit each node exactly once
  * - n = number of nodes in tree

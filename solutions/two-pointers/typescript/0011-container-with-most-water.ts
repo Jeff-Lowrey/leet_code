@@ -50,43 +50,43 @@
  * - O(n) time: single pass, O(1) space
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: height = [1, 8, 6, 2, 5, 4, 8, 3, 7]
+ * height = [1, 8, 6, 2, 5, 4, 8, 3, 7]
+ * ```
  *
  * Step 1: Initialize
- *   left = 0 (height=1), right = 8 (height=7)
- *   max_area = 0
- *
+ * left = 0 (height=1), right = 8 (height=7)
+ * max_area = 0
  * Step 2: First iteration
- *   width = 8 - 0 = 8
- *   min_height = min(1, 7) = 1
- *   area = 8 × 1 = 8
- *   max_area = 8
- *   Move left pointer (smaller height)
- *   left = 1
- *
+ * width = 8 - 0 = 8
+ * min_height = min(1, 7) = 1
+ * area = 8 × 1 = 8
+ * max_area = 8
+ * Move left pointer (smaller height)
+ * left = 1
  * Step 3: left=1 (height=8), right=8 (height=7)
- *   width = 8 - 1 = 7
- *   min_height = min(8, 7) = 7
- *   area = 7 × 7 = 49
- *   max_area = 49
- *   Move right pointer (smaller height)
- *   right = 7
- *
+ * width = 8 - 1 = 7
+ * min_height = min(8, 7) = 7
+ * area = 7 × 7 = 49
+ * max_area = 49
+ * Move right pointer (smaller height)
+ * right = 7
  * Step 4: left=1 (height=8), right=7 (height=3)
- *   width = 7 - 1 = 6
- *   min_height = min(8, 3) = 3
- *   area = 6 × 3 = 18
- *   max_area = 49 (no change)
- *   Move right pointer
- *   right = 6
- *
+ * width = 7 - 1 = 6
+ * min_height = min(8, 3) = 3
+ * area = 6 × 3 = 18
+ * max_area = 49 (no change)
+ * Move right pointer
+ * right = 6
  * Step 5: Continue until left >= right...
  *
- * Output: 49
+ * Output:
  * ```
- *
- * ### TIME COMPLEXITY:
+ * 49
+ * ```
+
+### TIME COMPLEXITY:
  * O(n)
  *
  * ### SPACE COMPLEXITY:

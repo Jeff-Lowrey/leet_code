@@ -50,14 +50,19 @@ Use two pointers, one for each sorted list. At each step, if intervals intersect
 - O(m + n) time: scan both lists once, O(k) space for k intersections
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: firstList = [[0,2],[5,10]], secondList = [[1,5],[8,12]]
-Step 1: Two pointers
-  i=0, j=0: [0,2] ∩ [1,5] = [1,2]
-  i=1, j=0: [5,10] ∩ [1,5] = [5,5]
-  i=1, j=1: [5,10] ∩ [8,12] = [8,10]
+firstList = [[0,2],[5,10]], secondList = [[1,5],[8,12]]
+```
 
-Output: [[1,2],[5,5],[8,10]]
+Step 1: Two pointers
+i=0, j=0: [0,2] ∩ [1,5] = [1,2]
+i=1, j=0: [5,10] ∩ [1,5] = [5,5]
+i=1, j=1: [5,10] ∩ [8,12] = [8,10]
+
+Output:
+```
+[[1,2],[5,5],[8,10]]
 ```
 
 ### TIME COMPLEXITY:

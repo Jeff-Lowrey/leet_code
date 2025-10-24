@@ -41,18 +41,21 @@ The missing number is the difference between expected sum (n*(n+1)/2) and actual
 - O(n) time, O(1) space
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: nums = [3,0,1]
+nums = [3,0,1]
+```
+
 Step 1: Calculate expected sum
-  expected = 0+1+2+3 = 6
-
+expected = 0+1+2+3 = 6
 Step 2: Calculate actual sum
-  actual = 3+0+1 = 4
-
+actual = 3+0+1 = 4
 Step 3: Find difference
-  missing = 6 - 4 = 2
+missing = 6 - 4 = 2
 
-Output: 2 (missing number)
+Output:
+```
+2 (missing number)
 ```
 
 ### TIME COMPLEXITY:

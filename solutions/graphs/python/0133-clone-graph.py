@@ -44,25 +44,27 @@ The key challenge is handling `cycles - we` need to avoid infinite loops.
 By using a hash map to track visited nodes, we ensure each node is cloned exactly once, preventing infinite loops in the presence of cycles. The DFS/BFS traversal guarantees we visit every reachable node, and by cloning neighbors recursively, we preserve the exact structure and relationships of the original graph. The hash map serves both as a visited tracker and a lookup for already-cloned nodes.
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: adjList = [[2,4],[1,3],[2,4],[1,3]]
+adjList = [[2,4],[1,3],[2,4],[1,3]]
+```
+
 Step 1: Start BFS from node 1
-  Create clone of node 1
-  visited = {1: Node(1)}
-
+Create clone of node 1
+visited = {1: Node(1)}
 Step 2: Process neighbors of node 1 (nodes 2 and 4)
-  Clone node 2, add to visited
-  Clone node 4, add to visited
-  Connect node 1 to nodes 2 and 4
-
+Clone node 2, add to visited
+Clone node 4, add to visited
+Connect node 1 to nodes 2 and 4
 Step 3: Process node 2 neighbors (nodes 1 and 3)
-  Node 1 already cloned
-  Clone node 3, connect to node 2
-
+Node 1 already cloned
+Clone node 3, connect to node 2
 Step 4: Process remaining nodes
-  Build all connections maintaining graph structure
+Build all connections maintaining graph structure
 
-Output: Cloned graph with same structure
+Output:
+```
+Cloned graph with same structure
 ```
 
 ### TIME COMPLEXITY:

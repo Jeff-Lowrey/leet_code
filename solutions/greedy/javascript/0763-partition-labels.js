@@ -44,23 +44,29 @@
  * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: s = "ababcbacadefegdehijhklij"
+ * s = "ababcbacadefegdehijhklij"
+ * ```
+ *
  * Step 1: Record last occurrence of each character
- *   last = {'a':8, 'b':5, 'c':7, 'd':14, 'e':15, ...}
- *
+ * last = {'a':8, 'b':5, 'c':7, 'd':14, 'e':15, ...}
  * Step 2: Iterate and extend partition
- *   i=0, ch='a': end = max(0, 8) = 8
- *   i=1, ch='b': end = max(8, 5) = 8
- *   ...
- *   i=8: reached end → partition size = 9
- *   i=9, ch='c': end = 14
- *   ...
+ * i=0, ch='a': end = max(0, 8) = 8
+ * i=1, ch='b': end = max(8, 5) = 8
+ * ...
  *
- * Output: [9,7,8] (partition sizes)
+ * Steps:
+ * Step 1: i=8: reached end → partition size = 9
+ * Step 2: i=9, ch='c': end = 14
+ * Step 3: ...
+ *
+ * Output:
  * ```
- *
- * ### TIME COMPLEXITY:
+ * [9,7,8] (partition sizes)
+ * ```
+
+### TIME COMPLEXITY:
  * O(n)
  *
  * ### SPACE COMPLEXITY:

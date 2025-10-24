@@ -46,25 +46,8 @@
  * ```
  * nums = [1, 2, 3, 1]
  * ```
- *
- * **Step 1:** Convert array to set
- * - set(nums) = {1, 2, 3}
- * - Set length = 3, Array length = 4
- *
- * **Step 2:** Compare lengths
- * - len(nums) = 4 != len(set(nums)) = 3
- * - Since lengths differ, duplicates exist
- *
- * Output: True
- *
- * Alternative (Early Termination):
- * - seen = {}
- * - Check 1: not in seen, add it → seen = {1}
- * - Check 2: not in seen, add it → seen = {1, 2}
- * - Check 3: not in seen, add it → seen = {1, 2, 3}
- * - Check 1: found in seen → return True immediately
- *
- * ### TIME COMPLEXITY:
+
+### TIME COMPLEXITY:
  * O(n)
  *
  * ### SPACE COMPLEXITY:

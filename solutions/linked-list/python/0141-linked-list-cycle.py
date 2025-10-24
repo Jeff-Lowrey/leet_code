@@ -47,15 +47,22 @@ Use Floyd's cycle detection with fast and slow pointers. Fast moves 2 steps, slo
 - O(1) space: only two pointers regardless of list size
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: head = [3,2,0,-4], pos = 1 (cycle at node 2)
-Step 1: Fast and slow pointers
-  slow=3, fast=3
-  slow=2, fast=0
-  slow=0, fast=2
-  slow=-4, fast=-4 → meet
+head = [3,2,0,-4], pos = 1 (cycle at node 2)
+```
 
-Output: True (has cycle)
+Step 1: Fast and slow pointers
+slow=3, fast=3
+slow=2, fast=0
+slow=0, fast=2
+
+Steps:
+Step 1: slow=-4, fast=-4 → meet
+
+Output:
+```
+True (has cycle)
 ```
 
 ### TIME COMPLEXITY:

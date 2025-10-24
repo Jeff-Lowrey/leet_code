@@ -48,25 +48,32 @@
  * - O(1) time: fixed 32 iterations, O(1) space
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: n = 00000010100101000001111010011100 (43261596)
+ * n = 00000010100101000001111010011100 (43261596)
+ * ```
+ *
  * Step 1: Reverse bits one by one
- *   result = 0, iterate 32 times:
- *   Bit 0: n & 1 = 0, result = 0
- *   Bit 1: n & 1 = 0, result = 0
- *   ...
- *   Bit 31: n & 1 = 0, result = 964176192
- *
  * Step 2: Detailed process for first few bits
- *   n = 43261596, result = 0
- *   - Extract bit 0 (0), shift result left, add bit
- *   - Extract bit 1 (0), shift result left, add bit
- *   - Continue for all 32 bits
+ * n = 43261596, result = 0
+ * - Extract bit 0 (0), shift result left, add bit
+ * - Extract bit 1 (0), shift result left, add bit
+ * - Continue for all 32 bits
  *
- * Output: 964176192 (00111001011110000010100101000000)
+ * result = 0, iterate 32 times:
+ * ```
+ * Bit 0: n & 1 = 0, result = 0
+ * Bit 1: n & 1 = 0, result = 0
+ * ...
+ * Bit 31: n & 1 = 0, result = 964176192
  * ```
  *
- * ### TIME COMPLEXITY:
+ * Output:
+ * ```
+ * 964176192 (00111001011110000010100101000000)
+ * ```
+
+### TIME COMPLEXITY:
  * O(n)
  *
  * ### SPACE COMPLEXITY:

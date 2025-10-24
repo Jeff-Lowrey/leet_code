@@ -43,21 +43,24 @@
  * - 4-directional connectivity defines what constitutes an island
  * 
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
  * Grid: [["1","1","1","1","0"],
- *        ["1","1","0","1","0"],
- *        ["1","1","0","0","0"],
- *        ["0","0","0","0","0"]]
- * 
+ * ```
+ *
+ * ["1","1","0","1","0"],
+ * ["1","1","0","0","0"],
+ * ["0","0","0","0","0"]]
  * Process:
  * - Start at (0,0): DFS explores entire connected land mass
  * - Mark all connected '1's as visited: (0,0), (0,1), (0,2), (0,3), (1,0), (1,1), (2,0), (2,1)
- * - Continue scanning: (1,3) is unvisited land → start new DFS
- * - DFS from (1,3) only marks (1,3) as it's isolated
- * - Total islands found: 2
- * ```
- * 
- * ### TIME COMPLEXITY:
+ *
+ * Steps:
+ * Step 1: - Continue scanning: (1,3) is unvisited land → start new DFS
+ * Step 2: - DFS from (1,3) only marks (1,3) as it's isolated
+ * Step 3: - Total islands found: 2
+
+### TIME COMPLEXITY:
  * O(M × N)
  * Where M and N are grid dimensions - we visit each cell at most once
  * 

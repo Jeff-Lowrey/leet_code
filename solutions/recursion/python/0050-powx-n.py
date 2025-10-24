@@ -43,15 +43,21 @@ we can compute x^(n/2) once and square it. This reduces time complexity from O(n
 - Handles negative exponents by taking reciprocal
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: x = 2, n = 10
+x = 2, n = 10
+```
+
 pow(2, 10) = pow(2, 5)^2
 pow(2, 5) = 2 * pow(2, 2)^2
 pow(2, 2) = pow(2, 1)^2
 pow(2, 1) = 2 * pow(2, 0)^2
 pow(2, 0) = 1
 Working back: 2*1 = 2, 2^2 = 4, 2*16 = 32, 32^2 = 1024
-Output: 1024
+
+Output:
+```
+1024
 ```
 
 ### TIME COMPLEXITY:

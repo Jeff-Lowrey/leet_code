@@ -46,21 +46,24 @@
  * - Early termination when more than one change is needed
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
  * Dictionary: ["hello", "leetcode"]
- * Search: "hhllo"
- *
- * DFS Process:
- * 1. Start at root, search word "hhllo"
- * 2. At position 0: 'h' matches 'h' in "hello" path → continue
- * 3. At position 1: 'h' doesn't match 'e' in "hello" → use one change, continue
- * 4. At position 2: 'l' matches 'l' → continue
- * 5. At position 3: 'l' matches 'l' → continue
- * 6. At position 4: 'o' matches 'o' → continue
- * 7. Reached end with exactly one change → return True
  * ```
  *
- * ### TIME COMPLEXITY:
+ * Search: "hhllo"
+ * DFS Process:
+ * 1. Start at root, search word "hhllo"
+ *
+ * Steps:
+ * Step 1: At position 0: 'h' matches 'h' in "hello" path → continue
+ * Step 2: At position 1: 'h' doesn't match 'e' in "hello" → use one change, continue
+ * Step 3: At position 2: 'l' matches 'l' → continue
+ * Step 4: At position 3: 'l' matches 'l' → continue
+ * Step 5: At position 4: 'o' matches 'o' → continue
+ * Step 6: Reached end with exactly one change → return True
+
+### TIME COMPLEXITY:
  * - Build: O(n × l) where n is number of words, l is average length
  * - Search: O(26 × l) in worst case, but typically much better due to pruning
  *

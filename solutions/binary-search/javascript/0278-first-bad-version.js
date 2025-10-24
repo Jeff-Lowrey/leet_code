@@ -44,28 +44,31 @@
  * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: n = 5, first bad version = 4
+ * n = 5, first bad version = 4
+ * ```
+ *
  * Step 1: Initialize search space
- *   left = 1, right = 5
- *
+ * left = 1, right = 5
  * Step 2: Binary search for first bad version
- *   mid = 3: isBadVersion(3) = false
- *   → Bad version is on right, left = 4
+ * mid = 3: isBadVersion(3) = false
  *
- *   mid = 4: isBadVersion(4) = true
- *   → This or earlier could be first bad, right = 4
+ * Steps:
+ * Step 1: Bad version is on right, left = 4
+ * Step 2: mid = 4: isBadVersion(4) = true
+ * Step 3: This or earlier could be first bad, right = 4
+ * Step 4: left = right = 4
+ * Step 5: Verify result
+ * Step 6: isBadVersion(4) = true
+ * Step 7: isBadVersion(3) = false
  *
- *   left = right = 4
- *
- * Step 3: Verify result
- *   isBadVersion(4) = true
- *   isBadVersion(3) = false
- *
- * Output: 4 (first bad version)
+ * Output:
  * ```
- *
- * ### TIME COMPLEXITY:
+ * 4 (first bad version)
+ * ```
+
+### TIME COMPLEXITY:
  * O(n)
  *
  * ### SPACE COMPLEXITY:

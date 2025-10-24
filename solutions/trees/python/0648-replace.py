@@ -48,17 +48,23 @@ Build Trie of dictionary words. For each word in sentence, find shortest prefix 
 - O(m + n*k) time: m total dict length, n words in sentence, k avg word length
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: dictionary = ["cat","bat","rat"], sentence = "the cattle was rattled by the battery"
+dictionary = ["cat","bat","rat"], sentence = "the cattle was rattled by the battery"
+```
+
 Step 1: Build trie from dictionary
-  Insert: cat, bat, rat
-
+Insert: cat, bat, rat
 Step 2: Replace each word with shortest root
-  "cattle" → "cat"
-  "rattled" → "rat"
-  "battery" → "bat"
 
-Output: "the cat was rat by the bat"
+Steps:
+Step 1: "cattle" → "cat"
+Step 2: "rattled" → "rat"
+Step 3: "battery" → "bat"
+
+Output:
+```
+"the cat was rat by the bat"
 ```
 
 ### TIME COMPLEXITY:

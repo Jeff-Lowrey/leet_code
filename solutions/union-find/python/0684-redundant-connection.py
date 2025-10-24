@@ -43,15 +43,16 @@ This is a classic Union-Find cycle detection problem. In a tree with n nodes, th
 - This edge can be removed while keeping the graph connected
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
 edges = [[1,2],[1,3],[2,3]]
-
-Process edge [1,2]: 1 and 2 not connected → union them
-Process edge [1,3]: 1 and 3 not connected → union them
-Process edge [2,3]: 2 and 3 are already connected through 1 → redundant!
-
-Return [2,3]
 ```
+
+Steps:
+Step 1: Process edge [1,2]: 1 and 2 not connected → union them
+Step 2: Process edge [1,3]: 1 and 3 not connected → union them
+Step 3: Process edge [2,3]: 2 and 3 are already connected through 1 → redundant!
+Step 4: Return [2,3]
 
 ### TIME COMPLEXITY:
 O(n × α(n))

@@ -45,20 +45,21 @@
  * - Each level's maximum is independent of other levels
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
  * Tree:      1
- *          /   \\
- *         3     2
- *        / \\     \\
- *       5   3     9
+ * ```
  *
+ * /   \\
+ * 3     2
+ * / \\     \\
+ * 5   3     9
  * Level 0: max = 1
  * Level 1: max = max(3, 2) = 3
  * Level 2: max = max(5, 3, 9) = 9
  * Result: [1, 3, 9]
- * ```
- *
- * ### TIME COMPLEXITY:
+
+### TIME COMPLEXITY:
  * O(n)
  * - Visit each node exactly once
  * - n = number of nodes in tree

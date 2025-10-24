@@ -45,19 +45,23 @@ For each position, calculate trapped water = min(max_left, max_right) - height. 
 - Single pass O(n) time replaces two-pass array approach, O(1) space instead of O(n)
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: height = [0,1,0,2,1,0,1,3,2,1,2,1]
+height = [0,1,0,2,1,0,1,3,2,1,2,1]
+```
+
 Step 1: Calculate max heights
-  left_max = [0,1,1,2,2,2,2,3,3,3,3,3]
-  right_max = [3,3,3,3,3,3,3,3,2,2,2,1]
-
+left_max = [0,1,1,2,2,2,2,3,3,3,3,3]
+right_max = [3,3,3,3,3,3,3,3,2,2,2,1]
 Step 2: Calculate water at each position
-  i=2: min(1,3)-0 = 1
-  i=4: min(2,3)-1 = 1
-  i=5: min(2,3)-0 = 2
-  ...
+i=2: min(1,3)-0 = 1
+i=4: min(2,3)-1 = 1
+i=5: min(2,3)-0 = 2
+...
 
-Output: 6 (total water trapped)
+Output:
+```
+6 (total water trapped)
 ```
 
 ### TIME COMPLEXITY:

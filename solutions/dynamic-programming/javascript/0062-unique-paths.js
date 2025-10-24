@@ -42,27 +42,30 @@
  * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: m = 3, n = 2 (3 rows, 2 columns)
+ * m = 3, n = 2 (3 rows, 2 columns)
+ * ```
+ *
  * Step 1: Create DP table
- *   dp[i][j] = number of paths to reach cell (i,j)
- *
- *   dp = [[1, 1],
- *         [1, 2],
- *         [1, 3]]
- *
+ * dp[i][j] = number of paths to reach cell (i,j)
+ * dp = [[1, 1],
+ * [1, 2],
+ * [1, 3]]
  * Step 2: Fill table using dp[i][j] = dp[i-1][j] + dp[i][j-1]
- *   dp[0][0] = 1 (starting point)
- *   dp[0][1] = 1 (can only go right)
- *   dp[1][0] = 1 (can only go down)
- *   dp[1][1] = dp[0][1] + dp[1][0] = 1 + 1 = 2
- *   dp[2][0] = 1
- *   dp[2][1] = dp[1][1] + dp[2][0] = 2 + 1 = 3
+ * dp[0][0] = 1 (starting point)
+ * dp[0][1] = 1 (can only go right)
+ * dp[1][0] = 1 (can only go down)
+ * dp[1][1] = dp[0][1] + dp[1][0] = 1 + 1 = 2
+ * dp[2][0] = 1
+ * dp[2][1] = dp[1][1] + dp[2][0] = 2 + 1 = 3
  *
- * Output: 3 (number of unique paths)
+ * Output:
  * ```
- *
- * ### TIME COMPLEXITY:
+ * 3 (number of unique paths)
+ * ```
+
+### TIME COMPLEXITY:
  * O(n)
  *
  * ### SPACE COMPLEXITY:

@@ -47,19 +47,23 @@
  * - Works for both positive and negative numbers
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: a = 1, b = 2
+ * a = 1, b = 2
+ * ```
+ *
  * Binary: a = 001, b = 010
- *
  * Iteration 1:
- *   sum = 001 ^ 010 = 011 (3)
- *   carry = (001 & 010) << 1 = 000 << 1 = 000
- *   carry = 0, done!
+ * sum = 001 ^ 010 = 011 (3)
+ * carry = (001 & 010) << 1 = 000 << 1 = 000
+ * carry = 0, done!
  *
- * Output: 3
+ * Output:
  * ```
- *
- * ### TIME COMPLEXITY:
+ * 3
+ * ```
+
+### TIME COMPLEXITY:
  * O(1) - At most 32 iterations for 32-bit integers
  *
  * ### SPACE COMPLEXITY:

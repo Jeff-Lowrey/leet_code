@@ -44,17 +44,21 @@ Use two pointers with n-step gap. Move fast pointer n steps ahead. Then move bot
 - Gap ensures slow.next points to node to remove, enabling removal
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: head = [1,2,3,4,5], n = 2
+head = [1,2,3,4,5], n = 2
+```
+
 Step 1: Use fast and slow pointers
-  fast moves n+1 steps: reaches node 3
-  slow at dummy node
-
+fast moves n+1 steps: reaches node 3
+slow at dummy node
 Step 2: Move both until fast reaches end
-  fast at 5, slow at 3
-  slow.next = slow.next.next (remove 4)
+fast at 5, slow at 3
+slow.next = slow.next.next (remove 4)
 
-Output: [1,2,3,5]
+Output:
+```
+[1,2,3,5]
 ```
 
 ### TIME COMPLEXITY:

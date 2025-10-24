@@ -44,19 +44,24 @@
  * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: root = [-10,9,20,null,null,15,7]
+ * root = [-10,9,20,null,null,15,7]
+ * ```
+ *
  * Step 1: Calculate max path through each node
- *   Node 15: path=15
- *   Node 7: path=7
- *   Node 20: path=20+15+7=42
- *   Node 9: path=9
- *   Node -10: path=-10+9+42=41
+ * Node 15: path=15
+ * Node 7: path=7
+ * Node 20: path=20+15+7=42
+ * Node 9: path=9
+ * Node -10: path=-10+9+42=41
  *
- * Output: 42 (maximum path sum)
+ * Output:
  * ```
- *
- * ### TIME COMPLEXITY:
+ * 42 (maximum path sum)
+ * ```
+
+### TIME COMPLEXITY:
  * O(n)
  *
  * ### SPACE COMPLEXITY:

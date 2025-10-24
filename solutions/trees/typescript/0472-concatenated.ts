@@ -46,16 +46,21 @@
  * - O(n * m * k) time: n words, m avg length, k concatenation attempts
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: words = ["cat","cats","catsdogcats","dog","dogcatsdog","hippopotamuses"]
+ * words = ["cat","cats","catsdogcats","dog","dogcatsdog","hippopotamuses"]
+ * ```
+ *
  * Step 1: Check each word
- *   "catsdogcats" = "cats" + "dog" + "cats" ✓
- *   "dogcatsdog" = "dog" + "cats" + "dog" ✓
+ * "catsdogcats" = "cats" + "dog" + "cats" ✓
+ * "dogcatsdog" = "dog" + "cats" + "dog" ✓
  *
- * Output: ["catsdogcats","dogcatsdog"]
+ * Output:
  * ```
- *
- * ### TIME COMPLEXITY:
+ * ["catsdogcats","dogcatsdog"]
+ * ```
+
+### TIME COMPLEXITY:
  * O(n)
  *
  * ### SPACE COMPLEXITY:

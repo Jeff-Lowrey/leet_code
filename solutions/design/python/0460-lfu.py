@@ -56,13 +56,15 @@ The challenge is achieving O(1) for both get() and put() operations.
 - All operations are O(1)
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
 LFUCache(2)
+```
+
 put(1, 1): cache={1:(1,1)}, freq_to_keys={1:[1]}, min_freq=1
 put(2, 2): cache={1:(1,1), 2:(2,1)}, freq_to_keys={1:[1,2]}, min_freq=1
 get(1): freq increases to 2, cache={1:(1,2), 2:(2,1)}, freq_to_keys={1:[2], 2:[1]}, min_freq=1, return 1
 put(3, 3): evict key 2 (LFU), add 3
-```
 
 ### TIME COMPLEXITY:
 - get: O(1)

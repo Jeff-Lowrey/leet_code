@@ -48,19 +48,22 @@ Precompute cumulative sums in array. For range [i,j], the sum is prefix[j+1] - p
 - Trade O(n) space for constant-time queries vs O(n) per query without prefix
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: ["NumArray","sumRange","sumRange","sumRange"], [[[-2,0,3,-5,2,-1]],[0,2],[2,5],[0,5]]
+["NumArray","sumRange","sumRange","sumRange"], [[[-2,0,3,-5,2,-1]],[0,2],[2,5],[0,5]]
+```
 
 Step 1: Build prefix sum array
-  nums = [-2,0,3,-5,2,-1]
-  prefix = [0,-2,-2,1,-4,-2,-3]
-
+nums = [-2,0,3,-5,2,-1]
+prefix = [0,-2,-2,1,-4,-2,-3]
 Step 2: Query using prefix
-  sumRange(0,2) = prefix[3] - prefix[0] = 1 - 0 = 1
-  sumRange(2,5) = prefix[6] - prefix[2] = -3 - (-2) = -1
-  sumRange(0,5) = prefix[6] - prefix[0] = -3 - 0 = -3
+sumRange(0,2) = prefix[3] - prefix[0] = 1 - 0 = 1
+sumRange(2,5) = prefix[6] - prefix[2] = -3 - (-2) = -1
+sumRange(0,5) = prefix[6] - prefix[0] = -3 - 0 = -3
 
-Output: [null,1,-1,-3]
+Output:
+```
+[null,1,-1,-3]
 ```
 
 ### TIME COMPLEXITY:

@@ -66,14 +66,16 @@ A combination of hash maps and heaps provides optimal performance.
 - Timestamp ensures correct ordering across all users
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
 postTweet(1, 5): user 1 posts tweet 5
+```
+
 follow(1, 2): user 1 follows user 2
 postTweet(2, 6): user 2 posts tweet 6
 getNewsFeed(1): returns [6, 5] (most recent from user 1 and followees)
 unfollow(1, 2): user 1 unfollows user 2
 getNewsFeed(1): returns [5] (only user 1's tweets)
-```
 
 ### TIME COMPLEXITY:
 - postTweet: O(1)

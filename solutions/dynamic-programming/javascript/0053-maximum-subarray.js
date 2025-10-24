@@ -40,48 +40,44 @@
  * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: nums = [-2, 1, -3, 4, -1, 2, 1, -5, 4]
+ * nums = [-2, 1, -3, 4, -1, 2, 1, -5, 4]
+ * ```
  *
  * Step 1: Initialize
- *   current_sum = -2, max_sum = -2
- *
+ * current_sum = -2, max_sum = -2
  * Step 2: num=1
- *   current_sum = max(1, -2+1) = max(1, -1) = 1
- *   max_sum = max(-2, 1) = 1
- *
+ * current_sum = max(1, -2+1) = max(1, -1) = 1
+ * max_sum = max(-2, 1) = 1
  * Step 3: num=-3
- *   current_sum = max(-3, 1-3) = max(-3, -2) = -2
- *   max_sum = 1
- *
+ * current_sum = max(-3, 1-3) = max(-3, -2) = -2
+ * max_sum = 1
  * Step 4: num=4
- *   current_sum = max(4, -2+4) = max(4, 2) = 4
- *   max_sum = max(1, 4) = 4
- *
+ * current_sum = max(4, -2+4) = max(4, 2) = 4
+ * max_sum = max(1, 4) = 4
  * Step 5: num=-1
- *   current_sum = max(-1, 4-1) = 3
- *   max_sum = 4
- *
+ * current_sum = max(-1, 4-1) = 3
+ * max_sum = 4
  * Step 6: num=2
- *   current_sum = max(2, 3+2) = 5
- *   max_sum = max(4, 5) = 5
- *
+ * current_sum = max(2, 3+2) = 5
+ * max_sum = max(4, 5) = 5
  * Step 7: num=1
- *   current_sum = max(1, 5+1) = 6
- *   max_sum = max(5, 6) = 6
- *
+ * current_sum = max(1, 5+1) = 6
+ * max_sum = max(5, 6) = 6
  * Step 8: num=-5
- *   current_sum = max(-5, 6-5) = 1
- *   max_sum = 6
- *
+ * current_sum = max(-5, 6-5) = 1
+ * max_sum = 6
  * Step 9: num=4
- *   current_sum = max(4, 1+4) = 5
- *   max_sum = 6
+ * current_sum = max(4, 1+4) = 5
+ * max_sum = 6
  *
- * Output: 6 (subarray [4, -1, 2, 1])
+ * Output:
  * ```
- *
- * ### TIME COMPLEXITY:
+ * 6 (subarray [4, -1, 2, 1])
+ * ```
+
+### TIME COMPLEXITY:
  * O(n)
  *
  * ### SPACE COMPLEXITY:

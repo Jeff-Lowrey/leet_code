@@ -50,23 +50,23 @@
  * - Path parsing handles absolute paths correctly
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
  * mkdir("/a/b/c")
+ * ```
+ *
  * 1. Create root node "/"
  * 2. Create node "a" under root
  * 3. Create node "b" under "a"
  * 4. Create node "c" under "b"
- *
  * addContentToFile("/a/b/c/file1.txt", "hello")
  * 1. Navigate to "/a/b/c"
  * 2. Create file node "file1.txt"
  * 3. Set content to "hello"
- *
  * ls("/a/b/c")
  * Returns: ["file1.txt"]
- * ```
- *
- * ### TIME COMPLEXITY:
+
+### TIME COMPLEXITY:
  * O(P)
  * Where P is the path length (number of path components)
  *

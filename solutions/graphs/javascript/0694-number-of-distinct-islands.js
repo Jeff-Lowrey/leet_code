@@ -45,24 +45,25 @@
  * - Translation invariance achieved by using relative coordinates
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
  * Grid: [[1,1,0,0,0],
- *        [1,1,0,0,0],
- *        [0,0,0,1,1],
- *        [0,0,0,1,1]]
+ * ```
  *
+ * [1,1,0,0,0],
+ * [0,0,0,1,1],
+ * [0,0,0,1,1]]
  * Island 1: cells (0,0), (0,1), (1,0), (1,1)
  * Relative to (0,0): (0,0), (0,1), (1,0), (1,1)
  * Normalized: [(0,0), (0,1), (1,0), (1,1)]
- *
  * Island 2: cells (2,3), (2,4), (3,3), (3,4)
  * Relative to (2,3): (0,0), (0,1), (1,0), (1,1)
  * Normalized: [(0,0), (0,1), (1,0), (1,1)]
  *
- * Same normalized form → 1 distinct island
- * ```
- *
- * ### TIME COMPLEXITY:
+ * Steps:
+ * Step 1: Same normalized form → 1 distinct island
+
+### TIME COMPLEXITY:
  * O(M × N)
  * We visit each cell once during DFS/BFS
  *

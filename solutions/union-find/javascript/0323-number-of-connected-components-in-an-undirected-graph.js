@@ -42,18 +42,19 @@
  * - Path compression and union by rank ensure efficient operations
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: n = 5, edges = [[0,1],[1,2],[3,4]]
- *
- * Initial: {0}, {1}, {2}, {3}, {4} → 5 components
- * Union(0,1): {0,1}, {2}, {3}, {4} → 4 components
- * Union(1,2): {0,1,2}, {3}, {4} → 3 components
- * Union(3,4): {0,1,2}, {3,4} → 2 components
- *
- * Result: 2 connected components
+ * n = 5, edges = [[0,1],[1,2],[3,4]]
  * ```
  *
- * ### TIME COMPLEXITY:
+ * Steps:
+ * Step 1: Initial: {0}, {1}, {2}, {3}, {4} → 5 components
+ * Step 2: Union(0,1): {0,1}, {2}, {3}, {4} → 4 components
+ * Step 3: Union(1,2): {0,1,2}, {3}, {4} → 3 components
+ * Step 4: Union(3,4): {0,1,2}, {3,4} → 2 components
+ * Step 5: Result: 2 connected components
+
+### TIME COMPLEXITY:
  * O(E × α(N))
  * Where E is edges, N is nodes, α is inverse Ackermann (nearly constant)
  *

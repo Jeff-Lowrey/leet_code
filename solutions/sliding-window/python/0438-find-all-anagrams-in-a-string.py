@@ -47,19 +47,26 @@ Use sliding window with character frequency map. Expand until window contains al
 - O(n) time: single pass with O(1) work per position, O(1) space
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: s = "cbaebabacd", p = "abc"
-Step 1: Sliding window of size 3
-  "cba": is anagram of "abc" → index 0
-  "bae": not anagram
-  "aeb": not anagram
-  "eba": is anagram of "abc" → index 6
-  "bab": not anagram
-  "aba": not anagram
-  "bac": is anagram of "abc" (but not in string)
-  "acd": not anagram
+s = "cbaebabacd", p = "abc"
+```
 
-Output: [0,6]
+Step 1: Sliding window of size 3
+
+Steps:
+Step 1: "cba": is anagram of "abc" → index 0
+Step 2: "bae": not anagram
+Step 3: "aeb": not anagram
+Step 4: "eba": is anagram of "abc" → index 6
+Step 5: "bab": not anagram
+Step 6: "aba": not anagram
+Step 7: "bac": is anagram of "abc" (but not in string)
+Step 8: "acd": not anagram
+
+Output:
+```
+[0,6]
 ```
 
 ### TIME COMPLEXITY:

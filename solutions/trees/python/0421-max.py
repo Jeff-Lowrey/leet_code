@@ -44,18 +44,22 @@ Build Trie of all numbers. For each number, traverse Trie greedily choosing oppo
 - O(n * 32) time: n numbers, 32 bits each, O(n * 32) space for trie
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: nums = [3,10,5,25,2,8]
+nums = [3,10,5,25,2,8]
+```
+
 Step 1: Build trie of binary representations
-  3 = 00011
-  10 = 01010
-  ...
-
+3 = 00011
+10 = 01010
+...
 Step 2: For each number, find max XOR
-  For 3: try to maximize XOR
-  Result: 3 XOR 25 = 00011 XOR 11001 = 11010 = 26
+For 3: try to maximize XOR
+Result: 3 XOR 25 = 00011 XOR 11001 = 11010 = 26
 
-Output: 28 (5 XOR 25)
+Output:
+```
+28 (5 XOR 25)
 ```
 
 ### TIME COMPLEXITY:

@@ -46,17 +46,19 @@ A trie is a tree where each node represents a character and paths from root to n
 - Dictionary children allow efficient character lookup
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
 Insert "app":
-root → 'a' → 'p' → 'p' (end=True)
+```
 
 Insert "apple":
-root → 'a' → 'p' → 'p' → 'l' → 'e' (end=True)
 
-Search "app": root → 'a' → 'p' → 'p' (end=True) → True
-Search "appl": root → 'a' → 'p' → 'p' → 'l' (end=False) → False
-StartsWith "app": root → 'a' → 'p' → 'p' (exists) → True
-```
+Steps:
+Step 1: root → 'a' → 'p' → 'p' (end=True)
+Step 2: root → 'a' → 'p' → 'p' → 'l' → 'e' (end=True)
+Step 3: Search "app": root → 'a' → 'p' → 'p' (end=True) → True
+Step 4: Search "appl": root → 'a' → 'p' → 'p' → 'l' (end=False) → False
+Step 5: StartsWith "app": root → 'a' → 'p' → 'p' (exists) → True
 
 ### TIME COMPLEXITY:
 O(m)

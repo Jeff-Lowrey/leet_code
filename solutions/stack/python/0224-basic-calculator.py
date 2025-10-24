@@ -45,14 +45,15 @@ This is a classic stack problem for parsing expressions with parentheses. The ke
 - Numbers and operators are processed left to right
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: "1 + 1"
+"1 + 1"
+"2-(1+1)"
+```
+
 1. num=1, result=0, sign=1
 2. '+': result = 0 + 1*1 = 1, sign=1
 3. num=1: result = 1 + 1*1 = 2
-Output: 2
-
-Input: "2-(1+1)"
 1. num=2, result=0, sign=1
 2. '-': result = 0 + 2*1 = 2, sign=-1
 3. '(': push [2, -1], reset result=0, sign=1
@@ -60,7 +61,11 @@ Input: "2-(1+1)"
 5. '+': result = 0 + 1*1 = 1, sign=1
 6. num=1: result = 1 + 1*1 = 2
 7. ')': pop [2, -1], result = 2 + 2*(-1) = 0
-Output: 0
+
+Output:
+```
+2
+0
 ```
 
 ### TIME COMPLEXITY:

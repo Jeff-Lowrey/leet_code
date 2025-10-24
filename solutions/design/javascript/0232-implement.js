@@ -47,16 +47,20 @@
  * - Each element is moved at most twice (input -> output -> removed)
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
  * push(1): input=[1], output=[]
- * push(2): input=[1,2], output=[]
- * peek(): transfer -> input=[], output=[2,1], return 1
- * pop(): output=[2,1], return 1, output=[2]
- * push(3): input=[3], output=[2]
- * pop(): output=[2], return 2
  * ```
  *
- * ### TIME COMPLEXITY:
+ * push(2): input=[1,2], output=[]
+ *
+ * Steps:
+ * Step 1: peek(): transfer -> input=[], output=[2,1], return 1
+ * Step 2: pop(): output=[2,1], return 1, output=[2]
+ * Step 3: push(3): input=[3], output=[2]
+ * Step 4: pop(): output=[2], return 2
+
+### TIME COMPLEXITY:
  * - push: O(1)
  * - pop: Amortized O(1)
  * - peek: Amortized O(1)

@@ -51,17 +51,20 @@ Remove leaf nodes iteratively. Leaves have degree 1. After removing, new leaves 
 - O(n) time: process each node once, O(n) space for adjacency list
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: n = 6, edges = [[3,0],[3,1],[3,2],[3,4],[5,4]]
+n = 6, edges = [[3,0],[3,1],[3,2],[3,4],[5,4]]
+```
+
 Step 1: Build adjacency list
-  Degrees: [1,1,1,4,2,1]
-
+Degrees: [1,1,1,4,2,1]
 Step 2: Remove leaves layer by layer
-  Remove 0,1,2,5: leaves=[3,4]
+Remove 0,1,2,5: leaves=[3,4]
+These are minimum height tree roots
 
-  These are minimum height tree roots
-
-Output: [3,4]
+Output:
+```
+[3,4]
 ```
 
 ### TIME COMPLEXITY:

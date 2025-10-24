@@ -49,18 +49,24 @@ Build adjacency list and in-degree array. Start BFS from courses with in-degree 
 - O(V + E) time: vertices + edges, O(V + E) space for graph
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: numCourses = 4, prerequisites = [[1,0],[2,0],[3,1],[3,2]]
+numCourses = 4, prerequisites = [[1,0],[2,0],[3,1],[3,2]]
+```
+
 Step 1: Build graph
-  0 → [1,2], 1 → [3], 2 → [3]
-  indegree = [0,1,1,2]
 
-Step 2: Topological sort
-  Take 0: update indegree, order=[0]
-  Take 1,2: update indegree, order=[0,1,2]
-  Take 3: order=[0,1,2,3]
+Steps:
+Step 1: 0 → [1,2], 1 → [3], 2 → [3]
+Step 2: indegree = [0,1,1,2]
+Step 3: Topological sort
+Step 4: Take 0: update indegree, order=[0]
+Step 5: Take 1,2: update indegree, order=[0,1,2]
+Step 6: Take 3: order=[0,1,2,3]
 
-Output: [0,1,2,3]
+Output:
+```
+[0,1,2,3]
 ```
 
 ### TIME COMPLEXITY:

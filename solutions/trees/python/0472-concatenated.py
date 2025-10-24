@@ -46,13 +46,18 @@ Build Trie of all words. For each word, DFS from Trie root trying to match it as
 - O(n * m * k) time: n words, m avg length, k concatenation attempts
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: words = ["cat","cats","catsdogcats","dog","dogcatsdog","hippopotamuses"]
-Step 1: Check each word
-  "catsdogcats" = "cats" + "dog" + "cats" ✓
-  "dogcatsdog" = "dog" + "cats" + "dog" ✓
+words = ["cat","cats","catsdogcats","dog","dogcatsdog","hippopotamuses"]
+```
 
-Output: ["catsdogcats","dogcatsdog"]
+Step 1: Check each word
+"catsdogcats" = "cats" + "dog" + "cats" ✓
+"dogcatsdog" = "dog" + "cats" + "dog" ✓
+
+Output:
+```
+["catsdogcats","dogcatsdog"]
 ```
 
 ### TIME COMPLEXITY:

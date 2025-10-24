@@ -42,19 +42,23 @@
  * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: nums = [1,12,-5,-6,50,3], k = 4
+ * nums = [1,12,-5,-6,50,3], k = 4
+ * ```
+ *
  * Step 1: Calculate first window sum
- *   sum = 1+12+(-5)+(-6) = 2, avg = 0.5
- *
+ * sum = 1+12+(-5)+(-6) = 2, avg = 0.5
  * Step 2: Slide window
- *   sum = 2-1+50 = 51, avg = 12.75
- *   sum = 51-12+3 = 42, avg = 10.5
+ * sum = 2-1+50 = 51, avg = 12.75
+ * sum = 51-12+3 = 42, avg = 10.5
  *
- * Output: 12.75 (maximum average)
+ * Output:
  * ```
- *
- * ### TIME COMPLEXITY:
+ * 12.75 (maximum average)
+ * ```
+
+### TIME COMPLEXITY:
  * O(n)
  *
  * ### SPACE COMPLEXITY:

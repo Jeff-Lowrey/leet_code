@@ -49,18 +49,22 @@ Build graph of richer relationships. Use DFS with memoization. For each person, 
 - O(n^2) worst case, O(n + e) with memoization, O(n + e) space
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: richer = [[1,0],[2,1],[3,1],[3,7],[4,3],[5,3],[6,3]], quiet = [3,2,5,4,6,1,7,0]
+richer = [[1,0],[2,1],[3,1],[3,7],[4,3],[5,3],[6,3]], quiet = [3,2,5,4,6,1,7,0]
+```
+
 Step 1: Build graph (richer relationships)
-  0 ← 1 ← 2
-  1 ← 3 ← 4,5,6
-  7 ← 3
-
+0 ← 1 ← 2
+1 ← 3 ← 4,5,6
+7 ← 3
 Step 2: DFS to find quietest richer person
-  For person 0: check all richer (1,2,3,4,5,6,7)
-  Find quietest among them
+For person 0: check all richer (1,2,3,4,5,6,7)
+Find quietest among them
 
-Output: [5,5,2,5,4,5,6,7]
+Output:
+```
+[5,5,2,5,4,5,6,7]
 ```
 
 ### TIME COMPLEXITY:

@@ -50,27 +50,30 @@
  * - O(log n) time, O(1) space
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: nums = [1,2,3,1]
+ * nums = [1,2,3,1]
+ * ```
+ *
  * Step 1: Initialize binary search
- *   left = 0, right = 3
- *
+ * left = 0, right = 3
  * Step 2: Binary search for peak
- *   mid = 1: nums[1]=2 < nums[2]=3
- *   → Peak is on right, left = 2
+ * mid = 1: nums[1]=2 < nums[2]=3
  *
- *   mid = 2: nums[2]=3 > nums[3]=1
- *   → Peak could be at mid or left, right = 2
+ * Steps:
+ * Step 1: Peak is on right, left = 2
+ * Step 2: mid = 2: nums[2]=3 > nums[3]=1
+ * Step 3: Peak could be at mid or left, right = 2
+ * Step 4: left = right = 2
+ * Step 5: Check result
+ * Step 6: nums[2] = 3 is greater than neighbors (2 and 1)
  *
- *   left = right = 2
- *
- * Step 3: Check result
- *   nums[2] = 3 is greater than neighbors (2 and 1)
- *
- * Output: 2 (index of peak element)
+ * Output:
  * ```
- *
- * ### TIME COMPLEXITY:
+ * 2 (index of peak element)
+ * ```
+
+### TIME COMPLEXITY:
  * O(n)
  *
  * ### SPACE COMPLEXITY:

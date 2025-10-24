@@ -61,17 +61,19 @@ If all brackets are properly matched, the stack will be empty at the end.
 - Empty stack at the end means all brackets were properly matched
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: s = "([{}])"
+s = "([{}])"
+```
 
+Steps:
 Step 1: '(' → push to stack: ['(']
 Step 2: '[' → push to stack: ['(', '[']
 Step 3: '{' → push to stack: ['(', '[', '{']
 Step 4: '}' → pop '{', matches ✓, stack: ['(', '[']
 Step 5: ']' → pop '[', matches ✓, stack: ['(']
 Step 6: ')' → pop '(', matches ✓, stack: []
-Result: Empty stack → True
-```
+Step 7: Result: Empty stack → True
 
 ### TIME COMPLEXITY:
 O(n)

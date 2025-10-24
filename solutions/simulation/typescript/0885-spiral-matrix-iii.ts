@@ -34,12 +34,17 @@
  * This approach works because it correctly implements the problem requirements.
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: example input
- * Output: example output
+ * example input
  * ```
  *
- * ### TIME COMPLEXITY:
+ * Output:
+ * ```
+ * example output
+ * ```
+
+### TIME COMPLEXITY:
  * **O(n²)** - Analysis of time complexity
  *
  * ### SPACE COMPLEXITY:

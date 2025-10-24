@@ -42,23 +42,27 @@
  * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: nums = [1,2,1]
+ * nums = [1,2,1]
+ * ```
+ *
  * Step 1: Treat as circular, process twice
- *   Extended: [1,2,1,1,2,1]
- *
+ * Extended: [1,2,1,1,2,1]
  * Step 2: Use monotonic stack from right
- *   i=5: stack=[1], result[2]=1
- *   i=4: pop 1, stack=[2], result[1]=2
- *   i=3: stack=[1,2], result[0]=2
- *   i=2: stack=[1,2], result[2]=2
- *   i=1: stack=[2], result[1]=-1
- *   i=0: stack=[1,2], result[0]=2
+ * i=5: stack=[1], result[2]=1
+ * i=4: pop 1, stack=[2], result[1]=2
+ * i=3: stack=[1,2], result[0]=2
+ * i=2: stack=[1,2], result[2]=2
+ * i=1: stack=[2], result[1]=-1
+ * i=0: stack=[1,2], result[0]=2
  *
- * Output: [2,-1,2]
+ * Output:
  * ```
- *
- * ### TIME COMPLEXITY:
+ * [2,-1,2]
+ * ```
+
+### TIME COMPLEXITY:
  * O(n)
  *
  * ### SPACE COMPLEXITY:

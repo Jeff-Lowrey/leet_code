@@ -40,13 +40,15 @@
  * - Morris traversal modifies tree temporarily to avoid extra space
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
  * Tree:    1
- *           \
- *            2
- *           /
- *          3
+ * ```
  *
+ * \
+ * 2
+ * /
+ * 3
  * Inorder traversal steps:
  * 1. Start at root (1)
  * 2. No left child, process 1
@@ -56,11 +58,9 @@
  * 6. No right child of 3, backtrack
  * 7. Process 2
  * 8. No right child of 2
- *
  * Result: [1, 3, 2]
- * ```
- *
- * ### TIME COMPLEXITY:
+
+### TIME COMPLEXITY:
  * O(n)
  * We visit each node exactly once
  *

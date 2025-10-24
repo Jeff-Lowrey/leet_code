@@ -45,24 +45,28 @@
  * - O(n log n) for sorting, O(n) space for separate arrays
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: intervals = [[0,30],[5,10],[15,20]]
+ * intervals = [[0,30],[5,10],[15,20]]
+ * ```
+ *
  * Step 1: Separate start and end times
- *   starts = [0,5,15]
- *   ends = [10,20,30]
- *
+ * starts = [0,5,15]
+ * ends = [10,20,30]
  * Step 2: Use two pointers
- *   time=0: start meeting, rooms=1
- *   time=5: start meeting, rooms=2
- *   time=10: end meeting, rooms=1
- *   time=15: start meeting, rooms=2
- *   time=20: end meeting, rooms=1
- *   time=30: end meeting, rooms=0
+ * time=0: start meeting, rooms=1
+ * time=5: start meeting, rooms=2
+ * time=10: end meeting, rooms=1
+ * time=15: start meeting, rooms=2
+ * time=20: end meeting, rooms=1
+ * time=30: end meeting, rooms=0
  *
- * Output: 2 (minimum meeting rooms needed)
+ * Output:
  * ```
- *
- * ### TIME COMPLEXITY:
+ * 2 (minimum meeting rooms needed)
+ * ```
+
+### TIME COMPLEXITY:
  * O(n)
  *
  * ### SPACE COMPLEXITY:

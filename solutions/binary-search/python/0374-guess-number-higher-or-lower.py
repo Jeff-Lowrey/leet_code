@@ -51,20 +51,24 @@ This is a classic binary search problem where we need to find a target number us
 - Similar to searching in a sorted array but using API instead of direct comparison
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: n = 10, pick = 6
+n = 10, pick = 6
+n = 1, pick = 1
+n = 2, pick = 1
+```
+
 Step 1: guess(5) returns 1 (pick > 5), so left = 6
 Step 2: guess(8) returns -1 (pick < 8), so right = 7
 Step 3: guess(6) returns 0 (correct!)
-Output: 6
-
-Input: n = 1, pick = 1
 Step 1: guess(1) returns 0 (correct!)
-Output: 1
-
-Input: n = 2, pick = 1
 Step 1: guess(1) returns 0 (correct!)
-Output: 1
+
+Output:
+```
+6
+1
+1
 ```
 
 ### TIME COMPLEXITY:

@@ -47,20 +47,23 @@ Use max heap to track character frequencies. Greedily pick most frequent charact
 - O(n log k) time: k unique chars, n total chars, O(k) space for heap
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: s = "aab"
+s = "aab"
+```
+
 Step 1: Count character frequencies
-  freq = {'a': 2, 'b': 1}
-
+freq = {'a': 2, 'b': 1}
 Step 2: Build max heap (using negative frequencies)
-  heap = [(-2, 'a'), (-1, 'b')]
-
+heap = [(-2, 'a'), (-1, 'b')]
 Step 3: Rearrange characters
-  Pick 'a': result = "a", heap = [(-1, 'b'), (-1, 'a')]
-  Pick 'b': result = "ab", heap = [(-1, 'a')]
-  Pick 'a': result = "aba"
+Pick 'a': result = "a", heap = [(-1, 'b'), (-1, 'a')]
+Pick 'b': result = "ab", heap = [(-1, 'a')]
+Pick 'a': result = "aba"
 
-Output: "aba" (reorganized string)
+Output:
+```
+"aba" (reorganized string)
 ```
 
 ### TIME COMPLEXITY:

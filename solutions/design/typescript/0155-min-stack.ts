@@ -50,17 +50,18 @@
  * - This ensures O(1) access to minimum at all times
  * 
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
  * Operations: push(-2), push(0), push(-3)
+ * ```
+ *
  * main_stack: [-2, 0, -3]
  * min_stack:  [-2, -3]
- * 
  * getMin() returns -3 (top of min_stack)
  * pop() removes -3 from both stacks
  * getMin() returns -2 (new top of min_stack)
- * ```
- * 
- * ### TIME COMPLEXITY:
+
+### TIME COMPLEXITY:
  * O(1)
  * All operations are constant time
  * 

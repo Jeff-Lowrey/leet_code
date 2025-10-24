@@ -40,26 +40,29 @@
  * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: nums = [1,5,11,5]
+ * nums = [1,5,11,5]
+ * ```
+ *
  * Step 1: Calculate target
- *   sum = 22, target = 11
- *
+ * sum = 22, target = 11
  * Step 2: DP subset sum
- *   dp[0] = True
- *   Process 1: dp[1] = True
- *   Process 5: dp[5] = True, dp[6] = True
- *   Process 11: dp[11] = True, dp[16] = True, dp[12] = True
- *   Process 5: dp[11] already True
- *
+ * dp[0] = True
+ * Process 1: dp[1] = True
+ * Process 5: dp[5] = True, dp[6] = True
+ * Process 11: dp[11] = True, dp[16] = True, dp[12] = True
+ * Process 5: dp[11] already True
  * Step 3: Verify partition
- *   Subset 1: [1, 5, 5] = 11
- *   Subset 2: [11] = 11
+ * Subset 1: [1, 5, 5] = 11
+ * Subset 2: [11] = 11
  *
- * Output: True (can partition into equal subsets)
+ * Output:
  * ```
- *
- * ### TIME COMPLEXITY:
+ * True (can partition into equal subsets)
+ * ```
+
+### TIME COMPLEXITY:
  * O(n)
  *
  * ### SPACE COMPLEXITY:

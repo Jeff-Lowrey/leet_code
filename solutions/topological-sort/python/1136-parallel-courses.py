@@ -49,16 +49,20 @@ Build graph and calculate in-degrees. Use BFS starting from nodes with in-degree
 - O(V + E) time, O(V + E) space
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: n = 3, relations = [[1,3],[2,3]]
+n = 3, relations = [[1,3],[2,3]]
+```
+
 Step 1: Build graph and indegree
-  indegree = [0,0,2]
-
+indegree = [0,0,2]
 Step 2: Process courses level by level
-  Semester 1: courses 1,2 (indegree=0)
-  Semester 2: course 3 (after 1,2 complete)
+Semester 1: courses 1,2 (indegree=0)
+Semester 2: course 3 (after 1,2 complete)
 
-Output: 2 (minimum semesters)
+Output:
+```
+2 (minimum semesters)
 ```
 
 ### TIME COMPLEXITY:

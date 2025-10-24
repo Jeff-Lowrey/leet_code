@@ -42,18 +42,24 @@
  * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: matrix = [[9,9,4],[6,6,8],[2,1,1]]
+ * matrix = [[9,9,4],[6,6,8],[2,1,1]]
+ * ```
+ *
  * Step 1: DFS with memoization
- *   Start from 9: can go to 6 → 2 → 1, length=4
  *
+ * Steps:
+ * Step 1: Start from 9: can go to 6 → 2 → 1, length=4
  * Step 2: Try all cells
- *   Best path: 9→6→2→1
+ * Step 3: Best path: 9→6→2→1
  *
- * Output: 4 (longest increasing path)
+ * Output:
  * ```
- *
- * ### TIME COMPLEXITY:
+ * 4 (longest increasing path)
+ * ```
+
+### TIME COMPLEXITY:
  * O(n)
  *
  * ### SPACE COMPLEXITY:

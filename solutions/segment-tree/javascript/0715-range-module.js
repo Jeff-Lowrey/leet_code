@@ -50,15 +50,17 @@
  * The algorithm correctly solves the problem by systematically exploring all valid states while maintaining necessary invariants. Each step preserves correctness through careful state management, and the base cases handle edge conditions properly. The approach guarantees finding the solution (if one exists) by examining all possibilities or efficiently pruning invalid paths.
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
  * addRange(10, 20): ranges = [(10, 20)]
+ * ```
+ *
  * removeRange(14, 16): ranges = [(10, 14), (16, 20)]
  * queryRange(10, 14): true (fully covered)
  * queryRange(13, 15): false (15 not covered)
  * queryRange(16, 17): true (fully covered)
- * ```
- *
- * ### TIME COMPLEXITY:
+
+### TIME COMPLEXITY:
  * - Segment Tree: O(log n) per operation
  * - Sorted Intervals: O(n) worst case, O(log n) average
  *

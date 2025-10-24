@@ -49,29 +49,31 @@ banned word lookups.
 - Case-insensitive comparison ensures correct matching
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: paragraph = "Bob hit a ball, the hit BALL flew far after it was hit."
-       banned = ["hit"]
+paragraph = "Bob hit a ball, the hit BALL flew far after it was hit."
+```
 
+banned = ["hit"]
 Step 1: Convert banned to set
-  banned_set = {"hit"}
-
+banned_set = {"hit"}
 Step 2: Parse and count words (lowercase)
-  "bob": 1
-  "hit": 3 (banned - skip)
-  "a": 1
-  "ball": 2 ✓
-  "the": 1
-  "flew": 1
-  "far": 1
-  "after": 1
-  "it": 1
-  "was": 1
-
+"bob": 1
+"hit": 3 (banned - skip)
+"a": 1
+"ball": 2 ✓
+"the": 1
+"flew": 1
+"far": 1
+"after": 1
+"it": 1
+"was": 1
 Step 3: Find maximum non-banned word
-  max_word = "ball" (count = 2)
+max_word = "ball" (count = 2)
 
-Output: "ball"
+Output:
+```
+"ball"
 ```
 
 ### TIME COMPLEXITY:

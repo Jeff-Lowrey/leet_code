@@ -50,18 +50,20 @@
  * The algorithm correctly solves the problem by systematically exploring all valid states while maintaining necessary invariants. Each step preserves correctness through careful state management, and the base cases handle edge conditions properly. The approach guarantees finding the solution (if one exists) by examining all possibilities or efficiently pruning invalid paths.
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
  * l1 = [2,4,3] represents 342
+ * ```
+ *
  * l2 = [5,6,4] represents 465
  *
+ * Steps:
  * Step 1: `2 + 5` + 0(carry) = 7, `carry = 0` → node(7)
  * Step 2: `4 + 6` + 0(carry) = 10, `carry = 1` → node(0)
  * Step 3: `3 + 4` + 1(carry) = 8, `carry = 0` → node(8)
- *
- * Result: [7,0,8] represents 807
- * ```
- *
- * ### TIME COMPLEXITY:
+ * Step 4: Result: [7,0,8] represents 807
+
+### TIME COMPLEXITY:
  * O(max(m, n))
  * Where m and n are lengths of the two linked lists. Process each digit once.
  *

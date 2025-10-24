@@ -45,13 +45,15 @@
  * - The serialized string uniquely represents the tree
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
  * Input tree:     1
- *                / \
- *               2   3
- *                  / \
- *                 4   5
+ * ```
  *
+ * / \
+ * 2   3
+ * / \
+ * 4   5
  * Serialize: "1,2,#,#,3,4,#,#,5,#,#"
  * - Visit 1, add "1"
  * - Visit 2, add "2"
@@ -64,11 +66,9 @@
  * - Visit 5, add "5"
  * - Visit left child of 5 (null), add "#"
  * - Visit right child of 5 (null), add "#"
- *
  * Deserialize: Split by comma and reconstruct using preorder
- * ```
- *
- * ### TIME COMPLEXITY:
+
+### TIME COMPLEXITY:
  * O(n)
  * Where n is the number of nodes in the tree
  *

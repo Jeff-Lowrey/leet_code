@@ -45,18 +45,19 @@ For each level, calculate the sum and count of nodes, then compute the average.
 - Each level's average is independent of other levels
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
 Tree:      3
-         /   \\
-        9     20
-             /  \\
-            15   7
+```
 
+/   \\
+9     20
+/  \\
+15   7
 Level 0: sum = 3, count = 1, avg = 3.0
 Level 1: sum = 29, count = 2, avg = 14.5
 Level 2: sum = 22, count = 2, avg = 11.0
 Result: [3.0, 14.5, 11.0]
-```
 
 ### TIME COMPLEXITY:
 O(n)

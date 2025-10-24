@@ -45,17 +45,18 @@
  * - We collect these rightmost nodes from each level
  * 
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
  * Tree:      1            <- Right view: 1
- *          /   \\
- *         2     3          <- Right view: 3
- *          \\     \\
- *           5     4        <- Right view: 4
- * 
- * Result: [1, 3, 4]
  * ```
- * 
- * ### TIME COMPLEXITY:
+ *
+ * /   \\
+ * 2     3          <- Right view: 3
+ * \\     \\
+ * 5     4        <- Right view: 4
+ * Result: [1, 3, 4]
+
+### TIME COMPLEXITY:
  * O(n)
  * - Visit each node exactly once
  * - n = number of nodes in tree

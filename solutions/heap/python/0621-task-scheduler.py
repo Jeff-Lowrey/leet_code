@@ -46,8 +46,10 @@ Schedule most frequent tasks first to minimize idle time. Use max-heap to always
 - Cooldown queue ensures we respect the n interval
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
 tasks = ["A","A","A","B","B","B"], n = 2
+```
 
 Frequencies: A=3, B=3
 Timeline:
@@ -59,9 +61,7 @@ Time 4: B (B left: 1, cooldown until time 7)
 Time 5: idle
 Time 6: A (A done)
 Time 7: B (B done)
-
 Total: 8 units
-```
 
 ### TIME COMPLEXITY:
 O(n × m)

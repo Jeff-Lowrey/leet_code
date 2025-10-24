@@ -45,15 +45,17 @@
  * - `i` scans through all elements
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: [1,1,2]
+ * [1,1,2]
+ * ```
+ *
  * i=0, j=0: nums[0]=1 (first element, place at j=0)
  * i=1, j=1: nums[1]=1 == nums[0], skip
  * i=2, j=1: nums[2]=2 != nums[0], place at j=1
  * Result: [1,2,_], return k=2
- * ```
- *
- * ### TIME COMPLEXITY:
+
+### TIME COMPLEXITY:
  * O(n)
  * Single pass through the array
  *

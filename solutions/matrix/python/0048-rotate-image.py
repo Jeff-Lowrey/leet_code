@@ -50,14 +50,17 @@ Alternatively, we can directly manipulate elements in concentric rings.
 - Both maintain O(1) space complexity
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
 Original:     Transpose:    Reverse Rows:
-1 2 3         1 4 7         7 4 1
-4 5 6    →    2 5 8    →    8 5 2
-7 8 9         3 6 9         9 6 3
-
-Result: 90° clockwise rotation
 ```
+
+1 2 3         1 4 7         7 4 1
+
+Steps:
+Step 1: 4 5 6    →    2 5 8    →    8 5 2
+Step 2: 7 8 9         3 6 9         9 6 3
+Step 3: Result: 90° clockwise rotation
 
 ### TIME COMPLEXITY:
 O(n²)

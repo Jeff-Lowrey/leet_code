@@ -49,15 +49,22 @@
  * - All other people have net trust < n-1 (they either trust someone or aren't trusted by everyone)
  * 
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: n = 3, trust = [[1,3],[2,3]]
- * Person 1: trusts 3, trusted by 0 → net = 0 - 1 = -1
- * Person 2: trusts 3, trusted by 0 → net = 0 - 1 = -1
- * Person 3: trusts 0, trusted by 2 → net = 2 - 0 = 2 = n-1 ✓
- * Output: 3 (person 3 is the judge)
+ * n = 3, trust = [[1,3],[2,3]]
  * ```
- * 
- * ### TIME COMPLEXITY:
+ *
+ * Steps:
+ * Step 1: Person 1: trusts 3, trusted by 0 → net = 0 - 1 = -1
+ * Step 2: Person 2: trusts 3, trusted by 0 → net = 0 - 1 = -1
+ * Step 3: Person 3: trusts 0, trusted by 2 → net = 2 - 0 = 2 = n-1 ✓
+ *
+ * Output:
+ * ```
+ * 3 (person 3 is the judge)
+ * ```
+
+### TIME COMPLEXITY:
  * O(T + N)
  * Where T is the number of trust relationships and N is the number of people
  * 

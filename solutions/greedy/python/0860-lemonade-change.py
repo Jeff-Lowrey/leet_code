@@ -41,14 +41,21 @@ This is a greedy problem about making change optimally. We need to track our cas
 The algorithm correctly solves the problem by systematically exploring all valid states while maintaining necessary invariants. Each step preserves correctness through careful state management, and the base cases handle edge conditions properly. The approach guarantees finding the solution (if one exists) by examining all possibilities or efficiently pruning invalid paths.
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: [5,5,5,10,20]
+[5,5,5,10,20]
+```
+
+Steps:
 Step 1: 5 → count_5=1, count_10=0 ✓
 Step 2: 5 → count_5=2, count_10=0 ✓
 Step 3: 5 → count_5=3, count_10=0 ✓
 Step 4: 10 → need $5 change → count_5=2, count_10=1 ✓
 Step 5: 20 → need $15 change → use 1×$10 + 1×$5 → count_5=1, count_10=0 ✓
-Output: True
+
+Output:
+```
+True
 ```
 
 ### TIME COMPLEXITY:

@@ -42,23 +42,27 @@
  * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: nums = [2,7,9,3,1]
+ * nums = [2,7,9,3,1]
+ * ```
+ *
  * Step 1: Build DP table
- *   dp[0] = 2 (rob house 0)
- *   dp[1] = max(2, 7) = 7 (rob house 1)
- *   dp[2] = max(7, 2+9) = 11 (rob houses 0,2)
- *   dp[3] = max(11, 7+3) = 11 (keep houses 0,2)
- *   dp[4] = max(11, 11+1) = 12 (rob houses 0,2,4)
- *
+ * dp[0] = 2 (rob house 0)
+ * dp[1] = max(2, 7) = 7 (rob house 1)
+ * dp[2] = max(7, 2+9) = 11 (rob houses 0,2)
+ * dp[3] = max(11, 7+3) = 11 (keep houses 0,2)
+ * dp[4] = max(11, 11+1) = 12 (rob houses 0,2,4)
  * Step 2: Optimal solution
- *   Rob houses at indices 0, 2, 4
- *   Total: 2 + 9 + 1 = 12
+ * Rob houses at indices 0, 2, 4
+ * Total: 2 + 9 + 1 = 12
  *
- * Output: 12 (maximum money)
+ * Output:
  * ```
- *
- * ### TIME COMPLEXITY:
+ * 12 (maximum money)
+ * ```
+
+### TIME COMPLEXITY:
  * O(n)
  *
  * ### SPACE COMPLEXITY:

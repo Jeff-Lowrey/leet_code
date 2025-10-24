@@ -44,19 +44,26 @@
  * - Two-pass approach separates grouping from validation
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: ["a==b","b!=a"]
+ * ["a==b","b!=a"]
+ * ["a==b","b==c","a!=d"]
+ * ```
+ *
  * Step 1: Process equalities - Union('a', 'b')
  * Step 2: Check inequalities - "b!=a" but a and b are in same group
- * Output: False (contradiction)
  *
- * Input: ["a==b","b==c","a!=d"]
+ * Steps:
  * Step 1: Process equalities - Union('a','b'), Union('b','c') → {a,b,c} group
  * Step 2: Check inequalities - "a!=d" and d is separate → no conflict
- * Output: True
- * ```
  *
- * ### TIME COMPLEXITY:
+ * Output:
+ * ```
+ * False (contradiction)
+ * True
+ * ```
+
+### TIME COMPLEXITY:
  * O(N × α(N))
  * Where N is number of equations and α is inverse Ackermann function
  *

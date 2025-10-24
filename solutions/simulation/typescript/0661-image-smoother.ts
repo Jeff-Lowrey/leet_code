@@ -59,30 +59,28 @@
  * - Integer division naturally floors the average
  * 
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
  * img = [[100,200,100],
- *        [200,50,200],
- *        [100,200,100]]
- * 
- * Cell [0,0] (corner, 4 cells):
- *   Neighbors: [0,0], [0,1], [1,0], [1,1]
- *   Sum: 100 + 200 + 200 + 50 = 550
- *   Average: 550 // 4 = 137
- * 
- * Cell [1,1] (center, 9 cells):
- *   Neighbors: all 9 cells
- *   Sum+200+100+200+50+200+100+200+100 = 1250
- *   Average // 9 = 138
- * 
- * Cell [0,1] (edge, 6 cells):
- *   Neighbors: [0,0], [0,1], [0,2], [1,0], [1,1], [1,2]
- *   Sum+200+100+200+50+200 = 850
- *   Average // 6 = 141
- * 
- * Result: [[137,141,137],[141,138,141],[137,141,137]]
  * ```
- * 
- * ### TIME COMPLEXITY:
+ *
+ * [200,50,200],
+ * [100,200,100]]
+ * Cell [0,0] (corner, 4 cells):
+ * Neighbors: [0,0], [0,1], [1,0], [1,1]
+ * Sum: 100 + 200 + 200 + 50 = 550
+ * Average: 550 // 4 = 137
+ * Cell [1,1] (center, 9 cells):
+ * Neighbors: all 9 cells
+ * Sum+200+100+200+50+200+100+200+100 = 1250
+ * Average // 9 = 138
+ * Cell [0,1] (edge, 6 cells):
+ * Neighbors: [0,0], [0,1], [0,2], [1,0], [1,1], [1,2]
+ * Sum+200+100+200+50+200 = 850
+ * Average // 6 = 141
+ * Result: [[137,141,137],[141,138,141],[137,141,137]]
+
+### TIME COMPLEXITY:
  * O(m × n)
  * - Visit each cell once, check constant number of neighbors
  * 

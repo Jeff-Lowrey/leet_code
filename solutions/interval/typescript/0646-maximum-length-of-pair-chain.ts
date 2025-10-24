@@ -50,20 +50,24 @@
  * - O(n log n) for sort, O(1) space, same logic as activity selection
  * 
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: pairs = [[1,2],[2,3],[3,4]]
+ * pairs = [[1,2],[2,3],[3,4]]
+ * ```
+ *
  * Step 1: Sort by second element
- *   sorted = [[1,2],[2,3],[3,4]]
- * 
+ * sorted = [[1,2],[2,3],[3,4]]
  * Step 2: Greedy selection
- *   Select [1,2], end=2
- *   [2,3]: 2 ≥ 2, skip
- *   [3,4]: 3 > 2, select it, length=2
- * 
- * Output: 2 (maximum chain length)
+ * Select [1,2], end=2
+ * [2,3]: 2 ≥ 2, skip
+ * [3,4]: 3 > 2, select it, length=2
+ *
+ * Output:
  * ```
- * 
- * ### TIME COMPLEXITY:
+ * 2 (maximum chain length)
+ * ```
+
+### TIME COMPLEXITY:
  * O(n)
  * 
  * ### SPACE COMPLEXITY:

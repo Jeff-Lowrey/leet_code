@@ -46,27 +46,28 @@ Sorting helps us find this threshold efficiently. We can also use counting for O
 - Counting approach: For each h, count papers with >= h citations
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: citations = [3,0,6,1,5]
+citations = [3,0,6,1,5]
+```
 
 Sorted (descending): [6,5,3,1,0]
-
 Check each position:
 i=0: citations[0]=6 >= 1? YES (h >= 1)
 i=1: citations[1]=5 >= 2? YES (h >= 2)
 i=2: citations[2]=3 >= 3? YES (h >= 3)
 i=3: citations[3]=1 >= 4? NO  (h < 4)
 i=4: citations[4]=0 >= 5? NO  (h < 5)
-
 Maximum h where condition holds: h=3
 This means: 3 papers with at least 3 citations each
-
 Verification:
 Papers: [6,5,3,1,0]
 Papers with >= 3 citations: 6,5,3 = 3 papers ✓
 Papers with >= 4 citations: 6,5 = 2 papers (not enough for h=4)
 
-Output: 3
+Output:
+```
+3
 ```
 
 ### TIME COMPLEXITY:

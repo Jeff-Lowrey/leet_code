@@ -74,15 +74,19 @@
  * - All operations are truly O(1) average case
  * 
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
  * insert(1): nums=[1], map={1:0}
+ * ```
+ *
  * insert(2): nums=[1,2], map={1:0, 2:1}
  * getRandom(): randomly return 1 or 2
- * remove(1): swap 1 with 2 -> nums=[2,1], then pop -> nums=[2], map={2:0}
- * insert(3): nums=[2,3], map={2:0, 3:1}
- * ```
- * 
- * ### TIME COMPLEXITY:
+ *
+ * Steps:
+ * Step 1: remove(1): swap 1 with 2 -> nums=[2,1], then pop -> nums=[2], map={2:0}
+ * Step 2: insert(3): nums=[2,3], map={2:0, 3:1}
+
+### TIME COMPLEXITY:
  * - insert: O(1)
  * - remove: O(1)
  * - getRandom: O(1)

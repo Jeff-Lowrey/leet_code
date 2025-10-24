@@ -48,15 +48,23 @@ multiple constraints: combination size and target sum.
 - Multiple constraints (count and sum) guide the search
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: k = 3, n = 7
+k = 3, n = 7
+```
+
 Try combinations of 3 numbers from 1-9 that sum to 7:
-[1,2,3] -> sum = 6 (not valid)
-[1,2,4] -> sum = 7 (valid!)
-[1,3,3] -> can't reuse 3
-[2,2,3] -> can't reuse 2
-Other combinations either don't sum to 7 or don't have exactly 3 numbers
-Output: [[1,2,4]]
+
+Steps:
+Step 1: [1,2,3] -> sum = 6 (not valid)
+Step 2: [1,2,4] -> sum = 7 (valid!)
+Step 3: [1,3,3] -> can't reuse 3
+Step 4: [2,2,3] -> can't reuse 2
+Step 5: Other combinations either don't sum to 7 or don't have exactly 3 numbers
+
+Output:
+```
+[[1,2,4]]
 ```
 
 ### TIME COMPLEXITY:

@@ -52,28 +52,31 @@ achieve O(n log n) time. This problem tests understanding of fundamental sorting
 - **Heap Sort**: Guaranteed O(n log n), in-place, not stable
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: nums = [5,2,3,1]
+nums = [5,2,3,1]
+```
 
 Merge Sort:
 [5,2,3,1]
-  /    \\
+/    \\
 [5,2]  [3,1]
- / \\    / \\
+/ \\    / \\
 [5][2] [3][1]
- \\ /    \\ /
+\\ /    \\ /
 [2,5]  [1,3]
-  \\    /
+\\    /
 [1,2,3,5]
-
 Quick Sort:
 [5,2,3,1] pivot=1
 [1] [5,2,3]
-    [2,3,5] pivot=3
-    [2,3] [5]
+[2,3,5] pivot=3
+[2,3] [5]
 [1,2,3,5]
 
-Output: [1,2,3,5]
+Output:
+```
+[1,2,3,5]
 ```
 
 ### TIME COMPLEXITY:

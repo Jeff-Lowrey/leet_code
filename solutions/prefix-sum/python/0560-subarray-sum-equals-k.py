@@ -43,13 +43,15 @@ This is a classic prefix sum problem. The key insight is that if we know the pre
 - Running prefix sum allows single pass solution
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: nums = [1,1,1], k = 2
+nums = [1,1,1], k = 2
+```
+
 Index 0: sum=1, need=1-2=-1, count=0, map={0:1, 1:1}
 Index 1: sum=2, need=2-2=0, count=1, map={0:1, 1:1, 2:1}
 Index 2: sum=3, need=3-2=1, count=2, map={0:1, 1:1, 2:1, 3:1}
 Result: 2 subarrays: [1,1] and [1,1]
-```
 
 ### TIME COMPLEXITY:
 O(n)

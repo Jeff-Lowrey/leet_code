@@ -45,18 +45,19 @@
  * - Deque provides efficient O(1) operations for BFS
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
  * Tree:      3
- *          /   \
- *         9     20
- *              /  \
- *             15   7
- *
- * Level-order (top-down): [[3], [9, 20], [15, 7]]
- * Bottom-up: [[15, 7], [9, 20], [3]]
  * ```
  *
- * ### TIME COMPLEXITY:
+ * /   \
+ * 9     20
+ * /  \
+ * 15   7
+ * Level-order (top-down): [[3], [9, 20], [15, 7]]
+ * Bottom-up: [[15, 7], [9, 20], [3]]
+
+### TIME COMPLEXITY:
  * O(n)
  * - Visit each node exactly once: O(n)
  * - Reversing result: O(h) where h = height

@@ -50,17 +50,20 @@
  * By storing earliest occurrence of each remainder, we maximize subarray length.
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
  * nums = [23,2,4,6,7], k = 6
- * Prefix sums: [23, 25, 29, 35, 42]
- * Modulos: [5, 1, 5, 5, 0]
- *
- * At index 0: remainder 5, store {5: 0}
- * At index 1: remainder 1, store {5: 0, 1: 1}
- * At index 2: remainder 5, seen at index 0, distance = 2 → return true
  * ```
  *
- * ### TIME COMPLEXITY:
+ * Prefix sums: [23, 25, 29, 35, 42]
+ * Modulos: [5, 1, 5, 5, 0]
+ * At index 0: remainder 5, store {5: 0}
+ * At index 1: remainder 1, store {5: 0, 1: 1}
+ *
+ * Steps:
+ * Step 1: At index 2: remainder 5, seen at index 0, distance = 2 → return true
+
+### TIME COMPLEXITY:
  * O(n)
  *
  * ### SPACE COMPLEXITY:

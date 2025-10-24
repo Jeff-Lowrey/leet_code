@@ -46,19 +46,23 @@
  * - O(m*n) time: visit each cell once, O(m*n) space for visited/parent array
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: board = [["X","X","X","X"],["X","O","O","X"],["X","X","O","X"],["X","O","X","X"]]
+ * board = [["X","X","X","X"],["X","O","O","X"],["X","X","O","X"],["X","O","X","X"]]
+ * ```
+ *
  * Step 1: Mark border-connected 'O's
- *   (1,1), (1,2), (2,2) are surrounded
- *   (3,1) is connected to border
- *
+ * (1,1), (1,2), (2,2) are surrounded
+ * (3,1) is connected to border
  * Step 2: Flip surrounded 'O's to 'X'
- *   Only flip (1,1), (1,2), (2,2)
+ * Only flip (1,1), (1,2), (2,2)
  *
- * Output: [["X","X","X","X"],["X","X","X","X"],["X","X","X","X"],["X","O","X","X"]]
+ * Output:
  * ```
- *
- * ### TIME COMPLEXITY:
+ * [["X","X","X","X"],["X","X","X","X"],["X","X","X","X"],["X","O","X","X"]]
+ * ```
+
+### TIME COMPLEXITY:
  * O(n)
  *
  * ### SPACE COMPLEXITY:

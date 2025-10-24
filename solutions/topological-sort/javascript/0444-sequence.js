@@ -41,25 +41,25 @@
  * - We need to verify that the unique order matches the original sequence
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
  * org = [1,2,3], seqs = [[1,2],[1,3],[2,3]]
- *
- * Build graph from seqs:
- * 1 -> [2, 3]
- * 2 -> [3]
- * 3 -> []
- *
- * In-degrees: {1: 0, 2: 1, 3: 2}
- *
- * Topological sort:
- * 1. Only node 1 has in-degree 0 → process 1, reduce in-degrees of 2,3
- * 2. Only node 2 has in-degree 0 → process 2, reduce in-degree of 3
- * 3. Only node 3 has in-degree 0 → process 3
- *
- * Result: [1,2,3] matches org → True
  * ```
  *
- * ### TIME COMPLEXITY:
+ * Build graph from seqs:
+ * Topological sort:
+ *
+ * Steps:
+ * Step 1: 1 -> [2, 3]
+ * Step 2: 2 -> [3]
+ * Step 3: 3 -> []
+ * Step 4: In-degrees: {1: 0, 2: 1, 3: 2}
+ * Step 5: Only node 1 has in-degree 0 → process 1, reduce in-degrees of 2,3
+ * Step 6: Only node 2 has in-degree 0 → process 2, reduce in-degree of 3
+ * Step 7: Only node 3 has in-degree 0 → process 3
+ * Step 8: Result: [1,2,3] matches org → True
+
+### TIME COMPLEXITY:
  * O(V + E)
  * Where V is number of nodes (n) and E is total number of edges from seqs
  *

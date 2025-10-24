@@ -44,22 +44,27 @@
  * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: nums = [2,3,1,1,4]
+ * nums = [2,3,1,1,4]
+ * ```
+ *
  * Step 1: Initialize variables
- *   jumps = 0, current_end = 0, farthest = 0
- *
+ * jumps = 0, current_end = 0, farthest = 0
  * Step 2: Iterate through array
- *   i=0: farthest = max(0, 0+2) = 2
- *   i=1: farthest = max(2, 1+3) = 4, reached current_end → jumps=1, current_end=2
- *   i=2: farthest = max(4, 2+1) = 4, reached current_end → jumps=2, current_end=4
+ * i=0: farthest = max(0, 0+2) = 2
  *
- *   Reached last index
+ * Steps:
+ * Step 1: i=1: farthest = max(2, 1+3) = 4, reached current_end → jumps=1, current_end=2
+ * Step 2: i=2: farthest = max(4, 2+1) = 4, reached current_end → jumps=2, current_end=4
+ * Step 3: Reached last index
  *
- * Output: 2 (minimum jumps)
+ * Output:
  * ```
- *
- * ### TIME COMPLEXITY:
+ * 2 (minimum jumps)
+ * ```
+
+### TIME COMPLEXITY:
  * O(n)
  *
  * ### SPACE COMPLEXITY:

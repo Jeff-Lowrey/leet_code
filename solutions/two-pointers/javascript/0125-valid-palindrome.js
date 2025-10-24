@@ -52,25 +52,24 @@
  * - O(1) space since we don't create a new string
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: "A man, a plan, a canal: Panama"
+ * "A man, a plan, a canal: Panama"
+ * ```
  *
  * Step 1: left=0 (A), right=30 (a)
- * A.lower() == a.lower() → True, continue
  *
+ * Steps:
+ * Step 1: A.lower() == a.lower() → True, continue
  * Step 2: left=1 ( ), right=29 (m)
- * Skip space: left=2 (m), right=29 (m)
- * m.lower() == m.lower() → True, continue
- *
- * Step 3: left=3 (a), right=28 (a)
- * a.lower() == a.lower() → True, continue
- *
- * ... continue until pointers meet ...
- *
- * All comparisons match → return True
- * ```
- *
- * ### TIME COMPLEXITY:
+ * Step 3: Skip space: left=2 (m), right=29 (m)
+ * Step 4: m.lower() == m.lower() → True, continue
+ * Step 5: left=3 (a), right=28 (a)
+ * Step 6: a.lower() == a.lower() → True, continue
+ * Step 7: ... continue until pointers meet ...
+ * Step 8: All comparisons match → return True
+
+### TIME COMPLEXITY:
  * O(n)
  *
  * ### SPACE COMPLEXITY:

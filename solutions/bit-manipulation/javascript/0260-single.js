@@ -42,22 +42,27 @@
  * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: nums = [1,2,1,3,2,5]
+ * nums = [1,2,1,3,2,5]
+ * ```
+ *
  * Step 1: XOR all numbers
- *   xor = 1^2^1^3^2^5 = 3^5 = 6 (binary: 110)
- *
+ * xor = 1^2^1^3^2^5 = 3^5 = 6 (binary: 110)
  * Step 2: Find rightmost set bit
- *   rightmost_bit = xor & -xor = 110 & 010 = 010 (bit 1)
- *
+ * rightmost_bit = xor & -xor = 110 & 010 = 010 (bit 1)
  * Step 3: Partition numbers by rightmost bit
- *   Group 1 (bit 1 is 0): [1,1,5] → XOR = 5
- *   Group 2 (bit 1 is 1): [2,3,2] → XOR = 3
  *
- * Output: [3, 5] (two single numbers)
+ * Steps:
+ * Step 1: Group 1 (bit 1 is 0): [1,1,5] → XOR = 5
+ * Step 2: Group 2 (bit 1 is 1): [2,3,2] → XOR = 3
+ *
+ * Output:
  * ```
- *
- * ### TIME COMPLEXITY:
+ * [3, 5] (two single numbers)
+ * ```
+
+### TIME COMPLEXITY:
  * O(n)
  *
  * ### SPACE COMPLEXITY:

@@ -49,16 +49,21 @@ For each node, max path is: left max path + node + right max path. Recursively c
 - O(n) time visiting each node once, O(h) space for recursion
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: root = [-10,9,20,null,null,15,7]
-Step 1: Calculate max path through each node
-  Node 15: path=15
-  Node 7: path=7
-  Node 20: path=20+15+7=42
-  Node 9: path=9
-  Node -10: path=-10+9+42=41
+root = [-10,9,20,null,null,15,7]
+```
 
-Output: 42 (maximum path sum)
+Step 1: Calculate max path through each node
+Node 15: path=15
+Node 7: path=7
+Node 20: path=20+15+7=42
+Node 9: path=9
+Node -10: path=-10+9+42=41
+
+Output:
+```
+42 (maximum path sum)
 ```
 
 ### TIME COMPLEXITY:

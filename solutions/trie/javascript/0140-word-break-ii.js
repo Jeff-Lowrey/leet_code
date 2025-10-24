@@ -45,28 +45,28 @@
  * - When we find a word end in trie, we recursively solve for remaining string
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
  * s = "catsanddog", wordDict = ["cat","cats","and","sand","dog"]
- *
- * Build Trie with: cat, cats, and, sand, dog
- *
- * At position 0 "catsanddog":
- *   Match "cat" -> recurse on "sanddog"
- *     Match "sand" -> recurse on "dog"
- *       Match "dog" -> return ["dog"]
- *     Return ["sand dog"]
- *   Return ["cat sand dog"]
- *
- *   Match "cats" -> recurse on "anddog"
- *     Match "and" -> recurse on "dog"
- *       Match "dog" -> return ["dog"]
- *     Return ["and dog"]
- *   Return ["cats and dog"]
- *
- * Final: ["cat sand dog", "cats and dog"]
  * ```
  *
- * ### TIME COMPLEXITY:
+ * Build Trie with: cat, cats, and, sand, dog
+ * At position 0 "catsanddog":
+ *
+ * Steps:
+ * Step 1: Match "cat" -> recurse on "sanddog"
+ * Step 2: Match "sand" -> recurse on "dog"
+ * Step 3: Match "dog" -> return ["dog"]
+ * Step 4: Return ["sand dog"]
+ * Step 5: Return ["cat sand dog"]
+ * Step 6: Match "cats" -> recurse on "anddog"
+ * Step 7: Match "and" -> recurse on "dog"
+ * Step 8: Match "dog" -> return ["dog"]
+ * Step 9: Return ["and dog"]
+ * Step 10: Return ["cats and dog"]
+ * Step 11: Final: ["cat sand dog", "cats and dog"]
+
+### TIME COMPLEXITY:
  * O(N^3 + M*L)
  * Where N is string length, M is number of words, L is average word length
  * - Trie building: O(M*L)

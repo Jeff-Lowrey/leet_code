@@ -44,28 +44,34 @@
  * - O(n) time: each number processed once, O(1) space excluding output
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: n = 5
+ * n = 5
+ * ```
+ *
  * Step 1: Count bits for each number from 0 to 5
- *   0 = 000 → 0 bits
- *   1 = 001 → 1 bit
- *   2 = 010 → 1 bit
- *   3 = 011 → 2 bits
- *   4 = 100 → 1 bit
- *   5 = 101 → 2 bits
  *
- * Step 2: DP relation: count[i] = count[i>>1] + (i&1)
- *   count[0] = 0
- *   count[1] = count[0] + 1 = 1
- *   count[2] = count[1] + 0 = 1
- *   count[3] = count[1] + 1 = 2
- *   count[4] = count[2] + 0 = 1
- *   count[5] = count[2] + 1 = 2
+ * Steps:
+ * Step 1: 0 = 000 → 0 bits
+ * Step 2: 1 = 001 → 1 bit
+ * Step 3: 2 = 010 → 1 bit
+ * Step 4: 3 = 011 → 2 bits
+ * Step 5: 4 = 100 → 1 bit
+ * Step 6: 5 = 101 → 2 bits
+ * Step 7: DP relation: count[i] = count[i>>1] + (i&1)
+ * Step 8: count[0] = 0
+ * Step 9: count[1] = count[0] + 1 = 1
+ * Step 10: count[2] = count[1] + 0 = 1
+ * Step 11: count[3] = count[1] + 1 = 2
+ * Step 12: count[4] = count[2] + 0 = 1
+ * Step 13: count[5] = count[2] + 1 = 2
  *
- * Output: [0,1,1,2,1,2]
+ * Output:
  * ```
- *
- * ### TIME COMPLEXITY:
+ * [0,1,1,2,1,2]
+ * ```
+
+### TIME COMPLEXITY:
  * O(n)
  *
  * ### SPACE COMPLEXITY:

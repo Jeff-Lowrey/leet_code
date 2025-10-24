@@ -42,22 +42,28 @@
  * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: nums = [1,7,4,9,2,5]
+ * nums = [1,7,4,9,2,5]
+ * ```
+ *
  * Step 1: Track direction changes
- *   up = 1, down = 1
- *
+ * up = 1, down = 1
  * Step 2: Process each adjacent pair
- *   1→7: increasing, up = down + 1 = 2
- *   7→4: decreasing, down = up + 1 = 3
- *   4→9: increasing, up = down + 1 = 4
- *   9→2: decreasing, down = up + 1 = 5
- *   2→5: increasing, up = down + 1 = 6
  *
- * Output: 6 (longest wiggle sequence length)
+ * Steps:
+ * Step 1: 1→7: increasing, up = down + 1 = 2
+ * Step 2: 7→4: decreasing, down = up + 1 = 3
+ * Step 3: 4→9: increasing, up = down + 1 = 4
+ * Step 4: 9→2: decreasing, down = up + 1 = 5
+ * Step 5: 2→5: increasing, up = down + 1 = 6
+ *
+ * Output:
  * ```
- *
- * ### TIME COMPLEXITY:
+ * 6 (longest wiggle sequence length)
+ * ```
+
+### TIME COMPLEXITY:
  * O(n)
  *
  * ### SPACE COMPLEXITY:

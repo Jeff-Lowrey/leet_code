@@ -44,8 +44,12 @@
  * - Each cancellation removes one majority and one non-majority element
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: [2,2,1,1,1,2,2]
+ * [2,2,1,1,1,2,2]
+ * ```
+ *
+ * Steps:
  * Step 1: num=2, count=0 → candidate=2, count=1
  * Step 2: num=2, count=1 → count=2 (match)
  * Step 3: num=1, count=2 → count=1 (different)
@@ -53,10 +57,9 @@
  * Step 5: num=1, count=0 → candidate=1, count=1
  * Step 6: num=2, count=1 → count=0 (different)
  * Step 7: num=2, count=0 → candidate=2, count=1
- * Result: 2 (which is correct, appears 4/7 times)
- * ```
- *
- * ### TIME COMPLEXITY:
+ * Step 8: Result: 2 (which is correct, appears 4/7 times)
+
+### TIME COMPLEXITY:
  * O(n)
  * Single pass through the array
  *

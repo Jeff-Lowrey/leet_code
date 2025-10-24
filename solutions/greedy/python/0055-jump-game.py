@@ -45,18 +45,22 @@ Use greedy approach to track the farthest position we can reach. If at any point
 - If we can reach position i, and from i we can jump nums[i] steps, then we can reach any position up to i + nums[i]
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: nums = [2,3,1,1,4]
+nums = [2,3,1,1,4]
+```
+
 Step 1: Initialize max_reach = 0
-
 Step 2: Iterate and update max_reach
-  i=0: can reach (0 ≤ 0), max_reach = max(0, 0+2) = 2
-  i=1: can reach (1 ≤ 2), max_reach = max(2, 1+3) = 4
-  i=2: can reach (2 ≤ 4), max_reach = max(4, 2+1) = 4
-  i=3: can reach (3 ≤ 4), max_reach = max(4, 3+1) = 4
-  i=4: reached last index
+i=0: can reach (0 ≤ 0), max_reach = max(0, 0+2) = 2
+i=1: can reach (1 ≤ 2), max_reach = max(2, 1+3) = 4
+i=2: can reach (2 ≤ 4), max_reach = max(4, 2+1) = 4
+i=3: can reach (3 ≤ 4), max_reach = max(4, 3+1) = 4
+i=4: reached last index
 
-Output: True (can reach end)
+Output:
+```
+True (can reach end)
 ```
 
 ### TIME COMPLEXITY:

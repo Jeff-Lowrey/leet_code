@@ -58,31 +58,26 @@
  * - Shrinking boundaries naturally moves us inward
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
  * n = 3, total = 9
- *
- * Initial: matrix = [[0,0,0],[0,0,0],[0,0,0]]
- *          top=0, bottom=2, left=0, right=2, num=1
- *
- * Step 1 - Right (top row): Fill [0,0] to [0,2]
- *   [[1,2,3],[0,0,0],[0,0,0]], num=4, top=1
- *
- * Step 2 - Down (right col): Fill [1,2] to [2,2]
- *   [[1,2,3],[0,0,4],[0,0,5]], num=6, right=1
- *
- * Step 3 - Left (bottom row): Fill [2,1] to [2,0]
- *   [[1,2,3],[0,0,4],[7,6,5]], num=8, bottom=1
- *
- * Step 4 - Up (left col): Fill [1,0]
- *   [[1,2,3],[8,0,4],[7,6,5]], num=9, left=1
- *
- * Step 5 - Right (center): Fill [1,1]
- *   [[1,2,3],[8,9,4],[7,6,5]], done
- *
- * Result: [[1,2,3],[8,9,4],[7,6,5]]
  * ```
  *
- * ### TIME COMPLEXITY:
+ * Initial: matrix = [[0,0,0],[0,0,0],[0,0,0]]
+ * top=0, bottom=2, left=0, right=2, num=1
+ * Step 1 - Right (top row): Fill [0,0] to [0,2]
+ * [[1,2,3],[0,0,0],[0,0,0]], num=4, top=1
+ * Step 2 - Down (right col): Fill [1,2] to [2,2]
+ * [[1,2,3],[0,0,4],[0,0,5]], num=6, right=1
+ * Step 3 - Left (bottom row): Fill [2,1] to [2,0]
+ * [[1,2,3],[0,0,4],[7,6,5]], num=8, bottom=1
+ * Step 4 - Up (left col): Fill [1,0]
+ * [[1,2,3],[8,0,4],[7,6,5]], num=9, left=1
+ * Step 5 - Right (center): Fill [1,1]
+ * [[1,2,3],[8,9,4],[7,6,5]], done
+ * Result: [[1,2,3],[8,9,4],[7,6,5]]
+
+### TIME COMPLEXITY:
  * O(n²)
  * - Fill each of n² cells once
  *

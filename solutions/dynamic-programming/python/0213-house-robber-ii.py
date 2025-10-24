@@ -45,21 +45,26 @@ Houses are circular - can't rob both first and last. Run House Robber I twice: o
 - O(n) time: two passes of O(n) each, O(1) space
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: nums = [2,3,2]
+nums = [2,3,2]
+```
+
 Step 1: Handle circular array
-  Case 1: Rob houses [0:n-1] → [2,3] → max = 3
-  Case 2: Rob houses [1:n] → [3,2] → max = 3
 
-Step 2: Case 1 detail
-  dp[0] = 2
-  dp[1] = max(2, 3) = 3
+Steps:
+Step 1: Case 1: Rob houses [0:n-1] → [2,3] → max = 3
+Step 2: Case 2: Rob houses [1:n] → [3,2] → max = 3
+Step 3: Case 1 detail
+Step 4: dp[0] = 2
+Step 5: dp[1] = max(2, 3) = 3
+Step 6: Case 2 detail
+Step 7: dp[0] = 3
+Step 8: dp[1] = max(3, 2) = 3
 
-Step 3: Case 2 detail
-  dp[0] = 3
-  dp[1] = max(3, 2) = 3
-
-Output: 3 (maximum money, rob middle house)
+Output:
+```
+3 (maximum money, rob middle house)
 ```
 
 ### TIME COMPLEXITY:

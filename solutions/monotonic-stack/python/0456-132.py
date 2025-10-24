@@ -46,13 +46,18 @@ Track minimum values seen so far from left. Use decreasing stack from right to f
 - O(n) time single pass, O(n) space for stack
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: nums = [3,1,4,2]
-Step 1: Find 132 pattern
-  i=0, j=2, k=3: nums[0]=3, nums[2]=4, nums[3]=2
-  Check: 3 < 4 and 2 < 4 and 3 > 2? Yes
+nums = [3,1,4,2]
+```
 
-Output: True (132 pattern exists)
+Step 1: Find 132 pattern
+i=0, j=2, k=3: nums[0]=3, nums[2]=4, nums[3]=2
+Check: 3 < 4 and 2 < 4 and 3 > 2? Yes
+
+Output:
+```
+True (132 pattern exists)
 ```
 
 ### TIME COMPLEXITY:

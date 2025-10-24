@@ -49,27 +49,31 @@ Treat as cycle detection problem. Array indices are nodes, values are edges. Dup
 - Achieves O(1) space without modifying array, unlike hash set or sorting approaches
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: nums = [1,3,4,2,2]
+nums = [1,3,4,2,2]
+```
+
 Step 1: Floyd's cycle detection
-  slow=nums[0]=1, fast=nums[nums[0]]=3
-  slow=nums[1]=3, fast=nums[nums[3]]=2
-  slow=nums[3]=2, fast=nums[nums[2]]=3
-  slow=nums[2]=4, fast=nums[nums[3]]=2
-  slow=nums[4]=2, fast=nums[nums[2]]=3
-  slow=nums[2]=4, fast=nums[nums[3]]=2
-  slow=nums[4]=2, fast=nums[nums[2]]=3
-  Meet at 2
-
+slow=nums[0]=1, fast=nums[nums[0]]=3
+slow=nums[1]=3, fast=nums[nums[3]]=2
+slow=nums[3]=2, fast=nums[nums[2]]=3
+slow=nums[2]=4, fast=nums[nums[3]]=2
+slow=nums[4]=2, fast=nums[nums[2]]=3
+slow=nums[2]=4, fast=nums[nums[3]]=2
+slow=nums[4]=2, fast=nums[nums[2]]=3
+Meet at 2
 Step 2: Find cycle entrance
-  slow2=nums[0]=1, slow=nums[2]=4
-  slow2=nums[1]=3, slow=nums[4]=2
-  slow2=nums[3]=2, slow=nums[2]=4
-  slow2=nums[2]=4, slow=nums[4]=2
-  slow2=nums[4]=2, slow=nums[2]=4
-  Meet at 2
+slow2=nums[0]=1, slow=nums[2]=4
+slow2=nums[1]=3, slow=nums[4]=2
+slow2=nums[3]=2, slow=nums[2]=4
+slow2=nums[2]=4, slow=nums[4]=2
+slow2=nums[4]=2, slow=nums[2]=4
+Meet at 2
 
-Output: 2 (duplicate number)
+Output:
+```
+2 (duplicate number)
 ```
 
 ### TIME COMPLEXITY:

@@ -48,17 +48,22 @@ Otherwise, push the character onto the stack.
 - Single pass is sufficient since we process left-to-right
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: s = "abbaca"
-Step 1: Use stack
-  'a': stack=['a']
-  'b': stack=['a','b']
-  'b': stack=['a'] (removed duplicate)
-  'a': stack=[] (removed duplicate)
-  'c': stack=['c']
-  'a': stack=['c','a']
+s = "abbaca"
+```
 
-Output: "ca"
+Step 1: Use stack
+'a': stack=['a']
+'b': stack=['a','b']
+'b': stack=['a'] (removed duplicate)
+'a': stack=[] (removed duplicate)
+'c': stack=['c']
+'a': stack=['c','a']
+
+Output:
+```
+"ca"
 ```
 
 ### TIME COMPLEXITY:

@@ -41,17 +41,18 @@ Two strings are anagrams if they contain the exact same characters with the same
 - If two strings have the same character frequencies, they must be anagrams
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
 s = "anagram", t = "nagaram"
+```
 
 Character counts for s:
 a: 3, n: 1, g: 1, r: 1, m: 1
-
 Character counts for t:
 n: 1, a: 3, g: 1, r: 1, m: 1
 
-Both have identical counts → True
-```
+Steps:
+Step 1: Both have identical counts → True
 
 ### TIME COMPLEXITY:
 O(n)

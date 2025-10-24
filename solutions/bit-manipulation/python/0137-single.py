@@ -46,23 +46,28 @@ Use bit manipulation to count occurrences at each bit position. For each bit, su
 - O(n) time: 32 passes (constant), O(1) space
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: nums = [2,2,3,2]
+nums = [2,2,3,2]
+```
+
 Step 1: Count bits at each position
-  Binary representations:
-  2 = 010
-  2 = 010
-  3 = 011
-  2 = 010
+Binary representations:
+2 = 010
+2 = 010
+3 = 011
+2 = 010
 
-  Bit 0: appears 1 time → 1 % 3 = 1
-  Bit 1: appears 4 times → 4 % 3 = 1
-  Bit 2: appears 0 times → 0 % 3 = 0
+Steps:
+Step 1: Bit 0: appears 1 time → 1 % 3 = 1
+Step 2: Bit 1: appears 4 times → 4 % 3 = 1
+Step 3: Bit 2: appears 0 times → 0 % 3 = 0
+Step 4: Build result from remaining bits
+Step 5: result = 011 (binary) = 3 (decimal)
 
-Step 2: Build result from remaining bits
-  result = 011 (binary) = 3 (decimal)
-
-Output: 3 (single number)
+Output:
+```
+3 (single number)
 ```
 
 ### TIME COMPLEXITY:

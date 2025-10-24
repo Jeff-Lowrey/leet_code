@@ -47,21 +47,22 @@
  * - Each word is processed independently
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: "Let's take LeetCode contest"
+ * "Let's take LeetCode contest"
+ * ```
  *
  * Split: ["Let's", "take", "LeetCode", "contest"]
- *
  * Reverse each:
- * - "Let's" -> "s'teL"
- * - "take" -> "ekat"
- * - "LeetCode" -> "edoCteeL"
- * - "contest" -> "tsetnoc"
  *
- * Join: "s'teL ekat edoCteeL tsetnoc"
- * ```
- *
- * ### TIME COMPLEXITY:
+ * Steps:
+ * Step 1: - "Let's" -> "s'teL"
+ * Step 2: - "take" -> "ekat"
+ * Step 3: - "LeetCode" -> "edoCteeL"
+ * Step 4: - "contest" -> "tsetnoc"
+ * Step 5: Join: "s'teL ekat edoCteeL tsetnoc"
+
+### TIME COMPLEXITY:
  * O(n)
  * - Splitting the string: O(n)
  * - Reversing each word: O(n) total for all words

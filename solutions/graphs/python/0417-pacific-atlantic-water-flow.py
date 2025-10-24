@@ -51,25 +51,30 @@ Use DFS/BFS from all Pacific border cells and separately from all Atlantic borde
 - O(m*n) time: DFS from borders visits each cell at most twice, O(m*n) space
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: heights = [[1,2,2,3,5],[3,2,3,4,4],[2,4,5,3,1],[6,7,1,4,5],[5,1,1,2,4]]
+heights = [[1,2,2,3,5],[3,2,3,4,4],[2,4,5,3,1],[6,7,1,4,5],[5,1,1,2,4]]
+```
+
 Step 1: DFS from Pacific border (top, left)
-  pacific = {(0,0),(0,1),...,(4,0)}
-
+pacific = {(0,0),(0,1),...,(4,0)}
 Step 2: DFS from Atlantic border (bottom, right)
-  atlantic = {(4,4),(4,3),...,(0,4)}
-
+atlantic = {(4,4),(4,3),...,(0,4)}
 Step 3: Find intersection
-  Both oceans reachable from:
-  (0,4): height=5 → can flow both ways
-  (1,3): height=4 → can flow both ways
-  (1,4): height=4 → can flow both ways
-  (2,2): height=5 → can flow both ways
-  (3,0): height=6 → can flow both ways
-  (3,1): height=7 → can flow both ways
-  (4,0): height=5 → can flow both ways
+Both oceans reachable from:
 
-Output: [[0,4],[1,3],[1,4],[2,2],[3,0],[3,1],[4,0]]
+Steps:
+Step 1: (0,4): height=5 → can flow both ways
+Step 2: (1,3): height=4 → can flow both ways
+Step 3: (1,4): height=4 → can flow both ways
+Step 4: (2,2): height=5 → can flow both ways
+Step 5: (3,0): height=6 → can flow both ways
+Step 6: (3,1): height=7 → can flow both ways
+Step 7: (4,0): height=5 → can flow both ways
+
+Output:
+```
+[[0,4],[1,3],[1,4],[2,2],[3,0],[3,1],[4,0]]
 ```
 
 ### TIME COMPLEXITY:

@@ -44,20 +44,25 @@ A balanced binary tree requires that for every node, the heights of its left and
 - Early termination optimizes for unbalanced trees
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: [3,9,20,null,null,15,7]
-       3
-      / \
-     9  20
-       /  \
-      15   7
+[3,9,20,null,null,15,7]
+```
 
+3
+/ \
+9  20
+/  \
+15   7
 1. Check node 9: height = 1, balanced ✓
 2. Check node 15: height = 1, balanced ✓
 3. Check node 7: height = 1, balanced ✓
 4. Check node 20: left_height = 1, right_height = 1, |1-1| = 0 ≤ 1 ✓
 5. Check node 3: left_height = 1, right_height = 2, |1-2| = 1 ≤ 1 ✓
-Output: True
+
+Output:
+```
+True
 ```
 
 ### TIME COMPLEXITY:

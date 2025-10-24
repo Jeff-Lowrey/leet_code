@@ -42,16 +42,20 @@ Valid tree requires: (1) all nodes have ≤1 parent, (2) no cycles.
 When a node has 2 parents, one must be removed. Union-find detects cycles.
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: edges = [[1,2],[1,3],[2,3]]
+edges = [[1,2],[1,3],[2,3]]
+```
+
 Step 1: Find node with 2 parents
-  Node 3 has parents 1 and 2
-
+Node 3 has parents 1 and 2
 Step 2: Try removing each edge to node 3
-  Remove [1,3]: still cycle exists
-  Remove [2,3]: forms valid tree ✓
+Remove [1,3]: still cycle exists
+Remove [2,3]: forms valid tree ✓
 
-Output: [2,3]
+Output:
+```
+[2,3]
 ```
 
 ### TIME COMPLEXITY:

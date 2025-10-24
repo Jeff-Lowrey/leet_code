@@ -46,13 +46,19 @@ So if we XOR all numbers together, the duplicates cancel out, leaving only the s
 - All duplicates disappear, leaving only the single number
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: [2,2,1]
+[2,2,1]
+```
+
 Step 1: result = 0
 Step 2: result = 0 ^ 2 = 2
 Step 3: result = 2 ^ 2 = 0 (duplicate cancels out)
 Step 4: result = 0 ^ 1 = 1
-Output: 1 (the single number)
+
+Output:
+```
+1 (the single number)
 ```
 
 ### TIME COMPLEXITY:

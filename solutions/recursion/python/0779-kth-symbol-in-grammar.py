@@ -62,23 +62,26 @@ Key observation: Each symbol at position k in row n is derived from position ⌈
 - We recursively trace back to row 1
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: n = 3, k = 3
+n = 3, k = 3
+```
+
 Row 1: 0
 Row 2: 0 1
 Row 3: 0 1 1 0
-       ^ ^ ^ ^
-       1 2 3 4
-
+^ ^ ^ ^
+1 2 3 4
 Find position 3 in row 3:
-- k=3 (odd) → parent is position ⌈3/2⌉ = 2 in row 2, same value as parent
 - Find position 2 in row 2:
-  - k=2 (even) → parent is position ⌈2/2⌉ = 1 in row 1, flip parent
-  - Find position 1 in row 1: returns 0
-- Row 2, position 2: flip(0) = 1
-- Row 3, position 3: same as parent = 1
-Result: 1
-```
+
+Steps:
+Step 1: - k=3 (odd) → parent is position ⌈3/2⌉ = 2 in row 2, same value as parent
+Step 2: - k=2 (even) → parent is position ⌈2/2⌉ = 1 in row 1, flip parent
+Step 3: - Find position 1 in row 1: returns 0
+Step 4: - Row 2, position 2: flip(0) = 1
+Step 5: - Row 3, position 3: same as parent = 1
+Step 6: Result: 1
 
 ### TIME COMPLEXITY:
 O(n) - we recurse up to n times

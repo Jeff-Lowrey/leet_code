@@ -43,17 +43,19 @@
  * The algorithm correctly solves the problem by systematically exploring all valid states while maintaining necessary invariants. Each step preserves correctness through careful state management, and the base cases handle edge conditions properly. The approach guarantees finding the solution (if one exists) by examining all possibilities or efficiently pruning invalid paths.
  * 
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
  * intervals = [[1,3],[6,9]], newInterval = [2,5]
- * 
- * Phase 1: [1,3] overlaps with [2,5] (`3 >= 2`)
- * Phase 2: Merge [1,3] and [2,5] → [1,5]
- * Phase 3: [6,9] doesn't overlap (`6 > 5`) → add `as-is`
- * 
- * Result: [[1,5],[6,9]]
  * ```
- * 
- * ### TIME COMPLEXITY:
+ *
+ * Phase 1: [1,3] overlaps with [2,5] (`3 >= 2`)
+ *
+ * Steps:
+ * Step 1: Phase 2: Merge [1,3] and [2,5] → [1,5]
+ * Step 2: Phase 3: [6,9] doesn't overlap (`6 > 5`) → add `as-is`
+ * Step 3: Result: [[1,5],[6,9]]
+
+### TIME COMPLEXITY:
  * O(n)
  * 
  * ### SPACE COMPLEXITY:

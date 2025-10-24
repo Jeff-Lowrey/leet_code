@@ -51,17 +51,18 @@
  * - Single pass solution after calculating total sum
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: nums = [2,3,-1,8,4]
- * Total sum = 16
+ * nums = [2,3,-1,8,4]
+ * ```
  *
+ * Total sum = 16
  * Index 0: left=0, right=16-0-2=14, not equal
  * Index 1: left=2, right=16-2-3=11, not equal
  * Index 2: left=5, right=16-5-(-1)=12, not equal
  * Index 3: left=4, right=16-4-8=4, equal! Return 3
- * ```
- *
- * ### TIME COMPLEXITY:
+
+### TIME COMPLEXITY:
  * O(n)
  * Two passes: one to calculate total sum, one to find middle index
  *

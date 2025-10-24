@@ -47,20 +47,23 @@ Use sliding window with character counts. Expand right until window contains all
 - O(m + n) time: scan s once, O(1) space for fixed alphabet
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: s = "ADOBECODEBANC", t = "ABC"
+s = "ADOBECODEBANC", t = "ABC"
+```
+
 Step 1: Expand window until valid
-  "ADOBEC" contains A,B,C
-
+"ADOBEC" contains A,B,C
 Step 2: Contract from left
-  "DOBEC" missing A
-  "ADOBEC" is minimum so far (6 chars)
-
+"DOBEC" missing A
+"ADOBEC" is minimum so far (6 chars)
 Step 3: Continue expanding
-  "ODEBANC" contains A,B,C
-  Contract: "BANC" (4 chars) - new minimum
+"ODEBANC" contains A,B,C
+Contract: "BANC" (4 chars) - new minimum
 
-Output: "BANC"
+Output:
+```
+"BANC"
 ```
 
 ### TIME COMPLEXITY:

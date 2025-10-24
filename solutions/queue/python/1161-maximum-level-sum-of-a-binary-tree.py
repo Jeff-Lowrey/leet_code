@@ -47,18 +47,19 @@ Track the level with maximum sum and return the smallest level if there are ties
 - Since we process levels in order (1, 2, 3, ...), the first maximum we find is the smallest level
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
 Tree:      1
-         /   \
-        7     0
-       / \
-      7  -8
+```
 
+/   \
+7     0
+/ \
+7  -8
 Level 1: sum = 1
 Level 2: sum = 7 + 0 = 7 (max)
 Level 3: sum = 7 + (-8) = -1
 Result: 2
-```
 
 ### TIME COMPLEXITY:
 O(n)

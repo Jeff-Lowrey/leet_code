@@ -42,28 +42,32 @@
  * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: n = 5, edges = [[0,1],[0,2],[0,3],[1,4]]
+ * n = 5, edges = [[0,1],[0,2],[0,3],[1,4]]
+ * ```
+ *
  * Step 1: Check edge count
- *   n-1 = 4 edges (necessary for tree) ✓
- *
+ * n-1 = 4 edges (necessary for tree) ✓
  * Step 2: Build adjacency list
- *   {0: [1,2,3], 1: [0,4], 2: [0], 3: [0], 4: [1]}
- *
+ * {0: [1,2,3], 1: [0,4], 2: [0], 3: [0], 4: [1]}
  * Step 3: DFS to check connectivity
- *   Visit 0 → mark visited
- *   Visit 1 → mark visited
- *   Visit 4 → mark visited
- *   Visit 2 → mark visited
- *   Visit 3 → mark visited
  *
- * Step 4: Verify all nodes visited
- *   visited = {0,1,2,3,4}, count = 5 = n ✓
+ * Steps:
+ * Step 1: Visit 0 → mark visited
+ * Step 2: Visit 1 → mark visited
+ * Step 3: Visit 4 → mark visited
+ * Step 4: Visit 2 → mark visited
+ * Step 5: Visit 3 → mark visited
+ * Step 6: Verify all nodes visited
+ * Step 7: visited = {0,1,2,3,4}, count = 5 = n ✓
  *
- * Output: True (forms valid tree)
+ * Output:
  * ```
- *
- * ### TIME COMPLEXITY:
+ * True (forms valid tree)
+ * ```
+
+### TIME COMPLEXITY:
  * O(n)
  *
  * ### SPACE COMPLEXITY:
