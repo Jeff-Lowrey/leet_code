@@ -15,7 +15,7 @@
  * <dt>Input:</dt>
  * <dd>nums = [3,2,1,5,6,4], k = 2</dd>
  * <dt>Output:</dt>
- * <dd>"findKthLargest({nums}, k={k}) -> {result}"</dd>
+ * <dd>[3,2,1,5,6,4]</dd>
  * <dt>Explanation:</dt>
  * <dd>The 2nd largest element in [3,2,1,5,6,4] is 5</dd>
  * </dl>
