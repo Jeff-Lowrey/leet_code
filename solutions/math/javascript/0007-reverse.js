@@ -9,7 +9,7 @@
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[123, -123, 120, 0, 1534236469, -2147483648]</dd>
+ * <dd>x = 123</dd>
  * <dt>Output:</dt>
  * <dd>"reverse({num}) -> {result}"</dd>
  * <dt>Explanation:</dt>

@@ -11,9 +11,10 @@
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[1, 2, 4]</dd>
+ * <dd>digits = [1,2,3]</dd>
  * <dt>Output:</dt>
- * <dd>"Expected {expected}, got {result}"</dd>
+ * <dd>[1,2,4]
+ * [1,0,0,0]</dd>
  * <dt>Explanation:</dt>
  * <dd>Array [1,2,9] plus one is [1,3,0]</dd>
  * </dl>
