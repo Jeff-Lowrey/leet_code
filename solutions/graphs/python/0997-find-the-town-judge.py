@@ -20,7 +20,7 @@ Return the label of the town judge if the town judge exists and can be identifie
 <dt>Input:</dt>
 <dd>n = 3, trust = [[1,3],[2,3]]</dd>
 <dt>Output:</dt>
-<dd>"n={n}, trust={trust} -> Judge: {result}"</dd>
+<dd>3 (person 3 is the judge)</dd>
 <dt>Explanation:</dt>
 <dd>The town judge is person 2 who is trusted by all but trusts no one</dd>
 </dl>
