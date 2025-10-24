@@ -13,7 +13,7 @@ A subarray is a contiguous non-empty sequence of elements within an array.
 <dt>Input:</dt>
 <dd>nums = [1,1,1], k = 2</dd>
 <dt>Output:</dt>
-<dd>"subarraySum({nums}, {k}) -> {result}"</dd>
+<dd>[1]</dd>
 <dt>Explanation:</dt>
 <dd>There are 2 subarrays with sum equal to k: [1] and [2,-1,2]</dd>
 </dl>

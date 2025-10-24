@@ -15,9 +15,9 @@
  * <dt>Input:</dt>
  * <dd>nums = [3,1,4,2], p = 6</dd>
  * <dt>Output:</dt>
- * <dd>"minSubarray({nums}, p={p}) -> {result} (total={total}, remainder={total % p})"</dd>
+ * <dd>1</dd>
  * <dt>Explanation:</dt>
- * <dd>The minimum length subarray to remove is 1 (element 3), so remaining sum is divisible by p</dd>
+ * <dd>The minimum length subarray to remove is 1 (element 4), so remaining sum is divisible by p</dd>
  * </dl>
  *
  * <details>
