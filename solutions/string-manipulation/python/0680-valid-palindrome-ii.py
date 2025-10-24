@@ -9,7 +9,8 @@ Given a string s, return true if the s can be palindrome after deleting at most 
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>["aba", "abca", "abc", "racecar", "deeee"]</dd>
+<dd>"aba"
+"abca"</dd>
 <dt>Output:</dt>
 <dd>"validPalindrome('{test}') -> {result}"</dd>
 <dt>Explanation:</dt>

@@ -9,9 +9,9 @@ Given a string s, partition s such that every substring of the partition is a pa
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[["a","a","b"]</dd>
+<dd>s = "aab"</dd>
 <dt>Output:</dt>
-<dd>"Expected {expected}, got {result}"</dd>
+<dd>[["a","a","b"],["aa","b"]]</dd>
 <dt>Explanation:</dt>
 <dd>All palindrome partitions of 'aab' are [['a','a','b'], ['aa','b']]</dd>
 </dl>

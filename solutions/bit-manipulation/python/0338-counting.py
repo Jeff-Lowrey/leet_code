@@ -9,9 +9,9 @@ Given an integer n, return an array ans of length n + 1 such that for each i (0 
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[0,1,1,2,1,2]</dd>
+<dd>n = 5</dd>
 <dt>Output:</dt>
-<dd>"Expected {expected}, got {result}"</dd>
+<dd>[0,1,1,2,1,2]</dd>
 <dt>Explanation:</dt>
 <dd>Counting bits: for n=5, result is [0,1,1,2,1,2] (bit counts for 0-5)</dd>
 </dl>

@@ -11,9 +11,9 @@ You may return the answer in any order.
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[[1,2]</dd>
+<dd>n = 4, k = 2</dd>
 <dt>Output:</dt>
-<dd>"Expected {expected}, got {result}"</dd>
+<dd>[[1,2],[1,3],[1,4],[2,3],[2,4],[3,4]]</dd>
 <dt>Explanation:</dt>
 <dd>All 2-combinations from [1,2,3,4] are [[1,2],[1,3],[1,4],[2,3],[2,4],[3,4]]</dd>
 </dl>

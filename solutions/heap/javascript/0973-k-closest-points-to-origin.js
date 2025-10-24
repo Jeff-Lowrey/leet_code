@@ -13,9 +13,9 @@
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[[0,1]</dd>
+ * <dd>points = [[1,3], [-2,2], [5,8], [0,1]], k = 2</dd>
  * <dt>Output:</dt>
- * <dd>"Expected {expected}, got {result}"</dd>
+ * <dd>[[0,1], [-2,2]]</dd>
  * <dt>Explanation:</dt>
  * <dd>The k=2 closest points to origin are [[1,3],[-2,2]]</dd>
  * </dl>

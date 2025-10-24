@@ -13,9 +13,9 @@
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[1, 1, 1]</dd>
+ * <dd>s = "ababcbacadefegdehijhklij"</dd>
  * <dt>Output:</dt>
- * <dd>"Expected {expected}, got {result}"</dd>
+ * <dd>[9,7,8] (partition sizes)</dd>
  * <dt>Explanation:</dt>
  * <dd>String is partitioned into 2 parts: 'ababcbaca' + 'defegde'</dd>
  * </dl>

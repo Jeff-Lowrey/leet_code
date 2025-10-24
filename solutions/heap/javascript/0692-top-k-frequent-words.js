@@ -11,9 +11,9 @@
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[3, 2]</dd>
+ * <dd>words = ["i","love","leetcode","i","love","coding"], k = 2</dd>
  * <dt>Output:</dt>
- * <dd>"Expected {expected}, got {result}"</dd>
+ * <dd>["i", "love"] (after reversing)</dd>
  * <dt>Explanation:</dt>
  * <dd>Top k=2 frequent words in ['i','love','leetcode','i','love','coding'] are ['i','love']</dd>
  * </dl>

@@ -11,9 +11,9 @@
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>["leet","code"]</dd>
+ * <dd>s = "leetcode", wordDict = ["leet","code"]</dd>
  * <dt>Output:</dt>
- * <dd>"Expected {expected}, got {result}"</dd>
+ * <dd>True (can be segmented)</dd>
  * <dt>Explanation:</dt>
  * <dd>String 'leetcode' can be segmented using dictionary ['leet','code']</dd>
  * </dl>

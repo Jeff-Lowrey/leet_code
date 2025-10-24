@@ -9,9 +9,9 @@ Given an array nums of n integers where nums[i] is in the range [1, n], return a
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[5, 6]</dd>
+<dd>nums = [4,3,2,7,8,2,3,1]</dd>
 <dt>Output:</dt>
-<dd>"Expected {expected}, got {result}"</dd>
+<dd>[5, 6]</dd>
 <dt>Explanation:</dt>
 <dd>The numbers [5,6] are missing from [4,3,2,7,8,2,3,1] (should be 1-8)</dd>
 </dl>

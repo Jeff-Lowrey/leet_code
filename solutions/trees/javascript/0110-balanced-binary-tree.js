@@ -11,7 +11,7 @@
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[("Optimized recursive", solution.isBalanced),
+ * <dd>[3,9,20,null,null,15,7]</dd>
  *         ("Alternative recursive", solution.isBalancedAlternative),
  *         ("Iterative", solution.isBalancedIterative)]</dd>
  * <dt>Output:</dt>

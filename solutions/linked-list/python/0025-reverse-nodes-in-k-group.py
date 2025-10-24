@@ -13,7 +13,7 @@ You may not alter the values in the list's nodes, only nodes themselves may be c
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[2, 1, 4, 3, 5]</dd>
+<dd>head = [1,2,3,4,5], k = 2</dd>
 <dt>Output:</dt>
 <dd>"Expected {expected}, got {list_to_array(result)}"</dd>
 <dt>Explanation:</dt>

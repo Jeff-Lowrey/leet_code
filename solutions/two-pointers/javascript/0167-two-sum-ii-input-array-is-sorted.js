@@ -15,9 +15,9 @@
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[1, 2]</dd>
+ * <dd>numbers = [2, 7, 11, 15], target = 9</dd>
  * <dt>Output:</dt>
- * <dd>"Expected {expected}, got {result}"</dd>
+ * <dd>[1, 2] (1-indexed positions)</dd>
  * <dt>Explanation:</dt>
  * <dd>Two numbers [2,7] at indices [1,2] sum to target 9</dd>
  * </dl>

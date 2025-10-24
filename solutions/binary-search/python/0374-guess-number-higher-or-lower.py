@@ -20,7 +20,9 @@ Return the number that I picked.
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[(10, 6), (100, 25), (50, 1), (1, 1)]</dd>
+<dd>n = 10, pick = 6
+n = 1, pick = 1
+n = 2, pick = 1</dd>
 <dt>Output:</dt>
 <dd>"Range [1, {n}], picked number: {result}"</dd>
 <dt>Explanation:</dt>

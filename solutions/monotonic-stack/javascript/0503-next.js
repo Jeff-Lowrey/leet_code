@@ -11,9 +11,9 @@
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[2, 3, -1]</dd>
+ * <dd>nums = [1,2,1]</dd>
  * <dt>Output:</dt>
- * <dd>"Expected {expected}, got {result}"</dd>
+ * <dd>[2,-1,2]</dd>
  * <dt>Explanation:</dt>
  * <dd>In a circular array, the next greater elements are found by wrapping around: [2,2,1]</dd>
  * </dl>

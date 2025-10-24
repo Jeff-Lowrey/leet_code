@@ -13,9 +13,9 @@
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[[1,1,6]</dd>
+ * <dd>candidates = [10,1,2,7,6,1,5], target = 8</dd>
  * <dt>Output:</dt>
- * <dd>"Expected {expected}, got {result}"</dd>
+ * <dd>[[1,1,6],[1,2,5],[1,7],[2,6]]</dd>
  * <dt>Explanation:</dt>
  * <dd>All unique combinations summing to 8 from [10,1,2,7,6,1,5] are [[1,1,6],[1,2,5],[1,7],[2,6]]</dd>
  * </dl>

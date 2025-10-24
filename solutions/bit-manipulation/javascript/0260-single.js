@@ -11,9 +11,9 @@
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[3, 5]</dd>
+ * <dd>nums = [1,2,1,3,2,5]</dd>
  * <dt>Output:</dt>
- * <dd>"Expected {expected}, got {result}"</dd>
+ * <dd>[3, 5] (two single numbers)</dd>
  * <dt>Explanation:</dt>
  * <dd>Two numbers [3,5] appear once in [1,2,1,3,2,5]</dd>
  * </dl>

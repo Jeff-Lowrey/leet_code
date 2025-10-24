@@ -9,9 +9,9 @@
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[1,1,4,2,1,1,0,0]</dd>
+ * <dd>temperatures = [73, 74, 75, 71, 69, 72, 76, 73]</dd>
  * <dt>Output:</dt>
- * <dd>"Expected {expected}, got {result}"</dd>
+ * <dd>[0,0,0,0,0,0,0,0]</dd>
  * <dt>Explanation:</dt>
  * <dd>For each day, count days until a warmer temperature: [1, 1, 4, 2, 1, 1, 0, 0]</dd>
  * </dl>

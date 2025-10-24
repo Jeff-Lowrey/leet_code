@@ -9,7 +9,7 @@
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[2, 1, 5, 6, 2, 3]</dd>
+ * <dd>heights = [2,1,5,6,2,3]</dd>
  * <dt>Output:</dt>
  * <dd>"Solution for 084. Largest Rectangle In Histogram: {result}"</dd>
  * <dt>Explanation:</dt>

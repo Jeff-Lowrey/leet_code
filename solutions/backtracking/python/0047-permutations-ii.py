@@ -9,9 +9,9 @@ Given a collection of numbers, nums, that might contain duplicates, return all p
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[[1,1,2]</dd>
+<dd>nums = [1,1,2]</dd>
 <dt>Output:</dt>
-<dd>"Expected {expected}, got {result}"</dd>
+<dd>[[1,1,2],[1,2,1],[2,1,1]]</dd>
 <dt>Explanation:</dt>
 <dd>All unique permutations of [1,1,2] are [[1,1,2],[1,2,1],[2,1,1]]</dd>
 </dl>

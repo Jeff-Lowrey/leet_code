@@ -11,7 +11,7 @@
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[("Recursive DFS", solution.maxDepth),
+ * <dd>[3,9,20,null,null,15,7]</dd>
  *         ("BFS Level-order", solution.maxDepthBFS),
  *         ("Iterative DFS", solution.maxDepthIterativeDFS),
  *         ("Preorder traversal", solution.maxDepthPreorder)]</dd>

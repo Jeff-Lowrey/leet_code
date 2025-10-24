@@ -17,7 +17,7 @@
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[1, 2, 3, 2, 2]</dd>
+ * <dd>fruits = [1,2,1,2,3,1,1]</dd>
  * <dt>Output:</dt>
  * <dd>"Solution for 904. Fruit Into Baskets: {result}"</dd>
  * <dt>Explanation:</dt>

@@ -11,9 +11,9 @@
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>["StockSpanner", "next", "next", "next", "next", "next", "next", "next"]</dd>
+ * <dd>Operations: ["StockSpanner","next","next","next","next","next","next","next"]</dd>
  * <dt>Output:</dt>
- * <dd>"Expected {expected}, got {result}"</dd>
+ * <dd>[1,1,1,2,1,4,6]</dd>
  * <dt>Explanation:</dt>
  * <dd>After each price, the stock price span is the count of consecutive days with price ≤ current price</dd>
  * </dl>

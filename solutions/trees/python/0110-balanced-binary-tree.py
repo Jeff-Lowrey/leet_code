@@ -11,7 +11,7 @@ A height-balanced binary tree is a binary tree in which the depth of the two sub
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[("Optimized recursive", solution.isBalanced),
+<dd>[3,9,20,null,null,15,7]</dd>
         ("Alternative recursive", solution.isBalancedAlternative),
         ("Iterative", solution.isBalancedIterative)]</dd>
 <dt>Output:</dt>

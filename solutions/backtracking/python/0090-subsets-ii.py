@@ -11,9 +11,9 @@ The solution set must not contain duplicate subsets. Return the solution in any 
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[[]</dd>
+<dd>nums = [1,2,2]</dd>
 <dt>Output:</dt>
-<dd>"Expected {expected}, got {result}"</dd>
+<dd>[[],[1],[1,2],[1,2,2],[2],[2,2]]</dd>
 <dt>Explanation:</dt>
 <dd>All unique subsets of [1,2,2] are [[],[1],[1,2],[1,2,2],[2],[2,2]]</dd>
 </dl>

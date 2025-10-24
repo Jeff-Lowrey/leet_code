@@ -13,7 +13,7 @@ Can you solve it without sorting?
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[3, 2, 1, 5, 6, 4]</dd>
+<dd>nums = [3,2,1,5,6,4], k = 2</dd>
 <dt>Output:</dt>
 <dd>"findKthLargest({nums}, k={k}) -> {result}"</dd>
 <dt>Explanation:</dt>

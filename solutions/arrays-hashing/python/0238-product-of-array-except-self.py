@@ -13,9 +13,9 @@ You must write an algorithm that runs in O(n) time and without using the divisio
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[24, 12, 8, 6]</dd>
+<dd>nums = [1, 2, 3, 4]</dd>
 <dt>Output:</dt>
-<dd>"Expected {expected}, got {result}"</dd>
+<dd>[24, 12, 8, 6]</dd>
 <dt>Explanation:</dt>
 <dd>The product array excluding self is [24,12,8,6] for input [1,2,3,4]</dd>
 </dl>

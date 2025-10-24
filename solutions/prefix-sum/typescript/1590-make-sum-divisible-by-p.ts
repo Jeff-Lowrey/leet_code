@@ -13,7 +13,7 @@
  * 
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[([3, 1, 4, 2]</dd>
+ * <dd>nums = [3,1,4,2], p = 6</dd>
  * <dt>Output:</dt>
  * <dd>"minSubarray({nums}, p={p}) -> {result} (total={total}, remainder={total % p})"</dd>
  * <dt>Explanation:</dt>

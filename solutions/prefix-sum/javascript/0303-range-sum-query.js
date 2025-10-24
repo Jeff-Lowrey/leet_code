@@ -16,9 +16,9 @@
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>["NumArray", "sumRange", "sumRange", "sumRange"]</dd>
+ * <dd>["NumArray","sumRange","sumRange","sumRange"], [[[-2,0,3,-5,2,-1]],[0,2],[2,5],[0,5]]</dd>
  * <dt>Output:</dt>
- * <dd>"Expected {expected}, got {result}"</dd>
+ * <dd>[null,1,-1,-3]</dd>
  * <dt>Explanation:</dt>
  * <dd>The sum of elements between indices 2 and 5 is calculated as prefix[5+1] - prefix[2] = 1</dd>
  * </dl>

@@ -14,9 +14,9 @@
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[[1, 1]</dd>
+ * <dd>candidates = [2,3,6,7], target = 7</dd>
  * <dt>Output:</dt>
- * <dd>"Expected {expected}, got {result}"</dd>
+ * <dd>[[2,2,3], [7]]</dd>
  * <dt>Explanation:</dt>
  * <dd>All combinations summing to 7 using [2,3,6,7] are [[2,2,3], [7]]</dd>
  * </dl>

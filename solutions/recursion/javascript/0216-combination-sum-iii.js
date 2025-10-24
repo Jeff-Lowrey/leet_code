@@ -9,9 +9,9 @@
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[[1, 2, 4]</dd>
+ * <dd>k = 3, n = 7</dd>
  * <dt>Output:</dt>
- * <dd>"Expected {expected}, got {result}"</dd>
+ * <dd>[[1,2,4]]</dd>
  * <dt>Explanation:</dt>
  * <dd>All 3-number combinations from 1-9 that sum to 7 are [[1,2,4]]</dd>
  * </dl>

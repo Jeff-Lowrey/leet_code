@@ -11,9 +11,9 @@ Return true if the edges of the given graph make up a valid tree, and false othe
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[[0,1]</dd>
+<dd>n = 5, edges = [[0,1],[0,2],[0,3],[1,4]]</dd>
 <dt>Output:</dt>
-<dd>"Expected {expected}, got {result}"</dd>
+<dd>True (forms valid tree)</dd>
 <dt>Explanation:</dt>
 <dd>Graph edges form a valid tree if connected and has n-1 edges</dd>
 </dl>

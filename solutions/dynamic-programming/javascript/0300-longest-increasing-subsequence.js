@@ -9,7 +9,7 @@
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[10, 9, 2, 5, 3, 7, 101, 18]</dd>
+ * <dd>nums = [10, 9, 2, 5, 3, 7, 101, 18]</dd>
  * <dt>Output:</dt>
  * <dd>"Solution for 300. Longest Increasing Subsequence: {result}"</dd>
  * <dt>Explanation:</dt>

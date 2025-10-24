@@ -18,7 +18,7 @@ Return the label of the town judge if the town judge exists and can be identifie
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[(2, [[1,2]</dd>
+<dd>n = 3, trust = [[1,3],[2,3]]</dd>
 <dt>Output:</dt>
 <dd>"n={n}, trust={trust} -> Judge: {result}"</dd>
 <dt>Explanation:</dt>

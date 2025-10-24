@@ -9,9 +9,9 @@
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[[1,6]</dd>
+ * <dd>intervals = [[1,3], [2,6], [8,10], [15,18]]</dd>
  * <dt>Output:</dt>
- * <dd>"Expected {expected}, got {result}"</dd>
+ * <dd>[[1,6], [8,10], [15,18]]</dd>
  * <dt>Explanation:</dt>
  * <dd>Merged intervals [[1,3],[2,6],[8,10],[15,18]] become [[1,6],[8,10],[15,18]]</dd>
  * </dl>
