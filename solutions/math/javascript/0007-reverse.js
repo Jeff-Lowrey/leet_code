@@ -11,7 +11,7 @@
  * <dt>Input:</dt>
  * <dd>x = 123</dd>
  * <dt>Output:</dt>
- * <dd>"reverse({num}) -> {result}"</dd>
+ * <dd>* 321</dd>
  * <dt>Explanation:</dt>
  * <dd>Reversed integer: 123 becomes 321</dd>
  * </dl>
