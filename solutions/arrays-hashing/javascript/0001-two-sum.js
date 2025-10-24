@@ -60,10 +60,8 @@
  * ```
  * nums = [2,7,11,15], target = 9
  * ```
- * **Step 1:** `num=2`, `complement=7`, `seen={}` → store `{2: 0}`
- * **Step 2:** `num=7`, `complement=2`, `seen={2: 0}` → found! return `[0, 1]`
- *
- * ### TIME COMPLEXITY:
+
+### TIME COMPLEXITY:
  * **O(n)** - Single pass through array with O(1) hash map lookups
  *
  * ### SPACE COMPLEXITY:
