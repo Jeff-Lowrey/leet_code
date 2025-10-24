@@ -62,11 +62,11 @@
  * ["o","l","l","e","h"]
  * ```
 
-### TIME COMPLEXITY:
- * O(n) - visit each character once
+ * ### TIME COMPLEXITY:
+ * O(n)
  *
  * ### SPACE COMPLEXITY:
- * O(n) - recursion stack depth
+ * O(n) for recursion stack (or O(1) for iterative)
  *
  * ### EDGE CASES:
  * - Empty array: no change

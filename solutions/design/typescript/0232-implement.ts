@@ -17,7 +17,8 @@
  * </dl>
  * 
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Stack Operations, Queue Operations
  * **Data Structures**: Array, Stack, Queue
  * **Patterns**: Iterative Solution
@@ -59,7 +60,7 @@
  * Step 3: push(3): input=[3], output=[2]
  * Step 4: pop(): output=[2], return 2
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * - push: O(1)
  * - pop: Amortized O(1)
  * - peek: Amortized O(1)

@@ -25,7 +25,8 @@ You may not modify the values in the list's nodes. Only nodes themselves may be 
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Two Pointers, Single Pass
 **Data Structures**: Hash Set, Array, Linked List
 **Patterns**: Two Pointers Pattern, Hash Table Pattern

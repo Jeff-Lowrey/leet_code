@@ -17,7 +17,8 @@ Given an array of integers heights representing the histogram's bar height where
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Two Pointers
 **Data Structures**: Hash Set, Array, Stack
 **Patterns**: Two Pointers Pattern, Greedy Algorithm

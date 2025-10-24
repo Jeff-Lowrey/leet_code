@@ -17,7 +17,8 @@ Given the head of a linked list, remove the nth node from the end of the list an
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
 **Data Structures**: Hash Set, Array, Linked List
 **Patterns**: Two Pointers Pattern, Hash Table Pattern

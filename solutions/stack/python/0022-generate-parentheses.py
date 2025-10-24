@@ -17,7 +17,8 @@ Given n pairs of parentheses, write a function to generate all combinations of w
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
 **Data Structures**: Array, String, Stack
 **Patterns**: Two Pointers Pattern, Hash Table Pattern

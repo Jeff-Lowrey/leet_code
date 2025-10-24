@@ -21,7 +21,8 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Map Storage, Array Traversal, Two Pointers
  * **Data Structures**: Array, Tree, Linked List
  * **Patterns**: Two Pointers Pattern
@@ -78,10 +79,12 @@
  * 
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  * Single pass through array with swaps
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  * In-place swaps only
  *
  * ### EDGE CASES:

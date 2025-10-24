@@ -23,7 +23,8 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Hash Set, Array, String
  * **Patterns**: Two Pointers Pattern, Sliding Window Pattern
@@ -70,14 +71,16 @@
  * - Pair [2, 2]: min(2, 2) = 2 substrings ("01", "0011")
  * Total: 2 + 2 + 2 = 6
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  * - Single pass through string to count groups
  * - Process each group once
  * - Overall linear in string length
  *
  * ### SPACE COMPLEXITY:
  * O(n)
+ * - Additional set storage
  * - In worst case, store n groups (alternating 0s and 1s)
  * - Can be optimized to O(1) by processing pairs on-the-fly
  *

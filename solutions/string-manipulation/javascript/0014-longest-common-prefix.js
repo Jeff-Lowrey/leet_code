@@ -68,6 +68,7 @@
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  * - Only using constant extra space for variables
  *
  * ### EDGE CASES:

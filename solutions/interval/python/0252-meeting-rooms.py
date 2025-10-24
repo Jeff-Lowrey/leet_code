@@ -17,7 +17,8 @@ Given an array of meeting time intervals where intervals[i] = [starti, endi], de
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
 **Data Structures**: Hash Map, Array, Linked List
 **Patterns**: Two Pointers Pattern

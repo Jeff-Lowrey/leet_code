@@ -20,7 +20,8 @@ A word is a maximal substring consisting of non-space characters only.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
 **Data Structures**: String, Tree
 **Patterns**: Two Pointers Pattern, Hash Table Pattern

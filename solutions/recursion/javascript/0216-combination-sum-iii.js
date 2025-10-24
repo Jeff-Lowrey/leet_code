@@ -70,11 +70,13 @@
  * [[1,2,4]]
  * ```
 
-### TIME COMPLEXITY:
- * O(C(9,k)) - choosing k numbers from 9 options
+ * ### TIME COMPLEXITY:
+ * O(C(9,k))
+ * - choosing k numbers from 9 options
  *
  * ### SPACE COMPLEXITY:
- * O(k) - recursion depth and combination size
+ * O(k)
+ * - recursion depth and combination size
  *
  * ### EDGE CASES:
  * - k > 9 (impossible - return empty array)

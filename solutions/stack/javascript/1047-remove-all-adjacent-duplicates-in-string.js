@@ -69,8 +69,9 @@
  * "ca"
  * ```
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  * Single pass through string with O(1) stack operations
  *
  * ### SPACE COMPLEXITY:

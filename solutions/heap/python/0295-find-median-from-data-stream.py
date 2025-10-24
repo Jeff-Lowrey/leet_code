@@ -22,7 +22,8 @@ Implement the MedianFinder class:
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Two Pointers
 **Data Structures**: Array, Heap, Tree
 **Patterns**: Two Pointers Pattern, Divide and Conquer

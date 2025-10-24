@@ -23,7 +23,8 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Array Traversal, Sorting, Greedy Selection
  * **Data Structures**: Array, Graph
  * **Patterns**: Hash Table Pattern, Greedy Algorithm
@@ -78,8 +79,9 @@
  * [0,1,2,4,8,3,5,6,7]
  * ```
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(n log n)
+ * - Sorting or divide-and-conquer
  * - Counting bits: O(log max_value) per number = O(n log max_value)
  * - Sorting: O(n log n)
  * - Total: O(n log n) dominates

@@ -21,7 +21,8 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Array Traversal, Two Pointers
  * **Data Structures**: Hash Set, Array, Tree
  * **Patterns**: Two Pointers Pattern, Hash Table Pattern
@@ -71,11 +72,13 @@
  * 3 (number of unique paths)
  * ```
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  *
  * ### EDGE CASES:
  * - Empty input handling

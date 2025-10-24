@@ -79,14 +79,16 @@
  * [0,1,2,4,8,3,5,6,7]
  * ```
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(n log n)
+ * - Sorting or divide-and-conquer
  * - Counting bits: O(log max_value) per number = O(n log max_value)
  * - Sorting: O(n log n)
  * - Total: O(n log n) dominates
  *
  * ### SPACE COMPLEXITY:
  * O(n)
+ * - Additional set storage
  * For the sorted result array
  *
  * ### EDGE CASES:

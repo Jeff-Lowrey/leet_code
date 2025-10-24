@@ -62,11 +62,13 @@
  * Index 2: sum -1, seen at index 0, length = 2 - 0 = 2
  * Maximum length = 2
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  *
  * ### SPACE COMPLEXITY:
  * O(n)
+ * - Additional hash map storage
  *
  * ### EDGE CASES:
  * - All 0s or all 1s: No equal subarray (return 0)

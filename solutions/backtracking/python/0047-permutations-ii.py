@@ -17,7 +17,8 @@ Given a collection of numbers, nums, that might contain duplicates, return all p
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
 **Data Structures**: Hash Map, Array
 **Patterns**: Hash Table Pattern, Backtracking

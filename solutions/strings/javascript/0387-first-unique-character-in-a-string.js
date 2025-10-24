@@ -64,13 +64,15 @@
  * 2
  * ```
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  * We make two passes through the string: one to count (O(n)) and one to find (O(n)).
  * Total is O(2n) = O(n).
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  * Although we use a hash map, since we're limited to lowercase English letters (26 characters),
  * the space is bounded by a constant. For general character sets, it would be O(k) where k is
  * the character set size.

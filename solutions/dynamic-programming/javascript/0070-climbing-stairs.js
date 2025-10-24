@@ -69,12 +69,14 @@
  * 3 (ways to climb)
  * ```
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  * Single pass from 3 to n, constant work per iteration
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  * Only store two variables (prev1, prev2), not full DP array
  *
  * ### EDGE CASES:

@@ -19,7 +19,8 @@ You must not use any built-in exponent function or operator.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Two Pointers, Binary Search
 **Data Structures**: Hash Set, Tree
 **Patterns**: Two Pointers Pattern, Binary Search Pattern

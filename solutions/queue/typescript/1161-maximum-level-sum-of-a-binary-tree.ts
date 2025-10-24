@@ -20,7 +20,8 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Array Traversal, Two Pointers, Queue Operations
  * **Data Structures**: Queue, Tree, Linked List
  * **Patterns**: Two Pointers Pattern, Hash Table Pattern
@@ -63,8 +64,9 @@
  * Level 3: sum = 7 + (-8) = -1
  * Result: 2
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  * - Visit each node exactly once
  * - n = number of nodes in tree
  *

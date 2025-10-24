@@ -21,7 +21,8 @@ You must write an algorithm that runs in O(n) time and without using the divisio
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
 **Data Structures**: Hash Set, Array, Tree
 **Patterns**: Two Pointers Pattern

@@ -60,12 +60,13 @@
  * Step 3: Square 3: [6,7) no overlap → lands at 0, new height 1
  * Step 4: Heights: [2, 5, 5]
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(n² log n)
  * Due to coordinate compression and segment tree operations
  *
  * ### SPACE COMPLEXITY:
  * O(n)
+ * - Additional set storage
  * For coordinate mapping and tree structure
  *
  * ### EDGE CASES:

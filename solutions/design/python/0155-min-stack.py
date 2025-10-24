@@ -26,7 +26,8 @@ You must implement a solution with O(1) time complexity for each function.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Stack Operations, Greedy Selection
 **Data Structures**: Stack, Trie
 **Patterns**: Greedy Algorithm, Tree Pattern

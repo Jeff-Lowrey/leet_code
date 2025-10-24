@@ -21,7 +21,8 @@ You may not alter the values in the list's nodes, only nodes themselves may be c
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Map Storage, Array Traversal, Graph Traversal
 **Data Structures**: Array, Linked List
 **Patterns**: Hash Table Pattern, Graph Pattern

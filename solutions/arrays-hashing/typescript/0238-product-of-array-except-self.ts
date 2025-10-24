@@ -82,11 +82,13 @@
  * [24, 12, 8, 6]
  * ```
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(n)
+ * - Two passes through input
  *
  * ### SPACE COMPLEXITY:
- * O(1) - excluding output array
+ * O(1)
+ * - Constant extra space (excluding output array)
  *
  * ### EDGE CASES:
  * - Empty input handling

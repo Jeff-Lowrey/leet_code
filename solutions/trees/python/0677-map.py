@@ -17,7 +17,8 @@ You are asked to implement a map that supports the following two operations:
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup
 **Data Structures**: Hash Map, Tree, Trie
 **Patterns**: Iterative Solution

@@ -23,7 +23,8 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
  * **Data Structures**: Hash Map, Hash Set, Array
  * **Patterns**: Two Pointers Pattern, Hash Table Pattern
@@ -56,12 +57,13 @@
  * Step 3: Process edge [2,3]: 2 and 3 are already connected through 1 → redundant!
  * Step 4: Return [2,3]
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(n × α(n))
  * Where α is the inverse Ackermann function (nearly constant for practical purposes)
  *
  * ### SPACE COMPLEXITY:
  * O(n)
+ * - Additional hash map storage
  * For the Union-Find parent array
  *
  * ### EDGE CASES:

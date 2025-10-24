@@ -64,12 +64,14 @@
  * Index 2: left=5, right=16-5-(-1)=12, not equal
  * Index 3: left=4, right=16-4-8=4, equal! Return 3
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  * Two passes: one to calculate total sum, one to find middle index
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  * Only using constant extra space for variables
  *
  * ### EDGE CASES:

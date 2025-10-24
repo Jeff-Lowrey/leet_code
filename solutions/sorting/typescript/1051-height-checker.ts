@@ -23,7 +23,8 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Array Traversal, Sorting
  * **Data Structures**: Array
  * **Patterns**: Hash Table Pattern
@@ -57,8 +58,9 @@
  * Mismatches at indices: 2, 4, 5
  * Count: 3
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(n log n)
+ * - Sorting or divide-and-conquer
  * Due to sorting the array
  *
  * ### SPACE COMPLEXITY:

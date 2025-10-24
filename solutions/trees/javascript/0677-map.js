@@ -69,7 +69,7 @@
  * Step 13: |
  * Step 14: e (sum: 3, has_apple: 3)
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * - Insert: O(k) where k is key length
  * - Sum: O(p) where p is prefix length
  *

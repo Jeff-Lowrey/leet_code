@@ -22,7 +22,8 @@ A binary tree's maximum depth is the number of nodes along the longest path from
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Array Traversal, Two Pointers
 **Data Structures**: Array, Stack, Queue
 **Patterns**: Two Pointers Pattern, Hash Table Pattern

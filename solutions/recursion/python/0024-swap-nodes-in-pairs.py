@@ -17,7 +17,8 @@ Given a linked list, swap every two adjacent nodes and return its head. You must
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Map Storage, Array Traversal, Stack Operations
 **Data Structures**: Array, Stack, Linked List
 **Patterns**: Iterative Solution

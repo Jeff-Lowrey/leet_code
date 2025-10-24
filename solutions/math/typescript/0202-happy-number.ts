@@ -26,7 +26,8 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
  * **Data Structures**: Hash Set
  * **Patterns**: Two Pointers Pattern, Hash Table Pattern
@@ -70,8 +71,9 @@
  * Step 9: 4² + 2² = 20
  * Step 10: 2² + 0² = 4 → Cycle! Not happy
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(log n)
+ * - Binary search or tree height
  * Depends on number of digits and cycle detection
  *
  * ### SPACE COMPLEXITY:

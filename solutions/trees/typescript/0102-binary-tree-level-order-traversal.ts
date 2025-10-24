@@ -17,7 +17,8 @@
  * </dl>
  * 
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Array, Queue, Tree
  * **Patterns**: Two Pointers Pattern, Hash Table Pattern
@@ -61,8 +62,9 @@
  * [[3], [9, 20], [15, 7]]
  * ```
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  * Each node is visited exactly once
  * 
  * ### SPACE COMPLEXITY:

@@ -21,7 +21,8 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
  * **Data Structures**: Hash Map, Hash Set, Array
  * **Patterns**: Hash Table Pattern, Graph Pattern
@@ -71,9 +72,11 @@
  * 
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass with O(1) hash lookups
  *
  * ### SPACE COMPLEXITY:
  * O(n) for visited set and recursion/queue
+ * - Additional hash map storage
  *
  * ### EDGE CASES:
  * - **Start at target value**: Return True immediately

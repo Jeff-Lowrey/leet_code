@@ -19,7 +19,8 @@
  * </dl>
  * 
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Hash Map, Hash Set, Array
  * **Patterns**: Hash Table Pattern, Backtracking
@@ -59,11 +60,12 @@
  * "bacd"
  * ```
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(n log n + m α(n)) where m is pairs count
  * 
  * ### SPACE COMPLEXITY:
  * O(n)
+ * - Additional hash map storage
  * 
  * ### EDGE CASES:
  * - **No pairs given**: Return original string unchanged

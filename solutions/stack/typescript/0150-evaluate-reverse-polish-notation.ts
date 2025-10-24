@@ -29,7 +29,8 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Hash Map, Array, String
  * **Patterns**: Two Pointers Pattern
@@ -74,12 +75,14 @@
  * 9
  * ```
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass with O(1) hash lookups
  * Where n is the number of tokens - process each token once
  *
  * ### SPACE COMPLEXITY:
  * O(n)
+ * - Additional hash map storage
  * Stack can hold up to n/2 operands in worst case
  *
  * ### EDGE CASES:

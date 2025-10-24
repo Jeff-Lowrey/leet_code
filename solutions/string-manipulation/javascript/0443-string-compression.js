@@ -79,13 +79,15 @@
  * write=6
  * Result: ["a","2","b","2","c","3"] with length 6
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  * - Single pass through the array with read pointer
  * - Writing compressed data is proportional to input size
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  * - Only using constant extra space (pointers and counters)
  * - Modifying the array in-place
  *

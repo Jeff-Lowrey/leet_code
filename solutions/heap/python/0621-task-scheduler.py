@@ -21,7 +21,8 @@ Return the least number of units of times that the CPU will take to finish all t
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
 **Data Structures**: Array, String, Queue
 **Patterns**: Two Pointers Pattern, Hash Table Pattern

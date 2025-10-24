@@ -76,6 +76,7 @@
  *
  * ### TIME COMPLEXITY:
  * O(n²)
+ * - Nested iteration through input
  * - Filling n×n DP table with constant work per cell
  *
  * ### SPACE COMPLEXITY:

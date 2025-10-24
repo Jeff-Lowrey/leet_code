@@ -21,7 +21,8 @@ Return the ordering of courses you should take to finish all courses. If there a
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
 **Data Structures**: Hash Map, Array, Queue
 **Patterns**: Hash Table Pattern, Graph Pattern

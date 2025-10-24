@@ -26,7 +26,8 @@
  * </dl>
  * 
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Stack Operations, Greedy Selection
  * **Data Structures**: Stack, Trie
  * **Patterns**: Greedy Algorithm, Tree Pattern
@@ -61,7 +62,7 @@
  * pop() removes -3 from both stacks
  * getMin() returns -2 (new top of min_stack)
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(1)
  * All operations are constant time
  * 

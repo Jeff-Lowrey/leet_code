@@ -21,7 +21,8 @@
  * </dl>
  * 
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Standard Algorithm
  * **Data Structures**: Array, Heap, Tree
  * **Patterns**: Iterative Solution
@@ -66,7 +67,7 @@
  * - Size > k, remove min: [5, 8, 10]
  * - Return root: 5
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * - Constructor: O(n log k) where n = len(nums)
  * - add(): O(log k)
  * 

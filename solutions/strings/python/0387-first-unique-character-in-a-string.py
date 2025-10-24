@@ -17,7 +17,8 @@ This problem demonstrates key concepts in Hash Tables and String manipulation.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
 **Data Structures**: Hash Map, Hash Set, String
 **Patterns**: Two Pointers Pattern, Hash Table Pattern

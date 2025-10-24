@@ -24,7 +24,8 @@
  * </dl>
  * 
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
  * **Data Structures**: Hash Set, Array, Queue
  * **Patterns**: Hash Table Pattern, Greedy Algorithm
@@ -74,7 +75,7 @@
  * [[1,2],[0,2],[1,1],[0,1],[1,0],[0,0]]
  * ```
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(R*C * log(R*C))
  * - Generating coordinates: O(R*C)
  * - Sorting: O(R*C * log(R*C))

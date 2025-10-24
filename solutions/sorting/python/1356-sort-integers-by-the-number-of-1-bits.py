@@ -21,7 +21,8 @@ Return the array after sorting it.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Array Traversal, Sorting, Greedy Selection
 **Data Structures**: Array, Graph
 **Patterns**: Hash Table Pattern, Greedy Algorithm

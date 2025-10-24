@@ -18,7 +18,8 @@ while still preserving whitespace and initial word order.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
 **Data Structures**: Array, String, Stack
 **Patterns**: Two Pointers Pattern, Divide and Conquer

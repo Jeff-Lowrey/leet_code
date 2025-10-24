@@ -24,7 +24,8 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Array, String
  * **Patterns**: Hash Table Pattern, Greedy Algorithm
@@ -70,12 +71,13 @@
  * Substrings: "RL", "RRLL", "RL", "RL"
  * ```
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(n)
  * Single pass through the string
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  * Only using counter and result variables
  *
  * ### EDGE CASES:

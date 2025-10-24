@@ -20,7 +20,8 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Map Storage, Array Traversal, Two Pointers
  * **Data Structures**: Array, Queue, Tree
  * **Patterns**: Two Pointers Pattern, Graph Pattern
@@ -58,8 +59,9 @@
  * Level-order (top-down): [[3], [9, 20], [15, 7]]
  * Bottom-up: [[15, 7], [9, 20], [3]]
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  * - Visit each node exactly once: O(n)
  * - Reversing result: O(h) where h = height
  * - Total: O(n)

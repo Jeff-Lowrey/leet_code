@@ -21,7 +21,8 @@ word or phrase, typically using all the original letters exactly once.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Array Traversal, Sorting
 **Data Structures**: Hash Map, Array, String
 **Patterns**: Hash Table Pattern

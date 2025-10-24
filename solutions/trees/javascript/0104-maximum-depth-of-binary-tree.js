@@ -70,8 +70,9 @@
  * 3
  * ```
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  * Must visit every node to determine maximum depth
  *
  * ### SPACE COMPLEXITY:

@@ -23,7 +23,8 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Array Traversal, Sliding Window
  * **Data Structures**: Array, String, Stack
  * **Patterns**: Hash Table Pattern, Tree Pattern
@@ -66,12 +67,13 @@
  * "accaccacc"
  * ```
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(n × m)
  * Where n is length of input, m is maximum decoded length
  *
  * ### SPACE COMPLEXITY:
  * O(n)
+ * - Additional set storage
  * For the stacks and intermediate strings
  *
  * ### EDGE CASES:

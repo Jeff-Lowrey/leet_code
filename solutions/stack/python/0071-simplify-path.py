@@ -31,7 +31,8 @@ Return the simplified canonical path.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Map Storage, Array Traversal, Stack Operations
 **Data Structures**: Array, String, Stack
 **Patterns**: Divide and Conquer, Tree Pattern

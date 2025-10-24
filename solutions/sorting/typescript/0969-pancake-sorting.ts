@@ -29,7 +29,8 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Array, Tree
  * **Patterns**: Two Pointers Pattern
@@ -85,8 +86,9 @@
  * [3,4,2,3,2] (flip positions)
  * ```
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(n²)
+ * - Nested iteration through input
  * - n iterations (one per element)
  * - Each iteration finds max: O(n)
  * - Total: O(n²)

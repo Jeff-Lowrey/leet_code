@@ -21,7 +21,8 @@ You may assume that the input string is always valid; no extra white spaces, squ
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Array Traversal, Sliding Window
 **Data Structures**: Array, String, Stack
 **Patterns**: Hash Table Pattern, Tree Pattern

@@ -61,11 +61,12 @@
  * n & (n-1) = 0000, count = 3
  * Result: 3
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(k) where k is number of 1-bits
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  *
  * ### EDGE CASES:
  * - **n = 0**: Return 0 (no 1 bits)

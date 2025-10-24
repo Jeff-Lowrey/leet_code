@@ -68,12 +68,13 @@
  * [1, 0, 1]
  * ```
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(m × n)
  * Two passes through the matrix
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  * Only using two boolean flags
  *
  * ### EDGE CASES:

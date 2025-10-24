@@ -92,6 +92,7 @@
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  * - Only use constant extra space
  *
  * ### EDGE CASES:

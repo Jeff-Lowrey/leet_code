@@ -28,7 +28,8 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Two Pointers, Stack Operations, Graph Traversal
  * **Data Structures**: Array, Stack, Tree
  * **Patterns**: Two Pointers Pattern, Graph Pattern
@@ -69,7 +70,7 @@
  * [[2,2,2],[2,2,0],[2,0,1]]
  * ```
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(m×n)
  * Where m, n are image dimensions - worst case visit all pixels
  *

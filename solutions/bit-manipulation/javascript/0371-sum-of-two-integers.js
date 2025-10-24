@@ -65,11 +65,13 @@
  * 3
  * ```
 
-### TIME COMPLEXITY:
- * O(1) - At most 32 iterations for 32-bit integers
+ * ### TIME COMPLEXITY:
+ * O(1)
+ * - Fixed number of iterations (32 bits for integers)
  *
  * ### SPACE COMPLEXITY:
- * O(1) - Constant space for variables
+ * O(1)
+ * - Only storing intermediate values
  *
  * ### EDGE CASES:
  * - **Both zero**: Return 0

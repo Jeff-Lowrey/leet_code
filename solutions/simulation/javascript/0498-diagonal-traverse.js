@@ -46,7 +46,7 @@
  * example output
  * ```
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * **O(n²)** - Analysis of time complexity
  *
  * ### SPACE COMPLEXITY:

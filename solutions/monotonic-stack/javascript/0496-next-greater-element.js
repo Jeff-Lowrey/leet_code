@@ -81,6 +81,7 @@
  *
  * ### SPACE COMPLEXITY:
  * O(n)
+ * - Additional hash map storage
  *
  * ### EDGE CASES:
  * - **No greater element exists**: Return -1 for that element

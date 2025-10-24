@@ -19,7 +19,8 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Backtracking
  * **Data Structures**: Array, String
  * **Patterns**: Iterative Solution
@@ -65,8 +66,9 @@
  * "example good a"
  * ```
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  * Where n is the length of the string. We scan the string once to split, reverse the list (O(n)),
  * and join back (O(n)).
  *

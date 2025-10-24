@@ -19,7 +19,8 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Map Storage, Array Traversal, Sorting
  * **Data Structures**: Array, Linked List
  * **Patterns**: Complement Search, Hash Table Pattern
@@ -69,11 +70,13 @@
  * [[1,2,4]]
  * ```
 
-### TIME COMPLEXITY:
- * O(C(9,k)) - choosing k numbers from 9 options
+ * ### TIME COMPLEXITY:
+ * O(C(9,k))
+ * - choosing k numbers from 9 options
  *
  * ### SPACE COMPLEXITY:
- * O(k) - recursion depth and combination size
+ * O(k)
+ * - recursion depth and combination size
  *
  * ### EDGE CASES:
  * - k > 9 (impossible - return empty array)

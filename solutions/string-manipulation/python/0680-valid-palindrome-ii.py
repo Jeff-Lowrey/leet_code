@@ -18,7 +18,8 @@ Given a string s, return true if the s can be palindrome after deleting at most 
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
 **Data Structures**: String, Tree
 **Patterns**: Two Pointers Pattern

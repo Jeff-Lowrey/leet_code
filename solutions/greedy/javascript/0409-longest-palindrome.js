@@ -61,12 +61,14 @@
  * Result: 6 + 1 = 7
  * Possible palindrome: "dccaccd"
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  * Single pass to count characters
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  * At most 128 ASCII characters or 52 letters (constant space)
  *
  * ### EDGE CASES:

@@ -64,7 +64,7 @@
  *
  * Note: "aba" is also a valid answer
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * - Expand around center: O(n²) - n centers, each expansion O(n)
  * - Dynamic Programming: O(n²)
  * - Manacher's Algorithm: O(n) - optimal

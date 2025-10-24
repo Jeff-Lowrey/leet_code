@@ -19,7 +19,8 @@
  * </dl>
  * 
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Hash Map, Array, String
  * **Patterns**: Hash Table Pattern
@@ -57,7 +58,7 @@
  * - Remove coding: heap = [(-2, "love"), (-2, "i")]
  * Result: ["i", "love"] (after reversing)
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(N log k)
  * Where N is number of words, k is the result size. Heap operations are O(log k).
  * 

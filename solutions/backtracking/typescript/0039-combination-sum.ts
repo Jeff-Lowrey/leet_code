@@ -24,7 +24,8 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Map Storage, Array Traversal, Sorting
  * **Data Structures**: Array, Matrix
  * **Patterns**: Hash Table Pattern, Backtracking
@@ -58,7 +59,7 @@
  * Step 1: - Try 2: [2] -> remaining=5, try 2 again: [2,2] -> remaining=3, try 3: [2,2,3] ✓
  * Step 2: - Try 7: [7] -> remaining=0 ✓
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(N^(T/M))
  * Where N=len(candidates), T=target, M=minimal candidate value
  *

@@ -21,7 +21,8 @@
  * </dl>
  * 
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Hash Map, Array
  * **Patterns**: Hash Table Pattern, Greedy Algorithm
@@ -61,7 +62,7 @@
  * Minimum length = 1 (removing [4])
  * Result: [3,1,2] sums to 6, which is divisible by 6
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(n)
  * Single pass through array with O(1) hashmap operations
  * 

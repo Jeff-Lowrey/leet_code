@@ -52,11 +52,13 @@
  * nums = [1, 2, 3, 1]
  * ```
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  *
  * ### SPACE COMPLEXITY:
  * O(n)
+ * - Additional set storage
  *
  * ### EDGE CASES:
  * - **Empty array**: Return False (no duplicates possible)

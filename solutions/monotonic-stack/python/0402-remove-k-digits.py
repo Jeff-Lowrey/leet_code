@@ -17,7 +17,8 @@ Given string num representing a non-negative integer num, and an integer k, retu
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
 **Data Structures**: Array, String, Stack
 **Patterns**: Two Pointers Pattern, Greedy Algorithm

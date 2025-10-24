@@ -72,6 +72,7 @@
  * 
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  * - Visit each node exactly once
  * - n = number of nodes in tree
  *

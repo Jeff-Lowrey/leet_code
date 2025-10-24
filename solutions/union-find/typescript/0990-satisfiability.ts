@@ -21,7 +21,8 @@
  * </dl>
  * 
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Hash Set, Array, String
  * **Patterns**: Iterative Solution
@@ -62,12 +63,13 @@
  * True
  * ```
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(N × α(N))
  * Where N is number of equations and α is inverse Ackermann function
  * 
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  * Since we only have 26 possible variables (a-z)
  * 
  * ### EDGE CASES:

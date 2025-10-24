@@ -17,7 +17,8 @@ Given the head of a singly linked list, reverse the list, and return the reverse
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup
 **Data Structures**: Hash Set, Array, Linked List
 **Patterns**: Iterative Solution

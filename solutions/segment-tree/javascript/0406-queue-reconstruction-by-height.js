@@ -58,12 +58,13 @@
  * Insert [5,2] at index 2: [[5,0],[7,0],[5,2],[6,1],[7,1]]
  * Insert [4,4] at index 4: [[5,0],[7,0],[5,2],[6,1],[4,4],[7,1]]
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * - Greedy: O(n² log n) - sorting + n insertions
  * - Segment Tree: O(n log n) - sorting + n queries
  *
  * ### SPACE COMPLEXITY:
  * O(n)
+ * - Additional hash map storage
  * For result array and tree structure
  *
  * ### EDGE CASES:

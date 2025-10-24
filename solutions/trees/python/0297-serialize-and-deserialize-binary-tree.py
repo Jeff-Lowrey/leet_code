@@ -21,7 +21,8 @@ Clarification: The input/output format is the same as how LeetCode serializes a 
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Two Pointers, Stack Operations, Tree Traversal
 **Data Structures**: String, Stack, Tree
 **Patterns**: Two Pointers Pattern, Tree Pattern

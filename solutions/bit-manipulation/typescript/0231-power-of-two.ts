@@ -66,10 +66,10 @@
  * ```
  * 
  * ### TIME COMPLEXITY:
- * O(log n) - dividing by 2 each time
+ * O(log n) for recursion
  *
  * ### SPACE COMPLEXITY:
- * O(log n) - recursion stack depth
+ * O(log n) for recursion stack
  *
  * ### EDGE CASES:
  * - n ≤ 0: return False

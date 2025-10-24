@@ -17,7 +17,8 @@ Given an m x `n` matrix, return all elements of the matrix in spiral order.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
 **Data Structures**: Array, Tree, Matrix
 **Patterns**: Two Pointers Pattern

@@ -57,7 +57,7 @@
  * 1024.0
  * ```
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * **O(n)** - Analysis of time complexity
  *
  * ### SPACE COMPLEXITY:

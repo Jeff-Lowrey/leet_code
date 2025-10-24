@@ -67,7 +67,7 @@
  * 3 (person 3 is the judge)
  * ```
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(T + N)
  * Where T is the number of trust relationships and N is the number of people
  *

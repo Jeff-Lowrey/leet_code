@@ -49,11 +49,13 @@
  * nums = [1, 2, 3, 1]
  * ```
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass with O(1) hash lookups
  *
  * ### SPACE COMPLEXITY:
  * O(n)
+ * - Additional set storage
  *
  * ### EDGE CASES:
  * - **Empty array**: Return False (no duplicates possible)

@@ -17,7 +17,8 @@ Given the root of a binary tree, return the inorder traversal of its nodes' valu
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Two Pointers
 **Data Structures**: Array, Stack, Tree
 **Patterns**: Two Pointers Pattern, Backtracking

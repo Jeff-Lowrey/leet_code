@@ -17,7 +17,8 @@ This problem demonstrates key concepts in String matching and pattern searching.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Array Traversal, Stack Operations
 **Data Structures**: String, Stack
 **Patterns**: Iterative Solution

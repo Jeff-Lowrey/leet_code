@@ -58,11 +58,13 @@
  * nums = [1,2,3]
  * ```
 
-### TIME COMPLEXITY:
- * O(n × 2^n) - 2^n subsets, each takes O(n) to copy
+ * ### TIME COMPLEXITY:
+ * O(n × 2^n)
+ * - 2^n subsets, each takes O(n) to copy
  *
  * ### SPACE COMPLEXITY:
- * O(n) - recursion depth
+ * O(n)
+ * - recursion depth
  *
  * ### EDGE CASES:
  * - **Empty array**: Return [[]] (power set contains only empty set)

@@ -24,7 +24,8 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Array
  * **Patterns**: Hash Table Pattern
@@ -72,12 +73,14 @@
  * 3
  * ```
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(n log n)
+ * - Sorting or divide-and-conquer
  * For sorting approach. Counting approach is O(n).
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  * If sorting in place, O(n) for sorting with extra space
  *
  * ### EDGE CASES:

@@ -20,7 +20,8 @@ You may assume that the majority element always exists in the array.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Array Traversal, Sorting
 **Data Structures**: Hash Map, Hash Set, Array
 **Patterns**: Hash Table Pattern

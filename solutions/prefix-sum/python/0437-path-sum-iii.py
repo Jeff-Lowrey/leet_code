@@ -19,7 +19,8 @@ The path does not need to start or end at the root or a leaf, but it must go dow
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Two Pointers
 **Data Structures**: Hash Map, Array, Stack
 **Patterns**: Complement Search, Two Pointers Pattern

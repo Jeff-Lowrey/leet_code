@@ -17,7 +17,8 @@ Given an array nums containing n distinct numbers in the range [0, n], return th
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Array Traversal
 **Data Structures**: Hash Map, Array
 **Patterns**: Iterative Solution

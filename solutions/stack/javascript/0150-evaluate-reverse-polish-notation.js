@@ -75,12 +75,14 @@
  * 9
  * ```
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  * Where n is the number of tokens - process each token once
  *
  * ### SPACE COMPLEXITY:
  * O(n)
+ * - Additional set storage
  * Stack can hold up to n/2 operands in worst case
  *
  * ### EDGE CASES:

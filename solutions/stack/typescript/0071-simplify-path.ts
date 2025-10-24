@@ -33,7 +33,8 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Map Storage, Array Traversal, Stack Operations
  * **Data Structures**: Array, String, Stack
  * **Patterns**: Divide and Conquer, Tree Pattern
@@ -85,6 +86,7 @@
  * 
  * ### TIME COMPLEXITY:
  * O(n) where n is path length
+ * - Single pass through input
  *
  * ### SPACE COMPLEXITY:
  * O(n) for stack and split components

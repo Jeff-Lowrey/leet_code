@@ -25,7 +25,8 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Hash Set, Array, Tree
  * **Patterns**: Two Pointers Pattern, Hash Table Pattern
@@ -65,12 +66,14 @@
  * Step 6: - j=3 (rating=4): left_larger=1 (rating=5), right_smaller=1 (rating=1) → 1 team
  * Step 7: Total: 1 + 1 + 1 = 3 teams
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(n log n)
+ * - Sorting or divide-and-conquer
  * For segment tree approach with coordinate compression
  *
  * ### SPACE COMPLEXITY:
  * O(n)
+ * - Additional hash map storage
  * For compressed coordinates and tree structure
  *
  * ### EDGE CASES:

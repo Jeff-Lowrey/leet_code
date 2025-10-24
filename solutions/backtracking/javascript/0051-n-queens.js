@@ -64,7 +64,7 @@
  * n = 4
  * ```
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(N!)
  * - In worst case, we try every possible placement
  * - First queen has N choices, second has (N-1), etc.

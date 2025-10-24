@@ -96,11 +96,12 @@
  * [[0,0,0],[0,0,1],[0,1,1],[0,1,0]]
  * ```
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(m × n)
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  *
  * ### EDGE CASES:
  * - **All dead cells**: Remain dead if no neighbors

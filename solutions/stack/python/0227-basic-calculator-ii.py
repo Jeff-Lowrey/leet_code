@@ -23,7 +23,8 @@ Note: You are not allowed to use any built-in function which evaluates strings a
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Stack Operations
 **Data Structures**: Hash Set, Array, String
 **Patterns**: Iterative Solution

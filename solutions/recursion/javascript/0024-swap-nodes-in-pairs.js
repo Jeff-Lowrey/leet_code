@@ -56,8 +56,9 @@
  * 2->1->4->3->NULL
  * ```
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  * Visit each node exactly once
  *
  * ### SPACE COMPLEXITY:

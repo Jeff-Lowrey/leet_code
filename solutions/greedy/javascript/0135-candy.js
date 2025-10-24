@@ -73,8 +73,9 @@
  * candies = [2,1,2]
  * Total: 2 + 1 + 2 = 5
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  * Two passes through the array
  *
  * ### SPACE COMPLEXITY:

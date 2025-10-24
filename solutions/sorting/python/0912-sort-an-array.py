@@ -20,7 +20,8 @@ and with the smallest space complexity possible.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Map Storage, Array Traversal, Two Pointers
 **Data Structures**: Array, Stack, Heap
 **Patterns**: Two Pointers Pattern, Divide and Conquer

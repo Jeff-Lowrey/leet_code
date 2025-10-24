@@ -17,7 +17,8 @@
  * </dl>
  * 
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Two Pointers, Stack Operations, Graph Traversal
  * **Data Structures**: Stack, Tree, Linked List
  * **Patterns**: Two Pointers Pattern, Hash Table Pattern
@@ -54,7 +55,7 @@
  * Step 3: hasNext() -> true
  * Step 4: next() -> 9, stack: [15, 20]
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * - Constructor: O(h) where h is height
  * - next(): Amortized O(1)
  * - hasNext(): O(1)

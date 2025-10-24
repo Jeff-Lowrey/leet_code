@@ -23,7 +23,8 @@
  * </dl>
  * 
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Hash Set, Array, Stack
  * **Patterns**: Hash Table Pattern, Graph Pattern
@@ -76,6 +77,7 @@
  * 
  * ### SPACE COMPLEXITY:
  * O(n)
+ * - Additional set storage
  * For the Union-Find parent and rank arrays
  * 
  * ### EDGE CASES:

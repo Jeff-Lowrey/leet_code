@@ -21,7 +21,8 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Two Pointers
  * **Data Structures**: Hash Map, Array, Stack
  * **Patterns**: Complement Search, Two Pointers Pattern
@@ -67,8 +68,9 @@
  * ... and so on
  * Total paths with sum 8: 3
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  * Visit each node exactly once, with O(1) hashmap operations per node
  *
  * ### SPACE COMPLEXITY:

@@ -67,8 +67,9 @@
  * Step 2: Level 1: 2 -> 3 -> NULL
  * Step 3: Level 2: 4 -> 5 -> 6 -> 7 -> NULL
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  * - Visit each node exactly once
  * - n = number of nodes in tree
  *

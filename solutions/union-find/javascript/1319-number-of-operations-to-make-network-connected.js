@@ -65,7 +65,7 @@
  * - Connect 1-3: components = {0,1,2,3}
  * Components: 1, Operations needed: 0
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(n × α(n))
  * Where α is the inverse Ackermann function (nearly constant)
  *

@@ -24,7 +24,8 @@ Implement the FileSystem class:
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup
 **Data Structures**: Hash Map, Hash Set, Array
 **Patterns**: Iterative Solution

@@ -66,8 +66,9 @@
  * Step 6: - j=3 (rating=4): left_larger=1 (rating=5), right_smaller=1 (rating=1) → 1 team
  * Step 7: Total: 1 + 1 + 1 = 3 teams
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(n log n)
+ * - Sorting or divide-and-conquer
  * For segment tree approach with coordinate compression
  *
  * ### SPACE COMPLEXITY:

@@ -21,7 +21,8 @@ You must write an algorithm with O(log n) runtime complexity.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Two Pointers
 **Data Structures**: Array, Tree
 **Patterns**: Two Pointers Pattern, Binary Search Pattern

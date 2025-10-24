@@ -29,7 +29,8 @@ randomizedSet.getRandom(); // Since 2 is the only number in the set, getRandom()
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Set Operations, Backtracking
 **Data Structures**: Hash Map, Hash Set, Array
 **Patterns**: Backtracking

@@ -17,7 +17,8 @@ Given the root of a binary tree, return the level order traversal of its nodes' 
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
 **Data Structures**: Array, Queue, Tree
 **Patterns**: Two Pointers Pattern, Hash Table Pattern

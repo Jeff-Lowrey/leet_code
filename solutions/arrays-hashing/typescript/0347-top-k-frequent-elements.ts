@@ -65,11 +65,13 @@
  * [1, 2]
  * ```
 
-### TIME COMPLEXITY:
- * O(n) - Bucket sort approach
+ * ### TIME COMPLEXITY:
+ * O(n)
+ * - Bucket sort approach
  *
  * ### SPACE COMPLEXITY:
- * O(n) - Hash map and buckets
+ * O(n)
+ * - Hash map and buckets storage
  *
  * ### EDGE CASES:
  * - Empty input handling

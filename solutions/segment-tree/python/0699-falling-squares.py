@@ -23,7 +23,8 @@ Return an integer array ans where ans[i] represents the height of the tallest st
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
 **Data Structures**: Hash Set, Array, Stack
 **Patterns**: Two Pointers Pattern, Hash Table Pattern

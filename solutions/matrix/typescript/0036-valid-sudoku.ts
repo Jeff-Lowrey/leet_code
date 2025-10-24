@@ -28,7 +28,8 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Set Operations, Array Traversal
  * **Data Structures**: Hash Set, Array, String
  * **Patterns**: Hash Table Pattern
@@ -78,6 +79,7 @@
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  * - At most 9 sets with 9 elements each
  * - Fixed space regardless of input
  *

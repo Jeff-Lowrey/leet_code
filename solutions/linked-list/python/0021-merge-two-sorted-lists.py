@@ -21,7 +21,8 @@ The list should be made by splicing together the nodes of the first two lists.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup
 **Data Structures**: Hash Set, Array, Linked List
 **Patterns**: Divide and Conquer

@@ -22,7 +22,8 @@
  * </dl>
  * 
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Two Pointers
  * **Data Structures**: Array, Heap, Tree
  * **Patterns**: Two Pointers Pattern, Divide and Conquer
@@ -66,7 +67,7 @@
  * left=[2,1], right=[3,4]
  * median = (2+3)/2 = 2.5
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * - addNum(): O(log n) - heap operations
  * - findMedian(): O(1) - just access heap tops
  * 

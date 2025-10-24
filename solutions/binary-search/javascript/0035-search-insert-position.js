@@ -66,12 +66,14 @@
  * 4
  * ```
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(log n)
+ * - Binary search or tree height
  * Binary search through sorted array
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  * Only using constant extra space
  *
  * ### EDGE CASES:

@@ -21,7 +21,8 @@ Return the letter that was added to t.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Array Traversal
 **Data Structures**: Hash Set, Array, String
 **Patterns**: Hash Table Pattern

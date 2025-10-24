@@ -23,7 +23,8 @@
  * </dl>
  * 
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
  * **Data Structures**: Hash Set, Array, Stack
  * **Patterns**: Two Pointers Pattern, Hash Table Pattern
@@ -57,12 +58,13 @@
  * Step 3: Square 3: [6,7) no overlap → lands at 0, new height 1
  * Step 4: Heights: [2, 5, 5]
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(n² log n)
  * Due to coordinate compression and segment tree operations
  * 
  * ### SPACE COMPLEXITY:
  * O(n)
+ * - Additional hash map storage
  * For coordinate mapping and tree structure
  * 
  * ### EDGE CASES:

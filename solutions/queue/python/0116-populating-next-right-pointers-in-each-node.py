@@ -20,7 +20,8 @@ Initially, all next pointers are set to NULL.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Array Traversal, Two Pointers
 **Data Structures**: Hash Set, Queue, Tree
 **Patterns**: Two Pointers Pattern, Graph Pattern

@@ -68,8 +68,9 @@
  * ... and so on
  * Total paths with sum 8: 3
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  * Visit each node exactly once, with O(1) hashmap operations per node
  *
  * ### SPACE COMPLEXITY:

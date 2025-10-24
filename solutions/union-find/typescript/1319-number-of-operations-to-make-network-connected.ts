@@ -23,7 +23,8 @@
  * </dl>
  * 
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Hash Set, Array, Tree
  * **Patterns**: Hash Table Pattern, Divide and Conquer
@@ -62,12 +63,13 @@
  * - Connect 1-3: components = {0,1,2,3}
  * Components: 1, Operations needed: 0
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(n × α(n))
  * Where α is the inverse Ackermann function (nearly constant)
  * 
  * ### SPACE COMPLEXITY:
  * O(n)
+ * - Additional set storage
  * For Union-Find parent and rank arrays
  * 
  * ### EDGE CASES:

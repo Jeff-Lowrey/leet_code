@@ -69,10 +69,12 @@
  * 
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  * In worst case, we check the string twice (once normally, once after skip)
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  * Only using constant extra space for pointers
  *
  * ### EDGE CASES:

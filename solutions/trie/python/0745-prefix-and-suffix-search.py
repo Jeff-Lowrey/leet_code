@@ -21,7 +21,8 @@ Implement the WordFilter class:
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Backtracking
 **Data Structures**: Hash Map, Array, String
 **Patterns**: Hash Table Pattern, Backtracking

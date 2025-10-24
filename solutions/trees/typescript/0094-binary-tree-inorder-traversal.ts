@@ -17,7 +17,8 @@
  * </dl>
  * 
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Two Pointers
  * **Data Structures**: Array, Stack, Tree
  * **Patterns**: Two Pointers Pattern, Backtracking
@@ -59,8 +60,9 @@
  * 8. No right child of 2
  * Result: [1, 3, 2]
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  * We visit each node exactly once
  * 
  * ### SPACE COMPLEXITY:

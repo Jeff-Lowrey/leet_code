@@ -18,7 +18,8 @@
  * </dl>
  * 
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Array Traversal, Stack Operations
  * **Data Structures**: Hash Set, Array, String
  * **Patterns**: Backtracking
@@ -59,7 +60,7 @@
  * Completed valid Sudoku board
  * ```
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(9^(n*n)) worst case, where n=9
  * 
  * ### SPACE COMPLEXITY:

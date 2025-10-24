@@ -21,7 +21,8 @@
  * </dl>
  * 
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Array Traversal, Stack Operations
  * **Data Structures**: Array, Stack, Queue
  * **Patterns**: Hash Table Pattern, Greedy Algorithm
@@ -62,7 +63,7 @@
  * - (3,10): area = 1
  * Maximum area = 4
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(M × N)
  * We visit each cell at most once
  * 

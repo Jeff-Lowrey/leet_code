@@ -19,7 +19,8 @@ You must write an algorithm that runs in linear runtime complexity and uses only
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Array Traversal, Sorting
 **Data Structures**: Hash Map, Hash Set, Array
 **Patterns**: Divide and Conquer

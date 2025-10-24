@@ -59,8 +59,9 @@
  * 5     4        <- Right view: 4
  * Result: [1, 3, 4]
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  * - Visit each node exactly once
  * - n = number of nodes in tree
  *

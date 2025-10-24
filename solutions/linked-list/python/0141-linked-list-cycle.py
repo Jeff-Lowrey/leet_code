@@ -21,7 +21,8 @@ Return true if there is a cycle in the linked list. Otherwise, return false.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup
 **Data Structures**: Hash Set, Array, Linked List
 **Patterns**: Two Pointers Pattern

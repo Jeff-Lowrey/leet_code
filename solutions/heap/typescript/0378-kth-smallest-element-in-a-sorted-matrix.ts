@@ -23,7 +23,8 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
  * **Data Structures**: Hash Set, Array, Heap
  * **Patterns**: Two Pointers Pattern, Hash Table Pattern
@@ -62,12 +63,13 @@
  * Step 6: pop 12, add 13 -> heap = [(13,1,2), (13,2,1)]
  * Step 7: pop 13 (8th smallest) -> return 13
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(k log n)
  * Where n is matrix dimension and k is the target position
  *
  * ### SPACE COMPLEXITY:
  * O(n)
+ * - Additional set storage
  * For the heap storing at most n elements (one from each row)
  *
  * ### EDGE CASES:

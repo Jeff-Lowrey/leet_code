@@ -64,8 +64,9 @@
  * Minimum length = 1 (removing [4])
  * Result: [3,1,2] sums to 6, which is divisible by 6
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  * Single pass through array with O(1) hashmap operations
  *
  * ### SPACE COMPLEXITY:

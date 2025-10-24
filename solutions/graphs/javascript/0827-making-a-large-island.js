@@ -63,7 +63,7 @@
  * Step 2: Flip (1,0): neighbors are [2,3] → new size = 1 + 1 + 1 = 3
  * Step 3: Maximum possible island size: 3
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(N²)
  * Where N is grid dimension - two passes through the grid
  *

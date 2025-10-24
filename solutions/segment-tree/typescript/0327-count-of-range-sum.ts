@@ -19,7 +19,8 @@
  * </dl>
  * 
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
  * **Data Structures**: Hash Set, Array, Tree
  * **Patterns**: Two Pointers Pattern, Hash Table Pattern
@@ -61,12 +62,14 @@
  * 3
  * ```
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(n log n)
+ * - Sorting or divide-and-conquer
  * For merge sort and tree-based approaches
  * 
  * ### SPACE COMPLEXITY:
  * O(n)
+ * - Additional set storage
  * For prefix sums and auxiliary structures
  * 
  * ### EDGE CASES:

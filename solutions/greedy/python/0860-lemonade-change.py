@@ -21,7 +21,8 @@ Given an integer array bills where bills[i] is the bill the ith customer pays, r
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Array Traversal, Queue Operations
 **Data Structures**: Array, Queue
 **Patterns**: Hash Table Pattern, Greedy Algorithm

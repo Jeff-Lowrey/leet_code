@@ -72,7 +72,7 @@
  * Match 'D' ✓, complete! Return True
  * Result: True (found path)
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(M * N * 4^L)
  * Where M*N is board size, L is word length
  * - We try each cell as start: O(M*N)

@@ -23,7 +23,8 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Array, String, Stack
  * **Patterns**: Two Pointers Pattern, Hash Table Pattern
@@ -70,12 +71,13 @@
  * 0
  * ```
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(n)
  * Single pass through the string
  *
  * ### SPACE COMPLEXITY:
  * O(n)
+ * - Additional set storage
  * Stack can grow up to the depth of nested parentheses
  *
  * ### EDGE CASES:

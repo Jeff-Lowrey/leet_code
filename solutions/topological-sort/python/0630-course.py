@@ -21,7 +21,8 @@ Return the maximum number of courses that you can take.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Sorting
 **Data Structures**: Hash Map, Hash Set, Array
 **Patterns**: Greedy Algorithm

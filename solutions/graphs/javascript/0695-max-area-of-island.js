@@ -65,7 +65,7 @@
  * - (3,10): area = 1
  * Maximum area = 4
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(M × N)
  * We visit each cell at most once
  *

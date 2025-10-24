@@ -17,7 +17,8 @@ This problem demonstrates key concepts in String manipulation and parsing.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Backtracking
 **Data Structures**: Array, String
 **Patterns**: Iterative Solution

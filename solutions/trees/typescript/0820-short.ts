@@ -22,7 +22,8 @@
  * </dl>
  * 
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
  * **Data Structures**: Hash Map, Hash Set, Array
  * **Patterns**: Two Pointers Pattern, Hash Table Pattern
@@ -56,7 +57,7 @@
  * - "me" at index 2 (suffix of "time")
  * - "bell" at index 5
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(N × M)
  * Where N is the number of words and M is the average length of words
  * 

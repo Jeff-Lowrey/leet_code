@@ -63,7 +63,7 @@
  * Step 6: pop 12, add 13 -> heap = [(13,1,2), (13,2,1)]
  * Step 7: pop 13 (8th smallest) -> return 13
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(k log n)
  * Where n is matrix dimension and k is the target position
  *

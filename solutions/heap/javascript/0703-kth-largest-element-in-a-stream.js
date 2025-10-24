@@ -69,7 +69,7 @@
  * - Size > k, remove min: [5, 8, 10]
  * - Return root: 5
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * - Constructor: O(n log k) where n = len(nums)
  * - add(): O(log k)
  *

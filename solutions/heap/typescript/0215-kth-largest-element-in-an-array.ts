@@ -23,7 +23,8 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Map Storage, Array Traversal, Two Pointers
  * **Data Structures**: Array, Heap, Tree
  * **Patterns**: Two Pointers Pattern, Hash Table Pattern
@@ -67,7 +68,7 @@
  * - Pivot 5: [5] | [6]
  * - Position 2 from right = answer: 5
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * - Min-heap: O(n log k)
  * - Max-heap: O(n + k log n)
  * - QuickSelect: O(n) average, O(n²) worst

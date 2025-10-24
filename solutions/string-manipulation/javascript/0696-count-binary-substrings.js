@@ -77,8 +77,9 @@
  * - Pair [2, 2]: min(2, 2) = 2 substrings ("01", "0011")
  * Total: 2 + 2 + 2 = 6
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  * - Single pass through string to count groups
  * - Process each group once
  * - Overall linear in string length

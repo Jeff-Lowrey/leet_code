@@ -69,6 +69,7 @@
  *
  * ### SPACE COMPLEXITY:
  * O(1) excluding output array
+ * - Constant extra space
  *
  * ### EDGE CASES:
  * - **Empty matrix**: Return empty list

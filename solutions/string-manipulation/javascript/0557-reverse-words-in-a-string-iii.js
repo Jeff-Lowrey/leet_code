@@ -69,8 +69,9 @@
  * Step 4: - "contest" -> "tsetnoc"
  * Step 5: Join: "s'teL ekat edoCteeL tsetnoc"
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  * - Splitting the string: O(n)
  * - Reversing each word: O(n) total for all words
  * - Joining: O(n)
@@ -78,6 +79,7 @@
  *
  * ### SPACE COMPLEXITY:
  * O(n)
+ * - Additional hash map storage
  * - Storing split words: O(n)
  * - Creating result string: O(n)
  * - Overall: O(n)

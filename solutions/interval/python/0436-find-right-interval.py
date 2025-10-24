@@ -21,7 +21,8 @@ Return an array of right interval indices for each interval i. If no right inter
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
 **Data Structures**: Hash Map, Array, Tree
 **Patterns**: Two Pointers Pattern, Binary Search Pattern

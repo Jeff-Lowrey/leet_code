@@ -19,7 +19,8 @@ Note that n! = n × (n - 1) × (n - 2) × ... × 3 × 2 × 1.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Standard Algorithm
 **Data Structures**: Basic Types
 **Patterns**: Hash Table Pattern

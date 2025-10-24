@@ -65,10 +65,10 @@
  * ```
  * 
  * ### TIME COMPLEXITY:
- * O(log₄ n) - dividing by 4 each time
+ * O(log₄ n) for recursion
  *
  * ### SPACE COMPLEXITY:
- * O(log₄ n) - recursion stack depth
+ * O(log₄ n) for recursion stack
  *
  * ### EDGE CASES:
  * - n ≤ 0: return False

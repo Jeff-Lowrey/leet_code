@@ -22,7 +22,8 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Two Pointers, Stack Operations
  * **Data Structures**: Hash Map, Stack, Queue
  * **Patterns**: Two Pointers Pattern, Graph Pattern
@@ -69,7 +70,7 @@
  * Step 3: - Node 3: depth=1, parent=1
  * Step 4: - Same parent → NOT cousins
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(n)
  * - In worst case, visit all nodes in tree
  * - n = number of nodes in tree

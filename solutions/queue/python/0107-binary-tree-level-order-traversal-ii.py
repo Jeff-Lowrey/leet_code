@@ -18,7 +18,8 @@ Given the root of a binary tree, return the bottom-up level order traversal of i
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Map Storage, Array Traversal, Two Pointers
 **Data Structures**: Array, Queue, Tree
 **Patterns**: Two Pointers Pattern, Graph Pattern

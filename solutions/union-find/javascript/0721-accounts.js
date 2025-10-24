@@ -80,7 +80,7 @@
  * ["John","johnnybravo@mail.com"]]
  * ```
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(N × M × α(N))
  * Where N is number of accounts, M is average emails per account, α is inverse Ackermann function
  *

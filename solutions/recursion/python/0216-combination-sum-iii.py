@@ -17,7 +17,8 @@ This problem demonstrates key concepts in Recursion.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Map Storage, Array Traversal, Sorting
 **Data Structures**: Array, Linked List
 **Patterns**: Complement Search, Hash Table Pattern

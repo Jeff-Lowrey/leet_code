@@ -68,7 +68,7 @@
  * - Pivot 5: [5] | [6]
  * - Position 2 from right = answer: 5
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * - Min-heap: O(n log k)
  * - Max-heap: O(n + k log n)
  * - QuickSelect: O(n) average, O(n²) worst

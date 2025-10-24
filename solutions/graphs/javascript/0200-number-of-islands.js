@@ -63,7 +63,7 @@
  * Step 2: - DFS from (1,3) only marks (1,3) as it's isolated
  * Step 3: - Total islands found: 2
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(M × N)
  * Where M and N are grid dimensions - we visit each cell at most once
  *

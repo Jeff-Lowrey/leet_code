@@ -30,7 +30,8 @@ Output: [[137,141,137],[141,138,141],[137,141,137]]
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Array Traversal, Two Pointers
 **Data Structures**: Array, Graph, Matrix
 **Patterns**: Two Pointers Pattern, Hash Table Pattern

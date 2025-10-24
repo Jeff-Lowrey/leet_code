@@ -21,7 +21,8 @@
  * </dl>
  * 
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Array, Tree
  * **Patterns**: Two Pointers Pattern, Hash Table Pattern
@@ -57,12 +58,14 @@
  * Day 5: price=4, min_price=1, profit=3, max_profit=5
  * Result: 5 (buy at price 1, sell at price 6)
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  * Single pass through the prices array
  * 
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  * Only using constant extra space
  * 
  * ### EDGE CASES:

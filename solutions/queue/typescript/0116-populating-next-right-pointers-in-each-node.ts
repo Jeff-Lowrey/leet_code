@@ -20,7 +20,8 @@
  * </dl>
  * 
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Array Traversal, Two Pointers
  * **Data Structures**: Hash Set, Queue, Tree
  * **Patterns**: Two Pointers Pattern, Graph Pattern
@@ -64,8 +65,9 @@
  * Step 2: Level 1: 2 -> 3 -> NULL
  * Step 3: Level 2: 4 -> 5 -> 6 -> 7 -> NULL
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  * - Visit each node exactly once
  * - n = number of nodes in tree
  * 

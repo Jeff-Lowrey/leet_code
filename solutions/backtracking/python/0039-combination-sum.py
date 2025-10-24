@@ -22,7 +22,8 @@ Two combinations are unique if the frequency of at least one of the chosen numbe
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Map Storage, Array Traversal, Sorting
 **Data Structures**: Array, Matrix
 **Patterns**: Hash Table Pattern, Backtracking

@@ -19,7 +19,8 @@ The span of the stock's price in one day is the maximum number of consecutive da
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Stack Operations
 **Data Structures**: Hash Set, Array, String
 **Patterns**: Hash Table Pattern

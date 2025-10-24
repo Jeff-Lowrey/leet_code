@@ -22,7 +22,8 @@ According to the definition of LCA on Wikipedia: "The lowest common ancestor is 
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
 **Data Structures**: Array, Stack, Tree
 **Patterns**: Two Pointers Pattern, Greedy Algorithm

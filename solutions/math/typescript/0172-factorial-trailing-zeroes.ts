@@ -21,7 +21,8 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Standard Algorithm
  * **Data Structures**: Basic Types
  * **Patterns**: Hash Table Pattern
@@ -56,12 +57,14 @@
  * 30! = 265252859812191058636308480000000
  * (7 trailing zeroes)
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(log n)
+ * - Binary search or tree height
  * Number of divisions by 5 until we reach 0
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  * Only using counters
  *
  * ### EDGE CASES:

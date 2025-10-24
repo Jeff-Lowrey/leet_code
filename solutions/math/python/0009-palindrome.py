@@ -17,7 +17,8 @@ Given an integer x, return true if x is a palindrome, and false otherwise.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Standard Algorithm
 **Data Structures**: String
 **Patterns**: Iterative Solution

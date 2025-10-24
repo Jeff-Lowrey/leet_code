@@ -18,7 +18,8 @@ Solve a Sudoku puzzle by filling the empty cells.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Array Traversal, Stack Operations
 **Data Structures**: Hash Set, Array, String
 **Patterns**: Backtracking

@@ -17,7 +17,8 @@ Given two binary strings a and b, return their sum as a binary string.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
 **Data Structures**: Array, String
 **Patterns**: Two Pointers Pattern, Greedy Algorithm

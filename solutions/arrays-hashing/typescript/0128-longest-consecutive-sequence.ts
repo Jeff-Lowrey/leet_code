@@ -80,11 +80,13 @@
  * 4 (sequence [1,2,3,4])
  * ```
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  *
  * ### SPACE COMPLEXITY:
  * O(n)
+ * - Set storage
  *
  * ### EDGE CASES:
  * - Empty input handling

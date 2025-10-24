@@ -68,8 +68,9 @@
  * True
  * ```
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  * Each node is visited exactly once
  *
  * ### SPACE COMPLEXITY:

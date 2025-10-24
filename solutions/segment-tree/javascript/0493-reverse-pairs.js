@@ -61,12 +61,14 @@
  * 2
  * ```
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(n log n)
+ * - Sorting or divide-and-conquer
  * For merge sort and tree-based approaches
  *
  * ### SPACE COMPLEXITY:
  * O(n)
+ * - Additional hash map storage
  * For auxiliary arrays and recursion stack
  *
  * ### EDGE CASES:

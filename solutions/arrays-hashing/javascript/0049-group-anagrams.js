@@ -76,7 +76,7 @@
  * [["eat","tea","ate"], ["tan","nat"], ["bat"]]
  * ```
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * - **Sorting approach**: O(n × k log k) where n = number of strings, k = max string length
  * - **Counting approach**: O(n × k) - more efficient
  *

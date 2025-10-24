@@ -65,13 +65,14 @@
  * False
  * ```
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(m + n)
  * Where m is the length of magazine and n is the length of ransomNote. We iterate through both
  * strings once.
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  * Although we use a hash map, since we're limited to lowercase English letters (26 characters),
  * the space is bounded by a constant.
  *

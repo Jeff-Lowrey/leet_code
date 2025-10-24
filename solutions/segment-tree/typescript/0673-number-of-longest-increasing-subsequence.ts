@@ -21,7 +21,8 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Hash Set, Array, Tree
  * **Patterns**: Two Pointers Pattern, Hash Table Pattern
@@ -63,12 +64,13 @@
  * 2
  * ```
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * - DP: O(n²)
  * - Segment Tree: O(n log n)
  *
  * ### SPACE COMPLEXITY:
  * O(n)
+ * - Additional set storage
  * For DP arrays or tree structure
  *
  * ### EDGE CASES:

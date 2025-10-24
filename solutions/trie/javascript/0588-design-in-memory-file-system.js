@@ -68,7 +68,7 @@
  * ls("/a/b/c")
  * Returns: ["file1.txt"]
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(P)
  * Where P is the path length (number of path components)
  *

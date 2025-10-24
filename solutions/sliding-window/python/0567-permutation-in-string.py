@@ -19,7 +19,8 @@ In other words, return true if one of s1's permutations is the substring of s2.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Array Traversal, Sliding Window
 **Data Structures**: Array, String
 **Patterns**: Sliding Window Pattern, Hash Table Pattern

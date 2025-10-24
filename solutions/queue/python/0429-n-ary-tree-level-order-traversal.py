@@ -17,7 +17,8 @@ Given an n-ary tree, return the level order traversal of its nodes' values.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Map Storage, Array Traversal, Two Pointers
 **Data Structures**: Array, Queue, Tree
 **Patterns**: Two Pointers Pattern, Graph Pattern

@@ -65,8 +65,9 @@
  * - answer=[5,5,0]
  * Result: [5,5,0]
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  *
  * ### SPACE COMPLEXITY:
  * O(n)

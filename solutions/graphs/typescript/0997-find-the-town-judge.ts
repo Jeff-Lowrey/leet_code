@@ -26,7 +26,8 @@
  * </dl>
  * 
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Hash Map, Array, Graph
  * **Patterns**: Hash Table Pattern
@@ -64,7 +65,7 @@
  * 3 (person 3 is the judge)
  * ```
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(T + N)
  * Where T is the number of trust relationships and N is the number of people
  * 

@@ -19,7 +19,8 @@
  * </dl>
  * 
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Hash Map, Array
  * **Patterns**: Sliding Window Pattern, Hash Table Pattern
@@ -54,12 +55,13 @@
  * - Position 4: count=4, need=1, found 1 time
  * Total: 2 nice subarrays
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(n)
  * Single pass through array with HashMap operations
  * 
  * ### SPACE COMPLEXITY:
  * O(n)
+ * - Additional hash map storage
  * For the frequency HashMap
  * 
  * ### EDGE CASES:

@@ -83,12 +83,14 @@
  * ["Gold Medal","Silver Medal","Bronze Medal","4","5"]
  * ```
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(n log n)
+ * - Sorting or divide-and-conquer
  * For sorting the scores
  *
  * ### SPACE COMPLEXITY:
  * O(n)
+ * - Additional hash map storage
  * For storing score-rank mappings and result
  *
  * ### EDGE CASES:

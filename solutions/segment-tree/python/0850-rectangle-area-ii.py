@@ -21,7 +21,8 @@ Return the total area. Since the answer may be too large, return it modulo 10^9 
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
 **Data Structures**: Hash Set, Array, Tree
 **Patterns**: Two Pointers Pattern, Hash Table Pattern

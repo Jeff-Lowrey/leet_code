@@ -71,12 +71,13 @@
  * Substrings: "RL", "RRLL", "RL", "RL"
  * ```
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(n)
  * Single pass through the string
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  * Only using counter and result variables
  *
  * ### EDGE CASES:

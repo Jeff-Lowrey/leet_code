@@ -21,7 +21,8 @@ Return the minimum number of patches (additions to the array) required.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Greedy Selection
 **Data Structures**: Array
 **Patterns**: Hash Table Pattern, Greedy Algorithm

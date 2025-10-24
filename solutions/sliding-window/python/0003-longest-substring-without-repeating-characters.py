@@ -17,7 +17,8 @@ Given a string s, find the length of the longest substring without repeating cha
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
 **Data Structures**: Hash Map, Hash Set, String
 **Patterns**: Sliding Window Pattern, Hash Table Pattern

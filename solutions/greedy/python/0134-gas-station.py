@@ -26,7 +26,8 @@ If there exists a solution, it is guaranteed to be unique.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Array Traversal, Greedy Selection
 **Data Structures**: Array, Linked List
 **Patterns**: Greedy Algorithm, Tree Pattern

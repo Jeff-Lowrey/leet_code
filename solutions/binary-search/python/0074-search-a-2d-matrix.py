@@ -24,7 +24,8 @@ You must write a solution in O(log(m * n)) time complexity.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Two Pointers, Binary Search
 **Data Structures**: Hash Map, Hash Set, Array
 **Patterns**: Complement Search, Two Pointers Pattern

@@ -70,7 +70,7 @@
  * Step 3: - Node 3: depth=1, parent=1
  * Step 4: - Same parent → NOT cousins
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(n)
  * - In worst case, visit all nodes in tree
  * - n = number of nodes in tree

@@ -64,12 +64,13 @@
  * At (0,1)=4: 5>4, go down
  * At (1,1)=5: Found! Return True
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(m + n)
  * At most m+n steps (eliminate one row or column per step)
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  * Only using constant extra space for pointers
  *
  * ### EDGE CASES:

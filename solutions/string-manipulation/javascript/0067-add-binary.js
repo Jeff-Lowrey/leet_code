@@ -78,7 +78,7 @@
  * Final carry: 1
  * Result: "10101"
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(max(m, n))
  * - m and n are lengths of input strings
  * - Process each digit once

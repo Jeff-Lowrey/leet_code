@@ -29,7 +29,8 @@
  * </dl>
  * 
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Depth-First Search
  * **Data Structures**: Hash Map, Array, String
  * **Patterns**: Graph Pattern
@@ -67,7 +68,7 @@
  * Step 2: search(".ad") -> true (matches "bad", "dad", "mad")
  * Step 3: search("b..") -> true (matches "bad")
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * - addWord: O(n) where n is word length
  * - search: O(26^m) worst case where m is number of wildcards, O(n) average
  * 

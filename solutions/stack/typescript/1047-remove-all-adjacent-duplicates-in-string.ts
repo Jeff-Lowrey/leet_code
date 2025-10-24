@@ -25,7 +25,8 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Array, String, Stack
  * **Patterns**: Two Pointers Pattern, Hash Table Pattern
@@ -68,8 +69,9 @@
  * "ca"
  * ```
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  * Single pass through string with O(1) stack operations
  *
  * ### SPACE COMPLEXITY:

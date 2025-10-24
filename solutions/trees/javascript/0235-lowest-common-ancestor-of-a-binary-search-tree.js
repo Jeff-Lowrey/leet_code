@@ -71,7 +71,7 @@
  * 2
  * ```
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(h)
  * Where h is the height of the tree. O(log n) for balanced BST, O(n) for skewed tree
  *

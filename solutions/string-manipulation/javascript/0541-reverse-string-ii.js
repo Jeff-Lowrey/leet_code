@@ -85,6 +85,7 @@
  * 
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  * - Visit each character once during iteration
  * - Reversing k characters per 2k chunk is O(k) but amortized O(n)
  *

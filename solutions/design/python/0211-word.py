@@ -29,7 +29,8 @@ wordDictionary.search("b.."); // return True
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Depth-First Search
 **Data Structures**: Hash Map, Array, String
 **Patterns**: Graph Pattern

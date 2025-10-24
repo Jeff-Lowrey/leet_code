@@ -69,7 +69,7 @@
  * left=[2,1], right=[3,4]
  * median = (2+3)/2 = 2.5
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * - addNum(): O(log n) - heap operations
  * - findMedian(): O(1) - just access heap tops
  *

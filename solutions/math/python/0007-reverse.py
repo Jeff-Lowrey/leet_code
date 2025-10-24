@@ -17,7 +17,8 @@ Given a signed 32-bit integer x, return x with its digits reversed. If reversing
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Array Traversal
 **Data Structures**: Hash Set, String
 **Patterns**: Iterative Solution

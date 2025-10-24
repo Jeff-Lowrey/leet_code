@@ -72,6 +72,7 @@
  * 
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  *
  * ### SPACE COMPLEXITY:
  * O(min(n, k))

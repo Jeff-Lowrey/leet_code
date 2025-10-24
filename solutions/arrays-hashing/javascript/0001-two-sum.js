@@ -61,7 +61,7 @@
  * nums = [2,7,11,15], target = 9
  * ```
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * **O(n)** - Single pass through array with O(1) hash map lookups
  *
  * ### SPACE COMPLEXITY:

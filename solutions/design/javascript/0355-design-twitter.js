@@ -80,7 +80,7 @@
  * unfollow(1, 2): user 1 unfollows user 2
  * getNewsFeed(1): returns [5] (only user 1's tweets)
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * - postTweet: O(1)
  * - getNewsFeed: O(N log k) where N is total tweets, k=10
  * - follow: O(1)

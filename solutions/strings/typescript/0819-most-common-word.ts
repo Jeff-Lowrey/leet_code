@@ -78,11 +78,13 @@
  * "ball"
  * ```
 
-### TIME COMPLEXITY:
- * O(n + m) where n = paragraph length, m = banned list length
+ * ### TIME COMPLEXITY:
+ * O(n + m)
+ * - Process paragraph (n) and banned list (m)
  *
  * ### SPACE COMPLEXITY:
- * O(n + m) for word frequencies and banned set
+ * O(n + m)
+ * - Store word frequencies and banned set
  *
  * ### EDGE CASES:
  * - **Single word**: Return that word if not banned

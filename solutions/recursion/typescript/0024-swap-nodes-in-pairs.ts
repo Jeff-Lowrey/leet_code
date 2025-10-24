@@ -19,7 +19,8 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Map Storage, Array Traversal, Stack Operations
  * **Data Structures**: Array, Stack, Linked List
  * **Patterns**: Iterative Solution
@@ -55,7 +56,7 @@
  * 2->1->4->3->NULL
  * ```
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(n)
  * Visit each node exactly once
  *

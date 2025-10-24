@@ -21,7 +21,8 @@ Do not modify the linked list.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Standard Algorithm
 **Data Structures**: Array, Linked List
 **Patterns**: Two Pointers Pattern

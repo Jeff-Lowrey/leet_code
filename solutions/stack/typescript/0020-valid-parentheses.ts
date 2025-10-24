@@ -37,7 +37,8 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Hash Map, Array, String
  * **Patterns**: Hash Table Pattern
@@ -84,10 +85,12 @@
  * 
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass with O(1) hash lookups
  * Single pass through the string
  *
  * ### SPACE COMPLEXITY:
  * O(n)
+ * - Additional hash map storage
  * Stack can contain up to n/2 opening brackets in worst case
  *
  * ### EDGE CASES:

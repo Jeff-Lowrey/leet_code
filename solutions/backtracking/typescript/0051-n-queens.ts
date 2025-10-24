@@ -34,7 +34,8 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
  * **Data Structures**: Hash Set, Array, String
  * **Patterns**: Hash Table Pattern, Backtracking
@@ -63,7 +64,7 @@
  * n = 4
  * ```
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(N!)
  * - In worst case, we try every possible placement
  * - First queen has N choices, second has (N-1), etc.

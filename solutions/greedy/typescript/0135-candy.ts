@@ -27,7 +27,8 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Map Storage, Array Traversal, Two Pointers
  * **Data Structures**: Array, Tree, Trie
  * **Patterns**: Two Pointers Pattern, Hash Table Pattern
@@ -72,12 +73,14 @@
  * candies = [2,1,2]
  * Total: 2 + 1 + 2 = 5
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  * Two passes through the array
  *
  * ### SPACE COMPLEXITY:
  * O(n)
+ * - Additional set storage
  * Array to store candy counts (can be optimized to O(1) with complex logic)
  *
  * ### EDGE CASES:

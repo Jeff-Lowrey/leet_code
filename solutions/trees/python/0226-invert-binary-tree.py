@@ -17,7 +17,8 @@ Given the root of a binary tree, invert the tree, and return its root.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Two Pointers, Stack Operations, Graph Traversal
 **Data Structures**: Stack, Tree, Trie
 **Patterns**: Two Pointers Pattern, Hash Table Pattern

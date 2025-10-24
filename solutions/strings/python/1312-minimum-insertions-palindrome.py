@@ -19,7 +19,8 @@ A palindrome is a string that reads the same forward and backward.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
 **Data Structures**: Hash Map, String
 **Patterns**: Greedy Algorithm, Dynamic Programming

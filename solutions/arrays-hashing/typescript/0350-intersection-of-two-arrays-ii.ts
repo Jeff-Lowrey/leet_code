@@ -65,11 +65,13 @@
  * [2, 2]
  * ```
 
-### TIME COMPLEXITY:
- * O(n + m) where n = len(nums1), m = len(nums2)
+ * ### TIME COMPLEXITY:
+ * O(n + m)
+ * - Single pass through both arrays with O(1) hash operations
  *
  * ### SPACE COMPLEXITY:
- * O(min(n, m)) - Store frequencies of smaller array
+ * O(min(n, m))
+ * - Hash map stores frequencies of smaller array
  *
  * ### EDGE CASES:
  * - **Empty arrays**: Return empty array

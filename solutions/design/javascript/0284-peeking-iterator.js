@@ -90,6 +90,7 @@
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  * Only storing one cached element
  *
  * ### EDGE CASES:

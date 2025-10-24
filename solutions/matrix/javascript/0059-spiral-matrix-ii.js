@@ -79,12 +79,14 @@
  * [[1,2,3],[8,9,4],[7,6,5]], done
  * Result: [[1,2,3],[8,9,4],[7,6,5]]
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(n²)
+ * - Nested iteration through input
  * - Fill each of n² cells once
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  * - Only use constant extra space (not counting output matrix)
  *
  * ### EDGE CASES:

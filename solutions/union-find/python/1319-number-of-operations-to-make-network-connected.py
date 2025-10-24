@@ -23,7 +23,8 @@ Return the minimum number of times you need to do this to make all the computers
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
 **Data Structures**: Hash Set, Array, Tree
 **Patterns**: Hash Table Pattern, Divide and Conquer

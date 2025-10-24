@@ -56,12 +56,14 @@
  * Index 2: sum=3, need=3-2=1, count=2, map={0:1, 1:1, 2:1, 3:1}
  * Result: 2 subarrays: [1,1] and [1,1]
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  * Single pass through the array with O(1) hashmap operations
  *
  * ### SPACE COMPLEXITY:
  * O(n)
+ * - Additional hash map storage
  * HashMap can store up to n different prefix sums
  *
  * ### EDGE CASES:

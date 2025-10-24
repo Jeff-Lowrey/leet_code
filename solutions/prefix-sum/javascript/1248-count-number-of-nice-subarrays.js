@@ -57,12 +57,14 @@
  * - Position 4: count=4, need=1, found 1 time
  * Total: 2 nice subarrays
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  * Single pass through array with HashMap operations
  *
  * ### SPACE COMPLEXITY:
  * O(n)
+ * - Additional hash map storage
  * For the frequency HashMap
  *
  * ### EDGE CASES:

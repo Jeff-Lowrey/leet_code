@@ -64,12 +64,13 @@
  * 2
  * ```
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * - DP: O(n²)
  * - Segment Tree: O(n log n)
  *
  * ### SPACE COMPLEXITY:
  * O(n)
+ * - Additional hash map storage
  * For DP arrays or tree structure
  *
  * ### EDGE CASES:

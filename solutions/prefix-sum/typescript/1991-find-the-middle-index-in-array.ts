@@ -25,7 +25,8 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Array Traversal, Two Pointers
  * **Data Structures**: Array, Tree, Linked List
  * **Patterns**: Two Pointers Pattern
@@ -63,12 +64,13 @@
  * Index 2: left=5, right=16-5-(-1)=12, not equal
  * Index 3: left=4, right=16-4-8=4, equal! Return 3
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(n)
  * Two passes: one to calculate total sum, one to find middle index
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  * Only using constant extra space for variables
  *
  * ### EDGE CASES:

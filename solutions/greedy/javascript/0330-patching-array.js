@@ -70,12 +70,13 @@
  * 1 (patched with 2)
  * ```
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(m + log n)
  * Where m is length of nums. In worst case, we need log(n) patches.
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  * Only using constant extra space
  *
  * ### EDGE CASES:

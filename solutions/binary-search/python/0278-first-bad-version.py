@@ -21,7 +21,8 @@ You are given an API bool isBadVersion(version) which returns whether version is
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Two Pointers, Binary Search
 **Data Structures**: Hash Set, Tree
 **Patterns**: Two Pointers Pattern, Binary Search Pattern

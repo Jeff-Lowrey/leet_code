@@ -19,7 +19,8 @@ You may assume the input array always has a valid answer.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Map Storage, Array Traversal, Two Pointers
 **Data Structures**: Array, Tree, Linked List
 **Patterns**: Two Pointers Pattern

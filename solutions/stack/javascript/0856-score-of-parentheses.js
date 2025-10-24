@@ -72,8 +72,9 @@
  * 6
  * ```
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  * Single pass through the string
  *
  * ### SPACE COMPLEXITY:

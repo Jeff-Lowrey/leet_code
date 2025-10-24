@@ -25,7 +25,8 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
  * **Data Structures**: Hash Map, Hash Set, Array
  * **Patterns**: Hash Table Pattern, Greedy Algorithm
@@ -64,7 +65,7 @@
  * ...
  * dp[11] = 3 (use coin `5 + coin` `5 + coin` 1)
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(amount × len(coins))
  * For each amount from 1 to target, try all coins
  *

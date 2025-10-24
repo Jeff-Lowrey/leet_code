@@ -70,7 +70,7 @@
  * [[2,2,2],[2,2,0],[2,0,1]]
  * ```
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(m×n)
  * Where m, n are image dimensions - worst case visit all pixels
  *

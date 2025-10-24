@@ -19,7 +19,8 @@ You have to rotate the image in-place, which means you have to modify the input 
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Array Traversal, Two Pointers
 **Data Structures**: Array, Tree, Matrix
 **Patterns**: Two Pointers Pattern, Hash Table Pattern

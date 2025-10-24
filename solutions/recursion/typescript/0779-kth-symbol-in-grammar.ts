@@ -91,10 +91,10 @@
  * ```
  * 
  * ### TIME COMPLEXITY:
- * O(n) - we recurse up to n times
+ * O(n)
  *
  * ### SPACE COMPLEXITY:
- * O(n) - recursion stack depth
+ * O(n) for recursion stack
  *
  * ### EDGE CASES:
  * - n = 1: always returns 0

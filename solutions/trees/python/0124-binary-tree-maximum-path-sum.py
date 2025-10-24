@@ -21,7 +21,8 @@ Given the root of a binary tree, return the maximum path sum of any non-empty pa
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Two Pointers, Depth-First Search
 **Data Structures**: Hash Set, Tree
 **Patterns**: Two Pointers Pattern, Greedy Algorithm

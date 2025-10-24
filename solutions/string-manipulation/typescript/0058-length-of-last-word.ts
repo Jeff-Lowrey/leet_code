@@ -22,7 +22,8 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: String, Tree
  * **Patterns**: Two Pointers Pattern, Hash Table Pattern
@@ -69,13 +70,15 @@
  * 3. Hit space, stop
  * Result: 4
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  * - In worst case (no spaces), we scan the entire string
  * - Typically much faster as we only process the last word
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  * - Only using a counter variable
  * - No additional data structures needed
  * - If using split(), space becomes O(n) for storing words

@@ -61,8 +61,9 @@
  * Level 2: [5, 6]
  * Result: [[1], [3, 2, 4], [5, 6]]
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  * - Visit each node exactly once
  * - n = total number of nodes in tree
  *

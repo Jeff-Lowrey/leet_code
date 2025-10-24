@@ -20,7 +20,8 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Array, String, Stack
  * **Patterns**: Two Pointers Pattern, Divide and Conquer
@@ -64,8 +65,9 @@
  * Step 4: - "contest" -> "tsetnoc"
  * Step 5: Join: "s'teL ekat edoCteeL tsetnoc"
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  * - Splitting the string: O(n)
  * - Reversing each word: O(n) total for all words
  * - Joining: O(n)
@@ -73,6 +75,7 @@
  *
  * ### SPACE COMPLEXITY:
  * O(n)
+ * - Additional set storage
  * - Storing split words: O(n)
  * - Creating result string: O(n)
  * - Overall: O(n)

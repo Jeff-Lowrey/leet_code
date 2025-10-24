@@ -18,7 +18,8 @@ the number of set bits it has (also known as the Hamming weight).
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Array Traversal
 **Data Structures**: Hash Set, String
 **Patterns**: Hash Table Pattern

@@ -97,6 +97,7 @@
  * 
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  * - Process each character exactly once
  * - Concatenating rows is O(n) as each character appears once
  *

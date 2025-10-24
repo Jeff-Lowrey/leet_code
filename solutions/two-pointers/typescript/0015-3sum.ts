@@ -22,7 +22,8 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Hash Set, Array, Tree
  * **Patterns**: Two Pointers Pattern
@@ -62,12 +63,14 @@
  *
  * ### TIME COMPLEXITY:
  * O(n²)
+ * - Nested iteration through input
  * - O(n log n) for sorting
  * - O(n²) for nested loops with two pointers
  * - Overall: O(n²)
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  * - Excluding output space, only using constant extra space
  * - Sorting can be done in-place
  *

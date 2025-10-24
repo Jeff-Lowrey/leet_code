@@ -21,7 +21,8 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
  * **Data Structures**: Hash Set, Array, String
  * **Patterns**: Hash Table Pattern, Backtracking
@@ -71,7 +72,7 @@
  * Match 'D' ✓, complete! Return True
  * Result: True (found path)
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(M * N * 4^L)
  * Where M*N is board size, L is word length
  * - We try each cell as start: O(M*N)

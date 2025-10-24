@@ -60,7 +60,7 @@
  * - Remove coding: heap = [(-2, "love"), (-2, "i")]
  * Result: ["i", "love"] (after reversing)
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(N log k)
  * Where N is number of words, k is the result size. Heap operations are O(log k).
  *

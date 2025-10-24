@@ -24,7 +24,8 @@
  * </dl>
  * 
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Backtracking
  * **Data Structures**: Hash Map, Array, Linked List
  * **Patterns**: Iterative Solution
@@ -61,7 +62,7 @@
  * Step 4: put(3, 3) -> [3:3, 1:1] (2 evicted)
  * Step 5: get(2)    -> -1 (not found)
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(1)
  * All operations (get, put) are constant time
  * 

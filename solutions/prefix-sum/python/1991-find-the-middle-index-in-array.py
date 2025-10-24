@@ -23,7 +23,8 @@ Return the leftmost middleIndex that satisfies the condition, or -1 if there is 
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Array Traversal, Two Pointers
 **Data Structures**: Array, Tree, Linked List
 **Patterns**: Two Pointers Pattern

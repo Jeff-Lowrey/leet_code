@@ -72,9 +72,11 @@
  *
  * ### TIME COMPLEXITY:
  * O(log n) for both update and query
+ * - Binary search or tree height
  *
  * ### SPACE COMPLEXITY:
  * O(n)
+ * - Additional set storage
  *
  * ### EDGE CASES:
  * - **Single element array**: Sum queries return that element

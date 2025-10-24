@@ -67,12 +67,14 @@
  *
  * ### TIME COMPLEXITY:
  * O(n²)
+ * - Nested iteration through input
  * - O(n log n) for sorting
  * - O(n²) for nested loops with two pointers
  * - Overall: O(n²)
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  * - Excluding output space, only using constant extra space
  * - Sorting can be done in-place
  *

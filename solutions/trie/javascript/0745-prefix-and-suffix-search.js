@@ -81,7 +81,7 @@
  * Find indices 0 (apple) and 2 (application)
  * Return 2 (maximum)
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * - Constructor: O(N * L^3) where N is words count, L is max word length
  *   - For each word, we create L^2 combinations, each taking O(L) to insert
  * - f(): O(P + S) where P is prefix length, S is suffix length

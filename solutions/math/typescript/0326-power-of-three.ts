@@ -65,10 +65,10 @@
  * ```
  * 
  * ### TIME COMPLEXITY:
- * O(log₃ n) - dividing by 3 each time
+ * O(log₃ n) for recursion
  *
  * ### SPACE COMPLEXITY:
- * O(log₃ n) - recursion stack depth
+ * O(log₃ n) for recursion stack
  *
  * ### EDGE CASES:
  * - n ≤ 0: return False

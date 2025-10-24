@@ -20,7 +20,8 @@ The solution `set` must not contain duplicate subsets. Return the solution in an
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
 **Data Structures**: Hash Set, Array, Matrix
 **Patterns**: Backtracking, Tree Pattern

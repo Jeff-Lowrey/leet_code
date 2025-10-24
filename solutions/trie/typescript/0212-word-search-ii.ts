@@ -21,7 +21,8 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
  * **Data Structures**: Hash Map, Hash Set, Array
  * **Patterns**: Hash Table Pattern, Backtracking
@@ -73,7 +74,7 @@
  * Step 9: -> (1,2) 't': 'eat' found! ✓
  * Step 10: Results: ["oath", "eat"]
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(M * N * 4^L)
  * Where M*N is board size, L is maximum word length
  * - We visit each cell and explore 4 directions recursively

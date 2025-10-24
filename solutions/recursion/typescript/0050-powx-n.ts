@@ -62,11 +62,11 @@
  * 1024
  * ```
 
-### TIME COMPLEXITY:
- * O(log n) - halving exponent each recursion
+ * ### TIME COMPLEXITY:
+ * O(log n)
  *
  * ### SPACE COMPLEXITY:
- * O(log n) - recursion stack depth
+ * O(log n) for recursion stack
  *
  * ### EDGE CASES:
  * - n = 0: return 1

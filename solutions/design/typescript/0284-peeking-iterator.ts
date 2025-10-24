@@ -35,7 +35,8 @@
  * </dl>
  * 
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Standard Algorithm
  * **Data Structures**: Array, Linked List
  * **Patterns**: Iterative Solution
@@ -87,6 +88,7 @@
  * 
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  * Only storing one cached element
  * 
  * ### EDGE CASES:

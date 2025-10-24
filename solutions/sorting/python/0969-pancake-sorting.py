@@ -27,7 +27,8 @@ Any valid answer that sorts the array within 10 * arr.length flips will be accep
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
 **Data Structures**: Array, Tree
 **Patterns**: Two Pointers Pattern

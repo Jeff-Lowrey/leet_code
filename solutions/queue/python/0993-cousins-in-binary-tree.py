@@ -20,7 +20,8 @@ Two nodes of a binary tree are cousins if they have the same depth but have diff
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Two Pointers, Stack Operations
 **Data Structures**: Hash Map, Stack, Queue
 **Patterns**: Two Pointers Pattern, Graph Pattern

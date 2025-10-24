@@ -23,7 +23,8 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Array Traversal, Queue Operations
  * **Data Structures**: Array, Queue
  * **Patterns**: Hash Table Pattern, Greedy Algorithm
@@ -60,12 +61,14 @@
  * True
  * ```
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  * Process each customer once
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  * Only tracking counts of two bill denominations
  *
  * ### EDGE CASES:

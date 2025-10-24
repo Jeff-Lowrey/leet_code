@@ -64,7 +64,7 @@
  * Completed valid Sudoku board
  * ```
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(9^(n*n)) worst case, where n=9
  *
  * ### SPACE COMPLEXITY:

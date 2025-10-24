@@ -19,7 +19,8 @@ From each cell, you can either move in four directions: left, right, up, or down
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Array Traversal, Two Pointers
 **Data Structures**: Hash Map, Array, Tree
 **Patterns**: Two Pointers Pattern, Greedy Algorithm

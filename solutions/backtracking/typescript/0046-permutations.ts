@@ -20,7 +20,8 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Hash Map, Array, Tree
  * **Patterns**: Two Pointers Pattern, Hash Table Pattern
@@ -78,11 +79,13 @@
  * [[1,2,3], [1,3,2], [2,1,3], [2,3,1], [3,1,2], [3,2,1]]
  * ```
 
-### TIME COMPLEXITY:
- * O(n × n!) - n! permutations, each takes O(n) to build/copy
+ * ### TIME COMPLEXITY:
+ * O(n × n!)
+ * - n! permutations, each takes O(n) to build/copy
  *
  * ### SPACE COMPLEXITY:
- * O(n) - recursion depth and current permutation
+ * O(n)
+ * - recursion depth and current permutation
  *
  * ### EDGE CASES:
  * - **Empty array**: Return [[]] (empty permutation)

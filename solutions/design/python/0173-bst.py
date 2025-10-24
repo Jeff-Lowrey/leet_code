@@ -17,7 +17,8 @@ Implement the BSTIterator class that represents an iterator over the in-order tr
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Two Pointers, Stack Operations, Graph Traversal
 **Data Structures**: Stack, Tree, Linked List
 **Patterns**: Two Pointers Pattern, Hash Table Pattern

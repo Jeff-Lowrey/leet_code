@@ -67,7 +67,7 @@
  * "accaccacc"
  * ```
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(n × m)
  * Where n is length of input, m is maximum decoded length
  *

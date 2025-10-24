@@ -61,8 +61,9 @@
  * Level 2: max = max(5, 3, 9) = 9
  * Result: [1, 3, 9]
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  * - Visit each node exactly once
  * - n = number of nodes in tree
  *

@@ -24,7 +24,8 @@ Return true if n is a happy number, and false if not.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
 **Data Structures**: Hash Set
 **Patterns**: Two Pointers Pattern, Hash Table Pattern

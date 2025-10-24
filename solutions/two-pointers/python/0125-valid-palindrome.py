@@ -21,7 +21,8 @@ Given a string s, return true if it is a palindrome, or false otherwise.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Array Traversal, Two Pointers
 **Data Structures**: Hash Set, String, Tree
 **Patterns**: Two Pointers Pattern

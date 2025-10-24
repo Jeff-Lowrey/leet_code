@@ -17,7 +17,8 @@ Given an array of positive integers nums and a positive integer target, return t
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Array Traversal, Sliding Window
 **Data Structures**: Hash Map, Hash Set, Array
 **Patterns**: Complement Search, Two Pointers Pattern

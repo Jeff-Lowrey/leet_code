@@ -26,7 +26,8 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Hash Set, Array, Tree
  * **Patterns**: Two Pointers Pattern, Hash Table Pattern
@@ -64,9 +65,11 @@
  *
  * ### TIME COMPLEXITY:
  * O(log n) for both update and query
+ * - Binary search or tree height
  *
  * ### SPACE COMPLEXITY:
  * O(n)
+ * - Additional set storage
  *
  * ### EDGE CASES:
  * - **Single element array**: Sum queries return that element

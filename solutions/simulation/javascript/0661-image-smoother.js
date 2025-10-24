@@ -83,7 +83,7 @@
  * Average: 850 // 6 = 141
  * Result: [[137,141,137],[141,138,141],[137,141,137]]
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(m × n)
  * - Visit each cell once, check constant number of neighbors
  *

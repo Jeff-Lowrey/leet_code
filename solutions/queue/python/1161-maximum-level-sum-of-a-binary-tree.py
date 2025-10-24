@@ -18,7 +18,8 @@ Return the smallest level x such that the sum of all the values of nodes at leve
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Array Traversal, Two Pointers, Queue Operations
 **Data Structures**: Queue, Tree, Linked List
 **Patterns**: Two Pointers Pattern, Hash Table Pattern

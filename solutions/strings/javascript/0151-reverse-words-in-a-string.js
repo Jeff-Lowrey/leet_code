@@ -66,8 +66,9 @@
  * "example good a"
  * ```
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  * Where n is the length of the string. We scan the string once to split, reverse the list (O(n)),
  * and join back (O(n)).
  *

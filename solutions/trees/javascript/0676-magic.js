@@ -65,7 +65,7 @@
  * Step 5: At position 4: 'o' matches 'o' → continue
  * Step 6: Reached end with exactly one change → return True
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * - Build: O(n × l) where n is number of words, l is average length
  * - Search: O(26 × l) in worst case, but typically much better due to pruning
  *

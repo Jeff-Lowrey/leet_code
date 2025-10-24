@@ -64,7 +64,7 @@
  * pop() removes -3 from both stacks
  * getMin() returns -2 (new top of min_stack)
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(1)
  * All operations are constant time
  *

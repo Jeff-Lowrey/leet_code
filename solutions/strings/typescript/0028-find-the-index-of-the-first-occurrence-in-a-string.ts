@@ -19,7 +19,8 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Array Traversal, Stack Operations
  * **Data Structures**: String, Stack
  * **Patterns**: Iterative Solution
@@ -63,7 +64,7 @@
  * -1
  * ```
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(n * m)
  * Where n is the length of haystack and m is the length of needle. In the worst case, we check
  * every position (n - m + 1) and for each position compare m characters.
@@ -73,6 +74,7 @@
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  * We only use a few variables regardless of input size.
  *
  * ### EDGE CASES:

@@ -23,7 +23,8 @@ Implement the Trie class:
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Two Pointers
 **Data Structures**: Hash Map, String, Tree
 **Patterns**: Two Pointers Pattern, Tree Pattern

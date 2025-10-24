@@ -72,10 +72,12 @@
  * 
  * ### TIME COMPLEXITY:
  * O(n²)
+ * - Nested iteration through input
  * Must touch every element in the n×n matrix
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  * In-place rotation without extra matrix
  *
  * ### EDGE CASES:

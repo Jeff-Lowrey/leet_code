@@ -57,7 +57,7 @@
  * Step 3: hasNext() -> true
  * Step 4: next() -> 9, stack: [15, 20]
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * - Constructor: O(h) where h is height
  * - next(): Amortized O(1)
  * - hasNext(): O(1)

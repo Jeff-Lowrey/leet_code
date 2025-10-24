@@ -65,9 +65,11 @@
  * 
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass with O(1) hash lookups
  *
  * ### SPACE COMPLEXITY:
- * O(1) - at most 26 lowercase letters
+ * O(1)
+ * - at most 26 lowercase letters
  *
  * ### EDGE CASES:
  * - Empty strings → True (both empty)

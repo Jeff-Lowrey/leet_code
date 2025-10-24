@@ -79,11 +79,13 @@
  * [[0,1,2], [5], [3,4,6]]
  * ```
 
-### TIME COMPLEXITY:
- * O(n) - Single pass through input array
+ * ### TIME COMPLEXITY:
+ * O(n)
+ * - Single pass through the array
  *
  * ### SPACE COMPLEXITY:
- * O(n) - Store all people in groups hash map
+ * O(n)
+ * - Store groups in hash map
  *
  * ### EDGE CASES:
  * - **All same group size**: Create multiple groups of that size

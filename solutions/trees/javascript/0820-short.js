@@ -59,7 +59,7 @@
  * - "me" at index 2 (suffix of "time")
  * - "bell" at index 5
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(N × M)
  * Where N is the number of words and M is the average length of words
  *

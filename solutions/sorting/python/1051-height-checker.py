@@ -21,7 +21,8 @@ Return the number of indices where heights[i] != expected[i].
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Array Traversal, Sorting
 **Data Structures**: Array
 **Patterns**: Hash Table Pattern

@@ -21,7 +21,8 @@ You may return the answer in any order. The answer is guaranteed to be unique (e
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
 **Data Structures**: Hash Map, Array, Heap
 **Patterns**: Two Pointers Pattern, Greedy Algorithm

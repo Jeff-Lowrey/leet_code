@@ -62,12 +62,13 @@
  * [2,3]×[0,1]: covered by rect 2
  * Total area = 1 + 1 + 1 + 1 + 1 + 1 = 6
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * - Sweep Line: O(n² log n)
  * - Coordinate Compression: O(n²)
  *
  * ### SPACE COMPLEXITY:
  * O(n)
+ * - Additional set storage
  * For coordinate storage and data structures
  *
  * ### EDGE CASES:

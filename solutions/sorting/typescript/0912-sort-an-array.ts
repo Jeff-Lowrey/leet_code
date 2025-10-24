@@ -22,7 +22,8 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Map Storage, Array Traversal, Two Pointers
  * **Data Structures**: Array, Stack, Heap
  * **Patterns**: Two Pointers Pattern, Divide and Conquer
@@ -81,8 +82,9 @@
  * [1,2,3,5]
  * ```
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(n log n)
+ * - Sorting or divide-and-conquer
  * All three algorithms achieve this complexity
  *
  * ### SPACE COMPLEXITY:

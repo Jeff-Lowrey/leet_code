@@ -21,7 +21,8 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Hash Map, String
  * **Patterns**: Greedy Algorithm, Dynamic Programming
@@ -60,6 +61,7 @@
  *
  * ### TIME COMPLEXITY:
  * O(n²)
+ * - Nested iteration through input
  * - Filling n×n DP table with constant work per cell
  *
  * ### SPACE COMPLEXITY:

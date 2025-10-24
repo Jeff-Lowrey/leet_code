@@ -26,7 +26,8 @@
  * </dl>
  * 
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Two Pointers, Binary Search
  * **Data Structures**: Array, Tree
  * **Patterns**: Two Pointers Pattern, Divide and Conquer
@@ -59,7 +60,7 @@
  * queryRange(13, 15): false (15 not covered)
  * queryRange(16, 17): true (fully covered)
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * - Segment Tree: O(log n) per operation
  * - Sorted Intervals: O(n) worst case, O(log n) average
  * 

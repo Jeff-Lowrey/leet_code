@@ -82,8 +82,9 @@
  * [1,2,3,5]
  * ```
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(n log n)
+ * - Sorting or divide-and-conquer
  * All three algorithms achieve this complexity
  *
  * ### SPACE COMPLEXITY:

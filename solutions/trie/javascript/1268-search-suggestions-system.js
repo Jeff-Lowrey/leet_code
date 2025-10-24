@@ -69,7 +69,7 @@
  * Step 9: Process 'mous': ["mouse", "mousepad"]
  * Step 10: Process 'mouse': ["mouse", "mousepad"]
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(N * L + S)
  * Where N is number of products, L is average length, S is searchWord length
  * - Building trie with suggestions: O(N * L)

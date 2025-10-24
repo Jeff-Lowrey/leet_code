@@ -71,7 +71,7 @@
  * Step 4: pop() -> 3, queue = [2, 1]
  * Step 5: top() -> 2
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * - push: O(n) - need to rotate queue
  * - pop: O(1)
  * - top: O(1)

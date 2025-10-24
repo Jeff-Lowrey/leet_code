@@ -26,7 +26,8 @@ Implement the RangeModule class:
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Two Pointers, Binary Search
 **Data Structures**: Array, Tree
 **Patterns**: Two Pointers Pattern, Divide and Conquer

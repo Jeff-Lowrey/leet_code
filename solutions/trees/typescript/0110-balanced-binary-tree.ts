@@ -21,7 +21,8 @@
  * </dl>
  * 
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Two Pointers, Sliding Window
  * **Data Structures**: Array, Stack, Queue
  * **Patterns**: Two Pointers Pattern, Sliding Window Pattern
@@ -65,8 +66,9 @@
  * True
  * ```
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  * Each node is visited exactly once
  * 
  * ### SPACE COMPLEXITY:

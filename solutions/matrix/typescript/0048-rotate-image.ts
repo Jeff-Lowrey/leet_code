@@ -21,7 +21,8 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Array Traversal, Two Pointers
  * **Data Structures**: Array, Tree, Matrix
  * **Patterns**: Two Pointers Pattern, Hash Table Pattern
@@ -71,10 +72,12 @@
  * 
  * ### TIME COMPLEXITY:
  * O(n²)
+ * - Nested iteration through input
  * Must touch every element in the n×n matrix
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  * In-place rotation without extra matrix
  *
  * ### EDGE CASES:

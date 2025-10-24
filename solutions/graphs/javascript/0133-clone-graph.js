@@ -74,11 +74,13 @@
  * Cloned graph with same structure
  * ```
 
-### TIME COMPLEXITY:
- * O(V + E) - visit each node and edge once
+ * ### TIME COMPLEXITY:
+ * O(V + E)
+ * - visit each node and edge once
  *
  * ### SPACE COMPLEXITY:
- * O(V) - hash map and recursion stack
+ * O(V)
+ * - hash map and recursion stack
  *
  * ### EDGE CASES:
  * - **Null/empty graph**: Return None immediately

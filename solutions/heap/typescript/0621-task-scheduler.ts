@@ -21,7 +21,8 @@
  * </dl>
  * 
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Array, String, Queue
  * **Patterns**: Two Pointers Pattern, Hash Table Pattern
@@ -63,13 +64,14 @@
  * Time 7: B (B done)
  * Total: 8 units
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(n × m)
  * Where n = cooldown, m = number of tasks (simulation approach)
  * Math approach: O(m) where m = number of tasks
  * 
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  * At most 26 different tasks (letters)
  * 
  * ### EDGE CASES:

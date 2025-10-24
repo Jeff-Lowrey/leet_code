@@ -92,6 +92,7 @@
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  * - At most 9 sets with 9 elements each
  * - Fixed space regardless of input
  *

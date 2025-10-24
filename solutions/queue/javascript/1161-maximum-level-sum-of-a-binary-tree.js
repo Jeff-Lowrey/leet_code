@@ -64,8 +64,9 @@
  * Level 3: sum = 7 + (-8) = -1
  * Result: 2
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  * - Visit each node exactly once
  * - n = number of nodes in tree
  *

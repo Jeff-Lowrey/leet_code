@@ -79,10 +79,12 @@
  * 
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  * Single pass through array with swaps
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  * In-place swaps only
  *
  * ### EDGE CASES:

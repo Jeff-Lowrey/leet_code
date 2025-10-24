@@ -23,7 +23,8 @@ A valid BST is defined as follows:
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Two Pointers, Stack Operations
 **Data Structures**: Hash Map, Array, Stack
 **Patterns**: Two Pointers Pattern, Binary Search Pattern

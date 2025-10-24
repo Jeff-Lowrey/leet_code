@@ -19,7 +19,8 @@ Return the length of the longest substring containing the same letter you can ge
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Array Traversal, Sliding Window
 **Data Structures**: Hash Map, Hash Set, Array
 **Patterns**: Sliding Window Pattern, Hash Table Pattern

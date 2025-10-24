@@ -24,7 +24,8 @@
  * </dl>
  * 
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup
  * **Data Structures**: Hash Map, Hash Set, Array
  * **Patterns**: Iterative Solution
@@ -65,7 +66,7 @@
  * ls("/a/b/c")
  * Returns: ["file1.txt"]
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(P)
  * Where P is the path length (number of path components)
  * 

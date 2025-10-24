@@ -19,7 +19,8 @@ The word can be constructed from letters of sequentially adjacent cells, where a
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
 **Data Structures**: Hash Set, Array, String
 **Patterns**: Hash Table Pattern, Backtracking

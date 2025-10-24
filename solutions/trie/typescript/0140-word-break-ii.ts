@@ -21,7 +21,8 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Hash Map, Hash Set, Array
  * **Patterns**: Two Pointers Pattern, Dynamic Programming
@@ -67,7 +68,7 @@
  * Step 10: Return ["cats and dog"]
  * Step 11: Final: ["cat sand dog", "cats and dog"]
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * O(N^3 + M*L)
  * Where N is string length, M is number of words, L is average word length
  * - Trie building: O(M*L)

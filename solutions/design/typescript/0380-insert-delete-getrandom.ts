@@ -29,7 +29,8 @@
  * </dl>
  * 
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Set Operations, Backtracking
  * **Data Structures**: Hash Map, Hash Set, Array
  * **Patterns**: Backtracking
@@ -86,13 +87,14 @@
  * Step 1: remove(1): swap 1 with 2 -> nums=[2,1], then pop -> nums=[2], map={2:0}
  * Step 2: insert(3): nums=[2,3], map={2:0, 3:1}
 
-### TIME COMPLEXITY:
+ * ### TIME COMPLEXITY:
  * - insert: O(1)
  * - remove: O(1)
  * - getRandom: O(1)
  * 
  * ### SPACE COMPLEXITY:
  * O(n) for storing n elements
+ * - Additional hash map storage
  * 
  * ### EDGE CASES:
  * - Removing last element

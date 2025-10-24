@@ -32,7 +32,8 @@ n = 2, pick = 1</dd>
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Array Traversal, Two Pointers
 **Data Structures**: Array, Stack, Tree
 **Patterns**: Two Pointers Pattern, Hash Table Pattern
