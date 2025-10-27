@@ -66,7 +66,7 @@ Based on the algorithm implementation
 
 
 ### SPACE COMPLEXITY:
-O(min(n, k))
+O(min(n, k)) - hash map storage
 
 ### EDGE CASES:
 - k = 1: All subarrays are divisible (return n*(n+1)/2)

@@ -84,8 +84,7 @@
  * - Single pass through input
  *
  * ### SPACE COMPLEXITY:
- * O(n)
- * - Set storage
+ * O(n) - Set storage for all values
  *
  * ### EDGE CASES:
  * - Empty input handling

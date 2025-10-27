@@ -61,7 +61,7 @@ Step 4: next() -> 9, stack: [15, 20]
 - hasNext(): O(1)
 
 ### SPACE COMPLEXITY:
-O(h) for the stack
+O(h) for the stack where h is height
 
 ### EDGE CASES:
 - Single node tree

@@ -75,7 +75,7 @@
  * - Single pass through input
  *
  * ### SPACE COMPLEXITY:
- * O(min(n, k))
+ * O(min(n, k)) - hash map storage
  *
  * ### EDGE CASES:
  * - k = 0: Division by zero (special handling or constraint)

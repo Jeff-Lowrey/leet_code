@@ -61,7 +61,7 @@
  * - hasNext(): O(1)
  * 
  * ### SPACE COMPLEXITY:
- * O(h) for the stack
+ * O(h) for the stack where h is height
  * 
  * ### EDGE CASES:
  * - Single node tree

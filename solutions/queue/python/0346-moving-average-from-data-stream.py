@@ -56,7 +56,7 @@ next(3): queue=[1,10,3], avg=4.67
 next(5): queue=[10,3,5], avg=6.0 (removed 1)
 
 ### TIME COMPLEXITY:
-O(1) per operation
+O(1) per operation - constant time
 
 ### SPACE COMPLEXITY:
 Based on auxiliary data structures used
