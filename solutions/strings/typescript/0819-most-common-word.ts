@@ -17,7 +17,7 @@
  * <dt>Input:</dt>
  * <dd>paragraph = "Bob hit a ball, the hit BALL flew far after it was hit.", banned = ["hit"]</dd>
  * <dt>Output:</dt>
- * <dd>hit</dd>
+ * <dd>ball</dd>
  * <dt>Explanation:</dt>
  * <dd>"hit" occurs 3 times, but is banned. "ball" occurs twice and is not banned</dd>
  * </dl>
