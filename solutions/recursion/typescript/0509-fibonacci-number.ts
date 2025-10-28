@@ -27,41 +27,41 @@
  * **Space Complexity**: **O(n)**
  *
  * ### INTUITION:
- * * The Fibonacci sequence is the classic example of recursion. Each number is defined
- *  * recursively as the sum of the two preceding numbers, with base cases F(0)=0 and F(1)=1.
- *  *
- *  * ### APPROACH:
- * * 1. **Base cases**: If n is 0 or 1, return n directly
- *  * 2. **Recursive case**: Return fib(n-1) + fib(n-2)
- *  * 3. **Optimization**: Use memoization to avoid redundant calculations
- *  *
- *  * ### WHY THIS WORKS:
- *  * - The Fibonacci definition is inherently recursive
- *  * - Base cases prevent infinite recursion
- *  * - Memoization reduces time complexity from exponential to linear
- *  *
- *  * ### EXAMPLE WALKTHROUGH:
- *  * ```
- *  * Input: n = 4
- *  * fib(4) = fib(3) + fib(2)
- *  * fib(3) = fib(2) + fib(1) = 1 + 1 = 2
- *  * fib(2) = fib(1) + fib(0) = 1 + 0 = 1
- *  * fib(4) = 2 + 1 = 3
- *  * ```
- *  *
- *  * ### TIME COMPLEXITY:
- *  * - Naive recursion: O(2^n) - exponential
- *  * - With memoization: O(n) - linear
- *  *
- *  * ### SPACE COMPLEXITY:
- *  * O(n) - recursion stack depth
- *  *
- *  * ### EDGE CASES:
- *  * - n = 0: return 0
- *  * - n = 1: return 1
- *  * - Large n: use memoization to avoid timeout
- *  *
- *  *
+ * The Fibonacci sequence is the classic example of recursion. Each number is defined
+ * recursively as the sum of the two preceding numbers, with base cases F(0)=0 and F(1)=1.
+ *
+ * ### APPROACH:
+ * 1. **Base cases**: If n is 0 or 1, return n directly
+ * 2. **Recursive case**: Return fib(n-1) + fib(n-2)
+ * 3. **Optimization**: Use memoization to avoid redundant calculations
+ *
+ * ### WHY THIS WORKS:
+ * - The Fibonacci definition is inherently recursive
+ * - Base cases prevent infinite recursion
+ * - Memoization reduces time complexity from exponential to linear
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * ```
+ * Input: n = 4
+ * fib(4) = fib(3) + fib(2)
+ * fib(3) = fib(2) + fib(1) = 1 + 1 = 2
+ * fib(2) = fib(1) + fib(0) = 1 + 0 = 1
+ * fib(4) = 2 + 1 = 3
+ * ```
+ *
+ * ### TIME COMPLEXITY:
+ * - Naive recursion: O(2^n) - exponential
+ * - With memoization: O(n) - linear
+ *
+ * ### SPACE COMPLEXITY:
+ * O(n) - recursion stack depth
+ *
+ * ### EDGE CASES:
+ * - n = 0: return 0
+ * - n = 1: return 1
+ * - Large n: use memoization to avoid timeout
+ *
+ *
 */
 
 /**

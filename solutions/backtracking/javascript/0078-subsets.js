@@ -53,43 +53,43 @@
  * - Adding current subset at each step captures all intermediate states
  *
  * ### EXAMPLE WALKTHROUGH:
- * * Input:
- *  * ```
- *  * nums = [1,2,3]
- *  * ```
- *  *
- *  * **Step 1:** Backtracking approach
- *  * - Start with [] → add to result
- *  *   - Add 1: [1] → add to result
- *  *     - Add 2: [1,2] → add to result
- *  *       - Add 3: [1,2,3] → add to result
- *  *     - Add 3: [1,3] → add to result
- *  *   - Add 2: [2] → add to result
- *  *     - Add 3: [2,3] → add to result
- *  *   - Add 3: [3] → add to result
- *  *
- *  * **Step 2:** Iterative approach
- *  * - Start: result = [[]]
- *  * - Add 1: result = [[], [1]]
- *  * - Add 2: result = [[], [1], [2], [1,2]]
- *  * - Add 3: result = [[], [1], [2], [1,2], [3], [1,3], [2,3], [1,2,3]]
- *  *
- *  * Output: [[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]]
- *  *
- *  * ### TIME COMPLEXITY:
- *  * O(n × 2^n) - 2^n subsets, each takes O(n) to copy
- *  *
- *  * ### SPACE COMPLEXITY:
- *  * O(n) - recursion depth
- *  *
- *  * ### EDGE CASES:
- *  * - **Empty array**: Return [[]] (power set contains only empty set)
- *  * - **Single element**: Return [[], [element]]
- *  * - **All elements identical (in variant)**: Handle duplicates with sorting
- *  * - **Large n values**: 2^n subsets, exponential but unavoidable
- *  * - **Negative numbers**: No special handling needed, works same as positive
- *  *
- *  *
+ * Input:
+ * ```
+ * nums = [1,2,3]
+ * ```
+ *
+ * **Step 1:** Backtracking approach
+ * - Start with [] → add to result
+ * - Add 1: [1] → add to result
+ * - Add 2: [1,2] → add to result
+ * - Add 3: [1,2,3] → add to result
+ * - Add 3: [1,3] → add to result
+ * - Add 2: [2] → add to result
+ * - Add 3: [2,3] → add to result
+ * - Add 3: [3] → add to result
+ *
+ * **Step 2:** Iterative approach
+ * - Start: result = [[]]
+ * - Add 1: result = [[], [1]]
+ * - Add 2: result = [[], [1], [2], [1,2]]
+ * - Add 3: result = [[], [1], [2], [1,2], [3], [1,3], [2,3], [1,2,3]]
+ *
+ * Output: [[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]]
+ *
+ * ### TIME COMPLEXITY:
+ * O(n × 2^n) - 2^n subsets, each takes O(n) to copy
+ *
+ * ### SPACE COMPLEXITY:
+ * O(n) - recursion depth
+ *
+ * ### EDGE CASES:
+ * - **Empty array**: Return [[]] (power set contains only empty set)
+ * - **Single element**: Return [[], [element]]
+ * - **All elements identical (in variant)**: Handle duplicates with sorting
+ * - **Large n values**: 2^n subsets, exponential but unavoidable
+ * - **Negative numbers**: No special handling needed, works same as positive
+ *
+ *
 */
 
 /**
