@@ -27,11 +27,14 @@ Solve the Fibonacci Number problem as described.
 **Space Complexity**: **O(1)**
  *
 ### INTUITION:
-The key insight is to solve this problem efficiently.
- *
+The Fibonacci sequence is the classic example of recursion. Each number is defined
+recursively as the sum of the two preceding numbers, with base cases F(0)=0 and F(1)=1.
+
 ### APPROACH:
-We solve this problem by implementing the required algorithm.
- *
+1. **Base cases**: If n is 0 or 1, return n directly
+2. **Recursive case**: Return fib(n-1) + fib(n-2)
+3. **Optimization**: Use memoization to avoid redundant calculations
+
 ### WHY THIS WORKS:
 This approach works because it correctly implements the problem requirements.
  *
