@@ -59,11 +59,13 @@ Index 4: sum=3, need 3-2=1 (found 2), count=4
 Total: 4
 
 ### TIME COMPLEXITY:
-Based on the algorithm implementation
+O(n)
+- Single pass through input
 
 
 ### SPACE COMPLEXITY:
-Based on auxiliary data structures used
+O(n)
+- Additional hash map storage
 
 
 ### EDGE CASES:

@@ -65,11 +65,15 @@ true
 ```
 
 ### TIME COMPLEXITY:
-Based on the algorithm implementation
+O(V + E)
+
+- Visit all vertices and edges in the graph
 
 
 ### SPACE COMPLEXITY:
-Based on auxiliary data structures used
+O(V + E)
+
+- Store adjacency list and visited set
 
 
 ### EDGE CASES:

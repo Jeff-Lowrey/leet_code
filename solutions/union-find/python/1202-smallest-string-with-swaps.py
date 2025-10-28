@@ -64,7 +64,8 @@ Output:
 O(n log n + m α(n)) where m is pairs count
 
 ### SPACE COMPLEXITY:
-Based on auxiliary data structures used
+O(n)
+- Additional hash map storage
 
 
 ### EDGE CASES:

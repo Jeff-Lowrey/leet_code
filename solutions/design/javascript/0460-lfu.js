@@ -70,9 +70,8 @@
  * put(3, 3): evict key 2 (LFU), add 3
 
  * ### TIME COMPLEXITY:
- * - get: O(1)
- * - put: O(1)
- *
+ * * - get: O(1)
+
  * ### SPACE COMPLEXITY:
  * O(capacity) for storing items
  *

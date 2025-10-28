@@ -59,7 +59,9 @@ next(5): queue=[10,3,5], avg=6.0 (removed 1)
 O(1) per operation - constant time
 
 ### SPACE COMPLEXITY:
-Based on auxiliary data structures used
+O(size)
+
+- Based on auxiliary data structures
 
 
 ### EDGE CASES:

@@ -60,12 +60,10 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-Based on the algorithm implementation
-
+O(n α(n))
 
 ### SPACE COMPLEXITY:
-Based on auxiliary data structures used
-
+O(n) - Additional hash map storage
 
 ### EDGE CASES:
 - **Node with two parents, no cycle**: Remove the later edge to that node

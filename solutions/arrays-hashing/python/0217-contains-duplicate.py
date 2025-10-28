@@ -64,12 +64,10 @@ Alternative (Early Termination):
 - Check 1: found in seen → return True immediately
 
 ### TIME COMPLEXITY:
-Based on the algorithm implementation
-
+O(n) - Single pass with O(1) hash lookups
 
 ### SPACE COMPLEXITY:
-Based on auxiliary data structures used
-
+O(n) - Additional set storage
 
 ### EDGE CASES:
 - **Empty array**: Return False (no duplicates possible)

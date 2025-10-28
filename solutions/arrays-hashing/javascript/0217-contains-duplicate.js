@@ -70,11 +70,11 @@
  * - Check 1: found in seen → return True immediately
  *
  * ### TIME COMPLEXITY:
- * O(n)
- *
+ * O(n) - Single pass through input
+
  * ### SPACE COMPLEXITY:
- * O(n)
- *
+ * O(n) - Additional set storage
+
  * ### EDGE CASES:
  * - **Empty array**: Return False (no duplicates possible)
  * - **Single element**: Return False (need at least 2 for duplicate)

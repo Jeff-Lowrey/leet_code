@@ -63,11 +63,13 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-Based on the algorithm implementation
+O(log n)
+- Binary search or tree height
 
 
 ### SPACE COMPLEXITY:
-Based on auxiliary data structures used
+O(1)
+- Constant extra space
 
 
 ### EDGE CASES:

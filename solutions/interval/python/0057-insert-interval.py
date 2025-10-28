@@ -62,8 +62,7 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-Based on the algorithm implementation
-
+O(n)
 
 ### SPACE COMPLEXITY:
 O(n) for result array

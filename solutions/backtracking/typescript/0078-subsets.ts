@@ -75,7 +75,7 @@
  * 
  * ### SPACE COMPLEXITY:
  * O(n) - recursion depth
- * 
+
  * ### EDGE CASES:
  * - **Empty array**: Return [[]] (power set contains only empty set)
  * - **Single element**: Return [[], [element]]

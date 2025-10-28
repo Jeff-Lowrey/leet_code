@@ -65,8 +65,8 @@
  * ```
  * 
  * ### TIME COMPLEXITY:
- * O(log n) for recursion
- *
+ * O(log n) - dividing by 2 each time
+
  * ### SPACE COMPLEXITY:
  * O(log n) for recursion stack
  *

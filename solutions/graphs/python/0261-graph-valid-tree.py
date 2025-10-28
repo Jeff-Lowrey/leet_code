@@ -74,11 +74,13 @@ True (forms valid tree)
 ```
 
 ### TIME COMPLEXITY:
-Based on the algorithm implementation
+O(n)
+- Single pass through input
 
 
 ### SPACE COMPLEXITY:
-Based on auxiliary data structures used
+O(1)
+- Constant extra space
 
 
 ### EDGE CASES:

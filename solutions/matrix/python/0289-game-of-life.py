@@ -91,11 +91,14 @@ Output (after 4 generations):
 ```
 
 ### TIME COMPLEXITY:
-Based on the algorithm implementation
+O(m × n)
+
+- Based on input size and operations
 
 
 ### SPACE COMPLEXITY:
-Based on auxiliary data structures used
+O(1)
+- Constant extra space
 
 
 ### EDGE CASES:

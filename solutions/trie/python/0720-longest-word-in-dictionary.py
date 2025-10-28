@@ -88,7 +88,6 @@ Where N is number of words, L is average word length
 
 ### SPACE COMPLEXITY:
 O(N * L)
-For trie storage
 
 ### EDGE CASES:
 - Empty word list

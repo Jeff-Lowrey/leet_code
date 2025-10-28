@@ -71,11 +71,14 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-Based on the algorithm implementation
+O(n + m)
+
+- Based on input size and operations
 
 
 ### SPACE COMPLEXITY:
-Based on auxiliary data structures used
+O(n)
+- Additional hash map storage
 
 
 ### EDGE CASES:

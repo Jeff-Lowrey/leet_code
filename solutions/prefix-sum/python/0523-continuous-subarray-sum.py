@@ -64,7 +64,8 @@ return true
 ```
 
 ### TIME COMPLEXITY:
-Based on the algorithm implementation
+O(n)
+- Single pass through input
 
 
 ### SPACE COMPLEXITY:

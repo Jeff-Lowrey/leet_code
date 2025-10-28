@@ -65,7 +65,8 @@ Output:
 O(log n) for both update and query
 
 ### SPACE COMPLEXITY:
-Based on auxiliary data structures used
+O(n)
+- Additional set storage
 
 
 ### EDGE CASES:

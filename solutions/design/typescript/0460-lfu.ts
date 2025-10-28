@@ -69,8 +69,7 @@
 
  * ### TIME COMPLEXITY:
  * - get: O(1)
- * - put: O(1)
- * 
+
  * ### SPACE COMPLEXITY:
  * O(capacity) for storing items
  * 

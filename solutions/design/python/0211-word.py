@@ -75,6 +75,9 @@ Step 3: search("b..") -> true (matches "bad")
 ### SPACE COMPLEXITY:
 O(total characters in all words)
 
+- Based on auxiliary data structures
+
+
 ### EDGE CASES:
 - Empty string
 - All wildcards

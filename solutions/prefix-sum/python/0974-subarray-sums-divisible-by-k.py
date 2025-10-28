@@ -62,7 +62,8 @@ Index 5: rem=0, count=1 (initial 0), add {0:2, 4:4, 2:1}
 Total: 0+1+2+0+3+1 = 7
 
 ### TIME COMPLEXITY:
-Based on the algorithm implementation
+O(n)
+- Single pass through input
 
 
 ### SPACE COMPLEXITY:

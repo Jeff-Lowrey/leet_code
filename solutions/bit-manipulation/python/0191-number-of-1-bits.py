@@ -58,7 +58,8 @@ Result: 3
 O(k) where k is number of 1-bits
 
 ### SPACE COMPLEXITY:
-Based on auxiliary data structures used
+O(1)
+- Constant extra space
 
 
 ### EDGE CASES:

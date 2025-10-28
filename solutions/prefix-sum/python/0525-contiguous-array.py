@@ -56,11 +56,13 @@ Index 2: sum -1, seen at index 0, length = 2 - 0 = 2
 Maximum length = 2
 
 ### TIME COMPLEXITY:
-Based on the algorithm implementation
+O(n)
+- Single pass through input
 
 
 ### SPACE COMPLEXITY:
-Based on auxiliary data structures used
+O(n)
+- Additional hash map storage
 
 
 ### EDGE CASES:

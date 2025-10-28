@@ -89,8 +89,7 @@
  *
  * ### SPACE COMPLEXITY:
  * O(N * L)
- * For trie storage
- *
+
  * ### EDGE CASES:
  * - Empty word list
  * - Single character words

@@ -59,11 +59,14 @@ i=2, val=5:
 Result: [5,5,0]
 
 ### TIME COMPLEXITY:
-Based on the algorithm implementation
+O(n)
+- Single pass through input
 
 
 ### SPACE COMPLEXITY:
-Based on auxiliary data structures used
+O(n)
+
+- Additional data structure for storage
 
 
 ### EDGE CASES:

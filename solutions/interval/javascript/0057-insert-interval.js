@@ -73,7 +73,7 @@
  *
  * ### SPACE COMPLEXITY:
  * O(n) for result array
- *
+
  * ### EDGE CASES:
  * - **Empty intervals list**: Return [newInterval]
  * - **No overlap**: Insert in correct sorted position
