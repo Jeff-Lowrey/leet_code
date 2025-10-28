@@ -58,32 +58,52 @@
  * - Early pruning prevents exploring invalid partial solutions
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * n = 4
- * ```
-
- * ### TIME COMPLEXITY:
- * O(N!)
- * - In worst case, we try every possible placement
- * - First queen has N choices, second has (N-1), etc.
- * - But pruning significantly reduces actual combinations
- *
- * ### SPACE COMPLEXITY:
- * O(N)
- * - Recursion depth is N (one call per row)
- * - Additional space for tracking columns and diagonals
- * - Board representation space
- *
- * ### EDGE CASES:
- * - **n = 1**: Single queen at (0,0), return [["Q"]]
- * - **n = 2 or n = 3**: No solutions exist, return empty list
- * - **n = 4**: Two distinct solutions exist
- * - **Large n values**: Backtracking with pruning handles efficiently
- * - **All positions conflict**: Backtracking exhausts all possibilities, returns empty
- *
- * </details>
- */
+ * * Input:
+ *  * ```
+ *  * n = 4
+ *  * ```
+ *  *
+ *  * **Step 1:** Place queen in row 0
+ *  * - Try col 0: Place Q at (0,0)
+ *  *   - cols = {0}, diag1 = {0}, diag2 = {0}
+ *  *
+ *  * **Step 2:** Place queen in row 1
+ *  * - Try col 0: conflicts with cols (skip)
+ *  * - Try col 1: conflicts with diag2 (skip)
+ *  * - Try col 2: Place Q at (1,2) ✓
+ *  *   - cols = {0,2}, diag1 = {0,-1}, diag2 = {0,3}
+ *  *
+ *  * **Step 3:** Place queen in row 2
+ *  * - Try col 0,1: conflicts
+ *  * - Try col 3: conflicts
+ *  * - Try col 4: out of range → Backtrack
+ *  *
+ *  * **Step 4:** Try different placement in row 1 (col 3)
+ *  * - Eventually find: [".Q..","...Q","Q...","..Q."]
+ *  *
+ *  * Output: [[".Q..","...Q","Q...","..Q."],["..Q.","Q...","...Q",".Q.."]]
+ *  *
+ *  * ### TIME COMPLEXITY:
+ *  * O(N!)
+ *  * - In worst case, we try every possible placement
+ *  * - First queen has N choices, second has (N-1), etc.
+ *  * - But pruning significantly reduces actual combinations
+ *  *
+ *  * ### SPACE COMPLEXITY:
+ *  * O(N)
+ *  * - Recursion depth is N (one call per row)
+ *  * - Additional space for tracking columns and diagonals
+ *  * - Board representation space
+ *  *
+ *  * ### EDGE CASES:
+ *  * - **n = 1**: Single queen at (0,0), return [["Q"]]
+ *  * - **n = 2 or n = 3**: No solutions exist, return empty list
+ *  * - **n = 4**: Two distinct solutions exist
+ *  * - **Large n values**: Backtracking with pruning handles efficiently
+ *  * - **All positions conflict**: Backtracking exhausts all possibilities, returns empty
+ *  *
+ *  *
+*/
 
 class Solution {
   /**
