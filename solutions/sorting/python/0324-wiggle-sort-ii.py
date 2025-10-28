@@ -27,23 +27,47 @@ Solve the Wiggle Sort Ii problem as described.
 **Space Complexity**: **O(1)**
  *
 ### INTUITION:
-The key insight is to solve this problem efficiently.
- *
-### APPROACH:
-We solve this problem by implementing the required algorithm.
- *
-### WHY THIS WORKS:
-This approach works because it correctly implements the problem requirements.
- *
-### EXAMPLE WALKTHROUGH:
-Input:
-```
-example input
-```
+Unlike Wiggle Sort I which allows equality, this requires strict inequality (<, >, <, >).
+We need to interleave smaller and larger halves to avoid adjacent equal elements.
 
-Output:
+### APPROACH:
+1. **Find median**: Partition array around median value
+2. **Interleave halves**: Place smaller elements at even indices, larger at odd
+3. **Reverse order**: Place larger elements in reverse to avoid adjacency
+4. **Virtual indexing**: Map indices to avoid using extra space
+
+### WHY THIS WORKS:
+- After sorting, split into two halves around median
+- Interleaving ensures no same-valued elements are adjacent
+- Reverse order within halves maximizes separation
+- Example: [1,2,3,4,5,6] → [1,4,2,5,3,6] → rearrange → [3,6,2,5,1,4]
+
+### EXAMPLE WALKTHROUGH:
 ```
-example output
+Input: nums = [1,5,1,1,6,4]
+
+Step 1: Sort
+[1,1,1,4,5,6]
+
+Step 2: Split around median (median ≈ 2.5, so split at index 3)
+Small half: [1,1,1]
+Large half: [4,5,6]
+
+Step 3: Interleave in reverse order
+Even indices (0,2,4): [1,1,1] reversed → 1,1,1
+Odd indices (1,3,5): [4,5,6] reversed → 6,5,4
+
+Result: [1,6,1,5,1,4]
+Verify: 1<6>1<5>1<4 ✓
+
+Why reverse order?
+If we used [1,1,1] and [4,5,6] directly:
+[1,4,1,5,1,6] - works
+But with [1,1,1,2,2,2], without reversing:
+[1,2,1,2,1,2] - works
+With [1,1,1,1,2,2], need clever placement:
+[1,2,1,2,1,1] - the last two are equal!
+Reversing: [1,2,1,2,1,1] → place from middle outward
 ```
 
 ### TIME COMPLEXITY:
@@ -53,11 +77,11 @@ example output
 **O(1)** - Analysis of space complexity
  *
 ### EDGE CASES:
-- Handle empty input
-- Handle boundary conditions
- *
-</details>
-"""
+- Array with many duplicate elements
+- All elements equal (impossible with strict inequality requirement)
+- Small arrays (length 2-3)
+- Even vs odd length arrays
+
 
 from typing import List
 
