@@ -56,6 +56,11 @@ top with one flip, then flip it to its final position. This guarantees sorting.
 ### EXAMPLE WALKTHROUGH:
 Input:
 ```
+[3, 2, 4, 1]
+```
+
+Input:
+```
 arr = [3,2,4,1]
 ```
 

@@ -51,6 +51,11 @@ The key insight is to generate all coordinates and use Python's built-in sorting
 ### EXAMPLE WALKTHROUGH:
 Input:
 ```
+[[0, 0]
+```
+
+Input:
+```
 rows = 2, cols = 3, rCenter = 1, cCenter = 2
 ```
 

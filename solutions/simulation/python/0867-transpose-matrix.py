@@ -60,6 +60,11 @@ For an m×n matrix, transpose is n×m.
 ### EXAMPLE WALKTHROUGH:
 Input:
 ```
+[[1, 2, 3]
+```
+
+Input:
+```
 matrix = [[1,2,3],
 ```
 

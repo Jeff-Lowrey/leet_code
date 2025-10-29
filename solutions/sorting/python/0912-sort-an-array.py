@@ -55,18 +55,23 @@ achieve O(n log n) time. This problem tests understanding of fundamental sorting
 ### EXAMPLE WALKTHROUGH:
 Input:
 ```
+[1, 2, 3, 5]
+```
+
+Input:
+```
 nums = [5,2,3,1]
 ```
 
 Merge Sort:
 [5,2,3,1]
-/    \\
+/    \
 [5,2]  [3,1]
-/ \\    / \\
+/ \    / \
 [5][2] [3][1]
-\\ /    \\ /
+\ /    \ /
 [2,5]  [1,3]
-\\    /
+\    /
 [1,2,3,5]
 Quick Sort:
 [5,2,3,1] pivot=1

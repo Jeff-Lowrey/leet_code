@@ -49,6 +49,11 @@ by swapping elements when the pattern is violated, without sorting.
 ### EXAMPLE WALKTHROUGH:
 Input:
 ```
+[3, 5, 2, 1, 6, 4]
+```
+
+Input:
+```
 nums = [3,5,2,1,6,4]
 ```
 

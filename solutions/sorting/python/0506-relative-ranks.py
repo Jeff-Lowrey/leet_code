@@ -56,6 +56,11 @@ the original indices. Use sorting with indices or create a score-to-rank mapping
 ### EXAMPLE WALKTHROUGH:
 Input:
 ```
+["Gold Medal", "Silver Medal", "Bronze Medal", "4", "5"]
+```
+
+Input:
+```
 score = [5,4,3,2,1]
 ```
 

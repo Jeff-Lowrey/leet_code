@@ -64,6 +64,11 @@ We can check this property for all valid positions.
 ### EXAMPLE WALKTHROUGH:
 Input:
 ```
+[[1, 2, 3, 4]
+```
+
+Input:
+```
 matrix = [[1,2,3,4],
 ```
 

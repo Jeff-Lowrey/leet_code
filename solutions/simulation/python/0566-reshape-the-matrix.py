@@ -69,6 +69,11 @@ Use division and modulo to convert between 1D and 2D indices.
 ### EXAMPLE WALKTHROUGH:
 Input:
 ```
+[[1, 2]
+```
+
+Input:
+```
 mat = [[1,2],[3,4]], r = 1, c = 4
 ```
 

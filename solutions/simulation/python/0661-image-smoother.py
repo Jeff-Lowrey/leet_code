@@ -62,6 +62,11 @@ The challenge is to use original values for all calculations, not partially smoo
 ### EXAMPLE WALKTHROUGH:
 Input:
 ```
+[[1, 1, 1]
+```
+
+Input:
+```
 img = [[100,200,100],
 ```
 
