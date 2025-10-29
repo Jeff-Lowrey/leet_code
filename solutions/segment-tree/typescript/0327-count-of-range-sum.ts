@@ -44,6 +44,8 @@
  * The algorithm correctly solves the problem by systematically exploring all valid states while maintaining necessary invariants. Each step preserves correctness through careful state management, and the base cases handle edge conditions properly. The approach guarantees finding the solution (if one exists) by examining all possibilities or efficiently pruning invalid paths.
  * 
  * ### EXAMPLE WALKTHROUGH:
+ * Given input nums = [-2,5,-1], lower = -2, upper = 2:
+ *
  * Input:
  * ```
  * nums = [-2,5,-1], lower = -2, upper = 2
@@ -57,6 +59,8 @@
  * - S(1,1) = 5 ✗
  * - S(1,2) = 4 ✗
  * - S(2,2) = -1 ✓
+ *
+ * Result: 3 range sums lie within [-2, 2]
  *
  * Output:
  * ```

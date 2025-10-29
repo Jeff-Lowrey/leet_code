@@ -53,6 +53,8 @@
  * - O(m*n*α(m*n)) time: α is inverse Ackermann (effectively constant)
  * 
  * ### EXAMPLE WALKTHROUGH:
+ * Given input m = 3, n = 3, positions = [[0,0],[0,1],[1,2],[2,1]]:
+ *
  * Input:
  * ```
  * m = 3, n = 3, positions = [[0,0],[0,1],[1,2],[2,1]]

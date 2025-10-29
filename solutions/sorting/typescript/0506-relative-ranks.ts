@@ -55,6 +55,8 @@
  * - Special strings for top 3, numbers for rest
  * 
  * ### EXAMPLE WALKTHROUGH:
+ * Given input score = [5,4,3,2,1]:
+ *
  * Input:
  * ```
  * score = [5,4,3,2,1]

@@ -44,6 +44,8 @@
  * - prefix_count[j] - prefix_count[i] = k means subarray from i+1 to j has k odd numbers
  * 
  * ### EXAMPLE WALKTHROUGH:
+ * Given input nums = [1,1,2,1,1], k = 3:
+ *
  * Input:
  * ```
  * nums = [1,1,2,1,1], k = 3
