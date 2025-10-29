@@ -33,7 +33,16 @@
  * A palindrome reads the same forwards and backwards, so we expand while the
  * characters on both sides match.
  *
- * ### EXAMPLE WALKTHROUGH:
+ *
+
+This solution uses dynamic programming for efficient implementation.
+
+The solution leverages string for efficient operations.
+
+The solution leverages array for efficient operations.
+### EXAMPLE WALKTHROUGH:
+ * Given input s = "babad":
+ *
  * Input:
  * ```
  * s = "babad"

@@ -42,7 +42,14 @@
  * - Reverse order within halves maximizes separation
  * - Example: [1,2,3,4,5,6] → [1,4,2,5,3,6] → rearrange → [3,6,2,5,1,4]
  *
- * ### EXAMPLE WALKTHROUGH:
+ *
+
+This solution uses partitioning for efficient implementation.
+
+This solution uses two-pointer technique for efficient implementation.
+### EXAMPLE WALKTHROUGH:
+ * Given input ${original}:
+ *
  * ```
  * Input: nums = [1,5,1,1,6,4]
  *

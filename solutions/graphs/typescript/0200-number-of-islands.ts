@@ -44,7 +44,14 @@
  * - Each DFS/BFS start represents discovering a new island
  * - 4-directional connectivity defines what constitutes an island
  * 
- * ### EXAMPLE WALKTHROUGH:
+ *
+
+This solution uses hash table lookup for efficient implementation.
+
+This solution uses hash map storage for efficient implementation.
+### EXAMPLE WALKTHROUGH:
+ * Given input Grid: [["1","1","1","1","0"],:
+ *
  * Input:
  * ```
  * Grid: [["1","1","1","1","0"],

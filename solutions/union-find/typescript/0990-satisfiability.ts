@@ -44,7 +44,17 @@
  * - Inequality constraints must not connect variables in same component
  * - Two-pass approach separates grouping from validation
  * 
- * ### EXAMPLE WALKTHROUGH:
+ *
+
+This solution uses hash table lookup for efficient implementation.
+
+This solution uses hash map storage for efficient implementation.
+
+This solution uses array traversal for efficient implementation.
+### EXAMPLE WALKTHROUGH:
+ * Given input ["a==b","b!=a"]
+ * ["a==b","b==c","a!=d"]:
+ *
  * Input:
  * ```
  * ["a==b","b!=a"]

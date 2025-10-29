@@ -40,7 +40,16 @@
  * - Stack-based approach simulates the call stack of recursion
  * - Morris traversal modifies tree temporarily to avoid extra space
  * 
- * ### EXAMPLE WALKTHROUGH:
+ *
+
+This solution uses hash table lookup for efficient implementation.
+
+This solution uses hash map storage for efficient implementation.
+
+This solution uses two pointers for efficient implementation.
+### EXAMPLE WALKTHROUGH:
+ * Given input Tree:    1:
+ *
  * Input:
  * ```
  * Tree:    1

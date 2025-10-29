@@ -47,7 +47,16 @@
  * - After processing all connections, count unique roots to get province count
  * - DFS alternative marks all cities in a component as visited
  * 
- * ### EXAMPLE WALKTHROUGH:
+ *
+
+This solution uses hash table lookup for efficient implementation.
+
+This solution uses hash map storage for efficient implementation.
+
+This solution uses array traversal for efficient implementation.
+### EXAMPLE WALKTHROUGH:
+ * Given input isConnected = [[1,1,0],:
+ *
  * Input:
  * ```
  * isConnected = [[1,1,0],

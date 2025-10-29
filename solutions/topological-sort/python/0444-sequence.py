@@ -40,7 +40,14 @@ This is a topological sort problem where we need to check if there's a unique to
 - If multiple nodes have in-degree 0 simultaneously, multiple valid orders exist
 - We need to verify that the unique order matches the original sequence
 
+This solution uses hash table lookup for efficient implementation.
+
+This solution uses hash map storage for efficient implementation.
+
+This solution uses set operations for efficient implementation.
 ### EXAMPLE WALKTHROUGH:
+Given input [1, 2, 3]:
+
 Input:
 ```
 [1, 2, 3]

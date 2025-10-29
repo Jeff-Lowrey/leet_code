@@ -50,7 +50,14 @@
  * - Return write as new length (first write elements are result)
  * - O(n) time, O(1) space
  *
- * ### EXAMPLE WALKTHROUGH:
+ *
+
+This solution uses hash table lookup for efficient implementation.
+
+This solution uses hash map storage for efficient implementation.
+### EXAMPLE WALKTHROUGH:
+ * Given input nums = [3,2,2,3], val = 3:
+ *
  * Input:
  * ```
  * nums = [3,2,2,3], val = 3

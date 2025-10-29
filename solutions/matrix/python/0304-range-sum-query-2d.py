@@ -67,7 +67,12 @@ The 2D prefix sum uses the inclusion-exclusion principle:
 - Subtract prefix[r2+1][c1] to remove columns left of c1
 - Add back prefix[r1][c1] because it was subtracted twice
 
+This solution uses dynamic programming for efficient implementation.
+
+This solution uses preprocessing for efficient implementation.
 ### EXAMPLE WALKTHROUGH:
+Given input "NumMatrix", "sumRegion", "sumRegion", "sumRegion":
+
 Matrix: [[3, 0, 1, 4, 2],
          [5, 6, 3, 2, 1],
          [1, 2, 0, 1, 5],
@@ -85,6 +90,9 @@ Prefix sum (with padding):
 Query sumRegion(2, 1, 4, 3):
 sum = prefix[5][4] - prefix[2][4] - prefix[5][1] + prefix[2][1]
     = 38 - 24 - 14 + 8 = 8 ✓
+
+
+Result: [null, 8, 11, 12]
 
 ### TIME COMPLEXITY:
 **Constructor: O(m * n)** where m, n are matrix dimensions - must compute all prefix sums

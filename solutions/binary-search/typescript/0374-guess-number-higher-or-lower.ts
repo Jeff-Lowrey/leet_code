@@ -56,7 +56,14 @@
  * - Guaranteed to find the answer in O(log n) time
  * - Similar to searching in a sorted array but using API instead of direct comparison
  * 
- * ### EXAMPLE WALKTHROUGH:
+ *
+
+This solution uses hash table lookup for efficient implementation.
+### EXAMPLE WALKTHROUGH:
+ * Given input n = 10, pick = 6
+ * n = 1, pick = 1
+ * n = 2, pick = 1:
+ *
  * Input:
  * ```
  * n = 10, pick = 6

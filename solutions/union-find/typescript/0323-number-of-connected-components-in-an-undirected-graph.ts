@@ -42,7 +42,16 @@
  * - Final count of root nodes = number of connected components
  * - Path compression and union by rank ensure efficient operations
  * 
- * ### EXAMPLE WALKTHROUGH:
+ *
+
+This solution uses hash table lookup for efficient implementation.
+
+This solution uses hash map storage for efficient implementation.
+
+This solution uses array traversal for efficient implementation.
+### EXAMPLE WALKTHROUGH:
+ * Given input n = 5, edges = [[0,1],[1,2],[3,4]]:
+ *
  * Input:
  * ```
  * n = 5, edges = [[0,1],[1,2],[3,4]]

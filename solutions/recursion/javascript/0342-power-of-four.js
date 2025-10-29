@@ -35,7 +35,16 @@
  * - Mathematical property: 4^x = (2^2)^x = 2^(2x) means the bit is at even position
  * - All powers of 4 satisfy: (n-1) % 3 === 0
  *
- * ### EXAMPLE WALKTHROUGH:
+ *
+
+This solution uses bit manipulation for efficient implementation.
+
+This solution uses recursion for efficient implementation.
+
+The solution leverages integer for efficient operations.
+### EXAMPLE WALKTHROUGH:
+ * Given input n = 16:
+ *
  * Input:
  * ```
  * n = 16

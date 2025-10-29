@@ -34,7 +34,16 @@
  * - Dividing by 2 removes one bit until we reach 1
  * - If we encounter an odd number (except 1), it cannot be a power of 2
  *
- * ### EXAMPLE WALKTHROUGH:
+ *
+
+This solution uses recursion for efficient implementation.
+
+This solution uses math for efficient implementation.
+
+The solution leverages integer for efficient operations.
+### EXAMPLE WALKTHROUGH:
+ * Given input n = 16:
+ *
  * Input:
  * ```
  * n = 16

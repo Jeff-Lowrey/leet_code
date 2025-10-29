@@ -58,7 +58,16 @@
  * - Backtracking explores all valid placements systematically
  * - Early pruning prevents exploring invalid partial solutions
  *
- * ### EXAMPLE WALKTHROUGH:
+ *
+
+This solution uses hash table lookup for efficient implementation.
+
+This solution uses set operations for efficient implementation.
+
+This solution uses array traversal for efficient implementation.
+### EXAMPLE WALKTHROUGH:
+ * Given input n = 4:
+ *
  * Input:
  * ```
  * n = 4

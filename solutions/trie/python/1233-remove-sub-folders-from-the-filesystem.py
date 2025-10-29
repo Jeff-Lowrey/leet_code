@@ -49,7 +49,14 @@ Alternative: Sort paths and check if each path starts with previous path + '/'
 - Marking folder ends distinguishes complete folders from intermediate path components
 - When we encounter a folder end marker, we know any continuation is a sub-folder
 
+This solution uses hash table lookup for efficient implementation.
+
+This solution uses hash map storage for efficient implementation.
+
+This solution uses array traversal for efficient implementation.
 ### EXAMPLE WALKTHROUGH:
+Given input ["/a", "/a/b", "/c/d", "/c/d/e", "/c/f"]:
+
 Input:
 ```
 ["/a", "/a/b", "/c/d", "/c/d/e", "/c/f"]

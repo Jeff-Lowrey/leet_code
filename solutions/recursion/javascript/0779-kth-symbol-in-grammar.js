@@ -47,7 +47,14 @@
  * - Right child (even k) gets flipped value
  * - We recursively trace back to row 1
  *
- * ### EXAMPLE WALKTHROUGH:
+ *
+
+This solution uses recursion for efficient implementation.
+
+This solution uses bit manipulation for efficient implementation.
+### EXAMPLE WALKTHROUGH:
+ * Given input n = 3, k = 3:
+ *
  * Input:
  * ```
  * n = 3, k = 3

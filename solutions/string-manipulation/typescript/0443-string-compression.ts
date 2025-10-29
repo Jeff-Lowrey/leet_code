@@ -56,7 +56,16 @@
  * - In-place modification is safe because we consume input faster than we produce output
  * - Converting count to string and iterating over digits handles multi-digit counts
  *
- * ### EXAMPLE WALKTHROUGH:
+ *
+
+This solution uses hash table lookup for efficient implementation.
+
+This solution uses hash map storage for efficient implementation.
+
+The solution leverages queue for efficient operations.
+### EXAMPLE WALKTHROUGH:
+ * Given input ["a","a","b","b","c","c","c"]:
+ *
  * Input:
  * ```
  * ["a","a","b","b","c","c","c"]

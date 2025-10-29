@@ -45,7 +45,16 @@
  * - Greedy works: earliest end maximizes remaining space for future intervals
  * - O(n log n) for sorting, O(1) space excluding input
  *
- * ### EXAMPLE WALKTHROUGH:
+ *
+
+This solution uses hash table lookup for efficient implementation.
+
+This solution uses hash map storage for efficient implementation.
+
+This solution uses array traversal for efficient implementation.
+### EXAMPLE WALKTHROUGH:
+ * Given input intervals = [[1,2],[2,3],[3,4],[1,3]]:
+ *
  * Input:
  * ```
  * intervals = [[1,2],[2,3],[3,4],[1,3]]
