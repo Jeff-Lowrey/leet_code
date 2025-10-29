@@ -42,7 +42,14 @@
  * - If multiple nodes have in-degree 0 simultaneously, multiple valid orders exist
  * - We need to verify that the unique order matches the original sequence
  *
- * ### EXAMPLE WALKTHROUGH:
+ *
+
+This solution uses hash table lookup for efficient implementation.
+
+This solution uses hash map storage for efficient implementation.
+
+This solution uses set operations for efficient implementation.
+### EXAMPLE WALKTHROUGH:
  * Given input org = [1,2,3], seqs = [[1,2],[1,3],[2,3]]:
  *
  * Input:

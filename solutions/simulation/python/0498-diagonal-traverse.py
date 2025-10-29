@@ -51,6 +51,7 @@ and boundaries carefully.
 - Boundary checks ensure we stay within matrix bounds
 - Direction flipping at boundaries creates the diagonal traversal pattern
 
+This solution uses simulation for efficient implementation.
 ### EXAMPLE WALKTHROUGH:
 ```
 mat = [[1,2,3],

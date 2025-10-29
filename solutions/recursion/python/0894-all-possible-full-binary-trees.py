@@ -52,6 +52,9 @@ Full binary trees must have odd number of nodes. By systematically trying all po
 distributions of nodes between left and right subtrees, and combining all possibilities,
 we generate all valid full binary trees.
 
+This solution uses recursion for efficient implementation.
+
+This solution uses combinatorial generation for efficient implementation.
 ### EXAMPLE WALKTHROUGH:
 n = 3:
 - Root uses 1 node, leaving 2 for children

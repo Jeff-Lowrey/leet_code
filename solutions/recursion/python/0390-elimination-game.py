@@ -66,6 +66,11 @@ When eliminating from right-to-left, the head only moves if there's an odd numbe
 of elements (because we'd eliminate the current head's partner). The step size
 doubles each round because we're eliminating every other element.
 
+This solution uses recursion for efficient implementation.
+
+This solution uses mathematical pattern recognition for efficient implementation.
+
+This solution uses state tracking for efficient implementation.
 ### EXAMPLE WALKTHROUGH:
 n = 9, arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 

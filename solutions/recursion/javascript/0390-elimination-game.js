@@ -66,7 +66,14 @@
  * of elements (because we'd eliminate the current head's partner). The step size
  * doubles each round because we're eliminating every other element.
  *
- * ### EXAMPLE WALKTHROUGH:
+ *
+
+This solution uses recursion for efficient implementation.
+
+This solution uses mathematical pattern recognition for efficient implementation.
+
+This solution uses state tracking for efficient implementation.
+### EXAMPLE WALKTHROUGH:
  * n = 9, arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
  *
  * Round 1 (L->R): head=1, step=1, count=9, left_to_right=True

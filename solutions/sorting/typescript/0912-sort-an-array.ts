@@ -53,7 +53,14 @@
  * - **Quick Sort**: Average O(n log n), in-place, but O(n²) worst case
  * - **Heap Sort**: Guaranteed O(n log n), in-place, not stable
  *
- * ### EXAMPLE WALKTHROUGH:
+ *
+
+This solution uses hash map storage for efficient implementation.
+
+This solution uses two pointers for efficient implementation.
+
+The solution leverages stack for efficient operations.
+### EXAMPLE WALKTHROUGH:
  * Given input nums = [5,2,3,1]:
  *
  * Input:
