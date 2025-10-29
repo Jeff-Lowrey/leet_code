@@ -60,7 +60,7 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n α(n))
+O(n α(n)) - Union-find operations with path compression and union by rank
 
 ### SPACE COMPLEXITY:
 O(n) - Additional hash map storage

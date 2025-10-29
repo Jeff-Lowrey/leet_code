@@ -68,7 +68,7 @@
  * put(3, 3): evict key 2 (LFU), add 3
 
  * ### TIME COMPLEXITY:
- * - get: O(1)
+ * O(1) - All operations (get, put) use hash maps and frequency buckets for constant-time access
 
  * ### SPACE COMPLEXITY:
  * O(capacity) for storing items

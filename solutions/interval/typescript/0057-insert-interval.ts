@@ -62,7 +62,7 @@
  * ```
  * 
  * ### TIME COMPLEXITY:
- * O(n)
+ * O(n) - Single pass through intervals array to find insertion point and merge overlaps
 
  * ### SPACE COMPLEXITY:
  * O(n) for result array
