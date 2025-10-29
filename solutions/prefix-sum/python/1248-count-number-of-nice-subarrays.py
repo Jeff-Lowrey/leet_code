@@ -43,6 +43,8 @@ This problem is a variation of "subarray sum equals k" but instead of sum, we co
 - prefix_count[j] - prefix_count[i] = k means subarray from i+1 to j has k odd numbers
 
 ### EXAMPLE WALKTHROUGH:
+Given input nums = [1,1,2,1,1], k = 3:
+
 Input:
 ```
 nums = [1,1,2,1,1], k = 3
@@ -54,6 +56,9 @@ For each position, check if (current_count - k) exists:
 - Position 3: count=3, need=0, found 1 time
 - Position 4: count=4, need=1, found 1 time
 Total: 2 nice subarrays
+
+
+Result: </dt>
 
 ### TIME COMPLEXITY:
 O(n)

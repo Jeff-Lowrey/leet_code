@@ -45,7 +45,14 @@
  * ### WHY THIS WORKS:
  * By repeatedly dividing the search space in half, we eliminate half of the remaining elements in each iteration. Since the array is sorted, we can determine which half contains the target by comparing with the middle element. This guarantees we find the target (if it exists) in O(log n) time because each step reduces the problem size by a factor of 2.
  * 
- * ### EXAMPLE WALKTHROUGH:
+ *
+
+This solution uses hash table lookup for efficient implementation.
+
+This solution uses hash map storage for efficient implementation.
+
+This solution uses set operations for efficient implementation.
+### EXAMPLE WALKTHROUGH:
  * Given input nums = [1,3,2,3,1]:
  *
  * Input:
@@ -62,6 +69,8 @@
  * 2
  * ```
 
+ *
+ * Result: 2
  * ### TIME COMPLEXITY:
  * O(n log n)
  * - Sorting or divide-and-conquer

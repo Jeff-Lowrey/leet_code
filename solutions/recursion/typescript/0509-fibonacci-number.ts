@@ -46,7 +46,10 @@
  * - Base cases prevent infinite recursion
  * - Memoization reduces time complexity from exponential to linear
  *
- * ### EXAMPLE WALKTHROUGH:
+ *
+
+This solution uses iteration for efficient implementation.
+### EXAMPLE WALKTHROUGH:
  * ```
  * Input: n = 4
  * fib(4) = fib(3) + fib(2)
@@ -54,6 +57,8 @@
  * fib(2) = fib(1) + fib(0) = 1 + 0 = 1
  * fib(4) = 2 + 1 = 3
  * ```
+ *
+ * Result: </dt>
  *
  * ### TIME COMPLEXITY:
  * - Naive recursion: O(2^n) - exponential

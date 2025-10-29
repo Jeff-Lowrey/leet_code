@@ -46,7 +46,14 @@ Schedule most frequent tasks first to minimize idle time. Use max-heap to always
 - By scheduling them first with optimal spacing, we minimize total idle time
 - Cooldown queue ensures we respect the n interval
 
+This solution uses hash table lookup for efficient implementation.
+
+This solution uses hash map storage for efficient implementation.
+
+This solution uses array traversal for efficient implementation.
 ### EXAMPLE WALKTHROUGH:
+Given input tasks = ["A","A","A","B","B","B"], n = 2:
+
 Input:
 ```
 tasks = ["A","A","A","B","B","B"], n = 2
@@ -63,6 +70,9 @@ Time 5: idle
 Time 6: A (A done)
 Time 7: B (B done)
 Total: 8 units
+
+
+Result: </dt>
 
 ### TIME COMPLEXITY:
 O(n × m)

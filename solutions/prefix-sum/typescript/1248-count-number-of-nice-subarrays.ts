@@ -58,6 +58,8 @@
  * - Position 4: count=4, need=1, found 1 time
  * Total: 2 nice subarrays
 
+ *
+ * Result: 2
  * ### TIME COMPLEXITY:
  * O(n)
  * Single pass through array with HashMap operations

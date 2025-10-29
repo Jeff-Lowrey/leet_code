@@ -56,7 +56,10 @@
  * - For multiples of 9: 1 + (9k - 1) % 9 = 1 + 8 = 9
  * - For other numbers: returns the remainder when divided by 9
  *
- * ### EXAMPLE WALKTHROUGH:
+ *
+
+This solution uses mathematical pattern recognition for efficient implementation.
+### EXAMPLE WALKTHROUGH:
  * Example: num = 38
  * - Naive: 38 -> 3+8=11 -> 1+1=2
  * - Formula: 1 + (38-1) % 9 = 1 + 37 % 9 = 1 + 1 = 2 ✓
@@ -64,6 +67,8 @@
  * Example: num = 99
  * - Naive: 99 -> 9+9=18 -> 1+8=9
  * - Formula: 1 + (99-1) % 9 = 1 + 98 % 9 = 1 + 8 = 9 ✓
+ *
+ * Result: 2
  *
  * ### TIME COMPLEXITY:
  * **O(1)** - Constant time using mathematical formula

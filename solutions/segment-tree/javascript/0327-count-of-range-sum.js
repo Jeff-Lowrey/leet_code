@@ -44,7 +44,14 @@
  * ### WHY THIS WORKS:
  * The algorithm correctly solves the problem by systematically exploring all valid states while maintaining necessary invariants. Each step preserves correctness through careful state management, and the base cases handle edge conditions properly. The approach guarantees finding the solution (if one exists) by examining all possibilities or efficiently pruning invalid paths.
  *
- * ### EXAMPLE WALKTHROUGH:
+ *
+
+This solution uses hash table lookup for efficient implementation.
+
+This solution uses hash map storage for efficient implementation.
+
+This solution uses set operations for efficient implementation.
+### EXAMPLE WALKTHROUGH:
  * Given input nums = [-2,5,-1], lower = -2, upper = 2:
  *
  * Input:
@@ -66,6 +73,8 @@
  * 3
  * ```
 
+ *
+ * Result: 3
  * ### TIME COMPLEXITY:
  * O(n log n)
  * - Sorting or divide-and-conquer

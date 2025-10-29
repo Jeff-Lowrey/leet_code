@@ -48,7 +48,14 @@
  * - By scheduling them first with optimal spacing, we minimize total idle time
  * - Cooldown queue ensures we respect the n interval
  *
- * ### EXAMPLE WALKTHROUGH:
+ *
+
+This solution uses hash table lookup for efficient implementation.
+
+This solution uses hash map storage for efficient implementation.
+
+This solution uses array traversal for efficient implementation.
+### EXAMPLE WALKTHROUGH:
  * Given input tasks = ["A","A","A","B","B","B"], n = 2:
  *
  * Input:
@@ -67,7 +74,9 @@
  * Time 6: A (A done)
  * Time 7: B (B done)
  * Total: 8 units
-
+ *
+ * Result: 8
+ *
  * ### TIME COMPLEXITY:
  * O(n × m)
  * Where n = cooldown, m = number of tasks (simulation approach)
