@@ -52,9 +52,9 @@ Input:
 Tree:      3
 ```
 
-/   \\
+/   \
 9     20
-/  \\
+/  \
 15   7
 
 Steps:
@@ -67,6 +67,7 @@ Output:
 ```
 [[3], [20, 9], [15, 7]]
 ```
+Output: "Test case 1 passed: Example tree"
 
 ### TIME COMPLEXITY:
 O(n)

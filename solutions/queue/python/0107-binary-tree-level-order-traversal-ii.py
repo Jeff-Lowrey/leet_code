@@ -56,6 +56,7 @@ Tree:      3
 15   7
 Level-order (top-down): [[3], [9, 20], [15, 7]]
 Bottom-up: [[15, 7], [9, 20], [3]]
+Output: "Test case 1 passed: Example tree"
 
 ### TIME COMPLEXITY:
 O(n)

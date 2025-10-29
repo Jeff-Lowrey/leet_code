@@ -47,12 +47,17 @@ Use BFS to process nodes level by level, adding all children of each node to the
 ### EXAMPLE WALKTHROUGH:
 Input:
 ```
+[node3, node2, node4]
+```
+
+Input:
+```
 Tree:        1
 ```
 
-/  |  \\
+/  |  \
 3   2   4
-/ \\
+/ \
 5   6
 Level 0: [1]
 Level 1: [3, 2, 4]
