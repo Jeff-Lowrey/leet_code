@@ -3,29 +3,35 @@
 
 # Difficulty: Easy
 
-Solve the Fibonacci Number problem as described.
+The Fibonacci numbers, commonly denoted F(n) form a sequence, called the Fibonacci sequence,
+such that each number is the sum of the two preceding ones, starting from 0 and 1. That is:
+
+F(0) = 0, F(1) = 1
+F(n) = F(n - 1) + F(n - 2), for n > 1.
+
+Given n, calculate F(n).
 
 **Example:**
- *
+
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>```</dd>
+<dd>n = 4</dd>
 <dt>Output:</dt>
-<dd>```</dd>
+<dd>3</dd>
 <dt>Explanation:</dt>
-<dd>Processing input produces the expected output</dd>
+<dd>F(4) = F(3) + F(2) = 2 + 1 = 3</dd>
 </dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- *
+
 ### METADATA:
-**Techniques**: - Recursion
-**Data Structures**: - Dictionary/HashMap (for memoization)
-**Patterns**: - Top-down recursion with memoization
-**Time Complexity**: **O(n²)**
-**Space Complexity**: **O(1)**
- *
+**Techniques**: Recursion, Memoization, Iteration
+**Data Structures**: Array (for memoization)
+**Patterns**: Base Case Recursion, Top-Down DP
+**Time Complexity**: O(2^n) naive, O(n) with memoization
+**Space Complexity**: O(n) for recursion stack and memoization
+
 ### INTUITION:
 The Fibonacci sequence is the classic example of recursion. Each number is defined
 recursively as the sum of the two preceding numbers, with base cases F(0)=0 and F(1)=1.
@@ -36,29 +42,31 @@ recursively as the sum of the two preceding numbers, with base cases F(0)=0 and 
 3. **Optimization**: Use memoization to avoid redundant calculations
 
 ### WHY THIS WORKS:
-This approach works because it correctly implements the problem requirements.
- *
-### EXAMPLE WALKTHROUGH:
-Input:
-```
-example input
-```
+- The Fibonacci definition is inherently recursive
+- Base cases prevent infinite recursion
+- Memoization reduces time complexity from exponential to linear
 
-Output:
+### EXAMPLE WALKTHROUGH:
 ```
-example output
+Input: n = 4
+fib(4) = fib(3) + fib(2)
+fib(3) = fib(2) + fib(1) = 1 + 1 = 2
+fib(2) = fib(1) + fib(0) = 1 + 0 = 1
+fib(4) = 2 + 1 = 3
 ```
 
 ### TIME COMPLEXITY:
-**O(n²)** - Analysis of time complexity
- *
+- Naive recursion: O(2^n) - exponential
+- With memoization: O(n) - linear
+
 ### SPACE COMPLEXITY:
-**O(1)** - Analysis of space complexity
- *
+O(n) - recursion stack depth
+
 ### EDGE CASES:
-- Handle empty input
-- Handle boundary conditions
- *
+- n = 0: return 0
+- n = 1: return 1
+- Large n: use memoization to avoid timeout
+
 </details>
 """
 

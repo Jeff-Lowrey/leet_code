@@ -1,30 +1,36 @@
 /**
  * # 0509. Fibonacci Number
  *
- * Difficulty: Medium
+ * # Difficulty: Easy
  *
- * Solve the Fibonacci Number problem as described.
+ * The Fibonacci numbers, commonly denoted F(n) form a sequence, called the Fibonacci sequence,
+ * such that each number is the sum of the two preceding ones, starting from 0 and 1. That is:
+ *
+ * F(0) = 0, F(1) = 1
+ * F(n) = F(n - 1) + F(n - 2), for n > 1.
+ *
+ * Given n, calculate F(n).
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>* ```</dd>
+ * <dd>n = 4</dd>
  * <dt>Output:</dt>
- * <dd>* ```</dd>
+ * <dd>3</dd>
  * <dt>Explanation:</dt>
- * <dd>Processing input produces the expected output</dd>
+ * <dd>F(4) = F(3) + F(2) = 2 + 1 = 3</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### METADATA:
- * **Techniques**: * - Recursion
- * **Data Structures**: * - Map (for memoization)
- * **Patterns**: * - Top-down recursion with memoization
- * **Time Complexity**: **O(n²)**
- * **Space Complexity**: **O(n)**
+ * **Techniques**: Recursion, Memoization, Iteration
+ * **Data Structures**: Array (for memoization)
+ * **Patterns**: Base Case Recursion, Top-Down DP
+ * **Time Complexity**: O(2^n) naive, O(n) with memoization
+ * **Space Complexity**: O(n) for recursion stack and memoization
  *
  * ### INTUITION:
  * The Fibonacci sequence is the classic example of recursion. Each number is defined

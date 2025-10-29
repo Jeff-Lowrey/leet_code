@@ -1,30 +1,38 @@
 /**
  * # 0498. Diagonal Traverse
  *
- * Difficulty: Medium
+ * # Difficulty: Medium
  *
- * Solve the Diagonal Traverse problem as described.
+ * Given an m x n matrix mat, return an array of all the elements of the array in a diagonal order.
+ *
+ * Example 1:
+ * Input: mat = [[1,2,3],[4,5,6],[7,8,9]]
+ * Output: [1,2,4,7,5,3,6,8,9]
+ *
+ * Example 2:
+ * Input: mat = [[1,2],[3,4]]
+ * Output: [1,2,3,4]
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>* ```</dd>
+ * <dd>[[1, 2, 3], [4, 5, 6], [7, 8, 9]]</dd>
  * <dt>Output:</dt>
- * <dd>* ```</dd>
+ * <dd>[1,2,4,7,5,3,6,8,9]</dd>
  * <dt>Explanation:</dt>
- * <dd>Processing input produces the expected output</dd>
+ * <dd>Diagonal traversal of [[1,2,3],[4,5,6],[7,8,9]] is [1,2,4,7,5,3,6,8,9]</dd>
  * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### METADATA:
- * **Techniques**: Simulation, Direction control
+ * **Techniques**: Simulation, Direction control, Diagonal traversal
  * **Data Structures**: Matrix, Array
- * **Patterns**: Diagonal pattern
- * **Time Complexity**: **O(n²)**
- * **Space Complexity**: **O(n)**
+ * **Patterns**: Diagonal pattern, Zigzag traversal
+ * **Time Complexity**: O(m × n)
+ * **Space Complexity**: O(1) - Constant extra space
  *
  * ### INTUITION:
  * Elements on the same diagonal have the same sum of row + column indices.
