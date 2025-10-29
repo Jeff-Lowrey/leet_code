@@ -47,6 +47,11 @@ Alternative: Use recursion with memoization without Trie (checking against word 
 ### EXAMPLE WALKTHROUGH:
 Input:
 ```
+["cat", "cats", "and", "sand", "dog"]
+```
+
+Input:
+```
 s = "catsanddog", wordDict = ["cat","cats","and","sand","dog"]
 ```
 

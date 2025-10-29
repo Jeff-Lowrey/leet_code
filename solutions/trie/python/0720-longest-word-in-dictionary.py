@@ -47,6 +47,11 @@ We need to find the longest word where all its prefixes exist as words in the di
 ### EXAMPLE WALKTHROUGH:
 Input:
 ```
+["w", "wo", "wor", "worl", "world"]
+```
+
+Input:
+```
 words = ["w","wo","wor","worl","world"]
 ```
 
@@ -87,7 +92,7 @@ Where N is number of words, L is average word length
 - DFS traversal: O(N * L)
 
 ### SPACE COMPLEXITY:
-O(N * L)
+O(N * L) - Trie storage for all words, where N is number of words and L is average word length
 
 ### EDGE CASES:
 - Empty word list

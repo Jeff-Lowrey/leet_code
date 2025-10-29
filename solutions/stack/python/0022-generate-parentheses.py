@@ -45,6 +45,11 @@ Use backtracking to build valid parentheses strings. At each step, we can add '(
 ### EXAMPLE WALKTHROUGH:
 Input:
 ```
+["()"]
+```
+
+Input:
+```
 n = 3:
 ```
 

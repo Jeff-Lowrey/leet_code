@@ -43,6 +43,11 @@ This is a topological sort problem where we need to check if there's a unique to
 ### EXAMPLE WALKTHROUGH:
 Input:
 ```
+[1, 2, 3]
+```
+
+Input:
+```
 org = [1,2,3], seqs = [[1,2],[1,3],[2,3]]
 ```
 

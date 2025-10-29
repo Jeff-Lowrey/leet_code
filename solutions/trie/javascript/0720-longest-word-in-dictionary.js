@@ -89,7 +89,7 @@
  * - DFS traversal: O(N * L)
  *
  * ### SPACE COMPLEXITY:
- * O(N * L)
+ * O(N * L) - Trie storage for all words, where N is number of words and L is average word length
 
  * ### EDGE CASES:
  * - Empty word list

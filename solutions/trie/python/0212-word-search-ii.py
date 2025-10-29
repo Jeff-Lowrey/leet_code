@@ -47,6 +47,11 @@ Searching for multiple words on a board can be optimized using a Trie. Instead o
 ### EXAMPLE WALKTHROUGH:
 Input:
 ```
+[["o", "a", "a", "n"]
+```
+
+Input:
+```
 board = [["o","a","a","n"],
 ```
 

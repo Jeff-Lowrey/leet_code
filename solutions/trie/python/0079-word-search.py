@@ -50,6 +50,11 @@ Optional Trie optimization: Pre-check if word's prefix exists (useful for multip
 ### EXAMPLE WALKTHROUGH:
 Input:
 ```
+[["A", "B", "C", "E"]
+```
+
+Input:
+```
 board = [['A','B','C','E'],
 ```
 
