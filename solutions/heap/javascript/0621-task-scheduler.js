@@ -49,6 +49,8 @@
  * - Cooldown queue ensures we respect the n interval
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Given input tasks = ["A","A","A","B","B","B"], n = 2:
+ *
  * Input:
  * ```
  * tasks = ["A","A","A","B","B","B"], n = 2

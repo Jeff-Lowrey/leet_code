@@ -54,6 +54,8 @@
  * - **Heap Sort**: Guaranteed O(n log n), in-place, not stable
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Given input nums = [5,2,3,1]:
+ *
  * Input:
  * ```
  * nums = [5,2,3,1]
