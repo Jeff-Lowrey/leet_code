@@ -46,6 +46,11 @@ Since the majority element appears more than n/2 times, it will always "survive"
 ### EXAMPLE WALKTHROUGH:
 Input:
 ```
+[2, 2, 1, 1, 1, 2, 2]
+```
+
+Input:
+```
 [2,2,1,1,1,2,2]
 ```
 

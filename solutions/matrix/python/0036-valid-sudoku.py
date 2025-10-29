@@ -51,6 +51,11 @@ The box index formula maps each cell to one of 9 boxes (0-8).
 ### EXAMPLE WALKTHROUGH:
 Input:
 ```
+[["5", "3", ".", ".", "7", ".", ".", ".", "."]
+```
+
+Input:
+```
 For cell (0, 0) = "5":
 ```
 

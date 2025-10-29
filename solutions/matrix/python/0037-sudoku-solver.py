@@ -47,6 +47,11 @@ valid digit can be placed.
 ### EXAMPLE WALKTHROUGH:
 Input:
 ```
+[["5", "3", ".", ".", "7", ".", ".", ".", "."]
+```
+
+Input:
+```
 board with some filled cells and '.' for empty
 ```
 

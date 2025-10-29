@@ -63,6 +63,11 @@ Instead of performing k individual shifts, we can calculate final positions dire
 ### EXAMPLE WALKTHROUGH:
 Input:
 ```
+[[1, 2, 3]
+```
+
+Input:
+```
 grid = [[1,2,3],[4,5,6],[7,8,9]], k = 1, m = 3, n = 3, total = 9
 ```
 

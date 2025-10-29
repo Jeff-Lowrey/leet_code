@@ -60,6 +60,11 @@ Use the same boundary-tracking technique, filling the matrix layer by layer from
 ### EXAMPLE WALKTHROUGH:
 Input:
 ```
+[[1, 2, 3]
+```
+
+Input:
+```
 n = 3, total = 9
 ```
 

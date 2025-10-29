@@ -40,6 +40,11 @@ The algorithm correctly solves the problem by systematically exploring all valid
 ### EXAMPLE WALKTHROUGH:
 Input:
 ```
+[2, 1, 4, 3]
+```
+
+Input:
+```
 1->2->3->4->NULL
 ```
 

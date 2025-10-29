@@ -45,6 +45,11 @@ Cannot modify matrix while iterating as it affects future decisions. Need to mar
 ### EXAMPLE WALKTHROUGH:
 Input:
 ```
+[[1, 1, 1]
+```
+
+Input:
+```
 [1, 1, 1]
 ```
 
