@@ -16,9 +16,9 @@
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[[2, 5, 3, 4, 1]</dd>
+ * <dd>[2, 5, 3, 4, 1]</dd>
  * <dt>Output:</dt>
- * <dd>"\nInput: rating = {rating}"</dd>
+ * <dd>3</dd>
  * <dt>Explanation:</dt>
  * <dd>There are 3 valid teams of soldiers with increasing or decreasing heights</dd>
  * </dl>

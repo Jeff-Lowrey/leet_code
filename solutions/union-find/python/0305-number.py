@@ -54,6 +54,11 @@ Maintain Union-Find of islands. For each land operation, union with adjacent lan
 ### EXAMPLE WALKTHROUGH:
 Input:
 ```
+[[0, 0]
+```
+
+Input:
+```
 m = 3, n = 3, positions = [[0,0],[0,1],[1,2],[2,1]]
 ```
 
@@ -69,6 +74,7 @@ Output:
 ```
 [1,1,2,3]
 ```
+Output: "Test 1 Result: {result1}"
 
 ### TIME COMPLEXITY:
 O(n)

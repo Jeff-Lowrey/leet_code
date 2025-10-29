@@ -46,6 +46,11 @@ This is a classic Union-Find cycle detection problem. In a tree with n nodes, th
 ### EXAMPLE WALKTHROUGH:
 Input:
 ```
+[[1, 2]
+```
+
+Input:
+```
 edges = [[1,2],[1,3],[2,3]]
 ```
 

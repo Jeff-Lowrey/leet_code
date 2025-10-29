@@ -47,6 +47,11 @@ This is a classic Union-Find problem where we need to group accounts that belong
 ### EXAMPLE WALKTHROUGH:
 Input:
 ```
+[["John", "johnsmith@mail.com", "john_newyork@mail.com"]
+```
+
+Input:
+```
 [["John","johnsmith@mail.com","john_newyork@mail.com"],
 ```
 
