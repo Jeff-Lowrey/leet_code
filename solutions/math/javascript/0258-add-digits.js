@@ -1,60 +1,80 @@
 /**
  * # 0258. Add Digits
  *
- * Difficulty: Medium
+ * Difficulty: Easy
  *
- * Solve the Add Digits problem as described.
+ * Given an integer num, repeatedly add all its digits until the result has only one digit, and return it.
  *
- * **Example:**
+ * **Example 1:**
+ * Input: num = 38
+ * Output: 2
+ * Explanation: The process is:
+ * 38 --> 3 + 8 --> 11
+ * 11 --> 1 + 1 --> 2
+ * Since 2 has only one digit, return it.
  *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>* ```</dd>
- * <dt>Output:</dt>
- * <dd>* ```</dd>
- * <dt>Explanation:</dt>
- * <dd>Processing input produces the expected output</dd>
- * </dl>
+ * **Example 2:**
+ * Input: num = 0
+ * Output: 0
+ *
+ * **Constraints:**
+ * - 0 <= num <= 2^31 - 1
+ *
+ * **Follow up:** Could you do it without any loop/recursion in O(1) runtime?
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### METADATA:
- * **Techniques**: * - Digital root formula
- * **Data Structures**: * - Integer operations
- * **Patterns**: * - Digital root
- * **Time Complexity**: **O(n²)**
- * **Space Complexity**: **O(1)**
+ * **Techniques**: Digital root formula, Mathematical pattern recognition, Modulo arithmetic
+ * **Data Structures**: Integer operations
+ * **Patterns**: Digital root, Mathematical optimization
+ * **Time Complexity**: O(1)
+ * **Space Complexity**: O(1)
  *
  * ### INTUITION:
- * The key insight is to solve this problem efficiently.
+ * The key insight is recognizing the digital root pattern. When you repeatedly add digits
+ * until you get a single digit, the result follows a mathematical pattern related to the
+ * number modulo 9. This is because in base 10, a number has the same remainder when divided
+ * by 9 as the sum of its digits (this is the basis of the divisibility rule for 9).
  *
  * ### APPROACH:
- * We solve this problem by implementing the required algorithm.
+ * 1. Naive approach: Loop and sum digits until single digit
+ * 2. Optimized approach: Use digital root formula
+ *    - If num == 0, return 0
+ *    - If num % 9 == 0, return 9
+ *    - Otherwise, return num % 9
+ *    - This can be simplified to: 1 + (num - 1) % 9
  *
  * ### WHY THIS WORKS:
- * This approach works because it correctly implements the problem requirements.
+ * The digital root of a positive integer is obtained by iteratively summing digits until
+ * a single digit is reached. This result is congruent to the number modulo 9, with the
+ * exception that if the result is 0 (and the number is not 0), we return 9 instead.
+ *
+ * The formula 1 + (num - 1) % 9 handles all cases:
+ * - For num = 0: 1 + (-1) % 9 = 1 + (-1) = 0 (but we handle this separately)
+ * - For multiples of 9: 1 + (9k - 1) % 9 = 1 + 8 = 9
+ * - For other numbers: returns the remainder when divided by 9
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * example input
- * ```
+ * Example: num = 38
+ * - Naive: 38 -> 3+8=11 -> 1+1=2
+ * - Formula: 1 + (38-1) % 9 = 1 + 37 % 9 = 1 + 1 = 2 ✓
  *
- * Output:
- * ```
- * example output
- * ```
-
+ * Example: num = 99
+ * - Naive: 99 -> 9+9=18 -> 1+8=9
+ * - Formula: 1 + (99-1) % 9 = 1 + 98 % 9 = 1 + 8 = 9 ✓
+ *
  * ### TIME COMPLEXITY:
- * **O(n²)** - Analysis of time complexity
+ * **O(1)** - Constant time using mathematical formula
  *
  * ### SPACE COMPLEXITY:
- * **O(1)** - Analysis of space complexity
+ * **O(1)** - Only using a few variables
  *
  * ### EDGE CASES:
- * - Handle empty input
- * - Handle boundary conditions
+ * - num = 0: Returns 0
+ * - Multiples of 9: Return 9 (not 0)
+ * - Large numbers (up to 2^31 - 1): Formula works regardless of size
  *
  * </details>
  */
