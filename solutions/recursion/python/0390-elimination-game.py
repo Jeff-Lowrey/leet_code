@@ -3,59 +3,102 @@
 
 # Difficulty: Medium
 
-Solve the Elimination Game problem as described.
+You have a list arr of all integers in the range [1, n] sorted in a strictly increasing order.
+Apply the following algorithm on arr:
 
-**Example:**
- *
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>```</dd>
-<dt>Output:</dt>
-<dd>```</dd>
-<dt>Explanation:</dt>
-<dd>Processing input produces the expected output</dd>
-</dl>
+- Starting from left to right, remove the first number and every other number afterward until
+  you reach the end of the list.
+- Repeat the previous step again, but this time from right to left, remove the rightmost number
+  and every other number from the remaining numbers.
+- Keep repeating the steps again, alternating left to right and right to left, until a single
+  number remains.
+
+Given the integer n, return the last number that remains in arr.
+
+**Example 1:**
+Input: n = 9
+Output: 6
+Explanation:
+arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+arr = [2, 4, 6, 8]
+arr = [2, 6]
+arr = [6]
+
+**Example 2:**
+Input: n = 1
+Output: 1
+
+**Constraints:**
+- 1 <= n <= 10^9
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- *
-### METADATA:
-**Techniques**: - Recursion
-**Data Structures**: - None (pure mathematical solution)
-**Patterns**: - Elimination pattern
-**Time Complexity**: **O(n²)**
-**Space Complexity**: **O(1)**
- *
-### INTUITION:
-The key insight is to solve this problem efficiently.
- *
-### APPROACH:
-We solve this problem by implementing the required algorithm.
- *
-### WHY THIS WORKS:
-This approach works because it correctly implements the problem requirements.
- *
-### EXAMPLE WALKTHROUGH:
-Input:
-```
-example input
-```
 
-Output:
-```
-example output
-```
+### METADATA:
+**Techniques**: Recursion, Mathematical pattern recognition, State tracking
+**Data Structures**: None (pure mathematical solution)
+**Patterns**: Elimination pattern, Recursive state reduction, Mathematical optimization
+**Time Complexity**: O(log n)
+**Space Complexity**: O(log n) for recursion stack (can be optimized to O(1) iteratively)
+
+### INTUITION:
+Instead of simulating the elimination process (which would be O(n) time and space), we can
+observe patterns in how the "head" (leftmost element) changes after each elimination round.
+The key insight is that we only need to track:
+1. The current head (leftmost remaining number)
+2. The step size (distance between remaining numbers)
+3. The direction (left-to-right or right-to-left)
+4. The remaining count
+
+### APPROACH:
+We track the head of the remaining sequence. The head changes when:
+- We're going left-to-right (always updates)
+- We're going right-to-left AND the count is odd (head updates)
+
+After each round:
+- Step size doubles (numbers are now twice as far apart)
+- Count becomes count // 2 (half the numbers remain)
+- Direction alternates
+
+### WHY THIS WORKS:
+When eliminating from left-to-right, the head always moves to the next position.
+When eliminating from right-to-left, the head only moves if there's an odd number
+of elements (because we'd eliminate the current head's partner). The step size
+doubles each round because we're eliminating every other element.
+
+### EXAMPLE WALKTHROUGH:
+n = 9, arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+Round 1 (L->R): head=1, step=1, count=9, left_to_right=True
+  Eliminate: 1, 3, 5, 7, 9
+  Remaining: [2, 4, 6, 8]
+  New head: 2 (head + step = 1 + 1 = 2)
+  New step: 2, count: 4, direction: R->L
+
+Round 2 (R->L): head=2, step=2, count=4, left_to_right=False
+  Eliminate: 8, 4
+  Remaining: [2, 6]
+  Head stays 2 (count is even)
+  New step: 4, count: 2, direction: L->R
+
+Round 3 (L->R): head=2, step=4, count=2, left_to_right=True
+  Eliminate: 2
+  Remaining: [6]
+  New head: 2 + 4 = 6
+
+Result: 6
 
 ### TIME COMPLEXITY:
-**O(n²)** - Analysis of time complexity
- *
+**O(log n)** - Each round eliminates half the numbers, similar to binary search
+
 ### SPACE COMPLEXITY:
-**O(1)** - Analysis of space complexity
- *
+**O(log n)** - Recursion stack depth (iterative solution can achieve O(1))
+
 ### EDGE CASES:
-- Handle empty input
-- Handle boundary conditions
- *
+- Single element (n = 1): Returns 1 immediately
+- Power of 2: Special pattern in result
+- Large n (up to 10^9): Must use O(log n) algorithm, not simulation
+
 </details>
 """
 
