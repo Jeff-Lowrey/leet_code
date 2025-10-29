@@ -89,8 +89,8 @@ class Solution {
     candidate1 = candidate2 = null
     for u, v in edges:
     if (parent.has(v)) {
-    candidate1 = [parent.get(v), v]  # First edge
-    candidate2 = [u, v]  # Second edge
+    candidate1 = [parent.get(v), v]  // First edge
+    candidate2 = [u, v]  // Second edge
   }
 }
 

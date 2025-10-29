@@ -1,6 +1,7 @@
 /**
- * # Difficulty: Easy
+# 0110. Problem
  * 
+ * # Difficulty: Easy
  * # 0110. Balanced Binary Tree
  * 
  * Given a binary tree, determine if it is height-balanced.

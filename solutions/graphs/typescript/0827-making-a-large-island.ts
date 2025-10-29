@@ -1,6 +1,7 @@
 /**
- * # Difficulty: Hard
+# 0827. Problem
  * 
+ * # Difficulty: Hard
  * # 0827. Making A Large Island
  * 
  * You are given an n x n binary matrix grid. You are allowed to change at most one 0 to a 1.
@@ -13,7 +14,7 @@
  * 
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[[1,0]</dd>
+ * <dd>[[1,0]]</dd>
  * <dt>Output:</dt>
  * <dd>1</dd>
  * <dt>Explanation:</dt>
@@ -96,7 +97,7 @@ class Solution {
     // Implementation
     n = grid.length
     directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]
-    island_id = 2  # Start from 2 (since 0=water, 1=unlabeled land)
+    island_id = 2  // Start from 2 (since 0=water, 1=unlabeled land)
     island_sizes: dict[Any, Any] = {}
     def dfs(r: Any, c: Any, island_id: Any) -> Any:
     """DFS to label island and return its size."""

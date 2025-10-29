@@ -18,7 +18,7 @@ Return the modified image after performing the flood fill.
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[[1,1,1]</dd>
+<dd>[[1,1,1]]</dd>
 <dt>Output:</dt>
 <dd>1</dd>
 <dt>Explanation:</dt>

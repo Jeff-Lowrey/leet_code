@@ -10,7 +10,7 @@ Solve a Sudoku puzzle by filling the empty cells.
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[["5", "3", ".", ".", "7", ".", ".", ".", "."]</dd>
+<dd>[["5", "3", ".", ".", "7", ".", ".", ".", "."]]</dd>
 <dt>Output:</dt>
 <dd>1</dd>
 <dt>Explanation:</dt>

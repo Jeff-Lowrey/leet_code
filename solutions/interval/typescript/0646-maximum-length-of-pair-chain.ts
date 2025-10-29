@@ -100,8 +100,8 @@ class Solution {
     if not pairs:
     return 0
     pairs.sort(key=lambda x: x.get(1))
-    current_end = float("-inf")  # Track the end of current chain
-    chain_length = 0  # Track the length of chain
+    current_end = float("-inf")  // Track the end of current chain
+    chain_length = 0  // Track the length of chain
   }
 }
 

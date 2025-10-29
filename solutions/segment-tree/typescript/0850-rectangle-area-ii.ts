@@ -13,7 +13,7 @@
  * 
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[[[0, 0, 2, 2]</dd>
+ * <dd>[[[0, 0, 2, 2]]]</dd>
  * <dt>Output:</dt>
  * <dd>"\nInput: {rectangles}"</dd>
  * <dt>Explanation:</dt>

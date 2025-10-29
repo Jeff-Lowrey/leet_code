@@ -24,7 +24,7 @@ Output: [[12,0,21,13],[3,8,1,9],[19,7,2,5],[4,6,11,10]]
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[[1, 2, 3]</dd>
+<dd>[[1, 2, 3]]</dd>
 <dt>Output:</dt>
 <dd>1</dd>
 <dt>Explanation:</dt>

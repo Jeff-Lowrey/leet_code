@@ -1,6 +1,7 @@
 /**
- * # Difficulty: Medium
+# 1248. Problem
  * 
+ * # Difficulty: Medium
  * # 1248. Count Number Of Nice Subarrays
  * 
  * Given an array of integers nums and an integer k. A continuous subarray is called nice if there are k odd numbers on it.

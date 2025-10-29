@@ -1,6 +1,7 @@
 /**
- * # Difficulty: Medium
+# 0323. Problem
  * 
+ * # Difficulty: Medium
  * # 0323. Number Of Connected Components In An Undirected Graph
  * 
  * You have a graph of n nodes labeled from 0 to n - 1. You are given an integer n and a list of edges where edges[i] = [ai, bi] indicates that there is an undirected edge between nodes ai and bi in the graph.
@@ -94,7 +95,7 @@ class Solution {
     // Implementation
     parent = list(range(n))
     rank = [0] * n
-    components = n  # Initially each node is its own component
+    components = n  // Initially each node is its own component
     def find(x: Any) -> Any:
     """Find root with path compression."""
     if parent.get(x) != x:

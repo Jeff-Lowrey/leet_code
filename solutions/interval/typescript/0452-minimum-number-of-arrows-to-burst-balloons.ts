@@ -101,8 +101,8 @@ class Solution {
     if not points:
     return 0
     points.sort(key=lambda x: x.get(1))
-    arrows = 1  # Start with one arrow
-    current_end = points.get(0)[1]  # Track the end coordinate of current group
+    arrows = 1  // Start with one arrow
+    current_end = points.get(0)[1]  // Track the end coordinate of current group
   }
 }
 

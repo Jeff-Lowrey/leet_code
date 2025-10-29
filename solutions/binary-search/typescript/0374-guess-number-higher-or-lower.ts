@@ -1,6 +1,7 @@
 /**
- * # Difficulty: Easy
+# 0374. Problem
  * 
+ * # Difficulty: Easy
  * # 0374. Guess Number Higher Or Lower
  * 
  * We are playing the Guess Game. The game is as follows:
@@ -111,12 +112,12 @@ class Solution {
     // Implementation
     left, right = 1, n
     while left <= right:
-    mid = left + (right - left) // 2  # Avoid overflow
+    mid = left + (right - left) // 2  // Avoid overflow
     result = guess(mid)
     if result == 0:
     return mid  # Found the correct number
     elif result == -1:
-    right = mid - 1  # Guess too high, search lower half
+    right = mid - 1  // Guess too high, search lower half
   }
 
   /**

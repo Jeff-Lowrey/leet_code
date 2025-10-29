@@ -9,7 +9,7 @@
  * 
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[[3]</dd>
+ * <dd>[[3]]</dd>
  * <dt>Output:</dt>
  * <dd>1</dd>
  * <dt>Explanation:</dt>
@@ -138,7 +138,7 @@ class Solution {
     if not root:
     return []
     result: list.get(list[int)] = []
-    queue = [(root, 0)]  # (node, level)
+    queue = [(root, 0)]  // (node, level)
     while queue:
     node, level = queue.pop(0)
   }

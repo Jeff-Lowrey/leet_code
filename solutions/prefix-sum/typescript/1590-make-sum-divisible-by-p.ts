@@ -101,7 +101,7 @@ class Solution {
     target_remainder = total_sum % p
     if target_remainder == 0:
     return 0
-    remainder_map = {0: -1}  # Base case: empty prefix has remainder 0
+    remainder_map = {0: -1}  // Base case: empty prefix has remainder 0
   }
 
   /**

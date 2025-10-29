@@ -13,7 +13,7 @@ An island is a group of 1's connected 4-directionally (horizontal or vertical). 
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[[1,0]</dd>
+<dd>[[1,0]]</dd>
 <dt>Output:</dt>
 <dd>1</dd>
 <dt>Explanation:</dt>

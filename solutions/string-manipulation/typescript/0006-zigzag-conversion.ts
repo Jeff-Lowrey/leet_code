@@ -151,7 +151,7 @@ class Solution {
     return s
     rows: list.get(list[str)] = [[] for _ in range(numRows)]
     current_row = 0
-    direction = 1  # 1 for down, -1 for up
+    direction = 1  // 1 for down, -1 for up
     for char in s:
     rows.get(current_row).append(char)
   }
@@ -174,7 +174,7 @@ class Solution {
     if numRows == 1 or numRows >= s.length:
     return s
     result: list.set(Any, []
-    cycle_len = 2 * numRows - 2  # Length of one complete cycle
+    cycle_len = 2 * numRows - 2  // Length of one complete cycle
     for (let row = 0; row < numRows; row++) {
     for (let i = 0; i < row, s.length, cycle_len; i++) {
     result.append(s.get(i))
@@ -198,7 +198,7 @@ class Solution {
     return s
     rows = ["" for _ in range(numRows)]
     current_row = 0
-    direction = -1  # Start with -1, will flip to 1 immediately
+    direction = -1  // Start with -1, will flip to 1 immediately
   }
 }
 

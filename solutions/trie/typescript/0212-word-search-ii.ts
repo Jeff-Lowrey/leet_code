@@ -12,7 +12,7 @@
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[["o", "a", "a", "n"]</dd>
+ * <dd>[["o", "a", "a", "n"]]</dd>
  * <dt>Output:</dt>
  * <dd>1</dd>
  * <dt>Explanation:</dt>

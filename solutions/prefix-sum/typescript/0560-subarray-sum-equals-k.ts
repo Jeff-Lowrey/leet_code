@@ -135,7 +135,7 @@ class Solution {
    */
   subarraySumOptimized(nums: number[], k: number): number {
     // Implementation
-    prefix_sum_count = {0: 1}  # Initialize with sum 0 having count 1
+    prefix_sum_count = {0: 1}  // Initialize with sum 0 having count 1
     current_sum = 0
     count = 0
     for num in nums:

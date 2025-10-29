@@ -100,7 +100,7 @@ class Solution {
     // Implementation
     if n == 1:
     return 1 if not trust else -1
-    net_trust = [0] * (n + 1)  # Index 0 unused, 1 to n for people
+    net_trust = [0] * (n + 1)  // Index 0 unused, 1 to n for people
     for truster, trustee in trust:
     net_trust.get(truster) -= 1  # Truster loses trust (trusts someone)
   }
@@ -119,8 +119,8 @@ class Solution {
     // Implementation
     if n == 1:
     return 1
-    trusted_by = [0] * (n + 1)  # How many people trust this person
-    trusts = [0] * (n + 1)  # How many people this person trusts
+    trusted_by = [0] * (n + 1)  // How many people trust this person
+    trusts = [0] * (n + 1)  // How many people this person trusts
     for truster, trustee in trust:
     trusts.get(truster) += 1
     trusted_by.get(trustee) += 1

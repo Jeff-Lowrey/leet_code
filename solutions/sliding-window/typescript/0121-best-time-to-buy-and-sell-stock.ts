@@ -116,8 +116,8 @@ class Solution {
     // Implementation
     if not prices or prices.length < 2:
     return 0
-    left = 0  # Buy pointer
-    right = 1  # Sell pointer
+    left = 0  // Buy pointer
+    right = 1  // Sell pointer
     max_profit = 0
     while right < prices.length:
     if prices.get(left) < prices.get(right):

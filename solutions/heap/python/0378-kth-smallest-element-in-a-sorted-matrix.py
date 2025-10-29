@@ -13,7 +13,7 @@ You must find a solution with a memory complexity better than O(n²).
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[[1, 5, 9]</dd>
+<dd>[[1, 5, 9]]</dd>
 <dt>Output:</dt>
 <dd>1</dd>
 <dt>Explanation:</dt>

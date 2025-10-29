@@ -1,6 +1,7 @@
 /**
- * # Difficulty: Hard
+# 0493. Problem
  * 
+ * # Difficulty: Hard
  * # 0493. Reverse Pairs
  * 
  * Given an integer array nums, return the number of reverse pairs in the array.
@@ -13,7 +14,7 @@
  * 
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[[1, 3, 2, 3, 1]</dd>
+ * <dd>[[1, 3, 2, 3, 1]]</dd>
  * <dt>Output:</dt>
  * <dd>"\nInput: nums"</dd>
  * <dt>Explanation:</dt>

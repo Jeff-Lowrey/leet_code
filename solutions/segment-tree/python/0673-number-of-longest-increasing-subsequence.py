@@ -11,7 +11,7 @@ Notice that the sequence has to be strictly increasing.
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[[1, 3, 5, 4, 7]</dd>
+<dd>[[1, 3, 5, 4, 7]]</dd>
 <dt>Output:</dt>
 <dd>"\nInput: nums"</dd>
 <dt>Explanation:</dt>

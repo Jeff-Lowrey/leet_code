@@ -11,7 +11,7 @@
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[[15, 7]</dd>
+ * <dd>[[15, 7]]</dd>
  * <dt>Output:</dt>
  * <dd>"Test case 1 passed: Example tree"</dd>
  * <dt>Explanation:</dt>

@@ -148,7 +148,7 @@ class Solution {
     // Implementation
     if not root:
     return 0
-    stack = [(root, 1)]  # (node, current_depth)
+    stack = [(root, 1)]  // (node, current_depth)
     max_depth = 0
     while stack:
     node, current_depth = stack.pop()
@@ -205,7 +205,7 @@ function runTests(): void {
   console.log(`\nmaxDepth([1]) -> {result2}`)
   # Example 3: Empty tree
   tree3 = null
-  result3 = solution.maxDepth(tree3)  # type: ignore
+  result3 = solution.maxDepth(tree3)  // type: ignore
   console.log(`maxDepth([]) -> {result3}`)
   # Example 4: Algorithm comparison
   console.log(`\nAlgorithm comparison:`)

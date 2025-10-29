@@ -1,6 +1,7 @@
 /**
- * # Difficulty: Medium
+# 0305. Problem
  * 
+ * # Difficulty: Medium
  * # 0305. Number of Islands II
  * 
  * You are given an empty 2D binary grid grid of size m x n. The grid represents a map where 0's represent water and 1's represent land. Initially, all the cells of grid are water cells (i.e., all the cells are 0's).
@@ -15,7 +16,7 @@
  * 
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[[0, 0]</dd>
+ * <dd>[[0, 0]]</dd>
  * <dt>Output:</dt>
  * <dd>"Test 1 Result: {result1}"</dd>
  * <dt>Explanation:</dt>

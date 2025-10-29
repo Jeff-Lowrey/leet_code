@@ -12,7 +12,7 @@
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[[5, 0]</dd>
+ * <dd>[[5, 0]]</dd>
  * <dt>Output:</dt>
  * <dd>1</dd>
  * <dt>Explanation:</dt>

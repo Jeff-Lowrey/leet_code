@@ -13,7 +13,7 @@ After merging the accounts, return the accounts in the following format: the fir
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[["John", "johnsmith@mail.com", "john_newyork@mail.com"]</dd>
+<dd>[["John", "johnsmith@mail.com", "john_newyork@mail.com"]]</dd>
 <dt>Output:</dt>
 <dd>1</dd>
 <dt>Explanation:</dt>

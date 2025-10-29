@@ -12,7 +12,7 @@
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[["A", "B", "C", "E"]</dd>
+ * <dd>[["A", "B", "C", "E"]]</dd>
  * <dt>Output:</dt>
  * <dd>1</dd>
  * <dt>Explanation:</dt>

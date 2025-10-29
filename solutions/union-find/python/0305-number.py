@@ -15,7 +15,7 @@ An island is surrounded by water and is formed by connecting adjacent lands hori
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[[0, 0]</dd>
+<dd>[[0, 0]]</dd>
 <dt>Output:</dt>
 <dd>"Test 1 Result: {result1}"</dd>
 <dt>Explanation:</dt>

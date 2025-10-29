@@ -10,7 +10,7 @@ Given the root of a binary tree, return the zigzag level order traversal of its 
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[[3]</dd>
+<dd>[[3]]</dd>
 <dt>Output:</dt>
 <dd>"Test case 1 passed: Example tree"</dd>
 <dt>Explanation:</dt>

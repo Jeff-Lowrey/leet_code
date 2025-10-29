@@ -96,7 +96,7 @@ class Solution {
   minimumSemesters(n: number, relations: any): number {
     // Implementation
     graph: dict.get(Any, list[Any)] = defaultdict(list)
-    in_degree = [0] * (n + 1)  # +1 because courses are 1-indexed
+    in_degree = [0] * (n + 1)  // +1 because courses are 1-indexed
     for prev, next in relations:
     graph.get(prev).append(next)
     in_degree.get(next) += 1
