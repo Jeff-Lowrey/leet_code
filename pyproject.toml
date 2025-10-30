@@ -10,8 +10,20 @@ dependencies = [
     "pygments>=2.17.0",
 ]
 
+[[project.authors]]
+name = "Jeff Lowrey"
+email = "jeff@jaral.org"
+
+[project.license]
+file = "LICENSE"
+
+[project.urls]
+Documentation = "https://github.com/Jeff-Lowrey/leet_code#readme"
+Issues = "https://github.com/Jeff-Lowrey/leet_code/issues"
+Source = "https://github.com/Jeff-Lowrey/leet_code"
+
 [build-system]
-requires = [ "pdm-backend",]
+requires = [ "pdm-backend[uv]",]
 build-backend = "pdm.backend"
 
 [dependency-groups]
@@ -79,6 +91,30 @@ allow_redefinition = true
 
 [tool.pdm]
 distribution = false
+package-mode = false
+installer = "uv"
+
+[tool.pdm.dev-dependencies]
+
+[tool.pdm.resolution]
+resolver = "uv"
+
+[tool.pdm.python]
+use_venv = true
+
+[tool.pdm.build]
+includes = ["src"]
+
+[tool.pdm.scripts]
+dev = "python -m pip install -e ."
+flask = "python -m flask run"
+test = "pytest"
+lint = "ruff check src/ --fix"
+lint-check = "ruff check src/"
+format = "ruff format src/ tests/"
+format-check = "ruff format --check src/ tests/"
+typecheck = "mypy src/"
+security = "bandit -c pyproject.toml -r src/"
 
 [tool.ruff.lint]
 select = [ "E", "F", "I", "N", "UP", "B", "C4", "SIM",]
@@ -104,17 +140,6 @@ exclude_dirs = [
 skips = ["B101"]  # assert_used - OK in tests
 severity_level = "medium"
 confidence_level = "medium"
-
-[tool.pdm.scripts]
-dev = "python -m pip install -e ."
-flask = "python -m flask run"
-test = "pytest"
-lint = "ruff check src/ --fix"
-lint-check = "ruff check src/"
-format = "ruff format src/ tests/"
-format-check = "ruff format --check src/ tests/"
-typecheck = "mypy src/"
-security = "bandit -c pyproject.toml -r src/"
 
 [tool.coverage.run]
 omit = [ "tests/*", "*/tests/*", "*/__pycache__/*", "*/.venv/*",]
