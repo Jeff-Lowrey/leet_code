@@ -49,7 +49,7 @@ We need to interleave smaller and larger halves to avoid adjacent equal elements
 ### EXAMPLE WALKTHROUGH:
 **Input:** nums = [1,5,1,1,6,4]
 
-**Step 1:** Find median - Sort the array
+**Step 1:** Find median - Sort the input array [1,5,1,1,6,4]
 - Sorted: [1,1,1,4,5,6]
 
 **Step 2:** Partition around median (median ≈ 2.5, split at index 3)

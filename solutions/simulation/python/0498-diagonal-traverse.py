@@ -6,14 +6,14 @@
 Solve the Diagonal Traverse problem as described.
 
 **Example:**
- *
+
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>```</dd>
+<dd>[[1,2,3],[4,5,6],[7,8,9]]</dd>
 <dt>Output:</dt>
-<dd>```</dd>
+<dd>[1,2,4,7,5,3,6,8,9]</dd>
 <dt>Explanation:</dt>
-<dd>Processing input produces the expected output</dd>
+<dd>Traverse the matrix diagonally, alternating between up-right and down-left directions. Starting from (0,0), visit elements in the pattern: [1] → [2,4] → [7,5,3] → [6,8] → [9]</dd>
 </dl>
 
 <details>
@@ -32,6 +32,7 @@ Traverse diagonals alternately upward and downward, handling direction changes
 and boundaries carefully.
 
 ### APPROACH:
+**Data structures: Matrix, Array**
 1. **Diagonal Identification**: Elements at (i, j) where i + j = k are on the same diagonal
 2. **Direction Alternation**: Even-indexed diagonals go up-right, odd-indexed go down-left
 3. **Boundary Handling**: When hitting edges, change to next diagonal with proper direction
@@ -53,19 +54,30 @@ and boundaries carefully.
 
 This solution uses simulation for efficient implementation.
 ### EXAMPLE WALKTHROUGH:
-```
-mat = [[1,2,3],
-       [4,5,6],
-       [7,8,9]]
+**Input:** mat = [[1,2,3], [4,5,6], [7,8,9]]
 
-Diagonal 0 (sum=0): [1] → up direction
-Diagonal 1 (sum=1): [2,4] → down direction
-Diagonal 2 (sum=2): [7,5,3] → up direction
-Diagonal 3 (sum=3): [6,8] → down direction
-Diagonal 4 (sum=4): [9] → up direction
+**Step 1:** Diagonal Identification - Group elements by row + col sum for mat=[[1,2,3], [4,5,6], [7,8,9]]
+- Diagonal 0 (sum=0): element at (0,0) = [1]
+- Diagonal 1 (sum=1): elements at (0,1), (1,0) = [2,4]
+- Diagonal 2 (sum=2): elements at (0,2), (1,1), (2,0) = [3,5,7]
+- Diagonal 3 (sum=3): elements at (1,2), (2,1) = [6,8]
+- Diagonal 4 (sum=4): element at (2,2) = [9]
 
-Result: [1,2,4,7,5,3,6,8,9]
-```
+**Step 2:** Direction Alternation - Alternate up/down for each diagonal
+- Even diagonals (0,2,4): traverse upward (reverse order)
+- Odd diagonals (1,3): traverse downward (forward order)
+
+**Step 3:** Boundary Handling - Process each diagonal with direction
+- Diagonal 0 (up): [1]
+- Diagonal 1 (down): [2,4]
+- Diagonal 2 (up): [7,5,3] (reversed from [3,5,7])
+- Diagonal 3 (down): [6,8]
+- Diagonal 4 (up): [9]
+
+**Step 4:** Movement Pattern - Concatenate all diagonals
+- Result: [1] + [2,4] + [7,5,3] + [6,8] + [9]
+
+**Output:** [1,2,4,7,5,3,6,8,9]
 
 ### TIME COMPLEXITY:
 **O(n²)** - Analysis of time complexity
@@ -74,10 +86,10 @@ Result: [1,2,4,7,5,3,6,8,9]
 **O(n)** - Analysis of space complexity
  *
 ### EDGE CASES:
-- Single element: [[1]] → [1]
-- Single row: [[1,2,3]] → [1,2,3]
-- Single column: [[1],[2],[3]] → [1,2,3]
-- Non-square matrices: Different row and column counts
+- Single element matrix: mat=[[1]] → [1] (no diagonals to traverse, returns single element)
+- Single row matrix: mat=[[1,2,3]] → [1,2,3] (all elements traversed left to right)
+- Single column matrix: mat=[[1],[2],[3]] → [1,2,3] (all elements traversed top to bottom)
+- Non-square matrices: mat=[[1,2,3],[4,5,6]] → [1,2,4,5,3,6] (2×3 matrix handles proper diagonal traversal)
 
 
 from typing import List

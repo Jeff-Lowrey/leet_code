@@ -33,6 +33,7 @@ Return the least number of units of times that the CPU will take to finish all t
 Schedule most frequent tasks first to minimize idle time. Use max-heap to always pick the task with highest frequency. Track cooldown with a queue.
 
 ### APPROACH:
+**Data structures: Array (tasks input), Queue (cooldown tracking), Heap (max-heap for frequency), Hash Map (Counter for frequencies)**
 1. **Count frequencies**: Use hash map storage (Counter) with array traversal to get task frequencies
 2. **Max-heap**: Store negative frequencies using heap data structure (Python has min-heap)
 3. **Simulation with queue**: For each time unit using hash table lookup:
@@ -80,10 +81,10 @@ O(1)
 At most 26 different tasks (letters)
 
 ### EDGE CASES:
-- n = 0 (no cooldown, return len(tasks))
-- All tasks same
-- All tasks different
-- n very large
+- n = 0: tasks=["A","A","B","B"], n=0 → 4 (no cooldown needed, execute sequentially)
+- All tasks same: tasks=["A","A","A","A"], n=2 → 10 (requires idle time between same tasks)
+- All tasks different: tasks=["A","B","C","D"], n=2 → 4 (no cooldown needed, all unique)
+- n very large: tasks=["A","A","A"], n=50 → 104 (long idle periods dominate, (3-1)×(50+1)+1=104)
 
 </details>
 """

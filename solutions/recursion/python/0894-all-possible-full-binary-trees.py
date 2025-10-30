@@ -11,14 +11,16 @@ list of trees in any order.
 
 A full binary tree is a binary tree where each node has exactly 0 or 2 children.
 
-**Example 1:**
-Input: n = 7
-Output: [[0,0,0,null,null,0,0,null,null,0,0],[0,0,0,null,null,0,0,0,0],[0,0,0,0,0,0,0],
-         [0,0,0,0,0,null,null,null,null,0,0],[0,0,0,0,0,null,null,0,0]]
+**Example:**
 
-**Example 2:**
-Input: n = 3
-Output: [[0,0,0]]
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>7</dd>
+<dt>Output:</dt>
+<dd>[[0,0,0,null,null,0,0,null,null,0,0],[0,0,0,null,null,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,null,null,null,null,0,0],[0,0,0,0,0,null,null,0,0]]</dd>
+<dt>Explanation:</dt>
+<dd>With n=7, there are 5 possible full binary trees, each with different structures but all having exactly 7 nodes where every node has either 0 or 2 children</dd>
+</dl>
 
 **Constraints:**
 - 1 <= n <= 20
@@ -40,12 +42,13 @@ We recursively generate all possible left subtrees with i nodes and all possible
 subtrees with n-1-i nodes, then combine them.
 
 ### APPROACH:
-1. Base case: n=1 returns single node tree
+**Data structures: Binary tree (node structure), Dictionary (for memoization), List (for results)**
+1. Base case: n=1 returns single binary tree node
 2. If n is even, return empty list (impossible)
 3. For odd n, try all ways to split n-1 nodes between left and right
-4. Recursively generate all left and right subtrees
-5. Combine each left subtree with each right subtree
-6. Use memoization to avoid recomputing same subproblems
+4. Recursively generate all left and right binary tree subtrees
+5. Combine each left subtree with each right subtree into a list
+6. Use dictionary-based memoization to avoid recomputing same subproblems
 
 ### WHY THIS WORKS:
 Full binary trees must have odd number of nodes. By systematically trying all possible
@@ -86,9 +89,10 @@ This solution uses recursion for efficient implementation.
 **O(2^n)** - Storing all generated trees
 
 ### EDGE CASES:
-- Even n: Returns empty list (impossible to form full binary tree)
-- n = 1: Single node tree
-- Large n (up to 20): Exponential but manageable with memoization
+- Even n: n=2 → [] (even number of nodes impossible for full binary tree)
+- n = 1: n=1 → [TreeNode(0)] (single node is valid full binary tree, returns immediately)
+- Small odd n: n=3 → 1 tree (only one structure: root with two children)
+- Large n: n=20 → manageable with memoization (exponential trees but cached subproblems)
 
 </details>
 """
