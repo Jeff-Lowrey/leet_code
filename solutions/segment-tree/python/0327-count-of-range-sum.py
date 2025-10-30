@@ -31,11 +31,11 @@ Range sum S(i, j) is defined as the sum of the elements in nums between indices 
 This is an advanced range sum counting problem. The key insight is to use prefix sums: if we have prefix[j] - prefix[i] in [lower, upper], then we need to count how many prefix[i] satisfy: prefix[j] - upper <= prefix[i] <= prefix[j] - lower. This transforms into a range counting problem solvable with merge sort or segment trees.
 
 ### APPROACH:
-1. **Compute prefix sums**: Build prefix sum array where prefix[i] represents sum of elements from index 0 to i-1
-2. **Transform problem**: Use insight that range sum S(i,j) = prefix[j] - prefix[i], need to count pairs where lower <= prefix[j] - prefix[i] <= upper
-3. **Apply merge sort**: Recursively divide prefix array and count valid ranges during merge process
-4. **Count cross-boundary ranges**: For each prefix[j] in right half, count how many prefix[i] in left half satisfy the range condition
-5. **Use two pointers**: Maintain pointers to find range [prefix[j] - upper, prefix[j] - lower] in sorted left half
+1. **Compute prefix sums**: Build prefix sum array (stored in array/hash set) where prefix[i] represents sum of elements from index 0 to i-1
+2. **Transform problem**: Use insight that range sum S(i,j) = prefix[j] - prefix[i], need to count pairs where lower <= prefix[j] - prefix[i] <= upper using hash table lookup
+3. **Apply merge sort with tree structure**: Recursively divide prefix array and count valid ranges during merge process
+4. **Count cross-boundary ranges**: For each prefix[j] in right half, use hash table lookup to count how many prefix[i] in left half satisfy the range condition
+5. **Use two pointers pattern**: Maintain pointers to find range [prefix[j] - upper, prefix[j] - lower] in sorted left half using hash map storage
 6. **Accumulate counts**: Sum counts from left subtree, right subtree, and cross-boundary ranges
 7. **Return total count**: Final result is total number of valid range sums found across all merge levels
 
@@ -47,26 +47,33 @@ This solution uses hash table lookup for efficient implementation.
 This solution uses hash map storage for efficient implementation.
 
 ### EXAMPLE WALKTHROUGH:
-Given input nums = [-2,5,-1], lower = -2, upper = 2:
+**Input:** nums = [-2,5,-1], lower = -2, upper = 2
 
-Input:
-```
-nums = [-2,5,-1], lower = -2, upper = 2
-```
+**Step 1:** Compute prefix sums and store in array
+- Prefix array: [0, -2, 3, 2]
 
-Prefix sums: [0, -2, 3, 2]
-Range sums to check:
-- S(0,0) = -2 ✓ (in range)
-- S(0,1) = 3 ✗
-- S(0,2) = 2 ✓
-- S(1,1) = 5 ✗
-- S(1,2) = 4 ✗
-- S(2,2) = -1 ✓
+**Step 2:** Transform problem using hash table insight
+- Need to count pairs where lower <= prefix[j] - prefix[i] <= upper
 
-Output:
-```
-3
-```
+**Step 3:** Apply merge sort with tree structure
+- Initial array: [0, -2, 3, 2]
+- Divide: [0, -2] and [3, 2]
+
+**Step 4:** Count cross-boundary ranges using hash table lookup
+- For j=2 (prefix[2]=3): check i=0,1 where -2 <= 3-prefix[i] <= 2
+  - prefix[0]=0: 3-0=3 ✗
+  - prefix[1]=-2: 3-(-2)=5 ✗
+
+**Step 5:** Use two pointers pattern for range finding
+- Count valid ranges: S(0,0)=-2✓, S(0,2)=2✓, S(2,2)=-1✓
+
+**Step 6:** Accumulate counts from all levels
+- Left: 1, Right: 1, Cross: 1
+
+**Step 7:** Return total count
+- Total: 3
+
+**Output:** 3
 
 ### TIME COMPLEXITY:
 O(n log n)

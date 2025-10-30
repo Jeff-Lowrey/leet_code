@@ -55,18 +55,29 @@ we generate all valid full binary trees.
 This solution uses recursion for efficient implementation.
 
 ### EXAMPLE WALKTHROUGH:
-n = 3:
-- Root uses 1 node, leaving 2 for children
-- Only split: left=1, right=1
-- Each subtree is a single node
-- Result: one tree with root and two children
+**Input:** n = 7
 
-n = 5:
-- Root uses 1 node, leaving 4 for children
-- Splits: (1,3) or (3,1)
-- For (1,3): left is single node, right has 2 possible trees
-- For (3,1): left has 2 possible trees, right is single node
-- Total: 2 + 2 = 4 different trees
+**Step 1:** Check base case - n=7 is odd, proceed (n=1 would return single node)
+
+**Step 2:** Check if even - 7 is odd, continue (even n returns empty list)
+
+**Step 3:** Try all ways to split n-1=6 nodes between left and right
+- Possible splits: (1,5), (3,3), (5,1)
+
+**Step 4:** Recursively generate subtrees for each split
+- For (1,5): left has 1 tree, right has allPossibleFBT(5) trees
+- For (3,3): left has allPossibleFBT(3), right has allPossibleFBT(3)
+- For (5,1): left has allPossibleFBT(5), right has 1 tree
+
+**Step 5:** Combine each left with each right subtree
+- (1,5): 1 × 2 = 2 trees
+- (3,3): 1 × 1 = 1 tree
+- (5,1): 2 × 1 = 2 trees
+
+**Step 6:** Use memoization to avoid recomputing (n=5, n=3 computed once)
+- Total for n=7: 2 + 1 + 2 = 5 different full binary trees
+
+**Output:** 5 different tree structures
 
 ### TIME COMPLEXITY:
 **O(2^n)** - Generating all possible trees, exponential growth in number of trees

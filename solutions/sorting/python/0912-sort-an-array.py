@@ -12,9 +12,9 @@ and with the smallest space complexity possible.
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[1, 2, 3, 5]</dd>
+<dd>[5, 2, 3, 1]</dd>
 <dt>Output:</dt>
-<dd>1</dd>
+<dd>[1, 2, 3, 5]</dd>
 <dt>Explanation:</dt>
 <dd>Array [5,2,3,1] sorted is [1,2,3,5]</dd>
 </dl>
@@ -33,59 +33,60 @@ Implement various sorting algorithms from scratch. Quicksort, Mergesort, and Hea
 achieve O(n log n) time. This problem tests understanding of fundamental sorting algorithms.
 
 ### APPROACH:
-**Merge Sort:**
+**Merge Sort** (using array traversal and divide-and-conquer):
 1. Divide array into two halves recursively
 2. Sort each half recursively
-3. Merge sorted halves back together
+3. Merge sorted halves back together using two pointers
 
-**Quick Sort:**
+**Quick Sort** (using two pointers):
 1. Choose pivot element
-2. Partition array around pivot
+2. Partition array around pivot using two pointers
 3. Recursively sort left and right partitions
 
-**Heap Sort:**
+**Heap Sort** (using heap data structure):
 1. Build max heap from array
 2. Repeatedly extract maximum and rebuild heap
 
 ### WHY THIS WORKS:
-- **Merge Sort**: Divide-and-conquer with guaranteed O(n log n), stable, needs O(n) space
-- **Quick Sort**: Average O(n log n), in-place, but O(n²) worst case
-- **Heap Sort**: Guaranteed O(n log n), in-place, not stable
+- **Merge Sort**: Uses divide-and-conquer with array traversal and hash map storage (merge array) with guaranteed O(n log n), stable, needs O(n) space
+- **Quick Sort**: Uses two pointers pattern with array traversal for average O(n log n), in-place, but O(n²) worst case
+- **Heap Sort**: Uses heap data structure with guaranteed O(n log n), in-place, not stable
 
 ### EXAMPLE WALKTHROUGH:
-Given input [1, 2, 3, 5]:
+**Input:** nums = [5,2,3,1]
 
-Input:
-```
-[1, 2, 3, 5]
-```
+**Merge Sort approach:**
 
-Input:
-```
-nums = [5,2,3,1]
-```
+**Step 1:** Divide array recursively
+- [5,2,3,1] → [5,2] and [3,1]
+- [5,2] → [5] and [2]
+- [3,1] → [3] and [1]
 
-Merge Sort:
-[5,2,3,1]
-/    \
-[5,2]  [3,1]
-/ \    / \
-[5][2] [3][1]
-\ /    \ /
-[2,5]  [1,3]
-\    /
-[1,2,3,5]
-Quick Sort:
-[5,2,3,1] pivot=1
-[1] [5,2,3]
-[2,3,5] pivot=3
-[2,3] [5]
-[1,2,3,5]
+**Step 2:** Base case - single elements are sorted
+- [5], [2], [3], [1] all sorted
 
-Output:
-```
-[1,2,3,5]
-```
+**Step 3:** Merge [5] and [2] using two pointers → [2,5]
+
+**Step 4:** Merge [3] and [1] using two pointers → [1,3]
+
+**Step 5:** Merge [2,5] and [1,3] using two pointers
+- Compare 2 vs 1: take 1
+- Compare 2 vs 3: take 2
+- Compare 5 vs 3: take 3
+- Remaining: take 5
+- Result: [1,2,3,5]
+
+**Quick Sort approach:**
+
+**Step 6:** Choose pivot (e.g., 1), partition using two pointers
+- [1] | [5,2,3] (elements > 1)
+
+**Step 7:** Recursively sort right partition with pivot 3
+- [2,3] | [5]
+
+**Step 8:** Combine results: [1,2,3,5]
+
+**Output:** [1,2,3,5]
 
 ### TIME COMPLEXITY:
 O(n log n)

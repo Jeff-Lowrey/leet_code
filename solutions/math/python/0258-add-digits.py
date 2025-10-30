@@ -39,12 +39,12 @@ number modulo 9. This is because in base 10, a number has the same remainder whe
 by 9 as the sum of its digits (this is the basis of the divisibility rule for 9).
 
 ### APPROACH:
-1. Naive approach: Loop and sum digits until single digit
-2. Optimized approach: Use digital root formula
+1. Naive approach: Loop and sum digits using integer operations (modulo and division) until single digit
+2. Optimized approach: Use digital root formula with modulo arithmetic
    - If num == 0, return 0
    - If num % 9 == 0, return 9
    - Otherwise, return num % 9
-   - This can be simplified to: 1 + (num - 1) % 9
+   - This can be simplified to: 1 + (num - 1) % 9 using only integer operations
 
 ### WHY THIS WORKS:
 The digital root of a positive integer is obtained by iteratively summing digits until
@@ -57,19 +57,22 @@ The formula 1 + (num - 1) % 9 handles all cases:
 - For other numbers: returns the remainder when divided by 9
 
 ### EXAMPLE WALKTHROUGH:
-Given input num = 38:
+**Input:** num = 38
 
-Step 1: Naive approach - Loop and sum digits
-- 38 -> 3+8=11 -> 1+1=2
+**Step 1:** Naive approach - Loop and sum digits using integer operations
+- 38: Extract digits using modulo (38 % 10 = 8, 38 // 10 = 3)
+- Sum: 3 + 8 = 11
+- 11: Extract digits (11 % 10 = 1, 11 // 10 = 1)
+- Sum: 1 + 1 = 2 (single digit)
 
-Step 2: Optimized approach - Use digital root formula
+**Step 2:** Optimized approach - Use digital root formula with modulo arithmetic
 - Formula: 1 + (38-1) % 9 = 1 + 37 % 9 = 1 + 1 = 2 ✓
 
-Additional example with num = 99:
+Additional example with num = 99 (multiple of 9):
 - Naive: 99 -> 9+9=18 -> 1+8=9
 - Formula: 1 + (99-1) % 9 = 1 + 98 % 9 = 1 + 8 = 9 ✓
 
-Result: 2
+**Output:** 2
 
 ### TIME COMPLEXITY:
 **O(1)** - Constant time using mathematical formula
@@ -78,9 +81,11 @@ Result: 2
 **O(1)** - Only using a few variables
 
 ### EDGE CASES:
-- num = 0: Returns 0
-- Multiples of 9: Return 9 (not 0)
-- Large numbers (up to 2^31 - 1): Formula works regardless of size
+- **num = 0**: Edge case for empty/zero input - returns 0 directly
+- **Multiples of 9** (9, 18, 27, ...): Return 9 (not 0) - special case in formula
+- **Single digit** (1-9): Already a digital root, returns itself
+- **Large numbers** (up to 2^31 - 1): Extreme value - formula works in O(1) regardless of size
+- **num = 1**: Minimum positive value - returns 1
 
 </details>
 """

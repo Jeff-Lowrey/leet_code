@@ -54,10 +54,10 @@ of all elements from (0, 0) to (i, j). Using inclusion-exclusion principle, we c
 any rectangular sum in constant time.
 
 ### APPROACH:
-1. Create a prefix sum matrix where prefix[i][j] = sum of all elements from (0,0) to (i-1,j-1)
+1. Create a 2D prefix sum matrix during preprocessing where prefix[i][j] = sum of all elements from (0,0) to (i-1,j-1)
 2. To avoid index out of bounds, make prefix matrix (m+1) x (n+1) with padding
-3. Build prefix sum: prefix[i][j] = matrix[i-1][j-1] + prefix[i-1][j] + prefix[i][j-1] - prefix[i-1][j-1]
-4. For range query (r1,c1) to (r2,c2):
+3. Build prefix sum using dynamic programming: prefix[i][j] = matrix[i-1][j-1] + prefix[i-1][j] + prefix[i][j-1] - prefix[i-1][j-1]
+4. For range query (r1,c1) to (r2,c2), use preprocessing results for O(1) lookup:
    sum = prefix[r2+1][c2+1] - prefix[r1][c2+1] - prefix[r2+1][c1] + prefix[r1][c1]
 
 ### WHY THIS WORKS:
@@ -68,15 +68,12 @@ The 2D prefix sum uses the inclusion-exclusion principle:
 - Add back prefix[r1][c1] because it was subtracted twice
 
 ### EXAMPLE WALKTHROUGH:
-Given input "NumMatrix", "sumRegion", "sumRegion", "sumRegion":
+**Input:** matrix = [[3, 0, 1, 4, 2], [5, 6, 3, 2, 1], [1, 2, 0, 1, 5], [4, 1, 0, 1, 7], [1, 0, 3, 0, 5]]
+Operations: ["NumMatrix", "sumRegion(2,1,4,3)", "sumRegion(1,1,2,2)", "sumRegion(1,2,2,4)"]
 
-Matrix: [[3, 0, 1, 4, 2],
-         [5, 6, 3, 2, 1],
-         [1, 2, 0, 1, 5],
-         [4, 1, 0, 1, 7],
-         [1, 0, 3, 0, 5]]
-
-Prefix sum (with padding):
+**Step 1:** Create prefix sum matrix with padding
+- Build (m+1) x (n+1) matrix where prefix[i][j] = sum from (0,0) to (i-1,j-1)
+- Prefix sum matrix:
 [[0,  0,  0,  0,  0,  0],
  [0,  3,  3,  4,  8, 10],
  [0,  8, 14, 18, 24, 27],
@@ -84,12 +81,17 @@ Prefix sum (with padding):
  [0, 13, 22, 26, 34, 49],
  [0, 14, 23, 30, 38, 58]]
 
-Query sumRegion(2, 1, 4, 3):
-sum = prefix[5][4] - prefix[2][4] - prefix[5][1] + prefix[2][1]
-    = 38 - 24 - 14 + 8 = 8 ✓
+**Step 2:** For each cell, apply formula: prefix[i][j] = matrix[i-1][j-1] + prefix[i-1][j] + prefix[i][j-1] - prefix[i-1][j-1]
 
+**Step 3:** Query sumRegion(2, 1, 4, 3)
+- Apply inclusion-exclusion: sum = prefix[5][4] - prefix[2][4] - prefix[5][1] + prefix[2][1]
+- Calculation: 38 - 24 - 14 + 8 = 8 ✓
 
-Result: [null, 8, 11, 12]
+**Step 4:** Repeat for remaining queries
+- sumRegion(1, 1, 2, 2) = 11
+- sumRegion(1, 2, 2, 4) = 12
+
+**Result:** [null, 8, 11, 12]
 
 ### TIME COMPLEXITY:
 **Constructor: O(m * n)** where m, n are matrix dimensions - must compute all prefix sums

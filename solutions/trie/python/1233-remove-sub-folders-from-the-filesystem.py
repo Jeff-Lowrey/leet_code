@@ -35,13 +35,13 @@ For example, "/leetcode" and "/leetcode/problems" are valid paths while an empty
 We need to identify and remove sub-folders from a list of folder paths. A sub-folder is any folder that has another folder as its prefix path. Using a Trie allows us to efficiently detect prefix relationships by building a tree structure where each node represents a path component.
 
 ### APPROACH:
-1. **Sort paths**: Sort lexicographically to process parent folders before their children
-2. **Use Trie structure**: Build a trie where each node represents a folder name
-3. **Mark folder ends**: Use a flag to mark where complete folders end
-4. **Detect sub-folders**: If we reach a node marked as folder end, any path continuing from there is a sub-folder
-5. **Collect results**: Only add paths that aren't sub-folders of previously added paths
+1. **Sort paths**: Sort lexicographically using array traversal to process parent folders before their children
+2. **Use Trie structure with hash map**: Build a trie (hash map/dictionary) where each node represents a folder name, stored in hash map
+3. **Mark folder ends**: Use a flag in hash map to mark where complete folders end
+4. **Detect sub-folders with hash table lookup**: If we reach a node marked as folder end, any path continuing from there is a sub-folder
+5. **Collect results in array**: Only add paths that aren't sub-folders of previously added paths
 
-Alternative: Sort paths and check if each path starts with previous path + '/'
+Alternative: Sort paths and check if each path starts with previous path + '/' using string operations
 
 ### WHY THIS WORKS:
 - Sorting ensures parent folders come before children
@@ -54,34 +54,32 @@ This solution uses hash table lookup for efficient implementation.
 This solution uses hash map storage for efficient implementation.
 
 ### EXAMPLE WALKTHROUGH:
-Given input ["/a", "/a/b", "/c/d", "/c/d/e", "/c/f"]:
+**Input:** ["/a", "/a/b", "/c/d", "/c/d/e", "/c/f"]
 
-Input:
-```
-["/a", "/a/b", "/c/d", "/c/d/e", "/c/f"]
-```
+**Step 1:** Sort paths using array traversal
+- Sorted: ["/a", "/a/b", "/c/d", "/c/d/e", "/c/f"]
 
-After sorting: ["/a", "/a/b", "/c/d", "/c/d/e", "/c/f"]
-Process "/a":
-Process "/a/b":
-Process "/c/d":
-Process "/c/d/e":
-Process "/c/f":
+**Step 2:** Process "/a" - Build trie with hash map
+- Hash map structure: root -> {'a': {is_end: True}}
+- Add to result array: ["/a"]
 
-Steps:
-Step 1: root -> 'a' (mark as folder end)
-Step 2: Result: ["/a"]
-Step 3: root -> 'a' (already folder end, skip!)
-Step 4: root -> 'c' -> 'd' (mark as folder end)
-Step 5: Result: ["/a", "/c/d"]
-Step 6: root -> 'c' -> 'd' (already folder end, skip!)
-Step 7: root -> 'c' -> 'f' (mark as folder end)
-Step 8: Result: ["/a", "/c/d", "/c/f"]
+**Step 3:** Process "/a/b" - Use hash table lookup
+- Lookup finds 'a' is already marked as folder end
+- "/a/b" is sub-folder of "/a" → skip
 
-Output:
-```
-["/a"]
-```
+**Step 4:** Process "/c/d" - Continue building trie
+- Hash map: root -> {'a': ..., 'c': {'d': {is_end: True}}}
+- Add to result: ["/a", "/c/d"]
+
+**Step 5:** Process "/c/d/e" - Hash table lookup
+- 'c' -> 'd' already marked as folder end
+- "/c/d/e" is sub-folder → skip
+
+**Step 6:** Process "/c/f" - Add new branch
+- Hash map: root -> {'a': ..., 'c': {'d': ..., 'f': {is_end: True}}}
+- Add to result: ["/a", "/c/d", "/c/f"]
+
+**Output:** ["/a", "/c/d", "/c/f"]
 
 ### TIME COMPLEXITY:
 O(N * L * log(N))
