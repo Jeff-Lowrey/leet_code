@@ -34,6 +34,7 @@
  * - If k is even (right child): flip of parent
  *
  * ### APPROACH:
+ * **Data structures: Binary Tree (implicit), Call Stack (recursion)**
  * 1. **Base case**: n = 1, return 0 (first row always starts with 0)
  * 2. **Find parent**: The parent is at position ⌈k/2⌉ in row n-1
  * 3. **Determine relationship**:

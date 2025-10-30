@@ -32,6 +32,7 @@
  * and boundaries carefully.
  *
  * ### APPROACH:
+ * **Data structures: Matrix (2D array input), Array (result storage)**
  * 1. **Diagonal Identification**: Elements at (i, j) in matrix where i + j = k are on the same diagonal
  * 2. **Direction Alternation**: Even-indexed diagonals go up-right in array, odd-indexed go down-left in array
  * 3. **Boundary Handling**: When hitting matrix edges, change to next diagonal with proper direction
@@ -54,7 +55,7 @@
  * ### EXAMPLE WALKTHROUGH:
  * **Input:** mat = [[1,2,3], [4,5,6], [7,8,9]]
  *
- * **Step 1:** Initialize - Start at (0,0), direction = up
+ * **Step 1:** Initialize - Start at (0,0), direction = up for mat=[[1,2,3], [4,5,6], [7,8,9]]
  * - Add element 1, move according to boundary rules
  *
  * **Step 2:** Process diagonal sum=1 (down direction)
@@ -80,10 +81,10 @@
  * - Only use constant extra space (not counting output array)
  *
  * ### EDGE CASES:
- * - Single element: [[1]] → [1] (trivial case, no direction change)
- * - Single row: [[1,2,3]] → [1,2,3] (all going right, no diagonal)
- * - Single column: [[1],[2],[3]] → [1,2,3] (all going down, no diagonal)
- * - Non-square matrices: [[1,2,3],[4,5,6]] (2×3) → [1,2,4,5,3,6]
+ * - Single element matrix: mat=[[1]] → [1] (trivial case, no direction change needed)
+ * - Single row matrix: mat=[[1,2,3]] → [1,2,3] (all elements traversed left to right)
+ * - Single column matrix: mat=[[1],[2],[3]] → [1,2,3] (all elements traversed top to bottom)
+ * - Non-square matrices: mat=[[1,2,3],[4,5,6]] → [1,2,4,5,3,6] (2×3 matrix handles proper diagonal traversal)
  *
  *
 */

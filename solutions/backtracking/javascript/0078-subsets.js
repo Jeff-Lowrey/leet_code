@@ -38,6 +38,7 @@
  * Generate all possible subsets (power set) by making binary choices for each element: include it or don't include it in the current subset. Use backtracking to explore all combinations.
  *
  * ### APPROACH:
+ * **Data structures: Array (results storage, current subset tracking)**
  * 1. **Initialize result list**: Create an empty array to store all subsets (will include empty set)
  * 2. **Define recursive backtracking function**: Create a helper function with start index and current subset parameters for array
  * 3. **Add current subset**: At each recursive call, add a copy of the current subset from array to results (captures all intermediate states)
@@ -55,7 +56,7 @@
  * ### EXAMPLE WALKTHROUGH:
  * **Input:** nums = [1,2,3]
  *
- * **Step 1:** Backtracking approach
+ * **Step 1:** Backtracking approach for input [1,2,3]
  * - Start with [] → add to result
  * - Add 1: [1] → add to result
  * - Add 2: [1,2] → add to result

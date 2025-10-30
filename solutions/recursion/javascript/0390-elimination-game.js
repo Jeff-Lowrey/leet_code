@@ -15,18 +15,16 @@
  *
  * Given the integer n, return the last number that remains in arr.
  *
- * **Example 1:**
- * Input: n = 9
- * Output: 6
- * Explanation:
- * arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
- * arr = [2, 4, 6, 8]
- * arr = [2, 6]
- * arr = [6]
+ * **Example:**
  *
- * **Example 2:**
- * Input: n = 1
- * Output: 1
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>9</dd>
+ * <dt>Output:</dt>
+ * <dd>6</dd>
+ * <dt>Explanation:</dt>
+ * <dd>arr starts as [1,2,3,4,5,6,7,8,9], after first elimination becomes [2,4,6,8], then [2,6], finally [6]</dd>
+ * </dl>
  *
  * **Constraints:**
  * - 1 <= n <= 10^9
@@ -51,6 +49,7 @@
  * 4. The remaining count
  *
  * ### APPROACH:
+ * **Data structures: Integer variables (head, step, count) - no additional data structures needed**
  * We track the head of the remaining sequence using pure mathematical state tracking (no data structures needed, just integer variables). The head changes when:
  * - We're going left-to-right (always updates)
  * - We're going right-to-left AND the count is odd (head updates)
@@ -118,10 +117,10 @@ This solution uses state tracking for efficient implementation.
  * **O(log n)** - Recursion stack depth (iterative solution can achieve O(1))
  *
  * ### EDGE CASES:
- * - Single element (n = 1): Returns 1 immediately (base case)
- * - Power of 2: n=2 → 2, n=4 → 2, n=8 → 6, n=16 → 6 (special pattern)
- * - Small values: n=2 → 2, n=3 → 2, n=4 → 2, n=5 → 2
- * - Large n (up to 10^9): n=1000000000 → Must use O(log n) algorithm, not simulation
+ * - Single element: n=1 → 1 (no elimination needed, returns immediately as only element)
+ * - Power of 2: n=8 → 6 (follows pattern, no special handling needed with mathematical approach)
+ * - Small n: n=2 → 2 (first round eliminates 1, leaving 2)
+ * - Large n: n=1000000000 → must use O(log n) not O(n) (simulation would timeout, mathematical tracking succeeds)
  *
  * </details>
  */

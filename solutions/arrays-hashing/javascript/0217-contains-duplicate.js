@@ -37,6 +37,7 @@
  * If there are duplicates, the set will be smaller than the array.
  *
  * ### APPROACH:
+ * **Data structures: Hash Set (seen elements tracking), Array (input)**
  * 1. **Convert array to set**: Transform the input array into a hash set data structure using set operations, which automatically removes all duplicate values
  * 2. **Compare lengths**: Calculate the length of both the original array and the newly created hash set
  * 3. **Detect duplicates**: If the lengths differ, duplicates existed in the original array (they were removed during set conversion using hash table lookup)
@@ -49,8 +50,8 @@
  * ### EXAMPLE WALKTHROUGH:
  * **Input:** nums = [1, 2, 3, 1]
  *
- * **Step 1:** Convert array to set
- * - set(nums) = {1, 2, 3}
+ * **Step 1:** Convert input array [1,2,3,1] to set
+ * - set([1,2,3,1]) = {1, 2, 3}
  * - Set length = 3, Array length = 4
  *
  * **Step 2:** Compare lengths

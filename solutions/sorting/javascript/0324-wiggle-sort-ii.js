@@ -31,6 +31,7 @@
  * We need to interleave smaller and larger halves to avoid adjacent equal elements.
  *
  * ### APPROACH:
+ * **Data structures: Array (sorting and manipulation)**
  * 1. **Find median**: Partition array around median value using array operations
  * 2. **Interleave halves**: Place smaller elements at even indices in array, larger at odd indices in array
  * 3. **Reverse order**: Place larger elements in reverse order in array to avoid adjacency
@@ -50,7 +51,7 @@ This solution uses two-pointer technique for efficient implementation.
 ### EXAMPLE WALKTHROUGH:
  * **Input:** nums = [1,5,1,1,6,4]
  *
- * **Step 1:** Sort the array
+ * **Step 1:** Sort the input array [1,5,1,1,6,4]
  * - Sorted: [1,1,1,4,5,6]
  *
  * **Step 2:** Split around median (median ≈ 2.5, so split at index 3)

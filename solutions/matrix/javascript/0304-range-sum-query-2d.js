@@ -15,18 +15,14 @@
  *
  * **Example:**
  *
- * Input:
- * ["NumMatrix", "sumRegion", "sumRegion", "sumRegion"]
- * [[[[3, 0, 1, 4, 2], [5, 6, 3, 2, 1], [1, 2, 0, 1, 5], [4, 1, 0, 1, 7], [1, 0, 3, 0, 5]]], [2, 1, 4, 3], [1, 1, 2, 2], [1, 2, 2, 4]]
- *
- * Output:
- * [null, 8, 11, 12]
- *
- * Explanation:
- * NumMatrix numMatrix = new NumMatrix([[3, 0, 1, 4, 2], [5, 6, 3, 2, 1], [1, 2, 0, 1, 5], [4, 1, 0, 1, 7], [1, 0, 3, 0, 5]]);
- * numMatrix.sumRegion(2, 1, 4, 3); // return 8 (sum of the red rectangle)
- * numMatrix.sumRegion(1, 1, 2, 2); // return 11 (sum of the green rectangle)
- * numMatrix.sumRegion(1, 2, 2, 4); // return 12 (sum of the blue rectangle)
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>["NumMatrix","sumRegion","sumRegion","sumRegion"], [[[[3,0,1,4,2],[5,6,3,2,1],[1,2,0,1,5],[4,1,0,1,7],[1,0,3,0,5]]],[2,1,4,3],[1,1,2,2],[1,2,2,4]]</dd>
+ * <dt>Output:</dt>
+ * <dd>[null,8,11,12]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>NumMatrix is initialized with the 5x5 matrix. The first sumRegion(2,1,4,3) returns 8, the second sumRegion(1,1,2,2) returns 11, and the third sumRegion(1,2,2,4) returns 12.</dd>
+ * </dl>
  *
  * **Constraints:**
  * - m == matrix.length
@@ -54,6 +50,7 @@
  * any rectangular sum in constant time.
  *
  * ### APPROACH:
+ * **Data structures: 2D array (prefix sum matrix), Matrix**
  * 1. Create a 2D prefix sum matrix during preprocessing where prefix[i][j] = sum of all elements from (0,0) to (i-1,j-1)
  * 2. To avoid index out of bounds, make prefix matrix (m+1) x (n+1) with padding
  * 3. Build prefix sum using dynamic programming: prefix[i][j] = matrix[i-1][j-1] + prefix[i-1][j] + prefix[i][j-1] - prefix[i-1][j-1]
@@ -106,10 +103,10 @@ This solution uses preprocessing for efficient implementation.
  * **O(m * n)** - store prefix sum matrix of same dimensions as input
  *
  * ### EDGE CASES:
- * - Empty matrix: [[]] → No valid queries possible
- * - Single element matrix: [[5]] → sumRegion(0,0,0,0) returns 5
- * - Query covering entire matrix: sumRegion(0,0,m-1,n-1) returns sum of all elements
- * - Query for single cell: sumRegion(2,2,2,2) returns matrix[2][2]
+ * - Empty matrix: matrix=[[]] → prefix=[[]] (no elements to sum, special handling in constructor)
+ * - Single element matrix: matrix=[[5]], sumRegion(0,0,0,0) → 5 (single cell query returns the element)
+ * - Query covering entire matrix: sumRegion(0,0,m-1,n-1) → sum of all elements (full matrix sum)
+ * - Query for single cell: row1==row2 and col1==col2 → matrix[row1][col1] (single element result)
  *
  * </details>
  */

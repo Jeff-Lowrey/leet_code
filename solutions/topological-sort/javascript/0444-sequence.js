@@ -31,6 +31,7 @@
  * This is a topological sort problem where we need to check if there's a unique topological ordering that matches the given original sequence. The key insight is that for a unique reconstruction, at each step of topological sort, there should be exactly one node with in-degree 0.
  *
  * ### APPROACH:
+ * **Data structures: Hash Map (adjacency list, in-degree), Hash Set (seen pairs), Array (queue for topological sort)**
  * 1. **Build graph**: Create adjacency list (hash map) and in-degree count from seqs, store seen pairs in a hash set
  * 2. **Validate sequences**: Ensure all pairs in seqs appear consecutively in org using the hash set
  * 3. **Check uniqueness**: Use topological sort with array-based queue, ensuring at each step only one node has in-degree 0

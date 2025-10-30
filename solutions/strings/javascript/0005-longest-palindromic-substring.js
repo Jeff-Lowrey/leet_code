@@ -23,6 +23,7 @@
  * (each character and between each pair of characters) to find all palindromes.
  *
  * ### APPROACH:
+ * **Data structures: String (input), Array (for DP alternative)**
  * 1. **Expand Around Center**: For each position, expand outward while characters match
  * 2. **Two Cases**: Odd-length palindromes (single center) and even-length (two centers)
  * 3. **Track Maximum**: Keep track of longest palindrome found

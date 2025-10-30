@@ -24,6 +24,7 @@
  * If n becomes 1, it's a power of two. If n is odd (and not 1), it's not.
  *
  * ### APPROACH:
+ * **Data structures: Integer (value operations), Bit manipulation**
  * 1. **Base cases**: Check integer n - if n = 1 (true, 2^0), if n ≤ 0 (false)
  * 2. **Even case**: Recursively check n/2, dividing the integer by 2
  * 3. **Odd case**: Return false (powers of 2 are never odd except 1)

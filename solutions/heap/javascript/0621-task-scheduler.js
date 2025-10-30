@@ -35,6 +35,7 @@
  * Schedule most frequent tasks first to minimize idle time. Use max-heap to always pick the task with highest frequency. Track cooldown with a queue.
  *
  * ### APPROACH:
+ * **Data structures: Array (tasks input), Queue (cooldown tracking), Heap (max-heap for frequency), Hash Map (Counter for frequencies)**
  * 1. **Count frequencies**: Use hash map storage (Counter) with array traversal to get task frequencies
  * 2. **Max-heap**: Store negative frequencies using heap data structure
  * 3. **Simulation with queue**: For each time unit using hash table lookup:

@@ -16,11 +16,11 @@
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>["/a", "/a/b", "/c/d", "/c/d/e", "/c/f"]</dd>
+ * <dd>["/a","/a/b","/c/d","/c/d/e","/c/f"]</dd>
  * <dt>Output:</dt>
- * <dd>1</dd>
+ * <dd>["/a","/c/d","/c/f"]</dd>
  * <dt>Explanation:</dt>
- * <dd>Subfolders are removed: ['/a','/a/b','/c/d'] becomes ['/a','/c/d']</dd>
+ * <dd>After removing sub-folders: "/a/b" is a sub-folder of "/a", and "/c/d/e" is a sub-folder of "/c/d", so they are removed. The result is ["/a","/c/d","/c/f"]</dd>
  * </dl>
  *
  * <details>
@@ -37,6 +37,7 @@
  * We need to identify and remove sub-folders from a list of folder paths. A sub-folder is any folder that has another folder as its prefix path. Using a Trie allows us to efficiently detect prefix relationships by building a tree structure where each node represents a path component.
  *
  * ### APPROACH:
+ * **Data structures: Hash Map (trie nodes), Array (storing results)**
  * 1. **Sort paths**: Sort lexicographically using array traversal to process parent folders before their children
  * 2. **Use Trie structure with hash map**: Build a trie (hash map/dictionary) where each node represents a folder name, stored in hash map
  * 3. **Mark folder ends**: Use a flag in hash map to mark where complete folders end
@@ -61,7 +62,7 @@ This solution uses array traversal for efficient implementation.
 ### EXAMPLE WALKTHROUGH:
  * **Input:** ["/a", "/a/b", "/c/d", "/c/d/e", "/c/f"]
  *
- * **Step 1:** Sort paths using array traversal
+ * **Step 1:** Sort paths using array traversal for input ["/a", "/a/b", "/c/d", "/c/d/e", "/c/f"]
  * - Sorted: ["/a", "/a/b", "/c/d", "/c/d/e", "/c/f"]
  *
  * **Step 2:** Process "/a" - Build trie with hash map
@@ -112,10 +113,10 @@ This solution uses array traversal for efficient implementation.
  * For storing the trie structure
  *
  * ### EDGE CASES:
- * - Single folder: ["/a"] → ["/a"] (no sub-folders to remove)
- * - No sub-folders: ["/a","/b","/c"] → ["/a","/b","/c"] (all at same level)
- * - All folders are sub-folders of one root: ["/a","/a/b","/a/b/c","/a/b/c/d"] → ["/a"]
- * - Folders with similar prefixes: ["/a/b/c","/a/b/ca","/a/b/d"] → all kept (not sub-folders)
+ * - Single folder: folder=["/a"] → ["/a"] (no sub-folders to remove, returns immediately)
+ * - No sub-folders: folder=["/a","/b","/c"] → ["/a","/b","/c"] (all at same level, all kept)
+ * - All folders are sub-folders of one root: folder=["/a","/a/b","/a/b/c","/a/b/c/d"] → ["/a"] (keep only root, remove all nested)
+ * - Folders with similar prefixes: folder=["/a/b/c","/a/b/ca","/a/b/d"] → ["/a/b/c","/a/b/ca","/a/b/d"] (all kept, "/a/b/ca" not sub-folder of "/a/b/c")
  *
  * </details>
  */

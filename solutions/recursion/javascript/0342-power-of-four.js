@@ -24,6 +24,7 @@
  * Notice the single bit is always at position 0, 2, 4, 6, etc. (even positions).
  *
  * ### APPROACH:
+ * **Data structures: Integer (value operations), Bit manipulation**
  * 1. **Base cases**: n = 1 (true, 4^0), n ≤ 0 (false)
  * 2. **Divisible by 4**: Recursively check n/4
  * 3. **Not divisible by 4**: Return false

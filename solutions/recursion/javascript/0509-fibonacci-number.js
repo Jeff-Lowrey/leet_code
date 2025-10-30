@@ -37,6 +37,7 @@
  * recursively as the sum of the two preceding numbers, with base cases F(0)=0 and F(1)=1.
  *
  * ### APPROACH:
+ * **Data structures: Array (memoization cache) or iterative variables**
  * 1. **Base cases**: If n is 0 or 1, return n directly from recursion
  * 2. **Recursive case**: Return fib(n-1) + fib(n-2) using recursion
  * 3. **Optimization**: Use memoization with array or hash map to avoid redundant calculations
@@ -70,11 +71,11 @@ This solution uses iteration for efficient implementation.
  * O(n) - recursion stack depth
  *
  * ### EDGE CASES:
- * - n = 0: Base case, F(0) = 0 (returns 0 immediately)
- * - n = 1: Base case, F(1) = 1 (returns 1 immediately)
- * - n = 2: First computed value F(2) = F(1) + F(0) = 1 + 0 = 1
- * - Large n (e.g., n > 30): Naive recursion O(2^n) causes timeout, memoization required for O(n)
- * - Maximum n value (constraints typically n ≤ 30): F(30) = 832040 still manageable with memoization
+ * - n = 0: n=0 → 0 (base case, returns immediately without recursion)
+ * - n = 1: n=1 → 1 (base case, returns immediately without recursion)
+ * - n = 2: n=2 → 1 (first computed value, F(2) = F(1) + F(0) = 1)
+ * - Large n: n=30 → 832040 (naive recursion causes exponential time, memoization required)
+ * - Negative n (if allowed): Invalid input, typically not in problem constraints
  *
  *
 */
