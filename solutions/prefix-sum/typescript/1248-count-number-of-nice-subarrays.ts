@@ -32,9 +32,9 @@
  * 
  * ### APPROACH:
  * 1. **Transform problem**: Convert to counting subarrays with sum = k
- * 2. **Prefix sum**: Track running count of odd numbers
- * 3. **HashMap frequency**: Store frequency of each prefix count
- * 4. **Count subarrays**: For each position, check if (current_count - k) exists
+ * 2. **Prefix sum**: Track running count of odd numbers using hash map
+ * 3. **HashMap frequency**: Store frequency of each prefix count in hash map
+ * 4. **Count subarrays**: For each position, check if (current_count - k) exists in hash map
  * 
  * ### WHY THIS WORKS:
  * - Transform odd numbers to 1, even numbers to 0
@@ -43,22 +43,27 @@
  * - prefix_count[j] - prefix_count[i] = k means subarray from i+1 to j has k odd numbers
  * 
  * ### EXAMPLE WALKTHROUGH:
- * Given input nums = [1,1,2,1,1], k = 3:
+ * **Input:** nums = [1,1,2,1,1], k = 3
  *
- * Input:
- * ```
- * nums = [1,1,2,1,1], k = 3
- * ```
+ * **Step 1:** Transform array
+ * - Convert odd→1, even→0: [1,1,0,1,1]
+ * - Prefix counts: [0,1,2,2,3,4]
  *
- * Transform: [1,1,0,1,1] (odd=1, even=0)
- * Prefix counts: [0,1,2,2,3,4]
- * For each position, check if (current_count - k) exists:
- * - Position 3: count=3, need=0, found 1 time
- * - Position 4: count=4, need=1, found 1 time
- * Total: 2 nice subarrays
-
+ * **Step 2:** Check position 3 (count=3)
+ * - Need count-k = 3-3 = 0
+ * - Frequency map has 0 appearing 1 time
+ * - Add 1 to result
  *
- * Result: 2
+ * **Step 3:** Check position 4 (count=4)
+ * - Need count-k = 4-3 = 1
+ * - Frequency map has 1 appearing 1 time
+ * - Add 1 to result
+ *
+ * **Step 4:** Total nice subarrays = 2
+ * - Subarray [1,1,2,1] (indices 0-3)
+ * - Subarray [1,2,1,1] (indices 1-4)
+ *
+ * **Output:** 2
  * ### TIME COMPLEXITY:
  * O(n)
  * Single pass through array with HashMap operations
@@ -69,10 +74,11 @@
  * For the frequency HashMap
  * 
  * ### EDGE CASES:
- * - No odd numbers in array
- * - k = 0 (looking for subarrays with no odd numbers)
- * - k > number of odd numbers in array
- * - All numbers are odd or all are even
+ * - No odd numbers in array: Return 0 (cannot form subarray with k odd numbers)
+ * - k = 0: Count subarrays with no odd numbers (all even)
+ * - k > total odd numbers: Return 0 (impossible to form such subarray)
+ * - All numbers odd: Many valid subarrays if k ≤ array length
+ * - All numbers even: Return 0 for k > 0, count all subarrays for k = 0
  * 
  * </details>
  */

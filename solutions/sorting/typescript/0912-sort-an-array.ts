@@ -36,17 +36,17 @@
  * ### APPROACH:
  * **Merge Sort:**
  * 1. Divide array into two halves recursively
- * 2. Sort each half recursively
- * 3. Merge sorted halves back together
+ * 2. Sort each half recursively using array operations
+ * 3. Merge sorted halves back together into array
  *
  * **Quick Sort:**
- * 1. Choose pivot element
- * 2. Partition array around pivot
- * 3. Recursively sort left and right partitions
+ * 1. Choose pivot element from array
+ * 2. Partition array around pivot using two pointers
+ * 3. Recursively sort left and right partitions in array
  *
  * **Heap Sort:**
  * 1. Build max heap from array
- * 2. Repeatedly extract maximum and rebuild heap
+ * 2. Repeatedly extract maximum and rebuild heap using array operations
  *
  * ### WHY THIS WORKS:
  * - **Merge Sort**: Divide-and-conquer with guaranteed O(n log n), stable, needs O(n) space
@@ -61,34 +61,28 @@ This solution uses two pointers for efficient implementation.
 
 The solution leverages stack for efficient operations.
 ### EXAMPLE WALKTHROUGH:
- * Given input nums = [5,2,3,1]:
+ * **Input:** nums = [5,2,3,1]
  *
- * Input:
- * ```
- * nums = [5,2,3,1]
- * ```
+ * **Step 1:** Divide array using merge sort
+ * - Split [5,2,3,1] into [5,2] and [3,1]
+ * - Split [5,2] into [5] and [2]
+ * - Split [3,1] into [3] and [1]
  *
- * Merge Sort:
- * [5,2,3,1]
- * /    \\
- * [5,2]  [3,1]
- * / \\    / \\
- * [5][2] [3][1]
- * \\ /    \\ /
- * [2,5]  [1,3]
- * \\    /
- * [1,2,3,5]
- * Quick Sort:
- * [5,2,3,1] pivot=1
- * [1] [5,2,3]
- * [2,3,5] pivot=3
- * [2,3] [5]
- * [1,2,3,5]
+ * **Step 2:** Merge left half
+ * - Merge [5] and [2] → [2,5]
  *
- * Output:
- * ```
- * [1,2,3,5]
- * ```
+ * **Step 3:** Merge right half
+ * - Merge [3] and [1] → [1,3]
+ *
+ * **Step 4:** Merge both halves
+ * - Merge [2,5] and [1,3]
+ * - Compare: 2 vs 1 → take 1
+ * - Compare: 2 vs 3 → take 2
+ * - Compare: 5 vs 3 → take 3
+ * - Remaining: 5
+ * - Result: [1,2,3,5]
+ *
+ * **Output:** [1,2,3,5]
 
  * ### TIME COMPLEXITY:
  * O(n log n)
@@ -101,12 +95,12 @@ The solution leverages stack for efficient operations.
  * - Heap Sort: O(1) in-place
  *
  * ### EDGE CASES:
- * - Empty array
- * - Single element
- * - All elements equal
- * - Already sorted
- * - Reverse sorted
- * - Large arrays (up to 50,000 elements)
+ * - Empty array: Return [] immediately
+ * - Single element: Return [element] immediately (already sorted)
+ * - All elements equal: Any algorithm returns same array
+ * - Already sorted: Merge sort O(n log n), Quick sort O(n²) worst case
+ * - Reverse sorted: Worst case for Quick sort, best case for merge sort
+ * - Large arrays (up to 50,000 elements): Merge sort stable, Heap sort in-place
  *
  * </details>
  */

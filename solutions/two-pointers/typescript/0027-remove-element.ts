@@ -35,12 +35,12 @@
  * Use two pointers: one for reading, one for writing. When read pointer finds non-target value, write it at write pointer position and increment both. Otherwise only increment read pointer.
  *
  * ### APPROACH:
- * 1. **Initialize write pointer**: Set k = 0 to track position for non-val elements
- * 2. **Iterate through array**: For each element in nums
- * 3. **Check if not val**: If nums[i] != val
- * 4. **Copy to write position**: nums[k] = nums[i]
+ * 1. **Initialize write pointer**: Set k = 0 to track position for non-val elements in array
+ * 2. **Iterate through array**: For each element in nums using array traversal
+ * 3. **Check if not val**: If nums[i] != val using hash table lookup
+ * 4. **Copy to write position**: nums[k] = nums[i] in array
  * 5. **Increment write pointer**: k += 1
- * 6. **Continue scanning**: Process all elements
+ * 6. **Continue scanning**: Process all elements in array
  * 7. **Return count**: Return k as count of elements not equal to val
  *
  * ### WHY THIS WORKS:
@@ -56,23 +56,27 @@ This solution uses hash table lookup for efficient implementation.
 
 This solution uses hash map storage for efficient implementation.
 ### EXAMPLE WALKTHROUGH:
- * Given input nums = [3,2,2,3], val = 3:
+ * **Input:** nums = [3,2,2,3], val = 3
  *
- * Input:
- * ```
- * nums = [3,2,2,3], val = 3
- * ```
+ * **Step 1:** Initialize write pointer k = 0
+ * - Will track position for non-val elements
  *
- * Step 1: Two pointers
- * i=0, nums[0]=3=val, skip
- * i=1, nums[1]=2≠val, nums[0]=2, i=1
- * i=2, nums[2]=2≠val, nums[1]=2, i=2
- * i=3, nums[3]=3=val, skip
+ * **Step 2:** Process i=0, nums[0]=3
+ * - 3 == val, skip (don't write, don't increment k)
  *
- * Output:
- * ```
- * k=2, nums=[2,2,_,_]
- * ```
+ * **Step 3:** Process i=1, nums[1]=2
+ * - 2 ≠ val, write to nums[0]=2, increment k=1
+ *
+ * **Step 4:** Process i=2, nums[2]=2
+ * - 2 ≠ val, write to nums[1]=2, increment k=2
+ *
+ * **Step 5:** Process i=3, nums[3]=3
+ * - 3 == val, skip (don't write, don't increment k)
+ *
+ * **Step 6:** Return k=2
+ * - First 2 elements are result: [2,2,_,_]
+ *
+ * **Output:** 2
 
  * ### TIME COMPLEXITY:
 
@@ -85,9 +89,11 @@ This solution uses hash map storage for efficient implementation.
  * - Constant extra space
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
+ * - Empty array: Return 0 (no elements to process)
+ * - Single element equals val: Return 0 (remove it)
+ * - Single element not equals val: Return 1 (keep it)
+ * - All elements equal val: Return 0 (remove all)
+ * - No elements equal val: Return original length (keep all)
  *
  * </details>
  */

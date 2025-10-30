@@ -39,8 +39,8 @@
  * by 9 as the sum of its digits (this is the basis of the divisibility rule for 9).
  *
  * ### APPROACH:
- * 1. Naive approach: Loop and sum digits until single digit
- * 2. Optimized approach: Use digital root formula
+ * 1. Naive approach: Loop and sum digits using integer operations until single digit
+ * 2. Optimized approach: Use digital root formula with integer operations
  *    - If num == 0, return 0
  *    - If num % 9 == 0, return 9
  *    - Otherwise, return num % 9
@@ -60,17 +60,27 @@
 
 This solution uses mathematical pattern recognition for efficient implementation.
 ### EXAMPLE WALKTHROUGH:
- * Given input num = 38:
+ * **Input:** num = 38
  *
- * Example: num = 38
- * - Naive: 38 -> 3+8=11 -> 1+1=2
- * - Formula: 1 + (38-1) % 9 = 1 + 37 % 9 = 1 + 1 = 2 ✓
+ * **Step 1:** Naive approach - First iteration
+ * - 38 → 3 + 8 = 11
+ * - Result is not single digit, continue
  *
- * Example: num = 99
- * - Naive: 99 -> 9+9=18 -> 1+8=9
- * - Formula: 1 + (99-1) % 9 = 1 + 98 % 9 = 1 + 8 = 9 ✓
+ * **Step 2:** Naive approach - Second iteration
+ * - 11 → 1 + 1 = 2
+ * - Result is single digit, done!
  *
- * Result: 2
+ * **Step 3:** Formula approach (O(1))
+ * - Digital root formula: 1 + (num - 1) % 9
+ * - Calculate: 1 + (38 - 1) % 9
+ * - = 1 + 37 % 9
+ * - = 1 + 1 = 2 ✓
+ *
+ * **Step 4:** Verify with num = 99
+ * - Naive: 99 → 9+9=18 → 1+8=9
+ * - Formula: 1 + (99-1) % 9 = 1 + 8 = 9 ✓
+ *
+ * **Output:** 2
  *
  * ### TIME COMPLEXITY:
  * **O(1)** - Constant time using mathematical formula
@@ -79,9 +89,11 @@ This solution uses mathematical pattern recognition for efficient implementation
  * **O(1)** - Only using a few variables
  *
  * ### EDGE CASES:
- * - num = 0: Returns 0
- * - Multiples of 9: Return 9 (not 0)
- * - Large numbers (up to 2^31 - 1): Formula works regardless of size
+ * - num = 0: Returns 0 (special case handled separately)
+ * - Multiples of 9 (e.g., 9, 18, 27): Return 9 (not 0)
+ * - Single digit (1-9): Returns itself
+ * - Two digits (10-99): One iteration needed in naive approach
+ * - Large numbers (up to 2^31 - 1): Formula works in O(1) regardless of size
  *
  * </details>
  */

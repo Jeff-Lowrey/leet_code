@@ -48,34 +48,24 @@ This solution uses partitioning for efficient implementation.
 
 This solution uses two-pointer technique for efficient implementation.
 ### EXAMPLE WALKTHROUGH:
- * Given input ${original}:
+ * **Input:** nums = [1,5,1,1,6,4]
  *
- * ```
- * Input: nums = [1,5,1,1,6,4]
+ * **Step 1:** Sort the array
+ * - Sorted: [1,1,1,4,5,6]
  *
- * Step 1: Sort
- * [1,1,1,4,5,6]
+ * **Step 2:** Split around median (median ≈ 2.5, so split at index 3)
+ * - Small half: [1,1,1]
+ * - Large half: [4,5,6]
  *
- * Step 2: Split around median (median ≈ 2.5, so split at index 3)
- * Small half: [1,1,1]
- * Large half: [4,5,6]
+ * **Step 3:** Interleave in reverse order
+ * - Even indices (0,2,4): [1,1,1] reversed → 1,1,1
+ * - Odd indices (1,3,5): [4,5,6] reversed → 6,5,4
  *
- * Step 3: Interleave in reverse order
- * Even indices (0,2,4): [1,1,1] reversed → 1,1,1
- * Odd indices (1,3,5): [4,5,6] reversed → 6,5,4
+ * **Step 4:** Verify wiggle property
+ * - Result: [1,6,1,5,1,4]
+ * - Check: 1<6>1<5>1<4 ✓
  *
- * Result: [1,6,1,5,1,4]
- * Verify: 1<6>1<5>1<4 ✓
- *
- * Why reverse order?
- * If we used [1,1,1] and [4,5,6] directly:
- * [1,4,1,5,1,6] - works
- * But with [1,1,1,2,2,2], without reversing:
- * [1,2,1,2,1,2] - works
- * With [1,1,1,1,2,2], need clever placement:
- * [1,2,1,2,1,1] - the last two are equal!
- * Reversing: [1,2,1,2,1,1] → place from middle outward
- * ```
+ * **Output:** [1,6,1,5,1,4]
  *
  * ### TIME COMPLEXITY:
  * O(n log n)

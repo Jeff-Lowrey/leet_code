@@ -30,10 +30,10 @@
  * This is a topological sort problem where we need to check if there's a unique topological ordering that matches the given original sequence. The key insight is that for a unique reconstruction, at each step of topological sort, there should be exactly one node with in-degree 0.
  *
  * ### APPROACH:
- * 1. **Build graph**: Create adjacency list and in-degree count from seqs
- * 2. **Validate sequences**: Ensure all pairs in seqs appear consecutively in org
- * 3. **Check uniqueness**: Use topological sort with the constraint that at each step, only one node has in-degree 0
- * 4. **Verify order**: The topological order must match org exactly
+ * 1. **Build graph**: Create adjacency list using hash map and in-degree count using hash map from seqs
+ * 2. **Validate sequences**: Ensure all pairs in seqs appear consecutively in org using array
+ * 3. **Check uniqueness**: Use topological sort with the constraint that at each step, only one node has in-degree 0 in hash map
+ * 4. **Verify order**: The topological order must match org array exactly
  *
  * ### WHY THIS WORKS:
  * - Topological sort gives us the dependency order
@@ -49,30 +49,35 @@ This solution uses hash map storage for efficient implementation.
 
 This solution uses set operations for efficient implementation.
 ### EXAMPLE WALKTHROUGH:
- * Given input org = [1,2,3], seqs = [[1,2],[1,3],[2,3]]:
+ * **Input:** org = [1,2,3], seqs = [[1,2],[1,3],[2,3]]
  *
- * Input:
- * ```
- * org = [1,2,3], seqs = [[1,2],[1,3],[2,3]]
- * ```
+ * **Step 1:** Build graph from seqs
+ * - 1 -> [2, 3]
+ * - 2 -> [3]
+ * - 3 -> []
+ * - In-degrees: {1: 0, 2: 1, 3: 2}
  *
- * Build graph from seqs:
- * Topological sort:
+ * **Step 2:** Start topological sort
+ * - Queue has nodes with in-degree 0: [1]
+ * - Only one node in queue (unique choice) ✓
  *
- * Steps:
- * Step 1: 1 -> [2, 3]
- * Step 2: 2 -> [3]
- * Step 3: 3 -> []
- * Step 4: In-degrees: {1: 0, 2: 1, 3: 2}
- * Step 5: Only node 1 has in-degree 0 → process 1, reduce in-degrees of 2,3
- * Step 6: Only node 2 has in-degree 0 → process 2, reduce in-degree of 3
- * Step 7: Only node 3 has in-degree 0 → process 3
- * Step 8: Result: [1,2,3] matches org → True
- * 
- * Output:
- * ```
- * [1,2,3] matches org → True
- * ```
+ * **Step 3:** Process node 1
+ * - Add 1 to result: [1]
+ * - Reduce in-degrees of neighbors 2,3
+ * - New in-degrees: {2: 0, 3: 1}
+ * - Queue: [2]
+ *
+ * **Step 4:** Process node 2
+ * - Add 2 to result: [1,2]
+ * - Reduce in-degree of neighbor 3
+ * - New in-degree: {3: 0}
+ * - Queue: [3]
+ *
+ * **Step 5:** Process node 3
+ * - Add 3 to result: [1,2,3]
+ * - Result matches org [1,2,3] ✓
+ *
+ * **Output:** true
  * 
  * ### TIME COMPLEXITY:
  * O(V + E)

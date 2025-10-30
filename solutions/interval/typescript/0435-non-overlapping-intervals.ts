@@ -30,12 +30,12 @@
  * Sort by end time (greedy). Keep track of previous interval's end. If current start >= previous end, intervals don't overlap. Otherwise, skip current interval (remove it). Count removals.
  *
  * ### APPROACH:
- * 1. **Sort by end time**: Sort intervals by interval[1]
+ * 1. **Sort by end time**: Sort intervals array by interval[1]
  * 2. **Initialize variables**: Set count = 0, prev_end = intervals[0][1]
- * 3. **Iterate from second**: For each interval in intervals[1:]
- * 4. **Check overlap**: If current_start < prev_end, intervals overlap
+ * 3. **Iterate from second**: For each interval in intervals array[1:]
+ * 4. **Check overlap**: If current_start < prev_end using array, intervals overlap
  * 5. **Remove current**: Increment count
- * 6. **No overlap**: Update prev_end = current_end
+ * 6. **No overlap**: Update prev_end = current_end from array
  * 7. **Return count**: Return count as minimum intervals to remove
  *
  * ### WHY THIS WORKS:
@@ -53,27 +53,33 @@ This solution uses hash map storage for efficient implementation.
 
 This solution uses array traversal for efficient implementation.
 ### EXAMPLE WALKTHROUGH:
- * Given input intervals = [[1,2],[2,3],[3,4],[1,3]]:
+ * **Input:** intervals = [[1,2],[2,3],[3,4],[1,3]]
  *
- * Input:
- * ```
- * intervals = [[1,2],[2,3],[3,4],[1,3]]
- * ```
+ * **Step 1:** Sort intervals by end time
+ * - Original: [[1,2],[2,3],[3,4],[1,3]]
+ * - Sorted: [[1,2],[2,3],[1,3],[3,4]]
  *
- * Step 1: Sort by end time
- * sorted = [[1,2],[2,3],[1,3],[3,4]]
- * Step 2: Greedy selection
- * Select [1,2], end=2
- * [2,3]: 2 ≥ 2, select it, end=3
+ * **Step 2:** Select first interval [1,2]
+ * - nonOverlapping = 1, currentEnd = 2
  *
- * Steps:
- * Step 1: [1,3]: 1 < 3, overlaps → remove count=1
- * Step 2: [3,4]: 3 ≥ 3, select it
+ * **Step 3:** Check [2,3]
+ * - Start 2 >= currentEnd 2? Yes, no overlap
+ * - Select it: nonOverlapping = 2, currentEnd = 3
  *
- * Output:
- * ```
- * 1 (min intervals to remove)
- * ```
+ * **Step 4:** Check [1,3]
+ * - Start 1 >= currentEnd 3? No, overlaps
+ * - Skip it (will be removed)
+ *
+ * **Step 5:** Check [3,4]
+ * - Start 3 >= currentEnd 3? Yes, no overlap
+ * - Select it: nonOverlapping = 3, currentEnd = 4
+ *
+ * **Step 6:** Calculate removals
+ * - Total intervals: 4
+ * - Non-overlapping kept: 3
+ * - To remove: 4 - 3 = 1
+ *
+ * **Output:** 1
 
  * ### TIME COMPLEXITY:
  * O(n)
@@ -84,9 +90,11 @@ This solution uses array traversal for efficient implementation.
  * - Constant extra space
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
+ * - Empty array: Return 0 (no intervals to remove)
+ * - Single interval: Return 0 (cannot overlap with itself)
+ * - All intervals overlap: Remove all but one (n-1 removals)
+ * - No overlaps: Return 0 (already non-overlapping)
+ * - Identical intervals: Remove all duplicates except one
  *
  * </details>
  */

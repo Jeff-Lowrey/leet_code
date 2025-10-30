@@ -44,11 +44,11 @@
  * to the same array. This allows us to modify the array in-place with O(1) extra space.
  *
  * ### APPROACH:
- * 1. **Two Pointers**: Use `read` pointer to scan array, `write` pointer for result
- * 2. **Count Consecutive**: For each character, count how many consecutive times it appears
- * 3. **Write Character**: Always write the character itself
- * 4. **Write Count**: If count > 1, write the count digits
- * 5. **Handle Multi-Digit Counts**: Split counts like 12 into '1', '2'
+ * 1. **Two Pointers**: Use `read` pointer to scan array, `write` pointer for result in array
+ * 2. **Count Consecutive**: For each character, count how many consecutive times it appears in array
+ * 3. **Write Character**: Always write the character itself to array
+ * 4. **Write Count**: If count > 1, write the count digits to array using string conversion
+ * 5. **Handle Multi-Digit Counts**: Split counts like 12 into '1', '2' using string operations
  *
  * ### WHY THIS WORKS:
  * - Writing pointer never overtakes reading pointer (compressed is always shorter)
@@ -64,24 +64,28 @@ This solution uses hash map storage for efficient implementation.
 
 The solution leverages queue for efficient operations.
 ### EXAMPLE WALKTHROUGH:
- * Given input ["a","a","b","b","c","c","c"]:
+ * **Input:** chars = ["a","a","b","b","c","c","c"]
  *
- * Input:
- * ```
- * ["a","a","b","b","c","c","c"]
- * ```
+ * **Step 1:** Process 'a' group (read=0)
+ * - Count: 2 occurrences at indices 0-1
+ * - Write: chars[0]='a', chars[1]='2'
+ * - write=2, read=2
  *
- * Read pointer scans:
- * 1. chars[0-1]: 'a' appears 2 times
- * Write: chars[0]='a', chars[1]='2'
- * write=2
- * 2. chars[2-3]: 'b' appears 2 times
- * Write='b', chars[3]='2'
- * write=4
- * 3. chars[4-6]: 'c' appears 3 times
- * Write='c', chars[5]='3'
- * write=6
- * Result: ["a","2","b","2","c","3"] with length 6
+ * **Step 2:** Process 'b' group (read=2)
+ * - Count: 2 occurrences at indices 2-3
+ * - Write: chars[2]='b', chars[3]='2'
+ * - write=4, read=4
+ *
+ * **Step 3:** Process 'c' group (read=4)
+ * - Count: 3 occurrences at indices 4-6
+ * - Write: chars[4]='c', chars[5]='3'
+ * - write=6, read=7
+ *
+ * **Step 4:** Read pointer reached end
+ * - Array: ["a","2","b","2","c","3",...]
+ * - Return write pointer = 6
+ *
+ * **Output:** 6
 
  * ### TIME COMPLEXITY:
  * O(n)
@@ -96,10 +100,11 @@ The solution leverages queue for efficient operations.
  * - Modifying the array in-place
  *
  * ### EDGE CASES:
- * - Single character: Return 1
- * - All different characters: Return original length
- * - All same characters: Return 1 + len(str(count))
- * - Very long runs (count >= 10): Multi-digit handling
+ * - Single character array: Return 1 (just the character)
+ * - All different characters: Return original length (no compression)
+ * - All same characters (e.g., 12 'a's): Return 1 + len(str(count)) = 1 + 2 = 3 for ["a","1","2"]
+ * - Very long runs (count >= 10): Multi-digit handling required
+ * - Empty array: Return 0
  *
  * </details>
  */

@@ -40,12 +40,12 @@
  * and boundaries carefully.
  *
  * ### APPROACH:
- * 1. **Diagonal Identification**: Elements at (i, j) where i + j = k are on the same diagonal
+ * 1. **Diagonal Identification**: Elements at (i, j) where i + j = k are on the same diagonal, tracked in array
  * 2. **Direction Alternation**: Even-indexed diagonals go up-right, odd-indexed go down-left
- * 3. **Boundary Handling**: When hitting edges, change to next diagonal with proper direction
+ * 3. **Boundary Handling**: When hitting matrix edges, change to next diagonal with proper direction
  * 4. **Movement Pattern**:
- * - Going up: row--, col++
- * - Going down: row++, col--
+ * - Going up: row--, col++ (move in matrix)
+ * - Going down: row++, col-- (move in matrix)
  * - Hit boundary: adjust position and flip direction
  *
  * **Key Observations**:
@@ -60,19 +60,29 @@
  * - Direction flipping at boundaries creates the diagonal traversal pattern
  *
  * ### EXAMPLE WALKTHROUGH:
- * ```
- * mat = [[1,2,3],
- * [4,5,6],
- * [7,8,9]]
+ * **Input:** mat = [[1,2,3], [4,5,6], [7,8,9]]
  *
- * Diagonal 0 (sum=0): [1] → up direction
- * Diagonal 1 (sum=1): [2,4] → down direction
- * Diagonal 2 (sum=2): [7,5,3] → up direction
- * Diagonal 3 (sum=3): [6,8] → down direction
- * Diagonal 4 (sum=4): [9] → up direction
+ * **Step 1:** Diagonal 0 (sum=0)
+ * - Elements where row+col=0: [1]
+ * - Direction: up, Result: [1]
  *
- * Result: [1,2,4,7,5,3,6,8,9]
- * ```
+ * **Step 2:** Diagonal 1 (sum=1)
+ * - Elements where row+col=1: [2,4]
+ * - Direction: down, Result: [1,2,4]
+ *
+ * **Step 3:** Diagonal 2 (sum=2)
+ * - Elements where row+col=2: [7,5,3]
+ * - Direction: up, Result: [1,2,4,7,5,3]
+ *
+ * **Step 4:** Diagonal 3 (sum=3)
+ * - Elements where row+col=3: [6,8]
+ * - Direction: down, Result: [1,2,4,7,5,3,6,8]
+ *
+ * **Step 5:** Diagonal 4 (sum=4)
+ * - Elements where row+col=4: [9]
+ * - Direction: up, Result: [1,2,4,7,5,3,6,8,9]
+ *
+ * **Output:** [1,2,4,7,5,3,6,8,9]
  *
  * ### TIME COMPLEXITY:
  * O(m × n)
@@ -83,10 +93,11 @@
  * - Only use constant extra space (not counting output array)
  *
  * ### EDGE CASES:
- * - Single element: [[1]] → [1]
- * - Single row: [[1,2,3]] → [1,2,3]
- * - Single column: [[1],[2],[3]] → [1,2,3]
- * - Non-square matrices: Different row and column counts
+ * - Single element matrix: [[1]] → [1] (no diagonals to traverse)
+ * - Single row matrix: [[1,2,3]] → [1,2,3] (all elements in order)
+ * - Single column matrix: [[1],[2],[3]] → [1,2,3] (all elements in order)
+ * - Non-square matrices: Different row and column counts (e.g., 2×3 or 3×2)
+ * - Empty matrix: [] → [] (no elements to traverse)
  *
  *
 */

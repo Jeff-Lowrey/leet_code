@@ -45,10 +45,7 @@
  * ### EXAMPLE WALKTHROUGH:
  * Given input nums = [1, 2, 3, 1]:
  *
- * Input:
- * ```
- * nums = [1, 2, 3, 1]
- * ```
+ * **Input:** nums = [1, 2, 3, 1]
  *
  * **Step 1:** Convert array to set
  * - set(nums) = {1, 2, 3}
@@ -58,7 +55,7 @@
  * - len(nums) = 4 != len(set(nums)) = 3
  * - Since lengths differ, duplicates exist
  *
- * Output: True
+ * **Output:** true
  *
  * Alternative (Early Termination):
  * - seen = {}

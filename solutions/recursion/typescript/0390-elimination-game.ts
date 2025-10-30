@@ -74,28 +74,34 @@ This solution uses mathematical pattern recognition for efficient implementation
 
 This solution uses state tracking for efficient implementation.
 ### EXAMPLE WALKTHROUGH:
- * Given input n = 9:
+ * **Input:** n = 9
  *
- * n = 9, arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+ * **Step 1:** Initial state
+ * - arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+ * - head=1, step=1, remaining=9, leftToRight=true
  *
- * Round 1 (L->R): head=1, step=1, count=9, left_to_right=True
- *   Eliminate: 1, 3, 5, 7, 9
- *   Remaining: [2, 4, 6, 8]
- *   New head: 2 (head + step = 1 + 1 = 2)
- *   New step: 2, count: 4, direction: R->L
+ * **Step 2:** Round 1 (Left to Right)
+ * - Eliminate: 1, 3, 5, 7, 9
+ * - Remaining: [2, 4, 6, 8]
+ * - Update head: 1 + 1 = 2
+ * - New state: head=2, step=2, remaining=4, leftToRight=false
  *
- * Round 2 (R->L): head=2, step=2, count=4, left_to_right=False
- *   Eliminate: 8, 4
- *   Remaining: [2, 6]
- *   Head stays 2 (count is even)
- *   New step: 4, count: 2, direction: L->R
+ * **Step 3:** Round 2 (Right to Left)
+ * - Eliminate: 8, 4
+ * - Remaining: [2, 6]
+ * - Count is even, head stays 2
+ * - New state: head=2, step=4, remaining=2, leftToRight=true
  *
- * Round 3 (L->R): head=2, step=4, count=2, left_to_right=True
- *   Eliminate: 2
- *   Remaining: [6]
- *   New head: 2 + 4 = 6
+ * **Step 4:** Round 3 (Left to Right)
+ * - Eliminate: 2
+ * - Remaining: [6]
+ * - Update head: 2 + 4 = 6
+ * - New state: head=6, remaining=1
  *
- * Result: 6
+ * **Step 5:** Termination
+ * - Only one element remains: 6
+ *
+ * **Output:** 6
  *
  * ### TIME COMPLEXITY:
  * **O(log n)** - Each round eliminates half the numbers, similar to binary search

@@ -50,15 +50,17 @@
 
 This solution uses iteration for efficient implementation.
 ### EXAMPLE WALKTHROUGH:
- * ```
- * Input: n = 4
- * fib(4) = fib(3) + fib(2)
- * fib(3) = fib(2) + fib(1) = 1 + 1 = 2
- * fib(2) = fib(1) + fib(0) = 1 + 0 = 1
- * fib(4) = 2 + 1 = 3
- * ```
+ * **Input:** n = 4
  *
- * Result: </dt>
+ * **Step 1:** Base cases - F(0) = 0, F(1) = 1 (defined by problem)
+ *
+ * **Step 2:** Calculate F(2) = F(1) + F(0) = 1 + 0 = 1
+ *
+ * **Step 3:** Calculate F(3) = F(2) + F(1) = 1 + 1 = 2
+ *
+ * **Step 4:** Calculate F(4) = F(3) + F(2) = 2 + 1 = 3
+ *
+ * **Output:** 3
  *
  * ### TIME COMPLEXITY:
  * - Naive recursion: O(2^n) - exponential
@@ -68,9 +70,11 @@ This solution uses iteration for efficient implementation.
  * O(n) - recursion stack depth
  *
  * ### EDGE CASES:
- * - n = 0: return 0
- * - n = 1: return 1
- * - Large n: use memoization to avoid timeout
+ * - n = 0: Base case, returns 0 immediately
+ * - n = 1: Base case, returns 1 immediately
+ * - n = 2: First computed value (1 + 0 = 1)
+ * - Large n (e.g., n > 30): Naive recursion causes timeout, memoization required
+ * - Maximum n value (constraints typically n ≤ 30): Still manageable with memoization
  *
  *
 */
