@@ -12,9 +12,9 @@
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[([-2, 5, -1]</dd>
+ * <dd>nums = [-2, 5, -1], lower = -2, upper = 2</dd>
  * <dt>Output:</dt>
- * <dd>"\nInput: nums = nums, lower = {lower}, upper = {upper}"</dd>
+ * <dd>3</dd>
  * <dt>Explanation:</dt>
  * <dd>Count of ranges with sum in [lower=-2, upper=2] is 3</dd>
  * </dl>

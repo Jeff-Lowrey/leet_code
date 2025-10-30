@@ -74,6 +74,8 @@ This solution uses mathematical pattern recognition for efficient implementation
 
 This solution uses state tracking for efficient implementation.
 ### EXAMPLE WALKTHROUGH:
+ * Given input n = 9:
+ *
  * n = 9, arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
  *
  * Round 1 (L->R): head=1, step=1, count=9, left_to_right=True

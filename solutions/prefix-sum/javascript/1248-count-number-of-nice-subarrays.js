@@ -12,9 +12,9 @@
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[([1, 1, 2, 1, 1]</dd>
+ * <dd>nums = [1, 1, 2, 1, 1], k = 3</dd>
  * <dt>Output:</dt>
- * <dd>"\nInput: nums=nums, k={k}"</dd>
+ * <dd>2</dd>
  * <dt>Explanation:</dt>
  * <dd>There are 2 nice subarrays (containing exactly k=3 odd numbers)</dd>
  * </dl>

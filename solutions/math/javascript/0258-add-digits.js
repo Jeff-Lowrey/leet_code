@@ -60,6 +60,8 @@
 
 This solution uses mathematical pattern recognition for efficient implementation.
 ### EXAMPLE WALKTHROUGH:
+ * Given input num = 38:
+ *
  * Example: num = 38
  * - Naive: 38 -> 3+8=11 -> 1+1=2
  * - Formula: 1 + (38-1) % 9 = 1 + 37 % 9 = 1 + 1 = 2 ✓

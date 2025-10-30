@@ -14,9 +14,9 @@
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[(["A", "A", "A", "B", "B", "B"]</dd>
+ * <dd>tasks = ["A", "A", "A", "B", "B", "B"], n = 2</dd>
  * <dt>Output:</dt>
- * <dd>"\nTasks: {tasks}"</dd>
+ * <dd>8</dd>
  * <dt>Explanation:</dt>
  * <dd>Minimum intervals to schedule tasks 'AAABBB' with n=2 is 8</dd>
  * </dl>
