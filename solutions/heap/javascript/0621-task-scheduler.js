@@ -35,13 +35,13 @@
  * Schedule most frequent tasks first to minimize idle time. Use max-heap to always pick the task with highest frequency. Track cooldown with a queue.
  *
  * ### APPROACH:
- * 1. **Count frequencies**: Use Counter to get task frequencies
- * 2. **Max-heap**: Store negative frequencies (Python has min-heap)
- * 3. **Simulation**: For each time unit:
- *    - Pick most frequent available task
+ * 1. **Count frequencies**: Use hash map storage (Counter) with array traversal to get task frequencies
+ * 2. **Max-heap**: Store negative frequencies using heap data structure
+ * 3. **Simulation with queue**: For each time unit using hash table lookup:
+ *    - Pick most frequent available task from heap
  *    - Decrease its count and add to cooldown queue
  *    - Process cooldown queue to return tasks to heap
- * 4. **Math formula**: Can also calculate directly using formula
+ * 4. **Math formula**: Can also calculate directly using formula based on most frequent task
  *
  * ### WHY THIS WORKS:
  * - Most frequent tasks create the most idle time
@@ -56,26 +56,28 @@ This solution uses hash map storage for efficient implementation.
 
 This solution uses array traversal for efficient implementation.
 ### EXAMPLE WALKTHROUGH:
- * Given input tasks = ["A","A","A","B","B","B"], n = 2:
+ * **Input:** tasks = ["A","A","A","B","B","B"], n = 2
  *
- * Input:
- * ```
- * tasks = ["A","A","A","B","B","B"], n = 2
- * ```
+ * **Step 1:** Count frequencies using hash map storage
+ * - Hash map: {A: 3, B: 3}
  *
- * Frequencies: A=3, B=3
- * Timeline:
- * Time 0: A (A left: 2, cooldown until time 3)
- * Time 1: B (B left: 2, cooldown until time 4)
- * Time 2: idle (nothing available)
- * Time 3: A (A left: 1, cooldown until time 6)
- * Time 4: B (B left: 1, cooldown until time 7)
- * Time 5: idle
- * Time 6: A (A done)
- * Time 7: B (B done)
- * Total: 8 units
+ * **Step 2:** Build max-heap with negative frequencies
+ * - Heap: [-3, -3] (representing A and B)
  *
- * Result: 8
+ * **Step 3:** Simulate timeline with queue for cooldown tracking
+ * - Time 0: Pick A from heap (A left: 2, cooldown until time 3), queue: [(2, 3)]
+ * - Time 1: Pick B from heap (B left: 2, cooldown until time 4), queue: [(2, 3), (2, 4)]
+ * - Time 2: No tasks available (idle), queue processing
+ *
+ * **Step 4:** Continue simulation with hash table lookups
+ * - Time 3: A returns from cooldown (A left: 1, cooldown until time 6)
+ * - Time 4: B returns from cooldown (B left: 1, cooldown until time 7)
+ * - Time 5: idle
+ * - Time 6: A (A done)
+ * - Time 7: B (B done)
+ * - Total: 8 units
+ *
+ * **Output:** 8
  *
  * ### TIME COMPLEXITY:
  * O(n × m)
@@ -88,10 +90,10 @@ This solution uses array traversal for efficient implementation.
  * At most 26 different tasks (letters)
  *
  * ### EDGE CASES:
- * - n = 0 (no cooldown, return len(tasks))
- * - All tasks same
- * - All tasks different
- * - n very large
+ * - n = 0: tasks=["A","A","A"] → 3 (no cooldown, just len(tasks))
+ * - All tasks same: tasks=["A","A","A","A"], n=2 → 10 (A _ _ A _ _ A _ _ A)
+ * - All tasks different: tasks=["A","B","C","D"], n=2 → 4 (no waiting needed)
+ * - n very large: tasks=["A","A"], n=100 → 102 (A, 100 idles, A)
  *
  * </details>
  */

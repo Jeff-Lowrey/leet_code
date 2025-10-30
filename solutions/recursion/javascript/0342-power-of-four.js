@@ -43,22 +43,15 @@ This solution uses recursion for efficient implementation.
 
 The solution leverages integer for efficient operations.
 ### EXAMPLE WALKTHROUGH:
- * Given input n = 16:
+ * **Input:** n = 16
  *
- * Input:
- * ```
- * n = 16
- * ```
+ * **Step 1:** isPowerOfFour(16) → 16 % 4 === 0 → check isPowerOfFour(4)
  *
- * Steps:
- * Step 1: isPowerOfFour(16) → 16 % 4 === 0 → check isPowerOfFour(4)
- * Step 2: isPowerOfFour(4) → 4 % 4 === 0 → check isPowerOfFour(1)
- * Step 3: isPowerOfFour(1) → return true
+ * **Step 2:** isPowerOfFour(4) → 4 % 4 === 0 → check isPowerOfFour(1)
  *
- * Output:
- * ```
- * true
- * ```
+ * **Step 3:** isPowerOfFour(1) → return true (base case)
+ *
+ * **Output:** true
  *
  * ### TIME COMPLEXITY:
  * O(log₄ n) - dividing by 4 each time
@@ -67,9 +60,11 @@ The solution leverages integer for efficient operations.
  * O(log₄ n) - recursion stack depth
  *
  * ### EDGE CASES:
- * - n ≤ 0: return false
- * - n = 1: return true (4^0)
- * - Powers of 2 that aren't powers of 4 (e.g., 2, 8, 32)
+ * - n = 0: n=0 → false (zero is not a power of four)
+ * - n < 0: n=-16 → false (negative numbers, powers of 4 are positive)
+ * - n = 1: n=1 → true (special case: 4^0 = 1)
+ * - Powers of 2 that aren't powers of 4: n=2 → false, n=8 → false, n=32 → false
+ * - Large powers of 4: n=64 → true (4^3), n=256 → true (4^4), n=1024 → true (4^5)
  *
  * </details>
  *

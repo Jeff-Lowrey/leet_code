@@ -51,7 +51,7 @@
  * 4. The remaining count
  *
  * ### APPROACH:
- * We track the head of the remaining sequence. The head changes when:
+ * We track the head of the remaining sequence using pure mathematical state tracking (no data structures needed, just integer variables). The head changes when:
  * - We're going left-to-right (always updates)
  * - We're going right-to-left AND the count is odd (head updates)
  *
@@ -74,17 +74,31 @@ This solution uses mathematical pattern recognition for efficient implementation
 
 This solution uses state tracking for efficient implementation.
 ### EXAMPLE WALKTHROUGH:
- * Given input n = 9:
+ * **Input:** n = 9
  *
- * n = 9, arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+ * Initial state: arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
  *
- * Round 1 (L->R): head=1, step=1, count=9, left_to_right=True
- *   Eliminate: 1, 3, 5, 7, 9
- *   Remaining: [2, 4, 6, 8]
- *   New head: 2 (head + step = 1 + 1 = 2)
- *   New step: 2, count: 4, direction: R->L
+ * **Step 1** - Round 1 (L->R): head=1, step=1, count=9, left_to_right=True
+ * - Eliminate: 1, 3, 5, 7, 9
+ * - Remaining: [2, 4, 6, 8]
+ * - New head: 2 (head + step = 1 + 1 = 2)
+ * - New step: 2, count: 4, direction: R->L
  *
- * Round 2 (R->L): head=2, step=2, count=4, left_to_right=False
+ * **Step 2** - Round 2 (R->L): head=2, step=2, count=4, left_to_right=False
+ * - Eliminate: 8, 4
+ * - Remaining: [2, 6]
+ * - Head stays 2 (count is even, no update)
+ * - New step: 4, count: 2, direction: L->R
+ *
+ * **Step 3** - Round 3 (L->R): head=2, step=4, count=2, left_to_right=True
+ * - Eliminate: 2
+ * - Remaining: [6]
+ * - New head: 2 + 4 = 6
+ * - Only one number remains
+ *
+ * **Output:** 6
+ *
+ * Original Round 2 (R->L): head=2, step=2, count=4, left_to_right=False
  *   Eliminate: 8, 4
  *   Remaining: [2, 6]
  *   Head stays 2 (count is even)
@@ -104,9 +118,10 @@ This solution uses state tracking for efficient implementation.
  * **O(log n)** - Recursion stack depth (iterative solution can achieve O(1))
  *
  * ### EDGE CASES:
- * - Single element (n = 1): Returns 1 immediately
- * - Power of 2: Special pattern in result
- * - Large n (up to 10^9): Must use O(log n) algorithm, not simulation
+ * - Single element (n = 1): Returns 1 immediately (base case)
+ * - Power of 2: n=2 → 2, n=4 → 2, n=8 → 6, n=16 → 6 (special pattern)
+ * - Small values: n=2 → 2, n=3 → 2, n=4 → 2, n=5 → 2
+ * - Large n (up to 10^9): n=1000000000 → Must use O(log n) algorithm, not simulation
  *
  * </details>
  */

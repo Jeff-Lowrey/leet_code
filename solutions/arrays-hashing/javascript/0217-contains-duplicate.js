@@ -15,7 +15,7 @@
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>nums` = [1,2,3,1]</dd>
+ * <dd>nums = [1,2,3,1]</dd>
  * <dt>Output:</dt>
  * <dd>true</dd>
  * <dt>Explanation:</dt>
@@ -37,22 +37,17 @@
  * If there are duplicates, the set will be smaller than the array.
  *
  * ### APPROACH:
- * 1. **Convert array to set**: Transform the input array into a set data structure, which automatically removes all duplicate values
- * 2. **Compare lengths**: Calculate the length of both the original array and the newly created set
- * 3. **Detect duplicates**: If the lengths differ, duplicates existed in the original array (they were removed during set conversion)
+ * 1. **Convert array to set**: Transform the input array into a hash set data structure using set operations, which automatically removes all duplicate values
+ * 2. **Compare lengths**: Calculate the length of both the original array and the newly created hash set
+ * 3. **Detect duplicates**: If the lengths differ, duplicates existed in the original array (they were removed during set conversion using hash table lookup)
  * 4. **Return result**: Return True if lengths differ (duplicates found), False if lengths match (all elements unique)
- * 5. **Alternative early termination**: For better average performance, iterate through array and add elements to a set one by one, returning True immediately when an element is already in the set
+ * 5. **Alternative early termination**: For better average performance, iterate through array using array traversal and add elements to a hash set one by one using hash table lookup, returning True immediately when an element is already in the hash set
  *
  * ### WHY THIS WORKS:
  * A set by definition contains only unique elements - when we convert an array to a set, any duplicates are automatically removed. By comparing the lengths of the original array and the set, we can detect if duplicates existed. The early termination approach works because as soon as we find an element already in our seen set, we've proven a duplicate exists without needing to check the remaining elements.
  *
  * ### EXAMPLE WALKTHROUGH:
- * Given input nums = [1, 2, 3, 1]:
- *
- * Input:
- * ```
- * nums = [1, 2, 3, 1]
- * ```
+ * **Input:** nums = [1, 2, 3, 1]
  *
  * **Step 1:** Convert array to set
  * - set(nums) = {1, 2, 3}
@@ -62,7 +57,7 @@
  * - len(nums) = 4 != len(set(nums)) = 3
  * - Since lengths differ, duplicates exist
  *
- * Output: True
+ * **Output:** true
  *
  * Alternative (Early Termination):
  * - seen = {}
@@ -78,11 +73,11 @@
  * O(n) - Additional set storage
 
  * ### EDGE CASES:
- * - **Empty array**: Return False (no duplicates possible)
- * - **Single element**: Return False (need at least 2 for duplicate)
- * - **All elements same**: Return True immediately on second element
- * - **All elements unique**: Set and array lengths match, return False
- * - **Duplicate at start**: Early termination finds it quickly
+ * - **Empty array**: [] → False (no duplicates possible)
+ * - **Single element**: [1] → False (need at least 2 for duplicate)
+ * - **All elements same**: [1,1,1,1] → True immediately on second element
+ * - **All elements unique**: [1,2,3,4] → Set and array lengths match, return False
+ * - **Duplicate at start**: [1,1,2,3] → Early termination finds it quickly
  *
  *
 */

@@ -17,7 +17,7 @@
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>nums` = [1,2,3]</dd>
+ * <dd>nums = [1,2,3]</dd>
  * <dt>Output:</dt>
  * <dd>[[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]]</dd>
  * <dt>Explanation:</dt>
@@ -38,12 +38,12 @@
  * Generate all possible subsets (power set) by making binary choices for each element: include it or don't include it in the current subset. Use backtracking to explore all combinations.
  *
  * ### APPROACH:
- * 1. **Initialize result list**: Create an empty list to store all subsets (will include empty set)
- * 2. **Define recursive backtracking function**: Create a helper function with start index and current subset parameters
- * 3. **Add current subset**: At each recursive call, add a copy of the current subset to results (captures all intermediate states)
- * 4. **Iterate from start index**: Loop through remaining elements starting from the start index to avoid duplicates
- * 5. **Include element and recurse**: Add current element to subset, then recursively explore with next start index (i+1)
- * 6. **Backtrack**: Remove the last added element to try the next element at the current level
+ * 1. **Initialize result list**: Create an empty array to store all subsets (will include empty set)
+ * 2. **Define recursive backtracking function**: Create a helper function with start index and current subset parameters for array
+ * 3. **Add current subset**: At each recursive call, add a copy of the current subset from array to results (captures all intermediate states)
+ * 4. **Iterate from start index**: Loop through remaining elements in array starting from the start index to avoid duplicates
+ * 5. **Include element and recurse**: Add current element to subset in array, then recursively explore with next start index (i+1)
+ * 6. **Backtrack**: Remove the last added element from array to try the next element at the current level
  * 7. **Return power set**: After all recursive exploration completes, return the complete collection of 2^n subsets
  *
  * ### WHY THIS WORKS:
@@ -53,10 +53,7 @@
  * - Adding current subset at each step captures all intermediate states
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * nums = [1,2,3]
- * ```
+ * **Input:** nums = [1,2,3]
  *
  * **Step 1:** Backtracking approach
  * - Start with [] → add to result
@@ -74,7 +71,7 @@
  * - Add 2: result = [[], [1], [2], [1,2]]
  * - Add 3: result = [[], [1], [2], [1,2], [3], [1,3], [2,3], [1,2,3]]
  *
- * Output: [[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]]
+ * **Output:** [[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]]
  *
  * ### TIME COMPLEXITY:
  * O(n × 2^n) - 2^n subsets, each takes O(n) to copy
@@ -83,11 +80,11 @@
  * O(n) - recursion depth
 
  * ### EDGE CASES:
- * - **Empty array**: Return [[]] (power set contains only empty set)
- * - **Single element**: Return [[], [element]]
- * - **All elements identical (in variant)**: Handle duplicates with sorting
- * - **Large n values**: 2^n subsets, exponential but unavoidable
- * - **Negative numbers**: No special handling needed, works same as positive
+ * - **Empty array**: [] → [[]] (power set contains only empty set)
+ * - **Single element**: [1] → [[], [1]]
+ * - **All elements identical (in variant)**: [1,1,1] → Handle duplicates with sorting
+ * - **Large n values**: [1,2,3,4,5] → 2^5 = 32 subsets (exponential but unavoidable)
+ * - **Negative numbers**: [-1,0,1] → Works same as positive (8 subsets)
  *
  *
 */

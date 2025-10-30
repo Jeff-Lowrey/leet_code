@@ -13,9 +13,9 @@
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[1, 2, 3, 5]</dd>
+ * <dd>[5, 2, 3, 1]</dd>
  * <dt>Output:</dt>
- * <dd>1</dd>
+ * <dd>[1, 2, 3, 5]</dd>
  * <dt>Explanation:</dt>
  * <dd>Array [5,2,3,1] sorted is [1,2,3,5]</dd>
  * </dl>
@@ -35,17 +35,17 @@
  * achieve O(n log n) time. This problem tests understanding of fundamental sorting algorithms.
  *
  * ### APPROACH:
- * **Merge Sort:**
+ * **Merge Sort** (using array traversal and divide-and-conquer):
  * 1. Divide array into two halves recursively
  * 2. Sort each half recursively
- * 3. Merge sorted halves back together
+ * 3. Merge sorted halves back together using two pointers
  *
- * **Quick Sort:**
+ * **Quick Sort** (using two pointers):
  * 1. Choose pivot element
- * 2. Partition array around pivot
+ * 2. Partition array around pivot using two pointers
  * 3. Recursively sort left and right partitions
  *
- * **Heap Sort:**
+ * **Heap Sort** (using tree data structure):
  * 1. Build max heap from array
  * 2. Repeatedly extract maximum and rebuild heap
  *
@@ -64,9 +64,42 @@ The solution leverages string for efficient operations.
 
 The solution leverages tree for efficient operations.
 ### EXAMPLE WALKTHROUGH:
- * Given input nums = [5,2,3,1]:
+ * **Input:** nums = [5,2,3,1]
  *
- * Input:
+ * **Merge Sort approach:**
+ *
+ * **Step 1:** Divide array recursively
+ * - [5,2,3,1] → [5,2] and [3,1]
+ * - [5,2] → [5] and [2]
+ * - [3,1] → [3] and [1]
+ *
+ * **Step 2:** Base case - single elements are sorted
+ * - [5], [2], [3], [1] all sorted
+ *
+ * **Step 3:** Merge [5] and [2] using two pointers → [2,5]
+ *
+ * **Step 4:** Merge [3] and [1] using two pointers → [1,3]
+ *
+ * **Step 5:** Merge [2,5] and [1,3] using two pointers
+ * - Compare 2 vs 1: take 1
+ * - Compare 2 vs 3: take 2
+ * - Compare 5 vs 3: take 3
+ * - Remaining: take 5
+ * - Result: [1,2,3,5]
+ *
+ * **Quick Sort approach:**
+ *
+ * **Step 6:** Choose pivot (e.g., 1), partition using two pointers
+ * - [1] | [5,2,3] (elements > 1)
+ *
+ * **Step 7:** Recursively sort right partition with pivot 3
+ * - [2,3] | [5]
+ *
+ * **Step 8:** Combine results: [1,2,3,5]
+ *
+ * **Output:** [1,2,3,5]
+ *
+ * Original Input:
  * ```
  * nums = [5,2,3,1]
  * ```
@@ -104,12 +137,12 @@ The solution leverages tree for efficient operations.
  * - Heap Sort: O(1) in-place
  *
  * ### EDGE CASES:
- * - Empty array
- * - Single element
- * - All elements equal
- * - Already sorted
- * - Reverse sorted
- * - Large arrays (up to 50,000 elements)
+ * - Empty array: [] → []
+ * - Single element: [42] → [42]
+ * - All elements equal: [5,5,5,5] → [5,5,5,5]
+ * - Already sorted: [1,2,3,4,5] → [1,2,3,4,5] (best case O(n log n))
+ * - Reverse sorted: [5,4,3,2,1] → [1,2,3,4,5] (worst case for quick sort)
+ * - Large arrays: 50,000 elements still O(n log n) with merge sort
  *
  * </details>
  */

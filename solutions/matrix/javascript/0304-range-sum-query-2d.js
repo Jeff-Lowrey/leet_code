@@ -54,10 +54,10 @@
  * any rectangular sum in constant time.
  *
  * ### APPROACH:
- * 1. Create a prefix sum matrix where prefix[i][j] = sum of all elements from (0,0) to (i-1,j-1)
+ * 1. Create a 2D prefix sum matrix during preprocessing where prefix[i][j] = sum of all elements from (0,0) to (i-1,j-1)
  * 2. To avoid index out of bounds, make prefix matrix (m+1) x (n+1) with padding
- * 3. Build prefix sum: prefix[i][j] = matrix[i-1][j-1] + prefix[i-1][j] + prefix[i][j-1] - prefix[i-1][j-1]
- * 4. For range query (r1,c1) to (r2,c2):
+ * 3. Build prefix sum using dynamic programming: prefix[i][j] = matrix[i-1][j-1] + prefix[i-1][j] + prefix[i][j-1] - prefix[i-1][j-1]
+ * 4. For range query (r1,c1) to (r2,c2), use preprocessing results for O(1) lookup:
  *    sum = prefix[r2+1][c2+1] - prefix[r1][c2+1] - prefix[r2+1][c1] + prefix[r1][c1]
  *
  * ### WHY THIS WORKS:
@@ -73,7 +73,10 @@ This solution uses dynamic programming for efficient implementation.
 
 This solution uses preprocessing for efficient implementation.
 ### EXAMPLE WALKTHROUGH:
- * Given input matrix = [[3, 0, 1, 4, 2], [5, 6, 3, 2, 1], [1, 2, 0, 1, 5], [4, 1, 0, 1, 7], [1, 0, 3, 0, 5]]:
+ * **Input:** matrix = [[3, 0, 1, 4, 2], [5, 6, 3, 2, 1], [1, 2, 0, 1, 5], [4, 1, 0, 1, 7], [1, 0, 3, 0, 5]]
+ * Operations: ["NumMatrix", "sumRegion(2,1,4,3)", "sumRegion(1,1,2,2)", "sumRegion(1,2,2,4)"]
+ *
+ * **Step 1:** Create prefix sum matrix with padding
  *
  * Matrix: [[3, 0, 1, 4, 2],
  *          [5, 6, 3, 2, 1],
@@ -103,10 +106,10 @@ This solution uses preprocessing for efficient implementation.
  * **O(m * n)** - store prefix sum matrix of same dimensions as input
  *
  * ### EDGE CASES:
- * - Empty matrix or matrix with no columns
- * - Single element matrix
- * - Query covering entire matrix
- * - Query for single cell (row1==row2, col1==col2)
+ * - Empty matrix: [[]] → No valid queries possible
+ * - Single element matrix: [[5]] → sumRegion(0,0,0,0) returns 5
+ * - Query covering entire matrix: sumRegion(0,0,m-1,n-1) returns sum of all elements
+ * - Query for single cell: sumRegion(2,2,2,2) returns matrix[2][2]
  *
  * </details>
  */

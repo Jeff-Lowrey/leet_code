@@ -41,25 +41,21 @@ The solution leverages string for efficient operations.
 
 The solution leverages array for efficient operations.
 ### EXAMPLE WALKTHROUGH:
- * Given input s = "babad":
+ * **Input:** s = "babad"
  *
- * Input:
- * ```
- * s = "babad"
- * ```
+ * **Step 1:** Center at 'b' (index 0) → expand → "b" (length 1)
  *
- * Steps:
- * Step 1: Center at 'b' (index 0) → expand → "b" (length 1)
- * Step 2: Center at 'a' (index 1) → expand → "bab" (length 3)
- * Step 3: Center at 'b' (index 2) → expand → "b" (length 1)
- * Step 4: Center at 'a' (index 3) → expand → "aba" (length 3)
- * Step 5: Center at 'd' (index 4) → expand → "d" (length 1)
- * Step 6: Longest found → length 3
+ * **Step 2:** Center at 'a' (index 1) → expand → "bab" (length 3)
  *
- * Output:
- * ```
- * "bab"
- * ```
+ * **Step 3:** Center at 'b' (index 2) → expand → "b" (length 1)
+ *
+ * **Step 4:** Center at 'a' (index 3) → expand → "aba" (length 3)
+ *
+ * **Step 5:** Center at 'd' (index 4) → expand → "d" (length 1)
+ *
+ * **Step 6:** Longest found → length 3
+ *
+ * **Output:** "bab"
  *
  * Note: "aba" is also a valid answer
  *
@@ -74,10 +70,11 @@ The solution leverages array for efficient operations.
  * - Manacher's Algorithm: O(n)
  *
  * ### EDGE CASES:
- * - Empty string: return ""
- * - Single character: return that character
- * - All same characters: return entire string
- * - No palindrome > 1: return any single character
+ * - Empty string: s="" → ""
+ * - Single character: s="a" → "a"
+ * - All same characters: s="aaaa" → "aaaa" (entire string is palindrome)
+ * - No palindrome > 1: s="abcd" → "a" (or any single character)
+ * - Multiple valid answers: s="babad" → "bab" or "aba" (both length 3)
  *
  * </details>
  *

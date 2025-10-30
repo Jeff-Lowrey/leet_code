@@ -9,11 +9,11 @@
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>* ```</dd>
+ * <dd>nums = [1,5,1,1,6,4]</dd>
  * <dt>Output:</dt>
- * <dd>* ```</dd>
+ * <dd>[1,6,1,5,1,4]</dd>
  * <dt>Explanation:</dt>
- * <dd>Processing input produces the expected output</dd>
+ * <dd>After sorting and interleaving, the result satisfies nums[i] < nums[i+1] > nums[i+2] pattern</dd>
  * </dl>
  *
  * <details>
@@ -31,10 +31,10 @@
  * We need to interleave smaller and larger halves to avoid adjacent equal elements.
  *
  * ### APPROACH:
- * 1. **Find median**: Partition array around median value
- * 2. **Interleave halves**: Place smaller elements at even indices, larger at odd
- * 3. **Reverse order**: Place larger elements in reverse to avoid adjacency
- * 4. **Virtual indexing**: Map indices to avoid using extra space
+ * 1. **Find median**: Partition array around median value using array operations
+ * 2. **Interleave halves**: Place smaller elements at even indices in array, larger at odd indices in array
+ * 3. **Reverse order**: Place larger elements in reverse order in array to avoid adjacency
+ * 4. **Virtual indexing**: Map indices in array to avoid using extra space
  *
  * ### WHY THIS WORKS:
  * - After sorting, split into two halves around median
@@ -48,34 +48,24 @@ This solution uses partitioning for efficient implementation.
 
 This solution uses two-pointer technique for efficient implementation.
 ### EXAMPLE WALKTHROUGH:
- * Given input ${original}:
+ * **Input:** nums = [1,5,1,1,6,4]
  *
- * ```
- * Input: nums = [1,5,1,1,6,4]
+ * **Step 1:** Sort the array
+ * - Sorted: [1,1,1,4,5,6]
  *
- * Step 1: Sort
- * [1,1,1,4,5,6]
+ * **Step 2:** Split around median (median ≈ 2.5, so split at index 3)
+ * - Small half: [1,1,1]
+ * - Large half: [4,5,6]
  *
- * Step 2: Split around median (median ≈ 2.5, so split at index 3)
- * Small half: [1,1,1]
- * Large half: [4,5,6]
+ * **Step 3:** Interleave in reverse order
+ * - Even indices (0,2,4): [1,1,1] reversed → 1,1,1
+ * - Odd indices (1,3,5): [4,5,6] reversed → 6,5,4
  *
- * Step 3: Interleave in reverse order
- * Even indices (0,2,4): [1,1,1] reversed → 1,1,1
- * Odd indices (1,3,5): [4,5,6] reversed → 6,5,4
+ * **Step 4:** Verify wiggle property
+ * - Result: [1,6,1,5,1,4]
+ * - Check: 1<6>1<5>1<4 ✓
  *
- * Result: [1,6,1,5,1,4]
- * Verify: 1<6>1<5>1<4 ✓
- *
- * Why reverse order?
- * If we used [1,1,1] and [4,5,6] directly:
- * [1,4,1,5,1,6] - works
- * But with [1,1,1,2,2,2], without reversing:
- * [1,2,1,2,1,2] - works
- * With [1,1,1,1,2,2], need clever placement:
- * [1,2,1,2,1,1] - the last two are equal!
- * Reversing: [1,2,1,2,1,1] → place from middle outward
- * ```
+ * **Output:** [1,6,1,5,1,4]
  *
  * ### TIME COMPLEXITY:
  * O(n log n)
@@ -86,10 +76,10 @@ This solution uses two-pointer technique for efficient implementation.
  * For temporary sorted array. Can be O(1) with in-place virtual indexing.
  *
  * ### EDGE CASES:
- * - Array with many duplicate elements
- * - All elements equal (impossible with strict inequality requirement)
- * - Small arrays (length 2-3)
- * - Even vs odd length arrays
+ * - Array with many duplicate elements: [1,1,1,4,5,6] → requires careful interleaving
+ * - All elements equal: Impossible with strict inequality requirement (no solution)
+ * - Small arrays: [1,2] → [1,2], [1,2,3] → [2,3,1] or [1,3,2]
+ * - Even vs odd length arrays: [1,2,3,4] vs [1,2,3,4,5] (odd has extra in small half)
  *
  *
 */

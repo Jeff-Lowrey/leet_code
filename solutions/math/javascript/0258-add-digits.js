@@ -39,12 +39,12 @@
  * by 9 as the sum of its digits (this is the basis of the divisibility rule for 9).
  *
  * ### APPROACH:
- * 1. Naive approach: Loop and sum digits until single digit
- * 2. Optimized approach: Use digital root formula
+ * 1. Naive approach: Loop and sum digits using integer operations (modulo and division) until single digit
+ * 2. Optimized approach: Use digital root formula with modulo arithmetic
  *    - If num == 0, return 0
  *    - If num % 9 == 0, return 9
  *    - Otherwise, return num % 9
- *    - This can be simplified to: 1 + (num - 1) % 9
+ *    - This can be simplified to: 1 + (num - 1) % 9 using only integer operations
  *
  * ### WHY THIS WORKS:
  * The digital root of a positive integer is obtained by iteratively summing digits until
@@ -60,14 +60,25 @@
 
 This solution uses mathematical pattern recognition for efficient implementation.
 ### EXAMPLE WALKTHROUGH:
- * Given input num = 38:
+ * **Input:** num = 38
  *
- * Example: num = 38
- * - Naive: 38 -> 3+8=11 -> 1+1=2
+ * **Step 1:** Naive approach - Loop and sum digits using integer operations
+ * - 38: Extract digits using modulo (38 % 10 = 8, 38 // 10 = 3)
+ * - Sum: 3 + 8 = 11
+ * - 11: Extract digits (11 % 10 = 1, 11 // 10 = 1)
+ * - Sum: 1 + 1 = 2 (single digit)
+ *
+ * **Step 2:** Optimized approach - Use digital root formula with modulo arithmetic
  * - Formula: 1 + (38-1) % 9 = 1 + 37 % 9 = 1 + 1 = 2 ✓
  *
- * Example: num = 99
+ * Additional example with num = 99 (multiple of 9):
  * - Naive: 99 -> 9+9=18 -> 1+8=9
+ * - Formula: 1 + (99-1) % 9 = 1 + 98 % 9 = 1 + 8 = 9 ✓
+ *
+ * **Output:** 2
+ *
+ * Original Example: num = 38
+ * - Naive: 38 -> 3+8=11 -> 1+1=2
  * - Formula: 1 + (99-1) % 9 = 1 + 98 % 9 = 1 + 8 = 9 ✓
  *
  * Result: 2
@@ -79,9 +90,10 @@ This solution uses mathematical pattern recognition for efficient implementation
  * **O(1)** - Only using a few variables
  *
  * ### EDGE CASES:
- * - num = 0: Returns 0
- * - Multiples of 9: Return 9 (not 0)
- * - Large numbers (up to 2^31 - 1): Formula works regardless of size
+ * - num = 0: Returns 0 (special case, digital root of 0 is 0)
+ * - Multiples of 9: num=9 → 9, num=18 → 9, num=99 → 9 (not 0)
+ * - Single digit: num=5 → 5 (already single digit)
+ * - Large numbers: num=2147483647 (2^31-1) → Formula still O(1) regardless of size
  *
  * </details>
  */

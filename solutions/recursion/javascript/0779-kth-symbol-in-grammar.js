@@ -53,12 +53,7 @@ This solution uses recursion for efficient implementation.
 
 This solution uses bit manipulation for efficient implementation.
 ### EXAMPLE WALKTHROUGH:
- * Given input n = 3, k = 3:
- *
- * Input:
- * ```
- * n = 3, k = 3
- * ```
+ * **Input:** n = 3, k = 3
  *
  * Row structure:
  * ```
@@ -69,17 +64,17 @@ This solution uses bit manipulation for efficient implementation.
  *        1 2 3 4
  * ```
  *
- * Steps:
- * Step 1: k=3 (odd) → parent is position ⌈3/2⌉ = 2 in row 2 → same value as parent
- * Step 2: k=2 (even) → parent is position ⌈2/2⌉ = 1 in row 1 → flip parent
- * Step 3: Find position 1 in row 1 → returns 0
- * Step 4: Row 2, position 2 → flip(0) = 1
- * Step 5: Row 3, position 3 → same as parent = 1
+ * **Step 1:** k=3 (odd) → parent is position ⌈3/2⌉ = 2 in row 2 → same value as parent
  *
- * Output:
- * ```
- * 1
- * ```
+ * **Step 2:** k=2 (even) → parent is position ⌈2/2⌉ = 1 in row 1 → flip parent
+ *
+ * **Step 3:** Find position 1 in row 1 → returns 0
+ *
+ * **Step 4:** Row 2, position 2 → flip(0) = 1
+ *
+ * **Step 5:** Row 3, position 3 → same as parent = 1
+ *
+ * **Output:** 1
  *
  * ### TIME COMPLEXITY:
  * O(n) - we recurse up to n times
@@ -88,9 +83,10 @@ This solution uses bit manipulation for efficient implementation.
  * O(n) - recursion stack depth
  *
  * ### EDGE CASES:
- * - n = 1: always returns 0
- * - k = 1: always returns 0 (first element of any row)
- * - k = last position: depends on pattern
+ * - n = 1: n=1, k=1 → 0 (always returns 0, only one element)
+ * - k = 1: n=5, k=1 → 0 (first element of any row is always 0)
+ * - k = last position: n=3, k=4 → 0 (last element of row 3)
+ * - Middle positions: n=4, k=5 → 1 (depends on parent pattern)
  *
  * </details>
  *

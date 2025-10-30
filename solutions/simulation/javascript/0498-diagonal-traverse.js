@@ -9,11 +9,11 @@
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>* ```</dd>
+ * <dd>mat = [[1,2,3], [4,5,6], [7,8,9]]</dd>
  * <dt>Output:</dt>
- * <dd>* ```</dd>
+ * <dd>[1,2,4,7,5,3,6,8,9]</dd>
  * <dt>Explanation:</dt>
- * <dd>Processing input produces the expected output</dd>
+ * <dd>Traverse diagonals in zigzag pattern: up-right then down-left alternating</dd>
  * </dl>
  *
  * <details>
@@ -32,13 +32,13 @@
  * and boundaries carefully.
  *
  * ### APPROACH:
- * 1. **Diagonal Identification**: Elements at (i, j) where i + j = k are on the same diagonal
- * 2. **Direction Alternation**: Even-indexed diagonals go up-right, odd-indexed go down-left
- * 3. **Boundary Handling**: When hitting edges, change to next diagonal with proper direction
- * 4. **Movement Pattern**:
+ * 1. **Diagonal Identification**: Elements at (i, j) in matrix where i + j = k are on the same diagonal
+ * 2. **Direction Alternation**: Even-indexed diagonals go up-right in array, odd-indexed go down-left in array
+ * 3. **Boundary Handling**: When hitting matrix edges, change to next diagonal with proper direction
+ * 4. **Movement Pattern** in array:
  * - Going up: row--, col++
  * - Going down: row++, col--
- * - Hit boundary: adjust position and flip direction
+ * - Hit boundary: adjust position in array and flip direction
  *
  * **Key Observations**:
  * - Total diagonals = m + n - 1
@@ -52,19 +52,24 @@
  * - Direction flipping at boundaries creates the diagonal traversal pattern
  *
  * ### EXAMPLE WALKTHROUGH:
- * ```
- * mat = [[1,2,3],
- * [4,5,6],
- * [7,8,9]]
+ * **Input:** mat = [[1,2,3], [4,5,6], [7,8,9]]
  *
- * Diagonal 0 (sum=0): [1] → up direction
- * Diagonal 1 (sum=1): [2,4] → down direction
- * Diagonal 2 (sum=2): [7,5,3] → up direction
- * Diagonal 3 (sum=3): [6,8] → down direction
- * Diagonal 4 (sum=4): [9] → up direction
+ * **Step 1:** Initialize - Start at (0,0), direction = up
+ * - Add element 1, move according to boundary rules
  *
- * Result: [1,2,4,7,5,3,6,8,9]
- * ```
+ * **Step 2:** Process diagonal sum=1 (down direction)
+ * - Add elements: 2, then 4
+ * - Hit boundaries and flip direction
+ *
+ * **Step 3:** Process diagonal sum=2 (up direction)
+ * - Add elements: 7, 5, 3 (reverse order due to direction)
+ * - Hit boundaries and flip direction
+ *
+ * **Step 4:** Continue pattern for remaining diagonals
+ * - Diagonal sum=3 (down): 6, 8
+ * - Diagonal sum=4 (up): 9
+ *
+ * **Output:** [1,2,4,7,5,3,6,8,9]
  *
  * ### TIME COMPLEXITY:
  * O(m × n)
@@ -75,10 +80,10 @@
  * - Only use constant extra space (not counting output array)
  *
  * ### EDGE CASES:
- * - Single element: [[1]] → [1]
- * - Single row: [[1,2,3]] → [1,2,3]
- * - Single column: [[1],[2],[3]] → [1,2,3]
- * - Non-square matrices: Different row and column counts
+ * - Single element: [[1]] → [1] (trivial case, no direction change)
+ * - Single row: [[1,2,3]] → [1,2,3] (all going right, no diagonal)
+ * - Single column: [[1],[2],[3]] → [1,2,3] (all going down, no diagonal)
+ * - Non-square matrices: [[1,2,3],[4,5,6]] (2×3) → [1,2,4,5,3,6]
  *
  *
 */

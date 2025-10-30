@@ -24,10 +24,10 @@
  * If n becomes 1, it's a power of two. If n is odd (and not 1), it's not.
  *
  * ### APPROACH:
- * 1. **Base cases**: n = 1 (true, 2^0), n ≤ 0 (false)
- * 2. **Even case**: Recursively check n/2
+ * 1. **Base cases**: Check integer n - if n = 1 (true, 2^0), if n ≤ 0 (false)
+ * 2. **Even case**: Recursively check n/2, dividing the integer by 2
  * 3. **Odd case**: Return false (powers of 2 are never odd except 1)
- * 4. **Alternative**: Bit manipulation - n & (n-1) == 0
+ * 4. **Alternative**: Bit manipulation on integer - n & (n-1) == 0
  *
  * ### WHY THIS WORKS:
  * - Powers of 2 in binary: 1, 10, 100, 1000, etc.
@@ -42,24 +42,19 @@ This solution uses math for efficient implementation.
 
 The solution leverages integer for efficient operations.
 ### EXAMPLE WALKTHROUGH:
- * Given input n = 16:
+ * **Input:** n = 16
  *
- * Input:
- * ```
- * n = 16
- * ```
+ * **Step 1:** isPowerOfTwo(16) → 16 % 2 === 0 → check isPowerOfTwo(8)
  *
- * Steps:
- * Step 1: isPowerOfTwo(16) → 16 % 2 === 0 → check isPowerOfTwo(8)
- * Step 2: isPowerOfTwo(8) → 8 % 2 === 0 → check isPowerOfTwo(4)
- * Step 3: isPowerOfTwo(4) → 4 % 2 === 0 → check isPowerOfTwo(2)
- * Step 4: isPowerOfTwo(2) → 2 % 2 === 0 → check isPowerOfTwo(1)
- * Step 5: isPowerOfTwo(1) → return true
+ * **Step 2:** isPowerOfTwo(8) → 8 % 2 === 0 → check isPowerOfTwo(4)
  *
- * Output:
- * ```
- * true
- * ```
+ * **Step 3:** isPowerOfTwo(4) → 4 % 2 === 0 → check isPowerOfTwo(2)
+ *
+ * **Step 4:** isPowerOfTwo(2) → 2 % 2 === 0 → check isPowerOfTwo(1)
+ *
+ * **Step 5:** isPowerOfTwo(1) → return true (base case)
+ *
+ * **Output:** true
  *
  * ### TIME COMPLEXITY:
  * O(log n) - dividing by 2 each time
@@ -68,9 +63,11 @@ The solution leverages integer for efficient operations.
  * O(log n) - recursion stack depth
  *
  * ### EDGE CASES:
- * - n ≤ 0: return false
- * - n = 1: return true (2^0)
- * - Odd numbers > 1: return false
+ * - n = 0: n=0 → false (zero is not a power of two)
+ * - n < 0: n=-16 → false (negative numbers, powers of 2 are positive)
+ * - n = 1: n=1 → true (special case: 2^0 = 1)
+ * - Odd numbers > 1: n=3 → false, n=5 → false, n=7 → false (immediately false)
+ * - Large powers of 2: n=1024 → true (2^10), n=1073741824 → true (2^30)
  *
  * </details>
  *
