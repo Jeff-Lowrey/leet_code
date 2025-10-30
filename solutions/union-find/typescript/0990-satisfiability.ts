@@ -1,8 +1,7 @@
 /**
-# 0990. Problem
- * 
- * # Difficulty: Medium
- * # 0990. Satisfiability of Equality Equations
+ * 0990. Satisfiability of Equality Equations
+ *
+ * Difficulty: Medium
  * 
  * You are given an array of strings equations that represent relationships between variables where each string equations[i] is of length 4 and takes one of two different forms: "xi==xj" or "xi!=xj".
  * 
@@ -106,14 +105,40 @@ class Solution {
    *         Space Complexity: O(1) since we have at most 26 variables
    */
   equationsPossible(equations: string[]): boolean {
-    // Implementation
-    parent = list(range(26))
-    def find(x: Any) -> Any:
-    """Find root with path compression."""
-    if parent.get(x) != x:
-    parent.set(x, find(parent.get(x))
-    return parent.get(x)
-    def union(x: Any, y: Any) -> Any:
+    const parent = Array.from({ length: 26 }, (_, i) => i);
+
+    const find = (x: number): number => {
+      if (parent[x] !== x) {
+        parent[x] = find(parent[x]); // Path compression
+      }
+      return parent[x];
+    };
+
+    const union = (x: number, y: number): void => {
+      parent[find(x)] = find(y);
+    };
+
+    // Process all equality equations first
+    for (const eq of equations) {
+      if (eq[1] === "=") {
+        const x = eq.charCodeAt(0) - 97; // 'a' = 97
+        const y = eq.charCodeAt(3) - 97;
+        union(x, y);
+      }
+    }
+
+    // Check inequality equations
+    for (const eq of equations) {
+      if (eq[1] === "!") {
+        const x = eq.charCodeAt(0) - 97;
+        const y = eq.charCodeAt(3) - 97;
+        if (find(x) === find(y)) {
+          return false; // Contradiction found
+        }
+      }
+    }
+
+    return true;
   }
 
   /**
@@ -126,15 +151,62 @@ class Solution {
    *             True if satisfiable, False otherwise
    */
   equationsPossibleAlternative(equations: string[]): boolean {
-    // Implementation
-    class UnionFind:
-    def __init__(self: Any, n: Any) -> null:
-    self.parent = list(range(n))
-    self.rank = [0] * n
-    def find(self: Any, x: Any) -> Any:
-    if self.parent.get(x) != x:
-    self.parent.set(x, self.find(self.parent.get(x))
-    return self.parent.get(x)
+    class UnionFind {
+      parent: number[];
+      rank: number[];
+
+      constructor(n: number) {
+        this.parent = Array.from({ length: n }, (_, i) => i);
+        this.rank = Array(n).fill(0);
+      }
+
+      find(x: number): number {
+        if (this.parent[x] !== x) {
+          this.parent[x] = this.find(this.parent[x]);
+        }
+        return this.parent[x];
+      }
+
+      union(x: number, y: number): void {
+        const rootX = this.find(x);
+        const rootY = this.find(y);
+
+        if (rootX !== rootY) {
+          if (this.rank[rootX] < this.rank[rootY]) {
+            this.parent[rootX] = rootY;
+          } else if (this.rank[rootX] > this.rank[rootY]) {
+            this.parent[rootY] = rootX;
+          } else {
+            this.parent[rootY] = rootX;
+            this.rank[rootX]++;
+          }
+        }
+      }
+    }
+
+    const uf = new UnionFind(26);
+
+    // Process equalities
+    for (const eq of equations) {
+      if (eq[1] === "=") {
+        const x = eq.charCodeAt(0) - 97;
+        const y = eq.charCodeAt(3) - 97;
+        uf.union(x, y);
+      }
+    }
+
+    // Check inequalities
+    for (const eq of equations) {
+      if (eq[1] === "!") {
+        const x = eq.charCodeAt(0) - 97;
+        const y = eq.charCodeAt(3) - 97;
+        if (uf.find(x) === uf.find(y)) {
+          return false;
+        }
+      }
+    }
+
+    return true;
   }
 }
 
@@ -146,11 +218,11 @@ if (typeof module !== "undefined" && module.exports) {
 function runTests(): void {
   const solution = new Solution();
 
-  test_solution()
-  # Example usage
-  solution = Solution()
-  equations = ["a==b", "b==c", "a!=d"]
-  console.log(`Equations {equations} satisfiable: {solution.equationsPossible(equations)}`)
+  const equations = ["a==b", "b==c", "a!=d"];
+  console.log(`Equations [${equations}] satisfiable:`, solution.equationsPossible(equations));
+
+  const equations2 = ["a==b", "b!=a"];
+  console.log(`Equations [${equations2}] satisfiable:`, solution.equationsPossible(equations2));
 }
 
 if (typeof require !== "undefined" && require.main === module) {

@@ -1,8 +1,7 @@
 /**
-# 0323. Problem
- * 
- * # Difficulty: Medium
- * # 0323. Number Of Connected Components In An Undirected Graph
+ * 0323. Number Of Connected Components In An Undirected Graph
+ *
+ * Difficulty: Medium
  * 
  * You have a graph of n nodes labeled from 0 to n - 1. You are given an integer n and a list of edges where edges[i] = [ai, bi] indicates that there is an undirected edge between nodes ai and bi in the graph.
  * 
@@ -101,15 +100,40 @@ class Solution {
    *         Space Complexity: O(N) for Union-Find structure
    */
   countComponents(n: number, edges: number[][]): number {
-    // Implementation
-    parent = list(range(n))
-    rank = [0] * n
-    components = n  // Initially each node is its own component
-    def find(x: Any) -> Any:
-    """Find root with path compression."""
-    if parent.get(x) != x:
-    parent.set(x, find(parent.get(x))
-    return parent.get(x)
+    const parent = Array.from({ length: n }, (_, i) => i);
+    const rank = Array(n).fill(0);
+    let components = n; // Initially each node is its own component
+
+    const find = (x: number): number => {
+      if (parent[x] !== x) {
+        parent[x] = find(parent[x]); // Path compression
+      }
+      return parent[x];
+    };
+
+    const union = (x: number, y: number): void => {
+      const rootX = find(x);
+      const rootY = find(y);
+
+      if (rootX !== rootY) {
+        if (rank[rootX] < rank[rootY]) {
+          parent[rootX] = rootY;
+        } else if (rank[rootX] > rank[rootY]) {
+          parent[rootY] = rootX;
+        } else {
+          parent[rootY] = rootX;
+          rank[rootX]++;
+        }
+        components--; // Merged two components
+      }
+    };
+
+    // Process all edges
+    for (const [u, v] of edges) {
+      union(u, v);
+    }
+
+    return components;
   }
 
   /**
@@ -126,14 +150,34 @@ class Solution {
    *         Space Complexity: O(N + E) for adjacency list and visited array
    */
   countComponentsDFS(n: number, edges: number[][]): number {
-    // Implementation
-    graph: list.get(list[int)] = [[] for _ in range(n)]
-    for u, v in edges:
-    graph.get(u).append(v)
-    graph.get(v).append(u)
-    visited = [false] * n
-    components = 0
-    def dfs(node: Any) -> Any:
+    const graph: number[][] = Array.from({ length: n }, () => []);
+
+    // Build adjacency list
+    for (const [u, v] of edges) {
+      graph[u].push(v);
+      graph[v].push(u);
+    }
+
+    const visited = Array(n).fill(false);
+    let components = 0;
+
+    const dfs = (node: number): void => {
+      visited[node] = true;
+      for (const neighbor of graph[node]) {
+        if (!visited[neighbor]) {
+          dfs(neighbor);
+        }
+      }
+    };
+
+    for (let i = 0; i < n; i++) {
+      if (!visited[i]) {
+        components++;
+        dfs(i);
+      }
+    }
+
+    return components;
   }
 
   /**
@@ -147,14 +191,36 @@ class Solution {
    *             Number of connected components
    */
   countComponentsBFS(n: number, edges: number[][]): number {
-    // Implementation
-    graph: list.get(list[int)] = [[] for _ in range(n)]
-    for u, v in edges:
-    graph.get(u).append(v)
-    graph.get(v).append(u)
-    visited = [false] * n
-    components = 0
+    const graph: number[][] = Array.from({ length: n }, () => []);
+
+    // Build adjacency list
+    for (const [u, v] of edges) {
+      graph[u].push(v);
+      graph[v].push(u);
+    }
+
+    const visited = Array(n).fill(false);
+    let components = 0;
+
     for (let i = 0; i < n; i++) {
+      if (!visited[i]) {
+        components++;
+        const queue: number[] = [i];
+        visited[i] = true;
+
+        while (queue.length > 0) {
+          const node = queue.shift()!;
+          for (const neighbor of graph[node]) {
+            if (!visited[neighbor]) {
+              visited[neighbor] = true;
+              queue.push(neighbor);
+            }
+          }
+        }
+      }
+    }
+
+    return components;
   }
 }
 
@@ -166,10 +232,14 @@ if (typeof module !== "undefined" && module.exports) {
 function runTests(): void {
   const solution = new Solution();
 
-  test_solution()
-  # Example usage
-  solution = Solution()
-  console.log("Solution for 323. Number Of Connected Components In An Undirected Graph")
+  console.log("=== 323. Number Of Connected Components In An Undirected Graph ===");
+
+  const n = 5;
+  const edges = [[0, 1], [1, 2], [3, 4]];
+  console.log(`n=${n}, edges=${JSON.stringify(edges)}`);
+  console.log("Union-Find:", solution.countComponents(n, edges));
+  console.log("DFS:", solution.countComponentsDFS(n, edges));
+  console.log("BFS:", solution.countComponentsBFS(n, edges));
 }
 
 if (typeof require !== "undefined" && require.main === module) {

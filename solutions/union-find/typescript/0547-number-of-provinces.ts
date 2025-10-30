@@ -115,14 +115,45 @@ class Solution {
    *         Space Complexity: O(n) for Union-Find structure
    */
   findCircleNum(isConnected: number[][]): number {
-    // Implementation
-    n = isConnected.length
-    uf = UnionFind(n)
+    const n = isConnected.length;
+    const parent = Array.from({ length: n }, (_, i) => i);
+    const rank = Array(n).fill(0);
+    let components = n;
+
+    const find = (x: number): number => {
+      if (parent[x] !== x) {
+        parent[x] = find(parent[x]); // Path compression
+      }
+      return parent[x];
+    };
+
+    const union = (x: number, y: number): void => {
+      const rootX = find(x);
+      const rootY = find(y);
+
+      if (rootX !== rootY) {
+        if (rank[rootX] < rank[rootY]) {
+          parent[rootX] = rootY;
+        } else if (rank[rootX] > rank[rootY]) {
+          parent[rootY] = rootX;
+        } else {
+          parent[rootY] = rootX;
+          rank[rootX]++;
+        }
+        components--;
+      }
+    };
+
+    // Process all connections
     for (let i = 0; i < n; i++) {
-    for (let j = 0; j < i + 1, n; j++) {  # Only check upper triangle (symmetric matrix)
-    if isConnected.get(i)[j] == 1:
-    uf.union(i, j)
-    return uf.components
+      for (let j = i + 1; j < n; j++) {  // Only check upper triangle (symmetric matrix)
+        if (isConnected[i][j] === 1) {
+          union(i, j);
+        }
+      }
+    }
+
+    return components;
   }
 
   /**
@@ -138,16 +169,27 @@ class Solution {
    *         Space Complexity: O(n) for visited array and recursion stack
    */
   findCircleNumDFS(isConnected: number[][]): number {
-    // Implementation
-    n = isConnected.length
-    visited = [false] * n
-    provinces = 0
-    def dfs(city: int) -> null:
-    """Mark all cities in current province as visited."""
-    visited.set(city, true
-    for (let neighbor = 0; neighbor < n; neighbor++) {
-    if isConnected.get(city)[neighbor] == 1 and not visited.get(neighbor):
-    dfs(neighbor)
+    const n = isConnected.length;
+    const visited = Array(n).fill(false);
+    let provinces = 0;
+
+    const dfs = (city: number): void => {
+      visited[city] = true;
+      for (let neighbor = 0; neighbor < n; neighbor++) {
+        if (isConnected[city][neighbor] === 1 && !visited[neighbor]) {
+          dfs(neighbor);
+        }
+      }
+    };
+
+    for (let i = 0; i < n; i++) {
+      if (!visited[i]) {
+        provinces++;
+        dfs(i);
+      }
+    }
+
+    return provinces;
   }
 
   /**
@@ -160,14 +202,29 @@ class Solution {
    *             Number of provinces
    */
   findCircleNumBFS(isConnected: number[][]): number {
-    // Implementation
-    n = isConnected.length
-    visited = [false] * n
-    provinces = 0
+    const n = isConnected.length;
+    const visited = Array(n).fill(false);
+    let provinces = 0;
+
     for (let i = 0; i < n; i++) {
-    if not visited.get(i):
-    queue = deque([i])
-    visited.set(i, true
+      if (!visited[i]) {
+        provinces++;
+        const queue: number[] = [i];
+        visited[i] = true;
+
+        while (queue.length > 0) {
+          const city = queue.shift()!;
+          for (let neighbor = 0; neighbor < n; neighbor++) {
+            if (isConnected[city][neighbor] === 1 && !visited[neighbor]) {
+              visited[neighbor] = true;
+              queue.push(neighbor);
+            }
+          }
+        }
+      }
+    }
+
+    return provinces;
   }
 }
 
@@ -179,41 +236,45 @@ if (typeof module !== "undefined" && module.exports) {
 function runTests(): void {
   const solution = new Solution();
 
-  test_solution()
-  # Example usage
-  solution = Solution()
-  console.log("=== 547. Number of Provinces ===")
-  # Example 1: Two provinces
-  isConnected1 = [[1, 1, 0], [1, 1, 0], [0, 0, 1]]
-  result1 = solution.findCircleNum(isConnected1)
-  console.log(`findCircleNum({isConnected1}) -> {result1}`)
-  console.log("Explanation: Cities 0 and 1 form one province, city 2 forms another\n")
-  # Example 2: Three isolated cities
-  isConnected2 = [[1, 0, 0], [0, 1, 0], [0, 0, 1]]
-  result2 = solution.findCircleNum(isConnected2)
-  console.log(`findCircleNum({isConnected2}) -> {result2}`)
-  console.log("Explanation: Each city is its own province\n")
-  # Example 3: All connected
-  isConnected3 = [[1, 1, 1], [1, 1, 1], [1, 1, 1]]
-  result3 = solution.findCircleNum(isConnected3)
-  console.log(`findCircleNum({isConnected3}) -> {result3}`)
-  console.log("Explanation: All cities form one big province\n")
-  # Compare different approaches
-  console.log("Algorithm comparison:")
-  approaches = [
-  ("Union-Find", solution.findCircleNum),
-  ("DFS", solution.findCircleNumDFS),
-  ("BFS", solution.findCircleNumBFS),
-  ]
-  for name, method in approaches:
-  result = method(isConnected1)
-  console.log(`{name}: result`)
-  console.log("\nKey insights:")
-  console.log("1. Connected components problem - find separate groups")
-  console.log("2. Union-Find efficiently manages component membership")
-  console.log("3. DFS/BFS can mark all cities in a component as visited")
-  console.log("4. Matrix is symmetric (undirected graph)")
-  console.log("5. Count unique components to get number of provinces")
+  console.log("=== 547. Number of Provinces ===");
+
+  // Example 1: Two provinces
+  const isConnected1 = [[1, 1, 0], [1, 1, 0], [0, 0, 1]];
+  const result1 = solution.findCircleNum(isConnected1);
+  console.log(`findCircleNum(${JSON.stringify(isConnected1)}) -> ${result1}`);
+  console.log("Explanation: Cities 0 and 1 form one province, city 2 forms another\n");
+
+  // Example 2: Three isolated cities
+  const isConnected2 = [[1, 0, 0], [0, 1, 0], [0, 0, 1]];
+  const result2 = solution.findCircleNum(isConnected2);
+  console.log(`findCircleNum(${JSON.stringify(isConnected2)}) -> ${result2}`);
+  console.log("Explanation: Each city is its own province\n");
+
+  // Example 3: All connected
+  const isConnected3 = [[1, 1, 1], [1, 1, 1], [1, 1, 1]];
+  const result3 = solution.findCircleNum(isConnected3);
+  console.log(`findCircleNum(${JSON.stringify(isConnected3)}) -> ${result3}`);
+  console.log("Explanation: All cities form one big province\n");
+
+  // Compare different approaches
+  console.log("Algorithm comparison:");
+  const approaches: [string, (arr: number[][]) => number][] = [
+    ["Union-Find", (arr) => solution.findCircleNum(arr)],
+    ["DFS", (arr) => solution.findCircleNumDFS(arr)],
+    ["BFS", (arr) => solution.findCircleNumBFS(arr)],
+  ];
+
+  for (const [name, method] of approaches) {
+    const result = method(isConnected1);
+    console.log(`${name}: ${result}`);
+  }
+
+  console.log("\nKey insights:");
+  console.log("1. Connected components problem - find separate groups");
+  console.log("2. Union-Find efficiently manages component membership");
+  console.log("3. DFS/BFS can mark all cities in a component as visited");
+  console.log("4. Matrix is symmetric (undirected graph)");
+  console.log("5. Count unique components to get number of provinces");
 }
 
 if (typeof require !== "undefined" && require.main === module) {

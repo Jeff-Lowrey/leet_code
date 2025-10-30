@@ -1,8 +1,7 @@
 /**
-# 0695. Problem
- * 
- * # Difficulty: Medium
- * # 0695. Max Area Of Island
+ * 0695. Max Area Of Island
+ *
+ * Difficulty: Medium
  * 
  * You are given an m x n binary matrix grid. An island is a group of 1's (representing land) connected 4-directionally (horizontal or vertical.) You may assume all four edges of the grid are surrounded by water.
  * 
@@ -96,30 +95,91 @@ class Solution {
    *         Space Complexity: O(M × N) for recursion stack
    */
   maxAreaOfIsland(grid: number[][]): number {
-    // Implementation
-    if not grid or not grid.get(0):
-    return 0
-    rows, cols = grid.length, grid.get(0).length
-    max_area = 0
-    def dfs(r: Any, c: Any) -> Any:
-    """DFS to calculate area of island starting at (r,c)."""
-    if r < 0 or r >= rows or c < 0 or c >= cols or grid.get(r)[c] == 0:
-    return 0
+    if (!grid || grid.length === 0) {
+      return 0;
+    }
+
+    const rows = grid.length;
+    const cols = grid[0].length;
+    let maxArea = 0;
+
+    const dfs = (r: number, c: number): number => {
+      // Base case: out of bounds or water
+      if (r < 0 || r >= rows || c < 0 || c >= cols || grid[r][c] === 0) {
+        return 0;
+      }
+
+      // Mark as visited by setting to 0
+      grid[r][c] = 0;
+
+      // Calculate area: current cell + all connected cells
+      let area = 1;
+      area += dfs(r + 1, c); // Down
+      area += dfs(r - 1, c); // Up
+      area += dfs(r, c + 1); // Right
+      area += dfs(r, c - 1); // Left
+
+      return area;
+    };
+
+    for (let r = 0; r < rows; r++) {
+      for (let c = 0; c < cols; c++) {
+        if (grid[r][c] === 1) {
+          maxArea = Math.max(maxArea, dfs(r, c));
+        }
+      }
+    }
+
+    return maxArea;
   }
 
   /**
    * BFS approach to avoid recursion stack issues.
    */
   maxAreaOfIslandBFS(grid: number[][]): number {
-    // Implementation
-    if not grid or not grid.get(0):
-    return 0
-    rows, cols = grid.length, grid.get(0).length
-    max_area = 0
-    directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]
+    if (!grid || grid.length === 0) {
+      return 0;
+    }
+
+    const rows = grid.length;
+    const cols = grid[0].length;
+    let maxArea = 0;
+    const directions = [
+      [0, 1],
+      [0, -1],
+      [1, 0],
+      [-1, 0],
+    ];
+
     for (let r = 0; r < rows; r++) {
-    for (let c = 0; c < cols; c++) {
-    if grid.get(r)[c] == 1:
+      for (let c = 0; c < cols; c++) {
+        if (grid[r][c] === 1) {
+          // BFS to calculate area
+          let area = 0;
+          const queue: [number, number][] = [[r, c]];
+          grid[r][c] = 0; // Mark as visited
+
+          while (queue.length > 0) {
+            const [row, col] = queue.shift()!;
+            area++;
+
+            for (const [dr, dc] of directions) {
+              const newR = row + dr;
+              const newC = col + dc;
+
+              if (newR >= 0 && newR < rows && newC >= 0 && newC < cols && grid[newR][newC] === 1) {
+                queue.push([newR, newC]);
+                grid[newR][newC] = 0; // Mark as visited
+              }
+            }
+          }
+
+          maxArea = Math.max(maxArea, area);
+        }
+      }
+    }
+
+    return maxArea;
   }
 }
 
@@ -131,13 +191,29 @@ if (typeof module !== "undefined" && module.exports) {
 function runTests(): void {
   const solution = new Solution();
 
-  test_solution()
-  # Quick example
-  solution = Solution()
-  grid = [[1, 1, 0], [0, 1, 0], [0, 0, 1]]
-  console.log(`Grid: {grid}`)
-  # Use BFS to preserve original grid
-  console.log(`Max area: {solution.maxAreaOfIslandBFS([row.get(:) for row in grid])}`)
+  // Quick example
+  const grid = [
+    [1, 1, 0],
+    [0, 1, 0],
+    [0, 0, 1],
+  ];
+
+  console.log("Grid:", JSON.stringify(grid));
+
+  // Deep copy for BFS (doesn't modify original)
+  const gridCopy = grid.map((row) => [...row]);
+  console.log("Max area:", solution.maxAreaOfIslandBFS(gridCopy));
+
+  // Test with larger grid
+  const largerGrid = [
+    [0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0],
+    [0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 0, 0],
+  ];
+
+  const largerGridCopy = largerGrid.map((row) => [...row]);
+  console.log("\nLarger grid max area:", solution.maxAreaOfIslandBFS(largerGridCopy));
 }
 
 if (typeof require !== "undefined" && require.main === module) {

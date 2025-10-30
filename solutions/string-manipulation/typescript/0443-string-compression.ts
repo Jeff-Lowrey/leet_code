@@ -31,7 +31,7 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
+ * ### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Array, String, Queue
  * **Patterns**: Two Pointers Pattern, Hash Table Pattern

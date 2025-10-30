@@ -1,8 +1,7 @@
 /**
-# 0506. Problem
- * 
- * # Difficulty: Easy
- * # 0506. Relative Ranks
+ * 0506. Relative Ranks
+ *
+ * Difficulty: Easy
  * 
  * You are given an integer array score of size n, where score[i] is the score of the ith athlete
  * in a competition. All the scores are guaranteed to be unique.
@@ -117,11 +116,19 @@ class Solution {
    *         Space Complexity: O(n) for result and mappings
    */
   findRelativeRanks(score: number[]): string[] {
-    // Implementation
-    n = score.length
-    sorted_scores = sorted(enumerate(score), key=lambda x: x.get(1), reverse=true)
-    result = [""] * n
-    for rank, (original_idx, _) in enumerate(sorted_scores):
+    const n = score.length;
+    const indexed = score.map((s, i) => [s, i] as [number, number]);
+    indexed.sort((a, b) => b[0] - a[0]); // Sort by score descending
+
+    const result = new Array(n).fill("");
+    const medals = ["Gold Medal", "Silver Medal", "Bronze Medal"];
+
+    for (let rank = 0; rank < n; rank++) {
+      const [, originalIdx] = indexed[rank];
+      result[originalIdx] = rank < 3 ? medals[rank] : String(rank + 1);
+    }
+
+    return result;
   }
 
   /**
@@ -131,16 +138,16 @@ class Solution {
    *         Space Complexity: O(n)
    */
   findRelativeRanksDict(score: number[]): string[] {
-    // Implementation
-    sorted_scores = sorted(score, reverse=true)
-    rank_map: dict[Any, Any] = {}
-    for (let rank = 0; rank < sorted_scores.length; rank++) {
-        const s = sorted_scores.get(rank);
-    if rank == 0:
-    rank_map.set(s, "Gold Medal"
-    elif rank == 1:
-    rank_map.set(s, "Silver Medal"
-    elif rank == 2:
+    const sortedScores = [...score].sort((a, b) => b - a);
+    const rankMap = new Map<number, string>();
+    const medals = ["Gold Medal", "Silver Medal", "Bronze Medal"];
+
+    for (let rank = 0; rank < sortedScores.length; rank++) {
+      const s = sortedScores[rank];
+      rankMap.set(s, rank < 3 ? medals[rank] : String(rank + 1));
+    }
+
+    return score.map((s) => rankMap.get(s)!);
   }
 
   /**
@@ -150,14 +157,10 @@ class Solution {
    *         Space Complexity: O(n)
    */
   findRelativeRanksOneLiner(score: number[]): string[] {
-    // Implementation
-    sorted_scores = sorted(score, reverse=true)
-    medals = ["Gold Medal", "Silver Medal", "Bronze Medal"]
-    rank_map = {s: medals.get(i) if i < 3 else str(i + 1) for i, s in enumerate(sorted_scores)}
-    return [rank_map.get(s) for s in score]
-    def test_solution() -> null:
-    """Test cases for Problem 506."""
-    solution = Solution()
+    const sortedScores = [...score].sort((a, b) => b - a);
+    const medals = ["Gold Medal", "Silver Medal", "Bronze Medal"];
+    const rankMap = new Map(sortedScores.map((s, i) => [s, i < 3 ? medals[i] : String(i + 1)]));
+    return score.map((s) => rankMap.get(s)!);
   }
 }
 
@@ -169,14 +172,11 @@ if (typeof module !== "undefined" && module.exports) {
 function runTests(): void {
   const solution = new Solution();
 
-  test_solution()
-  # Example usage
-  solution = Solution()
-  console.log("=== 506. Relative Ranks ===")
-  console.log(`findRelativeRanks([5,4,3,2,1]) -> {solution.findRelativeRanks([5, 4, 3, 2, 1])}`)
-  console.log(`findRelativeRanks([10,3,8,9,4]) -> {solution.findRelativeRanks([10, 3, 8, 9, 4])}`)
-  console.log(`findRelativeRanks([100]) -> {solution.findRelativeRanks([100])}`)
-  console.log(`findRelativeRanks([1,2,3]) -> {solution.findRelativeRanks([1, 2, 3])}`)
+  console.log("=== 506. Relative Ranks ===");
+  console.log("findRelativeRanks([5,4,3,2,1]) ->", solution.findRelativeRanks([5, 4, 3, 2, 1]));
+  console.log("findRelativeRanks([10,3,8,9,4]) ->", solution.findRelativeRanks([10, 3, 8, 9, 4]));
+  console.log("findRelativeRanks([100]) ->", solution.findRelativeRanks([100]));
+  console.log("findRelativeRanks([1,2,3]) ->", solution.findRelativeRanks([1, 2, 3]));
 }
 
 if (typeof require !== "undefined" && require.main === module) {

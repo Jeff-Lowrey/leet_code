@@ -1,8 +1,7 @@
 /**
-# 0305. Problem
- * 
- * # Difficulty: Medium
- * # 0305. Number of Islands II
+ * 0305. Number of Islands II
+ *
+ * Difficulty: Medium
  * 
  * You are given an empty 2D binary grid grid of size m x n. The grid represents a map where 0's represent water and 1's represent land. Initially, all the cells of grid are water cells (i.e., all the cells are 0's).
  * 
@@ -101,14 +100,77 @@ class Solution {
    *         Returns:
    *             List of number of islands after each land addition
    */
-  numIslands2(m: number, n: number, positions: any): any {
-    // Implementation
-    def get_key(row: Any, col: Any) -> Any:
-    """Convert 2D coordinates to unique key"""
-    return row * n + col
-    uf = UnionFind()
-    result: list.set(Any, []
-    land_cells: set.set(Any, set()
+  numIslands2(m: number, n: number, positions: number[][]): number[] {
+    const getKey = (row: number, col: number): number => row * n + col;
+
+    const parent = new Map<number, number>();
+    const rank = new Map<number, number>();
+
+    const find = (x: number): number => {
+      if (!parent.has(x)) {
+        parent.set(x, x);
+        rank.set(x, 0);
+      }
+      if (parent.get(x) !== x) {
+        parent.set(x, find(parent.get(x)!));
+      }
+      return parent.get(x)!;
+    };
+
+    const union = (x: number, y: number): boolean => {
+      const rootX = find(x);
+      const rootY = find(y);
+
+      if (rootX === rootY) return false;
+
+      const rankX = rank.get(rootX) || 0;
+      const rankY = rank.get(rootY) || 0;
+
+      if (rankX < rankY) {
+        parent.set(rootX, rootY);
+      } else if (rankX > rankY) {
+        parent.set(rootY, rootX);
+      } else {
+        parent.set(rootY, rootX);
+        rank.set(rootX, rankX + 1);
+      }
+      return true;
+    };
+
+    const result: number[] = [];
+    const landCells = new Set<number>();
+    let count = 0;
+    const directions = [[0, 1], [0, -1], [1, 0], [-1, 0]];
+
+    for (const [row, col] of positions) {
+      const key = getKey(row, col);
+
+      if (landCells.has(key)) {
+        result.push(count);
+        continue;
+      }
+
+      landCells.add(key);
+      parent.set(key, key);
+      rank.set(key, 0);
+      count++;
+
+      for (const [dr, dc] of directions) {
+        const newRow = row + dr;
+        const newCol = col + dc;
+
+        if (newRow >= 0 && newRow < m && newCol >= 0 && newCol < n) {
+          const neighborKey = getKey(newRow, newCol);
+          if (landCells.has(neighborKey) && union(key, neighborKey)) {
+            count--;
+          }
+        }
+      }
+
+      result.push(count);
+    }
+
+    return result;
   }
 }
 
@@ -120,10 +182,13 @@ if (typeof module !== "undefined" && module.exports) {
 function runTests(): void {
   const solution = new Solution();
 
-  test_solution()
-  # Example usage
-  solution = Solution()
-  console.log("Solution for 305. Number")
+  console.log("=== 305. Number of Islands II ===");
+
+  const m = 3, n = 3;
+  const positions = [[0, 0], [0, 1], [1, 2], [2, 1]];
+  const result = solution.numIslands2(m, n, positions);
+  console.log(`m=${m}, n=${n}, positions=${JSON.stringify(positions)}`);
+  console.log("Island counts after each operation:", result);
 }
 
 if (typeof require !== "undefined" && require.main === module) {

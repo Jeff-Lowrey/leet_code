@@ -23,7 +23,7 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
+ * ### METADATA:
  * **Techniques**: Greedy Selection
  * **Data Structures**: Array
  * **Patterns**: Hash Table Pattern, Greedy Algorithm

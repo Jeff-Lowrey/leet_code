@@ -1,8 +1,7 @@
 /**
-# 0094. Problem
- * 
- * # Difficulty: Easy
- * # 0094. Binary Tree Inorder Traversal
+ * 0094. Binary Tree Inorder Traversal
+ *
+ * Difficulty: Easy
  * 
  * Given the root of a binary tree, return the inorder traversal of its nodes' values.
  * 
@@ -90,6 +89,19 @@ This solution uses two pointers for efficient implementation.
  * </details>
  */
 
+// TreeNode class definition
+class TreeNode {
+  val: number;
+  left: TreeNode | null;
+  right: TreeNode | null;
+
+  constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+    this.val = val === undefined ? 0 : val;
+    this.left = left === undefined ? null : left;
+    this.right = right === undefined ? null : right;
+  }
+}
+
 class Solution {
   /**
    * Recursive inorder traversal.
@@ -103,15 +115,20 @@ class Solution {
    *         Time Complexity: O(n) where n is number of nodes
    *         Space Complexity: O(h) where h is height of tree (recursion stack)
    */
-  inorderTraversal(root: any): number[] {
-    // Implementation
-    result: list.set(Any, []
-    def inorder(node: Any) -> Any:
-    if not node:
-    return
-    inorder(node.left)  # Visit left subtree
-    result.append(node.val)  # Process current node
-    inorder(node.right)  # Visit right subtree
+  inorderTraversal(root: TreeNode | null): number[] {
+    const result: number[] = [];
+
+    const inorder = (node: TreeNode | null): void => {
+      if (!node) {
+        return;
+      }
+      inorder(node.left);  // Visit left subtree
+      result.push(node.val);  // Process current node
+      inorder(node.right);  // Visit right subtree
+    };
+
+    inorder(root);
+    return result;
   }
 
   /**
@@ -126,15 +143,22 @@ class Solution {
    *         Time Complexity: O(n)
    *         Space Complexity: O(h) for stack
    */
-  inorderTraversalIterative(root: any): number[] {
-    // Implementation
-    result = []
-    stack: list.set(Any, []
-    current = root
-    while stack or current:
-    while current:
-    stack.append(current)
-    current = current.left
+  inorderTraversalIterative(root: TreeNode | null): number[] {
+    const result: number[] = [];
+    const stack: TreeNode[] = [];
+    let current: TreeNode | null = root;
+
+    while (stack.length > 0 || current !== null) {
+      while (current !== null) {
+        stack.push(current);
+        current = current.left;
+      }
+      current = stack.pop()!;
+      result.push(current.val);
+      current = current.right;
+    }
+
+    return result;
   }
 
   /**
@@ -149,52 +173,37 @@ class Solution {
    *         Time Complexity: O(n)
    *         Space Complexity: O(1) constant space
    */
-  inorderTraversalMorris(root: any): number[] {
-    // Implementation
-    result = []
-    current = root
-    while current:
-    if not current.left:
-    result.append(current.val)
-    current = current.right
-    else:
+  inorderTraversalMorris(root: TreeNode | null): number[] {
+    const result: number[] = [];
+    let current: TreeNode | null = root;
+
+    while (current !== null) {
+      if (!current.left) {
+        result.push(current.val);
+        current = current.right;
+      } else {
+        // Find the inorder predecessor
+        let predecessor = current.left;
+        while (predecessor.right !== null && predecessor.right !== current) {
+          predecessor = predecessor.right;
+        }
+
+        if (predecessor.right === null) {
+          // Create thread
+          predecessor.right = current;
+          current = current.left;
+        } else {
+          // Remove thread
+          predecessor.right = null;
+          result.push(current.val);
+          current = current.right;
+        }
+      }
+    }
+
+    return result;
   }
 
-  /**
-   * Generator version for memory efficiency.
-   *
-   *         Args:
-   *             root: Root of binary tree
-   *
-   *         Yields:
-   *             Node values in inorder sequence
-   */
-  inorderTraversalGenerator(root: any): any {
-    // Implementation
-    def inorder(node: Any) -> Any:
-    if node:
-    yield from inorder(node.left)
-    yield node.val
-    yield from inorder(node.right)
-    yield from inorder(root)
-  }
-
-  /**
-   * One-liner using list comprehension with generator.
-   *
-   *         Args:
-   *             root: Root of binary tree
-   *
-   *         Returns:
-   *             List of node values in inorder sequence
-   */
-  inorderTraversalList(root: any): number[] {
-    // Implementation
-    return list(self.inorderTraversalGenerator(root))
-    def test_solution() -> null:
-    """Test cases for Problem 94."""
-    solution = Solution()
-  }
 }
 
 // Test cases
@@ -205,41 +214,50 @@ if (typeof module !== "undefined" && module.exports) {
 function runTests(): void {
   const solution = new Solution();
 
-  test_solution()
-  # Example usage
-  solution = Solution()
-  console.log("=== 94. Binary Tree Inorder Traversal ===")
-  # Example 1: Simple tree
-  root1 = TreeNode(1)
-  root1.right = TreeNode(2)
-  root1.right.left = TreeNode(3)
-  console.log(`Tree 1 inorder: {solution.inorderTraversal(root1)}`)
-  # Example 2: BST (should give sorted output)
-  bst_root = create_bst()
-  console.log(`BST inorder (sorted): {solution.inorderTraversal(bst_root)}`)
-  # Example 3: Compare different approaches
-  console.log(`\nComparison of approaches on BST:`)
-  approaches = [
-  ("Recursive", solution.inorderTraversal),
-  ("Iterative", solution.inorderTraversalIterative),
-  ("Morris O(1) space", solution.inorderTraversalMorris),
-  ("Generator", lambda x: list(solution.inorderTraversalGenerator(x))),
-  ("List comprehension", solution.inorderTraversalList),
-  ]
-  for name, method in approaches:
-  result = method(bst_root)
-  console.log(`{name}: result`)
-  # Example 4: Empty tree
-  console.log(`\nEmpty tree: {solution.inorderTraversal(null)}`)  # type: ignore
-  # Example 5: Single node
-  single = TreeNode(42)
-  console.log(`Single node [42]: {solution.inorderTraversal(single)}`)
-  console.log(`\nKey insights:`)
-  console.log(`1. Inorder: Left -> Root -> Right`)
-  console.log(`2. For BST, inorder gives sorted sequence`)
-  console.log(`3. Recursive: Clean but uses O(h) space`)
-  console.log(`4. Iterative: Explicit stack control`)
-  console.log(`5. Morris: O(1) space using threading`)
+  console.log("=== 94. Binary Tree Inorder Traversal ===");
+
+  // Example 1: Simple tree
+  const root1 = new TreeNode(1);
+  root1.right = new TreeNode(2);
+  root1.right.left = new TreeNode(3);
+  console.log(`Tree 1 inorder: ${JSON.stringify(solution.inorderTraversal(root1))}`);
+
+  // Example 2: BST (should give sorted output)
+  const bstRoot = new TreeNode(4);
+  bstRoot.left = new TreeNode(2);
+  bstRoot.right = new TreeNode(6);
+  bstRoot.left.left = new TreeNode(1);
+  bstRoot.left.right = new TreeNode(3);
+  bstRoot.right.left = new TreeNode(5);
+  bstRoot.right.right = new TreeNode(7);
+  console.log(`BST inorder (sorted): ${JSON.stringify(solution.inorderTraversal(bstRoot))}`);
+
+  // Example 3: Compare different approaches
+  console.log("\nComparison of approaches on BST:");
+  const approaches: [string, (root: TreeNode | null) => number[]][] = [
+    ["Recursive", (root) => solution.inorderTraversal(root)],
+    ["Iterative", (root) => solution.inorderTraversalIterative(root)],
+    ["Morris O(1) space", (root) => solution.inorderTraversalMorris(root)],
+  ];
+
+  for (const [name, method] of approaches) {
+    const result = method(bstRoot);
+    console.log(`${name}: ${JSON.stringify(result)}`);
+  }
+
+  // Example 4: Empty tree
+  console.log(`\nEmpty tree: ${JSON.stringify(solution.inorderTraversal(null))}`);
+
+  // Example 5: Single node
+  const single = new TreeNode(42);
+  console.log(`Single node [42]: ${JSON.stringify(solution.inorderTraversal(single))}`);
+
+  console.log("\nKey insights:");
+  console.log("1. Inorder: Left -> Root -> Right");
+  console.log("2. For BST, inorder gives sorted sequence");
+  console.log("3. Recursive: Clean but uses O(h) space");
+  console.log("4. Iterative: Explicit stack control");
+  console.log("5. Morris: O(1) space using threading");
 }
 
 if (typeof require !== "undefined" && require.main === module) {

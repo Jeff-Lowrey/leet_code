@@ -1,8 +1,7 @@
 /**
-# 0374. Problem
- * 
- * # Difficulty: Easy
- * # 0374. Guess Number Higher Or Lower
+ * 0374. Guess Number Higher Or Lower
+ *
+ * Difficulty: Easy
  * 
  * We are playing the Guess Game. The game is as follows:
  * 
@@ -102,6 +101,14 @@ This solution uses hash table lookup for efficient implementation.
  * </details>
  */
 
+// Mock guess API for testing
+let pickedNumber = 6;
+function guess(num: number): number {
+  if (num > pickedNumber) return -1;
+  if (num < pickedNumber) return 1;
+  return 0;
+}
+
 class Solution {
   /**
    * Find the picked number using binary search with guess API.
@@ -116,15 +123,23 @@ class Solution {
    *         Space Complexity: O(1)
    */
   guessNumber(n: number): number {
-    // Implementation
-    left, right = 1, n
-    while left <= right:
-    mid = left + (right - left) // 2  // Avoid overflow
-    result = guess(mid)
-    if result == 0:
-    return mid  # Found the correct number
-    elif result == -1:
-    right = mid - 1  // Guess too high, search lower half
+    let left = 1;
+    let right = n;
+
+    while (left <= right) {
+      const mid = left + Math.floor((right - left) / 2); // Avoid overflow
+      const result = guess(mid);
+
+      if (result === 0) {
+        return mid; // Found the correct number
+      } else if (result === -1) {
+        right = mid - 1; // Guess too high, search lower half
+      } else {
+        left = mid + 1; // Guess too low, search upper half
+      }
+    }
+
+    return -1; // Should never reach here
   }
 
   /**
@@ -140,15 +155,24 @@ class Solution {
    *         Space Complexity: O(log n) due to recursion stack
    */
   guessNumberRecursive(n: number): number {
-    // Implementation
-    def binary_search(left: int, right: int) -> int:
-    if left > right:
-    return -1  # Should not happen
-    mid = left + (right - left) // 2
-    result = guess(mid)
-    if result == 0:
-    return mid
-    elif result == -1:
+    const binarySearch = (left: number, right: number): number => {
+      if (left > right) {
+        return -1; // Should not happen
+      }
+
+      const mid = left + Math.floor((right - left) / 2);
+      const result = guess(mid);
+
+      if (result === 0) {
+        return mid;
+      } else if (result === -1) {
+        return binarySearch(left, mid - 1);
+      } else {
+        return binarySearch(mid + 1, right);
+      }
+    };
+
+    return binarySearch(1, n);
   }
 
   /**
@@ -164,15 +188,12 @@ class Solution {
    *         Space Complexity: O(1)
    */
   guessNumberLinear(n: number): number {
-    // Implementation
-    for (let i = 0; i < 1, n + 1; i++) {
-    if guess(i) == 0:
-    return i
-    return -1
-    def test_solution() -> null:
-    """
-    Test cases for 374. Guess Number Higher Or Lower.
-    """
+    for (let i = 1; i <= n; i++) {
+      if (guess(i) === 0) {
+        return i;
+      }
+    }
+    return -1;
   }
 }
 
@@ -184,33 +205,44 @@ if (typeof module !== "undefined" && module.exports) {
 function runTests(): void {
   const solution = new Solution();
 
-  test_solution()
-  # Example usage
-  solution = Solution()
-  console.log(`=== 374. Guess Number Higher Or Lower ===`)
-  # Demonstrate different scenarios
-  test_cases = [(10, 6), (100, 25), (50, 1), (1, 1)]
-  for n, pick in test_cases:
-  guess.pick = pick  # type: ignore
-  result = solution.guessNumber(n)
-  console.log(`Range [1, n], picked number: result`)
-  # Show API call simulation
-  console.log(`\nAPI simulation for n=10, pick=6:`)
-  guess.pick = 6  # type: ignore
-  left, right = 1, 10
-  call_count = 0
-  while left <= right:
-  mid = left + (right - left) // 2
-  result = guess(mid)
-  call_count += 1
-  console.log(`Call {call_count}: guess({mid}) = result`)
-  if result == 0:
-  console.log(`Found! Answer is {mid}`)
-  break
-  elif result == -1:
-  right = mid - 1
-  else:
-  left = mid + 1
+  console.log("=== 374. Guess Number Higher Or Lower ===");
+
+  // Demonstrate different scenarios
+  const testCases: [number, number][] = [
+    [10, 6],
+    [100, 25],
+    [50, 1],
+    [1, 1],
+  ];
+
+  for (const [n, pick] of testCases) {
+    pickedNumber = pick;
+    const result = solution.guessNumber(n);
+    console.log(`Range [1, ${n}], picked number: ${result}`);
+  }
+
+  // Show API call simulation
+  console.log("\nAPI simulation for n=10, pick=6:");
+  pickedNumber = 6;
+  let left = 1;
+  let right = 10;
+  let callCount = 0;
+
+  while (left <= right) {
+    const mid = left + Math.floor((right - left) / 2);
+    const result = guess(mid);
+    callCount++;
+    console.log(`Call ${callCount}: guess(${mid}) = ${result}`);
+
+    if (result === 0) {
+      console.log(`Found! Answer is ${mid}`);
+      break;
+    } else if (result === -1) {
+      right = mid - 1;
+    } else {
+      left = mid + 1;
+    }
+  }
 }
 
 if (typeof require !== "undefined" && require.main === module) {

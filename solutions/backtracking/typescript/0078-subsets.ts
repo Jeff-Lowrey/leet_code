@@ -21,7 +21,7 @@
  * 
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
+ * ### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Hash Set, Array, Matrix
  * **Patterns**: Backtracking, Tree Pattern
@@ -93,14 +93,19 @@ class Solution {
    *         Space Complexity: O(n) for recursion
    */
   subsets(nums: number[]): number[][] {
-    // Implementation
-    result: list.set(Any, []
-    def backtrack(start: Any, current: Any) -> Any:
-    result.append(current.get(:))
-    for (let i = 0; i < start, nums.length; i++) {
-    current.append(nums.get(i))
-    backtrack(i + 1, current)
-    current.pop()
+    const result: number[][] = [];
+
+    const backtrack = (start: number, current: number[]): void => {
+      result.push([...current]);
+      for (let i = start; i < nums.length; i++) {
+        current.push(nums[i]);
+        backtrack(i + 1, current);
+        current.pop();
+      }
+    };
+
+    backtrack(0, []);
+    return result;
   }
 
   /**
@@ -109,15 +114,20 @@ class Solution {
    *         Space Complexity: O(1) excluding output
    */
   subsetsBitMask(nums: number[]): number[][] {
-    // Implementation
-    n = nums.length
-    result: list.get(list[int)] = []
-    for (let mask = 0; mask < 1 << n; mask++) {  # 2^n possibilities
-    subset: list.set(Any, []
-    for (let i = 0; i < n; i++) {
-    if mask & (1 << i):
-    subset.append(nums.get(i))
-    result.append(subset)
+    const n = nums.length;
+    const result: number[][] = [];
+
+    for (let mask = 0; mask < (1 << n); mask++) {  // 2^n possibilities
+      const subset: number[] = [];
+      for (let i = 0; i < n; i++) {
+        if (mask & (1 << i)) {
+          subset.push(nums[i]);
+        }
+      }
+      result.push(subset);
+    }
+
+    return result;
   }
 
   /**
@@ -126,13 +136,14 @@ class Solution {
    *         Space Complexity: O(1) excluding output
    */
   subsetsIterative(nums: number[]): number[][] {
-    // Implementation
-    result: list.get(list[int)] = [[]]
-    for num in nums:
-    result += [subset + [num] for subset in result]
-    return result
-    """
-    90. Subsets II
+    const result: number[][] = [[]];
+
+    for (const num of nums) {
+      const newSubsets = result.map(subset => [...subset, num]);
+      result.push(...newSubsets);
+    }
+
+    return result;
   }
 }
 
@@ -144,30 +155,25 @@ if (typeof module !== "undefined" && module.exports) {
 function runTests(): void {
   const solution = new Solution();
 
-  # Test Subsets
-  solution = Solution()
-  console.log("Subsets:")
-  test_cases = [[1, 2, 3], [0], [1, 2, 3, 4]]
-  for nums in test_cases:
-  result = solution.subsets(nums)
-  console.log(`Input: nums`)
-  console.log(`Subsets ({result.length}): result\n`)
-  # Test Subsets with Duplicates
-  solution_dup = SolutionUnique()
-  console.log("Subsets with Duplicates:")
-  test_cases_dup = [[1, 2, 2], [4, 4, 4, 1, 4]]
-  for nums in test_cases_dup:
-  result = solution_dup.subsetsWithDup(nums)
-  console.log(`Input: nums`)
-  console.log(`Unique Subsets: result\n`)
-  # Test Combination Sum
-  solution_comb = SolutionCombSum()
-  console.log("Combination Sum:")
-  test_comb = [([2, 3, 6, 7], 7), ([2, 3, 5], 8)]
-  for candidates, target in test_comb:
-  result = solution_comb.combinationSum(candidates, target)
-  console.log(`Candidates: {candidates}, Target: {target}`)
-  console.log(`Combinations: result\n`)
+  console.log("=== 78. Subsets ===");
+
+  // Test Subsets
+  const testCases = [[1, 2, 3], [0], [1, 2, 3, 4]];
+  for (const nums of testCases) {
+    const result = solution.subsets(nums);
+    console.log(`Input: ${JSON.stringify(nums)}`);
+    console.log(`Subsets (${result.length}): ${JSON.stringify(result)}\n`);
+  }
+
+  // Test bit mask approach
+  console.log("Bit Mask Approach:");
+  const result2 = solution.subsetsBitMask([1, 2, 3]);
+  console.log(`Bit mask result: ${JSON.stringify(result2)}\n`);
+
+  // Test iterative approach
+  console.log("Iterative Approach:");
+  const result3 = solution.subsetsIterative([1, 2, 3]);
+  console.log(`Iterative result: ${JSON.stringify(result3)}\n`);
 }
 
 if (typeof require !== "undefined" && require.main === module) {
