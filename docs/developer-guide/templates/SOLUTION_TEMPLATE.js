@@ -18,14 +18,13 @@
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-### METADATA:
-**Techniques**: [e.g., Hash Table Lookup, Binary Search, Two Pointers]
-**Data Structures**: [e.g., Hash Map, Array, Tree, Graph]
-**Patterns**: [e.g., Complement Search, Sliding Window, DFS]
-**Time Complexity**: * **O(?)** - [detailed explanation of time complexity]
-**Space Complexity**: * **O(?)** - [detailed explanation of space complexity]
-
+ *
+ * ### METADATA:
+ * **Techniques**: [e.g., Hash Table Lookup, Binary Search, Two Pointers]
+ * **Data Structures**: [e.g., Hash Map, Array, Tree, Graph]
+ * **Patterns**: [e.g., Complement Search, Sliding Window, DFS]
+ * **Time Complexity**: O(?) - [detailed explanation of time complexity]
+ * **Space Complexity**: O(?) - [detailed explanation of space complexity]
  *
  * ### INTUITION:
  * [High-level insight or key observation that makes the solution work.]
