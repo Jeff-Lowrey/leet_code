@@ -1,8 +1,7 @@
 /**
-# 1248. Problem
- * 
- * # Difficulty: Medium
- * # 1248. Count Number Of Nice Subarrays
+ * 1248. Count Number Of Nice Subarrays
+ *
+ * Difficulty: Medium
  * 
  * Given an array of integers nums and an integer k. A continuous subarray is called nice if there are k odd numbers on it.
  * 
@@ -12,9 +11,9 @@
  * 
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[([1, 1, 2, 1, 1]</dd>
+ * <dd>nums = [1, 1, 2, 1, 1], k = 3</dd>
  * <dt>Output:</dt>
- * <dd>"\nInput: nums=nums, k={k}"</dd>
+ * <dd>2</dd>
  * <dt>Explanation:</dt>
  * <dd>There are 2 nice subarrays (containing exactly k=3 odd numbers)</dd>
  * </dl>
@@ -93,13 +92,28 @@ class Solution {
    *         Space Complexity: O(n) - for frequency HashMap
    */
   numberOfSubarrays(nums: number[], k: number): number {
-    // Implementation
-    prefix_count_freq: dict[Any, int] = defaultdict(int)
-    prefix_count_freq.set(0, 1  # Empty prefix has 0 odd numbers
-    current_odd_count = 0
-    nice_subarrays = 0
-    for num in nums:
-    if num % 2 == 1:
+    const prefixCountFreq = new Map<number, number>();
+    prefixCountFreq.set(0, 1); // Empty prefix has 0 odd numbers
+
+    let currentOddCount = 0;
+    let niceSubarrays = 0;
+
+    for (const num of nums) {
+      if (num % 2 === 1) {
+        currentOddCount++;
+      }
+
+      // Check if (currentOddCount - k) exists
+      const needed = currentOddCount - k;
+      if (prefixCountFreq.has(needed)) {
+        niceSubarrays += prefixCountFreq.get(needed)!;
+      }
+
+      // Update frequency map
+      prefixCountFreq.set(currentOddCount, (prefixCountFreq.get(currentOddCount) || 0) + 1);
+    }
+
+    return niceSubarrays;
   }
 
   /**
@@ -116,15 +130,34 @@ class Solution {
    *         Space Complexity: O(1)
    */
   numberOfSubarraysSlidingWindow(nums: number[], k: number): number {
-    // Implementation
-    def at_most_k_odd(nums: Any, k: Any) -> Any:
-    """Count subarrays with at most k odd numbers."""
-    if k < 0:
-    return 0
-    left = 0
-    odd_count = 0
-    result = 0
-    for (let right = 0; right < nums.length; right++) {
+    const atMostKOdd = (nums: number[], k: number): number => {
+      // Count subarrays with at most k odd numbers
+      if (k < 0) return 0;
+
+      let left = 0;
+      let oddCount = 0;
+      let result = 0;
+
+      for (let right = 0; right < nums.length; right++) {
+        if (nums[right] % 2 === 1) {
+          oddCount++;
+        }
+
+        while (oddCount > k) {
+          if (nums[left] % 2 === 1) {
+            oddCount--;
+          }
+          left++;
+        }
+
+        result += right - left + 1;
+      }
+
+      return result;
+    };
+
+    // Exactly k = at most k - at most (k-1)
+    return atMostKOdd(nums, k) - atMostKOdd(nums, k - 1);
   }
 
   /**
@@ -138,13 +171,24 @@ class Solution {
    *             Number of nice subarrays
    */
   numberOfSubarraysOptimized(nums: number[], k: number): number {
-    // Implementation
-    prefix_freq = {0: 1}
-    odd_count = 0
-    result = 0
-    for num in nums:
-    if num % 2 == 1:
-    odd_count += 1
+    const prefixFreq: Record<number, number> = { 0: 1 };
+    let oddCount = 0;
+    let result = 0;
+
+    for (const num of nums) {
+      if (num % 2 === 1) {
+        oddCount++;
+      }
+
+      const needed = oddCount - k;
+      if (prefixFreq[needed]) {
+        result += prefixFreq[needed];
+      }
+
+      prefixFreq[oddCount] = (prefixFreq[oddCount] || 0) + 1;
+    }
+
+    return result;
   }
 
   /**
@@ -161,15 +205,25 @@ class Solution {
    *         Space Complexity: O(1)
    */
   numberOfSubarraysBruteForce(nums: number[], k: number): number {
-    // Implementation
-    n = nums.length
-    count = 0
+    const n = nums.length;
+    let count = 0;
+
     for (let i = 0; i < n; i++) {
-    odd_count = 0
-    for (let j = 0; j < i, n; j++) {
-    if nums.get(j) % 2 == 1:
-    odd_count += 1
-    if odd_count == k:
+      let oddCount = 0;
+      for (let j = i; j < n; j++) {
+        if (nums[j] % 2 === 1) {
+          oddCount++;
+        }
+        if (oddCount === k) {
+          count++;
+        }
+        if (oddCount > k) {
+          break; // No need to continue this subarray
+        }
+      }
+    }
+
+    return count;
   }
 }
 
@@ -181,33 +235,41 @@ if (typeof module !== "undefined" && module.exports) {
 function runTests(): void {
   const solution = new Solution();
 
-  test_solution()
-  # Example usage
-  solution = Solution()
-  console.log("=== 1248. Count Number Of Nice Subarrays ===")
-  # Test different approaches
-  test_cases = [([1, 1, 2, 1, 1], 3), ([2, 4, 6], 1), ([1, 3, 5], 2), ([2, 2, 2, 1, 2, 2, 1, 2, 2, 2], 2)]
-  for nums, k in test_cases:
-  console.log(`\nInput: nums=nums, k={k}`)
-  result1 = solution.numberOfSubarrays(nums, k)
-  result2 = solution.numberOfSubarraysSlidingWindow(nums, k)
-  result3 = solution.numberOfSubarraysOptimized(nums, k)
-  console.log(`Prefix sum approach:    {result1}`)
-  console.log(`Sliding window:         {result2}`)
-  console.log(`Optimized approach:     {result3}`)
-  # Detailed walkthrough
-  console.log("\nDetailed example: nums=[1,1,2,1,1], k=3")
-  nums = [1, 1, 2, 1, 1]
-  console.log(`Odd positions: {[i for i, x in enumerate(nums) if x % 2 == 1]}`)
-  console.log("Nice subarrays with 3 odd numbers:")
-  console.log("- [1,1,2,1] (indices 0-3)")
-  console.log("- [1,2,1,1] (indices 1-4)")
-  console.log(`Total: {solution.numberOfSubarrays(nums, 3)}`)
-  # Performance comparison
-  console.log("\nApproach complexities:")
-  console.log("Prefix sum:     O(n) time, O(n) space")
-  console.log("Sliding window: O(n) time, O(1) space")
-  console.log("Optimized:      O(n) time, O(n) space")
+  console.log("=== 1248. Count Number Of Nice Subarrays ===");
+
+  // Test different approaches
+  const testCases: [number[], number][] = [
+    [[1, 1, 2, 1, 1], 3],
+    [[2, 4, 6], 1],
+    [[1, 3, 5], 2],
+    [[2, 2, 2, 1, 2, 2, 1, 2, 2, 2], 2],
+  ];
+
+  for (const [nums, k] of testCases) {
+    console.log(`\nInput: nums=[${nums}], k=${k}`);
+    const result1 = solution.numberOfSubarrays(nums, k);
+    const result2 = solution.numberOfSubarraysSlidingWindow(nums, k);
+    const result3 = solution.numberOfSubarraysOptimized(nums, k);
+    console.log(`Prefix sum approach:    ${result1}`);
+    console.log(`Sliding window:         ${result2}`);
+    console.log(`Optimized approach:     ${result3}`);
+  }
+
+  // Detailed walkthrough
+  console.log("\nDetailed example: nums=[1,1,2,1,1], k=3");
+  const nums = [1, 1, 2, 1, 1];
+  const oddPositions = nums.map((x, i) => (x % 2 === 1 ? i : -1)).filter((i) => i !== -1);
+  console.log(`Odd positions: [${oddPositions}]`);
+  console.log("Nice subarrays with 3 odd numbers:");
+  console.log("- [1,1,2,1] (indices 0-3)");
+  console.log("- [1,2,1,1] (indices 1-4)");
+  console.log(`Total: ${solution.numberOfSubarrays(nums, 3)}`);
+
+  // Performance comparison
+  console.log("\nApproach complexities:");
+  console.log("Prefix sum:     O(n) time, O(n) space");
+  console.log("Sliding window: O(n) time, O(1) space");
+  console.log("Optimized:      O(n) time, O(n) space");
 }
 
 if (typeof require !== "undefined" && require.main === module) {

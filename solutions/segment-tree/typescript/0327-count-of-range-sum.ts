@@ -1,8 +1,7 @@
 /**
-# 0327. Problem
- * 
- * # Difficulty: Hard
- * # 0327. Count Of Range Sum
+ * 0327. Count Of Range Sum
+ *
+ * Difficulty: Hard
  * 
  * Given an integer array nums and two integers lower and upper, return the number of range sums that lie in [lower, upper] inclusive.
  * 
@@ -12,9 +11,9 @@
  * 
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[([-2, 5, -1]</dd>
+ * <dd>nums = [-2, 5, -1], lower = -2, upper = 2</dd>
  * <dt>Output:</dt>
- * <dd>"\nInput: nums = nums, lower = {lower}, upper = {upper}"</dd>
+ * <dd>3</dd>
  * <dt>Explanation:</dt>
  * <dd>Count of ranges with sum in [lower=-2, upper=2] is 3</dd>
  * </dl>
@@ -112,14 +111,51 @@ class Solution {
    *         Space Complexity: O(n) - for prefix sums and recursion
    */
   countRangeSum(nums: number[], lower: number, upper: number): number {
-    // Implementation
-    if not nums:
-    return 0
-    prefix = [0]
-    for num in nums:
-    prefix.append(prefix.get(-1) + num)
-    def merge_sort(start: int, end: int) -> int:
-    """Merge sort with range counting."""
+    if (!nums || nums.length === 0) {
+      return 0;
+    }
+
+    const prefix: number[] = [0];
+    for (const num of nums) {
+      prefix.push(prefix[prefix.length - 1] + num);
+    }
+
+    const mergeSort = (start: number, end: number): number => {
+      // Merge sort with range counting
+      if (start >= end) {
+        return 0;
+      }
+
+      const mid = Math.floor((start + end) / 2);
+      let count = mergeSort(start, mid) + mergeSort(mid + 1, end);
+
+      // Count cross-boundary ranges
+      let j = mid + 1;
+      let k = mid + 1;
+      let t = mid + 1;
+      const temp: number[] = [];
+
+      for (let i = start; i <= mid; i++) {
+        // Find range [prefix[i] + lower, prefix[i] + upper]
+        while (k <= end && prefix[k] - prefix[i] < lower) k++;
+        while (j <= end && prefix[j] - prefix[i] <= upper) j++;
+        count += j - k;
+
+        // Merge step
+        while (t <= end && prefix[t] < prefix[i]) {
+          temp.push(prefix[t++]);
+        }
+        temp.push(prefix[i]);
+      }
+
+      for (let i = 0; i < temp.length; i++) {
+        prefix[start + i] = temp[i];
+      }
+
+      return count;
+    };
+
+    return mergeSort(0, prefix.length - 1);
   }
 
   /**
@@ -137,13 +173,54 @@ class Solution {
    *         Space Complexity: O(n)
    */
   countRangeSumBIT(nums: number[], lower: number, upper: number): number {
-    // Implementation
-    if not nums:
-    return 0
-    prefix = [0]
-    for num in nums:
-    prefix.append(prefix.get(-1) + num)
-    all_values: set.set(Any, set()
+    if (!nums || nums.length === 0) {
+      return 0;
+    }
+
+    const prefix: number[] = [0];
+    for (const num of nums) {
+      prefix.push(prefix[prefix.length - 1] + num);
+    }
+
+    // Coordinate compression
+    const allValues = new Set<number>();
+    for (const p of prefix) {
+      allValues.add(p);
+      allValues.add(p - lower);
+      allValues.add(p - upper);
+    }
+    const sorted = Array.from(allValues).sort((a, b) => a - b);
+    const compress = new Map<number, number>();
+    sorted.forEach((val, idx) => compress.set(val, idx + 1));
+
+    // Binary Indexed Tree
+    const bit = new Array(compress.size + 1).fill(0);
+    const update = (idx: number) => {
+      while (idx < bit.length) {
+        bit[idx]++;
+        idx += idx & -idx;
+      }
+    };
+    const query = (idx: number): number => {
+      let sum = 0;
+      while (idx > 0) {
+        sum += bit[idx];
+        idx -= idx & -idx;
+      }
+      return sum;
+    };
+
+    let count = 0;
+    update(compress.get(prefix[0])!);
+
+    for (let i = 1; i < prefix.length; i++) {
+      const left = compress.get(prefix[i] - upper)!;
+      const right = compress.get(prefix[i] - lower)!;
+      count += query(right) - query(left - 1);
+      update(compress.get(prefix[i])!);
+    }
+
+    return count;
   }
 
   /**
@@ -161,13 +238,59 @@ class Solution {
    *         Space Complexity: O(n)
    */
   countRangeSumSegmentTree(nums: number[], lower: number, upper: number): number {
-    // Implementation
-    if not nums:
-    return 0
-    prefix = [0]
-    for num in nums:
-    prefix.append(prefix.get(-1) + num)
-    all_values = set()
+    if (!nums || nums.length === 0) {
+      return 0;
+    }
+
+    const prefix: number[] = [0];
+    for (const num of nums) {
+      prefix.push(prefix[prefix.length - 1] + num);
+    }
+
+    // Coordinate compression
+    const allValues = new Set<number>();
+    for (const p of prefix) {
+      allValues.add(p);
+      allValues.add(p - lower);
+      allValues.add(p - upper);
+    }
+    const sorted = Array.from(allValues).sort((a, b) => a - b);
+    const compress = new Map<number, number>();
+    sorted.forEach((val, idx) => compress.set(val, idx));
+
+    // Segment tree
+    const tree = new Array(sorted.length * 4).fill(0);
+    const update = (node: number, start: number, end: number, idx: number) => {
+      if (start === end) {
+        tree[node]++;
+        return;
+      }
+      const mid = Math.floor((start + end) / 2);
+      if (idx <= mid) {
+        update(2 * node, start, mid, idx);
+      } else {
+        update(2 * node + 1, mid + 1, end, idx);
+      }
+      tree[node] = tree[2 * node] + tree[2 * node + 1];
+    };
+    const query = (node: number, start: number, end: number, left: number, right: number): number => {
+      if (right < start || left > end) return 0;
+      if (left <= start && end <= right) return tree[node];
+      const mid = Math.floor((start + end) / 2);
+      return query(2 * node, start, mid, left, right) + query(2 * node + 1, mid + 1, end, left, right);
+    };
+
+    let count = 0;
+    update(1, 0, sorted.length - 1, compress.get(prefix[0])!);
+
+    for (let i = 1; i < prefix.length; i++) {
+      const left = compress.get(prefix[i] - upper)!;
+      const right = compress.get(prefix[i] - lower)!;
+      count += query(1, 0, sorted.length - 1, left, right);
+      update(1, 0, sorted.length - 1, compress.get(prefix[i])!);
+    }
+
+    return count;
   }
 
   /**
@@ -185,14 +308,26 @@ class Solution {
    *         Space Complexity: O(n) for prefix sums
    */
   countRangeSumBruteForce(nums: number[], lower: number, upper: number): number {
-    // Implementation
-    if not nums:
-    return 0
-    prefix = [0]
-    for num in nums:
-    prefix.append(prefix.get(-1) + num)
-    count = 0
-    for (let i = 0; i < nums.length; i++) {
+    if (!nums || nums.length === 0) {
+      return 0;
+    }
+
+    const prefix: number[] = [0];
+    for (const num of nums) {
+      prefix.push(prefix[prefix.length - 1] + num);
+    }
+
+    let count = 0;
+    for (let i = 0; i < prefix.length; i++) {
+      for (let j = i + 1; j < prefix.length; j++) {
+        const rangeSum = prefix[j] - prefix[i];
+        if (rangeSum >= lower && rangeSum <= upper) {
+          count++;
+        }
+      }
+    }
+
+    return count;
   }
 }
 
@@ -204,43 +339,48 @@ if (typeof module !== "undefined" && module.exports) {
 function runTests(): void {
   const solution = new Solution();
 
-  test_solution()
-  # Example usage and demonstration
-  solution = Solution()
-  console.log("=== 327. Count Of Range Sum ===")
-  test_cases = [
-  ([-2, 5, -1], -2, 2),
-  ([0, -3, -3, 1, 1, 2], 3, 5),
-  ([1, 2, 3], 3, 7),
-  ]
-  for nums, lower, upper in test_cases:
-  console.log(`\nInput: nums = nums, lower = {lower}, upper = {upper}`)
-  # Show all approaches
-  result_merge = solution.countRangeSum(nums, lower, upper)
-  result_brute = solution.countRangeSumBruteForce(nums, lower, upper)
-  console.log(`Merge Sort:  {result_merge}`)
-  console.log(`Brute Force: {result_brute}`)
-  # Only test tree approaches for small inputs
-  if nums.length <= 10:
-  result_bit = solution.countRangeSumBIT(nums, lower, upper)
-  result_seg = solution.countRangeSumSegmentTree(nums, lower, upper)
-  console.log(`Binary IT:   {result_bit}`)
-  console.log(`Segment Tree: {result_seg}`)
-  # Detailed walkthrough
-  console.log("\nDetailed example: nums = [-2,5,-1], lower = -2, upper = 2")
-  nums = [-2, 5, -1]
-  console.log("Prefix sums: [0, -2, 3, 2]")
-  console.log("Valid range sums:")
-  console.log("  S(0,0) = -2 (in [-2, 2])")
-  console.log("  S(0,2) = 2 (in [-2, 2])")
-  console.log("  S(2,2) = -1 (in [-2, 2])")
-  console.log(`Total: {solution.countRangeSum(nums, -2, 2)} valid ranges`)
-  # Performance comparison
-  console.log("\nApproach complexities:")
-  console.log("Merge Sort:   O(n log n) time, O(n) space")
-  console.log("Binary IT:    O(n log n) time, O(n) space")
-  console.log("Segment Tree: O(n log n) time, O(n) space")
-  console.log("Brute Force:  O(n²) time, O(n) space")
+  console.log("=== 327. Count Of Range Sum ===");
+
+  const testCases: [number[], number, number][] = [
+    [[-2, 5, -1], -2, 2],
+    [[0, -3, -3, 1, 1, 2], 3, 5],
+    [[1, 2, 3], 3, 7],
+  ];
+
+  for (const [nums, lower, upper] of testCases) {
+    console.log(`\nInput: nums = [${nums}], lower = ${lower}, upper = ${upper}`);
+
+    // Show all approaches
+    const resultMerge = solution.countRangeSum(nums, lower, upper);
+    const resultBrute = solution.countRangeSumBruteForce(nums, lower, upper);
+    console.log(`Merge Sort:  ${resultMerge}`);
+    console.log(`Brute Force: ${resultBrute}`);
+
+    // Only test tree approaches for small inputs
+    if (nums.length <= 10) {
+      const resultBit = solution.countRangeSumBIT(nums, lower, upper);
+      const resultSeg = solution.countRangeSumSegmentTree(nums, lower, upper);
+      console.log(`Binary IT:   ${resultBit}`);
+      console.log(`Segment Tree: ${resultSeg}`);
+    }
+  }
+
+  // Detailed walkthrough
+  console.log("\nDetailed example: nums = [-2,5,-1], lower = -2, upper = 2");
+  const nums = [-2, 5, -1];
+  console.log("Prefix sums: [0, -2, 3, 2]");
+  console.log("Valid range sums:");
+  console.log("  S(0,0) = -2 (in [-2, 2])");
+  console.log("  S(0,2) = 2 (in [-2, 2])");
+  console.log("  S(2,2) = -1 (in [-2, 2])");
+  console.log(`Total: ${solution.countRangeSum(nums, -2, 2)} valid ranges`);
+
+  // Performance comparison
+  console.log("\nApproach complexities:");
+  console.log("Merge Sort:   O(n log n) time, O(n) space");
+  console.log("Binary IT:    O(n log n) time, O(n) space");
+  console.log("Segment Tree: O(n log n) time, O(n) space");
+  console.log("Brute Force:  O(n²) time, O(n) space");
 }
 
 if (typeof require !== "undefined" && require.main === module) {
