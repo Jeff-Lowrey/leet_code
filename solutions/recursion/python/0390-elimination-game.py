@@ -70,7 +70,6 @@ This solution uses recursion for efficient implementation.
 
 This solution uses mathematical pattern recognition for efficient implementation.
 
-This solution uses state tracking for efficient implementation.
 ### EXAMPLE WALKTHROUGH:
 n = 9, arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
@@ -190,10 +189,10 @@ if __name__ == "__main__":
     for n, expected in test_cases:
         result = lastRemaining(n)
         status = "✓" if result == expected else "✗"
-        print(f"{status} lastRemaining(n) = result, expected = expected")
+        print(f"{status} lastRemaining({n}) = {result}, expected = {expected}")
 
     print("\nTesting lastRemainingRecursive:")
     for n, expected in test_cases:
         result = lastRemainingRecursive(n)
         status = "✓" if result == expected else "✗"
-        print(f"{status} lastRemainingRecursive(n) = result, expected = expected")
+        print(f"{status} lastRemainingRecursive({n}) = {result}, expected = {expected}")

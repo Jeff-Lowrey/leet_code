@@ -67,9 +67,6 @@ The 2D prefix sum uses the inclusion-exclusion principle:
 - Subtract prefix[r2+1][c1] to remove columns left of c1
 - Add back prefix[r1][c1] because it was subtracted twice
 
-This solution uses dynamic programming for efficient implementation.
-
-This solution uses preprocessing for efficient implementation.
 ### EXAMPLE WALKTHROUGH:
 Given input "NumMatrix", "sumRegion", "sumRegion", "sumRegion":
 
@@ -187,10 +184,10 @@ if __name__ == "__main__":
     for (row1, col1, row2, col2), expected in test_cases:
         result = numMatrix.sumRegion(row1, col1, row2, col2)
         status = "✓" if result == expected else "✗"
-        print(f"{status} sumRegion({row1}, {col1}, {row2}, {col2}) = result, expected = expected")
+        print(f"{status} sumRegion({row1}, {col1}, {row2}, {col2}) = {result}, expected = {expected}")
 
     # Test case 2: Single element matrix
     matrix2 = [[5]]
     numMatrix2 = NumMatrix(matrix2)
     result = numMatrix2.sumRegion(0, 0, 0, 0)
-    print(f"\nSingle element test: sumRegion(0, 0, 0, 0) = result, expected = 5, {'✓' if result == 5 else '✗'}")
+    print(f"\nSingle element test: sumRegion(0, 0, 0, 0) = {result}, expected = 5, {'✓' if result == 5 else '✗'}")

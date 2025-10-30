@@ -56,7 +56,6 @@ The formula 1 + (num - 1) % 9 handles all cases:
 - For multiples of 9: 1 + (9k - 1) % 9 = 1 + 8 = 9
 - For other numbers: returns the remainder when divided by 9
 
-This solution uses mathematical pattern recognition for efficient implementation.
 ### EXAMPLE WALKTHROUGH:
 Given input num = 38:
 
@@ -141,10 +140,10 @@ if __name__ == "__main__":
     for num, expected in test_cases:
         result = addDigits(num)
         status = "✓" if result == expected else "✗"
-        print(f"{status} addDigits({num}) = result, expected = expected")
+        print(f"{status} addDigits({num}) = {result}, expected = {expected}")
 
     print("\nTesting addDigitsNaive (iterative solution):")
     for num, expected in test_cases:
         result = addDigitsNaive(num)
         status = "✓" if result == expected else "✗"
-        print(f"{status} addDigitsNaive({num}) = result, expected = expected")
+        print(f"{status} addDigitsNaive({num}) = {result}, expected = {expected}")

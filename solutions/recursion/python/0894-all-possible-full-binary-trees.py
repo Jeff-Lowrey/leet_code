@@ -54,7 +54,6 @@ we generate all valid full binary trees.
 
 This solution uses recursion for efficient implementation.
 
-This solution uses combinatorial generation for efficient implementation.
 ### EXAMPLE WALKTHROUGH:
 n = 3:
 - Root uses 1 node, leaving 2 for children
@@ -183,15 +182,15 @@ if __name__ == "__main__":
         result = allPossibleFBT(n)
         count = len(result)
         status = "✓" if count == expected_count else "✗"
-        print(f"{status} allPossibleFBT(n) returned {count} trees, expected {expected_count}")
+        print(f"{status} allPossibleFBT({n}) returned {count} trees, expected {expected_count}")
 
         # Show first tree structure for small n
         if n <= 5 and result:
-            print(f"  First tree for n=n: {tree_to_list(result[0])}")
+            print(f"  First tree for n={n}: {tree_to_list(result[0])}")
 
     # Even numbers should return empty
     print("\nTesting even n (should return empty list):")
     for n in [2, 4, 6]:
         result = allPossibleFBT(n)
         status = "✓" if len(result) == 0 else "✗"
-        print(f"{status} allPossibleFBT(n) returned {len(result)} trees (expected 0)")
+        print(f"{status} allPossibleFBT({n}) returned {len(result)} trees (expected 0)")

@@ -11,9 +11,9 @@ Range sum S(i, j) is defined as the sum of the elements in nums between indices 
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[([-2, 5, -1]</dd>
+<dd>nums = [-2, 5, -1], lower = -2, upper = 2</dd>
 <dt>Output:</dt>
-<dd>"\nInput: nums = nums, lower = {lower}, upper = {upper}"</dd>
+<dd>3</dd>
 <dt>Explanation:</dt>
 <dd>Count of ranges with sum in [lower=-2, upper=2] is 3</dd>
 </dl>
@@ -46,7 +46,6 @@ This solution uses hash table lookup for efficient implementation.
 
 This solution uses hash map storage for efficient implementation.
 
-This solution uses set operations for efficient implementation.
 ### EXAMPLE WALKTHROUGH:
 Given input nums = [-2,5,-1], lower = -2, upper = 2:
 
@@ -402,7 +401,7 @@ if __name__ == "__main__":
     ]
 
     for nums, lower, upper in test_cases:
-        print(f"\nInput: nums = nums, lower = {lower}, upper = {upper}")
+        print(f"\nInput: nums = {nums}, lower = {lower}, upper = {upper}")
 
         # Show all approaches
         result_merge = solution.countRangeSum(nums, lower, upper)
