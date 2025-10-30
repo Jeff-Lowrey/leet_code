@@ -51,6 +51,7 @@
  * 4. The remaining count
  *
  * ### APPROACH:
+ * **No data structures needed** - pure mathematical tracking approach.
  * We track the head of the remaining sequence. The head changes when:
  * - We're going left-to-right (always updates)
  * - We're going right-to-left AND the count is odd (head updates)
@@ -76,7 +77,7 @@ This solution uses state tracking for efficient implementation.
 ### EXAMPLE WALKTHROUGH:
  * **Input:** n = 9
  *
- * **Step 1:** Initial state
+ * **Step 1:** Initial state for n=9
  * - arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
  * - head=1, step=1, remaining=9, leftToRight=true
  *
@@ -110,9 +111,10 @@ This solution uses state tracking for efficient implementation.
  * **O(log n)** - Recursion stack depth (iterative solution can achieve O(1))
  *
  * ### EDGE CASES:
- * - Single element (n = 1): Returns 1 immediately
- * - Power of 2: Special pattern in result
- * - Large n (up to 10^9): Must use O(log n) algorithm, not simulation
+ * - Single element: n=1 → 1 (no elimination needed, returns immediately as only element)
+ * - Power of 2: n=8 → 6 (follows pattern, no special handling needed with mathematical approach)
+ * - Small n: n=2 → 2 (first round eliminates 1, leaving 2)
+ * - Large n: n=1000000000 → must use O(log n) not O(n) (simulation would timeout, mathematical tracking succeeds)
  *
  * </details>
  */

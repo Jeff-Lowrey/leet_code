@@ -17,7 +17,7 @@
  * <dt>Input:</dt>
  * <dd>[3,2,2,3], val = 3</dd>
  * <dt>Output:</dt>
- * <dd>4</dd>
+ * <dd>2</dd>
  * <dt>Explanation:</dt>
  * <dd>Remove element 3 from [3,2,2,3] gives length 2</dd>
  * </dl>
@@ -35,6 +35,7 @@
  * Use two pointers: one for reading, one for writing. When read pointer finds non-target value, write it at write pointer position and increment both. Otherwise only increment read pointer.
  *
  * ### APPROACH:
+ * **Data structures: Array (for storage and traversal)**
  * 1. **Initialize write pointer**: Set k = 0 to track position for non-val elements in array
  * 2. **Iterate through array**: For each element in nums using array traversal
  * 3. **Check if not val**: If nums[i] != val using hash table lookup
@@ -58,7 +59,7 @@ This solution uses hash map storage for efficient implementation.
 ### EXAMPLE WALKTHROUGH:
  * **Input:** nums = [3,2,2,3], val = 3
  *
- * **Step 1:** Initialize write pointer k = 0
+ * **Step 1:** Initialize write pointer k=0 for nums=[3,2,2,3], val=3
  * - Will track position for non-val elements
  *
  * **Step 2:** Process i=0, nums[0]=3
@@ -89,11 +90,11 @@ This solution uses hash map storage for efficient implementation.
  * - Constant extra space
  *
  * ### EDGE CASES:
- * - Empty array: Return 0 (no elements to process)
- * - Single element equals val: Return 0 (remove it)
- * - Single element not equals val: Return 1 (keep it)
- * - All elements equal val: Return 0 (remove all)
- * - No elements equal val: Return original length (keep all)
+ * - Empty array: nums=[], val=3 → 0 (no elements to process, returns immediately)
+ * - Single element equals val: nums=[3], val=3 → 0 (remove it, returns empty result)
+ * - Single element not equals val: nums=[2], val=3 → 1 (keep it, element stays)
+ * - All elements equal val: nums=[3,3,3,3], val=3 → 0 (remove all instances)
+ * - No elements equal val: nums=[1,2,4,5], val=3 → 4 (keep all, original length unchanged)
  *
  * </details>
  */

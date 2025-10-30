@@ -34,6 +34,7 @@
  * achieve O(n log n) time. This problem tests understanding of fundamental sorting algorithms.
  *
  * ### APPROACH:
+ * **Data structures: Array (for storage), Stack (for recursion), Heap (for heap sort)**
  * **Merge Sort:**
  * 1. Divide array into two halves recursively
  * 2. Sort each half recursively using array operations
@@ -63,7 +64,7 @@ The solution leverages stack for efficient operations.
 ### EXAMPLE WALKTHROUGH:
  * **Input:** nums = [5,2,3,1]
  *
- * **Step 1:** Divide array using merge sort
+ * **Step 1:** Divide array using merge sort for nums=[5,2,3,1]
  * - Split [5,2,3,1] into [5,2] and [3,1]
  * - Split [5,2] into [5] and [2]
  * - Split [3,1] into [3] and [1]
@@ -95,12 +96,12 @@ The solution leverages stack for efficient operations.
  * - Heap Sort: O(1) in-place
  *
  * ### EDGE CASES:
- * - Empty array: Return [] immediately
- * - Single element: Return [element] immediately (already sorted)
- * - All elements equal: Any algorithm returns same array
- * - Already sorted: Merge sort O(n log n), Quick sort O(n²) worst case
- * - Reverse sorted: Worst case for Quick sort, best case for merge sort
- * - Large arrays (up to 50,000 elements): Merge sort stable, Heap sort in-place
+ * - Empty array: nums=[] → [] (no elements to sort, returns immediately)
+ * - Single element: nums=[5] → [5] (already sorted, returns immediately)
+ * - All elements equal: nums=[3,3,3,3] → [3,3,3,3] (any algorithm returns same array)
+ * - Already sorted: nums=[1,2,3,4] → [1,2,3,4] (Merge sort still O(n log n), Quick sort O(n²) worst case)
+ * - Reverse sorted: nums=[4,3,2,1] → [1,2,3,4] (Worst case for naive Quick sort, good for Merge sort)
+ * - Large arrays: nums with 50000 elements → O(n log n) required (Merge sort stable, Heap sort in-place)
  *
  * </details>
  */

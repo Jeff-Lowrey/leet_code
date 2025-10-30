@@ -15,18 +15,14 @@
  *
  * **Example:**
  *
- * Input:
- * ["NumMatrix", "sumRegion", "sumRegion", "sumRegion"]
- * [[[[3, 0, 1, 4, 2], [5, 6, 3, 2, 1], [1, 2, 0, 1, 5], [4, 1, 0, 1, 7], [1, 0, 3, 0, 5]]], [2, 1, 4, 3], [1, 1, 2, 2], [1, 2, 2, 4]]
- *
- * Output:
- * [null, 8, 11, 12]
- *
- * Explanation:
- * NumMatrix numMatrix = new NumMatrix([[3, 0, 1, 4, 2], [5, 6, 3, 2, 1], [1, 2, 0, 1, 5], [4, 1, 0, 1, 7], [1, 0, 3, 0, 5]]);
- * numMatrix.sumRegion(2, 1, 4, 3); // return 8 (sum of the red rectangle)
- * numMatrix.sumRegion(1, 1, 2, 2); // return 11 (sum of the green rectangle)
- * numMatrix.sumRegion(1, 2, 2, 4); // return 12 (sum of the blue rectangle)
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>["NumMatrix","sumRegion","sumRegion","sumRegion"], [[[[3,0,1,4,2],[5,6,3,2,1],[1,2,0,1,5],[4,1,0,1,7],[1,0,3,0,5]]],[2,1,4,3],[1,1,2,2],[1,2,2,4]]</dd>
+ * <dt>Output:</dt>
+ * <dd>[null,8,11,12]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>NumMatrix is initialized with the 5x5 matrix. sumRegion(2,1,4,3) returns 8, sumRegion(1,1,2,2) returns 11, sumRegion(1,2,2,4) returns 12</dd>
+ * </dl>
  *
  * **Constraints:**
  * - m == matrix.length
@@ -54,6 +50,7 @@
  * any rectangular sum in constant time.
  *
  * ### APPROACH:
+ * **Data structures: 2D array (prefix sum matrix), Matrix**
  * 1. Create a prefix sum 2D array where prefix[i][j] = sum of all elements from (0,0) to (i-1,j-1)
  * 2. To avoid index out of bounds, make prefix matrix (m+1) x (n+1) with padding array
  * 3. Build prefix sum using 2D array: prefix[i][j] = matrix[i-1][j-1] + prefix[i-1][j] + prefix[i][j-1] - prefix[i-1][j-1]
@@ -75,7 +72,7 @@ This solution uses preprocessing for efficient implementation.
 ### EXAMPLE WALKTHROUGH:
  * **Input:** matrix = [[3,0,1,4,2], [5,6,3,2,1], [1,2,0,1,5], [4,1,0,1,7], [1,0,3,0,5]]
  *
- * **Step 1:** Build prefix sum matrix with padding
+ * **Step 1:** Build prefix sum matrix with padding for the input matrix
  * - Create (m+1) x (n+1) matrix with zeros in first row/column
  * - prefix[i][j] = matrix[i-1][j-1] + prefix[i-1][j] + prefix[i][j-1] - prefix[i-1][j-1]
  * - Prefix sum: [[0,0,0,0,0,0], [0,3,3,4,8,10], [0,8,14,18,24,27],
@@ -104,11 +101,11 @@ This solution uses preprocessing for efficient implementation.
  * **O(m * n)** - store prefix sum matrix of same dimensions as input
  *
  * ### EDGE CASES:
- * - Empty matrix or matrix with no columns: Return 0 or handle gracefully
- * - Single element matrix: Returns that element for (0,0,0,0) query
- * - Query covering entire matrix: Sum of all elements
- * - Query for single cell (row1==row2, col1==col2): Returns single element value
- * - Large matrices (200x200): Prefix sum makes queries O(1)
+ * - Empty matrix: matrix=[[]] → prefix=[[]] (no elements to sum, special handling in constructor)
+ * - Single element matrix: matrix=[[5]], sumRegion(0,0,0,0) → 5 (single cell query returns the element)
+ * - Query covering entire matrix: sumRegion(0,0,m-1,n-1) → sum of all elements (full matrix sum)
+ * - Query for single cell: row1==row2 and col1==col2 → matrix[row1][col1] (single element result)
+ * - Large matrices: 200×200 matrix → O(1) queries still (prefix sum advantage at scale)
  *
  * </details>
  */

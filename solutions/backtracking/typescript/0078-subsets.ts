@@ -32,6 +32,7 @@
  * Generate all possible subsets (power set) by making binary choices for each element: include it or don't include it in the current subset. Use backtracking to explore all combinations.
  * 
  * ### APPROACH:
+ * **Data structures: Array (results storage, current subset tracking)**
  * 1. **Initialize result list**: Create an empty array to store all subsets (will include empty set)
  * 2. **Define recursive backtracking function**: Create a helper function with start index and current subset array parameters
  * 3. **Add current subset**: At each recursive call, add a copy of the current subset array to results (captures all intermediate states)
@@ -73,11 +74,10 @@
  * O(n) - recursion depth
 
  * ### EDGE CASES:
- * - **Empty array**: Return [[]] (power set contains only empty set)
- * - **Single element**: Return [[], [element]]
- * - **All elements identical (in variant)**: Handle duplicates with sorting
- * - **Large n values**: 2^n subsets, exponential but unavoidable
- * - **Negative numbers**: No special handling needed, works same as positive
+ * - Empty array: nums=[] → [[]] (power set contains only empty set)
+ * - Single element: nums=[1] → [[],[1]] (2^1=2 subsets)
+ * - Multiple elements: nums=[1,2,3] → [[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]] (2^3=8 subsets)
+ * - Large n: n=10 → 2^10=1024 subsets (exponential growth but unavoidable for power set)
  * 
  *
 */

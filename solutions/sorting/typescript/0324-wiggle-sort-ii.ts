@@ -9,11 +9,11 @@
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>* ```</dd>
+ * <dd>nums = [1,5,1,1,6,4]</dd>
  * <dt>Output:</dt>
- * <dd>* ```</dd>
+ * <dd>[1,6,1,5,1,4]</dd>
  * <dt>Explanation:</dt>
- * <dd>Processing input produces the expected output</dd>
+ * <dd>After sorting and interleaving, the result satisfies nums[i] < nums[i+1] > nums[i+2] pattern</dd>
  * </dl>
  *
  * <details>
@@ -31,6 +31,7 @@
  * We need to interleave smaller and larger halves to avoid adjacent equal elements.
  *
  * ### APPROACH:
+ * **Data structures: Array (sorting and manipulation)**
  * 1. **Find median**: Partition array around median value
  * 2. **Interleave halves**: Place smaller elements at even indices, larger at odd
  * 3. **Reverse order**: Place larger elements in reverse to avoid adjacency
@@ -50,7 +51,7 @@ This solution uses two-pointer technique for efficient implementation.
 ### EXAMPLE WALKTHROUGH:
  * **Input:** nums = [1,5,1,1,6,4]
  *
- * **Step 1:** Sort the array
+ * **Step 1:** Sort the input array [1,5,1,1,6,4]
  * - Sorted: [1,1,1,4,5,6]
  *
  * **Step 2:** Split around median (median ≈ 2.5, so split at index 3)
@@ -76,10 +77,10 @@ This solution uses two-pointer technique for efficient implementation.
  * For temporary sorted array. Can be O(1) with in-place virtual indexing.
  *
  * ### EDGE CASES:
- * - Array with many duplicate elements
- * - All elements equal (impossible with strict inequality requirement)
- * - Small arrays (length 2-3)
- * - Even vs odd length arrays
+ * - Array with many duplicate elements: [1,1,1,4,5,6] → [1,5,1,6,1,4] (requires careful interleaving)
+ * - All elements equal: [2,2,2,2] → no valid solution (impossible with strict inequality requirement)
+ * - Small arrays: [1,2] → [1,2], [1,2,3] → [2,3,1] or [1,3,2]
+ * - Even vs odd length arrays: [1,2,3,4] (even) vs [1,2,3,4,5] (odd, extra in small half)
  *
  *
 */

@@ -45,6 +45,7 @@
  * Place queens one row at a time and backtrack when conflicts arise. Queens attack horizontally, vertically, and diagonally, so we need to ensure no two queens can attack each other.
  *
  * ### APPROACH:
+ * **Data structures: Hash Set (column and diagonal tracking), Array (board state and results), String (board representation)**
  * 1. **Row by row placement**: Place one queen per row to avoid horizontal conflicts
  * 2. **Column tracking**: Track which columns are occupied using hash set to avoid vertical conflicts
  * 3. **Diagonal tracking**: Track both diagonal directions using hash set to avoid diagonal conflicts
@@ -67,7 +68,7 @@ This solution uses set operations for efficient implementation.
 ### EXAMPLE WALKTHROUGH:
  * **Input:** n = 4
  *
- * **Step 1:** Place queen in row 0
+ * **Step 1:** Place queen in row 0 for n=4 board
  * - Try col 0: Place Q at (0,0)
  * - Update tracking sets: cols = {0}, diag1 = {0}, diag2 = {0}
  *

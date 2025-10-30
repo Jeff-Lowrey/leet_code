@@ -44,6 +44,7 @@
  * to the same array. This allows us to modify the array in-place with O(1) extra space.
  *
  * ### APPROACH:
+ * **Data structures: Array (for storage), String (for conversion)**
  * 1. **Two Pointers**: Use `read` pointer to scan array, `write` pointer for result in array
  * 2. **Count Consecutive**: For each character, count how many consecutive times it appears in array
  * 3. **Write Character**: Always write the character itself to array
@@ -66,7 +67,7 @@ The solution leverages queue for efficient operations.
 ### EXAMPLE WALKTHROUGH:
  * **Input:** chars = ["a","a","b","b","c","c","c"]
  *
- * **Step 1:** Process 'a' group (read=0)
+ * **Step 1:** Process 'a' group (read=0) for chars=["a","a","b","b","c","c","c"]
  * - Count: 2 occurrences at indices 0-1
  * - Write: chars[0]='a', chars[1]='2'
  * - write=2, read=2
@@ -100,11 +101,11 @@ The solution leverages queue for efficient operations.
  * - Modifying the array in-place
  *
  * ### EDGE CASES:
- * - Single character array: Return 1 (just the character)
- * - All different characters: Return original length (no compression)
- * - All same characters (e.g., 12 'a's): Return 1 + len(str(count)) = 1 + 2 = 3 for ["a","1","2"]
- * - Very long runs (count >= 10): Multi-digit handling required
- * - Empty array: Return 0
+ * - Single character array: chars=["a"] → 1 (just the character, no count needed)
+ * - All different characters: chars=["a","b","c"] → 3 (no compression possible, returns original length)
+ * - All same characters: chars=["a","a","a","a","a","a","a","a","a","a","a","a"] → 3 for ["a","1","2"] (12 'a's compressed to character plus two digits)
+ * - Very long runs: chars with 100 'a's → 4 for ["a","1","0","0"] (multi-digit count handling required)
+ * - Empty array: chars=[] → 0 (no elements to process, returns immediately)
  *
  * </details>
  */

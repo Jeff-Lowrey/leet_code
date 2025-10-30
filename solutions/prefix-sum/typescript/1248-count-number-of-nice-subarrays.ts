@@ -74,11 +74,11 @@
  * For the frequency HashMap
  * 
  * ### EDGE CASES:
- * - No odd numbers in array: Return 0 (cannot form subarray with k odd numbers)
- * - k = 0: Count subarrays with no odd numbers (all even)
- * - k > total odd numbers: Return 0 (impossible to form such subarray)
- * - All numbers odd: Many valid subarrays if k ≤ array length
- * - All numbers even: Return 0 for k > 0, count all subarrays for k = 0
+ * - No odd numbers: nums=[2,4,6], k=1 → 0 (cannot form subarray with k odd numbers)
+ * - k = 0: nums=[2,4,6], k=0 → 6 (count subarrays with no odd numbers: all even subarrays)
+ * - k > total odd: nums=[1,2,3], k=5 → 0 (only 2 odd numbers, impossible to get 5)
+ * - All odd numbers: nums=[1,3,5], k=2 → 2 (many valid subarrays when k ≤ array length)
+ * - All even numbers: nums=[2,4,6], k=1 → 0 (for k > 0, return 0 since no odd numbers exist)
  * 
  * </details>
  */

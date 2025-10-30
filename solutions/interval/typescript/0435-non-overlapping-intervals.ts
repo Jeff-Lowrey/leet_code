@@ -30,6 +30,7 @@
  * Sort by end time (greedy). Keep track of previous interval's end. If current start >= previous end, intervals don't overlap. Otherwise, skip current interval (remove it). Count removals.
  *
  * ### APPROACH:
+ * **Data structures: Array** - uses array for storing and processing intervals
  * 1. **Sort by end time**: Sort intervals array by interval[1]
  * 2. **Initialize variables**: Set count = 0, prev_end = intervals[0][1]
  * 3. **Iterate from second**: For each interval in intervals array[1:]
@@ -55,7 +56,7 @@ This solution uses array traversal for efficient implementation.
 ### EXAMPLE WALKTHROUGH:
  * **Input:** intervals = [[1,2],[2,3],[3,4],[1,3]]
  *
- * **Step 1:** Sort intervals by end time
+ * **Step 1:** Sort intervals by end time for intervals=[[1,2],[2,3],[3,4],[1,3]]
  * - Original: [[1,2],[2,3],[3,4],[1,3]]
  * - Sorted: [[1,2],[2,3],[1,3],[3,4]]
  *
@@ -90,11 +91,11 @@ This solution uses array traversal for efficient implementation.
  * - Constant extra space
  *
  * ### EDGE CASES:
- * - Empty array: Return 0 (no intervals to remove)
- * - Single interval: Return 0 (cannot overlap with itself)
- * - All intervals overlap: Remove all but one (n-1 removals)
- * - No overlaps: Return 0 (already non-overlapping)
- * - Identical intervals: Remove all duplicates except one
+ * - Empty array: intervals=[] → 0 (no intervals to remove)
+ * - Single interval: intervals=[[1,2]] → 0 (cannot overlap with itself)
+ * - All intervals overlap: intervals=[[1,3],[1,3],[1,3]] → 2 (remove all duplicates except one, n-1 removals)
+ * - No overlaps: intervals=[[1,2],[2,3],[3,4]] → 0 (already non-overlapping)
+ * - Identical intervals: intervals=[[1,2],[1,2],[1,2]] → 2 (keep one, remove n-1)
  *
  * </details>
  */

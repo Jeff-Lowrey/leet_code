@@ -30,6 +30,7 @@
  * This is a topological sort problem where we need to check if there's a unique topological ordering that matches the given original sequence. The key insight is that for a unique reconstruction, at each step of topological sort, there should be exactly one node with in-degree 0.
  *
  * ### APPROACH:
+ * **Data structures: Hash Map (for graph/in-degrees), Hash Set (for validation), Array (for sequences)**
  * 1. **Build graph**: Create adjacency list using hash map and in-degree count using hash map from seqs
  * 2. **Validate sequences**: Ensure all pairs in seqs appear consecutively in org using array
  * 3. **Check uniqueness**: Use topological sort with the constraint that at each step, only one node has in-degree 0 in hash map
@@ -51,7 +52,7 @@ This solution uses set operations for efficient implementation.
 ### EXAMPLE WALKTHROUGH:
  * **Input:** org = [1,2,3], seqs = [[1,2],[1,3],[2,3]]
  *
- * **Step 1:** Build graph from seqs
+ * **Step 1:** Build graph from seqs for org=[1,2,3], seqs=[[1,2],[1,3],[2,3]]
  * - 1 -> [2, 3]
  * - 2 -> [3]
  * - 3 -> []
@@ -88,11 +89,11 @@ This solution uses set operations for efficient implementation.
  * For the graph representation and auxiliary data structures
  *
  * ### EDGE CASES:
- * - **Unique topological order**: Only one valid sequence exists
- * - **Multiple valid orders**: Return false (ambiguous)
- * - **Cycle in graph**: No topological order exists, return false
- * - **Sequence doesn't match order**: Return false
- * - **Single course**: Trivially valid, return true
+ * - Unique topological order: org=[1,2,3], seqs=[[1,2],[1,3],[2,3]] → True (only one valid sequence exists)
+ * - Multiple valid orders: org=[1,2,3], seqs=[[1,2],[1,3]] → False (both [1,2,3] and [1,3,2] valid, ambiguous)
+ * - Cycle in graph: org=[1,2], seqs=[[1,2],[2,1]] → False (contradictory constraints create cycle)
+ * - Sequence doesn't match order: org=[1,2,3], seqs=[[1,2],[3,2]] → False ([3,2] conflicts with org order)
+ * - Single element: org=[1], seqs=[[1]] → True (trivially valid, single element always unique)
  *
  * </details>
  */

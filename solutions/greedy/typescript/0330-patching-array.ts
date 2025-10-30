@@ -37,6 +37,7 @@
  * need to patch with (covered + 1).
  *
  * ### APPROACH:
+ * **Data structures: Array (for storage)**
  * 1. **Track coverage**: Maintain the maximum number we can currently build using array
  * 2. **Use available numbers**: If nums[i] <= covered + 1, use it from array to extend coverage
  * 3. **Patch when needed**: If nums[i] > covered + 1, patch with (covered + 1)
@@ -82,11 +83,10 @@
  * Only using constant extra space
  *
  * ### EDGE CASES:
- * - Empty array: Need to patch from 1 up to n (log n patches)
- * - Array already covers [1,n]: No patches needed (return 0)
- * - Large n with small array: Multiple patches required (O(log n) patches)
- * - Array starts with value > 1: Need to patch 1 first
- * - Array = [1]: Covers [1,1], need patches for larger n
+ * - Empty array: nums=[], n=7 → 3 patches needed (need to add 1,2,4 to cover [1,7], O(log n) patches)
+ * - Array already covers: nums=[1,2,2], n=5 → 0 patches (no additions needed)
+ * - Large n with small array: nums=[1], n=100 → multiple patches (need O(log n) additions)
+ * - Array starts > 1: nums=[2,3], n=10 → must patch 1 first (then can use array values)
  *
  * </details>
  */

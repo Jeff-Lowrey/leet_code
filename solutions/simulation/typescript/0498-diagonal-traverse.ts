@@ -40,6 +40,7 @@
  * and boundaries carefully.
  *
  * ### APPROACH:
+ * **Data structures: Matrix (2D array input), Array (result storage)**
  * 1. **Diagonal Identification**: Elements at (i, j) where i + j = k are on the same diagonal, tracked in array
  * 2. **Direction Alternation**: Even-indexed diagonals go up-right, odd-indexed go down-left
  * 3. **Boundary Handling**: When hitting matrix edges, change to next diagonal with proper direction
@@ -62,7 +63,7 @@
  * ### EXAMPLE WALKTHROUGH:
  * **Input:** mat = [[1,2,3], [4,5,6], [7,8,9]]
  *
- * **Step 1:** Diagonal 0 (sum=0)
+ * **Step 1:** Diagonal 0 (sum=0) for mat=[[1,2,3], [4,5,6], [7,8,9]]
  * - Elements where row+col=0: [1]
  * - Direction: up, Result: [1]
  *
@@ -93,11 +94,11 @@
  * - Only use constant extra space (not counting output array)
  *
  * ### EDGE CASES:
- * - Single element matrix: [[1]] → [1] (no diagonals to traverse)
- * - Single row matrix: [[1,2,3]] → [1,2,3] (all elements in order)
- * - Single column matrix: [[1],[2],[3]] → [1,2,3] (all elements in order)
- * - Non-square matrices: Different row and column counts (e.g., 2×3 or 3×2)
- * - Empty matrix: [] → [] (no elements to traverse)
+ * - Single element matrix: mat=[[1]] → [1] (no diagonals to traverse, returns single element)
+ * - Single row matrix: mat=[[1,2,3]] → [1,2,3] (all elements traversed left to right)
+ * - Single column matrix: mat=[[1],[2],[3]] → [1,2,3] (all elements traversed top to bottom)
+ * - Non-square matrices: mat=[[1,2,3],[4,5,6]] → [1,2,4,5,3,6] (2×3 matrix handled correctly with proper diagonal traversal)
+ * - Empty matrix: mat=[] → [] (no elements to traverse, returns empty array)
  *
  *
 */

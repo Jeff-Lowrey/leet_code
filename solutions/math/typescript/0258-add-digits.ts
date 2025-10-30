@@ -5,17 +5,16 @@
  *
  * Given an integer num, repeatedly add all its digits until the result has only one digit, and return it.
  *
- * **Example 1:**
- * Input: num = 38
- * Output: 2
- * Explanation: The process is:
- * 38 --> 3 + 8 --> 11
- * 11 --> 1 + 1 --> 2
- * Since 2 has only one digit, return it.
+ * **Example:**
  *
- * **Example 2:**
- * Input: num = 0
- * Output: 0
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>38</dd>
+ * <dt>Output:</dt>
+ * <dd>2</dd>
+ * <dt>Explanation:</dt>
+ * <dd>The process is 38 → 3+8=11 → 1+1=2. Since 2 has only one digit, return it.</dd>
+ * </dl>
  *
  * **Constraints:**
  * - 0 <= num <= 2^31 - 1
@@ -39,6 +38,7 @@
  * by 9 as the sum of its digits (this is the basis of the divisibility rule for 9).
  *
  * ### APPROACH:
+ * **Data structures: Integer operations**
  * 1. Naive approach: Loop and sum digits using integer operations until single digit
  * 2. Optimized approach: Use digital root formula with integer operations
  *    - If num == 0, return 0
