@@ -44,7 +44,6 @@ This solution uses hash table lookup for efficient implementation.
 
 This solution uses hash map storage for efficient implementation.
 
-This solution uses set operations for efficient implementation.
 ### EXAMPLE WALKTHROUGH:
 Given input [1, 2, 3]:
 

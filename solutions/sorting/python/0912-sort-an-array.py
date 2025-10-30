@@ -52,11 +52,6 @@ achieve O(n log n) time. This problem tests understanding of fundamental sorting
 - **Quick Sort**: Average O(n log n), in-place, but O(n²) worst case
 - **Heap Sort**: Guaranteed O(n log n), in-place, not stable
 
-This solution uses hash map storage for efficient implementation.
-
-This solution uses two pointers for efficient implementation.
-
-The solution leverages stack for efficient operations.
 ### EXAMPLE WALKTHROUGH:
 Given input [1, 2, 3, 5]:
 

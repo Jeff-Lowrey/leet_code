@@ -88,6 +88,8 @@ For temporary sorted array. Can be O(1) with in-place virtual indexing.
 - Small arrays (length 2-3)
 - Even vs odd length arrays
 
+</details>
+"""
 
 from typing import List
 

@@ -13,11 +13,11 @@ Return the least number of units of times that the CPU will take to finish all t
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[(["A", "A", "A", "B", "B", "B"]</dd>
+<dd>tasks = ["A","A","A","B","B","B"], n = 2</dd>
 <dt>Output:</dt>
-<dd>"\nTasks: {tasks}"</dd>
+<dd>8</dd>
 <dt>Explanation:</dt>
-<dd>Minimum intervals to schedule tasks 'AAABBB' with n=2 is 8</dd>
+<dd>A -> B -> idle -> A -> B -> idle -> A -> B. There are at least 2 units of time between any two same tasks.</dd>
 </dl>
 
 <details>
@@ -46,11 +46,6 @@ Schedule most frequent tasks first to minimize idle time. Use max-heap to always
 - By scheduling them first with optimal spacing, we minimize total idle time
 - Cooldown queue ensures we respect the n interval
 
-This solution uses hash table lookup for efficient implementation.
-
-This solution uses hash map storage for efficient implementation.
-
-This solution uses array traversal for efficient implementation.
 ### EXAMPLE WALKTHROUGH:
 Given input tasks = ["A","A","A","B","B","B"], n = 2:
 
@@ -71,8 +66,7 @@ Time 6: A (A done)
 Time 7: B (B done)
 Total: 8 units
 
-
-Result: </dt>
+Output: 8
 
 ### TIME COMPLEXITY:
 O(n × m)
@@ -291,8 +285,8 @@ if __name__ == "__main__":
         result = solution.leastInterval(tasks, n)
         math_result = solution.leastIntervalMath(tasks, n)
         print(f"\nTasks: {tasks}")
-        print(f"Cooldown: n")
-        print(f"Simulation result: result")
+        print(f"Cooldown: {n}")
+        print(f"Simulation result: {result}")
         print(f"Math formula result: {math_result}")
 
     # Show scheduling example
