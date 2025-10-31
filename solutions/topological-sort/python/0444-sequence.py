@@ -107,6 +107,10 @@ class Solution:
         if n == 0:
             return not seqs or all(not seq for seq in seqs)
 
+        # Check if sequences provide any information
+        if not seqs or all(not seq for seq in seqs):
+            return False
+
         # Check if org is a valid permutation of 1 to n
         if set(org) != set(range(1, n + 1)):
             return False
@@ -180,6 +184,10 @@ class Solution:
         n = len(org)
         if n == 0:
             return not seqs or all(not seq for seq in seqs)
+
+        # Check if sequences provide any information
+        if not seqs or all(not seq for seq in seqs):
+            return False
 
         # Create position mapping for org
         pos = {num: i for i, num in enumerate(org)}

@@ -90,7 +90,7 @@ This solution uses simulation for efficient implementation.
 - Single row matrix: mat=[[1,2,3]] → [1,2,3] (all elements traversed left to right)
 - Single column matrix: mat=[[1],[2],[3]] → [1,2,3] (all elements traversed top to bottom)
 - Non-square matrices: mat=[[1,2,3],[4,5,6]] → [1,2,4,5,3,6] (2×3 matrix handles proper diagonal traversal)
-
+"""
 
 from typing import List
 
@@ -144,4 +144,4 @@ if __name__ == "__main__":
         result = findDiagonalOrder(mat)
         status = "✓" if result == expected else "✗"
         print(f"{status} findDiagonalOrder({mat})")
-        print(f"   = result, expected = expected")
+        print(f"   Result: {result}, Expected: {expected}")

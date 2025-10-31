@@ -225,7 +225,7 @@ class Solution:
 
                 if count != 0:
                     # Add back to schedule with cooldown
-                    schedule.append((count, task, time + n))
+                    schedule.append((count, task, time + n + 1))
             # else: idle time
 
         return time
