@@ -5,8 +5,16 @@
  *
  * # 0231. Power of Two
  *
- *
  * Given an integer n, return true if it is a power of two. Otherwise, return false.
+ *
+ * **Example:**
+ *
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>16</dd>
+ * <dt>Output:</dt>
+ * <dd>true</dd>
+ * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>

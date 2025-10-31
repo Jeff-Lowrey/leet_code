@@ -5,8 +5,16 @@
  *
  * # 0005. Longest Palindromic Substring
  *
- *
  * Given a string s, return the longest palindromic substring in s.
+ *
+ * **Example:**
+ *
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>"babad"</dd>
+ * <dt>Output:</dt>
+ * <dd>"bab"</dd>
+ * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>

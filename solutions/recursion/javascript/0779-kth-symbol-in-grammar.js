@@ -5,12 +5,20 @@
  *
  * # 0779. K-th Symbol in Grammar
  *
- *
  * We build a table of n rows (1-indexed). We start by writing 0 in the 1st row.
  * Now in every subsequent row, we look at the previous row and replace each occurrence
  * of 0 with 01, and each occurrence of 1 with 10.
  *
  * Given two integer n and k, return the kth (1-indexed) symbol in the nth row.
+ *
+ * **Example:**
+ *
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>n = 3, k = 3</dd>
+ * <dt>Output:</dt>
+ * <dd>1</dd>
+ * </dl>
  *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
