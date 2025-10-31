@@ -23,45 +23,61 @@
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 ### METADATA:
- * **Techniques**: Hash Table Lookup, Array Traversal, Stack Operations
- * **Data Structures**: Array, Stack, Queue
- * **Patterns**: Hash Table Pattern, Greedy Algorithm
+ * **Techniques**: Depth-First Search (DFS), Breadth-First Search (BFS)
+ * **Data Structures**: 2D Grid (Matrix), Queue (for BFS)
+ * **Patterns**: Graph Traversal, Connected Components
  * **Time Complexity**: O(M × N)
  * **Space Complexity**: O(M × N)
- * 
+ *
  * ### INTUITION:
  * This is similar to "Number of Islands" but instead of counting islands, we need to find the largest island by area. We use DFS/BFS to explore each island and calculate its area, keeping track of the maximum area found.
- * 
+ *
  * ### APPROACH:
- * 1. **Iterate through grid**: Check each cell
+ * **Data structures: 2D Grid (matrix) with DFS/BFS traversal**
+ * 1. **Iterate through grid**: Check each cell in the 2D matrix
  * 2. **Find land**: When we find a 1 (land), start exploring the island
- * 3. **DFS/BFS exploration**: Count all connected land cells (area)
- * 4. **Track maximum**: Keep track of the largest area found
- * 5. **Mark visited**: Avoid double-counting cells
- * 
+ * 3. **DFS/BFS exploration**: Use DFS recursion or BFS with queue to count all connected land cells (area)
+ * 4. **Track maximum**: Keep track of the largest area found across all islands
+ * 5. **Mark visited**: Mark cells as 0 to avoid double-counting in the same island
+ *
  * ### WHY THIS WORKS:
- * - DFS/BFS explores connected components completely
- * - Each exploration returns the area of that island
+ * - DFS recursively explores all 4 directions from each land cell
+ * - BFS uses a queue to explore neighbors level by level
+ * - Both techniques completely explore connected components (islands)
+ * - Each exploration returns the total area of that island
  * - We track the maximum area across all islands
- * - In-place marking ensures each cell is counted exactly once
- * 
+ * - In-place marking (changing 1 to 0) ensures each cell is counted exactly once
+ *
  * ### EXAMPLE WALKTHROUGH:
  * Input:
  * ```
  * Grid: [[0,0,1,0,0,0,0,1,0,0,0,0,0],
+ *        [0,0,0,0,0,0,0,1,1,1,0,0,0],
+ *        [0,1,1,0,1,0,0,0,0,0,0,0,0],
+ *        [0,1,0,0,1,1,0,0,1,0,1,0,0]]
  * ```
  *
- * [0,0,0,0,0,0,0,1,1,1,0,0,0],
- * [0,1,1,0,1,0,0,0,0,0,0,0,0],
- * [0,1,0,0,1,1,0,0,1,0,1,0,0]]
- * Islands found:
+ * **Step 1**: Iterate through grid - scanning left to right, top to bottom
+ * **Step 2**: Find land at (0,2) - this is a 1
+ * **Step 3**: DFS exploration from (0,2) - no neighbors are 1, area = 1
+ * **Step 4**: Track maximum - maxArea = 1
+ * **Step 5**: Mark visited - (0,2) changed to 0
+ *
+ * Continue scanning...
+ * **Step 2**: Find land at (0,7)
+ * **Step 3**: DFS explores (0,7) → (1,7) → (1,8) → (1,9), area = 4
+ * **Step 4**: Track maximum - maxArea = 4
+ *
+ * Continue scanning and exploring all islands...
+ * Final islands found:
  * - (0,2): area = 1
- * - (0,7), (1,7), (1,8), (1,9): area = 4
+ * - (0,7) and connected cells: area = 4
  * - (2,1), (2,2), (3,1): area = 3
  * - (2,4), (3,4), (3,5): area = 3
  * - (3,8): area = 1
  * - (3,10): area = 1
- * Maximum area = 4
+ *
+ * Output: Maximum area = 4
 
  * ### TIME COMPLEXITY:
  * O(M × N)

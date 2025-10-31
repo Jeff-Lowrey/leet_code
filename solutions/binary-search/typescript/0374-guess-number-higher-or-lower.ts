@@ -34,30 +34,32 @@
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 ### METADATA:
- * **Techniques**: Hash Table Lookup, Array Traversal, Two Pointers
- * **Data Structures**: Array, Stack, Tree
- * **Patterns**: Two Pointers Pattern, Hash Table Pattern
- * **Time Complexity**: O(log n) - Binary search or tree height
- * **Space Complexity**: O(1) - Constant extra space
- * 
+ * **Techniques**: Binary Search
+ * **Data Structures**: Number range (integers 1 to n)
+ * **Patterns**: Binary Search Pattern, Divide and Conquer
+ * **Time Complexity**: O(log n) - Binary search halves search space each iteration
+ * **Space Complexity**: O(1) - Constant extra space (two pointers)
+ *
  * ### INTUITION:
  * This is a classic binary search problem where we need to find a target number using feedback from a guess API. The key insight is to use the API response to narrow down the search space by half in each iteration.
- * 
+ *
  * ### APPROACH:
- * 1. **Binary search**: Use binary search on the range [1, n]
+ * **Data structures: Number range (integers 1 to n) with two pointers**
+ * 1. **Binary search**: Use binary search on the range [1, n], maintaining left and right pointers
  * 2. **API feedback**: Use guess() API response to adjust search bounds
  * 3. **Boundary adjustment**: Move left/right pointers based on feedback
  * 4. **Termination**: Continue until API returns 0 (correct guess)
- * 
+ *
  * ### WHY THIS WORKS:
  * - Binary search optimally reduces search space by half each iteration
  * - API feedback provides perfect direction information
  * - Guaranteed to find the answer in O(log n) time
  * - Similar to searching in a sorted array but using API instead of direct comparison
- * 
+ * - Using two pointers (left, right) on the number range allows efficient narrowing
+ *
  *
 
-This solution uses hash table lookup for efficient implementation.
+This solution uses binary search for efficient implementation.
 ### EXAMPLE WALKTHROUGH:
  * Given input n = 10, pick = 6
  * n = 1, pick = 1

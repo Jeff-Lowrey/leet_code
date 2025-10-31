@@ -21,29 +21,31 @@
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 ### METADATA:
- * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+ * **Techniques**: Prefix Sum, Hash Map (Frequency Counting), Sliding Window
  * **Data Structures**: Hash Map, Array
- * **Patterns**: Sliding Window Pattern, Hash Table Pattern
+ * **Patterns**: Prefix Sum Pattern, Sliding Window Pattern
  * **Time Complexity**: O(n)
  * **Space Complexity**: O(n) - Additional hash map storage
- * 
+ *
  * ### INTUITION:
  * This problem is a variation of "subarray sum equals k" but instead of sum, we count odd numbers. We can use prefix sum technique by treating each odd number as 1 and even numbers as 0. Then we need to find subarrays where the sum of 1s equals k.
- * 
+ *
  * ### APPROACH:
- * 1. **Transform problem**: Convert to counting subarrays with sum = k
- * 2. **Prefix sum**: Track running count of odd numbers using hash map
- * 3. **HashMap frequency**: Store frequency of each prefix count in hash map
- * 4. **Count subarrays**: For each position, check if (current_count - k) exists in hash map
- * 
+ * **Data structures: Array with Prefix Sum tracking, Hash Map for frequency storage**
+ * 1. **Transform problem**: Convert to counting subarrays with sum = k (odd→1, even→0)
+ * 2. **Prefix sum tracking**: Maintain running count of odd numbers encountered
+ * 3. **HashMap frequency**: Store frequency of each prefix count in Hash Map
+ * 4. **Count subarrays**: For each position, check if (current_count - k) exists in Hash Map
+ *
  * ### WHY THIS WORKS:
- * - Transform odd numbers to 1, even numbers to 0
- * - Problem becomes: find subarrays with sum = k
- * - Use the same technique as "Subarray Sum Equals K"
- * - prefix_count[j] - prefix_count[i] = k means subarray from i+1 to j has k odd numbers
+ * - Prefix sum transforms odd counting into a sum problem: odd→1, even→0
+ * - Hash Map stores frequency of prefix counts for O(1) lookup
+ * - Using prefix sum: prefix_count[j] - prefix_count[i] = k means subarray from i+1 to j has k odd numbers
+ * - For each position j, we find how many earlier positions i satisfy the equation
+ * - Alternative sliding window approach uses "exactly k = at most k - at most (k-1)" formula
  * 
  * ### EXAMPLE WALKTHROUGH:
- * **Input:** nums = [1,1,2,1,1], k = 3
+ * **Input:** nums = [1, 1, 2, 1, 1], k = 3
  *
  * **Step 1:** Transform array
  * - Convert odd→1, even→0: [1,1,0,1,1]

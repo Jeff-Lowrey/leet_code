@@ -12,37 +12,37 @@
  * <dl class="example-details">
  * <dt>Input:</dt>
  * <dd>[3,9,20,null,null,15,7]</dd>
- *         ("Alternative recursive", solution.isBalancedAlternative),
- *         ("Iterative", solution.isBalancedIterative)]</dd>
  * <dt>Output:</dt>
- * <dd>* True</dd>
+ * <dd>True</dd>
  * <dt>Explanation:</dt>
  * <dd>The tree is balanced because the height difference between left and right subtrees is at most 1 at every node</dd>
  * </dl>
- * 
+ *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 ### METADATA:
- * **Techniques**: Hash Table Lookup, Two Pointers, Sliding Window
- * **Data Structures**: Array, Stack, Queue
- * **Patterns**: Two Pointers Pattern, Sliding Window Pattern
- * **Time Complexity**: O(n) - Single pass through input
+ * **Techniques**: Depth-First Search (DFS), Recursion, Height Calculation
+ * **Data Structures**: Binary Tree
+ * **Patterns**: Tree Traversal, Post-order Traversal, Recursion
+ * **Time Complexity**: O(n)
  * **Space Complexity**: O(h)
- * 
+ *
  * ### INTUITION:
  * A balanced binary tree requires that for every node, the heights of its left and right subtrees differ by at most 1. The key insight is to check this condition recursively while computing heights bottom-up.
- * 
+ *
  * ### APPROACH:
- * 1. **Recursive Height Calculation**: Calculate height of each subtree recursively
+ * **Data structures: Binary Tree with DFS (Depth-First Search) traversal**
+ * 1. **Recursive Height Calculation**: Calculate height of each subtree recursively using DFS
  * 2. **Balance Check**: For each node, check if |left_height - right_height| ≤ 1
- * 3. **Early Termination**: If any subtree is unbalanced, immediately return False
- * 4. **Bottom-Up**: Check balance condition while returning heights
- * 
+ * 3. **Early Termination**: If any subtree is unbalanced, immediately return -1 as sentinel value
+ * 4. **Bottom-Up (Post-order)**: Check balance condition while returning heights from leaves to root
+ *
  * ### WHY THIS WORKS:
  * - Height-balanced property must hold for ALL nodes, not just root
- * - Recursive structure naturally checks every node
+ * - DFS recursion naturally checks every node in post-order (children before parent)
  * - Bottom-up approach avoids redundant height calculations
- * - Early termination optimizes for unbalanced trees
+ * - Early termination with sentinel value (-1) optimizes for unbalanced trees
+ * - Binary Tree structure enables efficient recursive height computation
  * 
  * ### EXAMPLE WALKTHROUGH:
  * Input:

@@ -23,28 +23,34 @@
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 ### METADATA:
- * **Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
- * **Data Structures**: Hash Map, Hash Set, Array
- * **Patterns**: Greedy Algorithm, Graph Pattern
+ * **Techniques**: Depth-First Search (DFS), Island Labeling
+ * **Data Structures**: 2D Grid (Matrix), Hash Map (for island sizes), Hash Set (for neighbor tracking)
+ * **Patterns**: Graph Traversal, Connected Components, Island Merging
  * **Time Complexity**: O(N²)
  * **Space Complexity**: O(N²)
- * 
+ *
  * ### INTUITION:
  * This problem extends island finding by allowing us to change one 0 to 1 to maximize island size. The key insight is to first identify all existing islands, then for each 0, calculate what the new island size would be if we changed it to 1.
- * 
+ *
  * ### APPROACH:
- * 1. **Label islands**: Give each island a unique ID and calculate its size
+ * **Data structures: 2D Grid with DFS, Hash Map for island sizes, Hash Set for unique neighbors**
+ * 1. **Label islands**: Use DFS to give each island a unique ID and calculate its size, storing in Hash Map
  * 2. **For each water cell**: Calculate potential island size if flipped to land
- * 3. **Consider merging**: A flipped cell can connect multiple existing islands
- * 4. **Track maximum**: Keep track of the largest possible island size
- * 
+ * 3. **Consider merging**: A flipped cell can connect multiple existing islands - use Hash Set to track unique neighbor islands
+ * 4. **Track maximum**: Keep track of the largest possible island size by summing neighbor island sizes + 1
+ *
  * ### WHY THIS WORKS:
- * - Pre-labeling islands allows O(1) lookup of island sizes
+ * - DFS explores and labels all connected land cells in each island
+ * - Pre-labeling islands allows O(1) lookup of island sizes via Hash Map
  * - For each 0, we check its 4 neighbors to see which islands it would connect
+ * - Hash Set ensures we count each neighbor island only once
  * - Sum of connected island sizes + 1 (the flipped cell) gives new island size
  * - Handle edge case where grid is already all 1's
  * 
- * ### EXAMPLE WALKTHROUGH:
+ *
+ * - Union-Find efficiently manages disjoint sets with near O(1) amortized time using path compression and union by rank
+ *
+### EXAMPLE WALKTHROUGH:
  * Input:
  * ```
  * Grid: [[1,0],[0,1]]
@@ -269,11 +275,25 @@ if (typeof module !== "undefined" && module.exports) {
 function runTests(): void {
   const solution = new Solution();
 
-  test_solution()
-  # Quick example
-  solution = Solution()
-  grid = [[1, 0], [0, 1]]
-  console.log(`Max island after one flip: {solution.largestIsland([[row.get(i) for i in range(row.length)] for row in grid])}`)
+  // Quick example
+  const grid = [
+    [1, 0],
+    [0, 1],
+  ];
+  console.log("Grid:", JSON.stringify(grid));
+  console.log("Max island after one flip:", solution.largestIsland(grid));
+
+  // Test larger grid
+  const grid2 = [
+    [1, 1],
+    [1, 0],
+  ];
+  const gridCopy = grid2.map((row) => [...row]);
+  console.log("\nGrid2:", JSON.stringify(grid2));
+  console.log("Max island (method 1):", solution.largestIsland(gridCopy));
+
+  const gridCopy2 = grid2.map((row) => [...row]);
+  console.log("Max island (Union-Find):", solution.largestIslandAlternative(gridCopy2));
 }
 
 if (typeof require !== "undefined" && require.main === module) {

@@ -31,6 +31,17 @@
  * **Constraints:**
  * - 1 <= n <= 10^9
  *
+ * **Example:**
+ *
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>9</dd>
+ * <dt>Output:</dt>
+ * <dd>6</dd>
+ * <dt>Explanation:</dt>
+ * <dd>Starting with [1,2,3,4,5,6,7,8,9], after elimination rounds we get 6</dd>
+ * </dl>
+ *
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *

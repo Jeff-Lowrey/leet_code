@@ -31,29 +31,33 @@
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 ### METADATA:
- * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
- * **Data Structures**: Hash Map, Array, String
- * **Patterns**: Iterative Solution
- * **Time Complexity**: O(n log n) - Sorting or divide-and-conquer
- * **Space Complexity**: O(n) - Additional hash map storage
- * 
+ * **Techniques**: Sorting with Index Tracking
+ * **Data Structures**: Array (with tuples/pairs for index-score), Result Array
+ * **Patterns**: Sort and Map Pattern
+ * **Time Complexity**: O(n log n) - Sorting
+ * **Space Complexity**: O(n) - Additional array storage
+ *
  * ### INTUITION:
  * We need to map each score to its rank. Sorting gives us the order, but we need to maintain
  * the original indices. Use sorting with indices or create a score-to-rank mapping.
- * 
+ *
  * ### APPROACH:
- * 1. **Create index-score pairs**: Track original positions
- * 2. **Sort by score descending**: Highest score first
- * 3. **Assign ranks**: Gold/Silver/Bronze for top 3, numbers for rest
- * 4. **Map back to original positions**: Use original indices
- * 
+ * **Data structures: Array with index-score pairs for sorting, Result Array for output**
+ * 1. **Create index-score pairs**: Track original positions using array of tuples
+ * 2. **Sort by score descending**: Highest score first using array sort
+ * 3. **Assign ranks**: Gold/Silver/Bronze for top 3, numbers for rest, storing in result array
+ * 4. **Map back to original positions**: Use original indices to place ranks in result array
+ *
  * ### WHY THIS WORKS:
- * - Sorting by score gives us the ranking order
- * - Tracking original indices lets us place ranks correctly
- * - Dictionary mapping from score to rank is efficient
- * - Special strings for top 3, numbers for rest
+ * - Sorting by score (in descending order) gives us the ranking order
+ * - Tracking original indices in pairs lets us place ranks correctly in result array
+ * - Special strings for top 3 (Gold/Silver/Bronze), numbers for rest
+ * - Array iteration maps sorted ranks back to original positions
  * 
- * ### EXAMPLE WALKTHROUGH:
+ *
+ * - Hash map provides O(1) average-case lookup and insertion, enabling fast data access and frequency tracking
+ *
+### EXAMPLE WALKTHROUGH:
  * Given input score = [5,4,3,2,1]:
  *
  * Input:

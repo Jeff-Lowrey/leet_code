@@ -44,11 +44,10 @@
  * 
  *
 
-This solution uses hash table lookup for efficient implementation.
-
-This solution uses hash map storage for efficient implementation.
-
 This solution uses set operations for efficient implementation.
+ * - Segment tree enables efficient range queries and updates in O(log n) time by maintaining a binary tree structure
+ * - Binary Indexed Tree (Fenwick tree) provides O(log n) prefix sum queries and updates using bit manipulation
+ *
 ### EXAMPLE WALKTHROUGH:
  * Given input nums = [-2,5,-1], lower = -2, upper = 2:
  *

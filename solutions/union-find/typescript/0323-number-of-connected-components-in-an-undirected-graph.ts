@@ -21,34 +21,29 @@
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 ### METADATA:
- * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
- * **Data Structures**: Hash Set, Array, Queue
- * **Patterns**: Hash Table Pattern, Divide and Conquer
+ * **Techniques**: Union-Find (Disjoint Set Union), Path Compression, Union by Rank
+ * **Data Structures**: Array (parent and rank tracking)
+ * **Patterns**: Connected Components, Graph Traversal
  * **Time Complexity**: O(E × α(N))
  * **Space Complexity**: O(N)
- * 
+ *
  * ### INTUITION:
  * This is a classic Union-Find problem for counting connected components. Each connected component is a set of nodes that can reach each other through edges. Union-Find efficiently groups nodes into components and counts distinct groups.
- * 
+ *
  * ### APPROACH:
- * 1. **Initialize Union-Find**: Each node starts as its own component
- * 2. **Process edges**: Union connected nodes, reducing component count
- * 3. **Count components**: Count number of distinct parent nodes
- * 
+ * **Data structures: Array for Union-Find parent and rank tracking**
+ * 1. **Initialize Union-Find**: Each node starts as its own component, using array to store parents
+ * 2. **Process edges**: Union connected nodes using array updates, reducing component count
+ * 3. **Count components**: Count number of distinct parent nodes by checking array roots
+ *
  * ### WHY THIS WORKS:
- * - Union-Find maintains disjoint sets (connected components)
+ * - Union-Find maintains disjoint sets (connected components) using array-based parent tracking
+ * - Path compression flattens tree structure in array for faster find operations
+ * - Union by rank keeps trees balanced by tracking height in separate array
  * - Each union operation merges two components into one
  * - Final count of root nodes = number of connected components
- * - Path compression and union by rank ensure efficient operations
- * 
  *
-
-This solution uses hash table lookup for efficient implementation.
-
-This solution uses hash map storage for efficient implementation.
-
-This solution uses array traversal for efficient implementation.
-### EXAMPLE WALKTHROUGH:
+ * ### EXAMPLE WALKTHROUGH:
  * Given input n = 5, edges = [[0,1],[1,2],[3,4]]:
  *
  * Input:

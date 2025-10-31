@@ -41,11 +41,9 @@
  * 
  *
 
-This solution uses hash table lookup for efficient implementation.
-
-This solution uses hash map storage for efficient implementation.
-
 This solution uses two pointers for efficient implementation.
+ * - DFS recursively explores all paths from a starting point, completely visiting each branch before backtracking
+ *
 ### EXAMPLE WALKTHROUGH:
  * Given input Tree:    1:
  *

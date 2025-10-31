@@ -61,9 +61,9 @@
  * - Direction flipping at boundaries creates the diagonal traversal pattern
  *
  * ### EXAMPLE WALKTHROUGH:
- * **Input:** mat = [[1,2,3], [4,5,6], [7,8,9]]
+ * **Input:** mat = [[1,2,3], [4,5,6], [7,8,9]] (3x3 matrix)
  *
- * **Step 1:** Diagonal 0 (sum=0) for mat=[[1,2,3], [4,5,6], [7,8,9]]
+ * **Step 1:** Diagonal 0 (sum=0)
  * - Elements where row+col=0: [1]
  * - Direction: up, Result: [1]
  *

@@ -25,16 +25,17 @@
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 ### METADATA:
- * **Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
- * **Data Structures**: Hash Map, Hash Set, Array
- * **Patterns**: Hash Table Pattern, Divide and Conquer
+ * **Techniques**: Union-Find (Disjoint Set Union), Path Compression
+ * **Data Structures**: Array (parent tracking), 2D Grid
+ * **Patterns**: Connected Components, Dynamic Connectivity
  * **Time Complexity**: O(n) - Single pass through input
  * **Space Complexity**: O(1) - Constant extra space
- * 
+ *
  * ### INTUITION:
  * Maintain Union-Find of islands. For each land operation, union with adjacent land cells (4 directions). Track number of connected components. Component count after each operation is island count.
- * 
+ *
  * ### APPROACH:
+ * **Data structures: Array for Union-Find parent tracking, 2D Grid for land positions**
  * 1. **Initialize Union-Find**: Create parent and rank arrays
  * 2. **Initialize count**: Set count = 0 for number of islands
  * 3. **Process positions**: For each position in positions list
@@ -52,25 +53,21 @@
  * - O(m*n*α(m*n)) time: α is inverse Ackermann (effectively constant)
  * 
  * ### EXAMPLE WALKTHROUGH:
- * Given input m = 3, n = 3, positions = [[0,0],[0,1],[1,2],[2,1]]:
+ * **Input:** m = 3, n = 3, positions = [[0,0]]
  *
- * Input:
- * ```
- * m = 3, n = 3, positions = [[0,0],[0,1],[1,2],[2,1]]
- * ```
+ * **Step 1:** Initialize empty 3×3 grid
+ * - All cells are water (0)
+ * - Union-Find parent map is empty
+ * - Island count = 0
  *
- * Step 1: Add islands one by one
- * [0,0]: 1 island
+ * **Step 2:** Add position [0,0]
+ * - Mark cell (0,0) as land
+ * - Increment count to 1
+ * - Check 4 neighbors: all are water or out of bounds
+ * - No unions performed
+ * - Current island count = 1
  *
- * Steps:
- * Step 1: [0,1]: merge with [0,0] → 1 island
- * Step 2: [1,2]: 2 islands
- * Step 3: [2,1]: 3 islands
- *
- * Output:
- * ```
- * [1,1,2,3]
- * ```
+ * **Output:** [1]
 
  * ### TIME COMPLEXITY:
  * O(n)
