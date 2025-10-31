@@ -21,9 +21,9 @@
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 ### METADATA:
- * **Techniques**: Prefix Sum, Hash Map (Frequency Counting), Sliding Window
- * **Data Structures**: Hash Map, Array
- * **Patterns**: Prefix Sum Pattern, Sliding Window Pattern
+ * **Techniques**: **Prefix Sum**, **Hash Map** (Frequency Counting), Sliding Window
+ * **Data Structures**: **Hash Map**, **Array**
+ * **Patterns**: **Prefix Sum** Pattern, Sliding Window Pattern
  * **Time Complexity**: O(n)
  * **Space Complexity**: O(n) - Additional hash map storage
  *
@@ -31,15 +31,15 @@
  * This problem is a variation of "subarray sum equals k" but instead of sum, we count odd numbers. We can use prefix sum technique by treating each odd number as 1 and even numbers as 0. Then we need to find subarrays where the sum of 1s equals k.
  *
  * ### APPROACH:
- * **Data structures: Array with Prefix Sum tracking, Hash Map for frequency storage**
+ * **Data structures: **Array** with **Prefix Sum** tracking, **Hash Map** for frequency storage**
  * 1. **Transform problem**: Convert to counting subarrays with sum = k (odd→1, even→0)
  * 2. **Prefix sum tracking**: Maintain running count of odd numbers encountered
- * 3. **HashMap frequency**: Store frequency of each prefix count in Hash Map
- * 4. **Count subarrays**: For each position, check if (current_count - k) exists in Hash Map
+ * 3. **HashMap frequency**: Store frequency of each prefix count in **Hash Map**
+ * 4. **Count subarrays**: For each position, check if (current_count - k) exists in **Hash Map**
  *
  * ### WHY THIS WORKS:
  * - Prefix sum transforms odd counting into a sum problem: odd→1, even→0
- * - Hash Map stores frequency of prefix counts for O(1) lookup
+ * - **Hash Map** stores frequency of prefix counts for O(1) lookup
  * - Using prefix sum: prefix_count[j] - prefix_count[i] = k means subarray from i+1 to j has k odd numbers
  * - For each position j, we find how many earlier positions i satisfy the equation
  * - Alternative sliding window approach uses "exactly k = at most k - at most (k-1)" formula
@@ -90,7 +90,7 @@ class Solution {
    * Count nice subarrays using prefix sum approach.
    *
    *         Args:
-   *             nums: Array of integers
+   *             nums: **Array** of integers
    *             k: Number of odd numbers required in subarray
    *
    *         Returns:
@@ -128,7 +128,7 @@ class Solution {
    * Alternative solution using sliding window approach.
    *
    *         Args:
-   *             nums: Array of integers
+   *             nums: **Array** of integers
    *             k: Number of odd numbers required
    *
    *         Returns:
@@ -172,7 +172,7 @@ class Solution {
    * Optimized solution using manual HashMap.
    *
    *         Args:
-   *             nums: Array of integers
+   *             nums: **Array** of integers
    *             k: Number of odd numbers required
    *
    *         Returns:
@@ -203,7 +203,7 @@ class Solution {
    * Brute force solution for verification.
    *
    *         Args:
-   *             nums: Array of integers
+   *             nums: **Array** of integers
    *             k: Number of odd numbers required
    *
    *         Returns:

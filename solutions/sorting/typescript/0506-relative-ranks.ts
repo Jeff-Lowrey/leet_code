@@ -32,7 +32,7 @@
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 ### METADATA:
  * **Techniques**: Sorting with Index Tracking
- * **Data Structures**: Array (with tuples/pairs for index-score), Result Array
+ * **Data Structures**: **Array** (with tuples/pairs for index-score), Result **Array**
  * **Patterns**: Sort and Map Pattern
  * **Time Complexity**: O(n log n) - Sorting
  * **Space Complexity**: O(n) - Additional array storage
@@ -42,7 +42,7 @@
  * the original indices. Use sorting with indices or create a score-to-rank mapping.
  *
  * ### APPROACH:
- * **Data structures: Array with index-score pairs for sorting, Result Array for output**
+ * **Data structures: **Array** with index-score pairs for sorting, Result **Array** for output**
  * 1. **Create index-score pairs**: Track original positions using array of tuples
  * 2. **Sort by score descending**: Highest score first using array sort
  * 3. **Assign ranks**: Gold/Silver/Bronze for top 3, numbers for rest, storing in result array
@@ -52,7 +52,7 @@
  * - Sorting by score (in descending order) gives us the ranking order
  * - Tracking original indices in pairs lets us place ranks correctly in result array
  * - Special strings for top 3 (Gold/Silver/Bronze), numbers for rest
- * - Array iteration maps sorted ranks back to original positions
+ * - **Array** iteration maps sorted ranks back to original positions
  * 
  *
  * - Hash map provides O(1) average-case lookup and insertion, enabling fast data access and frequency tracking
@@ -111,10 +111,10 @@ class Solution {
    * Assign ranks to athletes based on their scores.
    *
    *         Args:
-   *             score: Array of athlete scores
+   *             score: **Array** of athlete scores
    *
    *         Returns:
-   *             Array of rank strings for each athlete
+   *             **Array** of rank strings for each athlete
    *
    *         Time Complexity: O(n log n) for sorting
    *         Space Complexity: O(n) for result and mappings
@@ -124,7 +124,7 @@ class Solution {
     const indexed = score.map((s, i) => [s, i] as [number, number]);
     indexed.sort((a, b) => b[0] - a[0]); // Sort by score descending
 
-    const result = new Array(n).fill("");
+    const result = new **Array**(n).fill("");
     const medals = ["Gold Medal", "Silver Medal", "Bronze Medal"];
 
     for (let rank = 0; rank < n; rank++) {

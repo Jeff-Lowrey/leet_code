@@ -21,7 +21,7 @@
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 ### METADATA:
- * **Techniques**: Depth-First Search (DFS), Recursion, Height Calculation
+ * **Techniques**: **Depth-First** Search (DFS), Recursion, Height Calculation
  * **Data Structures**: Binary Tree
  * **Patterns**: Tree Traversal, Post-order Traversal, Recursion
  * **Time Complexity**: O(n)
@@ -31,7 +31,7 @@
  * A balanced binary tree requires that for every node, the heights of its left and right subtrees differ by at most 1. The key insight is to check this condition recursively while computing heights bottom-up.
  *
  * ### APPROACH:
- * **Data structures: Binary Tree with DFS (Depth-First Search) traversal**
+ * **Data structures: Binary Tree with DFS (**Depth-First** Search) traversal**
  * 1. **Recursive Height Calculation**: Calculate height of each subtree recursively using DFS
  * 2. **Balance Check**: For each node, check if |left_height - right_height| ≤ 1
  * 3. **Early Termination**: If any subtree is unbalanced, immediately return -1 as sentinel value

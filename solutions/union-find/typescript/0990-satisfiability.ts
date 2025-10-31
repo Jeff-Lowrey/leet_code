@@ -23,26 +23,26 @@
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 ### METADATA:
- * **Techniques**: Union-Find, Path compression, Array traversal
- * **Data Structures**: Array (parent tracking for Union-Find), String (equation parsing)
+ * **Techniques**: **Union-Find**, Path compression, **Array** traversal
+ * **Data Structures**: **Array** (parent tracking for **Union-Find**), String (equation parsing)
  * **Patterns**: Disjoint Set Union (DSU), Two-pass processing
  * **Time Complexity**: O(N × α(N))
  * **Space Complexity**: O(1) - Constant extra space
  *
  * ### INTUITION:
- * This is a classic Union-Find problem. We need to check if equality and inequality constraints can be satisfied simultaneously. The key insight is to first process all equality constraints to group variables, then check if inequality constraints violate these groups.
+ * This is a classic **Union-Find** problem. We need to check if equality and inequality constraints can be satisfied simultaneously. The key insight is to first process all equality constraints to group variables, then check if inequality constraints violate these groups.
  *
  * ### APPROACH:
- * **Data structures: Array for Union-Find parent tracking, String for equation parsing**
+ * **Data structures: **Array** for **Union-Find** parent tracking, String for equation parsing**
  * 1. **Initialize parent array**: Create array of size 26 for tracking equivalence classes (one per lowercase letter)
- * 2. **Process equalities**: Use Union-Find to group variables that must be equal, storing parent relationships in array
+ * 2. **Process equalities**: Use **Union-Find** to group variables that must be equal, storing parent relationships in array
  * 3. **Check inequalities**: For each "!=" constraint, verify variables are in different groups using find operation on array
  * 4. **Return result**: True if no conflicts found, False otherwise
  * 
  * ### WHY THIS WORKS:
- * - Union-Find efficiently manages equivalence classes through array-based parent tracking
+ * - **Union-Find** efficiently manages equivalence classes through array-based parent tracking
  * - Path compression optimizes find operations by flattening tree structure in array
- * - Array traversal processes equations in two passes for efficiency
+ * - **Array** traversal processes equations in two passes for efficiency
  * - Equality constraints create connected components (equivalence classes)
  * - Inequality constraints must not connect variables in same component
  * - Two-pass approach separates grouping from validation
@@ -92,7 +92,7 @@
 
 class Solution {
   /**
-   * Check if equality equations can be satisfied using Union-Find.
+   * Check if equality equations can be satisfied using **Union-Find**.
    *
    *         Args:
    *             equations: List of equations in format "xi==xj" or "xi!=xj"
@@ -104,7 +104,7 @@ class Solution {
    *         Space Complexity: O(1) since we have at most 26 variables
    */
   equationsPossible(equations: string[]): boolean {
-    const parent = Array.from({ length: 26 }, (_, i) => i);
+    const parent = **Array**.from({ length: 26 }, (_, i) => i);
 
     const find = (x: number): number => {
       if (parent[x] !== x) {
@@ -141,7 +141,7 @@ class Solution {
   }
 
   /**
-   * Alternative implementation with explicit Union-Find class.
+   * Alternative implementation with explicit **Union-Find** class.
    *
    *         Args:
    *             equations: List of equations
@@ -155,8 +155,8 @@ class Solution {
       rank: number[];
 
       constructor(n: number) {
-        this.parent = Array.from({ length: n }, (_, i) => i);
-        this.rank = Array(n).fill(0);
+        this.parent = **Array**.from({ length: n }, (_, i) => i);
+        this.rank = **Array**(n).fill(0);
       }
 
       find(x: number): number {

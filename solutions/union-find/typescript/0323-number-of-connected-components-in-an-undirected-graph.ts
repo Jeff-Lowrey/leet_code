@@ -21,23 +21,23 @@
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 ### METADATA:
- * **Techniques**: Union-Find (Disjoint Set Union), Path Compression, Union by Rank
- * **Data Structures**: Array (parent and rank tracking)
+ * **Techniques**: **Union-Find** (Disjoint Set Union), **Path Compression**, Union by Rank
+ * **Data Structures**: **Array** (parent and rank tracking)
  * **Patterns**: Connected Components, Graph Traversal
  * **Time Complexity**: O(E × α(N))
  * **Space Complexity**: O(N)
  *
  * ### INTUITION:
- * This is a classic Union-Find problem for counting connected components. Each connected component is a set of nodes that can reach each other through edges. Union-Find efficiently groups nodes into components and counts distinct groups.
+ * This is a classic **Union-Find** problem for counting connected components. Each connected component is a set of nodes that can reach each other through edges. **Union-Find** efficiently groups nodes into components and counts distinct groups.
  *
  * ### APPROACH:
- * **Data structures: Array for Union-Find parent and rank tracking**
- * 1. **Initialize Union-Find**: Each node starts as its own component, using array to store parents
+ * **Data structures: **Array** for **Union-Find** parent and rank tracking**
+ * 1. **Initialize **Union-Find****: Each node starts as its own component, using array to store parents
  * 2. **Process edges**: Union connected nodes using array updates, reducing component count
  * 3. **Count components**: Count number of distinct parent nodes by checking array roots
  *
  * ### WHY THIS WORKS:
- * - Union-Find maintains disjoint sets (connected components) using array-based parent tracking
+ * - **Union-Find** maintains disjoint sets (connected components) using array-based parent tracking
  * - Path compression flattens tree structure in array for faster find operations
  * - Union by rank keeps trees balanced by tracking height in separate array
  * - Each union operation merges two components into one
@@ -82,7 +82,7 @@
 
 class Solution {
   /**
-   * Count connected components using Union-Find.
+   * Count connected components using **Union-Find**.
    *
    *         Args:
    *             n: Number of nodes (0 to n-1)
@@ -92,11 +92,11 @@ class Solution {
    *             Number of connected components
    *
    *         Time Complexity: O(E × α(N)) where E is edges, N is nodes
-   *         Space Complexity: O(N) for Union-Find structure
+   *         Space Complexity: O(N) for **Union-Find** structure
    */
   countComponents(n: number, edges: number[][]): number {
-    const parent = Array.from({ length: n }, (_, i) => i);
-    const rank = Array(n).fill(0);
+    const parent = **Array**.from({ length: n }, (_, i) => i);
+    const rank = **Array**(n).fill(0);
     let components = n; // Initially each node is its own component
 
     const find = (x: number): number => {
@@ -145,7 +145,7 @@ class Solution {
    *         Space Complexity: O(N + E) for adjacency list and visited array
    */
   countComponentsDFS(n: number, edges: number[][]): number {
-    const graph: number[][] = Array.from({ length: n }, () => []);
+    const graph: number[][] = **Array**.from({ length: n }, () => []);
 
     // Build adjacency list
     for (const [u, v] of edges) {
@@ -153,7 +153,7 @@ class Solution {
       graph[v].push(u);
     }
 
-    const visited = Array(n).fill(false);
+    const visited = **Array**(n).fill(false);
     let components = 0;
 
     const dfs = (node: number): void => {
@@ -186,7 +186,7 @@ class Solution {
    *             Number of connected components
    */
   countComponentsBFS(n: number, edges: number[][]): number {
-    const graph: number[][] = Array.from({ length: n }, () => []);
+    const graph: number[][] = **Array**.from({ length: n }, () => []);
 
     // Build adjacency list
     for (const [u, v] of edges) {
@@ -194,7 +194,7 @@ class Solution {
       graph[v].push(u);
     }
 
-    const visited = Array(n).fill(false);
+    const visited = **Array**(n).fill(false);
     let components = 0;
 
     for (let i = 0; i < n; i++) {
@@ -232,7 +232,7 @@ function runTests(): void {
   const n = 5;
   const edges = [[0, 1], [1, 2], [3, 4]];
   console.log(`n=${n}, edges=${JSON.stringify(edges)}`);
-  console.log("Union-Find:", solution.countComponents(n, edges));
+  console.log("**Union-Find**:", solution.countComponents(n, edges));
   console.log("DFS:", solution.countComponentsDFS(n, edges));
   console.log("BFS:", solution.countComponentsBFS(n, edges));
 }

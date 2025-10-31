@@ -1,5 +1,5 @@
 /**
- * 0094. Binary Tree Inorder Traversal
+ * 0094. Binary Tree **Inorder Traversal**
  *
  * Difficulty: Easy
  * 
@@ -19,14 +19,14 @@
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 ### METADATA:
- * **Techniques**: Hash Table Lookup, Hash Map Storage, Two Pointers
- * **Data Structures**: Array, Stack, Tree
+ * **Techniques**: Hash Table Lookup, **Hash Map** Storage, Two Pointers
+ * **Data Structures**: **Array**, Stack, Tree
  * **Patterns**: Two Pointers Pattern, Backtracking
  * **Time Complexity**: O(n) - Single pass through input
  * **Space Complexity**: - Recursive: O(h) where h is tree height (call stack)
  * 
  * ### INTUITION:
- * Inorder traversal visits nodes in the order: Left -> Root -> Right. This gives us a sorted sequence for Binary Search Trees. The key is to implement this pattern using recursion or iteration with a stack.
+ * Inorder traversal visits nodes in the order: Left -> Root -> Right. This gives us a sorted sequence for **Binary Search** Trees. The key is to implement this pattern using recursion or iteration with a stack.
  * 
  * ### APPROACH:
  * 1. **Recursive**: Visit left subtree, process root, visit right subtree
@@ -212,7 +212,7 @@ if (typeof module !== "undefined" && module.exports) {
 function runTests(): void {
   const solution = new Solution();
 
-  console.log("=== 94. Binary Tree Inorder Traversal ===");
+  console.log("=== 94. Binary Tree **Inorder Traversal** ===");
 
   // Example 1: Simple tree
   const root1 = new TreeNode(1);

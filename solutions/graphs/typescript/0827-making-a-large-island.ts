@@ -40,15 +40,15 @@
  * 4. **Track maximum**: Keep track of the largest possible island size by summing neighbor island sizes + 1
  *
  * ### WHY THIS WORKS:
- * - DFS explores and labels all connected land cells in each island
- * - Pre-labeling islands allows O(1) lookup of island sizes via Hash Map
+ * - **Depth-First Search (DFS)** explores and labels all connected land cells in each island
+ * - **Island Labeling** technique assigns unique IDs to each connected component
+ * - Pre-labeling islands with **Hash Map** allows O(1) lookup of island sizes
+ * - The **2D Grid (Matrix)** structure enables efficient neighbor checking
  * - For each 0, we check its 4 neighbors to see which islands it would connect
- * - Hash Set ensures we count each neighbor island only once
+ * - **Hash Set** ensures we count each neighbor island only once
  * - Sum of connected island sizes + 1 (the flipped cell) gives new island size
  * - Handle edge case where grid is already all 1's
- * 
- *
- * - Union-Find efficiently manages disjoint sets with near O(1) amortized time using path compression and union by rank
+ * - This **Graph Traversal** and **Connected Components** approach efficiently merges islands
  *
 ### EXAMPLE WALKTHROUGH:
  * Input:

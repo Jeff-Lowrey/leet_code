@@ -41,9 +41,10 @@
  * 5. **Mark visited**: Mark cells as 0 to avoid double-counting in the same island
  *
  * ### WHY THIS WORKS:
- * - DFS recursively explores all 4 directions from each land cell
- * - BFS uses a queue to explore neighbors level by level
- * - Both techniques completely explore connected components (islands)
+ * - **Depth-First Search (DFS)** recursively explores all 4 directions from each land cell
+ * - **Breadth-First Search (BFS)** uses a queue to explore neighbors level by level
+ * - Both Graph Traversal techniques completely explore Connected Components (islands)
+ * - The **2D Grid (Matrix)** structure allows us to track visited cells
  * - Each exploration returns the total area of that island
  * - We track the maximum area across all islands
  * - In-place marking (changing 1 to 0) ensures each cell is counted exactly once

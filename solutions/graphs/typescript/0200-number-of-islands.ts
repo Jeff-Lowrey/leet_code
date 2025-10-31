@@ -39,9 +39,10 @@
  * 5. **Mark visited**: Change '1' to '0' in-place or use separate visited array
  *
  * ### WHY THIS WORKS:
- * - DFS recursively explores all 4 directions from each land cell
- * - BFS uses a queue to explore neighbors level by level
- * - Both techniques completely explore connected components (islands)
+ * - **Depth-First Search (DFS)** recursively explores all 4 directions from each land cell
+ * - **Breadth-First Search (BFS)** uses a queue to explore neighbors level by level
+ * - Both Graph Traversal techniques completely explore Connected Components (islands)
+ * - The **2D Grid (Matrix)** structure enables efficient neighbor access
  * - Once we've explored an island, we mark it as visited to avoid double-counting
  * - Each DFS/BFS start represents discovering a new island
  * - 4-directional connectivity (up, down, left, right) defines what constitutes an island

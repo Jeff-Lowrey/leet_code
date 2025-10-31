@@ -25,18 +25,18 @@
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 ### METADATA:
- * **Techniques**: Union-Find (Disjoint Set Union), Path Compression
- * **Data Structures**: Array (parent tracking), 2D Grid
+ * **Techniques**: **Union-Find** (Disjoint Set Union), **Path Compression**
+ * **Data Structures**: **Array** (parent tracking), 2D Grid
  * **Patterns**: Connected Components, Dynamic Connectivity
  * **Time Complexity**: O(n) - Single pass through input
  * **Space Complexity**: O(1) - Constant extra space
  *
  * ### INTUITION:
- * Maintain Union-Find of islands. For each land operation, union with adjacent land cells (4 directions). Track number of connected components. Component count after each operation is island count.
+ * Maintain **Union-Find** of islands. For each land operation, union with adjacent land cells (4 directions). Track number of connected components. Component count after each operation is island count.
  *
  * ### APPROACH:
- * **Data structures: Array for Union-Find parent tracking, 2D Grid for land positions**
- * 1. **Initialize Union-Find**: Create parent and rank arrays
+ * **Data structures: **Array** for **Union-Find** parent tracking, 2D Grid for land positions**
+ * 1. **Initialize **Union-Find****: Create parent and rank arrays
  * 2. **Initialize count**: Set count = 0 for number of islands
  * 3. **Process positions**: For each position in positions list
  * 4. **Add island**: Mark position as land, increment count
@@ -57,7 +57,7 @@
  *
  * **Step 1:** Initialize empty 3×3 grid
  * - All cells are water (0)
- * - Union-Find parent map is empty
+ * - **Union-Find** parent map is empty
  * - Island count = 0
  *
  * **Step 2:** Add position [0,0]
@@ -87,7 +87,7 @@
 
 class Solution {
   /**
-   * Solve Number Islands II problem using Union-Find approach
+   * Solve Number Islands II problem using **Union-Find** approach
    *
    *         Args:
    *             m: Number of rows in the grid

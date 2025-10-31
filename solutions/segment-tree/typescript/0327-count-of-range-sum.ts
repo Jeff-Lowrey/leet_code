@@ -21,8 +21,8 @@
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 ### METADATA:
- * **Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
- * **Data Structures**: Hash Set, Array, Tree
+ * **Techniques**: Hash Table Lookup, **Hash Map** Storage, Set Operations
+ * **Data Structures**: Hash Set, **Array**, Tree
  * **Patterns**: Two Pointers Pattern, Hash Table Pattern
  * **Time Complexity**: O(n log n) - Sorting or divide-and-conquer
  * **Space Complexity**: O(n) - Additional set storage
@@ -188,12 +188,12 @@ class Solution {
       allValues.add(p - lower);
       allValues.add(p - upper);
     }
-    const sorted = Array.from(allValues).sort((a, b) => a - b);
+    const sorted = **Array**.from(allValues).sort((a, b) => a - b);
     const compress = new Map<number, number>();
     sorted.forEach((val, idx) => compress.set(val, idx + 1));
 
     // Binary Indexed Tree
-    const bit = new Array(compress.size + 1).fill(0);
+    const bit = new **Array**(compress.size + 1).fill(0);
     const update = (idx: number) => {
       while (idx < bit.length) {
         bit[idx]++;
@@ -223,7 +223,7 @@ class Solution {
   }
 
   /**
-   * Solution using Segment Tree.
+   * Solution using **Segment Tree**.
    *
    *         Args:
    *             nums: Input array
@@ -253,12 +253,12 @@ class Solution {
       allValues.add(p - lower);
       allValues.add(p - upper);
     }
-    const sorted = Array.from(allValues).sort((a, b) => a - b);
+    const sorted = **Array**.from(allValues).sort((a, b) => a - b);
     const compress = new Map<number, number>();
     sorted.forEach((val, idx) => compress.set(val, idx));
 
     // Segment tree
-    const tree = new Array(sorted.length * 4).fill(0);
+    const tree = new **Array**(sorted.length * 4).fill(0);
     const update = (node: number, start: number, end: number, idx: number) => {
       if (start === end) {
         tree[node]++;
@@ -360,7 +360,7 @@ function runTests(): void {
       const resultBit = solution.countRangeSumBIT(nums, lower, upper);
       const resultSeg = solution.countRangeSumSegmentTree(nums, lower, upper);
       console.log(`Binary IT:   ${resultBit}`);
-      console.log(`Segment Tree: ${resultSeg}`);
+      console.log(`**Segment Tree**: ${resultSeg}`);
     }
   }
 
@@ -378,7 +378,7 @@ function runTests(): void {
   console.log("\nApproach complexities:");
   console.log("Merge Sort:   O(n log n) time, O(n) space");
   console.log("Binary IT:    O(n log n) time, O(n) space");
-  console.log("Segment Tree: O(n log n) time, O(n) space");
+  console.log("**Segment Tree**: O(n log n) time, O(n) space");
   console.log("Brute Force:  O(n²) time, O(n) space");
 }
 

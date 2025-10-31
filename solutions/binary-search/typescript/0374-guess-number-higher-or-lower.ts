@@ -34,9 +34,9 @@
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 ### METADATA:
- * **Techniques**: Binary Search
+ * **Techniques**: **Binary Search**
  * **Data Structures**: Number range (integers 1 to n)
- * **Patterns**: Binary Search Pattern, Divide and Conquer
+ * **Patterns**: **Binary Search** Pattern, Divide and Conquer
  * **Time Complexity**: O(log n) - Binary search halves search space each iteration
  * **Space Complexity**: O(1) - Constant extra space (two pointers)
  *
