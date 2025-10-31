@@ -72,11 +72,11 @@ This solution uses binary search for efficient implementation.
  * n = 2, pick = 1
  * ```
  *
- * Step 1: guess(5) returns 1 (pick > 5), so left = 6
- * Step 2: guess(8) returns -1 (pick < 8), so right = 7
- * Step 3: guess(6) returns 0 (correct!)
- * Step 1: guess(1) returns 0 (correct!)
- * Step 1: guess(1) returns 0 (correct!)
+ * **Step 1:** guess(5) returns 1 (pick > 5), so left = 6
+ * **Step 2:** guess(8) returns -1 (pick < 8), so right = 7
+ * **Step 3:** guess(6) returns 0 (correct!)
+ * **Step 1:** guess(1) returns 0 (correct!)
+ * **Step 1:** guess(1) returns 0 (correct!)
  *
  * Output:
  * ```

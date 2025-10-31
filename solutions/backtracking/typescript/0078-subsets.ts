@@ -50,22 +50,44 @@
  * ### EXAMPLE WALKTHROUGH:
  * **Input:** nums = [1,2,3]
  *
- * **Step 1:** Backtracking approach - Start with empty array
- * - Start with [] → add to result
- * - Add 1: [1] → add to result
- * - Add 2: [1,2] → add to result
- * - Add 3: [1,2,3] → add to result
+ * **Step 1:** Initialize result list
+ * - Create empty array: result = []
+ * - This will store all 2^3 = 8 subsets
  *
- * **Step 2:** Backtrack and try different combinations
- * - Remove 3, Add 3: [1,3] → add to result
- * - Remove 1, Add 2: [2] → add to result
- * - Add 3: [2,3] → add to result
+ * **Step 2:** Define recursive backtracking function
+ * - Function: backtrack(start=0, current=[])
+ * - Parameters track: start index in array and current subset being built
  *
- * **Step 3:** Continue backtracking
- * - Remove 2, Add 3: [3] → add to result
- * - All 2^3 = 8 subsets generated
+ * **Step 3:** Add current subset at each call
+ * - backtrack(0, []) → add [] to result
+ * - backtrack(1, [1]) → add [1] to result
+ * - backtrack(2, [1,2]) → add [1,2] to result
+ * - backtrack(3, [1,2,3]) → add [1,2,3] to result
  *
- * **Output:** [[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]]
+ * **Step 4:** Iterate from start index
+ * - At start=0: loop through indices [0,1,2] (elements [1,2,3])
+ * - At start=1: loop through indices [1,2] (elements [2,3])
+ * - At start=2: loop through indices [2] (element [3])
+ *
+ * **Step 5:** Include element and recurse
+ * - Include 1: current = [1], recurse with start=1
+ *   - Include 2: current = [1,2], recurse with start=2
+ *     - Include 3: current = [1,2,3], recurse with start=3 (loop ends)
+ *
+ * **Step 6:** Backtrack
+ * - After [1,2,3], remove 3: current = [1,2]
+ * - After [1,2], remove 2: current = [1]
+ *   - Include 3: current = [1,3], recurse with start=3
+ * - After [1,3], remove 3, remove 1: current = []
+ *   - Include 2: current = [2], recurse with start=2
+ *
+ * **Step 7:** Return power set
+ * - After all recursive calls: result = [[], [1], [1,2], [1,2,3], [1,3], [2], [2,3], [3]]
+ *
+ * Output:
+ * ```
+ * [[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]]
+ * ```
  * 
  * ### TIME COMPLEXITY:
  * O(n × 2^n) - 2^n subsets, each takes O(n) to copy

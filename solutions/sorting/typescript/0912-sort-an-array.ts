@@ -64,26 +64,60 @@ The solution leverages stack for efficient operations.
 ### EXAMPLE WALKTHROUGH:
  * **Input:** nums = [5,2,3,1]
  *
- * **Step 1:** Divide array using merge sort for nums=[5,2,3,1]
- * - Split [5,2,3,1] into [5,2] and [3,1]
- * - Split [5,2] into [5] and [2]
- * - Split [3,1] into [3] and [1]
+ * **Merge Sort Approach:**
  *
- * **Step 2:** Merge left half
- * - Merge [5] and [2] → [2,5]
+ * **Step 1:** Divide array into two halves recursively
+ * - Split [5,2,3,1] → [5,2] and [3,1]
+ * - Split [5,2] → [5] and [2] (base case)
+ * - Split [3,1] → [3] and [1] (base case)
  *
- * **Step 3:** Merge right half
- * - Merge [3] and [1] → [1,3]
+ * **Step 2:** Sort each half recursively using array operations
+ * - [5] is sorted (single element)
+ * - [2] is sorted (single element)
+ * - Merge [5] and [2] → [2,5] (sorted left half)
+ * - [3] is sorted (single element)
+ * - [1] is sorted (single element)
+ * - Merge [3] and [1] → [1,3] (sorted right half)
  *
- * **Step 4:** Merge both halves
+ * **Step 3:** Merge sorted halves back together into array
  * - Merge [2,5] and [1,3]
- * - Compare: 2 vs 1 → take 1
- * - Compare: 2 vs 3 → take 2
- * - Compare: 5 vs 3 → take 3
- * - Remaining: 5
- * - Result: [1,2,3,5]
+ * - Compare: 2 vs 1 → take 1, result = [1]
+ * - Compare: 2 vs 3 → take 2, result = [1,2]
+ * - Compare: 5 vs 3 → take 3, result = [1,2,3]
+ * - Remaining: 5, result = [1,2,3,5]
  *
- * **Output:** [1,2,3,5]
+ * **Quick Sort Approach (Alternative):**
+ *
+ * **Step 4:** Choose pivot element from array
+ * - Choose pivot = 3 (middle element) from [5,2,3,1]
+ *
+ * **Step 5:** Partition array around pivot using two pointers
+ * - Elements < 3: [2,1]
+ * - Pivot: [3]
+ * - Elements > 3: [5]
+ * - After partition: [2,1,3,5]
+ *
+ * **Step 6:** Recursively sort left and right partitions in array
+ * - Sort [2,1]: choose pivot=2, partition → [1,2]
+ * - Sort [5]: single element, already sorted
+ * - Combine: [1,2] + [3] + [5] = [1,2,3,5]
+ *
+ * **Heap Sort Approach (Alternative):**
+ *
+ * **Step 7:** Build max heap from array
+ * - Input: [5,2,3,1]
+ * - Build heap: [5,2,3,1] (5 is already max at root)
+ *
+ * **Step 8:** Repeatedly extract maximum and rebuild heap using array operations
+ * - Extract 5, heap becomes [3,2,1], result = [5]
+ * - Extract 3, heap becomes [2,1], result = [3,5]
+ * - Extract 2, heap becomes [1], result = [2,3,5]
+ * - Extract 1, result = [1,2,3,5]
+ *
+ * Output:
+ * ```
+ * [1,2,3,5]
+ * ```
 
  * ### TIME COMPLEXITY:
  * O(n log n)

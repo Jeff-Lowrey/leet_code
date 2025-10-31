@@ -78,7 +78,10 @@ This solution uses set operations for efficient implementation.
  * - Add 3 to result: [1,2,3]
  * - Result matches org [1,2,3] ✓
  *
- * **Output:** true
+ * Output:
+ * ```
+ * true
+ * ```
  * 
  * ### TIME COMPLEXITY:
  * O(V + E)

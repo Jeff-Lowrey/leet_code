@@ -69,7 +69,10 @@ Schedule most frequent tasks first to minimize idle time. Use max-heap to always
 - Time 7: B (B done)
 - Total: 8 units
 
-**Output:** 8
+Output:
+```
+8
+```
 
 ### TIME COMPLEXITY:
 O(n × m)

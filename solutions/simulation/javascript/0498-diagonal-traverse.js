@@ -70,7 +70,10 @@
  * - Diagonal sum=3 (down): 6, 8
  * - Diagonal sum=4 (up): 9
  *
- * **Output:** [1,2,4,7,5,3,6,8,9]
+ * Output:
+ * ```
+ * [1,2,4,7,5,3,6,8,9]
+ * ```
  *
  * ### TIME COMPLEXITY:
  * O(m × n)

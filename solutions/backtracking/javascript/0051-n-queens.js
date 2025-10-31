@@ -84,8 +84,15 @@ This solution uses array traversal for efficient implementation.
  * - Try col 3: conflicts
  * - Try col 4: out of range → Backtrack
  *
- * **Step 4:** Try different placement in row 1 (col 3)
- * - Eventually find: [".Q..","...Q","Q...","..Q."]
+ * **Step 4:** Backtrack and try different placement
+ * - Return to row 1, try col 3 instead
+ * - Continue placing queens with new configuration
+ * - Find first valid solution: [".Q..","...Q","Q...","..Q."]
+ *
+ * **Step 5:** Build solution and continue search
+ * - When all N queens placed successfully, add board to results
+ * - Backtrack to find all remaining solutions
+ * - Find second solution: ["..Q.","Q...","...Q",".Q.."]
  *
  * Output: [[".Q..","...Q","Q...","..Q."],["..Q.","Q...","...Q",".Q.."]]
  *

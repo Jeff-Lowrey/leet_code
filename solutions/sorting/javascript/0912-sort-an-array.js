@@ -97,7 +97,10 @@ The solution leverages tree for efficient operations.
  *
  * **Step 8:** Combine results: [1,2,3,5]
  *
- * **Output:** [1,2,3,5]
+ * Output:
+ * ```
+ * [1,2,3,5]
+ * ```
  *
  * Original Input:
  * ```

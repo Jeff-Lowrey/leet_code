@@ -15,7 +15,7 @@
  * <dt>Input:</dt>
  * <dd>["a==b", "b==c", "a!=d"]</dd>
  * <dt>Output:</dt>
- * <dd>"Equations {equations} satisfiable: {solution.equationsPossible(equations)}"</dd>
+ * <dd>true</dd>
  * <dt>Explanation:</dt>
  * <dd>Equations are satisfiable: a==b, b==c implies a==c</dd>
  * </dl>
@@ -48,7 +48,10 @@
  * - Two-pass approach separates grouping from validation
  *
  * ### EXAMPLE WALKTHROUGH:
- * **Input:** equations = ["a==b","b==c","a!=d"]
+ * Input:
+ * ```
+ * ["a==b","b==c","a!=d"]
+ * ```
  *
  * **Step 1:** Initialize parent array
  * - parent[0..25] = [0,1,2,...,25] (each variable is its own parent)
@@ -67,10 +70,14 @@
  * - find(d) = 3
  * - 2 ≠ 3, so no conflict
  *
- * **Step 5:** All constraints satisfied
- * - No contradictions found, can assign: a=0, b=0, c=0, d=1
+ * **Step 4:** Return result
+ * - All constraints satisfied, no contradictions found
+ * - Can assign: a=0, b=0, c=0, d=1
  *
- * **Output:** true
+ * Output:
+ * ```
+ * true
+ * ```
 
  * ### TIME COMPLEXITY:
  * O(N × α(N))

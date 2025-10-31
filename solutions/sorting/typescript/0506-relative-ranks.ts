@@ -21,9 +21,9 @@
  * 
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>["Gold Medal", "Silver Medal", "Bronze Medal", "4", "5"]</dd>
+ * <dd>score = [5,4,3,2,1]</dd>
  * <dt>Output:</dt>
- * <dd>1</dd>
+ * <dd>["Gold Medal", "Silver Medal", "Bronze Medal", "4", "5"]</dd>
  * <dt>Explanation:</dt>
  * <dd>Ranks for scores [5,4,3,2,1] are ['Gold','Silver','Bronze','4','5']</dd>
  * </dl>
@@ -49,13 +49,14 @@
  * 4. **Map back to original positions**: Use original indices to place ranks in result array
  *
  * ### WHY THIS WORKS:
+ * - **Sorting with Index Tracking** technique: We pair each score with its original index before sorting
+ * - This preserves the original position information even after the array is reordered
  * - Sorting by score (in descending order) gives us the ranking order
  * - Tracking original indices in pairs lets us place ranks correctly in result array
+ * - After sorting, we iterate through the sorted pairs and assign ranks based on position
  * - Special strings for top 3 (Gold/Silver/Bronze), numbers for rest
- * - **Array** iteration maps sorted ranks back to original positions
- * 
- *
- * - Hash map provides O(1) average-case lookup and insertion, enabling fast data access and frequency tracking
+ * - The original index in each pair tells us where to place the rank in the result **Array**
+ * - **Array** iteration maps sorted ranks back to original positions efficiently in O(n) time
  *
 ### EXAMPLE WALKTHROUGH:
  * Given input score = [5,4,3,2,1]:
@@ -65,22 +66,25 @@
  * score = [5,4,3,2,1]
  * ```
  *
- * Step 1: Create (score, index) pairs
- * [(5,0), (4,1), (3,2), (2,3), (1,4)]
- * Step 2: Sort by score descending
- * [(5,0), (4,1), (3,2), (2,3), (1,4)]
- * Step 3: Assign ranks
- * Rank 1 (Gold Medal): score 5, index 0
- * Rank 2 (Silver Medal): score 4, index 1
- * Rank 3 (Bronze Medal): score 3, index 2
- * Rank 4: score 2, index 3
- * Rank 5: score 1, index 4
- * Step 4: Map back to original indices
- * answer[0] = "Gold Medal"
- * answer[1] = "Silver Medal"
- * answer[2] = "Bronze Medal"
- * answer[3] = "4"
- * answer[4] = "5"
+ * **Step 1:** Create (score, index) pairs
+ * - [(5,0), (4,1), (3,2), (2,3), (1,4)]
+ *
+ * **Step 2:** Sort by score descending
+ * - [(5,0), (4,1), (3,2), (2,3), (1,4)]
+ *
+ * **Step 3:** Assign ranks based on sorted order
+ * - Rank 1 (Gold Medal): score 5, index 0
+ * - Rank 2 (Silver Medal): score 4, index 1
+ * - Rank 3 (Bronze Medal): score 3, index 2
+ * - Rank 4: score 2, index 3
+ * - Rank 5: score 1, index 4
+ *
+ * **Step 4:** Map back to original indices
+ * - answer[0] = "Gold Medal"
+ * - answer[1] = "Silver Medal"
+ * - answer[2] = "Bronze Medal"
+ * - answer[3] = "4"
+ * - answer[4] = "5"
  *
  * Output:
  * ```

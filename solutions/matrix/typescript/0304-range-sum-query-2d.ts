@@ -91,7 +91,10 @@ This solution uses preprocessing for efficient implementation.
  * - sum = prefix[3][5] - prefix[1][5] - prefix[3][2] + prefix[1][2]
  * - sum = 36 - 10 - 17 + 3 = 12 ✓
  *
- * **Output:** [null, 8, 11, 12]
+ * Output:
+ * ```
+ * [null, 8, 11, 12]
+ * ```
  *
  * ### TIME COMPLEXITY:
  * **Constructor: O(m * n)** where m, n are matrix dimensions - must compute all prefix sums

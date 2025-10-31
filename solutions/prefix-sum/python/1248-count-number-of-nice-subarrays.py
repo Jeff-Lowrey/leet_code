@@ -62,7 +62,10 @@ This problem is a variation of "subarray sum equals k" but instead of sum, we co
 - Position 4 (count=4): Check count-k=4-3=1 in hash map → 1 ✓
 - Total: 2 nice subarrays
 
-**Output:** 2
+Output:
+```
+2
+```
 
 ### TIME COMPLEXITY:
 O(n)

@@ -65,7 +65,10 @@ This solution uses hash map storage for efficient implementation.
 **Step 4:** Verify order matches org
 - [1,2,3] matches org exactly → True
 
-**Output:** True
+Output:
+```
+True
+```
 
 ### TIME COMPLEXITY:
 O(V + E)

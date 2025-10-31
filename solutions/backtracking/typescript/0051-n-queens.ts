@@ -82,11 +82,24 @@ This solution uses set operations for efficient implementation.
  * - Try col 0,1,3: all conflicts
  * - Try col 4: out of range → Backtrack to row 1
  *
- * **Step 4:** Try different placement in row 1 (col 3)
- * - Continue backtracking until all solutions found
- * - Eventually find: [".Q..","...Q","Q...","..Q."]
+ * **Step 4:** Backtrack and try different placements
+ * - Backtrack to row 1, try col 3
+ * - Continue exploring all valid placements
+ * - Systematically explore all possible queen placements that don't violate constraints
  *
- * **Output:** [[".Q..","...Q","Q...","..Q."],["..Q.","Q...","...Q",".Q.."]]
+ * **Step 5:** Build solution when all queens placed
+ * - First solution found: [".Q..","...Q","Q...","..Q."]
+ *   - Row 0: Queen at col 1
+ *   - Row 1: Queen at col 3
+ *   - Row 2: Queen at col 0
+ *   - Row 3: Queen at col 2
+ * - Second solution found: ["..Q.","Q...","...Q",".Q.."]
+ * - Add both board arrays to results
+ *
+ * Output:
+ * ```
+ * [[".Q..","...Q","Q...","..Q."],["..Q.","Q...","...Q",".Q.."]]
+ * ```
  *
  * ### TIME COMPLEXITY:
  * O(N!)

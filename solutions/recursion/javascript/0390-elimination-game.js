@@ -95,7 +95,10 @@ This solution uses state tracking for efficient implementation.
  * - New head: 2 + 4 = 6
  * - Only one number remains
  *
- * **Output:** 6
+ * Output:
+ * ```
+ * 6
+ * ```
  *
  * Original Round 2 (R->L): head=2, step=2, count=4, left_to_right=False
  *   Eliminate: 8, 4

@@ -61,11 +61,11 @@
  * - Frequency map has 1 appearing 1 time
  * - Add 1 to result
  *
- * **Step 4:** Total nice subarrays = 2
+ * **Step 4:** Count total nice subarrays
  * - Subarray [1,1,2,1] (indices 0-3)
  * - Subarray [1,2,1,1] (indices 1-4)
  *
- * **Output:** 2
+ * Result: 2
  * ### TIME COMPLEXITY:
  * O(n)
  * Single pass through array with HashMap operations

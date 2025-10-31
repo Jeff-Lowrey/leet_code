@@ -91,7 +91,10 @@ Initial state: arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 - New head: 2 + 4 = 6
 - Only one number remains
 
-**Output:** 6
+Output:
+```
+6
+```
 
 ### TIME COMPLEXITY:
 **O(log n)** - Each round eliminates half the numbers, similar to binary search

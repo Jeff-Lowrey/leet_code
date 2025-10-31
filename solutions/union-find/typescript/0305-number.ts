@@ -15,11 +15,11 @@
  * 
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[[0, 0]]</dd>
+ * <dd>m = 3, n = 3, positions = [[0,0]]</dd>
  * <dt>Output:</dt>
- * <dd>"Test 1 Result: {result1}"</dd>
+ * <dd>[1]</dd>
  * <dt>Explanation:</dt>
- * <dd>Number of islands after adding positions: [1,1,2,3]</dd>
+ * <dd>Number of islands after adding positions: [1]</dd>
  * </dl>
  * 
  * <details>
@@ -46,28 +46,54 @@
  * 8. **Return result**: Return result list with island counts
  * 
  * ### WHY THIS WORKS:
- * - Union-find tracks connected components as islands form
+ * - **Union-Find** (Disjoint Set Union) efficiently tracks connected components as islands form
  * - Initially count = 0, increment for each land cell added
  * - When land connects to existing islands, union them (decrement count by merges-1)
- * - Path compression + union by rank ensures near O(1) amortized operations
+ * - **Path Compression** technique: During find operations, flatten the tree structure by making nodes point directly to the root, speeding up future queries
+ * - Union by rank ensures balanced tree height, preventing degeneration
+ * - Path compression + union by rank together ensure near O(1) amortized operations
  * - O(m*n*α(m*n)) time: α is inverse Ackermann (effectively constant)
  * 
  * ### EXAMPLE WALKTHROUGH:
- * **Input:** m = 3, n = 3, positions = [[0,0]]
+ * Input:
+ * ```
+ * m = 3, n = 3, positions = [[0,0]]
+ * ```
  *
- * **Step 1:** Initialize empty 3×3 grid
+ * **Step 1:** Initialize Union-Find
+ * - Create parent and rank arrays for 3×3 grid
+ *
+ * **Step 2:** Initialize count
+ * - Set island count = 0
  * - All cells are water (0)
- * - **Union-Find** parent map is empty
- * - Island count = 0
  *
- * **Step 2:** Add position [0,0]
+ * **Step 3:** Process positions - iterate through [[0,0]]
+ * - Processing position [0,0]
+ *
+ * **Step 4:** Add island at position [0,0]
  * - Mark cell (0,0) as land
  * - Increment count to 1
- * - Check 4 neighbors: all are water or out of bounds
- * - No unions performed
- * - Current island count = 1
  *
- * **Output:** [1]
+ * **Step 5:** Check neighbors of (0,0)
+ * - Check 4 adjacent cells: up, down, left, right
+ * - All neighbors are water or out of bounds
+ *
+ * **Step 6:** Union with land neighbors
+ * - No land neighbors found
+ * - No unions performed, count remains 1
+ *
+ * **Step 7:** Record count after processing position
+ * - Append count=1 to result list
+ * - Result so far: [1]
+ *
+ * **Step 8:** Return result
+ * - All positions processed
+ * - Final result: [1]
+ *
+ * Output:
+ * ```
+ * [1]
+ * ```
 
  * ### TIME COMPLEXITY:
  * O(n)

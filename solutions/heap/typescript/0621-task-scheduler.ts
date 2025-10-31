@@ -57,26 +57,38 @@ This solution uses array traversal for efficient implementation.
 
 The solution leverages string for efficient operations.
 ### EXAMPLE WALKTHROUGH:
- * Given input tasks = ["A","A","A","B","B","B"], n = 2:
+ * **Input:** tasks = ["A","A","A","B","B","B"], n = 2
  *
- * Input:
+ * **Step 1:** Count frequencies
+ * - Use Counter to get task frequencies
+ * - Frequencies: {A: 3, B: 3}
+ * - Both tasks appear 3 times each
+ *
+ * **Step 2:** Max-heap setup
+ * - Store negative frequencies for max-heap: [-3, -3]
+ * - Heap allows us to always pick most frequent available task
+ *
+ * **Step 3:** Simulation for each time unit
+ * - **Time 0**: Pick A (freq=3), A remaining=2, add to cooldown queue (available at time 3)
+ * - **Time 1**: Pick B (freq=3), B remaining=2, add to cooldown queue (available at time 4)
+ * - **Time 2**: No tasks available (both in cooldown) → idle
+ * - **Time 3**: A returns from cooldown (freq=2), pick A, A remaining=1, cooldown until time 6
+ * - **Time 4**: B returns from cooldown (freq=2), pick B, B remaining=1, cooldown until time 7
+ * - **Time 5**: No tasks available → idle
+ * - **Time 6**: A returns from cooldown (freq=1), pick A, A done
+ * - **Time 7**: B returns from cooldown (freq=1), pick B, B done
+ * - Total time units: 8
+ *
+ * **Step 4:** Math formula alternative
+ * - Max frequency: 3
+ * - Formula: (maxFreq - 1) × (n + 1) + countOfMaxFreqTasks
+ * - Calculation: (3 - 1) × (2 + 1) + 2 = 2 × 3 + 2 = 8
+ * - Result matches simulation
+ *
+ * Output:
  * ```
- * tasks = ["A","A","A","B","B","B"], n = 2
+ * 8
  * ```
- *
- * Frequencies: A=3, B=3
- * Timeline:
- * Time 0: A (A left: 2, cooldown until time 3)
- * Time 1: B (B left: 2, cooldown until time 4)
- * Time 2: idle (nothing available)
- * Time 3: A (A left: 1, cooldown until time 6)
- * Time 4: B (B left: 1, cooldown until time 7)
- * Time 5: idle
- * Time 6: A (A done)
- * Time 7: B (B done)
- * Total: 8 units
- *
- * Result: 8
  *
  * ### TIME COMPLEXITY:
  * O(n × m)

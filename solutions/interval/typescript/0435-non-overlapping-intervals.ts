@@ -12,7 +12,7 @@
  * <dt>Input:</dt>
  * <dd>intervals = [[1,2],[2,3],[3,4],[1,3]]</dd>
  * <dt>Output:</dt>
- * <dd>1</dd>
+ * <dd>1 (min intervals to remove)</dd>
  * <dt>Explanation:</dt>
  * <dd>Minimum 1 interval removed to make [[1,2],[2,3],[3,4],[1,3]] non-overlapping</dd>
  * </dl>
@@ -75,12 +75,20 @@ This solution uses array traversal for efficient implementation.
  * - Start 3 >= currentEnd 3? Yes, no overlap
  * - Select it: nonOverlapping = 3, currentEnd = 4
  *
- * **Step 6:** Calculate removals
+ * **Step 6:** Update prev_end when no overlap
+ * - After processing all intervals
+ * - Final state: kept intervals [[1,2],[2,3],[3,4]]
+ * - Removed intervals: [[1,3]]
+ *
+ * **Step 7:** Return count
  * - Total intervals: 4
  * - Non-overlapping kept: 3
- * - To remove: 4 - 3 = 1
+ * - Return count = 4 - 3 = 1 as minimum intervals to remove
  *
- * **Output:** 1
+ * Output:
+ * ```
+ * 1
+ * ```
 
  * ### TIME COMPLEXITY:
  * O(n)

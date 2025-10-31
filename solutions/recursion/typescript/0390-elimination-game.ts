@@ -113,7 +113,10 @@ This solution uses state tracking for efficient implementation.
  * **Step 5:** Termination
  * - Only one element remains: 6
  *
- * **Output:** 6
+ * Output:
+ * ```
+ * 6
+ * ```
  *
  * ### TIME COMPLEXITY:
  * **O(log n)** - Each round eliminates half the numbers, similar to binary search

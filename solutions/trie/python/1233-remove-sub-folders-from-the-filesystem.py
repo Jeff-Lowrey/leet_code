@@ -80,7 +80,10 @@ This solution uses hash map storage for efficient implementation.
 - Hash map: root -> {'a': ..., 'c': {'d': ..., 'f': {is_end: True}}}
 - Add to result: ["/a", "/c/d", "/c/f"]
 
-**Output:** ["/a", "/c/d", "/c/f"]
+Output:
+```
+["/a", "/c/d", "/c/f"]
+```
 
 ### TIME COMPLEXITY:
 O(N * L * log(N))

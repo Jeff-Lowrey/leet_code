@@ -64,7 +64,10 @@ The solution leverages array for efficient operations.
  *
  * **Step 6:** Longest found → length 3
  *
- * **Output:** "bab"
+ * Output:
+ * ```
+ * "bab"
+ * ```
  *
  * Note: "aba" is also a valid answer
  *

@@ -73,7 +73,10 @@ This solution uses hash map storage for efficient implementation.
 **Step 7:** Return total count
 - Total: 3
 
-**Output:** 3
+Output:
+```
+3
+```
 
 ### TIME COMPLEXITY:
 O(n log n)

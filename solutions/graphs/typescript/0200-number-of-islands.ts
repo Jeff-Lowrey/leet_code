@@ -74,8 +74,11 @@
  *
  * **Step 5**: Mark visited - all land cells have been explored
  *
- * Output: 2 islands
-
+ * Output:
+ * ```
+ * 2
+ * ```
+ *
  * ### TIME COMPLEXITY:
  * O(M × N)
  * Where M and N are grid dimensions - we visit each cell at most once

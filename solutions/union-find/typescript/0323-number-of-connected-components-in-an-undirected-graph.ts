@@ -51,18 +51,23 @@
  * n = 5, edges = [[0,1],[1,2],[3,4]]
  * ```
  *
- * Steps:
- * Step 1: Initial: {0}, {1}, {2}, {3}, {4} → 5 components
- * Step 2: Union(0,1): {0,1}, {2}, {3}, {4} → 4 components
- * Step 3: Union(1,2): {0,1,2}, {3}, {4} → 3 components
- * Step 4: Union(3,4): {0,1,2}, {3,4} → 2 components
- * Step 5: Result: 2 connected components
- * 
+ * **Step 1:** Initialize Union-Find
+ * - Initial: {0}, {1}, {2}, {3}, {4} → 5 components
+ *
+ * **Step 2:** Process edges - Union(0,1)
+ * - {0,1}, {2}, {3}, {4} → 4 components
+ *
+ * **Step 3:** Process edges - Union(1,2)
+ * - {0,1,2}, {3}, {4} → 3 components
+ *
+ * **Step 3:** Process edges - Union(3,4)
+ * - {0,1,2}, {3,4} → 2 components
+ *
  * Output:
  * ```
- * 2 connected components
+ * 2
  * ```
- * 
+ *
  * ### TIME COMPLEXITY:
  * O(E × α(N))
  * Where E is edges, N is nodes, α is inverse Ackermann (nearly constant)

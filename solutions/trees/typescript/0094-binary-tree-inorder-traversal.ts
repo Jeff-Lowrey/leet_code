@@ -56,17 +56,25 @@ This solution uses two pointers for efficient implementation.
  * 2
  * /
  * 3
- * Inorder traversal steps:
- * 1. Start at root (1)
- * 2. No left child, process 1
- * 3. Go to right child (2)
- * 4. Go to left child of 2 (which is 3)
- * 5. No left child of 3, process 3
- * 6. No right child of 3, backtrack
- * 7. Process 2
- * 8. No right child of 2
- * Result: [1, 3, 2]
-
+ *
+ * **Step 1:** Start at root (1)
+ * - No left child, process 1
+ *
+ * **Step 2:** Go to right child (2)
+ * - Has left child (3), go left first
+ *
+ * **Step 3:** Process left child (3)
+ * - No left child of 3, process 3
+ * - No right child of 3, backtrack
+ *
+ * **Step 4:** Process node 2
+ * - No right child of 2
+ *
+ * Output:
+ * ```
+ * [1, 3, 2]
+ * ```
+ *
  * ### TIME COMPLEXITY:
  * O(n)
  * - Single pass through input

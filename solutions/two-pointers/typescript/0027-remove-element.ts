@@ -17,7 +17,7 @@
  * <dt>Input:</dt>
  * <dd>[3,2,2,3], val = 3</dd>
  * <dt>Output:</dt>
- * <dd>2</dd>
+ * <dd>k=2, nums=[2,2,_,_]</dd>
  * <dt>Explanation:</dt>
  * <dd>Remove element 3 from [3,2,2,3] gives length 2</dd>
  * </dl>
@@ -74,10 +74,18 @@ This solution uses hash map storage for efficient implementation.
  * **Step 5:** Process i=3, nums[3]=3
  * - 3 == val, skip (don't write, don't increment k)
  *
- * **Step 6:** Return k=2
- * - First 2 elements are result: [2,2,_,_]
+ * **Step 6:** Continue scanning
+ * - All elements processed (i=0,1,2,3 complete)
+ * - Array now has valid elements at start: [2,2,_,_]
  *
- * **Output:** 2
+ * **Step 7:** Return count
+ * - Return k=2 as count of elements not equal to val
+ * - First k elements contain the result
+ *
+ * Output:
+ * ```
+ * 2
+ * ```
 
  * ### TIME COMPLEXITY:
 

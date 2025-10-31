@@ -83,7 +83,10 @@ This solution uses bit manipulation for efficient implementation.
  *
  * **Step 5:** Row 3, position 3 → same as parent = 1
  *
- * **Output:** 1
+ * Output:
+ * ```
+ * 1
+ * ```
  *
  * ### TIME COMPLEXITY:
  * O(n) - we recurse up to n times

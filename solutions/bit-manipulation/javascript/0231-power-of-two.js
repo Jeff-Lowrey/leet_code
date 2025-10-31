@@ -63,7 +63,10 @@ The solution leverages integer for efficient operations.
  *
  * **Step 5:** isPowerOfTwo(1) → return true (base case)
  *
- * **Output:** true
+ * Output:
+ * ```
+ * true
+ * ```
  *
  * ### TIME COMPLEXITY:
  * O(log n) - dividing by 2 each time

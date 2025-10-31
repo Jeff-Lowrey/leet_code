@@ -78,7 +78,10 @@ This solution uses array traversal for efficient implementation.
  * - Time 7: B (B done)
  * - Total: 8 units
  *
- * **Output:** 8
+ * Output:
+ * ```
+ * 8
+ * ```
  *
  * ### TIME COMPLEXITY:
  * O(n × m)

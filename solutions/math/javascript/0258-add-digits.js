@@ -75,7 +75,10 @@ This solution uses mathematical pattern recognition for efficient implementation
  * - Naive: 99 -> 9+9=18 -> 1+8=9
  * - Formula: 1 + (99-1) % 9 = 1 + 98 % 9 = 1 + 8 = 9 ✓
  *
- * **Output:** 2
+ * Output:
+ * ```
+ * 2
+ * ```
  *
  * Original Example: num = 38
  * - Naive: 38 -> 3+8=11 -> 1+1=2

@@ -68,7 +68,10 @@ Why reverse order? With [1,1,1,1,2,2] and no reversing:
 - [1,2,1,2,1,1] - last two are equal!
 - Reversing ensures maximum separation of duplicates
 
-**Output:** [1,6,1,5,1,4]
+Output:
+```
+[1,6,1,5,1,4]
+```
 
 ### TIME COMPLEXITY:
 O(n log n)

@@ -24,7 +24,7 @@
  * <dt>Input:</dt>
  * <dd>chars = ["a","a","b","b","c","c","c"]</dd>
  * <dt>Output:</dt>
- * <dd>6</dd>
+ * <dd>Return 6, and the first 6 characters of the input array should be: ["a","2","b","2","c","3"]</dd>
  * <dt>Explanation:</dt>
  * <dd>Compressed string ['a','a','b','b','c','c','c'] becomes ['a','2','b','2','c','3'] with length 6</dd>
  * </dl>
@@ -82,11 +82,23 @@ The solution leverages queue for efficient operations.
  * - Write: chars[4]='c', chars[5]='3'
  * - write=6, read=7
  *
- * **Step 4:** Read pointer reached end
- * - Array: ["a","2","b","2","c","3",...]
+ * **Step 4:** Write count for each group
+ * - For 'a': count=2 (single digit), write '2'
+ * - For 'b': count=2 (single digit), write '2'
+ * - For 'c': count=3 (single digit), write '3'
+ * - Array after writes: ["a","2","b","2","c","3",...]
+ *
+ * **Step 5:** Handle multi-digit counts (if any)
+ * - Example: If count was 12, convert to string "12"
+ * - Split into digits: '1', '2'
+ * - Write each digit separately to array
+ * - In this case, all counts are single-digit (no splitting needed)
  * - Return write pointer = 6
  *
- * **Output:** 6
+ * Output:
+ * ```
+ * 6
+ * ```
 
  * ### TIME COMPLEXITY:
  * O(n)

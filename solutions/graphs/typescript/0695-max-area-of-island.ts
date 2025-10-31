@@ -58,27 +58,36 @@
  *        [0,1,0,0,1,1,0,0,1,0,1,0,0]]
  * ```
  *
- * **Step 1**: Iterate through grid - scanning left to right, top to bottom
- * **Step 2**: Find land at (0,2) - this is a 1
- * **Step 3**: DFS exploration from (0,2) - no neighbors are 1, area = 1
- * **Step 4**: Track maximum - maxArea = 1
- * **Step 5**: Mark visited - (0,2) changed to 0
+ * **Step 1: Iterate through grid**
+ * - Scan each cell left to right, top to bottom
+ * - Start at (0,0), checking each position for land (1)
  *
- * Continue scanning...
- * **Step 2**: Find land at (0,7)
- * **Step 3**: DFS explores (0,7) → (1,7) → (1,8) → (1,9), area = 4
- * **Step 4**: Track maximum - maxArea = 4
+ * **Step 2: Find land**
+ * - First land cell found at (0,2)
+ * - Later find land at (0,7), (2,1), (2,4), etc.
  *
- * Continue scanning and exploring all islands...
- * Final islands found:
- * - (0,2): area = 1
- * - (0,7) and connected cells: area = 4
- * - (2,1), (2,2), (3,1): area = 3
- * - (2,4), (3,4), (3,5): area = 3
- * - (3,8): area = 1
- * - (3,10): area = 1
+ * **Step 3: DFS/BFS exploration** (for each land cell found)
+ * - Island at (0,2): DFS finds no neighbors → area = 1
+ * - Island at (0,7): DFS explores (0,7)→(1,7)→(1,8)→(1,9) → area = 4
+ * - Island at (2,1): DFS explores (2,1)→(2,2)→(3,1) → area = 3
+ * - Island at (2,4): DFS explores (2,4)→(3,4)→(3,5) → area = 3
+ * - Remaining single cells: areas of 1 each
  *
- * Output: Maximum area = 4
+ * **Step 4: Track maximum**
+ * - After island 1: maxArea = 1
+ * - After island 2: maxArea = 4 (largest so far)
+ * - Islands 3 and 4 don't exceed 4
+ * - Final maxArea = 4
+ *
+ * **Step 5: Mark visited**
+ * - Each explored cell is marked as 0 during DFS
+ * - Prevents double-counting cells in the same island
+ * - Grid is modified in-place as we explore
+ *
+ * Output:
+ * ```
+ * 4
+ * ```
 
  * ### TIME COMPLEXITY:
  * O(M × N)

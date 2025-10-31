@@ -60,7 +60,10 @@ The solution leverages integer for efficient operations.
  *
  * **Step 3:** isPowerOfFour(1) → return true (base case)
  *
- * **Output:** true
+ * Output:
+ * ```
+ * true
+ * ```
  *
  * ### TIME COMPLEXITY:
  * O(log₄ n) - dividing by 4 each time

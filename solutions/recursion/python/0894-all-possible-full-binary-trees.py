@@ -80,7 +80,10 @@ This solution uses recursion for efficient implementation.
 **Step 6:** Use memoization to avoid recomputing (n=5, n=3 computed once)
 - Total for n=7: 2 + 1 + 2 = 5 different full binary trees
 
-**Output:** 5 different tree structures
+Output:
+```
+5 different tree structures
+```
 
 ### TIME COMPLEXITY:
 **O(2^n)** - Generating all possible trees, exponential growth in number of trees

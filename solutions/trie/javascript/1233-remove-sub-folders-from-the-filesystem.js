@@ -85,7 +85,10 @@ This solution uses array traversal for efficient implementation.
  * - Hash map: root -> {'a': ..., 'c': {'d': ..., 'f': {is_end: True}}}
  * - Add to result: ["/a", "/c/d", "/c/f"]
  *
- * **Output:** ["/a", "/c/d", "/c/f"]
+ * Output:
+ * ```
+ * ["/a", "/c/d", "/c/f"]
+ * ```
  *
  * Original Steps:
  * Step 1: root -> 'a' (mark as folder end)

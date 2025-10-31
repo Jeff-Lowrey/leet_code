@@ -61,7 +61,10 @@ This solution uses iteration for efficient implementation.
  *
  * **Step 4:** Calculate F(4) = F(3) + F(2) = 2 + 1 = 3
  *
- * **Output:** 3
+ * Output:
+ * ```
+ * 3
+ * ```
  *
  * ### TIME COMPLEXITY:
  * - Naive recursion: O(2^n) - exponential

@@ -66,7 +66,10 @@ This solution uses two-pointer technique for efficient implementation.
  * - Result: [1,6,1,5,1,4]
  * - Check: 1<6>1<5>1<4 ✓
  *
- * **Output:** [1,6,1,5,1,4]
+ * Output:
+ * ```
+ * [1,6,1,5,1,4]
+ * ```
  *
  * ### TIME COMPLEXITY:
  * O(n log n)

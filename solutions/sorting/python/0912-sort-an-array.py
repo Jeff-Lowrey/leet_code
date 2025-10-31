@@ -86,7 +86,10 @@ achieve O(n log n) time. This problem tests understanding of fundamental sorting
 
 **Step 8:** Combine results: [1,2,3,5]
 
-**Output:** [1,2,3,5]
+Output:
+```
+[1,2,3,5]
+```
 
 ### TIME COMPLEXITY:
 O(n log n)

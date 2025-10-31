@@ -83,7 +83,10 @@
  * - Elements where row+col=4: [9]
  * - Direction: up, Result: [1,2,4,7,5,3,6,8,9]
  *
- * **Output:** [1,2,4,7,5,3,6,8,9]
+ * Output:
+ * ```
+ * [1,2,4,7,5,3,6,8,9]
+ * ```
  *
  * ### TIME COMPLEXITY:
  * O(m × n)

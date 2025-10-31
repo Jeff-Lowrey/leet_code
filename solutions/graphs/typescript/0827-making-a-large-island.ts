@@ -33,11 +33,11 @@
  * This problem extends island finding by allowing us to change one 0 to 1 to maximize island size. The key insight is to first identify all existing islands, then for each 0, calculate what the new island size would be if we changed it to 1.
  *
  * ### APPROACH:
- * **Data structures: 2D Grid with DFS, Hash Map for island sizes, Hash Set for unique neighbors**
- * 1. **Label islands**: Use DFS to give each island a unique ID and calculate its size, storing in Hash Map
- * 2. **For each water cell**: Calculate potential island size if flipped to land
- * 3. **Consider merging**: A flipped cell can connect multiple existing islands - use Hash Set to track unique neighbor islands
- * 4. **Track maximum**: Keep track of the largest possible island size by summing neighbor island sizes + 1
+ * **Data structures: 2D Grid (matrix traversal), Hash Map (island size storage), Hash Set (unique neighbor tracking)**
+ * 1. **Label islands**: Use DFS on 2D Grid to give each island a unique ID and calculate its size, storing island_id → size mapping in Hash Map
+ * 2. **For each water cell (0) in 2D Grid**: Calculate potential island size if flipped to land
+ * 3. **Consider merging**: A flipped cell can connect multiple existing islands - use Hash Set to track unique neighbor island IDs (prevents counting same island twice)
+ * 4. **Track maximum**: Keep track of the largest possible island size by summing neighbor island sizes from Hash Map + 1 (the flipped cell)
  *
  * ### WHY THIS WORKS:
  * - **Depth-First Search (DFS)** explores and labels all connected land cells in each island
@@ -56,17 +56,24 @@
  * Grid: [[1,0],[0,1]]
  * ```
  *
- * Step 1 - Label islands:
- * Island 2: [(0,0)] size=1
- * Island 3: [(1,1)] size=1
- * Labeled grid: [[2,0],[0,3]]
- * Step 2 - Try flipping each 0:
+ * **Step 1:** Label islands using DFS
+ * - Island 2: [(0,0)] size=1
+ * - Island 3: [(1,1)] size=1
+ * - Labeled grid: [[2,0],[0,3]]
  *
- * Steps:
- * Step 1: Flip (0,1): neighbors are [2] → new size = 1 + 1 = 2
- * Step 2: Flip (1,0): neighbors are [2,3] → new size = 1 + 1 + 1 = 3
- * Step 3: Maximum possible island size: 3
-
+ * **Step 2:** Try flipping each 0
+ * - Flip (0,1): neighbors are [2] → new size = 1 + 1 = 2
+ * - Flip (1,0): neighbors are [2,3] → new size = 1 + 1 + 1 = 3
+ *
+ * **Step 3:** Track maximum island size
+ *
+ * **Step 4:** Final result after considering all flips
+ *
+ * Output:
+ * ```
+ * 3
+ * ```
+ *
  * ### TIME COMPLEXITY:
  * O(N²)
  * Where N is grid dimension - two passes through the grid

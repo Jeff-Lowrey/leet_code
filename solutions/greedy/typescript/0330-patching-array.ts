@@ -16,7 +16,7 @@
  * <dt>Input:</dt>
  * <dd>[1,3], n = 6</dd>
  * <dt>Output:</dt>
- * <dd>0</dd>
+ * <dd>1 (patched with 2)</dd>
  * <dt>Explanation:</dt>
  * <dd>Minimum 1 patch [3] needed to cover range [1,2,4] to sum 6</dd>
  * </dl>
@@ -44,7 +44,14 @@
  * 4. **Greedy choice**: Always patch with (covered + 1) as it doubles our coverage
  *
  * ### WHY THIS WORKS:
- * The algorithm correctly solves the problem by systematically exploring all valid states while maintaining necessary invariants. Each step preserves correctness through careful state management, and the base cases handle edge conditions properly. The approach guarantees finding the solution (if one exists) by examining all possibilities or efficiently pruning invalid paths.
+ * - **Greedy Selection** technique: At each step, make the locally optimal choice (patch with covered + 1)
+ * - This greedy choice is optimal because patching with (covered + 1) doubles our coverage range
+ * - If we can form [1, covered], adding (covered + 1) lets us form [1, 2×covered + 1]
+ * - Using existing numbers from **Array** when possible (nums[i] <= covered + 1) is always better than patching
+ * - The sorted **Array** property ensures we process numbers in optimal order
+ * - Greedy works because: patching with any number larger than (covered + 1) would leave a gap
+ * - Each patch maximizes coverage extension, minimizing total patches needed
+ * - The algorithm maintains the invariant that [1, covered] is always formable
  *
  * ### EXAMPLE WALKTHROUGH:
  * **Input:** nums = [1,3], n = 6
@@ -71,7 +78,10 @@
  * **Step 5:** Check termination
  * - covered >= 6, done!
  *
- * **Output:** 1 (patched with 2)
+ * Output:
+ * ```
+ * 1 (patched with 2)
+ * ```
 
  * ### TIME COMPLEXITY:
  * O(m + log n)
