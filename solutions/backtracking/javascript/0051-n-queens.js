@@ -97,7 +97,10 @@ This solution uses array traversal for efficient implementation.
  * - Backtrack to find all remaining solutions
  * - Find second solution: ["..Q.","Q...","...Q",".Q.."]
  *
- * Output: [[".Q..","...Q","Q...","..Q."],["..Q.","Q...","...Q",".Q.."]]
+ * Output:
+ * ```
+ * [[".Q..","...Q","Q...","..Q."],["..Q.","Q...","...Q",".Q.."]]
+ * ```
  *
  * ### TIME COMPLEXITY:
  * O(N!)

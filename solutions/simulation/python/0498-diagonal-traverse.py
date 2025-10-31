@@ -87,10 +87,10 @@ Output:
 
 ### TIME COMPLEXITY:
 **O(n²)** - Analysis of time complexity
- *
+
 ### SPACE COMPLEXITY:
 **O(n)** - Analysis of space complexity
- *
+
 ### EDGE CASES:
 - Single element matrix: mat=[[1]] → [1] (no diagonals to traverse, returns single element)
 - Single row matrix: mat=[[1,2,3]] → [1,2,3] (all elements traversed left to right)

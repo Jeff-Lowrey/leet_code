@@ -136,6 +136,10 @@ def parse_complete_problem_data(markdown_content: str) -> ProblemData:
         # Parse explanation sections
         if explanation_content:
             _parse_explanation_sections(explanation_content, data)
+        else:
+            # If no </details> tag, try parsing from full markdown
+            # (for files where complexity sections are outside <details>)
+            _parse_explanation_sections(markdown_content, data)
 
         return data
 
@@ -155,8 +159,13 @@ def _parse_main_content(content: str, data: ProblemData) -> None:
             data.difficulty = match.group(1).capitalize()
             break
 
-    # Extract problem number and title from header like "# 169. Majority Element"
+    # Extract problem number and title from header like "# 169. Majority Element" or "0169. Majority Element"
+    # Try with # first (Python format)
     title_match = re.search(r"^#\s+(\d+)\.\s+(.+)$", content, re.MULTILINE)
+    if not title_match:
+        # Try without # (TypeScript/JavaScript format)
+        title_match = re.search(r"^(\d{4})\.\s+(.+)$", content, re.MULTILINE)
+
     if title_match:
         data.number = title_match.group(1)
         data.title = title_match.group(2).strip()
