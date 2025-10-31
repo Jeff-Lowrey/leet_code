@@ -33,11 +33,10 @@
  * This problem extends island finding by allowing us to change one 0 to 1 to maximize island size. The key insight is to first identify all existing islands, then for each 0, calculate what the new island size would be if we changed it to 1.
  *
  * ### APPROACH:
- * **Data structures: 2D Grid (matrix traversal), Hash Map (island size storage), Hash Set (unique neighbor tracking)**
- * 1. **Label islands**: Use DFS on 2D Grid to give each island a unique ID and calculate its size, storing island_id → size mapping in Hash Map
- * 2. **For each water cell (0) in 2D Grid**: Calculate potential island size if flipped to land
- * 3. **Consider merging**: A flipped cell can connect multiple existing islands - use Hash Set to track unique neighbor island IDs (prevents counting same island twice)
- * 4. **Track maximum**: Keep track of the largest possible island size by summing neighbor island sizes from Hash Map + 1 (the flipped cell)
+ * 1. **Label islands**: Use DFS on 2D Grid (Matrix) to give each island a unique ID and calculate its size, storing island_id → size mapping in Hash Map (for island sizes)
+ * 2. **For each water cell (0)**: Calculate potential island size if flipped to land
+ * 3. **Consider merging**: A flipped cell can connect multiple existing islands - use Hash Set (for neighbor tracking) to track unique neighbor island IDs (prevents counting same island twice)
+ * 4. **Track maximum**: Keep track of the largest possible island size by summing neighbor island sizes + 1 (the flipped cell)
  *
  * ### WHY THIS WORKS:
  * - **Depth-First Search (DFS)** explores and labels all connected land cells in each island

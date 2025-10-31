@@ -49,7 +49,10 @@ This solution uses partitioning for efficient implementation.
 
 This solution uses two-pointer technique for efficient implementation.
 ### EXAMPLE WALKTHROUGH:
- * **Input:** nums = [1,5,1,1,6,4]
+  * Input:
+ * ```
+ * nums = [1,5,1,1,6,4]
+ * ```
  *
  * **Step 1:** Sort the input array [1,5,1,1,6,4]
  * - Sorted: [1,1,1,4,5,6]

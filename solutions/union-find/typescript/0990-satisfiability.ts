@@ -33,10 +33,9 @@
  * This is a classic **Union-Find** problem. We need to check if equality and inequality constraints can be satisfied simultaneously. The key insight is to first process all equality constraints to group variables, then check if inequality constraints violate these groups.
  *
  * ### APPROACH:
- * **Data structures: **Array** for **Union-Find** parent tracking, String for equation parsing**
- * 1. **Initialize parent array**: Create array of size 26 for tracking equivalence classes (one per lowercase letter)
+ * 1. **Initialize parent array**: Create Array (parent tracking for **Union-Find**) of size 26 for tracking equivalence classes (one per lowercase letter)
  * 2. **Process equalities**: Use **Union-Find** to group variables that must be equal, storing parent relationships in array
- * 3. **Check inequalities**: For each "!=" constraint, verify variables are in different groups using find operation on array
+ * 3. **Check inequalities**: For each "!=" constraint using String (equation parsing), verify variables are in different groups using find operation on array
  * 4. **Return result**: True if no conflicts found, False otherwise
  * 
  * ### WHY THIS WORKS:
@@ -48,6 +47,8 @@
  * - Two-pass approach separates grouping from validation
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Given input ["a==b","b==c","a!=d"]:
+ *
  * Input:
  * ```
  * ["a==b","b==c","a!=d"]

@@ -54,7 +54,10 @@ and boundaries carefully.
 
 This solution uses simulation for efficient implementation.
 ### EXAMPLE WALKTHROUGH:
-**Input:** mat = [[1,2,3], [4,5,6], [7,8,9]]
+Input:
+```
+mat = [[1,2,3], [4,5,6], [7,8,9]]
+```
 
 **Step 1:** Diagonal Identification - Group elements by row + col sum for mat=[[1,2,3], [4,5,6], [7,8,9]]
 - Diagonal 0 (sum=0): element at (0,0) = [1]

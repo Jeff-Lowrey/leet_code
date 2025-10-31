@@ -57,7 +57,10 @@ This solution uses array traversal for efficient implementation.
 
 The solution leverages string for efficient operations.
 ### EXAMPLE WALKTHROUGH:
- * **Input:** tasks = ["A","A","A","B","B","B"], n = 2
+  * Input:
+ * ```
+ * tasks = ["A","A","A","B","B","B"], n = 2
+ * ```
  *
  * **Step 1:** Count frequencies
  * - Use Counter to get task frequencies

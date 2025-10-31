@@ -53,7 +53,10 @@
  * - Direction flipping at boundaries creates the diagonal traversal pattern
  *
  * ### EXAMPLE WALKTHROUGH:
- * **Input:** mat = [[1,2,3], [4,5,6], [7,8,9]]
+  * Input:
+ * ```
+ * mat = [[1,2,3], [4,5,6], [7,8,9]]
+ * ```
  *
  * **Step 1:** Initialize - Start at (0,0), direction = up for mat=[[1,2,3], [4,5,6], [7,8,9]]
  * - Add element 1, move according to boundary rules

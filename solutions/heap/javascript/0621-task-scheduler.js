@@ -57,7 +57,10 @@ This solution uses hash map storage for efficient implementation.
 
 This solution uses array traversal for efficient implementation.
 ### EXAMPLE WALKTHROUGH:
- * **Input:** tasks = ["A","A","A","B","B","B"], n = 2
+  * Input:
+ * ```
+ * tasks = ["A","A","A","B","B","B"], n = 2
+ * ```
  *
  * **Step 1:** Count frequencies using hash map storage
  * - Hash map: {A: 3, B: 3}

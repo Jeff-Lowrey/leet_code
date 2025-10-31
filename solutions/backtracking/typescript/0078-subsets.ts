@@ -48,7 +48,10 @@
  * - Adding current subset at each step captures all intermediate states
  * 
  * ### EXAMPLE WALKTHROUGH:
- * **Input:** nums = [1,2,3]
+  * Input:
+ * ```
+ * nums = [1,2,3]
+ * ```
  *
  * **Step 1:** Initialize result list
  * - Create empty array: result = []

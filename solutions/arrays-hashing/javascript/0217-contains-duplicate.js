@@ -48,7 +48,10 @@
  * A set by definition contains only unique elements - when we convert an array to a set, any duplicates are automatically removed. By comparing the lengths of the original array and the set, we can detect if duplicates existed. The early termination approach works because as soon as we find an element already in our seen set, we've proven a duplicate exists without needing to check the remaining elements.
  *
  * ### EXAMPLE WALKTHROUGH:
- * **Input:** nums = [1, 2, 3, 1]
+  * Input:
+ * ```
+ * nums = [1, 2, 3, 1]
+ * ```
  *
  * **Step 1:** Convert array to set
  * - Input array: [1, 2, 3, 1]

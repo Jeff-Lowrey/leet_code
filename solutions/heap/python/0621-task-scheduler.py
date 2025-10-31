@@ -48,7 +48,10 @@ Schedule most frequent tasks first to minimize idle time. Use max-heap to always
 - Cooldown queue ensures we respect the n interval
 
 ### EXAMPLE WALKTHROUGH:
-**Input:** tasks = ["A","A","A","B","B","B"], n = 2
+Input:
+```
+tasks = ["A","A","A","B","B","B"], n = 2
+```
 
 **Step 1:** Count frequencies using hash map storage
 - Hash map: {A: 3, B: 3}

@@ -66,7 +66,10 @@ This solution uses hash map storage for efficient implementation.
 
 This solution uses set operations for efficient implementation.
 ### EXAMPLE WALKTHROUGH:
- * **Input:** n = 4
+  * Input:
+ * ```
+ * n = 4
+ * ```
  *
  * **Step 1:** Place queen in row 0 for n=4 board
  * - Try col 0: Place Q at (0,0)

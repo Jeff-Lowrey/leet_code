@@ -62,7 +62,10 @@ This solution uses two pointers for efficient implementation.
 
 The solution leverages stack for efficient operations.
 ### EXAMPLE WALKTHROUGH:
- * **Input:** nums = [5,2,3,1]
+  * Input:
+ * ```
+ * nums = [5,2,3,1]
+ * ```
  *
  * **Merge Sort Approach:**
  *

@@ -45,7 +45,10 @@
  * - Alternative sliding window approach uses "exactly k = at most k - at most (k-1)" formula
  * 
  * ### EXAMPLE WALKTHROUGH:
- * **Input:** nums = [1, 1, 2, 1, 1], k = 3
+ * Input:
+ * ```
+ * nums = [1, 1, 2, 1, 1], k = 3
+ * ```
  *
  * **Step 1:** Transform array
  * - Convert odd→1, even→0: [1,1,0,1,1]
@@ -65,7 +68,11 @@
  * - Subarray [1,1,2,1] (indices 0-3)
  * - Subarray [1,2,1,1] (indices 1-4)
  *
- * Result: 2
+ * Output:
+ * ```
+ * 2
+ * ```
+ *
  * ### TIME COMPLEXITY:
  * O(n)
  * Single pass through array with HashMap operations

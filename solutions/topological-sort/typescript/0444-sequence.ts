@@ -50,7 +50,10 @@ This solution uses hash map storage for efficient implementation.
 
 This solution uses set operations for efficient implementation.
 ### EXAMPLE WALKTHROUGH:
- * **Input:** org = [1,2,3], seqs = [[1,2],[1,3],[2,3]]
+  * Input:
+ * ```
+ * org = [1,2,3], seqs = [[1,2],[1,3],[2,3]]
+ * ```
  *
  * **Step 1:** Build graph from seqs for org=[1,2,3], seqs=[[1,2],[1,3],[2,3]]
  * - 1 -> [2, 3]

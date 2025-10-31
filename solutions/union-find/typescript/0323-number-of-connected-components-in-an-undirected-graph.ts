@@ -31,8 +31,7 @@
  * This is a classic **Union-Find** problem for counting connected components. Each connected component is a set of nodes that can reach each other through edges. **Union-Find** efficiently groups nodes into components and counts distinct groups.
  *
  * ### APPROACH:
- * **Data structures: **Array** for **Union-Find** parent and rank tracking**
- * 1. **Initialize **Union-Find****: Each node starts as its own component, using array to store parents
+ * 1. **Initialize **Union-Find****: Each node starts as its own component, using **Array** (parent and rank tracking) to store parents
  * 2. **Process edges**: Union connected nodes using array updates, reducing component count
  * 3. **Count components**: Count number of distinct parent nodes by checking array roots
  *

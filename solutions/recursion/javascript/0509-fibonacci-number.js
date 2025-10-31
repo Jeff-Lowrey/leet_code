@@ -51,7 +51,10 @@
 
 This solution uses iteration for efficient implementation.
 ### EXAMPLE WALKTHROUGH:
- * **Input:** n = 4
+  * Input:
+ * ```
+ * n = 4
+ * ```
  *
  * **Step 1:** Base cases - F(0) = 0, F(1) = 1 (defined by problem)
  *
