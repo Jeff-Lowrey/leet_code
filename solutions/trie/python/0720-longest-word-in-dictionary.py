@@ -1,7 +1,7 @@
 """
 # Difficulty: Easy
 
-# 720. Longest Word In Dictionary
+# 0720. Longest Word In Dictionary
 
 Given an array of strings words representing an English Dictionary, return the longest word in words that can be built one character at a time by other words in words.
 
@@ -19,7 +19,8 @@ If there is more than one possible answer, return the longest word with the smal
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
 **Data Structures**: Hash Map, Hash Set, Array
 **Patterns**: Hash Table Pattern, Graph Pattern
@@ -44,36 +45,44 @@ We need to find the longest word where all its prefixes exist as words in the di
 - Lexicographic ordering handled by trie structure (or sorting)
 
 ### EXAMPLE WALKTHROUGH:
+Input:
+```
+["w", "wo", "wor", "worl", "world"]
+```
+
+Input:
 ```
 words = ["w","wo","wor","worl","world"]
+```
 
 Build Trie:
-  root -> 'w' (word end)
-       -> 'o' (word end)
-       -> 'r' (word end)
-       -> 'l' (word end)
-       -> 'd' (word end)
-
 DFS from root:
-  Visit 'w' (is word) -> can continue
-    Visit 'wo' (is word) -> can continue
-      Visit 'wor' (is word) -> can continue
-        Visit 'worl' (is word) -> can continue
-          Visit 'world' (is word) -> found! length=5
-
-Result: "world" (all prefixes are words)
-
-words = ["a","banana","app","appl","ap","apply","apple"]
-
 Build Trie:
-  root -> 'a' (word end)
-       -> 'p' (word end)
-       -> 'p' (NOT word end) -> can't continue
-       -> 'l' (word end)
-       -> 'e' (word end) -> "apple" ✓
-       -> 'y' (word end) -> "apply" ✓
 
-Result: "apple" (lexicographically smaller than "apply")
+Steps:
+Step 1: root -> 'w' (word end)
+Step 2: -> 'o' (word end)
+Step 3: -> 'r' (word end)
+Step 4: -> 'l' (word end)
+Step 5: -> 'd' (word end)
+Step 6: Visit 'w' (is word) -> can continue
+Step 7: Visit 'wo' (is word) -> can continue
+Step 8: Visit 'wor' (is word) -> can continue
+Step 9: Visit 'worl' (is word) -> can continue
+Step 10: Visit 'world' (is word) -> found! length=5
+Step 11: Result: "world" (all prefixes are words)
+Step 12: words = ["a","banana","app","appl","ap","apply","apple"]
+Step 13: root -> 'a' (word end)
+Step 14: -> 'p' (word end)
+Step 15: -> 'p' (NOT word end) -> can't continue
+Step 16: -> 'l' (word end)
+Step 17: -> 'e' (word end) -> "apple" ✓
+Step 18: -> 'y' (word end) -> "apply" ✓
+Step 19: Result: "apple" (lexicographically smaller than "apply")
+
+Output:
+```
+"world"
 ```
 
 ### TIME COMPLEXITY:
@@ -83,8 +92,7 @@ Where N is number of words, L is average word length
 - DFS traversal: O(N * L)
 
 ### SPACE COMPLEXITY:
-O(N * L)
-For trie storage
+O(N * L) - Trie storage for all words, where N is number of words and L is average word length
 
 ### EDGE CASES:
 - Empty word list
@@ -323,7 +331,7 @@ if __name__ == "__main__":
     words = ["w", "wo", "wor", "worl", "world"]
     print(f"Words: {words}")
     result = solution.longestWord(words)
-    print(f"Longest buildable word: '{result}'")
+    print(f"Longest buildable word: 'result'")
 
     print("\nExample with lexicographic tie:")
     words2 = ["a", "banana", "app", "appl", "ap", "apply", "apple"]

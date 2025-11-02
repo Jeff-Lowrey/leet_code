@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Easy
  *
- * # 026. Remove Duplicates From Sorted Array
+ * # 0026. Remove Duplicates From Sorted Array
+ *
  *
  * Given an integer array nums sorted in non-decreasing order, remove the duplicates in-place such that each unique element appears only once. The relative order of the elements should be kept the same.
  *
@@ -21,12 +22,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Hash Map Storage, Array Traversal
  * **Data Structures**: Array, String, Linked List
  * **Patterns**: Two Pointers Pattern, Hash Table Pattern
- * **Time Complexity**: * O(n) - Single pass through input
- * **Space Complexity**: * O(1) - Constant extra space
+ * **Time Complexity**: O(n) - Single pass through input
+ * **Space Complexity**: O(1) - Constant extra space
 
  *
  * ### INTUITION:
@@ -45,20 +47,24 @@
  * - `i` scans through all elements
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: [1,1,2]
+ * [1,1,2]
+ * ```
+ *
  * i=0, j=0: nums[0]=1 (first element, place at j=0)
  * i=1, j=1: nums[1]=1 == nums[0], skip
  * i=2, j=1: nums[2]=2 != nums[0], place at j=1
  * Result: [1,2,_], return k=2
- * ```
- *
+
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  * Single pass through the array
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  * Only using constant extra space
  *
  * ### EDGE CASES:

@@ -1,5 +1,5 @@
 /**
- * # 2. Add Two Numbers
+ * # 0002. Add Two Numbers
  * 
  * # Difficulty: Medium
  * 
@@ -21,7 +21,8 @@
  * </dl>
  * 
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Hash Map, Hash Set, Array
  * **Patterns**: Two Pointers Pattern, Greedy Algorithm
@@ -44,15 +45,22 @@
  * This works because it mirrors how manual addition operates: processing digits from least to most significant (which the reverse order provides), maintaining a carry that propagates left, and creating the result list node-by-node. The dummy head simplifies edge cases by avoiding null checks, and the loop continues while any input remains or carry exists, ensuring all digits are processed correctly even when lists have different lengths or a final carry needs an extra digit.
  * 
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
  * l1 = [2,4,3] represents 342
+ * ```
+ *
  * l2 = [5,6,4] represents 465
- * 
+ *
+ * Steps:
  * Step 1: `2 + 5` + 0(carry) = 7, `carry = 0` → node(7)
  * Step 2: `4 + 6` + 0(carry) = 10, `carry = 1` → node(0)
  * Step 3: `3 + 4` + 1(carry) = 8, `carry = 0` → node(8)
+ * Step 4: Result: [7,0,8] represents 807
  * 
- * Result: [7,0,8] represents 807
+ * Output:
+ * ```
+ * [7,0,8] represents 807
  * ```
  * 
  * ### TIME COMPLEXITY:
@@ -116,7 +124,7 @@ function runTests(): void {
   for values, n in remove_cases:
   head = create_list(values)
   result = solution_remove.removeNthFromEnd(head, n)
-  console.log(`List: {values}, n={n}`)
+  console.log(`List: {values}, n=n`)
   console.log(`Result: {list_to_array(result)}\n`)
 }
 

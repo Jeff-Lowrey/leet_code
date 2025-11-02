@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Medium
  *
- * # 287. Find The Duplicate Number
+ * # 0287. Find The Duplicate Number
+ *
  *
  * Given an array of integers nums containing n + 1 integers where each integer is in the range [1, n] inclusive.
  *
@@ -21,12 +22,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
  * **Data Structures**: Hash Set, Array, Tree
  * **Patterns**: Two Pointers Pattern, Hash Table Pattern
- * **Time Complexity**: * O(n) - Single pass through input
- * **Space Complexity**: * O(1) - Constant extra space
+ * **Time Complexity**: O(n) - Single pass through input
+ * **Space Complexity**: O(1) - Constant extra space
 
  *
  * ### INTUITION:
@@ -44,34 +46,40 @@
  * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: nums = [1,3,4,2,2]
+ * nums = [1,3,4,2,2]
+ * ```
+ *
  * Step 1: Floyd's cycle detection
- *   slow=nums[0]=1, fast=nums[nums[0]]=3
- *   slow=nums[1]=3, fast=nums[nums[3]]=2
- *   slow=nums[3]=2, fast=nums[nums[2]]=3
- *   slow=nums[2]=4, fast=nums[nums[3]]=2
- *   slow=nums[4]=2, fast=nums[nums[2]]=3
- *   slow=nums[2]=4, fast=nums[nums[3]]=2
- *   slow=nums[4]=2, fast=nums[nums[2]]=3
- *   Meet at 2
- *
+ * slow=nums[0]=1, fast=nums[nums[0]]=3
+ * slow=nums[1]=3, fast=nums[nums[3]]=2
+ * slow=nums[3]=2, fast=nums[nums[2]]=3
+ * slow=nums[2]=4, fast=nums[nums[3]]=2
+ * slow=nums[4]=2, fast=nums[nums[2]]=3
+ * slow=nums[2]=4, fast=nums[nums[3]]=2
+ * slow=nums[4]=2, fast=nums[nums[2]]=3
+ * Meet at 2
  * Step 2: Find cycle entrance
- *   slow2=nums[0]=1, slow=nums[2]=4
- *   slow2=nums[1]=3, slow=nums[4]=2
- *   slow2=nums[3]=2, slow=nums[2]=4
- *   slow2=nums[2]=4, slow=nums[4]=2
- *   slow2=nums[4]=2, slow=nums[2]=4
- *   Meet at 2
+ * slow2=nums[0]=1, slow=nums[2]=4
+ * slow2=nums[1]=3, slow=nums[4]=2
+ * slow2=nums[3]=2, slow=nums[2]=4
+ * slow2=nums[2]=4, slow=nums[4]=2
+ * slow2=nums[4]=2, slow=nums[2]=4
+ * Meet at 2
  *
- * Output: 2 (duplicate number)
+ * Output:
  * ```
- *
+ * 2 (duplicate number)
+ * ```
+
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  *
  * ### EDGE CASES:
  * - Empty input handling

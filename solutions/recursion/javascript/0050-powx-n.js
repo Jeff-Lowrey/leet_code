@@ -1,13 +1,73 @@
 /**
- * # 50. Pow(x, n)
+ * # 0050. Powx N
  *
- * # Difficulty: Medium
+ * Difficulty: Easy
  *
- * Implement pow(x, n), which calculates x raised to the power n (i.e., x^n).
+ * Solve the Powx N problem as described.
  *
- * @param {number} x
- * @param {number} n
- * @return {number}
+ * **Example:**
+ *
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>x = 2.0, n = 10</dd>
+ * <dt>Output:</dt>
+ * <dd>1024.0</dd>
+ * <dt>Explanation:</dt>
+ * <dd>2^10 = 1024</dd>
+ * </dl>
+ *
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ *
+ * ### METADATA:
+ * **Techniques**: Fast Exponentiation, Divide and Conquer
+ * **Data Structures**: Recursion Stack
+ * **Patterns**: Binary Exponentiation, Recursion Pattern
+ * **Time Complexity**: **O(log n)**
+ * **Space Complexity**: **O(log n)** for recursion, **O(1)** for iterative
+ *
+ * ### INTUITION:
+ * Instead of computing x^n by multiplying x by itself n times (O(n)), use fast exponentiation to compute the result in O(log n) by repeatedly squaring and using the property: x^n = (x^(n/2))^2.
+ *
+ * ### APPROACH:
+ * 1. **Base case**: x^0 = 1
+ * 2. **Recursive case**: Compute half = x^(n/2) recursively
+ * 3. **Even exponent**: x^n = half * half
+ * 4. **Odd exponent**: x^n = x * half * half
+ * 5. **Negative exponent**: x^(-n) = 1 / x^n
+ *
+ * ### WHY THIS WORKS:
+ * Binary exponentiation reduces the problem size by half in each step. For example, computing 2^10 only requires computing 2^5, then squaring it, rather than multiplying 2 ten times.
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * x = 2.0, n = 10
+ * ```
+ *
+ * Steps:
+ * Step 1: myPow(2, 10) → half = myPow(2, 5)
+ * Step 2: myPow(2, 5) → half = myPow(2, 2), return 2 * half * half
+ * Step 3: myPow(2, 2) → half = myPow(2, 1), return half * half
+ * Step 4: myPow(2, 1) → half = myPow(2, 0), return 2 * half * half
+ * Step 5: myPow(2, 0) → return 1
+ *
+ * Output:
+ * ```
+ * 1024.0
+ * ```
+
+ * ### TIME COMPLEXITY:
+ * **O(n)** - Analysis of time complexity
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(1)** - Analysis of space complexity
+ *
+ * ### EDGE CASES:
+ * - Handle empty input
+ * - Handle boundary conditions
+ *
+ * </details>
  */
 
 class Solution {

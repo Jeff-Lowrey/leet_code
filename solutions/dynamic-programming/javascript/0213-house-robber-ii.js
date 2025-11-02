@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Medium
  *
- * # 213. House Robber Ii
+ * # 0213. House Robber Ii
+ *
  *
  * You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed. All houses at this place are arranged in a circle. That means the first house is the neighbor of the last one. Meanwhile, adjacent houses have security systems connected, and it will automatically contact the police if two adjacent houses were broken into on the same night.
  *
@@ -19,12 +20,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Array Traversal, Greedy Selection
  * **Data Structures**: Array
  * **Patterns**: Greedy Algorithm
- * **Time Complexity**: * O(n) - Single pass through input
- * **Space Complexity**: * O(1) - Constant extra space
+ * **Time Complexity**: O(n) - Single pass through input
+ * **Space Complexity**: O(1) - Constant extra space
 
  *
  * ### INTUITION:
@@ -42,28 +44,35 @@
  * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: nums = [2,3,2]
+ * nums = [2,3,2]
+ * ```
+ *
  * Step 1: Handle circular array
- *   Case 1: Rob houses [0:n-1] → [2,3] → max = 3
- *   Case 2: Rob houses [1:n] → [3,2] → max = 3
  *
- * Step 2: Case 1 detail
- *   dp[0] = 2
- *   dp[1] = max(2, 3) = 3
+ * Steps:
+ * Step 1: Case 1: Rob houses [0:n-1] → [2,3] → max = 3
+ * Step 2: Case 2: Rob houses [1:n] → [3,2] → max = 3
+ * Step 3: Case 1 detail
+ * Step 4: dp[0] = 2
+ * Step 5: dp[1] = max(2, 3) = 3
+ * Step 6: Case 2 detail
+ * Step 7: dp[0] = 3
+ * Step 8: dp[1] = max(3, 2) = 3
  *
- * Step 3: Case 2 detail
- *   dp[0] = 3
- *   dp[1] = max(3, 2) = 3
- *
- * Output: 3 (maximum money, rob middle house)
+ * Output:
  * ```
- *
+ * 3 (maximum money, rob middle house)
+ * ```
+
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  *
  * ### EDGE CASES:
  * - Empty input handling

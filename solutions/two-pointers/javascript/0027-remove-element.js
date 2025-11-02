@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Medium
  *
- * # 027. Remove Element
+ * # 0027. Remove Element
+ *
  *
  * Given an integer array nums and an integer val, remove all occurrences of val in nums in-place. The order of the elements may be changed. Then return the number of elements in nums which are not equal to val.
  *
@@ -22,12 +23,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Hash Map Storage, Array Traversal, Sorting
  * **Data Structures**: Array, String, Linked List
  * **Patterns**: Two Pointers Pattern, Hash Table Pattern
- * **Time Complexity**: * O(n) - Single pass through input
- * **Space Complexity**: * O(1) - Constant extra space
+ * **Time Complexity**: O(n) - Single pass through input
+ * **Space Complexity**: O(1) - Constant extra space
 
  *
  * ### INTUITION:
@@ -45,22 +47,29 @@
  * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: nums = [3,2,2,3], val = 3
+ * nums = [3,2,2,3], val = 3
+ * ```
+ *
  * Step 1: Two pointers
- *   i=0, nums[0]=3=val, skip
- *   i=1, nums[1]=2≠val, nums[0]=2, i=1
- *   i=2, nums[2]=2≠val, nums[1]=2, i=2
- *   i=3, nums[3]=3=val, skip
+ * i=0, nums[0]=3=val, skip
+ * i=1, nums[1]=2≠val, nums[0]=2, i=1
+ * i=2, nums[2]=2≠val, nums[1]=2, i=2
+ * i=3, nums[3]=3=val, skip
  *
- * Output: k=2, nums=[2,2,_,_]
+ * Output:
  * ```
- *
+ * k=2, nums=[2,2,_,_]
+ * ```
+
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  *
  * ### EDGE CASES:
  * - Empty input handling

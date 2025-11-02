@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 098. Validate Binary Search Tree
+# 0098. Validate Binary Search Tree
 
 Given the root of a binary tree, determine if it is a valid binary search tree (BST).
 
@@ -23,7 +23,8 @@ A valid BST is defined as follows:
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Two Pointers, Stack Operations
 **Data Structures**: Hash Map, Array, Stack
 **Patterns**: Two Pointers Pattern, Binary Search Pattern
@@ -50,23 +51,31 @@ Recursively validate each subtree. For each node, check: left < node < right, an
 - O(n) time visiting all nodes, O(h) space for recursion stack
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: root = [2,1,3]
+root = [2,1,3]
+```
+
 Step 1: In-order traversal
-  Visit left (1), root (2), right (3)
-  Sequence: 1, 2, 3
-
+Visit left (1), root (2), right (3)
+Sequence: 1, 2, 3
 Step 2: Check if sorted
-  1 < 2 < 3 ✓
+1 < 2 < 3 ✓
 
-Output: True (valid BST)
+Output:
+```
+True (valid BST)
 ```
 
 ### TIME COMPLEXITY:
 O(n)
+- Single pass through input
+
 
 ### SPACE COMPLEXITY:
 O(1)
+- Constant extra space
+
 
 ### EDGE CASES:
 - Empty input handling
@@ -125,7 +134,7 @@ def test_solution() -> None:
     # Test case 1: Empty tree
     # Skipped: result = solution.isValidBST(None)  # None input test
     # Skipped: expected = True
-    # Skipped: assert result == expected, f"Expected {expected}, got {result}"
+    # Skipped: assert result == expected, f"Expected expected, got result"
 
     print("Basic functionality test passed! For comprehensive tree tests, build proper TreeNode structures.")
 

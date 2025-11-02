@@ -1,5 +1,5 @@
 """
-# 58. Length Of Last Word
+# 0058. Length Of Last Word
 
 # Difficulty: Easy
 
@@ -20,7 +20,8 @@ A word is a maximal substring consisting of non-space characters only.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
 **Data Structures**: String, Tree
 **Patterns**: Two Pointers Pattern, Hash Table Pattern
@@ -49,8 +50,11 @@ Alternative approaches:
 - Handles edge cases like multiple trailing spaces
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: "Hello World"
+"Hello World"
+"   fly me   to   the moon  "
+```
 
 Method 1 (Strip and Count):
 1. Strip: "Hello World" (no trailing spaces)
@@ -58,15 +62,11 @@ Method 1 (Strip and Count):
 3. Count: d(1), l(2), r(3), o(4), W(5)
 4. Hit space, stop
 Result: 5
-
-Input: "   fly me   to   the moon  "
-
 Method 1:
 1. Strip: "   fly me   to   the moon"
 2. Count from 'n': n(1), o(2), o(3), m(4)
 3. Hit space, stop
 Result: 4
-```
 
 ### TIME COMPLEXITY:
 O(n)
@@ -264,7 +264,7 @@ if __name__ == "__main__":
     for test in test_cases:
         result = solution.lengthOfLastWord(test)
         print(f"Input:  '{test}'")
-        print(f"Length of last word: {result}")
+        print(f"Length of last word: result")
         print()
 
     # Demonstrate the logic

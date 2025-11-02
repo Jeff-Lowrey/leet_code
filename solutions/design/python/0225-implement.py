@@ -1,7 +1,7 @@
 """
 # Difficulty: Easy
 
-# 225. Implement Stack using Queues
+# 0225. Implement Stack using Queues
 
 Implement a last-in-first-out (LIFO) stack using only two queues.
 
@@ -27,7 +27,8 @@ myStack.empty(); // return False
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Stack Operations, Queue Operations
 **Data Structures**: Array, Stack, Queue
 **Patterns**: Iterative Solution
@@ -56,14 +57,17 @@ The most efficient approach is to reverse on push, making pop O(1).
 - Only push is O(n), which is acceptable
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
 push(1): queue = [1]
-push(2): queue = [2] -> rotate -> [2, 1]
-push(3): queue = [3, 2, 1] -> rotate -> [3, 2, 1]
-top() -> 3
-pop() -> 3, queue = [2, 1]
-top() -> 2
 ```
+
+Steps:
+Step 1: push(2): queue = [2] -> rotate -> [2, 1]
+Step 2: push(3): queue = [3, 2, 1] -> rotate -> [3, 2, 1]
+Step 3: top() -> 3
+Step 4: pop() -> 3, queue = [2, 1]
+Step 5: top() -> 2
 
 ### TIME COMPLEXITY:
 - push: O(n) - need to rotate queue

@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 515. Find Largest Value in Each Tree Row
+# 0515. Find Largest Value in Each Tree Row
 
 Given the root of a binary tree, return an array of the largest value in each row of the tree (0-indexed).
 
@@ -17,7 +17,8 @@ Given the root of a binary tree, return an array of the largest value in each ro
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Map Storage, Array Traversal, Two Pointers
 **Data Structures**: Array, Stack, Queue
 **Patterns**: Two Pointers Pattern, Hash Table Pattern
@@ -44,18 +45,19 @@ For each level, track the maximum value among all nodes at that level.
 - Each level's maximum is independent of other levels
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
 Tree:      1
-         /   \\
-        3     2
-       / \\     \\
-      5   3     9
+```
 
+/   \\
+3     2
+/ \\     \\
+5   3     9
 Level 0: max = 1
 Level 1: max = max(3, 2) = 3
 Level 2: max = max(5, 3, 9) = 9
 Result: [1, 3, 9]
-```
 
 ### TIME COMPLEXITY:
 O(n)

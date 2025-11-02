@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Medium
  *
- * # 451. Sort Characters By Frequency
+ * # 0451. Sort Characters By Frequency
+ *
  *
  * Given a string s, sort it in decreasing order based on the frequency of the characters.
  * The frequency of a character is the number of times it appears in the string.
@@ -20,12 +21,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Hash Map, Hash Set, Array
  * **Patterns**: Hash Table Pattern
- * **Time Complexity**: * O(n log k)
- * **Space Complexity**: * O(k)
+ * **Time Complexity**: O(n log k)
+ * **Space Complexity**: O(k)
 
  *
  * ### INTUITION:
@@ -44,13 +46,20 @@
  * - Multiple characters can appear in any order at same frequency
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: s = "tree"
+ * s = "tree"
+ * ```
+ *
  * Step 1: Count frequencies: {'t': 1, 'r': 1, 'e': 2}
  * Step 2: Sort by frequency: [('e', 2), ('t', 1), ('r', 1)]
  * Step 3: Build result: "eert" (or "eetr")
+ * 
+ * Output:
  * ```
- *
+ * "eert"
+ * ```
+ * 
  * ### TIME COMPLEXITY:
  * O(n log k)
  * Where n is string length, k is number of unique characters

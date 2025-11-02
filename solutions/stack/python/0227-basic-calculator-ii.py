@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 227. Basic Calculator Ii
+# 0227. Basic Calculator Ii
 
 Given a string s which represents an expression, evaluate this expression and return its value.
 
@@ -23,7 +23,8 @@ Note: You are not allowed to use any built-in function which evaluates strings a
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Stack Operations
 **Data Structures**: Hash Set, Array, String
 **Patterns**: Iterative Solution
@@ -51,24 +52,34 @@ Use stack to handle operators. Scan number by number. For +/- push to stack. For
 - O(n) time: single pass, O(n) space for stack
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: s = "3+2*2"
+s = "3+2*2"
+```
+
 Step 1: Parse and evaluate
-  num=3, op='+', stack=[3]
-  num=2, op='*', stack=[3,2]
-  num=2, op=None, stack=[3,4] (multiply 2*2)
-
+num=3, op='+', stack=[3]
+num=2, op='*', stack=[3,2]
+num=2, op=None, stack=[3,4] (multiply 2*2)
 Step 2: Sum stack
-  result = 3+4 = 7
+result = 3+4 = 7
 
-Output: 7
+Output:
+```
+7
 ```
 
 ### TIME COMPLEXITY:
 O(n)
 
+- Single pass through the input
+
+
 ### SPACE COMPLEXITY:
 O(1)
+
+- Constant extra space
+
 
 ### EDGE CASES:
 - Empty input handling
@@ -146,17 +157,17 @@ def test_solution() -> None:
     # Test case 1: Example from problem
     result = solution.calculate("3+2*2")
     expected = 7
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: Empty input
     result = solution.calculate("")
     expected = 0
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 3: Single number
     result = solution.calculate("42")
     expected = 42
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

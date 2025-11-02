@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Medium
  *
- * # 22. Generate Parentheses
+ * # 0022. Generate Parentheses
+ *
  *
  * Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.
  *
@@ -11,13 +12,14 @@
  * <dt>Input:</dt>
  * <dd>["()"]</dd>
  * <dt>Output:</dt>
- * <dd>1</dd>
+ * <dd>[]</dd>
  * <dt>Explanation:</dt>
  * <dd>All combinations of n=3 parentheses: ['((()))','(()())','(())()','()(())','()()()']</dd>
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Array, String, Stack
  * **Patterns**: Two Pointers Pattern, Hash Table Pattern
@@ -42,19 +44,26 @@
  * - Backtracking explores all valid combinations
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
  * n = 3:
- *
- * Start: ""
- * ├─ "(" → "(("  → "(((" → "((())" → "((()))"
- * │                      → "(()"   → "(()())"
- * │                                → "(())()"
- * │      → "("   → "()"   → "()((" → "()(())"
- * │                       → "()("  → "()()()"
- *
- * Result: ["((()))", "(()())", "(())()", "()(())", "()()()"]
  * ```
  *
+ * Start: ""
+ *
+ * Steps:
+ * Step 1: ├─ "(" → "(("  → "(((" → "((())" → "((()))"
+ * Step 2: │                      → "(()"   → "(()())"
+ * Step 3: │                                → "(())()"
+ * Step 4: │      → "("   → "()"   → "()((" → "()(())"
+ * Step 5: │                       → "()("  → "()()()"
+ * Step 6: Result: ["((()))", "(()())", "(())()", "()(())", "()()()"]
+ * 
+ * Output:
+ * ```
+ * ["((()))", "(()())", "(())()", "()(())", "()()()"]
+ * ```
+ * 
  * ### TIME COMPLEXITY:
  * O(4^n / √n)
  * Catalan number: C(n) = (2n)! / ((n+1)! * n!)

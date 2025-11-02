@@ -1,5 +1,8 @@
 /**
- * # Difficulty: Easy
+ * # 0541. Reverse String Ii
+ *
+ * Difficulty: Medium
+ *
  *
  * Given a string s and an integer k, reverse the first k characters for every 2k
  * characters counting from the start of the string.
@@ -28,12 +31,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Array Traversal, Two Pointers, Greedy Selection
  * **Data Structures**: Array, String, Tree
  * **Patterns**: Two Pointers Pattern, Greedy Algorithm
- * **Time Complexity**: * O(n) - Single pass through input
- * **Space Complexity**: * O(n)
+ * **Time Complexity**: O(n) - Single pass through input
+ * **Space Complexity**: O(n)
 
  *
  * ### INTUITION:
@@ -58,23 +62,30 @@
  * - Edge cases are naturally handled by min(i+k, len(s))
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: s = "abcdefg", k = 2
+ * s = "abcdefg", k = 2
+ * ```
  *
  * Chunks of 2k = 4:
  * 1. i=0: Process chars[0:4] = "abcd"
- *    - Reverse chars[0:2] = "ab" → "ba"
- *    - Result: "bacd"
  *
- * 2. i=4: Process chars[4:8] = "efg"
- *    - Reverse chars[4:6] = "ef" → "fe"
- *    - Result: "feg"
- *
- * Final: "bacd" + "feg" = "bacdfeg"
+ * Steps:
+ * Step 1: - Reverse chars[0:2] = "ab" → "ba"
+ * Step 2: - Result: "bacd"
+ * Step 3: i=4: Process chars[4:8] = "efg"
+ * Step 4: - Reverse chars[4:6] = "ef" → "fe"
+ * Step 5: - Result: "feg"
+ * Step 6: Final: "bacd" + "feg" = "bacdfeg"
+ * 
+ * Output:
  * ```
- *
+ * "bacd"
+ * ```
+ * 
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  * - Visit each character once during iteration
  * - Reversing k characters per 2k chunk is O(k) but amortized O(n)
  *

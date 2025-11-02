@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Medium
  *
- * # 009. Palindrome
+ * # 0009. Palindrome Number
+ *
  *
  * Given an integer x, return true if x is a palindrome, and false otherwise.
  *
@@ -17,12 +18,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Array Traversal
  * **Data Structures**: Basic Types
  * **Patterns**: Iterative Solution
- * **Time Complexity**: * O(n) - Single pass through input
- * **Space Complexity**: * O(1) - Constant extra space
+ * **Time Complexity**: O(n) - Single pass through input
+ * **Space Complexity**: O(1) - Constant extra space
 
  *
  * ### INTUITION:
@@ -40,25 +42,31 @@
  * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: x = 121
+ * x = 121
+ * ```
+ *
  * Step 1: Reverse half of the number
- *   original = 121, reversed = 0
- *   reversed = 0*10 + 1 = 1, x = 12
- *   reversed = 1*10 + 2 = 12, x = 1
- *
+ * original = 121, reversed = 0
+ * reversed = 0*10 + 1 = 1, x = 12
+ * reversed = 1*10 + 2 = 12, x = 1
  * Step 2: Compare
- *   x = 1, reversed = 12
- *   12/10 = 1, equals x
+ * x = 1, reversed = 12
+ * 12/10 = 1, equals x
  *
- * Output: True (is palindrome)
+ * Output:
  * ```
- *
+ * True (is palindrome)
+ * ```
+
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  *
  * ### EDGE CASES:
  * - Empty input handling

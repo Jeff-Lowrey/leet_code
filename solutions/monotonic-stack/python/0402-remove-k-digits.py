@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 402. Remove K Digits
+# 0402. Remove K Digits
 
 Given string num representing a non-negative integer num, and an integer k, return the smallest possible integer after removing k digits from num.
 
@@ -17,7 +17,8 @@ Given string num representing a non-negative integer num, and an integer k, retu
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
 **Data Structures**: Array, String, Stack
 **Patterns**: Two Pointers Pattern, Greedy Algorithm
@@ -45,25 +46,34 @@ Use monotonic increasing stack. Remove k digits greedily by popping larger digit
 - Greedy works: removing leftmost large digits always improves result
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: num = "1432219", k = 3
-Step 1: Use monotonic stack
-  Add '1': stack=['1']
-  Add '4': stack=['1','4']
-  Add '3': pop '4' (3<4), k=2, stack=['1','3']
-  Add '2': pop '3' (2<3), k=1, stack=['1','2']
-  Add '2': stack=['1','2','2']
-  Add '1': pop '2' (1<2), k=0, stack=['1','2','1']
-  Add '9': stack=['1','2','1','9']
+num = "1432219", k = 3
+```
 
-Output: "1219"
+Step 1: Use monotonic stack
+Add '1': stack=['1']
+Add '4': stack=['1','4']
+Add '3': pop '4' (3<4), k=2, stack=['1','3']
+Add '2': pop '3' (2<3), k=1, stack=['1','2']
+Add '2': stack=['1','2','2']
+Add '1': pop '2' (1<2), k=0, stack=['1','2','1']
+Add '9': stack=['1','2','1','9']
+
+Output:
+```
+"1219"
 ```
 
 ### TIME COMPLEXITY:
 O(n)
+- Single pass through input
+
 
 ### SPACE COMPLEXITY:
 O(1)
+- Constant extra space
+
 
 ### EDGE CASES:
 - Empty input handling
@@ -125,12 +135,12 @@ def test_solution() -> None:
     # Test case 1: Example from problem
     result = solution.removeKdigits("1432219", 3)
     expected = "1219"
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: Remove all digits
     result = solution.removeKdigits("10", 2)
     expected = "0"
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

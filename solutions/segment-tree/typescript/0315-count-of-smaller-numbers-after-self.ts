@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Hard
  *
- * # 315. Count Of Smaller Numbers After Self
+ * # 0315. Count Of Smaller Numbers After Self
+ *
  *
  * Given an integer array nums, return an integer array counts where counts[i] is the number of smaller elements to the right of nums[i].
  *
@@ -17,7 +18,8 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Hash Set, Array, Tree
  * **Patterns**: Two Pointers Pattern, Hash Table Pattern
@@ -40,22 +42,30 @@
  * A set by definition contains only unique elements - when we convert an array to a set, any duplicates are automatically removed. By comparing the lengths of the original array and the set, we can detect if duplicates existed. The early termination approach works because as soon as we find an element already in our seen set, we've proven a duplicate exists without needing to check the remaining elements.
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: [5,2,6,1]
+ * [5,2,6,1]
+ * ```
+ *
  * Process right to left:
  * - nums[3]=1: no elements after it, count=0
  * - nums[2]=6: elements after: [1], smaller: 1, count=1
  * - nums[1]=2: elements after: [6,1], smaller: 1, count=1
  * - nums[0]=5: elements after: [2,6,1], smaller: 2, count=2
- * Output: [2,1,1,0]
- * ```
  *
+ * Output:
+ * ```
+ * [2,1,1,0]
+ * ```
+
  * ### TIME COMPLEXITY:
  * O(n log n)
+ * - Sorting or divide-and-conquer
  * For merge sort and tree-based approaches
  *
  * ### SPACE COMPLEXITY:
  * O(n)
+ * - Additional set storage
  * For auxiliary data structures
  *
  * ### EDGE CASES:

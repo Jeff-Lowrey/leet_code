@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  * 
- * # 692. Top K Frequent Words
+ * # 0692. Top K Frequent Words
  * 
  * Given an array of strings words and an integer k, return the k most frequent strings.
  * 
@@ -11,15 +11,16 @@
  * 
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[3, 2]</dd>
+ * <dd>words = ["i","love","leetcode","i","love","coding"], k = 2</dd>
  * <dt>Output:</dt>
- * <dd>"Expected {expected}, got {result}"</dd>
+ * <dd>["i", "love"] (after reversing)</dd>
  * <dt>Explanation:</dt>
  * <dd>Top k=2 frequent words in ['i','love','leetcode','i','love','coding'] are ['i','love']</dd>
  * </dl>
  * 
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Hash Map, Array, String
  * **Patterns**: Hash Table Pattern
@@ -42,8 +43,11 @@
  * - Final result needs reversal because heap gives us reverse order
  * 
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: words = ["i","love","leetcode","i","love","coding"], k = 2
+ * words = ["i","love","leetcode","i","love","coding"], k = 2
+ * ```
+ *
  * Frequencies: {"i": 2, "love": 2, "leetcode": 1, "coding": 1}
  * Heap process:
  * - Add ("i", 2): heap = [(-2, "i")]
@@ -53,8 +57,7 @@
  * - Add ("coding", 1): heap = [(-1, "coding"), (-2, "i"), (-2, "love")]
  * - Remove coding: heap = [(-2, "love"), (-2, "i")]
  * Result: ["i", "love"] (after reversing)
- * ```
- * 
+
  * ### TIME COMPLEXITY:
  * O(N log k)
  * Where N is number of words, k is the result size. Heap operations are O(log k).

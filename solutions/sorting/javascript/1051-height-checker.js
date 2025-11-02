@@ -3,6 +3,7 @@
  *
  * # 1051. Height Checker
  *
+ *
  * A school is trying to take an annual photo of all the students. The students are asked to stand in a single file line in non-decreasing order by height. Let this ordering be represented by the integer array expected where expected[i] is the expected height of the ith student in line.
  *
  * You are given an integer array heights representing the current order that the students are standing in. Each heights[i] is the height of the ith student in line (0-indexed).
@@ -21,12 +22,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Array Traversal, Sorting
  * **Data Structures**: Array
  * **Patterns**: Hash Table Pattern
- * **Time Complexity**: * O(n log n) - Sorting or divide-and-conquer
- * **Space Complexity**: * O(n)
+ * **Time Complexity**: O(n log n) - Sorting or divide-and-conquer
+ * **Space Complexity**: O(n)
 
  *
  * ### INTUITION:
@@ -43,21 +45,22 @@
  * - Simple comparison gives us the mismatch count
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: heights = [1,1,4,2,1,3]
- * Expected (sorted): [1,1,1,2,3,4]
+ * heights = [1,1,4,2,1,3]
+ * ```
  *
+ * Expected (sorted): [1,1,1,2,3,4]
  * Compare:
  * Current:  [1,1,4,2,1,3]
  * Expected: [1,1,1,2,3,4]
  * Match:     ✓ ✓ ✗ ✓ ✗ ✗
- *
  * Mismatches at indices: 2, 4, 5
  * Count: 3
- * ```
- *
+
  * ### TIME COMPLEXITY:
  * O(n log n)
+ * - Sorting or divide-and-conquer
  * Due to sorting the array
  *
  * ### SPACE COMPLEXITY:

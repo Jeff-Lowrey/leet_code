@@ -1,5 +1,5 @@
 """
-# 509. Fibonacci Number
+# 0509. Fibonacci Number
 
 # Difficulty: Easy
 
@@ -71,90 +71,125 @@ O(n) - recursion stack depth
 """
 
 
-class Solution:
-    def fib(self, n: int) -> int:
-        """
-        Calculate Fibonacci number using simple recursion.
+def fib(n: int) -> int:
+    """
+    Calculate nth Fibonacci number using memoized recursion.
 
-        Time Complexity: O(2^n)
-        Space Complexity: O(n)
-        """
-        # Base cases
-        if n <= 1:
-            return n
+    Args:
+        n: Non-negative integer
 
-        # Recursive case
-        return self.fib(n - 1) + self.fib(n - 2)
+    Returns:
+        The nth Fibonacci number
+    """
+    memo = {}
 
-    def fibMemoization(self, n: int) -> int:
-        """
-        Calculate Fibonacci using recursion with memoization.
+    def helper(k: int) -> int:
+        if k in memo:
+            return memo[k]
 
-        Time Complexity: O(n)
-        Space Complexity: O(n)
-        """
-        memo: dict[int, int] = {}
+        if k <= 1:
+            return k
 
-        def helper(num: int) -> int:
-            if num <= 1:
-                return num
+        memo[k] = helper(k - 1) + helper(k - 2)
+        return memo[k]
 
-            if num in memo:
-                return memo[num]
-
-            memo[num] = helper(num - 1) + helper(num - 2)
-            return memo[num]
-
-        return helper(n)
-
-    def fibIterative(self, n: int) -> int:
-        """
-        Calculate Fibonacci iteratively (most efficient).
-
-        Time Complexity: O(n)
-        Space Complexity: O(1)
-        """
-        if n <= 1:
-            return n
-
-        prev2 = 0
-        prev1 = 1
-
-        for _ in range(2, n + 1):
-            current = prev1 + prev2
-            prev2 = prev1
-            prev1 = current
-
-        return prev1
+    return helper(n)
 
 
-def test_solution() -> None:
-    """Test cases for 509. Fibonacci Number."""
-    solution = Solution()
+def fibNaive(n: int) -> int:
+    """
+    Naive recursive solution (exponential time).
 
-    # Test case 1
-    assert solution.fib(0) == 0
-    assert solution.fib(1) == 1
-    assert solution.fib(2) == 1
-    assert solution.fib(3) == 2
-    assert solution.fib(4) == 3
-    assert solution.fib(5) == 5
+    Args:
+        n: Non-negative integer
 
-    # Test with memoization
-    assert solution.fibMemoization(10) == 55
-    assert solution.fibMemoization(15) == 610
+    Returns:
+        The nth Fibonacci number
+    """
+    if n <= 1:
+        return n
+    return fibNaive(n - 1) + fibNaive(n - 2)
 
-    # Test iterative
-    assert solution.fibIterative(20) == 6765
 
-    print("All test cases passed!")
+def fibIterative(n: int) -> int:
+    """
+    Iterative solution with O(1) space.
+
+    Args:
+        n: Non-negative integer
+
+    Returns:
+        The nth Fibonacci number
+    """
+    if n <= 1:
+        return n
+
+    prev2, prev1 = 0, 1
+
+    for _ in range(2, n + 1):
+        current = prev1 + prev2
+        prev2, prev1 = prev1, current
+
+    return prev1
+
+
+def fibDP(n: int) -> int:
+    """
+    Bottom-up dynamic programming solution.
+
+    Args:
+        n: Non-negative integer
+
+    Returns:
+        The nth Fibonacci number
+    """
+    if n <= 1:
+        return n
+
+    dp = [0] * (n + 1)
+    dp[1] = 1
+
+    for i in range(2, n + 1):
+        dp[i] = dp[i - 1] + dp[i - 2]
+
+    return dp[n]
 
 
 if __name__ == "__main__":
-    test_solution()
+    # Test cases
+    test_cases = [
+        (0, 0),
+        (1, 1),
+        (2, 1),
+        (3, 2),
+        (4, 3),
+        (5, 5),
+        (6, 8),
+        (10, 55),
+        (15, 610)
+    ]
 
-    # Example usage
-    solution = Solution()
-    print("=== 509. Fibonacci Number ===")
-    for i in range(10):
-        print(f"F({i}) = {solution.fib(i)}")
+    print("Testing fib (memoized recursion):")
+    for n, expected in test_cases:
+        result = fib(n)
+        status = "✓" if result == expected else "✗"
+        print(f"{status} fib(n) = result, expected = expected")
+
+    print("\nTesting fibIterative (O(1) space):")
+    for n, expected in test_cases:
+        result = fibIterative(n)
+        status = "✓" if result == expected else "✗"
+        print(f"{status} fibIterative(n) = result, expected = expected")
+
+    print("\nTesting fibDP (bottom-up DP):")
+    for n, expected in test_cases:
+        result = fibDP(n)
+        status = "✓" if result == expected else "✗"
+        print(f"{status} fibDP(n) = result, expected = expected")
+
+    # Only test naive version with small inputs (exponential time!)
+    print("\nTesting fibNaive (naive recursion - small inputs only):")
+    for n, expected in test_cases[:7]:  # Only first 7 test cases
+        result = fibNaive(n)
+        status = "✓" if result == expected else "✗"
+        print(f"{status} fibNaive(n) = result, expected = expected")

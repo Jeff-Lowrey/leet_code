@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Easy
  *
- * # 860. Lemonade Change
+ * # 0860. Lemonade Change
+ *
  *
  * At a lemonade stand, each lemonade costs $5. Customers are standing in a queue to buy from you and order one at a time (in the order specified by bills). Each customer will only buy one lemonade and pay with either a $5, $10, or $20 bill. You must provide the correct change to each customer so that the net transaction is that the customer pays $5.
  *
@@ -21,7 +22,8 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Array Traversal, Queue Operations
  * **Data Structures**: Array, Queue
  * **Patterns**: Hash Table Pattern, Greedy Algorithm
@@ -41,22 +43,31 @@
  * The algorithm correctly solves the problem by systematically exploring all valid states while maintaining necessary invariants. Each step preserves correctness through careful state management, and the base cases handle edge conditions properly. The approach guarantees finding the solution (if one exists) by examining all possibilities or efficiently pruning invalid paths.
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: [5,5,5,10,20]
+ * [5,5,5,10,20]
+ * ```
+ *
+ * Steps:
  * Step 1: 5 → count_5=1, count_10=0 ✓
  * Step 2: 5 → count_5=2, count_10=0 ✓
  * Step 3: 5 → count_5=3, count_10=0 ✓
  * Step 4: 10 → need $5 change → count_5=2, count_10=1 ✓
  * Step 5: 20 → need $15 change → use 1×$10 + 1×$5 → count_5=1, count_10=0 ✓
- * Output: True
- * ```
  *
+ * Output:
+ * ```
+ * True
+ * ```
+
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  * Process each customer once
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  * Only tracking counts of two bill denominations
  *
  * ### EDGE CASES:

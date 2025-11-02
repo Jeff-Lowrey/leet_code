@@ -1,7 +1,11 @@
 /**
+ * # 0037. Sudoku Solver
+ * Difficulty: Hard
+ *
+ *
  * # Difficulty:
  *
- * # 037. Sudoku Solver
+ * # 0037. Sudoku Solver
  * **Backtracking**
  *
  * Solve a Sudoku puzzle by filling the empty cells.
@@ -10,7 +14,7 @@
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[["5", "3", ".", ".", "7", ".", ".", ".", "."]</dd>
+ * <dd>[["5", "3", ".", ".", "7", ".", ".", ".", "."]]</dd>
  * <dt>Output:</dt>
  * <dd>1</dd>
  * <dt>Explanation:</dt>
@@ -18,12 +22,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Array Traversal, Stack Operations, Backtracking
  * **Data Structures**: Array, String, Stack
  * **Patterns**: Backtracking
- * **Time Complexity**: * O(9^(n*n)) worst case, where n=9
- * **Space Complexity**: * O(n*n) for recursion stack
+ * **Time Complexity**: O(9^(n*n)) worst case, where n=9
+ * **Space Complexity**: O(n*n) for recursion stack
 
  *
  * ### INTUITION:
@@ -45,15 +50,21 @@
  * - Modifies board in-place for efficiency
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: board with some filled cells and '.' for empty
+ * board with some filled cells and '.' for empty
+ * ```
+ *
  * Step 1: Find first empty cell
  * Step 2: Try placing '1' - check if valid
  * Step 3: Recurse to next empty cell
  * Step 4: If contradiction found, backtrack and try '2'
- * Output: Completed valid Sudoku board
- * ```
  *
+ * Output:
+ * ```
+ * Completed valid Sudoku board
+ * ```
+
  * ### TIME COMPLEXITY:
  * O(9^(n*n)) worst case, where n=9
  *

@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Hard
  * 
- * # 297. Serialize and Deserialize Binary Tree
+ * # 0297. Serialize and Deserialize Binary Tree
  * 
  * Serialization is the process of converting a data structure or object into a sequence of bits so that it can be stored in a file or memory buffer, or transmitted across a network connection link to be reconstructed later in the same or another computer environment.
  * 
@@ -21,7 +21,8 @@
  * </dl>
  * 
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Two Pointers, Stack Operations, Tree Traversal
  * **Data Structures**: String, Stack, Tree
  * **Patterns**: Two Pointers Pattern, Tree Pattern
@@ -44,13 +45,15 @@
  * - The serialized string uniquely represents the tree
  * 
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
  * Input tree:     1
- *                / \
- *               2   3
- *                  / \
- *                 4   5
- * 
+ * ```
+ *
+ * / \
+ * 2   3
+ * / \
+ * 4   5
  * Serialize: "1,2,#,#,3,4,#,#,5,#,#"
  * - Visit 1, add "1"
  * - Visit 2, add "2"
@@ -63,10 +66,8 @@
  * - Visit 5, add "5"
  * - Visit left child of 5 (null), add "#"
  * - Visit right child of 5 (null), add "#"
- * 
  * Deserialize: Split by comma and reconstruct using preorder
- * ```
- * 
+
  * ### TIME COMPLEXITY:
  * O(n)
  * Where n is the number of nodes in the tree

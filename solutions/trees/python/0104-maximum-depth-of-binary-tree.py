@@ -1,7 +1,7 @@
 """
 # Difficulty: Easy
 
-# 104. Maximum Depth of Binary Tree
+# 0104. Maximum Depth of Binary Tree
 
 Given the root of a binary tree, return its maximum depth.
 
@@ -11,18 +11,19 @@ A binary tree's maximum depth is the number of nodes along the longest path from
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[("Recursive DFS", solution.maxDepth),
+<dd>[3,9,20,null,null,15,7]</dd>
         ("BFS Level-order", solution.maxDepthBFS),
         ("Iterative DFS", solution.maxDepthIterativeDFS),
         ("Preorder traversal", solution.maxDepthPreorder)]</dd>
 <dt>Output:</dt>
-<dd>"{name}: {result}"</dd>
+<dd>3</dd>
 <dt>Explanation:</dt>
 <dd>The maximum depth of the tree is 3 (from root to deepest leaf)</dd>
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Array Traversal, Two Pointers
 **Data Structures**: Array, Stack, Queue
 **Patterns**: Two Pointers Pattern, Hash Table Pattern
@@ -44,14 +45,16 @@ The maximum depth of a binary tree is simply 1 plus the maximum depth of its lef
 - Both DFS and BFS can solve this problem effectively
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: [3,9,20,null,null,15,7]
-       3
-      / \
-     9  20
-       /  \
-      15   7
+[3,9,20,null,null,15,7]
+```
 
+3
+/ \
+9  20
+/  \
+15   7
 1. maxDepth(3): 1 + max(maxDepth(9), maxDepth(20))
 2. maxDepth(9): 1 + max(0, 0) = 1
 3. maxDepth(20): 1 + max(maxDepth(15), maxDepth(7))
@@ -59,7 +62,10 @@ Input: [3,9,20,null,null,15,7]
 5. maxDepth(7): 1 + max(0, 0) = 1
 6. maxDepth(20): 1 + max(1, 1) = 2
 7. maxDepth(3): 1 + max(1, 2) = 3
-Output: 3
+
+Output:
+```
+3
 ```
 
 ### TIME COMPLEXITY:
@@ -321,7 +327,7 @@ if __name__ == "__main__":
 
     for name, method in approaches:
         result = method(tree1)
-        print(f"{name}: {result}")
+        print(f"{name}: result")
 
     print(f"\nKey insights:")
     print(f"1. Recursive solution: depth = 1 + max(left_depth, right_depth)")

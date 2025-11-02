@@ -1,7 +1,7 @@
 """
 # Difficulty: Hard
 
-# 051. N Queens
+# 0051. N Queens
 
 The n-queens puzzle is the problem of placing n queens on an n×n chessboard
 such that no two queens attack each other.
@@ -32,7 +32,8 @@ Output: [["Q"]]
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
 **Data Structures**: Hash Set, Array, String
 **Patterns**: Hash Table Pattern, Backtracking
@@ -217,17 +218,17 @@ def test_solution() -> None:
     # Test case 2: N = 1 (single queen)
     result = solution.solveNQueens(1)
     expected = [["Q"]]
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 3: N = 2 (no solution)
     result = solution.solveNQueens(2)
     expected: list[Any] = []
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 4: Count solutions for N = 4
     result = solution.solveNQueensCount(4)
     expected = 2
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

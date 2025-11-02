@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Medium
  *
- * # 142. Linked List Cycle Ii
+ * # 0142. Linked List Cycle Ii
+ *
  *
  * Given the head of a linked list, return the node where the cycle begins. If there is no cycle, return null.
  *
@@ -21,7 +22,8 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Standard Algorithm
  * **Data Structures**: Array, Linked List
  * **Patterns**: Two Pointers Pattern
@@ -49,23 +51,31 @@
  * - O(n) time with two passes, O(1) space with only two pointers
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: head = [3,2,0,-4], pos = 1
+ * head = [3,2,0,-4], pos = 1
+ * ```
+ *
  * Step 1: Detect cycle
- *   slow and fast meet at -4
- *
+ * slow and fast meet at -4
  * Step 2: Find cycle start
- *   slow=3, slow2=3
- *   slow=2, slow2=2 → both at cycle start
+ * slow=3, slow2=3
  *
- * Output: node 2 (cycle begins here)
+ * Steps:
+ * Step 1: slow=2, slow2=2 → both at cycle start
+ *
+ * Output:
  * ```
- *
+ * node 2 (cycle begins here)
+ * ```
+
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  *
  * ### EDGE CASES:
  * - Empty input handling

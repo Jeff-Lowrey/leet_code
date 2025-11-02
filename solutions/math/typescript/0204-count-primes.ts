@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Medium
  *
- * # 204. Count Primes
+ * # 0204. Count Primes
+ *
  *
  * Given an integer n, return the number of prime numbers that are strictly less than n.
  *
@@ -17,7 +18,8 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Map Storage, Array Traversal
  * **Data Structures**: Array
  * **Patterns**: Hash Table Pattern
@@ -38,17 +40,24 @@
  * - Remaining numbers must be prime
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
  * n = 10:
- * Array: [2, 3, 4, 5, 6, 7, 8, 9]
+ * ```
  *
+ * Array: [2, 3, 4, 5, 6, 7, 8, 9]
  * Mark multiples of 2: [2, 3, X, 5, X, 7, X, X]
  * Mark multiples of 3: [2, 3, X, 5, X, 7, X, X]
  * Mark multiples of 5: (5² = 25 > 10, skip)
  *
- * Primes: [2, 3, 5, 7] → Count = 4
+ * Steps:
+ * Step 1: Primes: [2, 3, 5, 7] → Count = 4
+ * 
+ * Output:
  * ```
- *
+ * Count = 4
+ * ```
+ * 
  * ### TIME COMPLEXITY:
  * O(n log log n)
  * Sieve of Eratosthenes complexity

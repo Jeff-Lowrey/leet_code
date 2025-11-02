@@ -1,5 +1,8 @@
 /**
- * # Difficulty: Medium
+ * # 0974. Subarray Sums Divisible By K
+ *
+ * Difficulty: Medium
+ *
  *
  * Given an integer array nums and an integer k, return the number of non-empty subarrays
  * that have a sum divisible by k.
@@ -24,12 +27,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Hash Map, Hash Set, Array
  * **Patterns**: Hash Table Pattern
- * **Time Complexity**: * O(n) - Single pass through input
- * **Space Complexity**: * O(min(n, k))
+ * **Time Complexity**: O(n) - Single pass through input
+ * **Space Complexity**: O(min(n, k))
 
  *
  * ### INTUITION:
@@ -49,11 +53,13 @@
  * incrementally: each new occurrence pairs with all previous occurrences.
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
  * nums = [4,5,0,-2,-3,1], k = 5
+ * ```
+ *
  * Prefix sums: [4, 9, 9, 7, 4, 5]
  * Remainders: [4, 4, 4, 2, 4, 0]
- *
  * Initialize: {0: 1}  # remainder 0 before array
  * Index 0: rem=4, count=0 (not seen), add {0:1, 4:1}
  * Index 1: rem=4, count=1 (seen once), add {0:1, 4:2}
@@ -62,13 +68,13 @@
  * Index 4: rem=4, count=3 (seen 3 times), add {0:1, 4:4, 2:1}
  * Index 5: rem=0, count=1 (initial 0), add {0:2, 4:4, 2:1}
  * Total: 0+1+2+0+3+1 = 7
- * ```
- *
+
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  *
  * ### SPACE COMPLEXITY:
- * O(min(n, k))
+ * O(min(n, k)) - hash map storage
  *
  * ### EDGE CASES:
  * - k = 1: All subarrays are divisible (return n*(n+1)/2)

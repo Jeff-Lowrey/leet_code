@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Medium
  *
- * # 141. Linked List Cycle
+ * # 0141. Linked List Cycle
+ *
  *
  * Given head, the head of a linked list, determine if the linked list has a cycle in it.
  *
@@ -21,12 +22,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Hash Table Lookup, Set Operations, Array Traversal
  * **Data Structures**: Hash Map, Hash Set, Array
  * **Patterns**: Two Pointers Pattern, Hash Table Pattern
- * **Time Complexity**: * O(n) - Single pass through input
- * **Space Complexity**: * O(1) - Constant extra space
+ * **Time Complexity**: O(n) - Single pass through input
+ * **Space Complexity**: O(1) - Constant extra space
 
  *
  * ### INTUITION:
@@ -44,22 +46,31 @@
  * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: head = [3,2,0,-4], pos = 1 (cycle at node 2)
+ * head = [3,2,0,-4], pos = 1 (cycle at node 2)
+ * ```
+ *
  * Step 1: Fast and slow pointers
- *   slow=3, fast=3
- *   slow=2, fast=0
- *   slow=0, fast=2
- *   slow=-4, fast=-4 → meet
+ * slow=3, fast=3
+ * slow=2, fast=0
+ * slow=0, fast=2
  *
- * Output: True (has cycle)
+ * Steps:
+ * Step 1: slow=-4, fast=-4 → meet
+ *
+ * Output:
  * ```
- *
+ * True (has cycle)
+ * ```
+
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  *
  * ### EDGE CASES:
  * - Empty input handling

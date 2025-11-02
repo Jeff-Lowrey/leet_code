@@ -1,7 +1,8 @@
 /**
- * # 525. Contiguous Array
+ * # 0525. Contiguous Array
  *
- * # Difficulty: Medium
+ * Difficulty: Medium
+ *
  *
  * Given a binary array nums, return the maximum length of a contiguous subarray
  * with an equal number of 0 and 1.
@@ -18,7 +19,8 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Hash Map, Array
  * **Patterns**: Hash Table Pattern, Greedy Algorithm
@@ -41,23 +43,26 @@
  * Using prefix sums: if prefix[i] == prefix[j], then sum(nums[i+1:j+1]) == 0.
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
  * nums = [0, 1, 0]
+ * ```
+ *
  * Transform to: [-1, 1, -1]
  * Prefix sums: [-1, 0, -1]
- *
  * Index -1: sum 0 (initialize)
  * Index 0: sum -1, store {0: -1, -1: 0}
  * Index 1: sum 0, seen at index -1, length = 1 - (-1) = 2
  * Index 2: sum -1, seen at index 0, length = 2 - 0 = 2
  * Maximum length = 2
- * ```
- *
+
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  *
  * ### SPACE COMPLEXITY:
  * O(n)
+ * - Additional hash map storage
  *
  * ### EDGE CASES:
  * - All 0s or all 1s: No equal subarray (return 0)

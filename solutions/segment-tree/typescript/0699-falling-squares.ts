@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Hard
  * 
- * # 699. Falling Squares
+ * # 0699. Falling Squares
  * 
  * There are several squares being dropped onto the X-axis of a 2D plane.
  * 
@@ -23,7 +23,8 @@
  * </dl>
  * 
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
  * **Data Structures**: Hash Set, Array, Stack
  * **Patterns**: Two Pointers Pattern, Hash Table Pattern
@@ -46,20 +47,24 @@
  * The algorithm correctly solves the problem by systematically exploring all valid states while maintaining necessary invariants. Each step preserves correctness through careful state management, and the base cases handle edge conditions properly. The approach guarantees finding the solution (if one exists) by examining all possibilities or efficiently pruning invalid paths.
  * 
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: [[1,2],[2,3],[6,1]]
- * Square 1: [1,3) at height 0 → lands at 0, new height 2
- * Square 2: [2,5) overlaps [2,3), max height 2 → lands at 2, new height 5
- * Square 3: [6,7) no overlap → lands at 0, new height 1
- * Heights: [2, 5, 5]
+ * [[1,2],[2,3],[6,1]]
  * ```
- * 
+ *
+ * Steps:
+ * Step 1: Square 1: [1,3) at height 0 → lands at 0, new height 2
+ * Step 2: Square 2: [2,5) overlaps [2,3), max height 2 → lands at 2, new height 5
+ * Step 3: Square 3: [6,7) no overlap → lands at 0, new height 1
+ * Step 4: Heights: [2, 5, 5]
+
  * ### TIME COMPLEXITY:
  * O(n² log n)
  * Due to coordinate compression and segment tree operations
  * 
  * ### SPACE COMPLEXITY:
  * O(n)
+ * - Additional hash map storage
  * For coordinate mapping and tree structure
  * 
  * ### EDGE CASES:

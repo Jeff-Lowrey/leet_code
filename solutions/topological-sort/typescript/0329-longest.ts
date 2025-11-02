@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Medium
  *
- * # 329. Longest
+ * # 0329. Longest Increasing Path in a Matrix
+ *
  *
  * Given an m x n integers matrix, return the length of the longest increasing path in matrix.
  *
@@ -19,7 +20,8 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Array Traversal, Two Pointers
  * **Data Structures**: Hash Map, Array, Tree
  * **Patterns**: Two Pointers Pattern, Greedy Algorithm
@@ -47,22 +49,30 @@
  * - O(m*n) time: each cell computed once, O(m*n) space for memo
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: matrix = [[9,9,4],[6,6,8],[2,1,1]]
+ * matrix = [[9,9,4],[6,6,8],[2,1,1]]
+ * ```
+ *
  * Step 1: DFS with memoization
- *   Start from 9: can go to 6 → 2 → 1, length=4
  *
+ * Steps:
+ * Step 1: Start from 9: can go to 6 → 2 → 1, length=4
  * Step 2: Try all cells
- *   Best path: 9→6→2→1
+ * Step 3: Best path: 9→6→2→1
  *
- * Output: 4 (longest increasing path)
+ * Output:
  * ```
- *
+ * 4 (longest increasing path)
+ * ```
+
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  *
  * ### EDGE CASES:
  * - Empty input handling

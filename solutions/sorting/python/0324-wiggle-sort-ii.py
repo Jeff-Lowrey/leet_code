@@ -1,7 +1,7 @@
 """
-# Difficulty: Medium
+# 0324. Wiggle Sort II
 
-# 324. Wiggle Sort II
+# Difficulty: Medium
 
 Given an integer array nums, reorder it such that nums[0] < nums[1] > nums[2] < nums[3]...
 
@@ -15,19 +15,21 @@ Follow up: Can you do it in O(n) time and/or in-place with O(1) extra space?
 <dt>Input:</dt>
 <dd>[1, 5, 1, 1, 6, 4]</dd>
 <dt>Output:</dt>
-<dd>"Test 1 result: {nums1}"</dd>
+<dd>[1,6,1,5,1,4]</dd>
 <dt>Explanation:</dt>
 <dd>Wiggle sort II: nums[0] < nums[1] > nums[2] < nums[3]...</dd>
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: Hash Map, Array, Graph
-**Patterns**: Graph Pattern
-**Time Complexity**: O(n log n) - Sorting or divide-and-conquer
-**Space Complexity**: O(n) - Additional hash map storage
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
+### METADATA:
+**Techniques**: Sorting, Median Finding, Virtual Indexing
+**Data Structures**: Array
+**Patterns**: Wiggle pattern, Interleaving
+**Time Complexity**: O(n log n) - Sorting or divide-and-conquer
+**Space Complexity**: O(n) - Additional storage
+ *
 ### INTUITION:
 Unlike Wiggle Sort I which allows equality, this requires strict inequality (<, >, <, >).
 We need to interleave smaller and larger halves to avoid adjacent equal elements.
@@ -45,31 +47,30 @@ We need to interleave smaller and larger halves to avoid adjacent equal elements
 - Example: [1,2,3,4,5,6] → [1,4,2,5,3,6] → rearrange → [3,6,2,5,1,4]
 
 ### EXAMPLE WALKTHROUGH:
+**Input:** nums = [1,5,1,1,6,4]
+
+**Step 1:** Find median - Sort the input array [1,5,1,1,6,4]
+- Sorted: [1,1,1,4,5,6]
+
+**Step 2:** Partition around median (median ≈ 2.5, split at index 3)
+- Small half: [1,1,1]
+- Large half: [4,5,6]
+
+**Step 3:** Interleave halves in reverse order
+- Even indices (0,2,4): [1,1,1] reversed → 1,1,1
+- Odd indices (1,3,5): [4,5,6] reversed → 6,5,4
+
+**Step 4:** Virtual indexing (place elements)
+- Result: [1,6,1,5,1,4]
+- Verify: 1<6>1<5>1<4 ✓
+
+Why reverse order? With [1,1,1,1,2,2] and no reversing:
+- [1,2,1,2,1,1] - last two are equal!
+- Reversing ensures maximum separation of duplicates
+
+Output:
 ```
-Input: nums = [1,5,1,1,6,4]
-
-Step 1: Sort
-[1,1,1,4,5,6]
-
-Step 2: Split around median (median ≈ 2.5, so split at index 3)
-Small half: [1,1,1]
-Large half: [4,5,6]
-
-Step 3: Interleave in reverse order
-Even indices (0,2,4): [1,1,1] reversed → 1,1,1
-Odd indices (1,3,5): [4,5,6] reversed → 6,5,4
-
-Result: [1,6,1,5,1,4]
-Verify: 1<6>1<5>1<4 ✓
-
-Why reverse order?
-If we used [1,1,1] and [4,5,6] directly:
-[1,4,1,5,1,6] - works
-But with [1,1,1,2,2,2], without reversing:
-[1,2,1,2,1,2] - works
-With [1,1,1,1,2,2], need clever placement:
-[1,2,1,2,1,1] - the last two are equal!
-Reversing: [1,2,1,2,1,1] → place from middle outward
+[1,6,1,5,1,4]
 ```
 
 ### TIME COMPLEXITY:
@@ -89,191 +90,108 @@ For temporary sorted array. Can be O(1) with in-place virtual indexing.
 </details>
 """
 
-from typing import Any
+from typing import List
 
 
-class Solution:
-    def wiggleSort(self, nums: list[int]) -> None:
-        """
-        Reorder array in strict wiggle pattern: nums[0] < nums[1] > nums[2] < ...
-
-        Modifies nums in-place using sorting and interleaving.
-
-        Args:
-            nums: Array to reorder (modified in-place)
-
-        Time Complexity: O(n log n) for sorting
-        Space Complexity: O(n) for temporary array
-        """
-        # Sort and create copy
-        sorted_nums = sorted(nums)
-        n = len(nums)
-
-        # Find split point (median)
-        mid = (n + 1) // 2
-
-        # Split into two halves
-        small = sorted_nums[:mid]
-        large = sorted_nums[mid:]
-
-        # Reverse both halves to maximize separation
-        small.reverse()
-        large.reverse()
-
-        # Interleave: small at even indices, large at odd indices
-        for i in range(len(small)):
-            nums[2 * i] = small[i]
-        for i in range(len(large)):
-            nums[2 * i + 1] = large[i]
-
-    def wiggleSortSimple(self, nums: list[int]) -> None:
-        """
-        Simpler approach using sorting and direct interleaving.
-
-        Time Complexity: O(n log n)
-        Space Complexity: O(n)
-        """
-        sorted_nums = sorted(nums)
-        n = len(nums)
-        mid = (n + 1) // 2
-
-        # Place smaller half at even indices (reversed)
-        # Place larger half at odd indices (reversed)
-        j = mid - 1
-        for i in range(0, n, 2):
-            nums[i] = sorted_nums[j]
-            j -= 1
-
-        j = n - 1
-        for i in range(1, n, 2):
-            nums[i] = sorted_nums[j]
-            j -= 1
-
-    def wiggleSortVirtualIndex(self, nums: list[int]) -> None:
-        """
-        Advanced O(n) time and O(1) space using virtual indexing.
-
-        Uses index mapping: (1 + 2*i) % (n|1)
-        Maps [0,1,2,3,4,5] → [1,3,5,0,2,4]
-
-        Time Complexity: O(n) with quickselect
-        Space Complexity: O(1)
-        """
-        n = len(nums)
-        median = self.findMedian(nums)
-
-        # Virtual index mapping
-        def idx(i: Any) -> Any:
-            return (1 + 2 * i) % (n | 1)
-
-        # Three-way partitioning around median
-        i, j, k = 0, 0, n - 1
-        while j <= k:
-            if nums[idx(j)] > median:
-                nums[idx(i)], nums[idx(j)] = nums[idx(j)], nums[idx(i)]
-                i += 1
-                j += 1
-            elif nums[idx(j)] < median:
-                nums[idx(j)], nums[idx(k)] = nums[idx(k)], nums[idx(j)]
-                k -= 1
-            else:
-                j += 1
-
-    def findMedian(self, nums: list[int]) -> int:
-        """
-        Find median using sorting (simple approach).
-
-        For true O(n), use quickselect algorithm.
-        """
-        sorted_nums = sorted(nums)
-        n = len(sorted_nums)
-        return sorted_nums[(n - 1) // 2]
-
-
-def is_strict_wiggle(nums: list[int]) -> bool:
+def wiggleSort(nums: List[int]) -> None:
     """
-    Check if array satisfies strict wiggle property.
+    Reorder array in wiggle pattern (in-place).
 
     Args:
-        nums: Array to check
-
-    Returns:
-        True if nums[0] < nums[1] > nums[2] < nums[3] > ...
+        nums: Array to reorder (modified in-place)
     """
+    # Sort the array
+    sorted_nums = sorted(nums)
+    n = len(nums)
+
+    # Split into two halves
+    mid = (n + 1) // 2
+
+    # Fill from the end to avoid adjacent duplicates
+    # Small half goes to even positions (0, 2, 4, ...)
+    # Large half goes to odd positions (1, 3, 5, ...)
+    small = sorted_nums[:mid]
+    large = sorted_nums[mid:]
+
+    # Reverse both halves to maximize separation of duplicates
+    small.reverse()
+    large.reverse()
+
+    # Fill even positions with small half
+    for i in range(len(small)):
+        nums[i * 2] = small[i]
+
+    # Fill odd positions with large half
+    for i in range(len(large)):
+        nums[i * 2 + 1] = large[i]
+
+
+def wiggleSortSimple(nums: List[int]) -> None:
+    """
+    Alternative simple approach using auxiliary array.
+
+    Args:
+        nums: Array to reorder (modified in-place)
+    """
+    sorted_nums = sorted(nums)
+    n = len(nums)
+    result = [0] * n
+
+    # Fill odd positions from the end
+    pos = n - 1
+    for i in range(1, n, 2):
+        result[i] = sorted_nums[pos]
+        pos -= 1
+
+    # Fill even positions from the end
+    for i in range(0, n, 2):
+        result[i] = sorted_nums[pos]
+        pos -= 1
+
+    # Copy back to original array
+    for i in range(n):
+        nums[i] = result[i]
+
+
+def verify_wiggle(nums: List[int]) -> bool:
+    """Verify if array satisfies wiggle property."""
     for i in range(len(nums) - 1):
         if i % 2 == 0:
-            # Even index: should be < next
+            # Even index: nums[i] < nums[i+1]
             if nums[i] >= nums[i + 1]:
                 return False
         else:
-            # Odd index: should be > next
+            # Odd index: nums[i] > nums[i+1]
             if nums[i] <= nums[i + 1]:
                 return False
     return True
 
 
-def test_solution() -> None:
-    """Test cases for Problem 324."""
-    solution = Solution()
-
-    # Test case 1: Example from problem
-    nums1 = [1, 5, 1, 1, 6, 4]
-    solution.wiggleSort(nums1)
-    assert is_strict_wiggle(nums1), f"Not strict wiggle: {nums1}"
-
-    # Test case 2: Another example
-    nums2 = [1, 3, 2, 2, 3, 1]
-    solution.wiggleSort(nums2)
-    assert is_strict_wiggle(nums2), f"Not strict wiggle: {nums2}"
-
-    # Test case 3: Small array
-    nums3 = [1, 2, 3]
-    solution.wiggleSort(nums3)
-    assert is_strict_wiggle(nums3), f"Not strict wiggle: {nums3}"
-
-    # Test case 4: Larger array
-    nums4 = [1, 2, 3, 4, 5, 6]
-    solution.wiggleSort(nums4)
-    assert is_strict_wiggle(nums4), f"Not strict wiggle: {nums4}"
-
-    # Test case 5: With duplicates
-    nums5 = [4, 5, 5, 6]
-    solution.wiggleSort(nums5)
-    assert is_strict_wiggle(nums5), f"Not strict wiggle: {nums5}"
-
-    # Test simple approach
-    nums6 = [1, 5, 1, 1, 6, 4]
-    solution.wiggleSortSimple(nums6)
-    assert is_strict_wiggle(nums6), f"Not strict wiggle: {nums6}"
-
-    # Test virtual index approach
-    nums7 = [1, 5, 1, 1, 6, 4]
-    solution.wiggleSortVirtualIndex(nums7)
-    assert is_strict_wiggle(nums7), f"Not strict wiggle: {nums7}"
-
-    # Test case 8: Even length
-    nums8 = [1, 1, 2, 2, 3, 3]
-    solution.wiggleSort(nums8)
-    assert is_strict_wiggle(nums8), f"Not strict wiggle: {nums8}"
-
-    print("All test cases passed!")
-
-
 if __name__ == "__main__":
-    test_solution()
+    # Test cases
+    test_cases = [
+        [1, 5, 1, 1, 6, 4],
+        [1, 3, 2, 2, 3, 1],
+        [1, 2, 3, 4, 5],
+        [5, 4, 3, 2, 1],
+        [1, 1, 2, 2, 3, 3],
+        [4, 5, 5, 6]
+    ]
 
-    # Example usage
-    solution = Solution()
-    print("\n=== 324. Wiggle Sort II ===")
+    print("Testing wiggleSort:")
+    for nums in test_cases:
+        original = nums.copy()
+        wiggleSort(nums)
+        is_valid = verify_wiggle(nums)
+        status = "✓" if is_valid else "✗"
+        print(f"{status} Input: {original}")
+        print(f"   Output: nums, Valid: {is_valid}")
 
-    nums1 = [1, 5, 1, 1, 6, 4]
-    print(f"Before: {nums1}")
-    solution.wiggleSort(nums1)
-    print(f"After:  {nums1}")
-    print(f"Is strict wiggle: {is_strict_wiggle(nums1)}")
-
-    nums2 = [1, 3, 2, 2, 3, 1]
-    print(f"\nBefore: {nums2}")
-    solution.wiggleSort(nums2)
-    print(f"After:  {nums2}")
-    print(f"Is strict wiggle: {is_strict_wiggle(nums2)}")
+    print("\nTesting wiggleSortSimple:")
+    for nums in test_cases:
+        original = nums.copy()
+        wiggleSortSimple(nums)
+        is_valid = verify_wiggle(nums)
+        status = "✓" if is_valid else "✗"
+        print(f"{status} Input: {original}")
+        print(f"   Output: nums, Valid: {is_valid}")

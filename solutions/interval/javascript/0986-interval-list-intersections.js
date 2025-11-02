@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Medium
  *
- * # 986. Interval List Intersections
+ * # 0986. Interval List Intersections
+ *
  *
  * You are given two lists of closed intervals, firstList and secondList, where firstList[i] = [starti, endi] and secondList[j] = [startj, endj]. Each list of intervals is pairwise disjoint and in sorted order.
  *
@@ -23,12 +24,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Array Traversal, Two Pointers, Greedy Selection
  * **Data Structures**: Array, String
  * **Patterns**: Two Pointers Pattern, Greedy Algorithm
- * **Time Complexity**: * O(n) - Single pass through input
- * **Space Complexity**: * O(1) - Constant extra space
+ * **Time Complexity**: O(n) - Single pass through input
+ * **Space Complexity**: O(1) - Constant extra space
 
  *
  * ### INTUITION:
@@ -46,21 +48,28 @@
  * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: firstList = [[0,2],[5,10]], secondList = [[1,5],[8,12]]
+ * firstList = [[0,2],[5,10]], secondList = [[1,5],[8,12]]
+ * ```
+ *
  * Step 1: Two pointers
- *   i=0, j=0: [0,2] ∩ [1,5] = [1,2]
- *   i=1, j=0: [5,10] ∩ [1,5] = [5,5]
- *   i=1, j=1: [5,10] ∩ [8,12] = [8,10]
+ * i=0, j=0: [0,2] ∩ [1,5] = [1,2]
+ * i=1, j=0: [5,10] ∩ [1,5] = [5,5]
+ * i=1, j=1: [5,10] ∩ [8,12] = [8,10]
  *
- * Output: [[1,2],[5,5],[8,10]]
+ * Output:
  * ```
- *
+ * [[1,2],[5,5],[8,10]]
+ * ```
+
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  *
  * ### EDGE CASES:
  * - Empty input handling

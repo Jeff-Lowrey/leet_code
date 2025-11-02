@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Hard
  *
- * # 224. Basic Calculator
+ * # 0224. Basic Calculator
+ *
  *
  * Given a string s representing a valid expression, implement a basic calculator to evaluate it, and return the result of the evaluation.
  *
@@ -21,12 +22,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Array Traversal, Stack Operations
  * **Data Structures**: Array, String, Stack
  * **Patterns**: Iterative Solution
- * **Time Complexity**: * O(n)
- * **Space Complexity**: * O(n) - Additional set storage
+ * **Time Complexity**: O(n)
+ * **Space Complexity**: O(n) - Additional set storage
 
  *
  * ### INTUITION:
@@ -46,14 +48,15 @@
  * - Numbers and operators are processed left to right
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: "1 + 1"
+ * "1 + 1"
+ * "2-(1+1)"
+ * ```
+ *
  * 1. num=1, result=0, sign=1
  * 2. '+': result = 0 + 1*1 = 1, sign=1
  * 3. num=1: result = 1 + 1*1 = 2
- * Output: 2
- *
- * Input: "2-(1+1)"
  * 1. num=2, result=0, sign=1
  * 2. '-': result = 0 + 2*1 = 2, sign=-1
  * 3. '(': push [2, -1], reset result=0, sign=1
@@ -61,15 +64,20 @@
  * 5. '+': result = 0 + 1*1 = 1, sign=1
  * 6. num=1: result = 1 + 1*1 = 2
  * 7. ')': pop [2, -1], result = 2 + 2*(-1) = 0
- * Output: 0
- * ```
  *
+ * Output:
+ * ```
+ * 2
+ * 0
+ * ```
+
  * ### TIME COMPLEXITY:
  * O(n)
  * Single pass through the string
  *
  * ### SPACE COMPLEXITY:
  * O(n)
+ * - Additional set storage
  * Stack can grow up to the depth of nested parentheses
  *
  * ### EDGE CASES:

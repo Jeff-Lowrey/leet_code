@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 79. Word Search
+# 0079. Word Search
 
 Given an m x n grid of characters board and a string word, return true if word exists in the grid.
 
@@ -11,7 +11,7 @@ The word can be constructed from letters of sequentially adjacent cells, where a
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[["A", "B", "C", "E"]</dd>
+<dd>[["A", "B", "C", "E"]]</dd>
 <dt>Output:</dt>
 <dd>1</dd>
 <dt>Explanation:</dt>
@@ -19,7 +19,8 @@ The word can be constructed from letters of sequentially adjacent cells, where a
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
 **Data Structures**: Hash Set, Array, String
 **Patterns**: Hash Table Pattern, Backtracking
@@ -47,27 +48,32 @@ Optional Trie optimization: Pre-check if word's prefix exists (useful for multip
 - Early termination avoids unnecessary exploration
 
 ### EXAMPLE WALKTHROUGH:
+Input:
+```
+[["A", "B", "C", "E"]
+```
+
+Input:
 ```
 board = [['A','B','C','E'],
-         ['S','F','C','S'],
-         ['A','D','E','E']]
-word = "ABCCED"
-
-Try (0,0) 'A':
-  Match 'A' ✓, mark visited, look for 'B'
-  Try (0,1) 'B':
-    Match 'B' ✓, mark visited, look for 'C'
-    Try (0,2) 'C':
-      Match 'C' ✓, mark visited, look for 'C'
-      Try (1,2) 'C':
-        Match 'C' ✓, mark visited, look for 'E'
-        Try (2,2) 'E':
-          Match 'E' ✓, mark visited, look for 'D'
-          Try (2,1) 'D':
-            Match 'D' ✓, complete! Return True
-
-Result: True (found path)
 ```
+
+['S','F','C','S'],
+['A','D','E','E']]
+word = "ABCCED"
+Try (0,0) 'A':
+Match 'A' ✓, mark visited, look for 'B'
+Try (0,1) 'B':
+Match 'B' ✓, mark visited, look for 'C'
+Try (0,2) 'C':
+Match 'C' ✓, mark visited, look for 'C'
+Try (1,2) 'C':
+Match 'C' ✓, mark visited, look for 'E'
+Try (2,2) 'E':
+Match 'E' ✓, mark visited, look for 'D'
+Try (2,1) 'D':
+Match 'D' ✓, complete! Return True
+Result: True (found path)
 
 ### TIME COMPLEXITY:
 O(M * N * 4^L)
@@ -326,7 +332,7 @@ if __name__ == "__main__":
 
     for word in words:
         result = solution.exist(board, word)
-        print(f"  '{word}': {result}")
+        print(f"  '{word}': result")
 
     print("\nDemonstrating optimized solution:")
     solution_opt = SolutionOptimized()
@@ -342,6 +348,6 @@ if __name__ == "__main__":
 
     for word in test_words:
         result = solution_opt.exist(board2, word)
-        print(f"  '{word}': {result}")
+        print(f"  '{word}': result")
 
     print("\nDFS backtracking word search completed successfully!")

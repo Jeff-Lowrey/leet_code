@@ -1,7 +1,8 @@
 /**
  * # 1312. Minimum Insertions Palindrome
  *
- * # Difficulty: Hard
+ * Difficulty: Medium
+ *
  *
  * Given a string s, return the minimum number of insertions needed to make s a palindrome.
  *
@@ -19,7 +20,8 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Hash Map, String
  * **Patterns**: Greedy Algorithm, Dynamic Programming
@@ -40,17 +42,25 @@
  * The LPS represents the "skeleton" of characters we can keep without insertion. All other characters need to be "mirrored" by insertions. For example, in "mbadm", LPS is "mam" (length 3), so we need 5-3=2 insertions.
  *
  * ### EXAMPLE WALKTHROUGH:
- * For s = "mbadm":
- * 1. Build LPS DP table:
- *    - Single chars: all have LPS = 1
- *    - "mb": different chars → LPS = 1
- *    - "bad": LPS = 1 (just 'a')
- *    - "madm": 'm' matches → LPS = 1 + LPS("ad") = 1 + 1 = 2
- *    - "mbadm": 'm' matches → LPS = 2 + LPS("bad") = 2 + 1 = 3
- * 2. Minimum insertions = 5 - 3 = 2
+ * Input:
+ * ```
+ * s = "mbadm"
+ * ```
+ *
+ * Steps:
+ * Step 1: Find longest palindromic subsequence (LPS) using DP
+ * Step 2: LPS of "mbadm" → "mam" (length 3)
+ * Step 3: Minimum insertions = length of string - LPS length
+ * Step 4: Result → 5 - 3 = 2 insertions needed
+ *
+ * Output:
+ * ```
+ * 2
+ * ```
  *
  * ### TIME COMPLEXITY:
  * O(n²)
+ * - Nested iteration through input
  * - Filling n×n DP table with constant work per cell
  *
  * ### SPACE COMPLEXITY:

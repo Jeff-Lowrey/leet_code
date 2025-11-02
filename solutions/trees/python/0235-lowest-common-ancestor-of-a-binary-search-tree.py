@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 235. Lowest Common Ancestor of a Binary Search Tree
+# 0235. Lowest Common Ancestor of a Binary Search Tree
 
 Given a binary search tree (BST), find the lowest common ancestor (LCA) of two given nodes in the BST.
 
@@ -22,7 +22,8 @@ According to the definition of LCA on Wikipedia: "The lowest common ancestor is 
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
 **Data Structures**: Array, Stack, Tree
 **Patterns**: Two Pointers Pattern, Greedy Algorithm
@@ -45,23 +46,27 @@ In a BST, we can leverage the ordering property to find LCA efficiently. If both
 - This is much more efficient than general tree LCA algorithms
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
 BST:      6
-         / \\
-        2   8
-       / \\ / \\
-      0  4 7  9
-        / \\
-       3   5
+```
 
+/ \\
+2   8
+/ \\ / \\
+0  4 7  9
+/ \\
+3   5
 Find LCA of 2 and 8:
 1. Start at 6: 2 < 6 and 8 > 6, so 6 is LCA
-Output: 6
-
 Find LCA of 2 and 4:
 1. Start at 6: 2 < 6 and 4 < 6, go left
 2. At 2: 2 == 2 (found p), so 2 is LCA
-Output: 2
+
+Output:
+```
+6
+2
 ```
 
 ### TIME COMPLEXITY:

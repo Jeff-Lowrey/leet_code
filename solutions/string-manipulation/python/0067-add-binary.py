@@ -1,5 +1,5 @@
 """
-# 67. Add Binary
+# 0067. Add Binary
 
 # Difficulty: Easy
 
@@ -17,7 +17,8 @@ Given two binary strings a and b, return their sum as a binary string.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
 **Data Structures**: Array, String
 **Patterns**: Two Pointers Pattern, Greedy Algorithm
@@ -48,28 +49,24 @@ problem that mimics manual binary addition.
 - Building result from right to left matches addition order
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: a = "1010", b = "1011"
+a = "1010", b = "1011"
+```
 
 Process from right to left:
-
 Position 3: 0 + 1 + carry(0) = 1, carry = 0
-  Result: "1"
-
+Result: "1"
 Position 2: 1 + 1 + carry(0) = 2 (10 in binary)
-  Bit: 2 % 2 = 0, carry = 2 // 2 = 1
-  Result: "01"
-
+Bit: 2 % 2 = 0, carry = 2 // 2 = 1
+Result: "01"
 Position 1: 0 + 0 + carry(1) = 1, carry = 0
-  Result: "101"
-
+Result: "101"
 Position 0: 1 + 1 + carry(0) = 2 (10 in binary)
-  Bit % 2 = 0, carry = 2 // 2 = 1
-  Result: "0101"
-
+Bit % 2 = 0, carry = 2 // 2 = 1
+Result: "0101"
 Final carry: 1
-  Result: "10101"
-```
+Result: "10101"
 
 ### TIME COMPLEXITY:
 O(max(m, n))

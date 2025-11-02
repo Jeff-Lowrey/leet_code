@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 851. Loud And Rich
+# 0851. Loud And Rich
 
 There is a group of n people labeled from 0 to n - 1 where each person has a different amount of money and a different level of quietness.
 
@@ -21,7 +21,8 @@ Return an integer array answer where answer[x] = y if y is the least quiet perso
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
 **Data Structures**: Hash Map, Hash Set, Array
 **Patterns**: Dynamic Programming, Graph Pattern
@@ -49,25 +50,33 @@ Build graph of richer relationships. Use DFS with memoization. For each person, 
 - O(n^2) worst case, O(n + e) with memoization, O(n + e) space
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: richer = [[1,0],[2,1],[3,1],[3,7],[4,3],[5,3],[6,3]], quiet = [3,2,5,4,6,1,7,0]
+richer = [[1,0],[2,1],[3,1],[3,7],[4,3],[5,3],[6,3]], quiet = [3,2,5,4,6,1,7,0]
+```
+
 Step 1: Build graph (richer relationships)
-  0 ← 1 ← 2
-  1 ← 3 ← 4,5,6
-  7 ← 3
-
+0 ← 1 ← 2
+1 ← 3 ← 4,5,6
+7 ← 3
 Step 2: DFS to find quietest richer person
-  For person 0: check all richer (1,2,3,4,5,6,7)
-  Find quietest among them
+For person 0: check all richer (1,2,3,4,5,6,7)
+Find quietest among them
 
-Output: [5,5,2,5,4,5,6,7]
+Output:
+```
+[5,5,2,5,4,5,6,7]
 ```
 
 ### TIME COMPLEXITY:
 O(n)
+- Single pass through input
+
 
 ### SPACE COMPLEXITY:
 O(1)
+- Constant extra space
+
 
 ### EDGE CASES:
 - Empty input handling
@@ -152,27 +161,27 @@ def test_solution() -> None:
     # Test case 1: Example from problem
     result = solution.loudAndRich([[1, 0], [2, 1], [3, 1], [3, 7], [4, 3], [5, 3], [6, 3]], [3, 2, 5, 4, 6, 1, 7, 0])
     expected = [5, 5, 2, 5, 4, 5, 6, 7]
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: No richer relationships
     result = solution.loudAndRich([], [0, 1, 2])
     expected = [0, 1, 2]
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 3: Linear wealth hierarchy
     result = solution.loudAndRich([[1, 0], [2, 1]], [2, 1, 0])
     expected = [2, 2, 2]
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 4: Single person
     result = solution.loudAndRich([], [5])
     expected = [0]
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 5: Everyone richer than one person
     result = solution.loudAndRich([[0, 1], [2, 1]], [1, 0, 2])
     expected = [0, 1, 2]
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

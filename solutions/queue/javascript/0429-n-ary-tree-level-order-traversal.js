@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Medium
  *
- * # 429. N-ary Tree Level Order Traversal
+ * # 0429. N-ary Tree Level Order Traversal
+ *
  *
  * Given an n-ary tree, return the level order traversal of its nodes' values.
  *
@@ -17,12 +18,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Array Traversal, Queue Operations, Tree Traversal
  * **Data Structures**: Array, String, Queue
  * **Patterns**: Graph Pattern, Tree Pattern
- * **Time Complexity**: * O(n) - Single pass through input
- * **Space Complexity**: * O(w)
+ * **Time Complexity**: O(n) - Single pass through input
+ * **Space Complexity**: O(w)
 
  *
  * ### INTUITION:
@@ -45,21 +47,23 @@
  * - Deque provides O(1) append/popleft operations
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
  * Tree:        1
- *           /  |  \\
- *          3   2   4
- *         / \\
- *        5   6
+ * ```
  *
+ * /  |  \\
+ * 3   2   4
+ * / \\
+ * 5   6
  * Level 0: [1]
  * Level 1: [3, 2, 4]
  * Level 2: [5, 6]
  * Result: [[1], [3, 2, 4], [5, 6]]
- * ```
- *
+
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  * - Visit each node exactly once
  * - n = total number of nodes in tree
  *

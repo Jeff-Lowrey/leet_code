@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 025. Reverse Nodes In K Group
+# 0025. Reverse Nodes In K Group
 
 Given the head of a linked list, reverse the nodes of the list k at a time, and return the modified list.
 
@@ -13,15 +13,16 @@ You may not alter the values in the list's nodes, only nodes themselves may be c
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[2, 1, 4, 3, 5]</dd>
+<dd>head = [1,2,3,4,5], k = 2</dd>
 <dt>Output:</dt>
-<dd>"Expected {expected}, got {list_to_array(result)}"</dd>
+<dd>[2,1,4,3,5]</dd>
 <dt>Explanation:</dt>
 <dd>Reversing nodes in k=2 groups: [1,2,3,4,5] becomes [2,1,4,3,5]</dd>
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Map Storage, Array Traversal, Graph Traversal
 **Data Structures**: Array, Linked List
 **Patterns**: Hash Table Pattern, Graph Pattern
@@ -48,25 +49,34 @@ Reverse k nodes at a time using standard reversal. Track previous group's tail a
 - O(n) time as each node visited twice (check + reverse), O(1) space
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: head = [1,2,3,4,5], k = 2
+head = [1,2,3,4,5], k = 2
+```
+
 Step 1: Reverse first k nodes
-  [1,2] → [2,1]
 
+Steps:
+Step 1: [1,2] → [2,1]
 Step 2: Reverse next k nodes
-  [3,4] → [4,3]
+Step 3: [3,4] → [4,3]
+Step 4: Last group < k, keep as is
+Step 5: [5] → [5]
 
-Step 3: Last group < k, keep as is
-  [5] → [5]
-
-Output: [2,1,4,3,5]
+Output:
+```
+[2,1,4,3,5]
 ```
 
 ### TIME COMPLEXITY:
 O(n)
+- Single pass through input
+
 
 ### SPACE COMPLEXITY:
 O(1)
+- Constant extra space
+
 
 ### EDGE CASES:
 - Empty input handling
@@ -179,27 +189,27 @@ def test_solution() -> None:
     # Test case 1: Basic k=2
     head = array_to_list([1, 2, 3, 4, 5])
     solution.solve(head, 2)
-    # assert list_to_array(result) == expected, f"Expected {expected}, got {list_to_array(result)}"  # Result undefined
+    # assert list_to_array(result) == expected, f"Expected expected, got {list_to_array(result)}"  # Result undefined
 
     # Test case 2: k=3
     head = array_to_list([1, 2, 3, 4, 5])
     solution.solve(head, 3)
-    # assert list_to_array(result) == expected, f"Expected {expected}, got {list_to_array(result)}"  # Result undefined
+    # assert list_to_array(result) == expected, f"Expected expected, got {list_to_array(result)}"  # Result undefined
 
     # Test case 3: k=1 (no change)
     head = array_to_list([1, 2, 3])
     solution.solve(head, 1)
-    # assert list_to_array(result) == expected, f"Expected {expected}, got {list_to_array(result)}"  # Result undefined
+    # assert list_to_array(result) == expected, f"Expected expected, got {list_to_array(result)}"  # Result undefined
 
     # Test case 4: k equals list length
     head = array_to_list([1, 2, 3, 4])
     solution.solve(head, 4)
-    # assert list_to_array(result) == expected, f"Expected {expected}, got {list_to_array(result)}"  # Result undefined
+    # assert list_to_array(result) == expected, f"Expected expected, got {list_to_array(result)}"  # Result undefined
 
     # Test case 5: k > list length
     head = array_to_list([1, 2])
     solution.solve(head, 3)
-    # assert list_to_array(result) == expected, f"Expected {expected}, got {list_to_array(result)}"  # Result undefined
+    # assert list_to_array(result) == expected, f"Expected expected, got {list_to_array(result)}"  # Result undefined
 
     print("All test cases passed!")
 

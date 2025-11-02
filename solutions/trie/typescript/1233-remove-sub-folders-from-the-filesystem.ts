@@ -3,6 +3,7 @@
  *
  * # 1233. Remove Sub Folders From The Filesystem
  *
+ *
  * Given a list of folders, remove all sub-folders in those folders and return the folders in any order.
  *
  * If a folder[i] is located within another folder[j], it is called a sub-folder of it.
@@ -17,13 +18,14 @@
  * <dt>Input:</dt>
  * <dd>["/a", "/a/b", "/c/d", "/c/d/e", "/c/f"]</dd>
  * <dt>Output:</dt>
- * <dd>1</dd>
+ * <dd>["/a","/c/d","/c/f"]</dd>
  * <dt>Explanation:</dt>
  * <dd>Subfolders are removed: ['/a','/a/b','/c/d'] becomes ['/a','/c/d']</dd>
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Hash Map, Array, String
  * **Patterns**: Hash Table Pattern
@@ -49,30 +51,33 @@
  * - When we encounter a folder end marker, we know any continuation is a sub-folder
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: ["/a", "/a/b", "/c/d", "/c/d/e", "/c/f"]
+ * ["/a", "/a/b", "/c/d", "/c/d/e", "/c/f"]
+ * ```
  *
  * After sorting: ["/a", "/a/b", "/c/d", "/c/d/e", "/c/f"]
- *
  * Process "/a":
- *   root -> 'a' (mark as folder end)
- *   Result: ["/a"]
- *
  * Process "/a/b":
- *   root -> 'a' (already folder end, skip!)
- *
  * Process "/c/d":
- *   root -> 'c' -> 'd' (mark as folder end)
- *   Result: ["/a", "/c/d"]
- *
  * Process "/c/d/e":
- *   root -> 'c' -> 'd' (already folder end, skip!)
- *
  * Process "/c/f":
- *   root -> 'c' -> 'f' (mark as folder end)
- *   Result: ["/a", "/c/d", "/c/f"]
- * ```
  *
+ * Steps:
+ * Step 1: root -> 'a' (mark as folder end)
+ * Step 2: Result: ["/a"]
+ * Step 3: root -> 'a' (already folder end, skip!)
+ * Step 4: root -> 'c' -> 'd' (mark as folder end)
+ * Step 5: Result: ["/a", "/c/d"]
+ * Step 6: root -> 'c' -> 'd' (already folder end, skip!)
+ * Step 7: root -> 'c' -> 'f' (mark as folder end)
+ * Step 8: Result: ["/a", "/c/d", "/c/f"]
+ * 
+ * Output:
+ * ```
+ * ["/a"]
+ * ```
+ * 
  * ### TIME COMPLEXITY:
  * O(N * L * log(N))
  * Where N is number of folders and L is average path length

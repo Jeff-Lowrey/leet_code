@@ -1,5 +1,5 @@
 """
-# 54. Spiral Matrix
+# 0054. Spiral Matrix
 
 # Difficulty: Medium
 
@@ -17,7 +17,8 @@ Given an m x `n` matrix, return all elements of the matrix in spiral order.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
 **Data Structures**: Array, Tree, Matrix
 **Patterns**: Two Pointers Pattern
@@ -40,13 +41,28 @@ Think of traversing the matrix in layers, like peeling an onion. We traverse the
 By systematically shrinking the boundaries after each direction, we ensure we visit each element exactly once in spiral order. The boundary checks prevent revisiting elements or going out of bounds.
 
 ### EXAMPLE WALKTHROUGH:
-Matrix: [[1,2,3],[4,5,6],[7,8,9]]
-- Layer 1: Right(1,2,3) → Down(6,9) → Left(8,7) → Up(4)
-- Layer 2: Center(5)
-- Result: [1,2,3,6,9,8,7,4,5]
+Input:
+```
+matrix = [[1,2,3],[4,5,6],[7,8,9]]
+```
+
+Steps:
+Step 1: Layer 1 - Right → traverse top row → [1,2,3]
+Step 2: Layer 1 - Down → traverse right column → [1,2,3,6,9]
+Step 3: Layer 1 - Left → traverse bottom row → [1,2,3,6,9,8,7]
+Step 4: Layer 1 - Up → traverse left column → [1,2,3,6,9,8,7,4]
+Step 5: Layer 2 - Center → single element → [1,2,3,6,9,8,7,4,5]
+
+Output:
+```
+[1,2,3,6,9,8,7,4,5]
+```
 
 ### TIME COMPLEXITY:
 O(m × n)
+
+- Based on input size and operations
+
 
 ### SPACE COMPLEXITY:
 O(1) excluding output array
@@ -108,7 +124,6 @@ class Solution:
 
 """
 59. Spiral Matrix II
-# Difficulty: Medium
 Given a positive integer n, generate an n x n matrix filled with elements from
 1 to n² in spiral order.
 
@@ -175,7 +190,7 @@ if __name__ == "__main__":
     for matrix in test_matrices:
         result = solution.spiralOrder(matrix)
         print(f"Matrix: {matrix}")
-        print(f"Spiral: {result}\n")
+        print(f"Spiral: result\n")
 
     # Test Generate Matrix
     solution_gen = SolutionGenerate()
@@ -183,7 +198,7 @@ if __name__ == "__main__":
     print("Generate Spiral Matrix:")
     for n in [3, 1, 4]:
         generated_matrix: list[list[int]] = solution_gen.generateMatrix(n)
-        print(f"n = {n}:")
+        print(f"n = n:")
         for row in generated_matrix:
             print(row)
         print()

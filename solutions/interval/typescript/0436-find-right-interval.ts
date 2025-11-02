@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Medium
  *
- * # 436. Find Right Interval
+ * # 0436. Find Right Interval
+ *
  *
  * You are given an array of intervals, where intervals[i] = [starti, endi] and each starti is unique.
  *
@@ -21,7 +22,8 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Hash Map, Array, Tree
  * **Patterns**: Two Pointers Pattern, Binary Search Pattern
@@ -48,27 +50,36 @@
  * - O(n log n) for sort + n binary searches, O(n) space
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: intervals = [[3,4],[2,3],[1,2]]
+ * intervals = [[3,4],[2,3],[1,2]]
+ * ```
+ *
  * Step 1: Create index mapping
- *   indexed = [(3,4,0), (2,3,1), (1,2,2)]
- *
+ * indexed = [(3,4,0), (2,3,1), (1,2,2)]
  * Step 2: Sort by start time
- *   sorted = [(1,2,2), (2,3,1), (3,4,0)]
- *
+ * sorted = [(1,2,2), (2,3,1), (3,4,0)]
  * Step 3: Binary search for each interval's end
- *   [3,4]: find start ≥ 4 → not found → -1
- *   [2,3]: find start ≥ 3 → found at index 0
- *   [1,2]: find start ≥ 2 → found at index 1
  *
- * Output: [-1,0,1]
+ * Steps:
+ * Step 1: [3,4]: find start ≥ 4 → not found → -1
+ * Step 2: [2,3]: find start ≥ 3 → found at index 0
+ * Step 3: [1,2]: find start ≥ 2 → found at index 1
+ *
+ * Output:
  * ```
- *
+ * [-1,0,1]
+ * ```
+
  * ### TIME COMPLEXITY:
+
  * O(n)
+
+ * - Single pass through the input
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  *
  * ### EDGE CASES:
  * - Empty input handling

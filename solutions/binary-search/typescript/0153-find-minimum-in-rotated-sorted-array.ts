@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Medium
  *
- * # 153. Find Minimum In Rotated Sorted Array
+ * # 0153. Find Minimum In Rotated Sorted Array
+ *
  *
  * Suppose an array of length n sorted in ascending order is rotated between 1 and n times. For example, the array nums = [0,1,2,4,5,6,7] might become:
  *
@@ -20,13 +21,14 @@
  * <dt>Input:</dt>
  * <dd>[4,5,6,7,0,1,2]</dd>
  * <dt>Output:</dt>
- * <dd>0 (minimum element)</dd>
+ * <dd>0</dd>
  * <dt>Explanation:</dt>
- * <dd>Minimum element 1 is found in rotated array [3,4,5,1,2]</dd>
+ * <dd>The minimum element is 0 in the rotated sorted array [4,5,6,7,0,1,2]</dd>
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Two Pointers
  * **Data Structures**: Hash Map, Hash Set, Array
  * **Patterns**: Two Pointers Pattern, Greedy Algorithm
@@ -53,31 +55,37 @@
  * - O(log n) time, O(1) space
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: nums = [4,5,6,7,0,1,2]
+ * nums = [4,5,6,7,0,1,2]
+ * ```
+ *
  * Step 1: Check if array is rotated
- *   nums[0]=4 > nums[-1]=2 → Array is rotated
  *
+ * Steps:
+ * Step 1: nums[0]=4 > nums[-1]=2 → Array is rotated
  * Step 2: Binary search for minimum
- *   left = 0, right = 6
- *   mid = 3: nums[3]=7 > nums[6]=2
- *   → Minimum is in right half, left = 3
+ * Step 3: left = 0, right = 6
+ * Step 4: mid = 3: nums[3]=7 > nums[6]=2
+ * Step 5: Minimum is in right half, left = 3
+ * Step 6: left = 3, right = 6
+ * Step 7: mid = 4: nums[4]=0 < nums[6]=2
+ * Step 8: Minimum could be at mid or left, right = 4
+ * Step 9: left = 3, right = 4
+ * Step 10: right - left = 1 → return min(nums[3], nums[4]) = min(7, 0) = 0
  *
- *   left = 3, right = 6
- *   mid = 4: nums[4]=0 < nums[6]=2
- *   → Minimum could be at mid or left, right = 4
- *
- *   left = 3, right = 4
- *   right - left = 1 → return min(nums[3], nums[4]) = min(7, 0) = 0
- *
- * Output: 0 (minimum element)
+ * Output:
  * ```
- *
+ * 0 (minimum element)
+ * ```
+
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  *
  * ### EDGE CASES:
  * - Empty input handling

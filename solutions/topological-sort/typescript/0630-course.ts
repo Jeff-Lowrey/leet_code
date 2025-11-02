@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  * 
- * # 630. Course
+ * # 0630. Course Schedule III
  * 
  * There are n different online courses numbered from 1 to n. You are given an array courses where courses[i] = [durationi, lastDayi] indicate that the ith course should be taken continuously for durationi days and must be finished before or on lastDayi.
  * 
@@ -21,7 +21,8 @@
  * </dl>
  * 
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Sorting
  * **Data Structures**: Hash Map, Hash Set, Array
  * **Patterns**: Greedy Algorithm
@@ -48,25 +49,32 @@
  * - O(n log n) for sort + heap operations, O(n) space for heap
  * 
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: courses = [[100,200],[200,1300],[1000,1250],[2000,3200]]
+ * courses = [[100,200],[200,1300],[1000,1250],[2000,3200]]
+ * ```
+ *
  * Step 1: Sort by end time
- *   sorted = [[200,1300],[1000,1250],[2000,3200],[100,200]]
- * 
+ * sorted = [[200,1300],[1000,1250],[2000,3200],[100,200]]
  * Step 2: Greedy selection
- *   Take course ending at 1300
- *   Take course ending at 1250 (can't, conflicts)
- *   Take course ending at 3200
- *   ...
- * 
- * Output: 3 (max courses)
+ * Take course ending at 1300
+ * Take course ending at 1250 (can't, conflicts)
+ * Take course ending at 3200
+ * ...
+ *
+ * Output:
  * ```
- * 
+ * 3 (max courses)
+ * ```
+
  * ### TIME COMPLEXITY:
  * O(n)
- * 
+ * - Single pass through input
+ *
+
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  * 
  * ### EDGE CASES:
  * - Empty input handling

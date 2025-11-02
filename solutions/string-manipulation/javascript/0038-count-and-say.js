@@ -1,5 +1,8 @@
 /**
- * # Difficulty: Medium
+ * # 0038. Count And Say
+ *
+ * Difficulty: Easy
+ *
  *
  * The count-and-say sequence is a sequence of digit strings defined by the recursive formula:
  * - countAndSay(1) = "1"
@@ -31,12 +34,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Array Traversal
  * **Data Structures**: String, Linked List
  * **Patterns**: Hash Table Pattern
- * **Time Complexity**: * O(n * m)
- * **Space Complexity**: * O(m)
+ * **Time Complexity**: O(n * m)
+ * **Space Complexity**: O(m)
 
  *
  * ### INTUITION:
@@ -60,21 +64,29 @@
  * - Building with a list and joining is efficient in Python
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
  * n = 5:
+ * ```
+ *
  * 1. "1"
  * 2. "11" (one 1)
  * 3. "21" (two 1s)
  * 4. "1211" (one 2, one 1)
  * 5. "111221" (one 1, one 2, two 1s)
  *
- * For "1211" → "111221":
- * - Read '1' once: "11"
- * - Read '2' once: "12"
- * - Read '1' twice: "21"
- * - Result: "111221"
+ * Steps:
+ * Step 1: For "1211" → "111221":
+ * Step 2: - Read '1' once: "11"
+ * Step 3: - Read '2' once: "12"
+ * Step 4: - Read '1' twice: "21"
+ * Step 5: - Result: "111221"
+ * 
+ * Output:
  * ```
- *
+ * "111221"
+ * ```
+ * 
  * ### TIME COMPLEXITY:
  * O(n * m)
  * - n iterations to build up to the nth term

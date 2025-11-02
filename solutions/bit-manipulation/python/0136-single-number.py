@@ -1,7 +1,7 @@
 """
 # Difficulty: Easy
 
-# 136. Single Number
+# 0136. Single Number
 
 Given a non-empty array of integers nums, every element appears twice except for one. Find that single one.
 
@@ -19,7 +19,8 @@ You must implement a solution with a linear runtime complexity and use only cons
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
 **Data Structures**: Hash Set, Array
 **Patterns**: Hash Table Pattern
@@ -46,13 +47,19 @@ So if we XOR all numbers together, the duplicates cancel out, leaving only the s
 - All duplicates disappear, leaving only the single number
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: [2,2,1]
+[2,2,1]
+```
+
 Step 1: result = 0
 Step 2: result = 0 ^ 2 = 2
 Step 3: result = 2 ^ 2 = 0 (duplicate cancels out)
 Step 4: result = 0 ^ 1 = 1
-Output: 1 (the single number)
+
+Output:
+```
+1 (the single number)
 ```
 
 ### TIME COMPLEXITY:

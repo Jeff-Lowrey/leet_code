@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 421. Max
+# 0421. Maximum XOR of Two Numbers in an Array
 
 Given an integer array nums, return the maximum result of nums[i] XOR nums[j], where 0 <= i <= j < n.
 
@@ -17,7 +17,8 @@ Given an integer array nums, return the maximum result of nums[i] XOR nums[j], w
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
 **Data Structures**: Hash Map, Hash Set, Array
 **Patterns**: Two Pointers Pattern, Greedy Algorithm
@@ -44,25 +45,33 @@ Build Trie of all numbers. For each number, traverse Trie greedily choosing oppo
 - O(n * 32) time: n numbers, 32 bits each, O(n * 32) space for trie
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: nums = [3,10,5,25,2,8]
+nums = [3,10,5,25,2,8]
+```
+
 Step 1: Build trie of binary representations
-  3 = 00011
-  10 = 01010
-  ...
-
+3 = 00011
+10 = 01010
+...
 Step 2: For each number, find max XOR
-  For 3: try to maximize XOR
-  Result: 3 XOR 25 = 00011 XOR 11001 = 11010 = 26
+For 3: try to maximize XOR
+Result: 3 XOR 25 = 00011 XOR 11001 = 11010 = 26
 
-Output: 28 (5 XOR 25)
+Output:
+```
+28 (5 XOR 25)
 ```
 
 ### TIME COMPLEXITY:
 O(n)
+- Single pass through input
+
 
 ### SPACE COMPLEXITY:
 O(1)
+- Constant extra space
+
 
 ### EDGE CASES:
 - Empty input handling
@@ -177,17 +186,17 @@ def test_solution() -> None:
     # Test case 1: Basic case
     result = solution.findMaximumXOR([1, 2, 3])
     expected = 3
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: Empty input
     result = solution.findMaximumXOR([])
     expected = 0
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 3: Single element
     result = solution.findMaximumXOR([1])
     expected = 0
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Medium
  *
- * # 105. Construct Binary Tree From Preorder And Inorder Traversal
+ * # 0105. Construct Binary Tree From Preorder And Inorder Traversal
+ *
  *
  * Given two integer arrays preorder and inorder where preorder is the preorder traversal of a binary tree and inorder is the inorder traversal of the same tree, construct and return the binary tree.
  *
@@ -17,12 +18,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Hash Map, Hash Set, Array
  * **Patterns**: Two Pointers Pattern, Tree Pattern
- * **Time Complexity**: * O(n)
- * **Space Complexity**: * O(1) - Constant extra space
+ * **Time Complexity**: O(n)
+ * **Space Complexity**: O(1) - Constant extra space
 
  *
  * ### INTUITION:
@@ -40,27 +42,34 @@
  * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: preorder = [3,9,20,15,7], inorder = [9,3,15,20,7]
+ * preorder = [3,9,20,15,7], inorder = [9,3,15,20,7]
+ * ```
+ *
  * Step 1: Root is first in preorder
- *   root = 3
- *
+ * root = 3
  * Step 2: Find root in inorder
- *   left subtree: [9]
- *   right subtree: [15,20,7]
- *
+ * left subtree: [9]
+ * right subtree: [15,20,7]
  * Step 3: Recursively build
- *   left: preorder=[9], inorder=[9]
- *   right: preorder=[20,15,7], inorder=[15,20,7]
+ * left: preorder=[9], inorder=[9]
+ * right: preorder=[20,15,7], inorder=[15,20,7]
  *
- * Output: Tree with root 3
+ * Output:
  * ```
- *
+ * Tree with root 3
+ * ```
+
  * ### TIME COMPLEXITY:
+
  * O(n)
+
+ * - Single pass through the input
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  *
  * ### EDGE CASES:
  * - Empty input handling

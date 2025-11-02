@@ -1,5 +1,5 @@
 """
-# 443. String Compression
+# 0443. String Compression
 
 # Difficulty: Medium
 
@@ -29,7 +29,8 @@ You must write an algorithm that uses only constant extra space.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
 **Data Structures**: Array, String, Queue
 **Patterns**: Two Pointers Pattern, Hash Table Pattern
@@ -55,24 +56,22 @@ to the same array. This allows us to modify the array in-place with O(1) extra s
 - Converting count to string and iterating over digits handles multi-digit counts
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: ["a","a","b","b","c","c","c"]
+["a","a","b","b","c","c","c"]
+```
 
 Read pointer scans:
 1. chars[0-1]: 'a' appears 2 times
-   Write: chars[0]='a', chars[1]='2'
-   write=2
-
+Write: chars[0]='a', chars[1]='2'
+write=2
 2. chars[2-3]: 'b' appears 2 times
-   Write='b', chars[3]='2'
-   write=4
-
+Write='b', chars[3]='2'
+write=4
 3. chars[4-6]: 'c' appears 3 times
-   Write='c', chars[5]='3'
-   write=6
-
+Write='c', chars[5]='3'
+write=6
 Result: ["a","2","b","2","c","3"] with length 6
-```
 
 ### TIME COMPLEXITY:
 O(n)

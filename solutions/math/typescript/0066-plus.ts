@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Medium
  *
- * # 066. Plus
+ * # 0066. Plus One
+ *
  *
  * You are given a large integer represented as an integer array digits, where each digits[i] is the ith digit of the integer. The digits are ordered from most significant to least significant in left-to-right order. The large integer does not contain any leading 0's.
  *
@@ -11,15 +12,16 @@
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[1, 2, 4]</dd>
+ * <dd>digits = [1,2,3]</dd>
  * <dt>Output:</dt>
- * <dd>"Expected {expected}, got {result}"</dd>
+ * <dd>[1,2,4]</dd>
  * <dt>Explanation:</dt>
  * <dd>Array [1,2,9] plus one is [1,3,0]</dd>
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Hash Map, Hash Set, Array
  * **Patterns**: Two Pointers Pattern
@@ -46,27 +48,34 @@
  * - O(n) time single pass, O(n) space for result array
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: digits = [1,2,3]
+ * digits = [1,2,3]
+ * ```
+ *
  * Step 1: Add 1 from rightmost
- *   digits[2] = 3+1 = 4, no carry
- *
- * Output: [1,2,4]
- *
+ * digits[2] = 3+1 = 4, no carry
  * Example with carry: [9,9,9]
- *   digits[2] = 9+1 = 10 → 0, carry=1
- *   digits[1] = 9+1 = 10 → 0, carry=1
- *   digits[0] = 9+1 = 10 → 0, carry=1
- *   Insert 1 at front
  *
- * Output: [1,0,0,0]
+ * Steps:
+ * Step 1: digits[2] = 9+1 = 10 → 0, carry=1
+ * Step 2: digits[1] = 9+1 = 10 → 0, carry=1
+ * Step 3: digits[0] = 9+1 = 10 → 0, carry=1
+ * Step 4: Insert 1 at front
+ *
+ * Output:
  * ```
- *
+ * [1,2,4]
+ * [1,0,0,0]
+ * ```
+
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  *
  * ### EDGE CASES:
  * - Empty input handling

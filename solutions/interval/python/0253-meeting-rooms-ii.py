@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 253. Meeting Rooms Ii
+# 0253. Meeting Rooms Ii
 
 Given an array of meeting time intervals intervals where intervals[i] = [starti, endi], return the minimum number of conference rooms required.
 
@@ -17,7 +17,8 @@ Given an array of meeting time intervals intervals where intervals[i] = [starti,
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
 **Data Structures**: Hash Map, Hash Set, Array
 **Patterns**: Two Pointers Pattern, Greedy Algorithm
@@ -45,28 +46,36 @@ Track meeting start and end times separately. Use min heap for end times. When a
 - O(n log n) for sorting, O(n) space for separate arrays
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: intervals = [[0,30],[5,10],[15,20]]
+intervals = [[0,30],[5,10],[15,20]]
+```
+
 Step 1: Separate start and end times
-  starts = [0,5,15]
-  ends = [10,20,30]
-
+starts = [0,5,15]
+ends = [10,20,30]
 Step 2: Use two pointers
-  time=0: start meeting, rooms=1
-  time=5: start meeting, rooms=2
-  time=10: end meeting, rooms=1
-  time=15: start meeting, rooms=2
-  time=20: end meeting, rooms=1
-  time=30: end meeting, rooms=0
+time=0: start meeting, rooms=1
+time=5: start meeting, rooms=2
+time=10: end meeting, rooms=1
+time=15: start meeting, rooms=2
+time=20: end meeting, rooms=1
+time=30: end meeting, rooms=0
 
-Output: 2 (minimum meeting rooms needed)
+Output:
+```
+2 (minimum meeting rooms needed)
 ```
 
 ### TIME COMPLEXITY:
 O(n)
+- Single pass through input
+
 
 ### SPACE COMPLEXITY:
 O(1)
+- Constant extra space
+
 
 ### EDGE CASES:
 - Empty input handling
@@ -137,27 +146,27 @@ def test_solution() -> None:
     # Test case 1: Example from problem
     result = solution.minMeetingRooms([[0, 30], [5, 10], [15, 20]])
     expected = 2
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: No overlaps
     result = solution.minMeetingRooms([[7, 10], [2, 4]])
     expected = 1
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 3: All overlap
     result = solution.minMeetingRooms([[1, 5], [2, 6], [3, 7], [4, 8]])
     expected = 4
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 4: Empty input
     result = solution.minMeetingRooms([])
     expected = 0
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 5: Single meeting
     result = solution.minMeetingRooms([[10, 15]])
     expected = 1
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

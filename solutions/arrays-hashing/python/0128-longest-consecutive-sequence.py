@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 128. Longest Consecutive Sequence
+# 0128. Longest Consecutive Sequence
 
 Given an unsorted array of integers nums, return the length of the longest consecutive elements sequence.
 
@@ -19,7 +19,8 @@ You must write an algorithm that runs in O(n) time.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Array Traversal, Graph Traversal
 **Data Structures**: Hash Map, Hash Set, Array
 **Patterns**: Hash Table Pattern, Greedy Algorithm
@@ -47,36 +48,44 @@ Convert array to a set for O(1) lookups. Only start counting consecutive sequenc
 - Set takes O(n) space but enables the linear time solution
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: nums = [100, 4, 200, 1, 3, 2]
+nums = [100, 4, 200, 1, 3, 2]
+```
 
 Step 1: Convert to set
-  num_set = {100, 4, 200, 1, 3, 2}
-
+num_set = {100, 4, 200, 1, 3, 2}
 Step 2: Check num=1 (no num-1=0 in set, so it's a sequence start)
-  current_num = 1, current_streak = 1
-  1+1=2 in set → current_streak = 2
-  2+1=3 in set → current_streak = 3
-  3+1=4 in set → current_streak = 4
-  4+1=5 not in set → stop
-  longest_streak = 4
+current_num = 1, current_streak = 1
 
-Step 3: Check num=2 (num-1=1 exists, skip)
-Step 4: Check num=3 (num-1=2 exists, skip)
-Step 5: Check num=4 (num-1=3 exists, skip)
-Step 6: Check num=100 (no num-1=99, sequence start)
-  current_streak = 1, no 101 in set
-Step 7: Check num=200 (no num-1=199, sequence start)
-  current_streak = 1, no 201 in set
+Steps:
+Step 1: 1+1=2 in set → current_streak = 2
+Step 2: 2+1=3 in set → current_streak = 3
+Step 3: 3+1=4 in set → current_streak = 4
+Step 4: 4+1=5 not in set → stop
+Step 5: longest_streak = 4
+Step 6: Check num=2 (num-1=1 exists, skip)
+Step 7: Check num=3 (num-1=2 exists, skip)
+Step 8: Check num=4 (num-1=3 exists, skip)
+Step 9: Check num=100 (no num-1=99, sequence start)
+Step 10: current_streak = 1, no 101 in set
+Step 11: Check num=200 (no num-1=199, sequence start)
+Step 12: current_streak = 1, no 201 in set
 
-Output: 4 (sequence [1,2,3,4])
+Output:
+```
+4 (sequence [1,2,3,4])
 ```
 
 ### TIME COMPLEXITY:
 O(n)
+- Single pass through input
+
 
 ### SPACE COMPLEXITY:
 O(1)
+- Constant extra space
+
 
 ### EDGE CASES:
 - Empty input handling
@@ -138,17 +147,17 @@ def test_solution() -> None:
     # Test case 1: Example from problem
     result = solution.longestConsecutive([100, 4, 200, 1, 3, 2])
     expected = 4
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: Empty input
     result = solution.longestConsecutive([])
     expected = 0
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 3: Single element
     result = solution.longestConsecutive([1])
     expected = 1
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

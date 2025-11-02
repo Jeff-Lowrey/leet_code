@@ -21,7 +21,8 @@ Return the minimum number of semesters needed to take all courses. If there is n
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
 **Data Structures**: Hash Map, Hash Set, Array
 **Patterns**: Hash Table Pattern, Graph Pattern
@@ -49,23 +50,31 @@ Build graph and calculate in-degrees. Use BFS starting from nodes with in-degree
 - O(V + E) time, O(V + E) space
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: n = 3, relations = [[1,3],[2,3]]
+n = 3, relations = [[1,3],[2,3]]
+```
+
 Step 1: Build graph and indegree
-  indegree = [0,0,2]
-
+indegree = [0,0,2]
 Step 2: Process courses level by level
-  Semester 1: courses 1,2 (indegree=0)
-  Semester 2: course 3 (after 1,2 complete)
+Semester 1: courses 1,2 (indegree=0)
+Semester 2: course 3 (after 1,2 complete)
 
-Output: 2 (minimum semesters)
+Output:
+```
+2 (minimum semesters)
 ```
 
 ### TIME COMPLEXITY:
 O(n)
+- Single pass through input
+
 
 ### SPACE COMPLEXITY:
 O(1)
+- Constant extra space
+
 
 ### EDGE CASES:
 - Empty input handling
@@ -142,27 +151,27 @@ def test_solution() -> None:
     # Test case 1: Example from problem
     result = solution.minimumSemesters(3, [[1, 3], [2, 3]])
     expected = 2
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: Cycle exists (impossible)
     result = solution.minimumSemesters(3, [[1, 2], [2, 3], [3, 1]])
     expected = -1
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 3: Linear dependency
     result = solution.minimumSemesters(4, [[1, 2], [2, 3], [3, 4]])
     expected = 4
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 4: No dependencies
     result = solution.minimumSemesters(3, [])
     expected = 1
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 5: Single course
     result = solution.minimumSemesters(1, [])
     expected = 1
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

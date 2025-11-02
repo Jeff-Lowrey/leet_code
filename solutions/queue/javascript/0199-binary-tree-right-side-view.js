@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Medium
  *
- * # 199. Binary Tree Right Side View
+ * # 0199. Binary Tree Right Side View
+ *
  *
  * Given the root of a binary tree, imagine yourself standing on the right side of it,
  * return the values of the nodes you can see ordered from top to bottom.
@@ -18,12 +19,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Array Traversal, Two Pointers, Queue Operations
  * **Data Structures**: Array, String, Queue
  * **Patterns**: Two Pointers Pattern, Tree Pattern
- * **Time Complexity**: * O(n) - Single pass through input
- * **Space Complexity**: * O(w)
+ * **Time Complexity**: O(n) - Single pass through input
+ * **Space Complexity**: O(w)
 
  *
  * ### INTUITION:
@@ -46,18 +48,20 @@
  * - We collect these rightmost nodes from each level
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
  * Tree:      1            <- Right view: 1
- *          /   \\
- *         2     3          <- Right view: 3
- *          \\     \\
- *           5     4        <- Right view: 4
- *
- * Result: [1, 3, 4]
  * ```
  *
+ * /   \\
+ * 2     3          <- Right view: 3
+ * \\     \\
+ * 5     4        <- Right view: 4
+ * Result: [1, 3, 4]
+
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  * - Visit each node exactly once
  * - n = number of nodes in tree
  *

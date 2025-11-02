@@ -1,7 +1,7 @@
 """
 # Difficulty: Easy
 
-# 28. Find The Index Of The First Occurrence In A String
+# 0028. Find The Index Of The First Occurrence In A String
 
 This problem demonstrates key concepts in String matching and pattern searching.
 
@@ -17,7 +17,8 @@ This problem demonstrates key concepts in String matching and pattern searching.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Array Traversal, Stack Operations
 **Data Structures**: String, Stack
 **Patterns**: Iterative Solution
@@ -43,17 +44,22 @@ approach is to check each position in the haystack to see if the needle starts t
 - The first match we find is guaranteed to be the earliest occurrence
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: haystack = "sadbutsad", needle = "sad"
-Step 1: Check position 0: "sad" == "sad" ✓
-Output: 0
+haystack = "sadbutsad", needle = "sad"
+haystack = "leetcode", needle = "leeto"
+```
 
-Input: haystack = "leetcode", needle = "leeto"
+Step 1: Check position 0: "sad" == "sad" ✓
 Step 1: Check position 0: "leetc" != "leeto" ✗
 Step 2: Check position 1: "eetco" != "leeto" ✗
 ...continue checking...
 Step n: No match found
-Output: -1
+
+Output:
+```
+0
+-1
 ```
 
 ### TIME COMPLEXITY:

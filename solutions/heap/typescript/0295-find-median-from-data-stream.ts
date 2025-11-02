@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Hard
  * 
- * # 295. Find Median from Data Stream
+ * # 0295. Find Median from Data Stream
  * 
  * The median is the middle value in an ordered integer list. If the size of the list is even, there is no middle value, and the median is the mean of the two middle values.
  * 
@@ -22,7 +22,8 @@
  * </dl>
  * 
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Two Pointers
  * **Data Structures**: Array, Heap, Tree
  * **Patterns**: Two Pointers Pattern, Divide and Conquer
@@ -49,24 +50,23 @@
  * - Balancing ensures O(1) median access
  * 
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
  * addNum(1):
- *   left=[1], right=[]
- *   median = 1
- * 
- * addNum(2):
- *   left=[1], right=[2]
- *   median = (1+2)/2 = 1.5
- * 
- * addNum(3):
- *   left=[2,1], right=[3]
- *   median = 2 (top of left heap)
- * 
- * addNum(4):
- *   left=[2,1], right=[3,4]
- *   median = (2+3)/2 = 2.5
  * ```
- * 
+ *
+ * left=[1], right=[]
+ * median = 1
+ * addNum(2):
+ * left=[1], right=[2]
+ * median = (1+2)/2 = 1.5
+ * addNum(3):
+ * left=[2,1], right=[3]
+ * median = 2 (top of left heap)
+ * addNum(4):
+ * left=[2,1], right=[3,4]
+ * median = (2+3)/2 = 2.5
+
  * ### TIME COMPLEXITY:
  * - addNum(): O(log n) - heap operations
  * - findMedian(): O(1) - just access heap tops

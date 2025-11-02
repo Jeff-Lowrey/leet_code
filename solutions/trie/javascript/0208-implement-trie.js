@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Medium
  *
- * # 208. Implement Trie
+ * # 0208. Implement Trie
+ *
  *
  * A trie (pronounced as "try") or prefix tree is a tree data structure used to efficiently store and retrieve keys in a dataset of strings. There are various applications of this data structure, such as autocomplete and spellchecker.
  *
@@ -23,12 +24,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Hash Map, Hash Set, Array
  * **Patterns**: Iterative Solution
- * **Time Complexity**: * O(m)
- * **Space Complexity**: * O(ALPHABET_SIZE × N × M)
+ * **Time Complexity**: O(m)
+ * **Space Complexity**: O(ALPHABET_SIZE × N × M)
 
  *
  * ### INTUITION:
@@ -47,18 +49,25 @@
  * - Dictionary children allow efficient character lookup
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
  * Insert "app":
- * root → 'a' → 'p' → 'p' (end=True)
- *
- * Insert "apple":
- * root → 'a' → 'p' → 'p' → 'l' → 'e' (end=True)
- *
- * Search "app": root → 'a' → 'p' → 'p' (end=True) → True
- * Search "appl": root → 'a' → 'p' → 'p' → 'l' (end=False) → False
- * StartsWith "app": root → 'a' → 'p' → 'p' (exists) → True
  * ```
  *
+ * Insert "apple":
+ *
+ * Steps:
+ * Step 1: root → 'a' → 'p' → 'p' (end=True)
+ * Step 2: root → 'a' → 'p' → 'p' → 'l' → 'e' (end=True)
+ * Step 3: Search "app": root → 'a' → 'p' → 'p' (end=True) → True
+ * Step 4: Search "appl": root → 'a' → 'p' → 'p' → 'l' (end=False) → False
+ * Step 5: StartsWith "app": root → 'a' → 'p' → 'p' (exists) → True
+ * 
+ * Output:
+ * ```
+ * True
+ * ```
+ * 
  * ### TIME COMPLEXITY:
  * O(m)
  * Where m is the length of the word/prefix for all operations

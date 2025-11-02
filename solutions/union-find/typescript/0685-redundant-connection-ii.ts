@@ -1,5 +1,5 @@
 /**
- * # 685. Redundant Connection Ii
+ * # 0685. Redundant Connection Ii
  * 
  * # Difficulty: Hard
  * 
@@ -20,7 +20,8 @@
  * </dl>
  * 
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Hash Map, Hash Set, Array
  * **Patterns**: Iterative Solution
@@ -42,23 +43,28 @@
  * When a node has 2 parents, one must be removed. Union-find detects cycles.
  * 
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: edges = [[1,2],[1,3],[2,3]]
+ * edges = [[1,2],[1,3],[2,3]]
+ * ```
+ *
  * Step 1: Find node with 2 parents
- *   Node 3 has parents 1 and 2
- * 
+ * Node 3 has parents 1 and 2
  * Step 2: Try removing each edge to node 3
- *   Remove [1,3]: still cycle exists
- *   Remove [2,3]: forms valid tree ✓
- * 
- * Output: [2,3]
+ * Remove [1,3]: still cycle exists
+ * Remove [2,3]: forms valid tree ✓
+ *
+ * Output:
  * ```
- * 
+ * [2,3]
+ * ```
+
  * ### TIME COMPLEXITY:
- * O(n α(n))
- * 
+ * O(n α(n)) - Union-find operations with path compression and union by rank
+
  * ### SPACE COMPLEXITY:
  * O(n)
+ * - Additional hash map storage
  * 
  * ### EDGE CASES:
  * - **Node with two parents, no cycle**: Remove the later edge to that node
@@ -83,8 +89,8 @@ class Solution {
     candidate1 = candidate2 = null
     for u, v in edges:
     if (parent.has(v)) {
-    candidate1 = [parent.get(v), v]  # First edge
-    candidate2 = [u, v]  # Second edge
+    candidate1 = [parent.get(v), v]  // First edge
+    candidate2 = [u, v]  // Second edge
   }
 }
 

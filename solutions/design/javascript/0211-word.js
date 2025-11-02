@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Medium
  *
- * # 211. Design Add and Search Words Data Structure
+ * # 0211. Design Add and Search Words Data Structure
+ *
  *
  * Design a data structure that supports adding new words and finding if a string matches any previously added string.
  *
@@ -29,12 +30,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Hash Map, Hash Set, String
  * **Patterns**: Graph Pattern
  * **Time Complexity**: * - addWord: O(n) where n is word length
- * **Space Complexity**: * O(total characters in all words)
+ * **Space Complexity**: O(total characters in all words)
 
  *
  * ### INTUITION:
@@ -55,21 +57,28 @@
  * - Time complexity is optimal for both operations
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
  * addWord("bad")
- * addWord("dad")
- * addWord("mad")
- * search("pad") -> false
- * search(".ad") -> true (matches "bad", "dad", "mad")
- * search("b..") -> true (matches "bad")
  * ```
  *
+ * addWord("dad")
+ * addWord("mad")
+ *
+ * Steps:
+ * Step 1: search("pad") -> false
+ * Step 2: search(".ad") -> true (matches "bad", "dad", "mad")
+ * Step 3: search("b..") -> true (matches "bad")
+
  * ### TIME COMPLEXITY:
  * - addWord: O(n) where n is word length
  * - search: O(26^m) worst case where m is number of wildcards, O(n) average
  *
  * ### SPACE COMPLEXITY:
+
  * O(total characters in all words)
+
+ * - Based on auxiliary data structures
  *
  * ### EDGE CASES:
  * - Empty string

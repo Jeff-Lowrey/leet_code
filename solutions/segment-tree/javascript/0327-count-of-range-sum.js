@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Hard
  *
- * # 327. Count Of Range Sum
+ * # 0327. Count Of Range Sum
+ *
  *
  * Given an integer array nums and two integers lower and upper, return the number of range sums that lie in [lower, upper] inclusive.
  *
@@ -11,20 +12,21 @@
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[([-2, 5, -1]</dd>
+ * <dd>nums = [-2, 5, -1], lower = -2, upper = 2</dd>
  * <dt>Output:</dt>
- * <dd>"\nInput: nums = {nums}, lower = {lower}, upper = {upper}"</dd>
+ * <dd>3</dd>
  * <dt>Explanation:</dt>
  * <dd>Count of ranges with sum in [lower=-2, upper=2] is 3</dd>
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
  * **Data Structures**: Hash Map, Hash Set, Array
  * **Patterns**: Two Pointers Pattern, Hash Table Pattern
- * **Time Complexity**: * O(n log n) - Sorting or divide-and-conquer
- * **Space Complexity**: * O(n) - Additional hash map storage
+ * **Time Complexity**: O(n log n) - Sorting or divide-and-conquer
+ * **Space Complexity**: O(n) - Additional hash map storage
 
  *
  * ### INTUITION:
@@ -42,9 +44,21 @@
  * ### WHY THIS WORKS:
  * The algorithm correctly solves the problem by systematically exploring all valid states while maintaining necessary invariants. Each step preserves correctness through careful state management, and the base cases handle edge conditions properly. The approach guarantees finding the solution (if one exists) by examining all possibilities or efficiently pruning invalid paths.
  *
- * ### EXAMPLE WALKTHROUGH:
+ *
+
+This solution uses hash table lookup for efficient implementation.
+
+This solution uses hash map storage for efficient implementation.
+
+This solution uses set operations for efficient implementation.
+### EXAMPLE WALKTHROUGH:
+ * Given input nums = [-2,5,-1], lower = -2, upper = 2:
+ *
+ * Input:
  * ```
- * Input: nums = [-2,5,-1], lower = -2, upper = 2
+ * nums = [-2,5,-1], lower = -2, upper = 2
+ * ```
+ *
  * Prefix sums: [0, -2, 3, 2]
  * Range sums to check:
  * - S(0,0) = -2 ✓ (in range)
@@ -53,15 +67,22 @@
  * - S(1,1) = 5 ✗
  * - S(1,2) = 4 ✗
  * - S(2,2) = -1 ✓
- * Output: 3
- * ```
  *
+ * Output:
+ * ```
+ * 3
+ * ```
+
+ *
+ * Result: 3
  * ### TIME COMPLEXITY:
  * O(n log n)
+ * - Sorting or divide-and-conquer
  * For merge sort and tree-based approaches
  *
  * ### SPACE COMPLEXITY:
  * O(n)
+ * - Additional hash map storage
  * For prefix sums and auxiliary structures
  *
  * ### EDGE CASES:

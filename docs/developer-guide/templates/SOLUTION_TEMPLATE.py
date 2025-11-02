@@ -66,6 +66,11 @@ Input:
 
 **Step N:** [description of final step]
 
+Output:
+```
+[expected output]
+```
+
 ### TIME COMPLEXITY:
 **O(?)** - [detailed explanation]
 

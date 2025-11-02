@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  * 
- * # 102. Binary Tree Level Order Traversal
+ * # 0102. Binary Tree Level Order Traversal
  * 
  * Given the root of a binary tree, return the level order traversal of its nodes' values. (i.e., from left to right, level by level).
  * 
@@ -9,7 +9,7 @@
  * 
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[[3]</dd>
+ * <dd>[[3]]</dd>
  * <dt>Output:</dt>
  * <dd>1</dd>
  * <dt>Explanation:</dt>
@@ -17,7 +17,8 @@
  * </dl>
  * 
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Array, Queue, Tree
  * **Patterns**: Two Pointers Pattern, Hash Table Pattern
@@ -40,22 +41,30 @@
  * - BFS naturally explores breadth before depth
  * 
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: [3,9,20,null,null,15,7]
- *        3
- *       / \
- *      9  20
- *        /  \
- *       15   7
- * 
- * Level 0: [3] → queue: [9, 20]
- * Level 1: [9, 20] → queue: [15, 7]
- * Level 2: [15, 7] → queue: []
- * Output: [[3], [9, 20], [15, 7]]
+ * [3,9,20,null,null,15,7]
  * ```
- * 
+ *
+ * 3
+ * / \
+ * 9  20
+ * /  \
+ * 15   7
+ *
+ * Steps:
+ * Step 1: Level 0: [3] → queue: [9, 20]
+ * Step 2: Level 1: [9, 20] → queue: [15, 7]
+ * Step 3: Level 2: [15, 7] → queue: []
+ *
+ * Output:
+ * ```
+ * [[3], [9, 20], [15, 7]]
+ * ```
+
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  * Each node is visited exactly once
  * 
  * ### SPACE COMPLEXITY:
@@ -129,7 +138,7 @@ class Solution {
     if not root:
     return []
     result: list.get(list[int)] = []
-    queue = [(root, 0)]  # (node, level)
+    queue = [(root, 0)]  // (node, level)
     while queue:
     node, level = queue.pop(0)
   }
@@ -200,9 +209,9 @@ function runTests(): void {
   for name, method in approaches:
   result = method(tree1)
   if name == "Bottom-up BFS":
-  console.log(`{name}: {result} (reversed order)`)
+  console.log(`{name}: result (reversed order)`)
   else:
-  console.log(`{name}: {result}`)
+  console.log(`{name}: result`)
   console.log(`\nKey insights:`)
   console.log(`1. BFS with queue naturally processes level by level`)
   console.log(`2. Level size tracking separates levels in the result`)

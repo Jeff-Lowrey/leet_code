@@ -1,7 +1,7 @@
 /**
- * # Difficulty: Easy
- * 
- * # 374. Guess Number Higher Or Lower
+ * 0374. Guess Number Higher Or Lower
+ *
+ * Difficulty: Easy
  * 
  * We are playing the Guess Game. The game is as follows:
  * 
@@ -20,59 +20,79 @@
  * 
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[(10, 6), (100, 25), (50, 1), (1, 1)]</dd>
+ * <dd>n = 10, pick = 6
+ * n = 1, pick = 1
+ * n = 2, pick = 1</dd>
  * <dt>Output:</dt>
- * <dd>"Range [1, {n}], picked number: {result}"</dd>
+ * <dd>* 6
+ * 1
+ * 1</dd>
  * <dt>Explanation:</dt>
  * <dd>Target number is guessed using binary search strategy</dd>
  * </dl>
  * 
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
- * **Techniques**: Hash Table Lookup, Array Traversal, Two Pointers
- * **Data Structures**: Array, Stack, Tree
- * **Patterns**: Two Pointers Pattern, Hash Table Pattern
- * **Time Complexity**: O(log n) - Binary search or tree height
- * **Space Complexity**: O(1) - Constant extra space
- * 
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
+ * **Techniques**: **Binary Search**
+ * **Data Structures**: Number range (integers 1 to n)
+ * **Patterns**: **Binary Search** Pattern, Divide and Conquer
+ * **Time Complexity**: O(log n) - Binary search halves search space each iteration
+ * **Space Complexity**: O(1) - Constant extra space (two pointers)
+ *
  * ### INTUITION:
  * This is a classic binary search problem where we need to find a target number using feedback from a guess API. The key insight is to use the API response to narrow down the search space by half in each iteration.
- * 
+ *
  * ### APPROACH:
- * 1. **Binary search**: Use binary search on the range [1, n]
+ * **Data structures: Number range (integers 1 to n) with two pointers**
+ * 1. **Binary search**: Use binary search on the range [1, n], maintaining left and right pointers
  * 2. **API feedback**: Use guess() API response to adjust search bounds
  * 3. **Boundary adjustment**: Move left/right pointers based on feedback
  * 4. **Termination**: Continue until API returns 0 (correct guess)
- * 
+ *
  * ### WHY THIS WORKS:
  * - Binary search optimally reduces search space by half each iteration
  * - API feedback provides perfect direction information
  * - Guaranteed to find the answer in O(log n) time
  * - Similar to searching in a sorted array but using API instead of direct comparison
- * 
- * ### EXAMPLE WALKTHROUGH:
+ * - Using two pointers (left, right) on the number range allows efficient narrowing
+ *
+ *
+
+This solution uses binary search for efficient implementation.
+### EXAMPLE WALKTHROUGH:
+ * Given input n = 10, pick = 6
+ * n = 1, pick = 1
+ * n = 2, pick = 1:
+ *
+ * Input:
  * ```
- * Input: n = 10, pick = 6
- * Step 1: guess(5) returns 1 (pick > 5), so left = 6
- * Step 2: guess(8) returns -1 (pick < 8), so right = 7
- * Step 3: guess(6) returns 0 (correct!)
- * Output: 6
- * 
- * Input: n = 1, pick = 1
- * Step 1: guess(1) returns 0 (correct!)
- * Output: 1
- * 
- * Input: n = 2, pick = 1
- * Step 1: guess(1) returns 0 (correct!)
- * Output: 1
+ * n = 10, pick = 6
+ * n = 1, pick = 1
+ * n = 2, pick = 1
  * ```
- * 
+ *
+ * **Step 1:** guess(5) returns 1 (pick > 5), so left = 6
+ * **Step 2:** guess(8) returns -1 (pick < 8), so right = 7
+ * **Step 3:** guess(6) returns 0 (correct!)
+ * **Step 1:** guess(1) returns 0 (correct!)
+ * **Step 1:** guess(1) returns 0 (correct!)
+ *
+ * Output:
+ * ```
+ * 6
+ * 1
+ * 1
+ * ```
+
  * ### TIME COMPLEXITY:
  * O(log n)
+ * - Binary search or tree height
  * Binary search through range [1, n]
  * 
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  * Only using constant extra space
  * 
  * ### EDGE CASES:
@@ -82,6 +102,14 @@
  * 
  * </details>
  */
+
+// Mock guess API for testing
+let pickedNumber = 6;
+function guess(num: number): number {
+  if (num > pickedNumber) return -1;
+  if (num < pickedNumber) return 1;
+  return 0;
+}
 
 class Solution {
   /**
@@ -97,15 +125,23 @@ class Solution {
    *         Space Complexity: O(1)
    */
   guessNumber(n: number): number {
-    // Implementation
-    left, right = 1, n
-    while left <= right:
-    mid = left + (right - left) // 2  # Avoid overflow
-    result = guess(mid)
-    if result == 0:
-    return mid  # Found the correct number
-    elif result == -1:
-    right = mid - 1  # Guess too high, search lower half
+    let left = 1;
+    let right = n;
+
+    while (left <= right) {
+      const mid = left + Math.floor((right - left) / 2); // Avoid overflow
+      const result = guess(mid);
+
+      if (result === 0) {
+        return mid; // Found the correct number
+      } else if (result === -1) {
+        right = mid - 1; // Guess too high, search lower half
+      } else {
+        left = mid + 1; // Guess too low, search upper half
+      }
+    }
+
+    return -1; // Should never reach here
   }
 
   /**
@@ -121,15 +157,24 @@ class Solution {
    *         Space Complexity: O(log n) due to recursion stack
    */
   guessNumberRecursive(n: number): number {
-    // Implementation
-    def binary_search(left: int, right: int) -> int:
-    if left > right:
-    return -1  # Should not happen
-    mid = left + (right - left) // 2
-    result = guess(mid)
-    if result == 0:
-    return mid
-    elif result == -1:
+    const binarySearch = (left: number, right: number): number => {
+      if (left > right) {
+        return -1; // Should not happen
+      }
+
+      const mid = left + Math.floor((right - left) / 2);
+      const result = guess(mid);
+
+      if (result === 0) {
+        return mid;
+      } else if (result === -1) {
+        return binarySearch(left, mid - 1);
+      } else {
+        return binarySearch(mid + 1, right);
+      }
+    };
+
+    return binarySearch(1, n);
   }
 
   /**
@@ -145,15 +190,12 @@ class Solution {
    *         Space Complexity: O(1)
    */
   guessNumberLinear(n: number): number {
-    // Implementation
-    for (let i = 0; i < 1, n + 1; i++) {
-    if guess(i) == 0:
-    return i
-    return -1
-    def test_solution() -> null:
-    """
-    Test cases for 374. Guess Number Higher Or Lower.
-    """
+    for (let i = 1; i <= n; i++) {
+      if (guess(i) === 0) {
+        return i;
+      }
+    }
+    return -1;
   }
 }
 
@@ -165,33 +207,44 @@ if (typeof module !== "undefined" && module.exports) {
 function runTests(): void {
   const solution = new Solution();
 
-  test_solution()
-  # Example usage
-  solution = Solution()
-  console.log(`=== 374. Guess Number Higher Or Lower ===`)
-  # Demonstrate different scenarios
-  test_cases = [(10, 6), (100, 25), (50, 1), (1, 1)]
-  for n, pick in test_cases:
-  guess.pick = pick  # type: ignore
-  result = solution.guessNumber(n)
-  console.log(`Range [1, {n}], picked number: {result}`)
-  # Show API call simulation
-  console.log(`\nAPI simulation for n=10, pick=6:`)
-  guess.pick = 6  # type: ignore
-  left, right = 1, 10
-  call_count = 0
-  while left <= right:
-  mid = left + (right - left) // 2
-  result = guess(mid)
-  call_count += 1
-  console.log(`Call {call_count}: guess({mid}) = {result}`)
-  if result == 0:
-  console.log(`Found! Answer is {mid}`)
-  break
-  elif result == -1:
-  right = mid - 1
-  else:
-  left = mid + 1
+  console.log("=== 374. Guess Number Higher Or Lower ===");
+
+  // Demonstrate different scenarios
+  const testCases: [number, number][] = [
+    [10, 6],
+    [100, 25],
+    [50, 1],
+    [1, 1],
+  ];
+
+  for (const [n, pick] of testCases) {
+    pickedNumber = pick;
+    const result = solution.guessNumber(n);
+    console.log(`Range [1, ${n}], picked number: ${result}`);
+  }
+
+  // Show API call simulation
+  console.log("\nAPI simulation for n=10, pick=6:");
+  pickedNumber = 6;
+  let left = 1;
+  let right = 10;
+  let callCount = 0;
+
+  while (left <= right) {
+    const mid = left + Math.floor((right - left) / 2);
+    const result = guess(mid);
+    callCount++;
+    console.log(`Call ${callCount}: guess(${mid}) = ${result}`);
+
+    if (result === 0) {
+      console.log(`Found! Answer is ${mid}`);
+      break;
+    } else if (result === -1) {
+      right = mid - 1;
+    } else {
+      left = mid + 1;
+    }
+  }
 }
 
 if (typeof require !== "undefined" && require.main === module) {

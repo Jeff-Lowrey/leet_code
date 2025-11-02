@@ -3,6 +3,7 @@
  *
  * # 1047. Remove All Adjacent Duplicates In String
  *
+ *
  * You are given a string s consisting of lowercase English letters. A duplicate removal
  * consists of choosing two adjacent and equal characters and removing them.
  *
@@ -23,7 +24,8 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Array, String, Stack
  * **Patterns**: Two Pointers Pattern, Hash Table Pattern
@@ -48,21 +50,27 @@
  * - Single pass is sufficient since we process left-to-right
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: s = "abbaca"
+ * s = "abbaca"
+ * ```
+ *
  * Step 1: Use stack
- *   'a': stack=['a']
- *   'b': stack=['a','b']
- *   'b': stack=['a'] (removed duplicate)
- *   'a': stack=[] (removed duplicate)
- *   'c': stack=['c']
- *   'a': stack=['c','a']
+ * 'a': stack=['a']
+ * 'b': stack=['a','b']
+ * 'b': stack=['a'] (removed duplicate)
+ * 'a': stack=[] (removed duplicate)
+ * 'c': stack=['c']
+ * 'a': stack=['c','a']
  *
- * Output: "ca"
+ * Output:
  * ```
- *
+ * "ca"
+ * ```
+
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  * Single pass through string with O(1) stack operations
  *
  * ### SPACE COMPLEXITY:

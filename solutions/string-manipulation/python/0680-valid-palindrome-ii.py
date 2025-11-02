@@ -1,7 +1,7 @@
 """
 # Difficulty: Easy
 
-# 680. Valid Palindrome II
+# 0680. Valid Palindrome II
 
 Given a string s, return true if the s can be palindrome after deleting at most one character from it.
 
@@ -9,15 +9,17 @@ Given a string s, return true if the s can be palindrome after deleting at most 
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>["aba", "abca", "abc", "racecar", "deeee"]</dd>
+<dd>"aba"
+"abca"</dd>
 <dt>Output:</dt>
-<dd>"validPalindrome('{test}') -> {result}"</dd>
+<dd>True</dd>
 <dt>Explanation:</dt>
 <dd>String 'aba' is a valid palindrome (can delete 0 characters)</dd>
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
 **Data Structures**: String, Tree
 **Patterns**: Two Pointers Pattern
@@ -42,17 +44,25 @@ We can use a two-pointer approach to check if a string is a palindrome. When we 
 - Two-pointer palindrome check is efficient and straightforward
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: "aba"
+"aba"
+"abca"
+```
+
 left=0, right=2: s[0]='a' == s[2]='a' ✓
 left=1, right=1: pointers meet, palindrome found
 Result: True (already palindrome)
-
-Input: "abca"
 left=0, right=3: s[0]='a' == s[3]='a' ✓
 left=1, right=2: s[1]='b' != s[2]='c' ✗
-Try skip left (delete 'b'): check "aca" → palindrome ✓
-Result: True
+
+Steps:
+Step 1: Try skip left (delete 'b'): check "aca" → palindrome ✓
+Step 2: Result: True
+
+Output:
+```
+True
 ```
 
 ### TIME COMPLEXITY:
@@ -281,7 +291,7 @@ if __name__ == "__main__":
     test_cases = ["aba", "abca", "abc", "racecar", "deeee"]
     for test in test_cases:
         result = solution.validPalindrome(test)
-        print(f"validPalindrome('{test}') -> {result}")
+        print(f"validPalindrome('{test}') -> result")
 
     # Demonstrate the logic
     print("\nDetailed example for 'abca':")

@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Medium
  *
- * # 856. Score Of Parentheses
+ * # 0856. Score Of Parentheses
+ *
  *
  * Given a balanced parentheses string s, return the score of the string.
  *
@@ -22,7 +23,8 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: String, Stack, Graph
  * **Patterns**: Hash Table Pattern, Graph Pattern
@@ -49,8 +51,11 @@
  * - Adjacent groups at same level add together
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: "(()(()))"
+ * "(()(()))"
+ * ```
+ *
  * Stack: [0]
  * '(': stack = [0, 0]
  * '(': stack = [0, 0, 0]
@@ -60,11 +65,15 @@
  * ')': empty level, stack = [0, 1, 1]
  * ')': inner=1, stack = [0, 1+2*1] = [0, 3]
  * ')': inner=3, stack = [0+2*3] = [6]
- * Output: 6
- * ```
  *
+ * Output:
+ * ```
+ * 6
+ * ```
+
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  * Single pass through the string
  *
  * ### SPACE COMPLEXITY:

@@ -1,7 +1,7 @@
 """
 # Difficulty: Hard
 
-# 135. Candy
+# 0135. Candy
 
 There are n children standing in a line. Each child is assigned a rating value given
 in the integer array ratings.
@@ -25,7 +25,8 @@ the children.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Map Storage, Array Traversal, Two Pointers
 **Data Structures**: Array, Tree, Trie
 **Patterns**: Two Pointers Pattern, Hash Table Pattern
@@ -52,25 +53,23 @@ the maximum to satisfy both.
 - **Optimality**: Each assignment is minimal, so total is minimal
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: ratings = [1,0,2]
+ratings = [1,0,2]
+```
 
 Initial: candies = [1,1,1]
-
 Left to right pass:
-  i=1: ratings[1]=0 < ratings[0]=1, no change
-       candies = [1,1,1]
-  i=2: ratings[2]=2 > ratings[1]=0, candies[2] = candies[1] + 1 = 2
-       candies = [1,1,2]
-
+i=1: ratings[1]=0 < ratings[0]=1, no change
+candies = [1,1,1]
+i=2: ratings[2]=2 > ratings[1]=0, candies[2] = candies[1] + 1 = 2
+candies = [1,1,2]
 Right to left pass:
-  i=1: ratings[1]=0 < ratings[2]=2, no change
-       candies = [1,1,2]
-  i=0: ratings[0]=1 > ratings[1]=0, candies[0] = max(1, 1+1) = 2
-       candies = [2,1,2]
-
+i=1: ratings[1]=0 < ratings[2]=2, no change
+candies = [1,1,2]
+i=0: ratings[0]=1 > ratings[1]=0, candies[0] = max(1, 1+1) = 2
+candies = [2,1,2]
 Total: 2 + 1 + 2 = 5
-```
 
 ### TIME COMPLEXITY:
 O(n)

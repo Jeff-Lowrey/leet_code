@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 141. Linked List Cycle
+# 0141. Linked List Cycle
 
 Given head, the head of a linked list, determine if the linked list has a cycle in it.
 
@@ -21,7 +21,8 @@ Return true if there is a cycle in the linked list. Otherwise, return false.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup
 **Data Structures**: Hash Set, Array, Linked List
 **Patterns**: Two Pointers Pattern
@@ -47,22 +48,33 @@ Use Floyd's cycle detection with fast and slow pointers. Fast moves 2 steps, slo
 - O(1) space: only two pointers regardless of list size
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: head = [3,2,0,-4], pos = 1 (cycle at node 2)
-Step 1: Fast and slow pointers
-  slow=3, fast=3
-  slow=2, fast=0
-  slow=0, fast=2
-  slow=-4, fast=-4 → meet
+head = [3,2,0,-4], pos = 1 (cycle at node 2)
+```
 
-Output: True (has cycle)
+Step 1: Fast and slow pointers
+slow=3, fast=3
+slow=2, fast=0
+slow=0, fast=2
+
+Steps:
+Step 1: slow=-4, fast=-4 → meet
+
+Output:
+```
+True (has cycle)
 ```
 
 ### TIME COMPLEXITY:
 O(n)
+- Single pass through input
+
 
 ### SPACE COMPLEXITY:
 O(1)
+- Constant extra space
+
 
 ### EDGE CASES:
 - Empty input handling
@@ -156,27 +168,27 @@ def test_solution() -> None:
     # Test case 1: List with cycle
     head = create_cycle_list([3, 2, 0, -4], 1)
     solution.solve(head)
-    # # # assert result == expected, f"Expected {expected}, got {result}"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
+    # # # assert result == expected, f"Expected expected, got result"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
 
     # Test case 2: List with cycle at head
     head = create_cycle_list([1, 2], 0)
     solution.solve(head)
-    # # # assert result == expected, f"Expected {expected}, got {result}"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
+    # # # assert result == expected, f"Expected expected, got result"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
 
     # Test case 3: No cycle
     head = create_cycle_list([1, 2, 3, 4], -1)
     solution.solve(head)
-    # # # assert result == expected, f"Expected {expected}, got {result}"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
+    # # # assert result == expected, f"Expected expected, got result"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
 
     # Test case 4: Single node, no cycle
     head = create_cycle_list([1], -1)
     solution.solve(head)
-    # # # assert result == expected, f"Expected {expected}, got {result}"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
+    # # # assert result == expected, f"Expected expected, got result"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
 
     # Test case 5: Empty list
     head = None  # type: ignore
     solution.solve(head)
-    # # # assert result == expected, f"Expected {expected}, got {result}"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
+    # # # assert result == expected, f"Expected expected, got result"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
 
     print("All test cases passed!")
 

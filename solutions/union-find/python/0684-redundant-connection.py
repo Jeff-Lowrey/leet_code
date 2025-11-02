@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 684. Redundant Connection
+# 0684. Redundant Connection
 
 In this problem, a tree is an undirected graph that is connected and has no cycles.
 
@@ -13,7 +13,7 @@ Return an edge that can be removed so that the resulting graph is a tree of n no
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[[1, 2]</dd>
+<dd>[[1, 2]]</dd>
 <dt>Output:</dt>
 <dd>1</dd>
 <dt>Explanation:</dt>
@@ -21,7 +21,8 @@ Return an edge that can be removed so that the resulting graph is a tree of n no
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
 **Data Structures**: Hash Map, Hash Set, Array
 **Patterns**: Two Pointers Pattern, Hash Table Pattern
@@ -43,15 +44,21 @@ This is a classic Union-Find cycle detection problem. In a tree with n nodes, th
 - This edge can be removed while keeping the graph connected
 
 ### EXAMPLE WALKTHROUGH:
+Input:
+```
+[[1, 2]
+```
+
+Input:
 ```
 edges = [[1,2],[1,3],[2,3]]
-
-Process edge [1,2]: 1 and 2 not connected → union them
-Process edge [1,3]: 1 and 3 not connected → union them
-Process edge [2,3]: 2 and 3 are already connected through 1 → redundant!
-
-Return [2,3]
 ```
+
+Steps:
+Step 1: Process edge [1,2]: 1 and 2 not connected → union them
+Step 2: Process edge [1,3]: 1 and 3 not connected → union them
+Step 3: Process edge [2,3]: 2 and 3 are already connected through 1 → redundant!
+Step 4: Return [2,3]
 
 ### TIME COMPLEXITY:
 O(n × α(n))

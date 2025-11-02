@@ -1,5 +1,5 @@
 """
-# 14. Longest Common Prefix
+# 0014. Longest Common Prefix
 
 # Difficulty: Easy
 
@@ -18,7 +18,8 @@ If there is no common prefix, return an empty string "".
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
 **Data Structures**: Hash Map, Array, String
 **Patterns**: Two Pointers Pattern, Sliding Window Pattern
@@ -38,11 +39,21 @@ The longest common prefix is the sequence of characters that all strings share f
 Since we're looking for a common prefix, all strings must have identical characters at each position from the start. The moment any string differs or ends, we've found the longest possible common prefix.
 
 ### EXAMPLE WALKTHROUGH:
-For strs = ["flower","flow","flight"]:
-1. Position 0: 'f', 'f', 'f' → all match
-2. Position 1: 'l', 'l', 'l' → all match
-3. Position 2: 'o', 'o', 'i' → mismatch found
-4. Return "fl"
+Input:
+```
+strs = ["flower","flow","flight"]
+```
+
+Steps:
+Step 1: Position 0 → compare 'f', 'f', 'f' → all match
+Step 2: Position 1 → compare 'l', 'l', 'l' → all match
+Step 3: Position 2 → compare 'o', 'o', 'i' → mismatch found
+Step 4: Return prefix up to position 2 → "fl"
+
+Output:
+```
+"fl"
+```
 
 ### TIME COMPLEXITY:
 O(S)
@@ -153,7 +164,6 @@ class Solution:
 
 """
 28. Find the Index of the First Occurrence in a String
-# Difficulty: Easy
 Given two strings needle and haystack, return the index of the first occurrence
 of needle in haystack, or -1 if needle is not part of haystack.
 
@@ -229,7 +239,6 @@ class SolutionStrStr:
 
 """
 459. Repeated Substring Pattern
-# Difficulty: Easy
 Given a string s, check if it can be constructed by taking a substring of it and
 appending multiple copies of the substring together.
 
@@ -279,7 +288,6 @@ class SolutionRepeated:
 
 """
 686. Repeated String Match
-# Difficulty: Medium
 Given two strings a and b, return the minimum number of times you should repeat
 string a so that string b is a substring of it. If it is impossible for b to be
 a substring of a after repeating it, return -1.
@@ -321,7 +329,7 @@ if __name__ == "__main__":
     for strs in test_cases:
         result = solution.longestCommonPrefix(strs)
         print(f"Input: {strs}")
-        print(f"Prefix: '{result}'\n")
+        print(f"Prefix: 'result'\n")
 
     # Test strStr
     solution_str = SolutionStrStr()

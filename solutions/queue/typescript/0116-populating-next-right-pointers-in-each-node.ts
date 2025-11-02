@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  * 
- * # 116. Populating Next Right Pointers in Each Node
+ * # 0116. Populating Next Right Pointers in Each Node
  * 
  * You are given a perfect binary tree where all leaves are on the same level, and every parent has two children.
  * Populate each next pointer to point to its next right node. If there is no next right node, the next pointer should be set to NULL.
@@ -20,7 +20,8 @@
  * </dl>
  * 
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Array Traversal, Two Pointers
  * **Data Structures**: Hash Set, Queue, Tree
  * **Patterns**: Two Pointers Pattern, Graph Pattern
@@ -48,21 +49,25 @@
  * - Last node of each level naturally has next = NULL
  * 
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
  * Tree:        1
- *            /   \\
- *           2     3
- *          / \\   / \\
- *         4   5 6   7
- * 
- * After connecting:
- * Level 0: 1 -> NULL
- * Level 1: 2 -> 3 -> NULL
- * Level 2: 4 -> 5 -> 6 -> 7 -> NULL
  * ```
- * 
+ *
+ * /   \\
+ * 2     3
+ * / \\   / \\
+ * 4   5 6   7
+ * After connecting:
+ *
+ * Steps:
+ * Step 1: Level 0: 1 -> NULL
+ * Step 2: Level 1: 2 -> 3 -> NULL
+ * Step 3: Level 2: 4 -> 5 -> 6 -> 7 -> NULL
+
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  * - Visit each node exactly once
  * - n = number of nodes in tree
  * 

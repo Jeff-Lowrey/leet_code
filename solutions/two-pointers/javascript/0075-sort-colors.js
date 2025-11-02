@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Medium
  *
- * # 075. Sort Colors
+ * # 0075. Sort Colors
+ *
  *
  * Given an array nums with n objects colored red, white, or blue, sort them in-place so that objects of the same color are adjacent, with the colors in the order red, white, and blue.
  *
@@ -13,20 +14,21 @@
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[0, 0, 1, 1, 2, 2]</dd>
+ * <dd>nums = [2, 0, 2, 1, 1, 0]</dd>
  * <dt>Output:</dt>
- * <dd>"Expected {expected}, got {result}"</dd>
+ * <dd>[0, 0, 1, 1, 2, 2]</dd>
  * <dt>Explanation:</dt>
  * <dd>Sort colors [2,0,2,1,1,0] in-place to [0,0,1,1,2,2]</dd>
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Hash Map Storage, Array Traversal
  * **Data Structures**: Array, String, Linked List
  * **Patterns**: Two Pointers Pattern
- * **Time Complexity**: * O(n) - Single pass through input
- * **Space Complexity**: * O(1) - Constant extra space
+ * **Time Complexity**: O(n) - Single pass through input
+ * **Space Complexity**: O(1) - Constant extra space
 
  *
  * ### INTUITION:
@@ -44,45 +46,44 @@
  * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: nums = [2, 0, 2, 1, 1, 0]
+ * nums = [2, 0, 2, 1, 1, 0]
+ * ```
  *
  * Step 1: Initialize pointers
- *   left = 0, current = 0, right = 5
- *   Array: [2, 0, 2, 1, 1, 0]
- *
+ * left = 0, current = 0, right = 5
+ * Array: [2, 0, 2, 1, 1, 0]
  * Step 2: current=0, nums[0]=2
- *   Swap with right: [0, 0, 2, 1, 1, 2]
- *   right = 4, current stays at 0
- *
+ * Swap with right: [0, 0, 2, 1, 1, 2]
+ * right = 4, current stays at 0
  * Step 3: current=0, nums[0]=0
- *   Swap with left: [0, 0, 2, 1, 1, 2]
- *   left = 1, current = 1
- *
+ * Swap with left: [0, 0, 2, 1, 1, 2]
+ * left = 1, current = 1
  * Step 4: current=1, nums[1]=0
- *   Swap with left: [0, 0, 2, 1, 1, 2]
- *   left = 2, current = 2
- *
+ * Swap with left: [0, 0, 2, 1, 1, 2]
+ * left = 2, current = 2
  * Step 5: current=2, nums[2]=2
- *   Swap with right: [0, 0, 1, 1, 2, 2]
- *   right = 3, current stays at 2
- *
+ * Swap with right: [0, 0, 1, 1, 2, 2]
+ * right = 3, current stays at 2
  * Step 6: current=2, nums[2]=1
- *   Move current: current = 3
- *
+ * Move current: current = 3
  * Step 7: current=3, nums[3]=1
- *   Move current: current = 4
- *
+ * Move current: current = 4
  * Step 8: current=4, right=3, stop (current > right)
  *
- * Output: [0, 0, 1, 1, 2, 2]
+ * Output:
  * ```
- *
+ * [0, 0, 1, 1, 2, 2]
+ * ```
+
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  *
  * ### EDGE CASES:
  * - Empty input handling

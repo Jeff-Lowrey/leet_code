@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Medium
  *
- * # 643. Maximum Average Subarray I
+ * # 0643. Maximum Average Subarray I
+ *
  *
  * You are given an integer array nums consisting of n elements, and an integer k.
  *
@@ -19,12 +20,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Array Traversal, Two Pointers, Sliding Window
  * **Data Structures**: Array, Tree
  * **Patterns**: Two Pointers Pattern, Sliding Window Pattern
- * **Time Complexity**: * O(n) - Single pass through input
- * **Space Complexity**: * O(1) - Constant extra space
+ * **Time Complexity**: O(n) - Single pass through input
+ * **Space Complexity**: O(1) - Constant extra space
 
  *
  * ### INTUITION:
@@ -42,23 +44,29 @@
  * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: nums = [1,12,-5,-6,50,3], k = 4
+ * nums = [1,12,-5,-6,50,3], k = 4
+ * ```
+ *
  * Step 1: Calculate first window sum
- *   sum = 1+12+(-5)+(-6) = 2, avg = 0.5
- *
+ * sum = 1+12+(-5)+(-6) = 2, avg = 0.5
  * Step 2: Slide window
- *   sum = 2-1+50 = 51, avg = 12.75
- *   sum = 51-12+3 = 42, avg = 10.5
+ * sum = 2-1+50 = 51, avg = 12.75
+ * sum = 51-12+3 = 42, avg = 10.5
  *
- * Output: 12.75 (maximum average)
+ * Output:
  * ```
- *
+ * 12.75 (maximum average)
+ * ```
+
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  *
  * ### EDGE CASES:
  * - Empty input handling

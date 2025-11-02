@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 091. Decode Ways
+# 0091. Decode Ways
 
 A message containing letters from A-Z can be encoded into numbers using the following mapping:
 
@@ -23,7 +23,8 @@ Given a string s containing only digits, return the number of ways to decode it.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
 **Data Structures**: Hash Set, Array, String
 **Patterns**: Dynamic Programming
@@ -50,33 +51,41 @@ dp[i] = number of ways to decode s[0:i]. For each position, add ways from i-1 (i
 - O(n) time, O(1) space with two variables instead of array
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: s = "226"
+s = "226"
+```
+
 Step 1: Initialize DP
-  dp[0] = 1 (empty string)
-  dp[1] = 1 ("2" → "B")
+dp[0] = 1 (empty string)
 
+Steps:
+Step 1: dp[1] = 1 ("2" → "B")
 Step 2: Process each digit
-  i=2: s[1]="2"
-    Single: "2" → "B", dp[2] += dp[1] = 1
-    Double: "22" → "V", dp[2] += dp[0] = 1
-    dp[2] = 2
+Step 3: i=2: s[1]="2"
+Step 4: Single: "2" → "B", dp[2] += dp[1] = 1
+Step 5: Double: "22" → "V", dp[2] += dp[0] = 1
+Step 6: dp[2] = 2
+Step 7: i=3: s[2]="6"
+Step 8: Single: "6" → "F", dp[3] += dp[2] = 2
+Step 9: Double: "26" → "Z", dp[3] += dp[1] = 1
+Step 10: dp[3] = 3
+Step 11: Decodings are "BBF", "BZ", "VF"
 
-  i=3: s[2]="6"
-    Single: "6" → "F", dp[3] += dp[2] = 2
-    Double: "26" → "Z", dp[3] += dp[1] = 1
-    dp[3] = 3
-
-Step 3: Decodings are "BBF", "BZ", "VF"
-
-Output: 3 (number of ways to decode)
+Output:
+```
+3 (number of ways to decode)
 ```
 
 ### TIME COMPLEXITY:
 O(n)
+- Single pass through input
+
 
 ### SPACE COMPLEXITY:
 O(1)
+- Constant extra space
+
 
 ### EDGE CASES:
 - Empty input handling
@@ -157,17 +166,17 @@ def test_solution() -> None:
     # Test case 1: Example from problem - "226" can be decoded as "BZ"(2 26), "VF"(22 6), or "BBF"(2 2 6)
     result = solution.numDecodings("226")
     expected = 3
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: Single digit
     result = solution.numDecodings("1")
     expected = 1
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 3: String with leading zero - invalid
     result = solution.numDecodings("06")
     expected = 0
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

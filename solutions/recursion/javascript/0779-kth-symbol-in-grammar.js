@@ -1,13 +1,106 @@
 /**
- * # 779. K-th Symbol in Grammar
+ * # 0779. Kth Symbol In Grammar
  *
- * # Difficulty: Medium
+ * Difficulty: Medium
+ *
+ * # 0779. K-th Symbol in Grammar
  *
  * We build a table of n rows (1-indexed). We start by writing 0 in the 1st row.
  * Now in every subsequent row, we look at the previous row and replace each occurrence
  * of 0 with 01, and each occurrence of 1 with 10.
  *
  * Given two integer n and k, return the kth (1-indexed) symbol in the nth row.
+ *
+ * **Example:**
+ *
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>n = 3, k = 3</dd>
+ * <dt>Output:</dt>
+ * <dd>1</dd>
+ * </dl>
+ *
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ *
+ * ### METADATA:
+ * **Techniques**: Recursion, Binary Tree Traversal, Bit Manipulation
+ * **Data Structures**: Binary Tree (implicit), Call Stack
+ * **Patterns**: Divide and Conquer, Parent-Child Relationship
+ * **Time Complexity**: **O(n)** - Recursively navigate n levels
+ * **Space Complexity**: **O(n)** - Recursion call stack depth
+ *
+ * ### INTUITION:
+ * The rows form a binary tree pattern:
+ * - Row 1: 0
+ * - Row 2: 0 1 (0→01)
+ * - Row 3: 0 1 1 0 (0→01, 1→10)
+ * - Row 4: 0 1 1 0 1 0 0 1
+ *
+ * Key observation: Each symbol at position k in row n is derived from position ⌈k/2⌉ in row n-1.
+ * - If k is odd (left child): same as parent
+ * - If k is even (right child): flip of parent
+ *
+ * ### APPROACH:
+ * **Data structures: Binary Tree (implicit), Call Stack (recursion)**
+ * 1. **Base case**: n = 1, return 0 (first row always starts with 0)
+ * 2. **Find parent**: The parent is at position ⌈k/2⌉ in row n-1
+ * 3. **Determine relationship**:
+ *    - If k is odd: return parent value
+ *    - If k is even: return flipped parent value (1 - parent)
+ * 4. **Recursive call**: kthGrammar(n-1, Math.floor((k+1)/2))
+ *
+ * ### WHY THIS WORKS:
+ * - The pattern follows a binary tree structure
+ * - Left child (odd k) inherits parent's value
+ * - Right child (even k) gets flipped value
+ * - We recursively trace back to row 1
+ *
+ *
+
+This solution uses recursion for efficient implementation.
+
+This solution uses bit manipulation for efficient implementation.
+### EXAMPLE WALKTHROUGH:
+ * **Input:** n = 3, k = 3
+ *
+ * Row structure:
+ * ```
+ * Row 1: 0
+ * Row 2: 0 1
+ * Row 3: 0 1 1 0
+ *        ^ ^ ^ ^
+ *        1 2 3 4
+ * ```
+ *
+ * **Step 1:** k=3 (odd) → parent is position ⌈3/2⌉ = 2 in row 2 → same value as parent
+ *
+ * **Step 2:** k=2 (even) → parent is position ⌈2/2⌉ = 1 in row 1 → flip parent
+ *
+ * **Step 3:** Find position 1 in row 1 → returns 0
+ *
+ * **Step 4:** Row 2, position 2 → flip(0) = 1
+ *
+ * **Step 5:** Row 3, position 3 → same as parent = 1
+ *
+ * Output:
+ * ```
+ * 1
+ * ```
+ *
+ * ### TIME COMPLEXITY:
+ * O(n) - we recurse up to n times
+ *
+ * ### SPACE COMPLEXITY:
+ * O(n) - recursion stack depth
+ *
+ * ### EDGE CASES:
+ * - n = 1: n=1, k=1 → 0 (always returns 0, only one element)
+ * - k = 1: n=5, k=1 → 0 (first element of any row is always 0)
+ * - k = last position: n=3, k=4 → 0 (last element of row 3)
+ * - Middle positions: n=4, k=5 → 1 (depends on parent pattern)
+ *
+ * </details>
  *
  * @param {number} n
  * @param {number} k

@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  * 
- * # 380. Insert Delete GetRandom O(1)
+ * # 0380. Insert Delete GetRandom O(1)
  * 
  * Design a data structure that supports insert, delete, and getRandom operations in average O(1) time.
  * 
@@ -29,7 +29,8 @@
  * </dl>
  * 
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Set Operations, Backtracking
  * **Data Structures**: Hash Map, Hash Set, Array
  * **Patterns**: Backtracking
@@ -74,14 +75,18 @@
  * - All operations are truly O(1) average case
  * 
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
  * insert(1): nums=[1], map={1:0}
+ * ```
+ *
  * insert(2): nums=[1,2], map={1:0, 2:1}
  * getRandom(): randomly return 1 or 2
- * remove(1): swap 1 with 2 -> nums=[2,1], then pop -> nums=[2], map={2:0}
- * insert(3): nums=[2,3], map={2:0, 3:1}
- * ```
- * 
+ *
+ * Steps:
+ * Step 1: remove(1): swap 1 with 2 -> nums=[2,1], then pop -> nums=[2], map={2:0}
+ * Step 2: insert(3): nums=[2,3], map={2:0, 3:1}
+
  * ### TIME COMPLEXITY:
  * - insert: O(1)
  * - remove: O(1)
@@ -89,6 +94,7 @@
  * 
  * ### SPACE COMPLEXITY:
  * O(n) for storing n elements
+ * - Additional hash map storage
  * 
  * ### EDGE CASES:
  * - Removing last element

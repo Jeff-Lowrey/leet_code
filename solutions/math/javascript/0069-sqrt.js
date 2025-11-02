@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Medium
  *
- * # 069. Sqrt
+ * # 0069. Sqrt(x)
+ *
  *
  * Given a non-negative integer x, return the square root of x rounded down to the nearest integer. The returned integer should be non-negative as well.
  *
@@ -19,12 +20,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Array Traversal, Two Pointers
  * **Data Structures**: Tree
  * **Patterns**: Two Pointers Pattern
- * **Time Complexity**: * O(n) - Single pass through input
- * **Space Complexity**: * O(1) - Constant extra space
+ * **Time Complexity**: O(n) - Single pass through input
+ * **Space Complexity**: O(1) - Constant extra space
 
  *
  * ### INTUITION:
@@ -42,24 +44,31 @@
  * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: x = 8
+ * x = 8
+ * ```
+ *
  * Step 1: Binary search
- *   left=0, right=8
- *   mid=4: 4*4=16 > 8, right=3
- *   mid=1: 1*1=1 < 8, left=2
- *   mid=2: 2*2=4 < 8, left=3
- *   mid=3: 3*3=9 > 8, right=2
- *   left > right, return 2
+ * left=0, right=8
+ * mid=4: 4*4=16 > 8, right=3
+ * mid=1: 1*1=1 < 8, left=2
+ * mid=2: 2*2=4 < 8, left=3
+ * mid=3: 3*3=9 > 8, right=2
+ * left > right, return 2
  *
- * Output: 2 (floor of sqrt(8))
+ * Output:
  * ```
- *
+ * 2 (floor of sqrt(8))
+ * ```
+
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  *
  * ### EDGE CASES:
  * - Empty input handling

@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Medium
  *
- * # 435. Non Overlapping Intervals
+ * # 0435. Non Overlapping Intervals
+ *
  *
  * Given an array of intervals intervals where intervals[i] = [starti, endi], return the minimum number of intervals you need to remove to make the rest of the intervals non-overlapping.
  *
@@ -17,12 +18,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Array Traversal, Two Pointers, Sorting
  * **Data Structures**: Array
  * **Patterns**: Two Pointers Pattern, Hash Table Pattern
- * **Time Complexity**: * O(n) - Single pass through input
- * **Space Complexity**: * O(1) - Constant extra space
+ * **Time Complexity**: O(n) - Single pass through input
+ * **Space Complexity**: O(1) - Constant extra space
 
  *
  * ### INTUITION:
@@ -40,25 +42,33 @@
  * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: intervals = [[1,2],[2,3],[3,4],[1,3]]
+ * intervals = [[1,2],[2,3],[3,4],[1,3]]
+ * ```
+ *
  * Step 1: Sort by end time
- *   sorted = [[1,2],[2,3],[1,3],[3,4]]
- *
+ * sorted = [[1,2],[2,3],[1,3],[3,4]]
  * Step 2: Greedy selection
- *   Select [1,2], end=2
- *   [2,3]: 2 ≥ 2, select it, end=3
- *   [1,3]: 1 < 3, overlaps → remove count=1
- *   [3,4]: 3 ≥ 3, select it
+ * Select [1,2], end=2
+ * [2,3]: 2 ≥ 2, select it, end=3
  *
- * Output: 1 (min intervals to remove)
+ * Steps:
+ * Step 1: [1,3]: 1 < 3, overlaps → remove count=1
+ * Step 2: [3,4]: 3 ≥ 3, select it
+ *
+ * Output:
  * ```
- *
+ * 1 (min intervals to remove)
+ * ```
+
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  *
  * ### EDGE CASES:
  * - Empty input handling

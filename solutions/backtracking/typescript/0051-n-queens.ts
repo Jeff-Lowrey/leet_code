@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Hard
  *
- * # 051. N Queens
+ * # 0051. N Queens
+ *
  *
  * The n-queens puzzle is the problem of placing n queens on an n×n chessboard
  * such that no two queens attack each other.
@@ -32,7 +33,8 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
  * **Data Structures**: Hash Set, Array, String
  * **Patterns**: Hash Table Pattern, Backtracking
@@ -43,11 +45,12 @@
  * Place queens one row at a time and backtrack when conflicts arise. Queens attack horizontally, vertically, and diagonally, so we need to ensure no two queens can attack each other.
  *
  * ### APPROACH:
+ * **Data structures: Hash Set (column and diagonal tracking), Array (board state and results), String (board representation)**
  * 1. **Row by row placement**: Place one queen per row to avoid horizontal conflicts
- * 2. **Column tracking**: Track which columns are occupied to avoid vertical conflicts
- * 3. **Diagonal tracking**: Track both diagonal directions to avoid diagonal conflicts
+ * 2. **Column tracking**: Track which columns are occupied using hash set to avoid vertical conflicts
+ * 3. **Diagonal tracking**: Track both diagonal directions using hash set to avoid diagonal conflicts
  * 4. **Backtrack**: When placement impossible, backtrack and try next position
- * 5. **Build solution**: When all queens placed successfully, add board to results
+ * 5. **Build solution**: When all queens placed successfully, add board array to results
  *
  * ### WHY THIS WORKS:
  * - Placing one queen per row eliminates horizontal conflicts automatically
@@ -55,31 +58,51 @@
  * - Backtracking explores all valid placements systematically
  * - Early pruning prevents exploring invalid partial solutions
  *
- * ### EXAMPLE WALKTHROUGH:
- * Input:
+ *
+
+This solution uses hash table lookup for efficient implementation.
+
+This solution uses hash map storage for efficient implementation.
+
+This solution uses set operations for efficient implementation.
+### EXAMPLE WALKTHROUGH:
+  * Input:
  * ```
  * n = 4
  * ```
  *
- * **Step 1:** Place queen in row 0
+ * **Step 1:** Place queen in row 0 for n=4 board
  * - Try col 0: Place Q at (0,0)
- *   - cols = {0}, diag1 = {0}, diag2 = {0}
+ * - Update tracking sets: cols = {0}, diag1 = {0}, diag2 = {0}
  *
  * **Step 2:** Place queen in row 1
  * - Try col 0: conflicts with cols (skip)
  * - Try col 1: conflicts with diag2 (skip)
  * - Try col 2: Place Q at (1,2) ✓
- *   - cols = {0,2}, diag1 = {0,-1}, diag2 = {0,3}
+ * - Update tracking sets: cols = {0,2}, diag1 = {0,-1}, diag2 = {0,3}
  *
  * **Step 3:** Place queen in row 2
- * - Try col 0,1: conflicts
- * - Try col 3: conflicts
- * - Try col 4: out of range → Backtrack
+ * - Try col 0,1,3: all conflicts
+ * - Try col 4: out of range → Backtrack to row 1
  *
- * **Step 4:** Try different placement in row 1 (col 3)
- * - Eventually find: [".Q..","...Q","Q...","..Q."]
+ * **Step 4:** Backtrack and try different placements
+ * - Backtrack to row 1, try col 3
+ * - Continue exploring all valid placements
+ * - Systematically explore all possible queen placements that don't violate constraints
  *
- * Output: [[".Q..","...Q","Q...","..Q."],["..Q.","Q...","...Q",".Q.."]]
+ * **Step 5:** Build solution when all queens placed
+ * - First solution found: [".Q..","...Q","Q...","..Q."]
+ *   - Row 0: Queen at col 1
+ *   - Row 1: Queen at col 3
+ *   - Row 2: Queen at col 0
+ *   - Row 3: Queen at col 2
+ * - Second solution found: ["..Q.","Q...","...Q",".Q.."]
+ * - Add both board arrays to results
+ *
+ * Output:
+ * ```
+ * [[".Q..","...Q","Q...","..Q."],["..Q.","Q...","...Q",".Q.."]]
+ * ```
  *
  * ### TIME COMPLEXITY:
  * O(N!)
@@ -100,8 +123,8 @@
  * - **Large n values**: Backtracking with pruning handles efficiently
  * - **All positions conflict**: Backtracking exhausts all possibilities, returns empty
  *
- * </details>
- */
+ *
+*/
 
 class Solution {
   /**

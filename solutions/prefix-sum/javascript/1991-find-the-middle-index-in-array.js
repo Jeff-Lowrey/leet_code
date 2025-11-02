@@ -3,6 +3,7 @@
  *
  * # 1991. Find The Middle Index In Array
  *
+ *
  * Given a 0-indexed integer array nums, find the leftmost middleIndex (i.e., the smallest amongst all the possible ones).
  *
  * A middleIndex is an index where nums[0] + nums[1] + ... + nums[middleIndex-1] == nums[middleIndex+1] + nums[middleIndex+2] + ... + nums[nums.length-1].
@@ -23,12 +24,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Array Traversal, Two Pointers
  * **Data Structures**: Array, Tree, Linked List
  * **Patterns**: Two Pointers Pattern
- * **Time Complexity**: * O(n) - Single pass through input
- * **Space Complexity**: * O(1) - Constant extra space
+ * **Time Complexity**: O(n) - Single pass through input
+ * **Space Complexity**: O(1) - Constant extra space
 
  *
  * ### INTUITION:
@@ -51,22 +53,25 @@
  * - Single pass solution after calculating total sum
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: nums = [2,3,-1,8,4]
- * Total sum = 16
+ * nums = [2,3,-1,8,4]
+ * ```
  *
+ * Total sum = 16
  * Index 0: left=0, right=16-0-2=14, not equal
  * Index 1: left=2, right=16-2-3=11, not equal
  * Index 2: left=5, right=16-5-(-1)=12, not equal
  * Index 3: left=4, right=16-4-8=4, equal! Return 3
- * ```
- *
+
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  * Two passes: one to calculate total sum, one to find middle index
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  * Only using constant extra space for variables
  *
  * ### EDGE CASES:

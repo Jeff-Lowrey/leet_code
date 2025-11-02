@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 240. Search a 2D Matrix II
+# 0240. Search a 2D Matrix II
 
 Write an efficient algorithm that searches for a value target in an m x n integer matrix.
 This matrix has the following properties:
@@ -12,15 +12,16 @@ This matrix has the following properties:
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[[1, 4, 7, 11, 15]</dd>
+<dd>matrix = [[1,4,7,11,15],[2,5,8,12,19],[3,6,9,16,22],[10,13,14,17,24],[18,21,23,26,30]], target = 5</dd>
 <dt>Output:</dt>
-<dd>1</dd>
+<dd>true</dd>
 <dt>Explanation:</dt>
-<dd>Target 5 is found in 2D sorted matrix</dd>
+<dd>Target 5 is found in the 2D matrix at position (1,1)</dd>
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
 **Data Structures**: Array, Tree, Matrix
 **Patterns**: Two Pointers Pattern, Binary Search Pattern
@@ -44,21 +45,22 @@ Start from top-right (or bottom-left) corner. From top-right, we can eliminate e
 - Similar to searching in a BST where current node's left < node < right
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
 Matrix:
+```
+
 [1,  4,  7,  11, 15]
 [2,  5,  8,  12, 19]
 [3,  6,  9,  16, 22]
 [10, 13, 14, 17, 24]
 [18, 21, 23, 26, 30]
-
 Search for 5:
 Start at (0,4)=15: 5<15, go left
 At (0,3)=11: 5<11, go left
 At (0,2)=7: 5<7, go left
 At (0,1)=4: 5>4, go down
 At (1,1)=5: Found! Return True
-```
 
 ### TIME COMPLEXITY:
 O(m + n)
@@ -256,4 +258,4 @@ if __name__ == "__main__":
     print("\nSearch results:")
     for target in targets:
         result = solution.searchMatrix(matrix, target)
-        print(f"searchMatrix(matrix, {target}) -> {result}")
+        print(f"searchMatrix(matrix, {target}) -> result")

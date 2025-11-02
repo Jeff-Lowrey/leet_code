@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Medium
  *
- * # 646. Maximum Length Of Pair Chain
+ * # 0646. Maximum Length Of Pair Chain
+ *
  *
  * You are given an array of n pairs pairs where pairs[i] = [lefti, righti] and lefti < righti.
  *
@@ -23,12 +24,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Array Traversal, Two Pointers, Sorting
  * **Data Structures**: Array
  * **Patterns**: Two Pointers Pattern
- * **Time Complexity**: * O(n) - Single pass through input
- * **Space Complexity**: * O(1) - Constant extra space
+ * **Time Complexity**: O(n) - Single pass through input
+ * **Space Complexity**: O(1) - Constant extra space
 
  *
  * ### INTUITION:
@@ -46,24 +48,30 @@
  * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: pairs = [[1,2],[2,3],[3,4]]
+ * pairs = [[1,2],[2,3],[3,4]]
+ * ```
+ *
  * Step 1: Sort by second element
- *   sorted = [[1,2],[2,3],[3,4]]
- *
+ * sorted = [[1,2],[2,3],[3,4]]
  * Step 2: Greedy selection
- *   Select [1,2], end=2
- *   [2,3]: 2 ≥ 2, skip
- *   [3,4]: 3 > 2, select it, length=2
+ * Select [1,2], end=2
+ * [2,3]: 2 ≥ 2, skip
+ * [3,4]: 3 > 2, select it, length=2
  *
- * Output: 2 (maximum chain length)
+ * Output:
  * ```
- *
+ * 2 (maximum chain length)
+ * ```
+
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  *
  * ### EDGE CASES:
  * - Empty input handling

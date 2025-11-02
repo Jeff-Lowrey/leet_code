@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Easy
  *
- * # 680. Valid Palindrome II
+ * # 0680. Valid Palindrome II
+ *
  *
  * Given a string s, return true if the s can be palindrome after deleting at most one character from it.
  *
@@ -9,15 +10,17 @@
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>["aba", "abca", "abc", "racecar", "deeee"]</dd>
+ * <dd>"aba"
+ * "abca"</dd>
  * <dt>Output:</dt>
- * <dd>"validPalindrome('{test}') -> {result}"</dd>
+ * <dd>true</dd>
  * <dt>Explanation:</dt>
  * <dd>String 'aba' is a valid palindrome (can delete 0 characters)</dd>
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: String, Tree
  * **Patterns**: Two Pointers Pattern
@@ -42,25 +45,35 @@
  * - Two-pointer palindrome check is efficient and straightforward
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: "aba"
+ * "aba"
+ * "abca"
+ * ```
+ *
  * left=0, right=2: s[0]='a' == s[2]='a' ✓
  * left=1, right=1: pointers meet, palindrome found
  * Result: True (already palindrome)
- *
- * Input: "abca"
  * left=0, right=3: s[0]='a' == s[3]='a' ✓
  * left=1, right=2: s[1]='b' != s[2]='c' ✗
- * Try skip left (delete 'b'): check "aca" → palindrome ✓
- * Result: True
- * ```
  *
+ * Steps:
+ * Step 1: Try skip left (delete 'b'): check "aca" → palindrome ✓
+ * Step 2: Result: True
+ * 
+ * Output:
+ * ```
+ * True
+ * ```
+ * 
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  * In worst case, we check the string twice (once normally, once after skip)
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  * Only using constant extra space for pointers
  *
  * ### EDGE CASES:

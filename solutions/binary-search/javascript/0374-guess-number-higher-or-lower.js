@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Easy
  *
- * # 374. Guess Number Higher Or Lower
+ * # 0374. Guess Number Higher Or Lower
+ *
  *
  * We are playing the Guess Game. The game is as follows:
  *
@@ -20,20 +21,25 @@
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[(10, 6), (100, 25), (50, 1), (1, 1)]</dd>
+ * <dd>n = 10, pick = 6
+ * n = 1, pick = 1
+ * n = 2, pick = 1</dd>
  * <dt>Output:</dt>
- * <dd>"Range [1, {n}], picked number: {result}"</dd>
+ * <dd>* 6
+ * 1
+ * 1</dd>
  * <dt>Explanation:</dt>
  * <dd>Target number is guessed using binary search strategy</dd>
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Array Traversal, Two Pointers, Binary Search
  * **Data Structures**: Tree
  * **Patterns**: Two Pointers Pattern, Binary Search Pattern
- * **Time Complexity**: * O(log n) - Binary search or tree height
- * **Space Complexity**: * O(1) - Constant extra space
+ * **Time Complexity**: O(log n) - Binary search or tree height
+ * **Space Complexity**: O(1) - Constant extra space
 
  *
  * ### INTUITION:
@@ -52,28 +58,34 @@
  * - Similar to searching in a sorted array but using API instead of direct comparison
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: n = 10, pick = 6
+ * n = 10, pick = 6
+ * n = 1, pick = 1
+ * n = 2, pick = 1
+ * ```
+ *
  * Step 1: guess(5) returns 1 (pick > 5), so left = 6
  * Step 2: guess(8) returns -1 (pick < 8), so right = 7
  * Step 3: guess(6) returns 0 (correct!)
- * Output: 6
- *
- * Input: n = 1, pick = 1
  * Step 1: guess(1) returns 0 (correct!)
- * Output: 1
- *
- * Input: n = 2, pick = 1
  * Step 1: guess(1) returns 0 (correct!)
- * Output: 1
+ *
+ * Output:
  * ```
- *
+ * 6
+ * 1
+ * 1
+ * ```
+
  * ### TIME COMPLEXITY:
  * O(log n)
+ * - Binary search or tree height
  * Binary search through range [1, n]
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  * Only using constant extra space
  *
  * ### EDGE CASES:

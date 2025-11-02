@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Easy
  * 
- * # 661. Image Smoother
+ * # 0661. Image Smoother
  * 
  * An image smoother is a filter of the size 3 x 3 that can be applied to each cell of an
  * image by rounding down the average of the cell and the eight surrounding cells (or as
@@ -22,7 +22,7 @@
  * 
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[[1, 1, 1]</dd>
+ * <dd>[[1, 1, 1]]</dd>
  * <dt>Output:</dt>
  * <dd>1</dd>
  * <dt>Explanation:</dt>
@@ -30,7 +30,8 @@
  * </dl>
  * 
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Array Traversal, Two Pointers
  * **Data Structures**: Array, Graph, Matrix
  * **Patterns**: Two Pointers Pattern, Hash Table Pattern
@@ -59,29 +60,27 @@
  * - Integer division naturally floors the average
  * 
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
  * img = [[100,200,100],
- *        [200,50,200],
- *        [100,200,100]]
- * 
- * Cell [0,0] (corner, 4 cells):
- *   Neighbors: [0,0], [0,1], [1,0], [1,1]
- *   Sum: 100 + 200 + 200 + 50 = 550
- *   Average: 550 // 4 = 137
- * 
- * Cell [1,1] (center, 9 cells):
- *   Neighbors: all 9 cells
- *   Sum+200+100+200+50+200+100+200+100 = 1250
- *   Average // 9 = 138
- * 
- * Cell [0,1] (edge, 6 cells):
- *   Neighbors: [0,0], [0,1], [0,2], [1,0], [1,1], [1,2]
- *   Sum+200+100+200+50+200 = 850
- *   Average // 6 = 141
- * 
- * Result: [[137,141,137],[141,138,141],[137,141,137]]
  * ```
- * 
+ *
+ * [200,50,200],
+ * [100,200,100]]
+ * Cell [0,0] (corner, 4 cells):
+ * Neighbors: [0,0], [0,1], [1,0], [1,1]
+ * Sum: 100 + 200 + 200 + 50 = 550
+ * Average: 550 // 4 = 137
+ * Cell [1,1] (center, 9 cells):
+ * Neighbors: all 9 cells
+ * Sum+200+100+200+50+200+100+200+100 = 1250
+ * Average // 9 = 138
+ * Cell [0,1] (edge, 6 cells):
+ * Neighbors: [0,0], [0,1], [0,2], [1,0], [1,1], [1,2]
+ * Sum+200+100+200+50+200 = 850
+ * Average // 6 = 141
+ * Result: [[137,141,137],[141,138,141],[137,141,137]]
+
  * ### TIME COMPLEXITY:
  * O(m × n)
  * - Visit each cell once, check constant number of neighbors

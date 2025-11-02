@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 239. Sliding Window Maximum
+# 0239. Sliding Window Maximum
 
 You are given an array of integers nums, there is a sliding window of size k which is moving from the very left of the array to the very right. You can only see the k numbers in the window. Each time the sliding window moves right by one position.
 
@@ -19,7 +19,8 @@ Return the max sliding window.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
 **Data Structures**: Hash Map, Array, Queue
 **Patterns**: Two Pointers Pattern, Sliding Window Pattern
@@ -47,24 +48,33 @@ Use deque to maintain indices of useful elements (potential maximums). Remove in
 - O(n) time: each element added/removed once, O(k) space for deque
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: nums = [1,3,-1,-3,5,3,6,7], k = 3
-Step 1: Use deque to track indices
-  Window [1,3,-1]: max=3
-  Window [3,-1,-3]: max=3
-  Window [-1,-3,5]: max=5
-  Window [-3,5,3]: max=5
-  Window [5,3,6]: max=6
-  Window [3,6,7]: max=7
+nums = [1,3,-1,-3,5,3,6,7], k = 3
+```
 
-Output: [3,3,5,5,6,7]
+Step 1: Use deque to track indices
+Window [1,3,-1]: max=3
+Window [3,-1,-3]: max=3
+Window [-1,-3,5]: max=5
+Window [-3,5,3]: max=5
+Window [5,3,6]: max=6
+Window [3,6,7]: max=7
+
+Output:
+```
+[3,3,5,5,6,7]
 ```
 
 ### TIME COMPLEXITY:
 O(n)
+- Single pass through input
+
 
 ### SPACE COMPLEXITY:
 O(1)
+- Constant extra space
+
 
 ### EDGE CASES:
 - Empty input handling
@@ -138,12 +148,12 @@ def test_solution() -> None:
     # Test case 1: Example from problem
     result = solution.maxSlidingWindow([1, 3, -1, -3, 5, 3, 6, 7], 3)
     expected: list[Any] = [3, 3, 5, 5, 6, 7]
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: Empty input
     result = solution.maxSlidingWindow([], 0)
     expected = []
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

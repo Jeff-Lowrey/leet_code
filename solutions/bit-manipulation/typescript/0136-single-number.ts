@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Easy
  *
- * # 136. Single Number
+ * # 0136. Single Number
+ *
  *
  * Given a non-empty array of integers nums, every element appears twice except for one. Find that single one.
  *
@@ -13,13 +14,14 @@
  * <dt>Input:</dt>
  * <dd>[2,2,1]</dd>
  * <dt>Output:</dt>
- * <dd>1 (the single number)</dd>
+ * <dd>1</dd>
  * <dt>Explanation:</dt>
  * <dd>The single number 4 appears once in [2,2,1,4,1] (all others appear twice)</dd>
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
  * **Data Structures**: Hash Set, Array
  * **Patterns**: Hash Table Pattern
@@ -46,21 +48,29 @@
  * - All duplicates disappear, leaving only the single number
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: [2,2,1]
+ * [2,2,1]
+ * ```
+ *
  * Step 1: result = 0
  * Step 2: result = 0 ^ 2 = 2
  * Step 3: result = 2 ^ 2 = 0 (duplicate cancels out)
  * Step 4: result = 0 ^ 1 = 1
- * Output: 1 (the single number)
- * ```
  *
+ * Output:
+ * ```
+ * 1 (the single number)
+ * ```
+
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass with O(1) hash lookups
  * Single pass through the array
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  * Only using constant extra space
  *
  * ### EDGE CASES:

@@ -1,5 +1,5 @@
 {
-  "001": {
+  "0001": {
     "techniques": [
       "Hash Table Lookup",
       "Single Pass"
@@ -12,1479 +12,4269 @@
       "Complement Search"
     ]
   },
-  "036": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0049": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Array Traversal",
+      "Sorting"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Array",
+      "String"
+    ],
+    "patterns": [
+      "Hash Table Pattern"
+    ]
   },
-  "049": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0128": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Array Traversal",
+      "Graph Traversal"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Hash Set",
+      "Array"
+    ],
+    "patterns": [
+      "Hash Table Pattern",
+      "Greedy Algorithm"
+    ]
   },
-  "128": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0169": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Array Traversal",
+      "Sorting"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Hash Set",
+      "Array"
+    ],
+    "patterns": [
+      "Hash Table Pattern"
+    ]
   },
-  "169": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0217": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Set Operations"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Hash Set",
+      "Array"
+    ],
+    "patterns": [
+      "Hash Table Pattern"
+    ]
   },
-  "217": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0238": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Set",
+      "Array",
+      "Tree"
+    ],
+    "patterns": [
+      "Two Pointers Pattern"
+    ]
   },
-  "238": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0242": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Array",
+      "String"
+    ],
+    "patterns": [
+      "Hash Table Pattern"
+    ]
   },
-  "242": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0347": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Hash Set",
+      "Array"
+    ],
+    "patterns": [
+      "Hash Table Pattern"
+    ]
   },
-  "347": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0350": {
+    "techniques": [
+      "Hash Table",
+      "Frequency Counting",
+      "Two Pointers"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Array"
+    ],
+    "patterns": [
+      "Frequency Counter Pattern"
+    ]
   },
-  "448": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0448": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Hash Set",
+      "Array"
+    ],
+    "patterns": [
+      "Hash Table Pattern"
+    ]
   },
-  "017": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0017": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Array",
+      "String"
+    ],
+    "patterns": [
+      "Backtracking"
+    ]
   },
-  "039": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0039": {
+    "techniques": [
+      "Hash Map Storage",
+      "Array Traversal",
+      "Sorting"
+    ],
+    "data_structures": [
+      "Array",
+      "Matrix"
+    ],
+    "patterns": [
+      "Hash Table Pattern",
+      "Backtracking"
+    ]
   },
-  "040": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0040": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Hash Set",
+      "Array"
+    ],
+    "patterns": [
+      "Complement Search",
+      "Two Pointers Pattern"
+    ]
   },
-  "046": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0046": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Array",
+      "Tree"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Hash Table Pattern"
+    ]
   },
-  "047": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0047": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Array"
+    ],
+    "patterns": [
+      "Hash Table Pattern",
+      "Backtracking"
+    ]
   },
-  "051": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0051": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Set Operations"
+    ],
+    "data_structures": [
+      "Hash Set",
+      "Array",
+      "String"
+    ],
+    "patterns": [
+      "Hash Table Pattern",
+      "Backtracking"
+    ]
   },
-  "077": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0077": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Array",
+      "Matrix"
+    ],
+    "patterns": [
+      "Backtracking"
+    ]
   },
-  "078": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0078": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Set",
+      "Array",
+      "Matrix"
+    ],
+    "patterns": [
+      "Backtracking",
+      "Tree Pattern"
+    ]
   },
-  "090": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0090": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Hash Set",
+      "Array"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Backtracking"
+    ]
   },
-  "131": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0131": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Array",
+      "String"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Dynamic Programming"
+    ]
   },
-  "033": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0033": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Hash Set",
+      "Array"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Binary Search Pattern"
+    ]
   },
-  "034": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0034": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Two Pointers"
+    ],
+    "data_structures": [
+      "Array",
+      "Tree"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Binary Search Pattern"
+    ]
   },
-  "035": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0035": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Array",
+      "Stack",
+      "Tree"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Binary Search Pattern"
+    ]
   },
-  "074": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0074": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Two Pointers",
+      "Binary Search"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Hash Set",
+      "Array"
+    ],
+    "patterns": [
+      "Complement Search",
+      "Two Pointers Pattern"
+    ]
   },
-  "153": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0153": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Two Pointers"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Hash Set",
+      "Array"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Greedy Algorithm"
+    ]
   },
-  "162": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0162": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Two Pointers"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Hash Set",
+      "Array"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Binary Search Pattern"
+    ]
   },
-  "278": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0278": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Two Pointers",
+      "Binary Search"
+    ],
+    "data_structures": [
+      "Hash Set",
+      "Tree"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Binary Search Pattern"
+    ]
   },
-  "374": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0374": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Array Traversal",
+      "Two Pointers"
+    ],
+    "data_structures": [
+      "Array",
+      "Stack",
+      "Tree"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Hash Table Pattern"
+    ]
   },
-  "704": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0704": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Set",
+      "Array",
+      "Tree"
+    ],
+    "patterns": [
+      "Complement Search",
+      "Two Pointers Pattern"
+    ]
   },
-  "875": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0875": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Array Traversal",
+      "Two Pointers"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Hash Set",
+      "Array"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Greedy Algorithm"
+    ]
   },
-  "136": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0136": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Set Operations"
+    ],
+    "data_structures": [
+      "Hash Set",
+      "Array"
+    ],
+    "patterns": [
+      "Hash Table Pattern"
+    ]
   },
-  "137": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0137": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Hash Set",
+      "Array"
+    ],
+    "patterns": [
+      "Hash Table Pattern"
+    ]
   },
-  "190": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0190": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Array Traversal",
+      "Two Pointers"
+    ],
+    "data_structures": [
+      "Hash Set",
+      "Tree",
+      "Linked List"
+    ],
+    "patterns": [
+      "Complement Search",
+      "Two Pointers Pattern"
+    ]
   },
-  "191": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0191": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Set",
+      "String"
+    ],
+    "patterns": [
+      "Hash Table Pattern"
+    ]
   },
-  "231": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0231": {
+    "techniques": [
+      "Recursion",
+      "Bit Manipulation"
+    ],
+    "data_structures": [
+      "None"
+    ],
+    "patterns": [
+      "Divide and Conquer",
+      "Mathematical"
+    ]
   },
-  "260": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0260": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Array Traversal",
+      "Sorting"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Hash Set",
+      "Array"
+    ],
+    "patterns": [
+      "Divide and Conquer"
+    ]
   },
-  "338": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0338": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Hash Set",
+      "Array"
+    ],
+    "patterns": [
+      "Hash Table Pattern",
+      "Dynamic Programming"
+    ]
   },
-  "371": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0371": {
+    "techniques": [
+      "Bit Manipulation",
+      "XOR",
+      "AND",
+      "Bit Shifting"
+    ],
+    "data_structures": [
+      "None"
+    ],
+    "patterns": [
+      "Bitwise Addition Simulation"
+    ]
   },
-  "389": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0389": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Set",
+      "Array",
+      "String"
+    ],
+    "patterns": [
+      "Hash Table Pattern"
+    ]
   },
-  "146": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0146": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Backtracking"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Array",
+      "Linked List"
+    ],
+    "patterns": [
+      "Iterative Solution"
+    ]
   },
-  "155": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0155": {
+    "techniques": [
+      "Stack Operations",
+      "Greedy Selection"
+    ],
+    "data_structures": [
+      "Stack",
+      "Trie"
+    ],
+    "patterns": [
+      "Greedy Algorithm",
+      "Tree Pattern"
+    ]
   },
-  "173": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0173": {
+    "techniques": [
+      "Two Pointers",
+      "Stack Operations",
+      "Graph Traversal"
+    ],
+    "data_structures": [
+      "Stack",
+      "Tree",
+      "Linked List"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Hash Table Pattern"
+    ]
   },
-  "211": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0211": {
+    "techniques": [
+      "Depth-First Search"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Array",
+      "String"
+    ],
+    "patterns": [
+      "Graph Pattern"
+    ]
   },
-  "225": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0225": {
+    "techniques": [
+      "Stack Operations",
+      "Queue Operations"
+    ],
+    "data_structures": [
+      "Array",
+      "Stack",
+      "Queue"
+    ],
+    "patterns": [
+      "Iterative Solution"
+    ]
   },
-  "232": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0232": {
+    "techniques": [
+      "Stack Operations",
+      "Queue Operations"
+    ],
+    "data_structures": [
+      "Array",
+      "Stack",
+      "Queue"
+    ],
+    "patterns": [
+      "Iterative Solution"
+    ]
   },
-  "284": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0284": {
+    "techniques": [
+      "Standard Algorithm"
+    ],
+    "data_structures": [
+      "Array",
+      "Linked List"
+    ],
+    "patterns": [
+      "Iterative Solution"
+    ]
   },
-  "355": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0355": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Backtracking"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Hash Set",
+      "Array"
+    ],
+    "patterns": [
+      "Hash Table Pattern",
+      "Backtracking"
+    ]
   },
-  "380": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0380": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Set Operations",
+      "Backtracking"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Hash Set",
+      "Array"
+    ],
+    "patterns": [
+      "Backtracking"
+    ]
   },
-  "460": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0460": {
+    "techniques": [
+      "Hash Table Lookup"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Array"
+    ],
+    "patterns": [
+      "Hash Table Pattern"
+    ]
   },
-  "005": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0053": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Array Traversal",
+      "Two Pointers"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Hash Set",
+      "Array"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Hash Table Pattern"
+    ]
   },
-  "053": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0062": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Array Traversal",
+      "Two Pointers"
+    ],
+    "data_structures": [
+      "Hash Set",
+      "Array",
+      "Tree"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Hash Table Pattern"
+    ]
   },
-  "062": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0070": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Array"
+    ],
+    "patterns": [
+      "Dynamic Programming"
+    ]
   },
-  "070": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0091": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Set",
+      "Array",
+      "String"
+    ],
+    "patterns": [
+      "Dynamic Programming"
+    ]
   },
-  "091": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0139": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Hash Set",
+      "Array"
+    ],
+    "patterns": [
+      "Greedy Algorithm",
+      "Dynamic Programming"
+    ]
   },
-  "139": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0198": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Hash Set",
+      "Array"
+    ],
+    "patterns": [
+      "Greedy Algorithm",
+      "Dynamic Programming"
+    ]
   },
-  "198": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0213": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Array",
+      "Tree"
+    ],
+    "patterns": [
+      "Greedy Algorithm",
+      "Dynamic Programming"
+    ]
   },
-  "213": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0300": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Set",
+      "Array",
+      "Tree"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Greedy Algorithm"
+    ]
   },
-  "300": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0322": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Set Operations"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Hash Set",
+      "Array"
+    ],
+    "patterns": [
+      "Hash Table Pattern",
+      "Greedy Algorithm"
+    ]
   },
-  "322": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0416": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Hash Set",
+      "Array"
+    ],
+    "patterns": [
+      "Dynamic Programming"
+    ]
   },
-  "416": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0133": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Set Operations"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Hash Set",
+      "Array"
+    ],
+    "patterns": [
+      "Hash Table Pattern",
+      "Backtracking"
+    ]
+  },
+  "0200": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Hash Set",
+      "Array"
+    ],
+    "patterns": [
+      "Hash Table Pattern",
+      "Greedy Algorithm"
+    ]
+  },
+  "0261": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Set Operations"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Hash Set",
+      "Array"
+    ],
+    "patterns": [
+      "Hash Table Pattern",
+      "Graph Pattern"
+    ]
+  },
+  "0417": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Set Operations"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Hash Set",
+      "Array"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Hash Table Pattern"
+    ]
+  },
+  "0694": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Set Operations"
+    ],
+    "data_structures": [
+      "Hash Set",
+      "Array",
+      "String"
+    ],
+    "patterns": [
+      "Hash Table Pattern",
+      "Greedy Algorithm"
+    ]
+  },
+  "0695": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Array Traversal",
+      "Stack Operations"
+    ],
+    "data_structures": [
+      "Array",
+      "Stack",
+      "Queue"
+    ],
+    "patterns": [
+      "Hash Table Pattern",
+      "Greedy Algorithm"
+    ]
+  },
+  "0733": {
+    "techniques": [
+      "Two Pointers",
+      "Stack Operations",
+      "Graph Traversal"
+    ],
+    "data_structures": [
+      "Array",
+      "Stack",
+      "Tree"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Graph Pattern"
+    ]
+  },
+  "0827": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Set Operations"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Hash Set",
+      "Array"
+    ],
+    "patterns": [
+      "Greedy Algorithm",
+      "Graph Pattern"
+    ]
+  },
+  "0997": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Array",
+      "Graph"
+    ],
+    "patterns": [
+      "Hash Table Pattern"
+    ]
   },
   "1306": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Set Operations"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Hash Set",
+      "Array"
+    ],
+    "patterns": [
+      "Hash Table Pattern",
+      "Graph Pattern"
+    ]
   },
-  "133": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0045": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Array Traversal",
+      "Breadth-First Search"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Hash Set",
+      "Array"
+    ],
+    "patterns": [
+      "Hash Table Pattern",
+      "Greedy Algorithm"
+    ]
   },
-  "200": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0055": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Set",
+      "Array",
+      "Linked List"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Greedy Algorithm"
+    ]
   },
-  "261": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0134": {
+    "techniques": [
+      "Array Traversal",
+      "Greedy Selection"
+    ],
+    "data_structures": [
+      "Array",
+      "Linked List"
+    ],
+    "patterns": [
+      "Greedy Algorithm",
+      "Tree Pattern"
+    ]
   },
-  "417": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0135": {
+    "techniques": [
+      "Hash Map Storage",
+      "Array Traversal",
+      "Two Pointers"
+    ],
+    "data_structures": [
+      "Array",
+      "Tree",
+      "Trie"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Hash Table Pattern"
+    ]
   },
-  "694": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0330": {
+    "techniques": [
+      "Greedy Selection"
+    ],
+    "data_structures": [
+      "Array"
+    ],
+    "patterns": [
+      "Hash Table Pattern",
+      "Greedy Algorithm"
+    ]
   },
-  "695": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0376": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Hash Set",
+      "Array"
+    ],
+    "patterns": [
+      "Hash Table Pattern",
+      "Greedy Algorithm"
+    ]
   },
-  "733": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0409": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Array",
+      "String"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Hash Table Pattern"
+    ]
   },
-  "827": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0763": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Two Pointers"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Hash Set",
+      "Array"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Hash Table Pattern"
+    ]
   },
-  "997": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "045": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "055": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0860": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Array Traversal",
+      "Queue Operations"
+    ],
+    "data_structures": [
+      "Array",
+      "Queue"
+    ],
+    "patterns": [
+      "Hash Table Pattern",
+      "Greedy Algorithm"
+    ]
   },
   "1221": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "134": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "135": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "330": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "376": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "409": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "763": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "860": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "215": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "295": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "373": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "378": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "451": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "621": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "692": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "703": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "767": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "973": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "056": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "057": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "252": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "253": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "435": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "436": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "452": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "646": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "759": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "986": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "002": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "019": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "021": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "023": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "025": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "141": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "142": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "143": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "206": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "287": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "007": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "009": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "050": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "066": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "069": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "172": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "202": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "204": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "268": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "326": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "037": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "048": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "054": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "059": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "073": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "079": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "240": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "36": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "73": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "084": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "085": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "1019": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "316": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "402": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "456": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "496": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "503": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "739": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "901": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "1248": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "1590": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "1991": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "303": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "437": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "523": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "525": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "560": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "930": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "974": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "103": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "107": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "116": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "1161": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "199": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "346": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "429": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "515": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "637": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "993": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "024": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "17": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "216": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "39": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "40": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "46": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "47": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "77": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "78": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "90": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "1395": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "307": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "315": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "327": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "406": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "493": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "673": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "699": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "715": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "850": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Array",
+      "String"
+    ],
+    "patterns": [
+      "Hash Table Pattern",
+      "Greedy Algorithm"
+    ]
+  },
+  "0215": {
+    "techniques": [
+      "Hash Map Storage",
+      "Array Traversal",
+      "Two Pointers"
+    ],
+    "data_structures": [
+      "Array",
+      "Heap",
+      "Tree"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Hash Table Pattern"
+    ]
+  },
+  "0295": {
+    "techniques": [
+      "Two Pointers"
+    ],
+    "data_structures": [
+      "Array",
+      "Heap",
+      "Tree"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Divide and Conquer"
+    ]
+  },
+  "0373": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Set Operations"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Array",
+      "Heap"
+    ],
+    "patterns": [
+      "Hash Table Pattern",
+      "Greedy Algorithm"
+    ]
+  },
+  "0378": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Set Operations"
+    ],
+    "data_structures": [
+      "Hash Set",
+      "Array",
+      "Heap"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Hash Table Pattern"
+    ]
+  },
+  "0451": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Array",
+      "String"
+    ],
+    "patterns": [
+      "Hash Table Pattern"
+    ]
+  },
+  "0621": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Array",
+      "String",
+      "Queue"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Hash Table Pattern"
+    ]
+  },
+  "0692": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Array",
+      "String"
+    ],
+    "patterns": [
+      "Hash Table Pattern"
+    ]
+  },
+  "0703": {
+    "techniques": [
+      "Standard Algorithm"
+    ],
+    "data_structures": [
+      "Array",
+      "Heap",
+      "Tree"
+    ],
+    "patterns": [
+      "Iterative Solution"
+    ]
+  },
+  "0767": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Set",
+      "Array",
+      "String"
+    ],
+    "patterns": [
+      "Hash Table Pattern",
+      "Greedy Algorithm"
+    ]
+  },
+  "0973": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Array",
+      "Heap"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Greedy Algorithm"
+    ]
+  },
+  "0056": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Hash Set",
+      "Array"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Greedy Algorithm"
+    ]
+  },
+  "0057": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Array",
+      "Heap"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Hash Table Pattern"
+    ]
+  },
+  "0252": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Array",
+      "Linked List"
+    ],
+    "patterns": [
+      "Two Pointers Pattern"
+    ]
+  },
+  "0253": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Hash Set",
+      "Array"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Greedy Algorithm"
+    ]
+  },
+  "0435": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Hash Set",
+      "Array"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Hash Table Pattern"
+    ]
+  },
+  "0436": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Array",
+      "Tree"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Binary Search Pattern"
+    ]
+  },
+  "0452": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Two Pointers"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Hash Set",
+      "Array"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Hash Table Pattern"
+    ]
+  },
+  "0646": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Two Pointers"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Hash Set",
+      "Array"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Hash Table Pattern"
+    ]
+  },
+  "0759": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Array",
+      "String"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Hash Table Pattern"
+    ]
+  },
+  "0986": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Two Pointers"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Hash Set",
+      "Array"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Greedy Algorithm"
+    ]
+  },
+  "0002": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Hash Set",
+      "Array"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Greedy Algorithm"
+    ]
+  },
+  "0019": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Set",
+      "Array",
+      "Linked List"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Hash Table Pattern"
+    ]
+  },
+  "0021": {
+    "techniques": [
+      "Hash Table Lookup"
+    ],
+    "data_structures": [
+      "Hash Set",
+      "Array",
+      "Linked List"
+    ],
+    "patterns": [
+      "Divide and Conquer"
+    ]
+  },
+  "0023": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Hash Set",
+      "Array"
+    ],
+    "patterns": [
+      "Divide and Conquer"
+    ]
+  },
+  "0025": {
+    "techniques": [
+      "Hash Map Storage",
+      "Array Traversal",
+      "Graph Traversal"
+    ],
+    "data_structures": [
+      "Array",
+      "Linked List"
+    ],
+    "patterns": [
+      "Hash Table Pattern",
+      "Graph Pattern"
+    ]
+  },
+  "0141": {
+    "techniques": [
+      "Hash Table Lookup"
+    ],
+    "data_structures": [
+      "Hash Set",
+      "Array",
+      "Linked List"
+    ],
+    "patterns": [
+      "Two Pointers Pattern"
+    ]
+  },
+  "0142": {
+    "techniques": [
+      "Standard Algorithm"
+    ],
+    "data_structures": [
+      "Array",
+      "Linked List"
+    ],
+    "patterns": [
+      "Two Pointers Pattern"
+    ]
+  },
+  "0143": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Two Pointers",
+      "Single Pass"
+    ],
+    "data_structures": [
+      "Hash Set",
+      "Array",
+      "Linked List"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Hash Table Pattern"
+    ]
+  },
+  "0206": {
+    "techniques": [
+      "Hash Table Lookup"
+    ],
+    "data_structures": [
+      "Hash Set",
+      "Array",
+      "Linked List"
+    ],
+    "patterns": [
+      "Iterative Solution"
+    ]
+  },
+  "0287": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Hash Set",
+      "Array"
+    ],
+    "patterns": [
+      "Iterative Solution"
+    ]
+  },
+  "0007": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Set",
+      "String"
+    ],
+    "patterns": [
+      "Iterative Solution"
+    ]
+  },
+  "0009": {
+    "techniques": [
+      "Standard Algorithm"
+    ],
+    "data_structures": [
+      "String"
+    ],
+    "patterns": [
+      "Iterative Solution"
+    ]
+  },
+  "0066": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Hash Set",
+      "Array"
+    ],
+    "patterns": [
+      "Two Pointers Pattern"
+    ]
+  },
+  "0069": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Two Pointers",
+      "Binary Search"
+    ],
+    "data_structures": [
+      "Hash Set",
+      "Tree"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Binary Search Pattern"
+    ]
+  },
+  "0172": {
+    "techniques": [
+      "Standard Algorithm"
+    ],
+    "data_structures": [
+      "Basic Types"
+    ],
+    "patterns": [
+      "Hash Table Pattern"
+    ]
+  },
+  "0202": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Set Operations"
+    ],
+    "data_structures": [
+      "Hash Set"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Hash Table Pattern"
+    ]
+  },
+  "0204": {
+    "techniques": [
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Array"
+    ],
+    "patterns": [
+      "Hash Table Pattern"
+    ]
+  },
+  "0268": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Array"
+    ],
+    "patterns": [
+      "Iterative Solution"
+    ]
+  },
+  "0326": {
+    "techniques": [
+      "Recursion",
+      "Mathematics"
+    ],
+    "data_structures": [
+      "None"
+    ],
+    "patterns": [
+      "Divide and Conquer",
+      "Mathematical"
+    ]
+  },
+  "258": {
+    "techniques": [],
+    "data_structures": [],
+    "patterns": []
+  },
+  "0036": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Set Operations",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Set",
+      "Array",
+      "String"
+    ],
+    "patterns": [
+      "Hash Table Pattern"
+    ]
+  },
+  "0037": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Array Traversal",
+      "Stack Operations"
+    ],
+    "data_structures": [
+      "Hash Set",
+      "Array",
+      "String"
+    ],
+    "patterns": [
+      "Backtracking"
+    ]
+  },
+  "0048": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Array Traversal",
+      "Two Pointers"
+    ],
+    "data_structures": [
+      "Array",
+      "Tree",
+      "Matrix"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Hash Table Pattern"
+    ]
+  },
+  "0054": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Array",
+      "Tree",
+      "Matrix"
+    ],
+    "patterns": [
+      "Two Pointers Pattern"
+    ]
+  },
+  "0059": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Array Traversal",
+      "Two Pointers"
+    ],
+    "data_structures": [
+      "Array",
+      "Tree",
+      "Matrix"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Hash Table Pattern"
+    ]
+  },
+  "0073": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Set Operations"
+    ],
+    "data_structures": [
+      "Hash Set",
+      "Array",
+      "Matrix"
+    ],
+    "patterns": [
+      "Iterative Solution"
+    ]
+  },
+  "0240": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Array",
+      "Tree",
+      "Matrix"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Binary Search Pattern"
+    ]
+  },
+  "0289": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Set Operations"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Hash Set",
+      "Array"
+    ],
+    "patterns": [
+      "Hash Table Pattern",
+      "Graph Pattern"
+    ]
   },
   "1260": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Array",
+      "Matrix"
+    ],
+    "patterns": [
+      "Iterative Solution"
+    ]
+  },
+  "304": {
     "techniques": [],
     "data_structures": [],
     "patterns": []
   },
-  "289": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0084": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Two Pointers"
+    ],
+    "data_structures": [
+      "Hash Set",
+      "Array",
+      "Stack"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Greedy Algorithm"
+    ]
   },
-  "48": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0085": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Array",
+      "String"
+    ],
+    "patterns": [
+      "Greedy Algorithm"
+    ]
   },
-  "498": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0316": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Set Operations"
+    ],
+    "data_structures": [
+      "Hash Set",
+      "Array",
+      "String"
+    ],
+    "patterns": [
+      "Hash Table Pattern",
+      "Greedy Algorithm"
+    ]
   },
-  "54": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0402": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Array",
+      "String",
+      "Stack"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Greedy Algorithm"
+    ]
   },
-  "566": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0456": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Hash Set",
+      "Array"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Hash Table Pattern"
+    ]
   },
-  "59": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0496": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Set Operations"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Hash Set",
+      "Array"
+    ],
+    "patterns": [
+      "Hash Table Pattern"
+    ]
   },
-  "661": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0503": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Hash Set",
+      "Array"
+    ],
+    "patterns": [
+      "Iterative Solution"
+    ]
   },
-  "766": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0739": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Array",
+      "Stack"
+    ],
+    "patterns": [
+      "Hash Table Pattern"
+    ]
   },
-  "867": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0901": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Stack Operations"
+    ],
+    "data_structures": [
+      "Hash Set",
+      "Array",
+      "String"
+    ],
+    "patterns": [
+      "Hash Table Pattern"
+    ]
   },
-  "003": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "1019": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Set",
+      "Array",
+      "Stack"
+    ],
+    "patterns": [
+      "Iterative Solution"
+    ]
   },
-  "076": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0303": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Array",
+      "String",
+      "Tree"
+    ],
+    "patterns": [
+      "Two Pointers Pattern"
+    ]
   },
-  "121": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0437": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Two Pointers"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Array",
+      "Stack"
+    ],
+    "patterns": [
+      "Complement Search",
+      "Two Pointers Pattern"
+    ]
   },
-  "209": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0523": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Array"
+    ],
+    "patterns": [
+      "Hash Table Pattern",
+      "Greedy Algorithm"
+    ]
   },
-  "239": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0525": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Array"
+    ],
+    "patterns": [
+      "Hash Table Pattern",
+      "Greedy Algorithm"
+    ]
   },
-  "424": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0560": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Array"
+    ],
+    "patterns": [
+      "Hash Table Pattern"
+    ]
   },
-  "438": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0930": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Array"
+    ],
+    "patterns": [
+      "Sliding Window Pattern",
+      "Hash Table Pattern"
+    ]
   },
-  "567": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0974": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Array"
+    ],
+    "patterns": [
+      "Hash Table Pattern",
+      "Greedy Algorithm"
+    ]
   },
-  "643": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "1248": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Array"
+    ],
+    "patterns": [
+      "Sliding Window Pattern",
+      "Hash Table Pattern"
+    ]
   },
-  "904": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "1590": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Array"
+    ],
+    "patterns": [
+      "Hash Table Pattern",
+      "Greedy Algorithm"
+    ]
+  },
+  "1991": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Array Traversal",
+      "Two Pointers"
+    ],
+    "data_structures": [
+      "Array",
+      "Tree",
+      "Linked List"
+    ],
+    "patterns": [
+      "Two Pointers Pattern"
+    ]
+  },
+  "0103": {
+    "techniques": [
+      "Hash Map Storage",
+      "Array Traversal",
+      "Two Pointers"
+    ],
+    "data_structures": [
+      "Array",
+      "Queue",
+      "Tree"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Graph Pattern"
+    ]
+  },
+  "0107": {
+    "techniques": [
+      "Hash Map Storage",
+      "Array Traversal",
+      "Two Pointers"
+    ],
+    "data_structures": [
+      "Array",
+      "Queue",
+      "Tree"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Graph Pattern"
+    ]
+  },
+  "0116": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Array Traversal",
+      "Two Pointers"
+    ],
+    "data_structures": [
+      "Hash Set",
+      "Queue",
+      "Tree"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Graph Pattern"
+    ]
+  },
+  "0199": {
+    "techniques": [
+      "Hash Map Storage",
+      "Array Traversal",
+      "Two Pointers"
+    ],
+    "data_structures": [
+      "Array",
+      "Stack",
+      "Queue"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Graph Pattern"
+    ]
+  },
+  "0346": {
+    "techniques": [
+      "Sliding Window",
+      "Queue Operations"
+    ],
+    "data_structures": [
+      "Queue",
+      "Linked List"
+    ],
+    "patterns": [
+      "Sliding Window Pattern",
+      "Hash Table Pattern"
+    ]
+  },
+  "0429": {
+    "techniques": [
+      "Hash Map Storage",
+      "Array Traversal",
+      "Two Pointers"
+    ],
+    "data_structures": [
+      "Array",
+      "Queue",
+      "Tree"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Graph Pattern"
+    ]
+  },
+  "0515": {
+    "techniques": [
+      "Hash Map Storage",
+      "Array Traversal",
+      "Two Pointers"
+    ],
+    "data_structures": [
+      "Array",
+      "Stack",
+      "Queue"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Hash Table Pattern"
+    ]
+  },
+  "0637": {
+    "techniques": [
+      "Hash Map Storage",
+      "Array Traversal",
+      "Two Pointers"
+    ],
+    "data_structures": [
+      "Array",
+      "Queue",
+      "Tree"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Hash Table Pattern"
+    ]
+  },
+  "0993": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Two Pointers",
+      "Stack Operations"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Stack",
+      "Queue"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Graph Pattern"
+    ]
+  },
+  "1161": {
+    "techniques": [
+      "Array Traversal",
+      "Two Pointers",
+      "Queue Operations"
+    ],
+    "data_structures": [
+      "Queue",
+      "Tree",
+      "Linked List"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Hash Table Pattern"
+    ]
+  },
+  "0024": {
+    "techniques": [
+      "Hash Map Storage",
+      "Array Traversal",
+      "Stack Operations"
+    ],
+    "data_structures": [
+      "Array",
+      "Stack",
+      "Linked List"
+    ],
+    "patterns": [
+      "Iterative Solution"
+    ]
+  },
+  "0050": {
+    "techniques": [
+      "Recursion",
+      "Fast Exponentiation",
+      "Divide and Conquer"
+    ],
+    "data_structures": [
+      "None (pure computation)"
+    ],
+    "patterns": [
+      "Binary Exponentiation"
+    ]
+  },
+  "0216": {
+    "techniques": [
+      "Hash Map Storage",
+      "Array Traversal",
+      "Sorting"
+    ],
+    "data_structures": [
+      "Array",
+      "Linked List"
+    ],
+    "patterns": [
+      "Complement Search",
+      "Hash Table Pattern"
+    ]
+  },
+  "0342": {
+    "techniques": [
+      "Recursion",
+      "Bit Manipulation"
+    ],
+    "data_structures": [
+      "None"
+    ],
+    "patterns": [
+      "Divide and Conquer",
+      "Mathematical"
+    ]
+  },
+  "0344": {
+    "techniques": [
+      "Recursion",
+      "Two Pointers"
+    ],
+    "data_structures": [
+      "Array"
+    ],
+    "patterns": [
+      "In-place Modification",
+      "Divide and Conquer"
+    ]
+  },
+  "0509": {
+    "techniques": [
+      "Recursion",
+      "Memoization",
+      "Iteration"
+    ],
+    "data_structures": [
+      "Array (for memoization)"
+    ],
+    "patterns": [
+      "Base Case Recursion",
+      "Top-Down DP"
+    ]
+  },
+  "0779": {
+    "techniques": [
+      "Recursion",
+      "Binary Tree",
+      "Bit Manipulation"
+    ],
+    "data_structures": [
+      "None (pure recursion)"
+    ],
+    "patterns": [
+      "Divide and Conquer",
+      "Parent-Child Relationship"
+    ]
+  },
+  "0307": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Set",
+      "Array",
+      "Tree"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Hash Table Pattern"
+    ]
+  },
+  "0315": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Set",
+      "Array",
+      "Tree"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Hash Table Pattern"
+    ]
+  },
+  "0327": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Set Operations"
+    ],
+    "data_structures": [
+      "Hash Set",
+      "Array",
+      "Tree"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Hash Table Pattern"
+    ]
+  },
+  "0406": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Array",
+      "Queue",
+      "Tree"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Hash Table Pattern"
+    ]
+  },
+  "0493": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Set Operations"
+    ],
+    "data_structures": [
+      "Hash Set",
+      "Array",
+      "Stack"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Hash Table Pattern"
+    ]
+  },
+  "0673": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Set",
+      "Array",
+      "Tree"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Hash Table Pattern"
+    ]
+  },
+  "0699": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Set Operations"
+    ],
+    "data_structures": [
+      "Hash Set",
+      "Array",
+      "Stack"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Hash Table Pattern"
+    ]
+  },
+  "0715": {
+    "techniques": [
+      "Two Pointers",
+      "Binary Search"
+    ],
+    "data_structures": [
+      "Array",
+      "Tree"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Divide and Conquer"
+    ]
+  },
+  "0850": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Set Operations"
+    ],
+    "data_structures": [
+      "Hash Set",
+      "Array",
+      "Tree"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Hash Table Pattern"
+    ]
+  },
+  "1395": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Set",
+      "Array",
+      "Tree"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Hash Table Pattern"
+    ]
+  },
+  "0498": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Array",
+      "Graph"
+    ],
+    "patterns": [
+      "Hash Table Pattern"
+    ]
+  },
+  "0566": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Array",
+      "Matrix"
+    ],
+    "patterns": [
+      "Iterative Solution"
+    ]
+  },
+  "0661": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Array Traversal",
+      "Two Pointers"
+    ],
+    "data_structures": [
+      "Array",
+      "Graph",
+      "Matrix"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Hash Table Pattern"
+    ]
+  },
+  "0766": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Array",
+      "Tree"
+    ],
+    "patterns": [
+      "Two Pointers Pattern"
+    ]
+  },
+  "0867": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Array",
+      "Matrix"
+    ],
+    "patterns": [
+      "Iterative Solution"
+    ]
+  },
+  "0003": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Hash Set",
+      "String"
+    ],
+    "patterns": [
+      "Sliding Window Pattern",
+      "Hash Table Pattern"
+    ]
+  },
+  "0076": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Hash Set",
+      "Array"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Sliding Window Pattern"
+    ]
+  },
+  "0121": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Array",
+      "Tree"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Hash Table Pattern"
+    ]
+  },
+  "0209": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Array Traversal",
+      "Sliding Window"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Hash Set",
+      "Array"
+    ],
+    "patterns": [
+      "Complement Search",
+      "Two Pointers Pattern"
+    ]
+  },
+  "0239": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Array",
+      "Queue"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Sliding Window Pattern"
+    ]
+  },
+  "0424": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Array Traversal",
+      "Sliding Window"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Hash Set",
+      "Array"
+    ],
+    "patterns": [
+      "Sliding Window Pattern",
+      "Hash Table Pattern"
+    ]
+  },
+  "0438": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Array",
+      "String"
+    ],
+    "patterns": [
+      "Sliding Window Pattern",
+      "Hash Table Pattern"
+    ]
+  },
+  "0567": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Array Traversal",
+      "Sliding Window"
+    ],
+    "data_structures": [
+      "Array",
+      "String"
+    ],
+    "patterns": [
+      "Sliding Window Pattern",
+      "Hash Table Pattern"
+    ]
+  },
+  "0643": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Array Traversal",
+      "Two Pointers"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Hash Set",
+      "Array"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Sliding Window Pattern"
+    ]
+  },
+  "0904": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Hash Set",
+      "Array"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Sliding Window Pattern"
+    ]
+  },
+  "0274": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Array"
+    ],
+    "patterns": [
+      "Hash Table Pattern"
+    ]
+  },
+  "0280": {
+    "techniques": [
+      "Hash Map Storage",
+      "Array Traversal",
+      "Two Pointers"
+    ],
+    "data_structures": [
+      "Array",
+      "Tree",
+      "Linked List"
+    ],
+    "patterns": [
+      "Two Pointers Pattern"
+    ]
+  },
+  "0324": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Array",
+      "Graph"
+    ],
+    "patterns": [
+      "Graph Pattern"
+    ]
+  },
+  "0506": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Array",
+      "String"
+    ],
+    "patterns": [
+      "Iterative Solution"
+    ]
+  },
+  "0912": {
+    "techniques": [
+      "Hash Map Storage",
+      "Array Traversal",
+      "Two Pointers"
+    ],
+    "data_structures": [
+      "Array",
+      "Stack",
+      "Heap"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Divide and Conquer"
+    ]
+  },
+  "0969": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Array",
+      "Tree"
+    ],
+    "patterns": [
+      "Two Pointers Pattern"
+    ]
   },
   "1030": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Set Operations"
+    ],
+    "data_structures": [
+      "Hash Set",
+      "Array",
+      "Queue"
+    ],
+    "patterns": [
+      "Hash Table Pattern",
+      "Greedy Algorithm"
+    ]
   },
   "1051": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+    "techniques": [
+      "Hash Table Lookup",
+      "Array Traversal",
+      "Sorting"
+    ],
+    "data_structures": [
+      "Array"
+    ],
+    "patterns": [
+      "Hash Table Pattern"
+    ]
   },
   "1356": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+    "techniques": [
+      "Array Traversal",
+      "Sorting",
+      "Greedy Selection"
+    ],
+    "data_structures": [
+      "Array",
+      "Graph"
+    ],
+    "patterns": [
+      "Hash Table Pattern",
+      "Greedy Algorithm"
+    ]
   },
-  "274": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0020": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Array",
+      "String"
+    ],
+    "patterns": [
+      "Hash Table Pattern"
+    ]
   },
-  "280": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0022": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Array",
+      "String",
+      "Stack"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Hash Table Pattern"
+    ]
   },
-  "324": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0071": {
+    "techniques": [
+      "Hash Map Storage",
+      "Array Traversal",
+      "Stack Operations"
+    ],
+    "data_structures": [
+      "Array",
+      "String",
+      "Stack"
+    ],
+    "patterns": [
+      "Divide and Conquer",
+      "Tree Pattern"
+    ]
   },
-  "506": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0150": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Array",
+      "String"
+    ],
+    "patterns": [
+      "Two Pointers Pattern"
+    ]
   },
-  "75": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0224": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Array",
+      "String",
+      "Stack"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Hash Table Pattern"
+    ]
   },
-  "912": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0227": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Stack Operations"
+    ],
+    "data_structures": [
+      "Hash Set",
+      "Array",
+      "String"
+    ],
+    "patterns": [
+      "Iterative Solution"
+    ]
   },
-  "969": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0394": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Array Traversal",
+      "Sliding Window"
+    ],
+    "data_structures": [
+      "Array",
+      "String",
+      "Stack"
+    ],
+    "patterns": [
+      "Hash Table Pattern",
+      "Tree Pattern"
+    ]
   },
-  "020": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0682": {
+    "techniques": [
+      "Stack Operations",
+      "String Parsing"
+    ],
+    "data_structures": [
+      "Stack",
+      "Array"
+    ],
+    "patterns": [
+      "Stack Pattern",
+      "Operation Processing"
+    ]
   },
-  "022": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "071": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0856": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "String",
+      "Stack",
+      "Graph"
+    ],
+    "patterns": [
+      "Hash Table Pattern",
+      "Graph Pattern"
+    ]
   },
   "1047": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Array",
+      "String",
+      "Stack"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Hash Table Pattern"
+    ]
   },
-  "150": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0006": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Array",
+      "String",
+      "Tree"
+    ],
+    "patterns": [
+      "Two Pointers Pattern"
+    ]
   },
-  "224": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0014": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Array",
+      "String"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Sliding Window Pattern"
+    ]
   },
-  "227": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0038": {
+    "techniques": [
+      "Hash Map Storage",
+      "Array Traversal",
+      "Two Pointers"
+    ],
+    "data_structures": [
+      "Array",
+      "String",
+      "Stack"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Hash Table Pattern"
+    ]
   },
-  "394": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0058": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "String",
+      "Tree"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Hash Table Pattern"
+    ]
   },
-  "71": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0067": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Array",
+      "String"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Greedy Algorithm"
+    ]
   },
-  "856": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0443": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Array",
+      "String",
+      "Queue"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Hash Table Pattern"
+    ]
   },
-  "014": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0541": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Array",
+      "String",
+      "Tree"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Hash Table Pattern"
+    ]
   },
-  "38": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0557": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Array",
+      "String",
+      "Stack"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Divide and Conquer"
+    ]
   },
-  "443": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0680": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "String",
+      "Tree"
+    ],
+    "patterns": [
+      "Two Pointers Pattern"
+    ]
   },
-  "541": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0696": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Set",
+      "Array",
+      "String"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Sliding Window Pattern"
+    ]
   },
-  "557": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0005": {
+    "techniques": [
+      "Expand Around Center",
+      "Dynamic Programming",
+      "Manacher's Algorithm"
+    ],
+    "data_structures": [
+      "String"
+    ],
+    "patterns": [
+      "Two Pointers",
+      "Center Expansion"
+    ]
   },
-  "58": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0028": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Array Traversal",
+      "Stack Operations"
+    ],
+    "data_structures": [
+      "String",
+      "Stack"
+    ],
+    "patterns": [
+      "Iterative Solution"
+    ]
   },
-  "6": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0151": {
+    "techniques": [
+      "Backtracking"
+    ],
+    "data_structures": [
+      "Array",
+      "String"
+    ],
+    "patterns": [
+      "Iterative Solution"
+    ]
   },
-  "67": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0383": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "String"
+    ],
+    "patterns": [
+      "Hash Table Pattern"
+    ]
   },
-  "680": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "696": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0387": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Hash Set",
+      "String"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Hash Table Pattern"
+    ]
   },
   "1312": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "String"
+    ],
+    "patterns": [
+      "Greedy Algorithm",
+      "Dynamic Programming"
+    ]
   },
-  "151": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0207": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Set Operations"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Hash Set",
+      "Array"
+    ],
+    "patterns": [
+      "Hash Table Pattern",
+      "Greedy Algorithm"
+    ]
   },
-  "28": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0210": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Array",
+      "Queue"
+    ],
+    "patterns": [
+      "Hash Table Pattern",
+      "Graph Pattern"
+    ]
   },
-  "3": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0269": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Set Operations"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Hash Set",
+      "Array"
+    ],
+    "patterns": [
+      "Hash Table Pattern",
+      "Greedy Algorithm"
+    ]
   },
-  "344": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0310": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Set Operations"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Hash Set",
+      "Array"
+    ],
+    "patterns": [
+      "Greedy Algorithm",
+      "Graph Pattern"
+    ]
   },
-  "383": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0329": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Array Traversal",
+      "Two Pointers"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Array",
+      "Tree"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Greedy Algorithm"
+    ]
   },
-  "387": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0444": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Set Operations"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Hash Set",
+      "Array"
+    ],
+    "patterns": [
+      "Hash Table Pattern",
+      "Backtracking"
+    ]
   },
-  "49": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0630": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Sorting"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Hash Set",
+      "Array"
+    ],
+    "patterns": [
+      "Greedy Algorithm"
+    ]
   },
-  "5": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0802": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Set Operations"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Hash Set",
+      "Array"
+    ],
+    "patterns": [
+      "Hash Table Pattern",
+      "Graph Pattern"
+    ]
   },
-  "76": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0851": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Hash Set",
+      "Array"
+    ],
+    "patterns": [
+      "Dynamic Programming",
+      "Graph Pattern"
+    ]
   },
   "1136": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Hash Set",
+      "Array"
+    ],
+    "patterns": [
+      "Hash Table Pattern",
+      "Graph Pattern"
+    ]
   },
-  "207": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0094": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Two Pointers"
+    ],
+    "data_structures": [
+      "Array",
+      "Stack",
+      "Tree"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Backtracking"
+    ]
   },
-  "210": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0098": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Two Pointers",
+      "Stack Operations"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Array",
+      "Stack"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Binary Search Pattern"
+    ]
   },
-  "269": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0102": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Array",
+      "Queue",
+      "Tree"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Hash Table Pattern"
+    ]
   },
-  "310": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0104": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Array Traversal",
+      "Two Pointers"
+    ],
+    "data_structures": [
+      "Array",
+      "Stack",
+      "Queue"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Hash Table Pattern"
+    ]
   },
-  "329": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0105": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Array",
+      "String"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Tree Pattern"
+    ]
   },
-  "444": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0110": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Two Pointers",
+      "Sliding Window"
+    ],
+    "data_structures": [
+      "Array",
+      "Stack",
+      "Queue"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Sliding Window Pattern"
+    ]
   },
-  "630": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0124": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Two Pointers",
+      "Depth-First Search"
+    ],
+    "data_structures": [
+      "Hash Set",
+      "Tree"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Greedy Algorithm"
+    ]
   },
-  "802": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0226": {
+    "techniques": [
+      "Two Pointers",
+      "Stack Operations",
+      "Graph Traversal"
+    ],
+    "data_structures": [
+      "Stack",
+      "Tree",
+      "Trie"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Hash Table Pattern"
+    ]
   },
-  "851": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0235": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Array",
+      "Stack",
+      "Tree"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Greedy Algorithm"
+    ]
   },
-  "094": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0297": {
+    "techniques": [
+      "Two Pointers",
+      "Stack Operations",
+      "Tree Traversal"
+    ],
+    "data_structures": [
+      "String",
+      "Stack",
+      "Tree"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Tree Pattern"
+    ]
   },
-  "098": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0336": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Array",
+      "String"
+    ],
+    "patterns": [
+      "Two Pointers Pattern"
+    ]
   },
-  "102": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0421": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Hash Set",
+      "Array"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Greedy Algorithm"
+    ]
   },
-  "104": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0472": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Hash Set",
+      "Array"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Dynamic Programming"
+    ]
   },
-  "105": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0648": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Hash Set",
+      "Array"
+    ],
+    "patterns": [
+      "Iterative Solution"
+    ]
   },
-  "110": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0676": {
+    "techniques": [
+      "Depth-First Search"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Array",
+      "String"
+    ],
+    "patterns": [
+      "Graph Pattern"
+    ]
   },
-  "124": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0677": {
+    "techniques": [
+      "Hash Table Lookup"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Tree",
+      "Trie"
+    ],
+    "patterns": [
+      "Iterative Solution"
+    ]
   },
-  "226": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0820": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Set Operations"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Hash Set",
+      "Array"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Hash Table Pattern"
+    ]
   },
-  "235": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0079": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Set Operations"
+    ],
+    "data_structures": [
+      "Hash Set",
+      "Array",
+      "String"
+    ],
+    "patterns": [
+      "Hash Table Pattern",
+      "Backtracking"
+    ]
   },
-  "297": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0140": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Hash Set",
+      "Array"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Dynamic Programming"
+    ]
   },
-  "336": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0208": {
+    "techniques": [
+      "Two Pointers"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "String",
+      "Tree"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Tree Pattern"
+    ]
   },
-  "421": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0212": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Set Operations"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Hash Set",
+      "Array"
+    ],
+    "patterns": [
+      "Hash Table Pattern",
+      "Backtracking"
+    ]
   },
-  "472": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0588": {
+    "techniques": [
+      "Hash Table Lookup"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Hash Set",
+      "Array"
+    ],
+    "patterns": [
+      "Iterative Solution"
+    ]
   },
-  "648": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0642": {
+    "techniques": [
+      "Standard Algorithm"
+    ],
+    "data_structures": [
+      "Array",
+      "String",
+      "Tree"
+    ],
+    "patterns": [
+      "Hash Table Pattern"
+    ]
   },
-  "676": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0720": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Set Operations"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Hash Set",
+      "Array"
+    ],
+    "patterns": [
+      "Hash Table Pattern",
+      "Graph Pattern"
+    ]
   },
-  "677": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "820": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0745": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Backtracking"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Array",
+      "String"
+    ],
+    "patterns": [
+      "Hash Table Pattern",
+      "Backtracking"
+    ]
   },
   "1233": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Array",
+      "String"
+    ],
+    "patterns": [
+      "Hash Table Pattern"
+    ]
   },
   "1268": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Array",
+      "String"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Hash Table Pattern"
+    ]
   },
-  "140": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0011": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Two Pointers",
+      "Binary Search"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Hash Set",
+      "Array"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Hash Table Pattern"
+    ]
   },
-  "208": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0015": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Set",
+      "Array",
+      "Tree"
+    ],
+    "patterns": [
+      "Two Pointers Pattern"
+    ]
   },
-  "212": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0018": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Hash Set",
+      "Array"
+    ],
+    "patterns": [
+      "Complement Search",
+      "Two Pointers Pattern"
+    ]
   },
-  "588": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0026": {
+    "techniques": [
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Array",
+      "Linked List"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Hash Table Pattern"
+    ]
   },
-  "642": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0027": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Hash Set",
+      "Array"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Hash Table Pattern"
+    ]
   },
-  "720": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0042": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Two Pointers",
+      "Binary Search"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Hash Set",
+      "Array"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Hash Table Pattern"
+    ]
   },
-  "745": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0075": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Two Pointers"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Hash Set",
+      "Array"
+    ],
+    "patterns": [
+      "Two Pointers Pattern"
+    ]
   },
-  "79": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0088": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Two Pointers"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Hash Set",
+      "Array"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Greedy Algorithm"
+    ]
   },
-  "011": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0125": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Array Traversal",
+      "Two Pointers"
+    ],
+    "data_structures": [
+      "Hash Set",
+      "String",
+      "Tree"
+    ],
+    "patterns": [
+      "Two Pointers Pattern"
+    ]
   },
-  "015": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0167": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Two Pointers"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Hash Set",
+      "Array"
+    ],
+    "patterns": [
+      "Two Pointers Pattern"
+    ]
   },
-  "018": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0130": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Array",
+      "String"
+    ],
+    "patterns": [
+      "Hash Table Pattern",
+      "Graph Pattern"
+    ]
   },
-  "026": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0305": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Set Operations"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Hash Set",
+      "Array"
+    ],
+    "patterns": [
+      "Hash Table Pattern",
+      "Divide and Conquer"
+    ]
   },
-  "027": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0323": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Set",
+      "Array",
+      "Queue"
+    ],
+    "patterns": [
+      "Hash Table Pattern",
+      "Divide and Conquer"
+    ]
   },
-  "042": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0547": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Set",
+      "Array",
+      "Stack"
+    ],
+    "patterns": [
+      "Hash Table Pattern",
+      "Graph Pattern"
+    ]
   },
-  "075": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0684": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Set Operations"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Hash Set",
+      "Array"
+    ],
+    "patterns": [
+      "Two Pointers Pattern",
+      "Hash Table Pattern"
+    ]
   },
-  "088": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0685": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Hash Set",
+      "Array"
+    ],
+    "patterns": [
+      "Iterative Solution"
+    ]
   },
-  "125": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0721": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Set Operations"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Hash Set",
+      "Array"
+    ],
+    "patterns": [
+      "Hash Table Pattern",
+      "Divide and Conquer"
+    ]
   },
-  "167": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+  "0990": {
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Set",
+      "Array",
+      "String"
+    ],
+    "patterns": [
+      "Iterative Solution"
+    ]
   },
   "1202": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "130": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Map",
+      "Hash Set",
+      "Array"
+    ],
+    "patterns": [
+      "Hash Table Pattern",
+      "Backtracking"
+    ]
   },
   "1319": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "305": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "323": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "547": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "684": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "685": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "721": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
-  },
-  "990": {
-    "techniques": [],
-    "data_structures": [],
-    "patterns": []
+    "techniques": [
+      "Hash Table Lookup",
+      "Hash Map Storage",
+      "Array Traversal"
+    ],
+    "data_structures": [
+      "Hash Set",
+      "Array",
+      "Tree"
+    ],
+    "patterns": [
+      "Hash Table Pattern",
+      "Divide and Conquer"
+    ]
   }
 }

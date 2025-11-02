@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 077. Combinations
+# 0077. Combinations
 
 Given two integers n and k, return all possible combinations of k numbers chosen from the range [1, n].
 
@@ -11,15 +11,16 @@ You may return the answer in any order.
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[[1,2]</dd>
+<dd>n = 4, k = 2</dd>
 <dt>Output:</dt>
-<dd>"Expected {expected}, got {result}"</dd>
+<dd>[[1,2],[1,3],[1,4],[2,3],[2,4],[3,4]]</dd>
 <dt>Explanation:</dt>
 <dd>All 2-combinations from [1,2,3,4] are [[1,2],[1,3],[1,4],[2,3],[2,4],[3,4]]</dd>
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
 **Data Structures**: Hash Map, Array, Matrix
 **Patterns**: Backtracking
@@ -32,7 +33,7 @@ Build combinations incrementally by choosing numbers from a starting position on
 ### APPROACH:
 1. **Initialize result**: Create empty result list and current combination list
 2. **Define backtrack function**: Create recursive function with parameters (start, current)
-# 3. **Base case**: If len(current) == k, add copy of current to result and return  # Result undefined
+# 0077. **Base case**: If len(current) == k, add copy of current to result and return  # Result undefined
 4. **Iterate from start**: Loop from start to n+1 (numbers 1 to n)
 5. **Add number**: Append current number i to current combination
 6. **Recursive call**: Call backtrack(i+1, current) to continue building combination
@@ -47,28 +48,39 @@ Build combinations incrementally by choosing numbers from a starting position on
 - O(C(n,k) * k) time: C(n,k) combinations, O(k) to copy each
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: n = 4, k = 2
-Step 1: Start backtracking with empty combination
-  Try 1: curr = [1]
-    Try 2: curr = [1,2] → len=k, add [1,2] to result
-    Try 3: curr = [1,3] → len=k, add [1,3] to result
-    Try 4: curr = [1,4] → len=k, add [1,4] to result
-  Try 2: curr = [2]
-    Try 3: curr = [2,3] → len=k, add [2,3] to result
-    Try 4: curr = [2,4] → len=k, add [2,4] to result
-  Try 3: curr = [3]
-    Try 4: curr = [3,4] → len=k, add [3,4] to result
-  Try 4: curr = [4] → can't form combination of size 2
+n = 4, k = 2
+```
 
-Output: [[1,2],[1,3],[1,4],[2,3],[2,4],[3,4]]
+Step 1: Start backtracking with empty combination
+Try 1: curr = [1]
+
+Steps:
+Step 1: Try 2: curr = [1,2] → len=k, add [1,2] to result
+Step 2: Try 3: curr = [1,3] → len=k, add [1,3] to result
+Step 3: Try 4: curr = [1,4] → len=k, add [1,4] to result
+Step 4: Try 2: curr = [2]
+Step 5: Try 3: curr = [2,3] → len=k, add [2,3] to result
+Step 6: Try 4: curr = [2,4] → len=k, add [2,4] to result
+Step 7: Try 3: curr = [3]
+Step 8: Try 4: curr = [3,4] → len=k, add [3,4] to result
+Step 9: Try 4: curr = [4] → can't form combination of size 2
+
+Output:
+```
+[[1,2],[1,3],[1,4],[2,3],[2,4],[3,4]]
 ```
 
 ### TIME COMPLEXITY:
 O(n)
+- Single pass through input
+
 
 ### SPACE COMPLEXITY:
 O(1)
+- Constant extra space
+
 
 ### EDGE CASES:
 - Empty input handling
@@ -154,12 +166,12 @@ def test_solution() -> None:
     # Test case 1: Example from problem
     result = solution.combine(4, k=2)
     expected = [[1, 2], [1, 3], [1, 4], [2, 3], [2, 4], [3, 4]]
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: Empty input
     result = solution.combine([], 0)  # type: ignore
     expected: list[list[int]] = [[]]
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

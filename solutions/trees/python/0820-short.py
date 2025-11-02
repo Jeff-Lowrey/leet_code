@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 820. Short Encoding of Words
+# 0820. Short Encoding of Words
 
 A valid encoding of an array of words is any reference string s and an array of indices indices such that:
 - words.length == indices.length
@@ -22,7 +22,8 @@ Given an array of words, return the length of the shortest reference string s po
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
 **Data Structures**: Hash Map, Hash Set, Array
 **Patterns**: Two Pointers Pattern, Hash Table Pattern
@@ -44,15 +45,17 @@ To minimize the encoding length, we want to share suffixes between words. If one
 - Each word needs one '#' delimiter, so total length = sum(word_lengths) + count
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: words = ["time", "me", "bell"]
+words = ["time", "me", "bell"]
+```
+
 1. Build trie with reversed words: ["emit", "em", "lleb"]
 2. "em" is a suffix of "emit", so we can share encoding
 3. Result: "time#bell#" (length 10)
-   - "time" at index 0
-   - "me" at index 2 (suffix of "time")
-   - "bell" at index 5
-```
+- "time" at index 0
+- "me" at index 2 (suffix of "time")
+- "bell" at index 5
 
 ### TIME COMPLEXITY:
 O(N × M)
@@ -184,17 +187,17 @@ def test_solution() -> None:
     # Test case 1: Example from problem - using Set method (Trie method has a bug)
     result = solution.minimumLengthEncodingSet(["time", "me", "bell"])
     expected = 10
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: Empty input
     result = solution.minimumLengthEncodingSet([])
     expected = 0
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 3: Single word
     result = solution.minimumLengthEncodingSet(["time"])
     expected = 5
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 
@@ -233,7 +236,7 @@ if __name__ == "__main__":
 
     for name, method in methods:
         result = method(words1)
-        print(f"{name}: {result}")
+        print(f"{name}: result")
 
     print(f"\nKey insights:")
     print(f"1. Words that are suffixes of others can share encoding")

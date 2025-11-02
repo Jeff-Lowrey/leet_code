@@ -1,7 +1,7 @@
 /**
- * # Difficulty: Medium
- * 
- * # 200. Number Of Islands
+ * 0200. Number Of Islands
+ *
+ * Difficulty: Medium
  * 
  * Given an m x n 2D binary grid which represents a map of '1's (land) and '0's (water), return the number of islands.
  * 
@@ -11,52 +11,74 @@
  * 
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[["1","1","1","1","0"]</dd>
+ * <dd>grid = [["1","1","1","1","0"],["1","1","0","1","0"],["1","1","0","0","0"],["0","0","0","0","0"]]</dd>
  * <dt>Output:</dt>
  * <dd>1</dd>
  * <dt>Explanation:</dt>
- * <dd>Number of islands in binary grid is 3</dd>
+ * <dd>There is 1 island (all connected 1's in top-left)</dd>
  * </dl>
  * 
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
- * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
- * **Data Structures**: Hash Map, Hash Set, Array
- * **Patterns**: Hash Table Pattern, Greedy Algorithm
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
+ * **Techniques**: Depth-First Search (DFS), Breadth-First Search (BFS)
+ * **Data Structures**: 2D Grid (Matrix), Queue (for BFS), Visited Array (optional)
+ * **Patterns**: Graph Traversal, Connected Components
  * **Time Complexity**: O(M × N)
  * **Space Complexity**: O(M × N)
- * 
+ *
  * ### INTUITION:
  * This is a classic graph traversal problem where we need to find connected components. Each island is a connected component of '1's (land). We can use DFS or BFS to explore each island completely when we encounter it, then count how many separate islands we find.
- * 
+ *
  * ### APPROACH:
- * 1. **Iterate through grid**: Check each cell in the grid
+ * **Data structures: 2D Grid (matrix) with DFS/BFS traversal**
+ * 1. **Iterate through grid**: Check each cell in the 2D matrix
  * 2. **Find land**: When we find a '1' (land), it's part of an island
- * 3. **Explore island**: Use DFS/BFS to mark all connected land as visited
+ * 3. **Explore island**: Use DFS recursion or BFS with queue to mark all connected land as visited
  * 4. **Count islands**: Each time we start a new DFS/BFS, we found a new island
- * 5. **Mark visited**: Change '1' to '0' or use separate visited array
- * 
+ * 5. **Mark visited**: Change '1' to '0' in-place or use separate visited array
+ *
  * ### WHY THIS WORKS:
- * - DFS/BFS explores all connected components (islands) completely
+ * - **Depth-First Search (DFS)** recursively explores all 4 directions from each land cell
+ * - **Breadth-First Search (BFS)** uses a queue to explore neighbors level by level
+ * - Both Graph Traversal techniques completely explore Connected Components (islands)
+ * - The **2D Grid (Matrix)** structure enables efficient neighbor access
  * - Once we've explored an island, we mark it as visited to avoid double-counting
  * - Each DFS/BFS start represents discovering a new island
- * - 4-directional connectivity defines what constitutes an island
- * 
+ * - 4-directional connectivity (up, down, left, right) defines what constitutes an island
+ *
  * ### EXAMPLE WALKTHROUGH:
+ * Given input Grid: [["1","1","1","1","0"],
+ *        ["1","1","0","1","0"],
+ *        ["1","1","0","0","0"],
+ *        ["0","0","0","0","0"]]:
+ *
+ * Input:
  * ```
  * Grid: [["1","1","1","1","0"],
  *        ["1","1","0","1","0"],
  *        ["1","1","0","0","0"],
  *        ["0","0","0","0","0"]]
- * 
- * Process:
- * - Start at (0,0): DFS explores entire connected land mass
- * - Mark all connected '1's as visited: (0,0), (0,1), (0,2), (0,3), (1,0), (1,1), (2,0), (2,1)
- * - Continue scanning: (1,3) is unvisited land → start new DFS
- * - DFS from (1,3) only marks (1,3) as it's isolated
- * - Total islands found: 2
  * ```
- * 
+ *
+ * **Step 1**: Iterate through grid - start at (0,0)
+ * **Step 2**: Find land - (0,0) is '1', increment island count to 1
+ * **Step 3**: Explore island - DFS from (0,0) explores entire connected land mass
+ * - Mark visited: (0,0), (0,1), (0,2), (0,3), (1,0), (1,1), (2,0), (2,1)
+ * **Step 4**: Count islands - first island complete, count = 1
+ *
+ * Continue scanning...
+ * **Step 2**: Find land - (1,3) is '1', increment island count to 2
+ * **Step 3**: Explore island - DFS from (1,3) only marks (1,3) as it's isolated
+ * **Step 4**: Count islands - second island complete, count = 2
+ *
+ * **Step 5**: Mark visited - all land cells have been explored
+ *
+ * Output:
+ * ```
+ * 2
+ * ```
+ *
  * ### TIME COMPLEXITY:
  * O(M × N)
  * Where M and N are grid dimensions - we visit each cell at most once
@@ -89,14 +111,40 @@ class Solution {
    *         Space Complexity: O(M × N) for recursion stack in worst case
    */
   numIslands(grid: string[][]): number {
-    // Implementation
-    if not grid or not grid.get(0):
-    return 0
-    rows, cols = grid.length, grid.get(0).length
-    islands = 0
-    def dfs(r: Any, c: Any) -> Any:
-    """DFS to mark all connected land as visited."""
-    if r < 0 or r >= rows or c < 0 or c >= cols or grid.get(r)[c] == "0":
+    if (!grid || grid.length === 0) {
+      return 0;
+    }
+
+    const rows = grid.length;
+    const cols = grid[0].length;
+    let islands = 0;
+
+    const dfs = (r: number, c: number): void => {
+      // Base case: out of bounds or water
+      if (r < 0 || r >= rows || c < 0 || c >= cols || grid[r][c] === "0") {
+        return;
+      }
+
+      // Mark as visited
+      grid[r][c] = "0";
+
+      // Explore all 4 directions
+      dfs(r + 1, c); // Down
+      dfs(r - 1, c); // Up
+      dfs(r, c + 1); // Right
+      dfs(r, c - 1); // Left
+    };
+
+    for (let r = 0; r < rows; r++) {
+      for (let c = 0; c < cols; c++) {
+        if (grid[r][c] === "1") {
+          islands++;
+          dfs(r, c);
+        }
+      }
+    }
+
+    return islands;
   }
 
   /**
@@ -112,15 +160,45 @@ class Solution {
    *         Space Complexity: O(min(M, N)) for queue in worst case
    */
   numIslandsBFS(grid: string[][]): number {
-    // Implementation
-    if not grid or not grid.get(0):
-    return 0
-    rows, cols = grid.length, grid.get(0).length
-    islands = 0
-    directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]
+    if (!grid || grid.length === 0) {
+      return 0;
+    }
+
+    const rows = grid.length;
+    const cols = grid[0].length;
+    let islands = 0;
+    const directions = [
+      [0, 1],
+      [0, -1],
+      [1, 0],
+      [-1, 0],
+    ];
+
     for (let r = 0; r < rows; r++) {
-    for (let c = 0; c < cols; c++) {
-    if grid.get(r)[c] == "1":
+      for (let c = 0; c < cols; c++) {
+        if (grid[r][c] === "1") {
+          islands++;
+          const queue: [number, number][] = [[r, c]];
+          grid[r][c] = "0"; // Mark as visited
+
+          while (queue.length > 0) {
+            const [row, col] = queue.shift()!;
+
+            for (const [dr, dc] of directions) {
+              const newR = row + dr;
+              const newC = col + dc;
+
+              if (newR >= 0 && newR < rows && newC >= 0 && newC < cols && grid[newR][newC] === "1") {
+                queue.push([newR, newC]);
+                grid[newR][newC] = "0"; // Mark as visited
+              }
+            }
+          }
+        }
+      }
+    }
+
+    return islands;
   }
 
   /**
@@ -136,15 +214,37 @@ class Solution {
    *         Space Complexity: O(M × N) for visited array + recursion stack
    */
   numIslandsWithVisited(grid: string[][]): number {
-    // Implementation
-    if not grid or not grid.get(0):
-    return 0
-    rows, cols = grid.length, grid.get(0).length
-    visited = [[false] * cols for _ in range(rows)]
-    islands = 0
-    def dfs(r: Any, c: Any) -> Any:
-    if r < 0 or r >= rows or c < 0 or c >= cols or visited.get(r)[c] or grid.get(r)[c] == "0":
-    return
+    if (!grid || grid.length === 0) {
+      return 0;
+    }
+
+    const rows = grid.length;
+    const cols = grid[0].length;
+    const visited: boolean[][] = Array.from({ length: rows }, () => Array(cols).fill(false));
+    let islands = 0;
+
+    const dfs = (r: number, c: number): void => {
+      if (r < 0 || r >= rows || c < 0 || c >= cols || visited[r][c] || grid[r][c] === "0") {
+        return;
+      }
+
+      visited[r][c] = true;
+      dfs(r + 1, c);
+      dfs(r - 1, c);
+      dfs(r, c + 1);
+      dfs(r, c - 1);
+    };
+
+    for (let r = 0; r < rows; r++) {
+      for (let c = 0; c < cols; c++) {
+        if (grid[r][c] === "1" && !visited[r][c]) {
+          islands++;
+          dfs(r, c);
+        }
+      }
+    }
+
+    return islands;
   }
 
   /**
@@ -160,15 +260,80 @@ class Solution {
    *         Space Complexity: O(M × N) for Union-Find structure
    */
   numIslandsUnionFind(grid: string[][]): number {
-    // Implementation
-    if not grid or not grid.get(0):
-    return 0
-    rows, cols = grid.length, grid.get(0).length
-    class UnionFind:
-    def __init__(self: Any, n: Any) -> null:
-    self.parent = list(range(n))
-    self.rank = [0] * n
-    self.count = 0
+    if (!grid || grid.length === 0) {
+      return 0;
+    }
+
+    const rows = grid.length;
+    const cols = grid[0].length;
+
+    class UnionFind {
+      parent: number[];
+      rank: number[];
+      count: number;
+
+      constructor(n: number) {
+        this.parent = Array.from({ length: n }, (_, i) => i);
+        this.rank = Array(n).fill(0);
+        this.count = 0;
+      }
+
+      find(x: number): number {
+        if (this.parent[x] !== x) {
+          this.parent[x] = this.find(this.parent[x]); // Path compression
+        }
+        return this.parent[x];
+      }
+
+      union(x: number, y: number): void {
+        const rootX = this.find(x);
+        const rootY = this.find(y);
+
+        if (rootX !== rootY) {
+          if (this.rank[rootX] < this.rank[rootY]) {
+            this.parent[rootX] = rootY;
+          } else if (this.rank[rootX] > this.rank[rootY]) {
+            this.parent[rootY] = rootX;
+          } else {
+            this.parent[rootY] = rootX;
+            this.rank[rootX]++;
+          }
+          this.count--;
+        }
+      }
+    }
+
+    const uf = new UnionFind(rows * cols);
+
+    // Count land cells
+    for (let r = 0; r < rows; r++) {
+      for (let c = 0; c < cols; c++) {
+        if (grid[r][c] === "1") {
+          uf.count++;
+        }
+      }
+    }
+
+    // Union adjacent land cells
+    for (let r = 0; r < rows; r++) {
+      for (let c = 0; c < cols; c++) {
+        if (grid[r][c] === "1") {
+          const idx = r * cols + c;
+
+          // Check right neighbor
+          if (c + 1 < cols && grid[r][c + 1] === "1") {
+            uf.union(idx, idx + 1);
+          }
+
+          // Check bottom neighbor
+          if (r + 1 < rows && grid[r + 1][c] === "1") {
+            uf.union(idx, idx + cols);
+          }
+        }
+      }
+    }
+
+    return uf.count;
   }
 }
 
@@ -180,12 +345,22 @@ if (typeof module !== "undefined" && module.exports) {
 function runTests(): void {
   const solution = new Solution();
 
-  test_solution()
-  # Quick example
-  solution = Solution()
-  grid = [["1", "1", "0"], ["0", "1", "0"], ["0", "0", "1"]]
-  console.log(`Grid: {grid}`)
-  console.log(`Islands: {solution.numIslandsWithVisited([row.get(:) for row in grid])}`)  # Preserve original
+  // Quick example
+  const grid = [
+    ["1", "1", "0"],
+    ["0", "1", "0"],
+    ["0", "0", "1"],
+  ];
+
+  console.log("Grid:", JSON.stringify(grid));
+
+  // Deep copy for preserving original
+  const gridCopy = grid.map((row) => [...row]);
+  console.log("Islands (with visited):", solution.numIslandsWithVisited(gridCopy));
+
+  // Test Union-Find approach
+  const gridCopy2 = grid.map((row) => [...row]);
+  console.log("Islands (Union-Find):", solution.numIslandsUnionFind(gridCopy2));
 }
 
 if (typeof require !== "undefined" && require.main === module) {

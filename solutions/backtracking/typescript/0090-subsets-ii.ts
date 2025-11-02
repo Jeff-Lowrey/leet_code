@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Medium
  *
- * # 090. Subsets Ii
+ * # 0090. Subsets Ii
+ *
  *
  * Given an integer array nums that may contain duplicates, return all possible subsets (the power set).
  *
@@ -11,15 +12,16 @@
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[[]</dd>
+ * <dd>nums = [1,2,2]</dd>
  * <dt>Output:</dt>
- * <dd>"Expected {expected}, got {result}"</dd>
+ * <dd>[[],[1],[1,2],[1,2,2],[2],[2,2]]</dd>
  * <dt>Explanation:</dt>
  * <dd>All unique subsets of [1,2,2] are [[],[1],[1,2],[1,2,2],[2],[2,2]]</dd>
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Hash Map, Hash Set, Array
  * **Patterns**: Two Pointers Pattern, Backtracking
@@ -47,28 +49,35 @@
  * - O(2^n * n) time: 2^n subsets, O(n) to copy each
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: nums = [1,2,2]
+ * nums = [1,2,2]
+ * ```
+ *
+ * Steps:
  * Step 1: Sort array → [1,2,2]
- *
  * Step 2: Build subsets with backtracking
- *   Start with [] → add to result
- *     Try 1: [1] → add to result
- *       Try 2: [1,2] → add to result
- *         Try 2: [1,2,2] → add to result
- *       Skip duplicate 2
- *     Try first 2: [2] → add to result
- *       Try second 2: [2,2] → add to result
- *     Skip duplicate 2 (i=2, start=0, nums[2]==nums[1])
+ * Step 3: Start with [] → add to result
+ * Step 4: Try 1: [1] → add to result
+ * Step 5: Try 2: [1,2] → add to result
+ * Step 6: Try 2: [1,2,2] → add to result
+ * Step 7: Skip duplicate 2
+ * Step 8: Try first 2: [2] → add to result
+ * Step 9: Try second 2: [2,2] → add to result
+ * Step 10: Skip duplicate 2 (i=2, start=0, nums[2]==nums[1])
  *
- * Output: [[],[1],[1,2],[1,2,2],[2],[2,2]]
+ * Output:
  * ```
- *
+ * [[],[1],[1,2],[1,2,2],[2],[2,2]]
+ * ```
+
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  *
  * ### EDGE CASES:
  * - Empty input handling

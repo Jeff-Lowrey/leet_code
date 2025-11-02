@@ -3,6 +3,7 @@
  *
  * # 1319. Number Of Operations To Make Network Connected
  *
+ *
  * You are given n computers numbered from 0 to n - 1 connected by ethernet cables connections forming a network where connections[i] = [ai, bi] connects computers ai and bi.
  *
  * Any computer can reach any other computer directly or indirectly through the network.
@@ -23,12 +24,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Hash Map Storage, Array Traversal, Graph Traversal
  * **Data Structures**: Array, Tree, Graph
  * **Patterns**: Hash Table Pattern, Divide and Conquer
- * **Time Complexity**: * O(n × α(n))
- * **Space Complexity**: * O(n)
+ * **Time Complexity**: O(n × α(n))
+ * **Space Complexity**: O(n)
 
  *
  * ### INTUITION:
@@ -50,19 +52,19 @@
  * - Need (components - 1) cables to connect all components
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
  * n = 4, connections = [[0,1],[0,2],[1,2],[1,3]]
- * Total cables: 4, Need: 3, Spare: 1
+ * ```
  *
+ * Total cables: 4, Need: 3, Spare: 1
  * Union-Find process:
  * - Connect 0-1: components = {0,1}, {2}, {3}
  * - Connect 0-2: components = {0,1,2}, {3}
  * - Connect 1-2: redundant (already connected)
  * - Connect 1-3: components = {0,1,2,3}
- *
  * Components: 1, Operations needed: 0
- * ```
- *
+
  * ### TIME COMPLEXITY:
  * O(n × α(n))
  * Where α is the inverse Ackermann function (nearly constant)

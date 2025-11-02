@@ -3,6 +3,7 @@
  *
  * # 1136. Parallel Courses
  *
+ *
  * You are given an integer n, which indicates that there are n courses labeled from 1 to n. You are also given an array relations where relations[i] = [prevCoursei, nextCoursei], representing a prerequisite relationship between course prevCoursei and course nextCoursei: course prevCoursei has to be taken before course nextCoursei.
  *
  * In one semester, you can take any number of courses as long as you have taken all the prerequisites in the previous semester for the courses you are taking.
@@ -21,12 +22,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Hash Map Storage, Array Traversal, Queue Operations
  * **Data Structures**: Array, Queue, Graph
  * **Patterns**: Graph Pattern, Tree Pattern
- * **Time Complexity**: * O(n) - Single pass through input
- * **Space Complexity**: * O(1) - Constant extra space
+ * **Time Complexity**: O(n) - Single pass through input
+ * **Space Complexity**: O(1) - Constant extra space
 
  *
  * ### INTUITION:
@@ -44,23 +46,29 @@
  * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: n = 3, relations = [[1,3],[2,3]]
+ * n = 3, relations = [[1,3],[2,3]]
+ * ```
+ *
  * Step 1: Build graph and indegree
- *   indegree = [0,0,2]
- *
+ * indegree = [0,0,2]
  * Step 2: Process courses level by level
- *   Semester 1: courses 1,2 (indegree=0)
- *   Semester 2: course 3 (after 1,2 complete)
+ * Semester 1: courses 1,2 (indegree=0)
+ * Semester 2: course 3 (after 1,2 complete)
  *
- * Output: 2 (minimum semesters)
+ * Output:
  * ```
- *
+ * 2 (minimum semesters)
+ * ```
+
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  *
  * ### EDGE CASES:
  * - Empty input handling

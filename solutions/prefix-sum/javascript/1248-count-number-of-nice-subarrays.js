@@ -3,6 +3,7 @@
  *
  * # 1248. Count Number Of Nice Subarrays
  *
+ *
  * Given an array of integers nums and an integer k. A continuous subarray is called nice if there are k odd numbers on it.
  *
  * Return the number of nice sub-arrays.
@@ -11,20 +12,21 @@
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[([1, 1, 2, 1, 1]</dd>
+ * <dd>nums = [1, 1, 2, 1, 1], k = 3</dd>
  * <dt>Output:</dt>
- * <dd>"\nInput: nums={nums}, k={k}"</dd>
+ * <dd>2</dd>
  * <dt>Explanation:</dt>
  * <dd>There are 2 nice subarrays (containing exactly k=3 odd numbers)</dd>
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Hash Map, Hash Set, Array
  * **Patterns**: Hash Table Pattern
- * **Time Complexity**: * O(n) - Single pass through input
- * **Space Complexity**: * O(n) - Additional hash map storage
+ * **Time Complexity**: O(n) - Single pass through input
+ * **Space Complexity**: O(n) - Additional hash map storage
 
  *
  * ### INTUITION:
@@ -43,22 +45,30 @@
  * - prefix_count[j] - prefix_count[i] = k means subarray from i+1 to j has k odd numbers
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Given input nums = [1,1,2,1,1], k = 3:
+ *
+ * Input:
  * ```
- * Input: nums = [1,1,2,1,1], k = 3
+ * nums = [1,1,2,1,1], k = 3
+ * ```
+ *
  * Transform: [1,1,0,1,1] (odd=1, even=0)
  * Prefix counts: [0,1,2,2,3,4]
  * For each position, check if (current_count - k) exists:
  * - Position 3: count=3, need=0, found 1 time
  * - Position 4: count=4, need=1, found 1 time
  * Total: 2 nice subarrays
- * ```
+
  *
+ * Result: 2
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  * Single pass through array with HashMap operations
  *
  * ### SPACE COMPLEXITY:
  * O(n)
+ * - Additional hash map storage
  * For the frequency HashMap
  *
  * ### EDGE CASES:

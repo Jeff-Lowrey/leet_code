@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 378. Kth Smallest Element In A Sorted Matrix
+# 0378. Kth Smallest Element In A Sorted Matrix
 
 Given an n x n matrix where each of the rows and columns is sorted in ascending order, return the kth smallest element in the matrix.
 
@@ -13,7 +13,7 @@ You must find a solution with a memory complexity better than O(n²).
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[[1, 5, 9]</dd>
+<dd>[[1, 5, 9]]</dd>
 <dt>Output:</dt>
 <dd>1</dd>
 <dt>Explanation:</dt>
@@ -21,7 +21,8 @@ You must find a solution with a memory complexity better than O(n²).
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
 **Data Structures**: Hash Set, Array, Heap
 **Patterns**: Two Pointers Pattern, Hash Table Pattern
@@ -44,17 +45,21 @@ This problem involves finding the kth smallest element in a matrix where both ro
 A set by definition contains only unique elements - when we convert an array to a set, any duplicates are automatically removed. By comparing the lengths of the original array and the set, we can detect if duplicates existed. The early termination approach works because as soon as we find an element already in our seen set, we've proven a duplicate exists without needing to check the remaining elements.
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
 Matrix: [[1,5,9],[10,11,13],[12,13,15]], k=8
-Step 1: heap = [(1,0,0)] (value, row, col)
-Step 2: pop 1, add 5 and 10 -> heap = [(5,0,1), (10,1,0)]
-Step 3: pop 5, add 9 -> heap = [(9,0,2), (10,1,0)]
-Step 4: pop 9 -> heap = [(10,1,0)]
-Step 5: pop 10, add 11 and 12 -> heap = [(11,1,1), (12,2,0)]
-Step 6: pop 11, add 13 -> heap = [(12,2,0), (13,1,2)]
-Step 7: pop 12, add 13 -> heap = [(13,1,2), (13,2,1)]
-Step 8: pop 13 (8th smallest) -> return 13
 ```
+
+Step 1: heap = [(1,0,0)] (value, row, col)
+
+Steps:
+Step 1: pop 1, add 5 and 10 -> heap = [(5,0,1), (10,1,0)]
+Step 2: pop 5, add 9 -> heap = [(9,0,2), (10,1,0)]
+Step 3: pop 9 -> heap = [(10,1,0)]
+Step 4: pop 10, add 11 and 12 -> heap = [(11,1,1), (12,2,0)]
+Step 5: pop 11, add 13 -> heap = [(12,2,0), (13,1,2)]
+Step 6: pop 12, add 13 -> heap = [(13,1,2), (13,2,1)]
+Step 7: pop 13 (8th smallest) -> return 13
 
 ### TIME COMPLEXITY:
 O(k log n)

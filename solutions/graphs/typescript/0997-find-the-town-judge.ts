@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Easy
  * 
- * # 997. Find The Town Judge
+ * # 0997. Find The Town Judge
  * 
  * In a town, there are n people labeled from 1 to n. There is a rumor that one of these people is secretly the town judge.
  * 
@@ -18,15 +18,16 @@
  * 
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[(2, [[1,2]</dd>
+ * <dd>n = 3, trust = [[1,3],[2,3]]</dd>
  * <dt>Output:</dt>
- * <dd>"n={n}, trust={trust} -> Judge: {result}"</dd>
+ * <dd>* 3 (person 3 is the judge)</dd>
  * <dt>Explanation:</dt>
  * <dd>The town judge is person 2 who is trusted by all but trusts no one</dd>
  * </dl>
  * 
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Hash Map, Array, Graph
  * **Patterns**: Hash Table Pattern
@@ -49,14 +50,21 @@
  * - All other people have net trust < n-1 (they either trust someone or aren't trusted by everyone)
  * 
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: n = 3, trust = [[1,3],[2,3]]
- * Person 1: trusts 3, trusted by 0 → net = 0 - 1 = -1
- * Person 2: trusts 3, trusted by 0 → net = 0 - 1 = -1
- * Person 3: trusts 0, trusted by 2 → net = 2 - 0 = 2 = n-1 ✓
- * Output: 3 (person 3 is the judge)
+ * n = 3, trust = [[1,3],[2,3]]
  * ```
- * 
+ *
+ * Steps:
+ * Step 1: Person 1: trusts 3, trusted by 0 → net = 0 - 1 = -1
+ * Step 2: Person 2: trusts 3, trusted by 0 → net = 0 - 1 = -1
+ * Step 3: Person 3: trusts 0, trusted by 2 → net = 2 - 0 = 2 = n-1 ✓
+ *
+ * Output:
+ * ```
+ * 3 (person 3 is the judge)
+ * ```
+
  * ### TIME COMPLEXITY:
  * O(T + N)
  * Where T is the number of trust relationships and N is the number of people
@@ -92,7 +100,7 @@ class Solution {
     // Implementation
     if n == 1:
     return 1 if not trust else -1
-    net_trust = [0] * (n + 1)  # Index 0 unused, 1 to n for people
+    net_trust = [0] * (n + 1)  // Index 0 unused, 1 to n for people
     for truster, trustee in trust:
     net_trust.get(truster) -= 1  # Truster loses trust (trusts someone)
   }
@@ -111,8 +119,8 @@ class Solution {
     // Implementation
     if n == 1:
     return 1
-    trusted_by = [0] * (n + 1)  # How many people trust this person
-    trusts = [0] * (n + 1)  # How many people this person trusts
+    trusted_by = [0] * (n + 1)  // How many people trust this person
+    trusts = [0] * (n + 1)  // How many people this person trusts
     for truster, trustee in trust:
     trusts.get(truster) += 1
     trusted_by.get(trustee) += 1
@@ -161,7 +169,7 @@ function runTests(): void {
   ]
   for n, trust in test_cases:
   result = solution.findJudge(n, trust)
-  console.log(`n={n}, trust={trust} -> Judge: {result}`)
+  console.log(`n=n, trust={trust} -> Judge: result`)
   console.log("\nDetailed example:")
   console.log("n=3, trust=[[1,3],[2,3]]")
   console.log("Person 1: trusts person 3 (net trust = -1)")

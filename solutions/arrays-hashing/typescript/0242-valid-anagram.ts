@@ -1,7 +1,8 @@
 /**
- * # 242. Valid Anagram
+ * # 0242. Valid Anagram
  *
- * # Difficulty: Easy
+ * Difficulty: Medium
+ *
  *
  * Given two strings s and t, return true if t is an anagram of s, and false otherwise.
  *
@@ -43,23 +44,31 @@
  * - If two strings have the same character frequencies, they must be anagrams
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
  * s = "anagram", t = "nagaram"
+ * ```
  *
  * Character counts for s:
  * a: 3, n: 1, g: 1, r: 1, m: 1
- *
  * Character counts for t:
  * n: 1, a: 3, g: 1, r: 1, m: 1
  *
- * Both have identical counts → True
+ * Steps:
+ * Step 1: Both have identical counts → True
+ * 
+ * Output:
  * ```
- *
+ * True
+ * ```
+ * 
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass with O(1) hash lookups
  *
  * ### SPACE COMPLEXITY:
- * O(1) - at most 26 lowercase letters
+ * O(1)
+ * - at most 26 lowercase letters
  *
  * ### EDGE CASES:
  * - Empty strings → True (both empty)

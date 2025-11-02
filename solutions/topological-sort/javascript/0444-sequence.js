@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Medium
  *
- * # 444. Sequence Reconstruction
+ * # 0444. Sequence Reconstruction
+ *
  *
  * Check whether the original sequence org can be uniquely reconstructed from the sequences in seqs. The org sequence is a permutation of the integers from 1 to n, with 1 ≤ n ≤ 10^4. Reconstruction means building a shortest common supersequence of the sequences in seqs (i.e., a shortest sequence so that all sequences in seqs are subsequences of it). Determine whether there is only one sequence that can be reconstructed from seqs and it is the org sequence.
  *
@@ -9,29 +10,31 @@
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[1, 2, 3]</dd>
+ * <dd>org = [1,2,3], seqs = [[1,2],[1,3],[2,3]]</dd>
  * <dt>Output:</dt>
- * <dd>1</dd>
+ * <dd>true</dd>
  * <dt>Explanation:</dt>
- * <dd>Sequence reconstruction validates if org is only supersequence</dd>
+ * <dd>Sequence reconstruction validates if org is the only possible supersequence from seqs</dd>
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
  * **Data Structures**: Hash Map, Hash Set, Array
  * **Patterns**: Hash Table Pattern
- * **Time Complexity**: * O(V + E)
- * **Space Complexity**: * O(V + E)
+ * **Time Complexity**: O(V + E)
+ * **Space Complexity**: O(V + E)
 
  *
  * ### INTUITION:
  * This is a topological sort problem where we need to check if there's a unique topological ordering that matches the given original sequence. The key insight is that for a unique reconstruction, at each step of topological sort, there should be exactly one node with in-degree 0.
  *
  * ### APPROACH:
- * 1. **Build graph**: Create adjacency list and in-degree count from seqs
- * 2. **Validate sequences**: Ensure all pairs in seqs appear consecutively in org
- * 3. **Check uniqueness**: Use topological sort with the constraint that at each step, only one node has in-degree 0
+ * **Data structures: Hash Map (adjacency list, in-degree), Hash Set (seen pairs), Array (queue for topological sort)**
+ * 1. **Build graph**: Create adjacency list (hash map) and in-degree count from seqs, store seen pairs in a hash set
+ * 2. **Validate sequences**: Ensure all pairs in seqs appear consecutively in org using the hash set
+ * 3. **Check uniqueness**: Use topological sort with array-based queue, ensuring at each step only one node has in-degree 0
  * 4. **Verify order**: The topological order must match org exactly
  *
  * ### WHY THIS WORKS:
@@ -40,25 +43,41 @@
  * - If multiple nodes have in-degree 0 simultaneously, multiple valid orders exist
  * - We need to verify that the unique order matches the original sequence
  *
- * ### EXAMPLE WALKTHROUGH:
+ *
+
+This solution uses hash table lookup for efficient implementation.
+
+This solution uses hash map storage for efficient implementation.
+
+This solution uses set operations for efficient implementation.
+### EXAMPLE WALKTHROUGH:
+  * Input:
  * ```
  * org = [1,2,3], seqs = [[1,2],[1,3],[2,3]]
- *
- * Build graph from seqs:
- * 1 -> [2, 3]
- * 2 -> [3]
- * 3 -> []
- *
- * In-degrees: {1: 0, 2: 1, 3: 2}
- *
- * Topological sort:
- * 1. Only node 1 has in-degree 0 → process 1, reduce in-degrees of 2,3
- * 2. Only node 2 has in-degree 0 → process 2, reduce in-degree of 3
- * 3. Only node 3 has in-degree 0 → process 3
- *
- * Result: [1,2,3] matches org → True
  * ```
  *
+ * **Step 1:** Build graph from seqs using hash map
+ * - Graph: {1: [2, 3], 2: [3], 3: []}
+ * - In-degrees: {1: 0, 2: 1, 3: 2}
+ * - Seen pairs in hash set: {(1,2), (1,3), (2,3)}
+ *
+ * **Step 2:** Validate all consecutive pairs in org exist in seqs
+ * - Check (1,2) ✓, (2,3) ✓ in hash set
+ *
+ * **Step 3:** Topological sort with uniqueness check using array queue
+ * - Start: Only node 1 has in-degree 0 (unique) → process 1, reduce in-degrees
+ * - Next: Only node 2 has in-degree 0 (unique) → process 2, reduce in-degree
+ * - Final: Only node 3 has in-degree 0 (unique) → process 3
+ * - Result array: [1,2,3]
+ *
+ * **Step 4:** Verify order matches org
+ * - [1,2,3] matches org exactly → True
+ *
+ * Output:
+ * ```
+ * True
+ * ```
+ * 
  * ### TIME COMPLEXITY:
  * O(V + E)
  * Where V is number of nodes (n) and E is total number of edges from seqs
@@ -68,11 +87,11 @@
  * For the graph representation and auxiliary data structures
  *
  * ### EDGE CASES:
- * - **Unique topological order**: Only one valid sequence exists
- * - **Multiple valid orders**: Return false (ambiguous)
- * - **Cycle in graph**: No topological order exists, return false
- * - **Sequence doesn't match order**: Return false
- * - **Single course**: Trivially valid, return true
+ * - **Unique topological order**: org=[1,2,3], seqs=[[1,2],[1,3],[2,3]] → true (only [1,2,3] valid)
+ * - **Multiple valid orders**: org=[1,2,3], seqs=[[1,2],[1,3]] → false (both [1,2,3] and [1,3,2] valid)
+ * - **Cycle in graph**: org=[1,2], seqs=[[1,2],[2,1]] → false (cycle exists)
+ * - **Sequence doesn't match order**: org=[1,2,3], seqs=[[1,3],[3,2]] → false (produces [1,3,2])
+ * - **Single element**: org=[1], seqs=[[1]] → true (trivial case)
  *
  * </details>
  */

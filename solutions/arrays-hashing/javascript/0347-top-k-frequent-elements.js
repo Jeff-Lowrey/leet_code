@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Medium
  *
- * # 347. Top K Frequent Elements
+ * # 0347. Top K Frequent Elements
+ *
  *
  * Given an integer array nums and an integer k, return the k most frequent elements. You may return the answer in any order.
  *
@@ -9,20 +10,22 @@
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[1, 2]</dd>
+ * <dd>nums = [1,1,1,2,2,3], k = 2</dd>
  * <dt>Output:</dt>
- * <dd>"Expected {expected}, got {result}"</dd>
+ * <dd>[1, 2]
+ * [1, 2]</dd>
  * <dt>Explanation:</dt>
  * <dd>The k=2 most frequent elements in [1,1,1,2,2,3] are [1,2]</dd>
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Hash Map, Hash Set, Array
  * **Patterns**: Hash Table Pattern
- * **Time Complexity**: * O(n) - Single pass through input
- * **Space Complexity**: * O(1) - Constant extra space
+ * **Time Complexity**: O(n) - Single pass through input
+ * **Space Complexity**: O(1) - Constant extra space
 
  *
  * ### INTUITION:
@@ -40,38 +43,42 @@
  * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: nums = [1,1,1,2,2,3], k = 2
+ * nums = [1,1,1,2,2,3], k = 2
+ * ```
+ *
  * Step 1: Count frequencies using Counter
- *   freq_map = {1: 3, 2: 2, 3: 1}
- *
+ * freq_map = {1: 3, 2: 2, 3: 1}
  * Step 2: Build max heap with negative frequencies
- *   heap = [(-3, 1), (-2, 2), (-1, 3)]
- *
+ * heap = [(-3, 1), (-2, 2), (-1, 3)]
  * Step 3: Extract k most frequent elements
- *   - Pop: (-3, 1) → result = [1]
- *   - Pop: (-2, 2) → result = [1, 2]
- *
- * Output: [1, 2]
- *
  * Alternative (Bucket Sort):
- * Step 1: Create buckets by frequency
- *   buckets[3] = [1]
- *   buckets[2] = [2]
- *   buckets[1] = [3]
  *
- * Step 2: Collect from highest frequency buckets
- *   - From bucket 3: add 1
- *   - From bucket 2: add 2
+ * Steps:
+ * Step 1: - Pop: (-3, 1) → result = [1]
+ * Step 2: - Pop: (-2, 2) → result = [1, 2]
+ * Step 3: Create buckets by frequency
+ * Step 4: buckets[3] = [1]
+ * Step 5: buckets[2] = [2]
+ * Step 6: buckets[1] = [3]
+ * Step 7: Collect from highest frequency buckets
+ * Step 8: - From bucket 3: add 1
+ * Step 9: - From bucket 2: add 2
  *
- * Output: [1, 2]
+ * Output:
  * ```
- *
+ * [1, 2]
+ * [1, 2]
+ * ```
+
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  *
  * ### EDGE CASES:
  * - Empty input handling

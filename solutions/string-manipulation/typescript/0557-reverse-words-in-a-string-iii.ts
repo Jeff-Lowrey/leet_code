@@ -1,7 +1,8 @@
 /**
- * # 557. Reverse Words In A String Iii
+ * # 0557. Reverse Words In A String Iii
  *
- * # Difficulty: Easy
+ * Difficulty: Medium
+ *
  *
  * Given a string s, reverse the order of characters in each word within a sentence
  * while still preserving whitespace and initial word order.
@@ -12,13 +13,14 @@
  * <dt>Input:</dt>
  * <dd>s = "Let's take LeetCode contest"</dd>
  * <dt>Output:</dt>
- * <dd>s'teL ekat edoCteeL tsetnoc"</dd>
+ * <dd>s'teL ekat edoCteeL tsetnoc</dd>
  * <dt>Explanation:</dt>
  * <dd>Reverse each word: 'Let's take LeetCode contest' becomes 's'teL ekat edoCteeL tsetnoc'</dd>
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Array, String, Stack
  * **Patterns**: Two Pointers Pattern, Divide and Conquer
@@ -47,22 +49,24 @@
  * - Each word is processed independently
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: "Let's take LeetCode contest"
+ * "Let's take LeetCode contest"
+ * ```
  *
  * Split: ["Let's", "take", "LeetCode", "contest"]
- *
  * Reverse each:
- * - "Let's" -> "s'teL"
- * - "take" -> "ekat"
- * - "LeetCode" -> "edoCteeL"
- * - "contest" -> "tsetnoc"
  *
- * Join: "s'teL ekat edoCteeL tsetnoc"
- * ```
- *
+ * Steps:
+ * Step 1: - "Let's" -> "s'teL"
+ * Step 2: - "take" -> "ekat"
+ * Step 3: - "LeetCode" -> "edoCteeL"
+ * Step 4: - "contest" -> "tsetnoc"
+ * Step 5: Join: "s'teL ekat edoCteeL tsetnoc"
+
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  * - Splitting the string: O(n)
  * - Reversing each word: O(n) total for all words
  * - Joining: O(n)
@@ -70,6 +74,7 @@
  *
  * ### SPACE COMPLEXITY:
  * O(n)
+ * - Additional set storage
  * - Storing split words: O(n)
  * - Creating result string: O(n)
  * - Overall: O(n)

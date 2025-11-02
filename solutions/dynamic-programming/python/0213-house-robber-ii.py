@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 213. House Robber Ii
+# 0213. House Robber Ii
 
 You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed. All houses at this place are arranged in a circle. That means the first house is the neighbor of the last one. Meanwhile, adjacent houses have security systems connected, and it will automatically contact the police if two adjacent houses were broken into on the same night.
 
@@ -19,7 +19,8 @@ Given an integer array nums representing the amount of money of each house, retu
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
 **Data Structures**: Hash Map, Array, Tree
 **Patterns**: Greedy Algorithm, Dynamic Programming
@@ -45,28 +46,37 @@ Houses are circular - can't rob both first and last. Run House Robber I twice: o
 - O(n) time: two passes of O(n) each, O(1) space
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: nums = [2,3,2]
+nums = [2,3,2]
+```
+
 Step 1: Handle circular array
-  Case 1: Rob houses [0:n-1] → [2,3] → max = 3
-  Case 2: Rob houses [1:n] → [3,2] → max = 3
 
-Step 2: Case 1 detail
-  dp[0] = 2
-  dp[1] = max(2, 3) = 3
+Steps:
+Step 1: Case 1: Rob houses [0:n-1] → [2,3] → max = 3
+Step 2: Case 2: Rob houses [1:n] → [3,2] → max = 3
+Step 3: Case 1 detail
+Step 4: dp[0] = 2
+Step 5: dp[1] = max(2, 3) = 3
+Step 6: Case 2 detail
+Step 7: dp[0] = 3
+Step 8: dp[1] = max(3, 2) = 3
 
-Step 3: Case 2 detail
-  dp[0] = 3
-  dp[1] = max(3, 2) = 3
-
-Output: 3 (maximum money, rob middle house)
+Output:
+```
+3 (maximum money, rob middle house)
 ```
 
 ### TIME COMPLEXITY:
 O(n)
+- Single pass through input
+
 
 ### SPACE COMPLEXITY:
 O(1)
+- Constant extra space
+
 
 ### EDGE CASES:
 - Empty input handling
@@ -138,17 +148,17 @@ def test_solution() -> None:
     # Test case 1: Example from problem - houses in circle [2,3,2], can't rob first and last
     result = solution.rob([2, 3, 2])
     expected = 3
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: Single element
     result = solution.rob([5])
     expected = 5
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 3: Larger example
     result = solution.rob([1, 2, 3, 1])
     expected = 4
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

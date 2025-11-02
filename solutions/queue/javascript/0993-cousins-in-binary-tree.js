@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Easy
  *
- * # 993. Cousins in Binary Tree
+ * # 0993. Cousins in Binary Tree
+ *
  *
  * Given the root of a binary tree with unique values and the values of two different nodes x and y,
  * return true if the nodes corresponding to the values x and y are cousins, or false otherwise.
@@ -20,12 +21,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Array Traversal, Two Pointers, Queue Operations
  * **Data Structures**: Queue, Tree, Trie
  * **Patterns**: Two Pointers Pattern, Graph Pattern
- * **Time Complexity**: * O(n)
- * **Space Complexity**: * O(w)
+ * **Time Complexity**: O(n)
+ * **Space Complexity**: O(w)
 
  *
  * ### INTUITION:
@@ -48,24 +50,26 @@
  * - Early termination: Can stop as soon as we find both nodes
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
  * Tree:      1
- *          /   \\
- *         2     3
- *        /
- *       4
+ * ```
  *
+ * /   \\
+ * 2     3
+ * /
+ * 4
  * x=4, y=3:
  * - Node 4: depth=2, parent=2
  * - Node 3: depth=1, parent=1
- * - Different depths → NOT cousins
- *
  * x=2, y=3:
- * - Node 2: depth=1, parent=1
- * - Node 3: depth=1, parent=1
- * - Same parent → NOT cousins
- * ```
  *
+ * Steps:
+ * Step 1: - Different depths → NOT cousins
+ * Step 2: - Node 2: depth=1, parent=1
+ * Step 3: - Node 3: depth=1, parent=1
+ * Step 4: - Same parent → NOT cousins
+
  * ### TIME COMPLEXITY:
  * O(n)
  * - In worst case, visit all nodes in tree

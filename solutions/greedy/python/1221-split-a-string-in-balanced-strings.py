@@ -22,7 +22,8 @@ Return the maximum number of balanced strings you can obtain.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
 **Data Structures**: Array, String
 **Patterns**: Hash Table Pattern, Greedy Algorithm
@@ -45,21 +46,26 @@ for future splits.
 The algorithm correctly solves the problem by systematically exploring all valid states while maintaining necessary invariants. Each step preserves correctness through careful state management, and the base cases handle edge conditions properly. The approach guarantees finding the solution (if one exists) by examining all possibilities or efficiently pruning invalid paths.
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: s = "RLRRLLRLRL"
+s = "RLRRLLRLRL"
+```
 
-i=0: 'R' → balance = -1
-i=1: 'L' → balance = 0 → SPLIT! count = 1 → "RL"
-i=2: 'R' → balance = -1
-i=3: 'R' → balance = -2
-i=4: 'L' → balance = -1
-i=5: 'L' → balance = 0 → SPLIT! count = 2 → "RRLL"
-i=6: 'R' → balance = -1
-i=7: 'L' → balance = 0 → SPLIT! count = 3 → "RL"
-i=8: 'R' → balance = -1
-i=9: 'L' → balance = 0 → SPLIT! count = 4 → "RL"
+Steps:
+Step 1: i=0: 'R' → balance = -1
+Step 2: i=1: 'L' → balance = 0 → SPLIT! count = 1 → "RL"
+Step 3: i=2: 'R' → balance = -1
+Step 4: i=3: 'R' → balance = -2
+Step 5: i=4: 'L' → balance = -1
+Step 6: i=5: 'L' → balance = 0 → SPLIT! count = 2 → "RRLL"
+Step 7: i=6: 'R' → balance = -1
+Step 8: i=7: 'L' → balance = 0 → SPLIT! count = 3 → "RL"
+Step 9: i=8: 'R' → balance = -1
+Step 10: i=9: 'L' → balance = 0 → SPLIT! count = 4 → "RL"
 
-Output: 4
+Output:
+```
+4
 Substrings: "RL", "RRLL", "RL", "RL"
 ```
 
@@ -266,7 +272,7 @@ if __name__ == "__main__":
 
     test_string = "RLRRLLRLRL"
     result = solution.balancedStringSplit(test_string)
-    print(f"balancedStringSplit('{test_string}') -> {result}")
+    print(f"balancedStringSplit('{test_string}') -> result")
 
     # Show the actual substrings
     count, substrings = solution.balancedStringSplitWithTracking(test_string)

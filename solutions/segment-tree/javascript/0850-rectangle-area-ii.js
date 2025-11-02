@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Hard
  *
- * # 850. Rectangle Area II
+ * # 0850. Rectangle Area II
+ *
  *
  * You are given a 2D array of axis-aligned rectangles. Each rectangle[i] = [xi1, yi1, xi2, yi2] denotes the ith rectangle where (xi1, yi1) are the coordinates of the bottom-left corner, and (xi2, yi2) are the coordinates of the top-right corner.
  *
@@ -13,7 +14,7 @@
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[[[0, 0, 2, 2]</dd>
+ * <dd>[[[0, 0, 2, 2]]]</dd>
  * <dt>Output:</dt>
  * <dd>"\nInput: {rectangles}"</dd>
  * <dt>Explanation:</dt>
@@ -21,12 +22,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Hash Table Lookup, Set Operations, Array Traversal
  * **Data Structures**: Hash Set, Array, Tree
  * **Patterns**: Two Pointers Pattern, Greedy Algorithm
  * **Time Complexity**: * - Sweep Line: O(n² log n)
- * **Space Complexity**: * O(n) - Additional set storage
+ * **Space Complexity**: O(n) - Additional set storage
 
  *
  * ### INTUITION:
@@ -45,27 +47,28 @@
  * The algorithm correctly solves the problem by systematically exploring all valid states while maintaining necessary invariants. Each step preserves correctness through careful state management, and the base cases handle edge conditions properly. The approach guarantees finding the solution (if one exists) by examining all possibilities or efficiently pruning invalid paths.
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: [[0,0,2,2],[1,0,2,3],[1,0,3,1]]
+ * [[0,0,2,2],[1,0,2,3],[1,0,3,1]]
+ * ```
+ *
  * Unique X coords: [0,1,2,3]
  * Unique Y coords: [0,1,2,3]
- *
  * Grid cells covered:
  * [0,1]×[0,1]: covered by rect 0
  * [1,2]×[0,1]: covered by rects 0,1,2
  * [1,2]×[1,2]: covered by rects 0,1
  * [1,2]×[2,3]: covered by rect 1
  * [2,3]×[0,1]: covered by rect 2
- *
  * Total area = 1 + 1 + 1 + 1 + 1 + 1 = 6
- * ```
- *
+
  * ### TIME COMPLEXITY:
  * - Sweep Line: O(n² log n)
  * - Coordinate Compression: O(n²)
  *
  * ### SPACE COMPLEXITY:
  * O(n)
+ * - Additional set storage
  * For coordinate storage and data structures
  *
  * ### EDGE CASES:

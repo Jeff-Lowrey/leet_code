@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 033. Search In Rotated Sorted Array
+# 0033. Search In Rotated Sorted Array
 
 There is an integer array nums sorted in ascending order (with distinct values).
 
@@ -23,7 +23,8 @@ You must write an algorithm with O(log n) runtime complexity.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
 **Data Structures**: Hash Map, Hash Set, Array
 **Patterns**: Two Pointers Pattern, Binary Search Pattern
@@ -51,38 +52,43 @@ The array has two sorted portions. At each binary search step, determine which h
 - Works because rotation preserves sorted order within each half, just shifts the pivot point
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: nums = [4, 5, 6, 7, 0, 1, 2], target = 0
+nums = [4, 5, 6, 7, 0, 1, 2], target = 0
+```
 
 Step 1: Initialize
-  left = 0, right = 6
-  mid = 3, nums[3] = 7
-
+left = 0, right = 6
+mid = 3, nums[3] = 7
 Step 2: Check mid
-  nums[3] = 7 ≠ 0
-  Left half [4,5,6,7] is sorted (4 ≤ 7)
-  Is target in [4,7]? No (0 < 4)
-  Search right half: left = 4
-
+nums[3] = 7 ≠ 0
+Left half [4,5,6,7] is sorted (4 ≤ 7)
+Is target in [4,7]? No (0 < 4)
+Search right half: left = 4
 Step 3: left = 4, right = 6
-  mid = 5, nums[5] = 1
-  nums[5] = 1 ≠ 0
-  Right half [1,2] is sorted (1 < 4, so left is NOT sorted)
-  Is target in [1,2]? No (0 < 1)
-  Search left half: right = 4
-
+mid = 5, nums[5] = 1
+nums[5] = 1 ≠ 0
+Right half [1,2] is sorted (1 < 4, so left is NOT sorted)
+Is target in [1,2]? No (0 < 1)
+Search left half: right = 4
 Step 4: left = 4, right = 4
-  mid = 4, nums[4] = 0
-  Found target!
+mid = 4, nums[4] = 0
+Found target!
 
-Output: 4
+Output:
+```
+4
 ```
 
 ### TIME COMPLEXITY:
 O(n)
+- Single pass through input
+
 
 ### SPACE COMPLEXITY:
 O(1)
+- Constant extra space
+
 
 ### EDGE CASES:
 - Empty input handling
@@ -149,12 +155,12 @@ def test_solution() -> None:
     # Test case 1: Example from problem
     result = solution.search([4, 5, 6, 7, 0, 1, 2], target=0)
     expected = 4
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: Empty input
     result = solution.search([], 0)
     expected = -1
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

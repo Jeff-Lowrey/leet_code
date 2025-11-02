@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 027. Remove Element
+# 0027. Remove Element
 
 Given an integer array nums and an integer val, remove all occurrences of val in nums in-place. The order of the elements may be changed. Then return the number of elements in nums which are not equal to val.
 
@@ -22,7 +22,8 @@ Consider the number of elements in nums which are not equal to val be k, to get 
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
 **Data Structures**: Hash Map, Hash Set, Array
 **Patterns**: Two Pointers Pattern, Hash Table Pattern
@@ -49,22 +50,31 @@ Use two pointers: one for reading, one for writing. When read pointer finds non-
 - O(n) time, O(1) space
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: nums = [3,2,2,3], val = 3
-Step 1: Two pointers
-  i=0, nums[0]=3=val, skip
-  i=1, nums[1]=2≠val, nums[0]=2, i=1
-  i=2, nums[2]=2≠val, nums[1]=2, i=2
-  i=3, nums[3]=3=val, skip
+nums = [3,2,2,3], val = 3
+```
 
-Output: k=2, nums=[2,2,_,_]
+Step 1: Two pointers
+i=0, nums[0]=3=val, skip
+i=1, nums[1]=2≠val, nums[0]=2, i=1
+i=2, nums[2]=2≠val, nums[1]=2, i=2
+i=3, nums[3]=3=val, skip
+
+Output:
+```
+k=2, nums=[2,2,_,_]
 ```
 
 ### TIME COMPLEXITY:
 O(n)
+- Single pass through input
+
 
 ### SPACE COMPLEXITY:
 O(1)
+- Constant extra space
+
 
 ### EDGE CASES:
 - Empty input handling
@@ -118,12 +128,12 @@ def test_solution() -> None:
     # Test case 1: Basic case
     result = solution.removeElement([1, 2, 3], 2)
     expected = 2
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: Empty input
     result = solution.removeElement([], 0)
     expected = 0
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

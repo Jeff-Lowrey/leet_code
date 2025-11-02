@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 373. Find K Pairs With Smallest Sums
+# 0373. Find K Pairs With Smallest Sums
 
 You are given two integer arrays nums1 and nums2 sorted in ascending order and an integer k.
 
@@ -21,7 +21,8 @@ Return the k pairs (u1, v1), (u2, v2), ..., (uk, vk) with the smallest sums.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
 **Data Structures**: Hash Map, Array, Heap
 **Patterns**: Hash Table Pattern, Greedy Algorithm
@@ -48,24 +49,32 @@ Use min heap containing pairs from k sorted lists. Initially add first pair from
 - O(k log k) time: k heap operations, O(k) space for heap
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: nums1 = [1,7,11], nums2 = [2,4,6], k = 3
+nums1 = [1,7,11], nums2 = [2,4,6], k = 3
+```
+
 Step 1: Initialize min heap
-  heap = [(1+2, 0, 0)]
-
+heap = [(1+2, 0, 0)]
 Step 2: Extract k smallest pairs
-  Pop (3, 0, 0): pair [1,2], add (1+4, 0, 1)
-  Pop (5, 0, 1): pair [1,4], add (1+6, 0, 2)
-  Pop (7, 0, 2): pair [1,6], add (7+2, 1, 0)
+Pop (3, 0, 0): pair [1,2], add (1+4, 0, 1)
+Pop (5, 0, 1): pair [1,4], add (1+6, 0, 2)
+Pop (7, 0, 2): pair [1,6], add (7+2, 1, 0)
 
-Output: [[1,2],[1,4],[1,6]]
+Output:
+```
+[[1,2],[1,4],[1,6]]
 ```
 
 ### TIME COMPLEXITY:
 O(n)
+- Single pass through input
+
 
 ### SPACE COMPLEXITY:
 O(1)
+- Constant extra space
+
 
 ### EDGE CASES:
 - Empty input handling
@@ -138,12 +147,12 @@ def test_solution() -> None:
     # Test case 1: Example from problem
     result = solution.kSmallestPairs([1, 7, 11], [2, 4, 6], 3)
     expected = [[1, 2], [1, 4], [1, 6]]
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: Empty arrays
     result = solution.kSmallestPairs([], [2, 4, 6], 3)
     expected: list[Any] = []
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

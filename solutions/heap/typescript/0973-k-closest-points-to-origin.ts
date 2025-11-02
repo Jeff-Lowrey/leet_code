@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  * 
- * # 973. K Closest Points To Origin
+ * # 0973. K Closest Points To Origin
  * 
  * Given an array of points where points[i] = [xi, yi] represents a point on the X-Y plane and an integer k, return the k closest points to the origin (0, 0).
  * 
@@ -13,15 +13,16 @@
  * 
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[[0,1]</dd>
+ * <dd>points = [[1,3], [-2,2], [5,8], [0,1]], k = 2</dd>
  * <dt>Output:</dt>
- * <dd>"Expected {expected}, got {result}"</dd>
+ * <dd>[[0,1], [-2,2]]</dd>
  * <dt>Explanation:</dt>
  * <dd>The k=2 closest points to origin are [[1,3],[-2,2]]</dd>
  * </dl>
  * 
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Hash Map, Array, Heap
  * **Patterns**: Two Pointers Pattern, Greedy Algorithm
@@ -47,30 +48,37 @@
  * - O(n log k) time: n points, log k heap operations, O(k) space
  * 
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: points = [[1,3], [-2,2], [5,8], [0,1]], k = 2
- * 
+ * points = [[1,3], [-2,2], [5,8], [0,1]], k = 2
+ * ```
+ *
  * Step 1: Calculate distances (squared)
- *   [1,3]: dist = 1² + 3² = 10
- *   [-2,2]: dist = (-2)² + 2² = 8
- *   [5,8]: dist = 5² + 8² = 89
- *   [0,1]: dist = 0² + 1² = 1
- * 
+ * [1,3]: dist = 1² + 3² = 10
+ * [-2,2]: dist = (-2)² + 2² = 8
+ * [5,8]: dist = 5² + 8² = 89
+ * [0,1]: dist = 0² + 1² = 1
  * Step 2: Build min heap
- *   heap = [(1, [0,1]), (8, [-2,2]), (10, [1,3]), (89, [5,8])]
- * 
+ * heap = [(1, [0,1]), (8, [-2,2]), (10, [1,3]), (89, [5,8])]
  * Step 3: Extract k=2 smallest
- *   Pop (1, [0,1]) → result = [[0,1]]
- *   Pop (8, [-2,2]) → result = [[0,1], [-2,2]]
- * 
- * Output: [[0,1], [-2,2]]
+ *
+ * Steps:
+ * Step 1: Pop (1, [0,1]) → result = [[0,1]]
+ * Step 2: Pop (8, [-2,2]) → result = [[0,1], [-2,2]]
+ *
+ * Output:
  * ```
- * 
+ * [[0,1], [-2,2]]
+ * ```
+
  * ### TIME COMPLEXITY:
  * O(n)
- * 
+ * - Single pass through input
+ *
+
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  * 
  * ### EDGE CASES:
  * - Empty input handling

@@ -1,5 +1,8 @@
 /**
- * # Difficulty: Hard
+ * # 0685. Redundant Connection Ii
+ *
+ * Difficulty: Medium
+ *
  *
  * In a directed graph, return an edge that can be removed so that the resulting graph is a tree.
  * If there are multiple answers, return the answer that occurs last in the given input.
@@ -23,12 +26,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Hash Map Storage, Array Traversal
  * **Data Structures**: Array, String, Tree
  * **Patterns**: Iterative Solution
- * **Time Complexity**: * O(n α(n))
- * **Space Complexity**: * O(n)
+ * **Time Complexity**: O(n α(n))
+ * **Space Complexity**: O(n)
 
  *
  * ### INTUITION:
@@ -46,23 +50,30 @@
  * When a node has 2 parents, one must be removed. Union-find detects cycles.
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: edges = [[1,2],[1,3],[2,3]]
+ * edges = [[1,2],[1,3],[2,3]]
+ * ```
+ *
  * Step 1: Find node with 2 parents
- *   Node 3 has parents 1 and 2
- *
+ * Node 3 has parents 1 and 2
  * Step 2: Try removing each edge to node 3
- *   Remove [1,3]: still cycle exists
- *   Remove [2,3]: forms valid tree ✓
+ * Remove [1,3]: still cycle exists
+ * Remove [2,3]: forms valid tree ✓
  *
- * Output: [2,3]
+ * Output:
  * ```
- *
+ * [2,3]
+ * ```
+
  * ### TIME COMPLEXITY:
- * O(n α(n))
- *
+ * O(n α(n)) - Union-find operations with path compression and union by rank
+
  * ### SPACE COMPLEXITY:
+
  * O(n)
+
+ * - Additional data structure for storage
  *
  * ### EDGE CASES:
  * - **Node with two parents, no cycle**: Remove the later edge to that node

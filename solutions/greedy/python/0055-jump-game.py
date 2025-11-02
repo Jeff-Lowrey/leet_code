@@ -1,5 +1,5 @@
 """
-# 55. Jump Game
+# 0055. Jump Game
 
 # Difficulty: Medium
 
@@ -21,7 +21,8 @@ Return true if you can reach the last index, or false otherwise.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
 **Data Structures**: Hash Set, Array, Linked List
 **Patterns**: Two Pointers Pattern, Greedy Algorithm
@@ -45,25 +46,33 @@ Use greedy approach to track the farthest position we can reach. If at any point
 - If we can reach position i, and from i we can jump nums[i] steps, then we can reach any position up to i + nums[i]
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: nums = [2,3,1,1,4]
+nums = [2,3,1,1,4]
+```
+
 Step 1: Initialize max_reach = 0
-
 Step 2: Iterate and update max_reach
-  i=0: can reach (0 ≤ 0), max_reach = max(0, 0+2) = 2
-  i=1: can reach (1 ≤ 2), max_reach = max(2, 1+3) = 4
-  i=2: can reach (2 ≤ 4), max_reach = max(4, 2+1) = 4
-  i=3: can reach (3 ≤ 4), max_reach = max(4, 3+1) = 4
-  i=4: reached last index
+i=0: can reach (0 ≤ 0), max_reach = max(0, 0+2) = 2
+i=1: can reach (1 ≤ 2), max_reach = max(2, 1+3) = 4
+i=2: can reach (2 ≤ 4), max_reach = max(4, 2+1) = 4
+i=3: can reach (3 ≤ 4), max_reach = max(4, 3+1) = 4
+i=4: reached last index
 
-Output: True (can reach end)
+Output:
+```
+True (can reach end)
 ```
 
 ### TIME COMPLEXITY:
 O(n)
+- Single pass through input
+
 
 ### SPACE COMPLEXITY:
 O(1)
+- Constant extra space
+
 
 ### EDGE CASES:
 - **Single element array**: Always return True (already at end)
@@ -135,7 +144,6 @@ class Solution:
 
 """
 45. Jump Game II
-# Difficulty: Medium
 You are given a 0-indexed array of integers nums of length n.
 
 Your goal is to reach nums[n - 1] starting from nums[0] with the minimum number
@@ -211,7 +219,6 @@ class SolutionJumpII:
 
 """
 134. Gas Station
-# Difficulty: Medium
 There are n gas stations along a circular route, where the amount of gas at the
 ith station is gas[i].
 
@@ -287,7 +294,7 @@ if __name__ == "__main__":
 
     for nums in test_cases_jump:
         result = solution_jump.canJump(nums)
-        print(f"Input: {nums} -> Can Jump: {result}")
+        print(f"Input: nums -> Can Jump: result")
 
     print("\n" + "=" * 50 + "\n")
 
@@ -299,7 +306,7 @@ if __name__ == "__main__":
 
     for nums in test_cases_jump2:
         jumps: int = solution_jump2.jump(nums)
-        print(f"Input: {nums} -> Min Jumps: {jumps}")
+        print(f"Input: nums -> Min Jumps: {jumps}")
 
     print("\n" + "=" * 50 + "\n")
 

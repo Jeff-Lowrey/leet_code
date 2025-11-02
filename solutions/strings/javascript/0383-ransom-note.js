@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Easy
  *
- * # 383. Ransom Note
+ * # 0383. Ransom Note
+ *
  *
  * This problem demonstrates key concepts in Strings and Hash Tables.
  *
@@ -17,12 +18,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Hash Map, Hash Set, String
  * **Patterns**: Hash Table Pattern
- * **Time Complexity**: * O(m + n)
- * **Space Complexity**: * O(1) - Constant extra space
+ * **Time Complexity**: O(m + n)
+ * **Space Complexity**: O(1) - Constant extra space
 
  *
  * ### INTUITION:
@@ -43,21 +45,26 @@
  * - If any character is unavailable or exhausted, we return False immediately
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: ransomNote = "aa", magazine = "aab"
+ * ransomNote = "aa", magazine = "aab"
+ * ransomNote = "aa", magazine = "ab"
+ * ```
+ *
  * Step 1: Count magazine chars: {'a': 2, 'b': 1}
  * Step 2: Check 'a' (first): count is 2, decrement to 1
  * Step 3: Check 'a' (second): count is 1, decrement to 0
  * Step 4: All characters available
- * Output: True
- *
- * Input: ransomNote = "aa", magazine = "ab"
  * Step 1: Count magazine chars: {'a': 1, 'b': 1}
  * Step 2: Check 'a' (first): count is 1, decrement to 0
  * Step 3: Check 'a' (second): count is 0, not available
- * Output: False
- * ```
  *
+ * Output:
+ * ```
+ * True
+ * False
+ * ```
+
  * ### TIME COMPLEXITY:
  * O(m + n)
  * Where m is the length of magazine and n is the length of ransomNote. We iterate through both
@@ -65,6 +72,7 @@
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  * Although we use a hash map, since we're limited to lowercase English letters (26 characters),
  * the space is bounded by a constant.
  *

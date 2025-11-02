@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 316. Remove
+# 0316. Remove Duplicate Letters
 
 Given a string s, remove duplicate letters so that every letter appears once and only once. You must make sure your result is the smallest in lexicographical order among all possible results.
 
@@ -17,7 +17,8 @@ Given a string s, remove duplicate letters so that every letter appears once and
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
 **Data Structures**: Hash Set, Array, String
 **Patterns**: Hash Table Pattern, Greedy Algorithm
@@ -45,27 +46,35 @@ Use monotonic increasing stack. For each character, while stack top > current ch
 - Greedy approach works: always try to place smaller char earlier
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: s = "bcabc"
+s = "bcabc"
+```
+
 Step 1: Count frequencies and track remaining
-  freq = {'b':2, 'c':2, 'a':1}
-
+freq = {'b':2, 'c':2, 'a':1}
 Step 2: Build result with monotonic stack
-  Add 'b': stack=['b']
-  Add 'c': stack=['b','c']
-  Add 'a': pop 'c' (a<c, c appears later), pop 'b' (a<b, b appears later)
-          stack=['a']
-  Add 'b': stack=['a','b']
-  Add 'c': stack=['a','b','c']
+Add 'b': stack=['b']
+Add 'c': stack=['b','c']
+Add 'a': pop 'c' (a<c, c appears later), pop 'b' (a<b, b appears later)
+stack=['a']
+Add 'b': stack=['a','b']
+Add 'c': stack=['a','b','c']
 
-Output: "abc"
+Output:
+```
+"abc"
 ```
 
 ### TIME COMPLEXITY:
 O(n)
+- Single pass through input
+
 
 ### SPACE COMPLEXITY:
 O(1)
+- Constant extra space
+
 
 ### EDGE CASES:
 - Empty input handling
@@ -126,31 +135,31 @@ def test_solution() -> None:
 
     # Test case 1: Basic example
     solution.solve("bcabc")
-    # # # assert result == expected, f"Expected {expected}, got {result}"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
+    # # # assert result == expected, f"Expected expected, got result"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
 
     # Test case 2: Multiple duplicates
     solution.solve("cbacdcbc")
-    # # # assert result == expected, f"Expected {expected}, got {result}"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
+    # # # assert result == expected, f"Expected expected, got result"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
 
     # Test case 3: No duplicates
     solution.solve("abcd")
-    # # # assert result == expected, f"Expected {expected}, got {result}"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
+    # # # assert result == expected, f"Expected expected, got result"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
 
     # Test case 4: All same character
     solution.solve("aaaa")
-    # # # assert result == expected, f"Expected {expected}, got {result}"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
+    # # # assert result == expected, f"Expected expected, got result"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
 
     # Test case 5: Reverse alphabetical
     solution.solve("dcba")
-    # # # assert result == expected, f"Expected {expected}, got {result}"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
+    # # # assert result == expected, f"Expected expected, got result"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
 
     # Test case 6: Complex pattern
     solution.solve("ecbacba")
-    # # # assert result == expected, f"Expected {expected}, got {result}"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
+    # # # assert result == expected, f"Expected expected, got result"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
 
     # Test case 7: Single character
     solution.solve("a")
-    # # # assert result == expected, f"Expected {expected}, got {result}"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
+    # # # assert result == expected, f"Expected expected, got result"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
 
     print("All test cases passed!")
 

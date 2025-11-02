@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 305. Number
+# 0305. Number of Islands II
 
 You are given an empty 2D binary grid grid of size m x n. The grid represents a map where 0's represent water and 1's represent land. Initially, all the cells of grid are water cells (i.e., all the cells are 0's).
 
@@ -15,7 +15,7 @@ An island is surrounded by water and is formed by connecting adjacent lands hori
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[[0, 0]</dd>
+<dd>[[0, 0]]</dd>
 <dt>Output:</dt>
 <dd>"Test 1 Result: {result1}"</dd>
 <dt>Explanation:</dt>
@@ -23,7 +23,8 @@ An island is surrounded by water and is formed by connecting adjacent lands hori
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
 **Data Structures**: Hash Map, Hash Set, Array
 **Patterns**: Hash Table Pattern, Divide and Conquer
@@ -51,22 +52,39 @@ Maintain Union-Find of islands. For each land operation, union with adjacent lan
 - O(m*n*α(m*n)) time: α is inverse Ackermann (effectively constant)
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: m = 3, n = 3, positions = [[0,0],[0,1],[1,2],[2,1]]
-Step 1: Add islands one by one
-  [0,0]: 1 island
-  [0,1]: merge with [0,0] → 1 island
-  [1,2]: 2 islands
-  [2,1]: 3 islands
+[[0, 0]
+```
 
-Output: [1,1,2,3]
+Input:
 ```
+m = 3, n = 3, positions = [[0,0],[0,1],[1,2],[2,1]]
+```
+
+Step 1: Add islands one by one
+[0,0]: 1 island
+
+Steps:
+Step 1: [0,1]: merge with [0,0] → 1 island
+Step 2: [1,2]: 2 islands
+Step 3: [2,1]: 3 islands
+
+Output:
+```
+[1,1,2,3]
+```
+Output: "Test 1 Result: {result1}"
 
 ### TIME COMPLEXITY:
 O(n)
+- Single pass through input
+
 
 ### SPACE COMPLEXITY:
 O(1)
+- Constant extra space
+
 
 ### EDGE CASES:
 - Empty input handling
@@ -166,22 +184,22 @@ def test_solution() -> None:
     # Test case 1: Example from problem
     result = solution.numIslands2(3, 3, [[0, 0], [0, 1], [1, 2], [2, 1]])
     expected = [1, 1, 2, 3]
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: Single island
     result = solution.numIslands2(1, 1, [[0, 0]])
     expected = [1]
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 3: Merging islands
     result = solution.numIslands2(3, 3, [[0, 0], [0, 1], [1, 1], [2, 2]])
     expected = [1, 1, 1, 2]
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 4: Duplicate positions
     result = solution.numIslands2(2, 2, [[0, 0], [0, 0], [1, 1]])
     expected = [1, 1, 2]
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

@@ -1,5 +1,5 @@
 /**
- * # 541. Reverse String Ii
+ * # 0541. Reverse String Ii
  * 
  * # Difficulty: Easy
  * 
@@ -22,7 +22,8 @@
  * </dl>
  * 
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Array, String, Tree
  * **Patterns**: Two Pointers Pattern, Hash Table Pattern
@@ -51,23 +52,30 @@
  * - Edge cases are naturally handled by min(i+k, len(s))
  * 
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: s = "abcdefg", k = 2
- * 
+ * s = "abcdefg", k = 2
+ * ```
+ *
  * Chunks of 2k = 4:
  * 1. i=0: Process chars[0:4] = "abcd"
- *    - Reverse chars[0:2] = "ab" → "ba"
- *    - Result: "bacd"
+ *
+ * Steps:
+ * Step 1: - Reverse chars[0:2] = "ab" → "ba"
+ * Step 2: - Result: "bacd"
+ * Step 3: i=4: Process chars[4:8] = "efg"
+ * Step 4: - Reverse chars[4:6] = "ef" → "fe"
+ * Step 5: - Result: "feg"
+ * Step 6: Final: "bacd" + "feg" = "bacdfeg"
  * 
- * 2. i=4: Process chars[4:8] = "efg"
- *    - Reverse chars[4:6] = "ef" → "fe"
- *    - Result: "feg"
- * 
- * Final: "bacd" + "feg" = "bacdfeg"
+ * Output:
+ * ```
+ * "bacd"
  * ```
  * 
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  * - Visit each character once during iteration
  * - Reversing k characters per 2k chunk is O(k) but amortized O(n)
  * 
@@ -184,7 +192,7 @@ function runTests(): void {
   test_cases = [("abcdefg", 2), ("abcd", 2), ("abc", 5), ("abcdefghij", 3), ("a", 2)]
   for s, k in test_cases:
   result = solution.reverseStr(s, k)
-  console.log(`reverseStr('{s}', {k}) = '{result}'`)
+  console.log(`reverseStr('{s}', {k}) = 'result'`)
   # Demonstrate the logic
   console.log("\nStep-by-step for s='abcdefg', k=2:")
   s, k = "abcdefg", 2

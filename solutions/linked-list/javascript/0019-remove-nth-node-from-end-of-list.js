@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Medium
  *
- * # 019. Remove Nth Node From End Of List
+ * # 0019. Remove Nth Node From End Of List
+ *
  *
  * Given the head of a linked list, remove the nth node from the end of the list and return its head.
  *
@@ -9,20 +10,21 @@
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[1, 2, 3, 5]</dd>
+ * <dd>head = [1,2,3,4,5], n = 2</dd>
  * <dt>Output:</dt>
- * <dd>"Expected {expected}, got {list_to_array(result)}"</dd>
+ * <dd>* [1,2,3,5]</dd>
  * <dt>Explanation:</dt>
  * <dd>Removing 2nd node from end of [1,2,3,4,5] gives [1,2,3,5]</dd>
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Array Traversal
  * **Data Structures**: Array, String, Linked List
  * **Patterns**: Hash Table Pattern
- * **Time Complexity**: * O(n) - Single pass through input
- * **Space Complexity**: * O(1) - Constant extra space
+ * **Time Complexity**: O(n) - Single pass through input
+ * **Space Complexity**: O(1) - Constant extra space
 
  *
  * ### INTUITION:
@@ -40,24 +42,30 @@
  * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: head = [1,2,3,4,5], n = 2
+ * head = [1,2,3,4,5], n = 2
+ * ```
+ *
  * Step 1: Use fast and slow pointers
- *   fast moves n+1 steps: reaches node 3
- *   slow at dummy node
- *
+ * fast moves n+1 steps: reaches node 3
+ * slow at dummy node
  * Step 2: Move both until fast reaches end
- *   fast at 5, slow at 3
- *   slow.next = slow.next.next (remove 4)
+ * fast at 5, slow at 3
+ * slow.next = slow.next.next (remove 4)
  *
- * Output: [1,2,3,5]
+ * Output:
  * ```
- *
+ * [1,2,3,5]
+ * ```
+
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  *
  * ### EDGE CASES:
  * - Empty input handling

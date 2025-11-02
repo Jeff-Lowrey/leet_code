@@ -1,7 +1,7 @@
 """
 # Difficulty: Hard
 
-# 212. Word Search II
+# 0212. Word Search II
 
 Given an m x n board of characters and a list of strings words, return all words on the board.
 
@@ -11,7 +11,7 @@ Each word must be constructed from letters of sequentially adjacent cells, where
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[["o", "a", "a", "n"]</dd>
+<dd>[["o", "a", "a", "n"]]</dd>
 <dt>Output:</dt>
 <dd>1</dd>
 <dt>Explanation:</dt>
@@ -19,7 +19,8 @@ Each word must be constructed from letters of sequentially adjacent cells, where
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
 **Data Structures**: Hash Map, Hash Set, Array
 **Patterns**: Hash Table Pattern, Backtracking
@@ -44,34 +45,37 @@ Searching for multiple words on a board can be optimized using a Trie. Instead o
 - Backtracking explores all possible paths while avoiding revisits
 
 ### EXAMPLE WALKTHROUGH:
+Input:
+```
+[["o", "a", "a", "n"]
+```
+
+Input:
 ```
 board = [["o","a","a","n"],
-         ["e","t","a","e"],
-         ["i","h","k","r"],
-         ["i","f","l","v"]]
-words = ["oath","pea","eat","rain"]
-
-Build Trie: oath, pea, eat, rain
-
-DFS from (0,0) 'o':
-  -> (1,0) 'e': not in trie after 'o'
-  -> (0,1) 'a': 'oa' in trie, continue
-    -> (1,1) 't': 'oat' in trie, continue
-      -> (1,2) 'h': 'oath' found! ✓
-
-DFS from (1,1) 't':
-  -> (1,2) 'a': 'ta' not promising
-
-DFS from (1,2) 'a':
-  -> (1,1) 't': 'at' not in trie
-  -> (2,2) 'k': 'ak' not in trie
-
-DFS from (1,0) 'e':
-  -> (1,1) 'a': 'ea' in trie
-    -> (1,2) 't': 'eat' found! ✓
-
-Results: ["oath", "eat"]
 ```
+
+["e","t","a","e"],
+["i","h","k","r"],
+["i","f","l","v"]]
+words = ["oath","pea","eat","rain"]
+Build Trie: oath, pea, eat, rain
+DFS from (0,0) 'o':
+DFS from (1,1) 't':
+DFS from (1,2) 'a':
+DFS from (1,0) 'e':
+
+Steps:
+Step 1: -> (1,0) 'e': not in trie after 'o'
+Step 2: -> (0,1) 'a': 'oa' in trie, continue
+Step 3: -> (1,1) 't': 'oat' in trie, continue
+Step 4: -> (1,2) 'h': 'oath' found! ✓
+Step 5: -> (1,2) 'a': 'ta' not promising
+Step 6: -> (1,1) 't': 'at' not in trie
+Step 7: -> (2,2) 'k': 'ak' not in trie
+Step 8: -> (1,1) 'a': 'ea' in trie
+Step 9: -> (1,2) 't': 'eat' found! ✓
+Step 10: Results: ["oath", "eat"]
 
 ### TIME COMPLEXITY:
 O(M * N * 4^L)
@@ -306,7 +310,7 @@ if __name__ == "__main__":
     print(f"\nSearching for words: {words}")
 
     result = solution.findWords(board, words)
-    print(f"Found words: {result}")
+    print(f"Found words: result")
 
     print("\nDemonstrating with alternative solution:")
     solution_set = SolutionWithSet()

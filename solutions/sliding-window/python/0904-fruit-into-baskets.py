@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 904. Fruit Into Baskets
+# 0904. Fruit Into Baskets
 
 You are visiting a farm that has a single row of fruit trees arranged from left to right. The trees are represented by an integer array fruits where fruits[i] is the type of fruit the ith tree produces.
 
@@ -17,15 +17,16 @@ Given the integer array fruits, return the maximum number of fruits you can pick
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[1, 2, 3, 2, 2]</dd>
+<dd>fruits = [1,2,1,2,3,1,1]</dd>
 <dt>Output:</dt>
-<dd>"Solution for 904. Fruit Into Baskets: {result}"</dd>
+<dd>4 (maximum fruits)</dd>
 <dt>Explanation:</dt>
 <dd>You can collect at most 3 fruits with 2 types of baskets (type 1 and type 2)</dd>
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
 **Data Structures**: Hash Map, Hash Set, Array
 **Patterns**: Two Pointers Pattern, Sliding Window Pattern
@@ -52,27 +53,35 @@ Use sliding window tracking fruit types with hash map. Expand while <= 2 types. 
 - O(n) time: each element processed twice at most, O(1) space (at most 3 keys)
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: fruits = [1,2,1,2,3,1,1]
+fruits = [1,2,1,2,3,1,1]
+```
+
 Step 1: Expand with at most 2 types
-  [1,2,1,2]: types={1,2}, count=4
-  [1,2,1,2,3]: types={1,2,3}, invalid
-
+[1,2,1,2]: types={1,2}, count=4
+[1,2,1,2,3]: types={1,2,3}, invalid
 Step 2: Contract
-  [2,1,2,3]: types={1,2,3}, invalid
-  [1,2,3]: types={1,2,3}, invalid
-  [2,3]: types={2,3}, valid
-  [2,3,1,1]: types={2,3,1}, invalid
-  [3,1,1]: types={3,1}, count=3
+[2,1,2,3]: types={1,2,3}, invalid
+[1,2,3]: types={1,2,3}, invalid
+[2,3]: types={2,3}, valid
+[2,3,1,1]: types={2,3,1}, invalid
+[3,1,1]: types={3,1}, count=3
 
-Output: 4 (maximum fruits)
+Output:
+```
+4 (maximum fruits)
 ```
 
 ### TIME COMPLEXITY:
 O(n)
+- Single pass through input
+
 
 ### SPACE COMPLEXITY:
 O(1)
+- Constant extra space
+
 
 ### EDGE CASES:
 - Empty input handling
@@ -135,35 +144,35 @@ def test_solution() -> None:
 
     # Test case 1: Classic example
     solution.solve([1, 2, 1])
-    # # # assert result == expected, f"Expected {expected}, got {result}"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
+    # # # assert result == expected, f"Expected expected, got result"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
 
     # Test case 2: Multiple types
     solution.solve([0, 1, 2, 2])
-    # # # assert result == expected, f"Expected {expected}, got {result}"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
+    # # # assert result == expected, f"Expected expected, got result"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
 
     # Test case 3: Long sequence
     solution.solve([1, 2, 3, 2, 2])
-    # # # assert result == expected, f"Expected {expected}, got {result}"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
+    # # # assert result == expected, f"Expected expected, got result"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
 
     # Test case 4: All same type
     solution.solve([3, 3, 3, 1, 2, 1, 1, 2, 3, 3, 4])
-    # # # assert result == expected, f"Expected {expected}, got {result}"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
+    # # # assert result == expected, f"Expected expected, got result"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
 
     # Test case 5: Single element
     solution.solve([1])
-    # # # assert result == expected, f"Expected {expected}, got {result}"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
+    # # # assert result == expected, f"Expected expected, got result"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
 
     # Test case 6: Two types only
     solution.solve([1, 2, 1, 2, 1, 2])
-    # # # assert result == expected, f"Expected {expected}, got {result}"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
+    # # # assert result == expected, f"Expected expected, got result"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
 
     # Test case 7: All different types
     solution.solve([1, 2, 3, 4, 5])
-    # # # assert result == expected, f"Expected {expected}, got {result}"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
+    # # # assert result == expected, f"Expected expected, got result"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
 
     # Test case 8: Two elements
     solution.solve([1, 2])
-    # # # assert result == expected, f"Expected {expected}, got {result}"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
+    # # # assert result == expected, f"Expected expected, got result"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
 
     print("All test cases passed!")
 

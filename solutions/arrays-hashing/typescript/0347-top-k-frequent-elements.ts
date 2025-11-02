@@ -1,7 +1,8 @@
 /**
- * # 347. Top K Frequent Elements
+ * # 0347. Top K Frequent Elements
  *
- * # Difficulty: Medium
+ * Difficulty: Medium
+ *
  *
  * Given an integer array nums and an integer k, return the k most frequent elements. You may return the answer in any order.
  *
@@ -43,29 +44,33 @@
  * - Trade space O(n) for buckets to gain linear time complexity
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: nums = [1,1,1,2,2,3], k = 2
+ * nums = [1,1,1,2,2,3], k = 2
+ * ```
  *
  * Step 1: Count frequencies
- *   freq_map = {1: 3, 2: 2, 3: 1}
- *
+ * freq_map = {1: 3, 2: 2, 3: 1}
  * Step 2: Create buckets by frequency
- *   buckets[3] = [1]
- *   buckets[2] = [2]
- *   buckets[1] = [3]
- *
+ * buckets[3] = [1]
+ * buckets[2] = [2]
+ * buckets[1] = [3]
  * Step 3: Collect from highest frequency buckets
- *   - From bucket 3: add 1
- *   - From bucket 2: add 2
+ * - From bucket 3: add 1
+ * - From bucket 2: add 2
  *
- * Output: [1, 2]
+ * Output:
  * ```
- *
+ * [1, 2]
+ * ```
+
  * ### TIME COMPLEXITY:
- * O(n) - Bucket sort approach
+ * O(n)
+ * - Bucket sort approach
  *
  * ### SPACE COMPLEXITY:
- * O(n) - Hash map and buckets
+ * O(n)
+ * - Hash map and buckets storage
  *
  * ### EDGE CASES:
  * - Empty input handling

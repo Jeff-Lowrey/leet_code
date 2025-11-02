@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Medium
  *
- * # 694. Number Of Distinct Islands
+ * # 0694. Number Of Distinct Islands
+ *
  *
  * You are given an m x n binary matrix grid. An island is a group of 1's (representing land) connected 4-directionally (horizontal or vertical.) You may assume all four edges of the grid are surrounded by water.
  *
@@ -13,15 +14,16 @@
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[[1,1,0,0,0]</dd>
+ * <dd>grid = [[1,1,0,0,0],[1,1,0,0,0],[0,0,0,1,1],[0,0,0,1,1]]</dd>
  * <dt>Output:</dt>
  * <dd>1</dd>
  * <dt>Explanation:</dt>
- * <dd>Number of distinct islands is 3</dd>
+ * <dd>There is 1 distinct island shape (both islands have the same 2x2 rectangular shape)</dd>
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
  * **Data Structures**: Hash Set, Array, String
  * **Patterns**: Hash Table Pattern, Greedy Algorithm
@@ -44,23 +46,29 @@
  * - Translation invariance achieved by using relative coordinates
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
  * Grid: [[1,1,0,0,0],
- *        [1,1,0,0,0],
- *        [0,0,0,1,1],
- *        [0,0,0,1,1]]
+ * ```
  *
+ * [1,1,0,0,0],
+ * [0,0,0,1,1],
+ * [0,0,0,1,1]]
  * Island 1: cells (0,0), (0,1), (1,0), (1,1)
  * Relative to (0,0): (0,0), (0,1), (1,0), (1,1)
  * Normalized: [(0,0), (0,1), (1,0), (1,1)]
- *
  * Island 2: cells (2,3), (2,4), (3,3), (3,4)
  * Relative to (2,3): (0,0), (0,1), (1,0), (1,1)
  * Normalized: [(0,0), (0,1), (1,0), (1,1)]
  *
- * Same normalized form → 1 distinct island
+ * Steps:
+ * Step 1: Same normalized form → 1 distinct island
+ * 
+ * Output:
  * ```
- *
+ * 1 distinct island
+ * ```
+ * 
  * ### TIME COMPLEXITY:
  * O(M × N)
  * We visit each cell once during DFS/BFS

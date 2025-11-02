@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 211. Design Add and Search Words Data Structure
+# 0211. Design Add and Search Words Data Structure
 
 Design a data structure that supports adding new words and finding if a string matches any previously added string.
 
@@ -29,7 +29,8 @@ wordDictionary.search("b.."); // return True
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Depth-First Search
 **Data Structures**: Hash Map, Array, String
 **Patterns**: Graph Pattern
@@ -54,14 +55,18 @@ A Trie (prefix tree) is perfect for this - it allows efficient storage and searc
 - Time complexity is optimal for both operations
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
 addWord("bad")
+```
+
 addWord("dad")
 addWord("mad")
-search("pad") -> false
-search(".ad") -> true (matches "bad", "dad", "mad")
-search("b..") -> true (matches "bad")
-```
+
+Steps:
+Step 1: search("pad") -> false
+Step 2: search(".ad") -> true (matches "bad", "dad", "mad")
+Step 3: search("b..") -> true (matches "bad")
 
 ### TIME COMPLEXITY:
 - addWord: O(n) where n is word length
@@ -69,6 +74,9 @@ search("b..") -> true (matches "bad")
 
 ### SPACE COMPLEXITY:
 O(total characters in all words)
+
+- Based on auxiliary data structures
+
 
 ### EDGE CASES:
 - Empty string

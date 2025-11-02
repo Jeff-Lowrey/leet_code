@@ -1,7 +1,7 @@
 """
 # Difficulty: Easy
 
-# 169. Majority Element
+# 0169. Majority Element
 
 Given an array nums of size n, return the majority element.
 
@@ -14,13 +14,14 @@ You may assume that the majority element always exists in the array.
 <dt>Input:</dt>
 <dd>[2, 2, 1, 1, 1, 2, 2]</dd>
 <dt>Output:</dt>
-<dd>7</dd>
+<dd>2</dd>
 <dt>Explanation:</dt>
-<dd>The majority element is 3, appearing 3 times in an array of size 5 (more than ⌊5/2⌋)</dd>
+<dd>The majority element is 2, appearing 4 times in an array of size 7 (more than ⌊7/2⌋ = 3)</dd>
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Array Traversal, Sorting
 **Data Structures**: Hash Map, Hash Set, Array
 **Patterns**: Hash Table Pattern
@@ -43,8 +44,17 @@ Since the majority element appears more than n/2 times, it will always "survive"
 - Each cancellation removes one majority and one non-majority element
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: [2,2,1,1,1,2,2]
+[2, 2, 1, 1, 1, 2, 2]
+```
+
+Input:
+```
+[2,2,1,1,1,2,2]
+```
+
+Steps:
 Step 1: num=2, count=0 → candidate=2, count=1
 Step 2: num=2, count=1 → count=2 (match)
 Step 3: num=1, count=2 → count=1 (different)
@@ -52,7 +62,11 @@ Step 4: num=1, count=1 → count=0 (different)
 Step 5: num=1, count=0 → candidate=1, count=1
 Step 6: num=2, count=1 → count=0 (different)
 Step 7: num=2, count=0 → candidate=2, count=1
-Result: 2 (which is correct, appears 4/7 times)
+Step 8: Result: 2 (which is correct, appears 4/7 times)
+
+Output:
+```
+2
 ```
 
 ### TIME COMPLEXITY:

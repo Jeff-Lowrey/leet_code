@@ -3,6 +3,7 @@
  *
  * # 1161. Maximum Level Sum of a Binary Tree
  *
+ *
  * Given the root of a binary tree, the level of its root is 1, the level of its children is 2, and so on.
  * Return the smallest level x such that the sum of all the values of nodes at level x is maximal.
  *
@@ -18,7 +19,8 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Array Traversal, Two Pointers, Queue Operations
  * **Data Structures**: Queue, Tree, Linked List
  * **Patterns**: Two Pointers Pattern, Hash Table Pattern
@@ -47,21 +49,23 @@
  * - Since we process levels in order (1, 2, 3, ...), the first maximum we find is the smallest level
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
  * Tree:      1
- *          /   \
- *         7     0
- *        / \
- *       7  -8
+ * ```
  *
+ * /   \
+ * 7     0
+ * / \
+ * 7  -8
  * Level 1: sum = 1
  * Level 2: sum = 7 + 0 = 7 (max)
  * Level 3: sum = 7 + (-8) = -1
  * Result: 2
- * ```
- *
+
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  * - Visit each node exactly once
  * - n = number of nodes in tree
  *

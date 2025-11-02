@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Medium
  *
- * # 438. Find All Anagrams In A String
+ * # 0438. Find All Anagrams In A String
+ *
  *
  * Given two strings s and p, return an array of all the start indices of p's anagrams in s. You may return the answer in any order.
  *
@@ -19,12 +20,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Hash Map, Hash Set, Array
  * **Patterns**: Sliding Window Pattern, Hash Table Pattern
- * **Time Complexity**: * O(n) - Single pass through input
- * **Space Complexity**: * O(1) - Constant extra space
+ * **Time Complexity**: O(n) - Single pass through input
+ * **Space Complexity**: O(1) - Constant extra space
 
  *
  * ### INTUITION:
@@ -42,26 +44,35 @@
  * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: s = "cbaebabacd", p = "abc"
+ * s = "cbaebabacd", p = "abc"
+ * ```
+ *
  * Step 1: Sliding window of size 3
- *   "cba": is anagram of "abc" → index 0
- *   "bae": not anagram
- *   "aeb": not anagram
- *   "eba": is anagram of "abc" → index 6
- *   "bab": not anagram
- *   "aba": not anagram
- *   "bac": is anagram of "abc" (but not in string)
- *   "acd": not anagram
  *
- * Output: [0,6]
+ * Steps:
+ * Step 1: "cba": is anagram of "abc" → index 0
+ * Step 2: "bae": not anagram
+ * Step 3: "aeb": not anagram
+ * Step 4: "eba": is anagram of "abc" → index 6
+ * Step 5: "bab": not anagram
+ * Step 6: "aba": not anagram
+ * Step 7: "bac": is anagram of "abc" (but not in string)
+ * Step 8: "acd": not anagram
+ *
+ * Output:
  * ```
- *
+ * [0,6]
+ * ```
+
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  *
  * ### EDGE CASES:
  * - Empty input handling

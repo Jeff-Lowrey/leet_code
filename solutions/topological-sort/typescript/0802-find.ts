@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Medium
  *
- * # 802. Find
+ * # 0802. Find Eventual Safe States
+ *
  *
  * There is a directed graph of n nodes with each node labeled from 0 to n - 1. The graph is represented by a 0-indexed 2D integer array graph where graph[i] is an integer array of nodes adjacent to node i, meaning there is an edge from node i to each node in graph[i].
  *
@@ -15,13 +16,14 @@
  * <dt>Input:</dt>
  * <dd>graph = [[1,2],[2,3],[5],[0],[5],[],[]]</dd>
  * <dt>Output:</dt>
- * <dd>[2,4,5,6] (safe nodes)</dd>
+ * <dd>[2,4,5,6]</dd>
  * <dt>Explanation:</dt>
  * <dd>Safe nodes are those not in cycles: [2,4,5,6]</dd>
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
  * **Data Structures**: Hash Map, Hash Set, Array
  * **Patterns**: Hash Table Pattern, Graph Pattern
@@ -49,25 +51,32 @@
  * - O(V + E) time: DFS visits each node/edge once, O(V) space
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: graph = [[1,2],[2,3],[5],[0],[5],[],[]]
+ * graph = [[1,2],[2,3],[5],[0],[5],[],[]]
+ * ```
+ *
  * Step 1: Find nodes with cycles
- *   0→1→2→3→0 (cycle)
  *
+ * Steps:
+ * Step 1: 0→1→2→3→0 (cycle)
  * Step 2: Find terminal nodes
- *   Nodes: 5,6
+ * Step 3: Nodes: 5,6
+ * Step 4: Check which nodes reach only terminal
+ * Step 5: Check each node's reachability
  *
- * Step 3: Check which nodes reach only terminal
- *   Check each node's reachability
- *
- * Output: [2,4,5,6] (safe nodes)
+ * Output:
  * ```
- *
+ * [2,4,5,6] (safe nodes)
+ * ```
+
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass with O(1) hash lookups
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  *
  * ### EDGE CASES:
  * - Empty input handling

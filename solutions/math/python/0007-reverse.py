@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 007. Reverse
+# 0007. Reverse Integer
 
 Given a signed 32-bit integer x, return x with its digits reversed. If reversing x causes the value to go outside the signed 32-bit integer range [-2^31, 2^31 - 1], then return 0.
 
@@ -9,15 +9,16 @@ Given a signed 32-bit integer x, return x with its digits reversed. If reversing
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[123, -123, 120, 0, 1534236469, -2147483648]</dd>
+<dd>x = 123</dd>
 <dt>Output:</dt>
-<dd>"reverse({num}) -> {result}"</dd>
+<dd>321</dd>
 <dt>Explanation:</dt>
 <dd>Reversed integer: 123 becomes 321</dd>
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Array Traversal
 **Data Structures**: Hash Set, String
 **Patterns**: Iterative Solution
@@ -45,22 +46,32 @@ Extract digits from end using mod 10. Build reversed number by multiplying resul
 - O(log n) time: number of digits, O(1) space
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: x = 123
-Step 1: Extract digits and build reversed number
-  result = 0
-  result = 0*10 + 3 = 3, x = 12
-  result = 3*10 + 2 = 32, x = 1
-  result = 32*10 + 1 = 321, x = 0
+x = 123
+```
 
-Output: 321
+Step 1: Extract digits and build reversed number
+result = 0
+result = 0*10 + 3 = 3, x = 12
+result = 3*10 + 2 = 32, x = 1
+result = 32*10 + 1 = 321, x = 0
+
+Output:
+```
+321
 ```
 
 ### TIME COMPLEXITY:
 O(n)
 
+- Single pass through the input
+
+
 ### SPACE COMPLEXITY:
 O(1)
+- Constant extra space
+
 
 ### EDGE CASES:
 - Empty input handling
@@ -115,42 +126,42 @@ def test_solution() -> None:
     # Test case 1: Positive number
     result = solution.reverse(123)
     expected = 321
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: Negative number
     result = solution.reverse(-123)
     expected = -321
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 3: Number ending with zero
     result = solution.reverse(120)
     expected = 21
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 4: Single digit
     result = solution.reverse(7)
     expected = 7
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 5: Zero
     result = solution.reverse(0)
     expected = 0
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 6: Overflow case (32-bit integer limit)
     result = solution.reverse(1534236469)  # Would reverse to 9646324351 (overflow)
     expected = 0
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 7: Negative overflow case
     result = solution.reverse(-2147483648)  # Would overflow
     expected = 0
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 8: Large positive within bounds
     result = solution.reverse(1463847412)  # Reverses to 2147483641 (within bounds)
     expected = 2147483641
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 
@@ -167,7 +178,7 @@ if __name__ == "__main__":
 
     for num in test_cases:
         result = solution.reverse(num)
-        print(f"reverse({num}) -> {result}")
+        print(f"reverse({num}) -> result")
 
     print("\nKey insights:")
     print("- Handles sign preservation")

@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Medium
  *
- * # 547. Number of Provinces
+ * # 0547. Number of Provinces
+ *
  *
  * There are n cities. Some of them are connected, while some are not. If city a is connected directly with city b, and city b is connected directly with city c, then city a is connected indirectly with city c.
  *
@@ -15,7 +16,7 @@
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[[1, 1, 0]</dd>
+ * <dd>[[1, 1, 0]]</dd>
  * <dt>Output:</dt>
  * <dd>1</dd>
  * <dt>Explanation:</dt>
@@ -23,12 +24,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Hash Map Storage, Array Traversal, Stack Operations
  * **Data Structures**: Array, String, Stack
  * **Patterns**: Hash Table Pattern, Graph Pattern
- * **Time Complexity**: * O(n² × α(n))
- * **Space Complexity**: * O(n)
+ * **Time Complexity**: O(n² × α(n))
+ * **Space Complexity**: O(n)
 
  *
  * ### INTUITION:
@@ -47,24 +49,30 @@
  * - DFS alternative marks all cities in a component as visited
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
  * isConnected = [[1,1,0],
- *                [1,1,0],
- *                [0,0,1]]
- *
- * Cities: 0, 1, 2
- * Connections: 0-1 (direct), 2 (isolated)
- *
- * Union-Find process:
- * 1. Initialize: parent = [0,1,2], each city is its own component
- * 2. Process (0,1): union(0,1) → parent = [1,1,2]
- * 3. Process (1,0): already connected, skip
- * 4. Process (2,2): self-connection, skip
- *
- * Count unique roots: 1 (for cities 0,1) and 2 (for city 2)
- * Result: 2 provinces
  * ```
  *
+ * [1,1,0],
+ * [0,0,1]]
+ * Cities: 0, 1, 2
+ * Connections: 0-1 (direct), 2 (isolated)
+ * Union-Find process:
+ * 1. Initialize: parent = [0,1,2], each city is its own component
+ *
+ * Steps:
+ * Step 1: Process (0,1): union(0,1) → parent = [1,1,2]
+ * Step 2: Process (1,0): already connected, skip
+ * Step 3: Process (2,2): self-connection, skip
+ * Step 4: Count unique roots: 1 (for cities 0,1) and 2 (for city 2)
+ * Step 5: Result: 2 provinces
+ * 
+ * Output:
+ * ```
+ * 2 provinces
+ * ```
+ * 
  * ### TIME COMPLEXITY:
  * O(n² × α(n))
  * Where α is the inverse Ackermann function (nearly constant)

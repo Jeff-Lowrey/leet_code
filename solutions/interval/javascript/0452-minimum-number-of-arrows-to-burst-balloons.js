@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Medium
  *
- * # 452. Minimum Number Of Arrows To Burst Balloons
+ * # 0452. Minimum Number Of Arrows To Burst Balloons
+ *
  *
  * There are some spherical balloons taped onto a flat wall that represents the XY-plane. The balloons are represented as a 2D integer array points where points[i] = [xstart, xend] denotes a balloon whose horizontal diameter stretches between xstart and xend. You do not know the exact y-coordinates of the balloons.
  *
@@ -21,12 +22,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Array Traversal, Two Pointers, Sorting
  * **Data Structures**: Array
  * **Patterns**: Two Pointers Pattern
- * **Time Complexity**: * O(n) - Single pass through input
- * **Space Complexity**: * O(1) - Constant extra space
+ * **Time Complexity**: O(n) - Single pass through input
+ * **Space Complexity**: O(1) - Constant extra space
 
  *
  * ### INTUITION:
@@ -44,23 +46,29 @@
  * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: points = [[10,16],[2,8],[1,6],[7,12]]
+ * points = [[10,16],[2,8],[1,6],[7,12]]
+ * ```
+ *
  * Step 1: Sort by end position
- *   sorted = [[1,6],[2,8],[7,12],[10,16]]
- *
+ * sorted = [[1,6],[2,8],[7,12],[10,16]]
  * Step 2: Greedy arrow placement
- *   Arrow at 6: bursts [1,6],[2,8]
- *   Arrow at 12: bursts [7,12],[10,16]
+ * Arrow at 6: bursts [1,6],[2,8]
+ * Arrow at 12: bursts [7,12],[10,16]
  *
- * Output: 2 (minimum arrows)
+ * Output:
  * ```
- *
+ * 2 (minimum arrows)
+ * ```
+
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  *
  * ### EDGE CASES:
  * - Empty input handling

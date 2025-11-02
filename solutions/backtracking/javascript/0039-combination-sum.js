@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Medium
  *
- * # 039. Combination Sum
+ * # 0039. Combination Sum
+ *
  *
  * Given an array of distinct integers candidates and a target integer target,
  * return a list of all unique combinations of candidates where the chosen numbers sum to target.
@@ -14,20 +15,21 @@
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[[1, 1]</dd>
+ * <dd>candidates = [2,3,6,7], target = 7</dd>
  * <dt>Output:</dt>
- * <dd>"Expected {expected}, got {result}"</dd>
+ * <dd>[[2,2,3], [7]]</dd>
  * <dt>Explanation:</dt>
  * <dd>All combinations summing to 7 using [2,3,6,7] are [[2,2,3], [7]]</dd>
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Hash Table Lookup, Array Traversal, Sorting
  * **Data Structures**: Hash Map, Array, String
  * **Patterns**: Complement Search, Greedy Algorithm
- * **Time Complexity**: * O(N^(T/M))
- * **Space Complexity**: * O(T/M)
+ * **Time Complexity**: O(N^(T/M))
+ * **Space Complexity**: O(T/M)
 
  *
  * ### INTUITION:
@@ -46,13 +48,17 @@
  * - Using start index prevents duplicate combinations
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: candidates = [2,3,6,7], target = 7
- * Combinations found: [[2,2,3], [7]]
- * - Try 2: [2] -> remaining=5, try 2 again: [2,2] -> remaining=3, try 3: [2,2,3] ✓
- * - Try 7: [7] -> remaining=0 ✓
+ * candidates = [2,3,6,7], target = 7
  * ```
  *
+ * Combinations found: [[2,2,3], [7]]
+ *
+ * Steps:
+ * Step 1: - Try 2: [2] -> remaining=5, try 2 again: [2,2] -> remaining=3, try 3: [2,2,3] ✓
+ * Step 2: - Try 7: [7] -> remaining=0 ✓
+
  * ### TIME COMPLEXITY:
  * O(N^(T/M))
  * Where N=len(candidates), T=target, M=minimal candidate value

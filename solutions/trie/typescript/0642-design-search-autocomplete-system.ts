@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Hard
  * 
- * # 642. Design Search Autocomplete System
+ * # 0642. Design Search Autocomplete System
  * 
  * Design a search autocomplete system for a search engine. Users may input a sentence (at least one word and end with a special character '#').
  * 
@@ -19,7 +19,8 @@
  * </dl>
  * 
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Standard Algorithm
  * **Data Structures**: Array, String, Tree
  * **Patterns**: Hash Table Pattern
@@ -45,29 +46,33 @@
  * - Reset on '#' prepares for next query
  * 
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
  * sentences = ["i love you", "island", "iroman", "i love leetcode"]
+ * ```
+ *
  * times = [5, 3, 2, 2]
- * 
  * Build Trie:
- *   root -> 'i' -> sentences: [("i love you", 5), ("island", 3), ...]
- *        -> 'l' -> sentences: [("i love you", 5), ("i love leetcode", 2)]
- * 
  * Input 'i':
- *   Navigate to 'i' node
- *   Return top 3: ["i love you", "island", "i love leetcode"]
- * 
  * Input ' ':
- *   Navigate to ' ' node under 'i'
- *   Return: ["i love you", "i love leetcode"]
- * 
  * Input 'a':
- *   Navigate to 'a' node - doesn't exist
- *   Return: []
- * 
  * Input '#':
- *   Save "i a" with frequency 1
- *   Reset current input
+ *
+ * Steps:
+ * Step 1: root -> 'i' -> sentences: [("i love you", 5), ("island", 3), ...]
+ * Step 2: -> 'l' -> sentences: [("i love you", 5), ("i love leetcode", 2)]
+ * Step 3: Navigate to 'i' node
+ * Step 4: Return top 3: ["i love you", "island", "i love leetcode"]
+ * Step 5: Navigate to ' ' node under 'i'
+ * Step 6: Return: ["i love you", "i love leetcode"]
+ * Step 7: Navigate to 'a' node - doesn't exist
+ * Step 8: Return: []
+ * Step 9: Save "i a" with frequency 1
+ * Step 10: Reset current input
+ * 
+ * Output:
+ * ```
+ * ["i love you", "i love leetcode"]
  * ```
  * 
  * ### TIME COMPLEXITY:

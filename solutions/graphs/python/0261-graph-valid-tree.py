@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 261. Graph Valid Tree
+# 0261. Graph Valid Tree
 
 You have a graph of n nodes labeled from 0 to n - 1. You are given an integer n and a list of edges where edges[i] = [ai, bi] indicates that there is an undirected edge between nodes ai and bi in the graph.
 
@@ -11,15 +11,16 @@ Return true if the edges of the given graph make up a valid tree, and false othe
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[[0,1]</dd>
+<dd>n = 5, edges = [[0,1],[0,2],[0,3],[1,4]]</dd>
 <dt>Output:</dt>
-<dd>"Expected {expected}, got {result}"</dd>
+<dd>True (forms valid tree)</dd>
 <dt>Explanation:</dt>
 <dd>Graph edges form a valid tree if connected and has n-1 edges</dd>
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
 **Data Structures**: Hash Map, Hash Set, Array
 **Patterns**: Hash Table Pattern, Graph Pattern
@@ -47,32 +48,40 @@ A valid tree has exactly n-1 edges and is fully connected with no cycles. Use Un
 - O(n + e) time: DFS/BFS, O(n) space for visited array
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: n = 5, edges = [[0,1],[0,2],[0,3],[1,4]]
+n = 5, edges = [[0,1],[0,2],[0,3],[1,4]]
+```
+
 Step 1: Check edge count
-  n-1 = 4 edges (necessary for tree) ✓
-
+n-1 = 4 edges (necessary for tree) ✓
 Step 2: Build adjacency list
-  {0: [1,2,3], 1: [0,4], 2: [0], 3: [0], 4: [1]}
-
+{0: [1,2,3], 1: [0,4], 2: [0], 3: [0], 4: [1]}
 Step 3: DFS to check connectivity
-  Visit 0 → mark visited
-  Visit 1 → mark visited
-  Visit 4 → mark visited
-  Visit 2 → mark visited
-  Visit 3 → mark visited
 
-Step 4: Verify all nodes visited
-  visited = {0,1,2,3,4}, count = 5 = n ✓
+Steps:
+Step 1: Visit 0 → mark visited
+Step 2: Visit 1 → mark visited
+Step 3: Visit 4 → mark visited
+Step 4: Visit 2 → mark visited
+Step 5: Visit 3 → mark visited
+Step 6: Verify all nodes visited
+Step 7: visited = {0,1,2,3,4}, count = 5 = n ✓
 
-Output: True (forms valid tree)
+Output:
+```
+True (forms valid tree)
 ```
 
 ### TIME COMPLEXITY:
 O(n)
+- Single pass through input
+
 
 ### SPACE COMPLEXITY:
 O(1)
+- Constant extra space
+
 
 ### EDGE CASES:
 - Empty input handling
@@ -180,27 +189,27 @@ def test_solution() -> None:
     # Test case 1: Valid tree
     result = solution.validTree(5, [[0, 1], [0, 2], [0, 3], [1, 4]])
     expected = True
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: Has cycle (not a tree)
     result = solution.validTree(5, [[0, 1], [1, 2], [2, 3], [1, 3], [1, 4]])
     expected = False
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 3: Single node (valid tree)
     result = solution.validTree(1, [])
     expected = True
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 4: Disconnected graph (not a tree)
     result = solution.validTree(4, [[0, 1], [2, 3]])
     expected = False
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 5: Using DFS version
     result = solution.validTree_dfs(5, [[0, 1], [0, 2], [0, 3], [1, 4]])
     expected = True
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

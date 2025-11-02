@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Hard
  *
- * # 588. Design In Memory File System
+ * # 0588. Design In Memory File System
+ *
  *
  * Design a data structure that simulates an in-memory file system.
  *
@@ -24,12 +25,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Hash Map, Hash Set, Array
  * **Patterns**: Iterative Solution
- * **Time Complexity**: * O(P)
- * **Space Complexity**: * O(N×M)
+ * **Time Complexity**: O(P)
+ * **Space Complexity**: O(N×M)
 
  *
  * ### INTUITION:
@@ -50,22 +52,22 @@
  * - Path parsing handles absolute paths correctly
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
  * mkdir("/a/b/c")
+ * ```
+ *
  * 1. Create root node "/"
  * 2. Create node "a" under root
  * 3. Create node "b" under "a"
  * 4. Create node "c" under "b"
- *
  * addContentToFile("/a/b/c/file1.txt", "hello")
  * 1. Navigate to "/a/b/c"
  * 2. Create file node "file1.txt"
  * 3. Set content to "hello"
- *
  * ls("/a/b/c")
  * Returns: ["file1.txt"]
- * ```
- *
+
  * ### TIME COMPLEXITY:
  * O(P)
  * Where P is the path length (number of path components)

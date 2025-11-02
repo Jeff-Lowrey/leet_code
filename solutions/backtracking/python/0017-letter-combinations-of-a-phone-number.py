@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 017. Letter Combinations Of A Phone Number
+# 0017. Letter Combinations Of A Phone Number
 
 Given a string containing digits from 2-9 inclusive, return all possible letter
 combinations that the number could represent. Return the answer in any order.
@@ -21,7 +21,8 @@ A mapping of digit to letters (just like on the telephone buttons) is given belo
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
 **Data Structures**: Hash Map, Array, String
 **Patterns**: Backtracking
@@ -45,11 +46,19 @@ where we explore all paths.
 - Each recursive call handles one digit at a time
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: "23"
+"23"
+```
+
+Steps:
 Step 1: digit '2' -> try 'a', 'b', 'c'
 Step 2: For each letter from '2', try letters from '3' -> 'd', 'e', 'f'
-Result: ["ad","ae","af","bd","be","bf","cd","ce","cf"]
+Step 3: Result: ["ad","ae","af","bd","be","bf","cd","ce","cf"]
+
+Output:
+```
+["ad","ae","af","bd","be","bf","cd","ce","cf"]
 ```
 
 ### TIME COMPLEXITY:
@@ -133,17 +142,17 @@ def test_solution() -> None:
     # Test case 1: Example from problem
     result = solution.letterCombinations("23")
     expected = ["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"]
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: Empty input
     result = solution.letterCombinations("")
     expected: list[Any] = []
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 3: Single digit
     result = solution.letterCombinations("2")
     expected = ["a", "b", "c"]
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

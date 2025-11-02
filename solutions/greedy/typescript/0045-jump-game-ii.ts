@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Medium
  *
- * # 045. Jump Game Ii
+ * # 0045. Jump Game Ii
+ *
  *
  * You are given a 0-indexed array of integers nums of length n. You are initially positioned at nums[0].
  *
@@ -15,13 +16,14 @@
  * <dt>Input:</dt>
  * <dd>[2,3,1,1,4]</dd>
  * <dt>Output:</dt>
- * <dd>2 (minimum jumps)</dd>
+ * <dd>2</dd>
  * <dt>Explanation:</dt>
  * <dd>Minimum 2 jumps needed to reach end of [2,3,1,1,4]</dd>
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Array Traversal, Breadth-First Search
  * **Data Structures**: Hash Map, Hash Set, Array
  * **Patterns**: Hash Table Pattern, Greedy Algorithm
@@ -48,26 +50,33 @@
  * - O(n) time: single pass, O(1) space
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: nums = [2,3,1,1,4]
+ * nums = [2,3,1,1,4]
+ * ```
+ *
  * Step 1: Initialize variables
- *   jumps = 0, current_end = 0, farthest = 0
- *
+ * jumps = 0, current_end = 0, farthest = 0
  * Step 2: Iterate through array
- *   i=0: farthest = max(0, 0+2) = 2
- *   i=1: farthest = max(2, 1+3) = 4, reached current_end → jumps=1, current_end=2
- *   i=2: farthest = max(4, 2+1) = 4, reached current_end → jumps=2, current_end=4
+ * i=0: farthest = max(0, 0+2) = 2
  *
- *   Reached last index
+ * Steps:
+ * Step 1: i=1: farthest = max(2, 1+3) = 4, reached current_end → jumps=1, current_end=2
+ * Step 2: i=2: farthest = max(4, 2+1) = 4, reached current_end → jumps=2, current_end=4
+ * Step 3: Reached last index
  *
- * Output: 2 (minimum jumps)
+ * Output:
  * ```
- *
+ * 2 (minimum jumps)
+ * ```
+
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  *
  * ### EDGE CASES:
  * - Empty input handling

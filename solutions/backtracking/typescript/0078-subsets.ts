@@ -1,5 +1,5 @@
 /**
- * # 78. Subsets
+ * # 0078. Subsets
  * 
  * # Difficulty: Medium
  * 
@@ -20,7 +20,8 @@
  * </dl>
  * 
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Hash Set, Array, Matrix
  * **Patterns**: Backtracking, Tree Pattern
@@ -31,12 +32,13 @@
  * Generate all possible subsets (power set) by making binary choices for each element: include it or don't include it in the current subset. Use backtracking to explore all combinations.
  * 
  * ### APPROACH:
- * 1. **Initialize result list**: Create an empty list to store all subsets (will include empty set)
- * 2. **Define recursive backtracking function**: Create a helper function with start index and current subset parameters
- * 3. **Add current subset**: At each recursive call, add a copy of the current subset to results (captures all intermediate states)
- * 4. **Iterate from start index**: Loop through remaining elements starting from the start index to avoid duplicates
- * 5. **Include element and recurse**: Add current element to subset, then recursively explore with next start index (i+1)
- * 6. **Backtrack**: Remove the last added element to try the next element at the current level
+ * **Data structures: Array (results storage, current subset tracking)**
+ * 1. **Initialize result list**: Create an empty array to store all subsets (will include empty set)
+ * 2. **Define recursive backtracking function**: Create a helper function with start index and current subset array parameters
+ * 3. **Add current subset**: At each recursive call, add a copy of the current subset array to results (captures all intermediate states)
+ * 4. **Iterate from start index**: Loop through remaining elements in array starting from the start index to avoid duplicates
+ * 5. **Include element and recurse**: Add current element to subset array, then recursively explore with next start index (i+1)
+ * 6. **Backtrack**: Remove the last added element from array to try the next element at the current level
  * 7. **Return power set**: After all recursive exploration completes, return the complete collection of 2^n subsets
  * 
  * ### WHY THIS WORKS:
@@ -46,44 +48,64 @@
  * - Adding current subset at each step captures all intermediate states
  * 
  * ### EXAMPLE WALKTHROUGH:
- * Input:
+  * Input:
  * ```
  * nums = [1,2,3]
  * ```
- * 
- * **Step 1:** Backtracking approach
- * - Start with [] → add to result
- *   - Add 1: [1] → add to result
- *     - Add 2: [1,2] → add to result
- *       - Add 3: [1,2,3] → add to result
- *     - Add 3: [1,3] → add to result
- *   - Add 2: [2] → add to result
- *     - Add 3: [2,3] → add to result
- *   - Add 3: [3] → add to result
- * 
- * **Step 2:** Iterative approach
- * - Start: result = [[]]
- * - Add 1: result = [[], [1]]
- * - Add 2: result = [[], [1], [2], [1,2]]
- * - Add 3: result = [[], [1], [2], [1,2], [3], [1,3], [2,3], [1,2,3]]
- * 
- * Output: [[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]]
+ *
+ * **Step 1:** Initialize result list
+ * - Create empty array: result = []
+ * - This will store all 2^3 = 8 subsets
+ *
+ * **Step 2:** Define recursive backtracking function
+ * - Function: backtrack(start=0, current=[])
+ * - Parameters track: start index in array and current subset being built
+ *
+ * **Step 3:** Add current subset at each call
+ * - backtrack(0, []) → add [] to result
+ * - backtrack(1, [1]) → add [1] to result
+ * - backtrack(2, [1,2]) → add [1,2] to result
+ * - backtrack(3, [1,2,3]) → add [1,2,3] to result
+ *
+ * **Step 4:** Iterate from start index
+ * - At start=0: loop through indices [0,1,2] (elements [1,2,3])
+ * - At start=1: loop through indices [1,2] (elements [2,3])
+ * - At start=2: loop through indices [2] (element [3])
+ *
+ * **Step 5:** Include element and recurse
+ * - Include 1: current = [1], recurse with start=1
+ *   - Include 2: current = [1,2], recurse with start=2
+ *     - Include 3: current = [1,2,3], recurse with start=3 (loop ends)
+ *
+ * **Step 6:** Backtrack
+ * - After [1,2,3], remove 3: current = [1,2]
+ * - After [1,2], remove 2: current = [1]
+ *   - Include 3: current = [1,3], recurse with start=3
+ * - After [1,3], remove 3, remove 1: current = []
+ *   - Include 2: current = [2], recurse with start=2
+ *
+ * **Step 7:** Return power set
+ * - After all recursive calls: result = [[], [1], [1,2], [1,2,3], [1,3], [2], [2,3], [3]]
+ *
+ * Output:
+ * ```
+ * [[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]]
+ * ```
  * 
  * ### TIME COMPLEXITY:
  * O(n × 2^n) - 2^n subsets, each takes O(n) to copy
  * 
  * ### SPACE COMPLEXITY:
  * O(n) - recursion depth
- * 
+
  * ### EDGE CASES:
- * - **Empty array**: Return [[]] (power set contains only empty set)
- * - **Single element**: Return [[], [element]]
- * - **All elements identical (in variant)**: Handle duplicates with sorting
- * - **Large n values**: 2^n subsets, exponential but unavoidable
- * - **Negative numbers**: No special handling needed, works same as positive
+ * - Empty array: nums=[] → [[]] (power set contains only empty set)
+ * - Single element: nums=[1] → [[],[1]] (2^1=2 subsets)
+ * - Multiple elements: nums=[1,2,3] → [[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]] (2^3=8 subsets)
+ * - Large n: n=10 → 2^10=1024 subsets (exponential growth but unavoidable for power set)
  * 
- * </details>
- */
+ *
+*/
 
 class Solution {
   /**
@@ -92,14 +114,19 @@ class Solution {
    *         Space Complexity: O(n) for recursion
    */
   subsets(nums: number[]): number[][] {
-    // Implementation
-    result: list.set(Any, []
-    def backtrack(start: Any, current: Any) -> Any:
-    result.append(current.get(:))
-    for (let i = 0; i < start, nums.length; i++) {
-    current.append(nums.get(i))
-    backtrack(i + 1, current)
-    current.pop()
+    const result: number[][] = [];
+
+    const backtrack = (start: number, current: number[]): void => {
+      result.push([...current]);
+      for (let i = start; i < nums.length; i++) {
+        current.push(nums[i]);
+        backtrack(i + 1, current);
+        current.pop();
+      }
+    };
+
+    backtrack(0, []);
+    return result;
   }
 
   /**
@@ -108,15 +135,20 @@ class Solution {
    *         Space Complexity: O(1) excluding output
    */
   subsetsBitMask(nums: number[]): number[][] {
-    // Implementation
-    n = nums.length
-    result: list.get(list[int)] = []
-    for (let mask = 0; mask < 1 << n; mask++) {  # 2^n possibilities
-    subset: list.set(Any, []
-    for (let i = 0; i < n; i++) {
-    if mask & (1 << i):
-    subset.append(nums.get(i))
-    result.append(subset)
+    const n = nums.length;
+    const result: number[][] = [];
+
+    for (let mask = 0; mask < (1 << n); mask++) {  // 2^n possibilities
+      const subset: number[] = [];
+      for (let i = 0; i < n; i++) {
+        if (mask & (1 << i)) {
+          subset.push(nums[i]);
+        }
+      }
+      result.push(subset);
+    }
+
+    return result;
   }
 
   /**
@@ -125,13 +157,14 @@ class Solution {
    *         Space Complexity: O(1) excluding output
    */
   subsetsIterative(nums: number[]): number[][] {
-    // Implementation
-    result: list.get(list[int)] = [[]]
-    for num in nums:
-    result += [subset + [num] for subset in result]
-    return result
-    """
-    90. Subsets II
+    const result: number[][] = [[]];
+
+    for (const num of nums) {
+      const newSubsets = result.map(subset => [...subset, num]);
+      result.push(...newSubsets);
+    }
+
+    return result;
   }
 }
 
@@ -143,30 +176,25 @@ if (typeof module !== "undefined" && module.exports) {
 function runTests(): void {
   const solution = new Solution();
 
-  # Test Subsets
-  solution = Solution()
-  console.log("Subsets:")
-  test_cases = [[1, 2, 3], [0], [1, 2, 3, 4]]
-  for nums in test_cases:
-  result = solution.subsets(nums)
-  console.log(`Input: {nums}`)
-  console.log(`Subsets ({result.length}): {result}\n`)
-  # Test Subsets with Duplicates
-  solution_dup = SolutionUnique()
-  console.log("Subsets with Duplicates:")
-  test_cases_dup = [[1, 2, 2], [4, 4, 4, 1, 4]]
-  for nums in test_cases_dup:
-  result = solution_dup.subsetsWithDup(nums)
-  console.log(`Input: {nums}`)
-  console.log(`Unique Subsets: {result}\n`)
-  # Test Combination Sum
-  solution_comb = SolutionCombSum()
-  console.log("Combination Sum:")
-  test_comb = [([2, 3, 6, 7], 7), ([2, 3, 5], 8)]
-  for candidates, target in test_comb:
-  result = solution_comb.combinationSum(candidates, target)
-  console.log(`Candidates: {candidates}, Target: {target}`)
-  console.log(`Combinations: {result}\n`)
+  console.log("=== 78. Subsets ===");
+
+  // Test Subsets
+  const testCases = [[1, 2, 3], [0], [1, 2, 3, 4]];
+  for (const nums of testCases) {
+    const result = solution.subsets(nums);
+    console.log(`Input: ${JSON.stringify(nums)}`);
+    console.log(`Subsets (${result.length}): ${JSON.stringify(result)}\n`);
+  }
+
+  // Test bit mask approach
+  console.log("Bit Mask Approach:");
+  const result2 = solution.subsetsBitMask([1, 2, 3]);
+  console.log(`Bit mask result: ${JSON.stringify(result2)}\n`);
+
+  // Test iterative approach
+  console.log("Iterative Approach:");
+  const result3 = solution.subsetsIterative([1, 2, 3]);
+  console.log(`Iterative result: ${JSON.stringify(result3)}\n`);
 }
 
 if (typeof require !== "undefined" && require.main === module) {

@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Easy
  * 
- * # 104. Maximum Depth of Binary Tree
+ * # 0104. Maximum Depth of Binary Tree
  * 
  * Given the root of a binary tree, return its maximum depth.
  * 
@@ -11,18 +11,19 @@
  * 
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[("Recursive DFS", solution.maxDepth),
+ * <dd>[3,9,20,null,null,15,7]</dd>
  *         ("BFS Level-order", solution.maxDepthBFS),
  *         ("Iterative DFS", solution.maxDepthIterativeDFS),
  *         ("Preorder traversal", solution.maxDepthPreorder)]</dd>
  * <dt>Output:</dt>
- * <dd>"{name}: {result}"</dd>
+ * <dd>* 3</dd>
  * <dt>Explanation:</dt>
  * <dd>The maximum depth of the tree is 3 (from root to deepest leaf)</dd>
  * </dl>
  * 
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Array Traversal, Two Pointers
  * **Data Structures**: Array, Stack, Queue
  * **Patterns**: Two Pointers Pattern, Hash Table Pattern
@@ -44,14 +45,16 @@
  * - Both DFS and BFS can solve this problem effectively
  * 
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: [3,9,20,null,null,15,7]
- *        3
- *       / \
- *      9  20
- *        /  \
- *       15   7
- * 
+ * [3,9,20,null,null,15,7]
+ * ```
+ *
+ * 3
+ * / \
+ * 9  20
+ * /  \
+ * 15   7
  * 1. maxDepth(3): 1 + max(maxDepth(9), maxDepth(20))
  * 2. maxDepth(9): 1 + max(0, 0) = 1
  * 3. maxDepth(20): 1 + max(maxDepth(15), maxDepth(7))
@@ -59,11 +62,15 @@
  * 5. maxDepth(7): 1 + max(0, 0) = 1
  * 6. maxDepth(20): 1 + max(1, 1) = 2
  * 7. maxDepth(3): 1 + max(1, 2) = 3
- * Output: 3
+ *
+ * Output:
  * ```
- * 
+ * 3
+ * ```
+
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  * Must visit every node to determine maximum depth
  * 
  * ### SPACE COMPLEXITY:
@@ -141,7 +148,7 @@ class Solution {
     // Implementation
     if not root:
     return 0
-    stack = [(root, 1)]  # (node, current_depth)
+    stack = [(root, 1)]  // (node, current_depth)
     max_depth = 0
     while stack:
     node, current_depth = stack.pop()
@@ -198,7 +205,7 @@ function runTests(): void {
   console.log(`\nmaxDepth([1]) -> {result2}`)
   # Example 3: Empty tree
   tree3 = null
-  result3 = solution.maxDepth(tree3)  # type: ignore
+  result3 = solution.maxDepth(tree3)  // type: ignore
   console.log(`maxDepth([]) -> {result3}`)
   # Example 4: Algorithm comparison
   console.log(`\nAlgorithm comparison:`)
@@ -210,7 +217,7 @@ function runTests(): void {
   ]
   for name, method in approaches:
   result = method(tree1)
-  console.log(`{name}: {result}`)
+  console.log(`{name}: result`)
   console.log(`\nKey insights:`)
   console.log(`1. Recursive solution: depth = 1 + max(left_depth, right_depth)`)
   console.log(`2. BFS counts levels directly as it processes each level`)

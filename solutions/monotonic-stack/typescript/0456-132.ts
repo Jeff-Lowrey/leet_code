@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Medium
  *
- * # 456. 132
+ * # 0456. 132 Pattern
+ *
  *
  * Given an array of n integers nums, a 132 pattern is a subsequence of three integers nums[i], nums[j] and nums[k] such that i < j < k and nums[i] < nums[k] < nums[j].
  *
@@ -19,7 +20,8 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Hash Map, Hash Set, Array
  * **Patterns**: Two Pointers Pattern, Hash Table Pattern
@@ -46,20 +48,27 @@
  * - O(n) time single pass, O(n) space for stack
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: nums = [3,1,4,2]
+ * nums = [3,1,4,2]
+ * ```
+ *
  * Step 1: Find 132 pattern
- *   i=0, j=2, k=3: nums[0]=3, nums[2]=4, nums[3]=2
- *   Check: 3 < 4 and 2 < 4 and 3 > 2? Yes
+ * i=0, j=2, k=3: nums[0]=3, nums[2]=4, nums[3]=2
+ * Check: 3 < 4 and 2 < 4 and 3 > 2? Yes
  *
- * Output: True (132 pattern exists)
+ * Output:
  * ```
- *
+ * True (132 pattern exists)
+ * ```
+
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  *
  * ### EDGE CASES:
  * - Empty input handling

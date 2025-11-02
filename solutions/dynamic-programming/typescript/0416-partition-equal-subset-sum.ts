@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Medium
  *
- * # 416. Partition Equal Subset Sum
+ * # 0416. Partition Equal Subset Sum
+ *
  *
  * Given an integer array nums, return true if you can partition the array into two subsets such that the sum of the elements in both subsets is equal or false otherwise.
  *
@@ -11,13 +12,14 @@
  * <dt>Input:</dt>
  * <dd>[1,5,11,5]</dd>
  * <dt>Output:</dt>
- * <dd>True (can partition into equal subsets)</dd>
+ * <dd>true</dd>
  * <dt>Explanation:</dt>
  * <dd>Array [1,5,11,5] can be partitioned into [1,5,5] and [11] with equal sum 11</dd>
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Hash Map, Hash Set, Array
  * **Patterns**: Dynamic Programming
@@ -45,30 +47,35 @@
  * - O(n * sum) time, O(sum) space
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: nums = [1,5,11,5]
+ * nums = [1,5,11,5]
+ * ```
+ *
  * Step 1: Calculate target
- *   sum = 22, target = 11
- *
+ * sum = 22, target = 11
  * Step 2: DP subset sum
- *   dp[0] = True
- *   Process 1: dp[1] = True
- *   Process 5: dp[5] = True, dp[6] = True
- *   Process 11: dp[11] = True, dp[16] = True, dp[12] = True
- *   Process 5: dp[11] already True
- *
+ * dp[0] = True
+ * Process 1: dp[1] = True
+ * Process 5: dp[5] = True, dp[6] = True
+ * Process 11: dp[11] = True, dp[16] = True, dp[12] = True
+ * Process 5: dp[11] already True
  * Step 3: Verify partition
- *   Subset 1: [1, 5, 5] = 11
- *   Subset 2: [11] = 11
+ * Subset 1: [1, 5, 5] = 11
+ * Subset 2: [11] = 11
  *
- * Output: True (can partition into equal subsets)
+ * Output:
  * ```
- *
+ * True (can partition into equal subsets)
+ * ```
+
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  *
  * ### EDGE CASES:
  * - Empty input handling

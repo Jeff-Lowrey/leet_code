@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Medium
  *
- * # 472. Concatenated
+ * # 0472. Concatenated Words
+ *
  *
  * Given an array of strings words (without duplicates), return all the concatenated words in the given list of words.
  *
@@ -19,12 +20,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Hash Map, Hash Set, Array
  * **Patterns**: Hash Table Pattern, Dynamic Programming
- * **Time Complexity**: * O(n)
- * **Space Complexity**: * O(1) - Constant extra space
+ * **Time Complexity**: O(n)
+ * **Space Complexity**: O(1) - Constant extra space
 
  *
  * ### INTUITION:
@@ -42,20 +44,29 @@
  * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: words = ["cat","cats","catsdogcats","dog","dogcatsdog","hippopotamuses"]
+ * words = ["cat","cats","catsdogcats","dog","dogcatsdog","hippopotamuses"]
+ * ```
+ *
  * Step 1: Check each word
- *   "catsdogcats" = "cats" + "dog" + "cats" ✓
- *   "dogcatsdog" = "dog" + "cats" + "dog" ✓
+ * "catsdogcats" = "cats" + "dog" + "cats" ✓
+ * "dogcatsdog" = "dog" + "cats" + "dog" ✓
  *
- * Output: ["catsdogcats","dogcatsdog"]
+ * Output:
  * ```
- *
+ * ["catsdogcats","dogcatsdog"]
+ * ```
+
  * ### TIME COMPLEXITY:
+
  * O(n)
+
+ * - Single pass through the input
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  *
  * ### EDGE CASES:
  * - Empty input handling

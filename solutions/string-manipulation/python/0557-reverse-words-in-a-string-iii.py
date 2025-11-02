@@ -1,5 +1,5 @@
 """
-# 557. Reverse Words In A String Iii
+# 0557. Reverse Words In A String Iii
 
 # Difficulty: Easy
 
@@ -18,7 +18,8 @@ while still preserving whitespace and initial word order.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
 **Data Structures**: Array, String, Stack
 **Patterns**: Two Pointers Pattern, Divide and Conquer
@@ -47,19 +48,20 @@ Alternative approaches:
 - Each word is processed independently
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: "Let's take LeetCode contest"
+"Let's take LeetCode contest"
+```
 
 Split: ["Let's", "take", "LeetCode", "contest"]
-
 Reverse each:
-- "Let's" -> "s'teL"
-- "take" -> "ekat"
-- "LeetCode" -> "edoCteeL"
-- "contest" -> "tsetnoc"
 
-Join: "s'teL ekat edoCteeL tsetnoc"
-```
+Steps:
+Step 1: - "Let's" -> "s'teL"
+Step 2: - "take" -> "ekat"
+Step 3: - "LeetCode" -> "edoCteeL"
+Step 4: - "contest" -> "tsetnoc"
+Step 5: Join: "s'teL ekat edoCteeL tsetnoc"
 
 ### TIME COMPLEXITY:
 O(n)
@@ -293,7 +295,7 @@ if __name__ == "__main__":
     for test in test_cases:
         result = solution.reverseWords(test)
         print(f"Input:  '{test}'")
-        print(f"Output: '{result}'")
+        print(f"Output: 'result'")
         print()
 
     # Demonstrate the logic

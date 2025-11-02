@@ -1,5 +1,5 @@
 /**
- * # 509. Fibonacci Number
+ * # 0509. Fibonacci Number
  *
  * # Difficulty: Easy
  *
@@ -37,22 +37,36 @@
  * recursively as the sum of the two preceding numbers, with base cases F(0)=0 and F(1)=1.
  *
  * ### APPROACH:
- * 1. **Base cases**: If n is 0 or 1, return n directly
- * 2. **Recursive case**: Return fib(n-1) + fib(n-2)
- * 3. **Optimization**: Use memoization to avoid redundant calculations
+ * **Data structures: Array (memoization cache) or iterative variables**
+ * 1. **Base cases**: If n is 0 or 1, return n directly from recursion
+ * 2. **Recursive case**: Return fib(n-1) + fib(n-2) using recursion
+ * 3. **Optimization**: Use memoization with array or hash map to avoid redundant calculations
  *
  * ### WHY THIS WORKS:
  * - The Fibonacci definition is inherently recursive
  * - Base cases prevent infinite recursion
  * - Memoization reduces time complexity from exponential to linear
  *
- * ### EXAMPLE WALKTHROUGH:
+ *
+
+This solution uses iteration for efficient implementation.
+### EXAMPLE WALKTHROUGH:
+  * Input:
  * ```
- * Input: n = 4
- * fib(4) = fib(3) + fib(2)
- * fib(3) = fib(2) + fib(1) = 1 + 1 = 2
- * fib(2) = fib(1) + fib(0) = 1 + 0 = 1
- * fib(4) = 2 + 1 = 3
+ * n = 4
+ * ```
+ *
+ * **Step 1:** Base cases - F(0) = 0, F(1) = 1 (defined by problem)
+ *
+ * **Step 2:** Calculate F(2) = F(1) + F(0) = 1 + 0 = 1
+ *
+ * **Step 3:** Calculate F(3) = F(2) + F(1) = 1 + 1 = 2
+ *
+ * **Step 4:** Calculate F(4) = F(3) + F(2) = 2 + 1 = 3
+ *
+ * Output:
+ * ```
+ * 3
  * ```
  *
  * ### TIME COMPLEXITY:
@@ -63,105 +77,137 @@
  * O(n) - recursion stack depth
  *
  * ### EDGE CASES:
- * - n = 0: return 0
- * - n = 1: return 1
- * - Large n: use memoization to avoid timeout
+ * - n = 0: n=0 → 0 (base case, returns immediately without recursion)
+ * - n = 1: n=1 → 1 (base case, returns immediately without recursion)
+ * - n = 2: n=2 → 1 (first computed value, F(2) = F(1) + F(0) = 1)
+ * - Large n: n=30 → 832040 (naive recursion causes exponential time, memoization required)
+ * - Negative n (if allowed): Invalid input, typically not in problem constraints
  *
- * </details>
+ *
+*/
+
+/**
+ * Calculate nth Fibonacci number using memoized recursion.
+ * @param {number} n - Non-negative integer
+ * @return {number} The nth Fibonacci number
  */
+function fib(n) {
+    const memo = new Map();
 
-class Solution {
-  /**
-   * Calculate Fibonacci number using simple recursion.
-   *
-   * Time Complexity: O(2^n)
-   * Space Complexity: O(n)
-   */
-  fib(n) {
-    // Base cases
-    if (n <= 1) {
-      return n;
-    }
+    function helper(k) {
+        if (memo.has(k)) {
+            return memo.get(k);
+        }
 
-    // Recursive case
-    return this.fib(n - 1) + this.fib(n - 2);
-  }
+        if (k <= 1) {
+            return k;
+        }
 
-  /**
-   * Calculate Fibonacci using recursion with memoization.
-   *
-   * Time Complexity: O(n)
-   * Space Complexity: O(n)
-   */
-  fibMemoization(n) {
-    const memo = {};
-
-    function helper(num) {
-      if (num <= 1) {
-        return num;
-      }
-
-      if (num in memo) {
-        return memo[num];
-      }
-
-      memo[num] = helper(num - 1) + helper(num - 2);
-      return memo[num];
+        const result = helper(k - 1) + helper(k - 2);
+        memo.set(k, result);
+        return result;
     }
 
     return helper(n);
-  }
+}
 
-  /**
-   * Calculate Fibonacci iteratively (most efficient).
-   *
-   * Time Complexity: O(n)
-   * Space Complexity: O(1)
-   */
-  fibIterative(n) {
+/**
+ * Naive recursive solution (exponential time).
+ * @param {number} n - Non-negative integer
+ * @return {number} The nth Fibonacci number
+ */
+function fibNaive(n) {
     if (n <= 1) {
-      return n;
+        return n;
+    }
+    return fibNaive(n - 1) + fibNaive(n - 2);
+}
+
+/**
+ * Iterative solution with O(1) space.
+ * @param {number} n - Non-negative integer
+ * @return {number} The nth Fibonacci number
+ */
+function fibIterative(n) {
+    if (n <= 1) {
+        return n;
     }
 
     let prev2 = 0;
     let prev1 = 1;
 
     for (let i = 2; i <= n; i++) {
-      const current = prev1 + prev2;
-      prev2 = prev1;
-      prev1 = current;
+        const current = prev1 + prev2;
+        prev2 = prev1;
+        prev1 = current;
     }
 
     return prev1;
-  }
+}
+
+/**
+ * Bottom-up dynamic programming solution.
+ * @param {number} n - Non-negative integer
+ * @return {number} The nth Fibonacci number
+ */
+function fibDP(n) {
+    if (n <= 1) {
+        return n;
+    }
+
+    const dp = new Array(n + 1);
+    dp[0] = 0;
+    dp[1] = 1;
+
+    for (let i = 2; i <= n; i++) {
+        dp[i] = dp[i - 1] + dp[i - 2];
+    }
+
+    return dp[n];
 }
 
 // Test cases
-if (typeof module !== "undefined" && module.exports) {
-  module.exports = Solution;
+if (require.main === module) {
+    const testCases = [
+        [0, 0],
+        [1, 1],
+        [2, 1],
+        [3, 2],
+        [4, 3],
+        [5, 5],
+        [6, 8],
+        [10, 55],
+        [15, 610]
+    ];
+
+    console.log("Testing fib (memoized recursion):");
+    for (const [n, expected] of testCases) {
+        const result = fib(n);
+        const status = result === expected ? "✓" : "✗";
+        console.log(`${status} fib(${n}) = ${result}, expected = ${expected}`);
+    }
+
+    console.log("\nTesting fibIterative (O(1) space):");
+    for (const [n, expected] of testCases) {
+        const result = fibIterative(n);
+        const status = result === expected ? "✓" : "✗";
+        console.log(`${status} fibIterative(${n}) = ${result}, expected = ${expected}`);
+    }
+
+    console.log("\nTesting fibDP (bottom-up DP):");
+    for (const [n, expected] of testCases) {
+        const result = fibDP(n);
+        const status = result === expected ? "✓" : "✗";
+        console.log(`${status} fibDP(${n}) = ${result}, expected = ${expected}`);
+    }
+
+    // Only test naive version with small inputs (exponential time!)
+    console.log("\nTesting fibNaive (naive recursion - small inputs only):");
+    for (const [n, expected] of testCases.slice(0, 7)) {
+        const result = fibNaive(n);
+        const status = result === expected ? "✓" : "✗";
+        console.log(`${status} fibNaive(${n}) = ${result}, expected = ${expected}`);
+    }
 }
 
-function runTests() {
-  const solution = new Solution();
-
-  // Test case 1: Small values
-  console.log("Test 1:", solution.fib(0) === 0 ? "PASS" : "FAIL");
-  console.log("Test 2:", solution.fib(1) === 1 ? "PASS" : "FAIL");
-  console.log("Test 3:", solution.fib(2) === 1 ? "PASS" : "FAIL");
-  console.log("Test 4:", solution.fib(3) === 2 ? "PASS" : "FAIL");
-  console.log("Test 5:", solution.fib(4) === 3 ? "PASS" : "FAIL");
-  console.log("Test 6:", solution.fib(5) === 5 ? "PASS" : "FAIL");
-
-  // Test with memoization
-  console.log("Test 7 (Memo):", solution.fibMemoization(10) === 55 ? "PASS" : "FAIL");
-  console.log("Test 8 (Memo):", solution.fibMemoization(15) === 610 ? "PASS" : "FAIL");
-
-  // Test iterative
-  console.log("Test 9 (Iterative):", solution.fibIterative(20) === 6765 ? "PASS" : "FAIL");
-
-  console.log("\nAll test cases completed!");
-}
-
-if (typeof require !== "undefined" && require.main === module) {
-  runTests();
-}
+module.exports = { fib, fibNaive, fibIterative, fibDP };

@@ -1,5 +1,5 @@
 """
-# 191. Number Of 1 Bits
+# 0191. Number Of 1 Bits
 
 # Difficulty: Easy
 
@@ -18,7 +18,8 @@ the number of set bits it has (also known as the Hamming weight).
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Array Traversal
 **Data Structures**: Hash Set, String
 **Patterns**: Hash Table Pattern
@@ -39,27 +40,27 @@ n-1 flips all bits after the rightmost 1 (including the 1 itself).
 AND-ing with n keeps only the bits that were 1 in both, effectively removing that rightmost 1.
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
 n = 11 (binary: 1011)
-Count = 0
+```
 
+Count = 0
 Iteration 1: n = 1011, n-1 = 1010
 n & (n-1) = 1010, count = 1
-
 Iteration 2: n = 1010, n-1 = 1001
 n & (n-1) = 1000, count = 2
-
 Iteration 3: n = 1000, n-1 = 0111
 n & (n-1) = 0000, count = 3
-
 Result: 3
-```
 
 ### TIME COMPLEXITY:
 O(k) where k is number of 1-bits
 
 ### SPACE COMPLEXITY:
 O(1)
+- Constant extra space
+
 
 ### EDGE CASES:
 - **n = 0**: Return 0 (no 1 bits)

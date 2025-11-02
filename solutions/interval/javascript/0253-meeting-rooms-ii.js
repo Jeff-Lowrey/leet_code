@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Medium
  *
- * # 253. Meeting Rooms Ii
+ * # 0253. Meeting Rooms Ii
+ *
  *
  * Given an array of meeting time intervals intervals where intervals[i] = [starti, endi], return the minimum number of conference rooms required.
  *
@@ -17,12 +18,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Hash Map Storage, Array Traversal, Two Pointers
  * **Data Structures**: Array, Linked List
  * **Patterns**: Two Pointers Pattern, Greedy Algorithm
- * **Time Complexity**: * O(n) - Single pass through input
- * **Space Complexity**: * O(1) - Constant extra space
+ * **Time Complexity**: O(n) - Single pass through input
+ * **Space Complexity**: O(1) - Constant extra space
 
  *
  * ### INTUITION:
@@ -40,28 +42,34 @@
  * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: intervals = [[0,30],[5,10],[15,20]]
+ * intervals = [[0,30],[5,10],[15,20]]
+ * ```
+ *
  * Step 1: Separate start and end times
- *   starts = [0,5,15]
- *   ends = [10,20,30]
- *
+ * starts = [0,5,15]
+ * ends = [10,20,30]
  * Step 2: Use two pointers
- *   time=0: start meeting, rooms=1
- *   time=5: start meeting, rooms=2
- *   time=10: end meeting, rooms=1
- *   time=15: start meeting, rooms=2
- *   time=20: end meeting, rooms=1
- *   time=30: end meeting, rooms=0
+ * time=0: start meeting, rooms=1
+ * time=5: start meeting, rooms=2
+ * time=10: end meeting, rooms=1
+ * time=15: start meeting, rooms=2
+ * time=20: end meeting, rooms=1
+ * time=30: end meeting, rooms=0
  *
- * Output: 2 (minimum meeting rooms needed)
+ * Output:
  * ```
- *
+ * 2 (minimum meeting rooms needed)
+ * ```
+
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  *
  * ### EDGE CASES:
  * - Empty input handling

@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 424. Longest Repeating Character Replacement
+# 0424. Longest Repeating Character Replacement
 
 You are given a string s and an integer k. You can choose any character of the string and change it to any other uppercase English character. You can perform this operation at most k times.
 
@@ -19,7 +19,8 @@ Return the length of the longest substring containing the same letter you can ge
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Array Traversal, Sliding Window
 **Data Structures**: Hash Map, Hash Set, Array
 **Patterns**: Sliding Window Pattern, Hash Table Pattern
@@ -47,27 +48,35 @@ Use sliding window with character counts. Track max frequency in window. If wind
 - O(n) time: each element visited twice at most, O(26) = O(1) space
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: s = "AABABBA", k = 1
+s = "AABABBA", k = 1
+```
+
 Step 1: Expand window
-  "AA": max_freq=2, changes=0, valid
-  "AAB": max_freq=2, changes=1, valid
-  "AABA": max_freq=3, changes=1, valid
-  "AABAB": max_freq=3, changes=2, invalid
-
+"AA": max_freq=2, changes=0, valid
+"AAB": max_freq=2, changes=1, valid
+"AABA": max_freq=3, changes=1, valid
+"AABAB": max_freq=3, changes=2, invalid
 Step 2: Contract and continue
-  "ABAB": max_freq=2, changes=2, invalid
-  "BAB": max_freq=2, changes=1, valid
-  Continue...
+"ABAB": max_freq=2, changes=2, invalid
+"BAB": max_freq=2, changes=1, valid
+Continue...
 
-Output: 4 (longest valid substring)
+Output:
+```
+4 (longest valid substring)
 ```
 
 ### TIME COMPLEXITY:
 O(n)
+- Single pass through input
+
 
 ### SPACE COMPLEXITY:
 O(1)
+- Constant extra space
+
 
 ### EDGE CASES:
 - Empty input handling
@@ -136,12 +145,12 @@ def test_solution() -> None:
     # Test case 1: Basic case
     # Skipped: result = solution.characterReplacement([1, 2, 3], 2)  # Wrong type test
     # Skipped: expected = 3
-    # Skipped: assert result == expected, f"Expected {expected}, got {result}"
+    # Skipped: assert result == expected, f"Expected expected, got result"
 
     # Test case 2: Empty input
     # Skipped: result = solution.characterReplacement([], 0)  # Wrong type test
     # Skipped: expected = 0
-    # Skipped: assert result == expected, f"Expected {expected}, got {result}"
+    # Skipped: assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

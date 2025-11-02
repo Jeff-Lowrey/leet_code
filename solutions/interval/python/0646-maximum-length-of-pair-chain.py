@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 646. Maximum Length Of Pair Chain
+# 0646. Maximum Length Of Pair Chain
 
 You are given an array of n pairs pairs where pairs[i] = [lefti, righti] and lefti < righti.
 
@@ -23,7 +23,8 @@ You do not need to use up all the given intervals. You can select pairs in any o
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Two Pointers
 **Data Structures**: Hash Map, Hash Set, Array
 **Patterns**: Two Pointers Pattern, Hash Table Pattern
@@ -50,24 +51,32 @@ Sort pairs by end time. Use greedy similar to Activity Selection. Keep previous 
 - O(n log n) for sort, O(1) space, same logic as activity selection
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: pairs = [[1,2],[2,3],[3,4]]
+pairs = [[1,2],[2,3],[3,4]]
+```
+
 Step 1: Sort by second element
-  sorted = [[1,2],[2,3],[3,4]]
-
+sorted = [[1,2],[2,3],[3,4]]
 Step 2: Greedy selection
-  Select [1,2], end=2
-  [2,3]: 2 ≥ 2, skip
-  [3,4]: 3 > 2, select it, length=2
+Select [1,2], end=2
+[2,3]: 2 ≥ 2, skip
+[3,4]: 3 > 2, select it, length=2
 
-Output: 2 (maximum chain length)
+Output:
+```
+2 (maximum chain length)
 ```
 
 ### TIME COMPLEXITY:
 O(n)
+- Single pass through input
+
 
 ### SPACE COMPLEXITY:
 O(1)
+- Constant extra space
+
 
 ### EDGE CASES:
 - Empty input handling
@@ -122,27 +131,27 @@ def test_solution() -> None:
     # Test case 1: Example from problem
     result = solution.findLongestChain([[1, 2], [2, 3], [3, 4]])
     expected = 2
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: All can be chained
     result = solution.findLongestChain([[1, 2], [7, 8], [4, 5]])
     expected = 3
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 3: No chain possible (all overlap)
     result = solution.findLongestChain([[1, 5], [2, 3], [3, 4]])
     expected = 1
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 4: Empty input
     result = solution.findLongestChain([])
     expected = 0
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 5: Single pair
     result = solution.findLongestChain([[1, 2]])
     expected = 1
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

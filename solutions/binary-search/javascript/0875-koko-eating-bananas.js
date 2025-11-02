@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Medium
  *
- * # 875. Koko Eating Bananas
+ * # 0875. Koko Eating Bananas
+ *
  *
  * Koko loves to eat bananas. There are n piles of bananas, the ith pile has piles[i] bananas. The guards have gone and will come back in h hours.
  *
@@ -23,12 +24,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Array Traversal, Two Pointers, Binary Search
  * **Data Structures**: Tree
  * **Patterns**: Two Pointers Pattern, Greedy Algorithm
- * **Time Complexity**: * O(n) - Single pass through input
- * **Space Complexity**: * O(1) - Constant extra space
+ * **Time Complexity**: O(n) - Single pass through input
+ * **Space Complexity**: O(1) - Constant extra space
 
  *
  * ### INTUITION:
@@ -46,34 +48,38 @@
  * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: piles = [3,6,7,11], h = 8
+ * piles = [3,6,7,11], h = 8
+ * ```
+ *
  * Step 1: Initialize search space
- *   left = 1 (min speed), right = 11 (max pile size)
- *
+ * left = 1 (min speed), right = 11 (max pile size)
  * Step 2: Binary search for minimum speed
- *   mid = 6: hours = ceil(3/6)+ceil(6/6)+ceil(7/6)+ceil(11/6) = 1+1+2+2 = 6 ≤ 8
- *   → Try lower speed, right = 6
+ * mid = 6: hours = ceil(3/6)+ceil(6/6)+ceil(7/6)+ceil(11/6) = 1+1+2+2 = 6 ≤ 8
  *
- *   mid = 3: hours = ceil(3/3)+ceil(6/3)+ceil(7/3)+ceil(11/3) = 1+2+3+4 = 10 > 8
- *   → Need higher speed, left = 4
+ * Steps:
+ * Step 1: Try lower speed, right = 6
+ * Step 2: mid = 3: hours = ceil(3/3)+ceil(6/3)+ceil(7/3)+ceil(11/3) = 1+2+3+4 = 10 > 8
+ * Step 3: Need higher speed, left = 4
+ * Step 4: mid = 5: hours = ceil(3/5)+ceil(6/5)+ceil(7/5)+ceil(11/5) = 1+2+2+3 = 8 ≤ 8
+ * Step 5: Try lower speed, right = 5
+ * Step 6: mid = 4: hours = ceil(3/4)+ceil(6/4)+ceil(7/4)+ceil(11/4) = 1+2+2+3 = 8 ≤ 8
+ * Step 7: Try lower speed, right = 4
+ * Step 8: left = right = 4
  *
- *   mid = 5: hours = ceil(3/5)+ceil(6/5)+ceil(7/5)+ceil(11/5) = 1+2+2+3 = 8 ≤ 8
- *   → Try lower speed, right = 5
- *
- *   mid = 4: hours = ceil(3/4)+ceil(6/4)+ceil(7/4)+ceil(11/4) = 1+2+2+3 = 8 ≤ 8
- *   → Try lower speed, right = 4
- *
- *   left = right = 4
- *
- * Output: 4 (minimum eating speed)
+ * Output:
  * ```
- *
+ * 4 (minimum eating speed)
+ * ```
+
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  *
  * ### EDGE CASES:
  * - Empty input handling

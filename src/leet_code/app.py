@@ -185,10 +185,16 @@ def get_solution_path(category: str, filename: str, language: str) -> Path:
     Returns:
         Path to solution file
     """
+    from .language_constants import SUPPORTED_LANGUAGES
+
     base_name = remove_py_extension(filename)
     lang_extension = get_file_extension(language)
     solution_filename = f"{base_name}{lang_extension}"
-    language_dir = language.lower()
+
+    # Use SUPPORTED_LANGUAGES mapping to get correct directory name
+    # Falls back to lowercase if language not in mapping
+    language_dir = SUPPORTED_LANGUAGES.get(language, language.lower())
+
     return Path(__file__).parent.parent.parent / "solutions" / category / language_dir / solution_filename
 
 

@@ -1,5 +1,5 @@
 """
-# 133. Clone Graph
+# 0133. Clone Graph
 
 # Difficulty: Medium
 
@@ -20,7 +20,8 @@ Each `node` in the graph contains a value (int) and a list (List[Node]) of its n
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
 **Data Structures**: Hash Map, Hash Set, Array
 **Patterns**: Hash Table Pattern, Backtracking
@@ -44,25 +45,27 @@ The key challenge is handling `cycles - we` need to avoid infinite loops.
 By using a hash map to track visited nodes, we ensure each node is cloned exactly once, preventing infinite loops in the presence of cycles. The DFS/BFS traversal guarantees we visit every reachable node, and by cloning neighbors recursively, we preserve the exact structure and relationships of the original graph. The hash map serves both as a visited tracker and a lookup for already-cloned nodes.
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: adjList = [[2,4],[1,3],[2,4],[1,3]]
+adjList = [[2,4],[1,3],[2,4],[1,3]]
+```
+
 Step 1: Start BFS from node 1
-  Create clone of node 1
-  visited = {1: Node(1)}
-
+Create clone of node 1
+visited = {1: Node(1)}
 Step 2: Process neighbors of node 1 (nodes 2 and 4)
-  Clone node 2, add to visited
-  Clone node 4, add to visited
-  Connect node 1 to nodes 2 and 4
-
+Clone node 2, add to visited
+Clone node 4, add to visited
+Connect node 1 to nodes 2 and 4
 Step 3: Process node 2 neighbors (nodes 1 and 3)
-  Node 1 already cloned
-  Clone node 3, connect to node 2
-
+Node 1 already cloned
+Clone node 3, connect to node 2
 Step 4: Process remaining nodes
-  Build all connections maintaining graph structure
+Build all connections maintaining graph structure
 
-Output: Cloned graph with same structure
+Output:
+```
+Cloned graph with same structure
 ```
 
 ### TIME COMPLEXITY:
@@ -150,7 +153,6 @@ class Solution:
 
 """
 417. Pacific Atlantic Water Flow
-# Difficulty: Medium
 There is an m x n rectangular island that borders both the Pacific Ocean and
 Atlantic Ocean. The Pacific Ocean touches the island's left and top edges, and
 the Atlantic Ocean touches the island's right and bottom edges.
@@ -217,7 +219,6 @@ class SolutionWaterFlow:
 
 """
 79. Word Search
-# Difficulty: Medium
 Given an m x n grid of characters board and a string word, return true if word
 exists in the grid.
 
@@ -278,7 +279,6 @@ class SolutionWordSearch:
 
 """
 323. Number of Connected Components in an Undirected Graph
-# Difficulty: Medium
 You have a graph of n nodes. You are given an integer n and an array edges where
 edges[i] = [ai, bi] indicates that there is an edge between ai and bi in the graph.
 
@@ -366,7 +366,7 @@ if __name__ == "__main__":
     print("Heights matrix:")
     for row in heights:
         print(row)
-    print(f"Cells reaching both oceans: {result}\n")
+    print(f"Cells reaching both oceans: result\n")
 
     # Test Word Search
     solution_word = SolutionWordSearch()
@@ -389,5 +389,5 @@ if __name__ == "__main__":
 
     for n, edges in test_cases:
         num_components: int = solution_comp.countComponents(n, edges)
-        print(f"n={n}, edges={edges}")
+        print(f"n=n, edges={edges}")
         print(f"Components: {num_components}\n")

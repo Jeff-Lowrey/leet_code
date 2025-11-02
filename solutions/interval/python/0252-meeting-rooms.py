@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 252. Meeting Rooms
+# 0252. Meeting Rooms
 
 Given an array of meeting time intervals where intervals[i] = [starti, endi], determine if a person could attend all meetings.
 
@@ -17,7 +17,8 @@ Given an array of meeting time intervals where intervals[i] = [starti, endi], de
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
 **Data Structures**: Hash Map, Array, Linked List
 **Patterns**: Two Pointers Pattern
@@ -43,22 +44,32 @@ Sort meetings by start time. Check consecutive meetings for overlap by comparing
 - O(n log n) for sort, O(1) space
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: intervals = [[0,30],[5,10],[15,20]]
+intervals = [[0,30],[5,10],[15,20]]
+```
+
 Step 1: Sort by start time
-  sorted = [[0,30],[5,10],[15,20]]
-
+sorted = [[0,30],[5,10],[15,20]]
 Step 2: Check for overlaps
-  [0,30] vs [5,10]: 5 < 30 → overlap found
 
-Output: False (cannot attend all meetings)
+Steps:
+Step 1: [0,30] vs [5,10]: 5 < 30 → overlap found
+
+Output:
+```
+False (cannot attend all meetings)
 ```
 
 ### TIME COMPLEXITY:
 O(n)
+- Single pass through input
+
 
 ### SPACE COMPLEXITY:
 O(1)
+- Constant extra space
+
 
 ### EDGE CASES:
 - Empty input handling
@@ -114,17 +125,17 @@ def test_solution() -> None:
     # Test case 1: Overlapping meetings
     result = solution.can_attend_meetings([[0, 30], [5, 10], [15, 20]])
     expected = False
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: Empty input
     result = solution.can_attend_meetings([])
     expected = True
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 3: Non-overlapping meetings
     result = solution.can_attend_meetings([[7, 10], [2, 4]])
     expected = True
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

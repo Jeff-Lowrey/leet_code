@@ -1,5 +1,8 @@
 /**
- * # Difficulty: Easy
+ * # 0346. Moving Average From Data Stream
+ *
+ * Difficulty: Medium
+ *
  *
  * Given a stream of integers and a window size, calculate the moving average of all integers in the sliding window.
  *
@@ -24,12 +27,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Hash Map Storage, Array Traversal, Sliding Window
  * **Data Structures**: Array, Queue, Linked List
  * **Patterns**: Sliding Window Pattern
- * **Time Complexity**: * O(1) per operation
- * **Space Complexity**: * O(size)
+ * **Time Complexity**: O(1) per operation
+ * **Space Complexity**: O(size)
 
  *
  * ### INTUITION:
@@ -48,19 +52,24 @@
  * - Sum and count give us the moving average efficiently
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
  * MovingAverage(3):
+ * ```
+ *
  * next(1): queue=[1], avg=1.0
  * next(10): queue=[1,10], avg=5.5
  * next(3): queue=[1,10,3], avg=4.67
  * next(5): queue=[10,3,5], avg=6.0 (removed 1)
- * ```
- *
+
  * ### TIME COMPLEXITY:
- * O(1) per operation
+ * O(1) per operation - constant time
  *
  * ### SPACE COMPLEXITY:
+
  * O(size)
+
+ * - Based on auxiliary data structures
  *
  * ### EDGE CASES:
  * - **Window size 1**: Average equals current value

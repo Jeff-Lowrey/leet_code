@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 73. Set Matrix Zeroes
+# 0073. Set Matrix Zeroes
 
 Given an m x n integer matrix, if an element is 0, set its entire row and column to 0's.
 
@@ -11,7 +11,7 @@ You must do it in place.
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[[1, 1, 1]</dd>
+<dd>[[1, 1, 1]]</dd>
 <dt>Output:</dt>
 <dd>1</dd>
 <dt>Explanation:</dt>
@@ -19,7 +19,8 @@ You must do it in place.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
 **Data Structures**: Hash Set, Array, Matrix
 **Patterns**: Iterative Solution
@@ -42,21 +43,29 @@ Cannot modify matrix while iterating as it affects future decisions. Need to mar
 - Separate flags handle the overlap at matrix[0][0]
 
 ### EXAMPLE WALKTHROUGH:
-```
 Input:
+```
+[[1, 1, 1]
+```
+
+Input:
+```
 [1, 1, 1]
+```
+
 [1, 0, 1]
 [1, 1, 1]
-
 Step 1 - Mark:
 first_row = False, first_col = False
 After marking: matrix[1][0] = 0, matrix[0][1] = 0
-
 Step 2 - Apply based on markers:
-Column 1 has marker -> zero column 1
-Row 1 has marker -> zero row 1
+
+Steps:
+Step 1: Column 1 has marker -> zero column 1
+Step 2: Row 1 has marker -> zero row 1
 
 Output:
+```
 [1, 0, 1]
 [0, 0, 0]
 [1, 0, 1]

@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Easy
  *
- * # 766. Toeplitz Matrix
+ * # 0766. Toeplitz Matrix
+ *
  *
  * Given an m x n matrix, return true if the matrix is Toeplitz. Otherwise, return false.
  *
@@ -25,7 +26,7 @@
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[[1, 2, 3, 4]</dd>
+ * <dd>[[1, 2, 3, 4]]</dd>
  * <dt>Output:</dt>
  * <dd>1</dd>
  * <dt>Explanation:</dt>
@@ -33,7 +34,8 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Hash Map, Array, Tree
  * **Patterns**: Two Pointers Pattern
@@ -61,11 +63,13 @@
  * - Checking adjacent cells on diagonal ensures entire diagonal is same
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
  * matrix = [[1,2,3,4],
- *           [5,1,2,3],
- *           [9,5,1,2]]
+ * ```
  *
+ * [5,1,2,3],
+ * [9,5,1,2]]
  * Check (0,0)==(1,1): 1==1 ✓
  * Check (0,1)==(1,2): 2==2 ✓
  * Check (0,2)==(1,3): 3==3 ✓
@@ -73,15 +77,21 @@
  * Check (1,1)==(2,2): 1==1 ✓
  * Check (1,2)==(2,3): 2==2 ✓
  *
- * All checks pass → True
+ * Steps:
+ * Step 1: All checks pass → True
+ * 
+ * Output:
  * ```
- *
+ * True
+ * ```
+ * 
  * ### TIME COMPLEXITY:
  * O(m × n)
  * - Check each cell once (except last row and column)
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  * - Only use constant extra space
  *
  * ### EDGE CASES:

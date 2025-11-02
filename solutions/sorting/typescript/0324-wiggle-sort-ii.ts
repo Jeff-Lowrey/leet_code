@@ -1,38 +1,37 @@
 /**
- * # Difficulty: Medium
+ * # 0324. Wiggle Sort Ii
  *
- * # 324. Wiggle Sort II
+ * Difficulty: Medium
  *
- * Given an integer array nums, reorder it such that nums[0] < nums[1] > nums[2] < nums[3]...
- *
- * You may assume the input array always has a valid answer.
- *
- * Follow up: Can you do it in O(n) time and/or in-place with O(1) extra space?
+ * Solve the Wiggle Sort Ii problem as described.
  *
  * **Example:**
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[1, 5, 1, 1, 6, 4]</dd>
+ * <dd>nums = [1,5,1,1,6,4]</dd>
  * <dt>Output:</dt>
- * <dd>"Test 1 result: {nums1}"</dd>
+ * <dd>[1,6,1,5,1,4]</dd>
  * <dt>Explanation:</dt>
- * <dd>Wiggle sort II: nums[0] < nums[1] > nums[2] < nums[3]...</dd>
+ * <dd>After sorting and interleaving, the result satisfies nums[i] < nums[i+1] > nums[i+2] pattern</dd>
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
- * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
- * **Data Structures**: Hash Map, Array, Graph
- * **Patterns**: Graph Pattern
- * **Time Complexity**: O(n log n) - Sorting or divide-and-conquer
- * **Space Complexity**: O(n) - Additional hash map storage
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ *
+ * ### METADATA:
+ * **Techniques**: Sorting, Virtual indexing, Partitioning, Two-pointer technique
+ * **Data Structures**: Array, In-place manipulation
+ * **Patterns**: Wiggle pattern, Median finding, Index mapping
+ * **Time Complexity**: **O(n²)**
+ * **Space Complexity**: **O(n)**
  *
  * ### INTUITION:
  * Unlike Wiggle Sort I which allows equality, this requires strict inequality (<, >, <, >).
  * We need to interleave smaller and larger halves to avoid adjacent equal elements.
  *
  * ### APPROACH:
+ * **Data structures: Array (sorting and manipulation)**
  * 1. **Find median**: Partition array around median value
  * 2. **Interleave halves**: Place smaller elements at even indices, larger at odd
  * 3. **Reverse order**: Place larger elements in reverse to avoid adjacency
@@ -44,32 +43,35 @@
  * - Reverse order within halves maximizes separation
  * - Example: [1,2,3,4,5,6] → [1,4,2,5,3,6] → rearrange → [3,6,2,5,1,4]
  *
- * ### EXAMPLE WALKTHROUGH:
+ *
+
+This solution uses partitioning for efficient implementation.
+
+This solution uses two-pointer technique for efficient implementation.
+### EXAMPLE WALKTHROUGH:
+  * Input:
  * ```
- * Input: nums = [1,5,1,1,6,4]
+ * nums = [1,5,1,1,6,4]
+ * ```
  *
- * Step 1: Sort
- * [1,1,1,4,5,6]
+ * **Step 1:** Sort the input array [1,5,1,1,6,4]
+ * - Sorted: [1,1,1,4,5,6]
  *
- * Step 2: Split around median (median ≈ 2.5, so split at index 3)
- * Small half: [1,1,1]
- * Large half: [4,5,6]
+ * **Step 2:** Split around median (median ≈ 2.5, so split at index 3)
+ * - Small half: [1,1,1]
+ * - Large half: [4,5,6]
  *
- * Step 3: Interleave in reverse order
- * Even indices (0,2,4): [1,1,1] reversed → 1,1,1
- * Odd indices (1,3,5): [4,5,6] reversed → 6,5,4
+ * **Step 3:** Interleave in reverse order
+ * - Even indices (0,2,4): [1,1,1] reversed → 1,1,1
+ * - Odd indices (1,3,5): [4,5,6] reversed → 6,5,4
  *
- * Result: [1,6,1,5,1,4]
- * Verify: 1<6>1<5>1<4 ✓
+ * **Step 4:** Verify wiggle property
+ * - Result: [1,6,1,5,1,4]
+ * - Check: 1<6>1<5>1<4 ✓
  *
- * Why reverse order?
- * If we used [1,1,1] and [4,5,6] directly:
- * [1,4,1,5,1,6] - works
- * But with [1,1,1,2,2,2], without reversing:
- * [1,2,1,2,1,2] - works
- * With [1,1,1,1,2,2], need clever placement:
- * [1,2,1,2,1,1] - the last two are equal!
- * Reversing: [1,2,1,2,1,1] → place from middle outward
+ * Output:
+ * ```
+ * [1,6,1,5,1,4]
  * ```
  *
  * ### TIME COMPLEXITY:
@@ -81,63 +83,62 @@
  * For temporary sorted array. Can be O(1) with in-place virtual indexing.
  *
  * ### EDGE CASES:
- * - Array with many duplicate elements
- * - All elements equal (impossible with strict inequality requirement)
- * - Small arrays (length 2-3)
- * - Even vs odd length arrays
+ * - Array with many duplicate elements: [1,1,1,4,5,6] → [1,5,1,6,1,4] (requires careful interleaving)
+ * - All elements equal: [2,2,2,2] → no valid solution (impossible with strict inequality requirement)
+ * - Small arrays: [1,2] → [1,2], [1,2,3] → [2,3,1] or [1,3,2]
+ * - Even vs odd length arrays: [1,2,3,4] (even) vs [1,2,3,4,5] (odd, extra in small half)
  *
- * </details>
- */
+ *
+*/
 
-class Solution {
-  wiggleSort(nums: number[]): void {
-    const sorted = [...nums].sort((a, b) => a - b);
-    const n = nums.length;
-    const mid = Math.floor((n + 1) / 2);
+function wiggleSort(nums: number[]): void {
+    const sorted: number[] = [...nums].sort((a, b) => a - b);
+    const n: number = nums.length;
+    const mid: number = Math.floor((n + 1) / 2);
 
-    const small = sorted.slice(0, mid).reverse();
-    const large = sorted.slice(mid).reverse();
+    const small: number[] = sorted.slice(0, mid).reverse();
+    const large: number[] = sorted.slice(mid).reverse();
 
     for (let i = 0; i < small.length; i++) {
-      nums[2 * i] = small[i];
+        nums[i * 2] = small[i];
     }
+
     for (let i = 0; i < large.length; i++) {
-      nums[2 * i + 1] = large[i];
+        nums[i * 2 + 1] = large[i];
     }
-  }
 }
 
-if (typeof module !== "undefined" && module.exports) {
-  module.exports = Solution;
-}
-
-function isStrictWiggle(nums: number[]): boolean {
-  for (let i = 0; i < nums.length - 1; i++) {
-    if (i % 2 === 0) {
-      if (nums[i] >= nums[i + 1]) return false;
-    } else {
-      if (nums[i] <= nums[i + 1]) return false;
+function verifyWiggle(nums: number[]): boolean {
+    for (let i = 0; i < nums.length - 1; i++) {
+        if (i % 2 === 0) {
+            if (nums[i] >= nums[i + 1]) return false;
+        } else {
+            if (nums[i] <= nums[i + 1]) return false;
+        }
     }
-  }
-  return true;
+    return true;
 }
 
-function runTests(): void {
-  const solution = new Solution();
+if (require.main === module) {
+    const testCases: number[][] = [
+        [1, 5, 1, 1, 6, 4],
+        [1, 3, 2, 2, 3, 1],
+        [1, 2, 3, 4, 5],
+        [5, 4, 3, 2, 1],
+        [1, 1, 2, 2, 3, 3],
+        [4, 5, 5, 6]
+    ];
 
-  const nums1 = [1, 5, 1, 1, 6, 4];
-  solution.wiggleSort(nums1);
-  console.log(`Test 1: ${isStrictWiggle(nums1) ? "PASS" : "FAIL"}`);
-
-  const nums2 = [1, 3, 2, 2, 3, 1];
-  solution.wiggleSort(nums2);
-  console.log(`Test 2: ${isStrictWiggle(nums2) ? "PASS" : "FAIL"}`);
-
-  console.log("\nAll test cases completed!");
+    console.log("Testing wiggleSort:");
+    for (const test of testCases) {
+        const nums: number[] = [...test];
+        const original: number[] = [...test];
+        wiggleSort(nums);
+        const isValid: boolean = verifyWiggle(nums);
+        const status: string = isValid ? "✓" : "✗";
+        console.log(`${status} Input: [${original}]`);
+        console.log(`   Output: [${nums}], Valid: ${isValid}`);
+    }
 }
 
-if (typeof require !== "undefined" && require.main === module) {
-  runTests();
-}
-
-export default Solution;
+export { wiggleSort, verifyWiggle };

@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 151. Reverse Words In A String
+# 0151. Reverse Words In A String
 
 This problem demonstrates key concepts in String manipulation and parsing.
 
@@ -17,7 +17,8 @@ This problem demonstrates key concepts in String manipulation and parsing.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Backtracking
 **Data Structures**: Array, String
 **Patterns**: Iterative Solution
@@ -42,20 +43,25 @@ and 3) reversing the word order while preserving word integrity.
 - Joining with a single space ensures proper formatting
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: s = "  hello   world  "
+s = "  hello   world  "
+s = "a good   example"
+```
+
 Step 1: Strip: "hello   world"
 Step 2: Split: ["hello", "world"]
 Step 3: Reverse: ["world", "hello"]
 Step 4: Join: "world hello"
-Output: "world hello"
-
-Input: s = "a good   example"
 Step 1: Strip: "a good   example"
 Step 2: Split: ["a", "good", "example"]
 Step 3: Reverse: ["example", "good", "a"]
 Step 4: Join: "example good a"
-Output: "example good a"
+
+Output:
+```
+"world hello"
+"example good a"
 ```
 
 ### TIME COMPLEXITY:

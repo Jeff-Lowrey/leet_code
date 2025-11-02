@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 567. Permutation In String
+# 0567. Permutation In String
 
 Given two strings s1 and s2, return true if s2 contains a permutation of s1, or false otherwise.
 
@@ -19,7 +19,8 @@ In other words, return true if one of s1's permutations is the substring of s2.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Array Traversal, Sliding Window
 **Data Structures**: Array, String
 **Patterns**: Sliding Window Pattern, Hash Table Pattern
@@ -47,22 +48,31 @@ Use sliding window with character frequency. Window is valid if it contains perm
 - O(n) time for s2 length n, O(1) space for fixed alphabet size
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: s1 = "ab", s2 = "eidbaooo"
-Step 1: Check each window of size 2
-  "ei": not permutation
-  "id": not permutation
-  "db": not permutation
-  "ba": is permutation of "ab" ✓
+s1 = "ab", s2 = "eidbaooo"
+```
 
-Output: True
+Step 1: Check each window of size 2
+"ei": not permutation
+"id": not permutation
+"db": not permutation
+"ba": is permutation of "ab" ✓
+
+Output:
+```
+True
 ```
 
 ### TIME COMPLEXITY:
 O(n)
+- Single pass through input
+
 
 ### SPACE COMPLEXITY:
 O(1)
+- Constant extra space
+
 
 ### EDGE CASES:
 - Empty input handling
@@ -169,12 +179,12 @@ def test_solution() -> None:
     # Test case 1: Example from problem
     result = solution.checkInclusion("ab", "eidbaooo")
     expected = True
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: No permutation found
     result = solution.checkInclusion("ab", "eidboaoo")
     expected = False
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

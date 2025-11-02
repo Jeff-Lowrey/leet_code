@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Medium
  *
- * # 394. Decode String
+ * # 0394. Decode String
+ *
  *
  * Given an encoded string, return its decoded string.
  *
@@ -21,7 +22,8 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Array Traversal, Sliding Window
  * **Data Structures**: Array, String, Stack
  * **Patterns**: Hash Table Pattern, Tree Pattern
@@ -45,8 +47,11 @@
  * - Numbers are always followed by '[', so we can parse them together
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: "3[a2[c]]"
+ * "3[a2[c]]"
+ * ```
+ *
  * 1. '3': count = 3
  * 2. '[': push count=3, string="", reset current
  * 3. 'a': current_string = "a"
@@ -55,15 +60,19 @@
  * 6. 'c': current_string = "c"
  * 7. ']': current = "c" * 2 = "cc", pop: current = "a" + "cc" = "acc"
  * 8. ']': current = "acc" * 3 = "accaccacc"
- * Output: "accaccacc"
- * ```
  *
+ * Output:
+ * ```
+ * "accaccacc"
+ * ```
+
  * ### TIME COMPLEXITY:
  * O(n × m)
  * Where n is length of input, m is maximum decoded length
  *
  * ### SPACE COMPLEXITY:
  * O(n)
+ * - Additional set storage
  * For the stacks and intermediate strings
  *
  * ### EDGE CASES:

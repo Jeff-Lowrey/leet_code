@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 767. Reorganize String
+# 0767. Reorganize String
 
 Given a string s, rearrange the characters of s so that any two adjacent characters are not the same.
 
@@ -19,7 +19,8 @@ Return any possible rearrangement of s or return "" if not possible.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
 **Data Structures**: Hash Set, Array, String
 **Patterns**: Hash Table Pattern, Greedy Algorithm
@@ -47,27 +48,34 @@ Use max heap to track character frequencies. Greedily pick most frequent charact
 - O(n log k) time: k unique chars, n total chars, O(k) space for heap
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: s = "aab"
+s = "aab"
+```
+
 Step 1: Count character frequencies
-  freq = {'a': 2, 'b': 1}
-
+freq = {'a': 2, 'b': 1}
 Step 2: Build max heap (using negative frequencies)
-  heap = [(-2, 'a'), (-1, 'b')]
-
+heap = [(-2, 'a'), (-1, 'b')]
 Step 3: Rearrange characters
-  Pick 'a': result = "a", heap = [(-1, 'b'), (-1, 'a')]
-  Pick 'b': result = "ab", heap = [(-1, 'a')]
-  Pick 'a': result = "aba"
+Pick 'a': result = "a", heap = [(-1, 'b'), (-1, 'a')]
+Pick 'b': result = "ab", heap = [(-1, 'a')]
+Pick 'a': result = "aba"
 
-Output: "aba" (reorganized string)
+Output:
+```
+"aba" (reorganized string)
 ```
 
 ### TIME COMPLEXITY:
 O(n)
+- Single pass through input
+
 
 ### SPACE COMPLEXITY:
 O(1)
+- Constant extra space
+
 
 ### EDGE CASES:
 - Empty input handling
@@ -150,18 +158,18 @@ def test_solution() -> None:
     # Test case 1: Example from problem - "aab" can be reorganized to "aba"
     result = solution.reorganizeString("aab")
     # Verify no adjacent duplicates and correct length
-    assert len(result) == 3, f"Wrong length: {result}"
-    assert all(result[i] != result[i + 1] for i in range(len(result) - 1)), f"Has adjacent duplicates: {result}"
+    assert len(result) == 3, f"Wrong length: result"
+    assert all(result[i] != result[i + 1] for i in range(len(result) - 1)), f"Has adjacent duplicates: result"
 
     # Test case 2: Impossible case - too many of one character
     result = solution.reorganizeString("aaab")
     expected = ""
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 3: Single character
     result = solution.reorganizeString("a")
     expected = "a"
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

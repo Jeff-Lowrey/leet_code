@@ -1,5 +1,8 @@
 /**
- * # Difficulty: Medium
+ * # 1019. Next Greater Node In Linked List
+ *
+ * Difficulty: Medium
+ *
  *
  * Given the head of a linked list, return an array of integers answer, where answer[i] is
  * the value of the next greater node of the ith node (1-indexed). If there is no next greater
@@ -22,12 +25,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Hash Map Storage, Array Traversal, Stack Operations
  * **Data Structures**: Array, Stack, Linked List
  * **Patterns**: Iterative Solution
- * **Time Complexity**: * O(n) - Single pass through input
- * **Space Complexity**: * O(n)
+ * **Time Complexity**: O(n) - Single pass through input
+ * **Space Complexity**: O(n)
 
  *
  * ### INTUITION:
@@ -46,26 +50,30 @@
  * it's the "next greater" for all smaller elements in the stack.
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
  * list = [2,1,5]
- * Stack: [(idx, val)]
+ * ```
  *
+ * Stack: [(idx, val)]
  * i=0, val=2: stack=[(0,2)], answer=[0,0,0]
  * i=1, val=1: stack=[(0,2),(1,1)], answer=[0,0,0]
  * i=2, val=5:
- *   - Pop (1,1): answer[1]=5
- *   - Pop (0,2): answer[0]=5
- *   - stack=[(2,5)]
- *   - answer=[5,5,0]
- *
+ * - Pop (1,1): answer[1]=5
+ * - Pop (0,2): answer[0]=5
+ * - stack=[(2,5)]
+ * - answer=[5,5,0]
  * Result: [5,5,0]
- * ```
- *
+
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  *
  * ### SPACE COMPLEXITY:
+
  * O(n)
+
+ * - Additional data structure for storage
  *
  * ### EDGE CASES:
  * - **Empty list**: Return empty array
