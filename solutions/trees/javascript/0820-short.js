@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Medium
  *
- * # 820. Short Encoding of Words
+ * # 0820. Short Encoding of Words
+ *
  *
  * A valid encoding of an array of words is any reference string s and an array of indices indices such that:
  * - words.length == indices.length
@@ -22,12 +23,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Hash Map, Hash Set, Array
  * **Patterns**: Hash Table Pattern
- * **Time Complexity**: * O(N × M)
- * **Space Complexity**: * O(N × M)
+ * **Time Complexity**: O(N × M)
+ * **Space Complexity**: O(N × M)
 
  *
  * ### INTUITION:
@@ -45,16 +47,18 @@
  * - Each word needs one '#' delimiter, so total length = sum(word_lengths) + count
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: words = ["time", "me", "bell"]
+ * words = ["time", "me", "bell"]
+ * ```
+ *
  * 1. Build trie with reversed words: ["emit", "em", "lleb"]
  * 2. "em" is a suffix of "emit", so we can share encoding
  * 3. Result: "time#bell#" (length 10)
- *    - "time" at index 0
- *    - "me" at index 2 (suffix of "time")
- *    - "bell" at index 5
- * ```
- *
+ * - "time" at index 0
+ * - "me" at index 2 (suffix of "time")
+ * - "bell" at index 5
+
  * ### TIME COMPLEXITY:
  * O(N × M)
  * Where N is the number of words and M is the average length of words

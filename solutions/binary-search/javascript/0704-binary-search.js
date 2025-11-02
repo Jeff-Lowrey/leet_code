@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Easy
  *
- * # 704. Binary Search
+ * # 0704. Binary Search
+ *
  *
  * Given an array of integers nums which is sorted in ascending order,
  * and an integer target, write a function to search target in nums.
@@ -21,12 +22,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Hash Map Storage, Array Traversal, Two Pointers
  * **Data Structures**: Array, Tree
  * **Patterns**: Complement Search, Two Pointers Pattern
- * **Time Complexity**: * O(log n) - Binary search or tree height
- * **Space Complexity**: * O(1) - Constant extra space
+ * **Time Complexity**: O(log n) - Binary search or tree height
+ * **Space Complexity**: O(1) - Constant extra space
 
  *
  * ### INTUITION:
@@ -49,18 +51,26 @@
  * - Guarantees O(log n) time complexity
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: nums = [-1,0,3,5,9,12], target = 9
- * Step 1: left=0, right=5, mid=2, nums[2]=3 < 9, search right
- * Step 2: left=3, right=5, mid=4, nums[4]=9 == 9, found!
- * Output: 4
+ * nums = [-1,0,3,5,9,12], target = 9
  * ```
  *
+ * Step 1: left=0, right=5, mid=2, nums[2]=3 < 9, search right
+ * Step 2: left=3, right=5, mid=4, nums[4]=9 == 9, found!
+ *
+ * Output:
+ * ```
+ * 4
+ * ```
+
  * ### TIME COMPLEXITY:
  * O(log n)
+ * - Binary search or tree height
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  *
  * ### EDGE CASES:
  * - Empty array: return -1

@@ -1,7 +1,7 @@
 """
 # Difficulty: Easy
 
-# 202. Happy Number
+# 0202. Happy Number
 
 Write an algorithm to determine if a number n is happy.
 
@@ -24,7 +24,8 @@ Return true if n is a happy number, and false if not.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
 **Data Structures**: Hash Set
 **Patterns**: Two Pointers Pattern, Hash Table Pattern
@@ -46,24 +47,27 @@ Either the process reaches 1 (happy) or enters a cycle (not happy). Use a set to
 - Set or two-pointer both detect cycles
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
 n = 19:
+```
+
 1² + 9² = 82
 8² + 2² = 68
 6² + 8² = 100
-1² + 0² + 0² = 1 → Happy!
-
 n = 2:
-2² = 4
-4² = 16
-1² + 6² = 37
-3² + 7² = 58
-5² + 8² = 89
-8² + 9² = 145
-1² + 4² + 5² = 42
-4² + 2² = 20
-2² + 0² = 4 → Cycle! Not happy
-```
+
+Steps:
+Step 1: 1² + 0² + 0² = 1 → Happy!
+Step 2: 2² = 4
+Step 3: 4² = 16
+Step 4: 1² + 6² = 37
+Step 5: 3² + 7² = 58
+Step 6: 5² + 8² = 89
+Step 7: 8² + 9² = 145
+Step 8: 1² + 4² + 5² = 42
+Step 9: 4² + 2² = 20
+Step 10: 2² + 0² = 4 → Cycle! Not happy
 
 ### TIME COMPLEXITY:
 O(log n)
@@ -154,4 +158,4 @@ if __name__ == "__main__":
     print("\n=== 202. Happy Number ===")
     for n in [1, 2, 7, 19, 100]:
         result = solution.isHappy(n)
-        print(f"isHappy({n}) -> {result}")
+        print(f"isHappy(n) -> result")

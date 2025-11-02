@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Medium
  *
- * # 759. Employee
+ * # 0759. Employee Free Time
+ *
  *
  * We are given a list schedule of employees, which represents the working time for each employee.
  *
@@ -23,12 +24,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Array Traversal, Two Pointers, Sorting
  * **Data Structures**: Array
  * **Patterns**: Two Pointers Pattern, Greedy Algorithm
- * **Time Complexity**: * O(n) - Single pass through input
- * **Space Complexity**: * O(1) - Constant extra space
+ * **Time Complexity**: O(n) - Single pass through input
+ * **Space Complexity**: O(1) - Constant extra space
 
  *
  * ### INTUITION:
@@ -46,23 +48,29 @@
  * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: schedule = [[[1,2],[5,6]],[[1,3]],[[4,10]]]
+ * schedule = [[[1,2],[5,6]],[[1,3]],[[4,10]]]
+ * ```
+ *
  * Step 1: Flatten all intervals
- *   all_intervals = [1-2, 5-6, 1-3, 4-10]
- *
+ * all_intervals = [1-2, 5-6, 1-3, 4-10]
  * Step 2: Find gaps between merged intervals
- *   merged = [1-3, 4-10]
- *   gap = [3-4]
+ * merged = [1-3, 4-10]
+ * gap = [3-4]
  *
- * Output: [[3,4]] (common free time)
+ * Output:
  * ```
- *
+ * [[3,4]] (common free time)
+ * ```
+
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  *
  * ### EDGE CASES:
  * - Empty input handling

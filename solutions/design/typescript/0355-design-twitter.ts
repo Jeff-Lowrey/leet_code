@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  * 
- * # 355. Design Twitter
+ * # 0355. Design Twitter
  * 
  * Design a simplified version of Twitter where users can post tweets, follow/unfollow users, and see a news feed.
  * 
@@ -29,7 +29,8 @@
  * </dl>
  * 
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Backtracking
  * **Data Structures**: Hash Map, Hash Set, Array
  * **Patterns**: Hash Table Pattern, Backtracking
@@ -66,15 +67,17 @@
  * - Timestamp ensures correct ordering across all users
  * 
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
  * postTweet(1, 5): user 1 posts tweet 5
+ * ```
+ *
  * follow(1, 2): user 1 follows user 2
  * postTweet(2, 6): user 2 posts tweet 6
  * getNewsFeed(1): returns [6, 5] (most recent from user 1 and followees)
  * unfollow(1, 2): user 1 unfollows user 2
  * getNewsFeed(1): returns [5] (only user 1's tweets)
- * ```
- * 
+
  * ### TIME COMPLEXITY:
  * - postTweet: O(1)
  * - getNewsFeed: O(N log k) where N is total tweets, k=10

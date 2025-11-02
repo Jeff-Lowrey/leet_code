@@ -1,5 +1,5 @@
 """
-# 46. Permutations
+# 0046. Permutations
 
 # Difficulty: Medium
 
@@ -18,7 +18,8 @@ You can return the answer in any order.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
 **Data Structures**: Hash Map, Array, Tree
 **Patterns**: Two Pointers Pattern, Hash Table Pattern
@@ -44,34 +45,36 @@ Generate all permutations by systematically trying each unused element at each p
 - Systematic exploration guarantees all permutations are found
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: nums = [1, 2, 3]
+nums = [1, 2, 3]
+```
 
 Step 1: backtrack([])
-  Try 1: current = [1]
-    Try 2: current = [1,2]
-      Try 3: current = [1,2,3] ✓ Complete! Add to result
-      Remove 3: current = [1,2]
-    Remove 2: current = [1]
-    Try 3: current = [1,3]
-      Try 2: current = [1,3,2] ✓ Complete! Add to result
-      Remove 2: current = [1,3]
-    Remove 3: current = [1]
-  Remove 1: current = []
-
+Try 1: current = [1]
+Try 2: current = [1,2]
+Try 3: current = [1,2,3] ✓ Complete! Add to result
+Remove 3: current = [1,2]
+Remove 2: current = [1]
+Try 3: current = [1,3]
+Try 2: current = [1,3,2] ✓ Complete! Add to result
+Remove 2: current = [1,3]
+Remove 3: current = [1]
+Remove 1: current = []
 Step 2: Try 2: current = [2]
-    Try 1: current = [2,1]
-      Try 3: current = [2,1,3] ✓ Complete! Add to result
-    Try 3: current = [2,3]
-      Try 1: current = [2,3,1] ✓ Complete! Add to result
-
+Try 1: current = [2,1]
+Try 3: current = [2,1,3] ✓ Complete! Add to result
+Try 3: current = [2,3]
+Try 1: current = [2,3,1] ✓ Complete! Add to result
 Step 3: Try 3: current = [3]
-    Try 1: current = [3,1]
-      Try 2: current = [3,1,2] ✓ Complete! Add to result
-    Try 2: current = [3,2]
-      Try 1: current = [3,2,1] ✓ Complete! Add to result
+Try 1: current = [3,1]
+Try 2: current = [3,1,2] ✓ Complete! Add to result
+Try 2: current = [3,2]
+Try 1: current = [3,2,1] ✓ Complete! Add to result
 
-Output: [[1,2,3], [1,3,2], [2,1,3], [2,3,1], [3,1,2], [3,2,1]]
+Output:
+```
+[[1,2,3], [1,3,2], [2,1,3], [2,3,1], [3,1,2], [3,2,1]]
 ```
 
 ### TIME COMPLEXITY:
@@ -141,7 +144,6 @@ class Solution:
 
 """
 47. Permutations II
-# Difficulty: Medium
 Given a collection of numbers, nums, that might contain duplicates, return all
 possible unique permutations in any order.
 
@@ -180,7 +182,6 @@ class SolutionUnique:
 
 """
 31. Next Permutation
-# Difficulty: Medium
 A permutation of an array of integers is an arrangement of its members into a
 sequence or linear order.
 
@@ -233,8 +234,8 @@ if __name__ == "__main__":
     test_cases = [[1, 2, 3], [0, 1], [1]]
     for nums in test_cases:
         result = solution.permute(nums)
-        print(f"Input: {nums}")
-        print(f"Permutations: {result}\n")
+        print(f"Input: nums")
+        print(f"Permutations: result\n")
 
     # Test Permutations with Duplicates
     solution_unique = SolutionUnique()
@@ -243,8 +244,8 @@ if __name__ == "__main__":
     test_cases_dup = [[1, 1, 2], [1, 2, 3], [2, 2, 1, 1]]
     for nums in test_cases_dup:
         result = solution_unique.permuteUnique(nums)
-        print(f"Input: {nums}")
-        print(f"Unique Permutations: {result}\n")
+        print(f"Input: nums")
+        print(f"Unique Permutations: result\n")
 
     # Test Next Permutation
     solution_next = SolutionNext()
@@ -254,4 +255,4 @@ if __name__ == "__main__":
     for nums in test_cases_next:
         original = nums.copy()
         solution_next.nextPermutation(nums)
-        print(f"Input: {original} -> Next: {nums}")
+        print(f"Input: {original} -> Next: nums")

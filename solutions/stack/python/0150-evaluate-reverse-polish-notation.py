@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 150. Evaluate Reverse Polish Notation
+# 0150. Evaluate Reverse Polish Notation
 
 You are given an array of strings tokens that represents an arithmetic expression
 in Reverse Polish Notation.
@@ -27,7 +27,8 @@ Note that:
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
 **Data Structures**: Hash Map, Array, String
 **Patterns**: Two Pointers Pattern
@@ -53,15 +54,23 @@ compute, and push result back.
 - Each operator consumes exactly two operands and produces one result
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: ["2","1","+","3","*"]
+["2","1","+","3","*"]
+```
+
 Stack operations:
-"2" -> [2]
-"1" -> [2,1]
-"+" -> [3]        (pop 1,2; compute 2+1=3; push 3)
-"3" -> [3,3]
-"*" -> [9]        (pop 3,3; compute 3*3=9; push 9)
-Output: 9
+
+Steps:
+Step 1: "2" -> [2]
+Step 2: "1" -> [2,1]
+Step 3: "+" -> [3]        (pop 1,2; compute 2+1=3; push 3)
+Step 4: "3" -> [3,3]
+Step 5: "*" -> [9]        (pop 3,3; compute 3*3=9; push 9)
+
+Output:
+```
+9
 ```
 
 ### TIME COMPLEXITY:

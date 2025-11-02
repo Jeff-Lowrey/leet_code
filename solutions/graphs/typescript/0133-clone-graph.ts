@@ -1,5 +1,5 @@
 /**
- * # 133. Clone Graph
+ * # 0133. Clone Graph
  * 
  * # Difficulty: Medium
  * 
@@ -20,7 +20,8 @@
  * </dl>
  * 
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
  * **Data Structures**: Hash Map, Hash Set, Array
  * **Patterns**: Hash Table Pattern, Backtracking
@@ -44,32 +45,36 @@
  * By using a hash map to track visited nodes, we ensure each node is cloned exactly once, preventing infinite loops in the presence of cycles. The DFS/BFS traversal guarantees we visit every reachable node, and by cloning neighbors recursively, we preserve the exact structure and relationships of the original graph. The hash map serves both as a visited tracker and a lookup for already-cloned nodes.
  * 
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: adjList = [[2,4],[1,3],[2,4],[1,3]]
+ * adjList = [[2,4],[1,3],[2,4],[1,3]]
+ * ```
+ *
  * Step 1: Start BFS from node 1
- *   Create clone of node 1
- *   visited = {1: Node(1)}
- * 
+ * Create clone of node 1
+ * visited = {1: Node(1)}
  * Step 2: Process neighbors of node 1 (nodes 2 and 4)
- *   Clone node 2, add to visited
- *   Clone node 4, add to visited
- *   Connect node 1 to nodes 2 and 4
- * 
+ * Clone node 2, add to visited
+ * Clone node 4, add to visited
+ * Connect node 1 to nodes 2 and 4
  * Step 3: Process node 2 neighbors (nodes 1 and 3)
- *   Node 1 already cloned
- *   Clone node 3, connect to node 2
- * 
+ * Node 1 already cloned
+ * Clone node 3, connect to node 2
  * Step 4: Process remaining nodes
- *   Build all connections maintaining graph structure
- * 
- * Output: Cloned graph with same structure
+ * Build all connections maintaining graph structure
+ *
+ * Output:
  * ```
- * 
+ * Cloned graph with same structure
+ * ```
+
  * ### TIME COMPLEXITY:
- * O(V + E) - visit each node and edge once
+ * O(V + E)
+ * - visit each node and edge once
  * 
  * ### SPACE COMPLEXITY:
- * O(V) - hash map and recursion stack
+ * O(V)
+ * - hash map and recursion stack
  * 
  * ### EDGE CASES:
  * - **Null/empty graph**: Return None immediately
@@ -130,7 +135,7 @@ function runTests(): void {
   console.log("Heights matrix:")
   for row in heights:
   console.log(row)
-  console.log(`Cells reaching both oceans: {result}\n`)
+  console.log(`Cells reaching both oceans: result\n`)
   # Test Word Search
   solution_word = SolutionWordSearch()
   console.log("Word Search:")
@@ -146,7 +151,7 @@ function runTests(): void {
   test_cases = [(5, [[0, 1], [1, 2], [3, 4]]), (5, [[0, 1], [1, 2], [2, 3], [3, 4]]), (4, [[0, 1], [2, 3]])]
   for n, edges in test_cases:
   num_components: int = solution_comp.countComponents(n, edges)
-  console.log(`n={n}, edges={edges}`)
+  console.log(`n=n, edges={edges}`)
   console.log(`Components: {num_components}\n`)
 }
 

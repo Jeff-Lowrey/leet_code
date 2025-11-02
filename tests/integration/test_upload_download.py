@@ -231,8 +231,9 @@ class TestLanguageViewing:
         client: Any,
     ) -> None:
         """Test viewing solution in alternative language."""
-        from pygments.lexers import JavaLexer
         from unittest.mock import mock_open as mock_file_open
+
+        from pygments.lexers import JavaLexer
 
         mock_solution = Solution("001-two-sum.py", "Two Sum")
         mock_solution.available_languages = ["Python", "Java"]

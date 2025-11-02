@@ -1,7 +1,7 @@
 """
 # Difficulty: Easy
 
-# 232. Implement Queue using Stacks
+# 0232. Implement Queue using Stacks
 
 Implement a first-in-first-out (FIFO) queue using only two stacks.
 
@@ -17,7 +17,8 @@ Implement a first-in-first-out (FIFO) queue using only two stacks.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Stack Operations, Queue Operations
 **Data Structures**: Array, Stack, Queue
 **Patterns**: Iterative Solution
@@ -46,14 +47,18 @@ The key insight is to transfer elements between stacks when needed.
 - Each element is moved at most twice (input -> output -> removed)
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
 push(1): input=[1], output=[]
-push(2): input=[1,2], output=[]
-peek(): transfer -> input=[], output=[2,1], return 1
-pop(): output=[2,1], return 1, output=[2]
-push(3): input=[3], output=[2]
-pop(): output=[2], return 2
 ```
+
+push(2): input=[1,2], output=[]
+
+Steps:
+Step 1: peek(): transfer -> input=[], output=[2,1], return 1
+Step 2: pop(): output=[2,1], return 1, output=[2]
+Step 3: push(3): input=[3], output=[2]
+Step 4: pop(): output=[2], return 2
 
 ### TIME COMPLEXITY:
 - push: O(1)

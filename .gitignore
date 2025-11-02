@@ -31,6 +31,64 @@ yarn-error.log*
 .eslintcache
 .node_repl_history
 
+# Java
+*.class
+*.jar
+*.war
+*.ear
+*.nar
+.gradle/
+build/
+target/
+*.log
+.mtj.tmp/
+hs_err_pid*
+replay_pid*
+
+# C++
+*.o
+*.obj
+*.exe
+*.out
+*.app
+*.i*86
+*.x86_64
+*.hex
+*.dSYM/
+*.su
+*.idb
+*.pdb
+*.ilk
+*.gch
+*.pch
+*.lib
+*.a
+*.la
+*.lo
+*.dll
+*.so
+*.dylib
+cmake-build-*/
+CMakeCache.txt
+CMakeFiles/
+Makefile
+*.cmake
+!CMakeLists.txt
+
+# Go
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+go.work
+go.work.sum
+vendor/
+bin/
+pkg/
+
 # IDE
 .vscode/
 .idea/

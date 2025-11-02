@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 643. Maximum Average Subarray I
+# 0643. Maximum Average Subarray I
 
 You are given an integer array nums consisting of n elements, and an integer k.
 
@@ -19,7 +19,8 @@ Find a contiguous subarray whose length is equal to k that has the maximum avera
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Array Traversal, Two Pointers
 **Data Structures**: Hash Map, Hash Set, Array
 **Patterns**: Two Pointers Pattern, Sliding Window Pattern
@@ -46,23 +47,31 @@ Use sliding window of size k. Calculate sum of first window. Then slide: subtrac
 - O(n) time: single pass with constant work per element, O(1) space
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: nums = [1,12,-5,-6,50,3], k = 4
+nums = [1,12,-5,-6,50,3], k = 4
+```
+
 Step 1: Calculate first window sum
-  sum = 1+12+(-5)+(-6) = 2, avg = 0.5
-
+sum = 1+12+(-5)+(-6) = 2, avg = 0.5
 Step 2: Slide window
-  sum = 2-1+50 = 51, avg = 12.75
-  sum = 51-12+3 = 42, avg = 10.5
+sum = 2-1+50 = 51, avg = 12.75
+sum = 51-12+3 = 42, avg = 10.5
 
-Output: 12.75 (maximum average)
+Output:
+```
+12.75 (maximum average)
 ```
 
 ### TIME COMPLEXITY:
 O(n)
+- Single pass through input
+
 
 ### SPACE COMPLEXITY:
 O(1)
+- Constant extra space
+
 
 ### EDGE CASES:
 - Empty input handling
@@ -118,12 +127,12 @@ def test_solution() -> None:
     # Test case 1: Basic case
     result = solution.findMaxAverage([1, 2, 3], 2)
     expected = 2.5
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: Empty input
     result = solution.findMaxAverage([], 0)
     expected = 0.0
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

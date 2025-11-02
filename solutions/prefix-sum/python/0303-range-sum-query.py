@@ -1,7 +1,7 @@
 """
 # Difficulty: Easy
 
-# 303. Range Sum Query - Immutable
+# 0303. Range Sum Query - Immutable
 
 Given an integer array nums, handle multiple queries of the following type:
 
@@ -16,15 +16,16 @@ Implement the NumArray class:
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>["NumArray", "sumRange", "sumRange", "sumRange"]</dd>
+<dd>["NumArray","sumRange","sumRange","sumRange"], [[[-2,0,3,-5,2,-1]],[0,2],[2,5],[0,5]]</dd>
 <dt>Output:</dt>
-<dd>"Expected {expected}, got {result}"</dd>
+<dd>[null,1,-1,-3]</dd>
 <dt>Explanation:</dt>
 <dd>The sum of elements between indices 2 and 5 is calculated as prefix[5+1] - prefix[2] = 1</dd>
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
 **Data Structures**: Array, String, Tree
 **Patterns**: Two Pointers Pattern
@@ -48,26 +49,34 @@ Precompute cumulative sums in array. For range [i,j], the sum is prefix[j+1] - p
 - Trade O(n) space for constant-time queries vs O(n) per query without prefix
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: ["NumArray","sumRange","sumRange","sumRange"], [[[-2,0,3,-5,2,-1]],[0,2],[2,5],[0,5]]
+["NumArray","sumRange","sumRange","sumRange"], [[[-2,0,3,-5,2,-1]],[0,2],[2,5],[0,5]]
+```
 
 Step 1: Build prefix sum array
-  nums = [-2,0,3,-5,2,-1]
-  prefix = [0,-2,-2,1,-4,-2,-3]
-
+nums = [-2,0,3,-5,2,-1]
+prefix = [0,-2,-2,1,-4,-2,-3]
 Step 2: Query using prefix
-  sumRange(0,2) = prefix[3] - prefix[0] = 1 - 0 = 1
-  sumRange(2,5) = prefix[6] - prefix[2] = -3 - (-2) = -1
-  sumRange(0,5) = prefix[6] - prefix[0] = -3 - 0 = -3
+sumRange(0,2) = prefix[3] - prefix[0] = 1 - 0 = 1
+sumRange(2,5) = prefix[6] - prefix[2] = -3 - (-2) = -1
+sumRange(0,5) = prefix[6] - prefix[0] = -3 - 0 = -3
 
-Output: [null,1,-1,-3]
+Output:
+```
+[null,1,-1,-3]
 ```
 
 ### TIME COMPLEXITY:
 O(n)
 
+- Single pass through the input
+
+
 ### SPACE COMPLEXITY:
 O(1)
+- Constant extra space
+
 
 ### EDGE CASES:
 - Empty input handling
@@ -131,31 +140,31 @@ def test_solution() -> None:
     operations = ["NumArray", "sumRange", "sumRange", "sumRange"]
     values = [[[-2, 0, 3, -5, 2, -1]], [0, 2], [2, 5], [0, 5]]
     solution.solve(operations, values)  # type: ignore
-    # # # assert result == expected, f"Expected {expected}, got {result}"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
+    # # # assert result == expected, f"Expected expected, got result"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
 
     # Test case 2: Single element
     operations = ["NumArray", "sumRange"]
     values = [[[5]], [0, 0]]
     solution.solve(operations, values)  # type: ignore
-    # # # assert result == expected, f"Expected {expected}, got {result}"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
+    # # # assert result == expected, f"Expected expected, got result"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
 
     # Test case 3: All positive
     operations = ["NumArray", "sumRange", "sumRange"]
     values = [[[1, 2, 3, 4, 5]], [0, 4], [1, 3]]
     solution.solve(operations, values)  # type: ignore
-    # # # assert result == expected, f"Expected {expected}, got {result}"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
+    # # # assert result == expected, f"Expected expected, got result"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
 
     # Test case 4: Mixed values
     operations = ["NumArray", "sumRange", "sumRange", "sumRange"]
     values = [[[1, -1, 2, -2, 3]], [0, 4], [1, 2], [3, 4]]
     solution.solve(operations, values)  # type: ignore
-    # # # assert result == expected, f"Expected {expected}, got {result}"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
+    # # # assert result == expected, f"Expected expected, got result"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
 
     # Test case 5: Two elements
     operations = ["NumArray", "sumRange", "sumRange"]
     values = [[[10, 20]], [0, 0], [0, 1]]
     solution.solve(operations, values)  # type: ignore
-    # # # assert result == expected, f"Expected {expected}, got {result}"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
+    # # # assert result == expected, f"Expected expected, got result"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
 
     print("All test cases passed!")
 

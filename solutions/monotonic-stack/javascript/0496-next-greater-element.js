@@ -1,5 +1,8 @@
 /**
- * # Difficulty: Easy
+ * # 0496. Next Greater Element
+ *
+ * Difficulty: Medium
+ *
  *
  * The next greater element of some element x in an array is the first greater
  * element that is to the right of x in the same array.
@@ -29,12 +32,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Hash Map, Hash Set, Array
  * **Patterns**: Iterative Solution
- * **Time Complexity**: * O(n + m)
- * **Space Complexity**: * O(n) - Additional hash map storage
+ * **Time Complexity**: O(n + m)
+ * **Space Complexity**: O(n) - Additional hash map storage
 
  *
  * ### INTUITION:
@@ -50,19 +54,37 @@
  * The monotonic stack ensures we process elements in the correct order. When we encounter a larger element, all smaller elements in the stack have found their next greater element. Elements remaining in the stack have no next greater element.
  *
  * ### EXAMPLE WALKTHROUGH:
- * nums2 = [1,3,4,2], nums1 = [4,1,2]
- * - Process 1: stack=[1]
- * - Process 3: 3>1, map[1]=3, stack=[3]
- * - Process 4: 4>3, map[3]=4, stack=[4]
- * - Process 2: 2<4, stack=[4,2]
- * - Final mapping: {1:3, 3:4, 4:-1, 2:-1}
- * - Result for [4,1,2]: [-1,3,-1]
+ * Input:
+ * ```
+ * nums1 = [4,1,2], nums2 = [1,3,4,2]
+ * ```
+ *
+ * Steps:
+ * Step 1: Process nums2[0]=1 → stack=[1]
+ * Step 2: Process nums2[1]=3 → 3>1 → map[1]=3 → stack=[3]
+ * Step 3: Process nums2[2]=4 → 4>3 → map[3]=4 → stack=[4]
+ * Step 4: Process nums2[3]=2 → 2<4 → stack=[4,2]
+ * Step 5: Build result for nums1=[4,1,2] → [map[4], map[1], map[2]] → [-1,3,-1]
+ *
+ * Final mapping:
+ * ```
+ * {1:3, 3:4, 4:-1, 2:-1}
+ * ```
+ *
+ * Output:
+ * ```
+ * [-1,3,-1]
+ * ```
  *
  * ### TIME COMPLEXITY:
+
  * O(n + m)
+
+ * - Based on input size and operations
  *
  * ### SPACE COMPLEXITY:
  * O(n)
+ * - Additional hash map storage
  *
  * ### EDGE CASES:
  * - **No greater element exists**: Return -1 for that element

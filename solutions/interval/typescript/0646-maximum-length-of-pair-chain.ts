@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  * 
- * # 646. Maximum Length Of Pair Chain
+ * # 0646. Maximum Length Of Pair Chain
  * 
  * You are given an array of n pairs pairs where pairs[i] = [lefti, righti] and lefti < righti.
  * 
@@ -23,7 +23,8 @@
  * </dl>
  * 
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Two Pointers
  * **Data Structures**: Hash Map, Hash Set, Array
  * **Patterns**: Two Pointers Pattern, Hash Table Pattern
@@ -50,24 +51,30 @@
  * - O(n log n) for sort, O(1) space, same logic as activity selection
  * 
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: pairs = [[1,2],[2,3],[3,4]]
+ * pairs = [[1,2],[2,3],[3,4]]
+ * ```
+ *
  * Step 1: Sort by second element
- *   sorted = [[1,2],[2,3],[3,4]]
- * 
+ * sorted = [[1,2],[2,3],[3,4]]
  * Step 2: Greedy selection
- *   Select [1,2], end=2
- *   [2,3]: 2 ≥ 2, skip
- *   [3,4]: 3 > 2, select it, length=2
- * 
- * Output: 2 (maximum chain length)
+ * Select [1,2], end=2
+ * [2,3]: 2 ≥ 2, skip
+ * [3,4]: 3 > 2, select it, length=2
+ *
+ * Output:
  * ```
- * 
+ * 2 (maximum chain length)
+ * ```
+
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  * 
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  * 
  * ### EDGE CASES:
  * - Empty input handling
@@ -93,8 +100,8 @@ class Solution {
     if not pairs:
     return 0
     pairs.sort(key=lambda x: x.get(1))
-    current_end = float("-inf")  # Track the end of current chain
-    chain_length = 0  # Track the length of chain
+    current_end = float("-inf")  // Track the end of current chain
+    chain_length = 0  // Track the length of chain
   }
 }
 

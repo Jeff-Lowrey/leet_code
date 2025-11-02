@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 630. Course
+# 0630. Course Schedule III
 
 There are n different online courses numbered from 1 to n. You are given an array courses where courses[i] = [durationi, lastDayi] indicate that the ith course should be taken continuously for durationi days and must be finished before or on lastDayi.
 
@@ -21,7 +21,8 @@ Return the maximum number of courses that you can take.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Sorting
 **Data Structures**: Hash Map, Hash Set, Array
 **Patterns**: Greedy Algorithm
@@ -48,25 +49,33 @@ Greedy: sort courses by deadline. For each course, if time available, add to hea
 - O(n log n) for sort + heap operations, O(n) space for heap
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: courses = [[100,200],[200,1300],[1000,1250],[2000,3200]]
+courses = [[100,200],[200,1300],[1000,1250],[2000,3200]]
+```
+
 Step 1: Sort by end time
-  sorted = [[200,1300],[1000,1250],[2000,3200],[100,200]]
-
+sorted = [[200,1300],[1000,1250],[2000,3200],[100,200]]
 Step 2: Greedy selection
-  Take course ending at 1300
-  Take course ending at 1250 (can't, conflicts)
-  Take course ending at 3200
-  ...
+Take course ending at 1300
+Take course ending at 1250 (can't, conflicts)
+Take course ending at 3200
+...
 
-Output: 3 (max courses)
+Output:
+```
+3 (max courses)
 ```
 
 ### TIME COMPLEXITY:
 O(n)
+- Single pass through input
+
 
 ### SPACE COMPLEXITY:
 O(1)
+- Constant extra space
+
 
 ### EDGE CASES:
 - Empty input handling
@@ -131,27 +140,27 @@ def test_solution() -> None:
     # Test case 1: Example from problem
     result = solution.scheduleCourse([[100, 200], [200, 1300], [1000, 1250], [2000, 3200]])
     expected = 3
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: Simple case
     result = solution.scheduleCourse([[1, 2]])
     expected = 1
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 3: Multiple courses with tight deadlines
     result = solution.scheduleCourse([[3, 2], [4, 3]])
     expected = 0
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 4: Empty input
     result = solution.scheduleCourse([])
     expected = 0
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 5: Course duration equals deadline
     result = solution.scheduleCourse([[5, 5], [4, 6], [2, 6]])
     expected = 2
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

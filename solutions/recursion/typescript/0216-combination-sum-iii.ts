@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Medium
  *
- * # 216. Combination Sum III
+ * # 0216. Combination Sum III
+ *
  *
  * This problem demonstrates key concepts in Recursion.
  *
@@ -9,15 +10,16 @@
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[[1, 2, 4]</dd>
+ * <dd>k = 3, n = 7</dd>
  * <dt>Output:</dt>
- * <dd>"Expected {expected}, got {result}"</dd>
+ * <dd>[]</dd>
  * <dt>Explanation:</dt>
  * <dd>All 3-number combinations from 1-9 that sum to 7 are [[1,2,4]]</dd>
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Map Storage, Array Traversal, Sorting
  * **Data Structures**: Array, Linked List
  * **Patterns**: Complement Search, Hash Table Pattern
@@ -48,22 +50,32 @@
  * - Multiple constraints (count and sum) guide the search
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: k = 3, n = 7
- * Try combinations of 3 numbers from 1-9 that sum to 7:
- * [1,2,3] -> sum = 6 (not valid)
- * [1,2,4] -> sum = 7 (valid!)
- * [1,3,3] -> can't reuse 3
- * [2,2,3] -> can't reuse 2
- * Other combinations either don't sum to 7 or don't have exactly 3 numbers
- * Output: [[1,2,4]]
+ * k = 3, n = 7
  * ```
  *
+ * Try combinations of 3 numbers from 1-9 that sum to 7:
+ *
+ * Steps:
+ * Step 1: [1,2,3] -> sum = 6 (not valid)
+ * Step 2: [1,2,4] -> sum = 7 (valid!)
+ * Step 3: [1,3,3] -> can't reuse 3
+ * Step 4: [2,2,3] -> can't reuse 2
+ * Step 5: Other combinations either don't sum to 7 or don't have exactly 3 numbers
+ *
+ * Output:
+ * ```
+ * [[1,2,4]]
+ * ```
+
  * ### TIME COMPLEXITY:
- * O(C(9,k)) - choosing k numbers from 9 options
+ * O(C(9,k))
+ * - choosing k numbers from 9 options
  *
  * ### SPACE COMPLEXITY:
- * O(k) - recursion depth and combination size
+ * O(k)
+ * - recursion depth and combination size
  *
  * ### EDGE CASES:
  * - k > 9 (impossible - return empty array)

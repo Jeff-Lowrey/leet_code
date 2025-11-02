@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Medium
  *
- * # 560. Subarray Sum Equals K
+ * # 0560. Subarray Sum Equals K
+ *
  *
  * Given an array of integers nums and an integer k, return the total number of subarrays whose sum is equal to k.
  *
@@ -11,20 +12,21 @@
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[([1, 1, 1]</dd>
+ * <dd>nums = [1,1,1], k = 2</dd>
  * <dt>Output:</dt>
- * <dd>"subarraySum({nums}, {k}) -> {result}"</dd>
+ * <dd>[1]</dd>
  * <dt>Explanation:</dt>
  * <dd>There are 2 subarrays with sum equal to k: [1] and [2,-1,2]</dd>
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Hash Map, Hash Set, Array
  * **Patterns**: Hash Table Pattern
- * **Time Complexity**: * O(n) - Single pass through input
- * **Space Complexity**: * O(n) - Additional hash map storage
+ * **Time Complexity**: O(n) - Single pass through input
+ * **Space Complexity**: O(n) - Additional hash map storage
 
  *
  * ### INTUITION:
@@ -44,20 +46,24 @@
  * - Running prefix sum allows single pass solution
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: nums = [1,1,1], k = 2
+ * nums = [1,1,1], k = 2
+ * ```
+ *
  * Index 0: sum=1, need=1-2=-1, count=0, map={0:1, 1:1}
  * Index 1: sum=2, need=2-2=0, count=1, map={0:1, 1:1, 2:1}
  * Index 2: sum=3, need=3-2=1, count=2, map={0:1, 1:1, 2:1, 3:1}
  * Result: 2 subarrays: [1,1] and [1,1]
- * ```
- *
+
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  * Single pass through the array with O(1) hashmap operations
  *
  * ### SPACE COMPLEXITY:
  * O(n)
+ * - Additional hash map storage
  * HashMap can store up to n different prefix sums
  *
  * ### EDGE CASES:

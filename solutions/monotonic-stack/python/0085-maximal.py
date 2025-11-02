@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 085. Maximal
+# 0085. Maximal Rectangle
 
 Given a rows x cols binary matrix filled with 0's and 1's, find the largest rectangle containing only 1's and return its area.
 
@@ -9,15 +9,16 @@ Given a rows x cols binary matrix filled with 0's and 1's, find the largest rect
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>matrix = [["1","0","1","0","0"],["1","0","1","1","1"]]</dd>
+<dd>matrix = [["1","0","1","0","0"],["1","0","1","1","1"],["1","1","1","1","1"],["1","0","0","1","0"]]</dd>
 <dt>Output:</dt>
-<dd>3 (maximal rectangle)</dd>
+<dd>6</dd>
 <dt>Explanation:</dt>
-<dd>Maximal rectangle area is 6</dd>
+<dd>The maximal rectangle has area 6 (2 rows x 3 columns of 1's)</dd>
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
 **Data Structures**: Hash Map, Array, String
 **Patterns**: Greedy Algorithm
@@ -43,24 +44,32 @@ For each row, treat it as base of histogram. Heights are consecutive 1s above in
 - O(m*n) time: histogram calculation O(n) per row, O(n) space for heights array
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: matrix = [["1","0","1","0","0"],["1","0","1","1","1"]]
+matrix = [["1","0","1","0","0"],["1","0","1","1","1"]]
+```
+
 Step 1: Build height array for each row
-  row 0: heights = [1,0,1,0,0]
-  row 1: heights = [2,0,2,1,1]
-
+row 0: heights = [1,0,1,0,0]
+row 1: heights = [2,0,2,1,1]
 Step 2: Find max rectangle in each histogram
-  row 0: max = 1
-  row 1: max = 3
+row 0: max = 1
+row 1: max = 3
 
-Output: 3 (maximal rectangle)
+Output:
+```
+3 (maximal rectangle)
 ```
 
 ### TIME COMPLEXITY:
 O(n)
+- Single pass through input
+
 
 ### SPACE COMPLEXITY:
 O(1)
+- Constant extra space
+
 
 ### EDGE CASES:
 - Empty input handling
@@ -150,17 +159,17 @@ def test_solution() -> None:
         [["1", "0", "1", "0", "0"], ["1", "0", "1", "1", "1"], ["1", "1", "1", "1", "1"], ["1", "0", "0", "1", "0"]]
     )
     expected = 6
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: Empty input
     result = solution.maximalRectangle([])
     expected = 0
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 3: Single cell with 1
     result = solution.maximalRectangle([["1"]])
     expected = 1
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

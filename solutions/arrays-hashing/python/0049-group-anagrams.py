@@ -1,7 +1,7 @@
-"""
-# 49. Group Anagrams
+"""# 0049. Group Anagrams
 
-# Difficulty: Medium
+Difficulty: Easy
+
 
 Given an array of strings strs, group the anagrams together. You can return the
 `answer` in any order.
@@ -9,7 +9,11 @@ Given an array of strings strs, group the anagrams together. You can return the
 An Anagram is a word or phrase formed by rearranging the letters of a different
 word or phrase, typically using all the original letters exactly once.
 
-**Example:**
+Example:
+Input: strs = ["eat","tea","tan","ate","nat","bat"]
+Output: [["bat"],["nat","tan"],["ate","eat","tea"]]
+
+Example:**
 
 <dl class="example-details">
 <dt>Input:</dt>
@@ -21,12 +25,14 @@ word or phrase, typically using all the original letters exactly once.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
-**Techniques**: Hash Table Lookup, Array Traversal, Sorting
-**Data Structures**: Hash Map, Array, String
-**Patterns**: Hash Table Pattern
-**Time Complexity**: - **Sorting approach**: O(n × k log k) where n = number of strings, k = max string length
-**Space Complexity**: O(n × k)
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
+Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+Data Structures**: Hash Map, Hash Set, Array
+Patterns**: Hash Table Pattern
+Time Complexity**: * - **Sorting approach**: O(n × k log k) where n = number of strings, k = max string length
+Space Complexity**: O(n × k)
+
 
 ### INTUITION:
 Group strings by their "anagram signature" - a canonical representation that's the same for all anagrams. Two common signatures: sorted characters or character frequency count.
@@ -42,23 +48,31 @@ Group strings by their "anagram signature" - a canonical representation that's t
 - Different anagrams will have different signatures
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: ["eat","tea","tan","ate","nat","bat"]
+["eat","tea","tan","ate","nat","bat"]
+```
 
 Using sorted string as key:
-"eat" → key "aet" → group 1
-"tea" → key "aet" → group 1
-"tan" → key "ant" → group 2
-"ate" → key "aet" → group 1
-"nat" → key "ant" → group 2
-"bat" → key "abt" → group 3
+
+Steps:
+Step 1: "eat" → key "aet" → group 1
+Step 2: "tea" → key "aet" → group 1
+Step 3: "tan" → key "ant" → group 2
+Step 4: "ate" → key "aet" → group 1
+Step 5: "nat" → key "ant" → group 2
+Step 6: "bat" → key "abt" → group 3
 
 Final groups:
+```
 "aet": ["eat", "tea", "ate"]
 "ant": ["tan", "nat"]
 "abt": ["bat"]
+```
 
-Output: [["eat","tea","ate"], ["tan","nat"], ["bat"]]
+Output:
+```
+[["eat","tea","ate"], ["tan","nat"], ["bat"]]
 ```
 
 ### TIME COMPLEXITY:
@@ -66,7 +80,10 @@ Output: [["eat","tea","ate"], ["tan","nat"], ["bat"]]
 - **Counting approach**: O(n × k) - more efficient
 
 ### SPACE COMPLEXITY:
+
 O(n × k)
+
+- Based on auxiliary data structures
 
 ### EDGE CASES:
 - **Empty string array**: Return empty list

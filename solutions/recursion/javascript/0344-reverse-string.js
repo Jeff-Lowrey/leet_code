@@ -1,7 +1,8 @@
 /**
- * # 344. Reverse String
+ * # 0344. Reverse String
  *
- * # Difficulty: Easy
+ * Difficulty: Medium
+ *
  *
  * Write a function that reverses a string. The input string is given as an array of characters s.
  *
@@ -44,19 +45,30 @@
  * - Base case ensures recursion terminates
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: ["h","e","l","l","o"]
+ * ["h","e","l","l","o"]
+ * ```
+ *
  * Step 1: Swap s[0] and s[4]: ["o","e","l","l","h"]
  * Step 2: Swap s[1] and s[3]: ["o","l","l","e","h"]
- * Step 3: left=2, right=2 (meet) -> stop
- * Output: ["o","l","l","e","h"]
- * ```
  *
+ * Steps:
+ * Step 1: left=2, right=2 (meet) -> stop
+ *
+ * Output:
+ * ```
+ * ["o","l","l","e","h"]
+ * ```
+
  * ### TIME COMPLEXITY:
- * O(n) - visit each character once
+
+ * O(n)
+
+ * - Single pass through the input
  *
  * ### SPACE COMPLEXITY:
- * O(n) - recursion stack depth
+ * O(n) for recursion stack (or O(1) for iterative)
  *
  * ### EDGE CASES:
  * - Empty array: no change

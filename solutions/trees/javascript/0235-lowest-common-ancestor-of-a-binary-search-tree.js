@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Medium
  *
- * # 235. Lowest Common Ancestor of a Binary Search Tree
+ * # 0235. Lowest Common Ancestor of a Binary Search Tree
+ *
  *
  * Given a binary search tree (BST), find the lowest common ancestor (LCA) of two given nodes in the BST.
  *
@@ -22,12 +23,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Hash Map Storage, Array Traversal, Two Pointers
  * **Data Structures**: Array, Tree
  * **Patterns**: Two Pointers Pattern, Greedy Algorithm
- * **Time Complexity**: * O(h)
- * **Space Complexity**: * O(h)
+ * **Time Complexity**: O(h)
+ * **Space Complexity**: O(h)
 
  *
  * ### INTUITION:
@@ -46,25 +48,29 @@
  * - This is much more efficient than general tree LCA algorithms
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
  * BST:      6
- *          / \\
- *         2   8
- *        / \\ / \\
- *       0  4 7  9
- *         / \\
- *        3   5
+ * ```
  *
+ * / \\
+ * 2   8
+ * / \\ / \\
+ * 0  4 7  9
+ * / \\
+ * 3   5
  * Find LCA of 2 and 8:
  * 1. Start at 6: 2 < 6 and 8 > 6, so 6 is LCA
- * Output: 6
- *
  * Find LCA of 2 and 4:
  * 1. Start at 6: 2 < 6 and 4 < 6, go left
  * 2. At 2: 2 == 2 (found p), so 2 is LCA
- * Output: 2
- * ```
  *
+ * Output:
+ * ```
+ * 6
+ * 2
+ * ```
+
  * ### TIME COMPLEXITY:
  * O(h)
  * Where h is the height of the tree. O(log n) for balanced BST, O(n) for skewed tree

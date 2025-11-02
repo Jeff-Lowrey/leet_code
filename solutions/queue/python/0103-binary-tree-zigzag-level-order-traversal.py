@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 103. Binary Tree Zigzag Level Order Traversal
+# 0103. Binary Tree Zigzag Level Order Traversal
 
 Given the root of a binary tree, return the zigzag level order traversal of its nodes' values.
 (i.e., from left to right, then right to left for the next level and alternate between).
@@ -10,7 +10,7 @@ Given the root of a binary tree, return the zigzag level order traversal of its 
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[[3]</dd>
+<dd>[[3]]</dd>
 <dt>Output:</dt>
 <dd>"Test case 1 passed: Example tree"</dd>
 <dt>Explanation:</dt>
@@ -18,7 +18,8 @@ Given the root of a binary tree, return the zigzag level order traversal of its 
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Map Storage, Array Traversal, Two Pointers
 **Data Structures**: Array, Queue, Tree
 **Patterns**: Two Pointers Pattern, Graph Pattern
@@ -46,18 +47,27 @@ Use a flag to track whether we should append values left-to-right or right-to-le
 - Deque provides O(1) append/popleft operations
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
 Tree:      3
-         /   \\
-        9     20
-             /  \\
-            15   7
-
-Level 0 (L->R): [3]
-Level 1 (R->L): [20, 9]
-Level 2 (L->R): [15, 7]
-Result: [[3], [20, 9], [15, 7]]
 ```
+
+/   \
+9     20
+/  \
+15   7
+
+Steps:
+Step 1: Level 0 (L->R): [3]
+Step 2: Level 1 (R->L): [20, 9]
+Step 3: Level 2 (L->R): [15, 7]
+Step 4: Result: [[3], [20, 9], [15, 7]]
+
+Output:
+```
+[[3], [20, 9], [15, 7]]
+```
+Output: "Test case 1 passed: Example tree"
 
 ### TIME COMPLEXITY:
 O(n)

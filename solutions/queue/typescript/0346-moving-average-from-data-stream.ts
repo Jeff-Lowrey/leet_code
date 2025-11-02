@@ -1,5 +1,5 @@
 /**
- * # 346. Moving Average From Data Stream
+ * # 0346. Moving Average From Data Stream
  * 
  * # Difficulty: Easy
  * 
@@ -21,7 +21,8 @@
  * </dl>
  * 
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Sliding Window, Queue Operations
  * **Data Structures**: Queue, Linked List
  * **Patterns**: Sliding Window Pattern, Hash Table Pattern
@@ -44,20 +45,25 @@
  * - Sum and count give us the moving average efficiently
  * 
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
  * MovingAverage(3):
+ * ```
+ *
  * next(1): queue=[1], avg=1.0
  * next(10): queue=[1,10], avg=5.5
  * next(3): queue=[1,10,3], avg=4.67
  * next(5): queue=[10,3,5], avg=6.0 (removed 1)
- * ```
- * 
+
  * ### TIME COMPLEXITY:
- * O(1) per operation
+ * O(1) per operation - constant time
  * 
  * ### SPACE COMPLEXITY:
  * O(size)
- * 
+ *
+ * - Based on auxiliary data structures
+ *
+
  * ### EDGE CASES:
  * - **Window size 1**: Average equals current value
  * - **Fewer than size elements**: Average of elements so far

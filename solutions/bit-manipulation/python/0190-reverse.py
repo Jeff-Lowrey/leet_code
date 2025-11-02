@@ -1,7 +1,7 @@
 """
 # Difficulty: Easy
 
-# 190. Reverse Bits
+# 0190. Reverse Bits
 
 Reverse bits of a given 32 bits unsigned integer.
 
@@ -21,7 +21,8 @@ Note:
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Array Traversal, Two Pointers
 **Data Structures**: Hash Set, Tree, Linked List
 **Patterns**: Complement Search, Two Pointers Pattern
@@ -48,29 +49,40 @@ Reverse bits by extracting each bit from the right (n & 1), shifting result left
 - O(1) time: fixed 32 iterations, O(1) space
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: n = 00000010100101000001111010011100 (43261596)
+n = 00000010100101000001111010011100 (43261596)
+```
+
 Step 1: Reverse bits one by one
-  result = 0, iterate 32 times:
-  Bit 0: n & 1 = 0, result = 0
-  Bit 1: n & 1 = 0, result = 0
-  ...
-  Bit 31: n & 1 = 0, result = 964176192
-
 Step 2: Detailed process for first few bits
-  n = 43261596, result = 0
-  - Extract bit 0 (0), shift result left, add bit
-  - Extract bit 1 (0), shift result left, add bit
-  - Continue for all 32 bits
+n = 43261596, result = 0
+- Extract bit 0 (0), shift result left, add bit
+- Extract bit 1 (0), shift result left, add bit
+- Continue for all 32 bits
 
-Output: 964176192 (00111001011110000010100101000000)
+result = 0, iterate 32 times:
+```
+Bit 0: n & 1 = 0, result = 0
+Bit 1: n & 1 = 0, result = 0
+...
+Bit 31: n & 1 = 0, result = 964176192
+```
+
+Output:
+```
+964176192 (00111001011110000010100101000000)
 ```
 
 ### TIME COMPLEXITY:
 O(n)
+- Single pass through input
+
 
 ### SPACE COMPLEXITY:
 O(1)
+- Constant extra space
+
 
 ### EDGE CASES:
 - Empty input handling
@@ -146,17 +158,17 @@ def test_solution() -> None:
     # Test case 1: Example from problem
     result = solution.reverseBits(43261596)
     expected = 964176192
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: All zeros except one bit
     result = solution.reverseBits(1)
     expected = 2147483648  # 1 << 31
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 3: All ones (max 32-bit unsigned)
     result = solution.reverseBits(4294967295)
     expected = 4294967295
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

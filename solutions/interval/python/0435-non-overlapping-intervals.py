@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 435. Non Overlapping Intervals
+# 0435. Non Overlapping Intervals
 
 Given an array of intervals intervals where intervals[i] = [starti, endi], return the minimum number of intervals you need to remove to make the rest of the intervals non-overlapping.
 
@@ -17,7 +17,8 @@ Given an array of intervals intervals where intervals[i] = [starti, endi], retur
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
 **Data Structures**: Hash Map, Hash Set, Array
 **Patterns**: Two Pointers Pattern, Hash Table Pattern
@@ -44,25 +45,35 @@ Sort by end time (greedy). Keep track of previous interval's end. If current sta
 - O(n log n) for sorting, O(1) space excluding input
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: intervals = [[1,2],[2,3],[3,4],[1,3]]
+intervals = [[1,2],[2,3],[3,4],[1,3]]
+```
+
 Step 1: Sort by end time
-  sorted = [[1,2],[2,3],[1,3],[3,4]]
-
+sorted = [[1,2],[2,3],[1,3],[3,4]]
 Step 2: Greedy selection
-  Select [1,2], end=2
-  [2,3]: 2 ≥ 2, select it, end=3
-  [1,3]: 1 < 3, overlaps → remove count=1
-  [3,4]: 3 ≥ 3, select it
+Select [1,2], end=2
+[2,3]: 2 ≥ 2, select it, end=3
 
-Output: 1 (min intervals to remove)
+Steps:
+Step 1: [1,3]: 1 < 3, overlaps → remove count=1
+Step 2: [3,4]: 3 ≥ 3, select it
+
+Output:
+```
+1 (min intervals to remove)
 ```
 
 ### TIME COMPLEXITY:
 O(n)
+- Single pass through input
+
 
 ### SPACE COMPLEXITY:
 O(1)
+- Constant extra space
+
 
 ### EDGE CASES:
 - Empty input handling
@@ -122,27 +133,27 @@ def test_solution() -> None:
     # Test case 1: Example from problem
     result = solution.eraseOverlapIntervals([[1, 2], [2, 3], [3, 4], [1, 3]])
     expected = 1
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: All overlapping
     result = solution.eraseOverlapIntervals([[1, 2], [1, 2], [1, 2]])
     expected = 2
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 3: No overlaps
     result = solution.eraseOverlapIntervals([[1, 2], [2, 3]])
     expected = 0
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 4: Empty input
     result = solution.eraseOverlapIntervals([])
     expected = 0
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 5: Single interval
     result = solution.eraseOverlapIntervals([[1, 2]])
     expected = 0
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

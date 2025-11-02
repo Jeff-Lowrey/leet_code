@@ -21,7 +21,8 @@ Return the array after sorting it.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Array Traversal, Sorting, Greedy Selection
 **Data Structures**: Array, Graph
 **Patterns**: Hash Table Pattern, Greedy Algorithm
@@ -45,27 +46,35 @@ so we can sort by value first, then by bit count. Or use a tuple key for simulta
 - Lambda function provides clean, concise key
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: arr = [0,1,2,3,4,5,6,7,8]
+arr = [0,1,2,3,4,5,6,7,8]
+```
 
 Binary representations and bit counts:
-0 = 0b0     -> 0 ones
-1 = 0b1     -> 1 one
-2 = 0b10    -> 1 one
-3 = 0b11    -> 2 ones
-4 = 0b100   -> 1 one
-5 = 0b101   -> 2 ones
-6 = 0b110   -> 2 ones
-7 = 0b111   -> 3 ones
-8 = 0b1000  -> 1 one
+
+Steps:
+Step 1: 0 = 0b0     -> 0 ones
+Step 2: 1 = 0b1     -> 1 one
+Step 3: 2 = 0b10    -> 1 one
+Step 4: 3 = 0b11    -> 2 ones
+Step 5: 4 = 0b100   -> 1 one
+Step 6: 5 = 0b101   -> 2 ones
+Step 7: 6 = 0b110   -> 2 ones
+Step 8: 7 = 0b111   -> 3 ones
+Step 9: 8 = 0b1000  -> 1 one
 
 Group by bit count (then sort by value):
+```
 0 ones: [0]
 1 one:  [1, 2, 4, 8]
 2 ones: [3, 5, 6]
 3 ones: [7]
+```
 
-Output: [0,1,2,4,8,3,5,6,7]
+Output:
+```
+[0,1,2,4,8,3,5,6,7]
 ```
 
 ### TIME COMPLEXITY:

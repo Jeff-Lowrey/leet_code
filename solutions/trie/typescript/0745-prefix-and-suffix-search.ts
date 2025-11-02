@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Hard
  * 
- * # 745. Prefix And Suffix Search
+ * # 0745. Prefix And Suffix Search
  * 
  * Design a special dictionary that searches the words in it by a prefix and a suffix.
  * 
@@ -21,7 +21,8 @@
  * </dl>
  * 
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Backtracking
  * **Data Structures**: Hash Map, Array, String
  * **Patterns**: Hash Table Pattern, Backtracking
@@ -49,38 +50,35 @@
  * - Trie structure provides O(L) lookup where L is prefix+suffix length
  * 
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
  * words = ["apple"]
- * 
+ * ```
+ *
  * Build Trie with combinations:
- *   "e{a" (suffix "e", prefix "a")
- *   "le{a" (suffix "le", prefix "a")
- *   "ple{a" (suffix "ple", prefix "a")
- *   ...
- *   "e{ap" (suffix "e", prefix "ap")
- *   "le{ap" (suffix "le", prefix "ap")
- *   ...
- *   "apple{apple" (full word)
- * 
+ * "e{a" (suffix "e", prefix "a")
+ * "le{a" (suffix "le", prefix "a")
+ * "ple{a" (suffix "ple", prefix "a")
+ * ...
+ * "e{ap" (suffix "e", prefix "ap")
+ * "le{ap" (suffix "le", prefix "ap")
+ * ...
+ * "apple{apple" (full word)
  * f("a", "e"):
- *   Look up "e{a" in trie
- *   Find index 0 stored at that node
- *   Return 0
- * 
+ * Look up "e{a" in trie
+ * Find index 0 stored at that node
+ * Return 0
  * words = ["apple", "apply", "application"]
  * indices: [0, 1, 2]
- * 
  * f("app", "y"):
- *   Look up "y{app" in trie
- *   Find index 1 (apply)
- *   Return 1
- * 
+ * Look up "y{app" in trie
+ * Find index 1 (apply)
+ * Return 1
  * f("app", "e"):
- *   Look up "e{app" in trie
- *   Find indices 0 (apple) and 2 (application)
- *   Return 2 (maximum)
- * ```
- * 
+ * Look up "e{app" in trie
+ * Find indices 0 (apple) and 2 (application)
+ * Return 2 (maximum)
+
  * ### TIME COMPLEXITY:
  * - Constructor: O(N * L^3) where N is words count, L is max word length
  *   - For each word, we create L^2 combinations, each taking O(L) to insert

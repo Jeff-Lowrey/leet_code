@@ -1,5 +1,5 @@
 /**
- * # 57. Insert Interval
+ * # 0057. Insert Interval
  * 
  * # Difficulty: Medium
  * 
@@ -21,7 +21,8 @@
  * </dl>
  * 
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Array, Heap
  * **Patterns**: Two Pointers Pattern, Hash Table Pattern
@@ -43,22 +44,29 @@
  * The algorithm correctly solves the problem by systematically exploring all valid states while maintaining necessary invariants. Each step preserves correctness through careful state management, and the base cases handle edge conditions properly. The approach guarantees finding the solution (if one exists) by examining all possibilities or efficiently pruning invalid paths.
  * 
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
  * intervals = [[1,3],[6,9]], newInterval = [2,5]
- * 
+ * ```
+ *
  * Phase 1: [1,3] overlaps with [2,5] (`3 >= 2`)
- * Phase 2: Merge [1,3] and [2,5] → [1,5]
- * Phase 3: [6,9] doesn't overlap (`6 > 5`) → add `as-is`
+ *
+ * Steps:
+ * Step 1: Phase 2: Merge [1,3] and [2,5] → [1,5]
+ * Step 2: Phase 3: [6,9] doesn't overlap (`6 > 5`) → add `as-is`
+ * Step 3: Result: [[1,5],[6,9]]
  * 
- * Result: [[1,5],[6,9]]
+ * Output:
+ * ```
+ * [[1,5],[6,9]]
  * ```
  * 
  * ### TIME COMPLEXITY:
- * O(n)
- * 
+ * O(n) - Single pass through intervals array to find insertion point and merge overlaps
+
  * ### SPACE COMPLEXITY:
  * O(n) for result array
- * 
+
  * ### EDGE CASES:
  * - **Empty intervals list**: Return [newInterval]
  * - **No overlap**: Insert in correct sorted position
@@ -102,7 +110,7 @@ function runTests(): void {
   result = solution.insert(intervals, new_interval)
   console.log(`Intervals: {intervals}`)
   console.log(`New: {new_interval}`)
-  console.log(`Result: {result}\n`)
+  console.log(`Result: result\n`)
   # Test Non-overlapping Intervals
   solution_remove = SolutionRemove()
   console.log("Non-overlapping Intervals:")

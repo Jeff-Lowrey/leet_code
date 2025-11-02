@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Medium
  *
- * # 215. Kth Largest Element in an Array
+ * # 0215. Kth Largest Element in an Array
+ *
  *
  * Given an integer array nums and an integer k, return the kth largest element in the array.
  *
@@ -13,15 +14,16 @@
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[3, 2, 1, 5, 6, 4]</dd>
+ * <dd>nums = [3,2,1,5,6,4], k = 2</dd>
  * <dt>Output:</dt>
- * <dd>"findKthLargest({nums}, k={k}) -> {result}"</dd>
+ * <dd>[3,2,1,5,6,4]</dd>
  * <dt>Explanation:</dt>
  * <dd>The 2nd largest element in [3,2,1,5,6,4] is 5</dd>
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Map Storage, Array Traversal, Two Pointers
  * **Data Structures**: Array, Heap, Tree
  * **Patterns**: Two Pointers Pattern, Hash Table Pattern
@@ -46,8 +48,10 @@
  * - **Quick Select** doesn't need full sort, just correct position
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
  * nums = [3,2,1,5,6,4], k = 2
+ * ```
  *
  * Min-Heap approach:
  * - Build heap with first k=2: [2, 3]
@@ -56,15 +60,13 @@
  * - Process 6: 6 > 3, replace: [5, 6]
  * - Process 4: 4 < 5, skip
  * - Result: heap[0] = 5
- *
  * QuickSelect approach:
  * - Pivot 4: [3,2,1,4] | [5,6]
  * - Position 4 from right, need position 2
  * - Recurse right: [5,6]
  * - Pivot 5: [5] | [6]
  * - Position 2 from right = answer: 5
- * ```
- *
+
  * ### TIME COMPLEXITY:
  * - Min-heap: O(n log k)
  * - Max-heap: O(n + k log n)

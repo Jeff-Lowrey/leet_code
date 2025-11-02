@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 416. Partition Equal Subset Sum
+# 0416. Partition Equal Subset Sum
 
 Given an integer array nums, return true if you can partition the array into two subsets such that the sum of the elements in both subsets is equal or false otherwise.
 
@@ -17,7 +17,8 @@ Given an integer array nums, return true if you can partition the array into two
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
 **Data Structures**: Hash Map, Hash Set, Array
 **Patterns**: Dynamic Programming
@@ -45,30 +46,37 @@ This is 0/1 knapsack with target = sum/2. Check if sum is odd (impossible to par
 - O(n * sum) time, O(sum) space
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: nums = [1,5,11,5]
+nums = [1,5,11,5]
+```
+
 Step 1: Calculate target
-  sum = 22, target = 11
-
+sum = 22, target = 11
 Step 2: DP subset sum
-  dp[0] = True
-  Process 1: dp[1] = True
-  Process 5: dp[5] = True, dp[6] = True
-  Process 11: dp[11] = True, dp[16] = True, dp[12] = True
-  Process 5: dp[11] already True
-
+dp[0] = True
+Process 1: dp[1] = True
+Process 5: dp[5] = True, dp[6] = True
+Process 11: dp[11] = True, dp[16] = True, dp[12] = True
+Process 5: dp[11] already True
 Step 3: Verify partition
-  Subset 1: [1, 5, 5] = 11
-  Subset 2: [11] = 11
+Subset 1: [1, 5, 5] = 11
+Subset 2: [11] = 11
 
-Output: True (can partition into equal subsets)
+Output:
+```
+True (can partition into equal subsets)
 ```
 
 ### TIME COMPLEXITY:
 O(n)
+- Single pass through input
+
 
 ### SPACE COMPLEXITY:
 O(1)
+- Constant extra space
+
 
 ### EDGE CASES:
 - Empty input handling
@@ -174,17 +182,17 @@ def test_solution() -> None:
     # Test case 1: Example from problem - [1,5,11,5] can be partitioned into [1,5,5] and [11]
     result = solution.canPartition([1, 5, 11, 5])
     expected = True
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: Cannot be partitioned
     result = solution.canPartition([1, 2, 3, 5])
     expected = False
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 3: Single element - cannot partition
     result = solution.canPartition([1])
     expected = False
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

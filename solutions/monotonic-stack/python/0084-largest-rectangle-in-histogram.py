@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 084. Largest Rectangle In Histogram
+# 0084. Largest Rectangle In Histogram
 
 Given an array of integers heights representing the histogram's bar height where the width of each bar is 1, return the area of the largest rectangle in the histogram.
 
@@ -9,15 +9,16 @@ Given an array of integers heights representing the histogram's bar height where
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[2, 1, 5, 6, 2, 3]</dd>
+<dd>heights = [2,1,5,6,2,3]</dd>
 <dt>Output:</dt>
-<dd>"Solution for 084. Largest Rectangle In Histogram: {result}"</dd>
+<dd>10 (maximum area)</dd>
 <dt>Explanation:</dt>
 <dd>Largest rectangle area is 10</dd>
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Two Pointers
 **Data Structures**: Hash Set, Array, Stack
 **Patterns**: Two Pointers Pattern, Greedy Algorithm
@@ -45,26 +46,35 @@ Use monotonic increasing stack to track indices. When current height < stack top
 - O(n) time: each bar pushed/popped once, O(n) space for stack
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: heights = [2,1,5,6,2,3]
-Step 1: Use monotonic stack
-  i=0: stack=[(0,2)]
-  i=1: pop (0,2), area=2*1=2, push (1,1)
-  i=2: push (2,5)
-  i=3: push (3,6)
-  i=4: pop (3,6), area=6*1=6
-        pop (2,5), area=5*2=10
-        push (2,2)
-  i=5: push (5,3)
+heights = [2,1,5,6,2,3]
+```
 
-Output: 10 (maximum area)
+Step 1: Use monotonic stack
+i=0: stack=[(0,2)]
+i=1: pop (0,2), area=2*1=2, push (1,1)
+i=2: push (2,5)
+i=3: push (3,6)
+i=4: pop (3,6), area=6*1=6
+pop (2,5), area=5*2=10
+push (2,2)
+i=5: push (5,3)
+
+Output:
+```
+10 (maximum area)
 ```
 
 ### TIME COMPLEXITY:
 O(n)
+- Single pass through input
+
 
 ### SPACE COMPLEXITY:
 O(1)
+- Constant extra space
+
 
 ### EDGE CASES:
 - Empty input handling
@@ -123,31 +133,31 @@ def test_solution() -> None:
 
     # Test case 1: Classic example
     solution.solve([2, 1, 5, 6, 2, 3])
-    # # # assert result == expected, f"Expected {expected}, got {result}"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
+    # # # assert result == expected, f"Expected expected, got result"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
 
     # Test case 2: Single bar
     solution.solve([2])
-    # # # assert result == expected, f"Expected {expected}, got {result}"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
+    # # # assert result == expected, f"Expected expected, got result"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
 
     # Test case 3: Increasing heights
     solution.solve([1, 2, 3, 4, 5])
-    # # # assert result == expected, f"Expected {expected}, got {result}"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
+    # # # assert result == expected, f"Expected expected, got result"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
 
     # Test case 4: Decreasing heights
     solution.solve([5, 4, 3, 2, 1])
-    # # # assert result == expected, f"Expected {expected}, got {result}"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
+    # # # assert result == expected, f"Expected expected, got result"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
 
     # Test case 5: All same height
     solution.solve([4, 4, 4, 4])
-    # # # assert result == expected, f"Expected {expected}, got {result}"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
+    # # # assert result == expected, f"Expected expected, got result"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
 
     # Test case 6: Empty array
     solution.solve([])
-    # # # assert result == expected, f"Expected {expected}, got {result}"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
+    # # # assert result == expected, f"Expected expected, got result"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
 
     # Test case 7: Two bars
     solution.solve([2, 4])
-    # # # assert result == expected, f"Expected {expected}, got {result}"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
+    # # # assert result == expected, f"Expected expected, got result"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
 
     print("All test cases passed!")
 

@@ -1,7 +1,8 @@
 /**
- * # 71. Simplify Path
+ * # 0071. Simplify Path
  *
- * # Difficulty: Medium
+ * Difficulty: Easy
+ *
  *
  * Given a string path, which is an absolute path (starting with a slash '/') to a file or
  * directory in a Unix-style file system, convert it to the simplified canonical path.
@@ -31,7 +32,8 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Map Storage, Array Traversal, Stack Operations
  * **Data Structures**: Array, String, Stack
  * **Patterns**: Divide and Conquer, Tree Pattern
@@ -57,25 +59,33 @@
  * Going up (..) is a pop, going down (dirname) is a push.
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
  * path = "/a/./b/../../c/"
- * Split: ['', 'a', '.', 'b', '..', '..', 'c', '']
- *
- * Process:
- * '' → skip
- * 'a' → push ['a']
- * '.' → skip ['a']
- * 'b' → push ['a', 'b']
- * '..' → pop ['a']
- * '..' → pop []
- * 'c' → push ['c']
- * '' → skip ['c']
- *
- * Result: "/" + "c" = "/c"
  * ```
  *
+ * Split: ['', 'a', '.', 'b', '..', '..', 'c', '']
+ * Process:
+ *
+ * Steps:
+ * Step 1: '' → skip
+ * Step 2: 'a' → push ['a']
+ * Step 3: '.' → skip ['a']
+ * Step 4: 'b' → push ['a', 'b']
+ * Step 5: '..' → pop ['a']
+ * Step 6: '..' → pop []
+ * Step 7: 'c' → push ['c']
+ * Step 8: '' → skip ['c']
+ * Step 9: Result: "/" + "c" = "/c"
+ * 
+ * Output:
+ * ```
+ * "/" + "c" = "/c"
+ * ```
+ * 
  * ### TIME COMPLEXITY:
  * O(n) where n is path length
+ * - Single pass through input
  *
  * ### SPACE COMPLEXITY:
  * O(n) for stack and split components

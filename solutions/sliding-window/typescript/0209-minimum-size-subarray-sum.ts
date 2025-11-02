@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Medium
  *
- * # 209. Minimum Size Subarray Sum
+ * # 0209. Minimum Size Subarray Sum
+ *
  *
  * Given an array of positive integers nums and a positive integer target, return the minimal length of a subarray whose sum is greater than or equal to target. If there is no such subarray, return 0 instead.
  *
@@ -17,7 +18,8 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Array Traversal, Sliding Window
  * **Data Structures**: Hash Map, Hash Set, Array
  * **Patterns**: Complement Search, Two Pointers Pattern
@@ -45,27 +47,33 @@
  * - O(n) time: two pointers scan array once, O(1) space
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: target = 7, nums = [2,3,1,2,4,3]
+ * target = 7, nums = [2,3,1,2,4,3]
+ * ```
+ *
  * Step 1: Expand window
- *   [2,3,1,2] sum=8 ≥ 7
- *
+ * [2,3,1,2] sum=8 ≥ 7
  * Step 2: Contract
- *   [3,1,2] sum=6 < 7
- *   Expand: [3,1,2,4] sum=10 ≥ 7
- *   Contract: [1,2,4] sum=7 ≥ 7
- *   Contract: [2,4] sum=6 < 7
- *   Expand: [2,4,3] sum=9 ≥ 7
- *   Contract: [4,3] sum=7 ≥ 7, length=2
+ * [3,1,2] sum=6 < 7
+ * Expand: [3,1,2,4] sum=10 ≥ 7
+ * Contract: [1,2,4] sum=7 ≥ 7
+ * Contract: [2,4] sum=6 < 7
+ * Expand: [2,4,3] sum=9 ≥ 7
+ * Contract: [4,3] sum=7 ≥ 7, length=2
  *
- * Output: 2 (minimum length)
+ * Output:
  * ```
- *
+ * 2 (minimum length)
+ * ```
+
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  *
  * ### EDGE CASES:
  * - Empty input handling

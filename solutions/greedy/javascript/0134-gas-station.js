@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Medium
  *
- * # 134. Gas Station
+ * # 0134. Gas Station
+ *
  *
  * There are n gas stations along a circular route, where the amount of gas at the
  * ith station is gas[i].
@@ -26,12 +27,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Array Traversal, Greedy Selection
  * **Data Structures**: Array, Linked List
  * **Patterns**: Greedy Algorithm
- * **Time Complexity**: * O(n) - Single pass through input
- * **Space Complexity**: * O(1) - Constant extra space
+ * **Time Complexity**: O(n) - Single pass through input
+ * **Space Complexity**: O(1) - Constant extra space
 
  *
  * ### INTUITION:
@@ -52,37 +54,39 @@
  * The algorithm correctly solves the problem by systematically exploring all valid states while maintaining necessary invariants. Each step preserves correctness through careful state management, and the base cases handle edge conditions properly. The approach guarantees finding the solution (if one exists) by examining all possibilities or efficiently pruning invalid paths.
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: gas = [1,2,3,4,5], cost = [3,4,5,1,2]
+ * gas = [1,2,3,4,5], cost = [3,4,5,1,2]
+ * ```
  *
  * Check total: sum(gas) = 15, sum(cost) = 15 (feasible)
- *
  * Start at index 0:
- *   i=0: current_gas = 0 + (1-3) = -2 (negative!)
- *   Reset start to 1, current_gas = 0
- *
+ * i=0: current_gas = 0 + (1-3) = -2 (negative!)
+ * Reset start to 1, current_gas = 0
  * Start at index 1:
- *   i=1: current_gas = 0 + (2-4) = -2 (negative!)
- *   Reset start to 2, current_gas = 0
- *
+ * i=1: current_gas = 0 + (2-4) = -2 (negative!)
+ * Reset start to 2, current_gas = 0
  * Start at index 2:
- *   i=2: current_gas = 0 + (3-5) = -2 (negative!)
- *   Reset start to 3, current_gas = 0
- *
+ * i=2: current_gas = 0 + (3-5) = -2 (negative!)
+ * Reset start to 3, current_gas = 0
  * Start at index 3:
- *   i=3: current_gas = 0 + (4-1) = 3 ✓
- *   i=4: current_gas = 3 + (5-2) = 6 ✓
- *
+ * i=3: current_gas = 0 + (4-1) = 3 ✓
+ * i=4: current_gas = 3 + (5-2) = 6 ✓
  * All positions checked, total_gas >= 0
- * Output: 3
- * ```
  *
+ * Output:
+ * ```
+ * 3
+ * ```
+
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  * Single pass through the arrays
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  * Only using constant extra space
  *
  * ### EDGE CASES:

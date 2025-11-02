@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Hard
  * 
- * # 460. LFU Cache
+ * # 0460. LFU Cache
  * 
  * Design and implement a Least Frequently Used (LFU) cache.
  * 
@@ -17,7 +17,8 @@
  * </dl>
  * 
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup
  * **Data Structures**: Hash Map, Array
  * **Patterns**: Hash Table Pattern
@@ -56,18 +57,19 @@
  * - All operations are O(1)
  * 
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
  * LFUCache(2)
+ * ```
+ *
  * put(1, 1): cache={1:(1,1)}, freq_to_keys={1:[1]}, min_freq=1
  * put(2, 2): cache={1:(1,1), 2:(2,1)}, freq_to_keys={1:[1,2]}, min_freq=1
  * get(1): freq increases to 2, cache={1:(1,2), 2:(2,1)}, freq_to_keys={1:[2], 2:[1]}, min_freq=1, return 1
  * put(3, 3): evict key 2 (LFU), add 3
- * ```
- * 
+
  * ### TIME COMPLEXITY:
- * - get: O(1)
- * - put: O(1)
- * 
+ * O(1) - All operations (get, put) use hash maps and frequency buckets for constant-time access
+
  * ### SPACE COMPLEXITY:
  * O(capacity) for storing items
  * 

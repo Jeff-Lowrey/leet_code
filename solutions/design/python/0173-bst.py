@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 173. Binary Search Tree Iterator
+# 0173. Binary Search Tree Iterator
 
 Implement the BSTIterator class that represents an iterator over the in-order traversal of a binary search tree (BST).
 
@@ -17,7 +17,8 @@ Implement the BSTIterator class that represents an iterator over the in-order tr
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Two Pointers, Stack Operations, Graph Traversal
 **Data Structures**: Stack, Tree, Linked List
 **Patterns**: Two Pointers Pattern, Hash Table Pattern
@@ -41,14 +42,18 @@ The challenge is to do this without storing all values upfront, but instead usin
 - Space complexity is O(h) where h is the height of the tree
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: [7, 3, 15, null, null, 9, 20]
+[7, 3, 15, null, null, 9, 20]
+```
+
 Stack after init: [7, 3]
-next() -> 3, stack: [7, 15, 9]
-next() -> 7, stack: [15, 9]
-hasNext() -> true
-next() -> 9, stack: [15, 20]
-```
+
+Steps:
+Step 1: next() -> 3, stack: [7, 15, 9]
+Step 2: next() -> 7, stack: [15, 9]
+Step 3: hasNext() -> true
+Step 4: next() -> 9, stack: [15, 20]
 
 ### TIME COMPLEXITY:
 - Constructor: O(h) where h is height
@@ -56,7 +61,7 @@ next() -> 9, stack: [15, 20]
 - hasNext(): O(1)
 
 ### SPACE COMPLEXITY:
-O(h) for the stack
+O(h) for the stack where h is height
 
 ### EDGE CASES:
 - Single node tree

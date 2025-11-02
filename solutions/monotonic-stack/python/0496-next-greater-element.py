@@ -1,5 +1,5 @@
 """
-# 496. Next Greater Element
+# 0496. Next Greater Element
 
 # Difficulty: Easy
 
@@ -27,7 +27,8 @@ element as described above.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
 **Data Structures**: Hash Map, Hash Set, Array
 **Patterns**: Hash Table Pattern
@@ -47,19 +48,38 @@ Use a monotonic decreasing stack to efficiently find the next greater element fo
 The monotonic stack ensures we process elements in the correct order. When we encounter a larger element, all smaller elements in the stack have found their next greater element. Elements remaining in the stack have no next greater element.
 
 ### EXAMPLE WALKTHROUGH:
-nums2 = [1,3,4,2], nums1 = [4,1,2]
-- Process 1: stack=[1]
-- Process 3: 3>1, map[1]=3, stack=[3]
-- Process 4: 4>3, map[3]=4, stack=[4]
-- Process 2: 2<4, stack=[4,2]
-- Final mapping: {1:3, 3:4, 4:-1, 2:-1}
-- Result for [4,1,2]: [-1,3,-1]
+Input:
+```
+nums1 = [4,1,2], nums2 = [1,3,4,2]
+```
+
+Steps:
+Step 1: Process nums2[0]=1 → stack=[1]
+Step 2: Process nums2[1]=3 → 3>1 → map[1]=3 → stack=[3]
+Step 3: Process nums2[2]=4 → 4>3 → map[3]=4 → stack=[4]
+Step 4: Process nums2[3]=2 → 2<4 → stack=[4,2]
+Step 5: Build result for nums1=[4,1,2] → [map[4], map[1], map[2]] → [-1,3,-1]
+
+Final mapping:
+```
+{1:3, 3:4, 4:-1, 2:-1}
+```
+
+Output:
+```
+[-1,3,-1]
+```
 
 ### TIME COMPLEXITY:
 O(n + m)
 
+- Based on input size and operations
+
+
 ### SPACE COMPLEXITY:
 O(n)
+- Additional hash map storage
+
 
 ### EDGE CASES:
 - **No greater element exists**: Return -1 for that element
@@ -100,7 +120,6 @@ class Solution:
 
 """
 503. Next Greater Element II
-# Difficulty: Medium
 Given a circular integer array nums, return the next greater number for every
 element in nums.
 
@@ -139,7 +158,6 @@ class SolutionCircular:
 
 """
 901. Online Stock Span
-# Difficulty: Medium
 Design an algorithm that collects daily price quotes for some stock and returns
 the span of that stock's price for the current day.
 
@@ -177,7 +195,6 @@ class StockSpanner:
 
 """
 402. Remove K Digits
-# Difficulty: Medium
 Given string num representing a non-negative integer num, and an integer k,
 return the smallest possible integer after removing k digits from num.
 
@@ -213,7 +230,6 @@ class SolutionRemoveDigits:
 
 """
 316. Remove Duplicate Letters
-# Difficulty: Medium
 Given a string s, remove duplicate letters so that every letter appears once and
 only once. You must make sure your result is the smallest in lexicographical
 order among all possible results.
@@ -267,7 +283,7 @@ if __name__ == "__main__":
     for nums1, nums2 in test_cases:
         result = solution.nextGreaterElement(nums1, nums2)
         print(f"nums1: {nums1}, nums2: {nums2}")
-        print(f"Result: {result}\n")
+        print(f"Result: result\n")
 
     # Test Next Greater Element II (Circular)
     solution_circular = SolutionCircular()
@@ -277,8 +293,8 @@ if __name__ == "__main__":
 
     for nums in circular_cases:
         result = solution_circular.nextGreaterElements(nums)
-        print(f"Input: {nums}")
-        print(f"Next Greater: {result}\n")
+        print(f"Input: nums")
+        print(f"Next Greater: result\n")
 
     # Test Stock Spanner
     print("Stock Spanner:")

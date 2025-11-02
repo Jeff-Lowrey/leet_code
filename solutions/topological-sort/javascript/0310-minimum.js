@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Medium
  *
- * # 310. Minimum
+ * # 0310. Minimum Height Trees
+ *
  *
  * A tree is an undirected graph in which any two vertices are connected by exactly one path. In other words, any connected graph without simple cycles is a tree.
  *
@@ -23,12 +24,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Hash Map Storage, Array Traversal, Sorting
  * **Data Structures**: Array, String, Queue
  * **Patterns**: Hash Table Pattern, Graph Pattern
- * **Time Complexity**: * O(n) - Single pass through input
- * **Space Complexity**: * O(1) - Constant extra space
+ * **Time Complexity**: O(n) - Single pass through input
+ * **Space Complexity**: O(1) - Constant extra space
 
  *
  * ### INTUITION:
@@ -46,24 +48,29 @@
  * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: n = 6, edges = [[3,0],[3,1],[3,2],[3,4],[5,4]]
+ * n = 6, edges = [[3,0],[3,1],[3,2],[3,4],[5,4]]
+ * ```
+ *
  * Step 1: Build adjacency list
- *   Degrees: [1,1,1,4,2,1]
- *
+ * Degrees: [1,1,1,4,2,1]
  * Step 2: Remove leaves layer by layer
- *   Remove 0,1,2,5: leaves=[3,4]
+ * Remove 0,1,2,5: leaves=[3,4]
+ * These are minimum height tree roots
  *
- *   These are minimum height tree roots
- *
- * Output: [3,4]
+ * Output:
  * ```
- *
+ * [3,4]
+ * ```
+
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  *
  * ### EDGE CASES:
  * - Empty input handling

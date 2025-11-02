@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Medium
  *
- * # 268. Missing
+ * # 0268. Missing Number
+ *
  *
  * Given an array nums containing n distinct numbers in the range [0, n], return the only number in the range that is missing from the array.
  *
@@ -17,12 +18,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Array Traversal
  * **Data Structures**: Array
  * **Patterns**: Iterative Solution
- * **Time Complexity**: * O(n) - Single pass through input
- * **Space Complexity**: * O(1) - Constant extra space
+ * **Time Complexity**: O(n) - Single pass through input
+ * **Space Complexity**: O(1) - Constant extra space
 
  *
  * ### INTUITION:
@@ -40,25 +42,30 @@
  * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: nums = [3,0,1]
+ * nums = [3,0,1]
+ * ```
+ *
  * Step 1: Calculate expected sum
- *   expected = 0+1+2+3 = 6
- *
+ * expected = 0+1+2+3 = 6
  * Step 2: Calculate actual sum
- *   actual = 3+0+1 = 4
- *
+ * actual = 3+0+1 = 4
  * Step 3: Find difference
- *   missing = 6 - 4 = 2
+ * missing = 6 - 4 = 2
  *
- * Output: 2 (missing number)
+ * Output:
  * ```
- *
+ * 2 (missing number)
+ * ```
+
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  *
  * ### EDGE CASES:
  * - Empty input handling

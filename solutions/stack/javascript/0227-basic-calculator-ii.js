@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Medium
  *
- * # 227. Basic Calculator Ii
+ * # 0227. Basic Calculator Ii
+ *
  *
  * Given a string s which represents an expression, evaluate this expression and return its value.
  *
@@ -23,12 +24,15 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ *
+ *
+ * ### METADATA:
  * **Techniques**: Array Traversal, Stack Operations
  * **Data Structures**: Array, String, Stack
  * **Patterns**: Iterative Solution
- * **Time Complexity**: * O(n) - Single pass through input
- * **Space Complexity**: * O(1) - Constant extra space
+ * **Time Complexity**: **O(n)** - Single pass through input
+ * **Space Complexity**: **O(1)** - Constant extra space
 
  *
  * ### INTUITION:
@@ -46,24 +50,34 @@
  * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: s = "3+2*2"
+ * s = "3+2*2"
+ * ```
+ *
  * Step 1: Parse and evaluate
- *   num=3, op='+', stack=[3]
- *   num=2, op='*', stack=[3,2]
- *   num=2, op=None, stack=[3,4] (multiply 2*2)
- *
+ * num=3, op='+', stack=[3]
+ * num=2, op='*', stack=[3,2]
+ * num=2, op=None, stack=[3,4] (multiply 2*2)
  * Step 2: Sum stack
- *   result = 3+4 = 7
+ * result = 3+4 = 7
  *
- * Output: 7
+ * Output:
  * ```
- *
+ * 7
+ * ```
+
  * ### TIME COMPLEXITY:
+
  * O(n)
+
+ * - Single pass through the input
  *
  * ### SPACE COMPLEXITY:
+
  * O(1)
+
+ * - Constant extra space
  *
  * ### EDGE CASES:
  * - Empty input handling

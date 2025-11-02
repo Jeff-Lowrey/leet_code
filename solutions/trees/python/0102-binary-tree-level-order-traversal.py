@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 102. Binary Tree Level Order Traversal
+# 0102. Binary Tree Level Order Traversal
 
 Given the root of a binary tree, return the level order traversal of its nodes' values. (i.e., from left to right, level by level).
 
@@ -9,7 +9,7 @@ Given the root of a binary tree, return the level order traversal of its nodes' 
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[[3]</dd>
+<dd>[[3]]</dd>
 <dt>Output:</dt>
 <dd>1</dd>
 <dt>Explanation:</dt>
@@ -17,7 +17,8 @@ Given the root of a binary tree, return the level order traversal of its nodes' 
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
 **Data Structures**: Array, Queue, Tree
 **Patterns**: Two Pointers Pattern, Hash Table Pattern
@@ -40,18 +41,25 @@ Level order traversal visits nodes level by level from left to right. This is a 
 - BFS naturally explores breadth before depth
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: [3,9,20,null,null,15,7]
-       3
-      / \
-     9  20
-       /  \
-      15   7
+[3,9,20,null,null,15,7]
+```
 
-Level 0: [3] → queue: [9, 20]
-Level 1: [9, 20] → queue: [15, 7]
-Level 2: [15, 7] → queue: []
-Output: [[3], [9, 20], [15, 7]]
+3
+/ \
+9  20
+/  \
+15   7
+
+Steps:
+Step 1: Level 0: [3] → queue: [9, 20]
+Step 2: Level 1: [9, 20] → queue: [15, 7]
+Step 3: Level 2: [15, 7] → queue: []
+
+Output:
+```
+[[3], [9, 20], [15, 7]]
 ```
 
 ### TIME COMPLEXITY:
@@ -344,9 +352,9 @@ if __name__ == "__main__":
     for name, method in approaches:
         result = method(tree1)
         if name == "Bottom-up BFS":
-            print(f"{name}: {result} (reversed order)")
+            print(f"{name}: result (reversed order)")
         else:
-            print(f"{name}: {result}")
+            print(f"{name}: result")
 
     print(f"\nKey insights:")
     print(f"1. BFS with queue naturally processes level by level")

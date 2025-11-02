@@ -1,7 +1,7 @@
 """
 # Difficulty: Easy
 
-# 733. Flood Fill
+# 0733. Flood Fill
 
 An image is represented by an m x n integer grid image where image[i][j] represents
 the pixel value of the image. You are also given three integers sr, sc, and color.
@@ -18,7 +18,7 @@ Return the modified image after performing the flood fill.
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[[1,1,1]</dd>
+<dd>[[1,1,1]]</dd>
 <dt>Output:</dt>
 <dd>1</dd>
 <dt>Explanation:</dt>
@@ -26,7 +26,8 @@ Return the modified image after performing the flood fill.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Two Pointers, Stack Operations, Graph Traversal
 **Data Structures**: Array, Stack, Tree
 **Patterns**: Two Pointers Pattern, Graph Pattern
@@ -52,13 +53,19 @@ to the new color. It's like the paint bucket tool in image editors.
 - Recursion handles the spreading pattern automatically
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: image = [[1,1,1],[1,1,0],[1,0,1]], sr = 1, sc = 1, color = 2
+image = [[1,1,1],[1,1,0],[1,0,1]], sr = 1, sc = 1, color = 2
+```
+
 Original color at (1,1) = 1
 Step 1: Change (1,1) to 2, explore neighbors
 Step 2: Change (0,0) to 2, change (0,1) to 2, change (0,2) to 2
 Step 3: Change (1,0) to 2, change (2,0) to 2
-Output: [[2,2,2],[2,2,0],[2,0,1]]
+
+Output:
+```
+[[2,2,2],[2,2,0],[2,0,1]]
 ```
 
 ### TIME COMPLEXITY:
@@ -227,4 +234,4 @@ if __name__ == "__main__":
     image = [[1, 1, 1], [1, 1, 0], [1, 0, 1]]
     print(f"Original: {image}")
     result = solution.floodFill(image, 1, 1, 2)
-    print(f"After flood fill: {result}")
+    print(f"After flood fill: result")

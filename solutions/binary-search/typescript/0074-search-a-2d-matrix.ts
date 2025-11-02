@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Medium
  *
- * # 074. Search A 2D Matrix
+ * # 0074. Search A 2D Matrix
+ *
  *
  * You are given an m x n integer matrix matrix with the following two properties:
  *
@@ -18,13 +19,14 @@
  * <dt>Input:</dt>
  * <dd>matrix = [[1,3,5,7],[10,11,16,20],[23,30,34,60]], target = 3</dd>
  * <dt>Output:</dt>
- * <dd>True (target found)</dd>
+ * <dd>false</dd>
  * <dt>Explanation:</dt>
  * <dd>Target 3 is found in the 2D matrix [[1,3,5,7],[10,11,16,20],[23,30,34,60]]</dd>
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Two Pointers, Binary Search
  * **Data Structures**: Hash Map, Hash Set, Array
  * **Patterns**: Complement Search, Two Pointers Pattern
@@ -52,33 +54,38 @@
  * - O(log(m*n)) time, O(1) space
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: matrix = [[1,3,5,7],[10,11,16,20],[23,30,34,60]], target = 3
+ * matrix = [[1,3,5,7],[10,11,16,20],[23,30,34,60]], target = 3
+ * ```
+ *
  * Step 1: Treat as 1D array
- *   rows = 3, cols = 4, total = 12 elements
- *   left = 0, right = 11
- *
+ * rows = 3, cols = 4, total = 12 elements
+ * left = 0, right = 11
  * Step 2: Binary search
- *   mid = 5: row = 5//4 = 1, col = 5%4 = 1
- *   → matrix[1][1] = 11 > 3, right = 4
+ * mid = 5: row = 5//4 = 1, col = 5%4 = 1
  *
- *   mid = 2: row = 2//4 = 0, col = 2%4 = 2
- *   → matrix[0][2] = 5 > 3, right = 1
+ * Steps:
+ * Step 1: matrix[1][1] = 11 > 3, right = 4
+ * Step 2: mid = 2: row = 2//4 = 0, col = 2%4 = 2
+ * Step 3: matrix[0][2] = 5 > 3, right = 1
+ * Step 4: mid = 0: row = 0//4 = 0, col = 0%4 = 0
+ * Step 5: matrix[0][0] = 1 < 3, left = 1
+ * Step 6: mid = 1: row = 1//4 = 0, col = 1%4 = 1
+ * Step 7: matrix[0][1] = 3 == 3 ✓
  *
- *   mid = 0: row = 0//4 = 0, col = 0%4 = 0
- *   → matrix[0][0] = 1 < 3, left = 1
- *
- *   mid = 1: row = 1//4 = 0, col = 1%4 = 1
- *   → matrix[0][1] = 3 == 3 ✓
- *
- * Output: True (target found)
+ * Output:
  * ```
- *
+ * True (target found)
+ * ```
+
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  *
  * ### EDGE CASES:
  * - Empty input handling

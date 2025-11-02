@@ -1,7 +1,8 @@
 /**
- * # Difficulty: Hard
+# 0493. Problem
  * 
- * # 493. Reverse Pairs
+ * # Difficulty: Hard
+ * # 0493. Reverse Pairs
  * 
  * Given an integer array nums, return the number of reverse pairs in the array.
  * 
@@ -13,15 +14,16 @@
  * 
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[[1, 3, 2, 3, 1]</dd>
+ * <dd>[[1, 3, 2, 3, 1]]</dd>
  * <dt>Output:</dt>
- * <dd>"\nInput: {nums}"</dd>
+ * <dd>"\nInput: nums"</dd>
  * <dt>Explanation:</dt>
  * <dd>Count of reverse pairs where nums[i] > 2*nums[j] and i < j is 2</dd>
  * </dl>
  * 
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
  * **Data Structures**: Hash Set, Array, Stack
  * **Patterns**: Two Pointers Pattern, Hash Table Pattern
@@ -43,21 +45,40 @@
  * ### WHY THIS WORKS:
  * By repeatedly dividing the search space in half, we eliminate half of the remaining elements in each iteration. Since the array is sorted, we can determine which half contains the target by comparing with the middle element. This guarantees we find the target (if it exists) in O(log n) time because each step reduces the problem size by a factor of 2.
  * 
- * ### EXAMPLE WALKTHROUGH:
+ *
+
+This solution uses hash table lookup for efficient implementation.
+
+This solution uses hash map storage for efficient implementation.
+
+This solution uses set operations for efficient implementation.
+### EXAMPLE WALKTHROUGH:
+ * Given input nums = [1,3,2,3,1]:
+ *
+ * Input:
  * ```
- * Input: nums = [1,3,2,3,1]
+ * nums = [1,3,2,3,1]
+ * ```
+ *
  * Reverse pairs:
  * - (1,4): nums[1]=3 > 2*nums[4]=2 ✓
  * - (3,4): nums[3]=3 > 2*nums[4]=2 ✓
- * Output: 2
+ *
+ * Output:
  * ```
- * 
+ * 2
+ * ```
+
+ *
+ * Result: 2
  * ### TIME COMPLEXITY:
  * O(n log n)
+ * - Sorting or divide-and-conquer
  * For merge sort and tree-based approaches
  * 
  * ### SPACE COMPLEXITY:
  * O(n)
+ * - Additional set storage
  * For auxiliary arrays and recursion stack
  * 
  * ### EDGE CASES:
@@ -85,15 +106,47 @@ class Solution {
    *         Space Complexity: O(n) - for auxiliary arrays and recursion
    */
   reversePairs(nums: number[]): number {
-    // Implementation
-    if not nums:
-    return 0
-    def merge_sort(arr: Any) -> Any:
-    """Merge sort with reverse pair counting."""
-    if arr.length <= 1:
-    return arr, 0
-    mid = arr.length // 2
-    left, left_count = merge_sort(arr.get(:mid))
+    if (!nums || nums.length === 0) {
+      return 0;
+    }
+
+    const mergeSort = (arr: number[]): [number[], number] => {
+      if (arr.length <= 1) {
+        return [arr, 0];
+      }
+
+      const mid = Math.floor(arr.length / 2);
+      const [left, leftCount] = mergeSort(arr.slice(0, mid));
+      const [right, rightCount] = mergeSort(arr.slice(mid));
+
+      // Count cross-boundary pairs
+      let count = leftCount + rightCount;
+      let j = 0;
+      for (let i = 0; i < left.length; i++) {
+        while (j < right.length && left[i] > 2 * right[j]) {
+          j++;
+        }
+        count += j;
+      }
+
+      // Merge sorted arrays
+      const merged: number[] = [];
+      let i = 0;
+      j = 0;
+      while (i < left.length && j < right.length) {
+        if (left[i] <= right[j]) {
+          merged.push(left[i++]);
+        } else {
+          merged.push(right[j++]);
+        }
+      }
+      merged.push(...left.slice(i), ...right.slice(j));
+
+      return [merged, count];
+    };
+
+    const [, count] = mergeSort(nums);
+    return count;
   }
 
   /**
@@ -109,14 +162,48 @@ class Solution {
    *         Space Complexity: O(n)
    */
   reversePairsBIT(nums: number[]): number {
-    // Implementation
-    if not nums:
-    return 0
-    all_values: set.set(Any, set()
-    for num in nums:
-    all_values.add(num)
-    all_values.add(2 * num)
-    sorted_values = sorted(all_values)
+    if (!nums || nums.length === 0) {
+      return 0;
+    }
+
+    // Coordinate compression
+    const allValues = new Set<number>();
+    for (const num of nums) {
+      allValues.add(num);
+      allValues.add(2 * num);
+    }
+    const sortedValues = Array.from(allValues).sort((a, b) => a - b);
+    const valueToIndex = new Map<number, number>();
+    sortedValues.forEach((val, idx) => valueToIndex.set(val, idx + 1));
+
+    // Binary Indexed Tree
+    const bit = Array(sortedValues.length + 1).fill(0);
+
+    const update = (idx: number): void => {
+      while (idx < bit.length) {
+        bit[idx]++;
+        idx += idx & -idx;
+      }
+    };
+
+    const query = (idx: number): number => {
+      let sum = 0;
+      while (idx > 0) {
+        sum += bit[idx];
+        idx -= idx & -idx;
+      }
+      return sum;
+    };
+
+    let count = 0;
+    for (let i = nums.length - 1; i >= 0; i--) {
+      const targetIdx = valueToIndex.get(2 * nums[i])!;
+      count += query(targetIdx - 1);
+      const numIdx = valueToIndex.get(nums[i])!;
+      update(numIdx);
+    }
+
+    return count;
   }
 
   /**
@@ -132,14 +219,60 @@ class Solution {
    *         Space Complexity: O(n)
    */
   reversePairsSegmentTree(nums: number[]): number {
-    // Implementation
-    if not nums:
-    return 0
-    all_values = set()
-    for num in nums:
-    all_values.add(num)
-    all_values.add(2 * num)
-    sorted_values = sorted(all_values)
+    if (!nums || nums.length === 0) {
+      return 0;
+    }
+
+    // Coordinate compression
+    const allValues = new Set<number>();
+    for (const num of nums) {
+      allValues.add(num);
+      allValues.add(2 * num);
+    }
+    const sortedValues = Array.from(allValues).sort((a, b) => a - b);
+    const valueToIndex = new Map<number, number>();
+    sortedValues.forEach((val, idx) => valueToIndex.set(val, idx));
+
+    // Segment Tree
+    const size = sortedValues.length;
+    const tree = Array(4 * size).fill(0);
+
+    const update = (node: number, start: number, end: number, idx: number): void => {
+      if (start === end) {
+        tree[node]++;
+        return;
+      }
+      const mid = Math.floor((start + end) / 2);
+      if (idx <= mid) {
+        update(2 * node, start, mid, idx);
+      } else {
+        update(2 * node + 1, mid + 1, end, idx);
+      }
+      tree[node] = tree[2 * node] + tree[2 * node + 1];
+    };
+
+    const query = (node: number, start: number, end: number, l: number, r: number): number => {
+      if (r < start || end < l) {
+        return 0;
+      }
+      if (l <= start && end <= r) {
+        return tree[node];
+      }
+      const mid = Math.floor((start + end) / 2);
+      return query(2 * node, start, mid, l, r) + query(2 * node + 1, mid + 1, end, l, r);
+    };
+
+    let count = 0;
+    for (let i = nums.length - 1; i >= 0; i--) {
+      const targetIdx = valueToIndex.get(2 * nums[i])!;
+      if (targetIdx > 0) {
+        count += query(1, 0, size - 1, 0, targetIdx - 1);
+      }
+      const numIdx = valueToIndex.get(nums[i])!;
+      update(1, 0, size - 1, numIdx);
+    }
+
+    return count;
   }
 
   /**
@@ -155,15 +288,15 @@ class Solution {
    *         Space Complexity: O(1)
    */
   reversePairsBruteForce(nums: number[]): number {
-    // Implementation
-    count = 0
+    let count = 0;
     for (let i = 0; i < nums.length; i++) {
-    for (let j = 0; j < i + 1, nums.length; j++) {
-    if nums.get(i) > 2 * nums.get(j):
-    count += 1
-    return count
-    def test_solution() -> null:
-    """Test cases for Problem 493."""
+      for (let j = i + 1; j < nums.length; j++) {
+        if (nums[i] > 2 * nums[j]) {
+          count++;
+        }
+      }
+    }
+    return count;
   }
 }
 
@@ -175,45 +308,53 @@ if (typeof module !== "undefined" && module.exports) {
 function runTests(): void {
   const solution = new Solution();
 
-  test_solution()
-  # Example usage and demonstration
-  solution = Solution()
-  console.log("=== 493. Reverse Pairs ===")
-  test_cases = [
-  [1, 3, 2, 3, 1],
-  [2, 4, 3, 5, 1],
-  [5, 4, 3, 2, 1],
-  ]
-  for nums in test_cases:
-  console.log(`\nInput: {nums}`)
-  # Show all approaches
-  result_merge = solution.reversePairs(nums.get(:))
-  result_brute = solution.reversePairsBruteForce(nums.get(:))
-  console.log(`Merge Sort:  {result_merge}`)
-  console.log(`Brute Force: {result_brute}`)
-  # Only test tree approaches for small inputs
-  if nums.length <= 10:
-  result_bit = solution.reversePairsBIT(nums.get(:))
-  result_seg = solution.reversePairsSegmentTree(nums.get(:))
-  console.log(`Binary IT:   {result_bit}`)
-  console.log(`Segment Tree: {result_seg}`)
-  # Detailed walkthrough
-  console.log("\nDetailed example: [1,3,2,3,1]")
-  nums = [1, 3, 2, 3, 1]
-  console.log("Finding reverse pairs where nums.get(i) > 2*nums.get(j) (i < j):")
-  count = 0
+  console.log("=== 493. Reverse Pairs ===");
+
+  const testCases = [
+    [1, 3, 2, 3, 1],
+    [2, 4, 3, 5, 1],
+    [5, 4, 3, 2, 1],
+  ];
+
+  for (const nums of testCases) {
+    console.log(`\nInput: ${JSON.stringify(nums)}`);
+
+    // Show all approaches
+    const resultMerge = solution.reversePairs([...nums]);
+    const resultBrute = solution.reversePairsBruteForce([...nums]);
+    console.log(`Merge Sort:  ${resultMerge}`);
+    console.log(`Brute Force: ${resultBrute}`);
+
+    // Only test tree approaches for small inputs
+    if (nums.length <= 10) {
+      const resultBit = solution.reversePairsBIT([...nums]);
+      const resultSeg = solution.reversePairsSegmentTree([...nums]);
+      console.log(`Binary IT:   ${resultBit}`);
+      console.log(`Segment Tree: ${resultSeg}`);
+    }
+  }
+
+  // Detailed walkthrough
+  console.log("\nDetailed example: [1,3,2,3,1]");
+  const nums = [1, 3, 2, 3, 1];
+  console.log("Finding reverse pairs where nums[i] > 2*nums[j] (i < j):");
+  let count = 0;
   for (let i = 0; i < nums.length; i++) {
-  for (let j = 0; j < i + 1, nums.length; j++) {
-  if nums.get(i) > 2 * nums.get(j):
-  console.log(`  ({i},{j}): nums[{i}]={nums.get(i)} > 2*nums[{j}]={2 * nums.get(j)}`)
-  count += 1
-  console.log(`Total: {count} reverse pairs`)
-  # Performance comparison
-  console.log("\nApproach complexities:")
-  console.log("Merge Sort:   O(n log n) time, O(n) space")
-  console.log("Binary IT:    O(n log n) time, O(n) space")
-  console.log("Segment Tree: O(n log n) time, O(n) space")
-  console.log("Brute Force:  O(n²) time, O(1) space")
+    for (let j = i + 1; j < nums.length; j++) {
+      if (nums[i] > 2 * nums[j]) {
+        console.log(`  (${i},${j}): nums[${i}]=${nums[i]} > 2*nums[${j}]=${2 * nums[j]}`);
+        count++;
+      }
+    }
+  }
+  console.log(`Total: ${count} reverse pairs`);
+
+  // Performance comparison
+  console.log("\nApproach complexities:");
+  console.log("Merge Sort:   O(n log n) time, O(n) space");
+  console.log("Binary IT:    O(n log n) time, O(n) space");
+  console.log("Segment Tree: O(n log n) time, O(n) space");
+  console.log("Brute Force:  O(n²) time, O(1) space");
 }
 
 if (typeof require !== "undefined" && require.main === module) {

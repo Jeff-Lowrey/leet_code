@@ -1,5 +1,5 @@
 """
-# 38. Count And Say
+# 0038. Count And Say
 
 # Difficulty: Medium
 
@@ -24,7 +24,8 @@ say the number of digits, then say the digit. Finally, concatenate every said di
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Map Storage, Array Traversal, Two Pointers
 **Data Structures**: Array, String, Stack
 **Patterns**: Two Pointers Pattern, Hash Table Pattern
@@ -52,19 +53,27 @@ counting how many times each digit appears consecutively, then building a new st
 - Building with a list and joining is efficient in Python
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
 n = 5:
+```
+
 1. "1"
 2. "11" (one 1)
 3. "21" (two 1s)
 4. "1211" (one 2, one 1)
 5. "111221" (one 1, one 2, two 1s)
 
-For "1211" → "111221":
-- Read '1' once: "11"
-- Read '2' once: "12"
-- Read '1' twice: "21"
-- Result: "111221"
+Steps:
+Step 1: For "1211" → "111221":
+Step 2: - Read '1' once: "11"
+Step 3: - Read '2' once: "12"
+Step 4: - Read '1' twice: "21"
+Step 5: - Result: "111221"
+
+Output:
+```
+"111221"
 ```
 
 ### TIME COMPLEXITY:
@@ -260,7 +269,7 @@ if __name__ == "__main__":
     print("\nFirst 10 terms of count-and-say sequence:")
     for i in range(1, 11):
         result = solution.countAndSay(i)
-        print(f"countAndSay({i}) = '{result}'")
+        print(f"countAndSay({i}) = 'result'")
 
     # Demonstrate the logic
     print("\nDetailed walkthrough for n=4:")

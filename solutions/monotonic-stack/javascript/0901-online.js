@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Medium
  *
- * # 901. Online
+ * # 0901. Online Stock Span
+ *
  *
  * Design a class StockSpanner which collects daily price quotes for some stock, and returns the span of that stock's price for the current day.
  *
@@ -11,20 +12,21 @@
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>["StockSpanner", "next", "next", "next", "next", "next", "next", "next"]</dd>
+ * <dd>Operations: ["StockSpanner","next","next","next","next","next","next","next"]</dd>
  * <dt>Output:</dt>
- * <dd>"Expected {expected}, got {result}"</dd>
+ * <dd>[1,1,1,2,1,4,6]</dd>
  * <dt>Explanation:</dt>
  * <dd>After each price, the stock price span is the count of consecutive days with price ≤ current price</dd>
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Hash Table Lookup, Array Traversal, Stack Operations
  * **Data Structures**: Hash Map, Array, Stack
  * **Patterns**: Iterative Solution
- * **Time Complexity**: * O(n) - Single pass through input
- * **Space Complexity**: * O(1) - Constant extra space
+ * **Time Complexity**: O(n) - Single pass through input
+ * **Space Complexity**: O(1) - Constant extra space
 
  *
  * ### INTUITION:
@@ -42,27 +44,33 @@
  * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
  * Operations: ["StockSpanner","next","next","next","next","next","next","next"]
- * Values: [[],[100],[80],[60],[70],[60],[75],[85]]
- *
- * Step 1: Process prices with monotonic stack
- *   100: span=1, stack=[(100,1)]
- *   80: span=1, stack=[(100,1),(80,1)]
- *   60: span=1, stack=[(100,1),(80,1),(60,1)]
- *   70: pop 60, span=1+1=2, stack=[(100,1),(80,1),(70,2)]
- *   60: span=1, stack=[(100,1),(80,1),(70,2),(60,1)]
- *   75: pop 60, pop 70, span=1+1+2=4, stack=[(100,1),(80,1),(75,4)]
- *   85: pop 75, pop 80, span=1+4+1=6, stack=[(100,1),(85,6)]
- *
- * Output: [1,1,1,2,1,4,6]
  * ```
  *
+ * Values: [[],[100],[80],[60],[70],[60],[75],[85]]
+ * Step 1: Process prices with monotonic stack
+ * 100: span=1, stack=[(100,1)]
+ * 80: span=1, stack=[(100,1),(80,1)]
+ * 60: span=1, stack=[(100,1),(80,1),(60,1)]
+ * 70: pop 60, span=1+1=2, stack=[(100,1),(80,1),(70,2)]
+ * 60: span=1, stack=[(100,1),(80,1),(70,2),(60,1)]
+ * 75: pop 60, pop 70, span=1+1+2=4, stack=[(100,1),(80,1),(75,4)]
+ * 85: pop 75, pop 80, span=1+4+1=6, stack=[(100,1),(85,6)]
+ *
+ * Output:
+ * ```
+ * [1,1,1,2,1,4,6]
+ * ```
+
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  *
  * ### EDGE CASES:
  * - Empty input handling

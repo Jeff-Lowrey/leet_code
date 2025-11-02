@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Medium
  *
- * # 990. Satisfiability of Equality Equations
+ * # 0990. Satisfiability of Equality Equations
+ *
  *
  * You are given an array of strings equations that represent relationships between variables where each string equations[i] is of length 4 and takes one of two different forms: "xi==xj" or "xi!=xj".
  *
@@ -21,12 +22,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Hash Map Storage, Array Traversal
  * **Data Structures**: Array, String, Tree
  * **Patterns**: Iterative Solution
- * **Time Complexity**: * O(N × α(N))
- * **Space Complexity**: * O(1) - Constant extra space
+ * **Time Complexity**: O(N × α(N))
+ * **Space Complexity**: O(1) - Constant extra space
 
  *
  * ### INTUITION:
@@ -44,24 +46,32 @@
  * - Two-pass approach separates grouping from validation
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: ["a==b","b!=a"]
+ * ["a==b","b!=a"]
+ * ["a==b","b==c","a!=d"]
+ * ```
+ *
  * Step 1: Process equalities - Union('a', 'b')
  * Step 2: Check inequalities - "b!=a" but a and b are in same group
- * Output: False (contradiction)
  *
- * Input: ["a==b","b==c","a!=d"]
+ * Steps:
  * Step 1: Process equalities - Union('a','b'), Union('b','c') → {a,b,c} group
  * Step 2: Check inequalities - "a!=d" and d is separate → no conflict
- * Output: True
- * ```
  *
+ * Output:
+ * ```
+ * False (contradiction)
+ * True
+ * ```
+
  * ### TIME COMPLEXITY:
  * O(N × α(N))
  * Where N is number of equations and α is inverse Ackermann function
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  * Since we only have 26 possible variables (a-z)
  *
  * ### EDGE CASES:

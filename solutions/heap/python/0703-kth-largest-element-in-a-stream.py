@@ -1,7 +1,7 @@
 """
 # Difficulty: Easy
 
-# 703. Kth Largest Element in a Stream
+# 0703. Kth Largest Element in a Stream
 
 Design a class to find the kth largest element in a stream. Note that it is the kth largest element in the sorted order, not the kth distinct element.
 
@@ -21,7 +21,8 @@ Implement KthLargest class:
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Standard Algorithm
 **Data Structures**: Array, Heap, Tree
 **Patterns**: Iterative Solution
@@ -46,27 +47,25 @@ Use a min-heap of size k. The root of the heap is always the kth largest element
 - Heap operations are O(log k), efficient for streaming data
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
 k = 3, nums = [4, 5, 8, 2]
+```
 
 Initial heap (3 largest): [4, 5, 8]
 Min-heap structure: 4 at root (kth largest = 4)
-
 add(3):
-  - Add 3 to heap: [3, 4, 5, 8]
-  - Size > k, remove min: [4, 5, 8]
-  - Return root: 4
-
+- Add 3 to heap: [3, 4, 5, 8]
+- Size > k, remove min: [4, 5, 8]
+- Return root: 4
 add(5):
-  - Add 5 to heap: [4, 5, 5, 8]
-  - Size > k, remove min: [5, 5, 8]
-  - Return root: 5
-
+- Add 5 to heap: [4, 5, 5, 8]
+- Size > k, remove min: [5, 5, 8]
+- Return root: 5
 add(10):
-  - Add 10 to heap: [5, 5, 8, 10]
-  - Size > k, remove min: [5, 8, 10]
-  - Return root: 5
-```
+- Add 10 to heap: [5, 5, 8, 10]
+- Size > k, remove min: [5, 8, 10]
+- Return root: 5
 
 ### TIME COMPLEXITY:
 - Constructor: O(n log k) where n = len(nums)

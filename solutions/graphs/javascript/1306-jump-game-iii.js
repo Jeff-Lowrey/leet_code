@@ -1,5 +1,8 @@
 /**
- * # Difficulty: Medium
+ * # 1306. Jump Game Iii
+ *
+ * Difficulty: Medium
+ *
  *
  * Given an array of non-negative integers arr, you are initially positioned at start index.
  * When you are at index i, you can jump to i + arr[i] or i - arr[i], check if you can reach
@@ -22,12 +25,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Hash Map Storage, Array Traversal, Queue Operations
  * **Data Structures**: Array, Queue, Graph
  * **Patterns**: Hash Table Pattern, Graph Pattern
- * **Time Complexity**: * O(n)
- * **Space Complexity**: * O(n) for visited set and recursion/queue
+ * **Time Complexity**: O(n)
+ * **Space Complexity**: O(n) for visited set and recursion/queue
 
  *
  * ### INTUITION:
@@ -45,30 +49,37 @@
  * If any reachable node has value 0, we return true.
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
  * arr = [4,2,3,0,3,1,2], start = 5
- * visited = {}
- *
- * DFS(5): arr[5]=1
- *   - Jump to 5+1=6: DFS(6)
- *   - Jump to 5-1=4: DFS(4)
- *
- * DFS(6): arr[6]=2
- *   - Jump to 6+2=8: out of bounds
- *   - Jump to 6-2=4: already visited
- *
- * DFS(4): arr[4]=3
- *   - Jump to 4+3=7: out of bounds
- *   - Jump to 4-3=1: DFS(1)
- *
- * DFS(1): arr[1]=2
- *   - Jump to 1+2=3: DFS(3)
- *
- * DFS(3): arr[3]=0 → return true!
  * ```
  *
+ * visited = {}
+ * DFS(5): arr[5]=1
+ * - Jump to 5+1=6: DFS(6)
+ * - Jump to 5-1=4: DFS(4)
+ * DFS(6): arr[6]=2
+ * - Jump to 6+2=8: out of bounds
+ * - Jump to 6-2=4: already visited
+ * DFS(4): arr[4]=3
+ * - Jump to 4+3=7: out of bounds
+ * - Jump to 4-3=1: DFS(1)
+ * DFS(1): arr[1]=2
+ * - Jump to 1+2=3: DFS(3)
+ *
+ * Steps:
+ * Step 1: DFS(3): arr[3]=0 → return true!
+ * 
+ * Output:
+ * ```
+ * return true!
+ * ```
+ * 
  * ### TIME COMPLEXITY:
+
  * O(n)
+
+ * - Single pass through the input
  *
  * ### SPACE COMPLEXITY:
  * O(n) for visited set and recursion/queue

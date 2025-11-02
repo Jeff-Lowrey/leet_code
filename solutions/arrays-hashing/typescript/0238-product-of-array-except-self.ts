@@ -1,7 +1,8 @@
 /**
- * # 238. Product Of Array Except Self
+ * # 0238. Product Of Array Except Self
  *
- * # Difficulty: Medium
+ * Difficulty: Medium
+ *
  *
  * Given an integer array nums, return an array answer such that answer[i] is equal to the product of all the elements of nums except nums[i].
  *
@@ -49,39 +50,44 @@
  * - O(1) extra space by using output array to store intermediate left products
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: nums = [1, 2, 3, 4]
+ * nums = [1, 2, 3, 4]
+ * ```
  *
  * Step 1: Calculate left products
- *   i=0: result[0] = 1 (no left elements)
- *        left_product = 1 × 1 = 1
- *   i=1: result[1] = 1 (product of left: 1)
- *        left_product = 1 × 2 = 2
- *   i=2: result[2] = 2 (product of left: 1×2)
- *        left_product = 2 × 3 = 6
- *   i=3: result[3] = 6 (product of left: 1×2×3)
- *        left_product = 6 × 4 = 24
- *   result = [1, 1, 2, 6]
- *
+ * i=0: result[0] = 1 (no left elements)
+ * left_product = 1 × 1 = 1
+ * i=1: result[1] = 1 (product of left: 1)
+ * left_product = 1 × 2 = 2
+ * i=2: result[2] = 2 (product of left: 1×2)
+ * left_product = 2 × 3 = 6
+ * i=3: result[3] = 6 (product of left: 1×2×3)
+ * left_product = 6 × 4 = 24
+ * result = [1, 1, 2, 6]
  * Step 2: Calculate right products and combine
- *   i=3: result[3] = 6 × 1 = 6 (no right elements)
- *        right_product = 1 × 4 = 4
- *   i=2: result[2] = 2 × 4 = 8 (right: 4)
- *        right_product = 4 × 3 = 12
- *   i=1: result[1] = 1 × 12 = 12 (right: 3×4)
- *        right_product = 12 × 2 = 24
- *   i=0: result[0] = 1 × 24 = 24 (right: 2×3×4)
- *        right_product = 24 × 1 = 24
- *   result = [24, 12, 8, 6]
+ * i=3: result[3] = 6 × 1 = 6 (no right elements)
+ * right_product = 1 × 4 = 4
+ * i=2: result[2] = 2 × 4 = 8 (right: 4)
+ * right_product = 4 × 3 = 12
+ * i=1: result[1] = 1 × 12 = 12 (right: 3×4)
+ * right_product = 12 × 2 = 24
+ * i=0: result[0] = 1 × 24 = 24 (right: 2×3×4)
+ * right_product = 24 × 1 = 24
+ * result = [24, 12, 8, 6]
  *
- * Output: [24, 12, 8, 6]
+ * Output:
  * ```
- *
+ * [24, 12, 8, 6]
+ * ```
+
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Two passes through input
  *
  * ### SPACE COMPLEXITY:
- * O(1) - excluding output array
+ * O(1)
+ * - Constant extra space (excluding output array)
  *
  * ### EDGE CASES:
  * - Empty input handling

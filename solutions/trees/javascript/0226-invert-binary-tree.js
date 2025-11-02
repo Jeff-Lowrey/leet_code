@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Easy
  *
- * # 226. Invert Binary Tree
+ * # 0226. Invert Binary Tree
+ *
  *
  * Given the root of a binary tree, invert the tree, and return its root.
  *
@@ -17,12 +18,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Array Traversal, Two Pointers, Stack Operations
  * **Data Structures**: Array, String, Stack
  * **Patterns**: Two Pointers Pattern, Graph Pattern
- * **Time Complexity**: * O(n) - Single pass through input
- * **Space Complexity**: * O(1) - Constant extra space
+ * **Time Complexity**: O(n) - Single pass through input
+ * **Space Complexity**: O(1) - Constant extra space
 
  *
  * ### INTUITION:
@@ -40,21 +42,28 @@
  * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: root = [4,2,7,1,3,6,9]
+ * root = [4,2,7,1,3,6,9]
+ * ```
+ *
  * Step 1: Recursively swap children
- *   Swap children of 4: left=7, right=2
- *   Swap children of 7: left=9, right=6
- *   Swap children of 2: left=3, right=1
+ * Swap children of 4: left=7, right=2
+ * Swap children of 7: left=9, right=6
+ * Swap children of 2: left=3, right=1
  *
- * Output: [4,7,2,9,6,3,1] (inverted tree)
+ * Output:
  * ```
- *
+ * [4,7,2,9,6,3,1] (inverted tree)
+ * ```
+
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  *
  * ### EDGE CASES:
  * - Empty input handling

@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Hard
  * 
- * # 037. Sudoku Solver
+ * # 0037. Sudoku Solver
  * **Backtracking**
  * 
  * Solve a Sudoku puzzle by filling the empty cells.
@@ -10,7 +10,7 @@
  * 
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[["5", "3", ".", ".", "7", ".", ".", ".", "."]</dd>
+ * <dd>[["5", "3", ".", ".", "7", ".", ".", ".", "."]]</dd>
  * <dt>Output:</dt>
  * <dd>1</dd>
  * <dt>Explanation:</dt>
@@ -18,7 +18,8 @@
  * </dl>
  * 
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Array Traversal, Stack Operations
  * **Data Structures**: Hash Set, Array, String
  * **Patterns**: Backtracking
@@ -44,15 +45,21 @@
  * - Modifies board in-place for efficiency
  * 
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: board with some filled cells and '.' for empty
+ * board with some filled cells and '.' for empty
+ * ```
+ *
  * Step 1: Find first empty cell
  * Step 2: Try placing '1' - check if valid
  * Step 3: Recurse to next empty cell
  * Step 4: If contradiction found, backtrack and try '2'
- * Output: Completed valid Sudoku board
+ *
+ * Output:
  * ```
- * 
+ * Completed valid Sudoku board
+ * ```
+
  * ### TIME COMPLEXITY:
  * O(9^(n*n)) worst case, where n=9
  * 

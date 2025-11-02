@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 198. House Robber
+# 0198. House Robber
 
 You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed, the only constraint stopping you from robbing each of them is that adjacent houses have security systems connected and it will automatically contact the police if two adjacent houses were broken into on the same night.
 
@@ -11,15 +11,16 @@ Given an integer array nums representing the amount of money of each house, retu
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[2,7,9,3,1]</dd>
+<dd>nums = [2,7,9,3,1]</dd>
 <dt>Output:</dt>
-<dd>12 (maximum money)</dd>
+<dd>12</dd>
 <dt>Explanation:</dt>
-<dd>Maximum amount robbed from [1,2,3,1] is 4 by robbing houses 0 and 2</dd>
+<dd>Rob houses at indices 0, 2, 4 (values 2, 9, 1) for total 12</dd>
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
 **Data Structures**: Hash Map, Hash Set, Array
 **Patterns**: Greedy Algorithm, Dynamic Programming
@@ -46,27 +47,35 @@ At each house, choose to rob it (take current + best from i-2) or skip it (take 
 - O(n) time single pass, O(1) space with two variables instead of array
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: nums = [2,7,9,3,1]
+nums = [2,7,9,3,1]
+```
+
 Step 1: Build DP table
-  dp[0] = 2 (rob house 0)
-  dp[1] = max(2, 7) = 7 (rob house 1)
-  dp[2] = max(7, 2+9) = 11 (rob houses 0,2)
-  dp[3] = max(11, 7+3) = 11 (keep houses 0,2)
-  dp[4] = max(11, 11+1) = 12 (rob houses 0,2,4)
-
+dp[0] = 2 (rob house 0)
+dp[1] = max(2, 7) = 7 (rob house 1)
+dp[2] = max(7, 2+9) = 11 (rob houses 0,2)
+dp[3] = max(11, 7+3) = 11 (keep houses 0,2)
+dp[4] = max(11, 11+1) = 12 (rob houses 0,2,4)
 Step 2: Optimal solution
-  Rob houses at indices 0, 2, 4
-  Total: 2 + 9 + 1 = 12
+Rob houses at indices 0, 2, 4
+Total: 2 + 9 + 1 = 12
 
-Output: 12 (maximum money)
+Output:
+```
+12 (maximum money)
 ```
 
 ### TIME COMPLEXITY:
 O(n)
+- Single pass through input
+
 
 ### SPACE COMPLEXITY:
 O(1)
+- Constant extra space
+
 
 ### EDGE CASES:
 - Empty input handling
@@ -128,17 +137,17 @@ def test_solution() -> None:
     # Test case 1: Example from problem - rob houses 1 and 3 (7 + 9 = 16) or houses 0, 2, 4 (2 + 9 + 1 = 12)
     result = solution.rob([2, 7, 9, 3, 1])
     expected = 12
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: Single element
     result = solution.rob([5])
     expected = 5
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 3: Two elements - rob the maximum
     result = solution.rob([1, 2])
     expected = 2
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

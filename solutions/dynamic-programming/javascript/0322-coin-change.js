@@ -1,5 +1,8 @@
 /**
- * # Difficulty: Medium
+ * # 0322. Coin Change
+ *
+ * Difficulty: Medium
+ *
  *
  * You are given an integer array coins representing coins of different denominations
  * and an integer amount representing a total amount of money.
@@ -26,12 +29,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Hash Map Storage, Array Traversal, Memoization
  * **Data Structures**: Array
  * **Patterns**: Greedy Algorithm, Dynamic Programming
- * **Time Complexity**: * O(amount × len(coins))
- * **Space Complexity**: * O(amount)
+ * **Time Complexity**: O(amount × len(coins))
+ * **Space Complexity**: O(amount)
 
  *
  * ### INTUITION:
@@ -51,8 +55,10 @@
  * Using BFS with a queue processes nodes level by level. Tracking level size ensures we group nodes correctly. This works because BFS naturally visits nodes in level order, and we can identify level boundaries by counting nodes in the queue at each level's start.
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
  * coins = [1,2,5], `amount = 11`
+ * ```
  *
  * dp[0] = 0
  * dp[1] = 1 (use coin 1)
@@ -63,8 +69,7 @@
  * dp[6] = 2 (use coin `5 + coin` 1)
  * ...
  * dp[11] = 3 (use coin `5 + coin` `5 + coin` 1)
- * ```
- *
+
  * ### TIME COMPLEXITY:
  * O(amount × len(coins))
  * For each amount from 1 to target, try all coins

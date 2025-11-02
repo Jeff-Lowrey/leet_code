@@ -1,5 +1,8 @@
 /**
- * # Difficulty: Easy
+ * # 0020. Valid Parentheses
+ *
+ * Difficulty: Easy
+ *
  *
  * Given a string s containing just the characters '(', ')', '{', '}', '[' and ']',
  * determine if the input string is valid.
@@ -33,12 +36,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Hash Table Lookup, Array Traversal, Stack Operations
  * **Data Structures**: Hash Map, Hash Set, Array
  * **Patterns**: Iterative Solution
- * **Time Complexity**: * O(n) - Single pass through input
- * **Space Complexity**: * O(n) - Additional hash map storage
+ * **Time Complexity**: O(n) - Single pass through input
+ * **Space Complexity**: O(n) - Additional hash map storage
 
  *
  * ### INTUITION:
@@ -60,24 +64,33 @@
  * - Empty stack at the end means all brackets were properly matched
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: s = "([{}])"
+ * s = "([{}])"
+ * ```
  *
+ * Steps:
  * Step 1: '(' → push to stack: ['(']
  * Step 2: '[' → push to stack: ['(', '[']
  * Step 3: '{' → push to stack: ['(', '[', '{']
  * Step 4: '}' → pop '{', matches ✓, stack: ['(', '[']
  * Step 5: ']' → pop '[', matches ✓, stack: ['(']
  * Step 6: ')' → pop '(', matches ✓, stack: []
- * Result: Empty stack → True
+ * Step 7: Result: Empty stack → True
+ * 
+ * Output:
  * ```
- *
+ * Empty stack → True
+ * ```
+ * 
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  * Single pass through the string
  *
  * ### SPACE COMPLEXITY:
  * O(n)
+ * - Additional hash map storage
  * Stack can contain up to n/2 opening brackets in worst case
  *
  * ### EDGE CASES:

@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Medium
  *
- * # 336. Palindrome
+ * # 0336. Palindrome Pairs
+ *
  *
  * You are given an array of strings words. A palindrome pair is defined as a pair of integers (i, j) where i != j such that the concatenation of words[i] + words[j] is a palindrome.
  *
@@ -19,12 +20,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Hash Map, Hash Set, Array
  * **Patterns**: Two Pointers Pattern
- * **Time Complexity**: * O(n) - Single pass through input
- * **Space Complexity**: * O(1) - Constant extra space
+ * **Time Complexity**: O(n) - Single pass through input
+ * **Space Complexity**: O(1) - Constant extra space
 
  *
  * ### INTUITION:
@@ -42,21 +44,28 @@
  * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: words = ["abcd","dcba","lls","s","sssll"]
+ * words = ["abcd","dcba","lls","s","sssll"]
+ * ```
+ *
  * Step 1: Check all pairs
- *   "lls" + "s" = "llss" (not palindrome)
- *   "s" + "lls" = "slls" (not palindrome)
- *   "abcd" + "dcba" = "abcddcba" (palindrome) ✓
+ * "lls" + "s" = "llss" (not palindrome)
+ * "s" + "lls" = "slls" (not palindrome)
+ * "abcd" + "dcba" = "abcddcba" (palindrome) ✓
  *
- * Output: [[0,1],[1,0]] (palindrome pairs)
+ * Output:
  * ```
- *
+ * [[0,1],[1,0]] (palindrome pairs)
+ * ```
+
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  *
  * ### EDGE CASES:
  * - Empty input handling

@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 162. Find Peak Element
+# 0162. Find Peak Element
 
 A peak element is an element that is strictly greater than its neighbors.
 
@@ -23,7 +23,8 @@ You must write an algorithm that runs in O(log n) time.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Two Pointers
 **Data Structures**: Hash Map, Hash Set, Array
 **Patterns**: Two Pointers Pattern, Binary Search Pattern
@@ -50,31 +51,38 @@ A peak must exist because edges are considered smaller. Use binary search: if nu
 - O(log n) time, O(1) space
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: nums = [1,2,3,1]
+nums = [1,2,3,1]
+```
+
 Step 1: Initialize binary search
-  left = 0, right = 3
-
+left = 0, right = 3
 Step 2: Binary search for peak
-  mid = 1: nums[1]=2 < nums[2]=3
-  → Peak is on right, left = 2
+mid = 1: nums[1]=2 < nums[2]=3
 
-  mid = 2: nums[2]=3 > nums[3]=1
-  → Peak could be at mid or left, right = 2
+Steps:
+Step 1: Peak is on right, left = 2
+Step 2: mid = 2: nums[2]=3 > nums[3]=1
+Step 3: Peak could be at mid or left, right = 2
+Step 4: left = right = 2
+Step 5: Check result
+Step 6: nums[2] = 3 is greater than neighbors (2 and 1)
 
-  left = right = 2
-
-Step 3: Check result
-  nums[2] = 3 is greater than neighbors (2 and 1)
-
-Output: 2 (index of peak element)
+Output:
+```
+2 (index of peak element)
 ```
 
 ### TIME COMPLEXITY:
 O(n)
+- Single pass through input
+
 
 ### SPACE COMPLEXITY:
 O(1)
+- Constant extra space
+
 
 ### EDGE CASES:
 - Empty input handling
@@ -138,17 +146,17 @@ def test_solution() -> None:
     # Test case 1: Example from problem
     result = solution.findPeakElement([1, 2, 3, 1])
     expected = 2
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: Single element
     result = solution.findPeakElement([1])
     expected = 0
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 3: Multiple peaks - any is valid
     result = solution.findPeakElement([1, 2, 1, 3, 5, 6, 4])
     # Result could be index 1 or 5 (both are peaks)
-    assert result in [1, 5], f"Expected 1 or 5, got {result}"
+    assert result in [1, 5], f"Expected 1 or 5, got result"
 
     print("All test cases passed!")
 

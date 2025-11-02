@@ -1,7 +1,8 @@
 /**
- * # 448. Find All Numbers Disappeared In An Array
+ * # 0448. Find All Numbers Disappeared In An Array
  *
- * # Difficulty: Easy
+ * Difficulty: Medium
+ *
  *
  * Given an array nums of n integers where nums[i] is in the range [1, n], return an array of all the integers in the range [1, n] that do not appear in nums.
  *
@@ -46,30 +47,38 @@
  * - O(n) time with two passes, O(1) space by reusing input array as marker
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: nums = [4,3,2,7,8,2,3,1]
+ * nums = [4,3,2,7,8,2,3,1]
+ * ```
+ *
  * Step 1: Mark present numbers by negating values at indices
- *   - Process 4: nums[3] = -7, nums = [4,3,2,-7,8,2,3,1]
- *   - Process 3: nums[2] = -2, nums = [4,3,-2,-7,8,2,3,1]
- *   - Process 2: nums[1] = -3, nums = [4,-3,-2,-7,8,2,3,1]
- *   - Process 7: nums[6] = -3, nums = [4,-3,-2,-7,8,2,-3,1]
- *   - Process 8: nums[7] = -1, nums = [4,-3,-2,-7,8,2,-3,-1]
- *   - Process 2: already marked
- *   - Process 3: already marked
- *   - Process 1: nums[0] = -4, nums = [-4,-3,-2,-7,8,2,-3,-1]
- *
+ * - Process 4: nums[3] = -7, nums = [4,3,2,-7,8,2,3,1]
+ * - Process 3: nums[2] = -2, nums = [4,3,-2,-7,8,2,3,1]
+ * - Process 2: nums[1] = -3, nums = [4,-3,-2,-7,8,2,3,1]
+ * - Process 7: nums[6] = -3, nums = [4,-3,-2,-7,8,2,-3,1]
+ * - Process 8: nums[7] = -1, nums = [4,-3,-2,-7,8,2,-3,-1]
+ * - Process 2: already marked
+ * - Process 3: already marked
+ * - Process 1: nums[0] = -4, nums = [-4,-3,-2,-7,8,2,-3,-1]
  * Step 2: Find indices with positive values
- *   - Index 4 has value 8 (positive) → number 5 is missing
- *   - Index 5 has value 2 (positive) → number 6 is missing
  *
- * Output: [5, 6]
+ * Steps:
+ * Step 1: - Index 4 has value 8 (positive) → number 5 is missing
+ * Step 2: - Index 5 has value 2 (positive) → number 6 is missing
+ *
+ * Output:
  * ```
- *
+ * [5, 6]
+ * ```
+
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Two passes through input
  *
  * ### SPACE COMPLEXITY:
- * O(1) - excluding output array
+ * O(1)
+ * - Constant extra space (excluding output)
  *
  * ### EDGE CASES:
  * - Empty input handling

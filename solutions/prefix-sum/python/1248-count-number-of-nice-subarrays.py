@@ -11,15 +11,16 @@ Return the number of nice sub-arrays.
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[([1, 1, 2, 1, 1]</dd>
+<dd>nums = [1,1,2,1,1], k = 3</dd>
 <dt>Output:</dt>
-<dd>"\nInput: nums={nums}, k={k}"</dd>
+<dd>2</dd>
 <dt>Explanation:</dt>
-<dd>There are 2 nice subarrays (containing exactly k=3 odd numbers)</dd>
+<dd>The only sub-arrays with 3 odd numbers are [1,1,2,1] and [1,2,1,1].</dd>
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
 **Data Structures**: Hash Map, Array
 **Patterns**: Sliding Window Pattern, Hash Table Pattern
@@ -30,10 +31,10 @@ Return the number of nice sub-arrays.
 This problem is a variation of "subarray sum equals k" but instead of sum, we count odd numbers. We can use prefix sum technique by treating each odd number as 1 and even numbers as 0. Then we need to find subarrays where the sum of 1s equals k.
 
 ### APPROACH:
-1. **Transform problem**: Convert to counting subarrays with sum = k
-2. **Prefix sum**: Track running count of odd numbers
-3. **HashMap frequency**: Store frequency of each prefix count
-4. **Count subarrays**: For each position, check if (current_count - k) exists
+1. **Transform problem**: Convert to counting subarrays with sum = k using array traversal
+2. **Prefix sum**: Track running count of odd numbers using hash map storage
+3. **HashMap frequency with hash table lookup**: Store frequency of each prefix count in hash map
+4. **Count subarrays**: For each position, use hash table lookup to check if (current_count - k) exists in hash map
 
 ### WHY THIS WORKS:
 - Transform odd numbers to 1, even numbers to 0
@@ -42,14 +43,28 @@ This problem is a variation of "subarray sum equals k" but instead of sum, we co
 - prefix_count[j] - prefix_count[i] = k means subarray from i+1 to j has k odd numbers
 
 ### EXAMPLE WALKTHROUGH:
+**Input:** nums = [1,1,2,1,1], k = 3
+
+**Step 1:** Transform problem using array traversal
+- Convert: [1,1,2,1,1] → [1,1,0,1,1] (odd=1, even=0)
+
+**Step 2:** Track prefix sum (running count of odd numbers)
+- Prefix counts: [0,1,2,2,3,4]
+
+**Step 3:** Build hash map frequency with hash table lookup
+- HashMap: {0:1, 1:1, 2:2, 3:1, 4:1}
+
+**Step 4:** Count subarrays using hash table lookup
+- Position 0 (count=1): Check count-k=1-3=-2 in hash map → 0
+- Position 1 (count=2): Check count-k=2-3=-1 in hash map → 0
+- Position 2 (count=2): Check count-k=2-3=-1 in hash map → 0
+- Position 3 (count=3): Check count-k=3-3=0 in hash map → 1 ✓
+- Position 4 (count=4): Check count-k=4-3=1 in hash map → 1 ✓
+- Total: 2 nice subarrays
+
+Output:
 ```
-Input: nums = [1,1,2,1,1], k = 3
-Transform: [1,1,0,1,1] (odd=1, even=0)
-Prefix counts: [0,1,2,2,3,4]
-For each position, check if (current_count - k) exists:
-- Position 3: count=3, need=0, found 1 time
-- Position 4: count=4, need=1, found 1 time
-Total: 2 nice subarrays
+2
 ```
 
 ### TIME COMPLEXITY:

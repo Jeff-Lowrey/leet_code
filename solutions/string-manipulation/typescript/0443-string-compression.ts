@@ -1,7 +1,8 @@
 /**
- * # 443. String Compression
+ * # 0443. String Compression
  *
- * # Difficulty: Medium
+ * Difficulty: Medium
+ *
  *
  * Given an array of characters chars, compress it using the following algorithm:
  *
@@ -29,7 +30,8 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Array, String, Queue
  * **Patterns**: Two Pointers Pattern, Hash Table Pattern
@@ -42,11 +44,12 @@
  * to the same array. This allows us to modify the array in-place with O(1) extra space.
  *
  * ### APPROACH:
- * 1. **Two Pointers**: Use `read` pointer to scan array, `write` pointer for result
- * 2. **Count Consecutive**: For each character, count how many consecutive times it appears
- * 3. **Write Character**: Always write the character itself
- * 4. **Write Count**: If count > 1, write the count digits
- * 5. **Handle Multi-Digit Counts**: Split counts like 12 into '1', '2'
+ * **Data structures: Array (for storage), String (for conversion)**
+ * 1. **Two Pointers**: Use `read` pointer to scan array, `write` pointer for result in array
+ * 2. **Count Consecutive**: For each character, count how many consecutive times it appears in array
+ * 3. **Write Character**: Always write the character itself to array
+ * 4. **Write Count**: If count > 1, write the count digits to array using string conversion
+ * 5. **Handle Multi-Digit Counts**: Split counts like 12 into '1', '2' using string operations
  *
  * ### WHY THIS WORKS:
  * - Writing pointer never overtakes reading pointer (compressed is always shorter)
@@ -54,41 +57,67 @@
  * - In-place modification is safe because we consume input faster than we produce output
  * - Converting count to string and iterating over digits handles multi-digit counts
  *
- * ### EXAMPLE WALKTHROUGH:
+ *
+
+This solution uses hash table lookup for efficient implementation.
+
+This solution uses hash map storage for efficient implementation.
+
+The solution leverages queue for efficient operations.
+### EXAMPLE WALKTHROUGH:
+ * **Input:** chars = ["a","a","b","b","c","c","c"]
+ *
+ * **Step 1:** Process 'a' group (read=0) for chars=["a","a","b","b","c","c","c"]
+ * - Count: 2 occurrences at indices 0-1
+ * - Write: chars[0]='a', chars[1]='2'
+ * - write=2, read=2
+ *
+ * **Step 2:** Process 'b' group (read=2)
+ * - Count: 2 occurrences at indices 2-3
+ * - Write: chars[2]='b', chars[3]='2'
+ * - write=4, read=4
+ *
+ * **Step 3:** Process 'c' group (read=4)
+ * - Count: 3 occurrences at indices 4-6
+ * - Write: chars[4]='c', chars[5]='3'
+ * - write=6, read=7
+ *
+ * **Step 4:** Write count for each group
+ * - For 'a': count=2 (single digit), write '2'
+ * - For 'b': count=2 (single digit), write '2'
+ * - For 'c': count=3 (single digit), write '3'
+ * - Array after writes: ["a","2","b","2","c","3",...]
+ *
+ * **Step 5:** Handle multi-digit counts (if any)
+ * - Example: If count was 12, convert to string "12"
+ * - Split into digits: '1', '2'
+ * - Write each digit separately to array
+ * - In this case, all counts are single-digit (no splitting needed)
+ * - Return write pointer = 6
+ *
+ * Output:
  * ```
- * Input: ["a","a","b","b","c","c","c"]
- *
- * Read pointer scans:
- * 1. chars[0-1]: 'a' appears 2 times
- *    Write: chars[0]='a', chars[1]='2'
- *    write=2
- *
- * 2. chars[2-3]: 'b' appears 2 times
- *    Write='b', chars[3]='2'
- *    write=4
- *
- * 3. chars[4-6]: 'c' appears 3 times
- *    Write='c', chars[5]='3'
- *    write=6
- *
- * Result: ["a","2","b","2","c","3"] with length 6
+ * 6
  * ```
- *
+
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  * - Single pass through the array with read pointer
  * - Writing compressed data is proportional to input size
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  * - Only using constant extra space (pointers and counters)
  * - Modifying the array in-place
  *
  * ### EDGE CASES:
- * - Single character: Return 1
- * - All different characters: Return original length
- * - All same characters: Return 1 + len(str(count))
- * - Very long runs (count >= 10): Multi-digit handling
+ * - Single character array: chars=["a"] → 1 (just the character, no count needed)
+ * - All different characters: chars=["a","b","c"] → 3 (no compression possible, returns original length)
+ * - All same characters: chars=["a","a","a","a","a","a","a","a","a","a","a","a"] → 3 for ["a","1","2"] (12 'a's compressed to character plus two digits)
+ * - Very long runs: chars with 100 'a's → 4 for ["a","1","0","0"] (multi-digit count handling required)
+ * - Empty array: chars=[] → 0 (no elements to process, returns immediately)
  *
  * </details>
  */

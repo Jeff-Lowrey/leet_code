@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Easy
  *
- * # 110. Balanced Binary Tree
+ * # 0110. Balanced Binary Tree
+ *
  *
  * Given a binary tree, determine if it is height-balanced.
  *
@@ -11,22 +12,23 @@
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[("Optimized recursive", solution.isBalanced),
+ * <dd>[3,9,20,null,null,15,7]</dd>
  *         ("Alternative recursive", solution.isBalancedAlternative),
  *         ("Iterative", solution.isBalancedIterative)]</dd>
  * <dt>Output:</dt>
- * <dd>"{name}: {result}"</dd>
+ * <dd>* True</dd>
  * <dt>Explanation:</dt>
  * <dd>The tree is balanced because the height difference between left and right subtrees is at most 1 at every node</dd>
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Array Traversal, Two Pointers, Stack Operations
  * **Data Structures**: Array, Stack, Queue
  * **Patterns**: Two Pointers Pattern, Greedy Algorithm
- * **Time Complexity**: * O(n) - Single pass through input
- * **Space Complexity**: * O(h)
+ * **Time Complexity**: O(n) - Single pass through input
+ * **Space Complexity**: O(h)
 
  *
  * ### INTUITION:
@@ -45,24 +47,30 @@
  * - Early termination optimizes for unbalanced trees
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: [3,9,20,null,null,15,7]
- *        3
- *       / \
- *      9  20
- *        /  \
- *       15   7
+ * [3,9,20,null,null,15,7]
+ * ```
  *
+ * 3
+ * / \
+ * 9  20
+ * /  \
+ * 15   7
  * 1. Check node 9: height = 1, balanced ✓
  * 2. Check node 15: height = 1, balanced ✓
  * 3. Check node 7: height = 1, balanced ✓
  * 4. Check node 20: left_height = 1, right_height = 1, |1-1| = 0 ≤ 1 ✓
  * 5. Check node 3: left_height = 1, right_height = 2, |1-2| = 1 ≤ 1 ✓
- * Output: True
- * ```
  *
+ * Output:
+ * ```
+ * True
+ * ```
+
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  * Each node is visited exactly once
  *
  * ### SPACE COMPLEXITY:

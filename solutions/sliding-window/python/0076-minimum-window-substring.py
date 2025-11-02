@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 076. Minimum Window Substring
+# 0076. Minimum Window Substring
 
 Given two strings s and t of lengths m and n respectively, return the minimum window substring of s such that every character in t (including duplicates) is included in the window. If there is no such substring, return the empty string "".
 
@@ -19,7 +19,8 @@ The testcases will be generated such that the answer is unique.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
 **Data Structures**: Hash Map, Hash Set, Array
 **Patterns**: Two Pointers Pattern, Sliding Window Pattern
@@ -47,27 +48,34 @@ Use sliding window with character counts. Expand right until window contains all
 - O(m + n) time: scan s once, O(1) space for fixed alphabet
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: s = "ADOBECODEBANC", t = "ABC"
+s = "ADOBECODEBANC", t = "ABC"
+```
+
 Step 1: Expand window until valid
-  "ADOBEC" contains A,B,C
-
+"ADOBEC" contains A,B,C
 Step 2: Contract from left
-  "DOBEC" missing A
-  "ADOBEC" is minimum so far (6 chars)
-
+"DOBEC" missing A
+"ADOBEC" is minimum so far (6 chars)
 Step 3: Continue expanding
-  "ODEBANC" contains A,B,C
-  Contract: "BANC" (4 chars) - new minimum
+"ODEBANC" contains A,B,C
+Contract: "BANC" (4 chars) - new minimum
 
-Output: "BANC"
+Output:
+```
+"BANC"
 ```
 
 ### TIME COMPLEXITY:
 O(n)
+- Single pass through input
+
 
 ### SPACE COMPLEXITY:
 O(1)
+- Constant extra space
+
 
 ### EDGE CASES:
 - Empty input handling
@@ -149,12 +157,12 @@ def test_solution() -> None:
     # Test case 1: Example from problem
     result = solution.minWindow("ADOBECODEBANC", "ABC")
     expected = "BANC"
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: Empty input
     result = solution.minWindow("", "A")
     expected = ""
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

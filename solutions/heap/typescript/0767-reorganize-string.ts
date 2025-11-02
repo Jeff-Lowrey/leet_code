@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Medium
  *
- * # 767. Reorganize String
+ * # 0767. Reorganize String
+ *
  *
  * Given a string s, rearrange the characters of s so that any two adjacent characters are not the same.
  *
@@ -19,7 +20,8 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Hash Set, Array, String
  * **Patterns**: Hash Table Pattern, Greedy Algorithm
@@ -47,27 +49,32 @@
  * - O(n log k) time: k unique chars, n total chars, O(k) space for heap
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: s = "aab"
+ * s = "aab"
+ * ```
+ *
  * Step 1: Count character frequencies
- *   freq = {'a': 2, 'b': 1}
- *
+ * freq = {'a': 2, 'b': 1}
  * Step 2: Build max heap (using negative frequencies)
- *   heap = [(-2, 'a'), (-1, 'b')]
- *
+ * heap = [(-2, 'a'), (-1, 'b')]
  * Step 3: Rearrange characters
- *   Pick 'a': result = "a", heap = [(-1, 'b'), (-1, 'a')]
- *   Pick 'b': result = "ab", heap = [(-1, 'a')]
- *   Pick 'a': result = "aba"
+ * Pick 'a': result = "a", heap = [(-1, 'b'), (-1, 'a')]
+ * Pick 'b': result = "ab", heap = [(-1, 'a')]
+ * Pick 'a': result = "aba"
  *
- * Output: "aba" (reorganized string)
+ * Output:
  * ```
- *
+ * "aba" (reorganized string)
+ * ```
+
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  *
  * ### EDGE CASES:
  * - Empty input handling

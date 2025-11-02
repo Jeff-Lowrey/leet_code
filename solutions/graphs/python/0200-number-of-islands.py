@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 200. Number Of Islands
+# 0200. Number Of Islands
 
 Given an m x n 2D binary grid which represents a map of '1's (land) and '0's (water), return the number of islands.
 
@@ -11,15 +11,16 @@ An island is surrounded by water and is formed by connecting adjacent lands hori
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[["1","1","1","1","0"]</dd>
+<dd>grid = [["1","1","1","1","0"],["1","1","0","1","0"],["1","1","0","0","0"],["0","0","0","0","0"]]</dd>
 <dt>Output:</dt>
 <dd>1</dd>
 <dt>Explanation:</dt>
-<dd>Number of islands in binary grid is 3</dd>
+<dd>There is 1 island (all connected 1's in top-left)</dd>
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
 **Data Structures**: Hash Map, Hash Set, Array
 **Patterns**: Hash Table Pattern, Greedy Algorithm
@@ -43,19 +44,22 @@ This is a classic graph traversal problem where we need to find connected compon
 - 4-directional connectivity defines what constitutes an island
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
 Grid: [["1","1","1","1","0"],
-       ["1","1","0","1","0"],
-       ["1","1","0","0","0"],
-       ["0","0","0","0","0"]]
+```
 
+["1","1","0","1","0"],
+["1","1","0","0","0"],
+["0","0","0","0","0"]]
 Process:
 - Start at (0,0): DFS explores entire connected land mass
 - Mark all connected '1's as visited: (0,0), (0,1), (0,2), (0,3), (1,0), (1,1), (2,0), (2,1)
-- Continue scanning: (1,3) is unvisited land → start new DFS
-- DFS from (1,3) only marks (1,3) as it's isolated
-- Total islands found: 2
-```
+
+Steps:
+Step 1: - Continue scanning: (1,3) is unvisited land → start new DFS
+Step 2: - DFS from (1,3) only marks (1,3) as it's isolated
+Step 3: - Total islands found: 2
 
 ### TIME COMPLEXITY:
 O(M × N)

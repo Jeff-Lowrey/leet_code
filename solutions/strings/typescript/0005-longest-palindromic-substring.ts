@@ -1,7 +1,8 @@
 /**
- * # 5. Longest Palindromic Substring
+ * # 0005. Longest Palindromic Substring
  *
- * # Difficulty: Medium
+ * Difficulty: Easy
+ *
  *
  * Given a string s, return the longest palindromic substring in s.
  *
@@ -11,7 +12,7 @@
  * <dt>Input:</dt>
  * <dd>s = "babad"</dd>
  * <dt>Output:</dt>
- * <dd>"bab" or "aba"</dd>
+ * <dd>bab</dd>
  * <dt>Explanation:</dt>
  * <dd>Both "bab" and "aba" are valid longest palindromic substrings</dd>
  * </dl>
@@ -42,19 +43,26 @@
  * characters on both sides match.
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: s = "babad"
- *
- * Check centers:
- * - Center at 'b' (index 0): "b"
- * - Center at 'a' (index 1): expand → "bab"
- * - Center at 'b' (index 2): "b"
- * - Center at 'a' (index 3): expand → "aba"
- * - Center at 'd' (index 4): "d"
- *
- * Longest: "bab" or "aba" (length 3)
+ * s = "babad"
  * ```
  *
+ * Steps:
+ * Step 1: Center at 'b' (index 0) → expand → "b" (length 1)
+ * Step 2: Center at 'a' (index 1) → expand → "bab" (length 3)
+ * Step 3: Center at 'b' (index 2) → expand → "b" (length 1)
+ * Step 4: Center at 'a' (index 3) → expand → "aba" (length 3)
+ * Step 5: Center at 'd' (index 4) → expand → "d" (length 1)
+ * Step 6: Longest found → length 3
+ *
+ * Output:
+ * ```
+ * "bab"
+ * ```
+ *
+ * Note: "aba" is also a valid answer
+
  * ### TIME COMPLEXITY:
  * - Expand around center: O(n²) - n centers, each expansion O(n)
  * - Dynamic Programming: O(n²)

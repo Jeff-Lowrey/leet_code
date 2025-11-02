@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 216. Combination Sum III
+# 0216. Combination Sum III
 
 This problem demonstrates key concepts in Recursion.
 
@@ -9,15 +9,16 @@ This problem demonstrates key concepts in Recursion.
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[[1, 2, 4]</dd>
+<dd>k = 3, n = 7</dd>
 <dt>Output:</dt>
-<dd>"Expected {expected}, got {result}"</dd>
+<dd>[[1,2,4]]</dd>
 <dt>Explanation:</dt>
 <dd>All 3-number combinations from 1-9 that sum to 7 are [[1,2,4]]</dd>
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Map Storage, Array Traversal, Sorting
 **Data Structures**: Array, Linked List
 **Patterns**: Complement Search, Hash Table Pattern
@@ -48,15 +49,23 @@ multiple constraints: combination size and target sum.
 - Multiple constraints (count and sum) guide the search
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: k = 3, n = 7
+k = 3, n = 7
+```
+
 Try combinations of 3 numbers from 1-9 that sum to 7:
-[1,2,3] -> sum = 6 (not valid)
-[1,2,4] -> sum = 7 (valid!)
-[1,3,3] -> can't reuse 3
-[2,2,3] -> can't reuse 2
-Other combinations either don't sum to 7 or don't have exactly 3 numbers
-Output: [[1,2,4]]
+
+Steps:
+Step 1: [1,2,3] -> sum = 6 (not valid)
+Step 2: [1,2,4] -> sum = 7 (valid!)
+Step 3: [1,3,3] -> can't reuse 3
+Step 4: [2,2,3] -> can't reuse 2
+Step 5: Other combinations either don't sum to 7 or don't have exactly 3 numbers
+
+Output:
+```
+[[1,2,4]]
 ```
 
 ### TIME COMPLEXITY:
@@ -182,32 +191,32 @@ def test_solution() -> None:
 
     # Test case 1: k = 3, n = 7
     solution.solve(3, 7)
-    # assert arrays_equal(result, expected), f"Expected {expected}, got {result}"  # Result undefined
+    # assert arrays_equal(result, expected), f"Expected expected, got result"  # Result undefined
     print("Test 1 passed: k=3, n=7")
 
     # Test case 2: k = 3, n = 9
     solution.solve(3, 9)
-    # assert arrays_equal(result, expected), f"Expected {expected}, got {result}"  # Result undefined
+    # assert arrays_equal(result, expected), f"Expected expected, got result"  # Result undefined
     print("Test 2 passed: k=3, n=9")
 
     # Test case 3: k = 4, n = 1 (impossible)
     solution.solve(4, 1)
-    # assert arrays_equal(result, expected), f"Expected {expected}, got {result}"  # Result undefined
+    # assert arrays_equal(result, expected), f"Expected expected, got result"  # Result undefined
     print("Test 3 passed: Impossible case")
 
     # Test case 4: k = 9, n = 45 (all numbers)
     solution.solve(9, 45)
-    # assert arrays_equal(result, expected), f"Expected {expected}, got {result}"  # Result undefined
+    # assert arrays_equal(result, expected), f"Expected expected, got result"  # Result undefined
     print("Test 4 passed: All numbers")
 
     # Test case 5: k = 2, n = 18
     solution.solve(2, 18)
-    # assert len(result) == 0, f"Expected no solutions for k=2, n=18, got {result}"  # Result undefined
+    # assert len(result) == 0, f"Expected no solutions for k=2, n=18, got result"  # Result undefined
     print("Test 5 passed: k=2, n=18")
 
     # Test case 6: k = 3, n = 15
     solution.solve(3, 15)
-    # assert arrays_equal(result, expected), f"Expected {expected}, got {result}"  # Result undefined
+    # assert arrays_equal(result, expected), f"Expected expected, got result"  # Result undefined
     print("Test 6 passed: k=3, n=15")
 
     print("All test cases passed!")

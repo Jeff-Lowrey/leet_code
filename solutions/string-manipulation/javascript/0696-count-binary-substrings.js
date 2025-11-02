@@ -1,5 +1,8 @@
 /**
- * # Difficulty: Easy
+ * # 0696. Count Binary Substrings
+ *
+ * Difficulty: Medium
+ *
  *
  * Given a binary string s, return the number of non-empty substrings that have the same
  * number of 0's and 1's, and all the 0's and all the 1's in these substrings are grouped
@@ -25,12 +28,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Hash Map Storage, Array Traversal, Greedy Selection
  * **Data Structures**: String
  * **Patterns**: Hash Table Pattern, Greedy Algorithm
- * **Time Complexity**: * O(n) - Single pass through input
- * **Space Complexity**: * O(n)
+ * **Time Complexity**: O(n) - Single pass through input
+ * **Space Complexity**: O(n)
 
  *
  * ### INTUITION:
@@ -57,25 +61,25 @@
  * - Example: groups "000" (3) and "11" (2) → min(3, 2) = 2 substrings: "01", "0011"
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: s = "00110011"
+ * s = "00110011"
+ * ```
  *
  * Count groups: [2, 2, 2, 2]
  * - "00": length 2
  * - "11": length 2
  * - "00": length 2
  * - "11": length 2
- *
  * Count valid substrings:
  * - Pair [2, 2]: min(2, 2) = 2 substrings ("01", "0011")
  * - Pair [2, 2]: min(2, 2) = 2 substrings ("10", "1100")
  * - Pair [2, 2]: min(2, 2) = 2 substrings ("01", "0011")
- *
  * Total: 2 + 2 + 2 = 6
- * ```
- *
+
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  * - Single pass through string to count groups
  * - Process each group once
  * - Overall linear in string length

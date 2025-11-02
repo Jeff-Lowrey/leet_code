@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Medium
  *
- * # 162. Find Peak Element
+ * # 0162. Find Peak Element
+ *
  *
  * A peak element is an element that is strictly greater than its neighbors.
  *
@@ -17,13 +18,14 @@
  * <dt>Input:</dt>
  * <dd>[1,2,3,1]</dd>
  * <dt>Output:</dt>
- * <dd>2 (index of peak element)</dd>
+ * <dd>2</dd>
  * <dt>Explanation:</dt>
  * <dd>Peak element 4 is at index 2 in array [1,2,4,3]</dd>
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Two Pointers
  * **Data Structures**: Hash Map, Hash Set, Array
  * **Patterns**: Two Pointers Pattern, Binary Search Pattern
@@ -50,31 +52,36 @@
  * - O(log n) time, O(1) space
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: nums = [1,2,3,1]
+ * nums = [1,2,3,1]
+ * ```
+ *
  * Step 1: Initialize binary search
- *   left = 0, right = 3
- *
+ * left = 0, right = 3
  * Step 2: Binary search for peak
- *   mid = 1: nums[1]=2 < nums[2]=3
- *   → Peak is on right, left = 2
+ * mid = 1: nums[1]=2 < nums[2]=3
  *
- *   mid = 2: nums[2]=3 > nums[3]=1
- *   → Peak could be at mid or left, right = 2
+ * Steps:
+ * Step 1: Peak is on right, left = 2
+ * Step 2: mid = 2: nums[2]=3 > nums[3]=1
+ * Step 3: Peak could be at mid or left, right = 2
+ * Step 4: left = right = 2
+ * Step 5: Check result
+ * Step 6: nums[2] = 3 is greater than neighbors (2 and 1)
  *
- *   left = right = 2
- *
- * Step 3: Check result
- *   nums[2] = 3 is greater than neighbors (2 and 1)
- *
- * Output: 2 (index of peak element)
+ * Output:
  * ```
- *
+ * 2 (index of peak element)
+ * ```
+
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  *
  * ### EDGE CASES:
  * - Empty input handling

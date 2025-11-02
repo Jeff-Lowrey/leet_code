@@ -21,7 +21,8 @@
  * </dl>
  * 
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Hash Map, Hash Set, Array
  * **Patterns**: Hash Table Pattern, Graph Pattern
@@ -49,23 +50,29 @@
  * - O(V + E) time, O(V + E) space
  * 
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: n = 3, relations = [[1,3],[2,3]]
+ * n = 3, relations = [[1,3],[2,3]]
+ * ```
+ *
  * Step 1: Build graph and indegree
- *   indegree = [0,0,2]
- * 
+ * indegree = [0,0,2]
  * Step 2: Process courses level by level
- *   Semester 1: courses 1,2 (indegree=0)
- *   Semester 2: course 3 (after 1,2 complete)
- * 
- * Output: 2 (minimum semesters)
+ * Semester 1: courses 1,2 (indegree=0)
+ * Semester 2: course 3 (after 1,2 complete)
+ *
+ * Output:
  * ```
- * 
+ * 2 (minimum semesters)
+ * ```
+
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  * 
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  * 
  * ### EDGE CASES:
  * - Empty input handling
@@ -89,7 +96,7 @@ class Solution {
   minimumSemesters(n: number, relations: any): number {
     // Implementation
     graph: dict.get(Any, list[Any)] = defaultdict(list)
-    in_degree = [0] * (n + 1)  # +1 because courses are 1-indexed
+    in_degree = [0] * (n + 1)  // +1 because courses are 1-indexed
     for prev, next in relations:
     graph.get(prev).append(next)
     in_degree.get(next) += 1

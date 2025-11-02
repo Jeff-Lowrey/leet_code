@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 429. N-ary Tree Level Order Traversal
+# 0429. N-ary Tree Level Order Traversal
 
 Given an n-ary tree, return the level order traversal of its nodes' values.
 
@@ -17,7 +17,8 @@ Given an n-ary tree, return the level order traversal of its nodes' values.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Map Storage, Array Traversal, Two Pointers
 **Data Structures**: Array, Queue, Tree
 **Patterns**: Two Pointers Pattern, Graph Pattern
@@ -44,18 +45,24 @@ Use BFS to process nodes level by level, adding all children of each node to the
 - Deque provides O(1) append/popleft operations
 
 ### EXAMPLE WALKTHROUGH:
+Input:
+```
+[node3, node2, node4]
+```
+
+Input:
 ```
 Tree:        1
-          /  |  \\
-         3   2   4
-        / \\
-       5   6
+```
 
+/  |  \
+3   2   4
+/ \
+5   6
 Level 0: [1]
 Level 1: [3, 2, 4]
 Level 2: [5, 6]
 Result: [[1], [3, 2, 4], [5, 6]]
-```
 
 ### TIME COMPLEXITY:
 O(n)

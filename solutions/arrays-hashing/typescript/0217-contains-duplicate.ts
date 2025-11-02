@@ -1,7 +1,8 @@
 /**
- * # 217. Contains Duplicate
+ * # 0217. Contains Duplicate
  *
- * # Difficulty: Easy
+ * Difficulty: Medium
+ *
  *
  * Given an integer array `nums`, return true if any value appears at least twice
  * in the array, and return false if every element is distinct.
@@ -32,6 +33,7 @@
  * If there are duplicates, the set will be smaller than the array.
  *
  * ### APPROACH:
+ * **Data structures: Hash Set (seen elements tracking), Array (input)**
  * 1. **Convert array to set**: Transform the input array into a set data structure, which automatically removes all duplicate values
  * 2. **Compare lengths**: Calculate the length of both the original array and the newly created set
  * 3. **Detect duplicates**: If the lengths differ, duplicates existed in the original array (they were removed during set conversion)
@@ -42,34 +44,46 @@
  * A set by definition contains only unique elements - when we convert an array to a set, any duplicates are automatically removed. By comparing the lengths of the original array and the set, we can detect if duplicates existed. The early termination approach works because as soon as we find an element already in our seen set, we've proven a duplicate exists without needing to check the remaining elements.
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
+  * Input:
  * ```
  * nums = [1, 2, 3, 1]
  * ```
  *
  * **Step 1:** Convert array to set
- * - set(nums) = {1, 2, 3}
- * - Set length = 3, Array length = 4
+ * - Input array: [1, 2, 3, 1]
+ * - After set conversion: {1, 2, 3}
+ * - Duplicates automatically removed during conversion
  *
  * **Step 2:** Compare lengths
- * - len(nums) = 4 != len(set(nums)) = 3
- * - Since lengths differ, duplicates exist
+ * - Original array length: 4
+ * - Set length: 3
+ * - Lengths are different (4 ≠ 3)
  *
- * Output: True
+ * **Step 3:** Detect duplicates
+ * - Since array.length (4) > set.length (3), duplicates existed
+ * - The missing element (1) appeared more than once
  *
- * Alternative (Early Termination):
- * - seen = {}
- * - Check 1: not in seen, add it → seen = {1}
- * - Check 2: not in seen, add it → seen = {1, 2}
- * - Check 3: not in seen, add it → seen = {1, 2, 3}
- * - Check 1: found in seen → return True immediately
+ * **Step 4:** Return result
+ * - Lengths differ → return true (duplicates found)
+ *
+ * **Step 5:** Alternative early termination approach
+ * - seen = {} (start with empty set)
+ * - Check nums[0]=1: not in seen, add it → seen = {1}
+ * - Check nums[1]=2: not in seen, add it → seen = {1, 2}
+ * - Check nums[2]=3: not in seen, add it → seen = {1, 2, 3}
+ * - Check nums[3]=1: found in seen → return true immediately (better average performance)
+ *
+ * Output:
+ * ```
+ * true
+ * ```
  *
  * ### TIME COMPLEXITY:
- * O(n)
- *
+ * O(n) - Single pass with O(1) hash lookups
+
  * ### SPACE COMPLEXITY:
- * O(n)
- *
+ * O(n) - Additional set storage
+
  * ### EDGE CASES:
  * - **Empty array**: Return False (no duplicates possible)
  * - **Single element**: Return False (need at least 2 for duplicate)
@@ -77,8 +91,8 @@
  * - **All elements unique**: Set and array lengths match, return False
  * - **Duplicate at start**: Early termination finds it quickly
  *
- * </details>
- */
+ *
+*/
 
 class Solution {
   /**

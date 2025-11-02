@@ -1,5 +1,5 @@
 """
-# 20. Valid Parentheses
+# 0020. Valid Parentheses
 
 # Difficulty: Easy
 
@@ -35,7 +35,8 @@ Output: false
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
 **Data Structures**: Hash Map, Array, String
 **Patterns**: Hash Table Pattern
@@ -61,16 +62,23 @@ If all brackets are properly matched, the stack will be empty at the end.
 - Empty stack at the end means all brackets were properly matched
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: s = "([{}])"
+s = "([{}])"
+```
 
+Steps:
 Step 1: '(' → push to stack: ['(']
 Step 2: '[' → push to stack: ['(', '[']
 Step 3: '{' → push to stack: ['(', '[', '{']
 Step 4: '}' → pop '{', matches ✓, stack: ['(', '[']
 Step 5: ']' → pop '[', matches ✓, stack: ['(']
 Step 6: ')' → pop '(', matches ✓, stack: []
-Result: Empty stack → True
+Step 7: Result: Empty stack → True
+
+Output:
+```
+Empty stack → True
 ```
 
 ### TIME COMPLEXITY:

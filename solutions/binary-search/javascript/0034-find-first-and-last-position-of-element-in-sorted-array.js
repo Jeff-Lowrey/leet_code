@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Medium
  *
- * # 034. Find First And Last Position Of Element In Sorted Array
+ * # 0034. Find First And Last Position Of Element In Sorted Array
+ *
  *
  * Given an array of integers nums sorted in non-decreasing order, find the starting and ending position of a given target value.
  *
@@ -21,12 +22,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Hash Map Storage, Array Traversal, Two Pointers
  * **Data Structures**: Array, Tree
  * **Patterns**: Complement Search, Two Pointers Pattern
- * **Time Complexity**: * O(log n) - Binary search or tree height
- * **Space Complexity**: * O(1) - Constant extra space
+ * **Time Complexity**: O(log n) - Binary search or tree height
+ * **Space Complexity**: O(1) - Constant extra space
 
  *
  * ### INTUITION:
@@ -45,26 +47,33 @@
  * - Early termination optimizes performance when target not found
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: nums = [5,7,7,8,8,10], target = 8
+ * nums = [5,7,7,8,8,10], target = 8
+ * nums = [5,7,7,8,8,10], target = 6
+ * ```
+ *
  * Step 1: Find first position of 8
- *   - Binary search finds index 3 as leftmost 8
+ * - Binary search finds index 3 as leftmost 8
  * Step 2: Find last position of 8
- *   - Binary search finds index 4 as rightmost 8
- * Output: [3,4]
- *
- * Input: nums = [5,7,7,8,8,10], target = 6
+ * - Binary search finds index 4 as rightmost 8
  * Step 1: Find first position of 6
- *   - Binary search returns -1 (not found)
- * Output: [-1,-1] (early return)
- * ```
+ * - Binary search returns -1 (not found)
  *
+ * Output:
+ * ```
+ * [3,4]
+ * [-1,-1] (early return)
+ * ```
+
  * ### TIME COMPLEXITY:
  * O(log n)
+ * - Binary search or tree height
  * Two binary searches on array of size n
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  * Only using constant extra space
  *
  * ### EDGE CASES:

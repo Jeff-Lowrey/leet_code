@@ -1,7 +1,7 @@
 """
 # Difficulty: Easy
 
-# 506. Relative Ranks
+# 0506. Relative Ranks
 
 You are given an integer array score of size n, where score[i] is the score of the ith athlete
 in a competition. All the scores are guaranteed to be unique.
@@ -29,7 +29,8 @@ Return an array answer of size n where answer[i] is the rank of the ith athlete.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
 **Data Structures**: Hash Map, Array, String
 **Patterns**: Iterative Solution
@@ -53,22 +54,26 @@ the original indices. Use sorting with indices or create a score-to-rank mapping
 - Special strings for top 3, numbers for rest
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: score = [5,4,3,2,1]
+["Gold Medal", "Silver Medal", "Bronze Medal", "4", "5"]
+```
+
+Input:
+```
+score = [5,4,3,2,1]
+```
 
 Step 1: Create (score, index) pairs
 [(5,0), (4,1), (3,2), (2,3), (1,4)]
-
 Step 2: Sort by score descending
 [(5,0), (4,1), (3,2), (2,3), (1,4)]
-
 Step 3: Assign ranks
 Rank 1 (Gold Medal): score 5, index 0
 Rank 2 (Silver Medal): score 4, index 1
 Rank 3 (Bronze Medal): score 3, index 2
 Rank 4: score 2, index 3
 Rank 5: score 1, index 4
-
 Step 4: Map back to original indices
 answer[0] = "Gold Medal"
 answer[1] = "Silver Medal"
@@ -76,7 +81,9 @@ answer[2] = "Bronze Medal"
 answer[3] = "4"
 answer[4] = "5"
 
-Output: ["Gold Medal","Silver Medal","Bronze Medal","4","5"]
+Output:
+```
+["Gold Medal","Silver Medal","Bronze Medal","4","5"]
 ```
 
 ### TIME COMPLEXITY:

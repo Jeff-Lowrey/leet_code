@@ -1,5 +1,5 @@
 """
-# 70. Climbing Stairs
+# 0070. Climbing Stairs
 
 # Difficulty: Easy
 
@@ -20,7 +20,8 @@ climb to the top?
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
 **Data Structures**: Hash Map, Array
 **Patterns**: Dynamic Programming
@@ -41,20 +42,24 @@ So: ways(n) = ways(`n-1`) + ways(`n-2`)
 The recurrence relation ways(n) = ways(n-1) + ways(n-2) is valid because the only ways to reach step n are by taking a 1-step from step n-1 or a 2-step from step n-2. These are mutually exclusive paths, so we can add them together. By starting with the base cases and building up to n, we ensure every subproblem is solved exactly once, avoiding the exponential time complexity of naive recursion.
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: n = 3
+n = 3
+```
+
 Step 1: Build DP table
-  dp[0] = 1 (0 steps: 1 way)
-  dp[1] = 1 (1 step: one 1-step)
-  dp[2] = 2 (2 steps: two 1-steps or one 2-step)
-  dp[3] = dp[2] + dp[1] = 2 + 1 = 3
-
+dp[0] = 1 (0 steps: 1 way)
+dp[1] = 1 (1 step: one 1-step)
+dp[2] = 2 (2 steps: two 1-steps or one 2-step)
+dp[3] = dp[2] + dp[1] = 2 + 1 = 3
 Step 2: Enumerate paths for verification
-  Path 1: 1+1+1
-  Path 2: 1+2
-  Path 3: 2+1
+Path 1: 1+1+1
+Path 2: 1+2
+Path 3: 2+1
 
-Output: 3 (ways to climb)
+Output:
+```
+3 (ways to climb)
 ```
 
 ### TIME COMPLEXITY:

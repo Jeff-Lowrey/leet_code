@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Medium
  *
- * # 435. Non Overlapping Intervals
+ * # 0435. Non Overlapping Intervals
+ *
  *
  * Given an array of intervals intervals where intervals[i] = [starti, endi], return the minimum number of intervals you need to remove to make the rest of the intervals non-overlapping.
  *
@@ -17,7 +18,8 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Hash Map, Hash Set, Array
  * **Patterns**: Two Pointers Pattern, Hash Table Pattern
@@ -28,12 +30,13 @@
  * Sort by end time (greedy). Keep track of previous interval's end. If current start >= previous end, intervals don't overlap. Otherwise, skip current interval (remove it). Count removals.
  *
  * ### APPROACH:
- * 1. **Sort by end time**: Sort intervals by interval[1]
+ * **Data structures: Array** - uses array for storing and processing intervals
+ * 1. **Sort by end time**: Sort intervals array by interval[1]
  * 2. **Initialize variables**: Set count = 0, prev_end = intervals[0][1]
- * 3. **Iterate from second**: For each interval in intervals[1:]
- * 4. **Check overlap**: If current_start < prev_end, intervals overlap
+ * 3. **Iterate from second**: For each interval in intervals array[1:]
+ * 4. **Check overlap**: If current_start < prev_end using array, intervals overlap
  * 5. **Remove current**: Increment count
- * 6. **No overlap**: Update prev_end = current_end
+ * 6. **No overlap**: Update prev_end = current_end from array
  * 7. **Return count**: Return count as minimum intervals to remove
  *
  * ### WHY THIS WORKS:
@@ -43,31 +46,64 @@
  * - Greedy works: earliest end maximizes remaining space for future intervals
  * - O(n log n) for sorting, O(1) space excluding input
  *
- * ### EXAMPLE WALKTHROUGH:
+ *
+
+This solution uses hash table lookup for efficient implementation.
+
+This solution uses hash map storage for efficient implementation.
+
+This solution uses array traversal for efficient implementation.
+### EXAMPLE WALKTHROUGH:
+ * **Input:** intervals = [[1,2],[2,3],[3,4],[1,3]]
+ *
+ * **Step 1:** Sort intervals by end time for intervals=[[1,2],[2,3],[3,4],[1,3]]
+ * - Original: [[1,2],[2,3],[3,4],[1,3]]
+ * - Sorted: [[1,2],[2,3],[1,3],[3,4]]
+ *
+ * **Step 2:** Select first interval [1,2]
+ * - nonOverlapping = 1, currentEnd = 2
+ *
+ * **Step 3:** Check [2,3]
+ * - Start 2 >= currentEnd 2? Yes, no overlap
+ * - Select it: nonOverlapping = 2, currentEnd = 3
+ *
+ * **Step 4:** Check [1,3]
+ * - Start 1 >= currentEnd 3? No, overlaps
+ * - Skip it (will be removed)
+ *
+ * **Step 5:** Check [3,4]
+ * - Start 3 >= currentEnd 3? Yes, no overlap
+ * - Select it: nonOverlapping = 3, currentEnd = 4
+ *
+ * **Step 6:** Update prev_end when no overlap
+ * - After processing all intervals
+ * - Final state: kept intervals [[1,2],[2,3],[3,4]]
+ * - Removed intervals: [[1,3]]
+ *
+ * **Step 7:** Return count
+ * - Total intervals: 4
+ * - Non-overlapping kept: 3
+ * - Return count = 4 - 3 = 1 as minimum intervals to remove
+ *
+ * Output:
  * ```
- * Input: intervals = [[1,2],[2,3],[3,4],[1,3]]
- * Step 1: Sort by end time
- *   sorted = [[1,2],[2,3],[1,3],[3,4]]
- *
- * Step 2: Greedy selection
- *   Select [1,2], end=2
- *   [2,3]: 2 ≥ 2, select it, end=3
- *   [1,3]: 1 < 3, overlaps → remove count=1
- *   [3,4]: 3 ≥ 3, select it
- *
- * Output: 1 (min intervals to remove)
+ * 1
  * ```
- *
+
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
+ * - Empty array: intervals=[] → 0 (no intervals to remove)
+ * - Single interval: intervals=[[1,2]] → 0 (cannot overlap with itself)
+ * - All intervals overlap: intervals=[[1,3],[1,3],[1,3]] → 2 (remove all duplicates except one, n-1 removals)
+ * - No overlaps: intervals=[[1,2],[2,3],[3,4]] → 0 (already non-overlapping)
+ * - Identical intervals: intervals=[[1,2],[1,2],[1,2]] → 2 (keep one, remove n-1)
  *
  * </details>
  */

@@ -1,7 +1,7 @@
 """
 # Difficulty: Easy
 
-# 94. Binary Tree Inorder Traversal
+# 0094. Binary Tree Inorder Traversal
 
 Given the root of a binary tree, return the inorder traversal of its nodes' values.
 
@@ -17,7 +17,8 @@ Given the root of a binary tree, return the inorder traversal of its nodes' valu
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Two Pointers
 **Data Structures**: Array, Stack, Tree
 **Patterns**: Two Pointers Pattern, Backtracking
@@ -39,13 +40,15 @@ Inorder traversal visits nodes in the order: Left -> Root -> Right. This gives u
 - Morris traversal modifies tree temporarily to avoid extra space
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
 Tree:    1
-          \
-           2
-          /
-         3
+```
 
+\
+2
+/
+3
 Inorder traversal steps:
 1. Start at root (1)
 2. No left child, process 1
@@ -55,9 +58,7 @@ Inorder traversal steps:
 6. No right child of 3, backtrack
 7. Process 2
 8. No right child of 2
-
 Result: [1, 3, 2]
-```
 
 ### TIME COMPLEXITY:
 O(n)
@@ -364,7 +365,7 @@ if __name__ == "__main__":
 
     for name, method in approaches:
         result = method(bst_root)
-        print(f"{name}: {result}")
+        print(f"{name}: result")
 
     # Example 4: Empty tree
     print(f"\nEmpty tree: {solution.inorderTraversal(None)}")  # type: ignore

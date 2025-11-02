@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Medium
  *
- * # 373. Find K Pairs With Smallest Sums
+ * # 0373. Find K Pairs With Smallest Sums
+ *
  *
  * You are given two integer arrays nums1 and nums2 sorted in ascending order and an integer k.
  *
@@ -21,12 +22,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Hash Map Storage, Array Traversal, Greedy Selection
  * **Data Structures**: Array, String, Heap
  * **Patterns**: Greedy Algorithm, Divide and Conquer
- * **Time Complexity**: * O(n) - Single pass through input
- * **Space Complexity**: * O(1) - Constant extra space
+ * **Time Complexity**: O(n) - Single pass through input
+ * **Space Complexity**: O(1) - Constant extra space
 
  *
  * ### INTUITION:
@@ -44,24 +46,30 @@
  * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: nums1 = [1,7,11], nums2 = [2,4,6], k = 3
+ * nums1 = [1,7,11], nums2 = [2,4,6], k = 3
+ * ```
+ *
  * Step 1: Initialize min heap
- *   heap = [(1+2, 0, 0)]
- *
+ * heap = [(1+2, 0, 0)]
  * Step 2: Extract k smallest pairs
- *   Pop (3, 0, 0): pair [1,2], add (1+4, 0, 1)
- *   Pop (5, 0, 1): pair [1,4], add (1+6, 0, 2)
- *   Pop (7, 0, 2): pair [1,6], add (7+2, 1, 0)
+ * Pop (3, 0, 0): pair [1,2], add (1+4, 0, 1)
+ * Pop (5, 0, 1): pair [1,4], add (1+6, 0, 2)
+ * Pop (7, 0, 2): pair [1,6], add (7+2, 1, 0)
  *
- * Output: [[1,2],[1,4],[1,6]]
+ * Output:
  * ```
- *
+ * [[1,2],[1,4],[1,6]]
+ * ```
+
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  *
  * ### EDGE CASES:
  * - Empty input handling

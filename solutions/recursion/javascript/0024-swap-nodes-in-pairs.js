@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Medium
  *
- * # 024. Swap Nodes In Pairs
+ * # 0024. Swap Nodes In Pairs
+ *
  *
  * Given a linked list, swap every two adjacent nodes and return its head. You must solve the problem without modifying the values in the list's nodes (i.e., only nodes themselves may be changed.)
  *
@@ -17,12 +18,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Array Traversal, Stack Operations
  * **Data Structures**: Array, Stack, Linked List
  * **Patterns**: Iterative Solution
- * **Time Complexity**: * O(n) - Single pass through input
- * **Space Complexity**: * O(n)
+ * **Time Complexity**: O(n) - Single pass through input
+ * **Space Complexity**: O(n)
 
  *
  * ### INTUITION:
@@ -38,17 +40,25 @@
  * The algorithm correctly solves the problem by systematically exploring all valid states while maintaining necessary invariants. Each step preserves correctness through careful state management, and the base cases handle edge conditions properly. The approach guarantees finding the solution (if one exists) by examining all possibilities or efficiently pruning invalid paths.
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: 1->2->3->4->NULL
+ * 1->2->3->4->NULL
+ * ```
+ *
+ * Steps:
  * Step 1: Swap (1,2), recurse on 3->4
  * Step 2: Swap (3,4), recurse on NULL (base case)
  * Step 3: Link 2->4->3->NULL
  * Step 4: Link 2->4->3->1->NULL
- * Output: 2->1->4->3->NULL
- * ```
  *
+ * Output:
+ * ```
+ * 2->1->4->3->NULL
+ * ```
+
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  * Visit each node exactly once
  *
  * ### SPACE COMPLEXITY:

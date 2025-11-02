@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 023. Merge K Sorted Lists
+# 0023. Merge K Sorted Lists
 
 You are given an array of k linked-lists lists, each linked-list is sorted in ascending order.
 
@@ -19,7 +19,8 @@ Merge all the linked-lists into one sorted linked-list and return it.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
 **Data Structures**: Hash Map, Hash Set, Array
 **Patterns**: Divide and Conquer
@@ -47,25 +48,33 @@ Use min heap containing (value, list_index, node). Pop minimum, add to result, p
 - Space: O(k) for heap, not O(N), making it efficient for large lists
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: lists = [[1,4,5],[1,3,4],[2,6]]
+lists = [[1,4,5],[1,3,4],[2,6]]
+```
+
 Step 1: Add all heads to min heap
-  heap = [(1,0), (1,1), (2,2)]
-
+heap = [(1,0), (1,1), (2,2)]
 Step 2: Extract minimum and add next node
-  Pop (1,0), add 4 from list 0
-  Pop (1,1), add 3 from list 1
-  Pop (2,2), add 6 from list 2
-  Continue until heap empty
+Pop (1,0), add 4 from list 0
+Pop (1,1), add 3 from list 1
+Pop (2,2), add 6 from list 2
+Continue until heap empty
 
-Output: [1,1,2,3,4,4,5,6]
+Output:
+```
+[1,1,2,3,4,4,5,6]
 ```
 
 ### TIME COMPLEXITY:
 O(n)
+- Single pass through input
+
 
 ### SPACE COMPLEXITY:
 O(1)
+- Constant extra space
+
 
 ### EDGE CASES:
 - Empty input handling
@@ -184,7 +193,7 @@ def test_solution() -> None:
     # Test case 1: Empty list
     result = solution.mergeKLists([])
     expected = None
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("Basic functionality test passed! For comprehensive linked list tests, build proper ListNode chains.")
 

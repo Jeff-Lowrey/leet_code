@@ -1,5 +1,5 @@
 """
-# 36. Valid Sudoku
+# 0036. Valid Sudoku
 
 # Difficulty: Medium
 
@@ -18,7 +18,7 @@ Note:
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[["5", "3", ".", ".", "7", ".", ".", ".", "."]</dd>
+<dd>[["5", "3", ".", ".", "7", ".", ".", ".", "."]]</dd>
 <dt>Output:</dt>
 <dd>1</dd>
 <dt>Explanation:</dt>
@@ -26,7 +26,8 @@ Note:
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Set Operations, Array Traversal
 **Data Structures**: Hash Set, Array, String
 **Patterns**: Hash Table Pattern
@@ -48,18 +49,30 @@ Sets provide O(1) lookup, allowing us to efficiently check for duplicates.
 The box index formula maps each cell to one of 9 boxes (0-8).
 
 ### EXAMPLE WALKTHROUGH:
+Input:
+```
+[["5", "3", ".", ".", "7", ".", ".", ".", "."]
+```
+
+Input:
 ```
 For cell (0, 0) = "5":
+```
+
 - Row 0 set: add "5"
 - Col 0 set: add "5"
 - Box 0 set: add "5"
-
 For cell (0, 1) = "3":
 - Row 0 set: add "3" (5 already present)
 - Col 1 set: add "3"
 - Box 0 set: add "3" (5 already present)
 
-If we encounter "5" again in row 0, col 0, or box 0 → return False
+Steps:
+Step 1: If we encounter "5" again in row 0, col 0, or box 0 → return False
+
+Output:
+```
+return False
 ```
 
 ### TIME COMPLEXITY:

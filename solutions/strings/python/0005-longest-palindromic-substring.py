@@ -1,5 +1,5 @@
 """
-# 5. Longest Palindromic Substring
+# 0005. Longest Palindromic Substring
 
 # Difficulty: Medium
 
@@ -42,18 +42,25 @@ A palindrome reads the same forwards and backwards, so we expand while the
 characters on both sides match.
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: s = "babad"
-
-Check centers:
-- Center at 'b' (index 0): "b"
-- Center at 'a' (index 1): expand → "bab"
-- Center at 'b' (index 2): "b"
-- Center at 'a' (index 3): expand → "aba"
-- Center at 'd' (index 4): "d"
-
-Longest: "bab" or "aba" (length 3)
+s = "babad"
 ```
+
+Steps:
+Step 1: Center at 'b' (index 0) → expand → "b" (length 1)
+Step 2: Center at 'a' (index 1) → expand → "bab" (length 3)
+Step 3: Center at 'b' (index 2) → expand → "b" (length 1)
+Step 4: Center at 'a' (index 3) → expand → "aba" (length 3)
+Step 5: Center at 'd' (index 4) → expand → "d" (length 1)
+Step 6: Longest found → length 3
+
+Output:
+```
+"bab"
+```
+
+Note: "aba" is also a valid answer
 
 ### TIME COMPLEXITY:
 - Expand around center: O(n²) - n centers, each expansion O(n)
@@ -208,4 +215,4 @@ if __name__ == "__main__":
 
     for test_str in test_strings:
         result = solution.longestPalindrome(test_str)
-        print(f'"{test_str}" → "{result}"')
+        print(f'"{test_str}" → "result"')

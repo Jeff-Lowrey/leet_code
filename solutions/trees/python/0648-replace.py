@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 648. Replace
+# 0648. Replace Words
 
 In English, we have a concept called root, which can be followed by some other word to form another longer word - let's call this word derivative. For example, when the root "help" is followed by the word "ful", we can form a derivative "helpful".
 
@@ -21,7 +21,8 @@ Return the sentence after the replacement.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
 **Data Structures**: Hash Map, Hash Set, Array
 **Patterns**: Iterative Solution
@@ -48,24 +49,34 @@ Build Trie of dictionary words. For each word in sentence, find shortest prefix 
 - O(m + n*k) time: m total dict length, n words in sentence, k avg word length
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: dictionary = ["cat","bat","rat"], sentence = "the cattle was rattled by the battery"
+dictionary = ["cat","bat","rat"], sentence = "the cattle was rattled by the battery"
+```
+
 Step 1: Build trie from dictionary
-  Insert: cat, bat, rat
-
+Insert: cat, bat, rat
 Step 2: Replace each word with shortest root
-  "cattle" → "cat"
-  "rattled" → "rat"
-  "battery" → "bat"
 
-Output: "the cat was rat by the bat"
+Steps:
+Step 1: "cattle" → "cat"
+Step 2: "rattled" → "rat"
+Step 3: "battery" → "bat"
+
+Output:
+```
+"the cat was rat by the bat"
 ```
 
 ### TIME COMPLEXITY:
 O(n)
+- Single pass through input
+
 
 ### SPACE COMPLEXITY:
 O(1)
+- Constant extra space
+
 
 ### EDGE CASES:
 - Empty input handling
@@ -129,12 +140,12 @@ def test_solution() -> None:
     # Test case 1: Example from problem
     result = solution.replaceWords(["cat", "bat", "rat"], "the cattle was rattled by the battery")
     expected = "the cat was rat by the bat"
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: Empty dictionary
     result = solution.replaceWords([], "hello world")
     expected = "hello world"
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

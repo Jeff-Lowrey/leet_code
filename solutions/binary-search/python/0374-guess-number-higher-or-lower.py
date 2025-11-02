@@ -1,7 +1,7 @@
 """
 # Difficulty: Easy
 
-# 374. Guess Number Higher Or Lower
+# 0374. Guess Number Higher Or Lower
 
 We are playing the Guess Game. The game is as follows:
 
@@ -20,15 +20,20 @@ Return the number that I picked.
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[(10, 6), (100, 25), (50, 1), (1, 1)]</dd>
+<dd>n = 10, pick = 6
+n = 1, pick = 1
+n = 2, pick = 1</dd>
 <dt>Output:</dt>
-<dd>"Range [1, {n}], picked number: {result}"</dd>
+<dd>6
+1
+1</dd>
 <dt>Explanation:</dt>
 <dd>Target number is guessed using binary search strategy</dd>
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Array Traversal, Two Pointers
 **Data Structures**: Array, Stack, Tree
 **Patterns**: Two Pointers Pattern, Hash Table Pattern
@@ -51,20 +56,24 @@ This is a classic binary search problem where we need to find a target number us
 - Similar to searching in a sorted array but using API instead of direct comparison
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: n = 10, pick = 6
+n = 10, pick = 6
+n = 1, pick = 1
+n = 2, pick = 1
+```
+
 Step 1: guess(5) returns 1 (pick > 5), so left = 6
 Step 2: guess(8) returns -1 (pick < 8), so right = 7
 Step 3: guess(6) returns 0 (correct!)
-Output: 6
-
-Input: n = 1, pick = 1
 Step 1: guess(1) returns 0 (correct!)
-Output: 1
-
-Input: n = 2, pick = 1
 Step 1: guess(1) returns 0 (correct!)
-Output: 1
+
+Output:
+```
+6
+1
+1
 ```
 
 ### TIME COMPLEXITY:
@@ -240,7 +249,7 @@ if __name__ == "__main__":
     for n, pick in test_cases:
         guess.pick = pick  # type: ignore
         result = solution.guessNumber(n)
-        print(f"Range [1, {n}], picked number: {result}")
+        print(f"Range [1, n], picked number: result")
 
     # Show API call simulation
     print(f"\nAPI simulation for n=10, pick=6:")
@@ -253,7 +262,7 @@ if __name__ == "__main__":
         result = guess(mid)
         call_count += 1
 
-        print(f"Call {call_count}: guess({mid}) = {result}")
+        print(f"Call {call_count}: guess({mid}) = result")
 
         if result == 0:
             print(f"Found! Answer is {mid}")

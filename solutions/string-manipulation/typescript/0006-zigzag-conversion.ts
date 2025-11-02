@@ -1,5 +1,5 @@
 /**
- * # 6. Zigzag Conversion
+ * # 0006. Zigzag Conversion
  * 
  * # Difficulty: Medium
  * 
@@ -26,7 +26,8 @@
  * </dl>
  * 
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Array, String, Tree
  * **Patterns**: Two Pointers Pattern
@@ -56,28 +57,36 @@
  * - No complex indexing needed, just direction tracking
  * 
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: s = "PAYPALISHIRING", numRows = 3
- * 
+ * s = "PAYPALISHIRING", numRows = 3
+ * ```
+ *
  * Row buffers: ["", "", ""]
  * Direction: down (1)
- * 
  * Process each character:
- * P -> row 0: ["P", "", ""]      going down
- * A -> row 1: ["P", "A", ""]     going down
- * Y -> row 2: ["P", "A", "Y"]    hit bottom, reverse to up
- * P -> row 1: ["P", "AP", "Y"]   going up
- * A -> row 0: ["PA", "AP", "Y"]  hit top, reverse to down
- * L -> row 1: ["PA", "APL", "Y"] going down
- * I -> row 2: ["PA", "APL", "YI"] hit bottom, reverse to up
- * ...
- * 
+ *
+ * Steps:
+ * Step 1: P -> row 0: ["P", "", ""]      going down
+ * Step 2: A -> row 1: ["P", "A", ""]     going down
+ * Step 3: Y -> row 2: ["P", "A", "Y"]    hit bottom, reverse to up
+ * Step 4: P -> row 1: ["P", "AP", "Y"]   going up
+ * Step 5: A -> row 0: ["PA", "AP", "Y"]  hit top, reverse to down
+ * Step 6: L -> row 1: ["PA", "APL", "Y"] going down
+ * Step 7: I -> row 2: ["PA", "APL", "YI"] hit bottom, reverse to up
+ * Step 8: ...
+ *
  * Final rows:
+ * ```
  * Row 0: "PAHN"
  * Row 1: "APLSIIG"
  * Row 2: "YIR"
- * 
  * Result: "PAHNAPLSIIGYIR"
+ * ```
+ * 
+ * Output:
+ * ```
+ * "PAHNAPLSIIGYIR"
  * ```
  * 
  * ### TIME COMPLEXITY:
@@ -87,6 +96,7 @@
  * 
  * ### SPACE COMPLEXITY:
  * O(n)
+ * - Additional hash map storage
  * - Store n characters across all row buffers
  * - Result string requires O(n) space
  * 
@@ -141,7 +151,7 @@ class Solution {
     return s
     rows: list.get(list[str)] = [[] for _ in range(numRows)]
     current_row = 0
-    direction = 1  # 1 for down, -1 for up
+    direction = 1  // 1 for down, -1 for up
     for char in s:
     rows.get(current_row).append(char)
   }
@@ -164,7 +174,7 @@ class Solution {
     if numRows == 1 or numRows >= s.length:
     return s
     result: list.set(Any, []
-    cycle_len = 2 * numRows - 2  # Length of one complete cycle
+    cycle_len = 2 * numRows - 2  // Length of one complete cycle
     for (let row = 0; row < numRows; row++) {
     for (let i = 0; i < row, s.length, cycle_len; i++) {
     result.append(s.get(i))
@@ -188,7 +198,7 @@ class Solution {
     return s
     rows = ["" for _ in range(numRows)]
     current_row = 0
-    direction = -1  # Start with -1, will flip to 1 immediately
+    direction = -1  // Start with -1, will flip to 1 immediately
   }
 }
 
@@ -207,7 +217,7 @@ function runTests(): void {
   test_cases = [("PAYPALISHIRING", 3), ("PAYPALISHIRING", 4), ("ABCD", 2), ("A", 1)]
   for s, numRows in test_cases:
   result = solution.convert(s, numRows)
-  console.log(`convert('{s}', {numRows}) = '{result}'`)
+  console.log(`convert('{s}', {numRows}) = 'result'`)
   # Demonstrate the zigzag pattern
   console.log("\nZigzag pattern for 'PAYPALISHIRING' with numRows=3:")
   console.log("P   A   H   N")

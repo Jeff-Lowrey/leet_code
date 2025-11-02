@@ -1,7 +1,7 @@
 """
 # Difficulty: Easy
 
-# 997. Find The Town Judge
+# 0997. Find The Town Judge
 
 In a town, there are n people labeled from 1 to n. There is a rumor that one of these people is secretly the town judge.
 
@@ -18,15 +18,16 @@ Return the label of the town judge if the town judge exists and can be identifie
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[(2, [[1,2]</dd>
+<dd>n = 3, trust = [[1,3],[2,3]]</dd>
 <dt>Output:</dt>
-<dd>"n={n}, trust={trust} -> Judge: {result}"</dd>
+<dd>3 (person 3 is the judge)</dd>
 <dt>Explanation:</dt>
 <dd>The town judge is person 2 who is trusted by all but trusts no one</dd>
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
 **Data Structures**: Hash Map, Array, Graph
 **Patterns**: Hash Table Pattern
@@ -49,12 +50,19 @@ This is a graph problem where we need to find a node (person) with specific in-d
 - All other people have net trust < n-1 (they either trust someone or aren't trusted by everyone)
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: n = 3, trust = [[1,3],[2,3]]
-Person 1: trusts 3, trusted by 0 → net = 0 - 1 = -1
-Person 2: trusts 3, trusted by 0 → net = 0 - 1 = -1
-Person 3: trusts 0, trusted by 2 → net = 2 - 0 = 2 = n-1 ✓
-Output: 3 (person 3 is the judge)
+n = 3, trust = [[1,3],[2,3]]
+```
+
+Steps:
+Step 1: Person 1: trusts 3, trusted by 0 → net = 0 - 1 = -1
+Step 2: Person 2: trusts 3, trusted by 0 → net = 0 - 1 = -1
+Step 3: Person 3: trusts 0, trusted by 2 → net = 2 - 0 = 2 = n-1 ✓
+
+Output:
+```
+3 (person 3 is the judge)
 ```
 
 ### TIME COMPLEXITY:
@@ -245,7 +253,7 @@ if __name__ == "__main__":
 
     for n, trust in test_cases:
         result = solution.findJudge(n, trust)
-        print(f"n={n}, trust={trust} -> Judge: {result}")
+        print(f"n=n, trust={trust} -> Judge: result")
 
     print("\nDetailed example:")
     print("n=3, trust=[[1,3],[2,3]]")

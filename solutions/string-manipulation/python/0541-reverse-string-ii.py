@@ -1,5 +1,5 @@
 """
-# 541. Reverse String Ii
+# 0541. Reverse String Ii
 
 # Difficulty: Easy
 
@@ -22,7 +22,8 @@ the first k characters and leave the other as original.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
 **Data Structures**: Array, String, Tree
 **Patterns**: Two Pointers Pattern, Hash Table Pattern
@@ -51,19 +52,25 @@ characters remain.
 - Edge cases are naturally handled by min(i+k, len(s))
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: s = "abcdefg", k = 2
+s = "abcdefg", k = 2
+```
 
 Chunks of 2k = 4:
 1. i=0: Process chars[0:4] = "abcd"
-   - Reverse chars[0:2] = "ab" → "ba"
-   - Result: "bacd"
 
-2. i=4: Process chars[4:8] = "efg"
-   - Reverse chars[4:6] = "ef" → "fe"
-   - Result: "feg"
+Steps:
+Step 1: - Reverse chars[0:2] = "ab" → "ba"
+Step 2: - Result: "bacd"
+Step 3: i=4: Process chars[4:8] = "efg"
+Step 4: - Reverse chars[4:6] = "ef" → "fe"
+Step 5: - Result: "feg"
+Step 6: Final: "bacd" + "feg" = "bacdfeg"
 
-Final: "bacd" + "feg" = "bacdfeg"
+Output:
+```
+"bacd"
 ```
 
 ### TIME COMPLEXITY:
@@ -270,7 +277,7 @@ if __name__ == "__main__":
 
     for s, k in test_cases:
         result = solution.reverseStr(s, k)
-        print(f"reverseStr('{s}', {k}) = '{result}'")
+        print(f"reverseStr('{s}', {k}) = 'result'")
 
     # Demonstrate the logic
     print("\nStep-by-step for s='abcdefg', k=2:")

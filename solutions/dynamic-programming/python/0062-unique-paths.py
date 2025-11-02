@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 062. Unique Paths
+# 0062. Unique Paths
 
 There is a robot on an m x n grid. The robot is initially located at the top-left corner (i.e., grid[0][0]). The robot tries to move to the bottom-right corner (i.e., grid[m - 1][n - 1]). The robot can only move either down or right at any point in time.
 
@@ -19,7 +19,8 @@ Given the two integers m and n, return the number of possible unique paths that 
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Array Traversal, Two Pointers
 **Data Structures**: Hash Set, Array, Tree
 **Patterns**: Two Pointers Pattern, Hash Table Pattern
@@ -46,31 +47,38 @@ Paths to cell (i,j) = paths to (i-1,j) + paths to (i,j-1). Build bottom-up from 
 - O(m*n) time, O(n) space with optimized 1D DP
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: m = 3, n = 2 (3 rows, 2 columns)
+m = 3, n = 2 (3 rows, 2 columns)
+```
+
 Step 1: Create DP table
-  dp[i][j] = number of paths to reach cell (i,j)
-
-  dp = [[1, 1],
-        [1, 2],
-        [1, 3]]
-
+dp[i][j] = number of paths to reach cell (i,j)
+dp = [[1, 1],
+[1, 2],
+[1, 3]]
 Step 2: Fill table using dp[i][j] = dp[i-1][j] + dp[i][j-1]
-  dp[0][0] = 1 (starting point)
-  dp[0][1] = 1 (can only go right)
-  dp[1][0] = 1 (can only go down)
-  dp[1][1] = dp[0][1] + dp[1][0] = 1 + 1 = 2
-  dp[2][0] = 1
-  dp[2][1] = dp[1][1] + dp[2][0] = 2 + 1 = 3
+dp[0][0] = 1 (starting point)
+dp[0][1] = 1 (can only go right)
+dp[1][0] = 1 (can only go down)
+dp[1][1] = dp[0][1] + dp[1][0] = 1 + 1 = 2
+dp[2][0] = 1
+dp[2][1] = dp[1][1] + dp[2][0] = 2 + 1 = 3
 
-Output: 3 (number of unique paths)
+Output:
+```
+3 (number of unique paths)
 ```
 
 ### TIME COMPLEXITY:
 O(n)
+- Single pass through input
+
 
 ### SPACE COMPLEXITY:
 O(1)
+- Constant extra space
+
 
 ### EDGE CASES:
 - Empty input handling
@@ -137,12 +145,12 @@ def test_solution() -> None:
     # Test case 1: Example from problem (3 rows, 2 columns)
     result = solution.uniquePaths(3, 2)
     expected = 3
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: 1x1 grid
     result = solution.uniquePaths(1, 1)
     expected = 1
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

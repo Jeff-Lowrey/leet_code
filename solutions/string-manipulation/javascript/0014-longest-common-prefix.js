@@ -1,5 +1,8 @@
 /**
- * # Difficulty: Easy
+ * # 0014. Longest Common Prefix
+ *
+ * Difficulty: Easy
+ *
  *
  * Write a function to find the longest common prefix string amongst an array of strings.
  * If there is no common prefix, return an empty string "".
@@ -20,12 +23,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Array Traversal
  * **Data Structures**: Array, String, Trie
  * **Patterns**: Iterative Solution
- * **Time Complexity**: * O(S)
- * **Space Complexity**: * O(1) - Constant extra space
+ * **Time Complexity**: O(S)
+ * **Space Complexity**: O(1) - Constant extra space
 
  *
  * ### INTUITION:
@@ -41,11 +45,21 @@
  * Since we're looking for a common prefix, all strings must have identical characters at each position from the start. The moment any string differs or ends, we've found the longest possible common prefix.
  *
  * ### EXAMPLE WALKTHROUGH:
- * For strs = ["flower","flow","flight"]:
- * 1. Position 0: 'f', 'f', 'f' → all match
- * 2. Position 1: 'l', 'l', 'l' → all match
- * 3. Position 2: 'o', 'o', 'i' → mismatch found
- * 4. Return "fl"
+ * Input:
+ * ```
+ * strs = ["flower","flow","flight"]
+ * ```
+ *
+ * Steps:
+ * Step 1: Position 0 → compare 'f', 'f', 'f' → all match
+ * Step 2: Position 1 → compare 'l', 'l', 'l' → all match
+ * Step 3: Position 2 → compare 'o', 'o', 'i' → mismatch found
+ * Step 4: Return prefix up to position 2 → "fl"
+ *
+ * Output:
+ * ```
+ * "fl"
+ * ```
  *
  * ### TIME COMPLEXITY:
  * O(S)
@@ -54,6 +68,7 @@
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  * - Only using constant extra space for variables
  *
  * ### EDGE CASES:

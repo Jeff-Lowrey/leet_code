@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 039. Combination Sum
+# 0039. Combination Sum
 
 Given an array of distinct integers candidates and a target integer target,
 return a list of all unique combinations of candidates where the chosen numbers sum to target.
@@ -14,15 +14,16 @@ Two combinations are unique if the frequency of at least one of the chosen numbe
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[[1, 1]</dd>
+<dd>candidates = [2,3,6,7], target = 7</dd>
 <dt>Output:</dt>
-<dd>"Expected {expected}, got {result}"</dd>
+<dd>[[2,2,3], [7]]</dd>
 <dt>Explanation:</dt>
 <dd>All combinations summing to 7 using [2,3,6,7] are [[2,2,3], [7]]</dd>
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Map Storage, Array Traversal, Sorting
 **Data Structures**: Array, Matrix
 **Patterns**: Hash Table Pattern, Backtracking
@@ -45,12 +46,16 @@ Since numbers can be reused unlimited times, we explore each candidate multiple 
 - Using start index prevents duplicate combinations
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: candidates = [2,3,6,7], target = 7
+candidates = [2,3,6,7], target = 7
+```
+
 Combinations found: [[2,2,3], [7]]
-- Try 2: [2] -> remaining=5, try 2 again: [2,2] -> remaining=3, try 3: [2,2,3] ✓
-- Try 7: [7] -> remaining=0 ✓
-```
+
+Steps:
+Step 1: - Try 2: [2] -> remaining=5, try 2 again: [2,2] -> remaining=3, try 3: [2,2,3] ✓
+Step 2: - Try 7: [7] -> remaining=0 ✓
 
 ### TIME COMPLEXITY:
 O(N^(T/M))
@@ -130,12 +135,12 @@ def test_solution() -> None:
     # Test case 1: Basic case
     result = solution.combinationSum([1, 2, 3], 2)
     expected = [[1, 1], [2]]
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: Empty input
     result = solution.combinationSum([], 0)
     expected: list[list[int]] = [[]]
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

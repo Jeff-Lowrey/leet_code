@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Easy
  *
- * # 94. Binary Tree Inorder Traversal
+ * # 0094. Binary Tree Inorder Traversal
+ *
  *
  * Given the root of a binary tree, return the inorder traversal of its nodes' values.
  *
@@ -17,11 +18,12 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Array Traversal, Two Pointers, Stack Operations
  * **Data Structures**: Array, String, Stack
  * **Patterns**: Two Pointers Pattern, Tree Pattern
- * **Time Complexity**: * O(n) - Single pass through input
+ * **Time Complexity**: O(n) - Single pass through input
  * **Space Complexity**: * - Recursive: O(h) where h is tree height (call stack)
 
  *
@@ -40,13 +42,15 @@
  * - Morris traversal modifies tree temporarily to avoid extra space
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
  * Tree:    1
- *           \
- *            2
- *           /
- *          3
+ * ```
  *
+ * \
+ * 2
+ * /
+ * 3
  * Inorder traversal steps:
  * 1. Start at root (1)
  * 2. No left child, process 1
@@ -56,12 +60,11 @@
  * 6. No right child of 3, backtrack
  * 7. Process 2
  * 8. No right child of 2
- *
  * Result: [1, 3, 2]
- * ```
- *
+
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  * We visit each node exactly once
  *
  * ### SPACE COMPLEXITY:

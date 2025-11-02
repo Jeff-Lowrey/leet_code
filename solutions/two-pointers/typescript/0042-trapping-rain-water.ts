@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Medium
  *
- * # 042. Trapping Rain Water
+ * # 0042. Trapping Rain Water
+ *
  *
  * Given n non-negative integers representing an elevation map where the width of each bar is 1, compute how much water it can trap after raining.
  *
@@ -11,13 +12,14 @@
  * <dt>Input:</dt>
  * <dd>height = [0,1,0,2,1,0,1,3,2,1,2,1]</dd>
  * <dt>Output:</dt>
- * <dd>6 (total water trapped)</dd>
+ * <dd>6</dd>
  * <dt>Explanation:</dt>
  * <dd>Rain water trapped between heights [0,1,0,2,1,0,1,3,2,1,2,1] is 6 units</dd>
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Two Pointers, Binary Search
  * **Data Structures**: Hash Map, Hash Set, Array
  * **Patterns**: Two Pointers Pattern, Hash Table Pattern
@@ -45,26 +47,32 @@
  * - Single pass O(n) time replaces two-pass array approach, O(1) space instead of O(n)
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: height = [0,1,0,2,1,0,1,3,2,1,2,1]
+ * height = [0,1,0,2,1,0,1,3,2,1,2,1]
+ * ```
+ *
  * Step 1: Calculate max heights
- *   left_max = [0,1,1,2,2,2,2,3,3,3,3,3]
- *   right_max = [3,3,3,3,3,3,3,3,2,2,2,1]
- *
+ * left_max = [0,1,1,2,2,2,2,3,3,3,3,3]
+ * right_max = [3,3,3,3,3,3,3,3,2,2,2,1]
  * Step 2: Calculate water at each position
- *   i=2: min(1,3)-0 = 1
- *   i=4: min(2,3)-1 = 1
- *   i=5: min(2,3)-0 = 2
- *   ...
+ * i=2: min(1,3)-0 = 1
+ * i=4: min(2,3)-1 = 1
+ * i=5: min(2,3)-0 = 2
+ * ...
  *
- * Output: 6 (total water trapped)
+ * Output:
  * ```
- *
+ * 6 (total water trapped)
+ * ```
+
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  *
  * ### EDGE CASES:
  * - Empty input handling

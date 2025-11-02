@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Easy
  *
- * # 021. Merge Two Sorted Lists
+ * # 0021. Merge Two Sorted Lists
+ *
  *
  * You are given the heads of two sorted linked lists list1 and list2.
  *
@@ -21,7 +22,8 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup
  * **Data Structures**: Hash Set, Array, Linked List
  * **Patterns**: Divide and Conquer
@@ -49,24 +51,33 @@
  * - Single pass through both lists achieves O(m + n) time
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: list1 = [1,2,4], list2 = [1,3,4]
+ * list1 = [1,2,4], list2 = [1,3,4]
+ * ```
+ *
  * Step 1: Compare and merge
- *   1 ≤ 1: add 1 from list1
- *   2 > 1: add 1 from list2
- *   2 ≤ 3: add 2 from list1
- *   4 > 3: add 3 from list2
- *   4 ≤ 4: add 4 from list1
- *   Remaining: 4 from list2
+ * 1 ≤ 1: add 1 from list1
+ * 2 > 1: add 1 from list2
+ * 2 ≤ 3: add 2 from list1
+ * 4 > 3: add 3 from list2
+ * 4 ≤ 4: add 4 from list1
+ * Remaining: 4 from list2
  *
- * Output: [1,1,2,3,4,4]
+ * Output:
  * ```
- *
+ * [1,1,2,3,4,4]
+ * ```
+
  * ### TIME COMPLEXITY:
+
  * O(n)
+
+ * - Single pass through the input
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  *
  * ### EDGE CASES:
  * - Empty input handling

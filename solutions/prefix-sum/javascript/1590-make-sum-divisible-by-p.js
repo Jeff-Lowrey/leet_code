@@ -3,6 +3,7 @@
  *
  * # 1590. Make Sum Divisible By P
  *
+ *
  * Given an array of positive integers nums, remove the smallest subarray (possibly empty) such that the sum of the remaining elements is divisible by p. It is not allowed to remove the whole array.
  *
  * Return the length of the smallest subarray that you need to remove, or -1 if it's impossible.
@@ -13,20 +14,21 @@
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[([3, 1, 4, 2]</dd>
+ * <dd>nums = [3,1,4,2], p = 6</dd>
  * <dt>Output:</dt>
- * <dd>"minSubarray({nums}, p={p}) -> {result} (total={total}, remainder={total % p})"</dd>
+ * <dd>1</dd>
  * <dt>Explanation:</dt>
- * <dd>The minimum length subarray to remove is 1 (element 3), so remaining sum is divisible by p</dd>
+ * <dd>The minimum length subarray to remove is 1 (element 4), so remaining sum is divisible by p</dd>
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Hash Map, Hash Set, Array
  * **Patterns**: Greedy Algorithm
- * **Time Complexity**: * O(n) - Single pass through input
- * **Space Complexity**: * O(min(n, p))
+ * **Time Complexity**: O(n) - Single pass through input
+ * **Space Complexity**: O(min(n, p))
 
  *
  * ### INTUITION:
@@ -48,22 +50,23 @@
  * - Store prefix remainders in hashmap to find matches in O(1)
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: nums = [3,1,4,2], p = 6
+ * nums = [3,1,4,2], p = 6
+ * ```
+ *
  * Total sum = 10, remainder = 10 % 6 = 4
  * Need to find smallest subarray with sum % 6 = 4
- *
  * Index 0: prefix=3%6=3, need=(3-4)%6=5, not found, map={0:(-1), 3:0}
  * Index 1: prefix=4%6=4, need=(4-4)%6=0, found at -1, length=2
  * Index 2: prefix=8%6=2, need=(2-4)%6=4, found at 1, length=1
  * Index 3: prefix=10%6=4, need=(4-4)%6=0, found at -1, length=4
- *
  * Minimum length = 1 (removing [4])
  * Result: [3,1,2] sums to 6, which is divisible by 6
- * ```
- *
+
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  * Single pass through array with O(1) hashmap operations
  *
  * ### SPACE COMPLEXITY:

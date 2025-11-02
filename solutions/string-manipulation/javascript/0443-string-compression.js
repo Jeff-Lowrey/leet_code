@@ -1,5 +1,8 @@
 /**
- * # Difficulty: Medium
+ * # 0443. String Compression
+ *
+ * Difficulty: Medium
+ *
  *
  * Given an array of characters chars, compress it using the following algorithm:
  *
@@ -31,12 +34,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Hash Map Storage, Array Traversal
  * **Data Structures**: Array, String
  * **Patterns**: Hash Table Pattern
- * **Time Complexity**: * O(n) - Single pass through input
- * **Space Complexity**: * O(1) - Constant extra space
+ * **Time Complexity**: O(n) - Single pass through input
+ * **Space Complexity**: O(1) - Constant extra space
 
  *
  * ### INTUITION:
@@ -58,32 +62,32 @@
  * - Converting count to string and iterating over digits handles multi-digit counts
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: ["a","a","b","b","c","c","c"]
+ * ["a","a","b","b","c","c","c"]
+ * ```
  *
  * Read pointer scans:
  * 1. chars[0-1]: 'a' appears 2 times
- *    Write: chars[0]='a', chars[1]='2'
- *    write=2
- *
+ * Write: chars[0]='a', chars[1]='2'
+ * write=2
  * 2. chars[2-3]: 'b' appears 2 times
- *    Write: chars[2]='b', chars[3]='2'
- *    write=4
- *
+ * Write: chars[2]='b', chars[3]='2'
+ * write=4
  * 3. chars[4-6]: 'c' appears 3 times
- *    Write: chars[4]='c', chars[5]='3'
- *    write=6
- *
+ * Write: chars[4]='c', chars[5]='3'
+ * write=6
  * Result: ["a","2","b","2","c","3"] with length 6
- * ```
- *
+
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  * - Single pass through the array with read pointer
  * - Writing compressed data is proportional to input size
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  * - Only using constant extra space (pointers and counters)
  * - Modifying the array in-place
  *

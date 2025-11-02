@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Medium
  *
- * # 084. Largest Rectangle In Histogram
+ * # 0084. Largest Rectangle In Histogram
+ *
  *
  * Given an array of integers heights representing the histogram's bar height where the width of each bar is 1, return the area of the largest rectangle in the histogram.
  *
@@ -9,15 +10,16 @@
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[2, 1, 5, 6, 2, 3]</dd>
+ * <dd>heights = [2,1,5,6,2,3]</dd>
  * <dt>Output:</dt>
- * <dd>"Solution for 084. Largest Rectangle In Histogram: {result}"</dd>
+ * <dd>* 10 (maximum area)</dd>
  * <dt>Explanation:</dt>
  * <dd>Largest rectangle area is 10</dd>
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Two Pointers
  * **Data Structures**: Hash Set, Array, Stack
  * **Patterns**: Two Pointers Pattern, Greedy Algorithm
@@ -45,26 +47,33 @@
  * - O(n) time: each bar pushed/popped once, O(n) space for stack
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: heights = [2,1,5,6,2,3]
+ * heights = [2,1,5,6,2,3]
+ * ```
+ *
  * Step 1: Use monotonic stack
- *   i=0: stack=[(0,2)]
- *   i=1: pop (0,2), area=2*1=2, push (1,1)
- *   i=2: push (2,5)
- *   i=3: push (3,6)
- *   i=4: pop (3,6), area=6*1=6
- *         pop (2,5), area=5*2=10
- *         push (2,2)
- *   i=5: push (5,3)
+ * i=0: stack=[(0,2)]
+ * i=1: pop (0,2), area=2*1=2, push (1,1)
+ * i=2: push (2,5)
+ * i=3: push (3,6)
+ * i=4: pop (3,6), area=6*1=6
+ * pop (2,5), area=5*2=10
+ * push (2,2)
+ * i=5: push (5,3)
  *
- * Output: 10 (maximum area)
+ * Output:
  * ```
- *
+ * 10 (maximum area)
+ * ```
+
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  *
  * ### EDGE CASES:
  * - Empty input handling

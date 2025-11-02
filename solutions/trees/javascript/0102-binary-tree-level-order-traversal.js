@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Medium
  *
- * # 102. Binary Tree Level Order Traversal
+ * # 0102. Binary Tree Level Order Traversal
+ *
  *
  * Given the root of a binary tree, return the level order traversal of its nodes' values. (i.e., from left to right, level by level).
  *
@@ -9,7 +10,7 @@
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[[3]</dd>
+ * <dd>[[3]]</dd>
  * <dt>Output:</dt>
  * <dd>1</dd>
  * <dt>Explanation:</dt>
@@ -17,12 +18,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Array Traversal, Two Pointers, Queue Operations
  * **Data Structures**: Array, String, Queue
  * **Patterns**: Two Pointers Pattern, Graph Pattern
- * **Time Complexity**: * O(n) - Single pass through input
- * **Space Complexity**: * O(w)
+ * **Time Complexity**: O(n) - Single pass through input
+ * **Space Complexity**: O(w)
 
  *
  * ### INTUITION:
@@ -41,22 +43,30 @@
  * - BFS naturally explores breadth before depth
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: [3,9,20,null,null,15,7]
- *        3
- *       / \
- *      9  20
- *        /  \
- *       15   7
- *
- * Level 0: [3] → queue: [9, 20]
- * Level 1: [9, 20] → queue: [15, 7]
- * Level 2: [15, 7] → queue: []
- * Output: [[3], [9, 20], [15, 7]]
+ * [3,9,20,null,null,15,7]
  * ```
  *
+ * 3
+ * / \
+ * 9  20
+ * /  \
+ * 15   7
+ *
+ * Steps:
+ * Step 1: Level 0: [3] → queue: [9, 20]
+ * Step 2: Level 1: [9, 20] → queue: [15, 7]
+ * Step 3: Level 2: [15, 7] → queue: []
+ *
+ * Output:
+ * ```
+ * [[3], [9, 20], [15, 7]]
+ * ```
+
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  * Each node is visited exactly once
  *
  * ### SPACE COMPLEXITY:

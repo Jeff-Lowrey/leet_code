@@ -1,5 +1,8 @@
 /**
- * # Difficulty: Medium
+ * # 1202. Smallest String With Swaps
+ *
+ * Difficulty: Medium
+ *
  *
  * You are given a string s, and an array of pairs where pairs[i] = [a, b] indicates 2 indices
  * (0-indexed) that can be swapped. You can swap indices multiple times. Return the lexicographically
@@ -22,12 +25,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Hash Map, Hash Set, Array
  * **Patterns**: Iterative Solution
- * **Time Complexity**: * O(n log n + m α(n)) where m is pairs count
- * **Space Complexity**: * O(n) - Additional hash map storage
+ * **Time Complexity**: O(n log n + m α(n)) where m is pairs count
+ * **Space Complexity**: O(n) - Additional hash map storage
 
  *
  * ### INTUITION:
@@ -45,23 +49,30 @@
  * permutation is achievable. Lexicographically smallest = sort characters ascending.
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: s = "dcab", pairs = [[0,3],[1,2]]
+ * s = "dcab", pairs = [[0,3],[1,2]]
+ * ```
+ *
  * Step 1: Union-find to group connected indices
- *   Groups: {0,3}, {1,2}
- *
+ * Groups: {0,3}, {1,2}
  * Step 2: Sort characters within each group
- *   Group {0,3}: 'd','b' → 'b','d'
- *   Group {1,2}: 'c','a' → 'a','c'
  *
- * Output: "bacd"
+ * Steps:
+ * Step 1: Group {0,3}: 'd','b' → 'b','d'
+ * Step 2: Group {1,2}: 'c','a' → 'a','c'
+ *
+ * Output:
  * ```
- *
+ * "bacd"
+ * ```
+
  * ### TIME COMPLEXITY:
  * O(n log n + m α(n)) where m is pairs count
  *
  * ### SPACE COMPLEXITY:
  * O(n)
+ * - Additional hash map storage
  *
  * ### EDGE CASES:
  * - **No pairs given**: Return original string unchanged

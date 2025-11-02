@@ -16,7 +16,7 @@
  * 
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[[0, 0]</dd>
+ * <dd>[[0, 0]]</dd>
  * <dt>Output:</dt>
  * <dd>1</dd>
  * <dt>Explanation:</dt>
@@ -24,7 +24,8 @@
  * </dl>
  * 
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
  * **Data Structures**: Hash Set, Array, Queue
  * **Patterns**: Hash Table Pattern, Greedy Algorithm
@@ -48,12 +49,14 @@
  * - List comprehension efficiently generates all coordinates
  * 
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: rows = 2, cols = 3, rCenter = 1, cCenter = 2
+ * rows = 2, cols = 3, rCenter = 1, cCenter = 2
+ * ```
+ *
  * Matrix coordinates:
  * (0,0) (0,1) (0,2)
  * (1,0) (1,1) (1,2)  <- rCenter=1, cCenter=2
- * 
  * Distances from (1,2):
  * (0,0): |0-1| + |0-2| = 1+2 = 3
  * (0,1): |0-1| + |1-2| = 1+1 = 2
@@ -61,16 +64,17 @@
  * (1,0): |1-1| + |0-2| = 0+2 = 2
  * (1,1): |1-1| + |1-2| = 0+1 = 1
  * (1,2): |1-1| + |2-2| = 0+0 = 0
- * 
  * Sorted by distance:
  * Distance 0: (1,2)
  * Distance 1: (0,2), (1,1)
  * Distance 2: (0,1), (1,0)
  * Distance 3: (0,0)
- * 
- * Output: [[1,2],[0,2],[1,1],[0,1],[1,0],[0,0]]
+ *
+ * Output:
  * ```
- * 
+ * [[1,2],[0,2],[1,1],[0,1],[1,0],[0,0]]
+ * ```
+
  * ### TIME COMPLEXITY:
  * O(R*C * log(R*C))
  * - Generating coordinates: O(R*C)

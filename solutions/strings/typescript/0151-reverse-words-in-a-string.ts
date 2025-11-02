@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Medium
  *
- * # 151. Reverse Words In A String
+ * # 0151. Reverse Words In A String
+ *
  *
  * This problem demonstrates key concepts in String manipulation and parsing.
  *
@@ -17,7 +18,8 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Backtracking
  * **Data Structures**: Array, String
  * **Patterns**: Iterative Solution
@@ -42,24 +44,30 @@
  * - Joining with a single space ensures proper formatting
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: s = "  hello   world  "
+ * s = "  hello   world  "
+ * s = "a good   example"
+ * ```
+ *
  * Step 1: Strip: "hello   world"
  * Step 2: Split: ["hello", "world"]
  * Step 3: Reverse: ["world", "hello"]
  * Step 4: Join: "world hello"
- * Output: "world hello"
- *
- * Input: s = "a good   example"
  * Step 1: Strip: "a good   example"
  * Step 2: Split: ["a", "good", "example"]
  * Step 3: Reverse: ["example", "good", "a"]
  * Step 4: Join: "example good a"
- * Output: "example good a"
- * ```
  *
+ * Output:
+ * ```
+ * "world hello"
+ * "example good a"
+ * ```
+
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  * Where n is the length of the string. We scan the string once to split, reverse the list (O(n)),
  * and join back (O(n)).
  *

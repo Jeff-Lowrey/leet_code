@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Medium
  *
- * # 305. Number
+ * # 0305. Number of Islands II
+ *
  *
  * You are given an empty 2D binary grid grid of size m x n. The grid represents a map where 0's represent water and 1's represent land. Initially, all the cells of grid are water cells (i.e., all the cells are 0's).
  *
@@ -15,7 +16,7 @@
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[[0, 0]</dd>
+ * <dd>[[0, 0]]</dd>
  * <dt>Output:</dt>
  * <dd>"Test 1 Result: {result1}"</dd>
  * <dt>Explanation:</dt>
@@ -23,12 +24,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Hash Map Storage, Array Traversal
  * **Data Structures**: Array, String, Tree
  * **Patterns**: Hash Table Pattern, Divide and Conquer
- * **Time Complexity**: * O(n) - Single pass through input
- * **Space Complexity**: * O(1) - Constant extra space
+ * **Time Complexity**: O(n) - Single pass through input
+ * **Space Complexity**: O(1) - Constant extra space
 
  *
  * ### INTUITION:
@@ -46,22 +48,31 @@
  * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: m = 3, n = 3, positions = [[0,0],[0,1],[1,2],[2,1]]
+ * m = 3, n = 3, positions = [[0,0],[0,1],[1,2],[2,1]]
+ * ```
+ *
  * Step 1: Add islands one by one
- *   [0,0]: 1 island
- *   [0,1]: merge with [0,0] → 1 island
- *   [1,2]: 2 islands
- *   [2,1]: 3 islands
+ * [0,0]: 1 island
  *
- * Output: [1,1,2,3]
+ * Steps:
+ * Step 1: [0,1]: merge with [0,0] → 1 island
+ * Step 2: [1,2]: 2 islands
+ * Step 3: [2,1]: 3 islands
+ *
+ * Output:
  * ```
- *
+ * [1,1,2,3]
+ * ```
+
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  *
  * ### EDGE CASES:
  * - Empty input handling

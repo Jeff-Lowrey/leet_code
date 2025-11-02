@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 210. Course Schedule Ii
+# 0210. Course Schedule Ii
 
 There are a total of numCourses courses you have to take, labeled from 0 to numCourses - 1. You are given an array prerequisites where prerequisites[i] = [ai, bi] indicates that you must take course bi first if you want to take course ai.
 
@@ -21,7 +21,8 @@ Return the ordering of courses you should take to finish all courses. If there a
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
 **Data Structures**: Hash Map, Array, Queue
 **Patterns**: Hash Table Pattern, Graph Pattern
@@ -49,25 +50,35 @@ Build adjacency list and in-degree array. Start BFS from courses with in-degree 
 - O(V + E) time: vertices + edges, O(V + E) space for graph
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: numCourses = 4, prerequisites = [[1,0],[2,0],[3,1],[3,2]]
+numCourses = 4, prerequisites = [[1,0],[2,0],[3,1],[3,2]]
+```
+
 Step 1: Build graph
-  0 → [1,2], 1 → [3], 2 → [3]
-  indegree = [0,1,1,2]
 
-Step 2: Topological sort
-  Take 0: update indegree, order=[0]
-  Take 1,2: update indegree, order=[0,1,2]
-  Take 3: order=[0,1,2,3]
+Steps:
+Step 1: 0 → [1,2], 1 → [3], 2 → [3]
+Step 2: indegree = [0,1,1,2]
+Step 3: Topological sort
+Step 4: Take 0: update indegree, order=[0]
+Step 5: Take 1,2: update indegree, order=[0,1,2]
+Step 6: Take 3: order=[0,1,2,3]
 
-Output: [0,1,2,3]
+Output:
+```
+[0,1,2,3]
 ```
 
 ### TIME COMPLEXITY:
 O(n)
+- Single pass through input
+
 
 ### SPACE COMPLEXITY:
 O(1)
+- Constant extra space
+
 
 ### EDGE CASES:
 - Empty input handling
@@ -137,12 +148,12 @@ def test_solution() -> None:
     # Test case 1: Example from problem
     result = solution.findOrder(4, [[1, 0], [2, 0], [3, 1], [3, 2]])
     # Valid orders: [0,1,2,3] or [0,2,1,3]
-    assert len(result) == 4 and result[0] == 0, f"Expected valid order starting with 0, got {result}"
+    assert len(result) == 4 and result[0] == 0, f"Expected valid order starting with 0, got result"
 
     # Test case 2: Cycle exists (impossible)
     result = solution.findOrder(2, [[1, 0], [0, 1]])
     expected: list[Any] = []
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 3: No prerequisites
     result = solution.findOrder(3, [])
@@ -151,12 +162,12 @@ def test_solution() -> None:
     # Test case 4: Linear dependency
     result = solution.findOrder(3, [[1, 0], [2, 1]])
     expected = [0, 1, 2]
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 5: Single course
     result = solution.findOrder(1, [])
     expected = [0]
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

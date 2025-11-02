@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 969. Pancake Sorting
+# 0969. Pancake Sorting
 
 Given an array of integers arr, sort the array by performing a series of pancake flips.
 
@@ -27,7 +27,8 @@ Any valid answer that sorts the array within 10 * arr.length flips will be accep
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
 **Data Structures**: Array, Tree
 **Patterns**: Two Pointers Pattern
@@ -53,33 +54,39 @@ top with one flip, then flip it to its final position. This guarantees sorting.
 - Maximum 2n flips (well within 10n limit)
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: arr = [3,2,4,1]
+[3, 2, 4, 1]
+```
+
+Input:
+```
+arr = [3,2,4,1]
+```
 
 Goal: Sort to [1,2,3,4]
-
 Step 1: Find max=4 at index 2
-Flip at k=3: [3,2,4] → [4,2,3]
-Result: [4,2,3,1]
 
-Step 2: Flip at k=4 to move 4 to end
-Flip at k=4: [4,2,3,1] → [1,3,2,4]
-Result: [1,3,2,4]
+Steps:
+Step 1: Flip at k=3: [3,2,4] → [4,2,3]
+Step 2: Result: [4,2,3,1]
+Step 3: Flip at k=4 to move 4 to end
+Step 4: Flip at k=4: [4,2,3,1] → [1,3,2,4]
+Step 5: Result: [1,3,2,4]
+Step 6: Find max=3 at index 1 in [1,3,2]
+Step 7: Flip at k=2: [1,3] → [3,1]
+Step 8: Result: [3,1,2,4]
+Step 9: Flip at k=3 to move 3 to position
+Step 10: Flip at k=3: [3,1,2] → [2,1,3]
+Step 11: Result: [2,1,3,4]
+Step 12: Find max=2 at index 0 in [2,1]
+Step 13: Already at top, flip at k=2
+Step 14: Flip at k=2: [2,1] → [1,2]
+Step 15: Result: [1,2,3,4]
 
-Step 3: Find max=3 at index 1 in [1,3,2]
-Flip at k=2: [1,3] → [3,1]
-Result: [3,1,2,4]
-
-Step 4: Flip at k=3 to move 3 to position
-Flip at k=3: [3,1,2] → [2,1,3]
-Result: [2,1,3,4]
-
-Step 5: Find max=2 at index 0 in [2,1]
-Already at top, flip at k=2
-Flip at k=2: [2,1] → [1,2]
-Result: [1,2,3,4]
-
-Output: [3,4,2,3,2] (flip positions)
+Output:
+```
+[3,4,2,3,2] (flip positions)
 ```
 
 ### TIME COMPLEXITY:

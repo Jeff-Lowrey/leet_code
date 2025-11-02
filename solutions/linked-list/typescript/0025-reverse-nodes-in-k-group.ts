@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Medium
  *
- * # 025. Reverse Nodes In K Group
+ * # 0025. Reverse Nodes In K Group
+ *
  *
  * Given the head of a linked list, reverse the nodes of the list k at a time, and return the modified list.
  *
@@ -13,15 +14,16 @@
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[2, 1, 4, 3, 5]</dd>
+ * <dd>head = [1,2,3,4,5], k = 2</dd>
  * <dt>Output:</dt>
- * <dd>"Expected {expected}, got {list_to_array(result)}"</dd>
+ * <dd>* [2,1,4,3,5]</dd>
  * <dt>Explanation:</dt>
  * <dd>Reversing nodes in k=2 groups: [1,2,3,4,5] becomes [2,1,4,3,5]</dd>
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Map Storage, Array Traversal, Graph Traversal
  * **Data Structures**: Array, Linked List
  * **Patterns**: Hash Table Pattern, Graph Pattern
@@ -48,25 +50,32 @@
  * - O(n) time as each node visited twice (check + reverse), O(1) space
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: head = [1,2,3,4,5], k = 2
+ * head = [1,2,3,4,5], k = 2
+ * ```
+ *
  * Step 1: Reverse first k nodes
- *   [1,2] → [2,1]
  *
+ * Steps:
+ * Step 1: [1,2] → [2,1]
  * Step 2: Reverse next k nodes
- *   [3,4] → [4,3]
+ * Step 3: [3,4] → [4,3]
+ * Step 4: Last group < k, keep as is
+ * Step 5: [5] → [5]
  *
- * Step 3: Last group < k, keep as is
- *   [5] → [5]
- *
- * Output: [2,1,4,3,5]
+ * Output:
  * ```
- *
+ * [2,1,4,3,5]
+ * ```
+
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  *
  * ### EDGE CASES:
  * - Empty input handling

@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 167. Two Sum Ii Input Array Is Sorted
+# 0167. Two Sum Ii Input Array Is Sorted
 
 Given a 1-indexed array of integers numbers that is already sorted in non-decreasing order, find two numbers such that they add up to a specific target number. Let these two numbers be numbers[index1] and numbers[index2] where 1 <= index1 < index2 <= numbers.length.
 
@@ -15,15 +15,16 @@ Your solution must use only constant extra space.
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[1, 2]</dd>
+<dd>numbers = [2, 7, 11, 15], target = 9</dd>
 <dt>Output:</dt>
-<dd>"Expected {expected}, got {result}"</dd>
+<dd>[1, 2] (1-indexed positions)</dd>
 <dt>Explanation:</dt>
 <dd>Two numbers [2,7] at indices [1,2] sum to target 9</dd>
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Two Pointers
 **Data Structures**: Hash Map, Hash Set, Array
 **Patterns**: Two Pointers Pattern
@@ -50,39 +51,44 @@ Array is sorted, so use two pointers from both ends. If sum < target, move left 
 - O(n) time single pass, O(1) space, exploits sorted property
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: numbers = [2, 7, 11, 15], target = 9
+numbers = [2, 7, 11, 15], target = 9
+```
 
 Step 1: Initialize pointers
-  left = 0 (numbers[0] = 2)
-  right = 3 (numbers[3] = 15)
-
+left = 0 (numbers[0] = 2)
+right = 3 (numbers[3] = 15)
 Step 2: First iteration
-  current_sum = 2 + 15 = 17
-  17 > 9, so move right pointer left
-  right = 2
-
+current_sum = 2 + 15 = 17
+17 > 9, so move right pointer left
+right = 2
 Step 3: Second iteration
-  left = 0 (numbers[0] = 2)
-  right = 2 (numbers[2] = 11)
-  current_sum = 2 + 11 = 13
-  13 > 9, so move right pointer left
-  right = 1
-
+left = 0 (numbers[0] = 2)
+right = 2 (numbers[2] = 11)
+current_sum = 2 + 11 = 13
+13 > 9, so move right pointer left
+right = 1
 Step 4: Third iteration
-  left = 0 (numbers[0] = 2)
-  right = 1 (numbers[1] = 7)
-  current_sum = 2 + 7 = 9
-  9 == 9 ✓ Found!
+left = 0 (numbers[0] = 2)
+right = 1 (numbers[1] = 7)
+current_sum = 2 + 7 = 9
+9 == 9 ✓ Found!
 
-Output: [1, 2] (1-indexed positions)
+Output:
+```
+[1, 2] (1-indexed positions)
 ```
 
 ### TIME COMPLEXITY:
 O(n)
+- Single pass through input
+
 
 ### SPACE COMPLEXITY:
 O(1)
+- Constant extra space
+
 
 ### EDGE CASES:
 - Empty input handling
@@ -140,12 +146,12 @@ def test_solution() -> None:
     # Test case 1: Example from problem
     result = solution.twoSum([2, 7, 11, 15], target=9)
     expected = [1, 2]
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: Different numbers
     result = solution.twoSum([1, 2, 3, 4], 7)
     expected = [3, 4]
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

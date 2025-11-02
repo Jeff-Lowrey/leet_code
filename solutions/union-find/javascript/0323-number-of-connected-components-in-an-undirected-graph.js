@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Medium
  *
- * # 323. Number Of Connected Components In An Undirected Graph
+ * # 0323. Number Of Connected Components In An Undirected Graph
+ *
  *
  * You have a graph of n nodes labeled from 0 to n - 1. You are given an integer n and a list of edges where edges[i] = [ai, bi] indicates that there is an undirected edge between nodes ai and bi in the graph.
  *
@@ -19,12 +20,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Hash Map Storage, Array Traversal
  * **Data Structures**: Array, Tree, Graph
  * **Patterns**: Hash Table Pattern, Divide and Conquer
- * **Time Complexity**: * O(E × α(N))
- * **Space Complexity**: * O(N)
+ * **Time Complexity**: O(E × α(N))
+ * **Space Complexity**: O(N)
 
  *
  * ### INTUITION:
@@ -42,17 +44,23 @@
  * - Path compression and union by rank ensure efficient operations
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: n = 5, edges = [[0,1],[1,2],[3,4]]
- *
- * Initial: {0}, {1}, {2}, {3}, {4} → 5 components
- * Union(0,1): {0,1}, {2}, {3}, {4} → 4 components
- * Union(1,2): {0,1,2}, {3}, {4} → 3 components
- * Union(3,4): {0,1,2}, {3,4} → 2 components
- *
- * Result: 2 connected components
+ * n = 5, edges = [[0,1],[1,2],[3,4]]
  * ```
  *
+ * Steps:
+ * Step 1: Initial: {0}, {1}, {2}, {3}, {4} → 5 components
+ * Step 2: Union(0,1): {0,1}, {2}, {3}, {4} → 4 components
+ * Step 3: Union(1,2): {0,1,2}, {3}, {4} → 3 components
+ * Step 4: Union(3,4): {0,1,2}, {3,4} → 2 components
+ * Step 5: Result: 2 connected components
+ * 
+ * Output:
+ * ```
+ * 2 connected components
+ * ```
+ * 
  * ### TIME COMPLEXITY:
  * O(E × α(N))
  * Where E is edges, N is nodes, α is inverse Ackermann (nearly constant)

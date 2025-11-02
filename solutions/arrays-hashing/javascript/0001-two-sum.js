@@ -1,4 +1,6 @@
 /**
+ * # 0001. Two Sum
+ *
  * Difficulty: Easy
  *
  * Given an array of integers `nums` and an integer `target`, return indices of the
@@ -12,7 +14,7 @@
  * <dt>Input:</dt>
  * <dd>nums = [2,7,11,15], target = 9</dd>
  * <dt>Output:</dt>
- * <dd>[0,1]</dd>
+ * <dd>[]</dd>
  * <dt>Explanation:</dt>
  * <dd>Because nums[0] + nums[1] == 9, we return [0, 1]</dd>
  * </dl>
@@ -21,11 +23,11 @@
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 
 ### METADATA:
-**Techniques**: TBD
-**Data Structures**: TBD
-**Patterns**: TBD
-**Time Complexity**: * **O(n)** - Single pass through array with O(1) hash map lookups
-**Space Complexity**: * **O(n)** - Hash map stores up to n elements in worst case
+**Techniques**: Hash Table Lookup, Single Pass
+**Data Structures**: Hash Map, Array
+**Patterns**: Complement Search
+**Time Complexity**: **O(n)** - Single pass through array with O(1) hash map lookups
+**Space Complexity**: **O(n)** - Hash map stores up to n elements in worst case
 
  *
  * ### INTUITION:
@@ -58,9 +60,7 @@
  * ```
  * nums = [2,7,11,15], target = 9
  * ```
- * **Step 1:** `num=2`, `complement=7`, `seen={}` → store `{2: 0}`
- * **Step 2:** `num=7`, `complement=2`, `seen={2: 0}` → found! return `[0, 1]`
- *
+
  * ### TIME COMPLEXITY:
  * **O(n)** - Single pass through array with O(1) hash map lookups
  *

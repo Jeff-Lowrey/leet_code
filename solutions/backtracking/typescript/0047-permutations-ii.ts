@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Medium
  *
- * # 047. Permutations Ii
+ * # 0047. Permutations Ii
+ *
  *
  * Given a collection of numbers, nums, that might contain duplicates, return all possible unique permutations in any order.
  *
@@ -9,15 +10,16 @@
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[[1,1,2]</dd>
+ * <dd>nums = [1,1,2]</dd>
  * <dt>Output:</dt>
- * <dd>"Expected {expected}, got {result}"</dd>
+ * <dd>[[1,1,2],[1,2,1],[2,1,1]]</dd>
  * <dt>Explanation:</dt>
  * <dd>All unique permutations of [1,1,2] are [[1,1,2],[1,2,1],[2,1,1]]</dd>
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Hash Map, Array
  * **Patterns**: Hash Table Pattern, Backtracking
@@ -31,7 +33,7 @@
  * 1. **Create frequency counter**: Use Counter(nums) to build frequency map of available numbers
  * 2. **Initialize result**: Create empty result list and current permutation list
  * 3. **Define backtrack function**: Create recursive function that builds permutations incrementally
- * # 4. **Base case**: When len(current) == len(nums), add copy of current to result and return  # Result undefined
+ * # 0047. **Base case**: When len(current) == len(nums), add copy of current to result and return  # Result undefined
  * 5. **Iterate unique numbers**: Loop through counter.keys() (unique numbers only)
  * 6. **Check availability**: If counter[num] > 0, the number is available to use
  * 7. **Use number**: Add num to current, decrement counter[num] by 1
@@ -45,29 +47,39 @@
  * - O(n! * n) time: n! permutations, O(n) to copy each
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: nums = [1,1,2]
+ * nums = [1,1,2]
+ * ```
+ *
  * Step 1: Create frequency counter
- *   counter = {1: 2, 2: 1}
- *
+ * counter = {1: 2, 2: 1}
  * Step 2: Backtrack to build permutations
- *   Choose 1: temp = [1], counter = {1: 1, 2: 1}
- *     Choose 1: temp = [1,1], counter = {1: 0, 2: 1}
- *       Choose 2: temp = [1,1,2] → add to result
- *     Choose 2: temp = [1,2], counter = {1: 1, 2: 0}
- *       Choose 1: temp = [1,2,1] → add to result
- *   Choose 2: temp = [2], counter = {1: 2, 2: 0}
- *     Choose 1: temp = [2,1], counter = {1: 1, 2: 0}
- *       Choose 1: temp = [2,1,1] → add to result
+ * Choose 1: temp = [1], counter = {1: 1, 2: 1}
+ * Choose 1: temp = [1,1], counter = {1: 0, 2: 1}
  *
- * Output: [[1,1,2],[1,2,1],[2,1,1]]
+ * Steps:
+ * Step 1: Choose 2: temp = [1,1,2] → add to result
+ * Step 2: Choose 2: temp = [1,2], counter = {1: 1, 2: 0}
+ * Step 3: Choose 1: temp = [1,2,1] → add to result
+ * Step 4: Choose 2: temp = [2], counter = {1: 2, 2: 0}
+ * Step 5: Choose 1: temp = [2,1], counter = {1: 1, 2: 0}
+ * Step 6: Choose 1: temp = [2,1,1] → add to result
+ *
+ * Output:
  * ```
- *
+ * [[1,1,2],[1,2,1],[2,1,1]]
+ * ```
+
  * ### TIME COMPLEXITY:
+
  * O(n)
+
+ * - Single pass through the input
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  *
  * ### EDGE CASES:
  * - Empty input handling

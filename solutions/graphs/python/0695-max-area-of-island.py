@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 695. Max Area Of Island
+# 0695. Max Area Of Island
 
 You are given an m x n binary matrix grid. An island is a group of 1's (representing land) connected 4-directionally (horizontal or vertical.) You may assume all four edges of the grid are surrounded by water.
 
@@ -13,15 +13,16 @@ Return the maximum area of an island in grid. If there is no island, return 0.
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[[0,0,1,0,0,0,0,1,0,0,0,0,0]</dd>
+<dd>grid = [[0,0,1,0,0,0,0,1,0,0,0,0,0],[0,0,0,0,0,0,0,1,1,1,0,0,0],[0,1,1,0,1,0,0,0,0,0,0,0,0],[0,1,0,0,1,1,0,0,1,0,1,0,0],[0,1,0,0,1,1,0,0,1,1,1,0,0],[0,0,0,0,0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,1,1,1,0,0,0],[0,0,0,0,0,0,0,1,1,0,0,0,0]]</dd>
 <dt>Output:</dt>
-<dd>1</dd>
+<dd>6</dd>
 <dt>Explanation:</dt>
-<dd>Maximum island area is 6 square units</dd>
+<dd>The maximum area of an island is 6 square units</dd>
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Array Traversal, Stack Operations
 **Data Structures**: Array, Stack, Queue
 **Patterns**: Hash Table Pattern, Greedy Algorithm
@@ -45,12 +46,14 @@ This is similar to "Number of Islands" but instead of counting islands, we need 
 - In-place marking ensures each cell is counted exactly once
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
 Grid: [[0,0,1,0,0,0,0,1,0,0,0,0,0],
-       [0,0,0,0,0,0,0,1,1,1,0,0,0],
-       [0,1,1,0,1,0,0,0,0,0,0,0,0],
-       [0,1,0,0,1,1,0,0,1,0,1,0,0]]
+```
 
+[0,0,0,0,0,0,0,1,1,1,0,0,0],
+[0,1,1,0,1,0,0,0,0,0,0,0,0],
+[0,1,0,0,1,1,0,0,1,0,1,0,0]]
 Islands found:
 - (0,2): area = 1
 - (0,7), (1,7), (1,8), (1,9): area = 4
@@ -58,9 +61,7 @@ Islands found:
 - (2,4), (3,4), (3,5): area = 3
 - (3,8): area = 1
 - (3,10): area = 1
-
 Maximum area = 4
-```
 
 ### TIME COMPLEXITY:
 O(M × N)

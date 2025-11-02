@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  * 
- * # 677. Map Sum Pairs
+ * # 0677. Map Sum Pairs
  * 
  * You are asked to implement a map that supports the following two operations:
  * 
@@ -17,7 +17,8 @@
  * </dl>
  * 
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup
  * **Data Structures**: Hash Map, Tree, Trie
  * **Patterns**: Iterative Solution
@@ -41,28 +42,31 @@
  * - Time complexity is optimal for prefix-based operations
  * 
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
  * Operations:
+ * ```
+ *
  * insert("apple", 3)
  * insert("app", 2)
- * sum("ap") → 5 (apple: 3 + app: 2)
- * insert("app", 4)  # Update existing key
- * sum("ap") → 7 (apple: 3 + app: 4)
- * 
  * Trie structure after operations:
- *     root
- *      |
- *      a (sum: 7)
- *      |
- *      p (sum: 7)
- *      |
- *      p (sum: 7, has_app: 4)
- *      |
- *      l (sum: 3)
- *      |
- *      e (sum: 3, has_apple: 3)
- * ```
- * 
+ *
+ * Steps:
+ * Step 1: sum("ap") → 5 (apple: 3 + app: 2)
+ * Step 2: insert("app", 4)  # Update existing key
+ * Step 3: sum("ap") → 7 (apple: 3 + app: 4)
+ * Step 4: root
+ * Step 5: |
+ * Step 6: a (sum: 7)
+ * Step 7: |
+ * Step 8: p (sum: 7)
+ * Step 9: |
+ * Step 10: p (sum: 7, has_app: 4)
+ * Step 11: |
+ * Step 12: l (sum: 3)
+ * Step 13: |
+ * Step 14: e (sum: 3, has_apple: 3)
+
  * ### TIME COMPLEXITY:
  * - Insert: O(k) where k is key length
  * - Sum: O(p) where p is prefix length

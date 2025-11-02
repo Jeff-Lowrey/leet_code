@@ -1,5 +1,5 @@
 """
-# 242. Valid Anagram
+# 0242. Valid Anagram
 
 # Difficulty: Easy
 
@@ -20,7 +20,8 @@ word or phrase, typically using all the original letters exactly once.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
 **Data Structures**: Hash Map, Array, String
 **Patterns**: Hash Table Pattern
@@ -41,20 +42,28 @@ Two strings are anagrams if they contain the exact same characters with the same
 - If two strings have the same character frequencies, they must be anagrams
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
 s = "anagram", t = "nagaram"
+```
 
 Character counts for s:
 a: 3, n: 1, g: 1, r: 1, m: 1
-
 Character counts for t:
 n: 1, a: 3, g: 1, r: 1, m: 1
 
-Both have identical counts → True
+Steps:
+Step 1: Both have identical counts → True
+
+Output:
+```
+True
 ```
 
 ### TIME COMPLEXITY:
 O(n)
+- Single pass through input
+
 
 ### SPACE COMPLEXITY:
 O(1) - at most 26 lowercase letters

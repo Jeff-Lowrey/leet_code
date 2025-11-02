@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 692. Top K Frequent Words
+# 0692. Top K Frequent Words
 
 Given an array of strings words and an integer k, return the k most frequent strings.
 
@@ -11,15 +11,16 @@ Return the answer sorted by the frequency from highest to lowest. Sort the words
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[3, 2]</dd>
+<dd>words = ["i","love","leetcode","i","love","coding"], k = 2</dd>
 <dt>Output:</dt>
-<dd>"Expected {expected}, got {result}"</dd>
+<dd>["i", "love"] (after reversing)</dd>
 <dt>Explanation:</dt>
 <dd>Top k=2 frequent words in ['i','love','leetcode','i','love','coding'] are ['i','love']</dd>
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
 **Data Structures**: Hash Map, Array, String
 **Patterns**: Hash Table Pattern
@@ -42,8 +43,11 @@ This problem combines frequency counting with sorting. We need to find the k mos
 - Final result needs reversal because heap gives us reverse order
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: words = ["i","love","leetcode","i","love","coding"], k = 2
+words = ["i","love","leetcode","i","love","coding"], k = 2
+```
+
 Frequencies: {"i": 2, "love": 2, "leetcode": 1, "coding": 1}
 Heap process:
 - Add ("i", 2): heap = [(-2, "i")]
@@ -53,7 +57,6 @@ Heap process:
 - Add ("coding", 1): heap = [(-1, "coding"), (-2, "i"), (-2, "love")]
 - Remove coding: heap = [(-2, "love"), (-2, "i")]
 Result: ["i", "love"] (after reversing)
-```
 
 ### TIME COMPLEXITY:
 O(N log k)
@@ -214,12 +217,12 @@ def test_solution() -> None:
     # Test case 1: Basic case
     result = solution.topKFrequent(["the", "day", "is", "sunny", "the", "the", "the", "sunny", "is", "is"], 4)
     expected: list[Any] = ["the", "is", "sunny", "day"]
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: Empty input
     result = solution.topKFrequent([], 0)
     expected: list[str] = []
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

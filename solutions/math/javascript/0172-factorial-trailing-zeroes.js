@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Medium
  *
- * # 172. Factorial Trailing Zeroes
+ * # 0172. Factorial Trailing Zeroes
+ *
  *
  * Given an integer n, return the number of trailing zeroes in n!.
  *
@@ -19,12 +20,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Array Traversal
  * **Data Structures**: Basic Types
  * **Patterns**: Hash Table Pattern
- * **Time Complexity**: * O(log n) - Binary search or tree height
- * **Space Complexity**: * O(1) - Constant extra space
+ * **Time Complexity**: O(log n) - Binary search or tree height
+ * **Space Complexity**: O(1) - Constant extra space
 
  *
  * ### INTUITION:
@@ -43,23 +45,26 @@
  * - Total = n/5 + n/25 + n/125 + ...
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
  * n = 30:
+ * ```
+ *
  * 30/5 = 6 (multiples of 5: 5,10,15,20,25,30)
  * 30/25 = 1 (multiples of 25: 25)
  * 30/125 = 0
  * Total: 6 + 1 = 7 trailing zeroes
- *
  * 30! = 265252859812191058636308480000000
- *       (7 trailing zeroes)
- * ```
- *
+ * (7 trailing zeroes)
+
  * ### TIME COMPLEXITY:
  * O(log n)
+ * - Binary search or tree height
  * Number of divisions by 5 until we reach 0
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  * Only using counters
  *
  * ### EDGE CASES:

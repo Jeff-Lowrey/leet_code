@@ -23,7 +23,8 @@ Return the leftmost middleIndex that satisfies the condition, or -1 if there is 
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Array Traversal, Two Pointers
 **Data Structures**: Array, Tree, Linked List
 **Patterns**: Two Pointers Pattern
@@ -50,15 +51,16 @@ This is a classic prefix sum problem. For any index to be the middle index, the 
 - Single pass solution after calculating total sum
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: nums = [2,3,-1,8,4]
-Total sum = 16
+nums = [2,3,-1,8,4]
+```
 
+Total sum = 16
 Index 0: left=0, right=16-0-2=14, not equal
 Index 1: left=2, right=16-2-3=11, not equal
 Index 2: left=5, right=16-5-(-1)=12, not equal
 Index 3: left=4, right=16-4-8=4, equal! Return 3
-```
 
 ### TIME COMPLEXITY:
 O(n)
@@ -265,13 +267,13 @@ if __name__ == "__main__":
 
     for nums in test_cases:
         result = solution.findMiddleIndex(nums)
-        print(f"findMiddleIndex({nums}) -> {result}")
+        print(f"findMiddleIndex(nums) -> result")
 
     # Show detailed walkthrough
     print("\nDetailed example: nums=[2,3,-1,8,4]")
     nums = [2, 3, -1, 8, 4]
     total = sum(nums)
-    print(f"Array: {nums}")
+    print(f"Array: nums")
     print(f"Total sum: {total}")
     print("\nChecking each index:")
 

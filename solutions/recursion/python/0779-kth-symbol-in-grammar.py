@@ -1,5 +1,5 @@
 """
-# 779. K-th Symbol in Grammar
+# 0779. K-th Symbol in Grammar
 
 # Difficulty: Medium
 
@@ -62,22 +62,30 @@ Key observation: Each symbol at position k in row n is derived from position ⌈
 - We recursively trace back to row 1
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: n = 3, k = 3
+n = 3, k = 3
+```
+
 Row 1: 0
 Row 2: 0 1
 Row 3: 0 1 1 0
-       ^ ^ ^ ^
-       1 2 3 4
-
+^ ^ ^ ^
+1 2 3 4
 Find position 3 in row 3:
-- k=3 (odd) → parent is position ⌈3/2⌉ = 2 in row 2, same value as parent
 - Find position 2 in row 2:
-  - k=2 (even) → parent is position ⌈2/2⌉ = 1 in row 1, flip parent
-  - Find position 1 in row 1: returns 0
-- Row 2, position 2: flip(0) = 1
-- Row 3, position 3: same as parent = 1
-Result: 1
+
+Steps:
+Step 1: - k=3 (odd) → parent is position ⌈3/2⌉ = 2 in row 2, same value as parent
+Step 2: - k=2 (even) → parent is position ⌈2/2⌉ = 1 in row 1, flip parent
+Step 3: - Find position 1 in row 1: returns 0
+Step 4: - Row 2, position 2: flip(0) = 1
+Step 5: - Row 3, position 3: same as parent = 1
+Step 6: Result: 1
+
+Output:
+```
+1
 ```
 
 ### TIME COMPLEXITY:
@@ -181,7 +189,7 @@ if __name__ == "__main__":
     print("=== 779. K-th Symbol in Grammar ===")
     for n in range(1, 5):
         row_length = 2 ** (n - 1)
-        print(f"Row {n}:", end=" ")
+        print(f"Row n:", end=" ")
         for k in range(1, row_length + 1):
             print(solution.kthGrammar(n, k), end="")
         print()

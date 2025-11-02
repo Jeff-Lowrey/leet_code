@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Easy
  *
- * # 389. Find the Difference
+ * # 0389. Find the Difference
+ *
  *
  * You are given two strings s and t.
  *
@@ -21,12 +22,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Array Traversal
  * **Data Structures**: String
  * **Patterns**: Iterative Solution
- * **Time Complexity**: * O(n) - Single pass through input
- * **Space Complexity**: * O(1) - Constant extra space
+ * **Time Complexity**: O(n) - Single pass through input
+ * **Space Complexity**: O(1) - Constant extra space
 
  *
  * ### INTUITION:
@@ -44,28 +46,35 @@
  * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: s = "abcd", t = "abcde"
+ * s = "abcd", t = "abcde"
+ * ```
+ *
  * Step 1: XOR all characters
- *   result = 0
- *   XOR s: result ^= ord('a') ^= ord('b') ^= ord('c') ^= ord('d')
- *   XOR t: result ^= ord('a') ^= ord('b') ^= ord('c') ^= ord('d') ^= ord('e')
- *
+ * result = 0
+ * XOR s: result ^= ord('a') ^= ord('b') ^= ord('c') ^= ord('d')
+ * XOR t: result ^= ord('a') ^= ord('b') ^= ord('c') ^= ord('d') ^= ord('e')
  * Step 2: Duplicate characters cancel out
- *   All characters in s cancel with t
- *   Remaining: ord('e')
- *
+ * All characters in s cancel with t
+ * Remaining: ord('e')
  * Step 3: Convert back to character
- *   result = ord('e') → 'e'
  *
- * Output: 'e' (the added character)
+ * Steps:
+ * Step 1: result = ord('e') → 'e'
+ *
+ * Output:
  * ```
- *
+ * 'e' (the added character)
+ * ```
+
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  *
  * ### EDGE CASES:
  * - Empty input handling

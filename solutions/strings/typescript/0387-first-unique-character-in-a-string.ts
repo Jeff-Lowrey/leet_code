@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Easy
  *
- * # 387. First Unique Character In A String
+ * # 0387. First Unique Character In A String
+ *
  *
  * This problem demonstrates key concepts in Hash Tables and String manipulation.
  *
@@ -9,15 +10,16 @@
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>"leetcode"</dd>
+ * <dd>s = "leetcode"</dd>
  * <dt>Output:</dt>
  * <dd>0</dd>
  * <dt>Explanation:</dt>
- * <dd>The first non-repeating character 'l' is at index 2 in 'leetcode'</dd>
+ * <dd>First non-repeating character is 'l' at index 0</dd>
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Hash Map, Hash Set, String
  * **Patterns**: Two Pointers Pattern, Hash Table Pattern
@@ -42,27 +44,34 @@
  * - This approach is more efficient than checking each character's uniqueness separately
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: s = "leetcode"
+ * s = "leetcode"
+ * s = "loveleetcode"
+ * ```
+ *
  * Step 1: Count frequencies: {'l':1, 'e':3, 't':1, 'c':1, 'o':1, 'd':1}
  * Step 2: Check s[0]='l': frequency is 1, found first unique!
- * Output: 0
- *
- * Input: s = "loveleetcode"
  * Step 1: Count frequencies: {'l':2, 'o':2, 'v':1, 'e':4, 't':1, 'c':1, 'd':1}
  * Step 2: Check s[0]='l': frequency is 2, not unique
  * Step 3: Check s[1]='o': frequency is 2, not unique
  * Step 4: Check s[2]='v': frequency is 1, found first unique!
- * Output: 2
- * ```
  *
+ * Output:
+ * ```
+ * 0
+ * 2
+ * ```
+
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  * We make two passes through the string: one to count (O(n)) and one to find (O(n)).
  * Total is O(2n) = O(n).
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  * Although we use a hash map, since we're limited to lowercase English letters (26 characters),
  * the space is bounded by a constant. For general character sets, it would be O(k) where k is
  * the character set size.

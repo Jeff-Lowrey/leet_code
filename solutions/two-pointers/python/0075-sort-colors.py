@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 075. Sort Colors
+# 0075. Sort Colors
 
 Given an array nums with n objects colored red, white, or blue, sort them in-place so that objects of the same color are adjacent, with the colors in the order red, white, and blue.
 
@@ -13,15 +13,16 @@ You must solve this problem without using the library's sort function.
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[0, 0, 1, 1, 2, 2]</dd>
+<dd>nums = [2, 0, 2, 1, 1, 0]</dd>
 <dt>Output:</dt>
-<dd>"Expected {expected}, got {result}"</dd>
+<dd>[0, 0, 1, 1, 2, 2]</dd>
 <dt>Explanation:</dt>
 <dd>Sort colors [2,0,2,1,1,0] in-place to [0,0,1,1,2,2]</dd>
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Two Pointers
 **Data Structures**: Hash Map, Hash Set, Array
 **Patterns**: Two Pointers Pattern
@@ -48,45 +49,46 @@ Use three pointers: p0 for next 0, p2 for next 2, current for scanning. When see
 - O(n) time single pass, O(1) space
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: nums = [2, 0, 2, 1, 1, 0]
+nums = [2, 0, 2, 1, 1, 0]
+```
 
 Step 1: Initialize pointers
-  left = 0, current = 0, right = 5
-  Array: [2, 0, 2, 1, 1, 0]
-
+left = 0, current = 0, right = 5
+Array: [2, 0, 2, 1, 1, 0]
 Step 2: current=0, nums[0]=2
-  Swap with right: [0, 0, 2, 1, 1, 2]
-  right = 4, current stays at 0
-
+Swap with right: [0, 0, 2, 1, 1, 2]
+right = 4, current stays at 0
 Step 3: current=0, nums[0]=0
-  Swap with left: [0, 0, 2, 1, 1, 2]
-  left = 1, current = 1
-
+Swap with left: [0, 0, 2, 1, 1, 2]
+left = 1, current = 1
 Step 4: current=1, nums[1]=0
-  Swap with left: [0, 0, 2, 1, 1, 2]
-  left = 2, current = 2
-
+Swap with left: [0, 0, 2, 1, 1, 2]
+left = 2, current = 2
 Step 5: current=2, nums[2]=2
-  Swap with right: [0, 0, 1, 1, 2, 2]
-  right = 3, current stays at 2
-
+Swap with right: [0, 0, 1, 1, 2, 2]
+right = 3, current stays at 2
 Step 6: current=2, nums[2]=1
-  Move current: current = 3
-
+Move current: current = 3
 Step 7: current=3, nums[3]=1
-  Move current: current = 4
-
+Move current: current = 4
 Step 8: current=4, right=3, stop (current > right)
 
-Output: [0, 0, 1, 1, 2, 2]
+Output:
+```
+[0, 0, 1, 1, 2, 2]
 ```
 
 ### TIME COMPLEXITY:
 O(n)
+- Single pass through input
+
 
 ### SPACE COMPLEXITY:
 O(1)
+- Constant extra space
+
 
 ### EDGE CASES:
 - Empty input handling
@@ -143,15 +145,15 @@ def test_solution() -> None:
 
     # Test case 1: Example from problem
     solution.sortColors([2, 0, 2, 1, 1, 0])
-    # # # assert result == expected, f"Expected {expected}, got {result}"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
+    # # # assert result == expected, f"Expected expected, got result"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
 
     # Test case 2: Empty input
     solution.sortColors([])
-    # # # assert result == expected, f"Expected {expected}, got {result}"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
+    # # # assert result == expected, f"Expected expected, got result"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
 
     # Test case 3: Single element
     solution.sortColors([1])
-    # # # assert result == expected, f"Expected {expected}, got {result}"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
+    # # # assert result == expected, f"Expected expected, got result"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
 
     print("All test cases passed!")
 

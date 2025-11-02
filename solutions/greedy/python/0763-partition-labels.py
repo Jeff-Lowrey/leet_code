@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 763. Partition Labels
+# 0763. Partition Labels
 
 You are given a string s. We want to partition the string into as many parts as possible so that each letter appears in at most one part.
 
@@ -13,15 +13,16 @@ Return a list of integers representing the size of these parts.
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[1, 1, 1]</dd>
+<dd>s = "ababcbacadefegdehijhklij"</dd>
 <dt>Output:</dt>
-<dd>"Expected {expected}, got {result}"</dd>
+<dd>[9,7,8] (partition sizes)</dd>
 <dt>Explanation:</dt>
 <dd>String is partitioned into 2 parts: 'ababcbaca' + 'defegde'</dd>
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Two Pointers
 **Data Structures**: Hash Map, Hash Set, Array
 **Patterns**: Two Pointers Pattern, Hash Table Pattern
@@ -49,27 +50,37 @@ Each partition should end at the last occurrence of any character in it. Track l
 - O(n) time: two passes, O(26) = O(1) space for last occurrence map
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: s = "ababcbacadefegdehijhklij"
+s = "ababcbacadefegdehijhklij"
+```
+
 Step 1: Record last occurrence of each character
-  last = {'a':8, 'b':5, 'c':7, 'd':14, 'e':15, ...}
-
+last = {'a':8, 'b':5, 'c':7, 'd':14, 'e':15, ...}
 Step 2: Iterate and extend partition
-  i=0, ch='a': end = max(0, 8) = 8
-  i=1, ch='b': end = max(8, 5) = 8
-  ...
-  i=8: reached end → partition size = 9
-  i=9, ch='c': end = 14
-  ...
+i=0, ch='a': end = max(0, 8) = 8
+i=1, ch='b': end = max(8, 5) = 8
+...
 
-Output: [9,7,8] (partition sizes)
+Steps:
+Step 1: i=8: reached end → partition size = 9
+Step 2: i=9, ch='c': end = 14
+Step 3: ...
+
+Output:
+```
+[9,7,8] (partition sizes)
 ```
 
 ### TIME COMPLEXITY:
 O(n)
+- Single pass through input
+
 
 ### SPACE COMPLEXITY:
 O(1)
+- Constant extra space
+
 
 ### EDGE CASES:
 - Empty input handling
@@ -132,17 +143,17 @@ def test_solution() -> None:
     # Test case 1: Basic case
     result = solution.partitionLabels([1, 2, 3])  # type: ignore
     expected = [1, 1, 1]
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: Empty input
     result = solution.partitionLabels([])  # type: ignore
     expected: list[Any] = []
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 3: Single element
     result = solution.partitionLabels([1])  # type: ignore
     expected = [1]
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

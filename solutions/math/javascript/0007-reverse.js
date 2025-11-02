@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Medium
  *
- * # 007. Reverse
+ * # 0007. Reverse Integer
+ *
  *
  * Given a signed 32-bit integer x, return x with its digits reversed. If reversing x causes the value to go outside the signed 32-bit integer range [-2^31, 2^31 - 1], then return 0.
  *
@@ -9,20 +10,21 @@
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[123, -123, 120, 0, 1534236469, -2147483648]</dd>
+ * <dd>x = 123</dd>
  * <dt>Output:</dt>
- * <dd>"reverse({num}) -> {result}"</dd>
+ * <dd>* 321</dd>
  * <dt>Explanation:</dt>
  * <dd>Reversed integer: 123 becomes 321</dd>
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Array Traversal
  * **Data Structures**: Basic Types
  * **Patterns**: Iterative Solution
- * **Time Complexity**: * O(n)
- * **Space Complexity**: * O(1) - Constant extra space
+ * **Time Complexity**: O(n)
+ * **Space Complexity**: O(1) - Constant extra space
 
  *
  * ### INTUITION:
@@ -40,22 +42,31 @@
  * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: x = 123
+ * x = 123
+ * ```
+ *
  * Step 1: Extract digits and build reversed number
- *   result = 0
- *   result = 0*10 + 3 = 3, x = 12
- *   result = 3*10 + 2 = 32, x = 1
- *   result = 32*10 + 1 = 321, x = 0
+ * result = 0
+ * result = 0*10 + 3 = 3, x = 12
+ * result = 3*10 + 2 = 32, x = 1
+ * result = 32*10 + 1 = 321, x = 0
  *
- * Output: 321
+ * Output:
  * ```
- *
+ * 321
+ * ```
+
  * ### TIME COMPLEXITY:
+
  * O(n)
+
+ * - Single pass through the input
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  *
  * ### EDGE CASES:
  * - Empty input handling

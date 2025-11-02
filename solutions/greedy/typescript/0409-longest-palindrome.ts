@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Easy
  *
- * # 409. Longest Palindrome
+ * # 0409. Longest Palindrome
+ *
  *
  * Given a string s which consists of lowercase or uppercase letters, return the length of the longest palindrome that can be built with those letters.
  *
@@ -19,7 +20,8 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Hash Map, Array, String
  * **Patterns**: Two Pointers Pattern, Hash Table Pattern
@@ -39,33 +41,33 @@
  * Using two pointers from both ends, we compare characters while moving inward. If all corresponding characters match, the string is a palindrome. Skipping non-alphanumeric characters and handling case-insensitivity ensures we only compare relevant characters. The pointers meeting in the middle confirms the entire string is symmetric.
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: "abccccdd"
+ * "abccccdd"
+ * ```
+ *
  * Character counts:
  * a: 1, b: 1, c: 4, d: 2
- *
  * Pairs available:
  * a: 0 pairs (1//2 = 0)
  * b: 0 pairs (1//2 = 0)
  * c: 2 pairs (4//2 = 2)
  * d: 1 pair (2//2 = 1)
- *
  * Total pairs: 0 + 0 + 2 + 1 = 3
  * Pairs contribute: 3 × 2 = 6 characters
- *
  * Odd counts exist: a=1, b=1 (both odd)
  * Can use one character in center: +1
- *
  * Result: 6 + 1 = 7
  * Possible palindrome: "dccaccd"
- * ```
- *
+
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  * Single pass to count characters
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  * At most 128 ASCII characters or 52 letters (constant space)
  *
  * ### EDGE CASES:

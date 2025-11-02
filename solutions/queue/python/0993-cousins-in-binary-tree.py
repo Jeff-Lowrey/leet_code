@@ -1,7 +1,7 @@
 """
 # Difficulty: Easy
 
-# 993. Cousins in Binary Tree
+# 0993. Cousins in Binary Tree
 
 Given the root of a binary tree with unique values and the values of two different nodes x and y,
 return true if the nodes corresponding to the values x and y are cousins, or false otherwise.
@@ -20,7 +20,8 @@ Two nodes of a binary tree are cousins if they have the same depth but have diff
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Two Pointers, Stack Operations
 **Data Structures**: Hash Map, Stack, Queue
 **Patterns**: Two Pointers Pattern, Graph Pattern
@@ -47,23 +48,25 @@ Use BFS to track both depth and parent information for each node.
 - Early termination: Can stop as soon as we find both nodes
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
 Tree:      1
-         /   \\
-        2     3
-       /
-      4
+```
 
+/   \\
+2     3
+/
+4
 x=4, y=3:
 - Node 4: depth=2, parent=2
 - Node 3: depth=1, parent=1
-- Different depths → NOT cousins
-
 x=2, y=3:
-- Node 2: depth=1, parent=1
-- Node 3: depth=1, parent=1
-- Same parent → NOT cousins
-```
+
+Steps:
+Step 1: - Different depths → NOT cousins
+Step 2: - Node 2: depth=1, parent=1
+Step 3: - Node 3: depth=1, parent=1
+Step 4: - Same parent → NOT cousins
 
 ### TIME COMPLEXITY:
 O(n)

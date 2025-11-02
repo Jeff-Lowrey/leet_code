@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 024. Swap Nodes In Pairs
+# 0024. Swap Nodes In Pairs
 
 Given a linked list, swap every two adjacent nodes and return its head. You must solve the problem without modifying the values in the list's nodes (i.e., only nodes themselves may be changed.)
 
@@ -17,7 +17,8 @@ Given a linked list, swap every two adjacent nodes and return its head. You must
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Map Storage, Array Traversal, Stack Operations
 **Data Structures**: Array, Stack, Linked List
 **Patterns**: Iterative Solution
@@ -37,13 +38,25 @@ We need to swap every pair of adjacent nodes in a linked list. This is a perfect
 The algorithm correctly solves the problem by systematically exploring all valid states while maintaining necessary invariants. Each step preserves correctness through careful state management, and the base cases handle edge conditions properly. The approach guarantees finding the solution (if one exists) by examining all possibilities or efficiently pruning invalid paths.
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: 1->2->3->4->NULL
+[2, 1, 4, 3]
+```
+
+Input:
+```
+1->2->3->4->NULL
+```
+
+Steps:
 Step 1: Swap (1,2), recurse on 3->4
 Step 2: Swap (3,4), recurse on NULL (base case)
 Step 3: Link 2->4->3->NULL
 Step 4: Link 2->4->3->1->NULL
-Output: 2->1->4->3->NULL
+
+Output:
+```
+2->1->4->3->NULL
 ```
 
 ### TIME COMPLEXITY:
@@ -260,4 +273,4 @@ if __name__ == "__main__":
     result = solution.swapPairs(head)
     result_list = linked_list_to_list(result)
     print(f"After swapping pairs: {result_list}")
-    print(f"Resulting linked list: {result}")
+    print(f"Resulting linked list: result")

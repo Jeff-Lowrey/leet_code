@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Medium
  *
- * # 131. Palindrome Partitioning
+ * # 0131. Palindrome Partitioning
+ *
  *
  * Given a string s, partition s such that every substring of the partition is a palindrome. Return all possible palindrome partitioning of s.
  *
@@ -9,20 +10,21 @@
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[["a","a","b"]</dd>
+ * <dd>s = "aab"</dd>
  * <dt>Output:</dt>
- * <dd>"Expected {expected}, got {result}"</dd>
+ * <dd>[["a","a","b"],["aa","b"]]</dd>
  * <dt>Explanation:</dt>
  * <dd>All palindrome partitions of 'aab' are [['a','a','b'], ['aa','b']]</dd>
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Hash Map, Hash Set, Array
  * **Patterns**: Two Pointers Pattern, Greedy Algorithm
- * **Time Complexity**: * O(n) - Single pass through input
- * **Space Complexity**: * O(1) - Constant extra space
+ * **Time Complexity**: O(n) - Single pass through input
+ * **Space Complexity**: O(1) - Constant extra space
 
  *
  * ### INTUITION:
@@ -40,27 +42,36 @@
  * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: s = "aab"
+ * s = "aab"
+ * ```
+ *
  * Step 1: Start backtracking from index 0
- *   Try substring "a" (palindrome) → recurse from index 1
- *     Try substring "a" (palindrome) → recurse from index 2
- *       Try substring "b" (palindrome) → end of string
- *       Found partition: ["a", "a", "b"]
- *     Try substring "ab" (not palindrome) → skip
- *   Try substring "aa" (palindrome) → recurse from index 2
- *     Try substring "b" (palindrome) → end of string
- *     Found partition: ["aa", "b"]
- *   Try substring "aab" (not palindrome) → skip
  *
- * Output: [["a","a","b"],["aa","b"]]
+ * Steps:
+ * Step 1: Try substring "a" (palindrome) → recurse from index 1
+ * Step 2: Try substring "a" (palindrome) → recurse from index 2
+ * Step 3: Try substring "b" (palindrome) → end of string
+ * Step 4: Found partition: ["a", "a", "b"]
+ * Step 5: Try substring "ab" (not palindrome) → skip
+ * Step 6: Try substring "aa" (palindrome) → recurse from index 2
+ * Step 7: Try substring "b" (palindrome) → end of string
+ * Step 8: Found partition: ["aa", "b"]
+ * Step 9: Try substring "aab" (not palindrome) → skip
+ *
+ * Output:
  * ```
- *
+ * [["a","a","b"],["aa","b"]]
+ * ```
+
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  *
  * ### EDGE CASES:
  * - Empty input handling

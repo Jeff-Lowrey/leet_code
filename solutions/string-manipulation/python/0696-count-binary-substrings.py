@@ -1,5 +1,5 @@
 """
-# 696. Count Binary Substrings
+# 0696. Count Binary Substrings
 
 # Difficulty: Easy
 
@@ -21,7 +21,8 @@ Substrings that occur multiple times are counted the number of times they occur.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
 **Data Structures**: Hash Set, Array, String
 **Patterns**: Two Pointers Pattern, Sliding Window Pattern
@@ -52,22 +53,21 @@ Example: "00110" has groups [2, 2, 1]
 - Example: groups "000" (3) and "11" (2) → min(3, 2) = 2 substrings: "01", "0011"
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: s = "00110011"
+s = "00110011"
+```
 
 Count groups: [2, 2, 2, 2]
 - "00": length 2
 - "11": length 2
 - "00": length 2
 - "11": length 2
-
 Count valid substrings:
 - Pair [2, 2]: min(2, 2) = 2 substrings ("01", "0011")
 - Pair [2, 2]: min(2, 2) = 2 substrings ("10", "1100")
 - Pair [2, 2]: min(2, 2) = 2 substrings ("01", "0011")
-
 Total: 2 + 2 + 2 = 6
-```
 
 ### TIME COMPLEXITY:
 O(n)
@@ -298,7 +298,7 @@ if __name__ == "__main__":
 
     for test in test_cases:
         result = solution.countBinarySubstrings(test)
-        print(f"countBinarySubstrings('{test}') = {result}")
+        print(f"countBinarySubstrings('{test}') = result")
 
     # Demonstrate the logic
     print("\nDetailed example for '00110011':")

@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Easy
  *
- * # 190. Reverse Bits
+ * # 0190. Reverse Bits
+ *
  *
  * Reverse bits of a given 32 bits unsigned integer.
  *
@@ -21,12 +22,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Hash Table Lookup, Array Traversal
  * **Data Structures**: Hash Set, Linked List
  * **Patterns**: Iterative Solution
- * **Time Complexity**: * O(n) - Single pass through input
- * **Space Complexity**: * O(1) - Constant extra space
+ * **Time Complexity**: O(n) - Single pass through input
+ * **Space Complexity**: O(1) - Constant extra space
 
  *
  * ### INTUITION:
@@ -44,29 +46,38 @@
  * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: n = 00000010100101000001111010011100 (43261596)
+ * n = 00000010100101000001111010011100 (43261596)
+ * ```
+ *
  * Step 1: Reverse bits one by one
- *   result = 0, iterate 32 times:
- *   Bit 0: n & 1 = 0, result = 0
- *   Bit 1: n & 1 = 0, result = 0
- *   ...
- *   Bit 31: n & 1 = 0, result = 964176192
- *
  * Step 2: Detailed process for first few bits
- *   n = 43261596, result = 0
- *   - Extract bit 0 (0), shift result left, add bit
- *   - Extract bit 1 (0), shift result left, add bit
- *   - Continue for all 32 bits
+ * n = 43261596, result = 0
+ * - Extract bit 0 (0), shift result left, add bit
+ * - Extract bit 1 (0), shift result left, add bit
+ * - Continue for all 32 bits
  *
- * Output: 964176192 (00111001011110000010100101000000)
+ * result = 0, iterate 32 times:
+ * ```
+ * Bit 0: n & 1 = 0, result = 0
+ * Bit 1: n & 1 = 0, result = 0
+ * ...
+ * Bit 31: n & 1 = 0, result = 964176192
  * ```
  *
+ * Output:
+ * ```
+ * 964176192 (00111001011110000010100101000000)
+ * ```
+
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  *
  * ### EDGE CASES:
  * - Empty input handling

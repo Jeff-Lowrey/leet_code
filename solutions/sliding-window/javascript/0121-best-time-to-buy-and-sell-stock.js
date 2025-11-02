@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Easy
  *
- * # 121. Best Time to Buy and Sell Stock
+ * # 0121. Best Time to Buy and Sell Stock
+ *
  *
  * You are given an array prices where prices[i] is the price of a given stock on the ith day.
  *
@@ -21,12 +22,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Array Traversal, Sliding Window, Greedy Selection
  * **Data Structures**: Array
  * **Patterns**: Sliding Window Pattern, Greedy Algorithm
- * **Time Complexity**: * O(n) - Single pass through input
- * **Space Complexity**: * O(1) - Constant extra space
+ * **Time Complexity**: O(n) - Single pass through input
+ * **Space Complexity**: O(1) - Constant extra space
 
  *
  * ### INTUITION:
@@ -45,8 +47,10 @@
  * - Greedy approach: always buy at lowest available price
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: prices = [7,1,5,3,6,4]
+ * prices = [7,1,5,3,6,4]
+ * ```
  *
  * Day 0: price=7, min_price=7, profit=0, max_profit=0
  * Day 1: price=1, min_price=1, profit=0, max_profit=0
@@ -54,16 +58,16 @@
  * Day 3: price=3, min_price=1, profit=2, max_profit=4
  * Day 4: price=6, min_price=1, profit=5, max_profit=5 (buy day 1, sell day 4)
  * Day 5: price=4, min_price=1, profit=3, max_profit=5
- *
  * Result: 5 (buy at price 1, sell at price 6)
- * ```
- *
+
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  * Single pass through the prices array
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  * Only using constant extra space
  *
  * ### EDGE CASES:

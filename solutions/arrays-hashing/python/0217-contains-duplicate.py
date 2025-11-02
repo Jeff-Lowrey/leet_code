@@ -1,5 +1,5 @@
 """
-# 217. Contains Duplicate
+# 0217. Contains Duplicate
 
 # Difficulty: Easy
 
@@ -18,7 +18,8 @@ in the array, and return false if every element is distinct.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
 **Data Structures**: Hash Map, Hash Set, Array
 **Patterns**: Hash Table Pattern
@@ -63,10 +64,10 @@ Alternative (Early Termination):
 - Check 1: found in seen → return True immediately
 
 ### TIME COMPLEXITY:
-O(n)
+O(n) - Single pass with O(1) hash lookups
 
 ### SPACE COMPLEXITY:
-O(n)
+O(n) - Additional set storage
 
 ### EDGE CASES:
 - **Empty array**: Return False (no duplicates possible)

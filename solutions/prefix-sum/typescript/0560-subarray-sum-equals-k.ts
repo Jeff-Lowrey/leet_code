@@ -1,7 +1,7 @@
 /**
  * # Difficulty: Medium
  * 
- * # 560. Subarray Sum Equals K
+ * # 0560. Subarray Sum Equals K
  * 
  * Given an array of integers nums and an integer k, return the total number of subarrays whose sum is equal to k.
  * 
@@ -11,15 +11,16 @@
  * 
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[([1, 1, 1]</dd>
+ * <dd>nums = [1,1,1], k = 2</dd>
  * <dt>Output:</dt>
- * <dd>"subarraySum({nums}, {k}) -> {result}"</dd>
+ * <dd>[1]</dd>
  * <dt>Explanation:</dt>
  * <dd>There are 2 subarrays with sum equal to k: [1] and [2,-1,2]</dd>
  * </dl>
  * 
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Hash Map, Array
  * **Patterns**: Hash Table Pattern
@@ -43,20 +44,24 @@
  * - Running prefix sum allows single pass solution
  * 
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: nums = [1,1,1], k = 2
+ * nums = [1,1,1], k = 2
+ * ```
+ *
  * Index 0: sum=1, need=1-2=-1, count=0, map={0:1, 1:1}
  * Index 1: sum=2, need=2-2=0, count=1, map={0:1, 1:1, 2:1}
  * Index 2: sum=3, need=3-2=1, count=2, map={0:1, 1:1, 2:1, 3:1}
  * Result: 2 subarrays: [1,1] and [1,1]
- * ```
- * 
+
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  * Single pass through the array with O(1) hashmap operations
  * 
  * ### SPACE COMPLEXITY:
  * O(n)
+ * - Additional hash map storage
  * HashMap can store up to n different prefix sums
  * 
  * ### EDGE CASES:
@@ -130,7 +135,7 @@ class Solution {
    */
   subarraySumOptimized(nums: number[], k: number): number {
     // Implementation
-    prefix_sum_count = {0: 1}  # Initialize with sum 0 having count 1
+    prefix_sum_count = {0: 1}  // Initialize with sum 0 having count 1
     current_sum = 0
     count = 0
     for num in nums:
@@ -176,11 +181,11 @@ function runTests(): void {
   test_cases = [([1, 1, 1], 2), ([1, 2, 3], 3), ([1, -1, 0], 0), ([1], 1)]
   for nums, k in test_cases:
   result = solution.subarraySum(nums, k)
-  console.log(`subarraySum({nums}, {k}) -> {result}`)
+  console.log(`subarraySum(nums, {k}) -> result`)
   # Show detailed walkthrough
   console.log("\nDetailed example: nums=[1,1,1], k=2")
   nums, k = [1, 1, 1], 2
-  console.log(`Array: {nums}, Target: {k}`)
+  console.log(`Array: nums, Target: {k}`)
   console.log("Prefix sums and valid subarrays:")
   prefix_sum = 0
   prefix_map = {0: 1}

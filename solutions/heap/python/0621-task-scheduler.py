@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 621. Task Scheduler
+# 0621. Task Scheduler
 
 Given a characters array tasks, representing the tasks a CPU needs to do, where each letter represents a different task. Tasks could be done in any order. Each task is done in one unit of time. For each unit of time, the CPU could complete either one task or just be idle.
 
@@ -13,15 +13,16 @@ Return the least number of units of times that the CPU will take to finish all t
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[(["A", "A", "A", "B", "B", "B"]</dd>
+<dd>tasks = ["A","A","A","B","B","B"], n = 2</dd>
 <dt>Output:</dt>
-<dd>"\nTasks: {tasks}"</dd>
+<dd>8</dd>
 <dt>Explanation:</dt>
-<dd>Minimum intervals to schedule tasks 'AAABBB' with n=2 is 8</dd>
+<dd>A -> B -> idle -> A -> B -> idle -> A -> B. There are at least 2 units of time between any two same tasks.</dd>
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
 **Data Structures**: Array, String, Queue
 **Patterns**: Two Pointers Pattern, Hash Table Pattern
@@ -32,13 +33,14 @@ Return the least number of units of times that the CPU will take to finish all t
 Schedule most frequent tasks first to minimize idle time. Use max-heap to always pick the task with highest frequency. Track cooldown with a queue.
 
 ### APPROACH:
-1. **Count frequencies**: Use Counter to get task frequencies
-2. **Max-heap**: Store negative frequencies (Python has min-heap)
-3. **Simulation**: For each time unit:
-   - Pick most frequent available task
+**Data structures: Array (tasks input), Queue (cooldown tracking), Heap (max-heap for frequency), Hash Map (Counter for frequencies)**
+1. **Count frequencies**: Use hash map storage (Counter) with array traversal to get task frequencies
+2. **Max-heap**: Store negative frequencies using heap data structure (Python has min-heap)
+3. **Simulation with queue**: For each time unit using hash table lookup:
+   - Pick most frequent available task from heap
    - Decrease its count and add to cooldown queue
    - Process cooldown queue to return tasks to heap
-4. **Math formula**: Can also calculate directly using formula
+4. **Math formula**: Can also calculate directly using formula based on most frequent task
 
 ### WHY THIS WORKS:
 - Most frequent tasks create the most idle time
@@ -46,21 +48,33 @@ Schedule most frequent tasks first to minimize idle time. Use max-heap to always
 - Cooldown queue ensures we respect the n interval
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
 tasks = ["A","A","A","B","B","B"], n = 2
+```
 
-Frequencies: A=3, B=3
-Timeline:
-Time 0: A (A left: 2, cooldown until time 3)
-Time 1: B (B left: 2, cooldown until time 4)
-Time 2: idle (nothing available)
-Time 3: A (A left: 1, cooldown until time 6)
-Time 4: B (B left: 1, cooldown until time 7)
-Time 5: idle
-Time 6: A (A done)
-Time 7: B (B done)
+**Step 1:** Count frequencies using hash map storage
+- Hash map: {A: 3, B: 3}
 
-Total: 8 units
+**Step 2:** Build max-heap with negative frequencies
+- Heap: [-3, -3] (representing A and B)
+
+**Step 3:** Simulate timeline with queue for cooldown tracking
+- Time 0: Pick A from heap (A left: 2, cooldown until time 3), queue: [(2, 3)]
+- Time 1: Pick B from heap (B left: 2, cooldown until time 4), queue: [(2, 3), (2, 4)]
+- Time 2: No tasks available (idle), queue processing
+
+**Step 4:** Continue simulation with hash table lookups
+- Time 3: A returns from cooldown (A left: 1, cooldown until time 6)
+- Time 4: B returns from cooldown (B left: 1, cooldown until time 7)
+- Time 5: idle
+- Time 6: A (A done)
+- Time 7: B (B done)
+- Total: 8 units
+
+Output:
+```
+8
 ```
 
 ### TIME COMPLEXITY:
@@ -73,10 +87,10 @@ O(1)
 At most 26 different tasks (letters)
 
 ### EDGE CASES:
-- n = 0 (no cooldown, return len(tasks))
-- All tasks same
-- All tasks different
-- n very large
+- n = 0: tasks=["A","A","B","B"], n=0 → 4 (no cooldown needed, execute sequentially)
+- All tasks same: tasks=["A","A","A","A"], n=2 → 10 (requires idle time between same tasks)
+- All tasks different: tasks=["A","B","C","D"], n=2 → 4 (no cooldown needed, all unique)
+- n very large: tasks=["A","A","A"], n=50 → 104 (long idle periods dominate, (3-1)×(50+1)+1=104)
 
 </details>
 """
@@ -217,7 +231,7 @@ class Solution:
 
                 if count != 0:
                     # Add back to schedule with cooldown
-                    schedule.append((count, task, time + n))
+                    schedule.append((count, task, time + n + 1))
             # else: idle time
 
         return time

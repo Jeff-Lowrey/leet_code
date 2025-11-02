@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 990. Satisfiability of Equality Equations
+# 0990. Satisfiability of Equality Equations
 
 You are given an array of strings equations that represent relationships between variables where each string equations[i] is of length 4 and takes one of two different forms: "xi==xj" or "xi!=xj".
 
@@ -21,7 +21,8 @@ Return true if it is possible to assign integers to variable names so as to sati
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
 **Data Structures**: Hash Set, Array, String
 **Patterns**: Iterative Solution
@@ -43,16 +44,23 @@ This is a classic Union-Find problem. We need to check if equality and inequalit
 - Two-pass approach separates grouping from validation
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: ["a==b","b!=a"]
+["a==b","b!=a"]
+["a==b","b==c","a!=d"]
+```
+
 Step 1: Process equalities - Union('a', 'b')
 Step 2: Check inequalities - "b!=a" but a and b are in same group
-Output: False (contradiction)
 
-Input: ["a==b","b==c","a!=d"]
+Steps:
 Step 1: Process equalities - Union('a','b'), Union('b','c') → {a,b,c} group
 Step 2: Check inequalities - "a!=d" and d is separate → no conflict
-Output: True
+
+Output:
+```
+False (contradiction)
+True
 ```
 
 ### TIME COMPLEXITY:

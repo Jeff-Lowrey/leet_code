@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Medium
  *
- * # 200. Number Of Islands
+ * # 0200. Number Of Islands
+ *
  *
  * Given an m x n 2D binary grid which represents a map of '1's (land) and '0's (water), return the number of islands.
  *
@@ -11,7 +12,7 @@
  *
  * <dl class="example-details">
  * <dt>Input:</dt>
- * <dd>[["1","1","1","1","0"]</dd>
+ * <dd>[["1","1","1","1","0"]]</dd>
  * <dt>Output:</dt>
  * <dd>1</dd>
  * <dt>Explanation:</dt>
@@ -19,12 +20,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Array Traversal, Stack Operations, Graph Traversal
  * **Data Structures**: Array, String, Stack
  * **Patterns**: Hash Table Pattern, Graph Pattern
- * **Time Complexity**: * O(M × N)
- * **Space Complexity**: * O(M × N)
+ * **Time Complexity**: O(M × N)
+ * **Space Complexity**: O(M × N)
 
  *
  * ### INTUITION:
@@ -44,20 +46,23 @@
  * - 4-directional connectivity defines what constitutes an island
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
  * Grid: [["1","1","1","1","0"],
- *        ["1","1","0","1","0"],
- *        ["1","1","0","0","0"],
- *        ["0","0","0","0","0"]]
+ * ```
  *
+ * ["1","1","0","1","0"],
+ * ["1","1","0","0","0"],
+ * ["0","0","0","0","0"]]
  * Process:
  * - Start at (0,0): DFS explores entire connected land mass
  * - Mark all connected '1's as visited: (0,0), (0,1), (0,2), (0,3), (1,0), (1,1), (2,0), (2,1)
- * - Continue scanning: (1,3) is unvisited land → start new DFS
- * - DFS from (1,3) only marks (1,3) as it's isolated
- * - Total islands found: 2
- * ```
  *
+ * Steps:
+ * Step 1: - Continue scanning: (1,3) is unvisited land → start new DFS
+ * Step 2: - DFS from (1,3) only marks (1,3) as it's isolated
+ * Step 3: - Total islands found: 2
+
  * ### TIME COMPLEXITY:
  * O(M × N)
  * Where M and N are grid dimensions - we visit each cell at most once

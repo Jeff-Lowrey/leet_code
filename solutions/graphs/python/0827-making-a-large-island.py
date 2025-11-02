@@ -1,7 +1,7 @@
 """
 # Difficulty: Hard
 
-# 827. Making A Large Island
+# 0827. Making A Large Island
 
 You are given an n x n binary matrix grid. You are allowed to change at most one 0 to a 1.
 
@@ -13,7 +13,7 @@ An island is a group of 1's connected 4-directionally (horizontal or vertical). 
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[[1,0]</dd>
+<dd>[[1,0]]</dd>
 <dt>Output:</dt>
 <dd>1</dd>
 <dt>Explanation:</dt>
@@ -21,7 +21,8 @@ An island is a group of 1's connected 4-directionally (horizontal or vertical). 
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
 **Data Structures**: Hash Map, Hash Set, Array
 **Patterns**: Greedy Algorithm, Graph Pattern
@@ -44,20 +45,21 @@ This problem extends island finding by allowing us to change one 0 to 1 to maxim
 - Handle edge case where grid is already all 1's
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
 Grid: [[1,0],[0,1]]
+```
 
 Step 1 - Label islands:
 Island 2: [(0,0)] size=1
 Island 3: [(1,1)] size=1
 Labeled grid: [[2,0],[0,3]]
-
 Step 2 - Try flipping each 0:
-Flip (0,1): neighbors are [2] → new size = 1 + 1 = 2
-Flip (1,0): neighbors are [2,3] → new size = 1 + 1 + 1 = 3
 
-Maximum possible island size: 3
-```
+Steps:
+Step 1: Flip (0,1): neighbors are [2] → new size = 1 + 1 = 2
+Step 2: Flip (1,0): neighbors are [2,3] → new size = 1 + 1 + 1 = 3
+Step 3: Maximum possible island size: 3
 
 ### TIME COMPLEXITY:
 O(N²)

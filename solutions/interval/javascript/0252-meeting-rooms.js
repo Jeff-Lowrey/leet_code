@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Medium
  *
- * # 252. Meeting Rooms
+ * # 0252. Meeting Rooms
+ *
  *
  * Given an array of meeting time intervals where intervals[i] = [starti, endi], determine if a person could attend all meetings.
  *
@@ -17,12 +18,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Array Traversal, Two Pointers, Sorting
  * **Data Structures**: Array
  * **Patterns**: Two Pointers Pattern
- * **Time Complexity**: * O(n) - Single pass through input
- * **Space Complexity**: * O(1) - Constant extra space
+ * **Time Complexity**: O(n) - Single pass through input
+ * **Space Complexity**: O(1) - Constant extra space
 
  *
  * ### INTUITION:
@@ -40,22 +42,30 @@
  * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: intervals = [[0,30],[5,10],[15,20]]
+ * intervals = [[0,30],[5,10],[15,20]]
+ * ```
+ *
  * Step 1: Sort by start time
- *   sorted = [[0,30],[5,10],[15,20]]
- *
+ * sorted = [[0,30],[5,10],[15,20]]
  * Step 2: Check for overlaps
- *   [0,30] vs [5,10]: 5 < 30 → overlap found
  *
- * Output: False (cannot attend all meetings)
+ * Steps:
+ * Step 1: [0,30] vs [5,10]: 5 < 30 → overlap found
+ *
+ * Output:
  * ```
- *
+ * False (cannot attend all meetings)
+ * ```
+
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  *
  * ### EDGE CASES:
  * - Empty input handling

@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Medium
  *
- * # 912. Sort An Array
+ * # 0912. Sort An Array
+ *
  *
  * Given an array of integers nums, sort the array in ascending order and return it.
  *
@@ -14,13 +15,14 @@
  * <dt>Input:</dt>
  * <dd>[1, 2, 3, 5]</dd>
  * <dt>Output:</dt>
- * <dd>1</dd>
+ * <dd>[1,2,3,5]</dd>
  * <dt>Explanation:</dt>
  * <dd>Array [5,2,3,1] sorted is [1,2,3,5]</dd>
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Hash Map Storage, Array Traversal, Two Pointers
  * **Data Structures**: Array, Stack, Heap
  * **Patterns**: Two Pointers Pattern, Divide and Conquer
@@ -32,52 +34,97 @@
  * achieve O(n log n) time. This problem tests understanding of fundamental sorting algorithms.
  *
  * ### APPROACH:
+ * **Data structures: Array (for storage), Stack (for recursion), Heap (for heap sort)**
  * **Merge Sort:**
  * 1. Divide array into two halves recursively
- * 2. Sort each half recursively
- * 3. Merge sorted halves back together
+ * 2. Sort each half recursively using array operations
+ * 3. Merge sorted halves back together into array
  *
  * **Quick Sort:**
- * 1. Choose pivot element
- * 2. Partition array around pivot
- * 3. Recursively sort left and right partitions
+ * 1. Choose pivot element from array
+ * 2. Partition array around pivot using two pointers
+ * 3. Recursively sort left and right partitions in array
  *
  * **Heap Sort:**
  * 1. Build max heap from array
- * 2. Repeatedly extract maximum and rebuild heap
+ * 2. Repeatedly extract maximum and rebuild heap using array operations
  *
  * ### WHY THIS WORKS:
  * - **Merge Sort**: Divide-and-conquer with guaranteed O(n log n), stable, needs O(n) space
  * - **Quick Sort**: Average O(n log n), in-place, but O(n²) worst case
  * - **Heap Sort**: Guaranteed O(n log n), in-place, not stable
  *
- * ### EXAMPLE WALKTHROUGH:
+ *
+
+This solution uses hash map storage for efficient implementation.
+
+This solution uses two pointers for efficient implementation.
+
+The solution leverages stack for efficient operations.
+### EXAMPLE WALKTHROUGH:
+  * Input:
  * ```
- * Input: nums = [5,2,3,1]
- *
- * Merge Sort:
- * [5,2,3,1]
- *   /    \\
- * [5,2]  [3,1]
- *  / \\    / \\
- * [5][2] [3][1]
- *  \\ /    \\ /
- * [2,5]  [1,3]
- *   \\    /
- * [1,2,3,5]
- *
- * Quick Sort:
- * [5,2,3,1] pivot=1
- * [1] [5,2,3]
- *     [2,3,5] pivot=3
- *     [2,3] [5]
- * [1,2,3,5]
- *
- * Output: [1,2,3,5]
+ * nums = [5,2,3,1]
  * ```
  *
+ * **Merge Sort Approach:**
+ *
+ * **Step 1:** Divide array into two halves recursively
+ * - Split [5,2,3,1] → [5,2] and [3,1]
+ * - Split [5,2] → [5] and [2] (base case)
+ * - Split [3,1] → [3] and [1] (base case)
+ *
+ * **Step 2:** Sort each half recursively using array operations
+ * - [5] is sorted (single element)
+ * - [2] is sorted (single element)
+ * - Merge [5] and [2] → [2,5] (sorted left half)
+ * - [3] is sorted (single element)
+ * - [1] is sorted (single element)
+ * - Merge [3] and [1] → [1,3] (sorted right half)
+ *
+ * **Step 3:** Merge sorted halves back together into array
+ * - Merge [2,5] and [1,3]
+ * - Compare: 2 vs 1 → take 1, result = [1]
+ * - Compare: 2 vs 3 → take 2, result = [1,2]
+ * - Compare: 5 vs 3 → take 3, result = [1,2,3]
+ * - Remaining: 5, result = [1,2,3,5]
+ *
+ * **Quick Sort Approach (Alternative):**
+ *
+ * **Step 4:** Choose pivot element from array
+ * - Choose pivot = 3 (middle element) from [5,2,3,1]
+ *
+ * **Step 5:** Partition array around pivot using two pointers
+ * - Elements < 3: [2,1]
+ * - Pivot: [3]
+ * - Elements > 3: [5]
+ * - After partition: [2,1,3,5]
+ *
+ * **Step 6:** Recursively sort left and right partitions in array
+ * - Sort [2,1]: choose pivot=2, partition → [1,2]
+ * - Sort [5]: single element, already sorted
+ * - Combine: [1,2] + [3] + [5] = [1,2,3,5]
+ *
+ * **Heap Sort Approach (Alternative):**
+ *
+ * **Step 7:** Build max heap from array
+ * - Input: [5,2,3,1]
+ * - Build heap: [5,2,3,1] (5 is already max at root)
+ *
+ * **Step 8:** Repeatedly extract maximum and rebuild heap using array operations
+ * - Extract 5, heap becomes [3,2,1], result = [5]
+ * - Extract 3, heap becomes [2,1], result = [3,5]
+ * - Extract 2, heap becomes [1], result = [2,3,5]
+ * - Extract 1, result = [1,2,3,5]
+ *
+ * Output:
+ * ```
+ * [1,2,3,5]
+ * ```
+
  * ### TIME COMPLEXITY:
  * O(n log n)
+ * - Sorting or divide-and-conquer
  * All three algorithms achieve this complexity
  *
  * ### SPACE COMPLEXITY:
@@ -86,12 +133,12 @@
  * - Heap Sort: O(1) in-place
  *
  * ### EDGE CASES:
- * - Empty array
- * - Single element
- * - All elements equal
- * - Already sorted
- * - Reverse sorted
- * - Large arrays (up to 50,000 elements)
+ * - Empty array: nums=[] → [] (no elements to sort, returns immediately)
+ * - Single element: nums=[5] → [5] (already sorted, returns immediately)
+ * - All elements equal: nums=[3,3,3,3] → [3,3,3,3] (any algorithm returns same array)
+ * - Already sorted: nums=[1,2,3,4] → [1,2,3,4] (Merge sort still O(n log n), Quick sort O(n²) worst case)
+ * - Reverse sorted: nums=[4,3,2,1] → [1,2,3,4] (Worst case for naive Quick sort, good for Merge sort)
+ * - Large arrays: nums with 50000 elements → O(n log n) required (Merge sort stable, Heap sort in-place)
  *
  * </details>
  */

@@ -1,7 +1,7 @@
 """
 # Difficulty: Easy
 
-# 035. Search Insert Position
+# 0035. Search Insert Position
 
 Given a sorted array of distinct integers and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.
 
@@ -19,7 +19,8 @@ You must write an algorithm with O(log n) runtime complexity.
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
 **Data Structures**: Array, Stack, Tree
 **Patterns**: Two Pointers Pattern, Binary Search Pattern
@@ -42,21 +43,25 @@ This is a classic binary search problem where we need to find the insertion poin
 - When not found, left pointer is the correct insertion position
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: nums = [1,3,5,6], target = 5
-Step 1: Binary search finds 5 at index 2
-Output: 2
+nums = [1,3,5,6], target = 5
+nums = [1,3,5,6], target = 2
+nums = [1,3,5,6], target = 7
+```
 
-Input: nums = [1,3,5,6], target = 2
+Step 1: Binary search finds 5 at index 2
 Step 1: left=0, right=3, mid=1, nums[1]=3 > 2, so right=0
 Step 2: left=0, right=0, mid=0, nums[0]=1 < 2, so left=1
 Step 3: left=1, right=0, loop ends, left=1 is insertion point
-Output: 1
-
-Input: nums = [1,3,5,6], target = 7
 Step 1: Binary search doesn't find 7
 Step 2: left pointer ends up at index 4 (end of array)
-Output: 4
+
+Output:
+```
+2
+1
+4
 ```
 
 ### TIME COMPLEXITY:
@@ -245,11 +250,11 @@ if __name__ == "__main__":
     targets = [5, 2, 7, 0]
 
     print(f"=== 035. Search Insert Position ===")
-    print(f"Array: {nums}")
+    print(f"Array: nums")
 
     for target in targets:
         result = solution.searchInsert(nums, target)
-        print(f"Target {target}: insert at index {result}")
+        print(f"Target {target}: insert at index result")
 
     # Demonstrate with single element and empty arrays
     print(f"\nEdge cases:")

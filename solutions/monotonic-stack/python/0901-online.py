@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 901. Online
+# 0901. Online Stock Span
 
 Design a class StockSpanner which collects daily price quotes for some stock, and returns the span of that stock's price for the current day.
 
@@ -11,15 +11,16 @@ The span of the stock's price in one day is the maximum number of consecutive da
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>["StockSpanner", "next", "next", "next", "next", "next", "next", "next"]</dd>
+<dd>Operations: ["StockSpanner","next","next","next","next","next","next","next"]</dd>
 <dt>Output:</dt>
-<dd>"Expected {expected}, got {result}"</dd>
+<dd>[1,1,1,2,1,4,6]</dd>
 <dt>Explanation:</dt>
 <dd>After each price, the stock price span is the count of consecutive days with price ≤ current price</dd>
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Stack Operations
 **Data Structures**: Hash Set, Array, String
 **Patterns**: Hash Table Pattern
@@ -44,27 +45,35 @@ Maintain monotonic decreasing stack of (price, span) pairs. When new price comes
 - Stack maintains decreasing prices, enabling efficient span calculation
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
 Operations: ["StockSpanner","next","next","next","next","next","next","next"]
+```
+
 Values: [[],[100],[80],[60],[70],[60],[75],[85]]
-
 Step 1: Process prices with monotonic stack
-  100: span=1, stack=[(100,1)]
-  80: span=1, stack=[(100,1),(80,1)]
-  60: span=1, stack=[(100,1),(80,1),(60,1)]
-  70: pop 60, span=1+1=2, stack=[(100,1),(80,1),(70,2)]
-  60=1, stack=[(100,1),(80,1),(70,2),(60,1)]
-  75: pop 60, pop 70, span=1+1+2=4, stack=[(100,1),(80,1),(75,4)]
-  85: pop 75, pop 80, span=1+4+1=6, stack=[(100,1),(85,6)]
+100: span=1, stack=[(100,1)]
+80: span=1, stack=[(100,1),(80,1)]
+60: span=1, stack=[(100,1),(80,1),(60,1)]
+70: pop 60, span=1+1=2, stack=[(100,1),(80,1),(70,2)]
+60=1, stack=[(100,1),(80,1),(70,2),(60,1)]
+75: pop 60, pop 70, span=1+1+2=4, stack=[(100,1),(80,1),(75,4)]
+85: pop 75, pop 80, span=1+4+1=6, stack=[(100,1),(85,6)]
 
-Output: [1,1,1,2,1,4,6]
+Output:
+```
+[1,1,1,2,1,4,6]
 ```
 
 ### TIME COMPLEXITY:
 O(n)
+- Single pass through input
+
 
 ### SPACE COMPLEXITY:
 O(1)
+- Constant extra space
+
 
 ### EDGE CASES:
 - Empty input handling
@@ -136,31 +145,31 @@ def test_solution() -> None:
     operations = ["StockSpanner", "next", "next", "next", "next", "next", "next", "next"]
     values = [[], [100], [80], [60], [70], [60], [75], [85]]
     solution.solve(operations, values)
-    # # # assert result == expected, f"Expected {expected}, got {result}"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
+    # # # assert result == expected, f"Expected expected, got result"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
 
     # Test case 2: Increasing prices
     operations = ["StockSpanner", "next", "next", "next", "next"]
     values = [[], [10], [20], [30], [40]]
     solution.solve(operations, values)
-    # # # assert result == expected, f"Expected {expected}, got {result}"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
+    # # # assert result == expected, f"Expected expected, got result"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
 
     # Test case 3: Decreasing prices
     operations = ["StockSpanner", "next", "next", "next", "next"]
     values = [[], [40], [30], [20], [10]]
     solution.solve(operations, values)
-    # # # assert result == expected, f"Expected {expected}, got {result}"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
+    # # # assert result == expected, f"Expected expected, got result"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
 
     # Test case 4: All same price
     operations = ["StockSpanner", "next", "next", "next"]
     values = [[], [50], [50], [50]]
     solution.solve(operations, values)
-    # # # assert result == expected, f"Expected {expected}, got {result}"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
+    # # # assert result == expected, f"Expected expected, got result"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
 
     # Test case 5: Single price
     operations = ["StockSpanner", "next"]
     values = [[], [100]]
     solution.solve(operations, values)
-    # # # assert result == expected, f"Expected {expected}, got {result}"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
+    # # # assert result == expected, f"Expected expected, got result"  # Removed - function modifies in place  # Commented - result not defined  # Result not defined
 
     print("All test cases passed!")
 

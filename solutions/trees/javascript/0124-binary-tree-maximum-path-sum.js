@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Medium
  *
- * # 124. Binary Tree Maximum Path Sum
+ * # 0124. Binary Tree Maximum Path Sum
+ *
  *
  * A path in a binary tree is a sequence of nodes where each pair of adjacent nodes in the sequence has an edge connecting them. A node can only appear in the sequence at most once. Note that the path does not need to pass through the root.
  *
@@ -21,12 +22,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Hash Map, Hash Set, Array
  * **Patterns**: Two Pointers Pattern, Hash Table Pattern
- * **Time Complexity**: * O(n) - Single pass through input
- * **Space Complexity**: * O(1) - Constant extra space
+ * **Time Complexity**: O(n) - Single pass through input
+ * **Space Complexity**: O(1) - Constant extra space
 
  *
  * ### INTUITION:
@@ -44,23 +46,30 @@
  * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: root = [-10,9,20,null,null,15,7]
+ * root = [-10,9,20,null,null,15,7]
+ * ```
+ *
  * Step 1: Calculate max path through each node
- *   Node 15: path=15
- *   Node 7: path=7
- *   Node 20: path=20+15+7=42
- *   Node 9: path=9
- *   Node -10: path=-10+9+42=41
+ * Node 15: path=15
+ * Node 7: path=7
+ * Node 20: path=20+15+7=42
+ * Node 9: path=9
+ * Node -10: path=-10+9+42=41
  *
- * Output: 42 (maximum path sum)
+ * Output:
  * ```
- *
+ * 42 (maximum path sum)
+ * ```
+
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  *
  * ### EDGE CASES:
  * - Empty input handling

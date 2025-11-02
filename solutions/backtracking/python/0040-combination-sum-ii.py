@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 040. Combination Sum Ii
+# 0040. Combination Sum Ii
 
 Given a collection of candidate numbers (candidates) and a target number (target), find all unique combinations in candidates where the candidate numbers sum to target.
 
@@ -13,15 +13,16 @@ Note: The solution set must not contain duplicate combinations.
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[[1,1,6]</dd>
+<dd>candidates = [10,1,2,7,6,1,5], target = 8</dd>
 <dt>Output:</dt>
-<dd>"Expected {expected}, got {result}"</dd>
+<dd>[[1,1,6],[1,2,5],[1,7],[2,6]]</dd>
 <dt>Explanation:</dt>
 <dd>All unique combinations summing to 8 from [10,1,2,7,6,1,5] are [[1,1,6],[1,2,5],[1,7],[2,6]]</dd>
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
 **Data Structures**: Hash Map, Hash Set, Array
 **Patterns**: Complement Search, Two Pointers Pattern
@@ -35,7 +36,7 @@ Sort the candidates first to handle duplicates. During backtracking, skip duplic
 1. **Sort candidates**: Sort candidates array to group duplicates together for easy skipping
 2. **Initialize result**: Create empty result list and current combination list
 3. **Define backtrack function**: Create recursive function with parameters (start, current, remaining_target)
-# 4. **Base case**: If remaining_target == 0, add copy of current to result and return  # Result undefined
+# 0040. **Base case**: If remaining_target == 0, add copy of current to result and return  # Result undefined
 5. **Iterate from start**: Loop from start index to end of candidates array
 6. **Skip duplicates**: If i > start and candidates[i] == candidates[i-1], continue to avoid duplicate combinations
 7. **Prune search**: If candidates[i] > remaining_target, break early since array is sorted
@@ -49,32 +50,41 @@ Sort the candidates first to handle duplicates. During backtracking, skip duplic
 - O(2^n) time: each element in/out, sorting adds O(n log n)
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: candidates = [10,1,2,7,6,1,5], target = 8
+candidates = [10,1,2,7,6,1,5], target = 8
+```
+
+Steps:
 Step 1: Sort candidates → [1,1,2,5,6,7,10]
-
 Step 2: Backtrack to find combinations
-  Try 1: curr = [1], remain = 7
-    Try 1: curr = [1,1], remain = 6
-      Try 2: curr = [1,1,2], remain = 4 → continue
-      Try 5: curr = [1,1,5], remain = 1 → continue
-      Try 6: curr = [1,1,6], remain = 0 → add [1,1,6]
-    Skip duplicate 1 at position 2
-    Try 2: curr = [1,2], remain = 5
-      Try 5: curr = [1,2,5], remain = 0 → add [1,2,5]
-    Try 7: curr = [1,7], remain = 0 → add [1,7]
-  Skip duplicate 1 at position 1
-  Try 2: curr = [2], remain = 6
-    Try 6: curr = [2,6], remain = 0 → add [2,6]
+Step 3: Try 1: curr = [1], remain = 7
+Step 4: Try 1: curr = [1,1], remain = 6
+Step 5: Try 2: curr = [1,1,2], remain = 4 → continue
+Step 6: Try 5: curr = [1,1,5], remain = 1 → continue
+Step 7: Try 6: curr = [1,1,6], remain = 0 → add [1,1,6]
+Step 8: Skip duplicate 1 at position 2
+Step 9: Try 2: curr = [1,2], remain = 5
+Step 10: Try 5: curr = [1,2,5], remain = 0 → add [1,2,5]
+Step 11: Try 7: curr = [1,7], remain = 0 → add [1,7]
+Step 12: Skip duplicate 1 at position 1
+Step 13: Try 2: curr = [2], remain = 6
+Step 14: Try 6: curr = [2,6], remain = 0 → add [2,6]
 
-Output: [[1,1,6],[1,2,5],[1,7],[2,6]]
+Output:
+```
+[[1,1,6],[1,2,5],[1,7],[2,6]]
 ```
 
 ### TIME COMPLEXITY:
 O(n)
+- Single pass through input
+
 
 ### SPACE COMPLEXITY:
 O(1)
+- Constant extra space
+
 
 ### EDGE CASES:
 - Empty input handling
@@ -144,12 +154,12 @@ def test_solution() -> None:
     # Test case 1: Example from problem
     result = solution.combinationSum2([10, 1, 2, 7, 6, 1, 5], target=8)
     expected = [[1, 1, 6], [1, 2, 5], [1, 7], [2, 6]]
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: Empty input
     result = solution.combinationSum2([], 0)
     expected: list[list[int]] = [[]]
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 

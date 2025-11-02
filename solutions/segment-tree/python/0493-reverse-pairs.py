@@ -1,7 +1,7 @@
 """
 # Difficulty: Hard
 
-# 493. Reverse Pairs
+# 0493. Reverse Pairs
 
 Given an integer array nums, return the number of reverse pairs in the array.
 
@@ -13,15 +13,16 @@ A reverse pair is a pair (i, j) where:
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>[[1, 3, 2, 3, 1]</dd>
+<dd>[[1, 3, 2, 3, 1]]</dd>
 <dt>Output:</dt>
-<dd>"\nInput: {nums}"</dd>
+<dd>"\nInput: nums"</dd>
 <dt>Explanation:</dt>
 <dd>Count of reverse pairs where nums[i] > 2*nums[j] and i < j is 2</dd>
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
 **Data Structures**: Hash Set, Array, Stack
 **Patterns**: Two Pointers Pattern, Hash Table Pattern
@@ -44,12 +45,18 @@ This is similar to counting inversions but with a modified condition (nums[i] > 
 By repeatedly dividing the search space in half, we eliminate half of the remaining elements in each iteration. Since the array is sorted, we can determine which half contains the target by comparing with the middle element. This guarantees we find the target (if it exists) in O(log n) time because each step reduces the problem size by a factor of 2.
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: nums = [1,3,2,3,1]
+nums = [1,3,2,3,1]
+```
+
 Reverse pairs:
 - (1,4): nums[1]=3 > 2*nums[4]=2 ✓
 - (3,4): nums[3]=3 > 2*nums[4]=2 ✓
-Output: 2
+
+Output:
+```
+2
 ```
 
 ### TIME COMPLEXITY:
@@ -353,7 +360,7 @@ if __name__ == "__main__":
     ]
 
     for nums in test_cases:
-        print(f"\nInput: {nums}")
+        print(f"\nInput: nums")
 
         # Show all approaches
         result_merge = solution.reversePairs(nums[:])

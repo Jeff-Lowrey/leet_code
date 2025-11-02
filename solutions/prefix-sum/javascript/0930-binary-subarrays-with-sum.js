@@ -1,5 +1,8 @@
 /**
- * # Difficulty: Medium
+ * # 0930. Binary Subarrays With Sum
+ *
+ * Difficulty: Medium
+ *
  *
  * Given a binary array nums and an integer goal, return the number of non-empty subarrays
  * with a sum equal to goal.
@@ -23,12 +26,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
  * **Data Structures**: Hash Map, Hash Set, Array
  * **Patterns**: Hash Table Pattern
- * **Time Complexity**: * O(n) - Single pass through input
- * **Space Complexity**: * O(n) - Additional hash map storage
+ * **Time Complexity**: O(n) - Single pass through input
+ * **Space Complexity**: O(n) - Additional hash map storage
 
  *
  * ### INTUITION:
@@ -47,10 +51,12 @@
  * For each j, count all i where prefix[i] = prefix[j] - goal.
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
  * nums = [1,0,1,0,1], goal = 2
- * Prefix sums: [1, 1, 2, 2, 3]
+ * ```
  *
+ * Prefix sums: [1, 1, 2, 2, 3]
  * Initialize: {0: 1}  # prefix sum 0 at position -1
  * Index 0: sum=1, need 1-2=-1 (not found), count=0, add {0:1, 1:1}
  * Index 1: sum=1, need 1-2=-1 (not found), count=0, add {0:1, 1:2}
@@ -58,13 +64,14 @@
  * Index 3: sum=2, need 2-2=0 (found 1), count=2, add {0:1, 1:2, 2:2}
  * Index 4: sum=3, need 3-2=1 (found 2), count=4
  * Total: 4
- * ```
- *
+
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  *
  * ### SPACE COMPLEXITY:
  * O(n)
+ * - Additional hash map storage
  *
  * ### EDGE CASES:
  * - goal = 0: Count subarrays with all zeros

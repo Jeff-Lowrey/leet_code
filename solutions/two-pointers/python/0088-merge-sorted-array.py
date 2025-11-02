@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 088. Merge Sorted Array
+# 0088. Merge Sorted Array
 
 You are given two integer arrays nums1 and nums2, sorted in non-decreasing order, and two integers m and n, representing the number of elements in nums1 and nums2 respectively.
 
@@ -21,7 +21,8 @@ The final sorted array should not be returned by the function, but instead be st
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Two Pointers
 **Data Structures**: Hash Map, Hash Set, Array
 **Patterns**: Two Pointers Pattern, Greedy Algorithm
@@ -48,24 +49,33 @@ Start from end of both arrays (largest elements). Compare elements and place lar
 - O(m + n) time, O(1) space (in-place merge)
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3
-Step 1: Three pointers (fill from right)
-  p1=2, p2=2, p=5: nums1[5]=max(3,6)=6
-  p1=2, p2=1, p=4: nums1[4]=max(3,5)=5
-  p1=2, p2=0, p=3: nums1[3]=max(3,2)=3
-  p1=1, p2=0, p=2: nums1[2]=max(2,2)=2
-  p1=0, p2=0, p=1: nums1[1]=max(1,2)=2
-  p1=0, p=0: nums1[0]=1
+nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3
+```
 
-Output: [1,2,2,3,5,6]
+Step 1: Three pointers (fill from right)
+p1=2, p2=2, p=5: nums1[5]=max(3,6)=6
+p1=2, p2=1, p=4: nums1[4]=max(3,5)=5
+p1=2, p2=0, p=3: nums1[3]=max(3,2)=3
+p1=1, p2=0, p=2: nums1[2]=max(2,2)=2
+p1=0, p2=0, p=1: nums1[1]=max(1,2)=2
+p1=0, p=0: nums1[0]=1
+
+Output:
+```
+[1,2,2,3,5,6]
 ```
 
 ### TIME COMPLEXITY:
 O(n)
+- Single pass through input
+
 
 ### SPACE COMPLEXITY:
 O(1)
+- Constant extra space
+
 
 ### EDGE CASES:
 - Empty input handling
@@ -124,13 +134,13 @@ def test_solution() -> None:
     nums1 = [1, 2, 3, 0, 0, 0]
     solution.merge(nums1, 3, [2, 5, 6], 3)
     expected = [1, 2, 2, 3, 5, 6]
-    assert nums1 == expected, f"Expected {expected}, got {nums1}"
+    assert nums1 == expected, f"Expected expected, got {nums1}"
 
     # Test case 2: Second array empty
     nums1 = [1, 2, 3]
     solution.merge(nums1, 3, [], 0)
     expected = [1, 2, 3]
-    assert nums1 == expected, f"Expected {expected}, got {nums1}"
+    assert nums1 == expected, f"Expected expected, got {nums1}"
 
     print("All test cases passed!")
 

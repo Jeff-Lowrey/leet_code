@@ -1,7 +1,8 @@
 /**
  * # Difficulty: Medium
  *
- * # 376. Wiggle Subsequence
+ * # 0376. Wiggle Subsequence
+ *
  *
  * A wiggle sequence is a sequence where the differences between successive numbers strictly alternate between positive and negative. The first difference (if one exists) may be either positive or negative. A sequence with one element and a sequence with two non-equal elements are trivially wiggle sequences.
  *
@@ -19,12 +20,13 @@
  * </dl>
  *
  * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary> * ### METADATA:
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * ### METADATA:
  * **Techniques**: Array Traversal, Greedy Selection
  * **Data Structures**: Array
  * **Patterns**: Greedy Algorithm
- * **Time Complexity**: * O(n) - Single pass through input
- * **Space Complexity**: * O(1) - Constant extra space
+ * **Time Complexity**: O(n) - Single pass through input
+ * **Space Complexity**: O(1) - Constant extra space
 
  *
  * ### INTUITION:
@@ -42,26 +44,34 @@
  * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
  * ```
- * Input: nums = [1,7,4,9,2,5]
+ * nums = [1,7,4,9,2,5]
+ * ```
+ *
  * Step 1: Track direction changes
- *   up = 1, down = 1
- *
+ * up = 1, down = 1
  * Step 2: Process each adjacent pair
- *   1→7: increasing, up = down + 1 = 2
- *   7→4: decreasing, down = up + 1 = 3
- *   4→9: increasing, up = down + 1 = 4
- *   9→2: decreasing, down = up + 1 = 5
- *   2→5: increasing, up = down + 1 = 6
  *
- * Output: 6 (longest wiggle sequence length)
+ * Steps:
+ * Step 1: 1→7: increasing, up = down + 1 = 2
+ * Step 2: 7→4: decreasing, down = up + 1 = 3
+ * Step 3: 4→9: increasing, up = down + 1 = 4
+ * Step 4: 9→2: decreasing, down = up + 1 = 5
+ * Step 5: 2→5: increasing, up = down + 1 = 6
+ *
+ * Output:
  * ```
- *
+ * 6 (longest wiggle sequence length)
+ * ```
+
  * ### TIME COMPLEXITY:
  * O(n)
+ * - Single pass through input
  *
  * ### SPACE COMPLEXITY:
  * O(1)
+ * - Constant extra space
  *
  * ### EDGE CASES:
  * - Empty input handling

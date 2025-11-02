@@ -1,7 +1,7 @@
 """
 # Difficulty: Medium
 
-# 139. Word Break
+# 0139. Word Break
 
 Given a string s and a dictionary of strings wordDict, return true if s can be segmented into a space-separated sequence of one or more dictionary words.
 
@@ -11,15 +11,16 @@ Note that the same word in the dictionary may be reused multiple times in the se
 
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>["leet","code"]</dd>
+<dd>s = "leetcode", wordDict = ["leet","code"]</dd>
 <dt>Output:</dt>
-<dd>"Expected {expected}, got {result}"</dd>
+<dd>True (can be segmented)</dd>
 <dt>Explanation:</dt>
 <dd>String 'leetcode' can be segmented using dictionary ['leet','code']</dd>
 </dl>
 
 <details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>### METADATA:
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
 **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
 **Data Structures**: Hash Map, Hash Set, Array
 **Patterns**: Greedy Algorithm, Dynamic Programming
@@ -46,27 +47,34 @@ dp[i] = whether s[0:i] can be segmented. For each position, check all possible l
 - O(n^2 * m) time: n positions, n substrings, m avg word length
 
 ### EXAMPLE WALKTHROUGH:
+Input:
 ```
-Input: s = "leetcode", wordDict = ["leet","code"]
+s = "leetcode", wordDict = ["leet","code"]
+```
+
 Step 1: Initialize DP
-  dp = [True, False, False, False, False, False, False, False, False]
-  dp[0] = True (empty string)
-
+dp = [True, False, False, False, False, False, False, False, False]
+dp[0] = True (empty string)
 Step 2: Check each position
-  i=4: s[0:4]="leet" in wordDict, dp[4] = True
-  i=8: s[4:8]="code" in wordDict and dp[4]=True, dp[8] = True
-
+i=4: s[0:4]="leet" in wordDict, dp[4] = True
+i=8: s[4:8]="code" in wordDict and dp[4]=True, dp[8] = True
 Step 3: Verify segmentation
-  "leet" + "code" = "leetcode" ✓
+"leet" + "code" = "leetcode" ✓
 
-Output: True (can be segmented)
+Output:
+```
+True (can be segmented)
 ```
 
 ### TIME COMPLEXITY:
 O(n)
+- Single pass through input
+
 
 ### SPACE COMPLEXITY:
 O(1)
+- Constant extra space
+
 
 ### EDGE CASES:
 - Empty input handling
@@ -161,27 +169,27 @@ def test_solution() -> None:
     # Test case 1: Example from problem (can be segmented)
     result = solution.wordBreak("leetcode", ["leet", "code"])
     expected = True
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 2: Cannot be segmented
     result = solution.wordBreak("catsandog", ["cats", "dog", "sand", "and", "cat"])
     expected = False
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 3: Can use word multiple times
     result = solution.wordBreak("applepenapple", ["apple", "pen"])
     expected = True
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 4: Empty string
     result = solution.wordBreak("", ["leet"])
     expected = True
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     # Test case 5: Optimized version
     result = solution.wordBreak_optimized("leetcode", ["leet", "code"])
     expected = True
-    assert result == expected, f"Expected {expected}, got {result}"
+    assert result == expected, f"Expected expected, got result"
 
     print("All test cases passed!")
 
