@@ -28,7 +28,7 @@ Merge all the linked-lists into one sorted linked-list and return it.
 **Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
-Use min heap containing (value, list_index, node). Pop minimum, add to result, push next node from same list. Repeat until heap empty. Creates merged sorted list from k lists.
+The key insight is that use min heap containing (value, list_index, node). Pop minimum, add to result, push next node from same list. Repeat until heap empty. Creates merged sorted list from k lists.
 
 ### APPROACH:
 1. **Initialize min heap**: Create empty heap to track smallest available nodes
@@ -77,9 +77,9 @@ O(1)
 
 
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

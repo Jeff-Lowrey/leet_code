@@ -26,7 +26,7 @@ Given an array of intervals intervals where intervals[i] = [starti, endi], retur
 **Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
-Sort by end time (greedy). Keep track of previous interval's end. If current start >= previous end, intervals don't overlap. Otherwise, skip current interval (remove it). Count removals.
+The key insight is that sort by end time (greedy). Keep track of previous interval's end. If current start >= previous end, intervals don't overlap. Otherwise, skip current interval (remove it). Count removals.
 
 ### APPROACH:
 1. **Sort by end time**: Sort intervals by interval[1]
@@ -76,9 +76,9 @@ O(1)
 
 
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

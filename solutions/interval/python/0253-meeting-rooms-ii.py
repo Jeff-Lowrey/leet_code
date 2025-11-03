@@ -26,7 +26,7 @@ Given an array of meeting time intervals intervals where intervals[i] = [starti,
 **Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
-Track meeting start and end times separately. Use min heap for end times. When a new meeting starts, remove all meetings that have already ended. Heap size is rooms needed at that moment. Return maximum heap size.
+The key insight is that track meeting start and end times separately. Use min heap for end times. When a new meeting starts, remove all meetings that have already ended. Heap size is rooms needed at that moment. Return maximum heap size.
 
 ### APPROACH:
 1. **Separate start and end times**: Create start_times and end_times arrays
@@ -39,11 +39,11 @@ Track meeting start and end times separately. Use min heap for end times. When a
 8. **Return result**: Return max_rooms
 
 ### WHY THIS WORKS:
-- Sort start times and end times separately as two arrays
-- Two pointers: when meeting starts before earliest end, need new room
-- When meeting starts after earliest end, reuse that room
-- Track maximum rooms needed simultaneously
-- O(n log n) for sorting, O(n) space for separate arrays
+- This ensures that sort start times and end times separately as two arrays
+- This ensures that two pointers: when meeting starts before earliest end, need new room
+- This ensures that when meeting starts after earliest end, reuse that room
+- This ensures that track maximum rooms needed simultaneously
+- This ensures that o(n log n) for sorting, O(n) space for separate arrays
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -78,9 +78,9 @@ O(1)
 
 
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

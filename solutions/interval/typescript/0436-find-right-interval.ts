@@ -31,9 +31,9 @@
  * **Space Complexity**: O(1) - Constant extra space
  *
  * ### INTUITION:
- * Sort intervals by start time. For each interval, binary search for the first interval whose start >= current interval's end. Store the index or -1 if not found.
- *
- * ### APPROACH:
+The key insight is that sort intervals by start time. For each interval, binary search for the first interval whose start >= current interval's end. Store the index or -1 if not found.
+
+### APPROACH:
  * 1. **Create index mapping**: Build dict mapping start to original index
  * 2. **Sort starts**: Create sorted list of start times
  * 3. **For each interval**: Get its end time
@@ -43,13 +43,13 @@
  * 7. **Return result**: Return list of right interval indices
  *
  * ### WHY THIS WORKS:
- * - Binary search on sorted start times to find next interval
- * - Store original indices before sorting to map back
- * - For each interval's end, binary search for smallest start >= end
- * - HashMap maps start value to original index
- * - O(n log n) for sort + n binary searches, O(n) space
- *
- * ### EXAMPLE WALKTHROUGH:
+- This ensures that binary search on sorted start times to find next interval
+- This ensures that store original indices before sorting to map back
+- This ensures that for each interval's end, binary search for smallest start >= end
+- This ensures that hashMap maps start value to original index
+- This ensures that o(n log n) for sort + n binary searches, O(n) space
+
+### EXAMPLE WALKTHROUGH:
  * Input:
  * ```
  * intervals = [[3,4],[2,3],[1,2]]
@@ -82,11 +82,11 @@
  * - Constant extra space
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {

@@ -23,14 +23,14 @@ Return true if there is a cycle in the linked list. Otherwise, return false.
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 ### METADATA:
-**Techniques**: Hash Table Lookup
-**Data Structures**: Hash Set, Array, Linked List
-**Patterns**: Two Pointers Pattern
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(1) - Constant extra space
+**Techniques**: Floyd's Cycle Detection (Tortoise and Hare), Two Pointers
+**Data Structures**: Linked List
+**Patterns**: Fast and Slow Pointers, Cycle Detection
+**Time Complexity**: **O(n)** - Fast pointer traverses at most 2n nodes
+**Space Complexity**: **O(1)** - Only two pointer variables used
 
 ### INTUITION:
-Use Floyd's cycle detection with fast and slow pointers. Fast moves 2 steps, slow moves 1 step. If they meet, cycle exists. If fast reaches null, no cycle.
+The key insight is that use Floyd's cycle detection with fast and slow pointers. Fast moves 2 steps, slow moves 1 step. If they meet, cycle exists. If fast reaches null, no cycle.
 
 ### APPROACH:
 1. **Initialize two pointers**: Set slow = fast = head
@@ -41,11 +41,11 @@ Use Floyd's cycle detection with fast and slow pointers. Fast moves 2 steps, slo
 6. **Return False**: If loop exits without meeting, return False
 
 ### WHY THIS WORKS:
-- Floyd's tortoise and hare algorithm: if there's a cycle, fast pointer will eventually lap slow pointer
-- Fast moves 2x speed, so it closes gap by 1 node per iteration, guaranteed to meet
-- If fast reaches null, no cycle exists (linear structure)
-- O(n) time: worst case fast travels 2n nodes before meeting or reaching null
-- O(1) space: only two pointers regardless of list size
+- This ensures that floyd's tortoise and hare algorithm: if there's a cycle, fast pointer will eventually lap slow pointer
+- This ensures that fast moves 2x speed, so it closes gap by 1 node per iteration, guaranteed to meet
+- This ensures that if fast reaches null, no cycle exists (linear structure)
+- This ensures that o(n) time: worst case fast travels 2n nodes before meeting or reaching null
+- This ensures that o(1) space: only two pointers regardless of list size
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -67,19 +67,19 @@ True (has cycle)
 ```
 
 ### TIME COMPLEXITY:
-O(n)
-- Single pass through input
-
+**O(n)** where n is the number of nodes in the linked list. In the worst case (no cycle), the fast pointer traverses the entire list once, visiting at most n nodes. In the case of a cycle, the fast pointer will meet the slow pointer within the cycle. The meeting happens within n steps because the fast pointer closes the gap by 1 node per iteration. Therefore, maximum operations = 2n (fast pointer moves) = O(n).
 
 ### SPACE COMPLEXITY:
-O(1)
-- Constant extra space
-
+**O(1)** - We use only two pointer variables (slow and fast) regardless of the input size. No additional data structures like hash sets or arrays are allocated. The space used doesn't grow with the number of nodes in the list, giving us constant O(1) space complexity. This is more space-efficient than the hash set approach which would require O(n) space.
 
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty list**: head = None returns False (no cycle possible)
+- **Single node no cycle**: head = [1], pos = -1 returns False
+- **Single node with cycle**: head = [1], pos = 0 returns True (points to itself)
+- **Two nodes with cycle**: head = [1,2], pos = 0 returns True (forms cycle)
+- **Large list no cycle**: Returns False after traversing entire list
+- **Cycle at end**: Tail connects back to any previous node, detected correctly
+- **Very long cycle**: Fast pointer eventually catches slow pointer within cycle
 
 </details>
 """

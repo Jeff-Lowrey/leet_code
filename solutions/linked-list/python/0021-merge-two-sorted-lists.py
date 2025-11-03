@@ -30,7 +30,7 @@ The list should be made by splicing together the nodes of the first two lists.
 **Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
-Use dummy node to handle edge cases. Compare nodes from both lists. Advance pointer of smaller node. Continue until both lists exhausted. Return dummy.next.
+The key insight is that use dummy node to handle edge cases. Compare nodes from both lists. Advance pointer of smaller node. Continue until both lists exhausted. Return dummy.next.
 
 ### APPROACH:
 1. **Create dummy node**: Initialize dummy = ListNode(0) to simplify list construction
@@ -79,9 +79,9 @@ O(1)
 
 
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

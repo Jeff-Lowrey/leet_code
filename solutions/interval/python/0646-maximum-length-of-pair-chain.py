@@ -32,7 +32,7 @@ You do not need to use up all the given intervals. You can select pairs in any o
 **Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
-Sort pairs by end time. Use greedy similar to Activity Selection. Keep previous end, skip pairs that don't start after previous end. Count valid pairs.
+The key insight is that sort pairs by end time. Use greedy similar to Activity Selection. Keep previous end, skip pairs that don't start after previous end. Count valid pairs.
 
 ### APPROACH:
 1. **Sort by end**: Sort pairs by pair[1]
@@ -79,9 +79,9 @@ O(1)
 
 
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

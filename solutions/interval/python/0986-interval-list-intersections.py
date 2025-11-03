@@ -32,7 +32,7 @@ The intersection of two closed intervals is a set of real numbers that are eithe
 **Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
-Use two pointers, one for each sorted list. At each step, if intervals intersect, add intersection. Move pointer of interval with smaller end forward. Continue until either list is exhausted.
+The key insight is that use two pointers, one for each sorted list. At each step, if intervals intersect, add intersection. Move pointer of interval with smaller end forward. Continue until either list is exhausted.
 
 ### APPROACH:
 1. **Initialize pointers**: Set i = 0, j = 0, result = []
@@ -77,9 +77,9 @@ O(1)
 
 
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

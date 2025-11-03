@@ -35,19 +35,19 @@
  * **Space Complexity**: O(1) - Constant extra space
  *
  * ### INTUITION:
- * Find middle using slow/fast pointers. Reverse second half. Merge by alternating nodes from first and second half. Weave them together to reorder the list.
- *
- * ### APPROACH:
- * 1. **Find middle**: Use slow/fast pointers to find middle of list
- * 2. **Split into two halves**: Set slow.next = None to separate
- * 3. **Reverse second half**: Reverse the second half
- * 4. **Initialize pointers**: Set first = head, second = reversed second half
- * 5. **Merge alternately**: While second exists, interleave nodes
- * 6. **Save next pointers**: temp1 = first.next, temp2 = second.next
- * 7. **Link nodes**: first.next = second, second.next = temp1
- * 8. **Advance pointers**: first = temp1, second = temp2
- *
- * ### WHY THIS WORKS:
+The key insight is that find middle using slow/fast pointers. Reverse second half. Merge by alternating nodes from first and second half. Weave them together to reorder the list.
+
+### APPROACH:
+1. **Find middle**: Use slow/fast pointers to find middle of list
+2. **Split into two halves**: Set slow.next = None to separate
+3. **Reverse second half**: Reverse the second half
+4. **Initialize pointers**: Set first = head, second = reversed second half
+5. **Merge alternately**: While second exists, interleave nodes
+6. **Save next pointers**: temp1 = first.next, temp2 = second.next
+7. **Link nodes**: first.next = second, second.next = temp1
+8. **Advance pointers**: first = temp1, second = temp2
+
+### WHY THIS WORKS:
  * - Three-phase approach: find middle O(n), reverse second half O(n/2), merge O(n) = total O(n)
  * - Slow/fast pointers find middle in one pass without counting length
  * - Reversing second half in-place maintains O(1) space
@@ -83,11 +83,11 @@
  * - Constant extra space
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class ListNode {

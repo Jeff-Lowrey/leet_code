@@ -30,7 +30,7 @@ Given the array points, return the minimum number of arrows that must be shot to
 **Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
-Sort balloons by end position. Use greedy: shoot arrow at the end of first balloon. Count balloons this arrow bursts (end >= balloon start). Move to first unbursted balloon. Count total arrows.
+The key insight is that sort balloons by end position. Use greedy: shoot arrow at the end of first balloon. Count balloons this arrow bursts (end >= balloon start). Move to first unbursted balloon. Count total arrows.
 
 ### APPROACH:
 1. **Sort by end**: Sort balloons by end coordinate
@@ -42,11 +42,11 @@ Sort balloons by end position. Use greedy: shoot arrow at the end of first ballo
 7. **Return result**: Return arrows as minimum arrows needed
 
 ### WHY THIS WORKS:
-- Sort by end coordinate: shoot arrow at earliest ending balloon
-- Greedy: one arrow at end position can burst all overlapping balloons
-- Count arrows: increment when balloon starts after last arrow position
-- Earliest end maximizes number of balloons burst per arrow
-- O(n log n) for sort, O(1) space
+- This ensures that sort by end coordinate: shoot arrow at earliest ending balloon
+- This ensures that greedy: one arrow at end position can burst all overlapping balloons
+- This ensures that count arrows: increment when balloon starts after last arrow position
+- This ensures that earliest end maximizes number of balloons burst per arrow
+- This ensures that o(n log n) for sort, O(1) space
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -76,9 +76,9 @@ O(1)
 
 
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

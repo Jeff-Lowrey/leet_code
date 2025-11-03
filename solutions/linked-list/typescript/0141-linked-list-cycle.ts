@@ -31,9 +31,9 @@
  * **Space Complexity**: O(1) - Constant extra space
  *
  * ### INTUITION:
- * Use Floyd's cycle detection with fast and slow pointers. Fast moves 2 steps, slow moves 1 step. If they meet, cycle exists. If fast reaches null, no cycle.
- *
- * ### APPROACH:
+The key insight is that use Floyd's cycle detection with fast and slow pointers. Fast moves 2 steps, slow moves 1 step. If they meet, cycle exists. If fast reaches null, no cycle.
+
+### APPROACH:
  * 1. **Initialize two pointers**: Set slow = fast = head
  * 2. **Move at different speeds**: In loop, slow moves 1 step, fast moves 2 steps
  * 3. **Check for cycle**: If slow == fast, cycle detected, return True
@@ -42,13 +42,13 @@
  * 6. **Return False**: If loop exits without meeting, return False
  *
  * ### WHY THIS WORKS:
- * - Floyd's tortoise and hare algorithm: if there's a cycle, fast pointer will eventually lap slow pointer
- * - Fast moves 2x speed, so it closes gap by 1 node per iteration, guaranteed to meet
- * - If fast reaches null, no cycle exists (linear structure)
- * - O(n) time: worst case fast travels 2n nodes before meeting or reaching null
- * - O(1) space: only two pointers regardless of list size
- *
- * ### EXAMPLE WALKTHROUGH:
+- This ensures that floyd's tortoise and hare algorithm: if there's a cycle, fast pointer will eventually lap slow pointer
+- This ensures that fast moves 2x speed, so it closes gap by 1 node per iteration, guaranteed to meet
+- This ensures that if fast reaches null, no cycle exists (linear structure)
+- This ensures that o(n) time: worst case fast travels 2n nodes before meeting or reaching null
+- This ensures that o(1) space: only two pointers regardless of list size
+
+### EXAMPLE WALKTHROUGH:
  * Input:
  * ```
  * head = [3,2,0,-4], pos = 1 (cycle at node 2)
@@ -76,11 +76,11 @@
  * - Constant extra space
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class ListNode {

@@ -26,7 +26,7 @@ Given an array of intervals where intervals[i] = [starti, endi], merge all overl
 **Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
-Sort intervals by start time. Iterate through sorted intervals. If current overlaps with last merged interval, extend the end. Otherwise add current interval as new merged interval.
+The key insight is that sort intervals by start time. Iterate through sorted intervals. If current overlaps with last merged interval, extend the end. Otherwise add current interval as new merged interval.
 
 ### APPROACH:
 1. **Sort intervals**: Sort intervals by start time
@@ -83,9 +83,9 @@ O(1)
 
 
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

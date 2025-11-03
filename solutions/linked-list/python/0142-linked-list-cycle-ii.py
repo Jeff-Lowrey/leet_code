@@ -30,7 +30,7 @@ Do not modify the linked list.
 **Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
-Use Floyd's algorithm: detect cycle with fast/slow pointers. After meeting, reset one pointer to head. Move both one step at a time. They meet at cycle start due to mathematical property of the algorithm.
+The key insight is that use Floyd's algorithm: detect cycle with fast/slow pointers. After meeting, reset one pointer to head. Move both one step at a time. They meet at cycle start due to mathematical property of the algorithm.
 
 ### APPROACH:
 1. **Phase 1 - detect cycle**: Use slow and fast pointers to detect cycle
@@ -79,9 +79,9 @@ O(1)
 
 
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

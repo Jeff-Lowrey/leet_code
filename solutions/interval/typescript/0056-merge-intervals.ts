@@ -27,9 +27,9 @@
  * **Space Complexity**: O(1) - Constant extra space
  *
  * ### INTUITION:
- * Sort intervals by start time. Iterate through sorted intervals. If current overlaps with last merged interval, extend the end. Otherwise add current interval as new merged interval.
- *
- * ### APPROACH:
+The key insight is that sort intervals by start time. Iterate through sorted intervals. If current overlaps with last merged interval, extend the end. Otherwise add current interval as new merged interval.
+
+### APPROACH:
  * 1. **Sort intervals**: Sort intervals by start time
  * 2. **Initialize result**: Set result = [intervals[0]]
  * 3. **Iterate from second**: For each interval in intervals[1:]
@@ -84,11 +84,11 @@
  * - Constant extra space
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {

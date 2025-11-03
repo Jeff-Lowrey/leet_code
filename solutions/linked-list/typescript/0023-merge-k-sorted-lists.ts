@@ -29,9 +29,9 @@
  * **Space Complexity**: O(1) - Constant extra space
  *
  * ### INTUITION:
- * Use min heap containing (value, list_index, node). Pop minimum, add to result, push next node from same list. Repeat until heap empty. Creates merged sorted list from k lists.
- *
- * ### APPROACH:
+The key insight is that use min heap containing (value, list_index, node). Pop minimum, add to result, push next node from same list. Repeat until heap empty. Creates merged sorted list from k lists.
+
+### APPROACH:
  * 1. **Initialize min heap**: Create empty heap to track smallest available nodes
  * 2. **Add first nodes**: For each list, push (head.val, index, head) to heap if head exists
  * 3. **Create dummy head**: Initialize dummy = ListNode(0) and current = dummy
@@ -78,11 +78,11 @@
  * - Constant extra space
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class ListNode {

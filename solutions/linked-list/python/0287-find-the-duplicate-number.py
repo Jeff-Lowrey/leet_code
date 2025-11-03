@@ -30,7 +30,7 @@ You must solve the problem without modifying the array nums and uses only consta
 **Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
-Treat as cycle detection problem. Array indices are nodes, values are edges. Duplicate creates a cycle. Use Floyd's algorithm to find cycle entrance, which is the duplicate number.
+The key insight is that treat as cycle detection problem. Array indices are nodes, values are edges. Duplicate creates a cycle. Use Floyd's algorithm to find cycle entrance, which is the duplicate number.
 
 ### APPROACH:
 1. **Treat as linked list**: Consider array indices as linked list
@@ -88,9 +88,9 @@ O(1)
 
 
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

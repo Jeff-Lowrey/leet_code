@@ -31,9 +31,9 @@
  * **Space Complexity**: O(1) - Constant extra space
  *
  * ### INTUITION:
- * Reverse k nodes at a time using standard reversal. Track previous group's tail and current group's head/tail. Connect groups after reversal. Stop if fewer than k nodes remain.
- *
- * ### APPROACH:
+The key insight is that reverse k nodes at a time using standard reversal. Track previous group's tail and current group's head/tail. Connect groups after reversal. Stop if fewer than k nodes remain.
+
+### APPROACH:
  * 1. **Check if k nodes exist**: Count k nodes ahead; if fewer than k, return head
  * 2. **Reverse k nodes**: Use standard linked list reversal for first k nodes
  * 3. **Track prev and current**: Initialize prev = None, current = head
@@ -78,11 +78,11 @@
  * - Constant extra space
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class ListNode {

@@ -31,9 +31,9 @@
  * **Space Complexity**: O(1) - Constant extra space
  *
  * ### INTUITION:
- * Use dummy node to handle edge cases. Compare nodes from both lists. Advance pointer of smaller node. Continue until both lists exhausted. Return dummy.next.
- *
- * ### APPROACH:
+The key insight is that use dummy node to handle edge cases. Compare nodes from both lists. Advance pointer of smaller node. Continue until both lists exhausted. Return dummy.next.
+
+### APPROACH:
  * 1. **Create dummy node**: Initialize dummy = ListNode(0) to simplify list construction
  * 2. **Initialize current pointer**: Set current = dummy to track position in result list
  * 3. **Compare while both exist**: While list1 and list2 are not None
@@ -80,11 +80,11 @@
  * - Constant extra space
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class ListNode {

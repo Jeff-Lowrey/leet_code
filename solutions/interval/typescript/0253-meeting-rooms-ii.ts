@@ -27,9 +27,9 @@
  * **Space Complexity**: O(1) - Constant extra space
  *
  * ### INTUITION:
- * Track meeting start and end times separately. Use min heap for end times. When a new meeting starts, remove all meetings that have already ended. Heap size is rooms needed at that moment. Return maximum heap size.
- *
- * ### APPROACH:
+The key insight is that track meeting start and end times separately. Use min heap for end times. When a new meeting starts, remove all meetings that have already ended. Heap size is rooms needed at that moment. Return maximum heap size.
+
+### APPROACH:
  * 1. **Separate start and end times**: Create start_times and end_times arrays
  * 2. **Sort both arrays**: Sort start_times and end_times independently
  * 3. **Initialize pointers**: Set start_ptr = 0, end_ptr = 0, rooms = 0, max_rooms = 0
@@ -40,13 +40,13 @@
  * 8. **Return result**: Return max_rooms
  *
  * ### WHY THIS WORKS:
- * - Sort start times and end times separately as two arrays
- * - Two pointers: when meeting starts before earliest end, need new room
- * - When meeting starts after earliest end, reuse that room
- * - Track maximum rooms needed simultaneously
- * - O(n log n) for sorting, O(n) space for separate arrays
- *
- * ### EXAMPLE WALKTHROUGH:
+- This ensures that sort start times and end times separately as two arrays
+- This ensures that two pointers: when meeting starts before earliest end, need new room
+- This ensures that when meeting starts after earliest end, reuse that room
+- This ensures that track maximum rooms needed simultaneously
+- This ensures that o(n log n) for sorting, O(n) space for separate arrays
+
+### EXAMPLE WALKTHROUGH:
  * Input:
  * ```
  * intervals = [[0,30],[5,10],[15,20]]
@@ -79,11 +79,11 @@
  * - Constant extra space
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class MinHeap {

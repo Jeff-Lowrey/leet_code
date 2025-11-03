@@ -26,7 +26,7 @@ Given the head of a linked list, remove the nth node from the end of the list an
 **Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
-Use two pointers with n-step gap. Move fast pointer n steps ahead. Then move both until fast reaches end. Slow is now at the node before target. Remove target node.
+The key insight is that use two pointers with n-step gap. Move fast pointer n steps ahead. Then move both until fast reaches end. Slow is now at the node before target. Remove target node.
 
 ### APPROACH:
 1. **Create dummy node**: Initialize dummy = ListNode(0, head) to handle edge cases
@@ -73,9 +73,9 @@ O(1)
 
 
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

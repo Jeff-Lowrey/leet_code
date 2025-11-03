@@ -34,7 +34,7 @@ You may not modify the values in the list's nodes. Only nodes themselves may be 
 **Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
-Find middle using slow/fast pointers. Reverse second half. Merge by alternating nodes from first and second half. Weave them together to reorder the list.
+The key insight is that find middle using slow/fast pointers. Reverse second half. Merge by alternating nodes from first and second half. Weave them together to reorder the list.
 
 ### APPROACH:
 1. **Find middle**: Use slow/fast pointers to find middle of list
@@ -84,9 +84,9 @@ O(1)
 
 
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

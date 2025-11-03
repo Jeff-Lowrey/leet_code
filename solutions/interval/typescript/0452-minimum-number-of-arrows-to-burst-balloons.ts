@@ -30,9 +30,9 @@
  * **Space Complexity**: O(1) - Constant extra space
  * 
  * ### INTUITION:
- * Sort balloons by end position. Use greedy: shoot arrow at the end of first balloon. Count balloons this arrow bursts (end >= balloon start). Move to first unbursted balloon. Count total arrows.
- * 
- * ### APPROACH:
+The key insight is that sort balloons by end position. Use greedy: shoot arrow at the end of first balloon. Count balloons this arrow bursts (end >= balloon start). Move to first unbursted balloon. Count total arrows.
+
+### APPROACH:
  * 1. **Sort by end**: Sort balloons by end coordinate
  * 2. **Initialize arrow**: Set arrows = 1, current_end = balloons[0][1]
  * 3. **Iterate from second**: For each balloon in balloons[1:]
@@ -42,13 +42,13 @@
  * 7. **Return result**: Return arrows as minimum arrows needed
  * 
  * ### WHY THIS WORKS:
- * - Sort by end coordinate: shoot arrow at earliest ending balloon
- * - Greedy: one arrow at end position can burst all overlapping balloons
- * - Count arrows: increment when balloon starts after last arrow position
- * - Earliest end maximizes number of balloons burst per arrow
- * - O(n log n) for sort, O(1) space
- * 
- * ### EXAMPLE WALKTHROUGH:
+- This ensures that sort by end coordinate: shoot arrow at earliest ending balloon
+- This ensures that greedy: one arrow at end position can burst all overlapping balloons
+- This ensures that count arrows: increment when balloon starts after last arrow position
+- This ensures that earliest end maximizes number of balloons burst per arrow
+- This ensures that o(n log n) for sort, O(1) space
+
+### EXAMPLE WALKTHROUGH:
  * Input:
  * ```
  * points = [[10,16],[2,8],[1,6],[7,12]]
@@ -74,11 +74,11 @@
  * - Constant extra space
  * 
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
- * 
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {

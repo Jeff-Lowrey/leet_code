@@ -27,9 +27,9 @@
  * **Space Complexity**: O(1) - Constant extra space
  *
  * ### INTUITION:
- * Track previous node. For each node, change next pointer to previous. Move forward by saving next before changing pointers. Return previous when current is null.
- *
- * ### APPROACH:
+The key insight is that track previous node. For each node, change next pointer to previous. Move forward by saving next before changing pointers. Return previous when current is null.
+
+### APPROACH:
  * 1. **Initialize pointers**: Set prev = None, current = head
  * 2. **Iterate until end**: While current is not None
  * 3. **Save next node**: next_node = current.next to avoid losing reference
@@ -39,13 +39,13 @@
  * 7. **Return new head**: After loop, return prev as new head
  *
  * ### WHY THIS WORKS:
- * - Three-pointer technique (prev, current, next) enables reversal without extra space
- * - Saving next pointer before reversing prevents losing rest of list
- * - Each node's next pointer flipped exactly once as we traverse
- * - When current becomes null, prev points to new head (original tail)
- * - O(n) time single pass, O(1) space using only three pointers
- *
- * ### EXAMPLE WALKTHROUGH:
+- This ensures that three-pointer technique (prev, current, next) enables reversal without extra space
+- This ensures that saving next pointer before reversing prevents losing rest of list
+- This ensures that each node's next pointer flipped exactly once as we traverse
+- This ensures that when current becomes null, prev points to new head (original tail)
+- This ensures that o(n) time single pass, O(1) space using only three pointers
+
+### EXAMPLE WALKTHROUGH:
  * Input:
  * ```
  * 1 → 2 → 3 → 4 → 5 → null
@@ -98,11 +98,11 @@
  * - Constant extra space
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class ListNode {

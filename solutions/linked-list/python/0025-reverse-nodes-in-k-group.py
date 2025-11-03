@@ -30,7 +30,7 @@ You may not alter the values in the list's nodes, only nodes themselves may be c
 **Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
-Reverse k nodes at a time using standard reversal. Track previous group's tail and current group's head/tail. Connect groups after reversal. Stop if fewer than k nodes remain.
+The key insight is that reverse k nodes at a time using standard reversal. Track previous group's tail and current group's head/tail. Connect groups after reversal. Stop if fewer than k nodes remain.
 
 ### APPROACH:
 1. **Check if k nodes exist**: Count k nodes ahead; if fewer than k, return head
@@ -79,9 +79,9 @@ O(1)
 
 
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

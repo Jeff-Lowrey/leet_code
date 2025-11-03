@@ -42,11 +42,11 @@
  * 3. Add intervals that come after newInterval
  *
  * ### APPROACH:
- * 1. **Before Phase**: Add all intervals that `end` before newInterval starts
- * 2. **Merge Phase**: Merge all overlapping intervals with newInterval
- * 3. **After Phase**: Add all remaining intervals
- *
- * ### WHY THIS WORKS:
+1. **Before Phase**: Add all intervals that `end` before newInterval starts
+2. **Merge Phase**: Merge all overlapping intervals with newInterval
+3. **After Phase**: Add all remaining intervals
+
+### WHY THIS WORKS:
  * The algorithm correctly solves the problem by systematically exploring all valid states while maintaining necessary invariants. Each step preserves correctness through careful state management, and the base cases handle edge conditions properly. The approach guarantees finding the solution (if one exists) by examining all possibilities or efficiently pruning invalid paths.
  *
  * ### EXAMPLE WALKTHROUGH:

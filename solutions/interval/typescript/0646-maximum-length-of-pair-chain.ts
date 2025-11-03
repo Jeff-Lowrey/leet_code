@@ -32,9 +32,9 @@
  * **Space Complexity**: O(1) - Constant extra space
  * 
  * ### INTUITION:
- * Sort pairs by end time. Use greedy similar to Activity Selection. Keep previous end, skip pairs that don't start after previous end. Count valid pairs.
- * 
- * ### APPROACH:
+The key insight is that sort pairs by end time. Use greedy similar to Activity Selection. Keep previous end, skip pairs that don't start after previous end. Count valid pairs.
+
+### APPROACH:
  * 1. **Sort by end**: Sort pairs by pair[1]
  * 2. **Initialize variables**: Set count = 1, current_end = pairs[0][1]
  * 3. **Iterate from second**: For each pair in pairs[1:]
@@ -77,11 +77,11 @@
  * - Constant extra space
  * 
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
- * 
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {

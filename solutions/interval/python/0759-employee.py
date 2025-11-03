@@ -32,7 +32,7 @@ Return the list of finite intervals representing common, positive-length free ti
 **Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
-Flatten all employee intervals into a list of (time, type) events. Sort by time. Use counter: increment for start, decrement for end. When counter > 0, time is covered. Build result intervals.
+The key insight is that flatten all employee intervals into a list of (time, type) events. Sort by time. Use counter: increment for start, decrement for end. When counter > 0, time is covered. Build result intervals.
 
 ### APPROACH:
 1. **Flatten all intervals**: Create list of (time, type) where type is +1 for start, -1 for end
@@ -43,11 +43,11 @@ Flatten all employee intervals into a list of (time, type) events. Sort by time.
 6. **Return result**: Return list of common free time intervals
 
 ### WHY THIS WORKS:
-- Treat each employee schedule as list of intervals, merge all together
-- Flatten all intervals, sort by start time
-- Merge consecutive overlapping intervals
-- Free time = gaps between merged intervals
-- O(n log n) where n is total intervals, O(n) space
+- This ensures that treat each employee schedule as list of intervals, merge all together
+- This ensures that flatten all intervals, sort by start time
+- This ensures that merge consecutive overlapping intervals
+- This ensures that free time = gaps between merged intervals
+- This ensures that o(n log n) where n is total intervals, O(n) space
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -77,9 +77,9 @@ O(1)
 
 
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

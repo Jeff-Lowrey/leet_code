@@ -31,9 +31,9 @@
  * **Space Complexity**: O(1) - Constant extra space
  *
  * ### INTUITION:
- * Use Floyd's algorithm: detect cycle with fast/slow pointers. After meeting, reset one pointer to head. Move both one step at a time. They meet at cycle start due to mathematical property of the algorithm.
- *
- * ### APPROACH:
+The key insight is that use Floyd's algorithm: detect cycle with fast/slow pointers. After meeting, reset one pointer to head. Move both one step at a time. They meet at cycle start due to mathematical property of the algorithm.
+
+### APPROACH:
  * 1. **Phase 1 - detect cycle**: Use slow and fast pointers to detect cycle
  * 2. **Move at different speeds**: slow moves 1 step, fast moves 2 steps per iteration
  * 3. **Find meeting point**: If slow == fast, cycle exists; break
@@ -78,11 +78,11 @@
  * - Constant extra space
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class ListNode {

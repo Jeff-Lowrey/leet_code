@@ -33,9 +33,9 @@
  * **Space Complexity**: O(1) - Constant extra space
  *
  * ### INTUITION:
- * Use two pointers, one for each sorted list. At each step, if intervals intersect, add intersection. Move pointer of interval with smaller end forward. Continue until either list is exhausted.
- *
- * ### APPROACH:
+The key insight is that use two pointers, one for each sorted list. At each step, if intervals intersect, add intersection. Move pointer of interval with smaller end forward. Continue until either list is exhausted.
+
+### APPROACH:
  * 1. **Initialize pointers**: Set i = 0, j = 0, result = []
  * 2. **While both valid**: While i < len(firstList) and j < len(secondList)
  * 3. **Find intersection**: start = max(firstList[i][0], secondList[j][0]), end = min(firstList[i][1], secondList[j][1])
@@ -78,11 +78,11 @@
  * - Constant extra space
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {

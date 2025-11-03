@@ -31,19 +31,19 @@
  * **Space Complexity**: O(1) - Constant extra space
  *
  * ### INTUITION:
- * Treat as cycle detection problem. Array indices are nodes, values are edges. Duplicate creates a cycle. Use Floyd's algorithm to find cycle entrance, which is the duplicate number.
- *
- * ### APPROACH:
- * 1. **Treat as linked list**: Consider array indices as linked list
- * 2. **Phase 1 - find cycle**: Use Floyd's algorithm with slow and fast pointers
- * 3. **Move at different speeds**: slow = nums[slow], fast = nums[nums[fast]]
- * 4. **Detect cycle**: When slow == fast, cycle detected
- * 5. **Phase 2 - find entrance**: Reset slow = nums[0], keep fast at meeting point
- * 6. **Move both at same speed**: Both move one step
- * 7. **Find duplicate**: When slow == fast, that's the duplicate number
- * 8. **Return result**: Return slow as the duplicate
- *
- * ### WHY THIS WORKS:
+The key insight is that treat as cycle detection problem. Array indices are nodes, values are edges. Duplicate creates a cycle. Use Floyd's algorithm to find cycle entrance, which is the duplicate number.
+
+### APPROACH:
+1. **Treat as linked list**: Consider array indices as linked list
+2. **Phase 1 - find cycle**: Use Floyd's algorithm with slow and fast pointers
+3. **Move at different speeds**: slow = nums[slow], fast = nums[nums[fast]]
+4. **Detect cycle**: When slow == fast, cycle detected
+5. **Phase 2 - find entrance**: Reset slow = nums[0], keep fast at meeting point
+6. **Move both at same speed**: Both move one step
+7. **Find duplicate**: When slow == fast, that's the duplicate number
+8. **Return result**: Return slow as the duplicate
+
+### WHY THIS WORKS:
  * - Floyd's cycle detection treats array as implicit linked list where nums[i] points to nums[nums[i]]
  * - Duplicate value creates a cycle because two indices point to the same value
  * - Phase 1 (tortoise/hare) detects cycle existence in O(n) time
@@ -87,11 +87,11 @@
  * - Constant extra space
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {

@@ -26,9 +26,9 @@
  * **Space Complexity**: O(1) - Constant extra space
  * 
  * ### INTUITION:
- * Use two pointers with n-step gap. Move fast pointer n steps ahead. Then move both until fast reaches end. Slow is now at the node before target. Remove target node.
- * 
- * ### APPROACH:
+The key insight is that use two pointers with n-step gap. Move fast pointer n steps ahead. Then move both until fast reaches end. Slow is now at the node before target. Remove target node.
+
+### APPROACH:
  * 1. **Create dummy node**: Initialize dummy = ListNode(0, head) to handle edge cases
  * 2. **Use two pointers**: Set fast = slow = dummy for the two-pointer technique
  * 3. **Advance fast pointer**: Move fast n+1 steps ahead to create n-node gap
@@ -71,11 +71,11 @@
  * - Constant extra space
  * 
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
- * 
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {

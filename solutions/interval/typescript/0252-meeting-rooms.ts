@@ -27,9 +27,9 @@
  * **Space Complexity**: O(1) - Constant extra space
  *
  * ### INTUITION:
- * Sort meetings by start time. Check consecutive meetings for overlap by comparing start of next meeting with end of current. If any overlap, return false.
- *
- * ### APPROACH:
+The key insight is that sort meetings by start time. Check consecutive meetings for overlap by comparing start of next meeting with end of current. If any overlap, return false.
+
+### APPROACH:
  * 1. **Sort by start time**: Sort intervals by interval[0]
  * 2. **Check consecutive pairs**: For i in range(1, len(intervals))
  * 3. **Check overlap**: If intervals[i][0] < intervals[i-1][1], overlap exists
@@ -71,11 +71,11 @@
  * - Constant extra space
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {
