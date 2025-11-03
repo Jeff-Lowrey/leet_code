@@ -1,36 +1,4 @@
 """
-# Difficulty: Medium
-
-# 0227. Basic Calculator Ii
-
-Given a string s which represents an expression, evaluate this expression and return its value.
-
-The integer division should truncate toward zero.
-
-You may assume that the given expression is always valid. All intermediate results will be in the range of [-2^31, 2^31 - 1].
-
-Note: You are not allowed to use any built-in function which evaluates strings as mathematical expressions, such as eval().
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>"3+2*2"</dd>
-<dt>Output:</dt>
-<dd>7</dd>
-<dt>Explanation:</dt>
-<dd>Expression '3+2*2' evaluates to 7</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Stack Operations
-**Data Structures**: Hash Set, Array, String
-**Patterns**: Iterative Solution
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
 The key insight is that use stack to handle operators. Scan number by number. For +/- push to stack. For *// pop, compute with previous, push result. Finally sum stack for result.
 
@@ -70,16 +38,14 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 
 - Single pass through the input
 
-
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 
 - Constant extra space
-
 
 ### EDGE CASES:
 - **Empty input**: Handle when input is empty
@@ -87,6 +53,7 @@ O(1)
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 from typing import Any

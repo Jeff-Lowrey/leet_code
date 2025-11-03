@@ -1,36 +1,4 @@
 """
-# Difficulty: Easy
-
-# 1047. Remove All Adjacent Duplicates In String
-
-You are given a string s consisting of lowercase English letters. A duplicate removal
-consists of choosing two adjacent and equal characters and removing them.
-
-We repeatedly make duplicate removals on s until we no longer can.
-
-Return the final string after all such duplicate removals have been made. It can be
-proven that the answer is unique.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>"abbaca"</dd>
-<dt>Output:</dt>
-<dd>"ca"</dd>
-<dt>Explanation:</dt>
-<dd>After removing adjacent duplicates, 'abbaca' becomes 'ca'</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: Array, String, Stack
-**Patterns**: Two Pointers Pattern, Hash Table Pattern
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(n)
-
 ### INTUITION:
 Use a stack to efficiently track characters. When we see a character that matches
 the top of the stack, we've found an adjacent duplicate pair - pop the stack.
@@ -68,11 +36,11 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n)
-Single pass through string with O(1) stack operations
+**O(n)**
+Single pass through string with **O(1)** stack operations
 
 ### SPACE COMPLEXITY:
-O(n)
+**O(n)**
 Stack stores up to n characters in worst case (no duplicates)
 
 ### EDGE CASES:
@@ -81,6 +49,7 @@ Stack stores up to n characters in worst case (no duplicates)
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 from typing import Any

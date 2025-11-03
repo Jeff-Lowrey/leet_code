@@ -1,32 +1,5 @@
 /**
- * # Difficulty: Medium
- *
- * # 0022. Generate Parentheses
- *
- *
- * Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>["()"]</dd>
- * <dt>Output:</dt>
- * <dd>[]</dd>
- * <dt>Explanation:</dt>
- * <dd>All combinations of n=3 parentheses: ['((()))','(()())','(())()','()(())','()()()']</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
- * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
- * **Data Structures**: Array, String, Stack
- * **Patterns**: Two Pointers Pattern, Hash Table Pattern
- * **Time Complexity**: O(4^n / √n)
- * **Space Complexity**: O(n)
- *
- * ### INTUITION:
+### INTUITION:
 The key insight is that use backtracking to build valid parentheses strings. At each step, we can add '(' if we haven't used all n opening brackets, or ')' if it won't make the string invalid (closing count < opening count).
 
 ### APPROACH:
@@ -38,12 +11,12 @@ The key insight is that use backtracking to build valid parentheses strings. At 
 4. **Recursive Exploration**: Try adding '(' and ')' at each step
 
 ### WHY THIS WORKS:
- * - Opening bracket can be added anytime until we reach n
- * - Closing bracket can only be added if it doesn't exceed opening count
- * - These rules guarantee valid parentheses strings
- * - Backtracking explores all valid combinations
- *
- * ### EXAMPLE WALKTHROUGH:
+- Opening bracket can be added anytime until we reach n
+- Closing bracket can only be added if it doesn't exceed opening count
+- These rules guarantee valid parentheses strings
+- Backtracking explores all valid combinations
+
+### EXAMPLE WALKTHROUGH:
 Input:
 ```
 n = 3:
@@ -65,21 +38,22 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
- * O(4^n / √n)
- * Catalan number: C(n) = (2n)! / ((n+1)! * n!)
- * Approximately O(4^n / √n) valid combinations
- *
- * ### SPACE COMPLEXITY:
- * O(n)
- * Recursion stack depth is 2n (building string of length 2n)
- *
- * ### EDGE CASES:
+O(4^n / √n)**
+Catalan number: C(n) = (2n)! / ((n+1)! * n!)
+Approximately **O(4^n / √n)** valid combinations
+
+### SPACE COMPLEXITY:
+O(n)**
+Recursion stack depth is 2n (building string of length 2n)
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 class Solution {
   generateParenthesis(n: number): string[] {

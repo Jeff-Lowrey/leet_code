@@ -1,48 +1,4 @@
 """
-# 0020. Valid Parentheses
-
-# Difficulty: Easy
-
-Given a string s containing just the characters '(', ')', '{', '}', '[' and ']',
-determine if the input string is valid.
-
-An input string is valid if:
-
-
-
-
-Example 1:
-Input: s = "()"
-Output: true
-
-Example 2:
-Input: s = "()[]{}"
-Output: true
-
-Example 3:
-Input: s = "(]"
-Output: false
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>s = "()</dd>
-<dt>Output:</dt>
-<dd>true</dd>
-<dt>Explanation:</dt>
-<dd>Parentheses '()[]{}' are valid (properly closed)</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: Hash Map, Array, String
-**Patterns**: Hash Table Pattern
-**Time Complexity**: O(n) - Single pass with O(1) hash lookups
-**Space Complexity**: O(n) - Additional hash map storage
-
 ### INTUITION:
 The key insight is that this is a classic stack problem. When we encounter an opening bracket, we push it onto the stack.
 When we encounter a closing bracket, we check if it matches the most recent opening bracket (top of stack).
@@ -82,11 +38,11 @@ Empty stack → True
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 Single pass through the string
 
 ### SPACE COMPLEXITY:
-O(n)
+**O(n)**
 Stack can contain up to n/2 opening brackets in worst case
 
 ### EDGE CASES:
@@ -95,6 +51,7 @@ Stack can contain up to n/2 opening brackets in worst case
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 from typing import Any

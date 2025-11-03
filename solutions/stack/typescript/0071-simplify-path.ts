@@ -1,46 +1,5 @@
 /**
- * # 0071. Simplify Path
- *
- * Difficulty: Easy
- *
- *
- * Given a string path, which is an absolute path (starting with a slash '/') to a file or
- * directory in a Unix-style file system, convert it to the simplified canonical path.
- *
- * In a Unix-style file system:
- * - A period '.' refers to the current directory
- * - A double period '..' refers to the directory up a level
- * - Multiple consecutive slashes ('//') are treated as a single slash '/'
- *
- * The canonical path should follow these rules:
- * - Always start with a single slash '/'
- * - Directories are separated by a single slash '/'
- * - No trailing slash (except for root '/')
- * - No '.' or '..' in the path
- *
- * Return the simplified canonical path.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>path = "/home//foo/"</dd>
- * <dt>Output:</dt>
- * <dd>"/home/foo"</dd>
- * <dt>Explanation:</dt>
- * <dd>Simplified path '/a/./b/../../c/' is '/c'</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
- * **Techniques**: Hash Map Storage, Array Traversal, Stack Operations
- * **Data Structures**: Array, String, Stack
- * **Patterns**: Divide and Conquer, Tree Pattern
- * **Time Complexity**: O(n) where n is path length - Single pass through input
- * **Space Complexity**: O(n) for stack and split components
- *
- * ### INTUITION:
+### INTUITION:
 The key insight is that use a stack to track the directory hierarchy. Split the path by '/', then process each
 component: skip '.', pop for '..', push valid directory names. Finally, join with '/'.
 
@@ -59,44 +18,45 @@ Stack naturally handles the hierarchical nature of file paths.
 Going up (..) is a pop, going down (dirname) is a push.
 
 ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * path = "/a/./b/../../c/"
- * ```
- *
- * Split: ['', 'a', '.', 'b', '..', '..', 'c', '']
- * Process:
- *
- * Steps:
- * Step 1: '' → skip
- * Step 2: 'a' → push ['a']
- * Step 3: '.' → skip ['a']
- * Step 4: 'b' → push ['a', 'b']
- * Step 5: '..' → pop ['a']
- * Step 6: '..' → pop []
- * Step 7: 'c' → push ['c']
- * Step 8: '' → skip ['c']
- * Step 9: Result: "/" + "c" = "/c"
- * 
- * Output:
- * ```
- * "/" + "c" = "/c"
- * ```
- * 
- * ### TIME COMPLEXITY:
- * O(n) where n is path length
- * - Single pass through input
- *
- * ### SPACE COMPLEXITY:
- * O(n) for stack and split components
- *
- * ### EDGE CASES:
+Input:
+```
+path = "/a/./b/../../c/"
+```
+
+Split: ['', 'a', '.', 'b', '..', '..', 'c', '']
+Process:
+
+Steps:
+Step 1: '' → skip
+Step 2: 'a' → push ['a']
+Step 3: '.' → skip ['a']
+Step 4: 'b' → push ['a', 'b']
+Step 5: '..' → pop ['a']
+Step 6: '..' → pop []
+Step 7: 'c' → push ['c']
+Step 8: '' → skip ['c']
+Step 9: Result: "/" + "c" = "/c"
+
+Output:
+```
+"/" + "c" = "/c"
+```
+
+### TIME COMPLEXITY:
+O(n)** where n is path length
+- Single pass through input
+
+### SPACE COMPLEXITY:
+O(n)** for stack and split components
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 class Solution {
   simplifyPath(path: string): string {

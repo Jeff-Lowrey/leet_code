@@ -1,47 +1,8 @@
 /**
- * # Difficulty: Medium
- *
- * # 0071. Simplify Path
- *
- *
- * Given a string path, which is an absolute path (starting with a slash '/') to a file or directory in a Unix-style file system, convert it to the simplified canonical path.
- *
- * In a Unix-style file system, a period '.' refers to the current directory, a double period '..' refers to the directory up a level, and any multiple consecutive slashes (i.e. '//') are treated as a single slash '/'. For this problem, any other format of periods such as '...' are treated as file/directory names.
- *
- * The canonical path should have the following format:
- *
- * - The path starts with a single slash '/'.
- * - Any two directories are separated by a single slash '/'.
- * - The path does not end with a trailing '/'.
- * - The path only contains the directories on the path from the root directory to the target file or directory (i.e., no period '.' or double period '..')
- *
- * Return the simplified canonical path.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>path = "/a/./b/../../c/"</dd>
- * <dt>Output:</dt>
- * <dd>"/c"</dd>
- * <dt>Explanation:</dt>
- * <dd>Simplified path '/a/./b/../../c/' is '/c'</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- * ### METADATA:
- * **Techniques**: Array Traversal, Stack Operations
- * **Data Structures**: Array, String, Stack
- * **Patterns**: Iterative Solution
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(1) - Constant extra space
+### INTUITION:
+[This problem requires understanding of stack concepts. The key insight is to identify the optimal approach for this specific scenario.]
 
- *
- * ### INTUITION:
- * [This problem requires understanding of stack concepts. The key insight is to identify the optimal approach for this specific scenario.]
- *
- * ### APPROACH:
+### APPROACH:
 1. **Analyze the problem**: Understand the input constraints and expected output
 2. **Choose the right technique**: Apply stack methodology
 3. **Implement efficiently**: Focus on optimal time and space complexity
@@ -53,41 +14,42 @@
 - This ensures that space complexity is minimized where possible
 
 ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * path = "/a/./b/../../c/"
- * ```
- *
- * Step 1: Split by '/' and process
- * parts = ['', 'a', '.', 'b', '..', '..', 'c', '']
- * Step 2: Use stack
- * 'a': stack=['a']
- * '.': skip
- * 'b': stack=['a','b']
- * '..': pop, stack=['a']
- * '..': pop, stack=[]
- * 'c': stack=['c']
- *
- * Output:
- * ```
- * "/c"
- * ```
+Input:
+```
+path = "/a/./b/../../c/"
+```
 
- * ### TIME COMPLEXITY:
- * O(n)
- * - Single pass through input
- *
- * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
- *
- * ### EDGE CASES:
+Step 1: Split by '/' and process
+parts = ['', 'a', '.', 'b', '..', '..', 'c', '']
+Step 2: Use stack
+'a': stack=['a']
+'.': skip
+'b': stack=['a','b']
+'..': pop, stack=['a']
+'..': pop, stack=[]
+'c': stack=['c']
+
+Output:
+```
+"/c"
+```
+
+### TIME COMPLEXITY:
+O(n)**
+- Single pass through input
+
+### SPACE COMPLEXITY:
+O(1)**
+- Constant extra space
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 /**
  * Main solution for Problem 071: Simplify Path
