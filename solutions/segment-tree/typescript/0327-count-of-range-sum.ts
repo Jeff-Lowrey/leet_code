@@ -1,53 +1,25 @@
 /**
- * 0327. Count Of Range Sum
- *
- * Difficulty: Hard
- * 
- * Given an integer array nums and two integers lower and upper, return the number of range sums that lie in [lower, upper] inclusive.
- * 
- * Range sum S(i, j) is defined as the sum of the elements in nums between indices i and j inclusive, where i <= j.
- * 
- * **Example:**
- * 
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>nums = [-2, 5, -1], lower = -2, upper = 2</dd>
- * <dt>Output:</dt>
- * <dd>3</dd>
- * <dt>Explanation:</dt>
- * <dd>Count of ranges with sum in [lower=-2, upper=2] is 3</dd>
- * </dl>
- * 
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
- * **Techniques**: Hash Table Lookup, **Hash Map** Storage, Set Operations
- * **Data Structures**: Hash Set, **Array**, Tree
- * **Patterns**: Two Pointers Pattern, Hash Table Pattern
- * **Time Complexity**: O(n log n) - Sorting or divide-and-conquer
- * **Space Complexity**: O(n) - Additional set storage
- * 
- * ### INTUITION:
- * This is an advanced range sum counting problem. The key insight is to use prefix sums: if we have prefix[j] - prefix[i] in [lower, upper], then we need to count how many prefix[i] satisfy: prefix[j] - upper <= prefix[i] <= prefix[j] - lower. This transforms into a range counting problem solvable with merge sort or segment trees.
- * 
- * ### APPROACH:
- * 1. **Compute prefix sums**: Build prefix sum array where prefix[i] represents sum of elements from index 0 to i-1
- * 2. **Transform problem**: Use insight that range sum S(i,j) = prefix[j] - prefix[i], need to count pairs where lower <= prefix[j] - prefix[i] <= upper
- * 3. **Apply merge sort**: Recursively divide prefix array and count valid ranges during merge process
- * 4. **Count cross-boundary ranges**: For each prefix[j] in right half, count how many prefix[i] in left half satisfy the range condition
- * 5. **Use two pointers**: Maintain pointers to find range [prefix[j] - upper, prefix[j] - lower] in sorted left half
- * 6. **Accumulate counts**: Sum counts from left subtree, right subtree, and cross-boundary ranges
- * 7. **Return total count**: Final result is total number of valid range sums found across all merge levels
- * 
- * ### WHY THIS WORKS:
- * The algorithm correctly solves the problem by systematically exploring all valid states while maintaining necessary invariants. Each step preserves correctness through careful state management, and the base cases handle edge conditions properly. The approach guarantees finding the solution (if one exists) by examining all possibilities or efficiently pruning invalid paths.
- * 
- *
+### INTUITION:
+This is an advanced range sum counting problem. The key insight is to use prefix sums: if we have prefix[j] - prefix[i] in [lower, upper], then we need to count how many prefix[i] satisfy: prefix[j] - upper <= prefix[i] <= prefix[j] - lower. This transforms into a range counting problem solvable with merge sort or segment trees.
+
+### APPROACH:
+1. **Compute prefix sums**: Build prefix sum array where prefix[i] represents sum of elements from index 0 to i-1
+2. **Transform problem**: Use insight that range sum S(i,j) = prefix[j] - prefix[i], need to count pairs where lower <= prefix[j] - prefix[i] <= upper
+3. **Apply merge sort**: Recursively divide prefix array and count valid ranges during merge process
+4. **Count cross-boundary ranges**: For each prefix[j] in right half, count how many prefix[i] in left half satisfy the range condition
+5. **Use two pointers**: Maintain pointers to find range [prefix[j] - upper, prefix[j] - lower] in sorted left half
+6. **Accumulate counts**: Sum counts from left subtree, right subtree, and cross-boundary ranges
+7. **Return total count**: Final result is total number of valid range sums found across all merge levels
+
+### WHY THIS WORKS:
+The algorithm correctly solves the problem by systematically exploring all valid states while maintaining necessary invariants. Each step preserves correctness through careful state management, and the base cases handle edge conditions properly. The approach guarantees finding the solution (if one exists) by examining all possibilities or efficiently pruning invalid paths.
+
+
 
 This solution uses set operations for efficient implementation.
- * - Segment tree enables efficient range queries and updates in O(log n) time by maintaining a binary tree structure
- * - Binary Indexed Tree (Fenwick tree) provides O(log n) prefix sum queries and updates using bit manipulation
- *
+- Segment tree enables efficient range queries and updates in O(log n) time by maintaining a binary tree structure
+- Binary Indexed Tree (Fenwick tree) provides O(log n) prefix sum queries and updates using bit manipulation
+
 ### EXAMPLE WALKTHROUGH:
 Given input nums = [-2,5,-1], lower = -2, upper = 2:
 
@@ -56,28 +28,28 @@ Input:
 nums = [-2,5,-1], lower = -2, upper = 2
 ```
 
-*Step 1:** Compute prefix sums
+Step 1:** Compute prefix sums
 - prefix = [0, -2, 3, 2]
 
-*Step 2:** Transform problem
+Step 2:** Transform problem
 - Need pairs where lower ≤ prefix[j] - prefix[i] ≤ upper
 - Equivalent: prefix[j] - upper ≤ prefix[i] ≤ prefix[j] - lower
 
-*Step 3:** Apply merge sort on prefix array
+Step 3:** Apply merge sort on prefix array
 - Divide: Split [0, -2, 3, 2] recursively
 
-*Step 4:** Count cross-boundary ranges during merge
+Step 4:** Count cross-boundary ranges during merge
 - For each prefix[j] in right half, count valid prefix[i] in left half
 - Example: For prefix[j]=2, need -2-2≤prefix[i]≤2-(-2) → -4≤prefix[i]≤4
 
-*Step 5:** Use two pointers
+Step 5:** Use two pointers
 - Maintain pointers to efficiently count valid ranges in sorted halves
 
-*Step 6:** Accumulate counts
+Step 6:** Accumulate counts
 - Count from left subtree + right subtree + cross-boundary
 - Valid range sums: S(0,0)=-2, S(0,2)=2, S(2,2)=-1
 
-*Step 7:** Return total count
+Step 7:** Return total count
 - Final count: 3 valid range sums
 
 Output:
@@ -86,22 +58,23 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
- * O(n log n)
- * - Sorting or divide-and-conquer
- * For merge sort and tree-based approaches
- * 
- * ### SPACE COMPLEXITY:
- * O(n)
- * - Additional set storage
- * For prefix sums and auxiliary structures
- * 
- * ### EDGE CASES:
+O(n log n)**
+- Sorting or divide-and-conquer
+For merge sort and tree-based approaches
+
+### SPACE COMPLEXITY:
+O(n)**
+- Additional set storage
+For prefix sums and auxiliary structures
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 class Solution {
   /**

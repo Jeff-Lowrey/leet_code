@@ -1,53 +1,20 @@
 /**
- * # Difficulty: Medium
- *
- * # 1395. Count Number Of Teams
- *
- *
- * There are n soldiers standing in a line. Every soldier has a unique rating value.
- *
- * You have to form a team of 3 soldiers amongst them under the following rules:
- * - Choose 3 soldiers with index (i, j, k) with rating (rating[i], rating[j], rating[k]).
- * - A team is valid if: (rating[i] < rating[j] < rating[k]) or (rating[i] > rating[j] > rating[k]) where (i < j < k).
- *
- * Return the number of teams you can form given the conditions. (soldiers can be used in multiple teams).
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>[2, 5, 3, 4, 1]</dd>
- * <dt>Output:</dt>
- * <dd>3</dd>
- * <dt>Explanation:</dt>
- * <dd>There are 3 valid teams of soldiers with increasing or decreasing heights</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
- * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
- * **Data Structures**: Hash Set, Array, Tree
- * **Patterns**: Two Pointers Pattern, Hash Table Pattern
- * **Time Complexity**: O(n log n) - Sorting or divide-and-conquer
- * **Space Complexity**: O(n) - Additional hash map storage
- *
- * ### INTUITION:
- * This problem is about counting ordered triplets in an array. We can solve it using multiple approaches: brute force O(n³), dynamic programming O(n²), or advanced data structures like segment trees or Binary Indexed Trees for O(n log n). The key insight is that for each middle element, we count how many valid left and right elements exist.
- *
- * ### APPROACH:
- * 1. **Handle edge case**: Return 0 if array has fewer than 3 elements (need at least 3 for a team)
- * 2. **Iterate through middle positions**: For each soldier j as the middle element (from index 1 to n-2)
- * 3. **Count left elements**: Scan all elements to the left of j, counting how many are smaller and how many are larger
- * 4. **Count right elements**: Scan all elements to the right of j, counting how many are smaller and how many are larger
- * 5. **Calculate ascending teams**: Multiply left_smaller by right_larger (elements that can form ascending triplet with j)
- * 6. **Calculate descending teams**: Multiply left_larger by right_smaller (elements that can form descending triplet with j)
- * 7. **Sum all valid teams**: Add both ascending and descending team counts for each middle position to get total
- *
- * ### WHY THIS WORKS:
- * A set by definition contains only unique elements - when we convert an array to a set, any duplicates are automatically removed. By comparing the lengths of the original array and the set, we can detect if duplicates existed. The early termination approach works because as soon as we find an element already in our seen set, we've proven a duplicate exists without needing to check the remaining elements.
- *
- * ### EXAMPLE WALKTHROUGH:
+### INTUITION:
+This problem is about counting ordered triplets in an array. We can solve it using multiple approaches: brute force O(n³), dynamic programming O(n²), or advanced data structures like segment trees or Binary Indexed Trees for O(n log n). The key insight is that for each middle element, we count how many valid left and right elements exist.
+
+### APPROACH:
+1. **Handle edge case**: Return 0 if array has fewer than 3 elements (need at least 3 for a team)
+2. **Iterate through middle positions**: For each soldier j as the middle element (from index 1 to n-2)
+3. **Count left elements**: Scan all elements to the left of j, counting how many are smaller and how many are larger
+4. **Count right elements**: Scan all elements to the right of j, counting how many are smaller and how many are larger
+5. **Calculate ascending teams**: Multiply left_smaller by right_larger (elements that can form ascending triplet with j)
+6. **Calculate descending teams**: Multiply left_larger by right_smaller (elements that can form descending triplet with j)
+7. **Sum all valid teams**: Add both ascending and descending team counts for each middle position to get total
+
+### WHY THIS WORKS:
+A set by definition contains only unique elements - when we convert an array to a set, any duplicates are automatically removed. By comparing the lengths of the original array and the set, we can detect if duplicates existed. The early termination approach works because as soon as we find an element already in our seen set, we've proven a duplicate exists without needing to check the remaining elements.
+
+### EXAMPLE WALKTHROUGH:
 Input:
 ```
 rating = [2,5,3,4,1]
@@ -71,22 +38,23 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
- * O(n log n)
- * - Sorting or divide-and-conquer
- * For segment tree approach with coordinate compression
- *
- * ### SPACE COMPLEXITY:
- * O(n)
- * - Additional hash map storage
- * For compressed coordinates and tree structure
- *
- * ### EDGE CASES:
+O(n log n)**
+- Sorting or divide-and-conquer
+For segment tree approach with coordinate compression
+
+### SPACE COMPLEXITY:
+O(n)**
+- Additional hash map storage
+For compressed coordinates and tree structure
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 class Solution {
   /**

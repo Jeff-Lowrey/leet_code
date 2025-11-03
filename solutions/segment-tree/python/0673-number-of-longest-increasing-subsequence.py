@@ -1,32 +1,4 @@
 """
-# Difficulty: Medium
-
-# 0673. Number Of Longest Increasing Subsequence
-
-Given an integer array nums, return the number of longest increasing subsequences.
-
-Notice that the sequence has to be strictly increasing.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>[[1, 3, 5, 4, 7]]</dd>
-<dt>Output:</dt>
-<dd>"\nInput: nums"</dd>
-<dt>Explanation:</dt>
-<dd>The number of longest increasing subsequences of length 4 is 2</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: Hash Set, Array, Tree
-**Patterns**: Two Pointers Pattern, Hash Table Pattern
-**Time Complexity**: - DP: O(n²) - Nested iteration through input
-**Space Complexity**: O(n) - Additional set storage
-
 ### INTUITION:
 The key insight is that this extends the classic LIS problem by not just finding the length, but also counting how many subsequences achieve that length. We can use dynamic programming or segment trees. For each position, we track both the longest length ending there and the count of such sequences.
 
@@ -63,11 +35,11 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-- DP: O(n²)
-- Segment Tree: O(n log n)
+- DP: **O(n²)**
+- Segment Tree: **O(n log n)**
 
 ### SPACE COMPLEXITY:
-O(n)
+**O(n)**
 For DP arrays or tree structure
 
 ### EDGE CASES:
@@ -76,6 +48,7 @@ For DP arrays or tree structure
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 from typing import Any

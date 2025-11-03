@@ -1,34 +1,4 @@
 """
-# Difficulty: Hard
-
-# 0850. Rectangle Area II
-
-You are given a 2D array of axis-aligned rectangles. Each rectangle[i] = [xi1, yi1, xi2, yi2] denotes the ith rectangle where (xi1, yi1) are the coordinates of the bottom-left corner, and (xi2, yi2) are the coordinates of the top-right corner.
-
-Calculate the total area covered by all rectangles in the plane. Any area covered by two or more rectangles should only be counted once.
-
-Return the total area. Since the answer may be too large, return it modulo 10^9 + 7.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>[[[0, 0, 2, 2]]]</dd>
-<dt>Output:</dt>
-<dd>"\nInput: {rectangles}"</dd>
-<dt>Explanation:</dt>
-<dd>The total area covered by rectangles (counting overlaps once) is 49</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
-**Data Structures**: Hash Set, Array, Tree
-**Patterns**: Two Pointers Pattern, Hash Table Pattern
-**Time Complexity**: - Sweep Line: O(n² log n)
-**Space Complexity**: O(n) - Additional hash map storage
-
 ### INTUITION:
 This is a classic computational geometry problem. The challenge is handling overlapping rectangles efficiently. We can use a sweep line algorithm with segment trees, or coordinate compression with a 2D grid approach.
 
@@ -71,11 +41,11 @@ Step-by-step execution:
 3. [Final step]
 
 ### TIME COMPLEXITY:
-- Sweep Line: O(n² log n)
-- Coordinate Compression: O(n²)
+- Sweep Line: **O(n² log n)**
+- Coordinate Compression: **O(n²)**
 
 ### SPACE COMPLEXITY:
-O(n)
+**O(n)**
 For coordinate storage and data structures
 
 ### EDGE CASES:
@@ -84,6 +54,7 @@ For coordinate storage and data structures
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 from typing import Any

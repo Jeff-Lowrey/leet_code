@@ -1,30 +1,4 @@
 """
-# Difficulty: Hard
-
-# 0315. Count Of Smaller Numbers After Self
-
-Given an integer array nums, return an integer array counts where counts[i] is the number of smaller elements to the right of nums[i].
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>[2, 1, 1, 0]</dd>
-<dt>Output:</dt>
-<dd>1</dd>
-<dt>Explanation:</dt>
-<dd>Counts of smaller numbers after each element: [2,1,1,0] for [5,2,6,1]</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: Hash Set, Array, Tree
-**Patterns**: Two Pointers Pattern, Hash Table Pattern
-**Time Complexity**: O(n log n) - Sorting or divide-and-conquer
-**Space Complexity**: O(n) - Additional set storage
-
 ### INTUITION:
 This is a classic "count inversions" problem that can be solved efficiently using various advanced data structures. The naive O(n²) approach checks every pair, but we can do better using merge sort, segment trees, or Binary Indexed Trees (Fenwick Trees).
 
@@ -63,11 +37,11 @@ Step-by-step execution:
 3. [Final step]
 
 ### TIME COMPLEXITY:
-O(n log n)
+**O(n log n)**
 For merge sort and tree-based approaches
 
 ### SPACE COMPLEXITY:
-O(n)
+**O(n)**
 For auxiliary data structures
 
 ### EDGE CASES:
@@ -76,6 +50,7 @@ For auxiliary data structures
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 import time

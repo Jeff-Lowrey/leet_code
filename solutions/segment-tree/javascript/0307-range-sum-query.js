@@ -1,84 +1,42 @@
 /**
- * # 0307. Range Sum Query
- *
- * Difficulty: Medium
- *
- *
- * Given an integer array `nums`, handle multiple queries of the following types:
- *
- *
- *
- * Implement the NumArray class:
- * - NumArray(int[] nums) Initializes the object with the integer array nums.
- * - void update(int index, int val) Updates the value of nums[index] to be val.
- * - int sumRange(int left, int right) Returns the sum of the elements between indices left and right.
- *
- * Example:
- * Input:
- * ["NumArray", "sumRange", "update", "sumRange"]
- * [[[1, 3, 5]], [0, 2], [1, 2], [0, 2]]
- * Output:
- * [null, 9, null, 8]
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>["NumArray", "sumRange", "update", "sumRange"]</dd>
- * <dt>Output:</dt>
- * <dd>[null, 9, null, 8]</dd>
- * <dt>Explanation:</dt>
- * <dd>After update(1,10), the sum of range [0,2] is computed as 16 using the segment tree</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- * ### METADATA:
- * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
- * **Data Structures**: Hash Set, Array, String
- * **Patterns**: Two Pointers Pattern, Tree Pattern
- * **Time Complexity**: O(log n) for both update and query - Binary search or tree height
- * **Space Complexity**: O(n) - Additional set storage
+### INTUITION:
+For mutable arrays, prefix sums become inefficient (O(n) updates). Segment trees provide a balanced solution with O(log n) for both updates and range queries by representing the array as a binary tree where each node stores the sum of its range.
 
- *
- * ### INTUITION:
- * For mutable arrays, prefix sums become inefficient (O(n) updates). Segment trees provide a balanced solution with O(log n) for both updates and range queries by representing the array as a binary tree where each node stores the sum of its range.
- *
- * ### APPROACH:
- * 1. **Tree Structure**: Complete binary tree where leaves are array elements
- * 2. **Internal Nodes**: Store sum of their children's ranges
- * 3. **Update**: Propagate changes up from leaf to root
- * 4. **Query**: Traverse tree to collect relevant range sums
- *
- * ### WHY THIS WORKS:
+### APPROACH:
+1. **Tree Structure**: Complete binary tree where leaves are array elements
+2. **Internal Nodes**: Store sum of their children's ranges
+3. **Update**: Propagate changes up from leaf to root
+4. **Query**: Traverse tree to collect relevant range sums
+
+### WHY THIS WORKS:
 The tree height is log n, so we visit at most log n nodes for any operation. Each internal node represents a range, allowing us to quickly skip over irrelevant sections during queries.
 
 ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * nums = [1,3,5]
- * ```
- *
- * Steps:
- * Step 1: Initial array → [1,3,5]
- * Step 2: sumRange(0,2) → sum of indices 0-2 → 1+3+5 = 9
- * Step 3: update(1, 2) → nums[1] = 2 → array becomes [1,2,5]
- * Step 4: sumRange(0,2) → sum of indices 0-2 → 1+2+5 = 8
- *
- * Output:
- * ```
- * 8
- * ```
- *
- * ### TIME COMPLEXITY:
- * O(log n) for both update and query
- * - Binary search or tree height
- *
- * ### SPACE COMPLEXITY:
- * O(n)
- * - Additional set storage
- *
- * ### EDGE CASES:
+Input:
+```
+nums = [1,3,5]
+```
+
+Steps:
+Step 1: Initial array → [1,3,5]
+Step 2: sumRange(0,2) → sum of indices 0-2 → 1+3+5 = 9
+Step 3: update(1, 2) → nums[1] = 2 → array becomes [1,2,5]
+Step 4: sumRange(0,2) → sum of indices 0-2 → 1+2+5 = 8
+
+Output:
+```
+8
+```
+
+### TIME COMPLEXITY:
+O(log n)** for both update and query
+- Binary search or tree height
+
+### SPACE COMPLEXITY:
+O(n)**
+- Additional set storage
+
+### EDGE CASES:
 - **Single element array**: Sum queries return that element
 - **Update single element**: Propagate changes up segment tree
 - **Query entire range**: Return root node value
@@ -100,7 +58,8 @@ The tree height is log n, so we visit at most log n nodes for any operation. Eac
 </details>
 
 </details>
- */
+
+*/
 
 class NumArray {
   /**

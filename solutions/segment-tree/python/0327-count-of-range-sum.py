@@ -1,32 +1,4 @@
 """
-# Difficulty: Hard
-
-# 0327. Count Of Range Sum
-
-Given an integer array nums and two integers lower and upper, return the number of range sums that lie in [lower, upper] inclusive.
-
-Range sum S(i, j) is defined as the sum of the elements in nums between indices i and j inclusive, where i <= j.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>nums = [-2, 5, -1], lower = -2, upper = 2</dd>
-<dt>Output:</dt>
-<dd>3</dd>
-<dt>Explanation:</dt>
-<dd>Count of ranges with sum in [lower=-2, upper=2] is 3</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
-**Data Structures**: Hash Set, Array, Tree
-**Patterns**: Two Pointers Pattern, Hash Table Pattern
-**Time Complexity**: O(n log n) - Sorting or divide-and-conquer
-**Space Complexity**: O(n) - Additional set storage
-
 ### INTUITION:
 This is an advanced range sum counting problem. The key insight is to use prefix sums: if we have prefix[j] - prefix[i] in [lower, upper], then we need to count how many prefix[i] satisfy: prefix[j] - upper <= prefix[i] <= prefix[j] - lower. This transforms into a range counting problem solvable with merge sort or segment trees.
 
@@ -79,11 +51,11 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n log n)
+**O(n log n)**
 For merge sort and tree-based approaches
 
 ### SPACE COMPLEXITY:
-O(n)
+**O(n)**
 For prefix sums and auxiliary structures
 
 ### EDGE CASES:
@@ -92,6 +64,7 @@ For prefix sums and auxiliary structures
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 from typing import Any

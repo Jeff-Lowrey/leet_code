@@ -1,34 +1,4 @@
 """
-# Difficulty: Hard
-
-# 0493. Reverse Pairs
-
-Given an integer array nums, return the number of reverse pairs in the array.
-
-A reverse pair is a pair (i, j) where:
-- 0 <= i < j < nums.length and
-- nums[i] > 2 * nums[j]
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>[[1, 3, 2, 3, 1]]</dd>
-<dt>Output:</dt>
-<dd>"\nInput: nums"</dd>
-<dt>Explanation:</dt>
-<dd>Count of reverse pairs where nums[i] > 2*nums[j] and i < j is 2</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
-**Data Structures**: Hash Set, Array, Stack
-**Patterns**: Two Pointers Pattern, Hash Table Pattern
-**Time Complexity**: O(n log n) - Sorting or divide-and-conquer
-**Space Complexity**: O(n) - Additional set storage
-
 ### INTUITION:
 This is similar to counting inversions but with a modified condition (nums[i] > 2 * nums[j] instead of nums[i] > nums[j]). We can use merge sort to count these pairs efficiently during the merge process, or use segment trees / BIT with coordinate compression.
 
@@ -65,11 +35,11 @@ Step-by-step execution:
 3. [Final step]
 
 ### TIME COMPLEXITY:
-O(n log n)
+**O(n log n)**
 For merge sort and tree-based approaches
 
 ### SPACE COMPLEXITY:
-O(n)
+**O(n)**
 For auxiliary arrays and recursion stack
 
 ### EDGE CASES:
@@ -78,6 +48,7 @@ For auxiliary arrays and recursion stack
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 from typing import Any

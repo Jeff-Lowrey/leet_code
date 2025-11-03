@@ -1,54 +1,20 @@
 /**
- * # Difficulty: Hard
- *
- * # 0699. Falling Squares
- *
- *
- * There are several squares being dropped onto the X-axis of a 2D plane.
- *
- * You are given a 2D integer array positions where positions[i] = [lefti, sideLengthi] represents the ith square with a side length of sideLengthi that is dropped with its left edge aligned with X-coordinate lefti.
- *
- * Each square is dropped one at a time from a height above any landed squares. It then falls downward (negative Y direction) until it either lands on the top side of another square or on the X-axis. A square brushing the left/right side of another square does not count as landing on it. Once it lands, it freezes in place and cannot be moved.
- *
- * Return an integer array ans where ans[i] represents the height of the tallest stack of squares after dropping the ith square.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>[2, 5, 5]</dd>
- * <dt>Output:</dt>
- * <dd>1</dd>
- * <dt>Explanation:</dt>
- * <dd>After each square falls, the skyline heights are [2,5,5]</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- * ### METADATA:
- * **Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
- * **Data Structures**: Hash Set, Array, String
- * **Patterns**: Two Pointers Pattern, Greedy Algorithm
- * **Time Complexity**: O(n² log n)
- * **Space Complexity**: O(n) - Additional set storage
-
- *
- * ### INTUITION:
+### INTUITION:
 The key insight is that this is a range maximum query problem with updates. For each falling square, we need to find the maximum height in its range [left, right), then update that range with the new height. Segment trees with lazy propagation are perfect for this.
 
 ### APPROACH:
- * 1. **Coordinate compression**: Extract all left and right boundaries from positions, create sorted mapping to compress coordinates
- * 2. **Build segment tree**: Create segment tree with lazy propagation to handle range queries and updates efficiently
- * 3. **Process each square**: For each falling square, determine its compressed coordinate range [left, right)
- * 4. **Query max height**: Use segment tree to find maximum height in the square's landing range
- * 5. **Calculate new height**: Add square's side length to the maximum height found to get new height at this position
- * 6. **Update range**: Use lazy propagation to update all positions in range with the new height value
- * 7. **Track and return heights**: After each square, query global maximum and add to result array
- *
- * ### WHY THIS WORKS:
- * The algorithm correctly solves the problem by systematically exploring all valid states while maintaining necessary invariants. Each step preserves correctness through careful state management, and the base cases handle edge conditions properly. The approach guarantees finding the solution (if one exists) by examining all possibilities or efficiently pruning invalid paths.
- *
- * ### EXAMPLE WALKTHROUGH:
+1. **Coordinate compression**: Extract all left and right boundaries from positions, create sorted mapping to compress coordinates
+2. **Build segment tree**: Create segment tree with lazy propagation to handle range queries and updates efficiently
+3. **Process each square**: For each falling square, determine its compressed coordinate range [left, right)
+4. **Query max height**: Use segment tree to find maximum height in the square's landing range
+5. **Calculate new height**: Add square's side length to the maximum height found to get new height at this position
+6. **Update range**: Use lazy propagation to update all positions in range with the new height value
+7. **Track and return heights**: After each square, query global maximum and add to result array
+
+### WHY THIS WORKS:
+The algorithm correctly solves the problem by systematically exploring all valid states while maintaining necessary invariants. Each step preserves correctness through careful state management, and the base cases handle edge conditions properly. The approach guarantees finding the solution (if one exists) by examining all possibilities or efficiently pruning invalid paths.
+
+### EXAMPLE WALKTHROUGH:
 Input:
 ```
 [[1,2],[2,3],[6,1]]
@@ -66,21 +32,22 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
- * O(n² log n)
- * Due to coordinate compression and segment tree operations
- *
- * ### SPACE COMPLEXITY:
- * O(n)
- * - Additional set storage
- * For coordinate mapping and tree structure
- *
- * ### EDGE CASES:
+O(n² log n)**
+Due to coordinate compression and segment tree operations
+
+### SPACE COMPLEXITY:
+O(n)**
+- Additional set storage
+For coordinate mapping and tree structure
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 /**
  * Main solution for Problem 699: Falling Squares

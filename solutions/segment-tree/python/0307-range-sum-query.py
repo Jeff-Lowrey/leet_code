@@ -1,37 +1,4 @@
 """
-# 0307. Range Sum Query
-
-# Difficulty: Medium
-
-Given an integer array `nums`, handle multiple queries of the following types:
-
-
-
-Implement the NumArray class:
-- NumArray(int[] nums) Initializes the object with the integer array nums.
-- void update(int index, int val) Updates the value of nums[index] to be val.
-- int sumRange(int left, int right) Returns the sum of the elements between indices left and right.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>["NumArray", "sumRange", "update", "sumRange"]</dd>
-<dt>Output:</dt>
-<dd>[null, 9, null, 8]</dd>
-<dt>Explanation:</dt>
-<dd>After update(1,10), the sum of range [0,2] is computed as 16 using the segment tree</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: Hash Set, Array, Tree
-**Patterns**: Two Pointers Pattern, Hash Table Pattern
-**Time Complexity**: O(log n) for both update and query - Binary search or tree height
-**Space Complexity**: O(n) - Additional set storage
-
 ### INTUITION:
 For mutable arrays, prefix sums become inefficient (O(n) updates). Segment trees provide a balanced solution with O(log n) for both updates and range queries by representing the array as a binary tree where each node stores the sum of its range.
 
@@ -62,12 +29,11 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(log n) for both update and query
+**O(log n)** for both update and query
 
 ### SPACE COMPLEXITY:
-O(n)
+**O(n)**
 - Additional set storage
-
 
 ### EDGE CASES:
 - **Single element array**: Sum queries return that element
@@ -91,6 +57,7 @@ O(n)
 </details>
 
 </details>
+
 """
 
 from typing import Any
