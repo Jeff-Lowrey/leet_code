@@ -1,30 +1,4 @@
 """
-# Difficulty: Hard
-
-# 0460. LFU Cache
-
-Design and implement a Least Frequently Used (LFU) cache.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>LFUCache(2)</dd>
-<dt>Output:</dt>
-<dd>put(1, 1): cache={1:(1,1)}, freq_to_keys={1:[1]}, min_freq=1</dd>
-<dt>Explanation:</dt>
-<dd>Cache is initialized with capacity 2, and after put(1, 1), the cache contains key 1 with value 1 and frequency 1, making it the least frequently used item</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup
-**Data Structures**: Hash Map, Array
-**Patterns**: Hash Table Pattern
-**Time Complexity**: - get: O(1)
-**Space Complexity**: O(capacity) for storing items
-
 ### INTUITION:
 The key insight is that lFU cache evicts the least frequently used item when capacity is reached.
 If multiple items have the same frequency, evict the least recently used (LRU) among them.
@@ -78,10 +52,10 @@ Step-by-step execution:
 3. [Final step]
 
 ### TIME COMPLEXITY:
-O(1) - All operations (get, put) use hash maps and frequency buckets for constant-time access
+**O(1)** - All operations (get, put) use hash maps and frequency buckets for constant-time access
 
 ### SPACE COMPLEXITY:
-O(capacity) for storing items
+**O(capacity)** for storing items
 
 ### EDGE CASES:
 - **Empty input**: Handle when input is empty
@@ -89,4 +63,5 @@ O(capacity) for storing items
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """

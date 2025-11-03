@@ -1,30 +1,4 @@
 """
-# Difficulty: Medium
-
-# 0173. Binary Search Tree Iterator
-
-Implement the BSTIterator class that represents an iterator over the in-order traversal of a binary search tree (BST).
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>Input: [7, 3, 15, null, null, 9, 20]</dd>
-<dt>Output:</dt>
-<dd>Stack after init: [7, 3]</dd>
-<dt>Explanation:</dt>
-<dd>The iterator initializes by traversing left from the root (7), pushing nodes 7 and 3 onto the stack, with 3 on top as it's the leftmost (smallest) node</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Two Pointers, Stack Operations, Graph Traversal
-**Data Structures**: Stack, Tree, Linked List
-**Patterns**: Two Pointers Pattern, Hash Table Pattern
-**Time Complexity**: - Constructor: O(h) where h is height
-**Space Complexity**: O(h) for the stack
-
 ### INTUITION:
 The key insight is that we need to implement an iterator that traverses a BST in in-order (left -> root -> right).
 The challenge is to do this without storing all values upfront, but instead using a controlled stack-based approach.
@@ -61,12 +35,12 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-- Constructor: O(h) where h is height
-- next(): Amortized O(1)
-- hasNext(): O(1)
+- Constructor: **O(h)** where h is height
+- next(): Amortized **O(1)**
+- hasNext(): **O(1)**
 
 ### SPACE COMPLEXITY:
-O(h) for the stack where h is height
+**O(h)** for the stack where h is height
 
 ### EDGE CASES:
 - **Empty input**: Handle when input is empty
@@ -74,6 +48,7 @@ O(h) for the stack where h is height
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 from typing import Any

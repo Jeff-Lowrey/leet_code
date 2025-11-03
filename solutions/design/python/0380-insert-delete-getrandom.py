@@ -1,42 +1,4 @@
 """
-# Difficulty: Medium
-
-# 0380. Insert Delete GetRandom O(1)
-
-Design a data structure that supports insert, delete, and getRandom operations in average O(1) time.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>
-["RandomizedSet", "insert", "remove", "insert", "getRandom", "remove", "insert", "getRandom"]<br>
-[[], [1], [2], [2], [], [1], [2], []]
-</dd>
-<dt>Output:</dt>
-<dd>[null, true, false, true, 2, true, false, 2]</dd>
-<dt>Explanation:</dt>
-<dd>
-RandomizedSet randomizedSet = new RandomizedSet();<br>
-randomizedSet.insert(1); // Inserts 1 to the set. Returns true as 1 was inserted successfully.<br>
-randomizedSet.remove(2); // Returns false as 2 does not exist in the set.<br>
-randomizedSet.insert(2); // Inserts 2 to the set, returns true. Set now contains [1,2].<br>
-randomizedSet.getRandom(); // getRandom() should return either 1 or 2 randomly.<br>
-randomizedSet.remove(1); // Removes 1 from the set, returns true. Set now contains [2].<br>
-randomizedSet.insert(2); // 2 was already in the set, so return false.<br>
-randomizedSet.getRandom(); // Since 2 is the only number in the set, getRandom() will always return 2.
-</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Set Operations, Backtracking
-**Data Structures**: Hash Map, Hash Set, Array
-**Patterns**: Backtracking
-**Time Complexity**: - insert: O(1)
-**Space Complexity**: O(n) for storing n elements - Additional hash map storage
-
 ### INTUITION:
 The key insight is that to achieve O(1) for all three operations, we need:
 - Insert: O(1) - use hash map
@@ -93,12 +55,12 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-- insert: O(1)
-- remove: O(1)
-- getRandom: O(1)
+- insert: **O(1)**
+- remove: **O(1)**
+- getRandom: **O(1)**
 
 ### SPACE COMPLEXITY:
-O(n) for storing n elements
+**O(n)** for storing n elements
 
 ### EDGE CASES:
 - **Empty input**: Handle when input is empty
@@ -106,4 +68,5 @@ O(n) for storing n elements
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
