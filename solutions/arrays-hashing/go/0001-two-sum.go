@@ -39,34 +39,42 @@
  * This allows us to find the pair in a single pass.
  *
  * ### APPROACH:
- * We start by creating a map to store the numbers we've encountered along with their indices.
- *
- * As we iterate through the array, for each number we calculate its complement - the value that
- * would sum with the current number to reach our target. The complement is simply
- * `target - current_number`.
- *
- * Before adding the current number to our hash map, we first check if its complement already
- * exists in the map. If we find the complement, we've discovered our pair and can immediately
- * return both indices: the stored index from the hash map and the current index.
- *
- * If the complement doesn't exist yet, we store the current number and its index in the hash map.
- * This prepares us for future iterations where this number might be the complement we're looking for.
- *
- * The beauty of this approach is that we only need to make a single pass through the array.
- * Each lookup in the hash map is O(1), making this dramatically faster than checking all possible pairs.
- *
- * ### WHY THIS WORKS:
- * Instead of checking every pair (O(n²)), we use hash map for O(1) lookup.
- *
- * We only need to store numbers we've already seen.
- *
- * When we find a complement, we know the current index and the stored index.
- *
- * ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * nums = [2,7,11,15], target = 9
- * ```
+1. We start by creating a map to store the numbers we've encountered along with their indices.
+2. As we iterate through the array, for each number we calculate its complement - the value that
+would sum with the current number to reach our target.
+3. The complement is simply
+`target - current_number`.
+4. Before adding the current number to our hash map, we first check if its complement already
+exists in the map.
+5. If we find the complement, we've discovered our pair and can immediately
+return both indices: the stored index from the hash map and the current index.
+6. If the complement doesn't exist yet, we store the current number and its index in the hash map.
+7. This prepares us for future iterations where this number might be the complement we're looking for.
+8. The beauty of this approach is that we only need to make a single pass through the array.
+9. Each lookup in the hash map is O(1), making this dramatically faster than checking all possible pairs.
+
+### WHY THIS WORKS:
+Instead of checking every pair (O(n²)), we use hash map for O(1) lookup.
+
+We only need to store numbers we've already seen.
+
+When we find a complement, we know the current index and the stored index.
+
+### EXAMPLE WALKTHROUGH:
+Input:
+```
+nums = [2,7,11,15], target = 9
+```
+
+Output:
+```
+[Expected output]
+```
+
+Step-by-step execution:
+1. [First step]
+2. [Second step]
+3. [Final step]
 
 ### TIME COMPLEXITY:
  * **O(n)** - Single pass through array with O(1) hash map lookups

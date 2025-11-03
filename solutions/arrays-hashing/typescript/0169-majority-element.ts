@@ -24,22 +24,22 @@
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  *
  * ### METADATA:
- * **Techniques**: Hash Table Lookup, Array Traversal, Sorting, Boyer-Moore Voting
- * **Data Structures**: Hash Map, Hash Set, Array
- * **Patterns**: Hash Table Pattern, Voting Algorithm
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(1) - Constant extra space
+ * **Techniques**: Boyer-Moore Voting Algorithm, Candidate Selection, Vote Counting
+ * **Data Structures**: Array (input only)
+ * **Patterns**: Voting Algorithm, Majority Element Detection
+ * **Time Complexity**: O(n) - Single pass through array
+ * **Space Complexity**: O(1) - Only two variables (candidate, count)
  *
  * ### INTUITION:
  * Since the majority element appears more than n/2 times, it will always "survive" any cancellation process. The Boyer-Moore voting algorithm leverages this by maintaining a candidate and count, canceling out different elements.
  *
  * ### APPROACH:
- * 1. **Initialize**: Set candidate to null and count to 0
- * 2. **Vote**: For each element, if count is 0, make it the new candidate
- * 3. **Count**: If element matches candidate, increment count; otherwise decrement
- * 4. **Result**: The surviving candidate is the majority element
- *
- * ### WHY THIS WORKS:
+1. **Initialize**: Set candidate to null and count to 0
+2. **Vote**: For each element, if count is 0, make it the new candidate
+3. **Count**: If element matches candidate, increment count; otherwise decrement
+4. **Result**: The surviving candidate is the majority element
+
+### WHY THIS WORKS:
  * - Majority element appears > n/2 times
  * - Non-majority elements can at most cancel out n/2 occurrences
  * - Majority element will always have positive net count
@@ -67,14 +67,10 @@
  * ```
  * 
  * ### TIME COMPLEXITY:
- * O(n)
- * - Single pass through input
- * Single pass through the array
+ * **O(n)** - where n is the length of the array. We perform a single pass through all n elements, executing constant-time operations for each: checking if count is 0 (O(1)), comparing the current number to the candidate (O(1)), and incrementing/decrementing the count (O(1)). Total: O(n × 1) = O(n). This is optimal since we must examine every element at least once to determine the majority.
  *
  * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
- * Only using constant extra space
+ * **O(1)** - constant extra space. We use only two variables regardless of input size: `candidate` (stores one integer) and `count` (stores one integer). The space used doesn't grow with n. This is optimal space complexity for this problem. The hash map approach would require O(n) space to store frequency counts, and the sorting approach would require O(1) extra space (assuming in-place sort) but O(n log n) time.
  *
  * ### EDGE CASES:
  * - **Single element**: Return that element (it's the majority)

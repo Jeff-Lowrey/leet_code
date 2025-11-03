@@ -29,7 +29,7 @@ word or phrase, typically using all the original letters exactly once.
 **Space Complexity**: O(1) - at most 26 lowercase letters
 
 ### INTUITION:
-Two strings are anagrams if they contain the exact same characters with the same frequencies. We can verify this by counting character frequencies in both strings.
+The key insight is that two strings are anagrams if they contain the exact same characters with the same frequencies. We can verify this by counting character frequencies in both strings.
 
 ### APPROACH:
 1. **Length check**: If strings have different lengths, they can't be anagrams
@@ -61,17 +61,15 @@ True
 ```
 
 ### TIME COMPLEXITY:
-O(n)
-- Single pass through input
-
+**O(n)** - where n is the length of the strings (assuming both have the same length). We make two passes through the strings: one to build the character frequency map from the first string (O(n)), and one to verify against the second string (O(n)). Each character lookup and insertion in the hash map is O(1). Total: O(n) + O(n) = O(2n) = O(n). Early termination when a mismatch is found provides better average-case performance.
 
 ### SPACE COMPLEXITY:
-O(1) - at most 26 lowercase letters
+**O(1)** - for the array approach. We use a fixed-size array of 26 elements for lowercase English letters, regardless of input size. For the hash map approach, worst case is O(k) where k is the number of unique characters. Since the problem typically assumes lowercase English letters only (26 characters max), this is O(26) = O(1) constant space.
 
 ### EDGE CASES:
-- Empty strings → True (both empty)
-- Different lengths → False immediately
-- Single character → direct comparison
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

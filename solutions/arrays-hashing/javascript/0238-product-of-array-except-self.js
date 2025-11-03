@@ -24,28 +24,29 @@
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  * ### METADATA:
- * **Techniques**: Hash Map Storage, Array Traversal, Two Pointers
- * **Data Structures**: Array, String, Tree
- * **Patterns**: Two Pointers Pattern
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(1) - Constant extra space
+ * **Techniques**: Prefix Product, Suffix Product, Two-Pass Array Traversal
+ * **Data Structures**: Array
+ * **Patterns**: Prefix/Suffix Pattern, Space Optimization
+ * **Time Complexity**: O(n) - Two passes through array
+ * **Space Complexity**: O(1) - Only output array (not counted), two variables for tracking products
 
  *
  * ### INTUITION:
- * [This problem requires understanding of arrays hashing concepts. The key insight is to identify the optimal approach for this specific scenario.]
- *
- * ### APPROACH:
- * 1. **Analyze the problem**: Understand the input constraints and expected output
- * 2. **Choose the right technique**: Apply arrays hashing methodology
- * 3. **Implement efficiently**: Focus on optimal time and space complexity
- * 4. **Handle edge cases**: Consider boundary conditions and special cases
- *
- * ### WHY THIS WORKS:
- * - The solution leverages arrays hashing principles
- * - Time complexity is optimized for the given constraints
- * - Space complexity is minimized where possible
- *
- * ### EXAMPLE WALKTHROUGH:
+The key insight is that for each position i, the product of all elements except nums[i] equals (product of all elements to the left of i) × (product of all elements to the right of i). We can calculate these prefix and suffix products in two passes without using division. First pass: build left products. Second pass: multiply by right products while traversing backwards.
+
+### APPROACH:
+1. **First pass (left to right)**: Calculate prefix products - for each position i, store the product of all elements to its left in result[i]
+2. **Initialize left product**: Start with leftProduct = 1 (no elements to the left of index 0)
+3. **Second pass (right to left)**: Calculate suffix products and combine - traverse backwards, multiplying result[i] by the product of all elements to its right
+4. **Initialize right product**: Start with rightProduct = 1 (no elements to the right of last index)
+5. **Combine results**: result[i] already has left product, multiply it by right product to get final answer
+
+### WHY THIS WORKS:
+- This ensures that the solution leverages arrays hashing principles
+- This ensures that time complexity is optimized for the given constraints
+- This ensures that space complexity is minimized where possible
+
+### EXAMPLE WALKTHROUGH:
  * Input:
  * ```
  * nums = [1, 2, 3, 4]
@@ -78,19 +79,17 @@
  * ```
 
  * ### TIME COMPLEXITY:
- * O(n)
- * - Single pass through input
+ * **O(n)** - where n is the length of the array. We make exactly two passes through the array: one left-to-right pass to calculate prefix products (O(n)), and one right-to-left pass to calculate suffix products and combine them with the prefix products (O(n)). Each pass performs constant-time operations (multiplication and array access) for each element. Total: O(n) + O(n) = O(2n) = O(n). This is optimal since we must examine every element at least once.
  *
  * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
+ * **O(1)** - We use only two variables (leftProduct and rightProduct) for tracking running products, regardless of input size. The result array is required for output and is not counted as extra space per the problem constraints. If we count the output array, the space complexity would be O(n), but conventionally output space is excluded from space complexity analysis. This makes our solution optimal for space.
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 /**

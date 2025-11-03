@@ -29,10 +29,10 @@
  * **Space Complexity**: O(n) - Additional set storage
  *
  * ### INTUITION:
- * If all elements are unique, then the array length equals the set length.
- * If there are duplicates, the set will be smaller than the array.
- *
- * ### APPROACH:
+The key insight is that if all elements are unique, then the array length equals the set length.
+If there are duplicates, the set will be smaller than the array.
+
+### APPROACH:
  * **Data structures: Hash Set (seen elements tracking), Array (input)**
  * 1. **Convert array to set**: Transform the input array into a set data structure, which automatically removes all duplicate values
  * 2. **Compare lengths**: Calculate the length of both the original array and the newly created set
@@ -44,45 +44,45 @@
  * A set by definition contains only unique elements - when we convert an array to a set, any duplicates are automatically removed. By comparing the lengths of the original array and the set, we can detect if duplicates existed. The early termination approach works because as soon as we find an element already in our seen set, we've proven a duplicate exists without needing to check the remaining elements.
  *
  * ### EXAMPLE WALKTHROUGH:
-  * Input:
- * ```
- * nums = [1, 2, 3, 1]
- * ```
- *
- * **Step 1:** Convert array to set
- * - Input array: [1, 2, 3, 1]
- * - After set conversion: {1, 2, 3}
- * - Duplicates automatically removed during conversion
- *
- * **Step 2:** Compare lengths
- * - Original array length: 4
- * - Set length: 3
- * - Lengths are different (4 ≠ 3)
- *
- * **Step 3:** Detect duplicates
- * - Since array.length (4) > set.length (3), duplicates existed
- * - The missing element (1) appeared more than once
- *
- * **Step 4:** Return result
- * - Lengths differ → return true (duplicates found)
- *
- * **Step 5:** Alternative early termination approach
- * - seen = {} (start with empty set)
- * - Check nums[0]=1: not in seen, add it → seen = {1}
- * - Check nums[1]=2: not in seen, add it → seen = {1, 2}
- * - Check nums[2]=3: not in seen, add it → seen = {1, 2, 3}
- * - Check nums[3]=1: found in seen → return true immediately (better average performance)
- *
- * Output:
- * ```
- * true
- * ```
- *
- * ### TIME COMPLEXITY:
- * O(n) - Single pass with O(1) hash lookups
+Input:
+```
+nums = [1, 2, 3, 1]
+```
+
+*Step 1:** Convert array to set
+- Input array: [1, 2, 3, 1]
+- After set conversion: {1, 2, 3}
+- Duplicates automatically removed during conversion
+
+*Step 2:** Compare lengths
+- Original array length: 4
+- Set length: 3
+- Lengths are different (4 ≠ 3)
+
+*Step 3:** Detect duplicates
+- Since array.length (4) > set.length (3), duplicates existed
+- The missing element (1) appeared more than once
+
+*Step 4:** Return result
+- Lengths differ → return true (duplicates found)
+
+*Step 5:** Alternative early termination approach
+- seen = {} (start with empty set)
+- Check nums[0]=1: not in seen, add it → seen = {1}
+- Check nums[1]=2: not in seen, add it → seen = {1, 2}
+- Check nums[2]=3: not in seen, add it → seen = {1, 2, 3}
+- Check nums[3]=1: found in seen → return true immediately (better average performance)
+
+Output:
+```
+true
+```
+
+### TIME COMPLEXITY:
+ * **O(n)** where n is the length of the array. In the worst case (no duplicates), we iterate through all n elements, performing one set membership check (O(1)) and one set insertion (O(1)) for each element. Total: O(n × 1) = O(n). In the best case (duplicate found early), we return immediately, giving us O(1). Average case is still O(n) as we might need to check most elements. The simple set conversion approach always takes O(n) to create the set.
 
  * ### SPACE COMPLEXITY:
- * O(n) - Additional set storage
+ * **O(n)** - We create a set that in the worst case (all elements unique) stores all n elements from the array. Even with duplicates, we may store up to n unique values. The space used grows linearly with input size. For the set comparison approach, TypeScript/JavaScript creates a temporary set of size up to n. For the early termination approach, we build a set incrementally but still use up to O(n) space.
 
  * ### EDGE CASES:
  * - **Empty array**: Return False (no duplicates possible)

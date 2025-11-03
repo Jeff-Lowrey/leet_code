@@ -21,28 +21,29 @@
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  * ### METADATA:
- * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
- * **Data Structures**: Hash Map, Hash Set, Array
- * **Patterns**: Hash Table Pattern
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(1) - Constant extra space
+ * **Techniques**: Frequency Counting, Bucket Sort, Hash Map Storage
+ * **Data Structures**: Hash Map (frequency counting), Array (buckets), Nested Arrays
+ * **Patterns**: Bucket Sort Pattern, Frequency Analysis
+ * **Time Complexity**: O(n) - Frequency counting O(n) + bucket sort O(n)
+ * **Space Complexity**: O(n) - Hash map O(n) + buckets array O(n)
 
  *
  * ### INTUITION:
- * [This problem requires understanding of arrays hashing concepts. The key insight is to identify the optimal approach for this specific scenario.]
- *
- * ### APPROACH:
- * 1. **Analyze the problem**: Understand the input constraints and expected output
- * 2. **Choose the right technique**: Apply arrays hashing methodology
- * 3. **Implement efficiently**: Focus on optimal time and space complexity
- * 4. **Handle edge cases**: Consider boundary conditions and special cases
- *
- * ### WHY THIS WORKS:
- * - The solution leverages arrays hashing principles
- * - Time complexity is optimized for the given constraints
- * - Space complexity is minimized where possible
- *
- * ### EXAMPLE WALKTHROUGH:
+The key insight is to use bucket sort based on frequency. Since the maximum frequency any element can have is n (all elements the same), we can create n+1 buckets where bucket[i] contains all numbers that appear exactly i times. First count frequencies with a hash map, then place numbers into frequency buckets, finally collect k elements from highest frequency buckets first. This achieves O(n) time by avoiding sorting.
+
+### APPROACH:
+1. **Count frequencies**: Build hash map of number → frequency for all elements in nums
+2. **Create frequency buckets**: Initialize array of n+1 buckets, where bucket[freq] holds all numbers with that frequency
+3. **Fill buckets**: For each (number, frequency) pair from hash map, add number to bucket[frequency]
+4. **Collect top k**: Traverse buckets from highest frequency (n) down to lowest, collecting elements until we have k total
+5. **Return result**: Slice to ensure exactly k elements returned (handle case where last bucket has more than needed)
+
+### WHY THIS WORKS:
+- This ensures that the solution leverages arrays hashing principles
+- This ensures that time complexity is optimized for the given constraints
+- This ensures that space complexity is minimized where possible
+
+### EXAMPLE WALKTHROUGH:
  * Input:
  * ```
  * nums = [1,1,1,2,2,3], k = 2
@@ -73,19 +74,17 @@
  * ```
 
  * ### TIME COMPLEXITY:
- * O(n)
- * - Single pass through input
+ * **O(n)** - where n is the length of the nums array. We perform three linear passes: (1) count frequencies in hash map O(n), (2) place numbers into frequency buckets O(unique elements) ≤ O(n), (3) collect k elements from buckets O(n) in worst case. Total: O(n) + O(n) + O(n) = O(3n) = O(n). This is better than heap-based solutions which would be O(n log k) or sorting-based solutions which would be O(n log n).
  *
  * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
+ * **O(n)** - We use a frequency hash map that stores at most n unique elements (O(n)), plus a buckets array of size n+1 where each bucket can hold numbers (O(n) total across all buckets in worst case), plus the result array of size k (O(k) ≤ O(n)). Total space: O(n) + O(n) + O(k) = O(n). The dominant factors are the hash map and buckets array, both O(n).
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 /**

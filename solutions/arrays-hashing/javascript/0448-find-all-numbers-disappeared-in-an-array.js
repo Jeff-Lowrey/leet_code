@@ -31,17 +31,17 @@
  * [This problem requires understanding of arrays hashing concepts. The key insight is to identify the optimal approach for this specific scenario.]
  *
  * ### APPROACH:
- * 1. **Analyze the problem**: Understand the input constraints and expected output
- * 2. **Choose the right technique**: Apply arrays hashing methodology
- * 3. **Implement efficiently**: Focus on optimal time and space complexity
- * 4. **Handle edge cases**: Consider boundary conditions and special cases
- *
- * ### WHY THIS WORKS:
- * - The solution leverages arrays hashing principles
- * - Time complexity is optimized for the given constraints
- * - Space complexity is minimized where possible
- *
- * ### EXAMPLE WALKTHROUGH:
+1. **Analyze the problem**: Understand the input constraints and expected output
+2. **Choose the right technique**: Apply arrays hashing methodology
+3. **Implement efficiently**: Focus on optimal time and space complexity
+4. **Handle edge cases**: Consider boundary conditions and special cases
+
+### WHY THIS WORKS:
+- This ensures that the solution leverages arrays hashing principles
+- This ensures that time complexity is optimized for the given constraints
+- This ensures that space complexity is minimized where possible
+
+### EXAMPLE WALKTHROUGH:
  * Input:
  * ```
  * nums = [4,3,2,7,8,2,3,1]
@@ -68,19 +68,17 @@
  * ```
 
  * ### TIME COMPLEXITY:
- * O(n)
- * - Single pass through input
+ * **O(n)** - where n is the length of the array. We make two complete passes through the array: (1) first pass marks present numbers by negating values at corresponding indices (O(n)), (2) second pass identifies which indices have positive values to determine missing numbers (O(n)). Each operation within the loops is O(1). Total: O(n) + O(n) = O(2n) = O(n). This is optimal since we must examine every element.
  *
  * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
+ * **O(1)** - excluding the output array. We use only constant extra space for variables (loop counters, index calculations). The result array doesn't count toward space complexity as it's required output. We modify the input array in-place using negation to mark present numbers, avoiding any additional data structures. This achieves the follow-up requirement of O(1) space without using extra sets or hash maps.
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 /**

@@ -22,28 +22,29 @@
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  * ### METADATA:
- * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
- * **Data Structures**: Hash Set, Array
- * **Patterns**: Hash Table Pattern, Greedy Algorithm
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(1) - Constant extra space
+ * **Techniques**: Hash Set for O(1) Lookups, Sequence Start Detection, Greedy Counting
+ * **Data Structures**: Hash Set (for deduplication and fast lookups), Array
+ * **Patterns**: Hash Table Pattern, Greedy Algorithm, Sequence Detection
+ * **Time Complexity**: O(n) - Each element visited at most twice
+ * **Space Complexity**: O(n) - Hash Set stores all unique elements
 
  *
  * ### INTUITION:
- * [This problem requires understanding of arrays hashing concepts. The key insight is to identify the optimal approach for this specific scenario.]
- *
- * ### APPROACH:
- * 1. **Analyze the problem**: Understand the input constraints and expected output
- * 2. **Choose the right technique**: Apply arrays hashing methodology
- * 3. **Implement efficiently**: Focus on optimal time and space complexity
- * 4. **Handle edge cases**: Consider boundary conditions and special cases
- *
- * ### WHY THIS WORKS:
- * - The solution leverages arrays hashing principles
- * - Time complexity is optimized for the given constraints
- * - Space complexity is minimized where possible
- *
- * ### EXAMPLE WALKTHROUGH:
+The key insight is to use a hash set for O(1) lookups and only start counting sequences from their beginning. For each number, check if (num-1) exists - if not, this is a sequence start. Then count consecutive numbers (num+1, num+2, etc.) until we can't find the next number. This ensures each number is visited at most twice (once to check if it's a start, once as part of a sequence), giving us O(n) time.
+
+### APPROACH:
+1. **Convert to Set**: Store all numbers in a Set for O(1) lookups
+2. **Find sequence starts**: For each number, check if (num-1) exists. If not, it's a sequence start
+3. **Count consecutive**: From each start, count how many consecutive numbers exist (num+1, num+2, etc.)
+4. **Track maximum**: Keep track of the longest sequence found
+5. **Return result**: Return the length of the longest consecutive sequence
+
+### WHY THIS WORKS:
+- This ensures that the solution leverages arrays hashing principles
+- This ensures that time complexity is optimized for the given constraints
+- This ensures that space complexity is minimized where possible
+
+### EXAMPLE WALKTHROUGH:
  * Input:
  * ```
  * nums = [100, 4, 200, 1, 3, 2]
@@ -74,19 +75,17 @@
  * ```
 
  * ### TIME COMPLEXITY:
- * O(n)
- * - Single pass through input
+ * **O(n)** - where n is the number of elements in the array. Although we have nested loops, each number is visited at most twice: once in the outer loop to check if it's a sequence start (checking if num-1 exists), and potentially once more as part of counting a sequence (in the inner while loop). The key insight is that the while loop only executes for numbers that are sequence starts, and each number can only be part of one sequence. Total operations: at most 2n lookups and iterations, giving us O(2n) = O(n).
  *
  * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
+ * **O(n)** - We store all n unique numbers in the Set data structure. In the worst case where all numbers are unique, the Set contains n elements. Even with duplicates, we still need O(n) space to store the unique values. This is the dominant space usage, making our space complexity O(n).
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 /**

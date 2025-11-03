@@ -28,27 +28,27 @@
  * <details>
  * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  * ### METADATA:
- * Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
- * Data Structures**: Hash Map, Hash Set, Array
- * Patterns**: Hash Table Pattern
- * Time Complexity**: * - **Sorting approach**: O(n × k log k) where n = number of strings, k = max string length
- * Space Complexity**: O(n × k)
+ * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal, Sorting
+ * **Data Structures**: Hash Map (dictionary), Array (list)
+ * **Patterns**: Hash Table Pattern, Anagram Detection
+ * **Time Complexity**: O(n × k log k) - Sorting approach (n strings, k max length)
+ * **Space Complexity**: O(n × k) - Store all strings in hash map
  *
  *
  * ### INTUITION:
- * Group strings by their "anagram signature" - a canonical representation that's the same for all anagrams. Two common signatures: sorted characters or character frequency count.
- *
- * ### APPROACH:
- * 1. **Create signature**: For each string, generate a canonical form (sorted chars or char counts)
- * 2. **Group by signature**: Use a hash map where signature is key, list of anagrams is value
- * 3. **Return groups**: Extract all value lists from the hash map
- *
- * ### WHY THIS WORKS:
- * - All anagrams have the same signature (sorted characters or character counts)
- * - Hash map automatically groups strings with identical signatures
- * - Different anagrams will have different signatures
- *
- * ### EXAMPLE WALKTHROUGH:
+The key insight is that group strings by their "anagram signature" - a canonical representation that's the same for all anagrams. Two common signatures: sorted characters or character frequency count.
+
+### APPROACH:
+1. **Create signature**: For each string, generate a canonical form (sorted chars or char counts)
+2. **Group by signature**: Use a hash map where signature is key, list of anagrams is value
+3. **Return groups**: Extract all value lists from the hash map
+
+### WHY THIS WORKS:
+- This ensures that all anagrams have the same signature (sorted characters or character counts)
+- This ensures that hash map automatically groups strings with identical signatures
+- This ensures that different anagrams will have different signatures
+
+### EXAMPLE WALKTHROUGH:
  * Input:
  * ```
  * ["eat","tea","tan","ate","nat","bat"]
@@ -77,14 +77,10 @@
  * ```
  *
  * ### TIME COMPLEXITY:
- * - **Sorting approach**: O(n × k log k) where n = number of strings, k = max string length
- * - **Counting approach**: O(n × k) - more efficient
+ * **O(n × k log k)** - where n is the number of strings and k is the maximum string length. For the sorting approach: we iterate through all n strings (O(n)), and for each string we sort its k characters (O(k log k)). Total: O(n × k log k). The character counting approach is more efficient at O(n × k) since counting characters takes O(k) time per string without sorting.
  *
  * ### SPACE COMPLEXITY:
- *
- * O(n × k)
- *
- * - Based on auxiliary data structures
+ * **O(n × k)** - where n is the number of strings and k is the average string length. We store all n strings in the hash map, each with average length k. The map keys (sorted strings or character counts) also take O(k) space per unique anagram group. In the worst case where all strings are unique, we have n groups, each storing one string of length k, giving us O(n × k) total space. The character count array uses O(26) = O(1) space per string, which doesn't affect the overall O(n × k) complexity.
  *
  * ### EDGE CASES:
  * - **Empty string array**: Return empty list

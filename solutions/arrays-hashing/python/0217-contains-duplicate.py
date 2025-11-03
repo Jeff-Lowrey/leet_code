@@ -27,7 +27,7 @@ in the array, and return false if every element is distinct.
 **Space Complexity**: O(n) - Additional set storage
 
 ### INTUITION:
-If all elements are unique, then the array length equals the set length.
+The key insight is that if all elements are unique, then the array length equals the set length.
 If there are duplicates, the set will be smaller than the array.
 
 ### APPROACH:
@@ -64,10 +64,10 @@ Alternative (Early Termination):
 - Check 1: found in seen → return True immediately
 
 ### TIME COMPLEXITY:
-O(n) - Single pass with O(1) hash lookups
+**O(n)** - where n is the length of the array. In the worst case (no duplicates), we iterate through all n elements, performing one set membership check (O(1)) and one set insertion (O(1)) for each element. Total: O(n × 1) = O(n). In the best case (duplicate found early), we return immediately, giving us O(1). Average case is still O(n) as we might need to check most elements. The simple set conversion approach always takes O(n) to create the set.
 
 ### SPACE COMPLEXITY:
-O(n) - Additional set storage
+**O(n)** - We create a set that in the worst case (all elements unique) stores all n elements from the array. Even with duplicates, we may store up to n unique values. The space used grows linearly with input size. For the set comparison approach, Python creates a temporary set of size up to n. For the early termination approach, we build a set incrementally but still use up to O(n) space.
 
 ### EDGE CASES:
 - **Empty array**: Return False (no duplicates possible)

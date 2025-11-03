@@ -28,22 +28,22 @@
  * **Space Complexity**: O(n) - Hash map and buckets storage
  *
  * ### INTUITION:
- * Use bucket sort where the index represents frequency. After counting frequencies with a hash map, place each number in a bucket corresponding to its frequency. Then collect results from the highest frequency buckets downward until we have k elements.
- *
- * ### APPROACH:
+The key insight is that use bucket sort where the index represents frequency. After counting frequencies with a hash map, place each number in a bucket corresponding to its frequency. Then collect results from the highest frequency buckets downward until we have k elements.
+
+### APPROACH:
  * 1. **Count frequencies**: Use a hash map to count frequency of each number
  * 2. **Create buckets**: Build array where buckets[freq] contains all numbers with that frequency
  * 3. **Collect results**: Iterate from highest frequency to lowest, collecting k elements
  * 4. **Return result**: Return the k most frequent elements
  *
  * ### WHY THIS WORKS:
- * - Bucket sort by frequency achieves O(n) time vs heap's O(n log k)
- * - Frequency can't exceed n, so we need at most n+1 buckets (index 0 to n)
- * - Hash map counts frequencies in O(n), bucketing also O(n)
- * - Collecting from buckets high to low gets k elements without full sort
- * - Trade space O(n) for buckets to gain linear time complexity
- *
- * ### EXAMPLE WALKTHROUGH:
+- This ensures that bucket sort by frequency achieves O(n) time vs heap's O(n log k)
+- This ensures that frequency can't exceed n, so we need at most n+1 buckets (index 0 to n)
+- This ensures that hash map counts frequencies in O(n), bucketing also O(n)
+- This ensures that collecting from buckets high to low gets k elements without full sort
+- This ensures that trade space O(n) for buckets to gain linear time complexity
+
+### EXAMPLE WALKTHROUGH:
  * Input:
  * ```
  * nums = [1,1,1,2,2,3], k = 2
@@ -65,19 +65,17 @@
  * ```
 
  * ### TIME COMPLEXITY:
- * O(n)
- * - Bucket sort approach
+ * **O(n)** - where n is the length of the nums array. We perform three linear passes: (1) count frequencies in hash map O(n), (2) place numbers into frequency buckets O(unique elements) ≤ O(n), (3) collect k elements from buckets O(n) in worst case. Total: O(n) + O(n) + O(n) = O(3n) = O(n). This is better than heap-based solutions which would be O(n log k) or sorting-based solutions which would be O(n log n).
  *
  * ### SPACE COMPLEXITY:
- * O(n)
- * - Hash map and buckets storage
+ * **O(n)** - where n is the length of the input array. We use a frequency hash map that stores at most n unique elements (O(n)), plus a buckets array of size n+1 where each bucket can hold numbers (O(n) total across all buckets in worst case), plus the result array of size k (O(k) ≤ O(n)). Total space: O(n) + O(n) + O(k) = O(n). The dominant factors are the hash map and buckets array, both O(n).
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - k equals array length
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {

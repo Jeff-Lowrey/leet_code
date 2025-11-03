@@ -38,7 +38,7 @@ be at least one valid solution for the given input.
 **Space Complexity**: O(n) - Store groups in hash map
 
 ### INTUITION:
-Use a hash map to collect people by their required group size. When a group
+The key insight is that use a hash map to collect people by their required group size. When a group
 reaches its target size, add it to the result and start a new group for that size.
 
 ### APPROACH:
@@ -78,10 +78,10 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n) - Single pass through input array
+**O(n)** - where n is the number of people in the groupSizes array. We make a single pass through the array (O(n)), and for each person we perform constant-time operations: hash map lookup/insertion (O(1)), appending to a list (O(1) amortized), and potentially moving a completed group to the result (O(group_size) but bounded by n total across all groups). Total: O(n) since each person is processed exactly once and added to exactly one result group.
 
 ### SPACE COMPLEXITY:
-O(n) - Store all people in groups hash map
+**O(n)** - We use a hash map that stores at most n people across all group_size buckets (each person appears exactly once in the map). The result list also stores all n people organized into groups. Additional space includes temporary group lists in the hash map. Total: O(n) for hash map + O(n) for result = O(n). This is optimal since we must return all n people in the output.
 
 ### EDGE CASES:
 - **All same group size**: Create multiple groups of that size

@@ -65,12 +65,10 @@
  * ```
 
  * ### TIME COMPLEXITY:
- * O(n + m)
- * - Single pass through both arrays with O(1) hash operations
+ * **O(n + m)** - where n = len(nums1) and m = len(nums2). We make one pass through nums1 to build the frequency map (O(n)), then one pass through nums2 to find intersections (O(m)). Each hash map operation (Counter increment, lookup, decrement) is O(1). Total: O(n) + O(m) = O(n + m). This is optimal since we must examine all elements in both arrays.
  *
  * ### SPACE COMPLEXITY:
- * O(min(n, m))
- * - Hash map stores frequencies of smaller array
+ * **O(min(n, m))** - where n = len(nums1) and m = len(nums2). We store frequencies of the smaller array in the hash map. In the worst case where all elements in the smaller array are unique, we store min(n, m) entries. The result array can be at most min(n, m) in size (when all elements of the smaller array appear in the larger array). Total space: O(min(n, m)) for the frequency map + O(min(n, m)) for the result = O(min(n, m)).
  *
  * ### EDGE CASES:
  * - **Empty arrays**: Return empty array
