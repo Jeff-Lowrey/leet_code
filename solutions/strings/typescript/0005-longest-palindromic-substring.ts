@@ -1,33 +1,5 @@
 /**
- * # 0005. Longest Palindromic Substring
- *
- * Difficulty: Easy
- *
- *
- * Given a string s, return the longest palindromic substring in s.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>s = "babad"</dd>
- * <dt>Output:</dt>
- * <dd>bab</dd>
- * <dt>Explanation:</dt>
- * <dd>Both "bab" and "aba" are valid longest palindromic substrings</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- *
- * ### METADATA:
- * **Techniques**: Expand Around Center, Dynamic Programming, Manacher's Algorithm
- * **Data Structures**: String
- * **Patterns**: Two Pointers, Center Expansion
- * **Time Complexity**: O(n²) for expand around center
- * **Space Complexity**: O(1) for expand around center
- *
- * ### INTUITION:
+### INTUITION:
 The key insight is that a palindrome mirrors around its center. We can expand around each possible center
 (each character and between each pair of characters) to find all palindromes.
 
@@ -43,43 +15,44 @@ A palindrome reads the same forwards and backwards, so we expand while the
 characters on both sides match.
 
 ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * s = "babad"
- * ```
- *
- * Steps:
- * Step 1: Center at 'b' (index 0) → expand → "b" (length 1)
- * Step 2: Center at 'a' (index 1) → expand → "bab" (length 3)
- * Step 3: Center at 'b' (index 2) → expand → "b" (length 1)
- * Step 4: Center at 'a' (index 3) → expand → "aba" (length 3)
- * Step 5: Center at 'd' (index 4) → expand → "d" (length 1)
- * Step 6: Longest found → length 3
- *
- * Output:
- * ```
- * "bab"
- * ```
- *
- * Note: "aba" is also a valid answer
+Input:
+```
+s = "babad"
+```
 
- * ### TIME COMPLEXITY:
- * - Expand around center: O(n²) - n centers, each expansion O(n)
- * - Dynamic Programming: O(n²)
- * - Manacher's Algorithm: O(n) - optimal
- *
- * ### SPACE COMPLEXITY:
- * - Expand around center: O(1)
- * - Dynamic Programming: O(n²)
- * - Manacher's Algorithm: O(n)
- *
- * ### EDGE CASES:
+Steps:
+Step 1: Center at 'b' (index 0) → expand → "b" (length 1)
+Step 2: Center at 'a' (index 1) → expand → "bab" (length 3)
+Step 3: Center at 'b' (index 2) → expand → "b" (length 1)
+Step 4: Center at 'a' (index 3) → expand → "aba" (length 3)
+Step 5: Center at 'd' (index 4) → expand → "d" (length 1)
+Step 6: Longest found → length 3
+
+Output:
+```
+"bab"
+```
+
+Note: "aba" is also a valid answer
+
+### TIME COMPLEXITY:
+- Expand around center: **O(n²)** - n centers, each expansion **O(n)**
+- Dynamic Programming: **O(n²)**
+- Manacher's Algorithm: **O(n)** - optimal
+
+### SPACE COMPLEXITY:
+- Expand around center: **O(1)**
+- Dynamic Programming: **O(n²)**
+- Manacher's Algorithm: **O(n)**
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 class Solution {
   /**

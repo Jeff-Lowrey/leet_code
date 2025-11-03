@@ -1,32 +1,5 @@
 /**
- * # 0521. Longest Uncommon Subsequence I
- *
- * Difficulty: Medium
- *
- * Solve the Longest Uncommon Subsequence I problem as described.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>* ```</dd>
- * <dt>Output:</dt>
- * <dd>* ```</dd>
- * <dt>Explanation:</dt>
- * <dd>Processing input produces the expected output</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- *
- * ### METADATA:
- * **Techniques**: String comparison, Logical reasoning
- * **Data Structures**: String
- * **Patterns**: Brainteaser
- * **Time Complexity**: **O(n)**
- * **Space Complexity**: **O(n)**
- *
- * ### INTUITION:
+### INTUITION:
 The key insight is to solve this problem efficiently.
 
 ### APPROACH:
@@ -52,10 +25,10 @@ Step-by-step execution:
 3. [Final step]
 
 ### TIME COMPLEXITY:
-**O(n)** - Analysis of time complexity - [Add explanation of why this complexity]
+O(n)** - Analysis of time complexity - [Add explanation of why this complexity]
 
 ### SPACE COMPLEXITY:
-**O(n)** - Analysis of space complexity - [Add explanation of why this complexity]
+O(n)** - Analysis of space complexity - [Add explanation of why this complexity]
 
 ### EDGE CASES:
 - **Empty input**: Handle when input is empty
@@ -63,7 +36,8 @@ Step-by-step execution:
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 function findLUSlength(a: string, b: string): number {
     return a === b ? -1 : Math.max(a.length, b.length);

@@ -1,33 +1,5 @@
 /**
- * # Difficulty: Easy
- *
- * # 0383. Ransom Note
- *
- *
- * This problem demonstrates key concepts in Strings and Hash Tables.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>ransomNote = "aa", magazine = "aab"</dd>
- * <dt>Output:</dt>
- * <dd>True</dd>
- * <dt>Explanation:</dt>
- * <dd>The ransom note 'aa' cannot be constructed from magazine 'ab' (not enough 'a's)</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- * ### METADATA:
- * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
- * **Data Structures**: Hash Map, Hash Set, String
- * **Patterns**: Hash Table Pattern
- * **Time Complexity**: O(m + n)
- * **Space Complexity**: O(1) - Constant extra space
-
- *
- * ### INTUITION:
+### INTUITION:
 The key insight is that to construct a ransom note from magazine letters, we need to ensure that the magazine contains
 at least as many of each character as required by the ransom note. This is essentially checking
 if one string's character frequencies are a subset of another's character frequencies.
@@ -39,50 +11,51 @@ if one string's character frequencies are a subset of another's character freque
 4. **Return result**: If we can construct entire ransom note, return True; otherwise False
 
 ### WHY THIS WORKS:
- * - Hash map provides O(1) lookup for character availability
- * - By counting magazine characters first, we know what's available
- * - Decrementing counts as we consume characters ensures we don't reuse
- * - If any character is unavailable or exhausted, we return False immediately
- *
- * ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * ransomNote = "aa", magazine = "aab"
- * ransomNote = "aa", magazine = "ab"
- * ```
- *
- * Step 1: Count magazine chars: {'a': 2, 'b': 1}
- * Step 2: Check 'a' (first): count is 2, decrement to 1
- * Step 3: Check 'a' (second): count is 1, decrement to 0
- * Step 4: All characters available
- * Step 1: Count magazine chars: {'a': 1, 'b': 1}
- * Step 2: Check 'a' (first): count is 1, decrement to 0
- * Step 3: Check 'a' (second): count is 0, not available
- *
- * Output:
- * ```
- * True
- * False
- * ```
+- Hash map provides O(1) lookup for character availability
+- By counting magazine characters first, we know what's available
+- Decrementing counts as we consume characters ensures we don't reuse
+- If any character is unavailable or exhausted, we return False immediately
 
- * ### TIME COMPLEXITY:
- * O(m + n)
- * Where m is the length of magazine and n is the length of ransomNote. We iterate through both
- * strings once.
- *
- * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
- * Although we use a hash map, since we're limited to lowercase English letters (26 characters),
- * the space is bounded by a constant.
- *
- * ### EDGE CASES:
+### EXAMPLE WALKTHROUGH:
+Input:
+```
+ransomNote = "aa", magazine = "aab"
+ransomNote = "aa", magazine = "ab"
+```
+
+Step 1: Count magazine chars: {'a': 2, 'b': 1}
+Step 2: Check 'a' (first): count is 2, decrement to 1
+Step 3: Check 'a' (second): count is 1, decrement to 0
+Step 4: All characters available
+Step 1: Count magazine chars: {'a': 1, 'b': 1}
+Step 2: Check 'a' (first): count is 1, decrement to 0
+Step 3: Check 'a' (second): count is 0, not available
+
+Output:
+```
+True
+False
+```
+
+### TIME COMPLEXITY:
+O(m + n)**
+Where m is the length of magazine and n is the length of ransomNote. We iterate through both
+strings once.
+
+### SPACE COMPLEXITY:
+O(1)**
+- Constant extra space
+Although we use a hash map, since we're limited to lowercase English letters (26 characters),
+the space is bounded by a constant.
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 /**
  * Main solution for Problem 383: Ransom Note

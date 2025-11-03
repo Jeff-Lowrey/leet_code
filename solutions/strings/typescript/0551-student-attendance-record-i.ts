@@ -1,32 +1,5 @@
 /**
- * # 0551. Student Attendance Record I
- *
- * Difficulty: Medium
- *
- * Solve the Student Attendance Record I problem as described.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>* ```</dd>
- * <dt>Output:</dt>
- * <dd>* ```</dd>
- * <dt>Explanation:</dt>
- * <dd>Processing input produces the expected output</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- *
- * ### METADATA:
- * **Techniques**: String traversal, Counting, Pattern matching
- * **Data Structures**: String
- * **Patterns**: State tracking
- * **Time Complexity**: **O(n²)**
- * **Space Complexity**: **O(n)**
- *
- * ### INTUITION:
+### INTUITION:
 The key insight is to solve this problem efficiently.
 
 ### APPROACH:
@@ -52,10 +25,10 @@ Step-by-step execution:
 3. [Final step]
 
 ### TIME COMPLEXITY:
-**O(n²)** - Analysis of time complexity - [Add explanation of why this complexity]
+O(n²)** - Analysis of time complexity - [Add explanation of why this complexity]
 
 ### SPACE COMPLEXITY:
-**O(n)** - Analysis of space complexity - [Add explanation of why this complexity]
+O(n)** - Analysis of space complexity - [Add explanation of why this complexity]
 
 ### EDGE CASES:
 - **Empty input**: Handle when input is empty
@@ -63,7 +36,8 @@ Step-by-step execution:
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 function checkRecord(s: string): boolean {
     return (s.split('A').length - 1) < 2 && !s.includes('LLL');

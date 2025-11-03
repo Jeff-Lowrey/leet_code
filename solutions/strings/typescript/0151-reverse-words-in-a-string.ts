@@ -1,32 +1,5 @@
 /**
- * # Difficulty: Medium
- *
- * # 0151. Reverse Words In A String
- *
- *
- * This problem demonstrates key concepts in String manipulation and parsing.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>"  hello   world  "</dd>
- * <dt>Output:</dt>
- * <dd>"world hello"</dd>
- * <dt>Explanation:</dt>
- * <dd>After reversing words, 'the sky is blue' becomes 'blue is sky the'</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
- * **Techniques**: Backtracking
- * **Data Structures**: Array, String
- * **Patterns**: Iterative Solution
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(n)
- *
- * ### INTUITION:
+### INTUITION:
 The key insight is that we need to reverse the order of words in a string, where words are separated by spaces. The key
 challenges are: 1) handling multiple spaces between words, 2) trimming leading/trailing spaces,
 and 3) reversing the word order while preserving word integrity.
@@ -38,50 +11,51 @@ and 3) reversing the word order while preserving word integrity.
 4. **Join with single space**: Combine words back with exactly one space between them
 
 ### WHY THIS WORKS:
- * - Python's split() without arguments automatically handles multiple spaces
- * - It splits on any whitespace and removes empty strings from the result
- * - Reversing a list in Python is O(n) and very efficient
- * - Joining with a single space ensures proper formatting
- *
- * ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * s = "  hello   world  "
- * s = "a good   example"
- * ```
- *
- * Step 1: Strip: "hello   world"
- * Step 2: Split: ["hello", "world"]
- * Step 3: Reverse: ["world", "hello"]
- * Step 4: Join: "world hello"
- * Step 1: Strip: "a good   example"
- * Step 2: Split: ["a", "good", "example"]
- * Step 3: Reverse: ["example", "good", "a"]
- * Step 4: Join: "example good a"
- *
- * Output:
- * ```
- * "world hello"
- * "example good a"
- * ```
+- Python's split() without arguments automatically handles multiple spaces
+- It splits on any whitespace and removes empty strings from the result
+- Reversing a list in Python is O(n) and very efficient
+- Joining with a single space ensures proper formatting
 
- * ### TIME COMPLEXITY:
- * O(n)
- * - Single pass through input
- * Where n is the length of the string. We scan the string once to split, reverse the list (O(n)),
- * and join back (O(n)).
- *
- * ### SPACE COMPLEXITY:
- * O(n)
- * We create a list of words and the result string, both proportional to input size.
- *
- * ### EDGE CASES:
+### EXAMPLE WALKTHROUGH:
+Input:
+```
+s = "  hello   world  "
+s = "a good   example"
+```
+
+Step 1: Strip: "hello   world"
+Step 2: Split: ["hello", "world"]
+Step 3: Reverse: ["world", "hello"]
+Step 4: Join: "world hello"
+Step 1: Strip: "a good   example"
+Step 2: Split: ["a", "good", "example"]
+Step 3: Reverse: ["example", "good", "a"]
+Step 4: Join: "example good a"
+
+Output:
+```
+"world hello"
+"example good a"
+```
+
+### TIME COMPLEXITY:
+O(n)**
+- Single pass through input
+Where n is the length of the string. We scan the string once to split, reverse the list (**O(n)**),
+and join back (**O(n)**).
+
+### SPACE COMPLEXITY:
+O(n)**
+We create a list of words and the result string, both proportional to input size.
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 class Solution {
   /**

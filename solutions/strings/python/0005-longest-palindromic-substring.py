@@ -1,31 +1,4 @@
 """
-# 0005. Longest Palindromic Substring
-
-# Difficulty: Medium
-
-Given a string s, return the longest palindromic substring in s.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>s = "babad"</dd>
-<dt>Output:</dt>
-<dd>"bab" or "aba"</dd>
-<dt>Explanation:</dt>
-<dd>Both "bab" and "aba" are valid longest palindromic substrings</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-### METADATA:
-**Techniques**: Expand Around Center, Dynamic Programming, Manacher's Algorithm
-**Data Structures**: String
-**Patterns**: Two Pointers, Center Expansion
-**Time Complexity**: O(n²) for expand around center
-**Space Complexity**: O(1) for expand around center
-
 ### INTUITION:
 The key insight is that a palindrome mirrors around its center. We can expand around each possible center
 (each character and between each pair of characters) to find all palindromes.
@@ -63,14 +36,14 @@ Output:
 Note: "aba" is also a valid answer
 
 ### TIME COMPLEXITY:
-- Expand around center: O(n²) - n centers, each expansion O(n)
-- Dynamic Programming: O(n²)
-- Manacher's Algorithm: O(n) - optimal
+- Expand around center: **O(n²)** - n centers, each expansion **O(n)**
+- Dynamic Programming: **O(n²)**
+- Manacher's Algorithm: **O(n)** - optimal
 
 ### SPACE COMPLEXITY:
-- Expand around center: O(1)
-- Dynamic Programming: O(n²)
-- Manacher's Algorithm: O(n)
+- Expand around center: **O(1)**
+- Dynamic Programming: **O(n²)**
+- Manacher's Algorithm: **O(n)**
 
 ### EDGE CASES:
 - **Empty input**: Handle when input is empty
@@ -78,6 +51,7 @@ Note: "aba" is also a valid answer
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 

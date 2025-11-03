@@ -1,36 +1,109 @@
 /**
- * # 0005. Longest Palindromic Substring
- *
- * Difficulty: Easy
- *
- * # 0005. Longest Palindromic Substring
- *
- * Given a string s, return the longest palindromic substring in s.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>"babad"</dd>
- * <dt>Output:</dt>
- * <dd>"bab"</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- *
- * ### METADATA:
- * **Techniques**: Expand Around Center, Dynamic Programming
- * **Data Structures**: String, Array
- * **Patterns**: Two Pointers Pattern, Expand from Center
- * **Time Complexity**: **O(n²)** - Expand around each center position
- * **Space Complexity**: **O(1)** - Constant extra space
- *
- * ### INTUITION:
+### INTUITION:
 The key insight is that a palindrome mirrors around its center. We can expand around each possible center
 (each character and between each pair of characters) to find all palindromes.
 
 ### APPROACH:
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
 The algorithm proceeds as follows:
 
 The algorithm proceeds as follows:
@@ -57,19 +130,19 @@ The solution leverages string for efficient operations.
 The solution leverages array for efficient operations.
 
 ### EXAMPLE WALKTHROUGH:
-*Input:** s = "babad"
+Input:** s = "babad"
 
-*Step 1:** Center at 'b' (index 0) → expand → "b" (length 1)
+Step 1:** Center at 'b' (index 0) → expand → "b" (length 1)
 
-*Step 2:** Center at 'a' (index 1) → expand → "bab" (length 3)
+Step 2:** Center at 'a' (index 1) → expand → "bab" (length 3)
 
-*Step 3:** Center at 'b' (index 2) → expand → "b" (length 1)
+Step 3:** Center at 'b' (index 2) → expand → "b" (length 1)
 
-*Step 4:** Center at 'a' (index 3) → expand → "aba" (length 3)
+Step 4:** Center at 'a' (index 3) → expand → "aba" (length 3)
 
-*Step 5:** Center at 'd' (index 4) → expand → "d" (length 1)
+Step 5:** Center at 'd' (index 4) → expand → "d" (length 1)
 
-*Step 6:** Longest found → length 3
+Step 6:** Longest found → length 3
 
 Output:
 ```
@@ -79,25 +152,26 @@ Output:
 Note: "aba" is also a valid answer
 
 ### TIME COMPLEXITY:
- * - Expand around center: O(n²) - n centers, each expansion O(n)
- * - Dynamic Programming: O(n²)
- * - Manacher's Algorithm: O(n) - optimal
- *
- * ### SPACE COMPLEXITY:
- * - Expand around center: O(1)
- * - Dynamic Programming: O(n²)
- * - Manacher's Algorithm: O(n)
- *
- * ### EDGE CASES:
+- Expand around center: **O(n²)** - n centers, each expansion **O(n)**
+- Dynamic Programming: **O(n²)**
+- Manacher's Algorithm: **O(n)** - optimal
+
+### SPACE COMPLEXITY:
+- Expand around center: **O(1)**
+- Dynamic Programming: **O(n²)**
+- Manacher's Algorithm: **O(n)**
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- *
- * @param {string} s
- * @return {string}
- */
+
+@param {string} s
+@return {string}
+
+*/
 
 class Solution {
   /**

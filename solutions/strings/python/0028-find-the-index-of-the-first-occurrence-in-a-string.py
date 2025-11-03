@@ -1,30 +1,4 @@
 """
-# Difficulty: Easy
-
-# 0028. Find The Index Of The First Occurrence In A String
-
-This problem demonstrates key concepts in String matching and pattern searching.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>haystack = "sadbutsad", needle = "sad"</dd>
-<dt>Output:</dt>
-<dd>0</dd>
-<dt>Explanation:</dt>
-<dd>Needle 'sad' occurs at index 0 in 'sadbutsad'</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Array Traversal, Stack Operations
-**Data Structures**: String, Stack
-**Patterns**: Iterative Solution
-**Time Complexity**: O(n * m)
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
 The key insight is that this is the classic string matching problem (also known as finding a substring). We need to find
 the first position where the needle (pattern) appears in the haystack (text). The straightforward
@@ -63,15 +37,15 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n * m)
+**O(n * m)**
 Where n is the length of haystack and m is the length of needle. In the worst case, we check
 every position (n - m + 1) and for each position compare m characters.
 
-Note: More advanced algorithms like KMP or Rabin-Karp can achieve O(n + m), but for most
+Note: More advanced algorithms like KMP or Rabin-Karp can achieve **O(n + m)**, but for most
 practical purposes and typical inputs, the simple approach is sufficient and easier to understand.
 
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 We only use a few variables regardless of input size.
 
 ### EDGE CASES:
@@ -80,6 +54,7 @@ We only use a few variables regardless of input size.
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 import re

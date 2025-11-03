@@ -1,30 +1,4 @@
 """
-# Difficulty: Medium
-
-# 0151. Reverse Words In A String
-
-This problem demonstrates key concepts in String manipulation and parsing.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>"  hello   world  "</dd>
-<dt>Output:</dt>
-<dd>"world hello"</dd>
-<dt>Explanation:</dt>
-<dd>After reversing words, 'the sky is blue' becomes 'blue is sky the'</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Backtracking
-**Data Structures**: Array, String
-**Patterns**: Iterative Solution
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(n)
-
 ### INTUITION:
 The key insight is that we need to reverse the order of words in a string, where words are separated by spaces. The key
 challenges are: 1) handling multiple spaces between words, 2) trimming leading/trailing spaces,
@@ -65,12 +39,12 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n)
-Where n is the length of the string. We scan the string once to split, reverse the list (O(n)),
-and join back (O(n)).
+**O(n)**
+Where n is the length of the string. We scan the string once to split, reverse the list (**O(n)**),
+and join back (**O(n)**).
 
 ### SPACE COMPLEXITY:
-O(n)
+**O(n)**
 We create a list of words and the result string, both proportional to input size.
 
 ### EDGE CASES:
@@ -79,6 +53,7 @@ We create a list of words and the result string, both proportional to input size
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 import re

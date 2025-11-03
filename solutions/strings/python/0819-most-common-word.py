@@ -1,36 +1,4 @@
 """
-# 0819. Most Common Word
-
-# Difficulty: Easy
-
-Given a string paragraph and a string array of the banned words banned, return
-the most frequent word that is not banned. It is guaranteed there is at least
-one word that is not banned, and that the answer is unique.
-
-The words in paragraph are case-insensitive and the answer should be returned
-in lowercase.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>paragraph = "Bob hit a ball, the hit BALL flew far after it was hit.", banned = ["hit"]</dd>
-<dt>Output:</dt>
-<dd>"ball"</dd>
-<dt>Explanation:</dt>
-<dd>"hit" occurs 3 times, but is banned. "ball" occurs twice and is not banned</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-### METADATA:
-**Techniques**: String Processing, Frequency Counting, Hash Table
-**Data Structures**: Hash Map, Set
-**Patterns**: Frequency Counter Pattern
-**Time Complexity**: O(n + m) - Process paragraph (n) and banned list (m)
-**Space Complexity**: O(n + m) - Store word frequencies and banned set
-
 ### INTUITION:
 The key insight is that parse the paragraph into words, count their frequencies while ignoring banned
 words, then return the word with the highest frequency. Use a set for O(1)
@@ -77,10 +45,10 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n + m) where n = paragraph length, m = banned list length
+**O(n + m)** where n = paragraph length, m = banned list length
 
 ### SPACE COMPLEXITY:
-O(n + m) for word frequencies and banned set
+**O(n + m)** for word frequencies and banned set
 
 ### EDGE CASES:
 - **Single word**: Return that word if not banned
@@ -91,6 +59,7 @@ O(n + m) for word frequencies and banned set
 </details>
 
 </details>
+
 """
 
 from typing import List

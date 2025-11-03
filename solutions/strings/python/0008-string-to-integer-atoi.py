@@ -1,40 +1,4 @@
 """
-# 0008. String to Integer (atoi)
-
-# Difficulty: Medium
-
-Implement the `myAtoi(string s)` function, which converts a string to a 32-bit signed integer (similar to C/C++'s `atoi` function).
-
-The algorithm for `myAtoi(string s)` is as follows:
-
-1. Read in and ignore any leading whitespace.
-2. Check if the next character is '-' or '+'. Read this character if it is either.
-3. Read in next characters until the next non-digit character or end of input. The rest of the string is ignored.
-4. Convert these digits into an integer. If no digits were read, the integer is 0.
-5. If the integer is out of the 32-bit signed integer range [-2^31, 2^31 - 1], clamp it to the range.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>s = "42"</dd>
-<dt>Output:</dt>
-<dd>42</dd>
-<dt>Explanation:</dt>
-<dd>The underlined characters are what is read in, the caret is the current reader position: "42" → 42</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: String Parsing, State Machine, Bounds Checking
-**Data Structures**: String
-**Patterns**: String Processing, Input Validation
-**Time Complexity**: **O(n)** - Single pass through the string
-**Space Complexity**: **O(1)** - Only using constant extra space
-
 ### INTUITION:
 The key insight is that process the string character by character following a strict sequence: skip whitespace, read optional sign, accumulate digits until non-digit found, handle overflow by clamping to 32-bit integer range.
 
@@ -91,6 +55,7 @@ Output:
 - **Empty string:** "" → 0
 
 </details>
+
 """
 
 from typing import Any

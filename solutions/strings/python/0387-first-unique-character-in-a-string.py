@@ -1,30 +1,4 @@
 """
-# Difficulty: Easy
-
-# 0387. First Unique Character In A String
-
-This problem demonstrates key concepts in Hash Tables and String manipulation.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>s = "leetcode"</dd>
-<dt>Output:</dt>
-<dd>0</dd>
-<dt>Explanation:</dt>
-<dd>First non-repeating character is 'l' at index 0</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: Hash Map, Hash Set, String
-**Patterns**: Two Pointers Pattern, Hash Table Pattern
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
 The key insight is that to find the first unique (non-repeating) character in a string, we need to know the frequency
 of each character. A character is unique if it appears exactly once. We need to return the index
@@ -63,14 +37,14 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n)
-We make two passes through the string: one to count (O(n)) and one to find (O(n)).
-Total is O(2n) = O(n).
+**O(n)**
+We make two passes through the string: one to count (**O(n)**) and one to find (**O(n)**).
+Total is **O(2n)** = **O(n)**.
 
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 Although we use a hash map, since we're limited to lowercase English letters (26 characters),
-the space is bounded by a constant. For general character sets, it would be O(k) where k is
+the space is bounded by a constant. For general character sets, it would be **O(k)** where k is
 the character set size.
 
 ### EDGE CASES:
@@ -79,6 +53,7 @@ the character set size.
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 from collections import Counter
