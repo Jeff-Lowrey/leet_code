@@ -31,7 +31,7 @@ Consider the number of elements in nums which are not equal to val be k, to get 
 **Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
-Use two pointers: one for reading, one for writing. When read pointer finds non-target value, write it at write pointer position and increment both. Otherwise only increment read pointer.
+The key insight is that use two pointers: one for reading, one for writing. When read pointer finds non-target value, write it at write pointer position and increment both. Otherwise only increment read pointer.
 
 ### APPROACH:
 1. **Initialize write pointer**: Set k = 0 to track position for non-val elements
@@ -77,9 +77,9 @@ O(1)
 
 
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

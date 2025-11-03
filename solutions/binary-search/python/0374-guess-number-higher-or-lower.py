@@ -50,10 +50,10 @@ This is a classic binary search problem where we need to find a target number us
 4. **Termination**: Continue until API returns 0 (correct guess)
 
 ### WHY THIS WORKS:
-- Binary search optimally reduces search space by half each iteration
-- API feedback provides perfect direction information
-- Guaranteed to find the answer in O(log n) time
-- Similar to searching in a sorted array but using API instead of direct comparison
+- This ensures that binary search optimally reduces search space by half each iteration
+- This ensures that aPI feedback provides perfect direction information
+- This ensures that guaranteed to find the answer in O(log n) time
+- This ensures that similar to searching in a sorted array but using API instead of direct comparison
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -85,9 +85,9 @@ O(1)
 Only using constant extra space
 
 ### EDGE CASES:
-- Single number (n = 1): return 1
-- Pick at boundaries (pick = 1 or pick = n)
-- Large n values: use overflow-safe mid calculation
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

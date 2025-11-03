@@ -33,9 +33,9 @@
  * **Space Complexity**: O(1) - Constant extra space
  *
  * ### INTUITION:
- * Use two pointers from both ends. Calculate area = min(height[left], height[right]) * width. Move pointer with smaller height inward (moving taller pointer can't increase area). Track maximum.
- *
- * ### APPROACH:
+The key insight is that use two pointers from both ends. Calculate area = min(height[left], height[right]) * width. Move pointer with smaller height inward (moving taller pointer can't increase area). Track maximum.
+
+### APPROACH:
  * 1. **Initialize pointers**: Set left = 0, right = len(height) - 1
  * 2. **Initialize max area**: Set max_area = 0
  * 3. **Loop while left < right**: Continue until pointers meet
@@ -45,13 +45,13 @@
  * 7. **Return result**: Return max_area as maximum water container
  *
  * ### WHY THIS WORKS:
- * - Two pointers: left at start, right at end
- * - Area = min(height[left], height[right]) * (right - left)
- * - Move pointer with shorter height: taller height won't improve area until we find taller opposite
- * - Track maximum area seen
- * - O(n) time: single pass, O(1) space
- *
- * ### EXAMPLE WALKTHROUGH:
+- This ensures that two pointers: left at start, right at end
+- This ensures that area = min(height[left], height[right]) * (right - left)
+- This ensures that move pointer with shorter height: taller height won't improve area until we find taller opposite
+- This ensures that track maximum area seen
+- This ensures that o(n) time: single pass, O(1) space
+
+### EXAMPLE WALKTHROUGH:
  * Input:
  * ```
  * height = [1, 8, 6, 2, 5, 4, 8, 3, 7]
@@ -97,11 +97,11 @@
  * - Constant extra space
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {

@@ -29,7 +29,7 @@ Notice that the solution `set` must not contain duplicate triplets.
 **Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
-Convert the 3Sum problem into multiple 2Sum problems. For each number, find pairs in the remaining array that sum to the negative of that number. Sorting helps avoid duplicates and enables two-pointer technique.
+The key insight is that convert the 3Sum problem into multiple 2Sum problems. For each number, find pairs in the remaining array that sum to the negative of that number. Sorting helps avoid duplicates and enables two-pointer technique.
 
 ### APPROACH:
 1. **Sort Array**: Enables two-pointer technique and easy duplicate handling
@@ -71,9 +71,9 @@ O(1)
 - Sorting can be done in-place
 
 ### EDGE CASES:
-- Array length < 3: return []
-- All positive/negative numbers: return []
-- Array with all zeros: return [[0,0,0]] if length ≥ 3
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

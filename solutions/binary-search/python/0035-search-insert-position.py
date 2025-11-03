@@ -73,10 +73,9 @@ O(1)
 Only using constant extra space
 
 ### EDGE CASES:
-- Empty array: insert at position 0
-- Target smaller than all elements: insert at position 0
-- Target larger than all elements: insert at end
-- Single element array: compare and insert appropriately
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

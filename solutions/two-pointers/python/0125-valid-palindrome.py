@@ -30,7 +30,7 @@ Given a string s, return true if it is a palindrome, or false otherwise.
 **Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
-Use two pointers from both ends of the string, skipping non-alphanumeric characters and comparing characters case-insensitively. This avoids creating a cleaned string, saving space.
+The key insight is that use two pointers from both ends of the string, skipping non-alphanumeric characters and comparing characters case-insensitively. This avoids creating a cleaned string, saving space.
 
 ### APPROACH:
 1. **Initialize two pointers**: Set left pointer at start (0) and right pointer at end (len(s) - 1)
@@ -64,6 +64,11 @@ Step 5: left=3 (a), right=28 (a)
 Step 6: a.lower() == a.lower() → True, continue
 Step 7: ... continue until pointers meet ...
 Step 8: All comparisons match → return True
+
+Output:
+```
+[Expected output]
+```
 
 ### TIME COMPLEXITY:
 O(n)

@@ -37,17 +37,17 @@
  * [This problem requires understanding of two pointers concepts. The key insight is to identify the optimal approach for this specific scenario.]
  *
  * ### APPROACH:
- * 1. **Analyze the problem**: Understand the input constraints and expected output
- * 2. **Choose the right technique**: Apply two pointers methodology
- * 3. **Implement efficiently**: Focus on optimal time and space complexity
- * 4. **Handle edge cases**: Consider boundary conditions and special cases
- *
- * ### WHY THIS WORKS:
- * - The solution leverages two pointers principles
- * - Time complexity is optimized for the given constraints
- * - Space complexity is minimized where possible
- *
- * ### EXAMPLE WALKTHROUGH:
+1. **Analyze the problem**: Understand the input constraints and expected output
+2. **Choose the right technique**: Apply two pointers methodology
+3. **Implement efficiently**: Focus on optimal time and space complexity
+4. **Handle edge cases**: Consider boundary conditions and special cases
+
+### WHY THIS WORKS:
+- This ensures that the solution leverages two pointers principles
+- This ensures that time complexity is optimized for the given constraints
+- This ensures that space complexity is minimized where possible
+
+### EXAMPLE WALKTHROUGH:
  * Input:
  * ```
  * numbers = [2, 7, 11, 15], target = 9
@@ -86,11 +86,11 @@
  * - Constant extra space
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 /**

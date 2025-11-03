@@ -26,7 +26,7 @@ Given n non-negative integers representing an elevation map where the width of e
 **Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
-For each position, calculate trapped water = min(max_left, max_right) - height. Use two pointers from both ends. Track max heights seen. Move pointer with smaller max height inward.
+The key insight is that for each position, calculate trapped water = min(max_left, max_right) - height. Use two pointers from both ends. Track max heights seen. Move pointer with smaller max height inward.
 
 ### APPROACH:
 1. **Initialize pointers**: Set left = 0, right = len(height) - 1
@@ -76,9 +76,9 @@ O(1)
 
 
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

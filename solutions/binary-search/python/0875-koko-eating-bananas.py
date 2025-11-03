@@ -32,7 +32,7 @@ Return the minimum integer k such that she can eat all the bananas within h hour
 **Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
-Binary search on the eating speed k, not the array. The minimum k is 1, maximum is max(piles). For each mid speed, calculate total hours needed. If hours <= h, try smaller k; otherwise try larger k. Find the minimum valid k.
+The key insight is that binary search on the eating speed k, not the array. The minimum k is 1, maximum is max(piles). For each mid speed, calculate total hours needed. If hours <= h, try smaller k; otherwise try larger k. Find the minimum valid k.
 
 ### APPROACH:
 1. **Define search range**: Set left = 1 (minimum speed), right = max(piles) (maximum speed)
@@ -45,11 +45,11 @@ Binary search on the eating speed k, not the array. The minimum k is 1, maximum 
 8. **Return result**: Return left as the minimum eating speed
 
 ### WHY THIS WORKS:
-- Binary search on eating speed: min=1, max=max(piles)
-- For each speed k, calculate hours needed: ceil(pile / k) for each pile
-- If total hours <= h, try smaller speed (right = mid - 1)
-- If total hours > h, need faster speed (left = mid + 1)
-- O(n log m) time: log m binary search, O(n) to verify, O(1) space
+- This ensures that binary search on eating speed: min=1, max=max(piles)
+- This ensures that for each speed k, calculate hours needed: ceil(pile / k) for each pile
+- This ensures that if total hours <= h, try smaller speed (right = mid - 1)
+- This ensures that if total hours > h, need faster speed (left = mid + 1)
+- This ensures that o(n log m) time: log m binary search, O(n) to verify, O(1) space
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -88,9 +88,9 @@ O(1)
 
 
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

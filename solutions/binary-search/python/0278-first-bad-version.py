@@ -30,7 +30,7 @@ You are given an API bool isBadVersion(version) which returns whether version is
 **Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
-The versions form a sorted sequence: [good...good, bad...bad]. Use binary search to find the boundary. If mid is bad, the first bad version is at mid or earlier; if good, it's after mid. Converge to the first bad version.
+The key insight is that the versions form a sorted sequence: [good...good, bad...bad]. Use binary search to find the boundary. If mid is bad, the first bad version is at mid or earlier; if good, it's after mid. Converge to the first bad version.
 
 ### APPROACH:
 1. **Initialize search range**: Set left = 1, right = n
@@ -42,11 +42,11 @@ The versions form a sorted sequence: [good...good, bad...bad]. Use binary search
 7. **Return result**: Return left as the first bad version
 
 ### WHY THIS WORKS:
-- Binary search for first occurrence of bad version
-- If isBadVersion(mid) true, search left for earlier bad version (right = mid)
-- If false, search right (left = mid + 1)
-- Minimize API calls by halving search space each iteration
-- O(log n) time, O(1) space
+- This ensures that binary search for first occurrence of bad version
+- This ensures that if isBadVersion(mid) true, search left for earlier bad version (right = mid)
+- This ensures that if false, search right (left = mid + 1)
+- This ensures that minimize API calls by halving search space each iteration
+- This ensures that o(log n) time, O(1) space
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -84,9 +84,9 @@ O(1)
 
 
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

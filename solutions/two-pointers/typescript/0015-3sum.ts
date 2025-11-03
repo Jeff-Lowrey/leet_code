@@ -30,18 +30,18 @@
  * **Space Complexity**: O(1) - Constant extra space
  *
  * ### INTUITION:
- * Convert the 3Sum problem into multiple 2Sum problems. For each number, find pairs in the remaining array that sum to the negative of that number. Sorting helps avoid duplicates and enables two-pointer technique.
- *
- * ### APPROACH:
- * 1. **Sort Array**: Enables two-pointer technique and easy duplicate handling
- * 2. **Fix First Element**: For each nums[i], find pairs that sum to -nums[i]
- * 3. **Two Pointers**: Use left and right pointers to find the required sum
- * 4. **Skip Duplicates**: Avoid duplicate triplets by skipping repeated values
- *
- * ### WHY THIS WORKS:
- * Sorting enables efficient duplicate skipping and the two-pointer technique. For each fixed first element, the problem reduces to finding two numbers that sum to a target, which is efficiently solved with two pointers.
- *
- * ### EXAMPLE WALKTHROUGH:
+The key insight is that convert the 3Sum problem into multiple 2Sum problems. For each number, find pairs in the remaining array that sum to the negative of that number. Sorting helps avoid duplicates and enables two-pointer technique.
+
+### APPROACH:
+1. **Sort Array**: Enables two-pointer technique and easy duplicate handling
+2. **Fix First Element**: For each nums[i], find pairs that sum to -nums[i]
+3. **Two Pointers**: Use left and right pointers to find the required sum
+4. **Skip Duplicates**: Avoid duplicate triplets by skipping repeated values
+
+### WHY THIS WORKS:
+Sorting enables efficient duplicate skipping and the two-pointer technique. For each fixed first element, the problem reduces to finding two numbers that sum to a target, which is efficiently solved with two pointers.
+
+### EXAMPLE WALKTHROUGH:
  * Input:
  * ```
  * nums = [-1,0,1,2,-1,-4]
@@ -74,11 +74,11 @@
  * - Sorting can be done in-place
  *
  * ### EDGE CASES:
- * - Array length < 3: return []
- * - All positive/negative numbers: return []
- * - Array with all zeros: return [[0,0,0]] if length ≥ 3
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {

@@ -30,7 +30,7 @@ You must solve this problem without using the library's sort function.
 **Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
-Use three pointers: p0 for next 0, p2 for next 2, current for scanning. When see 0, swap with p0. When see 2, swap with p2. When see 1, just move current. Partitions in single pass.
+The key insight is that use three pointers: p0 for next 0, p2 for next 2, current for scanning. When see 0, swap with p0. When see 2, swap with p2. When see 1, just move current. Partitions in single pass.
 
 ### APPROACH:
 1. **Initialize three pointers**: Set low = 0, mid = 0, high = len(nums) - 1
@@ -42,11 +42,11 @@ Use three pointers: p0 for next 0, p2 for next 2, current for scanning. When see
 7. **Array sorted**: After loop, array contains 0s, then 1s, then 2s
 
 ### WHY THIS WORKS:
-- Dutch national flag: three pointers (low, mid, high)
-- low tracks next position for 0, high tracks next position for 2
-- If nums[mid] == 0: swap with low, advance both
-- If nums[mid] == 2: swap with high, decrement high only (don't advance mid, need to check swapped value)
-- O(n) time single pass, O(1) space
+- This ensures that dutch national flag: three pointers (low, mid, high)
+- This ensures that low tracks next position for 0, high tracks next position for 2
+- This ensures that if nums[mid] == 0: swap with low, advance both
+- This ensures that if nums[mid] == 2: swap with high, decrement high only (don't advance mid, need to check swapped value)
+- This ensures that o(n) time single pass, O(1) space
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -91,9 +91,9 @@ O(1)
 
 
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

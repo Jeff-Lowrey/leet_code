@@ -73,10 +73,9 @@ O(1)
 Only using constant extra space
 
 ### EDGE CASES:
-- Empty array: return [-1, -1]
-- Target not in array: return [-1, -1]
-- Single element array: return [0, 0] if match, [-1, -1] if not
-- Target at beginning/end of array
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

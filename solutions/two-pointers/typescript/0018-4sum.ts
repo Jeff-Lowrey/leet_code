@@ -33,9 +33,9 @@
  * **Space Complexity**: O(1) - Constant extra space
  *
  * ### INTUITION:
- * Sort array first. Fix first two elements, use two pointers for remaining two. Skip duplicates at all four positions. Adjust pointers based on sum comparison to target.
- *
- * ### APPROACH:
+The key insight is that sort array first. Fix first two elements, use two pointers for remaining two. Skip duplicates at all four positions. Adjust pointers based on sum comparison to target.
+
+### APPROACH:
  * 1. **Sort array**: Sort nums to enable two-pointer technique and skip duplicates
  * 2. **Outer loops for first two numbers**: Use nested loops for i and j
  * 3. **Skip duplicates**: For both i and j, skip duplicate values
@@ -46,13 +46,13 @@
  * 8. **Return result**: Return list of all unique quadruplets
  *
  * ### WHY THIS WORKS:
- * - Sort array, fix two numbers with outer loops, two-pointer on remaining
- * - Skip duplicates at each level to avoid duplicate quadruplets
- * - Two pointers find pairs that sum to (target - num1 - num2)
- * - Same as 3sum with extra outer loop
- * - O(n^3) time: two nested loops + two pointers, O(1) space
- *
- * ### EXAMPLE WALKTHROUGH:
+- This ensures that sort array, fix two numbers with outer loops, two-pointer on remaining
+- This ensures that skip duplicates at each level to avoid duplicate quadruplets
+- This ensures that two pointers find pairs that sum to (target - num1 - num2)
+- This ensures that same as 3sum with extra outer loop
+- This ensures that o(n^3) time: two nested loops + two pointers, O(1) space
+
+### EXAMPLE WALKTHROUGH:
  * Input:
  * ```
  * nums = [1,0,-1,0,-2,2], target = 0
@@ -81,11 +81,11 @@
  * - Constant extra space
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {

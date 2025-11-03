@@ -33,7 +33,7 @@ You must write a solution in O(log(m * n)) time complexity.
 **Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
-Treat the 2D matrix as a flattened 1D sorted array. Use binary search on a virtual index, converting it to row/col using row = mid // n_cols and col = mid % n_cols. This achieves O(log(m*n)) time complexity.
+The key insight is that treat the 2D matrix as a flattened 1D sorted array. Use binary search on a virtual index, converting it to row/col using row = mid // n_cols and col = mid % n_cols. This achieves O(log(m*n)) time complexity.
 
 ### APPROACH:
 1. **Treat as 1D array**: Conceptualize the m×n matrix as a sorted 1D array of length m*n
@@ -46,11 +46,11 @@ Treat the 2D matrix as a flattened 1D sorted array. Use binary search on a virtu
 8. **Return False**: If loop completes without finding target, return False
 
 ### WHY THIS WORKS:
-- Treat 2D matrix as flattened 1D array for binary search
-- Convert mid to (row, col): row = mid // n, col = mid % n
-- Apply standard binary search: compare matrix[row][col] with target
-- Matrix properties (sorted rows + first element of row > last of previous) enable this
-- O(log(m*n)) time, O(1) space
+- This ensures that treat 2D matrix as flattened 1D array for binary search
+- This ensures that convert mid to (row, col): row = mid // n, col = mid % n
+- This ensures that apply standard binary search: compare matrix[row][col] with target
+- This ensures that matrix properties (sorted rows + first element of row > last of previous) enable this
+- This ensures that o(log(m*n)) time, O(1) space
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -89,9 +89,9 @@ O(1)
 
 
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

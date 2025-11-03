@@ -51,41 +51,42 @@
  * 4. **Termination**: Continue until API returns 0 (correct guess)
  *
  * ### WHY THIS WORKS:
- * - Binary search optimally reduces search space by half each iteration
- * - API feedback provides perfect direction information
- * - Guaranteed to find the answer in O(log n) time
- * - Similar to searching in a sorted array but using API instead of direct comparison
- * - Using two pointers (left, right) on the number range allows efficient narrowing
- *
- *
+- This ensures that binary search optimally reduces search space by half each iteration
+- This ensures that aPI feedback provides perfect direction information
+- This ensures that guaranteed to find the answer in O(log n) time
+- This ensures that similar to searching in a sorted array but using API instead of direct comparison
+- This ensures that using two pointers (left, right) on the number range allows efficient narrowing
+
+
 
 This solution uses binary search for efficient implementation.
-### EXAMPLE WALKTHROUGH:
- * Given input n = 10, pick = 6
- * n = 1, pick = 1
- * n = 2, pick = 1:
- *
- * Input:
- * ```
- * n = 10, pick = 6
- * n = 1, pick = 1
- * n = 2, pick = 1
- * ```
- *
- * **Step 1:** guess(5) returns 1 (pick > 5), so left = 6
- * **Step 2:** guess(8) returns -1 (pick < 8), so right = 7
- * **Step 3:** guess(6) returns 0 (correct!)
- * **Step 1:** guess(1) returns 0 (correct!)
- * **Step 1:** guess(1) returns 0 (correct!)
- *
- * Output:
- * ```
- * 6
- * 1
- * 1
- * ```
 
- * ### TIME COMPLEXITY:
+### EXAMPLE WALKTHROUGH:
+Given input n = 10, pick = 6
+n = 1, pick = 1
+n = 2, pick = 1:
+
+Input:
+```
+n = 10, pick = 6
+n = 1, pick = 1
+n = 2, pick = 1
+```
+
+*Step 1:** guess(5) returns 1 (pick > 5), so left = 6
+*Step 2:** guess(8) returns -1 (pick < 8), so right = 7
+*Step 3:** guess(6) returns 0 (correct!)
+*Step 1:** guess(1) returns 0 (correct!)
+*Step 1:** guess(1) returns 0 (correct!)
+
+Output:
+```
+6
+1
+1
+```
+
+### TIME COMPLEXITY:
  * O(log n)
  * - Binary search or tree height
  * Binary search through range [1, n]
@@ -96,11 +97,11 @@ This solution uses binary search for efficient implementation.
  * Only using constant extra space
  * 
  * ### EDGE CASES:
- * - Single number (n = 1): return 1
- * - Pick at boundaries (pick = 1 or pick = n)
- * - Large n values: use overflow-safe mid calculation
- * 
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 // Mock guess API for testing

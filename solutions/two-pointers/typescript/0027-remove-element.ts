@@ -32,9 +32,9 @@
  * **Space Complexity**: O(1) - Constant extra space
  *
  * ### INTUITION:
- * Use two pointers: one for reading, one for writing. When read pointer finds non-target value, write it at write pointer position and increment both. Otherwise only increment read pointer.
- *
- * ### APPROACH:
+The key insight is that use two pointers: one for reading, one for writing. When read pointer finds non-target value, write it at write pointer position and increment both. Otherwise only increment read pointer.
+
+### APPROACH:
  * **Data structures: Array (for storage and traversal)**
  * 1. **Initialize write pointer**: Set k = 0 to track position for non-val elements in array
  * 2. **Iterate through array**: For each element in nums using array traversal
@@ -98,13 +98,11 @@ This solution uses hash map storage for efficient implementation.
  * - Constant extra space
  *
  * ### EDGE CASES:
- * - Empty array: nums=[], val=3 → 0 (no elements to process, returns immediately)
- * - Single element equals val: nums=[3], val=3 → 0 (remove it, returns empty result)
- * - Single element not equals val: nums=[2], val=3 → 1 (keep it, element stays)
- * - All elements equal val: nums=[3,3,3,3], val=3 → 0 (remove all instances)
- * - No elements equal val: nums=[1,2,4,5], val=3 → 4 (keep all, original length unchanged)
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {

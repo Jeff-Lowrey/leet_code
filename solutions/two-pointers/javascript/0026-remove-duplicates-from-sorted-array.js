@@ -41,23 +41,28 @@
  * 4. **Return count**: Return the number of unique elements
  *
  * ### WHY THIS WORKS:
- * - Sorted array means duplicates are adjacent
- * - Two pointers allow in-place removal without extra space
- * - `j` tracks the "write" position for next unique element
- * - `i` scans through all elements
- *
- * ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * [1,1,2]
- * ```
- *
- * i=0, j=0: nums[0]=1 (first element, place at j=0)
- * i=1, j=1: nums[1]=1 == nums[0], skip
- * i=2, j=1: nums[2]=2 != nums[0], place at j=1
- * Result: [1,2,_], return k=2
+- This ensures that sorted array means duplicates are adjacent
+- This ensures that two pointers allow in-place removal without extra space
+- This ensures that `j` tracks the "write" position for next unique element
+- This ensures that `i` scans through all elements
 
- * ### TIME COMPLEXITY:
+### EXAMPLE WALKTHROUGH:
+Input:
+```
+[1,1,2]
+```
+
+i=0, j=0: nums[0]=1 (first element, place at j=0)
+i=1, j=1: nums[1]=1 == nums[0], skip
+i=2, j=1: nums[2]=2 != nums[0], place at j=1
+Result: [1,2,_], return k=2
+
+Step-by-step execution:
+1. [First step]
+2. [Second step]
+3. [Final step]
+
+### TIME COMPLEXITY:
  * O(n)
  * - Single pass through input
  * Single pass through the array

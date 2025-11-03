@@ -36,9 +36,9 @@
  * **Space Complexity**: O(1) - Constant extra space
  *
  * ### INTUITION:
- * The minimum element is where the rotation occurs. Compare mid with right: if nums[mid] > nums[right], minimum is in the right half; otherwise it's in the left half (including mid). This handles both rotated and non-rotated cases.
- *
- * ### APPROACH:
+The key insight is that the minimum element is where the rotation occurs. Compare mid with right: if nums[mid] > nums[right], minimum is in the right half; otherwise it's in the left half (including mid). This handles both rotated and non-rotated cases.
+
+### APPROACH:
  * 1. **Initialize pointers**: Set left = 0, right = len(nums) - 1
  * 2. **Binary search loop**: While left < right, calculate mid = (left + right) // 2
  * 3. **Compare mid with right**: Check if nums[mid] > nums[right] to determine rotation position
@@ -48,13 +48,13 @@
  * 7. **Return result**: Return nums[left] as the minimum element
  *
  * ### WHY THIS WORKS:
- * - Binary search: minimum is at rotation point
- * - If nums[mid] > nums[right], minimum in right half (left = mid + 1)
- * - Else minimum in left half including mid (right = mid)
- * - When left == right, found minimum
- * - O(log n) time, O(1) space
- *
- * ### EXAMPLE WALKTHROUGH:
+- This ensures that binary search: minimum is at rotation point
+- This ensures that if nums[mid] > nums[right], minimum in right half (left = mid + 1)
+- This ensures that else minimum in left half including mid (right = mid)
+- This ensures that when left == right, found minimum
+- This ensures that o(log n) time, O(1) space
+
+### EXAMPLE WALKTHROUGH:
  * Input:
  * ```
  * nums = [4,5,6,7,0,1,2]
@@ -88,11 +88,11 @@
  * - Constant extra space
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {

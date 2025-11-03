@@ -32,11 +32,11 @@
 
  *
  * ### INTUITION:
- * Binary search is the classic divide-and-conquer algorithm for searching
- * in sorted arrays. We repeatedly divide the search space in half by
- * comparing the target with the middle element.
- *
- * ### APPROACH:
+The key insight is that binary search is the classic divide-and-conquer algorithm for searching
+in sorted arrays. We repeatedly divide the search space in half by
+comparing the target with the middle element.
+
+### APPROACH:
  * 1. **Initialize pointers**: Set left=0, right=len(nums)-1
  * 2. **Divide search space**: Calculate mid = (left + right) // 2
  * 3. **Compare and eliminate**:
@@ -46,11 +46,11 @@
  * 4. **Repeat until found or search space exhausted**
  *
  * ### WHY THIS WORKS:
- * - Sorted array property allows us to eliminate half the elements each iteration
- * - Each comparison reduces search space by 50%
- * - Guarantees O(log n) time complexity
- *
- * ### EXAMPLE WALKTHROUGH:
+- Sorted array property allows us to eliminate half the elements each iteration
+- Each comparison reduces search space by 50%
+- Guarantees O(log n) time complexity
+
+### EXAMPLE WALKTHROUGH:
  * Input:
  * ```
  * nums = [-1,0,3,5,9,12], target = 9
@@ -73,12 +73,11 @@
  * - Constant extra space
  *
  * ### EDGE CASES:
- * - Empty array: return -1
- * - Single element: check if it equals target
- * - Target not in array: return -1
- * - Target at boundaries: first or last element
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 /**

@@ -32,7 +32,7 @@ Your solution must use only constant extra space.
 **Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
-Array is sorted, so use two pointers from both ends. If sum < target, move left pointer right. If sum > target, move right pointer left. If equal, found the pair.
+The key insight is that array is sorted, so use two pointers from both ends. If sum < target, move left pointer right. If sum > target, move right pointer left. If equal, found the pair.
 
 ### APPROACH:
 1. **Initialize pointers**: Set left = 0, right = len(numbers) - 1
@@ -91,9 +91,9 @@ O(1)
 
 
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

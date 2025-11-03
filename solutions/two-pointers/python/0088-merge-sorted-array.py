@@ -30,7 +30,7 @@ The final sorted array should not be returned by the function, but instead be st
 **Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
-Start from end of both arrays (largest elements). Compare elements and place larger one at end of nums1. Use three pointers: one for each array's current position, one for insertion position.
+The key insight is that start from end of both arrays (largest elements). Compare elements and place larger one at end of nums1. Use three pointers: one for each array's current position, one for insertion position.
 
 ### APPROACH:
 1. **Initialize three pointers**: Set p1 = m-1, p2 = n-1, p = m+n-1
@@ -42,11 +42,11 @@ Start from end of both arrays (largest elements). Compare elements and place lar
 7. **No return needed**: Modification is in-place in nums1
 
 ### WHY THIS WORKS:
-- Merge from back to front to avoid overwriting nums1 elements
-- Three pointers: p1 at nums1 end, p2 at nums2 end, p at merge position
-- Compare nums1[p1] and nums2[p2], place larger at nums1[p]
-- Copy remaining nums2 elements if any
-- O(m + n) time, O(1) space (in-place merge)
+- This ensures that merge from back to front to avoid overwriting nums1 elements
+- This ensures that three pointers: p1 at nums1 end, p2 at nums2 end, p at merge position
+- This ensures that compare nums1[p1] and nums2[p2], place larger at nums1[p]
+- This ensures that copy remaining nums2 elements if any
+- This ensures that o(m + n) time, O(1) space (in-place merge)
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -78,9 +78,9 @@ O(1)
 
 
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

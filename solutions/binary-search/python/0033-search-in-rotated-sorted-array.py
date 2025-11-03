@@ -32,7 +32,7 @@ You must write an algorithm with O(log n) runtime complexity.
 **Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
-The array has two sorted portions. At each binary search step, determine which half is properly sorted by comparing mid with left/right. Then check if target falls within the sorted half's range. If yes, search that half; otherwise search the other half.
+The key insight is that the array has two sorted portions. At each binary search step, determine which half is properly sorted by comparing mid with left/right. Then check if target falls within the sorted half's range. If yes, search that half; otherwise search the other half.
 
 ### APPROACH:
 1. **Initialize pointers**: Set left = 0, right = len(nums) - 1 for binary search boundaries
@@ -91,9 +91,9 @@ O(1)
 
 
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

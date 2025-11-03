@@ -35,7 +35,7 @@ You must write an algorithm that runs in O(log n) time.
 **Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
-The minimum element is where the rotation occurs. Compare mid with right: if nums[mid] > nums[right], minimum is in the right half; otherwise it's in the left half (including mid). This handles both rotated and non-rotated cases.
+The key insight is that the minimum element is where the rotation occurs. Compare mid with right: if nums[mid] > nums[right], minimum is in the right half; otherwise it's in the left half (including mid). This handles both rotated and non-rotated cases.
 
 ### APPROACH:
 1. **Initialize pointers**: Set left = 0, right = len(nums) - 1
@@ -47,11 +47,11 @@ The minimum element is where the rotation occurs. Compare mid with right: if num
 7. **Return result**: Return nums[left] as the minimum element
 
 ### WHY THIS WORKS:
-- Binary search: minimum is at rotation point
-- If nums[mid] > nums[right], minimum in right half (left = mid + 1)
-- Else minimum in left half including mid (right = mid)
-- When left == right, found minimum
-- O(log n) time, O(1) space
+- This ensures that binary search: minimum is at rotation point
+- This ensures that if nums[mid] > nums[right], minimum in right half (left = mid + 1)
+- This ensures that else minimum in left half including mid (right = mid)
+- This ensures that when left == right, found minimum
+- This ensures that o(log n) time, O(1) space
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -89,9 +89,9 @@ O(1)
 
 
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

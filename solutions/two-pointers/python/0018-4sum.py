@@ -32,7 +32,7 @@ You may return the answer in any order.
 **Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
-Sort array first. Fix first two elements, use two pointers for remaining two. Skip duplicates at all four positions. Adjust pointers based on sum comparison to target.
+The key insight is that sort array first. Fix first two elements, use two pointers for remaining two. Skip duplicates at all four positions. Adjust pointers based on sum comparison to target.
 
 ### APPROACH:
 1. **Sort array**: Sort nums to enable two-pointer technique and skip duplicates
@@ -45,11 +45,11 @@ Sort array first. Fix first two elements, use two pointers for remaining two. Sk
 8. **Return result**: Return list of all unique quadruplets
 
 ### WHY THIS WORKS:
-- Sort array, fix two numbers with outer loops, two-pointer on remaining
-- Skip duplicates at each level to avoid duplicate quadruplets
-- Two pointers find pairs that sum to (target - num1 - num2)
-- Same as 3sum with extra outer loop
-- O(n^3) time: two nested loops + two pointers, O(1) space
+- This ensures that sort array, fix two numbers with outer loops, two-pointer on remaining
+- This ensures that skip duplicates at each level to avoid duplicate quadruplets
+- This ensures that two pointers find pairs that sum to (target - num1 - num2)
+- This ensures that same as 3sum with extra outer loop
+- This ensures that o(n^3) time: two nested loops + two pointers, O(1) space
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -80,9 +80,9 @@ O(1)
 
 
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

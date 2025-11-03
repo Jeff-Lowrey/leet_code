@@ -33,9 +33,9 @@
  * **Space Complexity**: O(1) - Constant extra space
  *
  * ### INTUITION:
- * The array has two sorted portions. At each binary search step, determine which half is properly sorted by comparing mid with left/right. Then check if target falls within the sorted half's range. If yes, search that half; otherwise search the other half.
- *
- * ### APPROACH:
+The key insight is that the array has two sorted portions. At each binary search step, determine which half is properly sorted by comparing mid with left/right. Then check if target falls within the sorted half's range. If yes, search that half; otherwise search the other half.
+
+### APPROACH:
  * 1. **Initialize pointers**: Set left = 0, right = len(nums) - 1 for binary search boundaries
  * 2. **Binary search loop**: While left <= right, calculate mid = (left + right) // 2
  * 3. **Check for target**: If nums[mid] == target, return mid immediately
@@ -90,11 +90,11 @@
  * - Constant extra space
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {
