@@ -1,36 +1,4 @@
 """
-# 0735. Asteroid Collision
-
-# Difficulty: Medium
-
-We are given an array `asteroids` of integers representing asteroids in a row.
-
-For each asteroid, the absolute value represents its size, and the sign represents its direction (positive meaning right, negative meaning left). Each asteroid moves at the same speed.
-
-Find out the state of the asteroids after all collisions. If two asteroids meet, the smaller one will explode. If both are the same size, both will explode. Two asteroids moving in the same direction will never meet.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>asteroids = [5,10,-5]</dd>
-<dt>Output:</dt>
-<dd>[5,10]</dd>
-<dt>Explanation:</dt>
-<dd>The 10 and -5 collide resulting in 10. The 5 and 10 never collide.</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: Stack-based Simulation, Collision Detection
-**Data Structures**: Stack, Array
-**Patterns**: Simulation, State Management
-**Time Complexity**: **O(n)** - Each asteroid is pushed and popped at most once
-**Space Complexity**: **O(n)** - Stack can contain all asteroids in worst case
-
 ### INTUITION:
 The key insight is that use a stack to simulate asteroids. Only right-moving asteroids (positive) can potentially collide with left-moving asteroids (negative). When we encounter a left-moving asteroid, we need to check if it collides with any right-moving asteroids already on the stack.
 
@@ -85,6 +53,7 @@ Output:
 - **Empty array:** Returns empty array
 
 </details>
+
 """
 
 from typing import List

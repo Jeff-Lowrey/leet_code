@@ -1,41 +1,4 @@
 """
-# Difficulty: Easy
-
-# 0867. Transpose Matrix
-
-Given a 2D integer array matrix, return the transpose of matrix.
-
-The transpose of a matrix is the matrix flipped over its main diagonal, switching
-the matrix's row and column indices.
-
-Example 1:
-Input: matrix = [[1,2,3],[4,5,6],[7,8,9]]
-Output: [[1,4,7],[2,5,8],[3,6,9]]
-
-Example 2:
-Input: matrix = [[1,2,3],[4,5,6]]
-Output: [[1,4],[2,5],[3,6]]
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>[[1, 2, 3]]</dd>
-<dt>Output:</dt>
-<dd>1</dd>
-<dt>Explanation:</dt>
-<dd>Transpose of [[1,2,3],[4,5,6]] is [[1,4],[2,5],[3,6]]</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Array Traversal
-**Data Structures**: Hash Map, Array, Matrix
-**Patterns**: Iterative Solution
-**Time Complexity**: O(m × n)
-**Space Complexity**: O(m × n)
-
 ### INTUITION:
 The key insight is that transposing a matrix means converting rows to columns and vice versa.
 Element at position (i,j) in original matrix moves to position (j,i) in transposed matrix.
@@ -90,11 +53,11 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(m × n)
+**O(m × n)**
 - Must visit every element once
 
 ### SPACE COMPLEXITY:
-O(m × n)
+**O(m × n)**
 - Need to create new matrix of same total size (different dimensions)
 
 ### EDGE CASES:
@@ -103,6 +66,7 @@ O(m × n)
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 

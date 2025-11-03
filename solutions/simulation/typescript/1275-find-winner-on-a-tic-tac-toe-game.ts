@@ -1,32 +1,5 @@
 /**
- * # 1275. Find Winner On A Tic Tac Toe Game
- *
- * Difficulty: Medium
- *
- * Solve the Find Winner On A Tic Tac Toe Game problem as described.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>* ```</dd>
- * <dt>Output:</dt>
- * <dd>* ```</dd>
- * <dt>Explanation:</dt>
- * <dd>Processing input produces the expected output</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- *
- * ### METADATA:
- * **Techniques**: Simulation, Game state checking
- * **Data Structures**: 2D array
- * **Patterns**: Win condition checking
- * **Time Complexity**: **O(n²)**
- * **Space Complexity**: **O(n)**
- *
- * ### INTUITION:
+### INTUITION:
 The key insight is to solve this problem efficiently.
 
 ### APPROACH:
@@ -52,10 +25,10 @@ Step-by-step execution:
 3. [Final step]
 
 ### TIME COMPLEXITY:
-**O(n²)** - Analysis of time complexity - [Add explanation of why this complexity]
+O(n²)** - Analysis of time complexity - [Add explanation of why this complexity]
 
 ### SPACE COMPLEXITY:
-**O(n)** - Analysis of space complexity - [Add explanation of why this complexity]
+O(n)** - Analysis of space complexity - [Add explanation of why this complexity]
 
 ### EDGE CASES:
 - **Empty input**: Handle when input is empty
@@ -63,7 +36,8 @@ Step-by-step execution:
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 function tictactoe(moves: number[][]): string {
     const board: string[][] = Array(3).fill(null).map(() => Array(3).fill(''));

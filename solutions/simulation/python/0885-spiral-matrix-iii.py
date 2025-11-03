@@ -1,40 +1,16 @@
 """
-# 0885. Spiral Matrix Iii
-
-# Difficulty: Medium
-
-Solve the Spiral Matrix Iii problem as described.
-
-**Example:**
- *
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>```</dd>
-<dt>Output:</dt>
-<dd>```</dd>
-<dt>Explanation:</dt>
-<dd>Processing input produces the expected output</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- *
-### METADATA:
-**Techniques**: Simulation, Direction control, Spiral traversal
-**Data Structures**: Array, List
-**Patterns**: Spiral pattern, Direction cycling
-**Time Complexity**: **O(n²)**
-**Space Complexity**: **O(n)**
- *
 ### INTUITION:
 The key insight is to solve this problem efficiently.
  *
+
 ### APPROACH:
 We solve this problem by implementing the required algorithm.
  *
+
 ### WHY THIS WORKS:
 This approach works because it correctly implements the problem requirements.
  *
+
 ### EXAMPLE WALKTHROUGH:
 Input:
 ```
@@ -65,6 +41,7 @@ Step-by-step execution:
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 from typing import List

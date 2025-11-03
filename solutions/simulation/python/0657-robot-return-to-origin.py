@@ -1,36 +1,4 @@
 """
-# 0657. Robot Return To Origin
-
-# Difficulty: Easy
-
-There is a robot starting at position (0, 0) on a 2D plane. Given a sequence of moves,
-judge if this robot ends up at (0, 0) after it completes its moves.
-
-The move sequence is represented as a string, and the character moves[i] represents its
-ith move. Valid moves are R (right), L (left), U (up), and D (down). Return true if the
-robot returns to the origin after all moves, otherwise return false.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>moves = "UD"</dd>
-<dt>Output:</dt>
-<dd>true</dd>
-<dt>Explanation:</dt>
-<dd>The robot moves up once and then down once. It returns to the origin</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-### METADATA:
-**Techniques**: Simulation, Counting
-**Data Structures**: String
-**Patterns**: Position tracking, Balance checking
-**Time Complexity**: **O(n)** - where n is the length of moves string
-**Space Complexity**: **O(1)** - constant extra space
-
 ### INTUITION:
 The key insight is that for a robot to return to origin, the number of up moves must equal down moves AND the number of left moves must equal right moves. Instead of simulating the actual position, we can simply count the moves and check if they balance out.
 
@@ -67,10 +35,10 @@ true
 ```
 
 ### TIME COMPLEXITY:
-**O(n)** where n is the length of the moves string. Each count() operation scans the string once, and we perform 4 count operations, giving us O(4n) = O(n).
+**O(n)** where n is the length of the moves string. Each count() operation scans the string once, and we perform 4 count operations, giving us **O(4n)** = **O(n)**.
 
 ### SPACE COMPLEXITY:
-**O(1)** - We use constant extra space regardless of input size. The count() method doesn't allocate any additional data structures; it scans the string and returns an integer count. Our function only stores these four integer counts plus the boolean return value, giving us O(1) space complexity. The input string itself is not counted toward space complexity as it's provided as input.
+**O(1)** - We use constant extra space regardless of input size. The count() method doesn't allocate any additional data structures; it scans the string and returns an integer count. Our function only stores these four integer counts plus the boolean return value, giving us **O(1)** space complexity. The input string itself is not counted toward space complexity as it's provided as input.
 
 ### EDGE CASES:
 - **Empty string**: Returns true (robot doesn't move, stays at origin)
@@ -79,6 +47,7 @@ true
 - **Interleaved moves**: Order doesn't matter, only counts (e.g., "UDUD" and "UUDD" both return true)
 
 </details>
+
 """
 
 

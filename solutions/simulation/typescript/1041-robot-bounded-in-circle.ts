@@ -1,32 +1,5 @@
 /**
- * # 1041. Robot Bounded In Circle
- *
- * Difficulty: Medium
- *
- * Solve the Robot Bounded In Circle problem as described.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>* ```</dd>
- * <dt>Output:</dt>
- * <dd>* ```</dd>
- * <dt>Explanation:</dt>
- * <dd>Processing input produces the expected output</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- *
- * ### METADATA:
- * **Techniques**: Simulation, Direction tracking
- * **Data Structures**: String
- * **Patterns**: Cycle detection
- * **Time Complexity**: **O(n²)**
- * **Space Complexity**: **O(n)**
- *
- * ### INTUITION:
+### INTUITION:
 The key insight is to solve this problem efficiently.
 
 ### APPROACH:
@@ -52,10 +25,10 @@ Step-by-step execution:
 3. [Final step]
 
 ### TIME COMPLEXITY:
-**O(n²)** - Analysis of time complexity - [Add explanation of why this complexity]
+O(n²)** - Analysis of time complexity - [Add explanation of why this complexity]
 
 ### SPACE COMPLEXITY:
-**O(n)** - Analysis of space complexity - [Add explanation of why this complexity]
+O(n)** - Analysis of space complexity - [Add explanation of why this complexity]
 
 ### EDGE CASES:
 - **Empty input**: Handle when input is empty
@@ -63,7 +36,8 @@ Step-by-step execution:
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 function isRobotBounded(instructions: string): boolean {
     const directions: number[][] = [[0, 1], [1, 0], [0, -1], [-1, 0]];

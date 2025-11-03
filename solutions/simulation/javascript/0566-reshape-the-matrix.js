@@ -1,51 +1,5 @@
 /**
- * # Difficulty: Easy
- *
- * # 0566. Reshape The Matrix
- *
- *
- * In MATLAB, there is a handy function called reshape which can reshape an m x n matrix
- * into a new one with a different size r x c keeping its original data.
- *
- * You are given an m x n matrix mat and two integers r and c representing the number of
- * rows and the number of columns of the wanted reshaped matrix.
- *
- * The reshaped matrix should be filled with all the elements of the original matrix in
- * the same row-traversing order as they were.
- *
- * If the reshape operation with given parameters is possible and legal, output the new
- * reshaped matrix; otherwise, output the original matrix.
- *
- * Example 1:
- * Input: mat = [[1,2],[3,4]], r = 1, c = 4
- * Output: [[1,2,3,4]]
- *
- * Example 2:
- * Input: mat = [[1,2],[3,4]], r = 2, c = 4
- * Output: [[1,2],[3,4]]
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>[[1, 2]]</dd>
- * <dt>Output:</dt>
- * <dd>1</dd>
- * <dt>Explanation:</dt>
- * <dd>Reshape [[1,2],[3,4]] from 2×2 to 1×4: [[1,2,3,4]]</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- * ### METADATA:
- * **Techniques**: Hash Table Lookup, Array Traversal
- * **Data Structures**: Hash Map, Array, String
- * **Patterns**: Iterative Solution
- * **Time Complexity**: O(m × n)
- * **Space Complexity**: O(r × c)
-
- *
- * ### INTUITION:
+### INTUITION:
 The key insight is that reshape is only possible if the total number of elements remains the same.
 Flatten the matrix conceptually, then redistribute elements into new dimensions.
 Use division and modulo to convert between 1D and 2D indices.
@@ -69,43 +23,44 @@ Key Insight**: Index mapping
 - This ensures that this naturally handles the reshape transformation
 
 ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * mat = [[1,2],[3,4]], r = 1, c = 4
- * ```
- *
- * Original shape: 2×2, New shape: 1×4
- * Total elements: 4 = 4 ✓ (valid)
- * Mapping to 1×4:
- *
- * Steps:
- * Step 1: Linear indices: [0,1,2,3] → [1,2,3,4]
- * Step 2: - idx 0: row = 0//4 = 0, col = 0%4 = 0 → result[0][0] = 1
- * Step 3: - idx 1: row = 1//4 = 0, col = 1%4 = 1 → result[0][1] = 2
- * Step 4: - idx 2: row = 2//4 = 0, col = 2%4 = 2 → result[0][2] = 3
- * Step 5: - idx 3: row = 3//4 = 0, col = 3%4 = 3 → result[0][3] = 4
- * Step 6: Result: [[1,2,3,4]]
- * 
- * Output:
- * ```
- * [[1,2,3,4]]
- * ```
- * 
- * ### TIME COMPLEXITY:
- * O(m × n)
- * - Must process each element once
- *
- * ### SPACE COMPLEXITY:
- * O(r × c)
- * - Need to store the reshaped matrix (same size as original)
- *
- * ### EDGE CASES:
+Input:
+```
+mat = [[1,2],[3,4]], r = 1, c = 4
+```
+
+Original shape: 2×2, New shape: 1×4
+Total elements: 4 = 4 ✓ (valid)
+Mapping to 1×4:
+
+Steps:
+Step 1: Linear indices: [0,1,2,3] → [1,2,3,4]
+Step 2: - idx 0: row = 0//4 = 0, col = 0%4 = 0 → result[0][0] = 1
+Step 3: - idx 1: row = 1//4 = 0, col = 1%4 = 1 → result[0][1] = 2
+Step 4: - idx 2: row = 2//4 = 0, col = 2%4 = 2 → result[0][2] = 3
+Step 5: - idx 3: row = 3//4 = 0, col = 3%4 = 3 → result[0][3] = 4
+Step 6: Result: [[1,2,3,4]]
+
+Output:
+```
+[[1,2,3,4]]
+```
+
+### TIME COMPLEXITY:
+O(m × n)**
+- Must process each element once
+
+### SPACE COMPLEXITY:
+O(r × c)**
+- Need to store the reshaped matrix (same size as original)
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 /**
  * Main solution for Problem 566: Reshape The Matrix

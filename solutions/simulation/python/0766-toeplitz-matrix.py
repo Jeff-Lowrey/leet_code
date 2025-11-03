@@ -1,46 +1,4 @@
 """
-# Difficulty: Easy
-
-# 0766. Toeplitz Matrix
-
-Given an m x n matrix, return true if the matrix is Toeplitz. Otherwise, return false.
-
-A matrix is Toeplitz if every diagonal from top-left to bottom-right has the same elements.
-
-Example 1:
-Input: matrix = [[1,2,3,4],[5,1,2,3],[9,5,1,2]]
-Output: true
-Explanation:
-In the above grid, the diagonals are:
-"[9]", "[5, 5]", "[1, 1, 1]", "[2, 2, 2]", "[3, 3]", "[4]".
-In each diagonal all elements are the same, so the answer is True.
-
-Example 2:
-Input: matrix = [[1,2],[2,2]]
-Output: false
-Explanation:
-The diagonal "[1, 2]" has different elements.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>[[1, 2, 3, 4]]</dd>
-<dt>Output:</dt>
-<dd>1</dd>
-<dt>Explanation:</dt>
-<dd>Matrix [[1,2,3,4],[5,1,2,3],[9,5,1,2]] is Toeplitz (each diagonal has equal elements)</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: Hash Map, Array, Tree
-**Patterns**: Two Pointers Pattern
-**Time Complexity**: O(m × n)
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
 In a Toeplitz matrix, each diagonal going from top-left to bottom-right contains
 identical elements. A key observation: element at (i,j) should equal element at (i+1,j+1).
@@ -90,11 +48,11 @@ True
 ```
 
 ### TIME COMPLEXITY:
-O(m × n)
+**O(m × n)**
 - Check each cell once (except last row and column)
 
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 - Only use constant extra space
 
 ### EDGE CASES:
@@ -103,6 +61,7 @@ O(1)
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 from typing import Any
