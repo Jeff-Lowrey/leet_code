@@ -37,29 +37,34 @@
  * Since numbers can be reused unlimited times, we explore each candidate multiple times.
  *
  * ### APPROACH:
- * 1. **Sort candidates**: For optimization and early termination
- * 2. **Use backtracking**: Build combinations incrementally
- * 3. **Two choices per element**: Include it (allowing reuse) or skip it
- * 4. **Base cases**: Sum equals target (valid) or exceeds target (invalid)
- *
- * ### WHY THIS WORKS:
- * - Backtracking explores all possible combinations systematically
- * - Sorting allows early termination when candidate > remaining sum
- * - Using start index prevents duplicate combinations
- *
- * ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * candidates = [2,3,6,7], target = 7
- * ```
- *
- * Combinations found: [[2,2,3], [7]]
- *
- * Steps:
- * Step 1: - Try 2: [2] -> remaining=5, try 2 again: [2,2] -> remaining=3, try 3: [2,2,3] ✓
- * Step 2: - Try 7: [7] -> remaining=0 ✓
+1. **Sort candidates**: For optimization and early termination
+2. **Use backtracking**: Build combinations incrementally
+3. **Two choices per element**: Include it (allowing reuse) or skip it
+4. **Base cases**: Sum equals target (valid) or exceeds target (invalid)
 
- * ### TIME COMPLEXITY:
+### WHY THIS WORKS:
+- This ensures that backtracking explores all possible combinations systematically
+- This ensures that sorting allows early termination when candidate > remaining sum
+- This ensures that using start index prevents duplicate combinations
+
+### EXAMPLE WALKTHROUGH:
+Input:
+```
+candidates = [2,3,6,7], target = 7
+```
+
+Combinations found: [[2,2,3], [7]]
+
+Steps:
+Step 1: - Try 2: [2] -> remaining=5, try 2 again: [2,2] -> remaining=3, try 3: [2,2,3] ✓
+Step 2: - Try 7: [7] -> remaining=0 ✓
+
+Output:
+```
+[Expected output]
+```
+
+### TIME COMPLEXITY:
  * O(N^(T/M))
  * Where N=len(candidates), T=target, M=minimal candidate value
  *
@@ -68,11 +73,11 @@
  * For recursion depth and storing combinations
  *
  * ### EDGE CASES:
- * - Target = 0: return [[]]
- * - No valid combinations: return []
- * - Single candidate equals target: return [[candidate]]
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 /**

@@ -42,17 +42,23 @@
  * **Space Complexity**: O(N)
  *
  * ### INTUITION:
- * Place queens one row at a time and backtrack when conflicts arise. Queens attack horizontally, vertically, and diagonally, so we need to ensure no two queens can attack each other.
- *
- * ### APPROACH:
- * **Data structures: Hash Set (column and diagonal tracking), Array (board state and results), String (board representation)**
- * 1. **Row by row placement**: Place one queen per row to avoid horizontal conflicts
- * 2. **Column tracking**: Track which columns are occupied using hash set to avoid vertical conflicts
- * 3. **Diagonal tracking**: Track both diagonal directions using hash set to avoid diagonal conflicts
- * 4. **Backtrack**: When placement impossible, backtrack and try next position
- * 5. **Build solution**: When all queens placed successfully, add board array to results
- *
- * ### WHY THIS WORKS:
+The key insight is that place queens one row at a time and backtrack when conflicts arise. Queens attack horizontally, vertically, and diagonally, so we need to ensure no two queens can attack each other.
+
+### APPROACH:
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+Data structures: Hash Set (column and diagonal tracking), Array (board state and results), String (board representation)**
+1. **Row by row placement**: Place one queen per row to avoid horizontal conflicts
+2. **Column tracking**: Track which columns are occupied using hash set to avoid vertical conflicts
+3. **Diagonal tracking**: Track both diagonal directions using hash set to avoid diagonal conflicts
+4. **Backtrack**: When placement impossible, backtrack and try next position
+5. **Build solution**: When all queens placed successfully, add board array to results
+
+### WHY THIS WORKS:
  * - Placing one queen per row eliminates horizontal conflicts automatically
  * - Column and diagonal tracking prevents vertical and diagonal conflicts
  * - Backtracking explores all valid placements systematically

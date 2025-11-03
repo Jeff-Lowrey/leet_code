@@ -41,7 +41,7 @@ Output: [["Q"]]
 **Space Complexity**: O(N)
 
 ### INTUITION:
-Place queens one row at a time and backtrack when conflicts arise. Queens attack horizontally, vertically, and diagonally, so we need to ensure no two queens can attack each other.
+The key insight is that place queens one row at a time and backtrack when conflicts arise. Queens attack horizontally, vertically, and diagonally, so we need to ensure no two queens can attack each other.
 
 ### APPROACH:
 1. **Row by row placement**: Place one queen per row to avoid horizontal conflicts

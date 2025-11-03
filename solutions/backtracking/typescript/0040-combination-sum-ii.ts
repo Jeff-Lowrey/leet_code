@@ -31,9 +31,9 @@
  * **Space Complexity**: O(1) - Constant extra space
  *
  * ### INTUITION:
- * Sort the candidates first to handle duplicates. During backtracking, skip duplicate elements at the same recursion level by checking if nums[i] == nums[i-1] and i > start. Each number can only be used once, so advance the index by 1 after including a number.
- *
- * ### APPROACH:
+The key insight is that sort the candidates first to handle duplicates. During backtracking, skip duplicate elements at the same recursion level by checking if nums[i] == nums[i-1] and i > start. Each number can only be used once, so advance the index by 1 after including a number.
+
+### APPROACH:
  * 1. **Sort candidates**: Sort candidates array to group duplicates together for easy skipping
  * 2. **Initialize result**: Create empty result list and current combination list
  * 3. **Define backtrack function**: Create recursive function with parameters (start, current, remaining_target)
@@ -44,13 +44,13 @@
  * 8. **Recursive call**: Add candidates[i] to current, call backtrack(i+1, current, remaining_target - candidates[i]), then remove last element
  *
  * ### WHY THIS WORKS:
- * - Sort array to enable duplicate skipping
- * - Skip duplicates: if i > start and candidates[i] == candidates[i-1], skip
- * - Backtracking tries including/excluding each candidate
- * - Pass start index to avoid reusing earlier elements
- * - O(2^n) time: each element in/out, sorting adds O(n log n)
- *
- * ### EXAMPLE WALKTHROUGH:
+- This ensures that sort array to enable duplicate skipping
+- This ensures that skip duplicates: if i > start and candidates[i] == candidates[i-1], skip
+- This ensures that backtracking tries including/excluding each candidate
+- This ensures that pass start index to avoid reusing earlier elements
+- This ensures that o(2^n) time: each element in/out, sorting adds O(n log n)
+
+### EXAMPLE WALKTHROUGH:
  * Input:
  * ```
  * candidates = [10,1,2,7,6,1,5], target = 8
@@ -86,11 +86,11 @@
  * - Constant extra space
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {

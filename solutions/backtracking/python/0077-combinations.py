@@ -21,19 +21,19 @@ You may return the answer in any order.
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 ### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: Hash Map, Array, Matrix
-**Patterns**: Backtracking
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(1) - Constant extra space
+**Techniques**: Backtracking, Combination Generation, Incremental Building
+**Data Structures**: Array, List, Recursion Stack
+**Patterns**: Backtracking Pattern, Combination Selection
+**Time Complexity**: **O(C(n,k) × k)** - Generate C(n,k) combinations, each takes O(k) to copy
+**Space Complexity**: **O(k)** - Recursion stack depth and current combination size
 
 ### INTUITION:
-Build combinations incrementally by choosing numbers from a starting position onwards. Use a start parameter to ensure we only consider numbers greater than previously chosen ones, avoiding duplicates like [1,2] and [2,1]. When combination reaches size k, add it to results.
+The key insight is that build combinations incrementally by choosing numbers from a starting position onwards. Use a start parameter to ensure we only consider numbers greater than previously chosen ones, avoiding duplicates like [1,2] and [2,1]. When combination reaches size k, add it to results.
 
 ### APPROACH:
 1. **Initialize result**: Create empty result list and current combination list
 2. **Define backtrack function**: Create recursive function with parameters (start, current)
-# 0077. **Base case**: If len(current) == k, add copy of current to result and return  # Result undefined
+3. **Base case**: If len(current) == k, add copy of current to result and return
 4. **Iterate from start**: Loop from start to n+1 (numbers 1 to n)
 5. **Add number**: Append current number i to current combination
 6. **Recursive call**: Call backtrack(i+1, current) to continue building combination
@@ -73,19 +73,16 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n)
-- Single pass through input
-
+**O(C(n,k) × k)** - where C(n,k) = n!/(k!(n-k)!) is the binomial coefficient representing the number of ways to choose k elements from n elements. We generate exactly C(n,k) combinations. For each valid combination of size k, we perform O(k) work to copy it to the result list. For example, C(4,2) = 6, so with n=4 and k=2, we generate 6 combinations, each requiring O(2) = O(k) copy time. Total time: O(C(n,k)) combinations × O(k) copy time = O(C(n,k) × k).
 
 ### SPACE COMPLEXITY:
-O(1)
-- Constant extra space
+**O(k)** - where k is the size of each combination. The recursion call stack can go as deep as k levels (we make at most k recursive calls to build a combination of size k). The current combination list grows from size 0 to size k. The result list storing all combinations is not counted toward space complexity as it's required output. Total auxiliary space: O(k) for recursion stack + O(k) for current combination = O(k).
 
 
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

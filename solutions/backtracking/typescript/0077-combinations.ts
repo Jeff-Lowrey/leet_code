@@ -29,9 +29,9 @@
  * **Space Complexity**: O(1) - Constant extra space
  *
  * ### INTUITION:
- * Build combinations incrementally by choosing numbers from a starting position onwards. Use a start parameter to ensure we only consider numbers greater than previously chosen ones, avoiding duplicates like [1,2] and [2,1]. When combination reaches size k, add it to results.
- *
- * ### APPROACH:
+The key insight is that build combinations incrementally by choosing numbers from a starting position onwards. Use a start parameter to ensure we only consider numbers greater than previously chosen ones, avoiding duplicates like [1,2] and [2,1]. When combination reaches size k, add it to results.
+
+### APPROACH:
  * 1. **Initialize result**: Create empty result list and current combination list
  * 2. **Define backtrack function**: Create recursive function with parameters (start, current)
  * # 0077. **Base case**: If len(current) == k, add copy of current to result and return  # Result undefined
@@ -82,11 +82,11 @@
  * - Constant extra space
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {

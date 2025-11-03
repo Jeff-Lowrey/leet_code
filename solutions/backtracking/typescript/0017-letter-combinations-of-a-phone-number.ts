@@ -31,22 +31,22 @@
  * **Space Complexity**: O(3^N × 4^M)
  *
  * ### INTUITION:
- * This is a classic backtracking problem where we need to generate all possible
- * combinations. Each digit maps to multiple letters, creating a decision tree
- * where we explore all paths.
- *
- * ### APPROACH:
+The key insight is that this is a classic backtracking problem where we need to generate all possible
+combinations. Each digit maps to multiple letters, creating a decision tree
+where we explore all paths.
+
+### APPROACH:
  * 1. **Map digits to letters**: Create a lookup table for phone mappings
  * 2. **Use backtracking**: Build combinations character by character
  * 3. **Recursive exploration**: For each digit, try all possible letters
  * 4. **Base case**: When we've processed all digits, add the combination
  *
  * ### WHY THIS WORKS:
- * - Backtracking explores all possible paths systematically
- * - We build combinations incrementally and backtrack when needed
- * - Each recursive call handles one digit at a time
- *
- * ### EXAMPLE WALKTHROUGH:
+- This ensures that backtracking explores all possible paths systematically
+- This ensures that we build combinations incrementally and backtrack when needed
+- This ensures that each recursive call handles one digit at a time
+
+### EXAMPLE WALKTHROUGH:
  * Input:
  * ```
  * "23"
@@ -71,11 +71,11 @@
  * For storing all possible combinations
  *
  * ### EDGE CASES:
- * - Empty string returns empty list
- * - Single digit returns all its mapped letters
- * - Invalid digits (0, 1) are ignored
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {

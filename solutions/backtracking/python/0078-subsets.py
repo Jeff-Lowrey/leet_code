@@ -29,7 +29,7 @@ The solution `set` must not contain duplicate subsets. Return the solution in an
 **Space Complexity**: O(n) - recursion depth
 
 ### INTUITION:
-Generate all possible subsets (power set) by making binary choices for each element: include it or don't include it in the current subset. Use backtracking to explore all combinations.
+The key insight is that generate all possible subsets (power set) by making binary choices for each element: include it or don't include it in the current subset. Use backtracking to explore all combinations.
 
 ### APPROACH:
 1. **Initialize result list**: Create an empty list to store all subsets (will include empty set)
@@ -41,10 +41,10 @@ Generate all possible subsets (power set) by making binary choices for each elem
 7. **Return power set**: After all recursive exploration completes, return the complete collection of 2^n subsets
 
 ### WHY THIS WORKS:
-- Each element has 2 choices: include or exclude
-- Total subsets = 2^n (binary choices for n elements)
-- Backtracking systematically explores all combinations
-- Adding current subset at each step captures all intermediate states
+- This ensures that each element has 2 choices: include or exclude
+- This ensures that total subsets = 2^n (binary choices for n elements)
+- This ensures that backtracking systematically explores all combinations
+- This ensures that adding current subset at each step captures all intermediate states
 
 ### EXAMPLE WALKTHROUGH:
 Input:

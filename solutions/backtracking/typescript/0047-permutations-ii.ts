@@ -27,9 +27,9 @@
  * **Space Complexity**: O(1) - Constant extra space
  *
  * ### INTUITION:
- * Use a frequency counter to track available numbers. During backtracking, iterate through unique numbers in the counter, not array positions. Decrement the counter when using a number and increment when backtracking. This naturally handles duplicates by treating them as frequency counts.
- *
- * ### APPROACH:
+The key insight is that use a frequency counter to track available numbers. During backtracking, iterate through unique numbers in the counter, not array positions. Decrement the counter when using a number and increment when backtracking. This naturally handles duplicates by treating them as frequency counts.
+
+### APPROACH:
  * 1. **Create frequency counter**: Use Counter(nums) to build frequency map of available numbers
  * 2. **Initialize result**: Create empty result list and current permutation list
  * 3. **Define backtrack function**: Create recursive function that builds permutations incrementally
@@ -40,13 +40,13 @@
  * 8. **Recurse and backtrack**: Call backtrack(), then remove num from current and increment counter[num]
  *
  * ### WHY THIS WORKS:
- * - Backtracking with frequency map to handle duplicates
- * - At each level, try each unique unused number
- * - Skip if count[num] == 0 (already used in this path)
- * - Decrement count on recursion, increment on backtrack
- * - O(n! * n) time: n! permutations, O(n) to copy each
- *
- * ### EXAMPLE WALKTHROUGH:
+- This ensures that backtracking with frequency map to handle duplicates
+- This ensures that at each level, try each unique unused number
+- This ensures that skip if count[num] == 0 (already used in this path)
+- This ensures that decrement count on recursion, increment on backtrack
+- This ensures that o(n! * n) time: n! permutations, O(n) to copy each
+
+### EXAMPLE WALKTHROUGH:
  * Input:
  * ```
  * nums = [1,1,2]
@@ -82,11 +82,11 @@
  * - Constant extra space
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {

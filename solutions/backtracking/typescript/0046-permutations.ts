@@ -28,9 +28,9 @@
  * **Space Complexity**: O(n) - recursion depth and current permutation
  *
  * ### INTUITION:
- * Generate all permutations by systematically trying each unused element at each position. Use backtracking to explore all possibilities while maintaining state through choices and un-choices.
- *
- * ### APPROACH:
+The key insight is that generate all permutations by systematically trying each unused element at each position. Use backtracking to explore all possibilities while maintaining state through choices and un-choices.
+
+### APPROACH:
  * 1. **Initialize result list**: Create an empty list to store all permutations
  * 2. **Define recursive backtracking function**: Create a helper function that builds permutations by maintaining a current partial permutation
  * 3. **Base case check**: If the current permutation length equals the input array length, we have a complete permutation - add a copy to results

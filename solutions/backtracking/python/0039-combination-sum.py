@@ -24,11 +24,11 @@ Two combinations are unique if the frequency of at least one of the chosen numbe
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 ### METADATA:
-**Techniques**: Hash Map Storage, Array Traversal, Sorting
-**Data Structures**: Array, Matrix
-**Patterns**: Hash Table Pattern, Backtracking
-**Time Complexity**: O(N^(T/M))
-**Space Complexity**: O(T/M)
+**Techniques**: Backtracking, Recursive Combination Building, Reuse with Index
+**Data Structures**: Array, List, Recursion Stack
+**Patterns**: Backtracking Pattern, Combination Sum with Repetition
+**Time Complexity**: **O(N^(T/M))** - Explore all combinations with repetition allowed
+**Space Complexity**: **O(T/M)** - Recursion depth proportional to target/min_candidate
 
 ### INTUITION:
 This is a classic backtracking problem where we need to find all combinations that sum to target.
@@ -41,9 +41,9 @@ Since numbers can be reused unlimited times, we explore each candidate multiple 
 4. **Base cases**: Sum equals target (valid) or exceeds target (invalid)
 
 ### WHY THIS WORKS:
-- Backtracking explores all possible combinations systematically
-- Sorting allows early termination when candidate > remaining sum
-- Using start index prevents duplicate combinations
+- This ensures that backtracking explores all possible combinations systematically
+- This ensures that sorting allows early termination when candidate > remaining sum
+- This ensures that using start index prevents duplicate combinations
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -57,18 +57,21 @@ Steps:
 Step 1: - Try 2: [2] -> remaining=5, try 2 again: [2,2] -> remaining=3, try 3: [2,2,3] ✓
 Step 2: - Try 7: [7] -> remaining=0 ✓
 
+Output:
+```
+[Expected output]
+```
+
 ### TIME COMPLEXITY:
-O(N^(T/M))
-Where N=len(candidates), T=target, M=minimal candidate value
+**O(N^(T/M))** - where N is the number of candidates, T is the target value, and M is the minimal candidate value. In the worst case, we explore a tree where each node has N choices (all candidates), and the maximum depth is T/M (when we repeatedly pick the smallest candidate). The number of nodes in this tree is bounded by N^(T/M). For each complete combination, we perform O(T/M) work to copy it. This gives us O(N^(T/M) × (T/M)) total time, but the N^(T/M) term dominates.
 
 ### SPACE COMPLEXITY:
-O(T/M)
-For recursion depth and storing combinations
+**O(T/M)** - where T is the target and M is the minimal candidate value. The recursion call stack depth is at most T/M levels (when we repeatedly use the smallest candidate to reach the target). The current combination list can grow to size at most T/M. The result list is not counted as it's required output. Total auxiliary space: O(T/M) for recursion stack + O(T/M) for current combination = O(T/M).
 
 ### EDGE CASES:
-- Target = 0: return [[]]
-- No valid combinations: return []
-- Single candidate equals target: return [[candidate]]
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

@@ -35,9 +35,9 @@
 
  *
  * ### INTUITION:
- * Generate all possible subsets (power set) by making binary choices for each element: include it or don't include it in the current subset. Use backtracking to explore all combinations.
- *
- * ### APPROACH:
+The key insight is that generate all possible subsets (power set) by making binary choices for each element: include it or don't include it in the current subset. Use backtracking to explore all combinations.
+
+### APPROACH:
  * **Data structures: Array (results storage, current subset tracking)**
  * 1. **Initialize result list**: Create an empty array to store all subsets (will include empty set)
  * 2. **Define recursive backtracking function**: Create a helper function with start index and current subset parameters for array
@@ -48,57 +48,57 @@
  * 7. **Return power set**: After all recursive exploration completes, return the complete collection of 2^n subsets
  *
  * ### WHY THIS WORKS:
- * - Each element has 2 choices: include or exclude
- * - Total subsets = 2^n (binary choices for n elements)
- * - Backtracking systematically explores all combinations
- * - Adding current subset at each step captures all intermediate states
- *
- * ### EXAMPLE WALKTHROUGH:
-  * Input:
- * ```
- * nums = [1,2,3]
- * ```
- *
- * **Step 1:** Initialize result list
- * - Create empty array: result = []
- * - This will store all 2^3 = 8 subsets
- *
- * **Step 2:** Define recursive backtracking function
- * - Function: backtrack(index=0, currentSubset=[])
- * - Parameters track: current position in array and current subset being built
- *
- * **Step 3:** Add current subset at each call
- * - backtrack(0, []) → add [] to result
- * - backtrack(1, [1]) → add [1] to result
- * - backtrack(2, [1,2]) → add [1,2] to result
- * - backtrack(3, [1,2,3]) → add [1,2,3] to result (base case)
- *
- * **Step 4:** Iterate from start index
- * - At index 0: consider elements [1,2,3]
- * - At index 1: consider elements [2,3]
- * - At index 2: consider elements [3]
- *
- * **Step 5:** Include element and recurse
- * - Include 1: currentSubset = [1], recurse with index=1
- *   - Include 2: currentSubset = [1,2], recurse with index=2
- *     - Include 3: currentSubset = [1,2,3], recurse with index=3 (base case)
- *
- * **Step 6:** Backtrack
- * - After [1,2,3], remove 3: currentSubset = [1,2]
- * - After [1,2], remove 2: currentSubset = [1]
- *   - Include 3: currentSubset = [1,3], recurse
- * - After [1,3], remove 3, remove 1: currentSubset = []
- *   - Include 2: currentSubset = [2], recurse
- *
- * **Step 7:** Return power set
- * - After all recursive calls complete: result = [[], [1], [1,2], [1,2,3], [1,3], [2], [2,3], [3]]
- *
- * Output:
- * ```
- * [[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]]
- * ```
- *
- * ### TIME COMPLEXITY:
+- This ensures that each element has 2 choices: include or exclude
+- This ensures that total subsets = 2^n (binary choices for n elements)
+- This ensures that backtracking systematically explores all combinations
+- This ensures that adding current subset at each step captures all intermediate states
+
+### EXAMPLE WALKTHROUGH:
+Input:
+```
+nums = [1,2,3]
+```
+
+*Step 1:** Initialize result list
+- Create empty array: result = []
+- This will store all 2^3 = 8 subsets
+
+*Step 2:** Define recursive backtracking function
+- Function: backtrack(index=0, currentSubset=[])
+- Parameters track: current position in array and current subset being built
+
+*Step 3:** Add current subset at each call
+- backtrack(0, []) → add [] to result
+- backtrack(1, [1]) → add [1] to result
+- backtrack(2, [1,2]) → add [1,2] to result
+- backtrack(3, [1,2,3]) → add [1,2,3] to result (base case)
+
+*Step 4:** Iterate from start index
+- At index 0: consider elements [1,2,3]
+- At index 1: consider elements [2,3]
+- At index 2: consider elements [3]
+
+*Step 5:** Include element and recurse
+- Include 1: currentSubset = [1], recurse with index=1
+  - Include 2: currentSubset = [1,2], recurse with index=2
+    - Include 3: currentSubset = [1,2,3], recurse with index=3 (base case)
+
+*Step 6:** Backtrack
+- After [1,2,3], remove 3: currentSubset = [1,2]
+- After [1,2], remove 2: currentSubset = [1]
+  - Include 3: currentSubset = [1,3], recurse
+- After [1,3], remove 3, remove 1: currentSubset = []
+  - Include 2: currentSubset = [2], recurse
+
+*Step 7:** Return power set
+- After all recursive calls complete: result = [[], [1], [1,2], [1,2,3], [1,3], [2], [2,3], [3]]
+
+Output:
+```
+[[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]]
+```
+
+### TIME COMPLEXITY:
  * O(n × 2^n) - 2^n subsets, each takes O(n) to copy
  *
  * ### SPACE COMPLEXITY:
