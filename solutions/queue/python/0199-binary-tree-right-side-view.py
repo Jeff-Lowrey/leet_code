@@ -1,31 +1,4 @@
 """
-# Difficulty: Medium
-
-# 0199. Binary Tree Right Side View
-
-Given the root of a binary tree, imagine yourself standing on the right side of it,
-return the values of the nodes you can see ordered from top to bottom.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>[1, 3, 4]</dd>
-<dt>Output:</dt>
-<dd>1</dd>
-<dt>Explanation:</dt>
-<dd>Right side view of tree is [1,3,4]</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Map Storage, Array Traversal, Two Pointers
-**Data Structures**: Array, Stack, Queue
-**Patterns**: Two Pointers Pattern, Graph Pattern
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(w)
-
 ### INTUITION:
 The key insight is that the right side view is simply the rightmost node at each level of the tree.
 Use level-order traversal (BFS) and capture the last node at each level.
@@ -63,15 +36,15 @@ Step-by-step execution:
 3. [Final step]
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 - Visit each node exactly once
 - n = number of nodes in tree
 
 ### SPACE COMPLEXITY:
-O(w)
+**O(w)**
 - Queue holds at most one level of nodes at a time
 - w = maximum width of tree (worst case: n/2 for complete tree)
-- Result storage: O(h) where h = height
+- Result storage: **O(h)** where h = height
 
 ### EDGE CASES:
 - **Empty input**: Handle when input is empty
@@ -79,6 +52,7 @@ O(w)
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 from collections import deque

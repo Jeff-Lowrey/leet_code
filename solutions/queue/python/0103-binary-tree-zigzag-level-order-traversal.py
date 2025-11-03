@@ -1,31 +1,4 @@
 """
-# Difficulty: Medium
-
-# 0103. Binary Tree Zigzag Level Order Traversal
-
-Given the root of a binary tree, return the zigzag level order traversal of its nodes' values.
-(i.e., from left to right, then right to left for the next level and alternate between).
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>[[3]]</dd>
-<dt>Output:</dt>
-<dd>"Test case 1 passed: Example tree"</dd>
-<dt>Explanation:</dt>
-<dd>Zigzag level-order traversal: [[3],[20,9],[15,7]]</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Map Storage, Array Traversal, Two Pointers
-**Data Structures**: Array, Queue, Tree
-**Patterns**: Two Pointers Pattern, Graph Pattern
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(w)
-
 ### INTUITION:
 The key insight is that perform a level-order traversal (BFS) but alternate the direction of reading values at each level.
 Use a flag to track whether we should append values left-to-right or right-to-left.
@@ -70,12 +43,12 @@ Output:
 Output: "Test case 1 passed: Example tree"
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 - Visit each node exactly once
 - n = number of nodes in tree
 
 ### SPACE COMPLEXITY:
-O(w)
+**O(w)**
 - Queue holds at most one level of nodes at a time
 - w = maximum width of tree (worst case: n/2 for complete tree)
 
@@ -85,6 +58,7 @@ O(w)
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 from collections import deque

@@ -1,49 +1,18 @@
 /**
- * # Difficulty: Easy
- *
- * # 0993. Cousins in Binary Tree
- *
- *
- * Given the root of a binary tree with unique values and the values of two different nodes x and y,
- * return true if the nodes corresponding to the values x and y are cousins, or false otherwise.
- *
- * Two nodes of a binary tree are cousins if they have the same depth but have different parents.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>Tree:      1</dd>
- * <dt>Output:</dt>
- * <dd>/   \\</dd>
- * <dt>Explanation:</dt>
- * <dd>Nodes 2 and 3 are not cousins (same parent)</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- * ### METADATA:
- * **Techniques**: Array Traversal, Two Pointers, Queue Operations
- * **Data Structures**: Queue, Tree, Trie
- * **Patterns**: Two Pointers Pattern, Graph Pattern
- * **Time Complexity**: O(n)
- * **Space Complexity**: O(w)
-
- *
- * ### INTUITION:
+### INTUITION:
 The key insight is that cousins are nodes at the same level (depth) but with different parents.
 Use BFS to track both depth and parent information for each node.
 
 ### APPROACH:
- * 1. **Handle edge case**: Return false if tree is empty or has only one node
- * 2. **Initialize BFS**: Use a deque with (node, parent, depth) tuples
- * 3. **Track target nodes**: Store depth and parent when we find x or y
- * 4. **Determine if cousins**:
- *    - Both nodes must be found
- *    - They must be at same depth
- *    - They must have different parents
- *
- * ### WHY THIS WORKS:
+1. **Handle edge case**: Return false if tree is empty or has only one node
+2. **Initialize BFS**: Use a deque with (node, parent, depth) tuples
+3. **Track target nodes**: Store depth and parent when we find x or y
+4. **Determine if cousins**:
+   - Both nodes must be found
+   - They must be at same depth
+   - They must have different parents
+
+### WHY THIS WORKS:
 - This ensures that bFS naturally tracks depth by processing level by level
 - This ensures that by storing parent along with each node in queue, we can track parent information
 - This ensures that when we find both target values, we have all information needed to check if they're cousins
@@ -76,22 +45,23 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
- * O(n)
- * - In worst case, visit all nodes in tree
- * - n = number of nodes in tree
- *
- * ### SPACE COMPLEXITY:
- * O(w)
- * - Queue holds at most one level of nodes at a time
- * - w = maximum width of tree (worst case: n/2 for complete tree)
- *
- * ### EDGE CASES:
+O(n)**
+- In worst case, visit all nodes in tree
+- n = number of nodes in tree
+
+### SPACE COMPLEXITY:
+O(w)**
+- Queue holds at most one level of nodes at a time
+- w = maximum width of tree (worst case: n/2 for complete tree)
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 // Definition for a binary tree node
 function TreeNode(val, left, right) {

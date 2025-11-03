@@ -1,31 +1,4 @@
 """
-# Difficulty: Medium
-
-# 0107. Binary Tree Level Order Traversal II
-
-Given the root of a binary tree, return the bottom-up level order traversal of its nodes' values.
-(i.e., from left to right, level by level from leaf to root).
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>[[15, 7]]</dd>
-<dt>Output:</dt>
-<dd>"Test case 1 passed: Example tree"</dd>
-<dt>Explanation:</dt>
-<dd>Bottom-up level-order: [[15,7],[9,20],[3]]</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Map Storage, Array Traversal, Two Pointers
-**Data Structures**: Array, Queue, Tree
-**Patterns**: Two Pointers Pattern, Graph Pattern
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(w)
-
 ### INTUITION:
 Perform standard level-order traversal (BFS) but reverse the final result to get bottom-up order.
 Alternatively, we can prepend each level to the result instead of appending.
@@ -64,16 +37,16 @@ Step-by-step execution:
 3. [Final step]
 
 ### TIME COMPLEXITY:
-O(n)
-- Visit each node exactly once: O(n)
-- Reversing result: O(h) where h = height
-- Total: O(n)
+**O(n)**
+- Visit each node exactly once: **O(n)**
+- Reversing result: **O(h)** where h = height
+- Total: **O(n)**
 
 ### SPACE COMPLEXITY:
-O(w)
+**O(w)**
 - Queue holds at most one level at a time
 - w = maximum width of tree (worst case: n/2 for complete tree)
-- Result storage: O(n)
+- Result storage: **O(n)**
 
 ### EDGE CASES:
 - **Empty input**: Handle when input is empty
@@ -81,6 +54,7 @@ O(w)
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 from collections import deque

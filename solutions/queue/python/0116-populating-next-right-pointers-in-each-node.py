@@ -1,33 +1,4 @@
 """
-# Difficulty: Medium
-
-# 0116. Populating Next Right Pointers in Each Node
-
-You are given a perfect binary tree where all leaves are on the same level, and every parent has two children.
-Populate each next pointer to point to its next right node. If there is no next right node, the next pointer should be set to NULL.
-
-Initially, all next pointers are set to NULL.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>root = [1,2,3,4,5,6,7]</dd>
-<dt>Output:</dt>
-<dd>[1,#,2,3,#,4,5,6,7,#]</dd>
-<dt>Explanation:</dt>
-<dd>Each node's next pointer connects to right neighbor at same level</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Array Traversal, Two Pointers
-**Data Structures**: Hash Set, Queue, Tree
-**Patterns**: Two Pointers Pattern, Graph Pattern
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(w)
-
 ### INTUITION:
 The key insight is that use level-order traversal (BFS) to connect nodes at the same level.
 For each level, link each node to the next node in the queue.
@@ -71,12 +42,12 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 - Visit each node exactly once
 - n = number of nodes in tree
 
 ### SPACE COMPLEXITY:
-O(w)
+**O(w)**
 - Queue holds at most one level of nodes at a time
 - w = maximum width of tree (for perfect tree: n/2 at last level)
 
@@ -86,6 +57,7 @@ O(w)
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 from collections import deque

@@ -1,46 +1,18 @@
 /**
- * # Difficulty: Medium
- *
- * # 0515. Find Largest Value in Each Tree Row
- *
- *
- * Given the root of a binary tree, return an array of the largest value in each row of the tree (0-indexed).
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>[1, 3, 9]</dd>
- * <dt>Output:</dt>
- * <dd>1</dd>
- * <dt>Explanation:</dt>
- * <dd>Largest value in each tree level: [1,3,9]</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- * ### METADATA:
- * **Techniques**: Array Traversal, Two Pointers, Queue Operations
- * **Data Structures**: Array, String, Queue
- * **Patterns**: Two Pointers Pattern, Greedy Algorithm
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(w)
-
- *
- * ### INTUITION:
+### INTUITION:
 The key insight is that use level-order traversal (BFS) to process nodes level by level.
 For each level, track the maximum value among all nodes at that level.
 
 ### APPROACH:
- * 1. **Handle edge case**: Return empty list if tree is empty
- * 2. **Initialize BFS**: Use a deque with root node
- * 3. **For each level**:
- *    - Process all nodes at current level
- *    - Track maximum value seen at this level
- *    - Add maximum to result
- *    - Add children to queue for next level
- *
- * ### WHY THIS WORKS:
+1. **Handle edge case**: Return empty list if tree is empty
+2. **Initialize BFS**: Use a deque with root node
+3. **For each level**:
+   - Process all nodes at current level
+   - Track maximum value seen at this level
+   - Add maximum to result
+   - Add children to queue for next level
+
+### WHY THIS WORKS:
 - This ensures that bFS processes nodes level by level
 - This ensures that within each level, we can easily find the maximum value
 - This ensures that by processing level boundaries (queue size), we separate levels
@@ -67,24 +39,25 @@ Step-by-step execution:
 3. [Final step]
 
 ### TIME COMPLEXITY:
- * O(n)
- * - Single pass through input
- * - Visit each node exactly once
- * - n = number of nodes in tree
- *
- * ### SPACE COMPLEXITY:
- * O(w)
- * - Queue holds at most one level of nodes at a time
- * - w = maximum width of tree (worst case: n/2 for complete tree)
- * - Result storage: O(h) where h = height
- *
- * ### EDGE CASES:
+O(n)**
+- Single pass through input
+- Visit each node exactly once
+- n = number of nodes in tree
+
+### SPACE COMPLEXITY:
+O(w)**
+- Queue holds at most one level of nodes at a time
+- w = maximum width of tree (worst case: n/2 for complete tree)
+- Result storage: **O(h)** where h = height
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 // Definition for a binary tree node
 function TreeNode(val, left, right) {

@@ -1,47 +1,19 @@
 /**
- * # Difficulty: Easy
- *
- * # 0637. Average of Levels in Binary Tree
- *
- *
- * Given the root of a binary tree, return the average value of the nodes on each level in the form of an array.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>[3.0, 14.5, 11.0]</dd>
- * <dt>Output:</dt>
- * <dd>1</dd>
- * <dt>Explanation:</dt>
- * <dd>Average of each tree level: [3,14.5,11]</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- * ### METADATA:
- * **Techniques**: Array Traversal, Two Pointers, Queue Operations
- * **Data Structures**: Array, String, Queue
- * **Patterns**: Two Pointers Pattern, Tree Pattern
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(w)
-
- *
- * ### INTUITION:
+### INTUITION:
 The key insight is that use level-order traversal (BFS) to process nodes level by level.
 For each level, calculate the sum and count of nodes, then compute the average.
 
 ### APPROACH:
- * 1. **Handle edge case**: Return empty list if tree is empty
- * 2. **Initialize BFS**: Use a deque with root node
- * 3. **For each level**:
- *    - Process all nodes at current level
- *    - Calculate sum of all node values at this level
- *    - Compute average = sum / count
- *    - Add average to result
- *    - Add children to queue for next level
- *
- * ### WHY THIS WORKS:
+1. **Handle edge case**: Return empty list if tree is empty
+2. **Initialize BFS**: Use a deque with root node
+3. **For each level**:
+   - Process all nodes at current level
+   - Calculate sum of all node values at this level
+   - Compute average = sum / count
+   - Add average to result
+   - Add children to queue for next level
+
+### WHY THIS WORKS:
 - This ensures that bFS processes nodes level by level
 - This ensures that by tracking level boundaries (queue size), we can compute level sums independently
 - This ensures that average is simply sum of values divided by number of nodes
@@ -63,24 +35,25 @@ Level 2: sum = 22, count = 2, avg = 11.0
 Result: [3.0, 14.5, 11.0]
 
 ### TIME COMPLEXITY:
- * O(n)
- * - Single pass through input
- * - Visit each node exactly once
- * - n = number of nodes in tree
- *
- * ### SPACE COMPLEXITY:
- * O(w)
- * - Queue holds at most one level of nodes at a time
- * - w = maximum width of tree (worst case: n/2 for complete tree)
- * - Result storage: O(h) where h = height
- *
- * ### EDGE CASES:
+O(n)**
+- Single pass through input
+- Visit each node exactly once
+- n = number of nodes in tree
+
+### SPACE COMPLEXITY:
+O(w)**
+- Queue holds at most one level of nodes at a time
+- w = maximum width of tree (worst case: n/2 for complete tree)
+- Result storage: **O(h)** where h = height
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 // Definition for a binary tree node
 function TreeNode(val, left, right) {

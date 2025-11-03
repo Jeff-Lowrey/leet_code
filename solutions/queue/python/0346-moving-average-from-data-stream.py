@@ -1,34 +1,4 @@
 """
-# 0346. Moving Average From Data Stream
-
-# Difficulty: Easy
-
-Given a stream of integers and a window size, calculate the moving average of all integers in the sliding window.
-
-Implement the `MovingAverage` class:
-- `MovingAverage(int size)` Initializes the object with the window size `size`.
-- `double next(int val)` Returns the moving average of the last `size` values of the stream.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>MovingAverage(3):</dd>
-<dt>Output:</dt>
-<dd>next(1): queue=[1], avg=1.0</dd>
-<dt>Explanation:</dt>
-<dd>Moving average of size 3 for [1,10,3,5] is [1,5.5,4.666..,6]</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Sliding Window, Queue Operations
-**Data Structures**: Queue, Linked List
-**Patterns**: Sliding Window Pattern, Hash Table Pattern
-**Time Complexity**: O(1) per operation
-**Space Complexity**: O(size)
-
 ### INTUITION:
 The key insight is that use a queue to maintain the sliding window of values. When the window exceeds the size limit, remove the oldest element and add the new one.
 
@@ -61,13 +31,12 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(1) per operation - constant time
+**O(1)** per operation - constant time
 
 ### SPACE COMPLEXITY:
-O(size)
+**O(size)**
 
 - Based on auxiliary data structures
-
 
 ### EDGE CASES:
 - **Window size 1**: Average equals current value
@@ -91,4 +60,5 @@ O(size)
 </details>
 
 </details>
+
 """

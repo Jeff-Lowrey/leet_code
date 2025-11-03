@@ -1,45 +1,18 @@
 /**
- * # Difficulty: Medium
- * 
- * # 0199. Binary Tree Right Side View
- * 
- * Given the root of a binary tree, imagine yourself standing on the right side of it,
- * return the values of the nodes you can see ordered from top to bottom.
- * 
- * **Example:**
- * 
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>[1, 3, 4]</dd>
- * <dt>Output:</dt>
- * <dd>1</dd>
- * <dt>Explanation:</dt>
- * <dd>Right side view of tree is [1,3,4]</dd>
- * </dl>
- * 
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
- * **Techniques**: Hash Map Storage, Array Traversal, Two Pointers
- * **Data Structures**: Array, Stack, Queue
- * **Patterns**: Two Pointers Pattern, Graph Pattern
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(w)
- * 
- * ### INTUITION:
+### INTUITION:
 The key insight is that the right side view is simply the rightmost node at each level of the tree.
 Use level-order traversal (BFS) and capture the last node at each level.
 
 ### APPROACH:
- * 1. **Handle edge case**: Return empty list if tree is empty
- * 2. **Initialize BFS**: Use a deque with root node
- * 3. **For each level**:
- *    - Process all nodes at current level
- *    - Keep track of the last node in the level
- *    - Add the last node's value to result
- *    - Add children to queue for next level
- * 
- * ### WHY THIS WORKS:
+1. **Handle edge case**: Return empty list if tree is empty
+2. **Initialize BFS**: Use a deque with root node
+3. **For each level**:
+   - Process all nodes at current level
+   - Keep track of the last node in the level
+   - Add the last node's value to result
+   - Add children to queue for next level
+
+### WHY THIS WORKS:
 - This ensures that bFS processes nodes level by level, left to right
 - This ensures that the last node processed at each level is the rightmost node
 - This ensures that this is exactly what's visible from the right side
@@ -63,24 +36,25 @@ Step-by-step execution:
 3. [Final step]
 
 ### TIME COMPLEXITY:
- * O(n)
- * - Single pass through input
- * - Visit each node exactly once
- * - n = number of nodes in tree
- * 
- * ### SPACE COMPLEXITY:
- * O(w)
- * - Queue holds at most one level of nodes at a time
- * - w = maximum width of tree (worst case: n/2 for complete tree)
- * - Result storage: O(h) where h = height
- * 
- * ### EDGE CASES:
+O(n)**
+- Single pass through input
+- Visit each node exactly once
+- n = number of nodes in tree
+
+### SPACE COMPLEXITY:
+O(w)**
+- Queue holds at most one level of nodes at a time
+- w = maximum width of tree (worst case: n/2 for complete tree)
+- Result storage: **O(h)** where h = height
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 class Solution {
   /**

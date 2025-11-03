@@ -1,49 +1,21 @@
 /**
- * # Difficulty: Medium
- *
- * # 1161. Maximum Level Sum of a Binary Tree
- *
- *
- * Given the root of a binary tree, the level of its root is 1, the level of its children is 2, and so on.
- * Return the smallest level x such that the sum of all the values of nodes at level x is maximal.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>Tree with root 1 and children 7, 0</dd>
- * <dt>Output:</dt>
- * <dd>2</dd>
- * <dt>Explanation:</dt>
- * <dd>Maximum level sum occurs at level 2 with sum=7</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
- * **Techniques**: Array Traversal, Two Pointers, Queue Operations
- * **Data Structures**: Queue, Tree, Linked List
- * **Patterns**: Two Pointers Pattern, Hash Table Pattern
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(w)
- *
- * ### INTUITION:
+### INTUITION:
 The key insight is that use level-order traversal (BFS) to calculate the sum of values at each level.
 Track the level with maximum sum and return the smallest level if there are ties.
 
 ### APPROACH:
- * 1. **Handle edge case**: Return 0 if tree is empty (though problem guarantees non-empty tree)
- * 2. **Initialize BFS**: Use a deque with root node
- * 3. **Track variables**:
- *    - Current level number
- *    - Maximum sum seen so far
- *    - Level with maximum sum
- * 4. **For each level**:
- *    - Calculate sum of all node values at current level
- *    - If sum > max_sum, update max_sum and max_level
- *    - Add children to queue for next level
- *
- * ### WHY THIS WORKS:
+1. **Handle edge case**: Return 0 if tree is empty (though problem guarantees non-empty tree)
+2. **Initialize BFS**: Use a deque with root node
+3. **Track variables**:
+   - Current level number
+   - Maximum sum seen so far
+   - Level with maximum sum
+4. **For each level**:
+   - Calculate sum of all node values at current level
+   - If sum > max_sum, update max_sum and max_level
+   - Add children to queue for next level
+
+### WHY THIS WORKS:
 - This ensures that bFS processes nodes level by level
 - This ensures that by tracking level sums, we can find the level with maximum sum
 - Since we process levels in order (1, 2, 3, ...), the first maximum we find is the smallest level
@@ -69,23 +41,24 @@ Step-by-step execution:
 3. [Final step]
 
 ### TIME COMPLEXITY:
- * O(n)
- * - Single pass through input
- * - Visit each node exactly once
- * - n = number of nodes in tree
- *
- * ### SPACE COMPLEXITY:
- * O(w)
- * - Queue holds at most one level of nodes at a time
- * - w = maximum width of tree (worst case: n/2 for complete tree)
- *
- * ### EDGE CASES:
+O(n)**
+- Single pass through input
+- Visit each node exactly once
+- n = number of nodes in tree
+
+### SPACE COMPLEXITY:
+O(w)**
+- Queue holds at most one level of nodes at a time
+- w = maximum width of tree (worst case: n/2 for complete tree)
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 class TreeNode {
   val: number;

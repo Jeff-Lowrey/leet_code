@@ -1,30 +1,4 @@
 """
-# Difficulty: Easy
-
-# 0637. Average of Levels in Binary Tree
-
-Given the root of a binary tree, return the average value of the nodes on each level in the form of an array.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>[3.0, 14.5, 11.0]</dd>
-<dt>Output:</dt>
-<dd>1</dd>
-<dt>Explanation:</dt>
-<dd>Average of each tree level: [3,14.5,11]</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Map Storage, Array Traversal, Two Pointers
-**Data Structures**: Array, Queue, Tree
-**Patterns**: Two Pointers Pattern, Hash Table Pattern
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(w)
-
 ### INTUITION:
 The key insight is that use level-order traversal (BFS) to process nodes level by level.
 For each level, calculate the sum and count of nodes, then compute the average.
@@ -61,15 +35,15 @@ Level 2: sum = 22, count = 2, avg = 11.0
 Result: [3.0, 14.5, 11.0]
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 - Visit each node exactly once
 - n = number of nodes in tree
 
 ### SPACE COMPLEXITY:
-O(w)
+**O(w)**
 - Queue holds at most one level of nodes at a time
 - w = maximum width of tree (worst case: n/2 for complete tree)
-- Result storage: O(h) where h = height
+- Result storage: **O(h)** where h = height
 
 ### EDGE CASES:
 - **Empty input**: Handle when input is empty
@@ -77,6 +51,7 @@ O(w)
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 from collections import deque

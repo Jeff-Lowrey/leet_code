@@ -1,30 +1,4 @@
 """
-# Difficulty: Medium
-
-# 0429. N-ary Tree Level Order Traversal
-
-Given an n-ary tree, return the level order traversal of its nodes' values.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>[node3, node2, node4]</dd>
-<dt>Output:</dt>
-<dd>1</dd>
-<dt>Explanation:</dt>
-<dd>N-ary tree level-order traversal groups nodes by depth</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Map Storage, Array Traversal, Two Pointers
-**Data Structures**: Array, Queue, Tree
-**Patterns**: Two Pointers Pattern, Graph Pattern
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(w)
-
 ### INTUITION:
 The key insight is that similar to binary tree level-order traversal, but each node can have multiple children.
 Use BFS to process nodes level by level, adding all children of each node to the queue.
@@ -70,15 +44,15 @@ Step-by-step execution:
 3. [Final step]
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 - Visit each node exactly once
 - n = total number of nodes in tree
 
 ### SPACE COMPLEXITY:
-O(w)
+**O(w)**
 - Queue holds at most one level of nodes at a time
 - w = maximum width of tree (max children at any level)
-- Result storage: O(n)
+- Result storage: **O(n)**
 
 ### EDGE CASES:
 - **Empty input**: Handle when input is empty
@@ -86,6 +60,7 @@ O(w)
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 from collections import deque

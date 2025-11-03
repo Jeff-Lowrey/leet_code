@@ -1,33 +1,4 @@
 """
-# Difficulty: Easy
-
-# 0993. Cousins in Binary Tree
-
-Given the root of a binary tree with unique values and the values of two different nodes x and y,
-return true if the nodes corresponding to the values x and y are cousins, or false otherwise.
-
-Two nodes of a binary tree are cousins if they have the same depth but have different parents.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>root = [1,2,3,4], x = 4, y = 3</dd>
-<dt>Output:</dt>
-<dd>false</dd>
-<dt>Explanation:</dt>
-<dd>Nodes 2 and 3 are not cousins (same parent)</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Two Pointers, Stack Operations
-**Data Structures**: Hash Map, Stack, Queue
-**Patterns**: Two Pointers Pattern, Graph Pattern
-**Time Complexity**: O(n)
-**Space Complexity**: O(w)
-
 ### INTUITION:
 The key insight is that cousins are nodes at the same level (depth) but with different parents.
 Use BFS to track both depth and parent information for each node.
@@ -74,12 +45,12 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 - In worst case, visit all nodes in tree
 - n = number of nodes in tree
 
 ### SPACE COMPLEXITY:
-O(w)
+**O(w)**
 - Queue holds at most one level of nodes at a time
 - w = maximum width of tree (worst case: n/2 for complete tree)
 
@@ -89,6 +60,7 @@ O(w)
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 from collections import deque
