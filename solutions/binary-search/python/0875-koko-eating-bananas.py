@@ -1,36 +1,4 @@
 """
-# Difficulty: Medium
-
-# 0875. Koko Eating Bananas
-
-Koko loves to eat bananas. There are n piles of bananas, the ith pile has piles[i] bananas. The guards have gone and will come back in h hours.
-
-Koko can decide her bananas-per-hour eating speed of k. Each hour, she chooses some pile of bananas and eats k bananas from that pile. If the pile has less than k bananas, she eats all of them instead and will not eat any more bananas during this hour.
-
-Koko likes to eat slowly but still wants to finish eating all the bananas before the guards return.
-
-Return the minimum integer k such that she can eat all the bananas within h hours.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>piles = [3,6,7,11], h = 8</dd>
-<dt>Output:</dt>
-<dd>4 (minimum eating speed)</dd>
-<dt>Explanation:</dt>
-<dd>Minimum eating speed k=4 allows finishing all banana piles within h hours</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Array Traversal, Two Pointers
-**Data Structures**: Hash Map, Hash Set, Array
-**Patterns**: Two Pointers Pattern, Greedy Algorithm
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
 The key insight is that binary search on the eating speed k, not the array. The minimum k is 1, maximum is max(piles). For each mid speed, calculate total hours needed. If hours <= h, try smaller k; otherwise try larger k. Find the minimum valid k.
 
@@ -78,14 +46,12 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 - Single pass through input
 
-
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 - Constant extra space
-
 
 ### EDGE CASES:
 - **Empty input**: Handle when input is empty
@@ -93,6 +59,7 @@ O(1)
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 from typing import List, Optional, Dict, Tuple

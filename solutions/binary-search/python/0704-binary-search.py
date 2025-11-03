@@ -1,34 +1,4 @@
 """
-# Difficulty: Easy
-
-# 0704. Binary Search
-
-Given an array of integers nums which is sorted in ascending order,
-and an integer target, write a function to search target in nums.
-If target exists, then return its index. Otherwise, return -1.
-
-You must write an algorithm with O(log n) runtime complexity.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>[-1,0,3,5,9,12], target = 9</dd>
-<dt>Output:</dt>
-<dd>4</dd>
-<dt>Explanation:</dt>
-<dd>Target 9 is at index 4 in sorted array [-1,0,3,5,9,12]</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Binary Search, Divide and Conquer
-**Data Structures**: Array
-**Patterns**: Binary Search Pattern, Two Pointers
-**Time Complexity**: **O(log n)** - Search space halves each iteration
-**Space Complexity**: **O(1)** - Iterative approach with constant pointers
-
 ### INTUITION:
 The key insight is that binary search is the classic divide-and-conquer algorithm for searching
 in sorted arrays. We repeatedly divide the search space in half by
@@ -63,10 +33,10 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-**O(log n)** where n is the length of the array. In each iteration, we eliminate half of the remaining search space by comparing with the middle element. Starting with n elements, after 1 comparison we have n/2 elements left, after 2 comparisons n/4 elements, and so on. We can eliminate half the elements at most log₂(n) times before reaching a single element or empty range. Therefore, maximum iterations = log₂(n), giving us O(log n) time complexity.
+**O(log n)** where n is the length of the array. In each iteration, we eliminate half of the remaining search space by comparing with the middle element. Starting with n elements, after 1 comparison we have n/2 elements left, after 2 comparisons n/4 elements, and so on. We can eliminate half the elements at most log₂(n) times before reaching a single element or empty range. Therefore, maximum iterations = log₂(n), giving us **O(log n)** time complexity.
 
 ### SPACE COMPLEXITY:
-**O(1)** - We use only a constant amount of extra space regardless of input size. The algorithm uses three integer variables (left, right, mid) to track the current search boundaries. No additional data structures are allocated, and the space used doesn't grow with input size. This is the iterative implementation; a recursive implementation would use O(log n) space for the call stack.
+**O(1)** - We use only a constant amount of extra space regardless of input size. The algorithm uses three integer variables (left, right, mid) to track the current search boundaries. No additional data structures are allocated, and the space used doesn't grow with input size. This is the iterative implementation; a recursive implementation would use **O(log n)** space for the call stack.
 
 ### EDGE CASES:
 - **Empty array**: nums = [] returns -1 (no elements to search)
@@ -78,6 +48,7 @@ Output:
 - **All duplicates**: nums = [5,5,5,5], target = 5 returns any valid index (implementation dependent)
 
 </details>
+
 """
 
 

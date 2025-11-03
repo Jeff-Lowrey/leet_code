@@ -1,83 +1,53 @@
 /**
- * # Difficulty: Easy
- *
- * # 0704. Binary Search
- *
- *
- * Given an array of integers nums which is sorted in ascending order,
- * and an integer target, write a function to search target in nums.
- * If target exists, then return its index. Otherwise, return -1.
- *
- * You must write an algorithm with O(log n) runtime complexity.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>[-1,0,3,5,9,12], target = 9</dd>
- * <dt>Output:</dt>
- * <dd>-1</dd>
- * <dt>Explanation:</dt>
- * <dd>Target 9 is at index 4 in sorted array [-1,0,3,5,9,12]</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
- * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
- * **Data Structures**: Hash Set, Array, Tree
- * **Patterns**: Complement Search, Two Pointers Pattern
- * **Time Complexity**: O(log n) - Binary search or tree height
- * **Space Complexity**: O(1) - Constant extra space
- *
- * ### INTUITION:
+### INTUITION:
 The key insight is that binary search is the classic divide-and-conquer algorithm for searching
 in sorted arrays. We repeatedly divide the search space in half by
 comparing the target with the middle element.
 
 ### APPROACH:
- * 1. **Initialize pointers**: Set left=0, right=len(nums)-1
- * 2. **Divide search space**: Calculate mid = (left + right) // 2
- * 3. **Compare and eliminate**:
- *    - If nums[mid] == target: found, return mid
- *    - If nums[mid] < target: search right half (left = mid + 1)
- *    - If nums[mid] > target: search left half (right = mid - 1)
- * 4. **Repeat until found or search space exhausted**
- *
- * ### WHY THIS WORKS:
+1. **Initialize pointers**: Set left=0, right=len(nums)-1
+2. **Divide search space**: Calculate mid = (left + right) // 2
+3. **Compare and eliminate**:
+   - If nums[mid] == target: found, return mid
+   - If nums[mid] < target: search right half (left = mid + 1)
+   - If nums[mid] > target: search left half (right = mid - 1)
+4. **Repeat until found or search space exhausted**
+
+### WHY THIS WORKS:
 - Sorted array property allows us to eliminate half the elements each iteration
 - Each comparison reduces search space by 50%
 - Guarantees O(log n) time complexity
 
 ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * nums = [-1,0,3,5,9,12], target = 9
- * ```
- *
- * Step 1: left=0, right=5, mid=2, nums[2]=3 < 9, search right
- * Step 2: left=3, right=5, mid=4, nums[4]=9 == 9, found!
- *
- * Output:
- * ```
- * 4
- * ```
+Input:
+```
+nums = [-1,0,3,5,9,12], target = 9
+```
 
- * ### TIME COMPLEXITY:
- * O(log n)
- * - Binary search or tree height
- *
- * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
- *
- * ### EDGE CASES:
+Step 1: left=0, right=5, mid=2, nums[2]=3 < 9, search right
+Step 2: left=3, right=5, mid=4, nums[4]=9 == 9, found!
+
+Output:
+```
+4
+```
+
+### TIME COMPLEXITY:
+O(log n)**
+- Binary search or tree height
+
+### SPACE COMPLEXITY:
+O(1)**
+- Constant extra space
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 class Solution {
   search(nums: number[], target: number): number {

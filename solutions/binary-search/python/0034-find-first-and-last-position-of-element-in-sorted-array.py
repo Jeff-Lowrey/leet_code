@@ -1,34 +1,4 @@
 """
-# Difficulty: Medium
-
-# 0034. Find First And Last Position Of Element In Sorted Array
-
-Given an array of integers nums sorted in non-decreasing order, find the starting and ending position of a given target value.
-
-If target is not found in the array, return [-1, -1].
-
-You must write an algorithm with O(log n) runtime complexity.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>[5,7,7,8,8,10]</dd>
-<dt>Output:</dt>
-<dd>1</dd>
-<dt>Explanation:</dt>
-<dd>Target 8 appears at indices [3,4] in sorted array [5,7,7,8,8,10]</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Two Pointers
-**Data Structures**: Array, Tree
-**Patterns**: Two Pointers Pattern, Binary Search Pattern
-**Time Complexity**: O(log n) - Binary search or tree height
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
 This is a classic binary search problem that requires finding both the leftmost and rightmost positions of a target. The key insight is to perform two separate binary searches: one to find the first occurrence and another to find the last occurrence.
 
@@ -65,11 +35,11 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(log n)
+**O(log n)**
 Two binary searches on array of size n
 
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 Only using constant extra space
 
 ### EDGE CASES:
@@ -78,6 +48,7 @@ Only using constant extra space
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 from typing import Any

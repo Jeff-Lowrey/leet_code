@@ -1,32 +1,4 @@
 """
-# Difficulty: Easy
-
-# 0035. Search Insert Position
-
-Given a sorted array of distinct integers and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.
-
-You must write an algorithm with O(log n) runtime complexity.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>[1,3,5,6]</dd>
-<dt>Output:</dt>
-<dd>1</dd>
-<dt>Explanation:</dt>
-<dd>Target 5 should be inserted at index 2 in [1,3,5,6]</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: Array, Stack, Tree
-**Patterns**: Two Pointers Pattern, Binary Search Pattern
-**Time Complexity**: O(log n) - Binary search or tree height
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
 This is a classic binary search problem where we need to find the insertion point for a target value. The key insight is that binary search naturally converges to the correct insertion position when the target is not found.
 
@@ -65,11 +37,11 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(log n)
+**O(log n)**
 Binary search through sorted array
 
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 Only using constant extra space
 
 ### EDGE CASES:
@@ -78,6 +50,7 @@ Only using constant extra space
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 from typing import Any
