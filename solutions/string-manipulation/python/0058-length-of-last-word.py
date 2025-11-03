@@ -1,33 +1,4 @@
 """
-# 0058. Length Of Last Word
-
-# Difficulty: Easy
-
-Given a string s consisting of words and spaces, return the length of the last word
-in the string.
-
-A word is a maximal substring consisting of non-space characters only.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>s = "Hello World"</dd>
-<dt>Output:</dt>
-<dd>5</dd>
-<dt>Explanation:</dt>
-<dd>Length of last word in 'Hello World' is 5</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: String, Tree
-**Patterns**: Two Pointers Pattern, Hash Table Pattern
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
 The key insight is that we need to find the last word in a string and return its length. The key challenge
 is handling trailing spaces. The simplest approach is to strip trailing spaces and
@@ -69,15 +40,15 @@ Method 1:
 Result: 4
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 - In worst case (no spaces), we scan the entire string
 - Typically much faster as we only process the last word
 
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 - Only using a counter variable
 - No additional data structures needed
-- If using split(), space becomes O(n) for storing words
+- If using split(), space becomes **O(n)** for storing words
 
 ### EDGE CASES:
 - **Empty input**: Handle when input is empty
@@ -85,6 +56,7 @@ O(1)
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 

@@ -1,42 +1,4 @@
 """
-# 0443. String Compression
-
-# Difficulty: Medium
-
-Given an array of characters chars, compress it using the following algorithm:
-
-Begin with an empty string s. For each group of consecutive repeating characters in chars:
-- If the group's length is 1, append the character to s.
-- Otherwise, append the character followed by the group's length.
-
-The compressed string s should not be returned separately, but instead, be stored in the
-input character array chars. Note that group lengths that are 10 or longer will be split
-into multiple characters in chars.
-
-After you are done modifying the input array, return the new length of the array.
-
-You must write an algorithm that uses only constant extra space.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>chars = ["a","a","b","b","c","c","c"]</dd>
-<dt>Output:</dt>
-<dd>Return 6, and the first 6 characters of the input array should be: ["a","2","b","2","c","3"]</dd>
-<dt>Explanation:</dt>
-<dd>Compressed string ['a','a','b','b','c','c','c'] becomes ['a','2','b','2','c','3'] with length 6</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: Array, String, Queue
-**Patterns**: Two Pointers Pattern, Hash Table Pattern
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
 We need to compress consecutive identical characters in-place. The key insight is using
 two pointers: one to read through the array, and one to write the compressed result back
@@ -74,12 +36,12 @@ write=6
 Result: ["a","2","b","2","c","3"] with length 6
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 - Single pass through the array with read pointer
 - Writing compressed data is proportional to input size
 
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 - Only using constant extra space (pointers and counters)
 - Modifying the array in-place
 
@@ -89,6 +51,7 @@ O(1)
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 from collections import deque

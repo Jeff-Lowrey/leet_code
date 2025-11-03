@@ -1,31 +1,4 @@
 """
-# 0014. Longest Common Prefix
-
-# Difficulty: Easy
-
-Write a function to find the longest common prefix string amongst an array of strings.
-If there is no common prefix, return an empty string "".
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>strs = ["flower","flow","flight"]</dd>
-<dt>Output:</dt>
-<dd>fl"</dd>
-<dt>Explanation:</dt>
-<dd>Longest common prefix of ['flower','flow','flight'] is 'fl'</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: Hash Map, Array, String
-**Patterns**: Two Pointers Pattern, Sliding Window Pattern
-**Time Complexity**: O(S)
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
 The key insight is that the longest common prefix is the sequence of characters that all strings share from the beginning. We can find this by comparing characters at each position across all strings until we find a mismatch.
 
@@ -56,12 +29,12 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(S)
+**O(S)**
 - S is the sum of all characters in all strings
 - In worst case, we examine every character once
 
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 - Only using constant extra space for variables
 
 ### EDGE CASES:
@@ -70,6 +43,7 @@ O(1)
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 from typing import Any

@@ -1,33 +1,5 @@
 /**
- * # 0557. Reverse Words In A String Iii
- *
- * Difficulty: Medium
- *
- *
- * Given a string s, reverse the order of characters in each word within a sentence
- * while still preserving whitespace and initial word order.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>s = "Let's take LeetCode contest"</dd>
- * <dt>Output:</dt>
- * <dd>s'teL ekat edoCteeL tsetnoc</dd>
- * <dt>Explanation:</dt>
- * <dd>Reverse each word: 'Let's take LeetCode contest' becomes 's'teL ekat edoCteeL tsetnoc'</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
- * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
- * **Data Structures**: Array, String, Stack
- * **Patterns**: Two Pointers Pattern, Divide and Conquer
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(n) - Additional set storage
- *
- * ### INTUITION:
+### INTUITION:
 The key insight is that we need to reverse each word individually while keeping the words in the same order
 and preserving spaces. This is straightforward: split the string by spaces, reverse
 each word, and join them back together with spaces.
@@ -43,12 +15,12 @@ Alternative approaches:
 - **Manual iteration**: Process character by character
 
 ### WHY THIS WORKS:
- * - Splitting by spaces naturally identifies word boundaries
- * - Python's string slicing [::-1] efficiently reverses strings
- * - Joining preserves the original spacing structure
- * - Each word is processed independently
- *
- * ### EXAMPLE WALKTHROUGH:
+- Splitting by spaces naturally identifies word boundaries
+- Python's string slicing [::-1] efficiently reverses strings
+- Joining preserves the original spacing structure
+- Each word is processed independently
+
+### EXAMPLE WALKTHROUGH:
 Input:
 ```
 "Let's take LeetCode contest"
@@ -70,27 +42,28 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
- * O(n)
- * - Single pass through input
- * - Splitting the string: O(n)
- * - Reversing each word: O(n) total for all words
- * - Joining: O(n)
- * - Overall: O(n) where n is length of string
- *
- * ### SPACE COMPLEXITY:
- * O(n)
- * - Additional set storage
- * - Storing split words: O(n)
- * - Creating result string: O(n)
- * - Overall: O(n)
- *
- * ### EDGE CASES:
+O(n)**
+- Single pass through input
+- Splitting the string: **O(n)**
+- Reversing each word: **O(n)** total for all words
+- Joining: **O(n)**
+- Overall: **O(n)** where n is length of string
+
+### SPACE COMPLEXITY:
+O(n)**
+- Additional set storage
+- Storing split words: **O(n)**
+- Creating result string: **O(n)**
+- Overall: **O(n)**
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 class Solution {
   /**

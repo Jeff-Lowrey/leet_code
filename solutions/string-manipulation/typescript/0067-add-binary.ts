@@ -1,54 +1,28 @@
 /**
- * # 0067. Add Binary
- * 
- * # Difficulty: Easy
- * 
- * Given two binary strings a and b, return their sum as a binary string.
- * 
- * **Example:**
- * 
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>a = "11", b = "1"</dd>
- * <dt>Output:</dt>
- * <dd>100"</dd>
- * <dt>Explanation:</dt>
- * <dd>Binary sum '11'+'1'='100'</dd>
- * </dl>
- * 
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
- * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
- * **Data Structures**: Array, String
- * **Patterns**: Two Pointers Pattern, Greedy Algorithm
- * **Time Complexity**: O(max(m, n))
- * **Space Complexity**: O(max(m, n))
- * 
- * ### INTUITION:
- * Adding binary numbers is similar to adding decimal numbers, but we work with base 2
- * instead of base 10. We process digits from right to left, maintaining a carry bit.
- * When two 1s are added, the result is 0 with a carry of 1. This is a classic simulation
- * problem that mimics manual binary addition.
- * 
- * ### APPROACH:
- * 1. **Initialize Pointers**: Start from the end of both strings (rightmost digits)
- * 2. **Track Carry**: Initialize carry to 0
- * 3. **Process Digits Right to Left**:
- *    - Get current digit from each string (0 if exhausted)
- *    - Calculate sum = digit_a + digit_b + carry
- *    - Current bit = sum % 2
- *    - New carry = sum // 2
- * 4. **Build Result**: Prepend each bit to result string
- * 5. **Handle Final Carry**: Add carry if non-zero after all digits processed
- * 
- * ### WHY THIS WORKS:
- * - Binary addition follows same principle as decimal: digit-by-digit with carry
- * - Processing right to left handles varying string lengths naturally
- * - Using modulo and division correctly splits sum into bit and carry
- * - Building result from right to left matches addition order
- * 
- * ### EXAMPLE WALKTHROUGH:
+### INTUITION:
+Adding binary numbers is similar to adding decimal numbers, but we work with base 2
+instead of base 10. We process digits from right to left, maintaining a carry bit.
+When two 1s are added, the result is 0 with a carry of 1. This is a classic simulation
+problem that mimics manual binary addition.
+
+### APPROACH:
+1. **Initialize Pointers**: Start from the end of both strings (rightmost digits)
+2. **Track Carry**: Initialize carry to 0
+3. **Process Digits Right to Left**:
+   - Get current digit from each string (0 if exhausted)
+   - Calculate sum = digit_a + digit_b + carry
+   - Current bit = sum % 2
+   - New carry = sum // 2
+4. **Build Result**: Prepend each bit to result string
+5. **Handle Final Carry**: Add carry if non-zero after all digits processed
+
+### WHY THIS WORKS:
+- Binary addition follows same principle as decimal: digit-by-digit with carry
+- Processing right to left handles varying string lengths naturally
+- Using modulo and division correctly splits sum into bit and carry
+- Building result from right to left matches addition order
+
+### EXAMPLE WALKTHROUGH:
 Input:
 ```
 a = "1010", b = "1011"
@@ -74,23 +48,24 @@ Step-by-step execution:
 3. [Final step]
 
 ### TIME COMPLEXITY:
- * O(max(m, n))
- * - m and n are lengths of input strings
- * - Process each digit once
- * - Building result string is O(max(m, n))
- * 
- * ### SPACE COMPLEXITY:
- * O(max(m, n))
- * - Result string length is at most max(m, n) + 1
- * - Additional variables use O(1) space
- * 
- * ### EDGE CASES:
+O(max(m, n)**)
+- m and n are lengths of input strings
+- Process each digit once
+- Building result string is **O(max(m, n)**)
+
+### SPACE COMPLEXITY:
+O(max(m, n)**)
+- Result string length is at most max(m, n) + 1
+- Additional variables use **O(1)** space
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 class Solution {
   /**

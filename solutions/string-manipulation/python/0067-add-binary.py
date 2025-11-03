@@ -1,30 +1,4 @@
 """
-# 0067. Add Binary
-
-# Difficulty: Easy
-
-Given two binary strings a and b, return their sum as a binary string.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>a = "11", b = "1"</dd>
-<dt>Output:</dt>
-<dd>100"</dd>
-<dt>Explanation:</dt>
-<dd>Binary sum '11'+'1'='100'</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: Array, String
-**Patterns**: Two Pointers Pattern, Greedy Algorithm
-**Time Complexity**: O(max(m, n))
-**Space Complexity**: O(max(m, n))
-
 ### INTUITION:
 Adding binary numbers is similar to adding decimal numbers, but we work with base 2
 instead of base 10. We process digits from right to left, maintaining a carry bit.
@@ -74,15 +48,15 @@ Step-by-step execution:
 3. [Final step]
 
 ### TIME COMPLEXITY:
-O(max(m, n))
+**O(max(m, n)**)
 - m and n are lengths of input strings
 - Process each digit once
-- Building result string is O(max(m, n))
+- Building result string is **O(max(m, n)**)
 
 ### SPACE COMPLEXITY:
-O(max(m, n))
+**O(max(m, n)**)
 - Result string length is at most max(m, n) + 1
-- Additional variables use O(1) space
+- Additional variables use **O(1)** space
 
 ### EDGE CASES:
 - **Empty input**: Handle when input is empty
@@ -90,6 +64,7 @@ O(max(m, n))
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 from typing import Any

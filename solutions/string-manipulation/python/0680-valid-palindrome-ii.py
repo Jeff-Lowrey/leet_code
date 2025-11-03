@@ -1,31 +1,4 @@
 """
-# Difficulty: Easy
-
-# 0680. Valid Palindrome II
-
-Given a string s, return true if the s can be palindrome after deleting at most one character from it.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>"aba"
-"abca"</dd>
-<dt>Output:</dt>
-<dd>True</dd>
-<dt>Explanation:</dt>
-<dd>String 'aba' is a valid palindrome (can delete 0 characters)</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: String, Tree
-**Patterns**: Two Pointers Pattern
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
 The key insight is that we can use a two-pointer approach to check if a string is a palindrome. When we find a mismatch, we have two options: skip the left character or skip the right character. If either option results in a valid palindrome for the remaining substring, then the original string can be made a palindrome by deleting at most one character.
 
@@ -66,11 +39,11 @@ True
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 In worst case, we check the string twice (once normally, once after skip)
 
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 Only using constant extra space for pointers
 
 ### EDGE CASES:
@@ -79,6 +52,7 @@ Only using constant extra space for pointers
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 

@@ -1,39 +1,4 @@
 """
-# 0006. Zigzag Conversion
-
-# Difficulty: Medium
-
-The string "PAYPALISHIRING" is written in a zigzag pattern on a given number of rows
-like this:
-
-P   A   H   N
-A P L S I I G
-Y   I   R
-
-And then read line by line: "PAHNAPLSIIGYIR"
-
-Write the code that will take a string and make this conversion given a number of rows.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>s = "PAYPALISHIRING", numRows = 3</dd>
-<dt>Output:</dt>
-<dd>PAHNAPLSIIGYIR"</dd>
-<dt>Explanation:</dt>
-<dd>Zigzag pattern 'PAYPALISHIRING' with 3 rows reads 'PAHNAPLSIIGYIR'</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: Array, String, Tree
-**Patterns**: Two Pointers Pattern
-**Time Complexity**: O(n)
-**Space Complexity**: O(n) - Additional hash map storage
-
 ### INTUITION:
 The key insight is that the zigzag pattern alternates going down and then up diagonally. We can simulate this
 by using an array of strings (one for each row) and tracking the current row and direction.
@@ -90,14 +55,14 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 - Process each character exactly once
-- Concatenating rows is O(n) as each character appears once
+- Concatenating rows is **O(n)** as each character appears once
 
 ### SPACE COMPLEXITY:
-O(n)
+**O(n)**
 - Store n characters across all row buffers
-- Result string requires O(n) space
+- Result string requires **O(n)** space
 
 ### EDGE CASES:
 - **Empty input**: Handle when input is empty
@@ -105,6 +70,7 @@ O(n)
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 from typing import Any

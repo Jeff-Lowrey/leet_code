@@ -1,39 +1,5 @@
 /**
- * # 0038. Count And Say
- *
- * Difficulty: Easy
- *
- *
- * The count-and-say sequence is a sequence of digit strings defined by the recursive formula:
- * - countAndSay(1) = "1"
- * - countAndSay(n) is the way you would "say" the digit string from countAndSay(n-1),
- *   which is then converted into a different digit string.
- *
- * To determine how you "say" a digit string, split it into the minimal number of substrings
- * such that each substring contains exactly one unique digit. Then for each substring,
- * say the number of digits, then say the digit. Finally, concatenate every said digit.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>n = 4</dd>
- * <dt>Output:</dt>
- * <dd>1211</dd>
- * <dt>Explanation:</dt>
- * <dd>4th count-and-say term is '1211'</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
- * **Techniques**: Hash Map Storage, Array Traversal, Two Pointers
- * **Data Structures**: Array, String, Stack
- * **Patterns**: Two Pointers Pattern, Hash Table Pattern
- * **Time Complexity**: O(n * m)
- * **Space Complexity**: O(m)
- *
- * ### INTUITION:
+### INTUITION:
 The key insight is that the count-and-say sequence is built iteratively where each term describes the previous term
 by counting consecutive identical digits. We read the previous result from left to right,
 counting how many times each digit appears consecutively, then building a new string.
@@ -54,47 +20,48 @@ counting how many times each digit appears consecutively, then building a new st
 - This ensures that building with a list and joining is efficient in Python
 
 ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * n = 5:
- * ```
- *
- * 1. "1"
- * 2. "11" (one 1)
- * 3. "21" (two 1s)
- * 4. "1211" (one 2, one 1)
- * 5. "111221" (one 1, one 2, two 1s)
- *
- * Steps:
- * Step 1: For "1211" → "111221":
- * Step 2: - Read '1' once: "11"
- * Step 3: - Read '2' once: "12"
- * Step 4: - Read '1' twice: "21"
- * Step 5: - Result: "111221"
- * 
- * Output:
- * ```
- * "111221"
- * ```
- * 
- * ### TIME COMPLEXITY:
- * O(n * m)
- * - n iterations to build up to the nth term
- * - m is the length of the string at each iteration (grows exponentially)
- * - Each iteration processes the entire string once
- *
- * ### SPACE COMPLEXITY:
- * O(m)
- * - m is the length of the current string
- * - We store the result string which grows with each iteration
- *
- * ### EDGE CASES:
+Input:
+```
+n = 5:
+```
+
+1. "1"
+2. "11" (one 1)
+3. "21" (two 1s)
+4. "1211" (one 2, one 1)
+5. "111221" (one 1, one 2, two 1s)
+
+Steps:
+Step 1: For "1211" → "111221":
+Step 2: - Read '1' once: "11"
+Step 3: - Read '2' once: "12"
+Step 4: - Read '1' twice: "21"
+Step 5: - Result: "111221"
+
+Output:
+```
+"111221"
+```
+
+### TIME COMPLEXITY:
+O(n * m)**
+- n iterations to build up to the nth term
+- m is the length of the string at each iteration (grows exponentially)
+- Each iteration processes the entire string once
+
+### SPACE COMPLEXITY:
+O(m)**
+- m is the length of the current string
+- We store the result string which grows with each iteration
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 class Solution {
   /**
