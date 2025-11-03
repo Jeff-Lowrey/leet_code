@@ -1,34 +1,4 @@
 """
-# Difficulty: Medium
-
-# 0630. Course Schedule III
-
-There are n different online courses numbered from 1 to n. You are given an array courses where courses[i] = [durationi, lastDayi] indicate that the ith course should be taken continuously for durationi days and must be finished before or on lastDayi.
-
-You will start on the 1st day and you cannot take two or more courses simultaneously.
-
-Return the maximum number of courses that you can take.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>courses = [[100,200],[200,1300],[1000,1250],[2000,3200]]</dd>
-<dt>Output:</dt>
-<dd>3 (max courses)</dd>
-<dt>Explanation:</dt>
-<dd>Maximum courses you can take within time limit</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Sorting
-**Data Structures**: Hash Map, Hash Set, Array
-**Patterns**: Greedy Algorithm
-**Time Complexity**: O(n)
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
 The key insight is that greedy: sort courses by deadline. For each course, if time available, add to heap (track duration). If no time, compare with longest course taken. If current shorter, replace longest.
 
@@ -68,14 +38,12 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 - Single pass through input
 
-
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 - Constant extra space
-
 
 ### EDGE CASES:
 - **Empty input**: Handle when input is empty
@@ -83,6 +51,7 @@ O(1)
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 import heapq

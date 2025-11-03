@@ -1,35 +1,5 @@
 /**
- * # Difficulty: Medium
- *
- * # 0329. Longest Increasing Path in a Matrix
- *
- *
- * Given an m x n integers matrix, return the length of the longest increasing path in matrix.
- *
- * From each cell, you can either move in four directions: left, right, up, or down. You may not move diagonally or move outside the boundary (i.e., wrap-around is not allowed).
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>matrix = [[9,9,4],[6,6,8],[2,1,1]]</dd>
- * <dt>Output:</dt>
- * <dd>4 (longest increasing path)</dd>
- * <dt>Explanation:</dt>
- * <dd>Longest increasing path in matrix is 4</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- * ### METADATA:
- * **Techniques**: Array Traversal, Graph Traversal, Depth-First Search
- * **Data Structures**: Array, Matrix
- * **Patterns**: Greedy Algorithm, Dynamic Programming
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(1) - Constant extra space
-
- *
- * ### INTUITION:
+### INTUITION:
 [This problem requires understanding of topological sort concepts. The key insight is to identify the optimal approach for this specific scenario.]
 
 ### APPROACH:
@@ -44,38 +14,39 @@
 - This ensures that space complexity is minimized where possible
 
 ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * matrix = [[9,9,4],[6,6,8],[2,1,1]]
- * ```
- *
- * Step 1: DFS with memoization
- *
- * Steps:
- * Step 1: Start from 9: can go to 6 → 2 → 1, length=4
- * Step 2: Try all cells
- * Step 3: Best path: 9→6→2→1
- *
- * Output:
- * ```
- * 4 (longest increasing path)
- * ```
+Input:
+```
+matrix = [[9,9,4],[6,6,8],[2,1,1]]
+```
 
- * ### TIME COMPLEXITY:
- * O(n)
- * - Single pass through input
- *
- * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
- *
- * ### EDGE CASES:
+Step 1: DFS with memoization
+
+Steps:
+Step 1: Start from 9: can go to 6 → 2 → 1, length=4
+Step 2: Try all cells
+Step 3: Best path: 9→6→2→1
+
+Output:
+```
+4 (longest increasing path)
+```
+
+### TIME COMPLEXITY:
+O(n)**
+- Single pass through input
+
+### SPACE COMPLEXITY:
+O(1)**
+- Constant extra space
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 /**
  * Main solution for Problem 329: Longest Increasing Path in a Matrix

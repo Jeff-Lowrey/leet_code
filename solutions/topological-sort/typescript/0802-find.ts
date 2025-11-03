@@ -1,49 +1,18 @@
 /**
- * # Difficulty: Medium
- *
- * # 0802. Find Eventual Safe States
- *
- *
- * There is a directed graph of n nodes with each node labeled from 0 to n - 1. The graph is represented by a 0-indexed 2D integer array graph where graph[i] is an integer array of nodes adjacent to node i, meaning there is an edge from node i to each node in graph[i].
- *
- * A node is a terminal node if there are no outgoing edges. A node is a safe node if every possible path starting from that node leads to a terminal node (or another safe node).
- *
- * Return an array containing all the safe nodes of the graph. The answer should be sorted in ascending order.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>graph = [[1,2],[2,3],[5],[0],[5],[],[]]</dd>
- * <dt>Output:</dt>
- * <dd>[2,4,5,6]</dd>
- * <dt>Explanation:</dt>
- * <dd>Safe nodes are those not in cycles: [2,4,5,6]</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
- * **Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
- * **Data Structures**: Hash Map, Hash Set, Array
- * **Patterns**: Hash Table Pattern, Graph Pattern
- * **Time Complexity**: O(n) - Single pass with O(1) hash lookups
- * **Space Complexity**: O(1) - Constant extra space
- *
- * ### INTUITION:
+### INTUITION:
 The key insight is that build reverse graph (who reaches who). Use Kahn's algorithm. Nodes with out-degree 0 are safe (reach terminal). Process in reverse topological order to find all safe nodes.
 
 ### APPROACH:
- * 1. **Build graph**: Create adjacency list from graph edges
- * 2. **Track colors**: Use colors array: 0 = unvisited, 1 = visiting, 2 = visited
- * 3. **Define DFS**: Implement dfs(node) to detect cycles
- * 4. **Check visiting**: If colors[node] == 1, cycle detected, return False
- * 5. **Check visited**: If colors[node] == 2, already safe, return True
- * 6. **Mark visiting**: Set colors[node] = 1, explore all neighbors
- * 7. **Mark visited**: If all neighbors safe, set colors[node] = 2
- * 8. **Find safe nodes**: Return nodes where dfs(node) returns True
- *
- * ### WHY THIS WORKS:
+1. **Build graph**: Create adjacency list from graph edges
+2. **Track colors**: Use colors array: 0 = unvisited, 1 = visiting, 2 = visited
+3. **Define DFS**: Implement dfs(node) to detect cycles
+4. **Check visiting**: If colors[node] == 1, cycle detected, return False
+5. **Check visited**: If colors[node] == 2, already safe, return True
+6. **Mark visiting**: Set colors[node] = 1, explore all neighbors
+7. **Mark visited**: If all neighbors safe, set colors[node] = 2
+8. **Find safe nodes**: Return nodes where dfs(node) returns True
+
+### WHY THIS WORKS:
 - This ensures that reverse graph, find nodes from which all paths lead to terminals
 - This ensures that color nodes: 0=unvisited, 1=visiting, 2=safe
 - This ensures that dFS: if all neighbors are safe, current node is safe
@@ -51,40 +20,41 @@ The key insight is that build reverse graph (who reaches who). Use Kahn's algori
 - This ensures that o(V + E) time: DFS visits each node/edge once, O(V) space
 
 ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * graph = [[1,2],[2,3],[5],[0],[5],[],[]]
- * ```
- *
- * Step 1: Find nodes with cycles
- *
- * Steps:
- * Step 1: 0→1→2→3→0 (cycle)
- * Step 2: Find terminal nodes
- * Step 3: Nodes: 5,6
- * Step 4: Check which nodes reach only terminal
- * Step 5: Check each node's reachability
- *
- * Output:
- * ```
- * [2,4,5,6] (safe nodes)
- * ```
+Input:
+```
+graph = [[1,2],[2,3],[5],[0],[5],[],[]]
+```
 
- * ### TIME COMPLEXITY:
- * O(n)
- * - Single pass with O(1) hash lookups
- *
- * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
- *
- * ### EDGE CASES:
+Step 1: Find nodes with cycles
+
+Steps:
+Step 1: 0→1→2→3→0 (cycle)
+Step 2: Find terminal nodes
+Step 3: Nodes: 5,6
+Step 4: Check which nodes reach only terminal
+Step 5: Check each node's reachability
+
+Output:
+```
+[2,4,5,6] (safe nodes)
+```
+
+### TIME COMPLEXITY:
+O(n)**
+- Single pass with **O(1)** hash lookups
+
+### SPACE COMPLEXITY:
+O(1)**
+- Constant extra space
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 class Solution {
   /**

@@ -1,36 +1,4 @@
 """
-# Difficulty: Medium
-
-# 0310. Minimum Height Trees
-
-A tree is an undirected graph in which any two vertices are connected by exactly one path. In other words, any connected graph without simple cycles is a tree.
-
-Given a tree of n nodes labelled from 0 to n - 1, and an array of n - 1 edges where edges[i] = [ai, bi] indicates that there is an undirected edge between the two nodes ai and bi in the tree, you can choose any node of the tree as the root. When you select a node x as the root, the result tree has height h. Among all possible rooted trees, those with minimum height (i.e. min(h)) are called minimum height trees (MHTs).
-
-Return a list of all MHTs' root labels. You can return the answer in any order.
-
-The height of a rooted tree is the number of edges on the longest downward path between the root and a leaf.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>n = 6, edges = [[3,0],[3,1],[3,2],[3,4],[5,4]]</dd>
-<dt>Output:</dt>
-<dd>[3,4]</dd>
-<dt>Explanation:</dt>
-<dd>Minimum height tree roots are [0,1] for graph with edges [[0,1],[0,2],[0,3]]</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
-**Data Structures**: Hash Map, Hash Set, Array
-**Patterns**: Greedy Algorithm, Graph Pattern
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
 The key insight is that remove leaf nodes iteratively. Leaves have degree 1. After removing, new leaves may form. Repeat until <= 2 nodes remain. These are the MHT roots (centers of tree).
 
@@ -69,14 +37,12 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 - Single pass through input
 
-
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 - Constant extra space
-
 
 ### EDGE CASES:
 - **Empty input**: Handle when input is empty
@@ -84,6 +50,7 @@ O(1)
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 from collections import defaultdict

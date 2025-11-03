@@ -1,34 +1,4 @@
 """
-# Difficulty: Medium
-
-# 0210. Course Schedule Ii
-
-There are a total of numCourses courses you have to take, labeled from 0 to numCourses - 1. You are given an array prerequisites where prerequisites[i] = [ai, bi] indicates that you must take course bi first if you want to take course ai.
-
-For example, the pair [0, 1], indicates that to take course 0 you have to first take course 1.
-
-Return the ordering of courses you should take to finish all courses. If there are many valid answers, return any of them. If it is impossible to finish all courses, return an empty array.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>numCourses = 4, prerequisites = [[1,0],[2,0],[3,1],[3,2]]</dd>
-<dt>Output:</dt>
-<dd>[0,1,2,3]</dd>
-<dt>Explanation:</dt>
-<dd>Course order for [0,1],[1,2] is [2,1,0]</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: Hash Map, Array, Queue
-**Patterns**: Hash Table Pattern, Graph Pattern
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
 The key insight is that build adjacency list and in-degree array. Start BFS from courses with in-degree 0. For each course, reduce in-degree of neighbors. Add result to output. Check if all courses processed.
 
@@ -71,14 +41,12 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 - Single pass through input
 
-
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 - Constant extra space
-
 
 ### EDGE CASES:
 - **Empty input**: Handle when input is empty
@@ -86,6 +54,7 @@ O(1)
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 from collections import defaultdict, deque

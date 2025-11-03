@@ -1,37 +1,5 @@
 /**
- * # Difficulty: Medium
- *
- * # 0630. Course Schedule III
- *
- *
- * There are n different online courses numbered from 1 to n. You are given an array courses where courses[i] = [durationi, lastDayi] indicate that the ith course should be taken continuously for durationi days and must be finished before or on lastDayi.
- *
- * You will start on the 1st day and you cannot take two or more courses simultaneously.
- *
- * Return the maximum number of courses that you can take.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>courses = [[100,200],[200,1300],[1000,1250],[2000,3200]]</dd>
- * <dt>Output:</dt>
- * <dd>3 (max courses)</dd>
- * <dt>Explanation:</dt>
- * <dd>Maximum courses you can take within time limit</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- * ### METADATA:
- * **Techniques**: Hash Map Storage, Array Traversal, Sorting
- * **Data Structures**: Array, Queue, Heap
- * **Patterns**: Greedy Algorithm
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(1) - Constant extra space
-
- *
- * ### INTUITION:
+### INTUITION:
 [This problem requires understanding of topological sort concepts. The key insight is to identify the optimal approach for this specific scenario.]
 
 ### APPROACH:
@@ -46,39 +14,40 @@
 - This ensures that space complexity is minimized where possible
 
 ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * courses = [[100,200],[200,1300],[1000,1250],[2000,3200]]
- * ```
- *
- * Step 1: Sort by end time
- * sorted = [[200,1300],[1000,1250],[2000,3200],[100,200]]
- * Step 2: Greedy selection
- * Take course ending at 1300
- * Take course ending at 1250 (can't, conflicts)
- * Take course ending at 3200
- * ...
- *
- * Output:
- * ```
- * 3 (max courses)
- * ```
+Input:
+```
+courses = [[100,200],[200,1300],[1000,1250],[2000,3200]]
+```
 
- * ### TIME COMPLEXITY:
- * O(n)
- * - Single pass through input
- *
- * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
- *
- * ### EDGE CASES:
+Step 1: Sort by end time
+sorted = [[200,1300],[1000,1250],[2000,3200],[100,200]]
+Step 2: Greedy selection
+Take course ending at 1300
+Take course ending at 1250 (can't, conflicts)
+Take course ending at 3200
+...
+
+Output:
+```
+3 (max courses)
+```
+
+### TIME COMPLEXITY:
+O(n)**
+- Single pass through input
+
+### SPACE COMPLEXITY:
+O(1)**
+- Constant extra space
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 /**
  * Main solution for Problem 630: Course Schedule III

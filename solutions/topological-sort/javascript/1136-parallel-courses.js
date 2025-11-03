@@ -1,37 +1,5 @@
 /**
- * # Difficulty: Medium
- *
- * # 1136. Parallel Courses
- *
- *
- * You are given an integer n, which indicates that there are n courses labeled from 1 to n. You are also given an array relations where relations[i] = [prevCoursei, nextCoursei], representing a prerequisite relationship between course prevCoursei and course nextCoursei: course prevCoursei has to be taken before course nextCoursei.
- *
- * In one semester, you can take any number of courses as long as you have taken all the prerequisites in the previous semester for the courses you are taking.
- *
- * Return the minimum number of semesters needed to take all courses. If there is no way to take all the courses, return -1.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>n = 3, relations = [[1,3],[2,3]]</dd>
- * <dt>Output:</dt>
- * <dd>2 (minimum semesters)</dd>
- * <dt>Explanation:</dt>
- * <dd>Minimum semesters to complete all courses</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- * ### METADATA:
- * **Techniques**: Hash Map Storage, Array Traversal, Queue Operations
- * **Data Structures**: Array, Queue, Graph
- * **Patterns**: Graph Pattern, Tree Pattern
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(1) - Constant extra space
-
- *
- * ### INTUITION:
+### INTUITION:
 [This problem requires understanding of topological sort concepts. The key insight is to identify the optimal approach for this specific scenario.]
 
 ### APPROACH:
@@ -46,37 +14,38 @@
 - This ensures that space complexity is minimized where possible
 
 ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * n = 3, relations = [[1,3],[2,3]]
- * ```
- *
- * Step 1: Build graph and indegree
- * indegree = [0,0,2]
- * Step 2: Process courses level by level
- * Semester 1: courses 1,2 (indegree=0)
- * Semester 2: course 3 (after 1,2 complete)
- *
- * Output:
- * ```
- * 2 (minimum semesters)
- * ```
+Input:
+```
+n = 3, relations = [[1,3],[2,3]]
+```
 
- * ### TIME COMPLEXITY:
- * O(n)
- * - Single pass through input
- *
- * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
- *
- * ### EDGE CASES:
+Step 1: Build graph and indegree
+indegree = [0,0,2]
+Step 2: Process courses level by level
+Semester 1: courses 1,2 (indegree=0)
+Semester 2: course 3 (after 1,2 complete)
+
+Output:
+```
+2 (minimum semesters)
+```
+
+### TIME COMPLEXITY:
+O(n)**
+- Single pass through input
+
+### SPACE COMPLEXITY:
+O(1)**
+- Constant extra space
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 /**
  * Main solution for Problem 1136: Parallel Courses

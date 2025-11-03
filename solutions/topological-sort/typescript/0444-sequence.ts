@@ -1,35 +1,108 @@
 /**
- * # Difficulty: Medium
- *
- * # 0444. Sequence Reconstruction
- *
- *
- * Check whether the original sequence org can be uniquely reconstructed from the sequences in seqs. The org sequence is a permutation of the integers from 1 to n, with 1 ≤ n ≤ 10^4. Reconstruction means building a shortest common supersequence of the sequences in seqs (i.e., a shortest sequence so that all sequences in seqs are subsequences of it). Determine whether there is only one sequence that can be reconstructed from seqs and it is the org sequence.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>[1, 2, 3]</dd>
- * <dt>Output:</dt>
- * <dd>1</dd>
- * <dt>Explanation:</dt>
- * <dd>Sequence reconstruction validates if org is only supersequence</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- * ### METADATA:
- * **Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
- * **Data Structures**: Hash Map, Hash Set, Array
- * **Patterns**: Hash Table Pattern, Backtracking
- * **Time Complexity**: O(V + E)
- * **Space Complexity**: O(V + E)
- *
- * ### INTUITION:
- * This is a topological sort problem where we need to check if there's a unique topological ordering that matches the given original sequence. The key insight is that for a unique reconstruction, at each step of topological sort, there should be exactly one node with in-degree 0.
- *
- * ### APPROACH:
+### INTUITION:
+This is a topological sort problem where we need to check if there's a unique topological ordering that matches the given original sequence. The key insight is that for a unique reconstruction, at each step of topological sort, there should be exactly one node with in-degree 0.
+
+### APPROACH:
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
 The algorithm proceeds as follows:
 
 The algorithm proceeds as follows:
@@ -43,47 +116,48 @@ Data structures: Hash Map (for graph/in-degrees), Hash Set (for validation), Arr
 4. **Verify order**: The topological order must match org array exactly
 
 ### WHY THIS WORKS:
- * - Topological sort gives us the dependency order
- * - Unique reconstruction means at each step, only one choice exists
- * - If multiple nodes have in-degree 0 simultaneously, multiple valid orders exist
- * - We need to verify that the unique order matches the original sequence
- *
- *
+- Topological sort gives us the dependency order
+- Unique reconstruction means at each step, only one choice exists
+- If multiple nodes have in-degree 0 simultaneously, multiple valid orders exist
+- We need to verify that the unique order matches the original sequence
+
+
 
 This solution uses hash table lookup for efficient implementation.
 
 This solution uses hash map storage for efficient implementation.
 
 This solution uses set operations for efficient implementation.
+
 ### EXAMPLE WALKTHROUGH:
 Input:
 ```
 org = [1,2,3], seqs = [[1,2],[1,3],[2,3]]
 ```
 
-*Step 1:** Build graph from seqs for org=[1,2,3], seqs=[[1,2],[1,3],[2,3]]
+Step 1:** Build graph from seqs for org=[1,2,3], seqs=[[1,2],[1,3],[2,3]]
 - 1 -> [2, 3]
 - 2 -> [3]
 - 3 -> []
 - In-degrees: {1: 0, 2: 1, 3: 2}
 
-*Step 2:** Start topological sort
+Step 2:** Start topological sort
 - Queue has nodes with in-degree 0: [1]
 - Only one node in queue (unique choice) ✓
 
-*Step 3:** Process node 1
+Step 3:** Process node 1
 - Add 1 to result: [1]
 - Reduce in-degrees of neighbors 2,3
 - New in-degrees: {2: 0, 3: 1}
 - Queue: [2]
 
-*Step 4:** Process node 2
+Step 4:** Process node 2
 - Add 2 to result: [1,2]
 - Reduce in-degree of neighbor 3
 - New in-degree: {3: 0}
 - Queue: [3]
 
-*Step 5:** Process node 3
+Step 5:** Process node 3
 - Add 3 to result: [1,2,3]
 - Result matches org [1,2,3] ✓
 
@@ -93,20 +167,21 @@ true
 ```
 
 ### TIME COMPLEXITY:
- * O(V + E)
- * Where V is number of nodes (n) and E is total number of edges from seqs
- *
- * ### SPACE COMPLEXITY:
- * O(V + E)
- * For the graph representation and auxiliary data structures
- *
- * ### EDGE CASES:
+O(V + E)**
+Where V is number of nodes (n) and E is total number of edges from seqs
+
+### SPACE COMPLEXITY:
+O(V + E)**
+For the graph representation and auxiliary data structures
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 class Solution {
   /**
