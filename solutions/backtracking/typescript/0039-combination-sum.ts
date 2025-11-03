@@ -1,41 +1,9 @@
 /**
- * # Difficulty: Medium
- *
- * # 0039. Combination Sum
- *
- *
- * Given an array of distinct integers candidates and a target integer target,
- * return a list of all unique combinations of candidates where the chosen numbers sum to target.
- * You may return the combinations in any order.
- *
- * The same number may be chosen from candidates an unlimited number of times.
- * Two combinations are unique if the frequency of at least one of the chosen numbers is different.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>candidates = [2,3,6,7], target = 7</dd>
- * <dt>Output:</dt>
- * <dd>[[2,2,3], [7]]</dd>
- * <dt>Explanation:</dt>
- * <dd>All combinations summing to 7 using [2,3,6,7] are [[2,2,3], [7]]</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
- * **Techniques**: Hash Map Storage, Array Traversal, Sorting
- * **Data Structures**: Array, Matrix
- * **Patterns**: Hash Table Pattern, Backtracking
- * **Time Complexity**: O(N^(T/M))
- * **Space Complexity**: O(T/M)
- *
- * ### INTUITION:
- * This is a classic backtracking problem where we need to find all combinations that sum to target.
- * Since numbers can be reused unlimited times, we explore each candidate multiple times.
- *
- * ### APPROACH:
+### INTUITION:
+This is a classic backtracking problem where we need to find all combinations that sum to target.
+Since numbers can be reused unlimited times, we explore each candidate multiple times.
+
+### APPROACH:
 1. **Sort candidates**: For optimization and early termination
 2. **Use backtracking**: Build combinations incrementally
 3. **Two choices per element**: Include it (allowing reuse) or skip it
@@ -64,20 +32,21 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
- * O(N^(T/M))
- * Where N=len(candidates), T=target, M=minimal candidate value
- *
- * ### SPACE COMPLEXITY:
- * O(T/M)
- * For recursion depth and storing combinations
- *
- * ### EDGE CASES:
+O(N^(T/M)**)
+Where N=len(candidates), T=target, M=minimal candidate value
+
+### SPACE COMPLEXITY:
+O(T/M)**
+For recursion depth and storing combinations
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 class Solution {
   /**

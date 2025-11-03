@@ -1,30 +1,4 @@
 """
-# Difficulty: Medium
-
-# 0047. Permutations Ii
-
-Given a collection of numbers, nums, that might contain duplicates, return all possible unique permutations in any order.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>nums = [1,1,2]</dd>
-<dt>Output:</dt>
-<dd>[[1,1,2],[1,2,1],[2,1,1]]</dd>
-<dt>Explanation:</dt>
-<dd>All unique permutations of [1,1,2] are [[1,1,2],[1,2,1],[2,1,1]]</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Backtracking, Frequency Counting, Duplicate Handling
-**Data Structures**: Hash Map (Counter), Array, Recursion Stack
-**Patterns**: Backtracking Pattern, Permutation Generation with Duplicates
-**Time Complexity**: **O(n × n!)** - Generate all unique permutations with frequency counter
-**Space Complexity**: **O(n)** - Recursion stack and frequency counter
-
 ### INTUITION:
 The key insight is that use a frequency counter to track available numbers. During backtracking, iterate through unique numbers in the counter, not array positions. Decrement the counter when using a number and increment when backtracking. This naturally handles duplicates by treating them as frequency counts.
 
@@ -71,11 +45,10 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-**O(n × n!)** - where n is the number of elements in the input array. In the worst case (when all elements are distinct), we generate n! permutations. For each permutation, we perform O(n) work to copy it to the result list. The frequency counter approach reduces the number of permutations when there are duplicates (e.g., if all elements are the same, we only generate 1 permutation instead of n!), but the worst-case complexity remains O(n × n!). Building the initial counter takes O(n) time, but this is dominated by the permutation generation.
+**O(n × n!)** - where n is the number of elements in the input array. In the worst case (when all elements are distinct), we generate n! permutations. For each permutation, we perform **O(n)** work to copy it to the result list. The frequency counter approach reduces the number of permutations when there are duplicates (e.g., if all elements are the same, we only generate 1 permutation instead of n!), but the worst-case complexity remains **O(n × n!)**. Building the initial counter takes **O(n)** time, but this is dominated by the permutation generation.
 
 ### SPACE COMPLEXITY:
-**O(n)** - where n is the number of elements in the input array. We use a frequency counter that stores at most n unique elements (O(n) in worst case when all elements are distinct). The recursion call stack can go as deep as n levels (one for each element in the permutation). The current permutation list grows from size 0 to size n. Total auxiliary space: O(n) for counter + O(n) for recursion stack + O(n) for current permutation = O(n). The result list is not counted as it's required output.
-
+**O(n)** - where n is the number of elements in the input array. We use a frequency counter that stores at most n unique elements (**O(n)** in worst case when all elements are distinct). The recursion call stack can go as deep as n levels (one for each element in the permutation). The current permutation list grows from size 0 to size n. Total auxiliary space: **O(n)** for counter + **O(n)** for recursion stack + **O(n)** for current permutation = **O(n)**. The result list is not counted as it's required output.
 
 ### EDGE CASES:
 - **Empty input**: Handle when input is empty
@@ -83,6 +56,7 @@ Output:
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 from collections import Counter

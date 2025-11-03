@@ -1,34 +1,4 @@
 """
-# Difficulty: Medium
-
-# 0040. Combination Sum Ii
-
-Given a collection of candidate numbers (candidates) and a target number (target), find all unique combinations in candidates where the candidate numbers sum to target.
-
-Each number in candidates may only be used once in the combination.
-
-Note: The solution set must not contain duplicate combinations.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>candidates = [10,1,2,7,6,1,5], target = 8</dd>
-<dt>Output:</dt>
-<dd>[[1,1,6],[1,2,5],[1,7],[2,6]]</dd>
-<dt>Explanation:</dt>
-<dd>All unique combinations summing to 8 from [10,1,2,7,6,1,5] are [[1,1,6],[1,2,5],[1,7],[2,6]]</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Backtracking, Duplicate Skipping, Early Termination
-**Data Structures**: Array, List, Recursion Stack
-**Patterns**: Backtracking Pattern, Combination Generation
-**Time Complexity**: **O(2^n × n)** - Generate all subsets with target sum check and copy operations
-**Space Complexity**: **O(n)** - Recursion stack depth up to n elements
-
 ### INTUITION:
 The key insight is that sort the candidates first to handle duplicates. During backtracking, skip duplicate elements at the same recursion level by checking if nums[i] == nums[i-1] and i > start. Each number can only be used once, so advance the index by 1 after including a number.
 
@@ -77,11 +47,10 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-**O(2^n × n)** - where n is the number of candidates. In the worst case, we generate all possible subsets of the candidates array. There are 2^n possible subsets (each element can be included or excluded). For each valid subset that sums to the target, we need O(n) time to copy it to the result list. The sorting step takes O(n log n), but this is dominated by the exponential subset generation. Early termination and duplicate skipping reduce the actual number of subsets generated, but the worst-case complexity remains O(2^n × n).
+**O(2^n × n)** - where n is the number of candidates. In the worst case, we generate all possible subsets of the candidates array. There are 2^n possible subsets (each element can be included or excluded). For each valid subset that sums to the target, we need **O(n)** time to copy it to the result list. The sorting step takes **O(n log n)**, but this is dominated by the exponential subset generation. Early termination and duplicate skipping reduce the actual number of subsets generated, but the worst-case complexity remains **O(2^n × n)**.
 
 ### SPACE COMPLEXITY:
-**O(n)** - where n is the number of candidates. The recursion call stack can go as deep as n levels (when we include all candidates in decreasing order). We also maintain a current combination list that can have at most n elements. The space for storing the result is not counted toward space complexity as it's required output. The sorting is done in-place, so it doesn't add to space complexity. Total auxiliary space: O(n) for recursion stack + O(n) for current combination = O(n).
-
+**O(n)** - where n is the number of candidates. The recursion call stack can go as deep as n levels (when we include all candidates in decreasing order). We also maintain a current combination list that can have at most n elements. The space for storing the result is not counted toward space complexity as it's required output. The sorting is done in-place, so it doesn't add to space complexity. Total auxiliary space: **O(n)** for recursion stack + **O(n)** for current combination = **O(n)**.
 
 ### EDGE CASES:
 - **Empty input**: Handle when input is empty
@@ -89,6 +58,7 @@ Output:
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 from typing import Any, List, Optional, Dict, Tuple

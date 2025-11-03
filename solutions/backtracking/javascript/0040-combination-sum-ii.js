@@ -1,40 +1,8 @@
 /**
- * # Difficulty: Medium
- *
- * # 0040. Combination Sum Ii
- *
- *
- * Given a collection of candidate numbers (candidates) and a target number (target), find all unique combinations in candidates where the candidate numbers sum to target.
- *
- * Each number in candidates may only be used once in the combination.
- *
- * Note: The solution set must not contain duplicate combinations.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>candidates = [10,1,2,7,6,1,5], target = 8</dd>
- * <dt>Output:</dt>
- * <dd>[[1,1,6],[1,2,5],[1,7],[2,6]]</dd>
- * <dt>Explanation:</dt>
- * <dd>All unique combinations summing to 8 from [10,1,2,7,6,1,5] are [[1,1,6],[1,2,5],[1,7],[2,6]]</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- * ### METADATA:
- * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
- * **Data Structures**: Hash Map, Array, String
- * **Patterns**: Complement Search, Greedy Algorithm
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(1) - Constant extra space
+### INTUITION:
+[This problem requires understanding of backtracking concepts. The key insight is to identify the optimal approach for this specific scenario.]
 
- *
- * ### INTUITION:
- * [This problem requires understanding of backtracking concepts. The key insight is to identify the optimal approach for this specific scenario.]
- *
- * ### APPROACH:
+### APPROACH:
 1. **Analyze the problem**: Understand the input constraints and expected output
 2. **Choose the right technique**: Apply backtracking methodology
 3. **Implement efficiently**: Focus on optimal time and space complexity
@@ -46,47 +14,48 @@
 - This ensures that space complexity is minimized where possible
 
 ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * candidates = [10,1,2,7,6,1,5], target = 8
- * ```
- *
- * Steps:
- * Step 1: Sort candidates → [1,1,2,5,6,7,10]
- * Step 2: Backtrack to find combinations
- * Step 3: Try 1: curr = [1], remain = 7
- * Step 4: Try 1: curr = [1,1], remain = 6
- * Step 5: Try 2: curr = [1,1,2], remain = 4 → continue
- * Step 6: Try 5: curr = [1,1,5], remain = 1 → continue
- * Step 7: Try 6: curr = [1,1,6], remain = 0 → add [1,1,6]
- * Step 8: Skip duplicate 1 at position 2
- * Step 9: Try 2: curr = [1,2], remain = 5
- * Step 10: Try 5: curr = [1,2,5], remain = 0 → add [1,2,5]
- * Step 11: Try 7: curr = [1,7], remain = 0 → add [1,7]
- * Step 12: Skip duplicate 1 at position 1
- * Step 13: Try 2: curr = [2], remain = 6
- * Step 14: Try 6: curr = [2,6], remain = 0 → add [2,6]
- *
- * Output:
- * ```
- * [[1,1,6],[1,2,5],[1,7],[2,6]]
- * ```
+Input:
+```
+candidates = [10,1,2,7,6,1,5], target = 8
+```
 
- * ### TIME COMPLEXITY:
- * O(n)
- * - Single pass through input
- *
- * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
- *
- * ### EDGE CASES:
+Steps:
+Step 1: Sort candidates → [1,1,2,5,6,7,10]
+Step 2: Backtrack to find combinations
+Step 3: Try 1: curr = [1], remain = 7
+Step 4: Try 1: curr = [1,1], remain = 6
+Step 5: Try 2: curr = [1,1,2], remain = 4 → continue
+Step 6: Try 5: curr = [1,1,5], remain = 1 → continue
+Step 7: Try 6: curr = [1,1,6], remain = 0 → add [1,1,6]
+Step 8: Skip duplicate 1 at position 2
+Step 9: Try 2: curr = [1,2], remain = 5
+Step 10: Try 5: curr = [1,2,5], remain = 0 → add [1,2,5]
+Step 11: Try 7: curr = [1,7], remain = 0 → add [1,7]
+Step 12: Skip duplicate 1 at position 1
+Step 13: Try 2: curr = [2], remain = 6
+Step 14: Try 6: curr = [2,6], remain = 0 → add [2,6]
+
+Output:
+```
+[[1,1,6],[1,2,5],[1,7],[2,6]]
+```
+
+### TIME COMPLEXITY:
+O(n)**
+- Single pass through input
+
+### SPACE COMPLEXITY:
+O(1)**
+- Constant extra space
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 /**
  * Main solution for Problem 040: Combination Sum II

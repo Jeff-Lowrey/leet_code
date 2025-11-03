@@ -1,31 +1,4 @@
 """
-# 0046. Permutations
-
-# Difficulty: Medium
-
-Given an array `nums` of distinct integers, return all the possible permutations.
-You can return the answer in any order.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>nums = [1,2,3]</dd>
-<dt>Output:</dt>
-<dd>[[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]</dd>
-<dt>Explanation:</dt>
-<dd>All permutations of [1,2,3] are 6 arrangements: [[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Backtracking, Recursion, Choice/Unchoice Pattern
-**Data Structures**: Array, List, Recursion Stack
-**Patterns**: Backtracking Pattern, Permutation Generation
-**Time Complexity**: **O(n × n!)** - n! permutations, each takes O(n) to build/copy
-**Space Complexity**: **O(n)** - recursion depth and current permutation
-
 ### INTUITION:
 The key insight is that generate all permutations by systematically trying each unused element at each position. Use backtracking to explore all possibilities while maintaining state through choices and un-choices.
 
@@ -78,10 +51,10 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-**O(n × n!)** - where n is the number of elements in the input array. There are n! (n factorial) possible permutations of n distinct elements. For each permutation, we perform O(n) work: checking membership in the current permutation (O(n) for list lookup), adding elements (O(1)), and copying the complete permutation to the result (O(n)). Therefore, the total time complexity is O(n!) permutations × O(n) work per permutation = O(n × n!). Note that while the first call explores n choices, the second explores n-1, then n-2, etc., giving us n × (n-1) × (n-2) × ... × 1 = n! total paths.
+**O(n × n!)** - where n is the number of elements in the input array. There are n! (n factorial) possible permutations of n distinct elements. For each permutation, we perform **O(n)** work: checking membership in the current permutation (**O(n)** for list lookup), adding elements (**O(1)**), and copying the complete permutation to the result (**O(n)**). Therefore, the total time complexity is **O(n!)** permutations × **O(n)** work per permutation = **O(n × n!)**. Note that while the first call explores n choices, the second explores n-1, then n-2, etc., giving us n × (n-1) × (n-2) × ... × 1 = n! total paths.
 
 ### SPACE COMPLEXITY:
-**O(n)** - where n is the number of elements in the input array. The recursion call stack can go as deep as n levels (one level for each element we add to the current permutation). At each level, we maintain a current permutation list that grows from size 0 to size n. The maximum stack depth is n when we have a complete permutation. Additionally, the current permutation list takes O(n) space. The result list storing all permutations is not counted toward space complexity as it's required output. Total auxiliary space: O(n) for recursion stack + O(n) for current permutation = O(n).
+**O(n)** - where n is the number of elements in the input array. The recursion call stack can go as deep as n levels (one level for each element we add to the current permutation). At each level, we maintain a current permutation list that grows from size 0 to size n. The maximum stack depth is n when we have a complete permutation. Additionally, the current permutation list takes **O(n)** space. The result list storing all permutations is not counted toward space complexity as it's required output. Total auxiliary space: **O(n)** for recursion stack + **O(n)** for current permutation = **O(n)**.
 
 ### EDGE CASES:
 - **Empty array**: Return [[]] (empty permutation)
@@ -91,6 +64,7 @@ Output:
 - **Large arrays**: n! permutations, factorial growth
 
 </details>
+
 """
 
 from collections import Counter

@@ -1,33 +1,4 @@
 """
-# 0078. Subsets
-
-# Difficulty: Medium
-
-Given an integer array `nums` of unique elements, return all possible subsets
-(the power `set`).
-
-The solution `set` must not contain duplicate subsets. Return the solution in any order.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>nums = [1,2,3]</dd>
-<dt>Output:</dt>
-<dd>[[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]]</dd>
-<dt>Explanation:</dt>
-<dd>All subsets of [1,2,3] include [], [1], [2], [3], [1,2], [1,3], [2,3], [1,2,3]</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: Hash Set, Array, Matrix
-**Patterns**: Backtracking, Tree Pattern
-**Time Complexity**: O(n × 2^n) - 2^n subsets, each takes O(n) to copy
-**Space Complexity**: O(n) - recursion depth
-
 ### INTUITION:
 The key insight is that generate all possible subsets (power set) by making binary choices for each element: include it or don't include it in the current subset. Use backtracking to explore all combinations.
 
@@ -71,10 +42,10 @@ nums = [1,2,3]
 Output: [[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]]
 
 ### TIME COMPLEXITY:
-O(n × 2^n) - 2^n subsets, each takes O(n) to copy
+**O(n × 2^n)** - 2^n subsets, each takes **O(n)** to copy
 
 ### SPACE COMPLEXITY:
-O(n) - recursion depth
+**O(n)** - recursion depth
 
 ### EDGE CASES:
 - **Empty array**: Return [[]] (power set contains only empty set)
@@ -84,6 +55,7 @@ O(n) - recursion depth
 - **Negative numbers**: No special handling needed, works same as positive
 
 </details>
+
 """
 
 from typing import Any

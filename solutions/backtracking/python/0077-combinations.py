@@ -1,32 +1,4 @@
 """
-# Difficulty: Medium
-
-# 0077. Combinations
-
-Given two integers n and k, return all possible combinations of k numbers chosen from the range [1, n].
-
-You may return the answer in any order.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>n = 4, k = 2</dd>
-<dt>Output:</dt>
-<dd>[[1,2],[1,3],[1,4],[2,3],[2,4],[3,4]]</dd>
-<dt>Explanation:</dt>
-<dd>All 2-combinations from [1,2,3,4] are [[1,2],[1,3],[1,4],[2,3],[2,4],[3,4]]</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Backtracking, Combination Generation, Incremental Building
-**Data Structures**: Array, List, Recursion Stack
-**Patterns**: Backtracking Pattern, Combination Selection
-**Time Complexity**: **O(C(n,k) × k)** - Generate C(n,k) combinations, each takes O(k) to copy
-**Space Complexity**: **O(k)** - Recursion stack depth and current combination size
-
 ### INTUITION:
 The key insight is that build combinations incrementally by choosing numbers from a starting position onwards. Use a start parameter to ensure we only consider numbers greater than previously chosen ones, avoiding duplicates like [1,2] and [2,1]. When combination reaches size k, add it to results.
 
@@ -73,11 +45,10 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-**O(C(n,k) × k)** - where C(n,k) = n!/(k!(n-k)!) is the binomial coefficient representing the number of ways to choose k elements from n elements. We generate exactly C(n,k) combinations. For each valid combination of size k, we perform O(k) work to copy it to the result list. For example, C(4,2) = 6, so with n=4 and k=2, we generate 6 combinations, each requiring O(2) = O(k) copy time. Total time: O(C(n,k)) combinations × O(k) copy time = O(C(n,k) × k).
+**O(C(n,k) × k)** - where C(n,k) = n!/(k!(n-k)!) is the binomial coefficient representing the number of ways to choose k elements from n elements. We generate exactly C(n,k) combinations. For each valid combination of size k, we perform **O(k)** work to copy it to the result list. For example, C(4,2) = 6, so with n=4 and k=2, we generate 6 combinations, each requiring **O(2)** = **O(k)** copy time. Total time: **O(C(n,k)**) combinations × **O(k)** copy time = **O(C(n,k)** × k).
 
 ### SPACE COMPLEXITY:
-**O(k)** - where k is the size of each combination. The recursion call stack can go as deep as k levels (we make at most k recursive calls to build a combination of size k). The current combination list grows from size 0 to size k. The result list storing all combinations is not counted toward space complexity as it's required output. Total auxiliary space: O(k) for recursion stack + O(k) for current combination = O(k).
-
+**O(k)** - where k is the size of each combination. The recursion call stack can go as deep as k levels (we make at most k recursive calls to build a combination of size k). The current combination list grows from size 0 to size k. The result list storing all combinations is not counted toward space complexity as it's required output. Total auxiliary space: **O(k)** for recursion stack + **O(k)** for current combination = **O(k)**.
 
 ### EDGE CASES:
 - **Empty input**: Handle when input is empty
@@ -85,6 +56,7 @@ Output:
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 from typing import Any, List, Optional, Dict, Tuple

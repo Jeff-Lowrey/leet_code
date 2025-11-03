@@ -1,30 +1,4 @@
 """
-# Difficulty: Medium
-
-# 0131. Palindrome Partitioning
-
-Given a string s, partition s such that every substring of the partition is a palindrome. Return all possible palindrome partitioning of s.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>s = "aab"</dd>
-<dt>Output:</dt>
-<dd>[["a","a","b"],["aa","b"]]</dd>
-<dt>Explanation:</dt>
-<dd>All palindrome partitions of 'aab' are [['a','a','b'], ['aa','b']]</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Backtracking, Palindrome Checking, String Partitioning
-**Data Structures**: String, List, Recursion Stack
-**Patterns**: Backtracking Pattern, Partition Generation
-**Time Complexity**: **O(n × 2^n)** - Generate 2^n partitions, each palindrome check O(n)
-**Space Complexity**: **O(n)** - Recursion stack depth and current partition
-
 ### INTUITION:
 The key insight is that at each position, try all possible substrings starting from that position. If a substring is a palindrome, add it to the current partition and recursively partition the remaining string. Backtrack by removing the last substring. This explores all valid palindrome partitions.
 
@@ -70,11 +44,10 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-**O(n × 2^n)** - where n is the length of the string. In the worst case (when all characters are the same, like "aaa"), we generate 2^(n-1) different partitions (at each gap between characters, we can choose to partition or not). For each partition, we perform palindrome checks that take O(n) time in total across all substrings. Checking each substring for being a palindrome takes O(substring_length), and copying valid partitions takes O(n). Total: O(2^n) partitions × O(n) work per partition = O(n × 2^n).
+**O(n × 2^n)** - where n is the length of the string. In the worst case (when all characters are the same, like "aaa"), we generate 2^(n-1) different partitions (at each gap between characters, we can choose to partition or not). For each partition, we perform palindrome checks that take **O(n)** time in total across all substrings. Checking each substring for being a palindrome takes **O(substring_length)**, and copying valid partitions takes **O(n)**. Total: **O(2^n)** partitions × **O(n)** work per partition = **O(n × 2^n)**.
 
 ### SPACE COMPLEXITY:
-**O(n)** - where n is the length of the string. The recursion call stack can go as deep as n levels (when we partition the string into individual characters). The current partition list can contain at most n substrings (when every character is a separate partition). The result list is not counted as it's required output. Total auxiliary space: O(n) for recursion stack + O(n) for current partition = O(n).
-
+**O(n)** - where n is the length of the string. The recursion call stack can go as deep as n levels (when we partition the string into individual characters). The current partition list can contain at most n substrings (when every character is a separate partition). The result list is not counted as it's required output. Total auxiliary space: **O(n)** for recursion stack + **O(n)** for current partition = **O(n)**.
 
 ### EDGE CASES:
 - **Empty input**: Handle when input is empty
@@ -82,6 +55,7 @@ Output:
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 from typing import Any, List, Optional, Dict, Tuple

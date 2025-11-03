@@ -1,45 +1,4 @@
 """
-# Difficulty: Hard
-
-# 0051. N Queens
-
-The n-queens puzzle is the problem of placing n queens on an n×n chessboard
-such that no two queens attack each other.
-
-Given an integer n, return all distinct solutions to the n-queens puzzle.
-You may return the answer in any order.
-
-Each solution contains a distinct board configuration of the n-queens' placement,
-where 'Q' and '.' both indicate a queen and an empty space, respectively.
-
-Example 1:
-Input: n = 4
-Output: [[".Q..","...Q","Q...","..Q."],["..Q.","Q...","...Q",".Q.."]]
-
-Example 2:
-Input: n = 1
-Output: [["Q"]]
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>n = 4</dd>
-<dt>Output:</dt>
-<dd>[[".Q..","...Q","Q...","..Q."],["..Q.","Q...","...Q",".Q.."]]</dd>
-<dt>Explanation:</dt>
-<dd>For n=4, one valid queen placement is [(0,1),(1,3),(2,0),(3,2)]</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
-**Data Structures**: Hash Set, Array, String
-**Patterns**: Hash Table Pattern, Backtracking
-**Time Complexity**: O(N!)
-**Space Complexity**: O(N)
-
 ### INTUITION:
 The key insight is that place queens one row at a time and backtrack when conflicts arise. Queens attack horizontally, vertically, and diagonally, so we need to ensure no two queens can attack each other.
 
@@ -83,13 +42,13 @@ n = 4
 Output: [[".Q..","...Q","Q...","..Q."],["..Q.","Q...","...Q",".Q.."]]
 
 ### TIME COMPLEXITY:
-O(N!)
+**O(N!)**
 - In worst case, we try every possible placement
 - First queen has N choices, second has (N-1), etc.
 - But pruning significantly reduces actual combinations
 
 ### SPACE COMPLEXITY:
-O(N)
+**O(N)**
 - Recursion depth is N (one call per row)
 - Additional space for tracking columns and diagonals
 - Board representation space
@@ -102,6 +61,7 @@ O(N)
 - **All positions conflict**: Backtracking exhausts all possibilities, returns empty
 
 </details>
+
 """
 
 from typing import Any

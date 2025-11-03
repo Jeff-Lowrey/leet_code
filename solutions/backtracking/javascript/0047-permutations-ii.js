@@ -1,36 +1,8 @@
 /**
- * # Difficulty: Medium
- *
- * # 0047. Permutations Ii
- *
- *
- * Given a collection of numbers, nums, that might contain duplicates, return all possible unique permutations in any order.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>nums = [1,1,2]</dd>
- * <dt>Output:</dt>
- * <dd>[[1,1,2],[1,2,1],[2,1,1]]</dd>
- * <dt>Explanation:</dt>
- * <dd>All unique permutations of [1,1,2] are [[1,1,2],[1,2,1],[2,1,1]]</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- * ### METADATA:
- * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
- * **Data Structures**: Hash Map, Hash Set, Array
- * **Patterns**: Greedy Algorithm, Backtracking
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(1) - Constant extra space
+### INTUITION:
+[This problem requires understanding of backtracking concepts. The key insight is to identify the optimal approach for this specific scenario.]
 
- *
- * ### INTUITION:
- * [This problem requires understanding of backtracking concepts. The key insight is to identify the optimal approach for this specific scenario.]
- *
- * ### APPROACH:
+### APPROACH:
 1. **Analyze the problem**: Understand the input constraints and expected output
 2. **Choose the right technique**: Apply backtracking methodology
 3. **Implement efficiently**: Focus on optimal time and space complexity
@@ -42,45 +14,46 @@
 - This ensures that space complexity is minimized where possible
 
 ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * nums = [1,1,2]
- * ```
- *
- * Step 1: Create frequency counter
- * counter = {1: 2, 2: 1}
- * Step 2: Backtrack to build permutations
- * Choose 1: temp = [1], counter = {1: 1, 2: 1}
- * Choose 1: temp = [1,1], counter = {1: 0, 2: 1}
- *
- * Steps:
- * Step 1: Choose 2: temp = [1,1,2] → add to result
- * Step 2: Choose 2: temp = [1,2], counter = {1: 1, 2: 0}
- * Step 3: Choose 1: temp = [1,2,1] → add to result
- * Step 4: Choose 2: temp = [2], counter = {1: 2, 2: 0}
- * Step 5: Choose 1: temp = [2,1], counter = {1: 1, 2: 0}
- * Step 6: Choose 1: temp = [2,1,1] → add to result
- *
- * Output:
- * ```
- * [[1,1,2],[1,2,1],[2,1,1]]
- * ```
+Input:
+```
+nums = [1,1,2]
+```
 
- * ### TIME COMPLEXITY:
- * O(n)
- * - Single pass through input
- *
- * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
- *
- * ### EDGE CASES:
+Step 1: Create frequency counter
+counter = {1: 2, 2: 1}
+Step 2: Backtrack to build permutations
+Choose 1: temp = [1], counter = {1: 1, 2: 1}
+Choose 1: temp = [1,1], counter = {1: 0, 2: 1}
+
+Steps:
+Step 1: Choose 2: temp = [1,1,2] → add to result
+Step 2: Choose 2: temp = [1,2], counter = {1: 1, 2: 0}
+Step 3: Choose 1: temp = [1,2,1] → add to result
+Step 4: Choose 2: temp = [2], counter = {1: 2, 2: 0}
+Step 5: Choose 1: temp = [2,1], counter = {1: 1, 2: 0}
+Step 6: Choose 1: temp = [2,1,1] → add to result
+
+Output:
+```
+[[1,1,2],[1,2,1],[2,1,1]]
+```
+
+### TIME COMPLEXITY:
+O(n)**
+- Single pass through input
+
+### SPACE COMPLEXITY:
+O(1)**
+- Constant extra space
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 /**
  * Main solution for Problem 047: Permutations II

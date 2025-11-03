@@ -1,32 +1,4 @@
 """
-# Difficulty: Medium
-
-# 0090. Subsets Ii
-
-Given an integer array nums that may contain duplicates, return all possible subsets (the power set).
-
-The solution set must not contain duplicate subsets. Return the solution in any order.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>nums = [1,2,2]</dd>
-<dt>Output:</dt>
-<dd>[[],[1],[1,2],[1,2,2],[2],[2,2]]</dd>
-<dt>Explanation:</dt>
-<dd>All unique subsets of [1,2,2] are [[],[1],[1,2],[1,2,2],[2],[2,2]]</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Backtracking, Duplicate Skipping, Subset Generation
-**Data Structures**: Array, List, Recursion Stack
-**Patterns**: Backtracking Pattern, Power Set Generation with Duplicates
-**Time Complexity**: **O(2^n × n)** - Generate all 2^n subsets, each takes O(n) to copy
-**Space Complexity**: **O(n)** - Recursion stack depth and current subset size
-
 ### INTUITION:
 The key insight is that sort the array to group duplicates together. During backtracking, add the current subset at each step (not just at leaves). Skip duplicate elements at the same recursion level using the condition i > start and nums[i] == nums[i-1] to avoid duplicate subsets.
 
@@ -71,11 +43,10 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-**O(2^n × n)** - where n is the number of elements in the input array. We generate all possible subsets (the power set), which contains 2^n subsets (each element can be included or excluded). For each subset, we perform O(n) work to copy it to the result list. The sorting step takes O(n log n), but this is dominated by the exponential subset generation. Duplicate skipping reduces the actual number of subsets when duplicates exist, but worst-case complexity remains O(2^n × n) when all elements are distinct. Total: O(n log n) + O(2^n × n) = O(2^n × n).
+**O(2^n × n)** - where n is the number of elements in the input array. We generate all possible subsets (the power set), which contains 2^n subsets (each element can be included or excluded). For each subset, we perform **O(n)** work to copy it to the result list. The sorting step takes **O(n log n)**, but this is dominated by the exponential subset generation. Duplicate skipping reduces the actual number of subsets when duplicates exist, but worst-case complexity remains **O(2^n × n)** when all elements are distinct. Total: **O(n log n)** + **O(2^n × n)** = **O(2^n × n)**.
 
 ### SPACE COMPLEXITY:
-**O(n)** - where n is the number of elements in the input array. The recursion call stack can go as deep as n levels (we can include up to n elements in a subset). The current subset list grows from size 0 to size n in the worst case. The result list storing all subsets is not counted toward space complexity as it's required output. Sorting is done in-place. Total auxiliary space: O(n) for recursion stack + O(n) for current subset = O(n).
-
+**O(n)** - where n is the number of elements in the input array. The recursion call stack can go as deep as n levels (we can include up to n elements in a subset). The current subset list grows from size 0 to size n in the worst case. The result list storing all subsets is not counted toward space complexity as it's required output. Sorting is done in-place. Total auxiliary space: **O(n)** for recursion stack + **O(n)** for current subset = **O(n)**.
 
 ### EDGE CASES:
 - **Empty input**: Handle when input is empty
@@ -83,6 +54,7 @@ Output:
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 from typing import Any, List, Optional, Dict, Tuple
