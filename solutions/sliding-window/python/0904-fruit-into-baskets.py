@@ -1,38 +1,4 @@
 """
-# Difficulty: Medium
-
-# 0904. Fruit Into Baskets
-
-You are visiting a farm that has a single row of fruit trees arranged from left to right. The trees are represented by an integer array fruits where fruits[i] is the type of fruit the ith tree produces.
-
-You want to collect as much fruit as possible. However, the owner has some strict rules that you must follow:
-
-- You only have two baskets, and each basket can only hold a single type of fruit. There is no limit on the amount of fruit each basket can hold.
-- Starting from any tree of your choice, you must pick exactly one fruit from every tree (including the start tree) while moving to the right. The picked fruits must fit in one of your baskets.
-- Once you reach a tree with fruit that cannot fit in your baskets, you must stop.
-
-Given the integer array fruits, return the maximum number of fruits you can pick.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>fruits = [1,2,1,2,3,1,1]</dd>
-<dt>Output:</dt>
-<dd>4 (maximum fruits)</dd>
-<dt>Explanation:</dt>
-<dd>You can collect at most 3 fruits with 2 types of baskets (type 1 and type 2)</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: Hash Map, Hash Set, Array
-**Patterns**: Two Pointers Pattern, Sliding Window Pattern
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
 The key insight is that use sliding window tracking fruit types with hash map. Expand while <= 2 types. When 3rd type appears, shrink until back to 2 types. Track maximum window size.
 
@@ -74,14 +40,12 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 - Single pass through input
 
-
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 - Constant extra space
-
 
 ### EDGE CASES:
 - **Empty input**: Handle when input is empty
@@ -89,6 +53,7 @@ O(1)
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 from typing import Any

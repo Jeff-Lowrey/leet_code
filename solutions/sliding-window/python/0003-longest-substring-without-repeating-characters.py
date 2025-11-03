@@ -1,30 +1,4 @@
 """
-# Difficulty: Medium
-
-# 0003. Longest Substring Without Repeating Characters
-
-Given a string s, find the length of the longest substring without repeating characters.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>"abcabcbb"</dd>
-<dt>Output:</dt>
-<dd>3 (substring "abc")</dd>
-<dt>Explanation:</dt>
-<dd>Longest substring without repeating characters is 'abc' with length 3</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: Hash Map, Hash Set, String
-**Patterns**: Sliding Window Pattern, Hash Table Pattern
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
 The key insight is that use sliding window with hash set. Expand right pointer and add characters. When duplicate found, shrink from left until duplicate removed. Track maximum window size.
 
@@ -79,14 +53,12 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 - Single pass through input
 
-
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 - Constant extra space
-
 
 ### EDGE CASES:
 - **Empty input**: Handle when input is empty
@@ -94,6 +66,7 @@ O(1)
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 from typing import Any

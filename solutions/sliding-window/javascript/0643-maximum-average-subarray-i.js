@@ -1,38 +1,8 @@
 /**
- * # Difficulty: Medium
- *
- * # 0643. Maximum Average Subarray I
- *
- *
- * You are given an integer array nums consisting of n elements, and an integer k.
- *
- * Find a contiguous subarray whose length is equal to k that has the maximum average value and return this value. Any answer with a calculation error less than 10^-5 will be accepted.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>[1,12,-5,-6,50,3], k = 4</dd>
- * <dt>Output:</dt>
- * <dd>12.75 (maximum average)</dd>
- * <dt>Explanation:</dt>
- * <dd>The maximum average of subarray of length k=4 is 12.75</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- * ### METADATA:
- * **Techniques**: Array Traversal, Two Pointers, Sliding Window
- * **Data Structures**: Array, Tree
- * **Patterns**: Two Pointers Pattern, Sliding Window Pattern
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(1) - Constant extra space
+### INTUITION:
+[This problem requires understanding of sliding window concepts. The key insight is to identify the optimal approach for this specific scenario.]
 
- *
- * ### INTUITION:
- * [This problem requires understanding of sliding window concepts. The key insight is to identify the optimal approach for this specific scenario.]
- *
- * ### APPROACH:
+### APPROACH:
 1. **Analyze the problem**: Understand the input constraints and expected output
 2. **Choose the right technique**: Apply sliding window methodology
 3. **Implement efficiently**: Focus on optimal time and space complexity
@@ -44,37 +14,38 @@
 - This ensures that space complexity is minimized where possible
 
 ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * nums = [1,12,-5,-6,50,3], k = 4
- * ```
- *
- * Step 1: Calculate first window sum
- * sum = 1+12+(-5)+(-6) = 2, avg = 0.5
- * Step 2: Slide window
- * sum = 2-1+50 = 51, avg = 12.75
- * sum = 51-12+3 = 42, avg = 10.5
- *
- * Output:
- * ```
- * 12.75 (maximum average)
- * ```
+Input:
+```
+nums = [1,12,-5,-6,50,3], k = 4
+```
 
- * ### TIME COMPLEXITY:
- * O(n)
- * - Single pass through input
- *
- * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
- *
- * ### EDGE CASES:
+Step 1: Calculate first window sum
+sum = 1+12+(-5)+(-6) = 2, avg = 0.5
+Step 2: Slide window
+sum = 2-1+50 = 51, avg = 12.75
+sum = 51-12+3 = 42, avg = 10.5
+
+Output:
+```
+12.75 (maximum average)
+```
+
+### TIME COMPLEXITY:
+O(n)**
+- Single pass through input
+
+### SPACE COMPLEXITY:
+O(1)**
+- Constant extra space
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 /**
  * Main solution for Problem 643: Maximum Average Subarray I

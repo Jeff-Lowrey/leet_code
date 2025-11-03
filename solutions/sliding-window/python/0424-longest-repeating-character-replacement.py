@@ -1,32 +1,4 @@
 """
-# Difficulty: Medium
-
-# 0424. Longest Repeating Character Replacement
-
-You are given a string s and an integer k. You can choose any character of the string and change it to any other uppercase English character. You can perform this operation at most k times.
-
-Return the length of the longest substring containing the same letter you can get after performing the above operations.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>"AABABBA", k = 1</dd>
-<dt>Output:</dt>
-<dd>4 (longest valid substring)</dd>
-<dt>Explanation:</dt>
-<dd>After replacing at most k=2 characters, the longest repeating substring is 'AAAA' with length 4</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Array Traversal, Sliding Window
-**Data Structures**: Hash Map, Hash Set, Array
-**Patterns**: Sliding Window Pattern, Hash Table Pattern
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
 The key insight is that use sliding window with character counts. Track max frequency in window. If window_size - max_freq <= k, window is valid (k replacements make all same). Expand or shrink to find max valid window.
 
@@ -69,14 +41,12 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 - Single pass through input
 
-
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 - Constant extra space
-
 
 ### EDGE CASES:
 - **Empty input**: Handle when input is empty
@@ -84,6 +54,7 @@ O(1)
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 from typing import Any

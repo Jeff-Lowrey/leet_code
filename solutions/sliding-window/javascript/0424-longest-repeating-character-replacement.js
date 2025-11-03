@@ -1,38 +1,8 @@
 /**
- * # Difficulty: Medium
- *
- * # 0424. Longest Repeating Character Replacement
- *
- *
- * You are given a string s and an integer k. You can choose any character of the string and change it to any other uppercase English character. You can perform this operation at most k times.
- *
- * Return the length of the longest substring containing the same letter you can get after performing the above operations.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>"AABABBA", k = 1</dd>
- * <dt>Output:</dt>
- * <dd>4 (longest valid substring)</dd>
- * <dt>Explanation:</dt>
- * <dd>After replacing at most k=2 characters, the longest repeating substring is 'AAAA' with length 4</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- * ### METADATA:
- * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
- * **Data Structures**: Hash Map, Hash Set, String
- * **Patterns**: Sliding Window Pattern, Hash Table Pattern
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(1) - Constant extra space
+### INTUITION:
+[This problem requires understanding of sliding window concepts. The key insight is to identify the optimal approach for this specific scenario.]
 
- *
- * ### INTUITION:
- * [This problem requires understanding of sliding window concepts. The key insight is to identify the optimal approach for this specific scenario.]
- *
- * ### APPROACH:
+### APPROACH:
 1. **Analyze the problem**: Understand the input constraints and expected output
 2. **Choose the right technique**: Apply sliding window methodology
 3. **Implement efficiently**: Focus on optimal time and space complexity
@@ -44,41 +14,42 @@
 - This ensures that space complexity is minimized where possible
 
 ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * s = "AABABBA", k = 1
- * ```
- *
- * Step 1: Expand window
- * "AA": max_freq=2, changes=0, valid
- * "AAB": max_freq=2, changes=1, valid
- * "AABA": max_freq=3, changes=1, valid
- * "AABAB": max_freq=3, changes=2, invalid
- * Step 2: Contract and continue
- * "ABAB": max_freq=2, changes=2, invalid
- * "BAB": max_freq=2, changes=1, valid
- * Continue...
- *
- * Output:
- * ```
- * 4 (longest valid substring)
- * ```
+Input:
+```
+s = "AABABBA", k = 1
+```
 
- * ### TIME COMPLEXITY:
- * O(n)
- * - Single pass through input
- *
- * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
- *
- * ### EDGE CASES:
+Step 1: Expand window
+"AA": max_freq=2, changes=0, valid
+"AAB": max_freq=2, changes=1, valid
+"AABA": max_freq=3, changes=1, valid
+"AABAB": max_freq=3, changes=2, invalid
+Step 2: Contract and continue
+"ABAB": max_freq=2, changes=2, invalid
+"BAB": max_freq=2, changes=1, valid
+Continue...
+
+Output:
+```
+4 (longest valid substring)
+```
+
+### TIME COMPLEXITY:
+O(n)**
+- Single pass through input
+
+### SPACE COMPLEXITY:
+O(1)**
+- Constant extra space
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 /**
  * Main solution for Problem 424: Longest Repeating Character Replacement

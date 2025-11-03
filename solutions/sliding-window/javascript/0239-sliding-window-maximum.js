@@ -1,38 +1,8 @@
 /**
- * # Difficulty: Medium
- *
- * # 0239. Sliding Window Maximum
- *
- *
- * You are given an array of integers nums, there is a sliding window of size k which is moving from the very left of the array to the very right. You can only see the k numbers in the window. Each time the sliding window moves right by one position.
- *
- * Return the max sliding window.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>[1,3,-1,-3,5,3,6,7], k = 3</dd>
- * <dt>Output:</dt>
- * <dd>[3,3,5,5,6,7]</dd>
- * <dt>Explanation:</dt>
- * <dd>The maximum value in each sliding window of size 3 is [3,3,5,5,6,7]</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- * ### METADATA:
- * **Techniques**: Array Traversal, Sliding Window, Queue Operations
- * **Data Structures**: Array, Queue
- * **Patterns**: Sliding Window Pattern, Greedy Algorithm
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(1) - Constant extra space
+### INTUITION:
+[This problem requires understanding of sliding window concepts. The key insight is to identify the optimal approach for this specific scenario.]
 
- *
- * ### INTUITION:
- * [This problem requires understanding of sliding window concepts. The key insight is to identify the optimal approach for this specific scenario.]
- *
- * ### APPROACH:
+### APPROACH:
 1. **Analyze the problem**: Understand the input constraints and expected output
 2. **Choose the right technique**: Apply sliding window methodology
 3. **Implement efficiently**: Focus on optimal time and space complexity
@@ -44,39 +14,40 @@
 - This ensures that space complexity is minimized where possible
 
 ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * nums = [1,3,-1,-3,5,3,6,7], k = 3
- * ```
- *
- * Step 1: Use deque to track indices
- * Window [1,3,-1]: max=3
- * Window [3,-1,-3]: max=3
- * Window [-1,-3,5]: max=5
- * Window [-3,5,3]: max=5
- * Window [5,3,6]: max=6
- * Window [3,6,7]: max=7
- *
- * Output:
- * ```
- * [3,3,5,5,6,7]
- * ```
+Input:
+```
+nums = [1,3,-1,-3,5,3,6,7], k = 3
+```
 
- * ### TIME COMPLEXITY:
- * O(n)
- * - Single pass through input
- *
- * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
- *
- * ### EDGE CASES:
+Step 1: Use deque to track indices
+Window [1,3,-1]: max=3
+Window [3,-1,-3]: max=3
+Window [-1,-3,5]: max=5
+Window [-3,5,3]: max=5
+Window [5,3,6]: max=6
+Window [3,6,7]: max=7
+
+Output:
+```
+[3,3,5,5,6,7]
+```
+
+### TIME COMPLEXITY:
+O(n)**
+- Single pass through input
+
+### SPACE COMPLEXITY:
+O(1)**
+- Constant extra space
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 /**
  * Main solution for Problem 239: Sliding Window Maximum

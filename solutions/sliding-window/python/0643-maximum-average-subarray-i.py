@@ -1,32 +1,4 @@
 """
-# Difficulty: Medium
-
-# 0643. Maximum Average Subarray I
-
-You are given an integer array nums consisting of n elements, and an integer k.
-
-Find a contiguous subarray whose length is equal to k that has the maximum average value and return this value. Any answer with a calculation error less than 10^-5 will be accepted.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>[1,12,-5,-6,50,3], k = 4</dd>
-<dt>Output:</dt>
-<dd>12.75 (maximum average)</dd>
-<dt>Explanation:</dt>
-<dd>The maximum average of subarray of length k=4 is 12.75</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Array Traversal, Two Pointers
-**Data Structures**: Hash Map, Hash Set, Array
-**Patterns**: Two Pointers Pattern, Sliding Window Pattern
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
 The key insight is that use sliding window of size k. Calculate sum of first window. Then slide: subtract left element, add right element. Track maximum sum. Divide by k for average.
 
@@ -64,14 +36,12 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 - Single pass through input
 
-
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 - Constant extra space
-
 
 ### EDGE CASES:
 - **Empty input**: Handle when input is empty
@@ -79,6 +49,7 @@ O(1)
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 from typing import Any, List, Optional, Dict, Tuple

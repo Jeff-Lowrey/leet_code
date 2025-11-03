@@ -1,52 +1,20 @@
 /**
- * # Difficulty: Easy
- *
- * # 0121. Best Time to Buy and Sell Stock
- *
- *
- * You are given an array prices where prices[i] is the price of a given stock on the ith day.
- *
- * You want to maximize your profit by choosing a single day to buy one stock and choosing a different day in the future to sell that stock.
- *
- * Return the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>[7,1,5,3,6,4]</dd>
- * <dt>Output:</dt>
- * <dd>1</dd>
- * <dt>Explanation:</dt>
- * <dd>Maximum profit is 5, achieved by buying at price 1 and selling at price 6</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- * ### METADATA:
- * **Techniques**: Array Traversal, Sliding Window, Greedy Selection
- * **Data Structures**: Array
- * **Patterns**: Sliding Window Pattern, Greedy Algorithm
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(1) - Constant extra space
+### INTUITION:
+To maximize profit, we need to buy at the lowest price and sell at the highest price after the buy date. The key insight is to track the minimum price seen so far and calculate profit at each day.
 
- *
- * ### INTUITION:
- * To maximize profit, we need to buy at the lowest price and sell at the highest price after the buy date. The key insight is to track the minimum price seen so far and calculate profit at each day.
- *
- * ### APPROACH:
- * 1. **Track minimum price**: Keep track of lowest price seen so far (best buy day)
- * 2. **Calculate daily profit**: At each day, calculate profit if we sell today
- * 3. **Update maximum profit**: Track the best profit seen so far
- * 4. **Single pass**: Only need one pass through the array
- *
- * ### WHY THIS WORKS:
- * - We can only sell after we buy, so track minimum price up to current day
- * - At each day, the best profit is current_price - min_price_so_far
- * - No need to track actual buy/sell days, just the maximum profit
- * - Greedy approach: always buy at lowest available price
- *
- * ### EXAMPLE WALKTHROUGH:
+### APPROACH:
+1. **Track minimum price**: Keep track of lowest price seen so far (best buy day)
+2. **Calculate daily profit**: At each day, calculate profit if we sell today
+3. **Update maximum profit**: Track the best profit seen so far
+4. **Single pass**: Only need one pass through the array
+
+### WHY THIS WORKS:
+- We can only sell after we buy, so track minimum price up to current day
+- At each day, the best profit is current_price - min_price_so_far
+- No need to track actual buy/sell days, just the maximum profit
+- Greedy approach: always buy at lowest available price
+
+### EXAMPLE WALKTHROUGH:
 Input:
 ```
 prices = [7,1,5,3,6,4]
@@ -66,22 +34,23 @@ Step-by-step execution:
 3. [Final step]
 
 ### TIME COMPLEXITY:
- * O(n)
- * - Single pass through input
- * Single pass through the prices array
- *
- * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
- * Only using constant extra space
- *
- * ### EDGE CASES:
+O(n)**
+- Single pass through input
+Single pass through the prices array
+
+### SPACE COMPLEXITY:
+O(1)**
+- Constant extra space
+Only using constant extra space
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 /**
  * Main solution for Problem 121: Best Time To Buy And Sell Stock

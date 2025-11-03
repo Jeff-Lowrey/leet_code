@@ -1,32 +1,4 @@
 """
-# Difficulty: Medium
-
-# 0076. Minimum Window Substring
-
-Given two strings s and t of lengths m and n respectively, return the minimum window substring of s such that every character in t (including duplicates) is included in the window. If there is no such substring, return the empty string "".
-
-The testcases will be generated such that the answer is unique.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>"ADOBECODEBANC", t = "ABC"</dd>
-<dt>Output:</dt>
-<dd>"BANC"</dd>
-<dt>Explanation:</dt>
-<dd>Minimum window containing all chars of t='ABC' is 'BANC'</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: Hash Map, Hash Set, Array
-**Patterns**: Two Pointers Pattern, Sliding Window Pattern
-**Time Complexity**: O(n)
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
 The key insight is that use sliding window with character counts. Expand right until window contains all t characters. Then shrink left while maintaining validity. Track minimum window. Use two frequency maps for comparison.
 
@@ -68,14 +40,12 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 - Single pass through input
 
-
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 - Constant extra space
-
 
 ### EDGE CASES:
 - **Empty input**: Handle when input is empty
@@ -83,6 +53,7 @@ O(1)
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 from collections import Counter

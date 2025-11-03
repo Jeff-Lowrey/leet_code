@@ -1,34 +1,4 @@
 """
-# Difficulty: Easy
-
-# 0121. Best Time to Buy and Sell Stock
-
-You are given an array prices where prices[i] is the price of a given stock on the ith day.
-
-You want to maximize your profit by choosing a single day to buy one stock and choosing a different day in the future to sell that stock.
-
-Return the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>[7,1,5,3,6,4]</dd>
-<dt>Output:</dt>
-<dd>1</dd>
-<dt>Explanation:</dt>
-<dd>Maximum profit is 5, achieved by buying at price 1 and selling at price 6</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: Array, Tree
-**Patterns**: Two Pointers Pattern, Hash Table Pattern
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
 To maximize profit, we need to buy at the lowest price and sell at the highest price after the buy date. The key insight is to track the minimum price seen so far and calculate profit at each day.
 
@@ -64,11 +34,11 @@ Step-by-step execution:
 3. [Final step]
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 Single pass through the prices array
 
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 Only using constant extra space
 
 ### EDGE CASES:
@@ -77,6 +47,7 @@ Only using constant extra space
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 from typing import Any

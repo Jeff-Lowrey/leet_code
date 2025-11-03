@@ -1,30 +1,4 @@
 """
-# Difficulty: Medium
-
-# 0209. Minimum Size Subarray Sum
-
-Given an array of positive integers nums and a positive integer target, return the minimal length of a subarray whose sum is greater than or equal to target. If there is no such subarray, return 0 instead.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>target = 7, nums = [2,3,1,2,4,3]</dd>
-<dt>Output:</dt>
-<dd>2 (minimum length)</dd>
-<dt>Explanation:</dt>
-<dd>The minimal length subarray with sum ≥ 7 is [4,3] with length 2</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Array Traversal, Sliding Window
-**Data Structures**: Hash Map, Hash Set, Array
-**Patterns**: Complement Search, Two Pointers Pattern
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
 The key insight is that use sliding window. Expand window until sum >= target. Then shrink from left while sum >= target. Track minimum length. This achieves O(n) time with single pass.
 
@@ -67,14 +41,12 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 - Single pass through input
 
-
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 - Constant extra space
-
 
 ### EDGE CASES:
 - **Empty input**: Handle when input is empty
@@ -82,6 +54,7 @@ O(1)
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 from typing import List, Optional, Dict, Tuple

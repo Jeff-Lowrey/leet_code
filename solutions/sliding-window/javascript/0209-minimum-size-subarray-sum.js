@@ -1,36 +1,8 @@
 /**
- * # Difficulty: Medium
- *
- * # 0209. Minimum Size Subarray Sum
- *
- *
- * Given an array of positive integers nums and a positive integer target, return the minimal length of a subarray whose sum is greater than or equal to target. If there is no such subarray, return 0 instead.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>target = 7, nums = [2,3,1,2,4,3]</dd>
- * <dt>Output:</dt>
- * <dd>2 (minimum length)</dd>
- * <dt>Explanation:</dt>
- * <dd>The minimal length subarray with sum ≥ 7 is [4,3] with length 2</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- * ### METADATA:
- * **Techniques**: Array Traversal, Sliding Window, Greedy Selection
- * **Data Structures**: Array
- * **Patterns**: Complement Search, Sliding Window Pattern
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(1) - Constant extra space
+### INTUITION:
+[This problem requires understanding of sliding window concepts. The key insight is to identify the optimal approach for this specific scenario.]
 
- *
- * ### INTUITION:
- * [This problem requires understanding of sliding window concepts. The key insight is to identify the optimal approach for this specific scenario.]
- *
- * ### APPROACH:
+### APPROACH:
 1. **Analyze the problem**: Understand the input constraints and expected output
 2. **Choose the right technique**: Apply sliding window methodology
 3. **Implement efficiently**: Focus on optimal time and space complexity
@@ -42,41 +14,42 @@
 - This ensures that space complexity is minimized where possible
 
 ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * target = 7, nums = [2,3,1,2,4,3]
- * ```
- *
- * Step 1: Expand window
- * [2,3,1,2] sum=8 ≥ 7
- * Step 2: Contract
- * [3,1,2] sum=6 < 7
- * Expand: [3,1,2,4] sum=10 ≥ 7
- * Contract: [1,2,4] sum=7 ≥ 7
- * Contract: [2,4] sum=6 < 7
- * Expand: [2,4,3] sum=9 ≥ 7
- * Contract: [4,3] sum=7 ≥ 7, length=2
- *
- * Output:
- * ```
- * 2 (minimum length)
- * ```
+Input:
+```
+target = 7, nums = [2,3,1,2,4,3]
+```
 
- * ### TIME COMPLEXITY:
- * O(n)
- * - Single pass through input
- *
- * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
- *
- * ### EDGE CASES:
+Step 1: Expand window
+[2,3,1,2] sum=8 ≥ 7
+Step 2: Contract
+[3,1,2] sum=6 < 7
+Expand: [3,1,2,4] sum=10 ≥ 7
+Contract: [1,2,4] sum=7 ≥ 7
+Contract: [2,4] sum=6 < 7
+Expand: [2,4,3] sum=9 ≥ 7
+Contract: [4,3] sum=7 ≥ 7, length=2
+
+Output:
+```
+2 (minimum length)
+```
+
+### TIME COMPLEXITY:
+O(n)**
+- Single pass through input
+
+### SPACE COMPLEXITY:
+O(1)**
+- Constant extra space
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 /**
  * Main solution for Problem 209: Minimum Size Subarray Sum

@@ -1,38 +1,8 @@
 /**
- * # Difficulty: Medium
- *
- * # 0567. Permutation In String
- *
- *
- * Given two strings s1 and s2, return true if s2 contains a permutation of s1, or false otherwise.
- *
- * In other words, return true if one of s1's permutations is the substring of s2.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>s1 = "ab", s2 = "eidbaooo"</dd>
- * <dt>Output:</dt>
- * <dd>True</dd>
- * <dt>Explanation:</dt>
- * <dd>The permutation of s2='ab' exists in s1 starting at index 1 ('ba' is a permutation of 'ab')</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- * ### METADATA:
- * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
- * **Data Structures**: Hash Map, Hash Set, String
- * **Patterns**: Sliding Window Pattern, Hash Table Pattern
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(1) - Constant extra space
+### INTUITION:
+[This problem requires understanding of sliding window concepts. The key insight is to identify the optimal approach for this specific scenario.]
 
- *
- * ### INTUITION:
- * [This problem requires understanding of sliding window concepts. The key insight is to identify the optimal approach for this specific scenario.]
- *
- * ### APPROACH:
+### APPROACH:
 1. **Analyze the problem**: Understand the input constraints and expected output
 2. **Choose the right technique**: Apply sliding window methodology
 3. **Implement efficiently**: Focus on optimal time and space complexity
@@ -61,20 +31,21 @@ True
 ```
 
 ### TIME COMPLEXITY:
- * O(n)
- * - Single pass through input
- *
- * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
- *
- * ### EDGE CASES:
+O(n)**
+- Single pass through input
+
+### SPACE COMPLEXITY:
+O(1)**
+- Constant extra space
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 /**
  * Main solution for Problem 567: Permutation In String

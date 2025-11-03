@@ -1,44 +1,8 @@
 /**
- * # Difficulty: Medium
- *
- * # 0904. Fruit Into Baskets
- *
- *
- * You are visiting a farm that has a single row of fruit trees arranged from left to right. The trees are represented by an integer array fruits where fruits[i] is the type of fruit the ith tree produces.
- *
- * You want to collect as much fruit as possible. However, the owner has some strict rules that you must follow:
- *
- * - You only have two baskets, and each basket can only hold a single type of fruit. There is no limit on the amount of fruit each basket can hold.
- * - Starting from any tree of your choice, you must pick exactly one fruit from every tree (including the start tree) while moving to the right. The picked fruits must fit in one of your baskets.
- * - Once you reach a tree with fruit that cannot fit in your baskets, you must stop.
- *
- * Given the integer array fruits, return the maximum number of fruits you can pick.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>fruits = [1,2,1,2,3,1,1]</dd>
- * <dt>Output:</dt>
- * <dd>* 4 (maximum fruits)</dd>
- * <dt>Explanation:</dt>
- * <dd>You can collect at most 3 fruits with 2 types of baskets (type 1 and type 2)</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- * ### METADATA:
- * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
- * **Data Structures**: Hash Map, Hash Set, Array
- * **Patterns**: Sliding Window Pattern, Hash Table Pattern
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(1) - Constant extra space
+### INTUITION:
+[This problem requires understanding of sliding window concepts. The key insight is to identify the optimal approach for this specific scenario.]
 
- *
- * ### INTUITION:
- * [This problem requires understanding of sliding window concepts. The key insight is to identify the optimal approach for this specific scenario.]
- *
- * ### APPROACH:
+### APPROACH:
 1. **Analyze the problem**: Understand the input constraints and expected output
 2. **Choose the right technique**: Apply sliding window methodology
 3. **Implement efficiently**: Focus on optimal time and space complexity
@@ -50,41 +14,42 @@
 - This ensures that space complexity is minimized where possible
 
 ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * fruits = [1,2,1,2,3,1,1]
- * ```
- *
- * Step 1: Expand with at most 2 types
- * [1,2,1,2]: types={1,2}, count=4
- * [1,2,1,2,3]: types={1,2,3}, invalid
- * Step 2: Contract
- * [2,1,2,3]: types={1,2,3}, invalid
- * [1,2,3]: types={1,2,3}, invalid
- * [2,3]: types={2,3}, valid
- * [2,3,1,1]: types={2,3,1}, invalid
- * [3,1,1]: types={3,1}, count=3
- *
- * Output:
- * ```
- * 4 (maximum fruits)
- * ```
+Input:
+```
+fruits = [1,2,1,2,3,1,1]
+```
 
- * ### TIME COMPLEXITY:
- * O(n)
- * - Single pass through input
- *
- * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
- *
- * ### EDGE CASES:
+Step 1: Expand with at most 2 types
+[1,2,1,2]: types={1,2}, count=4
+[1,2,1,2,3]: types={1,2,3}, invalid
+Step 2: Contract
+[2,1,2,3]: types={1,2,3}, invalid
+[1,2,3]: types={1,2,3}, invalid
+[2,3]: types={2,3}, valid
+[2,3,1,1]: types={2,3,1}, invalid
+[3,1,1]: types={3,1}, count=3
+
+Output:
+```
+4 (maximum fruits)
+```
+
+### TIME COMPLEXITY:
+O(n)**
+- Single pass through input
+
+### SPACE COMPLEXITY:
+O(1)**
+- Constant extra space
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 /**
  * Main solution for Problem 904: Fruit Into Baskets
