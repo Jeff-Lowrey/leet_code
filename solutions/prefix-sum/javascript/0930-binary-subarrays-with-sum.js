@@ -1,52 +1,16 @@
 /**
- * # 0930. Binary Subarrays With Sum
- *
- * Difficulty: Medium
- *
- *
- * Given a binary array nums and an integer goal, return the number of non-empty subarrays
- * with a sum equal to goal.
- *
- * A subarray is a contiguous part of the array.
- *
- * Example:
- * Input: nums = [1,0,1,0,1], goal = 2
- * Output: 4
- * Explanation: The 4 subarrays are [1,0,1], [1,0,1,0], [0,1,0,1], [1,0,1]
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>nums = [1,0,1,0,1], goal = 2</dd>
- * <dt>Output:</dt>
- * <dd>4</dd>
- * <dt>Explanation:</dt>
- * <dd>There are 4 binary subarrays with sum equal to goal</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- * ### METADATA:
- * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
- * **Data Structures**: Hash Map, Hash Set, Array
- * **Patterns**: Hash Table Pattern
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(n) - Additional hash map storage
-
- *
- * ### INTUITION:
+### INTUITION:
 The key insight is that use prefix sum with hash map. For each position, count how many previous positions
 have prefix_sum = current_prefix_sum - goal. This gives us all subarrays ending at
 current position with sum equal to goal.
 
 ### APPROACH:
- * 1. **Hash Map**: Store (prefix_sum → frequency) pairs
- * 2. **Prefix Sum**: Calculate cumulative sum
- * 3. **Count**: For each position, add count of (current_sum - goal) from map
- * 4. **Update**: Add current sum to map for future positions
- *
- * ### WHY THIS WORKS:
+1. **Hash Map**: Store (prefix_sum → frequency) pairs
+2. **Prefix Sum**: Calculate cumulative sum
+3. **Count**: For each position, add count of (current_sum - goal) from map
+4. **Update**: Add current sum to map for future positions
+
+### WHY THIS WORKS:
 If prefix[j] - prefix[i] = goal, then sum(nums[i+1:j+1]) = goal.
 For each j, count all i where prefix[i] = prefix[j] - goal.
 
@@ -76,20 +40,21 @@ Step-by-step execution:
 3. [Final step]
 
 ### TIME COMPLEXITY:
- * O(n)
- * - Single pass through input
- *
- * ### SPACE COMPLEXITY:
- * O(n)
- * - Additional hash map storage
- *
- * ### EDGE CASES:
+O(n)**
+- Single pass through input
+
+### SPACE COMPLEXITY:
+O(n)**
+- Additional hash map storage
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 /**
  * Main solution for Problem 930: Binary Subarrays With Sum

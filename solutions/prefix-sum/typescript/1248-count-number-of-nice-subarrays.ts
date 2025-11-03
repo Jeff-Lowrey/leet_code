@@ -1,43 +1,15 @@
 /**
- * 1248. Count Number Of Nice Subarrays
- *
- * Difficulty: Medium
- * 
- * Given an array of integers nums and an integer k. A continuous subarray is called nice if there are k odd numbers on it.
- * 
- * Return the number of nice sub-arrays.
- * 
- * **Example:**
- * 
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>nums = [1, 1, 2, 1, 1], k = 3</dd>
- * <dt>Output:</dt>
- * <dd>2</dd>
- * <dt>Explanation:</dt>
- * <dd>There are 2 nice subarrays (containing exactly k=3 odd numbers)</dd>
- * </dl>
- * 
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
- * **Techniques**: **Prefix Sum**, **Hash Map** (Frequency Counting), Sliding Window
- * **Data Structures**: **Hash Map**, **Array**
- * **Patterns**: **Prefix Sum** Pattern, Sliding Window Pattern
- * **Time Complexity**: O(n)
- * **Space Complexity**: O(n) - Additional hash map storage
- *
- * ### INTUITION:
- * This problem is a variation of "subarray sum equals k" but instead of sum, we count odd numbers. We can use prefix sum technique by treating each odd number as 1 and even numbers as 0. Then we need to find subarrays where the sum of 1s equals k.
- *
- * ### APPROACH:
- * **Data structures: **Array** with **Prefix Sum** tracking, **Hash Map** for frequency storage**
- * 1. **Transform problem**: Convert to counting subarrays with sum = k (odd→1, even→0)
- * 2. **Prefix sum tracking**: Maintain running count of odd numbers encountered
- * 3. **HashMap frequency**: Store frequency of each prefix count in **Hash Map**
- * 4. **Count subarrays**: For each position, check if (current_count - k) exists in **Hash Map**
- *
- * ### WHY THIS WORKS:
+### INTUITION:
+This problem is a variation of "subarray sum equals k" but instead of sum, we count odd numbers. We can use prefix sum technique by treating each odd number as 1 and even numbers as 0. Then we need to find subarrays where the sum of 1s equals k.
+
+### APPROACH:
+Data structures: **Array** with **Prefix Sum** tracking, **Hash Map** for frequency storage**
+1. **Transform problem**: Convert to counting subarrays with sum = k (odd→1, even→0)
+2. **Prefix sum tracking**: Maintain running count of odd numbers encountered
+3. **HashMap frequency**: Store frequency of each prefix count in **Hash Map**
+4. **Count subarrays**: For each position, check if (current_count - k) exists in **Hash Map**
+
+### WHY THIS WORKS:
 - This ensures that prefix sum transforms odd counting into a sum problem: odd→1, even→0
 - This ensures that **Hash Map** stores frequency of prefix counts for O(1) lookup
 - This ensures that using prefix sum: prefix_count[j] - prefix_count[i] = k means subarray from i+1 to j has k odd numbers
@@ -50,21 +22,21 @@ Input:
 nums = [1, 1, 2, 1, 1], k = 3
 ```
 
-*Step 1:** Transform array
+Step 1:** Transform array
 - Convert odd→1, even→0: [1,1,0,1,1]
 - Prefix counts: [0,1,2,2,3,4]
 
-*Step 2:** Check position 3 (count=3)
+Step 2:** Check position 3 (count=3)
 - Need count-k = 3-3 = 0
 - Frequency map has 0 appearing 1 time
 - Add 1 to result
 
-*Step 3:** Check position 4 (count=4)
+Step 3:** Check position 4 (count=4)
 - Need count-k = 4-3 = 1
 - Frequency map has 1 appearing 1 time
 - Add 1 to result
 
-*Step 4:** Count total nice subarrays
+Step 4:** Count total nice subarrays
 - Subarray [1,1,2,1] (indices 0-3)
 - Subarray [1,2,1,1] (indices 1-4)
 
@@ -74,21 +46,22 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
- * O(n)
- * Single pass through array with HashMap operations
- * 
- * ### SPACE COMPLEXITY:
- * O(n)
- * - Additional hash map storage
- * For the frequency HashMap
- * 
- * ### EDGE CASES:
+O(n)**
+Single pass through array with HashMap operations
+
+### SPACE COMPLEXITY:
+O(n)**
+- Additional hash map storage
+For the frequency HashMap
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 class Solution {
   /**

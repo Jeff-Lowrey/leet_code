@@ -1,51 +1,22 @@
 /**
- * # Difficulty: Medium
- *
- * # 0437. Path Sum III
- *
- *
- * Given the root of a binary tree and an integer targetSum, return the number of paths where the sum of the values along the path equals targetSum.
- *
- * The path does not need to start or end at the root or a leaf, but it must go downwards (i.e., traveling only from parent nodes to child nodes).
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>[root]</dd>
- * <dt>Output:</dt>
- * <dd>"\nExample 1:"</dd>
- * <dt>Explanation:</dt>
- * <dd>There are 3 paths in the tree that sum to 8: [5->3], [5->2->1], [-3->11]</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
- * **Techniques**: Hash Table Lookup, Hash Map Storage, Two Pointers
- * **Data Structures**: Hash Map, Array, Stack
- * **Patterns**: Complement Search, Two Pointers Pattern
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(h)
- *
- * ### INTUITION:
+### INTUITION:
 The key insight is that this problem extends the prefix sum concept to binary trees. For any path from node A to node B going downwards, if we know the prefix sum from root to A and root to B, then path sum A→B = prefix_sum[B] - prefix_sum[A]. We can use a hashmap to store the frequency of prefix sums as we traverse the tree, similar to the "Subarray Sum Equals K" problem.
 
 ### APPROACH:
- * 1. **Use DFS traversal**: Traverse tree in preorder (root, left, right)
- * 2. **Track prefix sums**: Maintain running sum from root to current node
- * 3. **HashMap for counts**: Store frequency of each prefix sum seen
- * 4. **Find valid paths**: At each node, check if (current_sum - targetSum) exists
- * 5. **Backtrack**: Remove current prefix sum when returning from recursion
- *
- * ### WHY THIS WORKS:
- * - Path sum from node A to B = prefix_sum[B] - prefix_sum[A]
- * - If we want path sum = targetSum, we need: prefix_sum[B] - prefix_sum[A] = targetSum
- * - Therefore: prefix_sum[A] = prefix_sum[B] - targetSum
- * - By storing prefix sums in hashmap during DFS, we can find all valid starting points
- * - Backtracking ensures we only count paths that go downwards (no upward paths)
- *
- * ### EXAMPLE WALKTHROUGH:
+1. **Use DFS traversal**: Traverse tree in preorder (root, left, right)
+2. **Track prefix sums**: Maintain running sum from root to current node
+3. **HashMap for counts**: Store frequency of each prefix sum seen
+4. **Find valid paths**: At each node, check if (current_sum - targetSum) exists
+5. **Backtrack**: Remove current prefix sum when returning from recursion
+
+### WHY THIS WORKS:
+- Path sum from node A to B = prefix_sum[B] - prefix_sum[A]
+- If we want path sum = targetSum, we need: prefix_sum[B] - prefix_sum[A] = targetSum
+- Therefore: prefix_sum[A] = prefix_sum[B] - targetSum
+- By storing prefix sums in hashmap during DFS, we can find all valid starting points
+- Backtracking ensures we only count paths that go downwards (no upward paths)
+
+### EXAMPLE WALKTHROUGH:
 Input:
 ```
 root = [10,5,-3,3,2,null,11,3,-2,null,1], targetSum = 8
@@ -78,21 +49,22 @@ Step-by-step execution:
 3. [Final step]
 
 ### TIME COMPLEXITY:
- * O(n)
- * - Single pass through input
- * Visit each node exactly once, with O(1) hashmap operations per node
- *
- * ### SPACE COMPLEXITY:
- * O(h)
- * Recursion stack depth is tree height h, hashmap stores at most h entries in any path
- *
- * ### EDGE CASES:
+O(n)**
+- Single pass through input
+Visit each node exactly once, with **O(1)** hashmap operations per node
+
+### SPACE COMPLEXITY:
+O(h)**
+Recursion stack depth is tree height h, hashmap stores at most h entries in any path
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 class TreeNode {
   val: number;

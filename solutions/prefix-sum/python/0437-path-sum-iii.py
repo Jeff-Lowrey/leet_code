@@ -1,32 +1,4 @@
 """
-# Difficulty: Medium
-
-# 0437. Path Sum III
-
-Given the root of a binary tree and an integer targetSum, return the number of paths where the sum of the values along the path equals targetSum.
-
-The path does not need to start or end at the root or a leaf, but it must go downwards (i.e., traveling only from parent nodes to child nodes).
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>[root]</dd>
-<dt>Output:</dt>
-<dd>"\nExample 1:"</dd>
-<dt>Explanation:</dt>
-<dd>There are 3 paths in the tree that sum to 8: [5->3], [5->2->1], [-3->11]</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Two Pointers
-**Data Structures**: Hash Map, Array, Stack
-**Patterns**: Complement Search, Two Pointers Pattern
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(h)
-
 ### INTUITION:
 The key insight is that this problem extends the prefix sum concept to binary trees. For any path from node A to node B going downwards, if we know the prefix sum from root to A and root to B, then path sum A→B = prefix_sum[B] - prefix_sum[A]. We can use a hashmap to store the frequency of prefix sums as we traverse the tree, similar to the "Subarray Sum Equals K" problem.
 
@@ -77,11 +49,11 @@ Step-by-step execution:
 3. [Final step]
 
 ### TIME COMPLEXITY:
-O(n)
-Visit each node exactly once, with O(1) hashmap operations per node
+**O(n)**
+Visit each node exactly once, with **O(1)** hashmap operations per node
 
 ### SPACE COMPLEXITY:
-O(h)
+**O(h)**
 Recursion stack depth is tree height h, hashmap stores at most h entries in any path
 
 ### EDGE CASES:
@@ -90,6 +62,7 @@ Recursion stack depth is tree height h, hashmap stores at most h entries in any 
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 from collections import defaultdict

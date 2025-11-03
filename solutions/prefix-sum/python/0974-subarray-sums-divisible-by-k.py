@@ -1,33 +1,4 @@
 """
-# 0974. Subarray Sums Divisible By K
-
-# Difficulty: Medium
-
-Given an integer array nums and an integer k, return the number of non-empty subarrays
-that have a sum divisible by k.
-
-A subarray is a contiguous part of an array.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>nums = [4,5,0,-2,-3,1], k = 5</dd>
-<dt>Output:</dt>
-<dd>7</dd>
-<dt>Explanation:</dt>
-<dd>There are 7 subarrays with sum divisible by k=5</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: Hash Map, Array
-**Patterns**: Hash Table Pattern, Greedy Algorithm
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(min(n, k))
-
 ### INTUITION:
 The key insight is that use prefix sum with modulo arithmetic. If two prefix sums have the same remainder
 when divided by k, the subarray between them is divisible by k. Track remainder
@@ -72,12 +43,11 @@ Step-by-step execution:
 3. [Final step]
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 - Single pass through input
 
-
 ### SPACE COMPLEXITY:
-O(min(n, k)) - hash map storage
+**O(min(n, k)**) - hash map storage
 
 ### EDGE CASES:
 - **Empty input**: Handle when input is empty
@@ -85,6 +55,7 @@ O(min(n, k)) - hash map storage
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 

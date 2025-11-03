@@ -1,34 +1,4 @@
 """
-# 0523. Continuous Subarray Sum
-
-# Difficulty: Medium
-
-Given an integer array nums and an integer k, return true if nums has a continuous
-subarray of size at least two that sums to a multiple of k, or false otherwise.
-
-An integer x is a multiple of k if there exists an integer n such that x = n * k.
-0 is always a multiple of k.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>nums = [23,2,4,6,7], k = 6</dd>
-<dt>Output:</dt>
-<dd>true</dd>
-<dt>Explanation:</dt>
-<dd>The subarray [23,2,4,6,7] has sum 42, which is a multiple of k=6</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: Hash Map, Array
-**Patterns**: Hash Table Pattern, Greedy Algorithm
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(min(n, k))
-
 ### INTUITION:
 The key insight is that use prefix sum with modulo arithmetic. If two prefix sums have the same remainder
 when divided by k, the subarray between them is divisible by k. Track remainders
@@ -64,12 +34,11 @@ return true
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 - Single pass through input
 
-
 ### SPACE COMPLEXITY:
-O(min(n, k)) - hash map storage
+**O(min(n, k)**) - hash map storage
 
 ### EDGE CASES:
 - **Empty input**: Handle when input is empty
@@ -77,6 +46,7 @@ O(min(n, k)) - hash map storage
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 

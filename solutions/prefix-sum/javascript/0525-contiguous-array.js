@@ -1,50 +1,16 @@
 /**
- * # 0525. Contiguous Array
- *
- * Difficulty: Medium
- *
- *
- * Given a binary array nums, return the maximum length of a contiguous subarray
- * with an equal number of 0 and 1.
- *
- * Example:
- * Input: nums = [0,1]
- * Output: 2
- * Explanation: [0, 1] is the longest contiguous subarray with an equal number of 0 and 1.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>nums = [0,1]</dd>
- * <dt>Output:</dt>
- * <dd>2</dd>
- * <dt>Explanation:</dt>
- * <dd>The longest contiguous subarray with equal 0s and 1s has length 2: [0,1] or [1,0]</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- * ### METADATA:
- * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
- * **Data Structures**: Hash Map, Hash Set, Array
- * **Patterns**: Greedy Algorithm
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(n) - Additional hash map storage
-
- *
- * ### INTUITION:
+### INTUITION:
 The key insight is that transform the problem: treat 0 as -1. Finding equal 0s and 1s is equivalent to
 finding a subarray with sum 0. Use prefix sum with hash map to track when we've
 seen each sum value before.
 
 ### APPROACH:
- * 1. **Transform**: Replace 0 with -1 in counting (not modifying array)
- * 2. **Prefix Sum**: Calculate cumulative count (treating 0 as -1)
- * 3. **Hash Map**: Store (sum → earliest_index) pairs
- * 4. **Check**: If same sum seen before, subarray between has sum 0 (equal 0s and 1s)
- *
- * ### WHY THIS WORKS:
+1. **Transform**: Replace 0 with -1 in counting (not modifying array)
+2. **Prefix Sum**: Calculate cumulative count (treating 0 as -1)
+3. **Hash Map**: Store (sum → earliest_index) pairs
+4. **Check**: If same sum seen before, subarray between has sum 0 (equal 0s and 1s)
+
+### WHY THIS WORKS:
 If we treat 0 as -1, then a subarray with equal 0s and 1s will have sum 0.
 Using prefix sums: if prefix[i] == prefix[j], then sum(nums[i+1:j+1]) == 0.
 
@@ -73,20 +39,21 @@ Step-by-step execution:
 3. [Final step]
 
 ### TIME COMPLEXITY:
- * O(n)
- * - Single pass through input
- *
- * ### SPACE COMPLEXITY:
- * O(n)
- * - Additional hash map storage
- *
- * ### EDGE CASES:
+O(n)**
+- Single pass through input
+
+### SPACE COMPLEXITY:
+O(n)**
+- Additional hash map storage
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 /**
  * Main solution for Problem 525: Contiguous Array

@@ -1,53 +1,16 @@
 /**
- * # 0974. Subarray Sums Divisible By K
- *
- * Difficulty: Medium
- *
- *
- * Given an integer array nums and an integer k, return the number of non-empty subarrays
- * that have a sum divisible by k.
- *
- * A subarray is a contiguous part of an array.
- *
- * Example:
- * Input: nums = [4,5,0,-2,-3,1], k = 5
- * Output: 7
- * Explanation: There are 7 subarrays with a sum divisible by k = 5:
- * [4, 5, 0, -2, -3, 1], [5], [5, 0], [5, 0, -2, -3], [0], [0, -2, -3], [-2, -3]
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>nums = [4,5,0,-2,-3,1], k = 5</dd>
- * <dt>Output:</dt>
- * <dd>7</dd>
- * <dt>Explanation:</dt>
- * <dd>There are 7 subarrays with sum divisible by k=5</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- * ### METADATA:
- * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
- * **Data Structures**: Hash Map, Hash Set, Array
- * **Patterns**: Hash Table Pattern
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(min(n, k))
-
- *
- * ### INTUITION:
+### INTUITION:
 The key insight is that use prefix sum with modulo arithmetic. If two prefix sums have the same remainder
 when divided by k, the subarray between them is divisible by k. Track remainder
 frequencies in a hash map.
 
 ### APPROACH:
- * 1. **Hash Map**: Store (remainder → frequency) pairs
- * 2. **Prefix Sum**: Calculate cumulative sum modulo k
- * 3. **Count**: For each remainder, if seen before, add previous count (all pairs count)
- * 4. **Normalize**: Handle negative remainders by adding k
- *
- * ### WHY THIS WORKS:
+1. **Hash Map**: Store (remainder → frequency) pairs
+2. **Prefix Sum**: Calculate cumulative sum modulo k
+3. **Count**: For each remainder, if seen before, add previous count (all pairs count)
+4. **Normalize**: Handle negative remainders by adding k
+
+### WHY THIS WORKS:
 If prefix[i] % k == prefix[j] % k, then sum(nums[i+1:j+1]) % k == 0.
 For n occurrences of a remainder, there are n*(n-1)/2 pairs, but we count
 incrementally: each new occurrence pairs with all previous occurrences.
@@ -80,19 +43,20 @@ Step-by-step execution:
 3. [Final step]
 
 ### TIME COMPLEXITY:
- * O(n)
- * - Single pass through input
- *
- * ### SPACE COMPLEXITY:
- * O(min(n, k)) - hash map storage
- *
- * ### EDGE CASES:
+O(n)**
+- Single pass through input
+
+### SPACE COMPLEXITY:
+O(min(n, k)**) - hash map storage
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 /**
  * Main solution for Problem 974: Subarray Sums Divisible By K

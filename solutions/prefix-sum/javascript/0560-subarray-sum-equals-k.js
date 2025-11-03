@@ -1,51 +1,21 @@
 /**
- * # Difficulty: Medium
- *
- * # 0560. Subarray Sum Equals K
- *
- *
- * Given an array of integers nums and an integer k, return the total number of subarrays whose sum is equal to k.
- *
- * A subarray is a contiguous non-empty sequence of elements within an array.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>nums = [1,1,1], k = 2</dd>
- * <dt>Output:</dt>
- * <dd>[1]</dd>
- * <dt>Explanation:</dt>
- * <dd>There are 2 subarrays with sum equal to k: [1] and [2,-1,2]</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- * ### METADATA:
- * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
- * **Data Structures**: Hash Map, Hash Set, Array
- * **Patterns**: Hash Table Pattern
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(n) - Additional hash map storage
+### INTUITION:
+This is a classic prefix sum problem. The key insight is that if we know the prefix sum up to index i and up to index j (where j > i), then the sum of subarray from i+1 to j is: prefix_sum[j] - prefix_sum[i]. We can use a hashmap to store prefix sums and their frequencies to find subarrays with target sum efficiently.
 
- *
- * ### INTUITION:
- * This is a classic prefix sum problem. The key insight is that if we know the prefix sum up to index i and up to index j (where j > i), then the sum of subarray from i+1 to j is: prefix_sum[j] - prefix_sum[i]. We can use a hashmap to store prefix sums and their frequencies to find subarrays with target sum efficiently.
- *
- * ### APPROACH:
- * 1. **Use prefix sum**: Calculate running sum as we iterate
- * 2. **HashMap tracking**: Store frequency of each prefix sum seen
- * 3. **Target calculation**: For current prefix sum, check if (prefix_sum - k) exists
- * 4. **Count subarrays**: Add frequency of (prefix_sum - k) to result
- * 5. **Update map**: Increment frequency of current prefix sum
- *
- * ### WHY THIS WORKS:
- * - If prefix_sum[j] - prefix_sum[i] = k, then prefix_sum[i] = prefix_sum[j] - k
- * - By storing prefix sum frequencies, we can quickly find how many times (prefix_sum - k) occurred
- * - Each occurrence represents a valid subarray ending at current position
- * - Running prefix sum allows single pass solution
- *
- * ### EXAMPLE WALKTHROUGH:
+### APPROACH:
+1. **Use prefix sum**: Calculate running sum as we iterate
+2. **HashMap tracking**: Store frequency of each prefix sum seen
+3. **Target calculation**: For current prefix sum, check if (prefix_sum - k) exists
+4. **Count subarrays**: Add frequency of (prefix_sum - k) to result
+5. **Update map**: Increment frequency of current prefix sum
+
+### WHY THIS WORKS:
+- If prefix_sum[j] - prefix_sum[i] = k, then prefix_sum[i] = prefix_sum[j] - k
+- By storing prefix sum frequencies, we can quickly find how many times (prefix_sum - k) occurred
+- Each occurrence represents a valid subarray ending at current position
+- Running prefix sum allows single pass solution
+
+### EXAMPLE WALKTHROUGH:
 Input:
 ```
 nums = [1,1,1], k = 2
@@ -62,22 +32,23 @@ Step-by-step execution:
 3. [Final step]
 
 ### TIME COMPLEXITY:
- * O(n)
- * - Single pass through input
- * Single pass through the array with O(1) hashmap operations
- *
- * ### SPACE COMPLEXITY:
- * O(n)
- * - Additional hash map storage
- * HashMap can store up to n different prefix sums
- *
- * ### EDGE CASES:
+O(n)**
+- Single pass through input
+Single pass through the array with **O(1)** hashmap operations
+
+### SPACE COMPLEXITY:
+O(n)**
+- Additional hash map storage
+HashMap can store up to n different prefix sums
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 /**
  * Main solution for Problem 560: Subarray Sum Equals K

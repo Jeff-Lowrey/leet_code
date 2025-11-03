@@ -1,31 +1,4 @@
 """
-# 0525. Contiguous Array
-
-# Difficulty: Medium
-
-Given a binary array nums, return the maximum length of a contiguous subarray
-with an equal number of 0 and 1.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>nums = [0,1]</dd>
-<dt>Output:</dt>
-<dd>2</dd>
-<dt>Explanation:</dt>
-<dd>The longest contiguous subarray with equal 0s and 1s has length 2: [0,1] or [1,0]</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: Hash Map, Array
-**Patterns**: Hash Table Pattern, Greedy Algorithm
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(n) - Additional hash map storage
-
 ### INTUITION:
 The key insight is that transform the problem: treat 0 as -1. Finding equal 0s and 1s is equivalent to
 finding a subarray with sum 0. Use prefix sum with hash map to track when we've
@@ -66,14 +39,12 @@ Step-by-step execution:
 3. [Final step]
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 - Single pass through input
 
-
 ### SPACE COMPLEXITY:
-O(n)
+**O(n)**
 - Additional hash map storage
-
 
 ### EDGE CASES:
 - **Empty input**: Handle when input is empty
@@ -81,6 +52,7 @@ O(n)
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 import re

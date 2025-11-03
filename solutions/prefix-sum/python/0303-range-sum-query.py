@@ -1,37 +1,4 @@
 """
-# Difficulty: Easy
-
-# 0303. Range Sum Query - Immutable
-
-Given an integer array nums, handle multiple queries of the following type:
-
-Calculate the sum of the elements of nums between indices left and right inclusive where left <= right.
-
-Implement the NumArray class:
-
-- NumArray(int[] nums) Initializes the object with the integer array nums.
-- int sumRange(int left, int right) Returns the sum of the elements of nums between indices left and right inclusive (i.e., nums[left] + nums[left + 1] + ... + nums[right]).
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>["NumArray","sumRange","sumRange","sumRange"], [[[-2,0,3,-5,2,-1]],[0,2],[2,5],[0,5]]</dd>
-<dt>Output:</dt>
-<dd>[null,1,-1,-3]</dd>
-<dt>Explanation:</dt>
-<dd>The sum of elements between indices 2 and 5 is calculated as prefix[5+1] - prefix[2] = 1</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: Array, String, Tree
-**Patterns**: Two Pointers Pattern
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
 The key insight is that precompute cumulative sums in array. For range [i,j], the sum is prefix[j+1] - prefix[i]. This reduces each query from O(n) to O(1) with O(n) preprocessing.
 
@@ -68,15 +35,13 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 
 - Single pass through the input
 
-
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 - Constant extra space
-
 
 ### EDGE CASES:
 - **Empty input**: Handle when input is empty
@@ -84,6 +49,7 @@ O(1)
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 from typing import Any

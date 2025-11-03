@@ -1,33 +1,4 @@
 """
-# 0930. Binary Subarrays With Sum
-
-# Difficulty: Medium
-
-Given a binary array nums and an integer goal, return the number of non-empty subarrays
-with a sum equal to goal.
-
-A subarray is a contiguous part of the array.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>nums = [1,0,1,0,1], goal = 2</dd>
-<dt>Output:</dt>
-<dd>4</dd>
-<dt>Explanation:</dt>
-<dd>There are 4 binary subarrays with sum equal to goal</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: Hash Map, Array
-**Patterns**: Sliding Window Pattern, Hash Table Pattern
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(n) - Additional hash map storage
-
 ### INTUITION:
 The key insight is that use prefix sum with hash map. For each position, count how many previous positions
 have prefix_sum = current_prefix_sum - goal. This gives us all subarrays ending at
@@ -69,14 +40,12 @@ Step-by-step execution:
 3. [Final step]
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 - Single pass through input
 
-
 ### SPACE COMPLEXITY:
-O(n)
+**O(n)**
 - Additional hash map storage
-
 
 ### EDGE CASES:
 - **Empty input**: Handle when input is empty
@@ -84,6 +53,7 @@ O(n)
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 

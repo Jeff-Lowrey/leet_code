@@ -1,32 +1,4 @@
 """
-# Difficulty: Medium
-
-# 0560. Subarray Sum Equals K
-
-Given an array of integers nums and an integer k, return the total number of subarrays whose sum is equal to k.
-
-A subarray is a contiguous non-empty sequence of elements within an array.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>nums = [1,1,1], k = 2</dd>
-<dt>Output:</dt>
-<dd>[1]</dd>
-<dt>Explanation:</dt>
-<dd>There are 2 subarrays with sum equal to k: [1] and [2,-1,2]</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: Hash Map, Array
-**Patterns**: Hash Table Pattern
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(n) - Additional hash map storage
-
 ### INTUITION:
 This is a classic prefix sum problem. The key insight is that if we know the prefix sum up to index i and up to index j (where j > i), then the sum of subarray from i+1 to j is: prefix_sum[j] - prefix_sum[i]. We can use a hashmap to store prefix sums and their frequencies to find subarrays with target sum efficiently.
 
@@ -60,11 +32,11 @@ Step-by-step execution:
 3. [Final step]
 
 ### TIME COMPLEXITY:
-O(n)
-Single pass through the array with O(1) hashmap operations
+**O(n)**
+Single pass through the array with **O(1)** hashmap operations
 
 ### SPACE COMPLEXITY:
-O(n)
+**O(n)**
 HashMap can store up to n different prefix sums
 
 ### EDGE CASES:
@@ -73,6 +45,7 @@ HashMap can store up to n different prefix sums
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 from collections import defaultdict

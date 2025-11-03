@@ -1,36 +1,4 @@
 """
-# Difficulty: Easy
-
-# 1991. Find The Middle Index In Array
-
-Given a 0-indexed integer array nums, find the leftmost middleIndex (i.e., the smallest amongst all the possible ones).
-
-A middleIndex is an index where nums[0] + nums[1] + ... + nums[middleIndex-1] == nums[middleIndex+1] + nums[middleIndex+2] + ... + nums[nums.length-1].
-
-If middleIndex == 0, the left side sum is considered to be 0. Similarly, if middleIndex == nums.length - 1, the right side sum is considered to be 0.
-
-Return the leftmost middleIndex that satisfies the condition, or -1 if there is no such index.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>[2,3,-1]</dd>
-<dt>Output:</dt>
-<dd>1</dd>
-<dt>Explanation:</dt>
-<dd>The middle index is 3, where sum of elements to the left equals sum to the right</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Array Traversal, Two Pointers
-**Data Structures**: Array, Tree, Linked List
-**Patterns**: Two Pointers Pattern
-**Time Complexity**: O(n)
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
 The key insight is that this is a classic prefix sum problem. For any index to be the middle index, the sum of all elements to its left must equal the sum of all elements to its right. We can calculate the total sum first, then iterate through the array tracking the left sum. At each position, we can calculate the right sum as (total - left_sum - current_element).
 
@@ -73,11 +41,11 @@ Step-by-step execution:
 3. [Final step]
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 Two passes: one to calculate total sum, one to find middle index
 
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 Only using constant extra space for variables
 
 ### EDGE CASES:
@@ -86,6 +54,7 @@ Only using constant extra space for variables
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 

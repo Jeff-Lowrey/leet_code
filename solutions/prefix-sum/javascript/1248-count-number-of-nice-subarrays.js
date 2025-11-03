@@ -1,44 +1,14 @@
 /**
- * # Difficulty: Medium
- *
- * # 1248. Count Number Of Nice Subarrays
- *
- *
- * Given an array of integers nums and an integer k. A continuous subarray is called nice if there are k odd numbers on it.
- *
- * Return the number of nice sub-arrays.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>nums = [1, 1, 2, 1, 1], k = 3</dd>
- * <dt>Output:</dt>
- * <dd>2</dd>
- * <dt>Explanation:</dt>
- * <dd>There are 2 nice subarrays (containing exactly k=3 odd numbers)</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- * ### METADATA:
- * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
- * **Data Structures**: Hash Map, Hash Set, Array
- * **Patterns**: Hash Table Pattern
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(n) - Additional hash map storage
+### INTUITION:
+This problem is a variation of "subarray sum equals k" but instead of sum, we count odd numbers. We can use prefix sum technique by treating each odd number as 1 and even numbers as 0. Then we need to find subarrays where the sum of 1s equals k.
 
- *
- * ### INTUITION:
- * This problem is a variation of "subarray sum equals k" but instead of sum, we count odd numbers. We can use prefix sum technique by treating each odd number as 1 and even numbers as 0. Then we need to find subarrays where the sum of 1s equals k.
- *
- * ### APPROACH:
- * 1. **Transform problem**: Convert to counting subarrays with sum = k
- * 2. **Prefix sum**: Track running count of odd numbers
- * 3. **HashMap frequency**: Store frequency of each prefix count
- * 4. **Count subarrays**: For each position, check if (current_count - k) exists
- *
- * ### WHY THIS WORKS:
+### APPROACH:
+1. **Transform problem**: Convert to counting subarrays with sum = k
+2. **Prefix sum**: Track running count of odd numbers
+3. **HashMap frequency**: Store frequency of each prefix count
+4. **Count subarrays**: For each position, check if (current_count - k) exists
+
+### WHY THIS WORKS:
 - This ensures that transform odd numbers to 1, even numbers to 0
 - This ensures that problem becomes: find subarrays with sum = k
 - This ensures that use the same technique as "Subarray Sum Equals K"
@@ -68,22 +38,23 @@ Step-by-step execution:
 3. [Final step]
 
 ### TIME COMPLEXITY:
- * O(n)
- * - Single pass through input
- * Single pass through array with HashMap operations
- *
- * ### SPACE COMPLEXITY:
- * O(n)
- * - Additional hash map storage
- * For the frequency HashMap
- *
- * ### EDGE CASES:
+O(n)**
+- Single pass through input
+Single pass through array with HashMap operations
+
+### SPACE COMPLEXITY:
+O(n)**
+- Additional hash map storage
+For the frequency HashMap
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 /**
  * Main solution for Problem 1248: Count Number Of Nice Subarrays

@@ -1,34 +1,4 @@
 """
-# Difficulty: Medium
-
-# 1590. Make Sum Divisible By P
-
-Given an array of positive integers nums, remove the smallest subarray (possibly empty) such that the sum of the remaining elements is divisible by p. It is not allowed to remove the whole array.
-
-Return the length of the smallest subarray that you need to remove, or -1 if it's impossible.
-
-A subarray is defined as a contiguous block of elements in the array.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>nums = [3,1,4,2], p = 6</dd>
-<dt>Output:</dt>
-<dd>1</dd>
-<dt>Explanation:</dt>
-<dd>The minimum length subarray to remove is 1 (element 4), so remaining sum is divisible by p</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: Hash Map, Array
-**Patterns**: Hash Table Pattern, Greedy Algorithm
-**Time Complexity**: O(n)
-**Space Complexity**: O(min(n, p))
-
 ### INTUITION:
 The problem requires finding the smallest subarray to remove so that the remaining sum is divisible by p. Instead of trying all possible removals, we can use the mathematical property that if total_sum % p = remainder, we need to find the smallest subarray with sum % p = remainder. This is a prefix sum problem with modular arithmetic.
 
@@ -68,11 +38,11 @@ Step-by-step execution:
 3. [Final step]
 
 ### TIME COMPLEXITY:
-O(n)
-Single pass through array with O(1) hashmap operations
+**O(n)**
+Single pass through array with **O(1)** hashmap operations
 
 ### SPACE COMPLEXITY:
-O(min(n, p))
+**O(min(n, p)**)
 Hashmap stores at most min(n, p) different remainders
 
 ### EDGE CASES:
@@ -81,6 +51,7 @@ Hashmap stores at most min(n, p) different remainders
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 
