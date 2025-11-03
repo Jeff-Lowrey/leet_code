@@ -1,32 +1,4 @@
 """
-# Difficulty: Medium
-
-# 0213. House Robber Ii
-
-You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed. All houses at this place are arranged in a circle. That means the first house is the neighbor of the last one. Meanwhile, adjacent houses have security systems connected, and it will automatically contact the police if two adjacent houses were broken into on the same night.
-
-Given an integer array nums representing the amount of money of each house, return the maximum amount of money you can rob tonight without alerting the police.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>[2,3,2]</dd>
-<dt>Output:</dt>
-<dd>3 (maximum money, rob middle house)</dd>
-<dt>Explanation:</dt>
-<dd>Maximum amount robbed in circular arrangement [2,3,2] is 3 (cannot rob houses 0 and 2)</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: Hash Map, Array, Tree
-**Patterns**: Greedy Algorithm, Dynamic Programming
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
 The key insight is that houses are circular - can't rob both first and last. Run House Robber I twice: once on houses[0:n-1] and once on houses[1:n]. Take the maximum of both results.
 
@@ -69,14 +41,12 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 - Single pass through input
 
-
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 - Constant extra space
-
 
 ### EDGE CASES:
 - **Empty input**: Handle when input is empty
@@ -84,6 +54,7 @@ O(1)
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 from typing import List, Optional, Dict, Tuple

@@ -1,42 +1,8 @@
 /**
- * # Difficulty: Medium
- *
- * # 0091. Decode Ways
- *
- *
- * A message containing letters from A-Z can be encoded into numbers using the following mapping:
- *
- * 'A' -> "1", 'B' -> "2", ..., 'Z' -> "26"
- *
- * To decode an encoded message, all the digits must be grouped then mapped back into letters using the reverse of the mapping above (there may be multiple ways).
- *
- * Given a string s containing only digits, return the number of ways to decode it.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>"226"</dd>
- * <dt>Output:</dt>
- * <dd>3 (number of ways to decode)</dd>
- * <dt>Explanation:</dt>
- * <dd>String '226' decodes 3 ways: '2-2-6', '22-6', '2-26'</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- * ### METADATA:
- * **Techniques**: Hash Map Storage, Array Traversal, Memoization
- * **Data Structures**: Array, String, Linked List
- * **Patterns**: Dynamic Programming
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(1) - Constant extra space
+### INTUITION:
+[This problem requires understanding of dynamic programming concepts. The key insight is to identify the optimal approach for this specific scenario.]
 
- *
- * ### INTUITION:
- * [This problem requires understanding of dynamic programming concepts. The key insight is to identify the optimal approach for this specific scenario.]
- *
- * ### APPROACH:
+### APPROACH:
 1. **Analyze the problem**: Understand the input constraints and expected output
 2. **Choose the right technique**: Apply dynamic programming methodology
 3. **Implement efficiently**: Focus on optimal time and space complexity
@@ -48,47 +14,48 @@
 - This ensures that space complexity is minimized where possible
 
 ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * s = "226"
- * ```
- *
- * Step 1: Initialize DP
- * dp[0] = 1 (empty string)
- *
- * Steps:
- * Step 1: dp[1] = 1 ("2" → "B")
- * Step 2: Process each digit
- * Step 3: i=2: s[1]="2"
- * Step 4: Single: "2" → "B", dp[2] += dp[1] = 1
- * Step 5: Double: "22" → "V", dp[2] += dp[0] = 1
- * Step 6: dp[2] = 2
- * Step 7: i=3: s[2]="6"
- * Step 8: Single: "6" → "F", dp[3] += dp[2] = 2
- * Step 9: Double: "26" → "Z", dp[3] += dp[1] = 1
- * Step 10: dp[3] = 3
- * Step 11: Decodings are "BBF", "BZ", "VF"
- *
- * Output:
- * ```
- * 3 (number of ways to decode)
- * ```
+Input:
+```
+s = "226"
+```
 
- * ### TIME COMPLEXITY:
- * O(n)
- * - Single pass through input
- *
- * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
- *
- * ### EDGE CASES:
+Step 1: Initialize DP
+dp[0] = 1 (empty string)
+
+Steps:
+Step 1: dp[1] = 1 ("2" → "B")
+Step 2: Process each digit
+Step 3: i=2: s[1]="2"
+Step 4: Single: "2" → "B", dp[2] += dp[1] = 1
+Step 5: Double: "22" → "V", dp[2] += dp[0] = 1
+Step 6: dp[2] = 2
+Step 7: i=3: s[2]="6"
+Step 8: Single: "6" → "F", dp[3] += dp[2] = 2
+Step 9: Double: "26" → "Z", dp[3] += dp[1] = 1
+Step 10: dp[3] = 3
+Step 11: Decodings are "BBF", "BZ", "VF"
+
+Output:
+```
+3 (number of ways to decode)
+```
+
+### TIME COMPLEXITY:
+O(n)**
+- Single pass through input
+
+### SPACE COMPLEXITY:
+O(1)**
+- Constant extra space
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 /**
  * Main solution for Problem 091: Decode Ways

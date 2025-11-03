@@ -1,32 +1,4 @@
 """
-# Difficulty: Medium
-
-# 0198. House Robber
-
-You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed, the only constraint stopping you from robbing each of them is that adjacent houses have security systems connected and it will automatically contact the police if two adjacent houses were broken into on the same night.
-
-Given an integer array nums representing the amount of money of each house, return the maximum amount of money you can rob tonight without alerting the police.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>nums = [2,7,9,3,1]</dd>
-<dt>Output:</dt>
-<dd>12</dd>
-<dt>Explanation:</dt>
-<dd>Rob houses at indices 0, 2, 4 (values 2, 9, 1) for total 12</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: Hash Map, Hash Set, Array
-**Patterns**: Greedy Algorithm, Dynamic Programming
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
 The key insight is that at each house, choose to rob it (take current + best from i-2) or skip it (take best from i-1). dp[i] = max(dp[i-1], nums[i] + dp[i-2]).
 
@@ -68,14 +40,12 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 - Single pass through input
 
-
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 - Constant extra space
-
 
 ### EDGE CASES:
 - **Empty input**: Handle when input is empty
@@ -83,6 +53,7 @@ O(1)
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 from typing import List, Optional, Dict, Tuple

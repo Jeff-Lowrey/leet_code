@@ -1,32 +1,4 @@
 """
-# Difficulty: Medium
-
-# 0062. Unique Paths
-
-There is a robot on an m x n grid. The robot is initially located at the top-left corner (i.e., grid[0][0]). The robot tries to move to the bottom-right corner (i.e., grid[m - 1][n - 1]). The robot can only move either down or right at any point in time.
-
-Given the two integers m and n, return the number of possible unique paths that the robot can take to reach the bottom-right corner.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>m = 3, n = 2 (3 rows, 2 columns)</dd>
-<dt>Output:</dt>
-<dd>3 (number of unique paths)</dd>
-<dt>Explanation:</dt>
-<dd>Number of paths in 3×7 grid is 28</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Array Traversal, Two Pointers
-**Data Structures**: Hash Set, Array, Tree
-**Patterns**: Two Pointers Pattern, Hash Table Pattern
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
 The key insight is that paths to cell (i,j) = paths to (i-1,j) + paths to (i,j-1). Build bottom-up from top-left. Base case: first row and column each have only 1 path.
 
@@ -71,14 +43,12 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 - Single pass through input
 
-
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 - Constant extra space
-
 
 ### EDGE CASES:
 - **Empty input**: Handle when input is empty
@@ -86,6 +56,7 @@ O(1)
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 

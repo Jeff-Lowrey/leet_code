@@ -1,36 +1,4 @@
 """
-# Difficulty: Medium
-
-# 0091. Decode Ways
-
-A message containing letters from A-Z can be encoded into numbers using the following mapping:
-
-'A' -> "1", 'B' -> "2", ..., 'Z' -> "26"
-
-To decode an encoded message, all the digits must be grouped then mapped back into letters using the reverse of the mapping above (there may be multiple ways).
-
-Given a string s containing only digits, return the number of ways to decode it.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>"226"</dd>
-<dt>Output:</dt>
-<dd>3 (number of ways to decode)</dd>
-<dt>Explanation:</dt>
-<dd>String '226' decodes 3 ways: '2-2-6', '22-6', '2-26'</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: Hash Set, Array, String
-**Patterns**: Dynamic Programming
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
 The key insight is that dp[i] = number of ways to decode s[0:i]. For each position, add ways from i-1 (if valid single digit) and i-2 (if valid two digits). Handle edge cases for 0.
 
@@ -78,14 +46,12 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 - Single pass through input
 
-
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 - Constant extra space
-
 
 ### EDGE CASES:
 - **Empty input**: Handle when input is empty
@@ -93,6 +59,7 @@ O(1)
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 

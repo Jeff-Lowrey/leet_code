@@ -1,30 +1,4 @@
 """
-# Difficulty: Medium
-
-# 0300. Longest Increasing Subsequence
-
-Given an integer array nums, return the length of the longest strictly increasing subsequence.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>nums = [10, 9, 2, 5, 3, 7, 101, 18]</dd>
-<dt>Output:</dt>
-<dd>4 (LIS: [2, 3, 7, 18] or [2, 3, 7, 101])</dd>
-<dt>Explanation:</dt>
-<dd>Longest increasing subsequence in [10,9,2,5,3,7,101,18] is [2,3,7,18] with length 4</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: Hash Set, Array, Tree
-**Patterns**: Two Pointers Pattern, Greedy Algorithm
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
 The key insight is that for each number, find the longest increasing subsequence ending at that number. dp[i] = max(dp[j] + 1) for all j < i where nums[j] < nums[i]. The answer is max(dp).
 
@@ -75,14 +49,12 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 - Single pass through input
 
-
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 - Constant extra space
-
 
 ### EDGE CASES:
 - **Empty input**: Handle when input is empty
@@ -90,6 +62,7 @@ O(1)
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 from typing import Any

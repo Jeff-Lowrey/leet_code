@@ -1,38 +1,8 @@
 /**
- * # Difficulty: Medium
- *
- * # 0062. Unique Paths
- *
- *
- * There is a robot on an m x n grid. The robot is initially located at the top-left corner (i.e., grid[0][0]). The robot tries to move to the bottom-right corner (i.e., grid[m - 1][n - 1]). The robot can only move either down or right at any point in time.
- *
- * Given the two integers m and n, return the number of possible unique paths that the robot can take to reach the bottom-right corner.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>m = 3, n = 2 (3 rows, 2 columns)</dd>
- * <dt>Output:</dt>
- * <dd>3 (number of unique paths)</dd>
- * <dt>Explanation:</dt>
- * <dd>Number of paths in 3×7 grid is 28</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- * ### METADATA:
- * **Techniques**: Hash Map Storage, Array Traversal, Two Pointers
- * **Data Structures**: Array, Tree, Matrix
- * **Patterns**: Two Pointers Pattern, Dynamic Programming
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(1) - Constant extra space
+### INTUITION:
+[This problem requires understanding of dynamic programming concepts. The key insight is to identify the optimal approach for this specific scenario.]
 
- *
- * ### INTUITION:
- * [This problem requires understanding of dynamic programming concepts. The key insight is to identify the optimal approach for this specific scenario.]
- *
- * ### APPROACH:
+### APPROACH:
 1. **Analyze the problem**: Understand the input constraints and expected output
 2. **Choose the right technique**: Apply dynamic programming methodology
 3. **Implement efficiently**: Focus on optimal time and space complexity
@@ -44,44 +14,45 @@
 - This ensures that space complexity is minimized where possible
 
 ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * m = 3, n = 2 (3 rows, 2 columns)
- * ```
- *
- * Step 1: Create DP table
- * dp[i][j] = number of paths to reach cell (i,j)
- * dp = [[1, 1],
- * [1, 2],
- * [1, 3]]
- * Step 2: Fill table using dp[i][j] = dp[i-1][j] + dp[i][j-1]
- * dp[0][0] = 1 (starting point)
- * dp[0][1] = 1 (can only go right)
- * dp[1][0] = 1 (can only go down)
- * dp[1][1] = dp[0][1] + dp[1][0] = 1 + 1 = 2
- * dp[2][0] = 1
- * dp[2][1] = dp[1][1] + dp[2][0] = 2 + 1 = 3
- *
- * Output:
- * ```
- * 3 (number of unique paths)
- * ```
+Input:
+```
+m = 3, n = 2 (3 rows, 2 columns)
+```
 
- * ### TIME COMPLEXITY:
- * O(n)
- * - Single pass through input
- *
- * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
- *
- * ### EDGE CASES:
+Step 1: Create DP table
+dp[i][j] = number of paths to reach cell (i,j)
+dp = [[1, 1],
+[1, 2],
+[1, 3]]
+Step 2: Fill table using dp[i][j] = dp[i-1][j] + dp[i][j-1]
+dp[0][0] = 1 (starting point)
+dp[0][1] = 1 (can only go right)
+dp[1][0] = 1 (can only go down)
+dp[1][1] = dp[0][1] + dp[1][0] = 1 + 1 = 2
+dp[2][0] = 1
+dp[2][1] = dp[1][1] + dp[2][0] = 2 + 1 = 3
+
+Output:
+```
+3 (number of unique paths)
+```
+
+### TIME COMPLEXITY:
+O(n)**
+- Single pass through input
+
+### SPACE COMPLEXITY:
+O(1)**
+- Constant extra space
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 /**
  * Main solution for Problem 062: Unique Paths

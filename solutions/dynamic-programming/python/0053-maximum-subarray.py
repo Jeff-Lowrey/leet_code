@@ -1,30 +1,4 @@
 """
-# Difficulty: Medium
-
-# 0053. Maximum Subarray
-
-Given an integer array nums, find the subarray with the largest sum, and return its sum.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>[-2, 1, -3, 4, -1, 2, 1, -5, 4]</dd>
-<dt>Output:</dt>
-<dd>6 (subarray [4, -1, 2, 1])</dd>
-<dt>Explanation:</dt>
-<dd>Maximum subarray sum of [-2,1,-3,4,-1,2,1,-5,4] is 6 from [4,-1,2,1]</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Array Traversal, Two Pointers
-**Data Structures**: Hash Map, Hash Set, Array
-**Patterns**: Two Pointers Pattern, Hash Table Pattern
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
 The key insight is that use Kadane's algorithm: track the maximum sum ending at current position. At each step, either extend the previous subarray or start fresh. Keep global maximum throughout.
 
@@ -83,14 +57,12 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 - Single pass through input
 
-
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 - Constant extra space
-
 
 ### EDGE CASES:
 - **Empty input**: Handle when input is empty
@@ -98,6 +70,7 @@ O(1)
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 from typing import List, Optional, Dict, Tuple, Any

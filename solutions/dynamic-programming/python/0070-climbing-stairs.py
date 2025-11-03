@@ -1,33 +1,4 @@
 """
-# 0070. Climbing Stairs
-
-# Difficulty: Easy
-
-You are climbing a staircase. It takes `n` steps to reach the top.
-
-Each time you can either climb 1 or 2 steps. In how many distinct ways can you
-climb to the top?
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>n = 3</dd>
-<dt>Output:</dt>
-<dd>3</dd>
-<dt>Explanation:</dt>
-<dd>Ways to climb 3 stairs: 3 methods [1+1+1, 1+2, 2+1]</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Dynamic Programming, Fibonacci Sequence, Bottom-Up DP
-**Data Structures**: Array (or optimized with variables)
-**Patterns**: DP Pattern, State Transition, Fibonacci
-**Time Complexity**: **O(n)** - Build solution from bottom up
-**Space Complexity**: **O(1)** - Optimized with two variables (O(n) with DP array)
-
 ### INTUITION:
 The key insight is that this is the classic Fibonacci problem in `disguise! To` reach step `n`, you can
 either come from step (`n-1`) by taking 1 step, or from step (`n-2`) by taking 2 steps.
@@ -63,10 +34,10 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-**O(n)** where n is the number of stairs. We iterate from step 3 to step n, performing constant-time arithmetic operations at each step. Each step's value is calculated exactly once by adding the previous two values, giving us a linear time complexity of O(n). No repeated subproblem calculations occur due to the bottom-up approach.
+**O(n)** where n is the number of stairs. We iterate from step 3 to step n, performing constant-time arithmetic operations at each step. Each step's value is calculated exactly once by adding the previous two values, giving us a linear time complexity of **O(n)**. No repeated subproblem calculations occur due to the bottom-up approach.
 
 ### SPACE COMPLEXITY:
-**O(1)** for the optimized solution - We only maintain two variables (prev1 and prev2) to track the last two Fibonacci values, regardless of n. The space doesn't grow with input size. Alternative: O(n) if using a full DP array to store all intermediate values from 1 to n, but the optimized approach only needs the last two values to compute the next one.
+**O(1)** for the optimized solution - We only maintain two variables (prev1 and prev2) to track the last two Fibonacci values, regardless of n. The space doesn't grow with input size. Alternative: **O(n)** if using a full DP array to store all intermediate values from 1 to n, but the optimized approach only needs the last two values to compute the next one.
 
 ### EDGE CASES:
 - **n = 1**: Returns 1 (only one way: single 1-step)
@@ -77,6 +48,7 @@ Output:
 - **Maximum constraints**: For very large n, integer overflow possible in other languages (Python handles big integers automatically)
 
 </details>
+
 """
 
 from typing import Any

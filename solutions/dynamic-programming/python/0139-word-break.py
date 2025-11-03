@@ -1,32 +1,4 @@
 """
-# Difficulty: Medium
-
-# 0139. Word Break
-
-Given a string s and a dictionary of strings wordDict, return true if s can be segmented into a space-separated sequence of one or more dictionary words.
-
-Note that the same word in the dictionary may be reused multiple times in the segmentation.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>s = "leetcode", wordDict = ["leet","code"]</dd>
-<dt>Output:</dt>
-<dd>True (can be segmented)</dd>
-<dt>Explanation:</dt>
-<dd>String 'leetcode' can be segmented using dictionary ['leet','code']</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: Hash Map, Hash Set, Array
-**Patterns**: Greedy Algorithm, Dynamic Programming
-**Time Complexity**: O(n) - Single pass with O(1) hash lookups
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
 The key insight is that dp[i] = whether s[0:i] can be segmented. For each position, check all possible last words ending at i. If s[j:i] is in dict and dp[j] is true, then dp[i] is true.
 
@@ -67,14 +39,12 @@ True (can be segmented)
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 - Single pass through input
 
-
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 - Constant extra space
-
 
 ### EDGE CASES:
 - **Empty input**: Handle when input is empty
@@ -82,6 +52,7 @@ O(1)
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 from typing import List, Optional, Dict, Tuple
