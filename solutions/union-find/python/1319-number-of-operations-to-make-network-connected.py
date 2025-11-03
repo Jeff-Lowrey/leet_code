@@ -1,36 +1,4 @@
 """
-# Difficulty: Medium
-
-# 1319. Number Of Operations To Make Network Connected
-
-You are given n computers numbered from 0 to n - 1 connected by ethernet cables connections forming a network where connections[i] = [ai, bi] connects computers ai and bi.
-
-Any computer can reach any other computer directly or indirectly through the network.
-
-You are given an initial computer network connections. You can extract certain cables between two directly connected computers, and place them between any pair of disconnected computers to make them directly connected.
-
-Return the minimum number of times you need to do this to make all the computers connected. If it is not possible, return -1.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>n = 4, connections = [[0,1],[0,2],[1,2],[1,3]]</dd>
-<dt>Output:</dt>
-<dd>Total cables: 4, Need: 3, Spare: 1</dd>
-<dt>Explanation:</dt>
-<dd>Operations to make network connected is 1</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Union-Find (Disjoint Set Union), Graph Connected Components
-**Data Structures**: Union-Find, Array
-**Patterns**: Union-Find Pattern, Connected Components, Graph Theory
-**Time Complexity**: **O(E × α(n))** where E is edges (connections), n is nodes (computers), α is inverse Ackermann
-**Space Complexity**: **O(n)** - Union-Find parent and rank arrays
-
 ### INTUITION:
 This is a classic Union-Find problem about connecting components. Key insights:
 - To connect n computers, we need at least n-1 cables
@@ -78,10 +46,10 @@ Step-by-step execution:
 7. Operations needed: 1 - 1 = 0
 
 ### TIME COMPLEXITY:
-**O(E × α(n))** where E is the number of connections (edges) and n is the number of computers (nodes). For each of the E connections, we perform a union operation which takes O(α(n)) time with path compression and union by rank, where α is the inverse Ackermann function (effectively constant for all practical values). The component counting takes O(n) time. Total: O(E × α(n)) + O(n) = O(E × α(n)).
+**O(E × α(n))** where E is the number of connections (edges) and n is the number of computers (nodes). For each of the E connections, we perform a union operation which takes **O(α(n)**) time with path compression and union by rank, where α is the inverse Ackermann function (effectively constant for all practical values). The component counting takes **O(n)** time. Total: **O(E × α(n)**) + **O(n)** = **O(E × α(n)**).
 
 ### SPACE COMPLEXITY:
-**O(n)** - We allocate two arrays of size n for the Union-Find structure: parent array and rank array. These are the only additional data structures we need beyond the input, giving us O(n) + O(n) = O(n) space complexity.
+**O(n)** - We allocate two arrays of size n for the Union-Find structure: parent array and rank array. These are the only additional data structures we need beyond the input, giving us **O(n)** + **O(n)** = **O(n)** space complexity.
 
 ### EDGE CASES:
 - **Not enough cables**: n=5, connections=[[0,1],[0,2],[3,4]] → return -1 (only 3 cables, need ≥4)
@@ -92,6 +60,7 @@ Step-by-step execution:
 - **Multiple components**: Components = 3 means need 2 operations to connect all
 
 </details>
+
 """
 
 from typing import Any

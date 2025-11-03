@@ -1,92 +1,60 @@
 /**
- * 0305. Number of Islands II
- *
- * Difficulty: Medium
- * 
- * You are given an empty 2D binary grid grid of size m x n. The grid represents a map where 0's represent water and 1's represent land. Initially, all the cells of grid are water cells (i.e., all the cells are 0's).
- * 
- * We may perform an add land operation which turns the water at position into a land. You are given an array positions where positions[i] = [ri, ci] is the position (ri, ci) at which we should operate the ith operation.
- * 
- * Return an array of integers answer where answer[i] is the number of islands after turning the cell (ri, ci) into a land.
- * 
- * An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. You may assume all four edges of the grid are all surrounded by water.
- * 
- * **Example:**
- * 
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>m = 3, n = 3, positions = [[0,0]]</dd>
- * <dt>Output:</dt>
- * <dd>[1]</dd>
- * <dt>Explanation:</dt>
- * <dd>Number of islands after adding positions: [1]</dd>
- * </dl>
- * 
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
- * **Techniques**: **Union-Find** (Disjoint Set Union), **Path Compression**
- * **Data Structures**: **Array** (parent tracking), 2D Grid
- * **Patterns**: Connected Components, Dynamic Connectivity
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(1) - Constant extra space
- *
- * ### INTUITION:
+### INTUITION:
 The key insight is that maintain **Union-Find** of islands. For each land operation, union with adjacent land cells (4 directions). Track number of connected components. Component count after each operation is island count.
 
 ### APPROACH:
- * **Data structures: **Array** for **Union-Find** parent tracking, 2D Grid for land positions**
- * 1. **Initialize **Union-Find****: Create parent and rank arrays
- * 2. **Initialize count**: Set count = 0 for number of islands
- * 3. **Process positions**: For each position in positions list
- * 4. **Add island**: Mark position as land, increment count
- * 5. **Check neighbors**: Check all 4 adjacent cells
- * 6. **Union with land neighbors**: If neighbor is land and different component, union and decrement count
- * 7. **Record count**: Append current count to result
- * 8. **Return result**: Return result list with island counts
- * 
- * ### WHY THIS WORKS:
- * - **Union-Find** (Disjoint Set Union) efficiently tracks connected components as islands form
- * - Initially count = 0, increment for each land cell added
- * - When land connects to existing islands, union them (decrement count by merges-1)
- * - **Path Compression** technique: During find operations, flatten the tree structure by making nodes point directly to the root, speeding up future queries
- * - Union by rank ensures balanced tree height, preventing degeneration
- * - Path compression + union by rank together ensure near O(1) amortized operations
- * - O(m*n*α(m*n)) time: α is inverse Ackermann (effectively constant)
- * 
- * ### EXAMPLE WALKTHROUGH:
+Data structures: **Array** for **Union-Find** parent tracking, 2D Grid for land positions**
+1. **Initialize **Union-Find****: Create parent and rank arrays
+2. **Initialize count**: Set count = 0 for number of islands
+3. **Process positions**: For each position in positions list
+4. **Add island**: Mark position as land, increment count
+5. **Check neighbors**: Check all 4 adjacent cells
+6. **Union with land neighbors**: If neighbor is land and different component, union and decrement count
+7. **Record count**: Append current count to result
+8. **Return result**: Return result list with island counts
+
+### WHY THIS WORKS:
+- **Union-Find** (Disjoint Set Union) efficiently tracks connected components as islands form
+- Initially count = 0, increment for each land cell added
+- When land connects to existing islands, union them (decrement count by merges-1)
+- **Path Compression** technique: During find operations, flatten the tree structure by making nodes point directly to the root, speeding up future queries
+- Union by rank ensures balanced tree height, preventing degeneration
+- Path compression + union by rank together ensure near O(1) amortized operations
+- O(m*n*α(m*n)) time: α is inverse Ackermann (effectively constant)
+
+### EXAMPLE WALKTHROUGH:
 Input:
 ```
 m = 3, n = 3, positions = [[0,0]]
 ```
 
-*Step 1:** Initialize Union-Find
+Step 1:** Initialize Union-Find
 - Create parent and rank arrays for 3×3 grid
 
-*Step 2:** Initialize count
+Step 2:** Initialize count
 - Set island count = 0
 - All cells are water (0)
 
-*Step 3:** Process positions - iterate through [[0,0]]
+Step 3:** Process positions - iterate through [[0,0]]
 - Processing position [0,0]
 
-*Step 4:** Add island at position [0,0]
+Step 4:** Add island at position [0,0]
 - Mark cell (0,0) as land
 - Increment count to 1
 
-*Step 5:** Check neighbors of (0,0)
+Step 5:** Check neighbors of (0,0)
 - Check 4 adjacent cells: up, down, left, right
 - All neighbors are water or out of bounds
 
-*Step 6:** Union with land neighbors
+Step 6:** Union with land neighbors
 - No land neighbors found
 - No unions performed, count remains 1
 
-*Step 7:** Record count after processing position
+Step 7:** Record count after processing position
 - Append count=1 to result list
 - Result so far: [1]
 
-*Step 8:** Return result
+Step 8:** Return result
 - All positions processed
 - Final result: [1]
 
@@ -96,20 +64,21 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
- * O(n)
- * - Single pass through input
- * 
- * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
- * 
- * ### EDGE CASES:
+O(n)**
+- Single pass through input
+
+### SPACE COMPLEXITY:
+O(1)**
+- Constant extra space
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 class Solution {
   /**

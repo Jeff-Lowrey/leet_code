@@ -1,48 +1,20 @@
 /**
- * 0323. Number Of Connected Components In An Undirected Graph
- *
- * Difficulty: Medium
- * 
- * You have a graph of n nodes labeled from 0 to n - 1. You are given an integer n and a list of edges where edges[i] = [ai, bi] indicates that there is an undirected edge between nodes ai and bi in the graph.
- * 
- * Return the number of connected components in the graph.
- * 
- * **Example:**
- * 
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>Input: n = 5, edges = [[0,1],[1,2],[3,4]]</dd>
- * <dt>Output:</dt>
- * <dd>See walkthrough</dd>
- * <dt>Explanation:</dt>
- * <dd>Number of connected components in undirected graph is 2</dd>
- * </dl>
- * 
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
- * **Techniques**: **Union-Find** (Disjoint Set Union), **Path Compression**, Union by Rank
- * **Data Structures**: **Array** (parent and rank tracking)
- * **Patterns**: Connected Components, Graph Traversal
- * **Time Complexity**: O(E × α(N))
- * **Space Complexity**: O(N)
- *
- * ### INTUITION:
- * This is a classic **Union-Find** problem for counting connected components. Each connected component is a set of nodes that can reach each other through edges. **Union-Find** efficiently groups nodes into components and counts distinct groups.
- *
- * ### APPROACH:
- * 1. **Initialize **Union-Find****: Each node starts as its own component, using **Array** (parent and rank tracking) to store parents
- * 2. **Process edges**: Union connected nodes using array updates, reducing component count
- * 3. **Count components**: Count number of distinct parent nodes by checking array roots
- *
- * ### WHY THIS WORKS:
- * - **Union-Find** maintains disjoint sets (connected components) using array-based parent tracking
- * - Path compression flattens tree structure in array for faster find operations
- * - Union by rank keeps trees balanced by tracking height in separate array
- * - Each union operation merges two components into one
- * - Final count of root nodes = number of connected components
- *
- * ### EXAMPLE WALKTHROUGH:
+### INTUITION:
+This is a classic **Union-Find** problem for counting connected components. Each connected component is a set of nodes that can reach each other through edges. **Union-Find** efficiently groups nodes into components and counts distinct groups.
+
+### APPROACH:
+1. **Initialize **Union-Find****: Each node starts as its own component, using **Array** (parent and rank tracking) to store parents
+2. **Process edges**: Union connected nodes using array updates, reducing component count
+3. **Count components**: Count number of distinct parent nodes by checking array roots
+
+### WHY THIS WORKS:
+- **Union-Find** maintains disjoint sets (connected components) using array-based parent tracking
+- Path compression flattens tree structure in array for faster find operations
+- Union by rank keeps trees balanced by tracking height in separate array
+- Each union operation merges two components into one
+- Final count of root nodes = number of connected components
+
+### EXAMPLE WALKTHROUGH:
 Given input n = 5, edges = [[0,1],[1,2],[3,4]]:
 
 Input:
@@ -50,16 +22,16 @@ Input:
 n = 5, edges = [[0,1],[1,2],[3,4]]
 ```
 
-*Step 1:** Initialize Union-Find
+Step 1:** Initialize Union-Find
 - Initial: {0}, {1}, {2}, {3}, {4} → 5 components
 
-*Step 2:** Process edges - Union(0,1)
+Step 2:** Process edges - Union(0,1)
 - {0,1}, {2}, {3}, {4} → 4 components
 
-*Step 3:** Process edges - Union(1,2)
+Step 3:** Process edges - Union(1,2)
 - {0,1,2}, {3}, {4} → 3 components
 
-*Step 3:** Process edges - Union(3,4)
+Step 3:** Process edges - Union(3,4)
 - {0,1,2}, {3,4} → 2 components
 
 Output:
@@ -68,20 +40,21 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
- * O(E × α(N))
- * Where E is edges, N is nodes, α is inverse Ackermann (nearly constant)
- * 
- * ### SPACE COMPLEXITY:
- * O(N)
- * For parent and rank arrays
- * 
- * ### EDGE CASES:
+O(E × α(N)**)
+Where E is edges, N is nodes, α is inverse Ackermann (nearly constant)
+
+### SPACE COMPLEXITY:
+O(N)**
+For parent and rank arrays
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 class Solution {
   /**

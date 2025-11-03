@@ -1,33 +1,4 @@
 """
-# 0685. Redundant Connection Ii
-
-# Difficulty: Hard
-
-In a directed graph, return an edge that can be removed so that the resulting graph is a tree.
-If there are multiple answers, return the answer that occurs last in the given input.
-
-The input is a 2D array edges where each edges[i] = [ui, vi] represents a directed edge from ui to vi.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>edges = [[1,2],[1,3],[2,3]]</dd>
-<dt>Output:</dt>
-<dd>[2,3]</dd>
-<dt>Explanation:</dt>
-<dd>Redundant directed edge that makes graph invalid</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: Hash Map, Hash Set, Array
-**Patterns**: Iterative Solution
-**Time Complexity**: O(n α(n))
-**Space Complexity**: O(n) - Additional hash map storage
-
 ### INTUITION:
 The key insight is that a rooted tree has exactly one root (no parent) and all other nodes have exactly one parent.
 Invalid scenarios: (1) node with 2 parents, (2) cycle. Use union-find to detect these.
@@ -60,10 +31,10 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n α(n)) - Union-find operations with path compression and union by rank
+**O(n α(n)**) - Union-find operations with path compression and union by rank
 
 ### SPACE COMPLEXITY:
-O(n) - Additional hash map storage
+**O(n)** - Additional hash map storage
 
 ### EDGE CASES:
 - **Node with two parents, no cycle**: Remove the later edge to that node
@@ -75,6 +46,7 @@ O(n) - Additional hash map storage
 </details>
 
 </details>
+
 """
 
 import re

@@ -1,86 +1,55 @@
 /**
- * # Difficulty: Medium
- *
- * # 0990. Satisfiability of Equality Equations
- *
- *
- * You are given an array of strings equations that represent relationships between variables where each string equations[i] is of length 4 and takes one of two different forms: "xi==xj" or "xi!=xj".
- *
- * Here, xi and xj are lowercase letters (not necessarily different) that represent one-letter variable names.
- *
- * Return true if it is possible to assign integers to variable names so as to satisfy all the given equations, or false otherwise.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>["a==b", "b==c", "a!=d"]</dd>
- * <dt>Output:</dt>
- * <dd>"Equations {equations} satisfiable: {solution.equationsPossible(equations)}"</dd>
- * <dt>Explanation:</dt>
- * <dd>Equations are satisfiable: a==b, b==c implies a==c</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- * ### METADATA:
- * **Techniques**: Hash Map Storage, Array Traversal
- * **Data Structures**: Array, String, Tree
- * **Patterns**: Iterative Solution
- * **Time Complexity**: O(N × α(N))
- * **Space Complexity**: O(1) - Constant extra space
+### INTUITION:
+This is a classic Union-Find problem. We need to check if equality and inequality constraints can be satisfied simultaneously. The key insight is to first process all equality constraints to group variables, then check if inequality constraints violate these groups.
 
- *
- * ### INTUITION:
- * This is a classic Union-Find problem. We need to check if equality and inequality constraints can be satisfied simultaneously. The key insight is to first process all equality constraints to group variables, then check if inequality constraints violate these groups.
- *
- * ### APPROACH:
- * 1. **Process equalities**: Use Union-Find to group variables that must be equal
- * 2. **Check inequalities**: For each "!=" constraint, verify variables are in different groups
- * 3. **Return result**: True if no conflicts found, False otherwise
- *
- * ### WHY THIS WORKS:
- * - Union-Find efficiently manages equivalence classes
- * - Equality constraints create connected components
- * - Inequality constraints must not connect variables in same component
- * - Two-pass approach separates grouping from validation
- *
- * ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * ["a==b","b!=a"]
- * ["a==b","b==c","a!=d"]
- * ```
- *
- * Step 1: Process equalities - Union('a', 'b')
- * Step 2: Check inequalities - "b!=a" but a and b are in same group
- *
- * Steps:
- * Step 1: Process equalities - Union('a','b'), Union('b','c') → {a,b,c} group
- * Step 2: Check inequalities - "a!=d" and d is separate → no conflict
- *
- * Output:
- * ```
- * False (contradiction)
- * True
- * ```
+### APPROACH:
+1. **Process equalities**: Use Union-Find to group variables that must be equal
+2. **Check inequalities**: For each "!=" constraint, verify variables are in different groups
+3. **Return result**: True if no conflicts found, False otherwise
 
- * ### TIME COMPLEXITY:
- * O(N × α(N))
- * Where N is number of equations and α is inverse Ackermann function
- *
- * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
- * Since we only have 26 possible variables (a-z)
- *
- * ### EDGE CASES:
+### WHY THIS WORKS:
+- Union-Find efficiently manages equivalence classes
+- Equality constraints create connected components
+- Inequality constraints must not connect variables in same component
+- Two-pass approach separates grouping from validation
+
+### EXAMPLE WALKTHROUGH:
+Input:
+```
+["a==b","b!=a"]
+["a==b","b==c","a!=d"]
+```
+
+Step 1: Process equalities - Union('a', 'b')
+Step 2: Check inequalities - "b!=a" but a and b are in same group
+
+Steps:
+Step 1: Process equalities - Union('a','b'), Union('b','c') → {a,b,c} group
+Step 2: Check inequalities - "a!=d" and d is separate → no conflict
+
+Output:
+```
+False (contradiction)
+True
+```
+
+### TIME COMPLEXITY:
+O(N × α(N)**)
+Where N is number of equations and α is inverse Ackermann function
+
+### SPACE COMPLEXITY:
+O(1)**
+- Constant extra space
+Since we only have 26 possible variables (a-z)
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 /**
  * Check if equality equations can be satisfied using Union-Find

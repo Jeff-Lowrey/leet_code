@@ -1,34 +1,4 @@
 """
-# Difficulty: Medium
-
-# 0721. Accounts Merge
-
-Given a list of accounts where each element accounts[i] is a list of strings, where the first element accounts[i][0] is a name, and the rest of the elements are emails representing emails of the account.
-
-Now, we would like to merge these accounts. Two accounts definitely belong to the same person if there is some common email to both accounts. Note that even if two accounts have the same name, they may belong to different people as people could have the same name. A person can have any number of accounts initially, but all of their accounts definitely have the same name.
-
-After merging the accounts, return the accounts in the following format: the first element of each account is the name, and the rest of the elements are emails in sorted order. The accounts themselves can be returned in any order.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>[["John", "johnsmith@mail.com", "john_newyork@mail.com"]]</dd>
-<dt>Output:</dt>
-<dd>1</dd>
-<dt>Explanation:</dt>
-<dd>Accounts merged by common emails</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
-**Data Structures**: Hash Map, Hash Set, Array
-**Patterns**: Hash Table Pattern, Divide and Conquer
-**Time Complexity**: O(N × M × α(N))
-**Space Complexity**: O(N × M)
-
 ### INTUITION:
 This is a classic Union-Find problem where we need to group accounts that belong to the same person. The key insight is that if two accounts share any email address, they belong to the same person and should be merged. We use Union-Find to efficiently group accounts with shared emails.
 
@@ -84,11 +54,11 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(N × M × α(N))
+**O(N × M × α(N)**)
 Where N is number of accounts, M is average emails per account, α is inverse Ackermann function
 
 ### SPACE COMPLEXITY:
-O(N × M)
+**O(N × M)**
 For storing email mappings and Union-Find structure
 
 ### EDGE CASES:
@@ -97,6 +67,7 @@ For storing email mappings and Union-Find structure
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 from collections import defaultdict

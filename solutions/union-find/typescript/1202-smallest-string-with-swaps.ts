@@ -1,33 +1,5 @@
 /**
- * # 1202. Smallest String With Swaps
- * 
- * # Difficulty: Medium
- * 
- * You are given a string s, and an array of pairs where pairs[i] = [a, b] indicates 2 indices
- * (0-indexed) that can be swapped. You can swap indices multiple times. Return the lexicographically
- * smallest string that s can be transformed to after using the swaps.
- * 
- * **Example:**
- * 
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>s = "dcab", pairs = [[0,3],[1,2]]</dd>
- * <dt>Output:</dt>
- * <dd>bacd"</dd>
- * <dt>Explanation:</dt>
- * <dd>Smallest string after swapping characters in connected components</dd>
- * </dl>
- * 
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
- * **Techniques**: Union-Find (Disjoint Set Union), Sorting, Graph Connected Components
- * **Data Structures**: Union-Find, Hash Map, Array
- * **Patterns**: Union-Find Pattern, Connected Components
- * **Time Complexity**: **O(n log n + m × α(n))** where n is string length, m is pairs count, α is inverse Ackermann
- * **Space Complexity**: **O(n)** - Union-Find parent/rank arrays plus component grouping
- * 
- * ### INTUITION:
+### INTUITION:
 The key insight is that pairs form connected components via union-find. Within each component, indices can be
 rearranged freely. Sort characters in each component and assign to sorted indices.
 
@@ -42,39 +14,40 @@ If indices are transitively swappable, they form a connected component where any
 permutation is achievable. Lexicographically smallest = sort characters ascending.
 
 ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * s = "dcab", pairs = [[0,3],[1,2]]
- * ```
- *
- * Step 1: Union-find to group connected indices
- * Groups: {0,3}, {1,2}
- * Step 2: Sort characters within each group
- *
- * Steps:
- * Step 1: Group {0,3}: 'd','b' → 'b','d'
- * Step 2: Group {1,2}: 'c','a' → 'a','c'
- *
- * Output:
- * ```
- * "bacd"
- * ```
+Input:
+```
+s = "dcab", pairs = [[0,3],[1,2]]
+```
 
- * ### TIME COMPLEXITY:
- * **O(n log n + m × α(n))** where n is string length, m is number of pairs, and α is the inverse Ackermann function (nearly constant). The union-find operations for m pairs take O(m × α(n)). Grouping characters by component takes O(n). Sorting characters within each component takes O(n log n) in the worst case (if all indices form one component). Building the result string takes O(n). Total: O(n log n + m × α(n)).
- *
- * ### SPACE COMPLEXITY:
- * **O(n)** - We allocate parent and rank arrays of size n for the Union-Find structure (2n space). We also use a hash map to group indices by their root parent, which in the worst case stores all n indices (O(n) space). Character arrays for sorting also use O(n) space. Total space is O(n) + O(n) + O(n) = O(n).
- * 
- * ### EDGE CASES:
- * - **No pairs given**: Return original string unchanged
- * - **Single character string**: Return as-is (no swaps possible)
- * - **All indices connected**: Sort entire string lexicographically
- * - **Multiple disconnected components**: Sort each component independently
- * - **Duplicate characters**: Sorting naturally handles duplicates correctly
- * 
- * </details>
- */
+Step 1: Union-find to group connected indices
+Groups: {0,3}, {1,2}
+Step 2: Sort characters within each group
+
+Steps:
+Step 1: Group {0,3}: 'd','b' → 'b','d'
+Step 2: Group {1,2}: 'c','a' → 'a','c'
+
+Output:
+```
+"bacd"
+```
+
+### TIME COMPLEXITY:
+O(n log n + m × α(n)**)** where n is string length, m is number of pairs, and α is the inverse Ackermann function (nearly constant). The union-find operations for m pairs take **O(m × α(n)**). Grouping characters by component takes **O(n)**. Sorting characters within each component takes **O(n log n)** in the worst case (if all indices form one component). Building the result string takes **O(n)**. Total: **O(n log n + m × α(n)**).
+
+### SPACE COMPLEXITY:
+O(n)** - We allocate parent and rank arrays of size n for the Union-Find structure (2n space). We also use a hash map to group indices by their root parent, which in the worst case stores all n indices (**O(n)** space). Character arrays for sorting also use **O(n)** space. Total space is **O(n)** + **O(n)** + **O(n)** = **O(n)**.
+
+### EDGE CASES:
+- **No pairs given**: Return original string unchanged
+- **Single character string**: Return as-is (no swaps possible)
+- **All indices connected**: Sort entire string lexicographically
+- **Multiple disconnected components**: Sort each component independently
+- **Duplicate characters**: Sorting naturally handles duplicates correctly
+
+</details>
+
+*/
 
 class UnionFind {
   private parent: number[];

@@ -1,46 +1,17 @@
 /**
- * # Difficulty: Medium
- *
- * # 0130. Surrounded Regions
- *
- *
- * Given an m x n matrix board containing 'X' and 'O', capture all regions that are 4-directionally surrounded by 'X'.
- *
- * A region is captured by flipping all 'O's into 'X's in that surrounded region.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>board = [["X","X","X","X"],["X","O","O","X"],["X","X","O","X"],["X","O","X","X"]]</dd>
- * <dt>Output:</dt>
- * <dd>[["X","X","X","X"],["X","X","X","X"],["X","X","X","X"],["X","O","X","X"]]</dd>
- * <dt>Explanation:</dt>
- * <dd>Surrounded regions: 'X' regions surrounded by 'O' are captured</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
- * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
- * **Data Structures**: Hash Map, Array, String
- * **Patterns**: Hash Table Pattern, Graph Pattern
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(1) - Constant extra space
- *
- * ### INTUITION:
+### INTUITION:
 The key insight is that use Union-Find to connect adjacent 'X' cells. For border 'O' cells, connect to virtual border node. After processing, 'O' cells not connected to border should be flipped to 'X'.
 
 ### APPROACH:
- * 1. **Initialize Union-Find**: Create parent array and find/union functions
- * 2. **Connect border Os**: Union all 'O' cells on borders with a dummy border node
- * 3. **Connect internal Os**: Union all adjacent 'O' cells in interior
- * 4. **Identify surrounded**: After unions, check if each 'O' is connected to border
- * 5. **Flip if surrounded**: If 'O' not connected to border, change to 'X'
- * 6. **Keep if connected**: If connected to border, keep as 'O'
- * 7. **Modify in-place**: Update board directly
- *
- * ### WHY THIS WORKS:
+1. **Initialize Union-Find**: Create parent array and find/union functions
+2. **Connect border Os**: Union all 'O' cells on borders with a dummy border node
+3. **Connect internal Os**: Union all adjacent 'O' cells in interior
+4. **Identify surrounded**: After unions, check if each 'O' is connected to border
+5. **Flip if surrounded**: If 'O' not connected to border, change to 'X'
+6. **Keep if connected**: If connected to border, keep as 'O'
+7. **Modify in-place**: Update board directly
+
+### WHY THIS WORKS:
 - This ensures that union-find or DFS from borders to mark unsurrounded regions
 - This ensures that start DFS/BFS from 'O' cells on borders (these can't be surrounded)
 - This ensures that mark all connected 'O' cells as safe (connected to border)
@@ -48,37 +19,38 @@ The key insight is that use Union-Find to connect adjacent 'X' cells. For border
 - This ensures that o(m*n) time: visit each cell once, O(m*n) space for visited/parent array
 
 ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * board = [["X","X","X","X"],["X","O","O","X"],["X","X","O","X"],["X","O","X","X"]]
- * ```
- *
- * Step 1: Mark border-connected 'O's
- * (1,1), (1,2), (2,2) are surrounded
- * (3,1) is connected to border
- * Step 2: Flip surrounded 'O's to 'X'
- * Only flip (1,1), (1,2), (2,2)
- *
- * Output:
- * ```
- * [["X","X","X","X"],["X","X","X","X"],["X","X","X","X"],["X","O","X","X"]]
- * ```
+Input:
+```
+board = [["X","X","X","X"],["X","O","O","X"],["X","X","O","X"],["X","O","X","X"]]
+```
 
- * ### TIME COMPLEXITY:
- * O(n)
- * - Single pass through input
- *
- * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
- *
- * ### EDGE CASES:
+Step 1: Mark border-connected 'O's
+(1,1), (1,2), (2,2) are surrounded
+(3,1) is connected to border
+Step 2: Flip surrounded 'O's to 'X'
+Only flip (1,1), (1,2), (2,2)
+
+Output:
+```
+[["X","X","X","X"],["X","X","X","X"],["X","X","X","X"],["X","O","X","X"]]
+```
+
+### TIME COMPLEXITY:
+O(n)**
+- Single pass through input
+
+### SPACE COMPLEXITY:
+O(1)**
+- Constant extra space
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 class Solution {
   /**

@@ -1,32 +1,4 @@
 """
-# Difficulty: Medium
-
-# 0323. Number Of Connected Components In An Undirected Graph
-
-You have a graph of n nodes labeled from 0 to n - 1. You are given an integer n and a list of edges where edges[i] = [ai, bi] indicates that there is an undirected edge between nodes ai and bi in the graph.
-
-Return the number of connected components in the graph.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>Input: n = 5, edges = [[0,1],[1,2],[3,4]]</dd>
-<dt>Output:</dt>
-<dd>See walkthrough</dd>
-<dt>Explanation:</dt>
-<dd>Number of connected components in undirected graph is 2</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: Hash Set, Array, Queue
-**Patterns**: Hash Table Pattern, Divide and Conquer
-**Time Complexity**: O(E × α(N))
-**Space Complexity**: O(N)
-
 ### INTUITION:
 This is a classic Union-Find problem for counting connected components. Each connected component is a set of nodes that can reach each other through edges. Union-Find efficiently groups nodes into components and counts distinct groups.
 
@@ -60,11 +32,11 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(E × α(N))
+**O(E × α(N)**)
 Where E is edges, N is nodes, α is inverse Ackermann (nearly constant)
 
 ### SPACE COMPLEXITY:
-O(N)
+**O(N)**
 For parent and rank arrays
 
 ### EDGE CASES:
@@ -73,6 +45,7 @@ For parent and rank arrays
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 from collections import deque

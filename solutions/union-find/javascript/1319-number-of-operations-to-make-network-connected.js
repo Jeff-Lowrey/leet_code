@@ -1,51 +1,17 @@
 /**
- * # Difficulty: Medium
- *
- * # 1319. Number Of Operations To Make Network Connected
- *
- *
- * You are given n computers numbered from 0 to n - 1 connected by ethernet cables connections forming a network where connections[i] = [ai, bi] connects computers ai and bi.
- *
- * Any computer can reach any other computer directly or indirectly through the network.
- *
- * You are given an initial computer network connections. You can extract certain cables between two directly connected computers, and place them between any pair of disconnected computers to make them directly connected.
- *
- * Return the minimum number of times you need to do this to make all the computers connected. If it is not possible, return -1.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>n = 4, connections = [[0,1],[0,2],[1,2],[1,3]]</dd>
- * <dt>Output:</dt>
- * <dd>Total cables: 4, Need: 3, Spare: 1</dd>
- * <dt>Explanation:</dt>
- * <dd>Operations to make network connected is 1</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- * ### METADATA:
- * **Techniques**: Hash Map Storage, Array Traversal, Graph Traversal
- * **Data Structures**: Array, Tree, Graph
- * **Patterns**: Hash Table Pattern, Divide and Conquer
- * **Time Complexity**: O(n × α(n))
- * **Space Complexity**: O(n)
+### INTUITION:
+This is a classic Union-Find problem about connecting components. Key insights:
+- To connect n computers, we need at least n-1 cables
+- Extra cables can be moved to connect separate components
+- Count disconnected components and check if we have enough spare cables
 
- *
- * ### INTUITION:
- * This is a classic Union-Find problem about connecting components. Key insights:
- * - To connect n computers, we need at least n-1 cables
- * - Extra cables can be moved to connect separate components
- * - Count disconnected components and check if we have enough spare cables
- *
- * ### APPROACH:
- * 1. **Check minimum cables**: Need at least n-1 cables total
- * 2. **Union-Find**: Group computers into connected components
- * 3. **Count components**: Find number of separate groups
- * 4. **Calculate operations**: (components - 1) operations needed to connect all
- *
- * ### WHY THIS WORKS:
+### APPROACH:
+1. **Check minimum cables**: Need at least n-1 cables total
+2. **Union-Find**: Group computers into connected components
+3. **Count components**: Find number of separate groups
+4. **Calculate operations**: (components - 1) operations needed to connect all
+
+### WHY THIS WORKS:
 - This ensures that union-Find efficiently tracks connected components
 - This ensures that each component merge requires exactly 1 cable
 - This ensures that spare cables = total_cables - (n - components)
@@ -76,20 +42,21 @@ Step-by-step execution:
 3. [Final step]
 
 ### TIME COMPLEXITY:
- * O(n × α(n))
- * Where α is the inverse Ackermann function (nearly constant)
- *
- * ### SPACE COMPLEXITY:
- * O(n)
- * For Union-Find parent and rank arrays
- *
- * ### EDGE CASES:
+O(n × α(n)**)
+Where α is the inverse Ackermann function (nearly constant)
+
+### SPACE COMPLEXITY:
+O(n)**
+For Union-Find parent and rank arrays
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 /**
  * Union-Find data structure with path compression and union by rank

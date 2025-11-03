@@ -1,35 +1,5 @@
 /**
- * # Difficulty: Medium
- *
- * # 0130. Surrounded Regions
- *
- *
- * Given an m x n matrix board containing 'X' and 'O', capture all regions that are 4-directionally surrounded by 'X'.
- *
- * A region is captured by flipping all 'O's into 'X's in that surrounded region.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>board = [["X","X","X","X"],["X","O","O","X"],["X","X","O","X"],["X","O","X","X"]]</dd>
- * <dt>Output:</dt>
- * <dd>[["X","X","X","X"],["X","X","X","X"],["X","X","X","X"],["X","O","X","X"]]</dd>
- * <dt>Explanation:</dt>
- * <dd>Surrounded regions: 'X' regions surrounded by 'O' are captured</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- * ### METADATA:
- * **Techniques**: Hash Map Storage, Array Traversal, Two Pointers
- * **Data Structures**: Array, String, Tree
- * **Patterns**: Two Pointers Pattern
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(1) - Constant extra space
-
- *
- * ### INTUITION:
+### INTUITION:
 [This problem requires understanding of union find concepts. The key insight is to identify the optimal approach for this specific scenario.]
 
 ### APPROACH:
@@ -44,37 +14,38 @@
 - This ensures that space complexity is minimized where possible
 
 ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * board = [["X","X","X","X"],["X","O","O","X"],["X","X","O","X"],["X","O","X","X"]]
- * ```
- *
- * Step 1: Mark border-connected 'O's
- * (1,1), (1,2), (2,2) are surrounded
- * (3,1) is connected to border
- * Step 2: Flip surrounded 'O's to 'X'
- * Only flip (1,1), (1,2), (2,2)
- *
- * Output:
- * ```
- * [["X","X","X","X"],["X","X","X","X"],["X","X","X","X"],["X","O","X","X"]]
- * ```
+Input:
+```
+board = [["X","X","X","X"],["X","O","O","X"],["X","X","O","X"],["X","O","X","X"]]
+```
 
- * ### TIME COMPLEXITY:
- * O(n)
- * - Single pass through input
- *
- * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
- *
- * ### EDGE CASES:
+Step 1: Mark border-connected 'O's
+(1,1), (1,2), (2,2) are surrounded
+(3,1) is connected to border
+Step 2: Flip surrounded 'O's to 'X'
+Only flip (1,1), (1,2), (2,2)
+
+Output:
+```
+[["X","X","X","X"],["X","X","X","X"],["X","X","X","X"],["X","O","X","X"]]
+```
+
+### TIME COMPLEXITY:
+O(n)**
+- Single pass through input
+
+### SPACE COMPLEXITY:
+O(1)**
+- Constant extra space
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 class UnionFind {
   constructor(n) {
