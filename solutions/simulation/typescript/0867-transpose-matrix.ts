@@ -38,11 +38,11 @@
  * **Space Complexity**: O(m × n)
  *
  * ### INTUITION:
- * Transposing a matrix means converting rows to columns and vice versa.
- * Element at position (i,j) in original matrix moves to position (j,i) in transposed matrix.
- * For an m×n matrix, transpose is n×m.
- *
- * ### APPROACH:
+The key insight is that transposing a matrix means converting rows to columns and vice versa.
+Element at position (i,j) in original matrix moves to position (j,i) in transposed matrix.
+For an m×n matrix, transpose is n×m.
+
+### APPROACH:
  * 1. **Create Result Matrix**: Size n×m (swapped dimensions)
  * 2. **Map Elements**: result[j][i] = matrix[i][j]
  * 3. **Iterate**: Process all elements once
@@ -53,12 +53,12 @@
  * - Position mapping: (i,j) → (j,i)
  *
  * ### WHY THIS WORKS:
- * - Transpose definition: swap rows and columns
- * - By definition: A^T[j][i] = A[i][j]
- * - Creating new matrix with swapped dimensions accommodates the transformation
- * - Each element lands in exactly one position
- *
- * ### EXAMPLE WALKTHROUGH:
+- This ensures that transpose definition: swap rows and columns
+- This ensures that by definition: A^T[j][i] = A[i][j]
+- This ensures that creating new matrix with swapped dimensions accommodates the transformation
+- This ensures that each element lands in exactly one position
+
+### EXAMPLE WALKTHROUGH:
  * Input:
  * ```
  * matrix = [[1,2,3],
@@ -94,12 +94,11 @@
  * - Need to create new matrix of same total size (different dimensions)
  *
  * ### EDGE CASES:
- * - Square matrix (n×n): Transpose is also n×n
- * - Single row: Becomes single column
- * - Single column: Becomes single row
- * - Single cell: Unchanged [[1]] → [[1]]
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {

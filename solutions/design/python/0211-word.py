@@ -68,6 +68,11 @@ Step 1: search("pad") -> false
 Step 2: search(".ad") -> true (matches "bad", "dad", "mad")
 Step 3: search("b..") -> true (matches "bad")
 
+Output:
+```
+[Expected output]
+```
+
 ### TIME COMPLEXITY:
 - addWord: O(n) where n is word length
 - search: O(26^m) worst case where m is number of wildcards, O(n) average
@@ -79,10 +84,9 @@ O(total characters in all words)
 
 
 ### EDGE CASES:
-- Empty string
-- All wildcards
-- No matches
-- Single character words
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

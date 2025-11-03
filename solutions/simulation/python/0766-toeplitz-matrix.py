@@ -98,10 +98,9 @@ O(1)
 - Only use constant extra space
 
 ### EDGE CASES:
-- Single row: Always Toeplitz
-- Single column: Always Toeplitz
-- Single cell: Always Toeplitz
-- 2×2 matrix: Check only (0,0) vs (1,1)
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

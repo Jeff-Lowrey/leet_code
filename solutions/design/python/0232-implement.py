@@ -60,6 +60,11 @@ Step 2: pop(): output=[2,1], return 1, output=[2]
 Step 3: push(3): input=[3], output=[2]
 Step 4: pop(): output=[2], return 2
 
+Output:
+```
+[Expected output]
+```
+
 ### TIME COMPLEXITY:
 - push: O(1)
 - pop: Amortized O(1)
@@ -70,10 +75,9 @@ Step 4: pop(): output=[2], return 2
 O(n) for storing n elements
 
 ### EDGE CASES:
-- Empty queue
-- Single element
-- Multiple operations
-- Alternating push/pop
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

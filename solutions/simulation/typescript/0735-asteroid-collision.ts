@@ -29,43 +29,46 @@
  * **Space Complexity**: O(n) - Stack can contain all asteroids in worst case
  *
  * ### INTUITION:
- * Use a stack to simulate asteroids. Only right-moving asteroids (positive) can potentially collide with left-moving asteroids (negative). When we encounter a left-moving asteroid, we need to check if it collides with any right-moving asteroids already on the stack.
- *
- * ### APPROACH:
- * We iterate through the asteroids array and use a stack to track surviving asteroids. For each asteroid, if it's moving right (positive) or the stack is empty, we simply add it to the stack.
- *
- * When we encounter a left-moving asteroid (negative), we need to handle potential collisions. We compare it with the top of the stack. If the stack top is moving left or the stack is empty, no collision occurs and we add the asteroid. If the stack top is moving right, a collision occurs. We compare their absolute values: if the left-moving asteroid is larger, it destroys the stack top and continues; if equal, both explode; if smaller, the left-moving asteroid explodes.
- *
- * We continue this collision process until the left-moving asteroid explodes, gets added to the stack, or the stack becomes empty.
- *
- * ### WHY THIS WORKS:
+The key insight is that use a stack to simulate asteroids. Only right-moving asteroids (positive) can potentially collide with left-moving asteroids (negative). When we encounter a left-moving asteroid, we need to check if it collides with any right-moving asteroids already on the stack.
+
+### APPROACH:
+1. We iterate through the asteroids array and use a stack to track surviving asteroids.
+2. For each asteroid, if it's moving right (positive) or the stack is empty, we simply add it to the stack.
+3. When we encounter a left-moving asteroid (negative), we need to handle potential collisions.
+4. We compare it with the top of the stack.
+5. If the stack top is moving left or the stack is empty, no collision occurs and we add the asteroid.
+6. If the stack top is moving right, a collision occurs.
+7. We compare their absolute values: if the left-moving asteroid is larger, it destroys the stack top and continues; if equal, both explode; if smaller, the left-moving asteroid explodes.
+8. We continue this collision process until the left-moving asteroid explodes, gets added to the stack, or the stack becomes empty.
+
+### WHY THIS WORKS:
  * - Stack naturally handles the sequential collision process
  * - Only right-moving followed by left-moving asteroids can collide
  * - Each asteroid is processed once, and each collision is resolved immediately
  * - The stack maintains the final state of surviving asteroids
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * asteroids = [5, 10, -5]
- * ```
- *
- * **Step 1:** Process asteroid 5 (right-moving) → Stack: [5]
- *
- * **Step 2:** Process asteroid 10 (right-moving) → Stack: [5, 10]
- *
- * **Step 3:** Process asteroid -5 (left-moving) → Collision with 10
- *
- * **Step 4:** Compare |-5| vs |10|: 5 < 10, so -5 explodes
- *
- * **Step 5:** Final stack: [5, 10]
- *
- * Output:
- * ```
- * [5, 10]
- * ```
- *
- * ### TIME COMPLEXITY:
+Input:
+```
+asteroids = [5, 10, -5]
+```
+
+*Step 1:** Process asteroid 5 (right-moving) → Stack: [5]
+
+*Step 2:** Process asteroid 10 (right-moving) → Stack: [5, 10]
+
+*Step 3:** Process asteroid -5 (left-moving) → Collision with 10
+
+*Step 4:** Compare |-5| vs |10|: 5 < 10, so -5 explodes
+
+*Step 5:** Final stack: [5, 10]
+
+Output:
+```
+[5, 10]
+```
+
+### TIME COMPLEXITY:
  * **O(n)** - Each asteroid is pushed onto the stack at most once and popped at most once, giving us linear time complexity where n is the number of asteroids.
  *
  * ### SPACE COMPLEXITY:

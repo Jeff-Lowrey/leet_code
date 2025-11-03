@@ -26,7 +26,7 @@ Implement the BSTIterator class that represents an iterator over the in-order tr
 **Space Complexity**: O(h) for the stack
 
 ### INTUITION:
-We need to implement an iterator that traverses a BST in in-order (left -> root -> right).
+The key insight is that we need to implement an iterator that traverses a BST in in-order (left -> root -> right).
 The challenge is to do this without storing all values upfront, but instead using a controlled stack-based approach.
 
 ### APPROACH:
@@ -55,6 +55,11 @@ Step 2: next() -> 7, stack: [15, 9]
 Step 3: hasNext() -> true
 Step 4: next() -> 9, stack: [15, 20]
 
+Output:
+```
+[Expected output]
+```
+
 ### TIME COMPLEXITY:
 - Constructor: O(h) where h is height
 - next(): Amortized O(1)
@@ -64,9 +69,9 @@ Step 4: next() -> 9, stack: [15, 20]
 O(h) for the stack where h is height
 
 ### EDGE CASES:
-- Single node tree
-- Left-skewed or right-skewed trees
-- Empty tree handling
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

@@ -33,7 +33,7 @@ The functions get and put must each run in O(1) average time complexity.
 **Space Complexity**: O(capacity)
 
 ### INTUITION:
-LRU Cache needs O(1) access and O(1) eviction. We can combine:
+The key insight is that lRU Cache needs O(1) access and O(1) eviction. We can combine:
 - HashMap for O(1) key lookup
 - Doubly Linked List for O(1) insertion/deletion at any position
 
@@ -62,6 +62,11 @@ Step 3: get(1)    -> [1:1, 2:2] (1 moves to front)
 Step 4: put(3, 3) -> [3:3, 1:1] (2 evicted)
 Step 5: get(2)    -> -1 (not found)
 
+Output:
+```
+[Expected output]
+```
+
 ### TIME COMPLEXITY:
 O(1)
 All operations (get, put) are constant time
@@ -71,10 +76,9 @@ O(capacity)
 We store at most 'capacity' key-value pairs
 
 ### EDGE CASES:
-- Capacity of 1
-- Get non-existent key
-- Put same key multiple times
-- Cache at full capacity
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

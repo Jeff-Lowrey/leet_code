@@ -39,10 +39,10 @@
  * **Space Complexity**: O(m × n)
  * 
  * ### INTUITION:
- * For each cell, compute the average of itself and its 8 neighbors (or fewer if on edge).
- * The challenge is to use original values for all calculations, not partially smoothed values.
- * 
- * ### APPROACH:
+The key insight is that for each cell, compute the average of itself and its 8 neighbors (or fewer if on edge).
+The challenge is to use original values for all calculations, not partially smoothed values.
+
+### APPROACH:
  * 1. **Create Result Matrix**: Store smoothed values separately to avoid using partial results
  * 2. **For Each Cell**: Calculate average of valid neighbors
  * 3. **Neighbor Counting**: Check all 8 directions, count only valid cells
@@ -60,28 +60,33 @@
  * - Integer division naturally floors the average
  * 
  * ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * img = [[100,200,100],
- * ```
- *
- * [200,50,200],
- * [100,200,100]]
- * Cell [0,0] (corner, 4 cells):
- * Neighbors: [0,0], [0,1], [1,0], [1,1]
- * Sum: 100 + 200 + 200 + 50 = 550
- * Average: 550 // 4 = 137
- * Cell [1,1] (center, 9 cells):
- * Neighbors: all 9 cells
- * Sum+200+100+200+50+200+100+200+100 = 1250
- * Average // 9 = 138
- * Cell [0,1] (edge, 6 cells):
- * Neighbors: [0,0], [0,1], [0,2], [1,0], [1,1], [1,2]
- * Sum+200+100+200+50+200 = 850
- * Average // 6 = 141
- * Result: [[137,141,137],[141,138,141],[137,141,137]]
+Input:
+```
+img = [[100,200,100],
+```
 
- * ### TIME COMPLEXITY:
+[200,50,200],
+[100,200,100]]
+Cell [0,0] (corner, 4 cells):
+Neighbors: [0,0], [0,1], [1,0], [1,1]
+Sum: 100 + 200 + 200 + 50 = 550
+Average: 550 // 4 = 137
+Cell [1,1] (center, 9 cells):
+Neighbors: all 9 cells
+Sum+200+100+200+50+200+100+200+100 = 1250
+Average // 9 = 138
+Cell [0,1] (edge, 6 cells):
+Neighbors: [0,0], [0,1], [0,2], [1,0], [1,1], [1,2]
+Sum+200+100+200+50+200 = 850
+Average // 6 = 141
+Result: [[137,141,137],[141,138,141],[137,141,137]]
+
+Step-by-step execution:
+1. [First step]
+2. [Second step]
+3. [Final step]
+
+### TIME COMPLEXITY:
  * O(m × n)
  * - Visit each cell once, check constant number of neighbors
  * 
@@ -90,12 +95,11 @@
  * - Need separate result matrix (or O(1) with bit manipulation)
  * 
  * ### EDGE CASES:
- * - Single cell: [[5]] → [[5]]
- * - Single row/column: Only horizontal/vertical neighbors
- * - All same values: Output same as input
- * - Large values: Ensure no overflow (Python handles this)
- * 
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {

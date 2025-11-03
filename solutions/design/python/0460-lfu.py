@@ -26,7 +26,7 @@ Design and implement a Least Frequently Used (LFU) cache.
 **Space Complexity**: O(capacity) for storing items
 
 ### INTUITION:
-LFU cache evicts the least frequently used item when capacity is reached.
+The key insight is that lFU cache evicts the least frequently used item when capacity is reached.
 If multiple items have the same frequency, evict the least recently used (LRU) among them.
 
 The challenge is achieving O(1) for both get() and put() operations.
@@ -67,6 +67,16 @@ put(2, 2): cache={1:(1,1), 2:(2,1)}, freq_to_keys={1:[1,2]}, min_freq=1
 get(1): freq increases to 2, cache={1:(1,2), 2:(2,1)}, freq_to_keys={1:[2], 2:[1]}, min_freq=1, return 1
 put(3, 3): evict key 2 (LFU), add 3
 
+Output:
+```
+[Expected output]
+```
+
+Step-by-step execution:
+1. [First step]
+2. [Second step]
+3. [Final step]
+
 ### TIME COMPLEXITY:
 O(1) - All operations (get, put) use hash maps and frequency buckets for constant-time access
 
@@ -74,10 +84,9 @@ O(1) - All operations (get, put) use hash maps and frequency buckets for constan
 O(capacity) for storing items
 
 ### EDGE CASES:
-- Cache capacity 0
-- Single capacity
-- Multiple items with same frequency
-- Update existing key
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

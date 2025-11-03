@@ -46,16 +46,24 @@ Output:
 example output
 ```
 
+Step-by-step execution:
+1. [First step]
+2. [Second step]
+3. [Final step]
+
 ### TIME COMPLEXITY:
 **O(n²)** - Analysis of time complexity
- *
+ * - [Add explanation of why this complexity]
+
 ### SPACE COMPLEXITY:
 **O(n)** - Analysis of space complexity
- *
+ * - [Add explanation of why this complexity]
+
 ### EDGE CASES:
-- Handle empty input
-- Handle boundary conditions
- *
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
 </details>
 """
 

@@ -78,6 +78,16 @@ getNewsFeed(1): returns [6, 5] (most recent from user 1 and followees)
 unfollow(1, 2): user 1 unfollows user 2
 getNewsFeed(1): returns [5] (only user 1's tweets)
 
+Output:
+```
+[Expected output]
+```
+
+Step-by-step execution:
+1. [First step]
+2. [Second step]
+3. [Final step]
+
 ### TIME COMPLEXITY:
 - postTweet: O(1)
 - getNewsFeed: O(N log k) where N is total tweets, k=10
@@ -88,10 +98,9 @@ getNewsFeed(1): returns [5] (only user 1's tweets)
 O(U + T) where U is users, T is total tweets
 
 ### EDGE CASES:
-- User has no tweets
-- User follows no one
-- More than 10 tweets in feed
-- User follows themselves
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

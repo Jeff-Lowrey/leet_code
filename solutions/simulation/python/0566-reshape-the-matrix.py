@@ -44,7 +44,7 @@ Output: [[1,2],[3,4]]
 **Space Complexity**: O(r × c)
 
 ### INTUITION:
-Reshape is only possible if the total number of elements remains the same.
+The key insight is that reshape is only possible if the total number of elements remains the same.
 Flatten the matrix conceptually, then redistribute elements into new dimensions.
 Use division and modulo to convert between 1D and 2D indices.
 
@@ -61,10 +61,10 @@ Use division and modulo to convert between 1D and 2D indices.
 - This linear index maps to different 2D coordinates in different shapes
 
 ### WHY THIS WORKS:
-- Row-major order is preserved when we use sequential indexing
-- Division gives the row position in new matrix
-- Modulo gives the column position in new matrix
-- This naturally handles the reshape transformation
+- This ensures that row-major order is preserved when we use sequential indexing
+- This ensures that division gives the row position in new matrix
+- This ensures that modulo gives the column position in new matrix
+- This ensures that this naturally handles the reshape transformation
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -103,10 +103,9 @@ O(r × c)
 - Need to store the reshaped matrix (same size as original)
 
 ### EDGE CASES:
-- Invalid reshape (different total): Return original matrix
-- Same shape: Return copy or original
-- Single element: [[1]] can reshape to [[1]]
-- Single row/column: Can reshape to column/row with same elements
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

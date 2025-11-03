@@ -59,11 +59,11 @@
  * - Simpler: matrix[i][j] == matrix[i+1][j+1] for all valid (i,j)
  *
  * ### WHY THIS WORKS:
- * - If (i,j) == (i+1,j+1) for all cells, then entire diagonals match
- * - Transitive property: if a==b and b==c, then a==c
- * - Checking adjacent cells on diagonal ensures entire diagonal is same
- *
- * ### EXAMPLE WALKTHROUGH:
+- If (i,j) == (i+1,j+1) for all cells, then entire diagonals match
+- Transitive property: if a==b and b==c, then a==c
+- Checking adjacent cells on diagonal ensures entire diagonal is same
+
+### EXAMPLE WALKTHROUGH:
  * Input:
  * ```
  * matrix = [[1,2,3,4],
@@ -96,12 +96,11 @@
  * - Only use constant extra space
  *
  * ### EDGE CASES:
- * - Single row: Always Toeplitz
- * - Single column: Always Toeplitz
- * - Single cell: Always Toeplitz
- * - 2×2 matrix: Check only (0,0) vs (1,1)
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 /**

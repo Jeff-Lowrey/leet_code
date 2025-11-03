@@ -3,59 +3,81 @@
 
 # Difficulty: Easy
 
-Solve the Robot Return To Origin problem as described.
+There is a robot starting at position (0, 0) on a 2D plane. Given a sequence of moves,
+judge if this robot ends up at (0, 0) after it completes its moves.
+
+The move sequence is represented as a string, and the character moves[i] represents its
+ith move. Valid moves are R (right), L (left), U (up), and D (down). Return true if the
+robot returns to the origin after all moves, otherwise return false.
 
 **Example:**
- *
+
 <dl class="example-details">
 <dt>Input:</dt>
-<dd>```</dd>
+<dd>moves = "UD"</dd>
 <dt>Output:</dt>
-<dd>```</dd>
+<dd>true</dd>
 <dt>Explanation:</dt>
-<dd>Processing input produces the expected output</dd>
+<dd>The robot moves up once and then down once. It returns to the origin</dd>
 </dl>
 
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- *
+
 ### METADATA:
 **Techniques**: Simulation, Counting
 **Data Structures**: String
 **Patterns**: Position tracking, Balance checking
-**Time Complexity**: **O(n²)**
-**Space Complexity**: **O(1)**
- *
+**Time Complexity**: **O(n)** - where n is the length of moves string
+**Space Complexity**: **O(1)** - constant extra space
+
 ### INTUITION:
-The key insight is to solve this problem efficiently.
- *
+The key insight is that for a robot to return to origin, the number of up moves must equal down moves AND the number of left moves must equal right moves. Instead of simulating the actual position, we can simply count the moves and check if they balance out.
+
 ### APPROACH:
-We solve this problem by implementing the required algorithm.
- *
+1. **Count matching pairs**: For the robot to return to origin, every U must be canceled by a D, and every L by an R
+2. **Use string counting**: Python's count() method efficiently counts occurrences of each move type
+3. **Check balance**: Return true only if count('U') == count('D') AND count('L') == count('R')
+4. **Alternative simulation**: Can also explicitly track x,y coordinates and check if both return to 0
+
 ### WHY THIS WORKS:
-This approach works because it correctly implements the problem requirements.
- *
+- This ensures that the robot's net displacement in both x and y directions is zero
+- Counting is more efficient than simulation because we don't need to track intermediate positions
+- The robot can only return to origin if moves are perfectly balanced in both dimensions
+- Since moves are independent in x and y directions, we can check them separately
+
 ### EXAMPLE WALKTHROUGH:
 Input:
 ```
-example input
+moves = "UDLR"
 ```
+
+Execution:
+1. Count U moves: 1
+2. Count D moves: 1
+3. Count L moves: 1
+4. Count R moves: 1
+5. Check: U == D (1 == 1) ✓
+6. Check: L == R (1 == 1) ✓
+7. Both balanced, return true
 
 Output:
 ```
-example output
+true
 ```
 
 ### TIME COMPLEXITY:
-**O(n²)** - Analysis of time complexity
- *
+**O(n)** where n is the length of the moves string. Each count() operation scans the string once, and we perform 4 count operations, giving us O(4n) = O(n).
+
 ### SPACE COMPLEXITY:
-**O(1)** - Analysis of space complexity
- *
+**O(1)** - We use constant extra space regardless of input size. The count() method doesn't allocate any additional data structures; it scans the string and returns an integer count. Our function only stores these four integer counts plus the boolean return value, giving us O(1) space complexity. The input string itself is not counted toward space complexity as it's provided as input.
+
 ### EDGE CASES:
-- Handle empty input
-- Handle boundary conditions
- *
+- **Empty string**: Returns true (robot doesn't move, stays at origin)
+- **Single move**: Returns false (can't balance with just one move)
+- **All same direction**: Returns false (e.g., "UUU" moves away from origin)
+- **Interleaved moves**: Order doesn't matter, only counts (e.g., "UDUD" and "UUDD" both return true)
+
 </details>
 """
 

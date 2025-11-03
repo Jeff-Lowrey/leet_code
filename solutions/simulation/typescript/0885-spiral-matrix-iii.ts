@@ -27,36 +27,42 @@
  * **Space Complexity**: **O(n)**
  *
  * ### INTUITION:
- * The key insight is to solve this problem efficiently.
- *
- * ### APPROACH:
- * We solve this problem by implementing the required algorithm.
- *
- * ### WHY THIS WORKS:
- * This approach works because it correctly implements the problem requirements.
- *
- * ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * example input
- * ```
- *
- * Output:
- * ```
- * example output
- * ```
+The key insight is to solve this problem efficiently.
 
- * ### TIME COMPLEXITY:
- * **O(n²)** - Analysis of time complexity
- *
- * ### SPACE COMPLEXITY:
- * **O(n)** - Analysis of space complexity
- *
- * ### EDGE CASES:
- * - Handle empty input
- * - Handle boundary conditions
- *
- * </details>
+### APPROACH:
+We solve this problem by implementing the required algorithm.
+
+### WHY THIS WORKS:
+This approach works because it correctly implements the problem requirements.
+
+### EXAMPLE WALKTHROUGH:
+Input:
+```
+example input
+```
+
+Output:
+```
+example output
+```
+
+Step-by-step execution:
+1. [First step]
+2. [Second step]
+3. [Final step]
+
+### TIME COMPLEXITY:
+**O(n²)** - Analysis of time complexity - [Add explanation of why this complexity]
+
+### SPACE COMPLEXITY:
+**O(n)** - Analysis of space complexity - [Add explanation of why this complexity]
+
+### EDGE CASES:
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 function spiralMatrixIII(rows: number, cols: number, rStart: number, cStart: number): number[][] {

@@ -28,10 +28,10 @@
 
  *
  * ### INTUITION:
- * We need to implement an iterator that traverses a BST in in-order (left -> root -> right).
- * The challenge is to do this without storing all values upfront, but instead using a controlled stack-based approach.
- *
- * ### APPROACH:
+The key insight is that we need to implement an iterator that traverses a BST in in-order (left -> root -> right).
+The challenge is to do this without storing all values upfront, but instead using a controlled stack-based approach.
+
+### APPROACH:
  * 1. **Use a stack**: Maintain a stack to simulate the in-order traversal
  * 2. **Push all left nodes**: Starting from root, push all left children onto the stack
  * 3. **next()**: Pop from stack, return value, then push all left children of the popped node's right child
@@ -44,20 +44,25 @@
  * - Space complexity is O(h) where h is the height of the tree
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * [7, 3, 15, null, null, 9, 20]
- * ```
- *
- * Stack after init: [7, 3]
- *
- * Steps:
- * Step 1: next() -> 3, stack: [7, 15, 9]
- * Step 2: next() -> 7, stack: [15, 9]
- * Step 3: hasNext() -> true
- * Step 4: next() -> 9, stack: [15, 20]
+Input:
+```
+[7, 3, 15, null, null, 9, 20]
+```
 
- * ### TIME COMPLEXITY:
+Stack after init: [7, 3]
+
+Steps:
+Step 1: next() -> 3, stack: [7, 15, 9]
+Step 2: next() -> 7, stack: [15, 9]
+Step 3: hasNext() -> true
+Step 4: next() -> 9, stack: [15, 20]
+
+Output:
+```
+[Expected output]
+```
+
+### TIME COMPLEXITY:
  * - Constructor: O(h) where h is height
  * - next(): Amortized O(1)
  * - hasNext(): O(1)
@@ -66,11 +71,11 @@
  * O(h) for the stack where h is height
  *
  * ### EDGE CASES:
- * - Single node tree
- * - Left-skewed or right-skewed trees
- * - Empty tree handling
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 /**

@@ -69,6 +69,11 @@ Step 3: top() -> 3
 Step 4: pop() -> 3, queue = [2, 1]
 Step 5: top() -> 2
 
+Output:
+```
+[Expected output]
+```
+
 ### TIME COMPLEXITY:
 - push: O(n) - need to rotate queue
 - pop: O(1)
@@ -79,9 +84,9 @@ Step 5: top() -> 2
 O(n) for storing n elements
 
 ### EDGE CASES:
-- Empty stack
-- Single element
-- Multiple push/pop operations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

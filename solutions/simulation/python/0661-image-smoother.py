@@ -39,7 +39,7 @@ Output: [[137,141,137],[141,138,141],[137,141,137]]
 **Space Complexity**: O(m × n)
 
 ### INTUITION:
-For each cell, compute the average of itself and its 8 neighbors (or fewer if on edge).
+The key insight is that for each cell, compute the average of itself and its 8 neighbors (or fewer if on edge).
 The challenge is to use original values for all calculations, not partially smoothed values.
 
 ### APPROACH:
@@ -86,6 +86,11 @@ Sum+200+100+200+50+200 = 850
 Average // 6 = 141
 Result: [[137,141,137],[141,138,141],[137,141,137]]
 
+Step-by-step execution:
+1. [First step]
+2. [Second step]
+3. [Final step]
+
 ### TIME COMPLEXITY:
 O(m × n)
 - Visit each cell once, check constant number of neighbors
@@ -95,10 +100,9 @@ O(m × n)
 - Need separate result matrix (or O(1) with bit manipulation)
 
 ### EDGE CASES:
-- Single cell: [[5]] → [[5]]
-- Single row/column: Only horizontal/vertical neighbors
-- All same values: Output same as input
-- Large values: Ensure no overflow (Python handles this)
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

@@ -44,9 +44,9 @@
  * **Space Complexity**: O(1) - Constant extra space
  * 
  * ### INTUITION:
- * The challenge is to add a peek() operation that returns the next element without advancing the iterator. We need to cache the next element to support this functionality while maintaining compatibility with the original iterator interface.
- * 
- * ### APPROACH:
+The key insight is that the challenge is to add a peek() operation that returns the next element without advancing the iterator. We need to cache the next element to support this functionality while maintaining compatibility with the original iterator interface.
+
+### APPROACH:
  * 1. **Cache next element**: Store the upcoming element when needed
  * 2. **Track cached state**: Know when we have a cached element vs need to fetch
  * 3. **Peek operation**: Return cached element without advancing
@@ -92,13 +92,11 @@
  * Only storing one cached element
  * 
  * ### EDGE CASES:
- * - Empty iterator (hasNext() returns false immediately)
- * - Single element iterator (works correctly with cache)
- * - Multiple consecutive peek() calls (returns same element)
- * - peek() then next() (peek doesn't consume, next does)
- * - Calling peek() when hasNext() is false (undefined behavior, should check first)
- * 
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {

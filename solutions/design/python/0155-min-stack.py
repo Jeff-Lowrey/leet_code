@@ -62,6 +62,16 @@ getMin() returns -3 (top of min_stack)
 pop() removes -3 from both stacks
 getMin() returns -2 (new top of min_stack)
 
+Output:
+```
+[Expected output]
+```
+
+Step-by-step execution:
+1. [First step]
+2. [Second step]
+3. [Final step]
+
 ### TIME COMPLEXITY:
 O(1)
 All operations are constant time
@@ -71,10 +81,9 @@ O(n)
 In worst case, min_stack can have same size as main_stack
 
 ### EDGE CASES:
-- Empty stack operations
-- Single element stack
-- Duplicate minimum values
-- All elements are the same
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """
