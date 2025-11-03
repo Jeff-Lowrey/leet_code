@@ -1,32 +1,4 @@
 """
-# Difficulty: Hard
-
-# 0642. Design Search Autocomplete System
-
-Design a search autocomplete system for a search engine. Users may input a sentence (at least one word and end with a special character '#').
-
-You are given a string array sentences and an integer array times both of length n where sentences[i] is a previously typed sentence and times[i] is the corresponding number of times the sentence has been typed. For each input character except '#', return the top 3 historical hot sentences that have the same prefix as the part of the sentence already typed.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>sentences = ["i love you", "island", "iroman", "i love leetcode"]</dd>
-<dt>Output:</dt>
-<dd>times = [5, 3, 2, 2]</dd>
-<dt>Explanation:</dt>
-<dd>AutocompleteSystem returns top 3 sentences by frequency</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Standard Algorithm
-**Data Structures**: Array, String, Tree
-**Patterns**: Hash Table Pattern
-**Time Complexity**: - Constructor: O(N * L) where N is sentences count, L is average length
-**Space Complexity**: O(N * L)
-
 ### INTUITION:
 The key insight is that this is an advanced autocomplete system that needs to track search frequency and return top results. We use a Trie to organize sentences by prefixes, and at each node, we maintain a list of sentences that pass through it along with their frequencies. When a character is typed, we navigate to that node and return top 3 by frequency.
 
@@ -76,12 +48,12 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-- Constructor: O(N * L) where N is sentences count, L is average length
-- Input: O(P * M * log M) where P is prefix length, M is matching sentences
+- Constructor: **O(N * L)** where N is sentences count, L is average length
+- Input: **O(P * M * log M)** where P is prefix length, M is matching sentences
 - Sorting dominates input complexity
 
 ### SPACE COMPLEXITY:
-O(N * L)
+**O(N * L)**
 For trie storage with all sentences
 
 ### EDGE CASES:
@@ -90,4 +62,5 @@ For trie storage with all sentences
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """

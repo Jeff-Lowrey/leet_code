@@ -1,32 +1,4 @@
 """
-# Difficulty: Easy
-
-# 0720. Longest Word In Dictionary
-
-Given an array of strings words representing an English Dictionary, return the longest word in words that can be built one character at a time by other words in words.
-
-If there is more than one possible answer, return the longest word with the smallest lexicographical order. If there is no answer, return the empty string.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>["w", "wo", "wor", "worl", "world"]</dd>
-<dt>Output:</dt>
-<dd>1</dd>
-<dt>Explanation:</dt>
-<dd>Longest word in dictionary built one char at a time is 'world'</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
-**Data Structures**: Hash Map, Hash Set, Array
-**Patterns**: Hash Table Pattern, Graph Pattern
-**Time Complexity**: O(N * L)
-**Space Complexity**: O(N * L)
-
 ### INTUITION:
 We need to find the longest word where all its prefixes exist as words in the dictionary. A Trie is perfect for this because we can check if a word can be built character by character by verifying that each intermediate node represents a complete word. DFS or BFS through the trie helps us find the longest buildable word.
 
@@ -86,13 +58,13 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(N * L)
+**O(N * L)**
 Where N is number of words, L is average word length
-- Building trie: O(N * L)
-- DFS traversal: O(N * L)
+- Building trie: **O(N * L)**
+- DFS traversal: **O(N * L)**
 
 ### SPACE COMPLEXITY:
-O(N * L) - Trie storage for all words, where N is number of words and L is average word length
+**O(N * L)** - Trie storage for all words, where N is number of words and L is average word length
 
 ### EDGE CASES:
 - **Empty input**: Handle when input is empty
@@ -100,6 +72,7 @@ O(N * L) - Trie storage for all words, where N is number of words and L is avera
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 import re

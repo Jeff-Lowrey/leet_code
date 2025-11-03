@@ -1,36 +1,4 @@
 """
-# Difficulty: Medium
-
-# 0208. Implement Trie
-
-A trie (pronounced as "try") or prefix tree is a tree data structure used to efficiently store and retrieve keys in a dataset of strings. There are various applications of this data structure, such as autocomplete and spellchecker.
-
-Implement the Trie class:
-- Trie() Initializes the trie object.
-- void insert(String word) Inserts the string word into the trie.
-- boolean search(String word) Returns true if the string word is in the trie (i.e., was inserted before), and false otherwise.
-- boolean startsWith(String prefix) Returns true if there is a previously inserted string word that has the prefix prefix, and false otherwise.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>Insert "app":</dd>
-<dt>Output:</dt>
-<dd>root → 'a' → 'p' → 'p' (end=True)</dd>
-<dt>Explanation:</dt>
-<dd>Trie supports insert, search, and startsWith operations</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Two Pointers
-**Data Structures**: Hash Map, String, Tree
-**Patterns**: Two Pointers Pattern, Tree Pattern
-**Time Complexity**: O(m)
-**Space Complexity**: O(ALPHABET_SIZE × N × M)
-
 ### INTUITION:
 The key insight is that a trie is a tree where each node represents a character and paths from root to nodes represent prefixes or complete words. Each node has children for possible next characters and a flag indicating if it's the end of a word.
 
@@ -67,11 +35,11 @@ True
 ```
 
 ### TIME COMPLEXITY:
-O(m)
+**O(m)**
 Where m is the length of the word/prefix for all operations
 
 ### SPACE COMPLEXITY:
-O(ALPHABET_SIZE × N × M)
+**O(ALPHABET_SIZE × N × M)**
 Where N is number of words and M is average length
 
 ### EDGE CASES:
@@ -82,4 +50,5 @@ Where N is number of words and M is average length
 - **Single character words**: Handled like any other word
 
 </details>
+
 """

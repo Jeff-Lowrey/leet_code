@@ -1,32 +1,4 @@
 """
-# Difficulty: Hard
-
-# 0212. Word Search II
-
-Given an m x n board of characters and a list of strings words, return all words on the board.
-
-Each word must be constructed from letters of sequentially adjacent cells, where adjacent cells are horizontally or vertically neighboring. The same letter cell may not be used more than once in a word.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>[["o", "a", "a", "n"]]</dd>
-<dt>Output:</dt>
-<dd>1</dd>
-<dt>Explanation:</dt>
-<dd>Words ['oath','eat'] are found in the board</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
-**Data Structures**: Hash Map, Hash Set, Array
-**Patterns**: Hash Table Pattern, Backtracking
-**Time Complexity**: O(M * N * 4^L)
-**Space Complexity**: O(K * L)
-
 ### INTUITION:
 Searching for multiple words on a board can be optimized using a Trie. Instead of searching for each word individually, we build a Trie from all words and perform a single DFS traversal. As we explore the board, we simultaneously traverse the Trie, finding all matching words in one pass.
 
@@ -83,13 +55,13 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(M * N * 4^L)
+**O(M * N * 4^L)**
 Where M*N is board size, L is maximum word length
 - We visit each cell and explore 4 directions recursively
-- Trie operations are O(L)
+- Trie operations are **O(L)**
 
 ### SPACE COMPLEXITY:
-O(K * L)
+**O(K * L)**
 Where K is number of words, L is average word length
 - Trie storage for all words
 
@@ -99,6 +71,7 @@ Where K is number of words, L is average word length
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 from typing import Any

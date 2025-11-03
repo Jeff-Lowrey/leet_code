@@ -1,45 +1,16 @@
 /**
- * # Difficulty: Hard
- *
- * # 0140. Word Break II
- *
- *
- * Given a string s and a dictionary of strings wordDict, add spaces in s to construct a sentence where each word is a valid dictionary word. Return all such possible sentences in any order.
- *
- * Note that the same word in the dictionary may be reused multiple times in the segmentation.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>["cat", "cats", "and", "sand", "dog"]</dd>
- * <dt>Output:</dt>
- * <dd>1</dd>
- * <dt>Explanation:</dt>
- * <dd>Word break II splits 'catsanddog' into ['cats and dog', 'cat sand dog']</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
- * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
- * **Data Structures**: Hash Map, Hash Set, Array
- * **Patterns**: Two Pointers Pattern, Dynamic Programming
- * **Time Complexity**: O(N^3 + M*L)
- * **Space Complexity**: O(M*L + N^2)
- *
- * ### INTUITION:
- * This problem requires finding all possible ways to break a string into valid words. Using a Trie helps efficiently check if a prefix exists in the dictionary, and backtracking explores all possible segmentations. Memoization prevents redundant computation for the same substring.
- *
- * ### APPROACH:
- * 1. **Build Trie**: Insert all dictionary words into a trie for efficient prefix checking
- * 2. **Backtracking**: Try to match prefixes at each position
- * 3. **Memoization**: Cache results for each starting position to avoid recomputation
- * 4. **Collect sentences**: Build valid sentences by combining matched words
- *
- * Alternative: Use recursion with memoization without Trie (checking against word set)
- *
- * ### WHY THIS WORKS:
+### INTUITION:
+This problem requires finding all possible ways to break a string into valid words. Using a Trie helps efficiently check if a prefix exists in the dictionary, and backtracking explores all possible segmentations. Memoization prevents redundant computation for the same substring.
+
+### APPROACH:
+1. **Build Trie**: Insert all dictionary words into a trie for efficient prefix checking
+2. **Backtracking**: Try to match prefixes at each position
+3. **Memoization**: Cache results for each starting position to avoid recomputation
+4. **Collect sentences**: Build valid sentences by combining matched words
+
+Alternative: Use recursion with memoization without Trie (checking against word set)
+
+### WHY THIS WORKS:
 - This ensures that trie enables efficient prefix matching as we scan through the string
 - This ensures that backtracking explores all possible word boundaries
 - This ensures that memoization prevents exponential time by caching substring results
@@ -73,23 +44,24 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
- * O(N^3 + M*L)
- * Where N is string length, M is number of words, L is average word length
- * - Trie building: O(M*L)
- * - Backtracking with memoization: O(N^3) in worst case
- *
- * ### SPACE COMPLEXITY:
- * O(M*L + N^2)
- * - Trie storage: O(M*L)
- * - Memoization cache: O(N^2) for storing results
- *
- * ### EDGE CASES:
+O(N^3 + M*L)**
+Where N is string length, M is number of words, L is average word length
+- Trie building: **O(M*L)**
+- Backtracking with memoization: **O(N^3)** in worst case
+
+### SPACE COMPLEXITY:
+O(M*L + N^2)**
+- Trie storage: **O(M*L)**
+- Memoization cache: **O(N^2)** for storing results
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 class Solution {
   wordBreak(s: string, wordDict: string[]): string[] {
