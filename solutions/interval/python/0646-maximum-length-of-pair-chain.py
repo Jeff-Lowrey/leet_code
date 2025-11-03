@@ -1,36 +1,4 @@
 """
-# Difficulty: Medium
-
-# 0646. Maximum Length Of Pair Chain
-
-You are given an array of n pairs pairs where pairs[i] = [lefti, righti] and lefti < righti.
-
-A pair p2 = [c, d] follows a pair p1 = [a, b] if b < c. A chain of pairs can be formed in this fashion.
-
-Return the length longest chain which can be formed.
-
-You do not need to use up all the given intervals. You can select pairs in any order.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>pairs = [[1,2],[2,3],[3,4]]</dd>
-<dt>Output:</dt>
-<dd>2 (maximum chain length)</dd>
-<dt>Explanation:</dt>
-<dd>Longest chain of pairs [[1,2],[2,3],[3,4]] is 2</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Two Pointers
-**Data Structures**: Hash Map, Hash Set, Array
-**Patterns**: Two Pointers Pattern, Hash Table Pattern
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
 The key insight is that sort pairs by end time. Use greedy similar to Activity Selection. Keep previous end, skip pairs that don't start after previous end. Count valid pairs.
 
@@ -69,14 +37,12 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 - Single pass through input
 
-
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 - Constant extra space
-
 
 ### EDGE CASES:
 - **Empty input**: Handle when input is empty
@@ -84,6 +50,7 @@ O(1)
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 from typing import List, Optional, Dict, Tuple

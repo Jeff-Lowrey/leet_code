@@ -1,45 +1,18 @@
 /**
- * # Difficulty: Medium
- *
- * # 0253. Meeting Rooms Ii
- *
- *
- * Given an array of meeting time intervals intervals where intervals[i] = [starti, endi], return the minimum number of conference rooms required.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>intervals = [[0,30],[5,10],[15,20]]</dd>
- * <dt>Output:</dt>
- * <dd>2 (minimum meeting rooms needed)</dd>
- * <dt>Explanation:</dt>
- * <dd>Minimum 2 meeting rooms needed for [[0,30],[5,10],[15,20]]</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
- * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
- * **Data Structures**: Hash Map, Hash Set, Array
- * **Patterns**: Two Pointers Pattern, Greedy Algorithm
- * **Time Complexity**: O(n)
- * **Space Complexity**: O(1) - Constant extra space
- *
- * ### INTUITION:
+### INTUITION:
 The key insight is that track meeting start and end times separately. Use min heap for end times. When a new meeting starts, remove all meetings that have already ended. Heap size is rooms needed at that moment. Return maximum heap size.
 
 ### APPROACH:
- * 1. **Separate start and end times**: Create start_times and end_times arrays
- * 2. **Sort both arrays**: Sort start_times and end_times independently
- * 3. **Initialize pointers**: Set start_ptr = 0, end_ptr = 0, rooms = 0, max_rooms = 0
- * 4. **Process all meetings**: While start_ptr < len(start_times)
- * 5. **Meeting starts**: If start_times[start_ptr] < end_times[end_ptr], increment rooms and start_ptr
- * 6. **Meeting ends**: Else decrement rooms and increment end_ptr
- * 7. **Track maximum**: max_rooms = max(max_rooms, rooms)
- * 8. **Return result**: Return max_rooms
- *
- * ### WHY THIS WORKS:
+1. **Separate start and end times**: Create start_times and end_times arrays
+2. **Sort both arrays**: Sort start_times and end_times independently
+3. **Initialize pointers**: Set start_ptr = 0, end_ptr = 0, rooms = 0, max_rooms = 0
+4. **Process all meetings**: While start_ptr < len(start_times)
+5. **Meeting starts**: If start_times[start_ptr] < end_times[end_ptr], increment rooms and start_ptr
+6. **Meeting ends**: Else decrement rooms and increment end_ptr
+7. **Track maximum**: max_rooms = max(max_rooms, rooms)
+8. **Return result**: Return max_rooms
+
+### WHY THIS WORKS:
 - This ensures that sort start times and end times separately as two arrays
 - This ensures that two pointers: when meeting starts before earliest end, need new room
 - This ensures that when meeting starts after earliest end, reuse that room
@@ -47,44 +20,44 @@ The key insight is that track meeting start and end times separately. Use min he
 - This ensures that o(n log n) for sorting, O(n) space for separate arrays
 
 ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * intervals = [[0,30],[5,10],[15,20]]
- * ```
- *
- * Step 1: Separate start and end times
- * starts = [0,5,15]
- * ends = [10,20,30]
- * Step 2: Use two pointers
- * time=0: start meeting, rooms=1
- * time=5: start meeting, rooms=2
- * time=10: end meeting, rooms=1
- * time=15: start meeting, rooms=2
- * time=20: end meeting, rooms=1
- * time=30: end meeting, rooms=0
- *
- * Output:
- * ```
- * 2 (minimum meeting rooms needed)
- * ```
+Input:
+```
+intervals = [[0,30],[5,10],[15,20]]
+```
 
- * ### TIME COMPLEXITY:
+Step 1: Separate start and end times
+starts = [0,5,15]
+ends = [10,20,30]
+Step 2: Use two pointers
+time=0: start meeting, rooms=1
+time=5: start meeting, rooms=2
+time=10: end meeting, rooms=1
+time=15: start meeting, rooms=2
+time=20: end meeting, rooms=1
+time=30: end meeting, rooms=0
 
- * O(n)
+Output:
+```
+2 (minimum meeting rooms needed)
+```
 
- * - Single pass through the input
- *
- * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
- *
- * ### EDGE CASES:
+### TIME COMPLEXITY:
+O(n)**
+
+- Single pass through the input
+
+### SPACE COMPLEXITY:
+O(1)**
+- Constant extra space
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 class MinHeap {
   private heap: number[];

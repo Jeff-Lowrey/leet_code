@@ -1,82 +1,56 @@
 /**
- * # Difficulty: Medium
- *
- * # 0252. Meeting Rooms
- *
- *
- * Given an array of meeting time intervals where intervals[i] = [starti, endi], determine if a person could attend all meetings.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>intervals = [[0,30],[5,10],[15,20]]</dd>
- * <dt>Output:</dt>
- * <dd>false</dd>
- * <dt>Explanation:</dt>
- * <dd>The person can attend all meetings because [[0,30],[5,10],[15,20]] has overlaps (cannot attend all)</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
- * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
- * **Data Structures**: Hash Map, Array, Linked List
- * **Patterns**: Two Pointers Pattern
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(1) - Constant extra space
- *
- * ### INTUITION:
+### INTUITION:
 The key insight is that sort meetings by start time. Check consecutive meetings for overlap by comparing start of next meeting with end of current. If any overlap, return false.
 
 ### APPROACH:
- * 1. **Sort by start time**: Sort intervals by interval[0]
- * 2. **Check consecutive pairs**: For i in range(1, len(intervals))
- * 3. **Check overlap**: If intervals[i][0] < intervals[i-1][1], overlap exists
- * 4. **Return False**: Overlapping meetings cannot be attended
- * 5. **Continue checking**: Process all pairs
- * 6. **Return True**: If no overlaps found
- *
- * ### WHY THIS WORKS:
- * - Sort by start time, check consecutive intervals for overlap
- * - Overlap if current.start < previous.end
- * - Single overlap means person can't attend all meetings
- * - Sorting ensures we check all potential conflicts
- * - O(n log n) for sort, O(1) space
- *
- * ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * intervals = [[0,30],[5,10],[15,20]]
- * ```
- *
- * Step 1: Sort by start time
- * sorted = [[0,30],[5,10],[15,20]]
- * Step 2: Check for overlaps
- *
- * Steps:
- * Step 1: [0,30] vs [5,10]: 5 < 30 → overlap found
- *
- * Output:
- * ```
- * False (cannot attend all meetings)
- * ```
+1. **Sort by start time**: Sort intervals by interval[0]
+2. **Check consecutive pairs**: For i in range(1, len(intervals))
+3. **Check overlap**: If intervals[i][0] < intervals[i-1][1], overlap exists
+4. **Return False**: Overlapping meetings cannot be attended
+5. **Continue checking**: Process all pairs
+6. **Return True**: If no overlaps found
 
- * ### TIME COMPLEXITY:
- * O(n)
- * - Single pass through input
- *
- * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
- *
- * ### EDGE CASES:
+### WHY THIS WORKS:
+- Sort by start time, check consecutive intervals for overlap
+- Overlap if current.start < previous.end
+- Single overlap means person can't attend all meetings
+- Sorting ensures we check all potential conflicts
+- O(n log n) for sort, O(1) space
+
+### EXAMPLE WALKTHROUGH:
+Input:
+```
+intervals = [[0,30],[5,10],[15,20]]
+```
+
+Step 1: Sort by start time
+sorted = [[0,30],[5,10],[15,20]]
+Step 2: Check for overlaps
+
+Steps:
+Step 1: [0,30] vs [5,10]: 5 < 30 → overlap found
+
+Output:
+```
+False (cannot attend all meetings)
+```
+
+### TIME COMPLEXITY:
+O(n)**
+- Single pass through input
+
+### SPACE COMPLEXITY:
+O(1)**
+- Constant extra space
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 class Solution {
   /**

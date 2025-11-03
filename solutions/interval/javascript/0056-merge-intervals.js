@@ -1,33 +1,5 @@
 /**
- * # Difficulty: Medium
- *
- * # 0056. Merge Intervals
- *
- *
- * Given an array of intervals where intervals[i] = [starti, endi], merge all overlapping intervals, and return an array of the non-overlapping intervals that cover all the intervals in the input.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>intervals = [[1,3], [2,6], [8,10], [15,18]]</dd>
- * <dt>Output:</dt>
- * <dd>[[1,6], [8,10], [15,18]]</dd>
- * <dt>Explanation:</dt>
- * <dd>Merged intervals [[1,3],[2,6],[8,10],[15,18]] become [[1,6],[8,10],[15,18]]</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- * ### METADATA:
- * **Techniques**: Hash Map Storage, Array Traversal, Two Pointers
- * **Data Structures**: Array, String
- * **Patterns**: Two Pointers Pattern, Greedy Algorithm
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(1) - Constant extra space
-
- *
- * ### INTUITION:
+### INTUITION:
 [This problem requires understanding of interval concepts. The key insight is to identify the optimal approach for this specific scenario.]
 
 ### APPROACH:
@@ -42,48 +14,49 @@
 - This ensures that space complexity is minimized where possible
 
 ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * intervals = [[1,3], [2,6], [8,10], [15,18]]
- * ```
- *
- * Step 1: Sort by start time
- * Already sorted: [[1,3], [2,6], [8,10], [15,18]]
- * Step 2: Initialize with first interval
- * merged = [[1,3]]
- * Step 3: Process [2,6]
- * 2 ≤ 3 (overlaps with [1,3])
- * Merge: [1, max(3,6)] = [1,6]
- * merged = [[1,6]]
- * Step 4: Process [8,10]
- * 8 > 6 (no overlap with [1,6])
- * Add new interval
- * merged = [[1,6], [8,10]]
- * Step 5: Process [15,18]
- * 15 > 10 (no overlap with [8,10])
- * Add new interval
- * merged = [[1,6], [8,10], [15,18]]
- *
- * Output:
- * ```
- * [[1,6], [8,10], [15,18]]
- * ```
+Input:
+```
+intervals = [[1,3], [2,6], [8,10], [15,18]]
+```
 
- * ### TIME COMPLEXITY:
- * O(n)
- * - Single pass through input
- *
- * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
- *
- * ### EDGE CASES:
+Step 1: Sort by start time
+Already sorted: [[1,3], [2,6], [8,10], [15,18]]
+Step 2: Initialize with first interval
+merged = [[1,3]]
+Step 3: Process [2,6]
+2 ≤ 3 (overlaps with [1,3])
+Merge: [1, max(3,6)] = [1,6]
+merged = [[1,6]]
+Step 4: Process [8,10]
+8 > 6 (no overlap with [1,6])
+Add new interval
+merged = [[1,6], [8,10]]
+Step 5: Process [15,18]
+15 > 10 (no overlap with [8,10])
+Add new interval
+merged = [[1,6], [8,10], [15,18]]
+
+Output:
+```
+[[1,6], [8,10], [15,18]]
+```
+
+### TIME COMPLEXITY:
+O(n)**
+- Single pass through input
+
+### SPACE COMPLEXITY:
+O(1)**
+- Constant extra space
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 /**
  * Main solution for Problem 056: Merge Intervals

@@ -1,33 +1,5 @@
 /**
- * # Difficulty: Medium
- *
- * # 0253. Meeting Rooms Ii
- *
- *
- * Given an array of meeting time intervals intervals where intervals[i] = [starti, endi], return the minimum number of conference rooms required.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>intervals = [[0,30],[5,10],[15,20]]</dd>
- * <dt>Output:</dt>
- * <dd>2 (minimum meeting rooms needed)</dd>
- * <dt>Explanation:</dt>
- * <dd>Minimum 2 meeting rooms needed for [[0,30],[5,10],[15,20]]</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- * ### METADATA:
- * **Techniques**: Hash Map Storage, Array Traversal, Two Pointers
- * **Data Structures**: Array, Linked List
- * **Patterns**: Two Pointers Pattern, Greedy Algorithm
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(1) - Constant extra space
-
- *
- * ### INTUITION:
+### INTUITION:
 [This problem requires understanding of interval concepts. The key insight is to identify the optimal approach for this specific scenario.]
 
 ### APPROACH:
@@ -42,42 +14,43 @@
 - This ensures that space complexity is minimized where possible
 
 ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * intervals = [[0,30],[5,10],[15,20]]
- * ```
- *
- * Step 1: Separate start and end times
- * starts = [0,5,15]
- * ends = [10,20,30]
- * Step 2: Use two pointers
- * time=0: start meeting, rooms=1
- * time=5: start meeting, rooms=2
- * time=10: end meeting, rooms=1
- * time=15: start meeting, rooms=2
- * time=20: end meeting, rooms=1
- * time=30: end meeting, rooms=0
- *
- * Output:
- * ```
- * 2 (minimum meeting rooms needed)
- * ```
+Input:
+```
+intervals = [[0,30],[5,10],[15,20]]
+```
 
- * ### TIME COMPLEXITY:
- * O(n)
- * - Single pass through input
- *
- * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
- *
- * ### EDGE CASES:
+Step 1: Separate start and end times
+starts = [0,5,15]
+ends = [10,20,30]
+Step 2: Use two pointers
+time=0: start meeting, rooms=1
+time=5: start meeting, rooms=2
+time=10: end meeting, rooms=1
+time=15: start meeting, rooms=2
+time=20: end meeting, rooms=1
+time=30: end meeting, rooms=0
+
+Output:
+```
+2 (minimum meeting rooms needed)
+```
+
+### TIME COMPLEXITY:
+O(n)**
+- Single pass through input
+
+### SPACE COMPLEXITY:
+O(1)**
+- Constant extra space
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 /**
  * Main solution for Problem 253: Meeting Rooms II

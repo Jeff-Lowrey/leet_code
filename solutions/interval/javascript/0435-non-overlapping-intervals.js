@@ -1,33 +1,5 @@
 /**
- * # Difficulty: Medium
- *
- * # 0435. Non Overlapping Intervals
- *
- *
- * Given an array of intervals intervals where intervals[i] = [starti, endi], return the minimum number of intervals you need to remove to make the rest of the intervals non-overlapping.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>intervals = [[1,2],[2,3],[3,4],[1,3]]</dd>
- * <dt>Output:</dt>
- * <dd>1 (min intervals to remove)</dd>
- * <dt>Explanation:</dt>
- * <dd>Minimum 1 interval removed to make [[1,2],[2,3],[3,4],[1,3]] non-overlapping</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- * ### METADATA:
- * **Techniques**: Array Traversal, Two Pointers, Sorting
- * **Data Structures**: Array
- * **Patterns**: Two Pointers Pattern, Hash Table Pattern
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(1) - Constant extra space
-
- *
- * ### INTUITION:
+### INTUITION:
 [This problem requires understanding of interval concepts. The key insight is to identify the optimal approach for this specific scenario.]
 
 ### APPROACH:
@@ -42,41 +14,42 @@
 - This ensures that space complexity is minimized where possible
 
 ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * intervals = [[1,2],[2,3],[3,4],[1,3]]
- * ```
- *
- * Step 1: Sort by end time
- * sorted = [[1,2],[2,3],[1,3],[3,4]]
- * Step 2: Greedy selection
- * Select [1,2], end=2
- * [2,3]: 2 ≥ 2, select it, end=3
- *
- * Steps:
- * Step 1: [1,3]: 1 < 3, overlaps → remove count=1
- * Step 2: [3,4]: 3 ≥ 3, select it
- *
- * Output:
- * ```
- * 1 (min intervals to remove)
- * ```
+Input:
+```
+intervals = [[1,2],[2,3],[3,4],[1,3]]
+```
 
- * ### TIME COMPLEXITY:
- * O(n)
- * - Single pass through input
- *
- * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
- *
- * ### EDGE CASES:
+Step 1: Sort by end time
+sorted = [[1,2],[2,3],[1,3],[3,4]]
+Step 2: Greedy selection
+Select [1,2], end=2
+[2,3]: 2 ≥ 2, select it, end=3
+
+Steps:
+Step 1: [1,3]: 1 < 3, overlaps → remove count=1
+Step 2: [3,4]: 3 ≥ 3, select it
+
+Output:
+```
+1 (min intervals to remove)
+```
+
+### TIME COMPLEXITY:
+O(n)**
+- Single pass through input
+
+### SPACE COMPLEXITY:
+O(1)**
+- Constant extra space
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 /**
  * Main solution for Problem 435: Non Overlapping Intervals

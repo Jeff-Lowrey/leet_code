@@ -1,39 +1,5 @@
 /**
- * # Difficulty: Medium
- *
- * # 0646. Maximum Length Of Pair Chain
- *
- *
- * You are given an array of n pairs pairs where pairs[i] = [lefti, righti] and lefti < righti.
- *
- * A pair p2 = [c, d] follows a pair p1 = [a, b] if b < c. A chain of pairs can be formed in this fashion.
- *
- * Return the length longest chain which can be formed.
- *
- * You do not need to use up all the given intervals. You can select pairs in any order.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>pairs = [[1,2],[2,3],[3,4]]</dd>
- * <dt>Output:</dt>
- * <dd>2 (maximum chain length)</dd>
- * <dt>Explanation:</dt>
- * <dd>Longest chain of pairs [[1,2],[2,3],[3,4]] is 2</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- * ### METADATA:
- * **Techniques**: Array Traversal, Two Pointers, Sorting
- * **Data Structures**: Array
- * **Patterns**: Two Pointers Pattern
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(1) - Constant extra space
-
- *
- * ### INTUITION:
+### INTUITION:
 [This problem requires understanding of interval concepts. The key insight is to identify the optimal approach for this specific scenario.]
 
 ### APPROACH:
@@ -48,38 +14,39 @@
 - This ensures that space complexity is minimized where possible
 
 ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * pairs = [[1,2],[2,3],[3,4]]
- * ```
- *
- * Step 1: Sort by second element
- * sorted = [[1,2],[2,3],[3,4]]
- * Step 2: Greedy selection
- * Select [1,2], end=2
- * [2,3]: 2 ≥ 2, skip
- * [3,4]: 3 > 2, select it, length=2
- *
- * Output:
- * ```
- * 2 (maximum chain length)
- * ```
+Input:
+```
+pairs = [[1,2],[2,3],[3,4]]
+```
 
- * ### TIME COMPLEXITY:
- * O(n)
- * - Single pass through input
- *
- * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
- *
- * ### EDGE CASES:
+Step 1: Sort by second element
+sorted = [[1,2],[2,3],[3,4]]
+Step 2: Greedy selection
+Select [1,2], end=2
+[2,3]: 2 ≥ 2, skip
+[3,4]: 3 > 2, select it, length=2
+
+Output:
+```
+2 (maximum chain length)
+```
+
+### TIME COMPLEXITY:
+O(n)**
+- Single pass through input
+
+### SPACE COMPLEXITY:
+O(1)**
+- Constant extra space
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 /**
  * Main solution for Problem 646: Maximum Length Of Pair Chain

@@ -1,36 +1,4 @@
 """
-# Difficulty: Medium
-
-# 0759. Employee Free Time
-
-We are given a list schedule of employees, which represents the working time for each employee.
-
-Each employee has a list of non-overlapping Intervals, and these intervals are in sorted order.
-
-Return the list of finite intervals representing common, positive-length free time for all employees, also in sorted order.
-
-(Even though we are representing Intervals in the form [x, y], the objects inside are Intervals, not lists or arrays. For example, schedule[0][0].start = 1, schedule[0][0].end = 2, and schedule[0][0][0] is not defined). Also, we wouldn't include intervals like [5, 5] in our answer, as they have zero length.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>schedule = [[[1,2],[5,6]],[[1,3]],[[4,10]]]</dd>
-<dt>Output:</dt>
-<dd>[[3,4]] (common free time)</dd>
-<dt>Explanation:</dt>
-<dd>Free time when all employees are not busy: [[3,4]]</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: Hash Map, Array, String
-**Patterns**: Two Pointers Pattern, Hash Table Pattern
-**Time Complexity**: O(n)
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
 The key insight is that flatten all employee intervals into a list of (time, type) events. Sort by time. Use counter: increment for start, decrement for end. When counter > 0, time is covered. Build result intervals.
 
@@ -67,14 +35,12 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 - Single pass through input
 
-
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 - Constant extra space
-
 
 ### EDGE CASES:
 - **Empty input**: Handle when input is empty
@@ -82,6 +48,7 @@ O(1)
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 from typing import Any, List, Optional, Dict, Tuple

@@ -1,30 +1,4 @@
 """
-# Difficulty: Medium
-
-# 0253. Meeting Rooms Ii
-
-Given an array of meeting time intervals intervals where intervals[i] = [starti, endi], return the minimum number of conference rooms required.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>intervals = [[0,30],[5,10],[15,20]]</dd>
-<dt>Output:</dt>
-<dd>2 (minimum meeting rooms needed)</dd>
-<dt>Explanation:</dt>
-<dd>Minimum 2 meeting rooms needed for [[0,30],[5,10],[15,20]]</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: Hash Map, Hash Set, Array
-**Patterns**: Two Pointers Pattern, Greedy Algorithm
-**Time Complexity**: O(n)
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
 The key insight is that track meeting start and end times separately. Use min heap for end times. When a new meeting starts, remove all meetings that have already ended. Heap size is rooms needed at that moment. Return maximum heap size.
 
@@ -68,14 +42,12 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 - Single pass through input
 
-
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 - Constant extra space
-
 
 ### EDGE CASES:
 - **Empty input**: Handle when input is empty
@@ -83,6 +55,7 @@ O(1)
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 import heapq

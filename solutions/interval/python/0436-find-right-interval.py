@@ -1,34 +1,4 @@
 """
-# Difficulty: Medium
-
-# 0436. Find Right Interval
-
-You are given an array of intervals, where intervals[i] = [starti, endi] and each starti is unique.
-
-The right interval for an interval i is an interval j such that startj >= endi and startj is minimized. Note that i may equal j.
-
-Return an array of right interval indices for each interval i. If no right interval exists for interval i, then put -1 at index i.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>intervals = [[3,4],[2,3],[1,2]]</dd>
-<dt>Output:</dt>
-<dd>[-1,0,1]</dd>
-<dt>Explanation:</dt>
-<dd>For each interval [1,2], the right interval [2,3] has the smallest start ≥ 2</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: Hash Map, Array, Tree
-**Patterns**: Two Pointers Pattern, Binary Search Pattern
-**Time Complexity**: O(n)
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
 The key insight is that sort intervals by start time. For each interval, binary search for the first interval whose start >= current interval's end. Store the index or -1 if not found.
 
@@ -71,14 +41,12 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 - Single pass through input
 
-
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 - Constant extra space
-
 
 ### EDGE CASES:
 - **Empty input**: Handle when input is empty
@@ -86,6 +54,7 @@ O(1)
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 from typing import Any, List, Optional, Dict, Tuple
