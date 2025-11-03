@@ -1,4 +1,9 @@
-"""
+"""### METADATA:
+**Techniques**: Hash Map (Complement Lookup)
+**Data Structures**: Hash Table (Dictionary)
+**Time Complexity**: O(n)
+**Space Complexity**: O(n)
+
 ### INTUITION:
 The key insight is to use a hash map to store numbers we've seen so far.
 
@@ -53,8 +58,6 @@ Why it works: We found that nums[0]=2 and nums[1]=7 sum to target 9, so we retur
 - **Duplicate values:** Hash map handles correctly by index
 - **Two same numbers sum to target:** Works if at different indices
 - **Negative numbers:** Algorithm works for any integers
-
-</details>
 
 """
 

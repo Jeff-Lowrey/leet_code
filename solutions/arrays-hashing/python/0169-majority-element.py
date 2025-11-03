@@ -1,5 +1,4 @@
-"""
-### INTUITION:
+"""### METADATA:\n**Techniques**: Boyer-Moore Voting Algorithm\n**Data Structures**: Counter Variable\n**Time Complexity**: O(n)\n**Space Complexity**: O(1)\n\n### INTUITION:
 Since the majority element appears more than n/2 times, it will always "survive" any cancellation process. The Boyer-Moore voting algorithm leverages this by maintaining a candidate and count, canceling out different elements.
 
 ### APPROACH:
@@ -52,8 +51,6 @@ Output:
 - **Exactly n/2 + 1 occurrences**: Still majority element
 - **Multiple candidates**: Boyer-Moore finds the true majority
 - **Guaranteed majority**: Problem guarantees one exists
-
-</details>
 
 """
 

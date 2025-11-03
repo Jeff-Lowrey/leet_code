@@ -1,55 +1,56 @@
 /**
-### INTUITION:
-Use a hash map to count frequencies in one array, then iterate through the second
-array to find common elements. This allows us to handle duplicates correctly.
-
-### APPROACH:
-1. **Convert array to set**: Transform the input array into a set data structure, which automatically removes all duplicate values
-2. **Compare lengths**: Calculate the length of both the original array and the newly created set
-3. **Detect duplicates**: If the lengths differ, duplicates existed in the original array (they were removed during set conversion)
-4. **Return result**: Return True if lengths differ (duplicates found), False if lengths match (all elements unique)
-5. **Alternative early termination**: For better average performance, iterate through array and add elements to a set one by one, returning True immediately when an element is already in the set
-
-### WHY THIS WORKS:
-- Hash map tracks how many times each element appears in nums1
-- For each element in nums2, we check if it's available in the map
-- Decrementing the count ensures we don't reuse elements
-- Time complexity is linear, space is proportional to smaller array
-
-### EXAMPLE WALKTHROUGH:
-Input:
-```
-nums1 = [1,2,2,1], nums2 = [2,2]
-```
-
-Step 1: Build frequency map from nums1
-freq = {1: 2, 2: 2}
-Step 2: Iterate through nums2
-
-Steps:
-Step 1: num = 2: freq[2] = 2 > 0 → add 2, freq[2] = 1
-Step 2: num = 2: freq[2] = 1 > 0 → add 2, freq[2] = 0
-
-Output:
-```
-[2, 2]
-```
-
-### TIME COMPLEXITY:
-O(n + m)** - where n = len(nums1) and m = len(nums2). We make one pass through nums1 to build the frequency map (**O(n)**), then one pass through nums2 to find intersections (**O(m)**). Each hash map operation (Counter increment, lookup, decrement) is **O(1)**. Total: **O(n)** + **O(m)** = **O(n + m)**. This is optimal since we must examine all elements in both arrays.
-
-### SPACE COMPLEXITY:
-O(min(n, m)**)** - where n = len(nums1) and m = len(nums2). We store frequencies of the smaller array in the hash map. In the worst case where all elements in the smaller array are unique, we store min(n, m) entries. The result array can be at most min(n, m) in size (when all elements of the smaller array appear in the larger array). Total space: **O(min(n, m)**) for the frequency map + **O(min(n, m)**) for the result = **O(min(n, m)**).
-
-### EDGE CASES:
-- **Empty arrays**: Return empty array
-- **No intersection**: Return empty array
-- **All elements intersect**: Return all with proper frequencies
-- **One array is subset**: Return the subset
-
-</details>
-
-*/
+ * ### INTUITION:
+ * Use a hash map to count frequencies in one array, then iterate through the second
+ * array to find common elements. This allows us to handle duplicates correctly.
+ *
+ * ### APPROACH:
+ * 1. **Convert array to set**: Transform the input array into a set data structure, which automatically removes all duplicate values
+ * 2. **Compare lengths**: Calculate the length of both the original array and the newly created set
+ * 3. **Detect duplicates**: If the lengths differ, duplicates existed in the original array (they were removed during set conversion)
+ * 4. **Return result**: Return True if lengths differ (duplicates found), False if lengths match (all elements unique)
+ * 5. **Alternative early termination**: For better average performance, iterate through array and add elements to a set one by one, returning True immediately when an element is already in the set
+ *
+ * ### WHY THIS WORKS:
+ * - Hash map tracks how many times each element appears in nums1
+ * - For each element in nums2, we check if it's available in the map
+ * - Decrementing the count ensures we don't reuse elements
+ * - Time complexity is linear, space is proportional to smaller array
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * nums1 = [1,2,2,1], nums2 = [2,2]
+ * ```
+ *
+ * Step 1: Build frequency map from nums1
+ * freq = {1: 2, 2: 2}
+ * Step 2: Iterate through nums2
+ *
+ * Steps:
+ * Step 1: num = 2: freq[2] = 2 > 0 → add 2, freq[2] = 1
+ * Step 2: num = 2: freq[2] = 1 > 0 → add 2, freq[2] = 0
+ *
+ * Output:
+ * ```
+ * [2, 2]
+ * ```
+ *
+ * ### TIME COMPLEXITY:
+ * O(n + m)** - where n = len(nums1) and m = len(nums2). We make one pass through nums1 to build the frequency map (**O(n)**), then one pass through nums2 to find intersections (**O(m)**). Each hash map operation (Counter increment, lookup, decrement) is **O(1)**. Total: **O(n)** + **O(m)** = **O(n + m)**. This is optimal since we must examine all elements in both arrays.
+ *
+ * ### SPACE COMPLEXITY:
+ * O(min(n, m)**)** - where n = len(nums1) and m = len(nums2). We store frequencies of the smaller array in the hash map. In the worst case where all elements in the smaller array are unique, we store min(n, m) entries. The result array can be at most min(n, m) in size (when all elements of the smaller array appear in the larger array). Total space: **O(min(n, m)**) for the frequency map + **O(min(n, m)**) for the result = **O(min(n, m)**).
+ *
+ * ### EDGE CASES:
+ * - **Empty arrays**: Return empty array
+ * - **No intersection**: Return empty array
+ * - **All elements intersect**: Return all with proper frequencies
+ * - **One array is subset**: Return the subset
+ *
+ * *
+ * 
+ *
+ * */
 
 class Solution {
   /**

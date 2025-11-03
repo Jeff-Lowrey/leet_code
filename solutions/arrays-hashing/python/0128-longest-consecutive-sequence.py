@@ -1,4 +1,9 @@
-"""
+"""### METADATA:
+**Techniques**: Set-based Sequence Detection, Greedy Algorithm
+**Data Structures**: Set (Hash Set)
+**Time Complexity**: O(n)
+**Space Complexity**: O(n)
+
 ### INTUITION:
 Convert array to a set for O(1) lookups. Only start counting consecutive sequences from numbers where num-1 doesn't exist (the start of a sequence). This avoids redundant counting and achieves O(n) time since each number is visited at most twice.
 
@@ -59,8 +64,6 @@ Output:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
-
-</details>
 
 """
 

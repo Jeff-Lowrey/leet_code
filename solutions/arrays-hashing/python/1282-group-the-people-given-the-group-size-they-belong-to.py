@@ -1,4 +1,9 @@
-"""
+"""### METADATA:
+**Techniques**: Greedy Grouping, Hash Map Grouping
+**Data Structures**: Hash Map (defaultdict)
+**Time Complexity**: O(n)
+**Space Complexity**: O(n)
+
 ### INTUITION:
 The key insight is that use a hash map to collect people by their required group size. When a group
 reaches its target size, add it to the result and start a new group for that size.
@@ -50,8 +55,6 @@ Output:
 - **All different sizes**: Each person in separate group
 - **Single person**: Return [[0]]
 - **Multiple valid solutions**: Any valid grouping is acceptable
-
-</details>
 
 """
 

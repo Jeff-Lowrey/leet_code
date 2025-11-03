@@ -1,54 +1,52 @@
 /**
-### INTUITION:
-The key insight is that two strings are anagrams if they contain the exact same characters with the same frequencies. We can verify this by counting character frequencies in both strings.
-
-### APPROACH:
-1. **Convert array to set**: Transform the input array into a set data structure, which automatically removes all duplicate values
-2. **Compare lengths**: Calculate the length of both the original array and the newly created set
-3. **Detect duplicates**: If the lengths differ, duplicates existed in the original array (they were removed during set conversion)
-4. **Return result**: Return True if lengths differ (duplicates found), False if lengths match (all elements unique)
-5. **Alternative early termination**: For better average performance, iterate through array and add elements to a set one by one, returning True immediately when an element is already in the set
-
-### WHY THIS WORKS:
-A set by definition contains only unique elements - when we convert an array to a set, any duplicates are automatically removed. By comparing the lengths of the original array and the set, we can detect if duplicates existed. The early termination approach works because as soon as we find an element already in our seen set, we've proven a duplicate exists without needing to check the remaining elements.
-
-### EXAMPLE WALKTHROUGH:
-Input:
-```
-nums = [1, 2, 3, 1]
-```
-
-**Step 1:** Convert array to set
-- set(nums) = {1, 2, 3}
-- Set length = 3, Array length = 4
-
-**Step 2:** Compare lengths
-- len(nums) = 4 != len(set(nums)) = 3
-- Since lengths differ, duplicates exist
-
-Output: True
-
-Alternative (Early Termination):
-- seen = {}
-- Check 1: not in seen, add it → seen = {1}
-- Check 2: not in seen, add it → seen = {1, 2}
-- Check 3: not in seen, add it → seen = {1, 2, 3}
-- Check 1: found in seen → return True immediately
-
-### TIME COMPLEXITY:
-O(n)** - where n is the length of the strings (assuming both have the same length). We make two passes through the strings: one to build the character frequency map from the first string (**O(n)**), and one to verify against the second string (**O(n)**). Each character lookup and insertion in the hash map is **O(1)**. Total: **O(n)** + **O(n)** = **O(2n)** = **O(n)**. Early termination when a mismatch is found provides better average-case performance.
-
-### SPACE COMPLEXITY:
-O(1)** - for the array approach. We use a fixed-size array of 26 elements for lowercase English letters, regardless of input size. For the hash map approach, worst case is **O(k)** where k is the number of unique characters. Since the problem typically assumes lowercase English letters only (26 characters max), this is **O(26)** = **O(1)** constant space.
-
-### EDGE CASES:
-- **Empty input**: Handle when input is empty
-- **Single element**: Handle single-element inputs
-- **Boundary values**: Handle minimum/maximum valid values
-
-</details>
-
-*/
+ * ### METADATA:\n**Techniques**: Frequency Counting\n**Data Structures**: Hash Map (Counter)\n**Time Complexity**: O(n)\n**Space Complexity**: O(1)\n\n### INTUITION:
+ * The key insight is that two strings are anagrams if they contain the exact same characters with the same frequencies. We can verify this by counting character frequencies in both strings.
+ *
+ * ### APPROACH:
+ * 1. **Convert array to set**: Transform the input array into a set data structure, which automatically removes all duplicate values
+ * 2. **Compare lengths**: Calculate the length of both the original array and the newly created set
+ * 3. **Detect duplicates**: If the lengths differ, duplicates existed in the original array (they were removed during set conversion)
+ * 4. **Return result**: Return True if lengths differ (duplicates found), False if lengths match (all elements unique)
+ * 5. **Alternative early termination**: For better average performance, iterate through array and add elements to a set one by one, returning True immediately when an element is already in the set
+ *
+ * ### WHY THIS WORKS:
+ * A set by definition contains only unique elements - when we convert an array to a set, any duplicates are automatically removed. By comparing the lengths of the original array and the set, we can detect if duplicates existed. The early termination approach works because as soon as we find an element already in our seen set, we've proven a duplicate exists without needing to check the remaining elements.
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * nums = [1, 2, 3, 1]
+ * ```
+ *
+ * Step 1:** Convert array to set
+ * - set(nums) = {1, 2, 3}
+ * - Set length = 3, Array length = 4
+ *
+ * Step 2:** Compare lengths
+ * - len(nums) = 4 != len(set(nums)) = 3
+ * - Since lengths differ, duplicates exist
+ *
+ * Output: True
+ *
+ * Alternative (Early Termination):
+ * - seen = {}
+ * - Check 1: not in seen, add it → seen = {1}
+ * - Check 2: not in seen, add it → seen = {1, 2}
+ * - Check 3: not in seen, add it → seen = {1, 2, 3}
+ * - Check 1: found in seen → return True immediately
+ *
+ * ### TIME COMPLEXITY:
+ * O(n)** - where n is the length of the strings (assuming both have the same length). We make two passes through the strings: one to build the character frequency map from the first string (**O(n)**), and one to verify against the second string (**O(n)**). Each character lookup and insertion in the hash map is **O(1)**. Total: **O(n)** + **O(n)** = **O(2n)** = **O(n)**. Early termination when a mismatch is found provides better average-case performance.
+ *
+ * ### SPACE COMPLEXITY:
+ * O(1)** - for the array approach. We use a fixed-size array of 26 elements for lowercase English letters, regardless of input size. For the hash map approach, worst case is **O(k)** where k is the number of unique characters. Since the problem typically assumes lowercase English letters only (26 characters max), this is **O(26)** = **O(1)** constant space.
+ *
+ * ### EDGE CASES:
+ * - **Empty input**: Handle when input is empty
+ * - **Single element**: Handle single-element inputs
+ * - **Boundary values**: Handle minimum/maximum valid values
+ *
+ * */
 
 class Solution {
   /**

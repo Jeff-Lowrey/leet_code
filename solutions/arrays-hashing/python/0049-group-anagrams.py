@@ -1,5 +1,4 @@
-"""
-### INTUITION:
+"""### METADATA:\n**Techniques**: Hash Map Grouping, Sorted String as Key\n**Data Structures**: Hash Map (defaultdict)\n**Time Complexity**: O(n × k log k)\n**Space Complexity**: O(n × k)\n\n### INTUITION:
 The key insight is that group strings by their "anagram signature" - a canonical representation that's the same for all anagrams. Two common signatures: sorted characters or character frequency count.
 
 ### APPROACH:
@@ -52,8 +51,6 @@ Output:
 - **No anagrams**: Each string in its own group
 - **All anagrams of each other**: Return single group with all strings
 - **Empty strings**: All empty strings grouped together
-
-</details>
 
 """
 

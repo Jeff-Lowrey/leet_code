@@ -1,5 +1,4 @@
-"""
-### INTUITION:
+"""### METADATA:\n**Techniques**: Prefix-Suffix Product, In-place Array Manipulation\n**Data Structures**: Array\n**Time Complexity**: O(n)\n**Space Complexity**: O(1)\n\n### INTUITION:
 The key insight is that for each position i, the product of all elements except nums[i] equals (product of all elements to the left of i) × (product of all elements to the right of i). We can calculate these prefix and suffix products in two passes without using division. First pass: build left products. Second pass: multiply by right products while traversing backwards.
 
 ### APPROACH:
@@ -58,8 +57,6 @@ Output:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
-
-</details>
 
 """
 

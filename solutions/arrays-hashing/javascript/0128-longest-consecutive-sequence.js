@@ -1,65 +1,66 @@
 /**
-### INTUITION:
-The key insight is to use a hash set for O(1) lookups and only start counting sequences from their beginning. For each number, check if (num-1) exists - if not, this is a sequence start. Then count consecutive numbers (num+1, num+2, etc.) until we can't find the next number. This ensures each number is visited at most twice (once to check if it's a start, once as part of a sequence), giving us O(n) time.
-
-### APPROACH:
-1. **Convert to Set**: Store all numbers in a Set for O(1) lookups
-2. **Find sequence starts**: For each number, check if (num-1) exists. If not, it's a sequence start
-3. **Count consecutive**: From each start, count how many consecutive numbers exist (num+1, num+2, etc.)
-4. **Track maximum**: Keep track of the longest sequence found
-5. **Return result**: Return the length of the longest consecutive sequence
-
-### WHY THIS WORKS:
-- This ensures that set conversion enables O(1) lookups, crucial for checking num-1 and num+1 efficiently
-- This ensures that only starting from sequence beginnings (where num-1 doesn't exist) prevents redundant counting
-- This ensures that each number visited at most twice: once in outer loop, once in inner while loop
-- This ensures that this achieves O(n) time despite apparent nested loops - the key insight
-- This ensures that set takes O(n) space but enables the linear time solution
-
-### EXAMPLE WALKTHROUGH:
-Input:
-```
-nums = [100, 4, 200, 1, 3, 2]
-```
-
-Step 1: Convert to set
-num_set = {100, 4, 200, 1, 3, 2}
-Step 2: Check num=1 (no num-1=0 in set, so it's a sequence start)
-current_num = 1, current_streak = 1
-
-Steps:
-Step 1: 1+1=2 in set → current_streak = 2
-Step 2: 2+1=3 in set → current_streak = 3
-Step 3: 3+1=4 in set → current_streak = 4
-Step 4: 4+1=5 not in set → stop
-Step 5: longest_streak = 4
-Step 6: Check num=2 (num-1=1 exists, skip)
-Step 7: Check num=3 (num-1=2 exists, skip)
-Step 8: Check num=4 (num-1=3 exists, skip)
-Step 9: Check num=100 (no num-1=99, sequence start)
-Step 10: current_streak = 1, no 101 in set
-Step 11: Check num=200 (no num-1=199, sequence start)
-Step 12: current_streak = 1, no 201 in set
-
-Output:
-```
-4 (sequence [1,2,3,4])
-```
-
-### TIME COMPLEXITY:
-O(n)** - where n is the number of elements in the array. Although we have nested loops, each number is visited at most twice: once in the outer loop to check if it's a sequence start (checking if num-1 exists), and potentially once more as part of counting a sequence (in the inner while loop). The key insight is that the while loop only executes for numbers that are sequence starts, and each number can only be part of one sequence. Total operations: at most 2n lookups and iterations, giving us **O(2n)** = **O(n)**.
-
-### SPACE COMPLEXITY:
-O(n)** - We store all n unique numbers in the Set data structure. In the worst case where all numbers are unique, the Set contains n elements. Even with duplicates, we still need **O(n)** space to store the unique values. This is the dominant space usage, making our space complexity **O(n)**.
-
-### EDGE CASES:
-- **Empty input**: Handle when input is empty
-- **Single element**: Handle single-element inputs
-- **Boundary values**: Handle minimum/maximum valid values
-
-</details>
-
-*/
+ * ### INTUITION:
+ * The key insight is to use a hash set for O(1) lookups and only start counting sequences from their beginning. For each number, check if (num-1) exists - if not, this is a sequence start. Then count consecutive numbers (num+1, num+2, etc.) until we can't find the next number. This ensures each number is visited at most twice (once to check if it's a start, once as part of a sequence), giving us O(n) time.
+ *
+ * ### APPROACH:
+ * 1. **Convert to Set**: Store all numbers in a Set for O(1) lookups
+ * 2. **Find sequence starts**: For each number, check if (num-1) exists. If not, it's a sequence start
+ * 3. **Count consecutive**: From each start, count how many consecutive numbers exist (num+1, num+2, etc.)
+ * 4. **Track maximum**: Keep track of the longest sequence found
+ * 5. **Return result**: Return the length of the longest consecutive sequence
+ *
+ * ### WHY THIS WORKS:
+ * - This ensures that set conversion enables O(1) lookups, crucial for checking num-1 and num+1 efficiently
+ * - This ensures that only starting from sequence beginnings (where num-1 doesn't exist) prevents redundant counting
+ * - This ensures that each number visited at most twice: once in outer loop, once in inner while loop
+ * - This ensures that this achieves O(n) time despite apparent nested loops - the key insight
+ * - This ensures that set takes O(n) space but enables the linear time solution
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * nums = [100, 4, 200, 1, 3, 2]
+ * ```
+ *
+ * Step 1: Convert to set
+ * num_set = {100, 4, 200, 1, 3, 2}
+ * Step 2: Check num=1 (no num-1=0 in set, so it's a sequence start)
+ * current_num = 1, current_streak = 1
+ *
+ * Steps:
+ * Step 1: 1+1=2 in set → current_streak = 2
+ * Step 2: 2+1=3 in set → current_streak = 3
+ * Step 3: 3+1=4 in set → current_streak = 4
+ * Step 4: 4+1=5 not in set → stop
+ * Step 5: longest_streak = 4
+ * Step 6: Check num=2 (num-1=1 exists, skip)
+ * Step 7: Check num=3 (num-1=2 exists, skip)
+ * Step 8: Check num=4 (num-1=3 exists, skip)
+ * Step 9: Check num=100 (no num-1=99, sequence start)
+ * Step 10: current_streak = 1, no 101 in set
+ * Step 11: Check num=200 (no num-1=199, sequence start)
+ * Step 12: current_streak = 1, no 201 in set
+ *
+ * Output:
+ * ```
+ * 4 (sequence [1,2,3,4])
+ * ```
+ *
+ * ### TIME COMPLEXITY:
+ * O(n)** - where n is the number of elements in the array. Although we have nested loops, each number is visited at most twice: once in the outer loop to check if it's a sequence start (checking if num-1 exists), and potentially once more as part of counting a sequence (in the inner while loop). The key insight is that the while loop only executes for numbers that are sequence starts, and each number can only be part of one sequence. Total operations: at most 2n lookups and iterations, giving us **O(2n)** = **O(n)**.
+ *
+ * ### SPACE COMPLEXITY:
+ * O(n)** - We store all n unique numbers in the Set data structure. In the worst case where all numbers are unique, the Set contains n elements. Even with duplicates, we still need **O(n)** space to store the unique values. This is the dominant space usage, making our space complexity **O(n)**.
+ *
+ * ### EDGE CASES:
+ * - **Empty input**: Handle when input is empty
+ * - **Single element**: Handle single-element inputs
+ * - **Boundary values**: Handle minimum/maximum valid values
+ *
+ * *
+ * 
+ *
+ * */
 
 /**
  * Main solution for Problem 128: Longest Consecutive Sequence

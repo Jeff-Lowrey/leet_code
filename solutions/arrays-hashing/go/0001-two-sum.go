@@ -1,5 +1,4 @@
-/*
-### INTUITION:
+/*### INTUITION:
 The key insight is to use a hash map to store numbers we've seen so far.
 
 For each number, we check if its complement (target - current_number) exists in our hash map.
@@ -43,18 +42,16 @@ Output:
 Why it works: We found that nums[0]=2 and nums[1]=7 sum to target 9, so we return their indices.
 
 ### TIME COMPLEXITY:
-**O(n)** - where n is the length of the array. In the worst case, we need to iterate through all n elements once. For each element, we perform two **O(1)** operations: one hash map lookup to check if the complement exists, and potentially one insertion to add the current number to the hash map. Therefore, the total time is **O(n × 1)** = **O(n)**.
+*O(n)** - where n is the length of the array. In the worst case, we need to iterate through all n elements once. For each element, we perform two **O(1)** operations: one hash map lookup to check if the complement exists, and potentially one insertion to add the current number to the hash map. Therefore, the total time is **O(n × 1)** = **O(n)**.
 
 ### SPACE COMPLEXITY:
-**O(n)** - In the worst case, we might need to store all n-1 elements in the hash map before finding the solution on the last element. For example, if nums = [1,2,3,4,5] and target = 9, we'd store {1:0, 2:1, 3:2, 4:3} before finding that 4+5=9 at index 4. The hash map stores at most n entries, giving us **O(n)** space complexity.
+*O(n)** - In the worst case, we might need to store all n-1 elements in the hash map before finding the solution on the last element. For example, if nums = [1,2,3,4,5] and target = 9, we'd store {1:0, 2:1, 3:2, 4:3} before finding that 4+5=9 at index 4. The hash map stores at most n entries, giving us **O(n)** space complexity.
 
 ### EDGE CASES:
 - **No solution exists:** Problem guarantees exactly one solution
 - **Duplicate values:** Hash map handles correctly by index
 - **Two same numbers sum to target:** Works if at different indices
 - **Negative numbers:** Algorithm works for any integers
-
-</details>
 
 */
 

@@ -1,5 +1,4 @@
-"""
-### INTUITION:
+"""### METADATA:\n**Techniques**: In-place Marking, Index as Hash Key\n**Data Structures**: Array (in-place)\n**Time Complexity**: O(n)\n**Space Complexity**: O(1)\n\n### INTUITION:
 The key insight is that use the array itself as a hash map by marking indices. For each number n, negate the value at index n-1 to mark that n is present. After marking, any indices with positive values indicate missing numbers.
 
 ### APPROACH:
@@ -54,8 +53,6 @@ Output:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
-
-</details>
 
 """
 

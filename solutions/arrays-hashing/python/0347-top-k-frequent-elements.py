@@ -1,4 +1,9 @@
-"""
+"""### METADATA:
+**Techniques**: Bucket Sort, Frequency Counting
+**Data Structures**: Hash Map (Counter), Buckets (Array of Lists)
+**Time Complexity**: O(n)
+**Space Complexity**: O(n)
+
 ### INTUITION:
 The key insight is to use bucket sort based on frequency. Since the maximum frequency any element can have is n (all elements the same), we can create n+1 buckets where bucket[i] contains all numbers that appear exactly i times. First count frequencies with a hash map, then place numbers into frequency buckets, finally collect k elements from highest frequency buckets first. This achieves O(n) time by avoiding sorting.
 
@@ -56,8 +61,6 @@ Output:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
-
-</details>
 
 """
 

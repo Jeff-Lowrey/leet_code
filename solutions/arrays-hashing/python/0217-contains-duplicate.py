@@ -1,5 +1,4 @@
-"""
-### INTUITION:
+"""### METADATA:\n**Techniques**: Set Membership Check\n**Data Structures**: Set (Hash Set)\n**Time Complexity**: O(n)\n**Space Complexity**: O(n)\n\n### INTUITION:
 The key insight is that if all elements are unique, then the array length equals the set length.
 If there are duplicates, the set will be smaller than the array.
 
@@ -48,8 +47,6 @@ Alternative (Early Termination):
 - **All elements same**: Return True immediately on second element
 - **All elements unique**: Set and array lengths match, return False
 - **Duplicate at start**: Early termination finds it quickly
-
-</details>
 
 """
 

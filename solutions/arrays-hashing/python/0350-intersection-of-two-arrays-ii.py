@@ -1,4 +1,9 @@
-"""
+"""### METADATA:
+**Techniques**: Frequency Counting, Hash Map Lookup
+**Data Structures**: Hash Map (Counter)
+**Time Complexity**: O(n + m)
+**Space Complexity**: O(min(n, m)
+
 ### INTUITION:
 Use a hash map to count frequencies in one array, then iterate through the second
 array to find common elements. This allows us to handle duplicates correctly.
@@ -45,8 +50,6 @@ Output:
 - **No intersection**: Return empty array
 - **All elements intersect**: Return all with proper frequencies
 - **One array is subset**: Return the subset
-
-</details>
 
 """
 
