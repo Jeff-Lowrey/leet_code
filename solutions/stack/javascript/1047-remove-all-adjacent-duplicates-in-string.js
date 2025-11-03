@@ -39,13 +39,13 @@
  * Otherwise, push the character onto the stack.
  *
  * ### APPROACH:
- * 1. Use stack to track characters we've seen
- * 2. For each character:
- *    - If it matches stack top: pop (remove duplicate pair)
- *    - Otherwise: push character onto stack
- * 3. Join stack elements to form final string
- *
- * ### WHY THIS WORKS:
+1. Use stack to track characters we've seen
+2. For each character:
+   - If it matches stack top: pop (remove duplicate pair)
+   - Otherwise: push character onto stack
+3. Join stack elements to form final string
+
+### WHY THIS WORKS:
  * - Stack naturally maintains adjacency (top element is most recent)
  * - Removing duplicates as we go handles cascading removals
  * - Single pass is sufficient since we process left-to-right
@@ -79,12 +79,11 @@
  * Stack stores up to n characters in worst case (no duplicates)
  *
  * ### EDGE CASES:
- * - Empty string: returns empty string
- * - No duplicates: returns original string
- * - All characters form duplicate pairs: returns empty string
- * - Cascading removals: "abccba" → "abba" → "aa" → ""
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 /**

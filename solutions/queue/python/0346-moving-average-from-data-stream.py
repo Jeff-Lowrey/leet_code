@@ -30,7 +30,7 @@ Implement the `MovingAverage` class:
 **Space Complexity**: O(size)
 
 ### INTUITION:
-Use a queue to maintain the sliding window of values. When the window exceeds the size limit, remove the oldest element and add the new one.
+The key insight is that use a queue to maintain the sliding window of values. When the window exceeds the size limit, remove the oldest element and add the new one.
 
 ### APPROACH:
 1. **Initialize** a queue to store values and track the window size
@@ -55,6 +55,11 @@ next(10): queue=[1,10], avg=5.5
 next(3): queue=[1,10,3], avg=4.67
 next(5): queue=[10,3,5], avg=6.0 (removed 1)
 
+Output:
+```
+[Expected output]
+```
+
 ### TIME COMPLEXITY:
 O(1) per operation - constant time
 
@@ -70,6 +75,20 @@ O(size)
 - **Exactly size elements**: Window is full, start sliding
 - **More than size elements**: Remove oldest, add newest
 - **Single element stream**: Return that element
+
+</details>
+
+</details>
+
+</details>
+
+</details>
+
+</details>
+
+</details>
+
+</details>
 
 </details>
 """

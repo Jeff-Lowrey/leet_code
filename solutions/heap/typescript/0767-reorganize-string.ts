@@ -29,9 +29,9 @@
  * **Space Complexity**: O(1) - Constant extra space
  *
  * ### INTUITION:
- * Use max heap to track character frequencies. Greedily pick most frequent character, add to result, decrease count, and temporarily hold it. Add back to heap after one position to ensure no adjacent duplicates.
- *
- * ### APPROACH:
+The key insight is that use max heap to track character frequencies. Greedily pick most frequent character, add to result, decrease count, and temporarily hold it. Add back to heap after one position to ensure no adjacent duplicates.
+
+### APPROACH:
  * 1. **Count frequencies**: Use Counter(s) to get character frequencies
  * 2. **Check feasibility**: If max_freq > (len(s) + 1) // 2, return empty string
  * 3. **Build max heap**: Push (-freq, char) to heap for all characters
@@ -77,11 +77,11 @@
  * - Constant extra space
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class MaxHeap<T> {

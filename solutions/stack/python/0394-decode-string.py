@@ -30,7 +30,7 @@ You may assume that the input string is always valid; no extra white spaces, squ
 **Space Complexity**: O(n) - Additional set storage
 
 ### INTUITION:
-This is a classic stack problem where we need to process nested brackets. When we encounter a number followed by '[', we need to remember what to repeat and how many times. When we hit ']', we decode the current segment and multiply it by the count.
+The key insight is that this is a classic stack problem where we need to process nested brackets. When we encounter a number followed by '[', we need to remember what to repeat and how many times. When we hit ']', we decode the current segment and multiply it by the count.
 
 ### APPROACH:
 1. **Use two stacks**: One for counts, one for strings
@@ -74,10 +74,9 @@ O(n)
 For the stacks and intermediate strings
 
 ### EDGE CASES:
-- No brackets: return original string
-- Single level: "3[a]" → "aaa"
-- Nested levels: "2[a3[b]]" → "abbbabbb"
-- Multiple segments: "2[ab]3[cd]" → "ababcdcdcd"
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

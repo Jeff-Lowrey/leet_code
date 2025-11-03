@@ -26,10 +26,10 @@
  * **Space Complexity**: O(w)
  * 
  * ### INTUITION:
- * Similar to binary tree level-order traversal, but each node can have multiple children.
- * Use BFS to process nodes level by level, adding all children of each node to the queue.
- * 
- * ### APPROACH:
+The key insight is that similar to binary tree level-order traversal, but each node can have multiple children.
+Use BFS to process nodes level by level, adding all children of each node to the queue.
+
+### APPROACH:
  * 1. **Handle edge case**: Return empty list if tree is empty
  * 2. **Initialize BFS**: Use a deque with root node
  * 3. **For each level**:
@@ -39,27 +39,32 @@
  * 4. **Return result**: List of lists representing each level
  * 
  * ### WHY THIS WORKS:
- * - BFS naturally processes nodes level by level
- * - By tracking level boundaries (queue size), we process each level independently
- * - For n-ary trees, we simply iterate through all children instead of just left/right
- * - Deque provides O(1) append/popleft operations
- * 
- * ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * Tree:        1
- * ```
- *
- * /  |  \\
- * 3   2   4
- * / \\
- * 5   6
- * Level 0: [1]
- * Level 1: [3, 2, 4]
- * Level 2: [5, 6]
- * Result: [[1], [3, 2, 4], [5, 6]]
+- This ensures that bFS naturally processes nodes level by level
+- This ensures that by tracking level boundaries (queue size), we process each level independently
+- This ensures that for n-ary trees, we simply iterate through all children instead of just left/right
+- This ensures that deque provides O(1) append/popleft operations
 
- * ### TIME COMPLEXITY:
+### EXAMPLE WALKTHROUGH:
+Input:
+```
+Tree:        1
+```
+
+/  |  \\
+3   2   4
+/ \\
+5   6
+Level 0: [1]
+Level 1: [3, 2, 4]
+Level 2: [5, 6]
+Result: [[1], [3, 2, 4], [5, 6]]
+
+Step-by-step execution:
+1. [First step]
+2. [Second step]
+3. [Final step]
+
+### TIME COMPLEXITY:
  * O(n)
  * - Single pass through input
  * - Visit each node exactly once
@@ -72,12 +77,11 @@
  * - Result storage: O(n)
  * 
  * ### EDGE CASES:
- * - Empty tree: Return []
- * - Single node: Return [[root.val]]
- * - Node with many children: All added to same level
- * - Different branching factors at different levels
- * 
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {

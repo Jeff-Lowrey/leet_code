@@ -27,9 +27,9 @@
  * **Space Complexity**: O(1) - Constant extra space
  *
  * ### INTUITION:
- * Use monotonic decreasing stack storing indices. When current temperature > stack top temperature, pop and calculate days waited (current index - popped index). Remaining indices have no warmer day.
- *
- * ### APPROACH:
+The key insight is that use monotonic decreasing stack storing indices. When current temperature > stack top temperature, pop and calculate days waited (current index - popped index). Remaining indices have no warmer day.
+
+### APPROACH:
  * 1. **Initialize result and stack**: result = [0] * len(temperatures), stack = []
  * 2. **Iterate through temperatures**: For i, temp in enumerate(temperatures)
  * 3. **Process stack**: While stack and temp > temperatures[stack[-1]]
@@ -38,13 +38,13 @@
  * 6. **Return result**: Return result array
  *
  * ### WHY THIS WORKS:
- * - Monotonic decreasing stack stores indices of days waiting for warmer temperature
- * - When warmer day found, pop all cooler days and calculate their wait times
- * - Current index - popped index gives days waited
- * - Days still in stack at end have answer 0 (no warmer day)
- * - O(n) time: each element pushed/popped once, O(n) space for stack
- *
- * ### EXAMPLE WALKTHROUGH:
+- This ensures that monotonic decreasing stack stores indices of days waiting for warmer temperature
+- This ensures that when warmer day found, pop all cooler days and calculate their wait times
+- This ensures that current index - popped index gives days waited
+- This ensures that days still in stack at end have answer 0 (no warmer day)
+- This ensures that o(n) time: each element pushed/popped once, O(n) space for stack
+
+### EXAMPLE WALKTHROUGH:
  * Input:
  * ```
  * temperatures = [73, 74, 75, 71, 69, 72, 76, 73]
@@ -101,11 +101,11 @@
  * - Constant extra space
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {

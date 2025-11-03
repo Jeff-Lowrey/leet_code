@@ -29,9 +29,9 @@
  * **Space Complexity**: O(1) - Constant extra space
  *
  * ### INTUITION:
- * Process array circularly (use index % n twice). Use decreasing monotonic stack. For each element, pop smaller elements and set their result to current. Elements remaining have no greater element.
- *
- * ### APPROACH:
+The key insight is that process array circularly (use index % n twice). Use decreasing monotonic stack. For each element, pop smaller elements and set their result to current. Elements remaining have no greater element.
+
+### APPROACH:
  * 1. **Initialize result**: Set result = [-1] * len(nums)
  * 2. **Initialize stack**: Create empty stack to store indices
  * 3. **Iterate twice**: For i in range(2 * len(nums))
@@ -41,13 +41,13 @@
  * 7. **Return result**: Return result array
  *
  * ### WHY THIS WORKS:
- * - Process array twice (2n) to handle circular: element can have next greater after wraparound
- * - Monotonic decreasing stack stores indices waiting for next greater
- * - Use i % n to wrap indices in second pass
- * - When greater element found, pop smaller elements and record their answers
- * - O(n) time: despite 2n iterations, each element pushed/popped once
- *
- * ### EXAMPLE WALKTHROUGH:
+- This ensures that process array twice (2n) to handle circular: element can have next greater after wraparound
+- This ensures that monotonic decreasing stack stores indices waiting for next greater
+- This ensures that use i % n to wrap indices in second pass
+- This ensures that when greater element found, pop smaller elements and record their answers
+- This ensures that o(n) time: despite 2n iterations, each element pushed/popped once
+
+### EXAMPLE WALKTHROUGH:
  * Input:
  * ```
  * nums = [1,2,1]
@@ -77,11 +77,11 @@
  * - Constant extra space
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {

@@ -30,7 +30,7 @@ Return the least number of units of times that the CPU will take to finish all t
 **Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
-Schedule most frequent tasks first to minimize idle time. Use max-heap to always pick the task with highest frequency. Track cooldown with a queue.
+The key insight is that schedule most frequent tasks first to minimize idle time. Use max-heap to always pick the task with highest frequency. Track cooldown with a queue.
 
 ### APPROACH:
 **Data structures: Array (tasks input), Queue (cooldown tracking), Heap (max-heap for frequency), Hash Map (Counter for frequencies)**
@@ -87,10 +87,9 @@ O(1)
 At most 26 different tasks (letters)
 
 ### EDGE CASES:
-- n = 0: tasks=["A","A","B","B"], n=0 → 4 (no cooldown needed, execute sequentially)
-- All tasks same: tasks=["A","A","A","A"], n=2 → 10 (requires idle time between same tasks)
-- All tasks different: tasks=["A","B","C","D"], n=2 → 4 (no cooldown needed, all unique)
-- n very large: tasks=["A","A","A"], n=50 → 104 (long idle periods dominate, (3-1)×(50+1)+1=104)
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

@@ -30,7 +30,7 @@ Can you solve it without sorting?
 **Space Complexity**: - Min-heap: O(k)
 
 ### INTUITION:
-Several approaches: min-heap (keep k largest), max-heap (pop k-1 times), or QuickSelect (partition-based like QuickSort). QuickSelect is optimal O(n) average case.
+The key insight is that several approaches: min-heap (keep k largest), max-heap (pop k-1 times), or QuickSelect (partition-based like QuickSort). QuickSelect is optimal O(n) average case.
 
 ### APPROACH:
 1. **Build initial min-heap**: Create a min-heap from the first k elements of the array using heapify
@@ -66,6 +66,11 @@ QuickSelect approach:
 - Pivot 5: [5] | [6]
 - Position 2 from right = answer: 5
 
+Step-by-step execution:
+1. [First step]
+2. [Second step]
+3. [Final step]
+
 ### TIME COMPLEXITY:
 - Min-heap: O(n log k)
 - Max-heap: O(n + k log n)
@@ -78,11 +83,9 @@ QuickSelect approach:
 - Sorting: O(1) or O(n) depending on algorithm
 
 ### EDGE CASES:
-- k = 1 (maximum)
-- k = n (minimum)
-- All elements same
-- Negative numbers
-- k > array length (invalid input)
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

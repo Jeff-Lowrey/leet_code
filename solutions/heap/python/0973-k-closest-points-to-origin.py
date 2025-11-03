@@ -30,7 +30,7 @@ You may return the answer in any order. The answer is guaranteed to be unique (e
 **Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
-Calculate distance for each point. Use max heap (negate distances) of size k. Maintain k closest points. Alternatively, use quickselect for O(n) average time.
+The key insight is that calculate distance for each point. Use max heap (negate distances) of size k. Maintain k closest points. Alternatively, use quickselect for O(n) average time.
 
 ### APPROACH:
 1. **Calculate distances**: For each point, compute squared distance = x^2 + y^2
@@ -41,11 +41,11 @@ Calculate distance for each point. Use max heap (negate distances) of size k. Ma
 6. **Return result**: Return list of k closest points
 
 ### WHY THIS WORKS:
-- Max heap of size k: stores (negative distance, point) to get k smallest
-- For each point, calculate distance squared (avoid sqrt for efficiency)
-- If heap size < k, push; else if distance < heap[0], pop and push
-- Negative distance converts min heap to max heap behavior
-- O(n log k) time: n points, log k heap operations, O(k) space
+- This ensures that max heap of size k: stores (negative distance, point) to get k smallest
+- This ensures that for each point, calculate distance squared (avoid sqrt for efficiency)
+- This ensures that if heap size < k, push; else if distance < heap[0], pop and push
+- This ensures that negative distance converts min heap to max heap behavior
+- This ensures that o(n log k) time: n points, log k heap operations, O(k) space
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -82,9 +82,9 @@ O(1)
 
 
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

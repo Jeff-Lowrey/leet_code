@@ -45,24 +45,24 @@
  * **Space Complexity**: O(n) - Additional hash map storage
  *
  * ### INTUITION:
- * This is a classic stack problem. When we encounter an opening bracket, we push it onto the stack.
- * When we encounter a closing bracket, we check if it matches the most recent opening bracket (top of stack).
- * If all brackets are properly matched, the stack will be empty at the end.
- *
- * ### APPROACH:
- * 1. **Use a stack** to track opening brackets
- * 2. **Push opening brackets** onto the stack
- * 3. **Pop and check** when encountering closing brackets
- * 4. **Validate matching** bracket types
- * 5. **Check empty stack** at the end
- *
- * ### WHY THIS WORKS:
- * - Stack follows LIFO (Last In, First Out) principle
- * - This naturally handles the "most recent unmatched opening bracket" requirement
- * - Each closing bracket must match the most recent opening bracket
- * - Empty stack at the end means all brackets were properly matched
- *
- * ### EXAMPLE WALKTHROUGH:
+The key insight is that this is a classic stack problem. When we encounter an opening bracket, we push it onto the stack.
+When we encounter a closing bracket, we check if it matches the most recent opening bracket (top of stack).
+If all brackets are properly matched, the stack will be empty at the end.
+
+### APPROACH:
+1. **Use a stack** to track opening brackets
+2. **Push opening brackets** onto the stack
+3. **Pop and check** when encountering closing brackets
+4. **Validate matching** bracket types
+5. **Check empty stack** at the end
+
+### WHY THIS WORKS:
+- This ensures that stack follows LIFO (Last In, First Out) principle
+- This ensures that this naturally handles the "most recent unmatched opening bracket" requirement
+- This ensures that each closing bracket must match the most recent opening bracket
+- This ensures that empty stack at the end means all brackets were properly matched
+
+### EXAMPLE WALKTHROUGH:
  * Input:
  * ```
  * s = "([{}])"
@@ -93,13 +93,11 @@
  * Stack can contain up to n/2 opening brackets in worst case
  *
  * ### EDGE CASES:
- * - Empty string: Valid (return True)
- * - Single opening bracket: Invalid
- * - Single closing bracket: Invalid
- * - Odd length string: Invalid (can't have balanced brackets)
- * - Wrong order: "([)]" → Invalid
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {

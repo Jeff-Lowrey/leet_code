@@ -32,9 +32,9 @@
 
  *
  * ### INTUITION:
- * Several approaches: min-heap (keep k largest), max-heap (pop k-1 times), or QuickSelect (partition-based like QuickSort). QuickSelect is optimal O(n) average case.
- *
- * ### APPROACH:
+The key insight is that several approaches: min-heap (keep k largest), max-heap (pop k-1 times), or QuickSelect (partition-based like QuickSort). QuickSelect is optimal O(n) average case.
+
+### APPROACH:
  * 1. **Build initial min-heap**: Create a min-heap from the first k elements of the array using heapify
  * 2. **Process remaining elements**: Iterate through the rest of the array starting from index k
  * 3. **Compare with heap root**: For each element, check if it's larger than the smallest element in heap (heap[0])
@@ -49,26 +49,31 @@
  * - **Quick Select** doesn't need full sort, just correct position
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * nums = [3,2,1,5,6,4], k = 2
- * ```
- *
- * Min-Heap approach:
- * - Build heap with first k=2: [2, 3]
- * - Process 1: 1 < 2, skip
- * - Process 5: 5 > 2, replace: [3, 5]
- * - Process 6: 6 > 3, replace: [5, 6]
- * - Process 4: 4 < 5, skip
- * - Result: heap[0] = 5
- * QuickSelect approach:
- * - Pivot 4: [3,2,1,4] | [5,6]
- * - Position 4 from right, need position 2
- * - Recurse right: [5,6]
- * - Pivot 5: [5] | [6]
- * - Position 2 from right = answer: 5
+Input:
+```
+nums = [3,2,1,5,6,4], k = 2
+```
 
- * ### TIME COMPLEXITY:
+Min-Heap approach:
+- Build heap with first k=2: [2, 3]
+- Process 1: 1 < 2, skip
+- Process 5: 5 > 2, replace: [3, 5]
+- Process 6: 6 > 3, replace: [5, 6]
+- Process 4: 4 < 5, skip
+- Result: heap[0] = 5
+QuickSelect approach:
+- Pivot 4: [3,2,1,4] | [5,6]
+- Position 4 from right, need position 2
+- Recurse right: [5,6]
+- Pivot 5: [5] | [6]
+- Position 2 from right = answer: 5
+
+Step-by-step execution:
+1. [First step]
+2. [Second step]
+3. [Final step]
+
+### TIME COMPLEXITY:
  * - Min-heap: O(n log k)
  * - Max-heap: O(n + k log n)
  * - QuickSelect: O(n) average, O(n²) worst
@@ -80,13 +85,11 @@
  * - Sorting: O(1) or O(n) depending on algorithm
  *
  * ### EDGE CASES:
- * - k = 1 (maximum)
- * - k = n (minimum)
- * - All elements same
- * - Negative numbers
- * - k > array length (invalid input)
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 /**

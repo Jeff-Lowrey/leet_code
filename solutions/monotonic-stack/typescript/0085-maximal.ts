@@ -27,9 +27,9 @@
  * **Space Complexity**: O(1) - Constant extra space
  *
  * ### INTUITION:
- * For each row, treat it as base of histogram. Heights are consecutive 1s above in each column. Apply largest rectangle in histogram for each row. Track maximum across all rows.
- *
- * ### APPROACH:
+The key insight is that for each row, treat it as base of histogram. Heights are consecutive 1s above in each column. Apply largest rectangle in histogram for each row. Track maximum across all rows.
+
+### APPROACH:
  * 1. **Build height array**: For each row, treat as base of histogram
  * 2. **Update heights**: For each row, if cell is '1', heights[j] += 1; else heights[j] = 0
  * 3. **Apply histogram algorithm**: For each row's height array, call largestRectangleInHistogram
@@ -38,13 +38,13 @@
  * 6. **Return result**: Return max_area
  *
  * ### WHY THIS WORKS:
- * - Treat each row as histogram base: heights = consecutive 1s above
- * - Apply largest rectangle in histogram algorithm to each row
- * - Update heights: if cell is 1, heights[j]++; if 0, heights[j]=0
- * - Max rectangle found by processing all rows as histograms
- * - O(m*n) time: histogram calculation O(n) per row, O(n) space for heights array
- *
- * ### EXAMPLE WALKTHROUGH:
+- This ensures that treat each row as histogram base: heights = consecutive 1s above
+- This ensures that apply largest rectangle in histogram algorithm to each row
+- This ensures that update heights: if cell is 1, heights[j]++; if 0, heights[j]=0
+- This ensures that max rectangle found by processing all rows as histograms
+- This ensures that o(m*n) time: histogram calculation O(n) per row, O(n) space for heights array
+
+### EXAMPLE WALKTHROUGH:
  * Input:
  * ```
  * matrix = [["1","0","1","0","0"],["1","0","1","1","1"]]
@@ -71,11 +71,11 @@
  * - Constant extra space
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {

@@ -26,7 +26,7 @@ Given n pairs of parentheses, write a function to generate all combinations of w
 **Space Complexity**: O(n)
 
 ### INTUITION:
-Use backtracking to build valid parentheses strings. At each step, we can add '(' if we haven't used all n opening brackets, or ')' if it won't make the string invalid (closing count < opening count).
+The key insight is that use backtracking to build valid parentheses strings. At each step, we can add '(' if we haven't used all n opening brackets, or ')' if it won't make the string invalid (closing count < opening count).
 
 ### APPROACH:
 1. **Backtracking**: Build string character by character
@@ -78,9 +78,9 @@ O(n)
 Recursion stack depth is 2n (building string of length 2n)
 
 ### EDGE CASES:
-- n = 0: return [""]
-- n = 1: return ["()"]
-- n = 2: return ["(())", "()()"]
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

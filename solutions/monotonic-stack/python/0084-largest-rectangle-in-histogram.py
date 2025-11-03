@@ -26,7 +26,7 @@ Given an array of integers heights representing the histogram's bar height where
 **Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
-Use monotonic increasing stack to track indices. When current height < stack top, pop and calculate area with popped as smallest height. Width is current index minus new stack top. Track max area.
+The key insight is that use monotonic increasing stack to track indices. When current height < stack top, pop and calculate area with popped as smallest height. Width is current index minus new stack top. Track max area.
 
 ### APPROACH:
 1. **Initialize stack**: Create empty stack to store indices
@@ -77,9 +77,9 @@ O(1)
 
 
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

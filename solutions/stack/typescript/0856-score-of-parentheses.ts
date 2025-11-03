@@ -39,39 +39,44 @@
  * - Deep nesting: "((()))" = 2 * 2 * 1 = 4
  *
  * ### APPROACH:
- * 1. **Stack method**: Use stack to track scores at each nesting level
- * 2. **Depth method**: Track current depth and count "()" pairs
- * 3. **Each '(' opens new level**: Push 0 to stack for new score tracking
- * 4. **Each ')' closes level**: Pop and either add 1 (for "()") or multiply by 2
- *
- * ### WHY THIS WORKS:
- * - Stack naturally handles nesting levels
- * - When we see "()", we add 1 to current level
- * - When we close a level, we either get 1 (empty) or double the inner score
- * - Adjacent groups at same level add together
- *
- * ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * "(()(()))"
- * ```
- *
- * Stack: [0]
- * '(': stack = [0, 0]
- * '(': stack = [0, 0, 0]
- * ')': empty level, stack = [0, 1]
- * '(': stack = [0, 1, 0]
- * '(': stack = [0, 1, 0, 0]
- * ')': empty level, stack = [0, 1, 1]
- * ')': inner=1, stack = [0, 1+2*1] = [0, 3]
- * ')': inner=3, stack = [0+2*3] = [6]
- *
- * Output:
- * ```
- * 6
- * ```
+1. **Stack method**: Use stack to track scores at each nesting level
+2. **Depth method**: Track current depth and count "()" pairs
+3. **Each '(' opens new level**: Push 0 to stack for new score tracking
+4. **Each ')' closes level**: Pop and either add 1 (for "()") or multiply by 2
 
- * ### TIME COMPLEXITY:
+### WHY THIS WORKS:
+- This ensures that stack naturally handles nesting levels
+- This ensures that when we see "()", we add 1 to current level
+- This ensures that when we close a level, we either get 1 (empty) or double the inner score
+- This ensures that adjacent groups at same level add together
+
+### EXAMPLE WALKTHROUGH:
+Input:
+```
+"(()(()))"
+```
+
+Stack: [0]
+'(': stack = [0, 0]
+'(': stack = [0, 0, 0]
+')': empty level, stack = [0, 1]
+'(': stack = [0, 1, 0]
+'(': stack = [0, 1, 0, 0]
+')': empty level, stack = [0, 1, 1]
+')': inner=1, stack = [0, 1+2*1] = [0, 3]
+')': inner=3, stack = [0+2*3] = [6]
+
+Output:
+```
+6
+```
+
+Step-by-step execution:
+1. [First step]
+2. [Second step]
+3. [Final step]
+
+### TIME COMPLEXITY:
  * O(n)
  * - Single pass through input
  * Single pass through the string

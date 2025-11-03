@@ -61,6 +61,11 @@ Step 5: pop 11, add 13 -> heap = [(12,2,0), (13,1,2)]
 Step 6: pop 12, add 13 -> heap = [(13,1,2), (13,2,1)]
 Step 7: pop 13 (8th smallest) -> return 13
 
+Output:
+```
+[Expected output]
+```
+
 ### TIME COMPLEXITY:
 O(k log n)
 Where n is matrix dimension and k is the target position
@@ -70,10 +75,9 @@ O(n)
 For the heap storing at most n elements (one from each row)
 
 ### EDGE CASES:
-- Single element matrix
-- k = 1 (smallest element)
-- k = n² (largest element)
-- Matrix with duplicate values
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

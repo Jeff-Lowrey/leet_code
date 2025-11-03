@@ -30,7 +30,7 @@ Implement KthLargest class:
 **Space Complexity**: O(k)
 
 ### INTUITION:
-Use a min-heap of size k. The root of the heap is always the kth largest element. When adding a new element, if it's larger than the root, replace the root. This maintains exactly k largest elements with the smallest at the top.
+The key insight is that use a min-heap of size k. The root of the heap is always the kth largest element. When adding a new element, if it's larger than the root, replace the root. This maintains exactly k largest elements with the smallest at the top.
 
 ### APPROACH:
 1. **Initialize min-heap**: Add first k elements from nums
@@ -41,10 +41,10 @@ Use a min-heap of size k. The root of the heap is always the kth largest element
    - Return heap root (kth largest)
 
 ### WHY THIS WORKS:
-- Min-heap with k elements keeps k largest elements
-- Root of min-heap is the smallest of the k largest = kth largest overall
-- When new element added, if it's in top k, smallest of previous top k is removed
-- Heap operations are O(log k), efficient for streaming data
+- This ensures that min-heap with k elements keeps k largest elements
+- This ensures that root of min-heap is the smallest of the k largest = kth largest overall
+- This ensures that when new element added, if it's in top k, smallest of previous top k is removed
+- This ensures that heap operations are O(log k), efficient for streaming data
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -67,6 +67,16 @@ add(10):
 - Size > k, remove min: [5, 8, 10]
 - Return root: 5
 
+Output:
+```
+[Expected output]
+```
+
+Step-by-step execution:
+1. [First step]
+2. [Second step]
+3. [Final step]
+
 ### TIME COMPLEXITY:
 - Constructor: O(n log k) where n = len(nums)
 - add(): O(log k)
@@ -76,11 +86,9 @@ O(k)
 Heap stores at most k elements
 
 ### EDGE CASES:
-- k = 1 (just track maximum)
-- Empty initial array
-- All elements same
-- Negative numbers
-- k > initial array size
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

@@ -38,12 +38,12 @@
 
  *
  * ### INTUITION:
- * Reverse Polish Notation (RPN) is perfect for stack-based evaluation. In RPN,
- * operators come after their operands, so we can process left-to-right:
- * push numbers onto stack, and when we see an operator, pop two operands,
- * compute, and push result back.
- *
- * ### APPROACH:
+The key insight is that reverse Polish Notation (RPN) is perfect for stack-based evaluation. In RPN,
+operators come after their operands, so we can process left-to-right:
+push numbers onto stack, and when we see an operator, pop two operands,
+compute, and push result back.
+
+### APPROACH:
  * 1. **Initialize stack**: Empty stack to store operands
  * 2. **Process tokens**: Iterate through each token
  * 3. **Handle numbers**: Push numbers onto stack
@@ -51,11 +51,11 @@
  * 5. **Return result**: Final stack should have one element (the answer)
  *
  * ### WHY THIS WORKS:
- * - RPN guarantees operators have their operands available on stack
- * - Stack's LIFO property matches RPN's evaluation order
- * - Each operator consumes exactly two operands and produces one result
- *
- * ### EXAMPLE WALKTHROUGH:
+- RPN guarantees operators have their operands available on stack
+- Stack's LIFO property matches RPN's evaluation order
+- Each operator consumes exactly two operands and produces one result
+
+### EXAMPLE WALKTHROUGH:
  * Input:
  * ```
  * ["2","1","+","3","*"]
@@ -86,11 +86,11 @@
  * Stack can hold up to n/2 operands in worst case
  *
  * ### EDGE CASES:
- * - Single number: return that number
- * - Division truncating toward zero
- * - Negative operands and results
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 /**

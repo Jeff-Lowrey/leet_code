@@ -39,12 +39,12 @@
  * Use a monotonic decreasing stack to efficiently find the next greater element for each number in nums2. The stack maintains elements in decreasing order, so when we find a larger element, we can pop and match all smaller elements with their next greater element.
  * 
  * ### APPROACH:
- * 1. Traverse nums2 with a stack
- * 2. For each element, pop all smaller elements from stack and map them to current element
- * 3. Push current element to stack
- * 4. Build result array by looking up each nums1 element in the mapping
- * 
- * ### WHY THIS WORKS:
+1. Traverse nums2 with a stack
+2. For each element, pop all smaller elements from stack and map them to current element
+3. Push current element to stack
+4. Build result array by looking up each nums1 element in the mapping
+
+### WHY THIS WORKS:
  * The monotonic stack ensures we process elements in the correct order. When we encounter a larger element, all smaller elements in the stack have found their next greater element. Elements remaining in the stack have no next greater element.
  * 
  * ### EXAMPLE WALKTHROUGH:
@@ -81,13 +81,27 @@
  * - Additional hash map storage
  * 
  * ### EDGE CASES:
- * - **No greater element exists**: Return -1 for that element
- * - **Element not in nums2**: Should not occur (problem guarantees subset)
- * - **Increasing sequence**: Next greater is immediate right neighbor
- * - **Decreasing sequence**: No next greater for any element
- * - **Single element**: Return -1 (no next element)
- * 
- * </details>
+- **No greater element exists**: Return -1 for that element
+- **Element not in nums2**: Should not occur (problem guarantees subset)
+- **Increasing sequence**: Next greater is immediate right neighbor
+- **Decreasing sequence**: No next greater for any element
+- **Single element**: Return -1 (no next element)
+
+</details>
+
+</details>
+
+</details>
+
+</details>
+
+</details>
+
+</details>
+
+</details>
+
+</details>
  */
 
 class Solution {

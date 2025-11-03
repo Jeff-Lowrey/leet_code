@@ -29,9 +29,9 @@
  * **Space Complexity**: O(1) - Constant extra space
  *
  * ### INTUITION:
- * Track minimum values seen so far from left. Use decreasing stack from right to find first element < stack top. The 132 pattern means min < nums[j] < nums[k] where i < j < k.
- *
- * ### APPROACH:
+The key insight is that track minimum values seen so far from left. Use decreasing stack from right to find first element < stack top. The 132 pattern means min < nums[j] < nums[k] where i < j < k.
+
+### APPROACH:
  * 1. **Initialize variables**: Set s3 = float('-inf'), stack = []
  * 2. **Iterate backward**: For i in range(len(nums)-1, -1, -1)
  * 3. **Check pattern**: If nums[i] < s3, return True
@@ -71,11 +71,11 @@
  * - Constant extra space
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {

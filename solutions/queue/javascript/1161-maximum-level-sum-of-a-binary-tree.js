@@ -29,10 +29,10 @@
 
  *
  * ### INTUITION:
- * Use level-order traversal (BFS) to calculate the sum of values at each level.
- * Track the level with maximum sum and return the smallest level if there are ties.
- *
- * ### APPROACH:
+The key insight is that use level-order traversal (BFS) to calculate the sum of values at each level.
+Track the level with maximum sum and return the smallest level if there are ties.
+
+### APPROACH:
  * 1. **Handle edge case**: Return 0 if tree is empty (though problem guarantees non-empty tree)
  * 2. **Initialize BFS**: Use a deque with root node
  * 3. **Track variables**:
@@ -45,26 +45,31 @@
  *    - Add children to queue for next level
  *
  * ### WHY THIS WORKS:
- * - BFS processes nodes level by level
- * - By tracking level sums, we can find the level with maximum sum
- * - Since we process levels in order (1, 2, 3, ...), the first maximum we find is the smallest level
- *
- * ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * Tree:      1
- * ```
- *
- * /   \
- * 7     0
- * / \
- * 7  -8
- * Level 1: sum = 1
- * Level 2: sum = 7 + 0 = 7 (max)
- * Level 3: sum = 7 + (-8) = -1
- * Result: 2
+- This ensures that bFS processes nodes level by level
+- This ensures that by tracking level sums, we can find the level with maximum sum
+- Since we process levels in order (1, 2, 3, ...), the first maximum we find is the smallest level
 
- * ### TIME COMPLEXITY:
+### EXAMPLE WALKTHROUGH:
+Input:
+```
+Tree:      1
+```
+
+/   \
+7     0
+/ \
+7  -8
+Level 1: sum = 1
+Level 2: sum = 7 + 0 = 7 (max)
+Level 3: sum = 7 + (-8) = -1
+Result: 2
+
+Step-by-step execution:
+1. [First step]
+2. [Second step]
+3. [Final step]
+
+### TIME COMPLEXITY:
  * O(n)
  * - Single pass through input
  * - Visit each node exactly once
@@ -76,12 +81,11 @@
  * - w = maximum width of tree (worst case: n/2 for complete tree)
  *
  * ### EDGE CASES:
- * - Single node: Return 1
- * - Negative values: Handle correctly with integer arithmetic
- * - Tied sums: Return smallest level (first occurrence)
- * - Skewed tree: Each level has different sum
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 // Definition for a binary tree node

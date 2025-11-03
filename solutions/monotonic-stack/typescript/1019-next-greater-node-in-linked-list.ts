@@ -29,10 +29,10 @@
  * **Space Complexity**: O(n) - Additional set storage
  *
  * ### INTUITION:
- * Use a monotonic decreasing stack to track indices waiting for their next greater element.
- * As we traverse, for each node, pop all stack indices with smaller values and update their answers.
- *
- * ### APPROACH:
+The key insight is that use a monotonic decreasing stack to track indices waiting for their next greater element.
+As we traverse, for each node, pop all stack indices with smaller values and update their answers.
+
+### APPROACH:
  * 1. **Convert to array**: Simplifies index access
  * 2. **Monotonic stack**: Store (index, value) pairs
  * 3. **Process**: For each element, pop stack while current > stack top
@@ -40,26 +40,31 @@
  * 5. **Push**: Add current element to stack
  *
  * ### WHY THIS WORKS:
- * The stack maintains elements in decreasing order. When we find a larger element,
- * it's the "next greater" for all smaller elements in the stack.
- *
- * ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * list = [2,1,5]
- * ```
- *
- * Stack: [(idx, val)]
- * i=0, val=2: stack=[(0,2)], answer=[0,0,0]
- * i=1, val=1: stack=[(0,2),(1,1)], answer=[0,0,0]
- * i=2, val=5:
- * - Pop (1,1): answer[1]=5
- * - Pop (0,2): answer[0]=5
- * - stack=[(2,5)]
- * - answer=[5,5,0]
- * Result: [5,5,0]
+The stack maintains elements in decreasing order. When we find a larger element,
+it's the "next greater" for all smaller elements in the stack.
 
- * ### TIME COMPLEXITY:
+### EXAMPLE WALKTHROUGH:
+Input:
+```
+list = [2,1,5]
+```
+
+Stack: [(idx, val)]
+i=0, val=2: stack=[(0,2)], answer=[0,0,0]
+i=1, val=1: stack=[(0,2),(1,1)], answer=[0,0,0]
+i=2, val=5:
+- Pop (1,1): answer[1]=5
+- Pop (0,2): answer[0]=5
+- stack=[(2,5)]
+- answer=[5,5,0]
+Result: [5,5,0]
+
+Step-by-step execution:
+1. [First step]
+2. [Second step]
+3. [Final step]
+
+### TIME COMPLEXITY:
  * O(n)
  * - Single pass through input
  *

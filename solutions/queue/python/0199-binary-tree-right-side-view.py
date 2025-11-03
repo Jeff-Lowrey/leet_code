@@ -27,7 +27,7 @@ return the values of the nodes you can see ordered from top to bottom.
 **Space Complexity**: O(w)
 
 ### INTUITION:
-The right side view is simply the rightmost node at each level of the tree.
+The key insight is that the right side view is simply the rightmost node at each level of the tree.
 Use level-order traversal (BFS) and capture the last node at each level.
 
 ### APPROACH:
@@ -40,10 +40,10 @@ Use level-order traversal (BFS) and capture the last node at each level.
    - Add children to queue for next level
 
 ### WHY THIS WORKS:
-- BFS processes nodes level by level, left to right
-- The last node processed at each level is the rightmost node
-- This is exactly what's visible from the right side
-- We collect these rightmost nodes from each level
+- This ensures that bFS processes nodes level by level, left to right
+- This ensures that the last node processed at each level is the rightmost node
+- This ensures that this is exactly what's visible from the right side
+- This ensures that we collect these rightmost nodes from each level
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -57,6 +57,11 @@ Tree:      1            <- Right view: 1
 5     4        <- Right view: 4
 Result: [1, 3, 4]
 
+Step-by-step execution:
+1. [First step]
+2. [Second step]
+3. [Final step]
+
 ### TIME COMPLEXITY:
 O(n)
 - Visit each node exactly once
@@ -69,10 +74,9 @@ O(w)
 - Result storage: O(h) where h = height
 
 ### EDGE CASES:
-- Empty tree: Return []
-- Single node: Return [root.val]
-- Left-skewed tree: All nodes visible from right
-- Right-skewed tree: Only rightmost branch visible
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

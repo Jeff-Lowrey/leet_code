@@ -47,15 +47,20 @@ Return the sum of all the scores on the record after applying all the operations
 **Space Complexity**: **O(n)** - Stack stores up to n scores
 
 ### INTUITION:
-Use a stack to maintain the record of scores. Process each operation and modify the stack accordingly.
+The key insight is that use a stack to maintain the record of scores. Process each operation and modify the stack accordingly.
 
 ### APPROACH:
-We iterate through each operation in the list. For integer strings, we parse them and push onto the stack. For '+', we add the sum of the top two elements. For 'D', we double the top element. For 'C', we pop the last element. After processing all operations, we return the sum of all elements in the stack.
+1. We iterate through each operation in the list.
+2. For integer strings, we parse them and push onto the stack.
+3. For '+', we add the sum of the top two elements.
+4. For 'D', we double the top element.
+5. For 'C', we pop the last element.
+6. After processing all operations, we return the sum of all elements in the stack.
 
 ### WHY THIS WORKS:
-- Stack provides LIFO access to the most recent scores
-- Operations only depend on the most recent 1-2 scores
-- Stack naturally handles the 'C' operation (remove previous score)
+- This ensures that stack provides LIFO access to the most recent scores
+- This ensures that operations only depend on the most recent 1-2 scores
+- This ensures that stack naturally handles the 'C' operation (remove previous score)
 
 ### EXAMPLE WALKTHROUGH:
 Input:

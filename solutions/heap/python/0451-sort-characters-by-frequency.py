@@ -29,7 +29,7 @@ Return the sorted string. If there are multiple answers, return any of them.
 **Space Complexity**: O(k)
 
 ### INTUITION:
-We need to count character frequencies and then sort characters by their frequency
+The key insight is that we need to count character frequencies and then sort characters by their frequency
 in descending order. This is a classic use case for heaps/priority queues combined
 with hash maps for counting.
 
@@ -39,9 +39,9 @@ with hash maps for counting.
 3. **Build result**: Reconstruct string with characters in frequency order
 
 ### WHY THIS WORKS:
-- Hash map provides O(1) character frequency counting
-- Heap/sorting organizes characters by frequency efficiently
-- Multiple characters can appear in any order at same frequency
+- This ensures that hash map provides O(1) character frequency counting
+- This ensures that heap/sorting organizes characters by frequency efficiently
+- This ensures that multiple characters can appear in any order at same frequency
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -67,9 +67,9 @@ O(k)
 For storing character frequencies and heap
 
 ### EDGE CASES:
-- Empty string: return empty
-- Single character: return as-is
-- All characters same frequency: any order valid
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

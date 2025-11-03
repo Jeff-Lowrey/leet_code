@@ -31,7 +31,7 @@ Implement the MedianFinder class:
 **Space Complexity**: O(n)
 
 ### INTUITION:
-Use two heaps to divide numbers into two halves: max-heap for smaller half, min-heap for larger half. The median is always at the top of one or both heaps.
+The key insight is that use two heaps to divide numbers into two halves: max-heap for smaller half, min-heap for larger half. The median is always at the top of one or both heaps.
 
 ### APPROACH:
 1. **Two heaps**: max-heap (left half), min-heap (right half)
@@ -67,6 +67,11 @@ addNum(4):
 left=[2,1], right=[3,4]
 median = (2+3)/2 = 2.5
 
+Output:
+```
+[Expected output]
+```
+
 ### TIME COMPLEXITY:
 - addNum(): O(log n) - heap operations
 - findMedian(): O(1) - just access heap tops
@@ -76,11 +81,9 @@ O(n)
 Store all n numbers across two heaps
 
 ### EDGE CASES:
-- Single element
-- Two elements
-- Negative numbers
-- Duplicate values
-- Large data stream
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

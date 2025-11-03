@@ -44,10 +44,10 @@ We need to calculate scores based on nesting depth and adjacency. Key insights:
 4. **Each ')' closes level**: Pop and either add 1 (for "()") or multiply by 2
 
 ### WHY THIS WORKS:
-- Stack naturally handles nesting levels
-- When we see "()", we add 1 to current level
-- When we close a level, we either get 1 (empty) or double the inner score
-- Adjacent groups at same level add together
+- This ensures that stack naturally handles nesting levels
+- This ensures that when we see "()", we add 1 to current level
+- This ensures that when we close a level, we either get 1 (empty) or double the inner score
+- This ensures that adjacent groups at same level add together
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -69,6 +69,11 @@ Output:
 ```
 6
 ```
+
+Step-by-step execution:
+1. [First step]
+2. [Second step]
+3. [Final step]
 
 ### TIME COMPLEXITY:
 O(n)

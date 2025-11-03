@@ -28,7 +28,7 @@ The span of the stock's price in one day is the maximum number of consecutive da
 **Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
-Maintain monotonic decreasing stack of (price, span) pairs. When new price comes, pop all lower prices and sum their spans. Current span = 1 + sum of popped spans. Push (price, span).
+The key insight is that maintain monotonic decreasing stack of (price, span) pairs. When new price comes, pop all lower prices and sum their spans. Current span = 1 + sum of popped spans. Push (price, span).
 
 ### APPROACH:
 1. **Initialize in __init__**: Set self.stack = []
@@ -76,9 +76,9 @@ O(1)
 
 
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

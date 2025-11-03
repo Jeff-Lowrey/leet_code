@@ -33,34 +33,39 @@
  * This problem combines frequency counting with sorting. We need to find the k most frequent words, but with a twist: when frequencies are equal, we sort lexicographically. A heap is perfect for this because we can maintain the top k elements efficiently while respecting both frequency and lexicographical ordering.
  *
  * ### APPROACH:
- * 1. **Count frequencies**: Use HashMap to count word frequencies
- * 2. **Use min-heap**: Maintain heap of size k with custom comparator
- * 3. **Custom comparator**: Less frequent words first, then reverse lexicographical order
- * 4. **Build result**: Extract from heap and reverse to get correct order
- *
- * ### WHY THIS WORKS:
+1. **Count frequencies**: Use HashMap to count word frequencies
+2. **Use min-heap**: Maintain heap of size k with custom comparator
+3. **Custom comparator**: Less frequent words first, then reverse lexicographical order
+4. **Build result**: Extract from heap and reverse to get correct order
+
+### WHY THIS WORKS:
  * - Min-heap keeps smallest elements at root, so we keep the k largest
  * - Custom comparator: (-frequency, word) ensures frequent words stay in heap
  * - For equal frequencies, lexicographically smaller words are "larger" in our heap
  * - Final result needs reversal because heap gives us reverse order
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * words = ["i","love","leetcode","i","love","coding"], k = 2
- * ```
- *
- * Frequencies: {"i": 2, "love": 2, "leetcode": 1, "coding": 1}
- * Heap process:
- * - Add ("i", 2): heap = [(-2, "i")]
- * - Add ("love", 2): heap = [(-2, "love"), (-2, "i")] (love > i lexicographically)
- * - Add ("leetcode", 1): heap = [(-1, "leetcode"), (-2, "i"), (-2, "love")]
- * - Remove leetcode: heap = [(-2, "love"), (-2, "i")]
- * - Add ("coding", 1): heap = [(-1, "coding"), (-2, "i"), (-2, "love")]
- * - Remove coding: heap = [(-2, "love"), (-2, "i")]
- * Result: ["i", "love"] (after reversing)
+Input:
+```
+words = ["i","love","leetcode","i","love","coding"], k = 2
+```
 
- * ### TIME COMPLEXITY:
+Frequencies: {"i": 2, "love": 2, "leetcode": 1, "coding": 1}
+Heap process:
+- Add ("i", 2): heap = [(-2, "i")]
+- Add ("love", 2): heap = [(-2, "love"), (-2, "i")] (love > i lexicographically)
+- Add ("leetcode", 1): heap = [(-1, "leetcode"), (-2, "i"), (-2, "love")]
+- Remove leetcode: heap = [(-2, "love"), (-2, "i")]
+- Add ("coding", 1): heap = [(-1, "coding"), (-2, "i"), (-2, "love")]
+- Remove coding: heap = [(-2, "love"), (-2, "i")]
+Result: ["i", "love"] (after reversing)
+
+Step-by-step execution:
+1. [First step]
+2. [Second step]
+3. [Final step]
+
+### TIME COMPLEXITY:
  * O(N log k)
  * Where N is number of words, k is the result size. Heap operations are O(log k).
  *
@@ -69,12 +74,11 @@
  * O(N) for frequency map, O(k) for heap
  *
  * ### EDGE CASES:
- * - k equals number of unique words
- * - All words have same frequency (pure lexicographical sort)
- * - Single word repeated
- * - k = 1 with multiple candidates
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 /**

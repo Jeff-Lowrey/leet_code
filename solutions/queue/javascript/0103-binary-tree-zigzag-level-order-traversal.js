@@ -29,10 +29,10 @@
 
  *
  * ### INTUITION:
- * Perform a level-order traversal (BFS) but alternate the direction of reading values at each level.
- * Use a flag to track whether we should append values left-to-right or right-to-left.
- *
- * ### APPROACH:
+The key insight is that perform a level-order traversal (BFS) but alternate the direction of reading values at each level.
+Use a flag to track whether we should append values left-to-right or right-to-left.
+
+### APPROACH:
  * 1. **Handle edge case**: Return empty list if tree is empty
  * 2. **Initialize BFS**: Use a deque for level-order traversal
  * 3. **Track direction**: Use a boolean flag that alternates each level
@@ -43,12 +43,12 @@
  *    - Toggle direction flag for next level
  *
  * ### WHY THIS WORKS:
- * - BFS naturally processes nodes level by level
- * - By tracking level boundaries (queue size), we can process each level independently
- * - Reversing alternate levels gives us the zigzag pattern
- * - Deque provides O(1) append/popleft operations
- *
- * ### EXAMPLE WALKTHROUGH:
+- This ensures that bFS naturally processes nodes level by level
+- This ensures that by tracking level boundaries (queue size), we can process each level independently
+- This ensures that reversing alternate levels gives us the zigzag pattern
+- This ensures that deque provides O(1) append/popleft operations
+
+### EXAMPLE WALKTHROUGH:
  * Input:
  * ```
  * Tree:      3
@@ -82,11 +82,11 @@
  * - w = maximum width of tree (worst case: n/2 for complete tree)
  *
  * ### EDGE CASES:
- * - Empty tree: Return []
- * - Single node: Return [[root.val]]
- * - Skewed tree: Works correctly with zigzag pattern
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 // Definition for a binary tree node

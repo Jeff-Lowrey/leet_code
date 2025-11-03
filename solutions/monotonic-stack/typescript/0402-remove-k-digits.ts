@@ -27,9 +27,9 @@
  * **Space Complexity**: O(1) - Constant extra space
  *
  * ### INTUITION:
- * Use monotonic increasing stack. Remove k digits greedily by popping larger digits when a smaller digit is found. If k removals not reached, remove from end. Handle leading zeros.
- *
- * ### APPROACH:
+The key insight is that use monotonic increasing stack. Remove k digits greedily by popping larger digits when a smaller digit is found. If k removals not reached, remove from end. Handle leading zeros.
+
+### APPROACH:
  * 1. **Initialize stack**: Create empty stack to build result
  * 2. **Iterate through digits**: For each digit in num
  * 3. **Remove larger digits**: While k > 0 and stack and stack[-1] > digit, pop from stack and decrement k
@@ -75,11 +75,11 @@
  * - Constant extra space
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {

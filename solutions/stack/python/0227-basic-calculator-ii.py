@@ -32,7 +32,7 @@ Note: You are not allowed to use any built-in function which evaluates strings a
 **Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
-Use stack to handle operators. Scan number by number. For +/- push to stack. For *// pop, compute with previous, push result. Finally sum stack for result.
+The key insight is that use stack to handle operators. Scan number by number. For +/- push to stack. For *// pop, compute with previous, push result. Finally sum stack for result.
 
 ### APPROACH:
 1. **Initialize variables**: Set stack = [], num = 0, sign = '+'
@@ -44,12 +44,12 @@ Use stack to handle operators. Scan number by number. For +/- push to stack. For
 7. **Sum stack**: Return sum(stack) as final result
 
 ### WHY THIS WORKS:
-- Stack handles operator precedence: */ evaluated immediately, +- pushed to stack
-- Track last operator, current number being built
-- When + or -, push to stack (signed number)
-- When * or /, pop and compute with current number, push result
-- Sum stack at end for final result
-- O(n) time: single pass, O(n) space for stack
+- This ensures that stack handles operator precedence: */ evaluated immediately, +- pushed to stack
+- This ensures that track last operator, current number being built
+- This ensures that when + or -, push to stack (signed number)
+- This ensures that when * or /, pop and compute with current number, push result
+- This ensures that sum stack at end for final result
+- This ensures that o(n) time: single pass, O(n) space for stack
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -82,9 +82,9 @@ O(1)
 
 
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

@@ -26,7 +26,7 @@ Given the root of a binary tree, return an array of the largest value in each ro
 **Space Complexity**: O(w)
 
 ### INTUITION:
-Use level-order traversal (BFS) to process nodes level by level.
+The key insight is that use level-order traversal (BFS) to process nodes level by level.
 For each level, track the maximum value among all nodes at that level.
 
 ### APPROACH:
@@ -39,10 +39,10 @@ For each level, track the maximum value among all nodes at that level.
    - Add children to queue for next level
 
 ### WHY THIS WORKS:
-- BFS processes nodes level by level
-- Within each level, we can easily find the maximum value
-- By processing level boundaries (queue size), we separate levels
-- Each level's maximum is independent of other levels
+- This ensures that bFS processes nodes level by level
+- This ensures that within each level, we can easily find the maximum value
+- This ensures that by processing level boundaries (queue size), we separate levels
+- This ensures that each level's maximum is independent of other levels
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -59,6 +59,11 @@ Level 1: max = max(3, 2) = 3
 Level 2: max = max(5, 3, 9) = 9
 Result: [1, 3, 9]
 
+Step-by-step execution:
+1. [First step]
+2. [Second step]
+3. [Final step]
+
 ### TIME COMPLEXITY:
 O(n)
 - Visit each node exactly once
@@ -71,10 +76,9 @@ O(w)
 - Result storage: O(h) where h = height
 
 ### EDGE CASES:
-- Empty tree: Return []
-- Single node: Return [root.val]
-- All negative values: Returns correct negative maximum
-- Skewed tree: Each level has one node
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

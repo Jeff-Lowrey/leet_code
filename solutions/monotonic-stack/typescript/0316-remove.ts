@@ -27,9 +27,9 @@
  * **Space Complexity**: O(1) - Constant extra space
  *
  * ### INTUITION:
- * Use monotonic increasing stack. For each character, while stack top > current character, pop if we can remove it (count > 0 and appears later). This ensures lexicographically smallest result.
- *
- * ### APPROACH:
+The key insight is that use monotonic increasing stack. For each character, while stack top > current character, pop if we can remove it (count > 0 and appears later). This ensures lexicographically smallest result.
+
+### APPROACH:
  * 1. **Count occurrences**: Create counter for each character's frequency
  * 2. **Initialize stack and visited**: stack = [], visited = set()
  * 3. **Iterate through string**: For each char in s
@@ -76,11 +76,11 @@
  * - Constant extra space
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {

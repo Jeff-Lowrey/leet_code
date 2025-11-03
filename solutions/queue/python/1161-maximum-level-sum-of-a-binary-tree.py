@@ -27,7 +27,7 @@ Return the smallest level x such that the sum of all the values of nodes at leve
 **Space Complexity**: O(w)
 
 ### INTUITION:
-Use level-order traversal (BFS) to calculate the sum of values at each level.
+The key insight is that use level-order traversal (BFS) to calculate the sum of values at each level.
 Track the level with maximum sum and return the smallest level if there are ties.
 
 ### APPROACH:
@@ -43,8 +43,8 @@ Track the level with maximum sum and return the smallest level if there are ties
    - Add children to queue for next level
 
 ### WHY THIS WORKS:
-- BFS processes nodes level by level
-- By tracking level sums, we can find the level with maximum sum
+- This ensures that bFS processes nodes level by level
+- This ensures that by tracking level sums, we can find the level with maximum sum
 - Since we process levels in order (1, 2, 3, ...), the first maximum we find is the smallest level
 
 ### EXAMPLE WALKTHROUGH:
@@ -62,6 +62,11 @@ Level 2: sum = 7 + 0 = 7 (max)
 Level 3: sum = 7 + (-8) = -1
 Result: 2
 
+Step-by-step execution:
+1. [First step]
+2. [Second step]
+3. [Final step]
+
 ### TIME COMPLEXITY:
 O(n)
 - Visit each node exactly once
@@ -73,10 +78,9 @@ O(w)
 - w = maximum width of tree (worst case: n/2 for complete tree)
 
 ### EDGE CASES:
-- Single node: Return 1
-- Negative values: Handle correctly with integer arithmetic
-- Tied sums: Return smallest level (first occurrence)
-- Skewed tree: Each level has different sum
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

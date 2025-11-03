@@ -76,10 +76,9 @@ O(n)
 Stack stores up to n characters in worst case (no duplicates)
 
 ### EDGE CASES:
-- Empty string: returns empty string
-- No duplicates: returns original string
-- All characters form duplicate pairs: returns empty string
-- Cascading removals: "abccba" → "abba" → "aa" → ""
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

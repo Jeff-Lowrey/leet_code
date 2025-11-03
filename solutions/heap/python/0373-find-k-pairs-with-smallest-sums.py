@@ -30,7 +30,7 @@ Return the k pairs (u1, v1), (u2, v2), ..., (uk, vk) with the smallest sums.
 **Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
-Use min heap containing pairs from k sorted lists. Initially add first pair from each list. Pop minimum, add result, and push next pair from same lists. Repeat k times.
+The key insight is that use min heap containing pairs from k sorted lists. Initially add first pair from each list. Pop minimum, add result, and push next pair from same lists. Repeat k times.
 
 ### APPROACH:
 1. **Initialize min heap**: Create heap with first element from nums2 for each nums1 element
@@ -42,11 +42,11 @@ Use min heap containing pairs from k sorted lists. Initially add first pair from
 7. **Return result**: Return list of k pairs with smallest sums
 
 ### WHY THIS WORKS:
-- Min heap stores (sum, i, j) tuples
-- Start with pairs (nums1[i], nums2[0]) for all i
-- Pop minimum, add next pair (nums1[i], nums2[j+1]) to heap
-- Collect k pairs or until heap empty
-- O(k log k) time: k heap operations, O(k) space for heap
+- This ensures that min heap stores (sum, i, j) tuples
+- This ensures that start with pairs (nums1[i], nums2[0]) for all i
+- This ensures that pop minimum, add next pair (nums1[i], nums2[j+1]) to heap
+- This ensures that collect k pairs or until heap empty
+- This ensures that o(k log k) time: k heap operations, O(k) space for heap
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -77,9 +77,9 @@ O(1)
 
 
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

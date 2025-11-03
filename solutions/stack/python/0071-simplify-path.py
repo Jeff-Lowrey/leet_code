@@ -40,7 +40,7 @@ Return the simplified canonical path.
 **Space Complexity**: O(n) for stack and split components
 
 ### INTUITION:
-Use a stack to track the directory hierarchy. Split the path by '/', then process each
+The key insight is that use a stack to track the directory hierarchy. Split the path by '/', then process each
 component: skip '.', pop for '..', push valid directory names. Finally, join with '/'.
 
 ### APPROACH:
@@ -89,10 +89,9 @@ O(n) where n is path length
 O(n) for stack and split components
 
 ### EDGE CASES:
-- Root directory: "/" → "/"
-- Go above root: "/../" → "/"
-- Hidden files: "/.hidden" → "/.hidden"
-- Trailing slash: "/a/b/" → "/a/b"
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

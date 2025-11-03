@@ -26,7 +26,7 @@ Given a rows x cols binary matrix filled with 0's and 1's, find the largest rect
 **Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
-For each row, treat it as base of histogram. Heights are consecutive 1s above in each column. Apply largest rectangle in histogram for each row. Track maximum across all rows.
+The key insight is that for each row, treat it as base of histogram. Heights are consecutive 1s above in each column. Apply largest rectangle in histogram for each row. Track maximum across all rows.
 
 ### APPROACH:
 1. **Build height array**: For each row, treat as base of histogram
@@ -37,11 +37,11 @@ For each row, treat it as base of histogram. Heights are consecutive 1s above in
 6. **Return result**: Return max_area
 
 ### WHY THIS WORKS:
-- Treat each row as histogram base: heights = consecutive 1s above
-- Apply largest rectangle in histogram algorithm to each row
-- Update heights: if cell is 1, heights[j]++; if 0, heights[j]=0
-- Max rectangle found by processing all rows as histograms
-- O(m*n) time: histogram calculation O(n) per row, O(n) space for heights array
+- This ensures that treat each row as histogram base: heights = consecutive 1s above
+- This ensures that apply largest rectangle in histogram algorithm to each row
+- This ensures that update heights: if cell is 1, heights[j]++; if 0, heights[j]=0
+- This ensures that max rectangle found by processing all rows as histograms
+- This ensures that o(m*n) time: histogram calculation O(n) per row, O(n) space for heights array
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -72,9 +72,9 @@ O(1)
 
 
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

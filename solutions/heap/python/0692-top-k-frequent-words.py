@@ -58,6 +58,11 @@ Heap process:
 - Remove coding: heap = [(-2, "love"), (-2, "i")]
 Result: ["i", "love"] (after reversing)
 
+Step-by-step execution:
+1. [First step]
+2. [Second step]
+3. [Final step]
+
 ### TIME COMPLEXITY:
 O(N log k)
 Where N is number of words, k is the result size. Heap operations are O(log k).
@@ -67,10 +72,9 @@ O(N + k)
 O(N) for frequency map, O(k) for heap
 
 ### EDGE CASES:
-- k equals number of unique words
-- All words have same frequency (pure lexicographical sort)
-- Single word repeated
-- k = 1 with multiple candidates
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

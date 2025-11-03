@@ -34,12 +34,12 @@
  * This is a classic stack problem for parsing expressions with parentheses. The key insight is to use a stack to save the current state (result and sign) when entering a parenthesized subexpression, then restore it when exiting.
  *
  * ### APPROACH:
- * 1. **Stack for State**: Use stack to save [result, sign] when encountering '('
- * 2. **Parse Numbers**: Build numbers digit by digit as we scan
- * 3. **Handle Operations**: Apply operations (+/-) when we encounter operators or ')'
- * 4. **Parentheses Logic**: Push state on '(', pop and apply on ')'
- *
- * ### WHY THIS WORKS:
+1. **Stack for State**: Use stack to save [result, sign] when encountering '('
+2. **Parse Numbers**: Build numbers digit by digit as we scan
+3. **Handle Operations**: Apply operations (+/-) when we encounter operators or ')'
+4. **Parentheses Logic**: Push state on '(', pop and apply on ')'
+
+### WHY THIS WORKS:
  * - Stack naturally handles nested parentheses
  * - We maintain running result and current sign
  * - When we see '(', we start a fresh calculation (subproblem)

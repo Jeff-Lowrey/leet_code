@@ -36,7 +36,7 @@ Note that:
 **Space Complexity**: O(n) - Additional hash map storage
 
 ### INTUITION:
-Reverse Polish Notation (RPN) is perfect for stack-based evaluation. In RPN,
+The key insight is that reverse Polish Notation (RPN) is perfect for stack-based evaluation. In RPN,
 operators come after their operands, so we can process left-to-right:
 push numbers onto stack, and when we see an operator, pop two operands,
 compute, and push result back.
@@ -82,9 +82,9 @@ O(n)
 Stack can hold up to n/2 operands in worst case
 
 ### EDGE CASES:
-- Single number: return that number
-- Division truncating toward zero
-- Negative operands and results
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

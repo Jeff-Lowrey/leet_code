@@ -41,24 +41,24 @@
  * **Space Complexity**: O(n) for stack and split components
  *
  * ### INTUITION:
- * Use a stack to track the directory hierarchy. Split the path by '/', then process each
- * component: skip '.', pop for '..', push valid directory names. Finally, join with '/'.
- *
- * ### APPROACH:
- * 1. **Split**: Divide path by '/' to get components
- * 2. **Stack**: Use stack to track current directory chain
- * 3. **Process**: For each component:
- *    - Skip empty strings (from consecutive '/')
- *    - Skip '.' (current directory)
- *    - Pop for '..' (go up a level, if possible)
- *    - Push valid directory names
- * 4. **Build**: Join stack with '/' and prepend '/'
- *
- * ### WHY THIS WORKS:
- * Stack naturally handles the hierarchical nature of file paths.
- * Going up (..) is a pop, going down (dirname) is a push.
- *
- * ### EXAMPLE WALKTHROUGH:
+The key insight is that use a stack to track the directory hierarchy. Split the path by '/', then process each
+component: skip '.', pop for '..', push valid directory names. Finally, join with '/'.
+
+### APPROACH:
+1. **Split**: Divide path by '/' to get components
+2. **Stack**: Use stack to track current directory chain
+3. **Process**: For each component:
+   - Skip empty strings (from consecutive '/')
+   - Skip '.' (current directory)
+   - Pop for '..' (go up a level, if possible)
+   - Push valid directory names
+4. **Build**: Join stack with '/' and prepend '/'
+
+### WHY THIS WORKS:
+Stack naturally handles the hierarchical nature of file paths.
+Going up (..) is a pop, going down (dirname) is a push.
+
+### EXAMPLE WALKTHROUGH:
  * Input:
  * ```
  * path = "/a/./b/../../c/"
@@ -91,12 +91,11 @@
  * O(n) for stack and split components
  *
  * ### EDGE CASES:
- * - Root directory: "/" → "/"
- * - Go above root: "/../" → "/"
- * - Hidden files: "/.hidden" → "/.hidden"
- * - Trailing slash: "/a/b/" → "/a/b"
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {

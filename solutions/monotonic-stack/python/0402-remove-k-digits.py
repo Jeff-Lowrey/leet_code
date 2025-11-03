@@ -26,7 +26,7 @@ Given string num representing a non-negative integer num, and an integer k, retu
 **Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
-Use monotonic increasing stack. Remove k digits greedily by popping larger digits when a smaller digit is found. If k removals not reached, remove from end. Handle leading zeros.
+The key insight is that use monotonic increasing stack. Remove k digits greedily by popping larger digits when a smaller digit is found. If k removals not reached, remove from end. Handle leading zeros.
 
 ### APPROACH:
 1. **Initialize stack**: Create empty stack to build result
@@ -76,9 +76,9 @@ O(1)
 
 
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

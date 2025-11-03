@@ -28,10 +28,10 @@
 
  *
  * ### INTUITION:
- * Use level-order traversal (BFS) to process nodes level by level.
- * For each level, calculate the sum and count of nodes, then compute the average.
- *
- * ### APPROACH:
+The key insight is that use level-order traversal (BFS) to process nodes level by level.
+For each level, calculate the sum and count of nodes, then compute the average.
+
+### APPROACH:
  * 1. **Handle edge case**: Return empty list if tree is empty
  * 2. **Initialize BFS**: Use a deque with root node
  * 3. **For each level**:
@@ -42,27 +42,27 @@
  *    - Add children to queue for next level
  *
  * ### WHY THIS WORKS:
- * - BFS processes nodes level by level
- * - By tracking level boundaries (queue size), we can compute level sums independently
- * - Average is simply sum of values divided by number of nodes
- * - Each level's average is independent of other levels
- *
- * ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * Tree:      3
- * ```
- *
- * /   \\
- * 9     20
- * /  \\
- * 15   7
- * Level 0: sum = 3, count = 1, avg = 3.0
- * Level 1: sum = 29, count = 2, avg = 14.5
- * Level 2: sum = 22, count = 2, avg = 11.0
- * Result: [3.0, 14.5, 11.0]
+- This ensures that bFS processes nodes level by level
+- This ensures that by tracking level boundaries (queue size), we can compute level sums independently
+- This ensures that average is simply sum of values divided by number of nodes
+- This ensures that each level's average is independent of other levels
 
- * ### TIME COMPLEXITY:
+### EXAMPLE WALKTHROUGH:
+Input:
+```
+Tree:      3
+```
+
+/   \\
+9     20
+/  \\
+15   7
+Level 0: sum = 3, count = 1, avg = 3.0
+Level 1: sum = 29, count = 2, avg = 14.5
+Level 2: sum = 22, count = 2, avg = 11.0
+Result: [3.0, 14.5, 11.0]
+
+### TIME COMPLEXITY:
  * O(n)
  * - Single pass through input
  * - Visit each node exactly once
@@ -75,12 +75,11 @@
  * - Result storage: O(h) where h = height
  *
  * ### EDGE CASES:
- * - Empty tree: Return []
- * - Single node: Return [root.val]
- * - Integer overflow: Use proper precision for averages
- * - Negative values: Handle correctly with floating-point arithmetic
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 // Definition for a binary tree node

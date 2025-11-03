@@ -40,9 +40,9 @@ Alternatively, we can prepend each level to the result instead of appending.
 4. **Reverse result**: Return reversed list for bottom-up order
 
 ### WHY THIS WORKS:
-- BFS naturally processes nodes level by level (top to bottom)
-- By reversing the result at the end, we get bottom-up order
-- Deque provides efficient O(1) operations for BFS
+- This ensures that bFS naturally processes nodes level by level (top to bottom)
+- This ensures that by reversing the result at the end, we get bottom-up order
+- This ensures that deque provides efficient O(1) operations for BFS
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -58,6 +58,11 @@ Level-order (top-down): [[3], [9, 20], [15, 7]]
 Bottom-up: [[15, 7], [9, 20], [3]]
 Output: "Test case 1 passed: Example tree"
 
+Step-by-step execution:
+1. [First step]
+2. [Second step]
+3. [Final step]
+
 ### TIME COMPLEXITY:
 O(n)
 - Visit each node exactly once: O(n)
@@ -71,9 +76,9 @@ O(w)
 - Result storage: O(n)
 
 ### EDGE CASES:
-- Empty tree: Return []
-- Single node: Return [[root.val]]
-- Skewed tree: Each level has one node
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

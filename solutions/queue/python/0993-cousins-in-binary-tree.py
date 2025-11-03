@@ -29,7 +29,7 @@ Two nodes of a binary tree are cousins if they have the same depth but have diff
 **Space Complexity**: O(w)
 
 ### INTUITION:
-Cousins are nodes at the same level (depth) but with different parents.
+The key insight is that cousins are nodes at the same level (depth) but with different parents.
 Use BFS to track both depth and parent information for each node.
 
 ### APPROACH:
@@ -42,10 +42,10 @@ Use BFS to track both depth and parent information for each node.
    - They must have different parents
 
 ### WHY THIS WORKS:
-- BFS naturally tracks depth by processing level by level
-- By storing parent along with each node in queue, we can track parent information
-- When we find both target values, we have all information needed to check if they're cousins
-- Early termination: Can stop as soon as we find both nodes
+- This ensures that bFS naturally tracks depth by processing level by level
+- This ensures that by storing parent along with each node in queue, we can track parent information
+- This ensures that when we find both target values, we have all information needed to check if they're cousins
+- This ensures that early termination: Can stop as soon as we find both nodes
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -68,6 +68,11 @@ Step 2: - Node 2: depth=1, parent=1
 Step 3: - Node 3: depth=1, parent=1
 Step 4: - Same parent → NOT cousins
 
+Output:
+```
+[Expected output]
+```
+
 ### TIME COMPLEXITY:
 O(n)
 - In worst case, visit all nodes in tree
@@ -79,10 +84,9 @@ O(w)
 - w = maximum width of tree (worst case: n/2 for complete tree)
 
 ### EDGE CASES:
-- One or both nodes not in tree: Return false
-- Nodes at different depths: Return false
-- Nodes with same parent (siblings): Return false
-- Root node as one of the values: Cannot be cousin
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

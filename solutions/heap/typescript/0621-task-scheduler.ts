@@ -30,9 +30,9 @@
  * **Space Complexity**: O(1) - Constant extra space
  * 
  * ### INTUITION:
- * Schedule most frequent tasks first to minimize idle time. Use max-heap to always pick the task with highest frequency. Track cooldown with a queue.
- * 
- * ### APPROACH:
+The key insight is that schedule most frequent tasks first to minimize idle time. Use max-heap to always pick the task with highest frequency. Track cooldown with a queue.
+
+### APPROACH:
  * **Data structures: Array (tasks input), Queue (cooldown tracking), Heap (max-heap for frequency), Hash Map (Counter for frequencies)**
  * 1. **Count frequencies**: Use Counter to get task frequencies
  * 2. **Max-heap**: Store negative frequencies (Python has min-heap)
@@ -57,43 +57,43 @@ This solution uses array traversal for efficient implementation.
 
 The solution leverages string for efficient operations.
 ### EXAMPLE WALKTHROUGH:
-  * Input:
- * ```
- * tasks = ["A","A","A","B","B","B"], n = 2
- * ```
- *
- * **Step 1:** Count frequencies
- * - Use Counter to get task frequencies
- * - Frequencies: {A: 3, B: 3}
- * - Both tasks appear 3 times each
- *
- * **Step 2:** Max-heap setup
- * - Store negative frequencies for max-heap: [-3, -3]
- * - Heap allows us to always pick most frequent available task
- *
- * **Step 3:** Simulation for each time unit
- * - **Time 0**: Pick A (freq=3), A remaining=2, add to cooldown queue (available at time 3)
- * - **Time 1**: Pick B (freq=3), B remaining=2, add to cooldown queue (available at time 4)
- * - **Time 2**: No tasks available (both in cooldown) → idle
- * - **Time 3**: A returns from cooldown (freq=2), pick A, A remaining=1, cooldown until time 6
- * - **Time 4**: B returns from cooldown (freq=2), pick B, B remaining=1, cooldown until time 7
- * - **Time 5**: No tasks available → idle
- * - **Time 6**: A returns from cooldown (freq=1), pick A, A done
- * - **Time 7**: B returns from cooldown (freq=1), pick B, B done
- * - Total time units: 8
- *
- * **Step 4:** Math formula alternative
- * - Max frequency: 3
- * - Formula: (maxFreq - 1) × (n + 1) + countOfMaxFreqTasks
- * - Calculation: (3 - 1) × (2 + 1) + 2 = 2 × 3 + 2 = 8
- * - Result matches simulation
- *
- * Output:
- * ```
- * 8
- * ```
- *
- * ### TIME COMPLEXITY:
+Input:
+```
+tasks = ["A","A","A","B","B","B"], n = 2
+```
+
+*Step 1:** Count frequencies
+- Use Counter to get task frequencies
+- Frequencies: {A: 3, B: 3}
+- Both tasks appear 3 times each
+
+*Step 2:** Max-heap setup
+- Store negative frequencies for max-heap: [-3, -3]
+- Heap allows us to always pick most frequent available task
+
+*Step 3:** Simulation for each time unit
+- **Time 0**: Pick A (freq=3), A remaining=2, add to cooldown queue (available at time 3)
+- **Time 1**: Pick B (freq=3), B remaining=2, add to cooldown queue (available at time 4)
+- **Time 2**: No tasks available (both in cooldown) → idle
+- **Time 3**: A returns from cooldown (freq=2), pick A, A remaining=1, cooldown until time 6
+- **Time 4**: B returns from cooldown (freq=2), pick B, B remaining=1, cooldown until time 7
+- **Time 5**: No tasks available → idle
+- **Time 6**: A returns from cooldown (freq=1), pick A, A done
+- **Time 7**: B returns from cooldown (freq=1), pick B, B done
+- Total time units: 8
+
+*Step 4:** Math formula alternative
+- Max frequency: 3
+- Formula: (maxFreq - 1) × (n + 1) + countOfMaxFreqTasks
+- Calculation: (3 - 1) × (2 + 1) + 2 = 2 × 3 + 2 = 8
+- Result matches simulation
+
+Output:
+```
+8
+```
+
+### TIME COMPLEXITY:
  * O(n × m)
  * Where n = cooldown, m = number of tasks (simulation approach)
  * Math approach: O(m) where m = number of tasks
@@ -104,12 +104,11 @@ The solution leverages string for efficient operations.
  * At most 26 different tasks (letters)
  * 
  * ### EDGE CASES:
- * - n = 0: tasks=["A","A","B","B"], n=0 → 4 (no cooldown needed, execute sequentially)
- * - All tasks same: tasks=["A","A","A","A"], n=2 → 10 (requires idle time between same tasks)
- * - All tasks different: tasks=["A","B","C","D"], n=2 → 4 (no cooldown needed, all unique)
- * - n very large: tasks=["A","A","A"], n=50 → 104 (long idle periods dominate, (3-1)×(50+1)+1=104)
- * 
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {

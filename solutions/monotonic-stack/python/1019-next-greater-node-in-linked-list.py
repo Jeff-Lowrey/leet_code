@@ -28,7 +28,7 @@ node, answer[i] is 0.
 **Space Complexity**: O(n) - Additional set storage
 
 ### INTUITION:
-Use a monotonic decreasing stack to track indices waiting for their next greater element.
+The key insight is that use a monotonic decreasing stack to track indices waiting for their next greater element.
 As we traverse, for each node, pop all stack indices with smaller values and update their answers.
 
 ### APPROACH:
@@ -57,6 +57,11 @@ i=2, val=5:
 - stack=[(2,5)]
 - answer=[5,5,0]
 Result: [5,5,0]
+
+Step-by-step execution:
+1. [First step]
+2. [Second step]
+3. [Final step]
 
 ### TIME COMPLEXITY:
 O(n)

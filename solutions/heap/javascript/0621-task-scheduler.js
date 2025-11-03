@@ -32,9 +32,9 @@
 
  *
  * ### INTUITION:
- * Schedule most frequent tasks first to minimize idle time. Use max-heap to always pick the task with highest frequency. Track cooldown with a queue.
- *
- * ### APPROACH:
+The key insight is that schedule most frequent tasks first to minimize idle time. Use max-heap to always pick the task with highest frequency. Track cooldown with a queue.
+
+### APPROACH:
  * **Data structures: Array (tasks input), Queue (cooldown tracking), Heap (max-heap for frequency), Hash Map (Counter for frequencies)**
  * 1. **Count frequencies**: Use hash map storage (Counter) with array traversal to get task frequencies
  * 2. **Max-heap**: Store negative frequencies using heap data structure
@@ -57,36 +57,36 @@ This solution uses hash map storage for efficient implementation.
 
 This solution uses array traversal for efficient implementation.
 ### EXAMPLE WALKTHROUGH:
-  * Input:
- * ```
- * tasks = ["A","A","A","B","B","B"], n = 2
- * ```
- *
- * **Step 1:** Count frequencies using hash map storage
- * - Hash map: {A: 3, B: 3}
- *
- * **Step 2:** Build max-heap with negative frequencies
- * - Heap: [-3, -3] (representing A and B)
- *
- * **Step 3:** Simulate timeline with queue for cooldown tracking
- * - Time 0: Pick A from heap (A left: 2, cooldown until time 3), queue: [(2, 3)]
- * - Time 1: Pick B from heap (B left: 2, cooldown until time 4), queue: [(2, 3), (2, 4)]
- * - Time 2: No tasks available (idle), queue processing
- *
- * **Step 4:** Continue simulation with hash table lookups
- * - Time 3: A returns from cooldown (A left: 1, cooldown until time 6)
- * - Time 4: B returns from cooldown (B left: 1, cooldown until time 7)
- * - Time 5: idle
- * - Time 6: A (A done)
- * - Time 7: B (B done)
- * - Total: 8 units
- *
- * Output:
- * ```
- * 8
- * ```
- *
- * ### TIME COMPLEXITY:
+Input:
+```
+tasks = ["A","A","A","B","B","B"], n = 2
+```
+
+*Step 1:** Count frequencies using hash map storage
+- Hash map: {A: 3, B: 3}
+
+*Step 2:** Build max-heap with negative frequencies
+- Heap: [-3, -3] (representing A and B)
+
+*Step 3:** Simulate timeline with queue for cooldown tracking
+- Time 0: Pick A from heap (A left: 2, cooldown until time 3), queue: [(2, 3)]
+- Time 1: Pick B from heap (B left: 2, cooldown until time 4), queue: [(2, 3), (2, 4)]
+- Time 2: No tasks available (idle), queue processing
+
+*Step 4:** Continue simulation with hash table lookups
+- Time 3: A returns from cooldown (A left: 1, cooldown until time 6)
+- Time 4: B returns from cooldown (B left: 1, cooldown until time 7)
+- Time 5: idle
+- Time 6: A (A done)
+- Time 7: B (B done)
+- Total: 8 units
+
+Output:
+```
+8
+```
+
+### TIME COMPLEXITY:
  * O(n × m)
  * Where n = cooldown, m = number of tasks (simulation approach)
  * Math approach: O(m) where m = number of tasks
@@ -97,12 +97,11 @@ This solution uses array traversal for efficient implementation.
  * At most 26 different tasks (letters)
  *
  * ### EDGE CASES:
- * - n = 0: tasks=["A","A","A"] → 3 (no cooldown, just len(tasks))
- * - All tasks same: tasks=["A","A","A","A"], n=2 → 10 (A _ _ A _ _ A _ _ A)
- * - All tasks different: tasks=["A","B","C","D"], n=2 → 4 (no waiting needed)
- * - n very large: tasks=["A","A"], n=100 → 102 (A, 100 idles, A)
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 /**

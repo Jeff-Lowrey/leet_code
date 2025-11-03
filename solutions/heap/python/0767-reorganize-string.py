@@ -28,7 +28,7 @@ Return any possible rearrangement of s or return "" if not possible.
 **Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
-Use max heap to track character frequencies. Greedily pick most frequent character, add to result, decrease count, and temporarily hold it. Add back to heap after one position to ensure no adjacent duplicates.
+The key insight is that use max heap to track character frequencies. Greedily pick most frequent character, add to result, decrease count, and temporarily hold it. Add back to heap after one position to ensure no adjacent duplicates.
 
 ### APPROACH:
 1. **Count frequencies**: Use Counter(s) to get character frequencies
@@ -78,9 +78,9 @@ O(1)
 
 
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """
