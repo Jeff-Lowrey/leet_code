@@ -47,6 +47,4 @@ We store at most 'capacity' key-value pairs
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
-</details>
-
 """

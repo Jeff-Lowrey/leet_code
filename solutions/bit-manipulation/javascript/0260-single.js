@@ -1,55 +1,56 @@
 /**
-### INTUITION:
-[This problem requires understanding of bit manipulation concepts. The key insight is to identify the optimal approach for this specific scenario.]
-
-### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply bit manipulation methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
-
-### WHY THIS WORKS:
-- This ensures that the solution leverages bit manipulation principles
-- This ensures that time complexity is optimized for the given constraints
-- This ensures that space complexity is minimized where possible
-
-### EXAMPLE WALKTHROUGH:
-Input:
-```
-nums = [1,2,1,3,2,5]
-```
-
-Step 1: XOR all numbers
-xor = 1^2^1^3^2^5 = 3^5 = 6 (binary: 110)
-Step 2: Find rightmost set bit
-rightmost_bit = xor & -xor = 110 & 010 = 010 (bit 1)
-Step 3: Partition numbers by rightmost bit
-
-Steps:
-Step 1: Group 1 (bit 1 is 0): [1,1,5] → XOR = 5
-Step 2: Group 2 (bit 1 is 1): [2,3,2] → XOR = 3
-
-Output:
-```
-[3, 5] (two single numbers)
-```
-
-### TIME COMPLEXITY:
-O(n)**
-- Single pass through input
-
-### SPACE COMPLEXITY:
-O(1)**
-- Constant extra space
-
-### EDGE CASES:
-- **Empty input**: Handle when input is empty
-- **Single element**: Handle single-element inputs
-- **Boundary values**: Handle minimum/maximum valid values
-
-</details>
-
-*/
+ * ### METADATA:
+ *
+ *
+ * ### INTUITION:
+ * [This problem requires understanding of bit manipulation concepts. The key insight is to identify the optimal approach for this specific scenario.]
+ *
+ * ### APPROACH:
+ * 1. **Analyze the problem**: Understand the input constraints and expected output
+ * 2. **Choose the right technique**: Apply bit manipulation methodology
+ * 3. **Implement efficiently**: Focus on optimal time and space complexity
+ * 4. **Handle edge cases**: Consider boundary conditions and special cases
+ *
+ * ### WHY THIS WORKS:
+ * - This ensures that the solution leverages bit manipulation principles
+ * - This ensures that time complexity is optimized for the given constraints
+ * - This ensures that space complexity is minimized where possible
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * nums = [1,2,1,3,2,5]
+ * ```
+ *
+ * Step 1: XOR all numbers
+ * xor = 1^2^1^3^2^5 = 3^5 = 6 (binary: 110)
+ * Step 2: Find rightmost set bit
+ * rightmost_bit = xor & -xor = 110 & 010 = 010 (bit 1)
+ * Step 3: Partition numbers by rightmost bit
+ *
+ * Steps:
+ * Step 1: Group 1 (bit 1 is 0): [1,1,5] → XOR = 5
+ * Step 2: Group 2 (bit 1 is 1): [2,3,2] → XOR = 3
+ *
+ * Output:
+ * ```
+ * [3, 5] (two single numbers)
+ * ```
+ *
+ * ### TIME COMPLEXITY:
+ * O(n)**
+ * - Single pass through input
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
+ *
+ * ### EDGE CASES:
+ * - **Empty input**: Handle when input is empty
+ * - **Single element**: Handle single-element inputs
+ * - **Boundary values**: Handle minimum/maximum valid values
+ *
+ * *
+ */
 
 /**
  * Main solution for Problem 260: Single Number III

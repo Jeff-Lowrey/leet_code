@@ -64,8 +64,6 @@ O(U + T)** where U is users, T is total tweets
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
-</details>
-
 */
 
 class Solution {

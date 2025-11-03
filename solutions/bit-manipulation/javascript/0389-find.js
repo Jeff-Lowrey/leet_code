@@ -1,57 +1,58 @@
 /**
-### INTUITION:
-[This problem requires understanding of bit manipulation concepts. The key insight is to identify the optimal approach for this specific scenario.]
-
-### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply bit manipulation methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
-
-### WHY THIS WORKS:
-- This ensures that the solution leverages bit manipulation principles
-- This ensures that time complexity is optimized for the given constraints
-- This ensures that space complexity is minimized where possible
-
-### EXAMPLE WALKTHROUGH:
-Input:
-```
-s = "abcd", t = "abcde"
-```
-
-Step 1: XOR all characters
-result = 0
-XOR s: result ^= ord('a') ^= ord('b') ^= ord('c') ^= ord('d')
-XOR t: result ^= ord('a') ^= ord('b') ^= ord('c') ^= ord('d') ^= ord('e')
-Step 2: Duplicate characters cancel out
-All characters in s cancel with t
-Remaining: ord('e')
-Step 3: Convert back to character
-
-Steps:
-Step 1: result = ord('e') → 'e'
-
-Output:
-```
-'e' (the added character)
-```
-
-### TIME COMPLEXITY:
-O(n)**
-- Single pass through input
-
-### SPACE COMPLEXITY:
-O(1)**
-- Constant extra space
-
-### EDGE CASES:
-- **Empty input**: Handle when input is empty
-- **Single element**: Handle single-element inputs
-- **Boundary values**: Handle minimum/maximum valid values
-
-</details>
-
-*/
+ * ### METADATA:
+ *
+ *
+ * ### INTUITION:
+ * [This problem requires understanding of bit manipulation concepts. The key insight is to identify the optimal approach for this specific scenario.]
+ *
+ * ### APPROACH:
+ * 1. **Analyze the problem**: Understand the input constraints and expected output
+ * 2. **Choose the right technique**: Apply bit manipulation methodology
+ * 3. **Implement efficiently**: Focus on optimal time and space complexity
+ * 4. **Handle edge cases**: Consider boundary conditions and special cases
+ *
+ * ### WHY THIS WORKS:
+ * - This ensures that the solution leverages bit manipulation principles
+ * - This ensures that time complexity is optimized for the given constraints
+ * - This ensures that space complexity is minimized where possible
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * s = "abcd", t = "abcde"
+ * ```
+ *
+ * Step 1: XOR all characters
+ * result = 0
+ * XOR s: result ^= ord('a') ^= ord('b') ^= ord('c') ^= ord('d')
+ * XOR t: result ^= ord('a') ^= ord('b') ^= ord('c') ^= ord('d') ^= ord('e')
+ * Step 2: Duplicate characters cancel out
+ * All characters in s cancel with t
+ * Remaining: ord('e')
+ * Step 3: Convert back to character
+ *
+ * Steps:
+ * Step 1: result = ord('e') → 'e'
+ *
+ * Output:
+ * ```
+ * 'e' (the added character)
+ * ```
+ *
+ * ### TIME COMPLEXITY:
+ * O(n)**
+ * - Single pass through input
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
+ *
+ * ### EDGE CASES:
+ * - **Empty input**: Handle when input is empty
+ * - **Single element**: Handle single-element inputs
+ * - **Boundary values**: Handle minimum/maximum valid values
+ *
+ * *
+ */
 
 /**
  * Main solution for Problem 389: Find the Difference

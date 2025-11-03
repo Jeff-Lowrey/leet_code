@@ -1,194 +1,65 @@
 /**
-### INTUITION:
-The key insight is that place queens one row at a time and backtrack when conflicts arise. Queens attack horizontally, vertically, and diagonally, so we need to ensure no two queens can attack each other.
-
-### APPROACH:
-The algorithm proceeds as follows:
-
-The algorithm proceeds as follows:
-
-The algorithm proceeds as follows:
-
-The algorithm proceeds as follows:
-
-The algorithm proceeds as follows:
-
-The algorithm proceeds as follows:
-
-The algorithm proceeds as follows:
-
-The algorithm proceeds as follows:
-
-The algorithm proceeds as follows:
-
-The algorithm proceeds as follows:
-
-The algorithm proceeds as follows:
-
-The algorithm proceeds as follows:
-
-The algorithm proceeds as follows:
-
-The algorithm proceeds as follows:
-
-The algorithm proceeds as follows:
-
-The algorithm proceeds as follows:
-
-The algorithm proceeds as follows:
-
-The algorithm proceeds as follows:
-
-The algorithm proceeds as follows:
-
-The algorithm proceeds as follows:
-
-The algorithm proceeds as follows:
-
-The algorithm proceeds as follows:
-
-The algorithm proceeds as follows:
-
-The algorithm proceeds as follows:
-
-The algorithm proceeds as follows:
-
-The algorithm proceeds as follows:
-
-The algorithm proceeds as follows:
-
-The algorithm proceeds as follows:
-
-The algorithm proceeds as follows:
-
-The algorithm proceeds as follows:
-
-The algorithm proceeds as follows:
-
-The algorithm proceeds as follows:
-
-The algorithm proceeds as follows:
-
-The algorithm proceeds as follows:
-
-The algorithm proceeds as follows:
-
-The algorithm proceeds as follows:
-
-The algorithm proceeds as follows:
-
-The algorithm proceeds as follows:
-
-The algorithm proceeds as follows:
-
-The algorithm proceeds as follows:
-
-The algorithm proceeds as follows:
-
-The algorithm proceeds as follows:
-
-The algorithm proceeds as follows:
-
-The algorithm proceeds as follows:
-
-The algorithm proceeds as follows:
-
-The algorithm proceeds as follows:
-
-The algorithm proceeds as follows:
-
-The algorithm proceeds as follows:
-
-The algorithm proceeds as follows:
-
-The algorithm proceeds as follows:
-
-The algorithm proceeds as follows:
-
-The algorithm proceeds as follows:
-
-The algorithm proceeds as follows:
-
-Data structures: Hash Set (column and diagonal tracking), Array (board state and results), String (board representation)**
-1. **Row by row placement**: Place one queen per row to avoid horizontal conflicts
-2. **Column tracking**: Track which columns are occupied using hash set to avoid vertical conflicts
-3. **Diagonal tracking**: Track both diagonal directions using hash set to avoid diagonal conflicts
-4. **Backtrack**: When placement impossible, backtrack and try next position
-5. **Build solution**: When all queens placed successfully, add board array to results
-
-### WHY THIS WORKS:
-- Placing one queen per row eliminates horizontal conflicts automatically
-- Column and diagonal tracking prevents vertical and diagonal conflicts
-- Backtracking explores all valid placements systematically
-- Early pruning prevents exploring invalid partial solutions
-
-
-
-This solution uses hash table lookup for efficient implementation.
-
-This solution uses hash map storage for efficient implementation.
-
-This solution uses set operations for efficient implementation.
-
-### EXAMPLE WALKTHROUGH:
-Input:
-```
-n = 4
-```
-
-Step 1:** Place queen in row 0 for n=4 board
-- Try col 0: Place Q at (0,0)
-- Update tracking sets: cols = {0}, diag1 = {0}, diag2 = {0}
-
-Step 2:** Place queen in row 1
-- Try col 0: conflicts with cols (skip)
-- Try col 1: conflicts with diag2 (skip)
-- Try col 2: Place Q at (1,2) ✓
-- Update tracking sets: cols = {0,2}, diag1 = {0,-1}, diag2 = {0,3}
-
-Step 3:** Place queen in row 2
-- Try col 0,1,3: all conflicts
-- Try col 4: out of range → Backtrack to row 1
-
-Step 4:** Backtrack and try different placements
-- Backtrack to row 1, try col 3
-- Continue exploring all valid placements
-- Systematically explore all possible queen placements that don't violate constraints
-
-Step 5:** Build solution when all queens placed
-- First solution found: [".Q..","...Q","Q...","..Q."]
-  - Row 0: Queen at col 1
-  - Row 1: Queen at col 3
-  - Row 2: Queen at col 0
-  - Row 3: Queen at col 2
-- Second solution found: ["..Q.","Q...","...Q",".Q.."]
-- Add both board arrays to results
-
-Output:
-```
-[[".Q..","...Q","Q...","..Q."],["..Q.","Q...","...Q",".Q.."]]
-```
-
-### TIME COMPLEXITY:
-O(N!)**
-- In worst case, we try every possible placement
-- First queen has N choices, second has (N-1), etc.
-- But pruning significantly reduces actual combinations
-
-### SPACE COMPLEXITY:
-O(N)**
-- Recursion depth is N (one call per row)
-- Additional space for tracking columns and diagonals
-- Board representation space
-
-### EDGE CASES:
-- **n = 1**: Single queen at (0,0), return [["Q"]]
-- **n = 2 or n = 3**: No solutions exist, return empty list
-- **n = 4**: Two distinct solutions exist
-- **Large n values**: Backtracking with pruning handles efficiently
-- **All positions conflict**: Backtracking exhausts all possibilities, returns empty
-
-*/
+ * ### INTUITION:
+ * The key insight is that place queens one row at a time and backtrack when conflicts arise. Queens attack horizontally, vertically, and diagonally, so we need to ensure no two queens can attack each other.
+ *
+ * ### APPROACH:
+ * 1. **Row by row placement**: Place one queen per row to avoid horizontal conflicts
+ * 2. **Column tracking**: Track which columns are occupied to avoid vertical conflicts
+ * 3. **Diagonal tracking**: Track both diagonal directions to avoid diagonal conflicts
+ * 4. **Backtrack**: When placement impossible, backtrack and try next position
+ * 5. **Build solution**: When all queens placed successfully, add board to results
+ *
+ * ### WHY THIS WORKS:
+ * - Placing one queen per row eliminates horizontal conflicts automatically
+ * - Column and diagonal tracking prevents vertical and diagonal conflicts
+ * - Backtracking explores all valid placements systematically
+ * - Early pruning prevents exploring invalid partial solutions
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * n = 4
+ * ```
+ *
+ * **Step 1:** Place queen in row 0
+ * - Try col 0: Place Q at (0,0)
+ *   - cols = {0}, diag1 = {0}, diag2 = {0}
+ *
+ * **Step 2:** Place queen in row 1
+ * - Try col 0: conflicts with cols (skip)
+ * - Try col 1: conflicts with diag2 (skip)
+ * - Try col 2: Place Q at (1,2) ✓
+ *   - cols = {0,2}, diag1 = {0,-1}, diag2 = {0,3}
+ *
+ * **Step 3:** Place queen in row 2
+ * - Try col 0,1: conflicts
+ * - Try col 3: conflicts
+ * - Try col 4: out of range → Backtrack
+ *
+ * **Step 4:** Try different placement in row 1 (col 3)
+ * - Eventually find: [".Q..","...Q","Q...","..Q."]
+ *
+ * Output: [[".Q..","...Q","Q...","..Q."],["..Q.","Q...","...Q",".Q.."]]
+ *
+ * ### TIME COMPLEXITY:
+ * **O(N!)**
+ * - In worst case, we try every possible placement
+ * - First queen has N choices, second has (N-1), etc.
+ * - But pruning significantly reduces actual combinations
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(N)**
+ * - Recursion depth is N (one call per row)
+ * - Additional space for tracking columns and diagonals
+ * - Board representation space
+ *
+ * ### EDGE CASES:
+ * - **n = 1**: Single queen at (0,0), return [["Q"]]
+ * - **n = 2 or n = 3**: No solutions exist, return empty list
+ * - **n = 4**: Two distinct solutions exist
+ * - **Large n values**: Backtracking with pruning handles efficiently
+ * - **All positions conflict**: Backtracking exhausts all possibilities, returns empty
+ */
 
 class Solution {
   /**

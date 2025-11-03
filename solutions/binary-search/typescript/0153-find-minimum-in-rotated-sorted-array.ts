@@ -1,64 +1,65 @@
 /**
-### INTUITION:
-The key insight is that the minimum element is where the rotation occurs. Compare mid with right: if nums[mid] > nums[right], minimum is in the right half; otherwise it's in the left half (including mid). This handles both rotated and non-rotated cases.
-
-### APPROACH:
-1. **Initialize pointers**: Set left = 0, right = len(nums) - 1
-2. **Binary search loop**: While left < right, calculate mid = (left + right) // 2
-3. **Compare mid with right**: Check if nums[mid] > nums[right] to determine rotation position
-4. **Minimum in right half**: If nums[mid] > nums[right], minimum is in right half, set left = mid + 1
-5. **Minimum in left half**: Otherwise, minimum is in left half (including mid), set right = mid
-6. **Converge to minimum**: Continue until left == right
-7. **Return result**: Return nums[left] as the minimum element
-
-### WHY THIS WORKS:
-- This ensures that binary search: minimum is at rotation point
-- This ensures that if nums[mid] > nums[right], minimum in right half (left = mid + 1)
-- This ensures that else minimum in left half including mid (right = mid)
-- This ensures that when left == right, found minimum
-- This ensures that o(log n) time, O(1) space
-
-### EXAMPLE WALKTHROUGH:
-Input:
-```
-nums = [4,5,6,7,0,1,2]
-```
-
-Step 1: Check if array is rotated
-
-Steps:
-Step 1: nums[0]=4 > nums[-1]=2 → Array is rotated
-Step 2: Binary search for minimum
-Step 3: left = 0, right = 6
-Step 4: mid = 3: nums[3]=7 > nums[6]=2
-Step 5: Minimum is in right half, left = 3
-Step 6: left = 3, right = 6
-Step 7: mid = 4: nums[4]=0 < nums[6]=2
-Step 8: Minimum could be at mid or left, right = 4
-Step 9: left = 3, right = 4
-Step 10: right - left = 1 → return min(nums[3], nums[4]) = min(7, 0) = 0
-
-Output:
-```
-0 (minimum element)
-```
-
-### TIME COMPLEXITY:
-O(n)**
-- Single pass through input
-
-### SPACE COMPLEXITY:
-O(1)**
-- Constant extra space
-
-### EDGE CASES:
-- **Empty input**: Handle when input is empty
-- **Single element**: Handle single-element inputs
-- **Boundary values**: Handle minimum/maximum valid values
-
-</details>
-
-*/
+ * ### METADATA:
+ *
+ *
+ * ### INTUITION:
+ * The key insight is that the minimum element is where the rotation occurs. Compare mid with right: if nums[mid] > nums[right], minimum is in the right half; otherwise it's in the left half (including mid). This handles both rotated and non-rotated cases.
+ *
+ * ### APPROACH:
+ * 1. **Initialize pointers**: Set left = 0, right = len(nums) - 1
+ * 2. **Binary search loop**: While left < right, calculate mid = (left + right) // 2
+ * 3. **Compare mid with right**: Check if nums[mid] > nums[right] to determine rotation position
+ * 4. **Minimum in right half**: If nums[mid] > nums[right], minimum is in right half, set left = mid + 1
+ * 5. **Minimum in left half**: Otherwise, minimum is in left half (including mid), set right = mid
+ * 6. **Converge to minimum**: Continue until left == right
+ * 7. **Return result**: Return nums[left] as the minimum element
+ *
+ * ### WHY THIS WORKS:
+ * - This ensures that binary search: minimum is at rotation point
+ * - This ensures that if nums[mid] > nums[right], minimum in right half (left = mid + 1)
+ * - This ensures that else minimum in left half including mid (right = mid)
+ * - This ensures that when left == right, found minimum
+ * - This ensures that o(log n) time, O(1) space
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * nums = [4,5,6,7,0,1,2]
+ * ```
+ *
+ * Step 1: Check if array is rotated
+ *
+ * Steps:
+ * Step 1: nums[0]=4 > nums[-1]=2 → Array is rotated
+ * Step 2: Binary search for minimum
+ * Step 3: left = 0, right = 6
+ * Step 4: mid = 3: nums[3]=7 > nums[6]=2
+ * Step 5: Minimum is in right half, left = 3
+ * Step 6: left = 3, right = 6
+ * Step 7: mid = 4: nums[4]=0 < nums[6]=2
+ * Step 8: Minimum could be at mid or left, right = 4
+ * Step 9: left = 3, right = 4
+ * Step 10: right - left = 1 → return min(nums[3], nums[4]) = min(7, 0) = 0
+ *
+ * Output:
+ * ```
+ * 0 (minimum element)
+ * ```
+ *
+ * ### TIME COMPLEXITY:
+ * O(n)**
+ * - Single pass through input
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
+ *
+ * ### EDGE CASES:
+ * - **Empty input**: Handle when input is empty
+ * - **Single element**: Handle single-element inputs
+ * - **Boundary values**: Handle minimum/maximum valid values
+ *
+ * *
+ */
 
 class Solution {
   findMin(nums: number[]): number {

@@ -51,8 +51,6 @@ Output:
 - **Zero in range:** If range includes 0, result is 0 (but problem constraints ensure left >= 0)
 - **Adjacent numbers:** Returns their AND, which zeros out any differing bits
 
-</details>
-
 """
 
 from typing import Any

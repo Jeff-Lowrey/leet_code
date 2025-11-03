@@ -1,60 +1,61 @@
 /**
-### INTUITION:
-[This problem requires understanding of binary search concepts. The key insight is to identify the optimal approach for this specific scenario.]
-
-### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply binary search methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
-
-### WHY THIS WORKS:
-- This ensures that the solution leverages binary search principles
-- This ensures that time complexity is optimized for the given constraints
-- This ensures that space complexity is minimized where possible
-
-### EXAMPLE WALKTHROUGH:
-Input:
-```
-matrix = [[1,3,5,7],[10,11,16,20],[23,30,34,60]], target = 3
-```
-
-Step 1: Treat as 1D array
-rows = 3, cols = 4, total = 12 elements
-left = 0, right = 11
-Step 2: Binary search
-mid = 5: row = 5//4 = 1, col = 5%4 = 1
-
-Steps:
-Step 1: matrix[1][1] = 11 > 3, right = 4
-Step 2: mid = 2: row = 2//4 = 0, col = 2%4 = 2
-Step 3: matrix[0][2] = 5 > 3, right = 1
-Step 4: mid = 0: row = 0//4 = 0, col = 0%4 = 0
-Step 5: matrix[0][0] = 1 < 3, left = 1
-Step 6: mid = 1: row = 1//4 = 0, col = 1%4 = 1
-Step 7: matrix[0][1] = 3 == 3 ✓
-
-Output:
-```
-True (target found)
-```
-
-### TIME COMPLEXITY:
-O(n)**
-- Single pass through input
-
-### SPACE COMPLEXITY:
-O(1)**
-- Constant extra space
-
-### EDGE CASES:
-- **Empty input**: Handle when input is empty
-- **Single element**: Handle single-element inputs
-- **Boundary values**: Handle minimum/maximum valid values
-
-</details>
-
-*/
+ * ### METADATA:
+ *
+ *
+ * ### INTUITION:
+ * [This problem requires understanding of binary search concepts. The key insight is to identify the optimal approach for this specific scenario.]
+ *
+ * ### APPROACH:
+ * 1. **Analyze the problem**: Understand the input constraints and expected output
+ * 2. **Choose the right technique**: Apply binary search methodology
+ * 3. **Implement efficiently**: Focus on optimal time and space complexity
+ * 4. **Handle edge cases**: Consider boundary conditions and special cases
+ *
+ * ### WHY THIS WORKS:
+ * - This ensures that the solution leverages binary search principles
+ * - This ensures that time complexity is optimized for the given constraints
+ * - This ensures that space complexity is minimized where possible
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * matrix = [[1,3,5,7],[10,11,16,20],[23,30,34,60]], target = 3
+ * ```
+ *
+ * Step 1: Treat as 1D array
+ * rows = 3, cols = 4, total = 12 elements
+ * left = 0, right = 11
+ * Step 2: Binary search
+ * mid = 5: row = 5//4 = 1, col = 5%4 = 1
+ *
+ * Steps:
+ * Step 1: matrix[1][1] = 11 > 3, right = 4
+ * Step 2: mid = 2: row = 2//4 = 0, col = 2%4 = 2
+ * Step 3: matrix[0][2] = 5 > 3, right = 1
+ * Step 4: mid = 0: row = 0//4 = 0, col = 0%4 = 0
+ * Step 5: matrix[0][0] = 1 < 3, left = 1
+ * Step 6: mid = 1: row = 1//4 = 0, col = 1%4 = 1
+ * Step 7: matrix[0][1] = 3 == 3 ✓
+ *
+ * Output:
+ * ```
+ * True (target found)
+ * ```
+ *
+ * ### TIME COMPLEXITY:
+ * O(n)**
+ * - Single pass through input
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
+ *
+ * ### EDGE CASES:
+ * - **Empty input**: Handle when input is empty
+ * - **Single element**: Handle single-element inputs
+ * - **Boundary values**: Handle minimum/maximum valid values
+ *
+ * *
+ */
 
 /**
  * Main solution for Problem 074: Search A 2D Matrix

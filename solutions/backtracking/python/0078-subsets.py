@@ -1,4 +1,5 @@
-"""
+"""### METADATA:
+
 ### INTUITION:
 The key insight is that generate all possible subsets (power set) by making binary choices for each element: include it or don't include it in the current subset. Use backtracking to explore all combinations.
 
@@ -45,7 +46,7 @@ Output: [[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]]
 **O(n × 2^n)** - 2^n subsets, each takes **O(n)** to copy
 
 ### SPACE COMPLEXITY:
-**O(n)** - recursion depth
+**O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
 
 ### EDGE CASES:
 - **Empty array**: Return [[]] (power set contains only empty set)
@@ -53,8 +54,6 @@ Output: [[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]]
 - **All elements identical (in variant)**: Handle duplicates with sorting
 - **Large n values**: 2^n subsets, exponential but unavoidable
 - **Negative numbers**: No special handling needed, works same as positive
-
-</details>
 
 """
 

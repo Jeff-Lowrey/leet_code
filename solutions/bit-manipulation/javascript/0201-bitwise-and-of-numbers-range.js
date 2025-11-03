@@ -51,8 +51,6 @@ O(1)** - We only use a constant amount of extra space for the shift counter vari
 - **Zero in range:** If range includes 0, result is 0 (but problem constraints ensure left >= 0)
 - **Adjacent numbers:** Returns their AND, which zeros out any differing bits
 
-</details>
-
 */
 
 class Solution {

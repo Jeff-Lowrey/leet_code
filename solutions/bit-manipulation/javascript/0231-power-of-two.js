@@ -122,8 +122,6 @@ Data structures: Integer (value operations), Bit manipulation**
 - This ensures that dividing by 2 removes one bit until we reach 1
 - This ensures that if we encounter an odd number (except 1), it cannot be a power of 2
 
-
-
 This solution uses recursion for efficient implementation.
 
 This solution uses math for efficient implementation.
@@ -158,8 +156,6 @@ O(log n)** - recursion stack depth
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
-
-</details>
 
 @param {number} n
 @return {boolean}

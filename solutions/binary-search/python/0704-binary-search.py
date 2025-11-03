@@ -47,8 +47,6 @@ Output:
 - **Target not in array**: nums = [1,3,5,7], target = 4 returns -1 (would be between 3 and 5)
 - **All duplicates**: nums = [5,5,5,5], target = 5 returns any valid index (implementation dependent)
 
-</details>
-
 """
 
 

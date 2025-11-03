@@ -1,63 +1,64 @@
 /**
-### INTUITION:
-[This problem requires understanding of binary search concepts. The key insight is to identify the optimal approach for this specific scenario.]
-
-### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply binary search methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
-
-### WHY THIS WORKS:
-- This ensures that the solution leverages binary search principles
-- This ensures that time complexity is optimized for the given constraints
-- This ensures that space complexity is minimized where possible
-
-### EXAMPLE WALKTHROUGH:
-Input:
-```
-nums = [4, 5, 6, 7, 0, 1, 2], target = 0
-```
-
-Step 1: Initialize
-left = 0, right = 6
-mid = 3, nums[3] = 7
-Step 2: Check mid
-nums[3] = 7 ≠ 0
-Left half [4,5,6,7] is sorted (4 ≤ 7)
-Is target in [4,7]? No (0 < 4)
-Search right half: left = 4
-Step 3: left = 4, right = 6
-mid = 5, nums[5] = 1
-nums[5] = 1 ≠ 0
-Right half [1,2] is sorted (1 < 4, so left is NOT sorted)
-Is target in [1,2]? No (0 < 1)
-Search left half: right = 4
-Step 4: left = 4, right = 4
-mid = 4, nums[4] = 0
-Found target!
-
-Output:
-```
-4
-```
-
-### TIME COMPLEXITY:
-O(n)**
-- Single pass through input
-
-### SPACE COMPLEXITY:
-O(1)**
-- Constant extra space
-
-### EDGE CASES:
-- **Empty input**: Handle when input is empty
-- **Single element**: Handle single-element inputs
-- **Boundary values**: Handle minimum/maximum valid values
-
-</details>
-
-*/
+ * ### METADATA:
+ *
+ *
+ * ### INTUITION:
+ * [This problem requires understanding of binary search concepts. The key insight is to identify the optimal approach for this specific scenario.]
+ *
+ * ### APPROACH:
+ * 1. **Analyze the problem**: Understand the input constraints and expected output
+ * 2. **Choose the right technique**: Apply binary search methodology
+ * 3. **Implement efficiently**: Focus on optimal time and space complexity
+ * 4. **Handle edge cases**: Consider boundary conditions and special cases
+ *
+ * ### WHY THIS WORKS:
+ * - This ensures that the solution leverages binary search principles
+ * - This ensures that time complexity is optimized for the given constraints
+ * - This ensures that space complexity is minimized where possible
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * nums = [4, 5, 6, 7, 0, 1, 2], target = 0
+ * ```
+ *
+ * Step 1: Initialize
+ * left = 0, right = 6
+ * mid = 3, nums[3] = 7
+ * Step 2: Check mid
+ * nums[3] = 7 ≠ 0
+ * Left half [4,5,6,7] is sorted (4 ≤ 7)
+ * Is target in [4,7]? No (0 < 4)
+ * Search right half: left = 4
+ * Step 3: left = 4, right = 6
+ * mid = 5, nums[5] = 1
+ * nums[5] = 1 ≠ 0
+ * Right half [1,2] is sorted (1 < 4, so left is NOT sorted)
+ * Is target in [1,2]? No (0 < 1)
+ * Search left half: right = 4
+ * Step 4: left = 4, right = 4
+ * mid = 4, nums[4] = 0
+ * Found target!
+ *
+ * Output:
+ * ```
+ * 4
+ * ```
+ *
+ * ### TIME COMPLEXITY:
+ * O(n)**
+ * - Single pass through input
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
+ *
+ * ### EDGE CASES:
+ * - **Empty input**: Handle when input is empty
+ * - **Single element**: Handle single-element inputs
+ * - **Boundary values**: Handle minimum/maximum valid values
+ *
+ * *
+ */
 
 /**
  * Main solution for Problem 033: Search In Rotated Sorted Array

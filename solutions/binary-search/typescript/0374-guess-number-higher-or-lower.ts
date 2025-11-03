@@ -16,8 +16,6 @@ Data structures: Number range (integers 1 to n) with two pointers**
 - This ensures that similar to searching in a sorted array but using API instead of direct comparison
 - This ensures that using two pointers (left, right) on the number range allows efficient narrowing
 
-
-
 This solution uses binary search for efficient implementation.
 
 ### EXAMPLE WALKTHROUGH:
@@ -59,8 +57,6 @@ Only using constant extra space
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
-
-</details>
 
 */
 

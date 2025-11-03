@@ -52,22 +52,6 @@ Step-by-step execution:
 - **Overflow**: Python handles arbitrary precision, but mask to 32-bit range
 - **Opposite signs**: XOR and AND operations handle correctly
 
-</details>
-
-</details>
-
-</details>
-
-</details>
-
-</details>
-
-</details>
-
-</details>
-
-</details>
-
 """
 
 

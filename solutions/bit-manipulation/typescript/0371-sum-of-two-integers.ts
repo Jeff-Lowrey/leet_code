@@ -54,22 +54,6 @@ O(1)**
 - **Overflow**: Mask to 32-bit range
 - **Opposite signs**: XOR and AND operations handle correctly
 
-</details>
-
-</details>
-
-</details>
-
-</details>
-
-</details>
-
-</details>
-
-</details>
-
-</details>
-
 */
 
 class Solution {

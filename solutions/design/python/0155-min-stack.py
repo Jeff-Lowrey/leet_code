@@ -50,6 +50,4 @@ In worst case, min_stack can have same size as main_stack
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
-</details>
-
 """

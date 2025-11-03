@@ -1,59 +1,60 @@
 /**
-### INTUITION:
-[This problem requires understanding of binary search concepts. The key insight is to identify the optimal approach for this specific scenario.]
-
-### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply binary search methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
-
-### WHY THIS WORKS:
-- This ensures that the solution leverages binary search principles
-- This ensures that time complexity is optimized for the given constraints
-- This ensures that space complexity is minimized where possible
-
-### EXAMPLE WALKTHROUGH:
-Input:
-```
-nums = [4,5,6,7,0,1,2]
-```
-
-Step 1: Check if array is rotated
-
-Steps:
-Step 1: nums[0]=4 > nums[-1]=2 → Array is rotated
-Step 2: Binary search for minimum
-Step 3: left = 0, right = 6
-Step 4: mid = 3: nums[3]=7 > nums[6]=2
-Step 5: Minimum is in right half, left = 3
-Step 6: left = 3, right = 6
-Step 7: mid = 4: nums[4]=0 < nums[6]=2
-Step 8: Minimum could be at mid or left, right = 4
-Step 9: left = 3, right = 4
-Step 10: right - left = 1 → return min(nums[3], nums[4]) = min(7, 0) = 0
-
-Output:
-```
-0 (minimum element)
-```
-
-### TIME COMPLEXITY:
-O(n)**
-- Single pass through input
-
-### SPACE COMPLEXITY:
-O(1)**
-- Constant extra space
-
-### EDGE CASES:
-- **Empty input**: Handle when input is empty
-- **Single element**: Handle single-element inputs
-- **Boundary values**: Handle minimum/maximum valid values
-
-</details>
-
-*/
+ * ### METADATA:
+ *
+ *
+ * ### INTUITION:
+ * [This problem requires understanding of binary search concepts. The key insight is to identify the optimal approach for this specific scenario.]
+ *
+ * ### APPROACH:
+ * 1. **Analyze the problem**: Understand the input constraints and expected output
+ * 2. **Choose the right technique**: Apply binary search methodology
+ * 3. **Implement efficiently**: Focus on optimal time and space complexity
+ * 4. **Handle edge cases**: Consider boundary conditions and special cases
+ *
+ * ### WHY THIS WORKS:
+ * - This ensures that the solution leverages binary search principles
+ * - This ensures that time complexity is optimized for the given constraints
+ * - This ensures that space complexity is minimized where possible
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * nums = [4,5,6,7,0,1,2]
+ * ```
+ *
+ * Step 1: Check if array is rotated
+ *
+ * Steps:
+ * Step 1: nums[0]=4 > nums[-1]=2 → Array is rotated
+ * Step 2: Binary search for minimum
+ * Step 3: left = 0, right = 6
+ * Step 4: mid = 3: nums[3]=7 > nums[6]=2
+ * Step 5: Minimum is in right half, left = 3
+ * Step 6: left = 3, right = 6
+ * Step 7: mid = 4: nums[4]=0 < nums[6]=2
+ * Step 8: Minimum could be at mid or left, right = 4
+ * Step 9: left = 3, right = 4
+ * Step 10: right - left = 1 → return min(nums[3], nums[4]) = min(7, 0) = 0
+ *
+ * Output:
+ * ```
+ * 0 (minimum element)
+ * ```
+ *
+ * ### TIME COMPLEXITY:
+ * O(n)**
+ * - Single pass through input
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
+ *
+ * ### EDGE CASES:
+ * - **Empty input**: Handle when input is empty
+ * - **Single element**: Handle single-element inputs
+ * - **Boundary values**: Handle minimum/maximum valid values
+ *
+ * *
+ */
 
 /**
  * Main solution for Problem 153: Find Minimum In Rotated Sorted Array

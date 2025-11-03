@@ -46,22 +46,6 @@ Step-by-step execution:
 - **Single bit set**: Return 1
 - **Power of 2**: Exactly one 1 bit
 
-</details>
-
-</details>
-
-</details>
-
-</details>
-
-</details>
-
-</details>
-
-</details>
-
-</details>
-
 """
 
 
