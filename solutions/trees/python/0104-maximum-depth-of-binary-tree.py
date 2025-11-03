@@ -1,35 +1,4 @@
 """
-# Difficulty: Easy
-
-# 0104. Maximum Depth of Binary Tree
-
-Given the root of a binary tree, return its maximum depth.
-
-A binary tree's maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>[3,9,20,null,null,15,7]</dd>
-        ("BFS Level-order", solution.maxDepthBFS),
-        ("Iterative DFS", solution.maxDepthIterativeDFS),
-        ("Preorder traversal", solution.maxDepthPreorder)]</dd>
-<dt>Output:</dt>
-<dd>3</dd>
-<dt>Explanation:</dt>
-<dd>The maximum depth of the tree is 3 (from root to deepest leaf)</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Array Traversal, Two Pointers
-**Data Structures**: Array, Stack, Queue
-**Patterns**: Two Pointers Pattern, Hash Table Pattern
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(h)
-
 ### INTUITION:
 The key insight is that the maximum depth of a binary tree is simply 1 plus the maximum depth of its left and right subtrees. This naturally suggests a recursive solution where we explore both subtrees and return the maximum depth.
 
@@ -69,11 +38,11 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 Must visit every node to determine maximum depth
 
 ### SPACE COMPLEXITY:
-O(h)
+**O(h)**
 Where h is height of tree (recursion stack or queue size)
 
 ### EDGE CASES:
@@ -84,6 +53,7 @@ Where h is height of tree (recursion stack or queue size)
 - **Unbalanced tree**: Return depth of deepest leaf node
 
 </details>
+
 """
 
 from collections import deque

@@ -1,30 +1,4 @@
 """
-# Difficulty: Easy
-
-# 0226. Invert Binary Tree
-
-Given the root of a binary tree, invert the tree, and return its root.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>[4,2,7,1,3,6,9]</dd>
-<dt>Output:</dt>
-<dd>[4,7,2,9,6,3,1] (inverted tree)</dd>
-<dt>Explanation:</dt>
-<dd>After inverting, left and right subtrees are swapped recursively: left child 4 becomes right child</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Two Pointers, Stack Operations, Graph Traversal
-**Data Structures**: Stack, Tree, Trie
-**Patterns**: Two Pointers Pattern, Hash Table Pattern
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
 The key insight is that recursively swap left and right children of each node. Base case: null returns null. Post-order: invert both subtrees, then swap them at current node.
 
@@ -59,14 +33,12 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 - Single pass through input
 
-
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 - Constant extra space
-
 
 ### EDGE CASES:
 - **Empty input**: Handle when input is empty
@@ -74,6 +46,7 @@ O(1)
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 from typing import Any

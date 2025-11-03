@@ -1,88 +1,56 @@
 /**
- * # Difficulty: Medium
- *
- * # 0098. Validate Binary Search Tree
- *
- *
- * Given the root of a binary tree, determine if it is a valid binary search tree (BST).
- *
- * A valid BST is defined as follows:
- *
- * - The left subtree of a node contains only nodes with keys less than the node's key.
- * - The right subtree of a node contains only nodes with keys greater than the node's key.
- * - Both the left and right subtrees must also be binary search trees.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>[2,1,3]</dd>
- * <dt>Output:</dt>
- * <dd>True (valid BST)</dd>
- * <dt>Explanation:</dt>
- * <dd>Tree is valid BST if all nodes satisfy left < node < right</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
- * **Techniques**: Hash Table Lookup, Two Pointers, Stack Operations
- * **Data Structures**: Hash Map, Array, Stack
- * **Patterns**: Two Pointers Pattern, Binary Search Pattern
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(1) - Constant extra space
- *
- * ### INTUITION:
+### INTUITION:
 The key insight is that recursively validate each subtree. For each node, check: left < node < right, and both subtrees are valid BSTs. Pass valid range down: left subtree max < node, right subtree min > node.
 
 ### APPROACH:
- * 1. **Define helper function**: Implement validate(node, min_val, max_val)
- * 2. **Base case**: If node is None, return True
- * 3. **Check BST property**: If node.val <= min_val or node.val >= max_val, return False
- * 4. **Validate left subtree**: Recursively check left with updated max_val = node.val
- * 5. **Validate right subtree**: Recursively check right with updated min_val = node.val
- * 6. **Return combined**: Return left_valid and right_valid
- * 7. **Start validation**: Call validate(root, float('-inf'), float('inf'))
- *
- * ### WHY THIS WORKS:
- * - In-order traversal of BST produces sorted sequence
- * - Track previous value: if current <= prev, not a valid BST
- * - Alternative: pass min/max bounds, ensure node.val in (min, max)
- * - Left subtree must be < node.val, right subtree must be > node.val
- * - O(n) time visiting all nodes, O(h) space for recursion stack
- *
- * ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * root = [2,1,3]
- * ```
- *
- * Step 1: In-order traversal
- * Visit left (1), root (2), right (3)
- * Sequence: 1, 2, 3
- * Step 2: Check if sorted
- * 1 < 2 < 3 ✓
- *
- * Output:
- * ```
- * True (valid BST)
- * ```
+1. **Define helper function**: Implement validate(node, min_val, max_val)
+2. **Base case**: If node is None, return True
+3. **Check BST property**: If node.val <= min_val or node.val >= max_val, return False
+4. **Validate left subtree**: Recursively check left with updated max_val = node.val
+5. **Validate right subtree**: Recursively check right with updated min_val = node.val
+6. **Return combined**: Return left_valid and right_valid
+7. **Start validation**: Call validate(root, float('-inf'), float('inf'))
 
- * ### TIME COMPLEXITY:
- * O(n)
- * - Single pass through input
- *
- * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
- *
- * ### EDGE CASES:
+### WHY THIS WORKS:
+- In-order traversal of BST produces sorted sequence
+- Track previous value: if current <= prev, not a valid BST
+- Alternative: pass min/max bounds, ensure node.val in (min, max)
+- Left subtree must be < node.val, right subtree must be > node.val
+- O(n) time visiting all nodes, O(h) space for recursion stack
+
+### EXAMPLE WALKTHROUGH:
+Input:
+```
+root = [2,1,3]
+```
+
+Step 1: In-order traversal
+Visit left (1), root (2), right (3)
+Sequence: 1, 2, 3
+Step 2: Check if sorted
+1 < 2 < 3 ✓
+
+Output:
+```
+True (valid BST)
+```
+
+### TIME COMPLEXITY:
+O(n)**
+- Single pass through input
+
+### SPACE COMPLEXITY:
+O(1)**
+- Constant extra space
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 class TreeNode {
   val: number;

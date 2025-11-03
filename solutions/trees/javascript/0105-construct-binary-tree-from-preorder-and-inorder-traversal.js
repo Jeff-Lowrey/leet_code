@@ -1,36 +1,8 @@
 /**
- * # Difficulty: Medium
- *
- * # 0105. Construct Binary Tree From Preorder And Inorder Traversal
- *
- *
- * Given two integer arrays preorder and inorder where preorder is the preorder traversal of a binary tree and inorder is the inorder traversal of the same tree, construct and return the binary tree.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>preorder = [3,9,20,15,7], inorder = [9,3,15,20,7]</dd>
- * <dt>Output:</dt>
- * <dd>Tree with root 3</dd>
- * <dt>Explanation:</dt>
- * <dd>The tree is uniquely constructed from preorder [3,9,20,15,7] and inorder [9,3,15,20,7] traversals</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- * ### METADATA:
- * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
- * **Data Structures**: Hash Map, Hash Set, Array
- * **Patterns**: Two Pointers Pattern, Tree Pattern
- * **Time Complexity**: O(n)
- * **Space Complexity**: O(1) - Constant extra space
+### INTUITION:
+[This problem requires understanding of trees concepts. The key insight is to identify the optimal approach for this specific scenario.]
 
- *
- * ### INTUITION:
- * [This problem requires understanding of trees concepts. The key insight is to identify the optimal approach for this specific scenario.]
- *
- * ### APPROACH:
+### APPROACH:
 1. **Analyze the problem**: Understand the input constraints and expected output
 2. **Choose the right technique**: Apply trees methodology
 3. **Implement efficiently**: Focus on optimal time and space complexity
@@ -42,42 +14,42 @@
 - This ensures that space complexity is minimized where possible
 
 ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * preorder = [3,9,20,15,7], inorder = [9,3,15,20,7]
- * ```
- *
- * Step 1: Root is first in preorder
- * root = 3
- * Step 2: Find root in inorder
- * left subtree: [9]
- * right subtree: [15,20,7]
- * Step 3: Recursively build
- * left: preorder=[9], inorder=[9]
- * right: preorder=[20,15,7], inorder=[15,20,7]
- *
- * Output:
- * ```
- * Tree with root 3
- * ```
+Input:
+```
+preorder = [3,9,20,15,7], inorder = [9,3,15,20,7]
+```
 
- * ### TIME COMPLEXITY:
+Step 1: Root is first in preorder
+root = 3
+Step 2: Find root in inorder
+left subtree: [9]
+right subtree: [15,20,7]
+Step 3: Recursively build
+left: preorder=[9], inorder=[9]
+right: preorder=[20,15,7], inorder=[15,20,7]
 
- * O(n)
+Output:
+```
+Tree with root 3
+```
 
- * - Single pass through the input
- *
- * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
- *
- * ### EDGE CASES:
+### TIME COMPLEXITY:
+O(n)**
+
+- Single pass through the input
+
+### SPACE COMPLEXITY:
+O(1)**
+- Constant extra space
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 /**
  * Definition for a binary tree node.

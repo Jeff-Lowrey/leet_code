@@ -1,35 +1,4 @@
 """
-# Difficulty: Medium
-
-# 0820. Short Encoding of Words
-
-A valid encoding of an array of words is any reference string s and an array of indices indices such that:
-- words.length == indices.length
-- The reference string s ends with the character '#'
-- For each index indices[i], the substring of s starting at indices[i] and ending at the next '#' is equal to words[i]
-
-Given an array of words, return the length of the shortest reference string s possible of any valid encoding of words.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>["time", "me", "bell"]</dd>
-<dt>Output:</dt>
-<dd>"minimumLengthEncoding({words1}) -> {result1}"</dd>
-<dt>Explanation:</dt>
-<dd>The shortest unique prefix for 'apple' is 'app'</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
-**Data Structures**: Hash Map, Hash Set, Array
-**Patterns**: Two Pointers Pattern, Hash Table Pattern
-**Time Complexity**: O(N × M)
-**Space Complexity**: O(N × M)
-
 ### INTUITION:
 The key insight is that to minimize the encoding length, we want to share suffixes between words. If one word is a suffix of another, we can encode both using just the longer word. This is a classic Trie problem where we build the trie using word suffixes.
 
@@ -58,11 +27,11 @@ words = ["time", "me", "bell"]
 - "bell" at index 5
 
 ### TIME COMPLEXITY:
-O(N × M)
+**O(N × M)**
 Where N is the number of words and M is the average length of words
 
 ### SPACE COMPLEXITY:
-O(N × M)
+**O(N × M)**
 For the trie structure and set storage
 
 ### EDGE CASES:
@@ -73,6 +42,7 @@ For the trie structure and set storage
 - **Duplicate words in input**: Remove duplicates first before processing
 
 </details>
+
 """
 
 from typing import Any

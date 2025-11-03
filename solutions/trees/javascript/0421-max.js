@@ -1,36 +1,8 @@
 /**
- * # Difficulty: Medium
- *
- * # 0421. Maximum XOR of Two Numbers in an Array
- *
- *
- * Given an integer array nums, return the maximum result of nums[i] XOR nums[j], where 0 <= i <= j < n.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>[3,10,5,25,2,8]</dd>
- * <dt>Output:</dt>
- * <dd>28 (5 XOR 25)</dd>
- * <dt>Explanation:</dt>
- * <dd>The maximum XOR of two numbers is 28, formed by 5 XOR 25 = 28</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- * ### METADATA:
- * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
- * **Data Structures**: Hash Map, Hash Set, Array
- * **Patterns**: Greedy Algorithm
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(1) - Constant extra space
+### INTUITION:
+[This problem requires understanding of trees concepts. The key insight is to identify the optimal approach for this specific scenario.]
 
- *
- * ### INTUITION:
- * [This problem requires understanding of trees concepts. The key insight is to identify the optimal approach for this specific scenario.]
- *
- * ### APPROACH:
+### APPROACH:
 1. **Analyze the problem**: Understand the input constraints and expected output
 2. **Choose the right technique**: Apply trees methodology
 3. **Implement efficiently**: Focus on optimal time and space complexity
@@ -42,39 +14,40 @@
 - This ensures that space complexity is minimized where possible
 
 ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * nums = [3,10,5,25,2,8]
- * ```
- *
- * Step 1: Build trie of binary representations
- * 3 = 00011
- * 10 = 01010
- * ...
- * Step 2: For each number, find max XOR
- * For 3: try to maximize XOR
- * Result: 3 XOR 25 = 00011 XOR 11001 = 11010 = 26
- *
- * Output:
- * ```
- * 28 (5 XOR 25)
- * ```
+Input:
+```
+nums = [3,10,5,25,2,8]
+```
 
- * ### TIME COMPLEXITY:
- * O(n)
- * - Single pass through input
- *
- * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
- *
- * ### EDGE CASES:
+Step 1: Build trie of binary representations
+3 = 00011
+10 = 01010
+...
+Step 2: For each number, find max XOR
+For 3: try to maximize XOR
+Result: 3 XOR 25 = 00011 XOR 11001 = 11010 = 26
+
+Output:
+```
+28 (5 XOR 25)
+```
+
+### TIME COMPLEXITY:
+O(n)**
+- Single pass through input
+
+### SPACE COMPLEXITY:
+O(1)**
+- Constant extra space
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 class TrieNode {
   constructor() {

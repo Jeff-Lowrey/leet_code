@@ -1,30 +1,4 @@
 """
-# Difficulty: Medium
-
-# 0105. Construct Binary Tree From Preorder And Inorder Traversal
-
-Given two integer arrays preorder and inorder where preorder is the preorder traversal of a binary tree and inorder is the inorder traversal of the same tree, construct and return the binary tree.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>preorder = [3,9,20,15,7], inorder = [9,3,15,20,7]</dd>
-<dt>Output:</dt>
-<dd>Tree with root 3</dd>
-<dt>Explanation:</dt>
-<dd>The tree is uniquely constructed from preorder [3,9,20,15,7] and inorder [9,3,15,20,7] traversals</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: Hash Map, Array, String
-**Patterns**: Two Pointers Pattern, Tree Pattern
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
 The key insight is that recursively build tree. Find root in preorder (first element). Find root in inorder (splits left/right). Recursively build left subtree with elements before root, right subtree with elements after root in inorder.
 
@@ -66,15 +40,13 @@ Tree with root 3
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 
 - Single pass through the input
 
-
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 - Constant extra space
-
 
 ### EDGE CASES:
 - **Empty input**: Handle when input is empty
@@ -82,6 +54,7 @@ O(1)
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 from typing import Any, List, Optional, Dict, Tuple

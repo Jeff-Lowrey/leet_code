@@ -1,91 +1,60 @@
 /**
- * # Difficulty: Medium
- *
- * # 0648. Replace Words
- *
- *
- * In English, we have a concept called root, which can be followed by some other word to form another longer word - let's call this word derivative. For example, when the root "help" is followed by the word "ful", we can form a derivative "helpful".
- *
- * Given a dictionary consisting of many roots and a sentence consisting of words separated by spaces, replace all the derivatives in the sentence with the root forming it. If a derivative can be replaced by more than one root, replace it with the root that has the shortest length.
- *
- * Return the sentence after the replacement.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>dictionary = ["cat","bat","rat"], sentence = "the cattle was rattled by the battery"</dd>
- * <dt>Output:</dt>
- * <dd>"the cat was rat by the bat"</dd>
- * <dt>Explanation:</dt>
- * <dd>Words are replaced by their shortest root: 'cattle' becomes 'cat', 'ratt' becomes 'rat'</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
- * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
- * **Data Structures**: Hash Map, Hash Set, Array
- * **Patterns**: Iterative Solution
- * **Time Complexity**: O(n)
- * **Space Complexity**: O(1) - Constant extra space
- *
- * ### INTUITION:
+### INTUITION:
 The key insight is that build Trie of dictionary words. For each word in sentence, find shortest prefix in Trie. If found, replace with shortest; otherwise keep original word.
 
 ### APPROACH:
- * 1. **Build trie**: Insert all dictionary words into trie
- * 2. **Define findRoot**: Implement function to find shortest root for a word
- * 3. **Traverse trie**: For each character in word, follow trie path
- * 4. **Found root**: If reach end of word in trie, return prefix
- * 5. **No root**: If path breaks or no root found, return original word
- * 6. **Process sentence**: Split sentence, replace each word using findRoot
- * 7. **Return result**: Join replaced words with spaces
- *
- * ### WHY THIS WORKS:
- * - Trie stores dictionary roots, replace words with shortest matching root
- * - For each word in sentence, search trie while traversing characters
- * - Stop at first matching root (shortest prefix that's a complete word)
- * - If no root found, keep original word
- * - O(m + n*k) time: m total dict length, n words in sentence, k avg word length
- *
- * ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * dictionary = ["cat","bat","rat"], sentence = "the cattle was rattled by the battery"
- * ```
- *
- * Step 1: Build trie from dictionary
- * Insert: cat, bat, rat
- * Step 2: Replace each word with shortest root
- *
- * Steps:
- * Step 1: "cattle" → "cat"
- * Step 2: "rattled" → "rat"
- * Step 3: "battery" → "bat"
- *
- * Output:
- * ```
- * "the cat was rat by the bat"
- * ```
+1. **Build trie**: Insert all dictionary words into trie
+2. **Define findRoot**: Implement function to find shortest root for a word
+3. **Traverse trie**: For each character in word, follow trie path
+4. **Found root**: If reach end of word in trie, return prefix
+5. **No root**: If path breaks or no root found, return original word
+6. **Process sentence**: Split sentence, replace each word using findRoot
+7. **Return result**: Join replaced words with spaces
 
- * ### TIME COMPLEXITY:
+### WHY THIS WORKS:
+- Trie stores dictionary roots, replace words with shortest matching root
+- For each word in sentence, search trie while traversing characters
+- Stop at first matching root (shortest prefix that's a complete word)
+- If no root found, keep original word
+- O(m + n*k) time: m total dict length, n words in sentence, k avg word length
 
- * O(n)
+### EXAMPLE WALKTHROUGH:
+Input:
+```
+dictionary = ["cat","bat","rat"], sentence = "the cattle was rattled by the battery"
+```
 
- * - Single pass through the input
- *
- * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
- *
- * ### EDGE CASES:
+Step 1: Build trie from dictionary
+Insert: cat, bat, rat
+Step 2: Replace each word with shortest root
+
+Steps:
+Step 1: "cattle" → "cat"
+Step 2: "rattled" → "rat"
+Step 3: "battery" → "bat"
+
+Output:
+```
+"the cat was rat by the bat"
+```
+
+### TIME COMPLEXITY:
+O(n)**
+
+- Single pass through the input
+
+### SPACE COMPLEXITY:
+O(1)**
+- Constant extra space
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 class Solution {
   /**

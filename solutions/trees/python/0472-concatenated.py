@@ -1,32 +1,4 @@
 """
-# Difficulty: Medium
-
-# 0472. Concatenated Words
-
-Given an array of strings words (without duplicates), return all the concatenated words in the given list of words.
-
-A concatenated word is defined as a string that is comprised entirely of at least two shorter words in the given array.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>words = ["cat","cats","catsdogcats","dog","dogcatsdog","hippopotamuses"]</dd>
-<dt>Output:</dt>
-<dd>["catsdogcats","dogcatsdog"]</dd>
-<dt>Explanation:</dt>
-<dd>Concatenated words are formed by combining other words: 'catsdogcats' = 'cats' + 'dog' + 'cats'</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: Hash Map, Hash Set, Array
-**Patterns**: Two Pointers Pattern, Dynamic Programming
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
 The key insight is that build Trie of all words. For each word, DFS from Trie root trying to match it as concatenation of words. Use memoization on position. Word is valid if complete match with 2+ words.
 
@@ -62,15 +34,13 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 
 - Single pass through the input
 
-
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 - Constant extra space
-
 
 ### EDGE CASES:
 - **Empty input**: Handle when input is empty
@@ -78,6 +48,7 @@ O(1)
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 from typing import Any, List, Optional, Dict, Tuple, Set

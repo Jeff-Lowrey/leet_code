@@ -1,34 +1,4 @@
 """
-# Difficulty: Medium
-
-# 0124. Binary Tree Maximum Path Sum
-
-A path in a binary tree is a sequence of nodes where each pair of adjacent nodes in the sequence has an edge connecting them. A node can only appear in the sequence at most once. Note that the path does not need to pass through the root.
-
-The path sum of a path is the sum of the node's values in the path.
-
-Given the root of a binary tree, return the maximum path sum of any non-empty path.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>[-10,9,20,null,null,15,7]</dd>
-<dt>Output:</dt>
-<dd>42 (maximum path sum)</dd>
-<dt>Explanation:</dt>
-<dd>The maximum path sum is 42 (path: 15->20->7)</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Two Pointers, Depth-First Search
-**Data Structures**: Hash Set, Tree
-**Patterns**: Two Pointers Pattern, Greedy Algorithm
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
 The key insight is that for each node, max path is: left max path + node + right max path. Recursively calculate max single path from each child. Track global maximum. Return max single path (node + best child path) up.
 
@@ -68,14 +38,12 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 - Single pass through input
 
-
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 - Constant extra space
-
 
 ### EDGE CASES:
 - **Empty input**: Handle when input is empty
@@ -83,6 +51,7 @@ O(1)
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 from typing import Any

@@ -1,40 +1,8 @@
 /**
- * # Difficulty: Medium
- *
- * # 0648. Replace Words
- *
- *
- * In English, we have a concept called root, which can be followed by some other word to form another longer word - let's call this word derivative. For example, when the root "help" is followed by the word "ful", we can form a derivative "helpful".
- *
- * Given a dictionary consisting of many roots and a sentence consisting of words separated by spaces, replace all the derivatives in the sentence with the root forming it. If a derivative can be replaced by more than one root, replace it with the root that has the shortest length.
- *
- * Return the sentence after the replacement.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>dictionary = ["cat","bat","rat"], sentence = "the cattle was rattled by the battery"</dd>
- * <dt>Output:</dt>
- * <dd>"the cat was rat by the bat"</dd>
- * <dt>Explanation:</dt>
- * <dd>Words are replaced by their shortest root: 'cattle' becomes 'cat', 'ratt' becomes 'rat'</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- * ### METADATA:
- * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
- * **Data Structures**: Hash Map, Hash Set, Array
- * **Patterns**: Iterative Solution
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(1) - Constant extra space
+### INTUITION:
+[This problem requires understanding of trees concepts. The key insight is to identify the optimal approach for this specific scenario.]
 
- *
- * ### INTUITION:
- * [This problem requires understanding of trees concepts. The key insight is to identify the optimal approach for this specific scenario.]
- *
- * ### APPROACH:
+### APPROACH:
 1. **Analyze the problem**: Understand the input constraints and expected output
 2. **Choose the right technique**: Apply trees methodology
 3. **Implement efficiently**: Focus on optimal time and space complexity
@@ -46,40 +14,41 @@
 - This ensures that space complexity is minimized where possible
 
 ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * dictionary = ["cat","bat","rat"], sentence = "the cattle was rattled by the battery"
- * ```
- *
- * Step 1: Build trie from dictionary
- * Insert: cat, bat, rat
- * Step 2: Replace each word with shortest root
- *
- * Steps:
- * Step 1: "cattle" → "cat"
- * Step 2: "rattled" → "rat"
- * Step 3: "battery" → "bat"
- *
- * Output:
- * ```
- * "the cat was rat by the bat"
- * ```
+Input:
+```
+dictionary = ["cat","bat","rat"], sentence = "the cattle was rattled by the battery"
+```
 
- * ### TIME COMPLEXITY:
- * O(n)
- * - Single pass through input
- *
- * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
- *
- * ### EDGE CASES:
+Step 1: Build trie from dictionary
+Insert: cat, bat, rat
+Step 2: Replace each word with shortest root
+
+Steps:
+Step 1: "cattle" → "cat"
+Step 2: "rattled" → "rat"
+Step 3: "battery" → "bat"
+
+Output:
+```
+"the cat was rat by the bat"
+```
+
+### TIME COMPLEXITY:
+O(n)**
+- Single pass through input
+
+### SPACE COMPLEXITY:
+O(1)**
+- Constant extra space
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 class TrieNode {
   constructor() {

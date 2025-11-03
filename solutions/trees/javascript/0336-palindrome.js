@@ -1,38 +1,8 @@
 /**
- * # Difficulty: Medium
- *
- * # 0336. Palindrome Pairs
- *
- *
- * You are given an array of strings words. A palindrome pair is defined as a pair of integers (i, j) where i != j such that the concatenation of words[i] + words[j] is a palindrome.
- *
- * Return an array of all the palindrome pairs of words.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>words = ["abcd","dcba","lls","s","sssll"]</dd>
- * <dt>Output:</dt>
- * <dd>[[0,1],[1,0]] (palindrome pairs)</dd>
- * <dt>Explanation:</dt>
- * <dd>Palindrome pairs like ['abcd','dcba'] concatenate to form palindrome 'abcddcba'</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- * ### METADATA:
- * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
- * **Data Structures**: Hash Map, Hash Set, Array
- * **Patterns**: Two Pointers Pattern
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(1) - Constant extra space
+### INTUITION:
+[This problem requires understanding of trees concepts. The key insight is to identify the optimal approach for this specific scenario.]
 
- *
- * ### INTUITION:
- * [This problem requires understanding of trees concepts. The key insight is to identify the optimal approach for this specific scenario.]
- *
- * ### APPROACH:
+### APPROACH:
 1. **Analyze the problem**: Understand the input constraints and expected output
 2. **Choose the right technique**: Apply trees methodology
 3. **Implement efficiently**: Focus on optimal time and space complexity
@@ -44,36 +14,37 @@
 - This ensures that space complexity is minimized where possible
 
 ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * words = ["abcd","dcba","lls","s","sssll"]
- * ```
- *
- * Step 1: Check all pairs
- * "lls" + "s" = "llss" (not palindrome)
- * "s" + "lls" = "slls" (not palindrome)
- * "abcd" + "dcba" = "abcddcba" (palindrome) ✓
- *
- * Output:
- * ```
- * [[0,1],[1,0]] (palindrome pairs)
- * ```
+Input:
+```
+words = ["abcd","dcba","lls","s","sssll"]
+```
 
- * ### TIME COMPLEXITY:
- * O(n)
- * - Single pass through input
- *
- * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
- *
- * ### EDGE CASES:
+Step 1: Check all pairs
+"lls" + "s" = "llss" (not palindrome)
+"s" + "lls" = "slls" (not palindrome)
+"abcd" + "dcba" = "abcddcba" (palindrome) ✓
+
+Output:
+```
+[[0,1],[1,0]] (palindrome pairs)
+```
+
+### TIME COMPLEXITY:
+O(n)**
+- Single pass through input
+
+### SPACE COMPLEXITY:
+O(1)**
+- Constant extra space
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 class TrieNode {
   constructor() {

@@ -1,41 +1,8 @@
 /**
- * # Difficulty: Medium
- *
- * # 0235. Lowest Common Ancestor of a Binary Search Tree
- *
- *
- * Given a binary search tree (BST), find the lowest common ancestor (LCA) of two given nodes in the BST.
- *
- * According to the definition of LCA on Wikipedia: "The lowest common ancestor is defined between two nodes p and q as the lowest node in T that has both p and q as descendants (where we allow a node to be a descendant of itself)."
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>[("BST Recursive", solution.lowestCommonAncestor),
- *         ("BST Iterative", solution.lowestCommonAncestorIterative),
- *         ("General Tree", solution.lowestCommonAncestorGeneral),
- *         ("Path-based", solution.lowestCommonAncestorPaths)]</dd>
- * <dt>Output:</dt>
- * <dd>"{name}: {result.val}"</dd>
- * <dt>Explanation:</dt>
- * <dd>The lowest common ancestor of p=2 and q=8 is node 6</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- * ### METADATA:
- * **Techniques**: Hash Map Storage, Array Traversal, Two Pointers
- * **Data Structures**: Array, Tree
- * **Patterns**: Two Pointers Pattern, Greedy Algorithm
- * **Time Complexity**: O(h)
- * **Space Complexity**: O(h)
+### INTUITION:
+In a BST, we can leverage the ordering property to find LCA efficiently. If both nodes are smaller than current node, LCA is in left subtree. If both are larger, LCA is in right subtree. Otherwise, current node is the LCA.
 
- *
- * ### INTUITION:
- * In a BST, we can leverage the ordering property to find LCA efficiently. If both nodes are smaller than current node, LCA is in left subtree. If both are larger, LCA is in right subtree. Otherwise, current node is the LCA.
- *
- * ### APPROACH:
+### APPROACH:
 1. **Use BST property**: Left subtree < root < right subtree
 2. **Compare values**: If both p and q < root, go left; if both > root, go right
 3. **Find split point**: When p and q are on different sides, current node is LCA
@@ -48,38 +15,38 @@
 - This ensures that this is much more efficient than general tree LCA algorithms
 
 ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * BST:      6
- * ```
- *
- * / \\
- * 2   8
- * / \\ / \\
- * 0  4 7  9
- * / \\
- * 3   5
- * Find LCA of 2 and 8:
- * 1. Start at 6: 2 < 6 and 8 > 6, so 6 is LCA
- * Find LCA of 2 and 4:
- * 1. Start at 6: 2 < 6 and 4 < 6, go left
- * 2. At 2: 2 == 2 (found p), so 2 is LCA
- *
- * Output:
- * ```
- * 6
- * 2
- * ```
+Input:
+```
+BST:      6
+```
 
- * ### TIME COMPLEXITY:
- * O(h)
- * Where h is the height of the tree. O(log n) for balanced BST, O(n) for skewed tree
- *
- * ### SPACE COMPLEXITY:
- * O(h)
- * For recursion stack, O(1) for iterative solution
- *
- * ### EDGE CASES:
+/ \\
+2   8
+/ \\ / \\
+0  4 7  9
+/ \\
+3   5
+Find LCA of 2 and 8:
+1. Start at 6: 2 < 6 and 8 > 6, so 6 is LCA
+Find LCA of 2 and 4:
+1. Start at 6: 2 < 6 and 4 < 6, go left
+2. At 2: 2 == 2 (found p), so 2 is LCA
+
+Output:
+```
+6
+2
+```
+
+### TIME COMPLEXITY:
+O(h)**
+Where h is the height of the tree. **O(log n)** for balanced BST, **O(n)** for skewed tree
+
+### SPACE COMPLEXITY:
+O(h)**
+For recursion stack, **O(1)** for iterative solution
+
+### EDGE CASES:
 - **One node is ancestor of other**: Return the ancestor node
 - **Both nodes on same side**: Recursively search that subtree
 - **Nodes on different sides**: Current node is LCA
@@ -101,7 +68,8 @@
 </details>
 
 </details>
- */
+
+*/
 
 /**
  * Definition for a binary tree node.

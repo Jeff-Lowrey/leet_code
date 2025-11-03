@@ -1,49 +1,23 @@
 /**
- * 0094. Binary Tree **Inorder Traversal**
- *
- * Difficulty: Easy
- * 
- * Given the root of a binary tree, return the inorder traversal of its nodes' values.
- * 
- * **Example:**
- * 
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>[1, 3, 2]</dd>
- * <dt>Output:</dt>
- * <dd>1</dd>
- * <dt>Explanation:</dt>
- * <dd>In-order traversal of tree [1,null,2,3] is [1,3,2]</dd>
- * </dl>
- * 
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
- * **Techniques**: Hash Table Lookup, **Hash Map** Storage, Two Pointers
- * **Data Structures**: **Array**, Stack, Tree
- * **Patterns**: Two Pointers Pattern, Backtracking
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: - Recursive: O(h) where h is tree height (call stack)
- * 
- * ### INTUITION:
- * Inorder traversal visits nodes in the order: Left -> Root -> Right. This gives us a sorted sequence for **Binary Search** Trees. The key is to implement this pattern using recursion or iteration with a stack.
- * 
- * ### APPROACH:
+### INTUITION:
+Inorder traversal visits nodes in the order: Left -> Root -> Right. This gives us a sorted sequence for **Binary Search** Trees. The key is to implement this pattern using recursion or iteration with a stack.
+
+### APPROACH:
 1. **Recursive**: Visit left subtree, process root, visit right subtree
 2. **Iterative with stack**: Simulate recursion using explicit stack
 3. **Morris traversal**: O(1) space using threading technique
 
 ### WHY THIS WORKS:
- * - Inorder traversal naturally follows left-root-right pattern
- * - For BSTs, this produces sorted output
- * - Stack-based approach simulates the call stack of recursion
- * - Morris traversal modifies tree temporarily to avoid extra space
- * 
- *
+- Inorder traversal naturally follows left-root-right pattern
+- For BSTs, this produces sorted output
+- Stack-based approach simulates the call stack of recursion
+- Morris traversal modifies tree temporarily to avoid extra space
+
+
 
 This solution uses two pointers for efficient implementation.
- * - DFS recursively explores all paths from a starting point, completely visiting each branch before backtracking
- *
+- DFS recursively explores all paths from a starting point, completely visiting each branch before backtracking
+
 ### EXAMPLE WALKTHROUGH:
 Given input Tree:    1:
 
@@ -57,17 +31,17 @@ Tree:    1
 /
 3
 
-*Step 1:** Start at root (1)
+Step 1:** Start at root (1)
 - No left child, process 1
 
-*Step 2:** Go to right child (2)
+Step 2:** Go to right child (2)
 - Has left child (3), go left first
 
-*Step 3:** Process left child (3)
+Step 3:** Process left child (3)
 - No left child of 3, process 3
 - No right child of 3, backtrack
 
-*Step 4:** Process node 2
+Step 4:** Process node 2
 - No right child of 2
 
 Output:
@@ -76,24 +50,25 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
- * O(n)
- * - Single pass through input
- * We visit each node exactly once
- * 
- * ### SPACE COMPLEXITY:
- * - Recursive: O(h) where h is tree height (call stack)
- * - Iterative: O(h) for explicit stack
- * - Morris: O(1) constant space
- * 
- * ### EDGE CASES:
- * - **Empty tree**: Return empty list immediately
- * - **Single node**: Return list with one element
- * - **Left-skewed tree**: Traversal order is leaf-to-root path
- * - **Right-skewed tree**: Traversal order is root-to-leaf path
- * - **BST**: Inorder gives sorted sequence of values
- * 
- * </details>
- */
+O(n)**
+- Single pass through input
+We visit each node exactly once
+
+### SPACE COMPLEXITY:
+- Recursive: **O(h)** where h is tree height (call stack)
+- Iterative: **O(h)** for explicit stack
+- Morris: **O(1)** constant space
+
+### EDGE CASES:
+- **Empty tree**: Return empty list immediately
+- **Single node**: Return list with one element
+- **Left-skewed tree**: Traversal order is leaf-to-root path
+- **Right-skewed tree**: Traversal order is root-to-leaf path
+- **BST**: Inorder gives sorted sequence of values
+
+</details>
+
+*/
 
 // TreeNode class definition
 class TreeNode {

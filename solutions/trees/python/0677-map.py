@@ -1,30 +1,4 @@
 """
-# Difficulty: Medium
-
-# 0677. Map Sum Pairs
-
-You are asked to implement a map that supports the following two operations:
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>Operations:</dd>
-<dt>Output:</dt>
-<dd>insert("apple", 3)</dd>
-<dt>Explanation:</dt>
-<dd>The sum of all values with prefix 'ap' is 7 (apple=3 + app=4)</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup
-**Data Structures**: Hash Map, Tree, Trie
-**Patterns**: Iterative Solution
-**Time Complexity**: - Insert: O(k) where k is key length
-**Space Complexity**: O(TOTAL_KEY_LENGTH)
-
 ### INTUITION:
 This is a perfect Trie (prefix tree) problem. We need to store key-value pairs and efficiently compute sums for all keys with a given prefix. A trie naturally groups keys by their prefixes, making prefix sum queries efficient.
 
@@ -73,11 +47,11 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-- Insert: O(k) where k is key length
-- Sum: O(p) where p is prefix length
+- Insert: **O(k)** where k is key length
+- Sum: **O(p)** where p is prefix length
 
 ### SPACE COMPLEXITY:
-O(TOTAL_KEY_LENGTH)
+**O(TOTAL_KEY_LENGTH)**
 For storing all keys in the trie structure
 
 ### EDGE CASES:
@@ -88,4 +62,5 @@ For storing all keys in the trie structure
 - **Single character keys**: Handled correctly in trie structure
 
 </details>
+
 """

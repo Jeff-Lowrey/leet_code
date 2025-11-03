@@ -1,45 +1,18 @@
 /**
- * # Difficulty: Medium
- *
- * # 0105. Construct Binary Tree From Preorder And Inorder Traversal
- *
- *
- * Given two integer arrays preorder and inorder where preorder is the preorder traversal of a binary tree and inorder is the inorder traversal of the same tree, construct and return the binary tree.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>preorder = [3,9,20,15,7], inorder = [9,3,15,20,7]</dd>
- * <dt>Output:</dt>
- * <dd>Tree with root 3</dd>
- * <dt>Explanation:</dt>
- * <dd>The tree is uniquely constructed from preorder [3,9,20,15,7] and inorder [9,3,15,20,7] traversals</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
- * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
- * **Data Structures**: Hash Map, Array, String
- * **Patterns**: Two Pointers Pattern, Tree Pattern
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(1) - Constant extra space
- *
- * ### INTUITION:
+### INTUITION:
 The key insight is that recursively build tree. Find root in preorder (first element). Find root in inorder (splits left/right). Recursively build left subtree with elements before root, right subtree with elements after root in inorder.
 
 ### APPROACH:
- * 1. **Build index map**: Create dict mapping inorder values to indices
- * 2. **Define helper**: Implement build(pre_start, pre_end, in_start, in_end)
- * 3. **Base case**: If pre_start > pre_end, return None
- * 4. **Create root**: root = TreeNode(preorder[pre_start])
- * 5. **Find root in inorder**: root_idx = inorder_map[root.val]
- * 6. **Calculate left size**: left_size = root_idx - in_start
- * 7. **Build left subtree**: root.left = build(pre_start+1, pre_start+left_size, in_start, root_idx-1)
- * 8. **Build right subtree**: root.right = build(pre_start+left_size+1, pre_end, root_idx+1, in_end), return root
- *
- * ### WHY THIS WORKS:
+1. **Build index map**: Create dict mapping inorder values to indices
+2. **Define helper**: Implement build(pre_start, pre_end, in_start, in_end)
+3. **Base case**: If pre_start > pre_end, return None
+4. **Create root**: root = TreeNode(preorder[pre_start])
+5. **Find root in inorder**: root_idx = inorder_map[root.val]
+6. **Calculate left size**: left_size = root_idx - in_start
+7. **Build left subtree**: root.left = build(pre_start+1, pre_start+left_size, in_start, root_idx-1)
+8. **Build right subtree**: root.right = build(pre_start+left_size+1, pre_end, root_idx+1, in_end), return root
+
+### WHY THIS WORKS:
 - This ensures that preorder gives root (first element), inorder splits left/right subtrees
 - This ensures that find root in inorder: elements left of root are left subtree, right are right subtree
 - This ensures that recursively build left and right subtrees with their preorder/inorder slices
@@ -47,40 +20,41 @@ The key insight is that recursively build tree. Find root in preorder (first ele
 - This ensures that o(n) time: each node processed once, O(n) space for map and recursion
 
 ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * preorder = [3,9,20,15,7], inorder = [9,3,15,20,7]
- * ```
- *
- * Step 1: Root is first in preorder
- * root = 3
- * Step 2: Find root in inorder
- * left subtree: [9]
- * right subtree: [15,20,7]
- * Step 3: Recursively build
- * left: preorder=[9], inorder=[9]
- * right: preorder=[20,15,7], inorder=[15,20,7]
- *
- * Output:
- * ```
- * Tree with root 3
- * ```
+Input:
+```
+preorder = [3,9,20,15,7], inorder = [9,3,15,20,7]
+```
 
- * ### TIME COMPLEXITY:
- * O(n)
- * - Single pass through input
- *
- * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
- *
- * ### EDGE CASES:
+Step 1: Root is first in preorder
+root = 3
+Step 2: Find root in inorder
+left subtree: [9]
+right subtree: [15,20,7]
+Step 3: Recursively build
+left: preorder=[9], inorder=[9]
+right: preorder=[20,15,7], inorder=[15,20,7]
+
+Output:
+```
+Tree with root 3
+```
+
+### TIME COMPLEXITY:
+O(n)**
+- Single pass through input
+
+### SPACE COMPLEXITY:
+O(1)**
+- Constant extra space
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 class TreeNode {
   val: number;
