@@ -35,12 +35,12 @@
  * Notice the single bit is always at position 0, 2, 4, 6, etc. (even positions).
  *
  * ### APPROACH:
- * 1. **Base cases**: n = 1 (true, 4^0), n ≤ 0 (false)
- * 2. **Divisible by 4**: Recursively check n/4
- * 3. **Not divisible by 4**: Return false
- * 4. **Alternative**: Check if power of 2 AND (n-1) % 3 == 0
- *
- * ### WHY THIS WORKS:
+1. **Base cases**: n = 1 (true, 4^0), n ≤ 0 (false)
+2. **Divisible by 4**: Recursively check n/4
+3. **Not divisible by 4**: Return false
+4. **Alternative**: Check if power of 2 AND (n-1) % 3 == 0
+
+### WHY THIS WORKS:
  * - Powers of 4: 1, 4, 16, 64, 256, 1024, etc.
  * - Dividing by 4 repeatedly should eventually reach 1
  * - Mathematical property: 4^x = (2^2)^x = 2^(2x) means the bit is at even position
@@ -70,11 +70,11 @@
  * O(log₄ n) for recursion stack
  *
  * ### EDGE CASES:
- * - n ≤ 0: return False
- * - n = 1: return True (4^0)
- * - Powers of 2 that aren't powers of 4 (e.g., 2, 8, 32)
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {

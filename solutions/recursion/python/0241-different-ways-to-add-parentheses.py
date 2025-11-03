@@ -30,14 +30,16 @@ The test cases are generated such that the output values fit in a 32-bit integer
 **Space Complexity**: **O(4^n / n^(3/2))** - Storing all possible results plus recursion stack
 
 ### INTUITION:
-For each operator in the expression, we can split the expression at that operator and recursively compute all possible results for the left and right sub-expressions. Then we combine these results using the current operator. This generates all possible ways to parenthesize the expression.
+The key insight is that for each operator in the expression, we can split the expression at that operator and recursively compute all possible results for the left and right sub-expressions. Then we combine these results using the current operator. This generates all possible ways to parenthesize the expression.
 
 ### APPROACH:
-We use divide and conquer with recursion. For the given expression, we iterate through each character. When we find an operator (+, -, *), we recursively compute all possible results for the left substring and all possible results for the right substring.
-
-For each pair of left and right results, we apply the current operator to generate a new result. We collect all such results in a list. The base case is when the expression contains no operators, in which case we return a list containing just the number itself.
-
-We can optimize this with memoization by caching results for each unique sub-expression to avoid recomputing the same sub-problems.
+1. We use divide and conquer with recursion.
+2. For the given expression, we iterate through each character.
+3. When we find an operator (+, -, *), we recursively compute all possible results for the left substring and all possible results for the right substring.
+4. For each pair of left and right results, we apply the current operator to generate a new result.
+5. We collect all such results in a list.
+6. The base case is when the expression contains no operators, in which case we return a list containing just the number itself.
+7. We can optimize this with memoization by caching results for each unique sub-expression to avoid recomputing the same sub-problems.
 
 ### WHY THIS WORKS:
 - Every valid parenthesization corresponds to choosing some operator as the last operation

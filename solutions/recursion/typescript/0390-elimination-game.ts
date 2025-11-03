@@ -62,17 +62,23 @@
  * 4. The remaining count
  *
  * ### APPROACH:
- * **No data structures needed** - pure mathematical tracking approach.
- * We track the head of the remaining sequence. The head changes when:
- * - We're going left-to-right (always updates)
- * - We're going right-to-left AND the count is odd (head updates)
- *
- * After each round:
- * - Step size doubles (numbers are now twice as far apart)
- * - Count becomes count // 2 (half the numbers remain)
- * - Direction alternates
- *
- * ### WHY THIS WORKS:
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+No data structures needed** - pure mathematical tracking approach.
+We track the head of the remaining sequence. The head changes when:
+- We're going left-to-right (always updates)
+- We're going right-to-left AND the count is odd (head updates)
+
+After each round:
+- Step size doubles (numbers are now twice as far apart)
+- Count becomes count // 2 (half the numbers remain)
+- Direction alternates
+
+### WHY THIS WORKS:
  * When eliminating from left-to-right, the head always moves to the next position.
  * When eliminating from right-to-left, the head only moves if there's an odd number
  * of elements (because we'd eliminate the current head's partner). The step size
@@ -86,51 +92,50 @@ This solution uses mathematical pattern recognition for efficient implementation
 
 This solution uses state tracking for efficient implementation.
 ### EXAMPLE WALKTHROUGH:
- * **Input:** n = 9
- *
- * **Step 1:** Initial state for n=9
- * - arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
- * - head=1, step=1, remaining=9, leftToRight=true
- *
- * **Step 2:** Round 1 (Left to Right)
- * - Eliminate: 1, 3, 5, 7, 9
- * - Remaining: [2, 4, 6, 8]
- * - Update head: 1 + 1 = 2
- * - New state: head=2, step=2, remaining=4, leftToRight=false
- *
- * **Step 3:** Round 2 (Right to Left)
- * - Eliminate: 8, 4
- * - Remaining: [2, 6]
- * - Count is even, head stays 2
- * - New state: head=2, step=4, remaining=2, leftToRight=true
- *
- * **Step 4:** Round 3 (Left to Right)
- * - Eliminate: 2
- * - Remaining: [6]
- * - Update head: 2 + 4 = 6
- * - New state: head=6, remaining=1
- *
- * **Step 5:** Termination
- * - Only one element remains: 6
- *
- * Output:
- * ```
- * 6
- * ```
- *
- * ### TIME COMPLEXITY:
+*Input:** n = 9
+
+*Step 1:** Initial state for n=9
+- arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+- head=1, step=1, remaining=9, leftToRight=true
+
+*Step 2:** Round 1 (Left to Right)
+- Eliminate: 1, 3, 5, 7, 9
+- Remaining: [2, 4, 6, 8]
+- Update head: 1 + 1 = 2
+- New state: head=2, step=2, remaining=4, leftToRight=false
+
+*Step 3:** Round 2 (Right to Left)
+- Eliminate: 8, 4
+- Remaining: [2, 6]
+- Count is even, head stays 2
+- New state: head=2, step=4, remaining=2, leftToRight=true
+
+*Step 4:** Round 3 (Left to Right)
+- Eliminate: 2
+- Remaining: [6]
+- Update head: 2 + 4 = 6
+- New state: head=6, remaining=1
+
+*Step 5:** Termination
+- Only one element remains: 6
+
+Output:
+```
+6
+```
+
+### TIME COMPLEXITY:
  * **O(log n)** - Each round eliminates half the numbers, similar to binary search
  *
  * ### SPACE COMPLEXITY:
- * **O(log n)** - Recursion stack depth (iterative solution can achieve O(1))
- *
- * ### EDGE CASES:
- * - Single element: n=1 → 1 (no elimination needed, returns immediately as only element)
- * - Power of 2: n=8 → 6 (follows pattern, no special handling needed with mathematical approach)
- * - Small n: n=2 → 2 (first round eliminates 1, leaving 2)
- * - Large n: n=1000000000 → must use O(log n) not O(n) (simulation would timeout, mathematical tracking succeeds)
- *
- * </details>
+O(log n)** - Recursion stack depth (iterative solution can achieve **O(1)**)
+
+### EDGE CASES:
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 /**

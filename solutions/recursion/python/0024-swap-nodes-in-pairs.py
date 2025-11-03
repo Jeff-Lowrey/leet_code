@@ -26,7 +26,7 @@ Given a linked list, swap every two adjacent nodes and return its head. You must
 **Space Complexity**: O(n)
 
 ### INTUITION:
-We need to swap every pair of adjacent nodes in a linked list. This is a perfect use case for recursion where we can handle the current pair and recursively solve for the rest of the list.
+The key insight is that we need to swap every pair of adjacent nodes in a linked list. This is a perfect use case for recursion where we can handle the current pair and recursively solve for the rest of the list.
 
 ### APPROACH:
 1. **Base case**: If less than 2 nodes remain, return head
@@ -68,9 +68,9 @@ O(n)
 Recursion stack depth proportional to number of pairs
 
 ### EDGE CASES:
-- Empty list: return None
-- Single node: return as-is
-- Odd number of nodes: last node remains in place
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

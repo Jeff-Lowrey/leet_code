@@ -30,16 +30,16 @@
  * Instead of computing x^n by multiplying x by itself n times (O(n)), use fast exponentiation to compute the result in O(log n) by repeatedly squaring and using the property: x^n = (x^(n/2))^2.
  *
  * ### APPROACH:
- * 1. **Base case**: x^0 = 1
- * 2. **Recursive case**: Compute half = x^(n/2) recursively
- * 3. **Even exponent**: x^n = half * half
- * 4. **Odd exponent**: x^n = x * half * half
- * 5. **Negative exponent**: x^(-n) = 1 / x^n
- *
- * ### WHY THIS WORKS:
- * Binary exponentiation reduces the problem size by half in each step. For example, computing 2^10 only requires computing 2^5, then squaring it, rather than multiplying 2 ten times.
- *
- * ### EXAMPLE WALKTHROUGH:
+1. **Base case**: x^0 = 1
+2. **Recursive case**: Compute half = x^(n/2) recursively
+3. **Even exponent**: x^n = half * half
+4. **Odd exponent**: x^n = x * half * half
+5. **Negative exponent**: x^(-n) = 1 / x^n
+
+### WHY THIS WORKS:
+Binary exponentiation reduces the problem size by half in each step. For example, computing 2^10 only requires computing 2^5, then squaring it, rather than multiplying 2 ten times.
+
+### EXAMPLE WALKTHROUGH:
  * Input:
  * ```
  * x = 2.0, n = 10
@@ -58,16 +58,17 @@
  * ```
 
  * ### TIME COMPLEXITY:
- * **O(n)** - Analysis of time complexity
- *
- * ### SPACE COMPLEXITY:
- * **O(1)** - Analysis of space complexity
- *
- * ### EDGE CASES:
- * - Handle empty input
- * - Handle boundary conditions
- *
- * </details>
+**O(n)** - Analysis of time complexity - [Add explanation of why this complexity]
+
+### SPACE COMPLEXITY:
+**O(1)** - Analysis of space complexity - [Add explanation of why this complexity]
+
+### EDGE CASES:
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {

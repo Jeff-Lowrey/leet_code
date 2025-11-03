@@ -27,47 +27,49 @@
  * **Space Complexity**: O(4^n / n^(3/2)) - Storing all possible results plus recursion stack
  *
  * ### INTUITION:
- * For each operator in the expression, we can split the expression at that operator and recursively compute all possible results for the left and right sub-expressions. Then we combine these results using the current operator. This generates all possible ways to parenthesize the expression.
- *
- * ### APPROACH:
- * We use divide and conquer with recursion. For the given expression, we iterate through each character. When we find an operator (+, -, *), we recursively compute all possible results for the left substring and all possible results for the right substring.
- *
- * For each pair of left and right results, we apply the current operator to generate a new result. We collect all such results in a list. The base case is when the expression contains no operators, in which case we return a list containing just the number itself.
- *
- * We can optimize this with memoization by caching results for each unique sub-expression to avoid recomputing the same sub-problems.
- *
- * ### WHY THIS WORKS:
+The key insight is that for each operator in the expression, we can split the expression at that operator and recursively compute all possible results for the left and right sub-expressions. Then we combine these results using the current operator. This generates all possible ways to parenthesize the expression.
+
+### APPROACH:
+1. We use divide and conquer with recursion.
+2. For the given expression, we iterate through each character.
+3. When we find an operator (+, -, *), we recursively compute all possible results for the left substring and all possible results for the right substring.
+4. For each pair of left and right results, we apply the current operator to generate a new result.
+5. We collect all such results in a list.
+6. The base case is when the expression contains no operators, in which case we return a list containing just the number itself.
+7. We can optimize this with memoization by caching results for each unique sub-expression to avoid recomputing the same sub-problems.
+
+### WHY THIS WORKS:
  * - Every valid parenthesization corresponds to choosing some operator as the last operation
  * - Recursively solving left and right gives all possible values for each side
  * - Combining all pairs with the operator generates all possible results for this split
  * - Trying all operators as the last operation covers all possible parenthesizations
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * expression = "2-1-1"
- * ```
- *
- * **Step 1:** Try first '-' as last op: left="2", right="1-1"
- *
- * **Step 2:** Recursively solve: left=[2], right=[0, 2]
- *
- * **Step 3:** Combine: 2-0=2, 2-2=0 → [2, 0]
- *
- * **Step 4:** Try second '-' as last op: left="2-1", right="1"
- *
- * **Step 5:** Recursively solve: left=[1], right=[1]
- *
- * **Step 6:** Combine: 1-1=0 → [0]
- *
- * **Step 7:** Collect all results: [2, 0, 0] → unique: [0, 2]
- *
- * Output:
- * ```
- * [0, 2]
- * ```
- *
- * ### TIME COMPLEXITY:
+Input:
+```
+expression = "2-1-1"
+```
+
+*Step 1:** Try first '-' as last op: left="2", right="1-1"
+
+*Step 2:** Recursively solve: left=[2], right=[0, 2]
+
+*Step 3:** Combine: 2-0=2, 2-2=0 → [2, 0]
+
+*Step 4:** Try second '-' as last op: left="2-1", right="1"
+
+*Step 5:** Recursively solve: left=[1], right=[1]
+
+*Step 6:** Combine: 1-1=0 → [0]
+
+*Step 7:** Collect all results: [2, 0, 0] → unique: [0, 2]
+
+Output:
+```
+[0, 2]
+```
+
+### TIME COMPLEXITY:
  * **O(4^n / n^(3/2))** - The number of ways to parenthesize n operators grows as the nth Catalan number, which is approximately 4^n / n^(3/2). We compute each unique sub-expression once with memoization.
  *
  * ### SPACE COMPLEXITY:

@@ -37,45 +37,50 @@
  * The key insight is to generate all coordinates and use Python's built-in sorting with a custom key.
  * 
  * ### APPROACH:
- * 1. **Generate all coordinates**: Create all (r, c) pairs for the matrix
- * 2. **Define distance function**: Manhattan distance |r - rCenter| + |c - cCenter|
- * 3. **Sort by distance**: Use sorted() with lambda key function
- * 4. **Return sorted list**: All coordinates ordered by distance
- * 
- * ### WHY THIS WORKS:
+1. **Generate all coordinates**: Create all (r, c) pairs for the matrix
+2. **Define distance function**: Manhattan distance |r - rCenter| + |c - cCenter|
+3. **Sort by distance**: Use sorted() with lambda key function
+4. **Return sorted list**: All coordinates ordered by distance
+
+### WHY THIS WORKS:
  * - Manhattan distance measures the grid distance between two points
  * - Python's stable sort maintains relative order for equal distances
  * - Custom key function allows sorting by computed distance
  * - List comprehension efficiently generates all coordinates
  * 
  * ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * rows = 2, cols = 3, rCenter = 1, cCenter = 2
- * ```
- *
- * Matrix coordinates:
- * (0,0) (0,1) (0,2)
- * (1,0) (1,1) (1,2)  <- rCenter=1, cCenter=2
- * Distances from (1,2):
- * (0,0): |0-1| + |0-2| = 1+2 = 3
- * (0,1): |0-1| + |1-2| = 1+1 = 2
- * (0,2): |0-1| + |2-2| = 1+0 = 1
- * (1,0): |1-1| + |0-2| = 0+2 = 2
- * (1,1): |1-1| + |1-2| = 0+1 = 1
- * (1,2): |1-1| + |2-2| = 0+0 = 0
- * Sorted by distance:
- * Distance 0: (1,2)
- * Distance 1: (0,2), (1,1)
- * Distance 2: (0,1), (1,0)
- * Distance 3: (0,0)
- *
- * Output:
- * ```
- * [[1,2],[0,2],[1,1],[0,1],[1,0],[0,0]]
- * ```
+Input:
+```
+rows = 2, cols = 3, rCenter = 1, cCenter = 2
+```
 
- * ### TIME COMPLEXITY:
+Matrix coordinates:
+(0,0) (0,1) (0,2)
+(1,0) (1,1) (1,2)  <- rCenter=1, cCenter=2
+Distances from (1,2):
+(0,0): |0-1| + |0-2| = 1+2 = 3
+(0,1): |0-1| + |1-2| = 1+1 = 2
+(0,2): |0-1| + |2-2| = 1+0 = 1
+(1,0): |1-1| + |0-2| = 0+2 = 2
+(1,1): |1-1| + |1-2| = 0+1 = 1
+(1,2): |1-1| + |2-2| = 0+0 = 0
+Sorted by distance:
+Distance 0: (1,2)
+Distance 1: (0,2), (1,1)
+Distance 2: (0,1), (1,0)
+Distance 3: (0,0)
+
+Output:
+```
+[[1,2],[0,2],[1,1],[0,1],[1,0],[0,0]]
+```
+
+Step-by-step execution:
+1. [First step]
+2. [Second step]
+3. [Final step]
+
+### TIME COMPLEXITY:
  * O(R*C * log(R*C))
  * - Generating coordinates: O(R*C)
  * - Sorting: O(R*C * log(R*C))
@@ -86,11 +91,11 @@
  * For storing all coordinates in the result
  * 
  * ### EDGE CASES:
- * - Single cell matrix (1x1)
- * - Center at corner vs center of matrix
- * - Large matrices (up to 100x100)
- * 
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {

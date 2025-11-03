@@ -38,17 +38,17 @@
 
  *
  * ### INTUITION:
- * Like sorting pancakes by size - we can repeatedly bring the largest unsorted element to the
- * top with one flip, then flip it to its final position. This guarantees sorting.
- *
- * ### APPROACH:
- * 1. **Find maximum** in unsorted portion of array
- * 2. **Flip to top**: If max is not already at top, flip to bring it to position 0
- * 3. **Flip to position**: Flip to move max to its final sorted position
- * 4. **Repeat**: Continue with remaining unsorted portion
- * 5. **Track flips**: Record k-values for each flip
- *
- * ### WHY THIS WORKS:
+The key insight is that like sorting pancakes by size - we can repeatedly bring the largest unsorted element to the
+top with one flip, then flip it to its final position. This guarantees sorting.
+
+### APPROACH:
+1. **Find maximum** in unsorted portion of array
+2. **Flip to top**: If max is not already at top, flip to bring it to position 0
+3. **Flip to position**: Flip to move max to its final sorted position
+4. **Repeat**: Continue with remaining unsorted portion
+5. **Track flips**: Record k-values for each flip
+
+### WHY THIS WORKS:
  * - Each element can be moved to its final position in at most 2 flips
  * - First flip brings it to the top
  * - Second flip moves it to its correct position
@@ -98,13 +98,11 @@
  * For storing the flip sequence
  *
  * ### EDGE CASES:
- * - Already sorted array
- * - Single element
- * - Reverse sorted
- * - All elements equal
- * - Two elements
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 /**

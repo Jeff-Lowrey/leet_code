@@ -38,7 +38,7 @@ Return an array answer of size n where answer[i] is the rank of the ith athlete.
 **Space Complexity**: O(n) - Additional hash map storage
 
 ### INTUITION:
-We need to map each score to its rank. Sorting gives us the order, but we need to maintain
+The key insight is that we need to map each score to its rank. Sorting gives us the order, but we need to maintain
 the original indices. Use sorting with indices or create a score-to-rank mapping.
 
 ### APPROACH:
@@ -95,10 +95,9 @@ O(n)
 For storing score-rank mappings and result
 
 ### EDGE CASES:
-- Single athlete (gets Gold Medal)
-- Two athletes (Gold and Silver only)
-- Three athletes (Gold, Silver, Bronze)
-- Large number of athletes
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

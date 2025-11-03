@@ -27,23 +27,23 @@
  * **Space Complexity**: O(k) - recursion depth and combination size
  *
  * ### INTUITION:
- * Find all valid combinations of k numbers that sum to n, using only numbers 1-9,
- * where each number can be used at most once. This is a backtracking problem with
- * multiple constraints: combination size and target sum.
- *
- * ### APPROACH:
- * 1. **Backtracking with constraints**:
- *    - Start from number 1 and try each number up to 9
- *    - For each number, decide to include it or skip it
- *    - Track current sum and count of numbers used
- *    - Base cases: reached k numbers (check if sum equals n), or exceeded constraints
- * 2. **Pruning optimizations**:
- *    - Stop if current sum exceeds target
- *    - Stop if remaining numbers can't possibly reach target
- *    - Early exit when constraints violated
- * 3. **Edge cases**: k > 9, n too large, n too small
- *
- * ### WHY THIS WORKS:
+The key insight is that find all valid combinations of k numbers that sum to n, using only numbers 1-9,
+where each number can be used at most once. This is a backtracking problem with
+multiple constraints: combination size and target sum.
+
+### APPROACH:
+1. **Backtracking with constraints**:
+   - Start from number 1 and try each number up to 9
+   - For each number, decide to include it or skip it
+   - Track current sum and count of numbers used
+   - Base cases: reached k numbers (check if sum equals n), or exceeded constraints
+2. **Pruning optimizations**:
+   - Stop if current sum exceeds target
+   - Stop if remaining numbers can't possibly reach target
+   - Early exit when constraints violated
+3. **Edge cases**: k > 9, n too large, n too small
+
+### WHY THIS WORKS:
  * - Backtracking systematically explores all valid combinations
  * - Pruning reduces unnecessary exploration
  * - Starting number parameter prevents duplicate combinations
@@ -78,12 +78,11 @@
  * - recursion depth and combination size
  *
  * ### EDGE CASES:
- * - k > 9 (impossible - return empty array)
- * - n > 45 (sum of 1-9, impossible - return empty array)
- * - k = 1 (return [n] if 1 <= n <= 9)
- * - Minimum sum for k numbers: 1+2+...+k = k(k+1)/2
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {

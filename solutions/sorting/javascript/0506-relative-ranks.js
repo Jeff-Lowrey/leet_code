@@ -40,16 +40,16 @@
 
  *
  * ### INTUITION:
- * We need to map each score to its rank. Sorting gives us the order, but we need to maintain
- * the original indices. Use sorting with indices or create a score-to-rank mapping.
- *
- * ### APPROACH:
- * 1. **Create index-score pairs**: Track original positions
- * 2. **Sort by score descending**: Highest score first
- * 3. **Assign ranks**: Gold/Silver/Bronze for top 3, numbers for rest
- * 4. **Map back to original positions**: Use original indices
- *
- * ### WHY THIS WORKS:
+The key insight is that we need to map each score to its rank. Sorting gives us the order, but we need to maintain
+the original indices. Use sorting with indices or create a score-to-rank mapping.
+
+### APPROACH:
+1. **Create index-score pairs**: Track original positions
+2. **Sort by score descending**: Highest score first
+3. **Assign ranks**: Gold/Silver/Bronze for top 3, numbers for rest
+4. **Map back to original positions**: Use original indices
+
+### WHY THIS WORKS:
  * - Sorting by score gives us the ranking order
  * - Tracking original indices lets us place ranks correctly
  * - Dictionary mapping from score to rank is efficient
@@ -94,12 +94,11 @@
  * For storing score-rank mappings and result
  *
  * ### EDGE CASES:
- * - Single athlete (gets Gold Medal)
- * - Two athletes (Gold and Silver only)
- * - Three athletes (Gold, Silver, Bronze)
- * - Large number of athletes
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 /**

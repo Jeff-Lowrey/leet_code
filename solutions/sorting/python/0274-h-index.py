@@ -41,10 +41,10 @@ Sorting helps us find this threshold efficiently. We can also use counting for O
 4. **Alternative**: Count papers with at least k citations for each k
 
 ### WHY THIS WORKS:
-- After sorting in descending order, citations[i] is the (i+1)th highest citation count
-- If citations[i] >= i+1, we have at least i+1 papers with i+1+ citations
-- The h-index is the maximum such i+1 value
-- Counting approach: For each h, count papers with >= h citations
+- This ensures that after sorting in descending order, citations[i] is the (i+1)th highest citation count
+- This ensures that if citations[i] >= i+1, we have at least i+1 papers with i+1+ citations
+- This ensures that the h-index is the maximum such i+1 value
+- This ensures that counting approach: For each h, count papers with >= h citations
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -71,6 +71,11 @@ Output:
 3
 ```
 
+Step-by-step execution:
+1. [First step]
+2. [Second step]
+3. [Final step]
+
 ### TIME COMPLEXITY:
 O(n log n)
 For sorting approach. Counting approach is O(n).
@@ -80,10 +85,9 @@ O(1)
 If sorting in place, O(n) for sorting with extra space
 
 ### EDGE CASES:
-- All zeros (h-index = 0)
-- All citations > n (h-index = n)
-- Single paper
-- Empty array
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

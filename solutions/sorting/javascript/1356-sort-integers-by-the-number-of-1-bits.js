@@ -32,16 +32,16 @@
 
  *
  * ### INTUITION:
- * We need a two-level sort: first by count of 1-bits, then by value. Python's sort is stable,
- * so we can sort by value first, then by bit count. Or use a tuple key for simultaneous sorting.
- *
- * ### APPROACH:
- * 1. **Count 1-bits**: Use bin(n).count('1') or bit manipulation
- * 2. **Create sort key**: Tuple (bit_count, value)
- * 3. **Sort array**: Use sorted() with custom key function
- * 4. **Return result**: Sorted array
- *
- * ### WHY THIS WORKS:
+The key insight is that we need a two-level sort: first by count of 1-bits, then by value. Python's sort is stable,
+so we can sort by value first, then by bit count. Or use a tuple key for simultaneous sorting.
+
+### APPROACH:
+1. **Count 1-bits**: Use bin(n).count('1') or bit manipulation
+2. **Create sort key**: Tuple (bit_count, value)
+3. **Sort array**: Use sorted() with custom key function
+4. **Return result**: Sorted array
+
+### WHY THIS WORKS:
  * - bin(n).count('1') counts 1-bits in binary representation
  * - Python sorts tuples lexicographically (first element, then second)
  * - Stable sort maintains order when keys are equal
@@ -92,12 +92,11 @@
  * For the sorted result array
  *
  * ### EDGE CASES:
- * - Array with single element
- * - All numbers have same bit count
- * - Array with zeros
- * - Large numbers (up to 10^4)
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 /**

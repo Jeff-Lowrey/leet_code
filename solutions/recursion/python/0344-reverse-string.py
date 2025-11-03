@@ -29,7 +29,7 @@ You must do this by modifying the input array in-place with O(1) extra memory.
 **Space Complexity**: O(n) for recursion stack (or O(1) for iterative)
 
 ### INTUITION:
-Reversing a string recursively involves swapping characters at opposite ends and recursively
+The key insight is that reversing a string recursively involves swapping characters at opposite ends and recursively
 reversing the middle portion. The base case is when pointers meet or cross.
 
 ### APPROACH:
@@ -67,9 +67,9 @@ O(n) - visit each character once
 O(n) - recursion stack depth
 
 ### EDGE CASES:
-- Empty array: no change
-- Single character: no change
-- Two characters: swap them
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

@@ -29,25 +29,25 @@
  * **Space Complexity**: O(1) - Constant extra space
  *
  * ### INTUITION:
- * We need alternating pattern: small, large, small, large. We can achieve this in O(n) time
- * by swapping elements when the pattern is violated, without sorting.
- *
- * ### APPROACH:
- * 1. **One-pass swap approach**: Iterate through array
- * 2. **Check pattern**: At even indices, ensure nums[i] <= nums[i+1]
- * 3. **At odd indices**: Ensure nums[i] >= nums[i+1]
- * 4. **Swap if violated**: When pattern is wrong, swap adjacent elements
- * 5. **Alternative**: Sort and arrange elements
- *
- * ### WHY THIS WORKS:
- * - At even index i: We want nums[i] <= nums[i+1]
- *   - If nums[i] > nums[i+1], swap them
- * - At odd index i: We want nums[i] >= nums[i+1]
- *   - If nums[i] < nums[i+1], swap them
- * - After swap, previous conditions remain satisfied
- * - One pass is sufficient to fix all violations
- *
- * ### EXAMPLE WALKTHROUGH:
+The key insight is that we need alternating pattern: small, large, small, large. We can achieve this in O(n) time
+by swapping elements when the pattern is violated, without sorting.
+
+### APPROACH:
+1. **One-pass swap approach**: Iterate through array
+2. **Check pattern**: At even indices, ensure nums[i] <= nums[i+1]
+3. **At odd indices**: Ensure nums[i] >= nums[i+1]
+4. **Swap if violated**: When pattern is wrong, swap adjacent elements
+5. **Alternative**: Sort and arrange elements
+
+### WHY THIS WORKS:
+- This ensures that at even index i: We want nums[i] <= nums[i+1]
+- This ensures that if nums[i] > nums[i+1], swap them
+- This ensures that at odd index i: We want nums[i] >= nums[i+1]
+- This ensures that if nums[i] < nums[i+1], swap them
+- This ensures that after swap, previous conditions remain satisfied
+- This ensures that one pass is sufficient to fix all violations
+
+### EXAMPLE WALKTHROUGH:
  * Input:
  * ```
  * nums = [3,5,2,1,6,4]
@@ -87,12 +87,11 @@
  * In-place swaps only
  *
  * ### EDGE CASES:
- * - Array length 1 or 2 (already valid)
- * - All elements equal
- * - Already wiggle sorted
- * - Reverse sorted array
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {

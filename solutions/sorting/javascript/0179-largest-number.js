@@ -27,49 +27,52 @@
  * **Space Complexity**: O(n) - Space for string conversions and result
  *
  * ### INTUITION:
- * To form the largest number, we need a custom comparison: for two numbers a and b, compare the strings formed by concatenating them in different orders (ab vs ba). If ab > ba lexicographically, then a should come before b in the final arrangement.
- *
- * ### APPROACH:
- * We convert all numbers to strings to simplify concatenation and comparison. The key insight is that we need a custom sort comparator that decides which of two numbers should come first.
- *
- * For any two number strings a and b, we compare a+b with b+a (string concatenation). If a+b is lexicographically greater than b+a, then a should come before b in our final result. This comparison ensures that the locally optimal choice (best ordering of any two elements) produces the globally optimal result.
- *
- * After sorting with this custom comparator, we concatenate all strings. We handle the special edge case where all numbers are zeros, which should return "0" instead of "000...".
- *
- * ### WHY THIS WORKS:
+The key insight is that to form the largest number, we need a custom comparison: for two numbers a and b, compare the strings formed by concatenating them in different orders (ab vs ba). If ab > ba lexicographically, then a should come before b in the final arrangement.
+
+### APPROACH:
+1. We convert all numbers to strings to simplify concatenation and comparison.
+2. The key insight is that we need a custom sort comparator that decides which of two numbers should come first.
+3. For any two number strings a and b, we compare a+b with b+a (string concatenation).
+4. If a+b is lexicographically greater than b+a, then a should come before b in our final result.
+5. This comparison ensures that the locally optimal choice (best ordering of any two elements) produces the globally optimal result.
+6. After sorting with this custom comparator, we concatenate all strings.
+7. We handle the special edge case where all numbers are zeros, which should return "0" instead of "000.
+8. ".
+
+### WHY THIS WORKS:
  * - Custom comparator ensures optimal local ordering between any two elements
  * - Transitive property holds for concatenation comparison (if a should precede b, and b should precede c, then a should precede c)
  * - Greedy choice (best local order) produces best global result due to transitivity
  * - String comparison naturally handles different lengths correctly
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * nums = [3, 30, 34, 5, 9]
- * ```
- *
- * **Step 1:** Convert to strings: ["3", "30", "34", "5", "9"]
- *
- * **Step 2:** Compare pairs: "3"+"30"="330" vs "30"+"3"="303" → "3" before "30"
- *
- * **Step 3:** Compare pairs: "3"+"34"="334" vs "34"+"3"="343" → "34" before "3"
- *
- * **Step 4:** Sort using custom comparator: ["9", "5", "34", "3", "30"]
- *
- * **Step 5:** Concatenate: "9534330"
- *
- * Output:
- * ```
- * "9534330"
- * ```
- *
- * ### TIME COMPLEXITY:
+Input:
+```
+nums = [3, 30, 34, 5, 9]
+```
+
+*Step 1:** Convert to strings: ["3", "30", "34", "5", "9"]
+
+*Step 2:** Compare pairs: "3"+"30"="330" vs "30"+"3"="303" → "3" before "30"
+
+*Step 3:** Compare pairs: "3"+"34"="334" vs "34"+"3"="343" → "34" before "3"
+
+*Step 4:** Sort using custom comparator: ["9", "5", "34", "3", "30"]
+
+*Step 5:** Concatenate: "9534330"
+
+Output:
+```
+"9534330"
+```
+
+### TIME COMPLEXITY:
  * **O(n log n)** - The sorting operation dominates, where n is the number of elements. Each comparison takes O(k) where k is the average length of the numbers, but this is typically constant for practical inputs.
  *
  * ### SPACE COMPLEXITY:
- * **O(n)** - We create a list of n string representations plus the final concatenated result string. The sorting may use O(log n) additional space for the call stack.
- *
- * ### EDGE CASES:
+O(n)** - We create a list of n string representations plus the final concatenated result string. The sorting may use **O(log n)** additional space for the call stack.
+
+### EDGE CASES:
  * - **All zeros:** [0, 0, 0] → "0" (not "000")
  * - **Single element:** [1] → "1"
  * - **Same digits different lengths:** [3, 30, 300] → "330300"

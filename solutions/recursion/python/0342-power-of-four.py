@@ -69,9 +69,9 @@ O(log₄ n) - dividing by 4 each time
 O(log₄ n) - recursion stack depth
 
 ### EDGE CASES:
-- n ≤ 0: return False
-- n = 1: return True (4^0)
-- Powers of 2 that aren't powers of 4 (e.g., 2, 8, 32)
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

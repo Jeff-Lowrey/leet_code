@@ -31,7 +31,7 @@ Follow up: Can you do it in O(n) time and/or in-place with O(1) extra space?
 **Space Complexity**: O(n) - Additional storage
  *
 ### INTUITION:
-Unlike Wiggle Sort I which allows equality, this requires strict inequality (<, >, <, >).
+The key insight is that unlike Wiggle Sort I which allows equality, this requires strict inequality (<, >, <, >).
 We need to interleave smaller and larger halves to avoid adjacent equal elements.
 
 ### APPROACH:
@@ -82,10 +82,9 @@ O(n)
 For temporary sorted array. Can be O(1) with in-place virtual indexing.
 
 ### EDGE CASES:
-- Array with many duplicate elements
-- All elements equal (impossible with strict inequality requirement)
-- Small arrays (length 2-3)
-- Even vs odd length arrays
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

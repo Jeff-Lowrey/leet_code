@@ -38,9 +38,9 @@ We need to compare the current order with the expected sorted order and count mi
 3. **Return count**: Number of students in wrong positions
 
 ### WHY THIS WORKS:
-- The expected order is the sorted version of current heights
-- Any position where current[i] != sorted[i] needs adjustment
-- Simple comparison gives us the mismatch count
+- This ensures that the expected order is the sorted version of current heights
+- This ensures that any position where current[i] != sorted[i] needs adjustment
+- This ensures that simple comparison gives us the mismatch count
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -55,6 +55,16 @@ Expected: [1,1,1,2,3,4]
 Match:     ✓ ✓ ✗ ✓ ✗ ✗
 Mismatches at indices: 2, 4, 5
 Count: 3
+
+Output:
+```
+[Expected output]
+```
+
+Step-by-step execution:
+1. [First step]
+2. [Second step]
+3. [Final step]
 
 ### TIME COMPLEXITY:
 O(n log n)

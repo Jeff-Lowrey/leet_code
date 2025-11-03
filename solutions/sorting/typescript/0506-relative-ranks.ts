@@ -38,17 +38,23 @@
  * **Space Complexity**: O(n) - Additional array storage
  *
  * ### INTUITION:
- * We need to map each score to its rank. Sorting gives us the order, but we need to maintain
- * the original indices. Use sorting with indices or create a score-to-rank mapping.
- *
- * ### APPROACH:
- * **Data structures: **Array** with index-score pairs for sorting, Result **Array** for output**
- * 1. **Create index-score pairs**: Track original positions using array of tuples
- * 2. **Sort by score descending**: Highest score first using array sort
- * 3. **Assign ranks**: Gold/Silver/Bronze for top 3, numbers for rest, storing in result array
- * 4. **Map back to original positions**: Use original indices to place ranks in result array
- *
- * ### WHY THIS WORKS:
+The key insight is that we need to map each score to its rank. Sorting gives us the order, but we need to maintain
+the original indices. Use sorting with indices or create a score-to-rank mapping.
+
+### APPROACH:
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+Data structures: **Array** with index-score pairs for sorting, Result **Array** for output**
+1. **Create index-score pairs**: Track original positions using array of tuples
+2. **Sort by score descending**: Highest score first using array sort
+3. **Assign ranks**: Gold/Silver/Bronze for top 3, numbers for rest, storing in result array
+4. **Map back to original positions**: Use original indices to place ranks in result array
+
+### WHY THIS WORKS:
  * - **Sorting with Index Tracking** technique: We pair each score with its original index before sorting
  * - This preserves the original position information even after the array is reordered
  * - Sorting by score (in descending order) gives us the ranking order
@@ -59,39 +65,39 @@
  * - **Array** iteration maps sorted ranks back to original positions efficiently in O(n) time
  *
 ### EXAMPLE WALKTHROUGH:
- * Given input score = [5,4,3,2,1]:
- *
- * Input:
- * ```
- * score = [5,4,3,2,1]
- * ```
- *
- * **Step 1:** Create (score, index) pairs
- * - [(5,0), (4,1), (3,2), (2,3), (1,4)]
- *
- * **Step 2:** Sort by score descending
- * - [(5,0), (4,1), (3,2), (2,3), (1,4)]
- *
- * **Step 3:** Assign ranks based on sorted order
- * - Rank 1 (Gold Medal): score 5, index 0
- * - Rank 2 (Silver Medal): score 4, index 1
- * - Rank 3 (Bronze Medal): score 3, index 2
- * - Rank 4: score 2, index 3
- * - Rank 5: score 1, index 4
- *
- * **Step 4:** Map back to original indices
- * - answer[0] = "Gold Medal"
- * - answer[1] = "Silver Medal"
- * - answer[2] = "Bronze Medal"
- * - answer[3] = "4"
- * - answer[4] = "5"
- *
- * Output:
- * ```
- * ["Gold Medal","Silver Medal","Bronze Medal","4","5"]
- * ```
+Given input score = [5,4,3,2,1]:
 
- * ### TIME COMPLEXITY:
+Input:
+```
+score = [5,4,3,2,1]
+```
+
+*Step 1:** Create (score, index) pairs
+- [(5,0), (4,1), (3,2), (2,3), (1,4)]
+
+*Step 2:** Sort by score descending
+- [(5,0), (4,1), (3,2), (2,3), (1,4)]
+
+*Step 3:** Assign ranks based on sorted order
+- Rank 1 (Gold Medal): score 5, index 0
+- Rank 2 (Silver Medal): score 4, index 1
+- Rank 3 (Bronze Medal): score 3, index 2
+- Rank 4: score 2, index 3
+- Rank 5: score 1, index 4
+
+*Step 4:** Map back to original indices
+- answer[0] = "Gold Medal"
+- answer[1] = "Silver Medal"
+- answer[2] = "Bronze Medal"
+- answer[3] = "4"
+- answer[4] = "5"
+
+Output:
+```
+["Gold Medal","Silver Medal","Bronze Medal","4","5"]
+```
+
+### TIME COMPLEXITY:
  * O(n log n)
  * - Sorting or divide-and-conquer
  * For sorting the scores
@@ -102,12 +108,11 @@
  * For storing score-rank mappings and result
  * 
  * ### EDGE CASES:
- * - Single athlete (gets Gold Medal)
- * - Two athletes (Gold and Silver only)
- * - Three athletes (Gold, Silver, Bronze)
- * - Large number of athletes
- * 
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {

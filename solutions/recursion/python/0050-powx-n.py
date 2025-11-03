@@ -38,9 +38,9 @@ we can compute x^(n/2) once and square it. This reduces time complexity from O(n
 5. **Recursion**: Compute half power and reuse it
 
 ### WHY THIS WORKS:
-- Dividing exponent by 2 each time gives O(log n) complexity
-- Squaring result avoids redundant multiplications
-- Handles negative exponents by taking reciprocal
+- This ensures that dividing exponent by 2 each time gives O(log n) complexity
+- This ensures that squaring result avoids redundant multiplications
+- This ensures that handles negative exponents by taking reciprocal
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -60,6 +60,11 @@ Output:
 1024
 ```
 
+Step-by-step execution:
+1. [First step]
+2. [Second step]
+3. [Final step]
+
 ### TIME COMPLEXITY:
 O(log n) - halving exponent each recursion
 
@@ -67,10 +72,9 @@ O(log n) - halving exponent each recursion
 O(log n) - recursion stack depth
 
 ### EDGE CASES:
-- n = 0: return 1
-- n < 0: compute 1/pow(x, -n)
-- x = 0: return 0
-- x = 1: return 1
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

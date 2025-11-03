@@ -49,6 +49,12 @@ The key insight is that we only need to track:
 4. The remaining count
 
 ### APPROACH:
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
 We track the head of the remaining sequence using pure mathematical state tracking (no data structures needed, just integer variables). The head changes when:
 - We're going left-to-right (always updates)
 - We're going right-to-left AND the count is odd (head updates)
@@ -96,17 +102,21 @@ Output:
 6
 ```
 
+Step-by-step execution:
+1. [First step]
+2. [Second step]
+3. [Final step]
+
 ### TIME COMPLEXITY:
 **O(log n)** - Each round eliminates half the numbers, similar to binary search
 
 ### SPACE COMPLEXITY:
-**O(log n)** - Recursion stack depth (iterative solution can achieve O(1))
+**O(log n)** - Recursion stack depth (iterative solution can achieve **O(1)**)
 
 ### EDGE CASES:
-- Single element: n=1 → 1 (no elimination needed, returns immediately as only element)
-- Power of 2: n=8 → 6 (follows pattern, no special handling needed with mathematical approach)
-- Small n: n=2 → 2 (first round eliminates 1, leaving 2)
-- Large n: n=1000000000 → must use O(log n) not O(n) (simulation would timeout, mathematical tracking succeeds)
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

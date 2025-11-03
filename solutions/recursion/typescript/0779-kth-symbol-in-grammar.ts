@@ -49,20 +49,20 @@
  * - If k is even (right child): flip of parent
  *
  * ### APPROACH:
- * 1. **Base case**: n = 1, return 0 (first row always starts with 0)
- * 2. **Find parent**: The parent is at position ⌈k/2⌉ in row n-1
- * 3. **Determine relationship**:
- *    - If k is odd: return parent value
- *    - If k is even: return flipped parent value (1 - parent)
- * 4. **Recursive call**: kthGrammar(n-1, (k+1)//2)
- *
- * ### WHY THIS WORKS:
- * - The pattern follows a binary tree structure
- * - Left child (odd k) inherits parent's value
- * - Right child (even k) gets flipped value
- * - We recursively trace back to row 1
- *
- * ### EXAMPLE WALKTHROUGH:
+1. **Base case**: n = 1, return 0 (first row always starts with 0)
+2. **Find parent**: The parent is at position ⌈k/2⌉ in row n-1
+3. **Determine relationship**:
+   - If k is odd: return parent value
+   - If k is even: return flipped parent value (1 - parent)
+4. **Recursive call**: kthGrammar(n-1, (k+1)//2)
+
+### WHY THIS WORKS:
+- This ensures that the pattern follows a binary tree structure
+- This ensures that left child (odd k) inherits parent's value
+- This ensures that right child (even k) gets flipped value
+- This ensures that we recursively trace back to row 1
+
+### EXAMPLE WALKTHROUGH:
  * Input:
  * ```
  * n = 3, k = 3
@@ -99,11 +99,11 @@
  * O(n) for recursion stack
  *
  * ### EDGE CASES:
- * - n = 1: always returns 0
- * - k = 1: always returns 0 (first element of any row)
- * - k = last position: depends on pattern
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {

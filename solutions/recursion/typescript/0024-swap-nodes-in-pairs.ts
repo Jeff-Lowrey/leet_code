@@ -27,9 +27,9 @@
  * **Space Complexity**: O(n)
  *
  * ### INTUITION:
- * We need to swap every pair of adjacent nodes in a linked list. This is a perfect use case for recursion where we can handle the current pair and recursively solve for the rest of the list.
- *
- * ### APPROACH:
+The key insight is that we need to swap every pair of adjacent nodes in a linked list. This is a perfect use case for recursion where we can handle the current pair and recursively solve for the rest of the list.
+
+### APPROACH:
  * 1. **Base case**: If less than 2 nodes remain, return head
  * 2. **Recursive case**: Swap current pair and recursively handle rest
  * 3. **Link management**: Carefully update pointers to maintain list integrity
@@ -64,11 +64,11 @@
  * Recursion stack depth proportional to number of pairs
  *
  * ### EDGE CASES:
- * - Empty list: return None
- * - Single node: return as-is
- * - Odd number of nodes: last node remains in place
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class ListNode {

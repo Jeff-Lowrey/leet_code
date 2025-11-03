@@ -30,7 +30,7 @@ Return the array after sorting it.
 **Space Complexity**: O(n)
 
 ### INTUITION:
-We need a two-level sort: first by count of 1-bits, then by value. Python's sort is stable,
+The key insight is that we need a two-level sort: first by count of 1-bits, then by value. Python's sort is stable,
 so we can sort by value first, then by bit count. Or use a tuple key for simultaneous sorting.
 
 ### APPROACH:
@@ -88,10 +88,9 @@ O(n)
 For the sorted result array
 
 ### EDGE CASES:
-- Array with single element
-- All numbers have same bit count
-- Array with zeros
-- Large numbers (up to 10^4)
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

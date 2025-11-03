@@ -80,6 +80,11 @@ Output:
 [[1,2],[0,2],[1,1],[0,1],[1,0],[0,0]]
 ```
 
+Step-by-step execution:
+1. [First step]
+2. [Second step]
+3. [Final step]
+
 ### TIME COMPLEXITY:
 O(R*C * log(R*C))
 - Generating coordinates: O(R*C)
@@ -91,9 +96,9 @@ O(R*C)
 For storing all coordinates in the result
 
 ### EDGE CASES:
-- Single cell matrix (1x1)
-- Center at corner vs center of matrix
-- Large matrices (up to 100x100)
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

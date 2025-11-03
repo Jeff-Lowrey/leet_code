@@ -73,59 +73,63 @@ This solution uses mathematical pattern recognition for efficient implementation
 
 This solution uses state tracking for efficient implementation.
 ### EXAMPLE WALKTHROUGH:
- * **Input:** n = 9
- *
- * Initial state: arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
- *
- * **Step 1** - Round 1 (L->R): head=1, step=1, count=9, left_to_right=True
- * - Eliminate: 1, 3, 5, 7, 9
- * - Remaining: [2, 4, 6, 8]
- * - New head: 2 (head + step = 1 + 1 = 2)
- * - New step: 2, count: 4, direction: R->L
- *
- * **Step 2** - Round 2 (R->L): head=2, step=2, count=4, left_to_right=False
- * - Eliminate: 8, 4
- * - Remaining: [2, 6]
- * - Head stays 2 (count is even, no update)
- * - New step: 4, count: 2, direction: L->R
- *
- * **Step 3** - Round 3 (L->R): head=2, step=4, count=2, left_to_right=True
- * - Eliminate: 2
- * - Remaining: [6]
- * - New head: 2 + 4 = 6
- * - Only one number remains
- *
- * Output:
- * ```
- * 6
- * ```
- *
- * Original Round 2 (R->L): head=2, step=2, count=4, left_to_right=False
- *   Eliminate: 8, 4
- *   Remaining: [2, 6]
- *   Head stays 2 (count is even)
- *   New step: 4, count: 2, direction: L->R
- *
- * Round 3 (L->R): head=2, step=4, count=2, left_to_right=True
- *   Eliminate: 2
- *   Remaining: [6]
- *   New head: 2 + 4 = 6
- *
- * Result: 6
- *
- * ### TIME COMPLEXITY:
+**Input:** n = 9
+
+Initial state: arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+**Step 1** - Round 1 (L->R): head=1, step=1, count=9, left_to_right=True
+- Eliminate: 1, 3, 5, 7, 9
+- Remaining: [2, 4, 6, 8]
+- New head: 2 (head + step = 1 + 1 = 2)
+- New step: 2, count: 4, direction: R->L
+
+**Step 2** - Round 2 (R->L): head=2, step=2, count=4, left_to_right=False
+- Eliminate: 8, 4
+- Remaining: [2, 6]
+- Head stays 2 (count is even, no update)
+- New step: 4, count: 2, direction: L->R
+
+**Step 3** - Round 3 (L->R): head=2, step=4, count=2, left_to_right=True
+- Eliminate: 2
+- Remaining: [6]
+- New head: 2 + 4 = 6
+- Only one number remains
+
+Output:
+```
+6
+```
+
+Original Round 2 (R->L): head=2, step=2, count=4, left_to_right=False
+  Eliminate: 8, 4
+  Remaining: [2, 6]
+  Head stays 2 (count is even)
+  New step: 4, count: 2, direction: L->R
+
+Round 3 (L->R): head=2, step=4, count=2, left_to_right=True
+  Eliminate: 2
+  Remaining: [6]
+  New head: 2 + 4 = 6
+
+Result: 6
+
+Step-by-step execution:
+1. [First step]
+2. [Second step]
+3. [Final step]
+
+### TIME COMPLEXITY:
  * **O(log n)** - Each round eliminates half the numbers, similar to binary search
  *
  * ### SPACE COMPLEXITY:
- * **O(log n)** - Recursion stack depth (iterative solution can achieve O(1))
- *
- * ### EDGE CASES:
- * - Single element: n=1 → 1 (no elimination needed, returns immediately as only element)
- * - Power of 2: n=8 → 6 (follows pattern, no special handling needed with mathematical approach)
- * - Small n: n=2 → 2 (first round eliminates 1, leaving 2)
- * - Large n: n=1000000000 → must use O(log n) not O(n) (simulation would timeout, mathematical tracking succeeds)
- *
- * </details>
+O(log n)** - Recursion stack depth (iterative solution can achieve **O(1)**)
+
+### EDGE CASES:
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 /**
