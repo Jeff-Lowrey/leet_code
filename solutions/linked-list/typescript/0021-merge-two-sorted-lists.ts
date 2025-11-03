@@ -1,60 +1,61 @@
 /**
-### INTUITION:
-The key insight is that use dummy node to handle edge cases. Compare nodes from both lists. Advance pointer of smaller node. Continue until both lists exhausted. Return dummy.next.
-
-### APPROACH:
-1. **Create dummy node**: Initialize dummy = ListNode(0) to simplify list construction
-2. **Initialize current pointer**: Set current = dummy to track position in result list
-3. **Compare while both exist**: While list1 and list2 are not None
-4. **Choose smaller node**: If list1.val < list2.val, attach list1 to current, advance list1
-5. **Otherwise choose list2**: Else attach list2 to current, advance list2
-6. **Advance current**: Move current = current.next after each attachment
-7. **Attach remaining nodes**: After loop, attach remaining nodes from non-empty list
-8. **Return result**: Return dummy.next as the merged list head
-
-### WHY THIS WORKS:
-- Dummy node eliminates special cases for empty lists and first node selection
-- Comparing values at each step ensures merged list maintains sorted order
-- Attaching remaining nodes works because both input lists are already sorted
-- Only pointer manipulation (no new nodes created) achieves O(1) space
-- Single pass through both lists achieves O(m + n) time
-
-### EXAMPLE WALKTHROUGH:
-Input:
-```
-list1 = [1,2,4], list2 = [1,3,4]
-```
-
-Step 1: Compare and merge
-1 ≤ 1: add 1 from list1
-2 > 1: add 1 from list2
-2 ≤ 3: add 2 from list1
-4 > 3: add 3 from list2
-4 ≤ 4: add 4 from list1
-Remaining: 4 from list2
-
-Output:
-```
-[1,1,2,3,4,4]
-```
-
-### TIME COMPLEXITY:
-O(n)**
-
-- Single pass through the input
-
-### SPACE COMPLEXITY:
-O(1)**
-- Constant extra space
-
-### EDGE CASES:
-- **Empty input**: Handle when input is empty
-- **Single element**: Handle single-element inputs
-- **Boundary values**: Handle minimum/maximum valid values
-
-</details>
-
-*/
+ * ### METADATA:
+ *
+ *
+ * ### INTUITION:
+ * The key insight is that use dummy node to handle edge cases. Compare nodes from both lists. Advance pointer of smaller node. Continue until both lists exhausted. Return dummy.next.
+ *
+ * ### APPROACH:
+ * 1. **Create dummy node**: Initialize dummy = ListNode(0) to simplify list construction
+ * 2. **Initialize current pointer**: Set current = dummy to track position in result list
+ * 3. **Compare while both exist**: While list1 and list2 are not None
+ * 4. **Choose smaller node**: If list1.val < list2.val, attach list1 to current, advance list1
+ * 5. **Otherwise choose list2**: Else attach list2 to current, advance list2
+ * 6. **Advance current**: Move current = current.next after each attachment
+ * 7. **Attach remaining nodes**: After loop, attach remaining nodes from non-empty list
+ * 8. **Return result**: Return dummy.next as the merged list head
+ *
+ * ### WHY THIS WORKS:
+ * - Dummy node eliminates special cases for empty lists and first node selection
+ * - Comparing values at each step ensures merged list maintains sorted order
+ * - Attaching remaining nodes works because both input lists are already sorted
+ * - Only pointer manipulation (no new nodes created) achieves O(1) space
+ * - Single pass through both lists achieves O(m + n) time
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * list1 = [1,2,4], list2 = [1,3,4]
+ * ```
+ *
+ * Step 1: Compare and merge
+ * 1 ≤ 1: add 1 from list1
+ * 2 > 1: add 1 from list2
+ * 2 ≤ 3: add 2 from list1
+ * 4 > 3: add 3 from list2
+ * 4 ≤ 4: add 4 from list1
+ * Remaining: 4 from list2
+ *
+ * Output:
+ * ```
+ * [1,1,2,3,4,4]
+ * ```
+ *
+ * ### TIME COMPLEXITY:
+ * O(n)**
+ *
+ * - Single pass through the input
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
+ *
+ * ### EDGE CASES:
+ * - **Empty input**: Handle when input is empty
+ * - **Single element**: Handle single-element inputs
+ * - **Boundary values**: Handle minimum/maximum valid values
+ *
+ * *
+ */
 
 class ListNode {
   val: number;

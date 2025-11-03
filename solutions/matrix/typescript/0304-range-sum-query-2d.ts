@@ -126,8 +126,6 @@ The 2D prefix sum uses the inclusion-exclusion principle:
 - Subtract prefix[r2+1][c1] to remove columns left of c1
 - Add back prefix[r1][c1] because it was subtracted twice
 
-
-
 This solution uses dynamic programming for efficient implementation.
 
 This solution uses preprocessing for efficient implementation.
@@ -170,8 +168,6 @@ O(m * n)** - store prefix sum matrix of same dimensions as input
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
-
-</details>
 
 */
 

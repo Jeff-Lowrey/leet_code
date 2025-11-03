@@ -47,8 +47,6 @@ Output:
 - **Single element**: Return [element]
 - **Rectangle (m×n)**: Spiral inward from boundaries
 
-</details>
-
 """
 
 from typing import Any

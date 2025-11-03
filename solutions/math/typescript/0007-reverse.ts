@@ -1,58 +1,59 @@
 /**
-### INTUITION:
-The key insight is that extract digits from end using mod 10. Build reversed number by multiplying result by 10 and adding digit. Check for overflow before each operation.
-
-### APPROACH:
-1. **Initialize result**: Set result = 0 to build reversed number
-2. **Handle sign**: Store sign of x, work with absolute value
-3. **Extract digits**: While x != 0, get digit = x % 10
-4. **Build reversed number**: result = result * 10 + digit
-5. **Remove last digit**: x = x // 10
-6. **Check overflow**: If result > 2^31 - 1 or result < -2^31, return 0
-7. **Restore sign**: Multiply result by original sign
-8. **Return result**: Return the reversed integer with sign
-
-### WHY THIS WORKS:
-- This ensures that build reversed number: rev = rev * 10 + x % 10, then x //= 10
-- This ensures that check overflow before multiplying: if rev > MAX // 10, will overflow
-- This ensures that handle negative numbers: take abs, reverse, then negate
-- This ensures that return 0 if result exceeds 32-bit signed integer range
-- This ensures that o(log n) time: number of digits, O(1) space
-
-### EXAMPLE WALKTHROUGH:
-Input:
-```
-x = 123
-```
-
-Step 1: Extract digits and build reversed number
-result = 0
-result = 0*10 + 3 = 3, x = 12
-result = 3*10 + 2 = 32, x = 1
-result = 32*10 + 1 = 321, x = 0
-
-Output:
-```
-321
-```
-
-### TIME COMPLEXITY:
-O(n)**
-
-- Single pass through the input
-
-### SPACE COMPLEXITY:
-O(1)**
-- Constant extra space
-
-### EDGE CASES:
-- **Empty input**: Handle when input is empty
-- **Single element**: Handle single-element inputs
-- **Boundary values**: Handle minimum/maximum valid values
-
-</details>
-
-*/
+ * ### METADATA:
+ *
+ *
+ * ### INTUITION:
+ * The key insight is that extract digits from end using mod 10. Build reversed number by multiplying result by 10 and adding digit. Check for overflow before each operation.
+ *
+ * ### APPROACH:
+ * 1. **Initialize result**: Set result = 0 to build reversed number
+ * 2. **Handle sign**: Store sign of x, work with absolute value
+ * 3. **Extract digits**: While x != 0, get digit = x % 10
+ * 4. **Build reversed number**: result = result * 10 + digit
+ * 5. **Remove last digit**: x = x // 10
+ * 6. **Check overflow**: If result > 2^31 - 1 or result < -2^31, return 0
+ * 7. **Restore sign**: Multiply result by original sign
+ * 8. **Return result**: Return the reversed integer with sign
+ *
+ * ### WHY THIS WORKS:
+ * - This ensures that build reversed number: rev = rev * 10 + x % 10, then x //= 10
+ * - This ensures that check overflow before multiplying: if rev > MAX // 10, will overflow
+ * - This ensures that handle negative numbers: take abs, reverse, then negate
+ * - This ensures that return 0 if result exceeds 32-bit signed integer range
+ * - This ensures that o(log n) time: number of digits, O(1) space
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * x = 123
+ * ```
+ *
+ * Step 1: Extract digits and build reversed number
+ * result = 0
+ * result = 0*10 + 3 = 3, x = 12
+ * result = 3*10 + 2 = 32, x = 1
+ * result = 32*10 + 1 = 321, x = 0
+ *
+ * Output:
+ * ```
+ * 321
+ * ```
+ *
+ * ### TIME COMPLEXITY:
+ * O(n)**
+ *
+ * - Single pass through the input
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
+ *
+ * ### EDGE CASES:
+ * - **Empty input**: Handle when input is empty
+ * - **Single element**: Handle single-element inputs
+ * - **Boundary values**: Handle minimum/maximum valid values
+ *
+ * *
+ */
 
 class Solution {
   reverse(x: number): number {

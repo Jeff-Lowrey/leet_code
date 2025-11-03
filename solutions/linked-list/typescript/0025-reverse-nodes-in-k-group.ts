@@ -1,59 +1,60 @@
 /**
-### INTUITION:
-The key insight is that reverse k nodes at a time using standard reversal. Track previous group's tail and current group's head/tail. Connect groups after reversal. Stop if fewer than k nodes remain.
-
-### APPROACH:
-1. **Check if k nodes exist**: Count k nodes ahead; if fewer than k, return head
-2. **Reverse k nodes**: Use standard linked list reversal for first k nodes
-3. **Track prev and current**: Initialize prev = None, current = head
-4. **Iterate k times**: For i in range(k), reverse links
-5. **Connect with previous group**: After reversal, original head is now tail
-6. **Recursive call**: head.next = reverseKGroup(current, k) to process remaining
-7. **Return new head**: Return prev (new head of reversed group)
-
-### WHY THIS WORKS:
-- Iteratively reverse k-node groups, keeping track of prev group's tail
-- Check if k nodes remaining before reversing prevents partial reversal
-- Connecting prev_tail to new group head maintains list continuity
-- Dummy node simplifies handling first group edge case
-- O(n) time as each node visited twice (check + reverse), O(1) space
-
-### EXAMPLE WALKTHROUGH:
-Input:
-```
-head = [1,2,3,4,5], k = 2
-```
-
-Step 1: Reverse first k nodes
-
-Steps:
-Step 1: [1,2] → [2,1]
-Step 2: Reverse next k nodes
-Step 3: [3,4] → [4,3]
-Step 4: Last group < k, keep as is
-Step 5: [5] → [5]
-
-Output:
-```
-[2,1,4,3,5]
-```
-
-### TIME COMPLEXITY:
-O(n)**
-- Single pass through input
-
-### SPACE COMPLEXITY:
-O(1)**
-- Constant extra space
-
-### EDGE CASES:
-- **Empty input**: Handle when input is empty
-- **Single element**: Handle single-element inputs
-- **Boundary values**: Handle minimum/maximum valid values
-
-</details>
-
-*/
+ * ### METADATA:
+ *
+ *
+ * ### INTUITION:
+ * The key insight is that reverse k nodes at a time using standard reversal. Track previous group's tail and current group's head/tail. Connect groups after reversal. Stop if fewer than k nodes remain.
+ *
+ * ### APPROACH:
+ * 1. **Check if k nodes exist**: Count k nodes ahead; if fewer than k, return head
+ * 2. **Reverse k nodes**: Use standard linked list reversal for first k nodes
+ * 3. **Track prev and current**: Initialize prev = None, current = head
+ * 4. **Iterate k times**: For i in range(k), reverse links
+ * 5. **Connect with previous group**: After reversal, original head is now tail
+ * 6. **Recursive call**: head.next = reverseKGroup(current, k) to process remaining
+ * 7. **Return new head**: Return prev (new head of reversed group)
+ *
+ * ### WHY THIS WORKS:
+ * - Iteratively reverse k-node groups, keeping track of prev group's tail
+ * - Check if k nodes remaining before reversing prevents partial reversal
+ * - Connecting prev_tail to new group head maintains list continuity
+ * - Dummy node simplifies handling first group edge case
+ * - O(n) time as each node visited twice (check + reverse), O(1) space
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * head = [1,2,3,4,5], k = 2
+ * ```
+ *
+ * Step 1: Reverse first k nodes
+ *
+ * Steps:
+ * Step 1: [1,2] → [2,1]
+ * Step 2: Reverse next k nodes
+ * Step 3: [3,4] → [4,3]
+ * Step 4: Last group < k, keep as is
+ * Step 5: [5] → [5]
+ *
+ * Output:
+ * ```
+ * [2,1,4,3,5]
+ * ```
+ *
+ * ### TIME COMPLEXITY:
+ * O(n)**
+ * - Single pass through input
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
+ *
+ * ### EDGE CASES:
+ * - **Empty input**: Handle when input is empty
+ * - **Single element**: Handle single-element inputs
+ * - **Boundary values**: Handle minimum/maximum valid values
+ *
+ * *
+ */
 
 class ListNode {
   val: number;

@@ -1,59 +1,60 @@
 /**
-### INTUITION:
-The key insight is that use binary search on the range [0, x]. For mid, check if mid * mid <= x. If yes, mid could be answer; try larger. If no, try smaller. Converge to floor(sqrt(x)).
-
-### APPROACH:
-1. **Handle edge cases**: If x == 0 or x == 1, return x
-2. **Initialize binary search**: Set left = 1, right = x // 2
-3. **Binary search loop**: While left <= right, calculate mid
-4. **Check if perfect square**: If mid * mid == x, return mid
-5. **Search right half**: If mid * mid < x, set left = mid + 1, store mid
-6. **Search left half**: If mid * mid > x, set right = mid - 1
-7. **Return result**: Return stored result (largest integer whose square <= x)
-
-### WHY THIS WORKS:
-- This ensures that binary search on range [0, x] for answer
-- This ensures that if mid * mid == x, found exact square root
-- This ensures that if mid * mid < x, answer might be mid or higher (left = mid + 1)
-- This ensures that if mid * mid > x, answer is lower (right = mid - 1)
-- This ensures that o(log x) time binary search, O(1) space
-
-### EXAMPLE WALKTHROUGH:
-Input:
-```
-x = 8
-```
-
-Step 1: Binary search
-left=0, right=8
-mid=4: 4*4=16 > 8, right=3
-mid=1: 1*1=1 < 8, left=2
-mid=2: 2*2=4 < 8, left=3
-mid=3: 3*3=9 > 8, right=2
-left > right, return 2
-
-Output:
-```
-2 (floor of sqrt(8))
-```
-
-### TIME COMPLEXITY:
-O(n)**
-
-- Single pass through the input
-
-### SPACE COMPLEXITY:
-O(1)**
-- Constant extra space
-
-### EDGE CASES:
-- **Empty input**: Handle when input is empty
-- **Single element**: Handle single-element inputs
-- **Boundary values**: Handle minimum/maximum valid values
-
-</details>
-
-*/
+ * ### METADATA:
+ *
+ *
+ * ### INTUITION:
+ * The key insight is that use binary search on the range [0, x]. For mid, check if mid * mid <= x. If yes, mid could be answer; try larger. If no, try smaller. Converge to floor(sqrt(x)).
+ *
+ * ### APPROACH:
+ * 1. **Handle edge cases**: If x == 0 or x == 1, return x
+ * 2. **Initialize binary search**: Set left = 1, right = x // 2
+ * 3. **Binary search loop**: While left <= right, calculate mid
+ * 4. **Check if perfect square**: If mid * mid == x, return mid
+ * 5. **Search right half**: If mid * mid < x, set left = mid + 1, store mid
+ * 6. **Search left half**: If mid * mid > x, set right = mid - 1
+ * 7. **Return result**: Return stored result (largest integer whose square <= x)
+ *
+ * ### WHY THIS WORKS:
+ * - This ensures that binary search on range [0, x] for answer
+ * - This ensures that if mid * mid == x, found exact square root
+ * - This ensures that if mid * mid < x, answer might be mid or higher (left = mid + 1)
+ * - This ensures that if mid * mid > x, answer is lower (right = mid - 1)
+ * - This ensures that o(log x) time binary search, O(1) space
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * x = 8
+ * ```
+ *
+ * Step 1: Binary search
+ * left=0, right=8
+ * mid=4: 4*4=16 > 8, right=3
+ * mid=1: 1*1=1 < 8, left=2
+ * mid=2: 2*2=4 < 8, left=3
+ * mid=3: 3*3=9 > 8, right=2
+ * left > right, return 2
+ *
+ * Output:
+ * ```
+ * 2 (floor of sqrt(8))
+ * ```
+ *
+ * ### TIME COMPLEXITY:
+ * O(n)**
+ *
+ * - Single pass through the input
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
+ *
+ * ### EDGE CASES:
+ * - **Empty input**: Handle when input is empty
+ * - **Single element**: Handle single-element inputs
+ * - **Boundary values**: Handle minimum/maximum valid values
+ *
+ * *
+ */
 
 class Solution {
   mySqrt(x: number): number {

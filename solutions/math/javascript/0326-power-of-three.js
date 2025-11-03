@@ -149,8 +149,6 @@ O(1)** - Analysis of space complexity - [Add explanation of why this complexity]
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
-</details>
-
 */
 
 class Solution {

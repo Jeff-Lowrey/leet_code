@@ -1,52 +1,54 @@
 /**
-### INTUITION:
-Since intervals are sorted and `non-overlapping`, we can process them in three phases:
-1. Add intervals that come before newInterval
-2. Merge overlapping intervals with newInterval
-3. Add intervals that come after newInterval
-
-### APPROACH:
-1. **Before Phase**: Add all intervals that `end` before newInterval starts
-2. **Merge Phase**: Merge all overlapping intervals with newInterval
-3. **After Phase**: Add all remaining intervals
-
-### WHY THIS WORKS:
-The algorithm correctly solves the problem by systematically exploring all valid states while maintaining necessary invariants. Each step preserves correctness through careful state management, and the base cases handle edge conditions properly. The approach guarantees finding the solution (if one exists) by examining all possibilities or efficiently pruning invalid paths.
-
-### EXAMPLE WALKTHROUGH:
-Input:
-```
-intervals = [[1,3],[6,9]], newInterval = [2,5]
-```
-
-Phase 1: [1,3] overlaps with [2,5] (`3 >= 2`)
-
-Steps:
-Step 1: Phase 2: Merge [1,3] and [2,5] → [1,5]
-Step 2: Phase 3: [6,9] doesn't overlap (`6 > 5`) → add `as-is`
-Step 3: Result: [[1,5],[6,9]]
-
-Output:
-```
-[[1,5],[6,9]]
-```
-
-### TIME COMPLEXITY:
-O(n)** - Single pass through intervals array to find insertion point and merge overlaps
-
-### SPACE COMPLEXITY:
-O(n)** for result array
-
-### EDGE CASES:
-- **Empty intervals list**: Return [newInterval]
-- **No overlap**: Insert in correct sorted position
-- **Complete overlap**: Merge all overlapping intervals
-- **New interval at start**: Add before all existing
-- **New interval at end**: Add after all existing
-
-</details>
-
-*/
+ * ### METADATA:
+ *
+ *
+ * ### INTUITION:
+ * Since intervals are sorted and `non-overlapping`, we can process them in three phases:
+ * 1. Add intervals that come before newInterval
+ * 2. Merge overlapping intervals with newInterval
+ * 3. Add intervals that come after newInterval
+ *
+ * ### APPROACH:
+ * 1. **Before Phase**: Add all intervals that `end` before newInterval starts
+ * 2. **Merge Phase**: Merge all overlapping intervals with newInterval
+ * 3. **After Phase**: Add all remaining intervals
+ *
+ * ### WHY THIS WORKS:
+ * The algorithm correctly solves the problem by systematically exploring all valid states while maintaining necessary invariants. Each step preserves correctness through careful state management, and the base cases handle edge conditions properly. The approach guarantees finding the solution (if one exists) by examining all possibilities or efficiently pruning invalid paths.
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * intervals = [[1,3],[6,9]], newInterval = [2,5]
+ * ```
+ *
+ * Phase 1: [1,3] overlaps with [2,5] (`3 >= 2`)
+ *
+ * Steps:
+ * Step 1: Phase 2: Merge [1,3] and [2,5] → [1,5]
+ * Step 2: Phase 3: [6,9] doesn't overlap (`6 > 5`) → add `as-is`
+ * Step 3: Result: [[1,5],[6,9]]
+ *
+ * Output:
+ * ```
+ * [[1,5],[6,9]]
+ * ```
+ *
+ * ### TIME COMPLEXITY:
+ * O(n)** - Single pass through intervals array to find insertion point and merge overlaps
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
+ *
+ * ### EDGE CASES:
+ * - **Empty intervals list**: Return [newInterval]
+ * - **No overlap**: Insert in correct sorted position
+ * - **Complete overlap**: Merge all overlapping intervals
+ * - **New interval at start**: Add before all existing
+ * - **New interval at end**: Add after all existing
+ *
+ * *
+ */
 
 class Solution {
   /**

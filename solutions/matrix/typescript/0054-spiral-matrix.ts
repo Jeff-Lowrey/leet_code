@@ -48,8 +48,6 @@ O(1)** excluding output array
 - **Single element**: Return [element]
 - **Rectangle (m×n)**: Spiral inward from boundaries
 
-</details>
-
 */
 
 class Solution {

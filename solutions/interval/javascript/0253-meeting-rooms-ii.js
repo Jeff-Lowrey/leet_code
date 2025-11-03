@@ -1,56 +1,57 @@
 /**
-### INTUITION:
-[This problem requires understanding of interval concepts. The key insight is to identify the optimal approach for this specific scenario.]
-
-### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply interval methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
-
-### WHY THIS WORKS:
-- This ensures that the solution leverages interval principles
-- This ensures that time complexity is optimized for the given constraints
-- This ensures that space complexity is minimized where possible
-
-### EXAMPLE WALKTHROUGH:
-Input:
-```
-intervals = [[0,30],[5,10],[15,20]]
-```
-
-Step 1: Separate start and end times
-starts = [0,5,15]
-ends = [10,20,30]
-Step 2: Use two pointers
-time=0: start meeting, rooms=1
-time=5: start meeting, rooms=2
-time=10: end meeting, rooms=1
-time=15: start meeting, rooms=2
-time=20: end meeting, rooms=1
-time=30: end meeting, rooms=0
-
-Output:
-```
-2 (minimum meeting rooms needed)
-```
-
-### TIME COMPLEXITY:
-O(n)**
-- Single pass through input
-
-### SPACE COMPLEXITY:
-O(1)**
-- Constant extra space
-
-### EDGE CASES:
-- **Empty input**: Handle when input is empty
-- **Single element**: Handle single-element inputs
-- **Boundary values**: Handle minimum/maximum valid values
-
-</details>
-
-*/
+ * ### METADATA:
+ *
+ *
+ * ### INTUITION:
+ * [This problem requires understanding of interval concepts. The key insight is to identify the optimal approach for this specific scenario.]
+ *
+ * ### APPROACH:
+ * 1. **Analyze the problem**: Understand the input constraints and expected output
+ * 2. **Choose the right technique**: Apply interval methodology
+ * 3. **Implement efficiently**: Focus on optimal time and space complexity
+ * 4. **Handle edge cases**: Consider boundary conditions and special cases
+ *
+ * ### WHY THIS WORKS:
+ * - This ensures that the solution leverages interval principles
+ * - This ensures that time complexity is optimized for the given constraints
+ * - This ensures that space complexity is minimized where possible
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * intervals = [[0,30],[5,10],[15,20]]
+ * ```
+ *
+ * Step 1: Separate start and end times
+ * starts = [0,5,15]
+ * ends = [10,20,30]
+ * Step 2: Use two pointers
+ * time=0: start meeting, rooms=1
+ * time=5: start meeting, rooms=2
+ * time=10: end meeting, rooms=1
+ * time=15: start meeting, rooms=2
+ * time=20: end meeting, rooms=1
+ * time=30: end meeting, rooms=0
+ *
+ * Output:
+ * ```
+ * 2 (minimum meeting rooms needed)
+ * ```
+ *
+ * ### TIME COMPLEXITY:
+ * O(n)**
+ * - Single pass through input
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
+ *
+ * ### EDGE CASES:
+ * - **Empty input**: Handle when input is empty
+ * - **Single element**: Handle single-element inputs
+ * - **Boundary values**: Handle minimum/maximum valid values
+ *
+ * *
+ */
 
 /**
  * Main solution for Problem 253: Meeting Rooms II

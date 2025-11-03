@@ -1,4 +1,5 @@
-"""
+"""### METADATA:
+
 ### INTUITION:
 Since intervals are sorted and `non-overlapping`, we can process them in three phases:
 1. Add intervals that come before newInterval
@@ -35,7 +36,7 @@ Output:
 **O(n)** - Single pass through intervals array to find insertion point and merge overlaps
 
 ### SPACE COMPLEXITY:
-**O(n)** for result array
+**O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
 
 ### EDGE CASES:
 - **Empty intervals list**: Return [newInterval]
@@ -43,8 +44,6 @@ Output:
 - **Complete overlap**: Merge all overlapping intervals
 - **New interval at start**: Add before all existing
 - **New interval at end**: Add after all existing
-
-</details>
 
 """
 

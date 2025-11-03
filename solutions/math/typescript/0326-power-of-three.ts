@@ -1,52 +1,54 @@
 /**
-### INTUITION:
-Similar to power of two, but we divide by 3 instead of 2.
-If n is divisible by 3, recursively check n/3.
-If n becomes 1, it's a power of three.
-
-### APPROACH:
-1. **Base cases**: n = 1 (true, 3^0), n ≤ 0 (false)
-2. **Divisible by 3**: Recursively check n/3
-3. **Not divisible by 3**: Return false
-4. **Alternative**: Check if log₃(n) is an integer
-
-### WHY THIS WORKS:
-- This ensures that powers of 3: 1, 3, 9, 27, 81, 243, etc.
-- This ensures that dividing by 3 repeatedly should eventually reach 1
-- This ensures that if we cannot divide evenly, n is not a power of 3
-
-### EXAMPLE WALKTHROUGH:
-Input:
-```
-n = 27
-```
-
-Steps:
-Step 1: isPowerOfThree(27) → 27 % 3 == 0, check isPowerOfThree(9)
-Step 2: isPowerOfThree(9)  → 9 % 3 == 0, check isPowerOfThree(3)
-Step 3: isPowerOfThree(3)  → 3 % 3 == 0, check isPowerOfThree(1)
-Step 4: isPowerOfThree(1)  → return True
-Step 5: Result: True
-
-Output:
-```
-True
-```
-
-### TIME COMPLEXITY:
-O(log₃ n)** for recursion
-
-### SPACE COMPLEXITY:
-O(log₃ n)** for recursion stack
-
-### EDGE CASES:
-- **Empty input**: Handle when input is empty
-- **Single element**: Handle single-element inputs
-- **Boundary values**: Handle minimum/maximum valid values
-
-</details>
-
-*/
+ * ### METADATA:
+ *
+ *
+ * ### INTUITION:
+ * Similar to power of two, but we divide by 3 instead of 2.
+ * If n is divisible by 3, recursively check n/3.
+ * If n becomes 1, it's a power of three.
+ *
+ * ### APPROACH:
+ * 1. **Base cases**: n = 1 (true, 3^0), n ≤ 0 (false)
+ * 2. **Divisible by 3**: Recursively check n/3
+ * 3. **Not divisible by 3**: Return false
+ * 4. **Alternative**: Check if log₃(n) is an integer
+ *
+ * ### WHY THIS WORKS:
+ * - This ensures that powers of 3: 1, 3, 9, 27, 81, 243, etc.
+ * - This ensures that dividing by 3 repeatedly should eventually reach 1
+ * - This ensures that if we cannot divide evenly, n is not a power of 3
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * n = 27
+ * ```
+ *
+ * Steps:
+ * Step 1: isPowerOfThree(27) → 27 % 3 == 0, check isPowerOfThree(9)
+ * Step 2: isPowerOfThree(9)  → 9 % 3 == 0, check isPowerOfThree(3)
+ * Step 3: isPowerOfThree(3)  → 3 % 3 == 0, check isPowerOfThree(1)
+ * Step 4: isPowerOfThree(1)  → return True
+ * Step 5: Result: True
+ *
+ * Output:
+ * ```
+ * True
+ * ```
+ *
+ * ### TIME COMPLEXITY:
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** time.
+ *
+ * ### SPACE COMPLEXITY:
+ * O(log₃ n)** for recursion stack
+ *
+ * ### EDGE CASES:
+ * - **Empty input**: Handle when input is empty
+ * - **Single element**: Handle single-element inputs
+ * - **Boundary values**: Handle minimum/maximum valid values
+ *
+ * *
+ */
 
 class Solution {
   /**

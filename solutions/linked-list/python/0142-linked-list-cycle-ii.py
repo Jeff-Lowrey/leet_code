@@ -51,8 +51,6 @@ node 2 (cycle begins here)
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
-</details>
-
 """
 
 from typing import Any

@@ -67,22 +67,6 @@ Output (after 4 generations):
 - **Stable patterns**: Some configurations don't change
 - **In-place update**: Use encoding to track current and next state
 
-</details>
-
-</details>
-
-</details>
-
-</details>
-
-</details>
-
-</details>
-
-</details>
-
-</details>
-
 """
 
 import copy

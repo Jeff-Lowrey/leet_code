@@ -60,8 +60,6 @@ Result: [[1,2,3],[8,9,4],[7,6,5]]
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
-</details>
-
 """
 
 from typing import Any

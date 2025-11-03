@@ -51,8 +51,6 @@ True (has cycle)
 - **Cycle at end**: Tail connects back to any previous node, detected correctly
 - **Very long cycle**: Fast pointer eventually catches slow pointer within cycle
 
-</details>
-
 """
 
 from typing import Any

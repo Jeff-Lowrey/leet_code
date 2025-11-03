@@ -1,4 +1,5 @@
-"""
+"""### METADATA:
+
 ### INTUITION:
 The key insight is that trailing zeroes come from factors of 10 = 2 × 5. In n!, there are always more factors of 2 than 5, so we only need to count factors of 5.
 
@@ -42,15 +43,12 @@ Step-by-step execution:
 Number of divisions by 5 until we reach 0
 
 ### SPACE COMPLEXITY:
-**O(1)**
-Only using counters
+**O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
 
 ### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
-
-</details>
 
 """
 

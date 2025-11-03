@@ -46,8 +46,6 @@ Result list length is max(m, n) or max(m, n) + 1 if final carry exists.
 - **Final carry**: create additional node if carry > 0
 - **One list empty**: continue with other list + carry
 
-</details>
-
 """
 
 from typing import Any

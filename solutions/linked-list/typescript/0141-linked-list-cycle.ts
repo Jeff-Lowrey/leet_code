@@ -1,57 +1,58 @@
 /**
-### INTUITION:
-The key insight is that use Floyd's cycle detection with fast and slow pointers. Fast moves 2 steps, slow moves 1 step. If they meet, cycle exists. If fast reaches null, no cycle.
-
-### APPROACH:
-1. **Initialize two pointers**: Set slow = fast = head
-2. **Move at different speeds**: In loop, slow moves 1 step, fast moves 2 steps
-3. **Check for cycle**: If slow == fast, cycle detected, return True
-4. **Check for end**: If fast or fast.next is None, no cycle exists
-5. **Continue until resolved**: Keep moving pointers
-6. **Return False**: If loop exits without meeting, return False
-
-### WHY THIS WORKS:
-- This ensures that floyd's tortoise and hare algorithm: if there's a cycle, fast pointer will eventually lap slow pointer
-- This ensures that fast moves 2x speed, so it closes gap by 1 node per iteration, guaranteed to meet
-- This ensures that if fast reaches null, no cycle exists (linear structure)
-- This ensures that o(n) time: worst case fast travels 2n nodes before meeting or reaching null
-- This ensures that o(1) space: only two pointers regardless of list size
-
-### EXAMPLE WALKTHROUGH:
-Input:
-```
-head = [3,2,0,-4], pos = 1 (cycle at node 2)
-```
-
-Step 1: Fast and slow pointers
-slow=3, fast=3
-slow=2, fast=0
-slow=0, fast=2
-
-Steps:
-Step 1: slow=-4, fast=-4 → meet
-
-Output:
-```
-True (has cycle)
-```
-
-### TIME COMPLEXITY:
-O(n)**
-- Single pass through input
-
-### SPACE COMPLEXITY:
-O(1)**
-- Constant extra space
-
-### EDGE CASES:
-- **Empty input**: Handle when input is empty
-- **Single element**: Handle single-element inputs
-- **Boundary values**: Handle minimum/maximum valid values
-
-</details>
-
-*/
+ * ### METADATA:
+ *
+ *
+ * ### INTUITION:
+ * The key insight is that use Floyd's cycle detection with fast and slow pointers. Fast moves 2 steps, slow moves 1 step. If they meet, cycle exists. If fast reaches null, no cycle.
+ *
+ * ### APPROACH:
+ * 1. **Initialize two pointers**: Set slow = fast = head
+ * 2. **Move at different speeds**: In loop, slow moves 1 step, fast moves 2 steps
+ * 3. **Check for cycle**: If slow == fast, cycle detected, return True
+ * 4. **Check for end**: If fast or fast.next is None, no cycle exists
+ * 5. **Continue until resolved**: Keep moving pointers
+ * 6. **Return False**: If loop exits without meeting, return False
+ *
+ * ### WHY THIS WORKS:
+ * - This ensures that floyd's tortoise and hare algorithm: if there's a cycle, fast pointer will eventually lap slow pointer
+ * - This ensures that fast moves 2x speed, so it closes gap by 1 node per iteration, guaranteed to meet
+ * - This ensures that if fast reaches null, no cycle exists (linear structure)
+ * - This ensures that o(n) time: worst case fast travels 2n nodes before meeting or reaching null
+ * - This ensures that o(1) space: only two pointers regardless of list size
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * head = [3,2,0,-4], pos = 1 (cycle at node 2)
+ * ```
+ *
+ * Step 1: Fast and slow pointers
+ * slow=3, fast=3
+ * slow=2, fast=0
+ * slow=0, fast=2
+ *
+ * Steps:
+ * Step 1: slow=-4, fast=-4 → meet
+ *
+ * Output:
+ * ```
+ * True (has cycle)
+ * ```
+ *
+ * ### TIME COMPLEXITY:
+ * O(n)**
+ * - Single pass through input
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
+ *
+ * ### EDGE CASES:
+ * - **Empty input**: Handle when input is empty
+ * - **Single element**: Handle single-element inputs
+ * - **Boundary values**: Handle minimum/maximum valid values
+ *
+ * *
+ */
 
 class ListNode {
   val: number;

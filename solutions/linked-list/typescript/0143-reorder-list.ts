@@ -1,60 +1,61 @@
 /**
-### INTUITION:
-The key insight is that find middle using slow/fast pointers. Reverse second half. Merge by alternating nodes from first and second half. Weave them together to reorder the list.
-
-### APPROACH:
-1. **Find middle**: Use slow/fast pointers to find middle of list
-2. **Split into two halves**: Set slow.next = None to separate
-3. **Reverse second half**: Reverse the second half
-4. **Initialize pointers**: Set first = head, second = reversed second half
-5. **Merge alternately**: While second exists, interleave nodes
-6. **Save next pointers**: temp1 = first.next, temp2 = second.next
-7. **Link nodes**: first.next = second, second.next = temp1
-8. **Advance pointers**: first = temp1, second = temp2
-
-### WHY THIS WORKS:
-- Three-phase approach: find middle O(n), reverse second half O(n/2), merge O(n) = total O(n)
-- Slow/fast pointers find middle in one pass without counting length
-- Reversing second half in-place maintains O(1) space
-- Merging alternates nodes: first->second->first->second pattern creates desired reordering
-- In-place manipulation means no extra nodes created, achieving O(1) auxiliary space
-
-### EXAMPLE WALKTHROUGH:
-Input:
-```
-head = [1,2,3,4]
-```
-
-Step 1: Find middle
-middle at node 2
-Step 2: Reverse second half
-
-Steps:
-Step 1: [3,4] → [4,3]
-Step 2: Merge alternating
-Step 3: 1 → 4 → 2 → 3
-
-Output:
-```
-[1,4,2,3]
-```
-
-### TIME COMPLEXITY:
-O(n)**
-- Single pass through input
-
-### SPACE COMPLEXITY:
-O(1)**
-- Constant extra space
-
-### EDGE CASES:
-- **Empty input**: Handle when input is empty
-- **Single element**: Handle single-element inputs
-- **Boundary values**: Handle minimum/maximum valid values
-
-</details>
-
-*/
+ * ### METADATA:
+ *
+ *
+ * ### INTUITION:
+ * The key insight is that find middle using slow/fast pointers. Reverse second half. Merge by alternating nodes from first and second half. Weave them together to reorder the list.
+ *
+ * ### APPROACH:
+ * 1. **Find middle**: Use slow/fast pointers to find middle of list
+ * 2. **Split into two halves**: Set slow.next = None to separate
+ * 3. **Reverse second half**: Reverse the second half
+ * 4. **Initialize pointers**: Set first = head, second = reversed second half
+ * 5. **Merge alternately**: While second exists, interleave nodes
+ * 6. **Save next pointers**: temp1 = first.next, temp2 = second.next
+ * 7. **Link nodes**: first.next = second, second.next = temp1
+ * 8. **Advance pointers**: first = temp1, second = temp2
+ *
+ * ### WHY THIS WORKS:
+ * - Three-phase approach: find middle O(n), reverse second half O(n/2), merge O(n) = total O(n)
+ * - Slow/fast pointers find middle in one pass without counting length
+ * - Reversing second half in-place maintains O(1) space
+ * - Merging alternates nodes: first->second->first->second pattern creates desired reordering
+ * - In-place manipulation means no extra nodes created, achieving O(1) auxiliary space
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * head = [1,2,3,4]
+ * ```
+ *
+ * Step 1: Find middle
+ * middle at node 2
+ * Step 2: Reverse second half
+ *
+ * Steps:
+ * Step 1: [3,4] → [4,3]
+ * Step 2: Merge alternating
+ * Step 3: 1 → 4 → 2 → 3
+ *
+ * Output:
+ * ```
+ * [1,4,2,3]
+ * ```
+ *
+ * ### TIME COMPLEXITY:
+ * O(n)**
+ * - Single pass through input
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
+ *
+ * ### EDGE CASES:
+ * - **Empty input**: Handle when input is empty
+ * - **Single element**: Handle single-element inputs
+ * - **Boundary values**: Handle minimum/maximum valid values
+ *
+ * *
+ */
 
 class ListNode {
   val: number;

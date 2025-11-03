@@ -130,8 +130,6 @@ The formula 1 + (num - 1) % 9 handles all cases:
 - This ensures that for multiples of 9: 1 + (9k - 1) % 9 = 1 + 8 = 9
 - This ensures that for other numbers: returns the remainder when divided by 9
 
-
-
 This solution uses mathematical pattern recognition for efficient implementation.
 
 ### EXAMPLE WALKTHROUGH:
@@ -170,8 +168,6 @@ O(1)** - Only using a few variables - [Add explanation of why this complexity]
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
-
-</details>
 
 */
 
