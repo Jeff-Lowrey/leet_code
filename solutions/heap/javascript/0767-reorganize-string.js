@@ -1,38 +1,8 @@
 /**
- * # Difficulty: Medium
- *
- * # 0767. Reorganize String
- *
- *
- * Given a string s, rearrange the characters of s so that any two adjacent characters are not the same.
- *
- * Return any possible rearrangement of s or return "" if not possible.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>"aab"</dd>
- * <dt>Output:</dt>
- * <dd>"aba" (reorganized string)</dd>
- * <dt>Explanation:</dt>
- * <dd>Reorganized string 'aab' becomes 'aba' (no two adjacent same)</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- * ### METADATA:
- * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
- * **Data Structures**: Hash Map, Hash Set, Array
- * **Patterns**: Hash Table Pattern, Greedy Algorithm
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(1) - Constant extra space
+### INTUITION:
+[This problem requires understanding of heap concepts. The key insight is to identify the optimal approach for this specific scenario.]
 
- *
- * ### INTUITION:
- * [This problem requires understanding of heap concepts. The key insight is to identify the optimal approach for this specific scenario.]
- *
- * ### APPROACH:
+### APPROACH:
 1. **Analyze the problem**: Understand the input constraints and expected output
 2. **Choose the right technique**: Apply heap methodology
 3. **Implement efficiently**: Focus on optimal time and space complexity
@@ -44,40 +14,41 @@
 - This ensures that space complexity is minimized where possible
 
 ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * s = "aab"
- * ```
- *
- * Step 1: Count character frequencies
- * freq = {'a': 2, 'b': 1}
- * Step 2: Build max heap (using negative frequencies)
- * heap = [(-2, 'a'), (-1, 'b')]
- * Step 3: Rearrange characters
- * Pick 'a': result = "a", heap = [(-1, 'b'), (-1, 'a')]
- * Pick 'b': result = "ab", heap = [(-1, 'a')]
- * Pick 'a': result = "aba"
- *
- * Output:
- * ```
- * "aba" (reorganized string)
- * ```
+Input:
+```
+s = "aab"
+```
 
- * ### TIME COMPLEXITY:
- * O(n)
- * - Single pass through input
- *
- * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
- *
- * ### EDGE CASES:
+Step 1: Count character frequencies
+freq = {'a': 2, 'b': 1}
+Step 2: Build max heap (using negative frequencies)
+heap = [(-2, 'a'), (-1, 'b')]
+Step 3: Rearrange characters
+Pick 'a': result = "a", heap = [(-1, 'b'), (-1, 'a')]
+Pick 'b': result = "ab", heap = [(-1, 'a')]
+Pick 'a': result = "aba"
+
+Output:
+```
+"aba" (reorganized string)
+```
+
+### TIME COMPLEXITY:
+O(n)**
+- Single pass through input
+
+### SPACE COMPLEXITY:
+O(1)**
+- Constant extra space
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 /**
  * MaxHeap implementation for [char, frequency] pairs

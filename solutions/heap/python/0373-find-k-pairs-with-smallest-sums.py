@@ -1,34 +1,4 @@
 """
-# Difficulty: Medium
-
-# 0373. Find K Pairs With Smallest Sums
-
-You are given two integer arrays nums1 and nums2 sorted in ascending order and an integer k.
-
-Define a pair (u, v) which consists of one element from the first array and one element from the second array.
-
-Return the k pairs (u1, v1), (u2, v2), ..., (uk, vk) with the smallest sums.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>nums1 = [1,7,11], nums2 = [2,4,6], k = 3</dd>
-<dt>Output:</dt>
-<dd>[[1,2],[1,4],[1,6]]</dd>
-<dt>Explanation:</dt>
-<dd>The k=3 pairs with smallest sums from [1,7,11] and [2,4,6] are [[1,2],[1,4],[1,6]]</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
-**Data Structures**: Hash Map, Array, Heap
-**Patterns**: Hash Table Pattern, Greedy Algorithm
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
 The key insight is that use min heap containing pairs from k sorted lists. Initially add first pair from each list. Pop minimum, add result, and push next pair from same lists. Repeat k times.
 
@@ -67,14 +37,12 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 - Single pass through input
 
-
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 - Constant extra space
-
 
 ### EDGE CASES:
 - **Empty input**: Handle when input is empty
@@ -82,6 +50,7 @@ O(1)
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 import heapq

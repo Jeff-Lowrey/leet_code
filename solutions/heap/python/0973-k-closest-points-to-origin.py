@@ -1,34 +1,4 @@
 """
-# Difficulty: Medium
-
-# 0973. K Closest Points To Origin
-
-Given an array of points where points[i] = [xi, yi] represents a point on the X-Y plane and an integer k, return the k closest points to the origin (0, 0).
-
-The distance between two points on the X-Y plane is the Euclidean distance (i.e., √(x1 - x2)^2 + (y1 - y2)^2).
-
-You may return the answer in any order. The answer is guaranteed to be unique (except for the order that it is in).
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>points = [[1,3], [-2,2], [5,8], [0,1]], k = 2</dd>
-<dt>Output:</dt>
-<dd>[[0,1], [-2,2]]</dd>
-<dt>Explanation:</dt>
-<dd>The k=2 closest points to origin are [[1,3],[-2,2]]</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: Hash Map, Array, Heap
-**Patterns**: Two Pointers Pattern, Greedy Algorithm
-**Time Complexity**: O(n)
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
 The key insight is that calculate distance for each point. Use max heap (negate distances) of size k. Maintain k closest points. Alternatively, use quickselect for O(n) average time.
 
@@ -72,14 +42,12 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 - Single pass through input
 
-
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 - Constant extra space
-
 
 ### EDGE CASES:
 - **Empty input**: Handle when input is empty
@@ -87,6 +55,7 @@ O(1)
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 import heapq

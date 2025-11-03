@@ -1,34 +1,4 @@
 """
-# Difficulty: Medium
-
-# 0215. Kth Largest Element in an Array
-
-Given an integer array nums and an integer k, return the kth largest element in the array.
-
-Note that it is the kth largest element in the sorted order, not the kth distinct element.
-
-Can you solve it without sorting?
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>nums = [3,2,1,5,6,4], k = 2</dd>
-<dt>Output:</dt>
-<dd>[3,2,1,5,6,4]</dd>
-<dt>Explanation:</dt>
-<dd>The 2nd largest element in [3,2,1,5,6,4] is 5</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Map Storage, Array Traversal, Two Pointers
-**Data Structures**: Array, Heap, Tree
-**Patterns**: Two Pointers Pattern, Hash Table Pattern
-**Time Complexity**: - Min-heap: O(n log k)
-**Space Complexity**: - Min-heap: O(k)
-
 ### INTUITION:
 The key insight is that several approaches: min-heap (keep k largest), max-heap (pop k-1 times), or QuickSelect (partition-based like QuickSort). QuickSelect is optimal O(n) average case.
 
@@ -72,15 +42,15 @@ Step-by-step execution:
 3. [Final step]
 
 ### TIME COMPLEXITY:
-- Min-heap: O(n log k)
-- Max-heap: O(n + k log n)
-- QuickSelect: O(n) average, O(n²) worst
-- Sorting: O(n log n)
+- Min-heap: **O(n log k)**
+- Max-heap: **O(n + k log n)**
+- QuickSelect: **O(n)** average, **O(n²)** worst
+- Sorting: **O(n log n)**
 
 ### SPACE COMPLEXITY:
-- Min-heap: O(k)
-- QuickSelect: O(1) if in-place
-- Sorting: O(1) or O(n) depending on algorithm
+- Min-heap: **O(k)**
+- QuickSelect: **O(1)** if in-place
+- Sorting: **O(1)** or **O(n)** depending on algorithm
 
 ### EDGE CASES:
 - **Empty input**: Handle when input is empty
@@ -88,6 +58,7 @@ Step-by-step execution:
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 import heapq

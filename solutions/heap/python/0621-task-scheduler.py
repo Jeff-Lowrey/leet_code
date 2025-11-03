@@ -1,34 +1,4 @@
 """
-# Difficulty: Medium
-
-# 0621. Task Scheduler
-
-Given a characters array tasks, representing the tasks a CPU needs to do, where each letter represents a different task. Tasks could be done in any order. Each task is done in one unit of time. For each unit of time, the CPU could complete either one task or just be idle.
-
-However, there is a non-negative integer n that represents the cooldown period between two same tasks (the same letter in the array), that is that there must be at least n units of time between any two same tasks.
-
-Return the least number of units of times that the CPU will take to finish all the given tasks.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>tasks = ["A","A","A","B","B","B"], n = 2</dd>
-<dt>Output:</dt>
-<dd>8</dd>
-<dt>Explanation:</dt>
-<dd>A -> B -> idle -> A -> B -> idle -> A -> B. There are at least 2 units of time between any two same tasks.</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: Array, String, Queue
-**Patterns**: Two Pointers Pattern, Hash Table Pattern
-**Time Complexity**: O(n × m)
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
 The key insight is that schedule most frequent tasks first to minimize idle time. Use max-heap to always pick the task with highest frequency. Track cooldown with a queue.
 
@@ -78,12 +48,12 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n × m)
+**O(n × m)**
 Where n = cooldown, m = number of tasks (simulation approach)
-Math approach: O(m) where m = number of tasks
+Math approach: **O(m)** where m = number of tasks
 
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 At most 26 different tasks (letters)
 
 ### EDGE CASES:
@@ -92,6 +62,7 @@ At most 26 different tasks (letters)
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 from collections import deque, Counter

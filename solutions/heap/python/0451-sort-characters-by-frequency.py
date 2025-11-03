@@ -1,33 +1,4 @@
 """
-# Difficulty: Medium
-
-# 0451. Sort Characters By Frequency
-
-Given a string s, sort it in decreasing order based on the frequency of the characters.
-The frequency of a character is the number of times it appears in the string.
-
-Return the sorted string. If there are multiple answers, return any of them.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>Input: s = "tree"</dd>
-<dt>Output:</dt>
-<dd>Step 1: Count frequencies: {'t': 1, 'r': 1, 'e': 2}</dd>
-<dt>Explanation:</dt>
-<dd>Characters sorted by frequency: 'tree' becomes 'eetr' or 'eert'</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: Hash Map, Array, String
-**Patterns**: Hash Table Pattern
-**Time Complexity**: O(n log k)
-**Space Complexity**: O(k)
-
 ### INTUITION:
 The key insight is that we need to count character frequencies and then sort characters by their frequency
 in descending order. This is a classic use case for heaps/priority queues combined
@@ -59,11 +30,11 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n log k)
+**O(n log k)**
 Where n is string length, k is number of unique characters
 
 ### SPACE COMPLEXITY:
-O(k)
+**O(k)**
 For storing character frequencies and heap
 
 ### EDGE CASES:
@@ -72,6 +43,7 @@ For storing character frequencies and heap
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 import heapq

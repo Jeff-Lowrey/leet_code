@@ -1,34 +1,4 @@
 """
-# Difficulty: Medium
-
-# 0378. Kth Smallest Element In A Sorted Matrix
-
-Given an n x n matrix where each of the rows and columns is sorted in ascending order, return the kth smallest element in the matrix.
-
-Note that it is the kth smallest element in the sorted order, not the kth distinct element.
-
-You must find a solution with a memory complexity better than O(n²).
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>[[1, 5, 9]]</dd>
-<dt>Output:</dt>
-<dd>1</dd>
-<dt>Explanation:</dt>
-<dd>The 8th smallest element in sorted matrix [[1,5,9],[10,11,13],[12,13,15]] is 13</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
-**Data Structures**: Hash Set, Array, Heap
-**Patterns**: Two Pointers Pattern, Hash Table Pattern
-**Time Complexity**: O(k log n)
-**Space Complexity**: O(n) - Additional set storage
-
 ### INTUITION:
 This problem involves finding the kth smallest element in a matrix where both rows and columns are sorted. We have multiple approaches: heap-based, binary search, and merge-like. The heap approach treats each row as a sorted list and uses a min-heap to efficiently find the kth smallest element.
 
@@ -67,11 +37,11 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(k log n)
+**O(k log n)**
 Where n is matrix dimension and k is the target position
 
 ### SPACE COMPLEXITY:
-O(n)
+**O(n)**
 For the heap storing at most n elements (one from each row)
 
 ### EDGE CASES:
@@ -80,6 +50,7 @@ For the heap storing at most n elements (one from each row)
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 import heapq

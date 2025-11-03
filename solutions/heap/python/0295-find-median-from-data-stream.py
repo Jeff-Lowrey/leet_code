@@ -1,35 +1,4 @@
 """
-# Difficulty: Hard
-
-# 0295. Find Median from Data Stream
-
-The median is the middle value in an ordered integer list. If the size of the list is even, there is no middle value, and the median is the mean of the two middle values.
-
-Implement the MedianFinder class:
-- MedianFinder() initializes the MedianFinder object.
-- void addNum(int num) adds the integer num from the data stream to the data structure.
-- double findMedian() returns the median of all elements so far.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>addNum(1):</dd>
-<dt>Output:</dt>
-<dd>left=[1], right=[]</dd>
-<dt>Explanation:</dt>
-<dd>Median after adding [1,2] is 1.5, after [1,2,3] is 2</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Two Pointers
-**Data Structures**: Array, Heap, Tree
-**Patterns**: Two Pointers Pattern, Divide and Conquer
-**Time Complexity**: - addNum(): O(log n) - heap operations
-**Space Complexity**: O(n)
-
 ### INTUITION:
 The key insight is that use two heaps to divide numbers into two halves: max-heap for smaller half, min-heap for larger half. The median is always at the top of one or both heaps.
 
@@ -73,11 +42,11 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-- addNum(): O(log n) - heap operations
-- findMedian(): O(1) - just access heap tops
+- addNum(): **O(log n)** - heap operations
+- findMedian(): **O(1)** - just access heap tops
 
 ### SPACE COMPLEXITY:
-O(n)
+**O(n)**
 Store all n numbers across two heaps
 
 ### EDGE CASES:
@@ -86,6 +55,7 @@ Store all n numbers across two heaps
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 import re

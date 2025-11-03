@@ -1,53 +1,23 @@
 /**
- * # Difficulty: Medium
- * 
- * # 0621. Task Scheduler
- * 
- * Given a characters array tasks, representing the tasks a CPU needs to do, where each letter represents a different task. Tasks could be done in any order. Each task is done in one unit of time. For each unit of time, the CPU could complete either one task or just be idle.
- * 
- * However, there is a non-negative integer n that represents the cooldown period between two same tasks (the same letter in the array), that is that there must be at least n units of time between any two same tasks.
- * 
- * Return the least number of units of times that the CPU will take to finish all the given tasks.
- * 
- * **Example:**
- * 
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>tasks = ["A", "A", "A", "B", "B", "B"], n = 2</dd>
- * <dt>Output:</dt>
- * <dd>8</dd>
- * <dt>Explanation:</dt>
- * <dd>Minimum intervals to schedule tasks 'AAABBB' with n=2 is 8</dd>
- * </dl>
- * 
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- * ### METADATA:
- * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
- * **Data Structures**: Array, String, Queue
- * **Patterns**: Two Pointers Pattern, Hash Table Pattern
- * **Time Complexity**: O(n × m)
- * **Space Complexity**: O(1) - Constant extra space
- * 
- * ### INTUITION:
+### INTUITION:
 The key insight is that schedule most frequent tasks first to minimize idle time. Use max-heap to always pick the task with highest frequency. Track cooldown with a queue.
 
 ### APPROACH:
- * **Data structures: Array (tasks input), Queue (cooldown tracking), Heap (max-heap for frequency), Hash Map (Counter for frequencies)**
- * 1. **Count frequencies**: Use Counter to get task frequencies
- * 2. **Max-heap**: Store negative frequencies (Python has min-heap)
- * 3. **Simulation**: For each time unit:
- *    - Pick most frequent available task
- *    - Decrease its count and add to cooldown queue
- *    - Process cooldown queue to return tasks to heap
- * 4. **Math formula**: Can also calculate directly using formula
- * 
- * ### WHY THIS WORKS:
- * - Most frequent tasks create the most idle time
- * - By scheduling them first with optimal spacing, we minimize total idle time
- * - Cooldown queue ensures we respect the n interval
- * 
- *
+Data structures: Array (tasks input), Queue (cooldown tracking), Heap (max-heap for frequency), Hash Map (Counter for frequencies)**
+1. **Count frequencies**: Use Counter to get task frequencies
+2. **Max-heap**: Store negative frequencies (Python has min-heap)
+3. **Simulation**: For each time unit:
+   - Pick most frequent available task
+   - Decrease its count and add to cooldown queue
+   - Process cooldown queue to return tasks to heap
+4. **Math formula**: Can also calculate directly using formula
+
+### WHY THIS WORKS:
+- Most frequent tasks create the most idle time
+- By scheduling them first with optimal spacing, we minimize total idle time
+- Cooldown queue ensures we respect the n interval
+
+
 
 This solution uses hash table lookup for efficient implementation.
 
@@ -56,22 +26,23 @@ This solution uses hash map storage for efficient implementation.
 This solution uses array traversal for efficient implementation.
 
 The solution leverages string for efficient operations.
+
 ### EXAMPLE WALKTHROUGH:
 Input:
 ```
 tasks = ["A","A","A","B","B","B"], n = 2
 ```
 
-*Step 1:** Count frequencies
+Step 1:** Count frequencies
 - Use Counter to get task frequencies
 - Frequencies: {A: 3, B: 3}
 - Both tasks appear 3 times each
 
-*Step 2:** Max-heap setup
+Step 2:** Max-heap setup
 - Store negative frequencies for max-heap: [-3, -3]
 - Heap allows us to always pick most frequent available task
 
-*Step 3:** Simulation for each time unit
+Step 3:** Simulation for each time unit
 - **Time 0**: Pick A (freq=3), A remaining=2, add to cooldown queue (available at time 3)
 - **Time 1**: Pick B (freq=3), B remaining=2, add to cooldown queue (available at time 4)
 - **Time 2**: No tasks available (both in cooldown) → idle
@@ -82,7 +53,7 @@ tasks = ["A","A","A","B","B","B"], n = 2
 - **Time 7**: B returns from cooldown (freq=1), pick B, B done
 - Total time units: 8
 
-*Step 4:** Math formula alternative
+Step 4:** Math formula alternative
 - Max frequency: 3
 - Formula: (maxFreq - 1) × (n + 1) + countOfMaxFreqTasks
 - Calculation: (3 - 1) × (2 + 1) + 2 = 2 × 3 + 2 = 8
@@ -94,22 +65,23 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
- * O(n × m)
- * Where n = cooldown, m = number of tasks (simulation approach)
- * Math approach: O(m) where m = number of tasks
- * 
- * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
- * At most 26 different tasks (letters)
- * 
- * ### EDGE CASES:
+O(n × m)**
+Where n = cooldown, m = number of tasks (simulation approach)
+Math approach: **O(m)** where m = number of tasks
+
+### SPACE COMPLEXITY:
+O(1)**
+- Constant extra space
+At most 26 different tasks (letters)
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 class Solution {
   /**

@@ -1,46 +1,16 @@
 /**
- * # Difficulty: Medium
- * 
- * # 0973. K Closest Points To Origin
- * 
- * Given an array of points where points[i] = [xi, yi] represents a point on the X-Y plane and an integer k, return the k closest points to the origin (0, 0).
- * 
- * The distance between two points on the X-Y plane is the Euclidean distance (i.e., √(x1 - x2)^2 + (y1 - y2)^2).
- * 
- * You may return the answer in any order. The answer is guaranteed to be unique (except for the order that it is in).
- * 
- * **Example:**
- * 
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>points = [[1,3], [-2,2], [5,8], [0,1]], k = 2</dd>
- * <dt>Output:</dt>
- * <dd>[[0,1], [-2,2]]</dd>
- * <dt>Explanation:</dt>
- * <dd>The k=2 closest points to origin are [[1,3],[-2,2]]</dd>
- * </dl>
- * 
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
- * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
- * **Data Structures**: Hash Map, Array, Heap
- * **Patterns**: Two Pointers Pattern, Greedy Algorithm
- * **Time Complexity**: O(n)
- * **Space Complexity**: O(1) - Constant extra space
- * 
- * ### INTUITION:
+### INTUITION:
 The key insight is that calculate distance for each point. Use max heap (negate distances) of size k. Maintain k closest points. Alternatively, use quickselect for O(n) average time.
 
 ### APPROACH:
- * 1. **Calculate distances**: For each point, compute squared distance = x^2 + y^2
- * 2. **Build min heap**: Push (distance, point) tuples to heap
- * 3. **Use heapify**: Or push one by one using heappush
- * 4. **Extract k smallest**: Pop from heap k times
- * 5. **Build result**: For each popped element, add point to result
- * 6. **Return result**: Return list of k closest points
- * 
- * ### WHY THIS WORKS:
+1. **Calculate distances**: For each point, compute squared distance = x^2 + y^2
+2. **Build min heap**: Push (distance, point) tuples to heap
+3. **Use heapify**: Or push one by one using heappush
+4. **Extract k smallest**: Pop from heap k times
+5. **Build result**: For each popped element, add point to result
+6. **Return result**: Return list of k closest points
+
+### WHY THIS WORKS:
 - This ensures that max heap of size k: stores (negative distance, point) to get k smallest
 - This ensures that for each point, calculate distance squared (avoid sqrt for efficiency)
 - This ensures that if heap size < k, push; else if distance < heap[0], pop and push
@@ -48,45 +18,45 @@ The key insight is that calculate distance for each point. Use max heap (negate 
 - This ensures that o(n log k) time: n points, log k heap operations, O(k) space
 
 ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * points = [[1,3], [-2,2], [5,8], [0,1]], k = 2
- * ```
- *
- * Step 1: Calculate distances (squared)
- * [1,3]: dist = 1² + 3² = 10
- * [-2,2]: dist = (-2)² + 2² = 8
- * [5,8]: dist = 5² + 8² = 89
- * [0,1]: dist = 0² + 1² = 1
- * Step 2: Build min heap
- * heap = [(1, [0,1]), (8, [-2,2]), (10, [1,3]), (89, [5,8])]
- * Step 3: Extract k=2 smallest
- *
- * Steps:
- * Step 1: Pop (1, [0,1]) → result = [[0,1]]
- * Step 2: Pop (8, [-2,2]) → result = [[0,1], [-2,2]]
- *
- * Output:
- * ```
- * [[0,1], [-2,2]]
- * ```
+Input:
+```
+points = [[1,3], [-2,2], [5,8], [0,1]], k = 2
+```
 
- * ### TIME COMPLEXITY:
- * O(n)
- * - Single pass through input
- *
+Step 1: Calculate distances (squared)
+[1,3]: dist = 1² + 3² = 10
+[-2,2]: dist = (-2)² + 2² = 8
+[5,8]: dist = 5² + 8² = 89
+[0,1]: dist = 0² + 1² = 1
+Step 2: Build min heap
+heap = [(1, [0,1]), (8, [-2,2]), (10, [1,3]), (89, [5,8])]
+Step 3: Extract k=2 smallest
 
- * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
- * 
- * ### EDGE CASES:
+Steps:
+Step 1: Pop (1, [0,1]) → result = [[0,1]]
+Step 2: Pop (8, [-2,2]) → result = [[0,1], [-2,2]]
+
+Output:
+```
+[[0,1], [-2,2]]
+```
+
+### TIME COMPLEXITY:
+O(n)**
+- Single pass through input
+
+### SPACE COMPLEXITY:
+O(1)**
+- Constant extra space
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 class Solution {
   /**

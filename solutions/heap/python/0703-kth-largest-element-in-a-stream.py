@@ -1,34 +1,4 @@
 """
-# Difficulty: Easy
-
-# 0703. Kth Largest Element in a Stream
-
-Design a class to find the kth largest element in a stream. Note that it is the kth largest element in the sorted order, not the kth distinct element.
-
-Implement KthLargest class:
-- KthLargest(int k, int[] nums) Initializes the object with the integer k and the stream of integers nums.
-- int add(int val) Appends the integer val to the stream and returns the element representing the kth largest element in the stream.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>k = 3, nums = [4, 5, 8, 2]</dd>
-<dt>Output:</dt>
-<dd>See walkthrough</dd>
-<dt>Explanation:</dt>
-<dd>The 3rd largest element is maintained as elements are added</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Standard Algorithm
-**Data Structures**: Array, Heap, Tree
-**Patterns**: Iterative Solution
-**Time Complexity**: - Constructor: O(n log k) where n = len(nums)
-**Space Complexity**: O(k)
-
 ### INTUITION:
 The key insight is that use a min-heap of size k. The root of the heap is always the kth largest element. When adding a new element, if it's larger than the root, replace the root. This maintains exactly k largest elements with the smallest at the top.
 
@@ -78,11 +48,11 @@ Step-by-step execution:
 3. [Final step]
 
 ### TIME COMPLEXITY:
-- Constructor: O(n log k) where n = len(nums)
-- add(): O(log k)
+- Constructor: **O(n log k)** where n = len(nums)
+- add(): **O(log k)**
 
 ### SPACE COMPLEXITY:
-O(k)
+**O(k)**
 Heap stores at most k elements
 
 ### EDGE CASES:
@@ -91,4 +61,5 @@ Heap stores at most k elements
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """

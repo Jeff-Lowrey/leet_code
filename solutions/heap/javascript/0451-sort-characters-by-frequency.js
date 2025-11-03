@@ -1,36 +1,5 @@
 /**
- * # Difficulty: Medium
- *
- * # 0451. Sort Characters By Frequency
- *
- *
- * Given a string s, sort it in decreasing order based on the frequency of the characters.
- * The frequency of a character is the number of times it appears in the string.
- *
- * Return the sorted string. If there are multiple answers, return any of them.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>Input: s = "tree"</dd>
- * <dt>Output:</dt>
- * <dd>Step 1: Count frequencies: {'t': 1, 'r': 1, 'e': 2}</dd>
- * <dt>Explanation:</dt>
- * <dd>Characters sorted by frequency: 'tree' becomes 'eetr' or 'eert'</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- * ### METADATA:
- * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
- * **Data Structures**: Hash Map, Hash Set, Array
- * **Patterns**: Hash Table Pattern
- * **Time Complexity**: O(n log k)
- * **Space Complexity**: O(k)
-
- *
- * ### INTUITION:
+### INTUITION:
 The key insight is that we need to count character frequencies and then sort characters by their frequency
 in descending order. This is a classic use case for heaps/priority queues combined
 with hash maps for counting.
@@ -46,35 +15,36 @@ with hash maps for counting.
 - This ensures that multiple characters can appear in any order at same frequency
 
 ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * s = "tree"
- * ```
- *
- * Step 1: Count frequencies: {'t': 1, 'r': 1, 'e': 2}
- * Step 2: Sort by frequency: [('e', 2), ('t', 1), ('r', 1)]
- * Step 3: Build result: "eert" (or "eetr")
- * 
- * Output:
- * ```
- * "eert"
- * ```
- * 
- * ### TIME COMPLEXITY:
- * O(n log k)
- * Where n is string length, k is number of unique characters
- *
- * ### SPACE COMPLEXITY:
- * O(k)
- * For storing character frequencies and heap
- *
- * ### EDGE CASES:
+Input:
+```
+s = "tree"
+```
+
+Step 1: Count frequencies: {'t': 1, 'r': 1, 'e': 2}
+Step 2: Sort by frequency: [('e', 2), ('t', 1), ('r', 1)]
+Step 3: Build result: "eert" (or "eetr")
+
+Output:
+```
+"eert"
+```
+
+### TIME COMPLEXITY:
+O(n log k)**
+Where n is string length, k is number of unique characters
+
+### SPACE COMPLEXITY:
+O(k)**
+For storing character frequencies and heap
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 /**
  * MaxHeap implementation for [char, frequency] pairs
