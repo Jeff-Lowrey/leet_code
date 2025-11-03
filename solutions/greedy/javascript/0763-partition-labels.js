@@ -1,40 +1,8 @@
 /**
- * # Difficulty: Medium
- *
- * # 0763. Partition Labels
- *
- *
- * You are given a string s. We want to partition the string into as many parts as possible so that each letter appears in at most one part.
- *
- * Note that the partition is done so that after concatenating all the parts in order, the resultant string should be s.
- *
- * Return a list of integers representing the size of these parts.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>s = "ababcbacadefegdehijhklij"</dd>
- * <dt>Output:</dt>
- * <dd>[9,7,8] (partition sizes)</dd>
- * <dt>Explanation:</dt>
- * <dd>String is partitioned into 2 parts: 'ababcbaca' + 'defegde'</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- * ### METADATA:
- * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
- * **Data Structures**: Hash Map, Hash Set, Array
- * **Patterns**: Greedy Algorithm
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(1) - Constant extra space
+### INTUITION:
+[This problem requires understanding of greedy concepts. The key insight is to identify the optimal approach for this specific scenario.]
 
- *
- * ### INTUITION:
- * [This problem requires understanding of greedy concepts. The key insight is to identify the optimal approach for this specific scenario.]
- *
- * ### APPROACH:
+### APPROACH:
 1. **Analyze the problem**: Understand the input constraints and expected output
 2. **Choose the right technique**: Apply greedy methodology
 3. **Implement efficiently**: Focus on optimal time and space complexity
@@ -46,43 +14,44 @@
 - This ensures that space complexity is minimized where possible
 
 ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * s = "ababcbacadefegdehijhklij"
- * ```
- *
- * Step 1: Record last occurrence of each character
- * last = {'a':8, 'b':5, 'c':7, 'd':14, 'e':15, ...}
- * Step 2: Iterate and extend partition
- * i=0, ch='a': end = max(0, 8) = 8
- * i=1, ch='b': end = max(8, 5) = 8
- * ...
- *
- * Steps:
- * Step 1: i=8: reached end → partition size = 9
- * Step 2: i=9, ch='c': end = 14
- * Step 3: ...
- *
- * Output:
- * ```
- * [9,7,8] (partition sizes)
- * ```
+Input:
+```
+s = "ababcbacadefegdehijhklij"
+```
 
- * ### TIME COMPLEXITY:
- * O(n)
- * - Single pass through input
- *
- * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
- *
- * ### EDGE CASES:
+Step 1: Record last occurrence of each character
+last = {'a':8, 'b':5, 'c':7, 'd':14, 'e':15, ...}
+Step 2: Iterate and extend partition
+i=0, ch='a': end = max(0, 8) = 8
+i=1, ch='b': end = max(8, 5) = 8
+...
+
+Steps:
+Step 1: i=8: reached end → partition size = 9
+Step 2: i=9, ch='c': end = 14
+Step 3: ...
+
+Output:
+```
+[9,7,8] (partition sizes)
+```
+
+### TIME COMPLEXITY:
+O(n)**
+- Single pass through input
+
+### SPACE COMPLEXITY:
+O(1)**
+- Constant extra space
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 /**
  * Main solution for Problem 763: Partition Labels

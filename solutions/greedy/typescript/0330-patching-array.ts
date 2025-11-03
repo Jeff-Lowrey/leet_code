@@ -1,42 +1,111 @@
 /**
- * # Difficulty: Hard
- *
- * # 0330. Patching Array
- *
- *
- * You are given a sorted positive integer array nums and an integer n. You need to
- * make it so that any integer in the range [1, n] can be formed by the sum of some
- * elements from nums.
- *
- * Return the minimum number of patches (additions to the array) required.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>[1,3], n = 6</dd>
- * <dt>Output:</dt>
- * <dd>1 (patched with 2)</dd>
- * <dt>Explanation:</dt>
- * <dd>Minimum 1 patch [3] needed to cover range [1,2,4] to sum 6</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- * ### METADATA:
- * **Techniques**: Greedy Selection
- * **Data Structures**: Array
- * **Patterns**: Hash Table Pattern, Greedy Algorithm
- * **Time Complexity**: O(m + log n)
- * **Space Complexity**: O(1) - Constant extra space
- *
- * ### INTUITION:
- * The key insight is tracking what range [1, covered] we can currently form. If we
- * can form [1, covered], and we have a number x where x <= covered + 1, then adding
- * x extends our range to [1, covered + x]. If x > covered + 1, we have a gap and
- * need to patch with (covered + 1).
- *
- * ### APPROACH:
+### INTUITION:
+The key insight is tracking what range [1, covered] we can currently form. If we
+can form [1, covered], and we have a number x where x <= covered + 1, then adding
+x extends our range to [1, covered + x]. If x > covered + 1, we have a gap and
+need to patch with (covered + 1).
+
+### APPROACH:
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
 The algorithm proceeds as follows:
 
 The algorithm proceeds as follows:
@@ -50,38 +119,38 @@ Data structures: Array (for storage)**
 4. **Greedy choice**: Always patch with (covered + 1) as it doubles our coverage
 
 ### WHY THIS WORKS:
- * - **Greedy Selection** technique: At each step, make the locally optimal choice (patch with covered + 1)
- * - This greedy choice is optimal because patching with (covered + 1) doubles our coverage range
- * - If we can form [1, covered], adding (covered + 1) lets us form [1, 2×covered + 1]
- * - Using existing numbers from **Array** when possible (nums[i] <= covered + 1) is always better than patching
- * - The sorted **Array** property ensures we process numbers in optimal order
- * - Greedy works because: patching with any number larger than (covered + 1) would leave a gap
- * - Each patch maximizes coverage extension, minimizing total patches needed
- * - The algorithm maintains the invariant that [1, covered] is always formable
- *
- * ### EXAMPLE WALKTHROUGH:
-*Input:** nums = [1,3], n = 6
+- **Greedy Selection** technique: At each step, make the locally optimal choice (patch with covered + 1)
+- This greedy choice is optimal because patching with (covered + 1) doubles our coverage range
+- If we can form [1, covered], adding (covered + 1) lets us form [1, 2×covered + 1]
+- Using existing numbers from **Array** when possible (nums[i] <= covered + 1) is always better than patching
+- The sorted **Array** property ensures we process numbers in optimal order
+- Greedy works because: patching with any number larger than (covered + 1) would leave a gap
+- Each patch maximizes coverage extension, minimizing total patches needed
+- The algorithm maintains the invariant that [1, covered] is always formable
 
-*Step 1:** Initialize covered = 0, patches = 0
+### EXAMPLE WALKTHROUGH:
+Input:** nums = [1,3], n = 6
+
+Step 1:** Initialize covered = 0, patches = 0
 - Need to cover range [1,6]
 
-*Step 2:** Process nums[0] = 1
+Step 2:** Process nums[0] = 1
 - 1 <= 0+1? Yes → Use 1
 - covered = 0+1 = 1
 - Can now form: [1,1]
 
-*Step 3:** Check nums[1] = 3
+Step 3:** Check nums[1] = 3
 - 3 <= 1+1? No (3 > 2) → Gap detected!
 - Need to patch with (covered + 1) = 2
 - patches = 1, covered = 1 + 2 = 3
 - Can now form: [1,3]
 
-*Step 4:** Now check nums[1] = 3 again
+Step 4:** Now check nums[1] = 3 again
 - 3 <= 3+1? Yes → Use 3
 - covered = 3+3 = 6
 - Can now form: [1,6]
 
-*Step 5:** Check termination
+Step 5:** Check termination
 - covered >= 6, done!
 
 Output:
@@ -90,21 +159,22 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
- * O(m + log n)
- * Where m is length of nums. In worst case, we need log(n) patches.
- *
- * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
- * Only using constant extra space
- *
- * ### EDGE CASES:
+O(m + log n)**
+Where m is length of nums. In worst case, we need log(n) patches.
+
+### SPACE COMPLEXITY:
+O(1)**
+- Constant extra space
+Only using constant extra space
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 class Solution {
   minPatches(nums: number[], n: number): number {

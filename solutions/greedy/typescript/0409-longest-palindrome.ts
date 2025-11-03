@@ -1,34 +1,5 @@
 /**
- * # Difficulty: Easy
- *
- * # 0409. Longest Palindrome
- *
- *
- * Given a string s which consists of lowercase or uppercase letters, return the length of the longest palindrome that can be built with those letters.
- *
- * Letters are case sensitive, for example, "Aa" is not considered a palindrome here.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>Input: "abccccdd"</dd>
- * <dt>Output:</dt>
- * <dd>Character counts:</dd>
- * <dt>Explanation:</dt>
- * <dd>Longest palindrome that can be built is 7 from letters 'abccccdd'</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
- * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
- * **Data Structures**: Hash Map, Array, String
- * **Patterns**: Two Pointers Pattern, Hash Table Pattern
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(1) - Constant extra space
- *
- * ### INTUITION:
+### INTUITION:
 The key insight is that a palindrome reads the same forwards and backwards. To maximize the palindrome length, we should use as many character pairs as possible, plus at most one character with odd count (which goes in the center).
 
 ### APPROACH:
@@ -38,9 +9,9 @@ The key insight is that a palindrome reads the same forwards and backwards. To m
 4. **Calculate result**: Sum of all pairs × 2, plus 1 if any odd count exists
 
 ### WHY THIS WORKS:
- * Using two pointers from both ends, we compare characters while moving inward. If all corresponding characters match, the string is a palindrome. Skipping non-alphanumeric characters and handling case-insensitivity ensures we only compare relevant characters. The pointers meeting in the middle confirms the entire string is symmetric.
- *
- * ### EXAMPLE WALKTHROUGH:
+Using two pointers from both ends, we compare characters while moving inward. If all corresponding characters match, the string is a palindrome. Skipping non-alphanumeric characters and handling case-insensitivity ensures we only compare relevant characters. The pointers meeting in the middle confirms the entire string is symmetric.
+
+### EXAMPLE WALKTHROUGH:
 Input:
 ```
 "abccccdd"
@@ -66,22 +37,23 @@ Step-by-step execution:
 3. [Final step]
 
 ### TIME COMPLEXITY:
- * O(n)
- * - Single pass through input
- * Single pass to count characters
- *
- * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
- * At most 128 ASCII characters or 52 letters (constant space)
- *
- * ### EDGE CASES:
+O(n)**
+- Single pass through input
+Single pass to count characters
+
+### SPACE COMPLEXITY:
+O(1)**
+- Constant extra space
+At most 128 ASCII characters or 52 letters (constant space)
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 class Solution {
   longestPalindrome(s: string): number {

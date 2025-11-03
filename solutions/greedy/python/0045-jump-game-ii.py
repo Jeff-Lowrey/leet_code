@@ -1,34 +1,4 @@
 """
-# Difficulty: Medium
-
-# 0045. Jump Game Ii
-
-You are given a 0-indexed array of integers nums of length n. You are initially positioned at nums[0].
-
-Each element nums[i] represents the maximum length of a forward jump from index i. In other words, if you are at nums[i], you can jump to any nums[i + j] where 0 <= j <= nums[i] and i + j < n.
-
-Return the minimum number of jumps to reach nums[n - 1]. The test cases are generated such that you can reach nums[n - 1].
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>[2,3,1,1,4]</dd>
-<dt>Output:</dt>
-<dd>2 (minimum jumps)</dd>
-<dt>Explanation:</dt>
-<dd>Minimum 2 jumps needed to reach end of [2,3,1,1,4]</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Array Traversal, Breadth-First Search
-**Data Structures**: Hash Map, Hash Set, Array
-**Patterns**: Hash Table Pattern, Greedy Algorithm
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
 The key insight is that track current reach and farthest reach. When reach exhausted, must jump (increment jumps) and update reach to farthest. Greedy: always extend reach as far as possible before jumping.
 
@@ -70,14 +40,12 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 - Single pass through input
 
-
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 - Constant extra space
-
 
 ### EDGE CASES:
 - **Empty input**: Handle when input is empty
@@ -85,6 +53,7 @@ O(1)
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 from typing import List, Optional, Dict, Tuple

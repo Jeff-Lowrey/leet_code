@@ -1,59 +1,22 @@
 /**
- * # Difficulty: Medium
- *
- * # 0134. Gas Station
- *
- *
- * There are n gas stations along a circular route, where the amount of gas at the
- * ith station is gas[i].
- *
- * You have a car with an unlimited gas tank and it costs cost[i] of gas to travel
- * from the ith station to its next (i + 1)th station. You begin the journey with an
- * empty tank at one of the gas stations.
- *
- * Given two integer arrays gas and cost, return the starting gas station's index if
- * you can travel around the circuit once in the clockwise direction, otherwise return -1.
- * If there exists a solution, it is guaranteed to be unique.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>gas = [1,2,3,4,5], cost = [3,4,5,1,2]</dd>
- * <dt>Output:</dt>
- * <dd>3</dd>
- * <dt>Explanation:</dt>
- * <dd>Car can complete circuit starting at gas station 3</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- * ### METADATA:
- * **Techniques**: Array Traversal, Greedy Selection
- * **Data Structures**: Array, Linked List
- * **Patterns**: Greedy Algorithm
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(1) - Constant extra space
+### INTUITION:
+This problem can be solved greedily by recognizing two key insights:
+1. If the total gas is less than total cost, completing the circuit is impossible
+2. If we run out of gas at station i when starting from station j, then no station
+   between j and i can be a valid starting point
 
- *
- * ### INTUITION:
- * This problem can be solved greedily by recognizing two key insights:
- * 1. If the total gas is less than total cost, completing the circuit is impossible
- * 2. If we run out of gas at station i when starting from station j, then no station
- *    between j and i can be a valid starting point
- *
- * ### APPROACH:
- * 1. **Check feasibility**: If sum(gas) < sum(cost), return -1
- * 2. **Track current gas**: Simulate traveling and track current gas level
- * 3. **Reset when negative**: When gas becomes negative, the next station becomes
- *    the new candidate starting point
- * 4. **Greedy choice**: We don't need to check previous stations again because if
- *    starting from j fails at i, then j+1, j+2, ..., i-1 will also fail
- *
- * ### WHY THIS WORKS:
- * The algorithm correctly solves the problem by systematically exploring all valid states while maintaining necessary invariants. Each step preserves correctness through careful state management, and the base cases handle edge conditions properly. The approach guarantees finding the solution (if one exists) by examining all possibilities or efficiently pruning invalid paths.
- *
- * ### EXAMPLE WALKTHROUGH:
+### APPROACH:
+1. **Check feasibility**: If sum(gas) < sum(cost), return -1
+2. **Track current gas**: Simulate traveling and track current gas level
+3. **Reset when negative**: When gas becomes negative, the next station becomes
+   the new candidate starting point
+4. **Greedy choice**: We don't need to check previous stations again because if
+   starting from j fails at i, then j+1, j+2, ..., i-1 will also fail
+
+### WHY THIS WORKS:
+The algorithm correctly solves the problem by systematically exploring all valid states while maintaining necessary invariants. Each step preserves correctness through careful state management, and the base cases handle edge conditions properly. The approach guarantees finding the solution (if one exists) by examining all possibilities or efficiently pruning invalid paths.
+
+### EXAMPLE WALKTHROUGH:
 Input:
 ```
 gas = [1,2,3,4,5], cost = [3,4,5,1,2]
@@ -85,22 +48,23 @@ Step-by-step execution:
 3. [Final step]
 
 ### TIME COMPLEXITY:
- * O(n)
- * - Single pass through input
- * Single pass through the arrays
- *
- * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
- * Only using constant extra space
- *
- * ### EDGE CASES:
+O(n)**
+- Single pass through input
+Single pass through the arrays
+
+### SPACE COMPLEXITY:
+O(1)**
+- Constant extra space
+Only using constant extra space
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 /**
  * Main solution for Problem 134: Gas Station

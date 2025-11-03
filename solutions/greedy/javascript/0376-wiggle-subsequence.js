@@ -1,38 +1,8 @@
 /**
- * # Difficulty: Medium
- *
- * # 0376. Wiggle Subsequence
- *
- *
- * A wiggle sequence is a sequence where the differences between successive numbers strictly alternate between positive and negative. The first difference (if one exists) may be either positive or negative. A sequence with one element and a sequence with two non-equal elements are trivially wiggle sequences.
- *
- * Given an integer array nums, return the length of the longest wiggle subsequence of nums.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>[1,7,4,9,2,5]</dd>
- * <dt>Output:</dt>
- * <dd>6 (longest wiggle sequence length)</dd>
- * <dt>Explanation:</dt>
- * <dd>Longest wiggle subsequence in [1,7,4,9,2,5] has length 6</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- * ### METADATA:
- * **Techniques**: Array Traversal, Greedy Selection
- * **Data Structures**: Array
- * **Patterns**: Greedy Algorithm
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(1) - Constant extra space
+### INTUITION:
+[This problem requires understanding of greedy concepts. The key insight is to identify the optimal approach for this specific scenario.]
 
- *
- * ### INTUITION:
- * [This problem requires understanding of greedy concepts. The key insight is to identify the optimal approach for this specific scenario.]
- *
- * ### APPROACH:
+### APPROACH:
 1. **Analyze the problem**: Understand the input constraints and expected output
 2. **Choose the right technique**: Apply greedy methodology
 3. **Implement efficiently**: Focus on optimal time and space complexity
@@ -44,42 +14,43 @@
 - This ensures that space complexity is minimized where possible
 
 ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * nums = [1,7,4,9,2,5]
- * ```
- *
- * Step 1: Track direction changes
- * up = 1, down = 1
- * Step 2: Process each adjacent pair
- *
- * Steps:
- * Step 1: 1→7: increasing, up = down + 1 = 2
- * Step 2: 7→4: decreasing, down = up + 1 = 3
- * Step 3: 4→9: increasing, up = down + 1 = 4
- * Step 4: 9→2: decreasing, down = up + 1 = 5
- * Step 5: 2→5: increasing, up = down + 1 = 6
- *
- * Output:
- * ```
- * 6 (longest wiggle sequence length)
- * ```
+Input:
+```
+nums = [1,7,4,9,2,5]
+```
 
- * ### TIME COMPLEXITY:
- * O(n)
- * - Single pass through input
- *
- * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
- *
- * ### EDGE CASES:
+Step 1: Track direction changes
+up = 1, down = 1
+Step 2: Process each adjacent pair
+
+Steps:
+Step 1: 1→7: increasing, up = down + 1 = 2
+Step 2: 7→4: decreasing, down = up + 1 = 3
+Step 3: 4→9: increasing, up = down + 1 = 4
+Step 4: 9→2: decreasing, down = up + 1 = 5
+Step 5: 2→5: increasing, up = down + 1 = 6
+
+Output:
+```
+6 (longest wiggle sequence length)
+```
+
+### TIME COMPLEXITY:
+O(n)**
+- Single pass through input
+
+### SPACE COMPLEXITY:
+O(1)**
+- Constant extra space
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 /**
  * Main solution for Problem 376: Wiggle Subsequence

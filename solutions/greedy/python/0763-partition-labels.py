@@ -1,34 +1,4 @@
 """
-# Difficulty: Medium
-
-# 0763. Partition Labels
-
-You are given a string s. We want to partition the string into as many parts as possible so that each letter appears in at most one part.
-
-Note that the partition is done so that after concatenating all the parts in order, the resultant string should be s.
-
-Return a list of integers representing the size of these parts.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>s = "ababcbacadefegdehijhklij"</dd>
-<dt>Output:</dt>
-<dd>[9,7,8] (partition sizes)</dd>
-<dt>Explanation:</dt>
-<dd>String is partitioned into 2 parts: 'ababcbaca' + 'defegde'</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Two Pointers
-**Data Structures**: Hash Map, Hash Set, Array
-**Patterns**: Two Pointers Pattern, Hash Table Pattern
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
 The key insight is that each partition should end at the last occurrence of any character in it. Track last occurrence of each character. Extend partition end while current position hasn't passed last occurrence of all seen characters.
 
@@ -73,14 +43,12 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 - Single pass through input
 
-
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 - Constant extra space
-
 
 ### EDGE CASES:
 - **Empty input**: Handle when input is empty
@@ -88,6 +56,7 @@ O(1)
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 from typing import Any, List, Optional, Dict, Tuple

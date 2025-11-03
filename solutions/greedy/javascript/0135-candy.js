@@ -1,60 +1,24 @@
 /**
- * # Difficulty: Hard
- *
- * # 0135. Candy
- *
- *
- * There are n children standing in a line. Each child is assigned a rating value given
- * in the integer array ratings.
- *
- * You are giving candies to these children subjected to the following requirements:
- * - Each child must have at least one candy.
- * - Children with a higher rating get more candies than their neighbors.
- *
- * Return the minimum number of candies you need to have to distribute the candies to
- * the children.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>Input: ratings = [1,0,2]</dd>
- * <dt>Output:</dt>
- * <dd>See walkthrough</dd>
- * <dt>Explanation:</dt>
- * <dd>Minimum candies to distribute is 5 following the rules</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- * ### METADATA:
- * **Techniques**: Hash Map Storage, Array Traversal, Two Pointers
- * **Data Structures**: Array, Tree, Trie
- * **Patterns**: Two Pointers Pattern, Greedy Algorithm
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(n)
+### INTUITION:
+This is a classic greedy problem requiring two passes. The key insight is that we
+need to satisfy both left and right neighbor constraints independently, then take
+the maximum to satisfy both.
 
- *
- * ### INTUITION:
- * This is a classic greedy problem requiring two passes. The key insight is that we
- * need to satisfy both left and right neighbor constraints independently, then take
- * the maximum to satisfy both.
- *
- * ### APPROACH:
+### APPROACH:
 1. **Initialize**: Give each child 1 candy initially
 2. **Left to right pass**: If ratings[i] > ratings[i-1], ensure candies[i] > candies[i-1]
 3. **Right to left pass**: If ratings[i] > ratings[i+1], ensure candies[i] > candies[i+1]
 4. **Sum total**: Return sum of all candies
 
 ### WHY THIS WORKS:
- * - **Greedy choice**: We assign minimum necessary candies to satisfy local constraints
- * - **Two passes ensure both directions**:
- *   - Left pass ensures right neighbor constraint
- *   - Right pass ensures left neighbor constraint
- *   - Taking max ensures both constraints satisfied
- * - **Optimality**: Each assignment is minimal, so total is minimal
- *
- * ### EXAMPLE WALKTHROUGH:
+- **Greedy choice**: We assign minimum necessary candies to satisfy local constraints
+- **Two passes ensure both directions**:
+  - Left pass ensures right neighbor constraint
+  - Right pass ensures left neighbor constraint
+  - Taking max ensures both constraints satisfied
+- **Optimality**: Each assignment is minimal, so total is minimal
+
+### EXAMPLE WALKTHROUGH:
 Input:
 ```
 ratings = [1,0,2]
@@ -84,21 +48,22 @@ Step-by-step execution:
 3. [Final step]
 
 ### TIME COMPLEXITY:
- * O(n)
- * - Single pass through input
- * Two passes through the array
- *
- * ### SPACE COMPLEXITY:
- * O(n)
- * Array to store candy counts (can be optimized to O(1) with complex logic)
- *
- * ### EDGE CASES:
+O(n)**
+- Single pass through input
+Two passes through the array
+
+### SPACE COMPLEXITY:
+O(n)**
+Array to store candy counts (can be optimized to **O(1)** with complex logic)
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 /**
  * Main solution for Problem 135: Candy

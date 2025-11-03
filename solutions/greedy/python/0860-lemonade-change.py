@@ -1,34 +1,4 @@
 """
-# Difficulty: Easy
-
-# 0860. Lemonade Change
-
-At a lemonade stand, each lemonade costs $5. Customers are standing in a queue to buy from you and order one at a time (in the order specified by bills). Each customer will only buy one lemonade and pay with either a $5, $10, or $20 bill. You must provide the correct change to each customer so that the net transaction is that the customer pays $5.
-
-Note that you do not have any change in hand at first.
-
-Given an integer array bills where bills[i] is the bill the ith customer pays, return true if you can provide the correct change to every customer, or false otherwise.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>[5,5,5,10,20]</dd>
-<dt>Output:</dt>
-<dd>True</dd>
-<dt>Explanation:</dt>
-<dd>Return true because correct change can always be made for [5,5,5,10,20]</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Array Traversal, Queue Operations
-**Data Structures**: Array, Queue
-**Patterns**: Hash Table Pattern, Greedy Algorithm
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
 This is a greedy problem about making change optimally. We need to track our cash inventory and make change using the fewest bills possible. The key insight is to always use larger bills first when making change.
 
@@ -60,11 +30,11 @@ True
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 Process each customer once
 
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 Only tracking counts of two bill denominations
 
 ### EDGE CASES:
@@ -73,6 +43,7 @@ Only tracking counts of two bill denominations
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 

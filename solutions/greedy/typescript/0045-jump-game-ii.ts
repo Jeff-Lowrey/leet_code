@@ -1,48 +1,17 @@
 /**
- * # Difficulty: Medium
- *
- * # 0045. Jump Game Ii
- *
- *
- * You are given a 0-indexed array of integers nums of length n. You are initially positioned at nums[0].
- *
- * Each element nums[i] represents the maximum length of a forward jump from index i. In other words, if you are at nums[i], you can jump to any nums[i + j] where 0 <= j <= nums[i] and i + j < n.
- *
- * Return the minimum number of jumps to reach nums[n - 1]. The test cases are generated such that you can reach nums[n - 1].
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>[2,3,1,1,4]</dd>
- * <dt>Output:</dt>
- * <dd>2</dd>
- * <dt>Explanation:</dt>
- * <dd>Minimum 2 jumps needed to reach end of [2,3,1,1,4]</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
- * **Techniques**: Hash Table Lookup, Array Traversal, Breadth-First Search
- * **Data Structures**: Hash Map, Hash Set, Array
- * **Patterns**: Hash Table Pattern, Greedy Algorithm
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(1) - Constant extra space
- *
- * ### INTUITION:
+### INTUITION:
 The key insight is that track current reach and farthest reach. When reach exhausted, must jump (increment jumps) and update reach to farthest. Greedy: always extend reach as far as possible before jumping.
 
 ### APPROACH:
- * 1. **Initialize variables**: Set jumps = 0, current_end = 0, farthest = 0
- * 2. **Iterate to second-last**: For i in range(len(nums) - 1)
- * 3. **Update farthest**: farthest = max(farthest, i + nums[i])
- * 4. **Reached current end**: If i == current_end, increment jumps
- * 5. **Extend range**: Set current_end = farthest
- * 6. **Continue jumping**: Process all positions
- * 7. **Return result**: Return jumps as minimum number of jumps
- *
- * ### WHY THIS WORKS:
+1. **Initialize variables**: Set jumps = 0, current_end = 0, farthest = 0
+2. **Iterate to second-last**: For i in range(len(nums) - 1)
+3. **Update farthest**: farthest = max(farthest, i + nums[i])
+4. **Reached current end**: If i == current_end, increment jumps
+5. **Extend range**: Set current_end = farthest
+6. **Continue jumping**: Process all positions
+7. **Return result**: Return jumps as minimum number of jumps
+
+### WHY THIS WORKS:
 - This ensures that bFS-like greedy: track current jump's reach and next jump's reach
 - This ensures that increment jumps when reaching end of current jump's range
 - This ensures that update next reach as maximum of (i + nums[i]) for all i in current range
@@ -50,41 +19,42 @@ The key insight is that track current reach and farthest reach. When reach exhau
 - This ensures that o(n) time: single pass, O(1) space
 
 ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * nums = [2,3,1,1,4]
- * ```
- *
- * Step 1: Initialize variables
- * jumps = 0, current_end = 0, farthest = 0
- * Step 2: Iterate through array
- * i=0: farthest = max(0, 0+2) = 2
- *
- * Steps:
- * Step 1: i=1: farthest = max(2, 1+3) = 4, reached current_end → jumps=1, current_end=2
- * Step 2: i=2: farthest = max(4, 2+1) = 4, reached current_end → jumps=2, current_end=4
- * Step 3: Reached last index
- *
- * Output:
- * ```
- * 2 (minimum jumps)
- * ```
+Input:
+```
+nums = [2,3,1,1,4]
+```
 
- * ### TIME COMPLEXITY:
- * O(n)
- * - Single pass through input
- *
- * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
- *
- * ### EDGE CASES:
+Step 1: Initialize variables
+jumps = 0, current_end = 0, farthest = 0
+Step 2: Iterate through array
+i=0: farthest = max(0, 0+2) = 2
+
+Steps:
+Step 1: i=1: farthest = max(2, 1+3) = 4, reached current_end → jumps=1, current_end=2
+Step 2: i=2: farthest = max(4, 2+1) = 4, reached current_end → jumps=2, current_end=4
+Step 3: Reached last index
+
+Output:
+```
+2 (minimum jumps)
+```
+
+### TIME COMPLEXITY:
+O(n)**
+- Single pass through input
+
+### SPACE COMPLEXITY:
+O(1)**
+- Constant extra space
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 class Solution {
   jump(nums: number[]): number {

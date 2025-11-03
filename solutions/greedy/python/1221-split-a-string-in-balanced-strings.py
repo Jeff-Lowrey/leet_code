@@ -1,35 +1,4 @@
 """
-# Difficulty: Easy
-
-# 1221. Split A String In Balanced Strings
-
-Balanced strings are those that have an equal quantity of 'L' and 'R' characters.
-
-Given a balanced string s, split it into some number of substrings such that:
-- Each substring is balanced.
-
-Return the maximum number of balanced strings you can obtain.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>"RLRRLLRLRL"</dd>
-<dt>Output:</dt>
-<dd>4</dd>
-<dt>Explanation:</dt>
-<dd>String 'RLRRLLRLRL' can be split into 4 balanced substrings</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: Array, String
-**Patterns**: Hash Table Pattern, Greedy Algorithm
-**Time Complexity**: O(n)
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
 The key insight is to use a greedy approach: whenever we find a balanced substring
 (where count of 'L' equals count of 'R'), we should immediately split it off. This
@@ -70,11 +39,11 @@ Substrings: "RL", "RRLL", "RL", "RL"
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 Single pass through the string
 
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 Only using counter and result variables
 
 ### EDGE CASES:
@@ -83,6 +52,7 @@ Only using counter and result variables
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 from typing import Any, List
