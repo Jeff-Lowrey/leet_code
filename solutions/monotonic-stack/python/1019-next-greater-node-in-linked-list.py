@@ -1,32 +1,4 @@
 """
-# 1019. Next Greater Node In Linked List
-
-# Difficulty: Medium
-
-Given the head of a linked list, return an array of integers answer, where answer[i] is
-the value of the next greater node of the ith node (1-indexed). If there is no next greater
-node, answer[i] is 0.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>head = [2,1,5]</dd>
-<dt>Output:</dt>
-<dd>[5,5,0]</dd>
-<dt>Explanation:</dt>
-<dd>For each node in the linked list, find the value of the next node that is greater: [7,7,7,7,0]</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: Hash Set, Array, Stack
-**Patterns**: Iterative Solution
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(n) - Additional set storage
-
 ### INTUITION:
 The key insight is that use a monotonic decreasing stack to track indices waiting for their next greater element.
 As we traverse, for each node, pop all stack indices with smaller values and update their answers.
@@ -64,15 +36,13 @@ Step-by-step execution:
 3. [Final step]
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 - Single pass through input
 
-
 ### SPACE COMPLEXITY:
-O(n)
+**O(n)**
 
 - Additional data structure for storage
-
 
 ### EDGE CASES:
 - **Empty list**: Return empty array
@@ -82,6 +52,7 @@ O(n)
 - **All same values**: All answers are 0 (no strictly greater values)
 
 </details>
+
 """
 
 from typing import Any

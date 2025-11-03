@@ -1,38 +1,8 @@
 /**
- * # Difficulty: Medium
- *
- * # 0456. 132 Pattern
- *
- *
- * Given an array of n integers nums, a 132 pattern is a subsequence of three integers nums[i], nums[j] and nums[k] such that i < j < k and nums[i] < nums[k] < nums[j].
- *
- * Return true if there is a 132 pattern in nums, otherwise, return false.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>[3,1,4,2]</dd>
- * <dt>Output:</dt>
- * <dd>True (132 pattern exists)</dd>
- * <dt>Explanation:</dt>
- * <dd>The array contains a 132 pattern because there exist indices i < j < k where nums[i] < nums[k] < nums[j]</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- * ### METADATA:
- * **Techniques**: Array Traversal, Stack Operations
- * **Data Structures**: Array, Stack
- * **Patterns**: Iterative Solution
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(1) - Constant extra space
+### INTUITION:
+[This problem requires understanding of monotonic stack concepts. The key insight is to identify the optimal approach for this specific scenario.]
 
- *
- * ### INTUITION:
- * [This problem requires understanding of monotonic stack concepts. The key insight is to identify the optimal approach for this specific scenario.]
- *
- * ### APPROACH:
+### APPROACH:
 1. **Analyze the problem**: Understand the input constraints and expected output
 2. **Choose the right technique**: Apply monotonic stack methodology
 3. **Implement efficiently**: Focus on optimal time and space complexity
@@ -44,35 +14,36 @@
 - This ensures that space complexity is minimized where possible
 
 ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * nums = [3,1,4,2]
- * ```
- *
- * Step 1: Find 132 pattern
- * i=0, j=2, k=3: nums[0]=3, nums[2]=4, nums[3]=2
- * Check: 3 < 4 and 2 < 4 and 3 > 2? Yes
- *
- * Output:
- * ```
- * True (132 pattern exists)
- * ```
+Input:
+```
+nums = [3,1,4,2]
+```
 
- * ### TIME COMPLEXITY:
- * O(n)
- * - Single pass through input
- *
- * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
- *
- * ### EDGE CASES:
+Step 1: Find 132 pattern
+i=0, j=2, k=3: nums[0]=3, nums[2]=4, nums[3]=2
+Check: 3 < 4 and 2 < 4 and 3 > 2? Yes
+
+Output:
+```
+True (132 pattern exists)
+```
+
+### TIME COMPLEXITY:
+O(n)**
+- Single pass through input
+
+### SPACE COMPLEXITY:
+O(1)**
+- Constant extra space
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 /**
  * Main solution for Problem 456: 132 Pattern

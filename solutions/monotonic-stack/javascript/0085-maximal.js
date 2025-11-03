@@ -1,36 +1,8 @@
 /**
- * # Difficulty: Medium
- *
- * # 0085. Maximal Rectangle
- *
- *
- * Given a rows x cols binary matrix filled with 0's and 1's, find the largest rectangle containing only 1's and return its area.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>matrix = [["1","0","1","0","0"],["1","0","1","1","1"],["1","1","1","1","1"],["1","0","0","1","0"]]</dd>
- * <dt>Output:</dt>
- * <dd>6</dd>
- * <dt>Explanation:</dt>
- * <dd>The maximal rectangle has area 6 (2 rows x 3 columns of 1's)</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- * ### METADATA:
- * **Techniques**: Hash Map Storage, Array Traversal, Stack Operations
- * **Data Structures**: Array, String, Stack
- * **Patterns**: Greedy Algorithm
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(1) - Constant extra space
+### INTUITION:
+[This problem requires understanding of monotonic stack concepts. The key insight is to identify the optimal approach for this specific scenario.]
 
- *
- * ### INTUITION:
- * [This problem requires understanding of monotonic stack concepts. The key insight is to identify the optimal approach for this specific scenario.]
- *
- * ### APPROACH:
+### APPROACH:
 1. **Analyze the problem**: Understand the input constraints and expected output
 2. **Choose the right technique**: Apply monotonic stack methodology
 3. **Implement efficiently**: Focus on optimal time and space complexity
@@ -42,38 +14,39 @@
 - This ensures that space complexity is minimized where possible
 
 ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * matrix = [["1","0","1","0","0"],["1","0","1","1","1"]]
- * ```
- *
- * Step 1: Build height array for each row
- * row 0: heights = [1,0,1,0,0]
- * row 1: heights = [2,0,2,1,1]
- * Step 2: Find max rectangle in each histogram
- * row 0: max = 1
- * row 1: max = 3
- *
- * Output:
- * ```
- * 3 (maximal rectangle)
- * ```
+Input:
+```
+matrix = [["1","0","1","0","0"],["1","0","1","1","1"]]
+```
 
- * ### TIME COMPLEXITY:
- * O(n)
- * - Single pass through input
- *
- * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
- *
- * ### EDGE CASES:
+Step 1: Build height array for each row
+row 0: heights = [1,0,1,0,0]
+row 1: heights = [2,0,2,1,1]
+Step 2: Find max rectangle in each histogram
+row 0: max = 1
+row 1: max = 3
+
+Output:
+```
+3 (maximal rectangle)
+```
+
+### TIME COMPLEXITY:
+O(n)**
+- Single pass through input
+
+### SPACE COMPLEXITY:
+O(1)**
+- Constant extra space
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 /**
  * Helper function to find largest rectangle in histogram

@@ -1,30 +1,4 @@
 """
-# Difficulty: Medium
-
-# 0085. Maximal Rectangle
-
-Given a rows x cols binary matrix filled with 0's and 1's, find the largest rectangle containing only 1's and return its area.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>matrix = [["1","0","1","0","0"],["1","0","1","1","1"],["1","1","1","1","1"],["1","0","0","1","0"]]</dd>
-<dt>Output:</dt>
-<dd>6</dd>
-<dt>Explanation:</dt>
-<dd>The maximal rectangle has area 6 (2 rows x 3 columns of 1's)</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: Hash Map, Array, String
-**Patterns**: Greedy Algorithm
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
 The key insight is that for each row, treat it as base of histogram. Heights are consecutive 1s above in each column. Apply largest rectangle in histogram for each row. Track maximum across all rows.
 
@@ -62,14 +36,12 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 - Single pass through input
 
-
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 - Constant extra space
-
 
 ### EDGE CASES:
 - **Empty input**: Handle when input is empty
@@ -77,6 +49,7 @@ O(1)
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 from typing import List, Optional, Dict, Tuple

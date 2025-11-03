@@ -1,30 +1,4 @@
 """
-# Difficulty: Medium
-
-# 0084. Largest Rectangle In Histogram
-
-Given an array of integers heights representing the histogram's bar height where the width of each bar is 1, return the area of the largest rectangle in the histogram.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>heights = [2,1,5,6,2,3]</dd>
-<dt>Output:</dt>
-<dd>10 (maximum area)</dd>
-<dt>Explanation:</dt>
-<dd>Largest rectangle area is 10</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Two Pointers
-**Data Structures**: Hash Set, Array, Stack
-**Patterns**: Two Pointers Pattern, Greedy Algorithm
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
 The key insight is that use monotonic increasing stack to track indices. When current height < stack top, pop and calculate area with popped as smallest height. Width is current index minus new stack top. Track max area.
 
@@ -67,14 +41,12 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 - Single pass through input
 
-
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 - Constant extra space
-
 
 ### EDGE CASES:
 - **Empty input**: Handle when input is empty
@@ -82,6 +54,7 @@ O(1)
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 
