@@ -1,39 +1,4 @@
-"""# 0049. Group Anagrams
-
-Difficulty: Easy
-
-
-Given an array of strings strs, group the anagrams together. You can return the
-`answer` in any order.
-
-An Anagram is a word or phrase formed by rearranging the letters of a different
-word or phrase, typically using all the original letters exactly once.
-
-Example:
-Input: strs = ["eat","tea","tan","ate","nat","bat"]
-Output: [["bat"],["nat","tan"],["ate","eat","tea"]]
-
-Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>strs = ["eat","tea","tan","ate","nat","bat"]</dd>
-<dt>Output:</dt>
-<dd>[["bat"],["nat","tan"],["ate","eat","tea"]]</dd>
-<dt>Explanation:</dt>
-<dd>Words ['eat','tea','ate'] are anagrams grouped together, as are ['tan','nat'], and ['bat'] alone</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal, Sorting
-**Data Structures**: Hash Map (dictionary), Array (list)
-**Patterns**: Hash Table Pattern, Anagram Detection
-**Time Complexity**: O(n × k log k) - Sorting approach (n strings, k max length)
-**Space Complexity**: O(n × k) - Store all strings in hash map
-
-
+"""
 ### INTUITION:
 The key insight is that group strings by their "anagram signature" - a canonical representation that's the same for all anagrams. Two common signatures: sorted characters or character frequency count.
 
@@ -76,10 +41,10 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-**O(n × k log k)** - where n is the number of strings and k is the maximum string length. For the sorting approach: we iterate through all n strings (O(n)), and for each string we sort its k characters (O(k log k)). Total: O(n × k log k). The character counting approach is more efficient at O(n × k) since counting characters takes O(k) time per string without sorting.
+**O(n × k log k)** - where n is the number of strings and k is the maximum string length. For the sorting approach: we iterate through all n strings (**O(n)**), and for each string we sort its k characters (**O(k log k)**). Total: **O(n × k log k)**. The character counting approach is more efficient at **O(n × k)** since counting characters takes **O(k)** time per string without sorting.
 
 ### SPACE COMPLEXITY:
-**O(n × k)** - We store all n strings in the hash map, each with average length k. The map keys (sorted strings or character counts) also take O(k) space per unique anagram group. In the worst case where all strings are unique, we have n groups, each storing one string of length k, giving us O(n × k) total space. The character count array uses O(26) = O(1) space per string, which doesn't affect the overall O(n × k) complexity.
+**O(n × k)** - We store all n strings in the hash map, each with average length k. The map keys (sorted strings or character counts) also take **O(k)** space per unique anagram group. In the worst case where all strings are unique, we have n groups, each storing one string of length k, giving us **O(n × k)** total space. The character count array uses **O(26)** = **O(1)** space per string, which doesn't affect the overall **O(n × k)** complexity.
 
 ### EDGE CASES:
 - **Empty string array**: Return empty list
@@ -89,6 +54,7 @@ Output:
 - **Empty strings**: All empty strings grouped together
 
 </details>
+
 """
 
 from collections import defaultdict

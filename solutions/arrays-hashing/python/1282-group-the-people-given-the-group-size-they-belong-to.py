@@ -1,42 +1,4 @@
 """
-# 1282. Group the People Given the Group Size They Belong To
-
-# Difficulty: Medium
-
-There are n people that are split into some unknown number of groups. Each person
-is labeled with a unique ID from 0 to n - 1.
-
-You are given an integer array groupSizes, where groupSizes[i] is the size of the
-group that person i is in. For example, if groupSizes[1] = 3, then person 1 must
-be in a group of size 3.
-
-Return a list of groups such that each person i is in a group of size groupSizes[i].
-
-Each person should appear in exactly one group, and every person must be in a group.
-If there are multiple answers, return any of them. It is guaranteed that there will
-be at least one valid solution for the given input.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>groupSizes = [3,3,3,3,3,1,3]</dd>
-<dt>Output:</dt>
-<dd>[[5],[0,1,2],[3,4,6]]</dd>
-<dt>Explanation:</dt>
-<dd>Person 5 is in a group of size 1. Persons 0,1,2 form a group of size 3. Persons 3,4,6 form another group of size 3.</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-### METADATA:
-**Techniques**: Hash Table Grouping, Greedy Algorithm
-**Data Structures**: Hash Map, Array
-**Patterns**: Grouping Pattern, Hash Table Pattern
-**Time Complexity**: O(n) - Single pass through the array
-**Space Complexity**: O(n) - Store groups in hash map
-
 ### INTUITION:
 The key insight is that use a hash map to collect people by their required group size. When a group
 reaches its target size, add it to the result and start a new group for that size.
@@ -78,10 +40,10 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-**O(n)** - where n is the number of people in the groupSizes array. We make a single pass through the array (O(n)), and for each person we perform constant-time operations: hash map lookup/insertion (O(1)), appending to a list (O(1) amortized), and potentially moving a completed group to the result (O(group_size) but bounded by n total across all groups). Total: O(n) since each person is processed exactly once and added to exactly one result group.
+**O(n)** - where n is the number of people in the groupSizes array. We make a single pass through the array (**O(n)**), and for each person we perform constant-time operations: hash map lookup/insertion (**O(1)**), appending to a list (**O(1)** amortized), and potentially moving a completed group to the result (**O(group_size)** but bounded by n total across all groups). Total: **O(n)** since each person is processed exactly once and added to exactly one result group.
 
 ### SPACE COMPLEXITY:
-**O(n)** - We use a hash map that stores at most n people across all group_size buckets (each person appears exactly once in the map). The result list also stores all n people organized into groups. Additional space includes temporary group lists in the hash map. Total: O(n) for hash map + O(n) for result = O(n). This is optimal since we must return all n people in the output.
+**O(n)** - We use a hash map that stores at most n people across all group_size buckets (each person appears exactly once in the map). The result list also stores all n people organized into groups. Additional space includes temporary group lists in the hash map. Total: **O(n)** for hash map + **O(n)** for result = **O(n)**. This is optimal since we must return all n people in the output.
 
 ### EDGE CASES:
 - **All same group size**: Create multiple groups of that size
@@ -90,6 +52,7 @@ Output:
 - **Multiple valid solutions**: Any valid grouping is acceptable
 
 </details>
+
 """
 
 from typing import List

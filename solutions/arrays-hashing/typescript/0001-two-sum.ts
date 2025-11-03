@@ -1,45 +1,12 @@
 /**
- * # 0001. Two Sum
- *
- * Difficulty: Easy
- *
- *
- * Given an array of integers `nums` and an integer `target`, return indices of the
- * two numbers such that they add up to `target`.
- *
- * You may assume that each input would have exactly one solution, and you may
- * not use the same element twice.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>nums = [2,7,11,15], target = 9</dd>
- * <dt>Output:</dt>
- * <dd>[]</dd>
- * <dt>Explanation:</dt>
- * <dd>Because nums[0] + nums[1] == 9, we return [0, 1]</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- *
- *
- * ### METADATA:
- * **Techniques**: Hash Table Lookup, Single Pass
- * **Data Structures**: Hash Map, Array
- * **Patterns**: Complement Search
- * **Time Complexity**: **O(n)** - Single pass through array with O(1) hash map lookups
- * **Space Complexity**: **O(n)** - Hash map stores up to n elements in worst case
- *
- * ### INTUITION:
- * The key insight is to use a hash map to store numbers we've seen so far.
- *
- * For each number, we check if its complement (target - current_number) exists in our hash map.
- *
- * This allows us to find the pair in a single pass.
- *
- * ### APPROACH:
+### INTUITION:
+The key insight is to use a hash map to store numbers we've seen so far.
+
+For each number, we check if its complement (target - current_number) exists in our hash map.
+
+This allows us to find the pair in a single pass.
+
+### APPROACH:
 1. We start by creating a hash map (dictionary) to store the numbers we've encountered along with their indices.
 2. As we iterate through the array, for each number we calculate its complement - the value that would sum with the current number to reach our target.
 3. The complement is simply `target - current_number`.
@@ -51,11 +18,7 @@
 9. Each lookup in the hash map is O(1), making this dramatically faster than checking all possible pairs.
 
 ### WHY THIS WORKS:
-Instead of checking every pair (O(n²)), we use hash map for O(1) lookup.
-
-We only need to store numbers we've already seen.
-
-When we find a complement, we know the current index and the stored index.
+A set by definition contains only unique elements - when we convert an array to a set, any duplicates are automatically removed. By comparing the lengths of the original array and the set, we can detect if duplicates existed. The early termination approach works because as soon as we find an element already in our seen set, we've proven a duplicate exists without needing to check the remaining elements.
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -74,19 +37,20 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-**O(n)** where n is the length of the array. In the worst case, we need to iterate through all n elements once. For each element, we perform two O(1) operations: one Map lookup to check if the complement exists (Map.has()), and potentially one insertion to add the current number to the Map (Map.set()). Therefore, the total time is O(n × 1) = O(n).
+O(n)** where n is the length of the array. In the worst case, we need to iterate through all n elements once. For each element, we perform two **O(1)** operations: one Map lookup to check if the complement exists (Map.has()), and potentially one insertion to add the current number to the Map (Map.set()). Therefore, the total time is **O(n × 1)** = **O(n)**.
 
 ### SPACE COMPLEXITY:
-**O(n)** - In the worst case, we might need to store all n-1 elements in the hash map before finding the solution on the last element. For example, if nums = [1,2,3,4,5] and target = 9, we'd store {1:0, 2:1, 3:2, 4:3} before finding that 4+5=9 at index 4. The hash map stores at most n entries, giving us O(n) space complexity.
- *
- * ### EDGE CASES:
- * - **No solution exists:** Problem guarantees exactly one solution
- * - **Duplicate values:** Hash map handles correctly by index
- * - **Two same numbers sum to target:** Works if at different indices
- * - **Negative numbers:** Algorithm works for any integers
- *
- * </details>
- */
+O(n)** - In the worst case, we might need to store all n-1 elements in the hash map before finding the solution on the last element. For example, if nums = [1,2,3,4,5] and target = 9, we'd store {1:0, 2:1, 3:2, 4:3} before finding that 4+5=9 at index 4. The hash map stores at most n entries, giving us **O(n)** space complexity.
+
+### EDGE CASES:
+- **No solution exists:** Problem guarantees exactly one solution
+- **Duplicate values:** Hash map handles correctly by index
+- **Two same numbers sum to target:** Works if at different indices
+- **Negative numbers:** Algorithm works for any integers
+
+</details>
+
+*/
 
 class Solution {
   /**

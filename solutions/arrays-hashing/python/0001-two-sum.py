@@ -1,36 +1,4 @@
 """
-# 0001. Two Sum
-
-# Difficulty: Easy
-
-Given an array of integers `nums` and an integer `target`, return indices of the
-two numbers such that they add up to `target`.
-
-You may assume that each input would have exactly one solution, and you may
-not use the same element twice.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>nums = [2,7,11,15], target = 9</dd>
-<dt>Output:</dt>
-<dd>[0,1]</dd>
-<dt>Explanation:</dt>
-<dd>Because nums[0] + nums[1] == 9, we return [0, 1]</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: Hash Table Lookup, Single Pass
-**Data Structures**: Hash Map, Array
-**Patterns**: Complement Search
-**Time Complexity**: **O(n)** - Single pass through array with O(1) hash map lookups
-**Space Complexity**: **O(n)** - Hash map stores up to n elements in worst case
-
 ### INTUITION:
 The key insight is to use a hash map to store numbers we've seen so far.
 
@@ -75,10 +43,10 @@ Output:
 Why it works: We found that nums[0]=2 and nums[1]=7 sum to target 9, so we return their indices.
 
 ### TIME COMPLEXITY:
-**O(n)** - where n is the length of the array. In the worst case, we need to iterate through all n elements once. For each element, we perform two O(1) operations: one hash map lookup to check if the complement exists, and potentially one insertion to add the current number to the hash map. Therefore, the total time is O(n × 1) = O(n).
+**O(n)** - where n is the length of the array. In the worst case, we need to iterate through all n elements once. For each element, we perform two **O(1)** operations: one hash map lookup to check if the complement exists, and potentially one insertion to add the current number to the hash map. Therefore, the total time is **O(n × 1)** = **O(n)**.
 
 ### SPACE COMPLEXITY:
-**O(n)** - In the worst case, we might need to store all n-1 elements in the hash map before finding the solution on the last element. For example, if nums = [1,2,3,4,5] and target = 9, we'd store {1:0, 2:1, 3:2, 4:3} before finding that 4+5=9 at index 4. The hash map stores at most n entries, giving us O(n) space complexity.
+**O(n)** - In the worst case, we might need to store all n-1 elements in the hash map before finding the solution on the last element. For example, if nums = [1,2,3,4,5] and target = 9, we'd store {1:0, 2:1, 3:2, 4:3} before finding that 4+5=9 at index 4. The hash map stores at most n entries, giving us **O(n)** space complexity.
 
 ### EDGE CASES:
 - **No solution exists:** Problem guarantees exactly one solution
@@ -87,6 +55,7 @@ Why it works: We found that nums[0]=2 and nums[1]=7 sum to target 9, so we retur
 - **Negative numbers:** Algorithm works for any integers
 
 </details>
+
 """
 
 from typing import Any

@@ -1,48 +1,16 @@
 /**
- * # 0238. Product Of Array Except Self
- *
- * Difficulty: Medium
- *
- *
- * Given an integer array nums, return an array answer such that answer[i] is equal to the product of all the elements of nums except nums[i].
- *
- * The product of any prefix or suffix of nums is guaranteed to fit in a 32-bit integer.
- *
- * You must write an algorithm that runs in O(n) time and without using the division operation.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>[1, 2, 3, 4]</dd>
- * <dt>Output:</dt>
- * <dd>[24, 12, 8, 6]</dd>
- * <dt>Explanation:</dt>
- * <dd>The product array excluding self is [24,12,8,6] for input [1,2,3,4]</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- *
- * ### METADATA:
- * **Techniques**: Array Traversal, Prefix Product, Suffix Product
- * **Data Structures**: Array
- * **Patterns**: Two Pass Pattern
- * **Time Complexity**: O(n) - Two passes through input
- * **Space Complexity**: O(1) - Constant extra space (excluding output array)
- *
- * ### INTUITION:
+### INTUITION:
 The key insight is that the product except self equals (product of all elements to the left) × (product of all elements to the right). Build the result array in two passes: first pass calculates cumulative left products, second pass calculates right products and multiplies them in-place.
 
 ### APPROACH:
- * 1. **Initialize result array**: Create result array of size n filled with 1s
- * 2. **Calculate left products**: Initialize left_product = 1, iterate left-to-right through nums
- * 3. **Store left products**: For each index i, set result[i] = left_product, then update left_product *= nums[i]
- * 4. **Calculate right products**: Initialize right_product = 1, iterate right-to-left through nums
- * 5. **Combine with right products**: For each index i, multiply result[i] *= right_product, then update right_product *= nums[i]
- * 6. **Return result**: The result array now contains products of all elements except self at each position
- *
- * ### WHY THIS WORKS:
+1. **Initialize result array**: Create result array of size n filled with 1s
+2. **Calculate left products**: Initialize left_product = 1, iterate left-to-right through nums
+3. **Store left products**: For each index i, set result[i] = left_product, then update left_product *= nums[i]
+4. **Calculate right products**: Initialize right_product = 1, iterate right-to-left through nums
+5. **Combine with right products**: For each index i, multiply result[i] *= right_product, then update right_product *= nums[i]
+6. **Return result**: The result array now contains products of all elements except self at each position
+
+### WHY THIS WORKS:
 - This ensures that two-pass approach: left products then right products multiplied together gives product except self
 - This ensures that first pass stores cumulative left products in result array
 - This ensures that second pass computes right products on-the-fly and multiplies into existing result
@@ -50,50 +18,51 @@ The key insight is that the product except self equals (product of all elements 
 - This ensures that o(1) extra space by using output array to store intermediate left products
 
 ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * nums = [1, 2, 3, 4]
- * ```
- *
- * Step 1: Calculate left products
- * i=0: result[0] = 1 (no left elements)
- * left_product = 1 × 1 = 1
- * i=1: result[1] = 1 (product of left: 1)
- * left_product = 1 × 2 = 2
- * i=2: result[2] = 2 (product of left: 1×2)
- * left_product = 2 × 3 = 6
- * i=3: result[3] = 6 (product of left: 1×2×3)
- * left_product = 6 × 4 = 24
- * result = [1, 1, 2, 6]
- * Step 2: Calculate right products and combine
- * i=3: result[3] = 6 × 1 = 6 (no right elements)
- * right_product = 1 × 4 = 4
- * i=2: result[2] = 2 × 4 = 8 (right: 4)
- * right_product = 4 × 3 = 12
- * i=1: result[1] = 1 × 12 = 12 (right: 3×4)
- * right_product = 12 × 2 = 24
- * i=0: result[0] = 1 × 24 = 24 (right: 2×3×4)
- * right_product = 24 × 1 = 24
- * result = [24, 12, 8, 6]
- *
- * Output:
- * ```
- * [24, 12, 8, 6]
- * ```
+Input:
+```
+nums = [1, 2, 3, 4]
+```
 
- * ### TIME COMPLEXITY:
- * **O(n)** - where n is the length of the input array. We perform exactly two complete passes through the array: the first pass (left-to-right) calculates cumulative left products and stores them in the result array, taking O(n) time. The second pass (right-to-left) calculates cumulative right products and multiplies them with the existing result values, also taking O(n) time. Each operation within the loops is O(1) (array access, multiplication, assignment). Total: O(n) + O(n) = O(2n) = O(n). This is optimal since we must examine every element at least once to compute the product.
- *
- * ### SPACE COMPLEXITY:
- * **O(1)** - excluding the output array required by the problem. We only use two scalar variables (`leftProduct` and `rightProduct`) to track running products, regardless of input size. The result array is not counted as extra space since it's required for the output. If we were to count the output array, space would be O(n), but by convention for this problem we exclude it. No additional data structures (hash maps, sets, temporary arrays) are needed. This is optimal space complexity for the constraint of not using division.
- *
- * ### EDGE CASES:
+Step 1: Calculate left products
+i=0: result[0] = 1 (no left elements)
+left_product = 1 × 1 = 1
+i=1: result[1] = 1 (product of left: 1)
+left_product = 1 × 2 = 2
+i=2: result[2] = 2 (product of left: 1×2)
+left_product = 2 × 3 = 6
+i=3: result[3] = 6 (product of left: 1×2×3)
+left_product = 6 × 4 = 24
+result = [1, 1, 2, 6]
+Step 2: Calculate right products and combine
+i=3: result[3] = 6 × 1 = 6 (no right elements)
+right_product = 1 × 4 = 4
+i=2: result[2] = 2 × 4 = 8 (right: 4)
+right_product = 4 × 3 = 12
+i=1: result[1] = 1 × 12 = 12 (right: 3×4)
+right_product = 12 × 2 = 24
+i=0: result[0] = 1 × 24 = 24 (right: 2×3×4)
+right_product = 24 × 1 = 24
+result = [24, 12, 8, 6]
+
+Output:
+```
+[24, 12, 8, 6]
+```
+
+### TIME COMPLEXITY:
+O(n)** - where n is the length of the input array. We perform exactly two complete passes through the array: the first pass (left-to-right) calculates cumulative left products and stores them in the result array, taking **O(n)** time. The second pass (right-to-left) calculates cumulative right products and multiplies them with the existing result values, also taking **O(n)** time. Each operation within the loops is **O(1)** (array access, multiplication, assignment). Total: **O(n)** + **O(n)** = **O(2n)** = **O(n)**. This is optimal since we must examine every element at least once to compute the product.
+
+### SPACE COMPLEXITY:
+O(1)** - excluding the output array required by the problem. We only use two scalar variables (`leftProduct` and `rightProduct`) to track running products, regardless of input size. The result array is not counted as extra space since it's required for the output. If we were to count the output array, space would be **O(n)**, but by convention for this problem we exclude it. No additional data structures (hash maps, sets, temporary arrays) are needed. This is optimal space complexity for the constraint of not using division.
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 class Solution {
   /**

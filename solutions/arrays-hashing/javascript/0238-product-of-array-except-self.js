@@ -1,37 +1,5 @@
 /**
- * # Difficulty: Medium
- *
- * # 0238. Product Of Array Except Self
- *
- *
- * Given an integer array nums, return an array answer such that answer[i] is equal to the product of all the elements of nums except nums[i].
- *
- * The product of any prefix or suffix of nums is guaranteed to fit in a 32-bit integer.
- *
- * You must write an algorithm that runs in O(n) time and without using the division operation.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>nums = [1, 2, 3, 4]</dd>
- * <dt>Output:</dt>
- * <dd>[24, 12, 8, 6]</dd>
- * <dt>Explanation:</dt>
- * <dd>The product array excluding self is [24,12,8,6] for input [1,2,3,4]</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- * ### METADATA:
- * **Techniques**: Prefix Product, Suffix Product, Two-Pass Array Traversal
- * **Data Structures**: Array
- * **Patterns**: Prefix/Suffix Pattern, Space Optimization
- * **Time Complexity**: O(n) - Two passes through array
- * **Space Complexity**: O(1) - Only output array (not counted), two variables for tracking products
-
- *
- * ### INTUITION:
+### INTUITION:
 The key insight is that for each position i, the product of all elements except nums[i] equals (product of all elements to the left of i) × (product of all elements to the right of i). We can calculate these prefix and suffix products in two passes without using division. First pass: build left products. Second pass: multiply by right products while traversing backwards.
 
 ### APPROACH:
@@ -42,55 +10,58 @@ The key insight is that for each position i, the product of all elements except 
 5. **Combine results**: result[i] already has left product, multiply it by right product to get final answer
 
 ### WHY THIS WORKS:
-- This ensures that the solution leverages arrays hashing principles
-- This ensures that time complexity is optimized for the given constraints
-- This ensures that space complexity is minimized where possible
+- This ensures that two-pass approach: left products then right products multiplied together gives product except self
+- This ensures that first pass stores cumulative left products in result array
+- This ensures that second pass computes right products on-the-fly and multiplies into existing result
+- This ensures that avoids division operation while achieving O(n) time
+- This ensures that o(1) extra space by using output array to store intermediate left products
 
 ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * nums = [1, 2, 3, 4]
- * ```
- *
- * Step 1: Calculate left products
- * i=0: result[0] = 1 (no left elements)
- * left_product = 1 × 1 = 1
- * i=1: result[1] = 1 (product of left: 1)
- * left_product = 1 × 2 = 2
- * i=2: result[2] = 2 (product of left: 1×2)
- * left_product = 2 × 3 = 6
- * i=3: result[3] = 6 (product of left: 1×2×3)
- * left_product = 6 × 4 = 24
- * result = [1, 1, 2, 6]
- * Step 2: Calculate right products and combine
- * i=3: result[3] = 6 × 1 = 6 (no right elements)
- * right_product = 1 × 4 = 4
- * i=2: result[2] = 2 × 4 = 8 (right: 4)
- * right_product = 4 × 3 = 12
- * i=1: result[1] = 1 × 12 = 12 (right: 3×4)
- * right_product = 12 × 2 = 24
- * i=0: result[0] = 1 × 24 = 24 (right: 2×3×4)
- * right_product = 24 × 1 = 24
- * result = [24, 12, 8, 6]
- *
- * Output:
- * ```
- * [24, 12, 8, 6]
- * ```
+Input:
+```
+nums = [1, 2, 3, 4]
+```
 
- * ### TIME COMPLEXITY:
- * **O(n)** - where n is the length of the array. We make exactly two passes through the array: one left-to-right pass to calculate prefix products (O(n)), and one right-to-left pass to calculate suffix products and combine them with the prefix products (O(n)). Each pass performs constant-time operations (multiplication and array access) for each element. Total: O(n) + O(n) = O(2n) = O(n). This is optimal since we must examine every element at least once.
- *
- * ### SPACE COMPLEXITY:
- * **O(1)** - We use only two variables (leftProduct and rightProduct) for tracking running products, regardless of input size. The result array is required for output and is not counted as extra space per the problem constraints. If we count the output array, the space complexity would be O(n), but conventionally output space is excluded from space complexity analysis. This makes our solution optimal for space.
- *
- * ### EDGE CASES:
+Step 1: Calculate left products
+i=0: result[0] = 1 (no left elements)
+left_product = 1 × 1 = 1
+i=1: result[1] = 1 (product of left: 1)
+left_product = 1 × 2 = 2
+i=2: result[2] = 2 (product of left: 1×2)
+left_product = 2 × 3 = 6
+i=3: result[3] = 6 (product of left: 1×2×3)
+left_product = 6 × 4 = 24
+result = [1, 1, 2, 6]
+Step 2: Calculate right products and combine
+i=3: result[3] = 6 × 1 = 6 (no right elements)
+right_product = 1 × 4 = 4
+i=2: result[2] = 2 × 4 = 8 (right: 4)
+right_product = 4 × 3 = 12
+i=1: result[1] = 1 × 12 = 12 (right: 3×4)
+right_product = 12 × 2 = 24
+i=0: result[0] = 1 × 24 = 24 (right: 2×3×4)
+right_product = 24 × 1 = 24
+result = [24, 12, 8, 6]
+
+Output:
+```
+[24, 12, 8, 6]
+```
+
+### TIME COMPLEXITY:
+O(n)** - where n is the length of the array. We make exactly two passes through the array: one left-to-right pass to calculate prefix products (**O(n)**), and one right-to-left pass to calculate suffix products and combine them with the prefix products (**O(n)**). Each pass performs constant-time operations (multiplication and array access) for each element. Total: **O(n)** + **O(n)** = **O(2n)** = **O(n)**. This is optimal since we must examine every element at least once.
+
+### SPACE COMPLEXITY:
+O(1)** - We use only two variables (leftProduct and rightProduct) for tracking running products, regardless of input size. The result array is required for output and is not counted as extra space per the problem constraints. If we count the output array, the space complexity would be **O(n)**, but conventionally output space is excluded from space complexity analysis. This makes our solution optimal for space.
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 /**
  * Main solution for Problem 238: Product Of Array Except Self

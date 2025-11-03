@@ -1,31 +1,4 @@
 """
-# Difficulty: Medium
-
-# 0347. Top K Frequent Elements
-
-Given an integer array nums and an integer k, return the k most frequent elements. You may return the answer in any order.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>nums = [1,1,1,2,2,3], k = 2</dd>
-<dt>Output:</dt>
-<dd>[1, 2]
-[1, 2]</dd>
-<dt>Explanation:</dt>
-<dd>The k=2 most frequent elements in [1,1,1,2,2,3] are [1,2]</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Frequency Counting, Bucket Sort, Hash Map Storage
-**Data Structures**: Hash Map (frequency counting), Array (buckets), Nested Arrays
-**Patterns**: Bucket Sort Pattern, Frequency Analysis
-**Time Complexity**: O(n) - Frequency counting O(n) + bucket sort O(n)
-**Space Complexity**: O(n) - Hash map O(n) + buckets array O(n)
-
 ### INTUITION:
 The key insight is to use bucket sort based on frequency. Since the maximum frequency any element can have is n (all elements the same), we can create n+1 buckets where bucket[i] contains all numbers that appear exactly i times. First count frequencies with a hash map, then place numbers into frequency buckets, finally collect k elements from highest frequency buckets first. This achieves O(n) time by avoiding sorting.
 
@@ -74,11 +47,10 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-**O(n)** - where n is the length of the nums array. We perform three linear passes: (1) count frequencies in hash map O(n), (2) place numbers into frequency buckets O(unique elements) ≤ O(n), (3) collect k elements from buckets O(n) in worst case. Total: O(n) + O(n) + O(n) = O(3n) = O(n). This is better than heap-based solutions which would be O(n log k) or sorting-based solutions which would be O(n log n).
+**O(n)** - where n is the length of the nums array. We perform three linear passes: (1) count frequencies in hash map **O(n)**, (2) place numbers into frequency buckets **O(unique elements)** ≤ **O(n)**, (3) collect k elements from buckets **O(n)** in worst case. Total: **O(n)** + **O(n)** + **O(n)** = **O(3n)** = **O(n)**. This is better than heap-based solutions which would be **O(n log k)** or sorting-based solutions which would be **O(n log n)**.
 
 ### SPACE COMPLEXITY:
-**O(n)** - We use a frequency hash map that stores at most n unique elements (O(n)), plus a buckets array of size n+1 where each bucket can hold numbers (O(n) total across all buckets in worst case), plus the result array of size k (O(k) ≤ O(n)). Total space: O(n) + O(n) + O(k) = O(n). The dominant factors are the hash map and buckets array, both O(n).
-
+**O(n)** - We use a frequency hash map that stores at most n unique elements (**O(n)**), plus a buckets array of size n+1 where each bucket can hold numbers (**O(n)** total across all buckets in worst case), plus the result array of size k (**O(k)** ≤ **O(n)**). Total space: **O(n)** + **O(n)** + **O(k)** = **O(n)**. The dominant factors are the hash map and buckets array, both **O(n)**.
 
 ### EDGE CASES:
 - **Empty input**: Handle when input is empty
@@ -86,6 +58,7 @@ Output:
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 import heapq

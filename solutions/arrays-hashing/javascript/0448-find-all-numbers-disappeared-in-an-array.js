@@ -1,40 +1,13 @@
 /**
- * # Difficulty: Medium
- *
- * # 0448. Find All Numbers Disappeared In An Array
- *
- *
- * Given an array nums of n integers where nums[i] is in the range [1, n], return an array of all the integers in the range [1, n] that do not appear in nums.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>nums = [4,3,2,7,8,2,3,1]</dd>
- * <dt>Output:</dt>
- * <dd>[5, 6]</dd>
- * <dt>Explanation:</dt>
- * <dd>The numbers [5,6] are missing from [4,3,2,7,8,2,3,1] (should be 1-8)</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- * ### METADATA:
- * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
- * **Data Structures**: Hash Set, Array, String
- * **Patterns**: Hash Table Pattern
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(1) - Constant extra space
+### INTUITION:
+[This problem requires understanding of arrays hashing concepts. The key insight is to identify the optimal approach for this specific scenario.]
 
- *
- * ### INTUITION:
- * [This problem requires understanding of arrays hashing concepts. The key insight is to identify the optimal approach for this specific scenario.]
- *
- * ### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply arrays hashing methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
+### APPROACH:
+1. **Convert array to set**: Transform the input array into a set data structure, which automatically removes all duplicate values
+2. **Compare lengths**: Calculate the length of both the original array and the newly created set
+3. **Detect duplicates**: If the lengths differ, duplicates existed in the original array (they were removed during set conversion)
+4. **Return result**: Return True if lengths differ (duplicates found), False if lengths match (all elements unique)
+5. **Alternative early termination**: For better average performance, iterate through array and add elements to a set one by one, returning True immediately when an element is already in the set
 
 ### WHY THIS WORKS:
 - This ensures that the solution leverages arrays hashing principles
@@ -42,44 +15,45 @@
 - This ensures that space complexity is minimized where possible
 
 ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * nums = [4,3,2,7,8,2,3,1]
- * ```
- *
- * Step 1: Mark present numbers by negating values at indices
- * - Process 4: nums[3] = -7, nums = [4,3,2,-7,8,2,3,1]
- * - Process 3: nums[2] = -2, nums = [4,3,-2,-7,8,2,3,1]
- * - Process 2: nums[1] = -3, nums = [4,-3,-2,-7,8,2,3,1]
- * - Process 7: nums[6] = -3, nums = [4,-3,-2,-7,8,2,-3,1]
- * - Process 8: nums[7] = -1, nums = [4,-3,-2,-7,8,2,-3,-1]
- * - Process 2: already marked
- * - Process 3: already marked
- * - Process 1: nums[0] = -4, nums = [-4,-3,-2,-7,8,2,-3,-1]
- * Step 2: Find indices with positive values
- *
- * Steps:
- * Step 1: - Index 4 has value 8 (positive) → number 5 is missing
- * Step 2: - Index 5 has value 2 (positive) → number 6 is missing
- *
- * Output:
- * ```
- * [5, 6]
- * ```
+Input:
+```
+nums = [4,3,2,7,8,2,3,1]
+```
 
- * ### TIME COMPLEXITY:
- * **O(n)** - where n is the length of the array. We make two complete passes through the array: (1) first pass marks present numbers by negating values at corresponding indices (O(n)), (2) second pass identifies which indices have positive values to determine missing numbers (O(n)). Each operation within the loops is O(1). Total: O(n) + O(n) = O(2n) = O(n). This is optimal since we must examine every element.
- *
- * ### SPACE COMPLEXITY:
- * **O(1)** - excluding the output array. We use only constant extra space for variables (loop counters, index calculations). The result array doesn't count toward space complexity as it's required output. We modify the input array in-place using negation to mark present numbers, avoiding any additional data structures. This achieves the follow-up requirement of O(1) space without using extra sets or hash maps.
- *
- * ### EDGE CASES:
+Step 1: Mark present numbers by negating values at indices
+- Process 4: nums[3] = -7, nums = [4,3,2,-7,8,2,3,1]
+- Process 3: nums[2] = -2, nums = [4,3,-2,-7,8,2,3,1]
+- Process 2: nums[1] = -3, nums = [4,-3,-2,-7,8,2,3,1]
+- Process 7: nums[6] = -3, nums = [4,-3,-2,-7,8,2,-3,1]
+- Process 8: nums[7] = -1, nums = [4,-3,-2,-7,8,2,-3,-1]
+- Process 2: already marked
+- Process 3: already marked
+- Process 1: nums[0] = -4, nums = [-4,-3,-2,-7,8,2,-3,-1]
+Step 2: Find indices with positive values
+
+Steps:
+Step 1: - Index 4 has value 8 (positive) → number 5 is missing
+Step 2: - Index 5 has value 2 (positive) → number 6 is missing
+
+Output:
+```
+[5, 6]
+```
+
+### TIME COMPLEXITY:
+O(n)** - where n is the length of the array. We make two complete passes through the array: (1) first pass marks present numbers by negating values at corresponding indices (**O(n)**), (2) second pass identifies which indices have positive values to determine missing numbers (**O(n)**). Each operation within the loops is **O(1)**. Total: **O(n)** + **O(n)** = **O(2n)** = **O(n)**. This is optimal since we must examine every element.
+
+### SPACE COMPLEXITY:
+O(1)** - excluding the output array. We use only constant extra space for variables (loop counters, index calculations). The result array doesn't count toward space complexity as it's required output. We modify the input array in-place using negation to mark present numbers, avoiding any additional data structures. This achieves the follow-up requirement of **O(1)** space without using extra sets or hash maps.
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 /**
  * Main solution for Problem 448: Find All Numbers Disappeared In An Array

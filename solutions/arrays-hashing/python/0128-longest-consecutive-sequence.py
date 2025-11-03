@@ -1,32 +1,4 @@
 """
-# Difficulty: Medium
-
-# 0128. Longest Consecutive Sequence
-
-Given an unsorted array of integers nums, return the length of the longest consecutive elements sequence.
-
-You must write an algorithm that runs in O(n) time.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>[100, 4, 200, 1, 3, 2]</dd>
-<dt>Output:</dt>
-<dd>4 (sequence [1,2,3,4])</dd>
-<dt>Explanation:</dt>
-<dd>The longest consecutive sequence [1,2,3,4] has length 4</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Set for O(1) Lookups, Sequence Start Detection, Greedy Counting
-**Data Structures**: Hash Set (for deduplication and fast lookups), List
-**Patterns**: Hash Table Pattern, Greedy Algorithm, Sequence Detection
-**Time Complexity**: O(n) - Each element visited at most twice
-**Space Complexity**: O(n) - Hash set stores all unique elements
-
 ### INTUITION:
 Convert array to a set for O(1) lookups. Only start counting consecutive sequences from numbers where num-1 doesn't exist (the start of a sequence). This avoids redundant counting and achieves O(n) time since each number is visited at most twice.
 
@@ -78,11 +50,10 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-**O(n)** - where n is the number of elements in the array. Although we have nested loops, each number is visited at most twice: once in the outer loop to check if it's a sequence start (checking if num-1 exists), and potentially once more as part of counting a sequence (in the inner while loop). The key insight is that the while loop only executes for numbers that are sequence starts, and each number can only be part of one sequence. Total operations: at most 2n lookups and iterations, giving us O(2n) = O(n).
+**O(n)** - where n is the number of elements in the array. Although we have nested loops, each number is visited at most twice: once in the outer loop to check if it's a sequence start (checking if num-1 exists), and potentially once more as part of counting a sequence (in the inner while loop). The key insight is that the while loop only executes for numbers that are sequence starts, and each number can only be part of one sequence. Total operations: at most 2n lookups and iterations, giving us **O(2n)** = **O(n)**.
 
 ### SPACE COMPLEXITY:
-**O(n)** - We store all n unique numbers in the set data structure. In the worst case where all numbers are unique, the set contains n elements. Even with duplicates, we still need O(n) space to store the unique values. This is the dominant space usage, making our space complexity O(n).
-
+**O(n)** - We store all n unique numbers in the set data structure. In the worst case where all numbers are unique, the set contains n elements. Even with duplicates, we still need **O(n)** space to store the unique values. This is the dominant space usage, making our space complexity **O(n)**.
 
 ### EDGE CASES:
 - **Empty input**: Handle when input is empty
@@ -90,6 +61,7 @@ Output:
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 from typing import List, Optional, Dict, Tuple
