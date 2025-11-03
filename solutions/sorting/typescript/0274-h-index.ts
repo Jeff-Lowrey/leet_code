@@ -1,47 +1,15 @@
 /**
- * # Difficulty: Medium
- *
- * # 0274. H Index
- *
- *
- * Given an array of integers citations where citations[i] is the number of citations a researcher
- * received for their ith paper, return the researcher's h-index.
- *
- * According to the definition of h-index on Wikipedia: The h-index is defined as the maximum value
- * of h such that the given researcher has published at least h papers that have each been cited at
- * least h times.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>citations = [3,0,6,1,5]</dd>
- * <dt>Output:</dt>
- * <dd>3</dd>
- * <dt>Explanation:</dt>
- * <dd>H-index for citations [3,0,6,1,5] is 3</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
- * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
- * **Data Structures**: Array
- * **Patterns**: Hash Table Pattern
- * **Time Complexity**: O(n log n) - Sorting or divide-and-conquer
- * **Space Complexity**: O(1) - Constant extra space
- *
- * ### INTUITION:
- * The h-index is the largest number h where at least h papers have h or more citations.
- * Sorting helps us find this threshold efficiently. We can also use counting for O(n) solution.
- *
- * ### APPROACH:
- * 1. **Sort citations** in descending order
- * 2. **Iterate through sorted array**: For each position i, check if citations[i] >= i+1
- * 3. **Find maximum h**: The h-index is the largest i+1 where citations[i] >= i+1
- * 4. **Alternative**: Count papers with at least k citations for each k
- *
- * ### WHY THIS WORKS:
+### INTUITION:
+The h-index is the largest number h where at least h papers have h or more citations.
+Sorting helps us find this threshold efficiently. We can also use counting for O(n) solution.
+
+### APPROACH:
+1. **Sort citations** in descending order
+2. **Iterate through sorted array**: For each position i, check if citations[i] >= i+1
+3. **Find maximum h**: The h-index is the largest i+1 where citations[i] >= i+1
+4. **Alternative**: Count papers with at least k citations for each k
+
+### WHY THIS WORKS:
 - This ensures that after sorting in descending order, citations[i] is the (i+1)th highest citation count
 - This ensures that if citations[i] >= i+1, we have at least i+1 papers with i+1+ citations
 - This ensures that the h-index is the maximum such i+1 value
@@ -78,22 +46,23 @@ Step-by-step execution:
 3. [Final step]
 
 ### TIME COMPLEXITY:
- * O(n log n)
- * - Sorting or divide-and-conquer
- * For sorting approach. Counting approach is O(n).
- *
- * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
- * If sorting in place, O(n) for sorting with extra space
- *
- * ### EDGE CASES:
+O(n log n)**
+- Sorting or divide-and-conquer
+For sorting approach. Counting approach is **O(n)**.
+
+### SPACE COMPLEXITY:
+O(1)**
+- Constant extra space
+If sorting in place, **O(n)** for sorting with extra space
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 class Solution {
   hIndex(citations: number[]): number {

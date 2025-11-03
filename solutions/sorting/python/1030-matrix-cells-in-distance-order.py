@@ -1,37 +1,4 @@
 """
-# Difficulty: Easy
-
-# 1030. Matrix Cells In Distance Order
-
-You are given four integers row, col, rCenter, and cCenter. There exists a rows x cols matrix
-and you are on the cell with the coordinates (rCenter, cCenter).
-
-Return the coordinates of all cells in the matrix, sorted by their distance from (rCenter, cCenter)
-from the smallest distance to the largest distance. You may return the answer in any order that
-satisfies this condition.
-
-The distance between two cells (r1, c1) and (r2, c2) is |r1 - r2| + |c1 - c2|.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>[[0, 0]]</dd>
-<dt>Output:</dt>
-<dd>1</dd>
-<dt>Explanation:</dt>
-<dd>Cells sorted by Manhattan distance from [0,0]</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
-**Data Structures**: Hash Set, Array, Queue
-**Patterns**: Hash Table Pattern, Greedy Algorithm
-**Time Complexity**: O(R*C * log(R*C))
-**Space Complexity**: O(R*C)
-
 ### INTUITION:
 We need to sort all matrix coordinates by their Manhattan distance from a given center point.
 The key insight is to generate all coordinates and use Python's built-in sorting with a custom key.
@@ -86,13 +53,13 @@ Step-by-step execution:
 3. [Final step]
 
 ### TIME COMPLEXITY:
-O(R*C * log(R*C))
-- Generating coordinates: O(R*C)
-- Sorting: O(R*C * log(R*C))
-- Total: O(R*C * log(R*C))
+**O(R*C * log(R*C)**)
+- Generating coordinates: **O(R*C)**
+- Sorting: **O(R*C * log(R*C)**)
+- Total: **O(R*C * log(R*C)**)
 
 ### SPACE COMPLEXITY:
-O(R*C)
+**O(R*C)**
 For storing all coordinates in the result
 
 ### EDGE CASES:
@@ -101,6 +68,7 @@ For storing all coordinates in the result
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 from collections import deque

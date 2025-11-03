@@ -1,47 +1,109 @@
 /**
- * 0506. Relative Ranks
- *
- * Difficulty: Easy
- * 
- * You are given an integer array score of size n, where score[i] is the score of the ith athlete
- * in a competition. All the scores are guaranteed to be unique.
- * 
- * The athletes are placed based on their scores, where the 1st place athlete has the highest score,
- * the 2nd place athlete has the 2nd highest score, and so on. The placement of each athlete determines
- * their rank:
- * 
- * - The 1st place athlete's rank is "Gold Medal".
- * - The 2nd place athlete's rank is "Silver Medal".
- * - The 3rd place athlete's rank is "Bronze Medal".
- * - For the 4th place to the nth place athlete, their rank is their placement number (i.e., the xth place athlete's rank is "x").
- * 
- * Return an array answer of size n where answer[i] is the rank of the ith athlete.
- * 
- * **Example:**
- * 
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>score = [5,4,3,2,1]</dd>
- * <dt>Output:</dt>
- * <dd>["Gold Medal", "Silver Medal", "Bronze Medal", "4", "5"]</dd>
- * <dt>Explanation:</dt>
- * <dd>Ranks for scores [5,4,3,2,1] are ['Gold','Silver','Bronze','4','5']</dd>
- * </dl>
- * 
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
- * **Techniques**: Sorting with Index Tracking
- * **Data Structures**: **Array** (with tuples/pairs for index-score), Result **Array**
- * **Patterns**: Sort and Map Pattern
- * **Time Complexity**: O(n log n) - Sorting
- * **Space Complexity**: O(n) - Additional array storage
- *
- * ### INTUITION:
+### INTUITION:
 The key insight is that we need to map each score to its rank. Sorting gives us the order, but we need to maintain
 the original indices. Use sorting with indices or create a score-to-rank mapping.
 
 ### APPROACH:
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
 The algorithm proceeds as follows:
 
 The algorithm proceeds as follows:
@@ -55,15 +117,15 @@ Data structures: **Array** with index-score pairs for sorting, Result **Array** 
 4. **Map back to original positions**: Use original indices to place ranks in result array
 
 ### WHY THIS WORKS:
- * - **Sorting with Index Tracking** technique: We pair each score with its original index before sorting
- * - This preserves the original position information even after the array is reordered
- * - Sorting by score (in descending order) gives us the ranking order
- * - Tracking original indices in pairs lets us place ranks correctly in result array
- * - After sorting, we iterate through the sorted pairs and assign ranks based on position
- * - Special strings for top 3 (Gold/Silver/Bronze), numbers for rest
- * - The original index in each pair tells us where to place the rank in the result **Array**
- * - **Array** iteration maps sorted ranks back to original positions efficiently in O(n) time
- *
+- **Sorting with Index Tracking** technique: We pair each score with its original index before sorting
+- This preserves the original position information even after the array is reordered
+- Sorting by score (in descending order) gives us the ranking order
+- Tracking original indices in pairs lets us place ranks correctly in result array
+- After sorting, we iterate through the sorted pairs and assign ranks based on position
+- Special strings for top 3 (Gold/Silver/Bronze), numbers for rest
+- The original index in each pair tells us where to place the rank in the result **Array**
+- **Array** iteration maps sorted ranks back to original positions efficiently in O(n) time
+
 ### EXAMPLE WALKTHROUGH:
 Given input score = [5,4,3,2,1]:
 
@@ -72,20 +134,20 @@ Input:
 score = [5,4,3,2,1]
 ```
 
-*Step 1:** Create (score, index) pairs
+Step 1:** Create (score, index) pairs
 - [(5,0), (4,1), (3,2), (2,3), (1,4)]
 
-*Step 2:** Sort by score descending
+Step 2:** Sort by score descending
 - [(5,0), (4,1), (3,2), (2,3), (1,4)]
 
-*Step 3:** Assign ranks based on sorted order
+Step 3:** Assign ranks based on sorted order
 - Rank 1 (Gold Medal): score 5, index 0
 - Rank 2 (Silver Medal): score 4, index 1
 - Rank 3 (Bronze Medal): score 3, index 2
 - Rank 4: score 2, index 3
 - Rank 5: score 1, index 4
 
-*Step 4:** Map back to original indices
+Step 4:** Map back to original indices
 - answer[0] = "Gold Medal"
 - answer[1] = "Silver Medal"
 - answer[2] = "Bronze Medal"
@@ -98,22 +160,23 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
- * O(n log n)
- * - Sorting or divide-and-conquer
- * For sorting the scores
- * 
- * ### SPACE COMPLEXITY:
- * O(n)
- * - Additional hash map storage
- * For storing score-rank mappings and result
- * 
- * ### EDGE CASES:
+O(n log n)**
+- Sorting or divide-and-conquer
+For sorting the scores
+
+### SPACE COMPLEXITY:
+O(n)**
+- Additional hash map storage
+For storing score-rank mappings and result
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 class Solution {
   /**

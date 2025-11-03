@@ -1,37 +1,5 @@
 /**
- * # Difficulty: Easy
- *
- * # 1356. Sort Integers By The Number Of 1 Bits
- *
- *
- * You are given an integer array arr. Sort the integers in the array in ascending order by the number
- * of 1's in their binary representation and in case of two or more integers have the same number of 1's
- * you have to sort them in ascending order.
- *
- * Return the array after sorting it.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>[0, 1, 2, 4, 8, 3, 5, 6, 7]</dd>
- * <dt>Output:</dt>
- * <dd>1</dd>
- * <dt>Explanation:</dt>
- * <dd>Integers sorted by number of 1 bits</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- * ### METADATA:
- * **Techniques**: Hash Table Lookup, Array Traversal, Sorting
- * **Data Structures**: Hash Set, Array, String
- * **Patterns**: Hash Table Pattern
- * **Time Complexity**: O(n log n) - Sorting or divide-and-conquer
- * **Space Complexity**: O(n) - Additional set storage
-
- *
- * ### INTUITION:
+### INTUITION:
 The key insight is that we need a two-level sort: first by count of 1-bits, then by value. Python's sort is stable,
 so we can sort by value first, then by bit count. Or use a tuple key for simultaneous sorting.
 
@@ -42,62 +10,63 @@ so we can sort by value first, then by bit count. Or use a tuple key for simulta
 4. **Return result**: Sorted array
 
 ### WHY THIS WORKS:
- * - bin(n).count('1') counts 1-bits in binary representation
- * - Python sorts tuples lexicographically (first element, then second)
- * - Stable sort maintains order when keys are equal
- * - Lambda function provides clean, concise key
- *
- * ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * arr = [0,1,2,3,4,5,6,7,8]
- * ```
- *
- * Binary representations and bit counts:
- *
- * Steps:
- * Step 1: 0 = 0b0     -> 0 ones
- * Step 2: 1 = 0b1     -> 1 one
- * Step 3: 2 = 0b10    -> 1 one
- * Step 4: 3 = 0b11    -> 2 ones
- * Step 5: 4 = 0b100   -> 1 one
- * Step 6: 5 = 0b101   -> 2 ones
- * Step 7: 6 = 0b110   -> 2 ones
- * Step 8: 7 = 0b111   -> 3 ones
- * Step 9: 8 = 0b1000  -> 1 one
- *
- * Group by bit count (then sort by value):
- * ```
- * 0 ones: [0]
- * 1 one:  [1, 2, 4, 8]
- * 2 ones: [3, 5, 6]
- * 3 ones: [7]
- * ```
- *
- * Output:
- * ```
- * [0,1,2,4,8,3,5,6,7]
- * ```
+- bin(n).count('1') counts 1-bits in binary representation
+- Python sorts tuples lexicographically (first element, then second)
+- Stable sort maintains order when keys are equal
+- Lambda function provides clean, concise key
 
- * ### TIME COMPLEXITY:
- * O(n log n)
- * - Sorting or divide-and-conquer
- * - Counting bits: O(log max_value) per number = O(n log max_value)
- * - Sorting: O(n log n)
- * - Total: O(n log n) dominates
- *
- * ### SPACE COMPLEXITY:
- * O(n)
- * - Additional set storage
- * For the sorted result array
- *
- * ### EDGE CASES:
+### EXAMPLE WALKTHROUGH:
+Input:
+```
+arr = [0,1,2,3,4,5,6,7,8]
+```
+
+Binary representations and bit counts:
+
+Steps:
+Step 1: 0 = 0b0     -> 0 ones
+Step 2: 1 = 0b1     -> 1 one
+Step 3: 2 = 0b10    -> 1 one
+Step 4: 3 = 0b11    -> 2 ones
+Step 5: 4 = 0b100   -> 1 one
+Step 6: 5 = 0b101   -> 2 ones
+Step 7: 6 = 0b110   -> 2 ones
+Step 8: 7 = 0b111   -> 3 ones
+Step 9: 8 = 0b1000  -> 1 one
+
+Group by bit count (then sort by value):
+```
+0 ones: [0]
+1 one:  [1, 2, 4, 8]
+2 ones: [3, 5, 6]
+3 ones: [7]
+```
+
+Output:
+```
+[0,1,2,4,8,3,5,6,7]
+```
+
+### TIME COMPLEXITY:
+O(n log n)**
+- Sorting or divide-and-conquer
+- Counting bits: **O(log max_value)** per number = **O(n log max_value)**
+- Sorting: **O(n log n)**
+- Total: **O(n log n)** dominates
+
+### SPACE COMPLEXITY:
+O(n)**
+- Additional set storage
+For the sorted result array
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 /**
  * Main solution for Problem 1356: Sort Integers By The Number Of 1 Bits

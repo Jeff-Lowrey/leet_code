@@ -1,40 +1,109 @@
 /**
- * # Difficulty: Medium
- *
- * # 0912. Sort An Array
- *
- *
- * Given an array of integers nums, sort the array in ascending order and return it.
- *
- * You must solve the problem without using any built-in functions in O(nlog(n)) time complexity
- * and with the smallest space complexity possible.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>[5, 2, 3, 1]</dd>
- * <dt>Output:</dt>
- * <dd>[1, 2, 3, 5]</dd>
- * <dt>Explanation:</dt>
- * <dd>Array [5,2,3,1] sorted is [1,2,3,5]</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- * ### METADATA:
- * **Techniques**: Array Traversal, Two Pointers, Backtracking
- * **Data Structures**: Array, String, Tree
- * **Patterns**: Two Pointers Pattern, Divide and Conquer
- * **Time Complexity**: O(n log n) - Sorting or divide-and-conquer
- * **Space Complexity**: * - Merge Sort: O(n) for merge array
-
- *
- * ### INTUITION:
+### INTUITION:
 The key insight is that implement various sorting algorithms from scratch. Quicksort, Mergesort, and Heapsort all
 achieve O(n log n) time. This problem tests understanding of fundamental sorting algorithms.
 
 ### APPROACH:
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
 The algorithm proceeds as follows:
 
 The algorithm proceeds as follows:
@@ -71,38 +140,38 @@ The solution leverages string for efficient operations.
 The solution leverages tree for efficient operations.
 
 ### EXAMPLE WALKTHROUGH:
-*Input:** nums = [5,2,3,1]
+Input:** nums = [5,2,3,1]
 
-*Merge Sort approach:**
+Merge Sort approach:**
 
-*Step 1:** Divide array recursively
+Step 1:** Divide array recursively
 - [5,2,3,1] → [5,2] and [3,1]
 - [5,2] → [5] and [2]
 - [3,1] → [3] and [1]
 
-*Step 2:** Base case - single elements are sorted
+Step 2:** Base case - single elements are sorted
 - [5], [2], [3], [1] all sorted
 
-*Step 3:** Merge [5] and [2] using two pointers → [2,5]
+Step 3:** Merge [5] and [2] using two pointers → [2,5]
 
-*Step 4:** Merge [3] and [1] using two pointers → [1,3]
+Step 4:** Merge [3] and [1] using two pointers → [1,3]
 
-*Step 5:** Merge [2,5] and [1,3] using two pointers
+Step 5:** Merge [2,5] and [1,3] using two pointers
 - Compare 2 vs 1: take 1
 - Compare 2 vs 3: take 2
 - Compare 5 vs 3: take 3
 - Remaining: take 5
 - Result: [1,2,3,5]
 
-*Quick Sort approach:**
+Quick Sort approach:**
 
-*Step 6:** Choose pivot (e.g., 1), partition using two pointers
+Step 6:** Choose pivot (e.g., 1), partition using two pointers
 - [1] | [5,2,3] (elements > 1)
 
-*Step 7:** Recursively sort right partition with pivot 3
+Step 7:** Recursively sort right partition with pivot 3
 - [2,3] | [5]
 
-*Step 8:** Combine results: [1,2,3,5]
+Step 8:** Combine results: [1,2,3,5]
 
 Output:
 ```
@@ -137,22 +206,23 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
- * O(n log n)
- * - Sorting or divide-and-conquer
- * All three algorithms achieve this complexity
- *
- * ### SPACE COMPLEXITY:
- * - Merge Sort: O(n) for merge array
- * - Quick Sort: O(log n) for recursion stack
- * - Heap Sort: O(1) in-place
- *
- * ### EDGE CASES:
+O(n log n)**
+- Sorting or divide-and-conquer
+All three algorithms achieve this complexity
+
+### SPACE COMPLEXITY:
+- Merge Sort: **O(n)** for merge array
+- Quick Sort: **O(log n)** for recursion stack
+- Heap Sort: **O(1)** in-place
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 /**
  * Main solution for Problem 912: Sort An Array

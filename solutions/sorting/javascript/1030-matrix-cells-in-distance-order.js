@@ -1,56 +1,21 @@
 /**
- * # Difficulty: Easy
- *
- * # 1030. Matrix Cells In Distance Order
- *
- *
- * You are given four integers row, col, rCenter, and cCenter. There exists a rows x cols matrix
- * and you are on the cell with the coordinates (rCenter, cCenter).
- *
- * Return the coordinates of all cells in the matrix, sorted by their distance from (rCenter, cCenter)
- * from the smallest distance to the largest distance. You may return the answer in any order that
- * satisfies this condition.
- *
- * The distance between two cells (r1, c1) and (r2, c2) is |r1 - r2| + |c1 - c2|.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>[[0, 0]]</dd>
- * <dt>Output:</dt>
- * <dd>1</dd>
- * <dt>Explanation:</dt>
- * <dd>Cells sorted by Manhattan distance from [0,0]</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- * ### METADATA:
- * **Techniques**: Array Traversal, Sorting
- * **Data Structures**: Array, String, Matrix
- * **Patterns**: Iterative Solution
- * **Time Complexity**: O(R*C * log(R*C))
- * **Space Complexity**: O(R*C)
+### INTUITION:
+We need to sort all matrix coordinates by their Manhattan distance from a given center point.
+The key insight is to generate all coordinates and use Python's built-in sorting with a custom key.
 
- *
- * ### INTUITION:
- * We need to sort all matrix coordinates by their Manhattan distance from a given center point.
- * The key insight is to generate all coordinates and use Python's built-in sorting with a custom key.
- *
- * ### APPROACH:
+### APPROACH:
 1. **Generate all coordinates**: Create all (r, c) pairs for the matrix
 2. **Define distance function**: Manhattan distance |r - rCenter| + |c - cCenter|
 3. **Sort by distance**: Use sorted() with lambda key function
 4. **Return sorted list**: All coordinates ordered by distance
 
 ### WHY THIS WORKS:
- * - Manhattan distance measures the grid distance between two points
- * - Python's stable sort maintains relative order for equal distances
- * - Custom key function allows sorting by computed distance
- * - List comprehension efficiently generates all coordinates
- *
- * ### EXAMPLE WALKTHROUGH:
+- Manhattan distance measures the grid distance between two points
+- Python's stable sort maintains relative order for equal distances
+- Custom key function allows sorting by computed distance
+- List comprehension efficiently generates all coordinates
+
+### EXAMPLE WALKTHROUGH:
 Input:
 ```
 rows = 2, cols = 3, rCenter = 1, cCenter = 2
@@ -83,22 +48,23 @@ Step-by-step execution:
 3. [Final step]
 
 ### TIME COMPLEXITY:
- * O(R*C * log(R*C))
- * - Generating coordinates: O(R*C)
- * - Sorting: O(R*C * log(R*C))
- * - Total: O(R*C * log(R*C))
- *
- * ### SPACE COMPLEXITY:
- * O(R*C)
- * For storing all coordinates in the result
- *
- * ### EDGE CASES:
+O(R*C * log(R*C)**)
+- Generating coordinates: **O(R*C)**
+- Sorting: **O(R*C * log(R*C)**)
+- Total: **O(R*C * log(R*C)**)
+
+### SPACE COMPLEXITY:
+O(R*C)**
+For storing all coordinates in the result
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 /**
  * Main solution for Problem 1030: Matrix Cells In Distance Order

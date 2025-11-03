@@ -1,38 +1,109 @@
 """
-# Difficulty: Medium
-
-# 0912. Sort An Array
-
-Given an array of integers nums, sort the array in ascending order and return it.
-
-You must solve the problem without using any built-in functions in O(nlog(n)) time complexity
-and with the smallest space complexity possible.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>[5, 2, 3, 1]</dd>
-<dt>Output:</dt>
-<dd>[1, 2, 3, 5]</dd>
-<dt>Explanation:</dt>
-<dd>Array [5,2,3,1] sorted is [1,2,3,5]</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Map Storage, Array Traversal, Two Pointers
-**Data Structures**: Array, Stack, Heap
-**Patterns**: Two Pointers Pattern, Divide and Conquer
-**Time Complexity**: O(n log n) - Sorting or divide-and-conquer
-**Space Complexity**: - Merge Sort: O(n) for merge array
-
 ### INTUITION:
 The key insight is that implement various sorting algorithms from scratch. Quicksort, Mergesort, and Heapsort all
 achieve O(n log n) time. This problem tests understanding of fundamental sorting algorithms.
 
 ### APPROACH:
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
 The algorithm proceeds as follows:
 
 The algorithm proceeds as follows:
@@ -98,13 +169,13 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n log n)
+**O(n log n)**
 All three algorithms achieve this complexity
 
 ### SPACE COMPLEXITY:
-- Merge Sort: O(n) for merge array
-- Quick Sort: O(log n) for recursion stack
-- Heap Sort: O(1) in-place
+- Merge Sort: **O(n)** for merge array
+- Quick Sort: **O(log n)** for recursion stack
+- Heap Sort: **O(1)** in-place
 
 ### EDGE CASES:
 - **Empty input**: Handle when input is empty
@@ -112,6 +183,7 @@ All three algorithms achieve this complexity
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 from typing import Any

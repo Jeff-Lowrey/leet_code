@@ -1,42 +1,4 @@
 """
-# Difficulty: Easy
-
-# 0506. Relative Ranks
-
-You are given an integer array score of size n, where score[i] is the score of the ith athlete
-in a competition. All the scores are guaranteed to be unique.
-
-The athletes are placed based on their scores, where the 1st place athlete has the highest score,
-the 2nd place athlete has the 2nd highest score, and so on. The placement of each athlete determines
-their rank:
-
-- The 1st place athlete's rank is "Gold Medal".
-- The 2nd place athlete's rank is "Silver Medal".
-- The 3rd place athlete's rank is "Bronze Medal".
-- For the 4th place to the nth place athlete, their rank is their placement number (i.e., the xth place athlete's rank is "x").
-
-Return an array answer of size n where answer[i] is the rank of the ith athlete.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>["Gold Medal", "Silver Medal", "Bronze Medal", "4", "5"]</dd>
-<dt>Output:</dt>
-<dd>1</dd>
-<dt>Explanation:</dt>
-<dd>Ranks for scores [5,4,3,2,1] are ['Gold','Silver','Bronze','4','5']</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: Hash Map, Array, String
-**Patterns**: Iterative Solution
-**Time Complexity**: O(n log n) - Sorting or divide-and-conquer
-**Space Complexity**: O(n) - Additional hash map storage
-
 ### INTUITION:
 The key insight is that we need to map each score to its rank. Sorting gives us the order, but we need to maintain
 the original indices. Use sorting with indices or create a score-to-rank mapping.
@@ -87,11 +49,11 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n log n)
+**O(n log n)**
 For sorting the scores
 
 ### SPACE COMPLEXITY:
-O(n)
+**O(n)**
 For storing score-rank mappings and result
 
 ### EDGE CASES:
@@ -100,6 +62,7 @@ For storing score-rank mappings and result
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 from typing import Any

@@ -1,32 +1,5 @@
 /**
- * Difficulty: Medium
- *
- * Given a list of non-negative integers `nums`, arrange them such that they form the largest number and return it.
- *
- * Since the result may be very large, so you need to return a string instead of an integer.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>nums = [10,2]</dd>
- * <dt>Output:</dt>
- * <dd>"210"</dd>
- * <dt>Explanation:</dt>
- * <dd>"210" is larger than "102", so we arrange [2, 10]</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- *
- * ### METADATA:
- * **Techniques**: Custom Comparator, String Concatenation, Greedy Algorithm
- * **Data Structures**: Array, String
- * **Patterns**: Greedy, Custom Sorting
- * **Time Complexity**: O(n log n) - Dominated by sorting operation
- * **Space Complexity**: O(n) - Space for string conversions and result
- *
- * ### INTUITION:
+### INTUITION:
 The key insight is that to form the largest number, we need a custom comparison: for two numbers a and b, compare the strings formed by concatenating them in different orders (ab vs ba). If ab > ba lexicographically, then a should come before b in the final arrangement.
 
 ### APPROACH:
@@ -40,26 +13,26 @@ The key insight is that to form the largest number, we need a custom comparison:
 8. ".
 
 ### WHY THIS WORKS:
- * - Custom comparator ensures optimal local ordering between any two elements
- * - Transitive property holds for concatenation comparison (if a should precede b, and b should precede c, then a should precede c)
- * - Greedy choice (best local order) produces best global result due to transitivity
- * - String comparison naturally handles different lengths correctly
- *
- * ### EXAMPLE WALKTHROUGH:
+- Custom comparator ensures optimal local ordering between any two elements
+- Transitive property holds for concatenation comparison (if a should precede b, and b should precede c, then a should precede c)
+- Greedy choice (best local order) produces best global result due to transitivity
+- String comparison naturally handles different lengths correctly
+
+### EXAMPLE WALKTHROUGH:
 Input:
 ```
 nums = [3, 30, 34, 5, 9]
 ```
 
-*Step 1:** Convert to strings: ["3", "30", "34", "5", "9"]
+Step 1:** Convert to strings: ["3", "30", "34", "5", "9"]
 
-*Step 2:** Compare pairs: "3"+"30"="330" vs "30"+"3"="303" → "3" before "30"
+Step 2:** Compare pairs: "3"+"30"="330" vs "30"+"3"="303" → "3" before "30"
 
-*Step 3:** Compare pairs: "3"+"34"="334" vs "34"+"3"="343" → "34" before "3"
+Step 3:** Compare pairs: "3"+"34"="334" vs "34"+"3"="343" → "34" before "3"
 
-*Step 4:** Sort using custom comparator: ["9", "5", "34", "3", "30"]
+Step 4:** Sort using custom comparator: ["9", "5", "34", "3", "30"]
 
-*Step 5:** Concatenate: "9534330"
+Step 5:** Concatenate: "9534330"
 
 Output:
 ```
@@ -67,20 +40,21 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
- * **O(n log n)** - The sorting operation dominates, where n is the number of elements. Each comparison takes O(k) where k is the average length of the numbers, but this is typically constant for practical inputs.
- *
- * ### SPACE COMPLEXITY:
+O(n log n)** - The sorting operation dominates, where n is the number of elements. Each comparison takes **O(k)** where k is the average length of the numbers, but this is typically constant for practical inputs.
+
+### SPACE COMPLEXITY:
 O(n)** - We create a list of n string representations plus the final concatenated result string. The sorting may use **O(log n)** additional space for the call stack.
 
 ### EDGE CASES:
- * - **All zeros:** [0, 0, 0] → "0" (not "000")
- * - **Single element:** [1] → "1"
- * - **Same digits different lengths:** [3, 30, 300] → "330300"
- * - **Large numbers:** Works correctly due to string comparison
- * - **Mixed sizes:** [121, 12] → "12121" (12+121="12121" > 121+12="12112")
- *
- * </details>
- */
+- **All zeros:** [0, 0, 0] → "0" (not "000")
+- **Single element:** [1] → "1"
+- **Same digits different lengths:** [3, 30, 300] → "330300"
+- **Large numbers:** Works correctly due to string comparison
+- **Mixed sizes:** [121, 12] → "12121" (12+121="12121" > 121+12="12112")
+
+</details>
+
+*/
 
 class Solution {
   /**

@@ -1,34 +1,4 @@
 """
-# 0179. Largest Number
-
-# Difficulty: Medium
-
-Given a list of non-negative integers `nums`, arrange them such that they form the largest number and return it.
-
-Since the result may be very large, so you need to return a string instead of an integer.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>nums = [10,2]</dd>
-<dt>Output:</dt>
-<dd>"210"</dd>
-<dt>Explanation:</dt>
-<dd>"210" is larger than "102", so we arrange [2, 10]</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: Custom Comparator, String Concatenation, Greedy Algorithm
-**Data Structures**: Array, String
-**Patterns**: Greedy, Custom Sorting
-**Time Complexity**: **O(n log n)** - Dominated by sorting operation
-**Space Complexity**: **O(n)** - Space for string conversions and result
-
 ### INTUITION:
 The key insight is that to form the largest number, we need a custom comparison: for two numbers a and b, compare the strings formed by concatenating them in different orders (ab vs ba). If ab > ba lexicographically, then a should come before b in the final arrangement.
 
@@ -70,7 +40,7 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-**O(n log n)** - The sorting operation dominates, where n is the number of elements. Each comparison takes O(k) where k is the average length of the numbers, but this is typically constant for practical inputs.
+**O(n log n)** - The sorting operation dominates, where n is the number of elements. Each comparison takes **O(k)** where k is the average length of the numbers, but this is typically constant for practical inputs.
 
 ### SPACE COMPLEXITY:
 **O(n)** - We create a list of n string representations plus the final concatenated result string. The sorting may use **O(log n)** additional space for the call stack.
@@ -83,6 +53,7 @@ Output:
 - **Mixed sizes:** [121, 12] → "12121" (12+121="12121" > 121+12="12112")
 
 </details>
+
 """
 
 from typing import List

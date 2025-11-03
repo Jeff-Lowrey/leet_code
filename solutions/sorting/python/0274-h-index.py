@@ -1,35 +1,4 @@
 """
-# Difficulty: Medium
-
-# 0274. H Index
-
-Given an array of integers citations where citations[i] is the number of citations a researcher
-received for their ith paper, return the researcher's h-index.
-
-According to the definition of h-index on Wikipedia: The h-index is defined as the maximum value
-of h such that the given researcher has published at least h papers that have each been cited at
-least h times.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>citations = [3,0,6,1,5]</dd>
-<dt>Output:</dt>
-<dd>3</dd>
-<dt>Explanation:</dt>
-<dd>H-index for citations [3,0,6,1,5] is 3</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: Array
-**Patterns**: Hash Table Pattern
-**Time Complexity**: O(n log n) - Sorting or divide-and-conquer
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
 The h-index is the largest number h where at least h papers have h or more citations.
 Sorting helps us find this threshold efficiently. We can also use counting for O(n) solution.
@@ -77,12 +46,12 @@ Step-by-step execution:
 3. [Final step]
 
 ### TIME COMPLEXITY:
-O(n log n)
-For sorting approach. Counting approach is O(n).
+**O(n log n)**
+For sorting approach. Counting approach is **O(n)**.
 
 ### SPACE COMPLEXITY:
-O(1)
-If sorting in place, O(n) for sorting with extra space
+**O(1)**
+If sorting in place, **O(n)** for sorting with extra space
 
 ### EDGE CASES:
 - **Empty input**: Handle when input is empty
@@ -90,6 +59,7 @@ If sorting in place, O(n) for sorting with extra space
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 

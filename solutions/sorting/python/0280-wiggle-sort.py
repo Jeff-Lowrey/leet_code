@@ -1,32 +1,4 @@
 """
-# Difficulty: Medium
-
-# 0280. Wiggle Sort
-
-Given an integer array nums, reorder it such that nums[0] <= nums[1] >= nums[2] <= nums[3]...
-
-You may assume the input array always has a valid answer.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>[3, 5, 2, 1, 6, 4]</dd>
-<dt>Output:</dt>
-<dd>1</dd>
-<dt>Explanation:</dt>
-<dd>Wiggle sort: [3,5,2,1,6,4] becomes [3,5,1,6,2,4]</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Map Storage, Array Traversal, Two Pointers
-**Data Structures**: Array, Tree, Linked List
-**Patterns**: Two Pointers Pattern
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
 The key insight is that we need alternating pattern: small, large, small, large. We can achieve this in O(n) time
 by swapping elements when the pattern is violated, without sorting.
@@ -81,11 +53,11 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 Single pass through array with swaps
 
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 In-place swaps only
 
 ### EDGE CASES:
@@ -94,6 +66,7 @@ In-place swaps only
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 

@@ -1,35 +1,5 @@
 /**
- * # Difficulty: Medium
- *
- * # 0280. Wiggle Sort
- *
- *
- * Given an integer array nums, reorder it such that nums[0] <= nums[1] >= nums[2] <= nums[3]...
- *
- * You may assume the input array always has a valid answer.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>[3, 5, 2, 1, 6, 4]</dd>
- * <dt>Output:</dt>
- * <dd>1</dd>
- * <dt>Explanation:</dt>
- * <dd>Wiggle sort: [3,5,2,1,6,4] becomes [3,5,1,6,2,4]</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- * ### METADATA:
- * **Techniques**: Array Traversal, Sorting
- * **Data Structures**: Array, String
- * **Patterns**: Iterative Solution
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(1) - Constant extra space
-
- *
- * ### INTUITION:
+### INTUITION:
 The key insight is that we need alternating pattern: small, large, small, large. We can achieve this in O(n) time
 by swapping elements when the pattern is violated, without sorting.
 
@@ -49,51 +19,52 @@ by swapping elements when the pattern is violated, without sorting.
 - This ensures that one pass is sufficient to fix all violations
 
 ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * nums = [3,5,2,1,6,4]
- * ```
- *
- * One-pass approach:
- * Sorting approach:
- * Pair and swap:
- *
- * Steps:
- * Step 1: i=0 (even): 3 <= 5? YES, no swap -> [3,5,2,1,6,4]
- * Step 2: i=1 (odd):  5 >= 2? YES, no swap -> [3,5,2,1,6,4]
- * Step 3: i=2 (even): 2 <= 1? NO, swap     -> [3,5,1,2,6,4]
- * Step 4: i=3 (odd):  2 >= 6? NO, swap     -> [3,5,1,6,2,4]
- * Step 5: i=4 (even): 2 <= 4? YES, no swap -> [3,5,1,6,2,4]
- * Step 6: Final: [3,5,1,6,2,4]
- * Step 7: Verify: 3<=5>=1<=6>=2<=4 ✓
- * Step 8: Sort: [1,2,3,4,5,6]
- * Step 9: - Take pairs: (1,2), (3,4), (5,6)
- * Step 10: - Swap each pair: (2,1), (4,3), (6,5)
- * Step 11: - Result: [2,1,4,3,6,5]
- * Step 12: - Verify: 2>=1<=4>=3<=6>=5 ✓
- * 
- * Output:
- * ```
- * [2,1,4,3,6,5]
- * ```
- * 
- * ### TIME COMPLEXITY:
- * O(n)
- * - Single pass through input
- * Single pass through array with swaps
- *
- * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
- * In-place swaps only
- *
- * ### EDGE CASES:
+Input:
+```
+nums = [3,5,2,1,6,4]
+```
+
+One-pass approach:
+Sorting approach:
+Pair and swap:
+
+Steps:
+Step 1: i=0 (even): 3 <= 5? YES, no swap -> [3,5,2,1,6,4]
+Step 2: i=1 (odd):  5 >= 2? YES, no swap -> [3,5,2,1,6,4]
+Step 3: i=2 (even): 2 <= 1? NO, swap     -> [3,5,1,2,6,4]
+Step 4: i=3 (odd):  2 >= 6? NO, swap     -> [3,5,1,6,2,4]
+Step 5: i=4 (even): 2 <= 4? YES, no swap -> [3,5,1,6,2,4]
+Step 6: Final: [3,5,1,6,2,4]
+Step 7: Verify: 3<=5>=1<=6>=2<=4 ✓
+Step 8: Sort: [1,2,3,4,5,6]
+Step 9: - Take pairs: (1,2), (3,4), (5,6)
+Step 10: - Swap each pair: (2,1), (4,3), (6,5)
+Step 11: - Result: [2,1,4,3,6,5]
+Step 12: - Verify: 2>=1<=4>=3<=6>=5 ✓
+
+Output:
+```
+[2,1,4,3,6,5]
+```
+
+### TIME COMPLEXITY:
+O(n)**
+- Single pass through input
+Single pass through array with swaps
+
+### SPACE COMPLEXITY:
+O(1)**
+- Constant extra space
+In-place swaps only
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 /**
  * Main solution for Problem 280: Wiggle Sort
