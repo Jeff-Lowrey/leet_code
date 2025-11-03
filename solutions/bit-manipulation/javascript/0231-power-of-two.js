@@ -1,37 +1,110 @@
 /**
- * # 0231. Power Of Two
- *
- * Difficulty: Medium
- *
- * # 0231. Power of Two
- *
- * Given an integer n, return true if it is a power of two. Otherwise, return false.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>16</dd>
- * <dt>Output:</dt>
- * <dd>true</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- *
- * ### METADATA:
- * **Techniques**: Bit Manipulation, Recursion, Math
- * **Data Structures**: Integer
- * **Patterns**: Power Detection, Bit Pattern Recognition
- * **Time Complexity**: **O(1)** - Constant time bit operation or O(log n) for recursion
- * **Space Complexity**: **O(1)** - Constant space or O(log n) for recursion stack
- *
- * ### INTUITION:
+### INTUITION:
 The key insight is that a power of two has exactly one bit set in its binary representation.
 Recursively, we can check: if n is even, divide by 2 and recurse.
 If n becomes 1, it's a power of two. If n is odd (and not 1), it's not.
 
 ### APPROACH:
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
 The algorithm proceeds as follows:
 
 The algorithm proceeds as follows:
@@ -58,17 +131,17 @@ This solution uses math for efficient implementation.
 The solution leverages integer for efficient operations.
 
 ### EXAMPLE WALKTHROUGH:
-*Input:** n = 16
+Input:** n = 16
 
-*Step 1:** isPowerOfTwo(16) → 16 % 2 === 0 → check isPowerOfTwo(8)
+Step 1:** isPowerOfTwo(16) → 16 % 2 === 0 → check isPowerOfTwo(8)
 
-*Step 2:** isPowerOfTwo(8) → 8 % 2 === 0 → check isPowerOfTwo(4)
+Step 2:** isPowerOfTwo(8) → 8 % 2 === 0 → check isPowerOfTwo(4)
 
-*Step 3:** isPowerOfTwo(4) → 4 % 2 === 0 → check isPowerOfTwo(2)
+Step 3:** isPowerOfTwo(4) → 4 % 2 === 0 → check isPowerOfTwo(2)
 
-*Step 4:** isPowerOfTwo(2) → 2 % 2 === 0 → check isPowerOfTwo(1)
+Step 4:** isPowerOfTwo(2) → 2 % 2 === 0 → check isPowerOfTwo(1)
 
-*Step 5:** isPowerOfTwo(1) → return true (base case)
+Step 5:** isPowerOfTwo(1) → return true (base case)
 
 Output:
 ```
@@ -76,21 +149,22 @@ true
 ```
 
 ### TIME COMPLEXITY:
- * O(log n) - dividing by 2 each time
- *
- * ### SPACE COMPLEXITY:
- * O(log n) - recursion stack depth
- *
- * ### EDGE CASES:
+O(log n)** - dividing by 2 each time
+
+### SPACE COMPLEXITY:
+O(log n)** - recursion stack depth
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- *
- * @param {number} n
- * @return {boolean}
- */
+
+@param {number} n
+@return {boolean}
+
+*/
 
 class Solution {
   /**

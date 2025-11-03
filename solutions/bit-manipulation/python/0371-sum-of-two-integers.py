@@ -1,32 +1,4 @@
 """
-# 0371. Sum of Two Integers
-
-# Difficulty: Medium
-
-Given two integers a and b, return the sum of the two integers without using
-the operators + and -.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>a = 1, b = 2</dd>
-<dt>Output:</dt>
-<dd>3</dd>
-<dt>Explanation:</dt>
-<dd>1 + 2 = 3 using bitwise operations</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-### METADATA:
-**Techniques**: Bit Manipulation, XOR, AND, Bit Shifting
-**Data Structures**: None
-**Patterns**: Bitwise Addition Simulation
-**Time Complexity**: O(1) - Fixed number of iterations (32 bits for integers)
-**Space Complexity**: O(1) - Only storing intermediate values
-
 ### INTUITION:
 The key insight is that addition can be broken down into two parts:
 1. XOR gives sum without carry (1+1=0, 1+0=1, 0+0=0)
@@ -69,10 +41,10 @@ Step-by-step execution:
 3. [Final step]
 
 ### TIME COMPLEXITY:
-O(1) - At most 32 iterations for 32-bit integers
+**O(1)** - At most 32 iterations for 32-bit integers
 
 ### SPACE COMPLEXITY:
-O(1) - Constant space for variables
+**O(1)** - Constant space for variables
 
 ### EDGE CASES:
 - **Both zero**: Return 0
@@ -95,6 +67,7 @@ O(1) - Constant space for variables
 </details>
 
 </details>
+
 """
 
 

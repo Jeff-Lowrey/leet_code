@@ -1,34 +1,5 @@
 /**
- * # 0371. Sum of Two Integers
- *
- * Difficulty: Medium
- *
- *
- * Given two integers a and b, return the sum of the two integers without using
- * the operators + and -.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>a = 1, b = 2</dd>
- * <dt>Output:</dt>
- * <dd>1</dd>
- * <dt>Explanation:</dt>
- * <dd>1 + 2 = 3 using bitwise operations</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- *
- * ### METADATA:
- * **Techniques**: Bit Manipulation, XOR, AND, Bit Shifting
- * **Data Structures**: None
- * **Patterns**: Bitwise Addition Simulation
- * **Time Complexity**: O(1) - Fixed number of iterations (32 bits for integers)
- * **Space Complexity**: O(1) - Only storing intermediate values
- *
- * ### INTUITION:
+### INTUITION:
 The key insight is that addition can be broken down into two parts:
 1. XOR gives sum without carry (1+1=0, 1+0=1, 0+0=0)
 2. AND then left shift gives the carry (1+1 produces carry to next position)
@@ -70,14 +41,14 @@ Step-by-step execution:
 3. [Final step]
 
 ### TIME COMPLEXITY:
- * O(1)
- * - Fixed number of iterations (32 bits for integers)
- *
- * ### SPACE COMPLEXITY:
- * O(1)
- * - Only storing intermediate values
- *
- * ### EDGE CASES:
+O(1)**
+- Fixed number of iterations (32 bits for integers)
+
+### SPACE COMPLEXITY:
+O(1)**
+- Only storing intermediate values
+
+### EDGE CASES:
 - **Both zero**: Return 0
 - **Negative numbers**: Handle with mask for 32-bit range
 - **Overflow**: Mask to 32-bit range
@@ -98,7 +69,8 @@ Step-by-step execution:
 </details>
 
 </details>
- */
+
+*/
 
 class Solution {
   /**

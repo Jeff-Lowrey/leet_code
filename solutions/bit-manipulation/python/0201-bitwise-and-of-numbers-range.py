@@ -1,32 +1,4 @@
 """
-# 0201. Bitwise AND of Numbers Range
-
-# Difficulty: Medium
-
-Given two integers `left` and `right` that represent the range `[left, right]`, return the bitwise AND of all numbers in this range, inclusive.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>left = 5, right = 7</dd>
-<dt>Output:</dt>
-<dd>4</dd>
-<dt>Explanation:</dt>
-<dd>5 & 6 & 7 = 4 (binary: 101 & 110 & 111 = 100)</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: Bit Shifting, Common Prefix Finding
-**Data Structures**: Integer
-**Patterns**: Bit Manipulation, Range Query Optimization
-**Time Complexity**: **O(log n)** - Where n is the maximum value in range, we shift at most 32 times
-**Space Complexity**: **O(1)** - Only using constant extra space for variables
-
 ### INTUITION:
 The key insight is that ANDing all numbers in a range is equivalent to finding the common binary prefix of the left and right boundaries. Any bit position where left and right differ will become 0 in the final result because there will be at least one number in the range with a 0 at that position.
 
@@ -68,7 +40,7 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-**O(log n)** - Where n is the maximum value in the range. We perform at most 32 right shifts for 32-bit integers, which is O(log n) where n is the maximum representable value.
+**O(log n)** - Where n is the maximum value in the range. We perform at most 32 right shifts for 32-bit integers, which is **O(log n)** where n is the maximum representable value.
 
 ### SPACE COMPLEXITY:
 **O(1)** - We only use a constant amount of extra space for the shift counter variable, regardless of input size.
@@ -80,6 +52,7 @@ Output:
 - **Adjacent numbers:** Returns their AND, which zeros out any differing bits
 
 </details>
+
 """
 
 from typing import Any

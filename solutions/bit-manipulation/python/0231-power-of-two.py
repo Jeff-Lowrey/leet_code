@@ -1,33 +1,4 @@
 """
-# 0231. Power of Two
-
-# Difficulty: Easy
-
-Given an integer n, return true if it is a power of two. Otherwise, return false.
-
-An integer n is a power of two, if there exists an integer x such that n == 2^x.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>n = 16</dd>
-<dt>Output:</dt>
-<dd>true</dd>
-<dt>Explanation:</dt>
-<dd>2^4 = 16</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-### METADATA:
-**Techniques**: Recursion, Bit Manipulation
-**Data Structures**: None
-**Patterns**: Divide and Conquer, Mathematical
-**Time Complexity**: O(log n) for recursion
-**Space Complexity**: O(log n) for recursion stack
-
 ### INTUITION:
 The key insight is that a power of two has exactly one bit set in its binary representation.
 Recursively, we can check: if n is even, divide by 2 and recurse.
@@ -64,10 +35,10 @@ True
 ```
 
 ### TIME COMPLEXITY:
-O(log n) - dividing by 2 each time
+**O(log n)** - dividing by 2 each time
 
 ### SPACE COMPLEXITY:
-O(log n) - recursion stack depth
+**O(log n)** - recursion stack depth
 
 ### EDGE CASES:
 - **Empty input**: Handle when input is empty
@@ -75,6 +46,7 @@ O(log n) - recursion stack depth
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 

@@ -1,32 +1,4 @@
 """
-# Difficulty: Medium
-
-# 0137. Single Number II
-
-Given an integer array nums where every element appears three times except for one, which appears exactly once. Find the single element and return it.
-
-You must implement a solution with a linear runtime complexity and use only constant extra space.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>[2,2,3,2]</dd>
-<dt>Output:</dt>
-<dd>3 (single number)</dd>
-<dt>Explanation:</dt>
-<dd>The single number 3 appears once in [2,2,3,2] (all others appear thrice)</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Array Traversal
-**Data Structures**: Hash Map, Hash Set, Array
-**Patterns**: Hash Table Pattern
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
 The key insight is that use bit manipulation to count occurrences at each bit position. For each bit, sum all bits at that position mod 3. The result is the bit pattern of the single number appearing once.
 
@@ -72,14 +44,12 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 - Single pass through input
 
-
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 - Constant extra space
-
 
 ### EDGE CASES:
 - **Empty input**: Handle when input is empty
@@ -87,6 +57,7 @@ O(1)
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 from typing import List, Optional, Dict, Tuple

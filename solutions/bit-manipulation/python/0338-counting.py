@@ -1,30 +1,4 @@
 """
-# Difficulty: Easy
-
-# 0338. Counting Bits
-
-Given an integer n, return an array ans of length n + 1 such that for each i (0 <= i <= n), ans[i] is the number of 1's in the binary representation of i.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>n = 5</dd>
-<dt>Output:</dt>
-<dd>[0,1,1,2,1,2]</dd>
-<dt>Explanation:</dt>
-<dd>Counting bits: for n=5, result is [0,1,1,2,1,2] (bit counts for 0-5)</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: Hash Map, Hash Set, Array
-**Patterns**: Hash Table Pattern, Dynamic Programming
-**Time Complexity**: O(n)
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
 The key insight is that for each number, count set bits. Pattern: dp[i] = dp[i >> 1] + (i & 1). The count for i equals count for i/2 plus the last bit of i.
 
@@ -73,14 +47,12 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 - Single pass through input
 
-
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 - Constant extra space
-
 
 ### EDGE CASES:
 - **Empty input**: Handle when input is empty
@@ -88,6 +60,7 @@ O(1)
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 from typing import List, Optional, Dict, Tuple

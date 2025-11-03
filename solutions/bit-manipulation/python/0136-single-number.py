@@ -1,32 +1,4 @@
 """
-# Difficulty: Easy
-
-# 0136. Single Number
-
-Given a non-empty array of integers nums, every element appears twice except for one. Find that single one.
-
-You must implement a solution with a linear runtime complexity and use only constant extra space.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>[2,2,1]</dd>
-<dt>Output:</dt>
-<dd>1 (the single number)</dd>
-<dt>Explanation:</dt>
-<dd>The single number 4 appears once in [2,2,1,4,1] (all others appear twice)</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
-**Data Structures**: Hash Set, Array
-**Patterns**: Hash Table Pattern
-**Time Complexity**: O(n) - Single pass with O(1) hash lookups
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
 This is a classic bit manipulation problem. The key insight is that XOR has special properties:
 - a ^ a = 0 (any number XORed with itself is 0)
@@ -63,11 +35,11 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 Single pass through the array
 
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 Only using constant extra space
 
 ### EDGE CASES:
@@ -76,6 +48,7 @@ Only using constant extra space
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 from typing import Any

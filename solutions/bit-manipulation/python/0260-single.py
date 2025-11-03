@@ -1,32 +1,4 @@
 """
-# Difficulty: Medium
-
-# 0260. Single Number III
-
-Given an integer array nums, in which exactly two elements appear only once and all the other elements appear exactly twice. Find the two elements that appear only once. You can return the answer in any order.
-
-You must write an algorithm that runs in linear runtime complexity and uses only constant extra space.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>nums = [1,2,1,3,2,5]</dd>
-<dt>Output:</dt>
-<dd>[3, 5] (two single numbers)</dd>
-<dt>Explanation:</dt>
-<dd>Two numbers [3,5] appear once in [1,2,1,3,2,5]</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Array Traversal, Sorting
-**Data Structures**: Hash Map, Hash Set, Array
-**Patterns**: Divide and Conquer
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
 The key insight is that xOR all numbers - pairs cancel leaving x^y. Find any set bit in x^y to distinguish them. Partition numbers by this bit and XOR each partition separately to get x and y.
 
@@ -68,14 +40,12 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 - Single pass through input
 
-
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 - Constant extra space
-
 
 ### EDGE CASES:
 - **Empty input**: Handle when input is empty
@@ -83,6 +53,7 @@ O(1)
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 from typing import List, Optional, Dict, Tuple
