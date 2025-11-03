@@ -49,43 +49,43 @@ This solution uses set operations for efficient implementation.
  * - Binary Indexed Tree (Fenwick tree) provides O(log n) prefix sum queries and updates using bit manipulation
  *
 ### EXAMPLE WALKTHROUGH:
- * Given input nums = [-2,5,-1], lower = -2, upper = 2:
- *
- * Input:
- * ```
- * nums = [-2,5,-1], lower = -2, upper = 2
- * ```
- *
- * **Step 1:** Compute prefix sums
- * - prefix = [0, -2, 3, 2]
- *
- * **Step 2:** Transform problem
- * - Need pairs where lower ≤ prefix[j] - prefix[i] ≤ upper
- * - Equivalent: prefix[j] - upper ≤ prefix[i] ≤ prefix[j] - lower
- *
- * **Step 3:** Apply merge sort on prefix array
- * - Divide: Split [0, -2, 3, 2] recursively
- *
- * **Step 4:** Count cross-boundary ranges during merge
- * - For each prefix[j] in right half, count valid prefix[i] in left half
- * - Example: For prefix[j]=2, need -2-2≤prefix[i]≤2-(-2) → -4≤prefix[i]≤4
- *
- * **Step 5:** Use two pointers
- * - Maintain pointers to efficiently count valid ranges in sorted halves
- *
- * **Step 6:** Accumulate counts
- * - Count from left subtree + right subtree + cross-boundary
- * - Valid range sums: S(0,0)=-2, S(0,2)=2, S(2,2)=-1
- *
- * **Step 7:** Return total count
- * - Final count: 3 valid range sums
- *
- * Output:
- * ```
- * 3
- * ```
- *
- * ### TIME COMPLEXITY:
+Given input nums = [-2,5,-1], lower = -2, upper = 2:
+
+Input:
+```
+nums = [-2,5,-1], lower = -2, upper = 2
+```
+
+*Step 1:** Compute prefix sums
+- prefix = [0, -2, 3, 2]
+
+*Step 2:** Transform problem
+- Need pairs where lower ≤ prefix[j] - prefix[i] ≤ upper
+- Equivalent: prefix[j] - upper ≤ prefix[i] ≤ prefix[j] - lower
+
+*Step 3:** Apply merge sort on prefix array
+- Divide: Split [0, -2, 3, 2] recursively
+
+*Step 4:** Count cross-boundary ranges during merge
+- For each prefix[j] in right half, count valid prefix[i] in left half
+- Example: For prefix[j]=2, need -2-2≤prefix[i]≤2-(-2) → -4≤prefix[i]≤4
+
+*Step 5:** Use two pointers
+- Maintain pointers to efficiently count valid ranges in sorted halves
+
+*Step 6:** Accumulate counts
+- Count from left subtree + right subtree + cross-boundary
+- Valid range sums: S(0,0)=-2, S(0,2)=2, S(2,2)=-1
+
+*Step 7:** Return total count
+- Final count: 3 valid range sums
+
+Output:
+```
+3
+```
+
+### TIME COMPLEXITY:
  * O(n log n)
  * - Sorting or divide-and-conquer
  * For merge sort and tree-based approaches
@@ -96,13 +96,11 @@ This solution uses set operations for efficient implementation.
  * For prefix sums and auxiliary structures
  * 
  * ### EDGE CASES:
- * - Empty array
- * - Single element
- * - All elements equal
- * - Lower and upper bounds edge cases
- * - Negative numbers and overflow considerations
- * 
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {

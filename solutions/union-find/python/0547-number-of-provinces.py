@@ -41,10 +41,10 @@ This is a classic connected components problem. We need to find how many separat
 4. **Alternative DFS**: Can also use DFS to mark visited cities in each component
 
 ### WHY THIS WORKS:
-- Union-Find automatically groups connected cities into components
-- Each connected component represents one province
-- After processing all connections, count unique roots to get province count
-- DFS alternative marks all cities in a component as visited
+- This ensures that union-Find automatically groups connected cities into components
+- This ensures that each connected component represents one province
+- This ensures that after processing all connections, count unique roots to get province count
+- This ensures that dFS alternative marks all cities in a component as visited
 
 ### EXAMPLE WALKTHROUGH:
 Input:

@@ -87,11 +87,9 @@ O(n)
 For prefix sums and auxiliary structures
 
 ### EDGE CASES:
-- Empty array
-- Single element
-- All elements equal
-- Lower and upper bounds edge cases
-- Negative numbers and overflow considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

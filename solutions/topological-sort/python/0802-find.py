@@ -30,7 +30,7 @@ Return an array containing all the safe nodes of the graph. The answer should be
 **Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
-Build reverse graph (who reaches who). Use Kahn's algorithm. Nodes with out-degree 0 are safe (reach terminal). Process in reverse topological order to find all safe nodes.
+The key insight is that build reverse graph (who reaches who). Use Kahn's algorithm. Nodes with out-degree 0 are safe (reach terminal). Process in reverse topological order to find all safe nodes.
 
 ### APPROACH:
 1. **Build graph**: Create adjacency list from graph edges
@@ -43,11 +43,11 @@ Build reverse graph (who reaches who). Use Kahn's algorithm. Nodes with out-degr
 8. **Find safe nodes**: Return nodes where dfs(node) returns True
 
 ### WHY THIS WORKS:
-- Reverse graph, find nodes from which all paths lead to terminals
-- Color nodes: 0=unvisited, 1=visiting, 2=safe
-- DFS: if all neighbors are safe, current node is safe
-- If reaches cycle (visiting node), not safe
-- O(V + E) time: DFS visits each node/edge once, O(V) space
+- This ensures that reverse graph, find nodes from which all paths lead to terminals
+- This ensures that color nodes: 0=unvisited, 1=visiting, 2=safe
+- This ensures that dFS: if all neighbors are safe, current node is safe
+- This ensures that if reaches cycle (visiting node), not safe
+- This ensures that o(V + E) time: DFS visits each node/edge once, O(V) space
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -80,9 +80,9 @@ O(1)
 
 
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

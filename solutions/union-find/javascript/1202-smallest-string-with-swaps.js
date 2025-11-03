@@ -35,20 +35,20 @@
 
  *
  * ### INTUITION:
- * Pairs form connected components via union-find. Within each component, indices can be
- * rearranged freely. Sort characters in each component and assign to sorted indices.
- *
- * ### APPROACH:
- * 1. **Union-Find**: Group indices into connected components
- * 2. **Collect**: For each component, gather indices and characters
- * 3. **Sort**: Sort both indices and characters
- * 4. **Assign**: Place sorted characters at sorted indices
- *
- * ### WHY THIS WORKS:
- * If indices are transitively swappable, they form a connected component where any
- * permutation is achievable. Lexicographically smallest = sort characters ascending.
- *
- * ### EXAMPLE WALKTHROUGH:
+The key insight is that pairs form connected components via union-find. Within each component, indices can be
+rearranged freely. Sort characters in each component and assign to sorted indices.
+
+### APPROACH:
+1. **Union-Find**: Group indices into connected components
+2. **Collect**: For each component, gather indices and characters
+3. **Sort**: Sort both indices and characters
+4. **Assign**: Place sorted characters at sorted indices
+
+### WHY THIS WORKS:
+If indices are transitively swappable, they form a connected component where any
+permutation is achievable. Lexicographically smallest = sort characters ascending.
+
+### EXAMPLE WALKTHROUGH:
  * Input:
  * ```
  * s = "dcab", pairs = [[0,3],[1,2]]

@@ -47,22 +47,32 @@
  * The algorithm correctly solves the problem by systematically exploring all valid states while maintaining necessary invariants. Each step preserves correctness through careful state management, and the base cases handle edge conditions properly. The approach guarantees finding the solution (if one exists) by examining all possibilities or efficiently pruning invalid paths.
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * [[0,0,2,2],[1,0,2,3],[1,0,3,1]]
- * ```
- *
- * Unique X coords: [0,1,2,3]
- * Unique Y coords: [0,1,2,3]
- * Grid cells covered:
- * [0,1]×[0,1]: covered by rect 0
- * [1,2]×[0,1]: covered by rects 0,1,2
- * [1,2]×[1,2]: covered by rects 0,1
- * [1,2]×[2,3]: covered by rect 1
- * [2,3]×[0,1]: covered by rect 2
- * Total area = 1 + 1 + 1 + 1 + 1 + 1 = 6
+Input:
+```
+[[0,0,2,2],[1,0,2,3],[1,0,3,1]]
+```
 
- * ### TIME COMPLEXITY:
+Unique X coords: [0,1,2,3]
+Unique Y coords: [0,1,2,3]
+Grid cells covered:
+[0,1]×[0,1]: covered by rect 0
+[1,2]×[0,1]: covered by rects 0,1,2
+[1,2]×[1,2]: covered by rects 0,1
+[1,2]×[2,3]: covered by rect 1
+[2,3]×[0,1]: covered by rect 2
+Total area = 1 + 1 + 1 + 1 + 1 + 1 = 6
+
+Output:
+```
+[Expected output]
+```
+
+Step-by-step execution:
+1. [First step]
+2. [Second step]
+3. [Final step]
+
+### TIME COMPLEXITY:
  * - Sweep Line: O(n² log n)
  * - Coordinate Compression: O(n²)
  *
@@ -72,13 +82,11 @@
  * For coordinate storage and data structures
  *
  * ### EDGE CASES:
- * - No rectangles
- * - Single rectangle
- * - Completely overlapping rectangles
- * - Non-overlapping rectangles
- * - Large coordinates (use modulo)
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 const MOD = 1000000007;

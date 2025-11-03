@@ -47,40 +47,40 @@
  * - Two-pass approach separates grouping from validation
  *
  * ### EXAMPLE WALKTHROUGH:
- * Given input ["a==b","b==c","a!=d"]:
- *
- * Input:
- * ```
- * ["a==b","b==c","a!=d"]
- * ```
- *
- * **Step 1:** Initialize parent array
- * - parent[0..25] = [0,1,2,...,25] (each variable is its own parent)
- * - Variables: a=0, b=1, c=2, d=3
- *
- * **Step 2:** Process equality "a==b"
- * - Union(a, b): parent[0] = 1
- * - Groups: {a,b}, {c}, {d}, ...
- *
- * **Step 3:** Process equality "b==c"
- * - Union(b, c): parent[1] = 2
- * - Groups: {a,b,c}, {d}, ...
- *
- * **Step 4:** Check inequality "a!=d"
- * - find(a) = 2 (through path compression: a→b→c)
- * - find(d) = 3
- * - 2 ≠ 3, so no conflict
- *
- * **Step 4:** Return result
- * - All constraints satisfied, no contradictions found
- * - Can assign: a=0, b=0, c=0, d=1
- *
- * Output:
- * ```
- * true
- * ```
+Given input ["a==b","b==c","a!=d"]:
 
- * ### TIME COMPLEXITY:
+Input:
+```
+["a==b","b==c","a!=d"]
+```
+
+*Step 1:** Initialize parent array
+- parent[0..25] = [0,1,2,...,25] (each variable is its own parent)
+- Variables: a=0, b=1, c=2, d=3
+
+*Step 2:** Process equality "a==b"
+- Union(a, b): parent[0] = 1
+- Groups: {a,b}, {c}, {d}, ...
+
+*Step 3:** Process equality "b==c"
+- Union(b, c): parent[1] = 2
+- Groups: {a,b,c}, {d}, ...
+
+*Step 4:** Check inequality "a!=d"
+- find(a) = 2 (through path compression: a→b→c)
+- find(d) = 3
+- 2 ≠ 3, so no conflict
+
+*Step 4:** Return result
+- All constraints satisfied, no contradictions found
+- Can assign: a=0, b=0, c=0, d=1
+
+Output:
+```
+true
+```
+
+### TIME COMPLEXITY:
  * O(N × α(N))
  * Where N is number of equations and α is inverse Ackermann function
  * 
@@ -90,12 +90,11 @@
  * Since we only have 26 possible variables (a-z)
  * 
  * ### EDGE CASES:
- * - No equations (vacuously true)
- * - Only equality equations
- * - Only inequality equations
- * - Self-reference equations like "a==a" or "a!=a"
- * 
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {

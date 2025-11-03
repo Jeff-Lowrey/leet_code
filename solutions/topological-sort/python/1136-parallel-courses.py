@@ -30,7 +30,7 @@ Return the minimum number of semesters needed to take all courses. If there is n
 **Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
-Build graph and calculate in-degrees. Use BFS starting from nodes with in-degree 0. Process courses level by level (semester by semester). Track maximum semester count needed.
+The key insight is that build graph and calculate in-degrees. Use BFS starting from nodes with in-degree 0. Process courses level by level (semester by semester). Track maximum semester count needed.
 
 ### APPROACH:
 1. **Build graph and indegrees**: Create adjacency list and indegree array
@@ -77,9 +77,9 @@ O(1)
 
 
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

@@ -44,26 +44,36 @@
  * 4. **Calculate operations**: (components - 1) operations needed to connect all
  * 
  * ### WHY THIS WORKS:
- * - Union-Find efficiently tracks connected components
- * - Each component merge requires exactly 1 cable
- * - Spare cables = total_cables - (n - components)
- * - Need (components - 1) cables to connect all components
- * 
- * ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * n = 4, connections = [[0,1],[0,2],[1,2],[1,3]]
- * ```
- *
- * Total cables: 4, Need: 3, Spare: 1
- * Union-Find process:
- * - Connect 0-1: components = {0,1}, {2}, {3}
- * - Connect 0-2: components = {0,1,2}, {3}
- * - Connect 1-2: redundant (already connected)
- * - Connect 1-3: components = {0,1,2,3}
- * Components: 1, Operations needed: 0
+- This ensures that union-Find efficiently tracks connected components
+- This ensures that each component merge requires exactly 1 cable
+- This ensures that spare cables = total_cables - (n - components)
+- This ensures that need (components - 1) cables to connect all components
 
- * ### TIME COMPLEXITY:
+### EXAMPLE WALKTHROUGH:
+Input:
+```
+n = 4, connections = [[0,1],[0,2],[1,2],[1,3]]
+```
+
+Total cables: 4, Need: 3, Spare: 1
+Union-Find process:
+- Connect 0-1: components = {0,1}, {2}, {3}
+- Connect 0-2: components = {0,1,2}, {3}
+- Connect 1-2: redundant (already connected)
+- Connect 1-3: components = {0,1,2,3}
+Components: 1, Operations needed: 0
+
+Output:
+```
+[Expected output]
+```
+
+Step-by-step execution:
+1. [First step]
+2. [Second step]
+3. [Final step]
+
+### TIME COMPLEXITY:
  * O(n × α(n))
  * Where α is the inverse Ackermann function (nearly constant)
  * 
@@ -73,11 +83,11 @@
  * For Union-Find parent and rank arrays
  * 
  * ### EDGE CASES:
- * - Not enough cables: return -1
- * - Already connected: return 0
- * - Multiple components with spare cables
- * 
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {

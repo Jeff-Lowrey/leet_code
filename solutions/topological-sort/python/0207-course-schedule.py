@@ -30,7 +30,7 @@ Return true if you can finish all courses. Otherwise, return false.
 **Space Complexity**: O(V + E)
 
 ### INTUITION:
-This is a cycle detection problem in a directed graph. If there's a cycle in the prerequisite dependencies, it's impossible to complete all courses. Topological sorting can detect cycles while finding a valid course order.
+The key insight is that this is a cycle detection problem in a directed graph. If there's a cycle in the prerequisite dependencies, it's impossible to complete all courses. Topological sorting can detect cycles while finding a valid course order.
 
 ### APPROACH:
 1. **Build adjacency list**: Create a graph where each prerequisite points to the courses that depend on it
@@ -82,6 +82,8 @@ O(V + E)
 - **Circular dependency**: Cycle detection returns false
 - **Linear chain**: No cycles, courses taken in topological order
 - **Disconnected components**: Process each component separately
+
+</details>
 
 </details>
 """

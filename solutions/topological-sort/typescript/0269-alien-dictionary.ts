@@ -33,9 +33,9 @@
  * **Space Complexity**: O(1) - Constant extra space
  *
  * ### INTUITION:
- * Build graph from word pairs by comparing adjacent words. Find first different character to establish order. Perform topological sort using DFS or BFS. Detect cycles (impossible ordering).
- *
- * ### APPROACH:
+The key insight is that build graph from word pairs by comparing adjacent words. Find first different character to establish order. Perform topological sort using DFS or BFS. Detect cycles (impossible ordering).
+
+### APPROACH:
  * 1. **Build graph**: Compare adjacent words to find character ordering
  * 2. **Track indegrees**: Count incoming edges for each character
  * 3. **Initialize queue**: Add characters with indegree 0 to queue
@@ -82,11 +82,11 @@
  * - Constant extra space
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {

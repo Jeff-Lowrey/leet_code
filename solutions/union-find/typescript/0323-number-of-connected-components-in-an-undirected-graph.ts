@@ -43,31 +43,31 @@
  * - Final count of root nodes = number of connected components
  *
  * ### EXAMPLE WALKTHROUGH:
- * Given input n = 5, edges = [[0,1],[1,2],[3,4]]:
- *
- * Input:
- * ```
- * n = 5, edges = [[0,1],[1,2],[3,4]]
- * ```
- *
- * **Step 1:** Initialize Union-Find
- * - Initial: {0}, {1}, {2}, {3}, {4} → 5 components
- *
- * **Step 2:** Process edges - Union(0,1)
- * - {0,1}, {2}, {3}, {4} → 4 components
- *
- * **Step 3:** Process edges - Union(1,2)
- * - {0,1,2}, {3}, {4} → 3 components
- *
- * **Step 3:** Process edges - Union(3,4)
- * - {0,1,2}, {3,4} → 2 components
- *
- * Output:
- * ```
- * 2
- * ```
- *
- * ### TIME COMPLEXITY:
+Given input n = 5, edges = [[0,1],[1,2],[3,4]]:
+
+Input:
+```
+n = 5, edges = [[0,1],[1,2],[3,4]]
+```
+
+*Step 1:** Initialize Union-Find
+- Initial: {0}, {1}, {2}, {3}, {4} → 5 components
+
+*Step 2:** Process edges - Union(0,1)
+- {0,1}, {2}, {3}, {4} → 4 components
+
+*Step 3:** Process edges - Union(1,2)
+- {0,1,2}, {3}, {4} → 3 components
+
+*Step 3:** Process edges - Union(3,4)
+- {0,1,2}, {3,4} → 2 components
+
+Output:
+```
+2
+```
+
+### TIME COMPLEXITY:
  * O(E × α(N))
  * Where E is edges, N is nodes, α is inverse Ackermann (nearly constant)
  * 
@@ -76,12 +76,11 @@
  * For parent and rank arrays
  * 
  * ### EDGE CASES:
- * - No edges: n isolated components
- * - Fully connected: 1 component
- * - Self-loops: don't change component count
- * - Single node: 1 component
- * 
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {

@@ -30,9 +30,9 @@
  * **Space Complexity**: O(1) - Constant extra space
  * 
  * ### INTUITION:
- * Greedy: sort courses by deadline. For each course, if time available, add to heap (track duration). If no time, compare with longest course taken. If current shorter, replace longest.
- * 
- * ### APPROACH:
+The key insight is that greedy: sort courses by deadline. For each course, if time available, add to heap (track duration). If no time, compare with longest course taken. If current shorter, replace longest.
+
+### APPROACH:
  * 1. **Sort by end time**: Sort courses by their deadlines
  * 2. **Initialize heap and time**: Create max heap, set current_time = 0
  * 3. **Iterate courses**: For each course (duration, deadline)
@@ -77,11 +77,11 @@
  * - Constant extra space
  * 
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
- * 
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {

@@ -43,12 +43,12 @@
  * 4. **Alternative DFS**: Can also use DFS to mark visited cities in each component
  *
  * ### WHY THIS WORKS:
- * - Union-Find automatically groups connected cities into components
- * - Each connected component represents one province
- * - After processing all connections, count unique roots to get province count
- * - DFS alternative marks all cities in a component as visited
- *
- * ### EXAMPLE WALKTHROUGH:
+- This ensures that union-Find automatically groups connected cities into components
+- This ensures that each connected component represents one province
+- This ensures that after processing all connections, count unique roots to get province count
+- This ensures that dFS alternative marks all cities in a component as visited
+
+### EXAMPLE WALKTHROUGH:
  * Input:
  * ```
  * isConnected = [[1,1,0],

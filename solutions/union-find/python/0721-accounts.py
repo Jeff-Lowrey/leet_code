@@ -39,10 +39,10 @@ This is a classic Union-Find problem where we need to group accounts that belong
 4. **Format result**: Create merged accounts with sorted emails
 
 ### WHY THIS WORKS:
-- Union-Find efficiently manages grouping of accounts
-- Email-to-account mapping allows us to detect shared emails
-- Transitivity: if account A shares email with B, and B shares with C, then A, B, C belong to same person
-- Union-Find naturally handles this transitivity
+- This ensures that union-Find efficiently manages grouping of accounts
+- This ensures that email-to-account mapping allows us to detect shared emails
+- This ensures that transitivity: if account A shares email with B, and B shares with C, then A, B, C belong to same person
+- This ensures that union-Find naturally handles this transitivity
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -92,10 +92,9 @@ O(N × M)
 For storing email mappings and Union-Find structure
 
 ### EDGE CASES:
-- Single account with one email
-- Multiple accounts with no shared emails
-- Accounts with same name but no shared emails
-- Empty email lists (though problem guarantees at least one email)
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

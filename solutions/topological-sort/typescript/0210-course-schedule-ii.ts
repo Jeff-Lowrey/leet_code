@@ -30,9 +30,9 @@
  * **Space Complexity**: O(1) - Constant extra space
  * 
  * ### INTUITION:
- * Build adjacency list and in-degree array. Start BFS from courses with in-degree 0. For each course, reduce in-degree of neighbors. Add result to output. Check if all courses processed.
- * 
- * ### APPROACH:
+The key insight is that build adjacency list and in-degree array. Start BFS from courses with in-degree 0. For each course, reduce in-degree of neighbors. Add result to output. Check if all courses processed.
+
+### APPROACH:
  * 1. **Build graph**: Create adjacency list and indegree array
  * 2. **Initialize queue**: Add all courses with indegree 0 to queue
  * 3. **Process queue**: While queue not empty, dequeue course
@@ -79,11 +79,11 @@
  * - Constant extra space
  * 
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
- * 
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {

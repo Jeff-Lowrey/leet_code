@@ -29,7 +29,7 @@ The input is a 2D array edges where each edges[i] = [ui, vi] represents a direct
 **Space Complexity**: O(n) - Additional hash map storage
 
 ### INTUITION:
-A rooted tree has exactly one root (no parent) and all other nodes have exactly one parent.
+The key insight is that a rooted tree has exactly one root (no parent) and all other nodes have exactly one parent.
 Invalid scenarios: (1) node with 2 parents, (2) cycle. Use union-find to detect these.
 
 ### APPROACH:
@@ -71,6 +71,8 @@ O(n) - Additional hash map storage
 - **Cycle without two parents**: Return the last edge that creates the cycle
 - **All edges form valid tree except one**: Union-find detects the redundant edge
 - **Single edge graph**: Return that edge if it creates self-loop
+
+</details>
 
 </details>
 """

@@ -59,6 +59,11 @@ Output:
 2
 ```
 
+Step-by-step execution:
+1. [First step]
+2. [Second step]
+3. [Final step]
+
 ### TIME COMPLEXITY:
 O(n log n)
 For merge sort and tree-based approaches
@@ -68,12 +73,9 @@ O(n)
 For auxiliary arrays and recursion stack
 
 ### EDGE CASES:
-- Empty array
-- Single element
-- No reverse pairs
-- All elements form reverse pairs
-- Negative numbers and large values
-- Overflow when computing 2*nums[j]
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

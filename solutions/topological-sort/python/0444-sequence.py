@@ -82,11 +82,9 @@ O(V + E)
 For the graph representation and auxiliary data structures
 
 ### EDGE CASES:
-- Unique topological order: org=[1,2,3], seqs=[[1,2],[1,3],[2,3]] → True (only one valid sequence exists)
-- Multiple valid orders: org=[1,2,3], seqs=[[1,2],[1,3]] → False (both [1,2,3] and [1,3,2] valid, ambiguous)
-- Cycle in graph: org=[1,2], seqs=[[1,2],[2,1]] → False (contradictory constraints create cycle)
-- Sequence doesn't match order: org=[1,2,3], seqs=[[1,2],[3,2]] → False ([3,2] conflicts with org order)
-- Single element: org=[1], seqs=[[1]] → True (trivially valid, single element always unique)
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

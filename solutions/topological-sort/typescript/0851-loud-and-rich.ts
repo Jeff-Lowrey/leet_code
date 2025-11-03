@@ -30,9 +30,9 @@
  * **Space Complexity**: O(1) - Constant extra space
  * 
  * ### INTUITION:
- * Build graph of richer relationships. Use DFS with memoization. For each person, recursively find quietest among all richer people. Cache results to avoid recomputation.
- * 
- * ### APPROACH:
+The key insight is that build graph of richer relationships. Use DFS with memoization. For each person, recursively find quietest among all richer people. Cache results to avoid recomputation.
+
+### APPROACH:
  * 1. **Build graph**: Create adjacency list where graph[b].append(a) for [a,b] in richer
  * 2. **Initialize answer**: Set answer = [-1] * n
  * 3. **Define DFS**: Implement dfs(node) to find quietest person in richer-or-equal set
@@ -43,13 +43,13 @@
  * 8. **Return result**: Return answer array
  * 
  * ### WHY THIS WORKS:
- * - Build graph: richer[i] -> quieter[i] edge
- * - DFS/BFS from each person, find quietest in reachable set
- * - Memoization: cache answer[x] to avoid recomputation
- * - answer[x] = person with minimum quiet value reachable from x
- * - O(n^2) worst case, O(n + e) with memoization, O(n + e) space
- * 
- * ### EXAMPLE WALKTHROUGH:
+- This ensures that build graph: richer[i] -> quieter[i] edge
+- This ensures that dFS/BFS from each person, find quietest in reachable set
+- This ensures that memoization: cache answer[x] to avoid recomputation
+- This ensures that answer[x] = person with minimum quiet value reachable from x
+- This ensures that o(n^2) worst case, O(n + e) with memoization, O(n + e) space
+
+### EXAMPLE WALKTHROUGH:
  * Input:
  * ```
  * richer = [[1,0],[2,1],[3,1],[3,7],[4,3],[5,3],[6,3]], quiet = [3,2,5,4,6,1,7,0]
@@ -77,11 +77,11 @@
  * - Constant extra space
  * 
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
- * 
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {

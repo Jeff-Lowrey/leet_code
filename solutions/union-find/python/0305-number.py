@@ -32,7 +32,7 @@ An island is surrounded by water and is formed by connecting adjacent lands hori
 **Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
-Maintain Union-Find of islands. For each land operation, union with adjacent land cells (4 directions). Track number of connected components. Component count after each operation is island count.
+The key insight is that maintain Union-Find of islands. For each land operation, union with adjacent land cells (4 directions). Track number of connected components. Component count after each operation is island count.
 
 ### APPROACH:
 1. **Initialize Union-Find**: Create parent and rank arrays
@@ -87,9 +87,9 @@ O(1)
 
 
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

@@ -32,9 +32,9 @@
  * **Space Complexity**: O(1) - Constant extra space
  * 
  * ### INTUITION:
- * Remove leaf nodes iteratively. Leaves have degree 1. After removing, new leaves may form. Repeat until <= 2 nodes remain. These are the MHT roots (centers of tree).
- * 
- * ### APPROACH:
+The key insight is that remove leaf nodes iteratively. Leaves have degree 1. After removing, new leaves may form. Repeat until <= 2 nodes remain. These are the MHT roots (centers of tree).
+
+### APPROACH:
  * 1. **Handle edge cases**: If n <= 2, return list(range(n))
  * 2. **Build adjacency list**: Create graph with edges
  * 3. **Initialize leaves**: Find all nodes with degree 1
@@ -45,13 +45,13 @@
  * 8. **Return result**: Return remaining nodes as MHT roots
  * 
  * ### WHY THIS WORKS:
- * - Remove leaf nodes iteratively, process like topological sort
- * - Tree's center (1 or 2 nodes) are minimum height roots
- * - BFS from leaves inward, last 1-2 nodes remaining are centers
- * - In tree, at most 2 nodes can be minimum height roots
- * - O(n) time: process each node once, O(n) space for adjacency list
- * 
- * ### EXAMPLE WALKTHROUGH:
+- This ensures that remove leaf nodes iteratively, process like topological sort
+- This ensures that tree's center (1 or 2 nodes) are minimum height roots
+- This ensures that bFS from leaves inward, last 1-2 nodes remaining are centers
+- This ensures that in tree, at most 2 nodes can be minimum height roots
+- This ensures that o(n) time: process each node once, O(n) space for adjacency list
+
+### EXAMPLE WALKTHROUGH:
  * Input:
  * ```
  * n = 6, edges = [[3,0],[3,1],[3,2],[3,4],[5,4]]
@@ -77,11 +77,11 @@
  * - Constant extra space
  * 
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
- * 
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {

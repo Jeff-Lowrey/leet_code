@@ -47,21 +47,26 @@
  * By repeatedly dividing the search space in half, we eliminate half of the remaining elements in each iteration. Since the array is sorted, we can determine which half contains the target by comparing with the middle element. This guarantees we find the target (if it exists) in O(log n) time because each step reduces the problem size by a factor of 2.
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * nums = [1,3,2,3,1]
- * ```
- *
- * Reverse pairs:
- * - (1,4): nums[1]=3 > 2*nums[4]=2 ✓
- * - (3,4): nums[3]=3 > 2*nums[4]=2 ✓
- *
- * Output:
- * ```
- * 2
- * ```
+Input:
+```
+nums = [1,3,2,3,1]
+```
 
- * ### TIME COMPLEXITY:
+Reverse pairs:
+- (1,4): nums[1]=3 > 2*nums[4]=2 ✓
+- (3,4): nums[3]=3 > 2*nums[4]=2 ✓
+
+Output:
+```
+2
+```
+
+Step-by-step execution:
+1. [First step]
+2. [Second step]
+3. [Final step]
+
+### TIME COMPLEXITY:
  * O(n log n)
  * - Sorting or divide-and-conquer
  * For merge sort and tree-based approaches
@@ -72,14 +77,11 @@
  * For auxiliary arrays and recursion stack
  *
  * ### EDGE CASES:
- * - Empty array
- * - Single element
- * - No reverse pairs
- * - All elements form reverse pairs
- * - Negative numbers and large values
- * - Overflow when computing 2*nums[j]
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 /**

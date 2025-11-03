@@ -28,7 +28,7 @@ Notice that the sequence has to be strictly increasing.
 **Space Complexity**: O(n) - Additional set storage
 
 ### INTUITION:
-This extends the classic LIS problem by not just finding the length, but also counting how many subsequences achieve that length. We can use dynamic programming or segment trees. For each position, we track both the longest length ending there and the count of such sequences.
+The key insight is that this extends the classic LIS problem by not just finding the length, but also counting how many subsequences achieve that length. We can use dynamic programming or segment trees. For each position, we track both the longest length ending there and the count of such sequences.
 
 ### APPROACH:
 1. **Initialize DP arrays**: Create two arrays - lengths[i] for LIS length ending at i, counts[i] for number of such subsequences
@@ -71,12 +71,9 @@ O(n)
 For DP arrays or tree structure
 
 ### EDGE CASES:
-- Empty array
-- Single element
-- All elements equal (no strictly increasing)
-- All increasing
-- All decreasing
-- Duplicates in array
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

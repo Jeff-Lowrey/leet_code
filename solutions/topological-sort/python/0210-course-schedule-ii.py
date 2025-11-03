@@ -30,7 +30,7 @@ Return the ordering of courses you should take to finish all courses. If there a
 **Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
-Build adjacency list and in-degree array. Start BFS from courses with in-degree 0. For each course, reduce in-degree of neighbors. Add result to output. Check if all courses processed.
+The key insight is that build adjacency list and in-degree array. Start BFS from courses with in-degree 0. For each course, reduce in-degree of neighbors. Add result to output. Check if all courses processed.
 
 ### APPROACH:
 1. **Build graph**: Create adjacency list and indegree array
@@ -81,9 +81,9 @@ O(1)
 
 
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

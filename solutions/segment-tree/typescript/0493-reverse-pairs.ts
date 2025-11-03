@@ -53,25 +53,31 @@ This solution uses hash map storage for efficient implementation.
 
 This solution uses set operations for efficient implementation.
 ### EXAMPLE WALKTHROUGH:
- * Given input nums = [1,3,2,3,1]:
- *
- * Input:
- * ```
- * nums = [1,3,2,3,1]
- * ```
- *
- * Reverse pairs:
- * - (1,4): nums[1]=3 > 2*nums[4]=2 ✓
- * - (3,4): nums[3]=3 > 2*nums[4]=2 ✓
- *
- * Output:
- * ```
- * 2
- * ```
+Given input nums = [1,3,2,3,1]:
 
- *
- * Result: 2
- * ### TIME COMPLEXITY:
+Input:
+```
+nums = [1,3,2,3,1]
+```
+
+Reverse pairs:
+- (1,4): nums[1]=3 > 2*nums[4]=2 ✓
+- (3,4): nums[3]=3 > 2*nums[4]=2 ✓
+
+Output:
+```
+2
+```
+
+
+Result: 2
+
+Step-by-step execution:
+1. [First step]
+2. [Second step]
+3. [Final step]
+
+### TIME COMPLEXITY:
  * O(n log n)
  * - Sorting or divide-and-conquer
  * For merge sort and tree-based approaches
@@ -82,14 +88,11 @@ This solution uses set operations for efficient implementation.
  * For auxiliary arrays and recursion stack
  * 
  * ### EDGE CASES:
- * - Empty array
- * - Single element
- * - No reverse pairs
- * - All elements form reverse pairs
- * - Negative numbers and large values
- * - Overflow when computing 2*nums[j]
- * 
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {

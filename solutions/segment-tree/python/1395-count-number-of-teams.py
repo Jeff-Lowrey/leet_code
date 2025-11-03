@@ -64,6 +64,11 @@ Step 5: - j=2 (rating=3): left_larger=1 (rating=5), right_smaller=1 (rating=1) â
 Step 6: - j=3 (rating=4): left_larger=1 (rating=5), right_smaller=1 (rating=1) â†’ 1 team
 Step 7: Total: 1 + 1 + 1 = 3 teams
 
+Output:
+```
+[Expected output]
+```
+
 ### TIME COMPLEXITY:
 O(n log n)
 For segment tree approach with coordinate compression
@@ -73,10 +78,9 @@ O(n)
 For compressed coordinates and tree structure
 
 ### EDGE CASES:
-- Array length < 3
-- All elements equal (no valid teams)
-- Strictly increasing/decreasing array
-- Duplicate ratings
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

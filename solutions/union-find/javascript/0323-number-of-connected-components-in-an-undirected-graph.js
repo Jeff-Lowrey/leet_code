@@ -70,12 +70,11 @@
  * For parent and rank arrays
  *
  * ### EDGE CASES:
- * - No edges: n isolated components
- * - Fully connected: 1 component
- * - Self-loops: don't change component count
- * - Single node: 1 component
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class UnionFind {

@@ -43,20 +43,30 @@
  * By repeatedly dividing the search space in half, we eliminate half of the remaining elements in each iteration. Since the array is sorted, we can determine which half contains the target by comparing with the middle element. This guarantees we find the target (if it exists) in O(log n) time because each step reduces the problem size by a factor of 2.
  * 
  * ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * [[7,0],[4,4],[7,1],[5,0],[6,1],[5,2]]
- * ```
- *
- * Sort by height desc, k asc: [[7,0],[7,1],[6,1],[5,0],[5,2],[4,4]]
- * Insert [7,0] at index 0: [[7,0]]
- * Insert [7,1] at index 1: [[7,0],[7,1]]
- * Insert [6,1] at index 1: [[7,0],[6,1],[7,1]]
- * Insert [5,0] at index 0: [[5,0],[7,0],[6,1],[7,1]]
- * Insert [5,2] at index 2: [[5,0],[7,0],[5,2],[6,1],[7,1]]
- * Insert [4,4] at index 4: [[5,0],[7,0],[5,2],[6,1],[4,4],[7,1]]
+Input:
+```
+[[7,0],[4,4],[7,1],[5,0],[6,1],[5,2]]
+```
 
- * ### TIME COMPLEXITY:
+Sort by height desc, k asc: [[7,0],[7,1],[6,1],[5,0],[5,2],[4,4]]
+Insert [7,0] at index 0: [[7,0]]
+Insert [7,1] at index 1: [[7,0],[7,1]]
+Insert [6,1] at index 1: [[7,0],[6,1],[7,1]]
+Insert [5,0] at index 0: [[5,0],[7,0],[6,1],[7,1]]
+Insert [5,2] at index 2: [[5,0],[7,0],[5,2],[6,1],[7,1]]
+Insert [4,4] at index 4: [[5,0],[7,0],[5,2],[6,1],[4,4],[7,1]]
+
+Output:
+```
+[Expected output]
+```
+
+Step-by-step execution:
+1. [First step]
+2. [Second step]
+3. [Final step]
+
+### TIME COMPLEXITY:
  * - Greedy: O(n² log n) - sorting + n insertions
  * - Segment Tree: O(n log n) - sorting + n queries
  * 
@@ -65,13 +75,11 @@
  * For result array and tree structure
  * 
  * ### EDGE CASES:
- * - Empty array
- * - Single person
- * - All same height
- * - All k = 0
- * - Maximum k values
- * 
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {

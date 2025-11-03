@@ -30,7 +30,7 @@ Return an edge that can be removed so that the resulting graph is a tree of n no
 **Space Complexity**: O(n) - Additional hash map storage
 
 ### INTUITION:
-This is a classic Union-Find cycle detection problem. In a tree with n nodes, there should be exactly n-1 edges. When we add one extra edge, it creates a cycle. We need to find the edge that completes this cycle.
+The key insight is that this is a classic Union-Find cycle detection problem. In a tree with n nodes, there should be exactly n-1 edges. When we add one extra edge, it creates a cycle. We need to find the edge that completes this cycle.
 
 ### APPROACH:
 1. **Use Union-Find**: Track connected components as we process edges
@@ -38,10 +38,10 @@ This is a classic Union-Find cycle detection problem. In a tree with n nodes, th
 3. **Return last occurrence**: The problem asks for the edge that occurs last in input if multiple answers exist
 
 ### WHY THIS WORKS:
-- Union-Find efficiently tracks connected components
-- When we encounter an edge between two nodes already in the same component, that edge creates a cycle
-- The first such edge we encounter (processing left to right) is the redundant one
-- This edge can be removed while keeping the graph connected
+- This ensures that union-Find efficiently tracks connected components
+- This ensures that when we encounter an edge between two nodes already in the same component, that edge creates a cycle
+- This ensures that the first such edge we encounter (processing left to right) is the redundant one
+- This ensures that this edge can be removed while keeping the graph connected
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -60,6 +60,11 @@ Step 2: Process edge [1,3]: 1 and 3 not connected → union them
 Step 3: Process edge [2,3]: 2 and 3 are already connected through 1 → redundant!
 Step 4: Return [2,3]
 
+Output:
+```
+[Expected output]
+```
+
 ### TIME COMPLEXITY:
 O(n × α(n))
 Where α is the inverse Ackermann function (nearly constant for practical purposes)
@@ -74,6 +79,8 @@ For the Union-Find parent array
 - **Multiple possible answers**: Return edge that occurs last in input
 - **Linear chain with one extra**: The extra edge creates the cycle
 - **Self-loop edge**: Detected immediately by union-find
+
+</details>
 
 </details>
 """

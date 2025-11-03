@@ -52,30 +52,36 @@ This solution uses hash map storage for efficient implementation.
 
 This solution uses set operations for efficient implementation.
 ### EXAMPLE WALKTHROUGH:
- * Given input nums = [-2,5,-1], lower = -2, upper = 2:
- *
- * Input:
- * ```
- * nums = [-2,5,-1], lower = -2, upper = 2
- * ```
- *
- * Prefix sums: [0, -2, 3, 2]
- * Range sums to check:
- * - S(0,0) = -2 ✓ (in range)
- * - S(0,1) = 3 ✗
- * - S(0,2) = 2 ✓
- * - S(1,1) = 5 ✗
- * - S(1,2) = 4 ✗
- * - S(2,2) = -1 ✓
- *
- * Output:
- * ```
- * 3
- * ```
+Given input nums = [-2,5,-1], lower = -2, upper = 2:
 
- *
- * Result: 3
- * ### TIME COMPLEXITY:
+Input:
+```
+nums = [-2,5,-1], lower = -2, upper = 2
+```
+
+Prefix sums: [0, -2, 3, 2]
+Range sums to check:
+- S(0,0) = -2 ✓ (in range)
+- S(0,1) = 3 ✗
+- S(0,2) = 2 ✓
+- S(1,1) = 5 ✗
+- S(1,2) = 4 ✗
+- S(2,2) = -1 ✓
+
+Output:
+```
+3
+```
+
+
+Result: 3
+
+Step-by-step execution:
+1. [First step]
+2. [Second step]
+3. [Final step]
+
+### TIME COMPLEXITY:
  * O(n log n)
  * - Sorting or divide-and-conquer
  * For merge sort and tree-based approaches
@@ -86,13 +92,11 @@ This solution uses set operations for efficient implementation.
  * For prefix sums and auxiliary structures
  *
  * ### EDGE CASES:
- * - Empty array
- * - Single element
- * - All elements equal
- * - Lower and upper bounds edge cases
- * - Negative numbers and overflow considerations
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 /**

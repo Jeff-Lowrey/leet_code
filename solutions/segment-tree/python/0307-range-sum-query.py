@@ -77,6 +77,20 @@ O(n)
 - **Range [i, i]**: Query single element
 
 </details>
+
+</details>
+
+</details>
+
+</details>
+
+</details>
+
+</details>
+
+</details>
+
+</details>
 """
 
 from typing import Any

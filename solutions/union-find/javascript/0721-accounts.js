@@ -35,18 +35,18 @@
  * This is a classic Union-Find problem where we need to group accounts that belong to the same person. The key insight is that if two accounts share any email address, they belong to the same person and should be merged. We use Union-Find to efficiently group accounts with shared emails.
  *
  * ### APPROACH:
- * 1. **Map emails to accounts**: Create a mapping from emails to account indices
- * 2. **Union accounts with shared emails**: Use Union-Find to group accounts that share emails
- * 3. **Collect emails by parent**: Group all emails under their root parent account
- * 4. **Format result**: Create merged accounts with sorted emails
- *
- * ### WHY THIS WORKS:
- * - Union-Find efficiently manages grouping of accounts
- * - Email-to-account mapping allows us to detect shared emails
- * - Transitivity: if account A shares email with B, and B shares with C, then A, B, C belong to same person
- * - Union-Find naturally handles this transitivity
- *
- * ### EXAMPLE WALKTHROUGH:
+1. **Map emails to accounts**: Create a mapping from emails to account indices
+2. **Union accounts with shared emails**: Use Union-Find to group accounts that share emails
+3. **Collect emails by parent**: Group all emails under their root parent account
+4. **Format result**: Create merged accounts with sorted emails
+
+### WHY THIS WORKS:
+- This ensures that union-Find efficiently manages grouping of accounts
+- This ensures that email-to-account mapping allows us to detect shared emails
+- This ensures that transitivity: if account A shares email with B, and B shares with C, then A, B, C belong to same person
+- This ensures that union-Find naturally handles this transitivity
+
+### EXAMPLE WALKTHROUGH:
  * Input:
  * ```
  * [["John","johnsmith@mail.com","john_newyork@mail.com"],
@@ -89,12 +89,11 @@
  * For storing email mappings and Union-Find structure
  *
  * ### EDGE CASES:
- * - Single account with one email
- * - Multiple accounts with no shared emails
- * - Accounts with same name but no shared emails
- * - Empty email lists (though problem guarantees at least one email)
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 /**

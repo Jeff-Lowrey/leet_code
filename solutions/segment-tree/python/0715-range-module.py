@@ -60,6 +60,16 @@ queryRange(10, 14): true (fully covered)
 queryRange(13, 15): false (15 not covered)
 queryRange(16, 17): true (fully covered)
 
+Output:
+```
+[Expected output]
+```
+
+Step-by-step execution:
+1. [First step]
+2. [Second step]
+3. [Final step]
+
 ### TIME COMPLEXITY:
 - Segment Tree: O(log n) per operation
 - Sorted Intervals: O(n) worst case, O(log n) average
@@ -69,11 +79,9 @@ O(n)
 For tree or interval list
 
 ### EDGE CASES:
-- Empty ranges
-- Overlapping add operations
-- Removing non-existent ranges
-- Query on empty module
-- Adjacent intervals (should merge)
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

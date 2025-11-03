@@ -32,7 +32,7 @@ A string s is lexicographically smaller than a string t if at the first letter w
 **Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
-Build graph from word pairs by comparing adjacent words. Find first different character to establish order. Perform topological sort using DFS or BFS. Detect cycles (impossible ordering).
+The key insight is that build graph from word pairs by comparing adjacent words. Find first different character to establish order. Perform topological sort using DFS or BFS. Detect cycles (impossible ordering).
 
 ### APPROACH:
 1. **Build graph**: Compare adjacent words to find character ordering
@@ -83,9 +83,9 @@ O(1)
 
 
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

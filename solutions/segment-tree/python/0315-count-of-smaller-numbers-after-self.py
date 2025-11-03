@@ -57,6 +57,11 @@ Output:
 [2,1,1,0]
 ```
 
+Step-by-step execution:
+1. [First step]
+2. [Second step]
+3. [Final step]
+
 ### TIME COMPLEXITY:
 O(n log n)
 For merge sort and tree-based approaches
@@ -66,11 +71,9 @@ O(n)
 For auxiliary data structures
 
 ### EDGE CASES:
-- Empty array
-- Single element
-- All elements equal
-- Strictly increasing/decreasing arrays
-- Duplicate values
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

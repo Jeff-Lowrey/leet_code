@@ -29,9 +29,9 @@
  * **Space Complexity**: O(1) - Constant extra space
  *
  * ### INTUITION:
- * Use Union-Find to connect adjacent 'X' cells. For border 'O' cells, connect to virtual border node. After processing, 'O' cells not connected to border should be flipped to 'X'.
- *
- * ### APPROACH:
+The key insight is that use Union-Find to connect adjacent 'X' cells. For border 'O' cells, connect to virtual border node. After processing, 'O' cells not connected to border should be flipped to 'X'.
+
+### APPROACH:
  * 1. **Initialize Union-Find**: Create parent array and find/union functions
  * 2. **Connect border Os**: Union all 'O' cells on borders with a dummy border node
  * 3. **Connect internal Os**: Union all adjacent 'O' cells in interior
@@ -41,13 +41,13 @@
  * 7. **Modify in-place**: Update board directly
  *
  * ### WHY THIS WORKS:
- * - Union-find or DFS from borders to mark unsurrounded regions
- * - Start DFS/BFS from 'O' cells on borders (these can't be surrounded)
- * - Mark all connected 'O' cells as safe (connected to border)
- * - Flip all unmarked 'O' to 'X' (these are surrounded)
- * - O(m*n) time: visit each cell once, O(m*n) space for visited/parent array
- *
- * ### EXAMPLE WALKTHROUGH:
+- This ensures that union-find or DFS from borders to mark unsurrounded regions
+- This ensures that start DFS/BFS from 'O' cells on borders (these can't be surrounded)
+- This ensures that mark all connected 'O' cells as safe (connected to border)
+- This ensures that flip all unmarked 'O' to 'X' (these are surrounded)
+- This ensures that o(m*n) time: visit each cell once, O(m*n) space for visited/parent array
+
+### EXAMPLE WALKTHROUGH:
  * Input:
  * ```
  * board = [["X","X","X","X"],["X","O","O","X"],["X","X","O","X"],["X","O","X","X"]]
@@ -73,11 +73,11 @@
  * - Constant extra space
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {

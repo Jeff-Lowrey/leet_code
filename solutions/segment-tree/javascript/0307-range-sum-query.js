@@ -51,9 +51,9 @@
  * 4. **Query**: Traverse tree to collect relevant range sums
  *
  * ### WHY THIS WORKS:
- * The tree height is log n, so we visit at most log n nodes for any operation. Each internal node represents a range, allowing us to quickly skip over irrelevant sections during queries.
- *
- * ### EXAMPLE WALKTHROUGH:
+The tree height is log n, so we visit at most log n nodes for any operation. Each internal node represents a range, allowing us to quickly skip over irrelevant sections during queries.
+
+### EXAMPLE WALKTHROUGH:
  * Input:
  * ```
  * nums = [1,3,5]
@@ -79,13 +79,27 @@
  * - Additional set storage
  *
  * ### EDGE CASES:
- * - **Single element array**: Sum queries return that element
- * - **Update single element**: Propagate changes up segment tree
- * - **Query entire range**: Return root node value
- * - **Frequent updates**: Segment tree handles efficiently in O(log n)
- * - **Range [i, i]**: Query single element
- *
- * </details>
+- **Single element array**: Sum queries return that element
+- **Update single element**: Propagate changes up segment tree
+- **Query entire range**: Return root node value
+- **Frequent updates**: Segment tree handles efficiently in O(log n)
+- **Range [i, i]**: Query single element
+
+</details>
+
+</details>
+
+</details>
+
+</details>
+
+</details>
+
+</details>
+
+</details>
+
+</details>
  */
 
 class NumArray {

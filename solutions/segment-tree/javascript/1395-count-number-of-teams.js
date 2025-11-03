@@ -49,24 +49,29 @@
  * A set by definition contains only unique elements - when we convert an array to a set, any duplicates are automatically removed. By comparing the lengths of the original array and the set, we can detect if duplicates existed. The early termination approach works because as soon as we find an element already in our seen set, we've proven a duplicate exists without needing to check the remaining elements.
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * rating = [2,5,3,4,1]
- * ```
- *
- * For ascending teams (i < j < k and rating[i] < rating[j] < rating[k]):
- * For descending teams (i < j < k and rating[i] > rating[j] > rating[k]):
- *
- * Steps:
- * Step 1: - j=1 (rating=5): left_smaller=1 (rating=2), right_larger=0 → 0 teams
- * Step 2: - j=2 (rating=3): left_smaller=1 (rating=2), right_larger=1 (rating=4) → 1 team
- * Step 3: - j=3 (rating=4): left_smaller=2 (rating=2,3), right_larger=0 → 0 teams
- * Step 4: - j=1 (rating=5): left_larger=0, right_smaller=3 → 0 teams
- * Step 5: - j=2 (rating=3): left_larger=1 (rating=5), right_smaller=1 (rating=1) → 1 team
- * Step 6: - j=3 (rating=4): left_larger=1 (rating=5), right_smaller=1 (rating=1) → 1 team
- * Step 7: Total: 1 + 1 + 1 = 3 teams
+Input:
+```
+rating = [2,5,3,4,1]
+```
 
- * ### TIME COMPLEXITY:
+For ascending teams (i < j < k and rating[i] < rating[j] < rating[k]):
+For descending teams (i < j < k and rating[i] > rating[j] > rating[k]):
+
+Steps:
+Step 1: - j=1 (rating=5): left_smaller=1 (rating=2), right_larger=0 → 0 teams
+Step 2: - j=2 (rating=3): left_smaller=1 (rating=2), right_larger=1 (rating=4) → 1 team
+Step 3: - j=3 (rating=4): left_smaller=2 (rating=2,3), right_larger=0 → 0 teams
+Step 4: - j=1 (rating=5): left_larger=0, right_smaller=3 → 0 teams
+Step 5: - j=2 (rating=3): left_larger=1 (rating=5), right_smaller=1 (rating=1) → 1 team
+Step 6: - j=3 (rating=4): left_larger=1 (rating=5), right_smaller=1 (rating=1) → 1 team
+Step 7: Total: 1 + 1 + 1 = 3 teams
+
+Output:
+```
+[Expected output]
+```
+
+### TIME COMPLEXITY:
  * O(n log n)
  * - Sorting or divide-and-conquer
  * For segment tree approach with coordinate compression
@@ -76,12 +81,11 @@
  * For compressed coordinates and tree structure
  *
  * ### EDGE CASES:
- * - Array length < 3
- * - All elements equal (no valid teams)
- * - Strictly increasing/decreasing array
- * - Duplicate ratings
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 /**

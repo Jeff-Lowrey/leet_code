@@ -28,7 +28,7 @@ smallest string that s can be transformed to after using the swaps.
 **Space Complexity**: O(n) - Additional hash map storage
 
 ### INTUITION:
-Pairs form connected components via union-find. Within each component, indices can be
+The key insight is that pairs form connected components via union-find. Within each component, indices can be
 rearranged freely. Sort characters in each component and assign to sorted indices.
 
 ### APPROACH:

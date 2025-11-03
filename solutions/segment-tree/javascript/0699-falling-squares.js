@@ -34,9 +34,9 @@
 
  *
  * ### INTUITION:
- * This is a range maximum query problem with updates. For each falling square, we need to find the maximum height in its range [left, right), then update that range with the new height. Segment trees with lazy propagation are perfect for this.
- *
- * ### APPROACH:
+The key insight is that this is a range maximum query problem with updates. For each falling square, we need to find the maximum height in its range [left, right), then update that range with the new height. Segment trees with lazy propagation are perfect for this.
+
+### APPROACH:
  * 1. **Coordinate compression**: Extract all left and right boundaries from positions, create sorted mapping to compress coordinates
  * 2. **Build segment tree**: Create segment tree with lazy propagation to handle range queries and updates efficiently
  * 3. **Process each square**: For each falling square, determine its compressed coordinate range [left, right)
@@ -49,18 +49,23 @@
  * The algorithm correctly solves the problem by systematically exploring all valid states while maintaining necessary invariants. Each step preserves correctness through careful state management, and the base cases handle edge conditions properly. The approach guarantees finding the solution (if one exists) by examining all possibilities or efficiently pruning invalid paths.
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * [[1,2],[2,3],[6,1]]
- * ```
- *
- * Steps:
- * Step 1: Square 1: [1,3) at height 0 → lands at 0, new height 2
- * Step 2: Square 2: [2,5) overlaps [2,3), max height 2 → lands at 2, new height 5
- * Step 3: Square 3: [6,7) no overlap → lands at 0, new height 1
- * Step 4: Heights: [2, 5, 5]
+Input:
+```
+[[1,2],[2,3],[6,1]]
+```
 
- * ### TIME COMPLEXITY:
+Steps:
+Step 1: Square 1: [1,3) at height 0 → lands at 0, new height 2
+Step 2: Square 2: [2,5) overlaps [2,3), max height 2 → lands at 2, new height 5
+Step 3: Square 3: [6,7) no overlap → lands at 0, new height 1
+Step 4: Heights: [2, 5, 5]
+
+Output:
+```
+[Expected output]
+```
+
+### TIME COMPLEXITY:
  * O(n² log n)
  * Due to coordinate compression and segment tree operations
  *
@@ -70,13 +75,11 @@
  * For coordinate mapping and tree structure
  *
  * ### EDGE CASES:
- * - Single square
- * - Non-overlapping squares
- * - Completely overlapping squares
- * - Squares with different sizes
- * - Large coordinate values
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 /**

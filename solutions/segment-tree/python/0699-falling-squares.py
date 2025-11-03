@@ -32,7 +32,7 @@ Return an integer array ans where ans[i] represents the height of the tallest st
 **Space Complexity**: O(n) - Additional hash map storage
 
 ### INTUITION:
-This is a range maximum query problem with updates. For each falling square, we need to find the maximum height in its range [left, right), then update that range with the new height. Segment trees with lazy propagation are perfect for this.
+The key insight is that this is a range maximum query problem with updates. For each falling square, we need to find the maximum height in its range [left, right), then update that range with the new height. Segment trees with lazy propagation are perfect for this.
 
 ### APPROACH:
 1. **Coordinate compression**: Extract all left and right boundaries from positions, create sorted mapping to compress coordinates
@@ -58,6 +58,11 @@ Step 2: Square 2: [2,5) overlaps [2,3), max height 2 → lands at 2, new height 
 Step 3: Square 3: [6,7) no overlap → lands at 0, new height 1
 Step 4: Heights: [2, 5, 5]
 
+Output:
+```
+[Expected output]
+```
+
 ### TIME COMPLEXITY:
 O(n² log n)
 Due to coordinate compression and segment tree operations
@@ -67,11 +72,9 @@ O(n)
 For coordinate mapping and tree structure
 
 ### EDGE CASES:
-- Single square
-- Non-overlapping squares
-- Completely overlapping squares
-- Squares with different sizes
-- Large coordinate values
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

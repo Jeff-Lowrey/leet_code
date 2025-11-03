@@ -29,9 +29,9 @@
  * **Space Complexity**: O(1) - Constant extra space
  *
  * ### INTUITION:
- * Build graph of dependencies. Start DFS from each cell. Use memoization to store longest path from each cell. Result is max of all starting points. DFS explores increasing values only.
- *
- * ### APPROACH:
+The key insight is that build graph of dependencies. Start DFS from each cell. Use memoization to store longest path from each cell. Result is max of all starting points. DFS explores increasing values only.
+
+### APPROACH:
  * 1. **Initialize memoization**: Create memo = {} to cache results
  * 2. **Define DFS function**: Implement dfs(i, j) to find longest path from cell (i,j)
  * 3. **Check memo**: If (i,j) in memo, return memo[(i,j)]
@@ -75,11 +75,11 @@
  * - Constant extra space
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {

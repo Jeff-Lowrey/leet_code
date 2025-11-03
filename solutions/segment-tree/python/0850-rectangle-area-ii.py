@@ -60,6 +60,16 @@ Grid cells covered:
 [2,3]×[0,1]: covered by rect 2
 Total area = 1 + 1 + 1 + 1 + 1 + 1 = 6
 
+Output:
+```
+[Expected output]
+```
+
+Step-by-step execution:
+1. [First step]
+2. [Second step]
+3. [Final step]
+
 ### TIME COMPLEXITY:
 - Sweep Line: O(n² log n)
 - Coordinate Compression: O(n²)
@@ -69,11 +79,9 @@ O(n)
 For coordinate storage and data structures
 
 ### EDGE CASES:
-- No rectangles
-- Single rectangle
-- Completely overlapping rectangles
-- Non-overlapping rectangles
-- Large coordinates (use modulo)
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

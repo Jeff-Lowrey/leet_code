@@ -29,9 +29,9 @@
  * **Space Complexity**: O(n) - Additional set storage
  *
  * ### INTUITION:
- * This extends the classic LIS problem by not just finding the length, but also counting how many subsequences achieve that length. We can use dynamic programming or segment trees. For each position, we track both the longest length ending there and the count of such sequences.
- *
- * ### APPROACH:
+The key insight is that this extends the classic LIS problem by not just finding the length, but also counting how many subsequences achieve that length. We can use dynamic programming or segment trees. For each position, we track both the longest length ending there and the count of such sequences.
+
+### APPROACH:
  * 1. **Initialize DP arrays**: Create two arrays - lengths[i] for LIS length ending at i, counts[i] for number of such subsequences
  * 2. **Set base values**: Initialize all lengths to 1 and all counts to 1 (each element is a subsequence of length 1)
  * 3. **Nested loop iteration**: For each position i, check all previous positions j where nums[j] < nums[i]
@@ -73,14 +73,11 @@
  * For DP arrays or tree structure
  *
  * ### EDGE CASES:
- * - Empty array
- * - Single element
- * - All elements equal (no strictly increasing)
- * - All increasing
- * - All decreasing
- * - Duplicates in array
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {

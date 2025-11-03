@@ -30,9 +30,9 @@
  * **Space Complexity**: O(V + E)
  * 
  * ### INTUITION:
- * This is a cycle detection problem in a directed graph. If there's a cycle in the prerequisite dependencies, it's impossible to complete all courses. Topological sorting can detect cycles while finding a valid course order.
- * 
- * ### APPROACH:
+The key insight is that this is a cycle detection problem in a directed graph. If there's a cycle in the prerequisite dependencies, it's impossible to complete all courses. Topological sorting can detect cycles while finding a valid course order.
+
+### APPROACH:
  * 1. **Build adjacency list**: Create a graph where each prerequisite points to the courses that depend on it
  * 2. **Calculate in-degrees**: Count incoming edges for each course (number of prerequisites)
  * 3. **Initialize queue**: Add all courses with in-degree 0 (no prerequisites) to the queue
@@ -42,9 +42,9 @@
  * 7. **Check completion**: Return true if courses_taken equals numCourses (all courses processed), false otherwise (cycle detected)
  * 
  * ### WHY THIS WORKS:
- * In a DAG (Directed Acyclic Graph), there's always at least one vertex with in-degree 0. By repeatedly removing such vertices, we can process all vertices if and only if there's no cycle.
- * 
- * ### EXAMPLE WALKTHROUGH:
+In a DAG (Directed Acyclic Graph), there's always at least one vertex with in-degree 0. By repeatedly removing such vertices, we can process all vertices if and only if there's no cycle.
+
+### EXAMPLE WALKTHROUGH:
  * Input:
  * ```
  * numCourses = 4, prerequisites = [[1,0],[2,1],[3,2]]
@@ -77,13 +77,15 @@
  *
 
  * ### EDGE CASES:
- * - **No prerequisites**: All courses can be taken, return true
- * - **Self-loop**: Course depends on itself, cycle detected, return false
- * - **Circular dependency**: Cycle detection returns false
- * - **Linear chain**: No cycles, courses taken in topological order
- * - **Disconnected components**: Process each component separately
- * 
- * </details>
+- **No prerequisites**: All courses can be taken, return true
+- **Self-loop**: Course depends on itself, cycle detected, return false
+- **Circular dependency**: Cycle detection returns false
+- **Linear chain**: No cycles, courses taken in topological order
+- **Disconnected components**: Process each component separately
+
+</details>
+
+</details>
  */
 
 class Solution {

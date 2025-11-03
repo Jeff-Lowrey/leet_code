@@ -72,10 +72,9 @@ O(1)
 Since we only have 26 possible variables (a-z)
 
 ### EDGE CASES:
-- No equations (vacuously true)
-- Only equality equations
-- Only inequality equations
-- Self-reference equations like "a==a" or "a!=a"
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

@@ -28,7 +28,7 @@ From each cell, you can either move in four directions: left, right, up, or down
 **Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
-Build graph of dependencies. Start DFS from each cell. Use memoization to store longest path from each cell. Result is max of all starting points. DFS explores increasing values only.
+The key insight is that build graph of dependencies. Start DFS from each cell. Use memoization to store longest path from each cell. Result is max of all starting points. DFS explores increasing values only.
 
 ### APPROACH:
 1. **Initialize memoization**: Create memo = {} to cache results
@@ -76,9 +76,9 @@ O(1)
 
 
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

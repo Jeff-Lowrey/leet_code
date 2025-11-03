@@ -30,7 +30,7 @@ Return an integer array answer where answer[x] = y if y is the least quiet perso
 **Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
-Build graph of richer relationships. Use DFS with memoization. For each person, recursively find quietest among all richer people. Cache results to avoid recomputation.
+The key insight is that build graph of richer relationships. Use DFS with memoization. For each person, recursively find quietest among all richer people. Cache results to avoid recomputation.
 
 ### APPROACH:
 1. **Build graph**: Create adjacency list where graph[b].append(a) for [a,b] in richer
@@ -43,11 +43,11 @@ Build graph of richer relationships. Use DFS with memoization. For each person, 
 8. **Return result**: Return answer array
 
 ### WHY THIS WORKS:
-- Build graph: richer[i] -> quieter[i] edge
-- DFS/BFS from each person, find quietest in reachable set
-- Memoization: cache answer[x] to avoid recomputation
-- answer[x] = person with minimum quiet value reachable from x
-- O(n^2) worst case, O(n + e) with memoization, O(n + e) space
+- This ensures that build graph: richer[i] -> quieter[i] edge
+- This ensures that dFS/BFS from each person, find quietest in reachable set
+- This ensures that memoization: cache answer[x] to avoid recomputation
+- This ensures that answer[x] = person with minimum quiet value reachable from x
+- This ensures that o(n^2) worst case, O(n + e) with memoization, O(n + e) space
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -79,9 +79,9 @@ O(1)
 
 
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

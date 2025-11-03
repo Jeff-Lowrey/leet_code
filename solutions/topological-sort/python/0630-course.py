@@ -30,7 +30,7 @@ Return the maximum number of courses that you can take.
 **Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
-Greedy: sort courses by deadline. For each course, if time available, add to heap (track duration). If no time, compare with longest course taken. If current shorter, replace longest.
+The key insight is that greedy: sort courses by deadline. For each course, if time available, add to heap (track duration). If no time, compare with longest course taken. If current shorter, replace longest.
 
 ### APPROACH:
 1. **Sort by end time**: Sort courses by their deadlines
@@ -78,9 +78,9 @@ O(1)
 
 
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

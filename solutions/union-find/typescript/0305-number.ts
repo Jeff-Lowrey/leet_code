@@ -32,9 +32,9 @@
  * **Space Complexity**: O(1) - Constant extra space
  *
  * ### INTUITION:
- * Maintain **Union-Find** of islands. For each land operation, union with adjacent land cells (4 directions). Track number of connected components. Component count after each operation is island count.
- *
- * ### APPROACH:
+The key insight is that maintain **Union-Find** of islands. For each land operation, union with adjacent land cells (4 directions). Track number of connected components. Component count after each operation is island count.
+
+### APPROACH:
  * **Data structures: **Array** for **Union-Find** parent tracking, 2D Grid for land positions**
  * 1. **Initialize **Union-Find****: Create parent and rank arrays
  * 2. **Initialize count**: Set count = 0 for number of islands
@@ -55,47 +55,47 @@
  * - O(m*n*α(m*n)) time: α is inverse Ackermann (effectively constant)
  * 
  * ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * m = 3, n = 3, positions = [[0,0]]
- * ```
- *
- * **Step 1:** Initialize Union-Find
- * - Create parent and rank arrays for 3×3 grid
- *
- * **Step 2:** Initialize count
- * - Set island count = 0
- * - All cells are water (0)
- *
- * **Step 3:** Process positions - iterate through [[0,0]]
- * - Processing position [0,0]
- *
- * **Step 4:** Add island at position [0,0]
- * - Mark cell (0,0) as land
- * - Increment count to 1
- *
- * **Step 5:** Check neighbors of (0,0)
- * - Check 4 adjacent cells: up, down, left, right
- * - All neighbors are water or out of bounds
- *
- * **Step 6:** Union with land neighbors
- * - No land neighbors found
- * - No unions performed, count remains 1
- *
- * **Step 7:** Record count after processing position
- * - Append count=1 to result list
- * - Result so far: [1]
- *
- * **Step 8:** Return result
- * - All positions processed
- * - Final result: [1]
- *
- * Output:
- * ```
- * [1]
- * ```
+Input:
+```
+m = 3, n = 3, positions = [[0,0]]
+```
 
- * ### TIME COMPLEXITY:
+*Step 1:** Initialize Union-Find
+- Create parent and rank arrays for 3×3 grid
+
+*Step 2:** Initialize count
+- Set island count = 0
+- All cells are water (0)
+
+*Step 3:** Process positions - iterate through [[0,0]]
+- Processing position [0,0]
+
+*Step 4:** Add island at position [0,0]
+- Mark cell (0,0) as land
+- Increment count to 1
+
+*Step 5:** Check neighbors of (0,0)
+- Check 4 adjacent cells: up, down, left, right
+- All neighbors are water or out of bounds
+
+*Step 6:** Union with land neighbors
+- No land neighbors found
+- No unions performed, count remains 1
+
+*Step 7:** Record count after processing position
+- Append count=1 to result list
+- Result so far: [1]
+
+*Step 8:** Return result
+- All positions processed
+- Final result: [1]
+
+Output:
+```
+[1]
+```
+
+### TIME COMPLEXITY:
  * O(n)
  * - Single pass through input
  * 
@@ -104,11 +104,11 @@
  * - Constant extra space
  * 
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
- * 
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {
