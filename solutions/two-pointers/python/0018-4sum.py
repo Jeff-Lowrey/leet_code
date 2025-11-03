@@ -1,36 +1,4 @@
 """
-# Difficulty: Medium
-
-# 0018. 4Sum
-
-Given an array nums of n integers, return an array of all the unique quadruplets [nums[a], nums[b], nums[c], nums[d]] such that:
-
-- 0 <= a, b, c, d < n
-- a, b, c, and d are distinct.
-- nums[a] + nums[b] + nums[c] + nums[d] == target
-
-You may return the answer in any order.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>[1,0,-1,0,-2,2], target = 0</dd>
-<dt>Output:</dt>
-<dd>[[-2,-1,1,2],[-2,0,0,2],[-1,0,0,1]]</dd>
-<dt>Explanation:</dt>
-<dd>4Sum: quadruplets summing to target</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: Hash Map, Hash Set, Array
-**Patterns**: Complement Search, Two Pointers Pattern
-**Time Complexity**: O(n)
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
 The key insight is that sort array first. Fix first two elements, use two pointers for remaining two. Skip duplicates at all four positions. Adjust pointers based on sum comparison to target.
 
@@ -70,14 +38,12 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 - Single pass through input
 
-
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 - Constant extra space
-
 
 ### EDGE CASES:
 - **Empty input**: Handle when input is empty
@@ -85,6 +51,7 @@ O(1)
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 from typing import Any, List, Optional, Dict, Tuple

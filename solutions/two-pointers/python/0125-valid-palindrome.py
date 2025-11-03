@@ -1,34 +1,4 @@
 """
-# 0125. Valid Palindrome
-
-# Difficulty: Easy
-
-A phrase is a palindrome if, after converting all uppercase letters into lowercase
-letters and removing all `non-alphanumeric` characters, it reads the same forward
-and backward. Alphanumeric characters include letters and numbers.
-
-Given a string s, return true if it is a palindrome, or false otherwise.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>s = "A man, a plan, a canal: Panama"</dd>
-<dt>Output:</dt>
-<dd>true</dd>
-<dt>Explanation:</dt>
-<dd>String 'A man, a plan, a canal: Panama' is a valid palindrome</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Array Traversal, Two Pointers
-**Data Structures**: Hash Set, String, Tree
-**Patterns**: Two Pointers Pattern
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
 The key insight is that use two pointers from both ends of the string, skipping non-alphanumeric characters and comparing characters case-insensitively. This avoids creating a cleaned string, saving space.
 
@@ -71,14 +41,12 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 - Single pass through input
 
-
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 - Constant extra space
-
 
 ### EDGE CASES:
 - **Empty string**: Return True (empty is palindrome)
@@ -88,6 +56,7 @@ O(1)
 - **No letters/digits**: Return True (vacuously true)
 
 </details>
+
 """
 
 

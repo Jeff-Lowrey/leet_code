@@ -1,34 +1,4 @@
 """
-# Difficulty: Easy
-
-# 0026. Remove Duplicates From Sorted Array
-
-Given an integer array nums sorted in non-decreasing order, remove the duplicates in-place such that each unique element appears only once. The relative order of the elements should be kept the same.
-
-Since it is impossible to change the length of the array in some languages, you must instead have the result be placed in the first part of the array nums. More formally, if there are k elements after removing the duplicates, then the first k elements of nums should hold the final result.
-
-Return k after placing the final result in the first k slots of nums.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>[1,1,2]</dd>
-<dt>Output:</dt>
-<dd>1</dd>
-<dt>Explanation:</dt>
-<dd>Remove duplicates from sorted array [1,1,2] gives length 2</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Map Storage, Array Traversal
-**Data Structures**: Array, Linked List
-**Patterns**: Two Pointers Pattern, Hash Table Pattern
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
 This is a classic two-pointers problem. Since the array is sorted, duplicates are adjacent. We use one pointer to iterate through the array and another to track the position where the next unique element should be placed.
 
@@ -61,11 +31,11 @@ Step-by-step execution:
 3. [Final step]
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 Single pass through the array
 
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 Only using constant extra space
 
 ### EDGE CASES:
@@ -76,6 +46,7 @@ Only using constant extra space
 - **Consecutive duplicates**: Two-pointer removes them in-place
 
 </details>
+
 """
 
 

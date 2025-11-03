@@ -1,35 +1,4 @@
 """
-# Difficulty: Medium
-
-# 0027. Remove Element
-
-Given an integer array nums and an integer val, remove all occurrences of val in nums in-place. The order of the elements may be changed. Then return the number of elements in nums which are not equal to val.
-
-Consider the number of elements in nums which are not equal to val be k, to get accepted, you need to do the following things:
-
-- Change the array nums such that the first k elements of nums contain the elements which are not equal to val. The remaining elements of nums are not important as well as the size of nums.
-- Return k.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>[3,2,2,3], val = 3</dd>
-<dt>Output:</dt>
-<dd>k=2, nums=[2,2,_,_]</dd>
-<dt>Explanation:</dt>
-<dd>Remove element 3 from [3,2,2,3] gives length 2</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: Hash Map, Hash Set, Array
-**Patterns**: Two Pointers Pattern, Hash Table Pattern
-**Time Complexity**: O(n)
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
 The key insight is that use two pointers: one for reading, one for writing. When read pointer finds non-target value, write it at write pointer position and increment both. Otherwise only increment read pointer.
 
@@ -67,14 +36,12 @@ k=2, nums=[2,2,_,_]
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 - Single pass through input
 
-
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 - Constant extra space
-
 
 ### EDGE CASES:
 - **Empty input**: Handle when input is empty
@@ -82,6 +49,7 @@ O(1)
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 from typing import List, Optional, Dict, Tuple

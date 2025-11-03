@@ -1,30 +1,4 @@
 """
-# Difficulty: Medium
-
-# 0042. Trapping Rain Water
-
-Given n non-negative integers representing an elevation map where the width of each bar is 1, compute how much water it can trap after raining.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>height = [0,1,0,2,1,0,1,3,2,1,2,1]</dd>
-<dt>Output:</dt>
-<dd>6 (total water trapped)</dd>
-<dt>Explanation:</dt>
-<dd>Rain water trapped between heights [0,1,0,2,1,0,1,3,2,1,2,1] is 6 units</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Two Pointers, Binary Search
-**Data Structures**: Hash Map, Hash Set, Array
-**Patterns**: Two Pointers Pattern, Hash Table Pattern
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
 The key insight is that for each position, calculate trapped water = min(max_left, max_right) - height. Use two pointers from both ends. Track max heights seen. Move pointer with smaller max height inward.
 
@@ -66,14 +40,12 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 - Single pass through input
 
-
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 - Constant extra space
-
 
 ### EDGE CASES:
 - **Empty input**: Handle when input is empty
@@ -81,6 +53,7 @@ O(1)
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 from typing import List, Optional, Dict, Tuple

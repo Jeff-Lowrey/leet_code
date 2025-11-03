@@ -1,54 +1,23 @@
 /**
- * # 0125. Valid Palindrome
- *
- * Difficulty: Medium
- *
- *
- * A phrase is a palindrome if, after converting all uppercase letters into lowercase
- * letters and removing all `non-alphanumeric` characters, it reads the same forward
- * and backward. Alphanumeric characters include letters and numbers.
- *
- * Given a string s, return true if it is a palindrome, or false otherwise.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>s = "A man, a plan, a canal: Panama"</dd>
- * <dt>Output:</dt>
- * <dd>true</dd>
- * <dt>Explanation:</dt>
- * <dd>String 'A man, a plan, a canal: Panama' is a valid palindrome</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
- * **Techniques**: Hash Table Lookup, Array Traversal, Two Pointers
- * **Data Structures**: Hash Set, String, Tree
- * **Patterns**: Two Pointers Pattern
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(1) - Constant extra space
- *
- * ### INTUITION:
+### INTUITION:
 The key insight is that use two pointers from both ends of the string, skipping non-alphanumeric characters and comparing characters case-insensitively. This avoids creating a cleaned string, saving space.
 
 ### APPROACH:
- * 1. **Initialize two pointers**: Set left pointer at start (0) and right pointer at end (len(s) - 1)
- * 2. **Skip non-alphanumeric from left**: Move left pointer forward while current character is not alphanumeric
- * 3. **Skip non-alphanumeric from right**: Move right pointer backward while current character is not alphanumeric
- * 4. **Compare characters**: Convert both characters to lowercase and compare them
- * 5. **Return false if mismatch**: If characters don't match, string is not a palindrome - return False
- * 6. **Move pointers inward**: If characters match, increment left and decrement right pointers
- * 7. **Return true when pointers meet**: If loop completes without finding mismatch, string is a palindrome - return True
- *
- * ### WHY THIS WORKS:
- * - Two pointers naturally check palindrome property (symmetric comparison)
- * - Skipping non-alphanumeric characters handles the cleaning requirement
- * - Case-insensitive comparison handles uppercase/lowercase requirement
- * - O(1) space since we don't create a new string
- *
- * ### EXAMPLE WALKTHROUGH:
+1. **Initialize two pointers**: Set left pointer at start (0) and right pointer at end (len(s) - 1)
+2. **Skip non-alphanumeric from left**: Move left pointer forward while current character is not alphanumeric
+3. **Skip non-alphanumeric from right**: Move right pointer backward while current character is not alphanumeric
+4. **Compare characters**: Convert both characters to lowercase and compare them
+5. **Return false if mismatch**: If characters don't match, string is not a palindrome - return False
+6. **Move pointers inward**: If characters match, increment left and decrement right pointers
+7. **Return true when pointers meet**: If loop completes without finding mismatch, string is a palindrome - return True
+
+### WHY THIS WORKS:
+- Two pointers naturally check palindrome property (symmetric comparison)
+- Skipping non-alphanumeric characters handles the cleaning requirement
+- Case-insensitive comparison handles uppercase/lowercase requirement
+- O(1) space since we don't create a new string
+
+### EXAMPLE WALKTHROUGH:
 Input:
 ```
 "A man, a plan, a canal: Panama"
@@ -72,22 +41,23 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
- * O(n)
- * - Single pass through input
- *
- * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
- *
- * ### EDGE CASES:
- * - **Empty string**: Return True (empty is palindrome)
- * - **Single character**: Return True (single char is palindrome)
- * - **Only non-alphanumeric**: Return True after filtering
- * - **Mixed case**: Convert to lowercase for comparison
- * - **No letters/digits**: Return True (vacuously true)
- *
- * </details>
- */
+O(n)**
+- Single pass through input
+
+### SPACE COMPLEXITY:
+O(1)**
+- Constant extra space
+
+### EDGE CASES:
+- **Empty string**: Return True (empty is palindrome)
+- **Single character**: Return True (single char is palindrome)
+- **Only non-alphanumeric**: Return True after filtering
+- **Mixed case**: Convert to lowercase for comparison
+- **No letters/digits**: Return True (vacuously true)
+
+</details>
+
+*/
 
 class Solution {
   isPalindrome(s: string): boolean {

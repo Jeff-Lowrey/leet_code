@@ -1,33 +1,4 @@
 """
-# 0015. 3Sum
-
-# Difficulty: Medium
-
-Given an integer array `nums`, return all the triplets [`nums`[i], `nums`[j], `nums`[k]]
-such that `i` != `j`, `i` != `k`, and `j` != `k`, and `nums`[i] + `nums`[j] + `nums`[k] == 0.
-
-Notice that the solution `set` must not contain duplicate triplets.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>nums = [-1,0,1,2,-1,-4]</dd>
-<dt>Output:</dt>
-<dd>[[-1,-1,2],[-1,0,1]]</dd>
-<dt>Explanation:</dt>
-<dd>3Sum: triplets summing to 0 in [-1,0,1,2,-1,-4] are [[-1,-1,2],[-1,0,1]]</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: Hash Set, Array, Tree
-**Patterns**: Two Pointers Pattern
-**Time Complexity**: O(n²) - Nested iteration through input
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
 The key insight is that convert the 3Sum problem into multiple 2Sum problems. For each number, find pairs in the remaining array that sum to the negative of that number. Sorting helps avoid duplicates and enables two-pointer technique.
 
@@ -60,13 +31,13 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n²)
-- O(n log n) for sorting
-- O(n²) for nested loops with two pointers
-- Overall: O(n²)
+**O(n²)**
+- **O(n log n)** for sorting
+- **O(n²)** for nested loops with two pointers
+- Overall: **O(n²)**
 
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 - Excluding output space, only using constant extra space
 - Sorting can be done in-place
 
@@ -76,6 +47,7 @@ O(1)
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 from typing import Any
