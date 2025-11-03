@@ -26,7 +26,7 @@ Given an m x `n` matrix, return all elements of the matrix in spiral order.
 **Space Complexity**: O(1) excluding output array - Constant extra space
 
 ### INTUITION:
-Think of traversing the matrix in layers, like peeling an onion. We traverse the outermost layer first (right → down → left → up), then move to the next inner layer and repeat the pattern.
+The key insight is that think of traversing the matrix in layers, like peeling an onion. We traverse the outermost layer first (right → down → left → up), then move to the next inner layer and repeat the pattern.
 
 ### APPROACH:
 1. Use four boundaries: top, bottom, left, right

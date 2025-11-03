@@ -30,7 +30,7 @@ An integer x is a multiple of k if there exists an integer n such that x = n * k
 **Space Complexity**: O(min(n, k))
 
 ### INTUITION:
-Use prefix sum with modulo arithmetic. If two prefix sums have the same remainder
+The key insight is that use prefix sum with modulo arithmetic. If two prefix sums have the same remainder
 when divided by k, the subarray between them is divisible by k. Track remainders
 in a hash map with their earliest index to ensure subarray length ≥ 2.
 
@@ -72,10 +72,9 @@ O(n)
 O(min(n, k)) - hash map storage
 
 ### EDGE CASES:
-- k = 0: Division by zero (special handling or constraint)
-- Subarray length = 1: Must skip (requirement: length ≥ 2)
-- Negative numbers: Modulo handles correctly with normalization
-- All elements sum to multiple of k: Returns true
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

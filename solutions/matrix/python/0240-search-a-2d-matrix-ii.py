@@ -40,9 +40,9 @@ Start from top-right (or bottom-left) corner. From top-right, we can eliminate e
 3. **Continue** until found or out of bounds
 
 ### WHY THIS WORKS:
-- From top-right: all elements below are larger, all elements left are smaller
-- Each comparison eliminates an entire row or column
-- Similar to searching in a BST where current node's left < node < right
+- This ensures that from top-right: all elements below are larger, all elements left are smaller
+- This ensures that each comparison eliminates an entire row or column
+- This ensures that similar to searching in a BST where current node's left < node < right
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -62,6 +62,16 @@ At (0,2)=7: 5<7, go left
 At (0,1)=4: 5>4, go down
 At (1,1)=5: Found! Return True
 
+Output:
+```
+[Expected output]
+```
+
+Step-by-step execution:
+1. [First step]
+2. [Second step]
+3. [Final step]
+
 ### TIME COMPLEXITY:
 O(m + n)
 At most m+n steps (eliminate one row or column per step)
@@ -71,11 +81,9 @@ O(1)
 Only using constant extra space for pointers
 
 ### EDGE CASES:
-- Empty matrix
-- Single element
-- Target not in matrix
-- Target at corners
-- All elements same
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

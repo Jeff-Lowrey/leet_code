@@ -44,17 +44,22 @@
  * - Running prefix sum allows single pass solution
  * 
  * ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * nums = [1,1,1], k = 2
- * ```
- *
- * Index 0: sum=1, need=1-2=-1, count=0, map={0:1, 1:1}
- * Index 1: sum=2, need=2-2=0, count=1, map={0:1, 1:1, 2:1}
- * Index 2: sum=3, need=3-2=1, count=2, map={0:1, 1:1, 2:1, 3:1}
- * Result: 2 subarrays: [1,1] and [1,1]
+Input:
+```
+nums = [1,1,1], k = 2
+```
 
- * ### TIME COMPLEXITY:
+Index 0: sum=1, need=1-2=-1, count=0, map={0:1, 1:1}
+Index 1: sum=2, need=2-2=0, count=1, map={0:1, 1:1, 2:1}
+Index 2: sum=3, need=3-2=1, count=2, map={0:1, 1:1, 2:1, 3:1}
+Result: 2 subarrays: [1,1] and [1,1]
+
+Step-by-step execution:
+1. [First step]
+2. [Second step]
+3. [Final step]
+
+### TIME COMPLEXITY:
  * O(n)
  * - Single pass through input
  * Single pass through the array with O(1) hashmap operations
@@ -65,13 +70,11 @@
  * HashMap can store up to n different prefix sums
  * 
  * ### EDGE CASES:
- * - Single element equals k
- * - All elements sum to k
- * - No subarrays sum to k
- * - Negative numbers in array
- * - k = 0 (subarrays that sum to zero)
- * 
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {

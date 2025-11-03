@@ -29,7 +29,7 @@ A subarray is a contiguous part of the array.
 **Space Complexity**: O(n) - Additional hash map storage
 
 ### INTUITION:
-Use prefix sum with hash map. For each position, count how many previous positions
+The key insight is that use prefix sum with hash map. For each position, count how many previous positions
 have prefix_sum = current_prefix_sum - goal. This gives us all subarrays ending at
 current position with sum equal to goal.
 
@@ -58,6 +58,16 @@ Index 3: sum=2, need 2-2=0 (found 1), count=2, add {0:1, 1:2, 2:2}
 Index 4: sum=3, need 3-2=1 (found 2), count=4
 Total: 4
 
+Output:
+```
+[Expected output]
+```
+
+Step-by-step execution:
+1. [First step]
+2. [Second step]
+3. [Final step]
+
 ### TIME COMPLEXITY:
 O(n)
 - Single pass through input
@@ -69,9 +79,9 @@ O(n)
 
 
 ### EDGE CASES:
-- goal = 0: Count subarrays with all zeros
-- All zeros: Special handling needed if goal > array length
-- No valid subarrays: Return 0
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

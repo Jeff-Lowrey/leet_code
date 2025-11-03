@@ -32,21 +32,21 @@
 
  *
  * ### INTUITION:
- * Think of traversing the matrix in layers, like peeling an onion. We traverse the outermost layer first (right → down → left → up), then move to the next inner layer and repeat the pattern.
- *
- * ### APPROACH:
- * 1. Use four boundaries: top, bottom, left, right
- * 2. For each layer, traverse in spiral order:
- *    - Move right along top row, then increment top
- *    - Move down along right column, then decrement right
- *    - Move left along bottom row (if still valid), then decrement bottom
- *    - Move up along left column (if still valid), then increment left
- * 3. Continue until all boundaries converge
- *
- * ### WHY THIS WORKS:
- * By systematically shrinking the boundaries after each direction, we ensure we visit each element exactly once in spiral order. The boundary checks prevent revisiting elements or going out of bounds.
- *
- * ### EXAMPLE WALKTHROUGH:
+The key insight is that think of traversing the matrix in layers, like peeling an onion. We traverse the outermost layer first (right → down → left → up), then move to the next inner layer and repeat the pattern.
+
+### APPROACH:
+1. Use four boundaries: top, bottom, left, right
+2. For each layer, traverse in spiral order:
+   - Move right along top row, then increment top
+   - Move down along right column, then decrement right
+   - Move left along bottom row (if still valid), then decrement bottom
+   - Move up along left column (if still valid), then increment left
+3. Continue until all boundaries converge
+
+### WHY THIS WORKS:
+By systematically shrinking the boundaries after each direction, we ensure we visit each element exactly once in spiral order. The boundary checks prevent revisiting elements or going out of bounds.
+
+### EXAMPLE WALKTHROUGH:
  * Input:
  * ```
  * matrix = [[1,2,3],[4,5,6],[7,8,9]]

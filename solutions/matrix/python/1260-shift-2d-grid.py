@@ -56,9 +56,9 @@ Instead of performing k individual shifts, we can calculate final positions dire
 - 1D to 2D: row = index // n, col = index % n
 
 ### WHY THIS WORKS:
-- Shifting k times is equivalent to rotating the flattened array by k positions
-- Using modulo handles wrapping and optimizes multiple full rotations
-- Direct position calculation avoids expensive element-by-element shifting
+- This ensures that shifting k times is equivalent to rotating the flattened array by k positions
+- This ensures that using modulo handles wrapping and optimizes multiple full rotations
+- This ensures that direct position calculation avoids expensive element-by-element shifting
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -96,10 +96,9 @@ O(m × n)
 - Can be O(1) if we modify in-place, but tricky with constraints
 
 ### EDGE CASES:
-- k = 0: No shift needed
-- k >= m*n: Use k % (m*n) to optimize
-- Single row or column: Still works with formula
-- k is multiple of total: Grid unchanged
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

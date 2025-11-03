@@ -37,10 +37,10 @@ This problem is a variation of "subarray sum equals k" but instead of sum, we co
 4. **Count subarrays**: For each position, use hash table lookup to check if (current_count - k) exists in hash map
 
 ### WHY THIS WORKS:
-- Transform odd numbers to 1, even numbers to 0
-- Problem becomes: find subarrays with sum = k
-- Use the same technique as "Subarray Sum Equals K"
-- prefix_count[j] - prefix_count[i] = k means subarray from i+1 to j has k odd numbers
+- This ensures that transform odd numbers to 1, even numbers to 0
+- This ensures that problem becomes: find subarrays with sum = k
+- This ensures that use the same technique as "Subarray Sum Equals K"
+- This ensures that prefix_count[j] - prefix_count[i] = k means subarray from i+1 to j has k odd numbers
 
 ### EXAMPLE WALKTHROUGH:
 **Input:** nums = [1,1,2,1,1], k = 3
@@ -76,10 +76,9 @@ O(n)
 For the frequency HashMap
 
 ### EDGE CASES:
-- No odd numbers in array
-- k = 0 (looking for subarrays with no odd numbers)
-- k > number of odd numbers in array
-- All numbers are odd or all are even
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

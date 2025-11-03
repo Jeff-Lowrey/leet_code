@@ -39,29 +39,35 @@
  * 4. **Count subarrays**: For each position, check if (current_count - k) exists
  *
  * ### WHY THIS WORKS:
- * - Transform odd numbers to 1, even numbers to 0
- * - Problem becomes: find subarrays with sum = k
- * - Use the same technique as "Subarray Sum Equals K"
- * - prefix_count[j] - prefix_count[i] = k means subarray from i+1 to j has k odd numbers
- *
- * ### EXAMPLE WALKTHROUGH:
- * Given input nums = [1,1,2,1,1], k = 3:
- *
- * Input:
- * ```
- * nums = [1,1,2,1,1], k = 3
- * ```
- *
- * Transform: [1,1,0,1,1] (odd=1, even=0)
- * Prefix counts: [0,1,2,2,3,4]
- * For each position, check if (current_count - k) exists:
- * - Position 3: count=3, need=0, found 1 time
- * - Position 4: count=4, need=1, found 1 time
- * Total: 2 nice subarrays
+- This ensures that transform odd numbers to 1, even numbers to 0
+- This ensures that problem becomes: find subarrays with sum = k
+- This ensures that use the same technique as "Subarray Sum Equals K"
+- This ensures that prefix_count[j] - prefix_count[i] = k means subarray from i+1 to j has k odd numbers
 
- *
- * Result: 2
- * ### TIME COMPLEXITY:
+### EXAMPLE WALKTHROUGH:
+Given input nums = [1,1,2,1,1], k = 3:
+
+Input:
+```
+nums = [1,1,2,1,1], k = 3
+```
+
+Transform: [1,1,0,1,1] (odd=1, even=0)
+Prefix counts: [0,1,2,2,3,4]
+For each position, check if (current_count - k) exists:
+- Position 3: count=3, need=0, found 1 time
+- Position 4: count=4, need=1, found 1 time
+Total: 2 nice subarrays
+
+
+Result: 2
+
+Step-by-step execution:
+1. [First step]
+2. [Second step]
+3. [Final step]
+
+### TIME COMPLEXITY:
  * O(n)
  * - Single pass through input
  * Single pass through array with HashMap operations
@@ -72,12 +78,11 @@
  * For the frequency HashMap
  *
  * ### EDGE CASES:
- * - No odd numbers in array
- * - k = 0 (looking for subarrays with no odd numbers)
- * - k > number of odd numbers in array
- * - All numbers are odd or all are even
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 /**

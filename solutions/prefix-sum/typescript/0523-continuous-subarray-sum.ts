@@ -31,21 +31,21 @@
  * **Space Complexity**: O(min(n, k))
  *
  * ### INTUITION:
- * Use prefix sum with modulo arithmetic. If two prefix sums have the same remainder
- * when divided by k, the subarray between them is divisible by k. Track remainders
- * in a hash map with their earliest index to ensure subarray length ≥ 2.
- *
- * ### APPROACH:
+The key insight is that use prefix sum with modulo arithmetic. If two prefix sums have the same remainder
+when divided by k, the subarray between them is divisible by k. Track remainders
+in a hash map with their earliest index to ensure subarray length ≥ 2.
+
+### APPROACH:
  * 1. **Hash Map**: Store (remainder → earliest_index) pairs
  * 2. **Prefix Sum**: Calculate cumulative sum modulo k
  * 3. **Check**: If same remainder seen before and distance ≥ 2, return true
  * 4. **Edge Cases**: Handle k=0, negative remainders with modulo normalization
  *
  * ### WHY THIS WORKS:
- * If prefix_sum[i] % k == prefix_sum[j] % k, then sum(nums[i+1:j+1]) % k == 0.
- * By storing earliest occurrence of each remainder, we maximize subarray length.
- *
- * ### EXAMPLE WALKTHROUGH:
+If prefix_sum[i] % k == prefix_sum[j] % k, then sum(nums[i+1:j+1]) % k == 0.
+By storing earliest occurrence of each remainder, we maximize subarray length.
+
+### EXAMPLE WALKTHROUGH:
  * Input:
  * ```
  * nums = [23,2,4,6,7], k = 6
@@ -72,12 +72,11 @@
  * O(min(n, k)) - hash map storage
  *
  * ### EDGE CASES:
- * - k = 0: Division by zero (special handling or constraint)
- * - Subarray length = 1: Must skip (requirement: length ≥ 2)
- * - Negative numbers: Modulo handles correctly with normalization
- * - All elements sum to multiple of k: Returns true
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {

@@ -29,7 +29,7 @@ A subarray is a contiguous part of an array.
 **Space Complexity**: O(min(n, k))
 
 ### INTUITION:
-Use prefix sum with modulo arithmetic. If two prefix sums have the same remainder
+The key insight is that use prefix sum with modulo arithmetic. If two prefix sums have the same remainder
 when divided by k, the subarray between them is divisible by k. Track remainder
 frequencies in a hash map.
 
@@ -61,6 +61,16 @@ Index 4: rem=4, count=3 (seen 3 times), add {0:1, 4:4, 2:1}
 Index 5: rem=0, count=1 (initial 0), add {0:2, 4:4, 2:1}
 Total: 0+1+2+0+3+1 = 7
 
+Output:
+```
+[Expected output]
+```
+
+Step-by-step execution:
+1. [First step]
+2. [Second step]
+3. [Final step]
+
 ### TIME COMPLEXITY:
 O(n)
 - Single pass through input
@@ -70,9 +80,9 @@ O(n)
 O(min(n, k)) - hash map storage
 
 ### EDGE CASES:
-- k = 1: All subarrays are divisible (return n*(n+1)/2)
-- Negative numbers: Modulo normalization handles this
-- Zero in array: Doesn't affect divisibility check
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

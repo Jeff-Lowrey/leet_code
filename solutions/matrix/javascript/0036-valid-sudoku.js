@@ -50,20 +50,20 @@
 
  *
  * ### INTUITION:
- * Use hash sets to track seen digits for each row, column, and 3x3 box.
- * Make a single pass through the board, checking for duplicates in the appropriate sets.
- *
- * ### APPROACH:
+The key insight is that use hash sets to track seen digits for each row, column, and 3x3 box.
+Make a single pass through the board, checking for duplicates in the appropriate sets.
+
+### APPROACH:
  * 1. **Data Structures**: Use sets for each row, column, and box
  * 2. **Single Pass**: Iterate through each cell once
  * 3. **Box Index**: Calculate box index as (row // 3) * 3 + (col // 3)
  * 4. **Check**: For each digit, verify it hasn't been seen in its row, column, or box
  *
  * ### WHY THIS WORKS:
- * Sets provide O(1) lookup, allowing us to efficiently check for duplicates.
- * The box index formula maps each cell to one of 9 boxes (0-8).
- *
- * ### EXAMPLE WALKTHROUGH:
+Sets provide O(1) lookup, allowing us to efficiently check for duplicates.
+The box index formula maps each cell to one of 9 boxes (0-8).
+
+### EXAMPLE WALKTHROUGH:
  * Input:
  * ```
  * For cell (0, 0) = "5":
@@ -97,11 +97,11 @@
  * - Fixed space regardless of input
  *
  * ### EDGE CASES:
- * - Empty cells (".") should be ignored
- * - All cells filled validly
- * - Single invalid cell makes entire board invalid
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 /**

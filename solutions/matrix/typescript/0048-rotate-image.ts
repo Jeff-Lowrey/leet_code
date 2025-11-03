@@ -36,16 +36,22 @@
  * Alternatively, we can directly manipulate elements in concentric rings.
  *
  * ### APPROACH:
- * **Method 1: Transpose + Reverse**
- * 1. **Transpose**: Convert matrix[i][j] to matrix[j][i]
- * 2. **Reverse rows**: Reverse each row to complete 90° rotation
- *
- * **Method 2: Ring-by-Ring Rotation**
- * 1. **Process rings**: Handle outer ring, then inner rings
- * 2. **Four-way swap**: Rotate 4 elements at once in each ring
- * 3. **Move inward**: Process successively inner rings
- *
- * ### WHY THIS WORKS:
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+Method 1: Transpose + Reverse**
+1. **Transpose**: Convert matrix[i][j] to matrix[j][i]
+2. **Reverse rows**: Reverse each row to complete 90° rotation
+
+Method 2: Ring-by-Ring Rotation**
+1. **Process rings**: Handle outer ring, then inner rings
+2. **Four-way swap**: Rotate 4 elements at once in each ring
+3. **Move inward**: Process successively inner rings
+
+### WHY THIS WORKS:
  * - Transpose swaps coordinates: (i,j) → (j,i)
  * - Row reversal completes the 90° clockwise rotation
  * - Ring rotation directly places elements in final positions
@@ -80,11 +86,11 @@
  * In-place rotation without extra matrix
  *
  * ### EDGE CASES:
- * - 1×1 matrix: no rotation needed
- * - 2×2 matrix: swap diagonally opposite elements
- * - Odd vs even dimensions: affects number of rings
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {

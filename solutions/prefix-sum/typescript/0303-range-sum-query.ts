@@ -34,22 +34,22 @@
  * **Space Complexity**: O(1) - Constant extra space
  *
  * ### INTUITION:
- * Precompute cumulative sums in array. For range [i,j], the sum is prefix[j+1] - prefix[i]. This reduces each query from O(n) to O(1) with O(n) preprocessing.
- *
- * ### APPROACH:
+The key insight is that precompute cumulative sums in array. For range [i,j], the sum is prefix[j+1] - prefix[i]. This reduces each query from O(n) to O(1) with O(n) preprocessing.
+
+### APPROACH:
  * 1. **Initialize prefix sum**: In __init__, create self.prefix_sum = [0] * (len(nums) + 1)
  * 2. **Build prefix array**: For i in range(len(nums)), prefix_sum[i+1] = prefix_sum[i] + nums[i]
  * 3. **Query with O(1)**: In sumRange, return self.prefix_sum[right+1] - self.prefix_sum[left]
  * 4. **Leverage preprocessing**: Use pre-computed cumulative sums for fast queries
  *
  * ### WHY THIS WORKS:
- * - Precompute cumulative sums: prefix[i] = sum of nums[0..i-1]
- * - Range sum [left, right] = prefix[right+1] - prefix[left]
- * - O(n) preprocessing builds prefix array once
- * - O(1) query time: just subtraction, no loop needed
- * - Trade O(n) space for constant-time queries vs O(n) per query without prefix
- *
- * ### EXAMPLE WALKTHROUGH:
+- This ensures that precompute cumulative sums: prefix[i] = sum of nums[0..i-1]
+- This ensures that range sum [left, right] = prefix[right+1] - prefix[left]
+- This ensures that o(n) preprocessing builds prefix array once
+- This ensures that o(1) query time: just subtraction, no loop needed
+- This ensures that trade O(n) space for constant-time queries vs O(n) per query without prefix
+
+### EXAMPLE WALKTHROUGH:
  * Input:
  * ```
  * ["NumArray","sumRange","sumRange","sumRange"], [[[-2,0,3,-5,2,-1]],[0,2],[2,5],[0,5]]
@@ -77,11 +77,11 @@
  * - Constant extra space
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class NumArray {

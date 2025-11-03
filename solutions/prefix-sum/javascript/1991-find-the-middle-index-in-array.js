@@ -34,9 +34,9 @@
 
  *
  * ### INTUITION:
- * This is a classic prefix sum problem. For any index to be the middle index, the sum of all elements to its left must equal the sum of all elements to its right. We can calculate the total sum first, then iterate through the array tracking the left sum. At each position, we can calculate the right sum as (total - left_sum - current_element).
- *
- * ### APPROACH:
+The key insight is that this is a classic prefix sum problem. For any index to be the middle index, the sum of all elements to its left must equal the sum of all elements to its right. We can calculate the total sum first, then iterate through the array tracking the left sum. At each position, we can calculate the right sum as (total - left_sum - current_element).
+
+### APPROACH:
  * 1. **Calculate total sum**: Get sum of entire array
  * 2. **Initialize left sum**: Start with 0 (no elements to the left initially)
  * 3. **Iterate through array**: For each index i:
@@ -53,18 +53,28 @@
  * - Single pass solution after calculating total sum
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * nums = [2,3,-1,8,4]
- * ```
- *
- * Total sum = 16
- * Index 0: left=0, right=16-0-2=14, not equal
- * Index 1: left=2, right=16-2-3=11, not equal
- * Index 2: left=5, right=16-5-(-1)=12, not equal
- * Index 3: left=4, right=16-4-8=4, equal! Return 3
+Input:
+```
+nums = [2,3,-1,8,4]
+```
 
- * ### TIME COMPLEXITY:
+Total sum = 16
+Index 0: left=0, right=16-0-2=14, not equal
+Index 1: left=2, right=16-2-3=11, not equal
+Index 2: left=5, right=16-5-(-1)=12, not equal
+Index 3: left=4, right=16-4-8=4, equal! Return 3
+
+Output:
+```
+[Expected output]
+```
+
+Step-by-step execution:
+1. [First step]
+2. [Second step]
+3. [Final step]
+
+### TIME COMPLEXITY:
  * O(n)
  * - Single pass through input
  * Two passes: one to calculate total sum, one to find middle index
@@ -75,13 +85,11 @@
  * Only using constant extra space for variables
  *
  * ### EDGE CASES:
- * - Single element array (always middle index)
- * - All zeros
- * - No valid middle index exists
- * - Negative numbers in array
- * - Middle index at start or end
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 /**

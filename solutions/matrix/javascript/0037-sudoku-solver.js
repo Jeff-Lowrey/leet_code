@@ -32,11 +32,11 @@
 
  *
  * ### INTUITION:
- * Use backtracking to try placing digits 1-9 in empty cells, validating each placement
- * against Sudoku rules (no duplicates in row, column, or 3x3 box). Backtrack when no
- * valid digit can be placed.
- *
- * ### APPROACH:
+The key insight is that use backtracking to try placing digits 1-9 in empty cells, validating each placement
+against Sudoku rules (no duplicates in row, column, or 3x3 box). Backtrack when no
+valid digit can be placed.
+
+### APPROACH:
  * 1. **Find empty cell**: Scan for next '.' cell
  * 2. **Try digits**: Attempt placing digits 1-9
  * 3. **Validate**: Check if placement is valid (row, column, box)
@@ -44,12 +44,12 @@
  * 5. **Backtrack**: If stuck, undo placement and try next digit
  *
  * ### WHY THIS WORKS:
- * - Backtracking explores all possible configurations
- * - Validation ensures Sudoku rules are maintained
- * - Early pruning reduces search space
- * - Modifies board in-place for efficiency
- *
- * ### EXAMPLE WALKTHROUGH:
+- Backtracking explores all possible configurations
+- Validation ensures Sudoku rules are maintained
+- Early pruning reduces search space
+- Modifies board in-place for efficiency
+
+### EXAMPLE WALKTHROUGH:
  * Input:
  * ```
  * board with some filled cells and '.' for empty
@@ -72,11 +72,11 @@
  * O(n*n) for recursion stack
  *
  * ### EDGE CASES:
- * - Board already solved
- * - Multiple solutions (return first found)
- * - Invalid input (unsolvable)
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 /**

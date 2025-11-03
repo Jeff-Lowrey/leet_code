@@ -47,21 +47,21 @@
  * Instead of performing k individual shifts, we can calculate final positions directly.
  *
  * ### APPROACH:
- * 1. **Flatten Conceptually**: Treat the 2D grid as a 1D array without actually creating it
- * 2. **Calculate New Position**: For element at position i, after k shifts it's at (i + k) % total
- * 3. **Map Back to 2D**: Convert 1D position back to 2D coordinates
- * 4. **Optimization**: Use k % total to avoid unnecessary full rotations
- *
- * **Key Insight**: Position mapping
- * - 2D to 1D: index = i * n + j (where i is row, j is col)
- * - 1D to 2D: row = index // n, col = index % n
- *
- * ### WHY THIS WORKS:
- * - Shifting k times is equivalent to rotating the flattened array by k positions
- * - Using modulo handles wrapping and optimizes multiple full rotations
- * - Direct position calculation avoids expensive element-by-element shifting
- *
- * ### EXAMPLE WALKTHROUGH:
+1. **Flatten Conceptually**: Treat the 2D grid as a 1D array without actually creating it
+2. **Calculate New Position**: For element at position i, after k shifts it's at (i + k) % total
+3. **Map Back to 2D**: Convert 1D position back to 2D coordinates
+4. **Optimization**: Use k % total to avoid unnecessary full rotations
+
+Key Insight**: Position mapping
+- 2D to 1D: index = i * n + j (where i is row, j is col)
+- 1D to 2D: row = index // n, col = index % n
+
+### WHY THIS WORKS:
+- This ensures that shifting k times is equivalent to rotating the flattened array by k positions
+- This ensures that using modulo handles wrapping and optimizes multiple full rotations
+- This ensures that direct position calculation avoids expensive element-by-element shifting
+
+### EXAMPLE WALKTHROUGH:
  * Input:
  * ```
  * grid = [[1,2,3],[4,5,6],[7,8,9]], k = 1, m = 3, n = 3, total = 9
@@ -92,12 +92,11 @@
  * - Can be O(1) if we modify in-place, but tricky with constraints
  *
  * ### EDGE CASES:
- * - k = 0: No shift needed
- * - k >= m*n: Use k % (m*n) to optimize
- * - Single row or column: Still works with formula
- * - k is multiple of total: Grid unchanged
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {

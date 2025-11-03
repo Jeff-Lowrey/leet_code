@@ -28,35 +28,45 @@
  * **Space Complexity**: O(n) - Additional hash map storage
  *
  * ### INTUITION:
- * Transform the problem: treat 0 as -1. Finding equal 0s and 1s is equivalent to
- * finding a subarray with sum 0. Use prefix sum with hash map to track when we've
- * seen each sum value before.
- *
- * ### APPROACH:
+The key insight is that transform the problem: treat 0 as -1. Finding equal 0s and 1s is equivalent to
+finding a subarray with sum 0. Use prefix sum with hash map to track when we've
+seen each sum value before.
+
+### APPROACH:
  * 1. **Transform**: Replace 0 with -1 in counting (not modifying array)
  * 2. **Prefix Sum**: Calculate cumulative count (treating 0 as -1)
  * 3. **Hash Map**: Store (sum → earliest_index) pairs
  * 4. **Check**: If same sum seen before, subarray between has sum 0 (equal 0s and 1s)
  *
  * ### WHY THIS WORKS:
- * If we treat 0 as -1, then a subarray with equal 0s and 1s will have sum 0.
- * Using prefix sums: if prefix[i] == prefix[j], then sum(nums[i+1:j+1]) == 0.
- *
- * ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * nums = [0, 1, 0]
- * ```
- *
- * Transform to: [-1, 1, -1]
- * Prefix sums: [-1, 0, -1]
- * Index -1: sum 0 (initialize)
- * Index 0: sum -1, store {0: -1, -1: 0}
- * Index 1: sum 0, seen at index -1, length = 1 - (-1) = 2
- * Index 2: sum -1, seen at index 0, length = 2 - 0 = 2
- * Maximum length = 2
+If we treat 0 as -1, then a subarray with equal 0s and 1s will have sum 0.
+Using prefix sums: if prefix[i] == prefix[j], then sum(nums[i+1:j+1]) == 0.
 
- * ### TIME COMPLEXITY:
+### EXAMPLE WALKTHROUGH:
+Input:
+```
+nums = [0, 1, 0]
+```
+
+Transform to: [-1, 1, -1]
+Prefix sums: [-1, 0, -1]
+Index -1: sum 0 (initialize)
+Index 0: sum -1, store {0: -1, -1: 0}
+Index 1: sum 0, seen at index -1, length = 1 - (-1) = 2
+Index 2: sum -1, seen at index 0, length = 2 - 0 = 2
+Maximum length = 2
+
+Output:
+```
+[Expected output]
+```
+
+Step-by-step execution:
+1. [First step]
+2. [Second step]
+3. [Final step]
+
+### TIME COMPLEXITY:
  * O(n)
  * - Single pass through input
  *
@@ -65,12 +75,11 @@
  * - Additional hash map storage
  *
  * ### EDGE CASES:
- * - All 0s or all 1s: No equal subarray (return 0)
- * - Already balanced: Entire array is valid
- * - Empty array: Return 0
- * - Single element: Cannot have equal 0s and 1s
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {

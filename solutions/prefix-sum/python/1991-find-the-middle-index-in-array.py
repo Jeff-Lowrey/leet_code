@@ -32,7 +32,7 @@ Return the leftmost middleIndex that satisfies the condition, or -1 if there is 
 **Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
-This is a classic prefix sum problem. For any index to be the middle index, the sum of all elements to its left must equal the sum of all elements to its right. We can calculate the total sum first, then iterate through the array tracking the left sum. At each position, we can calculate the right sum as (total - left_sum - current_element).
+The key insight is that this is a classic prefix sum problem. For any index to be the middle index, the sum of all elements to its left must equal the sum of all elements to its right. We can calculate the total sum first, then iterate through the array tracking the left sum. At each position, we can calculate the right sum as (total - left_sum - current_element).
 
 ### APPROACH:
 1. **Calculate total sum**: Get sum of entire array
@@ -62,6 +62,16 @@ Index 1: left=2, right=16-2-3=11, not equal
 Index 2: left=5, right=16-5-(-1)=12, not equal
 Index 3: left=4, right=16-4-8=4, equal! Return 3
 
+Output:
+```
+[Expected output]
+```
+
+Step-by-step execution:
+1. [First step]
+2. [Second step]
+3. [Final step]
+
 ### TIME COMPLEXITY:
 O(n)
 Two passes: one to calculate total sum, one to find middle index
@@ -71,11 +81,9 @@ O(1)
 Only using constant extra space for variables
 
 ### EDGE CASES:
-- Single element array (always middle index)
-- All zeros
-- No valid middle index exists
-- Negative numbers in array
-- Middle index at start or end
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

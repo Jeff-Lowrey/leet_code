@@ -28,7 +28,7 @@ You must do it in place.
 **Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
-Cannot modify matrix while iterating as it affects future decisions. Need to mark which rows/columns to zero without extra space. Use first row and first column as markers!
+The key insight is that cannot modify matrix while iterating as it affects future decisions. Need to mark which rows/columns to zero without extra space. Use first row and first column as markers!
 
 ### APPROACH:
 1. **Use first row/column as markers**: First row tracks column zeros, first column tracks row zeros
@@ -38,9 +38,9 @@ Cannot modify matrix while iterating as it affects future decisions. Need to mar
 5. **Handle first row/column**: Apply zeros based on flags
 
 ### WHY THIS WORKS:
-- First row/column serve as O(1) space markers
-- By processing them last, we don't lose information
-- Separate flags handle the overlap at matrix[0][0]
+- This ensures that first row/column serve as O(1) space markers
+- This ensures that by processing them last, we don't lose information
+- This ensures that separate flags handle the overlap at matrix[0][0]
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -80,11 +80,9 @@ O(1)
 Only using two boolean flags
 
 ### EDGE CASES:
-- Single element
-- First row/column contains zeros
-- All zeros
-- No zeros
-- Single row or single column
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

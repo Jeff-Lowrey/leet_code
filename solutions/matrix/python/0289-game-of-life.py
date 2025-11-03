@@ -39,7 +39,7 @@ in the current state, where births and deaths occur simultaneously.
 **Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
-The challenge is applying rules simultaneously to all cells. Use state encoding to track both current and next states in-place, avoiding extra space while ensuring all decisions are based on the original state.
+The key insight is that the challenge is applying rules simultaneously to all cells. Use state encoding to track both current and next states in-place, avoiding extra space while ensuring all decisions are based on the original state.
 
 ### APPROACH:
 1. **State Encoding**: Use 4 states instead of 2
@@ -107,6 +107,20 @@ O(1)
 - **Single live cell**: Dies (insufficient neighbors)
 - **Stable patterns**: Some configurations don't change
 - **In-place update**: Use encoding to track current and next state
+
+</details>
+
+</details>
+
+</details>
+
+</details>
+
+</details>
+
+</details>
+
+</details>
 
 </details>
 """

@@ -70,32 +70,32 @@ This solution uses dynamic programming for efficient implementation.
 
 This solution uses preprocessing for efficient implementation.
 ### EXAMPLE WALKTHROUGH:
- * **Input:** matrix = [[3, 0, 1, 4, 2], [5, 6, 3, 2, 1], [1, 2, 0, 1, 5], [4, 1, 0, 1, 7], [1, 0, 3, 0, 5]]
- * Operations: ["NumMatrix", "sumRegion(2,1,4,3)", "sumRegion(1,1,2,2)", "sumRegion(1,2,2,4)"]
- *
- * **Step 1:** Create prefix sum matrix with padding
- *
- * Matrix: [[3, 0, 1, 4, 2],
- *          [5, 6, 3, 2, 1],
- *          [1, 2, 0, 1, 5],
- *          [4, 1, 0, 1, 7],
- *          [1, 0, 3, 0, 5]]
- *
- * Prefix sum (with padding):
- * [[0,  0,  0,  0,  0,  0],
- *  [0,  3,  3,  4,  8, 10],
- *  [0,  8, 14, 18, 24, 27],
- *  [0,  9, 17, 21, 28, 36],
- *  [0, 13, 22, 26, 34, 49],
- *  [0, 14, 23, 30, 38, 58]]
- *
- * Query sumRegion(2, 1, 4, 3):
- * sum = prefix[5][4] - prefix[2][4] - prefix[5][1] + prefix[2][1]
- *     = 38 - 24 - 14 + 8 = 8 ✓
- *
- * Result: [null, 8, 11, 12]
- *
- * ### TIME COMPLEXITY:
+*Input:** matrix = [[3, 0, 1, 4, 2], [5, 6, 3, 2, 1], [1, 2, 0, 1, 5], [4, 1, 0, 1, 7], [1, 0, 3, 0, 5]]
+Operations: ["NumMatrix", "sumRegion(2,1,4,3)", "sumRegion(1,1,2,2)", "sumRegion(1,2,2,4)"]
+
+*Step 1:** Create prefix sum matrix with padding
+
+Matrix: [[3, 0, 1, 4, 2],
+         [5, 6, 3, 2, 1],
+         [1, 2, 0, 1, 5],
+         [4, 1, 0, 1, 7],
+         [1, 0, 3, 0, 5]]
+
+Prefix sum (with padding):
+[[0,  0,  0,  0,  0,  0],
+ [0,  3,  3,  4,  8, 10],
+ [0,  8, 14, 18, 24, 27],
+ [0,  9, 17, 21, 28, 36],
+ [0, 13, 22, 26, 34, 49],
+ [0, 14, 23, 30, 38, 58]]
+
+Query sumRegion(2, 1, 4, 3):
+sum = prefix[5][4] - prefix[2][4] - prefix[5][1] + prefix[2][1]
+    = 38 - 24 - 14 + 8 = 8 ✓
+
+Result: [null, 8, 11, 12]
+
+### TIME COMPLEXITY:
  * **Constructor: O(m * n)** where m, n are matrix dimensions - must compute all prefix sums
  * **sumRegion: O(1)** - simple arithmetic using precomputed values
  *
@@ -103,12 +103,11 @@ This solution uses preprocessing for efficient implementation.
  * **O(m * n)** - store prefix sum matrix of same dimensions as input
  *
  * ### EDGE CASES:
- * - Empty matrix: matrix=[[]] → prefix=[[]] (no elements to sum, special handling in constructor)
- * - Single element matrix: matrix=[[5]], sumRegion(0,0,0,0) → 5 (single cell query returns the element)
- * - Query covering entire matrix: sumRegion(0,0,m-1,n-1) → sum of all elements (full matrix sum)
- * - Query for single cell: row1==row2 and col1==col2 → matrix[row1][col1] (single element result)
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 /**

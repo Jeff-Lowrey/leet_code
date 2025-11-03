@@ -28,7 +28,7 @@ The path does not need to start or end at the root or a leaf, but it must go dow
 **Space Complexity**: O(h)
 
 ### INTUITION:
-This problem extends the prefix sum concept to binary trees. For any path from node A to node B going downwards, if we know the prefix sum from root to A and root to B, then path sum A→B = prefix_sum[B] - prefix_sum[A]. We can use a hashmap to store the frequency of prefix sums as we traverse the tree, similar to the "Subarray Sum Equals K" problem.
+The key insight is that this problem extends the prefix sum concept to binary trees. For any path from node A to node B going downwards, if we know the prefix sum from root to A and root to B, then path sum A→B = prefix_sum[B] - prefix_sum[A]. We can use a hashmap to store the frequency of prefix sums as we traverse the tree, similar to the "Subarray Sum Equals K" problem.
 
 ### APPROACH:
 1. **Use DFS traversal**: Traverse tree in preorder (root, left, right)
@@ -66,6 +66,16 @@ Node 3: sum=21, need=21-8=13, count=0, map={0:1, 10:1, 15:1, 18:1, 21:1}
 ... and so on
 Total paths with sum 8: 3
 
+Output:
+```
+[Expected output]
+```
+
+Step-by-step execution:
+1. [First step]
+2. [Second step]
+3. [Final step]
+
 ### TIME COMPLEXITY:
 O(n)
 Visit each node exactly once, with O(1) hashmap operations per node
@@ -75,12 +85,9 @@ O(h)
 Recursion stack depth is tree height h, hashmap stores at most h entries in any path
 
 ### EDGE CASES:
-- Empty tree (return 0)
-- Single node tree
-- Target sum is 0
-- Negative values in tree
-- Multiple valid paths through same nodes
-- Paths that start from root vs internal nodes
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

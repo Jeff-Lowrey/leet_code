@@ -27,7 +27,7 @@ with an equal number of 0 and 1.
 **Space Complexity**: O(n) - Additional hash map storage
 
 ### INTUITION:
-Transform the problem: treat 0 as -1. Finding equal 0s and 1s is equivalent to
+The key insight is that transform the problem: treat 0 as -1. Finding equal 0s and 1s is equivalent to
 finding a subarray with sum 0. Use prefix sum with hash map to track when we've
 seen each sum value before.
 
@@ -55,6 +55,16 @@ Index 1: sum 0, seen at index -1, length = 1 - (-1) = 2
 Index 2: sum -1, seen at index 0, length = 2 - 0 = 2
 Maximum length = 2
 
+Output:
+```
+[Expected output]
+```
+
+Step-by-step execution:
+1. [First step]
+2. [Second step]
+3. [Final step]
+
 ### TIME COMPLEXITY:
 O(n)
 - Single pass through input
@@ -66,10 +76,9 @@ O(n)
 
 
 ### EDGE CASES:
-- All 0s or all 1s: No equal subarray (return 0)
-- Already balanced: Entire array is valid
-- Empty array: Return 0
-- Single element: Cannot have equal 0s and 1s
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

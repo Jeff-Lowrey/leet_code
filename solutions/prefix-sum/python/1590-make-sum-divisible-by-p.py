@@ -62,6 +62,11 @@ Index 3: prefix=10%6=4, need=(4-4)%6=0, found at -1, length=4
 Minimum length = 1 (removing [4])
 Result: [3,1,2] sums to 6, which is divisible by 6
 
+Step-by-step execution:
+1. [First step]
+2. [Second step]
+3. [Final step]
+
 ### TIME COMPLEXITY:
 O(n)
 Single pass through array with O(1) hashmap operations
@@ -71,11 +76,9 @@ O(min(n, p))
 Hashmap stores at most min(n, p) different remainders
 
 ### EDGE CASES:
-- Total sum already divisible by p (return 0)
-- Need to remove entire array (return -1)
-- Single element array
-- p = 1 (always divisible, return 0)
-- Multiple subarrays with same remainder (keep shortest)
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

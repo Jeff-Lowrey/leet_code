@@ -38,42 +38,42 @@
  * 4. **Count subarrays**: For each position, check if (current_count - k) exists in **Hash Map**
  *
  * ### WHY THIS WORKS:
- * - Prefix sum transforms odd counting into a sum problem: odd→1, even→0
- * - **Hash Map** stores frequency of prefix counts for O(1) lookup
- * - Using prefix sum: prefix_count[j] - prefix_count[i] = k means subarray from i+1 to j has k odd numbers
- * - For each position j, we find how many earlier positions i satisfy the equation
- * - Alternative sliding window approach uses "exactly k = at most k - at most (k-1)" formula
- * 
- * ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * nums = [1, 1, 2, 1, 1], k = 3
- * ```
- *
- * **Step 1:** Transform array
- * - Convert odd→1, even→0: [1,1,0,1,1]
- * - Prefix counts: [0,1,2,2,3,4]
- *
- * **Step 2:** Check position 3 (count=3)
- * - Need count-k = 3-3 = 0
- * - Frequency map has 0 appearing 1 time
- * - Add 1 to result
- *
- * **Step 3:** Check position 4 (count=4)
- * - Need count-k = 4-3 = 1
- * - Frequency map has 1 appearing 1 time
- * - Add 1 to result
- *
- * **Step 4:** Count total nice subarrays
- * - Subarray [1,1,2,1] (indices 0-3)
- * - Subarray [1,2,1,1] (indices 1-4)
- *
- * Output:
- * ```
- * 2
- * ```
- *
- * ### TIME COMPLEXITY:
+- This ensures that prefix sum transforms odd counting into a sum problem: odd→1, even→0
+- This ensures that **Hash Map** stores frequency of prefix counts for O(1) lookup
+- This ensures that using prefix sum: prefix_count[j] - prefix_count[i] = k means subarray from i+1 to j has k odd numbers
+- This ensures that for each position j, we find how many earlier positions i satisfy the equation
+- This ensures that alternative sliding window approach uses "exactly k = at most k - at most (k-1)" formula
+
+### EXAMPLE WALKTHROUGH:
+Input:
+```
+nums = [1, 1, 2, 1, 1], k = 3
+```
+
+*Step 1:** Transform array
+- Convert odd→1, even→0: [1,1,0,1,1]
+- Prefix counts: [0,1,2,2,3,4]
+
+*Step 2:** Check position 3 (count=3)
+- Need count-k = 3-3 = 0
+- Frequency map has 0 appearing 1 time
+- Add 1 to result
+
+*Step 3:** Check position 4 (count=4)
+- Need count-k = 4-3 = 1
+- Frequency map has 1 appearing 1 time
+- Add 1 to result
+
+*Step 4:** Count total nice subarrays
+- Subarray [1,1,2,1] (indices 0-3)
+- Subarray [1,2,1,1] (indices 1-4)
+
+Output:
+```
+2
+```
+
+### TIME COMPLEXITY:
  * O(n)
  * Single pass through array with HashMap operations
  * 
@@ -83,13 +83,11 @@
  * For the frequency HashMap
  * 
  * ### EDGE CASES:
- * - No odd numbers: nums=[2,4,6], k=1 → 0 (cannot form subarray with k odd numbers)
- * - k = 0: nums=[2,4,6], k=0 → 6 (count subarrays with no odd numbers: all even subarrays)
- * - k > total odd: nums=[1,2,3], k=5 → 0 (only 2 odd numbers, impossible to get 5)
- * - All odd numbers: nums=[1,3,5], k=2 → 2 (many valid subarrays when k ≤ array length)
- * - All even numbers: nums=[2,4,6], k=1 → 0 (for k > 0, return 0 since no odd numbers exist)
- * 
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {

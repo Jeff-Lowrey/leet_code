@@ -98,10 +98,9 @@ Operations: ["NumMatrix", "sumRegion(2,1,4,3)", "sumRegion(1,1,2,2)", "sumRegion
 **O(m * n)** - store prefix sum matrix of same dimensions as input
 
 ### EDGE CASES:
-- Empty matrix: matrix=[[]] → prefix=[[]] (no elements to sum, special handling in constructor)
-- Single element matrix: matrix=[[5]], sumRegion(0,0,0,0) → 5 (single cell query returns the element)
-- Query covering entire matrix: sumRegion(0,0,m-1,n-1) → sum of all elements (full matrix sum)
-- Query for single cell: row1==row2 and col1==col2 → matrix[row1][col1] (single element result)
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

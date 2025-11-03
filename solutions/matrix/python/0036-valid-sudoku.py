@@ -35,7 +35,7 @@ Note:
 **Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
-Use hash sets to track seen digits for each row, column, and 3x3 box.
+The key insight is that use hash sets to track seen digits for each row, column, and 3x3 box.
 Make a single pass through the board, checking for duplicates in the appropriate sets.
 
 ### APPROACH:
@@ -86,9 +86,9 @@ O(1)
 - Fixed space regardless of input
 
 ### EDGE CASES:
-- Empty cells (".") should be ignored
-- All cells filled validly
-- Single invalid cell makes entire board invalid
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

@@ -35,6 +35,12 @@ To rotate a matrix 90° clockwise in-place, we can use two key insights:
 Alternatively, we can directly manipulate elements in concentric rings.
 
 ### APPROACH:
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
 **Method 1: Transpose + Reverse**
 1. **Transpose**: Convert matrix[i][j] to matrix[j][i]
 2. **Reverse rows**: Reverse each row to complete 90° rotation
@@ -77,9 +83,9 @@ O(1)
 In-place rotation without extra matrix
 
 ### EDGE CASES:
-- 1×1 matrix: no rotation needed
-- 2×2 matrix: swap diagonally opposite elements
-- Odd vs even dimensions: affects number of rings
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

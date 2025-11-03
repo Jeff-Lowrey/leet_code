@@ -89,11 +89,11 @@
  * - Only use constant extra space (not counting output matrix)
  *
  * ### EDGE CASES:
- * - n = 1: Single element [[1]]
- * - n = 2: [[1,2],[4,3]]
- * - Even vs odd n: Different center handling
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {

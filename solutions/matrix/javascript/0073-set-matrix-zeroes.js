@@ -30,21 +30,21 @@
 
  *
  * ### INTUITION:
- * Cannot modify matrix while iterating as it affects future decisions. Need to mark which rows/columns to zero without extra space. Use first row and first column as markers!
- *
- * ### APPROACH:
- * 1. **Use first row/column as markers**: First row tracks column zeros, first column tracks row zeros
- * 2. **Handle first row/column separately**: Use separate flags since they overlap
- * 3. **Mark zeros**: Iterate matrix, set markers in first row/column when zero found
- * 4. **Apply zeros**: Use markers to set zeros (skip first row/column initially)
- * 5. **Handle first row/column**: Apply zeros based on flags
- *
- * ### WHY THIS WORKS:
- * - First row/column serve as O(1) space markers
- * - By processing them last, we don't lose information
- * - Separate flags handle the overlap at matrix[0][0]
- *
- * ### EXAMPLE WALKTHROUGH:
+The key insight is that cannot modify matrix while iterating as it affects future decisions. Need to mark which rows/columns to zero without extra space. Use first row and first column as markers!
+
+### APPROACH:
+1. **Use first row/column as markers**: First row tracks column zeros, first column tracks row zeros
+2. **Handle first row/column separately**: Use separate flags since they overlap
+3. **Mark zeros**: Iterate matrix, set markers in first row/column when zero found
+4. **Apply zeros**: Use markers to set zeros (skip first row/column initially)
+5. **Handle first row/column**: Apply zeros based on flags
+
+### WHY THIS WORKS:
+- This ensures that first row/column serve as O(1) space markers
+- This ensures that by processing them last, we don't lose information
+- This ensures that separate flags handle the overlap at matrix[0][0]
+
+### EXAMPLE WALKTHROUGH:
  * Input:
  * ```
  * [1, 1, 1]
@@ -78,13 +78,11 @@
  * Only using two boolean flags
  *
  * ### EDGE CASES:
- * - Single element
- * - First row/column contains zeros
- * - All zeros
- * - No zeros
- * - Single row or single column
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 /**
