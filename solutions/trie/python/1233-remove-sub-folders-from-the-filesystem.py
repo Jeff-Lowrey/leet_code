@@ -96,10 +96,9 @@ O(N * L)
 For storing the trie structure
 
 ### EDGE CASES:
-- Single folder: folder=["/a"] → ["/a"] (no sub-folders to remove, returns immediately)
-- No sub-folders: folder=["/a","/b","/c"] → ["/a","/b","/c"] (all at same level, all kept)
-- All folders are sub-folders of one root: folder=["/a","/a/b","/a/b/c","/a/b/c/d"] → ["/a"] (keep only root, remove all nested)
-- Folders with similar prefixes: folder=["/a","/ab","/abc"] → ["/a","/ab","/abc"] (all kept, "/ab" not sub-folder of "/a")
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

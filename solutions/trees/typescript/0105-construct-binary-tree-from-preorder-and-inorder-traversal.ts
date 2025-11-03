@@ -27,9 +27,9 @@
  * **Space Complexity**: O(1) - Constant extra space
  *
  * ### INTUITION:
- * Recursively build tree. Find root in preorder (first element). Find root in inorder (splits left/right). Recursively build left subtree with elements before root, right subtree with elements after root in inorder.
- *
- * ### APPROACH:
+The key insight is that recursively build tree. Find root in preorder (first element). Find root in inorder (splits left/right). Recursively build left subtree with elements before root, right subtree with elements after root in inorder.
+
+### APPROACH:
  * 1. **Build index map**: Create dict mapping inorder values to indices
  * 2. **Define helper**: Implement build(pre_start, pre_end, in_start, in_end)
  * 3. **Base case**: If pre_start > pre_end, return None
@@ -40,13 +40,13 @@
  * 8. **Build right subtree**: root.right = build(pre_start+left_size+1, pre_end, root_idx+1, in_end), return root
  *
  * ### WHY THIS WORKS:
- * - Preorder gives root (first element), inorder splits left/right subtrees
- * - Find root in inorder: elements left of root are left subtree, right are right subtree
- * - Recursively build left and right subtrees with their preorder/inorder slices
- * - Hash map stores inorder indices for O(1) root lookup instead of O(n) search
- * - O(n) time: each node processed once, O(n) space for map and recursion
- *
- * ### EXAMPLE WALKTHROUGH:
+- This ensures that preorder gives root (first element), inorder splits left/right subtrees
+- This ensures that find root in inorder: elements left of root are left subtree, right are right subtree
+- This ensures that recursively build left and right subtrees with their preorder/inorder slices
+- This ensures that hash map stores inorder indices for O(1) root lookup instead of O(n) search
+- This ensures that o(n) time: each node processed once, O(n) space for map and recursion
+
+### EXAMPLE WALKTHROUGH:
  * Input:
  * ```
  * preorder = [3,9,20,15,7], inorder = [9,3,15,20,7]
@@ -75,11 +75,11 @@
  * - Constant extra space
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class TreeNode {

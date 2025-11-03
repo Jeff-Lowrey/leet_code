@@ -28,7 +28,7 @@ The word can be constructed from letters of sequentially adjacent cells, where a
 **Space Complexity**: O(L)
 
 ### INTUITION:
-This is a classic backtracking problem on a 2D grid. While a Trie isn't strictly necessary for single word search, understanding this problem helps with Word Search II (212). We use DFS with backtracking to explore all possible paths, marking visited cells to avoid reuse, and unmarking them when backtracking.
+The key insight is that this is a classic backtracking problem on a 2D grid. While a Trie isn't strictly necessary for single word search, understanding this problem helps with Word Search II (212). We use DFS with backtracking to explore all possible paths, marking visited cells to avoid reuse, and unmarking them when backtracking.
 
 ### APPROACH:
 1. **Try each cell as start**: Iterate through all cells as potential starting points
@@ -41,11 +41,11 @@ This is a classic backtracking problem on a 2D grid. While a Trie isn't strictly
 Optional Trie optimization: Pre-check if word's prefix exists (useful for multiple words)
 
 ### WHY THIS WORKS:
-- DFS explores all possible paths systematically
-- Backtracking allows trying different paths from same starting point
-- Marking prevents cycles and reuse of same cell
-- Base cases handle word completion and boundary conditions
-- Early termination avoids unnecessary exploration
+- This ensures that dFS explores all possible paths systematically
+- This ensures that backtracking allows trying different paths from same starting point
+- This ensures that marking prevents cycles and reuse of same cell
+- This ensures that base cases handle word completion and boundary conditions
+- This ensures that early termination avoids unnecessary exploration
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -75,6 +75,11 @@ Try (2,1) 'D':
 Match 'D' ✓, complete! Return True
 Result: True (found path)
 
+Step-by-step execution:
+1. [First step]
+2. [Second step]
+3. [Final step]
+
 ### TIME COMPLEXITY:
 O(M * N * 4^L)
 Where M*N is board size, L is word length
@@ -86,11 +91,9 @@ O(L)
 For recursion stack depth (word length)
 
 ### EDGE CASES:
-- Word longer than total cells
-- Word is single character
-- Word not in board
-- Word requires using all cells
-- Multiple valid paths exist
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

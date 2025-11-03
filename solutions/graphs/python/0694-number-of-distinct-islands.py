@@ -30,7 +30,7 @@ Return the number of distinct islands.
 **Space Complexity**: O(M × N)
 
 ### INTUITION:
-This problem extends "Number of Islands" by requiring us to identify distinct island shapes. Two islands are the same if one can be translated to match the other (same relative positions). We need to normalize each island's shape to a canonical form for comparison.
+The key insight is that this problem extends "Number of Islands" by requiring us to identify distinct island shapes. Two islands are the same if one can be translated to match the other (same relative positions). We need to normalize each island's shape to a canonical form for comparison.
 
 ### APPROACH:
 1. **Find each island**: Use DFS/BFS to explore islands

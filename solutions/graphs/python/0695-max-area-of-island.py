@@ -63,6 +63,16 @@ Islands found:
 - (3,10): area = 1
 Maximum area = 4
 
+Output:
+```
+[Expected output]
+```
+
+Step-by-step execution:
+1. [First step]
+2. [Second step]
+3. [Final step]
+
 ### TIME COMPLEXITY:
 O(M × N)
 We visit each cell at most once
@@ -77,6 +87,20 @@ For recursion stack in worst case
 - **Entire grid is one island**: Return m * n
 - **Multiple islands**: Return area of largest
 - **Empty grid**: Return 0
+
+</details>
+
+</details>
+
+</details>
+
+</details>
+
+</details>
+
+</details>
+
+</details>
 
 </details>
 """

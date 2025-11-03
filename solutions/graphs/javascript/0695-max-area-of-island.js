@@ -48,24 +48,34 @@
  * - In-place marking ensures each cell is counted exactly once
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * Grid: [[0,0,1,0,0,0,0,1,0,0,0,0,0],
- * ```
- *
- * [0,0,0,0,0,0,0,1,1,1,0,0,0],
- * [0,1,1,0,1,0,0,0,0,0,0,0,0],
- * [0,1,0,0,1,1,0,0,1,0,1,0,0]]
- * Islands found:
- * - (0,2): area = 1
- * - (0,7), (1,7), (1,8), (1,9): area = 4
- * - (2,1), (2,2), (3,1): area = 3
- * - (2,4), (3,4), (3,5): area = 3
- * - (3,8): area = 1
- * - (3,10): area = 1
- * Maximum area = 4
+Input:
+```
+Grid: [[0,0,1,0,0,0,0,1,0,0,0,0,0],
+```
 
- * ### TIME COMPLEXITY:
+[0,0,0,0,0,0,0,1,1,1,0,0,0],
+[0,1,1,0,1,0,0,0,0,0,0,0,0],
+[0,1,0,0,1,1,0,0,1,0,1,0,0]]
+Islands found:
+- (0,2): area = 1
+- (0,7), (1,7), (1,8), (1,9): area = 4
+- (2,1), (2,2), (3,1): area = 3
+- (2,4), (3,4), (3,5): area = 3
+- (3,8): area = 1
+- (3,10): area = 1
+Maximum area = 4
+
+Output:
+```
+[Expected output]
+```
+
+Step-by-step execution:
+1. [First step]
+2. [Second step]
+3. [Final step]
+
+### TIME COMPLEXITY:
  * O(M × N)
  * We visit each cell at most once
  *
@@ -74,13 +84,27 @@
  * For recursion stack in worst case
  *
  * ### EDGE CASES:
- * - **All water**: Return 0 (no islands)
- * - **Single cell island**: Return 1
- * - **Entire grid is one island**: Return m * n
- * - **Multiple islands**: Return area of largest
- * - **Empty grid**: Return 0
- *
- * </details>
+- **All water**: Return 0 (no islands)
+- **Single cell island**: Return 1
+- **Entire grid is one island**: Return m * n
+- **Multiple islands**: Return area of largest
+- **Empty grid**: Return 0
+
+</details>
+
+</details>
+
+</details>
+
+</details>
+
+</details>
+
+</details>
+
+</details>
+
+</details>
  */
 
 /**

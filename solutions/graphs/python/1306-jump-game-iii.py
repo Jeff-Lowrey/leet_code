@@ -28,7 +28,7 @@ any index with value 0.
 **Space Complexity**: O(n) for visited set and recursion/queue - Additional hash map storage
 
 ### INTUITION:
-This is a graph reachability problem. Each index is a node, and edges exist to indices
+The key insight is that this is a graph reachability problem. Each index is a node, and edges exist to indices
 i+arr[i] and i-arr[i]. Use DFS or BFS to explore all reachable indices from start.
 
 ### APPROACH:

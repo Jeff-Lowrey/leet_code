@@ -31,7 +31,7 @@ Given an array of words, return the length of the shortest reference string s po
 **Space Complexity**: O(N × M)
 
 ### INTUITION:
-To minimize the encoding length, we want to share suffixes between words. If one word is a suffix of another, we can encode both using just the longer word. This is a classic Trie problem where we build the trie using word suffixes.
+The key insight is that to minimize the encoding length, we want to share suffixes between words. If one word is a suffix of another, we can encode both using just the longer word. This is a classic Trie problem where we build the trie using word suffixes.
 
 ### APPROACH:
 1. **Trie Construction**: Build a trie using the reverse of each word (to handle suffixes)
@@ -39,10 +39,10 @@ To minimize the encoding length, we want to share suffixes between words. If one
 3. **Length Calculation**: For each unique word, add its length + 1 (for '#') to the total
 
 ### WHY THIS WORKS:
-- Trie naturally handles prefix/suffix relationships
-- By reversing words, we can detect when one word is a suffix of another
-- Only leaf nodes in the trie represent words that need their own encoding
-- Each word needs one '#' delimiter, so total length = sum(word_lengths) + count
+- This ensures that trie naturally handles prefix/suffix relationships
+- This ensures that by reversing words, we can detect when one word is a suffix of another
+- This ensures that only leaf nodes in the trie represent words that need their own encoding
+- This ensures that each word needs one '#' delimiter, so total length = sum(word_lengths) + count
 
 ### EXAMPLE WALKTHROUGH:
 Input:

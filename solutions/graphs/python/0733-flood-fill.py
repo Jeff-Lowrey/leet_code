@@ -35,7 +35,7 @@ Return the modified image after performing the flood fill.
 **Space Complexity**: O(m×n)
 
 ### INTUITION:
-Flood fill is a classic graph traversal problem similar to DFS. We start from
+The key insight is that flood fill is a classic graph traversal problem similar to DFS. We start from
 a pixel and spread to all connected pixels of the same color, changing them
 to the new color. It's like the paint bucket tool in image editors.
 
@@ -47,10 +47,10 @@ to the new color. It's like the paint bucket tool in image editors.
 5. **4-directional movement**: Check up, down, left, right neighbors
 
 ### WHY THIS WORKS:
-- DFS naturally explores all connected components
-- We change color as we visit to avoid revisiting
-- 4-directional connectivity mimics pixel adjacency
-- Recursion handles the spreading pattern automatically
+- This ensures that dFS naturally explores all connected components
+- This ensures that we change color as we visit to avoid revisiting
+- This ensures that 4-directional connectivity mimics pixel adjacency
+- This ensures that recursion handles the spreading pattern automatically
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -77,10 +77,9 @@ O(m×n)
 For recursion stack in worst case (straight line of same color)
 
 ### EDGE CASES:
-- Starting pixel already has target color
-- Single pixel image
-- All pixels same color
-- Starting position out of bounds
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

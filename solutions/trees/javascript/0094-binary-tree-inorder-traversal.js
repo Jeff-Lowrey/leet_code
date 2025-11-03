@@ -31,17 +31,17 @@
  * Inorder traversal visits nodes in the order: Left -> Root -> Right. This gives us a sorted sequence for Binary Search Trees. The key is to implement this pattern using recursion or iteration with a stack.
  *
  * ### APPROACH:
- * 1. **Recursive**: Visit left subtree, process root, visit right subtree
- * 2. **Iterative with stack**: Simulate recursion using explicit stack
- * 3. **Morris traversal**: O(1) space using threading technique
- *
- * ### WHY THIS WORKS:
- * - Inorder traversal naturally follows left-root-right pattern
- * - For BSTs, this produces sorted output
- * - Stack-based approach simulates the call stack of recursion
- * - Morris traversal modifies tree temporarily to avoid extra space
- *
- * ### EXAMPLE WALKTHROUGH:
+1. **Recursive**: Visit left subtree, process root, visit right subtree
+2. **Iterative with stack**: Simulate recursion using explicit stack
+3. **Morris traversal**: O(1) space using threading technique
+
+### WHY THIS WORKS:
+- This ensures that inorder traversal naturally follows left-root-right pattern
+- This ensures that for BSTs, this produces sorted output
+- This ensures that stack-based approach simulates the call stack of recursion
+- This ensures that morris traversal modifies tree temporarily to avoid extra space
+
+### EXAMPLE WALKTHROUGH:
  * Input:
  * ```
  * Tree:    1

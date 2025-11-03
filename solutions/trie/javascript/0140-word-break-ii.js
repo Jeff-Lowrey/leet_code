@@ -41,34 +41,39 @@
  * Alternative: Use recursion with memoization without Trie (checking against word set)
  *
  * ### WHY THIS WORKS:
- * - Trie enables efficient prefix matching as we scan through the string
- * - Backtracking explores all possible word boundaries
- * - Memoization prevents exponential time by caching substring results
- * - When we find a word end in trie, we recursively solve for remaining string
- *
- * ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * s = "catsanddog", wordDict = ["cat","cats","and","sand","dog"]
- * ```
- *
- * Build Trie with: cat, cats, and, sand, dog
- * At position 0 "catsanddog":
- *
- * Steps:
- * Step 1: Match "cat" -> recurse on "sanddog"
- * Step 2: Match "sand" -> recurse on "dog"
- * Step 3: Match "dog" -> return ["dog"]
- * Step 4: Return ["sand dog"]
- * Step 5: Return ["cat sand dog"]
- * Step 6: Match "cats" -> recurse on "anddog"
- * Step 7: Match "and" -> recurse on "dog"
- * Step 8: Match "dog" -> return ["dog"]
- * Step 9: Return ["and dog"]
- * Step 10: Return ["cats and dog"]
- * Step 11: Final: ["cat sand dog", "cats and dog"]
+- This ensures that trie enables efficient prefix matching as we scan through the string
+- This ensures that backtracking explores all possible word boundaries
+- This ensures that memoization prevents exponential time by caching substring results
+- This ensures that when we find a word end in trie, we recursively solve for remaining string
 
- * ### TIME COMPLEXITY:
+### EXAMPLE WALKTHROUGH:
+Input:
+```
+s = "catsanddog", wordDict = ["cat","cats","and","sand","dog"]
+```
+
+Build Trie with: cat, cats, and, sand, dog
+At position 0 "catsanddog":
+
+Steps:
+Step 1: Match "cat" -> recurse on "sanddog"
+Step 2: Match "sand" -> recurse on "dog"
+Step 3: Match "dog" -> return ["dog"]
+Step 4: Return ["sand dog"]
+Step 5: Return ["cat sand dog"]
+Step 6: Match "cats" -> recurse on "anddog"
+Step 7: Match "and" -> recurse on "dog"
+Step 8: Match "dog" -> return ["dog"]
+Step 9: Return ["and dog"]
+Step 10: Return ["cats and dog"]
+Step 11: Final: ["cat sand dog", "cats and dog"]
+
+Output:
+```
+[Expected output]
+```
+
+### TIME COMPLEXITY:
  * O(N^3 + M*L)
  * Where N is string length, M is number of words, L is average word length
  * - Trie building: O(M*L)
@@ -80,13 +85,11 @@
  * - Memoization cache: O(N^2) for storing results
  *
  * ### EDGE CASES:
- * - No valid segmentation exists
- * - Multiple segmentations possible
- * - String is a single word
- * - Empty string
- * - Words can be reused
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class TrieNode {

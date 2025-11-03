@@ -33,13 +33,13 @@
  * We need to find the longest word where all its prefixes exist as words in the dictionary. A Trie is perfect for this because we can check if a word can be built character by character by verifying that each intermediate node represents a complete word. DFS or BFS through the trie helps us find the longest buildable word.
  *
  * ### APPROACH:
- * 1. **Build Trie**: Insert all words, marking word ends
- * 2. **DFS/BFS traversal**: Explore trie paths where every node is a word end
- * 3. **Track longest**: Keep track of longest word found
- * 4. **Lexicographic order**: When same length, choose lexicographically smaller
- * 5. **Validate path**: Only continue if current node is a word end
- *
- * ### WHY THIS WORKS:
+1. **Build Trie**: Insert all words, marking word ends
+2. **DFS/BFS traversal**: Explore trie paths where every node is a word end
+3. **Track longest**: Keep track of longest word found
+4. **Lexicographic order**: When same length, choose lexicographically smaller
+5. **Validate path**: Only continue if current node is a word end
+
+### WHY THIS WORKS:
  * - Trie naturally represents prefix relationships
  * - Word end markers indicate which prefixes are valid words
  * - DFS/BFS explores all buildable words systematically
@@ -92,13 +92,11 @@
  * O(N * L) - Trie storage for all words, where N is number of words and L is average word length
 
  * ### EDGE CASES:
- * - Empty word list
- * - Single character words
- * - No buildable words
- * - Multiple words of same length
- * - All words are prefixes of each other
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class TrieNode {

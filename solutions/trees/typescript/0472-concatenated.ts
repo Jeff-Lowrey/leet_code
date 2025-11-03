@@ -29,9 +29,9 @@
  * **Space Complexity**: O(1) - Constant extra space
  *
  * ### INTUITION:
- * Build Trie of all words. For each word, DFS from Trie root trying to match it as concatenation of words. Use memoization on position. Word is valid if complete match with 2+ words.
- *
- * ### APPROACH:
+The key insight is that build Trie of all words. For each word, DFS from Trie root trying to match it as concatenation of words. Use memoization on position. Word is valid if complete match with 2+ words.
+
+### APPROACH:
  * 1. **Sort by length**: Sort words by length
  * 2. **Build set**: Create word_set from words
  * 3. **Define canForm**: Implement function to check if word can be formed
@@ -41,28 +41,28 @@
  * 7. **Filter results**: Return words that can be formed by concatenation
  *
  * ### WHY THIS WORKS:
- * - Trie stores all words, DFS checks if word can be formed by concatenating
- * - For each position, try all words that match from that position
- * - Word is concatenated if formed by >= 2 words (track depth)
- * - Memoization caches (pos, depth) to avoid recomputing subproblems
- * - O(n * m * k) time: n words, m avg length, k concatenation attempts
- *
- * ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * words = ["cat","cats","catsdogcats","dog","dogcatsdog","hippopotamuses"]
- * ```
- *
- * Step 1: Check each word
- * "catsdogcats" = "cats" + "dog" + "cats" ✓
- * "dogcatsdog" = "dog" + "cats" + "dog" ✓
- *
- * Output:
- * ```
- * ["catsdogcats","dogcatsdog"]
- * ```
+- This ensures that trie stores all words, DFS checks if word can be formed by concatenating
+- This ensures that for each position, try all words that match from that position
+- This ensures that word is concatenated if formed by >= 2 words (track depth)
+- This ensures that memoization caches (pos, depth) to avoid recomputing subproblems
+- This ensures that o(n * m * k) time: n words, m avg length, k concatenation attempts
 
- * ### TIME COMPLEXITY:
+### EXAMPLE WALKTHROUGH:
+Input:
+```
+words = ["cat","cats","catsdogcats","dog","dogcatsdog","hippopotamuses"]
+```
+
+Step 1: Check each word
+"catsdogcats" = "cats" + "dog" + "cats" ✓
+"dogcatsdog" = "dog" + "cats" + "dog" ✓
+
+Output:
+```
+["catsdogcats","dogcatsdog"]
+```
+
+### TIME COMPLEXITY:
  * O(n)
  * - Single pass through input
  *
@@ -71,11 +71,11 @@
  * - Constant extra space
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {

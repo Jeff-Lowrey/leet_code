@@ -79,6 +79,16 @@ Look up "e{app" in trie
 Find indices 0 (apple) and 2 (application)
 Return 2 (maximum)
 
+Output:
+```
+[Expected output]
+```
+
+Step-by-step execution:
+1. [First step]
+2. [Second step]
+3. [Final step]
+
 ### TIME COMPLEXITY:
 - Constructor: O(N * L^3) where N is words count, L is max word length
   - For each word, we create L^2 combinations, each taking O(L) to insert
@@ -89,11 +99,9 @@ O(N * L^3)
 For storing all suffix-prefix combinations in trie
 
 ### EDGE CASES:
-- Multiple words with same prefix and suffix
-- Word is both prefix and suffix
-- Empty prefix or suffix
-- No matching words
-- Single character words
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

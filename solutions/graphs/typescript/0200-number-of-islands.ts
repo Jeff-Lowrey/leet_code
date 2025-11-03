@@ -28,9 +28,9 @@
  * **Space Complexity**: O(M × N)
  *
  * ### INTUITION:
- * This is a classic graph traversal problem where we need to find connected components. Each island is a connected component of '1's (land). We can use DFS or BFS to explore each island completely when we encounter it, then count how many separate islands we find.
- *
- * ### APPROACH:
+The key insight is that this is a classic graph traversal problem where we need to find connected components. Each island is a connected component of '1's (land). We can use DFS or BFS to explore each island completely when we encounter it, then count how many separate islands we find.
+
+### APPROACH:
  * **Data structures: 2D Grid (matrix) with DFS/BFS traversal**
  * 1. **Iterate through grid**: Check each cell in the 2D matrix
  * 2. **Find land**: When we find a '1' (land), it's part of an island
@@ -48,38 +48,43 @@
  * - 4-directional connectivity (up, down, left, right) defines what constitutes an island
  *
  * ### EXAMPLE WALKTHROUGH:
- * Given input Grid: [["1","1","1","1","0"],
- *        ["1","1","0","1","0"],
- *        ["1","1","0","0","0"],
- *        ["0","0","0","0","0"]]:
- *
- * Input:
- * ```
- * Grid: [["1","1","1","1","0"],
- *        ["1","1","0","1","0"],
- *        ["1","1","0","0","0"],
- *        ["0","0","0","0","0"]]
- * ```
- *
- * **Step 1**: Iterate through grid - start at (0,0)
- * **Step 2**: Find land - (0,0) is '1', increment island count to 1
- * **Step 3**: Explore island - DFS from (0,0) explores entire connected land mass
- * - Mark visited: (0,0), (0,1), (0,2), (0,3), (1,0), (1,1), (2,0), (2,1)
- * **Step 4**: Count islands - first island complete, count = 1
- *
- * Continue scanning...
- * **Step 2**: Find land - (1,3) is '1', increment island count to 2
- * **Step 3**: Explore island - DFS from (1,3) only marks (1,3) as it's isolated
- * **Step 4**: Count islands - second island complete, count = 2
- *
- * **Step 5**: Mark visited - all land cells have been explored
- *
- * Output:
- * ```
- * 2
- * ```
- *
- * ### TIME COMPLEXITY:
+Given input Grid: [["1","1","1","1","0"],
+       ["1","1","0","1","0"],
+       ["1","1","0","0","0"],
+       ["0","0","0","0","0"]]:
+
+Input:
+```
+Grid: [["1","1","1","1","0"],
+       ["1","1","0","1","0"],
+       ["1","1","0","0","0"],
+       ["0","0","0","0","0"]]
+```
+
+**Step 1**: Iterate through grid - start at (0,0)
+**Step 2**: Find land - (0,0) is '1', increment island count to 1
+**Step 3**: Explore island - DFS from (0,0) explores entire connected land mass
+- Mark visited: (0,0), (0,1), (0,2), (0,3), (1,0), (1,1), (2,0), (2,1)
+**Step 4**: Count islands - first island complete, count = 1
+
+Continue scanning...
+**Step 2**: Find land - (1,3) is '1', increment island count to 2
+**Step 3**: Explore island - DFS from (1,3) only marks (1,3) as it's isolated
+**Step 4**: Count islands - second island complete, count = 2
+
+**Step 5**: Mark visited - all land cells have been explored
+
+Output:
+```
+2
+```
+
+Step-by-step execution:
+1. [First step]
+2. [Second step]
+3. [Final step]
+
+### TIME COMPLEXITY:
  * O(M × N)
  * Where M and N are grid dimensions - we visit each cell at most once
  * 
@@ -88,13 +93,11 @@
  * For recursion stack in worst case (entire grid is one island) or visited array
  * 
  * ### EDGE CASES:
- * - Empty grid
- * - All water ('0's)
- * - All land ('1's) - single island
- * - Single cell grid
- * - Grid with no islands
- * 
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {

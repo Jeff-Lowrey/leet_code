@@ -29,11 +29,11 @@
  * Inorder traversal visits nodes in the order: Left -> Root -> Right. This gives us a sorted sequence for **Binary Search** Trees. The key is to implement this pattern using recursion or iteration with a stack.
  * 
  * ### APPROACH:
- * 1. **Recursive**: Visit left subtree, process root, visit right subtree
- * 2. **Iterative with stack**: Simulate recursion using explicit stack
- * 3. **Morris traversal**: O(1) space using threading technique
- * 
- * ### WHY THIS WORKS:
+1. **Recursive**: Visit left subtree, process root, visit right subtree
+2. **Iterative with stack**: Simulate recursion using explicit stack
+3. **Morris traversal**: O(1) space using threading technique
+
+### WHY THIS WORKS:
  * - Inorder traversal naturally follows left-root-right pattern
  * - For BSTs, this produces sorted output
  * - Stack-based approach simulates the call stack of recursion
@@ -45,37 +45,37 @@ This solution uses two pointers for efficient implementation.
  * - DFS recursively explores all paths from a starting point, completely visiting each branch before backtracking
  *
 ### EXAMPLE WALKTHROUGH:
- * Given input Tree:    1:
- *
- * Input:
- * ```
- * Tree:    1
- * ```
- *
- * \
- * 2
- * /
- * 3
- *
- * **Step 1:** Start at root (1)
- * - No left child, process 1
- *
- * **Step 2:** Go to right child (2)
- * - Has left child (3), go left first
- *
- * **Step 3:** Process left child (3)
- * - No left child of 3, process 3
- * - No right child of 3, backtrack
- *
- * **Step 4:** Process node 2
- * - No right child of 2
- *
- * Output:
- * ```
- * [1, 3, 2]
- * ```
- *
- * ### TIME COMPLEXITY:
+Given input Tree:    1:
+
+Input:
+```
+Tree:    1
+```
+
+\
+2
+/
+3
+
+*Step 1:** Start at root (1)
+- No left child, process 1
+
+*Step 2:** Go to right child (2)
+- Has left child (3), go left first
+
+*Step 3:** Process left child (3)
+- No left child of 3, process 3
+- No right child of 3, backtrack
+
+*Step 4:** Process node 2
+- No right child of 2
+
+Output:
+```
+[1, 3, 2]
+```
+
+### TIME COMPLEXITY:
  * O(n)
  * - Single pass through input
  * We visit each node exactly once

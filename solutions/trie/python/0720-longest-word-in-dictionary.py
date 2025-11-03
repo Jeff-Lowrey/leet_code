@@ -95,11 +95,9 @@ Where N is number of words, L is average word length
 O(N * L) - Trie storage for all words, where N is number of words and L is average word length
 
 ### EDGE CASES:
-- Empty word list
-- Single character words
-- No buildable words
-- Multiple words of same length
-- All words are prefixes of each other
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

@@ -41,10 +41,10 @@ This is a classic autocomplete problem that benefits from using a Trie data stru
 Alternative: Sort products, then use binary search for each prefix
 
 ### WHY THIS WORKS:
-- Trie naturally organizes words by prefixes
-- Storing sorted suggestions at each node provides O(1) lookup
-- As we build the trie, we can maintain the lexicographically smallest suggestions
-- Navigation follows the typed prefix exactly
+- This ensures that trie naturally organizes words by prefixes
+- This ensures that storing sorted suggestions at each node provides O(1) lookup
+- This ensures that as we build the trie, we can maintain the lexicographically smallest suggestions
+- This ensures that navigation follows the typed prefix exactly
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -67,6 +67,11 @@ Step 8: Process 'mou': ["mouse", "mousepad"]
 Step 9: Process 'mous': ["mouse", "mousepad"]
 Step 10: Process 'mouse': ["mouse", "mousepad"]
 
+Output:
+```
+[Expected output]
+```
+
 ### TIME COMPLEXITY:
 O(N * L + S)
 Where N is number of products, L is average length, S is searchWord length
@@ -78,10 +83,9 @@ O(N * L)
 For storing the trie structure
 
 ### EDGE CASES:
-- SearchWord has no matching products
-- Fewer than 3 products match a prefix
-- All products share the same prefix
-- Empty products list
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

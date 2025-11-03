@@ -32,9 +32,9 @@
  * **Space Complexity**: O(ALPHABET_SIZE × N × M)
  * 
  * ### INTUITION:
- * A trie is a tree where each node represents a character and paths from root to nodes represent prefixes or complete words. Each node has children for possible next characters and a flag indicating if it's the end of a word.
- * 
- * ### APPROACH:
+The key insight is that a trie is a tree where each node represents a character and paths from root to nodes represent prefixes or complete words. Each node has children for possible next characters and a flag indicating if it's the end of a word.
+
+### APPROACH:
  * 1. **Node structure**: Each node has a dictionary of children and a boolean end flag
  * 2. **Insert**: Follow/create path for each character, mark end node
  * 3. **Search**: Follow path, return true only if path exists and ends at marked node

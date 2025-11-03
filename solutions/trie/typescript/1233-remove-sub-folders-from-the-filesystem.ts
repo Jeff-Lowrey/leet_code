@@ -89,12 +89,11 @@
  * For storing the trie structure
  *
  * ### EDGE CASES:
- * - Single folder
- * - No sub-folders
- * - All folders are sub-folders of one root
- * - Folders with similar prefixes but different paths
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {

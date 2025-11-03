@@ -30,7 +30,7 @@ Return the sentence after the replacement.
 **Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
-Build Trie of dictionary words. For each word in sentence, find shortest prefix in Trie. If found, replace with shortest; otherwise keep original word.
+The key insight is that build Trie of dictionary words. For each word in sentence, find shortest prefix in Trie. If found, replace with shortest; otherwise keep original word.
 
 ### APPROACH:
 1. **Build trie**: Insert all dictionary words into trie
@@ -79,9 +79,9 @@ O(1)
 
 
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

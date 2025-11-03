@@ -34,18 +34,18 @@
  * In a BST, we can leverage the ordering property to find LCA efficiently. If both nodes are smaller than current node, LCA is in left subtree. If both are larger, LCA is in right subtree. Otherwise, current node is the LCA.
  * 
  * ### APPROACH:
- * 1. **Use BST property**: Left subtree < root < right subtree
- * 2. **Compare values**: If both p and q < root, go left; if both > root, go right
- * 3. **Find split point**: When p and q are on different sides, current node is LCA
- * 4. **Handle edge cases**: One node is ancestor of the other
- * 
- * ### WHY THIS WORKS:
- * - BST ordering allows us to determine which subtree contains the LCA
- * - The first node where p and q diverge (different subtrees) is the LCA
- * - If one node equals current node, current node is the LCA
- * - This is much more efficient than general tree LCA algorithms
- * 
- * ### EXAMPLE WALKTHROUGH:
+1. **Use BST property**: Left subtree < root < right subtree
+2. **Compare values**: If both p and q < root, go left; if both > root, go right
+3. **Find split point**: When p and q are on different sides, current node is LCA
+4. **Handle edge cases**: One node is ancestor of the other
+
+### WHY THIS WORKS:
+- This ensures that bST ordering allows us to determine which subtree contains the LCA
+- This ensures that the first node where p and q diverge (different subtrees) is the LCA
+- This ensures that if one node equals current node, current node is the LCA
+- This ensures that this is much more efficient than general tree LCA algorithms
+
+### EXAMPLE WALKTHROUGH:
  * Input:
  * ```
  * BST:      6
@@ -78,13 +78,27 @@
  * For recursion stack, O(1) for iterative solution
  * 
  * ### EDGE CASES:
- * - **One node is ancestor of other**: Return the ancestor node
- * - **Both nodes on same side**: Recursively search that subtree
- * - **Nodes on different sides**: Current node is LCA
- * - **One node equals root**: Root is the LCA
- * - **Linear BST (skewed)**: O(n) time complexity in worst case
- * 
- * </details>
+- **One node is ancestor of other**: Return the ancestor node
+- **Both nodes on same side**: Recursively search that subtree
+- **Nodes on different sides**: Current node is LCA
+- **One node equals root**: Root is the LCA
+- **Linear BST (skewed)**: O(n) time complexity in worst case
+
+</details>
+
+</details>
+
+</details>
+
+</details>
+
+</details>
+
+</details>
+
+</details>
+
+</details>
  */
 
 class Solution {

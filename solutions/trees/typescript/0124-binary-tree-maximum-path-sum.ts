@@ -31,9 +31,9 @@
  * **Space Complexity**: O(1) - Constant extra space
  *
  * ### INTUITION:
- * For each node, max path is: left max path + node + right max path. Recursively calculate max single path from each child. Track global maximum. Return max single path (node + best child path) up.
- *
- * ### APPROACH:
+The key insight is that for each node, max path is: left max path + node + right max path. Recursively calculate max single path from each child. Track global maximum. Return max single path (node + best child path) up.
+
+### APPROACH:
  * 1. **Initialize max_sum**: Set max_sum = float('-inf')
  * 2. **Define helper**: Implement max_gain(node)
  * 3. **Base case**: If node is None, return 0
@@ -44,13 +44,13 @@
  * 8. **Call helper**: max_gain(root), return max_sum
  *
  * ### WHY THIS WORKS:
- * - Post-order DFS: compute max path through each node as potential answer
- * - Path through node = node.val + max(0, left_path) + max(0, right_path)
- * - Return to parent: node.val + max(0, left_path, right_path) (single path)
- * - Track global maximum across all nodes
- * - O(n) time visiting each node once, O(h) space for recursion
- *
- * ### EXAMPLE WALKTHROUGH:
+- This ensures that post-order DFS: compute max path through each node as potential answer
+- This ensures that path through node = node.val + max(0, left_path) + max(0, right_path)
+- This ensures that return to parent: node.val + max(0, left_path, right_path) (single path)
+- This ensures that track global maximum across all nodes
+- This ensures that o(n) time visiting each node once, O(h) space for recursion
+
+### EXAMPLE WALKTHROUGH:
  * Input:
  * ```
  * root = [-10,9,20,null,null,15,7]
@@ -77,11 +77,11 @@
  * - Constant extra space
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class TreeNode {

@@ -40,10 +40,10 @@ We need to find if we can change exactly one character in a search word to match
 4. **Exact Match**: Must reach end of both search word and trie path with exactly one change
 
 ### WHY THIS WORKS:
-- Trie structure enables efficient prefix matching
-- DFS allows exploring all possible single character changes
-- By tracking changes used, we ensure exactly one modification
-- Early termination when more than one change is needed
+- This ensures that trie structure enables efficient prefix matching
+- This ensures that dFS allows exploring all possible single character changes
+- This ensures that by tracking changes used, we ensure exactly one modification
+- This ensures that early termination when more than one change is needed
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -62,6 +62,11 @@ Step 3: At position 2: 'l' matches 'l' → continue
 Step 4: At position 3: 'l' matches 'l' → continue
 Step 5: At position 4: 'o' matches 'o' → continue
 Step 6: Reached end with exactly one change → return True
+
+Output:
+```
+[Expected output]
+```
 
 ### TIME COMPLEXITY:
 - Build: O(n × l) where n is number of words, l is average length

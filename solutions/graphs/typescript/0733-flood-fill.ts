@@ -36,24 +36,24 @@
  * **Space Complexity**: O(m×n)
  *
  * ### INTUITION:
- * Flood fill is a classic graph traversal problem similar to DFS. We start from
- * a pixel and spread to all connected pixels of the same color, changing them
- * to the new color. It's like the paint bucket tool in image editors.
- *
- * ### APPROACH:
- * 1. **Check validity**: Ensure starting position is within bounds
- * 2. **Get original color**: Store the color we're replacing
- * 3. **Early exit**: If new color equals original color, no work needed
- * 4. **DFS traversal**: Recursively visit all connected same-colored pixels
- * 5. **4-directional movement**: Check up, down, left, right neighbors
- *
- * ### WHY THIS WORKS:
- * - DFS naturally explores all connected components
- * - We change color as we visit to avoid revisiting
- * - 4-directional connectivity mimics pixel adjacency
- * - Recursion handles the spreading pattern automatically
- *
- * ### EXAMPLE WALKTHROUGH:
+The key insight is that flood fill is a classic graph traversal problem similar to DFS. We start from
+a pixel and spread to all connected pixels of the same color, changing them
+to the new color. It's like the paint bucket tool in image editors.
+
+### APPROACH:
+1. **Check validity**: Ensure starting position is within bounds
+2. **Get original color**: Store the color we're replacing
+3. **Early exit**: If new color equals original color, no work needed
+4. **DFS traversal**: Recursively visit all connected same-colored pixels
+5. **4-directional movement**: Check up, down, left, right neighbors
+
+### WHY THIS WORKS:
+- This ensures that dFS naturally explores all connected components
+- This ensures that we change color as we visit to avoid revisiting
+- This ensures that 4-directional connectivity mimics pixel adjacency
+- This ensures that recursion handles the spreading pattern automatically
+
+### EXAMPLE WALKTHROUGH:
  * Input:
  * ```
  * image = [[1,1,1],[1,1,0],[1,0,1]], sr = 1, sc = 1, color = 2
@@ -78,12 +78,11 @@
  * For recursion stack in worst case (straight line of same color)
  *
  * ### EDGE CASES:
- * - Starting pixel already has target color
- * - Single pixel image
- * - All pixels same color
- * - Starting position out of bounds
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {

@@ -44,10 +44,10 @@ This is a graph problem where we need to find a node (person) with specific in-d
 4. **Validate result**: Ensure exactly one person satisfies the judge criteria
 
 ### WHY THIS WORKS:
-- Judge trusts nobody: out-degree = 0
-- Everyone else trusts judge: in-degree = n-1
-- Net trust = in-degree - out-degree = (n-1) - 0 = n-1
-- All other people have net trust < n-1 (they either trust someone or aren't trusted by everyone)
+- This ensures that judge trusts nobody: out-degree = 0
+- This ensures that everyone else trusts judge: in-degree = n-1
+- This ensures that net trust = in-degree - out-degree = (n-1) - 0 = n-1
+- This ensures that all other people have net trust < n-1 (they either trust someone or aren't trusted by everyone)
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -74,10 +74,9 @@ O(N)
 For storing trust counts
 
 ### EDGE CASES:
-- n = 1: Only one person, they are the judge by default
-- Empty trust array with n > 1: No judge possible
-- Multiple people with high trust: No unique judge
-- Circular trust: No judge possible
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

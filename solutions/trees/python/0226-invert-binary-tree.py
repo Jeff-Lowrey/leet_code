@@ -26,7 +26,7 @@ Given the root of a binary tree, invert the tree, and return its root.
 **Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
-Recursively swap left and right children of each node. Base case: null returns null. Post-order: invert both subtrees, then swap them at current node.
+The key insight is that recursively swap left and right children of each node. Base case: null returns null. Post-order: invert both subtrees, then swap them at current node.
 
 ### APPROACH:
 1. **Base case**: If root is None, return None
@@ -69,9 +69,9 @@ O(1)
 
 
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

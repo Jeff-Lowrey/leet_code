@@ -34,10 +34,10 @@ Inorder traversal visits nodes in the order: Left -> Root -> Right. This gives u
 3. **Morris traversal**: O(1) space using threading technique
 
 ### WHY THIS WORKS:
-- Inorder traversal naturally follows left-root-right pattern
-- For BSTs, this produces sorted output
-- Stack-based approach simulates the call stack of recursion
-- Morris traversal modifies tree temporarily to avoid extra space
+- This ensures that inorder traversal naturally follows left-root-right pattern
+- This ensures that for BSTs, this produces sorted output
+- This ensures that stack-based approach simulates the call stack of recursion
+- This ensures that morris traversal modifies tree temporarily to avoid extra space
 
 ### EXAMPLE WALKTHROUGH:
 Input:

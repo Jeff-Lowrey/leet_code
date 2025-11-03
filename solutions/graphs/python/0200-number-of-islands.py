@@ -28,7 +28,7 @@ An island is surrounded by water and is formed by connecting adjacent lands hori
 **Space Complexity**: O(M × N)
 
 ### INTUITION:
-This is a classic graph traversal problem where we need to find connected components. Each island is a connected component of '1's (land). We can use DFS or BFS to explore each island completely when we encounter it, then count how many separate islands we find.
+The key insight is that this is a classic graph traversal problem where we need to find connected components. Each island is a connected component of '1's (land). We can use DFS or BFS to explore each island completely when we encounter it, then count how many separate islands we find.
 
 ### APPROACH:
 1. **Iterate through grid**: Check each cell in the grid
@@ -61,6 +61,11 @@ Step 1: - Continue scanning: (1,3) is unvisited land → start new DFS
 Step 2: - DFS from (1,3) only marks (1,3) as it's isolated
 Step 3: - Total islands found: 2
 
+Output:
+```
+[Expected output]
+```
+
 ### TIME COMPLEXITY:
 O(M × N)
 Where M and N are grid dimensions - we visit each cell at most once
@@ -70,11 +75,9 @@ O(M × N)
 For recursion stack in worst case (entire grid is one island) or visited array
 
 ### EDGE CASES:
-- Empty grid
-- All water ('0's)
-- All land ('1's) - single island
-- Single cell grid
-- Grid with no islands
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

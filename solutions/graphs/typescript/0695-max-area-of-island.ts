@@ -98,13 +98,27 @@
  * For recursion stack in worst case
  * 
  * ### EDGE CASES:
- * - **All water**: Return 0 (no islands)
- * - **Single cell island**: Return 1
- * - **Entire grid is one island**: Return m * n
- * - **Multiple islands**: Return area of largest
- * - **Empty grid**: Return 0
- * 
- * </details>
+- **All water**: Return 0 (no islands)
+- **Single cell island**: Return 1
+- **Entire grid is one island**: Return m * n
+- **Multiple islands**: Return area of largest
+- **Empty grid**: Return 0
+
+</details>
+
+</details>
+
+</details>
+
+</details>
+
+</details>
+
+</details>
+
+</details>
+
+</details>
  */
 
 class Solution {

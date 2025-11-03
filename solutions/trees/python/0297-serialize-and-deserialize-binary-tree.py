@@ -68,6 +68,16 @@ Serialize: "1,2,#,#,3,4,#,#,5,#,#"
 - Visit right child of 5 (null), add "#"
 Deserialize: Split by comma and reconstruct using preorder
 
+Output:
+```
+[Expected output]
+```
+
+Step-by-step execution:
+1. [First step]
+2. [Second step]
+3. [Final step]
+
 ### TIME COMPLEXITY:
 O(n)
 Where n is the number of nodes in the tree

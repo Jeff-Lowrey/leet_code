@@ -32,7 +32,7 @@ Return a 2D list of grid coordinates result where result[i] = [ri, ci] denotes t
 **Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
-Use DFS/BFS from all Pacific border cells and separately from all Atlantic border cells. Cells reachable from both oceans are in the answer. Water flows from high to low or equal.
+The key insight is that use DFS/BFS from all Pacific border cells and separately from all Atlantic border cells. Cells reachable from both oceans are in the answer. Water flows from high to low or equal.
 
 ### APPROACH:
 1. **Initialize result sets**: Create pacific_reachable and atlantic_reachable sets
@@ -45,11 +45,11 @@ Use DFS/BFS from all Pacific border cells and separately from all Atlantic borde
 8. **Return result**: Return list of cells reachable from both oceans
 
 ### WHY THIS WORKS:
-- DFS from ocean borders inward (reverse flow direction)
-- Water flows to ocean if can reach cells that flow to ocean
-- Find cells reachable from pacific border and atlantic border separately
-- Intersection of both sets is answer
-- O(m*n) time: DFS from borders visits each cell at most twice, O(m*n) space
+- This ensures that dFS from ocean borders inward (reverse flow direction)
+- This ensures that water flows to ocean if can reach cells that flow to ocean
+- This ensures that find cells reachable from pacific border and atlantic border separately
+- This ensures that intersection of both sets is answer
+- This ensures that o(m*n) time: DFS from borders visits each cell at most twice, O(m*n) space
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -89,9 +89,9 @@ O(1)
 
 
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

@@ -52,36 +52,46 @@
  * - Trie structure provides O(L) lookup where L is prefix+suffix length
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * words = ["apple"]
- * ```
- *
- * Build Trie with combinations:
- * "e{a" (suffix "e", prefix "a")
- * "le{a" (suffix "le", prefix "a")
- * "ple{a" (suffix "ple", prefix "a")
- * ...
- * "e{ap" (suffix "e", prefix "ap")
- * "le{ap" (suffix "le", prefix "ap")
- * ...
- * "apple{apple" (full word)
- * f("a", "e"):
- * Look up "e{a" in trie
- * Find index 0 stored at that node
- * Return 0
- * words = ["apple", "apply", "application"]
- * indices: [0, 1, 2]
- * f("app", "y"):
- * Look up "y{app" in trie
- * Find index 1 (apply)
- * Return 1
- * f("app", "e"):
- * Look up "e{app" in trie
- * Find indices 0 (apple) and 2 (application)
- * Return 2 (maximum)
+Input:
+```
+words = ["apple"]
+```
 
- * ### TIME COMPLEXITY:
+Build Trie with combinations:
+"e{a" (suffix "e", prefix "a")
+"le{a" (suffix "le", prefix "a")
+"ple{a" (suffix "ple", prefix "a")
+...
+"e{ap" (suffix "e", prefix "ap")
+"le{ap" (suffix "le", prefix "ap")
+...
+"apple{apple" (full word)
+f("a", "e"):
+Look up "e{a" in trie
+Find index 0 stored at that node
+Return 0
+words = ["apple", "apply", "application"]
+indices: [0, 1, 2]
+f("app", "y"):
+Look up "y{app" in trie
+Find index 1 (apply)
+Return 1
+f("app", "e"):
+Look up "e{app" in trie
+Find indices 0 (apple) and 2 (application)
+Return 2 (maximum)
+
+Output:
+```
+[Expected output]
+```
+
+Step-by-step execution:
+1. [First step]
+2. [Second step]
+3. [Final step]
+
+### TIME COMPLEXITY:
  * - Constructor: O(N * L^3) where N is words count, L is max word length
  *   - For each word, we create L^2 combinations, each taking O(L) to insert
  * - f(): O(P + S) where P is prefix length, S is suffix length
@@ -91,13 +101,11 @@
  * For storing all suffix-prefix combinations in trie
  *
  * ### EDGE CASES:
- * - Multiple words with same prefix and suffix
- * - Word is both prefix and suffix
- * - Empty prefix or suffix
- * - No matching words
- * - Single character words
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class TrieNode {

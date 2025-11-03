@@ -40,30 +40,35 @@
  * 4. **Exact Match**: Must reach end of both search word and trie path with exactly one change
  * 
  * ### WHY THIS WORKS:
- * - Trie structure enables efficient prefix matching
- * - DFS allows exploring all possible single character changes
- * - By tracking changes used, we ensure exactly one modification
- * - Early termination when more than one change is needed
- * 
- * ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * Dictionary: ["hello", "leetcode"]
- * ```
- *
- * Search: "hhllo"
- * DFS Process:
- * 1. Start at root, search word "hhllo"
- *
- * Steps:
- * Step 1: At position 0: 'h' matches 'h' in "hello" path → continue
- * Step 2: At position 1: 'h' doesn't match 'e' in "hello" → use one change, continue
- * Step 3: At position 2: 'l' matches 'l' → continue
- * Step 4: At position 3: 'l' matches 'l' → continue
- * Step 5: At position 4: 'o' matches 'o' → continue
- * Step 6: Reached end with exactly one change → return True
+- This ensures that trie structure enables efficient prefix matching
+- This ensures that dFS allows exploring all possible single character changes
+- This ensures that by tracking changes used, we ensure exactly one modification
+- This ensures that early termination when more than one change is needed
 
- * ### TIME COMPLEXITY:
+### EXAMPLE WALKTHROUGH:
+Input:
+```
+Dictionary: ["hello", "leetcode"]
+```
+
+Search: "hhllo"
+DFS Process:
+1. Start at root, search word "hhllo"
+
+Steps:
+Step 1: At position 0: 'h' matches 'h' in "hello" path → continue
+Step 2: At position 1: 'h' doesn't match 'e' in "hello" → use one change, continue
+Step 3: At position 2: 'l' matches 'l' → continue
+Step 4: At position 3: 'l' matches 'l' → continue
+Step 5: At position 4: 'o' matches 'o' → continue
+Step 6: Reached end with exactly one change → return True
+
+Output:
+```
+[Expected output]
+```
+
+### TIME COMPLEXITY:
  * - Build: O(n × l) where n is number of words, l is average length
  * - Search: O(26 × l) in worst case, but typically much better due to pruning
  * 

@@ -47,34 +47,39 @@
  * - Backtracking explores all possible paths while avoiding revisits
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * board = [["o","a","a","n"],
- * ```
- *
- * ["e","t","a","e"],
- * ["i","h","k","r"],
- * ["i","f","l","v"]]
- * words = ["oath","pea","eat","rain"]
- * Build Trie: oath, pea, eat, rain
- * DFS from (0,0) 'o':
- * DFS from (1,1) 't':
- * DFS from (1,2) 'a':
- * DFS from (1,0) 'e':
- *
- * Steps:
- * Step 1: -> (1,0) 'e': not in trie after 'o'
- * Step 2: -> (0,1) 'a': 'oa' in trie, continue
- * Step 3: -> (1,1) 't': 'oat' in trie, continue
- * Step 4: -> (1,2) 'h': 'oath' found! ✓
- * Step 5: -> (1,2) 'a': 'ta' not promising
- * Step 6: -> (1,1) 't': 'at' not in trie
- * Step 7: -> (2,2) 'k': 'ak' not in trie
- * Step 8: -> (1,1) 'a': 'ea' in trie
- * Step 9: -> (1,2) 't': 'eat' found! ✓
- * Step 10: Results: ["oath", "eat"]
+Input:
+```
+board = [["o","a","a","n"],
+```
 
- * ### TIME COMPLEXITY:
+["e","t","a","e"],
+["i","h","k","r"],
+["i","f","l","v"]]
+words = ["oath","pea","eat","rain"]
+Build Trie: oath, pea, eat, rain
+DFS from (0,0) 'o':
+DFS from (1,1) 't':
+DFS from (1,2) 'a':
+DFS from (1,0) 'e':
+
+Steps:
+Step 1: -> (1,0) 'e': not in trie after 'o'
+Step 2: -> (0,1) 'a': 'oa' in trie, continue
+Step 3: -> (1,1) 't': 'oat' in trie, continue
+Step 4: -> (1,2) 'h': 'oath' found! ✓
+Step 5: -> (1,2) 'a': 'ta' not promising
+Step 6: -> (1,1) 't': 'at' not in trie
+Step 7: -> (2,2) 'k': 'ak' not in trie
+Step 8: -> (1,1) 'a': 'ea' in trie
+Step 9: -> (1,2) 't': 'eat' found! ✓
+Step 10: Results: ["oath", "eat"]
+
+Output:
+```
+[Expected output]
+```
+
+### TIME COMPLEXITY:
  * O(M * N * 4^L)
  * Where M*N is board size, L is maximum word length
  * - We visit each cell and explore 4 directions recursively
@@ -86,13 +91,11 @@
  * - Trie storage for all words
  *
  * ### EDGE CASES:
- * - No words found on board
- * - Duplicate words (use set to collect results)
- * - Single cell words
- * - Words that use all cells
- * - Overlapping word paths
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class TrieNode {

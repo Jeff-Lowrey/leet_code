@@ -27,16 +27,16 @@
  * **Space Complexity**: O(1) - Constant extra space
  *
  * ### INTUITION:
- * Recursively swap left and right children of each node. Base case: null returns null. Post-order: invert both subtrees, then swap them at current node.
- *
- * ### APPROACH:
- * 1. **Base case**: If root is None, return None
- * 2. **Swap children**: temp = root.left, root.left = root.right, root.right = temp
- * 3. **Recursively invert left**: invertTree(root.left)
- * 4. **Recursively invert right**: invertTree(root.right)
- * 5. **Return root**: Return modified tree root
- *
- * ### WHY THIS WORKS:
+The key insight is that recursively swap left and right children of each node. Base case: null returns null. Post-order: invert both subtrees, then swap them at current node.
+
+### APPROACH:
+1. **Base case**: If root is None, return None
+2. **Swap children**: temp = root.left, root.left = root.right, root.right = temp
+3. **Recursively invert left**: invertTree(root.left)
+4. **Recursively invert right**: invertTree(root.right)
+5. **Return root**: Return modified tree root
+
+### WHY THIS WORKS:
  * - Recursive approach: swap left and right children, then recurse on both
  * - Base case: null node returns null immediately
  * - Post-order traversal ensures children inverted before parent processes
@@ -68,11 +68,11 @@
  * - Constant extra space
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class TreeNode {

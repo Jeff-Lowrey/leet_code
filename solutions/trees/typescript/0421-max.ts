@@ -27,9 +27,9 @@
  * **Space Complexity**: O(1) - Constant extra space
  *
  * ### INTUITION:
- * Build Trie of all numbers. For each number, traverse Trie greedily choosing opposite bit when possible (to maximize XOR). This finds best XOR partner for each number in O(32n).
- *
- * ### APPROACH:
+The key insight is that build Trie of all numbers. For each number, traverse Trie greedily choosing opposite bit when possible (to maximize XOR). This finds best XOR partner for each number in O(32n).
+
+### APPROACH:
  * 1. **Build trie**: Insert all numbers into trie as binary representations
  * 2. **Initialize max_xor**: Set max_xor = 0
  * 3. **For each number**: Traverse trie trying to take opposite bit at each level
@@ -39,13 +39,13 @@
  * 7. **Return result**: Return max_xor
  *
  * ### WHY THIS WORKS:
- * - Trie with bit-level representation: each node has 0/1 children
- * - For each number, try to take opposite bit path (maximize XOR)
- * - If opposite bit exists, go there (XOR will be 1); else take same bit
- * - Build trie with all numbers, then query each number for max XOR
- * - O(n * 32) time: n numbers, 32 bits each, O(n * 32) space for trie
- *
- * ### EXAMPLE WALKTHROUGH:
+- This ensures that trie with bit-level representation: each node has 0/1 children
+- This ensures that for each number, try to take opposite bit path (maximize XOR)
+- This ensures that if opposite bit exists, go there (XOR will be 1); else take same bit
+- This ensures that build trie with all numbers, then query each number for max XOR
+- This ensures that o(n * 32) time: n numbers, 32 bits each, O(n * 32) space for trie
+
+### EXAMPLE WALKTHROUGH:
  * Input:
  * ```
  * nums = [3,10,5,25,2,8]
@@ -73,11 +73,11 @@
  * - Constant extra space
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {

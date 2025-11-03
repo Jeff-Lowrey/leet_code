@@ -39,10 +39,10 @@ This problem requires finding all possible ways to break a string into valid wor
 Alternative: Use recursion with memoization without Trie (checking against word set)
 
 ### WHY THIS WORKS:
-- Trie enables efficient prefix matching as we scan through the string
-- Backtracking explores all possible word boundaries
-- Memoization prevents exponential time by caching substring results
-- When we find a word end in trie, we recursively solve for remaining string
+- This ensures that trie enables efficient prefix matching as we scan through the string
+- This ensures that backtracking explores all possible word boundaries
+- This ensures that memoization prevents exponential time by caching substring results
+- This ensures that when we find a word end in trie, we recursively solve for remaining string
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -71,6 +71,11 @@ Step 9: Return ["and dog"]
 Step 10: Return ["cats and dog"]
 Step 11: Final: ["cat sand dog", "cats and dog"]
 
+Output:
+```
+[Expected output]
+```
+
 ### TIME COMPLEXITY:
 O(N^3 + M*L)
 Where N is string length, M is number of words, L is average word length
@@ -83,11 +88,9 @@ O(M*L + N^2)
 - Memoization cache: O(N^2) for storing results
 
 ### EDGE CASES:
-- No valid segmentation exists
-- Multiple segmentations possible
-- String is a single word
-- Empty string
-- Words can be reused
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

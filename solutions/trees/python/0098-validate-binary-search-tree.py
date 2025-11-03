@@ -32,7 +32,7 @@ A valid BST is defined as follows:
 **Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
-Recursively validate each subtree. For each node, check: left < node < right, and both subtrees are valid BSTs. Pass valid range down: left subtree max < node, right subtree min > node.
+The key insight is that recursively validate each subtree. For each node, check: left < node < right, and both subtrees are valid BSTs. Pass valid range down: left subtree max < node, right subtree min > node.
 
 ### APPROACH:
 1. **Define helper function**: Implement validate(node, min_val, max_val)
@@ -78,9 +78,9 @@ O(1)
 
 
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

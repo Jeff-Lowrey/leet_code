@@ -40,10 +40,10 @@ In a BST, we can leverage the ordering property to find LCA efficiently. If both
 4. **Handle edge cases**: One node is ancestor of the other
 
 ### WHY THIS WORKS:
-- BST ordering allows us to determine which subtree contains the LCA
-- The first node where p and q diverge (different subtrees) is the LCA
-- If one node equals current node, current node is the LCA
-- This is much more efficient than general tree LCA algorithms
+- This ensures that bST ordering allows us to determine which subtree contains the LCA
+- This ensures that the first node where p and q diverge (different subtrees) is the LCA
+- This ensures that if one node equals current node, current node is the LCA
+- This ensures that this is much more efficient than general tree LCA algorithms
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -83,6 +83,20 @@ For recursion stack, O(1) for iterative solution
 - **Nodes on different sides**: Current node is LCA
 - **One node equals root**: Root is the LCA
 - **Linear BST (skewed)**: O(n) time complexity in worst case
+
+</details>
+
+</details>
+
+</details>
+
+</details>
+
+</details>
+
+</details>
+
+</details>
 
 </details>
 """

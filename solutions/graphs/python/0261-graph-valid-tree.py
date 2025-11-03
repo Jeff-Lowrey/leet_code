@@ -28,7 +28,7 @@ Return true if the edges of the given graph make up a valid tree, and false othe
 **Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
-A valid tree has exactly n-1 edges and is fully connected with no cycles. Use Union-Find to detect cycles and count components. Valid if no cycles and all nodes in one component.
+The key insight is that a valid tree has exactly n-1 edges and is fully connected with no cycles. Use Union-Find to detect cycles and count components. Valid if no cycles and all nodes in one component.
 
 ### APPROACH:
 1. **Check edge count**: If edges != n-1, return False
@@ -41,11 +41,11 @@ A valid tree has exactly n-1 edges and is fully connected with no cycles. Use Un
 8. **Return result**: Return True if no cycles and all nodes visited, else False
 
 ### WHY THIS WORKS:
-- Tree properties: n nodes, n-1 edges, all nodes connected, no cycles
-- Check edge count == n-1 (necessary but not sufficient)
-- DFS/BFS from any node: all nodes should be visited (connected)
-- Union-find alternative: no cycles means each edge connects different components
-- O(n + e) time: DFS/BFS, O(n) space for visited array
+- This ensures that tree properties: n nodes, n-1 edges, all nodes connected, no cycles
+- This ensures that check edge count == n-1 (necessary but not sufficient)
+- This ensures that dFS/BFS from any node: all nodes should be visited (connected)
+- This ensures that union-find alternative: no cycles means each edge connects different components
+- This ensures that o(n + e) time: DFS/BFS, O(n) space for visited array
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -84,9 +84,9 @@ O(1)
 
 
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

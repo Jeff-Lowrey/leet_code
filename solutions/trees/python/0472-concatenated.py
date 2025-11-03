@@ -28,7 +28,7 @@ A concatenated word is defined as a string that is comprised entirely of at leas
 **Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
-Build Trie of all words. For each word, DFS from Trie root trying to match it as concatenation of words. Use memoization on position. Word is valid if complete match with 2+ words.
+The key insight is that build Trie of all words. For each word, DFS from Trie root trying to match it as concatenation of words. Use memoization on position. Word is valid if complete match with 2+ words.
 
 ### APPROACH:
 1. **Sort by length**: Sort words by length
@@ -40,11 +40,11 @@ Build Trie of all words. For each word, DFS from Trie root trying to match it as
 7. **Filter results**: Return words that can be formed by concatenation
 
 ### WHY THIS WORKS:
-- Trie stores all words, DFS checks if word can be formed by concatenating
-- For each position, try all words that match from that position
-- Word is concatenated if formed by >= 2 words (track depth)
-- Memoization caches (pos, depth) to avoid recomputing subproblems
-- O(n * m * k) time: n words, m avg length, k concatenation attempts
+- This ensures that trie stores all words, DFS checks if word can be formed by concatenating
+- This ensures that for each position, try all words that match from that position
+- This ensures that word is concatenated if formed by >= 2 words (track depth)
+- This ensures that memoization caches (pos, depth) to avoid recomputing subproblems
+- This ensures that o(n * m * k) time: n words, m avg length, k concatenation attempts
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -73,9 +73,9 @@ O(1)
 
 
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

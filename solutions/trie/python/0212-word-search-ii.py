@@ -77,6 +77,11 @@ Step 8: -> (1,1) 'a': 'ea' in trie
 Step 9: -> (1,2) 't': 'eat' found! ✓
 Step 10: Results: ["oath", "eat"]
 
+Output:
+```
+[Expected output]
+```
+
 ### TIME COMPLEXITY:
 O(M * N * 4^L)
 Where M*N is board size, L is maximum word length
@@ -89,11 +94,9 @@ Where K is number of words, L is average word length
 - Trie storage for all words
 
 ### EDGE CASES:
-- No words found on board
-- Duplicate words (use set to collect results)
-- Single cell words
-- Words that use all cells
-- Overlapping word paths
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

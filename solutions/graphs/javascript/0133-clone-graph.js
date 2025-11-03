@@ -35,10 +35,10 @@
 
  *
  * ### INTUITION:
- * To clone a graph, we need to create new nodes and preserve the neighbor relationships.
- * The key challenge is handling `cycles - we` need to avoid infinite loops.
- *
- * ### APPROACH:
+The key insight is that to clone a graph, we need to create new nodes and preserve the neighbor relationships.
+The key challenge is handling `cycles - we` need to avoid infinite loops.
+
+### APPROACH:
  * 1. **Handle empty graph**: Return None immediately if input node is None
  * 2. **Initialize hash map**: Create a dictionary to map original nodes to their clones and track visited nodes
  * 3. **Start DFS traversal**: Begin recursive depth-first search from the given node

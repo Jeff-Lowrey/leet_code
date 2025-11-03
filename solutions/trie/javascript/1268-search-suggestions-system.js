@@ -43,33 +43,38 @@
  * Alternative: Sort products, then use binary search for each prefix
  *
  * ### WHY THIS WORKS:
- * - Trie naturally organizes words by prefixes
- * - Storing sorted suggestions at each node provides O(1) lookup
- * - As we build the trie, we can maintain the lexicographically smallest suggestions
- * - Navigation follows the typed prefix exactly
- *
- * ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * products = ["mobile","mouse","moneypot","monitor","mousepad"]
- * ```
- *
- * searchWord = "mouse"
- * Build Trie and store suggestions:
- *
- * Steps:
- * Step 1: root -> 'm' (suggestions: ["mobile", "moneypot", "monitor"])
- * Step 2: -> 'o' (suggestions: ["mobile", "moneypot", "monitor"])
- * Step 3: -> 'u' (suggestions: ["mouse", "mousepad"])
- * Step 4: -> 's' (suggestions: ["mouse", "mousepad"])
- * Step 5: -> 'e' (suggestions: ["mouse", "mousepad"])
- * Step 6: Process 'm': ["mobile", "moneypot", "monitor"]
- * Step 7: Process 'mo': ["mobile", "moneypot", "monitor"]
- * Step 8: Process 'mou': ["mouse", "mousepad"]
- * Step 9: Process 'mous': ["mouse", "mousepad"]
- * Step 10: Process 'mouse': ["mouse", "mousepad"]
+- This ensures that trie naturally organizes words by prefixes
+- This ensures that storing sorted suggestions at each node provides O(1) lookup
+- This ensures that as we build the trie, we can maintain the lexicographically smallest suggestions
+- This ensures that navigation follows the typed prefix exactly
 
- * ### TIME COMPLEXITY:
+### EXAMPLE WALKTHROUGH:
+Input:
+```
+products = ["mobile","mouse","moneypot","monitor","mousepad"]
+```
+
+searchWord = "mouse"
+Build Trie and store suggestions:
+
+Steps:
+Step 1: root -> 'm' (suggestions: ["mobile", "moneypot", "monitor"])
+Step 2: -> 'o' (suggestions: ["mobile", "moneypot", "monitor"])
+Step 3: -> 'u' (suggestions: ["mouse", "mousepad"])
+Step 4: -> 's' (suggestions: ["mouse", "mousepad"])
+Step 5: -> 'e' (suggestions: ["mouse", "mousepad"])
+Step 6: Process 'm': ["mobile", "moneypot", "monitor"]
+Step 7: Process 'mo': ["mobile", "moneypot", "monitor"]
+Step 8: Process 'mou': ["mouse", "mousepad"]
+Step 9: Process 'mous': ["mouse", "mousepad"]
+Step 10: Process 'mouse': ["mouse", "mousepad"]
+
+Output:
+```
+[Expected output]
+```
+
+### TIME COMPLEXITY:
  * O(N * L + S)
  * Where N is number of products, L is average length, S is searchWord length
  * - Building trie with suggestions: O(N * L)
@@ -80,12 +85,11 @@
  * For storing the trie structure
  *
  * ### EDGE CASES:
- * - SearchWord has no matching products
- * - Fewer than 3 products match a prefix
- * - All products share the same prefix
- * - Empty products list
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class TrieNode {

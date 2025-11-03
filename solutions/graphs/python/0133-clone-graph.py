@@ -29,7 +29,7 @@ Each `node` in the graph contains a value (int) and a list (List[Node]) of its n
 **Space Complexity**: O(V) - hash map and recursion stack
 
 ### INTUITION:
-To clone a graph, we need to create new nodes and preserve the neighbor relationships.
+The key insight is that to clone a graph, we need to create new nodes and preserve the neighbor relationships.
 The key challenge is handling `cycles - we` need to avoid infinite loops.
 
 ### APPROACH:

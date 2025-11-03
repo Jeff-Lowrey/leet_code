@@ -26,7 +26,7 @@ Given an integer array nums, return the maximum result of nums[i] XOR nums[j], w
 **Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
-Build Trie of all numbers. For each number, traverse Trie greedily choosing opposite bit when possible (to maximize XOR). This finds best XOR partner for each number in O(32n).
+The key insight is that build Trie of all numbers. For each number, traverse Trie greedily choosing opposite bit when possible (to maximize XOR). This finds best XOR partner for each number in O(32n).
 
 ### APPROACH:
 1. **Build trie**: Insert all numbers into trie as binary representations
@@ -38,11 +38,11 @@ Build Trie of all numbers. For each number, traverse Trie greedily choosing oppo
 7. **Return result**: Return max_xor
 
 ### WHY THIS WORKS:
-- Trie with bit-level representation: each node has 0/1 children
-- For each number, try to take opposite bit path (maximize XOR)
-- If opposite bit exists, go there (XOR will be 1); else take same bit
-- Build trie with all numbers, then query each number for max XOR
-- O(n * 32) time: n numbers, 32 bits each, O(n * 32) space for trie
+- This ensures that trie with bit-level representation: each node has 0/1 children
+- This ensures that for each number, try to take opposite bit path (maximize XOR)
+- This ensures that if opposite bit exists, go there (XOR will be 1); else take same bit
+- This ensures that build trie with all numbers, then query each number for max XOR
+- This ensures that o(n * 32) time: n numbers, 32 bits each, O(n * 32) space for trie
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -74,9 +74,9 @@ O(1)
 
 
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

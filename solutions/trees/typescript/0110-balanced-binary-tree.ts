@@ -45,36 +45,36 @@
  * - Binary Tree structure enables efficient recursive height computation
  * 
  * ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * [3,9,20,null,null,15,7]
- * ```
- *
- * 3
- * / \
- * 9  20
- * /  \
- * 15   7
- *
- * **Step 1:** Check leaf nodes
- * - Node 9: height = 1, balanced ✓
- * - Node 15: height = 1, balanced ✓
- * - Node 7: height = 1, balanced ✓
- *
- * **Step 2:** Check node 20 (parent of 15 and 7)
- * - left_height = 1, right_height = 1, |1-1| = 0 ≤ 1 ✓
- *
- * **Step 3:** Check node 3 (root)
- * - left_height = 1, right_height = 2, |1-2| = 1 ≤ 1 ✓
- *
- * **Step 4:** Return result
- *
- * Output:
- * ```
- * true
- * ```
+Input:
+```
+[3,9,20,null,null,15,7]
+```
 
- * ### TIME COMPLEXITY:
+3
+/ \
+9  20
+/  \
+15   7
+
+*Step 1:** Check leaf nodes
+- Node 9: height = 1, balanced ✓
+- Node 15: height = 1, balanced ✓
+- Node 7: height = 1, balanced ✓
+
+*Step 2:** Check node 20 (parent of 15 and 7)
+- left_height = 1, right_height = 1, |1-1| = 0 ≤ 1 ✓
+
+*Step 3:** Check node 3 (root)
+- left_height = 1, right_height = 2, |1-2| = 1 ≤ 1 ✓
+
+*Step 4:** Return result
+
+Output:
+```
+true
+```
+
+### TIME COMPLEXITY:
  * O(n)
  * - Single pass through input
  * Each node is visited exactly once

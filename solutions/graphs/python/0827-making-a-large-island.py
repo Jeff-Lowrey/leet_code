@@ -39,10 +39,10 @@ This problem extends island finding by allowing us to change one 0 to 1 to maxim
 4. **Track maximum**: Keep track of the largest possible island size
 
 ### WHY THIS WORKS:
-- Pre-labeling islands allows O(1) lookup of island sizes
-- For each 0, we check its 4 neighbors to see which islands it would connect
-- Sum of connected island sizes + 1 (the flipped cell) gives new island size
-- Handle edge case where grid is already all 1's
+- This ensures that pre-labeling islands allows O(1) lookup of island sizes
+- This ensures that for each 0, we check its 4 neighbors to see which islands it would connect
+- This ensures that sum of connected island sizes + 1 (the flipped cell) gives new island size
+- This ensures that handle edge case where grid is already all 1's
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -60,6 +60,11 @@ Steps:
 Step 1: Flip (0,1): neighbors are [2] → new size = 1 + 1 = 2
 Step 2: Flip (1,0): neighbors are [2,3] → new size = 1 + 1 + 1 = 3
 Step 3: Maximum possible island size: 3
+
+Output:
+```
+[Expected output]
+```
 
 ### TIME COMPLEXITY:
 O(N²)

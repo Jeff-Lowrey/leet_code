@@ -29,20 +29,20 @@
  * **Space Complexity**: O(n) for visited set and recursion/queue - Additional hash map storage
  *
  * ### INTUITION:
- * This is a graph reachability problem. Each index is a node, and edges exist to indices
- * i+arr[i] and i-arr[i]. Use DFS or BFS to explore all reachable indices from start.
- *
- * ### APPROACH:
+The key insight is that this is a graph reachability problem. Each index is a node, and edges exist to indices
+i+arr[i] and i-arr[i]. Use DFS or BFS to explore all reachable indices from start.
+
+### APPROACH:
  * 1. **Track visited**: Prevent infinite loops
  * 2. **DFS/BFS**: Explore all reachable indices
  * 3. **Check zero**: Return true if any visited index has value 0
  * 4. **Bounds check**: Only jump to valid indices
  *
  * ### WHY THIS WORKS:
- * Since we mark visited indices, we explore each node once, avoiding cycles.
- * If any reachable node has value 0, we return true.
- *
- * ### EXAMPLE WALKTHROUGH:
+Since we mark visited indices, we explore each node once, avoiding cycles.
+If any reachable node has value 0, we return true.
+
+### EXAMPLE WALKTHROUGH:
  * Input:
  * ```
  * arr = [4,2,3,0,3,1,2], start = 5

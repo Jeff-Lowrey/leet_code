@@ -31,15 +31,15 @@
  * **Space Complexity**: O(M × N)
  *
  * ### INTUITION:
- * This problem extends "Number of Islands" by requiring us to identify distinct island shapes. Two islands are the same if one can be translated to match the other (same relative positions). We need to normalize each island's shape to a canonical form for comparison.
- *
- * ### APPROACH:
- * 1. **Find each island**: Use DFS/BFS to explore islands
- * 2. **Record relative positions**: For each island, record all cell positions relative to starting point
- * 3. **Normalize shape**: Convert to canonical form (e.g., relative to top-left corner)
- * 4. **Use set for uniqueness**: Store normalized shapes in set to count distinct shapes
- *
- * ### WHY THIS WORKS:
+The key insight is that this problem extends "Number of Islands" by requiring us to identify distinct island shapes. Two islands are the same if one can be translated to match the other (same relative positions). We need to normalize each island's shape to a canonical form for comparison.
+
+### APPROACH:
+1. **Find each island**: Use DFS/BFS to explore islands
+2. **Record relative positions**: For each island, record all cell positions relative to starting point
+3. **Normalize shape**: Convert to canonical form (e.g., relative to top-left corner)
+4. **Use set for uniqueness**: Store normalized shapes in set to count distinct shapes
+
+### WHY THIS WORKS:
  * - Relative positioning captures island shape independent of location
  * - Normalization ensures identical shapes have identical representations
  * - Set automatically handles duplicates

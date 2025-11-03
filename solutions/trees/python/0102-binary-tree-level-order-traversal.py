@@ -26,7 +26,7 @@ Given the root of a binary tree, return the level order traversal of its nodes' 
 **Space Complexity**: O(w)
 
 ### INTUITION:
-Level order traversal visits nodes level by level from left to right. This is a classic BFS (Breadth-First Search) problem where we use a queue to process nodes level by level, collecting values at each level separately.
+The key insight is that level order traversal visits nodes level by level from left to right. This is a classic BFS (Breadth-First Search) problem where we use a queue to process nodes level by level, collecting values at each level separately.
 
 ### APPROACH:
 1. **BFS with Queue**: Use queue to process nodes level by level

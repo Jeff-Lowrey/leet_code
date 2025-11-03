@@ -28,7 +28,7 @@ You are given a string array sentences and an integer array times both of length
 **Space Complexity**: O(N * L)
 
 ### INTUITION:
-This is an advanced autocomplete system that needs to track search frequency and return top results. We use a Trie to organize sentences by prefixes, and at each node, we maintain a list of sentences that pass through it along with their frequencies. When a character is typed, we navigate to that node and return top 3 by frequency.
+The key insight is that this is an advanced autocomplete system that needs to track search frequency and return top results. We use a Trie to organize sentences by prefixes, and at each node, we maintain a list of sentences that pass through it along with their frequencies. When a character is typed, we navigate to that node and return top 3 by frequency.
 
 ### APPROACH:
 1. **Build Trie with frequency**: Each node stores sentences passing through it with their counts
@@ -39,11 +39,11 @@ This is an advanced autocomplete system that needs to track search frequency and
 6. **Update counts**: Increment count for saved sentences
 
 ### WHY THIS WORKS:
-- Trie organizes sentences by prefixes efficiently
-- Storing sentences at each node enables quick retrieval
-- Sorting by frequency and lexicographically gives desired ranking
-- Current input tracking allows stateful interaction
-- Reset on '#' prepares for next query
+- This ensures that trie organizes sentences by prefixes efficiently
+- This ensures that storing sentences at each node enables quick retrieval
+- This ensures that sorting by frequency and lexicographically gives desired ranking
+- This ensures that current input tracking allows stateful interaction
+- This ensures that reset on '#' prepares for next query
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -85,11 +85,9 @@ O(N * L)
 For trie storage with all sentences
 
 ### EDGE CASES:
-- Fewer than 3 matching sentences
-- No matches for prefix
-- Updating existing sentence frequency
-- Same frequency (use lexicographic order)
-- Empty initial history
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """
