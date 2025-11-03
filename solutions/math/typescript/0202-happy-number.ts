@@ -1,48 +1,14 @@
 /**
- * # Difficulty: Easy
- *
- * # 0202. Happy Number
- *
- *
- * Write an algorithm to determine if a number n is happy.
- *
- * A happy number is a number defined by the following process:
- * - Starting with any positive integer, replace the number by the sum of the squares of its digits.
- * - Repeat the process until the number equals 1 (where it will stay), or it loops endlessly in a cycle which does not include 1.
- * - Those numbers for which this process ends in 1 are happy.
- *
- * Return true if n is a happy number, and false if not.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>n = 19:</dd>
- * <dt>Output:</dt>
- * <dd>1² + 9² = 82</dd>
- * <dt>Explanation:</dt>
- * <dd>Number 19 is happy: 1²+9²=82, 8²+2²=68, 6²+8²=100, 1²+0²+0²=1</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
- * **Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
- * **Data Structures**: Hash Set
- * **Patterns**: Two Pointers Pattern, Hash Table Pattern
- * **Time Complexity**: O(log n) - Binary search or tree height
- * **Space Complexity**: - Set approach: O(log n)
- *
- * ### INTUITION:
+### INTUITION:
 The key insight is that either the process reaches 1 (happy) or enters a cycle (not happy). Use a set to detect cycles, or use Floyd's cycle detection.
 
 ### APPROACH:
- * 1. **Calculate sum**: Get sum of squares of digits
- * 2. **Track seen numbers**: Use set to detect cycle
- * 3. **Check termination**: If 1, return True; if cycle, return False
- * 4. **Alternative**: Floyd's cycle detection (two pointers)
- *
- * ### WHY THIS WORKS:
+1. **Calculate sum**: Get sum of squares of digits
+2. **Track seen numbers**: Use set to detect cycle
+3. **Check termination**: If 1, return True; if cycle, return False
+4. **Alternative**: Floyd's cycle detection (two pointers)
+
+### WHY THIS WORKS:
 - Numbers either reach 1 or cycle
 - Cycles always occur for unhappy numbers
 - Set or two-pointer both detect cycles
@@ -76,21 +42,22 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
- * O(log n)
- * - Binary search or tree height
- * Depends on number of digits and cycle detection
- *
- * ### SPACE COMPLEXITY:
- * - Set approach: O(log n)
- * - Two-pointer: O(1)
- *
- * ### EDGE CASES:
+O(log n)**
+- Binary search or tree height
+Depends on number of digits and cycle detection
+
+### SPACE COMPLEXITY:
+- Set approach: **O(log n)**
+- Two-pointer: **O(1)**
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 class Solution {
   isHappy(n: number): boolean {

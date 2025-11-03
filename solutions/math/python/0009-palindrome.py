@@ -1,30 +1,4 @@
 """
-# Difficulty: Medium
-
-# 0009. Palindrome Number
-
-Given an integer x, return true if x is a palindrome, and false otherwise.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>x = 121</dd>
-<dt>Output:</dt>
-<dd>True (is palindrome)</dd>
-<dt>Explanation:</dt>
-<dd>Number 121 is a palindrome</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Standard Algorithm
-**Data Structures**: String
-**Patterns**: Iterative Solution
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
 The key insight is that extract first and last digits. Compare them. If different, not palindrome. Remove first and last digits by dividing by 10^(digits-1) and mod 10^(digits-1). Repeat.
 
@@ -64,14 +38,12 @@ True (is palindrome)
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 - Single pass through input
 
-
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 - Constant extra space
-
 
 ### EDGE CASES:
 - **Empty input**: Handle when input is empty
@@ -79,6 +51,7 @@ O(1)
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 

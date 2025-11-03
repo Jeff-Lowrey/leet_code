@@ -1,30 +1,4 @@
 """
-# Difficulty: Medium
-
-# 0204. Count Primes
-
-Given an integer n, return the number of prime numbers that are strictly less than n.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>n = 10:</dd>
-<dt>Output:</dt>
-<dd>Array: [2, 3, 4, 5, 6, 7, 8, 9]</dd>
-<dt>Explanation:</dt>
-<dd>Count of primes less than 10 is 4: [2,3,5,7]</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Map Storage, Array Traversal
-**Data Structures**: Array
-**Patterns**: Hash Table Pattern
-**Time Complexity**: O(n log log n)
-**Space Complexity**: O(n)
-
 ### INTUITION:
 The key insight is that use Sieve of Eratosthenes: mark all multiples of each prime as composite. Count remaining unmarked numbers.
 
@@ -58,11 +32,11 @@ Count = 4
 ```
 
 ### TIME COMPLEXITY:
-O(n log log n)
+**O(n log log n)**
 Sieve of Eratosthenes complexity
 
 ### SPACE COMPLEXITY:
-O(n)
+**O(n)**
 Boolean array of size n
 
 ### EDGE CASES:
@@ -71,6 +45,7 @@ Boolean array of size n
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 

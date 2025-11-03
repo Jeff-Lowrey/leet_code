@@ -1,35 +1,5 @@
 /**
- * # 0326. Power of Three
- *
- * Difficulty: Medium
- *
- *
- * Given an integer n, return true if it is a power of three. Otherwise, return false.
- *
- * An integer n is a power of three, if there exists an integer x such that n == 3^x.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>n = 27</dd>
- * <dt>Output:</dt>
- * <dd>true</dd>
- * <dt>Explanation:</dt>
- * <dd>3^3 = 27</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- *
- * ### METADATA:
- * **Techniques**: Recursion, Mathematics
- * **Data Structures**: None
- * **Patterns**: Divide and Conquer, Mathematical
- * **Time Complexity**: O(log₃ n) for recursion
- * **Space Complexity**: O(log₃ n) for recursion stack
- *
- * ### INTUITION:
+### INTUITION:
 Similar to power of two, but we divide by 3 instead of 2.
 If n is divisible by 3, recursively check n/3.
 If n becomes 1, it's a power of three.
@@ -46,36 +16,37 @@ If n becomes 1, it's a power of three.
 - This ensures that if we cannot divide evenly, n is not a power of 3
 
 ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * n = 27
- * ```
- *
- * Steps:
- * Step 1: isPowerOfThree(27) → 27 % 3 == 0, check isPowerOfThree(9)
- * Step 2: isPowerOfThree(9)  → 9 % 3 == 0, check isPowerOfThree(3)
- * Step 3: isPowerOfThree(3)  → 3 % 3 == 0, check isPowerOfThree(1)
- * Step 4: isPowerOfThree(1)  → return True
- * Step 5: Result: True
- * 
- * Output:
- * ```
- * True
- * ```
- * 
- * ### TIME COMPLEXITY:
- * O(log₃ n) for recursion
- *
- * ### SPACE COMPLEXITY:
- * O(log₃ n) for recursion stack
- *
- * ### EDGE CASES:
+Input:
+```
+n = 27
+```
+
+Steps:
+Step 1: isPowerOfThree(27) → 27 % 3 == 0, check isPowerOfThree(9)
+Step 2: isPowerOfThree(9)  → 9 % 3 == 0, check isPowerOfThree(3)
+Step 3: isPowerOfThree(3)  → 3 % 3 == 0, check isPowerOfThree(1)
+Step 4: isPowerOfThree(1)  → return True
+Step 5: Result: True
+
+Output:
+```
+True
+```
+
+### TIME COMPLEXITY:
+O(log₃ n)** for recursion
+
+### SPACE COMPLEXITY:
+O(log₃ n)** for recursion stack
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 class Solution {
   /**

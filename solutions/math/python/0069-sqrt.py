@@ -1,32 +1,4 @@
 """
-# Difficulty: Medium
-
-# 0069. Sqrt(x)
-
-Given a non-negative integer x, return the square root of x rounded down to the nearest integer. The returned integer should be non-negative as well.
-
-You must not use any built-in exponent function or operator.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>x = 8</dd>
-<dt>Output:</dt>
-<dd>2 (floor of sqrt(8))</dd>
-<dt>Explanation:</dt>
-<dd>Integer square root of 8 is 2</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Two Pointers, Binary Search
-**Data Structures**: Hash Set, Tree
-**Patterns**: Two Pointers Pattern, Binary Search Pattern
-**Time Complexity**: O(n)
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
 The key insight is that use binary search on the range [0, x]. For mid, check if mid * mid <= x. If yes, mid could be answer; try larger. If no, try smaller. Converge to floor(sqrt(x)).
 
@@ -66,14 +38,12 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 - Single pass through input
 
-
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 - Constant extra space
-
 
 ### EDGE CASES:
 - **Empty input**: Handle when input is empty
@@ -81,6 +51,7 @@ O(1)
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 

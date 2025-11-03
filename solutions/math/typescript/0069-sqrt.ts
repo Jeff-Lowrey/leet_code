@@ -1,46 +1,17 @@
 /**
- * # Difficulty: Medium
- *
- * # 0069. Sqrt(x)
- *
- *
- * Given a non-negative integer x, return the square root of x rounded down to the nearest integer. The returned integer should be non-negative as well.
- *
- * You must not use any built-in exponent function or operator.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>x = 8</dd>
- * <dt>Output:</dt>
- * <dd>2</dd>
- * <dt>Explanation:</dt>
- * <dd>Integer square root of 8 is 2</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
- * **Techniques**: Hash Table Lookup, Two Pointers, Binary Search
- * **Data Structures**: Hash Set, Tree
- * **Patterns**: Two Pointers Pattern, Binary Search Pattern
- * **Time Complexity**: O(n)
- * **Space Complexity**: O(1) - Constant extra space
- *
- * ### INTUITION:
+### INTUITION:
 The key insight is that use binary search on the range [0, x]. For mid, check if mid * mid <= x. If yes, mid could be answer; try larger. If no, try smaller. Converge to floor(sqrt(x)).
 
 ### APPROACH:
- * 1. **Handle edge cases**: If x == 0 or x == 1, return x
- * 2. **Initialize binary search**: Set left = 1, right = x // 2
- * 3. **Binary search loop**: While left <= right, calculate mid
- * 4. **Check if perfect square**: If mid * mid == x, return mid
- * 5. **Search right half**: If mid * mid < x, set left = mid + 1, store mid
- * 6. **Search left half**: If mid * mid > x, set right = mid - 1
- * 7. **Return result**: Return stored result (largest integer whose square <= x)
- *
- * ### WHY THIS WORKS:
+1. **Handle edge cases**: If x == 0 or x == 1, return x
+2. **Initialize binary search**: Set left = 1, right = x // 2
+3. **Binary search loop**: While left <= right, calculate mid
+4. **Check if perfect square**: If mid * mid == x, return mid
+5. **Search right half**: If mid * mid < x, set left = mid + 1, store mid
+6. **Search left half**: If mid * mid > x, set right = mid - 1
+7. **Return result**: Return stored result (largest integer whose square <= x)
+
+### WHY THIS WORKS:
 - This ensures that binary search on range [0, x] for answer
 - This ensures that if mid * mid == x, found exact square root
 - This ensures that if mid * mid < x, answer might be mid or higher (left = mid + 1)
@@ -48,41 +19,41 @@ The key insight is that use binary search on the range [0, x]. For mid, check if
 - This ensures that o(log x) time binary search, O(1) space
 
 ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * x = 8
- * ```
- *
- * Step 1: Binary search
- * left=0, right=8
- * mid=4: 4*4=16 > 8, right=3
- * mid=1: 1*1=1 < 8, left=2
- * mid=2: 2*2=4 < 8, left=3
- * mid=3: 3*3=9 > 8, right=2
- * left > right, return 2
- *
- * Output:
- * ```
- * 2 (floor of sqrt(8))
- * ```
+Input:
+```
+x = 8
+```
 
- * ### TIME COMPLEXITY:
+Step 1: Binary search
+left=0, right=8
+mid=4: 4*4=16 > 8, right=3
+mid=1: 1*1=1 < 8, left=2
+mid=2: 2*2=4 < 8, left=3
+mid=3: 3*3=9 > 8, right=2
+left > right, return 2
 
- * O(n)
+Output:
+```
+2 (floor of sqrt(8))
+```
 
- * - Single pass through the input
- *
- * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
- *
- * ### EDGE CASES:
+### TIME COMPLEXITY:
+O(n)**
+
+- Single pass through the input
+
+### SPACE COMPLEXITY:
+O(1)**
+- Constant extra space
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 class Solution {
   mySqrt(x: number): number {

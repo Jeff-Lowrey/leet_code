@@ -1,33 +1,4 @@
 """
-# Difficulty: Medium
-
-# 0066. Plus One
-
-You are given a large integer represented as an integer array digits, where each digits[i] is the ith digit of the integer. The digits are ordered from most significant to least significant in left-to-right order. The large integer does not contain any leading 0's.
-
-Increment the large integer by one and return the resulting array of digits.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>digits = [1,2,3]</dd>
-<dt>Output:</dt>
-<dd>[1,2,4]
-[1,0,0,0]</dd>
-<dt>Explanation:</dt>
-<dd>Array [1,2,9] plus one is [1,3,0]</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: Hash Map, Hash Set, Array
-**Patterns**: Two Pointers Pattern
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
 The key insight is that start from rightmost digit. Add 1 to it. Handle carry by propagating to next digit. If all digits are 9, result will need an extra digit at the front.
 
@@ -70,14 +41,12 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 - Single pass through input
 
-
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 - Constant extra space
-
 
 ### EDGE CASES:
 - **Empty input**: Handle when input is empty
@@ -85,6 +54,7 @@ O(1)
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 from typing import List, Optional, Dict, Tuple

@@ -1,35 +1,5 @@
 /**
- * # Difficulty: Medium
- *
- * # 0069. Sqrt(x)
- *
- *
- * Given a non-negative integer x, return the square root of x rounded down to the nearest integer. The returned integer should be non-negative as well.
- *
- * You must not use any built-in exponent function or operator.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>x = 8</dd>
- * <dt>Output:</dt>
- * <dd>2 (floor of sqrt(8))</dd>
- * <dt>Explanation:</dt>
- * <dd>Integer square root of 8 is 2</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- * ### METADATA:
- * **Techniques**: Array Traversal, Two Pointers
- * **Data Structures**: Tree
- * **Patterns**: Two Pointers Pattern
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(1) - Constant extra space
-
- *
- * ### INTUITION:
+### INTUITION:
 [This problem requires understanding of math concepts. The key insight is to identify the optimal approach for this specific scenario.]
 
 ### APPROACH:
@@ -44,39 +14,40 @@
 - This ensures that space complexity is minimized where possible
 
 ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * x = 8
- * ```
- *
- * Step 1: Binary search
- * left=0, right=8
- * mid=4: 4*4=16 > 8, right=3
- * mid=1: 1*1=1 < 8, left=2
- * mid=2: 2*2=4 < 8, left=3
- * mid=3: 3*3=9 > 8, right=2
- * left > right, return 2
- *
- * Output:
- * ```
- * 2 (floor of sqrt(8))
- * ```
+Input:
+```
+x = 8
+```
 
- * ### TIME COMPLEXITY:
- * O(n)
- * - Single pass through input
- *
- * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
- *
- * ### EDGE CASES:
+Step 1: Binary search
+left=0, right=8
+mid=4: 4*4=16 > 8, right=3
+mid=1: 1*1=1 < 8, left=2
+mid=2: 2*2=4 < 8, left=3
+mid=3: 3*3=9 > 8, right=2
+left > right, return 2
+
+Output:
+```
+2 (floor of sqrt(8))
+```
+
+### TIME COMPLEXITY:
+O(n)**
+- Single pass through input
+
+### SPACE COMPLEXITY:
+O(1)**
+- Constant extra space
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 /**
  * Main solution for Problem 069: Sqrt(x)

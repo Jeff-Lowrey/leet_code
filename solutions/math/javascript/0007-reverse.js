@@ -1,33 +1,5 @@
 /**
- * # Difficulty: Medium
- *
- * # 0007. Reverse Integer
- *
- *
- * Given a signed 32-bit integer x, return x with its digits reversed. If reversing x causes the value to go outside the signed 32-bit integer range [-2^31, 2^31 - 1], then return 0.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>x = 123</dd>
- * <dt>Output:</dt>
- * <dd>* 321</dd>
- * <dt>Explanation:</dt>
- * <dd>Reversed integer: 123 becomes 321</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- * ### METADATA:
- * **Techniques**: Array Traversal
- * **Data Structures**: Basic Types
- * **Patterns**: Iterative Solution
- * **Time Complexity**: O(n)
- * **Space Complexity**: O(1) - Constant extra space
-
- *
- * ### INTUITION:
+### INTUITION:
 [This problem requires understanding of math concepts. The key insight is to identify the optimal approach for this specific scenario.]
 
 ### APPROACH:
@@ -42,39 +14,39 @@
 - This ensures that space complexity is minimized where possible
 
 ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * x = 123
- * ```
- *
- * Step 1: Extract digits and build reversed number
- * result = 0
- * result = 0*10 + 3 = 3, x = 12
- * result = 3*10 + 2 = 32, x = 1
- * result = 32*10 + 1 = 321, x = 0
- *
- * Output:
- * ```
- * 321
- * ```
+Input:
+```
+x = 123
+```
 
- * ### TIME COMPLEXITY:
+Step 1: Extract digits and build reversed number
+result = 0
+result = 0*10 + 3 = 3, x = 12
+result = 3*10 + 2 = 32, x = 1
+result = 32*10 + 1 = 321, x = 0
 
- * O(n)
+Output:
+```
+321
+```
 
- * - Single pass through the input
- *
- * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
- *
- * ### EDGE CASES:
+### TIME COMPLEXITY:
+O(n)**
+
+- Single pass through the input
+
+### SPACE COMPLEXITY:
+O(1)**
+- Constant extra space
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 /**
  * Main solution for Problem 007: Reverse Integer

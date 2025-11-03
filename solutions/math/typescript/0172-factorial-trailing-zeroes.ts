@@ -1,34 +1,5 @@
 /**
- * # Difficulty: Medium
- *
- * # 0172. Factorial Trailing Zeroes
- *
- *
- * Given an integer n, return the number of trailing zeroes in n!.
- *
- * Note that n! = n × (n - 1) × (n - 2) × ... × 3 × 2 × 1.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>n = 5</dd>
- * <dt>Output:</dt>
- * <dd>1</dd>
- * <dt>Explanation:</dt>
- * <dd>5! = 120 has 1 trailing zero (from one factor of 5)</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
- * **Techniques**: Standard Algorithm
- * **Data Structures**: Basic Types
- * **Patterns**: Hash Table Pattern
- * **Time Complexity**: O(log n) - Binary search or tree height
- * **Space Complexity**: O(1) - Constant extra space
- *
- * ### INTUITION:
+### INTUITION:
 The key insight is that trailing zeroes come from factors of 10 = 2 × 5. In n!, there are always more factors of 2 than 5, so we only need to count factors of 5.
 
 ### APPROACH:
@@ -67,22 +38,23 @@ Step-by-step execution:
 3. [Final step]
 
 ### TIME COMPLEXITY:
- * O(log n)
- * - Binary search or tree height
- * Number of divisions by 5 until we reach 0
- *
- * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
- * Only using counters
- *
- * ### EDGE CASES:
+O(log n)**
+- Binary search or tree height
+Number of divisions by 5 until we reach 0
+
+### SPACE COMPLEXITY:
+O(1)**
+- Constant extra space
+Only using counters
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 class Solution {
   trailingZeroes(n: number): number {

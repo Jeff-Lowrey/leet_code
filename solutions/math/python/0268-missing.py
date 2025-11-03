@@ -1,30 +1,4 @@
 """
-# Difficulty: Medium
-
-# 0268. Missing Number
-
-Given an array nums containing n distinct numbers in the range [0, n], return the only number in the range that is missing from the array.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>[3,0,1]</dd>
-<dt>Output:</dt>
-<dd>2 (missing number)</dd>
-<dt>Explanation:</dt>
-<dd>Missing number in [3,0,1] is 2</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Array Traversal
-**Data Structures**: Hash Map, Array
-**Patterns**: Iterative Solution
-**Time Complexity**: O(n)
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
 The key insight is that the missing number is the difference between expected sum (n*(n+1)/2) and actual sum. Alternatively, XOR all numbers and all indices to cancel pairs, leaving missing number.
 
@@ -60,14 +34,12 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 - Single pass through input
 
-
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 - Constant extra space
-
 
 ### EDGE CASES:
 - **Empty input**: Handle when input is empty
@@ -75,6 +47,7 @@ O(1)
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 from typing import List, Optional, Dict, Tuple

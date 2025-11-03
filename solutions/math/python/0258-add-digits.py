@@ -1,36 +1,4 @@
 """
-# 0258. Add Digits
-
-# Difficulty: Easy
-
-Given an integer num, repeatedly add all its digits until the result has only one digit, and return it.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>38</dd>
-<dt>Output:</dt>
-<dd>2</dd>
-<dt>Explanation:</dt>
-<dd>The process is 38 → 3+8=11 → 1+1=2. Since 2 has only one digit, return it.</dd>
-</dl>
-
-**Constraints:**
-- 0 <= num <= 2^31 - 1
-
-**Follow up:** Could you do it without any loop/recursion in O(1) runtime?
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-### METADATA:
-**Techniques**: Digital root formula, Mathematical pattern recognition, Modulo arithmetic
-**Data Structures**: Integer operations
-**Patterns**: Digital root, Mathematical optimization
-**Time Complexity**: O(1)
-**Space Complexity**: O(1)
-
 ### INTUITION:
 The key insight is recognizing the digital root pattern. When you repeatedly add digits
 until you get a single digit, the result follows a mathematical pattern related to the
@@ -88,6 +56,7 @@ Output:
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 def addDigits(num: int) -> int:

@@ -1,36 +1,5 @@
 /**
- * # Difficulty: Medium
- *
- * # 0066. Plus One
- *
- *
- * You are given a large integer represented as an integer array digits, where each digits[i] is the ith digit of the integer. The digits are ordered from most significant to least significant in left-to-right order. The large integer does not contain any leading 0's.
- *
- * Increment the large integer by one and return the resulting array of digits.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>digits = [1,2,3]</dd>
- * <dt>Output:</dt>
- * <dd>[1,2,4]
- * [1,0,0,0]</dd>
- * <dt>Explanation:</dt>
- * <dd>Array [1,2,9] plus one is [1,3,0]</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- * ### METADATA:
- * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
- * **Data Structures**: Hash Set, Array
- * **Patterns**: Iterative Solution
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(1) - Constant extra space
-
- *
- * ### INTUITION:
+### INTUITION:
 [This problem requires understanding of math concepts. The key insight is to identify the optimal approach for this specific scenario.]
 
 ### APPROACH:
@@ -45,42 +14,43 @@
 - This ensures that space complexity is minimized where possible
 
 ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * digits = [1,2,3]
- * ```
- *
- * Step 1: Add 1 from rightmost
- * digits[2] = 3+1 = 4, no carry
- * Example with carry: [9,9,9]
- *
- * Steps:
- * Step 1: digits[2] = 9+1 = 10 → 0, carry=1
- * Step 2: digits[1] = 9+1 = 10 → 0, carry=1
- * Step 3: digits[0] = 9+1 = 10 → 0, carry=1
- * Step 4: Insert 1 at front
- *
- * Output:
- * ```
- * [1,2,4]
- * [1,0,0,0]
- * ```
+Input:
+```
+digits = [1,2,3]
+```
 
- * ### TIME COMPLEXITY:
- * O(n)
- * - Single pass through input
- *
- * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
- *
- * ### EDGE CASES:
+Step 1: Add 1 from rightmost
+digits[2] = 3+1 = 4, no carry
+Example with carry: [9,9,9]
+
+Steps:
+Step 1: digits[2] = 9+1 = 10 → 0, carry=1
+Step 2: digits[1] = 9+1 = 10 → 0, carry=1
+Step 3: digits[0] = 9+1 = 10 → 0, carry=1
+Step 4: Insert 1 at front
+
+Output:
+```
+[1,2,4]
+[1,0,0,0]
+```
+
+### TIME COMPLEXITY:
+O(n)**
+- Single pass through input
+
+### SPACE COMPLEXITY:
+O(1)**
+- Constant extra space
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 /**
  * Main solution for Problem 066: Plus One

@@ -1,33 +1,4 @@
 """
-# 0326. Power of Three
-
-# Difficulty: Easy
-
-Given an integer n, return true if it is a power of three. Otherwise, return false.
-
-An integer n is a power of three, if there exists an integer x such that n == 3^x.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>n = 27</dd>
-<dt>Output:</dt>
-<dd>true</dd>
-<dt>Explanation:</dt>
-<dd>3^3 = 27</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-### METADATA:
-**Techniques**: Recursion, Mathematics
-**Data Structures**: None
-**Patterns**: Divide and Conquer, Mathematical
-**Time Complexity**: O(log₃ n) for recursion
-**Space Complexity**: O(log₃ n) for recursion stack
-
 ### INTUITION:
 Similar to power of two, but we divide by 3 instead of 2.
 If n is divisible by 3, recursively check n/3.
@@ -63,10 +34,10 @@ True
 ```
 
 ### TIME COMPLEXITY:
-O(log₃ n) - dividing by 3 each time
+**O(log₃ n)** - dividing by 3 each time
 
 ### SPACE COMPLEXITY:
-O(log₃ n) - recursion stack depth
+**O(log₃ n)** - recursion stack depth
 
 ### EDGE CASES:
 - **Empty input**: Handle when input is empty
@@ -74,6 +45,7 @@ O(log₃ n) - recursion stack depth
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 

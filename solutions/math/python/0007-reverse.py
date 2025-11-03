@@ -1,30 +1,4 @@
 """
-# Difficulty: Medium
-
-# 0007. Reverse Integer
-
-Given a signed 32-bit integer x, return x with its digits reversed. If reversing x causes the value to go outside the signed 32-bit integer range [-2^31, 2^31 - 1], then return 0.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>x = 123</dd>
-<dt>Output:</dt>
-<dd>321</dd>
-<dt>Explanation:</dt>
-<dd>Reversed integer: 123 becomes 321</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Array Traversal
-**Data Structures**: Hash Set, String
-**Patterns**: Iterative Solution
-**Time Complexity**: O(n)
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
 The key insight is that extract digits from end using mod 10. Build reversed number by multiplying result by 10 and adding digit. Check for overflow before each operation.
 
@@ -63,15 +37,13 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 
 - Single pass through the input
 
-
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 - Constant extra space
-
 
 ### EDGE CASES:
 - **Empty input**: Handle when input is empty
@@ -79,6 +51,7 @@ O(1)
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 
