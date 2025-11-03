@@ -50,22 +50,6 @@ O(n)**
 - **Decreasing sequence**: No next greater for any element
 - **Single element**: Return -1 (no next element)
 
-</details>
-
-</details>
-
-</details>
-
-</details>
-
-</details>
-
-</details>
-
-</details>
-
-</details>
-
 */
 
 /**

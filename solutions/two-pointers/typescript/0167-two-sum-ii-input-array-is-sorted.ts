@@ -1,70 +1,71 @@
 /**
-### INTUITION:
-The key insight is that array is sorted, so use two pointers from both ends. If sum < target, move left pointer right. If sum > target, move right pointer left. If equal, found the pair.
-
-### APPROACH:
-1. **Initialize pointers**: Set left = 0, right = len(numbers) - 1
-2. **Loop while left < right**: Continue until pointers meet
-3. **Calculate sum**: current_sum = numbers[left] + numbers[right]
-4. **Check if found**: If current_sum == target, return [left+1, right+1]
-5. **Adjust pointers**: If current_sum < target, increment left; else decrement right
-6. **Continue search**: Repeat until target found
-7. **Return result**: Return indices of the two numbers
-
-### WHY THIS WORKS:
-- Two pointers: left at start, right at end
-- If sum < target, increment left (need larger value)
-- If sum > target, decrement right (need smaller value)
-- If sum == target, found pair
-- O(n) time single pass, O(1) space, exploits sorted property
-
-### EXAMPLE WALKTHROUGH:
-Input:
-```
-numbers = [2, 7, 11, 15], target = 9
-```
-
-Step 1: Initialize pointers
-left = 0 (numbers[0] = 2)
-right = 3 (numbers[3] = 15)
-Step 2: First iteration
-current_sum = 2 + 15 = 17
-17 > 9, so move right pointer left
-right = 2
-Step 3: Second iteration
-left = 0 (numbers[0] = 2)
-right = 2 (numbers[2] = 11)
-current_sum = 2 + 11 = 13
-13 > 9, so move right pointer left
-right = 1
-Step 4: Third iteration
-left = 0 (numbers[0] = 2)
-right = 1 (numbers[1] = 7)
-current_sum = 2 + 7 = 9
-9 == 9 ✓ Found!
-
-Output:
-```
-[1, 2] (1-indexed positions)
-```
-
-### TIME COMPLEXITY:
-O(n)**
-
-- Single pass through the input
-
-### SPACE COMPLEXITY:
-O(1)**
-- Constant extra space
-
-### EDGE CASES:
-- **Empty input**: Handle when input is empty
-- **Single element**: Handle single-element inputs
-- **Boundary values**: Handle minimum/maximum valid values
-
-</details>
-
-*/
+ * ### METADATA:
+ *
+ *
+ * ### INTUITION:
+ * The key insight is that array is sorted, so use two pointers from both ends. If sum < target, move left pointer right. If sum > target, move right pointer left. If equal, found the pair.
+ *
+ * ### APPROACH:
+ * 1. **Initialize pointers**: Set left = 0, right = len(numbers) - 1
+ * 2. **Loop while left < right**: Continue until pointers meet
+ * 3. **Calculate sum**: current_sum = numbers[left] + numbers[right]
+ * 4. **Check if found**: If current_sum == target, return [left+1, right+1]
+ * 5. **Adjust pointers**: If current_sum < target, increment left; else decrement right
+ * 6. **Continue search**: Repeat until target found
+ * 7. **Return result**: Return indices of the two numbers
+ *
+ * ### WHY THIS WORKS:
+ * - Two pointers: left at start, right at end
+ * - If sum < target, increment left (need larger value)
+ * - If sum > target, decrement right (need smaller value)
+ * - If sum == target, found pair
+ * - O(n) time single pass, O(1) space, exploits sorted property
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * numbers = [2, 7, 11, 15], target = 9
+ * ```
+ *
+ * Step 1: Initialize pointers
+ * left = 0 (numbers[0] = 2)
+ * right = 3 (numbers[3] = 15)
+ * Step 2: First iteration
+ * current_sum = 2 + 15 = 17
+ * 17 > 9, so move right pointer left
+ * right = 2
+ * Step 3: Second iteration
+ * left = 0 (numbers[0] = 2)
+ * right = 2 (numbers[2] = 11)
+ * current_sum = 2 + 11 = 13
+ * 13 > 9, so move right pointer left
+ * right = 1
+ * Step 4: Third iteration
+ * left = 0 (numbers[0] = 2)
+ * right = 1 (numbers[1] = 7)
+ * current_sum = 2 + 7 = 9
+ * 9 == 9 ✓ Found!
+ *
+ * Output:
+ * ```
+ * [1, 2] (1-indexed positions)
+ * ```
+ *
+ * ### TIME COMPLEXITY:
+ * O(n)**
+ *
+ * - Single pass through the input
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
+ *
+ * ### EDGE CASES:
+ * - **Empty input**: Handle when input is empty
+ * - **Single element**: Handle single-element inputs
+ * - **Boundary values**: Handle minimum/maximum valid values
+ *
+ * *
+ */
 
 class Solution {
   twoSum(numbers: number[], target: number): number[] {

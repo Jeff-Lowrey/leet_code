@@ -52,8 +52,6 @@ Stack can hold up to n/2 operands in worst case
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
-</details>
-
 */
 
 /**

@@ -53,22 +53,6 @@ For recursion stack, **O(1)** for iterative solution
 - **One node equals root**: Root is the LCA
 - **Linear BST (skewed)**: O(n) time complexity in worst case
 
-</details>
-
-</details>
-
-</details>
-
-</details>
-
-</details>
-
-</details>
-
-</details>
-
-</details>
-
 */
 
 class Solution {

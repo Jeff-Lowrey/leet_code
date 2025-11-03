@@ -59,8 +59,6 @@ Step-by-step execution:
 - **Already connected**: All computers in one component → return 0
 - **Multiple components**: Components = 3 means need 2 operations to connect all
 
-</details>
-
 """
 
 from typing import Any

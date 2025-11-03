@@ -1,55 +1,56 @@
 /**
-### INTUITION:
-[This problem requires understanding of monotonic stack concepts. The key insight is to identify the optimal approach for this specific scenario.]
-
-### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply monotonic stack methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
-
-### WHY THIS WORKS:
-- This ensures that the solution leverages monotonic stack principles
-- This ensures that time complexity is optimized for the given constraints
-- This ensures that space complexity is minimized where possible
-
-### EXAMPLE WALKTHROUGH:
-Input:
-```
-nums = [1,2,1]
-```
-
-Step 1: Treat as circular, process twice
-Extended: [1,2,1,1,2,1]
-Step 2: Use monotonic stack from right
-i=5: stack=[1], result[2]=1
-i=4: pop 1, stack=[2], result[1]=2
-i=3: stack=[1,2], result[0]=2
-i=2: stack=[1,2], result[2]=2
-i=1: stack=[2], result[1]=-1
-i=0: stack=[1,2], result[0]=2
-
-Output:
-```
-[2,-1,2]
-```
-
-### TIME COMPLEXITY:
-O(n)**
-- Single pass through input
-
-### SPACE COMPLEXITY:
-O(1)**
-- Constant extra space
-
-### EDGE CASES:
-- **Empty input**: Handle when input is empty
-- **Single element**: Handle single-element inputs
-- **Boundary values**: Handle minimum/maximum valid values
-
-</details>
-
-*/
+ * ### METADATA:
+ *
+ *
+ * ### INTUITION:
+ * [This problem requires understanding of monotonic stack concepts. The key insight is to identify the optimal approach for this specific scenario.]
+ *
+ * ### APPROACH:
+ * 1. **Analyze the problem**: Understand the input constraints and expected output
+ * 2. **Choose the right technique**: Apply monotonic stack methodology
+ * 3. **Implement efficiently**: Focus on optimal time and space complexity
+ * 4. **Handle edge cases**: Consider boundary conditions and special cases
+ *
+ * ### WHY THIS WORKS:
+ * - This ensures that the solution leverages monotonic stack principles
+ * - This ensures that time complexity is optimized for the given constraints
+ * - This ensures that space complexity is minimized where possible
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * nums = [1,2,1]
+ * ```
+ *
+ * Step 1: Treat as circular, process twice
+ * Extended: [1,2,1,1,2,1]
+ * Step 2: Use monotonic stack from right
+ * i=5: stack=[1], result[2]=1
+ * i=4: pop 1, stack=[2], result[1]=2
+ * i=3: stack=[1,2], result[0]=2
+ * i=2: stack=[1,2], result[2]=2
+ * i=1: stack=[2], result[1]=-1
+ * i=0: stack=[1,2], result[0]=2
+ *
+ * Output:
+ * ```
+ * [2,-1,2]
+ * ```
+ *
+ * ### TIME COMPLEXITY:
+ * O(n)**
+ * - Single pass through input
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
+ *
+ * ### EDGE CASES:
+ * - **Empty input**: Handle when input is empty
+ * - **Single element**: Handle single-element inputs
+ * - **Boundary values**: Handle minimum/maximum valid values
+ *
+ * *
+ */
 
 /**
  * Main solution for Problem 503: Next Greater Element II

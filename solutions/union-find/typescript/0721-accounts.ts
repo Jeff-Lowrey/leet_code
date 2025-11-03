@@ -62,8 +62,6 @@ O(N × M)** - We allocate parent and rank arrays of size N for Union-Find (**O(N
 - **Same name different people**: Accounts with same name but no shared emails stay separate
 - **Transitive merging**: If A shares email with B, and B shares with C, all three merge even if A and C share no direct email
 
-</details>
-
 */
 
 class UnionFind {

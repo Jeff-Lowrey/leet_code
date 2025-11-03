@@ -62,8 +62,6 @@ Where h is height of tree (recursion stack)
 - **Linear tree (skewed)**: Height difference > 1, return False
 - **Subtree unbalanced**: Early termination returns -1 immediately
 
-</details>
-
 */
 
 // TreeNode class definition

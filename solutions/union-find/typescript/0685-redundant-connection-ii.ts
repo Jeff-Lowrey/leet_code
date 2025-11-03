@@ -44,10 +44,6 @@ O(n)**
 - **All edges form valid tree except one**: Union-find detects the redundant edge
 - **Single edge graph**: Return that edge if it creates self-loop
 
-</details>
-
-</details>
-
 */
 
 class Solution {

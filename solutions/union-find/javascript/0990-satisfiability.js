@@ -47,8 +47,6 @@ Since we only have 26 possible variables (a-z)
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
-</details>
-
 */
 
 /**

@@ -1,60 +1,61 @@
 /**
-### INTUITION:
-The key insight is that use monotonic increasing stack. Remove k digits greedily by popping larger digits when a smaller digit is found. If k removals not reached, remove from end. Handle leading zeros.
-
-### APPROACH:
-1. **Initialize stack**: Create empty stack to build result
-2. **Iterate through digits**: For each digit in num
-3. **Remove larger digits**: While k > 0 and stack and stack[-1] > digit, pop from stack and decrement k
-4. **Add current digit**: Append digit to stack
-5. **Handle remaining k**: After loop, if k > 0, remove last k digits from stack
-6. **Remove leading zeros**: Strip leading zeros from result
-7. **Handle empty**: If result is empty, return "0"
-8. **Return result**: Return ''.join(stack)
-
-### WHY THIS WORKS:
-- Monotonic increasing stack removes digits to create smallest number
-- Remove larger digits from left when possible (higher place value impact)
-- While digit < stack_top and k > 0: pop (remove larger digit)
-- Leading zeros stripped, leftover k handled by removing from right
-- Greedy works: removing leftmost large digits always improves result
-
-### EXAMPLE WALKTHROUGH:
-Input:
-```
-num = "1432219", k = 3
-```
-
-Step 1: Use monotonic stack
-Add '1': stack=['1']
-Add '4': stack=['1','4']
-Add '3': pop '4' (3<4), k=2, stack=['1','3']
-Add '2': pop '3' (2<3), k=1, stack=['1','2']
-Add '2': stack=['1','2','2']
-Add '1': pop '2' (1<2), k=0, stack=['1','2','1']
-Add '9': stack=['1','2','1','9']
-
-Output:
-```
-"1219"
-```
-
-### TIME COMPLEXITY:
-O(n)**
-- Single pass through input
-
-### SPACE COMPLEXITY:
-O(1)**
-- Constant extra space
-
-### EDGE CASES:
-- **Empty input**: Handle when input is empty
-- **Single element**: Handle single-element inputs
-- **Boundary values**: Handle minimum/maximum valid values
-
-</details>
-
-*/
+ * ### METADATA:
+ *
+ *
+ * ### INTUITION:
+ * The key insight is that use monotonic increasing stack. Remove k digits greedily by popping larger digits when a smaller digit is found. If k removals not reached, remove from end. Handle leading zeros.
+ *
+ * ### APPROACH:
+ * 1. **Initialize stack**: Create empty stack to build result
+ * 2. **Iterate through digits**: For each digit in num
+ * 3. **Remove larger digits**: While k > 0 and stack and stack[-1] > digit, pop from stack and decrement k
+ * 4. **Add current digit**: Append digit to stack
+ * 5. **Handle remaining k**: After loop, if k > 0, remove last k digits from stack
+ * 6. **Remove leading zeros**: Strip leading zeros from result
+ * 7. **Handle empty**: If result is empty, return "0"
+ * 8. **Return result**: Return ''.join(stack)
+ *
+ * ### WHY THIS WORKS:
+ * - Monotonic increasing stack removes digits to create smallest number
+ * - Remove larger digits from left when possible (higher place value impact)
+ * - While digit < stack_top and k > 0: pop (remove larger digit)
+ * - Leading zeros stripped, leftover k handled by removing from right
+ * - Greedy works: removing leftmost large digits always improves result
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * num = "1432219", k = 3
+ * ```
+ *
+ * Step 1: Use monotonic stack
+ * Add '1': stack=['1']
+ * Add '4': stack=['1','4']
+ * Add '3': pop '4' (3<4), k=2, stack=['1','3']
+ * Add '2': pop '3' (2<3), k=1, stack=['1','2']
+ * Add '2': stack=['1','2','2']
+ * Add '1': pop '2' (1<2), k=0, stack=['1','2','1']
+ * Add '9': stack=['1','2','1','9']
+ *
+ * Output:
+ * ```
+ * "1219"
+ * ```
+ *
+ * ### TIME COMPLEXITY:
+ * O(n)**
+ * - Single pass through input
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
+ *
+ * ### EDGE CASES:
+ * - **Empty input**: Handle when input is empty
+ * - **Single element**: Handle single-element inputs
+ * - **Boundary values**: Handle minimum/maximum valid values
+ *
+ * *
+ */
 
 class Solution {
   /**

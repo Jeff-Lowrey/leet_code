@@ -56,8 +56,6 @@ Recursion stack depth is 2n (building string of length 2n)
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
-</details>
-
 """
 
 from typing import Any

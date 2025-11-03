@@ -1,55 +1,56 @@
 /**
-### INTUITION:
-[This problem requires understanding of sliding window concepts. The key insight is to identify the optimal approach for this specific scenario.]
-
-### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply sliding window methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
-
-### WHY THIS WORKS:
-- This ensures that the solution leverages sliding window principles
-- This ensures that time complexity is optimized for the given constraints
-- This ensures that space complexity is minimized where possible
-
-### EXAMPLE WALKTHROUGH:
-Input:
-```
-fruits = [1,2,1,2,3,1,1]
-```
-
-Step 1: Expand with at most 2 types
-[1,2,1,2]: types={1,2}, count=4
-[1,2,1,2,3]: types={1,2,3}, invalid
-Step 2: Contract
-[2,1,2,3]: types={1,2,3}, invalid
-[1,2,3]: types={1,2,3}, invalid
-[2,3]: types={2,3}, valid
-[2,3,1,1]: types={2,3,1}, invalid
-[3,1,1]: types={3,1}, count=3
-
-Output:
-```
-4 (maximum fruits)
-```
-
-### TIME COMPLEXITY:
-O(n)**
-- Single pass through input
-
-### SPACE COMPLEXITY:
-O(1)**
-- Constant extra space
-
-### EDGE CASES:
-- **Empty input**: Handle when input is empty
-- **Single element**: Handle single-element inputs
-- **Boundary values**: Handle minimum/maximum valid values
-
-</details>
-
-*/
+ * ### METADATA:
+ *
+ *
+ * ### INTUITION:
+ * [This problem requires understanding of sliding window concepts. The key insight is to identify the optimal approach for this specific scenario.]
+ *
+ * ### APPROACH:
+ * 1. **Analyze the problem**: Understand the input constraints and expected output
+ * 2. **Choose the right technique**: Apply sliding window methodology
+ * 3. **Implement efficiently**: Focus on optimal time and space complexity
+ * 4. **Handle edge cases**: Consider boundary conditions and special cases
+ *
+ * ### WHY THIS WORKS:
+ * - This ensures that the solution leverages sliding window principles
+ * - This ensures that time complexity is optimized for the given constraints
+ * - This ensures that space complexity is minimized where possible
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * fruits = [1,2,1,2,3,1,1]
+ * ```
+ *
+ * Step 1: Expand with at most 2 types
+ * [1,2,1,2]: types={1,2}, count=4
+ * [1,2,1,2,3]: types={1,2,3}, invalid
+ * Step 2: Contract
+ * [2,1,2,3]: types={1,2,3}, invalid
+ * [1,2,3]: types={1,2,3}, invalid
+ * [2,3]: types={2,3}, valid
+ * [2,3,1,1]: types={2,3,1}, invalid
+ * [3,1,1]: types={3,1}, count=3
+ *
+ * Output:
+ * ```
+ * 4 (maximum fruits)
+ * ```
+ *
+ * ### TIME COMPLEXITY:
+ * O(n)**
+ * - Single pass through input
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
+ *
+ * ### EDGE CASES:
+ * - **Empty input**: Handle when input is empty
+ * - **Single element**: Handle single-element inputs
+ * - **Boundary values**: Handle minimum/maximum valid values
+ *
+ * *
+ */
 
 /**
  * Main solution for Problem 904: Fruit Into Baskets

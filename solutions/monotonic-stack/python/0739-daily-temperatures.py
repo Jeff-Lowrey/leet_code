@@ -79,8 +79,6 @@ Output:
 - **All same temperature**: temperatures = [70,70,70] returns [0,0,0] (never gets warmer)
 - **Large temperature spike**: One very high temperature causes many pops at once (e.g., [30,40,50,100,60] → stack empties when reaching 100)
 
-</details>
-
 """
 
 from typing import Any, List, Optional, Dict, Tuple

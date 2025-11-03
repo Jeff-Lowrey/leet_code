@@ -45,8 +45,6 @@ O(n)** - We allocate parent and rank arrays of size n for the Union-Find structu
 - **Multiple disconnected components**: Sort each component independently
 - **Duplicate characters**: Sorting naturally handles duplicates correctly
 
-</details>
-
 */
 
 class UnionFind {

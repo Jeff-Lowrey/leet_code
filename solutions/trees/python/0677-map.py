@@ -61,6 +61,4 @@ For storing all keys in the trie structure
 - **Key is prefix of another**: Both keys contribute to prefix sum
 - **Single character keys**: Handled correctly in trie structure
 
-</details>
-
 """

@@ -63,8 +63,6 @@ For the serialized string and recursion stack
 - **Right-skewed tree**: Only right children, nulls for all left children
 - **Complete binary tree**: All levels filled, minimal nulls in serialization
 
-</details>
-
 */
 
 class Solution {

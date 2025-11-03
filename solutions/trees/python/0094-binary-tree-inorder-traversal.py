@@ -50,8 +50,6 @@ We visit each node exactly once
 - **Right-skewed tree**: Traversal order is root-to-leaf path
 - **BST**: Inorder gives sorted sequence of values
 
-</details>
-
 """
 
 from typing import Any

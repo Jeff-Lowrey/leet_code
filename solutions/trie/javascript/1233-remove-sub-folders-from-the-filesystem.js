@@ -18,8 +18,6 @@ Alternative: Sort paths and check if each path starts with previous path + '/' u
 - Marking folder ends distinguishes complete folders from intermediate path components
 - When we encounter a folder end marker, we know any continuation is a sub-folder
 
-
-
 This solution uses hash table lookup for efficient implementation.
 
 This solution uses hash map storage for efficient implementation.
@@ -86,8 +84,6 @@ For storing the trie structure
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
-
-</details>
 
 */
 

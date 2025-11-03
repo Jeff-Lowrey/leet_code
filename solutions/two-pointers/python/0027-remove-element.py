@@ -48,8 +48,6 @@ k=2, nums=[2,2,_,_]
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
-</details>
-
 """
 
 from typing import List, Optional, Dict, Tuple

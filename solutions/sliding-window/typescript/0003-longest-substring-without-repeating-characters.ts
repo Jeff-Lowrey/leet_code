@@ -1,73 +1,74 @@
 /**
-### INTUITION:
-The key insight is that use sliding window with hash set. Expand right pointer and add characters. When duplicate found, shrink from left until duplicate removed. Track maximum window size.
-
-### APPROACH:
-1. **Initialize variables**: Set max_length = 0, left = 0, char_set = set()
-2. **Iterate with right pointer**: For right in range(len(s))
-3. **Handle duplicates**: While s[right] in char_set, remove s[left] from set and increment left
-4. **Add current character**: Add s[right] to char_set
-5. **Update maximum**: max_length = max(max_length, right - left + 1)
-6. **Continue scanning**: Process all characters
-7. **Return result**: Return max_length
-
-### WHY THIS WORKS:
-- Sliding window maintains valid substring by moving start when duplicate found
-- Hash map stores character positions for O(1) duplicate detection
-- When duplicate found, jump start to (last position + 1) instead of incrementing by 1
-- Each character visited at most twice (once by right, once by start jump)
-- O(n) time with O(min(n, m)) space where m is charset size (typically 128 or 256)
-
-### EXAMPLE WALKTHROUGH:
-Input:
-```
-s = "abcabcbb"
-```
-
-Step 1: char='a', pos=0
-char_position = {'a': 0}, start = 0
-max_length = 1
-Step 2: char='b', pos=1
-char_position = {'a': 0, 'b': 1}, start = 0
-max_length = 2
-Step 3: char='c', pos=2
-char_position = {'a': 0, 'b': 1, 'c': 2}, start = 0
-max_length = 3
-Step 4: char='a', pos=3 (repeat!)
-'a' at position 0 >= start, so update start = 0 + 1 = 1
-char_position = {'a': 3, 'b': 1, 'c': 2}
-Step 5: char='b', pos=4 (repeat!)
-'b' at position 1 >= start, so update start = 1 + 1 = 2
-char_position = {'a': 3, 'b': 4, 'c': 2}
-Step 6: char='c', pos=5 (repeat!)
-'c' at position 2 >= start, so update start = 2 + 1 = 3
-char_position = {'a': 3, 'b': 4, 'c': 5}
-Step 7: char='b', pos=6 (repeat!)
-'b' at position 4 >= start, so update start = 4 + 1 = 5
-Step 8: char='b', pos=7 (repeat!)
-'b' at position 6 >= start, so update start = 6 + 1 = 7
-
-Output:
-```
-3 (substring "abc")
-```
-
-### TIME COMPLEXITY:
-O(n)**
-- Single pass through input
-
-### SPACE COMPLEXITY:
-O(1)**
-- Constant extra space
-
-### EDGE CASES:
-- **Empty input**: Handle when input is empty
-- **Single element**: Handle single-element inputs
-- **Boundary values**: Handle minimum/maximum valid values
-
-</details>
-
-*/
+ * ### METADATA:
+ *
+ *
+ * ### INTUITION:
+ * The key insight is that use sliding window with hash set. Expand right pointer and add characters. When duplicate found, shrink from left until duplicate removed. Track maximum window size.
+ *
+ * ### APPROACH:
+ * 1. **Initialize variables**: Set max_length = 0, left = 0, char_set = set()
+ * 2. **Iterate with right pointer**: For right in range(len(s))
+ * 3. **Handle duplicates**: While s[right] in char_set, remove s[left] from set and increment left
+ * 4. **Add current character**: Add s[right] to char_set
+ * 5. **Update maximum**: max_length = max(max_length, right - left + 1)
+ * 6. **Continue scanning**: Process all characters
+ * 7. **Return result**: Return max_length
+ *
+ * ### WHY THIS WORKS:
+ * - Sliding window maintains valid substring by moving start when duplicate found
+ * - Hash map stores character positions for O(1) duplicate detection
+ * - When duplicate found, jump start to (last position + 1) instead of incrementing by 1
+ * - Each character visited at most twice (once by right, once by start jump)
+ * - O(n) time with O(min(n, m)) space where m is charset size (typically 128 or 256)
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * s = "abcabcbb"
+ * ```
+ *
+ * Step 1: char='a', pos=0
+ * char_position = {'a': 0}, start = 0
+ * max_length = 1
+ * Step 2: char='b', pos=1
+ * char_position = {'a': 0, 'b': 1}, start = 0
+ * max_length = 2
+ * Step 3: char='c', pos=2
+ * char_position = {'a': 0, 'b': 1, 'c': 2}, start = 0
+ * max_length = 3
+ * Step 4: char='a', pos=3 (repeat!)
+ * 'a' at position 0 >= start, so update start = 0 + 1 = 1
+ * char_position = {'a': 3, 'b': 1, 'c': 2}
+ * Step 5: char='b', pos=4 (repeat!)
+ * 'b' at position 1 >= start, so update start = 1 + 1 = 2
+ * char_position = {'a': 3, 'b': 4, 'c': 2}
+ * Step 6: char='c', pos=5 (repeat!)
+ * 'c' at position 2 >= start, so update start = 2 + 1 = 3
+ * char_position = {'a': 3, 'b': 4, 'c': 5}
+ * Step 7: char='b', pos=6 (repeat!)
+ * 'b' at position 4 >= start, so update start = 4 + 1 = 5
+ * Step 8: char='b', pos=7 (repeat!)
+ * 'b' at position 6 >= start, so update start = 6 + 1 = 7
+ *
+ * Output:
+ * ```
+ * 3 (substring "abc")
+ * ```
+ *
+ * ### TIME COMPLEXITY:
+ * O(n)**
+ * - Single pass through input
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
+ *
+ * ### EDGE CASES:
+ * - **Empty input**: Handle when input is empty
+ * - **Single element**: Handle single-element inputs
+ * - **Boundary values**: Handle minimum/maximum valid values
+ *
+ * *
+ */
 
 class Solution {
   /**

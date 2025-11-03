@@ -1,60 +1,61 @@
 /**
-### INTUITION:
-The key insight is that build Trie of dictionary words. For each word in sentence, find shortest prefix in Trie. If found, replace with shortest; otherwise keep original word.
-
-### APPROACH:
-1. **Build trie**: Insert all dictionary words into trie
-2. **Define findRoot**: Implement function to find shortest root for a word
-3. **Traverse trie**: For each character in word, follow trie path
-4. **Found root**: If reach end of word in trie, return prefix
-5. **No root**: If path breaks or no root found, return original word
-6. **Process sentence**: Split sentence, replace each word using findRoot
-7. **Return result**: Join replaced words with spaces
-
-### WHY THIS WORKS:
-- Trie stores dictionary roots, replace words with shortest matching root
-- For each word in sentence, search trie while traversing characters
-- Stop at first matching root (shortest prefix that's a complete word)
-- If no root found, keep original word
-- O(m + n*k) time: m total dict length, n words in sentence, k avg word length
-
-### EXAMPLE WALKTHROUGH:
-Input:
-```
-dictionary = ["cat","bat","rat"], sentence = "the cattle was rattled by the battery"
-```
-
-Step 1: Build trie from dictionary
-Insert: cat, bat, rat
-Step 2: Replace each word with shortest root
-
-Steps:
-Step 1: "cattle" → "cat"
-Step 2: "rattled" → "rat"
-Step 3: "battery" → "bat"
-
-Output:
-```
-"the cat was rat by the bat"
-```
-
-### TIME COMPLEXITY:
-O(n)**
-
-- Single pass through the input
-
-### SPACE COMPLEXITY:
-O(1)**
-- Constant extra space
-
-### EDGE CASES:
-- **Empty input**: Handle when input is empty
-- **Single element**: Handle single-element inputs
-- **Boundary values**: Handle minimum/maximum valid values
-
-</details>
-
-*/
+ * ### METADATA:
+ *
+ *
+ * ### INTUITION:
+ * The key insight is that build Trie of dictionary words. For each word in sentence, find shortest prefix in Trie. If found, replace with shortest; otherwise keep original word.
+ *
+ * ### APPROACH:
+ * 1. **Build trie**: Insert all dictionary words into trie
+ * 2. **Define findRoot**: Implement function to find shortest root for a word
+ * 3. **Traverse trie**: For each character in word, follow trie path
+ * 4. **Found root**: If reach end of word in trie, return prefix
+ * 5. **No root**: If path breaks or no root found, return original word
+ * 6. **Process sentence**: Split sentence, replace each word using findRoot
+ * 7. **Return result**: Join replaced words with spaces
+ *
+ * ### WHY THIS WORKS:
+ * - Trie stores dictionary roots, replace words with shortest matching root
+ * - For each word in sentence, search trie while traversing characters
+ * - Stop at first matching root (shortest prefix that's a complete word)
+ * - If no root found, keep original word
+ * - O(m + n*k) time: m total dict length, n words in sentence, k avg word length
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * dictionary = ["cat","bat","rat"], sentence = "the cattle was rattled by the battery"
+ * ```
+ *
+ * Step 1: Build trie from dictionary
+ * Insert: cat, bat, rat
+ * Step 2: Replace each word with shortest root
+ *
+ * Steps:
+ * Step 1: "cattle" → "cat"
+ * Step 2: "rattled" → "rat"
+ * Step 3: "battery" → "bat"
+ *
+ * Output:
+ * ```
+ * "the cat was rat by the bat"
+ * ```
+ *
+ * ### TIME COMPLEXITY:
+ * O(n)**
+ *
+ * - Single pass through the input
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
+ *
+ * ### EDGE CASES:
+ * - **Empty input**: Handle when input is empty
+ * - **Single element**: Handle single-element inputs
+ * - **Boundary values**: Handle minimum/maximum valid values
+ *
+ * *
+ */
 
 class Solution {
   /**

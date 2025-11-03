@@ -13,8 +13,6 @@ Inorder traversal visits nodes in the order: Left -> Root -> Right. This gives u
 - Stack-based approach simulates the call stack of recursion
 - Morris traversal modifies tree temporarily to avoid extra space
 
-
-
 This solution uses two pointers for efficient implementation.
 - DFS recursively explores all paths from a starting point, completely visiting each branch before backtracking
 
@@ -65,8 +63,6 @@ We visit each node exactly once
 - **Left-skewed tree**: Traversal order is leaf-to-root path
 - **Right-skewed tree**: Traversal order is root-to-leaf path
 - **BST**: Inorder gives sorted sequence of values
-
-</details>
 
 */
 

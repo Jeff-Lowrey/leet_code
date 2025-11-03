@@ -50,8 +50,6 @@ O(n)**
 - **Strictly decreasing sequence**: All answers are 0 (no greater values ahead)
 - **All same values**: All answers are 0 (no strictly greater values)
 
-</details>
-
 */
 
 class ListNode {

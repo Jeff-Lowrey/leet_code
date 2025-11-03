@@ -54,8 +54,6 @@ For the Union-Find parent and rank arrays
 - **Empty matrix**: Return 0 (no cities)
 - **Two separate groups**: Union-find counts distinct components correctly
 
-</details>
-
 """
 
 from collections import deque

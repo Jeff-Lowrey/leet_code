@@ -1,56 +1,57 @@
 /**
-### INTUITION:
-The key insight is that build Trie of all words. For each word, try forming palindrome pairs by checking: 1) reverse exists in Trie, 2) prefix + reverse where suffix is palindrome, 3) reverse + suffix where prefix is palindrome.
-
-### APPROACH:
-1. **Build trie**: Insert all words with their indices into trie
-2. **Define isPalindrome**: Helper function to check if string is palindrome
-3. **Search for pairs**: For each word, search in trie
-4. **Case 1 - word in trie**: If word + reversed_word is palindrome, add pair
-5. **Case 2 - prefix match**: If prefix in trie and remaining suffix is palindrome, add pair
-6. **Case 3 - suffix match**: Search all words in trie, check if can form palindrome
-7. **Avoid duplicates**: Skip pairs where i == j
-8. **Return result**: Return list of all palindrome pairs
-
-### WHY THIS WORKS:
-- Trie stores all words, search finds palindrome pairs efficiently
-- For each word, check all possible split points: (prefix, suffix)
-- If prefix is palindrome and reversed suffix exists in trie: valid pair
-- If suffix is palindrome and reversed prefix exists in trie: valid pair
-- O(n * k^2) time: n words, k avg length, k splits * k palindrome check
-
-### EXAMPLE WALKTHROUGH:
-Input:
-```
-words = ["abcd","dcba","lls","s","sssll"]
-```
-
-Step 1: Check all pairs
-"lls" + "s" = "llss" (not palindrome)
-"s" + "lls" = "slls" (not palindrome)
-"abcd" + "dcba" = "abcddcba" (palindrome) ✓
-
-Output:
-```
-[[0,1],[1,0]] (palindrome pairs)
-```
-
-### TIME COMPLEXITY:
-O(n)**
-- Single pass through input
-
-### SPACE COMPLEXITY:
-O(1)**
-- Constant extra space
-
-### EDGE CASES:
-- **Empty input**: Handle when input is empty
-- **Single element**: Handle single-element inputs
-- **Boundary values**: Handle minimum/maximum valid values
-
-</details>
-
-*/
+ * ### METADATA:
+ *
+ *
+ * ### INTUITION:
+ * The key insight is that build Trie of all words. For each word, try forming palindrome pairs by checking: 1) reverse exists in Trie, 2) prefix + reverse where suffix is palindrome, 3) reverse + suffix where prefix is palindrome.
+ *
+ * ### APPROACH:
+ * 1. **Build trie**: Insert all words with their indices into trie
+ * 2. **Define isPalindrome**: Helper function to check if string is palindrome
+ * 3. **Search for pairs**: For each word, search in trie
+ * 4. **Case 1 - word in trie**: If word + reversed_word is palindrome, add pair
+ * 5. **Case 2 - prefix match**: If prefix in trie and remaining suffix is palindrome, add pair
+ * 6. **Case 3 - suffix match**: Search all words in trie, check if can form palindrome
+ * 7. **Avoid duplicates**: Skip pairs where i == j
+ * 8. **Return result**: Return list of all palindrome pairs
+ *
+ * ### WHY THIS WORKS:
+ * - Trie stores all words, search finds palindrome pairs efficiently
+ * - For each word, check all possible split points: (prefix, suffix)
+ * - If prefix is palindrome and reversed suffix exists in trie: valid pair
+ * - If suffix is palindrome and reversed prefix exists in trie: valid pair
+ * - O(n * k^2) time: n words, k avg length, k splits * k palindrome check
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * words = ["abcd","dcba","lls","s","sssll"]
+ * ```
+ *
+ * Step 1: Check all pairs
+ * "lls" + "s" = "llss" (not palindrome)
+ * "s" + "lls" = "slls" (not palindrome)
+ * "abcd" + "dcba" = "abcddcba" (palindrome) ✓
+ *
+ * Output:
+ * ```
+ * [[0,1],[1,0]] (palindrome pairs)
+ * ```
+ *
+ * ### TIME COMPLEXITY:
+ * O(n)**
+ * - Single pass through input
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
+ *
+ * ### EDGE CASES:
+ * - **Empty input**: Handle when input is empty
+ * - **Single element**: Handle single-element inputs
+ * - **Boundary values**: Handle minimum/maximum valid values
+ *
+ * *
+ */
 
 class TrieNode {
   children: Map<string, TrieNode>;

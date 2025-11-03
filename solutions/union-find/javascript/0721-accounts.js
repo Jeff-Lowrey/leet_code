@@ -61,8 +61,6 @@ For storing email mappings and Union-Find structure
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
-</details>
-
 */
 
 /**

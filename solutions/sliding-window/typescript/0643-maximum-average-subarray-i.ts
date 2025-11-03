@@ -1,56 +1,57 @@
 /**
-### INTUITION:
-The key insight is that use sliding window of size k. Calculate sum of first window. Then slide: subtract left element, add right element. Track maximum sum. Divide by k for average.
-
-### APPROACH:
-1. **Calculate first window**: Compute sum of first k elements as current_sum
-2. **Initialize maximum**: Set max_sum = current_sum
-3. **Slide window**: For i from k to len(nums)
-4. **Update window sum**: current_sum = current_sum - nums[i-k] + nums[i]
-5. **Update maximum**: max_sum = max(max_sum, current_sum)
-6. **Continue sliding**: Process all possible windows
-7. **Calculate average**: Return max_sum / k
-
-### WHY THIS WORKS:
-- This ensures that fixed-size sliding window of length k
-- This ensures that initial window: sum first k elements
-- This ensures that slide: add nums[i+k], remove nums[i] for each position
-- This ensures that track maximum sum seen, divide by k at end for average
-- This ensures that o(n) time: single pass with constant work per element, O(1) space
-
-### EXAMPLE WALKTHROUGH:
-Input:
-```
-nums = [1,12,-5,-6,50,3], k = 4
-```
-
-Step 1: Calculate first window sum
-sum = 1+12+(-5)+(-6) = 2, avg = 0.5
-Step 2: Slide window
-sum = 2-1+50 = 51, avg = 12.75
-sum = 51-12+3 = 42, avg = 10.5
-
-Output:
-```
-12.75 (maximum average)
-```
-
-### TIME COMPLEXITY:
-O(n)**
-- Single pass through input
-
-### SPACE COMPLEXITY:
-O(1)**
-- Constant extra space
-
-### EDGE CASES:
-- **Empty input**: Handle when input is empty
-- **Single element**: Handle single-element inputs
-- **Boundary values**: Handle minimum/maximum valid values
-
-</details>
-
-*/
+ * ### METADATA:
+ *
+ *
+ * ### INTUITION:
+ * The key insight is that use sliding window of size k. Calculate sum of first window. Then slide: subtract left element, add right element. Track maximum sum. Divide by k for average.
+ *
+ * ### APPROACH:
+ * 1. **Calculate first window**: Compute sum of first k elements as current_sum
+ * 2. **Initialize maximum**: Set max_sum = current_sum
+ * 3. **Slide window**: For i from k to len(nums)
+ * 4. **Update window sum**: current_sum = current_sum - nums[i-k] + nums[i]
+ * 5. **Update maximum**: max_sum = max(max_sum, current_sum)
+ * 6. **Continue sliding**: Process all possible windows
+ * 7. **Calculate average**: Return max_sum / k
+ *
+ * ### WHY THIS WORKS:
+ * - This ensures that fixed-size sliding window of length k
+ * - This ensures that initial window: sum first k elements
+ * - This ensures that slide: add nums[i+k], remove nums[i] for each position
+ * - This ensures that track maximum sum seen, divide by k at end for average
+ * - This ensures that o(n) time: single pass with constant work per element, O(1) space
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * nums = [1,12,-5,-6,50,3], k = 4
+ * ```
+ *
+ * Step 1: Calculate first window sum
+ * sum = 1+12+(-5)+(-6) = 2, avg = 0.5
+ * Step 2: Slide window
+ * sum = 2-1+50 = 51, avg = 12.75
+ * sum = 51-12+3 = 42, avg = 10.5
+ *
+ * Output:
+ * ```
+ * 12.75 (maximum average)
+ * ```
+ *
+ * ### TIME COMPLEXITY:
+ * O(n)**
+ * - Single pass through input
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
+ *
+ * ### EDGE CASES:
+ * - **Empty input**: Handle when input is empty
+ * - **Single element**: Handle single-element inputs
+ * - **Boundary values**: Handle minimum/maximum valid values
+ *
+ * *
+ */
 
 class Solution {
   /**

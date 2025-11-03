@@ -49,8 +49,6 @@ Where N is number of words and M is average length
 - **Non-existent prefix**: Search returns false immediately
 - **Single character words**: Handled like any other word
 
-</details>
-
 */
 
 /**

@@ -46,8 +46,6 @@ O(n)**
 - **Multiple disconnected components**: Sort each component independently
 - **Duplicate characters**: Sorting naturally handles duplicates correctly
 
-</details>
-
 */
 
 class UnionFind {

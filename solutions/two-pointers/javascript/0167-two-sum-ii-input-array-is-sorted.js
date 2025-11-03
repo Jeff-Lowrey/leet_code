@@ -1,64 +1,65 @@
 /**
-### INTUITION:
-[This problem requires understanding of two pointers concepts. The key insight is to identify the optimal approach for this specific scenario.]
-
-### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply two pointers methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
-
-### WHY THIS WORKS:
-- This ensures that the solution leverages two pointers principles
-- This ensures that time complexity is optimized for the given constraints
-- This ensures that space complexity is minimized where possible
-
-### EXAMPLE WALKTHROUGH:
-Input:
-```
-numbers = [2, 7, 11, 15], target = 9
-```
-
-Step 1: Initialize pointers
-left = 0 (numbers[0] = 2)
-right = 3 (numbers[3] = 15)
-Step 2: First iteration
-current_sum = 2 + 15 = 17
-17 > 9, so move right pointer left
-right = 2
-Step 3: Second iteration
-left = 0 (numbers[0] = 2)
-right = 2 (numbers[2] = 11)
-current_sum = 2 + 11 = 13
-13 > 9, so move right pointer left
-right = 1
-Step 4: Third iteration
-left = 0 (numbers[0] = 2)
-right = 1 (numbers[1] = 7)
-current_sum = 2 + 7 = 9
-9 == 9 ✓ Found!
-
-Output:
-```
-[1, 2] (1-indexed positions)
-```
-
-### TIME COMPLEXITY:
-O(n)**
-- Single pass through input
-
-### SPACE COMPLEXITY:
-O(1)**
-- Constant extra space
-
-### EDGE CASES:
-- **Empty input**: Handle when input is empty
-- **Single element**: Handle single-element inputs
-- **Boundary values**: Handle minimum/maximum valid values
-
-</details>
-
-*/
+ * ### METADATA:
+ *
+ *
+ * ### INTUITION:
+ * [This problem requires understanding of two pointers concepts. The key insight is to identify the optimal approach for this specific scenario.]
+ *
+ * ### APPROACH:
+ * 1. **Analyze the problem**: Understand the input constraints and expected output
+ * 2. **Choose the right technique**: Apply two pointers methodology
+ * 3. **Implement efficiently**: Focus on optimal time and space complexity
+ * 4. **Handle edge cases**: Consider boundary conditions and special cases
+ *
+ * ### WHY THIS WORKS:
+ * - This ensures that the solution leverages two pointers principles
+ * - This ensures that time complexity is optimized for the given constraints
+ * - This ensures that space complexity is minimized where possible
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * numbers = [2, 7, 11, 15], target = 9
+ * ```
+ *
+ * Step 1: Initialize pointers
+ * left = 0 (numbers[0] = 2)
+ * right = 3 (numbers[3] = 15)
+ * Step 2: First iteration
+ * current_sum = 2 + 15 = 17
+ * 17 > 9, so move right pointer left
+ * right = 2
+ * Step 3: Second iteration
+ * left = 0 (numbers[0] = 2)
+ * right = 2 (numbers[2] = 11)
+ * current_sum = 2 + 11 = 13
+ * 13 > 9, so move right pointer left
+ * right = 1
+ * Step 4: Third iteration
+ * left = 0 (numbers[0] = 2)
+ * right = 1 (numbers[1] = 7)
+ * current_sum = 2 + 7 = 9
+ * 9 == 9 ✓ Found!
+ *
+ * Output:
+ * ```
+ * [1, 2] (1-indexed positions)
+ * ```
+ *
+ * ### TIME COMPLEXITY:
+ * O(n)**
+ * - Single pass through input
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
+ *
+ * ### EDGE CASES:
+ * - **Empty input**: Handle when input is empty
+ * - **Single element**: Handle single-element inputs
+ * - **Boundary values**: Handle minimum/maximum valid values
+ *
+ * *
+ */
 
 /**
  * Main solution for Problem 167: Two Sum II - Input Array Is Sorted

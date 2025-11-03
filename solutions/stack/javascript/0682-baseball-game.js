@@ -49,8 +49,6 @@ O(n)** - Stack can grow to size n in worst case (all integer operations)
 - **Multiple 'C' operations:** Stack correctly removes most recent scores
 - **Empty stack after 'C':** Problem guarantees valid operations
 
-</details>
-
 @param {string[]} operations
 @return {number}
 

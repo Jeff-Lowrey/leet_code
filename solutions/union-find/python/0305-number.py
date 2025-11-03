@@ -57,8 +57,6 @@ Output: "Test 1 Result: {result1}"
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
-</details>
-
 """
 
 from typing import Any, List, Optional, Dict, Tuple

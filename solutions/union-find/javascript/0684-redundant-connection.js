@@ -46,10 +46,6 @@ For the Union-Find parent array
 - **Linear chain with one extra**: The extra edge creates the cycle
 - **Self-loop edge**: Detected immediately by union-find
 
-</details>
-
-</details>
-
 */
 
 /**

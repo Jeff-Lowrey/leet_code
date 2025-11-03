@@ -44,8 +44,6 @@ Output:
 - **Multiple 'C' operations:** Stack correctly removes most recent scores
 - **Empty stack after 'C':** Problem guarantees valid operations
 
-</details>
-
 """
 
 from typing import List

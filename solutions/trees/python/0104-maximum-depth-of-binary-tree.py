@@ -52,8 +52,6 @@ Where h is height of tree (recursion stack or queue size)
 - **Perfect binary tree**: Depth is log2(n+1) for n nodes
 - **Unbalanced tree**: Return depth of deepest leaf node
 
-</details>
-
 """
 
 from collections import deque

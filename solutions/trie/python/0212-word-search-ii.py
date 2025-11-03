@@ -70,8 +70,6 @@ Where K is number of words, L is average word length
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
-</details>
-
 """
 
 from typing import Any

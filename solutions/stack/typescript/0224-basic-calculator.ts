@@ -55,8 +55,6 @@ Stack can grow up to the depth of nested parentheses
 - **Negative numbers**: Handle with sign tracking
 - **Single digit**: Return the digit value
 
-</details>
-
 */
 
 class Solution {

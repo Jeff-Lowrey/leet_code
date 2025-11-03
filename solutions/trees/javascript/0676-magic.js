@@ -52,8 +52,6 @@ For the trie structure storing all dictionary words
 - **Empty dictionary**: Return False for any search
 - **Single character words**: Check all 26 possible substitutions
 
-</details>
-
 */
 
 class TrieNode {

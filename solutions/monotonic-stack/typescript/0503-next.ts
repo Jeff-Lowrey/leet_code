@@ -1,60 +1,61 @@
 /**
-### INTUITION:
-The key insight is that process array circularly (use index % n twice). Use decreasing monotonic stack. For each element, pop smaller elements and set their result to current. Elements remaining have no greater element.
-
-### APPROACH:
-1. **Initialize result**: Set result = [-1] * len(nums)
-2. **Initialize stack**: Create empty stack to store indices
-3. **Iterate twice**: For i in range(2 * len(nums))
-4. **Get index**: idx = i % len(nums)
-5. **Process greater elements**: While stack and nums[idx] > nums[stack[-1]], result[stack.pop()] = nums[idx]
-6. **Push to stack**: If i < len(nums), append idx to stack
-7. **Return result**: Return result array
-
-### WHY THIS WORKS:
-- This ensures that process array twice (2n) to handle circular: element can have next greater after wraparound
-- This ensures that monotonic decreasing stack stores indices waiting for next greater
-- This ensures that use i % n to wrap indices in second pass
-- This ensures that when greater element found, pop smaller elements and record their answers
-- This ensures that o(n) time: despite 2n iterations, each element pushed/popped once
-
-### EXAMPLE WALKTHROUGH:
-Input:
-```
-nums = [1,2,1]
-```
-
-Step 1: Treat as circular, process twice
-Extended: [1,2,1,1,2,1]
-Step 2: Use monotonic stack from right
-i=5: stack=[1], result[2]=1
-i=4: pop 1, stack=[2], result[1]=2
-i=3: stack=[1,2], result[0]=2
-i=2: stack=[1,2], result[2]=2
-i=1: stack=[2], result[1]=-1
-i=0: stack=[1,2], result[0]=2
-
-Output:
-```
-[2,-1,2]
-```
-
-### TIME COMPLEXITY:
-O(n)**
-- Single pass through input
-
-### SPACE COMPLEXITY:
-O(1)**
-- Constant extra space
-
-### EDGE CASES:
-- **Empty input**: Handle when input is empty
-- **Single element**: Handle single-element inputs
-- **Boundary values**: Handle minimum/maximum valid values
-
-</details>
-
-*/
+ * ### METADATA:
+ *
+ *
+ * ### INTUITION:
+ * The key insight is that process array circularly (use index % n twice). Use decreasing monotonic stack. For each element, pop smaller elements and set their result to current. Elements remaining have no greater element.
+ *
+ * ### APPROACH:
+ * 1. **Initialize result**: Set result = [-1] * len(nums)
+ * 2. **Initialize stack**: Create empty stack to store indices
+ * 3. **Iterate twice**: For i in range(2 * len(nums))
+ * 4. **Get index**: idx = i % len(nums)
+ * 5. **Process greater elements**: While stack and nums[idx] > nums[stack[-1]], result[stack.pop()] = nums[idx]
+ * 6. **Push to stack**: If i < len(nums), append idx to stack
+ * 7. **Return result**: Return result array
+ *
+ * ### WHY THIS WORKS:
+ * - This ensures that process array twice (2n) to handle circular: element can have next greater after wraparound
+ * - This ensures that monotonic decreasing stack stores indices waiting for next greater
+ * - This ensures that use i % n to wrap indices in second pass
+ * - This ensures that when greater element found, pop smaller elements and record their answers
+ * - This ensures that o(n) time: despite 2n iterations, each element pushed/popped once
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * nums = [1,2,1]
+ * ```
+ *
+ * Step 1: Treat as circular, process twice
+ * Extended: [1,2,1,1,2,1]
+ * Step 2: Use monotonic stack from right
+ * i=5: stack=[1], result[2]=1
+ * i=4: pop 1, stack=[2], result[1]=2
+ * i=3: stack=[1,2], result[0]=2
+ * i=2: stack=[1,2], result[2]=2
+ * i=1: stack=[2], result[1]=-1
+ * i=0: stack=[1,2], result[0]=2
+ *
+ * Output:
+ * ```
+ * [2,-1,2]
+ * ```
+ *
+ * ### TIME COMPLEXITY:
+ * O(n)**
+ * - Single pass through input
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
+ *
+ * ### EDGE CASES:
+ * - **Empty input**: Handle when input is empty
+ * - **Single element**: Handle single-element inputs
+ * - **Boundary values**: Handle minimum/maximum valid values
+ *
+ * *
+ */
 
 class Solution {
   /**

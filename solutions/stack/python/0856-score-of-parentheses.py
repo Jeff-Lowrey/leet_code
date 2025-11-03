@@ -59,8 +59,6 @@ Stack can grow to depth of nesting
 - **Concatenated pairs ()()**: Addition rule applies
 - **Deep nesting**: Stack depth tracks nesting level
 
-</details>
-
 """
 
 from typing import Any

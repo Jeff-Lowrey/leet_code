@@ -51,6 +51,4 @@ Where N is number of nodes and M is average path component length
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
-</details>
-
 """

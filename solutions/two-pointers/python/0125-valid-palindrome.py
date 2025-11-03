@@ -55,8 +55,6 @@ Output:
 - **Mixed case**: Convert to lowercase for comparison
 - **No letters/digits**: Return True (vacuously true)
 
-</details>
-
 """
 
 

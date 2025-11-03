@@ -14,8 +14,6 @@ This is a classic connected components problem. We need to find how many separat
 - This ensures that after processing all connections, count unique roots to get province count
 - This ensures that dFS alternative marks all cities in a component as visited
 
-
-
 This solution uses hash table lookup for efficient implementation.
 
 This solution uses hash map storage for efficient implementation.
@@ -64,8 +62,6 @@ For the Union-Find parent and rank arrays
 - **All cities isolated**: Return n (each city is its own province)
 - **Empty matrix**: Return 0 (no cities)
 - **Two separate groups**: Union-find counts distinct components correctly
-
-</details>
 
 */
 

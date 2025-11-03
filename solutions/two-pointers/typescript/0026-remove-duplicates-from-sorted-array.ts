@@ -47,8 +47,6 @@ Only using constant extra space
 - **No duplicates**: Return n (all unique already)
 - **Consecutive duplicates**: Two-pointer removes them in-place
 
-</details>
-
 */
 
 class Solution {

@@ -1,58 +1,59 @@
 /**
-### INTUITION:
-The key insight is that use sliding window with character frequency. Window is valid if it contains permutation of s1 (same character counts). Check each window of size len(s1) by maintaining character counts.
-
-### APPROACH:
-1. **Count s1 characters**: Use Counter(s1) to get character frequencies
-2. **Initialize window**: Create window counter for first len(s1) characters of s2
-3. **Check first window**: If window == s1_count, return True
-4. **Slide window**: For i from len(s1) to len(s2)
-5. **Add new character**: window[s2[i]] += 1
-6. **Remove old character**: window[s2[i-len(s1)]] -= 1
-7. **Check match**: If window == s1_count, return True
-8. **Return False**: If loop completes without match
-
-### WHY THIS WORKS:
-- Sliding window of length len(s1) checks if character frequencies match
-- Track frequency differences: matches counts how many chars have correct frequency
-- When matches == 26 (all alphabet chars match), found permutation
-- Slide window: update frequency for outgoing and incoming characters
-- O(n) time for s2 length n, O(1) space for fixed alphabet size
-
-### EXAMPLE WALKTHROUGH:
-Input:
-```
-s1 = "ab", s2 = "eidbaooo"
-```
-
-Step 1: Check each window of size 2
-"ei": not permutation
-"id": not permutation
-"db": not permutation
-"ba": is permutation of "ab" ✓
-
-Output:
-```
-True
-```
-
-### TIME COMPLEXITY:
-O(n)**
-
-- Single pass through the input
-
-### SPACE COMPLEXITY:
-O(1)**
-- Constant extra space
-
-### EDGE CASES:
-- **Empty input**: Handle when input is empty
-- **Single element**: Handle single-element inputs
-- **Boundary values**: Handle minimum/maximum valid values
-
-</details>
-
-*/
+ * ### METADATA:
+ *
+ *
+ * ### INTUITION:
+ * The key insight is that use sliding window with character frequency. Window is valid if it contains permutation of s1 (same character counts). Check each window of size len(s1) by maintaining character counts.
+ *
+ * ### APPROACH:
+ * 1. **Count s1 characters**: Use Counter(s1) to get character frequencies
+ * 2. **Initialize window**: Create window counter for first len(s1) characters of s2
+ * 3. **Check first window**: If window == s1_count, return True
+ * 4. **Slide window**: For i from len(s1) to len(s2)
+ * 5. **Add new character**: window[s2[i]] += 1
+ * 6. **Remove old character**: window[s2[i-len(s1)]] -= 1
+ * 7. **Check match**: If window == s1_count, return True
+ * 8. **Return False**: If loop completes without match
+ *
+ * ### WHY THIS WORKS:
+ * - Sliding window of length len(s1) checks if character frequencies match
+ * - Track frequency differences: matches counts how many chars have correct frequency
+ * - When matches == 26 (all alphabet chars match), found permutation
+ * - Slide window: update frequency for outgoing and incoming characters
+ * - O(n) time for s2 length n, O(1) space for fixed alphabet size
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * s1 = "ab", s2 = "eidbaooo"
+ * ```
+ *
+ * Step 1: Check each window of size 2
+ * "ei": not permutation
+ * "id": not permutation
+ * "db": not permutation
+ * "ba": is permutation of "ab" ✓
+ *
+ * Output:
+ * ```
+ * True
+ * ```
+ *
+ * ### TIME COMPLEXITY:
+ * O(n)**
+ *
+ * - Single pass through the input
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
+ *
+ * ### EDGE CASES:
+ * - **Empty input**: Handle when input is empty
+ * - **Single element**: Handle single-element inputs
+ * - **Boundary values**: Handle minimum/maximum valid values
+ *
+ * *
+ */
 
 class Solution {
   /**

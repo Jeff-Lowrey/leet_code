@@ -1,56 +1,57 @@
 /**
-### INTUITION:
-The key insight is that for each row, treat it as base of histogram. Heights are consecutive 1s above in each column. Apply largest rectangle in histogram for each row. Track maximum across all rows.
-
-### APPROACH:
-1. **Build height array**: For each row, treat as base of histogram
-2. **Update heights**: For each row, if cell is '1', heights[j] += 1; else heights[j] = 0
-3. **Apply histogram algorithm**: For each row's height array, call largestRectangleInHistogram
-4. **Track maximum**: Update max_area with result from histogram calculation
-5. **Continue for all rows**: Process entire matrix
-6. **Return result**: Return max_area
-
-### WHY THIS WORKS:
-- This ensures that treat each row as histogram base: heights = consecutive 1s above
-- This ensures that apply largest rectangle in histogram algorithm to each row
-- This ensures that update heights: if cell is 1, heights[j]++; if 0, heights[j]=0
-- This ensures that max rectangle found by processing all rows as histograms
-- This ensures that o(m*n) time: histogram calculation O(n) per row, O(n) space for heights array
-
-### EXAMPLE WALKTHROUGH:
-Input:
-```
-matrix = [["1","0","1","0","0"],["1","0","1","1","1"]]
-```
-
-Step 1: Build height array for each row
-row 0: heights = [1,0,1,0,0]
-row 1: heights = [2,0,2,1,1]
-Step 2: Find max rectangle in each histogram
-row 0: max = 1
-row 1: max = 3
-
-Output:
-```
-3 (maximal rectangle)
-```
-
-### TIME COMPLEXITY:
-O(n)**
-- Single pass through input
-
-### SPACE COMPLEXITY:
-O(1)**
-- Constant extra space
-
-### EDGE CASES:
-- **Empty input**: Handle when input is empty
-- **Single element**: Handle single-element inputs
-- **Boundary values**: Handle minimum/maximum valid values
-
-</details>
-
-*/
+ * ### METADATA:
+ *
+ *
+ * ### INTUITION:
+ * The key insight is that for each row, treat it as base of histogram. Heights are consecutive 1s above in each column. Apply largest rectangle in histogram for each row. Track maximum across all rows.
+ *
+ * ### APPROACH:
+ * 1. **Build height array**: For each row, treat as base of histogram
+ * 2. **Update heights**: For each row, if cell is '1', heights[j] += 1; else heights[j] = 0
+ * 3. **Apply histogram algorithm**: For each row's height array, call largestRectangleInHistogram
+ * 4. **Track maximum**: Update max_area with result from histogram calculation
+ * 5. **Continue for all rows**: Process entire matrix
+ * 6. **Return result**: Return max_area
+ *
+ * ### WHY THIS WORKS:
+ * - This ensures that treat each row as histogram base: heights = consecutive 1s above
+ * - This ensures that apply largest rectangle in histogram algorithm to each row
+ * - This ensures that update heights: if cell is 1, heights[j]++; if 0, heights[j]=0
+ * - This ensures that max rectangle found by processing all rows as histograms
+ * - This ensures that o(m*n) time: histogram calculation O(n) per row, O(n) space for heights array
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * matrix = [["1","0","1","0","0"],["1","0","1","1","1"]]
+ * ```
+ *
+ * Step 1: Build height array for each row
+ * row 0: heights = [1,0,1,0,0]
+ * row 1: heights = [2,0,2,1,1]
+ * Step 2: Find max rectangle in each histogram
+ * row 0: max = 1
+ * row 1: max = 3
+ *
+ * Output:
+ * ```
+ * 3 (maximal rectangle)
+ * ```
+ *
+ * ### TIME COMPLEXITY:
+ * O(n)**
+ * - Single pass through input
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
+ *
+ * ### EDGE CASES:
+ * - **Empty input**: Handle when input is empty
+ * - **Single element**: Handle single-element inputs
+ * - **Boundary values**: Handle minimum/maximum valid values
+ *
+ * *
+ */
 
 class Solution {
   /**

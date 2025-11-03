@@ -52,8 +52,6 @@ Where w is maximum width of the tree (queue size)
 - **Linear tree (skewed)**: Each level has exactly one node
 - **Unbalanced tree**: Level sizes vary based on structure
 
-</details>
-
 */
 
 class Solution {

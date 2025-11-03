@@ -41,8 +41,6 @@ For the trie structure and set storage
 - **No suffix relationships**: Sum all word lengths plus delimiters
 - **Duplicate words in input**: Remove duplicates first before processing
 
-</details>
-
 */
 
 /**

@@ -1,59 +1,60 @@
 /**
-### INTUITION:
-The key insight is that use deque to maintain indices of useful elements (potential maximums). Remove indices outside window. Remove indices with smaller values than current (they're never max). Front of deque is window maximum.
-
-### APPROACH:
-1. **Initialize deque**: Create deque to store indices of useful elements
-2. **Process first window**: For first k elements, maintain decreasing order in deque
-3. **Remove smaller elements**: Before adding nums[i], remove indices with smaller values from back
-4. **Add current index**: Append i to deque
-5. **Slide window**: For i from k to n, add deque front to result
-6. **Remove out-of-window**: If deque front < i-k+1, remove it
-7. **Maintain deque property**: Remove smaller elements from back, add current index
-8. **Add last maximum**: Append last deque front to result, return result
-
-### WHY THIS WORKS:
-- Monotonic decreasing deque stores indices of potential maximums
-- Front always contains current window's maximum
-- Remove indices outside window from front, remove smaller values from back
-- When adding element, pop back while deque[-1] < current
-- O(n) time: each element added/removed once, O(k) space for deque
-
-### EXAMPLE WALKTHROUGH:
-Input:
-```
-nums = [1,3,-1,-3,5,3,6,7], k = 3
-```
-
-Step 1: Use deque to track indices
-Window [1,3,-1]: max=3
-Window [3,-1,-3]: max=3
-Window [-1,-3,5]: max=5
-Window [-3,5,3]: max=5
-Window [5,3,6]: max=6
-Window [3,6,7]: max=7
-
-Output:
-```
-[3,3,5,5,6,7]
-```
-
-### TIME COMPLEXITY:
-O(n)**
-- Single pass through input
-
-### SPACE COMPLEXITY:
-O(1)**
-- Constant extra space
-
-### EDGE CASES:
-- **Empty input**: Handle when input is empty
-- **Single element**: Handle single-element inputs
-- **Boundary values**: Handle minimum/maximum valid values
-
-</details>
-
-*/
+ * ### METADATA:
+ *
+ *
+ * ### INTUITION:
+ * The key insight is that use deque to maintain indices of useful elements (potential maximums). Remove indices outside window. Remove indices with smaller values than current (they're never max). Front of deque is window maximum.
+ *
+ * ### APPROACH:
+ * 1. **Initialize deque**: Create deque to store indices of useful elements
+ * 2. **Process first window**: For first k elements, maintain decreasing order in deque
+ * 3. **Remove smaller elements**: Before adding nums[i], remove indices with smaller values from back
+ * 4. **Add current index**: Append i to deque
+ * 5. **Slide window**: For i from k to n, add deque front to result
+ * 6. **Remove out-of-window**: If deque front < i-k+1, remove it
+ * 7. **Maintain deque property**: Remove smaller elements from back, add current index
+ * 8. **Add last maximum**: Append last deque front to result, return result
+ *
+ * ### WHY THIS WORKS:
+ * - Monotonic decreasing deque stores indices of potential maximums
+ * - Front always contains current window's maximum
+ * - Remove indices outside window from front, remove smaller values from back
+ * - When adding element, pop back while deque[-1] < current
+ * - O(n) time: each element added/removed once, O(k) space for deque
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * nums = [1,3,-1,-3,5,3,6,7], k = 3
+ * ```
+ *
+ * Step 1: Use deque to track indices
+ * Window [1,3,-1]: max=3
+ * Window [3,-1,-3]: max=3
+ * Window [-1,-3,5]: max=5
+ * Window [-3,5,3]: max=5
+ * Window [5,3,6]: max=6
+ * Window [3,6,7]: max=7
+ *
+ * Output:
+ * ```
+ * [3,3,5,5,6,7]
+ * ```
+ *
+ * ### TIME COMPLEXITY:
+ * O(n)**
+ * - Single pass through input
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
+ *
+ * ### EDGE CASES:
+ * - **Empty input**: Handle when input is empty
+ * - **Single element**: Handle single-element inputs
+ * - **Boundary values**: Handle minimum/maximum valid values
+ *
+ * *
+ */
 
 class Solution {
   /**

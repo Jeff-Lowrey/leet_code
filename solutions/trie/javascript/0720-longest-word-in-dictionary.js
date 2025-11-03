@@ -66,8 +66,6 @@ O(N * L)** - Trie storage for all words, where N is number of words and L is ave
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
-</details>
-
 */
 
 class TrieNode {
