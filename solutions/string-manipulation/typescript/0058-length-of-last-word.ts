@@ -30,21 +30,21 @@
  * **Space Complexity**: O(1) - Constant extra space
  *
  * ### INTUITION:
- * We need to find the last word in a string and return its length. The key challenge
- * is handling trailing spaces. The simplest approach is to strip trailing spaces and
- * then count backwards until we hit a space or the beginning of the string.
- *
- * ### APPROACH:
- * 1. **Strip Trailing Spaces**: Remove spaces from the end
- * 2. **Count Backwards**: Start from end and count characters until space or start
- * 3. **Return Count**: The number of characters counted
- *
- * Alternative approaches:
- * - **Split and Take Last**: Split by spaces and get last element's length
- * - **Right to Left Scan**: Scan from right, skip spaces, then count letters
- * - **Built-in Methods**: Use split() and access last element
- *
- * ### WHY THIS WORKS:
+The key insight is that we need to find the last word in a string and return its length. The key challenge
+is handling trailing spaces. The simplest approach is to strip trailing spaces and
+then count backwards until we hit a space or the beginning of the string.
+
+### APPROACH:
+1. **Strip Trailing Spaces**: Remove spaces from the end
+2. **Count Backwards**: Start from end and count characters until space or start
+3. **Return Count**: The number of characters counted
+
+Alternative approaches:
+- **Split and Take Last**: Split by spaces and get last element's length
+- **Right to Left Scan**: Scan from right, skip spaces, then count letters
+- **Built-in Methods**: Use split() and access last element
+
+### WHY THIS WORKS:
  * - Stripping trailing spaces ensures we start counting from actual last word
  * - Counting backwards from end is efficient (O(k) where k is last word length)
  * - Stops at first space encountered, which marks word boundary
@@ -83,13 +83,11 @@
  * - If using split(), space becomes O(n) for storing words
  *
  * ### EDGE CASES:
- * - Empty string: Return 0
- * - String with only spaces: Return 0
- * - Single word no spaces: Return word length
- * - Trailing spaces: Strip handles this
- * - Multiple spaces between words: Doesn't affect result
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {

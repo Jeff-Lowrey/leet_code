@@ -27,7 +27,7 @@ If there is no common prefix, return an empty string "".
 **Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
-The longest common prefix is the sequence of characters that all strings share from the beginning. We can find this by comparing characters at each position across all strings until we find a mismatch.
+The key insight is that the longest common prefix is the sequence of characters that all strings share from the beginning. We can find this by comparing characters at each position across all strings until we find a mismatch.
 
 ### APPROACH:
 1. **Vertical Scanning**: Compare characters at the same position across all strings
@@ -65,10 +65,9 @@ O(1)
 - Only using constant extra space for variables
 
 ### EDGE CASES:
-- Empty array: return ""
-- Empty string in array: return ""
-- Single string: return the string itself
-- No common prefix: return ""
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

@@ -27,9 +27,9 @@
  * **Space Complexity**: O(1) - Constant extra space
  *
  * ### INTUITION:
- * Use sliding window with hash set. Expand right pointer and add characters. When duplicate found, shrink from left until duplicate removed. Track maximum window size.
- *
- * ### APPROACH:
+The key insight is that use sliding window with hash set. Expand right pointer and add characters. When duplicate found, shrink from left until duplicate removed. Track maximum window size.
+
+### APPROACH:
  * 1. **Initialize variables**: Set max_length = 0, left = 0, char_set = set()
  * 2. **Iterate with right pointer**: For right in range(len(s))
  * 3. **Handle duplicates**: While s[right] in char_set, remove s[left] from set and increment left
@@ -88,11 +88,11 @@
  * - Constant extra space
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {

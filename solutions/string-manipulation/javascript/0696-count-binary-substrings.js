@@ -44,40 +44,50 @@
  * substrings is min(length of first group, length of second group).
  *
  * ### APPROACH:
- * 1. **Count Consecutive Groups**: Count length of each consecutive group of same digit
- * 2. **Sliding Window**: Look at pairs of adjacent groups
- * 3. **Count Valid Substrings**: For each pair, add min(group1_length, group2_length)
- * 4. **Total Count**: Sum all valid substrings from all pairs
- *
- * Example: "00110" has groups [2, 2, 1]
- * - Groups "00" and "11": min(2, 2) = 2 valid substrings ("01", "0011")
- * - Groups "11" and "0": min(2, 1) = 1 valid substring ("10")
- * - Total: 3
- *
- * ### WHY THIS WORKS:
+1. **Count Consecutive Groups**: Count length of each consecutive group of same digit
+2. **Sliding Window**: Look at pairs of adjacent groups
+3. **Count Valid Substrings**: For each pair, add min(group1_length, group2_length)
+4. **Total Count**: Sum all valid substrings from all pairs
+
+Example: "00110" has groups [2, 2, 1]
+- Groups "00" and "11": min(2, 2) = 2 valid substrings ("01", "0011")
+- Groups "11" and "0": min(2, 1) = 1 valid substring ("10")
+- Total: 3
+
+### WHY THIS WORKS:
  * - Valid substrings must have consecutive identical digits
  * - For two adjacent groups with lengths n and m, we can form min(n, m) valid substrings
  * - Each valid substring takes equal number of digits from each group
  * - Example: groups "000" (3) and "11" (2) → min(3, 2) = 2 substrings: "01", "0011"
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * s = "00110011"
- * ```
- *
- * Count groups: [2, 2, 2, 2]
- * - "00": length 2
- * - "11": length 2
- * - "00": length 2
- * - "11": length 2
- * Count valid substrings:
- * - Pair [2, 2]: min(2, 2) = 2 substrings ("01", "0011")
- * - Pair [2, 2]: min(2, 2) = 2 substrings ("10", "1100")
- * - Pair [2, 2]: min(2, 2) = 2 substrings ("01", "0011")
- * Total: 2 + 2 + 2 = 6
+Input:
+```
+s = "00110011"
+```
 
- * ### TIME COMPLEXITY:
+Count groups: [2, 2, 2, 2]
+- "00": length 2
+- "11": length 2
+- "00": length 2
+- "11": length 2
+Count valid substrings:
+- Pair [2, 2]: min(2, 2) = 2 substrings ("01", "0011")
+- Pair [2, 2]: min(2, 2) = 2 substrings ("10", "1100")
+- Pair [2, 2]: min(2, 2) = 2 substrings ("01", "0011")
+Total: 2 + 2 + 2 = 6
+
+Output:
+```
+[Expected output]
+```
+
+Step-by-step execution:
+1. [First step]
+2. [Second step]
+3. [Final step]
+
+### TIME COMPLEXITY:
  * O(n)
  * - Single pass through input
  * - Single pass through string to count groups
@@ -90,12 +100,11 @@
  * - Can be optimized to O(1) by processing pairs on-the-fly
  *
  * ### EDGE CASES:
- * - Single character: No valid substrings, return 0
- * - All same character: No valid substrings, return 0
- * - Alternating pattern "010101": Maximum valid substrings
- * - Two groups only: Simple case
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 /**

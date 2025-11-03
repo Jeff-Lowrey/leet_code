@@ -58,6 +58,11 @@ Day 4: price=6, min_price=1, profit=5, max_profit=5 (buy day 1, sell day 4)
 Day 5: price=4, min_price=1, profit=3, max_profit=5
 Result: 5 (buy at price 1, sell at price 6)
 
+Step-by-step execution:
+1. [First step]
+2. [Second step]
+3. [Final step]
+
 ### TIME COMPLEXITY:
 O(n)
 Single pass through the prices array
@@ -67,10 +72,9 @@ O(1)
 Only using constant extra space
 
 ### EDGE CASES:
-- Prices always decreasing: return 0 (no profit possible)
-- Single day: return 0 (need at least 2 days)
-- All prices same: return 0 (no profit)
-- Empty array: return 0
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

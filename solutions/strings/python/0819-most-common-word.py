@@ -32,7 +32,7 @@ in lowercase.
 **Space Complexity**: O(n + m) - Store word frequencies and banned set
 
 ### INTUITION:
-Parse the paragraph into words, count their frequencies while ignoring banned
+The key insight is that parse the paragraph into words, count their frequencies while ignoring banned
 words, then return the word with the highest frequency. Use a set for O(1)
 banned word lookups.
 
@@ -87,6 +87,8 @@ O(n + m) for word frequencies and banned set
 - **All words banned except one**: Return the one non-banned word
 - **Punctuation**: Remove all punctuation correctly
 - **Case sensitivity**: Handle mixed case properly
+
+</details>
 
 </details>
 """

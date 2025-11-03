@@ -47,15 +47,15 @@
  * characters remain.
  *
  * ### APPROACH:
- * 1. **Convert to List**: Strings are immutable in Python, convert to list
- * 2. **Iterate by 2k Steps**: Process string in chunks of 2k characters
- * 3. **Reverse First k**: For each chunk, reverse the first k characters
- * 4. **Handle Edge Cases**:
- *    - If < k characters left: reverse all
- *    - If k to 2k-1 characters left: reverse first k only
- * 5. **Join Result**: Convert list back to string
- *
- * ### WHY THIS WORKS:
+1. **Convert to List**: Strings are immutable in Python, convert to list
+2. **Iterate by 2k Steps**: Process string in chunks of 2k characters
+3. **Reverse First k**: For each chunk, reverse the first k characters
+4. **Handle Edge Cases**:
+   - If < k characters left: reverse all
+   - If k to 2k-1 characters left: reverse first k only
+5. **Join Result**: Convert list back to string
+
+### WHY THIS WORKS:
  * - Processing in 2k chunks ensures we reverse the right segments
  * - Two-pointer reversal is efficient and in-place
  * - Range with step=2k automatically handles chunking
@@ -95,12 +95,11 @@
  * - Python strings are immutable, so this is necessary
  *
  * ### EDGE CASES:
- * - s length < k: Reverse entire string
- * - s length = k: Reverse entire string
- * - s length between k and 2k: Reverse first k only
- * - k = 1: No actual reversal needed (each char is its own segment)
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 /**

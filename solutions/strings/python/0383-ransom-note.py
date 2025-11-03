@@ -26,7 +26,7 @@ This problem demonstrates key concepts in Strings and Hash Tables.
 **Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
-To construct a ransom note from magazine letters, we need to ensure that the magazine contains
+The key insight is that to construct a ransom note from magazine letters, we need to ensure that the magazine contains
 at least as many of each character as required by the ransom note. This is essentially checking
 if one string's character frequencies are a subset of another's character frequencies.
 
@@ -74,10 +74,9 @@ Although we use a hash map, since we're limited to lowercase English letters (26
 the space is bounded by a constant.
 
 ### EDGE CASES:
-- Empty ransom note: Always True (can construct nothing from anything)
-- Empty magazine: False if ransom note is non-empty, True if both empty
-- Magazine shorter than ransom note: Could still be False
-- Ransom note with characters not in magazine: False
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

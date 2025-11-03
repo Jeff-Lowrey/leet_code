@@ -26,17 +26,17 @@
  * **Space Complexity**: O(1) - Constant extra space
  * 
  * ### INTUITION:
- * To construct a ransom note from magazine letters, we need to ensure that the magazine contains
- * at least as many of each character as required by the ransom note. This is essentially checking
- * if one string's character frequencies are a subset of another's character frequencies.
- * 
- * ### APPROACH:
- * 1. **Count magazine characters**: Build a frequency map of all characters in the magazine
- * 2. **Verify ransom note**: For each character in ransom note, check if available in magazine
- * 3. **Decrement counts**: As we use characters from magazine, decrease their counts
- * 4. **Return result**: If we can construct entire ransom note, return True; otherwise False
- * 
- * ### WHY THIS WORKS:
+The key insight is that to construct a ransom note from magazine letters, we need to ensure that the magazine contains
+at least as many of each character as required by the ransom note. This is essentially checking
+if one string's character frequencies are a subset of another's character frequencies.
+
+### APPROACH:
+1. **Count magazine characters**: Build a frequency map of all characters in the magazine
+2. **Verify ransom note**: For each character in ransom note, check if available in magazine
+3. **Decrement counts**: As we use characters from magazine, decrease their counts
+4. **Return result**: If we can construct entire ransom note, return True; otherwise False
+
+### WHY THIS WORKS:
  * - Hash map provides O(1) lookup for character availability
  * - By counting magazine characters first, we know what's available
  * - Decrementing counts as we consume characters ensures we don't reuse
@@ -75,12 +75,11 @@
  * the space is bounded by a constant.
  * 
  * ### EDGE CASES:
- * - Empty ransom note: Always True (can construct nothing from anything)
- * - Empty magazine: False if ransom note is non-empty, True if both empty
- * - Magazine shorter than ransom note: Could still be False
- * - Ransom note with characters not in magazine: False
- * 
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {

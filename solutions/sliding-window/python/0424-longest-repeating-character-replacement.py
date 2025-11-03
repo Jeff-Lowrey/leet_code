@@ -28,7 +28,7 @@ Return the length of the longest substring containing the same letter you can ge
 **Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
-Use sliding window with character counts. Track max frequency in window. If window_size - max_freq <= k, window is valid (k replacements make all same). Expand or shrink to find max valid window.
+The key insight is that use sliding window with character counts. Track max frequency in window. If window_size - max_freq <= k, window is valid (k replacements make all same). Expand or shrink to find max valid window.
 
 ### APPROACH:
 1. **Initialize variables**: Set left = 0, max_count = 0, max_len = 0, char_count = {}
@@ -79,9 +79,9 @@ O(1)
 
 
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

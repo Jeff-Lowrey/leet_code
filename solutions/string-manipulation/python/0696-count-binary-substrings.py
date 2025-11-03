@@ -69,6 +69,16 @@ Count valid substrings:
 - Pair [2, 2]: min(2, 2) = 2 substrings ("01", "0011")
 Total: 2 + 2 + 2 = 6
 
+Output:
+```
+[Expected output]
+```
+
+Step-by-step execution:
+1. [First step]
+2. [Second step]
+3. [Final step]
+
 ### TIME COMPLEXITY:
 O(n)
 - Single pass through string to count groups
@@ -81,10 +91,9 @@ O(n)
 - Can be optimized to O(1) by processing pairs on-the-fly
 
 ### EDGE CASES:
-- Single character: No valid substrings, return 0
-- All same character: No valid substrings, return 0
-- Alternating pattern "010101": Maximum valid substrings
-- Two groups only: Simple case
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

@@ -66,10 +66,9 @@ O(n²)
 - DP table storage, can be optimized to O(n)
 
 ### EDGE CASES:
-- Already palindrome: return 0
-- Single character: return 0
-- All different characters: return n-1
-- Empty string: return 0
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

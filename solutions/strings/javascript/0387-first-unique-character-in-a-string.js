@@ -28,23 +28,23 @@
 
  *
  * ### INTUITION:
- * To find the first unique (non-repeating) character in a string, we need to know the frequency
- * of each character. A character is unique if it appears exactly once. We need to return the index
- * of the first such character when reading left to right.
- *
- * ### APPROACH:
+The key insight is that to find the first unique (non-repeating) character in a string, we need to know the frequency
+of each character. A character is unique if it appears exactly once. We need to return the index
+of the first such character when reading left to right.
+
+### APPROACH:
  * 1. **Count frequencies**: Build a frequency map of all characters in the string
  * 2. **Find first unique**: Iterate through string again, checking frequency map
  * 3. **Return index**: Return the index of first character with frequency 1
  * 4. **Return -1**: If no unique character exists
  *
  * ### WHY THIS WORKS:
- * - Two-pass approach: first pass counts, second pass finds
- * - Hash map provides O(1) lookup for character frequencies
- * - By iterating left to right in second pass, we find the first unique character
- * - This approach is more efficient than checking each character's uniqueness separately
- *
- * ### EXAMPLE WALKTHROUGH:
+- This ensures that two-pass approach: first pass counts, second pass finds
+- This ensures that hash map provides O(1) lookup for character frequencies
+- This ensures that by iterating left to right in second pass, we find the first unique character
+- This ensures that this approach is more efficient than checking each character's uniqueness separately
+
+### EXAMPLE WALKTHROUGH:
  * Input:
  * ```
  * s = "leetcode"
@@ -78,13 +78,11 @@
  * the character set size.
  *
  * ### EDGE CASES:
- * - Empty string: Return -1
- * - Single character: Return 0
- * - No unique characters (all repeated): Return -1
- * - All unique characters: Return 0 (first character)
- * - String with only one unique character at the end: Return its index
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 /**

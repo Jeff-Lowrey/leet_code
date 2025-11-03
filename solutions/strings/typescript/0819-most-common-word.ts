@@ -33,23 +33,23 @@
  * **Space Complexity**: O(n + m) - Store word frequencies and banned set
  *
  * ### INTUITION:
- * Parse the paragraph into words, count their frequencies while ignoring banned
- * words, then return the word with the highest frequency. Use a set for O(1)
- * banned word lookups.
- *
- * ### APPROACH:
+The key insight is that parse the paragraph into words, count their frequencies while ignoring banned
+words, then return the word with the highest frequency. Use a set for O(1)
+banned word lookups.
+
+### APPROACH:
  * 1. **Convert banned to set**: Enable O(1) lookups for banned words
  * 2. **Parse paragraph**: Extract words, convert to lowercase, remove punctuation
  * 3. **Count frequencies**: Use hash map to count non-banned words
  * 4. **Find maximum**: Return word with highest frequency
  *
  * ### WHY THIS WORKS:
- * - Set lookup for banned words is O(1) vs O(m) for list
- * - Hash map efficiently tracks word frequencies
- * - Single pass through paragraph is optimal
- * - Case-insensitive comparison ensures correct matching
- *
- * ### EXAMPLE WALKTHROUGH:
+- Set lookup for banned words is O(1) vs O(m) for list
+- Hash map efficiently tracks word frequencies
+- Single pass through paragraph is optimal
+- Case-insensitive comparison ensures correct matching
+
+### EXAMPLE WALKTHROUGH:
  * Input:
  * ```
  * paragraph = "Bob hit a ball, the hit BALL flew far after it was hit."
@@ -86,12 +86,14 @@
  * - Store word frequencies and banned set
  *
  * ### EDGE CASES:
- * - **Single word**: Return that word if not banned
- * - **All words banned except one**: Return the one non-banned word
- * - **Punctuation**: Remove all punctuation correctly
- * - **Case sensitivity**: Handle mixed case properly
- *
- * </details>
+- **Single word**: Return that word if not banned
+- **All words banned except one**: Return the one non-banned word
+- **Punctuation**: Remove all punctuation correctly
+- **Case sensitivity**: Handle mixed case properly
+
+</details>
+
+</details>
  */
 
 class Solution {

@@ -49,13 +49,13 @@
  * to the same array. This allows us to modify the array in-place with O(1) extra space.
  *
  * ### APPROACH:
- * 1. **Two Pointers**: Use `read` pointer to scan array, `write` pointer for result
- * 2. **Count Consecutive**: For each character, count how many consecutive times it appears
- * 3. **Write Character**: Always write the character itself
- * 4. **Write Count**: If count > 1, write the count digits
- * 5. **Handle Multi-Digit Counts**: Split counts like 12 into '1', '2'
- *
- * ### WHY THIS WORKS:
+1. **Two Pointers**: Use `read` pointer to scan array, `write` pointer for result
+2. **Count Consecutive**: For each character, count how many consecutive times it appears
+3. **Write Character**: Always write the character itself
+4. **Write Count**: If count > 1, write the count digits
+5. **Handle Multi-Digit Counts**: Split counts like 12 into '1', '2'
+
+### WHY THIS WORKS:
  * - Writing pointer never overtakes reading pointer (compressed is always shorter)
  * - We process characters left to right in a single pass
  * - In-place modification is safe because we consume input faster than we produce output
@@ -92,12 +92,11 @@
  * - Modifying the array in-place
  *
  * ### EDGE CASES:
- * - Single character: Return 1
- * - All different characters: Return original length
- * - All same characters: Return 1 + len(str(count))
- * - Very long runs (count >= 10): Multi-digit handling
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 /**

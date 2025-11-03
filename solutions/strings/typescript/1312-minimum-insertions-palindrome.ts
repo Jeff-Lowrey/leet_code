@@ -39,9 +39,9 @@
  *    - If not: `dp[i][j] = max(dp[i+1][j], dp[i][j-1])`
  *
  * ### WHY THIS WORKS:
- * The LPS represents the "skeleton" of characters we can keep without insertion. All other characters need to be "mirrored" by insertions. For example, in "mbadm", LPS is "mam" (length 3), so we need 5-3=2 insertions.
- *
- * ### EXAMPLE WALKTHROUGH:
+The LPS represents the "skeleton" of characters we can keep without insertion. All other characters need to be "mirrored" by insertions. For example, in "mbadm", LPS is "mam" (length 3), so we need 5-3=2 insertions.
+
+### EXAMPLE WALKTHROUGH:
  * Input:
  * ```
  * s = "mbadm"
@@ -68,12 +68,11 @@
  * - DP table storage, can be optimized to O(n)
  *
  * ### EDGE CASES:
- * - Already palindrome: return 0
- * - Single character: return 0
- * - All different characters: return n-1
- * - Empty string: return 0
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {

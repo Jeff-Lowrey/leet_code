@@ -34,9 +34,9 @@
  * **Space Complexity**: O(1) - Constant extra space
  * 
  * ### INTUITION:
- * Use sliding window tracking fruit types with hash map. Expand while <= 2 types. When 3rd type appears, shrink until back to 2 types. Track maximum window size.
- * 
- * ### APPROACH:
+The key insight is that use sliding window tracking fruit types with hash map. Expand while <= 2 types. When 3rd type appears, shrink until back to 2 types. Track maximum window size.
+
+### APPROACH:
  * 1. **Initialize variables**: Set left = 0, max_fruits = 0, basket = {}
  * 2. **Expand with right**: For right in range(len(fruits))
  * 3. **Add to basket**: basket[fruits[right]] = basket.get(fruits[right], 0) + 1
@@ -46,13 +46,13 @@
  * 7. **Return result**: Return max_fruits
  * 
  * ### WHY THIS WORKS:
- * - Longest subarray with at most 2 distinct elements (fruit types)
- * - Hash map tracks count of each fruit type in current window
- * - Expand right adding fruits, contract left when > 2 types
- * - Remove fruit type when its count reaches 0 in map
- * - O(n) time: each element processed twice at most, O(1) space (at most 3 keys)
- * 
- * ### EXAMPLE WALKTHROUGH:
+- This ensures that longest subarray with at most 2 distinct elements (fruit types)
+- This ensures that hash map tracks count of each fruit type in current window
+- This ensures that expand right adding fruits, contract left when > 2 types
+- This ensures that remove fruit type when its count reaches 0 in map
+- This ensures that o(n) time: each element processed twice at most, O(1) space (at most 3 keys)
+
+### EXAMPLE WALKTHROUGH:
  * Input:
  * ```
  * fruits = [1,2,1,2,3,1,1]
@@ -82,11 +82,11 @@
  * - Constant extra space
  * 
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
- * 
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {

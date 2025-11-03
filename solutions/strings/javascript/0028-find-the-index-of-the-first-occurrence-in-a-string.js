@@ -28,11 +28,11 @@
 
  *
  * ### INTUITION:
- * This is the classic string matching problem (also known as finding a substring). We need to find
- * the first position where the needle (pattern) appears in the haystack (text). The straightforward
- * approach is to check each position in the haystack to see if the needle starts there.
- *
- * ### APPROACH:
+The key insight is that this is the classic string matching problem (also known as finding a substring). We need to find
+the first position where the needle (pattern) appears in the haystack (text). The straightforward
+approach is to check each position in the haystack to see if the needle starts there.
+
+### APPROACH:
  * 1. **Handle edge cases**: If needle is empty, return 0 (convention)
  * 2. **Iterate through valid positions**: Only check positions where needle could fit
  * 3. **Check each position**: For each valid position, compare needle with substring
@@ -40,12 +40,12 @@
  * 5. **Return -1 if not found**: If we complete the loop without finding needle
  *
  * ### WHY THIS WORKS:
- * - We systematically check every possible position where needle could start
- * - At each position, we verify if all characters of needle match
- * - We stop early if we find a mismatch at any position within needle
- * - The first match we find is guaranteed to be the earliest occurrence
- *
- * ### EXAMPLE WALKTHROUGH:
+- This ensures that we systematically check every possible position where needle could start
+- This ensures that at each position, we verify if all characters of needle match
+- This ensures that we stop early if we find a mismatch at any position within needle
+- This ensures that the first match we find is guaranteed to be the earliest occurrence
+
+### EXAMPLE WALKTHROUGH:
  * Input:
  * ```
  * haystack = "sadbutsad", needle = "sad"
@@ -78,13 +78,11 @@
  * We only use a few variables regardless of input size.
  *
  * ### EDGE CASES:
- * - Empty needle: Return 0 (convention)
- * - Needle longer than haystack: Return -1
- * - Needle equals haystack: Return 0
- * - Needle not in haystack: Return -1
- * - Multiple occurrences: Return first one
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 /**

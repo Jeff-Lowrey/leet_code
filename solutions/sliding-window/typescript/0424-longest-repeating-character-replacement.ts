@@ -29,9 +29,9 @@
  * **Space Complexity**: O(1) - Constant extra space
  *
  * ### INTUITION:
- * Use sliding window with character counts. Track max frequency in window. If window_size - max_freq <= k, window is valid (k replacements make all same). Expand or shrink to find max valid window.
- *
- * ### APPROACH:
+The key insight is that use sliding window with character counts. Track max frequency in window. If window_size - max_freq <= k, window is valid (k replacements make all same). Expand or shrink to find max valid window.
+
+### APPROACH:
  * 1. **Initialize variables**: Set left = 0, max_count = 0, max_len = 0, char_count = {}
  * 2. **Expand with right**: For right in range(len(s))
  * 3. **Count character**: char_count[s[right]] = char_count.get(s[right], 0) + 1
@@ -78,11 +78,11 @@
  * - Constant extra space
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {

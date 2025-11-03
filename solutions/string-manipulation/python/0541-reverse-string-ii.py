@@ -84,10 +84,9 @@ O(n)
 - Python strings are immutable, so this is necessary
 
 ### EDGE CASES:
-- s length < k: Reverse entire string
-- s length = k: Reverse entire string
-- s length between k and 2k: Reverse first k only
-- k = 1: No actual reversal needed (each char is its own segment)
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

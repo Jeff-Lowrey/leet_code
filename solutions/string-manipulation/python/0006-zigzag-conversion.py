@@ -35,7 +35,7 @@ Write the code that will take a string and make this conversion given a number o
 **Space Complexity**: O(n) - Additional hash map storage
 
 ### INTUITION:
-The zigzag pattern alternates going down and then up diagonally. We can simulate this
+The key insight is that the zigzag pattern alternates going down and then up diagonally. We can simulate this
 by using an array of strings (one for each row) and tracking the current row and direction.
 As we process each character, we add it to the current row, then move to the next row
 in the current direction, reversing direction when we hit the top or bottom.
@@ -51,10 +51,10 @@ in the current direction, reversing direction when we hit the top or bottom.
 5. **Concatenate Rows**: Join all rows to get final result
 
 ### WHY THIS WORKS:
-- Each character belongs to exactly one row in the zigzag pattern
-- Direction changes happen at predictable boundaries (top and bottom)
-- Processing left to right with row tracking simulates the zigzag
-- No complex indexing needed, just direction tracking
+- This ensures that each character belongs to exactly one row in the zigzag pattern
+- This ensures that direction changes happen at predictable boundaries (top and bottom)
+- This ensures that processing left to right with row tracking simulates the zigzag
+- This ensures that no complex indexing needed, just direction tracking
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -100,10 +100,9 @@ O(n)
 - Result string requires O(n) space
 
 ### EDGE CASES:
-- numRows = 1: Return original string (no zigzag possible)
-- numRows >= len(s): Each character on its own row, return original
-- Empty string: Return empty
-- numRows = 2: Simple alternating pattern
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

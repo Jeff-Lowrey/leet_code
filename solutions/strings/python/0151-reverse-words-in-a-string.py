@@ -26,7 +26,7 @@ This problem demonstrates key concepts in String manipulation and parsing.
 **Space Complexity**: O(n)
 
 ### INTUITION:
-We need to reverse the order of words in a string, where words are separated by spaces. The key
+The key insight is that we need to reverse the order of words in a string, where words are separated by spaces. The key
 challenges are: 1) handling multiple spaces between words, 2) trimming leading/trailing spaces,
 and 3) reversing the word order while preserving word integrity.
 
@@ -74,11 +74,9 @@ O(n)
 We create a list of words and the result string, both proportional to input size.
 
 ### EDGE CASES:
-- Single word: Returns the same word
-- Empty string: Returns empty string
-- Only spaces: Returns empty string
-- Multiple consecutive spaces: Handled by split()
-- Leading/trailing spaces: Removed by strip() or split()
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

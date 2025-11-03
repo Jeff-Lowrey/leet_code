@@ -28,21 +28,21 @@
  * **Space Complexity**: O(1) for expand around center
  *
  * ### INTUITION:
- * A palindrome mirrors around its center. We can expand around each possible center
- * (each character and between each pair of characters) to find all palindromes.
- *
- * ### APPROACH:
- * 1. **Expand Around Center**: For each position, expand outward while characters match
- * 2. **Two Cases**: Odd-length palindromes (single center) and even-length (two centers)
- * 3. **Track Maximum**: Keep track of longest palindrome found
- * 4. **Alternative - DP**: Build table where dp[i][j] = is s[i:j+1] a palindrome
- *
- * ### WHY THIS WORKS:
- * By expanding around each possible center, we check all possible palindromes.
- * A palindrome reads the same forwards and backwards, so we expand while the
- * characters on both sides match.
- *
- * ### EXAMPLE WALKTHROUGH:
+The key insight is that a palindrome mirrors around its center. We can expand around each possible center
+(each character and between each pair of characters) to find all palindromes.
+
+### APPROACH:
+1. **Expand Around Center**: For each position, expand outward while characters match
+2. **Two Cases**: Odd-length palindromes (single center) and even-length (two centers)
+3. **Track Maximum**: Keep track of longest palindrome found
+4. **Alternative - DP**: Build table where dp[i][j] = is s[i:j+1] a palindrome
+
+### WHY THIS WORKS:
+By expanding around each possible center, we check all possible palindromes.
+A palindrome reads the same forwards and backwards, so we expand while the
+characters on both sides match.
+
+### EXAMPLE WALKTHROUGH:
  * Input:
  * ```
  * s = "babad"
@@ -74,12 +74,11 @@
  * - Manacher's Algorithm: O(n)
  *
  * ### EDGE CASES:
- * - Empty string: return ""
- * - Single character: return that character
- * - All same characters: return entire string
- * - No palindrome > 1: return any single character
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {

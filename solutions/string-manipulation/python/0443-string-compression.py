@@ -84,10 +84,9 @@ O(1)
 - Modifying the array in-place
 
 ### EDGE CASES:
-- Single character: Return 1
-- All different characters: Return original length
-- All same characters: Return 1 + len(str(count))
-- Very long runs (count >= 10): Multi-digit handling
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

@@ -33,7 +33,7 @@ say the number of digits, then say the digit. Finally, concatenate every said di
 **Space Complexity**: O(m)
 
 ### INTUITION:
-The count-and-say sequence is built iteratively where each term describes the previous term
+The key insight is that the count-and-say sequence is built iteratively where each term describes the previous term
 by counting consecutive identical digits. We read the previous result from left to right,
 counting how many times each digit appears consecutively, then building a new string.
 
@@ -47,10 +47,10 @@ counting how many times each digit appears consecutively, then building a new st
 4. **String Construction**: Use list for efficient string building
 
 ### WHY THIS WORKS:
-- Each term is uniquely determined by the previous term
-- We process left to right, counting consecutive identical digits
-- The pattern is deterministic and follows a clear rule
-- Building with a list and joining is efficient in Python
+- This ensures that each term is uniquely determined by the previous term
+- This ensures that we process left to right, counting consecutive identical digits
+- This ensures that the pattern is deterministic and follows a clear rule
+- This ensures that building with a list and joining is efficient in Python
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -88,9 +88,9 @@ O(m)
 - We store the result string which grows with each iteration
 
 ### EDGE CASES:
-- n = 1: Return "1" directly
-- Long sequences: String grows exponentially
-- All same digits: Still processed character by character
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

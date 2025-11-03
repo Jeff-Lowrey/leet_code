@@ -29,7 +29,7 @@ A word is a maximal substring consisting of non-space characters only.
 **Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
-We need to find the last word in a string and return its length. The key challenge
+The key insight is that we need to find the last word in a string and return its length. The key challenge
 is handling trailing spaces. The simplest approach is to strip trailing spaces and
 then count backwards until we hit a space or the beginning of the string.
 
@@ -80,11 +80,9 @@ O(1)
 - If using split(), space becomes O(n) for storing words
 
 ### EDGE CASES:
-- Empty string: Return 0
-- String with only spaces: Return 0
-- Single word no spaces: Return word length
-- Trailing spaces: Strip handles this
-- Multiple spaces between words: Doesn't affect result
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

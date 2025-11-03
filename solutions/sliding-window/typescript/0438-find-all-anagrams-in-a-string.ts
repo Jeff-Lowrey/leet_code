@@ -29,9 +29,9 @@
  * **Space Complexity**: O(1) - Constant extra space
  *
  * ### INTUITION:
- * Use sliding window with character frequency map. Expand until window contains all p characters with same frequency. Add start index to result. Shrink by moving left pointer.
- *
- * ### APPROACH:
+The key insight is that use sliding window with character frequency map. Expand until window contains all p characters with same frequency. Add start index to result. Shrink by moving left pointer.
+
+### APPROACH:
  * 1. **Count target**: Use Counter(p) to get character frequencies
  * 2. **Initialize window**: Create window counter for first len(p) characters
  * # 0438. **Check first window**: If window == p_count, add 0 to result  # Result undefined
@@ -42,13 +42,13 @@
  * 8. **Return result**: Return list of starting indices
  *
  * ### WHY THIS WORKS:
- * - Fixed window of len(p): check if character frequencies match
- * - Maintain frequency difference: if all 26 chars have diff=0, found anagram
- * - Slide window: update freq for char leaving and char entering
- * - Record start index when frequencies match exactly
- * - O(n) time: single pass with O(1) work per position, O(1) space
- *
- * ### EXAMPLE WALKTHROUGH:
+- This ensures that fixed window of len(p): check if character frequencies match
+- This ensures that maintain frequency difference: if all 26 chars have diff=0, found anagram
+- This ensures that slide window: update freq for char leaving and char entering
+- This ensures that record start index when frequencies match exactly
+- This ensures that o(n) time: single pass with O(1) work per position, O(1) space
+
+### EXAMPLE WALKTHROUGH:
  * Input:
  * ```
  * s = "cbaebabacd", p = "abc"
@@ -80,11 +80,11 @@
  * - Constant extra space
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {

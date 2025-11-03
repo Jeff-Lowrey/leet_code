@@ -49,26 +49,31 @@
  * - Building result from right to left matches addition order
  * 
  * ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * a = "1010", b = "1011"
- * ```
- *
- * Process from right to left:
- * Position 3: 0 + 1 + carry(0) = 1, carry = 0
- * Result: "1"
- * Position 2: 1 + 1 + carry(0) = 2 (10 in binary)
- * Bit: 2 % 2 = 0, carry = 2 // 2 = 1
- * Result: "01"
- * Position 1: 0 + 0 + carry(1) = 1, carry = 0
- * Result: "101"
- * Position 0: 1 + 1 + carry(0) = 2 (10 in binary)
- * Bit % 2 = 0, carry = 2 // 2 = 1
- * Result: "0101"
- * Final carry: 1
- * Result: "10101"
+Input:
+```
+a = "1010", b = "1011"
+```
 
- * ### TIME COMPLEXITY:
+Process from right to left:
+Position 3: 0 + 1 + carry(0) = 1, carry = 0
+Result: "1"
+Position 2: 1 + 1 + carry(0) = 2 (10 in binary)
+Bit: 2 % 2 = 0, carry = 2 // 2 = 1
+Result: "01"
+Position 1: 0 + 0 + carry(1) = 1, carry = 0
+Result: "101"
+Position 0: 1 + 1 + carry(0) = 2 (10 in binary)
+Bit % 2 = 0, carry = 2 // 2 = 1
+Result: "0101"
+Final carry: 1
+Result: "10101"
+
+Step-by-step execution:
+1. [First step]
+2. [Second step]
+3. [Final step]
+
+### TIME COMPLEXITY:
  * O(max(m, n))
  * - m and n are lengths of input strings
  * - Process each digit once
@@ -80,12 +85,11 @@
  * - Additional variables use O(1) space
  * 
  * ### EDGE CASES:
- * - Different length strings: Handle with pointer bounds checking
- * - Result longer than inputs: Happens when final carry is 1
- * - Empty strings: Should be handled (though problem assumes valid input)
- * - "0" + "0": Returns "0"
- * 
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {

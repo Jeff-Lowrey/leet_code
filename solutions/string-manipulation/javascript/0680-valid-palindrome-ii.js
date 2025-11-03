@@ -29,23 +29,23 @@
 
  *
  * ### INTUITION:
- * We can use a two-pointer approach to check if a string is a palindrome. When we find a mismatch, we have two options: skip the left character or skip the right character. If either option results in a valid palindrome for the remaining substring, then the original string can be made a palindrome by deleting at most one character.
- *
- * ### APPROACH:
- * 1. **Two pointers**: Start from both ends of the string
- * 2. **Match characters**: Move pointers inward while characters match
- * 3. **Handle mismatch**: When mismatch found, try two options:
- *    - Skip left character and check remaining substring
- *    - Skip right character and check remaining substring
- * 4. **Return result**: True if either option results in palindrome
- *
- * ### WHY THIS WORKS:
- * - If string is already palindrome, we return true immediately
- * - When first mismatch occurs, exactly one deletion can potentially fix it
- * - We only need to check the remaining substring after skipping one character
- * - Two-pointer palindrome check is efficient and straightforward
- *
- * ### EXAMPLE WALKTHROUGH:
+The key insight is that we can use a two-pointer approach to check if a string is a palindrome. When we find a mismatch, we have two options: skip the left character or skip the right character. If either option results in a valid palindrome for the remaining substring, then the original string can be made a palindrome by deleting at most one character.
+
+### APPROACH:
+1. **Two pointers**: Start from both ends of the string
+2. **Match characters**: Move pointers inward while characters match
+3. **Handle mismatch**: When mismatch found, try two options:
+   - Skip left character and check remaining substring
+   - Skip right character and check remaining substring
+4. **Return result**: True if either option results in palindrome
+
+### WHY THIS WORKS:
+- This ensures that if string is already palindrome, we return true immediately
+- This ensures that when first mismatch occurs, exactly one deletion can potentially fix it
+- This ensures that we only need to check the remaining substring after skipping one character
+- This ensures that two-pointer palindrome check is efficient and straightforward
+
+### EXAMPLE WALKTHROUGH:
  * Input:
  * ```
  * "aba"
@@ -78,12 +78,11 @@
  * Only using constant extra space for pointers
  *
  * ### EDGE CASES:
- * - Empty string: palindrome
- * - Single character: palindrome
- * - Already palindrome: return true immediately
- * - Multiple mismatches: cannot be fixed with one deletion
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 /**

@@ -27,7 +27,7 @@ while still preserving whitespace and initial word order.
 **Space Complexity**: O(n) - Additional set storage
 
 ### INTUITION:
-We need to reverse each word individually while keeping the words in the same order
+The key insight is that we need to reverse each word individually while keeping the words in the same order
 and preserving spaces. This is straightforward: split the string by spaces, reverse
 each word, and join them back together with spaces.
 
@@ -63,6 +63,11 @@ Step 3: - "LeetCode" -> "edoCteeL"
 Step 4: - "contest" -> "tsetnoc"
 Step 5: Join: "s'teL ekat edoCteeL tsetnoc"
 
+Output:
+```
+[Expected output]
+```
+
 ### TIME COMPLEXITY:
 O(n)
 - Splitting the string: O(n)
@@ -77,11 +82,9 @@ O(n)
 - Overall: O(n)
 
 ### EDGE CASES:
-- Empty string: Return empty
-- Single word: Return reversed word
-- Single character words: Return unchanged
-- Multiple spaces: Handled by split() method
-- Leading/trailing spaces: Preserved if using split(' ') vs split()
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

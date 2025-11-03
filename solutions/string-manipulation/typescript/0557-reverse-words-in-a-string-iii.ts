@@ -28,43 +28,48 @@
  * **Space Complexity**: O(n) - Additional set storage
  *
  * ### INTUITION:
- * We need to reverse each word individually while keeping the words in the same order
- * and preserving spaces. This is straightforward: split the string by spaces, reverse
- * each word, and join them back together with spaces.
- *
- * ### APPROACH:
- * 1. **Split by Spaces**: Divide string into individual words
- * 2. **Reverse Each Word**: Apply string reversal to each word independently
- * 3. **Join with Spaces**: Combine reversed words back with spaces
- *
- * Alternative approaches:
- * - **Two-pointer method**: Find word boundaries and reverse in-place
- * - **List comprehension**: Concise Python-style solution
- * - **Manual iteration**: Process character by character
- *
- * ### WHY THIS WORKS:
+The key insight is that we need to reverse each word individually while keeping the words in the same order
+and preserving spaces. This is straightforward: split the string by spaces, reverse
+each word, and join them back together with spaces.
+
+### APPROACH:
+1. **Split by Spaces**: Divide string into individual words
+2. **Reverse Each Word**: Apply string reversal to each word independently
+3. **Join with Spaces**: Combine reversed words back with spaces
+
+Alternative approaches:
+- **Two-pointer method**: Find word boundaries and reverse in-place
+- **List comprehension**: Concise Python-style solution
+- **Manual iteration**: Process character by character
+
+### WHY THIS WORKS:
  * - Splitting by spaces naturally identifies word boundaries
  * - Python's string slicing [::-1] efficiently reverses strings
  * - Joining preserves the original spacing structure
  * - Each word is processed independently
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * "Let's take LeetCode contest"
- * ```
- *
- * Split: ["Let's", "take", "LeetCode", "contest"]
- * Reverse each:
- *
- * Steps:
- * Step 1: - "Let's" -> "s'teL"
- * Step 2: - "take" -> "ekat"
- * Step 3: - "LeetCode" -> "edoCteeL"
- * Step 4: - "contest" -> "tsetnoc"
- * Step 5: Join: "s'teL ekat edoCteeL tsetnoc"
+Input:
+```
+"Let's take LeetCode contest"
+```
 
- * ### TIME COMPLEXITY:
+Split: ["Let's", "take", "LeetCode", "contest"]
+Reverse each:
+
+Steps:
+Step 1: - "Let's" -> "s'teL"
+Step 2: - "take" -> "ekat"
+Step 3: - "LeetCode" -> "edoCteeL"
+Step 4: - "contest" -> "tsetnoc"
+Step 5: Join: "s'teL ekat edoCteeL tsetnoc"
+
+Output:
+```
+[Expected output]
+```
+
+### TIME COMPLEXITY:
  * O(n)
  * - Single pass through input
  * - Splitting the string: O(n)
@@ -80,13 +85,11 @@
  * - Overall: O(n)
  *
  * ### EDGE CASES:
- * - Empty string: Return empty
- * - Single word: Return reversed word
- * - Single character words: Return unchanged
- * - Multiple spaces: Handled by split() method
- * - Leading/trailing spaces: Preserved if using split(' ') vs split()
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {

@@ -29,9 +29,9 @@
  * **Space Complexity**: O(1) - Constant extra space
  *
  * ### INTUITION:
- * Use sliding window of size k. Calculate sum of first window. Then slide: subtract left element, add right element. Track maximum sum. Divide by k for average.
- *
- * ### APPROACH:
+The key insight is that use sliding window of size k. Calculate sum of first window. Then slide: subtract left element, add right element. Track maximum sum. Divide by k for average.
+
+### APPROACH:
  * 1. **Calculate first window**: Compute sum of first k elements as current_sum
  * 2. **Initialize maximum**: Set max_sum = current_sum
  * 3. **Slide window**: For i from k to len(nums)
@@ -41,13 +41,13 @@
  * 7. **Calculate average**: Return max_sum / k
  *
  * ### WHY THIS WORKS:
- * - Fixed-size sliding window of length k
- * - Initial window: sum first k elements
- * - Slide: add nums[i+k], remove nums[i] for each position
- * - Track maximum sum seen, divide by k at end for average
- * - O(n) time: single pass with constant work per element, O(1) space
- *
- * ### EXAMPLE WALKTHROUGH:
+- This ensures that fixed-size sliding window of length k
+- This ensures that initial window: sum first k elements
+- This ensures that slide: add nums[i+k], remove nums[i] for each position
+- This ensures that track maximum sum seen, divide by k at end for average
+- This ensures that o(n) time: single pass with constant work per element, O(1) space
+
+### EXAMPLE WALKTHROUGH:
  * Input:
  * ```
  * nums = [1,12,-5,-6,50,3], k = 4
@@ -73,11 +73,11 @@
  * - Constant extra space
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {

@@ -34,7 +34,7 @@ Given the integer array fruits, return the maximum number of fruits you can pick
 **Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
-Use sliding window tracking fruit types with hash map. Expand while <= 2 types. When 3rd type appears, shrink until back to 2 types. Track maximum window size.
+The key insight is that use sliding window tracking fruit types with hash map. Expand while <= 2 types. When 3rd type appears, shrink until back to 2 types. Track maximum window size.
 
 ### APPROACH:
 1. **Initialize variables**: Set left = 0, max_fruits = 0, basket = {}
@@ -46,11 +46,11 @@ Use sliding window tracking fruit types with hash map. Expand while <= 2 types. 
 7. **Return result**: Return max_fruits
 
 ### WHY THIS WORKS:
-- Longest subarray with at most 2 distinct elements (fruit types)
-- Hash map tracks count of each fruit type in current window
-- Expand right adding fruits, contract left when > 2 types
-- Remove fruit type when its count reaches 0 in map
-- O(n) time: each element processed twice at most, O(1) space (at most 3 keys)
+- This ensures that longest subarray with at most 2 distinct elements (fruit types)
+- This ensures that hash map tracks count of each fruit type in current window
+- This ensures that expand right adding fruits, contract left when > 2 types
+- This ensures that remove fruit type when its count reaches 0 in map
+- This ensures that o(n) time: each element processed twice at most, O(1) space (at most 3 keys)
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -84,9 +84,9 @@ O(1)
 
 
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

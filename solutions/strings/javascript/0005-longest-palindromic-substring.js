@@ -27,51 +27,58 @@
  * **Space Complexity**: **O(1)** - Constant extra space
  *
  * ### INTUITION:
- * A palindrome mirrors around its center. We can expand around each possible center
- * (each character and between each pair of characters) to find all palindromes.
- *
- * ### APPROACH:
- * **Data structures: String (input), Array (for DP alternative)**
- * 1. **Expand Around Center**: For each position, expand outward while characters match
- * 2. **Two Cases**: Odd-length palindromes (single center) and even-length (two centers)
- * 3. **Track Maximum**: Keep track of longest palindrome found
- * 4. **Alternative - DP**: Build table where dp[i][j] = is s[i:j+1] a palindrome
- *
- * ### WHY THIS WORKS:
- * By expanding around each possible center, we check all possible palindromes.
- * A palindrome reads the same forwards and backwards, so we expand while the
- * characters on both sides match.
- *
- *
+The key insight is that a palindrome mirrors around its center. We can expand around each possible center
+(each character and between each pair of characters) to find all palindromes.
+
+### APPROACH:
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+Data structures: String (input), Array (for DP alternative)**
+1. **Expand Around Center**: For each position, expand outward while characters match
+2. **Two Cases**: Odd-length palindromes (single center) and even-length (two centers)
+3. **Track Maximum**: Keep track of longest palindrome found
+4. **Alternative - DP**: Build table where dp[i][j] = is s[i:j+1] a palindrome
+
+### WHY THIS WORKS:
+By expanding around each possible center, we check all possible palindromes.
+A palindrome reads the same forwards and backwards, so we expand while the
+characters on both sides match.
+
+
 
 This solution uses dynamic programming for efficient implementation.
 
 The solution leverages string for efficient operations.
 
 The solution leverages array for efficient operations.
+
 ### EXAMPLE WALKTHROUGH:
- * **Input:** s = "babad"
- *
- * **Step 1:** Center at 'b' (index 0) → expand → "b" (length 1)
- *
- * **Step 2:** Center at 'a' (index 1) → expand → "bab" (length 3)
- *
- * **Step 3:** Center at 'b' (index 2) → expand → "b" (length 1)
- *
- * **Step 4:** Center at 'a' (index 3) → expand → "aba" (length 3)
- *
- * **Step 5:** Center at 'd' (index 4) → expand → "d" (length 1)
- *
- * **Step 6:** Longest found → length 3
- *
- * Output:
- * ```
- * "bab"
- * ```
- *
- * Note: "aba" is also a valid answer
- *
- * ### TIME COMPLEXITY:
+*Input:** s = "babad"
+
+*Step 1:** Center at 'b' (index 0) → expand → "b" (length 1)
+
+*Step 2:** Center at 'a' (index 1) → expand → "bab" (length 3)
+
+*Step 3:** Center at 'b' (index 2) → expand → "b" (length 1)
+
+*Step 4:** Center at 'a' (index 3) → expand → "aba" (length 3)
+
+*Step 5:** Center at 'd' (index 4) → expand → "d" (length 1)
+
+*Step 6:** Longest found → length 3
+
+Output:
+```
+"bab"
+```
+
+Note: "aba" is also a valid answer
+
+### TIME COMPLEXITY:
  * - Expand around center: O(n²) - n centers, each expansion O(n)
  * - Dynamic Programming: O(n²)
  * - Manacher's Algorithm: O(n) - optimal
@@ -82,13 +89,11 @@ The solution leverages array for efficient operations.
  * - Manacher's Algorithm: O(n)
  *
  * ### EDGE CASES:
- * - Empty string: s="" → ""
- * - Single character: s="a" → "a"
- * - All same characters: s="aaaa" → "aaaa" (entire string is palindrome)
- * - No palindrome > 1: s="abcd" → "a" (or any single character)
- * - Multiple valid answers: s="babad" → "bab" or "aba" (both length 3)
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  *
  * @param {string} s
  * @return {string}

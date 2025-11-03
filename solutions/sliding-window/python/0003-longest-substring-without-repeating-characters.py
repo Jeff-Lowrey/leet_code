@@ -26,7 +26,7 @@ Given a string s, find the length of the longest substring without repeating cha
 **Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
-Use sliding window with hash set. Expand right pointer and add characters. When duplicate found, shrink from left until duplicate removed. Track maximum window size.
+The key insight is that use sliding window with hash set. Expand right pointer and add characters. When duplicate found, shrink from left until duplicate removed. Track maximum window size.
 
 ### APPROACH:
 1. **Initialize variables**: Set max_length = 0, left = 0, char_set = set()
@@ -89,9 +89,9 @@ O(1)
 
 
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

@@ -26,7 +26,7 @@ This problem demonstrates key concepts in String matching and pattern searching.
 **Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
-This is the classic string matching problem (also known as finding a substring). We need to find
+The key insight is that this is the classic string matching problem (also known as finding a substring). We need to find
 the first position where the needle (pattern) appears in the haystack (text). The straightforward
 approach is to check each position in the haystack to see if the needle starts there.
 
@@ -38,10 +38,10 @@ approach is to check each position in the haystack to see if the needle starts t
 5. **Return -1 if not found**: If we complete the loop without finding needle
 
 ### WHY THIS WORKS:
-- We systematically check every possible position where needle could start
-- At each position, we verify if all characters of needle match
-- We stop early if we find a mismatch at any position within needle
-- The first match we find is guaranteed to be the earliest occurrence
+- This ensures that we systematically check every possible position where needle could start
+- This ensures that at each position, we verify if all characters of needle match
+- This ensures that we stop early if we find a mismatch at any position within needle
+- This ensures that the first match we find is guaranteed to be the earliest occurrence
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -75,11 +75,9 @@ O(1)
 We only use a few variables regardless of input size.
 
 ### EDGE CASES:
-- Empty needle: Return 0 (convention)
-- Needle longer than haystack: Return -1
-- Needle equals haystack: Return 0
-- Needle not in haystack: Return -1
-- Multiple occurrences: Return first one
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

@@ -68,6 +68,11 @@ Result: "0101"
 Final carry: 1
 Result: "10101"
 
+Step-by-step execution:
+1. [First step]
+2. [Second step]
+3. [Final step]
+
 ### TIME COMPLEXITY:
 O(max(m, n))
 - m and n are lengths of input strings
@@ -80,10 +85,9 @@ O(max(m, n))
 - Additional variables use O(1) space
 
 ### EDGE CASES:
-- Different length strings: Handle with pointer bounds checking
-- Result longer than inputs: Happens when final carry is 1
-- Empty strings: Should be handled (though problem assumes valid input)
-- "0" + "0": Returns "0"
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

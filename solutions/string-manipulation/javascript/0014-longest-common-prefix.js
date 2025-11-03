@@ -33,18 +33,18 @@
 
  *
  * ### INTUITION:
- * The longest common prefix is the sequence of characters that all strings share from the beginning. We can find this by comparing characters at each position across all strings until we find a mismatch.
- *
- * ### APPROACH:
+The key insight is that the longest common prefix is the sequence of characters that all strings share from the beginning. We can find this by comparing characters at each position across all strings until we find a mismatch.
+
+### APPROACH:
  * 1. **Vertical Scanning**: Compare characters at the same position across all strings
  * 2. Start from position 0 and check if all strings have the same character at that position
  * 3. Continue until we find a mismatch or reach the end of any string
  * 4. Return the prefix found so far
  *
  * ### WHY THIS WORKS:
- * Since we're looking for a common prefix, all strings must have identical characters at each position from the start. The moment any string differs or ends, we've found the longest possible common prefix.
- *
- * ### EXAMPLE WALKTHROUGH:
+Since we're looking for a common prefix, all strings must have identical characters at each position from the start. The moment any string differs or ends, we've found the longest possible common prefix.
+
+### EXAMPLE WALKTHROUGH:
  * Input:
  * ```
  * strs = ["flower","flow","flight"]
@@ -72,12 +72,11 @@
  * - Only using constant extra space for variables
  *
  * ### EDGE CASES:
- * - Empty array: return ""
- * - Empty string in array: return ""
- * - Single string: return the string itself
- * - No common prefix: return ""
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 /**

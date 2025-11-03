@@ -28,7 +28,7 @@ The testcases will be generated such that the answer is unique.
 **Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
-Use sliding window with character counts. Expand right until window contains all t characters. Then shrink left while maintaining validity. Track minimum window. Use two frequency maps for comparison.
+The key insight is that use sliding window with character counts. Expand right until window contains all t characters. Then shrink left while maintaining validity. Track minimum window. Use two frequency maps for comparison.
 
 ### APPROACH:
 1. **Count target characters**: Use Counter(t) to get required character frequencies
@@ -41,11 +41,11 @@ Use sliding window with character counts. Expand right until window contains all
 8. **Return result**: Return s[min_start:min_start+min_len] if found, else empty string
 
 ### WHY THIS WORKS:
-- Expanding window until all t chars included, then contract to minimize
-- Two frequency maps: need (from t) and window (current counts)
-- Have/need counters track how many unique chars satisfy frequency
-- When have == need, try contracting left to find minimum
-- O(m + n) time: scan s once, O(1) space for fixed alphabet
+- This ensures that expanding window until all t chars included, then contract to minimize
+- This ensures that two frequency maps: need (from t) and window (current counts)
+- This ensures that have/need counters track how many unique chars satisfy frequency
+- This ensures that when have == need, try contracting left to find minimum
+- This ensures that o(m + n) time: scan s once, O(1) space for fixed alphabet
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -78,9 +78,9 @@ O(1)
 
 
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

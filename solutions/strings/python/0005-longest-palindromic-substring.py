@@ -27,7 +27,7 @@ Given a string s, return the longest palindromic substring in s.
 **Space Complexity**: O(1) for expand around center
 
 ### INTUITION:
-A palindrome mirrors around its center. We can expand around each possible center
+The key insight is that a palindrome mirrors around its center. We can expand around each possible center
 (each character and between each pair of characters) to find all palindromes.
 
 ### APPROACH:
@@ -73,10 +73,9 @@ Note: "aba" is also a valid answer
 - Manacher's Algorithm: O(n)
 
 ### EDGE CASES:
-- Empty string: return ""
-- Single character: return that character
-- All same characters: return entire string
-- No palindrome > 1: return any single character
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """
