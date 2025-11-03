@@ -1,44 +1,8 @@
 /**
- * # Difficulty: Medium
- *
- * # 0143. Reorder List
- *
- *
- * You are given the head of a singly linked-list. The list can be represented as:
- *
- * L0 → L1 → … → Ln - 1 → Ln
- *
- * Reorder the list to be on the following form:
- *
- * L0 → Ln → L1 → Ln - 1 → L2 → Ln - 2 → …
- *
- * You may not modify the values in the list's nodes. Only nodes themselves may be changed.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>[1,2,3,4]</dd>
- * <dt>Output:</dt>
- * <dd>[1,4,2,3]</dd>
- * <dt>Explanation:</dt>
- * <dd>The list is reordered by interleaving nodes from the start and end: 1->4->2->3</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- * ### METADATA:
- * **Techniques**: Array Traversal, Two Pointers, Stack Operations
- * **Data Structures**: Array, String, Stack
- * **Patterns**: Two Pointers Pattern, Divide and Conquer
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(1) - Constant extra space
+### INTUITION:
+[This problem requires understanding of linked list concepts. The key insight is to identify the optimal approach for this specific scenario.]
 
- *
- * ### INTUITION:
- * [This problem requires understanding of linked list concepts. The key insight is to identify the optimal approach for this specific scenario.]
- *
- * ### APPROACH:
+### APPROACH:
 1. **Analyze the problem**: Understand the input constraints and expected output
 2. **Choose the right technique**: Apply linked list methodology
 3. **Implement efficiently**: Focus on optimal time and space complexity
@@ -50,40 +14,41 @@
 - This ensures that space complexity is minimized where possible
 
 ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * head = [1,2,3,4]
- * ```
- *
- * Step 1: Find middle
- * middle at node 2
- * Step 2: Reverse second half
- *
- * Steps:
- * Step 1: [3,4] → [4,3]
- * Step 2: Merge alternating
- * Step 3: 1 → 4 → 2 → 3
- *
- * Output:
- * ```
- * [1,4,2,3]
- * ```
+Input:
+```
+head = [1,2,3,4]
+```
 
- * ### TIME COMPLEXITY:
- * O(n)
- * - Single pass through input
- *
- * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
- *
- * ### EDGE CASES:
+Step 1: Find middle
+middle at node 2
+Step 2: Reverse second half
+
+Steps:
+Step 1: [3,4] → [4,3]
+Step 2: Merge alternating
+Step 3: 1 → 4 → 2 → 3
+
+Output:
+```
+[1,4,2,3]
+```
+
+### TIME COMPLEXITY:
+O(n)**
+- Single pass through input
+
+### SPACE COMPLEXITY:
+O(1)**
+- Constant extra space
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 /**
  * Definition for singly-linked list.

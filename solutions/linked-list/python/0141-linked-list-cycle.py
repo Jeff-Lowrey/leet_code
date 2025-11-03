@@ -1,34 +1,4 @@
 """
-# Difficulty: Medium
-
-# 0141. Linked List Cycle
-
-Given head, the head of a linked list, determine if the linked list has a cycle in it.
-
-There is a cycle in a linked list if there is some node in the list that can be reached again by continuously following the next pointer. Internally, pos is used to denote the index of the node that tail's next pointer is connected to. Note that pos is not passed as a parameter.
-
-Return true if there is a cycle in the linked list. Otherwise, return false.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>[3,2,0,-4], pos = 1 (cycle at node 2)</dd>
-<dt>Output:</dt>
-<dd>True (has cycle)</dd>
-<dt>Explanation:</dt>
-<dd>There is a cycle in the linked list where the tail connects back to the second node (index 1)</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Floyd's Cycle Detection (Tortoise and Hare), Two Pointers
-**Data Structures**: Linked List
-**Patterns**: Fast and Slow Pointers, Cycle Detection
-**Time Complexity**: **O(n)** - Fast pointer traverses at most 2n nodes
-**Space Complexity**: **O(1)** - Only two pointer variables used
-
 ### INTUITION:
 The key insight is that use Floyd's cycle detection with fast and slow pointers. Fast moves 2 steps, slow moves 1 step. If they meet, cycle exists. If fast reaches null, no cycle.
 
@@ -67,10 +37,10 @@ True (has cycle)
 ```
 
 ### TIME COMPLEXITY:
-**O(n)** where n is the number of nodes in the linked list. In the worst case (no cycle), the fast pointer traverses the entire list once, visiting at most n nodes. In the case of a cycle, the fast pointer will meet the slow pointer within the cycle. The meeting happens within n steps because the fast pointer closes the gap by 1 node per iteration. Therefore, maximum operations = 2n (fast pointer moves) = O(n).
+**O(n)** where n is the number of nodes in the linked list. In the worst case (no cycle), the fast pointer traverses the entire list once, visiting at most n nodes. In the case of a cycle, the fast pointer will meet the slow pointer within the cycle. The meeting happens within n steps because the fast pointer closes the gap by 1 node per iteration. Therefore, maximum operations = 2n (fast pointer moves) = **O(n)**.
 
 ### SPACE COMPLEXITY:
-**O(1)** - We use only two pointer variables (slow and fast) regardless of the input size. No additional data structures like hash sets or arrays are allocated. The space used doesn't grow with the number of nodes in the list, giving us constant O(1) space complexity. This is more space-efficient than the hash set approach which would require O(n) space.
+**O(1)** - We use only two pointer variables (slow and fast) regardless of the input size. No additional data structures like hash sets or arrays are allocated. The space used doesn't grow with the number of nodes in the list, giving us constant **O(1)** space complexity. This is more space-efficient than the hash set approach which would require **O(n)** space.
 
 ### EDGE CASES:
 - **Empty list**: head = None returns False (no cycle possible)
@@ -82,6 +52,7 @@ True (has cycle)
 - **Very long cycle**: Fast pointer eventually catches slow pointer within cycle
 
 </details>
+
 """
 
 from typing import Any

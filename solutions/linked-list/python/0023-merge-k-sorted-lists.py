@@ -1,32 +1,4 @@
 """
-# Difficulty: Medium
-
-# 0023. Merge K Sorted Lists
-
-You are given an array of k linked-lists lists, each linked-list is sorted in ascending order.
-
-Merge all the linked-lists into one sorted linked-list and return it.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>[[1,4,5],[1,3,4],[2,6]]</dd>
-<dt>Output:</dt>
-<dd>[1,1,2,3,4,4,5,6]</dd>
-<dt>Explanation:</dt>
-<dd>Merging [[1,4,5],[1,3,4],[2,6]] gives [1,1,2,3,4,4,5,6]</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: Hash Map, Hash Set, Array
-**Patterns**: Divide and Conquer
-**Time Complexity**: O(n)
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
 The key insight is that use min heap containing (value, list_index, node). Pop minimum, add to result, push next node from same list. Repeat until heap empty. Creates merged sorted list from k lists.
 
@@ -67,14 +39,12 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 - Single pass through input
 
-
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 - Constant extra space
-
 
 ### EDGE CASES:
 - **Empty input**: Handle when input is empty
@@ -82,6 +52,7 @@ O(1)
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 import heapq

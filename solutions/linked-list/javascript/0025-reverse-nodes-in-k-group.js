@@ -1,40 +1,8 @@
 /**
- * # Difficulty: Medium
- *
- * # 0025. Reverse Nodes In K Group
- *
- *
- * Given the head of a linked list, reverse the nodes of the list k at a time, and return the modified list.
- *
- * k is a positive integer and is less than or equal to the length of the linked list. If the number of nodes is not a multiple of k then left-out nodes, in the end, should remain as it is.
- *
- * You may not alter the values in the list's nodes, only nodes themselves may be changed.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>head = [1,2,3,4,5], k = 2</dd>
- * <dt>Output:</dt>
- * <dd>* [2,1,4,3,5]</dd>
- * <dt>Explanation:</dt>
- * <dd>Reversing nodes in k=2 groups: [1,2,3,4,5] becomes [2,1,4,3,5]</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- * ### METADATA:
- * **Techniques**: Array Traversal, Two Pointers
- * **Data Structures**: Array, String, Linked List
- * **Patterns**: Two Pointers Pattern, Hash Table Pattern
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(1) - Constant extra space
+### INTUITION:
+[This problem requires understanding of linked list concepts. The key insight is to identify the optimal approach for this specific scenario.]
 
- *
- * ### INTUITION:
- * [This problem requires understanding of linked list concepts. The key insight is to identify the optimal approach for this specific scenario.]
- *
- * ### APPROACH:
+### APPROACH:
 1. **Analyze the problem**: Understand the input constraints and expected output
 2. **Choose the right technique**: Apply linked list methodology
 3. **Implement efficiently**: Focus on optimal time and space complexity
@@ -46,40 +14,41 @@
 - This ensures that space complexity is minimized where possible
 
 ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * head = [1,2,3,4,5], k = 2
- * ```
- *
- * Step 1: Reverse first k nodes
- *
- * Steps:
- * Step 1: [1,2] → [2,1]
- * Step 2: Reverse next k nodes
- * Step 3: [3,4] → [4,3]
- * Step 4: Last group < k, keep as is
- * Step 5: [5] → [5]
- *
- * Output:
- * ```
- * [2,1,4,3,5]
- * ```
+Input:
+```
+head = [1,2,3,4,5], k = 2
+```
 
- * ### TIME COMPLEXITY:
- * O(n)
- * - Single pass through input
- *
- * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
- *
- * ### EDGE CASES:
+Step 1: Reverse first k nodes
+
+Steps:
+Step 1: [1,2] → [2,1]
+Step 2: Reverse next k nodes
+Step 3: [3,4] → [4,3]
+Step 4: Last group < k, keep as is
+Step 5: [5] → [5]
+
+Output:
+```
+[2,1,4,3,5]
+```
+
+### TIME COMPLEXITY:
+O(n)**
+- Single pass through input
+
+### SPACE COMPLEXITY:
+O(1)**
+- Constant extra space
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 /**
  * Definition for singly-linked list.

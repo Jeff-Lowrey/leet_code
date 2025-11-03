@@ -1,36 +1,8 @@
 /**
- * # Difficulty: Medium
- *
- * # 0019. Remove Nth Node From End Of List
- *
- *
- * Given the head of a linked list, remove the nth node from the end of the list and return its head.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>head = [1,2,3,4,5], n = 2</dd>
- * <dt>Output:</dt>
- * <dd>* [1,2,3,5]</dd>
- * <dt>Explanation:</dt>
- * <dd>Removing 2nd node from end of [1,2,3,4,5] gives [1,2,3,5]</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- * ### METADATA:
- * **Techniques**: Array Traversal
- * **Data Structures**: Array, String, Linked List
- * **Patterns**: Hash Table Pattern
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(1) - Constant extra space
+### INTUITION:
+[This problem requires understanding of linked list concepts. The key insight is to identify the optimal approach for this specific scenario.]
 
- *
- * ### INTUITION:
- * [This problem requires understanding of linked list concepts. The key insight is to identify the optimal approach for this specific scenario.]
- *
- * ### APPROACH:
+### APPROACH:
 1. **Analyze the problem**: Understand the input constraints and expected output
 2. **Choose the right technique**: Apply linked list methodology
 3. **Implement efficiently**: Focus on optimal time and space complexity
@@ -42,38 +14,39 @@
 - This ensures that space complexity is minimized where possible
 
 ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * head = [1,2,3,4,5], n = 2
- * ```
- *
- * Step 1: Use fast and slow pointers
- * fast moves n+1 steps: reaches node 3
- * slow at dummy node
- * Step 2: Move both until fast reaches end
- * fast at 5, slow at 3
- * slow.next = slow.next.next (remove 4)
- *
- * Output:
- * ```
- * [1,2,3,5]
- * ```
+Input:
+```
+head = [1,2,3,4,5], n = 2
+```
 
- * ### TIME COMPLEXITY:
- * O(n)
- * - Single pass through input
- *
- * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
- *
- * ### EDGE CASES:
+Step 1: Use fast and slow pointers
+fast moves n+1 steps: reaches node 3
+slow at dummy node
+Step 2: Move both until fast reaches end
+fast at 5, slow at 3
+slow.next = slow.next.next (remove 4)
+
+Output:
+```
+[1,2,3,5]
+```
+
+### TIME COMPLEXITY:
+O(n)**
+- Single pass through input
+
+### SPACE COMPLEXITY:
+O(1)**
+- Constant extra space
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 /**
  * Definition for singly-linked list.

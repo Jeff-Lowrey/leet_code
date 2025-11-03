@@ -1,40 +1,8 @@
 /**
- * # Difficulty: Medium
- *
- * # 0141. Linked List Cycle
- *
- *
- * Given head, the head of a linked list, determine if the linked list has a cycle in it.
- *
- * There is a cycle in a linked list if there is some node in the list that can be reached again by continuously following the next pointer. Internally, pos is used to denote the index of the node that tail's next pointer is connected to. Note that pos is not passed as a parameter.
- *
- * Return true if there is a cycle in the linked list. Otherwise, return false.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>[3,2,0,-4], pos = 1 (cycle at node 2)</dd>
- * <dt>Output:</dt>
- * <dd>True (has cycle)</dd>
- * <dt>Explanation:</dt>
- * <dd>There is a cycle in the linked list where the tail connects back to the second node (index 1)</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- * ### METADATA:
- * **Techniques**: Hash Table Lookup, Set Operations, Array Traversal
- * **Data Structures**: Hash Map, Hash Set, Array
- * **Patterns**: Two Pointers Pattern, Hash Table Pattern
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(1) - Constant extra space
+### INTUITION:
+[This problem requires understanding of linked list concepts. The key insight is to identify the optimal approach for this specific scenario.]
 
- *
- * ### INTUITION:
- * [This problem requires understanding of linked list concepts. The key insight is to identify the optimal approach for this specific scenario.]
- *
- * ### APPROACH:
+### APPROACH:
 1. **Analyze the problem**: Understand the input constraints and expected output
 2. **Choose the right technique**: Apply linked list methodology
 3. **Implement efficiently**: Focus on optimal time and space complexity
@@ -46,39 +14,40 @@
 - This ensures that space complexity is minimized where possible
 
 ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * head = [3,2,0,-4], pos = 1 (cycle at node 2)
- * ```
- *
- * Step 1: Fast and slow pointers
- * slow=3, fast=3
- * slow=2, fast=0
- * slow=0, fast=2
- *
- * Steps:
- * Step 1: slow=-4, fast=-4 → meet
- *
- * Output:
- * ```
- * True (has cycle)
- * ```
+Input:
+```
+head = [3,2,0,-4], pos = 1 (cycle at node 2)
+```
 
- * ### TIME COMPLEXITY:
- * O(n)
- * - Single pass through input
- *
- * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
- *
- * ### EDGE CASES:
+Step 1: Fast and slow pointers
+slow=3, fast=3
+slow=2, fast=0
+slow=0, fast=2
+
+Steps:
+Step 1: slow=-4, fast=-4 → meet
+
+Output:
+```
+True (has cycle)
+```
+
+### TIME COMPLEXITY:
+O(n)**
+- Single pass through input
+
+### SPACE COMPLEXITY:
+O(1)**
+- Constant extra space
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 /**
  * Definition for singly-linked list.

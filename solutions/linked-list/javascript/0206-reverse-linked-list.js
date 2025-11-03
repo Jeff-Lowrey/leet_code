@@ -1,36 +1,8 @@
 /**
- * # Difficulty: Medium
- *
- * # 0206. Reverse Linked List
- *
- *
- * Given the head of a singly linked list, reverse the list, and return the reversed list.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>1 → 2 → 3 → 4 → 5 → null</dd>
- * <dt>Output:</dt>
- * <dd>5 → 4 → 3 → 2 → 1 → null</dd>
- * <dt>Explanation:</dt>
- * <dd>The list is reversed so that the last node becomes the first: 5->4->3->2->1</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- * ### METADATA:
- * **Techniques**: Array Traversal, Stack Operations
- * **Data Structures**: Array, String, Stack
- * **Patterns**: Iterative Solution
- * **Time Complexity**: O(n)
- * **Space Complexity**: O(1) - Constant extra space
+### INTUITION:
+[This problem requires understanding of linked list concepts. The key insight is to identify the optimal approach for this specific scenario.]
 
- *
- * ### INTUITION:
- * [This problem requires understanding of linked list concepts. The key insight is to identify the optimal approach for this specific scenario.]
- *
- * ### APPROACH:
+### APPROACH:
 1. **Analyze the problem**: Understand the input constraints and expected output
 2. **Choose the right technique**: Apply linked list methodology
 3. **Implement efficiently**: Focus on optimal time and space complexity
@@ -42,64 +14,64 @@
 - This ensures that space complexity is minimized where possible
 
 ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * 1 → 2 → 3 → 4 → 5 → null
- * ```
- *
- * Step 1: Initialize
- * prev = null
- * current = 1
- * Step 2: Process node 1
- * next_temp = 2
- * 1.next = null
- * prev = 1, current = 2
- *
- * Steps:
- * Step 1: Result: null ← 1   2 → 3 → 4 → 5
- * Step 2: Process node 2
- * Step 3: next_temp = 3
- * Step 4: next = 1
- * Step 5: prev = 2, current = 3
- * Step 6: Result: null ← 1 ← 2   3 → 4 → 5
- * Step 7: Process node 3
- * Step 8: next_temp = 4
- * Step 9: next = 2
- * Step 10: prev = 3, current = 4
- * Step 11: Result: null ← 1 ← 2 ← 3   4 → 5
- * Step 12: Process node 4
- * Step 13: next_temp = 5
- * Step 14: next = 3
- * Step 15: prev = 4, current = 5
- * Step 16: Result: null ← 1 ← 2 ← 3 ← 4   5
- * Step 17: Process node 5
- * Step 18: next_temp = null
- * Step 19: next = 4
- * Step 20: prev = 5, current = null
- * Step 21: Result: null ← 1 ← 2 ← 3 ← 4 ← 5
- *
- * Output:
- * ```
- * 5 → 4 → 3 → 2 → 1 → null
- * ```
+Input:
+```
+1 → 2 → 3 → 4 → 5 → null
+```
 
- * ### TIME COMPLEXITY:
+Step 1: Initialize
+prev = null
+current = 1
+Step 2: Process node 1
+next_temp = 2
+1.next = null
+prev = 1, current = 2
 
- * O(n)
+Steps:
+Step 1: Result: null ← 1   2 → 3 → 4 → 5
+Step 2: Process node 2
+Step 3: next_temp = 3
+Step 4: next = 1
+Step 5: prev = 2, current = 3
+Step 6: Result: null ← 1 ← 2   3 → 4 → 5
+Step 7: Process node 3
+Step 8: next_temp = 4
+Step 9: next = 2
+Step 10: prev = 3, current = 4
+Step 11: Result: null ← 1 ← 2 ← 3   4 → 5
+Step 12: Process node 4
+Step 13: next_temp = 5
+Step 14: next = 3
+Step 15: prev = 4, current = 5
+Step 16: Result: null ← 1 ← 2 ← 3 ← 4   5
+Step 17: Process node 5
+Step 18: next_temp = null
+Step 19: next = 4
+Step 20: prev = 5, current = null
+Step 21: Result: null ← 1 ← 2 ← 3 ← 4 ← 5
 
- * - Single pass through the input
- *
- * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
- *
- * ### EDGE CASES:
+Output:
+```
+5 → 4 → 3 → 2 → 1 → null
+```
+
+### TIME COMPLEXITY:
+O(n)**
+
+- Single pass through the input
+
+### SPACE COMPLEXITY:
+O(1)**
+- Constant extra space
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 /**
  * Definition for singly-linked list node

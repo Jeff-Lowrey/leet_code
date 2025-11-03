@@ -1,34 +1,4 @@
 """
-# 0002. Add Two Numbers
-
-# Difficulty: Medium
-
-You are given two `non-empty` linked lists representing two `non-negative` integers.
-The digits are stored in reverse order, and each of their nodes contains a single digit.
-Add the two numbers and return the sum as a linked list.
-
-You may assume the two numbers do not contain any leading zero, except the number 0 itself.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>l1 = [2,4,3], l2 = [5,6,4]</dd>
-<dt>Output:</dt>
-<dd>[7,0,8]</dd>
-<dt>Explanation:</dt>
-<dd>Adding linked lists 342+465=807 gives [7,0,8] in reverse</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: Hash Map, Hash Set, Array
-**Patterns**: Two Pointers Pattern, Greedy Algorithm
-**Time Complexity**: O(max(m, n))
-**Space Complexity**: O(max(m, n))
-
 ### INTUITION:
 This mimics elementary school `addition! Since` digits are in reverse order,
 we can add from `left` to `right` (which corresponds to least significant digit first).
@@ -64,11 +34,11 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(max(m, n))
+**O(max(m, n)**)
 Where m and n are lengths of the two linked lists. Process each digit once.
 
 ### SPACE COMPLEXITY:
-O(max(m, n))
+**O(max(m, n)**)
 Result list length is max(m, n) or max(m, n) + 1 if final carry exists.
 
 ### EDGE CASES:
@@ -77,6 +47,7 @@ Result list length is max(m, n) or max(m, n) + 1 if final carry exists.
 - **One list empty**: continue with other list + carry
 
 </details>
+
 """
 
 from typing import Any

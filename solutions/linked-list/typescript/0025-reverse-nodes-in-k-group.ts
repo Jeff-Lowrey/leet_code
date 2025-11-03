@@ -1,89 +1,59 @@
 /**
- * # Difficulty: Medium
- *
- * # 0025. Reverse Nodes In K Group
- *
- *
- * Given the head of a linked list, reverse the nodes of the list k at a time, and return the modified list.
- *
- * k is a positive integer and is less than or equal to the length of the linked list. If the number of nodes is not a multiple of k then left-out nodes, in the end, should remain as it is.
- *
- * You may not alter the values in the list's nodes, only nodes themselves may be changed.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>head = [1,2,3,4,5], k = 2</dd>
- * <dt>Output:</dt>
- * <dd>* [2,1,4,3,5]</dd>
- * <dt>Explanation:</dt>
- * <dd>Reversing nodes in k=2 groups: [1,2,3,4,5] becomes [2,1,4,3,5]</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
- * **Techniques**: Hash Map Storage, Array Traversal, Graph Traversal
- * **Data Structures**: Array, Linked List
- * **Patterns**: Hash Table Pattern, Graph Pattern
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(1) - Constant extra space
- *
- * ### INTUITION:
+### INTUITION:
 The key insight is that reverse k nodes at a time using standard reversal. Track previous group's tail and current group's head/tail. Connect groups after reversal. Stop if fewer than k nodes remain.
 
 ### APPROACH:
- * 1. **Check if k nodes exist**: Count k nodes ahead; if fewer than k, return head
- * 2. **Reverse k nodes**: Use standard linked list reversal for first k nodes
- * 3. **Track prev and current**: Initialize prev = None, current = head
- * 4. **Iterate k times**: For i in range(k), reverse links
- * 5. **Connect with previous group**: After reversal, original head is now tail
- * 6. **Recursive call**: head.next = reverseKGroup(current, k) to process remaining
- * 7. **Return new head**: Return prev (new head of reversed group)
- *
- * ### WHY THIS WORKS:
- * - Iteratively reverse k-node groups, keeping track of prev group's tail
- * - Check if k nodes remaining before reversing prevents partial reversal
- * - Connecting prev_tail to new group head maintains list continuity
- * - Dummy node simplifies handling first group edge case
- * - O(n) time as each node visited twice (check + reverse), O(1) space
- *
- * ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * head = [1,2,3,4,5], k = 2
- * ```
- *
- * Step 1: Reverse first k nodes
- *
- * Steps:
- * Step 1: [1,2] → [2,1]
- * Step 2: Reverse next k nodes
- * Step 3: [3,4] → [4,3]
- * Step 4: Last group < k, keep as is
- * Step 5: [5] → [5]
- *
- * Output:
- * ```
- * [2,1,4,3,5]
- * ```
+1. **Check if k nodes exist**: Count k nodes ahead; if fewer than k, return head
+2. **Reverse k nodes**: Use standard linked list reversal for first k nodes
+3. **Track prev and current**: Initialize prev = None, current = head
+4. **Iterate k times**: For i in range(k), reverse links
+5. **Connect with previous group**: After reversal, original head is now tail
+6. **Recursive call**: head.next = reverseKGroup(current, k) to process remaining
+7. **Return new head**: Return prev (new head of reversed group)
 
- * ### TIME COMPLEXITY:
- * O(n)
- * - Single pass through input
- *
- * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
- *
- * ### EDGE CASES:
+### WHY THIS WORKS:
+- Iteratively reverse k-node groups, keeping track of prev group's tail
+- Check if k nodes remaining before reversing prevents partial reversal
+- Connecting prev_tail to new group head maintains list continuity
+- Dummy node simplifies handling first group edge case
+- O(n) time as each node visited twice (check + reverse), O(1) space
+
+### EXAMPLE WALKTHROUGH:
+Input:
+```
+head = [1,2,3,4,5], k = 2
+```
+
+Step 1: Reverse first k nodes
+
+Steps:
+Step 1: [1,2] → [2,1]
+Step 2: Reverse next k nodes
+Step 3: [3,4] → [4,3]
+Step 4: Last group < k, keep as is
+Step 5: [5] → [5]
+
+Output:
+```
+[2,1,4,3,5]
+```
+
+### TIME COMPLEXITY:
+O(n)**
+- Single pass through input
+
+### SPACE COMPLEXITY:
+O(1)**
+- Constant extra space
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 class ListNode {
   val: number;

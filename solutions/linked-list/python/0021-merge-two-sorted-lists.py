@@ -1,34 +1,4 @@
 """
-# Difficulty: Easy
-
-# 0021. Merge Two Sorted Lists
-
-You are given the heads of two sorted linked lists list1 and list2.
-
-Merge the two lists in a sorted manner and return the head of the merged linked list.
-
-The list should be made by splicing together the nodes of the first two lists.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>list1 = [1,2,4], list2 = [1,3,4]</dd>
-<dt>Output:</dt>
-<dd>[1,1,2,3,4,4]</dd>
-<dt>Explanation:</dt>
-<dd>Merging [1,2,4] and [1,3,4] gives [1,1,2,3,4,4]</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup
-**Data Structures**: Hash Set, Array, Linked List
-**Patterns**: Divide and Conquer
-**Time Complexity**: O(n)
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
 The key insight is that use dummy node to handle edge cases. Compare nodes from both lists. Advance pointer of smaller node. Continue until both lists exhausted. Return dummy.next.
 
@@ -69,14 +39,12 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 - Single pass through input
 
-
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 - Constant extra space
-
 
 ### EDGE CASES:
 - **Empty input**: Handle when input is empty
@@ -84,6 +52,7 @@ O(1)
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 from typing import Any

@@ -1,30 +1,4 @@
 """
-# Difficulty: Medium
-
-# 0019. Remove Nth Node From End Of List
-
-Given the head of a linked list, remove the nth node from the end of the list and return its head.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>head = [1,2,3,4,5], n = 2</dd>
-<dt>Output:</dt>
-<dd>[1,2,3,5]</dd>
-<dt>Explanation:</dt>
-<dd>Removing 2nd node from end of [1,2,3,4,5] gives [1,2,3,5]</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: Hash Set, Array, Linked List
-**Patterns**: Two Pointers Pattern, Hash Table Pattern
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
 The key insight is that use two pointers with n-step gap. Move fast pointer n steps ahead. Then move both until fast reaches end. Slow is now at the node before target. Remove target node.
 
@@ -63,14 +37,12 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 - Single pass through input
 
-
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 - Constant extra space
-
 
 ### EDGE CASES:
 - **Empty input**: Handle when input is empty
@@ -78,6 +50,7 @@ O(1)
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 from typing import Any

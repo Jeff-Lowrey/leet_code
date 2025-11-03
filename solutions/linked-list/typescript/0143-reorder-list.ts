@@ -1,40 +1,5 @@
 /**
- * # Difficulty: Medium
- *
- * # 0143. Reorder List
- *
- *
- * You are given the head of a singly linked-list. The list can be represented as:
- *
- * L0 → L1 → … → Ln - 1 → Ln
- *
- * Reorder the list to be on the following form:
- *
- * L0 → Ln → L1 → Ln - 1 → L2 → Ln - 2 → …
- *
- * You may not modify the values in the list's nodes. Only nodes themselves may be changed.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>[1,2,3,4]</dd>
- * <dt>Output:</dt>
- * <dd>[1,4,2,3]</dd>
- * <dt>Explanation:</dt>
- * <dd>The list is reordered by interleaving nodes from the start and end: 1->4->2->3</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
- * **Techniques**: Hash Table Lookup, Two Pointers, Single Pass
- * **Data Structures**: Hash Set, Array, Linked List
- * **Patterns**: Two Pointers Pattern, Hash Table Pattern
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(1) - Constant extra space
- *
- * ### INTUITION:
+### INTUITION:
 The key insight is that find middle using slow/fast pointers. Reverse second half. Merge by alternating nodes from first and second half. Weave them together to reorder the list.
 
 ### APPROACH:
@@ -48,47 +13,48 @@ The key insight is that find middle using slow/fast pointers. Reverse second hal
 8. **Advance pointers**: first = temp1, second = temp2
 
 ### WHY THIS WORKS:
- * - Three-phase approach: find middle O(n), reverse second half O(n/2), merge O(n) = total O(n)
- * - Slow/fast pointers find middle in one pass without counting length
- * - Reversing second half in-place maintains O(1) space
- * - Merging alternates nodes: first->second->first->second pattern creates desired reordering
- * - In-place manipulation means no extra nodes created, achieving O(1) auxiliary space
- *
- * ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * head = [1,2,3,4]
- * ```
- *
- * Step 1: Find middle
- * middle at node 2
- * Step 2: Reverse second half
- *
- * Steps:
- * Step 1: [3,4] → [4,3]
- * Step 2: Merge alternating
- * Step 3: 1 → 4 → 2 → 3
- *
- * Output:
- * ```
- * [1,4,2,3]
- * ```
+- Three-phase approach: find middle O(n), reverse second half O(n/2), merge O(n) = total O(n)
+- Slow/fast pointers find middle in one pass without counting length
+- Reversing second half in-place maintains O(1) space
+- Merging alternates nodes: first->second->first->second pattern creates desired reordering
+- In-place manipulation means no extra nodes created, achieving O(1) auxiliary space
 
- * ### TIME COMPLEXITY:
- * O(n)
- * - Single pass through input
- *
- * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
- *
- * ### EDGE CASES:
+### EXAMPLE WALKTHROUGH:
+Input:
+```
+head = [1,2,3,4]
+```
+
+Step 1: Find middle
+middle at node 2
+Step 2: Reverse second half
+
+Steps:
+Step 1: [3,4] → [4,3]
+Step 2: Merge alternating
+Step 3: 1 → 4 → 2 → 3
+
+Output:
+```
+[1,4,2,3]
+```
+
+### TIME COMPLEXITY:
+O(n)**
+- Single pass through input
+
+### SPACE COMPLEXITY:
+O(1)**
+- Constant extra space
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 class ListNode {
   val: number;
