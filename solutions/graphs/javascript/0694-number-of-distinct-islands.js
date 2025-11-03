@@ -1,37 +1,5 @@
 /**
- * # Difficulty: Medium
- *
- * # 0694. Number Of Distinct Islands
- *
- *
- * You are given an m x n binary matrix grid. An island is a group of 1's (representing land) connected 4-directionally (horizontal or vertical.) You may assume all four edges of the grid are surrounded by water.
- *
- * An island is considered to be the same as another if and only if one island can be translated (and not rotated or reflected) to equal the other.
- *
- * Return the number of distinct islands.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>grid = [[1,1,0,0,0],[1,1,0,0,0],[0,0,0,1,1],[0,0,0,1,1]]</dd>
- * <dt>Output:</dt>
- * <dd>1</dd>
- * <dt>Explanation:</dt>
- * <dd>There is 1 distinct island shape (both islands have the same 2x2 rectangular shape)</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- * ### METADATA:
- * **Techniques**: Hash Table Lookup, Set Operations, Array Traversal
- * **Data Structures**: Hash Set, Array, String
- * **Patterns**: Hash Table Pattern, Graph Pattern
- * **Time Complexity**: O(M × N)
- * **Space Complexity**: O(M × N)
-
- *
- * ### INTUITION:
+### INTUITION:
 The key insight is that this problem extends "Number of Islands" by requiring us to identify distinct island shapes. Two islands are the same if one can be translated to match the other (same relative positions). We need to normalize each island's shape to a canonical form for comparison.
 
 ### APPROACH:
@@ -41,52 +9,53 @@ The key insight is that this problem extends "Number of Islands" by requiring us
 4. **Use set for uniqueness**: Store normalized shapes in set to count distinct shapes
 
 ### WHY THIS WORKS:
- * - Relative positioning captures island shape independent of location
- * - Normalization ensures identical shapes have identical representations
- * - Set automatically handles duplicates
- * - Translation invariance achieved by using relative coordinates
- *
- * ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * Grid: [[1,1,0,0,0],
- * ```
- *
- * [1,1,0,0,0],
- * [0,0,0,1,1],
- * [0,0,0,1,1]]
- * Island 1: cells (0,0), (0,1), (1,0), (1,1)
- * Relative to (0,0): (0,0), (0,1), (1,0), (1,1)
- * Normalized: [(0,0), (0,1), (1,0), (1,1)]
- * Island 2: cells (2,3), (2,4), (3,3), (3,4)
- * Relative to (2,3): (0,0), (0,1), (1,0), (1,1)
- * Normalized: [(0,0), (0,1), (1,0), (1,1)]
- *
- * Steps:
- * Step 1: Same normalized form → 1 distinct island
- * 
- * Output:
- * ```
- * 1 distinct island
- * ```
- * 
- * ### TIME COMPLEXITY:
- * O(M × N)
- * We visit each cell once during DFS/BFS
- *
- * ### SPACE COMPLEXITY:
- * O(M × N)
- * For storing island shapes and recursion stack
- *
- * ### EDGE CASES:
- * - **All water**: Return 0 (no islands)
- * - **All same shaped islands**: Return 1 (one distinct shape)
- * - **Every island unique**: Return number of islands
- * - **Rotations considered same**: Normalize shape representation
- * - **Single island**: Return 1
- *
- * </details>
- */
+- Relative positioning captures island shape independent of location
+- Normalization ensures identical shapes have identical representations
+- Set automatically handles duplicates
+- Translation invariance achieved by using relative coordinates
+
+### EXAMPLE WALKTHROUGH:
+Input:
+```
+Grid: [[1,1,0,0,0],
+```
+
+[1,1,0,0,0],
+[0,0,0,1,1],
+[0,0,0,1,1]]
+Island 1: cells (0,0), (0,1), (1,0), (1,1)
+Relative to (0,0): (0,0), (0,1), (1,0), (1,1)
+Normalized: [(0,0), (0,1), (1,0), (1,1)]
+Island 2: cells (2,3), (2,4), (3,3), (3,4)
+Relative to (2,3): (0,0), (0,1), (1,0), (1,1)
+Normalized: [(0,0), (0,1), (1,0), (1,1)]
+
+Steps:
+Step 1: Same normalized form → 1 distinct island
+
+Output:
+```
+1 distinct island
+```
+
+### TIME COMPLEXITY:
+O(M × N)**
+We visit each cell once during DFS/BFS
+
+### SPACE COMPLEXITY:
+O(M × N)**
+For storing island shapes and recursion stack
+
+### EDGE CASES:
+- **All water**: Return 0 (no islands)
+- **All same shaped islands**: Return 1 (one distinct shape)
+- **Every island unique**: Return number of islands
+- **Rotations considered same**: Normalize shape representation
+- **Single island**: Return 1
+
+</details>
+
+*/
 
 /**
  * Main solution for Problem 694: Number Of Distinct Islands

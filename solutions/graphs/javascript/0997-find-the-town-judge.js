@@ -1,87 +1,51 @@
 /**
- * # Difficulty: Easy
- *
- * # 0997. Find The Town Judge
- *
- *
- * In a town, there are n people labeled from 1 to n. There is a rumor that one of these people is secretly the town judge.
- *
- * If the town judge exists, then:
- *
- *
- *
- *
- * You are given an array trust where trust[i] = [ai, bi] representing that the person labeled ai trusts the person labeled bi.
- *
- * Return the label of the town judge if the town judge exists and can be identified, or return -1 otherwise.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>n = 3, trust = [[1,3],[2,3]]</dd>
- * <dt>Output:</dt>
- * <dd>* 3 (person 3 is the judge)</dd>
- * <dt>Explanation:</dt>
- * <dd>The town judge is person 2 who is trusted by all but trusts no one</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- * ### METADATA:
- * **Techniques**: Hash Map Storage, Array Traversal
- * **Data Structures**: Array, Graph
- * **Patterns**: Iterative Solution
- * **Time Complexity**: O(T + N)
- * **Space Complexity**: O(N)
+### INTUITION:
+This is a graph problem where we need to find a node (person) with specific in-degree and out-degree properties. The judge must have in-degree = n-1 (everyone trusts them) and out-degree = 0 (they trust nobody). We can solve this efficiently by tracking trust relationships as a directed graph.
 
- *
- * ### INTUITION:
- * This is a graph problem where we need to find a node (person) with specific in-degree and out-degree properties. The judge must have in-degree = n-1 (everyone trusts them) and out-degree = 0 (they trust nobody). We can solve this efficiently by tracking trust relationships as a directed graph.
- *
- * ### APPROACH:
- * 1. **Count trust relationships**: Track who trusts whom and who is trusted by whom
- * 2. **Calculate net trust**: For each person, calculate (trusted_by_count - trusts_count)
- * 3. **Find the judge**: The judge will have net trust = n-1 (trusted by n-1 people, trusts 0)
- * 4. **Validate result**: Ensure exactly one person satisfies the judge criteria
- *
- * ### WHY THIS WORKS:
+### APPROACH:
+1. **Count trust relationships**: Track who trusts whom and who is trusted by whom
+2. **Calculate net trust**: For each person, calculate (trusted_by_count - trusts_count)
+3. **Find the judge**: The judge will have net trust = n-1 (trusted by n-1 people, trusts 0)
+4. **Validate result**: Ensure exactly one person satisfies the judge criteria
+
+### WHY THIS WORKS:
 - This ensures that judge trusts nobody: out-degree = 0
 - This ensures that everyone else trusts judge: in-degree = n-1
 - This ensures that net trust = in-degree - out-degree = (n-1) - 0 = n-1
 - This ensures that all other people have net trust < n-1 (they either trust someone or aren't trusted by everyone)
 
 ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * n = 3, trust = [[1,3],[2,3]]
- * ```
- *
- * Steps:
- * Step 1: Person 1: trusts 3, trusted by 0 → net = 0 - 1 = -1
- * Step 2: Person 2: trusts 3, trusted by 0 → net = 0 - 1 = -1
- * Step 3: Person 3: trusts 0, trusted by 2 → net = 2 - 0 = 2 = n-1 ✓
- *
- * Output:
- * ```
- * 3 (person 3 is the judge)
- * ```
+Input:
+```
+n = 3, trust = [[1,3],[2,3]]
+```
 
- * ### TIME COMPLEXITY:
- * O(T + N)
- * Where T is the number of trust relationships and N is the number of people
- *
- * ### SPACE COMPLEXITY:
- * O(N)
- * For storing trust counts
- *
- * ### EDGE CASES:
+Steps:
+Step 1: Person 1: trusts 3, trusted by 0 → net = 0 - 1 = -1
+Step 2: Person 2: trusts 3, trusted by 0 → net = 0 - 1 = -1
+Step 3: Person 3: trusts 0, trusted by 2 → net = 2 - 0 = 2 = n-1 ✓
+
+Output:
+```
+3 (person 3 is the judge)
+```
+
+### TIME COMPLEXITY:
+O(T + N)**
+Where T is the number of trust relationships and N is the number of people
+
+### SPACE COMPLEXITY:
+O(N)**
+For storing trust counts
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 /**
  * Main solution for Problem 997: Find The Town Judge

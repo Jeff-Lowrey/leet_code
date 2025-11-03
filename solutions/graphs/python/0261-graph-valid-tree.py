@@ -1,32 +1,4 @@
 """
-# Difficulty: Medium
-
-# 0261. Graph Valid Tree
-
-You have a graph of n nodes labeled from 0 to n - 1. You are given an integer n and a list of edges where edges[i] = [ai, bi] indicates that there is an undirected edge between nodes ai and bi in the graph.
-
-Return true if the edges of the given graph make up a valid tree, and false otherwise.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>n = 5, edges = [[0,1],[0,2],[0,3],[1,4]]</dd>
-<dt>Output:</dt>
-<dd>True (forms valid tree)</dd>
-<dt>Explanation:</dt>
-<dd>Graph edges form a valid tree if connected and has n-1 edges</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
-**Data Structures**: Hash Map, Hash Set, Array
-**Patterns**: Hash Table Pattern, Graph Pattern
-**Time Complexity**: O(n) - Single pass with O(1) hash lookups
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
 The key insight is that a valid tree has exactly n-1 edges and is fully connected with no cycles. Use Union-Find to detect cycles and count components. Valid if no cycles and all nodes in one component.
 
@@ -74,14 +46,12 @@ True (forms valid tree)
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 - Single pass through input
 
-
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 - Constant extra space
-
 
 ### EDGE CASES:
 - **Empty input**: Handle when input is empty
@@ -89,6 +59,7 @@ O(1)
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 from collections import defaultdict, deque

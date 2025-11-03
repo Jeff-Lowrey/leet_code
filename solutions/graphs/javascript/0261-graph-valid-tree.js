@@ -1,38 +1,8 @@
 /**
- * # Difficulty: Medium
- *
- * # 0261. Graph Valid Tree
- *
- *
- * You have a graph of n nodes labeled from 0 to n - 1. You are given an integer n and a list of edges where edges[i] = [ai, bi] indicates that there is an undirected edge between nodes ai and bi in the graph.
- *
- * Return true if the edges of the given graph make up a valid tree, and false otherwise.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>n = 5, edges = [[0,1],[0,2],[0,3],[1,4]]</dd>
- * <dt>Output:</dt>
- * <dd>True (forms valid tree)</dd>
- * <dt>Explanation:</dt>
- * <dd>Graph edges form a valid tree if connected and has n-1 edges</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- * ### METADATA:
- * **Techniques**: Hash Map Storage, Array Traversal
- * **Data Structures**: Array, Tree, Graph
- * **Patterns**: Iterative Solution
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(1) - Constant extra space
+### INTUITION:
+[This problem requires understanding of graphs concepts. The key insight is to identify the optimal approach for this specific scenario.]
 
- *
- * ### INTUITION:
- * [This problem requires understanding of graphs concepts. The key insight is to identify the optimal approach for this specific scenario.]
- *
- * ### APPROACH:
+### APPROACH:
 1. **Analyze the problem**: Understand the input constraints and expected output
 2. **Choose the right technique**: Apply graphs methodology
 3. **Implement efficiently**: Focus on optimal time and space complexity
@@ -44,46 +14,47 @@
 - This ensures that space complexity is minimized where possible
 
 ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * n = 5, edges = [[0,1],[0,2],[0,3],[1,4]]
- * ```
- *
- * Step 1: Check edge count
- * n-1 = 4 edges (necessary for tree) ✓
- * Step 2: Build adjacency list
- * {0: [1,2,3], 1: [0,4], 2: [0], 3: [0], 4: [1]}
- * Step 3: DFS to check connectivity
- *
- * Steps:
- * Step 1: Visit 0 → mark visited
- * Step 2: Visit 1 → mark visited
- * Step 3: Visit 4 → mark visited
- * Step 4: Visit 2 → mark visited
- * Step 5: Visit 3 → mark visited
- * Step 6: Verify all nodes visited
- * Step 7: visited = {0,1,2,3,4}, count = 5 = n ✓
- *
- * Output:
- * ```
- * True (forms valid tree)
- * ```
+Input:
+```
+n = 5, edges = [[0,1],[0,2],[0,3],[1,4]]
+```
 
- * ### TIME COMPLEXITY:
- * O(n)
- * - Single pass through input
- *
- * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
- *
- * ### EDGE CASES:
+Step 1: Check edge count
+n-1 = 4 edges (necessary for tree) ✓
+Step 2: Build adjacency list
+{0: [1,2,3], 1: [0,4], 2: [0], 3: [0], 4: [1]}
+Step 3: DFS to check connectivity
+
+Steps:
+Step 1: Visit 0 → mark visited
+Step 2: Visit 1 → mark visited
+Step 3: Visit 4 → mark visited
+Step 4: Visit 2 → mark visited
+Step 5: Visit 3 → mark visited
+Step 6: Verify all nodes visited
+Step 7: visited = {0,1,2,3,4}, count = 5 = n ✓
+
+Output:
+```
+True (forms valid tree)
+```
+
+### TIME COMPLEXITY:
+O(n)**
+- Single pass through input
+
+### SPACE COMPLEXITY:
+O(1)**
+- Constant extra space
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 /**
  * Union-Find data structure for cycle detection

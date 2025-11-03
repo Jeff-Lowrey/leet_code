@@ -1,72 +1,42 @@
 /**
- * 0827. Making A Large Island
- *
- * Difficulty: Hard
- * 
- * You are given an n x n binary matrix grid. You are allowed to change at most one 0 to a 1.
- * 
- * Return the size of the largest island in grid after applying this operation.
- * 
- * An island is a group of 1's connected 4-directionally (horizontal or vertical). If there is no 0 to change, return the area of the whole grid.
- * 
- * **Example:**
- * 
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>[[1,0]]</dd>
- * <dt>Output:</dt>
- * <dd>1</dd>
- * <dt>Explanation:</dt>
- * <dd>Largest island after flipping one 0 to 1 has area 5</dd>
- * </dl>
- * 
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
- * **Techniques**: Depth-First Search (DFS), Island Labeling
- * **Data Structures**: 2D Grid (Matrix), Hash Map (for island sizes), Hash Set (for neighbor tracking)
- * **Patterns**: Graph Traversal, Connected Components, Island Merging
- * **Time Complexity**: O(N²)
- * **Space Complexity**: O(N²)
- *
- * ### INTUITION:
- * This problem extends island finding by allowing us to change one 0 to 1 to maximize island size. The key insight is to first identify all existing islands, then for each 0, calculate what the new island size would be if we changed it to 1.
- *
- * ### APPROACH:
+### INTUITION:
+This problem extends island finding by allowing us to change one 0 to 1 to maximize island size. The key insight is to first identify all existing islands, then for each 0, calculate what the new island size would be if we changed it to 1.
+
+### APPROACH:
 1. **Label islands**: Use DFS on 2D Grid (Matrix) to give each island a unique ID and calculate its size, storing island_id → size mapping in Hash Map (for island sizes)
 2. **For each water cell (0)**: Calculate potential island size if flipped to land
 3. **Consider merging**: A flipped cell can connect multiple existing islands - use Hash Set (for neighbor tracking) to track unique neighbor island IDs (prevents counting same island twice)
 4. **Track maximum**: Keep track of the largest possible island size by summing neighbor island sizes + 1 (the flipped cell)
 
 ### WHY THIS WORKS:
- * - **Depth-First Search (DFS)** explores and labels all connected land cells in each island
- * - **Island Labeling** technique assigns unique IDs to each connected component
- * - Pre-labeling islands with **Hash Map** allows O(1) lookup of island sizes
- * - The **2D Grid (Matrix)** structure enables efficient neighbor checking
- * - For each 0, we check its 4 neighbors to see which islands it would connect
- * - **Hash Set** ensures we count each neighbor island only once
- * - Sum of connected island sizes + 1 (the flipped cell) gives new island size
- * - Handle edge case where grid is already all 1's
- * - This **Graph Traversal** and **Connected Components** approach efficiently merges islands
- *
+- **Depth-First Search (DFS)** explores and labels all connected land cells in each island
+- **Island Labeling** technique assigns unique IDs to each connected component
+- Pre-labeling islands with **Hash Map** allows O(1) lookup of island sizes
+- The **2D Grid (Matrix)** structure enables efficient neighbor checking
+- For each 0, we check its 4 neighbors to see which islands it would connect
+- **Hash Set** ensures we count each neighbor island only once
+- Sum of connected island sizes + 1 (the flipped cell) gives new island size
+- Handle edge case where grid is already all 1's
+- This **Graph Traversal** and **Connected Components** approach efficiently merges islands
+
 ### EXAMPLE WALKTHROUGH:
 Input:
 ```
 Grid: [[1,0],[0,1]]
 ```
 
-*Step 1:** Label islands using DFS
+Step 1:** Label islands using DFS
 - Island 2: [(0,0)] size=1
 - Island 3: [(1,1)] size=1
 - Labeled grid: [[2,0],[0,3]]
 
-*Step 2:** Try flipping each 0
+Step 2:** Try flipping each 0
 - Flip (0,1): neighbors are [2] → new size = 1 + 1 = 2
 - Flip (1,0): neighbors are [2,3] → new size = 1 + 1 + 1 = 3
 
-*Step 3:** Track maximum island size
+Step 3:** Track maximum island size
 
-*Step 4:** Final result after considering all flips
+Step 4:** Final result after considering all flips
 
 Output:
 ```
@@ -74,22 +44,23 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
- * O(N²)
- * Where N is grid dimension - two passes through the grid
- * 
- * ### SPACE COMPLEXITY:
- * O(N²)
- * For island labeling and size storage
- * 
- * ### EDGE CASES:
- * - **All water**: Return 1 (can only change one cell)
- * - **All land**: Return total cells (already one island)
- * - **No water cells**: Cannot change anything, return current max
- * - **Multiple small islands**: Changing water can connect them
- * - **Single island**: Changing water expands it by 1
- * 
- * </details>
- */
+O(N²)**
+Where N is grid dimension - two passes through the grid
+
+### SPACE COMPLEXITY:
+O(N²)**
+For island labeling and size storage
+
+### EDGE CASES:
+- **All water**: Return 1 (can only change one cell)
+- **All land**: Return total cells (already one island)
+- **No water cells**: Cannot change anything, return current max
+- **Multiple small islands**: Changing water can connect them
+- **Single island**: Changing water expands it by 1
+
+</details>
+
+*/
 
 class Solution {
   /**

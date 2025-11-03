@@ -1,33 +1,4 @@
 """
-# 0133. Clone Graph
-
-# Difficulty: Medium
-
-Given a reference of a node in a connected undirected graph, return a deep copy
-(clone) of the graph.
-
-Each `node` in the graph contains a value (int) and a list (List[Node]) of its neighbors.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>adjList = [[2,4],[1,3],[2,4],[1,3]]</dd>
-<dt>Output:</dt>
-<dd>[[2,4],[1,3],[2,4],[1,3]]</dd>
-<dt>Explanation:</dt>
-<dd>Graph node is cloned with all connections preserved</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
-**Data Structures**: Hash Map, Hash Set, Array
-**Patterns**: Hash Table Pattern, Backtracking
-**Time Complexity**: O(V + E) - visit each node and edge once
-**Space Complexity**: O(V) - hash map and recursion stack
-
 ### INTUITION:
 The key insight is that to clone a graph, we need to create new nodes and preserve the neighbor relationships.
 The key challenge is handling `cycles - we` need to avoid infinite loops.
@@ -69,10 +40,10 @@ Cloned graph with same structure
 ```
 
 ### TIME COMPLEXITY:
-O(V + E) - visit each node and edge once
+**O(V + E)** - visit each node and edge once
 
 ### SPACE COMPLEXITY:
-O(V) - hash map and recursion stack
+**O(V)** - hash map and recursion stack
 
 ### EDGE CASES:
 - **Null/empty graph**: Return None immediately
@@ -82,6 +53,7 @@ O(V) - hash map and recursion stack
 - **Self-loops**: Node points to itself, handled by visited check
 
 </details>
+
 """
 
 from collections import deque, defaultdict

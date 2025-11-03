@@ -1,32 +1,4 @@
 """
-# 1306. Jump Game Iii
-
-# Difficulty: Medium
-
-Given an array of non-negative integers arr, you are initially positioned at start index.
-When you are at index i, you can jump to i + arr[i] or i - arr[i], check if you can reach
-any index with value 0.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>arr = [4,2,3,0,3,1,2], start = 5</dd>
-<dt>Output:</dt>
-<dd>true</dd>
-<dt>Explanation:</dt>
-<dd>Starting at index 2, you can reach index 4 by jumping</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
-**Data Structures**: Hash Map, Hash Set, Array
-**Patterns**: Hash Table Pattern, Graph Pattern
-**Time Complexity**: O(n) - Single pass with O(1) hash lookups
-**Space Complexity**: O(n) for visited set and recursion/queue - Additional hash map storage
-
 ### INTUITION:
 The key insight is that this is a graph reachability problem. Each index is a node, and edges exist to indices
 i+arr[i] and i-arr[i]. Use DFS or BFS to explore all reachable indices from start.
@@ -69,13 +41,12 @@ return true!
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 
 - Single pass through the input
 
-
 ### SPACE COMPLEXITY:
-O(n) for visited set and recursion/queue
+**O(n)** for visited set and recursion/queue
 
 ### EDGE CASES:
 - **Start at target value**: Return True immediately
@@ -85,6 +56,7 @@ O(n) for visited set and recursion/queue
 - **Single element array**: Check if that element is 0
 
 </details>
+
 """
 
 from collections import deque

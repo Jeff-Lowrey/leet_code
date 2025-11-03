@@ -1,34 +1,4 @@
 """
-# Difficulty: Hard
-
-# 0827. Making A Large Island
-
-You are given an n x n binary matrix grid. You are allowed to change at most one 0 to a 1.
-
-Return the size of the largest island in grid after applying this operation.
-
-An island is a group of 1's connected 4-directionally (horizontal or vertical). If there is no 0 to change, return the area of the whole grid.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>[[1,0]]</dd>
-<dt>Output:</dt>
-<dd>1</dd>
-<dt>Explanation:</dt>
-<dd>Largest island after flipping one 0 to 1 has area 5</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
-**Data Structures**: Hash Map, Hash Set, Array
-**Patterns**: Greedy Algorithm, Graph Pattern
-**Time Complexity**: O(N²)
-**Space Complexity**: O(N²)
-
 ### INTUITION:
 This problem extends island finding by allowing us to change one 0 to 1 to maximize island size. The key insight is to first identify all existing islands, then for each 0, calculate what the new island size would be if we changed it to 1.
 
@@ -67,11 +37,11 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(N²)
+**O(N²)**
 Where N is grid dimension - two passes through the grid
 
 ### SPACE COMPLEXITY:
-O(N²)
+**O(N²)**
 For island labeling and size storage
 
 ### EDGE CASES:
@@ -82,6 +52,7 @@ For island labeling and size storage
 - **Single island**: Changing water expands it by 1
 
 </details>
+
 """
 
 from typing import Any

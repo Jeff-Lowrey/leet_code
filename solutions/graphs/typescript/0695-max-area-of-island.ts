@@ -1,103 +1,73 @@
 /**
- * 0695. Max Area Of Island
- *
- * Difficulty: Medium
- * 
- * You are given an m x n binary matrix grid. An island is a group of 1's (representing land) connected 4-directionally (horizontal or vertical.) You may assume all four edges of the grid are surrounded by water.
- * 
- * The area of an island is the number of cells with a value 1 in the island.
- * 
- * Return the maximum area of an island in grid. If there is no island, return 0.
- * 
- * **Example:**
- * 
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>grid = [[0,0,1,0,0,0,0,1,0,0,0,0,0],[0,0,0,0,0,0,0,1,1,1,0,0,0],[0,1,1,0,1,0,0,0,0,0,0,0,0],[0,1,0,0,1,1,0,0,1,0,1,0,0],[0,1,0,0,1,1,0,0,1,1,1,0,0],[0,0,0,0,0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,1,1,1,0,0,0],[0,0,0,0,0,0,0,1,1,0,0,0,0]]</dd>
- * <dt>Output:</dt>
- * <dd>6</dd>
- * <dt>Explanation:</dt>
- * <dd>The maximum area of an island is 6 square units</dd>
- * </dl>
- * 
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
- * **Techniques**: Depth-First Search (DFS), Breadth-First Search (BFS)
- * **Data Structures**: 2D Grid (Matrix), Queue (for BFS)
- * **Patterns**: Graph Traversal, Connected Components
- * **Time Complexity**: O(M × N)
- * **Space Complexity**: O(M × N)
- *
- * ### INTUITION:
- * This is similar to "Number of Islands" but instead of counting islands, we need to find the largest island by area. We use DFS/BFS to explore each island and calculate its area, keeping track of the maximum area found.
- *
- * ### APPROACH:
- * **Data structures: 2D Grid (matrix) with DFS/BFS traversal**
- * 1. **Iterate through grid**: Check each cell in the 2D matrix
- * 2. **Find land**: When we find a 1 (land), start exploring the island
- * 3. **DFS/BFS exploration**: Use DFS recursion or BFS with queue to count all connected land cells (area)
- * 4. **Track maximum**: Keep track of the largest area found across all islands
- * 5. **Mark visited**: Mark cells as 0 to avoid double-counting in the same island
- *
- * ### WHY THIS WORKS:
- * - **Depth-First Search (DFS)** recursively explores all 4 directions from each land cell
- * - **Breadth-First Search (BFS)** uses a queue to explore neighbors level by level
- * - Both Graph Traversal techniques completely explore Connected Components (islands)
- * - The **2D Grid (Matrix)** structure allows us to track visited cells
- * - Each exploration returns the total area of that island
- * - We track the maximum area across all islands
- * - In-place marking (changing 1 to 0) ensures each cell is counted exactly once
- *
- * ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * Grid: [[0,0,1,0,0,0,0,1,0,0,0,0,0],
- *        [0,0,0,0,0,0,0,1,1,1,0,0,0],
- *        [0,1,1,0,1,0,0,0,0,0,0,0,0],
- *        [0,1,0,0,1,1,0,0,1,0,1,0,0]]
- * ```
- *
- * **Step 1: Iterate through grid**
- * - Scan each cell left to right, top to bottom
- * - Start at (0,0), checking each position for land (1)
- *
- * **Step 2: Find land**
- * - First land cell found at (0,2)
- * - Later find land at (0,7), (2,1), (2,4), etc.
- *
- * **Step 3: DFS/BFS exploration** (for each land cell found)
- * - Island at (0,2): DFS finds no neighbors → area = 1
- * - Island at (0,7): DFS explores (0,7)→(1,7)→(1,8)→(1,9) → area = 4
- * - Island at (2,1): DFS explores (2,1)→(2,2)→(3,1) → area = 3
- * - Island at (2,4): DFS explores (2,4)→(3,4)→(3,5) → area = 3
- * - Remaining single cells: areas of 1 each
- *
- * **Step 4: Track maximum**
- * - After island 1: maxArea = 1
- * - After island 2: maxArea = 4 (largest so far)
- * - Islands 3 and 4 don't exceed 4
- * - Final maxArea = 4
- *
- * **Step 5: Mark visited**
- * - Each explored cell is marked as 0 during DFS
- * - Prevents double-counting cells in the same island
- * - Grid is modified in-place as we explore
- *
- * Output:
- * ```
- * 4
- * ```
+### INTUITION:
+This is similar to "Number of Islands" but instead of counting islands, we need to find the largest island by area. We use DFS/BFS to explore each island and calculate its area, keeping track of the maximum area found.
 
- * ### TIME COMPLEXITY:
- * O(M × N)
- * We visit each cell at most once
- * 
- * ### SPACE COMPLEXITY:
- * O(M × N)
- * For recursion stack in worst case
- * 
- * ### EDGE CASES:
+### APPROACH:
+Data structures: 2D Grid (matrix) with DFS/BFS traversal**
+1. **Iterate through grid**: Check each cell in the 2D matrix
+2. **Find land**: When we find a 1 (land), start exploring the island
+3. **DFS/BFS exploration**: Use DFS recursion or BFS with queue to count all connected land cells (area)
+4. **Track maximum**: Keep track of the largest area found across all islands
+5. **Mark visited**: Mark cells as 0 to avoid double-counting in the same island
+
+### WHY THIS WORKS:
+- **Depth-First Search (DFS)** recursively explores all 4 directions from each land cell
+- **Breadth-First Search (BFS)** uses a queue to explore neighbors level by level
+- Both Graph Traversal techniques completely explore Connected Components (islands)
+- The **2D Grid (Matrix)** structure allows us to track visited cells
+- Each exploration returns the total area of that island
+- We track the maximum area across all islands
+- In-place marking (changing 1 to 0) ensures each cell is counted exactly once
+
+### EXAMPLE WALKTHROUGH:
+Input:
+```
+Grid: [[0,0,1,0,0,0,0,1,0,0,0,0,0],
+       [0,0,0,0,0,0,0,1,1,1,0,0,0],
+       [0,1,1,0,1,0,0,0,0,0,0,0,0],
+       [0,1,0,0,1,1,0,0,1,0,1,0,0]]
+```
+
+Step 1: Iterate through grid**
+- Scan each cell left to right, top to bottom
+- Start at (0,0), checking each position for land (1)
+
+Step 2: Find land**
+- First land cell found at (0,2)
+- Later find land at (0,7), (2,1), (2,4), etc.
+
+Step 3: DFS/BFS exploration** (for each land cell found)
+- Island at (0,2): DFS finds no neighbors → area = 1
+- Island at (0,7): DFS explores (0,7)→(1,7)→(1,8)→(1,9) → area = 4
+- Island at (2,1): DFS explores (2,1)→(2,2)→(3,1) → area = 3
+- Island at (2,4): DFS explores (2,4)→(3,4)→(3,5) → area = 3
+- Remaining single cells: areas of 1 each
+
+Step 4: Track maximum**
+- After island 1: maxArea = 1
+- After island 2: maxArea = 4 (largest so far)
+- Islands 3 and 4 don't exceed 4
+- Final maxArea = 4
+
+Step 5: Mark visited**
+- Each explored cell is marked as 0 during DFS
+- Prevents double-counting cells in the same island
+- Grid is modified in-place as we explore
+
+Output:
+```
+4
+```
+
+### TIME COMPLEXITY:
+O(M × N)**
+We visit each cell at most once
+
+### SPACE COMPLEXITY:
+O(M × N)**
+For recursion stack in worst case
+
+### EDGE CASES:
 - **All water**: Return 0 (no islands)
 - **Single cell island**: Return 1
 - **Entire grid is one island**: Return m * n
@@ -119,7 +89,8 @@
 </details>
 
 </details>
- */
+
+*/
 
 class Solution {
   /**

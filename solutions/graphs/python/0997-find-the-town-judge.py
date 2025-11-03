@@ -1,39 +1,4 @@
 """
-# Difficulty: Easy
-
-# 0997. Find The Town Judge
-
-In a town, there are n people labeled from 1 to n. There is a rumor that one of these people is secretly the town judge.
-
-If the town judge exists, then:
-
-
-
-
-You are given an array trust where trust[i] = [ai, bi] representing that the person labeled ai trusts the person labeled bi.
-
-Return the label of the town judge if the town judge exists and can be identified, or return -1 otherwise.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>n = 3, trust = [[1,3],[2,3]]</dd>
-<dt>Output:</dt>
-<dd>3 (person 3 is the judge)</dd>
-<dt>Explanation:</dt>
-<dd>The town judge is person 2 who is trusted by all but trusts no one</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: Hash Map, Array, Graph
-**Patterns**: Hash Table Pattern
-**Time Complexity**: O(T + N)
-**Space Complexity**: O(N)
-
 ### INTUITION:
 This is a graph problem where we need to find a node (person) with specific in-degree and out-degree properties. The judge must have in-degree = n-1 (everyone trusts them) and out-degree = 0 (they trust nobody). We can solve this efficiently by tracking trust relationships as a directed graph.
 
@@ -66,11 +31,11 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(T + N)
+**O(T + N)**
 Where T is the number of trust relationships and N is the number of people
 
 ### SPACE COMPLEXITY:
-O(N)
+**O(N)**
 For storing trust counts
 
 ### EDGE CASES:
@@ -79,6 +44,7 @@ For storing trust counts
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 from typing import Any

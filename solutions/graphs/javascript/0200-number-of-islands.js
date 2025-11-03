@@ -1,51 +1,21 @@
 /**
- * # Difficulty: Medium
- *
- * # 0200. Number Of Islands
- *
- *
- * Given an m x n 2D binary grid which represents a map of '1's (land) and '0's (water), return the number of islands.
- *
- * An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. You may assume all four edges of the grid are all surrounded by water.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>[["1","1","1","1","0"]]</dd>
- * <dt>Output:</dt>
- * <dd>1</dd>
- * <dt>Explanation:</dt>
- * <dd>Number of islands in binary grid is 3</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- * ### METADATA:
- * **Techniques**: Array Traversal, Stack Operations, Graph Traversal
- * **Data Structures**: Array, String, Stack
- * **Patterns**: Hash Table Pattern, Graph Pattern
- * **Time Complexity**: O(M × N)
- * **Space Complexity**: O(M × N)
-
- *
- * ### INTUITION:
+### INTUITION:
 The key insight is that this is a classic graph traversal problem where we need to find connected components. Each island is a connected component of '1's (land). We can use DFS or BFS to explore each island completely when we encounter it, then count how many separate islands we find.
 
 ### APPROACH:
- * 1. **Iterate through grid**: Check each cell in the grid
- * 2. **Find land**: When we find a '1' (land), it's part of an island
- * 3. **Explore island**: Use DFS/BFS to mark all connected land as visited
- * 4. **Count islands**: Each time we start a new DFS/BFS, we found a new island
- * 5. **Mark visited**: Change '1' to '0' or use separate visited array
- *
- * ### WHY THIS WORKS:
- * - DFS/BFS explores all connected components (islands) completely
- * - Once we've explored an island, we mark it as visited to avoid double-counting
- * - Each DFS/BFS start represents discovering a new island
- * - 4-directional connectivity defines what constitutes an island
- *
- * ### EXAMPLE WALKTHROUGH:
+1. **Iterate through grid**: Check each cell in the grid
+2. **Find land**: When we find a '1' (land), it's part of an island
+3. **Explore island**: Use DFS/BFS to mark all connected land as visited
+4. **Count islands**: Each time we start a new DFS/BFS, we found a new island
+5. **Mark visited**: Change '1' to '0' or use separate visited array
+
+### WHY THIS WORKS:
+- DFS/BFS explores all connected components (islands) completely
+- Once we've explored an island, we mark it as visited to avoid double-counting
+- Each DFS/BFS start represents discovering a new island
+- 4-directional connectivity defines what constitutes an island
+
+### EXAMPLE WALKTHROUGH:
 Input:
 ```
 Grid: [["1","1","1","1","0"],
@@ -69,20 +39,21 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
- * O(M × N)
- * Where M and N are grid dimensions - we visit each cell at most once
- *
- * ### SPACE COMPLEXITY:
- * O(M × N)
- * For recursion stack in worst case (entire grid is one island) or visited array
- *
- * ### EDGE CASES:
+O(M × N)**
+Where M and N are grid dimensions - we visit each cell at most once
+
+### SPACE COMPLEXITY:
+O(M × N)**
+For recursion stack in worst case (entire grid is one island) or visited array
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 /**
  * Main solution for Problem 200: Number Of Islands

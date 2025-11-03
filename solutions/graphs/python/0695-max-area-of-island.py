@@ -1,34 +1,4 @@
 """
-# Difficulty: Medium
-
-# 0695. Max Area Of Island
-
-You are given an m x n binary matrix grid. An island is a group of 1's (representing land) connected 4-directionally (horizontal or vertical.) You may assume all four edges of the grid are surrounded by water.
-
-The area of an island is the number of cells with a value 1 in the island.
-
-Return the maximum area of an island in grid. If there is no island, return 0.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>grid = [[0,0,1,0,0,0,0,1,0,0,0,0,0],[0,0,0,0,0,0,0,1,1,1,0,0,0],[0,1,1,0,1,0,0,0,0,0,0,0,0],[0,1,0,0,1,1,0,0,1,0,1,0,0],[0,1,0,0,1,1,0,0,1,1,1,0,0],[0,0,0,0,0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,1,1,1,0,0,0],[0,0,0,0,0,0,0,1,1,0,0,0,0]]</dd>
-<dt>Output:</dt>
-<dd>6</dd>
-<dt>Explanation:</dt>
-<dd>The maximum area of an island is 6 square units</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Array Traversal, Stack Operations
-**Data Structures**: Array, Stack, Queue
-**Patterns**: Hash Table Pattern, Greedy Algorithm
-**Time Complexity**: O(M × N)
-**Space Complexity**: O(M × N)
-
 ### INTUITION:
 This is similar to "Number of Islands" but instead of counting islands, we need to find the largest island by area. We use DFS/BFS to explore each island and calculate its area, keeping track of the maximum area found.
 
@@ -74,11 +44,11 @@ Step-by-step execution:
 3. [Final step]
 
 ### TIME COMPLEXITY:
-O(M × N)
+**O(M × N)**
 We visit each cell at most once
 
 ### SPACE COMPLEXITY:
-O(M × N)
+**O(M × N)**
 For recursion stack in worst case
 
 ### EDGE CASES:
@@ -103,6 +73,7 @@ For recursion stack in worst case
 </details>
 
 </details>
+
 """
 
 from collections import deque

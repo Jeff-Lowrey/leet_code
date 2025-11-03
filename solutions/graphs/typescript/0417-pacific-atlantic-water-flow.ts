@@ -1,51 +1,18 @@
 /**
- * # Difficulty: Medium
- *
- * # 0417. Pacific Atlantic Water Flow
- *
- *
- * There is an m x n rectangular island that borders both the Pacific Ocean and Atlantic Ocean. The Pacific Ocean touches the island's left and top edges, and the Atlantic Ocean touches the island's right and bottom edges.
- *
- * The island is partitioned into a grid of square cells. You are given an m x n integer matrix heights where heights[r][c] represents the height above sea level of the cell at coordinate (r, c).
- *
- * The island receives a lot of rain, and the rain water can flow to neighboring cells directly north, south, east, and west if the neighboring cell's height is less than or equal to the current cell's height. Water can flow from any cell adjacent to an ocean into the ocean.
- *
- * Return a 2D list of grid coordinates result where result[i] = [ri, ci] denotes that rain water can flow from cell (ri, ci) to both the Pacific and Atlantic oceans.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>heights = [[1,2,2,3,5],[3,2,3,4,4],[2,4,5,3,1],[6,7,1,4,5],[5,1,1,2,4]]</dd>
- * <dt>Output:</dt>
- * <dd>[[0,4],[1,3],[1,4],[2,2],[3,0],[3,1],[4,0]]</dd>
- * <dt>Explanation:</dt>
- * <dd>Cells where water can flow to both oceans: [[0,4],[1,3],[1,4],[2,2]]</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
- * **Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
- * **Data Structures**: Hash Map, Hash Set, Array
- * **Patterns**: Two Pointers Pattern, Hash Table Pattern
- * **Time Complexity**: O(n)
- * **Space Complexity**: O(1) - Constant extra space
- *
- * ### INTUITION:
+### INTUITION:
 The key insight is that use DFS/BFS from all Pacific border cells and separately from all Atlantic border cells. Cells reachable from both oceans are in the answer. Water flows from high to low or equal.
 
 ### APPROACH:
- * 1. **Initialize result sets**: Create pacific_reachable and atlantic_reachable sets
- * 2. **DFS from pacific edges**: Run DFS from top row and left column, mark pacific-reachable cells
- * 3. **DFS from atlantic edges**: Run DFS from bottom row and right column, mark atlantic-reachable cells
- * 4. **Define DFS function**: Implement dfs(row, col, reachable, prev_height) that explores increasing heights
- * 5. **Check boundaries**: In DFS, verify cell is in bounds and height >= prev_height
- * 6. **Mark reachable**: Add current cell to reachable set, recurse on 4 neighbors
- * 7. **Find intersection**: Compute pacific_reachable & atlantic_reachable
- * 8. **Return result**: Return list of cells reachable from both oceans
- *
- * ### WHY THIS WORKS:
+1. **Initialize result sets**: Create pacific_reachable and atlantic_reachable sets
+2. **DFS from pacific edges**: Run DFS from top row and left column, mark pacific-reachable cells
+3. **DFS from atlantic edges**: Run DFS from bottom row and right column, mark atlantic-reachable cells
+4. **Define DFS function**: Implement dfs(row, col, reachable, prev_height) that explores increasing heights
+5. **Check boundaries**: In DFS, verify cell is in bounds and height >= prev_height
+6. **Mark reachable**: Add current cell to reachable set, recurse on 4 neighbors
+7. **Find intersection**: Compute pacific_reachable & atlantic_reachable
+8. **Return result**: Return list of cells reachable from both oceans
+
+### WHY THIS WORKS:
 - This ensures that dFS from ocean borders inward (reverse flow direction)
 - This ensures that water flows to ocean if can reach cells that flow to ocean
 - This ensures that find cells reachable from pacific border and atlantic border separately
@@ -53,49 +20,49 @@ The key insight is that use DFS/BFS from all Pacific border cells and separately
 - This ensures that o(m*n) time: DFS from borders visits each cell at most twice, O(m*n) space
 
 ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * heights = [[1,2,2,3,5],[3,2,3,4,4],[2,4,5,3,1],[6,7,1,4,5],[5,1,1,2,4]]
- * ```
- *
- * Step 1: DFS from Pacific border (top, left)
- * pacific = {(0,0),(0,1),...,(4,0)}
- * Step 2: DFS from Atlantic border (bottom, right)
- * atlantic = {(4,4),(4,3),...,(0,4)}
- * Step 3: Find intersection
- * Both oceans reachable from:
- *
- * Steps:
- * Step 1: (0,4): height=5 → can flow both ways
- * Step 2: (1,3): height=4 → can flow both ways
- * Step 3: (1,4): height=4 → can flow both ways
- * Step 4: (2,2): height=5 → can flow both ways
- * Step 5: (3,0): height=6 → can flow both ways
- * Step 6: (3,1): height=7 → can flow both ways
- * Step 7: (4,0): height=5 → can flow both ways
- *
- * Output:
- * ```
- * [[0,4],[1,3],[1,4],[2,2],[3,0],[3,1],[4,0]]
- * ```
+Input:
+```
+heights = [[1,2,2,3,5],[3,2,3,4,4],[2,4,5,3,1],[6,7,1,4,5],[5,1,1,2,4]]
+```
 
- * ### TIME COMPLEXITY:
+Step 1: DFS from Pacific border (top, left)
+pacific = {(0,0),(0,1),...,(4,0)}
+Step 2: DFS from Atlantic border (bottom, right)
+atlantic = {(4,4),(4,3),...,(0,4)}
+Step 3: Find intersection
+Both oceans reachable from:
 
- * O(n)
+Steps:
+Step 1: (0,4): height=5 → can flow both ways
+Step 2: (1,3): height=4 → can flow both ways
+Step 3: (1,4): height=4 → can flow both ways
+Step 4: (2,2): height=5 → can flow both ways
+Step 5: (3,0): height=6 → can flow both ways
+Step 6: (3,1): height=7 → can flow both ways
+Step 7: (4,0): height=5 → can flow both ways
 
- * - Single pass through the input
- *
- * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
- *
- * ### EDGE CASES:
+Output:
+```
+[[0,4],[1,3],[1,4],[2,2],[3,0],[3,1],[4,0]]
+```
+
+### TIME COMPLEXITY:
+O(n)**
+
+- Single pass through the input
+
+### SPACE COMPLEXITY:
+O(1)**
+- Constant extra space
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 class Solution {
   /**
