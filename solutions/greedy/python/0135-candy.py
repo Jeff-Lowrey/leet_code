@@ -61,8 +61,6 @@ Step-by-step execution:
 - **Strictly decreasing**: ratings = [4,3,2,1] returns 10 (need to give 4+3+2+1 from right to left)
 - **Peak pattern**: ratings = [1,3,2] requires careful handling where middle child needs more than both neighbors
 
-</details>
-
 """
 
 from typing import List

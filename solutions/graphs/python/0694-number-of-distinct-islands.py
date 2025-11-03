@@ -53,8 +53,6 @@ For storing island shapes and recursion stack
 - **Rotations considered same**: Normalize shape representation
 - **Single island**: Return 1
 
-</details>
-
 """
 
 from typing import Any

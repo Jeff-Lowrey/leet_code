@@ -1,60 +1,61 @@
 /**
-### INTUITION:
-The key insight is that use max heap to track character frequencies. Greedily pick most frequent character, add to result, decrease count, and temporarily hold it. Add back to heap after one position to ensure no adjacent duplicates.
-
-### APPROACH:
-1. **Count frequencies**: Use Counter(s) to get character frequencies
-2. **Check feasibility**: If max_freq > (len(s) + 1) // 2, return empty string
-3. **Build max heap**: Push (-freq, char) to heap for all characters
-4. **Initialize result**: Set result = [], prev_char = None, prev_freq = 0
-5. **Build string**: While heap not empty, pop (freq, char)
-6. **Add to result**: Append char to result
-7. **Push previous back**: If prev_freq < 0, push (prev_freq, prev_char) to heap
-8. **Update previous**: Set prev_char = char, prev_freq = freq + 1, return ''.join(result)
-
-### WHY THIS WORKS:
-- Max heap by frequency: greedily place most frequent chars first
-- Always pick most frequent available char (not same as previous)
-- After placing char, decrement count and put back if count > 0
-- If can't place without adjacent duplicates, impossible (return "")
-- O(n log k) time: k unique chars, n total chars, O(k) space for heap
-
-### EXAMPLE WALKTHROUGH:
-Input:
-```
-s = "aab"
-```
-
-Step 1: Count character frequencies
-freq = {'a': 2, 'b': 1}
-Step 2: Build max heap (using negative frequencies)
-heap = [(-2, 'a'), (-1, 'b')]
-Step 3: Rearrange characters
-Pick 'a': result = "a", heap = [(-1, 'b'), (-1, 'a')]
-Pick 'b': result = "ab", heap = [(-1, 'a')]
-Pick 'a': result = "aba"
-
-Output:
-```
-"aba" (reorganized string)
-```
-
-### TIME COMPLEXITY:
-O(n)**
-- Single pass through input
-
-### SPACE COMPLEXITY:
-O(1)**
-- Constant extra space
-
-### EDGE CASES:
-- **Empty input**: Handle when input is empty
-- **Single element**: Handle single-element inputs
-- **Boundary values**: Handle minimum/maximum valid values
-
-</details>
-
-*/
+ * ### METADATA:
+ *
+ *
+ * ### INTUITION:
+ * The key insight is that use max heap to track character frequencies. Greedily pick most frequent character, add to result, decrease count, and temporarily hold it. Add back to heap after one position to ensure no adjacent duplicates.
+ *
+ * ### APPROACH:
+ * 1. **Count frequencies**: Use Counter(s) to get character frequencies
+ * 2. **Check feasibility**: If max_freq > (len(s) + 1) // 2, return empty string
+ * 3. **Build max heap**: Push (-freq, char) to heap for all characters
+ * 4. **Initialize result**: Set result = [], prev_char = None, prev_freq = 0
+ * 5. **Build string**: While heap not empty, pop (freq, char)
+ * 6. **Add to result**: Append char to result
+ * 7. **Push previous back**: If prev_freq < 0, push (prev_freq, prev_char) to heap
+ * 8. **Update previous**: Set prev_char = char, prev_freq = freq + 1, return ''.join(result)
+ *
+ * ### WHY THIS WORKS:
+ * - Max heap by frequency: greedily place most frequent chars first
+ * - Always pick most frequent available char (not same as previous)
+ * - After placing char, decrement count and put back if count > 0
+ * - If can't place without adjacent duplicates, impossible (return "")
+ * - O(n log k) time: k unique chars, n total chars, O(k) space for heap
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * s = "aab"
+ * ```
+ *
+ * Step 1: Count character frequencies
+ * freq = {'a': 2, 'b': 1}
+ * Step 2: Build max heap (using negative frequencies)
+ * heap = [(-2, 'a'), (-1, 'b')]
+ * Step 3: Rearrange characters
+ * Pick 'a': result = "a", heap = [(-1, 'b'), (-1, 'a')]
+ * Pick 'b': result = "ab", heap = [(-1, 'a')]
+ * Pick 'a': result = "aba"
+ *
+ * Output:
+ * ```
+ * "aba" (reorganized string)
+ * ```
+ *
+ * ### TIME COMPLEXITY:
+ * O(n)**
+ * - Single pass through input
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
+ *
+ * ### EDGE CASES:
+ * - **Empty input**: Handle when input is empty
+ * - **Single element**: Handle single-element inputs
+ * - **Boundary values**: Handle minimum/maximum valid values
+ *
+ * *
+ */
 
 class MaxHeap<T> {
   private heap: T[] = [];

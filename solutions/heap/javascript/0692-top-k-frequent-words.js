@@ -48,8 +48,6 @@ O(N)** for frequency map, **O(k)** for heap
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
-</details>
-
 */
 
 /**

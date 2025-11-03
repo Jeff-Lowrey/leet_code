@@ -17,8 +17,6 @@ Data structures: Array (tasks input), Queue (cooldown tracking), Heap (max-heap 
 - By scheduling them first with optimal spacing, we minimize total idle time
 - Cooldown queue ensures we respect the n interval
 
-
-
 This solution uses hash table lookup for efficient implementation.
 
 This solution uses hash map storage for efficient implementation.
@@ -78,8 +76,6 @@ At most 26 different tasks (letters)
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
-
-</details>
 
 */
 

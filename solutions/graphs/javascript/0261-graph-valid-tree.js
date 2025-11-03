@@ -1,60 +1,61 @@
 /**
-### INTUITION:
-[This problem requires understanding of graphs concepts. The key insight is to identify the optimal approach for this specific scenario.]
-
-### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply graphs methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
-
-### WHY THIS WORKS:
-- This ensures that the solution leverages graphs principles
-- This ensures that time complexity is optimized for the given constraints
-- This ensures that space complexity is minimized where possible
-
-### EXAMPLE WALKTHROUGH:
-Input:
-```
-n = 5, edges = [[0,1],[0,2],[0,3],[1,4]]
-```
-
-Step 1: Check edge count
-n-1 = 4 edges (necessary for tree) ✓
-Step 2: Build adjacency list
-{0: [1,2,3], 1: [0,4], 2: [0], 3: [0], 4: [1]}
-Step 3: DFS to check connectivity
-
-Steps:
-Step 1: Visit 0 → mark visited
-Step 2: Visit 1 → mark visited
-Step 3: Visit 4 → mark visited
-Step 4: Visit 2 → mark visited
-Step 5: Visit 3 → mark visited
-Step 6: Verify all nodes visited
-Step 7: visited = {0,1,2,3,4}, count = 5 = n ✓
-
-Output:
-```
-True (forms valid tree)
-```
-
-### TIME COMPLEXITY:
-O(n)**
-- Single pass through input
-
-### SPACE COMPLEXITY:
-O(1)**
-- Constant extra space
-
-### EDGE CASES:
-- **Empty input**: Handle when input is empty
-- **Single element**: Handle single-element inputs
-- **Boundary values**: Handle minimum/maximum valid values
-
-</details>
-
-*/
+ * ### METADATA:
+ *
+ *
+ * ### INTUITION:
+ * [This problem requires understanding of graphs concepts. The key insight is to identify the optimal approach for this specific scenario.]
+ *
+ * ### APPROACH:
+ * 1. **Analyze the problem**: Understand the input constraints and expected output
+ * 2. **Choose the right technique**: Apply graphs methodology
+ * 3. **Implement efficiently**: Focus on optimal time and space complexity
+ * 4. **Handle edge cases**: Consider boundary conditions and special cases
+ *
+ * ### WHY THIS WORKS:
+ * - This ensures that the solution leverages graphs principles
+ * - This ensures that time complexity is optimized for the given constraints
+ * - This ensures that space complexity is minimized where possible
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * n = 5, edges = [[0,1],[0,2],[0,3],[1,4]]
+ * ```
+ *
+ * Step 1: Check edge count
+ * n-1 = 4 edges (necessary for tree) ✓
+ * Step 2: Build adjacency list
+ * {0: [1,2,3], 1: [0,4], 2: [0], 3: [0], 4: [1]}
+ * Step 3: DFS to check connectivity
+ *
+ * Steps:
+ * Step 1: Visit 0 → mark visited
+ * Step 2: Visit 1 → mark visited
+ * Step 3: Visit 4 → mark visited
+ * Step 4: Visit 2 → mark visited
+ * Step 5: Visit 3 → mark visited
+ * Step 6: Verify all nodes visited
+ * Step 7: visited = {0,1,2,3,4}, count = 5 = n ✓
+ *
+ * Output:
+ * ```
+ * True (forms valid tree)
+ * ```
+ *
+ * ### TIME COMPLEXITY:
+ * O(n)**
+ * - Single pass through input
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
+ *
+ * ### EDGE CASES:
+ * - **Empty input**: Handle when input is empty
+ * - **Single element**: Handle single-element inputs
+ * - **Boundary values**: Handle minimum/maximum valid values
+ *
+ * *
+ */
 
 /**
  * Union-Find data structure for cycle detection

@@ -48,8 +48,6 @@ Where N is number of words, k is the result size. Heap operations are **O(log k)
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
-</details>
-
 """
 
 from collections import Counter

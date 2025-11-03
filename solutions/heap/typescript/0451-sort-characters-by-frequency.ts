@@ -42,8 +42,6 @@ For storing character frequencies and heap
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
-</details>
-
 */
 
 class Solution {

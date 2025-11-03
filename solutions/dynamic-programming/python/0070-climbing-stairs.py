@@ -47,8 +47,6 @@ Output:
 - **n = 0**: Not in problem constraints, but would return 1 (one way to stay at ground)
 - **Maximum constraints**: For very large n, integer overflow possible in other languages (Python handles big integers automatically)
 
-</details>
-
 """
 
 from typing import Any

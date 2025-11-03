@@ -1,55 +1,56 @@
 /**
-### INTUITION:
-[This problem requires understanding of greedy concepts. The key insight is to identify the optimal approach for this specific scenario.]
-
-### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply greedy methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
-
-### WHY THIS WORKS:
-- This ensures that the solution leverages greedy principles
-- This ensures that time complexity is optimized for the given constraints
-- This ensures that space complexity is minimized where possible
-
-### EXAMPLE WALKTHROUGH:
-Input:
-```
-nums = [2,3,1,1,4]
-```
-
-Step 1: Initialize variables
-jumps = 0, current_end = 0, farthest = 0
-Step 2: Iterate through array
-i=0: farthest = max(0, 0+2) = 2
-
-Steps:
-Step 1: i=1: farthest = max(2, 1+3) = 4, reached current_end → jumps=1, current_end=2
-Step 2: i=2: farthest = max(4, 2+1) = 4, reached current_end → jumps=2, current_end=4
-Step 3: Reached last index
-
-Output:
-```
-2 (minimum jumps)
-```
-
-### TIME COMPLEXITY:
-O(n)**
-- Single pass through input
-
-### SPACE COMPLEXITY:
-O(1)**
-- Constant extra space
-
-### EDGE CASES:
-- **Empty input**: Handle when input is empty
-- **Single element**: Handle single-element inputs
-- **Boundary values**: Handle minimum/maximum valid values
-
-</details>
-
-*/
+ * ### METADATA:
+ *
+ *
+ * ### INTUITION:
+ * [This problem requires understanding of greedy concepts. The key insight is to identify the optimal approach for this specific scenario.]
+ *
+ * ### APPROACH:
+ * 1. **Analyze the problem**: Understand the input constraints and expected output
+ * 2. **Choose the right technique**: Apply greedy methodology
+ * 3. **Implement efficiently**: Focus on optimal time and space complexity
+ * 4. **Handle edge cases**: Consider boundary conditions and special cases
+ *
+ * ### WHY THIS WORKS:
+ * - This ensures that the solution leverages greedy principles
+ * - This ensures that time complexity is optimized for the given constraints
+ * - This ensures that space complexity is minimized where possible
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * nums = [2,3,1,1,4]
+ * ```
+ *
+ * Step 1: Initialize variables
+ * jumps = 0, current_end = 0, farthest = 0
+ * Step 2: Iterate through array
+ * i=0: farthest = max(0, 0+2) = 2
+ *
+ * Steps:
+ * Step 1: i=1: farthest = max(2, 1+3) = 4, reached current_end → jumps=1, current_end=2
+ * Step 2: i=2: farthest = max(4, 2+1) = 4, reached current_end → jumps=2, current_end=4
+ * Step 3: Reached last index
+ *
+ * Output:
+ * ```
+ * 2 (minimum jumps)
+ * ```
+ *
+ * ### TIME COMPLEXITY:
+ * O(n)**
+ * - Single pass through input
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
+ *
+ * ### EDGE CASES:
+ * - **Empty input**: Handle when input is empty
+ * - **Single element**: Handle single-element inputs
+ * - **Boundary values**: Handle minimum/maximum valid values
+ *
+ * *
+ */
 
 /**
  * Main solution for Problem 045: Jump Game Ii

@@ -1,58 +1,59 @@
 /**
-### INTUITION:
-[This problem requires understanding of heap concepts. The key insight is to identify the optimal approach for this specific scenario.]
-
-### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply heap methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
-
-### WHY THIS WORKS:
-- This ensures that the solution leverages heap principles
-- This ensures that time complexity is optimized for the given constraints
-- This ensures that space complexity is minimized where possible
-
-### EXAMPLE WALKTHROUGH:
-Input:
-```
-points = [[1,3], [-2,2], [5,8], [0,1]], k = 2
-```
-
-Step 1: Calculate distances (squared)
-[1,3]: dist = 1² + 3² = 10
-[-2,2]: dist = (-2)² + 2² = 8
-[5,8]: dist = 5² + 8² = 89
-[0,1]: dist = 0² + 1² = 1
-Step 2: Build min heap
-heap = [(1, [0,1]), (8, [-2,2]), (10, [1,3]), (89, [5,8])]
-Step 3: Extract k=2 smallest
-
-Steps:
-Step 1: Pop (1, [0,1]) → result = [[0,1]]
-Step 2: Pop (8, [-2,2]) → result = [[0,1], [-2,2]]
-
-Output:
-```
-[[0,1], [-2,2]]
-```
-
-### TIME COMPLEXITY:
-O(n)**
-- Single pass through input
-
-### SPACE COMPLEXITY:
-O(1)**
-- Constant extra space
-
-### EDGE CASES:
-- **Empty input**: Handle when input is empty
-- **Single element**: Handle single-element inputs
-- **Boundary values**: Handle minimum/maximum valid values
-
-</details>
-
-*/
+ * ### METADATA:
+ *
+ *
+ * ### INTUITION:
+ * [This problem requires understanding of heap concepts. The key insight is to identify the optimal approach for this specific scenario.]
+ *
+ * ### APPROACH:
+ * 1. **Analyze the problem**: Understand the input constraints and expected output
+ * 2. **Choose the right technique**: Apply heap methodology
+ * 3. **Implement efficiently**: Focus on optimal time and space complexity
+ * 4. **Handle edge cases**: Consider boundary conditions and special cases
+ *
+ * ### WHY THIS WORKS:
+ * - This ensures that the solution leverages heap principles
+ * - This ensures that time complexity is optimized for the given constraints
+ * - This ensures that space complexity is minimized where possible
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * points = [[1,3], [-2,2], [5,8], [0,1]], k = 2
+ * ```
+ *
+ * Step 1: Calculate distances (squared)
+ * [1,3]: dist = 1² + 3² = 10
+ * [-2,2]: dist = (-2)² + 2² = 8
+ * [5,8]: dist = 5² + 8² = 89
+ * [0,1]: dist = 0² + 1² = 1
+ * Step 2: Build min heap
+ * heap = [(1, [0,1]), (8, [-2,2]), (10, [1,3]), (89, [5,8])]
+ * Step 3: Extract k=2 smallest
+ *
+ * Steps:
+ * Step 1: Pop (1, [0,1]) → result = [[0,1]]
+ * Step 2: Pop (8, [-2,2]) → result = [[0,1], [-2,2]]
+ *
+ * Output:
+ * ```
+ * [[0,1], [-2,2]]
+ * ```
+ *
+ * ### TIME COMPLEXITY:
+ * O(n)**
+ * - Single pass through input
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
+ *
+ * ### EDGE CASES:
+ * - **Empty input**: Handle when input is empty
+ * - **Single element**: Handle single-element inputs
+ * - **Boundary values**: Handle minimum/maximum valid values
+ *
+ * *
+ */
 
 /**
  * MaxHeap implementation for [point, distance] pairs

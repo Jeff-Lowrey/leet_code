@@ -46,8 +46,6 @@ For recursion stack in worst case (straight line of same color)
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
-</details>
-
 */
 
 class Solution {

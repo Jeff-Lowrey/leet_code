@@ -1,54 +1,55 @@
 /**
-### INTUITION:
-[This problem requires understanding of heap concepts. The key insight is to identify the optimal approach for this specific scenario.]
-
-### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply heap methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
-
-### WHY THIS WORKS:
-- This ensures that the solution leverages heap principles
-- This ensures that time complexity is optimized for the given constraints
-- This ensures that space complexity is minimized where possible
-
-### EXAMPLE WALKTHROUGH:
-Input:
-```
-s = "aab"
-```
-
-Step 1: Count character frequencies
-freq = {'a': 2, 'b': 1}
-Step 2: Build max heap (using negative frequencies)
-heap = [(-2, 'a'), (-1, 'b')]
-Step 3: Rearrange characters
-Pick 'a': result = "a", heap = [(-1, 'b'), (-1, 'a')]
-Pick 'b': result = "ab", heap = [(-1, 'a')]
-Pick 'a': result = "aba"
-
-Output:
-```
-"aba" (reorganized string)
-```
-
-### TIME COMPLEXITY:
-O(n)**
-- Single pass through input
-
-### SPACE COMPLEXITY:
-O(1)**
-- Constant extra space
-
-### EDGE CASES:
-- **Empty input**: Handle when input is empty
-- **Single element**: Handle single-element inputs
-- **Boundary values**: Handle minimum/maximum valid values
-
-</details>
-
-*/
+ * ### METADATA:
+ *
+ *
+ * ### INTUITION:
+ * [This problem requires understanding of heap concepts. The key insight is to identify the optimal approach for this specific scenario.]
+ *
+ * ### APPROACH:
+ * 1. **Analyze the problem**: Understand the input constraints and expected output
+ * 2. **Choose the right technique**: Apply heap methodology
+ * 3. **Implement efficiently**: Focus on optimal time and space complexity
+ * 4. **Handle edge cases**: Consider boundary conditions and special cases
+ *
+ * ### WHY THIS WORKS:
+ * - This ensures that the solution leverages heap principles
+ * - This ensures that time complexity is optimized for the given constraints
+ * - This ensures that space complexity is minimized where possible
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * s = "aab"
+ * ```
+ *
+ * Step 1: Count character frequencies
+ * freq = {'a': 2, 'b': 1}
+ * Step 2: Build max heap (using negative frequencies)
+ * heap = [(-2, 'a'), (-1, 'b')]
+ * Step 3: Rearrange characters
+ * Pick 'a': result = "a", heap = [(-1, 'b'), (-1, 'a')]
+ * Pick 'b': result = "ab", heap = [(-1, 'a')]
+ * Pick 'a': result = "aba"
+ *
+ * Output:
+ * ```
+ * "aba" (reorganized string)
+ * ```
+ *
+ * ### TIME COMPLEXITY:
+ * O(n)**
+ * - Single pass through input
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
+ *
+ * ### EDGE CASES:
+ * - **Empty input**: Handle when input is empty
+ * - **Single element**: Handle single-element inputs
+ * - **Boundary values**: Handle minimum/maximum valid values
+ *
+ * *
+ */
 
 /**
  * MaxHeap implementation for [char, frequency] pairs

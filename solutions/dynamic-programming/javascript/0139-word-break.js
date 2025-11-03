@@ -1,54 +1,55 @@
 /**
-### INTUITION:
-[This problem requires understanding of dynamic programming concepts. The key insight is to identify the optimal approach for this specific scenario.]
-
-### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply dynamic programming methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
-
-### WHY THIS WORKS:
-- This ensures that the solution leverages dynamic programming principles
-- This ensures that time complexity is optimized for the given constraints
-- This ensures that space complexity is minimized where possible
-
-### EXAMPLE WALKTHROUGH:
-Input:
-```
-s = "leetcode", wordDict = ["leet","code"]
-```
-
-Step 1: Initialize DP
-dp = [True, False, False, False, False, False, False, False, False]
-dp[0] = True (empty string)
-Step 2: Check each position
-i=4: s[0:4]="leet" in wordDict, dp[4] = True
-i=8: s[4:8]="code" in wordDict and dp[4]=True, dp[8] = True
-Step 3: Verify segmentation
-"leet" + "code" = "leetcode" ✓
-
-Output:
-```
-True (can be segmented)
-```
-
-### TIME COMPLEXITY:
-O(n)**
-- Single pass through input
-
-### SPACE COMPLEXITY:
-O(1)**
-- Constant extra space
-
-### EDGE CASES:
-- **Empty input**: Handle when input is empty
-- **Single element**: Handle single-element inputs
-- **Boundary values**: Handle minimum/maximum valid values
-
-</details>
-
-*/
+ * ### METADATA:
+ *
+ *
+ * ### INTUITION:
+ * [This problem requires understanding of dynamic programming concepts. The key insight is to identify the optimal approach for this specific scenario.]
+ *
+ * ### APPROACH:
+ * 1. **Analyze the problem**: Understand the input constraints and expected output
+ * 2. **Choose the right technique**: Apply dynamic programming methodology
+ * 3. **Implement efficiently**: Focus on optimal time and space complexity
+ * 4. **Handle edge cases**: Consider boundary conditions and special cases
+ *
+ * ### WHY THIS WORKS:
+ * - This ensures that the solution leverages dynamic programming principles
+ * - This ensures that time complexity is optimized for the given constraints
+ * - This ensures that space complexity is minimized where possible
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * s = "leetcode", wordDict = ["leet","code"]
+ * ```
+ *
+ * Step 1: Initialize DP
+ * dp = [True, False, False, False, False, False, False, False, False]
+ * dp[0] = True (empty string)
+ * Step 2: Check each position
+ * i=4: s[0:4]="leet" in wordDict, dp[4] = True
+ * i=8: s[4:8]="code" in wordDict and dp[4]=True, dp[8] = True
+ * Step 3: Verify segmentation
+ * "leet" + "code" = "leetcode" ✓
+ *
+ * Output:
+ * ```
+ * True (can be segmented)
+ * ```
+ *
+ * ### TIME COMPLEXITY:
+ * O(n)**
+ * - Single pass through input
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
+ *
+ * ### EDGE CASES:
+ * - **Empty input**: Handle when input is empty
+ * - **Single element**: Handle single-element inputs
+ * - **Boundary values**: Handle minimum/maximum valid values
+ *
+ * *
+ */
 
 /**
  * Main solution for Problem 139: Word Break

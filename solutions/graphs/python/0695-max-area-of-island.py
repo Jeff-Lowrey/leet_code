@@ -58,22 +58,6 @@ For recursion stack in worst case
 - **Multiple islands**: Return area of largest
 - **Empty grid**: Return 0
 
-</details>
-
-</details>
-
-</details>
-
-</details>
-
-</details>
-
-</details>
-
-</details>
-
-</details>
-
 """
 
 from collections import deque

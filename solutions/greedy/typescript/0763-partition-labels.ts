@@ -1,63 +1,64 @@
 /**
-### INTUITION:
-The key insight is that each partition should end at the last occurrence of any character in it. Track last occurrence of each character. Extend partition end while current position hasn't passed last occurrence of all seen characters.
-
-### APPROACH:
-1. **Find last occurrence**: Create dict mapping each char to its last index in s
-2. **Initialize variables**: Set start = 0, end = 0, result = []
-3. **Iterate through string**: For i, char in enumerate(s)
-4. **Update partition end**: end = max(end, last_occurrence[char])
-5. **Check if partition complete**: If i == end, partition ends here
-6. **Add partition size**: Append (end - start + 1) to result
-7. **Start new partition**: Set start = i + 1
-8. **Return result**: Return result list with partition sizes
-
-### WHY THIS WORKS:
-- This ensures that track last occurrence of each character
-- This ensures that extend partition end to max last occurrence of chars seen so far
-- This ensures that when reach partition end, cut and start new partition
-- This ensures that greedy: maximize partition size before cutting
-- This ensures that o(n) time: two passes, O(26) = O(1) space for last occurrence map
-
-### EXAMPLE WALKTHROUGH:
-Input:
-```
-s = "ababcbacadefegdehijhklij"
-```
-
-Step 1: Record last occurrence of each character
-last = {'a':8, 'b':5, 'c':7, 'd':14, 'e':15, ...}
-Step 2: Iterate and extend partition
-i=0, ch='a': end = max(0, 8) = 8
-i=1, ch='b': end = max(8, 5) = 8
-...
-
-Steps:
-Step 1: i=8: reached end → partition size = 9
-Step 2: i=9, ch='c': end = 14
-Step 3: ...
-
-Output:
-```
-[9,7,8] (partition sizes)
-```
-
-### TIME COMPLEXITY:
-O(n)**
-- Single pass through input
-
-### SPACE COMPLEXITY:
-O(1)**
-- Constant extra space
-
-### EDGE CASES:
-- **Empty input**: Handle when input is empty
-- **Single element**: Handle single-element inputs
-- **Boundary values**: Handle minimum/maximum valid values
-
-</details>
-
-*/
+ * ### METADATA:
+ *
+ *
+ * ### INTUITION:
+ * The key insight is that each partition should end at the last occurrence of any character in it. Track last occurrence of each character. Extend partition end while current position hasn't passed last occurrence of all seen characters.
+ *
+ * ### APPROACH:
+ * 1. **Find last occurrence**: Create dict mapping each char to its last index in s
+ * 2. **Initialize variables**: Set start = 0, end = 0, result = []
+ * 3. **Iterate through string**: For i, char in enumerate(s)
+ * 4. **Update partition end**: end = max(end, last_occurrence[char])
+ * 5. **Check if partition complete**: If i == end, partition ends here
+ * 6. **Add partition size**: Append (end - start + 1) to result
+ * 7. **Start new partition**: Set start = i + 1
+ * 8. **Return result**: Return result list with partition sizes
+ *
+ * ### WHY THIS WORKS:
+ * - This ensures that track last occurrence of each character
+ * - This ensures that extend partition end to max last occurrence of chars seen so far
+ * - This ensures that when reach partition end, cut and start new partition
+ * - This ensures that greedy: maximize partition size before cutting
+ * - This ensures that o(n) time: two passes, O(26) = O(1) space for last occurrence map
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * s = "ababcbacadefegdehijhklij"
+ * ```
+ *
+ * Step 1: Record last occurrence of each character
+ * last = {'a':8, 'b':5, 'c':7, 'd':14, 'e':15, ...}
+ * Step 2: Iterate and extend partition
+ * i=0, ch='a': end = max(0, 8) = 8
+ * i=1, ch='b': end = max(8, 5) = 8
+ * ...
+ *
+ * Steps:
+ * Step 1: i=8: reached end → partition size = 9
+ * Step 2: i=9, ch='c': end = 14
+ * Step 3: ...
+ *
+ * Output:
+ * ```
+ * [9,7,8] (partition sizes)
+ * ```
+ *
+ * ### TIME COMPLEXITY:
+ * O(n)**
+ * - Single pass through input
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
+ *
+ * ### EDGE CASES:
+ * - **Empty input**: Handle when input is empty
+ * - **Single element**: Handle single-element inputs
+ * - **Boundary values**: Handle minimum/maximum valid values
+ *
+ * *
+ */
 
 class Solution {
   partitionLabels(s: string): number[] {

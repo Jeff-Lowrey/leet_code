@@ -54,8 +54,6 @@ O(V)**
 - **Fully connected graph**: All nodes are neighbors of each other
 - **Self-loops**: Node points to itself, handled by visited check
 
-</details>
-
 */
 
 // Definition for a Node

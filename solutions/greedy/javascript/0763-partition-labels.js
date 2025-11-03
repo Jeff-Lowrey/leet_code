@@ -1,57 +1,58 @@
 /**
-### INTUITION:
-[This problem requires understanding of greedy concepts. The key insight is to identify the optimal approach for this specific scenario.]
-
-### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply greedy methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
-
-### WHY THIS WORKS:
-- This ensures that the solution leverages greedy principles
-- This ensures that time complexity is optimized for the given constraints
-- This ensures that space complexity is minimized where possible
-
-### EXAMPLE WALKTHROUGH:
-Input:
-```
-s = "ababcbacadefegdehijhklij"
-```
-
-Step 1: Record last occurrence of each character
-last = {'a':8, 'b':5, 'c':7, 'd':14, 'e':15, ...}
-Step 2: Iterate and extend partition
-i=0, ch='a': end = max(0, 8) = 8
-i=1, ch='b': end = max(8, 5) = 8
-...
-
-Steps:
-Step 1: i=8: reached end → partition size = 9
-Step 2: i=9, ch='c': end = 14
-Step 3: ...
-
-Output:
-```
-[9,7,8] (partition sizes)
-```
-
-### TIME COMPLEXITY:
-O(n)**
-- Single pass through input
-
-### SPACE COMPLEXITY:
-O(1)**
-- Constant extra space
-
-### EDGE CASES:
-- **Empty input**: Handle when input is empty
-- **Single element**: Handle single-element inputs
-- **Boundary values**: Handle minimum/maximum valid values
-
-</details>
-
-*/
+ * ### METADATA:
+ *
+ *
+ * ### INTUITION:
+ * [This problem requires understanding of greedy concepts. The key insight is to identify the optimal approach for this specific scenario.]
+ *
+ * ### APPROACH:
+ * 1. **Analyze the problem**: Understand the input constraints and expected output
+ * 2. **Choose the right technique**: Apply greedy methodology
+ * 3. **Implement efficiently**: Focus on optimal time and space complexity
+ * 4. **Handle edge cases**: Consider boundary conditions and special cases
+ *
+ * ### WHY THIS WORKS:
+ * - This ensures that the solution leverages greedy principles
+ * - This ensures that time complexity is optimized for the given constraints
+ * - This ensures that space complexity is minimized where possible
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * s = "ababcbacadefegdehijhklij"
+ * ```
+ *
+ * Step 1: Record last occurrence of each character
+ * last = {'a':8, 'b':5, 'c':7, 'd':14, 'e':15, ...}
+ * Step 2: Iterate and extend partition
+ * i=0, ch='a': end = max(0, 8) = 8
+ * i=1, ch='b': end = max(8, 5) = 8
+ * ...
+ *
+ * Steps:
+ * Step 1: i=8: reached end → partition size = 9
+ * Step 2: i=9, ch='c': end = 14
+ * Step 3: ...
+ *
+ * Output:
+ * ```
+ * [9,7,8] (partition sizes)
+ * ```
+ *
+ * ### TIME COMPLEXITY:
+ * O(n)**
+ * - Single pass through input
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
+ *
+ * ### EDGE CASES:
+ * - **Empty input**: Handle when input is empty
+ * - **Single element**: Handle single-element inputs
+ * - **Boundary values**: Handle minimum/maximum valid values
+ *
+ * *
+ */
 
 /**
  * Main solution for Problem 763: Partition Labels

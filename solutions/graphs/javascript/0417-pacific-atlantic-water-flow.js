@@ -1,61 +1,62 @@
 /**
-### INTUITION:
-[This problem requires understanding of graphs concepts. The key insight is to identify the optimal approach for this specific scenario.]
-
-### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply graphs methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
-
-### WHY THIS WORKS:
-- This ensures that the solution leverages graphs principles
-- This ensures that time complexity is optimized for the given constraints
-- This ensures that space complexity is minimized where possible
-
-### EXAMPLE WALKTHROUGH:
-Input:
-```
-heights = [[1,2,2,3,5],[3,2,3,4,4],[2,4,5,3,1],[6,7,1,4,5],[5,1,1,2,4]]
-```
-
-Step 1: DFS from Pacific border (top, left)
-pacific = {(0,0),(0,1),...,(4,0)}
-Step 2: DFS from Atlantic border (bottom, right)
-atlantic = {(4,4),(4,3),...,(0,4)}
-Step 3: Find intersection
-Both oceans reachable from:
-
-Steps:
-Step 1: (0,4): height=5 → can flow both ways
-Step 2: (1,3): height=4 → can flow both ways
-Step 3: (1,4): height=4 → can flow both ways
-Step 4: (2,2): height=5 → can flow both ways
-Step 5: (3,0): height=6 → can flow both ways
-Step 6: (3,1): height=7 → can flow both ways
-Step 7: (4,0): height=5 → can flow both ways
-
-Output:
-```
-[[0,4],[1,3],[1,4],[2,2],[3,0],[3,1],[4,0]]
-```
-
-### TIME COMPLEXITY:
-O(n)**
-- Single pass through input
-
-### SPACE COMPLEXITY:
-O(1)**
-- Constant extra space
-
-### EDGE CASES:
-- **Empty input**: Handle when input is empty
-- **Single element**: Handle single-element inputs
-- **Boundary values**: Handle minimum/maximum valid values
-
-</details>
-
-*/
+ * ### METADATA:
+ *
+ *
+ * ### INTUITION:
+ * [This problem requires understanding of graphs concepts. The key insight is to identify the optimal approach for this specific scenario.]
+ *
+ * ### APPROACH:
+ * 1. **Analyze the problem**: Understand the input constraints and expected output
+ * 2. **Choose the right technique**: Apply graphs methodology
+ * 3. **Implement efficiently**: Focus on optimal time and space complexity
+ * 4. **Handle edge cases**: Consider boundary conditions and special cases
+ *
+ * ### WHY THIS WORKS:
+ * - This ensures that the solution leverages graphs principles
+ * - This ensures that time complexity is optimized for the given constraints
+ * - This ensures that space complexity is minimized where possible
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * heights = [[1,2,2,3,5],[3,2,3,4,4],[2,4,5,3,1],[6,7,1,4,5],[5,1,1,2,4]]
+ * ```
+ *
+ * Step 1: DFS from Pacific border (top, left)
+ * pacific = {(0,0),(0,1),...,(4,0)}
+ * Step 2: DFS from Atlantic border (bottom, right)
+ * atlantic = {(4,4),(4,3),...,(0,4)}
+ * Step 3: Find intersection
+ * Both oceans reachable from:
+ *
+ * Steps:
+ * Step 1: (0,4): height=5 → can flow both ways
+ * Step 2: (1,3): height=4 → can flow both ways
+ * Step 3: (1,4): height=4 → can flow both ways
+ * Step 4: (2,2): height=5 → can flow both ways
+ * Step 5: (3,0): height=6 → can flow both ways
+ * Step 6: (3,1): height=7 → can flow both ways
+ * Step 7: (4,0): height=5 → can flow both ways
+ *
+ * Output:
+ * ```
+ * [[0,4],[1,3],[1,4],[2,2],[3,0],[3,1],[4,0]]
+ * ```
+ *
+ * ### TIME COMPLEXITY:
+ * O(n)**
+ * - Single pass through input
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
+ *
+ * ### EDGE CASES:
+ * - **Empty input**: Handle when input is empty
+ * - **Single element**: Handle single-element inputs
+ * - **Boundary values**: Handle minimum/maximum valid values
+ *
+ * *
+ */
 
 /**
  * Main solution for Problem 417: Pacific Atlantic Water Flow

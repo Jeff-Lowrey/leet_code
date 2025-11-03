@@ -61,8 +61,6 @@ Array to store candy counts (can be optimized to **O(1)** with complex logic)
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
-</details>
-
 */
 
 /**

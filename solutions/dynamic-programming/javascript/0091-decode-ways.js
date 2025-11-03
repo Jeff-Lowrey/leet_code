@@ -1,61 +1,62 @@
 /**
-### INTUITION:
-[This problem requires understanding of dynamic programming concepts. The key insight is to identify the optimal approach for this specific scenario.]
-
-### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply dynamic programming methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
-
-### WHY THIS WORKS:
-- This ensures that the solution leverages dynamic programming principles
-- This ensures that time complexity is optimized for the given constraints
-- This ensures that space complexity is minimized where possible
-
-### EXAMPLE WALKTHROUGH:
-Input:
-```
-s = "226"
-```
-
-Step 1: Initialize DP
-dp[0] = 1 (empty string)
-
-Steps:
-Step 1: dp[1] = 1 ("2" → "B")
-Step 2: Process each digit
-Step 3: i=2: s[1]="2"
-Step 4: Single: "2" → "B", dp[2] += dp[1] = 1
-Step 5: Double: "22" → "V", dp[2] += dp[0] = 1
-Step 6: dp[2] = 2
-Step 7: i=3: s[2]="6"
-Step 8: Single: "6" → "F", dp[3] += dp[2] = 2
-Step 9: Double: "26" → "Z", dp[3] += dp[1] = 1
-Step 10: dp[3] = 3
-Step 11: Decodings are "BBF", "BZ", "VF"
-
-Output:
-```
-3 (number of ways to decode)
-```
-
-### TIME COMPLEXITY:
-O(n)**
-- Single pass through input
-
-### SPACE COMPLEXITY:
-O(1)**
-- Constant extra space
-
-### EDGE CASES:
-- **Empty input**: Handle when input is empty
-- **Single element**: Handle single-element inputs
-- **Boundary values**: Handle minimum/maximum valid values
-
-</details>
-
-*/
+ * ### METADATA:
+ *
+ *
+ * ### INTUITION:
+ * [This problem requires understanding of dynamic programming concepts. The key insight is to identify the optimal approach for this specific scenario.]
+ *
+ * ### APPROACH:
+ * 1. **Analyze the problem**: Understand the input constraints and expected output
+ * 2. **Choose the right technique**: Apply dynamic programming methodology
+ * 3. **Implement efficiently**: Focus on optimal time and space complexity
+ * 4. **Handle edge cases**: Consider boundary conditions and special cases
+ *
+ * ### WHY THIS WORKS:
+ * - This ensures that the solution leverages dynamic programming principles
+ * - This ensures that time complexity is optimized for the given constraints
+ * - This ensures that space complexity is minimized where possible
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * s = "226"
+ * ```
+ *
+ * Step 1: Initialize DP
+ * dp[0] = 1 (empty string)
+ *
+ * Steps:
+ * Step 1: dp[1] = 1 ("2" → "B")
+ * Step 2: Process each digit
+ * Step 3: i=2: s[1]="2"
+ * Step 4: Single: "2" → "B", dp[2] += dp[1] = 1
+ * Step 5: Double: "22" → "V", dp[2] += dp[0] = 1
+ * Step 6: dp[2] = 2
+ * Step 7: i=3: s[2]="6"
+ * Step 8: Single: "6" → "F", dp[3] += dp[2] = 2
+ * Step 9: Double: "26" → "Z", dp[3] += dp[1] = 1
+ * Step 10: dp[3] = 3
+ * Step 11: Decodings are "BBF", "BZ", "VF"
+ *
+ * Output:
+ * ```
+ * 3 (number of ways to decode)
+ * ```
+ *
+ * ### TIME COMPLEXITY:
+ * O(n)**
+ * - Single pass through input
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
+ *
+ * ### EDGE CASES:
+ * - **Empty input**: Handle when input is empty
+ * - **Single element**: Handle single-element inputs
+ * - **Boundary values**: Handle minimum/maximum valid values
+ *
+ * *
+ */
 
 /**
  * Main solution for Problem 091: Decode Ways

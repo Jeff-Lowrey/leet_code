@@ -52,8 +52,6 @@ Cloned graph with same structure
 - **Fully connected graph**: All nodes are neighbors of each other
 - **Self-loops**: Node points to itself, handled by visited check
 
-</details>
-
 """
 
 from collections import deque, defaultdict

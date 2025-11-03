@@ -49,8 +49,6 @@ True (can reach end)
 - **All zeros except first**: Return False unless array length is 1
 - **Maximum jump values**: Can reach end in one jump, return True immediately
 
-</details>
-
 """
 
 

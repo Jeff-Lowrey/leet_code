@@ -49,8 +49,6 @@ For the heap storing at most n elements (one from each row)
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
-</details>
-
 */
 
 /**

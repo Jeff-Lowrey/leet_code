@@ -51,8 +51,6 @@ At most 128 ASCII characters or 52 letters (constant space)
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
-</details>
-
 */
 
 class Solution {

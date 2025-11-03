@@ -1,52 +1,53 @@
 /**
-### INTUITION:
-[This problem requires understanding of heap concepts. The key insight is to identify the optimal approach for this specific scenario.]
-
-### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply heap methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
-
-### WHY THIS WORKS:
-- This ensures that the solution leverages heap principles
-- This ensures that time complexity is optimized for the given constraints
-- This ensures that space complexity is minimized where possible
-
-### EXAMPLE WALKTHROUGH:
-Input:
-```
-nums1 = [1,7,11], nums2 = [2,4,6], k = 3
-```
-
-Step 1: Initialize min heap
-heap = [(1+2, 0, 0)]
-Step 2: Extract k smallest pairs
-Pop (3, 0, 0): pair [1,2], add (1+4, 0, 1)
-Pop (5, 0, 1): pair [1,4], add (1+6, 0, 2)
-Pop (7, 0, 2): pair [1,6], add (7+2, 1, 0)
-
-Output:
-```
-[[1,2],[1,4],[1,6]]
-```
-
-### TIME COMPLEXITY:
-O(n)**
-- Single pass through input
-
-### SPACE COMPLEXITY:
-O(1)**
-- Constant extra space
-
-### EDGE CASES:
-- **Empty input**: Handle when input is empty
-- **Single element**: Handle single-element inputs
-- **Boundary values**: Handle minimum/maximum valid values
-
-</details>
-
-*/
+ * ### METADATA:
+ *
+ *
+ * ### INTUITION:
+ * [This problem requires understanding of heap concepts. The key insight is to identify the optimal approach for this specific scenario.]
+ *
+ * ### APPROACH:
+ * 1. **Analyze the problem**: Understand the input constraints and expected output
+ * 2. **Choose the right technique**: Apply heap methodology
+ * 3. **Implement efficiently**: Focus on optimal time and space complexity
+ * 4. **Handle edge cases**: Consider boundary conditions and special cases
+ *
+ * ### WHY THIS WORKS:
+ * - This ensures that the solution leverages heap principles
+ * - This ensures that time complexity is optimized for the given constraints
+ * - This ensures that space complexity is minimized where possible
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * nums1 = [1,7,11], nums2 = [2,4,6], k = 3
+ * ```
+ *
+ * Step 1: Initialize min heap
+ * heap = [(1+2, 0, 0)]
+ * Step 2: Extract k smallest pairs
+ * Pop (3, 0, 0): pair [1,2], add (1+4, 0, 1)
+ * Pop (5, 0, 1): pair [1,4], add (1+6, 0, 2)
+ * Pop (7, 0, 2): pair [1,6], add (7+2, 1, 0)
+ *
+ * Output:
+ * ```
+ * [[1,2],[1,4],[1,6]]
+ * ```
+ *
+ * ### TIME COMPLEXITY:
+ * O(n)**
+ * - Single pass through input
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
+ *
+ * ### EDGE CASES:
+ * - **Empty input**: Handle when input is empty
+ * - **Single element**: Handle single-element inputs
+ * - **Boundary values**: Handle minimum/maximum valid values
+ *
+ * *
+ */
 
 /**
  * MinHeap implementation for [sum, i, j] tuples

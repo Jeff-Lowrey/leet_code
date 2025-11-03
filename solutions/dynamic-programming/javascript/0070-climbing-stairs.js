@@ -48,8 +48,6 @@ Only store two variables (prev1, prev2), not full DP array
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
-</details>
-
 */
 
 /**

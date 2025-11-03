@@ -58,8 +58,6 @@ For island labeling and size storage
 - **Multiple small islands**: Changing water can connect them
 - **Single island**: Changing water expands it by 1
 
-</details>
-
 */
 
 class Solution {

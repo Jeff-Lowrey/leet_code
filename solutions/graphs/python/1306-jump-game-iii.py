@@ -55,8 +55,6 @@ return true!
 - **Multiple paths to zero**: BFS/DFS finds any path
 - **Single element array**: Check if that element is 0
 
-</details>
-
 """
 
 from collections import deque

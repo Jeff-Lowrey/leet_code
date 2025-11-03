@@ -1,58 +1,59 @@
 /**
-### INTUITION:
-[This problem requires understanding of dynamic programming concepts. The key insight is to identify the optimal approach for this specific scenario.]
-
-### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply dynamic programming methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
-
-### WHY THIS WORKS:
-- This ensures that the solution leverages dynamic programming principles
-- This ensures that time complexity is optimized for the given constraints
-- This ensures that space complexity is minimized where possible
-
-### EXAMPLE WALKTHROUGH:
-Input:
-```
-m = 3, n = 2 (3 rows, 2 columns)
-```
-
-Step 1: Create DP table
-dp[i][j] = number of paths to reach cell (i,j)
-dp = [[1, 1],
-[1, 2],
-[1, 3]]
-Step 2: Fill table using dp[i][j] = dp[i-1][j] + dp[i][j-1]
-dp[0][0] = 1 (starting point)
-dp[0][1] = 1 (can only go right)
-dp[1][0] = 1 (can only go down)
-dp[1][1] = dp[0][1] + dp[1][0] = 1 + 1 = 2
-dp[2][0] = 1
-dp[2][1] = dp[1][1] + dp[2][0] = 2 + 1 = 3
-
-Output:
-```
-3 (number of unique paths)
-```
-
-### TIME COMPLEXITY:
-O(n)**
-- Single pass through input
-
-### SPACE COMPLEXITY:
-O(1)**
-- Constant extra space
-
-### EDGE CASES:
-- **Empty input**: Handle when input is empty
-- **Single element**: Handle single-element inputs
-- **Boundary values**: Handle minimum/maximum valid values
-
-</details>
-
-*/
+ * ### METADATA:
+ *
+ *
+ * ### INTUITION:
+ * [This problem requires understanding of dynamic programming concepts. The key insight is to identify the optimal approach for this specific scenario.]
+ *
+ * ### APPROACH:
+ * 1. **Analyze the problem**: Understand the input constraints and expected output
+ * 2. **Choose the right technique**: Apply dynamic programming methodology
+ * 3. **Implement efficiently**: Focus on optimal time and space complexity
+ * 4. **Handle edge cases**: Consider boundary conditions and special cases
+ *
+ * ### WHY THIS WORKS:
+ * - This ensures that the solution leverages dynamic programming principles
+ * - This ensures that time complexity is optimized for the given constraints
+ * - This ensures that space complexity is minimized where possible
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * m = 3, n = 2 (3 rows, 2 columns)
+ * ```
+ *
+ * Step 1: Create DP table
+ * dp[i][j] = number of paths to reach cell (i,j)
+ * dp = [[1, 1],
+ * [1, 2],
+ * [1, 3]]
+ * Step 2: Fill table using dp[i][j] = dp[i-1][j] + dp[i][j-1]
+ * dp[0][0] = 1 (starting point)
+ * dp[0][1] = 1 (can only go right)
+ * dp[1][0] = 1 (can only go down)
+ * dp[1][1] = dp[0][1] + dp[1][0] = 1 + 1 = 2
+ * dp[2][0] = 1
+ * dp[2][1] = dp[1][1] + dp[2][0] = 2 + 1 = 3
+ *
+ * Output:
+ * ```
+ * 3 (number of unique paths)
+ * ```
+ *
+ * ### TIME COMPLEXITY:
+ * O(n)**
+ * - Single pass through input
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
+ *
+ * ### EDGE CASES:
+ * - **Empty input**: Handle when input is empty
+ * - **Single element**: Handle single-element inputs
+ * - **Boundary values**: Handle minimum/maximum valid values
+ *
+ * *
+ */
 
 /**
  * Main solution for Problem 062: Unique Paths
