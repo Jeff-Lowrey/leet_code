@@ -1,60 +1,61 @@
 /**
-### INTUITION:
-The key insight is that build reverse graph (who reaches who). Use Kahn's algorithm. Nodes with out-degree 0 are safe (reach terminal). Process in reverse topological order to find all safe nodes.
-
-### APPROACH:
-1. **Build graph**: Create adjacency list from graph edges
-2. **Track colors**: Use colors array: 0 = unvisited, 1 = visiting, 2 = visited
-3. **Define DFS**: Implement dfs(node) to detect cycles
-4. **Check visiting**: If colors[node] == 1, cycle detected, return False
-5. **Check visited**: If colors[node] == 2, already safe, return True
-6. **Mark visiting**: Set colors[node] = 1, explore all neighbors
-7. **Mark visited**: If all neighbors safe, set colors[node] = 2
-8. **Find safe nodes**: Return nodes where dfs(node) returns True
-
-### WHY THIS WORKS:
-- This ensures that reverse graph, find nodes from which all paths lead to terminals
-- This ensures that color nodes: 0=unvisited, 1=visiting, 2=safe
-- This ensures that dFS: if all neighbors are safe, current node is safe
-- This ensures that if reaches cycle (visiting node), not safe
-- This ensures that o(V + E) time: DFS visits each node/edge once, O(V) space
-
-### EXAMPLE WALKTHROUGH:
-Input:
-```
-graph = [[1,2],[2,3],[5],[0],[5],[],[]]
-```
-
-Step 1: Find nodes with cycles
-
-Steps:
-Step 1: 0→1→2→3→0 (cycle)
-Step 2: Find terminal nodes
-Step 3: Nodes: 5,6
-Step 4: Check which nodes reach only terminal
-Step 5: Check each node's reachability
-
-Output:
-```
-[2,4,5,6] (safe nodes)
-```
-
-### TIME COMPLEXITY:
-O(n)**
-- Single pass with **O(1)** hash lookups
-
-### SPACE COMPLEXITY:
-O(1)**
-- Constant extra space
-
-### EDGE CASES:
-- **Empty input**: Handle when input is empty
-- **Single element**: Handle single-element inputs
-- **Boundary values**: Handle minimum/maximum valid values
-
-</details>
-
-*/
+ * ### METADATA:
+ *
+ *
+ * ### INTUITION:
+ * The key insight is that build reverse graph (who reaches who). Use Kahn's algorithm. Nodes with out-degree 0 are safe (reach terminal). Process in reverse topological order to find all safe nodes.
+ *
+ * ### APPROACH:
+ * 1. **Build graph**: Create adjacency list from graph edges
+ * 2. **Track colors**: Use colors array: 0 = unvisited, 1 = visiting, 2 = visited
+ * 3. **Define DFS**: Implement dfs(node) to detect cycles
+ * 4. **Check visiting**: If colors[node] == 1, cycle detected, return False
+ * 5. **Check visited**: If colors[node] == 2, already safe, return True
+ * 6. **Mark visiting**: Set colors[node] = 1, explore all neighbors
+ * 7. **Mark visited**: If all neighbors safe, set colors[node] = 2
+ * 8. **Find safe nodes**: Return nodes where dfs(node) returns True
+ *
+ * ### WHY THIS WORKS:
+ * - This ensures that reverse graph, find nodes from which all paths lead to terminals
+ * - This ensures that color nodes: 0=unvisited, 1=visiting, 2=safe
+ * - This ensures that dFS: if all neighbors are safe, current node is safe
+ * - This ensures that if reaches cycle (visiting node), not safe
+ * - This ensures that o(V + E) time: DFS visits each node/edge once, O(V) space
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * graph = [[1,2],[2,3],[5],[0],[5],[],[]]
+ * ```
+ *
+ * Step 1: Find nodes with cycles
+ *
+ * Steps:
+ * Step 1: 0→1→2→3→0 (cycle)
+ * Step 2: Find terminal nodes
+ * Step 3: Nodes: 5,6
+ * Step 4: Check which nodes reach only terminal
+ * Step 5: Check each node's reachability
+ *
+ * Output:
+ * ```
+ * [2,4,5,6] (safe nodes)
+ * ```
+ *
+ * ### TIME COMPLEXITY:
+ * O(n)**
+ * - Single pass with **O(1)** hash lookups
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
+ *
+ * ### EDGE CASES:
+ * - **Empty input**: Handle when input is empty
+ * - **Single element**: Handle single-element inputs
+ * - **Boundary values**: Handle minimum/maximum valid values
+ *
+ * *
+ */
 
 class Solution {
   /**

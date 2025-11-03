@@ -52,8 +52,6 @@ For the sorted expected array
 - **All same heights**: Return 0 (any order is sorted)
 - **Few elements out of place**: Count specific mismatches
 
-</details>
-
 */
 
 /**

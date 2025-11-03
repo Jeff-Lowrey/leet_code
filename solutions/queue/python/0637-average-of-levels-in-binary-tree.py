@@ -50,8 +50,6 @@ Result: [3.0, 14.5, 11.0]
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
-</details>
-
 """
 
 from collections import deque

@@ -54,8 +54,6 @@ the character set size.
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
-</details>
-
 */
 
 class Solution {

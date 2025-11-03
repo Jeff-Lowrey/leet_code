@@ -1,4 +1,5 @@
-"""
+"""### METADATA:
+
 ### INTUITION:
 The key insight is that we need alternating pattern: small, large, small, large. We can achieve this in O(n) time
 by swapping elements when the pattern is violated, without sorting.
@@ -57,15 +58,12 @@ Output:
 Single pass through array with swaps
 
 ### SPACE COMPLEXITY:
-**O(1)**
-In-place swaps only
+**O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
 
 ### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
-
-</details>
 
 """
 

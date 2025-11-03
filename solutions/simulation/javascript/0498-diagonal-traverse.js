@@ -16,8 +16,8 @@
  * <dd>Traverse diagonals in zigzag pattern: up-right then down-left alternating</dd>
  * </dl>
  *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * 
+ * <b>🔍 SOLUTION EXPLANATION</b>
  *
  * ### METADATA:
  * **Techniques**: Simulation, Direction control

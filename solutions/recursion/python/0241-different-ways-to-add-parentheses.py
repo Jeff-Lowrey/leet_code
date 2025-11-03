@@ -55,8 +55,6 @@ Output:
 - **Mixed operators:** Creates multiple different results due to different groupings
 - **Negative numbers in result:** Handled correctly by operator application
 
-</details>
-
 """
 
 from typing import List

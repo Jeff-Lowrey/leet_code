@@ -50,8 +50,6 @@ Result: ["a","2","b","2","c","3"] with length 6
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
-</details>
-
 """
 
 from collections import deque

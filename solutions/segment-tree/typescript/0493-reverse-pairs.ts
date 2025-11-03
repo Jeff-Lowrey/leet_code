@@ -14,8 +14,6 @@ This is similar to counting inversions but with a modified condition (nums[i] > 
 ### WHY THIS WORKS:
 By repeatedly dividing the search space in half, we eliminate half of the remaining elements in each iteration. Since the array is sorted, we can determine which half contains the target by comparing with the middle element. This guarantees we find the target (if it exists) in O(log n) time because each step reduces the problem size by a factor of 2.
 
-
-
 This solution uses hash table lookup for efficient implementation.
 
 This solution uses hash map storage for efficient implementation.
@@ -39,7 +37,6 @@ Output:
 2
 ```
 
-
 Result: 2
 
 Step-by-step execution:
@@ -61,8 +58,6 @@ For auxiliary arrays and recursion stack
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
-
-</details>
 
 */
 

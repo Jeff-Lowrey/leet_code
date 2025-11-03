@@ -1,58 +1,59 @@
 /**
-### INTUITION:
-The key insight is that greedy: sort courses by deadline. For each course, if time available, add to heap (track duration). If no time, compare with longest course taken. If current shorter, replace longest.
-
-### APPROACH:
-1. **Sort by end time**: Sort courses by their deadlines
-2. **Initialize heap and time**: Create max heap, set current_time = 0
-3. **Iterate courses**: For each course (duration, deadline)
-4. **Add to schedule**: Push -duration to heap, add duration to current_time
-5. **Check feasibility**: If current_time > deadline, remove longest course
-6. **Continue processing**: Handle all courses
-7. **Return result**: Return len(heap)
-
-### WHY THIS WORKS:
-- Sort courses by deadline: greedy choice of course order
-- Use max heap to track course durations taken so far
-- If current time + duration > deadline, remove longest course (heap top)
-- Greedy: always try to fit course, remove longest if conflicts
-- O(n log n) for sort + heap operations, O(n) space for heap
-
-### EXAMPLE WALKTHROUGH:
-Input:
-```
-courses = [[100,200],[200,1300],[1000,1250],[2000,3200]]
-```
-
-Step 1: Sort by end time
-sorted = [[200,1300],[1000,1250],[2000,3200],[100,200]]
-Step 2: Greedy selection
-Take course ending at 1300
-Take course ending at 1250 (can't, conflicts)
-Take course ending at 3200
-...
-
-Output:
-```
-3 (max courses)
-```
-
-### TIME COMPLEXITY:
-O(n)**
-- Single pass through input
-
-### SPACE COMPLEXITY:
-O(1)**
-- Constant extra space
-
-### EDGE CASES:
-- **Empty input**: Handle when input is empty
-- **Single element**: Handle single-element inputs
-- **Boundary values**: Handle minimum/maximum valid values
-
-</details>
-
-*/
+ * ### METADATA:
+ *
+ *
+ * ### INTUITION:
+ * The key insight is that greedy: sort courses by deadline. For each course, if time available, add to heap (track duration). If no time, compare with longest course taken. If current shorter, replace longest.
+ *
+ * ### APPROACH:
+ * 1. **Sort by end time**: Sort courses by their deadlines
+ * 2. **Initialize heap and time**: Create max heap, set current_time = 0
+ * 3. **Iterate courses**: For each course (duration, deadline)
+ * 4. **Add to schedule**: Push -duration to heap, add duration to current_time
+ * 5. **Check feasibility**: If current_time > deadline, remove longest course
+ * 6. **Continue processing**: Handle all courses
+ * 7. **Return result**: Return len(heap)
+ *
+ * ### WHY THIS WORKS:
+ * - Sort courses by deadline: greedy choice of course order
+ * - Use max heap to track course durations taken so far
+ * - If current time + duration > deadline, remove longest course (heap top)
+ * - Greedy: always try to fit course, remove longest if conflicts
+ * - O(n log n) for sort + heap operations, O(n) space for heap
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * courses = [[100,200],[200,1300],[1000,1250],[2000,3200]]
+ * ```
+ *
+ * Step 1: Sort by end time
+ * sorted = [[200,1300],[1000,1250],[2000,3200],[100,200]]
+ * Step 2: Greedy selection
+ * Take course ending at 1300
+ * Take course ending at 1250 (can't, conflicts)
+ * Take course ending at 3200
+ * ...
+ *
+ * Output:
+ * ```
+ * 3 (max courses)
+ * ```
+ *
+ * ### TIME COMPLEXITY:
+ * O(n)**
+ * - Single pass through input
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
+ *
+ * ### EDGE CASES:
+ * - **Empty input**: Handle when input is empty
+ * - **Single element**: Handle single-element inputs
+ * - **Boundary values**: Handle minimum/maximum valid values
+ *
+ * *
+ */
 
 class Solution {
   /**

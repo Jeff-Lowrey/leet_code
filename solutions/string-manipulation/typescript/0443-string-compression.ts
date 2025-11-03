@@ -124,8 +124,6 @@ Data structures: Array (for storage), String (for conversion)**
 - In-place modification is safe because we consume input faster than we produce output
 - Converting count to string and iterating over digits handles multi-digit counts
 
-
-
 This solution uses hash table lookup for efficient implementation.
 
 This solution uses hash map storage for efficient implementation.
@@ -184,8 +182,6 @@ O(1)**
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
-
-</details>
 
 */
 

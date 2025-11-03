@@ -50,8 +50,6 @@ Hashmap stores at most min(n, p) different remainders
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
-</details>
-
 */
 
 class Solution {

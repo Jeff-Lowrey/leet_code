@@ -1,55 +1,56 @@
 /**
-### INTUITION:
-The key insight is that precompute cumulative sums in array. For range [i,j], the sum is prefix[j+1] - prefix[i]. This reduces each query from O(n) to O(1) with O(n) preprocessing.
-
-### APPROACH:
-1. **Initialize prefix sum**: In __init__, create self.prefix_sum = [0] * (len(nums) + 1)
-2. **Build prefix array**: For i in range(len(nums)), prefix_sum[i+1] = prefix_sum[i] + nums[i]
-3. **Query with O(1)**: In sumRange, return self.prefix_sum[right+1] - self.prefix_sum[left]
-4. **Leverage preprocessing**: Use pre-computed cumulative sums for fast queries
-
-### WHY THIS WORKS:
-- This ensures that precompute cumulative sums: prefix[i] = sum of nums[0..i-1]
-- This ensures that range sum [left, right] = prefix[right+1] - prefix[left]
-- This ensures that o(n) preprocessing builds prefix array once
-- This ensures that o(1) query time: just subtraction, no loop needed
-- This ensures that trade O(n) space for constant-time queries vs O(n) per query without prefix
-
-### EXAMPLE WALKTHROUGH:
-Input:
-```
-["NumArray","sumRange","sumRange","sumRange"], [[[-2,0,3,-5,2,-1]],[0,2],[2,5],[0,5]]
-```
-
-Step 1: Build prefix sum array
-nums = [-2,0,3,-5,2,-1]
-prefix = [0,-2,-2,1,-4,-2,-3]
-Step 2: Query using prefix
-sumRange(0,2) = prefix[3] - prefix[0] = 1 - 0 = 1
-sumRange(2,5) = prefix[6] - prefix[2] = -3 - (-2) = -1
-sumRange(0,5) = prefix[6] - prefix[0] = -3 - 0 = -3
-
-Output:
-```
-[null,1,-1,-3]
-```
-
-### TIME COMPLEXITY:
-O(n)**
-- Single pass through input
-
-### SPACE COMPLEXITY:
-O(1)**
-- Constant extra space
-
-### EDGE CASES:
-- **Empty input**: Handle when input is empty
-- **Single element**: Handle single-element inputs
-- **Boundary values**: Handle minimum/maximum valid values
-
-</details>
-
-*/
+ * ### METADATA:
+ *
+ *
+ * ### INTUITION:
+ * The key insight is that precompute cumulative sums in array. For range [i,j], the sum is prefix[j+1] - prefix[i]. This reduces each query from O(n) to O(1) with O(n) preprocessing.
+ *
+ * ### APPROACH:
+ * 1. **Initialize prefix sum**: In __init__, create self.prefix_sum = [0] * (len(nums) + 1)
+ * 2. **Build prefix array**: For i in range(len(nums)), prefix_sum[i+1] = prefix_sum[i] + nums[i]
+ * 3. **Query with O(1)**: In sumRange, return self.prefix_sum[right+1] - self.prefix_sum[left]
+ * 4. **Leverage preprocessing**: Use pre-computed cumulative sums for fast queries
+ *
+ * ### WHY THIS WORKS:
+ * - This ensures that precompute cumulative sums: prefix[i] = sum of nums[0..i-1]
+ * - This ensures that range sum [left, right] = prefix[right+1] - prefix[left]
+ * - This ensures that o(n) preprocessing builds prefix array once
+ * - This ensures that o(1) query time: just subtraction, no loop needed
+ * - This ensures that trade O(n) space for constant-time queries vs O(n) per query without prefix
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * ["NumArray","sumRange","sumRange","sumRange"], [[[-2,0,3,-5,2,-1]],[0,2],[2,5],[0,5]]
+ * ```
+ *
+ * Step 1: Build prefix sum array
+ * nums = [-2,0,3,-5,2,-1]
+ * prefix = [0,-2,-2,1,-4,-2,-3]
+ * Step 2: Query using prefix
+ * sumRange(0,2) = prefix[3] - prefix[0] = 1 - 0 = 1
+ * sumRange(2,5) = prefix[6] - prefix[2] = -3 - (-2) = -1
+ * sumRange(0,5) = prefix[6] - prefix[0] = -3 - 0 = -3
+ *
+ * Output:
+ * ```
+ * [null,1,-1,-3]
+ * ```
+ *
+ * ### TIME COMPLEXITY:
+ * O(n)**
+ * - Single pass through input
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
+ *
+ * ### EDGE CASES:
+ * - **Empty input**: Handle when input is empty
+ * - **Single element**: Handle single-element inputs
+ * - **Boundary values**: Handle minimum/maximum valid values
+ *
+ * *
+ */
 
 class NumArray {
   private prefix: number[];

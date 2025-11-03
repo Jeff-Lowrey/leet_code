@@ -1,72 +1,74 @@
 /**
-### INTUITION:
-The rows form a binary tree pattern:
-- Row 1: 0
-- Row 2: 0 1 (0→01)
-- Row 3: 0 1 1 0 (0→01, 1→10)
-- Row 4: 0 1 1 0 1 0 0 1
-
-Key observation: Each symbol at position k in row n is derived from position ⌈k/2⌉ in row n-1.
-- If k is odd (left child): same as parent
-- If k is even (right child): flip of parent
-
-### APPROACH:
-1. **Base case**: n = 1, return 0 (first row always starts with 0)
-2. **Find parent**: The parent is at position ⌈k/2⌉ in row n-1
-3. **Determine relationship**:
-   - If k is odd: return parent value
-   - If k is even: return flipped parent value (1 - parent)
-4. **Recursive call**: kthGrammar(n-1, (k+1)//2)
-
-### WHY THIS WORKS:
-- This ensures that the pattern follows a binary tree structure
-- This ensures that left child (odd k) inherits parent's value
-- This ensures that right child (even k) gets flipped value
-- This ensures that we recursively trace back to row 1
-
-### EXAMPLE WALKTHROUGH:
-Input:
-```
-n = 3, k = 3
-```
-
-Row 1: 0
-Row 2: 0 1
-Row 3: 0 1 1 0
-^ ^ ^ ^
-1 2 3 4
-Find position 3 in row 3:
-- Find position 2 in row 2:
-
-Steps:
-Step 1: - k=3 (odd) → parent is position ⌈3/2⌉ = 2 in row 2, same value as parent
-Step 2: - k=2 (even) → parent is position ⌈2/2⌉ = 1 in row 1, flip parent
-Step 3: - Find position 1 in row 1: returns 0
-Step 4: - Row 2, position 2: flip(0) = 1
-Step 5: - Row 3, position 3: same as parent = 1
-Step 6: Result: 1
-
-Output:
-```
-1
-```
-
-### TIME COMPLEXITY:
-O(n)**
-
-- Single pass through the input
-
-### SPACE COMPLEXITY:
-O(n)** for recursion stack
-
-### EDGE CASES:
-- **Empty input**: Handle when input is empty
-- **Single element**: Handle single-element inputs
-- **Boundary values**: Handle minimum/maximum valid values
-
-</details>
-
-*/
+ * ### METADATA:
+ *
+ *
+ * ### INTUITION:
+ * The rows form a binary tree pattern:
+ * - Row 1: 0
+ * - Row 2: 0 1 (0→01)
+ * - Row 3: 0 1 1 0 (0→01, 1→10)
+ * - Row 4: 0 1 1 0 1 0 0 1
+ *
+ * Key observation: Each symbol at position k in row n is derived from position ⌈k/2⌉ in row n-1.
+ * - If k is odd (left child): same as parent
+ * - If k is even (right child): flip of parent
+ *
+ * ### APPROACH:
+ * 1. **Base case**: n = 1, return 0 (first row always starts with 0)
+ * 2. **Find parent**: The parent is at position ⌈k/2⌉ in row n-1
+ * 3. **Determine relationship**:
+ *    - If k is odd: return parent value
+ *    - If k is even: return flipped parent value (1 - parent)
+ * 4. **Recursive call**: kthGrammar(n-1, (k+1)//2)
+ *
+ * ### WHY THIS WORKS:
+ * - This ensures that the pattern follows a binary tree structure
+ * - This ensures that left child (odd k) inherits parent's value
+ * - This ensures that right child (even k) gets flipped value
+ * - This ensures that we recursively trace back to row 1
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * n = 3, k = 3
+ * ```
+ *
+ * Row 1: 0
+ * Row 2: 0 1
+ * Row 3: 0 1 1 0
+ * ^ ^ ^ ^
+ * 1 2 3 4
+ * Find position 3 in row 3:
+ * - Find position 2 in row 2:
+ *
+ * Steps:
+ * Step 1: - k=3 (odd) → parent is position ⌈3/2⌉ = 2 in row 2, same value as parent
+ * Step 2: - k=2 (even) → parent is position ⌈2/2⌉ = 1 in row 1, flip parent
+ * Step 3: - Find position 1 in row 1: returns 0
+ * Step 4: - Row 2, position 2: flip(0) = 1
+ * Step 5: - Row 3, position 3: same as parent = 1
+ * Step 6: Result: 1
+ *
+ * Output:
+ * ```
+ * 1
+ * ```
+ *
+ * ### TIME COMPLEXITY:
+ * O(n)**
+ *
+ * - Single pass through the input
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
+ *
+ * ### EDGE CASES:
+ * - **Empty input**: Handle when input is empty
+ * - **Single element**: Handle single-element inputs
+ * - **Boundary values**: Handle minimum/maximum valid values
+ *
+ * *
+ */
 
 class Solution {
   /**

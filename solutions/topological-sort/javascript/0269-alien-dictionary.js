@@ -1,55 +1,56 @@
 /**
-### INTUITION:
-[This problem requires understanding of topological sort concepts. The key insight is to identify the optimal approach for this specific scenario.]
-
-### APPROACH:
-1. **Analyze the problem**: Understand the input constraints and expected output
-2. **Choose the right technique**: Apply topological sort methodology
-3. **Implement efficiently**: Focus on optimal time and space complexity
-4. **Handle edge cases**: Consider boundary conditions and special cases
-
-### WHY THIS WORKS:
-- This ensures that the solution leverages topological sort principles
-- This ensures that time complexity is optimized for the given constraints
-- This ensures that space complexity is minimized where possible
-
-### EXAMPLE WALKTHROUGH:
-Input:
-```
-words = ["wrt","wrf","er","ett","rftt"]
-```
-
-Step 1: Build graph from word pairs
-
-Steps:
-Step 1: "wrt" vs "wrf": t→f
-Step 2: "wrf" vs "er": w→e
-Step 3: "er" vs "ett": r→t
-Step 4: "ett" vs "rftt": e→r
-Step 5: Topological sort
-Step 6: Order: w→e→r→t→f
-
-Output:
-```
-"wertf"
-```
-
-### TIME COMPLEXITY:
-O(n)**
-- Single pass through input
-
-### SPACE COMPLEXITY:
-O(1)**
-- Constant extra space
-
-### EDGE CASES:
-- **Empty input**: Handle when input is empty
-- **Single element**: Handle single-element inputs
-- **Boundary values**: Handle minimum/maximum valid values
-
-</details>
-
-*/
+ * ### METADATA:
+ *
+ *
+ * ### INTUITION:
+ * [This problem requires understanding of topological sort concepts. The key insight is to identify the optimal approach for this specific scenario.]
+ *
+ * ### APPROACH:
+ * 1. **Analyze the problem**: Understand the input constraints and expected output
+ * 2. **Choose the right technique**: Apply topological sort methodology
+ * 3. **Implement efficiently**: Focus on optimal time and space complexity
+ * 4. **Handle edge cases**: Consider boundary conditions and special cases
+ *
+ * ### WHY THIS WORKS:
+ * - This ensures that the solution leverages topological sort principles
+ * - This ensures that time complexity is optimized for the given constraints
+ * - This ensures that space complexity is minimized where possible
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * words = ["wrt","wrf","er","ett","rftt"]
+ * ```
+ *
+ * Step 1: Build graph from word pairs
+ *
+ * Steps:
+ * Step 1: "wrt" vs "wrf": t→f
+ * Step 2: "wrf" vs "er": w→e
+ * Step 3: "er" vs "ett": r→t
+ * Step 4: "ett" vs "rftt": e→r
+ * Step 5: Topological sort
+ * Step 6: Order: w→e→r→t→f
+ *
+ * Output:
+ * ```
+ * "wertf"
+ * ```
+ *
+ * ### TIME COMPLEXITY:
+ * O(n)**
+ * - Single pass through input
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
+ *
+ * ### EDGE CASES:
+ * - **Empty input**: Handle when input is empty
+ * - **Single element**: Handle single-element inputs
+ * - **Boundary values**: Handle minimum/maximum valid values
+ *
+ * *
+ */
 
 /**
  * Main solution for Problem 269: Alien Dictionary

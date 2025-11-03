@@ -52,8 +52,6 @@ O(n)** - We create a list of n string representations plus the final concatenate
 - **Large numbers:** Works correctly due to string comparison
 - **Mixed sizes:** [121, 12] → "12121" (12+121="12121" > 121+12="12112")
 
-</details>
-
 */
 
 class Solution {

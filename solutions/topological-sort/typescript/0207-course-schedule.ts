@@ -51,10 +51,6 @@ O(V + E)**
 - **Linear chain**: No cycles, courses taken in topological order
 - **Disconnected components**: Process each component separately
 
-</details>
-
-</details>
-
 */
 
 class Solution {

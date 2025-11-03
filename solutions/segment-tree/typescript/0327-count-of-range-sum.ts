@@ -14,8 +14,6 @@ This is an advanced range sum counting problem. The key insight is to use prefix
 ### WHY THIS WORKS:
 The algorithm correctly solves the problem by systematically exploring all valid states while maintaining necessary invariants. Each step preserves correctness through careful state management, and the base cases handle edge conditions properly. The approach guarantees finding the solution (if one exists) by examining all possibilities or efficiently pruning invalid paths.
 
-
-
 This solution uses set operations for efficient implementation.
 - Segment tree enables efficient range queries and updates in O(log n) time by maintaining a binary tree structure
 - Binary Indexed Tree (Fenwick tree) provides O(log n) prefix sum queries and updates using bit manipulation
@@ -71,8 +69,6 @@ For prefix sums and auxiliary structures
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
-
-</details>
 
 */
 

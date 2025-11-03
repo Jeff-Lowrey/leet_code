@@ -54,8 +54,6 @@ We only use a few variables regardless of input size.
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
-</details>
-
 */
 
 class Solution {

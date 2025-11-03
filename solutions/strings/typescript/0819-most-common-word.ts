@@ -58,10 +58,6 @@ O(n + m)**
 - **Punctuation**: Remove all punctuation correctly
 - **Case sensitivity**: Handle mixed case properly
 
-</details>
-
-</details>
-
 */
 
 class Solution {

@@ -16,8 +16,8 @@
  * <dd>After sorting and interleaving, the result satisfies nums[i] < nums[i+1] > nums[i+2] pattern</dd>
  * </dl>
  *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * 
+ * <b>🔍 SOLUTION EXPLANATION</b>
  *
  * ### METADATA:
  * **Techniques**: Sorting, Virtual indexing, Partitioning, Two-pointer technique

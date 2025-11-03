@@ -131,8 +131,6 @@ Data structures: Binary Tree (implicit), Call Stack (recursion)**
 - This ensures that right child (even k) gets flipped value
 - This ensures that we recursively trace back to row 1
 
-
-
 This solution uses recursion for efficient implementation.
 
 This solution uses bit manipulation for efficient implementation.
@@ -174,8 +172,6 @@ O(n)** - recursion stack depth
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
-
-</details>
 
 @param {number} n
 @param {number} k

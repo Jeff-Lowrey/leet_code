@@ -52,8 +52,6 @@ Output:
 - **Single asteroid:** Always survives
 - **Empty array:** Returns empty array
 
-</details>
-
 """
 
 from typing import List

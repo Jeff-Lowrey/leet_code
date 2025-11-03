@@ -121,8 +121,6 @@ Data structures: Hash Map (for graph/in-degrees), Hash Set (for validation), Arr
 - If multiple nodes have in-degree 0 simultaneously, multiple valid orders exist
 - We need to verify that the unique order matches the original sequence
 
-
-
 This solution uses hash table lookup for efficient implementation.
 
 This solution uses hash map storage for efficient implementation.
@@ -178,8 +176,6 @@ For the graph representation and auxiliary data structures
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
-
-</details>
 
 */
 

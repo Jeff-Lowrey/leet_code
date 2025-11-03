@@ -62,8 +62,6 @@ Recursion stack depth is tree height h, hashmap stores at most h entries in any 
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
-</details>
-
 */
 
 /**

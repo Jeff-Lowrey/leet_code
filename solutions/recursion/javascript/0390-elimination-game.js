@@ -25,8 +25,6 @@ When eliminating from right-to-left, the head only moves if there's an odd numbe
 of elements (because we'd eliminate the current head's partner). The step size
 doubles each round because we're eliminating every other element.
 
-
-
 This solution uses recursion for efficient implementation.
 
 This solution uses mathematical pattern recognition for efficient implementation.
@@ -89,8 +87,6 @@ O(log n)** - Recursion stack depth (iterative solution can achieve **O(1)**)
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
-
-</details>
 
 */
 

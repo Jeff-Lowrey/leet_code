@@ -16,8 +16,8 @@ Solve the Diagonal Traverse problem as described.
 <dd>Traverse the matrix diagonally, alternating between up-right and down-left directions. Starting from (0,0), visit elements in the pattern: [1] → [2,4] → [7,5,3] → [6,8] → [9]</dd>
 </dl>
 
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+
+<b>🔍 SOLUTION EXPLANATION</b>
  *
 ### METADATA:
 **Techniques**: Simulation, Direction control, Diagonal traversal

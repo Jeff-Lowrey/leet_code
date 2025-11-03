@@ -1,58 +1,59 @@
 /**
-### INTUITION:
-The key insight is that build graph of dependencies. Start DFS from each cell. Use memoization to store longest path from each cell. Result is max of all starting points. DFS explores increasing values only.
-
-### APPROACH:
-1. **Initialize memoization**: Create memo = {} to cache results
-2. **Define DFS function**: Implement dfs(i, j) to find longest path from cell (i,j)
-3. **Check memo**: If (i,j) in memo, return memo[(i,j)]
-4. **Explore neighbors**: For each of 4 directions, check if can move (increasing value)
-5. **Recursive call**: If valid, max_path = max(max_path, 1 + dfs(ni, nj))
-6. **Memoize result**: memo[(i,j)] = max_path
-7. **Try all cells**: For each cell, call dfs and track maximum
-8. **Return result**: Return global maximum path length
-
-### WHY THIS WORKS:
-- DFS with memoization: longest path from each cell
-- Only move to adjacent cells with greater values (DAG ensures no cycles)
-- Memo[i][j] caches longest path starting at (i,j)
-- Try all 4 directions, take max + 1
-- O(m*n) time: each cell computed once, O(m*n) space for memo
-
-### EXAMPLE WALKTHROUGH:
-Input:
-```
-matrix = [[9,9,4],[6,6,8],[2,1,1]]
-```
-
-Step 1: DFS with memoization
-
-Steps:
-Step 1: Start from 9: can go to 6 → 2 → 1, length=4
-Step 2: Try all cells
-Step 3: Best path: 9→6→2→1
-
-Output:
-```
-4 (longest increasing path)
-```
-
-### TIME COMPLEXITY:
-O(n)**
-- Single pass through input
-
-### SPACE COMPLEXITY:
-O(1)**
-- Constant extra space
-
-### EDGE CASES:
-- **Empty input**: Handle when input is empty
-- **Single element**: Handle single-element inputs
-- **Boundary values**: Handle minimum/maximum valid values
-
-</details>
-
-*/
+ * ### METADATA:
+ *
+ *
+ * ### INTUITION:
+ * The key insight is that build graph of dependencies. Start DFS from each cell. Use memoization to store longest path from each cell. Result is max of all starting points. DFS explores increasing values only.
+ *
+ * ### APPROACH:
+ * 1. **Initialize memoization**: Create memo = {} to cache results
+ * 2. **Define DFS function**: Implement dfs(i, j) to find longest path from cell (i,j)
+ * 3. **Check memo**: If (i,j) in memo, return memo[(i,j)]
+ * 4. **Explore neighbors**: For each of 4 directions, check if can move (increasing value)
+ * 5. **Recursive call**: If valid, max_path = max(max_path, 1 + dfs(ni, nj))
+ * 6. **Memoize result**: memo[(i,j)] = max_path
+ * 7. **Try all cells**: For each cell, call dfs and track maximum
+ * 8. **Return result**: Return global maximum path length
+ *
+ * ### WHY THIS WORKS:
+ * - DFS with memoization: longest path from each cell
+ * - Only move to adjacent cells with greater values (DAG ensures no cycles)
+ * - Memo[i][j] caches longest path starting at (i,j)
+ * - Try all 4 directions, take max + 1
+ * - O(m*n) time: each cell computed once, O(m*n) space for memo
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * matrix = [[9,9,4],[6,6,8],[2,1,1]]
+ * ```
+ *
+ * Step 1: DFS with memoization
+ *
+ * Steps:
+ * Step 1: Start from 9: can go to 6 → 2 → 1, length=4
+ * Step 2: Try all cells
+ * Step 3: Best path: 9→6→2→1
+ *
+ * Output:
+ * ```
+ * 4 (longest increasing path)
+ * ```
+ *
+ * ### TIME COMPLEXITY:
+ * O(n)**
+ * - Single pass through input
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
+ *
+ * ### EDGE CASES:
+ * - **Empty input**: Handle when input is empty
+ * - **Single element**: Handle single-element inputs
+ * - **Boundary values**: Handle minimum/maximum valid values
+ *
+ * *
+ */
 
 class Solution {
   /**

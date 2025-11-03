@@ -121,8 +121,6 @@ By expanding around each possible center, we check all possible palindromes.
 A palindrome reads the same forwards and backwards, so we expand while the
 characters on both sides match.
 
-
-
 This solution uses dynamic programming for efficient implementation.
 
 The solution leverages string for efficient operations.
@@ -165,8 +163,6 @@ Note: "aba" is also a valid answer
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
-
-</details>
 
 @param {string} s
 @return {string}

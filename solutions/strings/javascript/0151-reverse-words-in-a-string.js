@@ -53,8 +53,6 @@ We create a list of words and the result string, both proportional to input size
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
-</details>
-
 */
 
 /**

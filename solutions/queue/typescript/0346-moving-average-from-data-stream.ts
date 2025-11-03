@@ -45,22 +45,6 @@ O(size)**
 - **More than size elements**: Remove oldest, add newest
 - **Single element stream**: Return that element
 
-</details>
-
-</details>
-
-</details>
-
-</details>
-
-</details>
-
-</details>
-
-</details>
-
-</details>
-
 */
 
 class Solution {

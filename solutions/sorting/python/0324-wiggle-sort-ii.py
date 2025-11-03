@@ -55,8 +55,6 @@ For temporary sorted array. Can be **O(1)** with in-place virtual indexing.
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
-</details>
-
 """
 
 from typing import List

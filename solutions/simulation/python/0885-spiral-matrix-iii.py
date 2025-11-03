@@ -1,11 +1,14 @@
-"""
+"""### METADATA:
+
 ### INTUITION:
 The key insight is to solve this problem efficiently.
  *
 
 ### APPROACH:
-We solve this problem by implementing the required algorithm.
- *
+1. **Initialize data structures**: Set up the required data structures for the algorithm
+2. **Process input**: Iterate through the input applying the core technique
+3. **Track state**: Maintain necessary state information during processing
+4. **Return result**: Construct and return the final solution
 
 ### WHY THIS WORKS:
 This approach works because it correctly implements the problem requirements.
@@ -39,8 +42,6 @@ Step-by-step execution:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
-
-</details>
 
 """
 

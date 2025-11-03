@@ -15,8 +15,6 @@ Data structures: Hash Map (adjacency list, in-degree), Hash Set (seen pairs), Ar
 - If multiple nodes have in-degree 0 simultaneously, multiple valid orders exist
 - We need to verify that the unique order matches the original sequence
 
-
-
 This solution uses hash table lookup for efficient implementation.
 
 This solution uses hash map storage for efficient implementation.
@@ -65,8 +63,6 @@ For the graph representation and auxiliary data structures
 - **Cycle in graph**: org=[1,2], seqs=[[1,2],[2,1]] → false (cycle exists)
 - **Sequence doesn't match order**: org=[1,2,3], seqs=[[1,3],[3,2]] → false (produces [1,3,2])
 - **Single element**: org=[1], seqs=[[1]] → true (trivial case)
-
-</details>
 
 */
 

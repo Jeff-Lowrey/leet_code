@@ -55,8 +55,6 @@ O(4^n / n^(3/2)**)** - We store all possible results for each sub-expression, pl
 - **Mixed operators:** Creates multiple different results due to different groupings
 - **Negative numbers in result:** Handled correctly by operator application
 
-</details>
-
 */
 
 class Solution {

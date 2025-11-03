@@ -41,8 +41,6 @@ Recursion stack depth proportional to number of pairs
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
-</details>
-
 */
 
 class ListNode {

@@ -22,8 +22,8 @@
  * <dd>F(4) = F(3) + F(2) = 2 + 1 = 3</dd>
  * </dl>
  *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * 
+ * <b>🔍 SOLUTION EXPLANATION</b>
  *
  * ### METADATA:
  * **Techniques**: Recursion, Memoization, Iteration
@@ -48,8 +48,6 @@ The algorithm proceeds as follows:
 - This ensures that the Fibonacci definition is inherently recursive
 - This ensures that base cases prevent infinite recursion
 - This ensures that memoization reduces time complexity from exponential to linear
-
-
 
 This solution uses iteration for efficient implementation.
 

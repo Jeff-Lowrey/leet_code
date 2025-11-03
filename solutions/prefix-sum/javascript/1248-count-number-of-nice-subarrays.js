@@ -29,7 +29,6 @@ For each position, check if (current_count - k) exists:
 - Position 4: count=4, need=1, found 1 time
 Total: 2 nice subarrays
 
-
 Result: 2
 
 Step-by-step execution:
@@ -51,8 +50,6 @@ For the frequency HashMap
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
-
-</details>
 
 */
 

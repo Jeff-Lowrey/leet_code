@@ -54,8 +54,6 @@ O(1)** - We only use a fixed number of variables (result, sign, index) regardles
 - **Words with numbers:** "words and 987" → 0 (stops at 'w')
 - **Empty string:** "" → 0
 
-</details>
-
 */
 
 class Solution {

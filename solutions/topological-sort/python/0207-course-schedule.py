@@ -51,10 +51,6 @@ true
 - **Linear chain**: No cycles, courses taken in topological order
 - **Disconnected components**: Process each component separately
 
-</details>
-
-</details>
-
 """
 
 from collections import deque, defaultdict

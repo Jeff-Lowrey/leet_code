@@ -58,8 +58,6 @@ If sorting in place, **O(n)** for sorting with extra space
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
-</details>
-
 """
 
 

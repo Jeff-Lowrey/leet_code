@@ -54,8 +54,6 @@ Output:
 - **Words with numbers:** "words and 987" → 0 (stops at 'w')
 - **Empty string:** "" → 0
 
-</details>
-
 """
 
 from typing import Any

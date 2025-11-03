@@ -130,8 +130,6 @@ Heap Sort:**
 - This ensures that **Quick Sort**: Average O(n log n), in-place, but O(n²) worst case
 - This ensures that **Heap Sort**: Guaranteed O(n log n), in-place, not stable
 
-
-
 This solution uses hash map storage for efficient implementation.
 
 This solution uses two pointers for efficient implementation.
@@ -213,8 +211,6 @@ All three algorithms achieve this complexity
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
-
-</details>
 
 */
 

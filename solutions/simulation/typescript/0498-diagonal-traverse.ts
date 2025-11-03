@@ -24,8 +24,8 @@
  * <dd>Diagonal traversal of [[1,2,3],[4,5,6],[7,8,9]] is [1,2,4,7,5,3,6,8,9]</dd>
  * </dl>
  *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * 
+ * <b>🔍 SOLUTION EXPLANATION</b>
  *
  * ### METADATA:
  * **Techniques**: Simulation, Direction control, Diagonal traversal

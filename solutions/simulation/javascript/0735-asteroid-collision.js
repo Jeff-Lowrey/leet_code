@@ -52,8 +52,6 @@ O(n)** - In the worst case (all asteroids moving in the same direction or no col
 - **Single asteroid:** Always survives
 - **Empty array:** Returns empty array
 
-</details>
-
 */
 
 class Solution {

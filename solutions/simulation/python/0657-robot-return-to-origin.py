@@ -46,8 +46,6 @@ true
 - **All same direction**: Returns false (e.g., "UUU" moves away from origin)
 - **Interleaved moves**: Order doesn't matter, only counts (e.g., "UDUD" and "UUDD" both return true)
 
-</details>
-
 """
 
 

@@ -43,22 +43,6 @@ O(n)**
 - **Frequent updates**: Segment tree handles efficiently in O(log n)
 - **Range [i, i]**: Query single element
 
-</details>
-
-</details>
-
-</details>
-
-</details>
-
-</details>
-
-</details>
-
-</details>
-
-</details>
-
 */
 
 class NumArray {

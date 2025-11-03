@@ -123,8 +123,6 @@ Data structures: Integer (value operations), Bit manipulation**
 - Mathematical property: 4^x = (2^2)^x = 2^(2x) means the bit is at even position
 - All powers of 4 satisfy: (n-1) % 3 === 0
 
-
-
 This solution uses bit manipulation for efficient implementation.
 
 This solution uses recursion for efficient implementation.
@@ -155,8 +153,6 @@ O(log₄ n)** - recursion stack depth
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
-
-</details>
 
 @param {number} n
 @return {boolean}

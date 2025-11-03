@@ -1,61 +1,62 @@
 /**
-### INTUITION:
-The key insight is that build graph from word pairs by comparing adjacent words. Find first different character to establish order. Perform topological sort using DFS or BFS. Detect cycles (impossible ordering).
-
-### APPROACH:
-1. **Build graph**: Compare adjacent words to find character ordering
-2. **Track indegrees**: Count incoming edges for each character
-3. **Initialize queue**: Add characters with indegree 0 to queue
-4. **BFS traversal**: While queue not empty, dequeue character
-5. **Add to result**: Append character to result
-6. **Update neighbors**: For each neighbor, decrement indegree
-7. **Add to queue**: If indegree becomes 0, add to queue
-8. **Return result**: If all characters processed, return ''.join(result); else return ''
-
-### WHY THIS WORKS:
-- Build graph from adjacent word pairs: first differing char creates edge
-- Topological sort on character DAG gives alien dictionary order
-- If cycle detected (via DFS or indegree), no valid ordering exists
-- Invalid case: word1 longer than word2 but word1 prefix of word2
-- O(n * k) time: n words, k avg length, O(1) space for alphabet-size graph
-
-### EXAMPLE WALKTHROUGH:
-Input:
-```
-words = ["wrt","wrf","er","ett","rftt"]
-```
-
-Step 1: Build graph from word pairs
-
-Steps:
-Step 1: "wrt" vs "wrf": t→f
-Step 2: "wrf" vs "er": w→e
-Step 3: "er" vs "ett": r→t
-Step 4: "ett" vs "rftt": e→r
-Step 5: Topological sort
-Step 6: Order: w→e→r→t→f
-
-Output:
-```
-"wertf"
-```
-
-### TIME COMPLEXITY:
-O(n)**
-- Single pass with **O(1)** hash lookups
-
-### SPACE COMPLEXITY:
-O(1)**
-- Constant extra space
-
-### EDGE CASES:
-- **Empty input**: Handle when input is empty
-- **Single element**: Handle single-element inputs
-- **Boundary values**: Handle minimum/maximum valid values
-
-</details>
-
-*/
+ * ### METADATA:
+ *
+ *
+ * ### INTUITION:
+ * The key insight is that build graph from word pairs by comparing adjacent words. Find first different character to establish order. Perform topological sort using DFS or BFS. Detect cycles (impossible ordering).
+ *
+ * ### APPROACH:
+ * 1. **Build graph**: Compare adjacent words to find character ordering
+ * 2. **Track indegrees**: Count incoming edges for each character
+ * 3. **Initialize queue**: Add characters with indegree 0 to queue
+ * 4. **BFS traversal**: While queue not empty, dequeue character
+ * 5. **Add to result**: Append character to result
+ * 6. **Update neighbors**: For each neighbor, decrement indegree
+ * 7. **Add to queue**: If indegree becomes 0, add to queue
+ * 8. **Return result**: If all characters processed, return ''.join(result); else return ''
+ *
+ * ### WHY THIS WORKS:
+ * - Build graph from adjacent word pairs: first differing char creates edge
+ * - Topological sort on character DAG gives alien dictionary order
+ * - If cycle detected (via DFS or indegree), no valid ordering exists
+ * - Invalid case: word1 longer than word2 but word1 prefix of word2
+ * - O(n * k) time: n words, k avg length, O(1) space for alphabet-size graph
+ *
+ * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * words = ["wrt","wrf","er","ett","rftt"]
+ * ```
+ *
+ * Step 1: Build graph from word pairs
+ *
+ * Steps:
+ * Step 1: "wrt" vs "wrf": t→f
+ * Step 2: "wrf" vs "er": w→e
+ * Step 3: "er" vs "ett": r→t
+ * Step 4: "ett" vs "rftt": e→r
+ * Step 5: Topological sort
+ * Step 6: Order: w→e→r→t→f
+ *
+ * Output:
+ * ```
+ * "wertf"
+ * ```
+ *
+ * ### TIME COMPLEXITY:
+ * O(n)**
+ * - Single pass with **O(1)** hash lookups
+ *
+ * ### SPACE COMPLEXITY:
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
+ *
+ * ### EDGE CASES:
+ * - **Empty input**: Handle when input is empty
+ * - **Single element**: Handle single-element inputs
+ * - **Boundary values**: Handle minimum/maximum valid values
+ *
+ * *
+ */
 
 class Solution {
   /**

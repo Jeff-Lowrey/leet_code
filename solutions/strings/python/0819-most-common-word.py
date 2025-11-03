@@ -56,10 +56,6 @@ Output:
 - **Punctuation**: Remove all punctuation correctly
 - **Case sensitivity**: Handle mixed case properly
 
-</details>
-
-</details>
-
 """
 
 from typing import List

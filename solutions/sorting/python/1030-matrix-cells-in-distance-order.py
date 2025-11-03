@@ -67,8 +67,6 @@ For storing all coordinates in the result
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
-</details>
-
 """
 
 from collections import deque
