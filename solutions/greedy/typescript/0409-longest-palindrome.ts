@@ -29,38 +29,43 @@
  * **Space Complexity**: O(1) - Constant extra space
  *
  * ### INTUITION:
- * A palindrome reads the same forwards and backwards. To maximize the palindrome length, we should use as many character pairs as possible, plus at most one character with odd count (which goes in the center).
- *
- * ### APPROACH:
- * 1. **Count character frequencies**: Count how many times each character appears
- * 2. **Use pairs greedily**: Each pair of characters contributes 2 to palindrome length
- * 3. **Handle odd counts**: If any character has odd count, we can place one in center
- * 4. **Calculate result**: Sum of all pairs × 2, plus 1 if any odd count exists
- *
- * ### WHY THIS WORKS:
+The key insight is that a palindrome reads the same forwards and backwards. To maximize the palindrome length, we should use as many character pairs as possible, plus at most one character with odd count (which goes in the center).
+
+### APPROACH:
+1. **Count character frequencies**: Count how many times each character appears
+2. **Use pairs greedily**: Each pair of characters contributes 2 to palindrome length
+3. **Handle odd counts**: If any character has odd count, we can place one in center
+4. **Calculate result**: Sum of all pairs × 2, plus 1 if any odd count exists
+
+### WHY THIS WORKS:
  * Using two pointers from both ends, we compare characters while moving inward. If all corresponding characters match, the string is a palindrome. Skipping non-alphanumeric characters and handling case-insensitivity ensures we only compare relevant characters. The pointers meeting in the middle confirms the entire string is symmetric.
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * "abccccdd"
- * ```
- *
- * Character counts:
- * a: 1, b: 1, c: 4, d: 2
- * Pairs available:
- * a: 0 pairs (1//2 = 0)
- * b: 0 pairs (1//2 = 0)
- * c: 2 pairs (4//2 = 2)
- * d: 1 pair (2//2 = 1)
- * Total pairs: 0 + 0 + 2 + 1 = 3
- * Pairs contribute: 3 × 2 = 6 characters
- * Odd counts exist: a=1, b=1 (both odd)
- * Can use one character in center: +1
- * Result: 6 + 1 = 7
- * Possible palindrome: "dccaccd"
+Input:
+```
+"abccccdd"
+```
 
- * ### TIME COMPLEXITY:
+Character counts:
+a: 1, b: 1, c: 4, d: 2
+Pairs available:
+a: 0 pairs (1//2 = 0)
+b: 0 pairs (1//2 = 0)
+c: 2 pairs (4//2 = 2)
+d: 1 pair (2//2 = 1)
+Total pairs: 0 + 0 + 2 + 1 = 3
+Pairs contribute: 3 × 2 = 6 characters
+Odd counts exist: a=1, b=1 (both odd)
+Can use one character in center: +1
+Result: 6 + 1 = 7
+Possible palindrome: "dccaccd"
+
+Step-by-step execution:
+1. [First step]
+2. [Second step]
+3. [Final step]
+
+### TIME COMPLEXITY:
  * O(n)
  * - Single pass through input
  * Single pass to count characters
@@ -71,11 +76,11 @@
  * At most 128 ASCII characters or 52 letters (constant space)
  *
  * ### EDGE CASES:
- * - Empty string: length 0
- * - All characters have even counts: use all characters
- * - All characters have count 1: length = 1 (any single character)
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {

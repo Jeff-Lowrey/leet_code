@@ -41,12 +41,12 @@
  * the maximum to satisfy both.
  *
  * ### APPROACH:
- * 1. **Initialize**: Give each child 1 candy initially
- * 2. **Left to right pass**: If ratings[i] > ratings[i-1], ensure candies[i] > candies[i-1]
- * 3. **Right to left pass**: If ratings[i] > ratings[i+1], ensure candies[i] > candies[i+1]
- * 4. **Sum total**: Return sum of all candies
- *
- * ### WHY THIS WORKS:
+1. **Initialize**: Give each child 1 candy initially
+2. **Left to right pass**: If ratings[i] > ratings[i-1], ensure candies[i] > candies[i-1]
+3. **Right to left pass**: If ratings[i] > ratings[i+1], ensure candies[i] > candies[i+1]
+4. **Sum total**: Return sum of all candies
+
+### WHY THIS WORKS:
  * - **Greedy choice**: We assign minimum necessary candies to satisfy local constraints
  * - **Two passes ensure both directions**:
  *   - Left pass ensures right neighbor constraint
@@ -55,25 +55,35 @@
  * - **Optimality**: Each assignment is minimal, so total is minimal
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * ratings = [1,0,2]
- * ```
- *
- * Initial: candies = [1,1,1]
- * Left to right pass:
- * i=1: ratings[1]=0 < ratings[0]=1, no change
- * candies = [1,1,1]
- * i=2: ratings[2]=2 > ratings[1]=0, candies[2] = candies[1] + 1 = 2
- * candies = [1,1,2]
- * Right to left pass:
- * i=1: ratings[1]=0 < ratings[2]=2, no change
- * candies = [1,1,2]
- * i=0: ratings[0]=1 > ratings[1]=0, candies[0] = max(1, 1+1) = 2
- * candies = [2,1,2]
- * Total: 2 + 1 + 2 = 5
+Input:
+```
+ratings = [1,0,2]
+```
 
- * ### TIME COMPLEXITY:
+Initial: candies = [1,1,1]
+Left to right pass:
+i=1: ratings[1]=0 < ratings[0]=1, no change
+candies = [1,1,1]
+i=2: ratings[2]=2 > ratings[1]=0, candies[2] = candies[1] + 1 = 2
+candies = [1,1,2]
+Right to left pass:
+i=1: ratings[1]=0 < ratings[2]=2, no change
+candies = [1,1,2]
+i=0: ratings[0]=1 > ratings[1]=0, candies[0] = max(1, 1+1) = 2
+candies = [2,1,2]
+Total: 2 + 1 + 2 = 5
+
+Output:
+```
+[Expected output]
+```
+
+Step-by-step execution:
+1. [First step]
+2. [Second step]
+3. [Final step]
+
+### TIME COMPLEXITY:
  * O(n)
  * - Single pass through input
  * Two passes through the array
@@ -83,14 +93,11 @@
  * Array to store candy counts (can be optimized to O(1) with complex logic)
  *
  * ### EDGE CASES:
- * - Single child: Return 1
- * - All same rating: Each gets 1 candy
- * - Strictly increasing: [1,2,3,...,n]
- * - Strictly decreasing: [n,n-1,...,2,1]
- * - Valley pattern: [2,1,2] → [2,1,2]
- * - Peak pattern: [1,2,1] → [1,2,1]
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 /**

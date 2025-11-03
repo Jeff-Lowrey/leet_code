@@ -28,7 +28,7 @@ Given an integer array nums, return the length of the longest wiggle subsequence
 **Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
-A wiggle occurs when direction changes (up->down or down->up). Greedily count direction changes by tracking previous difference sign. Skip equal consecutive numbers.
+The key insight is that a wiggle occurs when direction changes (up->down or down->up). Greedily count direction changes by tracking previous difference sign. Skip equal consecutive numbers.
 
 ### APPROACH:
 1. **Handle edge cases**: If len(nums) < 2, return len(nums)
@@ -79,9 +79,9 @@ O(1)
 
 
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

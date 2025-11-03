@@ -27,9 +27,9 @@
  * **Space Complexity**: O(1) - Constant extra space
  *
  * ### INTUITION:
- * For each number, find the longest increasing subsequence ending at that number. dp[i] = max(dp[j] + 1) for all j < i where nums[j] < nums[i]. The answer is max(dp).
- *
- * ### APPROACH:
+The key insight is that for each number, find the longest increasing subsequence ending at that number. dp[i] = max(dp[j] + 1) for all j < i where nums[j] < nums[i]. The answer is max(dp).
+
+### APPROACH:
  * 1. **Initialize DP array**: Create dp = [1] * len(nums) where dp[i] = LIS length ending at index i
  * 2. **Iterate through array**: For each position i from 1 to len(nums)
  * 3. **Check previous elements**: For each j from 0 to i-1
@@ -39,13 +39,13 @@
  * 7. **Return result**: Return max(dp) as the length of longest increasing subsequence
  *
  * ### WHY THIS WORKS:
- * - DP: dp[i] = length of LIS ending at i
- * - For each i, check all j < i: if nums[j] < nums[i], dp[i] = max(dp[i], dp[j] + 1)
- * - Binary search optimization: maintain increasing tails array, binary search for insertion point
- * - Tails[i] = smallest ending value of LIS of length i+1
- * - O(n^2) DP solution, O(n log n) with binary search, O(n) space
- *
- * ### EXAMPLE WALKTHROUGH:
+- This ensures that dP: dp[i] = length of LIS ending at i
+- This ensures that for each i, check all j < i: if nums[j] < nums[i], dp[i] = max(dp[i], dp[j] + 1)
+- This ensures that binary search optimization: maintain increasing tails array, binary search for insertion point
+- This ensures that tails[i] = smallest ending value of LIS of length i+1
+- This ensures that o(n^2) DP solution, O(n log n) with binary search, O(n) space
+
+### EXAMPLE WALKTHROUGH:
  * Input:
  * ```
  * nums = [10, 9, 2, 5, 3, 7, 101, 18]
@@ -84,11 +84,11 @@
  * - Constant extra space
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {

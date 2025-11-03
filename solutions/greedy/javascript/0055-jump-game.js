@@ -37,9 +37,9 @@
 
  *
  * ### INTUITION:
- * Use greedy approach to track the farthest position we can reach. If at any point our current position exceeds the farthest reachable position, we can't proceed further.
- *
- * ### APPROACH:
+The key insight is that use greedy approach to track the farthest position we can reach. If at any point our current position exceeds the farthest reachable position, we can't proceed further.
+
+### APPROACH:
  * 1. **Initialize max reachable position**: Set max_reach to 0, representing the farthest index we can currently reach
  * 2. **Iterate through array**: Loop through each position i from start to end
  * 3. **Check if position is reachable**: If current position i exceeds max_reach, we cannot reach this position - return False

@@ -27,9 +27,9 @@
  * **Space Complexity**: O(1) - Constant extra space
  *
  * ### INTUITION:
- * This is 0/1 knapsack with target = sum/2. Check if sum is odd (impossible to partition). Use DP to find if any subset sums to target. dp[i][j] = can we sum to j using first i elements.
- *
- * ### APPROACH:
+The key insight is that this is 0/1 knapsack with target = sum/2. Check if sum is odd (impossible to partition). Use DP to find if any subset sums to target. dp[i][j] = can we sum to j using first i elements.
+
+### APPROACH:
  * 1. **Calculate total sum**: Compute total_sum = sum(nums)
  * 2. **Check feasibility**: If total_sum is odd, return False (cannot split into equal halves)
  * 3. **Define target**: Set target = total_sum // 2 (need subset summing to this)
@@ -40,13 +40,13 @@
  * 8. **Return result**: After processing all numbers, return target in dp
  *
  * ### WHY THIS WORKS:
- * - Partition problem: find subset with sum = total_sum // 2
- * - 0/1 knapsack DP: dp[i][j] = can we make sum j using first i elements
- * - Transition: dp[i][j] = dp[i-1][j] (exclude) or dp[i-1][j-nums[i]] (include)
- * - Space optimization: 1D DP array, iterate backwards to avoid overwriting
- * - O(n * sum) time, O(sum) space
- *
- * ### EXAMPLE WALKTHROUGH:
+- This ensures that partition problem: find subset with sum = total_sum // 2
+- This ensures that 0/1 knapsack DP: dp[i][j] = can we make sum j using first i elements
+- This ensures that transition: dp[i][j] = dp[i-1][j] (exclude) or dp[i-1][j-nums[i]] (include)
+- This ensures that space optimization: 1D DP array, iterate backwards to avoid overwriting
+- This ensures that o(n * sum) time, O(sum) space
+
+### EXAMPLE WALKTHROUGH:
  * Input:
  * ```
  * nums = [1,5,11,5]
@@ -78,11 +78,11 @@
  * - Constant extra space
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {

@@ -28,7 +28,7 @@ Given the two integers m and n, return the number of possible unique paths that 
 **Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
-Paths to cell (i,j) = paths to (i-1,j) + paths to (i,j-1). Build bottom-up from top-left. Base case: first row and column each have only 1 path.
+The key insight is that paths to cell (i,j) = paths to (i-1,j) + paths to (i,j-1). Build bottom-up from top-left. Base case: first row and column each have only 1 path.
 
 ### APPROACH:
 1. **Initialize DP table**: Create 2D array dp[m][n] where dp[i][j] = number of paths to cell (i,j)
@@ -40,11 +40,11 @@ Paths to cell (i,j) = paths to (i-1,j) + paths to (i,j-1). Build bottom-up from 
 7. **Return result**: Return dp[m-1][n-1] as total unique paths to bottom-right corner
 
 ### WHY THIS WORKS:
-- DP: paths to (i,j) = paths to (i-1,j) + paths to (i,j-1)
-- Base case: dp[0][j] = dp[i][0] = 1 (only one path along edges)
-- Space optimization: only need previous row, not entire 2D array
-- Combinatorics alternative: C(m+n-2, m-1) paths total
-- O(m*n) time, O(n) space with optimized 1D DP
+- This ensures that dP: paths to (i,j) = paths to (i-1,j) + paths to (i,j-1)
+- This ensures that base case: dp[0][j] = dp[i][0] = 1 (only one path along edges)
+- This ensures that space optimization: only need previous row, not entire 2D array
+- This ensures that combinatorics alternative: C(m+n-2, m-1) paths total
+- This ensures that o(m*n) time, O(n) space with optimized 1D DP
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -81,9 +81,9 @@ O(1)
 
 
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

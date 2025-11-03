@@ -27,9 +27,9 @@
  * **Space Complexity**: O(1) - Constant extra space
  *
  * ### INTUITION:
- * Use Kadane's algorithm: track the maximum sum ending at current position. At each step, either extend the previous subarray or start fresh. Keep global maximum throughout.
- *
- * ### APPROACH:
+The key insight is that use Kadane's algorithm: track the maximum sum ending at current position. At each step, either extend the previous subarray or start fresh. Keep global maximum throughout.
+
+### APPROACH:
  * 1. **Initialize variables**: Set current_sum = max_sum = nums[0]
  * 2. **Iterate from second element**: Loop through nums starting at index 1
  * 3. **Apply Kadane's algorithm**: For each num, compute current_sum = max(num, current_sum + num)
@@ -92,11 +92,11 @@
  * - Constant extra space
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {

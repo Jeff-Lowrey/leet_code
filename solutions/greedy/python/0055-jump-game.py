@@ -30,7 +30,7 @@ Return true if you can reach the last index, or false otherwise.
 **Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
-Use greedy approach to track the farthest position we can reach. If at any point our current position exceeds the farthest reachable position, we can't proceed further.
+The key insight is that use greedy approach to track the farthest position we can reach. If at any point our current position exceeds the farthest reachable position, we can't proceed further.
 
 ### APPROACH:
 1. **Initialize max reachable position**: Set max_reach to 0, representing the farthest index we can currently reach

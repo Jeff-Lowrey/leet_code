@@ -37,13 +37,19 @@
  * need to patch with (covered + 1).
  *
  * ### APPROACH:
- * **Data structures: Array (for storage)**
- * 1. **Track coverage**: Maintain the maximum number we can currently build using array
- * 2. **Use available numbers**: If nums[i] <= covered + 1, use it from array to extend coverage
- * 3. **Patch when needed**: If nums[i] > covered + 1, patch with (covered + 1)
- * 4. **Greedy choice**: Always patch with (covered + 1) as it doubles our coverage
- *
- * ### WHY THIS WORKS:
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+Data structures: Array (for storage)**
+1. **Track coverage**: Maintain the maximum number we can currently build using array
+2. **Use available numbers**: If nums[i] <= covered + 1, use it from array to extend coverage
+3. **Patch when needed**: If nums[i] > covered + 1, patch with (covered + 1)
+4. **Greedy choice**: Always patch with (covered + 1) as it doubles our coverage
+
+### WHY THIS WORKS:
  * - **Greedy Selection** technique: At each step, make the locally optimal choice (patch with covered + 1)
  * - This greedy choice is optimal because patching with (covered + 1) doubles our coverage range
  * - If we can form [1, covered], adding (covered + 1) lets us form [1, 2×covered + 1]
@@ -54,36 +60,36 @@
  * - The algorithm maintains the invariant that [1, covered] is always formable
  *
  * ### EXAMPLE WALKTHROUGH:
- * **Input:** nums = [1,3], n = 6
- *
- * **Step 1:** Initialize covered = 0, patches = 0
- * - Need to cover range [1,6]
- *
- * **Step 2:** Process nums[0] = 1
- * - 1 <= 0+1? Yes → Use 1
- * - covered = 0+1 = 1
- * - Can now form: [1,1]
- *
- * **Step 3:** Check nums[1] = 3
- * - 3 <= 1+1? No (3 > 2) → Gap detected!
- * - Need to patch with (covered + 1) = 2
- * - patches = 1, covered = 1 + 2 = 3
- * - Can now form: [1,3]
- *
- * **Step 4:** Now check nums[1] = 3 again
- * - 3 <= 3+1? Yes → Use 3
- * - covered = 3+3 = 6
- * - Can now form: [1,6]
- *
- * **Step 5:** Check termination
- * - covered >= 6, done!
- *
- * Output:
- * ```
- * 1 (patched with 2)
- * ```
+*Input:** nums = [1,3], n = 6
 
- * ### TIME COMPLEXITY:
+*Step 1:** Initialize covered = 0, patches = 0
+- Need to cover range [1,6]
+
+*Step 2:** Process nums[0] = 1
+- 1 <= 0+1? Yes → Use 1
+- covered = 0+1 = 1
+- Can now form: [1,1]
+
+*Step 3:** Check nums[1] = 3
+- 3 <= 1+1? No (3 > 2) → Gap detected!
+- Need to patch with (covered + 1) = 2
+- patches = 1, covered = 1 + 2 = 3
+- Can now form: [1,3]
+
+*Step 4:** Now check nums[1] = 3 again
+- 3 <= 3+1? Yes → Use 3
+- covered = 3+3 = 6
+- Can now form: [1,6]
+
+*Step 5:** Check termination
+- covered >= 6, done!
+
+Output:
+```
+1 (patched with 2)
+```
+
+### TIME COMPLEXITY:
  * O(m + log n)
  * Where m is length of nums. In worst case, we need log(n) patches.
  *
@@ -93,12 +99,11 @@
  * Only using constant extra space
  *
  * ### EDGE CASES:
- * - Empty array: nums=[], n=7 → 3 patches needed (need to add 1,2,4 to cover [1,7], O(log n) patches)
- * - Array already covers: nums=[1,2,2], n=5 → 0 patches (no additions needed)
- * - Large n with small array: nums=[1], n=100 → multiple patches (need O(log n) additions)
- * - Array starts > 1: nums=[2,3], n=10 → must patch 1 first (then can use array values)
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {

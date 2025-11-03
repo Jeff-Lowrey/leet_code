@@ -28,7 +28,7 @@ Given an integer array nums representing the amount of money of each house, retu
 **Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
-At each house, choose to rob it (take current + best from i-2) or skip it (take best from i-1). dp[i] = max(dp[i-1], nums[i] + dp[i-2]).
+The key insight is that at each house, choose to rob it (take current + best from i-2) or skip it (take best from i-1). dp[i] = max(dp[i-1], nums[i] + dp[i-2]).
 
 ### APPROACH:
 1. **Handle edge cases**: If empty array return 0, if single house return nums[0]
@@ -40,11 +40,11 @@ At each house, choose to rob it (take current + best from i-2) or skip it (take 
 7. **Return result**: Return prev1 as maximum money that can be robbed
 
 ### WHY THIS WORKS:
-- DP recurrence: max(rob current + best from i-2, skip current and take best from i-1)
-- Can't rob adjacent houses, so robbing house i means using result from i-2
-- Optimal substructure: solution to i depends only on i-1 and i-2
-- Space optimization: only need last two values, not entire DP array
-- O(n) time single pass, O(1) space with two variables instead of array
+- This ensures that dP recurrence: max(rob current + best from i-2, skip current and take best from i-1)
+- This ensures that can't rob adjacent houses, so robbing house i means using result from i-2
+- This ensures that optimal substructure: solution to i depends only on i-1 and i-2
+- This ensures that space optimization: only need last two values, not entire DP array
+- This ensures that o(n) time single pass, O(1) space with two variables instead of array
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -78,9 +78,9 @@ O(1)
 
 
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

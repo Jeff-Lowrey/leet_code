@@ -28,7 +28,7 @@ Letters are case sensitive, for example, "Aa" is not considered a palindrome her
 **Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
-A palindrome reads the same forwards and backwards. To maximize the palindrome length, we should use as many character pairs as possible, plus at most one character with odd count (which goes in the center).
+The key insight is that a palindrome reads the same forwards and backwards. To maximize the palindrome length, we should use as many character pairs as possible, plus at most one character with odd count (which goes in the center).
 
 ### APPROACH:
 1. **Count character frequencies**: Count how many times each character appears
@@ -59,6 +59,11 @@ Can use one character in center: +1
 Result: 6 + 1 = 7
 Possible palindrome: "dccaccd"
 
+Step-by-step execution:
+1. [First step]
+2. [Second step]
+3. [Final step]
+
 ### TIME COMPLEXITY:
 O(n)
 Single pass to count characters
@@ -68,9 +73,9 @@ O(1)
 At most 128 ASCII characters or 52 letters (constant space)
 
 ### EDGE CASES:
-- Empty string: length 0
-- All characters have even counts: use all characters
-- All characters have count 1: length = 1 (any single character)
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

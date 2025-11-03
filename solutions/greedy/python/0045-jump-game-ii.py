@@ -30,7 +30,7 @@ Return the minimum number of jumps to reach nums[n - 1]. The test cases are gene
 **Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
-Track current reach and farthest reach. When reach exhausted, must jump (increment jumps) and update reach to farthest. Greedy: always extend reach as far as possible before jumping.
+The key insight is that track current reach and farthest reach. When reach exhausted, must jump (increment jumps) and update reach to farthest. Greedy: always extend reach as far as possible before jumping.
 
 ### APPROACH:
 1. **Initialize variables**: Set jumps = 0, current_end = 0, farthest = 0
@@ -42,11 +42,11 @@ Track current reach and farthest reach. When reach exhausted, must jump (increme
 7. **Return result**: Return jumps as minimum number of jumps
 
 ### WHY THIS WORKS:
-- BFS-like greedy: track current jump's reach and next jump's reach
-- Increment jumps when reaching end of current jump's range
-- Update next reach as maximum of (i + nums[i]) for all i in current range
-- Guaranteed to reach end, so count minimum jumps needed
-- O(n) time: single pass, O(1) space
+- This ensures that bFS-like greedy: track current jump's reach and next jump's reach
+- This ensures that increment jumps when reaching end of current jump's range
+- This ensures that update next reach as maximum of (i + nums[i]) for all i in current range
+- This ensures that guaranteed to reach end, so count minimum jumps needed
+- This ensures that o(n) time: single pass, O(1) space
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -80,9 +80,9 @@ O(1)
 
 
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

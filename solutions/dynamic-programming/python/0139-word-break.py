@@ -28,7 +28,7 @@ Note that the same word in the dictionary may be reused multiple times in the se
 **Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
-dp[i] = whether s[0:i] can be segmented. For each position, check all possible last words ending at i. If s[j:i] is in dict and dp[j] is true, then dp[i] is true.
+The key insight is that dp[i] = whether s[0:i] can be segmented. For each position, check all possible last words ending at i. If s[j:i] is in dict and dp[j] is true, then dp[i] is true.
 
 ### APPROACH:
 1. **Convert to set**: Create word_set = set(wordDict) for O(1) word lookup
@@ -40,11 +40,11 @@ dp[i] = whether s[0:i] can be segmented. For each position, check all possible l
 7. **Return result**: Return dp[len(s)] indicating if entire string can be segmented
 
 ### WHY THIS WORKS:
-- DP: dp[i] = true if s[0:i] can be segmented
-- For each position i, check all words: if word matches s[i-len:i] and dp[i-len] true
-- Trie optimization: faster word matching than set lookup
-- Bottom-up: dp[0] = true (empty string), build up to dp[n]
-- O(n^2 * m) time: n positions, n substrings, m avg word length
+- This ensures that dP: dp[i] = true if s[0:i] can be segmented
+- This ensures that for each position i, check all words: if word matches s[i-len:i] and dp[i-len] true
+- This ensures that trie optimization: faster word matching than set lookup
+- This ensures that bottom-up: dp[0] = true (empty string), build up to dp[n]
+- This ensures that o(n^2 * m) time: n positions, n substrings, m avg word length
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -77,9 +77,9 @@ O(1)
 
 
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

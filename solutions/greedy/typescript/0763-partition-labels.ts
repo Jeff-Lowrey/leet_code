@@ -31,9 +31,9 @@
  * **Space Complexity**: O(1) - Constant extra space
  *
  * ### INTUITION:
- * Each partition should end at the last occurrence of any character in it. Track last occurrence of each character. Extend partition end while current position hasn't passed last occurrence of all seen characters.
- *
- * ### APPROACH:
+The key insight is that each partition should end at the last occurrence of any character in it. Track last occurrence of each character. Extend partition end while current position hasn't passed last occurrence of all seen characters.
+
+### APPROACH:
  * 1. **Find last occurrence**: Create dict mapping each char to its last index in s
  * 2. **Initialize variables**: Set start = 0, end = 0, result = []
  * 3. **Iterate through string**: For i, char in enumerate(s)
@@ -44,13 +44,13 @@
  * 8. **Return result**: Return result list with partition sizes
  *
  * ### WHY THIS WORKS:
- * - Track last occurrence of each character
- * - Extend partition end to max last occurrence of chars seen so far
- * - When reach partition end, cut and start new partition
- * - Greedy: maximize partition size before cutting
- * - O(n) time: two passes, O(26) = O(1) space for last occurrence map
- *
- * ### EXAMPLE WALKTHROUGH:
+- This ensures that track last occurrence of each character
+- This ensures that extend partition end to max last occurrence of chars seen so far
+- This ensures that when reach partition end, cut and start new partition
+- This ensures that greedy: maximize partition size before cutting
+- This ensures that o(n) time: two passes, O(26) = O(1) space for last occurrence map
+
+### EXAMPLE WALKTHROUGH:
  * Input:
  * ```
  * s = "ababcbacadefegdehijhklij"
@@ -82,11 +82,11 @@
  * - Constant extra space
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {

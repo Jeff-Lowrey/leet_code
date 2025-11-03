@@ -28,7 +28,7 @@ Given an integer array nums representing the amount of money of each house, retu
 **Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
-Houses are circular - can't rob both first and last. Run House Robber I twice: once on houses[0:n-1] and once on houses[1:n]. Take the maximum of both results.
+The key insight is that houses are circular - can't rob both first and last. Run House Robber I twice: once on houses[0:n-1] and once on houses[1:n]. Take the maximum of both results.
 
 ### APPROACH:
 1. **Handle single house**: If len(nums) == 1, return nums[0]
@@ -39,11 +39,11 @@ Houses are circular - can't rob both first and last. Run House Robber I twice: o
 6. **Return maximum**: Return max(case1, case2) as the maximum money that can be robbed
 
 ### WHY THIS WORKS:
-- Circular: robbing house 0 means can't rob house n-1 and vice versa
-- Run house robber I twice: once on [0..n-2], once on [1..n-1]
-- Take maximum of two results
-- Handles circular constraint by excluding one of the boundary houses
-- O(n) time: two passes of O(n) each, O(1) space
+- This ensures that circular: robbing house 0 means can't rob house n-1 and vice versa
+- This ensures that run house robber I twice: once on [0..n-2], once on [1..n-1]
+- This ensures that take maximum of two results
+- This ensures that handles circular constraint by excluding one of the boundary houses
+- This ensures that o(n) time: two passes of O(n) each, O(1) space
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -79,9 +79,9 @@ O(1)
 
 
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

@@ -78,10 +78,9 @@ O(1)
 Only using counter and result variables
 
 ### EDGE CASES:
-- Minimum length: "RL" or "LR" → 1 split
-- All same then alternating: Won't happen (input is balanced)
-- Already optimal splits: "RLRL" → 2 splits
-- Long balanced section: "RRRRLLLLLLL" → 1 split
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

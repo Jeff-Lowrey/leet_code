@@ -77,10 +77,9 @@ O(1)
 Only using constant extra space
 
 ### EDGE CASES:
-- Empty array: Need to patch from 1 up to n
-- Array already covers [1,n]: No patches needed
-- Large n with small array: Multiple patches required
-- Array starts with value > 1: Need to patch 1 first
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

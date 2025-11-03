@@ -38,12 +38,12 @@
  * need to patch with (covered + 1).
  *
  * ### APPROACH:
- * 1. **Track coverage**: Maintain the maximum number we can currently build
- * 2. **Use available numbers**: If nums[i] <= covered + 1, use it to extend coverage
- * 3. **Patch when needed**: If nums[i] > covered + 1, patch with (covered + 1)
- * 4. **Greedy choice**: Always patch with (covered + 1) as it doubles our coverage
- *
- * ### WHY THIS WORKS:
+1. **Track coverage**: Maintain the maximum number we can currently build
+2. **Use available numbers**: If nums[i] <= covered + 1, use it to extend coverage
+3. **Patch when needed**: If nums[i] > covered + 1, patch with (covered + 1)
+4. **Greedy choice**: Always patch with (covered + 1) as it doubles our coverage
+
+### WHY THIS WORKS:
  * The algorithm correctly solves the problem by systematically exploring all valid states while maintaining necessary invariants. Each step preserves correctness through careful state management, and the base cases handle edge conditions properly. The approach guarantees finding the solution (if one exists) by examining all possibilities or efficiently pruning invalid paths.
  *
  * ### EXAMPLE WALKTHROUGH:
@@ -80,12 +80,11 @@
  * Only using constant extra space
  *
  * ### EDGE CASES:
- * - Empty array: Need to patch from 1 up to n
- * - Array already covers [1,n]: No patches needed
- * - Large n with small array: Multiple patches required
- * - Array starts with value > 1: Need to patch 1 first
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 /**

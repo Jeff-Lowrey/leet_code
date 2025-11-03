@@ -77,6 +77,11 @@ Output:
 3
 ```
 
+Step-by-step execution:
+1. [First step]
+2. [Second step]
+3. [Final step]
+
 ### TIME COMPLEXITY:
 O(n)
 Single pass through the arrays
@@ -86,10 +91,9 @@ O(1)
 Only using constant extra space
 
 ### EDGE CASES:
-- Single station: Only possible if gas[0] >= cost[0]
-- All gas equals all cost: First station with gas[i] >= cost[i] works
-- Multiple resets: The algorithm handles multiple candidate starting points
-- Impossible cases: Return -1 when total gas < total cost
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

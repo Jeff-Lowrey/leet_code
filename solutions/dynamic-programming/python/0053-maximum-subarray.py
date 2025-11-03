@@ -26,7 +26,7 @@ Given an integer array nums, find the subarray with the largest sum, and return 
 **Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
-Use Kadane's algorithm: track the maximum sum ending at current position. At each step, either extend the previous subarray or start fresh. Keep global maximum throughout.
+The key insight is that use Kadane's algorithm: track the maximum sum ending at current position. At each step, either extend the previous subarray or start fresh. Keep global maximum throughout.
 
 ### APPROACH:
 1. **Initialize variables**: Set current_sum = max_sum = nums[0]
@@ -93,9 +93,9 @@ O(1)
 
 
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

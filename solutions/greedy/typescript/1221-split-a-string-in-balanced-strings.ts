@@ -38,12 +38,12 @@
  * for future splits.
  *
  * ### APPROACH:
- * 1. **Use a counter**: Track the balance between 'L' and 'R' characters
- * 2. **Increment/decrement**: +1 for 'L', -1 for 'R' (or vice versa)
- * 3. **Split when balanced**: When counter reaches 0, we have a balanced substring
- * 4. **Count splits**: Increment split counter each time balance reaches 0
- *
- * ### WHY THIS WORKS:
+1. **Use a counter**: Track the balance between 'L' and 'R' characters
+2. **Increment/decrement**: +1 for 'L', -1 for 'R' (or vice versa)
+3. **Split when balanced**: When counter reaches 0, we have a balanced substring
+4. **Count splits**: Increment split counter each time balance reaches 0
+
+### WHY THIS WORKS:
  * The algorithm correctly solves the problem by systematically exploring all valid states while maintaining necessary invariants. Each step preserves correctness through careful state management, and the base cases handle edge conditions properly. The approach guarantees finding the solution (if one exists) by examining all possibilities or efficiently pruning invalid paths.
  *
  * ### EXAMPLE WALKTHROUGH:
@@ -80,12 +80,11 @@
  * Only using counter and result variables
  *
  * ### EDGE CASES:
- * - Minimum length: "RL" or "LR" → 1 split
- * - All same then alternating: Won't happen (input is balanced)
- * - Already optimal splits: "RLRL" → 2 splits
- * - Long balanced section: "RRRRLLLLLLL" → 1 split
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {

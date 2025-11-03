@@ -72,11 +72,11 @@
  * Only tracking counts of two bill denominations
  *
  * ### EDGE CASES:
- * - Not enough $5 bills for $10 payment
- * - Not enough change combinations for $20 payment
- * - Empty input (return True)
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 /**
