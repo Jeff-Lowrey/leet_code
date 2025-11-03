@@ -30,7 +30,7 @@ Note:
 **Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
-Reverse bits by extracting each bit from the right (n & 1), shifting result left, and adding the bit. Process all 32 bits by shifting n right each iteration.
+The key insight is that reverse bits by extracting each bit from the right (n & 1), shifting result left, and adding the bit. Process all 32 bits by shifting n right each iteration.
 
 ### APPROACH:
 1. **Initialize result**: Set result = 0 to build the reversed bits
@@ -42,11 +42,11 @@ Reverse bits by extracting each bit from the right (n & 1), shifting result left
 7. **Return result**: After 32 iterations, return result with all bits reversed
 
 ### WHY THIS WORKS:
-- Process 32 bits: shift result left, add rightmost bit of n, shift n right
-- result = (result << 1) | (n & 1), then n >>= 1
-- Each iteration moves one bit from n to result in reverse position
-- Repeat 32 times for all bits
-- O(1) time: fixed 32 iterations, O(1) space
+- This ensures that process 32 bits: shift result left, add rightmost bit of n, shift n right
+- This ensures that result = (result << 1) | (n & 1), then n >>= 1
+- This ensures that each iteration moves one bit from n to result in reverse position
+- This ensures that repeat 32 times for all bits
+- This ensures that o(1) time: fixed 32 iterations, O(1) space
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -85,9 +85,9 @@ O(1)
 
 
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

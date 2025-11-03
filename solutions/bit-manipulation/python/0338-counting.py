@@ -26,7 +26,7 @@ Given an integer n, return an array ans of length n + 1 such that for each i (0 
 **Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
-For each number, count set bits. Pattern: dp[i] = dp[i >> 1] + (i & 1). The count for i equals count for i/2 plus the last bit of i.
+The key insight is that for each number, count set bits. Pattern: dp[i] = dp[i >> 1] + (i & 1). The count for i equals count for i/2 plus the last bit of i.
 
 ### APPROACH:
 1. **Initialize result array**: Create result = [0] * (n + 1) to store counts for 0 to n
@@ -38,11 +38,11 @@ For each number, count set bits. Pattern: dp[i] = dp[i >> 1] + (i & 1). The coun
 7. **Return result**: Return complete result array with counts for all numbers 0 to n
 
 ### WHY THIS WORKS:
-- DP: count[i] = count[i >> 1] + (i & 1)
-- Bit shift right removes last bit, i & 1 checks if last bit is 1
-- Reuse previous results: i >> 1 is already computed
-- Alternatively: count[i] = count[i & (i-1)] + 1 (remove rightmost 1)
-- O(n) time: each number processed once, O(1) space excluding output
+- This ensures that dP: count[i] = count[i >> 1] + (i & 1)
+- This ensures that bit shift right removes last bit, i & 1 checks if last bit is 1
+- This ensures that reuse previous results: i >> 1 is already computed
+- This ensures that alternatively: count[i] = count[i & (i-1)] + 1 (remove rightmost 1)
+- This ensures that o(n) time: each number processed once, O(1) space excluding output
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -83,9 +83,9 @@ O(1)
 
 
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

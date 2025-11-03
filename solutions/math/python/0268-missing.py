@@ -26,7 +26,7 @@ Given an array nums containing n distinct numbers in the range [0, n], return th
 **Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
-The missing number is the difference between expected sum (n*(n+1)/2) and actual sum. Alternatively, XOR all numbers and all indices to cancel pairs, leaving missing number.
+The key insight is that the missing number is the difference between expected sum (n*(n+1)/2) and actual sum. Alternatively, XOR all numbers and all indices to cancel pairs, leaving missing number.
 
 ### APPROACH:
 1. **Calculate expected sum**: expected = n * (n + 1) // 2
@@ -35,11 +35,11 @@ The missing number is the difference between expected sum (n*(n+1)/2) and actual
 4. **Return result**: Return missing number
 
 ### WHY THIS WORKS:
-- XOR all numbers 0..n and all array elements
-- Duplicate numbers XOR to 0, leaving only missing number
-- Alternative: expected sum - actual sum = missing (Gauss formula)
-- XOR approach avoids integer overflow issues
-- O(n) time, O(1) space
+- This ensures that xOR all numbers 0..n and all array elements
+- This ensures that duplicate numbers XOR to 0, leaving only missing number
+- This ensures that alternative: expected sum - actual sum = missing (Gauss formula)
+- This ensures that xOR approach avoids integer overflow issues
+- This ensures that o(n) time, O(1) space
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -70,9 +70,9 @@ O(1)
 
 
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

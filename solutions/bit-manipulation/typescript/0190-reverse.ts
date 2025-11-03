@@ -31,9 +31,9 @@
  * **Space Complexity**: O(1) - Constant extra space
  *
  * ### INTUITION:
- * Reverse bits by extracting each bit from the right (n & 1), shifting result left, and adding the bit. Process all 32 bits by shifting n right each iteration.
- *
- * ### APPROACH:
+The key insight is that reverse bits by extracting each bit from the right (n & 1), shifting result left, and adding the bit. Process all 32 bits by shifting n right each iteration.
+
+### APPROACH:
  * 1. **Initialize result**: Set result = 0 to build the reversed bits
  * 2. **Loop 32 times**: Iterate for each of the 32 bits in the integer
  * 3. **Extract rightmost bit**: Use (n & 1) to get the current rightmost bit of n
@@ -43,13 +43,13 @@
  * 7. **Return result**: After 32 iterations, return result with all bits reversed
  *
  * ### WHY THIS WORKS:
- * - Process 32 bits: shift result left, add rightmost bit of n, shift n right
- * - result = (result << 1) | (n & 1), then n >>= 1
- * - Each iteration moves one bit from n to result in reverse position
- * - Repeat 32 times for all bits
- * - O(1) time: fixed 32 iterations, O(1) space
- *
- * ### EXAMPLE WALKTHROUGH:
+- This ensures that process 32 bits: shift result left, add rightmost bit of n, shift n right
+- This ensures that result = (result << 1) | (n & 1), then n >>= 1
+- This ensures that each iteration moves one bit from n to result in reverse position
+- This ensures that repeat 32 times for all bits
+- This ensures that o(1) time: fixed 32 iterations, O(1) space
+
+### EXAMPLE WALKTHROUGH:
  * Input:
  * ```
  * n = 00000010100101000001111010011100 (43261596)
@@ -84,11 +84,11 @@
  * - Constant extra space
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {

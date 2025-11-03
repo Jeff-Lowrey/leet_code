@@ -27,9 +27,9 @@
  * **Space Complexity**: O(1) - Constant extra space
  *
  * ### INTUITION:
- * Extract first and last digits. Compare them. If different, not palindrome. Remove first and last digits by dividing by 10^(digits-1) and mod 10^(digits-1). Repeat.
- *
- * ### APPROACH:
+The key insight is that extract first and last digits. Compare them. If different, not palindrome. Remove first and last digits by dividing by 10^(digits-1) and mod 10^(digits-1). Repeat.
+
+### APPROACH:
  * 1. **Handle negatives**: If x < 0, return False
  * 2. **Handle edge cases**: If x ends in 0 and x != 0, return False
  * 3. **Reverse half**: Initialize reversed_half = 0
@@ -39,13 +39,13 @@
  * 7. **Return result**: Return True if palindrome, False otherwise
  *
  * ### WHY THIS WORKS:
- * - Reverse second half of number, compare with first half
- * - Negative numbers not palindromes (leading minus sign)
- * - Build reversed number: rev = rev * 10 + x % 10, then x /= 10
- * - Compare original with reversed: x == rev or x == rev // 10 (odd length)
- * - O(log n) time: number of digits, O(1) space
- *
- * ### EXAMPLE WALKTHROUGH:
+- This ensures that reverse second half of number, compare with first half
+- This ensures that negative numbers not palindromes (leading minus sign)
+- This ensures that build reversed number: rev = rev * 10 + x % 10, then x /= 10
+- This ensures that compare original with reversed: x == rev or x == rev // 10 (odd length)
+- This ensures that o(log n) time: number of digits, O(1) space
+
+### EXAMPLE WALKTHROUGH:
  * Input:
  * ```
  * x = 121
@@ -73,11 +73,11 @@
  * - Constant extra space
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {

@@ -51,9 +51,9 @@ a single digit is reached. This result is congruent to the number modulo 9, with
 exception that if the result is 0 (and the number is not 0), we return 9 instead.
 
 The formula 1 + (num - 1) % 9 handles all cases:
-- For num = 0: 1 + (-1) % 9 = 1 + (-1) = 0 (but we handle this separately)
-- For multiples of 9: 1 + (9k - 1) % 9 = 1 + 8 = 9
-- For other numbers: returns the remainder when divided by 9
+- This ensures that for num = 0: 1 + (-1) % 9 = 1 + (-1) = 0 (but we handle this separately)
+- This ensures that for multiples of 9: 1 + (9k - 1) % 9 = 1 + 8 = 9
+- This ensures that for other numbers: returns the remainder when divided by 9
 
 ### EXAMPLE WALKTHROUGH:
 **Input:** num = 38
@@ -80,13 +80,12 @@ Output:
 **O(1)** - Constant time using mathematical formula
 
 ### SPACE COMPLEXITY:
-**O(1)** - Only using a few variables
+**O(1)** - Only using a few variables - [Add explanation of why this complexity]
 
 ### EDGE CASES:
-- num = 0: num=0 → 0 (special case, digital root of 0 is 0, returns directly)
-- Multiples of 9: num=9 → 9, num=18 → 9, num=99 → 9 (formula returns 9, not 0)
-- Single digit: num=5 → 5, num=1 → 1 (already single digit, returns immediately)
-- Large numbers: num=2147483647 → 1 (2^31-1, formula still O(1) regardless of size)
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

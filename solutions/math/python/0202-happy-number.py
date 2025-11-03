@@ -33,7 +33,7 @@ Return true if n is a happy number, and false if not.
 **Space Complexity**: - Set approach: O(log n)
 
 ### INTUITION:
-Either the process reaches 1 (happy) or enters a cycle (not happy). Use a set to detect cycles, or use Floyd's cycle detection.
+The key insight is that either the process reaches 1 (happy) or enters a cycle (not happy). Use a set to detect cycles, or use Floyd's cycle detection.
 
 ### APPROACH:
 1. **Calculate sum**: Get sum of squares of digits
@@ -69,6 +69,11 @@ Step 8: 1² + 4² + 5² = 42
 Step 9: 4² + 2² = 20
 Step 10: 2² + 0² = 4 → Cycle! Not happy
 
+Output:
+```
+[Expected output]
+```
+
 ### TIME COMPLEXITY:
 O(log n)
 Depends on number of digits and cycle detection
@@ -78,9 +83,9 @@ Depends on number of digits and cycle detection
 - Two-pointer: O(1)
 
 ### EDGE CASES:
-- n = 1 (already happy)
-- Single digit numbers
-- Large numbers
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

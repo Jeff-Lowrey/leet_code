@@ -31,11 +31,14 @@ Given two integers `left` and `right` that represent the range `[left, right]`, 
 The key insight is that ANDing all numbers in a range is equivalent to finding the common binary prefix of the left and right boundaries. Any bit position where left and right differ will become 0 in the final result because there will be at least one number in the range with a 0 at that position.
 
 ### APPROACH:
-When we AND consecutive numbers, any bit that changes value within the range will become 0 in the final result. The only bits that remain 1 are those that form the common prefix of left and right when viewed in binary.
-
-We can find this common prefix by repeatedly right-shifting both numbers until they become equal. This effectively removes the differing suffix bits. Once left equals right, we've found the common prefix. We then left-shift this prefix back by the same number of positions to restore it to its original bit positions.
-
-The number of shifts needed represents how many rightmost bits differ between left and right. All these differing bits, plus any bits to their right, will be 0 in the final AND result.
+1. When we AND consecutive numbers, any bit that changes value within the range will become 0 in the final result.
+2. The only bits that remain 1 are those that form the common prefix of left and right when viewed in binary.
+3. We can find this common prefix by repeatedly right-shifting both numbers until they become equal.
+4. This effectively removes the differing suffix bits.
+5. Once left equals right, we've found the common prefix.
+6. We then left-shift this prefix back by the same number of positions to restore it to its original bit positions.
+7. The number of shifts needed represents how many rightmost bits differ between left and right.
+8. All these differing bits, plus any bits to their right, will be 0 in the final AND result.
 
 ### WHY THIS WORKS:
 - Any complete range contains numbers with different bit patterns in the variable suffix

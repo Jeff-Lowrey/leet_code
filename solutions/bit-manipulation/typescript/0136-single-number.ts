@@ -37,17 +37,17 @@
  * So if we XOR all numbers together, the duplicates cancel out, leaving only the single number.
  *
  * ### APPROACH:
- * 1. **Initialize result**: Start with 0
- * 2. **XOR all elements**: XOR each number with the result
- * 3. **Return result**: The final value is the single number
- *
- * ### WHY THIS WORKS:
- * - Duplicate numbers cancel out: a ^ a = 0
- * - XOR with 0 preserves the value: a ^ 0 = a
- * - Order doesn't matter due to commutativity
- * - All duplicates disappear, leaving only the single number
- *
- * ### EXAMPLE WALKTHROUGH:
+1. **Initialize result**: Start with 0
+2. **XOR all elements**: XOR each number with the result
+3. **Return result**: The final value is the single number
+
+### WHY THIS WORKS:
+- Duplicate numbers cancel out: a ^ a = 0
+- XOR with 0 preserves the value: a ^ 0 = a
+- Order doesn't matter due to commutativity
+- All duplicates disappear, leaving only the single number
+
+### EXAMPLE WALKTHROUGH:
  * Input:
  * ```
  * [2,2,1]
@@ -74,11 +74,11 @@
  * Only using constant extra space
  *
  * ### EDGE CASES:
- * - Single element array
- * - Large arrays with many duplicates
- * - Negative numbers (XOR works the same)
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {

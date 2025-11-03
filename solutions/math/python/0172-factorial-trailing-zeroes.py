@@ -28,7 +28,7 @@ Note that n! = n × (n - 1) × (n - 2) × ... × 3 × 2 × 1.
 **Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
-Trailing zeroes come from factors of 10 = 2 × 5. In n!, there are always more factors of 2 than 5, so we only need to count factors of 5.
+The key insight is that trailing zeroes come from factors of 10 = 2 × 5. In n!, there are always more factors of 2 than 5, so we only need to count factors of 5.
 
 ### APPROACH:
 1. **Count multiples of 5**: n/5 gives multiples of 5
@@ -37,10 +37,10 @@ Trailing zeroes come from factors of 10 = 2 × 5. In n!, there are always more f
 4. **Continue**: Until 5^k > n
 
 ### WHY THIS WORKS:
-- Every 5 numbers contributes at least one 5: 5, 10, 15, 20, 25...
-- Every 25 numbers contributes an extra 5: 25, 50, 75, 100, 125...
-- Every 125 numbers contributes another extra 5: 125, 250...
-- Total = n/5 + n/25 + n/125 + ...
+- This ensures that every 5 numbers contributes at least one 5: 5, 10, 15, 20, 25...
+- This ensures that every 25 numbers contributes an extra 5: 25, 50, 75, 100, 125...
+- This ensures that every 125 numbers contributes another extra 5: 125, 250...
+- This ensures that total = n/5 + n/25 + n/125 + ...
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -55,6 +55,16 @@ Total: 6 + 1 = 7 trailing zeroes
 30! = 265252859812191058636308480000000
 (7 trailing zeroes)
 
+Output:
+```
+[Expected output]
+```
+
+Step-by-step execution:
+1. [First step]
+2. [Second step]
+3. [Final step]
+
 ### TIME COMPLEXITY:
 O(log n)
 Number of divisions by 5 until we reach 0
@@ -64,9 +74,9 @@ O(1)
 Only using counters
 
 ### EDGE CASES:
-- n = 0: 0! = 1 (no trailing zeroes)
-- n < 5: No factors of 5
-- Powers of 5: 5, 25, 125 (extra factors)
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

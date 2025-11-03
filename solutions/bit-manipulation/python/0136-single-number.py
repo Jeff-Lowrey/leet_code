@@ -71,9 +71,9 @@ O(1)
 Only using constant extra space
 
 ### EDGE CASES:
-- Single element array
-- Large arrays with many duplicates
-- Negative numbers (XOR works the same)
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

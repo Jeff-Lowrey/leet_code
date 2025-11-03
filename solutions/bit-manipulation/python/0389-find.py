@@ -30,7 +30,7 @@ Return the letter that was added to t.
 **Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
-XOR both arrays together. The result is the character that appears different number of times in s vs t, which is the added character.
+The key insight is that xOR both arrays together. The result is the character that appears different number of times in s vs t, which is the added character.
 
 ### APPROACH:
 1. **Initialize result**: Set result = 0 to accumulate XOR values
@@ -42,11 +42,11 @@ XOR both arrays together. The result is the character that appears different num
 7. **Return result**: Return the character that was added to t
 
 ### WHY THIS WORKS:
-- XOR all characters in both strings
-- Duplicates cancel out, leaving only the added character
-- Alternative: sum character codes, difference is added char
-- XOR handles any character set, sum might overflow
-- O(n) time: single pass, O(1) space
+- This ensures that xOR all characters in both strings
+- This ensures that duplicates cancel out, leaving only the added character
+- This ensures that alternative: sum character codes, difference is added char
+- This ensures that xOR handles any character set, sum might overflow
+- This ensures that o(n) time: single pass, O(1) space
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -82,9 +82,9 @@ O(1)
 
 
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

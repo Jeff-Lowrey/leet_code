@@ -28,7 +28,7 @@ You must implement a solution with a linear runtime complexity and use only cons
 **Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
-Use bit manipulation to count occurrences at each bit position. For each bit, sum all bits at that position mod 3. The result is the bit pattern of the single number appearing once.
+The key insight is that use bit manipulation to count occurrences at each bit position. For each bit, sum all bits at that position mod 3. The result is the bit pattern of the single number appearing once.
 
 ### APPROACH:
 1. **Initialize counters**: Set ones = 0 and twos = 0 to track bits appearing once and twice
@@ -40,11 +40,11 @@ Use bit manipulation to count occurrences at each bit position. For each bit, su
 7. **Return result**: Return ones which contains the single number appearing exactly once
 
 ### WHY THIS WORKS:
-- Count bits at each position across all numbers
-- If count[i] % 3 != 0, single number has bit i set
+- This ensures that count bits at each position across all numbers
+- This ensures that if count[i] % 3 != 0, single number has bit i set
 # - Build result by setting bits where count % 3 == 1  # Result undefined
-- Duplicates contribute 3 to each bit position, single contributes 1
-- O(n) time: 32 passes (constant), O(1) space
+- This ensures that duplicates contribute 3 to each bit position, single contributes 1
+- This ensures that o(n) time: 32 passes (constant), O(1) space
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -82,9 +82,9 @@ O(1)
 
 
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

@@ -28,7 +28,7 @@ the operators + and -.
 **Space Complexity**: O(1) - Only storing intermediate values
 
 ### INTUITION:
-Addition can be broken down into two parts:
+The key insight is that addition can be broken down into two parts:
 1. XOR gives sum without carry (1+1=0, 1+0=1, 0+0=0)
 2. AND then left shift gives the carry (1+1 produces carry to next position)
 Repeat until there's no carry.
@@ -41,10 +41,10 @@ Repeat until there's no carry.
 5. **Handle negatives**: Mask to handle Python's arbitrary precision
 
 ### WHY THIS WORKS:
-- XOR: Adds bits without considering carry (0+0=0, 0+1=1, 1+0=1, 1+1=0)
-- AND then shift: Finds where both bits are 1 (produces carry)
-- Iterating combines partial sums with carries until no carry remains
-- Works for both positive and negative numbers
+- This ensures that xOR: Adds bits without considering carry (0+0=0, 0+1=1, 1+0=1, 1+1=0)
+- This ensures that aND then shift: Finds where both bits are 1 (produces carry)
+- This ensures that iterating combines partial sums with carries until no carry remains
+- This ensures that works for both positive and negative numbers
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -63,6 +63,11 @@ Output:
 3
 ```
 
+Step-by-step execution:
+1. [First step]
+2. [Second step]
+3. [Final step]
+
 ### TIME COMPLEXITY:
 O(1) - At most 32 iterations for 32-bit integers
 
@@ -74,6 +79,20 @@ O(1) - Constant space for variables
 - **Negative numbers**: Handle with mask for 32-bit range
 - **Overflow**: Python handles arbitrary precision, but mask to 32-bit range
 - **Opposite signs**: XOR and AND operations handle correctly
+
+</details>
+
+</details>
+
+</details>
+
+</details>
+
+</details>
+
+</details>
+
+</details>
 
 </details>
 """

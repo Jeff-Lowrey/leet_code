@@ -29,7 +29,7 @@ Increment the large integer by one and return the resulting array of digits.
 **Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
-Start from rightmost digit. Add 1 to it. Handle carry by propagating to next digit. If all digits are 9, result will need an extra digit at the front.
+The key insight is that start from rightmost digit. Add 1 to it. Handle carry by propagating to next digit. If all digits are 9, result will need an extra digit at the front.
 
 ### APPROACH:
 1. **Initialize carry**: Set carry = 1 (we're adding 1)
@@ -41,11 +41,11 @@ Start from rightmost digit. Add 1 to it. Handle carry by propagating to next dig
 7. **Return result**: Return modified digits array
 
 ### WHY THIS WORKS:
-- Iterate from right to left adding 1, track carry
-- If digit < 9, increment and return (no carry propagation)
-- If digit == 9, set to 0 and continue (carry propagates)
-- If carry after loop, prepend 1 to result (e.g., 99 + 1 = 100)
-- O(n) time single pass, O(n) space for result array
+- This ensures that iterate from right to left adding 1, track carry
+- This ensures that if digit < 9, increment and return (no carry propagation)
+- This ensures that if digit == 9, set to 0 and continue (carry propagates)
+- This ensures that if carry after loop, prepend 1 to result (e.g., 99 + 1 = 100)
+- This ensures that o(n) time single pass, O(n) space for result array
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -80,9 +80,9 @@ O(1)
 
 
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

@@ -30,22 +30,22 @@
  * **Space Complexity**: O(log₃ n) for recursion stack
  *
  * ### INTUITION:
- * Similar to power of two, but we divide by 3 instead of 2.
- * If n is divisible by 3, recursively check n/3.
- * If n becomes 1, it's a power of three.
- *
- * ### APPROACH:
- * 1. **Base cases**: n = 1 (true, 3^0), n ≤ 0 (false)
- * 2. **Divisible by 3**: Recursively check n/3
- * 3. **Not divisible by 3**: Return false
- * 4. **Alternative**: Check if log₃(n) is an integer
- *
- * ### WHY THIS WORKS:
- * - Powers of 3: 1, 3, 9, 27, 81, 243, etc.
- * - Dividing by 3 repeatedly should eventually reach 1
- * - If we cannot divide evenly, n is not a power of 3
- *
- * ### EXAMPLE WALKTHROUGH:
+Similar to power of two, but we divide by 3 instead of 2.
+If n is divisible by 3, recursively check n/3.
+If n becomes 1, it's a power of three.
+
+### APPROACH:
+1. **Base cases**: n = 1 (true, 3^0), n ≤ 0 (false)
+2. **Divisible by 3**: Recursively check n/3
+3. **Not divisible by 3**: Return false
+4. **Alternative**: Check if log₃(n) is an integer
+
+### WHY THIS WORKS:
+- This ensures that powers of 3: 1, 3, 9, 27, 81, 243, etc.
+- This ensures that dividing by 3 repeatedly should eventually reach 1
+- This ensures that if we cannot divide evenly, n is not a power of 3
+
+### EXAMPLE WALKTHROUGH:
  * Input:
  * ```
  * n = 27
@@ -70,11 +70,11 @@
  * O(log₃ n) for recursion stack
  *
  * ### EDGE CASES:
- * - n ≤ 0: return False
- * - n = 1: return True (3^0)
- * - Numbers not divisible by 3: return False
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {

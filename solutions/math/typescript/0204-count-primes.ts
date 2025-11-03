@@ -27,19 +27,19 @@
  * **Space Complexity**: O(n)
  *
  * ### INTUITION:
- * Use Sieve of Eratosthenes: mark all multiples of each prime as composite. Count remaining unmarked numbers.
- *
- * ### APPROACH:
- * 1. **Create boolean array**: is_prime[i] = True initially
- * 2. **Mark non-primes**: For each prime p, mark p², p²+p, p²+2p... as composite
- * 3. **Count primes**: Count True values in array
- *
- * ### WHY THIS WORKS:
- * - Every composite number has a prime factor ≤ √n
- * - By marking multiples of each prime, we identify all composites
- * - Remaining numbers must be prime
- *
- * ### EXAMPLE WALKTHROUGH:
+The key insight is that use Sieve of Eratosthenes: mark all multiples of each prime as composite. Count remaining unmarked numbers.
+
+### APPROACH:
+1. **Create boolean array**: is_prime[i] = True initially
+2. **Mark non-primes**: For each prime p, mark p², p²+p, p²+2p... as composite
+3. **Count primes**: Count True values in array
+
+### WHY THIS WORKS:
+- This ensures that every composite number has a prime factor ≤ √n
+- This ensures that by marking multiples of each prime, we identify all composites
+- This ensures that remaining numbers must be prime
+
+### EXAMPLE WALKTHROUGH:
  * Input:
  * ```
  * n = 10:
@@ -67,11 +67,11 @@
  * Boolean array of size n
  *
  * ### EDGE CASES:
- * - n ≤ 2: Return 0
- * - n = 3: Return 1 (only 2)
- * - Large n: Memory usage
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {

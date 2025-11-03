@@ -26,7 +26,7 @@ Given a signed 32-bit integer x, return x with its digits reversed. If reversing
 **Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
-Extract digits from end using mod 10. Build reversed number by multiplying result by 10 and adding digit. Check for overflow before each operation.
+The key insight is that extract digits from end using mod 10. Build reversed number by multiplying result by 10 and adding digit. Check for overflow before each operation.
 
 ### APPROACH:
 1. **Initialize result**: Set result = 0 to build reversed number
@@ -39,11 +39,11 @@ Extract digits from end using mod 10. Build reversed number by multiplying resul
 8. **Return result**: Return the reversed integer with sign
 
 ### WHY THIS WORKS:
-- Build reversed number: rev = rev * 10 + x % 10, then x //= 10
-- Check overflow before multiplying: if rev > MAX // 10, will overflow
-- Handle negative numbers: take abs, reverse, then negate
-- Return 0 if result exceeds 32-bit signed integer range
-- O(log n) time: number of digits, O(1) space
+- This ensures that build reversed number: rev = rev * 10 + x % 10, then x //= 10
+- This ensures that check overflow before multiplying: if rev > MAX // 10, will overflow
+- This ensures that handle negative numbers: take abs, reverse, then negate
+- This ensures that return 0 if result exceeds 32-bit signed integer range
+- This ensures that o(log n) time: number of digits, O(1) space
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -74,9 +74,9 @@ O(1)
 
 
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
 </details>
 """

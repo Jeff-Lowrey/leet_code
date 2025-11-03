@@ -47,58 +47,58 @@
  *    - This can be simplified to: 1 + (num - 1) % 9 using only integer operations
  *
  * ### WHY THIS WORKS:
- * The digital root of a positive integer is obtained by iteratively summing digits until
- * a single digit is reached. This result is congruent to the number modulo 9, with the
- * exception that if the result is 0 (and the number is not 0), we return 9 instead.
- *
- * The formula 1 + (num - 1) % 9 handles all cases:
- * - For num = 0: 1 + (-1) % 9 = 1 + (-1) = 0 (but we handle this separately)
- * - For multiples of 9: 1 + (9k - 1) % 9 = 1 + 8 = 9
- * - For other numbers: returns the remainder when divided by 9
- *
- *
+The digital root of a positive integer is obtained by iteratively summing digits until
+a single digit is reached. This result is congruent to the number modulo 9, with the
+exception that if the result is 0 (and the number is not 0), we return 9 instead.
+
+The formula 1 + (num - 1) % 9 handles all cases:
+- This ensures that for num = 0: 1 + (-1) % 9 = 1 + (-1) = 0 (but we handle this separately)
+- This ensures that for multiples of 9: 1 + (9k - 1) % 9 = 1 + 8 = 9
+- This ensures that for other numbers: returns the remainder when divided by 9
+
+
 
 This solution uses mathematical pattern recognition for efficient implementation.
+
 ### EXAMPLE WALKTHROUGH:
- * **Input:** num = 38
- *
- * **Step 1:** Naive approach - Loop and sum digits using integer operations
- * - 38: Extract digits using modulo (38 % 10 = 8, 38 // 10 = 3)
- * - Sum: 3 + 8 = 11
- * - 11: Extract digits (11 % 10 = 1, 11 // 10 = 1)
- * - Sum: 1 + 1 = 2 (single digit)
- *
- * **Step 2:** Optimized approach - Use digital root formula with modulo arithmetic
- * - Formula: 1 + (38-1) % 9 = 1 + 37 % 9 = 1 + 1 = 2 ✓
- *
- * Additional example with num = 99 (multiple of 9):
- * - Naive: 99 -> 9+9=18 -> 1+8=9
- * - Formula: 1 + (99-1) % 9 = 1 + 98 % 9 = 1 + 8 = 9 ✓
- *
- * Output:
- * ```
- * 2
- * ```
- *
- * Original Example: num = 38
- * - Naive: 38 -> 3+8=11 -> 1+1=2
- * - Formula: 1 + (99-1) % 9 = 1 + 98 % 9 = 1 + 8 = 9 ✓
- *
- * Result: 2
- *
- * ### TIME COMPLEXITY:
- * **O(1)** - Constant time using mathematical formula
- *
- * ### SPACE COMPLEXITY:
- * **O(1)** - Only using a few variables
- *
- * ### EDGE CASES:
- * - num = 0: num=0 → 0 (special case, digital root of 0 is 0)
- * - Multiples of 9: num=9 → 9, num=18 → 9, num=99 → 9 (formula returns 9, not 0)
- * - Single digit: num=5 → 5 (already single digit, returns immediately)
- * - Large numbers: num=2147483647 → 1 (2^31-1, formula still O(1) regardless of size)
- *
- * </details>
+*Input:** num = 38
+
+*Step 1:** Naive approach - Loop and sum digits using integer operations
+- 38: Extract digits using modulo (38 % 10 = 8, 38 // 10 = 3)
+- Sum: 3 + 8 = 11
+- 11: Extract digits (11 % 10 = 1, 11 // 10 = 1)
+- Sum: 1 + 1 = 2 (single digit)
+
+*Step 2:** Optimized approach - Use digital root formula with modulo arithmetic
+- Formula: 1 + (38-1) % 9 = 1 + 37 % 9 = 1 + 1 = 2 ✓
+
+Additional example with num = 99 (multiple of 9):
+- Naive: 99 -> 9+9=18 -> 1+8=9
+- Formula: 1 + (99-1) % 9 = 1 + 98 % 9 = 1 + 8 = 9 ✓
+
+Output:
+```
+2
+```
+
+Original Example: num = 38
+- Naive: 38 -> 3+8=11 -> 1+1=2
+- Formula: 1 + (99-1) % 9 = 1 + 98 % 9 = 1 + 8 = 9 ✓
+
+Result: 2
+
+### TIME COMPLEXITY:
+**O(1)** - Constant time using mathematical formula
+
+### SPACE COMPLEXITY:
+**O(1)** - Only using a few variables - [Add explanation of why this complexity]
+
+### EDGE CASES:
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 /**

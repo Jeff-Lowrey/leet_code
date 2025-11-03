@@ -27,61 +27,66 @@
  * **Space Complexity**: **O(1)** - Constant space or O(log n) for recursion stack
  *
  * ### INTUITION:
- * A power of two has exactly one bit set in its binary representation.
- * Recursively, we can check: if n is even, divide by 2 and recurse.
- * If n becomes 1, it's a power of two. If n is odd (and not 1), it's not.
- *
- * ### APPROACH:
- * **Data structures: Integer (value operations), Bit manipulation**
- * 1. **Base cases**: Check integer n - if n = 1 (true, 2^0), if n ≤ 0 (false)
- * 2. **Even case**: Recursively check n/2, dividing the integer by 2
- * 3. **Odd case**: Return false (powers of 2 are never odd except 1)
- * 4. **Alternative**: Bit manipulation on integer - n & (n-1) == 0
- *
- * ### WHY THIS WORKS:
- * - Powers of 2 in binary: 1, 10, 100, 1000, etc.
- * - Dividing by 2 removes one bit until we reach 1
- * - If we encounter an odd number (except 1), it cannot be a power of 2
- *
- *
+The key insight is that a power of two has exactly one bit set in its binary representation.
+Recursively, we can check: if n is even, divide by 2 and recurse.
+If n becomes 1, it's a power of two. If n is odd (and not 1), it's not.
+
+### APPROACH:
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+Data structures: Integer (value operations), Bit manipulation**
+1. **Base cases**: Check integer n - if n = 1 (true, 2^0), if n ≤ 0 (false)
+2. **Even case**: Recursively check n/2, dividing the integer by 2
+3. **Odd case**: Return false (powers of 2 are never odd except 1)
+4. **Alternative**: Bit manipulation on integer - n & (n-1) == 0
+
+### WHY THIS WORKS:
+- This ensures that powers of 2 in binary: 1, 10, 100, 1000, etc.
+- This ensures that dividing by 2 removes one bit until we reach 1
+- This ensures that if we encounter an odd number (except 1), it cannot be a power of 2
+
+
 
 This solution uses recursion for efficient implementation.
 
 This solution uses math for efficient implementation.
 
 The solution leverages integer for efficient operations.
+
 ### EXAMPLE WALKTHROUGH:
- * **Input:** n = 16
- *
- * **Step 1:** isPowerOfTwo(16) → 16 % 2 === 0 → check isPowerOfTwo(8)
- *
- * **Step 2:** isPowerOfTwo(8) → 8 % 2 === 0 → check isPowerOfTwo(4)
- *
- * **Step 3:** isPowerOfTwo(4) → 4 % 2 === 0 → check isPowerOfTwo(2)
- *
- * **Step 4:** isPowerOfTwo(2) → 2 % 2 === 0 → check isPowerOfTwo(1)
- *
- * **Step 5:** isPowerOfTwo(1) → return true (base case)
- *
- * Output:
- * ```
- * true
- * ```
- *
- * ### TIME COMPLEXITY:
+*Input:** n = 16
+
+*Step 1:** isPowerOfTwo(16) → 16 % 2 === 0 → check isPowerOfTwo(8)
+
+*Step 2:** isPowerOfTwo(8) → 8 % 2 === 0 → check isPowerOfTwo(4)
+
+*Step 3:** isPowerOfTwo(4) → 4 % 2 === 0 → check isPowerOfTwo(2)
+
+*Step 4:** isPowerOfTwo(2) → 2 % 2 === 0 → check isPowerOfTwo(1)
+
+*Step 5:** isPowerOfTwo(1) → return true (base case)
+
+Output:
+```
+true
+```
+
+### TIME COMPLEXITY:
  * O(log n) - dividing by 2 each time
  *
  * ### SPACE COMPLEXITY:
  * O(log n) - recursion stack depth
  *
  * ### EDGE CASES:
- * - n = 0: n=0 → false (zero is not a power of two)
- * - n < 0: n=-16 → false (negative numbers, powers of 2 are positive)
- * - n = 1: n=1 → true (special case: 2^0 = 1)
- * - Odd numbers > 1: n=3 → false, n=5 → false, n=7 → false (immediately false)
- * - Large powers of 2: n=1024 → true (2^10), n=1073741824 → true (2^30)
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  *
  * @param {number} n
  * @return {boolean}

@@ -54,6 +54,11 @@ Iteration 3: n = 1000, n-1 = 0111
 n & (n-1) = 0000, count = 3
 Result: 3
 
+Step-by-step execution:
+1. [First step]
+2. [Second step]
+3. [Final step]
+
 ### TIME COMPLEXITY:
 O(k) where k is number of 1-bits
 
@@ -68,6 +73,20 @@ O(1)
 - **All bits are 1**: Return 32 for 32-bit integer
 - **Single bit set**: Return 1
 - **Power of 2**: Exactly one 1 bit
+
+</details>
+
+</details>
+
+</details>
+
+</details>
+
+</details>
+
+</details>
+
+</details>
 
 </details>
 """

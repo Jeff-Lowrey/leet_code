@@ -30,22 +30,22 @@
  * **Space Complexity**: O(log n) for recursion stack
  *
  * ### INTUITION:
- * A power of two has exactly one bit set in its binary representation.
- * Recursively, we can check: if n is even, divide by 2 and recurse.
- * If n becomes 1, it's a power of two. If n is odd (and not 1), it's not.
- *
- * ### APPROACH:
- * 1. **Base cases**: n = 1 (true, 2^0), n ≤ 0 (false)
- * 2. **Even case**: Recursively check n/2
- * 3. **Odd case**: Return false (powers of 2 are never odd except 1)
- * 4. **Alternative**: Bit manipulation - n & (n-1) == 0
- *
- * ### WHY THIS WORKS:
- * - Powers of 2 in binary: 1, 10, 100, 1000, etc.
- * - Dividing by 2 removes one bit until we reach 1
- * - If we encounter an odd number (except 1), it cannot be a power of 2
- *
- * ### EXAMPLE WALKTHROUGH:
+The key insight is that a power of two has exactly one bit set in its binary representation.
+Recursively, we can check: if n is even, divide by 2 and recurse.
+If n becomes 1, it's a power of two. If n is odd (and not 1), it's not.
+
+### APPROACH:
+1. **Base cases**: n = 1 (true, 2^0), n ≤ 0 (false)
+2. **Even case**: Recursively check n/2
+3. **Odd case**: Return false (powers of 2 are never odd except 1)
+4. **Alternative**: Bit manipulation - n & (n-1) == 0
+
+### WHY THIS WORKS:
+- This ensures that powers of 2 in binary: 1, 10, 100, 1000, etc.
+- This ensures that dividing by 2 removes one bit until we reach 1
+- This ensures that if we encounter an odd number (except 1), it cannot be a power of 2
+
+### EXAMPLE WALKTHROUGH:
  * Input:
  * ```
  * n = 16
@@ -71,11 +71,11 @@
  * O(log n) for recursion stack
  *
  * ### EDGE CASES:
- * - n ≤ 0: return False
- * - n = 1: return True (2^0)
- * - Odd numbers > 1: return False
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {

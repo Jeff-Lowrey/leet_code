@@ -29,9 +29,9 @@
  * **Space Complexity**: O(1) - Constant extra space
  *
  * ### INTUITION:
- * Use binary search on the range [0, x]. For mid, check if mid * mid <= x. If yes, mid could be answer; try larger. If no, try smaller. Converge to floor(sqrt(x)).
- *
- * ### APPROACH:
+The key insight is that use binary search on the range [0, x]. For mid, check if mid * mid <= x. If yes, mid could be answer; try larger. If no, try smaller. Converge to floor(sqrt(x)).
+
+### APPROACH:
  * 1. **Handle edge cases**: If x == 0 or x == 1, return x
  * 2. **Initialize binary search**: Set left = 1, right = x // 2
  * 3. **Binary search loop**: While left <= right, calculate mid
@@ -41,13 +41,13 @@
  * 7. **Return result**: Return stored result (largest integer whose square <= x)
  *
  * ### WHY THIS WORKS:
- * - Binary search on range [0, x] for answer
- * - If mid * mid == x, found exact square root
- * - If mid * mid < x, answer might be mid or higher (left = mid + 1)
- * - If mid * mid > x, answer is lower (right = mid - 1)
- * - O(log x) time binary search, O(1) space
- *
- * ### EXAMPLE WALKTHROUGH:
+- This ensures that binary search on range [0, x] for answer
+- This ensures that if mid * mid == x, found exact square root
+- This ensures that if mid * mid < x, answer might be mid or higher (left = mid + 1)
+- This ensures that if mid * mid > x, answer is lower (right = mid - 1)
+- This ensures that o(log x) time binary search, O(1) space
+
+### EXAMPLE WALKTHROUGH:
  * Input:
  * ```
  * x = 8
@@ -77,11 +77,11 @@
  * - Constant extra space
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
- *
- * </details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+</details>
  */
 
 class Solution {
