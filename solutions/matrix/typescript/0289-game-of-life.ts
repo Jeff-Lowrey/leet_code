@@ -1,44 +1,5 @@
 /**
- * # 0289. Game Of Life
- * 
- * # Difficulty: Medium
- * 
- * According to Wikipedia's article: "The Game of Life, also known simply as Life,
- * is a cellular automaton devised by the British mathematician John Horton Conway in 1970."
- * 
- * The board is made up of an m x `n` `grid` of cells, where each cell has an initial
- * state: live (represented by a 1) or dead (represented by a 0). Each cell interacts
- * with its eight neighbors (horizontal, vertical, diagonal) using the following four rules:
- *
- * 1. Any live cell with fewer than two live neighbors dies (underpopulation)
- * 2. Any live cell with two or three live neighbors lives on to the next generation
- * 3. Any live cell with more than three live neighbors dies (overpopulation)
- * 4. Any dead cell with exactly three live neighbors becomes a live cell (reproduction)
- *
- * The next state is created by applying the above rules simultaneously to every cell
- * in the current state, where births and deaths occur simultaneously.
- * 
- * **Example:**
- * 
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>board = [[0,1,0],[0,0,1],[1,1,1],[0,0,0]]</dd>
- * <dt>Output:</dt>
- * <dd>[[0,0,0],[1,0,1],[0,1,1],[0,1,0]]</dd>
- * <dt>Explanation:</dt>
- * <dd>After one step of Game of Life, the board state updates based on neighbor counts</dd>
- * </dl>
- * 
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
- * **Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
- * **Data Structures**: Hash Map, Hash Set, Array
- * **Patterns**: Hash Table Pattern, Graph Pattern
- * **Time Complexity**: O(m × n)
- * **Space Complexity**: O(1) - Constant extra space
- * 
- * ### INTUITION:
+### INTUITION:
 The key insight is that the challenge is applying rules simultaneously to all cells. Use state encoding to track both current and next states in-place, avoiding extra space while ensuring all decisions are based on the original state.
 
 ### APPROACH:
@@ -51,56 +12,55 @@ The key insight is that the challenge is applying rules simultaneously to all ce
 3. **Neighbor Counting**: Count neighbors considering only original states (0,1 and 2 were originally live)
 
 ### WHY THIS WORKS:
- * The encoding preserves original state information while tracking transitions. During neighbor counting, we can distinguish original live cells (1 or 2) from original dead cells (0 or 3), ensuring correct rule application.
- * 
- * ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * [[0,1,0],[0,0,1],[1,1,1],[0,0,0]]
- * ```
- *
- * Steps (showing 4 generations with rule application):
- *
- * Step 1: Initial → Generation 1
- *   Applying rules to each cell (showing all 8 neighbors):
- *   - [0,1]=1 has neighbors [0,0]=0, [0,2]=0, [1,0]=0, [1,1]=0, [1,2]=1 → 1 live → dies (underpopulation)
- *   - [1,2]=1 has neighbors [0,1]=1, [0,2]=0, [1,1]=0, [2,1]=1, [2,2]=1 → 3 live → survives (2-3 neighbors)
- *   - [2,0]=1 has neighbors [1,0]=0, [1,1]=0, [2,1]=1, [3,0]=0, [3,1]=0 → 1 live → dies (underpopulation)
- *   - [2,1]=1 has neighbors [1,0]=0, [1,1]=0, [1,2]=1, [2,0]=1, [2,2]=1, [3,0]=0, [3,1]=0, [3,2]=0 → 3 live → survives (2-3 neighbors)
- *   - [2,2]=1 has neighbors [1,1]=0, [1,2]=1, [2,1]=1, [3,1]=0, [3,2]=0 → 2 live → survives (2-3 neighbors)
- *   - [1,0]=0 has neighbors [0,0]=0, [0,1]=1, [1,1]=0, [2,0]=1, [2,1]=1 → 3 live → becomes alive (reproduction)
- *   - [1,1]=0 has neighbors [0,0]=0, [0,1]=1, [0,2]=0, [1,0]=0, [1,2]=1, [2,0]=1, [2,1]=1, [2,2]=1 → 5 live → stays dead (not exactly 3)
- *   - [3,1]=0 has neighbors [2,0]=1, [2,1]=1, [2,2]=1, [3,0]=0, [3,2]=0 → 3 live → becomes alive (reproduction)
- *   Result: [[0,0,0],[1,0,1],[0,1,1],[0,1,0]]
- *
- * Step 2: Generation 1 → Generation 2
- *   Pattern stabilizing, fewer changes
- *   Result: [[0,0,0],[0,0,1],[0,1,1],[0,1,0]]
- *
- * Step 3: Generation 2 → Generation 3
- *   Pattern reached stable state (no changes)
- *   Result: [[0,0,0],[0,0,1],[0,1,1],[0,1,0]]
- *
- * Step 4: Generation 3 → Generation 4
- *   Pattern remains stable
- *   Result: [[0,0,0],[0,0,1],[0,1,1],[0,1,0]]
- *
- * Output (after 4 generations):
- * ```
- * [[0,0,0],[0,0,1],[0,1,1],[0,1,0]]
- * ```
+The encoding preserves original state information while tracking transitions. During neighbor counting, we can distinguish original live cells (1 or 2) from original dead cells (0 or 3), ensuring correct rule application.
 
- * ### TIME COMPLEXITY:
- * O(m × n)
- *
- * - Based on input size and operations
- *
+### EXAMPLE WALKTHROUGH:
+Input:
+```
+[[0,1,0],[0,0,1],[1,1,1],[0,0,0]]
+```
 
- * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
- * 
- * ### EDGE CASES:
+Steps (showing 4 generations with rule application):
+
+Step 1: Initial → Generation 1
+  Applying rules to each cell (showing all 8 neighbors):
+  - [0,1]=1 has neighbors [0,0]=0, [0,2]=0, [1,0]=0, [1,1]=0, [1,2]=1 → 1 live → dies (underpopulation)
+  - [1,2]=1 has neighbors [0,1]=1, [0,2]=0, [1,1]=0, [2,1]=1, [2,2]=1 → 3 live → survives (2-3 neighbors)
+  - [2,0]=1 has neighbors [1,0]=0, [1,1]=0, [2,1]=1, [3,0]=0, [3,1]=0 → 1 live → dies (underpopulation)
+  - [2,1]=1 has neighbors [1,0]=0, [1,1]=0, [1,2]=1, [2,0]=1, [2,2]=1, [3,0]=0, [3,1]=0, [3,2]=0 → 3 live → survives (2-3 neighbors)
+  - [2,2]=1 has neighbors [1,1]=0, [1,2]=1, [2,1]=1, [3,1]=0, [3,2]=0 → 2 live → survives (2-3 neighbors)
+  - [1,0]=0 has neighbors [0,0]=0, [0,1]=1, [1,1]=0, [2,0]=1, [2,1]=1 → 3 live → becomes alive (reproduction)
+  - [1,1]=0 has neighbors [0,0]=0, [0,1]=1, [0,2]=0, [1,0]=0, [1,2]=1, [2,0]=1, [2,1]=1, [2,2]=1 → 5 live → stays dead (not exactly 3)
+  - [3,1]=0 has neighbors [2,0]=1, [2,1]=1, [2,2]=1, [3,0]=0, [3,2]=0 → 3 live → becomes alive (reproduction)
+  Result: [[0,0,0],[1,0,1],[0,1,1],[0,1,0]]
+
+Step 2: Generation 1 → Generation 2
+  Pattern stabilizing, fewer changes
+  Result: [[0,0,0],[0,0,1],[0,1,1],[0,1,0]]
+
+Step 3: Generation 2 → Generation 3
+  Pattern reached stable state (no changes)
+  Result: [[0,0,0],[0,0,1],[0,1,1],[0,1,0]]
+
+Step 4: Generation 3 → Generation 4
+  Pattern remains stable
+  Result: [[0,0,0],[0,0,1],[0,1,1],[0,1,0]]
+
+Output (after 4 generations):
+```
+[[0,0,0],[0,0,1],[0,1,1],[0,1,0]]
+```
+
+### TIME COMPLEXITY:
+O(m × n)**
+
+- Based on input size and operations
+
+### SPACE COMPLEXITY:
+O(1)**
+- Constant extra space
+
+### EDGE CASES:
 - **All dead cells**: Remain dead if no neighbors
 - **All live cells**: Most die from overcrowding
 - **Single live cell**: Dies (insufficient neighbors)
@@ -122,7 +82,8 @@ The key insight is that the challenge is applying rules simultaneously to all ce
 </details>
 
 </details>
- */
+
+*/
 
 class Solution {
   /**

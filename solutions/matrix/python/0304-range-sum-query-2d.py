@@ -1,48 +1,4 @@
 """
-# 0304. Range Sum Query 2D - Immutable
-
-# Difficulty: Medium
-
-Given a 2D matrix, handle multiple queries of the following type:
-Calculate the sum of the elements of matrix inside the rectangle defined by its upper left
-corner (row1, col1) and lower right corner (row2, col2).
-
-Implement the NumMatrix class:
-- NumMatrix(int[][] matrix) Initializes the object with the integer matrix.
-- int sumRegion(int row1, int col1, int row2, int col2) Returns the sum of the elements
-  of matrix inside the rectangle defined by its upper left corner (row1, col1) and lower
-  right corner (row2, col2).
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>["NumMatrix","sumRegion","sumRegion","sumRegion"], [[[[3,0,1,4,2],[5,6,3,2,1],[1,2,0,1,5],[4,1,0,1,7],[1,0,3,0,5]]],[2,1,4,3],[1,1,2,2],[1,2,2,4]]</dd>
-<dt>Output:</dt>
-<dd>[null,8,11,12]</dd>
-<dt>Explanation:</dt>
-<dd>NumMatrix is initialized with the 5x5 matrix. The first sumRegion(2,1,4,3) returns 8, the second sumRegion(1,1,2,2) returns 11, and the third sumRegion(1,2,2,4) returns 12.</dd>
-</dl>
-
-**Constraints:**
-- m == matrix.length
-- n == matrix[i].length
-- 1 <= m, n <= 200
-- -10^5 <= matrix[i][j] <= 10^5
-- 0 <= row1 <= row2 < m
-- 0 <= col1 <= col2 < n
-- At most 10^4 calls will be made to sumRegion.
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-### METADATA:
-**Techniques**: Prefix sum (2D), Dynamic programming, Preprocessing
-**Data Structures**: 2D array, Matrix
-**Patterns**: Prefix sum, Range query optimization
-**Time Complexity**: Constructor O(m * n), sumRegion O(1)
-**Space Complexity**: O(m * n)
-
 ### INTUITION:
 The key insight is to preprocess the matrix into a 2D prefix sum array. This allows us to
 answer range sum queries in O(1) time. The prefix sum at position (i, j) represents the sum
@@ -103,6 +59,7 @@ Operations: ["NumMatrix", "sumRegion(2,1,4,3)", "sumRegion(1,1,2,2)", "sumRegion
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 from typing import List

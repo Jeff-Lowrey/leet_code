@@ -1,34 +1,5 @@
 /**
- * # Difficulty: Medium
- *
- * # 0073. Set Matrix Zeroes
- *
- *
- * Given an m x n integer matrix, if an element is 0, set its entire row and column to 0's.
- *
- * You must do it in place.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>[[1, 1, 1]]</dd>
- * <dt>Output:</dt>
- * <dd>1</dd>
- * <dt>Explanation:</dt>
- * <dd>Matrix with zeros: [[1,1,1],[1,0,1],[1,1,1]] becomes [[1,0,1],[0,0,0],[1,0,1]]</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
- * **Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
- * **Data Structures**: Hash Set, Array, Matrix
- * **Patterns**: Iterative Solution
- * **Time Complexity**: O(m × n)
- * **Space Complexity**: O(1) - Constant extra space
- *
- * ### INTUITION:
+### INTUITION:
 The key insight is that cannot modify matrix while iterating as it affects future decisions. Need to mark which rows/columns to zero without extra space. Use first row and first column as markers!
 
 ### APPROACH:
@@ -44,45 +15,46 @@ The key insight is that cannot modify matrix while iterating as it affects futur
 - This ensures that separate flags handle the overlap at matrix[0][0]
 
 ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * [1, 1, 1]
- * ```
- *
- * [1, 0, 1]
- * [1, 1, 1]
- * Step 1 - Mark:
- * first_row = False, first_col = False
- * After marking: matrix[1][0] = 0, matrix[0][1] = 0
- * Step 2 - Apply based on markers:
- *
- * Steps:
- * Step 1: Column 1 has marker -> zero column 1
- * Step 2: Row 1 has marker -> zero row 1
- *
- * Output:
- * ```
- * [1, 0, 1]
- * [0, 0, 0]
- * [1, 0, 1]
- * ```
+Input:
+```
+[1, 1, 1]
+```
 
- * ### TIME COMPLEXITY:
- * O(m × n)
- * Two passes through the matrix
- *
- * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
- * Only using two boolean flags
- *
- * ### EDGE CASES:
+[1, 0, 1]
+[1, 1, 1]
+Step 1 - Mark:
+first_row = False, first_col = False
+After marking: matrix[1][0] = 0, matrix[0][1] = 0
+Step 2 - Apply based on markers:
+
+Steps:
+Step 1: Column 1 has marker -> zero column 1
+Step 2: Row 1 has marker -> zero row 1
+
+Output:
+```
+[1, 0, 1]
+[0, 0, 0]
+[1, 0, 1]
+```
+
+### TIME COMPLEXITY:
+O(m × n)**
+Two passes through the matrix
+
+### SPACE COMPLEXITY:
+O(1)**
+- Constant extra space
+Only using two boolean flags
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 class Solution {
   /**

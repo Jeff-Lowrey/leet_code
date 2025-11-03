@@ -1,30 +1,4 @@
 """
-# 0054. Spiral Matrix
-
-# Difficulty: Medium
-
-Given an m x `n` matrix, return all elements of the matrix in spiral order.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>matrix = [[1,2,3],[4,5,6],[7,8,9]]</dd>
-<dt>Output:</dt>
-<dd>[1,2,3,6,9,8,7,4,5]</dd>
-<dt>Explanation:</dt>
-<dd>Spiral order traversal: [1,2,3,6,9,8,7,4,5]</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: Array, Tree, Matrix
-**Patterns**: Two Pointers Pattern
-**Time Complexity**: O(m × n)
-**Space Complexity**: O(1) excluding output array - Constant extra space
-
 ### INTUITION:
 The key insight is that think of traversing the matrix in layers, like peeling an onion. We traverse the outermost layer first (right → down → left → up), then move to the next inner layer and repeat the pattern.
 
@@ -59,13 +33,12 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(m × n)
+**O(m × n)**
 
 - Based on input size and operations
 
-
 ### SPACE COMPLEXITY:
-O(1) excluding output array
+**O(1)** excluding output array
 
 ### EDGE CASES:
 - **Empty matrix**: Return empty list
@@ -75,6 +48,7 @@ O(1) excluding output array
 - **Rectangle (m×n)**: Spiral inward from boundaries
 
 </details>
+
 """
 
 from typing import Any

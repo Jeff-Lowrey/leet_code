@@ -1,39 +1,4 @@
 """
-# Difficulty: Medium
-
-# 0059. Spiral Matrix II
-
-Given a positive integer n, generate an n x n matrix filled with elements from 1 to n²
-in spiral order.
-
-Example 1:
-Input: n = 3
-Output: [[1,2,3],[8,9,4],[7,6,5]]
-
-Example 2:
-Input: n = 1
-Output: [[1]]
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>[[1, 2, 3]]</dd>
-<dt>Output:</dt>
-<dd>1</dd>
-<dt>Explanation:</dt>
-<dd>Spiral matrix filled 1 to n²</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Array Traversal, Two Pointers
-**Data Structures**: Array, Tree, Matrix
-**Patterns**: Two Pointers Pattern, Hash Table Pattern
-**Time Complexity**: O(n²) - Nested iteration through input
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
 Similar to Spiral Matrix I, but instead of reading, we're writing values in spiral order.
 Use the same boundary-tracking technique, filling the matrix layer by layer from outside to inside.
@@ -83,11 +48,11 @@ Step 5 - Right (center): Fill [1,1]
 Result: [[1,2,3],[8,9,4],[7,6,5]]
 
 ### TIME COMPLEXITY:
-O(n²)
+**O(n²)**
 - Fill each of n² cells once
 
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 - Only use constant extra space (not counting output matrix)
 
 ### EDGE CASES:
@@ -96,6 +61,7 @@ O(1)
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 from typing import Any

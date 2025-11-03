@@ -1,38 +1,8 @@
 /**
- * # Difficulty: Medium
- *
- * # 0240. Search a 2D Matrix II
- *
- *
- * Write an efficient algorithm that searches for a value target in an m x n integer matrix.
- * This matrix has the following properties:
- * - Integers in each row are sorted in ascending from left to right.
- * - Integers in each column are sorted in ascending from top to bottom.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>matrix = [[1,4,7,11,15],[2,5,8,12,19],[3,6,9,16,22],[10,13,14,17,24],[18,21,23,26,30]], target = 5</dd>
- * <dt>Output:</dt>
- * <dd>false</dd>
- * <dt>Explanation:</dt>
- * <dd>Target 5 is found in the 2D matrix at position (1,1)</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
- * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
- * **Data Structures**: Array, Tree, Matrix
- * **Patterns**: Two Pointers Pattern, Binary Search Pattern
- * **Time Complexity**: O(m + n)
- * **Space Complexity**: O(1) - Constant extra space
- *
- * ### INTUITION:
- * Start from top-right (or bottom-left) corner. From top-right, we can eliminate either the current row (if target < current) or current column (if target > current). This is like a binary search tree where we can navigate efficiently.
- *
- * ### APPROACH:
+### INTUITION:
+Start from top-right (or bottom-left) corner. From top-right, we can eliminate either the current row (if target < current) or current column (if target > current). This is like a binary search tree where we can navigate efficiently.
+
+### APPROACH:
 1. **Start from top-right corner** (row=0, col=n-1)
 2. **Compare target with current element**:
    - If equal: return True
@@ -74,21 +44,22 @@ Step-by-step execution:
 3. [Final step]
 
 ### TIME COMPLEXITY:
- * O(m + n)
- * At most m+n steps (eliminate one row or column per step)
- *
- * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
- * Only using constant extra space for pointers
- *
- * ### EDGE CASES:
+O(m + n)**
+At most m+n steps (eliminate one row or column per step)
+
+### SPACE COMPLEXITY:
+O(1)**
+- Constant extra space
+Only using constant extra space for pointers
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 class Solution {
   /**
