@@ -1,47 +1,116 @@
 /**
- * # 0779. Kth Symbol In Grammar
- *
- * Difficulty: Medium
- *
- * # 0779. K-th Symbol in Grammar
- *
- * We build a table of n rows (1-indexed). We start by writing 0 in the 1st row.
- * Now in every subsequent row, we look at the previous row and replace each occurrence
- * of 0 with 01, and each occurrence of 1 with 10.
- *
- * Given two integer n and k, return the kth (1-indexed) symbol in the nth row.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>n = 3, k = 3</dd>
- * <dt>Output:</dt>
- * <dd>1</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- *
- * ### METADATA:
- * **Techniques**: Recursion, Binary Tree Traversal, Bit Manipulation
- * **Data Structures**: Binary Tree (implicit), Call Stack
- * **Patterns**: Divide and Conquer, Parent-Child Relationship
- * **Time Complexity**: **O(n)** - Recursively navigate n levels
- * **Space Complexity**: **O(n)** - Recursion call stack depth
- *
- * ### INTUITION:
- * The rows form a binary tree pattern:
- * - Row 1: 0
- * - Row 2: 0 1 (0→01)
- * - Row 3: 0 1 1 0 (0→01, 1→10)
- * - Row 4: 0 1 1 0 1 0 0 1
- *
- * Key observation: Each symbol at position k in row n is derived from position ⌈k/2⌉ in row n-1.
- * - If k is odd (left child): same as parent
- * - If k is even (right child): flip of parent
- *
- * ### APPROACH:
+### INTUITION:
+The rows form a binary tree pattern:
+- Row 1: 0
+- Row 2: 0 1 (0→01)
+- Row 3: 0 1 1 0 (0→01, 1→10)
+- Row 4: 0 1 1 0 1 0 0 1
+
+Key observation: Each symbol at position k in row n is derived from position ⌈k/2⌉ in row n-1.
+- If k is odd (left child): same as parent
+- If k is even (right child): flip of parent
+
+### APPROACH:
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
 The algorithm proceeds as follows:
 
 The algorithm proceeds as follows:
@@ -69,7 +138,7 @@ This solution uses recursion for efficient implementation.
 This solution uses bit manipulation for efficient implementation.
 
 ### EXAMPLE WALKTHROUGH:
-*Input:** n = 3, k = 3
+Input:** n = 3, k = 3
 
 Row structure:
 ```
@@ -80,15 +149,15 @@ Row 3: 0 1 1 0
        1 2 3 4
 ```
 
-*Step 1:** k=3 (odd) → parent is position ⌈3/2⌉ = 2 in row 2 → same value as parent
+Step 1:** k=3 (odd) → parent is position ⌈3/2⌉ = 2 in row 2 → same value as parent
 
-*Step 2:** k=2 (even) → parent is position ⌈2/2⌉ = 1 in row 1 → flip parent
+Step 2:** k=2 (even) → parent is position ⌈2/2⌉ = 1 in row 1 → flip parent
 
-*Step 3:** Find position 1 in row 1 → returns 0
+Step 3:** Find position 1 in row 1 → returns 0
 
-*Step 4:** Row 2, position 2 → flip(0) = 1
+Step 4:** Row 2, position 2 → flip(0) = 1
 
-*Step 5:** Row 3, position 3 → same as parent = 1
+Step 5:** Row 3, position 3 → same as parent = 1
 
 Output:
 ```
@@ -96,22 +165,23 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
- * O(n) - we recurse up to n times
- *
- * ### SPACE COMPLEXITY:
- * O(n) - recursion stack depth
- *
- * ### EDGE CASES:
+O(n)** - we recurse up to n times
+
+### SPACE COMPLEXITY:
+O(n)** - recursion stack depth
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- *
- * @param {number} n
- * @param {number} k
- * @return {number}
- */
+
+@param {number} n
+@param {number} k
+@return {number}
+
+*/
 
 class Solution {
   /**

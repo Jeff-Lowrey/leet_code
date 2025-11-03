@@ -1,75 +1,49 @@
 /**
- * # Difficulty: Medium
- *
- * # 0024. Swap Nodes In Pairs
- *
- *
- * Given a linked list, swap every two adjacent nodes and return its head. You must solve the problem without modifying the values in the list's nodes (i.e., only nodes themselves may be changed.)
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>[2, 1, 4, 3]</dd>
- * <dt>Output:</dt>
- * <dd>1</dd>
- * <dt>Explanation:</dt>
- * <dd>Swapping adjacent pairs: [1,2,3,4] becomes [2,1,4,3]</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
- * **Techniques**: Hash Map Storage, Array Traversal, Stack Operations
- * **Data Structures**: Array, Stack, Linked List
- * **Patterns**: Iterative Solution
- * **Time Complexity**: O(n)
- * **Space Complexity**: O(n)
- *
- * ### INTUITION:
+### INTUITION:
 The key insight is that we need to swap every pair of adjacent nodes in a linked list. This is a perfect use case for recursion where we can handle the current pair and recursively solve for the rest of the list.
 
 ### APPROACH:
- * 1. **Base case**: If less than 2 nodes remain, return head
- * 2. **Recursive case**: Swap current pair and recursively handle rest
- * 3. **Link management**: Carefully update pointers to maintain list integrity
- * 4. **Return new head**: After swapping, the second node becomes the new head
- *
- * ### WHY THIS WORKS:
- * The algorithm correctly solves the problem by systematically exploring all valid states while maintaining necessary invariants. Each step preserves correctness through careful state management, and the base cases handle edge conditions properly. The approach guarantees finding the solution (if one exists) by examining all possibilities or efficiently pruning invalid paths.
- *
- * ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * 1->2->3->4->NULL
- * ```
- *
- * Steps:
- * Step 1: Swap (1,2), recurse on 3->4
- * Step 2: Swap (3,4), recurse on NULL (base case)
- * Step 3: Link 2->4->3->NULL
- * Step 4: Link 2->4->3->1->NULL
- *
- * Output:
- * ```
- * 2->1->4->3->NULL
- * ```
+1. **Base case**: If less than 2 nodes remain, return head
+2. **Recursive case**: Swap current pair and recursively handle rest
+3. **Link management**: Carefully update pointers to maintain list integrity
+4. **Return new head**: After swapping, the second node becomes the new head
 
- * ### TIME COMPLEXITY:
- * O(n)
- * Visit each node exactly once
- *
- * ### SPACE COMPLEXITY:
- * O(n)
- * Recursion stack depth proportional to number of pairs
- *
- * ### EDGE CASES:
+### WHY THIS WORKS:
+The algorithm correctly solves the problem by systematically exploring all valid states while maintaining necessary invariants. Each step preserves correctness through careful state management, and the base cases handle edge conditions properly. The approach guarantees finding the solution (if one exists) by examining all possibilities or efficiently pruning invalid paths.
+
+### EXAMPLE WALKTHROUGH:
+Input:
+```
+1->2->3->4->NULL
+```
+
+Steps:
+Step 1: Swap (1,2), recurse on 3->4
+Step 2: Swap (3,4), recurse on NULL (base case)
+Step 3: Link 2->4->3->NULL
+Step 4: Link 2->4->3->1->NULL
+
+Output:
+```
+2->1->4->3->NULL
+```
+
+### TIME COMPLEXITY:
+O(n)**
+Visit each node exactly once
+
+### SPACE COMPLEXITY:
+O(n)**
+Recursion stack depth proportional to number of pairs
+
+### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
- */
+
+*/
 
 class ListNode {
   val: number;

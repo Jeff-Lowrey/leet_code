@@ -1,34 +1,4 @@
 """
-# 0241. Different Ways to Add Parentheses
-
-# Difficulty: Medium
-
-Given a string `expression` of numbers and operators, return all possible results from computing all the different possible ways to group numbers and operators. You may return the answer in any order.
-
-The test cases are generated such that the output values fit in a 32-bit integer and the number of different results does not exceed 10^4.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>expression = "2-1-1"</dd>
-<dt>Output:</dt>
-<dd>[0,2]</dd>
-<dt>Explanation:</dt>
-<dd>((2-1)-1) = 0, (2-(1-1)) = 2</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: Recursion, Divide and Conquer, Memoization
-**Data Structures**: List, Hash Map, String
-**Patterns**: Divide and Conquer, Dynamic Programming
-**Time Complexity**: **O(4^n / n^(3/2))** - Catalan number growth, exponential in expression length
-**Space Complexity**: **O(4^n / n^(3/2))** - Storing all possible results plus recursion stack
-
 ### INTUITION:
 The key insight is that for each operator in the expression, we can split the expression at that operator and recursively compute all possible results for the left and right sub-expressions. Then we combine these results using the current operator. This generates all possible ways to parenthesize the expression.
 
@@ -76,7 +46,7 @@ Output:
 **O(4^n / n^(3/2))** - The number of ways to parenthesize n operators grows as the nth Catalan number, which is approximately 4^n / n^(3/2). We compute each unique sub-expression once with memoization.
 
 ### SPACE COMPLEXITY:
-**O(4^n / n^(3/2))** - We store all possible results for each sub-expression, plus the recursion call stack depth of O(n).
+**O(4^n / n^(3/2))** - We store all possible results for each sub-expression, plus the recursion call stack depth of **O(n)**.
 
 ### EDGE CASES:
 - **Single number:** "10" → [10]
@@ -86,6 +56,7 @@ Output:
 - **Negative numbers in result:** Handled correctly by operator application
 
 </details>
+
 """
 
 from typing import List

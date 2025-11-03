@@ -1,40 +1,4 @@
 """
-# 0894. All Possible Full Binary Trees
-
-# Difficulty: Medium
-
-Given an integer n, return a list of all possible full binary trees with n nodes. Each node
-of each tree in the answer must have Node.val == 0.
-
-Each element of the answer is the root node of one possible tree. You may return the final
-list of trees in any order.
-
-A full binary tree is a binary tree where each node has exactly 0 or 2 children.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>7</dd>
-<dt>Output:</dt>
-<dd>[[0,0,0,null,null,0,0,null,null,0,0],[0,0,0,null,null,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,null,null,null,null,0,0],[0,0,0,0,0,null,null,0,0]]</dd>
-<dt>Explanation:</dt>
-<dd>With n=7, there are 5 possible full binary trees, each with different structures but all having exactly 7 nodes where every node has either 0 or 2 children</dd>
-</dl>
-
-**Constraints:**
-- 1 <= n <= 20
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-### METADATA:
-**Techniques**: Recursion, Memoization, Tree construction, Combinatorial generation
-**Data Structures**: Binary tree, Dictionary (for memoization), List
-**Patterns**: Divide and conquer, Recursive tree building, Memoization
-**Time Complexity**: O(2^n)
-**Space Complexity**: O(2^n)
-
 ### INTUITION:
 The key insight is that a full binary tree has an odd number of nodes (impossible with even n). For each tree,
 we pick a root and divide the remaining n-1 nodes between left and right subtrees.
@@ -42,6 +6,106 @@ We recursively generate all possible left subtrees with i nodes and all possible
 subtrees with n-1-i nodes, then combine them.
 
 ### APPROACH:
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
+The algorithm proceeds as follows:
+
 The algorithm proceeds as follows:
 
 The algorithm proceeds as follows:
@@ -103,6 +167,7 @@ Output:
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 from typing import List, Optional

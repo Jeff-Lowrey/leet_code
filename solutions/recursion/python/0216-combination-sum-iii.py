@@ -1,30 +1,4 @@
 """
-# Difficulty: Medium
-
-# 0216. Combination Sum III
-
-This problem demonstrates key concepts in Recursion.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>k = 3, n = 7</dd>
-<dt>Output:</dt>
-<dd>[[1,2,4]]</dd>
-<dt>Explanation:</dt>
-<dd>All 3-number combinations from 1-9 that sum to 7 are [[1,2,4]]</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Map Storage, Array Traversal, Sorting
-**Data Structures**: Array, Linked List
-**Patterns**: Complement Search, Hash Table Pattern
-**Time Complexity**: O(C(9,k)) - choosing k numbers from 9 options
-**Space Complexity**: O(k) - recursion depth and combination size
-
 ### INTUITION:
 The key insight is that find all valid combinations of k numbers that sum to n, using only numbers 1-9,
 where each number can be used at most once. This is a backtracking problem with
@@ -69,10 +43,10 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(C(9,k)) - choosing k numbers from 9 options
+**O(C(9,k)**) - choosing k numbers from 9 options
 
 ### SPACE COMPLEXITY:
-O(k) - recursion depth and combination size
+**O(k)** - recursion depth and combination size
 
 ### EDGE CASES:
 - **Empty input**: Handle when input is empty
@@ -80,6 +54,7 @@ O(k) - recursion depth and combination size
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 from typing import Any, List

@@ -1,37 +1,4 @@
 """
-# 0509. Fibonacci Number
-
-# Difficulty: Easy
-
-The Fibonacci numbers, commonly denoted F(n) form a sequence, called the Fibonacci sequence,
-such that each number is the sum of the two preceding ones, starting from 0 and 1. That is:
-
-F(0) = 0, F(1) = 1
-F(n) = F(n - 1) + F(n - 2), for n > 1.
-
-Given n, calculate F(n).
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>n = 4</dd>
-<dt>Output:</dt>
-<dd>3</dd>
-<dt>Explanation:</dt>
-<dd>F(4) = F(3) + F(2) = 2 + 1 = 3</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-### METADATA:
-**Techniques**: Recursion, Memoization, Iteration
-**Data Structures**: Array (for memoization)
-**Patterns**: Base Case Recursion, Top-Down DP
-**Time Complexity**: O(2^n) naive, O(n) with memoization
-**Space Complexity**: O(n) for recursion stack and memoization
-
 ### INTUITION:
 The key insight is that the Fibonacci sequence is the classic example of recursion. Each number is defined
 recursively as the sum of the two preceding numbers, with base cases F(0)=0 and F(1)=1.
@@ -66,11 +33,11 @@ Step-by-step execution:
 3. [Final step]
 
 ### TIME COMPLEXITY:
-- Naive recursion: O(2^n) - exponential
-- With memoization: O(n) - linear
+- Naive recursion: **O(2^n)** - exponential
+- With memoization: **O(n)** - linear
 
 ### SPACE COMPLEXITY:
-O(n) - recursion stack depth
+**O(n)** - recursion stack depth
 
 ### EDGE CASES:
 - **Empty input**: Handle when input is empty
@@ -78,6 +45,7 @@ O(n) - recursion stack depth
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 

@@ -1,30 +1,4 @@
 """
-# Difficulty: Medium
-
-# 0024. Swap Nodes In Pairs
-
-Given a linked list, swap every two adjacent nodes and return its head. You must solve the problem without modifying the values in the list's nodes (i.e., only nodes themselves may be changed.)
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>[2, 1, 4, 3]</dd>
-<dt>Output:</dt>
-<dd>1</dd>
-<dt>Explanation:</dt>
-<dd>Swapping adjacent pairs: [1,2,3,4] becomes [2,1,4,3]</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Map Storage, Array Traversal, Stack Operations
-**Data Structures**: Array, Stack, Linked List
-**Patterns**: Iterative Solution
-**Time Complexity**: O(n)
-**Space Complexity**: O(n)
-
 ### INTUITION:
 The key insight is that we need to swap every pair of adjacent nodes in a linked list. This is a perfect use case for recursion where we can handle the current pair and recursively solve for the rest of the list.
 
@@ -60,11 +34,11 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 Visit each node exactly once
 
 ### SPACE COMPLEXITY:
-O(n)
+**O(n)**
 Recursion stack depth proportional to number of pairs
 
 ### EDGE CASES:
@@ -73,6 +47,7 @@ Recursion stack depth proportional to number of pairs
 - **Boundary values**: Handle minimum/maximum valid values
 
 </details>
+
 """
 
 from typing import Any
