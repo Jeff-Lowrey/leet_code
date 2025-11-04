@@ -1,19 +1,57 @@
 /**
+ * # Difficulty: Hard
+ *
+ * # 0051. N Queens
+ *
+ *
+ * The n-queens puzzle is the problem of placing n queens on an n×n chessboard
+ * such that no two queens attack each other.
+ *
+ * Given an integer n, return all distinct solutions to the n-queens puzzle.
+ * You may return the answer in any order.
+ *
+ * Each solution contains a distinct board configuration of the n-queens' placement,
+ * where 'Q' and '.' both indicate a queen and an empty space, respectively.
+ *
+ * Example 1:
+ * Input: n = 4
+ * Output: [[".Q..","...Q","Q...","..Q."],["..Q.","Q...","...Q",".Q.."]]
+ *
+ * Example 2:
+ * Input: n = 1
+ * Output: [["Q"]]
+ *
+ * **Example:**
+ *
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>n = 4</dd>
+ * <dt>Output:</dt>
+ * <dd>[[".Q..","...Q","Q...","..Q."],["..Q.","Q...","...Q",".Q.."]]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>For n=4, one valid queen placement is [(0,1),(1,3),(2,0),(3,2)]</dd>
+ * </dl>
+ *
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  * ### METADATA:
- * **Techniques**: Backtracking, Set-based Constraint Tracking
- * **Data Structures**: Set, Array, Board (2D array)
+ * **Techniques**: Hash Table Lookup, Set Operations, Array Traversal
+ * **Data Structures**: Hash Map, Hash Set, Array
+ * **Patterns**: Hash Table Pattern, Backtracking
  * **Time Complexity**: O(N!)
  * **Space Complexity**: O(N)
+
  *
  * ### INTUITION:
- * The key insight is that place queens one row at a time and backtrack when conflicts arise. Queens attack horizontally, vertically, and diagonally, so we need to ensure no two queens can attack each other.
+ * Place queens one row at a time and backtrack when conflicts arise. Queens attack horizontally, vertically, and diagonally, so we need to ensure no two queens can attack each other.
  *
  * ### APPROACH:
- * 1. **Row by row placement**: Place one queen per row to avoid horizontal conflicts
- * 2. **Column tracking**: Track which columns are occupied to avoid vertical conflicts
- * 3. **Diagonal tracking**: Track both diagonal directions to avoid diagonal conflicts
- * 4. **Backtrack**: When placement impossible, backtrack and try next position
- * 5. **Build solution**: When all queens placed successfully, add board to results
+ * **Data structures: Hash Set (column and diagonal tracking), Array (board state and results)**
+ * 1. **Row by row placement**: Place one queen per row in array to avoid horizontal conflicts
+ * 2. **Column tracking**: Track which columns are occupied using hash set to avoid vertical conflicts
+ * 3. **Diagonal tracking**: Track both diagonal directions using hash set to avoid diagonal conflicts
+ * 4. **Backtrack**: When placement impossible in array, backtrack and try next position
+ * 5. **Build solution**: When all queens placed successfully in array, add board to results
  *
  * ### WHY THIS WORKS:
  * - Placing one queen per row eliminates horizontal conflicts automatically
@@ -21,40 +59,57 @@
  * - Backtracking explores all valid placements systematically
  * - Early pruning prevents exploring invalid partial solutions
  *
- * ### EXAMPLE WALKTHROUGH:
- * Input:
+ *
+
+This solution uses hash table lookup for efficient implementation.
+
+This solution uses set operations for efficient implementation.
+
+This solution uses array traversal for efficient implementation.
+### EXAMPLE WALKTHROUGH:
+  * Input:
  * ```
  * n = 4
  * ```
  *
- * **Step 1:** Place queen in row 0
+ * **Step 1:** Place queen in row 0 for n=4 board
  * - Try col 0: Place Q at (0,0)
- *   - cols = {0}, diag1 = {0}, diag2 = {0}
+ * - cols = {0}, diag1 = {0}, diag2 = {0}
  *
  * **Step 2:** Place queen in row 1
  * - Try col 0: conflicts with cols (skip)
  * - Try col 1: conflicts with diag2 (skip)
  * - Try col 2: Place Q at (1,2) ✓
- *   - cols = {0,2}, diag1 = {0,-1}, diag2 = {0,3}
+ * - cols = {0,2}, diag1 = {0,-1}, diag2 = {0,3}
  *
  * **Step 3:** Place queen in row 2
  * - Try col 0,1: conflicts
  * - Try col 3: conflicts
  * - Try col 4: out of range → Backtrack
  *
- * **Step 4:** Try different placement in row 1 (col 3)
- * - Eventually find: [".Q..","...Q","Q...","..Q."]
+ * **Step 4:** Backtrack and try different placement
+ * - Return to row 1, try col 3 instead
+ * - Continue placing queens with new configuration
+ * - Find first valid solution: [".Q..","...Q","Q...","..Q."]
  *
- * Output: [[".Q..","...Q","Q...","..Q."],["..Q.","Q...","...Q",".Q.."]]
+ * **Step 5:** Build solution and continue search
+ * - When all N queens placed successfully, add board to results
+ * - Backtrack to find all remaining solutions
+ * - Find second solution: ["..Q.","Q...","...Q",".Q.."]
+ *
+ * Output:
+ * ```
+ * [[".Q..","...Q","Q...","..Q."],["..Q.","Q...","...Q",".Q.."]]
+ * ```
  *
  * ### TIME COMPLEXITY:
- * **O(N!)**
+ * O(N!)
  * - In worst case, we try every possible placement
  * - First queen has N choices, second has (N-1), etc.
  * - But pruning significantly reduces actual combinations
  *
  * ### SPACE COMPLEXITY:
- * **O(N)**
+ * O(N)
  * - Recursion depth is N (one call per row)
  * - Additional space for tracking columns and diagonals
  * - Board representation space
@@ -67,8 +122,17 @@
  * - **All positions conflict**: Backtracking exhausts all possibilities, returns empty
  *
  *
- */
+*/
 
+/**
+ * Main solution for Problem 051: N-Queens
+ *
+ * @param {number} n - Size of the chessboard (n×n) and number of queens
+ * @return {string[][]} - Array of all distinct solutions, each as array of strings
+ *
+ * Time Complexity: O(N!) - at most N choices for first queen, N-1 for second, etc.
+ * Space Complexity: O(N^2) for board representation and recursion depth
+ */
 function solve(n) {
   // Handle edge cases
   if (n === 0) return [];

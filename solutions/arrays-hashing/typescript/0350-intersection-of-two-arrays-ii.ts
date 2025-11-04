@@ -1,9 +1,33 @@
 /**
+ * # 0350. Intersection of Two Arrays II
+ *
+ * Difficulty: Medium
+ *
+ *
+ * Given two integer arrays nums1 and nums2, return an array of their intersection.
+ * Each element in the result must appear as many times as it shows in both arrays
+ * and you may return the result in any order.
+ *
+ * **Example:**
+ *
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>nums1 = [1,2,2,1], nums2 = [2,2]</dd>
+ * <dt>Output:</dt>
+ * <dd>[2,2]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>The intersection includes elements that appear in both arrays with their frequencies</dd>
+ * </dl>
+ *
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ *
  * ### METADATA:
- * **Techniques**: Frequency Counting, Hash Map Lookup
- * **Data Structures**: Hash Map (Counter)
- * **Time Complexity**: O(n + m)
- * **Space Complexity**: O(min(n, m)
+ * **Techniques**: Hash Table, Frequency Counting, Two Pointers
+ * **Data Structures**: Hash Map, Array
+ * **Patterns**: Frequency Counter Pattern
+ * **Time Complexity**: O(n + m) - Single pass through both arrays with O(1) hash operations
+ * **Space Complexity**: O(min(n, m)) - Hash map stores frequencies of smaller array
  *
  * ### INTUITION:
  * Use a hash map to count frequencies in one array, then iterate through the second
@@ -39,12 +63,14 @@
  * ```
  * [2, 2]
  * ```
- *
+
  * ### TIME COMPLEXITY:
- * **O(n + m)** - where n = len(nums1) and m = len(nums2). We make one pass through nums1 to build the frequency map (**O(n)**), then one pass through nums2 to find intersections (**O(m)**). Each hash map operation (Counter increment, lookup, decrement) is **O(1)**. Total: **O(n)** + **O(m)** = **O(n + m)**. This is optimal since we must examine all elements in both arrays.
+ * O(n + m)
+ * - Single pass through both arrays with O(1) hash operations
  *
  * ### SPACE COMPLEXITY:
- * **O(min(n, m))** - We store frequencies of the smaller array in the hash map. In the worst case where all elements in the smaller array are unique, we store min(n, m) entries. The result array can be at most min(n, m) in size (when all elements of the smaller array appear in the larger array). Total space: **O(min(n, m)**) for the frequency map + **O(min(n, m)**) for the result = **O(min(n, m)**).
+ * O(min(n, m))
+ * - Hash map stores frequencies of smaller array
  *
  * ### EDGE CASES:
  * - **Empty arrays**: Return empty array
@@ -52,7 +78,7 @@
  * - **All elements intersect**: Return all with proper frequencies
  * - **One array is subset**: Return the subset
  *
- *
+ * </details>
  */
 
 class Solution {

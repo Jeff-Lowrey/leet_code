@@ -326,55 +326,8 @@ class IterativeFixer:
             print(f"Error reading fixes file: {e}")
             return {}
 
-    def extract_python_docs(self, python_file: Path) -> Optional[str]:
-        """Extract documentation from Python file (before code starts).
-
-        Args:
-            python_file: Path to Python file
-
-        Returns:
-            Documentation string, or None if extraction fails
-        """
-        try:
-            with open(python_file, 'r') as f:
-                lines = f.readlines()
-
-            # Find end of documentation (where code starts)
-            doc_end = None
-            for i, line in enumerate(lines):
-                # Documentation ends at first non-comment, non-blank line after initial docstring
-                if i > 5 and (line.strip().startswith('from ') or
-                             line.strip().startswith('import ') or
-                             line.strip().startswith('class ') or
-                             line.strip().startswith('def ')):
-                    doc_end = i
-                    break
-
-            if doc_end is None:
-                return None
-
-            # Extract and clean documentation
-            docs = ''.join(lines[:doc_end])
-
-            # Fix literal \n characters that should be actual newlines
-            # This handles cases where METADATA sections have literal '\n' in them
-            docs = docs.replace('\\n', '\n')
-
-            # Remove <details> tags if present (complete blocks)
-            docs = re.sub(r'<details>.*?</details>', '', docs, flags=re.DOTALL)
-
-            # Remove any orphaned closing tags
-            docs = re.sub(r'</details>\s*', '', docs)
-
-            # Remove any orphaned opening tags or summary tags
-            docs = re.sub(r'<details>\s*', '', docs)
-            docs = re.sub(r'<summary>.*?</summary>\s*', '', docs, flags=re.DOTALL)
-
-            return docs.strip()
-
-        except Exception as e:
-            print(f"  Error extracting Python docs: {e}")
-            return None
+    # DEPRECATED: extract_python_docs() removed - use extract_markdown_from_code() from src/ instead
+    # This function was stripping problem descriptions and <details> tags
 
     def convert_docs_to_language(self, python_docs: str, target_lang: str) -> str:
         """Convert Python documentation to target language format.
@@ -487,6 +440,9 @@ class IterativeFixer:
     def sync_documentation_from_python(self, python_file: Path) -> Dict[str, bool]:
         """Sync documentation from Python file to other languages.
 
+        Uses src/leet_code/markdown_extraction.py functions to extract and inject
+        markdown properly, preserving all content including problem descriptions.
+
         Args:
             python_file: Path to Python file
 
@@ -495,9 +451,15 @@ class IterativeFixer:
         """
         results = {}
 
-        # Extract Python documentation
-        python_docs = self.extract_python_docs(python_file)
-        if not python_docs:
+        # Read Python file
+        with open(python_file, 'r') as f:
+            python_code = f.read()
+
+        # Extract markdown using src/ function (preserves ALL content)
+        from leet_code.markdown_extraction import extract_markdown_from_code
+        python_markdown = extract_markdown_from_code(python_code, '.py')
+
+        if not python_markdown:
             print(f"  ⚠ Could not extract Python documentation")
             return results
 
@@ -510,21 +472,28 @@ class IterativeFixer:
                 continue
 
             try:
-                # Convert documentation
-                target_docs = self.convert_docs_to_language(python_docs, lang)
-
-                # Find code start
-                code_start = self.find_code_start(files[lang], lang)
-
-                # Read existing code
+                # Read target file
                 with open(files[lang], 'r') as f:
-                    lines = f.readlines()
+                    target_code = f.read()
 
-                # Write new file with synced docs
+                # Convert markdown to target language comment format
+                target_markdown = self.convert_docs_to_language(python_markdown, lang)
+
+                # Get file extension
+                ext = '.js' if lang == 'javascript' else '.ts'
+
+                # Inject markdown using src/ injection function
+                from ..injection import inject_markdown_to_code
+                updated_code = inject_markdown_to_code(target_code, target_markdown, ext)
+
+                if not updated_code:
+                    print(f"    ⚠ Failed to inject markdown for {lang}")
+                    results[lang] = False
+                    continue
+
+                # Write updated code
                 with open(files[lang], 'w') as f:
-                    f.write(target_docs)
-                    f.write('\n\n')
-                    f.write(''.join(lines[code_start:]))
+                    f.write(updated_code)
 
                 results[lang] = True
 

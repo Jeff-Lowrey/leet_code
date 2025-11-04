@@ -1,11 +1,35 @@
-"""### METADATA:
-**Techniques**: Frequency Counting
-**Data Structures**: Hash Map (Counter)
-**Time Complexity**: O(n)
-**Space Complexity**: O(1)
+"""
+# 0242. Valid Anagram
+
+# Difficulty: Easy
+
+Given two strings s and t, return true if t is an anagram of s, and false otherwise.
+
+An Anagram is a word or phrase formed by rearranging the letters of a different
+word or phrase, typically using all the original letters exactly once.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>s = "anagram", t = "nagaram"</dd>
+<dt>Output:</dt>
+<dd>true</dd>
+<dt>Explanation:</dt>
+<dd>The strings 'anagram' and 'nagaram' are anagrams (same character counts)</dd>
+</dl>
+
+<details>
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: Hash Map, Array, String
+**Patterns**: Hash Table Pattern
+**Time Complexity**: O(n) - Single pass with O(1) hash lookups
+**Space Complexity**: O(1) - at most 26 lowercase letters
 
 ### INTUITION:
-The key insight is that two strings are anagrams if they contain the exact same characters with the same frequencies. We can verify this by counting character frequencies in both strings.
+Two strings are anagrams if they contain the exact same characters with the same frequencies. We can verify this by counting character frequencies in both strings.
 
 ### APPROACH:
 1. **Length check**: If strings have different lengths, they can't be anagrams
@@ -37,16 +61,19 @@ True
 ```
 
 ### TIME COMPLEXITY:
-**O(n)** - where n is the length of the strings (assuming both have the same length). We make two passes through the strings: one to build the character frequency map from the first string (**O(n)**), and one to verify against the second string (**O(n)**). Each character lookup and insertion in the hash map is **O(1)**. Total: **O(n)** + **O(n)** = **O(2n)** = **O(n)**. Early termination when a mismatch is found provides better average-case performance.
+O(n)
+- Single pass through input
+
 
 ### SPACE COMPLEXITY:
-**O(1)** - for the array approach. We use a fixed-size array of 26 elements for lowercase English letters, regardless of input size. For the hash map approach, worst case is **O(k)** where k is the number of unique characters. Since the problem typically assumes lowercase English letters only (26 characters max), this is **O(26)** = **O(1)** constant space.
+O(1) - at most 26 lowercase letters
 
 ### EDGE CASES:
-- **Empty input**: Handle when input is empty
-- **Single element**: Handle single-element inputs
-- **Boundary values**: Handle minimum/maximum valid values
+- Empty strings → True (both empty)
+- Different lengths → False immediately
+- Single character → direct comparison
 
+</details>
 """
 
 from collections import Counter

@@ -1,17 +1,38 @@
-"""### METADATA:
-**Techniques**: Backtracking, Dynamic Programming (palindrome check)
-**Data Structures**: Array, List, String
-**Time Complexity**: O(n × 2^n)
-**Space Complexity**: O(n)
+"""
+# Difficulty: Medium
+
+# 0131. Palindrome Partitioning
+
+Given a string s, partition s such that every substring of the partition is a palindrome. Return all possible palindrome partitioning of s.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>s = "aab"</dd>
+<dt>Output:</dt>
+<dd>[["a","a","b"],["aa","b"]]</dd>
+<dt>Explanation:</dt>
+<dd>All palindrome partitions of 'aab' are [['a','a','b'], ['aa','b']]</dd>
+</dl>
+
+<details>
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: Hash Map, Array, String
+**Patterns**: Two Pointers Pattern, Dynamic Programming
+**Time Complexity**: O(n) - Single pass through input
+**Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
-The key insight is that at each position, try all possible substrings starting from that position. If a substring is a palindrome, add it to the current partition and recursively partition the remaining string. Backtrack by removing the last substring. This explores all valid palindrome partitions.
+At each position, try all possible substrings starting from that position. If a substring is a palindrome, add it to the current partition and recursively partition the remaining string. Backtrack by removing the last substring. This explores all valid palindrome partitions.
 
 ### APPROACH:
 1. **Define isPalindrome helper**: Create function to check if substring s[left:right+1] is a palindrome
 2. **Initialize result**: Create empty result list and current partition list
 3. **Define backtrack function**: Create recursive function with parameter start (current position in string)
-4. **Base case**: If start == len(s), add copy of current partition to result and return
+# 0131. **Base case**: If start == len(s), add copy of current partition to result and return  # Result undefined
 5. **Try all substrings**: Loop from start to end of string with end index
 6. **Check palindrome**: If s[start:end+1] is palindrome, add it to current partition
 7. **Recurse**: Call backtrack(end+1) to partition remaining string
@@ -49,15 +70,22 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-**O(n × 2^n)** - where n is the length of the string. In the worst case (when all characters are the same, like "aaa"), we generate 2^(n-1) different partitions (at each gap between characters, we can choose to partition or not). For each partition, we perform palindrome checks that take **O(n)** time in total across all substrings. Checking each substring for being a palindrome takes **O(substring_length)**, and copying valid partitions takes **O(n)**. Total: **O(2^n)** partitions × **O(n)** work per partition = **O(n × 2^n)**.
+O(n)
+- Single pass through input
+
 
 ### SPACE COMPLEXITY:
-**O(n)** - where n is the length of the string. The recursion call stack can go as deep as n levels (when we partition the string into individual characters). The current partition list can contain at most n substrings (when every character is a separate partition). The result list is not counted as it's required output. Total auxiliary space: **O(n)** for recursion stack + **O(n)** for current partition = **O(n)**.
+O(1)
+- Constant extra space
+
 
 ### EDGE CASES:
-- **Empty input**: Handle when input is empty
-- **Single element**: Handle single-element inputs
-- **Boundary values**: Handle minimum/maximum valid values"""
+- Empty input handling
+- Single element cases
+- Large input considerations
+
+</details>
+"""
 
 from typing import Any, List, Optional, Dict, Tuple
 

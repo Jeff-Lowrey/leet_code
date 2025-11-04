@@ -1,11 +1,32 @@
-"""### METADATA:
-**Techniques**: In-place Marking, Index as Hash Key
-**Data Structures**: Array (in-place)
-**Time Complexity**: O(n)
-**Space Complexity**: O(1)
+"""
+# Difficulty: Medium
+
+# 0448. Find All Numbers Disappeared In An Array
+
+Given an array nums of n integers where nums[i] is in the range [1, n], return an array of all the integers in the range [1, n] that do not appear in nums.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>nums = [4,3,2,7,8,2,3,1]</dd>
+<dt>Output:</dt>
+<dd>[5, 6]</dd>
+<dt>Explanation:</dt>
+<dd>The numbers [5,6] are missing from [4,3,2,7,8,2,3,1] (should be 1-8)</dd>
+</dl>
+
+<details>
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: Hash Map, Hash Set, Array
+**Patterns**: Hash Table Pattern
+**Time Complexity**: O(n) - Single pass through input
+**Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
-The key insight is that use the array itself as a hash map by marking indices. For each number n, negate the value at index n-1 to mark that n is present. After marking, any indices with positive values indicate missing numbers.
+Use the array itself as a hash map by marking indices. For each number n, negate the value at index n-1 to mark that n is present. After marking, any indices with positive values indicate missing numbers.
 
 ### APPROACH:
 1. **Mark present numbers**: Iterate through nums array, for each num get index = abs(num) - 1
@@ -50,16 +71,21 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-**O(n)** - where n is the length of the array. We make two complete passes through the array: (1) first pass marks present numbers by negating values at corresponding indices (**O(n)**), (2) second pass identifies which indices have positive values to determine missing numbers (**O(n)**). Each operation within the loops is **O(1)**. Total: **O(n)** + **O(n)** = **O(2n)** = **O(n)**. This is optimal since we must examine every element.
+O(n)
+- Single pass through input
+
 
 ### SPACE COMPLEXITY:
-**O(1)** - We use only constant extra space for variables (loop counters, index calculations). The result array doesn't count toward space complexity as it's required output. We modify the input array in-place using negation to mark present numbers, avoiding any additional data structures. This achieves the follow-up requirement of **O(1)** space without using extra sets or hash maps.
+O(1)
+- Constant extra space
+
 
 ### EDGE CASES:
-- **Empty input**: Handle when input is empty
-- **Single element**: Handle single-element inputs
-- **Boundary values**: Handle minimum/maximum valid values
+- Empty input handling
+- Single element cases
+- Large input considerations
 
+</details>
 """
 
 from typing import Any, List, Optional, Dict, Tuple

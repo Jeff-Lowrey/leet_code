@@ -1,12 +1,37 @@
 /**
- * ### METADATA:
- * **Techniques**: Backtracking, String Building
- * **Data Structures**: Hash Map (digit to letters mapping), Array, String
- * **Time Complexity**: O(3^N × 4^M) where N is digits with 3 letters, M is digits with 4 letters
+ * # Difficulty: Medium
+ *
+ * # 0017. Letter Combinations Of A Phone Number
+ *
+ *
+ * Given a string containing digits from 2-9 inclusive, return all possible letter
+ * combinations that the number could represent. Return the answer in any order.
+ *
+ * A mapping of digit to letters (just like on the telephone buttons) is given below:
+ * 2: ABC, 3: DEF, 4: GHI, 5: JKL, 6: MNO, 7: PQRS, 8: TUV, 9: WXYZ
+ *
+ * **Example:**
+ *
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>"23"</dd>
+ * <dt>Output:</dt>
+ * <dd>{solution.letterCombinations('23')}")</dd>
+ * <dt>Explanation:</dt>
+ * <dd>All letter combinations of '23' map to ['ad','ae','af','bd','be','bf','cd','ce','cf']</dd>
+ * </dl>
+ *
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
+ * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+ * **Data Structures**: Hash Map, Array, String
+ * **Patterns**: Backtracking
+ * **Time Complexity**: O(3^N × 4^M)
  * **Space Complexity**: O(3^N × 4^M)
  *
  * ### INTUITION:
- * The key insight is that this is a classic backtracking problem where we need to generate all possible
+ * This is a classic backtracking problem where we need to generate all possible
  * combinations. Each digit maps to multiple letters, creating a decision tree
  * where we explore all paths.
  *
@@ -17,9 +42,9 @@
  * 4. **Base case**: When we've processed all digits, add the combination
  *
  * ### WHY THIS WORKS:
- * - This ensures that backtracking explores all possible paths systematically
- * - This ensures that we build combinations incrementally and backtrack when needed
- * - This ensures that each recursive call handles one digit at a time
+ * - Backtracking explores all possible paths systematically
+ * - We build combinations incrementally and backtrack when needed
+ * - Each recursive call handles one digit at a time
  *
  * ### EXAMPLE WALKTHROUGH:
  * Input:
@@ -31,22 +56,26 @@
  * Step 1: digit '2' -> try 'a', 'b', 'c'
  * Step 2: For each letter from '2', try letters from '3' -> 'd', 'e', 'f'
  * Step 3: Result: ["ad","ae","af","bd","be","bf","cd","ce","cf"]
- *
+ * 
  * Output:
  * ```
  * ["ad","ae","af","bd","be","bf","cd","ce","cf"]
  * ```
- *
+ * 
  * ### TIME COMPLEXITY:
- * **O(3^N × 4^M)** - where N is the number of digits mapping to 3 letters (digits 2-6, 8) and M is the number of digits mapping to 4 letters (digits 7, 9). We generate all possible combinations by exploring every path in the decision tree. Each digit can map to 3 or 4 letters, creating a tree where each node branches into 3 or 4 children. The total number of combinations is the product of the number of letters each digit maps to. For example, "23" gives 3 × 3 = 9 combinations. The time to generate each combination is proportional to its length (the number of digits), so total time is **O(3^N × 4^M)** × **O(N+M)** ≈ **O(3^N × 4^M)** since the exponential term dominates.
+ * O(3^N × 4^M)
+ * Where N is number of digits mapping to 3 letters, M is digits mapping to 4 letters
  *
  * ### SPACE COMPLEXITY:
- * **O(3^N × 4^M)** - We store all generated combinations in the result list. Each combination is a string of length (N+M) where N is the count of digits mapping to 3 letters and M is the count of digits mapping to 4 letters. The total number of combinations is 3^N × 4^M, and each combination takes **O(N+M)** space. Therefore, the total space complexity is **O(3^N × 4^M)** × **O(N+M)**. Additionally, the recursion call stack can go as deep as the number of digits, which is **O(N+M)**, but this is dominated by the space needed to store all combinations.
+ * O(3^N × 4^M)
+ * For storing all possible combinations
  *
  * ### EDGE CASES:
- * - **Empty input**: Handle when input is empty
- * - **Single element**: Handle single-element inputs
- * - **Boundary values**: Handle minimum/maximum valid values
+ * - Empty string returns empty list
+ * - Single digit returns all its mapped letters
+ * - Invalid digits (0, 1) are ignored
+ *
+ * </details>
  */
 
 class Solution {

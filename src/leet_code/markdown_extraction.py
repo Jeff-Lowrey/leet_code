@@ -12,7 +12,7 @@ from dataclasses import dataclass, field
 # Precompiled regex patterns for comment extraction
 COMMENT_PATTERNS: dict[str, re.Pattern[str]] = {
     "docstring": re.compile(r'"""(.*?)"""', re.DOTALL),
-    "jsdoc": re.compile(r"/\*\*?(.*?)\*/", re.DOTALL),  # Match /* or /**
+    "jsdoc": re.compile(r"/\*\*(.*?)\*/", re.DOTALL),
 }
 
 # Language classification by comment style
@@ -33,8 +33,8 @@ class ProblemData:
 
     # Metadata
     difficulty: str = ""
-    time_complexity: str = ""  # O() notation only (for filtering/badges)
-    space_complexity: str = ""  # O() notation only (for filtering/badges)
+    time_complexity: str = ""
+    space_complexity: str = ""
 
     # Problem description
     description: str = ""  # First sentence for cards
@@ -46,10 +46,6 @@ class ProblemData:
     why_works: str = ""
     example_walkthrough: str = ""
     edge_cases: str = ""
-
-    # Full complexity explanations (for documentation/validation)
-    time_complexity_explanation: str = ""
-    space_complexity_explanation: str = ""
 
     # Additional metadata
     techniques: list[str] = field(default_factory=list)
@@ -229,9 +225,7 @@ def _parse_explanation_sections(content: str, data: ProblemData) -> None:
     time_match = re.search(r"###\s*TIME COMPLEXITY:\s*(.*?)(?=###|\Z)", content, re.DOTALL | re.IGNORECASE)
     if time_match:
         time_content = time_match.group(1).strip()
-        # Store full explanation
-        data.time_complexity_explanation = time_content
-        # Extract O(...) notation for filtering/badges
+        # Extract O(...) notation
         o_match = re.search(r"O\([^)]+\)", time_content)
         if o_match:
             data.time_complexity = o_match.group(0)
@@ -240,9 +234,7 @@ def _parse_explanation_sections(content: str, data: ProblemData) -> None:
     space_match = re.search(r"###\s*SPACE COMPLEXITY:\s*(.*?)(?=###|\Z)", content, re.DOTALL | re.IGNORECASE)
     if space_match:
         space_content = space_match.group(1).strip()
-        # Store full explanation
-        data.space_complexity_explanation = space_content
-        # Extract O(...) notation for filtering/badges
+        # Extract O(...) notation
         o_match = re.search(r"O\([^)]+\)", space_content)
         if o_match:
             data.space_complexity = o_match.group(0)

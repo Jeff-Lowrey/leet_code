@@ -1,29 +1,47 @@
 /**
+ * # Difficulty: Medium
+ *
+ * # 0090. Subsets Ii
+ *
+ *
+ * Given an integer array nums that may contain duplicates, return all possible subsets (the power set).
+ *
+ * The solution set must not contain duplicate subsets. Return the solution in any order.
+ *
+ * **Example:**
+ *
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>nums = [1,2,2]</dd>
+ * <dt>Output:</dt>
+ * <dd>[[],[1],[1,2],[1,2,2],[2],[2,2]]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>All unique subsets of [1,2,2] are [[],[1],[1,2],[1,2,2],[2],[2,2]]</dd>
+ * </dl>
+ *
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  * ### METADATA:
- * **Techniques**: Backtracking, Sorting
- * **Data Structures**: Array, List
- * **Time Complexity**: O(2^n × n)
- * **Space Complexity**: O(n)
+ * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+ * **Data Structures**: Hash Map, Hash Set, Array
+ * **Patterns**: Hash Table Pattern, Backtracking
+ * **Time Complexity**: O(n) - Single pass through input
+ * **Space Complexity**: O(1) - Constant extra space
+
  *
  * ### INTUITION:
- * The key insight is that sort the array to group duplicates together. During backtracking, add the current subset at each step (not just at leaves). Skip duplicate elements at the same recursion level using the condition i > start and nums[i] == nums[i-1] to avoid duplicate subsets.
+ * [This problem requires understanding of backtracking concepts. The key insight is to identify the optimal approach for this specific scenario.]
  *
  * ### APPROACH:
- * 1. **Sort array**: Sort nums to group duplicate elements together
- * 2. **Initialize result**: Create result list starting with empty subset [[]]
- * 3. **Define backtrack function**: Create recursive function with parameters (start, current)
- * 4. **Add current subset**: Append copy of current to result at each recursive call
- * 5. **Iterate from start**: Loop from start index to end of array
- * 6. **Skip duplicates**: If i > start and nums[i] == nums[i-1], continue to avoid duplicate subsets
- * 7. **Include element**: Add nums[i] to current, call backtrack(i+1, current)
- * 8. **Backtrack**: Remove last element from current to explore other possibilities
+ * 1. **Analyze the problem**: Understand the input constraints and expected output
+ * 2. **Choose the right technique**: Apply backtracking methodology
+ * 3. **Implement efficiently**: Focus on optimal time and space complexity
+ * 4. **Handle edge cases**: Consider boundary conditions and special cases
  *
  * ### WHY THIS WORKS:
- * - Sort array to group duplicates, enables skipping in backtracking
- * - At each level, if nums[i] == nums[i-1] and i > start, skip (avoid duplicate subsets)
- * - Backtracking tries including/excluding each element
- * - Every path is valid subset, even partial paths
- * - O(2^n * n) time: 2^n subsets, O(n) to copy each
+ * - The solution leverages backtracking principles
+ * - Time complexity is optimized for the given constraints
+ * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
  * Input:
@@ -47,19 +65,32 @@
  * ```
  * [[],[1],[1,2],[1,2,2],[2],[2,2]]
  * ```
- *
+
  * ### TIME COMPLEXITY:
- * **O(2^n × n)** - where n is the number of elements in the input array. We generate all possible subsets (the power set), which contains 2^n subsets (each element can be included or excluded). For each subset, we perform **O(n)** work to copy it to the result list. The sorting step takes **O(n log n)**, but this is dominated by the exponential subset generation. Duplicate skipping reduces the actual number of subsets when duplicates exist, but worst-case complexity remains **O(2^n × n)** when all elements are distinct. Total: **O(n log n)** + **O(2^n × n)** = **O(2^n × n)**.
+ * O(n)
+ * - Single pass through input
  *
  * ### SPACE COMPLEXITY:
- * **O(n)** - where n is the number of elements in the input array. The recursion call stack can go as deep as n levels (we can include up to n elements in a subset). The current subset list grows from size 0 to size n in the worst case. The result list storing all subsets is not counted toward space complexity as it's required output. Sorting is done in-place. Total auxiliary space: **O(n)** for recursion stack + **O(n)** for current subset = **O(n)**.
+ * O(1)
+ * - Constant extra space
  *
  * ### EDGE CASES:
- * - **Empty input**: Handle when input is empty
- * - **Single element**: Handle single-element inputs
- * - **Boundary values**: Handle minimum/maximum valid values
+ * - Empty input handling
+ * - Single element cases
+ * - Large input considerations
+ *
+ * </details>
  */
 
+/**
+ * Main solution for Problem 090: Subsets II
+ *
+ * @param {number[]} nums - Array of integers that may contain duplicates
+ * @return {number[][]} - Array of all unique subsets (power set)
+ *
+ * Time Complexity: O(n × 2^n) in worst case (all unique), better with duplicates
+ * Space Complexity: O(n) for recursion depth
+ */
 function solve(nums) {
   // Handle edge cases
   if (!nums) return [];

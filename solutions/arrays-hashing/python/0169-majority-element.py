@@ -1,8 +1,32 @@
-"""### METADATA:
-**Techniques**: Boyer-Moore Voting Algorithm
-**Data Structures**: Counter Variable
-**Time Complexity**: O(n)
-**Space Complexity**: O(1)
+"""
+# Difficulty: Easy
+
+# 0169. Majority Element
+
+Given an array nums of size n, return the majority element.
+
+The majority element is the element that appears more than ⌊n / 2⌋ times.
+You may assume that the majority element always exists in the array.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[2, 2, 1, 1, 1, 2, 2]</dd>
+<dt>Output:</dt>
+<dd>2</dd>
+<dt>Explanation:</dt>
+<dd>The majority element is 2, appearing 4 times in an array of size 7 (more than ⌊7/2⌋ = 3)</dd>
+</dl>
+
+<details>
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
+**Techniques**: Hash Table Lookup, Array Traversal, Sorting
+**Data Structures**: Hash Map, Hash Set, Array
+**Patterns**: Hash Table Pattern
+**Time Complexity**: O(n) - Single pass through input
+**Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
 Since the majority element appears more than n/2 times, it will always "survive" any cancellation process. The Boyer-Moore voting algorithm leverages this by maintaining a candidate and count, canceling out different elements.
@@ -46,10 +70,12 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-**O(n)** - where n is the length of the array. We perform a single pass through all n elements, executing constant-time operations for each: checking if count is 0 (**O(1)**), comparing the current number to the candidate (**O(1)**), and incrementing/decrementing the count (**O(1)**). Total: **O(n × 1)** = **O(n)**. This is optimal since we must examine every element at least once to determine the majority.
+O(n)
+Single pass through the array
 
 ### SPACE COMPLEXITY:
-**O(1)** - We use only two variables regardless of input size: `candidate` (stores one integer) and `count` (stores one integer). The space used doesn't grow with n. This is optimal space complexity for this problem. The hash map approach would require **O(n)** space to store frequency counts, and the sorting approach would require **O(1)** extra space (assuming in-place sort) but **O(n log n)** time.
+O(1)
+Only using constant extra space
 
 ### EDGE CASES:
 - **Single element**: Return that element (it's the majority)
@@ -58,6 +84,7 @@ Output:
 - **Multiple candidates**: Boyer-Moore finds the true majority
 - **Guaranteed majority**: Problem guarantees one exists
 
+</details>
 """
 
 from collections import Counter

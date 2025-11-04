@@ -1,28 +1,49 @@
-"""### METADATA:
-**Techniques**: Backtracking, Frequency Counting
-**Data Structures**: Array, List, Hash Map (Counter)
-**Time Complexity**: O(n × n!)
-**Space Complexity**: O(n)
+"""
+# Difficulty: Medium
+
+# 0047. Permutations Ii
+
+Given a collection of numbers, nums, that might contain duplicates, return all possible unique permutations in any order.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>nums = [1,1,2]</dd>
+<dt>Output:</dt>
+<dd>[[1,1,2],[1,2,1],[2,1,1]]</dd>
+<dt>Explanation:</dt>
+<dd>All unique permutations of [1,1,2] are [[1,1,2],[1,2,1],[2,1,1]]</dd>
+</dl>
+
+<details>
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: Hash Map, Array
+**Patterns**: Hash Table Pattern, Backtracking
+**Time Complexity**: O(n)
+**Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
-The key insight is that use a frequency counter to track available numbers. During backtracking, iterate through unique numbers in the counter, not array positions. Decrement the counter when using a number and increment when backtracking. This naturally handles duplicates by treating them as frequency counts.
+Use a frequency counter to track available numbers. During backtracking, iterate through unique numbers in the counter, not array positions. Decrement the counter when using a number and increment when backtracking. This naturally handles duplicates by treating them as frequency counts.
 
 ### APPROACH:
 1. **Create frequency counter**: Use Counter(nums) to build frequency map of available numbers
 2. **Initialize result**: Create empty result list and current permutation list
 3. **Define backtrack function**: Create recursive function that builds permutations incrementally
-4. **Base case**: When len(current) == len(nums), add copy of current to result and return
+# 0047. **Base case**: When len(current) == len(nums), add copy of current to result and return  # Result undefined
 5. **Iterate unique numbers**: Loop through counter.keys() (unique numbers only)
 6. **Check availability**: If counter[num] > 0, the number is available to use
 7. **Use number**: Add num to current, decrement counter[num] by 1
 8. **Recurse and backtrack**: Call backtrack(), then remove num from current and increment counter[num]
 
 ### WHY THIS WORKS:
-- This ensures that backtracking with frequency map to handle duplicates
-- This ensures that at each level, try each unique unused number
-- This ensures that skip if count[num] == 0 (already used in this path)
-- This ensures that decrement count on recursion, increment on backtrack
-- This ensures that o(n! * n) time: n! permutations, O(n) to copy each
+- Backtracking with frequency map to handle duplicates
+- At each level, try each unique unused number
+- Skip if count[num] == 0 (already used in this path)
+- Decrement count on recursion, increment on backtrack
+- O(n! * n) time: n! permutations, O(n) to copy each
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -50,15 +71,22 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-**O(n × n!)** - where n is the number of elements in the input array. In the worst case (when all elements are distinct), we generate n! permutations. For each permutation, we perform **O(n)** work to copy it to the result list. The frequency counter approach reduces the number of permutations when there are duplicates (e.g., if all elements are the same, we only generate 1 permutation instead of n!), but the worst-case complexity remains **O(n × n!)**. Building the initial counter takes **O(n)** time, but this is dominated by the permutation generation.
+O(n)
+- Single pass through input
+
 
 ### SPACE COMPLEXITY:
-**O(n)** - where n is the number of elements in the input array. We use a frequency counter that stores at most n unique elements (**O(n)** in worst case when all elements are distinct). The recursion call stack can go as deep as n levels (one for each element in the permutation). The current permutation list grows from size 0 to size n. Total auxiliary space: **O(n)** for counter + **O(n)** for recursion stack + **O(n)** for current permutation = **O(n)**. The result list is not counted as it's required output.
+O(1)
+- Constant extra space
+
 
 ### EDGE CASES:
-- **Empty input**: Handle when input is empty
-- **Single element**: Handle single-element inputs
-- **Boundary values**: Handle minimum/maximum valid values"""
+- Empty input handling
+- Single element cases
+- Large input considerations
+
+</details>
+"""
 
 from collections import Counter
 

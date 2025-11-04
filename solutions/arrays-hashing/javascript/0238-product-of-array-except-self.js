@@ -1,26 +1,49 @@
 /**
+ * # Difficulty: Medium
+ *
+ * # 0238. Product Of Array Except Self
+ *
+ *
+ * Given an integer array nums, return an array answer such that answer[i] is equal to the product of all the elements of nums except nums[i].
+ *
+ * The product of any prefix or suffix of nums is guaranteed to fit in a 32-bit integer.
+ *
+ * You must write an algorithm that runs in O(n) time and without using the division operation.
+ *
+ * **Example:**
+ *
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>nums = [1, 2, 3, 4]</dd>
+ * <dt>Output:</dt>
+ * <dd>[24, 12, 8, 6]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>The product array excluding self is [24,12,8,6] for input [1,2,3,4]</dd>
+ * </dl>
+ *
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  * ### METADATA:
- * **Techniques**: Prefix-Suffix Product, In-place Array Manipulation
- * **Data Structures**: Array
- * **Time Complexity**: O(n)
- * **Space Complexity**: O(1)
+ * **Techniques**: Hash Map Storage, Array Traversal, Two Pointers
+ * **Data Structures**: Array, String, Tree
+ * **Patterns**: Two Pointers Pattern
+ * **Time Complexity**: O(n) - Single pass through input
+ * **Space Complexity**: O(1) - Constant extra space
+
  *
  * ### INTUITION:
- * The key insight is that for each position i, the product of all elements except nums[i] equals (product of all elements to the left of i) × (product of all elements to the right of i). We can calculate these prefix and suffix products in two passes without using division. First pass: build left products. Second pass: multiply by right products while traversing backwards.
+ * [This problem requires understanding of arrays hashing concepts. The key insight is to identify the optimal approach for this specific scenario.]
  *
  * ### APPROACH:
- * 1. **First pass (left to right)**: Calculate prefix products - for each position i, store the product of all elements to its left in result[i]
- * 2. **Initialize left product**: Start with leftProduct = 1 (no elements to the left of index 0)
- * 3. **Second pass (right to left)**: Calculate suffix products and combine - traverse backwards, multiplying result[i] by the product of all elements to its right
- * 4. **Initialize right product**: Start with rightProduct = 1 (no elements to the right of last index)
- * 5. **Combine results**: result[i] already has left product, multiply it by right product to get final answer
+ * 1. **Analyze the problem**: Understand the input constraints and expected output
+ * 2. **Choose the right technique**: Apply arrays hashing methodology
+ * 3. **Implement efficiently**: Focus on optimal time and space complexity
+ * 4. **Handle edge cases**: Consider boundary conditions and special cases
  *
  * ### WHY THIS WORKS:
- * - This ensures that two-pass approach: left products then right products multiplied together gives product except self
- * - This ensures that first pass stores cumulative left products in result array
- * - This ensures that second pass computes right products on-the-fly and multiplies into existing result
- * - This ensures that avoids division operation while achieving O(n) time
- * - This ensures that o(1) extra space by using output array to store intermediate left products
+ * - The solution leverages arrays hashing principles
+ * - Time complexity is optimized for the given constraints
+ * - Space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
  * Input:
@@ -53,21 +76,32 @@
  * ```
  * [24, 12, 8, 6]
  * ```
- *
+
  * ### TIME COMPLEXITY:
- * **O(n)** - where n is the length of the array. We make exactly two passes through the array: one left-to-right pass to calculate prefix products (**O(n)**), and one right-to-left pass to calculate suffix products and combine them with the prefix products (**O(n)**). Each pass performs constant-time operations (multiplication and array access) for each element. Total: **O(n)** + **O(n)** = **O(2n)** = **O(n)**. This is optimal since we must examine every element at least once.
+ * O(n)
+ * - Single pass through input
  *
  * ### SPACE COMPLEXITY:
- * **O(1)** - We use only two variables (left_product and right_product) for tracking running products, regardless of input size. The result array is required for output and is not counted as extra space per the problem constraints. If we count the output array, the space complexity would be **O(n)**, but conventionally output space is excluded from space complexity analysis. This makes our solution optimal for space.
+ * O(1)
+ * - Constant extra space
  *
  * ### EDGE CASES:
- * - **Empty input**: Handle when input is empty
- * - **Single element**: Handle single-element inputs
- * - **Boundary values**: Handle minimum/maximum valid values
+ * - Empty input handling
+ * - Single element cases
+ * - Large input considerations
  *
- *
+ * </details>
  */
 
+/**
+ * Main solution for Problem 238: Product Of Array Except Self
+ *
+ * @param {number[]} nums - Array of integers
+ * @return {number[]} - Array where each element is product of all other elements
+ *
+ * Time Complexity: O(n) - two passes through the array
+ * Space Complexity: O(1) - excluding the output array
+ */
 function solve(nums) {
   const n = nums.length;
   const result = new Array(n);

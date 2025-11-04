@@ -1,15 +1,40 @@
 /**
+ * # 0169. Majority Element
+ *
+ * Difficulty: Medium
+ *
+ *
+ * Given an array nums of size n, return the majority element.
+ *
+ * The majority element is the element that appears more than ⌊n / 2⌋ times.
+ * You may assume that the majority element always exists in the array.
+ *
+ * **Example:**
+ *
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>[2, 2, 1, 1, 1, 2, 2]</dd>
+ * <dt>Output:</dt>
+ * <dd>2</dd>
+ * <dt>Explanation:</dt>
+ * <dd>The majority element is 2, appearing 4 times in an array of size 7 (more than ⌊7/2⌋ = 3)</dd>
+ * </dl>
+ *
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ *
  * ### METADATA:
- * **Techniques**: Boyer-Moore Voting Algorithm
- * **Data Structures**: Counter Variable
- * **Time Complexity**: O(n)
- * **Space Complexity**: O(1)
+ * **Techniques**: Hash Table Lookup, Array Traversal, Sorting, Boyer-Moore Voting
+ * **Data Structures**: Hash Map, Hash Set, Array
+ * **Patterns**: Hash Table Pattern, Voting Algorithm
+ * **Time Complexity**: O(n) - Single pass through input
+ * **Space Complexity**: O(1) - Constant extra space
  *
  * ### INTUITION:
  * Since the majority element appears more than n/2 times, it will always "survive" any cancellation process. The Boyer-Moore voting algorithm leverages this by maintaining a candidate and count, canceling out different elements.
  *
  * ### APPROACH:
- * 1. **Initialize**: Set candidate to None and count to 0
+ * 1. **Initialize**: Set candidate to null and count to 0
  * 2. **Vote**: For each element, if count is 0, make it the new candidate
  * 3. **Count**: If element matches candidate, increment count; otherwise decrement
  * 4. **Result**: The surviving candidate is the majority element
@@ -21,11 +46,6 @@
  * - Each cancellation removes one majority and one non-majority element
  *
  * ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * [2, 2, 1, 1, 1, 2, 2]
- * ```
- *
  * Input:
  * ```
  * [2,2,1,1,1,2,2]
@@ -40,17 +60,21 @@
  * Step 6: num=2, count=1 → count=0 (different)
  * Step 7: num=2, count=0 → candidate=2, count=1
  * Step 8: Result: 2 (which is correct, appears 4/7 times)
- *
+ * 
  * Output:
  * ```
  * 2
  * ```
- *
+ * 
  * ### TIME COMPLEXITY:
- * **O(n)** - where n is the length of the array. We perform a single pass through all n elements, executing constant-time operations for each: checking if count is 0 (**O(1)**), comparing the current number to the candidate (**O(1)**), and incrementing/decrementing the count (**O(1)**). Total: **O(n × 1)** = **O(n)**. This is optimal since we must examine every element at least once to determine the majority.
+ * O(n)
+ * - Single pass through input
+ * Single pass through the array
  *
  * ### SPACE COMPLEXITY:
- * **O(1)** - We use only two variables regardless of input size: `candidate` (stores one integer) and `count` (stores one integer). The space used doesn't grow with n. This is optimal space complexity for this problem. The hash map approach would require **O(n)** space to store frequency counts, and the sorting approach would require **O(1)** extra space (assuming in-place sort) but **O(n log n)** time.
+ * O(1)
+ * - Constant extra space
+ * Only using constant extra space
  *
  * ### EDGE CASES:
  * - **Single element**: Return that element (it's the majority)
@@ -59,7 +83,7 @@
  * - **Multiple candidates**: Boyer-Moore finds the true majority
  * - **Guaranteed majority**: Problem guarantees one exists
  *
- *
+ * </details>
  */
 
 class Solution {

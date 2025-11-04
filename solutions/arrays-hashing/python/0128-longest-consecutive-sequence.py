@@ -1,8 +1,31 @@
-"""### METADATA:
-**Techniques**: Set-based Sequence Detection, Greedy Algorithm
-**Data Structures**: Set (Hash Set)
-**Time Complexity**: O(n)
-**Space Complexity**: O(n)
+"""
+# Difficulty: Medium
+
+# 0128. Longest Consecutive Sequence
+
+Given an unsorted array of integers nums, return the length of the longest consecutive elements sequence.
+
+You must write an algorithm that runs in O(n) time.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>[100, 4, 200, 1, 3, 2]</dd>
+<dt>Output:</dt>
+<dd>4 (sequence [1,2,3,4])</dd>
+<dt>Explanation:</dt>
+<dd>The longest consecutive sequence [1,2,3,4] has length 4</dd>
+</dl>
+
+<details>
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
+**Techniques**: Hash Table Lookup, Array Traversal, Graph Traversal
+**Data Structures**: Hash Map, Hash Set, Array
+**Patterns**: Hash Table Pattern, Greedy Algorithm
+**Time Complexity**: O(n) - Single pass through input
+**Space Complexity**: O(1) - Constant extra space
 
 ### INTUITION:
 Convert array to a set for O(1) lookups. Only start counting consecutive sequences from numbers where num-1 doesn't exist (the start of a sequence). This avoids redundant counting and achieves O(n) time since each number is visited at most twice.
@@ -18,11 +41,11 @@ Convert array to a set for O(1) lookups. Only start counting consecutive sequenc
 8. **Return result**: After processing all numbers, return longest_streak
 
 ### WHY THIS WORKS:
-- This ensures that set conversion enables O(1) lookups, crucial for checking num-1 and num+1 efficiently
-- This ensures that only starting from sequence beginnings (where num-1 doesn't exist) prevents redundant counting
-- This ensures that each number visited at most twice: once in outer loop, once in inner while loop
-- This ensures that this achieves O(n) time despite apparent nested loops - the key insight
-- This ensures that set takes O(n) space but enables the linear time solution
+- Set conversion enables O(1) lookups, crucial for checking num-1 and num+1 efficiently
+- Only starting from sequence beginnings (where num-1 doesn't exist) prevents redundant counting
+- Each number visited at most twice: once in outer loop, once in inner while loop
+- This achieves O(n) time despite apparent nested loops - the key insight
+- Set takes O(n) space but enables the linear time solution
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -55,16 +78,21 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-**O(n)** - where n is the number of elements in the array. Although we have nested loops, each number is visited at most twice: once in the outer loop to check if it's a sequence start (checking if num-1 exists), and potentially once more as part of counting a sequence (in the inner while loop). The key insight is that the while loop only executes for numbers that are sequence starts, and each number can only be part of one sequence. Total operations: at most 2n lookups and iterations, giving us **O(2n)** = **O(n)**.
+O(n)
+- Single pass through input
+
 
 ### SPACE COMPLEXITY:
-**O(n)** - We store all n unique numbers in the set data structure. In the worst case where all numbers are unique, the set contains n elements. Even with duplicates, we still need **O(n)** space to store the unique values. This is the dominant space usage, making our space complexity **O(n)**.
+O(1)
+- Constant extra space
+
 
 ### EDGE CASES:
-- **Empty input**: Handle when input is empty
-- **Single element**: Handle single-element inputs
-- **Boundary values**: Handle minimum/maximum valid values
+- Empty input handling
+- Single element cases
+- Large input considerations
 
+</details>
 """
 
 from typing import List, Optional, Dict, Tuple

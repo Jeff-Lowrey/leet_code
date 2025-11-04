@@ -1,12 +1,42 @@
 /**
+ * # 0049. Group Anagrams
+ *
+ * Difficulty: Easy
+ *
+ *
+ * Given an array of strings strs, group the anagrams together. You can return the
+ * `answer` in any order.
+ *
+ * An Anagram is a word or phrase formed by rearranging the letters of a different
+ * word or phrase, typically using all the original letters exactly once.
+ *
+ * Example:
+ * Input: strs = ["eat","tea","tan","ate","nat","bat"]
+ * Output: [["bat"],["nat","tan"],["ate","eat","tea"]]
+ *
+ * **Example:**
+ *
+ * <dl class="example-details">
+ * <dt>Input:</dt>
+ * <dd>strs = ["eat","tea","tan","ate","nat","bat"]</dd>
+ * <dt>Output:</dt>
+ * <dd>[["bat"],["nat","tan"],["ate","eat","tea"]]</dd>
+ * <dt>Explanation:</dt>
+ * <dd>Words ['eat','tea','ate'] are anagrams grouped together, as are ['tan','nat'], and ['bat'] alone</dd>
+ * </dl>
+ *
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  * ### METADATA:
- * **Techniques**: Hash Map Grouping, Sorted String as Key
- * **Data Structures**: Hash Map (defaultdict)
- * **Time Complexity**: O(n × k log k)
+ * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+ * **Data Structures**: Hash Map, Hash Set, Array
+ * **Patterns**: Hash Table Pattern
+ * **Time Complexity**: * - **Sorting approach**: O(n × k log k) where n = number of strings, k = max string length
  * **Space Complexity**: O(n × k)
+
  *
  * ### INTUITION:
- * The key insight is that group strings by their "anagram signature" - a canonical representation that's the same for all anagrams. Two common signatures: sorted characters or character frequency count.
+ * Group strings by their "anagram signature" - a canonical representation that's the same for all anagrams. Two common signatures: sorted characters or character frequency count.
  *
  * ### APPROACH:
  * 1. **Create signature**: For each string, generate a canonical form (sorted chars or char counts)
@@ -14,9 +44,9 @@
  * 3. **Return groups**: Extract all value lists from the hash map
  *
  * ### WHY THIS WORKS:
- * - This ensures that all anagrams have the same signature (sorted characters or character counts)
- * - This ensures that hash map automatically groups strings with identical signatures
- * - This ensures that different anagrams will have different signatures
+ * - All anagrams have the same signature (sorted characters or character counts)
+ * - Hash map automatically groups strings with identical signatures
+ * - Different anagrams will have different signatures
  *
  * ### EXAMPLE WALKTHROUGH:
  * Input:
@@ -45,12 +75,16 @@
  * ```
  * [["eat","tea","ate"], ["tan","nat"], ["bat"]]
  * ```
- *
+
  * ### TIME COMPLEXITY:
- * **O(n × k log k)** - where n is the number of strings and k is the maximum string length. For the sorting approach: we iterate through all n strings (**O(n)**), and for each string we sort its k characters (**O(k log k)**). Total: **O(n × k log k)**. The character counting approach is more efficient at **O(n × k)** since counting characters takes **O(k)** time per string without sorting.
+ * - **Sorting approach**: O(n × k log k) where n = number of strings, k = max string length
+ * - **Counting approach**: O(n × k) - more efficient
  *
  * ### SPACE COMPLEXITY:
- * **O(n × k)** - We store all n strings in the hash map, each with average length k. The map keys (sorted strings or character counts) also take **O(k)** space per unique anagram group. In the worst case where all strings are unique, we have n groups, each storing one string of length k, giving us **O(n × k)** total space. The character count array uses **O(26)** = **O(1)** space per string, which doesn't affect the overall **O(n × k)** complexity.
+
+ * O(n × k)
+
+ * - Based on auxiliary data structures
  *
  * ### EDGE CASES:
  * - **Empty string array**: Return empty list
@@ -59,9 +93,18 @@
  * - **All anagrams of each other**: Return single group with all strings
  * - **Empty strings**: All empty strings grouped together
  *
- *
+ * </details>
  */
 
+/**
+ * Main solution for Problem 49: Group Anagrams
+ *
+ * @param {string[]} strs - Array of strings to group
+ * @return {string[][]} - Array of grouped anagrams
+ *
+ * Time Complexity: O(n × k log k) where n = number of strings, k = max string length
+ * Space Complexity: O(n × k) for storing the groups
+ */
 function solve(strs) {
   const anagramMap = new Map();
 

@@ -1,11 +1,33 @@
-"""### METADATA:
-**Techniques**: Set Membership Check
-**Data Structures**: Set (Hash Set)
-**Time Complexity**: O(n)
-**Space Complexity**: O(n)
+"""
+# 0217. Contains Duplicate
+
+# Difficulty: Easy
+
+Given an integer array `nums`, return true if any value appears at least twice
+in the array, and return false if every element is distinct.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>nums = [1,2,3,1]</dd>
+<dt>Output:</dt>
+<dd>true</dd>
+<dt>Explanation:</dt>
+<dd>The array [1,2,3,1] contains duplicate value 1</dd>
+</dl>
+
+<details>
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
+**Data Structures**: Hash Map, Hash Set, Array
+**Patterns**: Hash Table Pattern
+**Time Complexity**: O(n) - Single pass with O(1) hash lookups
+**Space Complexity**: O(n) - Additional set storage
 
 ### INTUITION:
-The key insight is that if all elements are unique, then the array length equals the set length.
+If all elements are unique, then the array length equals the set length.
 If there are duplicates, the set will be smaller than the array.
 
 ### APPROACH:
@@ -42,10 +64,10 @@ Alternative (Early Termination):
 - Check 1: found in seen → return True immediately
 
 ### TIME COMPLEXITY:
-**O(n)** - where n is the length of the array. In the worst case (no duplicates), we iterate through all n elements, performing one set membership check (**O(1)**) and one set insertion (**O(1)**) for each element. Total: **O(n × 1)** = **O(n)**. In the best case (duplicate found early), we return immediately, giving us **O(1)**. Average case is still **O(n)** as we might need to check most elements. The simple set conversion approach always takes **O(n)** to create the set.
+O(n) - Single pass with O(1) hash lookups
 
 ### SPACE COMPLEXITY:
-**O(n)** - We create a set that in the worst case (all elements unique) stores all n elements from the array. Even with duplicates, we may store up to n unique values. The space used grows linearly with input size. For the set comparison approach, Python creates a temporary set of size up to n. For the early termination approach, we build a set incrementally but still use up to **O(n)** space.
+O(n) - Additional set storage
 
 ### EDGE CASES:
 - **Empty array**: Return False (no duplicates possible)
@@ -54,6 +76,7 @@ Alternative (Early Termination):
 - **All elements unique**: Set and array lengths match, return False
 - **Duplicate at start**: Early termination finds it quickly
 
+</details>
 """
 
 from typing import Any

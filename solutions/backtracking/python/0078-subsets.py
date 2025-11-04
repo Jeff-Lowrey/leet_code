@@ -1,11 +1,35 @@
-"""### METADATA:
-**Techniques**: Backtracking, Bit Manipulation
-**Data Structures**: Array, List
-**Time Complexity**: O(n × 2^n)
-**Space Complexity**: O(n)
+"""
+# 0078. Subsets
+
+# Difficulty: Medium
+
+Given an integer array `nums` of unique elements, return all possible subsets
+(the power `set`).
+
+The solution `set` must not contain duplicate subsets. Return the solution in any order.
+
+**Example:**
+
+<dl class="example-details">
+<dt>Input:</dt>
+<dd>nums = [1,2,3]</dd>
+<dt>Output:</dt>
+<dd>[[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]]</dd>
+<dt>Explanation:</dt>
+<dd>All subsets of [1,2,3] include [], [1], [2], [3], [1,2], [1,3], [2,3], [1,2,3]</dd>
+</dl>
+
+<details>
+<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+### METADATA:
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: Hash Set, Array, Matrix
+**Patterns**: Backtracking, Tree Pattern
+**Time Complexity**: O(n × 2^n) - 2^n subsets, each takes O(n) to copy
+**Space Complexity**: O(n) - recursion depth
 
 ### INTUITION:
-The key insight is that generate all possible subsets (power set) by making binary choices for each element: include it or don't include it in the current subset. Use backtracking to explore all combinations.
+Generate all possible subsets (power set) by making binary choices for each element: include it or don't include it in the current subset. Use backtracking to explore all combinations.
 
 ### APPROACH:
 1. **Initialize result list**: Create an empty list to store all subsets (will include empty set)
@@ -17,10 +41,10 @@ The key insight is that generate all possible subsets (power set) by making bina
 7. **Return power set**: After all recursive exploration completes, return the complete collection of 2^n subsets
 
 ### WHY THIS WORKS:
-- This ensures that each element has 2 choices: include or exclude
-- This ensures that total subsets = 2^n (binary choices for n elements)
-- This ensures that backtracking systematically explores all combinations
-- This ensures that adding current subset at each step captures all intermediate states
+- Each element has 2 choices: include or exclude
+- Total subsets = 2^n (binary choices for n elements)
+- Backtracking systematically explores all combinations
+- Adding current subset at each step captures all intermediate states
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -47,17 +71,20 @@ nums = [1,2,3]
 Output: [[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]]
 
 ### TIME COMPLEXITY:
-**O(n × 2^n)** - 2^n subsets, each takes **O(n)** to copy
+O(n × 2^n) - 2^n subsets, each takes O(n) to copy
 
 ### SPACE COMPLEXITY:
-**O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
+O(n) - recursion depth
 
 ### EDGE CASES:
 - **Empty array**: Return [[]] (power set contains only empty set)
 - **Single element**: Return [[], [element]]
 - **All elements identical (in variant)**: Handle duplicates with sorting
 - **Large n values**: 2^n subsets, exponential but unavoidable
-- **Negative numbers**: No special handling needed, works same as positive"""
+- **Negative numbers**: No special handling needed, works same as positive
+
+</details>
+"""
 
 from typing import Any
 
