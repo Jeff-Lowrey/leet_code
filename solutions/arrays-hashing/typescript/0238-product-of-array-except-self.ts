@@ -1,14 +1,19 @@
 /**
- * ### METADATA:\n**Techniques**: Prefix-Suffix Product, In-place Array Manipulation\n**Data Structures**: Array\n**Time Complexity**: O(n)\n**Space Complexity**: O(1)\n\n### INTUITION:
- * The key insight is that the product except self equals (product of all elements to the left) × (product of all elements to the right). Build the result array in two passes: first pass calculates cumulative left products, second pass calculates right products and multiplies them in-place.
+ * ### METADATA:
+ * **Techniques**: Prefix-Suffix Product, In-place Array Manipulation
+ * **Data Structures**: Array
+ * **Time Complexity**: O(n)
+ * **Space Complexity**: O(1)
+ *
+ * ### INTUITION:
+ * The key insight is that for each position i, the product of all elements except nums[i] equals (product of all elements to the left of i) × (product of all elements to the right of i). We can calculate these prefix and suffix products in two passes without using division. First pass: build left products. Second pass: multiply by right products while traversing backwards.
  *
  * ### APPROACH:
- * 1. **Initialize result array**: Create result array of size n filled with 1s
- * 2. **Calculate left products**: Initialize left_product = 1, iterate left-to-right through nums
- * 3. **Store left products**: For each index i, set result[i] = left_product, then update left_product *= nums[i]
- * 4. **Calculate right products**: Initialize right_product = 1, iterate right-to-left through nums
- * 5. **Combine with right products**: For each index i, multiply result[i] *= right_product, then update right_product *= nums[i]
- * 6. **Return result**: The result array now contains products of all elements except self at each position
+ * 1. **First pass (left to right)**: Calculate prefix products - for each position i, store the product of all elements to its left in result[i]
+ * 2. **Initialize left product**: Start with leftProduct = 1 (no elements to the left of index 0)
+ * 3. **Second pass (right to left)**: Calculate suffix products and combine - traverse backwards, multiplying result[i] by the product of all elements to its right
+ * 4. **Initialize right product**: Start with rightProduct = 1 (no elements to the right of last index)
+ * 5. **Combine results**: result[i] already has left product, multiply it by right product to get final answer
  *
  * ### WHY THIS WORKS:
  * - This ensures that two-pass approach: left products then right products multiplied together gives product except self
@@ -50,17 +55,18 @@
  * ```
  *
  * ### TIME COMPLEXITY:
- * O(n)** - where n is the length of the input array. We perform exactly two complete passes through the array: the first pass (left-to-right) calculates cumulative left products and stores them in the result array, taking **O(n)** time. The second pass (right-to-left) calculates cumulative right products and multiplies them with the existing result values, also taking **O(n)** time. Each operation within the loops is **O(1)** (array access, multiplication, assignment). Total: **O(n)** + **O(n)** = **O(2n)** = **O(n)**. This is optimal since we must examine every element at least once to compute the product.
+ * **O(n)** - where n is the length of the array. We make exactly two passes through the array: one left-to-right pass to calculate prefix products (**O(n)**), and one right-to-left pass to calculate suffix products and combine them with the prefix products (**O(n)**). Each pass performs constant-time operations (multiplication and array access) for each element. Total: **O(n)** + **O(n)** = **O(2n)** = **O(n)**. This is optimal since we must examine every element at least once.
  *
  * ### SPACE COMPLEXITY:
- * O(1)** - excluding the output array required by the problem. We only use two scalar variables (`leftProduct` and `rightProduct`) to track running products, regardless of input size. The result array is not counted as extra space since it's required for the output. If we were to count the output array, space would be **O(n)**, but by convention for this problem we exclude it. No additional data structures (hash maps, sets, temporary arrays) are needed. This is optimal space complexity for the constraint of not using division.
+ * **O(1)** - We use only two variables (left_product and right_product) for tracking running products, regardless of input size. The result array is required for output and is not counted as extra space per the problem constraints. If we count the output array, the space complexity would be **O(n)**, but conventionally output space is excluded from space complexity analysis. This makes our solution optimal for space.
  *
  * ### EDGE CASES:
  * - **Empty input**: Handle when input is empty
  * - **Single element**: Handle single-element inputs
  * - **Boundary values**: Handle minimum/maximum valid values
  *
- * */
+ *
+ */
 
 class Solution {
   /**

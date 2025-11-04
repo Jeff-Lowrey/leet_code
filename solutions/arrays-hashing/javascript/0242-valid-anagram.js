@@ -1,66 +1,56 @@
 /**
+ * ### METADATA:
+ * **Techniques**: Frequency Counting
+ * **Data Structures**: Hash Map (Counter)
+ * **Time Complexity**: O(n)
+ * **Space Complexity**: O(1)
+ *
  * ### INTUITION:
  * The key insight is that two strings are anagrams if they contain the exact same characters with the same frequencies. We can verify this by counting character frequencies in both strings.
  *
  * ### APPROACH:
- * 1. **Convert array to set**: Transform the input array into a set data structure, which automatically removes all duplicate values
- * 2. **Compare lengths**: Calculate the length of both the original array and the newly created set
- * 3. **Detect duplicates**: If the lengths differ, duplicates existed in the original array (they were removed during set conversion)
- * 4. **Return result**: Return True if lengths differ (duplicates found), False if lengths match (all elements unique)
- * 5. **Alternative early termination**: For better average performance, iterate through array and add elements to a set one by one, returning True immediately when an element is already in the set
+ * 1. **Length check**: If strings have different lengths, they can't be anagrams
+ * 2. **Count characters**: Use a hash map or array to count frequency of each character
+ * 3. **Compare counts**: Both strings should have identical character frequency distributions
  *
  * ### WHY THIS WORKS:
- * A set by definition contains only unique elements - when we convert an array to a set, any duplicates are automatically removed. By comparing the lengths of the original array and the set, we can detect if duplicates existed. The early termination approach works because as soon as we find an element already in our seen set, we've proven a duplicate exists without needing to check the remaining elements.
+ * - Anagrams are rearrangements of the same letters
+ * - Character frequency is invariant under rearrangement
+ * - If two strings have the same character frequencies, they must be anagrams
  *
  * ### EXAMPLE WALKTHROUGH:
  * Input:
  * ```
- * nums = [1, 2, 3, 1]
+ * s = "anagram", t = "nagaram"
  * ```
  *
- * Step 1:** Convert array to set
- * - set(nums) = {1, 2, 3}
- * - Set length = 3, Array length = 4
+ * Character counts for s:
+ * a: 3, n: 1, g: 1, r: 1, m: 1
+ * Character counts for t:
+ * n: 1, a: 3, g: 1, r: 1, m: 1
  *
- * Step 2:** Compare lengths
- * - len(nums) = 4 != len(set(nums)) = 3
- * - Since lengths differ, duplicates exist
+ * Steps:
+ * Step 1: Both have identical counts → True
  *
- * Output: True
- *
- * Alternative (Early Termination):
- * - seen = {}
- * - Check 1: not in seen, add it → seen = {1}
- * - Check 2: not in seen, add it → seen = {1, 2}
- * - Check 3: not in seen, add it → seen = {1, 2, 3}
- * - Check 1: found in seen → return True immediately
+ * Output:
+ * ```
+ * True
+ * ```
  *
  * ### TIME COMPLEXITY:
- * O(n)** - where n is the length of the strings (assuming both have the same length). We make two passes through the strings: one to build the character frequency map from the first string (**O(n)**), and one to verify against the second string (**O(n)**). Each character lookup and insertion in the hash map is **O(1)**. Total: **O(n)** + **O(n)** = **O(2n)** = **O(n)**. Early termination when a mismatch is found provides better average-case performance.
+ * **O(n)** - where n is the length of the strings (assuming both have the same length). We make two passes through the strings: one to build the character frequency map from the first string (**O(n)**), and one to verify against the second string (**O(n)**). Each character lookup and insertion in the hash map is **O(1)**. Total: **O(n)** + **O(n)** = **O(2n)** = **O(n)**. Early termination when a mismatch is found provides better average-case performance.
  *
  * ### SPACE COMPLEXITY:
- * O(1)** - for the array approach. We use a fixed-size array of 26 elements for lowercase English letters, regardless of input size. For the hash map approach, worst case is **O(k)** where k is the number of unique characters. Since the problem typically assumes lowercase English letters only (26 characters max), this is **O(26)** = **O(1)** constant space.
+ * **O(1)** - for the array approach. We use a fixed-size array of 26 elements for lowercase English letters, regardless of input size. For the hash map approach, worst case is **O(k)** where k is the number of unique characters. Since the problem typically assumes lowercase English letters only (26 characters max), this is **O(26)** = **O(1)** constant space.
  *
  * ### EDGE CASES:
  * - **Empty input**: Handle when input is empty
  * - **Single element**: Handle single-element inputs
  * - **Boundary values**: Handle minimum/maximum valid values
  *
- * *
- * 
  *
- * */
-
-/**
- * Check if two strings are valid anagrams
- *
- * @param {string} s - First string
- * @param {string} t - Second string
- * @return {boolean} - True if strings are anagrams, false otherwise
- *
- * Time Complexity: O(n)
- * Space Complexity: O(1) - at most 26 lowercase letters
  */
+
 function isAnagram(s, t) {
   // Quick length check
   if (s.length !== t.length) {

@@ -1,4 +1,10 @@
 /**
+ * ### METADATA:
+ * **Techniques**: Bucket Sort, Frequency Counting
+ * **Data Structures**: Hash Map (Counter), Buckets (Array of Lists)
+ * **Time Complexity**: O(n)
+ * **Space Complexity**: O(n)
+ *
  * ### INTUITION:
  * The key insight is to use bucket sort based on frequency. Since the maximum frequency any element can have is n (all elements the same), we can create n+1 buckets where bucket[i] contains all numbers that appear exactly i times. First count frequencies with a hash map, then place numbers into frequency buckets, finally collect k elements from highest frequency buckets first. This achieves O(n) time by avoiding sorting.
  *
@@ -47,31 +53,19 @@
  * ```
  *
  * ### TIME COMPLEXITY:
- * O(n)** - where n is the length of the nums array. We perform three linear passes: (1) count frequencies in hash map **O(n)**, (2) place numbers into frequency buckets **O(unique elements)** ≤ **O(n)**, (3) collect k elements from buckets **O(n)** in worst case. Total: **O(n)** + **O(n)** + **O(n)** = **O(3n)** = **O(n)**. This is better than heap-based solutions which would be **O(n log k)** or sorting-based solutions which would be **O(n log n)**.
+ * **O(n)** - where n is the length of the nums array. We perform three linear passes: (1) count frequencies in hash map **O(n)**, (2) place numbers into frequency buckets **O(unique elements)** ≤ **O(n)**, (3) collect k elements from buckets **O(n)** in worst case. Total: **O(n)** + **O(n)** + **O(n)** = **O(3n)** = **O(n)**. This is better than heap-based solutions which would be **O(n log k)** or sorting-based solutions which would be **O(n log n)**.
  *
  * ### SPACE COMPLEXITY:
- * O(n)** - We use a frequency hash map that stores at most n unique elements (**O(n)**), plus a buckets array of size n+1 where each bucket can hold numbers (**O(n)** total across all buckets in worst case), plus the result array of size k (**O(k)** ≤ **O(n)**). Total space: **O(n)** + **O(n)** + **O(k)** = **O(n)**. The dominant factors are the hash map and buckets array, both **O(n)**.
+ * **O(n)** - We use a frequency hash map that stores at most n unique elements (**O(n)**), plus a buckets array of size n+1 where each bucket can hold numbers (**O(n)** total across all buckets in worst case), plus the result array of size k (**O(k)** ≤ **O(n)**). Total space: **O(n)** + **O(n)** + **O(k)** = **O(n)**. The dominant factors are the hash map and buckets array, both **O(n)**.
  *
  * ### EDGE CASES:
  * - **Empty input**: Handle when input is empty
  * - **Single element**: Handle single-element inputs
  * - **Boundary values**: Handle minimum/maximum valid values
  *
- * *
- * 
  *
- * */
-
-/**
- * Main solution for Problem 347: Top K Frequent Elements
- *
- * @param {number[]} nums - Array of integers
- * @param {number} k - Number of top frequent elements to return
- * @return {number[]} - Array of k most frequent elements
- *
- * Time Complexity: O(n)
- * Space Complexity: O(n)
  */
+
 function solve(nums, k) {
   // Handle edge cases
   if (!nums || nums.length === 0 || k <= 0) {

@@ -1,5 +1,11 @@
 /**
- * ### METADATA:\n**Techniques**: In-place Marking, Index as Hash Key\n**Data Structures**: Array (in-place)\n**Time Complexity**: O(n)\n**Space Complexity**: O(1)\n\n### INTUITION:
+ * ### METADATA:
+ * **Techniques**: In-place Marking, Index as Hash Key
+ * **Data Structures**: Array (in-place)
+ * **Time Complexity**: O(n)
+ * **Space Complexity**: O(1)
+ *
+ * ### INTUITION:
  * The key insight is that use the array itself as a hash map by marking indices. For each number n, negate the value at index n-1 to mark that n is present. After marking, any indices with positive values indicate missing numbers.
  *
  * ### APPROACH:
@@ -45,17 +51,18 @@
  * ```
  *
  * ### TIME COMPLEXITY:
- * O(n)** - where n is the length of the array. We make two complete passes through the array: (1) first pass marks present numbers by negating values at corresponding indices (**O(n)**), (2) second pass identifies which indices have positive values to determine missing numbers (**O(n)**). Each operation within the loops is **O(1)**. Total: **O(n)** + **O(n)** = **O(2n)** = **O(n)**. This is optimal since we must examine every element.
+ * **O(n)** - where n is the length of the array. We make two complete passes through the array: (1) first pass marks present numbers by negating values at corresponding indices (**O(n)**), (2) second pass identifies which indices have positive values to determine missing numbers (**O(n)**). Each operation within the loops is **O(1)**. Total: **O(n)** + **O(n)** = **O(2n)** = **O(n)**. This is optimal since we must examine every element.
  *
  * ### SPACE COMPLEXITY:
- * O(1)** - excluding the output array. We use only constant extra space for variables (loop counters, index calculations). The result array doesn't count toward space complexity as it's required output. We modify the input array in-place using negation to mark present numbers, avoiding any additional data structures. This achieves the follow-up requirement of **O(1)** space without using extra sets or hash maps.
+ * **O(1)** - We use only constant extra space for variables (loop counters, index calculations). The result array doesn't count toward space complexity as it's required output. We modify the input array in-place using negation to mark present numbers, avoiding any additional data structures. This achieves the follow-up requirement of **O(1)** space without using extra sets or hash maps.
  *
  * ### EDGE CASES:
  * - **Empty input**: Handle when input is empty
  * - **Single element**: Handle single-element inputs
  * - **Boundary values**: Handle minimum/maximum valid values
  *
- * */
+ *
+ */
 
 class Solution {
   /**

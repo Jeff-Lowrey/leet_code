@@ -1,4 +1,10 @@
-"""### METADATA:\n**Techniques**: In-place Marking, Index as Hash Key\n**Data Structures**: Array (in-place)\n**Time Complexity**: O(n)\n**Space Complexity**: O(1)\n\n### INTUITION:
+"""### METADATA:
+**Techniques**: In-place Marking, Index as Hash Key
+**Data Structures**: Array (in-place)
+**Time Complexity**: O(n)
+**Space Complexity**: O(1)
+
+### INTUITION:
 The key insight is that use the array itself as a hash map by marking indices. For each number n, negate the value at index n-1 to mark that n is present. After marking, any indices with positive values indicate missing numbers.
 
 ### APPROACH:

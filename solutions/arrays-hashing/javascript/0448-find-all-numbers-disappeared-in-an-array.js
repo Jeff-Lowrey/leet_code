@@ -1,18 +1,28 @@
 /**
+ * ### METADATA:
+ * **Techniques**: In-place Marking, Index as Hash Key
+ * **Data Structures**: Array (in-place)
+ * **Time Complexity**: O(n)
+ * **Space Complexity**: O(1)
+ *
  * ### INTUITION:
- * [This problem requires understanding of arrays hashing concepts. The key insight is to identify the optimal approach for this specific scenario.]
+ * The key insight is that use the array itself as a hash map by marking indices. For each number n, negate the value at index n-1 to mark that n is present. After marking, any indices with positive values indicate missing numbers.
  *
  * ### APPROACH:
- * 1. **Convert array to set**: Transform the input array into a set data structure, which automatically removes all duplicate values
- * 2. **Compare lengths**: Calculate the length of both the original array and the newly created set
- * 3. **Detect duplicates**: If the lengths differ, duplicates existed in the original array (they were removed during set conversion)
- * 4. **Return result**: Return True if lengths differ (duplicates found), False if lengths match (all elements unique)
- * 5. **Alternative early termination**: For better average performance, iterate through array and add elements to a set one by one, returning True immediately when an element is already in the set
+ * 1. **Mark present numbers**: Iterate through nums array, for each num get index = abs(num) - 1
+ * 2. **Negate at index**: Set nums[index] = -abs(nums[index]) to mark that number (index + 1) is present
+ * 3. **Use absolute value**: Always use abs(num) when calculating index since previous iterations may have negated values
+ * 4. **Find missing numbers**: After marking phase, iterate through indices 0 to len(nums) - 1
+ * 5. **Check for positive values**: If nums[i] > 0, then number (i + 1) was never marked as present
+ * 6. **Build result**: Append (i + 1) to result list for each positive value found
+ * 7. **Return result**: Return list of all missing numbers from range [1, n]
  *
  * ### WHY THIS WORKS:
- * - This ensures that the solution leverages arrays hashing principles
- * - This ensures that time complexity is optimized for the given constraints
- * - This ensures that space complexity is minimized where possible
+ * - Array values are in range [1, n], so each value maps to a valid index (value - 1)
+ * - Negating values at corresponding indices marks numbers as "seen" without extra space
+ * - Using absolute value when indexing handles already-negated values correctly
+ * - Positive values after marking phase indicate those indices+1 were never present
+ * - O(n) time with two passes, O(1) space by reusing input array as marker
  *
  * ### EXAMPLE WALKTHROUGH:
  * Input:
@@ -41,30 +51,19 @@
  * ```
  *
  * ### TIME COMPLEXITY:
- * O(n)** - where n is the length of the array. We make two complete passes through the array: (1) first pass marks present numbers by negating values at corresponding indices (**O(n)**), (2) second pass identifies which indices have positive values to determine missing numbers (**O(n)**). Each operation within the loops is **O(1)**. Total: **O(n)** + **O(n)** = **O(2n)** = **O(n)**. This is optimal since we must examine every element.
+ * **O(n)** - where n is the length of the array. We make two complete passes through the array: (1) first pass marks present numbers by negating values at corresponding indices (**O(n)**), (2) second pass identifies which indices have positive values to determine missing numbers (**O(n)**). Each operation within the loops is **O(1)**. Total: **O(n)** + **O(n)** = **O(2n)** = **O(n)**. This is optimal since we must examine every element.
  *
  * ### SPACE COMPLEXITY:
- * O(1)** - excluding the output array. We use only constant extra space for variables (loop counters, index calculations). The result array doesn't count toward space complexity as it's required output. We modify the input array in-place using negation to mark present numbers, avoiding any additional data structures. This achieves the follow-up requirement of **O(1)** space without using extra sets or hash maps.
+ * **O(1)** - We use only constant extra space for variables (loop counters, index calculations). The result array doesn't count toward space complexity as it's required output. We modify the input array in-place using negation to mark present numbers, avoiding any additional data structures. This achieves the follow-up requirement of **O(1)** space without using extra sets or hash maps.
  *
  * ### EDGE CASES:
  * - **Empty input**: Handle when input is empty
  * - **Single element**: Handle single-element inputs
  * - **Boundary values**: Handle minimum/maximum valid values
  *
- * *
- * 
  *
- * */
-
-/**
- * Main solution for Problem 448: Find All Numbers Disappeared In An Array
- *
- * @param {number[]} nums - Array of integers in range [1, n]
- * @return {number[]} - Array of missing integers from 1 to n
- *
- * Time Complexity: O(n) - two passes through the array
- * Space Complexity: O(1) - excluding output array, modifying input in-place
  */
+
 function solve(nums) {
   const n = nums.length;
 

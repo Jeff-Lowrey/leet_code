@@ -1,13 +1,22 @@
 /**
+ * ### METADATA:
+ * **Techniques**: Set-based Sequence Detection, Greedy Algorithm
+ * **Data Structures**: Set (Hash Set)
+ * **Time Complexity**: O(n)
+ * **Space Complexity**: O(n)
+ *
  * ### INTUITION:
- * The key insight is to use a hash set for O(1) lookups and only start counting sequences from their beginning. For each number, check if (num-1) exists - if not, this is a sequence start. Then count consecutive numbers (num+1, num+2, etc.) until we can't find the next number. This ensures each number is visited at most twice (once to check if it's a start, once as part of a sequence), giving us O(n) time.
+ * Convert array to a set for O(1) lookups. Only start counting consecutive sequences from numbers where num-1 doesn't exist (the start of a sequence). This avoids redundant counting and achieves O(n) time since each number is visited at most twice.
  *
  * ### APPROACH:
- * 1. **Convert to Set**: Store all numbers in a Set for O(1) lookups
- * 2. **Find sequence starts**: For each number, check if (num-1) exists. If not, it's a sequence start
- * 3. **Count consecutive**: From each start, count how many consecutive numbers exist (num+1, num+2, etc.)
- * 4. **Track maximum**: Keep track of the longest sequence found
- * 5. **Return result**: Return the length of the longest consecutive sequence
+ * 1. **Convert to set**: Create num_set from nums array for O(1) lookup time
+ * 2. **Initialize longest streak**: Set longest_streak = 0 to track maximum consecutive sequence length
+ * 3. **Iterate through set**: Loop through each number in num_set
+ * 4. **Check sequence start**: For each num, verify if (num - 1) exists in set; skip if it does (not a sequence start)
+ * 5. **Count consecutive numbers**: When num is a sequence start, initialize current_num = num and current_streak = 1
+ * 6. **Extend sequence**: Use while loop to check if (current_num + 1) exists in set, incrementing current_num and current_streak
+ * 7. **Update maximum**: Compare current_streak with longest_streak and update longest_streak if current is larger
+ * 8. **Return result**: After processing all numbers, return longest_streak
  *
  * ### WHY THIS WORKS:
  * - This ensures that set conversion enables O(1) lookups, crucial for checking num-1 and num+1 efficiently
@@ -47,30 +56,19 @@
  * ```
  *
  * ### TIME COMPLEXITY:
- * O(n)** - where n is the number of elements in the array. Although we have nested loops, each number is visited at most twice: once in the outer loop to check if it's a sequence start (checking if num-1 exists), and potentially once more as part of counting a sequence (in the inner while loop). The key insight is that the while loop only executes for numbers that are sequence starts, and each number can only be part of one sequence. Total operations: at most 2n lookups and iterations, giving us **O(2n)** = **O(n)**.
+ * **O(n)** - where n is the number of elements in the array. Although we have nested loops, each number is visited at most twice: once in the outer loop to check if it's a sequence start (checking if num-1 exists), and potentially once more as part of counting a sequence (in the inner while loop). The key insight is that the while loop only executes for numbers that are sequence starts, and each number can only be part of one sequence. Total operations: at most 2n lookups and iterations, giving us **O(2n)** = **O(n)**.
  *
  * ### SPACE COMPLEXITY:
- * O(n)** - We store all n unique numbers in the Set data structure. In the worst case where all numbers are unique, the Set contains n elements. Even with duplicates, we still need **O(n)** space to store the unique values. This is the dominant space usage, making our space complexity **O(n)**.
+ * **O(n)** - We store all n unique numbers in the set data structure. In the worst case where all numbers are unique, the set contains n elements. Even with duplicates, we still need **O(n)** space to store the unique values. This is the dominant space usage, making our space complexity **O(n)**.
  *
  * ### EDGE CASES:
  * - **Empty input**: Handle when input is empty
  * - **Single element**: Handle single-element inputs
  * - **Boundary values**: Handle minimum/maximum valid values
  *
- * *
- * 
  *
- * */
-
-/**
- * Main solution for Problem 128: Longest Consecutive Sequence
- *
- * @param {number[]} nums - Array of integers
- * @return {number} - Length of longest consecutive sequence
- *
- * Time Complexity: O(n) - each number visited at most twice
- * Space Complexity: O(n) - for the Set storage
  */
+
 function solve(nums) {
   if (!nums || nums.length === 0) {
     return 0;

@@ -1,4 +1,10 @@
-"""### METADATA:\n**Techniques**: Set Membership Check\n**Data Structures**: Set (Hash Set)\n**Time Complexity**: O(n)\n**Space Complexity**: O(n)\n\n### INTUITION:
+"""### METADATA:
+**Techniques**: Set Membership Check
+**Data Structures**: Set (Hash Set)
+**Time Complexity**: O(n)
+**Space Complexity**: O(n)
+
+### INTUITION:
 The key insight is that if all elements are unique, then the array length equals the set length.
 If there are duplicates, the set will be smaller than the array.
 

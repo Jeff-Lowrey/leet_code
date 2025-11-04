@@ -1,4 +1,10 @@
-"""### METADATA:\n**Techniques**: Boyer-Moore Voting Algorithm\n**Data Structures**: Counter Variable\n**Time Complexity**: O(n)\n**Space Complexity**: O(1)\n\n### INTUITION:
+"""### METADATA:
+**Techniques**: Boyer-Moore Voting Algorithm
+**Data Structures**: Counter Variable
+**Time Complexity**: O(n)
+**Space Complexity**: O(1)
+
+### INTUITION:
 Since the majority element appears more than n/2 times, it will always "survive" any cancellation process. The Boyer-Moore voting algorithm leverages this by maintaining a candidate and count, canceling out different elements.
 
 ### APPROACH:

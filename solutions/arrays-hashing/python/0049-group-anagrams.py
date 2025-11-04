@@ -1,4 +1,10 @@
-"""### METADATA:\n**Techniques**: Hash Map Grouping, Sorted String as Key\n**Data Structures**: Hash Map (defaultdict)\n**Time Complexity**: O(n × k log k)\n**Space Complexity**: O(n × k)\n\n### INTUITION:
+"""### METADATA:
+**Techniques**: Hash Map Grouping, Sorted String as Key
+**Data Structures**: Hash Map (defaultdict)
+**Time Complexity**: O(n × k log k)
+**Space Complexity**: O(n × k)
+
+### INTUITION:
 The key insight is that group strings by their "anagram signature" - a canonical representation that's the same for all anagrams. Two common signatures: sorted characters or character frequency count.
 
 ### APPROACH:

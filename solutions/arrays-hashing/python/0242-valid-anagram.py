@@ -1,4 +1,10 @@
-"""### METADATA:\n**Techniques**: Frequency Counting\n**Data Structures**: Hash Map (Counter)\n**Time Complexity**: O(n)\n**Space Complexity**: O(1)\n\n### INTUITION:
+"""### METADATA:
+**Techniques**: Frequency Counting
+**Data Structures**: Hash Map (Counter)
+**Time Complexity**: O(n)
+**Space Complexity**: O(1)
+
+### INTUITION:
 The key insight is that two strings are anagrams if they contain the exact same characters with the same frequencies. We can verify this by counting character frequencies in both strings.
 
 ### APPROACH:

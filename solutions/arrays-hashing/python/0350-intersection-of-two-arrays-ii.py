@@ -121,4 +121,5 @@ if __name__ == "__main__":
     nums2 = [4, 5, 6]
     print(f"Test 3: {solution.intersect(nums1, nums2)}")  # Expected: []
 
-    print("\nAll test cases completed!")
+    print("
+All test cases completed!")

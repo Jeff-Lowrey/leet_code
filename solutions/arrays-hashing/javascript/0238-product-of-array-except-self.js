@@ -1,4 +1,10 @@
 /**
+ * ### METADATA:
+ * **Techniques**: Prefix-Suffix Product, In-place Array Manipulation
+ * **Data Structures**: Array
+ * **Time Complexity**: O(n)
+ * **Space Complexity**: O(1)
+ *
  * ### INTUITION:
  * The key insight is that for each position i, the product of all elements except nums[i] equals (product of all elements to the left of i) × (product of all elements to the right of i). We can calculate these prefix and suffix products in two passes without using division. First pass: build left products. Second pass: multiply by right products while traversing backwards.
  *
@@ -49,30 +55,19 @@
  * ```
  *
  * ### TIME COMPLEXITY:
- * O(n)** - where n is the length of the array. We make exactly two passes through the array: one left-to-right pass to calculate prefix products (**O(n)**), and one right-to-left pass to calculate suffix products and combine them with the prefix products (**O(n)**). Each pass performs constant-time operations (multiplication and array access) for each element. Total: **O(n)** + **O(n)** = **O(2n)** = **O(n)**. This is optimal since we must examine every element at least once.
+ * **O(n)** - where n is the length of the array. We make exactly two passes through the array: one left-to-right pass to calculate prefix products (**O(n)**), and one right-to-left pass to calculate suffix products and combine them with the prefix products (**O(n)**). Each pass performs constant-time operations (multiplication and array access) for each element. Total: **O(n)** + **O(n)** = **O(2n)** = **O(n)**. This is optimal since we must examine every element at least once.
  *
  * ### SPACE COMPLEXITY:
- * O(1)** - We use only two variables (leftProduct and rightProduct) for tracking running products, regardless of input size. The result array is required for output and is not counted as extra space per the problem constraints. If we count the output array, the space complexity would be **O(n)**, but conventionally output space is excluded from space complexity analysis. This makes our solution optimal for space.
+ * **O(1)** - We use only two variables (left_product and right_product) for tracking running products, regardless of input size. The result array is required for output and is not counted as extra space per the problem constraints. If we count the output array, the space complexity would be **O(n)**, but conventionally output space is excluded from space complexity analysis. This makes our solution optimal for space.
  *
  * ### EDGE CASES:
  * - **Empty input**: Handle when input is empty
  * - **Single element**: Handle single-element inputs
  * - **Boundary values**: Handle minimum/maximum valid values
  *
- * *
- * 
  *
- * */
-
-/**
- * Main solution for Problem 238: Product Of Array Except Self
- *
- * @param {number[]} nums - Array of integers
- * @return {number[]} - Array where each element is product of all other elements
- *
- * Time Complexity: O(n) - two passes through the array
- * Space Complexity: O(1) - excluding the output array
  */
+
 function solve(nums) {
   const n = nums.length;
   const result = new Array(n);

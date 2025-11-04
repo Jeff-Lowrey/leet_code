@@ -1,13 +1,18 @@
 /**
- * ### METADATA:\n**Techniques**: Boyer-Moore Voting Algorithm\n**Data Structures**: Counter Variable\n**Time Complexity**: O(n)\n**Space Complexity**: O(1)\n\n### INTUITION:
+ * ### METADATA:
+ * **Techniques**: Boyer-Moore Voting Algorithm
+ * **Data Structures**: Counter Variable
+ * **Time Complexity**: O(n)
+ * **Space Complexity**: O(1)
+ *
+ * ### INTUITION:
  * Since the majority element appears more than n/2 times, it will always "survive" any cancellation process. The Boyer-Moore voting algorithm leverages this by maintaining a candidate and count, canceling out different elements.
  *
  * ### APPROACH:
- * 1. **Convert array to set**: Transform the input array into a set data structure, which automatically removes all duplicate values
- * 2. **Compare lengths**: Calculate the length of both the original array and the newly created set
- * 3. **Detect duplicates**: If the lengths differ, duplicates existed in the original array (they were removed during set conversion)
- * 4. **Return result**: Return True if lengths differ (duplicates found), False if lengths match (all elements unique)
- * 5. **Alternative early termination**: For better average performance, iterate through array and add elements to a set one by one, returning True immediately when an element is already in the set
+ * 1. **Initialize**: Set candidate to None and count to 0
+ * 2. **Vote**: For each element, if count is 0, make it the new candidate
+ * 3. **Count**: If element matches candidate, increment count; otherwise decrement
+ * 4. **Result**: The surviving candidate is the majority element
  *
  * ### WHY THIS WORKS:
  * - Majority element appears > n/2 times
@@ -16,6 +21,11 @@
  * - Each cancellation removes one majority and one non-majority element
  *
  * ### EXAMPLE WALKTHROUGH:
+ * Input:
+ * ```
+ * [2, 2, 1, 1, 1, 2, 2]
+ * ```
+ *
  * Input:
  * ```
  * [2,2,1,1,1,2,2]
@@ -37,10 +47,10 @@
  * ```
  *
  * ### TIME COMPLEXITY:
- * O(n)** - where n is the length of the array. We perform a single pass through all n elements, executing constant-time operations for each: checking if count is 0 (**O(1)**), comparing the current number to the candidate (**O(1)**), and incrementing/decrementing the count (**O(1)**). Total: **O(n × 1)** = **O(n)**. This is optimal since we must examine every element at least once to determine the majority.
+ * **O(n)** - where n is the length of the array. We perform a single pass through all n elements, executing constant-time operations for each: checking if count is 0 (**O(1)**), comparing the current number to the candidate (**O(1)**), and incrementing/decrementing the count (**O(1)**). Total: **O(n × 1)** = **O(n)**. This is optimal since we must examine every element at least once to determine the majority.
  *
  * ### SPACE COMPLEXITY:
- * O(1)** - constant extra space. We use only two variables regardless of input size: `candidate` (stores one integer) and `count` (stores one integer). The space used doesn't grow with n. This is optimal space complexity for this problem. The hash map approach would require **O(n)** space to store frequency counts, and the sorting approach would require **O(1)** extra space (assuming in-place sort) but **O(n log n)** time.
+ * **O(1)** - We use only two variables regardless of input size: `candidate` (stores one integer) and `count` (stores one integer). The space used doesn't grow with n. This is optimal space complexity for this problem. The hash map approach would require **O(n)** space to store frequency counts, and the sorting approach would require **O(1)** extra space (assuming in-place sort) but **O(n log n)** time.
  *
  * ### EDGE CASES:
  * - **Single element**: Return that element (it's the majority)
@@ -49,7 +59,8 @@
  * - **Multiple candidates**: Boyer-Moore finds the true majority
  * - **Guaranteed majority**: Problem guarantees one exists
  *
- * */
+ *
+ */
 
 class Solution {
   /**

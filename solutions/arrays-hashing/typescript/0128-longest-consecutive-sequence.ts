@@ -1,5 +1,11 @@
 /**
- * ### METADATA:\n**Techniques**: Set-based Sequence Detection, Greedy Algorithm\n**Data Structures**: Set (Hash Set)\n**Time Complexity**: O(n)\n**Space Complexity**: O(n)\n\n### INTUITION:
+ * ### METADATA:
+ * **Techniques**: Set-based Sequence Detection, Greedy Algorithm
+ * **Data Structures**: Set (Hash Set)
+ * **Time Complexity**: O(n)
+ * **Space Complexity**: O(n)
+ *
+ * ### INTUITION:
  * Convert array to a set for O(1) lookups. Only start counting consecutive sequences from numbers where num-1 doesn't exist (the start of a sequence). This avoids redundant counting and achieves O(n) time since each number is visited at most twice.
  *
  * ### APPROACH:
@@ -50,17 +56,18 @@
  * ```
  *
  * ### TIME COMPLEXITY:
- * O(n)** - where n is the number of elements in the array. Although we have nested loops, each number is visited at most twice: once in the outer loop to check if it's a sequence start (checking if num-1 exists), and potentially once more as part of counting a sequence (in the inner while loop). The key insight is that the while loop only executes for numbers that are sequence starts, and each number can only be part of one sequence. Total operations: at most 2n lookups and iterations, giving us **O(2n)** = **O(n)**.
+ * **O(n)** - where n is the number of elements in the array. Although we have nested loops, each number is visited at most twice: once in the outer loop to check if it's a sequence start (checking if num-1 exists), and potentially once more as part of counting a sequence (in the inner while loop). The key insight is that the while loop only executes for numbers that are sequence starts, and each number can only be part of one sequence. Total operations: at most 2n lookups and iterations, giving us **O(2n)** = **O(n)**.
  *
  * ### SPACE COMPLEXITY:
- * O(n)** - where n is the number of elements in the array. We store all n unique numbers in the Set data structure. In the worst case where all numbers are unique, the Set contains n elements. Even with duplicates, we still need **O(n)** space to store the unique values. This is the dominant space usage, making our space complexity **O(n)**.
+ * **O(n)** - We store all n unique numbers in the set data structure. In the worst case where all numbers are unique, the set contains n elements. Even with duplicates, we still need **O(n)** space to store the unique values. This is the dominant space usage, making our space complexity **O(n)**.
  *
  * ### EDGE CASES:
  * - **Empty input**: Handle when input is empty
  * - **Single element**: Handle single-element inputs
  * - **Boundary values**: Handle minimum/maximum valid values
  *
- * */
+ *
+ */
 
 class Solution {
   /**

@@ -126,4 +126,5 @@ if __name__ == "__main__":
     result = solution.groupThePeople(groupSizes)
     print(f"Test 3: result")  # Expected: [[0]]
 
-    print("\nAll test cases completed!")
+    print("
+All test cases completed!")

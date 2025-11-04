@@ -1,13 +1,17 @@
 /**
+ * ### METADATA:
+ * **Techniques**: Hash Map Grouping, Sorted String as Key
+ * **Data Structures**: Hash Map (defaultdict)
+ * **Time Complexity**: O(n × k log k)
+ * **Space Complexity**: O(n × k)
+ *
  * ### INTUITION:
  * The key insight is that group strings by their "anagram signature" - a canonical representation that's the same for all anagrams. Two common signatures: sorted characters or character frequency count.
  *
  * ### APPROACH:
- * 1. **Convert array to set**: Transform the input array into a set data structure, which automatically removes all duplicate values
- * 2. **Compare lengths**: Calculate the length of both the original array and the newly created set
- * 3. **Detect duplicates**: If the lengths differ, duplicates existed in the original array (they were removed during set conversion)
- * 4. **Return result**: Return True if lengths differ (duplicates found), False if lengths match (all elements unique)
- * 5. **Alternative early termination**: For better average performance, iterate through array and add elements to a set one by one, returning True immediately when an element is already in the set
+ * 1. **Create signature**: For each string, generate a canonical form (sorted chars or char counts)
+ * 2. **Group by signature**: Use a hash map where signature is key, list of anagrams is value
+ * 3. **Return groups**: Extract all value lists from the hash map
  *
  * ### WHY THIS WORKS:
  * - This ensures that all anagrams have the same signature (sorted characters or character counts)
@@ -43,10 +47,10 @@
  * ```
  *
  * ### TIME COMPLEXITY:
- * O(n × k log k)** - where n is the number of strings and k is the maximum string length. For the sorting approach: we iterate through all n strings (**O(n)**), and for each string we sort its k characters (**O(k log k)**). Total: **O(n × k log k)**. The character counting approach is more efficient at **O(n × k)** since counting characters takes **O(k)** time per string without sorting.
+ * **O(n × k log k)** - where n is the number of strings and k is the maximum string length. For the sorting approach: we iterate through all n strings (**O(n)**), and for each string we sort its k characters (**O(k log k)**). Total: **O(n × k log k)**. The character counting approach is more efficient at **O(n × k)** since counting characters takes **O(k)** time per string without sorting.
  *
  * ### SPACE COMPLEXITY:
- * O(n × k)** - We store all n strings in the hash map, each with average length k. The map keys (sorted strings or character counts) also take **O(k)** space per unique anagram group. In the worst case where all strings are unique, we have n groups, each storing one string of length k, giving us **O(n × k)** total space. The character count array uses **O(26)** = **O(1)** space per string, which doesn't affect the overall **O(n × k)** complexity.
+ * **O(n × k)** - We store all n strings in the hash map, each with average length k. The map keys (sorted strings or character counts) also take **O(k)** space per unique anagram group. In the worst case where all strings are unique, we have n groups, each storing one string of length k, giving us **O(n × k)** total space. The character count array uses **O(26)** = **O(1)** space per string, which doesn't affect the overall **O(n × k)** complexity.
  *
  * ### EDGE CASES:
  * - **Empty string array**: Return empty list
@@ -55,20 +59,9 @@
  * - **All anagrams of each other**: Return single group with all strings
  * - **Empty strings**: All empty strings grouped together
  *
- * *
- * 
  *
- * */
-
-/**
- * Main solution for Problem 49: Group Anagrams
- *
- * @param {string[]} strs - Array of strings to group
- * @return {string[][]} - Array of grouped anagrams
- *
- * Time Complexity: O(n × k log k) where n = number of strings, k = max string length
- * Space Complexity: O(n × k) for storing the groups
  */
+
 function solve(strs) {
   const anagramMap = new Map();
 
