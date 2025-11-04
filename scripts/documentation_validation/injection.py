@@ -40,6 +40,10 @@ def inject_section_to_code(
     Returns:
         Updated source code with only the specified section modified, or None if failed
     """
+    # Normalize literal \n to actual newlines in section content
+    # This fixes issues where content has literal backslash-n instead of newlines
+    section_content = section_content.replace('\\n', '\n')
+
     # Extract current markdown
     from leet_code.markdown_extraction import extract_markdown_from_code
 
@@ -128,6 +132,10 @@ def inject_markdown_to_code(
     Returns:
         Updated source code with new markdown, or None if injection failed
     """
+    # Normalize literal \n to actual newlines
+    # This fixes issues where markdown has literal backslash-n instead of newlines
+    updated_markdown = updated_markdown.replace('\\n', '\n')
+
     # Check if language is supported and determine pattern
     if file_extension in DOCSTRING_LANGUAGES:
         pattern = COMMENT_PATTERNS["docstring"]

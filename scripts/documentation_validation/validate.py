@@ -296,19 +296,18 @@ class IterativeFixer:
             fixes_file.rename(archive_path)
             print(f"\nArchived fixes to: {archive_name}")
 
-            # Python-first: sync documentation to other languages
+            # Python-first: sync ALL Python files to other languages
+            # This ensures JS/TS stay in sync even if Python files weren't in fixes.json
             print(f"\n{'='*80}")
             print("SYNCING DOCUMENTATION TO OTHER LANGUAGES")
             print(f"{'='*80}\n")
 
-            python_files_fixed = [
-                file_path for file_path, success in results.items()
-                if success and file_path.endswith('.py')
-            ]
+            # Get all Python files in the category
+            python_dir = self.repo_root / "solutions" / self.category / "python"
+            all_python_files = sorted(python_dir.glob("*.py"))
 
-            if python_files_fixed:
-                for py_file_str in python_files_fixed:
-                    py_file = Path(py_file_str)
+            if all_python_files:
+                for py_file in all_python_files:
                     print(f"Syncing from: {py_file.relative_to(self.repo_root)}")
                     sync_results = self.sync_documentation_from_python(py_file)
 
@@ -357,6 +356,10 @@ class IterativeFixer:
             # Extract and clean documentation
             docs = ''.join(lines[:doc_end])
 
+            # Fix literal \n characters that should be actual newlines
+            # This handles cases where METADATA sections have literal '\n' in them
+            docs = docs.replace('\\n', '\n')
+
             # Remove <details> tags if present (complete blocks)
             docs = re.sub(r'<details>.*?</details>', '', docs, flags=re.DOTALL)
 
@@ -385,8 +388,11 @@ class IterativeFixer:
         """
         info = LANGUAGE_MAP[target_lang]
 
+        # Normalize any literal \n that might have snuck through
+        docs = python_docs.replace('\\n', '\n')
+
         # Replace code block language identifiers
-        docs = python_docs.replace('```python', f'```{info["code_block"]}')
+        docs = docs.replace('```python', f'```{info["code_block"]}')
 
         # Convert comment format
         if target_lang in ['typescript', 'javascript']:
