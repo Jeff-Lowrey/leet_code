@@ -73,11 +73,23 @@ class QualityScorer:
                 issues.append(f"Contains placeholder: {placeholder}")
                 break
 
-        # Special handling for "..." - only flag if it's standalone (not part of output like "...Q")
-        # Check for "..." that's surrounded by whitespace or at line boundaries
-        if " ... " in content or "\n...\n" in content or content.startswith("...") or content.endswith("..."):
+        # Special handling for "..." - only flag if it's a standalone placeholder
+        # Don't flag mathematical ellipsis like "n × (n-1) × ... × 1" or output like "...Q"
+        # Flag patterns like standalone " ... " but not " × ... × "
+        if content.startswith("...") or content.endswith("...") or "\n...\n" in content:
             score -= 30
             issues.append("Contains placeholder: ...")
+        elif " ... " in content:
+            # Check if it's mathematical notation (has × or * nearby)
+            # Only flag if not surrounded by mathematical operators
+            pos = content.find(" ... ")
+            if pos > 0:
+                before = content[max(0, pos-5):pos]
+                after = content[pos+5:min(len(content), pos+10)]
+                # Don't flag if surrounded by mathematical operators
+                if "×" not in before and "×" not in after and "*" not in before and "*" not in after:
+                    score -= 30
+                    issues.append("Contains placeholder: ...")
 
 
         # Section-specific checks
