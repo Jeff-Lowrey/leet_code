@@ -1,4 +1,10 @@
 /**
+ * ### METADATA:
+ * **Techniques**: Backtracking, Recursion
+ * **Data Structures**: Array, List
+ * **Time Complexity**: O(n × n!)
+ * **Space Complexity**: O(n)
+ *
  * ### INTUITION:
  * The key insight is that generate all permutations by systematically trying each unused element at each position. Use backtracking to explore all possibilities while maintaining state through choices and un-choices.
  *

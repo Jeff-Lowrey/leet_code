@@ -1,4 +1,9 @@
 /**
+ * ### METADATA:
+ * **Techniques**: Backtracking, Recursion
+ * **Data Structures**: Array, List
+ * **Time Complexity**: O(C(n,k)) where C is combinations (n choose k)
+ * **Space Complexity**: O(k)
  *
  * ### INTUITION:
  * The key insight is that build combinations incrementally by choosing numbers from a starting position onwards. Use a start parameter to ensure we only consider numbers greater than previously chosen ones, avoiding duplicates like [1,2] and [2,1]. When combination reaches size k, add it to results.
@@ -55,8 +60,6 @@
  * - **Empty input**: Handle when input is empty
  * - **Single element**: Handle single-element inputs
  * - **Boundary values**: Handle minimum/maximum valid values
- *
- *
  */
 
 class Solution {

@@ -1,4 +1,9 @@
-"""
+"""### METADATA:
+**Techniques**: Backtracking, Recursion
+**Data Structures**: Array, List
+**Time Complexity**: O(N^(T/M)) where T is target, M is minimum value
+**Space Complexity**: O(T/M)
+
 ### INTUITION:
 This is a classic backtracking problem where we need to find all combinations that sum to target.
 Since numbers can be reused unlimited times, we explore each candidate multiple times.
@@ -40,9 +45,7 @@ Output:
 ### EDGE CASES:
 - **Empty input**: Handle when input is empty
 - **Single element**: Handle single-element inputs
-- **Boundary values**: Handle minimum/maximum valid values
-
-"""
+- **Boundary values**: Handle minimum/maximum valid values"""
 
 from typing import Any
 

@@ -1,4 +1,8 @@
 """### METADATA:
+**Techniques**: Backtracking, Bit Manipulation
+**Data Structures**: Array, List
+**Time Complexity**: O(n × 2^n)
+**Space Complexity**: O(n)
 
 ### INTUITION:
 The key insight is that generate all possible subsets (power set) by making binary choices for each element: include it or don't include it in the current subset. Use backtracking to explore all combinations.
@@ -53,9 +57,7 @@ Output: [[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]]
 - **Single element**: Return [[], [element]]
 - **All elements identical (in variant)**: Handle duplicates with sorting
 - **Large n values**: 2^n subsets, exponential but unavoidable
-- **Negative numbers**: No special handling needed, works same as positive
-
-"""
+- **Negative numbers**: No special handling needed, works same as positive"""
 
 from typing import Any
 

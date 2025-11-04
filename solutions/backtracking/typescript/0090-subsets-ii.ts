@@ -1,4 +1,9 @@
 /**
+ * ### METADATA:
+ * **Techniques**: Backtracking, Sorting
+ * **Data Structures**: Array, List
+ * **Time Complexity**: O(2^n × n)
+ * **Space Complexity**: O(n)
  *
  * ### INTUITION:
  * The key insight is that sort the array to group duplicates together. During backtracking, add the current subset at each step (not just at leaves). Skip duplicate elements at the same recursion level using the condition i > start and nums[i] == nums[i-1] to avoid duplicate subsets.
@@ -53,8 +58,6 @@
  * - **Empty input**: Handle when input is empty
  * - **Single element**: Handle single-element inputs
  * - **Boundary values**: Handle minimum/maximum valid values
- *
- *
  */
 
 class Solution {

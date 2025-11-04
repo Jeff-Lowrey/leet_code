@@ -1,4 +1,9 @@
 /**
+ * ### METADATA:
+ * **Techniques**: Backtracking, Dynamic Programming (palindrome check)
+ * **Data Structures**: Array, List, String
+ * **Time Complexity**: O(n × 2^n)
+ * **Space Complexity**: O(n)
  *
  * ### INTUITION:
  * The key insight is that at each position, try all possible substrings starting from that position. If a substring is a palindrome, add it to the current partition and recursively partition the remaining string. Backtrack by removing the last substring. This explores all valid palindrome partitions.
@@ -54,8 +59,6 @@
  * - **Empty input**: Handle when input is empty
  * - **Single element**: Handle single-element inputs
  * - **Boundary values**: Handle minimum/maximum valid values
- *
- *
  */
 
 function solve(s) {

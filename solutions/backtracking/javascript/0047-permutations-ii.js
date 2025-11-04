@@ -1,4 +1,9 @@
 /**
+ * ### METADATA:
+ * **Techniques**: Backtracking, Frequency Counting
+ * **Data Structures**: Array, List, Hash Map (Counter)
+ * **Time Complexity**: O(n × n!)
+ * **Space Complexity**: O(n)
  *
  * ### INTUITION:
  * The key insight is that use a frequency counter to track available numbers. During backtracking, iterate through unique numbers in the counter, not array positions. Decrement the counter when using a number and increment when backtracking. This naturally handles duplicates by treating them as frequency counts.
@@ -55,8 +60,6 @@
  * - **Empty input**: Handle when input is empty
  * - **Single element**: Handle single-element inputs
  * - **Boundary values**: Handle minimum/maximum valid values
- *
- *
  */
 
 function solve(nums) {

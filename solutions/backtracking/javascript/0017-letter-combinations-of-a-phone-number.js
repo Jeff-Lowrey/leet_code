@@ -1,4 +1,9 @@
 /**
+ * ### METADATA:
+ * **Techniques**: Backtracking, String Building
+ * **Data Structures**: Hash Map (digit to letters mapping), Array, String
+ * **Time Complexity**: O(3^N × 4^M) where N is digits with 3 letters, M is digits with 4 letters
+ * **Space Complexity**: O(3^N × 4^M)
  *
  * ### INTUITION:
  * The key insight is that this is a classic backtracking problem where we need to generate all possible
@@ -42,8 +47,6 @@
  * - **Empty input**: Handle when input is empty
  * - **Single element**: Handle single-element inputs
  * - **Boundary values**: Handle minimum/maximum valid values
- *
- *
  */
 
 function solve(digits) {

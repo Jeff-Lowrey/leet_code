@@ -1,4 +1,9 @@
 /**
+ * ### METADATA:
+ * **Techniques**: Backtracking, Sorting
+ * **Data Structures**: Array, List
+ * **Time Complexity**: O(2^n × n)
+ * **Space Complexity**: O(n)
  *
  * ### INTUITION:
  * The key insight is that sort the candidates first to handle duplicates. During backtracking, skip duplicate elements at the same recursion level by checking if nums[i] == nums[i-1] and i > start. Each number can only be used once, so advance the index by 1 after including a number.
@@ -57,8 +62,6 @@
  * - **Empty input**: Handle when input is empty
  * - **Single element**: Handle single-element inputs
  * - **Boundary values**: Handle minimum/maximum valid values
- *
- *
  */
 
 class Solution {
