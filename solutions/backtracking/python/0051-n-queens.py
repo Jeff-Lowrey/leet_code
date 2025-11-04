@@ -1,4 +1,5 @@
-"""### INTUITION:
+"""
+### INTUITION:
 The key insight is that place queens one row at a time and backtrack when conflicts arise. Queens attack horizontally, vertically, and diagonally, so we need to ensure no two queens can attack each other.
 
 ### APPROACH:
@@ -59,6 +60,9 @@ Output: [[".Q..","...Q","Q...","..Q."],["..Q.","Q...","...Q",".Q.."]]
 - **Large n values**: Backtracking with pruning handles efficiently
 - **All positions conflict**: Backtracking exhausts all possibilities, returns empty
 
+</details>
+
+"""
 
 from typing import Any
 
