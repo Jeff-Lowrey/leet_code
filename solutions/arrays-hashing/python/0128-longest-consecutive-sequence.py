@@ -1,5 +1,4 @@
-"""
-# Difficulty: Medium
+"""# Difficulty: Medium
 
 # 0128. Longest Consecutive Sequence
 
@@ -78,22 +77,29 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n)
-- Single pass through input
+**O(n)** where n is the length of the input array
 
+- **Set conversion**: O(n) to create num_set from the input array
+- **Main loop**: O(n) to iterate through all numbers in the set
+- **Inner while loop**: Although nested, each number is visited at most twice - once in the outer loop and once in the inner while loop when extending a sequence
+- **Key insight**: We only start counting from sequence beginnings (where num-1 doesn't exist), preventing redundant work
+- **Amortized analysis**: Total operations across all elements is O(n) because each element participates in at most one sequence extension
+- **Overall**: O(n) + O(n) = O(n) linear time complexity
 
 ### SPACE COMPLEXITY:
-O(1)
-- Constant extra space
+**O(n)** where n is the length of the input array
 
+- **Set storage**: O(n) space to store all unique numbers from the input array in num_set
+- **Variables**: O(1) for tracking longest_streak, current_num, and current_streak
+- **No additional collections**: Only the set is needed besides a few integer variables
+- **Trade-off**: We sacrifice O(n) space for the set to achieve O(1) lookup time, which is essential for the linear time solution
 
 ### EDGE CASES:
 - Empty input handling
 - Single element cases
 - Large input considerations
 
-</details>
-"""
+</details>"""
 
 from typing import List, Optional, Dict, Tuple
 

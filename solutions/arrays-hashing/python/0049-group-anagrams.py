@@ -27,12 +27,11 @@ Example:**
 <details>
 <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
 ### METADATA:
-Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-Data Structures**: Hash Map, Hash Set, Array
-Patterns**: Hash Table Pattern
-Time Complexity**: * - **Sorting approach**: O(n × k log k) where n = number of strings, k = max string length
-Space Complexity**: O(n × k)
-
+**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
+**Data Structures**: Hash Map, Hash Set, Array
+**Patterns**: Hash Table Pattern
+**Time Complexity**: **O(n × k log k)** - Sorting approach where n = number of strings, k = max string length
+**Space Complexity**: **O(n × k)** - Hash map stores all strings grouped by signature
 
 ### INTUITION:
 Group strings by their "anagram signature" - a canonical representation that's the same for all anagrams. Two common signatures: sorted characters or character frequency count.
@@ -80,10 +79,12 @@ Output:
 - **Counting approach**: O(n × k) - more efficient
 
 ### SPACE COMPLEXITY:
+**O(n × k)** where n = number of strings, k = max string length
 
-O(n × k)
-
-- Based on auxiliary data structures
+- **Hash map storage**: O(n × k) to store all strings in the hash map values
+- **Keys**: O(n) space for the sorted signature strings (each key is at most k characters)
+- **Result list**: O(n × k) to store the final grouped anagrams
+- **Total**: O(n × k) dominated by storing all input strings in the output structure
 
 ### EDGE CASES:
 - **Empty string array**: Return empty list
@@ -92,8 +93,7 @@ O(n × k)
 - **All anagrams of each other**: Return single group with all strings
 - **Empty strings**: All empty strings grouped together
 
-</details>
-"""
+</details>"""
 
 from collections import defaultdict
 from typing import Any
