@@ -81,9 +81,9 @@ def inject_section_to_code(
         # In JSDoc, headers appear as " * ### SECTION:"
         section_pattern = f" \\* ### {section_name}:"
 
-    # Find section in comment block
+    # Find section in comment block - regex stops at next ###, </details>, or closing delimiter
     section_regex = re.compile(
-        re.escape(section_pattern) + r"(.*?)(?=\n[ \*]*### |\n[ \*]*</details>|"""|$|\*/)",
+        re.escape(section_pattern) + r'(.*?)(?=\n[ \*]*### |\n[ \*]*</details>|"""|$|\*/)',
         re.DOTALL
     )
 
