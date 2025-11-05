@@ -18,6 +18,11 @@ from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 import json
 import os
+import urllib.request
+import urllib.error
+import time
+import re
+from difflib import unified_diff
 
 # Get repository root and add paths
 SCRIPT_DIR = Path(__file__).resolve().parent
@@ -30,6 +35,11 @@ from validators.template_validator import TemplateValidator
 from validators.extractors import extract_problem_data
 from injection import inject_section_to_code
 from injection import inject_markdown_to_code, update_file_with_markdown
+
+# HTML rendering validation configuration
+SERVER_HOST = "127.0.0.1"
+SERVER_PORT = "9501"
+BASE_URL = f"http://{SERVER_HOST}:{SERVER_PORT}"
 
 
 class QualityScorer:
@@ -231,6 +241,253 @@ class QualityScorer:
             issues.append("Edge cases should be listed (bullets or numbered)")
 
         return score_delta, issues
+
+
+class HTMLRenderingValidator:
+    """Validates documentation by comparing rendered HTML pages.
+
+    Replicates functionality of standalone scripts:
+    - .claude_functions/html_validate/download_complete_pages.py
+    - .claude_functions/html_validate/compare_html.py
+    """
+
+    @staticmethod
+    def check_server_running() -> bool:
+        """Check if the Flask server is running."""
+        try:
+            with urllib.request.urlopen(f"{BASE_URL}/", timeout=5) as response:
+                return response.status == 200
+        except Exception:
+            return False
+
+    @staticmethod
+    def fetch_css() -> str:
+        """Fetch the main CSS file from the server."""
+        try:
+            with urllib.request.urlopen(f"{BASE_URL}/static/css/main.css", timeout=10) as response:
+                return response.read().decode('utf-8')
+        except Exception as e:
+            print(f"Warning: Could not fetch main.css: {e}")
+            return ""
+
+    @staticmethod
+    def fetch_and_inline_html(category: str, filename: str, main_css: str) -> Optional[str]:
+        """Fetch rendered HTML and inline the CSS (matching download_complete_pages.py)."""
+        url = f"{BASE_URL}/solution/{category}/{filename}"
+        try:
+            with urllib.request.urlopen(url, timeout=10) as response:
+                html_content = response.read().decode('utf-8')
+
+            # Inline CSS if available (same as standalone script)
+            if main_css:
+                css_tag = f'<style>\n{main_css}\n</style>'
+                html_content = re.sub(
+                    r'<link rel="stylesheet" href="/static/css/main\.css">',
+                    css_tag,
+                    html_content
+                )
+
+            return html_content
+        except Exception as e:
+            print(f"Error fetching {url}: {e}")
+            return None
+
+    @staticmethod
+    def normalize_html(html_content: str) -> str:
+        """Normalize HTML for comparison by removing dynamic content (matching compare_html.py)."""
+        # Remove debugger PIN and timestamps that change between runs
+        html_content = re.sub(r'Debugger PIN: \d+-\d+-\d+', 'Debugger PIN: XXX-XXX-XXX', html_content)
+        return html_content
+
+    @staticmethod
+    def compare_files(html1: str, html2: str, label1: str = "reference", label2: str = "current") -> Tuple[bool, List[str]]:
+        """Compare two HTML strings and return differences (matching compare_html.py)."""
+        html1 = HTMLRenderingValidator.normalize_html(html1)
+        html2 = HTMLRenderingValidator.normalize_html(html2)
+
+        if html1 == html2:
+            return True, []
+
+        # Generate unified diff (same as standalone script)
+        lines1 = html1.splitlines(keepends=True)
+        lines2 = html2.splitlines(keepends=True)
+
+        diff = list(unified_diff(
+            lines1, lines2,
+            fromfile=label1,
+            tofile=label2,
+            lineterm=''
+        ))
+
+        return False, diff[:100]  # Limit to first 100 lines of diff
+
+    @staticmethod
+    def download_and_save_html(category: str, filename: str, language: str,
+                               output_dir: Path, main_css: str) -> Tuple[bool, str]:
+        """Download and save rendered HTML with inlined CSS (matching download_complete_pages.py).
+
+        Args:
+            category: Problem category (e.g., 'arrays-hashing')
+            filename: Problem filename without extension (e.g., '0001-two-sum')
+            language: Language (e.g., 'python', 'javascript')
+            output_dir: Base output directory
+            main_css: CSS content to inline
+
+        Returns:
+            Tuple of (success: bool, message: str)
+        """
+        html_content = HTMLRenderingValidator.fetch_and_inline_html(category, filename, main_css)
+        if not html_content:
+            return False, f"Error fetching {category}/{language}/{filename}"
+
+        # Save to file (same structure as standalone script)
+        output_path = output_dir / category / language / f"{filename}.html"
+        output_path.parent.mkdir(parents=True, exist_ok=True)
+
+        try:
+            output_path.write_text(html_content)
+            return True, f"Downloaded: {category}/{language}/{filename}"
+        except Exception as e:
+            return False, f"Error saving {output_path}: {e}"
+
+    @staticmethod
+    def download_category_html(category: str, output_dir: Path, main_css: str = None) -> Dict:
+        """Download all HTML for a category (replicates download_complete_pages.py functionality).
+
+        Args:
+            category: Problem category to download
+            output_dir: Output directory for HTML files
+            main_css: CSS content to inline (fetched if None)
+
+        Returns:
+            Dict with download statistics
+        """
+        # Fetch CSS if not provided
+        if main_css is None:
+            print("Fetching CSS...")
+            main_css = HTMLRenderingValidator.fetch_css()
+            if main_css:
+                print(f"✓ Fetched CSS ({len(main_css)} bytes)")
+
+        # Discover solutions in category
+        solutions_dir = REPO_ROOT / "solutions" / category
+        if not solutions_dir.exists():
+            return {
+                'success': 0,
+                'failure': 0,
+                'errors': [f"Category not found: {category}"]
+            }
+
+        solutions = []
+        for lang_path in sorted(solutions_dir.iterdir()):
+            if not lang_path.is_dir():
+                continue
+            language = lang_path.name
+            for solution_file in sorted(lang_path.iterdir()):
+                if solution_file.is_file() and solution_file.suffix in ['.py', '.js', '.ts', '.cpp', '.go', '.java']:
+                    filename = solution_file.stem
+                    solutions.append((category, filename, language))
+
+        # Download all solutions
+        success_count = 0
+        failure_count = 0
+        errors = []
+
+        for i, (cat, fname, lang) in enumerate(solutions, 1):
+            success, message = HTMLRenderingValidator.download_and_save_html(
+                cat, fname, lang, output_dir, main_css
+            )
+            if success:
+                success_count += 1
+            else:
+                failure_count += 1
+                errors.append(message)
+
+            time.sleep(0.05)  # Same delay as standalone script
+
+        return {
+            'total': len(solutions),
+            'success': success_count,
+            'failure': failure_count,
+            'errors': errors
+        }
+
+    @staticmethod
+    def compare_html_directories(dir1: Path, dir2: Path) -> Dict:
+        """Compare all HTML files in two directories (replicates compare_html.py functionality).
+
+        Args:
+            dir1: Reference HTML directory (e.g., from main branch)
+            dir2: Current HTML directory (e.g., from feature branch)
+
+        Returns:
+            Dict with comparison results
+        """
+        if not dir1.exists() or not dir2.exists():
+            return {
+                'error': 'One or both directories do not exist',
+                'identical': 0,
+                'different': 0,
+                'missing': 0
+            }
+
+        # Find all HTML files in dir1
+        html_files1 = sorted(dir1.rglob("*.html"))
+
+        identical_count = 0
+        different_count = 0
+        missing_count = 0
+        differences = []
+
+        for file1 in html_files1:
+            # Get relative path
+            rel_path = file1.relative_to(dir1)
+            file2 = dir2 / rel_path
+
+            if not file2.exists():
+                missing_count += 1
+                differences.append({
+                    'file': str(rel_path),
+                    'status': 'MISSING',
+                    'diff': []
+                })
+                continue
+
+            # Read and compare files
+            try:
+                html1 = file1.read_text()
+                html2 = file2.read_text()
+
+                identical, diff = HTMLRenderingValidator.compare_files(
+                    html1, html2,
+                    str(file1.relative_to(dir1.parent)),
+                    str(file2.relative_to(dir2.parent))
+                )
+
+                if identical:
+                    identical_count += 1
+                else:
+                    different_count += 1
+                    differences.append({
+                        'file': str(rel_path),
+                        'status': 'DIFFERENT',
+                        'diff': diff
+                    })
+            except Exception as e:
+                different_count += 1
+                differences.append({
+                    'file': str(rel_path),
+                    'status': 'ERROR',
+                    'diff': [f"Error comparing: {e}"]
+                })
+
+        return {
+            'total': len(html_files1),
+            'identical': identical_count,
+            'different': different_count,
+            'missing': missing_count,
+            'differences': differences
+        }
 
 
 class ClaudeAssistedFixer:
