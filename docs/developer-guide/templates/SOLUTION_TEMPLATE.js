@@ -16,6 +16,9 @@
  * <dd>[explanation of how input becomes output]</dd>
  * </dl>
  *
+ * <details>
+ * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ *
  * ### METADATA:
  * **Techniques**: [e.g., Hash Table Lookup, Binary Search, Two Pointers]
  * **Data Structures**: [e.g., Hash Map, Array, Tree, Graph]
@@ -75,6 +78,8 @@
  * - **[Edge case 1]:** [how it's handled]
  * - **[Edge case 2]:** [how it's handled]
  * - **[Edge case 3]:** [how it's handled]
+ *
+ * </details>
  */
 
 class Solution {
