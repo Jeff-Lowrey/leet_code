@@ -25,11 +25,11 @@ from leet_code.markdown_extraction import (
 def inject_section_to_code(
     original_code: str, section_name: str, section_content: str, file_extension: str
 ) -> str | None:
-    """Inject a single section update into code, preserving all other sections.
+    """Inject a single section update into code via in-place string replacement.
 
-    This is a surgical replacement that only modifies the specified section,
-    leaving all other documentation sections untouched. If the section doesn't exist,
-    it's inserted in the correct template order.
+    This performs TRUE surgical replacement by directly editing the docstring/comment
+    in the source code, without extracting and rebuilding the entire markdown block.
+    This preserves ALL formatting, spacing, and structure (including <details> tags).
 
     Args:
         original_code: Original source code content
@@ -41,15 +41,26 @@ def inject_section_to_code(
         Updated source code with only the specified section modified, or None if failed
     """
     # Normalize literal \n to actual newlines in section content
-    # This fixes issues where content has literal backslash-n instead of newlines
     section_content = section_content.replace('\\n', '\n')
 
-    # Extract current markdown
-    from leet_code.markdown_extraction import extract_markdown_from_code
-
-    markdown = extract_markdown_from_code(original_code, file_extension)
-    if not markdown:
+    # Determine comment pattern based on language
+    if file_extension in DOCSTRING_LANGUAGES:
+        pattern = COMMENT_PATTERNS["docstring"]
+        comment_prefix = ""  # Python has no per-line prefix inside docstrings
+    elif file_extension in JSDOC_LANGUAGES:
+        pattern = COMMENT_PATTERNS["jsdoc"]
+        comment_prefix = " * "  # JSDoc has " * " prefix on each line
+    else:
         return None
+
+    # Find the comment block in the original code
+    match = pattern.search(original_code)
+    if not match:
+        return None
+
+    comment_start = match.start()
+    comment_end = match.end()
+    comment_block = original_code[comment_start:comment_end]
 
     # Template section order
     SECTION_ORDER = [
@@ -63,57 +74,106 @@ def inject_section_to_code(
         "EDGE CASES",
     ]
 
-    # Find and replace the specific section in markdown
-    section_header = f"### {section_name}:"
+    # Build the section header pattern (accounting for comment prefixes)
+    if file_extension in DOCSTRING_LANGUAGES:
+        section_pattern = f"### {section_name}:"
+    else:  # JSDOC_LANGUAGES
+        # In JSDoc, headers appear as " * ### SECTION:"
+        section_pattern = f" \\* ### {section_name}:"
 
-    # Find section boundaries
-    section_start = markdown.find(section_header)
-    if section_start == -1:
+    # Find section in comment block
+    section_regex = re.compile(
+        re.escape(section_pattern) + r"(.*?)(?=\n[ \*]*### |\n[ \*]*</details>|"""|$|\*/)",
+        re.DOTALL
+    )
+
+    section_match = section_regex.search(comment_block)
+
+    if section_match:
+        # Section exists - replace it in place
+        section_start_in_comment = section_match.start()
+        section_end_in_comment = section_match.end()
+
+        # Format new content with proper comment prefixes
+        if file_extension in DOCSTRING_LANGUAGES:
+            formatted_content = f"### {section_name}:\n{section_content}\n"
+        else:  # JSDOC_LANGUAGES
+            # Add " * " prefix to each line
+            content_lines = section_content.split('\n')
+            formatted_lines = [f" * {line}" if line.strip() else " *" for line in content_lines]
+            formatted_content = f" * ### {section_name}:\n" + "\n".join(formatted_lines) + "\n"
+
+        # Replace section in comment block
+        updated_comment = (
+            comment_block[:section_start_in_comment] +
+            formatted_content +
+            comment_block[section_end_in_comment:]
+        )
+
+    else:
         # Section doesn't exist - insert it in template order
         try:
             target_index = SECTION_ORDER.index(section_name)
         except ValueError:
-            # Unknown section - append at end
-            updated_markdown = markdown.rstrip() + f"\n\n{section_header}\n{section_content}\n"
-        else:
-            # Find the right place to insert based on template order
-            insert_before = None
-            for i in range(target_index + 1, len(SECTION_ORDER)):
-                next_section_header = f"### {SECTION_ORDER[i]}:"
-                pos = markdown.find(next_section_header)
-                if pos != -1:
-                    insert_before = pos
-                    break
+            # Unknown section - append before closing tag
+            target_index = len(SECTION_ORDER)
 
-            if insert_before is None:
-                # No sections after this one - append at end
-                updated_markdown = markdown.rstrip() + f"\n\n{section_header}\n{section_content}\n"
+        # Find insertion point
+        insert_position = None
+        for i in range(target_index + 1, len(SECTION_ORDER)):
+            next_section = SECTION_ORDER[i]
+            if file_extension in DOCSTRING_LANGUAGES:
+                next_pattern = f"### {next_section}:"
             else:
-                # Insert before the next section
-                updated_markdown = (
-                    markdown[:insert_before] +
-                    section_header + "\n" + section_content + "\n\n" +
-                    markdown[insert_before:]
-                )
-    else:
-        # Section exists - replace it
-        next_section = markdown.find("\n### ", section_start + len(section_header))
+                next_pattern = f" \\* ### {next_section}:"
 
-        if next_section == -1:
-            # This is the last section
-            section_end = len(markdown)
+            next_match = re.search(re.escape(next_pattern), comment_block)
+            if next_match:
+                insert_position = next_match.start()
+                break
+
+        # Format new section with proper comment prefixes
+        if file_extension in DOCSTRING_LANGUAGES:
+            formatted_content = f"\n### {section_name}:\n{section_content}\n"
+        else:  # JSDOC_LANGUAGES
+            content_lines = section_content.split('\n')
+            formatted_lines = [f" * {line}" if line.strip() else " *" for line in content_lines]
+            formatted_content = "\n * ### {section_name}:\n" + "\n".join(formatted_lines) + "\n"
+
+        if insert_position is not None:
+            # Insert before next section
+            updated_comment = (
+                comment_block[:insert_position] +
+                formatted_content +
+                comment_block[insert_position:]
+            )
         else:
-            section_end = next_section
+            # Append before closing delimiter
+            if file_extension in DOCSTRING_LANGUAGES:
+                close_pos = comment_block.rfind('"""')
+                if close_pos == -1:
+                    return None
+                updated_comment = (
+                    comment_block[:close_pos] +
+                    formatted_content +
+                    comment_block[close_pos:]
+                )
+            else:  # JSDOC_LANGUAGES
+                close_pos = comment_block.rfind(' */')
+                if close_pos == -1:
+                    return None
+                updated_comment = (
+                    comment_block[:close_pos] +
+                    formatted_content +
+                    comment_block[close_pos:]
+                )
 
-        # Replace this section
-        updated_markdown = (
-            markdown[:section_start] +
-            section_header + "\n" + section_content + "\n" +
-            markdown[section_end:]
-        )
-
-    # Inject the complete updated markdown back
-    return inject_markdown_to_code(original_code, updated_markdown, file_extension)
+    # Replace comment block in original code
+    return (
+        original_code[:comment_start] +
+        updated_comment +
+        original_code[comment_end:]
+    )
 
 
 def inject_markdown_to_code(
