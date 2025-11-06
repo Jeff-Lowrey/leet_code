@@ -54,6 +54,7 @@ LANGUAGE_MAP = {
 }
 
 from fixer import ClaudeAssistedFixer
+from validators.server_manager import FlaskServerManager
 
 
 class IterativeFixer:
@@ -62,10 +63,38 @@ class IterativeFixer:
     def __init__(self, repo_root: Path, category: str):
         self.repo_root = repo_root
         self.category = category
-        self.fixer = ClaudeAssistedFixer(repo_root, category=category)  # Pass category for validation
-        self.fixer.solutions_dir = repo_root / "solutions" / category
+        self.server_manager: Optional[FlaskServerManager] = None
+        self.fixer: Optional[ClaudeAssistedFixer] = None
         self.iteration = 0
         self.fixes_applied = []
+
+    def ensure_server_running(self) -> None:
+        """Ensure Flask server is running for HTML validation.
+
+        Raises:
+            RuntimeError: If server fails to start
+        """
+        if self.server_manager is None:
+            print("Starting Flask server for HTML validation...")
+            self.server_manager = FlaskServerManager(self.repo_root)
+            success, message = self.server_manager.start_server(timeout=15)
+            if not success:
+                raise RuntimeError(f"Failed to start Flask server: {message}")
+            print(f"✓ {message}\n")
+
+        # Create fixer with server's base URL
+        if self.fixer is None:
+            base_url = self.server_manager.get_base_url()
+            self.fixer = ClaudeAssistedFixer(self.repo_root, category=self.category, base_url=base_url)
+            self.fixer.solutions_dir = self.repo_root / "solutions" / self.category
+
+    def stop_server(self) -> None:
+        """Stop the Flask server if running."""
+        if self.server_manager is not None:
+            print("\nStopping Flask server...")
+            self.server_manager.stop_server()
+            self.server_manager = None
+            print("✓ Server stopped")
 
     def analyze_all_files(self) -> List[Dict]:
         """Analyze all files in the category.
@@ -73,6 +102,7 @@ class IterativeFixer:
         Returns:
             List of file analyses sorted by score (lowest first)
         """
+        self.ensure_server_running()
         results = []
 
         for file_path in self.fixer.solutions_dir.rglob("*"):
@@ -253,6 +283,9 @@ class IterativeFixer:
         Returns:
             Dict mapping file paths to success status
         """
+        # Ensure server is running for validation
+        self.ensure_server_running()
+
         print(f"\n{'='*80}")
         print("APPLYING FIXES FROM JSON")
         print(f"{'='*80}\n")
@@ -295,6 +328,16 @@ class IterativeFixer:
             archive_path = SCRIPT_DIR / "tmp" / archive_name
             fixes_file.rename(archive_path)
             print(f"\nArchived fixes to: {archive_name}")
+
+            # Validate all fixed files
+            print(f"\n{'='*80}")
+            print("VALIDATING FIXED FILES")
+            print(f"{'='*80}\n")
+
+            fixed_files = set(results.keys())
+            validation_results = self.validate_fixed_files(fixed_files)
+
+            self.print_validation_report(validation_results)
 
             # Python-first: sync ALL Python files to other languages
             # This ensures JS/TS stay in sync even if Python files weren't in fixes.json
@@ -436,6 +479,121 @@ class IterativeFixer:
             files[lang] = matches[0] if matches else None
 
         return files
+
+    def validate_fixed_files(self, file_paths: set) -> List[Dict]:
+        """Validate all fixed files using all validators.
+
+        Args:
+            file_paths: Set of file paths that were fixed
+
+        Returns:
+            List of validation results for each file
+        """
+        validation_results = []
+
+        for file_path_str in sorted(file_paths):
+            file_path = Path(file_path_str)
+            if not file_path.exists():
+                continue
+
+            try:
+                # Run complete analysis with all validators
+                analysis = self.fixer.analyze_file(file_path)
+                validation_results.append(analysis)
+            except Exception as e:
+                print(f"  ✗ Error validating {file_path.name}: {e}")
+
+        return validation_results
+
+    def print_validation_report(self, validation_results: List[Dict]) -> None:
+        """Print detailed validation report for all validators.
+
+        Args:
+            validation_results: List of file validation results
+        """
+        if not validation_results:
+            print("No files to validate.")
+            return
+
+        total_score = 0
+        perfect_count = 0
+
+        for result in validation_results:
+            file_path = Path(result['file_path'])
+            rel_path = file_path.relative_to(self.repo_root)
+            score = result['overall_score']
+            total_score += score
+
+            print(f"\n{'-'*80}")
+            print(f"FILE: {rel_path}")
+            print(f"Overall Score: {score:.1f}/100")
+
+            # Show component breakdown
+            html_score = result.get('html_score', 100)
+            html_skipped = result.get('html_validation_skipped', False)
+            if not html_skipped:
+                print(f"  • Section Quality: {score * 2 - html_score:.1f}/100")
+                print(f"  • HTML Validation: {html_score:.1f}/100")
+            print(f"{'-'*80}")
+
+            # Template Validator Results
+            if result['template_issues']:
+                print("\n❌ TEMPLATE VALIDATION:")
+                for issue in result['template_issues']:
+                    print(f"  - {issue}")
+            else:
+                print("\n✅ TEMPLATE VALIDATION: Passed")
+
+            # Quality Validator Results (Section Scores)
+            print("\n📊 QUALITY VALIDATION (Section Scores):")
+            sections = result['sections']
+            all_perfect = True
+            for section_name, section_data in sections.items():
+                section_score = section_data['score']
+                if section_score < 100:
+                    all_perfect = False
+                    status = "❌" if section_score < 80 else "⚠️"
+                    print(f"  {status} {section_name}: {section_score}/100")
+                    if section_data['issues']:
+                        for issue in section_data['issues']:
+                            print(f"      - {issue}")
+                else:
+                    print(f"  ✅ {section_name}: {section_score}/100")
+
+            # HTML Validator Results
+            html_score = result.get('html_score', 100)
+            html_skipped = result.get('html_validation_skipped', False)
+            html_perfect = html_skipped or html_score >= 100
+
+            # File is perfect if: all sections are 100%, no template issues, and HTML is 100% (or skipped)
+            if all_perfect and not result['template_issues'] and html_perfect:
+                perfect_count += 1
+
+            if html_skipped:
+                print("\n⚠️  HTML VALIDATION: Skipped (server not running)")
+            elif html_score >= 100:
+                print(f"\n✅ HTML VALIDATION: Passed ({html_score:.0f}/100)")
+            else:
+                print(f"\n❌ HTML VALIDATION: {html_score:.0f}/100")
+                for issue in result['html_issues']:
+                    print(f"  - {issue}")
+
+            print()
+
+        # Summary
+        avg_score = total_score / len(validation_results) if validation_results else 0
+        print(f"{'='*80}")
+        print("VALIDATION SUMMARY")
+        print(f"{'='*80}")
+        print(f"Files validated: {len(validation_results)}")
+        print(f"Perfect (100%): {perfect_count}/{len(validation_results)}")
+        print(f"Average score: {avg_score:.1f}/100")
+
+        if perfect_count == len(validation_results):
+            print("\n🎉 All fixed files passed all validators at 100%!")
+        else:
+            print(f"\n⚠️  {len(validation_results) - perfect_count} file(s) still need improvement")
+        print()
 
     def sync_documentation_from_python(self, python_file: Path) -> Dict[str, bool]:
         """Sync documentation from Python file to other languages.
@@ -819,48 +977,52 @@ def main():
 
     fixer = IterativeFixer(repo_root, category)
 
-    if args.report:
-        # Just show progress report
-        print(fixer.generate_progress_report())
-    elif args.batch_mode:
-        # Batch mode: collect and present all issues at once
-        print(f"\n{'='*80}")
-        print("BATCH MODE: NON-INTERACTIVE WORKFLOW")
-        print(f"{'='*80}\n")
-
-        imperfect_files = fixer.collect_all_issues()
-        fixer.present_all_issues(imperfect_files)
-    elif args.apply_fixes:
-        # Apply fixes from fixes.json
-        fixes_file = SCRIPT_DIR / "tmp" / "fixes.json"
-        if not fixes_file.exists():
-            print(f"Error: fixes.json not found at {fixes_file}")
-            sys.exit(1)
-
-        print(f"\n{'='*80}")
-        print("APPLYING ALL FIXES FROM BATCH")
-        print(f"{'='*80}\n")
-
-        results = fixer.apply_fixes_from_json(fixes_file)
-
-        # Show final statistics
-        print(f"\n{'='*80}")
-        print("BATCH APPLICATION COMPLETE")
-        print(f"{'='*80}\n")
-        print(f"Files processed: {len(results)}")
-        print(f"Successful: {sum(1 for s in results.values() if s)}")
-        print(f"Failed: {sum(1 for s in results.values() if not s)}")
-        print()
-        print(fixer.generate_progress_report())
-    elif args.auto:
-        # Auto mode: loop until complete
-        fixer.run_auto_loop(max_iterations=args.max_iterations)
-    else:
-        # Manual mode: single iteration
-        has_more = fixer.run_iteration(auto_mode=False)
-
-        if not has_more:
+    try:
+        if args.report:
+            # Just show progress report
             print(fixer.generate_progress_report())
+        elif args.batch_mode:
+            # Batch mode: collect and present all issues at once
+            print(f"\n{'='*80}")
+            print("BATCH MODE: NON-INTERACTIVE WORKFLOW")
+            print(f"{'='*80}\n")
+
+            imperfect_files = fixer.collect_all_issues()
+            fixer.present_all_issues(imperfect_files)
+        elif args.apply_fixes:
+            # Apply fixes from fixes.json
+            fixes_file = SCRIPT_DIR / "tmp" / "fixes.json"
+            if not fixes_file.exists():
+                print(f"Error: fixes.json not found at {fixes_file}")
+                sys.exit(1)
+
+            print(f"\n{'='*80}")
+            print("APPLYING ALL FIXES FROM BATCH")
+            print(f"{'='*80}\n")
+
+            results = fixer.apply_fixes_from_json(fixes_file)
+
+            # Show final statistics
+            print(f"\n{'='*80}")
+            print("BATCH APPLICATION COMPLETE")
+            print(f"{'='*80}\n")
+            print(f"Files processed: {len(results)}")
+            print(f"Successful: {sum(1 for s in results.values() if s)}")
+            print(f"Failed: {sum(1 for s in results.values() if not s)}")
+            print()
+            print(fixer.generate_progress_report())
+        elif args.auto:
+            # Auto mode: loop until complete
+            fixer.run_auto_loop(max_iterations=args.max_iterations)
+        else:
+            # Manual mode: single iteration
+            has_more = fixer.run_iteration(auto_mode=False)
+
+            if not has_more:
+                print(fixer.generate_progress_report())
+    finally:
+        # Always stop the server when done
+        fixer.stop_server()
 
 
 if __name__ == "__main__":

@@ -33,471 +33,72 @@ sys.path.insert(0, str(SCRIPT_DIR))
 from leet_code.markdown_extraction import extract_markdown_from_code, parse_complete_problem_data
 from validators.template_validator import TemplateValidator
 from validators.extractors import extract_problem_data
+from validators.quality_validator import QualityValidator
+from validators.html_validator import HTMLValidator
+from validators.server_manager import FlaskServerManager
 from injection import inject_section_to_code
 from injection import inject_markdown_to_code, update_file_with_markdown
+import re
+from html.parser import HTMLParser
 
-# HTML rendering validation configuration
-SERVER_HOST = "127.0.0.1"
-SERVER_PORT = "9501"
-BASE_URL = f"http://{SERVER_HOST}:{SERVER_PORT}"
 
+class HTMLTextExtractor(HTMLParser):
+    """Extract text content from HTML."""
 
-class QualityScorer:
-    """Heuristic quality scoring for documentation sections."""
+    def __init__(self):
+        super().__init__()
+        self.text = []
 
-    @staticmethod
-    def score_section(section_name: str, content: str) -> Tuple[int, List[str]]:
-        """Score a section 0-100 based on heuristic quality checks.
+    def handle_data(self, data):
+        self.text.append(data.strip())
 
-        Args:
-            section_name: Name of the section
-            content: Content string of the section
+    def get_text(self):
+        return ' '.join(filter(None, self.text))
 
-        Returns:
-            Tuple of (score, list of issues)
-        """
-        if not content:
-            return 0, ["Section is empty or missing"]
 
-        issues = []
-        score = 100
+def normalize_text(text: str) -> str:
+    """Normalize text for comparison by removing extra whitespace and punctuation."""
+    # Remove markdown formatting
+    text = re.sub(r'\*\*([^*]+)\*\*', r'\1', text)  # Bold
+    text = re.sub(r'\*([^*]+)\*', r'\1', text)  # Italic
+    text = re.sub(r'`([^`]+)`', r'\1', text)  # Code
+    # Normalize whitespace
+    text = ' '.join(text.split())
+    # Remove common punctuation differences
+    text = text.replace('—', '-').replace('–', '-')
+    return text.lower().strip()
 
-        # Length checks
-        if len(content) < 20:
-            score -= 40
-            issues.append("Section is too short (< 20 chars)")
-        elif len(content) < 50:
-            score -= 20
-            issues.append("Section is quite short (< 50 chars)")
 
-        if len(content) > 2000:
-            score -= 10
-            issues.append("Section may be too verbose (> 2000 chars)")
+def text_similarity(text1: str, text2: str) -> float:
+    """Calculate similarity between two texts (0.0 to 1.0)."""
+    norm1 = normalize_text(text1)
+    norm2 = normalize_text(text2)
 
-        # Placeholder detection (simple string search)
-        # Check for placeholders that should always be flagged
-        simple_placeholders = ["TODO", "TBD", "[PLACEHOLDER]", "???", "FIXME"]
-        for placeholder in simple_placeholders:
-            if placeholder in content:
-                score -= 30
-                issues.append(f"Contains placeholder: {placeholder}")
-                break
+    if not norm1 or not norm2:
+        return 0.0
 
-        # Special handling for "..." - only flag if it's a standalone placeholder
-        # Don't flag mathematical ellipsis like "n × (n-1) × ... × 1" or output like "...Q"
-        # Flag patterns like standalone " ... " but not " × ... × "
-        if content.startswith("...") or content.endswith("...") or "\n...\n" in content:
-            score -= 30
-            issues.append("Contains placeholder: ...")
-        elif " ... " in content:
-            # Check if it's mathematical notation (has × or * nearby)
-            # Only flag if not surrounded by mathematical operators
-            pos = content.find(" ... ")
-            if pos > 0:
-                before = content[max(0, pos-5):pos]
-                after = content[pos+5:min(len(content), pos+10)]
-                # Don't flag if surrounded by mathematical operators
-                if "×" not in before and "×" not in after and "*" not in before and "*" not in after:
-                    score -= 30
-                    issues.append("Contains placeholder: ...")
+    # Simple word-based comparison
+    words1 = set(norm1.split())
+    words2 = set(norm2.split())
 
+    if not words1 or not words2:
+        return 0.0
 
-        # Section-specific checks
-        section_checks = {
-            "METADATA": QualityScorer._check_metadata,
-            "INTUITION": QualityScorer._check_intuition,
-            "APPROACH": QualityScorer._check_approach,
-            "WHY THIS WORKS": QualityScorer._check_why_works,
-            "EXAMPLE WALKTHROUGH": QualityScorer._check_example,
-            "TIME COMPLEXITY": QualityScorer._check_complexity,
-            "SPACE COMPLEXITY": QualityScorer._check_complexity,
-            "EDGE CASES": QualityScorer._check_edge_cases,
-        }
+    intersection = words1 & words2
+    union = words1 | words2
 
-        if section_name in section_checks:
-            section_score_delta, section_issues = section_checks[section_name](content)
-            score += section_score_delta
-            issues.extend(section_issues)
-
-        # Ensure score stays in 0-100 range
-        score = max(0, min(100, score))
-
-        return score, issues
-
-    @staticmethod
-    def _check_metadata(content: str) -> Tuple[int, List[str]]:
-        """Check metadata section quality."""
-        issues = []
-        score_delta = 0
-
-        required_fields = ["Techniques", "Data Structures", "Time Complexity", "Space Complexity"]
-        for field in required_fields:
-            if f"**{field}**" not in content:
-                score_delta -= 15
-                issues.append(f"Missing field: {field}")
-
-        return score_delta, issues
-
-    @staticmethod
-    def _check_intuition(content: str) -> Tuple[int, List[str]]:
-        """Check intuition section quality."""
-        issues = []
-        score_delta = 0
-
-        # Should explain the "why" not the "how"
-        if "step" in content.lower() and content.lower().count("step") > 2:
-            score_delta -= 10
-            issues.append("Intuition should explain 'why', not detailed steps")
-
-        # Should be conceptual
-        if len(content.split()) < 15:
-            score_delta -= 15
-            issues.append("Intuition explanation is too brief")
-
-        return score_delta, issues
-
-    @staticmethod
-    def _check_approach(content: str) -> Tuple[int, List[str]]:
-        """Check approach section quality."""
-        issues = []
-        score_delta = 0
-
-        # Should have some structure (steps, bullets, or paragraphs)
-        has_numbered_steps = any(f"{i}." in content or f"{i})" in content for i in range(1, 10))
-        has_bullets = content.count("- ") > 2 or content.count("* ") > 2
-        has_paragraphs = content.count("\n\n") > 1
-
-        if not (has_numbered_steps or has_bullets or has_paragraphs):
-            score_delta -= 15
-            issues.append("Approach lacks clear structure (steps, bullets, or paragraphs)")
-
-        return score_delta, issues
-
-    @staticmethod
-    def _check_why_works(content: str) -> Tuple[int, List[str]]:
-        """Check 'why this works' section quality."""
-        issues = []
-        score_delta = 0
-
-        # Should explain correctness/reasoning
-        if len(content.split()) < 20:
-            score_delta -= 15
-            issues.append("'Why This Works' explanation is too brief")
-
-        return score_delta, issues
-
-    @staticmethod
-    def _check_example(content: str) -> Tuple[int, List[str]]:
-        """Check example walkthrough quality."""
-        issues = []
-        score_delta = 0
-
-        # Should have input/output
-        if "input" not in content.lower():
-            score_delta -= 20
-            issues.append("Example walkthrough missing input")
-
-        if "output" not in content.lower() and "result" not in content.lower():
-            score_delta -= 20
-            issues.append("Example walkthrough missing output/result")
-
-        # Should have some explanation steps
-        if len(content.split("\n")) < 3:
-            score_delta -= 10
-            issues.append("Example walkthrough lacks detailed steps")
-
-        return score_delta, issues
-
-    @staticmethod
-    def _check_complexity(content: str) -> Tuple[int, List[str]]:
-        """Check complexity section quality."""
-        issues = []
-        score_delta = 0
-
-        # Should have O() notation
-        if "O(" not in content:
-            score_delta -= 30
-            issues.append("Missing Big-O notation")
-
-        # Should have explanation
-        if len(content.split()) < 5:
-            score_delta -= 15
-            issues.append("Complexity explanation is too brief")
-
-        return score_delta, issues
-
-    @staticmethod
-    def _check_edge_cases(content: str) -> Tuple[int, List[str]]:
-        """Check edge cases section quality."""
-        issues = []
-        score_delta = 0
-
-        # Should list multiple cases
-        has_bullets = content.count("- ") > 1 or content.count("* ") > 1
-        has_numbers = any(f"{i}." in content for i in range(1, 5))
-
-        if not (has_bullets or has_numbers):
-            score_delta -= 10
-            issues.append("Edge cases should be listed (bullets or numbered)")
-
-        return score_delta, issues
-
-
-class HTMLRenderingValidator:
-    """Validates documentation by comparing rendered HTML pages.
-
-    Replicates functionality of standalone scripts:
-    - .claude_functions/html_validate/download_complete_pages.py
-    - .claude_functions/html_validate/compare_html.py
-    """
-
-    @staticmethod
-    def check_server_running() -> bool:
-        """Check if the Flask server is running."""
-        try:
-            with urllib.request.urlopen(f"{BASE_URL}/", timeout=5) as response:
-                return response.status == 200
-        except Exception:
-            return False
-
-    @staticmethod
-    def fetch_css() -> str:
-        """Fetch the main CSS file from the server."""
-        try:
-            with urllib.request.urlopen(f"{BASE_URL}/static/css/main.css", timeout=10) as response:
-                return response.read().decode('utf-8')
-        except Exception as e:
-            print(f"Warning: Could not fetch main.css: {e}")
-            return ""
-
-    @staticmethod
-    def fetch_and_inline_html(category: str, filename: str, main_css: str) -> Optional[str]:
-        """Fetch rendered HTML and inline the CSS (matching download_complete_pages.py)."""
-        url = f"{BASE_URL}/solution/{category}/{filename}"
-        try:
-            with urllib.request.urlopen(url, timeout=10) as response:
-                html_content = response.read().decode('utf-8')
-
-            # Inline CSS if available (same as standalone script)
-            if main_css:
-                css_tag = f'<style>\n{main_css}\n</style>'
-                html_content = re.sub(
-                    r'<link rel="stylesheet" href="/static/css/main\.css">',
-                    css_tag,
-                    html_content
-                )
-
-            return html_content
-        except Exception as e:
-            print(f"Error fetching {url}: {e}")
-            return None
-
-    @staticmethod
-    def normalize_html(html_content: str) -> str:
-        """Normalize HTML for comparison by removing dynamic content (matching compare_html.py)."""
-        # Remove debugger PIN and timestamps that change between runs
-        html_content = re.sub(r'Debugger PIN: \d+-\d+-\d+', 'Debugger PIN: XXX-XXX-XXX', html_content)
-        return html_content
-
-    @staticmethod
-    def compare_files(html1: str, html2: str, label1: str = "reference", label2: str = "current") -> Tuple[bool, List[str]]:
-        """Compare two HTML strings and return differences (matching compare_html.py)."""
-        html1 = HTMLRenderingValidator.normalize_html(html1)
-        html2 = HTMLRenderingValidator.normalize_html(html2)
-
-        if html1 == html2:
-            return True, []
-
-        # Generate unified diff (same as standalone script)
-        lines1 = html1.splitlines(keepends=True)
-        lines2 = html2.splitlines(keepends=True)
-
-        diff = list(unified_diff(
-            lines1, lines2,
-            fromfile=label1,
-            tofile=label2,
-            lineterm=''
-        ))
-
-        return False, diff[:100]  # Limit to first 100 lines of diff
-
-    @staticmethod
-    def download_and_save_html(category: str, filename: str, language: str,
-                               output_dir: Path, main_css: str) -> Tuple[bool, str]:
-        """Download and save rendered HTML with inlined CSS (matching download_complete_pages.py).
-
-        Args:
-            category: Problem category (e.g., 'arrays-hashing')
-            filename: Problem filename without extension (e.g., '0001-two-sum')
-            language: Language (e.g., 'python', 'javascript')
-            output_dir: Base output directory
-            main_css: CSS content to inline
-
-        Returns:
-            Tuple of (success: bool, message: str)
-        """
-        html_content = HTMLRenderingValidator.fetch_and_inline_html(category, filename, main_css)
-        if not html_content:
-            return False, f"Error fetching {category}/{language}/{filename}"
-
-        # Save to file (same structure as standalone script)
-        output_path = output_dir / category / language / f"{filename}.html"
-        output_path.parent.mkdir(parents=True, exist_ok=True)
-
-        try:
-            output_path.write_text(html_content)
-            return True, f"Downloaded: {category}/{language}/{filename}"
-        except Exception as e:
-            return False, f"Error saving {output_path}: {e}"
-
-    @staticmethod
-    def download_category_html(category: str, output_dir: Path, main_css: str = None) -> Dict:
-        """Download all HTML for a category (replicates download_complete_pages.py functionality).
-
-        Args:
-            category: Problem category to download
-            output_dir: Output directory for HTML files
-            main_css: CSS content to inline (fetched if None)
-
-        Returns:
-            Dict with download statistics
-        """
-        # Fetch CSS if not provided
-        if main_css is None:
-            print("Fetching CSS...")
-            main_css = HTMLRenderingValidator.fetch_css()
-            if main_css:
-                print(f"✓ Fetched CSS ({len(main_css)} bytes)")
-
-        # Discover solutions in category
-        solutions_dir = REPO_ROOT / "solutions" / category
-        if not solutions_dir.exists():
-            return {
-                'success': 0,
-                'failure': 0,
-                'errors': [f"Category not found: {category}"]
-            }
-
-        solutions = []
-        for lang_path in sorted(solutions_dir.iterdir()):
-            if not lang_path.is_dir():
-                continue
-            language = lang_path.name
-            for solution_file in sorted(lang_path.iterdir()):
-                if solution_file.is_file() and solution_file.suffix in ['.py', '.js', '.ts', '.cpp', '.go', '.java']:
-                    filename = solution_file.stem
-                    solutions.append((category, filename, language))
-
-        # Download all solutions
-        success_count = 0
-        failure_count = 0
-        errors = []
-
-        for i, (cat, fname, lang) in enumerate(solutions, 1):
-            success, message = HTMLRenderingValidator.download_and_save_html(
-                cat, fname, lang, output_dir, main_css
-            )
-            if success:
-                success_count += 1
-            else:
-                failure_count += 1
-                errors.append(message)
-
-            time.sleep(0.05)  # Same delay as standalone script
-
-        return {
-            'total': len(solutions),
-            'success': success_count,
-            'failure': failure_count,
-            'errors': errors
-        }
-
-    @staticmethod
-    def compare_html_directories(dir1: Path, dir2: Path) -> Dict:
-        """Compare all HTML files in two directories (replicates compare_html.py functionality).
-
-        Args:
-            dir1: Reference HTML directory (e.g., from main branch)
-            dir2: Current HTML directory (e.g., from feature branch)
-
-        Returns:
-            Dict with comparison results
-        """
-        if not dir1.exists() or not dir2.exists():
-            return {
-                'error': 'One or both directories do not exist',
-                'identical': 0,
-                'different': 0,
-                'missing': 0
-            }
-
-        # Find all HTML files in dir1
-        html_files1 = sorted(dir1.rglob("*.html"))
-
-        identical_count = 0
-        different_count = 0
-        missing_count = 0
-        differences = []
-
-        for file1 in html_files1:
-            # Get relative path
-            rel_path = file1.relative_to(dir1)
-            file2 = dir2 / rel_path
-
-            if not file2.exists():
-                missing_count += 1
-                differences.append({
-                    'file': str(rel_path),
-                    'status': 'MISSING',
-                    'diff': []
-                })
-                continue
-
-            # Read and compare files
-            try:
-                html1 = file1.read_text()
-                html2 = file2.read_text()
-
-                identical, diff = HTMLRenderingValidator.compare_files(
-                    html1, html2,
-                    str(file1.relative_to(dir1.parent)),
-                    str(file2.relative_to(dir2.parent))
-                )
-
-                if identical:
-                    identical_count += 1
-                else:
-                    different_count += 1
-                    differences.append({
-                        'file': str(rel_path),
-                        'status': 'DIFFERENT',
-                        'diff': diff
-                    })
-            except Exception as e:
-                different_count += 1
-                differences.append({
-                    'file': str(rel_path),
-                    'status': 'ERROR',
-                    'diff': [f"Error comparing: {e}"]
-                })
-
-        return {
-            'total': len(html_files1),
-            'identical': identical_count,
-            'different': different_count,
-            'missing': missing_count,
-            'differences': differences
-        }
+    return len(intersection) / len(union) if union else 0.0
 
 
 class ClaudeAssistedFixer:
     """Main fixer class that orchestrates the workflow."""
 
-    def __init__(self, repo_root: Path, category: str | None = None):
+    def __init__(self, repo_root: Path, category: str | None = None, base_url: str | None = None):
         self.repo_root = repo_root
         self.template_validator = TemplateValidator(repo_root)
         self.solutions_dir = repo_root / "solutions"
         self.category = category  # Category scope for safety
+        self.base_url = base_url  # Server base URL for HTML validation
 
     def _format_metadata(self, problem_data) -> str:
         """Format ProblemData metadata fields into a string for validation."""
@@ -598,13 +199,88 @@ class ClaudeAssistedFixer:
         }
 
         for name, section_content in section_mapping.items():
-            score, issues = QualityScorer.score_section(name, section_content)
+            score, issues = QualityValidator.score_section(name, section_content)
             section_scores[name] = score
             section_issues[name] = issues
 
-        # Calculate overall score
+        # HTML Rendering Validation
+        html_issues = []
+        html_score = 100  # Default: perfect score
+        html_validation_skipped = False
+
+        if self.base_url is not None:
+            # Extract category and filename from file path
+            # Path format: .../solutions/{category}/{language}/{filename}
+            try:
+                parts = file_path.parts
+                solutions_idx = parts.index('solutions')
+                category = parts[solutions_idx + 1]
+                filename = file_path.stem  # Without extension
+
+                # Fetch rendered HTML using provided base URL
+                main_css = self._fetch_css()
+                html_content = self._fetch_and_inline_html(category, filename, main_css)
+
+                if html_content:
+                    # Check for rendering issues
+                    validation_checks = 0
+                    passed_checks = 0
+
+                    validation_checks += 1
+                    if '<details>' in html_content:
+                        passed_checks += 1
+                    else:
+                        html_issues.append("[HTML] Missing <details> tag in rendered output")
+
+                    validation_checks += 1
+                    if '<summary>' in html_content:
+                        passed_checks += 1
+                    else:
+                        html_issues.append("[HTML] Missing <summary> tag in rendered output")
+
+                    validation_checks += 1
+                    if 'class="solution-explanation"' in html_content and '<details>' in html_content:
+                        passed_checks += 1
+                    else:
+                        html_issues.append("[HTML] Missing solution explanation section or details elements")
+
+                    # Check for unclosed tags or malformed HTML
+                    validation_checks += 1
+                    if html_content.count('<details>') == html_content.count('</details>'):
+                        passed_checks += 1
+                    else:
+                        html_issues.append("[HTML] Mismatched <details> tags in rendered output")
+
+                    # Compare rendered content with source markdown
+                    content_checks = self._validate_content_match(html_content, section_mapping)
+                    validation_checks += len(content_checks['checks'])
+                    passed_checks += content_checks['passed']
+                    html_issues.extend(content_checks['issues'])
+
+                    # Calculate HTML score based on passed checks
+                    html_score = (passed_checks / validation_checks * 100) if validation_checks > 0 else 0
+                else:
+                    html_issues.append("[HTML] Failed to fetch rendered HTML from server")
+                    html_score = 0
+            except (ValueError, IndexError) as e:
+                html_issues.append(f"[HTML] Could not validate rendering: {e}")
+                html_score = 0
+        else:
+            # This should never happen if server manager is used properly
+            html_issues.append("[HTML] No base URL provided - server not initialized")
+            html_validation_skipped = True
+            html_score = 0
+
+        # Calculate overall score including HTML validation
+        # HTML validation counts as one component alongside section scores
         if section_scores:
-            overall_score = sum(section_scores.values()) / len(section_scores)
+            section_avg = sum(section_scores.values()) / len(section_scores)
+            if html_validation_skipped:
+                # If HTML validation was skipped, only use section scores
+                overall_score = section_avg
+            else:
+                # Include HTML score in overall calculation (weighted equally with sections)
+                overall_score = (section_avg + html_score) / 2
         else:
             overall_score = 0
 
@@ -612,7 +288,10 @@ class ClaudeAssistedFixer:
             "file_path": str(file_path),
             "language": language,
             "overall_score": round(overall_score, 1),
+            "html_score": round(html_score, 1),
+            "html_validation_skipped": html_validation_skipped,
             "template_issues": template_issues,
+            "html_issues": html_issues,
             "sections": {
                 name: {
                     "score": section_scores.get(name, 0),
@@ -623,6 +302,121 @@ class ClaudeAssistedFixer:
                 for name, content in section_mapping.items()
             },
         }
+
+    def _fetch_css(self) -> str:
+        """Fetch the main CSS file from the server.
+
+        Returns:
+            CSS content as string
+        """
+        if self.base_url is None:
+            return ""
+
+        try:
+            with urllib.request.urlopen(f"{self.base_url}/static/css/main.css", timeout=10) as response:
+                return response.read().decode('utf-8')
+        except Exception as e:
+            print(f"Warning: Could not fetch main.css: {e}")
+            return ""
+
+    def _validate_content_match(self, html_content: str, section_mapping: dict) -> dict:
+        """Validate that rendered HTML content matches source markdown.
+
+        Args:
+            html_content: Rendered HTML from server
+            section_mapping: Dict of section names to markdown content
+
+        Returns:
+            Dict with 'checks', 'passed', and 'issues' keys
+        """
+        checks_run = 0
+        checks_passed = 0
+        issues = []
+
+        # Sections to validate (map template names to markdown section names)
+        sections_to_check = {
+            'Intuition': 'INTUITION',
+            'Approach': 'APPROACH',
+            'Why This Works': 'WHY THIS WORKS',
+            'Example Walkthrough': 'EXAMPLE WALKTHROUGH',
+            'Edge Cases': 'EDGE CASES',
+        }
+
+        for html_section_name, markdown_section_name in sections_to_check.items():
+            # Get source markdown content
+            markdown_content = section_mapping.get(markdown_section_name, '')
+            if not markdown_content:
+                continue  # Skip if section doesn't exist in source
+
+            # Extract HTML content for this section
+            # Look for <summary>Section Name</summary>...<div class="explanation-content">...</div>
+            pattern = rf'<summary>{re.escape(html_section_name)}</summary>.*?<div class="explanation-content">(.*?)</div>'
+            match = re.search(pattern, html_content, re.DOTALL | re.IGNORECASE)
+
+            if not match:
+                continue  # Skip if section not found in HTML
+
+            html_section_content = match.group(1)
+
+            # Extract text from HTML
+            extractor = HTMLTextExtractor()
+            try:
+                extractor.feed(html_section_content)
+                html_text = extractor.get_text()
+            except Exception:
+                continue  # Skip if HTML parsing fails
+
+            # Compare similarity
+            similarity = text_similarity(markdown_content, html_text)
+            checks_run += 1
+
+            # Threshold: 70% similarity required
+            if similarity >= 0.7:
+                checks_passed += 1
+            else:
+                issues.append(
+                    f"[HTML] {html_section_name} content mismatch "
+                    f"(similarity: {similarity:.0%}, expected: ≥70%)"
+                )
+
+        return {
+            'checks': range(checks_run),
+            'passed': checks_passed,
+            'issues': issues
+        }
+
+    def _fetch_and_inline_html(self, category: str, filename: str, main_css: str) -> Optional[str]:
+        """Fetch rendered HTML and inline the CSS.
+
+        Args:
+            category: Problem category (e.g., 'arrays-hashing')
+            filename: Problem filename without extension (e.g., '0001-two-sum')
+            main_css: CSS content to inline
+
+        Returns:
+            HTML content with inlined CSS, or None if fetch failed
+        """
+        if self.base_url is None:
+            return None
+
+        url = f"{self.base_url}/solution/{category}/{filename}"
+        try:
+            with urllib.request.urlopen(url, timeout=10) as response:
+                html_content = response.read().decode('utf-8')
+
+            # Inline CSS if available
+            if main_css:
+                css_tag = f'<style>\n{main_css}\n</style>'
+                html_content = re.sub(
+                    r'<link rel="stylesheet" href="/static/css/main\.css">',
+                    css_tag,
+                    html_content
+                )
+
+            return html_content
+        except Exception as e:
+            print(f"Error fetching {url}: {e}")
+            return None
 
     def find_problematic_files(self, quality_threshold: int = 80, max_files: int = 10) -> List[Dict]:
         """Find files with quality issues.

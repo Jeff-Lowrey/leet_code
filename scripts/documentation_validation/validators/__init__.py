@@ -21,8 +21,16 @@ from .extractors import extract_problem_data
 # Template validation
 from .template_validator import TemplateValidator
 
+# Quality validation
+from .quality_validator import QualityValidator
+
+# HTML validation
+from .html_validator import HTMLValidator
+
 __all__ = [
     'SolutionMetadata',
     'extract_problem_data',
     'TemplateValidator',
+    'QualityValidator',
+    'HTMLValidator',
 ]
