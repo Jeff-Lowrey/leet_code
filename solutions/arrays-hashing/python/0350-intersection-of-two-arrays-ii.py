@@ -1,4 +1,5 @@
-"""# 0350. Intersection of Two Arrays II
+"""
+# 0350. Intersection of Two Arrays II
 
 # Difficulty: Easy
 
@@ -63,23 +64,10 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-**O(n + m)** where n = len(nums1), m = len(nums2)
-
-- **Build frequency map**: O(n) to count all elements in nums1 using Counter (iterates through entire first array)
-- **Find intersections**: O(m) to iterate through all elements in nums2
-- **Hash map lookups**: O(1) average case for each lookup and decrement operation in the frequency map
-- **Two separate passes**: First pass processes nums1, second pass processes nums2, giving O(n) + O(m)
-- **Overall**: O(n + m) linear time proportional to both input array sizes
+O(n + m) where n = len(nums1), m = len(nums2)
 
 ### SPACE COMPLEXITY:
-**O(min(n, m))** where n = len(nums1), m = len(nums2)
-
-- **Optimized approach**: Build frequency map for the smaller array to minimize space usage
-- **Frequency map**: Stores at most min(n, m) distinct elements if we choose the smaller array
-- **Result array**: O(min(n, m)) worst case when all elements of smaller array appear in larger array
-- **Best practice**: Always create frequency map from the smaller array for better space efficiency
-- **Alternative**: If we don't optimize, space would be O(n) by default (frequency map of nums1)
-- **Overall**: O(min(n, m)) space-efficient solution
+O(min(n, m)) - Store frequencies of smaller array
 
 ### EDGE CASES:
 - **Empty arrays**: Return empty array
@@ -87,7 +75,8 @@ Output:
 - **All elements intersect**: Return all with proper frequencies
 - **One array is subset**: Return the subset
 
-</details>"""
+</details>
+"""
 
 from typing import List
 from collections import Counter

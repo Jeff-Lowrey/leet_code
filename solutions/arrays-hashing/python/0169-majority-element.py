@@ -1,4 +1,5 @@
-"""# Difficulty: Easy
+"""
+# Difficulty: Easy
 
 # 0169. Majority Element
 
@@ -69,24 +70,12 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-**O(n)** where n is the length of the input array
-
-- **Single pass**: Boyer-Moore voting algorithm iterates through the array exactly once
-- **Constant-time operations**: Each element processed with O(1) operations (count increment/decrement, candidate update)
-- **No sorting**: Avoids O(n log n) sorting approach by using voting mechanism
-- **No counting**: Doesn't need O(n) hash map to count all frequencies
-- **Guaranteed majority**: Since majority element exists, no verification pass needed
-- **Overall**: O(n) optimal linear time for this problem using Boyer-Moore algorithm
+O(n)
+Single pass through the array
 
 ### SPACE COMPLEXITY:
-**O(1)** constant extra space
-
-- **Two variables only**: Maintains only candidate (current majority candidate) and count (net vote count)
-- **No auxiliary structures**: No hash maps, arrays, or other data structures needed
-- **In-place algorithm**: Processes array without creating copies or storing intermediate results
-- **Optimal space**: Boyer-Moore achieves O(1) space vs. O(n) for hash map counting approach
-- **Space-time tradeoff**: Sacrifices nothing - both O(n) time and O(1) space are optimal
-- **Overall**: O(1) constant space, using only two integer variables regardless of input size
+O(1)
+Only using constant extra space
 
 ### EDGE CASES:
 - **Single element**: Return that element (it's the majority)
@@ -95,7 +84,8 @@ Output:
 - **Multiple candidates**: Boyer-Moore finds the true majority
 - **Guaranteed majority**: Problem guarantees one exists
 
-</details>"""
+</details>
+"""
 
 from collections import Counter
 import random

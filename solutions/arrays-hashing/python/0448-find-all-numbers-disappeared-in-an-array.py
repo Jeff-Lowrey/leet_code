@@ -1,4 +1,5 @@
-"""# Difficulty: Medium
+"""
+# Difficulty: Medium
 
 # 0448. Find All Numbers Disappeared In An Array
 
@@ -70,31 +71,22 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-**O(n)** where n is the length of the input array
+O(n)
+- Single pass through input
 
-- **First pass (marking)**: O(n) to iterate through all elements and negate values at corresponding indices
-- **Absolute value operations**: O(1) for each abs() call when calculating index from current value
-- **Negation operations**: O(1) for each negation to mark that a number is present
-- **Second pass (finding missing)**: O(n) to check all indices for positive values
-- **Two sequential passes**: First pass marks present numbers, second pass identifies missing ones
-- **Overall**: O(n) + O(n) = O(n) linear time with two passes through the array
 
 ### SPACE COMPLEXITY:
-**O(1)** constant extra space (excluding output array)
+O(1)
+- Constant extra space
 
-- **In-place marking**: Uses the input array itself as a hash map by negating values at indices
-- **No auxiliary structures**: No hash maps, sets, or additional arrays needed for tracking
-- **Modification technique**: Negates existing values to encode "seen" information without extra space
-- **Result array**: O(n) worst case if all numbers missing, but this is output space not counted as extra
-- **Only simple variables**: A few index variables and loop counters use O(1) space
-- **Overall**: O(1) constant extra space, achieving optimal space complexity through clever in-place marking technique
 
 ### EDGE CASES:
 - Empty input handling
 - Single element cases
 - Large input considerations
 
-</details>"""
+</details>
+"""
 
 from typing import Any, List, Optional, Dict, Tuple
 

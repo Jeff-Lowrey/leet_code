@@ -1,4 +1,5 @@
-"""# Difficulty: Medium
+"""
+# Difficulty: Medium
 
 # 0238. Product Of Array Except Self
 
@@ -79,31 +80,22 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-**O(n)** where n is the length of the input array
+O(n)
+- Single pass through input
 
-- **First pass (left products)**: O(n) to iterate left-to-right, calculating cumulative products and storing in result
-- **Second pass (right products)**: O(n) to iterate right-to-left, multiplying right products into existing result values
-- **Two sequential passes**: First pass handles left products, second pass handles right products and combines them
-- **No nested loops**: Each pass is independent and linear
-- **No division**: Achieves O(n) time without using division operation as required
-- **Overall**: O(n) + O(n) = O(n) linear time with two passes through the array
 
 ### SPACE COMPLEXITY:
-**O(1)** extra space (excluding the output array)
+O(1)
+- Constant extra space
 
-- **Output array**: O(n) space for the result array (not counted as extra space per problem definition)
-- **Variables only**: O(1) for left_product and right_product tracking variables
-- **In-place computation**: Second pass multiplies right products directly into result array
-- **No auxiliary structures**: No hash maps, sets, or additional arrays needed beyond the output
-- **Space-optimized**: Uses output array to store intermediate left products, avoiding extra O(n) space
-- **Overall**: O(1) constant extra space, demonstrating optimal space efficiency for this problem
 
 ### EDGE CASES:
 - Empty input handling
 - Single element cases
 - Large input considerations
 
-</details>"""
+</details>
+"""
 
 from typing import Any, List
 

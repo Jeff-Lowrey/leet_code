@@ -1,4 +1,5 @@
-"""# 0217. Contains Duplicate
+"""
+# 0217. Contains Duplicate
 
 # Difficulty: Easy
 
@@ -63,24 +64,10 @@ Alternative (Early Termination):
 - Check 1: found in seen → return True immediately
 
 ### TIME COMPLEXITY:
-**O(n)** where n is the length of the input array
-
-- **Set conversion approach**: O(n) to convert array to set (iterates through all elements)
-- **Length comparison**: O(1) to compare len(nums) with len(set(nums))
-- **Early termination approach**: O(n) worst case to iterate through array checking each element
-- **Hash set operations**: O(1) average case for each set membership check and insertion
-- **Best case**: O(1) if duplicate found at start with early termination approach
-- **Overall**: O(n) linear time in worst case when all elements are unique
+O(n) - Single pass with O(1) hash lookups
 
 ### SPACE COMPLEXITY:
-**O(n)** where n is the length of the input array
-
-- **Set storage**: O(n) worst case when all elements are unique (set contains n distinct elements)
-- **Early termination optimization**: Still O(n) worst case, but average case may be better if duplicates found early
-- **Set conversion**: Creates a complete set copy of the array in the simple len() comparison approach
-- **Hash set overhead**: Set requires additional space for hash table structure beyond just storing values
-- **Best case space**: O(1) if duplicate found immediately (early termination approach)
-- **Overall**: O(n) space complexity in worst case, trading space for O(1) lookup time efficiency
+O(n) - Additional set storage
 
 ### EDGE CASES:
 - **Empty array**: Return False (no duplicates possible)
@@ -89,7 +76,8 @@ Alternative (Early Termination):
 - **All elements unique**: Set and array lengths match, return False
 - **Duplicate at start**: Early termination finds it quickly
 
-</details>"""
+</details>
+"""
 
 from typing import Any
 

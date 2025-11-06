@@ -1,4 +1,5 @@
-"""# Difficulty: Medium
+"""
+# Difficulty: Medium
 
 # 0347. Top K Frequent Elements
 
@@ -74,31 +75,22 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-**O(n)** where n is the length of the input array (using bucket sort approach)
+O(n)
+- Single pass through input
 
-- **Frequency counting**: O(n) to build the frequency map using Counter
-- **Bucket sort approach**: O(n) to create buckets array and O(n) to populate buckets by frequency
-- **Result collection**: O(n) worst case to collect k elements from buckets (we scan from highest frequency down)
-- **Alternative heap approach**: O(n log k) - build frequency map O(n), then maintain heap of size k
-- **Bucket sort advantage**: Achieves true O(n) time by using array indices as frequencies (frequencies can't exceed n)
-- **Overall**: O(n) + O(n) + O(n) = O(n) linear time with bucket sort
 
 ### SPACE COMPLEXITY:
-**O(n)** where n is the length of the input array
+O(1)
+- Constant extra space
 
-- **Frequency map**: O(n) in worst case when all elements are unique (stores up to n key-value pairs)
-- **Bucket array**: O(n+1) to create buckets indexed by frequency (frequencies range from 0 to n)
-- **Each bucket**: O(n) total across all buckets since each element appears in exactly one bucket
-- **Heap approach alternative**: O(n) for frequency map + O(k) for heap = O(n) since k ≤ n
-- **Result array**: O(k) for storing k most frequent elements
-- **Overall**: O(n) dominated by frequency map and bucket storage
 
 ### EDGE CASES:
 - Empty input handling
 - Single element cases
 - Large input considerations
 
-</details>"""
+</details>
+"""
 
 import heapq
 from collections import Counter

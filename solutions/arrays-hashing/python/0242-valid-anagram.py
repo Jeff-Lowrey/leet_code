@@ -1,4 +1,5 @@
-"""# 0242. Valid Anagram
+"""
+# 0242. Valid Anagram
 
 # Difficulty: Easy
 
@@ -60,31 +61,20 @@ True
 ```
 
 ### TIME COMPLEXITY:
-**O(n)** where n is the length of the strings
+O(n)
+- Single pass through input
 
-- **Counter construction**: O(n) to build Counter(s) by iterating through first string
-- **Second Counter**: O(n) to build Counter(t) by iterating through second string
-- **Counter comparison**: O(1) or O(k) where k is number of distinct characters (at most 26 for lowercase English letters)
-- **Hash map operations**: O(1) average case for each character counting operation
-- **Early termination**: Length check is O(1) and can short-circuit for different-length strings
-- **Overall**: O(n) + O(n) + O(1) = O(n) linear time in the length of the input strings
 
 ### SPACE COMPLEXITY:
-**O(1)** constant space (considering only lowercase English letters)
-
-- **Counter objects**: O(k) where k is the number of distinct characters in the strings
-- **Lowercase English constraint**: At most 26 distinct characters possible, so k ≤ 26
-- **Bounded by alphabet**: Since alphabet size is fixed and small (26 characters), this is considered O(1) constant space
-- **Two Counters**: Each stores at most 26 key-value pairs, total 52 entries maximum
-- **Independent of input size**: Space doesn't grow with string length n, only with alphabet size (constant)
-- **Overall**: O(1) constant space because the space is bounded by the fixed alphabet size, not input length
+O(1) - at most 26 lowercase letters
 
 ### EDGE CASES:
 - Empty strings → True (both empty)
 - Different lengths → False immediately
 - Single character → direct comparison
 
-</details>"""
+</details>
+"""
 
 from collections import Counter
 from typing import Any

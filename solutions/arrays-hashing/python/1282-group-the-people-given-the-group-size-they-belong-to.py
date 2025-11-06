@@ -1,4 +1,5 @@
-"""# 1282. Group the People Given the Group Size They Belong To
+"""
+# 1282. Group the People Given the Group Size They Belong To
 
 # Difficulty: Medium
 
@@ -77,24 +78,10 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-**O(n)** where n is the number of people in the input array
-
-- **Single pass**: Iterate through all n people exactly once
-- **Hash map operations**: O(1) average case for each insert and lookup operation in the groups map
-- **Group completion checks**: O(1) to check if a group has reached its target size
-- **Result building**: O(1) amortized to append completed groups to result (each person added once)
-- **No sorting or complex operations**: Greedy approach processes each person with constant-time operations
-- **Overall**: O(n) × O(1) = O(n) linear time in the number of people
+O(n) - Single pass through input array
 
 ### SPACE COMPLEXITY:
-**O(n)** where n is the number of people in the input array
-
-- **Groups hash map**: O(n) to store temporary groups being formed (all people stored before groups complete)
-- **In-progress groups**: At any time, stores people who haven't been added to result yet
-- **Result list**: O(n) to store all people in their final groups
-- **Hash map keys**: O(k) where k is number of distinct group sizes, but k ≤ n so absorbed into O(n)
-- **No additional structures**: Only the groups map and result list needed
-- **Overall**: O(n) space to store all people in various data structures throughout execution
+O(n) - Store all people in groups hash map
 
 ### EDGE CASES:
 - **All same group size**: Create multiple groups of that size
@@ -102,7 +89,8 @@ Output:
 - **Single person**: Return [[0]]
 - **Multiple valid solutions**: Any valid grouping is acceptable
 
-</details>"""
+</details>
+"""
 
 from typing import List
 from collections import defaultdict
