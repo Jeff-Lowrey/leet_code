@@ -188,6 +188,13 @@ class IterativeFixer:
                     print(f"  - {issue}")
                 print()
 
+            # Show HTML validation issues
+            if analysis.get("html_issues"):
+                print("HTML VALIDATION ISSUES:")
+                for issue in analysis["html_issues"]:
+                    print(f"  - {issue}")
+                print()
+
             # Show problematic sections (< 100% score)
             problematic_sections = [
                 (name, data)
@@ -710,6 +717,13 @@ class IterativeFixer:
             if analysis["template_issues"]:
                 print("TEMPLATE ISSUES:")
                 for issue in analysis["template_issues"]:
+                    print(f"  - {issue}")
+                print()
+
+            # Show HTML validation issues
+            if analysis.get("html_issues"):
+                print("HTML VALIDATION ISSUES:")
+                for issue in analysis["html_issues"]:
                     print(f"  - {issue}")
                 print()
 

@@ -57,37 +57,59 @@ class HTMLTextExtractor(HTMLParser):
 
 
 def normalize_text(text: str) -> str:
-    """Normalize text for comparison by removing extra whitespace and punctuation."""
-    # Remove markdown formatting
-    text = re.sub(r'\*\*([^*]+)\*\*', r'\1', text)  # Bold
-    text = re.sub(r'\*([^*]+)\*', r'\1', text)  # Italic
-    text = re.sub(r'`([^`]+)`', r'\1', text)  # Code
-    # Normalize whitespace
+    """Normalize text for comparison by removing markdown formatting and extra whitespace."""
+    # Remove markdown code blocks - just remove the backtick delimiters
+    text = text.replace('```', '')
+
+    # Remove markdown formatting characters
+    text = text.replace('**', '')  # Bold
+    text = text.replace('*', '')   # Italic/emphasis
+    text = text.replace('`', '')   # Inline code
+
+    # Remove common list markers and bullets
+    text = text.replace('- ', ' ')
+    text = text.replace('+ ', ' ')
+
+    # Normalize whitespace first - collapse all whitespace to single spaces
     text = ' '.join(text.split())
+
+    # Remove numbered list markers (1. 2. 3. etc.)
+    # After whitespace normalization, they appear as " 1. " or at the start as "1. "
+    words = text.split()
+    filtered_words = []
+    i = 0
+    while i < len(words):
+        word = words[i]
+        # Check if word looks like a numbered list marker (digit followed by period)
+        if len(word) >= 2 and word[-1] == '.' and word[:-1].isdigit():
+            # Skip this word (it's a list marker like "1." or "2.")
+            i += 1
+            continue
+        filtered_words.append(word)
+        i += 1
+
+    text = ' '.join(filtered_words)
+
     # Remove common punctuation differences
-    text = text.replace('—', '-').replace('–', '-')
+    text = text.replace('—', '-')
+    text = text.replace('–', '-')
+
+    # Normalize punctuation spacing - remove spaces before punctuation
+    text = text.replace(' .', '.')
+    text = text.replace(' ,', ',')
+    text = text.replace(' :', ':')
+    text = text.replace(' ;', ';')
+    text = text.replace(' !', '!')
+    text = text.replace(' ?', '?')
+
     return text.lower().strip()
 
 
-def text_similarity(text1: str, text2: str) -> float:
-    """Calculate similarity between two texts (0.0 to 1.0)."""
+def text_matches(text1: str, text2: str) -> bool:
+    """Check if two texts match after normalization."""
     norm1 = normalize_text(text1)
     norm2 = normalize_text(text2)
-
-    if not norm1 or not norm2:
-        return 0.0
-
-    # Simple word-based comparison
-    words1 = set(norm1.split())
-    words2 = set(norm2.split())
-
-    if not words1 or not words2:
-        return 0.0
-
-    intersection = words1 & words2
-    union = words1 | words2
-
-    return len(intersection) / len(union) if union else 0.0
+    return norm1 == norm2
 
 
 class ClaudeAssistedFixer:
@@ -366,18 +388,40 @@ class ClaudeAssistedFixer:
             except Exception:
                 continue  # Skip if HTML parsing fails
 
-            # Compare similarity
-            similarity = text_similarity(markdown_content, html_text)
+            # Compare plain text after normalization
+            matches = text_matches(markdown_content, html_text)
             checks_run += 1
 
-            # Threshold: 70% similarity required
-            if similarity >= 0.7:
+            if matches:
                 checks_passed += 1
             else:
-                issues.append(
-                    f"[HTML] {html_section_name} content mismatch "
-                    f"(similarity: {similarity:.0%}, expected: ≥70%)"
-                )
+                # Find where the texts differ
+                md_norm = normalize_text(markdown_content)
+                html_norm = normalize_text(html_text)
+
+                # Find first difference
+                min_len = min(len(md_norm), len(html_norm))
+                first_diff_pos = None
+                for i in range(min_len):
+                    if md_norm[i] != html_norm[i]:
+                        first_diff_pos = i
+                        break
+
+                if first_diff_pos is None and len(md_norm) != len(html_norm):
+                    first_diff_pos = min_len
+
+                if first_diff_pos is not None:
+                    start = max(0, first_diff_pos - 50)
+                    end = min(len(md_norm), first_diff_pos + 50)
+                    md_context = md_norm[start:end]
+                    html_context = html_norm[start:min(len(html_norm), first_diff_pos + 50)]
+                    issues.append(
+                        f"[HTML] {html_section_name} content mismatch at position {first_diff_pos}\n"
+                        f"  Source: ...{md_context}...\n"
+                        f"  Rendered: ...{html_context}..."
+                    )
+                else:
+                    issues.append(f"[HTML] {html_section_name} content mismatch (lengths: {len(md_norm)} vs {len(html_norm)})")
 
         return {
             'checks': range(checks_run),
@@ -462,6 +506,13 @@ class ClaudeAssistedFixer:
         if analysis["template_issues"]:
             output.append("TEMPLATE ISSUES:")
             for issue in analysis["template_issues"]:
+                output.append(f"  - {issue}")
+            output.append("")
+
+        # HTML validation issues
+        if analysis["html_issues"]:
+            output.append("HTML VALIDATION ISSUES:")
+            for issue in analysis["html_issues"]:
                 output.append(f"  - {issue}")
             output.append("")
 
