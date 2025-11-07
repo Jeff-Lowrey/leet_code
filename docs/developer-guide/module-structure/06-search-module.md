@@ -4,6 +4,13 @@
 
 ---
 
+## Table of Contents
+
+- [Overview](#overview)
+- [Module Structure](#module-structure)
+- [`search_engine.py`](#search_enginepy)
+- [`solution_finder.py`](#solution_finderpy)
+
 ## Overview
 
 The `search/` module handles all search and solution discovery functionality.

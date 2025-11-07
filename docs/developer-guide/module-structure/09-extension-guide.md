@@ -4,6 +4,11 @@
 
 ---
 
+## Table of Contents
+
+- [Adding New Features](#adding-new-features)
+- [Extension Decision Tree](#extension-decision-tree)
+
 ## Adding New Features
 
 Identify the appropriate task module for your feature:

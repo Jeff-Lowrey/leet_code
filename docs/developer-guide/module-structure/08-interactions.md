@@ -4,6 +4,11 @@
 
 ---
 
+## Table of Contents
+
+- [Common Interaction Patterns](#common-interaction-patterns)
+- [Dependency Graph](#dependency-graph)
+
 ## Common Interaction Patterns
 
 ### 1. Solution Display Flow

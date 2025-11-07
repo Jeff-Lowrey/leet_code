@@ -4,6 +4,13 @@
 
 ---
 
+## Table of Contents
+
+- [From Old Structure (Before 2025-11-07)](#from-old-structure-before-2025-11-07)
+- [Import Path Changes](#import-path-changes)
+- [Function Relocations](#function-relocations)
+- [Migration Checklist](#migration-checklist)
+
 ## From Old Structure (Before 2025-11-07)
 
 ### Old (Technical Layers)

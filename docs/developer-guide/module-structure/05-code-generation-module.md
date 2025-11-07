@@ -4,6 +4,13 @@
 
 ---
 
+## Table of Contents
+
+- [Overview](#overview)
+- [Module Structure](#module-structure)
+- [`skeleton_generator.py`](#skeleton_generatorpy)
+- [`leetcode_converter.py`](#leetcode_converterpy)
+
 ## Overview
 
 The `code_generation/` module handles all code transformation and generation.

@@ -4,6 +4,12 @@
 
 ---
 
+## Table of Contents
+
+- [Per-Module Testing](#per-module-testing)
+- [Module Testing Guidelines](#module-testing-guidelines)
+- [Integration Tests](#integration-tests)
+
 ## Per-Module Testing
 
 Each module should have corresponding unit tests:

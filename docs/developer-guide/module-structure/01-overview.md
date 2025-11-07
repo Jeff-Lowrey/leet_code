@@ -4,6 +4,15 @@
 
 ---
 
+## Table of Contents
+
+- [Design Philosophy](#design-philosophy)
+- [Task-Oriented vs. Technical Layers](#task-oriented-vs-technical-layers)
+- [Benefits](#benefits)
+- [Core Principles](#core-principles)
+- [Example: Search Feature](#example-search-feature)
+- [Module Hierarchy](#module-hierarchy)
+
 ## Design Philosophy
 
 The LeetCode Learning Tool follows a **task-oriented module architecture** where all code related to a specific functional task is co-located in one module. This makes it easy to find, understand, and modify code by organizing around what the code does rather than technical implementation details.

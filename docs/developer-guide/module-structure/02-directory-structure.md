@@ -4,6 +4,14 @@
 
 ---
 
+## Table of Contents
+
+- [Complete Module Layout](#complete-module-layout)
+- [Module Breakdown](#module-breakdown)
+- [File Count Summary](#file-count-summary)
+- [Lines of Code](#lines-of-code)
+- [Directory Organization Principles](#directory-organization-principles)
+
 ## Complete Module Layout
 
 ```

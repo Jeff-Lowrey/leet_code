@@ -4,6 +4,16 @@
 
 ---
 
+## Table of Contents
+
+- [Overview](#overview)
+- [Module Structure](#module-structure)
+- [`category_data.py`](#category_datapy)
+- [`language_constants.py`](#language_constantspy)
+- [`markdown_extraction.py`](#markdown_extractionpy)
+- [Module Dependencies](#module-dependencies)
+- [Testing](#testing)
+
 ## Overview
 
 The `data/` module handles all data management, models, and constants. It provides the foundation for the entire application's data access layer.

@@ -4,6 +4,13 @@
 
 ---
 
+## Table of Contents
+
+- [Overview](#overview)
+- [Module Structure](#module-structure)
+- [`content_processing.py`](#content_processingpy)
+- [`syntax_highlighting.py`](#syntax_highlightingpy)
+
 ## Overview
 
 The `content/` module handles all content extraction, parsing, and formatting operations.

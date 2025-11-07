@@ -4,6 +4,15 @@
 
 ---
 
+## Table of Contents
+
+- [Overview](#overview)
+- [Module Structure](#module-structure)
+- [`main_views.py`](#main_viewspy)
+- [`solution_views.py`](#solution_viewspy)
+- [`search_views.py`](#search_viewspy)
+- [`api_views.py`](#api_viewspy)
+
 ## Overview
 
 The `views/` module contains all Flask HTTP handlers using class-based views.
